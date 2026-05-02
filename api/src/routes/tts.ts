@@ -24,7 +24,7 @@ router.get('/', ttsLimiter, async (req: Request, res: Response) => {
     if (text.length > 500) return res.status(400).end();
 
     const tl  = lang === 'ar' ? 'ar' : 'en-US';
-    const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=${tl}&client=gtx&ttsspeed=0.9`;
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=${tl}&client=gtx&ttsspeed=1.0`;
 
     const upstream = await fetch(url, {
       headers: {

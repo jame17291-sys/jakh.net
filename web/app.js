@@ -1516,13 +1516,10 @@ function renderClusterOverview() {
     <div class="cluster-list">
       ${clusters.map(c => `
         <button class="cluster-list-item" data-cluster="${escapeHtml(c.key)}" aria-label="${escapeHtml(c.label[state.lang] || c.label.en)}">
-          <img
+          <div
             class="cluster-list-img"
-            src="assets/clusters/${escapeHtml(c.key)}.webp"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
+            style="background:${CLUSTER_META[c.key]?.gradient || 'linear-gradient(135deg,#333,#555)'};background-size:cover;background-position:center;"
+          ></div>
           <div class="cluster-list-overlay">
             <span class="cluster-list-emoji">${c.emoji}</span>
             <div class="cluster-list-text">
@@ -2588,6 +2585,12 @@ function _getBestVoice(lang) {
 
 function speakText(text, lang) {
   stopSpeech();
+
+  // Arabic: always use server TTS (Google quality) — browser Arabic voices are robotic on all platforms
+  if (lang === 'ar') {
+    _speakTextFallback(text, lang);
+    return;
+  }
 
   if (window.speechSynthesis) {
     const doSpeak = () => {

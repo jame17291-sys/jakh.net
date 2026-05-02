@@ -1041,18 +1041,6 @@ function bindCommonEvents() {
   }
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
 
-  // Inject battle button into category hero if on category page
-  if (state.page === 'category' && !document.getElementById('categoryBattleBtn')) {
-    const heroActions = document.querySelector('.hero-actions');
-    if (heroActions) {
-      const btn = document.createElement('button');
-      btn.id = 'categoryBattleBtn';
-      btn.className = 'ghost-btn';
-      btn.textContent = state.lang === 'ar' ? '⚡ معركة الفريق' : '⚡ Team Battle';
-      heroActions.appendChild(btn);
-    }
-  }
-  document.getElementById('categoryBattleBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
 
   // Handle #battle/CODE deep-link
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
@@ -1277,6 +1265,7 @@ function bindCommonEvents() {
       if (!_sw?.cardEl) { _sw = null; return; }
       const c = _sw.cardEl;
       c.style.transform = '';
+      c.style.willChange = '';
       c.classList.remove('is-swiping');
       const ov = c.querySelector('.swipe-overlay');
       if (ov) ov.style.opacity = '0';
@@ -1297,6 +1286,7 @@ function bindCommonEvents() {
       const card = e.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
       if (!card) return;
       const t = e.touches[0];
+      card.style.willChange = 'transform';
       _sw = { x: t.clientX, y: t.clientY, id: card.dataset.id, cardEl: card };
     }, { passive: true });
 
@@ -1747,20 +1737,6 @@ function injectBackToTop() {
 function renderCategoryPage() {
   if (!state.categoryData || !state.catalog) return;
   injectBackToTop();
-
-  // Inject Quick Fire button once
-  const heroActions = document.querySelector('.hero-category .hero-actions');
-  if (heroActions && !document.getElementById('quickFireBtn')) {
-    const unlocked = (state.categoryData.cards || []).filter(c => isLevelUnlocked(c.difficulty));
-    if (unlocked.length >= 5) {
-      const btn = document.createElement('button');
-      btn.id = 'quickFireBtn';
-      btn.className = 'quick-fire-btn';
-      btn.innerHTML = '&#9889; Quick Fire';
-      btn.addEventListener('click', startTimedQuiz);
-      heroActions.appendChild(btn);
-    }
-  }
 
   const category = state.categoryData;
   if (els.categoryKicker) els.categoryKicker.textContent = category.cluster[state.lang];

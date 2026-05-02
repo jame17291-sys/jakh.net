@@ -2055,15 +2055,39 @@ function renderCards() {
 
 function renderRelatedCategories() {
   if (!els.relatedCategories || !state.catalog || !state.categoryData) return;
-  const related = state.catalog.categories
-    .filter((meta) => meta.slug !== state.categoryData.slug)
-    .sort((a, b) => {
-      const sameA = a.cluster_key === state.categoryData.cluster_key ? 0 : 1;
-      const sameB = b.cluster_key === state.categoryData.cluster_key ? 0 : 1;
-      return sameA - sameB || a.title[state.lang].localeCompare(b.title[state.lang], state.lang);
-    })
-    .slice(0, 6);
-  els.relatedCategories.innerHTML = related.length ? related.map(createCategoryCardMarkup).join('') : `<p class="muted">${escapeHtml(t('noRelated'))}</p>`;
+  const currentSlug = state.categoryData.slug;
+
+  // Deterministic per-page shuffle: each source page picks a stable but unique set
+  // of related pages, ensuring all categories receive inbound links (no orphans).
+  function slugHash(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+    return h >>> 0;
+  }
+  function seededShuffle(arr, seed) {
+    const out = [...arr];
+    for (let i = out.length - 1; i > 0; i--) {
+      const j = slugHash(seed + String(i)) % (i + 1);
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out;
+  }
+
+  const sameCluster = state.catalog.categories.filter(
+    m => m.slug !== currentSlug && m.cluster_key === state.categoryData.cluster_key
+  );
+  const otherCluster = state.catalog.categories.filter(
+    m => m.slug !== currentSlug && m.cluster_key !== state.categoryData.cluster_key
+  );
+
+  const related = [
+    ...seededShuffle(sameCluster, currentSlug),
+    ...seededShuffle(otherCluster, currentSlug),
+  ].slice(0, 6);
+
+  els.relatedCategories.innerHTML = related.length
+    ? related.map(createCategoryCardMarkup).join('')
+    : `<p class="muted">${escapeHtml(t('noRelated'))}</p>`;
 }
 
 

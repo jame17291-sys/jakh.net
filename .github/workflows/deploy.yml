@@ -29,24 +29,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Write SSH key
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
+          chmod 700 ~/.ssh
+          # Write key preserving exact content including newlines
+          printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
           chmod 600 ~/.ssh/ec2.pem
-          ssh-keyscan 18.185.129.207 >> ~/.ssh/known_hosts
+          # Add server host key
+          ssh-keyscan -H 18.185.129.207 >> ~/.ssh/known_hosts 2>/dev/null
+          # Verify key is readable
+          ssh-keygen -l -f ~/.ssh/ec2.pem
+
+      - name: Test SSH connection
+        run: |
+          ssh -i ~/.ssh/ec2.pem \
+            -o StrictHostKeyChecking=no \
+            -o ConnectTimeout=15 \
+            ubuntu@18.185.129.207 "echo 'SSH OK'"
 
       - name: Sync web files to server
         run: |
           rsync -az --delete \
             --exclude='*.gz' \
             --exclude='*.br' \
-            -e "ssh -i ~/.ssh/ec2.pem" \
+            -e "ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no" \
             web/ ubuntu@18.185.129.207:/var/www/jakh.net/
 
       - name: Recompress static assets on server
         run: |
-          ssh -i ~/.ssh/ec2.pem ubuntu@18.185.129.207 '
+          ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no \
+            ubuntu@18.185.129.207 '
             cd /var/www/jakh.net
             find . \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" -o -name "*.svg" \) | while read f; do
               gzip -9 -k -f "$f"
@@ -62,12 +75,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Write SSH key
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
           chmod 600 ~/.ssh/ec2.pem
-          ssh-keyscan 18.185.129.207 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 18.185.129.207 >> ~/.ssh/known_hosts 2>/dev/null
 
       - name: Sync API source to server
         run: |
@@ -75,12 +89,13 @@ jobs:
             --exclude='node_modules' \
             --exclude='dist' \
             --exclude='.env' \
-            -e "ssh -i ~/.ssh/ec2.pem" \
+            -e "ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no" \
             api/ ubuntu@18.185.129.207:/var/www/jakh.net-api/
 
       - name: Build and restart API
         run: |
-          ssh -i ~/.ssh/ec2.pem ubuntu@18.185.129.207 '
+          ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no \
+            ubuntu@18.185.129.207 '
             cd /var/www/jakh.net-api
             npm ci --omit=dev
             npm run build

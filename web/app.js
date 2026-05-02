@@ -1093,10 +1093,28 @@ function bindCommonEvents() {
       hbtn.setAttribute('aria-expanded', 'false');
       hbtn.textContent = '☰';
       header.insertBefore(hbtn, nav);
-      hbtn.addEventListener('click', () => {
+      const _toggleNav = (e) => {
+        if (e.type === 'touchstart') e.preventDefault();
         const open = nav.classList.toggle('nav-open');
         hbtn.setAttribute('aria-expanded', String(open));
+      };
+      hbtn.addEventListener('click', _toggleNav);
+      hbtn.addEventListener('touchstart', _toggleNav, { passive: false });
+
+      document.addEventListener('click', (e) => {
+        if (!nav || !nav.classList.contains('nav-open')) return;
+        if (!nav.contains(e.target) && !hbtn.contains(e.target)) {
+          nav.classList.remove('nav-open');
+          hbtn.setAttribute('aria-expanded', 'false');
+        }
       });
+      document.addEventListener('touchstart', (e) => {
+        if (!nav || !nav.classList.contains('nav-open')) return;
+        if (!nav.contains(e.target) && !hbtn.contains(e.target)) {
+          nav.classList.remove('nav-open');
+          hbtn.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
     }
   }
 
@@ -2549,9 +2567,12 @@ function _getBestVoice(lang) {
   function score(v) {
     const n = v.name.toLowerCase();
     let s = 0;
-    if (n.includes('enhanced')) s += 100;
-    else if (n.includes('premium')) s += 90;
-    else if (n.includes('neural'))  s += 80;
+    if (n.includes('enhanced'))       s += 100;
+    else if (n.includes('premium'))   s += 90;
+    else if (n.includes('neural'))    s += 80;
+    else if (n.includes('google'))    s += 70;
+    else if (n.includes('natural'))   s += 60;
+    else if (n.includes('samantha') || n.includes('daniel')) s += 55;
     if (v.localService) s += 10;
     return s;
   }
@@ -2573,8 +2594,8 @@ function speakText(text, lang) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang  = lang === 'ar' ? 'ar-SA' : 'en-US';
-      utterance.rate  = lang === 'ar' ? 0.82 : 0.93;
-      utterance.pitch = 1.0;
+      utterance.rate  = lang === 'ar' ? 0.82 : 0.92;
+      utterance.pitch = 1.05;
       const voice = _getBestVoice(lang);
       if (voice) utterance.voice = voice;
       utterance.onend  = _clearAudioBtns;

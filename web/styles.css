@@ -315,7 +315,17 @@ textarea { min-height: 6.5rem; resize: vertical; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   background: color-mix(in srgb, var(--bg-soft) 88%, transparent);
+}
+@media (max-width: 768px) {
+  .category-card img {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    display: block;
+    object-fit: cover;
+  }
 }
 .category-card h3 { margin: 0; font-size: 1.1rem; }
 .category-card p { margin: 0; color: var(--muted); line-height: 1.6; }
@@ -391,7 +401,8 @@ textarea { min-height: 6.5rem; resize: vertical; }
   gap: 0.85rem;
   backface-visibility: hidden;
 }
-.card-back { transform: rotateY(180deg); background: color-mix(in srgb, var(--panel-strong) 96%, transparent); border-top: 3px solid color-mix(in srgb, var(--accent-2) 70%, transparent); }
+.card-back { transform: rotateY(180deg); background: color-mix(in srgb, var(--panel-strong) 96%, transparent); border-top: 3px solid color-mix(in srgb, var(--accent-2) 70%, transparent); position: relative; z-index: 10; opacity: 1; }
+.card-back .action-flip { position: relative; z-index: 10; opacity: 1; }
 .card-question, .card-answer {
   margin: 0;
   line-height: 1.72;
@@ -506,7 +517,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
   align-items: center;
   flex-wrap: wrap;
 }
-.subcategory-wrap { display: grid; gap: 0.5rem; }
+.subcategory-wrap { display: grid; gap: 0.5rem; padding: 0; margin: 0; } /* flatten: remove any inherited indent */
 
 @media (max-width: 1040px) {
   .site-header { grid-template-columns: 1fr; border-radius: 28px; }
@@ -659,7 +670,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
   flex-shrink: 0;
 }
 .category-card-cluster {
-  display: block;
+  display: none; /* flatten to single-level: hide cluster/group label */
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -2901,7 +2912,19 @@ body.is-offline .category-card-bg {
     grid-template-columns: auto auto;
   }
   .header-actions {
-    display: none !important;
+    display: none;
+  }
+  .header-actions.nav-open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    background: var(--panel-strong);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 1rem;
+    gap: 0.4rem;
+    z-index: 200;
   }
 
   /* Give toast enough space above the nav */

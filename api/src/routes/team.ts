@@ -1,9 +1,11 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { z } from 'zod';
 import prisma from '../prisma';
 
 const router = Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'secret';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) throw new Error('JWT_SECRET environment variable is required');
 
 const DIFFICULTY_POINTS: Record<string, number> = {
   easy: 1, medium: 2, hard: 3, 'very-advanced': 5,
@@ -54,6 +56,7 @@ async function uniqueSlug(base: string): Promise<string> {
   let slug = base;
   let n = 1;
   while (await prisma.team.findUnique({ where: { slug } })) {
+    if (n > 10) throw new Error('Could not generate unique slug after 10 attempts');
     slug = `${base}-${n++}`;
   }
   return slug;
@@ -287,12 +290,15 @@ router.patch('/:teamId', async (req: Request, res: Response) => {
 router.post('/score', async (req: Request, res: Response) => {
   try {
     const userId = (req as any).userId;
-    const { teamId, points } = req.body;
+    const { teamId } = req.body;
+    const scoreSchema = z.object({ points: z.number().int().nonnegative() });
+    const parsed = scoreSchema.safeParse(req.body);
+    if (!parsed.success) return res.status(400).json({ error: 'Invalid points value', details: parsed.error.flatten() });
 
     const membership = await prisma.userTeam.findUnique({ where: { userId_teamId: { userId, teamId } } });
     if (!membership) return res.status(403).json({ error: 'Not a member of this team' });
 
-    await prisma.team.update({ where: { id: teamId }, data: { score: { increment: points } } });
+    await prisma.team.update({ where: { id: teamId }, data: { score: { increment: parsed.data.points } } });
     res.json({ success: true });
   } catch (e) {
     console.error(e);
@@ -304,7 +310,10 @@ router.post('/score', async (req: Request, res: Response) => {
 router.post('/add-member', async (req: Request, res: Response) => {
   try {
     const userId = (req as any).userId;
-    const { teamId, username } = req.body;
+    const addMemberSchema = z.object({ teamId: z.string().min(1), username: z.string().min(1) });
+    const parsed = addMemberSchema.safeParse(req.body);
+    if (!parsed.success) return res.status(400).json({ error: 'Missing required fields', details: parsed.error.flatten() });
+    const { teamId, username } = parsed.data;
 
     const membership = await prisma.userTeam.findUnique({ where: { userId_teamId: { userId, teamId } } });
     if (!membership) return res.status(403).json({ error: 'Not a member of this team' });
@@ -352,23 +361,18 @@ router.get('/challenge/current', async (req: Request, res: Response) => {
     const teamIds = userTeams.map(t => t.teamId);
 
     const [allProgress, myProgress] = await Promise.all([
-      prisma.teamChallengeProgress.findMany({ where: { weekId: challenge.weekId, teamId: { in: teamIds } } }),
+      prisma.teamChallengeProgress.findMany({
+        where: { weekId: challenge.weekId, teamId: { in: teamIds } },
+        include: { user: { select: { username: true } } },
+      }),
       prisma.teamChallengeProgress.findFirst({ where: { weekId: challenge.weekId, userId } }),
     ]);
-
-    // Get member usernames for each progress record's userId
-    const memberIds = [...new Set(allProgress.map(p => p.userId))];
-    const members = await prisma.user.findMany({
-      where: { id: { in: memberIds } },
-      select: { id: true, username: true },
-    });
-    const memberMap = Object.fromEntries(members.map(m => [m.id, m.username]));
 
     res.json({
       challenge,
       teamProgress: allProgress.map(p => ({
         teamId: p.teamId, userId: p.userId,
-        username: memberMap[p.userId] || 'Member',
+        username: p.user?.username || 'Member',
         answered: p.answered, points: p.points, lastActiveAt: p.lastActiveAt,
       })),
       myProgress: myProgress ? { answered: myProgress.answered, points: myProgress.points } : null,

@@ -247,23 +247,25 @@ router.get('/analytics', async (_req: Request, res: Response) => {
       }),
     ]);
 
-    const daily = await Promise.all(
-      Array.from({ length: 30 }, (_, i) => {
-        const d = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
-        const start = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-        const end = new Date(start.getTime() + 86400000);
-        return prisma.pageAnalytics
-          .count({ where: { createdAt: { gte: start, lt: end } } })
-          .then(count => ({ date: start.toISOString().split('T')[0], count }));
-      })
-    );
+    const startDate = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const dailyGroupsRaw = await prisma.$queryRaw<Array<{ date: string; count: bigint }>>`
+      SELECT DATE_TRUNC('day', "createdAt")::date::text AS date, COUNT(*) AS count
+      FROM "PageAnalytics"
+      WHERE "createdAt" >= ${startDate}
+      GROUP BY DATE_TRUNC('day', "createdAt")
+    `;
+    const dailyMap = Object.fromEntries(dailyGroupsRaw.map(g => [g.date, Number(g.count)]));
+    const daily = Array.from({ length: 30 }, (_, i) => {
+      const d = new Date(Date.now() - (29 - i) * 24 * 60 * 60 * 1000);
+      const dateStr = new Date(d.getFullYear(), d.getMonth(), d.getDate()).toISOString().split('T')[0];
+      return { date: dateStr, count: dailyMap[dateStr] || 0 };
+    });
 
     const totalTime = categoryTime.reduce((s, c) => s + (c._sum.timeSpent || 0), 0);
-    const uniqueVisitors = await prisma.pageAnalytics.findMany({
-      where: { userId: { not: null } },
-      select: { userId: true },
-      distinct: ['userId'],
-    });
+    const uniqueVisitorsResult = await prisma.$queryRaw<[{ count: bigint }]>`
+      SELECT COUNT(DISTINCT "userId") AS count FROM "PageAnalytics" WHERE "userId" IS NOT NULL
+    `;
+    const uniqueVisitors = { length: Number(uniqueVisitorsResult[0].count) };
 
     res.json({
       categoryTime: categoryTime.map(c => ({
@@ -452,7 +454,8 @@ router.patch('/suggestions/:id/status', async (req: Request, res: Response) => {
       data: { status },
     });
     res.json({ success: true, status: updated.status });
-  } catch {
+  } catch (e: any) {
+    if (e?.code === 'P2025') return res.status(404).json({ error: 'Not found' });
     res.status(500).json({ error: 'Failed to update suggestion' });
   }
 });
@@ -461,7 +464,8 @@ router.delete('/suggestions/:id', async (req: Request, res: Response) => {
   try {
     await prisma.suggestion.delete({ where: { id: req.params.id } });
     res.json({ success: true });
-  } catch {
+  } catch (e: any) {
+    if (e?.code === 'P2025') return res.status(404).json({ error: 'Not found' });
     res.status(500).json({ error: 'Failed to delete suggestion' });
   }
 });
@@ -472,6 +476,7 @@ router.get('/export/users', async (_req: Request, res: Response) => {
   try {
     const users = await prisma.user.findMany({
       orderBy: { createdAt: 'desc' },
+      take: 2000,
       include: { _count: { select: { progress: true, favorites: true } } },
     });
     const rows = ['ID,Username,Email,Role,Banned,Country,Joined,LastLogin,Solved,Favorites'];

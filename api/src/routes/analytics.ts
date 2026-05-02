@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken';
 import prisma from '../prisma';
 
 const router = Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'emergency-fallback-secret-change-me';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) throw new Error('JWT_SECRET environment variable is required');
 
 // Send time spent
 router.post('/time', async (req: Request, res: Response) => {

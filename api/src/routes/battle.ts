@@ -49,12 +49,13 @@ interface Room {
 const rooms = new Map<string, Room>();
 const socketToPlayer = new Map<WebSocket, { roomCode: string; playerId: string }>();
 
-function generateCode(category: string): string {
+function generateCode(category: string, attempts = 0): string {
+  if (attempts > 20) throw new Error('Room capacity reached');
   const prefix = category.replace(/[^a-zA-Z]/g, '').slice(0, 3).toUpperCase();
   const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
   const suffix = Array.from({ length: 4 }, () => letters[Math.floor(Math.random() * letters.length)]).join('');
   const code = `${prefix}${suffix}`;
-  return rooms.has(code) ? generateCode(category) : code;
+  return rooms.has(code) ? generateCode(category, attempts + 1) : code;
 }
 
 function loadQuestions(

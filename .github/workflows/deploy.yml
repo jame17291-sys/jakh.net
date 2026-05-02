@@ -25,81 +25,46 @@ jobs:
     needs: detect-changes
     if: needs.detect-changes.outputs.web == 'true'
     name: Deploy Frontend
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup SSH
+      - name: Sync web files
         run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          # Write key preserving exact content including newlines
-          printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
-          chmod 600 ~/.ssh/ec2.pem
-          # Add server host key
-          ssh-keyscan -H 18.185.129.207 >> ~/.ssh/known_hosts 2>/dev/null
-          # Verify key is readable
-          ssh-keygen -l -f ~/.ssh/ec2.pem
-
-      - name: Test SSH connection
-        run: |
-          ssh -i ~/.ssh/ec2.pem \
-            -o StrictHostKeyChecking=no \
-            -o ConnectTimeout=15 \
-            ubuntu@18.185.129.207 "echo 'SSH OK'"
-
-      - name: Sync web files to server
-        run: |
-          rsync -az --delete \
+          rsync -a --delete \
             --exclude='*.gz' \
             --exclude='*.br' \
-            -e "ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no" \
-            web/ ubuntu@18.185.129.207:/var/www/jakh.net/
+            $GITHUB_WORKSPACE/web/ /var/www/jakh.net/
 
-      - name: Recompress static assets on server
+      - name: Recompress static assets
         run: |
-          ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no \
-            ubuntu@18.185.129.207 '
-            cd /var/www/jakh.net
-            find . \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" -o -name "*.svg" \) | while read f; do
-              gzip -9 -k -f "$f"
-            done
-            echo "Compression done"
-          '
+          cd /var/www/jakh.net
+          find . \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" -o -name "*.svg" \) | while read f; do
+            gzip -9 -k -f "$f"
+          done
+          echo "Compression done"
 
   deploy-api:
     needs: detect-changes
     if: needs.detect-changes.outputs.api == 'true'
     name: Deploy Backend API
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup SSH
+      - name: Sync API source
         run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
-          chmod 600 ~/.ssh/ec2.pem
-          ssh-keyscan -H 18.185.129.207 >> ~/.ssh/known_hosts 2>/dev/null
-
-      - name: Sync API source to server
-        run: |
-          rsync -az --delete \
+          rsync -a --delete \
             --exclude='node_modules' \
             --exclude='dist' \
             --exclude='.env' \
-            -e "ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no" \
-            api/ ubuntu@18.185.129.207:/var/www/jakh.net-api/
+            $GITHUB_WORKSPACE/api/ /var/www/jakh.net-api/
 
       - name: Build and restart API
         run: |
-          ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no \
-            ubuntu@18.185.129.207 '
-            cd /var/www/jakh.net-api
-            npm ci --omit=dev
-            npm run build
-            pm2 restart jakh-api
-            pm2 save
-            echo "API restarted OK"
-          '
+          cd /var/www/jakh.net-api
+          npm ci --omit=dev
+          npm run build
+          pm2 restart jakh-api
+          pm2 save
+          echo "API restarted OK"

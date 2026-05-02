@@ -63,8 +63,9 @@ jobs:
       - name: Build and restart API
         run: |
           cd /var/www/jakh.net-api
-          npm ci --omit=dev
+          npm ci
           npm run build
+          npm prune --omit=dev
           pm2 restart jakh-api
           pm2 save
           echo "API restarted OK"

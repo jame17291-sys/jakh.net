@@ -1,3 +1,4 @@
+// ttsspeed 1.0 — natural pace for both EN and AR
 import { Router, Request, Response } from 'express';
 import rateLimit from 'express-rate-limit';
 

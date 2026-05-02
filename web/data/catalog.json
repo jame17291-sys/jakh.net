@@ -8,7 +8,7 @@
       "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
       "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
     },
-    "totalQuestions": 3493
+    "totalQuestions": 3553
   },
   "categories": [
     {
@@ -466,6 +466,23 @@
       "subcategories": [],
       "href": "classic-riddles.html",
       "image": "assets/classic-riddles.svg"
+    },
+    {
+      "slug": "logic-puzzles",
+      "title": { "en": "Logic Puzzles", "ar": "ألغاز منطقية" },
+      "description": {
+        "en": "Sharpen your mind with lateral thinking, number puzzles, deduction challenges, and classic paradoxes.",
+        "ar": "اشحذ عقلك بالتفكير الجانبي وألغاز الأرقام وتحديات الاستنتاج والمفارقات الكلاسيكية."
+      },
+      "cluster": { "en": "Fun & Family", "ar": "مرح وعائلة" },
+      "cluster_key": "fun",
+      "emoji": "🧠",
+      "mode": "riddle",
+      "count": 60,
+      "difficultyCounts": { "easy": 15, "medium": 20, "hard": 15, "very-advanced": 10 },
+      "subcategories": [],
+      "href": "logic-puzzles.html",
+      "image": "assets/logic-puzzles.svg"
     },
     {
       "slug": "coding-and-design",

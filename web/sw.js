@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v36';
-const ASSET_CACHE = 'jakh-assets-v36';
+const CACHE_NAME = 'jakh-v37';
+const ASSET_CACHE = 'jakh-assets-v37';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -7,7 +7,6 @@ const PRECACHE_ASSETS = [
   '/app.js',
   '/styles.css',
   '/manifest.webmanifest',
-  '/data/catalog.json',
   '/assets/logo.webp',
   '/assets/logo.png',
   '/assets/favicon.svg',
@@ -53,9 +52,24 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for JS, CSS, SVG, images, JSON data files
+  // Stale-while-revalidate for JSON data files so catalog updates propagate
+  if (url.origin === self.location.origin && url.pathname.match(/\.json$/)) {
+    event.respondWith(
+      caches.open(ASSET_CACHE).then(async (cache) => {
+        const cached = await cache.match(request);
+        const networkFetch = fetch(request).then((response) => {
+          if (response.ok) cache.put(request, response.clone());
+          return response;
+        }).catch(() => null);
+        return cached || networkFetch;
+      })
+    );
+    return;
+  }
+
+  // Cache-first for JS, CSS, SVG, images, fonts
   if (
-    url.pathname.match(/\.(js|css|svg|png|jpg|webp|woff2|json)$/) &&
+    url.pathname.match(/\.(js|css|svg|png|jpg|webp|woff2)$/) &&
     url.origin === self.location.origin
   ) {
     event.respondWith(
@@ -84,13 +98,22 @@ self.addEventListener('push', (event) => {
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  const url = event.notification.data?.url || '/';
+  const targetUrl = event.notification.data?.url || '/';
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
-      const existing = list.find(c => c.url.includes(self.location.origin));
-      if (existing) return existing.focus();
-      return clients.openWindow(url);
+      const match = list.find(c => c.url === self.location.origin + targetUrl);
+      if (match) return match.focus();
+      const any = list.find(c => 'focus' in c);
+      if (any) { any.focus(); return any.navigate(targetUrl); }
+      return clients.openWindow(targetUrl);
     })
   );
 });
 
+// Allow the page to trigger a full cache flush (e.g. after a forced update)
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
+  if (event.data?.type === 'CLEAR_CACHE') {
+    caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k))));
+  }
+});

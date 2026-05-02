@@ -89,3 +89,4 @@ jobs:
         contains(github.event.head_commit.removed, 'api/'))
     steps:
       - run: echo "No deployable changes detected (ios/ or root files only)"
+# jakh.net deploy test Sat May  2 11:38:26 +04 2026

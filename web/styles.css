@@ -571,7 +571,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
   .modal-card,
   .modal-card-wide {
     width: calc(100vw - 1rem);
-    max-height: min(92vh, 980px);
+    max-height: min(92dvh, 980px);
     border-radius: 24px 24px 16px 16px;
   }
   .form-row,

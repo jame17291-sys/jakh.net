@@ -1,0 +1,91 @@
+name: Deploy to jakh.net
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-web:
+    name: Deploy Frontend
+    runs-on: ubuntu-latest
+    if: |
+      contains(github.event.head_commit.modified, 'web/') ||
+      contains(github.event.head_commit.added, 'web/') ||
+      contains(github.event.head_commit.removed, 'web/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
+          chmod 600 ~/.ssh/ec2.pem
+          ssh-keyscan 18.185.129.207 >> ~/.ssh/known_hosts
+
+      - name: Sync web files to server
+        run: |
+          rsync -az --delete \
+            --exclude='*.gz' \
+            --exclude='*.br' \
+            -e "ssh -i ~/.ssh/ec2.pem" \
+            web/ ubuntu@18.185.129.207:/var/www/jakh.net/
+
+      - name: Compress static assets on server
+        run: |
+          ssh -i ~/.ssh/ec2.pem ubuntu@18.185.129.207 '
+            cd /var/www/jakh.net
+            find . -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" | while read f; do
+              gzip -9 -k -f "$f"
+            done
+            echo "Compression done"
+          '
+
+  deploy-api:
+    name: Deploy Backend API
+    runs-on: ubuntu-latest
+    if: |
+      contains(github.event.head_commit.modified, 'api/') ||
+      contains(github.event.head_commit.added, 'api/') ||
+      contains(github.event.head_commit.removed, 'api/')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
+          chmod 600 ~/.ssh/ec2.pem
+          ssh-keyscan 18.185.129.207 >> ~/.ssh/known_hosts
+
+      - name: Sync API source to server
+        run: |
+          rsync -az --delete \
+            --exclude='node_modules' \
+            --exclude='dist' \
+            --exclude='.env' \
+            -e "ssh -i ~/.ssh/ec2.pem" \
+            api/ ubuntu@18.185.129.207:/var/www/jakh.net-api/
+
+      - name: Build and restart API
+        run: |
+          ssh -i ~/.ssh/ec2.pem ubuntu@18.185.129.207 '
+            cd /var/www/jakh.net-api
+            npm ci --omit=dev
+            npm run build
+            pm2 restart jakh-api
+            pm2 save
+            echo "API restarted"
+          '
+
+  deploy-all:
+    name: Deploy Everything (fallback)
+    runs-on: ubuntu-latest
+    if: |
+      !(contains(github.event.head_commit.modified, 'web/') ||
+        contains(github.event.head_commit.added, 'web/') ||
+        contains(github.event.head_commit.removed, 'web/') ||
+        contains(github.event.head_commit.modified, 'api/') ||
+        contains(github.event.head_commit.added, 'api/') ||
+        contains(github.event.head_commit.removed, 'api/'))
+    steps:
+      - run: echo "No deployable changes detected (ios/ or root files only)"

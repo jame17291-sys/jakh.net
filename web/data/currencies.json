@@ -1,0 +1,502 @@
+{
+  "slug": "currencies",
+  "title": {
+    "en": "World Currencies",
+    "ar": "عملات وتجارة"
+  },
+  "emoji": "💰",
+  "color": "var(--easy)",
+  "count": 40,
+  "cards": [
+    {
+      "id": "currencies-1",
+      "question": {
+        "en": "What is the official currency of the United States?",
+        "ar": "ما هي العملة الرسمية للولايات المتحدة؟"
+      },
+      "answer": {
+        "en": "US Dollar",
+        "ar": "الدولار الأمريكي"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-2",
+      "question": {
+        "en": "Which currency is shared by 20 countries in the European Union?",
+        "ar": "ما هي العملة المشتركة بين 20 دولة في الاتحاد الأوروبي؟"
+      },
+      "answer": {
+        "en": "Euro",
+        "ar": "اليورو"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-3",
+      "question": {
+        "en": "What is the currency of Japan?",
+        "ar": "ما هي عملة اليابان؟"
+      },
+      "answer": {
+        "en": "Yen",
+        "ar": "الين"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-4",
+      "question": {
+        "en": "What is the currency of the United Kingdom?",
+        "ar": "ما هي عملة المملكة المتحدة؟"
+      },
+      "answer": {
+        "en": "Pound Sterling",
+        "ar": "الجنيه الإسترليني"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-5",
+      "question": {
+        "en": "What is the name of the digital currency created by Satoshi Nakamoto?",
+        "ar": "ما هو اسم العملة الرقمية التي ابتكرها ساتوشي ناكاموتو؟"
+      },
+      "answer": {
+        "en": "Bitcoin",
+        "ar": "البيتكوين"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-6",
+      "question": {
+        "en": "What is the currency of China?",
+        "ar": "ما هي عملة الصين؟"
+      },
+      "answer": {
+        "en": "Yuan (Renminbi)",
+        "ar": "اليوان (الرنمينبي)"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-7",
+      "question": {
+        "en": "Which metal was historically used as a standard for currency value?",
+        "ar": "أي معدن استخدم تاريخياً كمعيار لقيمة العملة؟"
+      },
+      "answer": {
+        "en": "Gold",
+        "ar": "الذهب"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-8",
+      "question": {
+        "en": "What is the currency of Saudi Arabia?",
+        "ar": "ما هي عملة المملكة العربية السعودية؟"
+      },
+      "answer": {
+        "en": "Saudi Riyal",
+        "ar": "الريال السعودي"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-9",
+      "question": {
+        "en": "What is the currency of India?",
+        "ar": "ما هي عملة الهند؟"
+      },
+      "answer": {
+        "en": "Indian Rupee",
+        "ar": "الروبية الهندية"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-10",
+      "question": {
+        "en": "What is the term for exchanging goods and services without using money?",
+        "ar": "ما هو مصطلح تبادل السلع والخدمات دون استخدام المال؟"
+      },
+      "answer": {
+        "en": "Barter",
+        "ar": "المقايضة"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "currencies-11",
+      "question": {
+        "en": "What is the currency of Switzerland?",
+        "ar": "ما هي عملة سويسرا؟"
+      },
+      "answer": {
+        "en": "Swiss Franc",
+        "ar": "الفرنك السويسري"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-12",
+      "question": {
+        "en": "What is the currency of South Korea?",
+        "ar": "ما هي عملة كوريا الجنوبية؟"
+      },
+      "answer": {
+        "en": "South Korean Won",
+        "ar": "الوون الكوري الجنوبي"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-13",
+      "question": {
+        "en": "Which institution is responsible for printing paper currency in the US?",
+        "ar": "أي مؤسسة مسؤولة عن طباعة العملات الورقية في الولايات المتحدة؟"
+      },
+      "answer": {
+        "en": "Bureau of Engraving and Printing",
+        "ar": "مكتب النقش والطباعة"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-14",
+      "question": {
+        "en": "What does 'FOREX' stand for?",
+        "ar": "ماذا يعني مصطلح 'FOREX'؟"
+      },
+      "answer": {
+        "en": "Foreign Exchange",
+        "ar": "سوق الصرف الأجنبي"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-15",
+      "question": {
+        "en": "What was the common currency of Europe before the Euro?",
+        "ar": "ما كانت العملات المشتركة لأوروبا قبل اليورو؟"
+      },
+      "answer": {
+        "en": "There wasn't one (each country had its own)",
+        "ar": "لم تكن هناك عملة (كل دولة كان لديها عملتها)"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-16",
+      "question": {
+        "en": "What is inflation?",
+        "ar": "ما هو التضخم؟"
+      },
+      "answer": {
+        "en": "A general increase in prices and fall in the purchasing value of money",
+        "ar": "زيادة عامة في الأسعار وانخفاض القوة الشرائية للمال"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-17",
+      "question": {
+        "en": "What is the currency of Mexico?",
+        "ar": "ما هي عملة المكسيك؟"
+      },
+      "answer": {
+        "en": "Mexican Peso",
+        "ar": "البيزو المكسيكي"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-18",
+      "question": {
+        "en": "What is a 'fiat' currency?",
+        "ar": "ما هي العملة 'الإلزامية' (Fiat)؟"
+      },
+      "answer": {
+        "en": "Currency established as money by government regulation, without intrinsic value",
+        "ar": "عملة تعتبر مالاً بموجب تنظيم حكومي، دون قيمة جوهرية"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-19",
+      "question": {
+        "en": "Which country experienced severe hyperinflation in the late 2000s, issuing a 100 trillion dollar note?",
+        "ar": "أي دولة شهدت تضخماً مفرطاً حاداً في أواخر العقد الأول من القرن الحادي والعشرين، وأصدرت ورقة نقدية بقيمة 100 تريليون دولار؟"
+      },
+      "answer": {
+        "en": "Zimbabwe",
+        "ar": "زيمبابوي"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-20",
+      "question": {
+        "en": "What is the currency of Russia?",
+        "ar": "ما هي عملة روسيا؟"
+      },
+      "answer": {
+        "en": "Russian Ruble",
+        "ar": "الروبل الروسي"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "currencies-21",
+      "question": {
+        "en": "What was the Bretton Woods Agreement of 1944?",
+        "ar": "ما هي اتفاقية بريتون وودز لعام 1944؟"
+      },
+      "answer": {
+        "en": "It established a system where currencies were pegged to the US dollar, which was pegged to gold",
+        "ar": "أنشأت نظاماً حيث رُبطت العملات بالدولار الأمريكي، والذي كان بدوره مربوطاً بالذهب"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-22",
+      "question": {
+        "en": "Which US President officially completely severed the dollar's link to gold in 1971?",
+        "ar": "أي رئيس أمريكي قطع رسمياً وبشكل كامل ارتباط الدولار بالذهب في عام 1971؟"
+      },
+      "answer": {
+        "en": "Richard Nixon",
+        "ar": "ريتشارد نيكسون"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-23",
+      "question": {
+        "en": "What is the specific term used in Islamic finance for money charged or paid on loans (which is prohibited)?",
+        "ar": "ما هو المصطلح المحدد المستخدم في التمويل الإسلامي للمال المفروض أو المدفوع على القروض (وهو محرم)؟"
+      },
+      "answer": {
+        "en": "Riba (Usury/Interest)",
+        "ar": "الربا (الفائدة)"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-24",
+      "question": {
+        "en": "What ancient civilization is credited with creating the first standardized metal coins around 600 BCE?",
+        "ar": "ما هي الحضارة القديمة التي يُنسب إليها الفضل في ابتكار أول عملات معدنية موحدة حوالي عام 600 قبل الميلاد؟"
+      },
+      "answer": {
+        "en": "The Lydians",
+        "ar": "الليديون"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-25",
+      "question": {
+        "en": "What is 'Gresham's Law'?",
+        "ar": "ما هو 'قانون جريشام'؟"
+      },
+      "answer": {
+        "en": "Bad money drives out good",
+        "ar": "النقود الرديئة تطرد النقود الجيدة"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-26",
+      "question": {
+        "en": "Which European currency is the highest valued currency unit in the world (often tied with Kuwaiti Dinar)?",
+        "ar": "ما هي العملة التي تعتبر أعلى وحدة عملة قيمة في العالم؟"
+      },
+      "answer": {
+        "en": "Kuwaiti Dinar (European is often Swiss Franc, but globally it's Kuwaiti Dinar)",
+        "ar": "الدينار الكويتي"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-27",
+      "question": {
+        "en": "What is the term for a currency that is not backed by a physical commodity but is decentralized?",
+        "ar": "ما هو المصطلح الذي يطلق على العملة غير المدعومة بسلعة مادية ولكنها لامركزية؟"
+      },
+      "answer": {
+        "en": "Cryptocurrency",
+        "ar": "العملة المشفرة"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-28",
+      "question": {
+        "en": "In medieval Europe, what was the 'pieces of eight'?",
+        "ar": "في أوروبا في العصور الوسطى، ما كانت 'قطع الثمانية' (Pieces of eight)؟"
+      },
+      "answer": {
+        "en": "The Spanish dollar (peso de ocho)",
+        "ar": "الدولار الإسباني"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-29",
+      "question": {
+        "en": "What does 'quantitative easing' refer to?",
+        "ar": "إلى ماذا يشير 'التيسير الكمي'؟"
+      },
+      "answer": {
+        "en": "The introduction of new money into the money supply by a central bank",
+        "ar": "إدخال أموال جديدة في المعروض النقدي من قبل البنك المركزي"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-30",
+      "question": {
+        "en": "What is the international code for the currency of the United Arab Emirates?",
+        "ar": "ما هو الرمز الدولي لعملة الإمارات العربية المتحدة؟"
+      },
+      "answer": {
+        "en": "AED",
+        "ar": "الدرهم الإماراتي (AED)"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "currencies-31",
+      "question": {
+        "en": "What was the exact name of the massive silver mine in Bolivia that funded the Spanish Empire and changed global currency markets?",
+        "ar": "ما كان الاسم الدقيق لمنجم الفضة الضخم في بوليفيا الذي موّل الإمبراطورية الإسبانية وغير أسواق العملات العالمية؟"
+      },
+      "answer": {
+        "en": "Cerro Rico at Potosí",
+        "ar": "سيرو ريكو في بوتوسي"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-32",
+      "question": {
+        "en": "What is a 'currency board' in macroeconomics?",
+        "ar": "ما هو 'مجلس النقد' في الاقتصاد الكلي؟"
+      },
+      "answer": {
+        "en": "A monetary authority which is required to maintain a fixed exchange rate with a foreign currency",
+        "ar": "سلطة نقدية يُطلب منها الحفاظ على سعر صرف ثابت مع عملة أجنبية"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-33",
+      "question": {
+        "en": "What was the 'Triffin dilemma' regarding the US Dollar in the post-WWII era?",
+        "ar": "ما كانت 'معضلة تريفين' فيما يتعلق بالدولار الأمريكي في فترة ما بعد الحرب العالمية الثانية؟"
+      },
+      "answer": {
+        "en": "The conflict of economic interests that arises between short-term domestic and long-term international objectives for countries whose currencies serve as global reserve currencies",
+        "ar": "تضارب المصالح الاقتصادية بين الأهداف المحلية قصيرة الأجل والأهداف الدولية طويلة الأجل للبلدان التي تعمل عملاتها كعملات احتياطية عالمية"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-34",
+      "question": {
+        "en": "Which ancient item was commonly used as currency in West Africa and parts of China, known as 'cowrie'? ",
+        "ar": "أي عنصر قديم كان يُستخدم بشكل شائع كعملة في غرب إفريقيا وأجزاء من الصين، ويُعرف باسم 'الودع' (Cowrie)؟"
+      },
+      "answer": {
+        "en": "Sea snail shells",
+        "ar": "أصداف الحلزون البحري"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-35",
+      "question": {
+        "en": "What specific event caused the dramatic plunge of the British Pound on 'Black Wednesday' in 1992?",
+        "ar": "ما هو الحدث المحدد الذي تسبب في الهبوط الدراماتيكي للجنيه الإسترليني يوم 'الأربعاء الأسود' عام 1992؟"
+      },
+      "answer": {
+        "en": "George Soros short-selling the pound, forcing the UK out of the European Exchange Rate Mechanism (ERM)",
+        "ar": "بيع جورج سوروس للجنيه على المكشوف، مما أجبر المملكة المتحدة على الخروج من آلية سعر الصرف الأوروبية"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-36",
+      "question": {
+        "en": "In monetary theory, what does 'Seigniorage' mean?",
+        "ar": "في النظرية النقدية، ماذا تعني 'رسوم سك العملة' (Seigniorage)؟"
+      },
+      "answer": {
+        "en": "The profit made by a government by issuing currency, especially the difference between the face value of coins and their production costs",
+        "ar": "الربح الذي تحققه الحكومة من إصدار العملة، وخاصة الفرق بين القيمة الاسمية للعملات المعدنية وتكاليف إنتاجها"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-37",
+      "question": {
+        "en": "What is the 'Hawala' system?",
+        "ar": "ما هو نظام 'الحوالة'؟"
+      },
+      "answer": {
+        "en": "An informal value transfer system based on the performance and honor of a huge network of money brokers",
+        "ar": "نظام غير رسمي لتحويل القيمة يعتمد على أداء وشرف شبكة ضخمة من سماسرة الأموال"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-38",
+      "question": {
+        "en": "Which civilization used massive, unmovable circular stones (Rai stones) as currency?",
+        "ar": "أي حضارة استخدمت حجارة دائرية ضخمة غير قابلة للتحريك (أحجار راي) كعملة؟"
+      },
+      "answer": {
+        "en": "The Yapese people of Micronesia",
+        "ar": "شعب ياب في ميكرونيزيا"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-39",
+      "question": {
+        "en": "What does the 'Big Mac Index' theoretically measure?",
+        "ar": "ما الذي يقيسه 'مؤشر بيج ماك' نظرياً؟"
+      },
+      "answer": {
+        "en": "Purchasing power parity (PPP) between two currencies",
+        "ar": "تعادل القوة الشرائية بين عملتين"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "currencies-40",
+      "question": {
+        "en": "What was the 'Continental'?",
+        "ar": "ما كان 'الكونتيننتال'؟"
+      },
+      "answer": {
+        "en": "The paper money issued by the Continental Congress during the American Revolution, which quickly became worthless",
+        "ar": "النقود الورقية التي أصدرها الكونغرس القاري خلال الثورة الأمريكية، والتي سرعان ما أصبحت بلا قيمة"
+      },
+      "difficulty": "very-advanced"
+    }
+  ],
+  "difficultyCounts": {
+    "easy": 10,
+    "medium": 10,
+    "hard": 10,
+    "very-advanced": 10
+  },
+  "description": {
+    "en": "Explore questions about World Currencies.",
+    "ar": "اكتشف أسئلة حول عملات وتجارة."
+  }
+}

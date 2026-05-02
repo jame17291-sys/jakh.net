@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  OWNER
+}
+
+model User {
+  id                   String    @id @default(uuid())
+  username             String    @unique
+  email                String?   @unique
+  password             String
+  role                 UserRole  @default(USER)
+  isBanned             Boolean   @default(false)
+  currentSessionId     String?
+  lastLoginAt          DateTime?
+  country              String?
+  avatar               String?
+  streakFreezeCount    Int       @default(0)
+  streakFreezeHighest  Int       @default(0)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  progress          UserProgress[]
+  favorites         UserFavorite[]
+  teams             UserTeam[]
+  sentNudges        TeamNudge[]           @relation("NudgeSender")
+  receivedNudges    TeamNudge[]           @relation("NudgeReceiver")
+  challengeProgress TeamChallengeProgress[]
+}
+
+model UserProgress {
+  id         String   @id @default(uuid())
+  userId     String
+  categoryId String
+  cardId     String
+  status     String
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, categoryId, cardId])
+}
+
+model UserFavorite {
+  id         String   @id @default(uuid())
+  userId     String
+  categoryId String
+  cardId     String
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, categoryId, cardId])
+}
+
+model Team {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String?  @unique
+  bio         String?
+  tags        String[]
+  captainId   String?
+  score       Int      @default(0)
+  battleWins  Int      @default(0)
+  battleTotal Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  members           UserTeam[]
+  challengeProgress TeamChallengeProgress[]
+  nudges            TeamNudge[]
+}
+
+model UserTeam {
+  id       String   @id @default(uuid())
+  userId   String
+  teamId   String
+  role     String   @default("member")
+  joinedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, teamId])
+}
+
+model TeamChallengeProgress {
+  id           String   @id @default(uuid())
+  teamId       String
+  userId       String
+  weekId       String
+  answered     Int      @default(0)
+  points       Int      @default(0)
+  lastActiveAt DateTime @default(now())
+
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, userId, weekId])
+}
+
+model TeamNudge {
+  id         String    @id @default(uuid())
+  fromUserId String
+  toUserId   String
+  teamId     String
+  seenAt     DateTime?
+  createdAt  DateTime  @default(now())
+
+  from User @relation("NudgeSender",   fields: [fromUserId], references: [id], onDelete: Cascade)
+  to   User @relation("NudgeReceiver", fields: [toUserId],   references: [id], onDelete: Cascade)
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
+
+model PageAnalytics {
+  id        String   @id @default(uuid())
+  userId    String?
+  pageSlug  String
+  timeSpent Int
+  country   String?
+  createdAt DateTime @default(now())
+}
+
+model Suggestion {
+  id        String   @id @default(uuid())
+  text      String
+  email     String?
+  ipHash    String?
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}

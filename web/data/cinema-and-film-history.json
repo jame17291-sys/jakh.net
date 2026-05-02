@@ -1,0 +1,490 @@
+{
+  "slug": "cinema-and-film-history",
+  "title": {
+    "en": "Cinema & Film",
+    "ar": "السينما والأفلام"
+  },
+  "count": 40,
+  "cards": [
+    {
+      "id": "cin-1",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which city is considered the movie capital of the world?",
+        "ar": "أي مدينة تعتبر عاصمة السينما في العالم؟"
+      },
+      "answer": {
+        "en": "Hollywood (Los Angeles)",
+        "ar": "هوليوود (لوس أنجلوس)"
+      }
+    },
+    {
+      "id": "cin-2",
+      "difficulty": "easy",
+      "question": {
+        "en": "What are the most famous awards in the film industry called?",
+        "ar": "ماذا تسمى الجوائز الأكثر شهرة في صناعة السينما؟"
+      },
+      "answer": {
+        "en": "The Oscars (Academy Awards)",
+        "ar": "جوائز الأوسكار"
+      }
+    },
+    {
+      "id": "cin-3",
+      "difficulty": "easy",
+      "question": {
+        "en": "Who is the famous silent film actor known as 'The Little Tramp'?",
+        "ar": "من هو ممثل الأفلام الصامتة الشهير المعروف بلقب 'المتسكع الصغير'؟"
+      },
+      "answer": {
+        "en": "Charlie Chaplin",
+        "ar": "تشارلي تشابلن"
+      }
+    },
+    {
+      "id": "cin-4",
+      "difficulty": "easy",
+      "question": {
+        "en": "What does 'CGI' stand for in movies?",
+        "ar": "إلى ماذا يرمز اختصار 'CGI' في الأفلام؟"
+      },
+      "answer": {
+        "en": "Computer-Generated Imagery",
+        "ar": "الصور المولدة بالكمبيوتر"
+      }
+    },
+    {
+      "id": "cin-5",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which 1977 movie started a massive space opera franchise?",
+        "ar": "أي فيلم في عام 1977 بدأ سلسلة أفلام 'أوبرا الفضاء' الضخمة؟"
+      },
+      "answer": {
+        "en": "Star Wars",
+        "ar": "حرب النجوم"
+      }
+    },
+    {
+      "id": "cin-6",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is the name of the green screen technique used for special effects?",
+        "ar": "ما اسم تقنية الشاشة الخضراء المستخدمة للمؤثرات الخاصة؟"
+      },
+      "answer": {
+        "en": "Chroma Key",
+        "ar": "كروما (Chroma Key)"
+      }
+    },
+    {
+      "id": "cin-7",
+      "difficulty": "easy",
+      "question": {
+        "en": "Who directed the movie 'Jaws'?",
+        "ar": "من أخرج فيلم 'الفك المفترس' (Jaws)؟"
+      },
+      "answer": {
+        "en": "Steven Spielberg",
+        "ar": "ستيفن سبيلبرغ"
+      }
+    },
+    {
+      "id": "cin-8",
+      "difficulty": "easy",
+      "question": {
+        "en": "What was the first feature-length animated movie released by Disney?",
+        "ar": "ما هو أول فيلم رسوم متحركة طويل أصدرته ديزني؟"
+      },
+      "answer": {
+        "en": "Snow White and the Seven Dwarfs",
+        "ar": "سلو وايت والأقزام السبعة"
+      }
+    },
+    {
+      "id": "cin-9",
+      "difficulty": "easy",
+      "question": {
+        "en": "What do we call the person who oversees the entire creative vision of a film?",
+        "ar": "ماذا نسمي الشخص الذي يشرف على الرؤية الإبداعية الكاملة للفيلم؟"
+      },
+      "answer": {
+        "en": "Director",
+        "ar": "المخرج"
+      }
+    },
+    {
+      "id": "cin-10",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which movie features the famous line 'I'll be back'?",
+        "ar": "أي فيلم تظهر فيه الجملة الشهيرة 'سأعود' (I'll be back)؟"
+      },
+      "answer": {
+        "en": "The Terminator",
+        "ar": "ذا تيرميناتور"
+      }
+    },
+    {
+      "id": "cin-11",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who directed the classic crime film 'The Godfather'?",
+        "ar": "من أخرج فيلم الجريمة الكلاسيكي 'العراب' (The Godfather)؟"
+      },
+      "answer": {
+        "en": "Francis Ford Coppola",
+        "ar": "فرانسيس فورد كوبولا"
+      }
+    },
+    {
+      "id": "cin-12",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the term for a drawing that represents a shot in a film?",
+        "ar": "ما هو المصطلح الذي يطلق على رسم يمثل لقطة في الفيلم؟"
+      },
+      "answer": {
+        "en": "Storyboard",
+        "ar": "لوحة القصة (Storyboard)"
+      }
+    },
+    {
+      "id": "cin-13",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which movie was the first to use synchronized sound for dialogue (the first 'talkie')?",
+        "ar": "أي فيلم كان الأول في استخدام الصوت المتزامن للحوار (أول فيلم ناطق)؟"
+      },
+      "answer": {
+        "en": "The Jazz Singer (1927)",
+        "ar": "مغني الجاز (1927)"
+      }
+    },
+    {
+      "id": "cin-14",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is a 'MacGuffin' in cinema?",
+        "ar": "ما هو الـ 'ماكغافن' (MacGuffin) في السينما؟"
+      },
+      "answer": {
+        "en": "MacGuffin",
+        "ar": "ماكغافن"
+      }
+    },
+    {
+      "id": "cin-15",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which director is known for the 'master of suspense' title?",
+        "ar": "أي مخرج يلقب بـ 'سيد التشويق'؟"
+      },
+      "answer": {
+        "en": "Alfred Hitchcock",
+        "ar": "ألفريد هيتشكوك"
+      }
+    },
+    {
+      "id": "cin-16",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the name of the sound effects technique used to reproduce everyday sounds in post-production?",
+        "ar": "ما اسم تقنية المؤثرات الصوتية المستخدمة لإعادة إنتاج الأصوات اليومية في مرحلة ما بعد الإنتاج؟"
+      },
+      "answer": {
+        "en": "Foley",
+        "ar": "فولي (Foley)"
+      }
+    },
+    {
+      "id": "cin-17",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who played the character of Joker in the 2008 film 'The Dark Knight'?",
+        "ar": "من لعب شخصية الجوكر في فيلم 'فارس الظلام' عام 2008؟"
+      },
+      "answer": {
+        "en": "Heath Ledger",
+        "ar": "هيث ليدجر"
+      }
+    },
+    {
+      "id": "cin-18",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the term for a movie that is filmed in one continuous take (or edited to look like it)?",
+        "ar": "ما هو المصطلح الذي يطلق على فيلم تم تصويره في لقطة واحدة مستمرة (أو تم تعديله ليبدو كذلك)؟"
+      },
+      "answer": {
+        "en": "One-Shot (or Long Take)",
+        "ar": "اللقطة الواحدة (Long Take)"
+      }
+    },
+    {
+      "id": "cin-19",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which 1941 film is often cited by critics as the greatest film ever made?",
+        "ar": "أي فيلم من عام 1941 غالباً ما يستشهد به النقاد كأفضل فيلم تم إنتاجه على الإطلاق؟"
+      },
+      "answer": {
+        "en": "Citizen Kane",
+        "ar": "المواطن كين"
+      }
+    },
+    {
+      "id": "cin-20",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the name of the famous film festival held annually in France?",
+        "ar": "ما اسم مهرجان السينما الشهير الذي يقام سنوياً في فرنسا؟"
+      },
+      "answer": {
+        "en": "Cannes Film Festival",
+        "ar": "مهرجان كان السينمائي"
+      }
+    },
+    {
+      "id": "cin-21",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the 'Auteur Theory' in film studies?",
+        "ar": "ما هي 'نظرية المؤلف' (Auteur Theory) في دراسات السينما؟"
+      },
+      "answer": {
+        "en": "The idea that the director is the primary creative force of a film",
+        "ar": "الفكرة القائلة بأن المخرج هو القوة الإبداعية الأساسية للفيلم"
+      }
+    },
+    {
+      "id": "cin-22",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which Japanese director made 'Seven Samurai' and 'Rashomon'?",
+        "ar": "أي مخرج ياباني أخرج 'الساموراي السبعة' و 'راشومون'؟"
+      },
+      "answer": {
+        "en": "Akira Kurosawa",
+        "ar": "أكيرا كوروساوا"
+      }
+    },
+    {
+      "id": "cin-23",
+      "difficulty": "hard",
+      "question": {
+        "en": "What was the 'Hays Code'?",
+        "ar": "ما هو 'قانون هايز'؟"
+      },
+      "answer": {
+        "en": "A set of moral guidelines for Hollywood films (1934-1968)",
+        "ar": "مجموعة من المبادئ الأخلاقية لأفلام هوليوود (1934-1968)"
+      }
+    },
+    {
+      "id": "cin-24",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the 'Rule of Thirds' in cinematography?",
+        "ar": "ما هي 'قاعدة الأثلاث' في التصوير السينمائي؟"
+      },
+      "answer": {
+        "en": "A composition rule where the frame is divided into a grid to place subjects",
+        "ar": "قاعدة تكوين يتم فيها تقسيم الإطار إلى شبكة لوضع العناصر"
+      }
+    },
+    {
+      "id": "cin-25",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which director is famous for his 'Spaghetti Western' films like 'The Good, the Bad and the Ugly'?",
+        "ar": "أي مخرج اشتهر بأفلام 'ويسترن سباغيتي' مثل 'الطيب والشرس والقبيح'؟"
+      },
+      "answer": {
+        "en": "Sergio Leone",
+        "ar": "سيرجيو ليون"
+      }
+    },
+    {
+      "id": "cin-26",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is 'Diegetic Sound' in a movie?",
+        "ar": "ما هو 'الصوت الداخلي' (Diegetic Sound) في الفيلم؟"
+      },
+      "answer": {
+        "en": "Sound that originates from within the story world",
+        "ar": "الصوت الذي ينشأ من داخل عالم القصة"
+      }
+    },
+    {
+      "id": "cin-27",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who won the first ever Academy Award for Best Director?",
+        "ar": "من فاز بأول جائزة أوسكار لأفضل مخرج على الإطلاق؟"
+      },
+      "answer": {
+        "en": "Frank Borzage and Lewis Milestone",
+        "ar": "فرانك بورزيج ولويس مايلستون"
+      }
+    },
+    {
+      "id": "cin-28",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the 'Kuleshov Effect'?",
+        "ar": "ما هو 'تأثير كولشوف'؟"
+      },
+      "answer": {
+        "en": "A mental phenomenon where viewers derive more meaning from the interaction of two sequential shots",
+        "ar": "ظاهرة عقلية حيث يستمد المشاهدون معنى أكبر من تفاعل لقطتين متتاليتين"
+      }
+    },
+    {
+      "id": "cin-29",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which movement in cinema was characterized by gritty realism and filming on location in post-WWII Italy?",
+        "ar": "أي حركة سينمائية تميزت بالواقعية الخام والتصوير في المواقع الحقيقية في إيطاليا بعد الحرب العالمية الثانية؟"
+      },
+      "answer": {
+        "en": "Italian Neorealism",
+        "ar": "الواقعية الجديدة الإيطالية"
+      }
+    },
+    {
+      "id": "cin-30",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the 'Aspect Ratio' of a standard modern wide-screen cinema film?",
+        "ar": "ما هي 'نسبة العرض إلى الارتفاع' (Aspect Ratio) لفيلم سينمائي حديث قياسي بشاشة عريضة؟"
+      },
+      "answer": {
+        "en": "2.39:1 (Panavision)",
+        "ar": "2.39:1 (بانافيجن)"
+      }
+    },
+    {
+      "id": "cin-31",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What was the name of the first full-length color movie using the three-strip Technicolor process?",
+        "ar": "ما اسم أول فيلم ملون كامل الطول استخدم عملية تكنيكولور ثلاثية الشرائح؟"
+      },
+      "answer": {
+        "en": "Becky Sharp (1935)",
+        "ar": "بيكي شارب (1935)"
+      }
+    },
+    {
+      "id": "cin-32",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who is the only person to win an Oscar for acting in a foreign language film before the 2000s?",
+        "ar": "من هو الشخص الوحيد الذي فاز بالأوسكار عن التمثيل في فيلم بلغة أجنبية قبل عام 2000؟"
+      },
+      "answer": {
+        "en": "Sophia Loren and Roberto Benigni",
+        "ar": "صوفيا لورين وروبرتو بينيني"
+      }
+    },
+    {
+      "id": "cin-33",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the 'Dutch Angle' (or Canted Angle) shot used to convey?",
+        "ar": "ماذا تعبر لقطة 'الزاوية الهولندية' (أو الزاوية المائلة)؟"
+      },
+      "answer": {
+        "en": "Psychological uneasiness or tension",
+        "ar": "القلق النفسي أو التوتر"
+      }
+    },
+    {
+      "id": "cin-34",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the name of the camera movement where the camera moves forward but the lens zooms out?",
+        "ar": "ما اسم حركة الكاميرا حيث تتحرك الكاميرا للأمام بينما تقوم العدسة بعمل تصغير (zoom out)؟"
+      },
+      "answer": {
+        "en": "Dolly Zoom (or Vertigo effect)",
+        "ar": "دولي زووم (أو تأثير فرتيغو)"
+      }
+    },
+    {
+      "id": "cin-35",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which 1927 sci-fi epic by Fritz Lang is famous for its depiction of a dystopian future city?",
+        "ar": "أي ملحمة خيال علمي من عام 1927 لفريتز لانج اشتهرت بتصويرها لمدينة مستقبلية بائسة؟"
+      },
+      "answer": {
+        "en": "Metropolis",
+        "ar": "متروبوليس"
+      }
+    },
+    {
+      "id": "cin-36",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the term for a transition where one shot is replaced by another along a moving line?",
+        "ar": "ما هو المصطلح الذي يطلق على انتقال حيث يتم استبدال لقطة بأخرى على طول خط متحرك؟"
+      },
+      "answer": {
+        "en": "Wipe",
+        "ar": "المسح (Wipe)"
+      }
+    },
+    {
+      "id": "cin-37",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who is the cinematographer famous for his work with Roger Deakins on '1917' and 'Blade Runner 2049'?",
+        "ar": "من هو مدير التصوير الشهير بعمله مع روجر ديكينز في '1917' و 'بليد رانر 2049'؟"
+      },
+      "answer": {
+        "en": "Roger Deakins",
+        "ar": "روجر ديكينز"
+      }
+    },
+    {
+      "id": "cin-38",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Deep Focus' cinematography?",
+        "ar": "ما هو التصوير السينمائي بـ 'التركيز العميق' (Deep Focus)؟"
+      },
+      "answer": {
+        "en": "Technique where everything from the foreground to the background is in sharp focus",
+        "ar": "تقنية يكون فيها كل شيء من المقدمة إلى الخلفية في بؤرة تركيز حادة"
+      }
+    },
+    {
+      "id": "cin-39",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which film movement in France (late 1950s) was led by Godard and Truffaut?",
+        "ar": "أي حركة سينمائية في فرنسا (أواخر الخمسينيات) قادها غودارد وتروفو؟"
+      },
+      "answer": {
+        "en": "French New Wave (Nouvelle Vague)",
+        "ar": "الموجة الجديدة الفرنسية"
+      }
+    },
+    {
+      "id": "cin-40",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the term for the specific light used to eliminate shadows created by the key light?",
+        "ar": "ما هو المصطلح الذي يطلق على الضوء المحدد المستخدم للتخلص من الظلال الناتجة عن الضوء الرئيسي؟"
+      },
+      "answer": {
+        "en": "Fill Light",
+        "ar": "ضوء التعبئة (Fill Light)"
+      }
+    }
+  ]
+}

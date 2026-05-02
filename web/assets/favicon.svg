@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="ga" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c9bff"/>
+      <stop offset="100%" stop-color="#18d7c0"/>
+    </linearGradient>
+    <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8f6bff"/>
+      <stop offset="100%" stop-color="#7c9bff"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark rounded background -->
+  <rect width="128" height="128" rx="28" fill="#0b1020"/>
+  <!-- Left bubble (EN) -->
+  <rect x="8" y="14" width="60" height="48" rx="14" fill="url(#ga)" opacity="0.18"/>
+  <rect x="8" y="14" width="60" height="48" rx="14" fill="none" stroke="url(#ga)" stroke-width="4"/>
+  <polygon points="18,62 10,82 36,62" fill="url(#ga)" opacity="0.7"/>
+  <text x="38" y="47" font-family="Georgia,'Times New Roman',serif" font-size="32" font-weight="700" fill="url(#ga)" text-anchor="middle">?</text>
+  <!-- Right bubble (AR) -->
+  <rect x="60" y="42" width="60" height="48" rx="14" fill="url(#gb)" opacity="0.18"/>
+  <rect x="60" y="42" width="60" height="48" rx="14" fill="none" stroke="url(#gb)" stroke-width="4"/>
+  <polygon points="100,90 118,110 82,90" fill="url(#gb)" opacity="0.7"/>
+  <text x="90" y="75" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="url(#gb)" text-anchor="middle">؟</text>
+</svg>

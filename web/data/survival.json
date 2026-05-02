@@ -1,0 +1,502 @@
+{
+  "slug": "survival",
+  "title": {
+    "en": "Survival & Wilderness",
+    "ar": "بقاء وطبيعة"
+  },
+  "emoji": "🏕️",
+  "color": "var(--easy)",
+  "count": 40,
+  "cards": [
+    {
+      "id": "survival-1",
+      "question": {
+        "en": "What is the most essential resource for human survival?",
+        "ar": "ما هو المورد الأكثر أهمية لبقاء الإنسان؟"
+      },
+      "answer": {
+        "en": "Water",
+        "ar": "الماء"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-2",
+      "question": {
+        "en": "What tool is most commonly used to start a fire without matches or a lighter?",
+        "ar": "ما هي الأداة الأكثر استخدامًا لإشعال النار بدون أعواد ثقاب أو ولاعة؟"
+      },
+      "answer": {
+        "en": "Flint and steel",
+        "ar": "صوان وفولاذ"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-3",
+      "question": {
+        "en": "What is the universal distress signal in morse code?",
+        "ar": "ما هي إشارة الاستغاثة العالمية بشفرة مورس؟"
+      },
+      "answer": {
+        "en": "SOS",
+        "ar": "إس أو إس (SOS)"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-4",
+      "question": {
+        "en": "Which direction does the sun rise?",
+        "ar": "في أي اتجاه تشرق الشمس؟"
+      },
+      "answer": {
+        "en": "East",
+        "ar": "الشرق"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-5",
+      "question": {
+        "en": "What should you build first to protect yourself from the elements?",
+        "ar": "ما الذي يجب أن تبنيه أولاً لحماية نفسك من العوامل الجوية؟"
+      },
+      "answer": {
+        "en": "A shelter",
+        "ar": "مأوى"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-6",
+      "question": {
+        "en": "How long can the average human survive without water?",
+        "ar": "كم من الوقت يمكن للإنسان العادي البقاء على قيد الحياة بدون ماء؟"
+      },
+      "answer": {
+        "en": "About 3 days",
+        "ar": "حوالي 3 أيام"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-7",
+      "question": {
+        "en": "What type of wood is best for burning to stay warm?",
+        "ar": "ما نوع الخشب الأفضل للحرق للبقاء دافئًا؟"
+      },
+      "answer": {
+        "en": "Dry, dead wood",
+        "ar": "خشب جاف وميت"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-8",
+      "question": {
+        "en": "What is the most effective way to purify water in the wild?",
+        "ar": "ما هي الطريقة الأكثر فعالية لتنقية المياه في البرية؟"
+      },
+      "answer": {
+        "en": "Boiling it",
+        "ar": "غليها"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-9",
+      "question": {
+        "en": "If you are lost in the woods, what is the best thing to do initially?",
+        "ar": "إذا ضللت طريقك في الغابة، ما هو أفضل شيء تفعله في البداية؟"
+      },
+      "answer": {
+        "en": "Stay put and wait for rescue",
+        "ar": "البقاء في مكانك وانتظار الإنقاذ"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-10",
+      "question": {
+        "en": "Which animal should you 'play dead' for if it attacks?",
+        "ar": "أي حيوان يجب أن 'تتظاهر بالموت' إذا هاجمك؟"
+      },
+      "answer": {
+        "en": "Grizzly bear",
+        "ar": "دب أشيب"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "survival-11",
+      "question": {
+        "en": "What does the 'Rule of Threes' state regarding survival?",
+        "ar": "على ماذا تنص 'قاعدة الثلاثات' فيما يتعلق بالبقاء؟"
+      },
+      "answer": {
+        "en": "3 mins without air, 3 days without water, 3 weeks without food",
+        "ar": "3 دقائق بدون هواء، 3 أيام بدون ماء، 3 أسابيع بدون طعام"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-12",
+      "question": {
+        "en": "Which knot is best known for securely tying a rope around an object without slipping?",
+        "ar": "أي عقدة تُعرف بأنها الأفضل لربط حبل حول شيء بإحكام دون أن تنزلق؟"
+      },
+      "answer": {
+        "en": "Bowline knot",
+        "ar": "عقدة البولين (الخِناق)"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-13",
+      "question": {
+        "en": "How can you use a mechanical watch to find South in the Northern Hemisphere?",
+        "ar": "كيف يمكنك استخدام ساعة ميكانيكية للعثور على الجنوب في نصف الكرة الشمالي؟"
+      },
+      "answer": {
+        "en": "Point the hour hand at the sun, halfway to 12 is South",
+        "ar": "وجّه عقرب الساعات نحو الشمس، منتصف المسافة إلى الساعة 12 هو الجنوب"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-14",
+      "question": {
+        "en": "What color of berries are generally safe to eat in the wild? (with exceptions)",
+        "ar": "ما لون التوت الذي يعتبر آمناً للأكل عموماً في البرية؟ (مع وجود استثناءات)"
+      },
+      "answer": {
+        "en": "Black or dark purple",
+        "ar": "أسود أو أرجواني داكن"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-15",
+      "question": {
+        "en": "What natural material is excellent for insulating a shelter?",
+        "ar": "ما هي المادة الطبيعية الممتازة لعزل المأوى؟"
+      },
+      "answer": {
+        "en": "Dry leaves and pine needles",
+        "ar": "الأوراق الجافة وإبر الصنوبر"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-16",
+      "question": {
+        "en": "What insect can be eaten raw and provides a high source of protein?",
+        "ar": "أي حشرة يمكن أكلها نيئة وتوفر مصدراً عالياً للبروتين؟"
+      },
+      "answer": {
+        "en": "Termites",
+        "ar": "النمل الأبيض"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-17",
+      "question": {
+        "en": "In a desert survival situation, when should you travel?",
+        "ar": "في حالة البقاء في الصحراء، متى يجب عليك السفر؟"
+      },
+      "answer": {
+        "en": "At night or early morning",
+        "ar": "في الليل أو في الصباح الباكر"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-18",
+      "question": {
+        "en": "What is hypothermia?",
+        "ar": "ما هو انخفاض حرارة الجسم (الهايبوثرميا)؟"
+      },
+      "answer": {
+        "en": "A dangerously low body temperature",
+        "ar": "انخفاض خطير في درجة حرارة الجسم"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-19",
+      "question": {
+        "en": "What plant leaves can be used to treat stinging nettle burns naturally?",
+        "ar": "ما أوراق النباتات التي يمكن استخدامها لعلاج حروق نبات القراص اللاسع بشكل طبيعي؟"
+      },
+      "answer": {
+        "en": "Dock leaves",
+        "ar": "أوراق الرومكس (Dock leaves)"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-20",
+      "question": {
+        "en": "What does it mean if a snake has a triangular head?",
+        "ar": "ماذا يعني إذا كان للثعبان رأس مثلث الشكل؟"
+      },
+      "answer": {
+        "en": "It is likely venomous",
+        "ar": "من المحتمل أنه سام"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "survival-21",
+      "question": {
+        "en": "What is the most calorie-dense food found naturally in the wild?",
+        "ar": "ما هو الطعام الأكثر كثافة بالسعرات الحرارية الموجود بشكل طبيعي في البرية؟"
+      },
+      "answer": {
+        "en": "Animal fat / Nuts",
+        "ar": "الدهون الحيوانية / المكسرات"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-22",
+      "question": {
+        "en": "How do you identify poison ivy?",
+        "ar": "كيف تتعرف على اللبلاب السام؟"
+      },
+      "answer": {
+        "en": "Leaves of three, let it be",
+        "ar": "ثلاث أوراق، اتركه وشأنه"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-23",
+      "question": {
+        "en": "What is the 'Dakota Fire Hole'?",
+        "ar": "ما هي 'حفرة نار داكوتا'؟"
+      },
+      "answer": {
+        "en": "An underground fire pit that burns efficiently and hides smoke",
+        "ar": "حفرة نار تحت الأرض تحترق بكفاءة وتخفي الدخان"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-24",
+      "question": {
+        "en": "How many drops of bleach are needed to purify a gallon of clear water?",
+        "ar": "كم قطرة من المبيض تلزم لتنقية جالون من الماء الصافي؟"
+      },
+      "answer": {
+        "en": "8 drops",
+        "ar": "8 قطرات"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-25",
+      "question": {
+        "en": "Which constellation points to Polaris (the North Star)?",
+        "ar": "أي كوكبة تشير إلى بولاريس (نجم الشمال)؟"
+      },
+      "answer": {
+        "en": "Ursa Major (The Big Dipper)",
+        "ar": "الدب الأكبر"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-26",
+      "question": {
+        "en": "What is the condition called when you drink too much water and dangerously lower your sodium levels?",
+        "ar": "ما هو اسم الحالة عندما تشرب الكثير من الماء وتخفض مستويات الصوديوم لديك بشكل خطير؟"
+      },
+      "answer": {
+        "en": "Hyponatremia",
+        "ar": "نقص صوديوم الدم"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-27",
+      "question": {
+        "en": "What is the best natural tinder found on birch trees?",
+        "ar": "ما هي أفضل مادة اشتعال طبيعية توجد على أشجار البتولا؟"
+      },
+      "answer": {
+        "en": "Birch bark",
+        "ar": "لحاء البتولا"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-28",
+      "question": {
+        "en": "If bitten by a venomous snake, should you try to suck the venom out?",
+        "ar": "إذا لدغك ثعبان سام، هل يجب أن تحاول مص السم؟"
+      },
+      "answer": {
+        "en": "No, it causes more tissue damage",
+        "ar": "لا، فهذا يسبب ضرراً أكبر للأنسجة"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-29",
+      "question": {
+        "en": "What survival tool has a parabolic mirror used to start fires?",
+        "ar": "أي أداة بقاء تحتوي على مرآة مكافئة تُستخدم لإشعال الحرائق؟"
+      },
+      "answer": {
+        "en": "Solar spark lighter",
+        "ar": "ولاعة شرارة شمسية"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-30",
+      "question": {
+        "en": "How can you signal an aircraft with a mirror?",
+        "ar": "كيف يمكنك الإشارة لطائرة باستخدام مرآة؟"
+      },
+      "answer": {
+        "en": "Reflect sunlight in a sweeping motion across the sky",
+        "ar": "اعكس ضوء الشمس بحركة مسح عبر السماء"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "survival-31",
+      "question": {
+        "en": "What is the exact scientific method for pasteurizing water using UV light?",
+        "ar": "ما هي الطريقة العلمية الدقيقة لبسترة المياه باستخدام الأشعة فوق البنفسجية؟"
+      },
+      "answer": {
+        "en": "SODIS (Solar Water Disinfection)",
+        "ar": "تطهير المياه بالطاقة الشمسية (SODIS)"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-32",
+      "question": {
+        "en": "What compound makes up the inner bark of a pine tree, making it edible in emergencies?",
+        "ar": "ما هو المركب الذي يتكون منه اللحاء الداخلي لشجرة الصنوبر، مما يجعله صالحاً للأكل في حالات الطوارئ؟"
+      },
+      "answer": {
+        "en": "Cambium",
+        "ar": "الكامبيوم"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-33",
+      "question": {
+        "en": "Which rare condition is caused by eating only lean meat, leading to protein poisoning?",
+        "ar": "ما هي الحالة النادرة الناجمة عن تناول اللحوم الخالية من الدهون فقط، مما يؤدي إلى التسمم بالبروتين؟"
+      },
+      "answer": {
+        "en": "Rabbit starvation",
+        "ar": "مجاعة الأرانب"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-34",
+      "question": {
+        "en": "How do you determine the distance of a lightning strike?",
+        "ar": "كيف تحدد مسافة صاعقة البرق؟"
+      },
+      "answer": {
+        "en": "Count seconds between flash and thunder, divide by 5 for miles",
+        "ar": "احسب الثواني بين الوميض والرعد، اقسمها على 5 للميل"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-35",
+      "question": {
+        "en": "What is the specific angle required to create maximum friction with a bow drill?",
+        "ar": "ما هي الزاوية المحددة المطلوبة لإحداث أقصى احتكاك باستخدام مثقاب القوس؟"
+      },
+      "answer": {
+        "en": "A straight 90-degree downward pressure",
+        "ar": "ضغط مستقيم لأسفل بزاوية 90 درجة"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-36",
+      "question": {
+        "en": "Which medicinal fungus, found on birch trees, has been used as a styptic and natural antibiotic for thousands of years?",
+        "ar": "أي فطر طبي يوجد على أشجار البتولا استُخدم كموقف للنزيف ومضاد حيوي طبيعي لآلاف السنين؟"
+      },
+      "answer": {
+        "en": "Chaga mushroom",
+        "ar": "فطر الشاجا"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-37",
+      "question": {
+        "en": "What does the survival acronym STOP stand for?",
+        "ar": "ماذا يعني اختصار البقاء على قيد الحياة STOP؟"
+      },
+      "answer": {
+        "en": "Stop, Think, Observe, Plan",
+        "ar": "توقف، فكر، راقب، خطط"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-38",
+      "question": {
+        "en": "What type of snow shelter relies on the natural insulating properties of a hollowed-out snow pile?",
+        "ar": "ما نوع مأوى الثلج الذي يعتمد على خصائص العزل الطبيعية لكومة ثلج مجوفة؟"
+      },
+      "answer": {
+        "en": "Quinzhee",
+        "ar": "كوينزي"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-39",
+      "question": {
+        "en": "What is the specific boiling point of water at 10,000 feet elevation?",
+        "ar": "ما هي نقطة غليان الماء المحددة عند ارتفاع 10,000 قدم؟"
+      },
+      "answer": {
+        "en": "Approximately 194°F (90°C)",
+        "ar": "حوالي 194 درجة فهرنهايت (90 درجة مئوية)"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "survival-40",
+      "question": {
+        "en": "Which highly toxic plant is easily confused with wild carrots or Queen Anne's lace?",
+        "ar": "أي نبات شديد السمية يسهل الخلط بينه وبين الجزر البري؟"
+      },
+      "answer": {
+        "en": "Hemlock (Poison Hemlock)",
+        "ar": "الشوكران (الشوكران السام)"
+      },
+      "difficulty": "very-advanced"
+    }
+  ],
+  "difficultyCounts": {
+    "easy": 10,
+    "medium": 10,
+    "hard": 10,
+    "very-advanced": 10
+  },
+  "description": {
+    "en": "Explore questions about Survival & Wilderness.",
+    "ar": "اكتشف أسئلة حول بقاء وطبيعة."
+  }
+}

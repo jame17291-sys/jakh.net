@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Page Not Found | JAKH Riddles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=1777260000" />
+    <style>
+      .error-page { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; gap: 1.25rem; padding: 2rem; }
+      .error-code { font-size: 7rem; font-weight: 900; line-height: 1; background: var(--accent-gradient, linear-gradient(135deg,#6c3483,#1a5276)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+      .error-title { font-size: 1.6rem; font-weight: 800; margin: 0; }
+      .error-text { color: var(--muted); font-size: 1rem; max-width: 400px; line-height: 1.6; margin: 0; }
+      .error-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+    </style>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          if (reg) reg.update();
+        });
+      }
+    </script>
+  </head>
+  <body>
+<a href="#top" class="skip-link">Skip to main content</a>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+
+    <header class="site-header shell">
+      <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" /></picture>
+      </a>
+    </header>
+
+    <main>
+      <div class="error-page shell">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page not found</h1>
+        <p class="error-text">That page doesn't exist or may have moved. Head back home to find what you're looking for.</p>
+        <div class="error-actions">
+          <a class="primary-btn" href="index.html">Back to home</a>
+          <a class="ghost-btn" href="index.html#categories">Browse categories</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer shell">
+      <p>All rights reserved to JAKH 2026</p>
+    </footer>
+  </body>
+</html>

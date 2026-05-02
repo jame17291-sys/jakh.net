@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+build/
+*.js.map
+
+# Pre-compressed (generated at deploy time)
+**/*.gz
+**/*.br
+
+# Environment
+.env
+.env.*
+!.env.example
+*.pem
+
+# iOS / Android build artifacts
+ios/App/Pods/
+ios/App/build/
+ios/App/DerivedData/
+android/build/
+android/.gradle/
+android/app/build/
+android/local.properties
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# macOS
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Prisma
+api/prisma/migrations/*.sql.bak
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ruflo / Claude Flow (project-specific)
+.claude-flow/
+.swarm/

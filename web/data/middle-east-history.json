@@ -1,0 +1,828 @@
+{
+  "slug": "middle-east-history",
+  "title": {
+    "en": "Middle East History",
+    "ar": "تاريخ الشرق الأوسط"
+  },
+  "description": {
+    "en": "Ancient civilizations, Islamic empires, colonial history, and modern Middle East events.",
+    "ar": "حضارات قديمة وإمبراطوريات إسلامية وتاريخ استعماري وأحداث الشرق الأوسط الحديثة."
+  },
+  "cluster": {
+    "en": "History",
+    "ar": "تاريخ"
+  },
+  "cluster_key": "history",
+  "emoji": "🏛️",
+  "mode": "quiz",
+  "count": 50,
+  "difficultyCounts": {
+    "easy": 20,
+    "medium": 9,
+    "hard": 16,
+    "very-advanced": 5
+  },
+  "subcategories": [],
+  "cards": [
+    {
+      "id": "me-hist-001",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "Which ancient civilization built the pyramids at Giza?",
+        "ar": "أي حضارة قديمة بنت أهرامات الجيزة؟"
+      },
+      "answer": {
+        "en": "The ancient Egyptians, during the Old Kingdom period (c. 2580–2560 BC).",
+        "ar": "المصريون القدماء، خلال فترة الدولة القديمة (نحو 2580–2560 ق.م)."
+      }
+    },
+    {
+      "id": "me-hist-002",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What ancient civilization of Mesopotamia is credited with creating the world's earliest known writing system?",
+        "ar": "ما الحضارة القديمة في بلاد الرافدين التي تُنسب إليها أقدم نظام كتابة معروف في العالم؟"
+      },
+      "answer": {
+        "en": "The Sumerians, who developed cuneiform writing around 3200 BC.",
+        "ar": "السومريون، الذين طوّروا الكتابة المسمارية حول عام 3200 ق.م."
+      }
+    },
+    {
+      "id": "me-hist-003",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What ancient empire was based in Persia and at its peak stretched from Egypt to India?",
+        "ar": "ما الإمبراطورية القديمة التي كانت قائمة في بلاد فارس وامتدت في أوجها من مصر إلى الهند؟"
+      },
+      "answer": {
+        "en": "The Achaemenid (Persian) Empire, founded by Cyrus the Great in 550 BC.",
+        "ar": "الإمبراطورية الأخمينية (الفارسية)، التي أسّسها قورش الكبير عام 550 ق.م."
+      }
+    },
+    {
+      "id": "me-hist-004",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "In which city was Prophet Muhammad (PBUH) born?",
+        "ar": "في أي مدينة وُلد النبي محمد صلى الله عليه وسلم؟"
+      },
+      "answer": {
+        "en": "Mecca (Makkah), in the Arabian Peninsula, around 570 CE.",
+        "ar": "مكة المكرمة، في شبه الجزيرة العربية، حوالي عام 570 م."
+      }
+    },
+    {
+      "id": "me-hist-005",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What year did the Prophet Muhammad migrate from Mecca to Medina, marking the start of the Islamic calendar?",
+        "ar": "في أي عام هاجر النبي محمد من مكة إلى المدينة، مما شكّل بداية التقويم الإسلامي؟"
+      },
+      "answer": {
+        "en": "622 CE — the Hijra. The Islamic calendar (AH) is dated from this event.",
+        "ar": "عام 622 م — الهجرة. التقويم الإسلامي (هجري) يُؤرَّخ منذ هذا الحدث."
+      }
+    },
+    {
+      "id": "me-hist-006",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the first Islamic caliphate, and who were its first four caliphs?",
+        "ar": "ما أول خلافة إسلامية ومن كان خلفاؤها الأربعة الأوائل؟"
+      },
+      "answer": {
+        "en": "The Rashidun Caliphate (632–661 CE). The four caliphs were Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan, and Ali ibn Abi Talib.",
+        "ar": "الخلافة الراشدة (632–661 م). الخلفاء الأربعة هم أبو بكر الصديق وعمر بن الخطاب وعثمان بن عفان وعلي بن أبي طالب."
+      }
+    },
+    {
+      "id": "me-hist-007",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What dynasty built its capital in Damascus and ruled the early Islamic world from 661 to 750 CE?",
+        "ar": "ما الأسرة الحاكمة التي بنت عاصمتها في دمشق وحكمت العالم الإسلامي المبكر من 661 إلى 750 م؟"
+      },
+      "answer": {
+        "en": "The Umayyad Caliphate.",
+        "ar": "الخلافة الأموية."
+      }
+    },
+    {
+      "id": "me-hist-008",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "Which Islamic caliphate succeeded the Umayyads and made Baghdad its capital?",
+        "ar": "ما الخلافة الإسلامية التي خلفت الأمويين واتخذت بغداد عاصمةً لها؟"
+      },
+      "answer": {
+        "en": "The Abbasid Caliphate (750–1258 CE).",
+        "ar": "الخلافة العباسية (750–1258 م)."
+      }
+    },
+    {
+      "id": "me-hist-009",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Bayt al-Hikma (House of Wisdom) in Baghdad?",
+        "ar": "ما بيت الحكمة في بغداد؟"
+      },
+      "answer": {
+        "en": "A major intellectual and scholarly center in Abbasid Baghdad, where scholars translated Greek, Persian, and Indian texts into Arabic and produced advances in mathematics, medicine, astronomy, and philosophy during the Islamic Golden Age.",
+        "ar": "مركز فكري وعلمي كبير في بغداد العباسية، ترجم فيه العلماء النصوص اليونانية والفارسية والهندية إلى العربية وأنجزوا تقدمًا في الرياضيات والطب والفلك والفلسفة خلال العصر الذهبي الإسلامي."
+      }
+    },
+    {
+      "id": "me-hist-010",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "Who was Saladin and what is he best known for in history?",
+        "ar": "من صلاح الدين وبِمَ يشتهر في التاريخ؟"
+      },
+      "answer": {
+        "en": "Saladin (Salah al-Din al-Ayyubi) was the Muslim Kurdish leader who founded the Ayyubid dynasty and is most famous for recapturing Jerusalem from the Crusaders in 1187.",
+        "ar": "صلاح الدين الأيوبي قائد مسلم كردي أسّس الأسرة الأيوبية ويشتهر بتحريره القدس من الصليبيين عام 1187."
+      }
+    },
+    {
+      "id": "me-hist-011",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Ottoman History",
+        "ar": "التاريخ العثماني"
+      },
+      "question": {
+        "en": "What empire ruled much of the Middle East and North Africa for about 400 years until World War I?",
+        "ar": "ما الإمبراطورية التي حكمت معظم الشرق الأوسط وشمال أفريقيا نحو 400 عام حتى الحرب العالمية الأولى؟"
+      },
+      "answer": {
+        "en": "The Ottoman Empire, centered in Constantinople (Istanbul).",
+        "ar": "الإمبراطورية العثمانية، التي تمركزت في القسطنطينية (إسطنبول)."
+      }
+    },
+    {
+      "id": "me-hist-012",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Ottoman History",
+        "ar": "التاريخ العثماني"
+      },
+      "question": {
+        "en": "What was the year the Ottoman Empire ended and was replaced by the Republic of Turkey?",
+        "ar": "في أي عام انتهت الإمبراطورية العثمانية وحلّت محلها الجمهورية التركية؟"
+      },
+      "answer": {
+        "en": "1923 — the Republic of Turkey was proclaimed on October 29, 1923, by Mustafa Kemal Ataturk.",
+        "ar": "1923 — أُعلنت الجمهورية التركية في 29 أكتوبر 1923 على يد مصطفى كمال أتاتورك."
+      }
+    },
+    {
+      "id": "me-hist-013",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What document issued in 1917 by Britain expressed support for a Jewish homeland in Palestine?",
+        "ar": "ما الوثيقة التي أصدرتها بريطانيا عام 1917 وأعربت فيها عن دعمها لوطن قومي يهودي في فلسطين؟"
+      },
+      "answer": {
+        "en": "The Balfour Declaration, issued by British Foreign Secretary Arthur Balfour on November 2, 1917.",
+        "ar": "وعد بلفور، الذي أصدره وزير الخارجية البريطاني آرثر بلفور في 2 نوفمبر 1917."
+      }
+    },
+    {
+      "id": "me-hist-014",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "In what year was the State of Israel declared?",
+        "ar": "في أي عام أُعلنت دولة إسرائيل؟"
+      },
+      "answer": {
+        "en": "1948 — declared on May 14, 1948, by David Ben-Gurion.",
+        "ar": "1948 — أُعلنت في 14 مايو 1948 على يد ديفيد بن غوريون."
+      }
+    },
+    {
+      "id": "me-hist-015",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Suez Crisis of 1956?",
+        "ar": "ما أزمة السويس عام 1956؟"
+      },
+      "answer": {
+        "en": "Egypt's President Nasser nationalized the Suez Canal, prompting a military attack by Britain, France, and Israel. US and Soviet pressure forced them to withdraw, marking a major shift in post-colonial power and Egypt's rise as a regional leader.",
+        "ar": "أمّم الرئيس المصري جمال عبد الناصر قناة السويس، مما استدعى هجومًا عسكريًا من بريطانيا وفرنسا وإسرائيل. أجبرهم الضغط الأمريكي والسوفيتي على الانسحاب، مما شكّل تحولًا كبيرًا في موازين القوى ما بعد الاستعمار وصعود مصر كقوة إقليمية."
+      }
+    },
+    {
+      "id": "me-hist-016",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Arab Spring?",
+        "ar": "ما الربيع العربي؟"
+      },
+      "answer": {
+        "en": "A wave of pro-democracy protests and uprisings that swept the Arab world from late 2010, toppling governments in Tunisia, Egypt, Libya, and Yemen, and triggering civil wars in Syria and elsewhere.",
+        "ar": "موجة من الاحتجاجات والانتفاضات الداعية إلى الديمقراطية اجتاحت العالم العربي منذ أواخر 2010، أسقطت حكومات في تونس ومصر وليبيا واليمن، وأشعلت حروبًا أهلية في سوريا وغيرها."
+      }
+    },
+    {
+      "id": "me-hist-017",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "In which year did Iraq invade Kuwait, triggering the Gulf War?",
+        "ar": "في أي عام غزا العراق الكويت مما أشعل فتيل حرب الخليج؟"
+      },
+      "answer": {
+        "en": "1990 — Iraq invaded Kuwait on August 2, 1990. The US-led coalition liberated Kuwait in early 1991.",
+        "ar": "1990 — غزا العراق الكويت في 2 أغسطس 1990. حرّر التحالف بقيادة الولايات المتحدة الكويت في مطلع 1991."
+      }
+    },
+    {
+      "id": "me-hist-018",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What ancient city is considered one of the oldest continuously inhabited cities in the world, located in Syria?",
+        "ar": "ما المدينة القديمة التي تُعدّ من أقدم المدن المأهولة باستمرار في العالم والواقعة في سوريا؟"
+      },
+      "answer": {
+        "en": "Damascus — inhabited for at least 11,000 years and considered one of the world's oldest continuously inhabited cities.",
+        "ar": "دمشق — مسكونة منذ ما لا يقل عن 11,000 سنة وتُعدّ من أقدم المدن المأهولة باستمرار في العالم."
+      }
+    },
+    {
+      "id": "me-hist-019",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What country did the United States and a coalition invade in 2003, toppling the government?",
+        "ar": "ما الدولة التي غزتها الولايات المتحدة وتحالف دولي عام 2003 وأسقطت حكومتها؟"
+      },
+      "answer": {
+        "en": "Iraq — the 2003 invasion led to the fall of Saddam Hussein's government.",
+        "ar": "العراق — أدى الغزو عام 2003 إلى سقوط حكومة صدام حسين."
+      }
+    },
+    {
+      "id": "me-hist-020",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "In what year did Egypt and Israel sign a historic peace treaty?",
+        "ar": "في أي عام وقّعت مصر وإسرائيل معاهدة سلام تاريخية؟"
+      },
+      "answer": {
+        "en": "1979 — the Egypt-Israel Peace Treaty was signed on March 26, 1979, making Egypt the first Arab country to formally recognize Israel.",
+        "ar": "1979 — وُقِّعت معاهدة السلام المصرية الإسرائيلية في 26 مارس 1979، مما جعل مصر أول دولة عربية تعترف رسميًا بإسرائيل."
+      }
+    },
+    {
+      "id": "me-hist-021",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What was the significance of the Battle of Marathon (490 BC) in the context of Persian expansion?",
+        "ar": "ما أهمية معركة ماراثون (490 ق.م) في سياق التوسع الفارسي؟"
+      },
+      "answer": {
+        "en": "The Athenians repelled the Persian invasion force of Darius I at Marathon, halting Persian expansion into mainland Greece and becoming a symbol of Greek resistance to empire.",
+        "ar": "صدّ الأثينيون جيش الغزو الفارسي لداريوس الأول في ماراثون، أوقفوا التوسع الفارسي في البر الرئيسي لليونان وأصبحت المعركة رمزًا للمقاومة اليونانية أمام الإمبراطورية."
+      }
+    },
+    {
+      "id": "me-hist-022",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Battle of Karbala (680 CE) and why is it significant in Islamic history?",
+        "ar": "ما معركة كربلاء (680 م) ولماذا لها أهمية في التاريخ الإسلامي؟"
+      },
+      "answer": {
+        "en": "The battle in which Husayn ibn Ali, grandson of Prophet Muhammad, was killed by the Umayyad army. It is the pivotal event in the Shia-Sunni split and is commemorated annually by Shia Muslims during Ashura.",
+        "ar": "المعركة التي قُتل فيها الحسين بن علي، حفيد النبي محمد، على يد الجيش الأموي. وهي الحدث المحوري في الانقسام الشيعي السني وتُحيي ذكراها المسلمون الشيعة سنويًا في عاشوراء."
+      }
+    },
+    {
+      "id": "me-hist-023",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "Who was Ibn Khaldun and what is his major contribution to intellectual history?",
+        "ar": "من ابن خلدون وما إسهامه الكبير في تاريخ الفكر؟"
+      },
+      "answer": {
+        "en": "Ibn Khaldun (1332–1406) was a North African Arab historian and philosopher who wrote the Muqaddimah — considered the first systematic study of history and sociology, analyzing cycles of civilization, group solidarity (asabiyyah), and the rise and fall of states.",
+        "ar": "ابن خلدون (1332–1406) مؤرخ وفيلسوف عربي شمال أفريقي كتب المقدمة — المعتبرة أول دراسة منهجية للتاريخ وعلم الاجتماع، تحلّل دورات الحضارة والعصبية وصعود الدول وسقوطها."
+      }
+    },
+    {
+      "id": "me-hist-024",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Ottoman History",
+        "ar": "التاريخ العثماني"
+      },
+      "question": {
+        "en": "What was the Sykes-Picot Agreement (1916)?",
+        "ar": "ما اتفاقية سايكس-بيكو (1916)؟"
+      },
+      "answer": {
+        "en": "A secret Anglo-French agreement that divided much of the Middle East into British and French spheres of influence following the anticipated collapse of the Ottoman Empire. Its borders roughly correspond to modern Iraq, Syria, Lebanon, Palestine, and Jordan.",
+        "ar": "اتفاقية سرية أنجلو-فرنسية قسّمت معظم الشرق الأوسط إلى مناطق نفوذ بريطانية وفرنسية في أعقاب الانهيار المتوقع للإمبراطورية العثمانية. حدودها تتوافق تقريبًا مع العراق وسوريا ولبنان وفلسطين والأردن الحديثة."
+      }
+    },
+    {
+      "id": "me-hist-025",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the 1967 Six-Day War?",
+        "ar": "ما حرب الأيام الستة 1967؟"
+      },
+      "answer": {
+        "en": "A war in which Israel defeated Egypt, Jordan, and Syria in six days, capturing the Sinai Peninsula, Gaza Strip, West Bank, East Jerusalem, and Golan Heights. It fundamentally reshaped the Israeli-Palestinian conflict and the broader regional balance of power.",
+        "ar": "حرب هزمت فيها إسرائيل مصر والأردن وسوريا في ستة أيام، فاحتلت شبه جزيرة سيناء وقطاع غزة والضفة الغربية والقدس الشرقية ومرتفعات الجولان. غيّرت جذريًا الصراع الفلسطيني الإسرائيلي وميزان القوى الإقليمي الأشمل."
+      }
+    },
+    {
+      "id": "me-hist-026",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Iranian Revolution of 1979?",
+        "ar": "ما الثورة الإيرانية عام 1979؟"
+      },
+      "answer": {
+        "en": "A revolution led by Ayatollah Khomeini that overthrew the Shah Mohammad Reza Pahlavi and established an Islamic Republic in Iran, fundamentally changing the regional balance of power and initiating decades of US-Iran tensions.",
+        "ar": "ثورة قادها آية الله الخميني أطاحت بالشاه محمد رضا بهلوي وأسّست جمهورية إسلامية في إيران، غيّرت جذريًا التوازن الإقليمي للقوى وأشعلت عقودًا من التوترات بين الولايات المتحدة وإيران."
+      }
+    },
+    {
+      "id": "me-hist-027",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Oslo Accords (1993) and what was its significance?",
+        "ar": "ما اتفاقيات أوسلو (1993) وما أهميتها؟"
+      },
+      "answer": {
+        "en": "A peace framework between Israel and the PLO, signed in Washington, where the PLO recognized Israel and Israel recognized the PLO as the representative of Palestinians. It established the Palestinian Authority but left final status issues (Jerusalem, borders, refugees) unresolved.",
+        "ar": "إطار سلام بين إسرائيل ومنظمة التحرير الفلسطينية وُقِّع في واشنطن، اعترفت فيه المنظمة بإسرائيل واعترفت إسرائيل بالمنظمة ممثلًا للفلسطينيين. أسّس السلطة الفلسطينية لكن ترك قضايا الوضع النهائي (القدس والحدود واللاجئون) دون حل."
+      }
+    },
+    {
+      "id": "me-hist-028",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Lebanon Civil War and how long did it last?",
+        "ar": "ما الحرب الأهلية اللبنانية وكم امتدت؟"
+      },
+      "answer": {
+        "en": "A multi-factional civil war in Lebanon from 1975 to 1990, involving Lebanese political factions, Palestinian groups, Israel, Syria, and later various militias. It killed an estimated 120,000–150,000 people.",
+        "ar": "حرب أهلية متعددة الفصائل في لبنان من 1975 إلى 1990، شارك فيها فصائل سياسية لبنانية وجماعات فلسطينية وإسرائيل وسوريا ومليشيات متنوعة لاحقًا. قُدِّر عدد ضحاياها بـ 120,000–150,000 شخص."
+      }
+    },
+    {
+      "id": "me-hist-029",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What organization was founded in Riyadh in 1981 to promote economic and political cooperation among Arab Gulf states?",
+        "ar": "ما المنظمة التي أُسِّست في الرياض عام 1981 لتعزيز التعاون الاقتصادي والسياسي بين دول الخليج العربي؟"
+      },
+      "answer": {
+        "en": "The Gulf Cooperation Council (GCC), comprising Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, and Oman.",
+        "ar": "مجلس التعاون لدول الخليج العربي (GCC)، الذي يضم المملكة العربية السعودية والإمارات والكويت وقطر والبحرين وعُمان."
+      }
+    },
+    {
+      "id": "me-hist-030",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What was the Code of Hammurabi and why is it historically significant?",
+        "ar": "ما مدوّنة حمورابي ولماذا هي مهمة تاريخيًا؟"
+      },
+      "answer": {
+        "en": "One of the earliest and most complete written legal codes, created by the Babylonian king Hammurabi around 1754 BC. It codified 282 laws covering trade, property, family, and criminal matters and established the principle that the state enforces law — not just the aggrieved party.",
+        "ar": "من أقدم وأكمل المدوّنات القانونية المكتوبة، أنشأها الملك البابلي حمورابي حوالي 1754 ق.م. قنّنت 282 قانونًا تغطي التجارة والملكية والأسرة والشؤون الجنائية وأرست مبدأ أن الدولة هي من تُنفّذ القانون — لا الطرف المتضرر وحده."
+      }
+    },
+    {
+      "id": "me-hist-031",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Battle of Tours (732 CE) and why is it considered pivotal in world history?",
+        "ar": "ما معركة بواتييه (تور) عام 732 م ولماذا تُعدّ محورية في تاريخ العالم؟"
+      },
+      "answer": {
+        "en": "The battle where Frankish and Burgundian forces under Charles Martel defeated the Umayyad Muslim army, halting the northward advance of Islamic expansion into western Europe. Many historians consider it a turning point preventing the Islamization of Europe.",
+        "ar": "المعركة التي انتصرت فيها قوات الفرنجة والبورغنديين بقيادة شارل مارتيل على الجيش الأموي، فأوقفت التقدم الإسلامي شمالًا نحو أوروبا الغربية. يعدّها كثير من المؤرخين نقطة تحوّل أوقفت أسلمة أوروبا."
+      }
+    },
+    {
+      "id": "me-hist-032",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Ottoman History",
+        "ar": "التاريخ العثماني"
+      },
+      "question": {
+        "en": "What were the Tanzimat reforms of the 19th-century Ottoman Empire?",
+        "ar": "ما إصلاحات التنظيمات في الإمبراطورية العثمانية في القرن التاسع عشر؟"
+      },
+      "answer": {
+        "en": "A series of modernizing reforms (1839–1876) that reorganized the military, bureaucracy, taxation, and courts; granted legal equality to non-Muslims; and introduced a secular penal code — representing the Ottoman Empire's attempt to modernize and compete with European powers.",
+        "ar": "سلسلة من الإصلاحات التحديثية (1839–1876) أعادت تنظيم الجيش والبيروقراطية والضرائب والمحاكم؛ ومنحت المساواة القانونية لغير المسلمين؛ وأدخلت قانون عقوبات علمانيًا — مثّلت محاولة الإمبراطورية العثمانية للتحديث والتنافس مع القوى الأوروبية."
+      }
+    },
+    {
+      "id": "me-hist-033",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the mandate system established after World War I and how did it shape the modern Middle East?",
+        "ar": "ما نظام الانتداب الذي أُسِّس بعد الحرب العالمية الأولى وكيف شكّل الشرق الأوسط الحديث؟"
+      },
+      "answer": {
+        "en": "The League of Nations mandates gave Britain and France administrative control over former Ottoman territories under the guise of 'preparing them for independence'. Britain took Iraq, Palestine, and Transjordan; France took Syria and Lebanon. These arbitrary borders created states that often lacked national cohesion and generated conflicts still felt today.",
+        "ar": "أعطت انتدابات عصبة الأمم بريطانيا وفرنسا السيطرة الإدارية على الأراضي العثمانية السابقة بحجة 'إعدادها للاستقلال'. أخذت بريطانيا العراق وفلسطين وشرق الأردن؛ وأخذت فرنسا سوريا ولبنان. هذه الحدود التعسفية خلقت دولًا تفتقر في الغالب إلى التماسك الوطني وأنتجت صراعات لا يزال أثرها محسوسًا حتى اليوم."
+      }
+    },
+    {
+      "id": "me-hist-034",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was Pan-Arabism and which leader was most associated with it?",
+        "ar": "ما القومية العربية (البان-عروبة) وأي زعيم ارتبط بها أكثر من غيره؟"
+      },
+      "answer": {
+        "en": "Pan-Arabism was an ideology promoting political unity among Arab peoples based on shared language, culture, and history. Gamal Abdel Nasser of Egypt was its foremost champion. The United Arab Republic — the short-lived 1958 union of Egypt and Syria — was its most concrete expression before dissolving in 1961.",
+        "ar": "القومية العربية أيديولوجيا تدعو إلى الوحدة السياسية بين العرب استنادًا إلى اللغة والثقافة والتاريخ المشتركة. كان جمال عبد الناصر المصري أبرز أبطالها. الجمهورية العربية المتحدة — الوحدة القصيرة الأجل بين مصر وسوريا عام 1958 — كانت تعبيرها الأملس قبل حلّها عام 1961."
+      }
+    },
+    {
+      "id": "me-hist-035",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Crusades and how did they affect the Middle East?",
+        "ar": "ما الحروب الصليبية وكيف أثّرت في الشرق الأوسط؟"
+      },
+      "answer": {
+        "en": "A series of religious military campaigns (1095–1291) launched by European Christians to recover the Holy Land from Muslim rule. They established short-lived Crusader states in Palestine, Lebanon, and Syria. The conflict produced significant cultural exchange but also great violence — ultimately ending with Muslim reconquest. Their legacy shaped Muslim-Christian relations for centuries.",
+        "ar": "سلسلة من الحملات العسكرية الدينية (1095–1291) شنّها مسيحيو أوروبا لاستعادة الأرض المقدسة من الحكم الإسلامي. أسّست دولًا صليبية قصيرة الأجل في فلسطين ولبنان وسوريا. أنتج الصراع تبادلًا ثقافيًا كبيرًا لكن أيضًا عنفًا هائلًا — وانتهى في نهاية المطاف بإعادة الفتح الإسلامي. إرثها شكّل العلاقات المسيحية الإسلامية لقرون."
+      }
+    },
+    {
+      "id": "me-hist-036",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Iran-Iraq War (1980–1988) and what triggered it?",
+        "ar": "ما الحرب العراقية الإيرانية (1980–1988) وما الذي أشعل فتيلها؟"
+      },
+      "answer": {
+        "en": "Triggered by Iraq's invasion of Iran under Saddam Hussein, partly motivated by Saddam's fear of Iran's Islamic Revolution inspiring Shia Iraqis, and territorial disputes over the Shatt al-Arab waterway. The war lasted 8 years, killed an estimated 1 million people, and ended in a stalemate with no border changes.",
+        "ar": "اندلعت بسبب غزو العراق لإيران في عهد صدام حسين، مدفوعًا جزئيًا بخشية صدام من أن تُلهم الثورة الإسلامية الإيرانية الشيعة العراقيين، ونزاعات إقليمية حول شط العرب. دامت الحرب 8 سنوات وأودت بحياة ما يُقدَّر بمليون شخص وانتهت بمأزق دون تغيير في الحدود."
+      }
+    },
+    {
+      "id": "me-hist-037",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Camp David Accords (1978) and who were the key figures involved?",
+        "ar": "ما اتفاقيات كامب ديفيد (1978) ومن كان الأشخاص الرئيسيون المشاركون؟"
+      },
+      "answer": {
+        "en": "Framework agreements brokered by US President Jimmy Carter between Egyptian President Anwar Sadat and Israeli Prime Minister Menachem Begin. They led to the 1979 Egypt-Israel Peace Treaty, returned Sinai to Egypt, but Sadat was assassinated in 1981 partly because of Arab world opposition to the deal.",
+        "ar": "اتفاقيات إطارية توسّط فيها الرئيس الأمريكي جيمي كارتر بين الرئيس المصري أنور السادات ورئيس الوزراء الإسرائيلي مناحيم بيغن. أفضت إلى معاهدة السلام المصرية الإسرائيلية عام 1979 وأعادت سيناء إلى مصر، لكن اغتيل السادات عام 1981 جزئيًا بسبب معارضة العالم العربي للاتفاقية."
+      }
+    },
+    {
+      "id": "me-hist-038",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the significance of the discovery of oil in Saudi Arabia in 1938?",
+        "ar": "ما أهمية اكتشاف النفط في المملكة العربية السعودية عام 1938؟"
+      },
+      "answer": {
+        "en": "The discovery of vast oil reserves at Dammam Well No. 7 transformed Saudi Arabia from a poor country into the world's largest oil exporter, gave birth to the modern Gulf economy, created ARAMCO, and gave Saudi Arabia extraordinary geopolitical leverage — reshaping global energy markets and Middle East politics permanently.",
+        "ar": "غيّر اكتشاف احتياطيات نفطية ضخمة في بئر الدمام رقم 7 المملكة العربية السعودية من دولة فقيرة إلى أكبر مصدّر للنفط في العالم، وأعطى الميلاد لاقتصاد الخليج الحديث، وأنشأ أرامكو، وأعطى المملكة نفوذًا جيوسياسيًا هائلًا — أعاد تشكيل أسواق الطاقة العالمية وسياسات الشرق الأوسط بصفة دائمة."
+      }
+    },
+    {
+      "id": "me-hist-039",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the significance of the 1973 Yom Kippur War (October War)?",
+        "ar": "ما أهمية حرب أكتوبر 1973 (حرب يوم الغفران)؟"
+      },
+      "answer": {
+        "en": "Egypt and Syria launched a surprise attack against Israel on Yom Kippur to recover territories lost in 1967. Initial Arab gains were reversed but the war restored Arab military credibility, led to the Arab oil embargo (1973 oil crisis) that shocked Western economies, and ultimately paved the way for the Camp David peace process.",
+        "ar": "شنّت مصر وسوريا هجومًا مباغتًا على إسرائيل في يوم الغفران لاستعادة الأراضي المفقودة عام 1967. انعكست المكاسب العربية الأولية لاحقًا لكن الحرب استعادت المصداقية العسكرية العربية وأفضت إلى الحظر النفطي العربي (أزمة النفط 1973) الذي صدم الاقتصادات الغربية، وأفسح في المطاف الطريق لمسار سلام كامب ديفيد."
+      }
+    },
+    {
+      "id": "me-hist-040",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What was the Nabataean Kingdom and what is its most famous city?",
+        "ar": "ما المملكة النبطية وما أشهر مدنها؟"
+      },
+      "answer": {
+        "en": "The Nabataeans were an Arab people who built a prosperous trading kingdom in the Negev desert and Jordan from around 300 BC to 106 AD, controlling incense and spice trade routes. Their most famous city is Petra, the rock-carved city in modern Jordan.",
+        "ar": "الأنباط شعب عربي بنى مملكة تجارية مزدهرة في صحراء النقب والأردن من نحو 300 ق.م حتى 106 م، يتحكمون في طرق تجارة البخور والتوابل. أشهر مدنهم البتراء، المدينة المنحوتة في الصخر في الأردن الحديث."
+      }
+    },
+    {
+      "id": "me-hist-041",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What was the Oslo II (Interim Agreement) of 1995 and what did it divide?",
+        "ar": "ما اتفاقية أوسلو الثانية (الاتفاقية المرحلية) عام 1995 وما الذي قسّمته؟"
+      },
+      "answer": {
+        "en": "Oslo II divided the West Bank into three zones: Area A (full Palestinian civil and security control), Area B (Palestinian civil control, joint security), and Area C (full Israeli control, covering ~60% of West Bank). This division has remained in place, shaping access, settlement expansion, and daily Palestinian life.",
+        "ar": "قسّمت أوسلو الثانية الضفة الغربية إلى ثلاث مناطق: المنطقة أ (سيطرة فلسطينية مدنية وأمنية كاملة)، والمنطقة ب (سيطرة مدنية فلسطينية وأمن مشترك)، والمنطقة ج (سيطرة إسرائيلية كاملة، تغطي نحو 60% من الضفة الغربية). لا يزال هذا التقسيم سارياً ويؤثر في إمكانية الوصول وتوسّع المستوطنات والحياة اليومية الفلسطينية."
+      }
+    },
+    {
+      "id": "me-hist-042",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What were the Abraham Accords (2020)?",
+        "ar": "ما اتفاقيات أبراهام (2020)؟"
+      },
+      "answer": {
+        "en": "Normalization agreements brokered by the US Trump administration between Israel and the UAE, Bahrain, Sudan, and Morocco. They established diplomatic relations and trade without requiring resolution of the Palestinian issue — a departure from the traditional Arab position that normalization required a Palestinian state first.",
+        "ar": "اتفاقيات تطبيع رعتها إدارة ترامب الأمريكية بين إسرائيل والإمارات والبحرين والسودان والمغرب. أقامت علاقات دبلوماسية وتجارية دون اشتراط حل القضية الفلسطينية — تحوّل عن الموقف العربي التقليدي القائل بأن التطبيع يستلزم دولة فلسطينية أولًا."
+      }
+    },
+    {
+      "id": "me-hist-043",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Ancient",
+        "ar": "عصور قديمة"
+      },
+      "question": {
+        "en": "What was the Phoenician civilization known for?",
+        "ar": "بِمَ اشتهرت الحضارة الفينيقية؟"
+      },
+      "answer": {
+        "en": "The Phoenicians, based in the eastern Mediterranean (modern Lebanon), were master traders and seafarers who established colonies across the Mediterranean including Carthage. Most significantly, they developed an early alphabet that became the ancestor of most modern alphabets including Arabic, Greek, Latin, and Hebrew.",
+        "ar": "الفينيقيون، الذين كانوا مستقرّين في شرق البحر المتوسط (لبنان الحديث)، كانوا تجارًا وبحارة بارعين أسّسوا مستعمرات عبر البحر المتوسط بما فيها قرطاج. الأهم أنهم طوّروا أبجدية مبكرة أصبحت أصل معظم الأبجديات الحديثة بما فيها العربية واليونانية واللاتينية والعبرية."
+      }
+    },
+    {
+      "id": "me-hist-044",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What factors led to the founding of the PLO (Palestine Liberation Organization) in 1964?",
+        "ar": "ما العوامل التي أفضت إلى تأسيس منظمة التحرير الفلسطينية عام 1964؟"
+      },
+      "answer": {
+        "en": "The 1948 Nakba had displaced hundreds of thousands of Palestinians. Arab states sponsored the PLO's founding at the Arab League summit in Cairo to represent Palestinian national aspirations and organize resistance against Israel. Yasser Arafat's Fatah movement gained control in 1969.",
+        "ar": "أدت نكبة 1948 إلى تهجير مئات الآلاف من الفلسطينيين. رعت الدول العربية تأسيس المنظمة في قمة جامعة الدول العربية في القاهرة لتمثيل الطموحات الوطنية الفلسطينية وتنظيم المقاومة ضد إسرائيل. استولت حركة فتح بقيادة ياسر عرفات على السيطرة عام 1969."
+      }
+    },
+    {
+      "id": "me-hist-045",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Fatimid Caliphate and where was it centered?",
+        "ar": "ما الخلافة الفاطمية وأين كان مركزها؟"
+      },
+      "answer": {
+        "en": "A Shia Ismaili dynasty that ruled North Africa and Egypt (909–1171 CE), centered in Cairo, which the Fatimids founded as their capital. At its peak it controlled Egypt, the Levant, and parts of the Maghreb. The Al-Azhar mosque and university, founded by the Fatimids, remains one of the world's most influential Islamic institutions.",
+        "ar": "أسرة حاكمة شيعية إسماعيلية حكمت شمال أفريقيا ومصر (909–1171 م) وتمركزت في القاهرة التي أسّسها الفاطميون عاصمةً لهم. في أوجها سيطرت على مصر والشام وأجزاء من المغرب. مسجد وجامعة الأزهر الذي أسّسه الفاطميون لا يزال من أكثر المؤسسات الإسلامية تأثيرًا في العالم."
+      }
+    },
+    {
+      "id": "me-hist-046",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Mu'tazila movement in Islamic intellectual history and why did it decline?",
+        "ar": "ما حركة المعتزلة في التاريخ الفكري الإسلامي ولماذا تراجعت؟"
+      },
+      "answer": {
+        "en": "The Mu'tazilites (8th–10th centuries) were rationalist theologians who argued the Quran was created (not eternal), that human reason can determine ethical truth, and that God's justice requires free human will. They enjoyed Abbasid patronage during the Mihna (833–848 CE) — a state-enforced inquisition requiring scholars to affirm Quranic createdness. The backlash led to the Ash'ari school's dominance, which emphasized revelation over reason, and the Mu'tazilites were largely suppressed.",
+        "ar": "المعتزلة (القرنان 8-10) علماء كلام عقلانيون آمنوا بأن القرآن مخلوق (وليس أزليًا)، وأن العقل البشري يستطيع تحديد الحقيقة الأخلاقية، وأن عدل الله يستلزم الإرادة الإنسانية الحرة. حظوا برعاية عباسية خلال المحنة (833–848 م) — تحقيق تفرضه الدولة يُلزم العلماء بالتأكيد على مخلوقية القرآن. أفضى ردّ الفعل إلى هيمنة المذهب الأشعري الذي أولى الوحي على حساب العقل، وقُمع المعتزلة إلى حدٍّ كبير."
+      }
+    },
+    {
+      "id": "me-hist-047",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Ottoman History",
+        "ar": "التاريخ العثماني"
+      },
+      "question": {
+        "en": "How did the Ottoman millet system function and why was it significant for the governance of diverse populations?",
+        "ar": "كيف عمل نظام الملل العثماني ولماذا كان مهمًا في حكم السكان المتنوعين؟"
+      },
+      "answer": {
+        "en": "The millet system recognized non-Muslim religious communities (Greeks, Armenians, Jews) as semi-autonomous corporate bodies governed by their own religious laws and leaders in personal status matters (marriage, inheritance, religious education) while remaining Ottoman subjects. It enabled a religiously diverse empire to function with minimal state intervention in minority affairs — a form of legal pluralism with both protective and segregating effects.",
+        "ar": "اعترف نظام الملل بالطوائف الدينية غير المسلمة (اليونانيون والأرمن واليهود) كتجمّعات شبه مستقلة تحكمها قوانينها الدينية وقادتها في مسائل الأحوال الشخصية (الزواج والميراث والتعليم الديني) مع بقائها رعايا عثمانيين. مكّن هذا النظام إمبراطوريةً متنوعة دينيًا من العمل مع أدنى تدخل حكومي في شؤون الأقليات — شكل من أشكال التعددية القانونية ذو آثار وقائية وفصلية في آنٍ معًا."
+      }
+    },
+    {
+      "id": "me-hist-048",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "How did the 1973 oil embargo reshape the global economic and political order?",
+        "ar": "كيف أعاد حظر النفط عام 1973 تشكيل النظام الاقتصادي والسياسي العالمي؟"
+      },
+      "answer": {
+        "en": "OPEC's Arab members cut oil production and embargoed the US and Netherlands for supporting Israel in the Yom Kippur War. Oil prices quadrupled, triggering global recession, stagflation, and a shift in Western energy policy toward conservation and diversification. It demonstrated the geopolitical leverage of commodity control, accelerated petrodollar recycling through Western banks, and permanently elevated Gulf Arab states in global finance.",
+        "ar": "خفّض الأعضاء العرب في أوبك إنتاجهم النفطي وفرضوا حظارًا على الولايات المتحدة وهولندا لدعمهما إسرائيل في حرب أكتوبر. تضاعفت أسعار النفط أربع مرات، مما أشعل ركودًا عالميًا وركودًا تضخميًا وحوّل السياسة الطاقوية الغربية نحو الترشيد والتنويع. أثبت النفوذ الجيوسياسي للسيطرة على السلع الأساسية وعجّل تدوير البترودولار عبر البنوك الغربية ورفع مكانة دول الخليج العربي بصفة دائمة في التمويل العالمي."
+      }
+    },
+    {
+      "id": "me-hist-049",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Islamic History",
+        "ar": "التاريخ الإسلامي"
+      },
+      "question": {
+        "en": "What was the Mongol sack of Baghdad (1258) and what was its impact on Islamic civilization?",
+        "ar": "ما سقوط بغداد على يد المغول (1258) وما أثره على الحضارة الإسلامية؟"
+      },
+      "answer": {
+        "en": "Hulagu Khan's Mongol forces killed the Abbasid Caliph, reportedly massacred 200,000–800,000 inhabitants, and destroyed the city including the House of Wisdom. It ended the Abbasid Caliphate, broke the centralized political-religious authority of the Islamic world, and is considered one of the most devastating events in Islamic history — though Egypt under the Mamluks defeated the Mongols at Ain Jalut shortly after.",
+        "ar": "أعدم قوات هولاكو خان المغولية الخليفة العباسي وذبحت بحسب الروايات 200,000–800,000 شخص ودمّرت المدينة بما فيها بيت الحكمة. أنهت الخلافة العباسية وحطّمت السلطة السياسية الدينية المركزية للعالم الإسلامي، وتُعدّ من أكثر الأحداث تدميرًا في التاريخ الإسلامي — رغم أن مصر في عهد المماليك هزمت المغول في عين جالوت بُعيد ذلك."
+      }
+    },
+    {
+      "id": "me-hist-050",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Modern History",
+        "ar": "التاريخ الحديث"
+      },
+      "question": {
+        "en": "What are the underlying structural factors that historians identify as causes of the Arab Spring's failure to consolidate democracy?",
+        "ar": "ما العوامل البنيوية الكامنة التي يُحدّدها المؤرخون سببًا لإخفاق الربيع العربي في ترسيخ الديمقراطية؟"
+      },
+      "answer": {
+        "en": "Historians point to: weak civil society institutions (decades of authoritarian suppression); deep sectarian, tribal, and regional divisions exploited by old-guard actors; militaries unwilling to cede power (Egypt's coup, Syria's Assad); economic deterioration and lack of inclusive development; international interference (Gulf states and Western powers backing preferred factions); and the absence of a middle-class large enough to sustain democratic transitions as occurred in some East European post-communist states.",
+        "ar": "يشير المؤرخون إلى: ضعف مؤسسات المجتمع المدني (عقود من القمع الاستبدادي)؛ الانقسامات الطائفية والقبلية والإقليمية العميقة التي استغلّها الحرس القديم؛ جيوش رافضة للتنازل عن السلطة (انقلاب مصر وبشار الأسد في سوريا)؛ التدهور الاقتصادي وغياب التنمية الشاملة؛ التدخل الدولي (دول الخليج والقوى الغربية تدعم فصائلها المفضّلة)؛ وغياب طبقة وسطى كبيرة بما يكفي لإدامة تحوّلات ديمقراطية كما حدث في بعض دول أوروبا الشرقية بعد الشيوعية."
+      }
+    }
+  ]
+}

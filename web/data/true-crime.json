@@ -1,0 +1,502 @@
+{
+  "slug": "true-crime",
+  "title": {
+    "en": "True Crime & Mysteries",
+    "ar": "جرائم حقيقية"
+  },
+  "emoji": "🕵️‍♂️",
+  "color": "var(--accent)",
+  "count": 40,
+  "cards": [
+    {
+      "id": "true-crime-1",
+      "question": {
+        "en": "What famous serial killer was known as the 'Whitechapel Murderer'?",
+        "ar": "ما هو السفاح الشهير الذي عُرف باسم 'قاتل وايت تشابل'؟"
+      },
+      "answer": {
+        "en": "Jack the Ripper",
+        "ar": "جاك السفاح"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-2",
+      "question": {
+        "en": "Who was the infamous mob boss known as 'Scarface'?",
+        "ar": "من هو زعيم المافيا سيئ السمعة المعروف باسم 'الوجه ذو الندبة'؟"
+      },
+      "answer": {
+        "en": "Al Capone",
+        "ar": "آل كابوني"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-3",
+      "question": {
+        "en": "What notorious prison is located on an island in San Francisco Bay?",
+        "ar": "ما هو السجن سيئ السمعة الذي يقع على جزيرة في خليج سان فرانسيسكو؟"
+      },
+      "answer": {
+        "en": "Alcatraz",
+        "ar": "ألكتراز"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-4",
+      "question": {
+        "en": "Who assassinated US President Abraham Lincoln?",
+        "ar": "من اغتال الرئيس الأمريكي أبراهام لينكولن؟"
+      },
+      "answer": {
+        "en": "John Wilkes Booth",
+        "ar": "جون ويلكس بوث"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-5",
+      "question": {
+        "en": "What was the name of the cult leader responsible for the 1969 Tate-LaBianca murders?",
+        "ar": "ما كان اسم زعيم الطائفة المسؤول عن جرائم قتل تيت-لابيانكا عام 1969؟"
+      },
+      "answer": {
+        "en": "Charles Manson",
+        "ar": "تشارلز مانسون"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-6",
+      "question": {
+        "en": "What famous pirate was known for his thick black beard?",
+        "ar": "ما هو القرصان الشهير الذي عُرف بلحيته السوداء الكثيفة؟"
+      },
+      "answer": {
+        "en": "Blackbeard",
+        "ar": "اللحية السوداء"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-7",
+      "question": {
+        "en": "Which American outlaw pair went on a crime spree during the Great Depression?",
+        "ar": "من هما الثنائي الأمريكي الخارج عن القانون الذي قام بسلسلة جرائم خلال الكساد الكبير؟"
+      },
+      "answer": {
+        "en": "Bonnie and Clyde",
+        "ar": "بوني وكلايد"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-8",
+      "question": {
+        "en": "What historical event involved the mass hysteria and hanging of women in 1692 Massachusetts?",
+        "ar": "ما هو الحدث التاريخي الذي تضمن هستيريا جماعية وشنق نساء في ماساتشوستس عام 1692؟"
+      },
+      "answer": {
+        "en": "Salem Witch Trials",
+        "ar": "محاكمات السحرة في سالم"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-9",
+      "question": {
+        "en": "What Colombian drug lord was the wealthiest criminal in history?",
+        "ar": "ما هو تاجر المخدرات الكولومبي الذي كان أغنى مجرم في التاريخ؟"
+      },
+      "answer": {
+        "en": "Pablo Escobar",
+        "ar": "بابلو إسكوبار"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-10",
+      "question": {
+        "en": "What unknown hijacker parachuted out of a plane with $200,000 in 1971?",
+        "ar": "ما هو الخاطف المجهول الذي قفز بمظلة من طائرة وبحوزته 200,000 دولار عام 1971؟"
+      },
+      "answer": {
+        "en": "D.B. Cooper",
+        "ar": "دي. بي. كوبر"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "true-crime-11",
+      "question": {
+        "en": "Which serial killer was known as the 'Milwaukee Cannibal'?",
+        "ar": "أي سفاح عُرف باسم 'أكل لحوم البشر في ميلووكي'؟"
+      },
+      "answer": {
+        "en": "Jeffrey Dahmer",
+        "ar": "جيفري دامر"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-12",
+      "question": {
+        "en": "What cipher-using killer terrorized Northern California in the late 1960s?",
+        "ar": "ما هو القاتل الذي استخدم الشفرات وأرهب شمال كاليفورنيا في أواخر الستينيات؟"
+      },
+      "answer": {
+        "en": "The Zodiac Killer",
+        "ar": "زودياك السفاح"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-13",
+      "question": {
+        "en": "Who was the first person to be convicted using DNA fingerprinting?",
+        "ar": "من كان أول شخص يُدان باستخدام بصمة الحمض النووي؟"
+      },
+      "answer": {
+        "en": "Colin Pitchfork",
+        "ar": "كولين بيتشفورك"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-14",
+      "question": {
+        "en": "What was the name of the infamous 1932 kidnapping of a famous aviator's baby?",
+        "ar": "ما كان اسم عملية الاختطاف سيئة السمعة عام 1932 لطفل طيار شهير؟"
+      },
+      "answer": {
+        "en": "Lindbergh kidnapping",
+        "ar": "اختطاف ليندبيرغ"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-15",
+      "question": {
+        "en": "Which Italian-American Mafia family was John Gotti the boss of?",
+        "ar": "أي عائلة مافيا إيطالية أمريكية كان جون جوتي زعيماً لها؟"
+      },
+      "answer": {
+        "en": "The Gambino family",
+        "ar": "عائلة غامبينو"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-16",
+      "question": {
+        "en": "What famous painting was stolen from the Louvre in 1911?",
+        "ar": "ما هي اللوحة الشهيرة التي سُرقت من متحف اللوفر عام 1911؟"
+      },
+      "answer": {
+        "en": "The Mona Lisa",
+        "ar": "الموناليزا"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-17",
+      "question": {
+        "en": "Who assassinated John F. Kennedy?",
+        "ar": "من اغتال جون إف كينيدي؟"
+      },
+      "answer": {
+        "en": "Lee Harvey Oswald",
+        "ar": "لي هارفي أوزوالد"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-18",
+      "question": {
+        "en": "What infamous hotel was the site of the 1972 political break-in that led to Nixon's resignation?",
+        "ar": "ما هو الفندق الشهير الذي كان موقعاً للاقتحام السياسي عام 1972 والذي أدى إلى استقالة نيكسون؟"
+      },
+      "answer": {
+        "en": "The Watergate Hotel",
+        "ar": "فندق ووترغيت"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-19",
+      "question": {
+        "en": "Which serial killer was known as the 'Night Stalker'?",
+        "ar": "أي سفاح عُرف باسم 'المطارد الليلي'؟"
+      },
+      "answer": {
+        "en": "Richard Ramirez",
+        "ar": "ريتشارد راميريز"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-20",
+      "question": {
+        "en": "What was the name of the cult that committed mass suicide in Jonestown in 1978?",
+        "ar": "ما كان اسم الطائفة التي ارتكبت انتحاراً جماعياً في جونزتاون عام 1978؟"
+      },
+      "answer": {
+        "en": "Peoples Temple",
+        "ar": "معبد الشعوب"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "true-crime-21",
+      "question": {
+        "en": "What is the name of the forensic technique that analyzes blood patterns at a crime scene?",
+        "ar": "ما هو اسم تقنية الطب الشرعي التي تحلل أنماط الدم في مسرح الجريمة؟"
+      },
+      "answer": {
+        "en": "Bloodstain pattern analysis (BPA)",
+        "ar": "تحليل أنماط بقع الدم"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-22",
+      "question": {
+        "en": "Who was the 'Unabomber'?",
+        "ar": "من كان 'يونابومبر'؟"
+      },
+      "answer": {
+        "en": "Ted Kaczynski",
+        "ar": "تيد كازينسكي"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-23",
+      "question": {
+        "en": "What famous American bank robber was declared 'Public Enemy No. 1' by the FBI in 1934?",
+        "ar": "ما هو سارق البنوك الأمريكي الشهير الذي أعلنه مكتب التحقيقات الفيدرالي 'عدو الشعب رقم 1' عام 1934؟"
+      },
+      "answer": {
+        "en": "John Dillinger",
+        "ar": "جون ديلينجر"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-24",
+      "question": {
+        "en": "Which Scottish medical doctor was also a pioneer in forensic toxicology in the 19th century?",
+        "ar": "أي طبيب اسكتلندي كان رائداً في علم السموم الشرعي في القرن التاسع عشر؟"
+      },
+      "answer": {
+        "en": "Joseph Bell / Christison",
+        "ar": "جوزيف بيل / روبرت كريستيسون"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-25",
+      "question": {
+        "en": "What was the largest art heist in history, occurring in Boston in 1990?",
+        "ar": "ما هي أكبر عملية سرقة فنية في التاريخ، والتي وقعت في بوسطن عام 1990؟"
+      },
+      "answer": {
+        "en": "Isabella Stewart Gardner Museum heist",
+        "ar": "سرقة متحف إيزابيلا ستيوارت جاردنر"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-26",
+      "question": {
+        "en": "Which serial killer wore a clown suit and was known as the 'Killer Clown'?",
+        "ar": "أي سفاح كان يرتدي بدلة مهرج وعُرف باسم 'المهرج القاتل'؟"
+      },
+      "answer": {
+        "en": "John Wayne Gacy",
+        "ar": "جون واين جيسي"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-27",
+      "question": {
+        "en": "What infamous French penal colony in South America was known as the 'Green Hell'?",
+        "ar": "ما هي المستعمرة العقابية الفرنسية سيئة السمعة في أمريكا الجنوبية والتي عُرفت باسم 'الجحيم الأخضر'؟"
+      },
+      "answer": {
+        "en": "Devil's Island",
+        "ar": "جزيرة الشيطان"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-28",
+      "question": {
+        "en": "What was the real name of 'Black Dahlia', the victim of a famous 1947 unsolved murder?",
+        "ar": "ما كان الاسم الحقيقي لـ 'الداليا السوداء'، ضحية جريمة القتل غير المحلولة الشهيرة عام 1947؟"
+      },
+      "answer": {
+        "en": "Elizabeth Short",
+        "ar": "إليزابيث شورت"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-29",
+      "question": {
+        "en": "Which mobster was the architect of the National Crime Syndicate in the US?",
+        "ar": "أي رجل عصابات كان المهندس المعماري لنقابة الجريمة الوطنية في الولايات المتحدة؟"
+      },
+      "answer": {
+        "en": "Lucky Luciano",
+        "ar": "لاكي لوتشيانو"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-30",
+      "question": {
+        "en": "What chemical was commonly used by 19th-century poisoners and detects via the Marsh test?",
+        "ar": "ما هي المادة الكيميائية التي كانت شائعة الاستخدام من قبل مصممي السموم في القرن التاسع عشر وتكتشف عبر اختبار مارش؟"
+      },
+      "answer": {
+        "en": "Arsenic",
+        "ar": "الزرنيخ"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "true-crime-31",
+      "question": {
+        "en": "What specific type of fly is typically the first insect to arrive at a decomposing body, crucial for determining post-mortem interval?",
+        "ar": "ما هو النوع المحدد من الذباب الذي يكون عادةً أول حشرة تصل إلى جثة متحللة، وهو أمر حاسم لتحديد فترة ما بعد الوفاة؟"
+      },
+      "answer": {
+        "en": "Blowfly (Calliphoridae)",
+        "ar": "الذباب الأزرق (Calliphoridae)"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-32",
+      "question": {
+        "en": "What was the name of the cryptogram sent by the Zodiac Killer that took 51 years to decipher?",
+        "ar": "ما كان اسم التشفير الذي أرسله زودياك السفاح واستغرق 51 عاماً لفك رموزه؟"
+      },
+      "answer": {
+        "en": "Z340 cipher",
+        "ar": "شفرة Z340"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-33",
+      "question": {
+        "en": "Which psychological term describes victims developing an emotional bond with their captors, named after a 1973 bank robbery?",
+        "ar": "أي مصطلح نفسي يصف تطور رابطة عاطفية للضحايا مع آسريهم، وسُمي تيمناً بعملية سطو على بنك عام 1973؟"
+      },
+      "answer": {
+        "en": "Stockholm Syndrome",
+        "ar": "متلازمة ستوكهولم"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-34",
+      "question": {
+        "en": "What rare genetic disorder removes the ability to feel pain, making individuals dangerously fearless and prone to unnoticed injuries?",
+        "ar": "ما هو الاضطراب الوراثي النادر الذي يزيل القدرة على الشعور بالألم، مما يجعل الأفراد شجعاناً بشكل خطير وعرضة لإصابات غير ملحوظة؟"
+      },
+      "answer": {
+        "en": "CIPA (Congenital Insensitivity to Pain with Anhidrosis)",
+        "ar": "عدم الإحساس الخلقي بالألم"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-35",
+      "question": {
+        "en": "What highly toxic protein, extracted from castor beans, was used to assassinate Georgi Markov via an umbrella in 1978?",
+        "ar": "ما هو البروتين شديد السمية، المستخرج من حبوب الخروع، الذي استخدم لاغتيال جورجي ماركوف عبر مظلة في عام 1978؟"
+      },
+      "answer": {
+        "en": "Ricin",
+        "ar": "الريسين"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-36",
+      "question": {
+        "en": "In forensic ballistics, what is the term for the spiral grooves inside a gun barrel that impart spin to a bullet?",
+        "ar": "في المقذوفات الجنائية، ما هو المصطلح الذي يطلق على الأخاديد الحلزونية داخل سبطانة البندقية التي تضفي الدوران على الرصاصة؟"
+      },
+      "answer": {
+        "en": "Rifling",
+        "ar": "الحلزنة"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-37",
+      "question": {
+        "en": "Which Italian criminal organization is based in Calabria and is considered one of the most powerful cartels in the world today?",
+        "ar": "أي منظمة إجرامية إيطالية تتخذ من كالابريا مقراً لها وتعتبر واحدة من أقوى الكارتلات في العالم اليوم؟"
+      },
+      "answer": {
+        "en": "'Ndrangheta",
+        "ar": "ندرانجيتا"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-38",
+      "question": {
+        "en": "What historical true crime involved a man named H.H. Holmes building a 'Murder Castle' during the 1893 World's Fair?",
+        "ar": "ما هي الجريمة التاريخية الحقيقية التي تضمنت قيام رجل يدعى إتش إتش هولمز ببناء 'قلعة القتل' خلال المعرض العالمي عام 1893؟"
+      },
+      "answer": {
+        "en": "The Chicago World's Fair murders",
+        "ar": "جرائم قتل معرض شيكاغو العالمي"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-39",
+      "question": {
+        "en": "What specific forensic discipline studies teeth to identify victims or bite marks?",
+        "ar": "ما هو تخصص الطب الشرعي المحدد الذي يدرس الأسنان لتحديد هوية الضحايا أو علامات العض؟"
+      },
+      "answer": {
+        "en": "Forensic Odontology",
+        "ar": "طب الأسنان الشرعي"
+      },
+      "difficulty": "very-advanced"
+    },
+    {
+      "id": "true-crime-40",
+      "question": {
+        "en": "What is the name of the mathematical principle used by forensic accountants to detect fraud by analyzing the leading digits of numbers?",
+        "ar": "ما اسم المبدأ الرياضي الذي يستخدمه المحاسبون الشرعيون لاكتشاف الاحتيال من خلال تحليل الأرقام الأولى من الأعداد؟"
+      },
+      "answer": {
+        "en": "Benford's Law",
+        "ar": "قانون بنفورد"
+      },
+      "difficulty": "very-advanced"
+    }
+  ],
+  "difficultyCounts": {
+    "easy": 10,
+    "medium": 10,
+    "hard": 10,
+    "very-advanced": 10
+  },
+  "description": {
+    "en": "Explore questions about True Crime & Mysteries.",
+    "ar": "اكتشف أسئلة حول جرائم حقيقية."
+  }
+}

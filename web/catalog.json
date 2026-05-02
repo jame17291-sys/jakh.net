@@ -1,0 +1,1545 @@
+{
+  "site": {
+    "title": {
+      "en": "JAKH Riddles",
+      "ar": "JAKH Riddles"
+    },
+    "description": {
+      "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
+      "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
+    },
+    "totalQuestions": 3093
+  },
+  "categories": [
+    {
+      "slug": "art-and-painters",
+      "title": {
+        "en": "Masterpiece Gallery",
+        "ar": "معرض الروائع"
+      },
+      "description": {
+        "en": "Painters, famous works, styles, and art clues designed for friendly play.",
+        "ar": "رسامون وأعمال مشهورة وأساليب فنية وأدلة ممتعة للعب الودي."
+      },
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "emoji": "🎨",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "art-and-painters.html",
+      "image": "assets/art-and-painters.svg"
+    },
+    {
+      "slug": "biology",
+      "title": {
+        "en": "The Living Code",
+        "ar": "شفرة الحياة"
+      },
+      "description": {
+        "en": "Biology for adult learners, spanning cells, genetics, physiology, ecology, evolution, immunity, and modern molecular tools.",
+        "ar": "أحياء للمتعلمين الكبار تشمل الخلايا والوراثة ووظائف الأعضاء والبيئة والتطور والمناعة وأدوات الجزيئات الحديثة."
+      },
+      "cluster": {
+        "en": "Knowledge & STEM",
+        "ar": "معرفة وعلوم"
+      },
+      "cluster_key": "knowledge",
+      "emoji": "🧬",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "biology.html",
+      "image": "assets/biology.svg"
+    },
+    {
+      "slug": "books-and-quotes",
+      "title": {
+        "en": "Literary Legends",
+        "ar": "أساطير الأدب"
+      },
+      "description": {
+        "en": "Authors, novels, famous lines, and literary clues in one category page.",
+        "ar": "كتّاب وروايات واقتباسات مشهورة وأدلة أدبية في صفحة واحدة."
+      },
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "emoji": "📚",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "books-and-quotes.html",
+      "image": "assets/books-and-quotes.svg"
+    },
+    {
+      "slug": "business-and-management",
+      "title": {
+        "en": "Empire Builder",
+        "ar": "باني الإمبراطورية"
+      },
+      "description": {
+        "en": "Business Management for adult learners, with strategy, finance, operations, leadership, and Gulf-region commercial context.",
+        "ar": "إدارة أعمال للمتعلمين الكبار تشمل الاستراتيجية والمالية والعمليات والقيادة وسياق الأعمال في الخليج."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "📊",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "business-and-management.html",
+      "image": "assets/business-and-management.svg"
+    },
+    {
+      "slug": "chemistry",
+      "title": {
+        "en": "Molecular Magic",
+        "ar": "سحر الجزيئات"
+      },
+      "description": {
+        "en": "Chemistry vocabulary and lab ideas from easy recognition to very advanced recall.",
+        "ar": "مفردات الكيمياء وأفكار المختبر من التعرف السهل إلى الاستدعاء المتقدم جدًا."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "⚗️",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "chemistry.html",
+      "image": "assets/chemistry.svg"
+    },
+    {
+      "slug": "civil-engineering",
+      "title": {
+        "en": "Mega Structures",
+        "ar": "هياكل عملاقة"
+      },
+      "description": {
+        "en": "Structures, materials, loads, and site systems for civil-engineering practice.",
+        "ar": "منشآت ومواد وأحمال وأنظمة مواقع لمجال الهندسة المدنية."
+      },
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "emoji": "🏗️",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "civil-engineering.html",
+      "image": "assets/civil-engineering.svg"
+    },
+    {
+      "slug": "classic-riddles",
+      "title": {
+        "en": "Timeless Enigmas",
+        "ar": "ألغاز خالدة"
+      },
+      "description": {
+        "en": "Classic flip-card riddles with everyday objects, clever clues, and a balanced path from easy to very advanced.",
+        "ar": "ألغاز كلاسيكية ببطاقات قابلة للقلب مع أشياء يومية وأدلة ذكية ومسار متوازن من السهل إلى المتقدم جدًا."
+      },
+      "cluster": {
+        "en": "Fun & Family",
+        "ar": "مرح وعائلة"
+      },
+      "cluster_key": "fun",
+      "emoji": "❓",
+      "mode": "riddle",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "classic-riddles.html",
+      "image": "assets/classic-riddles.svg"
+    },
+    {
+      "slug": "coding-and-design",
+      "title": {
+        "en": "Digital Architect",
+        "ar": "المعماري الرقمي"
+      },
+      "description": {
+        "en": "A mixed page for programming, software concepts, interface structure, and practical design language.",
+        "ar": "صفحة تجمع بين البرمجة ومفاهيم البرمجيات وبنية الواجهات ولغة التصميم العملية."
+      },
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "emoji": "💻",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "coding-and-design.html",
+      "image": "assets/coding-and-design.svg"
+    },
+    {
+      "slug": "electrical-engineering",
+      "title": {
+        "en": "Voltage Power",
+        "ar": "طاقة الجهد"
+      },
+      "description": {
+        "en": "Circuits, power, components, and protection systems in a friendly layout.",
+        "ar": "دوائر وقدرة ومكونات وأنظمة حماية في تصميم سهل وواضح."
+      },
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "emoji": "🔌",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "electrical-engineering.html",
+      "image": "assets/electrical-engineering.svg"
+    },
+    {
+      "slug": "flag-questions",
+      "title": {
+        "en": "Flag Master",
+        "ar": "سيد الأعلام"
+      },
+      "description": {
+        "en": "Flag and symbol knowledge with geography, design, and recognition prompts.",
+        "ar": "معرفة بالأعلام والرموز مع أسئلة عن الجغرافيا والتصميم والتعرّف عليها."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "🚩",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "flag-questions.html",
+      "image": "assets/flag-questions.svg"
+    },
+    {
+      "slug": "football",
+      "title": {
+        "en": "The Beautiful Game",
+        "ar": "اللعبة الجميلة"
+      },
+      "description": {
+        "en": "Structured football questions covering rules, positions, match terms, tactics, and competition basics.",
+        "ar": "أسئلة منظمة في كرة القدم تغطي القوانين والمراكز ومصطلحات المباراة والخطط وأساسيات البطولات."
+      },
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "emoji": "⚽",
+      "mode": "quiz",
+      "count": 175,
+      "difficultyCounts": {
+        "easy": 50,
+        "medium": 55,
+        "hard": 45,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "football.html",
+      "image": "assets/football.svg"
+    },
+    {
+      "slug": "geography",
+      "title": {
+        "en": "World Explorer",
+        "ar": "مستكشف العالم"
+      },
+      "description": {
+        "en": "Landforms, climates, regions, and map terms built into a fun geography page.",
+        "ar": "تضاريس ومناخات وأقاليم ومصطلحات خرائط في صفحة جغرافيا ممتعة."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🧭",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "geography.html",
+      "image": "assets/geography.svg"
+    },
+    {
+      "slug": "geology",
+      "title": {
+        "en": "Earth's Hidden Stories",
+        "ar": "قصص الأرض الخفية"
+      },
+      "description": {
+        "en": "Rocks, layers, heat, pressure, and the moving Earth turned into approachable cards.",
+        "ar": "صخور وطبقات وحرارة وضغط وأرض متحركة في بطاقات سهلة الفهم."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🪨",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 15,
+        "medium": 5,
+        "hard": 18,
+        "very-advanced": 12
+      },
+      "subcategories": [],
+      "href": "geology.html",
+      "image": "assets/geology.svg"
+    },
+    {
+      "slug": "history",
+      "title": {
+        "en": "Echoes of Time",
+        "ar": "أصداء الزمن"
+      },
+      "description": {
+        "en": "Big moments, old empires, inventions, and turning points turned into balanced quiz cards.",
+        "ar": "لحظات كبيرة وإمبراطوريات قديمة واختراعات ونقاط تحول في بطاقات متوازنة."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🏺",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "history.html",
+      "image": "assets/history.svg"
+    },
+    {
+      "slug": "infrastructure-systems",
+      "title": {
+        "en": "The City Machine",
+        "ar": "آلة المدينة"
+      },
+      "description": {
+        "en": "Utilities, transport, networks, and city-scale systems in a quiz-driven page.",
+        "ar": "مرافق ونقل وشبكات وأنظمة على مستوى المدن في صفحة أسئلة سريعة."
+      },
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "emoji": "🚦",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 13,
+        "medium": 7,
+        "hard": 20,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "infrastructure-systems.html",
+      "image": "assets/infrastructure-systems.svg"
+    },
+    {
+      "slug": "kids-riddles",
+      "title": {
+        "en": "Brain Playground",
+        "ar": "ملعب العقول"
+      },
+      "description": {
+        "en": "A lighter 300-card kids section with age-spanning games in word play, math, science, reading, nature, and logic.",
+        "ar": "قسم أطفال أخف من 300 بطاقة يغطي ألعابًا متنوعة في الكلمات والرياضيات والعلوم والقراءة والطبيعة والمنطق لمراحل عمرية مختلفة."
+      },
+      "cluster": {
+        "en": "Fun & Family",
+        "ar": "مرح وعائلة"
+      },
+      "cluster_key": "fun",
+      "emoji": "🧩",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 8,
+        "hard": 12,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "kids-riddles.html",
+      "image": "assets/kids-riddles.svg"
+    },
+    {
+      "slug": "law-middle-east",
+      "title": {
+        "en": "Justice Files",
+        "ar": "ملفات العدالة"
+      },
+      "description": {
+        "en": "Middle East-flavored legal literacy with contracts, evidence, procedure, commercial practice, and professional judgment.",
+        "ar": "معرفة قانونية بطابع الشرق الأوسط تشمل العقود والإثبات والإجراءات والممارسات التجارية والحكم المهني."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "⚖️",
+      "mode": "quiz",
+      "count": 48,
+      "difficultyCounts": {
+        "easy": 16,
+        "medium": 3,
+        "hard": 23,
+        "very-advanced": 6
+      },
+      "subcategories": [
+        {
+          "en": "Commercial Basics",
+          "ar": "أساسيات تجارية"
+        },
+        {
+          "en": "Dispute Resolution",
+          "ar": "حل النزاعات"
+        },
+        {
+          "en": "Court Procedure",
+          "ar": "إجراءات قضائية"
+        },
+        {
+          "en": "Documents & Authority",
+          "ar": "الوثائق والصلاحيات"
+        },
+        {
+          "en": "Rights & Compliance",
+          "ar": "الحقوق والامتثال"
+        }
+      ],
+      "href": "law-middle-east.html",
+      "image": "assets/law-middle-east.svg"
+    },
+    {
+      "slug": "math",
+      "title": {
+        "en": "Numeric Ninja",
+        "ar": "نينجا الأرقام"
+      },
+      "description": {
+        "en": "Math for adults with a stronger mix of riddles, patterns, logic, geometry, probability, and only a smaller share of direct equation work.",
+        "ar": "رياضيات للكبار بمزيج أقوى من الألغاز والأنماط والمنطق والهندسة والاحتمالات، مع حصة أصغر من الأسئلة المعتمدة على المعادلات المباشرة."
+      },
+      "cluster": {
+        "en": "Knowledge & STEM",
+        "ar": "معرفة وعلوم"
+      },
+      "cluster_key": "knowledge",
+      "emoji": "∑",
+      "mode": "quiz",
+      "count": 150,
+      "difficultyCounts": {
+        "easy": 50,
+        "medium": 50,
+        "hard": 30,
+        "very-advanced": 20
+      },
+      "subcategories": [
+        {
+          "en": "Probability & Paradoxes",
+          "ar": "الاحتمالات والمفارقات"
+        },
+        {
+          "en": "Number Theory",
+          "ar": "نظرية الأعداد"
+        },
+        {
+          "en": "Number Riddles",
+          "ar": "ألغاز الأعداد"
+        },
+        {
+          "en": "Calculus & Analysis",
+          "ar": "التفاضل والتحليل"
+        },
+        {
+          "en": "Patterns & Sequences",
+          "ar": "الأنماط والمتتاليات"
+        },
+        {
+          "en": "Topology",
+          "ar": "الطوبولوجيا"
+        },
+        {
+          "en": "Set Theory & Logic",
+          "ar": "نظرية المجموعات والمنطق"
+        },
+        {
+          "en": "Word Problems",
+          "ar": "مسائل لفظية"
+        },
+        {
+          "en": "Algebra",
+          "ar": "الجبر"
+        },
+        {
+          "en": "Geometry & Measure",
+          "ar": "الهندسة والقياس"
+        },
+        {
+          "en": "Statistics & Data",
+          "ar": "الإحصاء والبيانات"
+        },
+        {
+          "en": "Euclidean Geometry",
+          "ar": "الهندسة الإقليدية"
+        },
+        {
+          "en": "Logic Puzzles",
+          "ar": "ألغاز منطقية"
+        },
+        {
+          "en": "Physics-Based Math",
+          "ar": "رياضيات مستندة إلى الفيزياء"
+        },
+        {
+          "en": "Combinatorics",
+          "ar": "التوافقيات"
+        },
+        {
+          "en": "Financial Math",
+          "ar": "الرياضيات المالية"
+        },
+        {
+          "en": "Graph Theory",
+          "ar": "نظرية الرسوم البيانية"
+        },
+        {
+          "en": "Sequences & Series",
+          "ar": "المتتاليات والسلاسل"
+        },
+        {
+          "en": "Discrete Math & Algorithms",
+          "ar": "الرياضيات المتقطعة والخوارزميات"
+        },
+        {
+          "en": "Game Theory",
+          "ar": "نظرية الألعاب"
+        },
+        {
+          "en": "Complex Analysis",
+          "ar": "التحليل العقدي"
+        },
+        {
+          "en": "History & Unsolved",
+          "ar": "التاريخ والمسائل غير المحلولة"
+        },
+        {
+          "en": "Teacher’s Lounge",
+          "ar": "نقاشات المعلّمين"
+        },
+        {
+          "en": "Linear Algebra",
+          "ar": "الجبر الخطي"
+        },
+        {
+          "en": "Geometry & Topology",
+          "ar": "الهندسة والطوبولوجيا"
+        },
+        {
+          "en": "Analysis",
+          "ar": "التحليل"
+        },
+        {
+          "en": "Fractals & Chaos",
+          "ar": "الكسيريات والفوضى"
+        },
+        {
+          "en": "Probability & Processes",
+          "ar": "الاحتمالات والعمليات"
+        },
+        {
+          "en": "Probability & Combinatorics",
+          "ar": "الاحتمالات والتوافقيات"
+        },
+        {
+          "en": "Geometry",
+          "ar": "الهندسة"
+        }
+      ],
+      "href": "math.html",
+      "image": "assets/math.svg"
+    },
+    {
+      "slug": "mechanical-engineering",
+      "title": {
+        "en": "The Machine Age",
+        "ar": "عصر الآلات"
+      },
+      "description": {
+        "en": "Motion, machines, and power transfer in card form.",
+        "ar": "الحركة والآلات ونقل القدرة في بطاقات سهلة التصفح."
+      },
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "emoji": "⚙️",
+      "mode": "quiz",
+      "count": 30,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 0
+      },
+      "subcategories": [],
+      "href": "mechanical-engineering.html",
+      "image": "assets/mechanical-engineering.svg"
+    },
+    {
+      "slug": "medical-questions",
+      "title": {
+        "en": "Vital Signs",
+        "ar": "العلامات الحيوية"
+      },
+      "description": {
+        "en": "Adult-level medical knowledge focused on general practice, core clinical reasoning, and topics any well-trained doctor should recognize.",
+        "ar": "معرفة طبية بمستوى الكبار تركّز على الطب العام والاستدلال السريري الأساسي والموضوعات التي يفترض بأي طبيب متمكن أن يعرفها."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🩺",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "medical-questions.html",
+      "image": "assets/medical-questions.svg"
+    },
+    {
+      "slug": "middle-east-history",
+      "title": {
+        "en": "Sands of Time",
+        "ar": "رمال الزمن"
+      },
+      "description": {
+        "en": "Civilizations, scholars, cities, and turning points from the Middle East.",
+        "ar": "حضارات وعلماء ومدن ونقاط تحول من تاريخ الشرق الأوسط."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "🕌",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 20,
+        "medium": 9,
+        "hard": 16,
+        "very-advanced": 5
+      },
+      "subcategories": [],
+      "href": "middle-east-history.html",
+      "image": "assets/middle-east-history.svg"
+    },
+    {
+      "slug": "pharmacy",
+      "title": {
+        "en": "The Medicine Cabinet",
+        "ar": "خزانة الدواء"
+      },
+      "description": {
+        "en": "Adult pharmacy learning with dosage forms, safety, counseling, kinetics, legal handling, and clinical-use concepts broadened far beyond the old repeated answer pool.",
+        "ar": "تعلم صيدلي للكبار يشمل الأشكال الدوائية والسلامة والإرشاد والحركية الدوائية والتداول القانوني ومفاهيم الاستعمال السريري، مع توسعة واضحة تتجاوز حوض الإجابات المكرر السابق."
+      },
+      "cluster": {
+        "en": "Knowledge & STEM",
+        "ar": "معرفة وعلوم"
+      },
+      "cluster_key": "knowledge",
+      "emoji": "💊",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 13,
+        "medium": 12,
+        "hard": 11,
+        "very-advanced": 14
+      },
+      "subcategories": [
+        {
+          "en": "Medicines & Dosage Forms",
+          "ar": "الأدوية والأشكال الدوائية"
+        },
+        {
+          "en": "Safe Use & Practice",
+          "ar": "الاستخدام الآمن والممارسة"
+        }
+      ],
+      "href": "pharmacy.html",
+      "image": "assets/pharmacy.svg"
+    },
+    {
+      "slug": "philosophy",
+      "title": {
+        "en": "Deep Thoughts",
+        "ar": "أفكار عميقة"
+      },
+      "description": {
+        "en": "Ideas about ethics, truth, knowledge, and meaning in a quiz-friendly format.",
+        "ar": "أفكار حول الأخلاق والحقيقة والمعرفة والمعنى بصيغة مناسبة للعب والسؤال."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "🧠",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 14,
+        "medium": 7,
+        "hard": 16,
+        "very-advanced": 13
+      },
+      "subcategories": [],
+      "href": "philosophy.html",
+      "image": "assets/philosophy.svg"
+    },
+    {
+      "slug": "physical-and-life-sciences",
+      "title": {
+        "en": "Life's Blueprint",
+        "ar": "مخطط الحياة"
+      },
+      "description": {
+        "en": "A broad science page covering biology, chemistry, and earth science in one place.",
+        "ar": "صفحة علمية واسعة تغطي الأحياء والكيمياء وعلوم الأرض في مكان واحد."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🔬",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 13,
+        "medium": 13,
+        "hard": 12,
+        "very-advanced": 12
+      },
+      "subcategories": [
+        {
+          "en": "Life Science Basics",
+          "ar": "أساسيات علوم الحياة"
+        },
+        {
+          "en": "Chemistry",
+          "ar": "الكيمياء"
+        },
+        {
+          "en": "Earth Science",
+          "ar": "علوم الأرض"
+        }
+      ],
+      "href": "physical-and-life-sciences.html",
+      "image": "assets/physical-and-life-sciences.svg"
+    },
+    {
+      "slug": "psychology",
+      "title": {
+        "en": "Mind Games",
+        "ar": "ألعاب العقل"
+      },
+      "description": {
+        "en": "Psychology cards about behavior, memory, emotion, and human patterns.",
+        "ar": "بطاقات علم نفس عن السلوك والذاكرة والعاطفة والأنماط الإنسانية."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "🫶",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "psychology.html",
+      "image": "assets/psychology.svg"
+    },
+    {
+      "slug": "relationship-questions",
+      "title": {
+        "en": "Heart to Heart",
+        "ar": "قلب إلى قلب"
+      },
+      "description": {
+        "en": "Relationship scenarios, communication choices, and boundary-setting prompts designed for thoughtful adult play.",
+        "ar": "مواقف في العلاقات وخيارات تواصل وأسئلة عن الحدود بأسلوب ممتع ومفيد للكبار."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "💞",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 14,
+        "medium": 8,
+        "hard": 16,
+        "very-advanced": 12
+      },
+      "subcategories": [],
+      "href": "relationship-questions.html",
+      "image": "assets/relationship-questions.svg"
+    },
+    {
+      "slug": "science",
+      "title": {
+        "en": "Science Unlocked",
+        "ar": "العلوم بلا حدود"
+      },
+      "description": {
+        "en": "Core science concepts from living systems to physics and space, all in card form.",
+        "ar": "مفاهيم علمية أساسية من الأنظمة الحية إلى الفيزياء والفضاء في بطاقات سهلة اللعب."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🔬",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "science.html",
+      "image": "assets/science.svg"
+    },
+    {
+      "slug": "social-sciences",
+      "title": {
+        "en": "Society Decoded",
+        "ar": "فك شفرة المجتمع"
+      },
+      "description": {
+        "en": "A broader social-science page built from psychology, interpersonal behavior, and cultural etiquette concepts.",
+        "ar": "صفحة أوسع للعلوم الاجتماعية مبنية على مفاهيم علم النفس والسلوك بين الأشخاص والثقافة والإتيكيت."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "👥",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 13,
+        "medium": 13,
+        "hard": 12,
+        "very-advanced": 12
+      },
+      "subcategories": [
+        {
+          "en": "Psychology",
+          "ar": "علم النفس"
+        },
+        {
+          "en": "Relationships",
+          "ar": "العلاقات"
+        },
+        {
+          "en": "Culture & Etiquette",
+          "ar": "الثقافة والإتيكيت"
+        }
+      ],
+      "href": "social-sciences.html",
+      "image": "assets/social-sciences.svg"
+    },
+    {
+      "slug": "software-and-computing",
+      "title": {
+        "en": "Code & Circuits",
+        "ar": "كود ودوائر"
+      },
+      "description": {
+        "en": "Core computing terms, systems, and development ideas for playful study.",
+        "ar": "مصطلحات حوسبة أساسية وأنظمة وأفكار تطوير للدراسة الممتعة."
+      },
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "emoji": "💻",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 14,
+        "medium": 7,
+        "hard": 17,
+        "very-advanced": 12
+      },
+      "subcategories": [],
+      "href": "software-and-computing.html",
+      "image": "assets/software-and-computing.svg"
+    },
+    {
+      "slug": "space-and-astrology",
+      "title": {
+        "en": "Cosmic Voyager",
+        "ar": "المسافر الكوني"
+      },
+      "description": {
+        "en": "Planets, constellations, lunar events, and zodiac-themed prompts for curious players.",
+        "ar": "كواكب وكوكبات وأحداث قمرية وأسئلة مرتبطة بالأبراج للاعبين الفضوليين."
+      },
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "emoji": "🌌",
+      "mode": "quiz",
+      "count": 100,
+      "difficultyCounts": {
+        "easy": 25,
+        "medium": 25,
+        "hard": 25,
+        "very-advanced": 25
+      },
+      "subcategories": [],
+      "href": "space-and-astrology.html",
+      "image": "assets/space-and-astrology.svg"
+    },
+    {
+      "slug": "story-mysteries",
+      "title": {
+        "en": "The Unsolved Case",
+        "ar": "القضية غير المحلولة"
+      },
+      "description": {
+        "en": "Long-form yes/no story mysteries for a game master, with cleaner prompts, clearer solutions, and better reveal flow.",
+        "ar": "ألغاز قصصية طويلة بأسئلة نعم/لا للراوي، مع مقدمات أوضح وحلول أنظف وطريقة كشف أفضل."
+      },
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "emoji": "🕯️",
+      "mode": "story",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 13,
+        "medium": 13,
+        "hard": 12,
+        "very-advanced": 12
+      },
+      "subcategories": [],
+      "href": "story-mysteries.html",
+      "image": "assets/story-mysteries.svg"
+    },
+    {
+      "slug": "tv-shows-trivia",
+      "title": {
+        "en": "Screen Stars",
+        "ar": "نجوم الشاشة"
+      },
+      "description": {
+        "en": "250 bilingual questions across 10 top-rated TV shows — 5 English (Breaking Bad, Game of Thrones, Friends, The Wire, Stranger Things) and 5 Arabic (Bab Al-Hara, Maraya, Tash Ma Tash, Ertuğrul, Al-Hasaseen).",
+        "ar": "250 سؤالاً ثنائي اللغة عبر 10 مسلسلات من الأعلى تقييماً — 5 إنجليزية (برايكينج باد، صراع العروش، فريندز، ذا واير، أشياء غريبة) و5 عربية (باب الحارة، مرايا، طاش ما طاش، قيامة أرطغرل، الحساسين)."
+      },
+      "cluster": {
+        "en": "Culture & Entertainment",
+        "ar": "ثقافة وترفيه"
+      },
+      "cluster_key": "culture",
+      "emoji": "📺",
+      "mode": "quiz",
+      "count": 250,
+      "difficultyCounts": {
+        "easy": 70,
+        "medium": 70,
+        "hard": 70,
+        "very-advanced": 40
+      },
+      "subcategories": [
+        {
+          "en": "Breaking Bad",
+          "ar": "برايكينج باد"
+        },
+        {
+          "en": "Game of Thrones",
+          "ar": "صراع العروش"
+        },
+        {
+          "en": "Friends",
+          "ar": "فريندز"
+        },
+        {
+          "en": "The Wire",
+          "ar": "ذا واير"
+        },
+        {
+          "en": "Stranger Things",
+          "ar": "أشياء غريبة"
+        },
+        {
+          "en": "Bab Al-Hara",
+          "ar": "باب الحارة"
+        },
+        {
+          "en": "Maraya",
+          "ar": "مرايا"
+        },
+        {
+          "en": "Tash Ma Tash",
+          "ar": "طاش ما طاش"
+        },
+        {
+          "en": "Diriliş: Ertuğrul",
+          "ar": "قيامة أرطغرل"
+        },
+        {
+          "en": "Al-Hasaseen",
+          "ar": "الحساسين"
+        }
+      ],
+      "href": "tv-shows-trivia.html",
+      "image": "assets/tv-shows-trivia.svg"
+    },
+    {
+      "slug": "world-habits-and-etiquette",
+      "title": {
+        "en": "Globe Trotter",
+        "ar": "ضارب الآفاق"
+      },
+      "description": {
+        "en": "Customs, greetings, hospitality, and social habits from around the world.",
+        "ar": "عادات وتحيات وضيافة وسلوكيات اجتماعية من أنحاء العالم."
+      },
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "emoji": "🌍",
+      "mode": "quiz",
+      "count": 50,
+      "difficultyCounts": {
+        "easy": 14,
+        "medium": 8,
+        "hard": 16,
+        "very-advanced": 12
+      },
+      "subcategories": [],
+      "href": "world-habits-and-etiquette.html",
+      "image": "assets/world-habits-and-etiquette.svg"
+    },
+    {
+      "slug": "environment-and-ecology",
+      "title": {
+        "en": "Eco Guardians",
+        "ar": "حراس البيئة"
+      },
+      "description": {
+        "en": "Explore ecosystems, conservation, and the science of our planet.",
+        "ar": "استكشف النظم البيئية والحفاظ عليها وعلم كوكبنا."
+      },
+      "emoji": "🌿",
+      "cluster": {
+        "en": "Knowledge & STEM",
+        "ar": "معرفة وعلوم"
+      },
+      "cluster_key": "knowledge",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "environment-and-ecology.html",
+      "image": "assets/environment-and-ecology.svg"
+    },
+    {
+      "slug": "ancient-civilizations",
+      "title": {
+        "en": "Lost Worlds",
+        "ar": "عوالم مفقودة"
+      },
+      "description": {
+        "en": "Uncover the secrets of the Aztecs, Maya, and ancient empires.",
+        "ar": "اكشف أسرار الأزتيك والمايا والإمبراطوريات القديمة."
+      },
+      "emoji": "🏛️",
+      "cluster": {
+        "en": "Academic",
+        "ar": "أكاديمي"
+      },
+      "cluster_key": "academics",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "ancient-civilizations.html",
+      "image": "assets/ancient-civilizations.svg"
+    },
+    {
+      "slug": "inventions-and-minds",
+      "title": {
+        "en": "Spark of Genius",
+        "ar": "شرارة العبقرية"
+      },
+      "description": {
+        "en": "The history of breakthroughs and the minds that changed the world.",
+        "ar": "تاريخ الاختراقات والعقول التي غيرت العالم."
+      },
+      "emoji": "💡",
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "inventions-and-minds.html",
+      "image": "assets/inventions-and-minds.svg"
+    },
+    {
+      "slug": "animal-kingdom",
+      "title": {
+        "en": "Wild Wonders",
+        "ar": "عجائب برية"
+      },
+      "description": {
+        "en": "Amazing facts about the diverse creatures sharing our planet.",
+        "ar": "حقائق مذهلة عن المخلوقات المتنوعة التي تشاركنا كوكبنا."
+      },
+      "emoji": "🐾",
+      "cluster": {
+        "en": "Knowledge & STEM",
+        "ar": "معرفة وعلوم"
+      },
+      "cluster_key": "knowledge",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "animal-kingdom.html",
+      "image": "assets/animal-kingdom.svg"
+    },
+    {
+      "slug": "economics-and-finance",
+      "title": {
+        "en": "Wealth Wisdom",
+        "ar": "حكمة الثروة"
+      },
+      "description": {
+        "en": "Master the concepts of markets, money, and global trade.",
+        "ar": "أتقن مفاهيم الأسواق والمال والتجارة العالمية."
+      },
+      "emoji": "📈",
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "economics-and-finance.html",
+      "image": "assets/economics-and-finance.svg"
+    },
+    {
+      "slug": "architecture-and-landmarks",
+      "title": {
+        "en": "Skyline Titans",
+        "ar": "عمالقة الأفق"
+      },
+      "description": {
+        "en": "The art and science of famous landmarks and structures.",
+        "ar": "فن وعلم المعالم والهياكل الشهيرة."
+      },
+      "emoji": "🏙️",
+      "cluster": {
+        "en": "Engineering",
+        "ar": "هندسة"
+      },
+      "cluster_key": "engineering",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "architecture-and-landmarks.html",
+      "image": "assets/architecture-and-landmarks.svg"
+    },
+    {
+      "slug": "music-and-performing-arts",
+      "title": {
+        "en": "Harmony Hub",
+        "ar": "مركز الانسجام"
+      },
+      "description": {
+        "en": "Composers, instruments, and the magic of performing arts.",
+        "ar": "الملحنون والآلات وسحر الفنون المسرحية."
+      },
+      "emoji": "🎻",
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "music-and-performing-arts.html",
+      "image": "assets/music-and-performing-arts.svg"
+    },
+    {
+      "slug": "food-and-cuisines",
+      "title": {
+        "en": "Flavor Explorer",
+        "ar": "مستكشف النكهات"
+      },
+      "description": {
+        "en": "A journey through tastes, ingredients, and global traditions.",
+        "ar": "رحلة عبر الأذواق والمكونات والتقاليد العالمية."
+      },
+      "emoji": "🍽️",
+      "cluster": {
+        "en": "Culture & Society",
+        "ar": "ثقافة ومجتمع"
+      },
+      "cluster_key": "culture",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "food-and-cuisines.html",
+      "image": "assets/food-and-cuisines.svg"
+    },
+    {
+      "slug": "cinema-and-film-history",
+      "title": {
+        "en": "The Big Screen",
+        "ar": "الشاشة الكبيرة"
+      },
+      "description": {
+        "en": "Behind the scenes of movie history and cinematic magic.",
+        "ar": "خلف كواليس تاريخ السينما والسحر السينمائي."
+      },
+      "emoji": "🎬",
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "cinema-and-film-history.html",
+      "image": "assets/cinema-and-film-history.svg"
+    },
+    {
+      "slug": "future-tech-and-energy",
+      "title": {
+        "en": "Tomorrow's World",
+        "ar": "عالم الغد"
+      },
+      "description": {
+        "en": "AI, robotics, and the renewable energy of the future.",
+        "ar": "الذكاء الاصطناعي والروبوتات والطاقة المتجددة في المستقبل."
+      },
+      "emoji": "🚀",
+      "cluster": {
+        "en": "Knowledge & STEM",
+        "ar": "معرفة وعلوم"
+      },
+      "cluster_key": "knowledge",
+      "mode": "quiz",
+      "count": 40,
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "subcategories": [],
+      "href": "future-tech-and-energy.html",
+      "image": "assets/future-tech-and-energy.svg"
+    },
+    {
+      "slug": "anime",
+      "title": {
+        "en": "Anime Universe",
+        "ar": "عالم الأنمي"
+      },
+      "description": {
+        "en": "Test your knowledge across 10 iconic anime series — from Naruto and Dragon Ball Z to Attack on Titan and Demon Slayer.",
+        "ar": "اختبر معرفتك عبر 10 سلاسل أنمي أيقونية — من ناروتو ودراغون بول زي إلى هجوم العمالقة وقاتل الشياطين."
+      },
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "emoji": "⚔️",
+      "mode": "quiz",
+      "count": 150,
+      "difficultyCounts": {
+        "easy": 40,
+        "medium": 40,
+        "hard": 39,
+        "very-advanced": 31
+      },
+      "subcategories": [
+        {
+          "en": "Naruto",
+          "ar": "ناروتو"
+        },
+        {
+          "en": "Dragon Ball Z",
+          "ar": "دراغون بول زي"
+        },
+        {
+          "en": "Pokémon",
+          "ar": "بوكيمون"
+        },
+        {
+          "en": "Death Note",
+          "ar": "دفتر الموت"
+        },
+        {
+          "en": "Attack on Titan",
+          "ar": "هجوم العمالقة"
+        },
+        {
+          "en": "One Piece",
+          "ar": "ون بيس"
+        },
+        {
+          "en": "Demon Slayer",
+          "ar": "قاتل الشياطين"
+        },
+        {
+          "en": "Fullmetal Alchemist: Brotherhood",
+          "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
+        },
+        {
+          "en": "My Hero Academia",
+          "ar": "أكاديمية بطلي"
+        },
+        {
+          "en": "Sword Art Online",
+          "ar": "فن السيف الإلكتروني"
+        }
+      ],
+      "href": "anime.html",
+      "image": "assets/anime.svg"
+    },
+    {
+      "slug": "ayam-tayebeen",
+      "title": {
+        "en": "Spacetoon Classics",
+        "ar": "أيام الطيبين - سبيستون"
+      },
+      "description": {
+        "en": "Relive the golden era of Spacetoon with 200 bilingual questions across 10 beloved classic series — Adnan and Lina, Captain Majed, Grendizer, and more.",
+        "ar": "عِش ذكريات الزمن الجميل مع سبيستون عبر 200 سؤال ثنائي اللغة في 10 مسلسلات كلاسيكية محبوبة — عدنان ولينا، الكابتن ماجد، غرندايزر، وأكثر."
+      },
+      "cluster": {
+        "en": "Media & Stories",
+        "ar": "إعلام وقصص"
+      },
+      "cluster_key": "media",
+      "emoji": "📺",
+      "mode": "quiz",
+      "count": 200,
+      "difficultyCounts": {
+        "easy": 50,
+        "medium": 50,
+        "hard": 50,
+        "very-advanced": 50
+      },
+      "subcategories": [
+        {"en": "Adnan and Lina", "ar": "عدنان ولينا"},
+        {"en": "Captain Majed", "ar": "الكابتن ماجد"},
+        {"en": "Treasure Island", "ar": "جزيرة الكنز"},
+        {"en": "Grendizer", "ar": "غرندايزر"},
+        {"en": "Sally", "ar": "سالي"},
+        {"en": "Little Maruko", "ar": "ماروكو الصغيرة"},
+        {"en": "Remi", "ar": "ريمي"},
+        {"en": "Candy", "ar": "ساندييبيل"},
+        {"en": "Ironman", "ar": "الرجل الحديدي"},
+        {"en": "Tom and Jerry", "ar": "توم وجيري"}
+      ],
+      "href": "ayam-tayebeen.html",
+      "image": "assets/ayam-tayebeen.svg"
+    }
+  ]
+}

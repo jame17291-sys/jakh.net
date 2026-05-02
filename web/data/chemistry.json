@@ -1,0 +1,1628 @@
+{
+  "slug": "chemistry",
+  "title": {
+    "en": "Chemistry",
+    "ar": "الكيمياء"
+  },
+  "description": {
+    "en": "Periodic table, reactions, bonds, and laws of chemistry explained.",
+    "ar": "جدول دوري وتفاعلات وروابط وقوانين الكيمياء."
+  },
+  "cluster": {
+    "en": "Science & Nature",
+    "ar": "العلوم والطبيعة"
+  },
+  "cluster_key": "science",
+  "emoji": "⚗️",
+  "mode": "quiz",
+  "count": 100,
+  "difficultyCounts": {
+    "easy": 25,
+    "medium": 25,
+    "hard": 25,
+    "very-advanced": 25
+  },
+  "subcategories": [],
+  "cards": [
+    {
+      "id": "chemistry-001",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Chemical Formulas",
+        "ar": "الصيغ الكيميائية"
+      },
+      "question": {
+        "en": "What is the chemical formula for water?",
+        "ar": "ما الصيغة الكيميائية للماء؟"
+      },
+      "answer": {
+        "en": "H₂O",
+        "ar": "H₂O"
+      }
+    },
+    {
+      "id": "chemistry-002",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "What is the name of the chart that organizes all known chemical elements?",
+        "ar": "ما اسم الجدول الذي ينظم جميع العناصر الكيميائية المعروفة؟"
+      },
+      "answer": {
+        "en": "The Periodic Table",
+        "ar": "الجدول الدوري للعناصر"
+      }
+    },
+    {
+      "id": "chemistry-003",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Compounds",
+        "ar": "المركبات"
+      },
+      "question": {
+        "en": "What two elements make up common table salt (NaCl)?",
+        "ar": "ما العنصران اللذان يُكوِّنان ملح الطعام الشائع (NaCl)؟"
+      },
+      "answer": {
+        "en": "Sodium and Chlorine",
+        "ar": "الصوديوم والكلور"
+      }
+    },
+    {
+      "id": "chemistry-004",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Atomic Structure",
+        "ar": "البنية الذرية"
+      },
+      "question": {
+        "en": "What is the center of an atom called?",
+        "ar": "ما اسم مركز الذرة؟"
+      },
+      "answer": {
+        "en": "The Nucleus",
+        "ar": "النواة"
+      }
+    },
+    {
+      "id": "chemistry-005",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What element do humans need from the air to survive?",
+        "ar": "ما العنصر الذي يحتاجه الإنسان من الهواء للبقاء حياً؟"
+      },
+      "answer": {
+        "en": "Oxygen",
+        "ar": "الأكسجين"
+      }
+    },
+    {
+      "id": "chemistry-006",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "States of Matter",
+        "ar": "حالات المادة"
+      },
+      "question": {
+        "en": "What are the three primary states of matter?",
+        "ar": "ما الحالات الثلاث الأساسية للمادة؟"
+      },
+      "answer": {
+        "en": "Solid, Liquid, Gas",
+        "ar": "الصلبة والسائلة والغازية"
+      }
+    },
+    {
+      "id": "chemistry-007",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Element Symbols",
+        "ar": "رموز العناصر"
+      },
+      "question": {
+        "en": "What is the chemical symbol for Gold?",
+        "ar": "ما الرمز الكيميائي للذهب؟"
+      },
+      "answer": {
+        "en": "Au",
+        "ar": "Au"
+      }
+    },
+    {
+      "id": "chemistry-008",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Atomic Structure",
+        "ar": "البنية الذرية"
+      },
+      "question": {
+        "en": "What is the electrical charge of a proton?",
+        "ar": "ما الشحنة الكهربائية للبروتون؟"
+      },
+      "answer": {
+        "en": "Positive",
+        "ar": "موجبة"
+      }
+    },
+    {
+      "id": "chemistry-009",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Acids & Bases",
+        "ar": "الأحماض والقواعد"
+      },
+      "question": {
+        "en": "On the pH scale, is a value of 2 considered acidic or basic?",
+        "ar": "على مقياس pH، هل قيمة 2 تعتبر حمضية أم قاعدية؟"
+      },
+      "answer": {
+        "en": "Acidic",
+        "ar": "حمضية"
+      }
+    },
+    {
+      "id": "chemistry-010",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What is the lightest element in the periodic table?",
+        "ar": "ما أخف عنصر في الجدول الدوري؟"
+      },
+      "answer": {
+        "en": "Hydrogen",
+        "ar": "الهيدروجين"
+      }
+    },
+    {
+      "id": "chemistry-011",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Atomic Structure",
+        "ar": "البنية الذرية"
+      },
+      "question": {
+        "en": "What does the atomic number of an element represent?",
+        "ar": "ماذا يمثل العدد الذري للعنصر؟"
+      },
+      "answer": {
+        "en": "The number of protons",
+        "ar": "عدد البروتونات"
+      }
+    },
+    {
+      "id": "chemistry-012",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "Which group of elements is known for being chemically unreactive?",
+        "ar": "أي مجموعة من العناصر تُعرف بعدم تفاعلها الكيميائي؟"
+      },
+      "answer": {
+        "en": "Noble Gases",
+        "ar": "الغازات النبيلة"
+      }
+    },
+    {
+      "id": "chemistry-013",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Atomic Structure",
+        "ar": "البنية الذرية"
+      },
+      "question": {
+        "en": "What are the electrons in the outermost shell of an atom called?",
+        "ar": "ما اسم الإلكترونات الموجودة في الغلاف الخارجي للذرة؟"
+      },
+      "answer": {
+        "en": "Valence electrons",
+        "ar": "إلكترونات التكافؤ"
+      }
+    },
+    {
+      "id": "chemistry-014",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Atomic Structure",
+        "ar": "البنية الذرية"
+      },
+      "question": {
+        "en": "Atoms of the same element with different numbers of neutrons are called what?",
+        "ar": "كيف تُسمى ذرات نفس العنصر ذات أعداد مختلفة من النيوترونات؟"
+      },
+      "answer": {
+        "en": "Isotopes",
+        "ar": "النظائر"
+      }
+    },
+    {
+      "id": "chemistry-015",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Chemical Reactions",
+        "ar": "التفاعلات الكيميائية"
+      },
+      "question": {
+        "en": "A reaction that absorbs heat from its surroundings is called what?",
+        "ar": "كيف يُسمى التفاعل الذي يمتص الحرارة من محيطه؟"
+      },
+      "answer": {
+        "en": "Endothermic",
+        "ar": "التفاعل الماص للحرارة"
+      }
+    },
+    {
+      "id": "chemistry-016",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Moles",
+        "ar": "المولات"
+      },
+      "question": {
+        "en": "What is Avogadro's number?",
+        "ar": "ما رقم أفوغادرو؟"
+      },
+      "answer": {
+        "en": "6.022 × 10²³",
+        "ar": "6.022 × 10²³"
+      }
+    },
+    {
+      "id": "chemistry-017",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Chemical Bonds",
+        "ar": "الروابط الكيميائية"
+      },
+      "question": {
+        "en": "What type of bond involves the sharing of electron pairs between atoms?",
+        "ar": "ما نوع الرابطة التي تتضمن مشاركة أزواج الإلكترونات بين الذرات؟"
+      },
+      "answer": {
+        "en": "Covalent Bond",
+        "ar": "الرابطة التساهمية"
+      }
+    },
+    {
+      "id": "chemistry-018",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "States of Matter",
+        "ar": "حالات المادة"
+      },
+      "question": {
+        "en": "What is the process of a solid turning directly into a gas?",
+        "ar": "ما اسم عملية تحول الصلب مباشرةً إلى غاز؟"
+      },
+      "answer": {
+        "en": "Sublimation",
+        "ar": "التسامي"
+      }
+    },
+    {
+      "id": "chemistry-019",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Compounds",
+        "ar": "المركبات"
+      },
+      "question": {
+        "en": "What is the common name for iron oxide?",
+        "ar": "ما الاسم الشائع لأكسيد الحديد؟"
+      },
+      "answer": {
+        "en": "Rust",
+        "ar": "الصدأ"
+      }
+    },
+    {
+      "id": "chemistry-020",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Chemical Reactions",
+        "ar": "التفاعلات الكيميائية"
+      },
+      "question": {
+        "en": "What do you call a substance that increases reaction rate without being consumed?",
+        "ar": "ما اسم المادة التي تزيد من معدل التفاعل دون أن تُستهلك؟"
+      },
+      "answer": {
+        "en": "A catalyst",
+        "ar": "المحفز (الكاتاليست)"
+      }
+    },
+    {
+      "id": "chemistry-021",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What does a negative ΔG value indicate about a reaction?",
+        "ar": "ماذا تعني قيمة ΔG السالبة في التفاعل؟"
+      },
+      "answer": {
+        "en": "The reaction is spontaneous",
+        "ar": "التفاعل تلقائي"
+      }
+    },
+    {
+      "id": "chemistry-022",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Stereochemistry",
+        "ar": "الكيمياء الفراغية"
+      },
+      "question": {
+        "en": "What term describes a molecule that cannot be superimposed on its mirror image?",
+        "ar": "ما المصطلح الذي يصف جزيئاً لا يمكن إسقاطه على صورته المرآتية؟"
+      },
+      "answer": {
+        "en": "Chiral",
+        "ar": "جزيء كيرالي"
+      }
+    },
+    {
+      "id": "chemistry-023",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Nuclear Chemistry",
+        "ar": "الكيمياء النووية"
+      },
+      "question": {
+        "en": "If a substance has a half-life of 10 years, how much remains after 20 years?",
+        "ar": "إذا كان نصف عمر مادة ما 10 سنوات، كم يتبقى منها بعد 20 سنة؟"
+      },
+      "answer": {
+        "en": "25% (one quarter)",
+        "ar": "25% (ربع الكمية)"
+      }
+    },
+    {
+      "id": "chemistry-024",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Atomic Structure",
+        "ar": "البنية الذرية"
+      },
+      "question": {
+        "en": "How many electrons can the 'p' orbital hold in total?",
+        "ar": "كم إلكتروناً يمكن أن يستوعبه مستوى الطاقة p في مجموعه؟"
+      },
+      "answer": {
+        "en": "6",
+        "ar": "6"
+      }
+    },
+    {
+      "id": "chemistry-025",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Electronegativity",
+        "ar": "الكهروسالبية"
+      },
+      "question": {
+        "en": "Which element has the highest electronegativity on the Pauling scale?",
+        "ar": "أي عنصر يمتلك أعلى كهروسالبية على مقياس بولينغ؟"
+      },
+      "answer": {
+        "en": "Fluorine",
+        "ar": "الفلور"
+      }
+    },
+    {
+      "id": "chemistry-026",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Acids & Bases",
+        "ar": "الأحماض والقواعد"
+      },
+      "question": {
+        "en": "What is a solution that resists pH changes when small amounts of acid or base are added?",
+        "ar": "ما المحلول الذي يقاوم التغيرات في pH عند إضافة كميات صغيرة من حمض أو قاعدة؟"
+      },
+      "answer": {
+        "en": "A buffer solution",
+        "ar": "المحلول الهيدروجيني المنظم"
+      }
+    },
+    {
+      "id": "chemistry-027",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Gas Laws",
+        "ar": "قوانين الغاز"
+      },
+      "question": {
+        "en": "What is the formula for the Ideal Gas Law?",
+        "ar": "ما صيغة قانون الغاز المثالي؟"
+      },
+      "answer": {
+        "en": "PV = nRT",
+        "ar": "PV = nRT"
+      }
+    },
+    {
+      "id": "chemistry-028",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What is the term for the total heat content of a system?",
+        "ar": "ما مصطلح المحتوى الحراري الكلي لنظام ما؟"
+      },
+      "answer": {
+        "en": "Enthalpy (H)",
+        "ar": "الإنثالبي (H)"
+      }
+    },
+    {
+      "id": "chemistry-029",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Chemical Equilibrium",
+        "ar": "الاتزان الكيميائي"
+      },
+      "question": {
+        "en": "Whose principle states that a system at equilibrium shifts to counteract a change?",
+        "ar": "مبدأ من ينص على أن نظاماً في حالة توازن سيتحول لمعاكسة أي تغيير يطرأ عليه؟"
+      },
+      "answer": {
+        "en": "Le Chatelier's Principle",
+        "ar": "مبدأ لوشاتيليه"
+      }
+    },
+    {
+      "id": "chemistry-030",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Organic Chemistry",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the general formula for an alkane?",
+        "ar": "ما الصيغة العامة للألكانات؟"
+      },
+      "answer": {
+        "en": "CₙH₂ₙ₊₂",
+        "ar": "CₙH₂ₙ₊₂"
+      }
+    },
+    {
+      "id": "chemistry-031",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What is the chemical symbol for iron?",
+        "ar": "ما الرمز الكيميائي للحديد؟"
+      },
+      "answer": {
+        "en": "Fe",
+        "ar": "Fe"
+      }
+    },
+    {
+      "id": "chemistry-032",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What is the chemical symbol for silver?",
+        "ar": "ما الرمز الكيميائي للفضة؟"
+      },
+      "answer": {
+        "en": "Ag",
+        "ar": "Ag"
+      }
+    },
+    {
+      "id": "chemistry-033",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is the product when an acid and a base react?",
+        "ar": "ما الناتج عندما يتفاعل حمض مع قاعدة؟"
+      },
+      "answer": {
+        "en": "Salt and water",
+        "ar": "ملح وماء"
+      }
+    },
+    {
+      "id": "chemistry-034",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What is the lightest element on the periodic table?",
+        "ar": "ما أخفّ عنصر في الجدول الدوري؟"
+      },
+      "answer": {
+        "en": "Hydrogen",
+        "ar": "الهيدروجين"
+      }
+    },
+    {
+      "id": "chemistry-035",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "States",
+        "ar": "الحالات"
+      },
+      "question": {
+        "en": "At what temperature does water boil at sea level?",
+        "ar": "عند أي درجة حرارة يغلي الماء على مستوى سطح البحر؟"
+      },
+      "answer": {
+        "en": "100°C (212°F)",
+        "ar": "100°م"
+      }
+    },
+    {
+      "id": "chemistry-036",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What noble gas is used in balloons?",
+        "ar": "أي غاز نبيل يُستخدم في البالونات؟"
+      },
+      "answer": {
+        "en": "Helium",
+        "ar": "الهيليوم"
+      }
+    },
+    {
+      "id": "chemistry-037",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is combustion?",
+        "ar": "ما الاحتراق؟"
+      },
+      "answer": {
+        "en": "A chemical reaction where a substance reacts rapidly with oxygen to produce heat and light",
+        "ar": "تفاعل كيميائي تتفاعل فيه مادة بسرعة مع الأكسجين لإنتاج الحرارة والضوء"
+      }
+    },
+    {
+      "id": "chemistry-038",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What element has atomic number 79?",
+        "ar": "أي عنصر عدده الذري 79؟"
+      },
+      "answer": {
+        "en": "Gold (Au)",
+        "ar": "الذهب (Au)"
+      }
+    },
+    {
+      "id": "chemistry-039",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Mixtures",
+        "ar": "الخلائط"
+      },
+      "question": {
+        "en": "What is a solution?",
+        "ar": "ما المحلول؟"
+      },
+      "answer": {
+        "en": "A homogeneous mixture where one substance dissolves in another",
+        "ar": "خليط متجانس تذوب فيه مادة في أخرى"
+      }
+    },
+    {
+      "id": "chemistry-040",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "Which element is essential for life and makes up 21% of Earth's atmosphere?",
+        "ar": "أي عنصر ضروري للحياة ويشكّل 21% من الغلاف الجوي للأرض؟"
+      },
+      "answer": {
+        "en": "Oxygen",
+        "ar": "الأكسجين"
+      }
+    },
+    {
+      "id": "chemistry-041",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is oxidation?",
+        "ar": "ما الأكسدة؟"
+      },
+      "answer": {
+        "en": "A reaction in which a substance loses electrons",
+        "ar": "تفاعل تفقد فيه مادة إلكترونات"
+      }
+    },
+    {
+      "id": "chemistry-042",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What element do diamonds consist of?",
+        "ar": "من أي عنصر تتكوّن الألماس؟"
+      },
+      "answer": {
+        "en": "Carbon",
+        "ar": "الكربون"
+      }
+    },
+    {
+      "id": "chemistry-043",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "States",
+        "ar": "الحالات"
+      },
+      "question": {
+        "en": "What is the freezing point of water?",
+        "ar": "ما نقطة تجمّد الماء؟"
+      },
+      "answer": {
+        "en": "0°C (32°F)",
+        "ar": "0°م"
+      }
+    },
+    {
+      "id": "chemistry-044",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Mixtures",
+        "ar": "الخلائط"
+      },
+      "question": {
+        "en": "How do you separate salt from water?",
+        "ar": "كيف تفصل الملح عن الماء؟"
+      },
+      "answer": {
+        "en": "Evaporation",
+        "ar": "التبخّر"
+      }
+    },
+    {
+      "id": "chemistry-045",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Elements",
+        "ar": "العناصر"
+      },
+      "question": {
+        "en": "What is the chemical formula for carbon dioxide?",
+        "ar": "ما الصيغة الكيميائية لثاني أكسيد الكربون؟"
+      },
+      "answer": {
+        "en": "CO₂",
+        "ar": "CO₂"
+      }
+    },
+    {
+      "id": "chemistry-046",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is an ionic bond?",
+        "ar": "ما الرابطة الأيونية؟"
+      },
+      "answer": {
+        "en": "A bond formed by the electrostatic attraction between oppositely charged ions",
+        "ar": "رابطة تتكوّن بالتجاذب الكهروستاتيكي بين أيونات مشحونة بشحنات متعاكسة"
+      }
+    },
+    {
+      "id": "chemistry-047",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is a catalyst?",
+        "ar": "ما المحفّز؟"
+      },
+      "answer": {
+        "en": "A substance that increases the rate of a chemical reaction without being consumed",
+        "ar": "مادة تزيد سرعة تفاعل كيميائي دون أن تُستهلك"
+      }
+    },
+    {
+      "id": "chemistry-048",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "What do elements in the same group of the periodic table share?",
+        "ar": "ما الخاصية المشتركة لعناصر المجموعة ذاتها في الجدول الدوري؟"
+      },
+      "answer": {
+        "en": "The same number of valence electrons and similar chemical properties",
+        "ar": "نفس عدد إلكترونات التكافؤ وخصائص كيميائية متشابهة"
+      }
+    },
+    {
+      "id": "chemistry-049",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Acids & Bases",
+        "ar": "الأحماض والقواعد"
+      },
+      "question": {
+        "en": "What is the pH scale range and what does pH 7 mean?",
+        "ar": "ما نطاق مقياس الرقم الهيدروجيني وماذا يعني pH 7؟"
+      },
+      "answer": {
+        "en": "0–14; pH 7 is neutral, below 7 is acidic, above 7 is basic",
+        "ar": "من 0 إلى 14؛ الرقم 7 يعني المتعادل، ما دون 7 حمضي، وما فوق 7 قاعدي"
+      }
+    },
+    {
+      "id": "chemistry-050",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is hydrogen bonding?",
+        "ar": "ما الرابطة الهيدروجينية؟"
+      },
+      "answer": {
+        "en": "An attractive interaction between a hydrogen atom bonded to N, O, or F and another electronegative atom",
+        "ar": "تفاعل جاذب بين ذرة هيدروجين مرتبطة بـ N أو O أو F وذرة أخرى سالبة الكهرباء"
+      }
+    },
+    {
+      "id": "chemistry-051",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is the law of conservation of mass?",
+        "ar": "ما قانون حفظ الكتلة؟"
+      },
+      "answer": {
+        "en": "Matter cannot be created or destroyed in a chemical reaction — the total mass of reactants equals products",
+        "ar": "لا يمكن خلق المادة أو تدميرها في تفاعل كيميائي — مجموع كتلة المتفاعلات يساوي كتلة النواتج"
+      }
+    },
+    {
+      "id": "chemistry-052",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "Which period contains the transition metals?",
+        "ar": "أي دورة تحتوي على الفلزات الانتقالية؟"
+      },
+      "answer": {
+        "en": "Periods 4–7 (d-block elements)",
+        "ar": "الدورات 4–7 (عناصر الكتلة d)"
+      }
+    },
+    {
+      "id": "chemistry-053",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Mixtures",
+        "ar": "الخلائط"
+      },
+      "question": {
+        "en": "What is chromatography used for?",
+        "ar": "لماذا تُستخدم الكروماتوغرافيا؟"
+      },
+      "answer": {
+        "en": "Separating mixtures based on different rates at which components move through a medium",
+        "ar": "فصل الخلائط بناءً على اختلاف معدلات حركة مكوّناتها عبر وسط معيّن"
+      }
+    },
+    {
+      "id": "chemistry-054",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What shape does a tetrahedral molecule like methane (CH₄) have?",
+        "ar": "ما شكل الجزيء رباعي الوجوه كالميثان (CH₄)؟"
+      },
+      "answer": {
+        "en": "Tetrahedral — four bonds pointing towards the corners of a tetrahedron at 109.5°",
+        "ar": "رباعي الوجوه — أربع روابط تتجه نحو زوايا رباعي الوجوه عند 109.5°"
+      }
+    },
+    {
+      "id": "chemistry-055",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is electrolysis?",
+        "ar": "ما التحليل الكهربائي؟"
+      },
+      "answer": {
+        "en": "Using electrical energy to drive a non-spontaneous chemical reaction, typically decomposing a compound",
+        "ar": "استخدام الطاقة الكهربائية لإطلاق تفاعل كيميائي غير تلقائي، عادةً لتحليل مركّب"
+      }
+    },
+    {
+      "id": "chemistry-056",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Acids & Bases",
+        "ar": "الأحماض والقواعد"
+      },
+      "question": {
+        "en": "What is a buffer solution?",
+        "ar": "ما المحلول العازل؟"
+      },
+      "answer": {
+        "en": "A solution that resists changes in pH when small amounts of acid or base are added",
+        "ar": "محلول يقاوم التغيّرات في الرقم الهيدروجيني عند إضافة كميات صغيرة من الحمض أو القاعدة"
+      }
+    },
+    {
+      "id": "chemistry-057",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is a hydrocarbon?",
+        "ar": "ما الهيدروكربون؟"
+      },
+      "answer": {
+        "en": "An organic compound containing only hydrogen and carbon atoms",
+        "ar": "مركّب عضوي يحتوي فقط على ذرات هيدروجين وكربون"
+      }
+    },
+    {
+      "id": "chemistry-058",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "Who created the modern periodic table?",
+        "ar": "من أنشأ الجدول الدوري الحديث؟"
+      },
+      "answer": {
+        "en": "Dmitri Mendeleev (1869)",
+        "ar": "ديمتري مندليف (1869)"
+      }
+    },
+    {
+      "id": "chemistry-059",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Reactions",
+        "ar": "التفاعلات"
+      },
+      "question": {
+        "en": "What is a redox reaction?",
+        "ar": "ما تفاعل الأكسدة والاختزال (ريدوكس)؟"
+      },
+      "answer": {
+        "en": "A reaction involving both oxidation (loss of electrons) and reduction (gain of electrons)",
+        "ar": "تفاعل يتضمّن الأكسدة (فقدان الإلكترونات) والاختزال (اكتساب الإلكترونات) معاً"
+      }
+    },
+    {
+      "id": "chemistry-060",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is electronegativity?",
+        "ar": "ما السالبية الكهربائية؟"
+      },
+      "answer": {
+        "en": "The tendency of an atom to attract shared electrons towards itself in a bond",
+        "ar": "ميل الذرة لاستقطاب الإلكترونات المشتركة نحوها في رابطة كيميائية"
+      }
+    },
+    {
+      "id": "chemistry-061",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What does Hess's Law state?",
+        "ar": "ماذا ينص قانون هيس؟"
+      },
+      "answer": {
+        "en": "The enthalpy change for a reaction is the same regardless of the path taken",
+        "ar": "التغيّر في المحتوى الحراري لتفاعل ما هو ثابت بصرف النظر عن المسار المتبع"
+      }
+    },
+    {
+      "id": "chemistry-062",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is Markovnikov's rule?",
+        "ar": "ما قاعدة ماركوفنيكوف؟"
+      },
+      "answer": {
+        "en": "In addition reactions of HX to an alkene, the H attaches to the carbon with more H atoms (more substituted)",
+        "ar": "في تفاعلات الإضافة للـ HX على الألكين، يرتبط H بالكربون الذي يمتلك أكبر عدد من ذرات H"
+      }
+    },
+    {
+      "id": "chemistry-063",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Equilibrium",
+        "ar": "التوازن"
+      },
+      "question": {
+        "en": "What does the equilibrium constant (Kc) indicate?",
+        "ar": "ما الذي يشير إليه ثابت التوازن (Kc)؟"
+      },
+      "answer": {
+        "en": "The ratio of product concentrations to reactant concentrations at equilibrium (each raised to stoichiometric power)",
+        "ar": "نسبة تركيزات النواتج إلى تركيزات المتفاعلات عند التوازن (كل منها مرفوع للقوة الستوكيومترية)"
+      }
+    },
+    {
+      "id": "chemistry-064",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is a coordinate (dative) bond?",
+        "ar": "ما الرابطة التنسيقية (الإهدائية)؟"
+      },
+      "answer": {
+        "en": "A covalent bond where both electrons come from the same atom (the donor)",
+        "ar": "رابطة تساهمية يأتي فيها كلا الإلكترونين من نفس الذرة (المانحة)"
+      }
+    },
+    {
+      "id": "chemistry-065",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What is entropy in thermodynamics?",
+        "ar": "ما الإنتروبيا في الديناميكا الحرارية؟"
+      },
+      "answer": {
+        "en": "A measure of the disorder or randomness of a system",
+        "ar": "مقياس لعدم انتظام النظام أو عشوائيته"
+      }
+    },
+    {
+      "id": "chemistry-066",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the difference between structural and geometric isomers?",
+        "ar": "ما الفرق بين المتماكبات البنيوية والهندسية؟"
+      },
+      "answer": {
+        "en": "Structural isomers differ in connectivity; geometric isomers (cis/trans) differ in arrangement around a double bond",
+        "ar": "تختلف المتماكبات البنيوية في الاتصال؛ أما الهندسية (سيس/ترانس) فتختلف في الترتيب حول رابطة مزدوجة"
+      }
+    },
+    {
+      "id": "chemistry-067",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "What is lanthanide contraction?",
+        "ar": "ما انكماش اللانثانيدات؟"
+      },
+      "answer": {
+        "en": "The decrease in atomic radius across the lanthanide series due to poor shielding by 4f electrons",
+        "ar": "انخفاض نصف القطر الذري عبر سلسلة اللانثانيدات بسبب ضعف حجب إلكترونات 4f"
+      }
+    },
+    {
+      "id": "chemistry-068",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Equilibrium",
+        "ar": "التوازن"
+      },
+      "question": {
+        "en": "What does the reaction quotient (Q) tell us?",
+        "ar": "ماذا يخبرنا حاصل التفاعل (Q)؟"
+      },
+      "answer": {
+        "en": "Whether a reaction is at equilibrium, or which direction it will shift to reach equilibrium",
+        "ar": "ما إذا كان التفاعل في حالة توازن، أو في أي اتجاه سيتحوّل للوصول إلى التوازن"
+      }
+    },
+    {
+      "id": "chemistry-069",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the mechanism of electrophilic aromatic substitution (EAS)?",
+        "ar": "ما آلية الاستبدال الإلكتروفيلي العطري (EAS)؟"
+      },
+      "answer": {
+        "en": "An electrophile attacks the aromatic ring, forming a carbocation intermediate, then a proton is lost to restore aromaticity",
+        "ar": "يهاجم الإلكتروفيل حلقة الأروماتية مكوّناً وسيط كربوكاتيون، ثم يُفقد بروتون لاستعادة العطرية"
+      }
+    },
+    {
+      "id": "chemistry-070",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What is the Arrhenius equation used for?",
+        "ar": "لماذا تُستخدم معادلة أرينيوس؟"
+      },
+      "answer": {
+        "en": "To calculate the effect of temperature on reaction rate constants",
+        "ar": "لحساب تأثير درجة الحرارة على ثوابت معدل التفاعل"
+      }
+    },
+    {
+      "id": "chemistry-071",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is the VSEPR theory used for?",
+        "ar": "لماذا تُستخدم نظرية VSEPR؟"
+      },
+      "answer": {
+        "en": "To predict molecular geometry based on electron pair repulsion",
+        "ar": "للتنبؤ بالشكل الهندسي للجزيء بناءً على تنافر أزواج الإلكترونات"
+      }
+    },
+    {
+      "id": "chemistry-072",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Equilibrium",
+        "ar": "التوازن"
+      },
+      "question": {
+        "en": "What are the conditions for the Haber process?",
+        "ar": "ما الشروط اللازمة لعملية هابر؟"
+      },
+      "answer": {
+        "en": "450°C, 200 atm, iron catalyst — to produce ammonia from nitrogen and hydrogen",
+        "ar": "450°م، 200 ضغط جوي، محفّز حديدي — لإنتاج الأمونيا من النيتروجين والهيدروجين"
+      }
+    },
+    {
+      "id": "chemistry-073",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the difference between saponification and esterification?",
+        "ar": "ما الفرق بين التصبّن والإسترة؟"
+      },
+      "answer": {
+        "en": "Esterification forms an ester from acid + alcohol; saponification is the base hydrolysis of an ester to give soap (fatty acid salt) + glycerol",
+        "ar": "الإسترة تُكوّن إستراً من حمض وكحول؛ التصبّن هو التحلل المائي القاعدي للإستر لإنتاج صابون (ملح حمض دهني) وغليسرول"
+      }
+    },
+    {
+      "id": "chemistry-074",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What does a negative ΔG mean for a reaction?",
+        "ar": "ماذا يعني ΔG السالب لتفاعل ما؟"
+      },
+      "answer": {
+        "en": "The reaction is spontaneous (exergonic) — it releases free energy",
+        "ar": "التفاعل تلقائي (طارد للطاقة الحرة) — يُصدر طاقة حرة"
+      }
+    },
+    {
+      "id": "chemistry-075",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Periodic Table",
+        "ar": "الجدول الدوري"
+      },
+      "question": {
+        "en": "Why do noble gases rarely form compounds?",
+        "ar": "لماذا نادراً ما يكوّن الغازات النبيلة مركّبات؟"
+      },
+      "answer": {
+        "en": "They have full valence electron shells, making them extremely stable and unreactive",
+        "ar": "لديها مدارات إلكترونية تكافؤ ممتلئة تماماً مما يجعلها مستقرة للغاية وغير تفاعلية"
+      }
+    },
+    {
+      "id": "chemistry-076",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is a retrosynthetic analysis?",
+        "ar": "ما التحليل التراجعي (ريتروسينثيسيس)؟"
+      },
+      "answer": {
+        "en": "A strategy for planning organic synthesis by working backwards from the target molecule to simpler precursors",
+        "ar": "استراتيجية لتخطيط التخليق العضوي بالعمل بشكل عكسي من الجزيء المستهدف إلى مبادئ أبسط"
+      }
+    },
+    {
+      "id": "chemistry-077",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is the Nernst equation?",
+        "ar": "ما معادلة نرنست؟"
+      },
+      "answer": {
+        "en": "An equation relating the equilibrium reduction potential of a half-cell to standard electrode potential, temperature, and ion concentration",
+        "ar": "معادلة تربط إمكانية الاختزال لنصف خلية عند التوازن بجهد القطب القياسي ودرجة الحرارة وتركيز الأيونات"
+      }
+    },
+    {
+      "id": "chemistry-078",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What is the third law of thermodynamics?",
+        "ar": "ما القانون الثالث للديناميكا الحرارية؟"
+      },
+      "answer": {
+        "en": "The entropy of a perfect crystal at absolute zero (0 K) is zero",
+        "ar": "إنتروبيا البلورة المثالية عند الصفر المطلق (0 K) تساوي صفراً"
+      }
+    },
+    {
+      "id": "chemistry-079",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the Woodward-Hoffmann rules about?",
+        "ar": "بماذا تتعلق قواعد وودورد-هوفمان؟"
+      },
+      "answer": {
+        "en": "The conservation of orbital symmetry in pericyclic reactions — predicting whether a reaction is thermally or photochemically allowed",
+        "ar": "حفظ تناسق المدار في التفاعلات الدورية — للتنبؤ بما إذا كان التفاعل مسموحاً حرارياً أم ضوئياً"
+      }
+    },
+    {
+      "id": "chemistry-080",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is molecular orbital (MO) theory?",
+        "ar": "ما نظرية المدار الجزيئي (MO)؟"
+      },
+      "answer": {
+        "en": "A method for describing electronic structure where atomic orbitals combine to form molecular orbitals spanning the entire molecule",
+        "ar": "طريقة لوصف البنية الإلكترونية تتحد فيها المدارات الذرية لتكوين مدارات جزيئية تمتد على الجزيء بالكامل"
+      }
+    },
+    {
+      "id": "chemistry-081",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is collision theory in chemical kinetics?",
+        "ar": "ما نظرية التصادم في حركية التفاعلات الكيميائية؟"
+      },
+      "answer": {
+        "en": "Reactions occur when reactant molecules collide with sufficient energy (≥ activation energy) and correct orientation",
+        "ar": "تحدث التفاعلات عندما تتصادم جزيئات المتفاعلات بطاقة كافية (≥ طاقة التنشيط) وتوجّه صحيح"
+      }
+    },
+    {
+      "id": "chemistry-082",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the Baldwin's rules about?",
+        "ar": "بماذا تتعلق قواعد بالدوين؟"
+      },
+      "answer": {
+        "en": "Guidelines for predicting the feasibility of ring-closure reactions based on ring size and bond type at the closure site",
+        "ar": "إرشادات للتنبؤ بجدوى تفاعلات إغلاق الحلقة بناءً على حجم الحلقة ونوع الرابطة في موضع الإغلاق"
+      }
+    },
+    {
+      "id": "chemistry-083",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is the Born-Oppenheimer approximation?",
+        "ar": "ما تقريب بورن-أوبنهايمر؟"
+      },
+      "answer": {
+        "en": "Nuclear motion and electronic motion can be treated separately because nuclei are much heavier and move slower than electrons",
+        "ar": "يمكن معالجة حركة النوى وحركة الإلكترونات بشكل منفصل لأن النوى أثقل بكثير وتتحرك أبطأ من الإلكترونات"
+      }
+    },
+    {
+      "id": "chemistry-084",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What is a Maxwell-Boltzmann distribution?",
+        "ar": "ما توزيع ماكسويل-بولتزمان؟"
+      },
+      "answer": {
+        "en": "A statistical distribution describing the range of speeds of molecules in a gas at a given temperature",
+        "ar": "توزيع إحصائي يصف نطاق سرعات جزيئات الغاز عند درجة حرارة معيّنة"
+      }
+    },
+    {
+      "id": "chemistry-085",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the Diels-Alder reaction?",
+        "ar": "ما تفاعل ديلز-ألدر؟"
+      },
+      "answer": {
+        "en": "A cycloaddition between a conjugated diene and a dienophile to form a six-membered ring",
+        "ar": "إضافة حلقية بين داين متزاوج وداينوفيل لتكوين حلقة سداسية العناصر"
+      }
+    },
+    {
+      "id": "chemistry-086",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is hyperconjugation?",
+        "ar": "ما الاقتران الزائد (فرط الاقتران)؟"
+      },
+      "answer": {
+        "en": "The stabilising interaction between σ-bonding electrons and an adjacent empty or partially filled p-orbital or π-system",
+        "ar": "التفاعل المستقرّ بين إلكترونات الرابطة σ ومدار p فارغ أو ممتلئ جزئياً مجاور أو نظام π"
+      }
+    },
+    {
+      "id": "chemistry-087",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is the Hammett equation used for?",
+        "ar": "لماذا تُستخدم معادلة هاميت؟"
+      },
+      "answer": {
+        "en": "To predict the effect of substituents on the rate and equilibrium of organic reactions at an aromatic ring",
+        "ar": "للتنبؤ بتأثير المجموعات الجانبية على معدل وتوازن التفاعلات العضوية عند حلقة أروماتية"
+      }
+    },
+    {
+      "id": "chemistry-088",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the distinction between kinetic and thermodynamic control in reactions?",
+        "ar": "ما الفرق بين التحكّم الحركي والتحكّم الثيرموديناميكي في التفاعلات؟"
+      },
+      "answer": {
+        "en": "Kinetic control favours the fastest-forming product; thermodynamic control favours the most stable product",
+        "ar": "يُفضّل التحكّم الحركي المنتج الأسرع تكوّناً؛ بينما يُفضّل التحكّم الثيرموديناميكي المنتج الأكثر استقراراً"
+      }
+    },
+    {
+      "id": "chemistry-089",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is the Franck-Condon principle?",
+        "ar": "ما مبدأ فرانك-كوندون؟"
+      },
+      "answer": {
+        "en": "Electronic transitions occur so quickly that nuclei do not move during the transition — the most probable transition preserves nuclear geometry",
+        "ar": "تحدث الانتقالات الإلكترونية بسرعة كبيرة لدرجة أن النوى لا تتحرك خلال الانتقال — الانتقال الأرجح يحافظ على الهندسة النووية"
+      }
+    },
+    {
+      "id": "chemistry-090",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is resonance in organic chemistry?",
+        "ar": "ما الرنين في الكيمياء العضوية؟"
+      },
+      "answer": {
+        "en": "A way of representing molecules that cannot be accurately described by a single Lewis structure — the actual structure is a hybrid of resonance contributors",
+        "ar": "طريقة لتمثيل الجزيئات التي لا يمكن وصفها بدقة ببنية لويس واحدة — البنية الفعلية هي هجين من مساهمي الرنين"
+      }
+    },
+    {
+      "id": "chemistry-091",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the Mitsunobu reaction?",
+        "ar": "ما تفاعل ميتسونوبو؟"
+      },
+      "answer": {
+        "en": "A reaction coupling an alcohol with an acidic pronucleophile (e.g. carboxylic acid) with inversion of stereochemistry",
+        "ar": "تفاعل يقرن كحولاً بنيوكليوفيل حمضي (مثل الحمض الكربوكسيلي) مع انعكاس في التجسيمية"
+      }
+    },
+    {
+      "id": "chemistry-092",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is the meaning of a pre-exponential factor (A) in the Arrhenius equation?",
+        "ar": "ما معنى العامل السابق للأُسّي (A) في معادلة أرينيوس؟"
+      },
+      "answer": {
+        "en": "It represents the frequency of molecular collisions and the probability that they are correctly oriented for reaction",
+        "ar": "يمثّل تكرار تصادمات الجزيئات واحتمال أن تكون موجّهة بشكل صحيح للتفاعل"
+      }
+    },
+    {
+      "id": "chemistry-093",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What does the Clausius-Clapeyron equation describe?",
+        "ar": "ماذا تصف معادلة كلاوزيوس-كلابيرون؟"
+      },
+      "answer": {
+        "en": "The relationship between vapour pressure and temperature for a phase transition",
+        "ar": "العلاقة بين ضغط البخار ودرجة الحرارة لأي انتقال طوري"
+      }
+    },
+    {
+      "id": "chemistry-094",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is a three-centre two-electron (3c2e) bond?",
+        "ar": "ما الرابطة ثلاثية المركز ثنائية الإلكترون (3c2e)؟"
+      },
+      "answer": {
+        "en": "A bond where two electrons are shared over three atoms — found in boranes (e.g. B₂H₆)",
+        "ar": "رابطة يتشارك فيها إلكترونان على ثلاث ذرات — توجد في البورانات (مثل B₂H₆)"
+      }
+    },
+    {
+      "id": "chemistry-095",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the Sharpless epoxidation?",
+        "ar": "ما أكسدة شارپلس الحلقية؟"
+      },
+      "answer": {
+        "en": "An asymmetric epoxidation of allylic alcohols using titanium tartrate catalyst to produce chiral epoxides",
+        "ar": "أكسدة حلقية غير متماثلة لكحولات الأليل باستخدام محفّز تيتانيوم تارترات لإنتاج الإيبوكسيدات الكيرالية"
+      }
+    },
+    {
+      "id": "chemistry-096",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physical",
+        "ar": "الكيمياء الفيزيائية"
+      },
+      "question": {
+        "en": "What is the difference between physisorption and chemisorption?",
+        "ar": "ما الفرق بين الامتزاز الفيزيائي والكيميائي؟"
+      },
+      "answer": {
+        "en": "Physisorption is weak van der Waals attraction; chemisorption involves the formation of chemical bonds between adsorbate and surface",
+        "ar": "الامتزاز الفيزيائي هو تجاذب فان دير فالس ضعيف؛ أما الكيميائي فيتضمّن تكوين روابط كيميائية بين المادة الممتزة والسطح"
+      }
+    },
+    {
+      "id": "chemistry-097",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the principle behind chromatographic separation by polarity?",
+        "ar": "ما المبدأ الكامن وراء الفصل الكروماتوغرافي بالقطبية؟"
+      },
+      "answer": {
+        "en": "In normal-phase HPLC, polar compounds elute later; in reverse-phase, non-polar compounds elute later",
+        "ar": "في HPLC الطور الطبيعي، تنزل المركّبات القطبية لاحقاً؛ في الطور العكسي، تنزل غير القطبية لاحقاً"
+      }
+    },
+    {
+      "id": "chemistry-098",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Thermodynamics",
+        "ar": "الديناميكا الحرارية"
+      },
+      "question": {
+        "en": "What is fugacity in thermodynamics?",
+        "ar": "ما التطايرية (الفوغاسيتي) في الديناميكا الحرارية؟"
+      },
+      "answer": {
+        "en": "An effective pressure that accounts for non-ideal gas behaviour, used in the chemical potential of real gases",
+        "ar": "ضغط فعّال يأخذ في الاعتبار سلوك الغاز غير المثالي، يُستخدم في الجهد الكيميائي للغازات الحقيقية"
+      }
+    },
+    {
+      "id": "chemistry-099",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Bonding",
+        "ar": "الترابط"
+      },
+      "question": {
+        "en": "What is a London dispersion force?",
+        "ar": "ما قوة التشتت لندن؟"
+      },
+      "answer": {
+        "en": "A temporary attractive force arising from instantaneous dipoles induced in adjacent atoms or molecules",
+        "ar": "قوة جاذبة مؤقتة تنشأ من ثنائيات الأقطاب الآنية المستحثّة في الذرات أو الجزيئات المتجاورة"
+      }
+    },
+    {
+      "id": "chemistry-100",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Organic",
+        "ar": "الكيمياء العضوية"
+      },
+      "question": {
+        "en": "What is the Grubbs catalyst used for?",
+        "ar": "لماذا يُستخدم محفّز غروبس؟"
+      },
+      "answer": {
+        "en": "Olefin metathesis — rearranging the substituents around double bonds to form new alkene products",
+        "ar": "تبادل الأولفين — إعادة ترتيب المجموعات الجانبية حول الروابط المزدوجة لتكوين نواتج ألكين جديدة"
+      }
+    }
+  ]
+}

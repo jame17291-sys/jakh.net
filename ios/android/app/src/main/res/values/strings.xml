@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">JAKH</string>
+    <string name="title_activity_main">JAKH</string>
+    <string name="package_name">com.jakh.app</string>
+    <string name="custom_url_scheme">com.jakh.app</string>
+</resources>

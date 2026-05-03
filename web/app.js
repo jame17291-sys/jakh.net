@@ -986,7 +986,20 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
+const APP_VERSION = '2.1';
+function flushStaleStorage() {
+  const stored = localStorage.getItem('jakh-app-version');
+  if (stored !== APP_VERSION) {
+    // Clear session-level keys that may contain stale catalog data
+    sessionStorage.removeItem('jakh-home-scroll');
+    const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
+    staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
+    localStorage.setItem('jakh-app-version', APP_VERSION);
+  }
+}
+
 function initializeFromStorage() {
+  flushStaleStorage();
   const settings = loadJson(STORAGE_KEYS.settings, {});
   state.lang = settings.lang || 'en';
   state.theme = settings.theme || 'system';

@@ -31,6 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="styles.css?v=1777300000" />
+    <script src="fluid-shader.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -78,7 +79,8 @@
 
       <!-- Page hero -->
       <section class="kv-hero" id="kv-hero" style="min-height:36vh;">
-        <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
+        <div class="kv-hero-fallback-bg" style="background: radial-gradient(ellipse at 25% 50%, rgba(99,102,241,0.22) 0%, transparent 55%), radial-gradient(ellipse at 75% 40%, rgba(168,85,247,0.15) 0%, transparent 55%), linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%);" aria-hidden="true"></div>
+        <canvas class="kv-fluid-canvas" id="mindLabFluidCanvas" aria-hidden="true"></canvas>
         <div class="kv-hero-content" style="padding-top:3rem;padding-bottom:2.5rem;">
           <p class="kv-eyebrow">3,000+ Bilingual Riddles — English &amp; Arabic</p>
           <h1 class="kv-hero-title" style="font-size:clamp(3rem,10vw,7rem);">The Mind Lab</h1>
@@ -185,5 +187,27 @@
     </div>
 
     <script defer src="app.js?v=1777300000"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var canvas = document.getElementById('mindLabFluidCanvas');
+        if (canvas && window.FluidShader) {
+          var mounted = window.FluidShader.mount(canvas);
+          if (!mounted) {
+            canvas.style.display = 'none';
+          } else if ('IntersectionObserver' in window) {
+            var heroSection = document.getElementById('kv-hero');
+            if (heroSection) {
+              var shaderIO = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) { window.FluidShader.resume(); }
+                  else { window.FluidShader.pause(); }
+                });
+              }, { threshold: 0.05 });
+              shaderIO.observe(heroSection);
+            }
+          }
+        }
+      });
+    </script>
   </body>
 </html>

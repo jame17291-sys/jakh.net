@@ -617,8 +617,6 @@ textarea { min-height: 6.5rem; resize: vertical; }
   color: inherit;
   border-radius: 18px 18px 8px 8px;
   overflow: hidden;
-  content-visibility: auto;
-  contain-intrinsic-size: 0 280px;
   transition: transform 0.25s cubic-bezier(0.3, 0.7, 0.4, 1), box-shadow 0.25s;
   min-height: 0;
   background: #161220;
@@ -2695,11 +2693,7 @@ body::after {
 .category-card.is-loaded[href="psychology.html"] .category-card-bg::before { background-image: url('assets/backgrounds_new/psychology.png'); }
 
 /* Final Performance Sweep */
-#categoryDirectoryGrid {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 1000px;
-}
-.primary-btn, .ghost-btn, .secondary-btn, .mini-btn, .category-card {
+.primary-btn, .ghost-btn, .secondary-btn, .mini-btn {
   will-change: transform, opacity;
 }
 

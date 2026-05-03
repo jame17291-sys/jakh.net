@@ -1005,21 +1005,26 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.3';
+const APP_VERSION = '2.4';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
-  if (stored !== APP_VERSION) {
+  if (stored !== null && stored !== APP_VERSION) {
     sessionStorage.removeItem('jakh-home-scroll');
     const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
     staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
     localStorage.setItem('jakh-app-version', APP_VERSION);
-    // Force SW to clear all caches so stale CSS/JS is not served
+    // Clear all SW caches then reload so new CSS/JS takes effect immediately
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.ready.then(reg => {
         reg.active?.postMessage({ type: 'CLEAR_CACHE' });
-      }).catch(() => {});
+        setTimeout(() => location.reload(), 800);
+      }).catch(() => { location.reload(); });
+    } else {
+      location.reload();
     }
+    return;
   }
+  if (stored === null) localStorage.setItem('jakh-app-version', APP_VERSION);
 }
 
 function initializeFromStorage() {

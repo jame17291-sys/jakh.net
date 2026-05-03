@@ -3,6 +3,8 @@ if (location.protocol === 'http:' && !/^(localhost|127\.0\.0\.1)$/i.test(locatio
   location.replace(`https://${location.host}${location.pathname}${location.search}${location.hash}`);
 }
 
+let _sio = null; // Socket.io client instance (lazy-loaded)
+
 // ── Micro-animations ──────────────────────────────────────────────────────────
 function spawnConfetti(originEl) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -628,6 +630,99 @@ function debounce(fn, delay) {
   };
 }
 
+function _loadSocketIO() {
+  return new Promise((resolve) => {
+    if (window.io) { resolve(window.io); return; }
+    const s = document.createElement('script');
+    s.src = '/socket.io/socket.io.js';
+    s.onload = () => resolve(window.io);
+    s.onerror = () => resolve(null);
+    document.head.appendChild(s);
+  });
+}
+
+async function connectGameRoom() {
+  const io = await _loadSocketIO();
+  if (!io) { showToast('Multiplayer unavailable', 'error'); return null; }
+  if (_sio?.connected) return _sio;
+  _sio = io('https://jakh.net', { path: '/socket.io', transports: ['websocket', 'polling'] });
+  return _sio;
+}
+
+async function createGameRoom(playerName) {
+  const socket = await connectGameRoom();
+  if (!socket) return;
+  socket.emit('createRoom', { playerName: playerName || 'Host', category: state.categorySlug || '' });
+  socket.once('roomCreated', ({ roomId, url }) => {
+    navigator.clipboard?.writeText(url).catch(() => {});
+    showToast(`Room created! Link copied: ${url}`, 'success');
+    showGameRoomModal(roomId, url);
+  });
+  socket.once('error', ({ message }) => showToast(message, 'error'));
+}
+
+async function joinGameRoom(roomId, playerName) {
+  const socket = await connectGameRoom();
+  if (!socket) return;
+  socket.emit('joinRoom', { roomId, playerName: playerName || 'Guest' });
+  socket.once('roomJoined', ({ players, hostId }) => {
+    showToast(`Joined room! ${players.length} player(s) connected.`, 'success');
+    showGameRoomModal(roomId, `https://jakh.net/play/${roomId}`, players, hostId);
+  });
+  socket.once('error', ({ message }) => showToast(message, 'error'));
+}
+
+function showGameRoomModal(roomId, url, players = [], hostId = null) {
+  const existing = document.getElementById('gameRoomModal');
+  if (existing) existing.remove();
+  const isHost = hostId === null || (_sio && _sio.id === hostId);
+  const modal = document.createElement('div');
+  modal.id = 'gameRoomModal';
+  modal.className = 'modal is-open';
+  modal.innerHTML = `
+    <div class="modal-backdrop" data-close-modal="gameRoomModal"></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h2>🎮 Game Room</h2>
+        <button class="ghost-btn" data-close-modal="gameRoomModal">✕</button>
+      </div>
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.75rem;">Share this link with friends:</p>
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <input id="gameRoomUrl" class="input" value="${url}" readonly style="flex:1;font-size:0.85rem;" />
+        <button class="primary-btn" id="copyRoomUrlBtn">Copy</button>
+      </div>
+      <div id="gameRoomPlayers" style="margin-bottom:1rem;">
+        ${players.map(p => `<div class="ghost-btn" style="margin:0.25rem 0;width:100%;text-align:left;">👤 ${escapeHtml(p.name)}</div>`).join('') || '<p class="muted">Waiting for players…</p>'}
+      </div>
+      ${isHost ? `<button class="primary-btn" id="startGameRoomBtn" style="width:100%;">🚀 Start Battle</button>` : '<p class="muted" style="text-align:center;">Waiting for host to start…</p>'}
+    </div>`;
+  document.body.appendChild(modal);
+
+  document.getElementById('copyRoomUrlBtn')?.addEventListener('click', () => {
+    navigator.clipboard?.writeText(url).then(() => showToast('Link copied!', 'success'));
+  });
+  document.getElementById('startGameRoomBtn')?.addEventListener('click', () => {
+    if (_sio) _sio.emit('relay', { roomId, event: 'startBattle', data: { category: state.categorySlug } });
+    modal.remove();
+    openBattleModal(state.categorySlug);
+  });
+
+  // Live player list updates
+  if (_sio) {
+    _sio.on('playerJoined', ({ players: pl }) => {
+      const el = document.getElementById('gameRoomPlayers');
+      if (el) el.innerHTML = pl.map(p => `<div class="ghost-btn" style="margin:0.25rem 0;width:100%;text-align:left;">👤 ${escapeHtml(p.name)}</div>`).join('');
+    });
+    _sio.on('playerLeft', ({ players: pl }) => {
+      const el = document.getElementById('gameRoomPlayers');
+      if (el) el.innerHTML = pl.map(p => `<div class="ghost-btn" style="margin:0.25rem 0;width:100%;text-align:left;">👤 ${escapeHtml(p.name)}</div>`).join('');
+    });
+    _sio.on('relayed', ({ event: ev }) => {
+      if (ev === 'startBattle') { modal.remove(); openBattleModal(state.categorySlug); }
+    });
+  }
+}
+
 function saveJson(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -1041,6 +1136,16 @@ function bindCommonEvents() {
   }
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
 
+
+  // Handle /play/ROOMID path — auto-open join dialog
+  const playMatch = location.pathname.match(/^\/play\/([A-Z0-9]{6})$/i);
+  if (playMatch) {
+    const roomId = playMatch[1].toUpperCase();
+    setTimeout(async () => {
+      const name = localStorage.getItem('jakh-username') || 'Guest';
+      await joinGameRoom(roomId, name);
+    }, 800);
+  }
 
   // Handle #battle/CODE deep-link
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);

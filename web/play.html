@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1A1520" />
+    <meta name="description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles — no download, no sign-up required." />
+    <title>Play | JAKH Riddles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/play" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="free browser games, chess online, mastermind game, logic puzzles, jakh riddles games" />
+    <meta property="og:title" content="Play | JAKH Riddles" />
+    <meta property="og:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles — no download, no sign-up required." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jakh.net/play" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="JAKH Riddles" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Play | JAKH Riddles" />
+    <meta name="twitter:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
+    <link rel="stylesheet" href="styles.css?v=1777260000" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VQZQNK6VSV');
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          if (reg) reg.update();
+        });
+      }
+    </script>
+  </head>
+  <body data-page="play">
+    <a href="#top" class="skip-link">Skip to main content</a>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+    <div class="grid-glow" aria-hidden="true"></div>
+
+    <header class="site-header shell">
+      <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp" />
+          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
+        </picture>
+      </a>
+      <nav class="header-actions" aria-label="Quick actions">
+        <a class="ghost-btn" href="index.html">Home</a>
+        <a class="ghost-btn" href="index.html#categories">Categories</a>
+        <a class="ghost-btn" href="play.html" aria-current="page">Games</a>
+      </nav>
+      <div class="header-selects" aria-label="Language controls">
+        <label>
+          <span>Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero shell" style="padding-bottom: 0.5rem;">
+        <div class="hero-copy">
+          <p class="eyebrow">Free browser games</p>
+          <h1>Game Arena</h1>
+          <p class="hero-text">No download. No sign-up. Just play — straight from your browser on any device.</p>
+        </div>
+      </section>
+
+      <!-- Live games -->
+      <section class="shell section-block">
+        <p class="eyebrow" style="margin-bottom: 0.25rem;">Available now</p>
+        <h2 style="margin: 0 0 0.25rem; font-size: clamp(1.3rem, 4vw, 1.7rem);">Pick a game</h2>
+        <p style="color: var(--muted); font-size: 0.9rem; margin: 0;">All games run entirely in your browser — nothing is installed.</p>
+
+        <div class="game-lobby-grid">
+          <!-- Chess -->
+          <a class="game-card" href="chess.html" aria-label="Play Chess">
+            <span class="game-card-badge">New</span>
+            <div class="game-card-icon">&#9822;</div>
+            <h3 class="game-card-title">Chess</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">2 players</span>
+              <span class="game-card-tag">vs Computer</span>
+              <span class="game-card-tag">Strategy</span>
+            </div>
+            <p class="game-card-desc">Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend on the same screen.</p>
+            <span class="game-card-play">Play Chess &#8594;</span>
+          </a>
+
+          <!-- Mastermind -->
+          <a class="game-card" href="mastermind.html" aria-label="Play Mastermind">
+            <span class="game-card-badge">New</span>
+            <div class="game-card-icon">&#129504;</div>
+            <h3 class="game-card-title">Mastermind</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">Solo</span>
+              <span class="game-card-tag">10 attempts</span>
+              <span class="game-card-tag">Logic</span>
+            </div>
+            <p class="game-card-desc">Crack the secret 4-colour code in 10 attempts. Black pegs = right colour, right place. White pegs = right colour, wrong place. Use the Hint button for the optimal Knuth move.</p>
+            <span class="game-card-play">Play Mastermind &#8594;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Coming soon -->
+      <section class="shell section-block" style="padding-top: 0;">
+        <p class="eyebrow" style="margin-bottom: 0.25rem; opacity: 0.6;">Coming soon</p>
+        <h2 style="margin: 0; font-size: clamp(1.1rem, 3.5vw, 1.4rem); color: var(--muted); font-weight: 400;">More games in the pipeline</h2>
+
+        <div class="game-soon-grid">
+          <div class="game-soon-card">
+            <span class="game-soon-badge">Coming soon</span>
+            <div class="game-soon-icon">&#129321;</div>
+            <h3 class="game-soon-title">Word Guess</h3>
+            <p class="game-soon-desc">6 chances to guess the hidden 5-letter word. Bilingual Arabic &amp; English.</p>
+          </div>
+
+          <div class="game-soon-card">
+            <span class="game-soon-badge">Coming soon</span>
+            <div class="game-soon-icon">&#9855;</div>
+            <h3 class="game-soon-title">Trivia Blitz</h3>
+            <p class="game-soon-desc">20 rapid-fire questions from the JAKH catalog. Race against the clock.</p>
+          </div>
+
+          <div class="game-soon-card">
+            <span class="game-soon-badge">Coming soon</span>
+            <div class="game-soon-icon">&#127149;</div>
+            <h3 class="game-soon-title">Memory Match</h3>
+            <p class="game-soon-desc">Flip cards to find matching pairs — themed around JAKH categories.</p>
+          </div>
+
+          <div class="game-soon-card">
+            <span class="game-soon-badge">Coming soon</span>
+            <div class="game-soon-icon">&#128200;</div>
+            <h3 class="game-soon-title">Leaderboards</h3>
+            <p class="game-soon-desc">Global rankings for every game. Compete with JAKH users worldwide.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -35,6 +35,7 @@ model User {
   sentNudges        TeamNudge[]           @relation("NudgeSender")
   receivedNudges    TeamNudge[]           @relation("NudgeReceiver")
   challengeProgress TeamChallengeProgress[]
+  boardGameScores   BoardGameScore[]
 }
 
 model UserProgress {
@@ -137,4 +138,19 @@ model Suggestion {
   ipHash    String?
   status    String   @default("new")
   createdAt DateTime @default(now())
+}
+
+model BoardGameScore {
+  id        String   @id @default(uuid())
+  userId    String?
+  username  String
+  game      String
+  score     Int
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([game, score])
+  @@index([userId])
 }

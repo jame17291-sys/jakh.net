@@ -14,6 +14,9 @@ import suggestionRoutes from './routes/suggestions';
 import ttsRoutes from './routes/tts';
 import leaderboardRoutes from './routes/leaderboard';
 import battleRoutes, { setupBattleWebSocket } from './routes/battle';
+import boardgameRoutes from './routes/boardgame';
+import { Server as SocketServer } from 'socket.io';
+import { setupGameRooms } from './socket/gameRoom';
 
 dotenv.config();
 
@@ -36,6 +39,7 @@ app.use('/api/suggestions', suggestionRoutes);
 app.use('/api/tts', ttsRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
 app.use('/api/battle', battleRoutes);
+app.use('/api/boardgame', boardgameRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'JAKH Riddles API is running' });
@@ -52,6 +56,12 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 
 // HTTP server + WebSocket
 const httpServer = createServer(app);
+const io = new SocketServer(httpServer, {
+  path: '/socket.io',
+  cors: { origin: 'https://jakh.net', credentials: true },
+  transports: ['websocket', 'polling'],
+});
+setupGameRooms(io);
 const wss = new WebSocketServer({ noServer: true });
 setupBattleWebSocket(wss);
 

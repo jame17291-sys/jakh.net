@@ -1005,15 +1005,20 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.1';
+const APP_VERSION = '2.2';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== APP_VERSION) {
-    // Clear session-level keys that may contain stale catalog data
     sessionStorage.removeItem('jakh-home-scroll');
     const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
     staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
     localStorage.setItem('jakh-app-version', APP_VERSION);
+    // Force SW to clear all caches so stale CSS/JS is not served
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then(reg => {
+        reg.active?.postMessage({ type: 'CLEAR_CACHE' });
+      }).catch(() => {});
+    }
   }
 }
 

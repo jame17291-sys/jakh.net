@@ -665,7 +665,10 @@ async function connectGameRoom() {
   const io = await _loadSocketIO();
   if (!io) { showToast('Multiplayer unavailable', 'error'); return null; }
   if (_sio?.connected) return _sio;
-  _sio = io('https://jakh.net', { path: '/socket.io', transports: ['websocket', 'polling'] });
+  _sio = io('https://jakh.net', { path: '/socket.io', transports: ['polling', 'websocket'] });
+  _sio.on('connect_error', (err) => {
+    showToast('Could not connect to game server. Try again.', 'error');
+  });
   return _sio;
 }
 

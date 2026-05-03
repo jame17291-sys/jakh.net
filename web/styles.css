@@ -385,13 +385,20 @@ textarea { min-height: 6.5rem; resize: vertical; }
   contain-intrinsic-size: 0 360px;
 }
 .riddle-card:hover:not(.is-locked) { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(0,0,0,0.28); }
+/* Suppress hover lift on touch (causes sticky hover on mobile) */
+@media (hover: none) {
+  .riddle-card:hover:not(.is-locked) { transform: none; box-shadow: none; }
+}
+/* Haptic press effect — works on all touch devices */
+.riddle-card:active:not(.is-locked) { transform: scale(0.98); transition: transform 80ms ease; }
 .card-inner {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
 }
-.riddle-card:hover .card-inner, .riddle-card:focus-within .card-inner { will-change: transform; }
 .riddle-card.is-flipped .card-inner { transform: rotateY(180deg); }
 .card-face {
   position: absolute;
@@ -400,9 +407,17 @@ textarea { min-height: 6.5rem; resize: vertical; }
   display: grid;
   gap: 0.85rem;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
-.card-back { transform: rotateY(180deg); background: color-mix(in srgb, var(--panel-strong) 96%, transparent); border-top: 3px solid color-mix(in srgb, var(--accent-2) 70%, transparent); position: relative; z-index: 10; opacity: 1; }
-.card-back .action-flip { position: relative; z-index: 10; opacity: 1; }
+/* Card back: keep above card-front in the stacking context */
+.card-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  background: color-mix(in srgb, var(--panel-strong) 96%, transparent);
+  border-top: 3px solid color-mix(in srgb, var(--accent-2) 70%, transparent);
+  z-index: 1;
+}
+.card-back .action-flip { position: relative; z-index: 2; opacity: 1; }
 .card-question, .card-answer {
   margin: 0;
   line-height: 1.72;
@@ -3414,3 +3429,172 @@ input, select, textarea {
   .game-lobby-grid { grid-template-columns: 1fr; }
 }
 /* ── End Game Lobby ──────────────────────────────────────── */
+
+/* ── Home Portal Split ───────────────────────────────────── */
+.home-portal {
+  padding: 2rem 0 0;
+}
+
+.home-portal-eyebrow {
+  text-align: center;
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.home-portal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.home-portal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 2.25rem 2rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--panel);
+  min-height: 320px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-portal-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.home-portal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-portal-card:hover::before { opacity: 1; }
+
+.home-portal-card:active { transform: scale(0.99); }
+
+.portal-mind {
+  border-color: rgba(159, 124, 255, 0.25);
+}
+.portal-mind::before {
+  background: radial-gradient(ellipse 80% 55% at 15% 5%, rgba(159,124,255,0.13), transparent);
+}
+.portal-mind:hover { border-color: rgba(159, 124, 255, 0.5); }
+
+.portal-games {
+  border-color: rgba(232, 97, 60, 0.25);
+}
+.portal-games::before {
+  background: radial-gradient(ellipse 80% 55% at 85% 5%, rgba(232,97,60,0.13), transparent);
+}
+.portal-games:hover { border-color: rgba(232, 97, 60, 0.5); }
+
+.portal-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  position: relative;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.35));
+}
+
+.portal-title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 72, 'SOFT' 50;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--text);
+  position: relative;
+}
+
+.portal-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  position: relative;
+}
+
+.portal-stats {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.portal-stat {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--muted);
+}
+
+.portal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  position: relative;
+  transition: gap 0.15s;
+}
+
+.portal-mind .portal-cta  { color: #9f7cff; }
+.portal-games .portal-cta { color: var(--accent); }
+.home-portal-card:hover .portal-cta { gap: 0.8rem; }
+
+/* Widgets row below the portal (account, resume, daily) */
+.home-widgets-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 1.25rem 0 0;
+}
+
+.home-widgets-row > * {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Mobile ≤ 768px: stack the two portal cards */
+@media (max-width: 768px) {
+  .home-portal-grid { grid-template-columns: 1fr; }
+  .home-portal-card { min-height: 220px; padding: 1.75rem 1.5rem; }
+  .portal-title { font-size: 1.7rem; }
+}
+
+/* Mobile ≤ 480px: tighter */
+@media (max-width: 480px) {
+  .home-portal-card { min-height: 180px; padding: 1.5rem 1.25rem; gap: 0.85rem; }
+  .portal-icon { font-size: 2.1rem; }
+  .portal-title { font-size: 1.4rem; }
+  .portal-desc { font-size: 0.88rem; }
+  .home-widgets-row > * { min-width: 100%; }
+}
+
+/* Mind Lab section label */
+.mind-lab-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+/* ── End Home Portal ─────────────────────────────────────── */

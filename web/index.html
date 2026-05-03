@@ -165,7 +165,6 @@
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="index.html#categories" data-i18n="navCategories">Categories</a>
-        <a class="ghost-btn" href="play.html">Games</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
         <button class="ghost-btn" id="themeToggleBtn" aria-label="Toggle Theme">🌙</button>
 
@@ -185,34 +184,58 @@
 
     
 <main id="top">
-  <section class="hero shell hero-home">
-    <div class="hero-copy">
-      <p class="eyebrow" data-i18n="homeEyebrow">3,000+ bilingual riddles — English &amp; Arabic</p>
-      <h1 data-i18n="homeTitle">Pick a topic. Flip cards. See how much you know.</h1>
-      <p class="hero-text" data-i18n="homeText">Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.</p>
-      <div class="hero-actions">
-        <a class="primary-btn" href="#categories" data-i18n="browseCategories">Pick a category</a>
-        <button class="secondary-btn" id="heroAuthBtn" data-i18n="createAccount">Save my progress</button>
-      </div>
-      <div class="hero-badges">
-        <span id="badgeCategories">0 categories</span>
-        <span id="badgeQuestions">0 questions</span>
-      </div>
-    </div>
 
-    <aside class="hero-panel hero-panel-rich" aria-label="Account snapshot">
-      <div id="accountSummaryMount"></div>
-    </aside>
+  <!-- ══════════════════════════════════════════════════
+       PORTAL SPLIT — Mind Lab & Game Hub
+  ═══════════════════════════════════════════════════ -->
+  <section class="home-portal shell">
+    <p class="home-portal-eyebrow">Where would you like to go?</p>
+    <div class="home-portal-grid">
+
+      <!-- The Mind Lab -->
+      <a class="home-portal-card portal-mind" href="#categories" aria-label="Enter The Mind Lab">
+        <span class="portal-icon" aria-hidden="true">🧠</span>
+        <h2 class="portal-title">The Mind Lab</h2>
+        <p class="portal-desc">3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.</p>
+        <div class="portal-stats">
+          <span class="portal-stat" id="badgeCategories">45 categories</span>
+          <span class="portal-stat" id="badgeQuestions">3,093 questions</span>
+        </div>
+        <span class="portal-cta">Explore Riddles →</span>
+      </a>
+
+      <!-- The Game Hub -->
+      <a class="home-portal-card portal-games" href="play.html" aria-label="Enter The Game Hub">
+        <span class="portal-icon" aria-hidden="true">🎮</span>
+        <h2 class="portal-title">The Game Hub</h2>
+        <p class="portal-desc">Chess, Mastermind, Speed Math, and more. Multiplayer board games fully playable in your browser — no download, no sign-up, no friction.</p>
+        <div class="portal-stats">
+          <span class="portal-stat">2 games live</span>
+          <span class="portal-stat">More coming</span>
+        </div>
+        <span class="portal-cta">Play Now →</span>
+      </a>
+
+    </div>
   </section>
 
-  <div id="resumeMount"></div>
-  <div id="dailyChallengeMount"></div>
+  <!-- ══════════════════════════════════════════════════
+       WIDGETS — Account snapshot, Resume, Daily challenge
+  ═══════════════════════════════════════════════════ -->
+  <div class="shell home-widgets-row">
+    <div id="accountSummaryMount"></div>
+    <div id="resumeMount"></div>
+    <div id="dailyChallengeMount"></div>
+  </div>
 
+  <!-- ══════════════════════════════════════════════════
+       THE MIND LAB — Mega-Category Browser
+  ═══════════════════════════════════════════════════ -->
   <section class="shell section-block" id="categories">
     <div class="section-heading library-head">
       <div>
-        <p class="eyebrow" data-i18n="categoryEyebrow">Choose a section</p>
-        <h2 data-i18n="categoryTitle">What would you like to explore?</h2>
+        <p class="eyebrow mind-lab-eyebrow">🧠 The Mind Lab</p>
+        <h2>Choose a mega-category</h2>
       </div>
       <p class="section-note" data-i18n="categoryText">Pick a section below to see its categories, or search for a specific topic.</p>
     </div>
@@ -222,7 +245,6 @@
         <span data-i18n="searchCategoriesLabel">Search category pages</span>
         <input id="categorySearchInput" type="search" autocomplete="off" placeholder="Search by category, topic, or sector..." />
       </label>
-
       <div class="chip-row" id="clusterFilters"></div>
     </section>
 
@@ -241,10 +263,9 @@
       <div class="category-card skeleton-card"></div>
       <div class="category-card skeleton-card"></div>
       <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
     </div>
   </section>
+
 </main>
 
 

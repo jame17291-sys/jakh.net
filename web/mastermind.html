@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>document.documentElement.dataset.theme="dark";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content="Play Mastermind on JAKH Riddles — crack the 4-colour code in 10 attempts." />
@@ -29,7 +30,7 @@
     <meta name="twitter:title" content="Mastermind | JAKH Riddles" />
     <meta name="twitter:description" content="Play Mastermind on JAKH Riddles — crack the 4-colour code in 10 attempts." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
-    <link rel="stylesheet" href="styles.css?v=1777260000" />
+    <link rel="stylesheet" href="styles.css?v=1777270000" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -344,7 +345,6 @@
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="index.html">Home</a>
         <a class="ghost-btn" href="mind-lab.html">Categories</a>
-        <button class="ghost-btn" id="themeToggleBtn" aria-label="Toggle Theme">🌙</button>
       </nav>
 
       <div class="header-selects" aria-label="Language controls">
@@ -807,23 +807,7 @@
       hintBtn.addEventListener('click', applyHint);
       newGameBtn.addEventListener('click', startNewGame);
 
-      // Theme toggle (minimal, matches site pattern)
-      const themeBtn = document.getElementById('themeToggleBtn');
-      if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-          const html = document.documentElement;
-          const current = html.getAttribute('data-theme');
-          if (current === 'light') {
-            html.removeAttribute('data-theme');
-            themeBtn.textContent = '🌙';
-          } else {
-            html.setAttribute('data-theme', 'light');
-            themeBtn.textContent = '☀️';
-          }
-        });
-      }
-
-      // ── Init ──────────────────────────────────────────────
+// ── Init ──────────────────────────────────────────────
       buildPalette();
       buildBoard();
       updateAttemptCounter();

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>document.documentElement.dataset.theme="dark";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content="3,000+ free bilingual riddles and quizzes in English and Arabic. 44 categories from math and science to history, football, anime, and kids puzzles. Test your knowledge with clear difficulty levels — easy, medium, hard, and very advanced." />
@@ -138,7 +139,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="styles.css?v=1777260000" />
+    <link rel="stylesheet" href="styles.css?v=1777270000" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -169,7 +170,6 @@
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Categories</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
-        <button class="ghost-btn" id="themeToggleBtn" aria-label="Toggle Theme">🌙</button>
 
       </nav>
 
@@ -194,33 +194,33 @@
     <canvas class="kv-fluid-canvas" id="kvFluidCanvas" aria-hidden="true"></canvas>
 
     <div class="kv-hero-content">
-      <p class="kv-eyebrow">3,000+ Bilingual Riddles — English &amp; Arabic</p>
+      <p class="kv-eyebrow" data-i18n="homeEyebrow">3,000+ Bilingual Riddles — English &amp; Arabic</p>
 
       <h1 class="kv-hero-title">JAKH</h1>
 
-      <p class="kv-hero-subtitle">
+      <p class="kv-hero-subtitle" data-i18n="homeTitle">
         Pick a topic. Flip cards. See how much you know.
       </p>
 
       <div class="kv-hero-cta">
-        <a href="mind-lab.html" class="kv-btn-primary">Pick a Category</a>
-        <a href="play.html" class="kv-btn-outline">Game Hub</a>
+        <a href="mind-lab.html" class="kv-btn-primary" data-i18n="browseCategories">Pick a Category</a>
+        <a href="play.html" class="kv-btn-outline" data-i18n="heroGameHub">Game Hub</a>
       </div>
 
       <div class="kv-hero-stats">
         <div class="kv-stat">
           <span class="kv-stat-number" id="badgeCategories">56</span>
-          <span class="kv-stat-label">Categories</span>
+          <span class="kv-stat-label" data-i18n="statCategories">Categories</span>
         </div>
         <div class="kv-stat-divider" aria-hidden="true"></div>
         <div class="kv-stat">
           <span class="kv-stat-number" id="badgeQuestions">3,553</span>
-          <span class="kv-stat-label">Questions</span>
+          <span class="kv-stat-label" data-i18n="statQuestions">Questions</span>
         </div>
         <div class="kv-stat-divider" aria-hidden="true"></div>
         <div class="kv-stat">
           <span class="kv-stat-number">2</span>
-          <span class="kv-stat-label">Languages</span>
+          <span class="kv-stat-label" data-i18n="statLanguages">Languages</span>
         </div>
       </div>
     </div>
@@ -234,28 +234,28 @@
 
       <!-- Mind Lab -->
       <a class="kv-portal-card kv-portal-mind" href="mind-lab.html" aria-label="Enter The Mind Lab">
-        <p class="kv-portal-tag">Mind Lab</p>
+        <p class="kv-portal-tag" data-i18n="portalMindTag">Mind Lab</p>
         <span class="kv-portal-icon" aria-hidden="true">🧠</span>
-        <h2 class="kv-portal-title">The Mind Lab</h2>
-        <p class="kv-portal-desc">3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.</p>
+        <h2 class="kv-portal-title" data-i18n="portalMindTitle">The Mind Lab</h2>
+        <p class="kv-portal-desc" data-i18n="portalMindDesc">3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.</p>
         <div class="kv-portal-stats">
-          <span class="kv-portal-stat" id="badgeCategories2">56 categories</span>
+          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">56 categories</span>
           <span class="kv-portal-stat">Arabic &amp; English</span>
         </div>
-        <span class="kv-portal-cta">Explore Riddles →</span>
+        <span class="kv-portal-cta" data-i18n="portalMindCta">Explore Riddles →</span>
       </a>
 
       <!-- Game Hub -->
       <a class="kv-portal-card kv-portal-games" href="play.html" aria-label="Enter The Game Hub">
-        <p class="kv-portal-tag">Game Hub</p>
+        <p class="kv-portal-tag" data-i18n="portalGamesTag">Game Hub</p>
         <span class="kv-portal-icon" aria-hidden="true">🎮</span>
-        <h2 class="kv-portal-title">The Game Hub</h2>
-        <p class="kv-portal-desc">Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.</p>
+        <h2 class="kv-portal-title" data-i18n="portalGamesTitle">The Game Hub</h2>
+        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.</p>
         <div class="kv-portal-stats">
-          <span class="kv-portal-stat">10 games live</span>
-          <span class="kv-portal-stat">All in browser</span>
+          <span class="kv-portal-stat" data-i18n="portalGamesStat1">10 games live</span>
+          <span class="kv-portal-stat" data-i18n="portalGamesStat2">All in browser</span>
         </div>
-        <span class="kv-portal-cta">Play Now →</span>
+        <span class="kv-portal-cta" data-i18n="portalGamesCta">Play Now →</span>
       </a>
 
     </div>
@@ -314,7 +314,7 @@
     </div>
 
 
-    <script defer src="app.js?v=1777260000"></script>
+    <script defer src="app.js?v=1777270000"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var canvas = document.getElementById('kvFluidCanvas');

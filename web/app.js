@@ -193,14 +193,25 @@ const UI = {
     navCategories: 'Categories',
     authOpen: 'Sign in',
     language: 'Language',
-    theme: 'Theme',
-    themeSystem: 'System',
-    themeDark: 'Dark',
-    themeLight: 'Light',
     homeEyebrow: '3,000+ bilingual riddles — English & Arabic',
     homeTitle: 'Pick a topic. Flip cards. See how much you know.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Pick a category',
+    heroGameHub: 'Game Hub',
+    statCategories: 'Categories',
+    statQuestions: 'Questions',
+    statLanguages: 'Languages',
+    portalMindTag: 'Mind Lab',
+    portalMindTitle: 'The Mind Lab',
+    portalMindDesc: '3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.',
+    portalMindStat: '56 categories',
+    portalMindCta: 'Explore Riddles →',
+    portalGamesTag: 'Game Hub',
+    portalGamesTitle: 'The Game Hub',
+    portalGamesDesc: 'Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.',
+    portalGamesStat1: '10 games live',
+    portalGamesStat2: 'All in browser',
+    portalGamesCta: 'Play Now →',
     createAccount: 'Save my progress',
     todayMomentum: 'Your snapshot',
     localBrowserOnly: 'Saved to your account',
@@ -281,7 +292,6 @@ const UI = {
     signedOut: 'Signed out.',
     badLogin: 'Username or password is incorrect.',
     userExists: 'That username is already taken.',
-    themeSet: 'Theme updated.',
     languageSet: 'Language updated.',
     directoryResetDone: 'Category filters reset.',
     pageResetDone: 'Page filters reset.',
@@ -334,14 +344,25 @@ const UI = {
     navCategories: 'الفئات',
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    theme: 'المظهر',
-    themeSystem: 'تلقائي',
-    themeDark: 'داكن',
-    themeLight: 'فاتح',
     homeEyebrow: '+3000 لغز ثنائي اللغة — عربي وإنجليزي',
     homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
     homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
     browseCategories: 'اختر فئة',
+    heroGameHub: 'مركز الألعاب',
+    statCategories: 'الفئات',
+    statQuestions: 'الأسئلة',
+    statLanguages: 'اللغات',
+    portalMindTag: 'مختبر العقول',
+    portalMindTitle: 'مختبر العقول',
+    portalMindDesc: '+3000 سؤال ثنائي اللغة في 6 أقسام رئيسية — العلوم، الهندسة، الثقافة، الإعلام، الأكاديميا، والمزيد. اختر موضوعًا، اقلب البطاقات، وتابع نقاطك.',
+    portalMindStat: '56 فئة',
+    portalMindCta: 'استكشف الألغاز →',
+    portalGamesTag: 'مركز الألعاب',
+    portalGamesTitle: 'مركز الألعاب',
+    portalGamesDesc: 'شطرنج، ماستر مايند، غو، ريفرسي، كودنيمز، كاتان، طاولة، ست، هانابي، دبلوماسي — 10 ألعاب كاملة في المتصفح. بدون تنزيل أو تسجيل.',
+    portalGamesStat1: '10 ألعاب',
+    portalGamesStat2: 'كلها في المتصفح',
+    portalGamesCta: 'العب الآن →',
     createAccount: 'احفظ تقدمي',
     todayMomentum: 'ملخصك',
     localBrowserOnly: 'محفوظ في حسابك',
@@ -422,7 +443,6 @@ const UI = {
     signedOut: 'تم تسجيل الخروج.',
     badLogin: 'اسم المستخدم أو كلمة المرور غير صحيحين.',
     userExists: 'اسم المستخدم هذا مأخوذ بالفعل.',
-    themeSet: 'تم تحديث المظهر.',
     languageSet: 'تم تحديث اللغة.',
     directoryResetDone: 'تمت إعادة ضبط فلاتر الفئات.',
     pageResetDone: 'تمت إعادة ضبط فلاتر الصفحة.',
@@ -740,7 +760,7 @@ function loadJson(key, fallback) {
 
 
 function saveSettings() {
-  saveJson(STORAGE_KEYS.settings, { lang: state.lang, theme: state.theme });
+  saveJson(STORAGE_KEYS.settings, { lang: state.lang });
   saveJson(`jakh-used-${state.lang}`, 1);
 }
 
@@ -885,15 +905,11 @@ function showToast(message, isError) {
 }
 
 function applyTheme() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const resolved = state.theme === 'system' ? (prefersDark ? 'dark' : 'light') : state.theme;
-  document.documentElement.dataset.theme = resolved;
+  document.documentElement.dataset.theme = 'dark';
   document.documentElement.dataset.accent = 'aurora';
   document.documentElement.lang = state.lang === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
   if (els.langSelect) els.langSelect.value = state.lang;
-  const themeBtn = document.getElementById('themeToggleBtn');
-  if (themeBtn) themeBtn.textContent = resolved === 'dark' ? '☀️' : '🌙';
 }
 
 function applyStaticCopy() {
@@ -1002,7 +1018,11 @@ function initializeFromStorage() {
   flushStaleStorage();
   const settings = loadJson(STORAGE_KEYS.settings, {});
   state.lang = settings.lang || 'en';
-  state.theme = settings.theme || 'system';
+  state.theme = 'dark';
+  // Purge any stale theme preference — site is dark-only now
+  if (settings.theme && settings.theme !== 'dark') {
+    saveJson(STORAGE_KEYS.settings, { lang: state.lang });
+  }
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
 }
 
@@ -1104,17 +1124,6 @@ function bindCommonEvents() {
       applyStaticCopy();
       rerender();
       showToast(t('languageSet'));
-    });
-  }
-  const themeBtn = document.getElementById('themeToggleBtn');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const resolved = state.theme === 'system' ? (prefersDark ? 'dark' : 'light') : state.theme;
-      state.theme = resolved === 'dark' ? 'light' : 'dark';
-      saveSettings();
-      applyTheme();
-      showToast(t('themeSet'));
     });
   }
   if (els.openAuthBtn) els.openAuthBtn.addEventListener('click', openAuthModal);
@@ -1268,7 +1277,8 @@ function bindCommonEvents() {
       state.cluster = 'all';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
       renderClusterFilters();
-      renderCategoryDirectory();
+      renderClusterTabBar();
+      fadeAndRenderDirectory();
       showToast(t('directoryResetDone'));
     });
   }
@@ -1468,12 +1478,13 @@ function rerender() {
 
 function renderHome() {
   if (!state.catalog) return;
-  if (els.badgeCategories) els.badgeCategories.textContent = fmt('categoryCountLabel', { count: state.catalog.categories.length });
-  if (els.badgeQuestions) els.badgeQuestions.textContent = fmt('totalQuestionLabel', { count: state.catalog.site.totalQuestions });
+  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.length;
+  if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
   renderResumeButton();
   renderDailyChallenge();
   renderClusterFilters();
+  renderClusterTabBar();
   renderCategoryDirectory();
   markCachedCategories();
   const savedScroll = sessionStorage.getItem('jakh-home-scroll');
@@ -1485,29 +1496,7 @@ function renderHome() {
 
 let tracksExpanded = false;
 function renderClusterFilters() {
-  if (!els.clusterFilters || !state.catalog) return;
-  const isAr = state.lang === 'ar';
-
-  // When a specific cluster is active, show a "back" breadcrumb + cluster chips
-  if (state.cluster !== 'all') {
-    const currentCluster = state.catalog.categories.find(c => c.cluster_key === state.cluster);
-    const clusterLabel = currentCluster ? (currentCluster.cluster[state.lang] || currentCluster.cluster.en) : state.cluster;
-    els.clusterFilters.innerHTML = `
-      <button class="cluster-back-btn" id="clusterBackBtn">
-        ${isAr ? '→ كل الأقسام' : '← All sections'}
-      </button>
-      <span class="cluster-breadcrumb">${escapeHtml(clusterLabel)}</span>`;
-    document.getElementById('clusterBackBtn')?.addEventListener('click', () => {
-      state.cluster = 'all';
-      tracksExpanded = false;
-      renderClusterFilters();
-      renderCategoryDirectory();
-    });
-    return;
-  }
-
-  // Default "all" state: hide the chip row (cluster overview replaces it)
-  els.clusterFilters.innerHTML = '';
+  if (els.clusterFilters) els.clusterFilters.innerHTML = '';
 }
 
 function createCategoryCardMarkup(meta) {
@@ -1577,13 +1566,6 @@ const lazyBgObserver = typeof IntersectionObserver !== 'undefined' ? new Interse
 
 function renderCategoryDirectory() {
   if (!els.categoryDirectoryGrid || !state.catalog) return;
-
-  // Show cluster overview when no specific cluster is selected and no search
-  if (state.cluster === 'all' && !state.directorySearch) {
-    renderClusterOverview();
-    return;
-  }
-
   const filtered = state.catalog.categories.filter((meta) => {
     if (state.cluster !== 'all' && meta.cluster_key !== state.cluster) return false;
     if (!state.directorySearch) return true;
@@ -1603,53 +1585,79 @@ function renderCategoryDirectory() {
   }
 }
 
-function renderClusterOverview() {
-  if (!els.categoryDirectoryGrid || !state.catalog) return;
+function renderClusterTabBar() {
+  const tabBar = document.getElementById('clusterTabBar');
+  if (!tabBar || !state.catalog) return;
   const isAr = state.lang === 'ar';
 
-  // Build cluster summaries from catalog
   const clusterMap = {};
   state.catalog.categories.forEach(cat => {
     const key = cat.cluster_key;
     if (!clusterMap[key]) {
-      clusterMap[key] = { key, label: cat.cluster, count: 0, emoji: CLUSTER_META[key]?.emoji || '📂' };
+      clusterMap[key] = {
+        key,
+        label: cat.cluster,
+        count: 0,
+        emoji: CLUSTER_META[key]?.emoji || '📂',
+        gradient: CLUSTER_META[key]?.gradient || 'linear-gradient(135deg,#333,#555)',
+      };
     }
     clusterMap[key].count++;
   });
 
   const clusters = Object.values(clusterMap);
-  const countLabel = isAr ? 'فئة' : 'categories';
+  const total = state.catalog.categories.length;
+  const countWord = isAr ? 'فئة' : 'categories';
 
-  els.categoryDirectoryGrid.innerHTML = `
-    <div class="cluster-list">
-      ${clusters.map(c => `
-        <button class="cluster-list-item" data-cluster="${escapeHtml(c.key)}" aria-label="${escapeHtml(c.label[state.lang] || c.label.en)}">
-          <div
-            class="cluster-list-img"
-            style="background:${CLUSTER_META[c.key]?.gradient || 'linear-gradient(135deg,#333,#555)'};background-size:cover;background-position:center;"
-          ></div>
-          <div class="cluster-list-overlay">
-            <span class="cluster-list-emoji">${c.emoji}</span>
-            <div class="cluster-list-text">
-              <div class="cluster-list-name">${escapeHtml(c.label[state.lang] || c.label.en)}</div>
-              <div class="cluster-list-count">${c.count} ${countLabel}</div>
-            </div>
-            <svg class="cluster-list-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="${isAr ? '15 18 9 12 15 6' : '9 18 15 12 9 6'}"/></svg>
+  const allTab = {
+    key: 'all',
+    label: { en: 'All Topics', ar: 'كل المواضيع' },
+    count: total,
+    emoji: '✦',
+    gradient: 'linear-gradient(135deg,#0f0c1a,#2a1f3d)',
+  };
+
+  const tabs = [allTab, ...clusters];
+
+  tabBar.innerHTML = tabs.map(c => {
+    const name = c.key === 'all' ? (isAr ? c.label.ar : c.label.en) : (c.label[state.lang] || c.label.en);
+    const isActive = state.cluster === c.key;
+    return `
+      <button class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-label="${escapeHtml(name)}">
+        <div class="ml-cluster-tab-bg" style="background:${c.gradient};" aria-hidden="true"></div>
+        <div class="ml-cluster-tab-content">
+          <span class="ml-cluster-tab-emoji" aria-hidden="true">${c.emoji}</span>
+          <div class="ml-cluster-tab-text">
+            <span class="ml-cluster-tab-name">${escapeHtml(name)}</span>
+            <span class="ml-cluster-tab-count">${c.count} ${countWord}</span>
           </div>
-        </button>
-      `).join('')}
-    </div>`;
+        </div>
+      </button>`;
+  }).join('');
 
-  if (els.directoryResultsLabel) els.directoryResultsLabel.textContent = '';
-
-  els.categoryDirectoryGrid.querySelectorAll('.cluster-list-item').forEach(btn => {
+  tabBar.querySelectorAll('.ml-cluster-tab').forEach(btn => {
     btn.addEventListener('click', () => {
-      state.cluster = btn.dataset.cluster;
-      tracksExpanded = false;
-      renderClusterFilters();
-      renderCategoryDirectory();
-      // Scroll after paint so layout is settled before we move the viewport
-      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+      const newCluster = btn.dataset.cluster;
+      if (state.cluster === newCluster) return;
+      state.cluster = newCluster;
+      renderClusterTabBar();
+      fadeAndRenderDirectory();
+    });
+  });
+}
+
+function fadeAndRenderDirectory() {
+  const grid = els.categoryDirectoryGrid;
+  if (!grid) { renderCategoryDirectory(); return; }
+  grid.style.transition = 'none';
+  grid.style.opacity = '0';
+  grid.style.transform = 'translateY(10px)';
+  requestAnimationFrame(() => {
+    renderCategoryDirectory();
+    requestAnimationFrame(() => {
+      grid.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+      grid.style.opacity = '1';
+      grid.style.transform = 'translateY(0)';
     });
   });
 }

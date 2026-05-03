@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>document.documentElement.dataset.theme="dark";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content="Explore 3,000+ bilingual riddles and quizzes across 56 categories in English and Arabic. Pick a topic, flip cards, track your score." />
@@ -29,7 +30,7 @@
     <link rel="alternate" hreflang="ar" href="https://jakh.net/mind-lab" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="styles.css?v=1777260000" />
+    <link rel="stylesheet" href="styles.css?v=1777270000" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -61,7 +62,6 @@
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="play.html">Game Hub</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
-        <button class="ghost-btn" id="themeToggleBtn" aria-label="Toggle Theme">🌙</button>
       </nav>
       <div class="header-selects" aria-label="Theme and language controls">
         <label>
@@ -104,12 +104,16 @@
           <p data-i18n="categoryText">Pick a section below to see its categories, or search for a specific topic.</p>
         </div>
 
-        <section class="control-panel" aria-label="Category filters">
+        <!-- Flat-dashboard: mega-category tab bar -->
+        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections"></div>
+
+        <!-- Search + toolbar -->
+        <section class="control-panel" aria-label="Category filters" style="background:transparent;border:none;box-shadow:none;padding:0.5rem 0 0;">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             <input id="categorySearchInput" type="search" autocomplete="off" data-i18n-placeholder="searchPlaceholder" placeholder="Search by category, topic, or sector..." />
           </label>
-          <div class="chip-row" id="clusterFilters"></div>
+          <div class="chip-row" id="clusterFilters" style="display:none;"></div>
         </section>
 
         <div class="library-toolbar">
@@ -180,6 +184,6 @@
       </div>
     </div>
 
-    <script defer src="app.js?v=1777260000"></script>
+    <script defer src="app.js?v=1777270000"></script>
   </body>
 </html>

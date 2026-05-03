@@ -369,8 +369,21 @@
         if (canvas && window.FluidShader) {
           var mounted = window.FluidShader.mount(canvas);
           if (!mounted) {
-            // WebGL unavailable — fallback bg is already visible
             canvas.style.display = 'none';
+          } else if ('IntersectionObserver' in window) {
+            var heroSection = document.getElementById('kv-hero');
+            if (heroSection) {
+              var shaderIO = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                  if (entry.isIntersecting) {
+                    window.FluidShader.resume();
+                  } else {
+                    window.FluidShader.pause();
+                  }
+                });
+              }, { threshold: 0.05 });
+              shaderIO.observe(heroSection);
+            }
           }
         }
       });

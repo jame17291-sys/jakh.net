@@ -17,7 +17,7 @@ const scoreLimiter = rateLimit({
 
 const ScoreSchema = z.object({
   username: z.string().min(1).max(32),
-  game: z.enum(['chess', 'mastermind']),
+  game: z.enum(['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']),
   score: z.number().int().min(0),
   metadata: z.record(z.string(), z.unknown()).optional(),
 });
@@ -52,7 +52,7 @@ router.post('/score', scoreLimiter, async (req: Request, res: Response) => {
 // GET /api/boardgame/leaderboard?game=chess&limit=20
 router.get('/leaderboard', async (req: Request, res: Response) => {
   const game = req.query.game as string;
-  if (!['chess', 'mastermind'].includes(game))
+  if (!['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy'].includes(game))
     return res.status(400).json({ error: 'Invalid game' });
   const limit = Math.min(Number(req.query.limit) || 20, 100);
 
@@ -74,7 +74,7 @@ router.get('/leaderboard', async (req: Request, res: Response) => {
 router.get('/rank', async (req: Request, res: Response) => {
   const game = req.query.game as string;
   const score = Number(req.query.score);
-  if (!['chess', 'mastermind'].includes(game) || isNaN(score))
+  if (!['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy'].includes(game) || isNaN(score))
     return res.status(400).json({ error: 'Invalid params' });
   res.json({ rank: await getRank(game, score) });
 });

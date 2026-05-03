@@ -98,6 +98,8 @@ void main() {
   var _positionBuffer = null;
   var _vs = null;
   var _fs = null;
+  var _paused = false;
+  var _renderFn = null;
 
   function createShader(gl, type, source) {
     var shader = gl.createShader(type);
@@ -180,8 +182,17 @@ void main() {
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       _rafId = requestAnimationFrame(render);
     }
+    _renderFn = render;
     _rafId = requestAnimationFrame(render);
     return true;
+  }
+
+  function pause() {
+    if (_rafId) { cancelAnimationFrame(_rafId); _rafId = 0; _paused = true; }
+  }
+
+  function resume() {
+    if (_paused && _renderFn && _gl) { _paused = false; _rafId = requestAnimationFrame(_renderFn); }
   }
 
   function destroy() {
@@ -195,5 +206,5 @@ void main() {
     _canvas = _gl = _program = null;
   }
 
-  window.FluidShader = { mount: mount, destroy: destroy };
+  window.FluidShader = { mount: mount, destroy: destroy, pause: pause, resume: resume };
 })();

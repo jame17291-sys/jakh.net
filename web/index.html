@@ -167,7 +167,7 @@
 
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="index.html#kv-lab" data-i18n="navCategories">Categories</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Categories</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
         <button class="ghost-btn" id="themeToggleBtn" aria-label="Toggle Theme">🌙</button>
 
@@ -203,7 +203,7 @@
       </p>
 
       <div class="kv-hero-cta">
-        <a href="#kv-lab" class="kv-btn-primary">Pick a Category</a>
+        <a href="mind-lab.html" class="kv-btn-primary">Pick a Category</a>
         <a href="play.html" class="kv-btn-outline">Game Hub</a>
       </div>
 
@@ -233,7 +233,7 @@
     <div class="kv-portals-grid">
 
       <!-- Mind Lab -->
-      <a class="kv-portal-card kv-portal-mind" href="#kv-lab" aria-label="Enter The Mind Lab">
+      <a class="kv-portal-card kv-portal-mind" href="mind-lab.html" aria-label="Enter The Mind Lab">
         <p class="kv-portal-tag">Mind Lab</p>
         <span class="kv-portal-icon" aria-hidden="true">🧠</span>
         <h2 class="kv-portal-title">The Mind Lab</h2>
@@ -267,53 +267,6 @@
     <div id="resumeMount"></div>
   </div>
 
-  <!-- ═══════════════════ MIND LAB / CATEGORIES ═══════════════════ -->
-  <section class="kv-lab-section shell" id="kv-lab">
-    <div class="kv-lab-header">
-      <p class="kv-eyebrow" style="text-align:left;">🧠 The Mind Lab</p>
-      <h2>What would you like<br>to explore?</h2>
-      <p data-i18n="categoryText">Pick a section below to see its categories, or search for a specific topic.</p>
-    </div>
-
-    <!-- Controls — preserve all IDs -->
-    <section class="control-panel" aria-label="Category filters">
-      <label class="search-field">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input id="categorySearchInput" type="search" autocomplete="off" data-i18n-placeholder="searchPlaceholder" placeholder="Search by category, topic, or sector..." />
-      </label>
-      <div class="chip-row" id="clusterFilters"></div>
-    </section>
-
-    <div class="library-toolbar">
-      <p id="directoryResultsLabel"></p>
-      <div style="display:flex;gap:0.5rem;align-items:center;">
-        <button class="random-btn" id="randomCategoryBtn">🎲 Surprise me</button>
-        <button class="text-btn" id="resetDirectoryBtn" data-i18n="resetDirectoryFilters">Reset filters</button>
-      </div>
-    </div>
-
-    <div id="categoryDirectoryGrid" class="category-grid" aria-live="polite">
-      <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
-      <div class="category-card skeleton-card"></div>
-    </div>
-
-    <!-- Suggestion box — preserve all IDs -->
-    <section class="suggestion-box" id="suggestionBox" style="margin-top:3rem;">
-      <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
-      <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
-      <div class="suggestion-form" id="suggestionForm">
-        <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" placeholder="Your idea…"></textarea>
-        <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" placeholder="Email (optional)" />
-        <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">Submit Idea</button>
-      </div>
-      <p class="suggestion-thanks hidden" id="suggestionThanks" data-i18n="suggestThanks">Thank you! We'll take a look.</p>
-    </section>
-
-  </section>
 
 </main>
 

@@ -136,6 +136,8 @@
     }
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="styles.css?v=1777260000" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
@@ -153,6 +155,7 @@
         });
       }
     </script>
+    <script src="fluid-shader.js" defer></script>
   </head>
   <body data-page="home">
 <a href="#top" class="skip-link">Skip to main content</a>
@@ -164,7 +167,7 @@
 
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="index.html#categories" data-i18n="navCategories">Categories</a>
+        <a class="ghost-btn" href="index.html#kv-lab" data-i18n="navCategories">Categories</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
         <button class="ghost-btn" id="themeToggleBtn" aria-label="Toggle Theme">🌙</button>
 
@@ -182,75 +185,109 @@
       </div>
     </header>
 
-    
+
 <main id="top">
 
-  <!-- ══════════════════════════════════════════════════
-       PORTAL SPLIT — Mind Lab & Game Hub
-  ═══════════════════════════════════════════════════ -->
-  <section class="home-portal shell">
-    <p class="home-portal-eyebrow">Where would you like to go?</p>
-    <div class="home-portal-grid">
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="kv-hero" id="kv-hero">
+    <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
+    <canvas class="kv-fluid-canvas" id="kvFluidCanvas" aria-hidden="true"></canvas>
 
-      <!-- The Mind Lab -->
-      <a class="home-portal-card portal-mind" href="#categories" aria-label="Enter The Mind Lab">
-        <span class="portal-icon" aria-hidden="true">🧠</span>
-        <h2 class="portal-title">The Mind Lab</h2>
-        <p class="portal-desc">3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.</p>
-        <div class="portal-stats">
-          <span class="portal-stat" id="badgeCategories">45 categories</span>
-          <span class="portal-stat" id="badgeQuestions">3,093 questions</span>
+    <div class="kv-hero-content">
+      <p class="kv-eyebrow">3,000+ Bilingual Riddles — English &amp; Arabic</p>
+
+      <h1 class="kv-hero-title">JAKH</h1>
+
+      <p class="kv-hero-subtitle">
+        Pick a topic. Flip cards. See how much you know.
+      </p>
+
+      <div class="kv-hero-cta">
+        <a href="#kv-lab" class="kv-btn-primary">Pick a Category</a>
+        <a href="play.html" class="kv-btn-outline">Game Hub</a>
+      </div>
+
+      <div class="kv-hero-stats">
+        <div class="kv-stat">
+          <span class="kv-stat-number" id="badgeCategories">56</span>
+          <span class="kv-stat-label">Categories</span>
         </div>
-        <span class="portal-cta">Explore Riddles →</span>
+        <div class="kv-stat-divider" aria-hidden="true"></div>
+        <div class="kv-stat">
+          <span class="kv-stat-number" id="badgeQuestions">3,553</span>
+          <span class="kv-stat-label">Questions</span>
+        </div>
+        <div class="kv-stat-divider" aria-hidden="true"></div>
+        <div class="kv-stat">
+          <span class="kv-stat-number">2</span>
+          <span class="kv-stat-label">Languages</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kv-scroll-indicator" aria-hidden="true"></div>
+  </section>
+
+  <!-- ═══════════════════ PORTALS ═══════════════════ -->
+  <section class="kv-portals shell">
+    <div class="kv-portals-grid">
+
+      <!-- Mind Lab -->
+      <a class="kv-portal-card kv-portal-mind" href="#kv-lab" aria-label="Enter The Mind Lab">
+        <p class="kv-portal-tag">Mind Lab</p>
+        <span class="kv-portal-icon" aria-hidden="true">🧠</span>
+        <h2 class="kv-portal-title">The Mind Lab</h2>
+        <p class="kv-portal-desc">3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.</p>
+        <div class="kv-portal-stats">
+          <span class="kv-portal-stat" id="badgeCategories2">56 categories</span>
+          <span class="kv-portal-stat">Arabic &amp; English</span>
+        </div>
+        <span class="kv-portal-cta">Explore Riddles →</span>
       </a>
 
-      <!-- The Game Hub -->
-      <a class="home-portal-card portal-games" href="play.html" aria-label="Enter The Game Hub">
-        <span class="portal-icon" aria-hidden="true">🎮</span>
-        <h2 class="portal-title">The Game Hub</h2>
-        <p class="portal-desc">Chess, Mastermind, Speed Math, and more. Multiplayer board games fully playable in your browser — no download, no sign-up, no friction.</p>
-        <div class="portal-stats">
-          <span class="portal-stat">2 games live</span>
-          <span class="portal-stat">More coming</span>
+      <!-- Game Hub -->
+      <a class="kv-portal-card kv-portal-games" href="play.html" aria-label="Enter The Game Hub">
+        <p class="kv-portal-tag">Game Hub</p>
+        <span class="kv-portal-icon" aria-hidden="true">🎮</span>
+        <h2 class="kv-portal-title">The Game Hub</h2>
+        <p class="kv-portal-desc">Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.</p>
+        <div class="kv-portal-stats">
+          <span class="kv-portal-stat">10 games live</span>
+          <span class="kv-portal-stat">All in browser</span>
         </div>
-        <span class="portal-cta">Play Now →</span>
+        <span class="kv-portal-cta">Play Now →</span>
       </a>
 
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════
-       WIDGETS — Account snapshot, Resume, Daily challenge
-  ═══════════════════════════════════════════════════ -->
-  <div class="shell home-widgets-row">
+  <!-- ═══════════════════ WIDGETS ═══════════════════ -->
+  <div class="kv-widgets-row shell">
     <div id="accountSummaryMount"></div>
     <div id="resumeMount"></div>
     <div id="dailyChallengeMount"></div>
   </div>
 
-  <!-- ══════════════════════════════════════════════════
-       THE MIND LAB — Mega-Category Browser
-  ═══════════════════════════════════════════════════ -->
-  <section class="shell section-block" id="categories">
-    <div class="section-heading library-head">
-      <div>
-        <p class="eyebrow mind-lab-eyebrow">🧠 The Mind Lab</p>
-        <h2>Choose a mega-category</h2>
-      </div>
-      <p class="section-note" data-i18n="categoryText">Pick a section below to see its categories, or search for a specific topic.</p>
+  <!-- ═══════════════════ MIND LAB / CATEGORIES ═══════════════════ -->
+  <section class="kv-lab-section shell" id="kv-lab">
+    <div class="kv-lab-header">
+      <p class="kv-eyebrow" style="text-align:left;">🧠 The Mind Lab</p>
+      <h2>What would you like<br>to explore?</h2>
+      <p data-i18n="categoryText">Pick a section below to see its categories, or search for a specific topic.</p>
     </div>
 
+    <!-- Controls — preserve all IDs -->
     <section class="control-panel" aria-label="Category filters">
       <label class="search-field">
-        <span data-i18n="searchCategoriesLabel">Search category pages</span>
-        <input id="categorySearchInput" type="search" autocomplete="off" placeholder="Search by category, topic, or sector..." />
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input id="categorySearchInput" type="search" autocomplete="off" data-i18n-placeholder="searchPlaceholder" placeholder="Search by category, topic, or sector..." />
       </label>
       <div class="chip-row" id="clusterFilters"></div>
     </section>
 
     <div class="library-toolbar">
       <p id="directoryResultsLabel"></p>
-      <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;">
+      <div style="display:flex;gap:0.5rem;align-items:center;">
         <button class="random-btn" id="randomCategoryBtn">🎲 Surprise me</button>
         <button class="text-btn" id="resetDirectoryBtn" data-i18n="resetDirectoryFilters">Reset filters</button>
       </div>
@@ -264,12 +301,9 @@
       <div class="category-card skeleton-card"></div>
       <div class="category-card skeleton-card"></div>
     </div>
-  </section>
 
-</main>
-
-
-    <section class="suggestion-box shell" id="suggestionBox">
+    <!-- Suggestion box — preserve all IDs -->
+    <section class="suggestion-box" id="suggestionBox" style="margin-top:3rem;">
       <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
       <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
       <div class="suggestion-form" id="suggestionForm">
@@ -279,6 +313,10 @@
       </div>
       <p class="suggestion-thanks hidden" id="suggestionThanks" data-i18n="suggestThanks">Thank you! We'll take a look.</p>
     </section>
+
+  </section>
+
+</main>
 
     <footer class="site-footer shell">
       <div class="footer-inner">
@@ -325,6 +363,18 @@
 
 
     <script defer src="app.js?v=1777260000"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var canvas = document.getElementById('kvFluidCanvas');
+        if (canvas && window.FluidShader) {
+          var mounted = window.FluidShader.mount(canvas);
+          if (!mounted) {
+            // WebGL unavailable — fallback bg is already visible
+            canvas.style.display = 'none';
+          }
+        }
+      });
+    </script>
     <script>
       // Scroll-reveal: IntersectionObserver for category cards
       (function() {

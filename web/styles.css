@@ -4170,5 +4170,127 @@ input[type="search"], input[type="text"], textarea {
   .kv-btn-primary, .kv-btn-outline { text-align: center; }
   .kv-hero-stats { gap: 1rem; }
   .kv-stat-divider { height: 1.5rem; }
-  .category-grid { grid-template-columns: 1fr 1fr; }
+  .category-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT AUDIT FIXES — correct padding, contrast, card visibility
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1. Restore horizontal padding that was stripped by shorthand 5rem 0 */
+.kv-portals   { padding: 4rem 1rem; }
+.kv-lab-section { padding: 4rem 1rem 3rem; }
+
+/* 2. Portal grid: card borders replace the gap-px separator approach */
+.kv-portals-grid {
+  gap: 2rem;
+  background: transparent;
+}
+.kv-portal-card {
+  border: 1px solid rgba(252,252,252,0.08);
+}
+
+/* 3. Category grid — explicit responsive columns */
+.category-grid { grid-template-columns: 1fr; }
+@media (min-width: 480px)  { .category-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px)  { .category-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .category-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* 4. FluidShader: keep behind content, never intercept clicks */
+.kv-fluid-canvas {
+  z-index: 0;
+  pointer-events: none !important;
+}
+
+/* 5. Suppress empty widget columns so they don't leave dead whitespace */
+.kv-widgets-row > *:empty { display: none; }
+
+/* 6. Suggestion box — explicit readable text */
+.suggestion-box,
+.suggestion-box .suggestion-title,
+.suggestion-box h2 {
+  color: var(--text) !important;
+}
+.suggestion-box p { color: var(--muted); }
+
+/* 7. Stat-box and account-card text */
+.account-card          { color: var(--text); }
+.stat-box strong       { color: var(--text); }
+.stat-box > span       { color: var(--muted); }
+
+/* 8. Category cards — use CSS vars so both dark AND light themes work.
+      Previous override hardcoded #0a0a0a which made text invisible in
+      light mode because var(--text) is also dark there. */
+.category-card {
+  background: var(--bg) !important;
+  border: 1px solid var(--line-strong) !important;
+}
+.category-card-overlay h3,
+.category-card-cluster {
+  color: var(--text) !important;
+}
+.category-card-footer > span:first-child { color: var(--muted) !important; }
+
+/* Keep hover inversion but make text legible on white */
+.category-card:hover:not(.skeleton-card) {
+  background: #fcfcfc !important;
+}
+.category-card:hover:not(.skeleton-card) .category-card-overlay h3,
+.category-card:hover:not(.skeleton-card) .category-card-cluster,
+.category-card:hover:not(.skeleton-card) .category-card-footer > span {
+  color: #0a0a0a !important;
+}
+
+/* 9. Riddle card — use CSS vars for theme-adaptive backgrounds + explicit text */
+.riddle-card {
+  background: var(--panel) !important;
+  border: 1px solid var(--line-strong) !important;
+}
+.card-front, .card-back {
+  background: var(--panel) !important;
+}
+.card-question,
+.card-answer,
+.card-answer strong {
+  color: var(--text) !important;
+}
+.card-face { padding: 1.5rem; gap: 1rem; }
+
+/* 10. Inner page (category) section headings and controls */
+body[data-page="category"] .eyebrow { color: var(--accent); }
+body[data-page="category"] h2       { color: var(--text); }
+body[data-page="category"] .section-note { color: var(--muted); }
+body[data-page="category"] select,
+body[data-page="category"] input[type="search"],
+body[data-page="category"] input[type="text"] {
+  color: var(--text);
+  background: var(--bg-soft);
+  border: 1px solid var(--line-strong);
+}
+
+/* 11. Widgets row — use separator lines instead of gap-px background */
+.kv-widgets-row {
+  background: transparent;
+  border-bottom: 1px solid rgba(252,252,252,0.08);
+}
+.kv-widgets-row > * {
+  background: var(--bg);
+  border-right: 1px solid rgba(252,252,252,0.08);
+}
+.kv-widgets-row > *:last-child { border-right: none; }
+
+/* Game Hub — integrate lobby grid with kv-lab-section */
+body[data-page="play"] .kv-lab-section .game-lobby-grid { margin-top: 2rem; }
+body[data-page="play"] .kv-lab-section h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #fcfcfc;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+body[data-page="play"] .kv-lab-section p {
+  color: rgba(252,252,252,0.45);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
 }

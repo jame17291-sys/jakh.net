@@ -469,7 +469,7 @@ const UI = {
 
 const state = {
   lang: 'en',
-  theme: 'system',
+  theme: 'dark',
   catalog: null,
   page: document.body.dataset.page || 'home',
   categorySlug: document.body.dataset.category || '',

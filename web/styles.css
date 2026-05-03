@@ -165,7 +165,7 @@ a { color: inherit; text-decoration: none; }
 .auth-panel label span,
 .auth-form label span,
 .team-card label span {
-  color: var(--muted);
+  color: rgba(252,252,252,0.75);
   font-size: 0.85rem;
 }
 #categorySearchInput {
@@ -482,9 +482,10 @@ textarea { min-height: 6.5rem; resize: vertical; }
 }
 .auth-tab {
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(252,252,252,0.2);
   padding: 0.7rem 0.95rem;
   background: transparent;
+  color: var(--text);
 }
 .auth-tab.is-active {
   border-color: color-mix(in srgb, var(--accent) 70%, white);
@@ -620,8 +621,8 @@ textarea { min-height: 6.5rem; resize: vertical; }
   contain-intrinsic-size: 0 280px;
   transition: transform 0.25s cubic-bezier(0.3, 0.7, 0.4, 1), box-shadow 0.25s;
   min-height: 0;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: #161220;
+  border: 1px solid rgba(252,252,252,0.13);
 }
 .category-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
 
@@ -1455,8 +1456,8 @@ textarea { min-height: 6.5rem; resize: vertical; }
 .category-complete-body { padding: 1.5rem 1.5rem 1.75rem; text-align: center; }
 
 /* ── Onboarding Overlay ──────────────────────────────── */
-.onboard-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; padding: 1rem; overflow-y: auto; }
-.onboard-card { background: var(--panel-strong); border-radius: 24px; padding: 2rem 1.75rem 1.75rem; max-width: 380px; width: 100%; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.35); position: relative; max-height: calc(100svh - 2rem); overflow-y: auto; }
+.onboard-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.82); display: flex; align-items: center; justify-content: center; padding: 1rem; overflow-y: auto; }
+.onboard-card { background: #1c1726; border-radius: 24px; padding: 2rem 1.75rem 1.75rem; max-width: 380px; width: 100%; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.6); position: relative; max-height: calc(100svh - 2rem); overflow-y: auto; border: 1px solid rgba(252,252,252,0.1); }
 .onboard-skip { position: absolute; top: 0.9rem; inset-inline-end: 1rem; background: transparent; border: none; color: var(--muted); font-size: 0.82rem; cursor: pointer; padding: 0.25rem 0.5rem; }
 .onboard-icon { font-size: 3rem; margin-bottom: 0.75rem; }
 .onboard-title { font-size: 1.15rem; font-weight: 800; margin: 0 0 0.5rem; }

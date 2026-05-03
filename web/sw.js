@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v41';
-const ASSET_CACHE = 'jakh-assets-v41';
+const CACHE_NAME = 'jakh-v42';
+const ASSET_CACHE = 'jakh-assets-v42';
 
 const PRECACHE_ASSETS = [
   '/',

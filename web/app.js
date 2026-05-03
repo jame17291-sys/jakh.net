@@ -1005,7 +1005,7 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.2';
+const APP_VERSION = '2.3';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== APP_VERSION) {
@@ -1509,34 +1509,20 @@ function renderClusterFilters() {
 
 function createCategoryCardMarkup(meta) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
+  const isAr = state.lang === 'ar';
+  const title = escapeHtml(meta.title[state.lang]);
+  const cluster = escapeHtml(meta.cluster[state.lang]);
   const prog = getCategoryProgress(meta.slug);
-  const progressBar = prog.pct > 0 ? `
-    <div class="cat-progress-wrap">
-      <div class="cat-progress-label">
-        <span>${prog.solved} / ${meta.count} ${state.lang === 'ar' ? 'محلول' : 'solved'}</span>
-        <span>${prog.pct}%</span>
-      </div>
-      <div class="cat-progress-bar-track"><div class="cat-progress-bar-fill" style="width:${prog.pct}%;--pct:${prog.pct}"></div></div>
-    </div>` : '';
-  const enterLabel = state.lang === 'ar' ? 'ادخل ←' : 'Enter →';
-  const countLabel = escapeHtml(fmt('pageQuestions', { count: meta.count }));
+  const progressLine = prog.pct > 0
+    ? `<div class="card-progress-bar" style="width:${prog.pct}%;background:${color}" aria-hidden="true"></div>`
+    : '';
+  const doneLabel = prog.pct > 0 ? ` · ${prog.pct}% ${isAr ? 'مكتمل' : 'done'}` : '';
   return `
-    <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${escapeHtml(meta.title[state.lang])}">
-      <div class="category-card-stripe" style="background:${color}" aria-hidden="true"></div>
-      <div class="category-card-bg">
-        <div class="category-card-disc" style="background:${color}22;border:1px solid ${color}55;box-shadow:0 0 28px ${color}38" aria-hidden="true">
-          <span class="category-card-emoji" aria-hidden="true">${meta.emoji}</span>
-        </div>
-      </div>
-      <div class="category-card-overlay">
-        <span class="category-card-cluster">${escapeHtml(meta.cluster[state.lang])}</span>
-        <h3>${escapeHtml(meta.title[state.lang])}</h3>
-      </div>
-      <div class="category-card-footer">
-        <span>${countLabel}</span>
-        <span class="category-card-enter" style="color:${color}">${enterLabel}</span>
-      </div>
-      ${progressBar}
+    <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${title}">
+      <span class="cluster-chip" style="color:${color}">${cluster}</span>
+      <div class="category-title">${meta.emoji} ${title}</div>
+      <div class="category-card-label">${meta.count} ${isAr ? 'سؤال' : 'questions'}${doneLabel}</div>
+      ${prog.pct > 0 ? `<div class="card-progress-track">${progressLine}</div>` : ''}
     </a>
   `;
 }

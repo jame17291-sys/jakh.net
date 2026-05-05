@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v43';
-const ASSET_CACHE = 'jakh-assets-v43';
+const CACHE_NAME = 'jakh-v44';
+const ASSET_CACHE = 'jakh-assets-v44';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -67,9 +67,31 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for JS, CSS, SVG, images, fonts
+  // Network-first for JS/CSS so deploys are visible immediately, with cache
+  // fallback for offline use.
   if (
-    url.pathname.match(/\.(js|css|svg|png|jpg|webp|woff2)$/) &&
+    url.pathname.match(/\.(js|css)$/) &&
+    url.origin === self.location.origin
+  ) {
+    event.respondWith(
+      caches.open(ASSET_CACHE).then(async (cache) => {
+        try {
+          const response = await fetch(request);
+          if (response.ok) cache.put(request, response.clone());
+          return response;
+        } catch (_) {
+          const cached = await cache.match(request);
+          if (cached) return cached;
+          throw _;
+        }
+      })
+    );
+    return;
+  }
+
+  // Cache-first for static media assets.
+  if (
+    url.pathname.match(/\.(svg|png|jpg|webp|woff2)$/) &&
     url.origin === self.location.origin
   ) {
     event.respondWith(

@@ -1514,6 +1514,7 @@ function renderClusterFilters() {
 
 function createCategoryCardMarkup(meta) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
+  const gradient = CATEGORY_GRADIENTS[meta.slug] || `linear-gradient(135deg, ${color} 0%, rgba(255,255,255,0.12) 100%)`;
   const isAr = state.lang === 'ar';
   const title = escapeHtml(meta.title[state.lang]);
   const cluster = escapeHtml(meta.cluster[state.lang]);
@@ -1522,12 +1523,24 @@ function createCategoryCardMarkup(meta) {
     ? `<div class="card-progress-bar" style="width:${prog.pct}%;background:${color}" aria-hidden="true"></div>`
     : '';
   const doneLabel = prog.pct > 0 ? ` · ${prog.pct}% ${isAr ? 'مكتمل' : 'done'}` : '';
+  const enterLabel = isAr ? 'افتح' : 'Enter';
   return `
     <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${title}">
-      <span class="cluster-chip" style="color:${color}">${cluster}</span>
-      <div class="category-title">${meta.emoji} ${title}</div>
-      <div class="category-card-label">${meta.count} ${isAr ? 'سؤال' : 'questions'}${doneLabel}</div>
-      ${prog.pct > 0 ? `<div class="card-progress-track">${progressLine}</div>` : ''}
+      <span class="category-card-stripe" style="background:${gradient}" aria-hidden="true"></span>
+      <div class="category-card-bg" aria-hidden="true">
+        <div class="category-card-disc" style="background:${gradient}">
+          <span class="category-card-emoji">${meta.emoji}</span>
+        </div>
+      </div>
+      <div class="category-card-overlay">
+        <span class="category-card-cluster cluster-chip" style="color:${color}">${cluster}</span>
+        <h3 class="category-title">${title}</h3>
+      </div>
+      <div class="category-card-footer">
+        <span class="category-card-label">${meta.count} ${isAr ? 'سؤال' : 'questions'}${doneLabel}</span>
+        <span class="category-card-enter">${enterLabel}</span>
+      </div>
+      ${prog.pct > 0 ? `<div class="card-progress-track" aria-hidden="true">${progressLine}</div>` : ''}
     </a>
   `;
 }

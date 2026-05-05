@@ -1587,8 +1587,12 @@ function renderCategoryDirectory() {
     return haystack.includes(state.directorySearch);
   });
   els.categoryDirectoryGrid.innerHTML = filtered.map(createCategoryCardMarkup).join('');
+  const cards = [...els.categoryDirectoryGrid.querySelectorAll('.category-card')];
+  requestAnimationFrame(() => {
+    cards.forEach((el) => el.classList.add('is-visible'));
+  });
   if (lazyBgObserver) {
-    els.categoryDirectoryGrid.querySelectorAll('.category-card').forEach(el => lazyBgObserver.observe(el));
+    cards.forEach(el => lazyBgObserver.observe(el));
   }
   if (els.directoryResultsLabel) {
     els.directoryResultsLabel.textContent = filtered.length === state.catalog.categories.length

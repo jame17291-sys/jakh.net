@@ -1524,13 +1524,13 @@ function createCategoryCardMarkup(meta) {
     : '';
   const doneLabel = prog.pct > 0 ? ` · ${prog.pct}% ${isAr ? 'مكتمل' : 'done'}` : '';
   const enterLabel = isAr ? 'افتح' : 'Enter';
+  const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
     <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${title}">
       <span class="category-card-stripe" style="background:${gradient}" aria-hidden="true"></span>
       <div class="category-card-bg" aria-hidden="true">
-        <div class="category-card-disc" style="background:${gradient}">
-          <span class="category-card-emoji">${meta.emoji}</span>
-        </div>
+        <span class="category-card-count-badge">${cardCountLabel}</span>
+        <span class="category-card-corner-mark"></span>
       </div>
       <div class="category-card-overlay">
         <span class="category-card-cluster cluster-chip" style="color:${color}">${cluster}</span>

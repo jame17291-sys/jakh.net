@@ -18,12 +18,12 @@
         "ar": "عملات وتجارة"
       },
       "emoji": "💰",
-      "cluster_key": "geo",
+      "cluster_key": "world",
       "color": "var(--easy)",
       "count": 40,
       "cluster": {
-        "en": "Geography",
-        "ar": "جغرافيا"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
       "href": "currencies.html",
       "description": {
@@ -44,12 +44,12 @@
         "ar": "لغويات"
       },
       "emoji": "✍️",
-      "cluster_key": "arts",
+      "cluster_key": "world",
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts",
-        "ar": "فنون"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
       "href": "linguistics.html",
       "description": {
@@ -70,12 +70,12 @@
         "ar": "تكنولوجيا ريترو"
       },
       "emoji": "🕹️",
-      "cluster_key": "science",
+      "cluster_key": "tech",
       "color": "var(--warn)",
       "count": 40,
       "cluster": {
-        "en": "Science",
-        "ar": "علوم"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
       "href": "tech-retro.html",
       "description": {
@@ -96,12 +96,12 @@
         "ar": "سيارات ومحركات"
       },
       "emoji": "🏎️",
-      "cluster_key": "science",
+      "cluster_key": "tech",
       "color": "var(--warn)",
       "count": 40,
       "cluster": {
-        "en": "Science",
-        "ar": "علوم"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
       "href": "automotive.html",
       "description": {
@@ -122,12 +122,12 @@
         "ar": "بقاء وطبيعة"
       },
       "emoji": "🏕️",
-      "cluster_key": "geo",
+      "cluster_key": "science",
       "color": "var(--easy)",
       "count": 40,
       "cluster": {
-        "en": "Geography",
-        "ar": "جغرافيا"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
       "href": "survival.html",
       "description": {
@@ -148,12 +148,12 @@
         "ar": "عوالم خيالية"
       },
       "emoji": "🧙‍♂️",
-      "cluster_key": "arts",
+      "cluster_key": "culture",
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts",
-        "ar": "فنون"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
       "href": "fictional-worlds.html",
       "description": {
@@ -174,12 +174,12 @@
         "ar": "الأبطال الخارقين"
       },
       "emoji": "🦸‍♂️",
-      "cluster_key": "arts",
+      "cluster_key": "culture",
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts",
-        "ar": "فنون"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
       "href": "superheroes.html",
       "description": {
@@ -200,12 +200,12 @@
         "ar": "ثقافة البوب"
       },
       "emoji": "📱",
-      "cluster_key": "arts",
+      "cluster_key": "culture",
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts",
-        "ar": "فنون"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
       "href": "pop-culture.html",
       "description": {
@@ -226,12 +226,12 @@
         "ar": "جرائم حقيقية"
       },
       "emoji": "🕵️‍♂️",
-      "cluster_key": "arts",
+      "cluster_key": "mind",
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts",
-        "ar": "فنون"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
       "href": "true-crime.html",
       "description": {
@@ -252,12 +252,12 @@
         "ar": "أساطير وخرافات"
       },
       "emoji": "🐉",
-      "cluster_key": "arts",
+      "cluster_key": "culture",
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts",
-        "ar": "فنون"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
       "href": "mythology-legends.html",
       "description": {
@@ -282,10 +282,10 @@
         "ar": "رسامون وأعمال مشهورة وأساليب فنية وأدلة ممتعة للعب الودي."
       },
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
-      "cluster_key": "media",
+      "cluster_key": "culture",
       "emoji": "🎨",
       "mode": "quiz",
       "count": 30,
@@ -310,10 +310,10 @@
         "ar": "أحياء للمتعلمين الكبار تشمل الخلايا والوراثة ووظائف الأعضاء والبيئة والتطور والمناعة وأدوات الجزيئات الحديثة."
       },
       "cluster": {
-        "en": "Knowledge & STEM",
-        "ar": "معرفة وعلوم"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "knowledge",
+      "cluster_key": "science",
       "emoji": "🧬",
       "mode": "quiz",
       "count": 100,
@@ -338,10 +338,10 @@
         "ar": "كتّاب وروايات واقتباسات مشهورة وأدلة أدبية في صفحة واحدة."
       },
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
-      "cluster_key": "media",
+      "cluster_key": "culture",
       "emoji": "📚",
       "mode": "quiz",
       "count": 30,
@@ -366,10 +366,10 @@
         "ar": "إدارة أعمال للمتعلمين الكبار تشمل الاستراتيجية والمالية والعمليات والقيادة وسياق الأعمال في الخليج."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "emoji": "📊",
       "mode": "quiz",
       "count": 30,
@@ -394,10 +394,10 @@
         "ar": "مفردات الكيمياء وأفكار المختبر من التعرف السهل إلى الاستدعاء المتقدم جدًا."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "academics",
+      "cluster_key": "science",
       "emoji": "⚗️",
       "mode": "quiz",
       "count": 100,
@@ -422,10 +422,10 @@
         "ar": "منشآت ومواد وأحمال وأنظمة مواقع لمجال الهندسة المدنية."
       },
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "emoji": "🏗️",
       "mode": "quiz",
       "count": 30,
@@ -450,10 +450,10 @@
         "ar": "ألغاز كلاسيكية ببطاقات قابلة للقلب مع أشياء يومية وأدلة ذكية ومسار متوازن من السهل إلى المتقدم جدًا."
       },
       "cluster": {
-        "en": "Fun & Family",
-        "ar": "مرح وعائلة"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
-      "cluster_key": "fun",
+      "cluster_key": "mind",
       "emoji": "❓",
       "mode": "riddle",
       "count": 100,
@@ -469,17 +469,28 @@
     },
     {
       "slug": "logic-puzzles",
-      "title": { "en": "Logic Puzzles", "ar": "ألغاز منطقية" },
+      "title": {
+        "en": "Logic Puzzles",
+        "ar": "ألغاز منطقية"
+      },
       "description": {
         "en": "Sharpen your mind with lateral thinking, number puzzles, deduction challenges, and classic paradoxes.",
         "ar": "اشحذ عقلك بالتفكير الجانبي وألغاز الأرقام وتحديات الاستنتاج والمفارقات الكلاسيكية."
       },
-      "cluster": { "en": "Fun & Family", "ar": "مرح وعائلة" },
-      "cluster_key": "fun",
+      "cluster": {
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
+      },
+      "cluster_key": "mind",
       "emoji": "🧠",
       "mode": "riddle",
       "count": 60,
-      "difficultyCounts": { "easy": 15, "medium": 20, "hard": 15, "very-advanced": 10 },
+      "difficultyCounts": {
+        "easy": 15,
+        "medium": 20,
+        "hard": 15,
+        "very-advanced": 10
+      },
       "subcategories": [],
       "href": "logic-puzzles.html",
       "image": "assets/logic-puzzles.svg"
@@ -495,10 +506,10 @@
         "ar": "صفحة تجمع بين البرمجة ومفاهيم البرمجيات وبنية الواجهات ولغة التصميم العملية."
       },
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "emoji": "💻",
       "mode": "quiz",
       "count": 30,
@@ -523,10 +534,10 @@
         "ar": "دوائر وقدرة ومكونات وأنظمة حماية في تصميم سهل وواضح."
       },
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "emoji": "🔌",
       "mode": "quiz",
       "count": 30,
@@ -551,10 +562,10 @@
         "ar": "معرفة بالأعلام والرموز مع أسئلة عن الجغرافيا والتصميم والتعرّف عليها."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "emoji": "🚩",
       "mode": "quiz",
       "count": 30,
@@ -579,10 +590,10 @@
         "ar": "أسئلة منظمة في كرة القدم تغطي القوانين والمراكز ومصطلحات المباراة والخطط وأساسيات البطولات."
       },
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "media",
+      "cluster_key": "tech",
       "emoji": "⚽",
       "mode": "quiz",
       "count": 175,
@@ -607,10 +618,10 @@
         "ar": "تضاريس ومناخات وأقاليم ومصطلحات خرائط في صفحة جغرافيا ممتعة."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "academics",
+      "cluster_key": "world",
       "emoji": "🧭",
       "mode": "quiz",
       "count": 100,
@@ -635,10 +646,10 @@
         "ar": "صخور وطبقات وحرارة وضغط وأرض متحركة في بطاقات سهلة الفهم."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "academics",
+      "cluster_key": "science",
       "emoji": "🪨",
       "mode": "quiz",
       "count": 50,
@@ -663,10 +674,10 @@
         "ar": "لحظات كبيرة وإمبراطوريات قديمة واختراعات ونقاط تحول في بطاقات متوازنة."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "academics",
+      "cluster_key": "world",
       "emoji": "🏺",
       "mode": "quiz",
       "count": 100,
@@ -691,10 +702,10 @@
         "ar": "مرافق ونقل وشبكات وأنظمة على مستوى المدن في صفحة أسئلة سريعة."
       },
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "emoji": "🚦",
       "mode": "quiz",
       "count": 50,
@@ -719,10 +730,10 @@
         "ar": "قسم أطفال أخف من 300 بطاقة يغطي ألعابًا متنوعة في الكلمات والرياضيات والعلوم والقراءة والطبيعة والمنطق لمراحل عمرية مختلفة."
       },
       "cluster": {
-        "en": "Fun & Family",
-        "ar": "مرح وعائلة"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
-      "cluster_key": "fun",
+      "cluster_key": "mind",
       "emoji": "🧩",
       "mode": "quiz",
       "count": 30,
@@ -747,10 +758,10 @@
         "ar": "معرفة قانونية بطابع الشرق الأوسط تشمل العقود والإثبات والإجراءات والممارسات التجارية والحكم المهني."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "emoji": "⚖️",
       "mode": "quiz",
       "count": 48,
@@ -796,10 +807,10 @@
         "ar": "رياضيات للكبار بمزيج أقوى من الألغاز والأنماط والمنطق والهندسة والاحتمالات، مع حصة أصغر من الأسئلة المعتمدة على المعادلات المباشرة."
       },
       "cluster": {
-        "en": "Knowledge & STEM",
-        "ar": "معرفة وعلوم"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "knowledge",
+      "cluster_key": "science",
       "emoji": "∑",
       "mode": "quiz",
       "count": 150,
@@ -945,10 +956,10 @@
         "ar": "الحركة والآلات ونقل القدرة في بطاقات سهلة التصفح."
       },
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "emoji": "⚙️",
       "mode": "quiz",
       "count": 30,
@@ -973,10 +984,10 @@
         "ar": "معرفة طبية بمستوى الكبار تركّز على الطب العام والاستدلال السريري الأساسي والموضوعات التي يفترض بأي طبيب متمكن أن يعرفها."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "academics",
+      "cluster_key": "science",
       "emoji": "🩺",
       "mode": "quiz",
       "count": 100,
@@ -1001,10 +1012,10 @@
         "ar": "حضارات وعلماء ومدن ونقاط تحول من تاريخ الشرق الأوسط."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "emoji": "🕌",
       "mode": "quiz",
       "count": 50,
@@ -1029,10 +1040,10 @@
         "ar": "تعلم صيدلي للكبار يشمل الأشكال الدوائية والسلامة والإرشاد والحركية الدوائية والتداول القانوني ومفاهيم الاستعمال السريري، مع توسعة واضحة تتجاوز حوض الإجابات المكرر السابق."
       },
       "cluster": {
-        "en": "Knowledge & STEM",
-        "ar": "معرفة وعلوم"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "knowledge",
+      "cluster_key": "science",
       "emoji": "💊",
       "mode": "quiz",
       "count": 50,
@@ -1066,10 +1077,10 @@
         "ar": "أفكار حول الأخلاق والحقيقة والمعرفة والمعنى بصيغة مناسبة للعب والسؤال."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
-      "cluster_key": "culture",
+      "cluster_key": "mind",
       "emoji": "🧠",
       "mode": "quiz",
       "count": 50,
@@ -1094,10 +1105,10 @@
         "ar": "صفحة علمية واسعة تغطي الأحياء والكيمياء وعلوم الأرض في مكان واحد."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "academics",
+      "cluster_key": "science",
       "emoji": "🔬",
       "mode": "quiz",
       "count": 50,
@@ -1135,10 +1146,10 @@
         "ar": "بطاقات علم نفس عن السلوك والذاكرة والعاطفة والأنماط الإنسانية."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
-      "cluster_key": "culture",
+      "cluster_key": "mind",
       "emoji": "🫶",
       "mode": "quiz",
       "count": 100,
@@ -1163,10 +1174,10 @@
         "ar": "مواقف في العلاقات وخيارات تواصل وأسئلة عن الحدود بأسلوب ممتع ومفيد للكبار."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
-      "cluster_key": "culture",
+      "cluster_key": "mind",
       "emoji": "💞",
       "mode": "quiz",
       "count": 50,
@@ -1191,10 +1202,10 @@
         "ar": "مفاهيم علمية أساسية من الأنظمة الحية إلى الفيزياء والفضاء في بطاقات سهلة اللعب."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "academics",
+      "cluster_key": "science",
       "emoji": "🔬",
       "mode": "quiz",
       "count": 100,
@@ -1219,10 +1230,10 @@
         "ar": "صفحة أوسع للعلوم الاجتماعية مبنية على مفاهيم علم النفس والسلوك بين الأشخاص والثقافة والإتيكيت."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "emoji": "👥",
       "mode": "quiz",
       "count": 50,
@@ -1260,10 +1271,10 @@
         "ar": "مصطلحات حوسبة أساسية وأنظمة وأفكار تطوير للدراسة الممتعة."
       },
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "emoji": "💻",
       "mode": "quiz",
       "count": 50,
@@ -1288,10 +1299,10 @@
         "ar": "كواكب وكوكبات وأحداث قمرية وأسئلة مرتبطة بالأبراج للاعبين الفضوليين."
       },
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "academics",
+      "cluster_key": "science",
       "emoji": "🌌",
       "mode": "quiz",
       "count": 100,
@@ -1316,10 +1327,10 @@
         "ar": "ألغاز قصصية طويلة بأسئلة نعم/لا للراوي، مع مقدمات أوضح وحلول أنظف وطريقة كشف أفضل."
       },
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Mind & Logic",
+        "ar": "العقل والمنطق"
       },
-      "cluster_key": "media",
+      "cluster_key": "mind",
       "emoji": "🕯️",
       "mode": "story",
       "count": 50,
@@ -1344,8 +1355,8 @@
         "ar": "250 سؤالاً ثنائي اللغة عبر 10 مسلسلات من الأعلى تقييماً — 5 إنجليزية (برايكينج باد، صراع العروش، فريندز، ذا واير، أشياء غريبة) و5 عربية (باب الحارة، مرايا، طاش ما طاش، قيامة أرطغرل، الحساسين)."
       },
       "cluster": {
-        "en": "Culture & Entertainment",
-        "ar": "ثقافة وترفيه"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
       "cluster_key": "culture",
       "emoji": "📺",
@@ -1413,10 +1424,10 @@
         "ar": "عادات وتحيات وضيافة وسلوكيات اجتماعية من أنحاء العالم."
       },
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "emoji": "🌍",
       "mode": "quiz",
       "count": 50,
@@ -1442,10 +1453,10 @@
       },
       "emoji": "🌿",
       "cluster": {
-        "en": "Knowledge & STEM",
-        "ar": "معرفة وعلوم"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "knowledge",
+      "cluster_key": "science",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1470,10 +1481,10 @@
       },
       "emoji": "🏛️",
       "cluster": {
-        "en": "Academic",
-        "ar": "أكاديمي"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "academics",
+      "cluster_key": "world",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1498,10 +1509,10 @@
       },
       "emoji": "💡",
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1526,10 +1537,10 @@
       },
       "emoji": "🐾",
       "cluster": {
-        "en": "Knowledge & STEM",
-        "ar": "معرفة وعلوم"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "knowledge",
+      "cluster_key": "science",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1554,10 +1565,10 @@
       },
       "emoji": "📈",
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1582,10 +1593,10 @@
       },
       "emoji": "🏙️",
       "cluster": {
-        "en": "Engineering",
-        "ar": "هندسة"
+        "en": "Tech & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "engineering",
+      "cluster_key": "tech",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1610,10 +1621,10 @@
       },
       "emoji": "🎻",
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
-      "cluster_key": "media",
+      "cluster_key": "culture",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1638,10 +1649,10 @@
       },
       "emoji": "🍽️",
       "cluster": {
-        "en": "Culture & Society",
-        "ar": "ثقافة ومجتمع"
+        "en": "World & Society",
+        "ar": "العالم والمجتمع"
       },
-      "cluster_key": "culture",
+      "cluster_key": "world",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1666,10 +1677,10 @@
       },
       "emoji": "🎬",
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
-      "cluster_key": "media",
+      "cluster_key": "culture",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1694,10 +1705,10 @@
       },
       "emoji": "🚀",
       "cluster": {
-        "en": "Knowledge & STEM",
-        "ar": "معرفة وعلوم"
+        "en": "Science & Nature",
+        "ar": "العلوم والطبيعة"
       },
-      "cluster_key": "knowledge",
+      "cluster_key": "science",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1721,10 +1732,10 @@
         "ar": "اختبر معرفتك عبر 10 سلاسل أنمي أيقونية — من ناروتو ودراغون بول زي إلى هجوم العمالقة وقاتل الشياطين."
       },
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
-      "cluster_key": "media",
+      "cluster_key": "culture",
       "emoji": "⚔️",
       "mode": "quiz",
       "count": 150,
@@ -1790,10 +1801,10 @@
         "ar": "عِش ذكريات الزمن الجميل مع سبيستون عبر 200 سؤال ثنائي اللغة في 10 مسلسلات كلاسيكية محبوبة — عدنان ولينا، الكابتن ماجد، غرندايزر، وأكثر."
       },
       "cluster": {
-        "en": "Media & Stories",
-        "ar": "إعلام وقصص"
+        "en": "Arts & Pop Culture",
+        "ar": "الفنون والثقافة"
       },
-      "cluster_key": "media",
+      "cluster_key": "culture",
       "emoji": "📺",
       "mode": "quiz",
       "count": 200,

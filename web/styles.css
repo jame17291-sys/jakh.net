@@ -4324,9 +4324,18 @@ body[data-page="play"] .kv-lab-section p {
   padding: 0 1.25rem;
 }
 .ml-cluster-tab-emoji {
-  font-size: 2.1rem;
+  min-width: 2.4rem;
+  font-size: 0.76rem;
   line-height: 1;
   flex-shrink: 0;
+  padding: 0.54rem 0.48rem;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.18);
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
 .ml-cluster-tab-text {
@@ -4351,4 +4360,143 @@ body[data-page="play"] .kv-lab-section p {
 }
 #categoryDirectoryGrid {
   transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.collection-card {
+  width: 100%;
+  min-height: 302px;
+  border: 1px solid color-mix(in srgb, var(--collection-accent, var(--accent)) 36%, var(--line-strong)) !important;
+  text-align: start;
+  font: inherit;
+  color: inherit;
+}
+
+.collection-card .category-card-bg::before {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,0.24), transparent 26%),
+    radial-gradient(circle at 80% 24%, color-mix(in srgb, var(--collection-accent) 58%, transparent), transparent 30%),
+    var(--collection-gradient);
+  opacity: 0.95;
+}
+
+.collection-card .category-card-bg::after {
+  inset: auto 1.15rem 1.1rem auto;
+  width: 112px;
+  height: 112px;
+  border-radius: 999px;
+  background:
+    conic-gradient(from 120deg, transparent, rgba(255,255,255,0.38), transparent 48%),
+    radial-gradient(circle, rgba(255,255,255,0.12), transparent 64%);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.collection-card-orbit {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.26);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.collection-card-orbit-a {
+  width: 104px;
+  height: 104px;
+  inset-inline-end: 2rem;
+  bottom: 1.45rem;
+  transform: rotate(-18deg) scaleY(0.48);
+}
+
+.collection-card-orbit-b {
+  width: 64px;
+  height: 64px;
+  inset-inline-end: 5.4rem;
+  bottom: 3.5rem;
+  border-color: color-mix(in srgb, var(--collection-accent) 58%, rgba(255,255,255,0.18));
+}
+
+.collection-card-description {
+  margin: 0.38rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.category-card:hover:not(.skeleton-card) .collection-card-description {
+  color: rgba(10,10,10,0.66) !important;
+}
+
+.collection-directory-header {
+  grid-column: 1 / -1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--collection-accent, var(--accent)) 34%, var(--line-strong));
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.055), transparent),
+    color-mix(in srgb, var(--collection-accent, var(--accent)) 10%, var(--panel));
+}
+
+.collection-directory-glow {
+  position: absolute;
+  inset: -40% auto auto -12%;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: var(--collection-gradient);
+  opacity: 0.18;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+[dir='rtl'] .collection-directory-glow {
+  inset: -40% -12% auto auto;
+}
+
+.collection-directory-header > div,
+.collection-directory-header > button {
+  position: relative;
+  z-index: 1;
+}
+
+.collection-directory-eyebrow {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: color-mix(in srgb, var(--collection-accent, var(--accent)) 82%, var(--text));
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.collection-directory-header h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.collection-directory-header p {
+  max-width: 720px;
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.collection-empty-state {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 680px) {
+  .collection-directory-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .collection-back-btn {
+    align-self: flex-start;
+  }
 }

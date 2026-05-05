@@ -5,16 +5,16 @@
     <script>document.documentElement.dataset.theme="dark";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
-    <meta name="description" content="Explore 3,000+ bilingual riddles and quizzes across 56 categories in English and Arabic. Pick a topic, flip cards, track your score." />
-    <title>Mind Lab — All Categories | JAKH Riddles</title>
+    <meta name="description" content="Explore 3,000+ bilingual riddles and quizzes through 15 curated collections across 5 clear tracks in English and Arabic. Pick a collection, flip cards, track your score." />
+    <title>Mind Lab — Curated Collections | JAKH Riddles</title>
     <link rel="preload" as="style" href="assets/fonts/fonts.css" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="assets/fonts/fonts.css" /></noscript>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/mind-lab" />
     <meta name="robots" content="index,follow" />
     <meta name="keywords" content="riddles, quiz questions, brain teasers, bilingual quiz, Arabic riddles, English riddles, categories, trivia" />
-    <meta property="og:title" content="Mind Lab — All Categories | JAKH Riddles" />
-    <meta property="og:description" content="3,000+ bilingual riddles across 56 categories — Science, Engineering, Culture, History, and more." />
+    <meta property="og:title" content="Mind Lab — Curated Collections | JAKH Riddles" />
+    <meta property="og:description" content="3,000+ bilingual riddles organized into 15 curated collections across Science, Engineering, Culture, Society, and Logic." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jakh.net/mind-lab" />
     <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
@@ -22,15 +22,15 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="JAKH Riddles" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mind Lab — All Categories | JAKH Riddles" />
-    <meta name="twitter:description" content="3,000+ bilingual riddles across 56 categories in English and Arabic." />
+    <meta name="twitter:title" content="Mind Lab — Curated Collections | JAKH Riddles" />
+    <meta name="twitter:description" content="3,000+ bilingual riddles organized into 15 curated collections in English and Arabic." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
     <link rel="alternate" hreflang="x-default" href="https://jakh.net/mind-lab" />
     <link rel="alternate" hreflang="en" href="https://jakh.net/mind-lab" />
     <link rel="alternate" hreflang="ar" href="https://jakh.net/mind-lab" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="styles.css?v=1777349800" />
+    <link rel="stylesheet" href="styles.css?v=1777356400" />
     <script src="fluid-shader.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
@@ -87,8 +87,8 @@
           <p class="kv-hero-subtitle">Pick a topic. Flip cards. See how much you know.</p>
           <div class="kv-hero-stats" style="margin-top:1.25rem;">
             <div class="kv-stat">
-              <span class="kv-stat-number" id="badgeCategories">56</span>
-              <span class="kv-stat-label">Categories</span>
+              <span class="kv-stat-number" id="badgeCategories">15</span>
+              <span class="kv-stat-label">Collections</span>
             </div>
             <div class="kv-stat-divider" aria-hidden="true"></div>
             <div class="kv-stat">
@@ -103,7 +103,7 @@
       <section class="kv-lab-section shell" id="kv-lab">
         <div class="kv-lab-header">
           <h2 data-i18n="categoryTitle">What would you like to explore?</h2>
-          <p data-i18n="categoryText">Pick a section below to see its categories, or search for a specific topic.</p>
+          <p data-i18n="categoryText">Start with a curated collection, or search for a specific topic if you already know what you want.</p>
         </div>
 
         <!-- Flat-dashboard: mega-category tab bar -->
@@ -121,7 +121,7 @@
         <div class="library-toolbar">
           <p id="directoryResultsLabel"></p>
           <div style="display:flex;gap:0.5rem;align-items:center;">
-            <button class="random-btn" id="randomCategoryBtn">🎲 Surprise me</button>
+            <button class="random-btn" id="randomCategoryBtn">Surprise me</button>
             <button class="text-btn" id="resetDirectoryBtn" data-i18n="resetDirectoryFilters">Reset filters</button>
           </div>
         </div>
@@ -186,7 +186,7 @@
       </div>
     </div>
 
-    <script defer src="app.js?v=1777349800"></script>
+    <script defer src="app.js?v=1777356400"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         var canvas = document.getElementById('mindLabFluidCanvas');

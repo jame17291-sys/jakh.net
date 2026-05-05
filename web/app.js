@@ -58,17 +58,171 @@ const DIFFICULTY_POINTS = {
 
 const PAGE_SIZE = 20;
 
-const CLUSTER_META = {
-  geo:         { emoji: '🌍', gradient: 'linear-gradient(135deg,#0277BD,#26C6DA)' },
-  arts:        { emoji: '🎨', gradient: 'linear-gradient(135deg,#AD1457,#FF8A65)' },
-  science:     { emoji: '🔬', gradient: 'linear-gradient(135deg,#01579B,#48d597)' },
-  media:       { emoji: '🎬', gradient: 'linear-gradient(135deg,#311B92,#FF416C)' },
-  knowledge:   { emoji: '📚', gradient: 'linear-gradient(135deg,#4A0E8F,#C9A227)' },
-  culture:     { emoji: '🌐', gradient: 'linear-gradient(135deg,#BF360C,#5C6BC0)' },
-  academics:   { emoji: '🎓', gradient: 'linear-gradient(135deg,#1A237E,#4A90D9)' },
-  engineering: { emoji: '⚙️', gradient: 'linear-gradient(135deg,#37474F,#78909C)' },
-  fun:         { emoji: '🎉', gradient: 'linear-gradient(135deg,#FF6B6B,#FFD93D)' },
+const DIRECTORY_PARENT_META = {
+  mind: {
+    mark: '01',
+    label: { en: 'Mind & Logic', ar: 'العقل والمنطق' },
+    gradient: 'linear-gradient(135deg,#25124d,#7c3aed 58%,#38bdf8)',
+  },
+  science: {
+    mark: '02',
+    label: { en: 'Science & Nature', ar: 'العلوم والطبيعة' },
+    gradient: 'linear-gradient(135deg,#063f46,#0f766e 52%,#a3e635)',
+  },
+  tech: {
+    mark: '03',
+    label: { en: 'Tech & Engineering', ar: 'التقنية والهندسة' },
+    gradient: 'linear-gradient(135deg,#111827,#2563eb 55%,#22d3ee)',
+  },
+  world: {
+    mark: '04',
+    label: { en: 'World & Society', ar: 'العالم والمجتمع' },
+    gradient: 'linear-gradient(135deg,#3d1f0f,#b45309 54%,#facc15)',
+  },
+  culture: {
+    mark: '05',
+    label: { en: 'Arts & Pop Culture', ar: 'الفنون والثقافة' },
+    gradient: 'linear-gradient(135deg,#3b0764,#be185d 52%,#f97316)',
+  },
 };
+
+const CATEGORY_COLLECTIONS = [
+  {
+    key: 'riddle-forge',
+    parent: 'mind',
+    title: { en: 'Riddle Forge', ar: 'ورشة الألغاز' },
+    description: { en: 'Classic, logic, and family-friendly puzzles grouped into one clear starting point.', ar: 'ألغاز كلاسيكية ومنطقية وعائلية في نقطة بداية واحدة واضحة.' },
+    gradient: 'linear-gradient(135deg,#1f1147,#7c3aed 48%,#f59e0b)',
+    accent: '#A78BFA',
+    members: ['classic-riddles', 'logic-puzzles', 'kids-riddles'],
+  },
+  {
+    key: 'human-signals',
+    parent: 'mind',
+    title: { en: 'Human Signals', ar: 'إشارات الإنسان' },
+    description: { en: 'Psychology, philosophy, and relationships for questions about how people think and connect.', ar: 'علم النفس والفلسفة والعلاقات لأسئلة عن التفكير والتواصل الإنساني.' },
+    gradient: 'linear-gradient(135deg,#2e1065,#9333ea 50%,#f472b6)',
+    accent: '#C084FC',
+    members: ['psychology', 'philosophy', 'relationship-questions'],
+  },
+  {
+    key: 'mystery-desk',
+    parent: 'mind',
+    title: { en: 'Mystery Desk', ar: 'مكتب الغموض' },
+    description: { en: 'Story riddles and true-crime style puzzles kept together for suspense seekers.', ar: 'ألغاز القصص والغموض والجريمة في مجموعة واحدة لمحبي التشويق.' },
+    gradient: 'linear-gradient(135deg,#111827,#4c0519 52%,#ef4444)',
+    accent: '#FB7185',
+    members: ['story-mysteries', 'true-crime'],
+  },
+  {
+    key: 'living-planet',
+    parent: 'science',
+    title: { en: 'Living Planet', ar: 'الكوكب الحي' },
+    description: { en: 'Biology, animals, ecology, and wilderness questions in one natural collection.', ar: 'الأحياء والحيوانات والبيئة والبقاء في مجموعة طبيعية واحدة.' },
+    gradient: 'linear-gradient(135deg,#052e16,#16a34a 48%,#22d3ee)',
+    accent: '#2DD4BF',
+    members: ['biology', 'animal-kingdom', 'environment-and-ecology', 'survival'],
+  },
+  {
+    key: 'core-science-lab',
+    parent: 'science',
+    title: { en: 'Core Science Lab', ar: 'مختبر العلوم الأساسية' },
+    description: { en: 'Math, chemistry, earth science, and broad science pages consolidated for STEM learners.', ar: 'الرياضيات والكيمياء وعلوم الأرض والعلوم العامة للمتعلمين في مسار واحد.' },
+    gradient: 'linear-gradient(135deg,#0f172a,#2563eb 48%,#22d3ee)',
+    accent: '#38BDF8',
+    members: ['math', 'science', 'chemistry', 'physical-and-life-sciences', 'geology'],
+  },
+  {
+    key: 'medicine-cabinet',
+    parent: 'science',
+    title: { en: 'Medicine Cabinet', ar: 'خزانة الطب' },
+    description: { en: 'Medical science and pharmacy grouped for health-focused study sessions.', ar: 'العلوم الطبية والصيدلة في مجموعة مخصصة للمعرفة الصحية.' },
+    gradient: 'linear-gradient(135deg,#4a044e,#be185d 50%,#86efac)',
+    accent: '#F472B6',
+    members: ['medical-questions', 'pharmacy'],
+  },
+  {
+    key: 'orbit-and-energy',
+    parent: 'science',
+    title: { en: 'Orbit & Energy', ar: 'المدار والطاقة' },
+    description: { en: 'Space, astronomy, future technology, and energy systems bundled as frontier topics.', ar: 'الفضاء والفلك والتقنيات المستقبلية والطاقة في مجموعة للحدود الجديدة.' },
+    gradient: 'linear-gradient(135deg,#020617,#1d4ed8 45%,#67e8f9)',
+    accent: '#67E8F9',
+    members: ['space-and-astrology', 'future-tech-and-energy'],
+  },
+  {
+    key: 'digital-workshop',
+    parent: 'tech',
+    title: { en: 'Digital Workshop', ar: 'ورشة التقنية' },
+    description: { en: 'Software, coding, design, and retro tech brought together for digital curiosity.', ar: 'البرمجة والتصميم والحوسبة والتقنية القديمة في مساحة رقمية واحدة.' },
+    gradient: 'linear-gradient(135deg,#0f172a,#4f46e5 48%,#84cc16)',
+    accent: '#60A5FA',
+    members: ['software-and-computing', 'coding-and-design', 'tech-retro'],
+  },
+  {
+    key: 'built-systems',
+    parent: 'tech',
+    title: { en: 'Built Systems', ar: 'الأنظمة المبنية' },
+    description: { en: 'Engineering disciplines, infrastructure, architecture, and invention questions under one roof.', ar: 'الهندسة والبنية التحتية والعمارة والاختراعات تحت سقف واحد.' },
+    gradient: 'linear-gradient(135deg,#111827,#475569 48%,#f97316)',
+    accent: '#94A3B8',
+    members: ['civil-engineering', 'electrical-engineering', 'mechanical-engineering', 'infrastructure-systems', 'architecture-and-landmarks', 'inventions-and-minds'],
+  },
+  {
+    key: 'speed-and-stadiums',
+    parent: 'tech',
+    title: { en: 'Speed & Stadiums', ar: 'السرعة والملاعب' },
+    description: { en: 'Football and automotive questions grouped around performance, machines, and competition.', ar: 'أسئلة كرة القدم والسيارات حول الأداء والآلات والمنافسة.' },
+    gradient: 'linear-gradient(135deg,#052e16,#16a34a 45%,#f97316)',
+    accent: '#4ADE80',
+    members: ['football', 'automotive'],
+  },
+  {
+    key: 'atlas-room',
+    parent: 'world',
+    title: { en: 'Atlas Room', ar: 'غرفة الأطلس' },
+    description: { en: 'Geography, flags, currencies, food, and daily customs for exploring the world quickly.', ar: 'الجغرافيا والأعلام والعملات والطعام والعادات لاستكشاف العالم بسهولة.' },
+    gradient: 'linear-gradient(135deg,#0c4a6e,#0284c7 48%,#facc15)',
+    accent: '#38BDF8',
+    members: ['geography', 'flag-questions', 'currencies', 'world-habits-and-etiquette', 'food-and-cuisines'],
+  },
+  {
+    key: 'time-archive',
+    parent: 'world',
+    title: { en: 'Time Archive', ar: 'أرشيف الزمن' },
+    description: { en: 'History, ancient civilizations, Middle East history, and regional law arranged as one timeline.', ar: 'التاريخ والحضارات القديمة وتاريخ الشرق الأوسط والقانون في خط زمني واحد.' },
+    gradient: 'linear-gradient(135deg,#431407,#92400e 50%,#fbbf24)',
+    accent: '#F9A825',
+    members: ['history', 'ancient-civilizations', 'middle-east-history', 'law-middle-east'],
+  },
+  {
+    key: 'society-engine',
+    parent: 'world',
+    title: { en: 'Society Engine', ar: 'محرك المجتمع' },
+    description: { en: 'Business, economics, social science, and language grouped around how societies work.', ar: 'الأعمال والاقتصاد والعلوم الاجتماعية واللغة لفهم طريقة عمل المجتمعات.' },
+    gradient: 'linear-gradient(135deg,#042f2e,#0f766e 48%,#f59e0b)',
+    accent: '#2DD4BF',
+    members: ['business-and-management', 'economics-and-finance', 'social-sciences', 'linguistics'],
+  },
+  {
+    key: 'gallery-and-myths',
+    parent: 'culture',
+    title: { en: 'Gallery & Myths', ar: 'المعرض والأساطير' },
+    description: { en: 'Art, books, music, and mythology combined for a richer creative-culture lane.', ar: 'الفن والكتب والموسيقى والأساطير في مسار ثقافي إبداعي واحد.' },
+    gradient: 'linear-gradient(135deg,#3b0764,#a21caf 48%,#f59e0b)',
+    accent: '#F0ABFC',
+    members: ['art-and-painters', 'books-and-quotes', 'music-and-performing-arts', 'mythology-legends'],
+  },
+  {
+    key: 'screen-worlds',
+    parent: 'culture',
+    title: { en: 'Screen Worlds', ar: 'عوالم الشاشة' },
+    description: { en: 'TV, cinema, anime, Spacetoon, superheroes, pop culture, and fictional universes in one fandom hub.', ar: 'التلفزيون والسينما والأنمي وسبيستون والأبطال والثقافة الشعبية والعوالم الخيالية في مركز واحد.' },
+    gradient: 'linear-gradient(135deg,#1e1b4b,#be185d 48%,#f97316)',
+    accent: '#FB7185',
+    members: ['tv-shows-trivia', 'cinema-and-film-history', 'anime', 'ayam-tayebeen', 'pop-culture', 'superheroes', 'fictional-worlds'],
+  },
+];
 
 const CATEGORY_GRADIENTS = {
   'art-and-painters':           'linear-gradient(135deg, #FF6B6B 0%, #FFA500 100%)',
@@ -196,15 +350,15 @@ const UI = {
     homeEyebrow: '3,000+ bilingual riddles — English & Arabic',
     homeTitle: 'Pick a topic. Flip cards. See how much you know.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
-    browseCategories: 'Pick a category',
+    browseCategories: 'Explore collections',
     heroGameHub: 'Game Hub',
-    statCategories: 'Categories',
+    statCategories: 'Collections',
     statQuestions: 'Questions',
     statLanguages: 'Languages',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
-    portalMindDesc: '3,000+ bilingual questions across 6 mega-categories — Science, Engineering, Culture, Media, Academics, and more. Pick a topic, flip cards, track your score.',
-    portalMindStat: '56 categories',
+    portalMindDesc: '3,000+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.',
+    portalMindStat: '15 collections',
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
     portalGamesTitle: 'The Game Hub',
@@ -217,7 +371,7 @@ const UI = {
     localBrowserOnly: 'Saved to your account',
     categoryEyebrow: 'Choose a section',
     categoryTitle: 'What would you like to explore?',
-    categoryText: 'Pick a section below to see its categories, or search for a specific topic.',
+    categoryText: 'Start with a curated collection, or search for a specific topic if you already know what you want.',
     searchCategoriesLabel: 'Search category pages',
     tracksLabel: 'Tracks',
     resetDirectoryFilters: 'Reset filters',
@@ -347,15 +501,15 @@ const UI = {
     homeEyebrow: '+3000 لغز ثنائي اللغة — عربي وإنجليزي',
     homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
     homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
-    browseCategories: 'اختر فئة',
+    browseCategories: 'استكشف المجموعات',
     heroGameHub: 'مركز الألعاب',
-    statCategories: 'الفئات',
+    statCategories: 'المجموعات',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: '+3000 سؤال ثنائي اللغة في 6 أقسام رئيسية — العلوم، الهندسة، الثقافة، الإعلام، الأكاديميا، والمزيد. اختر موضوعًا، اقلب البطاقات، وتابع نقاطك.',
-    portalMindStat: '56 فئة',
+    portalMindDesc: '+3000 سؤال ثنائي اللغة منظمة في 15 مجموعة مختارة ضمن 5 مسارات واضحة. اختر مجموعة، افتح موضوعًا، واقلب البطاقات وتابع نقاطك.',
+    portalMindStat: '15 مجموعة',
     portalMindCta: 'استكشف الألغاز →',
     portalGamesTag: 'مركز الألعاب',
     portalGamesTitle: 'مركز الألعاب',
@@ -368,7 +522,7 @@ const UI = {
     localBrowserOnly: 'محفوظ في حسابك',
     categoryEyebrow: 'اختر قسمًا',
     categoryTitle: 'ماذا تريد أن تستكشف؟',
-    categoryText: 'اختر قسمًا من الأقسام أدناه لعرض فئاته، أو ابحث عن موضوع محدد.',
+    categoryText: 'ابدأ بمجموعة مختارة، أو ابحث عن موضوع محدد إذا كنت تعرف ما تريد.',
     searchCategoriesLabel: 'ابحث في صفحات الفئات',
     tracksLabel: 'المسارات',
     resetDirectoryFilters: 'إعادة الضبط',
@@ -496,6 +650,7 @@ const state = {
   categoryData: null,
   directorySearch: '',
   cluster: 'all',
+  collection: 'all',
   search: '',
   difficulty: 'all',
   view: 'all',
@@ -1288,6 +1443,7 @@ function bindCommonEvents() {
     els.resetDirectoryBtn.addEventListener('click', () => {
       state.directorySearch = '';
       state.cluster = 'all';
+      state.collection = 'all';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
       renderClusterFilters();
       renderClusterTabBar();
@@ -1298,6 +1454,8 @@ function bindCommonEvents() {
   if (els.categorySearchInput) {
     els.categorySearchInput.addEventListener('input', debounce(() => {
       state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
+      if (state.directorySearch) state.collection = 'all';
+      renderClusterTabBar();
       renderCategoryDirectory();
     }, 200));
   }
@@ -1491,7 +1649,7 @@ function rerender() {
 
 function renderHome() {
   if (!state.catalog) return;
-  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.length;
+  if (els.badgeCategories) els.badgeCategories.textContent = getDirectoryCollections().length || state.catalog.categories.length;
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
   renderResumeButton();
@@ -1510,6 +1668,84 @@ function renderHome() {
 let tracksExpanded = false;
 function renderClusterFilters() {
   if (els.clusterFilters) els.clusterFilters.innerHTML = '';
+}
+
+function getCategoryMap() {
+  return new Map((state.catalog?.categories || []).map(category => [category.slug, category]));
+}
+
+function getDirectoryCollections() {
+  const categoryMap = getCategoryMap();
+  return CATEGORY_COLLECTIONS.map(collection => {
+    const categories = collection.members.map(slug => categoryMap.get(slug)).filter(Boolean);
+    return {
+      ...collection,
+      categories,
+      pageCount: categories.length,
+      count: categories.reduce((total, category) => total + Number(category.count || 0), 0),
+      parentMeta: DIRECTORY_PARENT_META[collection.parent],
+    };
+  }).filter(collection => collection.pageCount > 0);
+}
+
+function getCollectionByKey(key) {
+  return getDirectoryCollections().find(collection => collection.key === key) || null;
+}
+
+function createCollectionCardMarkup(collection) {
+  const isAr = state.lang === 'ar';
+  const titleRaw = collection.title[state.lang] || collection.title.en;
+  const descriptionRaw = collection.description[state.lang] || collection.description.en;
+  const title = escapeHtml(titleRaw);
+  const description = escapeHtml(descriptionRaw);
+  const parentLabel = escapeHtml(collection.parentMeta?.label?.[state.lang] || collection.parentMeta?.label?.en || '');
+  const viewLabel = isAr ? 'عرض المواضيع' : 'View topics';
+  const pageLabel = isAr ? `${collection.pageCount} صفحات` : `${collection.pageCount} pages`;
+  const questionLabel = isAr ? `${collection.count} سؤال` : `${collection.count} questions`;
+  const ariaLabel = isAr ? `افتح مجموعة ${titleRaw}` : `Open ${titleRaw} collection`;
+  return `
+    <button class="category-card collection-card" type="button" data-collection="${escapeHtml(collection.key)}" aria-label="${escapeHtml(ariaLabel)}" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
+      <span class="category-card-stripe" style="background:${collection.gradient}" aria-hidden="true"></span>
+      <div class="category-card-bg collection-card-bg" aria-hidden="true">
+        <span class="category-card-count-badge">${pageLabel}</span>
+        <span class="collection-card-orbit collection-card-orbit-a"></span>
+        <span class="collection-card-orbit collection-card-orbit-b"></span>
+        <span class="category-card-corner-mark"></span>
+      </div>
+      <div class="category-card-overlay">
+        <span class="category-card-cluster cluster-chip" style="color:${collection.accent}">${parentLabel}</span>
+        <h3 class="category-title">${title}</h3>
+        <p class="collection-card-description">${description}</p>
+      </div>
+      <div class="category-card-footer">
+        <span class="category-card-label">${questionLabel}</span>
+        <span class="category-card-enter">${viewLabel}</span>
+      </div>
+    </button>
+  `;
+}
+
+function createCollectionHeaderMarkup(collection) {
+  const isAr = state.lang === 'ar';
+  const title = escapeHtml(collection.title[state.lang] || collection.title.en);
+  const description = escapeHtml(collection.description[state.lang] || collection.description.en);
+  const backLabel = isAr ? 'العودة للمجموعات' : 'Back to collections';
+  const eyebrow = isAr ? 'مجموعة مختارة' : 'Selected collection';
+  return `
+    <div class="collection-directory-header" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
+      <span class="collection-directory-glow" aria-hidden="true"></span>
+      <div>
+        <span class="collection-directory-eyebrow">${eyebrow}</span>
+        <h3>${title}</h3>
+        <p>${description}</p>
+      </div>
+      <button class="text-btn collection-back-btn" type="button" data-collection-reset>${backLabel}</button>
+    </div>
+  `;
+}
+
+function setDirectoryResultsLabel(text) {
+  if (els.directoryResultsLabel) els.directoryResultsLabel.textContent = text;
 }
 
 function createCategoryCardMarkup(meta) {
@@ -1578,15 +1814,57 @@ const lazyBgObserver = typeof IntersectionObserver !== 'undefined' ? new Interse
 
 function renderCategoryDirectory() {
   if (!els.categoryDirectoryGrid || !state.catalog) return;
-  const filtered = state.catalog.categories.filter((meta) => {
-    if (state.cluster !== 'all' && meta.cluster_key !== state.cluster) return false;
-    if (!state.directorySearch) return true;
-    const haystack = [
-      meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, meta.cluster.en, meta.cluster.ar
-    ].join(' ').toLowerCase();
-    return haystack.includes(state.directorySearch);
-  });
-  els.categoryDirectoryGrid.innerHTML = filtered.map(createCategoryCardMarkup).join('');
+  const collections = getDirectoryCollections();
+  const selectedCollection = state.collection !== 'all' ? getCollectionByKey(state.collection) : null;
+  const searchTerm = state.directorySearch;
+  const isAr = state.lang === 'ar';
+  let markup = '';
+
+  if (searchTerm) {
+    const collectionBySlug = new Map();
+    collections.forEach(collection => collection.categories.forEach(category => collectionBySlug.set(category.slug, collection)));
+    const filtered = state.catalog.categories.filter((meta) => {
+      const collection = collectionBySlug.get(meta.slug);
+      if (state.cluster !== 'all' && collection?.parent !== state.cluster) return false;
+      const parentMeta = collection?.parentMeta;
+      const haystack = [
+        meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, meta.cluster.en, meta.cluster.ar,
+        collection?.title.en, collection?.title.ar, collection?.description.en, collection?.description.ar,
+        parentMeta?.label.en, parentMeta?.label.ar
+      ].filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(searchTerm);
+    });
+    markup = filtered.map(createCategoryCardMarkup).join('');
+    setDirectoryResultsLabel(isAr
+      ? `يتم عرض ${filtered.length} صفحة فئة مطابقة.`
+      : `Showing ${filtered.length} matching category pages.`);
+  } else if (selectedCollection) {
+    const categories = selectedCollection.categories;
+    markup = createCollectionHeaderMarkup(selectedCollection) + categories.map(createCategoryCardMarkup).join('');
+    setDirectoryResultsLabel(isAr
+      ? `يتم عرض ${categories.length} صفحات داخل مجموعة ${selectedCollection.title.ar}.`
+      : `Showing ${categories.length} category pages inside ${selectedCollection.title.en}.`);
+  } else {
+    const visibleCollections = state.cluster === 'all'
+      ? collections
+      : collections.filter(collection => collection.parent === state.cluster);
+    markup = visibleCollections.map(createCollectionCardMarkup).join('');
+    const totalPages = visibleCollections.reduce((sum, collection) => sum + collection.pageCount, 0);
+    setDirectoryResultsLabel(state.cluster === 'all'
+      ? (isAr
+          ? `يتم عرض ${visibleCollections.length} مجموعات مختارة تضم ${totalPages} صفحة فئة.`
+          : `Showing ${visibleCollections.length} curated collections covering ${totalPages} category pages.`)
+      : (isAr
+          ? `يتم عرض ${visibleCollections.length} مجموعات في هذا المسار.`
+          : `Showing ${visibleCollections.length} collections in this track.`));
+  }
+
+  els.categoryDirectoryGrid.innerHTML = markup || `
+    <div class="empty-state collection-empty-state">
+      <h3>${isAr ? 'لا توجد نتائج مطابقة.' : 'No matching topics.'}</h3>
+      <p>${isAr ? 'جرّب مسارًا آخر أو أزل البحث الحالي.' : 'Try another track or clear the current search.'}</p>
+    </div>
+  `;
   const cards = [...els.categoryDirectoryGrid.querySelectorAll('.category-card')];
   requestAnimationFrame(() => {
     cards.forEach((el) => el.classList.add('is-visible'));
@@ -1594,46 +1872,47 @@ function renderCategoryDirectory() {
   if (lazyBgObserver) {
     cards.forEach(el => lazyBgObserver.observe(el));
   }
-  if (els.directoryResultsLabel) {
-    els.directoryResultsLabel.textContent = filtered.length === state.catalog.categories.length
-      ? fmt('showingAllPages', { count: filtered.length })
-      : fmt('showingFilteredPages', { count: filtered.length });
-  }
+  els.categoryDirectoryGrid.querySelectorAll('[data-collection]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.collection = btn.dataset.collection;
+      state.directorySearch = '';
+      if (els.categorySearchInput) els.categorySearchInput.value = '';
+      renderClusterTabBar();
+      fadeAndRenderDirectory();
+    });
+  });
+  els.categoryDirectoryGrid.querySelectorAll('[data-collection-reset]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.collection = 'all';
+      fadeAndRenderDirectory();
+    });
+  });
 }
 
 function renderClusterTabBar() {
   const tabBar = document.getElementById('clusterTabBar');
   if (!tabBar || !state.catalog) return;
   const isAr = state.lang === 'ar';
-
-  const clusterMap = {};
-  state.catalog.categories.forEach(cat => {
-    const key = cat.cluster_key;
-    if (!clusterMap[key]) {
-      clusterMap[key] = {
-        key,
-        label: cat.cluster,
-        count: 0,
-        emoji: CLUSTER_META[key]?.emoji || '📂',
-        gradient: CLUSTER_META[key]?.gradient || 'linear-gradient(135deg,#333,#555)',
-      };
-    }
-    clusterMap[key].count++;
-  });
-
-  const clusters = Object.values(clusterMap);
-  const total = state.catalog.categories.length;
-  const countWord = isAr ? 'فئة' : 'categories';
+  const collections = getDirectoryCollections();
+  const countWord = isAr ? 'مجموعات' : 'collections';
 
   const allTab = {
     key: 'all',
-    label: { en: 'All Topics', ar: 'كل المواضيع' },
-    count: total,
-    emoji: '✦',
+    label: { en: 'All Collections', ar: 'كل المجموعات' },
+    count: collections.length,
+    mark: 'ALL',
     gradient: 'linear-gradient(135deg,#0f0c1a,#2a1f3d)',
   };
 
-  const tabs = [allTab, ...clusters];
+  const parentTabs = Object.entries(DIRECTORY_PARENT_META).map(([key, meta]) => ({
+    key,
+    label: meta.label,
+    count: collections.filter(collection => collection.parent === key).length,
+    mark: meta.mark,
+    gradient: meta.gradient,
+  })).filter(tab => tab.count > 0);
+
+  const tabs = [allTab, ...parentTabs];
 
   tabBar.innerHTML = tabs.map(c => {
     const name = c.key === 'all' ? (isAr ? c.label.ar : c.label.en) : (c.label[state.lang] || c.label.en);
@@ -1642,7 +1921,7 @@ function renderClusterTabBar() {
       <button class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-label="${escapeHtml(name)}">
         <div class="ml-cluster-tab-bg" style="background:${c.gradient};" aria-hidden="true"></div>
         <div class="ml-cluster-tab-content">
-          <span class="ml-cluster-tab-emoji" aria-hidden="true">${c.emoji}</span>
+          <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${c.mark}</span>
           <div class="ml-cluster-tab-text">
             <span class="ml-cluster-tab-name">${escapeHtml(name)}</span>
             <span class="ml-cluster-tab-count">${c.count} ${countWord}</span>
@@ -1656,6 +1935,7 @@ function renderClusterTabBar() {
       const newCluster = btn.dataset.cluster;
       if (state.cluster === newCluster) return;
       state.cluster = newCluster;
+      state.collection = 'all';
       renderClusterTabBar();
       fadeAndRenderDirectory();
     });
@@ -2658,7 +2938,9 @@ async function loadCategoryIfNeeded() {
   if (Array.isArray(raw)) {
     state.categoryData = { ...meta, cards: raw };
   } else {
-    state.categoryData = { ...meta, ...raw };
+    // Catalog metadata is the taxonomy source of truth; individual data files may
+    // still carry older cluster labels from previous generations.
+    state.categoryData = { ...raw, ...meta };
   }
 }
 

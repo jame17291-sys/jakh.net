@@ -2681,6 +2681,9 @@ body::after {
 .category-card.is-loaded[href="law-middle-east.html"] .category-card-bg::before { background-image: url('assets/backgrounds/law-middle-east.svg'); }
 .category-card.is-loaded[href="currencies.html"] .category-card-bg::before { background-image: url('assets/backgrounds/currencies.svg'); }
 .category-card.is-loaded[href="geology.html"] .category-card-bg::before { background-image: url('assets/backgrounds/geology.svg'); }
+.category-card.is-loaded[href="future-tech-and-energy.html"] .category-card-bg::before { background-image: url('assets/backgrounds/future-tech-and-energy.svg'); }
+.category-card.is-loaded[href="automotive.html"] .category-card-bg::before { background-image: url('assets/backgrounds/automotive.svg'); }
+.category-card.is-loaded[href="pop-culture.html"] .category-card-bg::before { background-image: url('assets/backgrounds/pop-culture.svg'); }
 /* Optimized Premium Backgrounds Batch 1 */
 .category-card.is-loaded[href="math.html"] .category-card-bg::before { background-image: url('assets/backgrounds_new/math.png'); }
 .category-card.is-loaded[href="science.html"] .category-card-bg::before { background-image: url('assets/backgrounds_new/science.png'); }

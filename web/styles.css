@@ -2701,6 +2701,7 @@ body::after {
 .category-card.is-loaded[href="linguistics.html"] .category-card-bg::before { background-image: url('assets/backgrounds/linguistics.png'); }
 .category-card.is-loaded[href="currencies.html"] .category-card-bg::before { background-image: url('assets/backgrounds/currencies.png'); }
 .category-card.is-loaded[href="tech-retro.html"] .category-card-bg::before { background-image: url('assets/backgrounds/tech-retro.png'); }
+.category-card.is-loaded[href="logic-puzzles.html"] .category-card-bg::before { background-image: url('assets/backgrounds/logic-puzzles.svg'); }
 /* Richer SVG covers for weaker legacy categories */
 .category-card.is-loaded[href="business-and-management.html"] .category-card-bg::before { background-image: url('assets/backgrounds/business-and-management.svg'); }
 .category-card.is-loaded[href="civil-engineering.html"] .category-card-bg::before { background-image: url('assets/backgrounds/civil-engineering.svg'); }

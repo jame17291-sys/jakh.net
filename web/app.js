@@ -1149,7 +1149,7 @@ function handleOfflineStatus() {
 function cacheEls() {
   [
     'toast', 'langSelect', 'openAuthBtn',
-    'heroAuthBtn', 'categorySearchInput', 'clusterFilters', 'resetDirectoryBtn', 'directoryResultsLabel',
+    'heroAuthBtn', 'categorySearchInput', 'resetDirectoryBtn', 'directoryResultsLabel',
     'categoryDirectoryGrid', 'badgeCategories', 'badgeQuestions', 'accountSummaryMount',
     'authModal', 'authModalBody',
     'categoryKicker', 'categoryTitle', 'categoryDescription', 'categoryCountPill', 'categoryImage',
@@ -1445,7 +1445,6 @@ function bindCommonEvents() {
       state.cluster = 'all';
       state.collection = 'all';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
-      renderClusterFilters();
       renderClusterTabBar();
       fadeAndRenderDirectory();
       showToast(t('directoryResetDone'));
@@ -1652,9 +1651,7 @@ function renderHome() {
   if (els.badgeCategories) els.badgeCategories.textContent = getDirectoryCollections().length || state.catalog.categories.length;
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
-  renderResumeButton();
   renderDailyChallenge();
-  renderClusterFilters();
   renderClusterTabBar();
   renderCategoryDirectory();
   markCachedCategories();
@@ -1663,11 +1660,6 @@ function renderHome() {
     sessionStorage.removeItem('jakh-home-scroll');
     requestAnimationFrame(() => window.scrollTo({ top: parseInt(savedScroll), behavior: 'instant' }));
   }
-}
-
-let tracksExpanded = false;
-function renderClusterFilters() {
-  if (els.clusterFilters) els.clusterFilters.innerHTML = '';
 }
 
 function getCategoryMap() {
@@ -3539,46 +3531,6 @@ function checkNewAchievements() {
     hapticSuccess();
     showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${state.lang === 'ar' ? a.ar : a.en}!`);
   }, i * 2400));
-}
-
-// ================= RESUME BUTTON =================
-function getResumeSuggestion() {
-  if (!state.dbUser || !state.catalog) return null;
-  const progressBySlug = {};
-  (state.dbUser.progress || []).forEach(p => {
-    if (!progressBySlug[p.categoryId]) progressBySlug[p.categoryId] = 0;
-    if (!p.status.startsWith('wrong-')) progressBySlug[p.categoryId]++;
-  });
-  let best = null;
-  for (const slug of Object.keys(progressBySlug)) {
-    const meta = state.catalog.categories.find(c => c.slug === slug);
-    if (!meta) continue;
-    const solved = progressBySlug[slug];
-    const pct = Math.min(100, Math.round((solved / (meta.count || 1)) * 100));
-    if (pct >= 100) continue;
-    if (!best || solved > progressBySlug[best.slug]) best = { ...meta, solved, pct };
-  }
-  return best;
-}
-
-function renderResumeButton() {
-  const mount = document.getElementById('resumeMount');
-  if (!mount) return;
-  const resume = getResumeSuggestion();
-  if (!resume) { mount.innerHTML = ''; return; }
-  const lang = state.lang;
-  mount.innerHTML = `
-    <div class="shell resume-banner">
-      <div class="resume-inner">
-        <span class="resume-emoji">${resume.emoji}</span>
-        <div class="resume-info">
-          <p class="resume-eyebrow">${lang === 'ar' ? 'استمر من حيث توقفت' : 'Continue where you left off'}</p>
-          <strong class="resume-title">${escapeHtml(resume.title[lang])}</strong>
-          <div class="cat-progress-bar-track" style="margin-top:0.35rem;max-width:160px;"><div class="cat-progress-bar-fill" style="width:${resume.pct}%;--pct:${resume.pct}"></div></div>
-        </div>
-        <a class="primary-btn resume-btn" href="${escapeHtml(resume.href)}">${lang === 'ar' ? 'متابعة ←' : 'Resume →'}</a>
-      </div>
-    </div>`;
 }
 
 // ================= CATEGORY COMPLETION =================

@@ -149,7 +149,7 @@
     els.langSelect = document.getElementById('langSelect');
     forceDarkTheme();
     els.backToGames = document.getElementById('backToGames');
-    els.accountButton = document.getElementById('accountButton');
+    els.accountButton = document.getElementById('accountButton') || document.getElementById('openAuthBtn');
     els.languageLabel = document.getElementById('languageLabel');
     els.gameKicker = document.getElementById('gameKicker');
     els.title = document.getElementById('gameTitle');

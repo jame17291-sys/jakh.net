@@ -145,28 +145,8 @@
     els.leaderboardTitle = document.getElementById('leaderboardTitle');
 
     // Wire auth button to auth modal
-    const authBtn = document.getElementById('openAuthBtn');
-    if (authBtn) {
-      authBtn.addEventListener('click', function () {
-        const modal = document.getElementById('authModal');
-        if (modal) {
-          modal.classList.remove('hidden');
-          modal.setAttribute('aria-hidden', 'false');
-          const closeBtn = modal.querySelector('[data-close-modal]');
-          if (closeBtn && !closeBtn._bound) {
-            closeBtn._bound = true;
-            closeBtn.addEventListener('click', function () {
-              modal.classList.add('hidden');
-              modal.setAttribute('aria-hidden', 'true');
-            });
-            modal.querySelector('.modal-backdrop')?.addEventListener('click', function () {
-              modal.classList.add('hidden');
-              modal.setAttribute('aria-hidden', 'true');
-            });
-          }
-        }
-      });
-    }
+    // Header Sign In button — use brain modal (authModal body is empty on this page)
+    document.getElementById('openAuthBtn')?.addEventListener('click', openAccountModal);
 
     // Inject mobile hamburger menu (play.html uses play.js, not app.js)
     if (!document.getElementById('hamburgerBtn')) {

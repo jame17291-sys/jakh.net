@@ -7780,6 +7780,40 @@ body[data-page="brain-game"] .grid-glow {
   border-radius: 999px;
 }
 
+.brain-cell.is-void {
+  visibility: hidden;
+  pointer-events: none;
+  background: transparent;
+  border-color: transparent;
+}
+
+.brain-cell.is-node {
+  background: rgba(252,252,252,0.04);
+  border: 1px dashed rgba(252,252,252,0.18);
+  font-size: 0.65rem;
+  color: rgba(252,252,252,0.35);
+}
+
+.brain-cell.is-corner {
+  background: color-mix(in srgb, #e0b15a 25%, rgba(252,252,252,0.04));
+  border-color: #e0b15a;
+  color: #e0b15a;
+}
+
+.brain-cell.is-center {
+  background: color-mix(in srgb, #9AE66E 20%, rgba(252,252,252,0.04));
+  border-color: #9AE66E;
+  color: #9AE66E;
+}
+
+.brain-cell.is-hedge,
+.brain-cell.is-vedge {
+  font-size: 0.6rem;
+  color: rgba(252,252,252,0.3);
+  border-style: dashed;
+}
+}
+
 .brain-modal {
   position: fixed;
   inset: 0;

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossword – JAKH</title>
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --surface: #181c24;
+      --border: rgba(255,255,255,0.1);
+      --accent: #7c6ef7;
+      --accent2: #e0b15a;
+      --text: #f0f0f0;
+      --muted: #888;
+      --cell-size: 36px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .header-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .header-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: rgba(255,255,255,0.07); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary:hover { background: #6a5de0; }
+    .timer {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent2);
+      min-width: 50px;
+      text-align: center;
+    }
+    .main {
+      flex: 1;
+      display: flex;
+      gap: 18px;
+      padding: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .grid-wrap {
+      flex: 0 0 auto;
+    }
+    .puzzle-title {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .crossword-grid {
+      display: grid;
+      gap: 2px;
+      background: #2a2a2a;
+      border: 2px solid #3a3a3a;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .cw-cell {
+      width: var(--cell-size);
+      height: var(--cell-size);
+      position: relative;
+      background: #1e2230;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      transition: background 0.1s;
+    }
+    .cw-cell.black { background: #111; cursor: default; }
+    .cw-cell.sel { background: var(--accent) !important; }
+    .cw-cell.hi { background: rgba(124,110,247,0.22); }
+    .cw-cell.ok { background: rgba(76,175,80,0.28) !important; }
+    .cw-cell.bad { background: rgba(244,67,54,0.28) !important; }
+    .cell-num {
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      font-size: 7px;
+      color: #aaa;
+      line-height: 1;
+      pointer-events: none;
+    }
+    [dir=rtl] .cell-num { left: auto; right: 3px; }
+    .cell-letter {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+    .cell-letter.rev { color: var(--accent2); }
+    .clues-wrap {
+      flex: 1;
+      display: flex;
+      gap: 14px;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .clues-col {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .clues-col h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .clue-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .clue-item {
+      display: flex;
+      gap: 6px;
+      padding: 5px 7px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      transition: background 0.1s;
+    }
+    .clue-item:hover { background: rgba(255,255,255,0.05); }
+    .clue-item.active { background: rgba(124,110,247,0.2); }
+    .clue-n {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 20px;
+      flex-shrink: 0;
+    }
+    .status-bar {
+      padding: 6px 20px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.78);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.show { display: flex; }
+    .ov-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px;
+      text-align: center;
+      max-width: 340px;
+    }
+    .ov-card h2 { font-size: 1.7rem; color: var(--accent); margin-bottom: 6px; }
+    .ov-card p { color: var(--muted); margin-bottom: 22px; }
+    @media (max-width: 680px) {
+      :root { --cell-size: 28px; }
+      .main { flex-direction: column; padding: 10px; gap: 12px; }
+      .clues-wrap { flex-direction: row; max-height: 200px; }
+      .clue-list { max-height: 180px; }
+    }
+    @media (max-width: 400px) {
+      :root { --cell-size: 22px; }
+      .cell-letter { font-size: 0.72rem; }
+      .cell-num { font-size: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="play.html" class="header-logo">JAKH</a>
+  <div class="header-actions">
+    <span class="timer" id="timer">0:00</span>
+    <button class="btn" id="checkBtn">Check</button>
+    <button class="btn" id="revealBtn">Reveal</button>
+    <button class="btn primary" id="newGameBtn">New Game</button>
+    <button class="btn" id="langBtn">عربي</button>
+  </div>
+</header>
+
+<main class="main" id="main">
+  <div class="grid-wrap">
+    <div class="puzzle-title" id="pTitle"></div>
+    <div class="crossword-grid" id="cwGrid"></div>
+  </div>
+  <div class="clues-wrap">
+    <div class="clues-col">
+      <h3 id="lblAcross">Across</h3>
+      <ul class="clue-list" id="listAcross"></ul>
+    </div>
+    <div class="clues-col">
+      <h3 id="lblDown">Down</h3>
+      <ul class="clue-list" id="listDown"></ul>
+    </div>
+  </div>
+</main>
+
+<div class="status-bar" id="statusBar">Click a cell to start</div>
+
+<div class="overlay" id="overlay">
+  <div class="ov-card">
+    <h2 id="ovTitle">Solved!</h2>
+    <p id="ovMsg"></p>
+    <button class="btn primary" id="ovNext">Next Puzzle</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   PUZZLE DATA
+   ============================================================ */
+const PUZZLES = [
+  {
+    title: 'Strategy & Games', titleAr: 'الاستراتيجية والألعاب',
+    words: [
+      { w:'STRATEGY', c:'A plan designed to achieve a long-term goal',  ca:'خطة لتحقيق هدف بعيد المدى' },
+      { w:'CHESS',    c:'Classic board game of kings and queens',        ca:'لعبة لوح كلاسيكية بملوك وملكات' },
+      { w:'KNIGHT',   c:"Chess piece that moves in an L-shape",          ca:'قطعة شطرنج تتحرك على شكل L' },
+      { w:'BISHOP',   c:'Diagonal-moving chess piece',                   ca:'قطعة شطرنج تتحرك قطرياً' },
+      { w:'CASTLE',   c:'Another name for the rook in chess',            ca:'اسم آخر لقطعة القلعة' },
+      { w:'QUEEN',    c:'Most powerful piece on the board',              ca:'أقوى قطعة على اللوحة' },
+      { w:'PAWN',     c:'Smallest chess piece, can be promoted',         ca:'أصغر قطعة شطرنج' },
+      { w:'ROOK',     c:'Chess piece moving in straight lines',          ca:'قطعة تتحرك في خطوط مستقيمة' },
+      { w:'CHECK',    c:'Direct threat to the king',                     ca:'تهديد مباشر للملك' },
+      { w:'BOARD',    c:'Surface on which the game is played',           ca:'السطح الذي تُلعب عليه اللعبة' },
+      { w:'MOVE',     c:"A player's turn in a game",                     ca:'دور اللاعب في اللعبة' },
+      { w:'DRAW',     c:'Game result with no winner',                    ca:'نتيجة بدون فائز' },
+      { w:'RANK',     c:'A horizontal row on a chessboard',              ca:'صف أفقي على لوحة الشطرنج' },
+      { w:'GAME',     c:'A structured contest with rules',               ca:'منافسة منظمة بقواعد' },
+      { w:'WIN',      c:'Come first in a competition',                   ca:'الفوز في المنافسة' },
+    ]
+  },
+  {
+    title: 'Science & Nature', titleAr: 'العلوم والطبيعة',
+    words: [
+      { w:'ELECTRON', c:'Negatively charged subatomic particle',         ca:'جسيم دون ذري سالب الشحنة' },
+      { w:'PROTON',   c:'Positively charged particle in the nucleus',    ca:'جسيم موجب الشحنة في النواة' },
+      { w:'NEUTRON',  c:'Neutral particle found in the nucleus',         ca:'جسيم محايد في نواة الذرة' },
+      { w:'ORBIT',    c:'Path around a star or planet',                  ca:'مسار حول نجم أو كوكب' },
+      { w:'ENERGY',   c:'Capacity to do work',                          ca:'القدرة على أداء العمل' },
+      { w:'LIGHT',    c:'Electromagnetic radiation we can see',          ca:'إشعاع كهرومغناطيسي مرئي' },
+      { w:'FORCE',    c:'Push or pull acting on an object',              ca:'دفع أو سحب يؤثر على جسم' },
+      { w:'ATOM',     c:'Smallest unit of a chemical element',           ca:'أصغر وحدة من العنصر الكيميائي' },
+      { w:'WAVE',     c:'Oscillation that transmits energy',             ca:'تذبذب ينقل الطاقة' },
+      { w:'HEAT',     c:'Transfer of thermal energy',                    ca:'انتقال الطاقة الحرارية' },
+      { w:'MASS',     c:'Amount of matter in an object',                 ca:'كمية المادة في جسم ما' },
+      { w:'ION',      c:'Atom with a net electric charge',               ca:'ذرة ذات شحنة كهربائية صافية' },
+      { w:'GAS',      c:'State of matter with no fixed shape',           ca:'حالة مادة بلا شكل محدد' },
+      { w:'CELL',     c:'Basic structural unit of living organisms',     ca:'الوحدة البنائية الأساسية للكائنات الحية' },
+      { w:'GENE',     c:'Unit of hereditary information',                ca:'وحدة المعلومات الوراثية' },
+    ]
+  },
+  {
+    title: 'World Geography', titleAr: 'الجغرافيا العالمية',
+    words: [
+      { w:'MOUNTAIN', c:'Large natural elevation of the Earth',          ca:'ارتفاع طبيعي كبير على سطح الأرض' },
+      { w:'OCEAN',    c:'Vast body of salt water covering Earth',        ca:'مسطح ضخم من المياه المالحة' },
+      { w:'DESERT',   c:'Dry arid region with very little rainfall',     ca:'منطقة جافة قليلة الأمطار' },
+      { w:'ISLAND',   c:'Piece of land surrounded by water',             ca:'قطعة أرض محاطة بالماء' },
+      { w:'RIVER',    c:'Large natural stream of flowing fresh water',   ca:'مجرى مياه عذبة طبيعي كبير' },
+      { w:'FOREST',   c:'Dense area covered with trees',                 ca:'منطقة كثيفة مغطاة بالأشجار' },
+      { w:'VALLEY',   c:'Low area between hills or mountains',           ca:'منطقة منخفضة بين التلال' },
+      { w:'COAST',    c:'Land bordering the sea',                        ca:'أرض تحد البحر' },
+      { w:'LAKE',     c:'Body of water surrounded by land',              ca:'مسطح مائي محاط بالأرض' },
+      { w:'GULF',     c:'Deep inlet of the sea',                         ca:'خليج عميق في البحر' },
+      { w:'CAPE',     c:'Headland jutting into the sea',                 ca:'رأس بارز داخل البحر' },
+      { w:'PLAIN',    c:'Flat open area of land',                        ca:'منطقة أرضية مسطحة مفتوحة' },
+      { w:'SEA',      c:'Large body of salt water',                      ca:'مسطح كبير من المياه المالحة' },
+      { w:'BAY',      c:'Curved coastal inlet of the sea',               ca:'خليج ساحلي منحنٍ' },
+      { w:'POLE',     c:'Northernmost or southernmost point on Earth',   ca:'النقطة الأكثر شمالاً أو جنوباً' },
+    ]
+  },
+  {
+    title: 'Animals', titleAr: 'عالم الحيوانات',
+    words: [
+      { w:'ELEPHANT', c:'Largest land animal, known for its trunk',      ca:'أكبر حيوان بري معروف بخرطومه' },
+      { w:'TIGER',    c:'Striped big cat native to Asia',                ca:'قط كبير مخطط من آسيا' },
+      { w:'EAGLE',    c:'Large bird of prey with keen eyesight',         ca:'طائر جارح كبير بنظر حاد' },
+      { w:'SHARK',    c:'Apex predator of the ocean',                    ca:'المفترس الأعلى في المحيط' },
+      { w:'WHALE',    c:'Largest animal on Earth',                       ca:'أكبر حيوان على الأرض' },
+      { w:'HORSE',    c:'Domesticated animal used for riding',           ca:'حيوان أليف يستخدم للركوب' },
+      { w:'WOLF',     c:'Wild canine that hunts in packs',               ca:'كلبي بري يصيد في أسراب' },
+      { w:'BEAR',     c:'Large omnivore that hibernates in winter',      ca:'حيوان ضخم يتحمل في الشتاء' },
+      { w:'LION',     c:'Social big cat called the king of jungle',      ca:'قط كبير اجتماعي يُلقَّب بملك الغابة' },
+      { w:'DEER',     c:'Graceful mammal with antlers',                  ca:'ثديي رشيق ذو قرون' },
+      { w:'HAWK',     c:'Fast-flying bird of prey',                      ca:'طائر جارح سريع الطيران' },
+      { w:'FOX',      c:'Clever canine with a bushy tail',               ca:'كلبي ذكي بذيل كثيف' },
+      { w:'CRAB',     c:'Crustacean with claws that walks sideways',     ca:'قشريات بمخالب تمشي جانباً' },
+      { w:'FROG',     c:'Amphibian starting life as a tadpole',          ca:'برمائي يبدأ حياته كشرغوف' },
+      { w:'SNAKE',    c:'Legless reptile',                               ca:'زاحف بلا أرجل' },
+    ]
+  },
+  {
+    title: 'Knowledge & Mind', titleAr: 'المعرفة والعقل',
+    words: [
+      { w:'SCIENCE',  c:'Systematic study of the natural world',         ca:'الدراسة المنهجية للعالم الطبيعي' },
+      { w:'HISTORY',  c:'Study of past events and their causes',         ca:'دراسة الأحداث الماضية وأسبابها' },
+      { w:'LOGIC',    c:'Reasoning according to strict rules',           ca:'التفكير وفق قواعد صارمة' },
+      { w:'THEORY',   c:'Proposed explanation based on evidence',        ca:'تفسير مقترح يستند إلى الأدلة' },
+      { w:'MUSIC',    c:'Art form using sound, rhythm and melody',       ca:'فن يستخدم الصوت والإيقاع واللحن' },
+      { w:'PROOF',    c:'Evidence that conclusively establishes truth',  ca:'دليل يثبت الحقيقة بشكل قاطع' },
+      { w:'LEARN',    c:'Gain knowledge or skill through study',         ca:'اكتساب المعرفة أو المهارة بالدراسة' },
+      { w:'WRITE',    c:'Express ideas using written symbols',           ca:'التعبير عن الأفكار بالرموز المكتوبة' },
+      { w:'THINK',    c:'Use the mind to consider or reason',            ca:'استخدام العقل للتفكير والتأمل' },
+      { w:'MATH',     c:'Study of numbers, shapes and patterns',         ca:'دراسة الأعداد والأشكال والأنماط' },
+      { w:'READ',     c:'Interpret and understand written text',         ca:'تفسير النص المكتوب وفهمه' },
+      { w:'FACT',     c:'Something known to be definitely true',         ca:'شيء معروف بأنه صحيح يقيناً' },
+      { w:'IDEA',     c:'A thought, concept or mental image',            ca:'فكرة أو مفهوم أو صورة ذهنية' },
+      { w:'KNOW',     c:'Have information stored in the mind',           ca:'امتلاك المعلومات في الذهن' },
+      { w:'ART',      c:'Creative expression through various media',     ca:'التعبير الإبداعي عبر وسائط متنوعة' },
+    ]
+  }
+];
+
+/* ============================================================
+   CROSSWORD BUILDER
+   ============================================================ */
+function buildCrossword(wordClues, SIZE = 15) {
+  const G = Array.from({length: SIZE}, () => Array(SIZE).fill(null));
+  const placed = [];
+
+  function canPlace(word, row, col, dir) {
+    const len = word.length;
+    const dr = dir === 'down' ? 1 : 0;
+    const dc = dir === 'across' ? 1 : 0;
+    const endR = row + dr * (len - 1);
+    const endC = col + dc * (len - 1);
+    if (row < 0 || col < 0 || endR >= SIZE || endC >= SIZE) return false;
+
+    // No letter directly before or after the word
+    const preR = row - dr, preC = col - dc;
+    if (preR >= 0 && preC >= 0 && G[preR][preC] !== null) return false;
+    const postR = row + dr * len, postC = col + dc * len;
+    if (postR < SIZE && postC < SIZE && G[postR][postC] !== null) return false;
+
+    let hasIntersect = false;
+    for (let i = 0; i < len; i++) {
+      const r = row + dr * i, c = col + dc * i;
+      const cell = G[r][c];
+      if (cell !== null) {
+        if (cell !== word[i]) return false;
+        hasIntersect = true;
+      } else {
+        // Perpendicular neighbor must be empty (avoid accidental word fragments)
+        if (dir === 'across') {
+          if (r > 0 && G[r-1][c] !== null) return false;
+          if (r < SIZE-1 && G[r+1][c] !== null) return false;
+        } else {
+          if (c > 0 && G[r][c-1] !== null) return false;
+          if (c < SIZE-1 && G[r][c+1] !== null) return false;
+        }
+      }
+    }
+    return placed.length === 0 || hasIntersect;
+  }
+
+  function doPlace(word, clue, clueAr, row, col, dir) {
+    const dr = dir === 'down' ? 1 : 0, dc = dir === 'across' ? 1 : 0;
+    for (let i = 0; i < word.length; i++) G[row + dr*i][col + dc*i] = word[i];
+    placed.push({ word, clue, clueAr, row, col, dir });
+  }
+
+  const sorted = [...wordClues].sort((a, b) => b.w.length - a.w.length);
+  const mid = Math.floor(SIZE / 2);
+
+  // Place first word centered horizontally
+  const first = sorted[0];
+  doPlace(first.w, first.c, first.ca, mid, Math.floor((SIZE - first.w.length) / 2), 'across');
+
+  for (let wi = 1; wi < sorted.length; wi++) {
+    const { w, c, ca } = sorted[wi];
+    let best = null, bestScore = -Infinity;
+
+    for (const dir of ['down', 'across']) {
+      const dr = dir === 'down' ? 1 : 0, dc = dir === 'across' ? 1 : 0;
+      for (let r = 0; r < SIZE; r++) {
+        for (let col = 0; col < SIZE; col++) {
+          if (!canPlace(w, r, col, dir)) continue;
+          let score = 0;
+          for (let i = 0; i < w.length; i++) {
+            if (G[r + dr*i][col + dc*i] === w[i]) score += 10;
+          }
+          score -= Math.abs(r - mid) + Math.abs(col - mid);
+          if (score > bestScore) { bestScore = score; best = { r, col, dir }; }
+        }
+      }
+    }
+
+    if (best) doPlace(w, c, ca, best.r, best.col, best.dir);
+  }
+
+  // Trim to used area
+  let minR = SIZE, maxR = 0, minC = SIZE, maxC = 0;
+  for (let r = 0; r < SIZE; r++)
+    for (let c = 0; c < SIZE; c++)
+      if (G[r][c] !== null) {
+        minR = Math.min(minR, r); maxR = Math.max(maxR, r);
+        minC = Math.min(minC, c); maxC = Math.max(maxC, c);
+      }
+
+  const rows = maxR - minR + 1, cols = maxC - minC + 1;
+  const grid = Array.from({length: rows}, (_, r) =>
+    Array.from({length: cols}, (_, c) => G[r + minR][c + minC])
+  );
+
+  // Adjust placed coords
+  const adj = placed.map(p => ({ ...p, row: p.row - minR, col: p.col - minC }));
+
+  // Number cells
+  const numbers = Array.from({length: rows}, () => Array(cols).fill(0));
+  const acrossClues = [], downClues = [];
+  let num = 1;
+
+  // Collect start positions in reading order
+  const starts = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c] === null) continue;
+      const startsAcross = adj.some(p => p.dir === 'across' && p.row === r && p.col === c);
+      const startsDown   = adj.some(p => p.dir === 'down'   && p.row === r && p.col === c);
+      if (startsAcross || startsDown) starts.push({ r, c, startsAcross, startsDown });
+    }
+  }
+
+  for (const { r, c, startsAcross, startsDown } of starts) {
+    numbers[r][c] = num;
+    if (startsAcross) {
+      const p = adj.find(p => p.dir === 'across' && p.row === r && p.col === c);
+      if (p) acrossClues.push({ num, ...p });
+    }
+    if (startsDown) {
+      const p = adj.find(p => p.dir === 'down' && p.row === r && p.col === c);
+      if (p) downClues.push({ num, ...p });
+    }
+    num++;
+  }
+
+  return { grid, numbers, rows, cols, acrossClues, downClues };
+}
+
+/* ============================================================
+   GAME STATE
+   ============================================================ */
+let puzzle = null;
+let userGrid = null;
+let revealedGrid = null;
+let sel = null;      // {row, col}
+let dir = 'across';
+let pIdx = 0;
+let timerSec = 0;
+let timerHandle = null;
+let arabic = false;
+let done = false;
+
+const COPY = {
+  en: {
+    check:'Check', reveal:'Reveal', newGame:'New Game', lang:'عربي',
+    across:'Across', down:'Down',
+    solved:'Solved!', next:'Next Puzzle',
+    status:'Click a cell to start',
+    solvedMsg: t => `Completed in ${fmt(t)}`
+  },
+  ar: {
+    check:'تحقق', reveal:'كشف', newGame:'لعبة جديدة', lang:'English',
+    across:'أفقي', down:'عمودي',
+    solved:'تم الحل!', next:'اللغز التالي',
+    status:'اضغط على خلية للبدء',
+    solvedMsg: t => `أنهيت في ${fmt(t)}`
+  }
+};
+
+function cp(k) { return COPY[arabic ? 'ar' : 'en'][k]; }
+function fmt(s) { return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
+
+/* ============================================================
+   BUILD & RENDER
+   ============================================================ */
+function initPuzzle(idx) {
+  const pd = PUZZLES[idx % PUZZLES.length];
+  puzzle = buildCrossword(pd.words);
+  puzzle.pdIdx = idx % PUZZLES.length;
+  userGrid = Array.from({length: puzzle.rows}, () => Array(puzzle.cols).fill(''));
+  revealedGrid = Array.from({length: puzzle.rows}, () => Array(puzzle.cols).fill(false));
+  sel = null; dir = 'across'; done = false;
+}
+
+function renderGrid() {
+  const el = document.getElementById('cwGrid');
+  el.style.gridTemplateColumns = `repeat(${puzzle.cols}, var(--cell-size))`;
+  el.style.gridTemplateRows    = `repeat(${puzzle.rows}, var(--cell-size))`;
+  el.innerHTML = '';
+
+  for (let r = 0; r < puzzle.rows; r++) {
+    for (let c = 0; c < puzzle.cols; c++) {
+      const div = document.createElement('div');
+      div.className = 'cw-cell';
+      div.dataset.r = r; div.dataset.c = c;
+
+      if (puzzle.grid[r][c] === null) {
+        div.classList.add('black');
+      } else {
+        if (puzzle.numbers[r][c]) {
+          const ns = document.createElement('span');
+          ns.className = 'cell-num';
+          ns.textContent = puzzle.numbers[r][c];
+          div.appendChild(ns);
+        }
+        const ls = document.createElement('span');
+        ls.className = 'cell-letter';
+        div.appendChild(ls);
+        div.addEventListener('click', () => onCell(r, c));
+      }
+      el.appendChild(div);
+    }
+  }
+}
+
+function renderClues() {
+  document.getElementById('lblAcross').textContent = cp('across');
+  document.getElementById('lblDown').textContent   = cp('down');
+  const la = document.getElementById('listAcross');
+  const ld = document.getElementById('listDown');
+  la.innerHTML = ld.innerHTML = '';
+
+  for (const cl of puzzle.acrossClues) {
+    const li = mkClueItem(cl);
+    la.appendChild(li);
+  }
+  for (const cl of puzzle.downClues) {
+    const li = mkClueItem(cl);
+    ld.appendChild(li);
+  }
+}
+
+function mkClueItem(cl) {
+  const li = document.createElement('li');
+  li.className = 'clue-item';
+  li.dataset.dir = cl.dir;
+  li.dataset.num = cl.num;
+  const clueText = arabic ? cl.clueAr : cl.clue;
+  li.innerHTML = `<span class="clue-n">${cl.num}</span><span>${clueText}</span>`;
+  li.addEventListener('click', () => pickClue(cl));
+  return li;
+}
+
+function cellEl(r, c) {
+  return document.querySelector(`.cw-cell[data-r="${r}"][data-c="${c}"]`);
+}
+
+function refreshCell(r, c) {
+  const el = cellEl(r, c);
+  if (!el || puzzle.grid[r][c] === null) return;
+  const ls = el.querySelector('.cell-letter');
+  ls.textContent = userGrid[r][c];
+  ls.className = 'cell-letter' + (revealedGrid[r][c] ? ' rev' : '');
+}
+
+function highlight() {
+  document.querySelectorAll('.cw-cell').forEach(el => {
+    el.classList.remove('sel', 'hi', 'ok', 'bad');
+  });
+  if (!sel) return;
+
+  const active = getClue(sel.row, sel.col, dir);
+  if (!active) return;
+
+  // Highlight word
+  const dr = active.dir === 'down' ? 1 : 0;
+  const dc = active.dir === 'across' ? 1 : 0;
+  for (let i = 0; i < active.word.length; i++) {
+    const el = cellEl(active.row + dr*i, active.col + dc*i);
+    if (el) el.classList.add('hi');
+  }
+
+  // Selected cell
+  const se = cellEl(sel.row, sel.col);
+  if (se) { se.classList.remove('hi'); se.classList.add('sel'); }
+
+  // Active clue in list
+  document.querySelectorAll('.clue-item').forEach(li => li.classList.remove('active'));
+  const ali = document.querySelector(`.clue-item[data-dir="${active.dir}"][data-num="${active.num}"]`);
+  if (ali) { ali.classList.add('active'); ali.scrollIntoView({ block: 'nearest' }); }
+}
+
+function getClue(row, col, tryDir) {
+  return findClueDir(row, col, tryDir) || findClueDir(row, col, tryDir === 'across' ? 'down' : 'across');
+}
+
+function findClueDir(row, col, d) {
+  const list = d === 'across' ? puzzle.acrossClues : puzzle.downClues;
+  const dr = d === 'down' ? 1 : 0, dc = d === 'across' ? 1 : 0;
+  for (const cl of list) {
+    for (let i = 0; i < cl.word.length; i++) {
+      if (cl.row + dr*i === row && cl.col + dc*i === col) return cl;
+    }
+  }
+  return null;
+}
+
+/* ============================================================
+   INPUT
+   ============================================================ */
+function onCell(r, c) {
+  if (puzzle.grid[r][c] === null) return;
+  if (sel && sel.row === r && sel.col === c) {
+    const other = dir === 'across' ? 'down' : 'across';
+    if (findClueDir(r, c, other)) dir = other;
+  } else {
+    sel = { row: r, col: c };
+    const ha = findClueDir(r, c, 'across'), hd = findClueDir(r, c, 'down');
+    if (!ha && hd) dir = 'down';
+    else if (ha && !hd) dir = 'across';
+  }
+  highlight();
+  startTimer();
+}
+
+function pickClue(cl) {
+  sel = { row: cl.row, col: cl.col };
+  dir = cl.dir;
+  highlight();
+  startTimer();
+}
+
+document.addEventListener('keydown', e => {
+  if (!sel || done) return;
+  const { row, col } = sel;
+
+  if (e.key === 'ArrowRight')  { e.preventDefault(); nudge(0, 1, 'across'); return; }
+  if (e.key === 'ArrowLeft')   { e.preventDefault(); nudge(0, -1, 'across'); return; }
+  if (e.key === 'ArrowDown')   { e.preventDefault(); nudge(1, 0, 'down'); return; }
+  if (e.key === 'ArrowUp')     { e.preventDefault(); nudge(-1, 0, 'down'); return; }
+  if (e.key === 'Tab')         { e.preventDefault(); advClue(e.shiftKey ? -1 : 1); return; }
+
+  if (e.key === 'Backspace' || e.key === 'Delete') {
+    e.preventDefault();
+    if (!revealedGrid[row][col] && userGrid[row][col]) {
+      userGrid[row][col] = '';
+      refreshCell(row, col);
+    } else {
+      stepBack();
+    }
+    return;
+  }
+
+  const k = e.key.toUpperCase();
+  if (/^[A-Z]$/.test(k) && e.key.length === 1) {
+    e.preventDefault();
+    if (!revealedGrid[row][col]) {
+      userGrid[row][col] = k;
+      refreshCell(row, col);
+      checkWin();
+    }
+    stepForward();
+  }
+});
+
+function nudge(dr, dc, newDir) {
+  dir = newDir;
+  const nr = sel.row + dr, nc = sel.col + dc;
+  if (nr >= 0 && nr < puzzle.rows && nc >= 0 && nc < puzzle.cols && puzzle.grid[nr][nc] !== null) {
+    sel = { row: nr, col: nc };
+  }
+  highlight();
+}
+
+function stepForward() {
+  const dr = dir === 'down' ? 1 : 0, dc = dir === 'across' ? 1 : 0;
+  const nr = sel.row + dr, nc = sel.col + dc;
+  if (nr < puzzle.rows && nc < puzzle.cols && puzzle.grid[nr][nc] !== null) {
+    sel = { row: nr, col: nc };
+    highlight();
+  }
+}
+
+function stepBack() {
+  const dr = dir === 'down' ? 1 : 0, dc = dir === 'across' ? 1 : 0;
+  const nr = sel.row - dr, nc = sel.col - dc;
+  if (nr >= 0 && nc >= 0 && puzzle.grid[nr][nc] !== null) {
+    sel = { row: nr, col: nc };
+    highlight();
+  }
+}
+
+function advClue(delta) {
+  const all = [...puzzle.acrossClues, ...puzzle.downClues];
+  if (!all.length) return;
+  const active = getClue(sel.row, sel.col, dir);
+  const idx = active ? all.findIndex(cl => cl.num === active.num && cl.dir === active.dir) : 0;
+  const next = all[((idx + delta) % all.length + all.length) % all.length];
+  pickClue(next);
+}
+
+/* ============================================================
+   CHECK / REVEAL
+   ============================================================ */
+document.getElementById('checkBtn').addEventListener('click', () => {
+  document.querySelectorAll('.cw-cell:not(.black)').forEach(el => {
+    const r = +el.dataset.r, c = +el.dataset.c;
+    el.classList.remove('ok', 'bad');
+    if (userGrid[r][c]) {
+      el.classList.add(userGrid[r][c] === puzzle.grid[r][c] ? 'ok' : 'bad');
+    }
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.cw-cell').forEach(el => el.classList.remove('ok', 'bad'));
+    highlight();
+  }, 1800);
+});
+
+document.getElementById('revealBtn').addEventListener('click', () => {
+  for (let r = 0; r < puzzle.rows; r++)
+    for (let c = 0; c < puzzle.cols; c++)
+      if (puzzle.grid[r][c] !== null) {
+        userGrid[r][c] = puzzle.grid[r][c];
+        revealedGrid[r][c] = true;
+        refreshCell(r, c);
+      }
+  checkWin();
+});
+
+function checkWin() {
+  for (let r = 0; r < puzzle.rows; r++)
+    for (let c = 0; c < puzzle.cols; c++)
+      if (puzzle.grid[r][c] !== null && userGrid[r][c] !== puzzle.grid[r][c]) return;
+  done = true;
+  stopTimer();
+  document.getElementById('ovTitle').textContent = cp('solved');
+  document.getElementById('ovMsg').textContent   = cp('solvedMsg')(timerSec);
+  document.getElementById('ovNext').textContent  = cp('next');
+  document.getElementById('overlay').classList.add('show');
+}
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+function startTimer() {
+  if (timerHandle) return;
+  timerHandle = setInterval(() => {
+    timerSec++;
+    document.getElementById('timer').textContent = fmt(timerSec);
+  }, 1000);
+}
+function stopTimer() { clearInterval(timerHandle); timerHandle = null; }
+function resetTimer() { stopTimer(); timerSec = 0; document.getElementById('timer').textContent = '0:00'; }
+
+/* ============================================================
+   NEW GAME
+   ============================================================ */
+document.getElementById('newGameBtn').addEventListener('click', nextGame);
+document.getElementById('ovNext').addEventListener('click', nextGame);
+
+function nextGame() {
+  pIdx = (pIdx + 1) % PUZZLES.length;
+  launch(pIdx);
+}
+
+function launch(idx) {
+  resetTimer();
+  document.getElementById('overlay').classList.remove('show');
+  initPuzzle(idx);
+  const pd = PUZZLES[puzzle.pdIdx];
+  document.getElementById('pTitle').textContent = arabic ? pd.titleAr : pd.title;
+  renderGrid();
+  renderClues();
+  highlight();
+  document.getElementById('statusBar').textContent = cp('status');
+}
+
+/* ============================================================
+   LANGUAGE
+   ============================================================ */
+document.getElementById('langBtn').addEventListener('click', () => {
+  arabic = !arabic;
+  document.documentElement.lang = arabic ? 'ar' : 'en';
+  document.documentElement.dir  = arabic ? 'rtl' : 'ltr';
+  applyLang();
+  const pd = PUZZLES[puzzle.pdIdx];
+  document.getElementById('pTitle').textContent = arabic ? pd.titleAr : pd.title;
+  renderClues();
+});
+
+function applyLang() {
+  document.getElementById('checkBtn').textContent  = cp('check');
+  document.getElementById('revealBtn').textContent = cp('reveal');
+  document.getElementById('newGameBtn').textContent= cp('newGame');
+  document.getElementById('langBtn').textContent   = cp('lang');
+  document.getElementById('statusBar').textContent = cp('status');
+  document.getElementById('ovNext').textContent    = cp('next');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+launch(0);
+</script>
+</body>
+</html>

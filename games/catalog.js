@@ -22,13 +22,14 @@
     game('seega', 'Seega', 'سيجا', 'Placement traps', 'مصائد التمركز', 'Medium', 'متوسطة', '8-16 min', '8-16 دقيقة', '#14B8A6', ['strategy', 'ancient'], false),
     game('konane', 'Konane', 'كوناني', 'Jump tactics', 'تكتيك القفز', 'Medium', 'متوسطة', '6-14 min', '6-14 دقيقة', '#E879F9', ['strategy', 'logic'], false),
     game('hnefatafl', 'Hnefatafl', 'هنيفاتافل', 'King escape', 'هروب الملك', 'Deep', 'عميقة', '10-24 min', '10-24 دقيقة', '#94A3B8', ['strategy', 'ancient', 'deep'], false),
+    game('crossword', 'Crossword', 'الكلمات المتقاطعة', 'Word recall', 'استرجاع الكلمات', 'Quick', 'سريعة', '5-15 min', '5-15 دقيقة', '#F472B6', ['logic', 'word'], true),
   ];
 
   function game(id, en, ar, skillEn, skillAr, depthEn, depthAr, timeEn, timeAr, accent, tags, featured) {
     return {
       id,
       title: { en, ar },
-      href: id === 'backgammon' ? 'backgammon.html' : 'game.html?game=' + encodeURIComponent(id),
+      href: id === 'backgammon' ? 'backgammon.html' : id === 'crossword' ? 'crossword.html' : 'game.html?game=' + encodeURIComponent(id),
       skill: { en: skillEn, ar: skillAr },
       depth: { en: depthEn, ar: depthAr },
       time: { en: timeEn, ar: timeAr },
@@ -81,6 +82,7 @@
       seega: 'North African placement and capture strategy on a compact board.',
       konane: 'Hawaiian jump tactics with shrinking options and zugzwang pressure.',
       hnefatafl: 'Viking-family king escape strategy with asymmetric forces.',
+      crossword: 'Fill a letter grid using across and down clues — five themed puzzles.',
     };
     return map[id] || title + ' trains logic, planning, and tactical attention.';
   }
@@ -107,6 +109,7 @@
       seega: 'استراتيجية شمال أفريقية للتمركز والأسر على لوحة صغيرة.',
       konane: 'تكتيك قفز هاواي مع تقلص الخيارات والضغط.',
       hnefatafl: 'استراتيجية هروب الملك من عائلة ألعاب الفايكنغ.',
+      crossword: 'امأ شبكة الحروف باستخدام تلميحات أفقية وعمودية — خمس ألغاز مواضيعية.',
     };
     return map[id] || title + ' تدرب المنطق والتخطيط والانتباه التكتيكي.';
   }
@@ -133,6 +136,7 @@
       seega: 'Placement discipline',
       konane: 'Jump economy',
       hnefatafl: 'Escape geometry',
+      crossword: 'Word recall and spelling',
     };
     return map[id] || 'Strategic focus';
   }
@@ -159,6 +163,7 @@
       seega: 'انضباط التمركز',
       konane: 'اقتصاد القفز',
       hnefatafl: 'هندسة الهروب',
+      crossword: 'استرجاع الكلمات والتهجئة',
     };
     return map[id] || 'تركيز استراتيجي';
   }
@@ -185,6 +190,7 @@
       seega: ['Place pieces to build strong central pressure.', 'Move into capture positions once the board opens.', 'Win by controlling space and reducing the opponent.'],
       konane: ['Jump in straight lines from piece to open point.', 'Force the opponent into fewer and fewer jumps.', 'Win by leaving the opponent without a move.'],
       hnefatafl: ['Protect the king and move toward an escape route.', 'Attackers coordinate surrounding pressure.', 'The king side wins by escaping; attackers win by trapping the king.'],
+      crossword: ['Read the numbered clues in the Across and Down lists.', 'Click a cell, type a letter, and navigate with arrow keys or Tab.', 'Use Check to highlight errors or Reveal to show the full solution.'],
     };
     return map[id] || ['Read the board.', 'Choose a legal move.', 'Win by controlling the final position.'];
   }
@@ -211,6 +217,7 @@
       seega: ['ضع القطع لبناء ضغط قوي في المركز.', 'تحرك إلى مواقع الأسر عندما تنفتح اللوحة.', 'افز بالسيطرة على المساحة وتقليل الخصم.'],
       konane: ['اقفز بخط مستقيم من قطعة إلى نقطة مفتوحة.', 'اجبر الخصم على خيارات قفز أقل.', 'افز بترك الخصم بلا حركة.'],
       hnefatafl: ['احمِ الملك وتحرك نحو طريق الهروب.', 'المهاجمون ينسقون ضغط الإحاطة.', 'يفوز الملك بالهروب ويفوز المهاجمون بحبسه.'],
+      crossword: ['اقرأ التلميحات المرقمة في قائمتي أفقي وعمودي.', 'انقر على خلية واكتب حرفاً وتنقل بمفاتيح الأسهم أو Tab.', 'استخدم تحقق لتمييز الأخطاء أو كشف لإظهار الحل الكامل.'],
     };
     return map[id] || ['اقرأ اللوحة.', 'اختر حركة قانونية.', 'افز بالسيطرة على الوضع النهائي.'];
   }

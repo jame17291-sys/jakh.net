@@ -132,7 +132,7 @@
     forceDarkTheme();
     els.search = document.getElementById('gameSearch');
     els.filters = document.getElementById('gameFilters');
-    els.featured = document.getElementById('featuredGames');
+
     els.grid = document.getElementById('gameGrid');
     els.empty = document.getElementById('gameEmptyState');
     els.total = document.getElementById('totalGames');
@@ -264,7 +264,6 @@
     if (els.total) els.total.textContent = CATALOG.length;
     renderAccount();
     renderFilters();
-    renderFeatured();
     renderGames();
     renderLeaderboardTabs();
   }
@@ -290,11 +289,6 @@
         escapeHtml(filter[state.lang] || filter.en) +
       '</button>'
     )).join('');
-  }
-
-  function renderFeatured() {
-    if (!els.featured) return;
-    els.featured.innerHTML = CATALOG.filter(game => game.featured).map(game => card(game, true)).join('');
   }
 
   function filteredGames() {

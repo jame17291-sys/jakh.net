@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+  <title>Daily Challenge - JAKH</title>
+  <meta name="description" content="One bilingual brain puzzle every day in English and Arabic. Build a streak, share your result, and come back tomorrow." />
+  <meta name="keywords" content="daily puzzle, daily riddle, brain teaser, Arabic riddles, English riddles, JAKH daily" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://jakh.net/daily.html" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="favicon.ico" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JAKH" />
+  <meta property="og:title" content="JAKH Daily Challenge" />
+  <meta property="og:description" content="A fresh bilingual brain puzzle every day. Solve, share, and keep your streak." />
+  <meta property="og:url" content="https://jakh.net/daily.html" />
+  <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{--bg:#0b1020;--panel:#151d38;--panel2:#1c274a;--line:#2d3868;--text:#eef2ff;--muted:#a5afcf;--accent:#7c5cff;--cyan:#5cd0ff;--good:#4ade80;--bad:#fb7185;--warn:#fbbf24;--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans Arabic",sans-serif}
+    *{box-sizing:border-box}html,body{margin:0}body{min-height:100vh;font-family:var(--font);color:var(--text);background:radial-gradient(900px 420px at 80% -10%,rgba(124,92,255,.22),transparent 60%),radial-gradient(720px 420px at 0% 20%,rgba(92,208,255,.14),transparent 58%),var(--bg);line-height:1.5}a{color:inherit;text-decoration:none}button,input{font:inherit}.container{max-width:1100px;margin:auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:20;background:rgba(11,16,32,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:800}.mark{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--cyan));color:#07101f}.links{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.links a,.links button{border:0;border-radius:10px;background:transparent;color:var(--muted);padding:8px 11px;font-weight:650}.links a:hover,.links button:hover,.links .active{color:var(--text);background:rgba(255,255,255,.07)}.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}.lang button{border-radius:0;padding:7px 10px}.lang .on{background:var(--accent);color:white}
+    .hero{padding:38px 0 12px}.eyebrow{color:var(--cyan);font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}h1{font-size:clamp(30px,5vw,54px);line-height:1.04;margin:8px 0}.hero p{max-width:710px;color:var(--muted);font-size:18px}.layout{display:grid;grid-template-columns:minmax(0,1fr)320px;gap:22px;margin-top:20px}@media(max-width:860px){.layout{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}}
+    .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--panel2));border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.puzzle{padding:22px}.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.badge{border:1px solid rgba(124,92,255,.45);background:rgba(124,92,255,.18);color:#d8d0ff;border-radius:999px;font-size:12px;font-weight:800;padding:5px 10px}.muted{color:var(--muted)}.prompt{font-size:clamp(20px,2.5vw,27px);margin:20px 0}.prompt[dir=rtl]{text-align:right}.answer{width:100%;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.28);color:var(--text);padding:14px 15px;outline:none}.answer:focus{border-color:var(--accent)}.choices{display:grid;gap:10px}.choice{text-align:left;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.24);color:var(--text);padding:14px}.choice:hover{border-color:var(--accent)}[dir=rtl] .choice{text-align:right}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.06);color:var(--text);padding:12px 16px;font-weight:800;cursor:pointer}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--accent),#563cff)}.btn:disabled{opacity:.5;cursor:not-allowed}.feedback{min-height:26px;margin-top:14px;font-weight:800}.good{color:var(--good)}.bad{color:var(--bad)}.warn{color:var(--warn)}.timer{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}.side{padding:18px}.side+.side{margin-top:16px}.side-title{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:800}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.stat{border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.2);padding:12px;text-align:center}.stat strong{display:block;font-size:28px}.stat span{font-size:12px;color:var(--muted)}
+    .archive,.how{margin-top:28px;padding:22px}.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:12px}.day{aspect-ratio:1;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.22);color:var(--muted);display:grid;place-items:center}.day.done{color:var(--good);border-color:rgba(74,222,128,.45);background:rgba(74,222,128,.12)}.day.fail{color:var(--bad);border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.1)}.day.today{box-shadow:0 0 0 2px var(--accent)}.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}@media(max-width:760px){.how-grid{grid-template-columns:1fr}}.how-item{border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.2);padding:14px}.how-item h3{margin:0 0 5px}.how-item p{margin:0;color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:42px;padding:24px 0 34px;color:var(--muted)}footer .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.modal-bg{position:fixed;inset:0;background:rgba(4,7,18,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal-bg.open{display:flex}.modal{max-width:480px;width:100%;padding:22px}.share{border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.28);padding:14px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  </style>
+<script type="application/ld+json" id="jakh-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Daily Challenge - JAKH",
+  "url": "https://jakh.net/daily.html",
+  "description": "One bilingual brain puzzle every day in English and Arabic.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH",
+    "url": "https://jakh.net/",
+    "logo": "https://jakh.net/assets/logo.webp"
+  }
+}
+</script>
+  <link rel="stylesheet" href="styles.css?v=1778122800" />
+    <meta name="twitter:title" content="Daily Riddle — JAKH" />
+      <meta name="twitter:description" content="A new bilingual riddle every day in English and Arabic on JAKH." />
+  </head>
+<body>
+<header class="jakh-site-header" role="banner">
+  <a class="jakh-brand" href="/index.html" aria-label="JAKH home">
+    <img class="jakh-brand-logo" src="/assets/logo.png" alt="" />
+    <span>JAKH</span>
+  </a>
+
+  <nav class="jakh-nav" aria-label="Primary">
+    <a class="jakh-nav-link" href="/index.html" data-shell-i18n="home">Home</a>
+
+    <div class="jakh-nav-item">
+      <button class="jakh-nav-button" type="button"><span data-shell-i18n="learn">Learn</span><i class="jakh-chevron" aria-hidden="true"></i></button>
+      <div class="jakh-mega"><div class="jakh-mega-grid">
+        <a class="jakh-mega-card jakh-accent-mind" href="/mind-lab.html"><b data-shell-i18n="mindLab">Mind Lab</b><span data-shell-i18n="mindLabSub">Topic rooms for riddles and quizzes.</span></a>
+        <a class="jakh-mega-card jakh-accent-daily" href="/daily.html"><b data-shell-i18n="daily">Daily</b><span data-shell-i18n="dailySub">One focused challenge every day.</span></a>
+        <a class="jakh-mega-card jakh-accent-iq" href="/iq-test.html"><b data-shell-i18n="iq">IQ Test</b><span data-shell-i18n="iqSub">Reasoning practice with instant results.</span></a>
+      </div></div>
+    </div>
+
+    <div class="jakh-nav-item">
+      <button class="jakh-nav-button" type="button"><span data-shell-i18n="wordPlay">Word Play</span><i class="jakh-chevron" aria-hidden="true"></i></button>
+      <div class="jakh-mega"><div class="jakh-mega-grid">
+        <a class="jakh-mega-card jakh-accent-word" href="/word-games.html"><b data-shell-i18n="wordGames">Word Games</b><span data-shell-i18n="wordGamesSub">Crossword-style language practice.</span></a>
+        <a class="jakh-mega-card jakh-accent-arabic" href="/arabic-wordle.html"><b data-shell-i18n="arabicWordle">Arabic Wordle</b><span data-shell-i18n="arabicWordleSub">Arabic word guessing and letter feedback.</span></a>
+      </div></div>
+    </div>
+
+    <div class="jakh-nav-item">
+      <button class="jakh-nav-button" type="button"><span data-shell-i18n="games">Games</span><i class="jakh-chevron" aria-hidden="true"></i></button>
+      <div class="jakh-mega"><div class="jakh-mega-grid">
+        <a class="jakh-mega-card jakh-accent-game" href="/play.html"><b data-shell-i18n="gameHub">Game Hub</b><span data-shell-i18n="gameHubSub">Classic strategy games and rooms.</span></a>
+        <a class="jakh-mega-card jakh-accent-support" href="/play.html#battle"><b data-shell-i18n="battle">Battle Rooms</b><span data-shell-i18n="battleSub">Create or join live challenges.</span></a>
+      </div></div>
+    </div>
+
+    <div class="jakh-nav-item">
+      <button class="jakh-nav-button" type="button"><span data-shell-i18n="support">Support</span><i class="jakh-chevron" aria-hidden="true"></i></button>
+      <div class="jakh-mega"><div class="jakh-mega-grid">
+        <a class="jakh-mega-card jakh-accent-support" href="/contact.html"><b data-shell-i18n="contact">Contact</b><span data-shell-i18n="contactSub">Questions, feedback, and help.</span></a>
+        <a class="jakh-mega-card jakh-accent-support" href="#" data-jakh-auth><b data-shell-i18n="account">Account</b><span data-shell-i18n="accountSub">Sign in or create a free account.</span></a>
+      </div></div>
+    </div>
+  </nav>
+
+  <div class="jakh-header-actions">
+    <a class="jakh-sign-in" href="#" data-jakh-auth data-shell-i18n="signIn">Sign in</a>
+    <div class="jakh-language" aria-label="Language">
+      <button type="button" class="jakh-lang-en" data-jakh-lang="en">EN</button>
+      <button type="button" class="jakh-lang-ar" data-jakh-lang="ar">عربي</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="eyebrow" data-k="eyebrow">Daily Challenge</div>
+    <h1 data-k="title">One puzzle a day. Build the streak.</h1>
+    <p data-k="subtitle">A fresh bilingual brain puzzle every day. Solve it, share your result, and come back tomorrow.</p>
+  </section>
+
+  <section class="layout">
+    <article class="card puzzle">
+      <div class="meta">
+        <span class="badge" id="theme">Riddle</span>
+        <span class="badge" id="dayNum">Day</span>
+        <span class="muted" id="dateLine"></span>
+        <span class="timer" id="timer">0:00</span>
+      </div>
+      <p class="prompt" id="prompt">Loading...</p>
+      <div id="textWrap"><input id="answer" class="answer" autocomplete="off" placeholder="Your answer" /></div>
+      <div id="choices" class="choices" hidden></div>
+      <div class="row">
+        <button class="btn primary" id="submit" data-k="submit">Submit</button>
+        <button class="btn" id="hint" data-k="hint">Hint</button>
+        <button class="btn" id="giveup" data-k="giveup">Give up</button>
+      </div>
+      <div class="feedback" id="feedback"></div>
+    </article>
+
+    <aside>
+      <div class="card side">
+        <div class="side-title" data-k="yourRun">Your run</div>
+        <div class="stats">
+          <div class="stat"><strong id="streak">0</strong><span data-k="streak">Streak</span></div>
+          <div class="stat"><strong id="best">0</strong><span data-k="best">Best</span></div>
+          <div class="stat"><strong id="solved">0</strong><span data-k="solved">Solved</span></div>
+          <div class="stat"><strong id="played">0</strong><span data-k="played">Played</span></div>
+        </div>
+      </div>
+      <div class="card side">
+        <div class="side-title" data-k="next">Next puzzle in</div>
+        <strong id="countdown" style="font-size:30px;font-variant-numeric:tabular-nums">--:--:--</strong>
+        <p class="muted" data-k="nextTip">A new puzzle unlocks at midnight.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="card archive">
+    <h2 data-k="archive">Last 14 days</h2>
+    <div class="grid" id="archiveGrid"></div>
+  </section>
+
+  <section class="card how">
+    <h2 data-k="howTitle">How it works</h2>
+    <div class="how-grid">
+      <div class="how-item"><h3 data-k="how1h">Same puzzle</h3><p data-k="how1p">Everyone gets the same daily challenge.</p></div>
+      <div class="how-item"><h3 data-k="how2h">Build a streak</h3><p data-k="how2p">Solve daily and keep your run alive.</p></div>
+      <div class="how-item"><h3 data-k="how3h">Share safely</h3><p data-k="how3p">Share your result without revealing the answer.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <span>All rights reserved to JAKH 2026</span>
+    <span><a href="mailto:info@jakh.net">info@jakh.net</a> · <a href="privacy.html">Privacy</a></span>
+  </div>
+</footer>
+
+<div class="modal-bg" id="modalBg">
+  <div class="card modal">
+    <h2 id="modalTitle">Solved!</h2>
+    <p class="muted" id="modalSub"></p>
+    <div class="share" id="shareText"></div>
+    <div class="row">
+      <button class="btn primary" id="copy">Copy result</button>
+      <button class="btn" id="share">Share</button>
+      <button class="btn" id="close">Close</button>
+    </div>
+    <h3 data-k="explain">Explanation</h3>
+    <p id="explanation"></p>
+  </div>
+</div>
+
+<script>
+const L={
+ en:{navHome:"Home",navMind:"Mind Lab",navGames:"Game Hub",navDaily:"Daily",navContact:"Contact",eyebrow:"Daily Challenge",title:"One puzzle a day. Build the streak.",subtitle:"A fresh bilingual brain puzzle every day. Solve it, share your result, and come back tomorrow.",submit:"Submit",hint:"Hint",giveup:"Give up",yourRun:"Your run",streak:"Streak",best:"Best",solved:"Solved",played:"Played",next:"Next puzzle in",nextTip:"A new puzzle unlocks at midnight.",archive:"Last 14 days",howTitle:"How it works",how1h:"Same puzzle",how1p:"Everyone gets the same daily challenge.",how2h:"Build a streak",how2p:"Solve daily and keep your run alive.",how3h:"Share safely",how3p:"Share your result without revealing the answer.",explain:"Explanation",right:"Correct. Nicely done.",wrong:"Not quite. Try again.",out:"Out of tries.",hintText:"Hint: "},
+ ar:{navHome:"الرئيسية",navMind:"مختبر العقل",navGames:"الألعاب",navDaily:"اليومي",navContact:"اتصل",eyebrow:"تحدي اليوم",title:"لغز واحد كل يوم. ابنِ سلسلتك.",subtitle:"لغز ذهني جديد كل يوم بالعربي والإنجليزي. حلّه وشارك نتيجتك وعد غدًا.",submit:"إرسال",hint:"تلميح",giveup:"استسلام",yourRun:"سجلّك",streak:"السلسلة",best:"الأفضل",solved:"تم حلها",played:"المحاولات",next:"اللغز التالي بعد",nextTip:"لغز جديد عند منتصف الليل.",archive:"آخر ١٤ يوم",howTitle:"كيف يعمل",how1h:"نفس اللغز",how1p:"الجميع يحصل على تحدي اليوم نفسه.",how2h:"ابنِ سلسلة",how2p:"حل يوميًا وحافظ على السلسلة.",how3h:"شارك بأمان",how3p:"شارك النتيجة دون كشف الإجابة.",explain:"التفسير",right:"إجابة صحيحة. أحسنت.",wrong:"ليست تمامًا. حاول مرة أخرى.",out:"انتهت المحاولات.",hintText:"تلميح: "}
+};
+const P=[
+{type:"text",theme:{en:"Riddle",ar:"لغز"},en:{q:"I speak without a mouth and hear without ears. What am I?",a:["echo","an echo"],h:"You hear me bounce back.",e:"An echo is reflected sound."},ar:{q:"أتكلم بلا فم وأسمع بلا أذنين. ما أنا؟",a:["صدى","الصدى"],h:"تسمعني أرتد.",e:"الصدى هو صوت يرتد إليك."}},
+{type:"number",theme:{en:"Math",ar:"رياضيات"},en:{q:"A bat and ball cost $1.10. The bat costs $1 more. How many cents is the ball?",a:[5],h:"Use x + x + 100 = 110.",e:"The ball is 5 cents and the bat is $1.05."},ar:{q:"مضرب وكرة بـ ١٫١٠ دولار. المضرب أغلى بدولار. كم سنتًا تساوي الكرة؟",a:[5],h:"استخدم س + س + ١٠٠ = ١١٠.",e:"الكرة ٥ سنتات والمضرب ١٫٠٥ دولار."}},
+{type:"choice",theme:{en:"Trivia",ar:"معلومات"},en:{q:"Which sea has no coastline?",c:["Sargasso Sea","Caspian Sea","Dead Sea","Aral Sea"],a:0,h:"It is bounded by currents.",e:"The Sargasso Sea is defined by Atlantic currents, not land."},ar:{q:"ما البحر الذي لا ساحل له؟",c:["بحر سارجاسو","بحر قزوين","البحر الميت","بحر آرال"],a:0,h:"تحدّه تيارات بحرية.",e:"بحر سارجاسو تحدده تيارات في الأطلسي لا اليابسة."}},
+{type:"number",theme:{en:"Sequence",ar:"تسلسل"},en:{q:"What comes next: 1, 1, 2, 3, 5, 8, 13, ?",a:[21],h:"Add the previous two.",e:"8 + 13 = 21."},ar:{q:"ما الرقم التالي: ١، ١، ٢، ٣، ٥، ٨، ١٣، ؟",a:[21],h:"اجمع الرقمين السابقين.",e:"٨ + ١٣ = ٢١."}},
+{type:"text",theme:{en:"Riddle",ar:"لغز"},en:{q:"The more you take, the more you leave behind. What are they?",a:["steps","footsteps","footprints"],h:"Look down while walking.",e:"Footsteps are taken and left behind."},ar:{q:"كلما أخذت أكثر تركت أكثر. ما هي؟",a:["خطوات","الخطوات","آثار"],h:"انظر للأرض وأنت تمشي.",e:"الخطوات تأخذها وتترك أثرها وراءك."}}
+];
+const $=s=>document.querySelector(s),storeKey="jakh.daily.v1",epoch=new Date(2026,0,1);let lang=localStorage.getItem("jakh.lang")==="ar"?"ar":"en",view=dayIndex(new Date()),tries=0,done=false,start=Date.now(),hinted=false;
+function dayIndex(d){return Math.floor((new Date(d.getFullYear(),d.getMonth(),d.getDate())-epoch)/86400000)}
+function dateFrom(i){let d=new Date(epoch);d.setDate(d.getDate()+i);return d}
+function ymd(d){return d.toISOString().slice(0,10)}
+function state(){try{return JSON.parse(localStorage.getItem(storeKey))||{}}catch{return {}}}
+function save(s){localStorage.setItem(storeKey,JSON.stringify(s))}
+function norm(s){return String(s||"").toLowerCase().replace(/[ً-ْٰ]/g,"").replace(/[إأآا]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/[^\p{L}\p{N}\s]/gu,"").replace(/\s+/g," ").trim()}
+function t(k){return L[lang][k]||k}
+function puzzle(){return P[((view%P.length)+P.length)%P.length]}
+function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";document.querySelectorAll("[data-k]").forEach(el=>el.textContent=t(el.dataset.k));$("#en").classList.toggle("on",lang==="en");$("#ar").classList.toggle("on",lang==="ar");localStorage.setItem("jakh.lang",lang);render()}
+function render(){let p=puzzle(),d=p[lang],rec=(state().days||{})["d"+view];tries=0;done=!!rec;hinted=false;$("#theme").textContent=p.theme[lang];$("#dayNum").textContent=(lang==="ar"?"يوم #":"Day #")+(view+1);$("#dateLine").textContent=dateFrom(view).toLocaleDateString(lang==="ar"?"ar-EG":"en-US",{weekday:"long",month:"long",day:"numeric"});$("#prompt").textContent=d.q;$("#prompt").dir=lang==="ar"?"rtl":"ltr";$("#feedback").textContent=rec?(rec.ok?t("right"):t("out")):"";$("#feedback").className="feedback "+(rec?(rec.ok?"good":"bad"):"");$("#answer").value="";$("#textWrap").hidden=p.type==="choice";$("#choices").hidden=p.type!=="choice";$("#choices").innerHTML="";if(p.type==="choice"){d.c.forEach((x,i)=>{let b=document.createElement("button");b.className="choice";b.textContent=x;b.onclick=()=>submit(i);$("#choices").appendChild(b)})}["submit","hint","giveup","answer"].forEach(id=>$("#"+id).disabled=done||view>dayIndex(new Date()));renderStats();renderArchive();start=Date.now()}
+function check(v){let p=puzzle(),d=p[lang];if(p.type==="number")return d.a.includes(Number(String(v).replace(/[^\d.-]/g,"")));if(p.type==="choice")return Number(v)===d.a;let u=norm(v);return d.a.some(a=>norm(a)===u||u.includes(norm(a)))}
+function submit(v){if(done)return;if(puzzle().type!=="choice"){v=$("#answer").value;if(!v.trim())return}tries++;if(check(v))finish(true);else if(tries>=3)finish(false);else{$("#feedback").textContent=t("wrong");$("#feedback").className="feedback bad"}}
+function finish(ok){done=true;let s=state();s.days=s.days||{};if(view===dayIndex(new Date())&&!s.days["d"+view]){s.days["d"+view]={ok,tries,when:Date.now()};s.played=(s.played||0)+1;if(ok){s.solved=(s.solved||0)+1;s.streak=((s.days["d"+(view-1)]||{}).ok?(s.streak||0):0)+1;s.best=Math.max(s.best||0,s.streak)}else{s.streak=0}save(s)}$("#feedback").textContent=ok?t("right"):t("out");$("#feedback").className="feedback "+(ok?"good":"bad");openModal(ok);renderStats();renderArchive();["submit","hint","giveup","answer"].forEach(id=>$("#"+id).disabled=true)}
+function openModal(ok){let p=puzzle()[lang],s=state(),grid=ok?"🟩".padStart(tries,"🟥"):"🟥🟥🟥";$("#modalTitle").textContent=ok?(lang==="ar"?"تم الحل!":"Solved!"):(lang==="ar"?"غدًا أفضل":"Try again tomorrow");$("#modalSub").textContent=ok?`${tries}/3`:"0/3";$("#shareText").textContent=`JAKH Daily #${view+1}\n${grid}${hinted?" 💡":""}\n${ok?"Solved":"Not solved"}\nStreak ${s.streak||0}\njakh.net/daily`;$("#explanation").textContent=p.e;$("#modalBg").classList.add("open")}
+function renderStats(){let s=state();$("#streak").textContent=s.streak||0;$("#best").textContent=s.best||0;$("#solved").textContent=s.solved||0;$("#played").textContent=s.played||0}
+function renderArchive(){let g=$("#archiveGrid"),s=state().days||{},today=dayIndex(new Date());g.innerHTML="";for(let i=today-13;i<=today;i++){let b=document.createElement("button"),r=s["d"+i];b.className="day "+(i===today?"today ":"")+(r?(r.ok?"done":"fail"):"");b.textContent=dateFrom(i).getDate();b.onclick=()=>{view=i;render();scrollTo({top:0,behavior:"smooth"})};g.appendChild(b)}}
+function tick(){let n=new Date(),x=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1),ms=x-n;$("#countdown").textContent=[Math.floor(ms/36e5),Math.floor(ms%36e5/6e4),Math.floor(ms%6e4/1e3)].map(v=>String(v).padStart(2,"0")).join(":");$("#timer").textContent=Math.floor((Date.now()-start)/60000)+":"+String(Math.floor((Date.now()-start)/1000)%60).padStart(2,"0")}
+$("#en").onclick=()=>{lang="en";applyLang()};$("#ar").onclick=()=>{lang="ar";applyLang()};$("#submit").onclick=()=>submit();$("#answer").onkeydown=e=>{if(e.key==="Enter")submit()};$("#hint").onclick=()=>{hinted=true;$("#hint").disabled=true;$("#feedback").textContent=t("hintText")+puzzle()[lang].h;$("#feedback").className="feedback warn"};$("#giveup").onclick=()=>{tries=3;finish(false)};$("#close").onclick=()=>$("#modalBg").classList.remove("open");$("#copy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($("#shareText").textContent);$("#share").onclick=()=>navigator.share?navigator.share({text:$("#shareText").textContent,url:"https://jakh.net/daily"}):navigator.clipboard.writeText($("#shareText").textContent);setInterval(tick,1000);applyLang();tick();
+</script>
+  <script defer src="app.js?v=1778122800"></script>
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="auth"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+          </div>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+        </div>
+        <div id="authModalBody"></div>
+      </div>
+    </div>
+
+</body>
+</html>

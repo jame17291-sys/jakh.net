@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <script>(function(){try{localStorage.removeItem("jakh-theme");var s=JSON.parse(localStorage.getItem("jakh-riddles-settings")||"{}");if(s&&s.theme){delete s.theme;localStorage.setItem("jakh-riddles-settings",JSON.stringify(s));}}catch(e){}document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}());</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#070a12" />
+  <title>JAKH Admin Console</title>
+  <style>
+    :root {
+      --bg: #070a12;
+      --bg-2: #0b1020;
+      --panel: rgba(15, 22, 39, 0.82);
+      --panel-2: rgba(255, 255, 255, 0.055);
+      --line: rgba(255, 255, 255, 0.1);
+      --line-2: rgba(255, 255, 255, 0.16);
+      --text: #f4f7ff;
+      --muted: #9aa8c7;
+      --soft: #cbd5ef;
+      --accent: #8fb2ff;
+      --accent-2: #58d7b9;
+      --warn: #ffd166;
+      --danger: #ff7890;
+      --radius: 16px;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+    }
+    body {
+      overflow-x: hidden;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(143, 178, 255, 0.18), transparent 32rem),
+        radial-gradient(circle at 85% 10%, rgba(88, 215, 185, 0.12), transparent 30rem),
+        linear-gradient(180deg, #070a12 0%, #0a0f1d 48%, #070a12 100%);
+      color: var(--text);
+    }
+    body.drawer-open { overflow: hidden; }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, .btn, .tab, input, select { touch-action: manipulation; }
+    button { cursor: pointer; }
+    button:disabled { cursor: not-allowed; opacity: 0.48; }
+    input, select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--text);
+      outline: none;
+      padding: 0.65rem 0.8rem;
+    }
+    input:focus, select:focus { border-color: rgba(143, 178, 255, 0.72); box-shadow: 0 0 0 3px rgba(143, 178, 255, 0.12); }
+    select option { background: #10182a; color: var(--text); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.78rem 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.07); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    td { font-size: 0.86rem; color: var(--soft); }
+    tr:last-child td { border-bottom: 0; }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      transform: translateY(-160%);
+      z-index: 50;
+      background: var(--accent);
+      color: #07101f;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .admin-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem clamp(1rem, 3vw, 2rem);
+      border-bottom: 1px solid var(--line);
+      background: rgba(7, 10, 18, 0.86);
+      backdrop-filter: blur(18px);
+    }
+    .admin-brand { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+    .admin-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(143, 178, 255, 0.34);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(143, 178, 255, 0.2), rgba(88, 215, 185, 0.1));
+      font-weight: 900;
+    }
+    .admin-brand strong { display: block; font-size: 0.95rem; }
+    .admin-brand span { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 0.12rem; }
+    .admin-actions { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--text);
+      padding: 0.55rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .btn:hover { border-color: var(--line-2); background: rgba(255, 255, 255, 0.085); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #c6d7ff); color: #07101f; border-color: transparent; }
+    .btn-danger { background: rgba(255, 120, 144, 0.14); border-color: rgba(255, 120, 144, 0.35); color: #ffd8df; }
+    .btn-quiet { background: transparent; }
+    .btn-small { min-height: 32px; padding: 0.42rem 0.65rem; font-size: 0.74rem; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 26px;
+      padding: 0.25rem 0.55rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--soft);
+      background: rgba(255,255,255,0.045);
+      font-size: 0.72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .pill-admin { color: var(--accent); border-color: rgba(143,178,255,0.35); background: rgba(143,178,255,0.12); }
+    .pill-owner { color: var(--warn); border-color: rgba(255,209,102,0.34); background: rgba(255,209,102,0.1); }
+    .pill-user { color: var(--muted); }
+    .pill-banned, .pill-danger { color: #ffd8df; border-color: rgba(255,120,144,0.35); background: rgba(255,120,144,0.12); }
+    .pill-ok { color: #b6ffec; border-color: rgba(88,215,185,0.34); background: rgba(88,215,185,0.1); }
+    .pill-warn { color: #ffe7a8; border-color: rgba(255,209,102,0.34); background: rgba(255,209,102,0.1); }
+
+    .admin-shell {
+      width: min(1440px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: clamp(1rem, 3vw, 2rem) 0 3rem;
+    }
+    .ops-card, .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .eyebrow { margin: 0 0 0.55rem; color: var(--accent-2); font-size: 0.74rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin-bottom: 0.75rem; font-size: clamp(2.1rem, 5vw, 4.4rem); line-height: 0.95; letter-spacing: 0; }
+
+    .ops-card { padding: 1rem; display: grid; gap: 0.75rem; }
+    .ops-card h2 { margin: 0; font-size: 1rem; }
+    .ops-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.78rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.045);
+    }
+    .ops-dot { width: 10px; height: 10px; border-radius: 999px; background: var(--muted); box-shadow: 0 0 0 4px rgba(255,255,255,0.05); }
+    .ops-dot.ok { background: var(--accent-2); }
+    .ops-dot.warn { background: var(--warn); }
+    .ops-dot.bad { background: var(--danger); }
+    .ops-row strong { display: block; font-size: 0.86rem; }
+    .ops-row span { color: var(--muted); font-size: 0.74rem; }
+
+    .tabs {
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+      padding: 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      margin: 1rem 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab {
+      flex: 0 0 auto;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      padding: 0.65rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+    .tab[aria-selected="true"] { background: var(--text); color: #07101f; }
+
+    .page { display: none; }
+    .page.active { display: block; }
+    .grid { display: grid; gap: 1rem; }
+    .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 1rem; }
+    .metric {
+      min-height: 126px;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+    .metric span { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .metric strong { display: block; margin-top: 0.55rem; font-size: clamp(1.8rem, 4vw, 2.75rem); letter-spacing: 0; }
+    .metric small { display: block; margin-top: 0.45rem; color: var(--muted); line-height: 1.45; }
+
+    .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr); gap: 1rem; }
+    .panel { background: var(--panel); }
+    .panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .panel-head h2 { margin: 0; font-size: 1rem; }
+    .panel-head p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+    .panel-body { padding: 1rem; }
+    .table-wrap { overflow-x: auto; }
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) 170px auto auto;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .bar-list { display: grid; gap: 0.55rem; }
+    .bar-row { display: grid; grid-template-columns: minmax(100px, 170px) 1fr 58px; gap: 0.65rem; align-items: center; }
+    .bar-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--soft); font-size: 0.8rem; }
+    .bar-track { height: 8px; border-radius: 999px; background: rgba(255,255,255,0.07); overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .bar-val { color: var(--muted); font-size: 0.75rem; text-align: right; }
+    .sparkline { display: flex; gap: 0.26rem; align-items: end; height: 104px; padding-top: 0.5rem; }
+    .sparkline span { flex: 1; min-width: 5px; border-radius: 999px 999px 2px 2px; background: linear-gradient(180deg, var(--accent), rgba(143,178,255,0.28)); }
+
+    .empty, .alert {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .alert.ok { border-color: rgba(88,215,185,0.34); color: #b6ffec; background: rgba(88,215,185,0.08); }
+    .alert.bad { border-color: rgba(255,120,144,0.34); color: #ffd8df; background: rgba(255,120,144,0.08); }
+    .muted { color: var(--muted); }
+    .strong { color: var(--text); font-weight: 800; }
+    .nowrap { white-space: nowrap; }
+    .actions { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+    .pagination { display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; padding: 0.8rem 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; }
+
+    .suggestion-list { display: grid; gap: 0.75rem; }
+    .suggestion-card {
+      display: grid;
+      gap: 0.7rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.045);
+    }
+    .suggestion-card p { margin: 0; color: var(--soft); line-height: 1.6; }
+    .suggestion-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+
+
+
+    .admin-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .admin-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 150px;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(143,178,255,0.14), transparent 10rem),
+        linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.032));
+    }
+    .admin-card:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(125deg, transparent 0 62%, rgba(214,182,106,0.08) 62% 68%, transparent 68%);
+    }
+    .admin-card > * { position: relative; }
+    .admin-card h3 { margin: 0.45rem 0 0.35rem; font-size: 1rem; line-height: 1.25; }
+    .admin-card p { margin: 0; color: var(--muted); line-height: 1.52; font-size: 0.84rem; }
+    .admin-card strong { display: block; margin-top: 0.8rem; font-size: 1.65rem; }
+    .status-list { display: grid; gap: 0.65rem; }
+    .status-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 13px;
+      background: rgba(255,255,255,0.04);
+    }
+    .status-item strong { display: block; font-size: 0.86rem; }
+    .status-item span { color: var(--muted); font-size: 0.76rem; line-height: 1.45; }
+    .game-admin-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .game-admin-card {
+      display: grid;
+      gap: 0.65rem;
+      min-height: 176px;
+      padding: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(143,178,255,0.1), transparent 48%),
+        rgba(255,255,255,0.04);
+    }
+    .game-admin-card h3 { margin: 0; font-size: 0.94rem; }
+    .game-admin-card p { margin: 0; color: var(--muted); line-height: 1.45; font-size: 0.78rem; }
+    .game-admin-meta { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .qa-list, .seo-list, .cost-list { display: grid; gap: 0.6rem; }
+    .qa-item, .seo-item, .cost-item {
+      display: grid;
+      gap: 0.35rem;
+      padding: 0.82rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 13px;
+      background: rgba(255,255,255,0.04);
+    }
+    .qa-item strong, .seo-item strong, .cost-item strong { font-size: 0.86rem; }
+    .qa-item span, .seo-item span, .cost-item span { color: var(--muted); font-size: 0.78rem; line-height: 1.48; }
+    .qa-item.critical { border-color: rgba(255,120,144,0.32); background: rgba(255,120,144,0.075); }
+    .qa-item.warn, .cost-item.warn { border-color: rgba(255,209,102,0.3); background: rgba(255,209,102,0.07); }
+    .qa-item.info, .cost-item.info { border-color: rgba(143,178,255,0.24); background: rgba(143,178,255,0.065); }
+
+    .settings-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .field { display: grid; gap: 0.38rem; color: var(--muted); font-size: 0.78rem; font-weight: 800; }
+    .form-stack { display: grid; gap: 0.8rem; }
+
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+    }
+    .drawer.open { display: block; }
+    .drawer-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.56); }
+    .drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(520px, 100%);
+      height: 100%;
+      overflow-y: auto;
+      border-left: 1px solid var(--line);
+      background: #0a0f1d;
+      box-shadow: -30px 0 80px rgba(0,0,0,0.42);
+      padding: 1rem;
+    }
+    .drawer-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .drawer-head h2 { margin: 0; }
+
+    /* Simplified admin surface: calmer, flatter, easier to scan. */
+    body {
+      background: #070a12;
+    }
+    .admin-topbar {
+      background: rgba(7, 10, 18, 0.94);
+      backdrop-filter: blur(10px);
+    }
+    .admin-shell {
+      width: min(1180px, calc(100% - 2rem));
+      padding-top: 1rem;
+    }
+    .ops-card,
+    .panel,
+    .metric,
+    .admin-card,
+    .game-admin-card {
+      border-radius: 10px;
+      background: #0d1322;
+      box-shadow: none;
+    }
+    .admin-card:before {
+      display: none;
+    }
+    h1 {
+      max-width: 720px;
+      margin-bottom: 0.55rem;
+      font-size: clamp(1.85rem, 3.8vw, 3rem);
+      line-height: 1.05;
+    }
+    .ops-card {
+      padding: 0.85rem;
+    }
+    .admin-health-card {
+      margin-bottom: 0.8rem;
+    }
+    .ops-row {
+      border-radius: 10px;
+      background: #11192b;
+    }
+    .tabs {
+      border-radius: 12px;
+      background: #0d1322;
+      padding: 0.35rem;
+      margin: 0.8rem 0 0.6rem;
+    }
+    .primary-tabs {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      overflow: visible;
+    }
+    .tab {
+      min-height: 40px;
+      padding: 0.55rem 0.55rem;
+      border-radius: 9px;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+    .tab[aria-selected="true"] {
+      background: #f4f7ff;
+      color: #07101f;
+    }
+    .advanced-nav {
+      margin: 0 0 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+    .advanced-nav summary {
+      min-height: 42px;
+      padding: 0.68rem 0.85rem;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 850;
+      list-style-position: inside;
+    }
+    .advanced-tabs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      padding: 0 0.65rem 0.65rem;
+    }
+    .advanced-tabs .tab {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.035);
+    }
+    .metric-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+    .metric {
+      min-height: 104px;
+      padding: 0.9rem;
+    }
+    .metric strong {
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+    }
+    .panel-head,
+    .panel-body {
+      padding: 0.9rem;
+    }
+    .two-col {
+      gap: 0.85rem;
+    }
+    .admin-card,
+    .game-admin-card,
+    .qa-item,
+    .seo-item,
+    .cost-item,
+    .suggestion-card,
+    .copy-block,
+    .status-item {
+      border-radius: 10px;
+      background: #11192b;
+    }
+
+    @media (max-width: 1100px) {
+      .two-col, .settings-grid { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .primary-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .admin-card-grid,
+      .game-admin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      body {
+        min-width: 0;
+        background:
+          radial-gradient(circle at 20% -8%, rgba(143, 178, 255, 0.12), transparent 20rem),
+          linear-gradient(180deg, #070a12 0%, #0a0f1d 52%, #070a12 100%);
+      }
+      .admin-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: calc(0.7rem + env(safe-area-inset-top, 0px)) 0.75rem 0.7rem;
+        backdrop-filter: none;
+      }
+      .admin-brand { width: 100%; }
+      .admin-brand span:last-child { min-width: 0; }
+      .admin-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: 0.45rem;
+        justify-content: stretch;
+      }
+      .admin-actions .pill {
+        grid-column: 1 / -1;
+        justify-self: start;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .admin-actions .btn,
+      .toolbar .btn,
+      .toolbar a.btn,
+      .panel-head > .btn,
+      .form-stack > .btn {
+        width: 100%;
+        min-height: 44px;
+      }
+      .admin-shell {
+        width: 100%;
+        padding: 0.75rem 0.65rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+      }
+      .ops-card, .panel {
+        border-radius: 12px;
+        box-shadow: 0 14px 38px rgba(0, 0, 0, 0.3);
+      }
+      .panel-body, .panel-head { padding: 0.9rem; }
+      .admin-card:before {
+        display: none;
+      }
+      h1 {
+        font-size: clamp(1.8rem, 10vw, 2.45rem);
+        line-height: 1.04;
+      }
+      .ops-card .panel-head,
+      .panel-head {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+      .ops-row {
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.65rem;
+      }
+      .ops-row .pill {
+        grid-column: 2;
+        justify-self: start;
+      }
+      .tabs {
+        display: flex;
+        gap: 0.35rem;
+        margin: 0.75rem 0;
+        border-radius: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+      .tab {
+        min-height: 44px;
+        scroll-snap-align: start;
+      }
+      .metric-grid,
+      .toolbar { grid-template-columns: 1fr; }
+      .advanced-tabs {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .admin-card-grid,
+      .game-admin-grid { grid-template-columns: 1fr; }
+      .metric { min-height: auto; }
+      .status-item { grid-template-columns: auto 1fr; }
+      .status-item .pill { grid-column: 2; justify-self: start; }
+      .table-wrap {
+        margin-right: -0.65rem;
+        margin-left: -0.65rem;
+        padding-right: 0.65rem;
+        padding-left: 0.65rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .table-wrap table { min-width: 680px; }
+      .actions {
+        align-items: stretch;
+      }
+      .actions .btn,
+      .actions select {
+        min-height: 44px;
+      }
+      .pagination {
+        justify-content: stretch;
+        flex-wrap: wrap;
+        padding: 0.8rem 0;
+      }
+      .pagination span {
+        flex: 1 0 100%;
+      }
+      .pagination .btn {
+        flex: 1 1 44%;
+        min-height: 44px;
+      }
+      .suggestion-meta {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+      }
+      .suggestion-meta .actions {
+        width: 100%;
+      }
+      .suggestion-meta select {
+        min-height: 44px;
+      }
+      .bar-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .bar-val { text-align: left; }
+      .drawer-panel {
+        inset: auto 0 0;
+        width: 100%;
+        height: 92vh;
+        height: min(92svh, calc(100svh - env(safe-area-inset-top, 0px)));
+        border-top: 1px solid var(--line);
+        border-left: 0;
+        border-radius: 18px 18px 0 0;
+        padding: 1rem 0.8rem calc(1rem + env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 -22px 70px rgba(0, 0, 0, 0.46);
+        -webkit-overflow-scrolling: touch;
+      }
+      .drawer-head {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: -1rem -0.8rem 1rem;
+        padding: 1rem 0.8rem 0.8rem;
+        background: #0a0f1d;
+        border-bottom: 1px solid var(--line);
+      }
+      .drawer-head .btn {
+        width: 100%;
+        min-height: 44px;
+      }
+    }
+    @media (max-width: 380px) {
+      .admin-actions { grid-template-columns: 1fr; }
+      .admin-brand span:last-child span { display: none; }
+      .tab { padding-inline: 0.72rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#admin-main" class="skip-link">Skip to main content</a>
+
+  <header class="admin-topbar">
+    <a class="admin-brand" href="/admin.html" aria-label="JAKH Admin home">
+      <span class="admin-mark">J</span>
+      <span>
+        <strong>JAKH Admin</strong>
+        <span>Website management console</span>
+      </span>
+    </a>
+    <div class="admin-actions">
+      <span class="pill pill-admin" id="userBadge">Checking session</span>
+      <a class="btn btn-quiet btn-small" href="/">View Site</a>
+      <a class="btn btn-quiet btn-small" href="/play.html">Game Hub</a>
+      <button class="btn btn-danger btn-small" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="admin-shell" id="admin-main">
+      <aside class="ops-card admin-health-card" aria-labelledby="opsTitle">
+        <div class="panel-head" style="padding:0;border:0">
+          <div>
+            <p class="eyebrow">System Health</p>
+            <h2 id="opsTitle">Live service checks</h2>
+          </div>
+          <button class="btn btn-small" type="button" id="refreshHealthBtn">Refresh</button>
+        </div>
+        <div class="ops-row">
+          <span class="ops-dot warn" id="apiDot"></span>
+          <div><strong>REST API</strong><span id="apiStatus">Checking /api/health</span></div>
+          <span class="pill" id="apiPill">Pending</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-dot warn" id="socketDot"></span>
+          <div><strong>Room Socket</strong><span id="socketStatus">Checking /api/socket.io</span></div>
+          <span class="pill" id="socketPill">Pending</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-dot ok"></span>
+          <div><strong>Current Build</strong><span>Admin interface is static and noindex.</span></div>
+          <span class="pill pill-ok">Ready</span>
+        </div>
+      </aside>
+
+    <nav class="tabs primary-tabs" aria-label="Main admin sections">
+      <button class="tab" type="button" role="tab" aria-selected="true" data-tab="overview">Dashboard</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="protection">Protection</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="people">Users</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="content">Content</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="games">Games</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="intelligence">Analytics</button>
+
+      <button class="tab" type="button" role="tab" aria-selected="false" data-tab="security">Settings</button>
+    </nav>
+    <details class="advanced-nav">
+      <summary>More admin tools</summary>
+      <div class="advanced-tabs" aria-label="Additional admin sections">
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="operations">Operations</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="contentqa">Content QA</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="growth">SEO</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="cost">Cost</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="feedback">Feedback</button>
+      </div>
+    </details>
+
+    <section class="page active" id="tab-overview" aria-labelledby="overviewTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div>
+          <p class="eyebrow">Dashboard</p>
+          <h2 id="overviewTitle">Today at a glance</h2>
+        </div>
+      </div>
+      <div class="grid metric-grid" id="overviewMetrics"></div>
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head">
+            <div><h2>Top content by attention</h2><p>Ranked by minutes spent across tracked pages.</p></div>
+          </div>
+          <div class="panel-body" id="overviewTopCategories"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head">
+            <div><h2>Recent signups</h2><p>Newest accounts for quick moderation review.</p></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>User</th><th>Role</th><th>Joined</th></tr></thead>
+              <tbody id="overviewRecent"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="tab-operations" aria-labelledby="operationsTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Operations</p><h2 id="operationsTitle">Daily command center</h2><p>Fast service health, queue pressure, and launch readiness checks.</p></div>
+        <button class="btn btn-small" type="button" id="reloadOperationsBtn">Refresh</button>
+      </div>
+      <div class="grid metric-grid" id="operationsMetrics"></div>
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Operational checks</h2><p>What needs attention before users feel it.</p></div></div>
+          <div class="panel-body"><div class="status-list" id="operationsChecks"></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Runbook</h2><p>High-priority checks after deploys and EC2 restarts.</p></div></div>
+          <div class="panel-body">
+            <div class="status-list">
+              <div class="status-item"><span class="ops-dot ok"></span><div><strong>API health</strong><span>Confirm /api/health returns 200 before testing sign-in.</span></div><span class="pill">Required</span></div>
+              <div class="status-item"><span class="ops-dot ok"></span><div><strong>Socket rooms</strong><span>Confirm /api/socket.io polling opens before accepting game-room changes.</span></div><span class="pill">Required</span></div>
+              <div class="status-item"><span class="ops-dot ok"></span><div><strong>Service worker</strong><span>Cache names are bumped for this UI release so old screens clear on activation.</span></div><span class="pill pill-ok">v117</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="tab-protection" aria-labelledby="protectionTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Protection</p><h2 id="protectionTitle">Backups, smoke tests, and cost safety</h2><p>Automated agents protect the live site with verified backups, budget alerts, Elastic IP checks, and pre-change AMIs.</p></div>
+        <button class="btn btn-small" type="button" id="reloadProtectionBtn">Refresh</button>
+      </div>
+      <div class="grid metric-grid" id="protectionMetrics"></div>
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Protection checks</h2><p>Latest status from health, backup, deploy, and cost guardrails.</p></div></div>
+          <div class="panel-body"><div class="status-list" id="protectionChecks"></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Next actions</h2><p>Only safe operational work; no paid AWS mutation is automated.</p></div></div>
+          <div class="panel-body"><div class="qa-list" id="protectionActions"></div></div>
+        </article>
+      </div>
+      <div class="two-col" style="margin-top:1rem">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Latest backup</h2><p>Archive, checksum, database dump, and age.</p></div></div>
+          <div class="panel-body" id="backupSummary"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Latest website health</h2><p>Homepage, core pages, API, and Socket.IO status.</p></div></div>
+          <div class="panel-body" id="healthSummary"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="tab-people" aria-labelledby="peopleTitle">
+      <article class="panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">People</p><h2 id="peopleTitle">Users and access</h2><p>Search, moderate, inspect activity, export, and adjust roles.</p></div>
+        </div>
+        <div class="panel-body">
+          <div class="toolbar">
+            <input id="userSearch" type="search" placeholder="Search username or email" />
+            <select id="userFilter">
+              <option value="">All users</option>
+              <option value="admins">Admins only</option>
+              <option value="banned">Banned only</option>
+            </select>
+            <button class="btn btn-primary" type="button" id="userSearchBtn">Search</button>
+            <a class="btn" href="/api/admin/export/users" target="_blank" rel="noopener">Export CSV</a>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>User</th><th>Email</th><th>Role</th><th>Solved</th><th>Favorites</th><th>Country</th><th>Last Login</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="usersBody"></tbody>
+          </table>
+        </div>
+        <div class="pagination" id="usersPagination"></div>
+      </article>
+    </section>
+
+    <section class="page" id="tab-games" aria-labelledby="gamesTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Game Management</p><h2 id="gamesTitle">Game Hub readiness</h2><p>Track all 20 games, score activity, leaderboard readiness, computer play, and invite links.</p></div>
+        <button class="btn btn-small" type="button" id="reloadGamesBtn">Refresh</button>
+      </div>
+      <div class="grid metric-grid" id="gameMetrics"></div>
+      <article class="panel">
+        <div class="panel-head"><div><h2>Live game catalog</h2><p>Every game should support computer play, invite links, and per-game scores.</p></div></div>
+        <div class="panel-body"><div class="game-admin-grid" id="gameAdminGrid"></div></div>
+      </article>
+    </section>
+
+    <section class="page" id="tab-intelligence" aria-labelledby="intelTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Intelligence</p><h2 id="intelTitle">Engagement analytics</h2></div>
+      </div>
+      <div class="grid metric-grid" id="analyticsMetrics"></div>
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Last 30 days</h2><p>Daily tracked sessions.</p></div></div>
+          <div class="panel-body"><div class="sparkline" id="dailySparkline"></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Visits by country</h2><p>Top detected locations.</p></div></div>
+          <div class="panel-body" id="countryBars"></div>
+        </article>
+      </div>
+      <div class="two-col" style="margin-top:1rem">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Time by category</h2><p>Highest attention areas.</p></div></div>
+          <div class="panel-body" id="categoryBars"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Most failed riddles</h2><p>Use these to tune difficulty and wording.</p></div></div>
+          <div class="table-wrap">
+            <table><thead><tr><th>Category</th><th>Card</th><th>Fails</th></tr></thead><tbody id="hardestRows"></tbody></table>
+          </div>
+        </article>
+      </div>
+      <article class="panel" style="margin-top:1rem">
+        <div class="panel-head"><div><h2>Recommended actions</h2><p>Generated from recent usage, growth, and learning friction signals.</p></div></div>
+        <div class="panel-body"><div class="qa-list" id="insightActions"></div></div>
+      </article>
+    </section>
+
+    <section class="page" id="tab-content" aria-labelledby="contentTitle">
+      <article class="panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">Content</p><h2 id="contentTitle">Mind Lab catalog</h2><p>Review live category volume, solves, favorites, and public links.</p></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Collection page</th><th>Cards</th><th>Solves</th><th>Favorites</th><th>Action</th></tr></thead>
+            <tbody id="contentRows"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="page" id="tab-contentqa" aria-labelledby="contentQaTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Content QA</p><h2 id="contentQaTitle">Mind Lab quality control</h2><p>Detect missing category files, mismatched counts, duplicate cards, and incomplete bilingual question/answer content.</p></div>
+        <button class="btn btn-small" type="button" id="reloadContentQaBtn">Run QA</button>
+      </div>
+      <div class="grid metric-grid" id="contentQaMetrics"></div>
+      <article class="panel">
+        <div class="panel-head"><div><h2>Issues queue</h2><p>Critical issues block trust. Warnings are editorial cleanup.</p></div></div>
+        <div class="panel-body"><div class="qa-list" id="contentQaIssues"></div></div>
+      </article>
+    </section>
+
+    <section class="page" id="tab-growth" aria-labelledby="growthTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Growth / SEO</p><h2 id="growthTitle">Search and sharing</h2><p>Watch page metadata, discovery assets, new users, and high-attention pages.</p></div>
+        <button class="btn btn-small" type="button" id="reloadGrowthBtn">Refresh</button>
+      </div>
+      <div class="grid metric-grid" id="growthMetrics"></div>
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head"><div><h2>SEO fixes</h2><p>Pages with missing metadata or basic technical signals.</p></div></div>
+          <div class="panel-body"><div class="seo-list" id="seoIssues"></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Growth priorities</h2><p>Use these pages for internal links, social posts, and homepage modules.</p></div></div>
+          <div class="panel-body" id="growthTopPages"></div>
+        </article>
+      </div>
+    </section>
+
+
+
+    <section class="page" id="tab-cost" aria-labelledby="costTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Cost & Infrastructure</p><h2 id="costTitle">AWS surprise prevention</h2><p>Track server footprint and automated guardrails that prevent unexpected cost increases.</p></div>
+        <button class="btn btn-small" type="button" id="reloadCostBtn">Refresh</button>
+      </div>
+      <div class="grid metric-grid" id="costMetrics"></div>
+      <div class="two-col">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Cost guardrails</h2><p>Owner checklist for AWS billing safety.</p></div></div>
+          <div class="panel-body"><div class="cost-list" id="costGuardrails"></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Infrastructure notes</h2><p>Keep these decisions visible before upgrades or restarts.</p></div></div>
+          <div class="panel-body">
+            <div class="alert">Use t3.micro unless traffic or memory pressure proves otherwise. Infrastructure changes now run the pre-change backup automation for an AMI plus database dump.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="tab-feedback" aria-labelledby="feedbackTitle">
+      <article class="panel">
+        <div class="panel-head">
+          <div><p class="eyebrow">Feedback</p><h2 id="feedbackTitle">Suggestions queue</h2><p>Review visitor ideas and move them through a simple workflow.</p></div>
+          <select id="suggestionFilter" style="max-width:190px">
+            <option value="">All statuses</option>
+            <option value="new">New</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="implemented">Implemented</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="panel-body">
+          <div class="suggestion-list" id="suggestionList"></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="page" id="tab-security" aria-labelledby="securityTitle">
+      <div class="panel-head" style="padding-left:0;padding-right:0;border:0">
+        <div><p class="eyebrow">Security</p><h2 id="securityTitle">Account and session controls</h2></div>
+      </div>
+      <div class="settings-grid">
+        <article class="panel">
+          <div class="panel-head"><div><h2>Change admin password</h2><p>Use a unique password with at least 15 characters.</p></div></div>
+          <div class="panel-body form-stack">
+            <div id="passwordMessage"></div>
+            <label class="field">Current password<input type="password" id="currentPassword" autocomplete="current-password" /></label>
+            <label class="field">New password<input type="password" id="newPassword" minlength="15" maxlength="128" autocomplete="new-password" /></label>
+            <button class="btn btn-primary" type="button" id="savePasswordBtn">Update Password</button>
+          </div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><h2>Session reset</h2><p>Force all non-owner users to sign in again after security-sensitive changes.</p></div></div>
+          <div class="panel-body form-stack">
+            <div id="revokeMessage"></div>
+            <button class="btn btn-danger" type="button" id="revokeSessionsBtn">Revoke All Non-owner Sessions</button>
+            <div class="alert">This keeps the current admin session active and clears other non-owner session tokens.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="userDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+      <div class="drawer-head">
+        <div><p class="eyebrow">User Detail</p><h2 id="drawerTitle">Activity</h2></div>
+        <button class="btn btn-small" type="button" data-close-drawer>Close</button>
+      </div>
+      <div id="drawerBody" class="grid"></div>
+    </div>
+  </aside>
+
+  <script>
+    const API = '/api';
+    const state = {
+      userPage: 1,
+      userPages: 1,
+      loaded: new Set()
+    };
+
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => Array.from(document.querySelectorAll(selector));
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[char]));
+    const fmt = value => new Intl.NumberFormat('en-US').format(Number(value || 0));
+    const isPhoneLayout = () => window.matchMedia('(max-width: 720px)').matches;
+    const rel = value => {
+      if (!value) return 'Never';
+      const date = new Date(value);
+      const minutes = Math.floor((Date.now() - date.getTime()) / 60000);
+      if (!Number.isFinite(minutes)) return 'Unknown';
+      if (minutes < 2) return 'Just now';
+      if (minutes < 60) return minutes + ' min ago';
+      if (minutes < 1440) return Math.floor(minutes / 60) + ' hr ago';
+      return date.toLocaleDateString();
+    };
+
+    async function api(path, options = {}) {
+      const response = await fetch(API + path, {
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+        ...options
+      });
+      let data = {};
+      try { data = await response.json(); } catch {}
+      if (!response.ok) throw new Error(data.error || 'Request failed');
+      return data;
+    }
+
+    function metric(label, value, hint) {
+      const displayValue = typeof value === 'string' ? value : fmt(value);
+      return '<div class="metric"><span>' + esc(label) + '</span><strong>' + esc(displayValue) + '</strong><small>' + esc(hint || '') + '</small></div>';
+    }
+
+    function rolePill(role) {
+      const type = String(role || 'USER').toLowerCase();
+      return '<span class="pill pill-' + esc(type) + '">' + esc(role || 'USER') + '</span>';
+    }
+
+    function empty(message) {
+      return '<div class="empty">' + esc(message) + '</div>';
+    }
+
+    function tableEmpty(cols, message) {
+      return '<tr><td colspan="' + cols + '" class="muted">' + esc(message) + '</td></tr>';
+    }
+
+    function forceDarkTheme() {
+      try {
+        localStorage.removeItem('jakh-theme');
+        const settings = JSON.parse(localStorage.getItem('jakh-riddles-settings') || '{}');
+        if (settings && settings.theme) {
+          delete settings.theme;
+          localStorage.setItem('jakh-riddles-settings', JSON.stringify(settings));
+        }
+      } catch (_) {}
+      document.documentElement.dataset.theme = 'dark';
+      document.documentElement.style.colorScheme = 'dark';
+      document.querySelectorAll('meta[name="theme-color"]').forEach(node => {
+        node.setAttribute('content', '#070a12');
+      });
+    }
+
+    function statusTone(status) {
+      const value = String(status || '').toLowerCase();
+      if (value === 'ok' || value === 'live') return 'ok';
+      if (value === 'critical' || value === 'bad' || value === 'down') return 'bad';
+      return 'warn';
+    }
+
+    function statusPill(status) {
+      const tone = statusTone(status);
+      const label = String(status || 'pending');
+      return '<span class="pill ' + (tone === 'ok' ? 'pill-ok' : tone === 'bad' ? 'pill-danger' : 'pill-warn') + '">' + esc(label) + '</span>';
+    }
+
+
+
+    function bars(items, labelKey, valueKey, limit = 12) {
+      if (!items || !items.length) return empty('No data yet.');
+      const rows = items.slice(0, limit);
+      const max = Math.max(...rows.map(item => Number(item[valueKey] || 0)), 1);
+      return '<div class="bar-list">' + rows.map(item => {
+        const value = Number(item[valueKey] || 0);
+        const width = Math.max(3, Math.round((value / max) * 100));
+        return '<div class="bar-row"><span class="bar-label" title="' + esc(item[labelKey]) + '">' + esc(item[labelKey]) + '</span><div class="bar-track"><div class="bar-fill" style="width:' + width + '%"></div></div><span class="bar-val">' + fmt(value) + '</span></div>';
+      }).join('') + '</div>';
+    }
+
+    function setHealth(name, status, message, ok) {
+      const tone = status === 'Pending' ? 'warn' : (ok ? 'ok' : 'bad');
+      $('#' + name + 'Dot').className = 'ops-dot ' + tone;
+      $('#' + name + 'Status').textContent = message;
+      $('#' + name + 'Pill').className = 'pill ' + (tone === 'ok' ? 'pill-ok' : tone === 'warn' ? 'pill-warn' : 'pill-danger');
+      $('#' + name + 'Pill').textContent = status;
+    }
+
+    async function checkHealth() {
+      setHealth('api', 'Pending', 'Checking /api/health', true);
+      setHealth('socket', 'Pending', 'Checking /api/socket.io', true);
+      try {
+        const response = await fetch('/api/health', { credentials: 'include' });
+        const data = await response.json();
+        setHealth('api', 'Online', data.message || 'API responded successfully.', response.ok);
+      } catch {
+        setHealth('api', 'Down', 'API health check failed.', false);
+      }
+      try {
+        const response = await fetch('/api/socket.io/?EIO=4&transport=polling&t=' + Date.now(), { credentials: 'include' });
+        const text = await response.text();
+        const ok = response.ok && text.trim().startsWith('0');
+        setHealth('socket', ok ? 'Online' : 'Check Proxy', ok ? 'Engine.IO handshake is reachable.' : 'Socket.IO polling did not return an open packet.', ok);
+      } catch {
+        setHealth('socket', 'Down', 'Socket.IO check failed.', false);
+      }
+    }
+
+    async function loadOperations() {
+      $('#operationsMetrics').innerHTML = metric('Loading', 0, 'Checking operations...');
+      $('#operationsChecks').innerHTML = empty('Loading operational checks...');
+      try {
+        const data = await api('/admin/operations');
+        const metricsData = data.metrics || {};
+        $('#operationsMetrics').innerHTML = [
+          metric('Users', metricsData.users, 'Registered accounts'),
+          metric('Active 24h', metricsData.activeUsers24h, 'Recent login activity'),
+          metric('Events Today', metricsData.eventsToday, 'Analytics events captured'),
+          metric('Scores Today', metricsData.scoresToday, 'Game leaderboard submissions')
+        ].join('');
+        $('#operationsChecks').innerHTML = (data.checks || []).map(check => {
+          const tone = statusTone(check.status);
+          return '<div class="status-item">' +
+            '<span class="ops-dot ' + tone + '"></span>' +
+            '<div><strong>' + esc(check.label) + '</strong><span>' + esc(check.detail) + '</span></div>' +
+            statusPill(check.status) +
+          '</div>';
+        }).join('') || empty('No checks returned.');
+      } catch (error) {
+        $('#operationsMetrics').innerHTML = empty(error.message);
+        $('#operationsChecks').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadGameManagement() {
+      $('#gameMetrics').innerHTML = metric('Loading', 0, 'Fetching game catalog...');
+      $('#gameAdminGrid').innerHTML = empty('Loading games...');
+      try {
+        const data = await api('/admin/games');
+        const games = data.games || [];
+        const scored = games.filter(game => Number(game.scoreCount || 0) > 0).length;
+        const totalScores = games.reduce((sum, game) => sum + Number(game.scoreCount || 0), 0);
+        $('#gameMetrics').innerHTML = [
+          metric('Games Live', data.totalGames || games.length, 'Legal-safe educational tables'),
+          metric('With Scores', scored, 'Games with leaderboard activity'),
+          metric('Total Scores', totalScores, 'Submitted leaderboard runs'),
+          metric('Online Ready', games.filter(game => game.online).length, 'Invite-link capable games')
+        ].join('');
+        $('#gameAdminGrid').innerHTML = games.map(game => (
+          '<article class="game-admin-card">' +
+            '<div class="game-admin-meta"><span class="pill pill-ok">AI</span><span class="pill pill-ok">Invite</span><span class="pill pill-ok">Scores</span></div>' +
+            '<div><h3>' + esc(game.title) + '</h3><p>' + esc(game.category) + '</p></div>' +
+            '<p><span class="strong">' + fmt(game.scoreCount) + '</span> scores · best ' + fmt(game.bestScore) + '</p>' +
+            '<p>Last score: ' + esc(rel(game.lastScoreAt)) + '</p>' +
+            '<a class="btn btn-small" href="' + esc(game.href) + '" target="_blank" rel="noopener">Open Game</a>' +
+          '</article>'
+        )).join('') || empty('No games configured.');
+      } catch (error) {
+        $('#gameMetrics').innerHTML = empty(error.message);
+        $('#gameAdminGrid').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadContentQa() {
+      $('#contentQaMetrics').innerHTML = metric('Loading', 0, 'Scanning Mind Lab JSON...');
+      $('#contentQaIssues').innerHTML = empty('Running QA checks...');
+      try {
+        const data = await api('/admin/content-qa');
+        const summary = data.summary || {};
+        $('#contentQaMetrics').innerHTML = [
+          metric('Categories', data.categories, 'Catalog entries checked'),
+          metric('Questions', data.totalCards, 'Cards scanned'),
+          metric('Critical', summary.critical, 'Must-fix content blockers'),
+          metric('Warnings', summary.warn, 'Editorial cleanup items')
+        ].join('');
+        const issues = data.issues || [];
+        $('#contentQaIssues').innerHTML = issues.length ? issues.slice(0, 80).map(issue => (
+          '<div class="qa-item ' + esc(issue.severity) + '">' +
+            '<div class="actions"><span class="pill">' + esc(issue.slug) + '</span>' + statusPill(issue.severity) + '</div>' +
+            '<strong>' + esc(issue.message) + '</strong>' +
+          '</div>'
+        )).join('') : '<div class="alert ok">No QA issues found in the Mind Lab catalog.</div>';
+      } catch (error) {
+        $('#contentQaMetrics').innerHTML = empty(error.message);
+        $('#contentQaIssues').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadGrowthSeo() {
+      $('#growthMetrics').innerHTML = metric('Loading', 0, 'Checking metadata...');
+      $('#seoIssues').innerHTML = empty('Loading SEO checks...');
+      $('#growthTopPages').innerHTML = empty('Loading top pages...');
+      try {
+        const data = await api('/admin/growth-seo');
+        const assets = data.assets || {};
+        const assetCount = [assets.sitemap, assets.robots, assets.manifest].filter(Boolean).length;
+        $('#growthMetrics').innerHTML = [
+          metric('HTML Pages', data.pages, 'Public pages scanned'),
+          metric('Metadata Pass', data.passing, 'Pages with core metadata'),
+          metric('New Users 7d', data.growth?.usersThisWeek, 'Recent account growth'),
+          metric('Discovery Assets', assetCount, 'Sitemap, robots, manifest')
+        ].join('');
+        const needsWork = data.needsWork || [];
+        $('#seoIssues').innerHTML = needsWork.length ? needsWork.map(page => (
+          '<div class="seo-item">' +
+            '<div class="actions"><span class="pill">' + esc(page.path) + '</span><span class="pill pill-warn">' + fmt(page.issues.length) + ' fixes</span></div>' +
+            '<strong>' + esc(page.title || page.file) + '</strong>' +
+            '<span>' + esc(page.issues.join(', ')) + '</span>' +
+          '</div>'
+        )).join('') : '<div class="alert ok">All scanned pages have the core metadata checks.</div>';
+        $('#growthTopPages').innerHTML = bars((data.growth?.topPages || []).map(item => ({ label: item.slug, value: item.visits })), 'label', 'value', 10);
+      } catch (error) {
+        $('#growthMetrics').innerHTML = empty(error.message);
+        $('#seoIssues').innerHTML = empty(error.message);
+        $('#growthTopPages').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadCostInfra() {
+      $('#costMetrics').innerHTML = metric('Loading', 0, 'Reading server footprint...');
+      $('#costGuardrails').innerHTML = empty('Loading cost guardrails...');
+      try {
+        const data = await api('/admin/cost-infra');
+        const footprint = data.footprint || {};
+        $('#costMetrics').innerHTML = [
+          metric('Server Memory', footprint.memoryMb, 'Total MB available on host'),
+          metric('Free Memory', footprint.freeMb, 'Current free MB'),
+          metric('API Memory', footprint.apiMemoryMb, 'Node process RSS MB'),
+          metric('Uptime Hours', footprint.uptimeHours, 'Since latest EC2 start')
+        ].join('');
+        $('#costGuardrails').innerHTML = (data.guardrails || []).map(item => (
+          '<div class="cost-item ' + esc(item.status) + '">' +
+            '<div class="actions"><span class="pill">' + esc(item.label) + '</span>' + statusPill(item.status) + '</div>' +
+            '<span>' + esc(item.detail) + '</span>' +
+          '</div>'
+        )).join('') || empty('No guardrails returned.');
+      } catch (error) {
+        $('#costMetrics').innerHTML = empty(error.message);
+        $('#costGuardrails').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadProtection() {
+      $('#protectionMetrics').innerHTML = metric('Loading', 0, 'Reading protection reports...');
+      $('#protectionChecks').innerHTML = empty('Loading protection checks...');
+      $('#protectionActions').innerHTML = empty('Loading next actions...');
+      $('#backupSummary').innerHTML = empty('Loading backup status...');
+      $('#healthSummary').innerHTML = empty('Loading website health...');
+      try {
+        const data = await api('/admin/protection');
+        const metrics = data.metrics || {};
+        $('#protectionMetrics').innerHTML = [
+          metric('Health Monitor', metrics.healthOk ? 1 : 0, metrics.healthOk ? 'Fresh website report' : 'Needs setup or attention'),
+          metric('Backup Verified', metrics.backupOk ? 1 : 0, metrics.backupOk ? 'Recent verified archive' : 'Run backup verification'),
+          metric('Content QA', metrics.contentQaOk ? 1 : 0, metrics.contentQaOk ? 'Scheduled report clean' : 'Needs report or fixes'),
+          metric('Cost Guardrail', metrics.costOk ? 1 : 0, 'Read-only EC2 safety checks')
+        ].join('');
+        $('#protectionChecks').innerHTML = (data.checks || []).map(check => (
+          '<div class="status-item">' +
+            '<span class="ops-dot ' + statusTone(check.status) + '"></span>' +
+            '<div><strong>' + esc(check.label) + '</strong><span>' + esc(check.detail) + '</span></div>' +
+            statusPill(check.status) +
+          '</div>'
+        )).join('') || empty('No protection checks returned.');
+        $('#protectionActions').innerHTML = (data.actions || []).map(action => (
+          '<div class="qa-item info"><strong>' + esc(action) + '</strong></div>'
+        )).join('') || '<div class="alert ok">No action needed right now.</div>';
+
+        const backup = data.reports?.backup || {};
+        const latest = backup.latest || {};
+        $('#backupSummary').innerHTML = latest.file || latest.path
+          ? '<div class="status-list">' +
+              '<div class="status-item"><span class="ops-dot ' + (backup.ok ? 'ok' : 'bad') + '"></span><div><strong>' + esc(latest.file || latest.path) + '</strong><span>' + esc((latest.sizeMb || 0) + ' MB · checksum ' + (latest.checksumOk ? 'OK' : 'needs check')) + '</span></div>' + statusPill(backup.ok ? 'ok' : 'warn') + '</div>' +
+              '<div class="status-item"><span class="ops-dot ' + (latest.hasDatabase ? 'ok' : 'bad') + '"></span><div><strong>Database dump</strong><span>' + esc(latest.hasDatabase ? 'Included in latest archive.' : 'Missing or failed in latest archive.') + '</span></div>' + statusPill(latest.hasDatabase ? 'ok' : 'critical') + '</div>' +
+            '</div>'
+          : empty('No backup report found yet.');
+
+        const health = data.reports?.health || {};
+        $('#healthSummary').innerHTML = (health.checks || []).length
+          ? '<div class="status-list">' + health.checks.slice(0, 8).map(check => (
+              '<div class="status-item"><span class="ops-dot ' + (check.ok ? 'ok' : (check.required ? 'bad' : 'warn')) + '"></span><div><strong>' + esc(check.label) + '</strong><span>' + esc(check.detail || check.url) + '</span></div>' + statusPill(check.ok ? 'ok' : (check.required ? 'critical' : 'warn')) + '</div>'
+            )).join('') + '</div>'
+          : empty('No website health report found yet.');
+      } catch (error) {
+        $('#protectionMetrics').innerHTML = empty(error.message);
+        $('#protectionChecks').innerHTML = empty(error.message);
+        $('#protectionActions').innerHTML = empty(error.message);
+        $('#backupSummary').innerHTML = empty(error.message);
+        $('#healthSummary').innerHTML = empty(error.message);
+      }
+    }
+
+    function switchTab(tab) {
+      if (!tab) return;
+      $$('.tab').forEach(button => button.setAttribute('aria-selected', String(button.dataset.tab === tab)));
+      $$('.page').forEach(page => page.classList.toggle('active', page.id === 'tab-' + tab));
+      if (!state.loaded.has(tab)) {
+        state.loaded.add(tab);
+        ({
+          overview: loadOverview,
+          operations: loadOperations,
+          protection: loadProtection,
+          people: () => loadUsers(1),
+          games: loadGameManagement,
+          intelligence: loadAnalytics,
+          content: loadContent,
+          contentqa: loadContentQa,
+          growth: loadGrowthSeo,
+          cost: loadCostInfra,
+          feedback: loadSuggestions,
+          security: () => {}
+        }[tab] || (() => {}))();
+      }
+    }
+
+    function revealActiveTab(tab) {
+      const activeTab = $$('.tab').find(button => button.dataset.tab === tab);
+      if (activeTab) {
+        activeTab.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
+      }
+      if (isPhoneLayout()) {
+        requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
+      }
+    }
+
+    function closeDrawer() {
+      const drawer = $('#userDrawer');
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('drawer-open');
+    }
+
+    async function init() {
+      forceDarkTheme();
+      try {
+        const user = await api('/user/profile');
+        if (!['ADMIN', 'OWNER'].includes(user.role)) {
+          location.href = '/';
+          return;
+        }
+        $('#userBadge').textContent = user.username + ' - ' + user.role;
+        state.loaded.add('overview');
+        loadOverview();
+        checkHealth();
+      } catch {
+        location.href = '/';
+      }
+    }
+
+    async function loadOverview() {
+      $('#overviewMetrics').innerHTML = metric('Loading', 0, 'Fetching overview data...');
+      try {
+        const data = await api('/admin/overview');
+        $('#overviewMetrics').innerHTML = [
+          metric('Visitors 7d', data.uniqueVisitorsThisWeek, 'Unique tracked visitors this week'),
+          metric('New Accounts 7d', data.newUsersThisWeek, 'Registrations this week'),
+          metric('Signup Rate', (data.signupConversionPct || 0) + '%', 'Percent of weekly visitors who registered'),
+          metric('Total Solves', data.totalSolves, 'Mind Lab progress records')
+        ].join('');
+        $('#overviewTopCategories').innerHTML = bars((data.topCategories || []).map(item => ({ label: item.slug, value: item.totalMinutes })), 'label', 'value', 8);
+        $('#overviewRecent').innerHTML = (data.recentSignups || []).map(user => (
+          '<tr><td><span class="strong">' + esc(user.username) + '</span><br><span class="muted">' + esc(user.email || 'No email') + '</span></td><td>' + rolePill(user.role) + '</td><td class="nowrap">' + esc(rel(user.createdAt)) + '</td></tr>'
+        )).join('') || tableEmpty(3, 'No signups yet.');
+      } catch (error) {
+        $('#overviewMetrics').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadUsers(page = 1) {
+      state.userPage = page;
+      const search = $('#userSearch').value.trim();
+      const filter = $('#userFilter').value;
+      $('#usersBody').innerHTML = tableEmpty(8, 'Loading users...');
+      try {
+        const data = await api('/admin/users?page=' + page + '&search=' + encodeURIComponent(search) + '&filter=' + encodeURIComponent(filter));
+        state.userPages = Math.max(data.pages || 1, 1);
+        $('#usersBody').innerHTML = (data.users || []).map(user => {
+          const banned = user.isBanned ? ' <span class="pill pill-banned">Banned</span>' : '';
+          const roleSelect = user.role === 'OWNER'
+            ? '<span class="pill pill-owner">Protected</span>'
+            : '<select class="role-select" data-user-id="' + esc(user.id) + '" data-user-name="' + esc(user.username) + '"><option value="">Change role</option><option value="USER">USER</option><option value="ADMIN">ADMIN</option></select>';
+          const banText = user.isBanned ? 'Unban' : 'Ban';
+          return '<tr>' +
+            '<td><span class="strong">' + esc(user.username) + '</span>' + banned + '</td>' +
+            '<td>' + esc(user.email || '-') + '</td>' +
+            '<td>' + rolePill(user.role) + '</td>' +
+            '<td>' + fmt(user.progressCount) + '</td>' +
+            '<td>' + fmt(user.favoritesCount) + '</td>' +
+            '<td>' + esc(user.country || '-') + '</td>' +
+            '<td class="nowrap">' + esc(rel(user.lastLoginAt)) + '</td>' +
+            '<td><div class="actions">' +
+            '<button class="btn btn-small" type="button" data-user-detail="' + esc(user.id) + '">Inspect</button>' +
+            (user.role === 'OWNER' ? '' : '<button class="btn btn-small btn-danger" type="button" data-user-ban="' + esc(user.id) + '" data-user-name="' + esc(user.username) + '" data-ban-value="' + String(!user.isBanned) + '">' + banText + '</button>' + roleSelect + '<button class="btn btn-small btn-danger" type="button" data-user-delete="' + esc(user.id) + '" data-user-name="' + esc(user.username) + '">Delete</button>') +
+            '</div></td></tr>';
+        }).join('') || tableEmpty(8, 'No users match this filter.');
+        $('#usersPagination').innerHTML =
+          '<span>Page ' + fmt(data.page || 1) + ' of ' + fmt(state.userPages) + '</span>' +
+          '<button class="btn btn-small" type="button" data-page-prev ' + (page <= 1 ? 'disabled' : '') + '>Previous</button>' +
+          '<button class="btn btn-small" type="button" data-page-next ' + (page >= state.userPages ? 'disabled' : '') + '>Next</button>';
+      } catch (error) {
+        $('#usersBody').innerHTML = tableEmpty(8, error.message);
+      }
+    }
+
+    async function loadUserDetail(id) {
+      const drawer = $('#userDrawer');
+      $('#drawerBody').innerHTML = empty('Loading activity...');
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('drawer-open');
+      try {
+        const data = await api('/admin/users/' + encodeURIComponent(id) + '/activity');
+        $('#drawerTitle').textContent = data.user.username;
+        $('#drawerBody').innerHTML =
+          '<div class="panel"><div class="panel-body">' +
+          '<p><span class="strong">' + esc(data.user.username) + '</span></p>' +
+          '<p class="muted">' + esc(data.user.email || 'No email') + '</p>' +
+          '<div class="actions">' + rolePill(data.user.role) + (data.user.isBanned ? '<span class="pill pill-banned">Banned</span>' : '<span class="pill pill-ok">Active</span>') + '<span class="pill">' + esc(data.user.country || 'Unknown country') + '</span></div>' +
+          '</div></div>' +
+          '<div class="panel"><div class="panel-head"><div><h2>Solves by category</h2></div></div><div class="panel-body">' + bars((data.solvesByCategory || []).map(item => ({ label: item.category, value: item.count })), 'label', 'value') + '</div></div>' +
+          '<div class="panel"><div class="panel-head"><div><h2>Favorites by category</h2></div></div><div class="panel-body">' + bars((data.favoritesByCategory || []).map(item => ({ label: item.category, value: item.count })), 'label', 'value') + '</div></div>' +
+          '<div class="panel"><div class="panel-head"><div><h2>Time by category</h2></div></div><div class="panel-body">' + bars((data.timeByCategory || []).map(item => ({ label: item.category, value: item.minutes })), 'label', 'value') + '</div></div>';
+      } catch (error) {
+        $('#drawerBody').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadAnalytics() {
+      $('#analyticsMetrics').innerHTML = metric('Loading', 0, 'Fetching analytics...');
+      $('#insightActions').innerHTML = empty('Generating recommendations...');
+      try {
+        const data = await api('/admin/analytics');
+        const summary = data.summary || {};
+        $('#analyticsMetrics').innerHTML = [
+          metric('Total Sessions', summary.totalSessions, 'Tracked site sessions'),
+          metric('Unique Visitors', summary.uniqueVisitors, 'Tracked unique visitors'),
+          metric('Avg Min/Session', summary.avgMinutesPerSession, 'Engagement quality'),
+          metric('Total Hours', summary.totalHours, 'Total tracked time')
+        ].join('');
+        const daily = data.daily || [];
+        const max = Math.max(...daily.map(day => Number(day.count || 0)), 1);
+        $('#dailySparkline').innerHTML = daily.map(day => '<span title="' + esc(day.date + ': ' + day.count) + '" style="height:' + Math.max(4, Math.round(Number(day.count || 0) / max * 100)) + '%"></span>').join('') || empty('No daily data yet.');
+        $('#countryBars').innerHTML = bars((data.countryStats || []).map(item => ({ label: item.country, value: item.visits })), 'label', 'value');
+        $('#categoryBars').innerHTML = bars((data.categoryTime || []).map(item => ({ label: item.slug, value: item.totalMinutes })), 'label', 'value');
+        $('#hardestRows').innerHTML = (data.hardestRiddles || []).map(item => (
+          '<tr><td>' + esc(item.categoryId) + '</td><td><span class="strong">' + esc(item.cardId) + '</span></td><td>' + fmt(item.fails) + '</td></tr>'
+        )).join('') || tableEmpty(3, 'No failed-riddle data yet.');
+        try {
+          const insights = await api('/admin/insights');
+          $('#insightActions').innerHTML = (insights.recommendations || []).map(item => (
+            '<div class="qa-item ' + esc(item.priority === 'high' ? 'critical' : item.priority === 'medium' ? 'warn' : 'info') + '">' +
+              '<div class="actions"><span class="pill">' + esc(item.priority) + '</span></div>' +
+              '<strong>' + esc(item.title) + '</strong>' +
+              '<span>' + esc(item.detail) + '</span>' +
+            '</div>'
+          )).join('') || '<div class="alert ok">No recommendations right now.</div>';
+        } catch (error) {
+          $('#insightActions').innerHTML = empty(error.message);
+        }
+      } catch (error) {
+        $('#analyticsMetrics').innerHTML = empty(error.message);
+        $('#insightActions').innerHTML = empty(error.message);
+      }
+    }
+
+    async function loadContent() {
+      $('#contentRows').innerHTML = tableEmpty(5, 'Loading catalog...');
+      try {
+        const data = await api('/admin/content');
+        $('#contentRows').innerHTML = (data.categories || []).map(cat => (
+          '<tr><td><span class="strong">' + esc(cat.title?.en || cat.slug) + '</span><br><span class="muted">' + esc(cat.title?.ar || cat.slug) + '</span></td><td>' + fmt(cat.count) + '</td><td>' + fmt(cat.totalSolves) + '</td><td>' + fmt(cat.totalFavorites) + '</td><td><a class="btn btn-small" href="/' + esc(cat.slug) + '.html" target="_blank" rel="noopener">View Live</a></td></tr>'
+        )).join('') || tableEmpty(5, 'No catalog categories found.');
+      } catch (error) {
+        $('#contentRows').innerHTML = tableEmpty(5, error.message);
+      }
+    }
+
+    async function loadSuggestions() {
+      const status = $('#suggestionFilter').value;
+      $('#suggestionList').innerHTML = empty('Loading suggestions...');
+      try {
+        const data = await api('/admin/suggestions' + (status ? '?status=' + encodeURIComponent(status) : ''));
+        $('#suggestionList').innerHTML = (data.suggestions || []).map(item => (
+          '<article class="suggestion-card">' +
+          '<p>' + esc(item.text) + '</p>' +
+          '<div class="suggestion-meta"><div class="actions"><span class="pill">' + esc(item.email || 'No email') + '</span><span class="pill">' + esc(rel(item.createdAt)) + '</span></div>' +
+          '<div class="actions"><select data-suggestion-status="' + esc(item.id) + '">' + ['new','reviewed','implemented','rejected'].map(statusOption => '<option value="' + statusOption + '"' + (item.status === statusOption ? ' selected' : '') + '>' + statusOption + '</option>').join('') + '</select><button class="btn btn-small btn-danger" type="button" data-suggestion-delete="' + esc(item.id) + '">Delete</button></div></div>' +
+          '</article>'
+        )).join('') || empty('No suggestions in this queue.');
+      } catch (error) {
+        $('#suggestionList').innerHTML = empty(error.message);
+      }
+    }
+
+    async function updatePassword() {
+      const currentPassword = $('#currentPassword').value;
+      const newPassword = $('#newPassword').value;
+      if (!currentPassword || !newPassword) {
+        $('#passwordMessage').innerHTML = '<div class="alert bad">Fill both password fields.</div>';
+        return;
+      }
+      try {
+        await api('/admin/settings/password', { method: 'POST', body: JSON.stringify({ currentPassword, newPassword }) });
+        $('#passwordMessage').innerHTML = '<div class="alert ok">Password updated.</div>';
+        $('#currentPassword').value = '';
+        $('#newPassword').value = '';
+      } catch (error) {
+        $('#passwordMessage').innerHTML = '<div class="alert bad">' + esc(error.message) + '</div>';
+      }
+    }
+
+    async function revokeSessions() {
+      if (!confirm('Revoke all non-owner sessions?')) return;
+      try {
+        await api('/admin/settings/revoke-sessions', { method: 'POST' });
+        $('#revokeMessage').innerHTML = '<div class="alert ok">All non-owner sessions were revoked.</div>';
+      } catch (error) {
+        $('#revokeMessage').innerHTML = '<div class="alert bad">' + esc(error.message) + '</div>';
+      }
+    }
+
+    document.addEventListener('click', async event => {
+      const tabButton = event.target.closest('[data-tab], [data-go-tab]');
+      if (tabButton) {
+        const nextTab = tabButton.dataset.tab || tabButton.dataset.goTab;
+        switchTab(nextTab);
+        revealActiveTab(nextTab);
+        return;
+      }
+      if (event.target.closest('#refreshHealthBtn')) checkHealth();
+      if (event.target.closest('#reloadOperationsBtn')) loadOperations();
+      if (event.target.closest('#reloadProtectionBtn')) loadProtection();
+      if (event.target.closest('#reloadGamesBtn')) loadGameManagement();
+      if (event.target.closest('#reloadContentQaBtn')) loadContentQa();
+      if (event.target.closest('#reloadGrowthBtn')) loadGrowthSeo();
+      if (event.target.closest('#reloadCostBtn')) loadCostInfra();
+      if (event.target.closest('#logoutBtn')) {
+        await fetch(API + '/auth/logout', { method: 'POST', credentials: 'include' });
+        location.href = '/';
+      }
+      if (event.target.closest('#userSearchBtn')) loadUsers(1);
+      if (event.target.closest('[data-page-prev]')) loadUsers(Math.max(1, state.userPage - 1));
+      if (event.target.closest('[data-page-next]')) loadUsers(Math.min(state.userPages, state.userPage + 1));
+
+      const detail = event.target.closest('[data-user-detail]');
+      if (detail) loadUserDetail(detail.dataset.userDetail);
+      const ban = event.target.closest('[data-user-ban]');
+      if (ban) {
+        const banned = ban.dataset.banValue === 'true';
+        if (confirm((banned ? 'Ban ' : 'Unban ') + ban.dataset.userName + '?')) {
+          try {
+            await api('/admin/users/' + encodeURIComponent(ban.dataset.userBan) + '/ban', { method: 'PATCH', body: JSON.stringify({ banned }) });
+            loadUsers(state.userPage);
+          } catch (error) { alert(error.message); }
+        }
+      }
+      const delUser = event.target.closest('[data-user-delete]');
+      if (delUser && confirm('Permanently delete ' + delUser.dataset.userName + '? This cannot be undone.')) {
+        try {
+          await api('/admin/users/' + encodeURIComponent(delUser.dataset.userDelete), { method: 'DELETE' });
+          loadUsers(state.userPage);
+        } catch (error) { alert(error.message); }
+      }
+      const delSuggestion = event.target.closest('[data-suggestion-delete]');
+      if (delSuggestion && confirm('Delete suggestion?')) {
+        try {
+          await api('/admin/suggestions/' + encodeURIComponent(delSuggestion.dataset.suggestionDelete), { method: 'DELETE' });
+          loadSuggestions();
+        } catch (error) { alert(error.message); }
+      }
+      if (event.target.closest('[data-close-drawer]')) {
+        closeDrawer();
+      }
+      if (event.target.closest('#savePasswordBtn')) updatePassword();
+      if (event.target.closest('#revokeSessionsBtn')) revokeSessions();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && $('#userDrawer').classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    document.addEventListener('change', async event => {
+      const role = event.target.closest('.role-select');
+      if (role && role.value) {
+        if (!confirm('Set ' + role.dataset.userName + ' to ' + role.value + '?')) {
+          role.value = '';
+          return;
+        }
+        try {
+          await api('/admin/users/' + encodeURIComponent(role.dataset.userId) + '/role', { method: 'PATCH', body: JSON.stringify({ role: role.value }) });
+          loadUsers(state.userPage);
+        } catch (error) {
+          alert(error.message);
+          loadUsers(state.userPage);
+        }
+      }
+      const suggestion = event.target.closest('[data-suggestion-status]');
+      if (suggestion) {
+        try {
+          await api('/admin/suggestions/' + encodeURIComponent(suggestion.dataset.suggestionStatus) + '/status', { method: 'PATCH', body: JSON.stringify({ status: suggestion.value }) });
+        } catch (error) {
+          alert(error.message);
+          loadSuggestions();
+        }
+      }
+      if (event.target.closest('#suggestionFilter')) loadSuggestions();
+      if (event.target.closest('#socialDate')) renderSocialPlan();
+    });
+
+    $('#userSearch').addEventListener('keydown', event => {
+      if (event.key === 'Enter') loadUsers(1);
+    });
+
+    init();
+  </script>
+</body>
+</html>

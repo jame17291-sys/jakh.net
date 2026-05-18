@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <script>location.replace('play.html');</script>
+  <meta http-equiv="refresh" content="0; url=play.html"/>
+  <meta name="theme-color" content="#0b1020"/>
+  <meta name="description" content="Play Diplomacy Lite on JAKH Riddles. Command armies, issue orders, control territories. 2-player simultaneous strategy."/>
+  <title>Diplomacy Lite | JAKH Riddles</title>
+  <link rel="preload" href="styles.css?v=1778122800" as="style"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/diplomacy"/>
+  <meta name="robots" content="noindex,follow" />
+  <meta property="og:title" content="Diplomacy Lite | JAKH Riddles"/><meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/diplomacy"/><meta property="og:image" content="https://jakh.net/assets/og-image.webp"/>
+  <meta property="og:site_name" content="JAKH Riddles"/>
+  <link rel="stylesheet" href="styles.css?v=1778122800"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+    <script defer src="analytics.js?v=1778122800"></script>
+  <style>
+    /* scoped diplomacy styles */
+    :root {
+      --panel: rgba(28,22,38,.9);
+      --panel-strong: rgba(28,22,38,.99);
+      --accent: #E8613C;
+      --gilt: #C9A227;
+      --easy: #48d597;
+      --text: #F0E8D8;
+      --muted: rgba(240,232,216,.56);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --line-strong: rgba(246,239,224,.15);
+      --danger: #ff7a8a;
+      --p2-color: #4A90D9;
+    }
+
+    #diplomacySection {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Status */
+    #dip-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--panel-strong);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+    }
+
+    #dip-turn-label {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    #dip-phase-label {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--gilt);
+    }
+
+    /* Score */
+    #dip-score-bar {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.25rem;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+    }
+
+    .score-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .score-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .score-dot.p1 { background: var(--accent); }
+    .score-dot.p2 { background: var(--p2-color); }
+
+    .score-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .score-count.p1 { color: var(--accent); }
+    .score-count.p2 { color: var(--p2-color); }
+
+    .score-target {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    #dip-win-banner {
+      display: none;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, var(--gilt), #a07e1a);
+      border-radius: var(--radius);
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      color: #111;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Map grid */
+    #dip-map {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .dip-territory {
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      border: 2px solid var(--line-strong);
+      position: relative;
+      cursor: default;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      min-height: 80px;
+      background: var(--panel);
+      user-select: none;
+    }
+
+    .dip-territory.neutral { background: var(--panel); }
+    .dip-territory.owner-p1 { border-color: var(--accent); background: rgba(232,97,60,0.15); }
+    .dip-territory.owner-p2 { border-color: var(--p2-color); background: rgba(74,144,217,0.15); }
+
+    .dip-territory.selected-unit {
+      box-shadow: 0 0 0 2px var(--gilt), 0 0 14px rgba(201,162,39,0.45);
+      border-color: var(--gilt) !important;
+    }
+
+    .dip-territory.valid-target {
+      cursor: pointer;
+      border-color: var(--easy) !important;
+      background: rgba(72,213,151,0.10) !important;
+    }
+    .dip-territory.valid-target:hover { transform: translateY(-2px); }
+
+    .dip-territory.has-clickable-unit { cursor: pointer; }
+    .dip-territory.has-clickable-unit:hover { transform: translateY(-1px); }
+
+    .terr-name {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--text);
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .terr-units {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      min-height: 1.2rem;
+    }
+
+    .unit-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: 700;
+    }
+
+    .unit-dot.p1 { background: var(--accent); }
+    .unit-dot.p2 { background: var(--p2-color); }
+    .unit-dot.ordered { opacity: 0.55; }
+
+    .terr-order-badge {
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gilt);
+      background: rgba(0,0,0,0.5);
+      border-radius: 4px;
+      padding: 1px 4px;
+      max-width: 80px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .terr-capital {
+      position: absolute;
+      bottom: 4px;
+      right: 6px;
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    /* Order panel */
+    #dip-order-panel {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    #dip-order-panel h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    #dip-order-hint {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      min-height: 1.2rem;
+    }
+
+    #dip-p1-orders {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .order-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line-strong);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text);
+    }
+    .order-chip .order-icon { font-size: 0.85rem; }
+    .order-chip button {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 0 0.2rem;
+    }
+
+    /* Actions */
+    #dip-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .dip-btn {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .dip-btn:active { transform: scale(0.97); }
+    .dip-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,0.1); color: var(--text); border: 1px solid var(--line-strong); }
+    .btn-gold { background: var(--gilt); color: #111; }
+    .btn-easy { background: var(--easy); color: #111; }
+    .btn-danger { background: rgba(255,122,138,0.2); color: var(--danger); border: 1px solid var(--danger); }
+
+    /* Resolution animation */
+    .dip-territory.resolving {
+      animation: pulse-resolve 0.5s ease;
+    }
+
+    @keyframes pulse-resolve {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Log */
+    #dip-log {
+      background: var(--panel-strong);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      max-height: 140px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0.2rem;
+    }
+
+    .log-entry {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .log-entry.log-action { color: var(--easy); }
+    .log-entry.log-ai { color: var(--p2-color); }
+    .log-entry.log-resolve { color: var(--gilt); }
+    .log-entry.log-win { color: var(--gilt); font-weight: 700; }
+    .log-entry.log-bounce { color: var(--danger); }
+
+    @media (max-width: 680px) {
+      #dip-map { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .dip-territory { padding: 0.55rem; min-height: 68px; }
+      .terr-name { font-size: 0.7rem; }
+    }
+
+    @media (max-width: 440px) {
+      #dip-map { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body data-page="game">
+  <a href="#top" class="skip-link">Skip to main content</a>
+
+  <header class="site-header shell">
+    <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+      <picture>
+        <source srcset="assets/logo.webp" type="image/webp"/>
+        <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+    <nav class="header-actions">
+      <a class="ghost-btn" href="index.html">Home</a>
+      <a class="ghost-btn" href="play.html">&#8592; Games</a>
+    </nav>
+    <div class="header-selects">
+      <label>
+        <span>Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" style="padding-bottom:1rem;">
+      <div class="hero-copy">
+        <p class="eyebrow">Strategy · Area Control</p>
+        <h1>Diplomacy Lite</h1>
+        <p class="hero-text">Command armies, issue simultaneous orders, resolve conflicts. Control 7 of 12 territories to win.</p>
+      </div>
+    </section>
+
+    <section class="shell section-block" id="diplomacySection">
+      <!-- Status -->
+      <div id="dip-status-bar">
+        <span id="dip-turn-label">Turn 1</span>
+        <span id="dip-phase-label">Orders Phase</span>
+      </div>
+
+      <!-- Score -->
+      <div id="dip-score-bar">
+        <div class="score-item">
+          <div class="score-dot p1"></div>
+          <span>Player 1</span>
+          <span class="score-count p1" id="score-p1">3</span>
+        </div>
+        <span class="score-target">First to 7 wins</span>
+        <div class="score-item">
+          <div class="score-dot p2"></div>
+          <span>AI (P2)</span>
+          <span class="score-count p2" id="score-p2">3</span>
+        </div>
+      </div>
+
+      <div id="dip-win-banner"></div>
+
+      <!-- Map -->
+      <div id="dip-map" role="grid" aria-label="Diplomacy map"></div>
+
+      <!-- Order panel -->
+      <div id="dip-order-panel">
+        <h3>Your Orders (Player 1)</h3>
+        <div id="dip-order-hint">Click one of your armies, then click a target territory to move — or use Hold.</div>
+        <div id="dip-p1-orders"></div>
+      </div>
+
+      <!-- Actions -->
+      <div id="dip-actions">
+        <button class="dip-btn btn-secondary" id="btn-hold" onclick="dipUI.holdSelected()" disabled> Hold Selected</button>
+        <button class="dip-btn btn-secondary" id="btn-support" onclick="dipUI.supportSelected()" disabled> Support (hold)</button>
+        <button class="dip-btn btn-secondary" id="btn-cancel-select" onclick="dipUI.cancelSelect()" disabled>✕ Deselect</button>
+        <button class="dip-btn btn-easy" id="btn-resolve" onclick="dipUI.resolve()" disabled> Resolve Orders</button>
+        <button class="dip-btn btn-danger" id="btn-restart" onclick="dipUI.restart()" style="margin-left:auto;">↺ Restart</button>
+      </div>
+
+      <!-- Log -->
+      <div id="dip-log" aria-live="polite" aria-label="Game log"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy">All rights reserved to JAKH 2026</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Engine -->
+  <script id="diplomacy-engine">
+  const DiplomacyEngine = (() => {
+
+    // Territory definitions
+    const TERRITORY_DEFS = [
+      { id: 'NORTH',      name: 'North',      adj: ['COAST','VALLEY','MOUNTAINS'] },
+      { id: 'COAST',      name: 'Coast',       adj: ['NORTH','HARBOR','PLAINS'] },
+      { id: 'VALLEY',     name: 'Valley',      adj: ['NORTH','PLAINS','FOREST'] },
+      { id: 'MOUNTAINS',  name: 'Mountains',   adj: ['NORTH','DESERT','CROSSROADS'] },
+      { id: 'PLAINS',     name: 'Plains',      adj: ['COAST','VALLEY','RIVER','CROSSROADS'] },
+      { id: 'RIVER',      name: 'River',       adj: ['PLAINS','HARBOR','CAPITAL-A'] },
+      { id: 'FOREST',     name: 'Forest',      adj: ['VALLEY','CAPITAL-B','CROSSROADS'] },
+      { id: 'DESERT',     name: 'Desert',      adj: ['MOUNTAINS','CAPITAL-B'] },
+      { id: 'HARBOR',     name: 'Harbor',      adj: ['COAST','RIVER'] },
+      { id: 'CAPITAL-A',  name: 'Capital A',   adj: ['RIVER'], capital: 'p1' },
+      { id: 'CAPITAL-B',  name: 'Capital B',   adj: ['FOREST','DESERT'], capital: 'p2' },
+      { id: 'CROSSROADS', name: 'Crossroads',  adj: ['MOUNTAINS','PLAINS','FOREST'] },
+    ];
+
+    // Setup
+    const INITIAL_OWNERSHIP = {
+      'CAPITAL-A': 'p1', 'COAST': 'p1', 'HARBOR': 'p1',
+      'CAPITAL-B': 'p2', 'MOUNTAINS': 'p2', 'DESERT': 'p2',
+    };
+
+    const INITIAL_UNITS = [
+      { territory: 'CAPITAL-A', owner: 'p1' },
+      { territory: 'CAPITAL-A', owner: 'p1' },
+      { territory: 'COAST',     owner: 'p1' },
+      { territory: 'CAPITAL-B', owner: 'p2' },
+      { territory: 'CAPITAL-B', owner: 'p2' },
+      { territory: 'MOUNTAINS', owner: 'p2' },
+    ];
+
+    function initState() {
+      const territories = TERRITORY_DEFS.map(td => ({
+        id: td.id,
+        name: td.name,
+        adj: [...td.adj],
+        capital: td.capital || null,
+        owner: INITIAL_OWNERSHIP[td.id] || null,
+        units: [],
+      }));
+
+      // Place units
+      for (const u of INITIAL_UNITS) {
+        const t = territories.find(t => t.id === u.territory);
+        t.units.push({ owner: u.owner, type: 'army', id: genId() });
+      }
+
+      return {
+        territories,
+        turn: 1,
+        phase: 'orders',
+        orders: { p1: [], p2: [] },
+        score: { p1: 3, p2: 3 },
+        status: 'playing',
+        log: [],
+      };
+    }
+
+    let _idCounter = 1;
+    function genId() { return 'u' + (_idCounter++); }
+
+    // ---- Order validation ----
+
+    function getTerritory(state, id) {
+      return state.territories.find(t => t.id === id);
+    }
+
+    function areAdjacent(state, idA, idB) {
+      const t = getTerritory(state, idA);
+      return t && t.adj.includes(idB);
+    }
+
+    function getTerritoryUnits(state, terrId, owner) {
+      const t = getTerritory(state, terrId);
+      if (!t) return [];
+      return owner ? t.units.filter(u => u.owner === owner) : t.units;
+    }
+
+    function getOrderForUnit(orders, unitId) {
+      return orders.find(o => o.unitId === unitId) || null;
+    }
+
+    function issueOrder(state, player, order) {
+      // order: { unitId, unitTerritory, type: 'move'|'hold'|'support', target: terrId|null, supportOf: unitId|null }
+      const newState = deepClone(state);
+      // Remove existing order for this unit
+      newState.orders[player] = newState.orders[player].filter(o => o.unitId !== order.unitId);
+      newState.orders[player].push(order);
+      return newState;
+    }
+
+    // ---- Resolution ----
+
+    function resolveOrders(state) {
+      const newState = deepClone(state);
+      const msgs = [];
+
+      // Build move map: from -> {unitId, owner, to}
+      const moves = [];
+      const holds = [];
+      const supports = {};
+
+      for (const player of ['p1','p2']) {
+        for (const order of newState.orders[player]) {
+          if (order.type === 'move') {
+            moves.push({ unitId: order.unitId, owner: player, from: order.unitTerritory, to: order.target });
+          } else if (order.type === 'hold') {
+            holds.push({ unitId: order.unitId, owner: player, at: order.unitTerritory });
+          } else if (order.type === 'support') {
+            // support a move or hold at a territory
+            const key = order.target;
+            if (!supports[key]) supports[key] = { p1: 0, p2: 0 };
+            supports[key][player] = (supports[key][player] || 0) + 1;
+          }
+        }
+      }
+
+      // Units without orders default to hold
+      for (const terr of newState.territories) {
+        for (const unit of terr.units) {
+          const hasOrder = [...newState.orders.p1, ...newState.orders.p2].some(o => o.unitId === unit.id);
+          if (!hasOrder) {
+            holds.push({ unitId: unit.id, owner: unit.owner, at: terr.id });
+          }
+        }
+      }
+
+      // Resolve moves
+      // Group moves by destination
+      const byDest = {};
+      for (const mv of moves) {
+        if (!byDest[mv.to]) byDest[mv.to] = [];
+        byDest[mv.to].push(mv);
+      }
+
+      const successful = new Set();
+      const bounced = new Set();
+
+      for (const dest of Object.keys(byDest)) {
+        const contenders = byDest[dest];
+        const destTerr = getTerritory(newState, dest);
+
+        // Compute strength: base 1 + support toward this dest
+        const strengths = contenders.map(mv => {
+          const sup = (supports[dest] && supports[dest][mv.owner]) || 0;
+          return { ...mv, strength: 1 + sup };
+        });
+
+        // Also check defender strength (hold/no-order unit in dest)
+        const defenderUnits = destTerr.units;
+        let defenderStrength = 0;
+        for (const du of defenderUnits) {
+          // Only count as defender if not trying to move out
+          const isMovingOut = moves.some(m => m.unitId === du.id && m.from === dest);
+          if (!isMovingOut) {
+            const sup = (supports[dest] && supports[dest][du.owner]) || 0;
+            defenderStrength = Math.max(defenderStrength, 1 + sup);
+          }
+        }
+
+        if (contenders.length === 1) {
+          const mv = strengths[0];
+          // Check defender
+          if (defenderUnits.length > 0 && defenderStrength >= mv.strength) {
+            bounced.add(mv.unitId);
+            msgs.push(`${mv.owner.toUpperCase()} army from ${mv.from} bounced off ${dest} (defender held).`);
+          } else {
+            successful.add(mv.unitId);
+          }
+        } else {
+          // Multiple contenders — highest strength wins, tie = all bounce
+          const maxStr = Math.max(...strengths.map(s => s.strength));
+          const winners = strengths.filter(s => s.strength === maxStr);
+          if (winners.length > 1) {
+            for (const mv of strengths) { bounced.add(mv.unitId); }
+            msgs.push(`Standoff at ${dest} — all attackers bounce.`);
+          } else {
+            const winner = winners[0];
+            // Winner must beat defender too
+            if (defenderStrength >= winner.strength) {
+              for (const mv of strengths) { bounced.add(mv.unitId); }
+              msgs.push(`Standoff at ${dest} — defender held.`);
+            } else {
+              successful.add(winner.unitId);
+              for (const mv of strengths) { if (mv.unitId !== winner.unitId) bounced.add(mv.unitId); }
+              msgs.push(`${winner.owner.toUpperCase()} army wins contest at ${dest} (strength ${winner.strength}).`);
+            }
+          }
+        }
+      }
+
+      // Apply successful moves
+      for (const mv of moves) {
+        if (!successful.has(mv.unitId)) continue;
+        // Find unit in from territory
+        const fromTerr = getTerritory(newState, mv.from);
+        const toTerr = getTerritory(newState, mv.to);
+        const unitIdx = fromTerr.units.findIndex(u => u.id === mv.unitId);
+        if (unitIdx === -1) continue;
+        const unit = fromTerr.units.splice(unitIdx, 1)[0];
+        // Dislodge enemy units (move them back — simplified: remove dislodged unit if only one)
+        const enemyInDest = toTerr.units.filter(u => u.owner !== unit.owner);
+        if (enemyInDest.length > 0) {
+          // Dislodge: remove enemy unit (simplified — in full Diplomacy they retreat)
+          for (const eu of enemyInDest) {
+            const ei = toTerr.units.findIndex(u => u.id === eu.id);
+            if (ei !== -1) toTerr.units.splice(ei, 1);
+            msgs.push(`${eu.owner.toUpperCase()} army dislodged from ${mv.to}!`);
+          }
+        }
+        toTerr.units.push(unit);
+        // Change ownership
+        toTerr.owner = unit.owner;
+        msgs.push(`${unit.owner.toUpperCase()} moves from ${mv.from} → ${mv.to}.`);
+      }
+
+      // Update ownership for territories where units end up
+      for (const terr of newState.territories) {
+        if (terr.units.length > 0) {
+          // If all units are same owner, set ownership
+          const owners = [...new Set(terr.units.map(u => u.owner))];
+          if (owners.length === 1) terr.owner = owners[0];
+        }
+        // If territory has no units and was neutral, stays owner (last controller)
+      }
+
+      // Score: count territories each player owns
+      newState.score.p1 = newState.territories.filter(t => t.owner === 'p1').length;
+      newState.score.p2 = newState.territories.filter(t => t.owner === 'p2').length;
+
+      // Status
+      newState.status = getStatus(newState);
+
+      // Next turn
+      newState.turn += 1;
+      newState.phase = 'orders';
+      newState.orders = { p1: [], p2: [] };
+      newState.log = [...msgs.map(m => ({msg: m, type: 'resolve'})), ...newState.log];
+
+      return { state: newState, msgs };
+    }
+
+    function getStatus(state) {
+      if (state.score.p1 >= 7) return 'p1-wins';
+      if (state.score.p2 >= 7) return 'p2-wins';
+      return 'playing';
+    }
+
+    function getAIOrders(state) {
+      // Simple AI for p2: move armies toward unowned/p1 territories; fall back to hold
+      const orders = [];
+      const p2Units = [];
+
+      for (const terr of state.territories) {
+        for (const unit of terr.units) {
+          if (unit.owner === 'p2') {
+            p2Units.push({ unit, terr });
+          }
+        }
+      }
+
+      for (const { unit, terr } of p2Units) {
+        // Find best adjacent territory to move to
+        let bestTarget = null;
+        let bestScore = -999;
+
+        for (const adjId of terr.adj) {
+          const adjTerr = getTerritory(state, adjId);
+          // Score: prefer unowned > p1-owned, avoid p2-owned unless it's empty
+          let score = 0;
+          if (adjTerr.owner === 'p1') score = 10;
+          else if (adjTerr.owner === null) score = 5;
+          else score = -1; // p2 territory, no point
+
+          // Check if another p2 unit is already trying to move there (avoid collision)
+          const alreadyTargeted = orders.some(o => o.type === 'move' && o.target === adjId);
+          if (alreadyTargeted) score -= 8;
+
+          if (score > bestScore) {
+            bestScore = score;
+            bestTarget = adjId;
+          }
+        }
+
+        if (bestTarget && bestScore > 0) {
+          orders.push({
+            unitId: unit.id,
+            unitTerritory: terr.id,
+            type: 'move',
+            target: bestTarget,
+          });
+        } else {
+          orders.push({
+            unitId: unit.id,
+            unitTerritory: terr.id,
+            type: 'hold',
+            target: null,
+          });
+        }
+      }
+
+      return orders;
+    }
+
+    function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
+
+    return {
+      initState,
+      issueOrder,
+      resolveOrders,
+      getStatus,
+      getAIOrders,
+      getTerritory,
+      areAdjacent,
+      TERRITORY_DEFS,
+    };
+  })();
+  </script>
+
+  <!-- UI -->
+  <script id="diplomacy-ui">
+  const dipUI = (() => {
+    const E = DiplomacyEngine;
+    let state = E.initState();
+    let selectedUnit = null; // { unitId, terrId }
+    let resolving = false;
+
+    function $(id) { return document.getElementById(id); }
+
+    function log(msg, cls='') {
+      const el = document.createElement('div');
+      el.className = 'log-entry' + (cls ? ' ' + cls : '');
+      el.textContent = msg;
+      $('dip-log').prepend(el);
+    }
+
+    function render() {
+      const s = state;
+
+      // Status bar
+      $('dip-turn-label').textContent = `Turn ${s.turn}`;
+      $('dip-phase-label').textContent = s.status === 'playing'
+        ? (s.phase === 'orders' ? 'Orders Phase — Issue your commands' : 'Resolution…')
+        : (s.status === 'p1-wins' ? ' Player 1 Wins!' : ' AI Wins!');
+
+      // Score
+      $('score-p1').textContent = s.score.p1;
+      $('score-p2').textContent = s.score.p2;
+
+      // Win banner
+      const wb = $('dip-win-banner');
+      if (s.status !== 'playing') {
+        wb.style.display = 'block';
+        wb.textContent = s.status === 'p1-wins'
+          ? ' Player 1 controls 7 territories — Victory!'
+          : ' AI (Player 2) controls 7 territories — Defeat!';
+      } else {
+        wb.style.display = 'none';
+      }
+
+      // Map
+      renderMap(s);
+
+      // Orders list
+      renderOrderList(s);
+
+      // Buttons
+      const hasOrders = s.orders.p1.length > 0;
+      $('btn-hold').disabled = !selectedUnit || s.status !== 'playing';
+      $('btn-support').disabled = !selectedUnit || s.status !== 'playing';
+      $('btn-cancel-select').disabled = !selectedUnit;
+      $('btn-resolve').disabled = s.status !== 'playing' || resolving;
+
+      // Hint
+      const hint = $('dip-order-hint');
+      if (selectedUnit) {
+        const t = E.getTerritory(state, selectedUnit.terrId);
+        hint.textContent = `Selected: ${t.name}. Click a highlighted territory to move, or use Hold/Support buttons.`;
+      } else if (s.status !== 'playing') {
+        hint.textContent = 'Game over.';
+      } else {
+        hint.textContent = 'Click one of your armies () to select it, then click a target to move.';
+      }
+    }
+
+    function renderMap(s) {
+      const mapEl = $('dip-map');
+      mapEl.innerHTML = '';
+
+      for (const terr of s.territories) {
+        const card = document.createElement('div');
+        card.className = 'dip-territory';
+        card.setAttribute('role', 'gridcell');
+        card.setAttribute('aria-label', `${terr.name}, ${terr.owner || 'neutral'}`);
+        card.dataset.terrId = terr.id;
+
+        // Owner class
+        if (terr.owner === 'p1') card.classList.add('owner-p1');
+        else if (terr.owner === 'p2') card.classList.add('owner-p2');
+        else card.classList.add('neutral');
+
+        // Selected unit highlight
+        if (selectedUnit && selectedUnit.terrId === terr.id) {
+          card.classList.add('selected-unit');
+        }
+
+        // Valid move target
+        if (selectedUnit && selectedUnit.terrId !== terr.id) {
+          if (E.areAdjacent(s, selectedUnit.terrId, terr.id)) {
+            card.classList.add('valid-target');
+          }
+        }
+
+        // Clickable if has p1 unit and no selected unit, or is a valid target
+        const hasP1Unit = terr.units.some(u => u.owner === 'p1');
+        if (!selectedUnit && hasP1Unit && s.status === 'playing') {
+          card.classList.add('has-clickable-unit');
+        }
+
+        card.addEventListener('click', () => onTerrClick(terr.id));
+
+        // Name
+        const nameEl = document.createElement('div');
+        nameEl.className = 'terr-name';
+        nameEl.textContent = terr.name;
+        card.appendChild(nameEl);
+
+        // Units
+        const unitsEl = document.createElement('div');
+        unitsEl.className = 'terr-units';
+        for (const unit of terr.units) {
+          const dot = document.createElement('div');
+          dot.className = `unit-dot ${unit.owner}`;
+          dot.title = `${unit.owner === 'p1' ? 'Player 1' : 'AI'} army`;
+          dot.textContent = unit.owner === 'p1' ? '' : '';
+          dot.style.background = 'none';
+          dot.style.fontSize = '14px';
+          dot.style.width = 'auto';
+          dot.style.height = 'auto';
+          dot.style.border = 'none';
+          // Dim if ordered
+          const ordered = [...s.orders.p1, ...s.orders.p2].some(o => o.unitId === unit.id);
+          if (ordered) dot.style.opacity = '0.5';
+          unitsEl.appendChild(dot);
+        }
+        card.appendChild(unitsEl);
+
+        // Order badge
+        const unitIds = terr.units.map(u => u.id);
+        const relatedOrder = [...s.orders.p1, ...s.orders.p2].find(o => unitIds.includes(o.unitId));
+        if (relatedOrder) {
+          const badge = document.createElement('div');
+          badge.className = 'terr-order-badge';
+          if (relatedOrder.type === 'move') {
+            const tgt = E.getTerritory(s, relatedOrder.target);
+            badge.textContent = `→ ${tgt ? tgt.name : '?'}`;
+          } else if (relatedOrder.type === 'hold') {
+            badge.textContent = 'HOLD';
+          } else if (relatedOrder.type === 'support') {
+            badge.textContent = 'SUP';
+          }
+          card.appendChild(badge);
+        }
+
+        // Capital marker
+        if (terr.capital) {
+          const cap = document.createElement('div');
+          cap.className = 'terr-capital';
+          cap.textContent = terr.capital === 'p1' ? '★' : '★';
+          card.appendChild(cap);
+        }
+
+        mapEl.appendChild(card);
+      }
+    }
+
+    function renderOrderList(s) {
+      const listEl = $('dip-p1-orders');
+      listEl.innerHTML = '';
+      if (s.orders.p1.length === 0) {
+        const empty = document.createElement('div');
+        empty.style.cssText = 'font-size:0.8rem;color:var(--muted);font-family:Instrument Sans,sans-serif;';
+        empty.textContent = 'No orders yet. All unordered units will hold.';
+        listEl.appendChild(empty);
+        return;
+      }
+      for (const order of s.orders.p1) {
+        const chip = document.createElement('div');
+        chip.className = 'order-chip';
+        const fromTerr = s.territories.find(t => t.units.some(u => u.id === order.unitId));
+        const fromName = fromTerr ? fromTerr.name : '?';
+
+        let text = '';
+        let icon = '';
+        if (order.type === 'move') {
+          const tgt = E.getTerritory(s, order.target);
+          text = `${fromName} → ${tgt ? tgt.name : '?'}`;
+          icon = '';
+        } else if (order.type === 'hold') {
+          text = `${fromName}: HOLD`;
+          icon = '';
+        } else if (order.type === 'support') {
+          text = `${fromName}: SUPPORT at ${order.target}`;
+          icon = '';
+        }
+
+        chip.innerHTML = `<span class="order-icon">${icon}</span><span>${text}</span>`;
+
+        const del = document.createElement('button');
+        del.textContent = '✕';
+        del.title = 'Remove order';
+        del.addEventListener('click', () => {
+          state = { ...state, orders: { ...state.orders, p1: state.orders.p1.filter(o => o.unitId !== order.unitId) } };
+          render();
+        });
+        chip.appendChild(del);
+        listEl.appendChild(chip);
+      }
+    }
+
+    function onTerrClick(terrId) {
+      if (state.status !== 'playing') return;
+
+      const terr = E.getTerritory(state, terrId);
+
+      // No unit selected — try to select a p1 unit
+      if (!selectedUnit) {
+        const p1Unit = terr.units.find(u => u.owner === 'p1');
+        if (p1Unit) {
+          selectedUnit = { unitId: p1Unit.id, terrId };
+          render();
+        }
+        return;
+      }
+
+      // Unit selected — if clicking same territory, deselect
+      if (selectedUnit.terrId === terrId) {
+        selectedUnit = null;
+        render();
+        return;
+      }
+
+      // Check if valid move target
+      if (E.areAdjacent(state, selectedUnit.terrId, terrId)) {
+        state = E.issueOrder(state, 'p1', {
+          unitId: selectedUnit.unitId,
+          unitTerritory: selectedUnit.terrId,
+          type: 'move',
+          target: terrId,
+        });
+        log(`P1: ${E.getTerritory(state, selectedUnit.terrId).name} → ${terr.name}`, 'log-action');
+        selectedUnit = null;
+        render();
+        return;
+      }
+
+      // Clicked non-adjacent — try to select a different p1 unit there
+      const p1Unit = terr.units.find(u => u.owner === 'p1');
+      if (p1Unit) {
+        selectedUnit = { unitId: p1Unit.id, terrId };
+        render();
+      } else {
+        selectedUnit = null;
+        render();
+      }
+    }
+
+    function holdSelected() {
+      if (!selectedUnit) return;
+      state = E.issueOrder(state, 'p1', {
+        unitId: selectedUnit.unitId,
+        unitTerritory: selectedUnit.terrId,
+        type: 'hold',
+        target: null,
+      });
+      const terrName = E.getTerritory(state, selectedUnit.terrId).name;
+      log(`P1: ${terrName} HOLD`, 'log-action');
+      selectedUnit = null;
+      render();
+    }
+
+    function supportSelected() {
+      if (!selectedUnit) return;
+      // Support = hold with support order for the territory (simplified: support own position)
+      state = E.issueOrder(state, 'p1', {
+        unitId: selectedUnit.unitId,
+        unitTerritory: selectedUnit.terrId,
+        type: 'support',
+        target: selectedUnit.terrId,
+      });
+      const terrName = E.getTerritory(state, selectedUnit.terrId).name;
+      log(`P1: ${terrName} SUPPORT (hold)`, 'log-action');
+      selectedUnit = null;
+      render();
+    }
+
+    function cancelSelect() {
+      selectedUnit = null;
+      render();
+    }
+
+    function resolve() {
+      if (resolving || state.status !== 'playing') return;
+      resolving = true;
+      selectedUnit = null;
+
+      // Generate AI orders
+      const aiOrders = E.getAIOrders(state);
+      let s = { ...state };
+      for (const order of aiOrders) {
+        s = E.issueOrder(s, 'p2', order);
+      }
+      state = s;
+
+      // Log AI orders
+      for (const order of aiOrders) {
+        const fromTerr = state.territories.find(t => t.units.some(u => u.id === order.unitId));
+        if (order.type === 'move') {
+          const tgt = E.getTerritory(state, order.target);
+          log(`AI: ${fromTerr ? fromTerr.name : '?'} → ${tgt ? tgt.name : '?'}`, 'log-ai');
+        } else {
+          log(`AI: ${fromTerr ? fromTerr.name : '?'} HOLD`, 'log-ai');
+        }
+      }
+
+      render();
+
+      // Brief pause for animation feel, then resolve
+      setTimeout(() => {
+        const result = E.resolveOrders(state);
+        state = result.state;
+
+        for (const m of result.msgs) {
+          const cls = m.includes('bounce') || m.includes('Standoff') ? 'log-bounce'
+                    : m.includes('dislodged') ? 'log-bounce'
+                    : 'log-resolve';
+          log(m, cls);
+        }
+
+        resolving = false;
+        render();
+
+        if (state.status !== 'playing') {
+          log(state.status === 'p1-wins' ? ' Player 1 wins!' : ' AI wins!', 'log-win');
+        }
+      }, 500);
+    }
+
+    function restart() {
+      state = E.initState();
+      selectedUnit = null;
+      resolving = false;
+      $('dip-log').innerHTML = '';
+      log('New game started. Issue orders, then resolve.', 'log-action');
+      render();
+    }
+
+    // Init
+    log('Welcome to Diplomacy Lite! Click your armies to give orders.', 'log-action');
+    render();
+
+    return { holdSelected, supportSelected, cancelSelect, resolve, restart };
+  })();
+  </script>
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="auth"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+          </div>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+        </div>
+        <div id="authModalBody"></div>
+      </div>
+    </div>
+
+</body>
+</html>

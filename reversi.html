@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <script>
+    (function () {
+      var query = location.search ? '&' + location.search.slice(1) : '';
+      location.replace('game.html?game=reversi' + query + location.hash);
+    })();
+  </script>
+  <meta http-equiv="refresh" content="0; url=game.html?game=reversi"/>
+  <meta name="theme-color" content="#0b1020"/>
+  <meta name="description" content="Play Reversi (Othello) on JAKH Riddles. Classic disc-flipping strategy — vs computer or 2-player local."/>
+  <title>Reversi | JAKH Riddles</title>
+  <link rel="preload" href="styles.css?v=1778122800" as="style"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/reversi.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Reversi | JAKH Riddles"/>
+    <meta property="og:description" content="Play Reversi (Othello) on JAKH Riddles. Classic disc-flipping strategy — vs computer or 2-player local." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/reversi.html" />
+  <meta property="og:image" content="https://jakh.net/assets/og-image.webp"/>
+  <meta property="og:site_name" content="JAKH Riddles"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Reversi | JAKH Riddles"/>
+  <meta name="twitter:description" content="Play Reversi (Othello) on JAKH Riddles. Classic disc-flipping strategy — vs computer or 2-player local."/>
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
+  <link rel="stylesheet" href="styles.css?v=1778122800"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+    <script defer src="analytics.js?v=1778122800"></script>
+  <style>
+    /* ── Reversi scoped styles ── */
+    #reversiSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Controls row */
+    .rv-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .625rem;
+      justify-content: center;
+    }
+    .rv-btn {
+      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-size: .875rem;
+      font-weight: 600;
+      padding: .45rem 1.1rem;
+      border-radius: var(--radius-sm, 10px);
+      border: 2px solid var(--line-strong, rgba(246,239,224,.15));
+      background: var(--panel, rgba(28,22,38,.9));
+      color: var(--text, #F0E8D8);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+    .rv-btn:hover { background: var(--plum, #6B4E8C); border-color: var(--plum, #6B4E8C); }
+    .rv-btn.active { background: var(--accent, #E8613C); border-color: var(--accent, #E8613C); }
+
+    /* Score bar */
+    .rv-scorebar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-family: var(--font-display, "Fraunces", serif);
+      font-size: 1.1rem;
+      color: var(--text, #F0E8D8);
+    }
+    .rv-score-disc {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: .35rem;
+    }
+    .rv-score-disc.black { background: #13101a; border: 2px solid #444; }
+    .rv-score-disc.white { background: #F0E8D8; border: 2px solid #ccc; }
+    .rv-score-val { font-weight: 700; font-size: 1.3rem; }
+
+    /* Status text */
+    .rv-status {
+      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-size: .95rem;
+      color: var(--muted, rgba(240,232,216,.56));
+      min-height: 1.4em;
+      text-align: center;
+    }
+    .rv-status.highlight { color: var(--easy, #48d597); font-weight: 600; }
+
+    /* Board wrapper — enforces square + responsive size */
+    .rv-board-wrap {
+      width: min(480px, calc(100vw - 2rem));
+      aspect-ratio: 1;
+      border-radius: var(--radius, 16px);
+      overflow: hidden;
+      border: 3px solid var(--line-strong, rgba(246,239,224,.15));
+      box-shadow: 0 8px 40px rgba(0,0,0,.55);
+    }
+
+    /* 8×8 CSS grid */
+    .rv-board {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Individual cells */
+    .rv-cell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: filter .1s;
+    }
+    /* checkerboard: light = gilt-soft tint, dark = plum */
+    .rv-cell.light { background: color-mix(in srgb, var(--gilt, #C9A227) 18%, var(--bg, #13101a)); }
+    .rv-cell.dark  { background: var(--plum, #6B4E8C); }
+    .rv-cell:hover { filter: brightness(1.25); }
+    .rv-cell.no-interact { cursor: default; filter: none; }
+
+    /* Discs */
+    .rv-disc {
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform .18s cubic-bezier(.34,1.56,.64,1);
+    }
+    .rv-disc.black { background: #13101a; border: 2px solid #444; }
+    .rv-disc.white { background: #F0E8D8; border: 2px solid #ccc; }
+
+    /* Legal move indicator dot */
+    .rv-legal-dot {
+      width: 32%;
+      height: 32%;
+      border-radius: 50%;
+      background: rgba(72,213,151,.55);
+      pointer-events: none;
+    }
+
+    /* Flip animation */
+    @keyframes rv-flip {
+      0%   { transform: scaleX(1); }
+      50%  { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+    .rv-disc.flipping { animation: rv-flip .28s ease-in-out; }
+
+    /* Thinking overlay */
+    .rv-thinking {
+      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-size: .85rem;
+      color: var(--gilt, #C9A227);
+      min-height: 1.2em;
+    }
+  </style>
+</head>
+<body data-page="game">
+  <a href="#top" class="skip-link">Skip to main content</a>
+  <header class="site-header shell">
+    <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+      <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
+    </a>
+    <nav class="header-actions" aria-label="Quick actions">
+      <a class="ghost-btn" href="index.html">Home</a>
+      <a class="ghost-btn" href="play.html">&#8592; Games</a>
+    </nav>
+    <div class="header-selects">
+      <label><span>Language</span><select id="langSelect"><option value="en">English</option><option value="ar">العربية</option></select></label>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero shell" style="padding-bottom:1rem;">
+      <div class="hero-copy">
+        <p class="eyebrow">Strategy · Classic</p>
+        <h1>Reversi</h1>
+        <p class="hero-text">Flip your opponent's discs. Control the board. Classic Othello rules.</p>
+      </div>
+    </section>
+    <section class="shell section-block" id="reversiSection">
+      <!-- Rendered by reversi-ui script -->
+    </section>
+  </main>
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy">All rights reserved to JAKH 2026</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── ENGINE: pure logic, zero DOM ── -->
+  <script id="reversi-engine">
+  var ReversiEngine = (function() {
+    'use strict';
+
+    var DIRS = [
+      [-1,-1],[-1,0],[-1,1],
+      [ 0,-1],        [ 0,1],
+      [ 1,-1],[ 1,0],[ 1,1]
+    ];
+
+    function cloneBoard(board) {
+      return board.map(function(row) { return row.slice(); });
+    }
+
+    function newGame() {
+      var board = [];
+      for (var r = 0; r < 8; r++) {
+        board.push([null,null,null,null,null,null,null,null]);
+      }
+      board[3][3] = 'w'; board[3][4] = 'b';
+      board[4][3] = 'b'; board[4][4] = 'w';
+      return { board: board, turn: 'b' };
+    }
+
+    function opponent(color) {
+      return color === 'b' ? 'w' : 'b';
+    }
+
+    // Returns array of cells that would be flipped if color plays (row,col). Empty = illegal.
+    function flipsFor(board, row, col, color) {
+      if (board[row][col] !== null) return [];
+      var opp = opponent(color);
+      var flips = [];
+      for (var d = 0; d < DIRS.length; d++) {
+        var dr = DIRS[d][0], dc = DIRS[d][1];
+        var line = [];
+        var r = row + dr, c = col + dc;
+        while (r >= 0 && r < 8 && c >= 0 && c < 8 && board[r][c] === opp) {
+          line.push([r, c]);
+          r += dr; c += dc;
+        }
+        if (line.length > 0 && r >= 0 && r < 8 && c >= 0 && c < 8 && board[r][c] === color) {
+          flips = flips.concat(line);
+        }
+      }
+      return flips;
+    }
+
+    function getLegalMoves(state, color) {
+      var moves = [];
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (flipsFor(state.board, r, c, color).length > 0) {
+            moves.push([r, c]);
+          }
+        }
+      }
+      return moves;
+    }
+
+    function applyMove(state, row, col, color) {
+      var newBoard = cloneBoard(state.board);
+      var flips = flipsFor(newBoard, row, col, color);
+      newBoard[row][col] = color;
+      for (var i = 0; i < flips.length; i++) {
+        newBoard[flips[i][0]][flips[i][1]] = color;
+      }
+      // Determine next turn: opponent if they have moves, else same player, else null
+      var opp = opponent(color);
+      var nextTurn;
+      var newState = { board: newBoard, turn: opp };
+      if (getLegalMoves(newState, opp).length > 0) {
+        nextTurn = opp;
+      } else if (getLegalMoves(newState, color).length > 0) {
+        nextTurn = color;
+      } else {
+        nextTurn = null; // game over
+      }
+      return { board: newBoard, turn: nextTurn };
+    }
+
+    function countDiscs(board) {
+      var b = 0, w = 0;
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (board[r][c] === 'b') b++;
+          else if (board[r][c] === 'w') w++;
+        }
+      }
+      return { b: b, w: w };
+    }
+
+    function getStatus(state) {
+      if (state.turn !== null) return 'playing';
+      var counts = countDiscs(state.board);
+      if (counts.b > counts.w) return 'black-wins';
+      if (counts.w > counts.b) return 'white-wins';
+      return 'draw';
+    }
+
+    // ── Minimax with alpha-beta ──
+    // Positional weights — corners/edges are valuable
+    var WEIGHTS = [
+      [120,-20, 20,  5,  5, 20,-20,120],
+      [-20,-40, -5, -5, -5, -5,-40,-20],
+      [ 20, -5, 15,  3,  3, 15, -5, 20],
+      [  5, -5,  3,  3,  3,  3, -5,  5],
+      [  5, -5,  3,  3,  3,  3, -5,  5],
+      [ 20, -5, 15,  3,  3, 15, -5, 20],
+      [-20,-40, -5, -5, -5, -5,-40,-20],
+      [120,-20, 20,  5,  5, 20,-20,120]
+    ];
+
+    function evaluate(state, color) {
+      var opp = opponent(color);
+      var score = 0;
+      var counts = countDiscs(state.board);
+      // Disc count difference
+      score += (counts[color] - counts[opp]) * 2;
+      // Positional weight
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (state.board[r][c] === color) score += WEIGHTS[r][c];
+          else if (state.board[r][c] === opp) score -= WEIGHTS[r][c];
+        }
+      }
+      // Mobility
+      var myMoves = getLegalMoves(state, color).length;
+      var oppMoves = getLegalMoves(state, opp).length;
+      score += (myMoves - oppMoves) * 5;
+      return score;
+    }
+
+    function minimax(state, depth, alpha, beta, maximizing, rootColor) {
+      var status = getStatus(state);
+      if (depth === 0 || status !== 'playing') {
+        return evaluate(state, rootColor);
+      }
+      var currentColor = maximizing ? rootColor : opponent(rootColor);
+      var moves = getLegalMoves(state, currentColor);
+      if (moves.length === 0) {
+        // Must pass — flip maximizing
+        return minimax(state, depth - 1, alpha, beta, !maximizing, rootColor);
+      }
+      if (maximizing) {
+        var best = -Infinity;
+        for (var i = 0; i < moves.length; i++) {
+          var next = applyMove(state, moves[i][0], moves[i][1], currentColor);
+          var val = minimax(next, depth - 1, alpha, beta, false, rootColor);
+          if (val > best) best = val;
+          if (val > alpha) alpha = val;
+          if (beta <= alpha) break;
+        }
+        return best;
+      } else {
+        var best = Infinity;
+        for (var i = 0; i < moves.length; i++) {
+          var next = applyMove(state, moves[i][0], moves[i][1], currentColor);
+          var val = minimax(next, depth - 1, alpha, beta, true, rootColor);
+          if (val < best) best = val;
+          if (val < beta) beta = val;
+          if (beta <= alpha) break;
+        }
+        return best;
+      }
+    }
+
+    function getBestMove(state, color, depth) {
+      var moves = getLegalMoves(state, color);
+      if (moves.length === 0) return null;
+      var bestVal = -Infinity;
+      var bestMove = moves[0];
+      for (var i = 0; i < moves.length; i++) {
+        var next = applyMove(state, moves[i][0], moves[i][1], color);
+        var val = minimax(next, depth - 1, -Infinity, Infinity, false, color);
+        if (val > bestVal) {
+          bestVal = val;
+          bestMove = moves[i];
+        }
+      }
+      return bestMove;
+    }
+
+    return {
+      newGame: newGame,
+      getLegalMoves: getLegalMoves,
+      applyMove: applyMove,
+      getStatus: getStatus,
+      getBestMove: getBestMove,
+      countDiscs: countDiscs
+    };
+  })();
+  </script>
+
+  <!-- ── UI: all DOM access ── -->
+  <script id="reversi-ui">
+  (function() {
+    'use strict';
+
+    var E = ReversiEngine;
+    var section = document.getElementById('reversiSection');
+
+    // ── Build DOM ──
+    section.innerHTML = [
+      '<div class="rv-controls">',
+        '<button class="rv-btn active" id="rvModeAI">vs Computer</button>',
+        '<button class="rv-btn" id="rvMode2P">2-Player</button>',
+        '<button class="rv-btn" id="rvNewGame">New Game</button>',
+      '</div>',
+      '<div class="rv-scorebar">',
+        '<span><span class="rv-score-disc black"></span><span id="rvScoreB" class="rv-score-val">2</span></span>',
+        '<span style="color:var(--muted)">vs</span>',
+        '<span><span class="rv-score-disc white"></span><span id="rvScoreW" class="rv-score-val">2</span></span>',
+      '</div>',
+      '<div class="rv-status" id="rvStatus">Black\'s turn</div>',
+      '<div class="rv-thinking" id="rvThinking"></div>',
+      '<div class="rv-board-wrap"><div class="rv-board" id="rvBoard"></div></div>'
+    ].join('');
+
+    var boardEl     = document.getElementById('rvBoard');
+    var statusEl    = document.getElementById('rvStatus');
+    var thinkingEl  = document.getElementById('rvThinking');
+    var scoreBlackEl = document.getElementById('rvScoreB');
+    var scoreWhiteEl = document.getElementById('rvScoreW');
+    var btnModeAI   = document.getElementById('rvModeAI');
+    var btnMode2P   = document.getElementById('rvMode2P');
+    var btnNewGame  = document.getElementById('rvNewGame');
+
+    // ── State ──
+    var gameState   = null;
+    var vsComputer  = true;
+    var playerColor = 'b'; // human is always black in AI mode
+    var aiThinking  = false;
+    var cells       = []; // 8×8 array of <div> elements
+
+    // ── Build board cells ──
+    (function buildGrid() {
+      cells = [];
+      boardEl.innerHTML = '';
+      for (var r = 0; r < 8; r++) {
+        cells.push([]);
+        for (var c = 0; c < 8; c++) {
+          var cell = document.createElement('div');
+          cell.className = 'rv-cell ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+          cell.dataset.r = r;
+          cell.dataset.c = c;
+          cell.addEventListener('click', onCellClick);
+          boardEl.appendChild(cell);
+          cells[r].push(cell);
+        }
+      }
+    })();
+
+    function startGame() {
+      aiThinking = false;
+      gameState = E.newGame();
+      render();
+    }
+
+    function render() {
+      if (!gameState) return;
+      var state   = gameState;
+      var status  = E.getStatus(state);
+      var counts  = E.countDiscs(state.board);
+      var legalSet = {};
+
+      scoreBlackEl.textContent = counts.b;
+      scoreWhiteEl.textContent = counts.w;
+
+      // Legal moves only relevant while playing
+      if (status === 'playing' && state.turn !== null) {
+        var moves = E.getLegalMoves(state, state.turn);
+        moves.forEach(function(m) { legalSet[m[0] + ',' + m[1]] = true; });
+      }
+
+      // Render each cell
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          var cell = cells[r][c];
+          var disc = state.board[r][c];
+          cell.innerHTML = '';
+          cell.classList.remove('no-interact');
+
+          if (disc) {
+            var d = document.createElement('div');
+            d.className = 'rv-disc ' + (disc === 'b' ? 'black' : 'white');
+            cell.appendChild(d);
+          } else if (legalSet[r + ',' + c] && !aiThinking) {
+            var dot = document.createElement('div');
+            dot.className = 'rv-legal-dot';
+            cell.appendChild(dot);
+          }
+
+          // Disable clicking during AI turn or game over
+          var isAITurn = vsComputer && state.turn !== playerColor;
+          if (aiThinking || status !== 'playing' || isAITurn) {
+            cell.classList.add('no-interact');
+          }
+        }
+      }
+
+      // Status text
+      statusEl.className = 'rv-status';
+      if (status === 'playing') {
+        var turnLabel = state.turn === 'b' ? 'Black' : 'White';
+        if (vsComputer) {
+          statusEl.textContent = state.turn === playerColor ? 'Your turn (Black)' : 'Computer thinking…';
+        } else {
+          statusEl.textContent = turnLabel + '\'s turn';
+        }
+      } else {
+        statusEl.classList.add('highlight');
+        if (status === 'black-wins') statusEl.textContent = vsComputer ? 'You win! ⬤ Black wins.' : '⬤ Black wins!';
+        else if (status === 'white-wins') statusEl.textContent = vsComputer ? 'Computer wins. ○ White wins.' : '○ White wins!';
+        else statusEl.textContent = 'It\'s a draw!';
+        thinkingEl.textContent = '';
+      }
+    }
+
+    function onCellClick(e) {
+      if (!gameState || aiThinking) return;
+      var status = E.getStatus(gameState);
+      if (status !== 'playing') return;
+
+      var r = parseInt(this.dataset.r, 10);
+      var c = parseInt(this.dataset.c, 10);
+      var turn = gameState.turn;
+
+      // In AI mode, only allow human's colour
+      if (vsComputer && turn !== playerColor) return;
+
+      var moves = E.getLegalMoves(gameState, turn);
+      var legal = moves.some(function(m) { return m[0] === r && m[1] === c; });
+      if (!legal) return;
+
+      gameState = E.applyMove(gameState, r, c, turn);
+      render();
+
+      // Animate flipped discs
+      animateFlips(r, c, turn);
+
+      // AI move
+      if (vsComputer && E.getStatus(gameState) === 'playing' && gameState.turn !== playerColor) {
+        scheduleAI();
+      }
+    }
+
+    function animateFlips(row, col, color) {
+      // Find all discs of color that changed (simplified: flash all color discs)
+      // We add a CSS animation class briefly to all newly-placed same-color discs
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (gameState.board[r][c] === color && !(r === row && c === col)) {
+            var cell = cells[r][c];
+            var disc = cell.querySelector('.rv-disc');
+            if (disc) {
+              disc.classList.add('flipping');
+              (function(d){ setTimeout(function(){ d.classList.remove('flipping'); }, 300); })(disc);
+            }
+          }
+        }
+      }
+    }
+
+    function scheduleAI() {
+      aiThinking = true;
+      thinkingEl.textContent = 'Thinking…';
+      render();
+      setTimeout(function() {
+        var best = E.getBestMove(gameState, gameState.turn, 4);
+        if (best) {
+          var prevTurn = gameState.turn;
+          gameState = E.applyMove(gameState, best[0], best[1], prevTurn);
+        }
+        aiThinking = false;
+        thinkingEl.textContent = '';
+        render();
+        if (best) animateFlips(best[0], best[1], 'w');
+      }, 30); // small timeout so browser renders "Thinking…" first
+    }
+
+    // ── Button events ──
+    btnModeAI.addEventListener('click', function() {
+      vsComputer = true;
+      btnModeAI.classList.add('active');
+      btnMode2P.classList.remove('active');
+      startGame();
+    });
+    btnMode2P.addEventListener('click', function() {
+      vsComputer = false;
+      btnMode2P.classList.add('active');
+      btnModeAI.classList.remove('active');
+      startGame();
+    });
+    btnNewGame.addEventListener('click', startGame);
+
+    // ── Language select (cosmetic stub) ──
+    var langSel = document.getElementById('langSelect');
+    if (langSel) {
+      langSel.addEventListener('change', function() {
+        document.documentElement.lang = this.value;
+      });
+    }
+
+    // ── Init ──
+    startGame();
+  })();
+  </script>
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="auth"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+          </div>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+        </div>
+        <div id="authModalBody"></div>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>(function(){try{localStorage.removeItem("jakh-theme");var s=JSON.parse(localStorage.getItem("jakh-riddles-settings")||"{}");if(s&&s.theme){delete s.theme;localStorage.setItem("jakh-riddles-settings",JSON.stringify(s));}}catch(e){}document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}());</script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111017" />
+    <meta name="description" content="Play 20 free brain games online — Chess, Go, Reversi, Backgammon, Codenames and more. Challenge the computer or invite a friend in English or Arabic." />
+    <title>Brain Games Hub - Play Logic and Strategy Games | JAKH</title>
+    <link rel="preload" href="styles.css?v=1778122800" as="style" />
+    <link rel="preload" href="play.js?v=1778122800" as="script" />
+    <link rel="preload" href="games/catalog.js?v=1778122800" as="script" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/play.html" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="brain games, free online chess, Go game, Reversi, Backgammon online, Codenames, board games, strategy games, Arabic English games" />
+    <meta property="og:title" content="Brain Games Hub | JAKH" />
+    <meta property="og:description" content="Play 20 free brain games online — Chess, Go, Reversi, Backgammon, Codenames and more. Challenge the computer or invite a friend in English or Arabic." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jakh.net/play.html" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="JAKH" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brain Games Hub | JAKH" />
+    <meta name="twitter:description" content="Play 20 free brain games online — Chess, Go, Reversi, Backgammon, Codenames and more. Challenge the computer or invite a friend in English or Arabic." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
+    <link rel="stylesheet" href="styles.css?v=1778122800" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script defer src="analytics.js?v=1778122800"></script>
+  </head>
+  <body data-page="play">
+    <a href="#top" class="skip-link">Skip to main content</a>
+
+        <header class="site-header shell">
+      <a href="index.html" class="brand" aria-label="JAKH home">
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH" class="brand-logo" style="width: 68px; height: 36px; object-fit: contain;" loading="eager" fetchpriority="high" /></picture>
+      </a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Mind Lab</a>
+        <a class="ghost-btn" href="play.html" data-i18n="navGameHub">Game Hub</a>
+        <a class="ghost-btn" href="contact.html" data-i18n="navContact" aria-label="Contact JAKH">Contact</a>
+        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+      </nav>
+
+      <div class="header-selects" aria-label="Language controls">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top" class="brain-hub">
+      <section class="brain-hero shell" aria-labelledby="brainHubTitle">
+        <div class="brain-hero-copy">
+          <p class="brain-kicker" data-i18n="eyebrow">Brain games</p>
+          <h1 id="brainHubTitle" data-i18n="title">Play games that make you think.</h1>
+          <p class="brain-lede" data-i18n="lede">A bilingual set of classic brain games for logic, planning, memory, and focus. Every game supports computer play and an online room link.</p>
+        </div>
+        <div class="brain-hero-panel" aria-label="Brain games summary">
+          <div>
+            <strong id="totalGames">20</strong>
+            <span data-i18n="gamesLive">games live</span>
+          </div>
+          <div>
+            <strong id="visibleGames">20</strong>
+            <span data-i18n="matching">matching</span>
+          </div>
+          <a href="#gameGrid" data-i18n="browseGames">Browse games</a>
+        </div>
+      </section>
+
+      <section class="brain-controls shell" aria-label="Game discovery">
+        <label class="brain-search">
+          <span data-i18n="searchLabel">Search games</span>
+          <input id="gameSearch" type="search" autocomplete="off" placeholder="Search strategy, ancient, chess..." data-placeholder="searchPlaceholder" />
+        </label>
+        <div class="brain-filter-row" id="gameFilters" role="tablist" aria-label="Filter games"></div>
+      </section>
+
+      <section class="brain-account-strip shell" aria-label="Account and leaderboards">
+        <div>
+          <p id="accountTitle" data-i18n="accountTitle">Create account to play</p>
+          <span id="accountCopy" data-i18n="accountCopy">Games are members-only so scores, rooms, and leaderboards stay tied to your account.</span>
+        </div>
+        <button class="brain-pill-btn" type="button" id="accountStripButton" data-i18n="signIn">Sign in</button>
+      </section>
+
+      <section class="brain-section shell" aria-labelledby="featuredTitle">
+        <div class="brain-section-head">
+          <div>
+            <p class="brain-kicker" data-i18n="featuredKicker">Recommended first</p>
+            <h2 id="featuredTitle" data-i18n="featuredTitle">Featured games</h2>
+          </div>
+          <p data-i18n="featuredCopy">Start with Chess, a quick logic game, or an ancient board game.</p>
+        </div>
+        <div class="brain-featured-grid" id="featuredGames"></div>
+      </section>
+
+      <section class="brain-section shell" aria-labelledby="allGamesTitle">
+        <div class="brain-section-head">
+          <div>
+            <p class="brain-kicker" id="gameResultsLabel">20 games available</p>
+            <h2 id="allGamesTitle" data-i18n="allGamesTitle">All brain games</h2>
+          </div>
+          <p data-i18n="allGamesCopy">Each game has simple rules, computer play, online invites, and its own score table.</p>
+        </div>
+        <div class="brain-grid" id="gameGrid" aria-live="polite"></div>
+        <p class="brain-empty" id="gameEmptyState" hidden data-i18n="emptyState">No games match this search. Clear the search or choose All.</p>
+      </section>
+
+      <section class="brain-section shell" aria-labelledby="leaderboardTitle">
+        <div class="brain-section-head">
+          <div>
+            <p class="brain-kicker" data-i18n="leaderboardKicker">Per-game scores</p>
+            <h2 id="leaderboardTitle">Top Chess scores</h2>
+          </div>
+          <p data-i18n="leaderboardCopy">Leaderboards are contextual. Pick a game to see its current table.</p>
+        </div>
+        <div class="brain-leaderboard">
+          <div class="brain-leaderboard-tabs" id="leaderboardTabs" role="tablist" aria-label="Choose leaderboard game"></div>
+          <div class="brain-leaderboard-table" id="leaderboardTable" aria-live="polite">
+            <p data-i18n="leaderboardLoading">Loading scores...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
+        <div class="footer-legal">
+          <a href="mailto:info@jakh.net?subject=JAKH%20contact" class="social-link" aria-label="Contact JAKH by email"><span data-i18n="footerContact">Contact info@jakh.net</span></a>
+          <a href="privacy.html" class="social-link" aria-label="Read the JAKH privacy page"><span data-i18n="footerPrivacy">Privacy</span></a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH on Instagram"><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH on Facebook"><span>Facebook</span></a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="brainModalRoot"></div>
+    <script src="games/catalog.js?v=1778122800"></script>
+    <script defer src="play.js?v=1778122800"></script>
+      <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="auth"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+          </div>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+        </div>
+        <div id="authModalBody"></div>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>(function(){try{localStorage.removeItem("jakh-theme");var s=JSON.parse(localStorage.getItem("jakh-riddles-settings")||"{}");if(s&&s.theme){delete s.theme;localStorage.setItem("jakh-riddles-settings",JSON.stringify(s));}}catch(e){}document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}());</script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="Open a JAKH Mind Lab topic with 200 or more bilingual questions sorted from easy to difficult." />
+    <title>Mind Lab Topic | JAKH</title>
+    <link rel="preload" href="styles.css?v=1778122800" as="style" />
+    <link rel="preload" href="app.js?v=1778122800" as="script" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/topic.html" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Mind Lab Topic | JAKH" />
+    <meta property="og:description" content="Explore one clean JAKH topic page with 200 or more bilingual questions." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://jakh.net/topic.html" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="JAKH Riddles" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mind Lab Topic | JAKH" />
+    <meta name="twitter:description" content="Explore one clean JAKH topic page with 200 or more bilingual questions." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
+    <link rel="stylesheet" href="styles.css?v=1778122800" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script defer src="analytics.js?v=1778122800"></script>
+  </head>
+  <body data-page="category" data-category="riddles-and-mysteries">
+    <script>
+      (function () {
+        var allowed = {
+          "riddles-and-mysteries": true,
+          "people-and-society": true,
+          "nature-and-health": true,
+          "science-and-space": true,
+          "tech-and-engineering": true,
+          "sports-and-machines": true,
+          "world-atlas": true,
+          "history-and-civilization": true,
+          "arts-and-stories": true,
+          "screen-culture": true
+        };
+        var params = new URLSearchParams(window.location.search);
+        var topic = params.get("topic") || "riddles-and-mysteries";
+        document.body.dataset.category = allowed[topic] ? topic : "riddles-and-mysteries";
+      }());
+    </script>
+    <a href="#top" class="skip-link">Skip to main content</a>
+
+        <header class="site-header shell">
+      <a href="index.html" class="brand" aria-label="JAKH home">
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH" class="brand-logo" style="width: 68px; height: 36px; object-fit: contain;" loading="eager" fetchpriority="high" /></picture>
+      </a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Mind Lab</a>
+        <a class="ghost-btn" href="play.html" data-i18n="navGameHub">Game Hub</a>
+        <a class="ghost-btn" href="contact.html" data-i18n="navContact" aria-label="Contact JAKH">Contact</a>
+        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+      </nav>
+
+      <div class="header-selects" aria-label="Language controls">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell hero-category">
+        <div class="hero-copy">
+          <p class="eyebrow" id="categoryKicker"></p>
+          <h1 id="categoryTitle">Mind Lab Topic</h1>
+          <p class="hero-text" id="categoryDescription"></p>
+          <div class="hero-badges">
+            <span id="categoryCountPill"></span>
+            <span id="categoryDiffBadge"></span>
+          </div>
+        </div>
+
+        <aside class="hero-panel hero-panel-rich">
+          <div class="hero-illustration category-hero-placeholder" id="categoryImage" aria-hidden="true"></div>
+          <div class="hero-panel-head">
+            <p data-i18n="pageProgress">Page progress</p>
+          </div>
+          <div id="categorySummaryMount"></div>
+        </aside>
+      </section>
+
+      <section class="shell section-block" id="questionSection">
+        <div class="section-heading library-head">
+          <div>
+            <p class="eyebrow" data-i18n="insidePageEyebrow">Questions</p>
+            <h2 data-i18n="insidePageTitle">Start easy. Build up.</h2>
+          </div>
+          <p class="section-note" data-i18n="insidePageText">Questions are sorted from easy to difficult by default. Search or filter only when you need to.</p>
+        </div>
+
+        <section class="control-panel" aria-label="Question filters">
+          <label class="search-field">
+            <span data-i18n="searchThisPageLabel">Search questions</span>
+            <input id="cardSearchInput" type="search" autocomplete="off" placeholder="Search by keyword, answer, or concept..." />
+          </label>
+
+          <div class="select-grid">
+            <label>
+              <span data-i18n="difficultyLabel">Difficulty</span>
+              <select id="difficultySelect">
+                <option value="all">All levels</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="very-advanced">Difficult</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="showLabel">Progress</span>
+              <select id="viewSelect">
+                <option value="all">Everything</option>
+                <option value="unsolved">Only unsolved</option>
+                <option value="solved">Only solved</option>
+                <option value="favorites">Only favorites</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="sortLabel">Order</span>
+              <select id="sortSelect">
+                <option value="featured">Original order</option>
+                <option value="difficulty">Easy to difficult</option>
+                <option value="az">A to Z</option>
+                <option value="random">Shuffle</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="subcategoryWrap" class="subcategory-wrap hidden">
+            <p class="mini-label" data-i18n="subcategoriesLabel">Source pages</p>
+            <div class="chip-row" id="subcategoryFilters"></div>
+          </div>
+        </section>
+
+        <div class="library-toolbar">
+          <p id="resultsLabel"></p>
+          <button class="text-btn" id="resetPageBtn" data-i18n="resetFilters">Clear</button>
+        </div>
+
+        <div id="emptyState" class="empty-state hidden">
+          <strong data-i18n="emptyTitle">No cards match that combination.</strong>
+          <p data-i18n="emptyText">Try clearing a filter or broadening the search.</p>
+        </div>
+
+        <div id="cardGrid" class="riddle-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="shell section-block">
+        <div class="section-heading library-head">
+          <div>
+            <p class="eyebrow" data-i18n="relatedEyebrow">Keep exploring</p>
+            <h2 data-i18n="relatedTitle">Related category pages</h2>
+          </div>
+          <p class="section-note" data-i18n="relatedText">Jump to nearby topics without going back to the home page.</p>
+        </div>
+        <div id="relatedCategories" class="category-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
+        <div class="footer-socials">
+          <a href="contact.html" class="social-link"><span>Contact</span></a>
+          <a href="privacy.html" class="social-link"><span>Privacy</span></a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="auth"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+          </div>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close">x</button>
+        </div>
+        <div id="authModalBody"></div>
+      </div>
+    </div>
+
+    <script defer src="app.js?v=1778122800"></script>
+  </body>
+</html>

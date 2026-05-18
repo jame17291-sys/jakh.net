@@ -1,0 +1,5 @@
+*.gz
+data/
+.env
+.env.*
+*.log

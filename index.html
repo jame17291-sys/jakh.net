@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <script>(function(){try{localStorage.removeItem("jakh-theme");var s=JSON.parse(localStorage.getItem("jakh-riddles-settings")||"{}");if(s&&s.theme){delete s.theme;localStorage.setItem("jakh-riddles-settings",JSON.stringify(s));}}catch(e){}document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}());</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#06080f" />
     <meta name="description" content="JAKH — 3,500+ bilingual riddles, quizzes, brain games and IQ tests in English and Arabic. Play free, track progress, and challenge friends." />
-    <title>JAKH — Bilingual Riddles, Mind Lab Topics & Brain Games</title>
+    <title>JAKH — Bilingual Riddles, Mind Lab & Brain Games</title>
     <link rel="preload" as="style" href="assets/fonts/fonts.css" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="assets/fonts/fonts.css" /></noscript>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -14,9 +14,8 @@
     <meta name="robots" content="index,follow" />
     <meta name="keywords" content="riddles, bilingual riddles, Arabic riddles, English riddles, quiz questions, brain teasers, IQ test, trivia, ألغاز, اختبارات ذكاء, أسئلة عامة, تعلم, brain games, online quiz, knowledge test" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="JAKH — Bilingual Riddles & Brain Games" />
-    <meta property="og:description" content="JAKH — 3,500+ bilingual riddles, quizzes, brain games and IQ tests in English and Arabic. Play free, track progress, and challenge friends." />
+    <meta property="og:description" content="JAKH — 3,500+ bilingual riddles, quizzes, brain games and IQ tests in English and Arabic." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jakh.net/" />
     <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
@@ -25,82 +24,20 @@
     <meta property="og:site_name" content="JAKH" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ar_AE" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JAKH — Bilingual Riddles & Brain Games" />
-    <meta name="twitter:description" content="JAKH — 3,500+ bilingual riddles, quizzes, brain games and IQ tests in English and Arabic. Play free, track progress, and challenge friends." />
+    <meta name="twitter:description" content="JAKH — 3,500+ bilingual riddles, quizzes, brain games and IQ tests in English and Arabic." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
-
-    <!-- Hreflang for bilingual SEO -->    <link rel="alternate" hreflang="x-default" href="https://jakh.net/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/" />
     <link rel="alternate" hreflang="en" href="https://jakh.net/" />
     <link rel="alternate" hreflang="ar" href="https://jakh.net/" />
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://jakh.net/#website",
-          "url": "https://jakh.net/",
-          "name": "JAKH",
-          "description": "A bilingual website with riddles, quizzes, brain games, and saved progress in English and Arabic.",
-          "inLanguage": ["en", "ar"],
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://jakh.net/#categories?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://jakh.net/#webpage",
-          "url": "https://jakh.net/",
-          "name": "JAKH — Bilingual Riddles, Mind Lab Topics & Brain Games",
-          "isPartOf": { "@id": "https://jakh.net/#website" },
-          "description": "Bilingual riddles, quizzes, brain games, and saved progress.",
-          "inLanguage": ["en", "ar"],
-          "about": [
-            { "@type": "Thing", "name": "Riddles" },
-            { "@type": "Thing", "name": "Quizzes" },
-            { "@type": "Thing", "name": "Brain Teasers" },
-            { "@type": "Thing", "name": "Trivia" },
-            { "@type": "Thing", "name": "Brain Games" },
-            { "@type": "Thing", "name": "Board Games" }
-          ]
-        },
-        {
-          "@type": "ItemList",
-          "name": "Mind Lab Topics",
-          "description": "10 Mind Lab topic collections available on JAKH",
-          "numberOfItems": 10,
-          "itemListElement": [
-            {"@type":"ListItem","position":1,"name":"Riddles & Mysteries","url":"https://jakh.net/topic.html?topic=riddles-and-mysteries"},
-            {"@type":"ListItem","position":2,"name":"People & Society","url":"https://jakh.net/topic.html?topic=people-and-society"},
-            {"@type":"ListItem","position":3,"name":"Nature & Health","url":"https://jakh.net/topic.html?topic=nature-and-health"},
-            {"@type":"ListItem","position":4,"name":"Science & Space","url":"https://jakh.net/topic.html?topic=science-and-space"},
-            {"@type":"ListItem","position":5,"name":"Tech & Engineering","url":"https://jakh.net/topic.html?topic=tech-and-engineering"},
-            {"@type":"ListItem","position":6,"name":"Sports & Machines","url":"https://jakh.net/topic.html?topic=sports-and-machines"},
-            {"@type":"ListItem","position":7,"name":"World Atlas","url":"https://jakh.net/topic.html?topic=world-atlas"},
-            {"@type":"ListItem","position":8,"name":"History & Civilization","url":"https://jakh.net/topic.html?topic=history-and-civilization"},
-            {"@type":"ListItem","position":9,"name":"Arts & Stories","url":"https://jakh.net/topic.html?topic=arts-and-stories"},
-            {"@type":"ListItem","position":10,"name":"Screen Culture","url":"https://jakh.net/topic.html?topic=screen-culture"}
-          ]
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://jakh.net/#organization",
-          "name": "JAKH",
-          "url": "https://jakh.net/",
-          "email": "info@jakh.net",
-          "logo": "https://jakh.net/assets/logo.png",
-          "sameAs": [
-            "https://www.instagram.com/jakhriddles/",
-            "https://www.facebook.com/profile.php?id=61588921894305"
-          ]
-        }
+        { "@type": "WebSite", "@id": "https://jakh.net/#website", "url": "https://jakh.net/", "name": "JAKH", "description": "A bilingual website with riddles, quizzes, brain games, and saved progress in English and Arabic.", "inLanguage": ["en", "ar"] },
+        { "@type": "Organization", "@id": "https://jakh.net/#organization", "name": "JAKH", "url": "https://jakh.net/", "email": "info@jakh.net", "logo": "https://jakh.net/assets/logo.png", "sameAs": ["https://www.instagram.com/jakhriddles/", "https://www.facebook.com/profile.php?id=61588921894305"] }
       ]
     }
     </script>
@@ -108,23 +45,579 @@
     <link rel="stylesheet" href="styles.css?v=1778122800" />
     <link rel="manifest" href="manifest.webmanifest" />
     <script defer src="analytics.js?v=1778122800"></script>
+
+    <style>
+      /* ═══════════════════════════════════════════
+         HOME PAGE — DESIGN SYSTEM
+         prefix: h- to avoid collision with styles.css
+      ═══════════════════════════════════════════ */
+
+      :root {
+        --violet: #7c6ef7;
+        --gold:   #e0b15a;
+        --ink:    #06080f;
+        --surface: #0c0e18;
+        --border: rgba(255,255,255,0.07);
+        --text:   #f0f4ff;
+        --muted:  rgba(240,244,255,0.45);
+      }
+
+      body[data-page="home"] { background: var(--ink); }
+
+      /* ── HERO ────────────────────────────────── */
+      .h-hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 24px 80px;
+        overflow: hidden;
+        background: var(--ink);
+      }
+
+      /* dot grid */
+      .h-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(124,110,247,0.07) 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+      }
+
+      /* glow orb */
+      .h-orb {
+        position: absolute;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(80vw, 760px);
+        height: min(80vw, 760px);
+        background: radial-gradient(circle at 50% 40%,
+          rgba(124,110,247,0.18) 0%,
+          rgba(224,177,90,0.06) 45%,
+          transparent 70%);
+        border-radius: 50%;
+        animation: orb 9s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes orb {
+        0%,100% { transform: translateX(-50%) scale(1); opacity: .75; }
+        50%      { transform: translateX(-50%) scale(1.12); opacity: 1; }
+      }
+
+      /* second orb for colour variety */
+      .h-orb2 {
+        position: absolute;
+        bottom: -5%;
+        right: -10%;
+        width: min(50vw, 460px);
+        height: min(50vw, 460px);
+        background: radial-gradient(circle,
+          rgba(224,177,90,0.09) 0%,
+          transparent 65%);
+        border-radius: 50%;
+        animation: orb 12s ease-in-out infinite reverse;
+        pointer-events: none;
+      }
+
+      .h-hero-content { position: relative; z-index: 1; }
+
+      .h-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--violet);
+        margin-bottom: 28px;
+      }
+
+      .h-eyebrow-dot {
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: inline-block;
+      }
+
+      .h-brand {
+        font-size: clamp(7rem, 20vw, 16rem);
+        font-weight: 900;
+        line-height: 0.82;
+        letter-spacing: -0.05em;
+        background: linear-gradient(160deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0 32px;
+        user-select: none;
+      }
+
+      .h-tagline {
+        font-size: clamp(1rem, 2.4vw, 1.4rem);
+        color: var(--muted);
+        margin-bottom: 6px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+      }
+
+      .h-tagline-ar {
+        font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+        color: rgba(240,244,255,0.22);
+        margin-bottom: 48px;
+        letter-spacing: 0.06em;
+        font-weight: 300;
+      }
+
+      .h-ctas {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .h-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 15px 32px;
+        background: var(--violet);
+        color: #fff;
+        border-radius: 100px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 0 0 0 rgba(124,110,247,0);
+      }
+      .h-btn-primary:hover {
+        background: #6a5de0;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(124,110,247,0.35);
+      }
+
+      .h-btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 15px 32px;
+        background: transparent;
+        color: rgba(240,244,255,0.75);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      }
+      .h-btn-ghost:hover {
+        border-color: rgba(255,255,255,0.3);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      /* scroll cue */
+      .h-scroll {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        z-index: 1;
+      }
+      .h-scroll-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.18);
+      }
+      .h-scroll-bar {
+        width: 1px;
+        height: 44px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+        animation: scroll-bar 1.8s ease-in-out infinite;
+      }
+      @keyframes scroll-bar {
+        0%   { opacity: 0; transform: scaleY(0) translateY(-20px); transform-origin: top; }
+        40%  { opacity: 1; transform: scaleY(1) translateY(0); }
+        100% { opacity: 0; transform: scaleY(1) translateY(10px); }
+      }
+
+      /* ── PORTALS ─────────────────────────────── */
+      .h-portals {
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+      }
+
+      .h-portal {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 56px 52px;
+        text-decoration: none;
+        overflow: hidden;
+        min-height: min(65vh, 560px);
+        background: var(--surface);
+        transition: background 0.3s;
+      }
+
+      .h-portal:hover { background: #0f1120; }
+      .h-portal-games:hover { background: #110f08; }
+
+      /* ambient glow */
+      .h-portal::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transition: opacity 0.4s;
+        opacity: 0.6;
+      }
+      .h-portal:hover::after { opacity: 1; }
+      .h-portal-mind::after {
+        background: radial-gradient(ellipse 90% 60% at 20% 10%,
+          rgba(124,110,247,0.2) 0%, transparent 65%);
+      }
+      .h-portal-games::after {
+        background: radial-gradient(ellipse 90% 60% at 80% 10%,
+          rgba(224,177,90,0.18) 0%, transparent 65%);
+      }
+
+      /* large ghost number */
+      .h-portal-num {
+        position: absolute;
+        top: 28px;
+        right: 40px;
+        font-size: clamp(5rem, 12vw, 10rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: #fff;
+        opacity: 0.04;
+        user-select: none;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .h-portal:hover .h-portal-num { opacity: 0.07; }
+
+      .h-portal-tag {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 1;
+      }
+      .h-portal-mind .h-portal-tag { color: var(--violet); }
+      .h-portal-games .h-portal-tag { color: var(--gold); }
+
+      .h-portal-title {
+        font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.1;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .h-portal-desc {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 380px;
+        margin-bottom: 32px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .h-portal-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        position: relative;
+        z-index: 1;
+        transition: gap 0.25s;
+      }
+      .h-portal:hover .h-portal-link { gap: 14px; }
+      .h-portal-mind .h-portal-link { color: var(--violet); }
+      .h-portal-games .h-portal-link { color: var(--gold); }
+
+      .h-portal-divider {
+        background: var(--border);
+        align-self: stretch;
+      }
+
+      /* ── STATS BAR ───────────────────────────── */
+      .h-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        background: #09080f;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .h-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 52px 20px;
+        border-right: 1px solid var(--border);
+        gap: 8px;
+      }
+      .h-stat:last-child { border-right: none; }
+
+      .h-stat-n {
+        font-size: clamp(2.2rem, 4.5vw, 4rem);
+        font-weight: 900;
+        letter-spacing: -0.035em;
+        line-height: 1;
+        color: var(--text);
+      }
+
+      .h-stat-label {
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(240,244,255,0.3);
+      }
+
+      /* ── MARQUEE ─────────────────────────────── */
+      .h-marquee {
+        overflow: hidden;
+        background: var(--ink);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 0;
+      }
+
+      .h-marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee 36s linear infinite;
+      }
+      .h-marquee:hover .h-marquee-track { animation-play-state: paused; }
+
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+
+      .h-marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        padding: 0 28px;
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.2);
+        white-space: nowrap;
+      }
+
+      .h-marquee-item::after {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.12);
+        margin-left: 28px;
+      }
+
+      /* ── ACCOUNT PITCH ───────────────────────── */
+      .h-account {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        padding: 100px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .h-account-copy { flex: 1; }
+
+      .h-section-eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--violet);
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .h-account-title {
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+
+      .h-account-desc {
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.75;
+        max-width: 420px;
+        margin-bottom: 32px;
+      }
+
+      .h-account-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        background: transparent;
+        color: var(--violet);
+        border: 1px solid var(--violet);
+        border-radius: 100px;
+        font-size: 0.86rem;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.2s, color 0.2s;
+      }
+      .h-account-btn:hover { background: var(--violet); color: #fff; }
+
+      .h-perks {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        min-width: 280px;
+      }
+
+      .h-perk {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 24px;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.84rem;
+        color: rgba(240,244,255,0.6);
+        line-height: 1.4;
+      }
+      .h-perk:last-child { border-bottom: none; }
+
+      .h-perk-icon {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--violet);
+        flex-shrink: 0;
+        box-shadow: 0 0 8px rgba(124,110,247,0.5);
+      }
+
+      /* ── CONTACT ─────────────────────────────── */
+      .h-contact-wrap {
+        border-top: 1px solid var(--border);
+        background: var(--ink);
+      }
+
+      .h-contact {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 72px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .h-contact-eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      .h-contact-title {
+        font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+        font-weight: 800;
+        color: var(--text);
+        line-height: 1.15;
+      }
+
+      .h-contact-email {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 32px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        text-decoration: none;
+        color: rgba(240,244,255,0.75);
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        transition: border-color 0.2s, color 0.2s, background 0.2s;
+        white-space: nowrap;
+      }
+      .h-contact-email:hover {
+        border-color: rgba(255,255,255,0.25);
+        color: #fff;
+        background: rgba(255,255,255,0.04);
+      }
+
+      /* ── RESPONSIVE ─────────────────────────── */
+      @media (max-width: 900px) {
+        .h-account { flex-direction: column; gap: 40px; padding: 72px 32px; }
+        .h-perks { min-width: 100%; width: 100%; }
+        .h-contact { flex-direction: column; align-items: flex-start; padding: 52px 32px; }
+      }
+
+      @media (max-width: 680px) {
+        .h-portals { grid-template-columns: 1fr; }
+        .h-portal-divider { display: none; }
+        .h-portal { padding: 44px 28px; min-height: auto; }
+        .h-stats { grid-template-columns: repeat(2, 1fr); }
+        .h-stat:nth-child(2) { border-right: none; }
+        .h-stat:nth-child(1),
+        .h-stat:nth-child(2) { border-bottom: 1px solid var(--border); }
+        .h-account { padding: 56px 24px; }
+        .h-contact { padding: 48px 24px; }
+      }
+
+      @media (max-width: 420px) {
+        .h-portal-num { display: none; }
+      }
+    </style>
   </head>
+
   <body data-page="home">
-<a href="#top" class="skip-link">Skip to main content</a>
+    <a href="#top" class="skip-link">Skip to main content</a>
 
-        <header class="site-header shell">
+    <header class="site-header shell">
       <a href="index.html" class="brand" aria-label="JAKH home">
-        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH" class="brand-logo" style="width: 68px; height: 36px; object-fit: contain;" loading="eager" fetchpriority="high" /></picture>
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp" />
+          <img src="assets/logo.png" alt="JAKH" class="brand-logo" style="width:68px;height:36px;object-fit:contain;" loading="eager" fetchpriority="high" />
+        </picture>
       </a>
-
       <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Mind Lab</a>
-        <a class="ghost-btn" href="play.html" data-i18n="navGameHub">Game Hub</a>
-        <a class="ghost-btn" href="contact.html" data-i18n="navContact" aria-label="Contact JAKH">Contact</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+        <a class="ghost-btn" href="index.html"      data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="mind-lab.html"   data-i18n="navCategories">Mind Lab</a>
+        <a class="ghost-btn" href="play.html"        data-i18n="navGameHub">Game Hub</a>
+        <a class="ghost-btn" href="contact.html"     data-i18n="navContact">Contact</a>
+        <button class="ghost-btn" id="openAuthBtn"  data-i18n="authOpen">Sign in</button>
       </nav>
-
       <div class="header-selects" aria-label="Language controls">
         <label>
           <span data-i18n="language">Language</span>
@@ -136,132 +629,195 @@
       </div>
     </header>
 
+    <main id="top">
 
-<main id="top">
+      <!-- ═══ HERO ═══ -->
+      <section class="h-hero" aria-label="JAKH — Bilingual brain platform">
+        <div class="h-orb"  aria-hidden="true"></div>
+        <div class="h-orb2" aria-hidden="true"></div>
 
-  <!-- ═══════════════════ HERO ═══════════════════ -->
-  <section class="kv-hero" id="kv-hero">
-    <div class="kv-hero-content">
-      <p class="kv-eyebrow" data-i18n="homeEyebrow">Riddles, quizzes, and brain games</p>
+        <div class="h-hero-content">
+          <p class="h-eyebrow">
+            English
+            <span class="h-eyebrow-dot" aria-hidden="true"></span>
+            العربية
+          </p>
 
-      <h1 class="kv-hero-title">JAKH</h1>
+          <h1 class="h-brand">JAKH</h1>
 
-      <p class="kv-hero-subtitle" data-i18n="homeTitle">
-        Play riddles, quizzes, and brain games in English and Arabic.
-      </p>
+          <p class="h-tagline">Riddles. Quizzes. Brain Games.</p>
+          <p class="h-tagline-ar">ألغاز · اختبارات · ألعاب ذهنية</p>
 
-      <div class="kv-hero-cta">
-        <a href="mind-lab.html" class="kv-btn-primary" data-i18n="browseCategories">Enter Mind Lab</a>
-        <a href="play.html" class="kv-btn-outline" data-i18n="heroGameHub">Open Game Hub</a>
+          <div class="h-ctas">
+            <a href="mind-lab.html" class="h-btn-primary" data-i18n="browseCategories">
+              Enter Mind Lab
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="play.html" class="h-btn-ghost" data-i18n="heroGameHub">
+              Game Hub
+            </a>
+          </div>
+        </div>
+
+        <div class="h-scroll" aria-hidden="true">
+          <span class="h-scroll-label">scroll</span>
+          <div class="h-scroll-bar"></div>
+        </div>
+      </section>
+
+      <!-- ═══ PORTALS ═══ -->
+      <div class="h-portals">
+
+        <a class="h-portal h-portal-mind" href="mind-lab.html" aria-label="Enter Mind Lab">
+          <span class="h-portal-num" aria-hidden="true">01</span>
+          <p class="h-portal-tag">Mind Lab</p>
+          <h2 class="h-portal-title">Questions that<br>make you think.</h2>
+          <p class="h-portal-desc">
+            3,500+ riddles, quizzes, science, history, and culture — across 10 themed topics in English and Arabic.
+          </p>
+          <span class="h-portal-link">
+            Explore Mind Lab
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+
+        <div class="h-portal-divider" aria-hidden="true"></div>
+
+        <a class="h-portal h-portal-games" href="play.html" aria-label="Enter Game Hub">
+          <span class="h-portal-num" aria-hidden="true">02</span>
+          <p class="h-portal-tag">Game Hub</p>
+          <h2 class="h-portal-title">21 games.<br>One arena.</h2>
+          <p class="h-portal-desc">
+            Chess, Go, Reversi, Backgammon, Crossword, and 16 more. Play the computer or challenge someone live.
+          </p>
+          <span class="h-portal-link">
+            Open Game Hub
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+
       </div>
 
-      <div class="kv-hero-stats">
-        <div class="kv-stat">
-          <span class="kv-stat-number" id="badgeCategories">10</span>
-          <span class="kv-stat-label" data-i18n="statCategories">Topics</span>
+      <!-- ═══ STATS ═══ -->
+      <div class="h-stats" aria-label="Platform numbers">
+        <div class="h-stat">
+          <span class="h-stat-n">10</span>
+          <span class="h-stat-label">Topics</span>
         </div>
-        <div class="kv-stat-divider" aria-hidden="true"></div>
-        <div class="kv-stat">
-          <span class="kv-stat-number" id="badgeQuestions">3,553</span>
-          <span class="kv-stat-label" data-i18n="statQuestions">Questions</span>
+        <div class="h-stat">
+          <span class="h-stat-n">3,553</span>
+          <span class="h-stat-label">Questions</span>
         </div>
-        <div class="kv-stat-divider" aria-hidden="true"></div>
-        <div class="kv-stat">
-          <span class="kv-stat-number">20</span>
-          <span class="kv-stat-label" data-i18n="statGames">Games</span>
+        <div class="h-stat">
+          <span class="h-stat-n">21</span>
+          <span class="h-stat-label">Games</span>
         </div>
-        <div class="kv-stat-divider" aria-hidden="true"></div>
-        <div class="kv-stat">
-          <span class="kv-stat-number">2</span>
-          <span class="kv-stat-label" data-i18n="statLanguages">Languages</span>
+        <div class="h-stat">
+          <span class="h-stat-n">2</span>
+          <span class="h-stat-label">Languages</span>
         </div>
       </div>
-    </div>
 
-    <div class="kv-scroll-indicator" aria-hidden="true"></div>
-  </section>
-
-  <!-- ═══════════════════ PORTALS ═══════════════════ -->
-  <section class="kv-portals shell">
-    <div class="kv-portals-grid">
-
-      <!-- Mind Lab -->
-      <a class="kv-portal-card kv-portal-mind" href="mind-lab.html" aria-label="Enter Mind Lab">
-        <p class="kv-portal-tag" data-i18n="portalMindTag">Mind Lab</p>
-        <div class="kv-portal-art kv-portal-scene kv-portal-scene-mind" aria-hidden="true">
-          <span class="portal-question-card"></span>
-          <span class="portal-question-mark"></span>
-          <span class="portal-answer-line portal-answer-line-a"></span>
-          <span class="portal-answer-line portal-answer-line-b"></span>
-          <span class="portal-progress-track"></span>
-          <span class="portal-orbit portal-orbit-a"></span>
-          <span class="portal-orbit portal-orbit-b"></span>
+      <!-- ═══ MARQUEE ═══ -->
+      <div class="h-marquee" aria-hidden="true">
+        <div class="h-marquee-track">
+          <span class="h-marquee-item">Chess</span>
+          <span class="h-marquee-item">Checkers</span>
+          <span class="h-marquee-item">Go</span>
+          <span class="h-marquee-item">Reversi</span>
+          <span class="h-marquee-item">Backgammon</span>
+          <span class="h-marquee-item">Nine Men's Morris</span>
+          <span class="h-marquee-item">Hex</span>
+          <span class="h-marquee-item">Crossword</span>
+          <span class="h-marquee-item">Fox and Geese</span>
+          <span class="h-marquee-item">Konane</span>
+          <span class="h-marquee-item">Alquerque</span>
+          <span class="h-marquee-item">Fanorona</span>
+          <span class="h-marquee-item">Hnefatafl</span>
+          <span class="h-marquee-item">Seega</span>
+          <span class="h-marquee-item">Tapatan</span>
+          <span class="h-marquee-item">Oware</span>
+          <span class="h-marquee-item">Senet</span>
+          <span class="h-marquee-item">Gomoku</span>
+          <span class="h-marquee-item">Dots and Boxes</span>
+          <span class="h-marquee-item">Four in a Row</span>
+          <span class="h-marquee-item">Royal Game of Ur</span>
+          <!-- duplicate for seamless loop -->
+          <span class="h-marquee-item">Chess</span>
+          <span class="h-marquee-item">Checkers</span>
+          <span class="h-marquee-item">Go</span>
+          <span class="h-marquee-item">Reversi</span>
+          <span class="h-marquee-item">Backgammon</span>
+          <span class="h-marquee-item">Nine Men's Morris</span>
+          <span class="h-marquee-item">Hex</span>
+          <span class="h-marquee-item">Crossword</span>
+          <span class="h-marquee-item">Fox and Geese</span>
+          <span class="h-marquee-item">Konane</span>
+          <span class="h-marquee-item">Alquerque</span>
+          <span class="h-marquee-item">Fanorona</span>
+          <span class="h-marquee-item">Hnefatafl</span>
+          <span class="h-marquee-item">Seega</span>
+          <span class="h-marquee-item">Tapatan</span>
+          <span class="h-marquee-item">Oware</span>
+          <span class="h-marquee-item">Senet</span>
+          <span class="h-marquee-item">Gomoku</span>
+          <span class="h-marquee-item">Dots and Boxes</span>
+          <span class="h-marquee-item">Four in a Row</span>
+          <span class="h-marquee-item">Royal Game of Ur</span>
         </div>
-        <h2 class="kv-portal-title" data-i18n="portalMindTitle">Mind Lab</h2>
-        <p class="kv-portal-desc" data-i18n="portalMindDesc">Riddles, quizzes, trivia, science, history, culture, and logic in simple topic pages.</p>
-        <div class="kv-portal-stats">
-          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">10 topics</span>
-          <span class="kv-portal-stat" data-i18n="portalMindStat2">3,000+ questions</span>
+      </div>
+
+      <!-- ═══ ACCOUNT PITCH ═══ -->
+      <section class="h-account" aria-labelledby="h-account-title">
+        <div class="h-account-copy">
+          <span class="h-section-eyebrow">Player Account</span>
+          <h2 class="h-account-title" id="h-account-title">
+            One account.<br>Every game.
+          </h2>
+          <p class="h-account-desc">
+            Sign in to save your progress, compete on leaderboards, and pick up exactly where you left off — on any device.
+          </p>
+          <button class="h-account-btn" id="openAuthBtn2" type="button">
+            Create account
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
-        <span class="kv-portal-cta" data-i18n="portalMindCta">Explore Mind Lab</span>
-      </a>
 
-      <!-- Game Hub -->
-      <a class="kv-portal-card kv-portal-games" href="play.html" aria-label="Enter Game Hub">
-        <p class="kv-portal-tag" data-i18n="portalGamesTag">Game Hub</p>
-        <div class="kv-portal-art kv-portal-scene kv-portal-scene-games" aria-hidden="true">
-          <span class="portal-game-board"></span>
-          <span class="portal-game-piece portal-game-piece-a"></span>
-          <span class="portal-game-piece portal-game-piece-b"></span>
-          <span class="portal-game-piece portal-game-piece-c"></span>
-          <span class="portal-game-path"></span>
-          <span class="portal-game-side-panel"></span>
+        <div class="h-perks" aria-label="Account benefits">
+          <div class="h-perk">
+            <span class="h-perk-icon" aria-hidden="true"></span>
+            Save progress across all devices
+          </div>
+          <div class="h-perk">
+            <span class="h-perk-icon" aria-hidden="true"></span>
+            Leaderboard ranking per game
+          </div>
+          <div class="h-perk">
+            <span class="h-perk-icon" aria-hidden="true"></span>
+            Resume your last topic instantly
+          </div>
+          <div class="h-perk">
+            <span class="h-perk-icon" aria-hidden="true"></span>
+            Invite friends to live rooms
+          </div>
         </div>
-        <h2 class="kv-portal-title" data-i18n="portalGamesTitle">Game Hub</h2>
-        <p class="kv-portal-desc" data-i18n="portalGamesDesc">20 brain games including Chess, Checkers, Go, Reversi, Hex, Oware, and more. Play the computer or invite a player.</p>
-        <div class="kv-portal-stats">
-          <span class="kv-portal-stat" data-i18n="portalGamesStat1">20 games live</span>
-          <span class="kv-portal-stat" data-i18n="portalGamesStat2">Computer or online</span>
+      </section>
+
+      <!-- ═══ CONTACT ═══ -->
+      <div class="h-contact-wrap">
+        <div class="h-contact">
+          <div>
+            <p class="h-contact-eyebrow">Contact</p>
+            <h2 class="h-contact-title">Questions?<br>Talk to JAKH.</h2>
+          </div>
+          <a class="h-contact-email" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Email info@jakh.net">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 6l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            info@jakh.net
+          </a>
         </div>
-        <span class="kv-portal-cta" data-i18n="portalGamesCta">Open Game Hub</span>
-      </a>
+      </div>
 
-    </div>
-  </section>
-
-  <!-- ═══════════════════ WIDGETS ═══════════════════ -->
-  <section class="kv-player-portal shell" id="playerPortalSection" aria-labelledby="playerPortalTitle">
-    <div class="kv-player-copy">
-      <p class="kv-eyebrow" data-i18n="playerPortalTag">Player Profile</p>
-      <h2 id="playerPortalTitle" data-i18n="playerPortalTitle">Your JAKH account center.</h2>
-      <p data-i18n="playerPortalDesc">Sign in once to save progress, favorites, game scores, and your last activity across devices.</p>
-      <div class="kv-player-actions" id="playerPortalActions"></div>
-    </div>
-    <div class="kv-player-points" aria-label="Player profile benefits">
-      <span data-i18n="playerPortalPoint1">Save progress on every device</span>
-      <span data-i18n="playerPortalPoint2">Use one name on leaderboards</span>
-      <span data-i18n="playerPortalPoint3">Resume your last topic fast</span>
-    </div>
-  </section>
-
-  <div class="kv-widgets-row shell" aria-label="Player profile summary">
-    <div id="accountSummaryMount"></div>
-  </div>
-
-  <section class="contact-strip shell" id="contact" aria-labelledby="contactTitle">
-    <div>
-      <p class="kv-eyebrow" data-i18n="contactTag">Contact</p>
-      <h2 id="contactTitle" data-i18n="contactTitle">Talk to JAKH</h2>
-      <p data-i18n="contactText">Questions, partnerships, content ideas, or account support can go straight to the JAKH inbox.</p>
-    </div>
-    <a class="contact-email-card" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Email info@jakh.net">
-      <span data-i18n="contactEmailLabel">Email</span>
-      <strong>info@jakh.net</strong>
-    </a>
-  </section>
-
-
-</main>
+    </main>
 
     <footer class="site-footer shell">
       <div class="footer-inner">
@@ -272,17 +828,11 @@
         </div>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH on Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             <span>Instagram</span>
           </a>
           <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH on Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span>Facebook</span>
           </a>
         </div>
@@ -305,6 +855,12 @@
       </div>
     </div>
 
+    <script>
+      // Wire the second "Create account" button to the same modal
+      document.getElementById('openAuthBtn2')?.addEventListener('click', () => {
+        document.getElementById('openAuthBtn')?.click();
+      });
+    </script>
 
     <script defer src="app.js?v=1778122800"></script>
   </body>

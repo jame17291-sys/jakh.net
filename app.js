@@ -1483,21 +1483,23 @@ function ensureCategoryFlowHint() {
 
 function enhanceFooterLinks() {
   const isAr = state.lang === 'ar';
+
+  // Permanently remove any remaining social link blocks from the DOM
+  document.querySelectorAll('.footer-socials').forEach(el => el.remove());
+
   document.querySelectorAll('.site-footer .footer-inner').forEach((footer) => {
     let legal = footer.querySelector('.footer-legal');
     if (!legal) {
       legal = document.createElement('div');
       legal.className = 'footer-legal';
       legal.innerHTML = `
-        <a class="social-link footer-contact-link" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Contact JAKH by email">
+        <a class="footer-link footer-contact-link" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Contact JAKH by email">
           <span data-footer-contact></span>
         </a>
-        <a class="social-link footer-privacy-link" href="privacy.html" aria-label="Read the JAKH privacy page">
+        <a class="footer-link footer-privacy-link" href="privacy.html" aria-label="Read the JAKH privacy page">
           <span data-footer-privacy></span>
         </a>`;
-      const socials = footer.querySelector('.footer-socials');
-      if (socials) footer.insertBefore(legal, socials);
-      else footer.appendChild(legal);
+      footer.appendChild(legal);
     }
     const contact = legal.querySelector('[data-footer-contact]');
     const privacy = legal.querySelector('[data-footer-privacy]');

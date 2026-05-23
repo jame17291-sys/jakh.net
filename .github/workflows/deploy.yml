@@ -44,4 +44,4 @@ jobs:
             sudo nginx -t
             sudo systemctl reload nginx
             git rev-parse --short HEAD
-REMOTE
+          REMOTE

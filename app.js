@@ -4799,7 +4799,7 @@ function injectBottomNav() {
   nav.setAttribute('aria-label', isAr ? 'التنقل الرئيسي' : 'Main navigation');
   nav.innerHTML = `
     <div class="bottom-nav-inner">
-      <a href="index.html" class="bottom-nav-tab" data-tab="home" aria-label="${isAr ? 'الرئيسية' : 'Home'}">
+      <a href="/" class="bottom-nav-tab" data-tab="home" aria-label="${isAr ? 'الرئيسية' : 'Home'}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
         <span>${isAr ? 'الرئيسية' : 'Home'}</span>
       </a>
@@ -4825,7 +4825,7 @@ function injectBottomNav() {
       target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
       sessionStorage.setItem('jakh-scroll-to', 'daily');
-      location.href = 'index.html';
+      location.href = '/';
     }
   });
   document.getElementById('bnProfileBtn')?.addEventListener('click', () => {

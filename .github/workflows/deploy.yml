@@ -21,22 +21,32 @@ jobs:
           JAKH_SSH_HOST: ${{ secrets.JAKH_SSH_HOST }}
           JAKH_SSH_USER: ${{ secrets.JAKH_SSH_USER }}
           JAKH_SSH_KEY: ${{ secrets.JAKH_SSH_KEY }}
+          JAKH_SSH_KEY_B64: ${{ secrets.JAKH_SSH_KEY_B64 }}
         run: |
           set -euo pipefail
 
-          if [ -z "${JAKH_SSH_HOST}" ] || [ -z "${JAKH_SSH_USER}" ] || [ -z "${JAKH_SSH_KEY}" ]; then
-            echo "Missing one or more required secrets: JAKH_SSH_HOST, JAKH_SSH_USER, JAKH_SSH_KEY"
+          if [ -z "${JAKH_SSH_HOST}" ] || [ -z "${JAKH_SSH_USER}" ]; then
+            echo "Missing one or more required secrets: JAKH_SSH_HOST, JAKH_SSH_USER"
+            exit 1
+          fi
+
+          if [ -z "${JAKH_SSH_KEY}" ] && [ -z "${JAKH_SSH_KEY_B64}" ]; then
+            echo "Missing SSH key secret. Add JAKH_SSH_KEY_B64 or JAKH_SSH_KEY."
             exit 1
           fi
 
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "${JAKH_SSH_KEY}" > ~/.ssh/jakh.pem
+          if [ -n "${JAKH_SSH_KEY_B64}" ]; then
+            printf '%s' "${JAKH_SSH_KEY_B64}" | base64 -d > ~/.ssh/jakh.pem
+          else
+            printf '%s\n' "${JAKH_SSH_KEY}" > ~/.ssh/jakh.pem
+          fi
           chmod 600 ~/.ssh/jakh.pem
 
           echo "Checking SSH private key format..."
           if ! grep -q "BEGIN .*PRIVATE KEY" ~/.ssh/jakh.pem; then
-            echo "JAKH_SSH_KEY does not look like a private key. Re-copy ~/Downloads/JAKH.pem into the secret."
+            echo "The SSH key secret does not look like a private key. Re-copy ~/Downloads/JAKH.pem into JAKH_SSH_KEY_B64."
             exit 1
           fi
 

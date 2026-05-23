@@ -1,0 +1,47 @@
+name: Deploy jakh.net
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: jakh-net-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy latest main on server
+        env:
+          JAKH_SSH_HOST: ${{ secrets.JAKH_SSH_HOST }}
+          JAKH_SSH_USER: ${{ secrets.JAKH_SSH_USER }}
+          JAKH_SSH_KEY: ${{ secrets.JAKH_SSH_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${JAKH_SSH_HOST}" ] || [ -z "${JAKH_SSH_USER}" ] || [ -z "${JAKH_SSH_KEY}" ]; then
+            echo "Missing one or more required secrets: JAKH_SSH_HOST, JAKH_SSH_USER, JAKH_SSH_KEY"
+            exit 1
+          fi
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${JAKH_SSH_KEY}" > ~/.ssh/jakh.pem
+          chmod 600 ~/.ssh/jakh.pem
+          ssh-keyscan -H "${JAKH_SSH_HOST}" >> ~/.ssh/known_hosts
+
+          ssh -i ~/.ssh/jakh.pem "${JAKH_SSH_USER}@${JAKH_SSH_HOST}" <<'REMOTE'
+            set -euo pipefail
+            cd /var/www/jakh.net
+            git pull --ff-only origin main
+            find . -type f -name "*.gz" -delete
+            find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.xml" -o -name "*.txt" -o -name "*.webmanifest" -o -name "*.svg" \) -exec gzip -kf -9 {} \;
+            sudo nginx -t
+            sudo systemctl reload nginx
+            git rev-parse --short HEAD
+REMOTE

@@ -5,7 +5,7 @@
     <script>(function(){try{localStorage.removeItem("jakh-theme");var s=JSON.parse(localStorage.getItem("jakh-riddles-settings")||"{}");if(s&&s.theme){delete s.theme;localStorage.setItem("jakh-riddles-settings",JSON.stringify(s));}}catch(e){}document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}());</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
-    <meta name="description" content="Contact JAKH at info@jakh.net for support, privacy requests, partnerships, feedback, and website questions." />
+    <meta name="description" content="Use the JAKH recommendation box for support notes, privacy requests, partnerships, feedback, and website change ideas." />
     <title>Contact JAKH | Support, Feedback and Privacy Requests</title>
     <link rel="preload" as="style" href="assets/fonts/fonts.css" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="assets/fonts/fonts.css" /></noscript>
@@ -13,7 +13,7 @@
     <link rel="canonical" href="https://jakh.net/contact.html" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="Contact JAKH" />
-    <meta property="og:description" content="Contact JAKH at info@jakh.net for support, privacy requests, partnerships, feedback, and website questions." />
+    <meta property="og:description" content="Use the JAKH recommendation box for support notes, privacy requests, partnerships, feedback, and website change ideas." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jakh.net/contact.html" />
     <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
@@ -73,27 +73,41 @@
         <div class="kv-hero-content" style="padding-top:4rem;padding-bottom:3rem;">
           <p class="kv-eyebrow">Contact</p>
           <h1 class="kv-hero-title" style="font-size:clamp(3rem,10vw,6rem);">Talk to JAKH</h1>
-          <p class="kv-hero-subtitle">For support, privacy requests, partnerships, feedback, or website questions, use the official email below.</p>
-          <a class="contact-email-card" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Email info@jakh.net">
-            <span>Official contact</span>
-            <strong>info@jakh.net</strong>
-          </a>
+          <p class="kv-hero-subtitle">For support, privacy requests, partnerships, feedback, or website questions, use the recommendation box below.</p>
         </div>
       </section>
+      <section class="suggestion-box" id="suggestionBox" aria-labelledby="suggestionTitle">
+        <div>
+          <h2 class="suggestion-title" id="suggestionTitle" data-i18n="suggestTitle">Recommend a change</h2>
+          <p class="suggestion-sub" data-i18n="suggestSub">Send page fixes, category ideas, account notes, privacy requests, game suggestions, or partnership notes.</p>
+        </div>
+        <div class="suggestion-form" id="suggestionForm">
+          <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" placeholder="What should we change or add?"></textarea>
+          <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" placeholder="Email (optional)" />
+          <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">Submit Idea</button>
+        </div>
+        <p class="suggestion-thanks hidden" id="suggestionThanks" data-i18n="suggestThanks">Thank you! We'll take a look.</p>
+      </section>
       <section class="legal-page shell" aria-labelledby="contactDetailsTitle">
-        <h2 id="contactDetailsTitle">What to send</h2>
+        <h2 id="contactDetailsTitle">What to recommend</h2>
         <div class="legal-grid">
           <article><h3>Support</h3><p>Tell us the page, browser, and what happened so we can reproduce the issue.</p></article>
-          <article><h3>Privacy</h3><p>Use this email for account data access, correction, export, or deletion requests.</p></article>
+          <article><h3>Privacy</h3><p>Use the box for account data access, correction, export, or deletion requests.</p></article>
           <article><h3>Feedback</h3><p>Send category ideas, question corrections, game suggestions, and partnership notes.</p></article>
-          <article dir="rtl"><h3>تواصل معنا</h3><p>راسلنا على info@jakh.net للدعم أو الخصوصية أو الاقتراحات أو الشراكات.</p></article>
+          <article dir="rtl"><h3>اقترح تغييرًا</h3><p>استخدم الصندوق لإرسال الدعم أو الخصوصية أو الاقتراحات أو الشراكات.</p></article>
         </div>
       </section>
     </main>
-    <footer class="footer shell">
-      <div><strong>JAKH</strong><p>Riddles, quizzes, and brain games in English and Arabic.</p></div>
-      <div class="social-links"><a class="social-link" href="privacy.html"><span>Privacy</span></a><a class="social-link" href="mailto:info@jakh.net?subject=JAKH%20contact"><span>info@jakh.net</span></a></div>
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <div class="footer-legal">
+          <a class="social-link" href="#suggestionBox"><span>Recommend changes</span></a>
+          <a class="social-link" href="privacy.html"><span>Privacy</span></a>
+        </div>
+      </div>
     </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
       <div id="authModal" class="modal hidden" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="auth"></div>
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">

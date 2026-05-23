@@ -48,6 +48,10 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 
+html {
+  scroll-padding-top: clamp(10rem, 34vh, 18rem);
+}
+
 * { box-sizing: border-box; }
 html, body {
   margin: 0;
@@ -1688,6 +1692,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
 ──────────────────────────────────────────────────────────────── */
 .suggestion-box {
   margin: 2.5rem auto 0;
+  scroll-margin-top: clamp(10rem, 34vh, 18rem);
   width: var(--shell);
   position: relative;
   overflow: hidden;

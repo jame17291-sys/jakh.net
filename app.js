@@ -617,7 +617,7 @@ const UI = {
     profileCurrentPassword: 'Current password',
     profileNewPassword: 'New password',
     profileUpdatePassword: 'Update password',
-    profileContact: 'Contact support',
+    profileContact: 'Recommend a change',
     profilePrivacy: 'Privacy policy',
     profileMember: 'Member',
     profileOwner: 'Owner',
@@ -633,7 +633,7 @@ const UI = {
     authEyebrow: 'Profile',
     authTitle: 'Create account or sign in',
     footerNote: 'All rights reserved to JAKH 2026',
-    footerContact: 'Contact info@jakh.net',
+    footerContact: 'Recommend changes',
     footerPrivacy: 'Privacy',
 
     pageProgress: 'Page progress',
@@ -682,8 +682,8 @@ const UI = {
     createLocalProfile: 'Create account',
     contactTag: 'Contact',
     contactTitle: 'Talk to JAKH',
-    contactText: 'Questions, partnerships, content ideas, or account support can go straight to the JAKH inbox.',
-    contactEmailLabel: 'Email',
+    contactText: 'Use the recommendation box to send page fixes, content ideas, account notes, or partnership requests.',
+    contactEmailLabel: 'Recommendation box',
     signedInAs: 'Signed in as',
     score: 'Score',
     solved: 'Solved',
@@ -726,13 +726,14 @@ const UI = {
     audioStop: 'Stop',
     audioOn: 'Audio on',
     audioOff: 'Audio off',
-    suggestTitle: 'Got a topic idea?',
-    suggestSub: 'Suggest a new riddle category or topic and we\'ll consider adding it.',
-    suggestPlaceholder: 'Your idea…',
+    suggestTitle: 'Recommend a change',
+    suggestSub: 'Send page fixes, category ideas, account notes, privacy requests, game suggestions, or partnership notes.',
+    suggestPlaceholder: 'What should we change or add?',
     suggestEmailPlaceholder: 'Email (optional)',
     suggestSubmit: 'Submit Idea',
     suggestThanks: 'Thank you! We\'ll take a look.',
     suggestError: 'Please write at least 5 characters.',
+    suggestDuplicate: 'This suggestion was already sent.',
     lockHard: 'Answer any 10 questions correctly to unlock Hard.',
     lockDifficult: 'Answer 10 Hard questions correctly to unlock Expert.',
     lockSignIn: 'Sign in to unlock this level.',
@@ -840,7 +841,7 @@ const UI = {
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
     footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
-    footerContact: 'تواصل عبر info@jakh.net',
+    footerContact: 'اقترح تغييرات',
     footerPrivacy: 'الخصوصية',
 
     pageProgress: 'تقدم الصفحة',
@@ -889,8 +890,8 @@ const UI = {
     createLocalProfile: 'إنشاء حساب',
     contactTag: 'تواصل',
     contactTitle: 'تواصل مع JAKH',
-    contactText: 'للأسئلة أو الشراكات أو أفكار المحتوى أو دعم الحساب، راسل بريد JAKH مباشرة.',
-    contactEmailLabel: 'البريد',
+    contactText: 'استخدم صندوق الاقتراحات لإرسال تصحيحات الصفحات أو أفكار المحتوى أو ملاحظات الحساب أو طلبات الشراكة.',
+    contactEmailLabel: 'صندوق الاقتراحات',
     signedInAs: 'مسجل باسم',
     score: 'النقاط',
     solved: 'المحلول',
@@ -933,13 +934,14 @@ const UI = {
     audioStop: 'إيقاف',
     audioOn: 'الصوت مفعّل',
     audioOff: 'الصوت معطّل',
-    suggestTitle: 'هل لديك فكرة لموضوع جديد؟',
-    suggestSub: 'اقترح فئة أو موضوعًا جديدًا وسنأخذه بعين الاعتبار.',
-    suggestPlaceholder: 'فكرتك…',
+    suggestTitle: 'اقترح تغييرًا',
+    suggestSub: 'أرسل تصحيحات الصفحات أو أفكار الفئات أو ملاحظات الحساب أو طلبات الخصوصية أو اقتراحات الألعاب أو الشراكات.',
+    suggestPlaceholder: 'ما الذي يجب تغييره أو إضافته؟',
     suggestEmailPlaceholder: 'البريد الإلكتروني (اختياري)',
     suggestSubmit: 'أرسل الفكرة',
     suggestThanks: 'شكرًا لك! سنراجع اقتراحك.',
     suggestError: 'الرجاء كتابة 5 أحرف على الأقل.',
+    suggestDuplicate: 'تم إرسال هذا الاقتراح من قبل.',
     lockHard: 'أجب على 10 أسئلة صحيحة لفتح المستوى الصعب.',
     lockDifficult: 'أجب على 10 أسئلة صعبة صحيحة لفتح مستوى الخبير.',
     lockSignIn: 'سجّل الدخول لفتح هذا المستوى.',
@@ -1493,7 +1495,7 @@ function enhanceFooterLinks() {
       legal = document.createElement('div');
       legal.className = 'footer-legal';
       legal.innerHTML = `
-        <a class="footer-link footer-contact-link" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Contact JAKH by email">
+        <a class="footer-link footer-contact-link" href="contact.html#suggestionBox" aria-label="Recommend a change to JAKH">
           <span data-footer-contact></span>
         </a>
         <a class="footer-link footer-privacy-link" href="privacy.html" aria-label="Read the JAKH privacy page">
@@ -1507,7 +1509,10 @@ function enhanceFooterLinks() {
     if (privacy) privacy.textContent = t('footerPrivacy');
     const contactLink = legal.querySelector('.footer-contact-link');
     const privacyLink = legal.querySelector('.footer-privacy-link');
-    if (contactLink) contactLink.setAttribute('aria-label', isAr ? 'تواصل مع JAKH عبر البريد الإلكتروني' : 'Contact JAKH by email');
+    if (contactLink) {
+      contactLink.setAttribute('href', 'contact.html#suggestionBox');
+      contactLink.setAttribute('aria-label', isAr ? 'اقترح تغييرًا على JAKH' : 'Recommend a change to JAKH');
+    }
     if (privacyLink) privacyLink.setAttribute('aria-label', isAr ? 'اقرأ صفحة خصوصية JAKH' : 'Read the JAKH privacy page');
   });
 }
@@ -3427,7 +3432,7 @@ function renderAuthModal(mode = 'signin') {
             <p>${escapeHtml(isAr ? 'الدعم، الخصوصية، والخروج في مكان واحد.' : 'Support, privacy, and sign-out in one place.')}</p>
           </div>
           <div class="profile-support-actions">
-            <a class="mini-btn" href="mailto:info@jakh.net?subject=JAKH%20account%20support">${escapeHtml(t('profileContact'))}</a>
+            <a class="mini-btn" href="contact.html#suggestionBox">${escapeHtml(t('profileContact'))}</a>
             <a class="mini-btn" href="privacy.html">${escapeHtml(t('profilePrivacy'))}</a>
             <button class="mini-btn profile-danger-btn" id="logoutBtn">${escapeHtml(t('logout'))}</button>
           </div>
@@ -3967,11 +3972,42 @@ function handleAudioBtn(btn) {
 
 // ── Suggestion box ────────────────────────────────────────────────────────────
 
+const SUGGESTION_HISTORY_KEY = 'jakh-submitted-suggestions-v1';
+
+function normalizeSuggestionText(text) {
+  return String(text || '').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function getSuggestionHistory() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(SUGGESTION_HISTORY_KEY) || '[]');
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function hasSubmittedSuggestion(text) {
+  const key = normalizeSuggestionText(text);
+  return key.length > 0 && getSuggestionHistory().includes(key);
+}
+
+function rememberSubmittedSuggestion(text) {
+  const key = normalizeSuggestionText(text);
+  if (!key) return;
+  const history = getSuggestionHistory().filter(item => item !== key);
+  history.unshift(key);
+  try {
+    localStorage.setItem(SUGGESTION_HISTORY_KEY, JSON.stringify(history.slice(0, 80)));
+  } catch { }
+}
+
 function initSuggestionBox() {
   if (!els.suggestionSubmit) return;
   els.suggestionSubmit.addEventListener('click', async () => {
     const text = els.suggestionText?.value.trim() || '';
     if (text.length < 5) { showToast(t('suggestError'), true); return; }
+    if (hasSubmittedSuggestion(text)) { showToast(t('suggestDuplicate'), true); return; }
     els.suggestionSubmit.disabled = true;
     try {
       const res = await fetch('/api/suggestions', {
@@ -3981,6 +4017,7 @@ function initSuggestionBox() {
       });
       const data = await res.json();
       if (!res.ok) { showToast(data.error || 'Error submitting', true); return; }
+      rememberSubmittedSuggestion(text);
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
     } catch {

@@ -61,7 +61,7 @@
       time: 'Time',
       lesson: 'Trains',
       footerNote: 'All rights reserved to JAKH 2026',
-      footerContact: 'Contact info@jakh.net',
+      footerContact: 'Recommend changes',
       footerPrivacy: 'Privacy',
     },
     ar: {
@@ -111,7 +111,7 @@
       time: 'الوقت',
       lesson: 'يدرب',
       footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
-      footerContact: 'تواصل عبر info@jakh.net',
+      footerContact: 'اقترح تغييرات',
       footerPrivacy: 'الخصوصية',
     },
   };

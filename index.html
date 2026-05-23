@@ -94,7 +94,6 @@
           "@id": "https://jakh.net/#organization",
           "name": "JAKH",
           "url": "https://jakh.net/",
-          "email": "info@jakh.net",
           "logo": "https://jakh.net/assets/logo.png",
           "sameAs": [
             "https://www.instagram.com/jakhriddles/",
@@ -248,16 +247,18 @@
     <div id="accountSummaryMount"></div>
   </div>
 
-  <section class="contact-strip shell" id="contact" aria-labelledby="contactTitle">
+  <section class="suggestion-box" id="suggestionBox" aria-labelledby="contactTitle">
     <div>
       <p class="kv-eyebrow" data-i18n="contactTag">Contact</p>
       <h2 id="contactTitle" data-i18n="contactTitle">Talk to JAKH</h2>
-      <p data-i18n="contactText">Questions, partnerships, content ideas, or account support can go straight to the JAKH inbox.</p>
+      <p class="suggestion-sub" data-i18n="contactText">Use the recommendation box to send page fixes, content ideas, account notes, or partnership requests.</p>
     </div>
-    <a class="contact-email-card" href="mailto:info@jakh.net?subject=JAKH%20contact" aria-label="Email info@jakh.net">
-      <span data-i18n="contactEmailLabel">Email</span>
-      <strong>info@jakh.net</strong>
-    </a>
+    <div class="suggestion-form" id="suggestionForm">
+      <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" placeholder="What should we change or add?"></textarea>
+      <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" placeholder="Email (optional)" />
+      <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">Submit Idea</button>
+    </div>
+    <p class="suggestion-thanks hidden" id="suggestionThanks" data-i18n="suggestThanks">Thank you! We'll take a look.</p>
   </section>
 
 
@@ -267,7 +268,7 @@
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <div class="footer-legal">
-          <a href="mailto:info@jakh.net?subject=JAKH%20contact" class="social-link" aria-label="Contact JAKH by email"><span data-i18n="footerContact">Contact info@jakh.net</span></a>
+          <a href="#suggestionBox" class="social-link" aria-label="Recommend a change to JAKH"><span data-i18n="footerContact">Recommend changes</span></a>
           <a href="privacy.html" class="social-link" aria-label="Read the JAKH privacy page"><span data-i18n="footerPrivacy">Privacy</span></a>
         </div>
 </div>

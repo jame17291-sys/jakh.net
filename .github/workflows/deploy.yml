@@ -16,9 +16,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout workflow commit
-        uses: actions/checkout@v4
-
       - name: Deploy latest main on server
         env:
           JAKH_SSH_HOST: ${{ secrets.JAKH_SSH_HOST }}
@@ -37,13 +34,16 @@ jobs:
           printf '%s\n' "${JAKH_SSH_KEY}" > ~/.ssh/jakh.pem
           chmod 600 ~/.ssh/jakh.pem
 
+          echo "Checking SSH private key format..."
           if ! grep -q "BEGIN .*PRIVATE KEY" ~/.ssh/jakh.pem; then
             echo "JAKH_SSH_KEY does not look like a private key. Re-copy ~/Downloads/JAKH.pem into the secret."
             exit 1
           fi
 
+          echo "Adding EC2 host key..."
           ssh-keyscan -T 20 -H "${JAKH_SSH_HOST}" >> ~/.ssh/known_hosts
 
+          echo "Connecting to EC2 and deploying main..."
           ssh -i ~/.ssh/jakh.pem -o BatchMode=yes -o StrictHostKeyChecking=yes "${JAKH_SSH_USER}@${JAKH_SSH_HOST}" "
             set -euo pipefail
             cd /var/www/jakh.net

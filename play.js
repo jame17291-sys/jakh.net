@@ -238,26 +238,16 @@
     forceDarkTheme();
   }
 
-  function clearStoredTheme() {
-    try {
-      const settings = JSON.parse(localStorage.getItem('jakh-riddles-settings') || '{}');
-      localStorage.removeItem('jakh-theme');
-      if (settings && Object.prototype.hasOwnProperty.call(settings, 'theme')) {
-        delete settings.theme;
-        localStorage.setItem('jakh-riddles-settings', JSON.stringify(settings));
-      }
-    } catch (_) {
-    }
+  function getThemeColor() {
+    return getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim() || '#17151c';
   }
 
   function forceDarkTheme() {
-    clearStoredTheme();
     document.documentElement.dataset.theme = 'dark';
     document.documentElement.style.colorScheme = 'dark';
     document.querySelectorAll('meta[name="theme-color"]').forEach(node => {
-      node.setAttribute('content', '#0b1020');
+      node.setAttribute('content', getThemeColor());
     });
-    document.querySelectorAll('[data-theme-toggle], [data-theme-select], #themeSelect, .theme-toggle-label').forEach(node => node.remove());
   }
 
   function render() {

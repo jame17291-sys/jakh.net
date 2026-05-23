@@ -2,21 +2,20 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <script>(function(){try{localStorage.removeItem("jakh-theme");var s=JSON.parse(localStorage.getItem("jakh-riddles-settings")||"{}");if(s&&s.theme){delete s.theme;localStorage.setItem("jakh-riddles-settings",JSON.stringify(s));}}catch(e){}document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}());</script>
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
-  <meta name="theme-color" content="#070a12" />
+  <meta name="theme-color" content="#17151c" />
   <title>JAKH Admin Console</title>
   <style>
     :root {
-      --bg: #070a12;
-      --bg-2: #0b1020;
-      --panel: rgba(15, 22, 39, 0.82);
-      --panel-2: rgba(255, 255, 255, 0.055);
-      --line: rgba(255, 255, 255, 0.1);
-      --line-2: rgba(255, 255, 255, 0.16);
-      --text: #f4f7ff;
-      --muted: #9aa8c7;
+      --bg: #17151c;
+      --bg-2: #211f29;
+      --panel: rgba(255, 250, 240, 0.075);
+      --panel-2: rgba(255, 250, 240, 0.12);
+      --line: rgba(255, 250, 240, 0.13);
+      --line-2: rgba(255, 250, 240, 0.18);
+      --text: #fff8ec;
+      --muted: rgba(255, 248, 236, 0.68);
       --soft: #cbd5ef;
       --accent: #8fb2ff;
       --accent-2: #58d7b9;
@@ -24,6 +23,7 @@
       --danger: #ff7890;
       --radius: 16px;
       --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+      --theme-color: #17151c;
     }
 
     * { box-sizing: border-box; }
@@ -40,7 +40,7 @@
       background:
         radial-gradient(circle at 15% -10%, rgba(143, 178, 255, 0.18), transparent 32rem),
         radial-gradient(circle at 85% 10%, rgba(88, 215, 185, 0.12), transparent 30rem),
-        linear-gradient(180deg, #070a12 0%, #0a0f1d 48%, #070a12 100%);
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 48%, var(--bg) 100%);
       color: var(--text);
     }
     body.drawer-open { overflow: hidden; }
@@ -388,7 +388,7 @@
 
     /* Simplified admin surface: calmer, flatter, easier to scan. */
     body {
-      background: #070a12;
+      background: var(--bg);
     }
     .admin-topbar {
       background: rgba(7, 10, 18, 0.94);
@@ -518,7 +518,7 @@
         min-width: 0;
         background:
           radial-gradient(circle at 20% -8%, rgba(143, 178, 255, 0.12), transparent 20rem),
-          linear-gradient(180deg, #070a12 0%, #0a0f1d 52%, #070a12 100%);
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 52%, var(--bg) 100%);
       }
       .admin-topbar {
         flex-direction: column;
@@ -1078,19 +1078,15 @@
       return '<tr><td colspan="' + cols + '" class="muted">' + esc(message) + '</td></tr>';
     }
 
+    function getThemeColor() {
+      return getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim() || '#17151c';
+    }
+
     function forceDarkTheme() {
-      try {
-        localStorage.removeItem('jakh-theme');
-        const settings = JSON.parse(localStorage.getItem('jakh-riddles-settings') || '{}');
-        if (settings && settings.theme) {
-          delete settings.theme;
-          localStorage.setItem('jakh-riddles-settings', JSON.stringify(settings));
-        }
-      } catch (_) {}
       document.documentElement.dataset.theme = 'dark';
       document.documentElement.style.colorScheme = 'dark';
       document.querySelectorAll('meta[name="theme-color"]').forEach(node => {
-        node.setAttribute('content', '#070a12');
+        node.setAttribute('content', getThemeColor());
       });
     }
 

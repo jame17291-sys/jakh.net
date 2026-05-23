@@ -1418,25 +1418,16 @@ function showToast(message, isError) {
   }, isError ? 3200 : 2200);
 }
 
-function clearStoredTheme() {
-  try {
-    localStorage.removeItem('jakh-theme');
-    const settings = loadJson(STORAGE_KEYS.settings, {});
-    if (settings && Object.prototype.hasOwnProperty.call(settings, 'theme')) {
-      delete settings.theme;
-      saveJson(STORAGE_KEYS.settings, settings);
-    }
-  } catch (_) { }
+function getThemeColor() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--theme-color').trim() || '#17151c';
 }
 
 function forceDarkTheme() {
-  clearStoredTheme();
   document.documentElement.dataset.theme = 'dark';
   document.documentElement.style.colorScheme = 'dark';
   document.querySelectorAll('meta[name="theme-color"]').forEach((node) => {
-    node.setAttribute('content', '#0b1020');
+    node.setAttribute('content', getThemeColor());
   });
-  document.querySelectorAll('[data-theme-toggle], [data-theme-select], #themeSelect, .theme-toggle-label').forEach(node => node.remove());
 }
 
 function applyTheme() {
@@ -1662,7 +1653,6 @@ function flushStaleStorage() {
 
 function initializeFromStorage() {
   flushStaleStorage();
-  clearStoredTheme();
   const settings = loadJson(STORAGE_KEYS.settings, {});
   state.lang = settings.lang || 'en';
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';

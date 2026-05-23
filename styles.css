@@ -9,16 +9,16 @@
   --plum:           #c026d3;
 
   /* ── Design tokens ── */
-  --bg:             #0a0a0a;
-  --bg-soft:        #1c1726;
-  --bg-elev:        rgba(20, 16, 28, 0.94);
-  --panel:          rgba(252,252,252,0.04);
-  --panel-strong:   rgba(252,252,252,0.08);
-  --header-bg:      rgba(10,10,10,0.92);
-  --line:           rgba(252,252,252,0.08);
-  --line-strong:    rgba(252,252,252,0.08);
-  --text:           #fcfcfc;
-  --muted:          rgba(252,252,252,0.45);
+  --bg:             #17151c;
+  --bg-soft:        #211f29;
+  --bg-elev:        rgba(35, 32, 43, 0.96);
+  --panel:          rgba(255,250,240,0.075);
+  --panel-strong:   rgba(255,250,240,0.12);
+  --header-bg:      rgba(24, 22, 29, 0.94);
+  --line:           rgba(255,250,240,0.13);
+  --line-strong:    rgba(255,250,240,0.18);
+  --text:           #fff8ec;
+  --muted:          rgba(255,248,236,0.68);
   --accent:         #38bdf8;
   --accent2:        #c026d3;
   --accent-2:       #c026d3;
@@ -30,18 +30,19 @@
   --medium:         #ffc857;
   --hard:           #f87171;
   --advanced:       #9f7cff;
-  --shadow:         0 2px 8px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.4);
-  --shadow-lg:      0 24px 64px rgba(0,0,0,0.7);
+  --shadow:         0 12px 34px rgba(0,0,0,0.24);
+  --shadow-lg:      0 24px 70px rgba(0,0,0,0.38);
   --radius:         4px;
   --radius-sm:      2px;
   --shell:          min(1220px, calc(100vw - 2rem));
   --font:           ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Arabic", Arial, sans-serif;
   --font-display:   Georgia, "Times New Roman", serif;
   --font-mono:      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  --theme-color:    #0a0a0a;
+  --theme-color:    #17151c;
   --body-bg-image:
-    radial-gradient(ellipse 900px 500px at 18% 0%, rgba(56,189,248,0.06), transparent),
-    radial-gradient(ellipse 700px 400px at 82% 85%, rgba(192,38,211,0.05), transparent);
+    radial-gradient(ellipse 900px 520px at 16% 0%, rgba(56,189,248,0.10), transparent 62%),
+    radial-gradient(ellipse 760px 460px at 86% 82%, rgba(245,158,11,0.075), transparent 58%),
+    linear-gradient(180deg, #1a1820 0%, #17151c 48%, #14131a 100%);
 }
 
 html[data-theme="dark"] {
@@ -582,7 +583,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
 .profile-mark {
   --mark-a: var(--accent);
   --mark-b: var(--accent-2);
-  --mark-ink: #fcfcfc;
+  --mark-ink: var(--text);
   position: relative;
   display: inline-grid;
   place-items: center;
@@ -593,7 +594,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
   isolation: isolate;
   background:
     radial-gradient(circle at 26% 18%, color-mix(in srgb, var(--mark-a) 70%, white) 0 12%, transparent 30%),
-    linear-gradient(135deg, color-mix(in srgb, var(--mark-a) 62%, #07080e), color-mix(in srgb, var(--mark-b) 48%, #111017));
+    linear-gradient(135deg, color-mix(in srgb, var(--mark-a) 62%, var(--bg)), color-mix(in srgb, var(--mark-b) 48%, var(--bg-soft)));
   border: 1px solid color-mix(in srgb, var(--mark-a) 50%, transparent);
   box-shadow: 0 14px 34px color-mix(in srgb, var(--mark-a) 18%, transparent);
   color: var(--mark-ink);
@@ -3850,7 +3851,7 @@ body[data-page="play"] {
   --game-hub-bg:
     radial-gradient(ellipse 760px 360px at 18% 2%, rgba(93,183,234,0.14), transparent 62%),
     radial-gradient(ellipse 620px 320px at 84% 12%, rgba(245,158,11,0.12), transparent 58%),
-    linear-gradient(180deg, #0A0A0A 0%, #111017 44%, #0B0A0E 100%);
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 44%, var(--bg) 100%);
   background-image: var(--game-hub-bg);
   background-attachment: scroll;
 }
@@ -3980,8 +3981,8 @@ body[data-page="play"] .grid-glow {
   align-items: center;
   justify-content: center;
   padding: 0.85rem 1rem;
-  background: #fcfcfc;
-  color: #0a0a0a;
+  background: var(--text);
+  color: var(--bg);
   font-weight: 900;
 }
 
@@ -4642,8 +4643,8 @@ body[data-page="home"] .section-block { margin-top: 0; }
 
 /* ── Global overrides ───────────────────────────────────── */
 body {
-  background-color: #0a0a0a;
-  color: #fcfcfc;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -4671,7 +4672,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.4rem 0.75rem;
   transition: color 0.15s;
 }
-.ghost-btn:hover { color: #fcfcfc; }
+.ghost-btn:hover { color: var(--text); }
 
 /* ── Hero section (kv = kimi vibe) ─────────────────────── */
 .kv-hero {
@@ -4682,7 +4683,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #0a0a0a;
+  background: var(--bg);
 }
 
 .kv-hero-fallback-bg {
@@ -4692,7 +4693,7 @@ h1, h2, h3, h4, h5, h6 {
   background:
     radial-gradient(ellipse at 30% 40%, rgba(56,189,248,0.18) 0%, transparent 55%),
     radial-gradient(ellipse at 70% 60%, rgba(192,38,211,0.14) 0%, transparent 55%),
-    linear-gradient(180deg, #0a0a0a 0%, #0d0d12 50%, #0a0a0a 100%);
+    linear-gradient(180deg, var(--bg) 0%, #0d0d12 50%, var(--bg) 100%);
 }
 
 .kv-hero-content {
@@ -4722,7 +4723,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 0.9;
-  color: #fcfcfc;
+  color: var(--text);
   margin: 0;
   text-shadow: 0 0 120px rgba(56,189,248,0.15);
 }
@@ -4736,39 +4737,32 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-.kv-hero-cta {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
 
 .kv-btn-primary {
   display: inline-block;
   padding: 0.8rem 2rem;
-  background: #fcfcfc;
-  color: #0a0a0a;
+  background: var(--text);
+  color: var(--bg);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid #fcfcfc;
+  border: 1px solid var(--text);
   border-radius: 0;
   transition: background 0.2s, color 0.2s;
 }
 .kv-btn-primary:hover {
   background: transparent;
-  color: #fcfcfc;
+  color: var(--text);
 }
 
 .kv-btn-outline {
   display: inline-block;
   padding: 0.8rem 2rem;
   background: transparent;
-  color: #fcfcfc;
+  color: var(--text);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
@@ -4780,9 +4774,9 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .kv-btn-outline:hover {
-  background: #fcfcfc;
-  color: #0a0a0a;
-  border-color: #fcfcfc;
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
 }
 
 .kv-hero-stats {
@@ -4803,7 +4797,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #fcfcfc;
+  color: var(--text);
   line-height: 1;
 }
 
@@ -4843,7 +4837,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Portal section (Mind Lab / Game Hub) ───────────────── */
 .kv-portals {
   padding: 5rem 0;
-  background: #0a0a0a;
+  background: var(--bg);
   border-top: 1px solid rgba(252,252,252,0.08);
 }
 
@@ -4860,9 +4854,9 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   gap: 1.5rem;
   padding: 3.5rem 3rem;
-  background: #0a0a0a;
+  background: var(--bg);
   text-decoration: none;
-  color: #fcfcfc;
+  color: var(--text);
   transition: background 0.25s;
   min-height: 320px;
   overflow: hidden;
@@ -4895,7 +4889,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fcfcfc;
+  color: var(--text);
   margin: 0;
   line-height: 1.1;
 }
@@ -4966,14 +4960,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .kv-widgets-row > * {
   flex: 1;
-  background: #0a0a0a;
+  background: var(--bg);
   padding: 2rem;
   min-width: 200px;
 }
 
 /* ── Mind Lab / Category section ─────────────────────────── */
 .kv-lab-section {
-  background: #0a0a0a;
+  background: var(--bg);
   padding: 5rem 0 3rem;
   border-top: 1px solid rgba(252,252,252,0.08);
 }
@@ -4990,7 +4984,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fcfcfc;
+  color: var(--text);
   margin: 0;
   line-height: 1.05;
 }
@@ -5016,7 +5010,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Override existing category-card styles */
 .category-card {
-  background: #0a0a0a !important;
+  background: var(--bg) !important;
   border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
@@ -5027,14 +5021,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .category-card:hover:not(.skeleton-card) {
-  background: #fcfcfc !important;
+  background: var(--text) !important;
   transform: none !important;
 }
 
 .category-card:hover .category-card-label,
 .category-card:hover .category-title,
 .category-card:hover .cluster-chip {
-  color: #0a0a0a !important;
+  color: var(--bg) !important;
 }
 
 .category-card:hover .category-card-stat,
@@ -5084,7 +5078,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (hover: none) {
   .category-card:hover:not(.skeleton-card) {
-    background: #0a0a0a !important;
+    background: var(--bg) !important;
     transform: none !important;
   }
   .category-card:hover .category-card-label,
@@ -5106,7 +5100,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 input[type="search"], input[type="text"], textarea {
-  color: #fcfcfc;
+  color: var(--text);
   background: transparent;
 }
 
@@ -5126,7 +5120,7 @@ input[type="search"], input[type="text"], textarea {
 .category-title {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #fcfcfc;
+  color: var(--text);
   line-height: 1.3;
   letter-spacing: -0.01em;
   margin-bottom: 0.35rem;
@@ -5166,8 +5160,8 @@ input[type="search"], input[type="text"], textarea {
 
 /* Primary button */
 .primary-btn, .cta-btn {
-  background: #fcfcfc;
-  color: #0a0a0a;
+  background: var(--text);
+  color: var(--bg);
   border: none;
   border-radius: 0;
   font-family: 'Space Grotesk', sans-serif;
@@ -5179,7 +5173,7 @@ input[type="search"], input[type="text"], textarea {
 }
 .primary-btn:hover, .cta-btn:hover {
   background: #38bdf8;
-  color: #0a0a0a;
+  color: var(--bg);
 }
 
 /* ── Suggestion / footer section ────────────────────────── */
@@ -5190,7 +5184,7 @@ input[type="search"], input[type="text"], textarea {
 }
 
 .site-footer {
-  background: #0a0a0a;
+  background: var(--bg);
   border-top: 1px solid rgba(252,252,252,0.08);
 }
 
@@ -5212,7 +5206,6 @@ input[type="search"], input[type="text"], textarea {
 }
 
 @media (max-width: 480px) {
-  .kv-hero-cta { flex-direction: column; align-items: stretch; }
   .kv-btn-primary, .kv-btn-outline { text-align: center; }
   .kv-hero-stats { gap: 1rem; }
   .kv-stat-divider { height: 1.5rem; }
@@ -5271,12 +5264,12 @@ input[type="search"], input[type="text"], textarea {
 
 /* Keep hover inversion but make text legible on white */
 .category-card:hover:not(.skeleton-card) {
-  background: #fcfcfc !important;
+  background: var(--text) !important;
 }
 .category-card:hover:not(.skeleton-card) .category-card-overlay h3,
 .category-card:hover:not(.skeleton-card) .category-card-cluster,
 .category-card:hover:not(.skeleton-card) .category-card-footer > span {
-  color: #0a0a0a !important;
+  color: var(--bg) !important;
 }
 
 /* 9. Riddle card — use CSS vars for theme-adaptive backgrounds + explicit text */
@@ -5368,45 +5361,6 @@ body[data-page="home"] .kv-hero-subtitle {
   max-width: 680px;
 }
 
-body[data-page="home"] .kv-hero-cta .kv-btn-primary,
-body[data-page="home"] .kv-hero-cta .kv-btn-outline {
-  display: inline-flex;
-  align-items: center;
-  min-width: 180px;
-  justify-content: center;
-  border-radius: 8px;
-  color: rgba(252,252,252,0.94);
-  background: rgba(255,255,255,0.055);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.08),
-    0 18px 46px rgba(0,0,0,0.22);
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-primary {
-  border-color: rgba(100,216,255,0.42);
-  color: #dff7ff;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-outline {
-  border-color: rgba(238,198,118,0.38);
-  color: #fff2cd;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-primary:hover,
-body[data-page="home"] .kv-hero-cta .kv-btn-primary:focus-visible {
-  background: #64d8ff;
-  border-color: #64d8ff;
-  color: #061016;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-outline:hover,
-body[data-page="home"] .kv-hero-cta .kv-btn-outline:focus-visible {
-  background: #eec676;
-  border-color: #eec676;
-  color: #141006;
-}
-
 body[data-page="home"] .kv-hero-stats {
   flex-wrap: wrap;
   justify-content: center;
@@ -5418,7 +5372,7 @@ body[data-page="home"] .kv-portals {
   background:
     radial-gradient(circle at 16% 22%, rgba(56,189,248,0.12), transparent 28%),
     radial-gradient(circle at 82% 54%, rgba(245,158,11,0.1), transparent 30%),
-    linear-gradient(180deg, #050609, #08090d 64%, #050609);
+    linear-gradient(180deg, var(--bg), var(--bg-soft) 64%, var(--bg));
 }
 
 body[data-page="home"] .kv-portals-grid {
@@ -5438,7 +5392,7 @@ body[data-page="home"] .kv-portal-card {
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--portal-accent) 10%, transparent), transparent 34%),
     linear-gradient(180deg, rgba(252,252,252,0.075), rgba(252,252,252,0.026) 48%, rgba(252,252,252,0.045)),
-    #0a0a0a;
+    var(--bg);
   box-shadow:
     0 26px 70px rgba(0,0,0,0.34),
     inset 0 1px 0 rgba(255,255,255,0.08);
@@ -5450,7 +5404,7 @@ body[data-page="home"] .kv-portal-card:hover {
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--portal-accent) 14%, transparent), transparent 34%),
     linear-gradient(180deg, rgba(252,252,252,0.095), rgba(252,252,252,0.032) 48%, rgba(252,252,252,0.06)),
-    #0a0a0a;
+    var(--bg);
   box-shadow:
     0 34px 82px rgba(0,0,0,0.42),
     0 0 0 1px color-mix(in srgb, var(--portal-accent) 14%, transparent),
@@ -5825,7 +5779,7 @@ body[data-page="home"] .portal-game-side-panel {
 .kv-player-metric strong,
 .kv-player-resume-link strong,
 .kv-player-profile-card strong {
-  color: #fcfcfc;
+  color: var(--text);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   line-height: 1.15;
@@ -5958,54 +5912,9 @@ body[data-page="home"] .kv-hero-title {
   text-shadow: none;
 }
 
-body[data-page="home"] .kv-hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.42rem;
-  border: 1px solid rgba(255,255,255,0.11);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.045);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.07),
-    0 24px 72px rgba(0,0,0,0.28);
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-primary,
-body[data-page="home"] .kv-hero-cta .kv-btn-outline {
-  min-width: 188px;
-  border-radius: 8px;
-  color: rgba(252,252,252,0.9);
-  background: rgba(255,255,255,0.035);
-  border-color: rgba(255,255,255,0.08);
-  box-shadow: none;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-primary {
-  color: #dff7ff;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-outline {
-  color: #fff0c8;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-primary:hover,
-body[data-page="home"] .kv-hero-cta .kv-btn-primary:focus-visible {
-  background: rgba(100,216,255,0.16);
-  border-color: rgba(100,216,255,0.42);
-  color: #f7fdff;
-}
-
-body[data-page="home"] .kv-hero-cta .kv-btn-outline:hover,
-body[data-page="home"] .kv-hero-cta .kv-btn-outline:focus-visible {
-  background: rgba(238,198,118,0.14);
-  border-color: rgba(238,198,118,0.42);
-  color: #fff9e8;
-}
-
 body[data-page="home"] .kv-portals {
   background:
-    linear-gradient(180deg, #050609, #07090d 48%, #050609),
+    linear-gradient(180deg, var(--bg), var(--bg-soft) 48%, var(--bg)),
     repeating-linear-gradient(90deg, rgba(255,255,255,0.032) 0 1px, transparent 1px 118px);
 }
 
@@ -6178,16 +6087,6 @@ body[data-page="home"] .portal-game-side-panel {
     padding: 4.75rem 0 3.5rem;
   }
 
-  body[data-page="home"] .kv-hero-cta {
-    width: min(100%, 360px);
-    display: grid;
-  }
-
-  body[data-page="home"] .kv-hero-cta .kv-btn-primary,
-  body[data-page="home"] .kv-hero-cta .kv-btn-outline {
-    width: 100%;
-  }
-
   body[data-page="home"] .kv-hero-stats {
     display: grid;
     width: min(100%, 340px);
@@ -6250,7 +6149,7 @@ body[data-page="category"] input[type="text"] {
 body[data-page="play"] .kv-lab-section .game-lobby-grid { margin-top: 2rem; }
 body[data-page="play"] .kv-lab-section h2 {
   font-family: 'Space Grotesk', sans-serif;
-  color: #fcfcfc;
+  color: var(--text);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -6386,7 +6285,7 @@ body[data-page="play"] .kv-lab-section p {
 .collection-card h3,
 .category-card-overlay h3 {
   margin: 0;
-  color: #fcfcfc;
+  color: var(--text);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.12rem;
   font-weight: 700;
@@ -6411,7 +6310,7 @@ body[data-page="play"] .kv-lab-section p {
 
 .collection-back-btn {
   border-color: rgba(252,252,252,0.18);
-  color: #fcfcfc;
+  color: var(--text);
 }
 
 .category-card:hover .category-card-overlay h3,
@@ -6420,7 +6319,7 @@ body[data-page="play"] .kv-lab-section p {
 .category-card:hover .collection-card-body h3,
 .category-card:hover .collection-card-body p,
 .category-card:hover .collection-preview {
-  color: #0a0a0a !important;
+  color: var(--bg) !important;
 }
 
 /* Premium category art system: one visual language, mobile-safe compositing */
@@ -6462,7 +6361,7 @@ body[data-page="category"] .control-panel {
   border-color: color-mix(in srgb, var(--active-category-accent) 22%, var(--line-strong)) !important;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--active-category-accent) 7%, transparent), transparent 58%),
-    color-mix(in srgb, var(--panel) 94%, #0a0a0a) !important;
+    color-mix(in srgb, var(--panel) 94%, var(--bg)) !important;
   box-shadow:
     0 18px 44px rgba(0,0,0,0.24),
     inset 0 1px 0 rgba(255,255,255,0.04) !important;
@@ -6667,7 +6566,7 @@ body[data-page="category"] .card-action-btn {
   isolation: isolate;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012)),
-    color-mix(in srgb, var(--panel) 88%, #0a0a0a);
+    color-mix(in srgb, var(--panel) 88%, var(--bg));
   box-shadow:
     0 8px 18px rgba(0,0,0,0.18),
     inset 0 1px 0 rgba(255,255,255,0.07);
@@ -6842,7 +6741,7 @@ body[data-page="category"] .card-fav-btn.is-fav {
   border-color: color-mix(in srgb, var(--category-accent, var(--accent)) 20%, var(--line-strong)) !important;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--category-accent, var(--accent)) 8%, transparent), transparent 58%),
-    color-mix(in srgb, var(--panel) 92%, #0a0a0a) !important;
+    color-mix(in srgb, var(--panel) 92%, var(--bg)) !important;
   box-shadow:
     0 16px 34px rgba(0,0,0,0.22),
     inset 0 1px 0 rgba(255,255,255,0.04) !important;
@@ -6917,7 +6816,7 @@ body[data-page="category"] .riddle-card {
   border-color: color-mix(in srgb, var(--active-category-accent) 26%, var(--line-strong)) !important;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--active-category-accent) 8%, transparent), transparent 62%),
-    color-mix(in srgb, var(--panel) 92%, #0a0a0a) !important;
+    color-mix(in srgb, var(--panel) 92%, var(--bg)) !important;
   box-shadow:
     0 16px 34px rgba(0,0,0,0.22),
     inset 0 1px 0 rgba(255,255,255,0.04) !important;
@@ -6948,7 +6847,7 @@ body[data-page="category"] .card-back {
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)),
-    color-mix(in srgb, var(--panel) 88%, #0a0a0a) !important;
+    color-mix(in srgb, var(--panel) 88%, var(--bg)) !important;
 }
 
 body[data-page="category"] .card-face::before {
@@ -7128,8 +7027,8 @@ body[data-page="brain-game"] {
   background:
     linear-gradient(135deg, rgba(93, 183, 234, 0.08), transparent 34%),
     linear-gradient(315deg, rgba(201, 162, 39, 0.08), transparent 38%),
-    #0a0a0a;
-  color: #fcfcfc;
+    var(--bg);
+  color: var(--text);
 }
 
 body[data-page="play"] .bg-orb,
@@ -7310,7 +7209,7 @@ body[data-page="brain-game"] .grid-glow {
   border: 1px solid rgba(252,252,252,0.12);
   border-radius: 6px;
   background: rgba(252,252,252,0.06);
-  color: #fcfcfc;
+  color: var(--text);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7340,7 +7239,7 @@ body[data-page="brain-game"] .grid-glow {
   z-index: 8;
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
-  background: color-mix(in srgb, #0a0a0a 88%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
 }
 
 .brain-search {
@@ -7363,7 +7262,7 @@ body[data-page="brain-game"] .grid-glow {
   border: 1px solid rgba(252,252,252,0.14);
   border-radius: 6px;
   background: rgba(255,255,255,0.075);
-  color: #fcfcfc;
+  color: var(--text);
   padding: 0.85rem 0.95rem;
 }
 
@@ -7387,8 +7286,8 @@ body[data-page="brain-game"] .grid-glow {
 
 .brain-filter-btn[aria-selected="true"],
 .brain-leaderboard-tab[aria-selected="true"] {
-  background: #fcfcfc;
-  color: #0a0a0a;
+  background: var(--text);
+  color: var(--bg);
 }
 
 .brain-account-strip {
@@ -7714,7 +7613,7 @@ body[data-page="brain-game"] .grid-glow {
   border: 1px solid rgba(252,252,252,0.12);
   border-radius: 6px;
   background: rgba(252,252,252,0.055);
-  color: #fcfcfc;
+  color: var(--text);
   font-weight: 900;
   cursor: pointer;
   touch-action: manipulation;
@@ -7750,7 +7649,7 @@ body[data-page="brain-game"] .grid-glow {
 
 .brain-cell.is-mixed,
 .brain-cell.is-selected {
-  outline: 3px solid #fcfcfc;
+  outline: 3px solid var(--text);
   outline-offset: 2px;
 }
 
@@ -7871,7 +7770,7 @@ body[data-page="brain-game"] .grid-glow {
   float: inline-end;
   border: 1px solid rgba(252,252,252,0.12);
   background: rgba(252,252,252,0.06);
-  color: #fcfcfc;
+  color: var(--text);
   border-radius: 6px;
   padding: 0.5rem 0.7rem;
   cursor: pointer;

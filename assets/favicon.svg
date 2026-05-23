@@ -10,7 +10,7 @@
     </linearGradient>
   </defs>
   <!-- Dark rounded background -->
-  <rect width="128" height="128" rx="28" fill="#0b1020"/>
+  <rect width="128" height="128" rx="28" fill="#17151c"/>
   <!-- Left bubble (EN) -->
   <rect x="8" y="14" width="60" height="48" rx="14" fill="url(#ga)" opacity="0.18"/>
   <rect x="8" y="14" width="60" height="48" rx="14" fill="none" stroke="url(#ga)" stroke-width="4"/>

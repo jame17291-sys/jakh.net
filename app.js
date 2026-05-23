@@ -3835,37 +3835,43 @@ function speakText(text, lang) {
   stopSpeech();
   const narrationText = _prepareNarrationText(text, lang);
 
+  if (_shouldUseBrowserSpeechFirst()) {
+    if (_speakTextWithBrowser(narrationText, lang)) return;
+  }
+
   // Prefer server narration for both English and Arabic. Browser voices vary a
   // lot by device and often sound robotic; browser speech is only the fallback.
   _speakTextFromServer(narrationText, lang, true);
 }
 
 function _speakTextWithBrowser(text, lang) {
-  if (window.speechSynthesis) {
-    const doSpeak = () => {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = lang === 'ar' ? 'ar-SA' : 'en-US';
-      utterance.rate = lang === 'ar' ? 0.82 : 0.88;
-      utterance.pitch = lang === 'ar' ? 1.04 : 0.98;
-      utterance.volume = 1;
-      const voice = _getBestVoice(lang);
-      if (voice) utterance.voice = voice;
-      utterance.onend = _clearAudioBtns;
-      utterance.onerror = _clearAudioBtns;
-      _currentAudio = { pause: () => window.speechSynthesis.cancel() };
-      window.speechSynthesis.speak(utterance);
-    };
+  if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') return false;
 
-    if (window.speechSynthesis.getVoices().length > 0) {
-      doSpeak();
-    } else {
-      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
-    }
-    return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang === 'ar' ? 'ar-SA' : 'en-US';
+  utterance.rate = lang === 'ar' ? 0.82 : 0.88;
+  utterance.pitch = lang === 'ar' ? 1.04 : 0.98;
+  utterance.volume = 1;
+  const voice = _getBestVoice(lang);
+  if (voice) utterance.voice = voice;
+  utterance.onend = _clearAudioBtns;
+  utterance.onerror = _clearAudioBtns;
+  _currentAudio = { pause: () => window.speechSynthesis.cancel() };
+  window.speechSynthesis.speak(utterance);
+  if (typeof window.speechSynthesis.resume === 'function') {
+    window.speechSynthesis.resume();
+    setTimeout(() => window.speechSynthesis.resume(), 250);
   }
+  return true;
+}
 
-  _clearAudioBtns();
+function _shouldUseBrowserSpeechFirst() {
+  const ua = navigator.userAgent || '';
+  return (
+    window.matchMedia?.('(any-pointer: coarse)')?.matches ||
+    /Android|iPhone|iPad|iPod|Mobile/i.test(ua)
+  );
 }
 
 function _prepareNarrationText(text, lang) {
@@ -3934,6 +3940,7 @@ function _clearAudioBtns() {
 
 function stopSpeech() {
   if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
 }
 
 function handleAudioBtn(btn) {

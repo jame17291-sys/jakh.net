@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v118';
-const ASSET_CACHE = 'jakh-assets-v118';
+const CACHE_NAME = 'jakh-v119';
+const ASSET_CACHE = 'jakh-assets-v119';
 
 // Only precache stable, unversioned assets. Versioned JS/CSS are fetched
 // network-first so updated game/runtime code does not sit behind an old cache.

@@ -2,7 +2,7 @@
   'use strict';
 
   const CATALOG = window.JakhBrainGames || [];
-  const GAME_ASSET_VERSION = '1778122800';
+  const GAME_ASSET_VERSION = '2026052403';
   const params = new URLSearchParams(location.search);
   const requestedGame = params.get('game') || 'chess';
   if (requestedGame === 'backgammon') {

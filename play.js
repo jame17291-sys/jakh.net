@@ -144,10 +144,6 @@
     els.accountCopy = document.getElementById('accountCopy');
     els.leaderboardTitle = document.getElementById('leaderboardTitle');
 
-    // Wire auth button to auth modal
-    // Header Sign In button — use brain modal (authModal body is empty on this page)
-    document.getElementById('openAuthBtn')?.addEventListener('click', openAccountModal);
-
     // Inject mobile hamburger menu (play.html uses play.js, not app.js)
     if (!document.getElementById('hamburgerBtn')) {
       const header = document.querySelector('.site-header');

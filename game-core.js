@@ -124,10 +124,6 @@
     applyLanguage();
     forceDarkTheme();
     await refreshProfile();
-    if (!state.user) {
-      showGameAuthGate();
-      return;
-    }
     bootGame();
   }
 
@@ -187,7 +183,6 @@
 
     els.accountButton?.addEventListener('click', openAccountModal);
     els.computerMode?.addEventListener('click', function () {
-      if (!ensureSignedIn()) return;
       cancelPendingComputerMove();
       state.mode = 'computer';
       state.playerSide = 'A';
@@ -204,7 +199,6 @@
     });
     els.leaderboard?.addEventListener('click', openLeaderboard);
     els.newGame?.addEventListener('click', function () {
-      if (!ensureSignedIn()) return;
       startNewGame();
     });
     els.createRoom?.addEventListener('click', createRoom);
@@ -266,7 +260,6 @@
   }
 
   function startNewGame() {
-    if (!ensureSignedIn()) return;
     if (!state.engine) return;
     cancelPendingComputerMove();
     state.board = state.engine.initialState();
@@ -277,10 +270,6 @@
   }
 
   function render() {
-    if (!state.user) {
-      showGameAuthGate();
-      return;
-    }
     if (!state.engine || !state.board) return;
     const meta = state.gameMeta;
     document.title = tr(meta.title) + ' | JAKH';
@@ -364,7 +353,6 @@
   }
 
   function handleCell(cell) {
-    if (!ensureSignedIn()) return;
     if (!canMove()) return;
     const moves = state.engine.legalMoves(state.board, state.board.turn);
     let move = moveForCell(cell, moves);
@@ -390,7 +378,6 @@
   }
 
   function canMove() {
-    if (!state.user) return false;
     if (!state.engine || !state.board) return false;
     if (state.engine.isTerminal(state.board).done) return false;
     if (state.mode === 'computer') return state.board.turn === 'A';

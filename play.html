@@ -9,10 +9,13 @@
     <link rel="preload" href="styles.css?v=2026052403" as="style" />
     <link rel="preload" as="style" href="assets/fonts/fonts.css" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="assets/fonts/fonts.css" /></noscript>
-    <link rel="preload" href="play.js?v=2026052403" as="script" />
+    <link rel="preload" href="play.js?v=20260524010723" as="script" />
     <link rel="preload" href="games/catalog.js?v=2026052403" as="script" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/play.html" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/play.html" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/play.html" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/play.html" />
     <meta name="robots" content="index,follow" />
     <meta name="keywords" content="brain games, free online chess, Go game, Reversi, Backgammon online, Codenames, board games, strategy games, Arabic English games" />
     <meta property="og:title" content="Brain Games Hub | JAKH" />
@@ -88,11 +91,13 @@
 
       <section class="brain-account-strip shell" aria-label="Account and leaderboards">
         <div>
-          <p id="accountTitle" data-i18n="accountTitle">Create account to play</p>
-          <span id="accountCopy" data-i18n="accountCopy">Games are members-only so scores, rooms, and leaderboards stay tied to your account.</span>
+          <p id="accountTitle" data-i18n="accountTitle">Play first. Save later.</p>
+          <span id="accountCopy" data-i18n="accountCopy">Start any game as a guest. Sign in when you want saved scores, rooms, and leaderboards.</span>
         </div>
         <button class="brain-pill-btn" type="button" id="accountStripButton" data-i18n="signIn">Sign in</button>
       </section>
+
+      <section class="brain-account-strip shell brain-profile-portal" id="gameHubProfilePanel" aria-label="Game Hub profile" hidden></section>
 
       <section class="brain-section shell" aria-labelledby="allGamesTitle">
         <div class="brain-section-head">
@@ -135,7 +140,7 @@
 
     <div id="brainModalRoot"></div>
     <script src="games/catalog.js?v=2026052403"></script>
-    <script defer src="play.js?v=2026052403"></script>
+    <script defer src="play.js?v=20260524010723"></script>
       <div id="authModal" class="modal hidden" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="auth"></div>
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">

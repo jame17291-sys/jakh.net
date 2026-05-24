@@ -33,8 +33,8 @@
       browseGames: 'Browse games',
       searchLabel: 'Search games',
       searchPlaceholder: 'Search strategy, ancient, chess...',
-      accountTitle: 'Create account to play',
-      accountCopy: 'Games are members-only so scores, rooms, and leaderboards stay tied to your account.',
+      accountTitle: 'Play first. Save later.',
+      accountCopy: 'Start any game as a guest. Sign in when you want saved scores, rooms, and leaderboards.',
       accountSigned: 'Signed in as {name}',
       accountSignedCopy: 'Your leaderboard runs can now use your account name.',
       featuredKicker: 'Recommended first',
@@ -83,8 +83,8 @@
       browseGames: 'تصفح الألعاب',
       searchLabel: 'ابحث عن لعبة',
       searchPlaceholder: 'ابحث عن استراتيجية أو ألعاب قديمة أو شطرنج...',
-      accountTitle: 'أنشئ حسابًا للعب',
-      accountCopy: 'الألعاب للأعضاء فقط حتى تبقى النتائج والغرف ولوحات المتصدرين مرتبطة بحسابك.',
+      accountTitle: 'العب أولاً واحفظ لاحقًا',
+      accountCopy: 'ابدأ أي لعبة كضيف. سجّل الدخول عندما تريد حفظ النتائج والغرف ولوحات المتصدرين.',
       accountSigned: 'تم تسجيل الدخول باسم {name}',
       accountSignedCopy: 'يمكن الآن ربط نتائجك باسم حسابك.',
       featuredKicker: 'ابدأ من هنا',
@@ -142,6 +142,7 @@
     els.accountStripButton = document.getElementById('accountStripButton');
     els.accountTitle = document.getElementById('accountTitle');
     els.accountCopy = document.getElementById('accountCopy');
+    els.profilePanel = document.getElementById('gameHubProfilePanel');
     els.leaderboardTitle = document.getElementById('leaderboardTitle');
 
     // Inject mobile hamburger menu (play.html uses play.js, not app.js)
@@ -195,13 +196,29 @@
       renderGames();
     });
 
+    const goToAccountAuth = function (event) {
+      event.preventDefault();
+      document.body.classList.remove('modal-open', 'is-modal-open');
+      document.documentElement.classList.remove('modal-open', 'is-modal-open');
+      if (!state.user) {
+        window.location.href = '/?signup=1';
+        return;
+      }
+      openGameHubProfile();
+    };
+
     document.addEventListener('click', function (event) {
       if (!event.target.closest('[data-play-account]')) return;
-      event.preventDefault();
-      openAccountModal();
+      goToAccountAuth(event);
     });
-    els.accountButton?.addEventListener('click', openAccountModal);
-    els.accountStripButton?.addEventListener('click', openAccountModal);
+    els.accountButton?.addEventListener('click', goToAccountAuth);
+    els.accountStripButton?.addEventListener('click', goToAccountAuth);
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('[data-gamehub-logout]')) return;
+      event.preventDefault();
+      logoutGameHubProfile();
+    });
 
     applyLanguage();
     forceDarkTheme();
@@ -266,6 +283,46 @@
       if (els.accountTitle) els.accountTitle.textContent = t('accountTitle');
       if (els.accountCopy) els.accountCopy.textContent = t('accountCopy');
     }
+    renderGameHubProfile();
+  }
+
+  function openGameHubProfile() {
+    renderGameHubProfile(true);
+    if (!els.profilePanel || els.profilePanel.hidden) return;
+    els.profilePanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function renderGameHubProfile(forceOpen) {
+    if (!els.profilePanel) return;
+    if (!state.user) {
+      els.profilePanel.hidden = true;
+      els.profilePanel.innerHTML = '';
+      return;
+    }
+
+    const isAr = state.lang === 'ar';
+    els.profilePanel.hidden = false;
+    els.profilePanel.innerHTML =
+      '<div>' +
+        '<p class="brain-kicker">' + escapeHtml(isAr ? 'حساب اللاعب' : 'Player Profile') + '</p>' +
+        '<h2>' + escapeHtml(state.user.username || 'Player') + '</h2>' +
+        '<span class="brain-muted">' + escapeHtml(isAr ? 'مركز الألعاب يستخدم نفس حساب JAKH لحفظ النتائج والغرف ولوحات المتصدرين.' : 'Game Hub is connected to your JAKH account for saved scores, rooms, and leaderboards.') + '</span>' +
+      '</div>' +
+      '<div class="brain-profile-actions">' +
+        '<a class="brain-pill-btn" href="#gameGrid">' + escapeHtml(isAr ? 'الألعاب' : 'Games') + '</a>' +
+        '<a class="brain-pill-btn" href="/mind-lab.html">' + escapeHtml(isAr ? 'مختبر العقل' : 'Mind Lab') + '</a>' +
+        '<button class="brain-pill-btn" type="button" data-gamehub-logout="1">' + escapeHtml(isAr ? 'تسجيل الخروج' : 'Sign out') + '</button>' +
+      '</div>';
+  }
+
+  async function logoutGameHubProfile() {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+    } catch (err) {
+      // Keep the UI responsive even if the network call fails.
+    }
+    state.user = null;
+    render();
   }
 
   function renderFilters() {
@@ -301,10 +358,11 @@
   function card(game, featured) {
     const title = tr(game.title);
     const href = game.href;
-    const lockedAttr = state.user ? '' : ' data-play-account="1"';
-    const mainHref = state.user ? href : '#';
-    const computerHref = state.user ? href + '&mode=computer' : '#';
-    const onlineHref = state.user ? href + '&mode=online' : '#';
+    const lockedAttr = '';
+    const modeSep = href.includes('?') ? '&' : '?';
+    const mainHref = href;
+    const computerHref = href + modeSep + 'mode=computer';
+    const onlineHref = href + modeSep + 'mode=online';
     return '<article class="brain-game-card' + (featured ? ' is-featured' : '') + '" style="--game-accent:' + escapeHtml(game.accent) + '">' +
       '<a class="brain-card-main" href="' + escapeHtml(mainHref) + '"' + lockedAttr + '>' +
         '<div class="brain-card-art" aria-hidden="true">' + renderArt(game, featured ? 'featured' : 'grid') + '</div>' +
@@ -621,4 +679,141 @@
   }
 
   document.addEventListener('DOMContentLoaded', init);
+  function forceOpenGameHubProfile(event) {
+    const target = event.target.closest && event.target.closest('#openAuthBtn, #accountStripButton');
+    if (!target) return;
+    if (!state.user) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    let panel = document.getElementById('gameHubProfilePanel');
+    if (!panel) {
+      panel = document.createElement('section');
+      panel.id = 'gameHubProfilePanel';
+      panel.className = 'brain-account-strip shell brain-profile-portal';
+      panel.setAttribute('aria-label', 'Game Hub profile');
+      const anchor = document.querySelector('.brain-account-strip.shell') || document.querySelector('main');
+      anchor?.insertAdjacentElement('afterend', panel);
+    }
+
+    const isAr = state.lang === 'ar';
+    const name = escapeHtml(state.user.username || 'JAKH player');
+    panel.hidden = false;
+    panel.removeAttribute('hidden');
+    panel.innerHTML =
+      '<div>' +
+        '<p>' + (isAr ? 'حساب مركز الألعاب' : 'Game Hub profile') + '</p>' +
+        '<span>' + (isAr ? 'تم تسجيل الدخول باسم ' : 'Signed in as ') + '<strong>' + name + '</strong></span>' +
+        '<span class="brain-muted">' + (isAr ? 'حسابك متصل بالألعاب، مختبر العقل، النتائج، والغرف.' : 'Your JAKH account is connected across Game Hub, Mind Lab, scores, and rooms.') + '</span>' +
+      '</div>' +
+      '<div class="brain-account-actions">' +
+        '<a class="brain-pill-btn" href="/play.html">' + (isAr ? 'الألعاب' : 'Games') + '</a>' +
+        '<a class="brain-pill-btn" href="/mind-lab.html">' + (isAr ? 'مختبر العقل' : 'Mind Lab') + '</a>' +
+        '<button class="brain-pill-btn" type="button" data-gamehub-logout>' + (isAr ? 'تسجيل الخروج' : 'Sign out') + '</button>' +
+      '</div>';
+
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  document.addEventListener('click', forceOpenGameHubProfile, true);
+
+})();
+
+
+(function () {
+  'use strict';
+
+  function escapeProfileText(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (char) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char];
+    });
+  }
+
+  async function fetchGameHubProfile() {
+    const response = await fetch('/api/user/profile', {
+      credentials: 'include',
+      cache: 'no-store',
+      headers: { Accept: 'application/json' }
+    });
+    if (!response.ok) return null;
+    return response.json();
+  }
+
+  function ensureGameHubProfilePanel() {
+    let panel = document.getElementById('gameHubProfilePanel');
+    if (panel) return panel;
+
+    panel = document.createElement('section');
+    panel.id = 'gameHubProfilePanel';
+    panel.className = 'brain-account-strip shell brain-profile-portal';
+    panel.setAttribute('aria-label', 'Game Hub profile');
+
+    const anchor = document.querySelector('.brain-leaderboard') || document.querySelector('main');
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(panel, anchor);
+    else document.body.appendChild(panel);
+
+    return panel;
+  }
+
+  function renderGameHubProfileBridge(profile, open) {
+    const panel = ensureGameHubProfilePanel();
+    const user = profile && (profile.user || profile);
+    const username = escapeProfileText(user && (user.username || user.name || user.email) || 'Player');
+
+    panel.hidden = !open;
+    panel.innerHTML =
+      '<div>' +
+        '<p id="accountTitle">Signed in as ' + username + '</p>' +
+        '<span id="accountCopy">Your JAKH account is connected across Game Hub, Mind Lab, scores, and rooms.</span>' +
+      '</div>' +
+      '<div class="brain-profile-actions">' +
+        '<a class="brain-pill-btn" href="/play.html">Games</a>' +
+        '<a class="brain-pill-btn" href="/mind-lab.html">Mind Lab</a>' +
+        '<button class="brain-pill-btn" type="button" data-gamehub-logout>Sign out</button>' +
+      '</div>';
+
+    const headerButton = document.getElementById('openAuthBtn');
+    const stripButton = document.getElementById('accountStripButton');
+    if (headerButton) headerButton.textContent = 'Profile';
+    if (stripButton) stripButton.textContent = 'Profile';
+
+    if (open) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  async function gameHubProfileBridgeClick(event) {
+    const trigger = event.target.closest('#openAuthBtn, #accountStripButton');
+    if (!trigger) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    const profile = await fetchGameHubProfile();
+    if (!profile) {
+      window.location.href = '/?signup=1';
+      return;
+    }
+
+    renderGameHubProfileBridge(profile, true);
+  }
+
+  async function gameHubProfileBridgeInit() {
+    const profile = await fetchGameHubProfile().catch(function () { return null; });
+    if (profile) renderGameHubProfileBridge(profile, false);
+  }
+
+  document.addEventListener('click', gameHubProfileBridgeClick, true);
+  document.addEventListener('click', async function (event) {
+    const button = event.target.closest('[data-gamehub-logout]');
+    if (!button) return;
+    event.preventDefault();
+    await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }).catch(function () {});
+    window.location.reload();
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', gameHubProfileBridgeInit);
+  } else {
+    gameHubProfileBridgeInit();
+  }
 })();

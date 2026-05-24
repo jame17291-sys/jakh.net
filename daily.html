@@ -9,8 +9,11 @@
   <meta name="theme-color" content="#17151c" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://jakh.net/daily.html" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/daily.html" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/daily.html" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/daily.html" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="/assets/logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="JAKH" />
   <meta property="og:title" content="JAKH Daily Challenge" />
@@ -25,7 +28,12 @@
     .hero{padding:38px 0 12px}.eyebrow{color:var(--cyan);font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase}h1{font-size:clamp(30px,5vw,54px);line-height:1.04;margin:8px 0}.hero p{max-width:710px;color:var(--muted);font-size:18px}.layout{display:grid;grid-template-columns:minmax(0,1fr)320px;gap:22px;margin-top:20px}@media(max-width:860px){.layout{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}}
     .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--panel2));border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.puzzle{padding:22px}.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.badge{border:1px solid rgba(124,92,255,.45);background:rgba(124,92,255,.18);color:#d8d0ff;border-radius:999px;font-size:12px;font-weight:800;padding:5px 10px}.muted{color:var(--muted)}.prompt{font-size:clamp(20px,2.5vw,27px);margin:20px 0}.prompt[dir=rtl]{text-align:right}.answer{width:100%;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.28);color:var(--text);padding:14px 15px;outline:none}.answer:focus{border-color:var(--accent)}.choices{display:grid;gap:10px}.choice{text-align:left;border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.24);color:var(--text);padding:14px}.choice:hover{border-color:var(--accent)}[dir=rtl] .choice{text-align:right}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.06);color:var(--text);padding:12px 16px;font-weight:800;cursor:pointer}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--accent),#563cff)}.btn:disabled{opacity:.5;cursor:not-allowed}.feedback{min-height:26px;margin-top:14px;font-weight:800}.good{color:var(--good)}.bad{color:var(--bad)}.warn{color:var(--warn)}.timer{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}.side{padding:18px}.side+.side{margin-top:16px}.side-title{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:800}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.stat{border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.2);padding:12px;text-align:center}.stat strong{display:block;font-size:28px}.stat span{font-size:12px;color:var(--muted)}
     .archive,.how{margin-top:28px;padding:22px}.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:12px}.day{aspect-ratio:1;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.22);color:var(--muted);display:grid;place-items:center}.day.done{color:var(--good);border-color:rgba(74,222,128,.45);background:rgba(74,222,128,.12)}.day.fail{color:var(--bad);border-color:rgba(251,113,133,.4);background:rgba(251,113,133,.1)}.day.today{box-shadow:0 0 0 2px var(--accent)}.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}@media(max-width:760px){.how-grid{grid-template-columns:1fr}}.how-item{border:1px solid var(--line);border-radius:12px;background:rgba(0,0,0,.2);padding:14px}.how-item h3{margin:0 0 5px}.how-item p{margin:0;color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:42px;padding:24px 0 34px;color:var(--muted)}footer .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.modal-bg{position:fixed;inset:0;background:rgba(4,7,18,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.modal-bg.open{display:flex}.modal{max-width:480px;width:100%;padding:22px}.share{border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.28);padding:14px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+    main.container{overflow-x:hidden}
+    main.container>.hero{display:block!important;max-width:1100px!important;margin:0 auto!important;padding:38px 0 12px!important}
+    main.container>.hero h1{max-width:760px!important;margin:8px 0!important}
   </style>
+  <style id="daily-overflow-fix">html,body{overflow-x:hidden}</style>
 <script type="application/ld+json" id="jakh-jsonld">
 {
   "@context": "https://schema.org",
@@ -45,6 +53,14 @@
 }
 </script>
   <link rel="stylesheet" href="styles.css?v=1778122800" />
+  <style id="daily-shell-fix">
+    .jakh-site-header{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;background:rgba(24,22,29,.94);border-bottom:1px solid var(--line)}
+    .jakh-brand{display:flex;align-items:center;gap:10px;font-weight:800}.jakh-brand-logo{width:34px;height:34px;object-fit:contain;border-radius:8px}
+    .jakh-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.jakh-mega{display:none!important}
+    .jakh-nav-button,.jakh-nav-link,.jakh-sign-in{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.06);color:var(--text);padding:8px 10px;font-weight:750}
+    .jakh-header-actions{display:flex;align-items:center;gap:10px}.jakh-language{display:inline-flex;gap:4px}.jakh-language button{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.06);color:var(--text);padding:7px 9px}
+    @media(max-width:760px){.jakh-site-header{align-items:flex-start;flex-direction:column;padding:10px 16px}.jakh-nav{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.jakh-header-actions{width:100%;justify-content:space-between}.jakh-nav-item{flex:0 0 auto}.jakh-nav-button,.jakh-nav-link,.jakh-sign-in{white-space:nowrap}}
+  </style>
     <meta name="twitter:title" content="Daily Riddle — JAKH" />
       <meta name="twitter:description" content="A new bilingual riddle every day in English and Arabic on JAKH." />
   </head>
@@ -87,16 +103,16 @@
       <button class="jakh-nav-button" type="button"><span data-shell-i18n="support">Support</span><i class="jakh-chevron" aria-hidden="true"></i></button>
       <div class="jakh-mega"><div class="jakh-mega-grid">
         <a class="jakh-mega-card jakh-accent-support" href="/contact.html"><b data-shell-i18n="contact">Contact</b><span data-shell-i18n="contactSub">Questions, feedback, and help.</span></a>
-        <a class="jakh-mega-card jakh-accent-support" href="#" data-jakh-auth><b data-shell-i18n="account">Account</b><span data-shell-i18n="accountSub">Sign in or create a free account.</span></a>
+        <a class="jakh-mega-card jakh-accent-support" href="/?signup=1"><b data-shell-i18n="account">Account</b><span data-shell-i18n="accountSub">Sign in or create a free account.</span></a>
       </div></div>
     </div>
   </nav>
 
   <div class="jakh-header-actions">
-    <a class="jakh-sign-in" href="#" data-jakh-auth data-shell-i18n="signIn">Sign in</a>
+    <a class="jakh-sign-in" href="/?signup=1" data-shell-i18n="signIn">Sign in</a>
     <div class="jakh-language" aria-label="Language">
-      <button type="button" class="jakh-lang-en" data-jakh-lang="en">EN</button>
-      <button type="button" class="jakh-lang-ar" data-jakh-lang="ar">عربي</button>
+      <button type="button" id="en" class="jakh-lang-en" data-jakh-lang="en">EN</button>
+      <button type="button" id="ar" class="jakh-lang-ar" data-jakh-lang="ar">عربي</button>
     </div>
   </div>
 </header>
@@ -104,8 +120,8 @@
 <main class="container">
   <section class="hero">
     <div class="eyebrow" data-k="eyebrow">Daily Challenge</div>
-    <h1 data-k="title">One puzzle a day. Build the streak.</h1>
-    <p data-k="subtitle">A fresh bilingual brain puzzle every day. Solve it, share your result, and come back tomorrow.</p>
+    <h1 data-k="title">One bilingual riddle. Every day.</h1>
+    <p data-k="subtitle">Solve today’s Arabic/English riddle, keep your streak, and share a spoiler-safe result.</p>
   </section>
 
   <section class="layout">
@@ -175,6 +191,7 @@
     <div class="row">
       <button class="btn primary" id="copy">Copy result</button>
       <button class="btn" id="share">Share</button>
+      <button class="btn" id="card">Download card</button>
       <button class="btn" id="close">Close</button>
     </div>
     <h3 data-k="explain">Explanation</h3>
@@ -183,6 +200,8 @@
 </div>
 
 <script>
+(function(){
+window.__jakhDailyChallengeWrapped = true;
 const L={
  en:{navHome:"Home",navMind:"Mind Lab",navGames:"Game Hub",navDaily:"Daily",navContact:"Contact",eyebrow:"Daily Challenge",title:"One puzzle a day. Build the streak.",subtitle:"A fresh bilingual brain puzzle every day. Solve it, share your result, and come back tomorrow.",submit:"Submit",hint:"Hint",giveup:"Give up",yourRun:"Your run",streak:"Streak",best:"Best",solved:"Solved",played:"Played",next:"Next puzzle in",nextTip:"A new puzzle unlocks at midnight.",archive:"Last 14 days",howTitle:"How it works",how1h:"Same puzzle",how1p:"Everyone gets the same daily challenge.",how2h:"Build a streak",how2p:"Solve daily and keep your run alive.",how3h:"Share safely",how3p:"Share your result without revealing the answer.",explain:"Explanation",right:"Correct. Nicely done.",wrong:"Not quite. Try again.",out:"Out of tries.",hintText:"Hint: "},
  ar:{navHome:"الرئيسية",navMind:"مختبر العقل",navGames:"الألعاب",navDaily:"اليومي",navContact:"اتصل",eyebrow:"تحدي اليوم",title:"لغز واحد كل يوم. ابنِ سلسلتك.",subtitle:"لغز ذهني جديد كل يوم بالعربي والإنجليزي. حلّه وشارك نتيجتك وعد غدًا.",submit:"إرسال",hint:"تلميح",giveup:"استسلام",yourRun:"سجلّك",streak:"السلسلة",best:"الأفضل",solved:"تم حلها",played:"المحاولات",next:"اللغز التالي بعد",nextTip:"لغز جديد عند منتصف الليل.",archive:"آخر ١٤ يوم",howTitle:"كيف يعمل",how1h:"نفس اللغز",how1p:"الجميع يحصل على تحدي اليوم نفسه.",how2h:"ابنِ سلسلة",how2p:"حل يوميًا وحافظ على السلسلة.",how3h:"شارك بأمان",how3p:"شارك النتيجة دون كشف الإجابة.",explain:"التفسير",right:"إجابة صحيحة. أحسنت.",wrong:"ليست تمامًا. حاول مرة أخرى.",out:"انتهت المحاولات.",hintText:"تلميح: "}
@@ -208,14 +227,15 @@ function render(){let p=puzzle(),d=p[lang],rec=(state().days||{})["d"+view];trie
 function check(v){let p=puzzle(),d=p[lang];if(p.type==="number")return d.a.includes(Number(String(v).replace(/[^\d.-]/g,"")));if(p.type==="choice")return Number(v)===d.a;let u=norm(v);return d.a.some(a=>norm(a)===u||u.includes(norm(a)))}
 function submit(v){if(done)return;if(puzzle().type!=="choice"){v=$("#answer").value;if(!v.trim())return}tries++;if(check(v))finish(true);else if(tries>=3)finish(false);else{$("#feedback").textContent=t("wrong");$("#feedback").className="feedback bad"}}
 function finish(ok){done=true;let s=state();s.days=s.days||{};if(view===dayIndex(new Date())&&!s.days["d"+view]){s.days["d"+view]={ok,tries,when:Date.now()};s.played=(s.played||0)+1;if(ok){s.solved=(s.solved||0)+1;s.streak=((s.days["d"+(view-1)]||{}).ok?(s.streak||0):0)+1;s.best=Math.max(s.best||0,s.streak)}else{s.streak=0}save(s)}$("#feedback").textContent=ok?t("right"):t("out");$("#feedback").className="feedback "+(ok?"good":"bad");openModal(ok);renderStats();renderArchive();["submit","hint","giveup","answer"].forEach(id=>$("#"+id).disabled=true)}
-function openModal(ok){let p=puzzle()[lang],s=state(),grid=ok?"🟩".padStart(tries,"🟥"):"🟥🟥🟥";$("#modalTitle").textContent=ok?(lang==="ar"?"تم الحل!":"Solved!"):(lang==="ar"?"غدًا أفضل":"Try again tomorrow");$("#modalSub").textContent=ok?`${tries}/3`:"0/3";$("#shareText").textContent=`JAKH Daily #${view+1}\n${grid}${hinted?" 💡":""}\n${ok?"Solved":"Not solved"}\nStreak ${s.streak||0}\njakh.net/daily`;$("#explanation").textContent=p.e;$("#modalBg").classList.add("open")}
+function openModal(ok){let p=puzzle()[lang],s=state(),grid=ok?"🟩".padStart(tries,"🟥"):"🟥🟥🟥";$("#modalTitle").textContent=ok?(lang==="ar"?"تم الحل!":"Solved!"):(lang==="ar"?"غدًا أفضل":"Try again tomorrow");$("#modalSub").textContent=ok?`${tries}/3`:"0/3";$("#shareText").textContent=`JAKH Daily #${view+1}\n${grid}${hinted?" 💡":""}\n${ok?"Solved":"Not solved"}\nStreak ${s.streak||0}\nhttps://jakh.net/daily.html`;$("#explanation").textContent=p.e;$("#modalBg").classList.add("open")}
 function renderStats(){let s=state();$("#streak").textContent=s.streak||0;$("#best").textContent=s.best||0;$("#solved").textContent=s.solved||0;$("#played").textContent=s.played||0}
 function renderArchive(){let g=$("#archiveGrid"),s=state().days||{},today=dayIndex(new Date());g.innerHTML="";for(let i=today-13;i<=today;i++){let b=document.createElement("button"),r=s["d"+i];b.className="day "+(i===today?"today ":"")+(r?(r.ok?"done":"fail"):"");b.textContent=dateFrom(i).getDate();b.onclick=()=>{view=i;render();scrollTo({top:0,behavior:"smooth"})};g.appendChild(b)}}
 function tick(){let n=new Date(),x=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1),ms=x-n;$("#countdown").textContent=[Math.floor(ms/36e5),Math.floor(ms%36e5/6e4),Math.floor(ms%6e4/1e3)].map(v=>String(v).padStart(2,"0")).join(":");$("#timer").textContent=Math.floor((Date.now()-start)/60000)+":"+String(Math.floor((Date.now()-start)/1000)%60).padStart(2,"0")}
-$("#en").onclick=()=>{lang="en";applyLang()};$("#ar").onclick=()=>{lang="ar";applyLang()};$("#submit").onclick=()=>submit();$("#answer").onkeydown=e=>{if(e.key==="Enter")submit()};$("#hint").onclick=()=>{hinted=true;$("#hint").disabled=true;$("#feedback").textContent=t("hintText")+puzzle()[lang].h;$("#feedback").className="feedback warn"};$("#giveup").onclick=()=>{tries=3;finish(false)};$("#close").onclick=()=>$("#modalBg").classList.remove("open");$("#copy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($("#shareText").textContent);$("#share").onclick=()=>navigator.share?navigator.share({text:$("#shareText").textContent,url:"https://jakh.net/daily"}):navigator.clipboard.writeText($("#shareText").textContent);setInterval(tick,1000);applyLang();tick();
+function downloadCard(){const c=document.createElement("canvas"),x=c.getContext("2d"),s=state();c.width=1080;c.height=1080;x.fillStyle="#17151c";x.fillRect(0,0,1080,1080);x.fillStyle="#5cd0ff";x.font="700 46px sans-serif";x.fillText("JAKH Daily Challenge",70,110);x.fillStyle="#fff8ec";x.font="800 86px sans-serif";x.fillText("#"+(view+1),70,225);x.font="700 44px sans-serif";x.fillText(((s.days||{})["d"+view]?.ok?"Solved":"Still thinking"),70,310);x.fillText("Streak "+(s.streak||0),70,375);x.fillStyle="#7c5cff";x.fillRect(70,900,430,82);x.fillStyle="#fff";x.font="700 34px sans-serif";x.fillText("jakh.net/daily.html",98,952);const a=document.createElement("a");a.download="jakh-daily-"+(view+1)+".png";a.href=c.toDataURL("image/png");a.click()}
+$("#en").onclick=()=>{lang="en";applyLang()};$("#ar").onclick=()=>{lang="ar";applyLang()};$("#submit").onclick=()=>submit();$("#answer").onkeydown=e=>{if(e.key==="Enter")submit()};$("#hint").onclick=()=>{hinted=true;$("#hint").disabled=true;$("#feedback").textContent=t("hintText")+puzzle()[lang].h;$("#feedback").className="feedback warn"};$("#giveup").onclick=()=>{tries=3;finish(false)};$("#close").onclick=()=>$("#modalBg").classList.remove("open");$("#copy").onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($("#shareText").textContent);$("#card").onclick=downloadCard;$("#share").onclick=()=>navigator.share?navigator.share({text:$("#shareText").textContent,url:"https://jakh.net/daily.html"}):navigator.clipboard.writeText($("#shareText").textContent);setInterval(tick,1000);applyLang();tick();
+})();
 </script>
-  <script defer src="app.js?v=1778122800"></script>
-    <div id="authModal" class="modal hidden" aria-hidden="true">
+<div id="authModal" class="modal hidden" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="auth"></div>
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
         <div class="modal-head">

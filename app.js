@@ -157,7 +157,7 @@ const UI = {
     brandSubtitle: 'bilingual categories, teams, and saved progress',
     navHome: 'Home',
     navCategories: 'Categories',
-    authOpen: 'Sign in',
+    authOpen: 'Profile',
     language: 'Language',
     theme: 'Theme',
     themeSystem: 'System',
@@ -167,9 +167,9 @@ const UI = {
     homeTitle: 'Learn faster with premium riddles, quizzes, and challenge pages.',
     homeText: 'JAKH turns learning into short, satisfying wins. Browse curated categories, save progress, build teams, and move from free fun into harder premium-ready challenge levels without losing clarity or speed.',
     browseCategories: 'Start exploring',
-    createAccount: 'Save my progress',
+    createAccount: 'Save locally',
     todayMomentum: 'Your snapshot',
-    localBrowserOnly: 'Saved to your account',
+    localBrowserOnly: 'Saved in this browser',
     categoryEyebrow: 'Category directory',
     categoryTitle: 'Pick a category and start learning in seconds',
     categoryText: 'Find a topic fast, open a dedicated challenge page, and move through clear levels without clutter.',
@@ -177,7 +177,7 @@ const UI = {
     tracksLabel: 'Tracks',
     resetDirectoryFilters: 'Reset filters',
     authEyebrow: 'Profile',
-    authTitle: 'Create account or sign in',
+    authTitle: 'Local profile',
     footerNote: 'All rights reserved to JAKH 2026',
     jumpToQuestions: 'Jump to questions',
     pageProgress: 'Page progress',
@@ -217,22 +217,22 @@ const UI = {
     showingFilteredCards: 'Showing {count} cards with your current filters.',
     openPage: 'Open page',
     savedProgress: 'Saved progress',
-    guestTitle: 'Create an account',
-    guestText: 'Create a free account to save your progress, favorites, and score across all your devices.',
-    createLocalProfile: 'Create account',
-    signedInAs: 'Signed in as',
+    guestTitle: 'Local progress',
+    guestText: 'Save your progress, favorites, and score in this browser. No account or server is needed.',
+    createLocalProfile: 'Create local profile',
+    signedInAs: 'Saved as',
     score: 'Score',
     solved: 'Solved',
     favorites: 'Favorites',
-    authSignInTab: 'Sign in',
-    authRegisterTab: 'Create account',
+    authSignInTab: 'Open profile',
+    authRegisterTab: 'Create profile',
     username: 'Username',
     password: 'Password',
-    passwordHint: 'Securely stored in your cloud account.',
-    signIn: 'Sign in',
-    register: 'Create account',
+    passwordHint: 'Static mode: profile details stay on this device.',
+    signIn: 'Open profile',
+    register: 'Create profile',
     logout: 'Log out',
-    accountReady: 'Your progress is saved to your cloud account.',
+    accountReady: 'Your progress is saved in this browser.',
     flipForAnswer: 'Flip for answer',
     backToQuestion: 'Back to question',
     addFavorite: 'Add favorite',
@@ -298,7 +298,7 @@ const UI = {
     brandSubtitle: 'فئات ثنائية اللغة مع فرق وتقدّم محفوظ',
     navHome: 'الرئيسية',
     navCategories: 'الفئات',
-    authOpen: 'تسجيل الدخول',
+    authOpen: 'الملف الشخصي',
     language: 'اللغة',
     theme: 'المظهر',
     themeSystem: 'تلقائي',
@@ -308,9 +308,9 @@ const UI = {
     homeTitle: 'تعلّم أسرع عبر ألغاز واختبارات وصفحات تحدٍ بجودة عالية.',
     homeText: 'يحوّل JAKH التعلّم إلى إنجازات قصيرة وممتعة. تصفّح فئات منسقة، واحفظ تقدمك، وابنِ فرقًا، وانتقل من المتعة المجانية إلى مستويات تحدٍ أعلى جاهزة للاشتراك من دون إرباك أو بطء.',
     browseCategories: 'ابدأ الاستكشاف',
-    createAccount: 'احفظ تقدمي',
+    createAccount: 'احفظ محلياً',
     todayMomentum: 'ملخصك',
-    localBrowserOnly: 'محفوظ في حسابك',
+    localBrowserOnly: 'محفوظ في هذا المتصفح',
     categoryEyebrow: 'دليل الفئات',
     categoryTitle: 'اختر فئة وابدأ التعلّم خلال ثوانٍ',
     categoryText: 'اعثر على الموضوع بسرعة، وافتح صفحة تحدٍ مخصصة، وتقدّم عبر مستويات واضحة من دون فوضى.',
@@ -318,7 +318,7 @@ const UI = {
     tracksLabel: 'المسارات',
     resetDirectoryFilters: 'إعادة الضبط',
     authEyebrow: 'الملف الشخصي',
-    authTitle: 'أنشئ حسابًا أو سجّل الدخول',
+    authTitle: 'ملف محلي',
     footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
     jumpToQuestions: 'اذهب إلى الأسئلة',
     pageProgress: 'تقدم الصفحة',
@@ -358,22 +358,22 @@ const UI = {
     showingFilteredCards: 'يتم عرض {count} بطاقة وفق الفلاتر الحالية.',
     openPage: 'افتح الصفحة',
     savedProgress: 'تقدم محفوظ',
-    guestTitle: 'أنشئ حسابًا',
-    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدمك ومفضلتك ونقاطك على جميع أجهزتك.',
-    createLocalProfile: 'أنشئ حسابًا',
-    signedInAs: 'مسجل باسم',
+    guestTitle: 'تقدم محلي',
+    guestText: 'احفظ تقدمك ومفضلتك ونقاطك في هذا المتصفح من دون حساب أو خادم.',
+    createLocalProfile: 'أنشئ ملفاً محلياً',
+    signedInAs: 'محفوظ باسم',
     score: 'النقاط',
     solved: 'المحلول',
     favorites: 'المفضلة',
-    authSignInTab: 'تسجيل الدخول',
-    authRegisterTab: 'إنشاء حساب',
+    authSignInTab: 'فتح الملف',
+    authRegisterTab: 'إنشاء ملف',
     username: 'اسم المستخدم',
     password: 'كلمة المرور',
-    passwordHint: 'تُخزن بأمان في حسابك السحابي.',
-    signIn: 'دخول',
-    register: 'إنشاء حساب',
+    passwordHint: 'الوضع الثابت: تبقى بيانات الملف على هذا الجهاز.',
+    signIn: 'فتح الملف',
+    register: 'إنشاء ملف',
     logout: 'تسجيل الخروج',
-    accountReady: 'تقدمك محفوظ في حسابك السحابي.',
+    accountReady: 'تقدمك محفوظ في هذا المتصفح.',
     flipForAnswer: 'اقلب للإجابة',
     backToQuestion: 'العودة للسؤال',
     addFavorite: 'أضف للمفضلة',
@@ -464,6 +464,12 @@ const GUEST_KEYS = {
   favorites: 'jakh-guest-favorites',
 };
 
+const LOCAL_PROFILE_KEY = 'jakh-local-profile';
+const LOCAL_PROFILE_ACTIVE_KEY = 'jakh-local-profile-active';
+const LOCAL_SUGGESTIONS_KEY = 'jakh-local-suggestions';
+const LOCAL_ACTIVITY_KEY = 'jakh-active-dates';
+const STATIC_BUILD_NOTICE = 'Static GitHub Pages build: localStorage only.';
+
 function getGuestSolvedMap() {
   return loadJson(GUEST_KEYS.solved, {});
 }
@@ -539,30 +545,13 @@ function escapeHtml(value) {
 
 
 
-// ================= API WRAPPER =================
-const API_URL = '/api';
-
-async function apiFetch(endpoint, options = {}) {
-  options.credentials = 'include';
-  options.headers = { ...options.headers, 'Content-Type': 'application/json' };
-  try {
-    const res = await fetch(`${API_URL}${endpoint}`, options);
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'API Error');
-    return data;
-  } catch (err) {
-    console.error(`[API] ${endpoint} failed:`, err.message);
-    throw err;
-  }
+// ================= STATIC STORAGE ADAPTER =================
+async function apiFetch() {
+  return { ok: true, staticOnly: true, message: STATIC_BUILD_NOTICE };
 }
 
 async function checkCloudSession() {
-  try {
-    const data = await apiFetch('/user/profile');
-    state.dbUser = data;
-  } catch (err) {
-    state.dbUser = null;
-  }
+  state.dbUser = loadLocalProfile();
 }
 
 function getActiveUser() {
@@ -608,6 +597,96 @@ function loadJson(key, fallback) {
   }
 }
 
+function makeLocalProfile(username, email = '') {
+  const now = new Date().toISOString();
+  return {
+    id: `local-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
+    username,
+    email,
+    role: 'USER',
+    localOnly: true,
+    createdAt: now,
+    lastLoginAt: now,
+    progress: [],
+    favorites: [],
+  };
+}
+
+function normalizeLocalProfile(profile) {
+  if (!profile || typeof profile !== 'object') return null;
+  return {
+    ...profile,
+    id: profile.id || 'local-profile',
+    username: profile.username || 'JAKH Player',
+    role: profile.role || 'USER',
+    localOnly: true,
+    progress: Array.isArray(profile.progress) ? profile.progress : [],
+    favorites: Array.isArray(profile.favorites) ? profile.favorites : [],
+  };
+}
+
+function loadLocalProfile() {
+  if (localStorage.getItem(LOCAL_PROFILE_ACTIVE_KEY) === 'false') return null;
+  return normalizeLocalProfile(loadJson(LOCAL_PROFILE_KEY, null));
+}
+
+function persistLocalProfile() {
+  if (!state.dbUser?.localOnly) return;
+  saveJson(LOCAL_PROFILE_KEY, normalizeLocalProfile(state.dbUser));
+  localStorage.setItem(LOCAL_PROFILE_ACTIVE_KEY, 'true');
+}
+
+function getGuestProgressEntries() {
+  return Object.entries(getGuestSolvedMap()).map(([cardId, value]) => {
+    const entry = typeof value === 'object' && value !== null ? value : { status: value };
+    return {
+      cardId,
+      categoryId: entry.categoryId || 'unknown',
+      status: entry.status || 'correct',
+    };
+  });
+}
+
+function getProgressEntries() {
+  return state.dbUser ? (state.dbUser.progress || []) : getGuestProgressEntries();
+}
+
+function getLocalDisplayName() {
+  return state.dbUser?.username || (state.lang === 'ar' ? 'هذا الجهاز' : 'This browser');
+}
+
+function storeLocalSuggestion(text, email = '', type = 'suggestion') {
+  const suggestions = loadJson(LOCAL_SUGGESTIONS_KEY, []);
+  suggestions.unshift({
+    id: `local-${Date.now().toString(36)}`,
+    type,
+    text,
+    email,
+    createdAt: new Date().toISOString(),
+  });
+  saveJson(LOCAL_SUGGESTIONS_KEY, suggestions.slice(0, 100));
+}
+
+function computeLocalStreak() {
+  const dates = loadJson(LOCAL_ACTIVITY_KEY, []);
+  const set = new Set(Array.isArray(dates) ? dates : []);
+  let streak = 0;
+  const cursor = new Date();
+  while (set.has(cursor.toISOString().slice(0, 10))) {
+    streak += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return streak;
+}
+
+function recordLocalActivity() {
+  const today = new Date().toISOString().slice(0, 10);
+  const dates = new Set(loadJson(LOCAL_ACTIVITY_KEY, []));
+  dates.add(today);
+  saveJson(LOCAL_ACTIVITY_KEY, [...dates].sort().slice(-90));
+  state.streak = computeLocalStreak();
+}
+
 
 
 
@@ -620,21 +699,26 @@ async function mergeGuestProgress() {
   if (!state.dbUser) return;
   const guestSolved = getGuestSolvedMap();
   const guestFavs = getGuestFavorites();
-  const promises = [];
+  state.dbUser.progress = state.dbUser.progress || [];
+  state.dbUser.favorites = state.dbUser.favorites || [];
   for (const [cardId, val] of Object.entries(guestSolved)) {
     const status = _guestStatus(val);
-    if (status === 'correct') {
-      promises.push(apiFetch('/user/progress', { method: 'POST', body: JSON.stringify({ cardId, status }) }).catch(() => {}));
-    }
+    const entry = typeof val === 'object' && val !== null ? val : { status };
+    state.dbUser.progress = state.dbUser.progress.filter(p => p.cardId !== cardId);
+    state.dbUser.progress.push({
+      cardId,
+      categoryId: entry.categoryId || 'unknown',
+      status,
+    });
   }
   for (const cardId of guestFavs) {
-    promises.push(apiFetch('/user/favorite', { method: 'POST', body: JSON.stringify({ cardId }) }).catch(() => {}));
+    if (!state.dbUser.favorites.some(f => f.cardId === cardId)) {
+      state.dbUser.favorites.push({ cardId, categoryId: 'unknown' });
+    }
   }
-  if (promises.length === 0) return;
-  await Promise.all(promises);
   localStorage.removeItem(GUEST_KEYS.solved);
   localStorage.removeItem(GUEST_KEYS.favorites);
-  await checkCloudSession();
+  persistLocalProfile();
 }
 
 function getFavoriteSet() {
@@ -674,26 +758,18 @@ function getProgressResult(id) {
 function getCategoryProgress(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   const total = meta?.count || 1;
-  if (state.dbUser) {
-    const solved = (state.dbUser.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
-    return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
-  }
-  const raw = getGuestSolvedMap();
-  const solved = Object.values(raw).filter(v => {
-    const entry = typeof v === 'object' && v !== null ? v : { status: v };
-    return entry.categoryId === slug && !entry.status.startsWith('wrong-');
-  }).length;
+  const solved = getProgressEntries()
+    .filter(p => p.categoryId === slug && !p.status.startsWith('wrong-'))
+    .length;
   return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
 }
 
 function getCorrectCountByDifficulty(diff) {
-  if (state.dbUser) return (state.dbUser.progress || []).filter(p => p.status === diff).length;
-  return Object.values(getGuestSolvedMap()).filter(v => _guestStatus(v) === diff).length;
+  return getProgressEntries().filter(p => p.status === diff).length;
 }
 
 function getTotalCorrectCount() {
-  if (state.dbUser) return (state.dbUser.progress || []).filter(p => !p.status.startsWith('wrong-')).length;
-  return Object.values(getGuestSolvedMap()).filter(v => !_guestStatus(v).startsWith('wrong-')).length;
+  return getProgressEntries().filter(p => !p.status.startsWith('wrong-')).length;
 }
 
 function isLevelUnlocked(difficulty) {
@@ -1484,7 +1560,7 @@ function renderAccountSummary(mount) {
             <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${guestSolvedCount}</strong></div>
             <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${guestFavCount}</strong></div>
           </div>
-          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح. أنشئ حسابًا لمزامنته عبر أجهزتك.' : 'Progress saved in this browser. Sign up to sync across devices.')}</p>
+          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح.' : 'Progress saved in this browser.')}</p>
         ` : `<p>${escapeHtml(t('guestText'))}</p>`}
         <div class="hero-actions">
           <button class="primary-btn" id="inlineCreateProfileBtn">${escapeHtml(t('createLocalProfile'))}</button>
@@ -1989,17 +2065,11 @@ async function toggleFavorite(id) {
     dbUser.favorites = dbUser.favorites.filter(f => f.cardId !== id);
     showToast(t('favoriteRemoved'));
   }
+  persistLocalProfile();
   updateCardElOrRefresh(id);
   renderAccountSummary(els.categorySummaryMount);
 
-  try {
-    await apiFetch('/user/favorite', {
-      method: 'POST',
-      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', action })
-    });
-  } catch (err) {
-    showToast(state.lang === 'ar' ? 'خطأ في الحفظ السحابي' : 'Error saving to cloud');
-  }
+  void action;
 }
 
 async function markCard(id, result) {
@@ -2008,6 +2078,7 @@ async function markCard(id, result) {
   const status = result === 'correct' ? card.difficulty : `wrong-${card.difficulty}`;
   if (result === 'correct') {
     soundFx.correct();
+    recordLocalActivity();
   } else {
     soundFx.wrong();
   }
@@ -2018,13 +2089,13 @@ async function markCard(id, result) {
     if (cardEl) spawnConfetti(cardEl);
     const h = new Date().getHours();
     if (h >= 0 && h < 5) saveJson('jakh-night-owl', 1);
-    checkNewAchievements();
   }
 
   if (!state.dbUser) {
     const guestSolved = getGuestSolvedMap();
     guestSolved[id] = { status, categoryId: state.categoryData?.slug || 'unknown' };
     saveJson(GUEST_KEYS.solved, guestSolved);
+    if (result === 'correct') checkNewAchievements();
     updateCardElOrRefresh(id);
     if (result === 'correct') flashCard(id);
     renderAccountSummary(els.categorySummaryMount);
@@ -2035,17 +2106,14 @@ async function markCard(id, result) {
   const dbUser = state.dbUser;
   dbUser.progress = dbUser.progress.filter(p => p.cardId !== id);
   dbUser.progress.push({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', status });
+  persistLocalProfile();
+  if (result === 'correct') checkNewAchievements();
   updateCardElOrRefresh(id);
   if (result === 'correct') flashCard(id);
   renderAccountSummary(els.categorySummaryMount);
   if (result === 'correct') setTimeout(() => checkCategoryComplete(state.categoryData?.slug || ''), 400);
 
-  try {
-    await apiFetch('/user/progress', {
-      method: 'POST',
-      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', status }),
-    });
-  } catch (e) {}
+  void status;
 }
 
 async function unmarkCard(id) {
@@ -2061,16 +2129,12 @@ async function unmarkCard(id) {
 
   const dbUser = state.dbUser;
   dbUser.progress = dbUser.progress.filter(p => p.cardId !== id);
+  persistLocalProfile();
   showToast(t('solvedRemoved'));
   updateCardElOrRefresh(id);
   renderAccountSummary(els.categorySummaryMount);
 
-  try {
-    await apiFetch('/user/progress', {
-      method: 'DELETE',
-      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown' }),
-    });
-  } catch (e) {}
+  return;
 }
 
 const FOCUSABLE = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
@@ -2142,15 +2206,15 @@ function openPaywallModal() {
         ? `جربت ${trialUsed} ألغاز مجانية!`
         : `You've previewed ${trialUsed} premium riddles free!`}</h2>
       <p class="paywall-body">${isAr
-        ? 'أنشئ حسابًا مجانيًا لفتح جميع تحديات الصعب والصعب جدًا — مع مزامنة التقدم ولوحة المتصدرين والفرق.'
-        : 'Create a free account to unlock all Head Scratcher &amp; Brick Wall challenges — plus progress sync, leaderboards, and teams.'}</p>
+        ? 'أنشئ ملفًا محليًا لفتح جميع تحديات الصعب والصعب جدًا وحفظ تقدمك في هذا المتصفح.'
+        : 'Create a local profile to unlock all Head Scratcher &amp; Brick Wall challenges and save progress in this browser.'}</p>
       <div class="paywall-actions">
-        <button class="primary-btn paywall-signup-btn">${isAr ? 'إنشاء حساب مجاني' : 'Create free account'}</button>
-        <button class="ghost-btn paywall-signin-btn">${isAr ? 'تسجيل الدخول' : 'Sign in'}</button>
+        <button class="primary-btn paywall-signup-btn">${isAr ? 'إنشاء ملف محلي' : 'Create local profile'}</button>
+        <button class="ghost-btn paywall-signin-btn">${isAr ? 'فتح ملف' : 'Open profile'}</button>
       </div>
       <p class="paywall-note">${isAr
-        ? 'لديك حساب؟ تُفتح المستويات تلقائيًا بعد 10 إجابات صحيحة.'
-        : 'Already have an account? Levels unlock automatically after 10 correct answers.'}</p>
+        ? 'تُفتح المستويات تلقائيًا بعد 10 إجابات صحيحة.'
+        : 'Levels unlock automatically after 10 correct answers.'}</p>
     </div>
   `;
   modal.querySelector('#paywallBackdrop').addEventListener('click', closePaywallModal);
@@ -2189,7 +2253,7 @@ function renderAuthModal(mode = 'signin') {
     ].filter(Boolean).join(' ') || '<span class="muted">—</span>';
 
     const byCategory = {};
-    (state.dbUser.progress || []).forEach(p => {
+    getProgressEntries().forEach(p => {
       const cat = p.categoryId && p.categoryId !== 'unknown' ? p.categoryId : null;
       if (!cat) return;
       if (!byCategory[cat]) byCategory[cat] = { correct: 0, wrong: 0 };
@@ -2224,7 +2288,7 @@ function renderAuthModal(mode = 'signin') {
         <p>${escapeHtml(t('accountReady'))}</p>
         <div class="stats-grid">
           <div class="stat-box"><span>${escapeHtml(t('score'))}</span><strong>${getScore()}</strong></div>
-          <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${(state.dbUser?.progress || []).filter(p => !p.status.startsWith('wrong-')).length}</strong></div>
+          <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${getTotalCorrectCount()}</strong></div>
           <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${account.favorites.length}</strong></div>
         </div>
 
@@ -2234,22 +2298,9 @@ function renderAuthModal(mode = 'signin') {
 
         ${reportHtml}
 
-        <hr style="margin:1.5rem 0;opacity:0.2;" />
-        <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(state.lang === 'ar' ? 'تغيير كلمة المرور' : 'Change Password')}</strong>
-        <div class="form-row" style="margin-bottom:1rem;">
-             <label>
-               <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الحالية' : 'Current Password')}</span>
-               <input type="password" id="currentPassword" />
-             </label>
-             <label>
-               <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الجديدة' : 'New Password')}</span>
-               <input type="password" id="newPassword" />
-             </label>
-        </div>
-        <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
+        <p class="muted" style="font-size:0.82rem;margin-top:1.5rem;">${escapeHtml(state.lang === 'ar' ? 'هذا ملف محلي فقط. لا يتم إرسال أي بيانات إلى خادم.' : 'This is a local-only profile. No profile data is sent to a server.')}</p>
 
         <div class="hero-actions" style="margin-top:2rem;">
-          ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<a href="/admin.html" target="_blank" rel="noopener" class="primary-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">⚙️ Admin Dashboard</a>` : ''}
           <button class="primary-btn" id="logoutBtn" style="background:#555;">${escapeHtml(t('logout'))}</button>
         </div>
       </section>
@@ -2257,30 +2308,12 @@ function renderAuthModal(mode = 'signin') {
     
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) logoutBtn.addEventListener('click', async () => {
-      try { await apiFetch('/auth/logout', { method: 'POST' }); } catch(e){}
+      localStorage.setItem(LOCAL_PROFILE_ACTIVE_KEY, 'false');
       state.dbUser = null;
       closeModal('auth');
       applyStaticCopy();
       rerender();
       showToast(t('signedOut'));
-    });
-    
-    const cpBtn = document.getElementById('changePasswordBtn');
-    if (cpBtn) cpBtn.addEventListener('click', async () => {
-       const cur = document.getElementById('currentPassword').value;
-       const neu = document.getElementById('newPassword').value;
-       if (!cur || !neu) return showToast(state.lang === 'ar' ? 'الرجاء ملء حقلي كلمة المرور' : 'Fill both passwords');
-       cpBtn.textContent = '...';
-       try {
-          await apiFetch('/user/password', { method: 'POST', body: JSON.stringify({ currentPassword: cur, newPassword: neu }) });
-          showToast(state.lang === 'ar' ? 'تم تحديث كلمة المرور!' : 'Password updated!');
-          document.getElementById('currentPassword').value = '';
-          document.getElementById('newPassword').value = '';
-       } catch (err) {
-          showToast(err.message);
-       } finally {
-          cpBtn.textContent = state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password';
-       }
     });
     
     return;
@@ -2296,10 +2329,6 @@ function renderAuthModal(mode = 'signin') {
         <label>
           <span>${escapeHtml(t('username'))}</span>
           <input id="authUsername" required minlength="3" />
-        </label>
-        <label>
-          <span>${escapeHtml(t('password'))}</span>
-          <input id="authPassword" type="password" required minlength="4" />
         </label>
       </div>
       ${mode === 'register' ? `
@@ -2328,22 +2357,24 @@ function renderAuthModal(mode = 'signin') {
       btn.textContent = state.lang === 'ar' ? 'جاري التحميل...' : 'Loading...';
       
       const username = document.getElementById('authUsername').value.trim();
-      const password = document.getElementById('authPassword').value;
       const emailEl = document.getElementById('authEmail');
       const email = emailEl ? emailEl.value.trim() : null;
       
       try {
-          if (mode === 'signin') {
-             await apiFetch('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
+          const existing = normalizeLocalProfile(loadJson(LOCAL_PROFILE_KEY, null));
+          if (mode === 'signin' && existing) {
+            state.dbUser = { ...existing, username: username || existing.username, lastLoginAt: new Date().toISOString() };
           } else {
-             await apiFetch('/auth/register', { method: 'POST', body: JSON.stringify({ username, password, email }) });
+            state.dbUser = existing && existing.username.toLowerCase() === username.toLowerCase()
+              ? { ...existing, email: email || existing.email || '', lastLoginAt: new Date().toISOString() }
+              : makeLocalProfile(username, email || '');
           }
-          await checkCloudSession();
+          persistLocalProfile();
           await mergeGuestProgress();
           closeModal('auth');
           applyStaticCopy();
           rerender();
-          trackEvent(mode === 'signin' ? 'login' : 'sign_up', { method: 'username' });
+          trackEvent(mode === 'signin' ? 'local_profile_open' : 'local_profile_create', { method: 'localStorage' });
           showToast(mode === 'signin' ? t('signedIn') : t('accountCreated'));
       } catch (err) {
           showToast(err.message || t('badLogin'));
@@ -2380,40 +2411,22 @@ let _analyticsInterval = null;
 
 // ── Audio narration ───────────────────────────────────────────────────────────
 
-const _ttsCache = new Map(); // "lang:text" → blob URL
-let   _currentAudio = null;
+let _currentAudio = null;
 
 async function speakText(text, lang) {
   stopSpeech();
-
-  const key = lang + ':' + text;
-  let src = _ttsCache.get(key);
-
-  if (!src) {
-    try {
-      const url = 'https://jakh.net/api/tts?lang=' + encodeURIComponent(lang)
-                + '&text=' + encodeURIComponent(text);
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(res.status);
-      const blob = await res.blob();
-      src = URL.createObjectURL(blob);
-      if (_ttsCache.size >= 200) {
-        const first = _ttsCache.keys().next().value;
-        URL.revokeObjectURL(_ttsCache.get(first));
-        _ttsCache.delete(first);
-      }
-      _ttsCache.set(key, src);
-    } catch (err) {
-      console.warn('[tts]', err);
-      _clearAudioBtns();
-      return;
-    }
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
+    showToast(lang === 'ar' ? 'الصوت غير متاح في هذا المتصفح' : 'Speech is not available in this browser');
+    _clearAudioBtns();
+    return;
   }
 
-  const audio = new Audio(src);
-  _currentAudio = audio;
-  audio.onended = audio.onerror = _clearAudioBtns;
-  audio.play();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang === 'ar' ? 'ar' : 'en';
+  utterance.rate = 0.95;
+  utterance.onend = utterance.onerror = _clearAudioBtns;
+  _currentAudio = utterance;
+  window.speechSynthesis.speak(utterance);
 }
 
 function _clearAudioBtns() {
@@ -2425,7 +2438,10 @@ function _clearAudioBtns() {
 }
 
 function stopSpeech() {
-  if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
+  if (_currentAudio && 'speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    _currentAudio = null;
+  }
 }
 
 function handleAudioBtn(btn) {
@@ -2459,17 +2475,13 @@ function initSuggestionBox() {
     if (text.length < 5) { showToast(t('suggestError'), true); return; }
     els.suggestionSubmit.disabled = true;
     try {
-      const res = await fetch('/api/suggestions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, email: els.suggestionEmail?.value.trim() || undefined }),
-      });
-      const data = await res.json();
-      if (!res.ok) { showToast(data.error || 'Error submitting', true); return; }
+      storeLocalSuggestion(text, els.suggestionEmail?.value.trim() || '');
+      if (els.suggestionText) els.suggestionText.value = '';
+      if (els.suggestionEmail) els.suggestionEmail.value = '';
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
     } catch {
-      showToast('Could not submit. Please try again.', true);
+      showToast(state.lang === 'ar' ? 'تعذر الحفظ محلياً.' : 'Could not save locally.', true);
     } finally {
       els.suggestionSubmit.disabled = false;
     }
@@ -2479,20 +2491,12 @@ function initSuggestionBox() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function trackEvent(name, params = {}) {
-  try { window.gtag?.('event', name, params); } catch (_) {}
+  void name;
+  void params;
 }
 
 function startAnalyticsHeartbeat() {
-  if (_analyticsInterval) return;
-  _analyticsInterval = setInterval(async () => {
-    if (document.hidden || state.page !== 'category' || !state.categorySlug) return;
-    try {
-      await apiFetch('/analytics/time', {
-        method: 'POST',
-        body: JSON.stringify({ pageSlug: state.categorySlug, timeSpent: 30 })
-      });
-    } catch (err) {}
-  }, 30000);
+  _analyticsInterval = null;
 }
 // ======================================================
 
@@ -2539,13 +2543,15 @@ function renderDailyChallenge() {
         </div>
         <div class="daily-challenge-btns">
           <button class="primary-btn mini-btn" id="flipDailyBtn">${isFlipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
-          <a class="ghost-btn mini-btn" href="${escapeHtml(card.categorySlug)}">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
+          <a class="ghost-btn mini-btn" href="${escapeHtml(card.categorySlug)}.html">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
         </div>
       </div>
     </section>`;
   document.getElementById('flipDailyBtn')?.addEventListener('click', () => {
     if (!state.flipped.has('__daily__')) {
       localStorage.setItem(`jakh-daily-done-${today}`, '1');
+      recordLocalActivity();
+      checkNewAchievements();
     }
     if (state.flipped.has('__daily__')) state.flipped.delete('__daily__'); else state.flipped.add('__daily__');
     renderDailyChallenge();
@@ -2554,12 +2560,8 @@ function renderDailyChallenge() {
 
 // ================= STREAKS =================
 async function loadStreak() {
-  if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
-  try {
-    const data = await apiFetch('/user/streak');
-    state.streak = data.streak || 0;
-    state.freezeCount = data.freezeCount || 0;
-  } catch (e) { state.streak = 0; state.freezeCount = 0; }
+  state.streak = computeLocalStreak();
+  state.freezeCount = 0;
 }
 
 // ================= TIMED QUIZ (Quiz Master Mode) =================
@@ -2707,7 +2709,7 @@ function endTimedQuiz() {
   // Solo → Team conversion CTA
   if (resultEl && !resultEl.querySelector('.tq-challenge-cta')) {
     const catTitle = state.categoryData?.title?.[lang] || 'JAKH';
-    const challengeUrl = `${location.origin}/${state.categorySlug || ''}`;
+    const challengeUrl = state.categorySlug ? `${location.origin}/${state.categorySlug}.html` : location.origin;
     const ctaEl = document.createElement('div');
     ctaEl.className = 'tq-challenge-cta';
     ctaEl.innerHTML = `
@@ -2852,25 +2854,21 @@ async function openLeaderboard() {
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
   const body = document.getElementById('leaderboardBody');
-  if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">Loading…</p>';
-  try {
-    const res = await fetch('/api/leaderboard');
-    const { leaderboard } = await res.json();
-    const currentUser = state.dbUser?.username;
-    const medals = ['🥇', '🥈', '🥉'];
-    if (!leaderboard?.length) {
-      if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">No scores yet — be the first!</p>';
-      return;
-    }
-    if (body) body.innerHTML = leaderboard.map(row => `
-      <div class="leaderboard-row">
-        <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || row.rank}</span>
-        <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}</span>
-        <span class="leaderboard-score">${row.score} pts</span>
-      </div>`).join('');
-  } catch (e) {
-    if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--danger)">Failed to load.</p>';
-  }
+  if (!body) return;
+  const score = getScore();
+  const solved = getTotalCorrectCount();
+  const name = getLocalDisplayName();
+  body.innerHTML = `
+    <div class="leaderboard-row">
+      <span class="leaderboard-rank top-3">1</span>
+      <span class="leaderboard-username leaderboard-you">${escapeHtml(name)}</span>
+      <span class="leaderboard-score">${score} pts</span>
+    </div>
+    <p style="padding:1rem 0.25rem 0;color:var(--muted);font-size:0.85rem;line-height:1.55;">
+      ${state.lang === 'ar'
+        ? `لوحة محلية لهذا المتصفح فقط. الأسئلة المحلولة: ${solved}.`
+        : `Local leaderboard for this browser only. Solved questions: ${solved}.`}
+    </p>`;
 }
 
 // ================= RANDOM CATEGORY =================
@@ -2882,11 +2880,10 @@ function randomCategory() {
 
 // ================= ACHIEVEMENTS =================
 function getCategoryMasterCount() {
-  if (!state.catalog || !state.dbUser) return 0;
+  if (!state.catalog) return 0;
   return (state.catalog.categories || []).filter(cat => {
-    const meta = state.catalog.categories.find(c => c.slug === cat.slug);
-    const solved = (state.dbUser.progress || []).filter(p => p.categoryId === cat.slug && !p.status.startsWith('wrong-')).length;
-    return solved >= (meta?.count || 1);
+    const progress = getCategoryProgress(cat.slug);
+    return progress.solved >= (cat.count || 1);
   }).length;
 }
 
@@ -2895,8 +2892,7 @@ function computeAchievements() {
 }
 
 function checkNewAchievements() {
-  if (!state.dbUser) return;
-  const key = `jakh-ach-${state.dbUser.id}`;
+  const key = `jakh-ach-${state.dbUser?.id || 'guest'}`;
   const stored = new Set(loadJson(key, []));
   const earned = computeAchievements();
   const newOnes = earned.filter(a => !stored.has(a.id));
@@ -2908,9 +2904,9 @@ function checkNewAchievements() {
 
 // ================= RESUME BUTTON =================
 function getResumeSuggestion() {
-  if (!state.dbUser || !state.catalog) return null;
+  if (!state.catalog) return null;
   const progressBySlug = {};
-  (state.dbUser.progress || []).forEach(p => {
+  getProgressEntries().forEach(p => {
     if (!progressBySlug[p.categoryId]) progressBySlug[p.categoryId] = 0;
     if (!p.status.startsWith('wrong-')) progressBySlug[p.categoryId]++;
   });
@@ -2948,10 +2944,10 @@ function renderResumeButton() {
 
 // ================= CATEGORY COMPLETION =================
 function isCategoryComplete(slug) {
-  if (!state.dbUser || !state.catalog) return false;
+  if (!state.catalog) return false;
   const meta = state.catalog.categories.find(c => c.slug === slug);
   if (!meta) return false;
-  const solved = (state.dbUser.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+  const solved = getProgressEntries().filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
   return solved >= meta.count;
 }
 
@@ -2967,9 +2963,10 @@ function showCategoryCompleteModal(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   if (!meta) return;
   const lang = state.lang;
-  const solved = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
-  const wrong = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && p.status.startsWith('wrong-')).length;
-  const points = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).reduce((sum, p) => sum + (DIFFICULTY_POINTS[p.status] || 0), 0);
+  const entries = getProgressEntries().filter(p => p.categoryId === slug);
+  const solved = entries.filter(p => !p.status.startsWith('wrong-')).length;
+  const wrong = entries.filter(p => p.status.startsWith('wrong-')).length;
+  const points = entries.filter(p => !p.status.startsWith('wrong-')).reduce((sum, p) => sum + (DIFFICULTY_POINTS[p.status] || 0), 0);
   const related = state.catalog.categories.find(c => c.slug !== slug && c.cluster_key === meta.cluster_key) || state.catalog.categories.find(c => c.slug !== slug);
   let el = document.getElementById('categoryCompleteModal');
   if (!el) {
@@ -3018,7 +3015,7 @@ function showCategoryCompleteModal(slug) {
   });
   document.getElementById('catCompleteChallengeBtn')?.addEventListener('click', () => {
     const isAr = lang === 'ar';
-    const url = `${location.origin}/${slug}`;
+    const url = `${location.origin}/${slug}.html`;
     const text = isAr
       ? `🏆 أنهيت "${meta.title.ar}" على JAKH بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
       : `🏆 I finished "${meta.title.en}" on JAKH with ${points} pts!\nCan you beat me? → ${url}`;
@@ -3057,12 +3054,8 @@ function shareCard(cardId) {
 async function reportCard(cardId, categoryId, questionText) {
   const text = `[REPORT] ${categoryId}/${cardId}: ${questionText.substring(0, 150)}`;
   try {
-    const res = await fetch('/api/suggestions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text }),
-    });
-    showToast(res.ok || res.status === 429 ? t('reportThanks') : t('reportError'));
+    storeLocalSuggestion(text, '', 'report');
+    showToast(t('reportThanks'));
   } catch { showToast(t('reportError')); }
 }
 
@@ -3164,8 +3157,7 @@ async function init() {
 }
 
 async function subscribePushNotifications() {
-  // Disabled until VAPID keys are generated on the server and /api/push/subscribe is implemented.
-  // To enable: run `npx web-push generate-vapid-keys`, set the public key below, and wire the endpoint.
+  // Push notifications are disabled for the static GitHub Pages build.
 }
 
 // ================= CATEGORY PLAY MODES =========
@@ -3195,7 +3187,7 @@ function renderCategoryPlayModes() {
           <span class="play-mode-icon">🏆</span>
           <div>
             <strong class="play-mode-title">${isAr ? 'معركة الفريق' : 'Team Battle'}</strong>
-            <p class="play-mode-sub">${isAr ? 'العب مع الآخرين في الوقت الفعلي' : 'Play with others live — up to 20'}</p>
+            <p class="play-mode-sub">${isAr ? 'الغرف المباشرة متوقفة في النسخة الثابتة' : 'Live rooms are paused in the static build'}</p>
           </div>
         </div>
         <div class="play-mode-battle-btns">
@@ -3245,8 +3237,7 @@ const battleState = {
 };
 
 function getBattleWsUrl() {
-  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
-  return `${proto}//${location.host}/ws/battle`;
+  return '';
 }
 
 function createBattleModal() {
@@ -3307,6 +3298,31 @@ function renderBattleUI() {
 function renderBattleSetup(body) {
   const lang = state.lang;
   const isAr = lang === 'ar';
+  body.innerHTML = `
+    <div class="battle-setup">
+      <div class="battle-code-display">
+        <div class="battle-code-value">STATIC</div>
+        <p class="battle-code-hint">${isAr
+          ? 'غرف المعركة المباشرة تحتاج خادمًا، لذلك تم تعطيلها على GitHub Pages.'
+          : 'Live battle rooms need a server, so they are disabled on GitHub Pages.'}</p>
+      </div>
+      <div class="battle-form">
+        <p class="battle-waiting-msg">${isAr
+          ? 'يمكنك استخدام السباق السريع ومشاركة رابط الفئة كتحدٍ محلي.'
+          : 'Use Quick Fire and share the category link as a local challenge.'}</p>
+        <button class="primary-btn" id="battleCopyCategoryBtn">${isAr ? 'نسخ رابط التحدي' : 'Copy challenge link'}</button>
+        <button class="ghost-btn" id="battleStaticCloseBtn">${isAr ? 'إغلاق' : 'Close'}</button>
+      </div>
+    </div>`;
+  document.getElementById('battleCopyCategoryBtn')?.addEventListener('click', () => {
+    const slug = battleState.pendingSlug || state.categorySlug || '';
+    const url = slug ? `${location.origin}/${slug}.html` : location.origin;
+    navigator.clipboard?.writeText(url).then(() => showToast(isAr ? 'تم نسخ الرابط!' : 'Challenge link copied!'))
+      .catch(() => showToast(url));
+  });
+  document.getElementById('battleStaticCloseBtn')?.addEventListener('click', closeBattleModal);
+  return;
+  /* Static build fallback above keeps the old live-room UI disabled without a backend. */
   const slug = battleState.pendingSlug;
   const catOptions = (state.catalog?.categories || [])
     .map(c => `<option value="${escapeHtml(c.slug)}"${c.slug === slug ? ' selected' : ''}>${escapeHtml(c.title[lang])}</option>`)
@@ -3374,27 +3390,8 @@ function renderBattleSetup(body) {
 }
 
 async function handleBattleCreate() {
-  const name = document.getElementById('battleNameInput')?.value.trim() || '';
-  const category = document.getElementById('battleCatSelect')?.value || '';
-  const difficulty = document.getElementById('battleDiffSelect')?.value || 'all';
-  const count = parseInt(document.getElementById('battleCountSelect')?.value || '10', 10);
   const isAr = state.lang === 'ar';
-  if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
-  if (!category) { showBattleError(isAr ? 'اختر فئة' : 'Choose a category'); return; }
-  const btn = document.getElementById('battleCreateBtn');
-  if (btn) { btn.disabled = true; btn.textContent = isAr ? 'جارٍ الإنشاء...' : 'Creating...'; }
-  try {
-    const data = await apiFetch('/battle/create', {
-      method: 'POST',
-      body: JSON.stringify({ category, difficulty, questionCount: count }),
-    });
-    battleState.hostId = data.hostId;
-    battleState.isHost = true;
-    connectToBattle(data.code, name, data.hostId);
-  } catch (err) {
-    showBattleError(err.message || (isAr ? 'تعذر الإنشاء' : 'Could not create room'));
-    if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}`; }
-  }
+  showBattleError(isAr ? 'الغرف المباشرة غير متاحة في النسخة الثابتة.' : 'Live rooms are unavailable in the static build.');
 }
 
 function handleBattleJoin() {
@@ -3403,7 +3400,7 @@ function handleBattleJoin() {
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
   if (code.length < 4) { showBattleError(isAr ? 'أدخل كود الغرفة' : 'Enter the room code'); return; }
-  connectToBattle(code, name, null);
+  showBattleError(isAr ? 'الغرف المباشرة غير متاحة في النسخة الثابتة.' : 'Live rooms are unavailable in the static build.');
 }
 
 function showBattleError(msg) {
@@ -3413,17 +3410,10 @@ function showBattleError(msg) {
 
 function connectToBattle(code, name, hostId) {
   if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); }
-  const ws = new WebSocket(getBattleWsUrl());
-  battleState.ws = ws;
   battleState.roomCode = code;
-  ws.onopen = () => ws.send(JSON.stringify({ type: 'join-room', code, name, hostId: hostId || '' }));
-  ws.onmessage = (e) => { try { handleBattleMessage(JSON.parse(e.data)); } catch (_) {} };
-  ws.onerror = () => showBattleError(state.lang === 'ar' ? 'تعذر الاتصال بالغرفة' : 'Connection failed');
-  ws.onclose = () => {
-    if (battleState.phase !== 'closed' && battleState.phase !== 'finished') {
-      showToast(state.lang === 'ar' ? 'انقطع الاتصال بالغرفة' : 'Disconnected from battle room');
-    }
-  };
+  void name;
+  void hostId;
+  showBattleError(state.lang === 'ar' ? 'الغرف المباشرة غير متاحة في النسخة الثابتة.' : 'Live rooms are unavailable in the static build.');
 }
 
 function handleBattleMessage(msg) {

@@ -7,9 +7,13 @@ api-fresh/
 backups/
 Claude/
 Users/
+site/
+site-fresh/
+admin.html
 styles_live.css
 app_live.js
 mind-lab.html
 test.js
 reset.js
+nginx.conf
 nginx-fix.sh

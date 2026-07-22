@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v4';
-const ASSET_CACHE = 'jakh-assets-v4';
+const CACHE_NAME = 'jakh-v6';
+const ASSET_CACHE = 'jakh-assets-v6';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -9,7 +9,10 @@ const PRECACHE_ASSETS = [
   '/manifest.webmanifest',
   '/assets/logo.svg',
   '/assets/favicon.svg',
+  '/assets/icon-192.png',
+  '/assets/icon-512.png',
   '/assets/og-image.webp',
+  '/data/catalog.json',
 ];
 
 self.addEventListener('install', (event) => {
@@ -34,9 +37,6 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
-
-  // Never cache API calls
-  if (url.pathname.startsWith('/api/')) return;
 
   // Network-first for HTML navigation
   if (request.mode === 'navigate') {

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-label="biology">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="hsl(160 78% 58%)" />
+      <stop offset="100%" stop-color="hsl(236 78% 62%)" />
+    </linearGradient>
+    <linearGradient id="g2" x1="1" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.42)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.08)" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" rx="32" fill="url(#g)" />
+  <circle cx="132" cy="96" r="68" fill="rgba(255,255,255,0.12)" />
+  <circle cx="532" cy="320" r="92" fill="rgba(0,0,0,0.10)" />
+  <path d="M220 96c74 0 74 228 148 228M420 96c-74 0-74 228-148 228" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M218 126h202M202 168h236M190 210h260M202 252h236M218 294h202" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="128" cy="286" r="46" fill="url(#g2)" />
+  <path d="M118 312c0-34 20-58 54-68-5 26-16 52-44 68-4 2-10 2-10 0z" fill="rgba(255,255,255,0.92)"/>
+  <path d="M104 308c18-26 38-42 62-52" fill="none" stroke="rgba(22,58,40,0.45)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="492" cy="120" r="54" fill="url(#g2)" />
+  <circle cx="470" cy="104" r="10" fill="rgba(255,255,255,0.92)" />
+  <circle cx="514" cy="104" r="10" fill="rgba(255,255,255,0.92)" />
+  <circle cx="492" cy="132" r="10" fill="rgba(255,255,255,0.92)" />
+  <circle cx="470" cy="160" r="10" fill="rgba(255,255,255,0.92)" />
+  <circle cx="514" cy="160" r="10" fill="rgba(255,255,255,0.92)" />
+</svg>

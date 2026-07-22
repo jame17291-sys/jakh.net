@@ -1,0 +1,15 @@
+.DS_Store
+*.zip
+*.pem
+node_modules/
+api/
+api-fresh/
+backups/
+Claude/
+Users/
+styles_live.css
+app_live.js
+mind-lab.html
+test.js
+reset.js
+nginx-fix.sh

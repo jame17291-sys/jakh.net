@@ -1,0 +1,490 @@
+{
+  "slug": "inventions-and-minds",
+  "title": {
+    "en": "Inventions & Ideas",
+    "ar": "الاختراعات والأفكار"
+  },
+  "count": 40,
+  "cards": [
+    {
+      "id": "inv-1",
+      "difficulty": "easy",
+      "question": {
+        "en": "Who is credited with inventing the practical light bulb?",
+        "ar": "من ينسب إليه الفضل في اختراع المصباح الكهربائي العملي؟"
+      },
+      "answer": {
+        "en": "Thomas Edison",
+        "ar": "توماس إديسون"
+      }
+    },
+    {
+      "id": "inv-2",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which brothers are famous for the first successful airplane flight?",
+        "ar": "أي أخوين مشهورين بالقيام بأول رحلة طيران ناجحة؟"
+      },
+      "answer": {
+        "en": "The Wright Brothers",
+        "ar": "الأخوان رايت"
+      }
+    },
+    {
+      "id": "inv-3",
+      "difficulty": "easy",
+      "question": {
+        "en": "What did Alexander Graham Bell invent in 1876?",
+        "ar": "ماذا اخترع ألكسندر جراهام بيل في عام 1876؟"
+      },
+      "answer": {
+        "en": "The Telephone",
+        "ar": "الهاتف"
+      }
+    },
+    {
+      "id": "inv-4",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which device, invented by Gutenberg, revolutionized the spread of knowledge?",
+        "ar": "أي جهاز اخترعه غوتنبرغ وأحدث ثورة في نشر المعرفة؟"
+      },
+      "answer": {
+        "en": "The Printing Press",
+        "ar": "المطبعة"
+      }
+    },
+    {
+      "id": "inv-5",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is the common name for the 'World Wide Web'?",
+        "ar": "ما هو الاسم الشائع لـ 'الشبكة العنكبوتية العالمية'؟"
+      },
+      "answer": {
+        "en": "The Web",
+        "ar": "الويب"
+      }
+    },
+    {
+      "id": "inv-6",
+      "difficulty": "easy",
+      "question": {
+        "en": "Who developed the first safe vaccine for Polio?",
+        "ar": "من طور أول لقاح آمن لمرض شلل الأطفال؟"
+      },
+      "answer": {
+        "en": "Jonas Salk",
+        "ar": "جوناس سالك"
+      }
+    },
+    {
+      "id": "inv-7",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which invention allows us to see distant stars and planets?",
+        "ar": "أي اختراع يسمح لنا برؤية النجوم والكواكب البعيدة؟"
+      },
+      "answer": {
+        "en": "The Telescope",
+        "ar": "التلسكوب"
+      }
+    },
+    {
+      "id": "inv-8",
+      "difficulty": "easy",
+      "question": {
+        "en": "Who invented the first successful steam locomotive?",
+        "ar": "من اخترع أول قاطرة بخارية ناجحة؟"
+      },
+      "answer": {
+        "en": "George Stephenson",
+        "ar": "جورج ستيفنسون"
+      }
+    },
+    {
+      "id": "inv-9",
+      "difficulty": "easy",
+      "question": {
+        "en": "What does 'GPS' stand for?",
+        "ar": "إلى ماذا يرمز اختصار 'GPS'؟"
+      },
+      "answer": {
+        "en": "Global Positioning System",
+        "ar": "نظام تحديد المواقع العالمي"
+      }
+    },
+    {
+      "id": "inv-10",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which material, invented in the mid-19th century, made the mass production of cars possible?",
+        "ar": "أي مادة، اخترعت في منتصف القرن التاسع عشر، جعلت الإنتاج الضخم للسيارات ممكناً؟"
+      },
+      "answer": {
+        "en": "Steel (Bessemer Process)",
+        "ar": "الفولاذ (عملية بسمر)"
+      }
+    },
+    {
+      "id": "inv-11",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who discovered Penicillin in 1928?",
+        "ar": "من اكتشف البنسلين في عام 1928؟"
+      },
+      "answer": {
+        "en": "Alexander Fleming",
+        "ar": "ألكسندر فليمنج"
+      }
+    },
+    {
+      "id": "inv-12",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which invention by James Watt improved the efficiency of the steam engine?",
+        "ar": "أي اختراع لجيمس وات حسن كفاءة المحرك البخاري؟"
+      },
+      "answer": {
+        "en": "Separate Condenser",
+        "ar": "المكثف المنفصل"
+      }
+    },
+    {
+      "id": "inv-13",
+      "difficulty": "medium",
+      "question": {
+        "en": "What was the name of the first artificial satellite launched into space?",
+        "ar": "ما اسم أول قمر صناعي أطلق إلى الفضاء؟"
+      },
+      "answer": {
+        "en": "Sputnik 1",
+        "ar": "سبوتنيك 1"
+      }
+    },
+    {
+      "id": "inv-14",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who is credited with the invention of the World Wide Web while working at CERN?",
+        "ar": "من ينسب إليه اختراع الشبكة العنكبوتية العالمية أثناء عمله في سيرن؟"
+      },
+      "answer": {
+        "en": "Tim Berners-Lee",
+        "ar": "تيم بيرنرز لي"
+      }
+    },
+    {
+      "id": "inv-15",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which device, essential for modern computers, was invented at Bell Labs in 1947?",
+        "ar": "أي جهاز ضروري للحواسيب الحديثة تم اختراعه في مختبرات بيل عام 1947؟"
+      },
+      "answer": {
+        "en": "The Transistor",
+        "ar": "الترانزستور"
+      }
+    },
+    {
+      "id": "inv-16",
+      "difficulty": "medium",
+      "question": {
+        "en": "What did Alfred Nobel invent that led to the creation of the Nobel Prizes?",
+        "ar": "ماذا اخترع ألفريد نوبل مما أدى لإنشاء جوائز نوبل؟"
+      },
+      "answer": {
+        "en": "Dynamite",
+        "ar": "الديناميت"
+      }
+    },
+    {
+      "id": "inv-17",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who developed the first commercially successful sewing machine?",
+        "ar": "من طور أول ماكينة خياطة ناجحة تجارياً؟"
+      },
+      "answer": {
+        "en": "Isaac Singer",
+        "ar": "إسحاق سينجر"
+      }
+    },
+    {
+      "id": "inv-18",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which invention allowed the storage of sound for playback for the first time?",
+        "ar": "أي اختراع سمح بتخزين الصوت لتشغيله لأول مرة؟"
+      },
+      "answer": {
+        "en": "The Phonograph",
+        "ar": "الفونوغراف"
+      }
+    },
+    {
+      "id": "inv-19",
+      "difficulty": "medium",
+      "question": {
+        "en": "What was the first mass-produced car model by Henry Ford?",
+        "ar": "ما هو أول طراز سيارة تم إنتاجه بكميات كبيرة من قبل هنري فورد؟"
+      },
+      "answer": {
+        "en": "Model T",
+        "ar": "موديل تي"
+      }
+    },
+    {
+      "id": "inv-20",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who is considered the 'Father of the Computer' for his Analytical Engine design?",
+        "ar": "من يعتبر 'أبو الكمبيوتر' لتصميمه للمحرك التحليلي؟"
+      },
+      "answer": {
+        "en": "Charles Babbage",
+        "ar": "تشارلز باباج"
+      }
+    },
+    {
+      "id": "inv-21",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which process, essential for modern agriculture, allows the mass production of ammonia?",
+        "ar": "أي عملية ضرورية للزراعة الحديثة تسمح بالإنتاج الضخم للأمونيا؟"
+      },
+      "answer": {
+        "en": "Haber-Bosch Process",
+        "ar": "عملية هابر-بوش"
+      }
+    },
+    {
+      "id": "inv-22",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who invented the first alternating current (AC) motor?",
+        "ar": "من اخترع أول محرك يعمل بالتيار المتردد (AC)؟"
+      },
+      "answer": {
+        "en": "Nikola Tesla",
+        "ar": "نيكولا تسلا"
+      }
+    },
+    {
+      "id": "inv-23",
+      "difficulty": "hard",
+      "question": {
+        "en": "What was the name of the first electronic general-purpose computer?",
+        "ar": "ما اسم أول كمبيوتر إلكتروني للأغراض العامة؟"
+      },
+      "answer": {
+        "en": "ENIAC",
+        "ar": "إينياك (ENIAC)"
+      }
+    },
+    {
+      "id": "inv-24",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who developed the first high-level programming language, COBOL?",
+        "ar": "من طور أول لغة برمجة عالية المستوى، كوبول (COBOL)؟"
+      },
+      "answer": {
+        "en": "Grace Hopper",
+        "ar": "جريس هوبر"
+      }
+    },
+    {
+      "id": "inv-25",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which invention by Guglielmo Marconi paved the way for modern radio?",
+        "ar": "أي اختراع لغوغليلمو ماركوني مهد الطريق للراديو الحديث؟"
+      },
+      "answer": {
+        "en": "Wireless Telegraphy",
+        "ar": "التلغراف اللاسلكي"
+      }
+    },
+    {
+      "id": "inv-26",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who invented the 'Liquid-Fuel Rocket'?",
+        "ar": "من اخترع 'الصاروخ الذي يعمل بالوقود السائل'؟"
+      },
+      "answer": {
+        "en": "Robert Goddard",
+        "ar": "روبرت جودارد"
+      }
+    },
+    {
+      "id": "inv-27",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which medical imaging technique was co-invented by Godfrey Hounsfield and Allan Cormack?",
+        "ar": "أي تقنية تصوير طبي شارك في اختراعها غودفري هونسفيلد وآلان كورماك؟"
+      },
+      "answer": {
+        "en": "CT Scan",
+        "ar": "الأشعة المقطعية (CT Scan)"
+      }
+    },
+    {
+      "id": "inv-28",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who is credited with the invention of the laser?",
+        "ar": "من ينسب إليه الفضل في اختراع الليزر؟"
+      },
+      "answer": {
+        "en": "Theodore Maiman",
+        "ar": "ثيودور ميمان"
+      }
+    },
+    {
+      "id": "inv-29",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which invention by Eli Whitney revolutionized the cotton industry but also increased the demand for labor?",
+        "ar": "أي اختراع لإيلي ويتني أحدث ثورة في صناعة القطن ولكنه زاد أيضاً من الطلب على العمالة؟"
+      },
+      "answer": {
+        "en": "The Cotton Gin",
+        "ar": "محلج القطن"
+      }
+    },
+    {
+      "id": "inv-30",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who developed the method for pasteurizing milk to kill harmful bacteria?",
+        "ar": "من طور طريقة بسترة الحليب لقتل البكتيريا الضارة؟"
+      },
+      "answer": {
+        "en": "Louis Pasteur",
+        "ar": "لويس باستور"
+      }
+    },
+    {
+      "id": "inv-31",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which scientist discovered the 'Photoelectric Effect', for which he received a Nobel Prize?",
+        "ar": "من هو العالم الذي اكتشف 'التأثير الكهروضوئي'، وحصل بسببه على جائزة نوبل؟"
+      },
+      "answer": {
+        "en": "Albert Einstein",
+        "ar": "ألبرت أينشتاين"
+      }
+    },
+    {
+      "id": "inv-32",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who invented the first programmable mechanical computer, known as the Z1?",
+        "ar": "من اخترع أول كمبيوتر ميكانيكي قابل للبرمجة، المعروف باسم Z1؟"
+      },
+      "answer": {
+        "en": "Konrad Zuse",
+        "ar": "كونراد سوزه"
+      }
+    },
+    {
+      "id": "inv-33",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What was the name of the first commercially available microprocessor, released by Intel in 1971?",
+        "ar": "ما اسم أول معالج دقيق متاح تجارياً، أصدرته إنتل في عام 1971؟"
+      },
+      "answer": {
+        "en": "Intel 4004",
+        "ar": "إنتل 4004"
+      }
+    },
+    {
+      "id": "inv-34",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who developed the first technique for DNA profiling (fingerprinting)?",
+        "ar": "من طور أول تقنية للبصمة الوراثية (DNA fingerprinting)؟"
+      },
+      "answer": {
+        "en": "Alec Jeffreys",
+        "ar": "أليك جيفريز"
+      }
+    },
+    {
+      "id": "inv-35",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which invention by Willis Carrier changed modern architecture by allowing for climate control indoors?",
+        "ar": "أي اختراع لويليس كارير غير العمارة الحديثة بالسماح بالتحكم في المناخ داخل المباني؟"
+      },
+      "answer": {
+        "en": "Modern Air Conditioning",
+        "ar": "تكييف الهواء الحديث"
+      }
+    },
+    {
+      "id": "inv-36",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who invented the 'Cyclotron', a type of particle accelerator?",
+        "ar": "من اخترع 'السيكلوترون'، وهو نوع من مسرعات الجسيمات؟"
+      },
+      "answer": {
+        "en": "Ernest Lawrence",
+        "ar": "إرنست لورانس"
+      }
+    },
+    {
+      "id": "inv-37",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which device, invented by Hedy Lamarr and George Antheil, was a precursor to modern Wi-Fi and Bluetooth?",
+        "ar": "أي جهاز اخترعته هيدي لامار وجورج أنثيل، وكان مقدمة لتقنيات الواي فاي والبلوتوث الحديثة؟"
+      },
+      "answer": {
+        "en": "Frequency-Hopping Spread Spectrum",
+        "ar": "تكنولوجيا القفز الترددي"
+      }
+    },
+    {
+      "id": "inv-38",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who is credited with the invention of the integrated circuit (IC), independently developed in 1958?",
+        "ar": "من ينسب إليه اختراع الدائرة المتكاملة (IC)، التي تم تطويرها بشكل مستقل في عام 1958؟"
+      },
+      "answer": {
+        "en": "Jack Kilby and Robert Noyce",
+        "ar": "جاك كيلبي وروبرت نويس"
+      }
+    },
+    {
+      "id": "inv-39",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What was the first item ever scanned using a UPC barcode in 1974?",
+        "ar": "ما هو أول منتج تم مسحه ضوئياً باستخدام باركود UPC في عام 1974؟"
+      },
+      "answer": {
+        "en": "A pack of Wrigley's Gum",
+        "ar": "عبوة علكة ريغليز"
+      }
+    },
+    {
+      "id": "inv-40",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who developed the first web browser, named 'WorldWideWeb' (later Nexus)?",
+        "ar": "من طور أول متصفح ويب، سمي 'WorldWideWeb' (لاحقاً Nexus)؟"
+      },
+      "answer": {
+        "en": "Tim Berners-Lee",
+        "ar": "تيم بيرنرز لي"
+      }
+    }
+  ]
+}

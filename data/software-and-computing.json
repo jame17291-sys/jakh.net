@@ -1,0 +1,364 @@
+{
+  "slug": "software-and-computing",
+  "title": { "en": "Software & Computing", "ar": "البرمجيات والحوسبة" },
+  "description": { "en": "Test your knowledge of computer science, algorithms, systems, and software engineering.", "ar": "اختبر معلوماتك في علوم الحاسب والخوارزميات والأنظمة وهندسة البرمجيات." },
+  "cluster": { "en": "Technology", "ar": "التكنولوجيا" },
+  "cluster_key": "technology",
+  "emoji": "💻",
+  "mode": "trivia",
+  "count": 50,
+  "difficultyCounts": { "easy": 14, "medium": 7, "hard": 17, "very-advanced": 12 },
+  "subcategories": ["Computer Science", "Algorithms & Data Structures", "Systems & Networking", "Software Engineering"],
+  "cards": [
+    {
+      "id": "software-and-computing-001",
+      "difficulty": "easy",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What does CPU stand for and what does it do?", "ar": "ما الذي يرمز إليه CPU وما وظيفته؟" },
+      "answer": { "en": "Central Processing Unit — the primary component that executes instructions and performs calculations in a computer.", "ar": "وحدة المعالجة المركزية — المكوّن الرئيسي الذي ينفّذ التعليمات ويُجري العمليات الحسابية في الحاسب." }
+    },
+    {
+      "id": "software-and-computing-002",
+      "difficulty": "easy",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is the difference between RAM and ROM?", "ar": "ما الفرق بين RAM و ROM؟" },
+      "answer": { "en": "RAM (Random Access Memory) is volatile — it stores data temporarily while the computer is running. ROM (Read-Only Memory) is non-volatile — it stores permanent instructions (like firmware) that persist even when powered off.", "ar": "RAM (ذاكرة الوصول العشوائي) متطايرة — تُخزّن البيانات مؤقتاً أثناء تشغيل الحاسب. ROM (ذاكرة القراءة فقط) غير متطايرة — تُخزّن التعليمات الدائمة (كالبرامج الثابتة) التي تبقى حتى بعد إيقاف التشغيل." }
+    },
+    {
+      "id": "software-and-computing-003",
+      "difficulty": "easy",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is binary and why do computers use it?", "ar": "ما النظام الثنائي ولماذا تستخدمه الحاسبات؟" },
+      "answer": { "en": "Binary is a base-2 number system using only 0 and 1. Computers use it because transistors have two states — on (1) and off (0) — making binary natural for digital circuits.", "ar": "النظام الثنائي هو نظام أساسه 2 يستخدم 0 و1 فقط. تستخدمه الحاسبات لأن الترانزستورات لها حالتان — مفتوح (1) ومغلق (0) — مما يجعل النظام الثنائي طبيعياً للدوائر الرقمية." }
+    },
+    {
+      "id": "software-and-computing-004",
+      "difficulty": "easy",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is an array in programming?", "ar": "ما المصفوفة في البرمجة؟" },
+      "answer": { "en": "A data structure that stores elements of the same type in contiguous memory locations, accessible by an index starting from 0.", "ar": "هيكل بيانات يُخزّن عناصر من نفس النوع في مواضع ذاكرة متجاورة، يمكن الوصول إليها بفهرس يبدأ من 0." }
+    },
+    {
+      "id": "software-and-computing-005",
+      "difficulty": "easy",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is an IP address?", "ar": "ما عنوان IP؟" },
+      "answer": { "en": "A unique numerical label assigned to each device on a network, used to identify and communicate with it. IPv4 uses 32-bit addresses (e.g., 192.168.1.1); IPv6 uses 128-bit addresses.", "ar": "تسمية رقمية فريدة مُعيَّنة لكل جهاز في الشبكة، تُستخدم لتعريفه والتواصل معه. يستخدم IPv4 عناوين 32 بت (مثلاً 192.168.1.1)؛ ويستخدم IPv6 عناوين 128 بت." }
+    },
+    {
+      "id": "software-and-computing-006",
+      "difficulty": "easy",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is the difference between a compiler and an interpreter?", "ar": "ما الفرق بين المُجمِّع والمُفسِّر؟" },
+      "answer": { "en": "A compiler translates the entire source code into machine code before execution. An interpreter translates and executes code line by line at runtime.", "ar": "المُجمِّع يُترجم كامل الكود المصدري إلى كود آلة قبل التنفيذ. المُفسِّر يُترجم الكود وينفّذه سطراً سطراً أثناء التشغيل." }
+    },
+    {
+      "id": "software-and-computing-007",
+      "difficulty": "easy",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is an operating system (OS)?", "ar": "ما نظام التشغيل؟" },
+      "answer": { "en": "Software that manages hardware resources and provides services for application programs. Examples: Windows, macOS, Linux.", "ar": "برنامج يُدير موارد العتاد ويوفر خدمات للتطبيقات. أمثلة: ويندوز، ماك أو إس، لينوكس." }
+    },
+    {
+      "id": "software-and-computing-008",
+      "difficulty": "easy",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is a linked list and how does it differ from an array?", "ar": "ما القائمة المترابطة وكيف تختلف عن المصفوفة؟" },
+      "answer": { "en": "A linked list is a data structure where each element (node) stores data and a pointer to the next node. Unlike arrays, nodes are not contiguous in memory, making insertions/deletions fast (O(1) if pointer is known) but random access slow (O(n)).", "ar": "القائمة المترابطة هيكل بيانات يُخزّن فيه كل عنصر (عقدة) بيانات ومؤشراً للعقدة التالية. خلافاً للمصفوفات، العقد ليست متجاورة في الذاكرة، مما يجعل الإدراج/الحذف سريعاً (O(1) إذا كان المؤشر معروفاً) لكن الوصول العشوائي بطيئاً (O(n))." }
+    },
+    {
+      "id": "software-and-computing-009",
+      "difficulty": "easy",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What does HTTP stand for and what is it used for?", "ar": "ما الذي يرمز إليه HTTP ولماذا يُستخدم؟" },
+      "answer": { "en": "HyperText Transfer Protocol — the foundation of data communication on the World Wide Web, used to transfer web pages and other resources between a browser and a server.", "ar": "بروتوكول نقل النص التشعبي — أساس الاتصال البياني على الشبكة العالمية للمعلومات، يُستخدم لنقل صفحات الويب والموارد الأخرى بين المتصفح والخادم." }
+    },
+    {
+      "id": "software-and-computing-010",
+      "difficulty": "easy",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is version control and why is Git widely used?", "ar": "ما التحكم في الإصدارات ولماذا يُستخدم Git على نطاق واسع؟" },
+      "answer": { "en": "Version control tracks changes to code over time, allowing teams to collaborate, roll back errors, and maintain history. Git is a distributed VCS — every developer has a full copy of the repository, enabling offline work and fast branching.", "ar": "التحكم في الإصدارات يتتبع التغييرات في الكود بمرور الوقت، مما يُتيح للفرق التعاون والتراجع عن الأخطاء والحفاظ على السجل. Git نظام تحكم إصدار موزع — كل مطوّر لديه نسخة كاملة من المستودع مما يُتيح العمل دون اتصال والتفريع السريع." }
+    },
+    {
+      "id": "software-and-computing-011",
+      "difficulty": "easy",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is an algorithm?", "ar": "ما الخوارزمية؟" },
+      "answer": { "en": "A finite, ordered set of well-defined instructions that solves a problem or accomplishes a task.", "ar": "مجموعة محدودة ومرتبة من التعليمات المحددة بدقة التي تحل مشكلة أو تُنجز مهمة." }
+    },
+    {
+      "id": "software-and-computing-012",
+      "difficulty": "easy",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is the difference between a process and a thread?", "ar": "ما الفرق بين العملية والخيط؟" },
+      "answer": { "en": "A process is an independent program instance with its own memory space. Threads are lighter-weight units of execution within a process, sharing the same memory — enabling concurrency with less overhead.", "ar": "العملية هي نموذج برنامج مستقل بفضاء ذاكرة خاص به. الخيوط وحدات تنفيذ خفيفة الوزن داخل عملية واحدة تُشارك الذاكرة ذاتها — مما يُتيح التزامن بعبء أقل." }
+    },
+    {
+      "id": "software-and-computing-013",
+      "difficulty": "easy",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is object-oriented programming (OOP)?", "ar": "ما البرمجة كائنية التوجه (OOP)؟" },
+      "answer": { "en": "A programming paradigm that organises code around 'objects' — entities that bundle data (attributes) and behaviour (methods). Core principles: encapsulation, inheritance, polymorphism, and abstraction.", "ar": "نموذج برمجي ينظم الكود حول 'كائنات' — كيانات تجمع البيانات (الخصائص) والسلوك (الأساليب). المبادئ الأساسية: التغليف، والوراثة، وتعدد الأشكال، والتجريد." }
+    },
+    {
+      "id": "software-and-computing-014",
+      "difficulty": "easy",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is a stack data structure and what is its primary operation order?", "ar": "ما هيكل بيانات المكدس وما ترتيب عملياته الأساسي؟" },
+      "answer": { "en": "A stack is a LIFO (Last In, First Out) data structure — the most recently added element is the first removed. Operations: push (add to top), pop (remove from top).", "ar": "المكدس هيكل بيانات LIFO (آخر داخل أول خارج) — العنصر المضاف مؤخراً هو الأول في الإزالة. العمليات: push (إضافة للقمة)، وpop (إزالة من القمة)." }
+    },
+    {
+      "id": "software-and-computing-015",
+      "difficulty": "medium",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is Big O notation and what does O(n log n) mean?", "ar": "ما رمز O الكبير وماذا يعني O(n log n)؟" },
+      "answer": { "en": "Big O describes the worst-case time or space complexity of an algorithm as input size (n) grows. O(n log n) means execution time grows proportionally to n multiplied by the logarithm of n — typical of efficient comparison-based sorting algorithms like merge sort and heapsort.", "ar": "رمز O الكبير يصف تعقيد الوقت أو الفضاء في الحالة الأسوأ للخوارزمية مع نمو حجم المدخل (n). O(n log n) يعني نمو وقت التنفيذ بنسبة n مضروبة في لوغاريتم n — نمط خوارزميات الفرز القائمة على المقارنة الكفوءة كالفرز بالدمج والفرز الكومي." }
+    },
+    {
+      "id": "software-and-computing-016",
+      "difficulty": "medium",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is the OSI model and how many layers does it have?", "ar": "ما نموذج OSI وكم عدد طبقاته؟" },
+      "answer": { "en": "The Open Systems Interconnection model is a 7-layer conceptual framework for network communication: Physical, Data Link, Network, Transport, Session, Presentation, Application. Each layer handles specific functions and communicates with adjacent layers.", "ar": "نموذج ربط الأنظمة المفتوحة إطار مفاهيمي من 7 طبقات لاتصالات الشبكة: المادية، وربط البيانات، والشبكة، والنقل، والجلسة، والتقديم، والتطبيق. تتولى كل طبقة وظائف محددة وتتواصل مع الطبقات المجاورة." }
+    },
+    {
+      "id": "software-and-computing-017",
+      "difficulty": "medium",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is the difference between SQL and NoSQL databases?", "ar": "ما الفرق بين قواعد بيانات SQL وNoSQL؟" },
+      "answer": { "en": "SQL (relational) databases store structured data in tables with fixed schemas and use SQL for queries — strong consistency, ACID transactions (e.g., PostgreSQL, MySQL). NoSQL databases use flexible schemas (document, key-value, graph, column) — better horizontal scalability and performance for unstructured data (e.g., MongoDB, Redis, Cassandra).", "ar": "قواعد بيانات SQL (العلائقية) تُخزّن بيانات منظمة في جداول بمخططات ثابتة وتستخدم SQL للاستعلامات — تناسق قوي ومعاملات ACID (مثل PostgreSQL وMySQL). قواعد NoSQL تستخدم مخططات مرنة (مستند، مفتاح-قيمة، رسم بياني، عمود) — قابلية توسع أفقي أفضل وأداء عالٍ للبيانات غير المنظمة (مثل MongoDB وRedis وCassandra)." }
+    },
+    {
+      "id": "software-and-computing-018",
+      "difficulty": "medium",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is a hash table and what is its average time complexity for lookups?", "ar": "ما جدول التجزئة وما متوسط تعقيد الوقت لعمليات البحث فيه؟" },
+      "answer": { "en": "A hash table stores key-value pairs by computing a hash of the key to determine storage location. Average O(1) for insertions, lookups, and deletions. Worst-case O(n) with many collisions.", "ar": "جدول التجزئة يُخزّن أزواج مفتاح-قيمة بحساب تجزئة المفتاح لتحديد موضع التخزين. متوسط O(1) للإدراج والبحث والحذف. وO(n) في الحالة الأسوأ مع التصادمات الكثيرة." }
+    },
+    {
+      "id": "software-and-computing-019",
+      "difficulty": "medium",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is DNS and how does it work?", "ar": "ما DNS وكيف يعمل؟" },
+      "answer": { "en": "The Domain Name System translates human-readable domain names (e.g., example.com) into IP addresses. When you request a URL, a DNS resolver queries a hierarchy of servers (root → TLD → authoritative) to find the corresponding IP.", "ar": "نظام اسم النطاق يُترجم أسماء النطاقات القابلة للقراءة (مثلاً example.com) إلى عناوين IP. عند طلب عنوان URL، يستعلم محلّل DNS تسلسلاً هرمياً من الخوادم (الجذر ← TLD ← الموثوق) للعثور على IP المقابل." }
+    },
+    {
+      "id": "software-and-computing-020",
+      "difficulty": "medium",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is the SOLID principle in object-oriented design?", "ar": "ما مبدأ SOLID في التصميم كائني التوجه؟" },
+      "answer": { "en": "Five design principles: Single Responsibility (one reason to change), Open/Closed (open for extension, closed for modification), Liskov Substitution (subclasses substitutable for parent), Interface Segregation (specific interfaces), Dependency Inversion (depend on abstractions, not concretions).", "ar": "خمسة مبادئ تصميم: المسؤولية الفردية (سبب واحد للتغيير)، المفتوح/المغلق (مفتوح للتوسيع مغلق للتعديل)، استبدال ليسكوف (الأصناف الفرعية قابلة للتبديل بالأصل)، فصل الواجهات (واجهات محددة)، انعكاس الاعتمادية (اعتمد على التجريدات لا التطبيقات)." }
+    },
+    {
+      "id": "software-and-computing-021",
+      "difficulty": "medium",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is recursion and what is a base case?", "ar": "ما العودية وما الحالة الأساسية؟" },
+      "answer": { "en": "Recursion is when a function calls itself to solve a smaller instance of the same problem. A base case is the condition that terminates the recursion — without it, the function would call itself infinitely and cause a stack overflow.", "ar": "العودية هي عندما تُستدعي دالة ذاتها لحل نسخة أصغر من المشكلة ذاتها. الحالة الأساسية هي الشرط الذي ينهي العودية — بدونها ستستدعي الدالة نفسها بلا حدود مما يُسبب فيضان المكدس." }
+    },
+    {
+      "id": "software-and-computing-022",
+      "difficulty": "hard",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "Explain Dijkstra's algorithm and its time complexity.", "ar": "اشرح خوارزمية ديكسترا وتعقيدها الزمني." },
+      "answer": { "en": "Dijkstra's algorithm finds the shortest path from a source node to all others in a weighted graph with non-negative edges. It greedily picks the unvisited node with the smallest known distance, relaxes its neighbours, and repeats. With a binary heap: O((V + E) log V), where V = vertices and E = edges.", "ar": "خوارزمية ديكسترا تجد أقصر مسار من عقدة مصدر إلى جميع العقد الأخرى في رسم بياني موزون بحواف غير سلبية. تختار بجشع العقدة غير المزارة ذات أصغر مسافة معروفة، تُريح جيرانها، وتُكرر. مع كومة ثنائية: O((V + E) log V)، حيث V = الرؤوس وE = الحواف." }
+    },
+    {
+      "id": "software-and-computing-023",
+      "difficulty": "hard",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is a race condition and how can it be prevented?", "ar": "ما حالة السباق وكيف يمكن منعها؟" },
+      "answer": { "en": "A race condition occurs when the behaviour of a program depends on the relative timing of threads accessing shared data — leading to unpredictable results. Prevention: synchronisation primitives (mutexes, semaphores, monitors), atomic operations, or lock-free data structures.", "ar": "تحدث حالة السباق عندما يعتمد سلوك البرنامج على التوقيت النسبي للخيوط التي تصل إلى البيانات المشتركة — مما يؤدي إلى نتائج غير متوقعة. الوقاية: بدائل المزامنة (mutex، semaphore، monitor)، والعمليات الذرية، وهياكل البيانات خالية القفل." }
+    },
+    {
+      "id": "software-and-computing-024",
+      "difficulty": "hard",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is the CAP theorem in distributed systems?", "ar": "ما نظرية CAP في الأنظمة الموزعة؟" },
+      "answer": { "en": "CAP theorem (Brewer) states a distributed system can guarantee at most two of three properties simultaneously: Consistency (every read receives the most recent write), Availability (every request receives a response), and Partition Tolerance (system continues despite network partitions).", "ar": "نظرية CAP (برور) تقول إن النظام الموزع يمكنه ضمان اثنتين فقط من ثلاث خصائص في آنٍ: التناسق (كل قراءة تتلقى آخر كتابة)، والتوافر (كل طلب يتلقى استجابة)، وتحمل التقسيم (النظام يواصل العمل رغم انقسامات الشبكة)." }
+    },
+    {
+      "id": "software-and-computing-025",
+      "difficulty": "hard",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is the difference between dynamic programming and greedy algorithms?", "ar": "ما الفرق بين البرمجة الديناميكية والخوارزميات الجشعة؟" },
+      "answer": { "en": "Dynamic programming solves problems by breaking them into overlapping subproblems and storing results (memoisation/tabulation) — optimal solution guaranteed. Greedy algorithms make locally optimal choices at each step without reconsidering — faster but not always globally optimal (e.g., Dijkstra is greedy and optimal; fractional knapsack is greedy; 0/1 knapsack requires DP).", "ar": "البرمجة الديناميكية تحل المشكلات بتقسيمها إلى مشاكل فرعية متداخلة وتخزين النتائج (الحفظ/الجدولة) — ضمان الحل الأمثل. الخوارزميات الجشعة تتخذ اختيارات محلية مثلى في كل خطوة دون إعادة النظر — أسرع لكن ليست دائماً مثلى عالمياً (مثلاً ديكسترا جشعة ومثلى؛ المسح الجزئي جشع؛ مسألة الحقيبة 0/1 تحتاج البرمجة الديناميكية)." }
+    },
+    {
+      "id": "software-and-computing-026",
+      "difficulty": "hard",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is virtual memory and how does paging work?", "ar": "ما الذاكرة الافتراضية وكيف يعمل التصفيح؟" },
+      "answer": { "en": "Virtual memory gives each process the illusion of a large, private address space even if physical RAM is limited. Paging divides virtual addresses into fixed-size pages mapped to physical frames by a page table. When a page is not in RAM (page fault), the OS loads it from disk.", "ar": "الذاكرة الافتراضية تمنح كل عملية وهم فضاء عنوان كبير وخاص حتى لو كانت ذاكرة RAM الفعلية محدودة. التصفيح يُقسّم العناوين الافتراضية إلى صفحات ذات حجم ثابت مُعيَّنة لإطارات فيزيائية بجدول صفحات. عندما لا تكون الصفحة في RAM (خطأ صفحة)، يُحمّلها نظام التشغيل من القرص." }
+    },
+    {
+      "id": "software-and-computing-027",
+      "difficulty": "hard",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is test-driven development (TDD) and what is the 'Red-Green-Refactor' cycle?", "ar": "ما التطوير القائم على الاختبار (TDD) وما دورة 'أحمر-أخضر-إعادة هيكلة'؟" },
+      "answer": { "en": "TDD is a development approach where tests are written before production code. Cycle: Red (write a failing test), Green (write minimal code to pass the test), Refactor (clean up code while keeping tests green). Benefits: better design, coverage, and fewer regressions.", "ar": "TDD نهج تطويري تُكتب فيه الاختبارات قبل كود الإنتاج. الدورة: أحمر (اكتب اختباراً فاشلاً)، أخضر (اكتب أدنى كود لاجتياز الاختبار)، إعادة الهيكلة (نظّف الكود مع إبقاء الاختبارات خضراء). الفوائد: تصميم أفضل وتغطية أوسع وتراجعات أقل." }
+    },
+    {
+      "id": "software-and-computing-028",
+      "difficulty": "hard",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is the halting problem and what did Turing prove about it?", "ar": "ما مشكلة التوقف وماذا أثبت تيورنغ بشأنها؟" },
+      "answer": { "en": "The halting problem asks whether a general algorithm can determine if any given program will eventually halt or run forever. Turing proved (1936) this is undecidable — no such general algorithm can exist — by demonstrating a contradiction (if it could, you could construct a program that halts iff it doesn't).", "ar": "مشكلة التوقف تسأل هل يمكن لخوارزمية عامة تحديد ما إذا كان أي برنامج سيتوقف في نهاية المطاف أم يواصل التشغيل إلى الأبد. أثبت تورينغ (1936) أنها غير قابلة للبت — لا يمكن وجود مثل هذه الخوارزمية العامة — بإظهار تناقض (لو أمكن، يمكنك بناء برنامج يتوقف إذا وفقط إذا لم يتوقف)." }
+    },
+    {
+      "id": "software-and-computing-029",
+      "difficulty": "hard",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is a balanced binary search tree (BST) and why is balance important?", "ar": "ما شجرة البحث الثنائي المتوازنة ولماذا يهم التوازن؟" },
+      "answer": { "en": "A BST where the heights of subtrees are kept close (e.g., AVL tree: height difference ≤ 1; Red-Black tree: more relaxed). Balance ensures search, insertion, and deletion remain O(log n) in the worst case. An unbalanced BST can degrade to O(n) — a linked list.", "ar": "شجرة BST تُحافظ فيها ارتفاعات الأشجار الفرعية على قرب (مثلاً شجرة AVL: فرق الارتفاع ≤ 1؛ شجرة أحمر-أسود: أكثر مرونة). يضمن التوازن بقاء البحث والإدراج والحذف O(log n) في الحالة الأسوأ. شجرة BST غير متوازنة قد تتدهور إلى O(n) — قائمة مترابطة." }
+    },
+    {
+      "id": "software-and-computing-030",
+      "difficulty": "hard",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is the difference between TCP and UDP?", "ar": "ما الفرق بين TCP وUDP؟" },
+      "answer": { "en": "TCP (Transmission Control Protocol) is connection-oriented with guaranteed delivery, ordering, and error checking — higher overhead (e.g., web, email). UDP (User Datagram Protocol) is connectionless with no delivery guarantees — lower latency, used for real-time applications (e.g., video streaming, DNS, gaming).", "ar": "TCP (بروتوكول التحكم في الإرسال) موجّه للاتصال مع ضمان التسليم والترتيب وفحص الأخطاء — عبء أعلى (مثلاً الويب والبريد الإلكتروني). UDP (بروتوكول مخطط البيانات للمستخدم) بلا اتصال بدون ضمانات تسليم — كمون أقل، يُستخدم للتطبيقات الفورية (مثلاً بث الفيديو وDNS والألعاب)." }
+    },
+    {
+      "id": "software-and-computing-031",
+      "difficulty": "hard",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is microservices architecture and how does it differ from monolithic architecture?", "ar": "ما معمارية الخدمات المصغّرة وكيف تختلف عن المعمارية الأحادية؟" },
+      "answer": { "en": "Monolithic: a single deployable unit containing all functionality — simple to develop initially but hard to scale and modify. Microservices: functionality split into small, independently deployable services communicating via APIs — better scalability and team autonomy, but increased operational complexity (networking, distributed tracing, eventual consistency).", "ar": "أحادية: وحدة نشر واحدة تحتوي على جميع الوظائف — بسيطة في التطوير مبدئياً لكن صعبة التوسع والتعديل. الخدمات المصغّرة: الوظائف تُقسَّم إلى خدمات صغيرة مستقلة النشر تتواصل عبر APIs — قابلية توسع أفضل واستقلالية الفريق لكن تعقيد تشغيلي أكبر (الشبكات والتتبع الموزع والتناسق النهائي)." }
+    },
+    {
+      "id": "software-and-computing-032",
+      "difficulty": "hard",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is garbage collection and what are the tradeoffs between manual memory management and GC?", "ar": "ما جمع القمامة وما المقايضات بين إدارة الذاكرة اليدوية وGC؟" },
+      "answer": { "en": "Garbage collection automatically reclaims memory no longer referenced — preventing memory leaks at the cost of runtime pauses and overhead (e.g., Java, Python, Go). Manual management (C, C++) gives precise control and no GC pauses but risks memory leaks, use-after-free, and double-free bugs.", "ar": "جمع القمامة يستعيد تلقائياً الذاكرة التي لم تعد مُشار إليها — يمنع تسرب الذاكرة على حساب توقفات زمنية أثناء التشغيل وعبء إضافي (مثلاً جافا، بايثون، Go). الإدارة اليدوية (C، C++) تمنح تحكماً دقيقاً بدون توقفات GC لكن بخطر تسرب الذاكرة والاستخدام بعد التحرير وأخطاء التحرير المزدوج." }
+    },
+    {
+      "id": "software-and-computing-033",
+      "difficulty": "hard",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is the difference between depth-first search (DFS) and breadth-first search (BFS)?", "ar": "ما الفرق بين البحث بالعمق أولاً (DFS) والبحث بالعرض أولاً (BFS)؟" },
+      "answer": { "en": "DFS explores as far as possible along each branch before backtracking — uses a stack (or recursion); good for cycle detection, topological sort. BFS explores all neighbours at the current depth before going deeper — uses a queue; good for shortest path in unweighted graphs.", "ar": "DFS يستكشف أبعد ما يمكن على طول كل فرع قبل الرجوع — يستخدم مكدساً (أو العودية)؛ جيد لاكتشاف الدورات والترتيب الطولوجي. BFS يستكشف جميع الجيران على العمق الحالي قبل التعمق — يستخدم طابوراً؛ جيد للمسار الأقصر في الرسوم البيانية غير الموزونة." }
+    },
+    {
+      "id": "software-and-computing-034",
+      "difficulty": "hard",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is a deadlock in operating systems and what are the four Coffman conditions?", "ar": "ما الإغلاق التام في أنظمة التشغيل وما شروط كوفمان الأربعة؟" },
+      "answer": { "en": "A deadlock is a state where two or more processes are permanently blocked, each waiting for a resource held by another. Coffman conditions (all four must hold): (1) Mutual Exclusion, (2) Hold and Wait, (3) No Preemption, (4) Circular Wait.", "ar": "الإغلاق التام حالة تُحجب فيها عمليتان أو أكثر بشكل دائم، كل منها تنتظر مورداً يحتفظ به الآخر. شروط كوفمان (يجب أن تتوفر الأربعة): (1) الاستبعاد المتبادل، (2) الاحتفاظ والانتظار، (3) عدم الاستئصال، (4) الانتظار الدائري." }
+    },
+    {
+      "id": "software-and-computing-035",
+      "difficulty": "hard",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is eventual consistency in distributed databases?", "ar": "ما التناسق النهائي في قواعد البيانات الموزعة؟" },
+      "answer": { "en": "A consistency model where, given no new updates, all replicas of data will eventually converge to the same value — but temporary inconsistencies are allowed between replicas. Used by highly available systems (Cassandra, DynamoDB). Contrasts with strong consistency (all reads reflect the latest write immediately).", "ar": "نموذج تناسق حيث، في غياب تحديثات جديدة، تتقارب جميع نسخ البيانات في نهاية المطاف إلى القيمة ذاتها — لكن التناسقات المؤقتة مسموح بها بين النسخ. تستخدمه الأنظمة عالية التوافر (Cassandra، DynamoDB). يتناقض مع التناسق القوي (جميع القراءات تعكس آخر كتابة فوراً)." }
+    },
+    {
+      "id": "software-and-computing-036",
+      "difficulty": "hard",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is the difference between P, NP, and NP-complete problems?", "ar": "ما الفرق بين مسائل P وNP وNP-complete؟" },
+      "answer": { "en": "P: problems solvable in polynomial time. NP: problems where a proposed solution can be verified in polynomial time (but may not be solvable that fast). NP-complete: the hardest NP problems — every NP problem reduces to them in polynomial time. Whether P = NP is the most famous unsolved problem in computer science.", "ar": "P: مسائل قابلة للحل في وقت كثيرحدي. NP: مسائل يمكن التحقق من حل مقترح لها في وقت كثيرحدي (لكن قد لا تُحلّ بهذه السرعة). NP-complete: أصعب مسائل NP — كل مسألة NP تُختزل إليها في وقت كثيرحدي. هل P = NP؟ هي أشهر مسألة غير محلولة في علوم الحاسب." }
+    },
+    {
+      "id": "software-and-computing-037",
+      "difficulty": "hard",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is HTTPS and how does TLS protect web traffic?", "ar": "ما HTTPS وكيف يحمي TLS حركة الويب؟" },
+      "answer": { "en": "HTTPS is HTTP over TLS (Transport Layer Security). TLS provides encryption (prevents eavesdropping), authentication (server certificate verifies identity), and integrity (prevents tampering). The TLS handshake negotiates cipher suites and exchanges session keys using asymmetric cryptography before switching to symmetric encryption.", "ar": "HTTPS هو HTTP عبر TLS (أمان طبقة النقل). يوفر TLS التشفير (يمنع التنصت)، والمصادقة (شهادة الخادم تتحقق من الهوية)، والسلامة (تمنع التلاعب). مصافحة TLS تتفاوض على مجموعات التشفير وتبادل مفاتيح الجلسة باستخدام التشفير غير المتماثل قبل التحويل إلى التشفير المتماثل." }
+    },
+    {
+      "id": "software-and-computing-038",
+      "difficulty": "hard",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is a design pattern? Name and explain three common ones.", "ar": "ما نمط التصميم؟ اذكر ثلاثة أنماط شائعة واشرحها." },
+      "answer": { "en": "Reusable solutions to common software design problems (GoF book). Three examples: Singleton (ensure only one instance of a class exists), Observer (subject notifies a list of observers on state change — event-driven systems), Factory Method (delegate object creation to subclasses, hiding instantiation logic).", "ar": "حلول قابلة لإعادة الاستخدام لمشاكل تصميم البرمجيات الشائعة (كتاب GoF). ثلاثة أمثلة: Singleton (ضمان وجود نسخة واحدة فقط من الصنف)، وObserver (الموضوع يُخطر قائمة من المراقبين عند تغيير الحالة — الأنظمة المدفوعة بالأحداث)، وFactory Method (تفويض إنشاء الكائنات للأصناف الفرعية مع إخفاء منطق التهيئة)." }
+    },
+    {
+      "id": "software-and-computing-039",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is Byzantine fault tolerance and why is it important in distributed systems?", "ar": "ما تحمّل الأعطال البيزنطية ولماذا يهم في الأنظمة الموزعة؟" },
+      "answer": { "en": "Byzantine fault tolerance (Lamport, 1982) is the ability of a system to continue operating even if some nodes fail in arbitrary ways — including sending conflicting information. Standard fault tolerance handles crash failures; Byzantine tolerance handles malicious or corrupted nodes. It requires at least 3f+1 nodes to tolerate f faulty ones. Critical for blockchain consensus (PBFT, Tendermint).", "ar": "تحمّل الأعطال البيزنطية (لامبورت، 1982) هو قدرة النظام على الاستمرار في العمل حتى لو فشلت بعض العقد بطرق عشوائية — بما في ذلك إرسال معلومات متضاربة. تحمّل الأعطال القياسي يُعالج أعطال الانهيار؛ تحمّل البيزنطية يُعالج العقد الخبيثة أو الفاسدة. يتطلب على الأقل 3f+1 عقدة لتحمل f عقدة معطوبة. أساسي لإجماع سلسلة الكتل (PBFT، Tendermint)." }
+    },
+    {
+      "id": "software-and-computing-040",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is the Raft consensus algorithm and what problem does it solve?", "ar": "ما خوارزمية الإجماع Raft وما المشكلة التي تحلها؟" },
+      "answer": { "en": "Raft (Ongaro & Ousterhout, 2014) is a consensus algorithm for distributed systems that ensures multiple nodes agree on a sequence of values even in the presence of failures. It decomposes consensus into leader election, log replication, and safety. Designed as a more understandable alternative to Paxos — used in etcd, CockroachDB.", "ar": "Raft (أونغارو وأوسترهاوت، 2014) خوارزمية إجماع للأنظمة الموزعة تضمن اتفاق عقد متعددة على تسلسل القيم حتى في حالة الأعطال. تُقسّم الإجماع إلى انتخاب القائد وتكرار السجل والسلامة. صُمِّمت كبديل أكثر قابلية للفهم من Paxos — مُستخدمة في etcd وCockroachDB." }
+    },
+    {
+      "id": "software-and-computing-041",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is a cache coherence protocol and why does it matter for multi-core processors?", "ar": "ما بروتوكول تماسك الذاكرة المخبئية ولماذا يهم لمعالجات متعددة النوى؟" },
+      "answer": { "en": "In multi-core CPUs, each core has its own cache. Cache coherence protocols (e.g., MESI — Modified, Exclusive, Shared, Invalid) ensure all caches present a consistent view of memory. Without coherence, one core might read a stale value written by another. The protocol uses bus snooping or directory-based mechanisms to track cache line states.", "ar": "في المعالجات متعددة النوى، لكل نواة ذاكرتها المخبئية الخاصة. بروتوكولات تماسك الذاكرة (مثلاً MESI — معدَّل، حصري، مشترك، غير صالح) تضمن تقديم جميع الذاكرات المخبئية رؤية متناسقة للذاكرة. بدون التماسك، قد تقرأ إحدى النوى قيمة قديمة كتبتها أخرى. يستخدم البروتوكول رصد الناقل أو آليات قائمة على الدليل لتتبع حالات خطوط الذاكرة المخبئية." }
+    },
+    {
+      "id": "software-and-computing-042",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is the difference between a Turing machine and a finite automaton, and what classes of languages do they recognise?", "ar": "ما الفرق بين آلة تورينغ والأوتوماتون المحدود وما فئات اللغات التي يتعرف عليها كل منهما؟" },
+      "answer": { "en": "A finite automaton has a fixed number of states and no external memory — recognises regular languages (the lowest class in the Chomsky hierarchy). A Turing machine has a potentially infinite tape, can read/write/move in both directions — recognises Turing-recognisable (recursively enumerable) languages. Between them: pushdown automata (context-free languages) and linear-bounded automata (context-sensitive).", "ar": "الأوتوماتون المحدود لديه عدد ثابت من الحالات وبلا ذاكرة خارجية — يتعرف على اللغات المنتظمة (أدنى فئة في تسلسل تشومسكي). آلة تورينغ لديها شريط لا نهائي محتمل يمكن قراءته/كتابته/التحرك فيه في كلا الاتجاهين — تتعرف على اللغات القابلة للتعرف عبر تورينغ (المعددة بشكل حسابي). بينهما: أوتوماتون الدفع للأسفل (اللغات السياقية الحرة) والأوتوماتون المقيد خطياً (اللغات السياقية)." }
+    },
+    {
+      "id": "software-and-computing-043",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is event sourcing and how does it differ from traditional CRUD?", "ar": "ما تحديد الأحداث (Event Sourcing) وكيف يختلف عن CRUD التقليدي؟" },
+      "answer": { "en": "In traditional CRUD, the database stores current state. In event sourcing, only immutable events (facts about what happened) are stored; current state is derived by replaying the event log. Benefits: full audit trail, temporal queries, easy projection rebuilding. Tradeoffs: increased storage, more complex querying, event schema evolution challenges.", "ar": "في CRUD التقليدي، تُخزّن قاعدة البيانات الحالة الراهنة. في تحديد الأحداث، تُخزّن فقط الأحداث الثابتة (حقائق عما حدث)؛ والحالة الراهنة تُشتقّ بإعادة تشغيل سجل الأحداث. الفوائد: سجل تدقيق كامل وعمليات بحث زمنية وإعادة بناء الإسقاطات بسهولة. المقايضات: تخزين أكبر واستعلامات أكثر تعقيداً وتحديات تطور مخطط الأحداث." }
+    },
+    {
+      "id": "software-and-computing-044",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is a skip list and what are its time complexity guarantees?", "ar": "ما قائمة التخطي (Skip List) وما ضمانات تعقيدها الزمني؟" },
+      "answer": { "en": "A skip list is a probabilistic data structure with multiple linked layers, each a subset of the layer below, allowing O(log n) expected search, insertion, and deletion. It achieves the same performance as balanced BSTs without complex rotations. Used in Redis sorted sets and LevelDB.", "ar": "قائمة التخطي هيكل بيانات احتمالي بطبقات مترابطة متعددة، كل منها مجموعة فرعية من الطبقة التي تليها، مما يُتيح O(log n) متوقعاً للبحث والإدراج والحذف. تحقق أداءً مماثلاً لـ BST المتوازنة دون دورانات معقدة. مُستخدمة في المجموعات المرتبة بـ Redis وLevelDB." }
+    },
+    {
+      "id": "software-and-computing-045",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is eBPF (extended Berkeley Packet Filter) and what are its modern uses?", "ar": "ما eBPF (فلتر الحزم بيركلي الموسّع) وما استخداماته الحديثة؟" },
+      "answer": { "en": "eBPF allows sandboxed programs to run in the Linux kernel without modifying kernel source or loading modules. Modern uses: high-performance networking (bypassing kernel stack — XDP), observability (tracing system calls, latency without overhead — Cilium, BPF Compiler Collection), security (runtime threat detection), and load balancing.", "ar": "eBPF يُتيح تشغيل برامج في صندوق رمل داخل نواة Linux دون تعديل كودها المصدري أو تحميل وحدات. الاستخدامات الحديثة: الشبكات عالية الأداء (تجاوز مكدس النواة — XDP)، والرصد (تتبع نداءات النظام والكمون بدون عبء — Cilium، BCC)، والأمن (اكتشاف التهديدات أثناء التشغيل)، وموازنة التحميل." }
+    },
+    {
+      "id": "software-and-computing-046",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Software Engineering", "ar": "هندسة البرمجيات" },
+      "question": { "en": "What is the difference between optimistic and pessimistic concurrency control in databases?", "ar": "ما الفرق بين التحكم التفاؤلي والتشاؤمي في التزامن في قواعد البيانات؟" },
+      "answer": { "en": "Pessimistic concurrency: acquires locks before reading/writing, preventing conflicts — safer but reduces throughput (deadlock risk). Optimistic concurrency: no locks; transactions proceed and only check for conflicts at commit time; if a conflict is detected, the transaction is rolled back and retried. Better for low-contention workloads.", "ar": "التزامن التشاؤمي: يُحصّل الأقفال قبل القراءة/الكتابة، مما يمنع التعارضات — أكثر أماناً لكن يُقلل الإنتاجية (خطر الإغلاق التام). التزامن التفاؤلي: بلا أقفال؛ المعاملات تتقدم وتفحص التعارضات فقط عند الإيداع؛ عند اكتشاف تعارض، تُلغى المعاملة وتُعاد المحاولة. أفضل لأعباء العمل ذات الاحتكاك المنخفض." }
+    },
+    {
+      "id": "software-and-computing-047",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is type theory and how does the Curry-Howard correspondence connect it to logic?", "ar": "ما نظرية النوع وكيف تربطها مراسلة كاري-هاوارد بالمنطق؟" },
+      "answer": { "en": "Type theory studies formal systems that classify values by type. The Curry-Howard correspondence states that types are propositions and programs are proofs — an inhabited type corresponds to a provable proposition. This deep connection underpins dependently typed languages (Coq, Agda, Lean) used for program verification.", "ar": "نظرية النوع تدرس الأنظمة الرسمية التي تُصنّف القيم حسب النوع. مراسلة كاري-هاوارد تقول إن الأنواع هي قضايا والبرامج هي براهين — النوع المأهول يقابل قضية قابلة للبرهان. هذا الارتباط العميق يدعم اللغات ذات الأنواع التابعة (Coq، Agda، Lean) المُستخدمة للتحقق من البرامج." }
+    },
+    {
+      "id": "software-and-computing-048",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Algorithms & Data Structures", "ar": "الخوارزميات وهياكل البيانات" },
+      "question": { "en": "What is amortised analysis and how does it apply to a dynamic array's resize operation?", "ar": "ما التحليل المستهلك وكيف ينطبق على عملية تغيير حجم المصفوفة الديناميكية؟" },
+      "answer": { "en": "Amortised analysis computes the average cost per operation over a sequence, even if some individual operations are expensive. A dynamic array doubles its capacity when full: most appends are O(1), but occasional resize is O(n). Amortised cost per append is still O(1) because each element is moved at most a constant number of times across all doublings.", "ar": "التحليل المستهلك يحسب متوسط تكلفة كل عملية عبر تسلسل، حتى لو كانت بعض العمليات الفردية مكلفة. المصفوفة الديناميكية تضاعف سعتها عند امتلائها: معظم إضافات O(1)، لكن تغيير الحجم العرضي O(n). التكلفة المستهلكة لكل إضافة لا تزال O(1) لأن كل عنصر يُنقل بحد أقصى عدداً ثابتاً من المرات عبر جميع المضاعفات." }
+    },
+    {
+      "id": "software-and-computing-049",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Systems & Networking", "ar": "الأنظمة والشبكات" },
+      "question": { "en": "What is the LMAX Disruptor and what architectural choices make it achieve high throughput?", "ar": "ما LMAX Disruptor وما الاختيارات المعمارية التي تحقق له إنتاجية عالية؟" },
+      "answer": { "en": "The LMAX Disruptor is a high-performance inter-thread messaging library using a ring buffer with no locks. Key techniques: pre-allocated fixed-size ring buffer (no GC pressure), CPU cache-line padding to avoid false sharing, memory barriers instead of locks, and busy-spin waiting for lowest latency. It achieves millions of events per second within a JVM.", "ar": "LMAX Disruptor مكتبة رسائل بين الخيوط عالية الأداء تستخدم مخزن دائري بلا أقفال. التقنيات الرئيسية: مخزن دائري ذو حجم ثابت مُخصَّص مسبقاً (بلا ضغط GC)، وحشو خط ذاكرة CPU لتجنب المشاركة الزائفة، وحواجز ذاكرة بدلاً من الأقفال، والانتظار بالدوران المكثف لأقل كمون. يحقق ملايين الأحداث في الثانية داخل JVM." }
+    },
+    {
+      "id": "software-and-computing-050",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Computer Science", "ar": "علوم الحاسب" },
+      "question": { "en": "What is quantum computing and what types of problems does it solve faster than classical computers?", "ar": "ما الحوسبة الكمية وما أنواع المشكلات التي تحلها أسرع من الحاسبات الكلاسيكية؟" },
+      "answer": { "en": "Quantum computers use qubits (superposition of 0 and 1) and entanglement to perform massively parallel computations. Proven speedups: Shor's algorithm (factoring large numbers exponentially faster — breaks RSA), Grover's algorithm (unstructured search in O(√n) vs classical O(n)). Practical quantum advantage for broader problems is still being researched.", "ar": "الحاسبات الكمية تستخدم كيوبتات (تراكب 0 و1) والتشابك لإجراء عمليات حسابية متوازية بشكل هائل. تسريعات مثبتة: خوارزمية شور (تحليل الأعداد الكبيرة أسرع أسياً — تكسر RSA)، وخوارزمية غروفر (البحث غير المنظم في O(√n) مقابل O(n) كلاسيكياً). الميزة الكمية العملية للمشكلات الأوسع لا تزال قيد البحث." }
+    }
+  ]
+}

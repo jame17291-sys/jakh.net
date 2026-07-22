@@ -1,0 +1,490 @@
+{
+  "slug": "architecture-and-landmarks",
+  "title": {
+    "en": "Architecture & Landmarks",
+    "ar": "العمارة والمعالم"
+  },
+  "count": 40,
+  "cards": [
+    {
+      "id": "arc-1",
+      "difficulty": "easy",
+      "question": {
+        "en": "In which city is the Eiffel Tower located?",
+        "ar": "في أي مدينة يقع برج إيفل؟"
+      },
+      "answer": {
+        "en": "Paris",
+        "ar": "باريس"
+      }
+    },
+    {
+      "id": "arc-2",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which country is home to the ancient Pyramids of Giza?",
+        "ar": "أي بلد هو موطن أهرامات الجيزة القديمة؟"
+      },
+      "answer": {
+        "en": "Egypt",
+        "ar": "مصر"
+      }
+    },
+    {
+      "id": "arc-3",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is the tallest building in the world (as of 2024)?",
+        "ar": "ما هو أطول مبنى في العالم (حتى عام 2024)؟"
+      },
+      "answer": {
+        "en": "Burj Khalifa",
+        "ar": "برج خليفة"
+      }
+    },
+    {
+      "id": "arc-4",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which famous leaning tower is found in Italy?",
+        "ar": "أي برج مائل شهير يوجد في إيطاليا؟"
+      },
+      "answer": {
+        "en": "Leaning Tower of Pisa",
+        "ar": "برج بيزا المائل"
+      }
+    },
+    {
+      "id": "arc-5",
+      "difficulty": "easy",
+      "question": {
+        "en": "The Colosseum was built by which ancient civilization?",
+        "ar": "بني الكولوسيوم من قبل أي حضارة قديمة؟"
+      },
+      "answer": {
+        "en": "Ancient Rome",
+        "ar": "روما القديمة"
+      }
+    },
+    {
+      "id": "arc-6",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is the name of the iconic white marble tomb in Agra, India?",
+        "ar": "ما اسم الضريح الرخامي الأبيض الشهير في أغرا، الهند؟"
+      },
+      "answer": {
+        "en": "Taj Mahal",
+        "ar": "تاج محل"
+      }
+    },
+    {
+      "id": "arc-7",
+      "difficulty": "easy",
+      "question": {
+        "en": "What material is primarily used to build a traditional igloo?",
+        "ar": "ما هي المادة المستخدمة بشكل أساسي لبناء 'الإيجلو' التقليدي؟"
+      },
+      "answer": {
+        "en": "Snow (Ice blocks)",
+        "ar": "الثلج (كتل جليدية)"
+      }
+    },
+    {
+      "id": "arc-8",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which famous opera house is known for its shell-like roof design?",
+        "ar": "أي دار أوبرا شهيرة تعرف بتصميم سقفها الذي يشبه الأصداف؟"
+      },
+      "answer": {
+        "en": "Sydney Opera House",
+        "ar": "دار أوبرا سيدني"
+      }
+    },
+    {
+      "id": "arc-9",
+      "difficulty": "easy",
+      "question": {
+        "en": "What do we call a bridge that is held up by cables?",
+        "ar": "ماذا نسمي الجسر الذي يتدلى من كابلات؟"
+      },
+      "answer": {
+        "en": "Suspension Bridge",
+        "ar": "جسر معلق"
+      }
+    },
+    {
+      "id": "arc-10",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which city is famous for its 'Statue of Liberty'?",
+        "ar": "أي مدينة تشتهر بـ 'تمثال الحرية'؟"
+      },
+      "answer": {
+        "en": "New York City",
+        "ar": "مدينة نيويورك"
+      }
+    },
+    {
+      "id": "arc-11",
+      "difficulty": "medium",
+      "question": {
+        "en": "What architectural style is known for pointed arches and flying buttresses?",
+        "ar": "أي نمط معماري يشتهر بالأقواس المدببة والدعامات الطائرة؟"
+      },
+      "answer": {
+        "en": "Gothic",
+        "ar": "القوطي"
+      }
+    },
+    {
+      "id": "arc-12",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who designed the Guggenheim Museum in Bilbao, Spain?",
+        "ar": "من صمم متحف غوغنهايم في بلباو، إسبانيا؟"
+      },
+      "answer": {
+        "en": "Frank Gehry",
+        "ar": "فرانك جيري"
+      }
+    },
+    {
+      "id": "arc-13",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the name of the ancient Greek temple dedicated to the goddess Athena on the Acropolis?",
+        "ar": "ما اسم المعبد اليوناني القديم المخصص للإلهة أثينا في الأكروبوليس؟"
+      },
+      "answer": {
+        "en": "Parthenon",
+        "ar": "البارثينون"
+      }
+    },
+    {
+      "id": "arc-14",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which movement, founded by Walter Gropius, aimed to combine crafts and the fine arts?",
+        "ar": "أي حركة أسسها والتر غروبيوس هدفت لدمج الحرف والفنون الجميلة؟"
+      },
+      "answer": {
+        "en": "Bauhaus",
+        "ar": "باوهاوس"
+      }
+    },
+    {
+      "id": "arc-15",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the term for a structural element that extends horizontally and is supported only at one end?",
+        "ar": "ما هو المصطلح الذي يطلق على عنصر إنشائي يمتد أفقياً ومدعوم من طرف واحد فقط؟"
+      },
+      "answer": {
+        "en": "Cantilever",
+        "ar": "الكابول (Cantilever)"
+      }
+    },
+    {
+      "id": "arc-16",
+      "difficulty": "medium",
+      "question": {
+        "en": "The 'Sagrada Família' is a famous basilica in which city?",
+        "ar": "كنيسة 'ساغرادا فاميليا' هي كنيسة شهيرة في أي مدينة؟"
+      },
+      "answer": {
+        "en": "Barcelona",
+        "ar": "برشلونة"
+      }
+    },
+    {
+      "id": "arc-17",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which architect is famous for the 'Fallingwater' house?",
+        "ar": "أي مهندس معماري اشتهر بمنزل 'شلالات المياه' (Fallingwater)؟"
+      },
+      "answer": {
+        "en": "Frank Lloyd Wright",
+        "ar": "فرانك لويد رايت"
+      }
+    },
+    {
+      "id": "arc-18",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the central high space of a church called?",
+        "ar": "ماذا يسمى الفضاء المركزي المرتفع في الكنيسة؟"
+      },
+      "answer": {
+        "en": "Nave",
+        "ar": "الصحن (Nave)"
+      }
+    },
+    {
+      "id": "arc-19",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the term for a circular window often found in Gothic cathedrals?",
+        "ar": "ما هو المصطلح الذي يطلق على النافذة الدائرية التي توجد غالباً في الكاتدرائيات القوطية؟"
+      },
+      "answer": {
+        "en": "Rose Window",
+        "ar": "نافذة الوردة"
+      }
+    },
+    {
+      "id": "arc-20",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which civilization built the ancient city of Petra in modern Jordan?",
+        "ar": "أي حضارة بنت مدينة البتراء القديمة في الأردن الحديث؟"
+      },
+      "answer": {
+        "en": "The Nabataeans",
+        "ar": "الأنباط"
+      }
+    },
+    {
+      "id": "arc-21",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the 'Golden Ratio' often used in architecture for aesthetic proportions?",
+        "ar": "ما هي 'النسبة الذهبية' التي تستخدم غالباً في العمارة للحصول على تناسب جمالي؟"
+      },
+      "answer": {
+        "en": "1.618 (approx.)",
+        "ar": "1.618 (تقريباً)"
+      }
+    },
+    {
+      "id": "arc-22",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who designed the 'Glass House' in New Canaan, Connecticut?",
+        "ar": "من صمم 'البيت الزجاجي' في نيو كانان، كونيتيكت؟"
+      },
+      "answer": {
+        "en": "Philip Johnson",
+        "ar": "فيليب جونسون"
+      }
+    },
+    {
+      "id": "arc-23",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the term for the topmost stone in an arch that locks the other stones in place?",
+        "ar": "ما هو المصطلح الذي يطلق على الحجر العلوي في القوس الذي يثبت الحجارة الأخرى في مكانها؟"
+      },
+      "answer": {
+        "en": "Keystone",
+        "ar": "حجر الزاوية (أو حجر الغلق)"
+      }
+    },
+    {
+      "id": "arc-24",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which architectural style is characterized by heavy masonry, small windows, and rounded arches?",
+        "ar": "أي نمط معماري يتميز بالبناء الثقيل والنوافذ الصغيرة والأقواس الدائرية؟"
+      },
+      "answer": {
+        "en": "Romanesque",
+        "ar": "الرومانسكي"
+      }
+    },
+    {
+      "id": "arc-25",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who is the architect of the Louvre Pyramid in Paris?",
+        "ar": "من هو المهندس المعماري لهرم اللوفر في باريس؟"
+      },
+      "answer": {
+        "en": "I. M. Pei",
+        "ar": "إيوه مينغ بي"
+      }
+    },
+    {
+      "id": "arc-26",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is a 'Pendentive' in Byzantine architecture?",
+        "ar": "ما هو 'المثلث الكروي' (Pendentive) في العمارة البيزنطية؟"
+      },
+      "answer": {
+        "en": "A triangular segment of a sphere that allows a dome to be placed over a square room",
+        "ar": "قطاع مثلثي من كرة يسمح بوضع قبة فوق غرفة مربعة"
+      }
+    },
+    {
+      "id": "arc-27",
+      "difficulty": "hard",
+      "question": {
+        "en": "What does the term 'Brutalism' refer to in architecture?",
+        "ar": "إلى ماذا يشير مصطلح 'الوحشية' (Brutalism) في العمارة؟"
+      },
+      "answer": {
+        "en": "A style characterized by raw, unadorned concrete surfaces",
+        "ar": "نمط يتميز بأسطح خرسانية خام غير مزينة"
+      }
+    },
+    {
+      "id": "arc-28",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who won the first Pritzker Architecture Prize in 1979?",
+        "ar": "من فاز بأول جائزة بريتزكر للعمارة في عام 1979؟"
+      },
+      "answer": {
+        "en": "Philip Johnson",
+        "ar": "فيليب جونسون"
+      }
+    },
+    {
+      "id": "arc-29",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the name of the world's largest religious monument, located in Cambodia?",
+        "ar": "ما اسم أكبر نصب ديني في العالم، يقع في كمبوديا؟"
+      },
+      "answer": {
+        "en": "Angkor Wat",
+        "ar": "أنكور وات"
+      }
+    },
+    {
+      "id": "arc-30",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is an 'Entablature' in classical architecture?",
+        "ar": "ما هو 'الإفريز' (Entablature) في العمارة الكلاسيكية؟"
+      },
+      "answer": {
+        "en": "The horizontal superstructure above columns",
+        "ar": "البنية الأفقية فوق الأعمدة"
+      }
+    },
+    {
+      "id": "arc-31",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who designed the 'Villa Savoye' and developed the 'Five Points of Architecture'?",
+        "ar": "من صمم 'فيلا سافوي' وطور 'نقاط العمارة الخمس'؟"
+      },
+      "answer": {
+        "en": "Le Corbusier",
+        "ar": "لو كوربوزييه"
+      }
+    },
+    {
+      "id": "arc-32",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Deconstructivism' in architecture?",
+        "ar": "ما هي 'التفكيكية' في العمارة؟"
+      },
+      "answer": {
+        "en": "A movement characterized by fragmentation and non-rectilinear shapes",
+        "ar": "حركة تتميز بالتفتيت والأشكال غير المستقيمة"
+      }
+    },
+    {
+      "id": "arc-33",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which architect designed the 'Shrine of the Book' in Jerusalem?",
+        "ar": "أي مهندس معماري صمم 'مزار الكتاب' في القدس؟"
+      },
+      "answer": {
+        "en": "Frederick Kiesler and Armand Bartos",
+        "ar": "فريدريك كيسلر وأرماند بارتوس"
+      }
+    },
+    {
+      "id": "arc-34",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the 'Vitruvian Man' based on in terms of architectural theory?",
+        "ar": "على ماذا يعتمد 'الرجل الفيتـروفي' من حيث النظرية المعمارية؟"
+      },
+      "answer": {
+        "en": "The proportions of the human body as a guide for architectural design",
+        "ar": "تناسب جسم الإنسان كدليل للتصميم المعماري"
+      }
+    },
+    {
+      "id": "arc-35",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who is the architect of the 'Chrysler Building' in New York?",
+        "ar": "من هو المهندس المعماري لـ 'مبنى كرايسلر' في نيويورك؟"
+      },
+      "answer": {
+        "en": "William Van Alen",
+        "ar": "ويليام فان ألن"
+      }
+    },
+    {
+      "id": "arc-36",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the 'Modulor' system developed by Le Corbusier?",
+        "ar": "ما هو نظام 'مودولور' (Modulor) الذي طوره لو كوربوزييه؟"
+      },
+      "answer": {
+        "en": "An anthropometric scale of proportions based on the human body and the golden ratio",
+        "ar": "مقياس أنثروبومتري للتناسب يعتمد على جسم الإنسان والنسبة الذهبية"
+      }
+    },
+    {
+      "id": "arc-37",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which ancient temple complex in Malta is among the oldest free-standing structures in the world?",
+        "ar": "أي معبد قديم في مالطا يعتبر من أقدم الهياكل المستقلة في العالم؟"
+      },
+      "answer": {
+        "en": "Ġgantija Temples",
+        "ar": "معابد جيجانتيا"
+      }
+    },
+    {
+      "id": "arc-38",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who designed the 'Vietnam Veterans Memorial' in Washington, D.C.?",
+        "ar": "من صمم 'النصب التذكاري لمحاربي فيتنام' في واشنطن العاصمة؟"
+      },
+      "answer": {
+        "en": "Maya Lin",
+        "ar": "مايا لين"
+      }
+    },
+    {
+      "id": "arc-39",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Parametricism' in modern architecture?",
+        "ar": "ما هي 'البارامترية' (Parametricism) في العمارة الحديثة؟"
+      },
+      "answer": {
+        "en": "A style based on digital design and algorithms to create complex forms",
+        "ar": "نمط يعتمد على التصميم الرقمي والخوارزميات لإنشاء أشكال معقدة"
+      }
+    },
+    {
+      "id": "arc-40",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is a 'Hypostyle Hall'?",
+        "ar": "ما هو 'بهو الأعمدة' (Hypostyle Hall)؟"
+      },
+      "answer": {
+        "en": "A large room with a roof supported by many columns",
+        "ar": "غرفة كبيرة لها سقف مدعوم بالعديد من الأعمدة"
+      }
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "slug": "business-and-management",
+  "title": {
+    "en": "Business Management",
+    "ar": "إدارة الأعمال"
+  },
+  "description": {
+    "en": "Finance, strategy, marketing, and management principles for modern business.",
+    "ar": "مالية واستراتيجية وتسويق ومبادئ إدارة للأعمال الحديثة."
+  },
+  "cluster": {
+    "en": "Society & Culture",
+    "ar": "مجتمع وثقافة"
+  },
+  "cluster_key": "society",
+  "emoji": "💼",
+  "mode": "quiz",
+  "count": 30,
+  "difficultyCounts": {
+    "easy": 10,
+    "medium": 10,
+    "hard": 10,
+    "very-advanced": 0
+  },
+  "subcategories": [],
+  "cards": [
+    {
+      "id": "business-and-management-001",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Terminology",
+        "ar": "المصطلحات"
+      },
+      "question": {
+        "en": "What does the acronym 'CEO' stand for?",
+        "ar": "ماذا تعني اختصار CEO؟"
+      },
+      "answer": {
+        "en": "Chief Executive Officer",
+        "ar": "الرئيس التنفيذي"
+      }
+    },
+    {
+      "id": "business-and-management-002",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Economics",
+        "ar": "الاقتصاد"
+      },
+      "question": {
+        "en": "If supply goes down but demand stays the same, what happens to price?",
+        "ar": "إذا انخفض العرض وظل الطلب ثابتاً، ماذا يحدث للسعر؟"
+      },
+      "answer": {
+        "en": "It increases",
+        "ar": "يرتفع"
+      }
+    },
+    {
+      "id": "business-and-management-003",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Accounting",
+        "ar": "المحاسبة"
+      },
+      "question": {
+        "en": "In accounting, what does 'the bottom line' refer to?",
+        "ar": "في المحاسبة، إلى ماذا يشير مصطلح 'السطر الأخير'؟"
+      },
+      "answer": {
+        "en": "Net income or profit",
+        "ar": "صافي الدخل أو الربح"
+      }
+    },
+    {
+      "id": "business-and-management-004",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Market Structures",
+        "ar": "هياكل السوق"
+      },
+      "question": {
+        "en": "What is it called when a single company dominates an entire market?",
+        "ar": "كيف يُسمى الوضع الذي تهيمن فيه شركة واحدة على السوق بأكمله؟"
+      },
+      "answer": {
+        "en": "A monopoly",
+        "ar": "الاحتكار"
+      }
+    },
+    {
+      "id": "business-and-management-005",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Branding",
+        "ar": "العلامة التجارية"
+      },
+      "question": {
+        "en": "What do you call a recognizable sign or emblem used to identify a company?",
+        "ar": "ما الاسم الذي يُطلق على الرمز المميز المستخدم للتعريف بالشركة؟"
+      },
+      "answer": {
+        "en": "A logo",
+        "ar": "الشعار"
+      }
+    },
+    {
+      "id": "business-and-management-006",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Branding",
+        "ar": "العلامة التجارية"
+      },
+      "question": {
+        "en": "What is the term for the public's perception and emotional connection to a company?",
+        "ar": "ما المصطلح الذي يصف تصور الجمهور وارتباطه العاطفي بالشركة؟"
+      },
+      "answer": {
+        "en": "Brand",
+        "ar": "العلامة التجارية"
+      }
+    },
+    {
+      "id": "business-and-management-007",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Accounting",
+        "ar": "المحاسبة"
+      },
+      "question": {
+        "en": "Is 'cash on hand' considered an asset or a liability?",
+        "ar": "هل 'النقد في متناول اليد' يُعدّ أصلاً أم التزاماً؟"
+      },
+      "answer": {
+        "en": "Asset",
+        "ar": "أصل"
+      }
+    },
+    {
+      "id": "business-and-management-008",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Entrepreneurship",
+        "ar": "ريادة الأعمال"
+      },
+      "question": {
+        "en": "What is the common term for a newly emerged business venture?",
+        "ar": "ما المصطلح الشائع لمشروع تجاري ناشئ حديثاً؟"
+      },
+      "answer": {
+        "en": "A startup",
+        "ar": "الشركة الناشئة"
+      }
+    },
+    {
+      "id": "business-and-management-009",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "HR",
+        "ar": "الموارد البشرية"
+      },
+      "question": {
+        "en": "Which department is responsible for hiring, training, and employee well-being?",
+        "ar": "أي قسم مسؤول عن التوظيف والتدريب ورعاية الموظفين؟"
+      },
+      "answer": {
+        "en": "Human Resources (HR)",
+        "ar": "الموارد البشرية"
+      }
+    },
+    {
+      "id": "business-and-management-010",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Terminology",
+        "ar": "المصطلحات"
+      },
+      "question": {
+        "en": "What is the term for the latest time or date by which something must be completed?",
+        "ar": "ما المصطلح الذي يعني آخر موعد لإنجاز شيء ما؟"
+      },
+      "answer": {
+        "en": "Deadline",
+        "ar": "الموعد النهائي"
+      }
+    },
+    {
+      "id": "business-and-management-011",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Strategy",
+        "ar": "الاستراتيجية"
+      },
+      "question": {
+        "en": "In a SWOT analysis, what do the four letters stand for?",
+        "ar": "في تحليل SWOT، ماذا تعني الحروف الأربعة؟"
+      },
+      "answer": {
+        "en": "Strengths, Weaknesses, Opportunities, Threats",
+        "ar": "نقاط القوة والضعف والفرص والتهديدات"
+      }
+    },
+    {
+      "id": "business-and-management-012",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Finance",
+        "ar": "المالية"
+      },
+      "question": {
+        "en": "What is the formula for Return on Investment (ROI)?",
+        "ar": "ما صيغة حساب العائد على الاستثمار (ROI)؟"
+      },
+      "answer": {
+        "en": "Net Profit / Cost of Investment × 100",
+        "ar": "صافي الربح ÷ تكلفة الاستثمار × 100"
+      }
+    },
+    {
+      "id": "business-and-management-013",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Marketing",
+        "ar": "التسويق"
+      },
+      "question": {
+        "en": "In marketing, what are the '4 Ps'?",
+        "ar": "في التسويق، ما هي العناصر الأربعة (4P)؟"
+      },
+      "answer": {
+        "en": "Product, Price, Place, Promotion",
+        "ar": "المنتج والسعر والمكان والترويج"
+      }
+    },
+    {
+      "id": "business-and-management-014",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Business Models",
+        "ar": "نماذج الأعمال"
+      },
+      "question": {
+        "en": "What does the business model 'B2B' stand for?",
+        "ar": "ماذا يعني نموذج الأعمال B2B؟"
+      },
+      "answer": {
+        "en": "Business-to-Business",
+        "ar": "من شركة إلى شركة"
+      }
+    },
+    {
+      "id": "business-and-management-015",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Finance",
+        "ar": "المالية"
+      },
+      "question": {
+        "en": "Which of these is a fixed cost: Raw materials or Monthly Rent?",
+        "ar": "أيهما تكلفة ثابتة: المواد الخام أم الإيجار الشهري؟"
+      },
+      "answer": {
+        "en": "Monthly Rent",
+        "ar": "الإيجار الشهري"
+      }
+    },
+    {
+      "id": "business-and-management-016",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Stock Market",
+        "ar": "سوق الأسهم"
+      },
+      "question": {
+        "en": "In the stock market, what does a 'Bull Market' signify?",
+        "ar": "في سوق الأسهم، ماذا يعني 'سوق الثيران'؟"
+      },
+      "answer": {
+        "en": "Rising prices and investor optimism",
+        "ar": "ارتفاع الأسعار وتفاؤل المستثمرين"
+      }
+    },
+    {
+      "id": "business-and-management-017",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Operations",
+        "ar": "العمليات"
+      },
+      "question": {
+        "en": "What is the practice of hiring an outside party to perform services?",
+        "ar": "ما الممارسة التي تعني الاستعانة بطرف خارجي لأداء الخدمات؟"
+      },
+      "answer": {
+        "en": "Outsourcing",
+        "ar": "الاستعانة بمصادر خارجية"
+      }
+    },
+    {
+      "id": "business-and-management-018",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Finance",
+        "ar": "المالية"
+      },
+      "question": {
+        "en": "What do you call private equity capital provided to high-potential startups?",
+        "ar": "كيف يُسمى رأس المال الخاص المقدَّم للشركات الناشئة ذات الإمكانات العالية؟"
+      },
+      "answer": {
+        "en": "Venture Capital",
+        "ar": "رأس المال المخاطر"
+      }
+    },
+    {
+      "id": "business-and-management-019",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Operations",
+        "ar": "العمليات"
+      },
+      "question": {
+        "en": "What is the ability of a business to handle a growing amount of work?",
+        "ar": "ما القدرة على استيعاب حجم عمل متنامٍ في الأعمال التجارية؟"
+      },
+      "answer": {
+        "en": "Scalability",
+        "ar": "قابلية التوسع"
+      }
+    },
+    {
+      "id": "business-and-management-020",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Marketing",
+        "ar": "التسويق"
+      },
+      "question": {
+        "en": "What is the term for a small, specialized area of the market for a particular product?",
+        "ar": "ما المصطلح الذي يشير إلى قطاع صغير متخصص من السوق؟"
+      },
+      "answer": {
+        "en": "A niche market",
+        "ar": "السوق المتخصص"
+      }
+    },
+    {
+      "id": "business-and-management-021",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Strategy",
+        "ar": "الاستراتيجية"
+      },
+      "question": {
+        "en": "Who developed the framework analyzing competitive forces within an industry?",
+        "ar": "من طور الإطار الذي يحلل القوى التنافسية داخل الصناعة؟"
+      },
+      "answer": {
+        "en": "Michael Porter",
+        "ar": "مايكل بورتر"
+      }
+    },
+    {
+      "id": "business-and-management-022",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Management Theory",
+        "ar": "نظرية الإدارة"
+      },
+      "question": {
+        "en": "What principle states that people in a hierarchy rise to their 'level of incompetence'?",
+        "ar": "ما المبدأ الذي ينص على أن الناس في التسلسل الهرمي يرتقون حتى مستوى عجزهم؟"
+      },
+      "answer": {
+        "en": "The Peter Principle",
+        "ar": "مبدأ بيتر"
+      }
+    },
+    {
+      "id": "business-and-management-023",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Management Theory",
+        "ar": "نظرية الإدارة"
+      },
+      "question": {
+        "en": "The '80/20 rule' states that 80% of results come from how much of causes?",
+        "ar": "تنص قاعدة 80/20 على أن 80% من النتائج تأتي من كم بالمائة من الأسباب؟"
+      },
+      "answer": {
+        "en": "20% of causes",
+        "ar": "20% من الأسباب"
+      }
+    },
+    {
+      "id": "business-and-management-024",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Operations",
+        "ar": "العمليات"
+      },
+      "question": {
+        "en": "Which Japanese automotive company perfected the 'Just-in-Time' (JIT) manufacturing system?",
+        "ar": "أي شركة سيارات يابانية أتقنت نظام التصنيع 'في الوقت المناسب'؟"
+      },
+      "answer": {
+        "en": "Toyota",
+        "ar": "تويوتا"
+      }
+    },
+    {
+      "id": "business-and-management-025",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Japanese Management",
+        "ar": "الإدارة اليابانية"
+      },
+      "question": {
+        "en": "What is the Japanese business philosophy of 'continuous improvement'?",
+        "ar": "ما فلسفة الأعمال اليابانية القائمة على 'التحسين المستمر'؟"
+      },
+      "answer": {
+        "en": "Kaizen",
+        "ar": "كايزن"
+      }
+    },
+    {
+      "id": "business-and-management-026",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Strategy",
+        "ar": "الاستراتيجية"
+      },
+      "question": {
+        "en": "What is a 'Blue Ocean' in business strategy?",
+        "ar": "ما المقصود بـ'المحيط الأزرق' في استراتيجية الأعمال؟"
+      },
+      "answer": {
+        "en": "An uncontested market space where competition is irrelevant",
+        "ar": "فضاء سوقي غير متنازع عليه تنعدم فيه المنافسة"
+      }
+    },
+    {
+      "id": "business-and-management-027",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Corporate Strategy",
+        "ar": "الاستراتيجية المؤسسية"
+      },
+      "question": {
+        "en": "What is it called when a company acquires another at the same level of the value chain?",
+        "ar": "كيف يُسمى استحواذ شركة على أخرى تعمل في نفس مستوى سلسلة القيمة؟"
+      },
+      "answer": {
+        "en": "Horizontal Integration",
+        "ar": "التكامل الأفقي"
+      }
+    },
+    {
+      "id": "business-and-management-028",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Finance",
+        "ar": "المالية"
+      },
+      "question": {
+        "en": "Which ratio measures a company's ability to pay off short-term liabilities with current assets?",
+        "ar": "أي نسبة تقيس قدرة الشركة على سداد التزاماتها قصيرة الأجل بالأصول المتداولة؟"
+      },
+      "answer": {
+        "en": "Current Ratio",
+        "ar": "نسبة السيولة الجارية"
+      }
+    },
+    {
+      "id": "business-and-management-029",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Economic Theory",
+        "ar": "النظرية الاقتصادية"
+      },
+      "question": {
+        "en": "Which economist famously wrote about the 'invisible hand' in The Wealth of Nations?",
+        "ar": "أي اقتصادي كتب عن 'اليد الخفية' في كتابه ثروة الأمم؟"
+      },
+      "answer": {
+        "en": "Adam Smith",
+        "ar": "آدم سميث"
+      }
+    },
+    {
+      "id": "business-and-management-030",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Economics",
+        "ar": "الاقتصاد"
+      },
+      "question": {
+        "en": "What is the value of the next best alternative forgone when a choice is made?",
+        "ar": "ما قيمة أفضل بديل يُضحّى به عند اتخاذ قرار؟"
+      },
+      "answer": {
+        "en": "Opportunity Cost",
+        "ar": "تكلفة الفرصة البديلة"
+      }
+    }
+  ]
+}

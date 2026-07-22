@@ -1,0 +1,828 @@
+{
+  "slug": "pharmacy",
+  "title": {
+    "en": "Pharmacy",
+    "ar": "الصيدلة"
+  },
+  "description": {
+    "en": "Drug classes, mechanisms of action, pharmacokinetics, and clinical pharmacy concepts.",
+    "ar": "فئات الأدوية وآليات عملها وحركيات الدواء ومفاهيم الصيدلة السريرية."
+  },
+  "cluster": {
+    "en": "Medical",
+    "ar": "طبي"
+  },
+  "cluster_key": "medical",
+  "emoji": "💊",
+  "mode": "quiz",
+  "count": 50,
+  "difficultyCounts": {
+    "easy": 13,
+    "medium": 12,
+    "hard": 11,
+    "very-advanced": 14
+  },
+  "subcategories": [],
+  "cards": [
+    {
+      "id": "pharm-001",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What class of drugs reduces fever and relieves pain, with paracetamol (acetaminophen) as a common example?",
+        "ar": "ما فئة الأدوية التي تُخفّض الحرارة وتُسكّن الألم، ومن أمثلتها الشائعة الباراسيتامول؟"
+      },
+      "answer": {
+        "en": "Analgesics/antipyretics (pain relievers and fever reducers).",
+        "ar": "المسكّنات وخافضات الحرارة."
+      }
+    },
+    {
+      "id": "pharm-002",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What class of drugs kills or inhibits bacteria?",
+        "ar": "ما فئة الأدوية التي تقتل البكتيريا أو تثبّط نموّها؟"
+      },
+      "answer": {
+        "en": "Antibiotics (antibacterials).",
+        "ar": "المضادات الحيوية."
+      }
+    },
+    {
+      "id": "pharm-003",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What class of drugs blocks histamine receptors and is used to treat allergies?",
+        "ar": "ما فئة الأدوية التي تحجب مستقبلات الهيستامين وتُستخدم لعلاج الحساسية؟"
+      },
+      "answer": {
+        "en": "Antihistamines (H1-receptor antagonists).",
+        "ar": "مضادات الهيستامين (حاصرات مستقبلات H1)."
+      }
+    },
+    {
+      "id": "pharm-004",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is a diuretic and what condition is it commonly used to treat?",
+        "ar": "ما مدرّ البول وما الحالة التي يُستخدم لعلاجها عادةً؟"
+      },
+      "answer": {
+        "en": "A drug that increases urine production, commonly used to treat hypertension (high blood pressure) and edema (fluid retention).",
+        "ar": "دواء يزيد إنتاج البول، يُستخدم عادةً لعلاج ارتفاع ضغط الدم والوذمة (احتباس السوائل)."
+      }
+    },
+    {
+      "id": "pharm-005",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What class of drugs lowers blood glucose levels and is used to treat diabetes?",
+        "ar": "ما فئة الأدوية التي تُخفّض مستوى الجلوكوز في الدم وتُستخدم لعلاج السكري؟"
+      },
+      "answer": {
+        "en": "Antidiabetic drugs — including insulin (injected) and oral hypoglycemics like metformin.",
+        "ar": "أدوية السكري — بما فيها الإنسولين (بالحقن) والأدوية الفموية الخافضة لسكر الدم كالميتفورمين."
+      }
+    },
+    {
+      "id": "pharm-006",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Pharmacokinetics",
+        "ar": "حركية الدواء"
+      },
+      "question": {
+        "en": "What does the term 'half-life' of a drug mean?",
+        "ar": "ما معنى مصطلح 'عمر النصف' للدواء؟"
+      },
+      "answer": {
+        "en": "The time it takes for the concentration of a drug in the body to decrease by half. It determines how frequently a drug must be dosed.",
+        "ar": "الزمن اللازم لانخفاض تركيز الدواء في الجسم إلى النصف. يحدد مدى تكرار جرعات الدواء."
+      }
+    },
+    {
+      "id": "pharm-007",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Safety",
+        "ar": "سلامة الدواء"
+      },
+      "question": {
+        "en": "What is the difference between a side effect and an adverse drug reaction?",
+        "ar": "ما الفرق بين الأثر الجانبي والتفاعل الدوائي الضار؟"
+      },
+      "answer": {
+        "en": "A side effect is any secondary, usually unintended effect of a drug at therapeutic doses. An adverse drug reaction (ADR) is a harmful, unintended response at normal doses — a subset of side effects that causes harm.",
+        "ar": "الأثر الجانبي أي تأثير ثانوي غير مقصود عادةً عند الجرعات العلاجية. التفاعل الدوائي الضار استجابة ضارة وغير مقصودة عند الجرعات الطبيعية — فئة فرعية من الآثار الجانبية المُسبِّبة للضرر."
+      }
+    },
+    {
+      "id": "pharm-008",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of NSAIDs (non-steroidal anti-inflammatory drugs) like ibuprofen?",
+        "ar": "ما آلية عمل مضادات الالتهاب غير الستيرويدية (NSAIDs) كالإيبوبروفين؟"
+      },
+      "answer": {
+        "en": "NSAIDs inhibit the enzyme cyclooxygenase (COX), which reduces prostaglandin synthesis — thereby decreasing inflammation, pain, and fever.",
+        "ar": "تثبّط NSAIDs إنزيم سيكلوأوكسيجيناز (COX)، مما يُقلّل تخليق البروستاغلاندين — وبالتالي يُخفّف الالتهاب والألم والحمى."
+      }
+    },
+    {
+      "id": "pharm-009",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Routes",
+        "ar": "طرق إعطاء الدواء"
+      },
+      "question": {
+        "en": "What does 'oral bioavailability' of a drug mean?",
+        "ar": "ما معنى 'التوافر البيولوجي الفموي' للدواء؟"
+      },
+      "answer": {
+        "en": "The fraction of an orally administered drug that reaches the systemic circulation unchanged. A drug with 100% bioavailability is fully absorbed; low bioavailability means much is destroyed before reaching the bloodstream.",
+        "ar": "النسبة من الدواء المُعطى فمويًا التي تصل إلى الدورة الدموية الجهازية دون تغيير. الدواء ذو توافر بيولوجي 100% يُمتصّ كليًا؛ التوافر البيولوجي المنخفض يعني أن جزءًا كبيرًا يُدمَّر قبل وصوله إلى مجرى الدم."
+      }
+    },
+    {
+      "id": "pharm-010",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What are statins and what condition do they treat?",
+        "ar": "ما الستاتينات وما الحالة التي تعالجها؟"
+      },
+      "answer": {
+        "en": "Statins (e.g. atorvastatin, simvastatin) are drugs that inhibit HMG-CoA reductase, reducing cholesterol synthesis in the liver. They treat hypercholesterolemia (high cholesterol) and reduce cardiovascular risk.",
+        "ar": "الستاتينات (مثل أتورفاستاتين وسيمفاستاتين) أدوية تثبّط إنزيم HMG-CoA ريداكتاز مما يُقلّل تخليق الكوليسترول في الكبد. تعالج فرط كوليسترول الدم وتُقلّل خطر الأمراض القلبية الوعائية."
+      }
+    },
+    {
+      "id": "pharm-011",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What are beta-blockers and what conditions are they used for?",
+        "ar": "ما حاصرات بيتا وما الحالات التي تُستخدم فيها؟"
+      },
+      "answer": {
+        "en": "Drugs that block beta-adrenergic receptors, slowing the heart rate and reducing blood pressure. Used for hypertension, angina, heart failure, and arrhythmias (e.g. atenolol, metoprolol).",
+        "ar": "أدوية تحجب مستقبلات بيتا الأدرينالية، تُبطّئ معدل ضربات القلب وتُخفّض ضغط الدم. تُستخدم لعلاج ارتفاع ضغط الدم والذبحة الصدرية وقصور القلب وعدم انتظام ضربات القلب (مثل أتينولول وميتوبرولول)."
+      }
+    },
+    {
+      "id": "pharm-012",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Safety",
+        "ar": "سلامة الدواء"
+      },
+      "question": {
+        "en": "What is a contraindication in pharmacology?",
+        "ar": "ما موانع الاستعمال في علم الأدوية؟"
+      },
+      "answer": {
+        "en": "A specific situation or condition in which a drug should NOT be used because it may be harmful to the patient — for example, aspirin is contraindicated in children with viral infections (Reye's syndrome risk).",
+        "ar": "وضع أو حالة بعينها لا يجب فيها استخدام الدواء لأنه قد يكون ضارًا بالمريض — على سبيل المثال، الأسبرين يُمنع عند الأطفال المصابين بعدوى فيروسية (خطر متلازمة راي)."
+      }
+    },
+    {
+      "id": "pharm-013",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is the difference between a generic drug and a branded drug?",
+        "ar": "ما الفرق بين الدواء الجنيسي والدواء المحمي بالعلامة التجارية؟"
+      },
+      "answer": {
+        "en": "A branded drug is the original patented formulation. A generic drug contains the same active ingredient, same dose, same route, and meets bioequivalence standards — but is sold under its chemical name at lower cost once the patent expires.",
+        "ar": "الدواء المحمي بالعلامة التجارية هو التركيبة الأصلية المحمية ببراءة اختراع. الدواء الجنيسي يحتوي على نفس المادة الفعّالة بنفس الجرعة وطريقة الإعطاء ويستوفي معايير التكافؤ البيولوجي — لكنه يُباع باسمه الكيميائي بسعر أقل بعد انتهاء فترة البراءة."
+      }
+    },
+    {
+      "id": "pharm-014",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacokinetics",
+        "ar": "حركية الدواء"
+      },
+      "question": {
+        "en": "What are the four pharmacokinetic processes described by ADME?",
+        "ar": "ما العمليات الحركية الأربعة للدواء التي يصفها اختصار ADME؟"
+      },
+      "answer": {
+        "en": "Absorption (drug enters circulation), Distribution (drug spreads to tissues), Metabolism (drug is chemically altered, mainly by liver), and Excretion (drug is eliminated, mainly by kidneys).",
+        "ar": "الامتصاص (يدخل الدواء إلى الدورة الدموية)، التوزيع (ينتشر الدواء إلى الأنسجة)، التمثيل الغذائي (يتحوّل الدواء كيميائيًا في الغالب بالكبد)، والإطراح (يُطرح الدواء في الغالب بالكلى)."
+      }
+    },
+    {
+      "id": "pharm-015",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Interactions",
+        "ar": "التفاعلات الدوائية"
+      },
+      "question": {
+        "en": "What is a drug-drug interaction and give one clinically important example?",
+        "ar": "ما التفاعل الدوائي-الدوائي ومثّل بمثال سريري مهم؟"
+      },
+      "answer": {
+        "en": "When one drug affects the activity of another. Example: Warfarin (blood thinner) combined with aspirin increases bleeding risk because both inhibit clotting through different mechanisms — dose adjustment and monitoring are required.",
+        "ar": "عندما يؤثر دواء ما على نشاط دواء آخر. مثال: الوارفارين (مُرقّق الدم) مع الأسبرين يزيد خطر النزيف لأن كليهما يثبّط التخثر بآليتَين مختلفتَين — يلزم تعديل الجرعة والمتابعة."
+      }
+    },
+    {
+      "id": "pharm-016",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Antibiotics",
+        "ar": "مضادات حيوية"
+      },
+      "question": {
+        "en": "What is antibiotic resistance and how does it develop?",
+        "ar": "ما مقاومة المضادات الحيوية وكيف تتطور؟"
+      },
+      "answer": {
+        "en": "The ability of bacteria to survive and grow despite antibiotic treatment. It develops when bacteria acquire mutations or resistance genes — accelerated by overuse, incomplete courses, and use in livestock. Resistant bacteria spread, making infections harder to treat.",
+        "ar": "قدرة البكتيريا على البقاء والنمو رغم العلاج بالمضادات الحيوية. تتطور عندما تكتسب البكتيريا طفرات أو جينات مقاومة — يُعجّل ذلك الإفراط في الاستخدام وعدم إكمال الجرعة والاستخدام في المواشي. تنتشر البكتيريا المقاومة فتصعب معالجة العدوى."
+      }
+    },
+    {
+      "id": "pharm-017",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What are ACE inhibitors and what do they treat?",
+        "ar": "ما مثبّطات الإنزيم المحوّل للأنجيوتنسين (ACE) وما الذي تعالجه؟"
+      },
+      "answer": {
+        "en": "Drugs that block the angiotensin-converting enzyme (ACE), preventing conversion of angiotensin I to the vasoconstrictor angiotensin II. They lower blood pressure and are first-line for hypertension and heart failure (e.g. lisinopril, enalapril).",
+        "ar": "أدوية تحجب إنزيم تحويل الأنجيوتنسين (ACE)، مانعةً تحوّل الأنجيوتنسين I إلى الأنجيوتنسين II المضيّق للأوعية. تُخفّض ضغط الدم وهي خط أول لارتفاع ضغط الدم وقصور القلب (مثل ليسينوبريل وإيناﻻبريل)."
+      }
+    },
+    {
+      "id": "pharm-018",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacodynamics",
+        "ar": "ديناميكية الدواء"
+      },
+      "question": {
+        "en": "What is the difference between an agonist and an antagonist in pharmacology?",
+        "ar": "ما الفرق بين الناهض (الأغونيست) والمضاد (الأنتاغونيست) في علم الأدوية؟"
+      },
+      "answer": {
+        "en": "An agonist binds to a receptor and activates it, producing a biological response. An antagonist binds to the receptor but does NOT activate it — it blocks agonists from binding, reducing a response.",
+        "ar": "الناهض يرتبط بمستقبل ويُنشّطه مُنتجًا استجابةً بيولوجية. المضاد يرتبط بالمستقبل لكنه لا يُنشّطه — يحجب ارتباط النواهض ويُقلّل الاستجابة."
+      }
+    },
+    {
+      "id": "pharm-019",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Safety",
+        "ar": "سلامة الدواء"
+      },
+      "question": {
+        "en": "What is the therapeutic index of a drug?",
+        "ar": "ما المؤشر العلاجي للدواء؟"
+      },
+      "answer": {
+        "en": "The ratio between the toxic dose and the effective dose (TD50/ED50). A wide therapeutic index means a drug is relatively safe; a narrow therapeutic index (e.g. warfarin, lithium, digoxin) means small dose changes can cause toxicity or loss of effect.",
+        "ar": "نسبة الجرعة السامة إلى الجرعة الفعّالة (TD50/ED50). المؤشر العلاجي الواسع يعني أن الدواء آمن نسبيًا؛ المؤشر الضيق (مثل الوارفارين والليثيوم والديجوكسين) يعني أن تغييرات صغيرة في الجرعة يمكن أن تسبب سُمية أو فقدان التأثير."
+      }
+    },
+    {
+      "id": "pharm-020",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of proton pump inhibitors (PPIs) like omeprazole?",
+        "ar": "ما آلية عمل مثبّطات مضخة البروتون (PPIs) كالأوميبرازول؟"
+      },
+      "answer": {
+        "en": "PPIs irreversibly block the H⁺/K⁺-ATPase (proton pump) in gastric parietal cells, stopping acid secretion. They treat peptic ulcers, GERD, and H. pylori infections.",
+        "ar": "تثبّط PPIs بصورة لا رجعية مضخة البروتون H⁺/K⁺-ATPase في الخلايا الجدارية للمعدة، مما يوقف إفراز الحمض. تعالج قرحة المعدة والارتداد الحمضي (GERD) وعدوى H. pylori."
+      }
+    },
+    {
+      "id": "pharm-021",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Antibiotics",
+        "ar": "مضادات حيوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of penicillin-class antibiotics?",
+        "ar": "ما آلية عمل المضادات الحيوية من فئة البنسيلين؟"
+      },
+      "answer": {
+        "en": "Penicillins inhibit bacterial cell wall synthesis by blocking transpeptidase enzymes (penicillin-binding proteins), preventing cross-linking of peptidoglycan chains. This weakens the cell wall, causing the bacterium to burst (lyse).",
+        "ar": "تثبّط البنسيلينات تخليق جدار الخلية البكتيرية بحجب إنزيمات الترانسببتيداز (بروتينات رابطة البنسيلين)، مانعةً تشابك سلاسل الببتيدوغليكان. يُضعف ذلك جدار الخلية فتنفجر البكتيريا (تتحلّل)."
+      }
+    },
+    {
+      "id": "pharm-022",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacokinetics",
+        "ar": "حركية الدواء"
+      },
+      "question": {
+        "en": "What is the 'first-pass effect' and which drugs are most affected by it?",
+        "ar": "ما 'تأثير المرور الأول' وأي الأدوية تتأثر به أكثر؟"
+      },
+      "answer": {
+        "en": "When an orally administered drug is absorbed through the gut and passes through the portal vein to the liver before reaching systemic circulation, much of it is metabolized — reducing bioavailability. Highly metabolized drugs like morphine, nitroglycerin, and lidocaine show significant first-pass effects and may need higher oral doses or alternative routes.",
+        "ar": "عندما يُمتصّ الدواء المُعطى فمويًا عبر الأمعاء ويمرّ عبر الوريد البابي إلى الكبد قبل وصوله إلى الدورة الجهازية، يُستقلب جزء كبير منه — مما يُقلّل التوافر البيولوجي. الأدوية عالية الأيض كالمورفين والنيتروغليسرين والليدوكايين تُظهر تأثيرات مرور أول كبيرة وقد تحتاج جرعات فموية أعلى أو طرق إعطاء بديلة."
+      }
+    },
+    {
+      "id": "pharm-023",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What are SSRIs and what are they primarily used to treat?",
+        "ar": "ما مثبّطات إعادة امتصاص السيروتونين الانتقائية (SSRIs) وما أبرز استخداماتها؟"
+      },
+      "answer": {
+        "en": "Selective serotonin reuptake inhibitors block reuptake of serotonin in synapses, increasing serotonin availability. They are the first-line treatment for depression and anxiety disorders (e.g. fluoxetine, sertraline, escitalopram).",
+        "ar": "مثبّطات إعادة امتصاص السيروتونين الانتقائية تحجب إعادة امتصاص السيروتونين في المشابك، مما يزيد توافر السيروتونين. هي الخط الأول لعلاج الاكتئاب واضطرابات القلق (مثل فلوكستين وسيرترالين وإسيتالوبرام)."
+      }
+    },
+    {
+      "id": "pharm-024",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Safety",
+        "ar": "سلامة الدواء"
+      },
+      "question": {
+        "en": "What is the WHO's ATC (Anatomical Therapeutic Chemical) classification system?",
+        "ar": "ما نظام التصنيف التشريحي العلاجي الكيميائي (ATC) لمنظمة الصحة العالمية؟"
+      },
+      "answer": {
+        "en": "A system for classifying drugs by the organ or body system they act on and their therapeutic, pharmacological, and chemical properties — organized in five levels. It is used globally for drug utilization research and comparison.",
+        "ar": "نظام لتصنيف الأدوية حسب العضو أو جهاز الجسم الذي تعمل عليه وخصائصها العلاجية والدوائية والكيميائية — منظّم في خمسة مستويات. يُستخدم عالميًا لأبحاث استخدام الأدوية والمقارنة."
+      }
+    },
+    {
+      "id": "pharm-025",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is heparin and how does it work as an anticoagulant?",
+        "ar": "ما الهيبارين وكيف يعمل كمضاد للتخثر؟"
+      },
+      "answer": {
+        "en": "Heparin is an injectable anticoagulant that activates antithrombin III, which then rapidly inactivates thrombin and factor Xa — key enzymes in the clotting cascade. Used to prevent and treat blood clots (DVT, pulmonary embolism).",
+        "ar": "الهيبارين مضاد للتخثر يُعطى حقنًا ينشّط مضاد الثرومبين III، الذي يُثبّط سريعًا الثرومبين والعامل Xa — وهما إنزيمان رئيسيان في سلسلة التخثر. يُستخدم للوقاية من الجلطات الدموية وعلاجها (DVT والانسداد الرئوي)."
+      }
+    },
+    {
+      "id": "pharm-026",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacodynamics",
+        "ar": "ديناميكية الدواء"
+      },
+      "question": {
+        "en": "What is receptor downregulation and what clinical problem can it cause?",
+        "ar": "ما تنظيم المستقبلات نزولًا (الداون ريغوليشن) وما المشكلة السريرية التي قد يُسبّبها؟"
+      },
+      "answer": {
+        "en": "When a receptor is chronically activated (by an agonist drug), the cell reduces the number of available receptors. This causes drug tolerance — the same dose produces a weaker effect over time, requiring dose escalation. It is a major issue with opioids and beta-agonists in asthma.",
+        "ar": "عندما يُنشَّط مستقبل باستمرار (بدواء ناهض)، تُقلّل الخلية عدد المستقبلات المتاحة. يُسبّب ذلك التحمّل الدوائي — نفس الجرعة تُنتج تأثيرًا أضعف بمرور الوقت مما يستلزم رفع الجرعة. وهي مشكلة رئيسية مع الأفيونيات وناهضات بيتا في الربو."
+      }
+    },
+    {
+      "id": "pharm-027",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacokinetics",
+        "ar": "حركية الدواء"
+      },
+      "question": {
+        "en": "What is volume of distribution (Vd) and what does a high Vd indicate?",
+        "ar": "ما حجم التوزيع (Vd) وما الذي تدل عليه قيمته المرتفعة؟"
+      },
+      "answer": {
+        "en": "Vd is a theoretical volume relating the total amount of drug in the body to its plasma concentration (Vd = total drug / plasma concentration). A high Vd means the drug distributes extensively into tissues and is not confined to plasma — making it harder to remove by dialysis. Lipophilic drugs (e.g. chloroquine, amiodarone) have very high Vd values.",
+        "ar": "حجم التوزيع هو حجم افتراضي يربط الكمية الإجمالية للدواء في الجسم بتركيزه في البلازما (Vd = الدواء الكلي / تركيز البلازما). القيمة المرتفعة تعني أن الدواء يتوزع على نطاق واسع في الأنسجة وليس محصورًا في البلازما — مما يُصعّب إزالته بالغسيل الكلوي. الأدوية المحبة للدهون (مثل الكلوروكين والأميودارون) لها قيم Vd مرتفعة جدًا."
+      }
+    },
+    {
+      "id": "pharm-028",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Antibiotics",
+        "ar": "مضادات حيوية"
+      },
+      "question": {
+        "en": "What is the difference between bactericidal and bacteriostatic antibiotics and does it matter clinically?",
+        "ar": "ما الفرق بين المضادات الحيوية القاتلة للبكتيريا والمثبّطة لنموّها وهل يهم ذلك سريريًا؟"
+      },
+      "answer": {
+        "en": "Bactericidal antibiotics kill bacteria (e.g. penicillins, fluoroquinolones, aminoglycosides); bacteriostatic antibiotics inhibit growth, relying on immune clearance (e.g. tetracyclines, macrolides, sulfonamides). In immunocompromised patients or endocarditis, bactericidal drugs are preferred because the immune system cannot finish the job.",
+        "ar": "المضادات الحيوية القاتلة للبكتيريا تقتل البكتيريا (مثل البنسيلينات والفلوروكينولونات والأمينوغليكوسيدات)؛ المثبّطة للنمو تثبّط النمو معتمدةً على التطهير المناعي (مثل التتراسيكلينات والماكروليدات والسلفوناميدات). في المرضى مقلّصي المناعة أو التهاب الشغاف، تُفضَّل المضادات القاتلة لأن الجهاز المناعي لا يستطيع إتمام المهمة."
+      }
+    },
+    {
+      "id": "pharm-029",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Drug Safety",
+        "ar": "سلامة الدواء"
+      },
+      "question": {
+        "en": "What is Stevens-Johnson Syndrome (SJS) in drug safety?",
+        "ar": "ما متلازمة ستيفنز-جونسون (SJS) في سلامة الأدوية؟"
+      },
+      "answer": {
+        "en": "A rare but life-threatening hypersensitivity reaction causing blistering and peeling of skin and mucous membranes. Commonly triggered by drugs including carbamazepine, allopurinol, lamotrigine, sulfonamides, and NSAIDs. It requires immediate discontinuation of the offending drug and intensive supportive care.",
+        "ar": "تفاعل فرط حساسية نادر لكن يهدد الحياة يُسبّب تقرّح وتقشّر الجلد والأغشية المخاطية. تُحرّضه عادةً أدوية منها كاربامازيبين وألوبورينول ولاموتريجين والسلفوناميدات وNSAIDs. يستلزم وقف الدواء المسبّب فورًا والرعاية الداعمة المكثفة."
+      }
+    },
+    {
+      "id": "pharm-030",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of metformin in type 2 diabetes?",
+        "ar": "ما آلية عمل الميتفورمين في السكري من النوع الثاني؟"
+      },
+      "answer": {
+        "en": "Metformin primarily activates AMP-activated protein kinase (AMPK) in the liver, inhibiting gluconeogenesis (glucose production) and reducing hepatic glucose output. It also improves insulin sensitivity in peripheral tissues. It does not cause hypoglycemia and is weight-neutral.",
+        "ar": "يُنشّط الميتفورمين بصورة أساسية إنزيم AMPK في الكبد، مثبّطًا استحداث الجلوكوز (إنتاج الجلوكوز) ومُقلّلًا كمية الجلوكوز الصادرة من الكبد. يُحسّن أيضًا حساسية الإنسولين في الأنسجة الطرفية. لا يُسبّب نقص سكر الدم وهو محايد من حيث الوزن."
+      }
+    },
+    {
+      "id": "pharm-031",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacokinetics",
+        "ar": "حركية الدواء"
+      },
+      "question": {
+        "en": "What is the difference between Phase I and Phase II drug metabolism?",
+        "ar": "ما الفرق بين الطور الأول والطور الثاني لاستقلاب الدواء؟"
+      },
+      "answer": {
+        "en": "Phase I reactions (mainly by CYP450 enzymes in liver) introduce or unmask functional groups (oxidation, reduction, hydrolysis) — often activating prodrugs or making drugs more polar. Phase II reactions conjugate the drug or Phase I metabolite with endogenous molecules (glucuronidation, sulfation, acetylation) to make them more water-soluble for excretion.",
+        "ar": "تفاعلات الطور الأول (بصورة أساسية بإنزيمات CYP450 في الكبد) تُدخل مجموعات وظيفية أو تكشفها (أكسدة وإرجاع وتحلل مائي) — غالبًا تُنشّط الأدوية الأولية أو تجعل الأدوية أكثر قطبية. تقترن تفاعلات الطور الثاني بالدواء أو مستقلبات الطور الأول مع جزيئات داخلية (غلوكورنيدات وكبريتات وأسيتيل) لجعلها أكثر قابلية للذوبان في الماء للإطراح."
+      }
+    },
+    {
+      "id": "pharm-032",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Drug Classes",
+        "ar": "فئات الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of warfarin and why does it require careful monitoring?",
+        "ar": "ما آلية عمل الوارفارين ولماذا يستلزم مراقبة دقيقة؟"
+      },
+      "answer": {
+        "en": "Warfarin inhibits vitamin K epoxide reductase, preventing regeneration of vitamin K — essential for producing clotting factors II, VII, IX, and X. Its effect is measured by INR. It has a narrow therapeutic index, is affected by diet (vitamin K foods) and many drug interactions (especially CYP2C9 inhibitors/inducers), requiring regular dose adjustment.",
+        "ar": "يثبّط الوارفارين إنزيم فيتامين K إيبوكسيد ريداكتاز، مانعًا تجديد فيتامين K — الضروري لإنتاج عوامل التخثر II وVII وIX وX. يُقاس تأثيره بالـ INR. له مؤشر علاجي ضيق ويتأثر بالنظام الغذائي (أطعمة فيتامين K) والعديد من التفاعلات الدوائية (خاصةً مثبّطات ومُحرّضات CYP2C9)، مما يستلزم تعديل الجرعة بانتظام."
+      }
+    },
+    {
+      "id": "pharm-033",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the difference between tolerance, dependence, and addiction in the context of opioid drugs?",
+        "ar": "ما الفرق بين التحمّل والاعتماد والإدمان في سياق الأدوية الأفيونية؟"
+      },
+      "answer": {
+        "en": "Tolerance: reduced drug effect with repeated use, requiring higher doses. Physical dependence: physiological adaptation where abrupt cessation causes withdrawal syndrome. Addiction: compulsive drug-seeking behavior despite harmful consequences — a neurological disease. All three can coexist; tolerance and dependence can occur without addiction.",
+        "ar": "التحمّل: انخفاض تأثير الدواء مع الاستخدام المتكرر مما يستلزم جرعات أعلى. الاعتماد الجسدي: تكيّف فسيولوجي يُسبّب التوقف المفاجئ أعراض انسحاب. الإدمان: سلوك قهري للبحث عن الدواء رغم العواقب الضارة — مرض عصبي. يمكن أن تتعايش الثلاثة معًا؛ التحمّل والاعتماد يمكن أن يحدثا دون إدمان."
+      }
+    },
+    {
+      "id": "pharm-034",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Drug Safety",
+        "ar": "سلامة الدواء"
+      },
+      "question": {
+        "en": "What is the difference between drug toxicity and drug allergy?",
+        "ar": "ما الفرق بين سُمية الدواء والحساسية الدوائية؟"
+      },
+      "answer": {
+        "en": "Drug toxicity is a dose-dependent, pharmacologically predictable harmful effect (e.g. acetaminophen overdose causing liver failure). Drug allergy is an immune-mediated reaction (hypersensitivity) that can occur at any dose, is unpredictable from pharmacology, and requires prior sensitization — ranging from mild rash to life-threatening anaphylaxis.",
+        "ar": "سُمية الدواء تأثير ضار يعتمد على الجرعة وقابل للتنبؤ فارماكولوجيًا (مثل جرعة زائدة من الباراسيتامول تُسبّب فشل الكبد). الحساسية الدوائية تفاعل مناعي (فرط حساسية) يمكن أن يحدث بأي جرعة وغير قابل للتنبؤ من الفارماكولوجيا ويستلزم تحسيسًا سابقًا — يتراوح من طفح خفيف إلى صدمة تأقية تهدد الحياة."
+      }
+    },
+    {
+      "id": "pharm-035",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Antibiotics",
+        "ar": "مضادات حيوية"
+      },
+      "question": {
+        "en": "What is the mechanism of aminoglycoside antibiotics and what is their main toxicity?",
+        "ar": "ما آلية عمل مضادات الحيوية من مجموعة الأمينوغليكوسيدات وما السُمية الرئيسية لها؟"
+      },
+      "answer": {
+        "en": "Aminoglycosides (gentamicin, amikacin) irreversibly bind the 30S ribosomal subunit, causing misreading of mRNA and production of faulty proteins — killing bacteria. Their main toxicities are nephrotoxicity (kidney damage) and ototoxicity (hearing/balance damage), which are dose-related and cumulative.",
+        "ar": "ترتبط الأمينوغليكوسيدات (جنتاميسين، أميكاسين) بصورة لا رجعية بالوحدة الريبوسومية 30S مُسبِّبةً خطأ في قراءة mRNA وإنتاج بروتينات معيبة — قاتلةً البكتيريا. سُميتها الرئيسية هي السُمية الكلوية (تلف الكلى) والسُمية الأذنية (تلف السمع/التوازن)، وهما تعتمدان على الجرعة وتراكميتان."
+      }
+    },
+    {
+      "id": "pharm-036",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the concept of 'therapeutic drug monitoring' (TDM) and which drug classes benefit most?",
+        "ar": "ما مفهوم 'رصد الدواء العلاجي' (TDM) وأي فئات دوائية تستفيد منه أكثر؟"
+      },
+      "answer": {
+        "en": "TDM is the practice of measuring drug concentrations in blood to optimize dosing. Most useful for drugs with a narrow therapeutic index and high inter-patient variability: aminoglycosides, vancomycin, lithium, phenytoin, digoxin, cyclosporine, and tacrolimus.",
+        "ar": "TDM هو ممارسة قياس تركيزات الدواء في الدم لتحسين الجرعة. يُفيد أكثر للأدوية ذات المؤشر العلاجي الضيق والتباين العالي بين المرضى: الأمينوغليكوسيدات والفانكومايسين والليثيوم والفينيتوين والديجوكسين والسيكلوسبورين والتاكروليموس."
+      }
+    },
+    {
+      "id": "pharm-037",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacogenomics",
+        "ar": "علم صيدلة الجينوم"
+      },
+      "question": {
+        "en": "What is pharmacogenomics and how can CYP2D6 polymorphisms affect drug therapy?",
+        "ar": "ما علم صيدلة الجينوم وكيف يمكن أن تؤثر تعدديات الشكل في CYP2D6 على العلاج الدوائي؟"
+      },
+      "answer": {
+        "en": "Pharmacogenomics studies how genetic variation affects drug response. CYP2D6 metabolizes ~25% of drugs (codeine, tamoxifen, many antidepressants). Poor metabolizers accumulate drug, risking toxicity; ultra-rapid metabolizers clear it too fast, losing efficacy. Codeine in ultra-rapid CYP2D6 metabolizers converts to dangerous morphine levels — an FDA-labeled risk.",
+        "ar": "علم صيدلة الجينوم يدرس كيف يؤثر التباين الجيني على الاستجابة للدواء. يستقلب CYP2D6 نحو 25% من الأدوية (كوديين وتاموكسيفين وكثير من مضادات الاكتئاب). ضعيفو الأيض يتراكم الدواء عندهم مع خطر السُمية؛ فائقو سرعة الأيض يستقلبونه بسرعة مفرطة فيفقدون الفعالية. الكوديين في فائقي سرعة الأيض يتحول إلى مستويات خطرة من المورفين — خطر مُصنَّف من قِبَل FDA."
+      }
+    },
+    {
+      "id": "pharm-038",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacokinetics",
+        "ar": "حركية الدواء"
+      },
+      "question": {
+        "en": "What is the difference between zero-order and first-order drug elimination kinetics?",
+        "ar": "ما الفرق بين حركية إطراح الدواء من الرتبة الصفرية والرتبة الأولى؟"
+      },
+      "answer": {
+        "en": "First-order kinetics: a constant fraction of drug is eliminated per unit time (most drugs) — concentration-time curve is exponential. Zero-order kinetics: a constant amount is eliminated per unit time regardless of concentration (e.g. ethanol, phenytoin at high doses) — because eliminating enzymes are saturated. Zero-order kinetics causes disproportionate toxicity with dose escalation.",
+        "ar": "حركية الرتبة الأولى: تُطرح نسبة ثابتة من الدواء لكل وحدة زمنية (معظم الأدوية) — منحنى التركيز-الزمن أسي. حركية الرتبة الصفرية: تُطرح كمية ثابتة لكل وحدة زمنية بغض النظر عن التركيز (مثل الإيثانول والفينيتوين بجرعات عالية) — لأن إنزيمات الإطراح مشبعة. تُسبّب حركية الرتبة الصفرية سُمية غير متناسبة مع رفع الجرعة."
+      }
+    },
+    {
+      "id": "pharm-039",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Drug Development",
+        "ar": "تطوير الأدوية"
+      },
+      "question": {
+        "en": "What are the four phases of clinical drug trials?",
+        "ar": "ما المراحل الأربع للتجارب السريرية للأدوية؟"
+      },
+      "answer": {
+        "en": "Phase I: safety, tolerability, PK/PD in small healthy volunteers. Phase II: efficacy and safety in small patient populations, dose-finding. Phase III: large randomized controlled trials confirming efficacy and safety vs. placebo/standard care — required for regulatory approval. Phase IV: post-marketing surveillance for long-term or rare adverse effects.",
+        "ar": "المرحلة الأولى: الأمان والتحمّل وحركية/ديناميكية الدواء في عدد صغير من المتطوعين الأصحاء. المرحلة الثانية: الفعالية والسلامة في مجموعات مرضى صغيرة لإيجاد الجرعة. المرحلة الثالثة: تجارب عشوائية محكومة كبيرة تُؤكد الفعالية والسلامة مقابل الدواء الوهمي/الرعاية القياسية — مطلوبة للموافقة التنظيمية. المرحلة الرابعة: مراقبة ما بعد التسويق للآثار الضارة طويلة المدى أو النادرة."
+      }
+    },
+    {
+      "id": "pharm-040",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Drug Targets",
+        "ar": "أهداف الأدوية"
+      },
+      "question": {
+        "en": "What is the concept of 'targeted therapy' in oncology and how do tyrosine kinase inhibitors work?",
+        "ar": "ما مفهوم 'العلاج الموجَّه' في أورام السرطان وكيف تعمل مثبّطات كيناز التيروزين؟"
+      },
+      "answer": {
+        "en": "Targeted therapy attacks specific molecular abnormalities in cancer cells rather than killing all rapidly dividing cells. Tyrosine kinase inhibitors (TKIs) like imatinib (Gleevec) block overactive kinase enzymes (e.g. BCR-ABL in CML) that drive cancer cell proliferation. They are more selective and often have fewer side effects than traditional chemotherapy.",
+        "ar": "العلاج الموجَّه يهاجم تشوهات جزيئية بعينها في الخلايا السرطانية بدلًا من قتل جميع الخلايا سريعة الانقسام. مثبّطات كيناز التيروزين (TKIs) مثل إيماتينيب (غليفيك) تحجب إنزيمات كيناز فرطة النشاط (مثل BCR-ABL في ابيضاض الدم النخاعي المزمن) التي تدفع تكاثر الخلايا السرطانية. أكثر انتقائية وغالبًا لها آثار جانبية أقل من العلاج الكيميائي التقليدي."
+      }
+    },
+    {
+      "id": "pharm-041",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Drug Resistance",
+        "ar": "مقاومة الأدوية"
+      },
+      "question": {
+        "en": "What are the main molecular mechanisms by which bacteria develop antibiotic resistance?",
+        "ar": "ما الآليات الجزيئية الرئيسية التي تطوّر من خلالها البكتيريا مقاومة المضادات الحيوية؟"
+      },
+      "answer": {
+        "en": "1. Enzymatic inactivation (e.g. beta-lactamases destroying penicillins). 2. Target modification (altered penicillin-binding proteins in MRSA). 3. Efflux pumps (actively expelling antibiotic from cell). 4. Reduced permeability (decreased outer membrane porins). 5. Target bypass (alternative metabolic pathways). Resistance genes can transfer between bacteria via plasmids (horizontal gene transfer).",
+        "ar": "1. التعطيل الإنزيمي (مثل بيتا-لاكتاماز يُدمّر البنسيلينات). 2. تعديل الهدف (بروتينات رابطة البنسيلين المُعدَّلة في MRSA). 3. مضخات الطرد (طرد المضاد الحيوي فعليًا من الخلية). 4. انخفاض النفاذية (انخفاض مسامات الغشاء الخارجي). 5. تجاوز الهدف (مسارات استقلابية بديلة). يمكن أن تنتقل جينات المقاومة بين البكتيريا عبر البلازميدات (النقل الجيني الأفقي)."
+      }
+    },
+    {
+      "id": "pharm-042",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the difference between a competitive reversible antagonist and a non-competitive irreversible antagonist?",
+        "ar": "ما الفرق بين المضاد التنافسي القابل للعكس والمضاد غير التنافسي غير القابل للعكس؟"
+      },
+      "answer": {
+        "en": "A competitive reversible antagonist competes with the agonist for the same binding site — its effect can be overcome by increasing agonist concentration (the dose-response curve shifts right but maximum effect is maintained). A non-competitive/irreversible antagonist binds covalently or at an allosteric site, and its effect cannot be overcome by more agonist — maximum effect is reduced even at high agonist doses.",
+        "ar": "المضاد التنافسي القابل للعكس يتنافس مع الناهض على نفس موضع الارتباط — يمكن التغلب على تأثيره بزيادة تركيز الناهض (تنزاح منحنى الاستجابة للجرعة يمينًا لكن يُحافظ على الحد الأقصى للتأثير). المضاد غير التنافسي/غير القابل للعكس يرتبط تساهميًا أو في موضع أُلوستيري، ولا يمكن التغلب على تأثيره بمزيد من الناهض — يُقلَّل الحد الأقصى للتأثير حتى بجرعات ناهض عالية."
+      }
+    },
+    {
+      "id": "pharm-043",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Drug Development",
+        "ar": "تطوير الأدوية"
+      },
+      "question": {
+        "en": "What is 'prodrug design' and give a clinically important example?",
+        "ar": "ما 'تصميم الدواء الأولي' ومثّل بمثال سريري مهم؟"
+      },
+      "answer": {
+        "en": "A prodrug is an inactive compound that is converted in the body to its active form. Prodrug design improves bioavailability, stability, or reduces toxicity. Example: Enalapril is an ester prodrug of enalaprilat — the active ACE inhibitor — because enalaprilat is poorly absorbed orally but enalapril's ester is absorbed well and hydrolyzed to enalaprilat after absorption.",
+        "ar": "الدواء الأولي مركّب غير نشط يتحوّل في الجسم إلى صورته الفعّالة. تحسّن تصميم الدواء الأولي التوافر البيولوجي أو الاستقرار أو يُقلّل السُمية. مثال: الإيناﻻبريل إستر دواء أولي للإيناﻻبريلات — مثبّط ACE الفعّال — لأن الإيناﻻبريلات يُمتصّ فمويًا بشكل سيئ لكن إستر الإيناﻻبريل يُمتصّ جيدًا ويُميأ إلى الإيناﻻبريلات بعد الامتصاص."
+      }
+    },
+    {
+      "id": "pharm-044",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Immunopharmacology",
+        "ar": "صيدلة المناعة"
+      },
+      "question": {
+        "en": "What are monoclonal antibodies and how are they used as drugs?",
+        "ar": "ما الأجسام المضادة وحيدة النسيلة وكيف تُستخدم دواءً؟"
+      },
+      "answer": {
+        "en": "Monoclonal antibodies (mAbs) are laboratory-produced antibodies that bind a specific target (antigen) with high precision. As drugs, they can block disease-causing proteins (e.g. trastuzumab blocks HER2 in breast cancer; adalimumab blocks TNF-α in rheumatoid arthritis; rituximab depletes CD20-positive B cells in lymphoma). They often have suffix -mab in their name.",
+        "ar": "الأجسام المضادة وحيدة النسيلة (mAbs) أجسام مضادة مُنتجة معمليًا ترتبط بهدف بعينه (مستضد) بدقة عالية. كأدوية، تستطيع حجب البروتينات المُسبِّبة للمرض (مثل تراستوزوماب يحجب HER2 في سرطان الثدي؛ وأدالموماب يحجب TNF-α في التهاب المفاصل الرثياني؛ وريتوكسيماب يستنفد خلايا B الموجبة لـ CD20 في الليمفوما). غالبًا تنتهي أسماؤها بـ -mab."
+      }
+    },
+    {
+      "id": "pharm-045",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the concept of 'mechanism-based inhibition' (suicide inhibition) of CYP450 enzymes?",
+        "ar": "ما مفهوم 'التثبيط القائم على الآلية' (التثبيط الانتحاري) لإنزيمات CYP450؟"
+      },
+      "answer": {
+        "en": "Some drugs are metabolized by CYP450 enzymes into reactive intermediates that permanently inactivate the enzyme — 'committing suicide.' This causes irreversible drug interactions lasting until new enzyme is synthesized (days–weeks). Examples: erythromycin (CYP3A4), isoniazid (CYP2E1), grapefruit furanocoumarins (CYP3A4 in gut wall). Drug levels of CYP3A4 substrates can rise dramatically when grapefruit is consumed.",
+        "ar": "تُستقلب بعض الأدوية بإنزيمات CYP450 إلى وسيطات تفاعلية تُعطّل الإنزيم بصفة دائمة — 'تنتحر'. يُسبّب ذلك تفاعلات دوائية لا رجعية تدوم حتى يُخلَّق إنزيم جديد (أيام-أسابيع). أمثلة: الإريثرومايسين (CYP3A4)، والإيزونيازيد (CYP2E1)، وفوراتوكوماريلات الجريب فروت (CYP3A4 في جدار الأمعاء). يمكن أن ترتفع مستويات ركائز CYP3A4 بشكل كبير عند تناول الجريب فروت."
+      }
+    },
+    {
+      "id": "pharm-046",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Drug Development",
+        "ar": "تطوير الأدوية"
+      },
+      "question": {
+        "en": "What is 'biopharmaceutics classification system' (BCS) and how does it guide drug formulation?",
+        "ar": "ما 'نظام تصنيف المستحضرات الحيوية الصيدلانية' (BCS) وكيف يوجّه صياغة الأدوية؟"
+      },
+      "answer": {
+        "en": "The BCS classifies drugs by aqueous solubility and intestinal permeability into 4 classes: I (high solubility, high permeability — ideal), II (low solubility, high permeability — formulation key to improving dissolution), III (high solubility, low permeability — absorption enhancement needed), IV (low solubility, low permeability — most challenging). BCS guides whether modified-release or special delivery systems are needed for adequate bioavailability.",
+        "ar": "يُصنّف BCS الأدوية حسب الذوبانية المائية والنفاذية المعوية في 4 فئات: الأولى (ذوبانية عالية، نفاذية عالية — مثالية)، الثانية (ذوبانية منخفضة، نفاذية عالية — الصياغة مفتاح لتحسين الذوبان)، الثالثة (ذوبانية عالية، نفاذية منخفضة — يلزم تعزيز الامتصاص)، الرابعة (ذوبانية منخفضة، نفاذية منخفضة — الأصعب). يوجّه BCS ما إذا كانت أنظمة توصيل معدّلة أو خاصة ضرورية للحصول على توافر بيولوجي كافٍ."
+      }
+    },
+    {
+      "id": "pharm-047",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Immunopharmacology",
+        "ar": "صيدلة المناعة"
+      },
+      "question": {
+        "en": "What is the mechanism of action of checkpoint inhibitors in cancer immunotherapy?",
+        "ar": "ما آلية عمل مثبّطات نقاط التفتيش في العلاج المناعي للسرطان؟"
+      },
+      "answer": {
+        "en": "Tumor cells evade immune destruction by expressing inhibitory checkpoint proteins (PD-L1, CTLA-4) that suppress T-cell activity. Checkpoint inhibitors (e.g. nivolumab, pembrolizumab block PD-1; ipilimumab blocks CTLA-4) remove these brakes, allowing T cells to recognize and kill cancer cells. This can cause immune-related adverse effects in normal tissues.",
+        "ar": "تتهرب الخلايا السرطانية من التدمير المناعي بالتعبير عن بروتينات نقاط تفتيش مثبّطة (PD-L1 وCTLA-4) تُقمع نشاط الخلايا التائية. مثبّطات نقاط التفتيش (مثل نيفولوماب وبيمبروليزوماب يحجبان PD-1؛ وإيبيليموماب يحجب CTLA-4) ترفع هذه الكوابح مُتيحةً للخلايا التائية التعرف على الخلايا السرطانية وقتلها. يمكن أن يُسبّب ذلك آثارًا ضارة مرتبطة بالمناعة في الأنسجة الطبيعية."
+      }
+    },
+    {
+      "id": "pharm-048",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Nanomedicine",
+        "ar": "النانوطب"
+      },
+      "question": {
+        "en": "What are lipid nanoparticles (LNPs) and why were they critical to mRNA vaccine delivery?",
+        "ar": "ما الجسيمات النانوية الدهنية (LNPs) ولماذا كانت حيوية لتوصيل لقاحات mRNA؟"
+      },
+      "answer": {
+        "en": "Lipid nanoparticles are tiny spherical vesicles made of lipids that encapsulate and protect mRNA from degradation and facilitate its delivery into cells. They fuse with cell membranes, releasing mRNA into the cytoplasm. This technology, developed over decades, was essential for COVID-19 mRNA vaccines (Pfizer-BioNTech and Moderna) — solving the major challenge that naked mRNA is rapidly degraded in the body.",
+        "ar": "الجسيمات النانوية الدهنية حويصلات كروية صغيرة مصنوعة من الدهون تُغلّف mRNA وتحميه من التحلل وتُسهّل توصيله إلى الخلايا. تندمج مع أغشية الخلايا محرّرةً mRNA في السيتوبلازم. هذه التقنية المطوَّرة على مدى عقود كانت ضرورية للقاحات mRNA لكوفيد-19 (فايزر-بيونتك وموديرنا) — إذ حلّت التحدي الرئيسي القائل بأن mRNA العاري يتحلل بسرعة في الجسم."
+      }
+    },
+    {
+      "id": "pharm-049",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the difference between pharmacokinetic and pharmacodynamic drug tolerance?",
+        "ar": "ما الفرق بين التحمّل الحركي والتحمّل الديناميكي للدواء؟"
+      },
+      "answer": {
+        "en": "Pharmacokinetic tolerance: the body metabolizes or excretes the drug faster over time (enzyme induction), reducing plasma levels after the same dose. Pharmacodynamic tolerance: the drug concentration is unchanged but the target response is reduced — via receptor downregulation, desensitization, or compensatory physiological changes. Both mechanisms can contribute simultaneously.",
+        "ar": "التحمّل الحركي: يستقلب الجسم الدواء أو يُطرحه بصورة أسرع مع الوقت (تحريض الإنزيم)، مما يُقلّل مستويات البلازما بعد نفس الجرعة. التحمّل الديناميكي: تركيز الدواء دون تغيير لكن الاستجابة المستهدفة تتراجع — عبر تنظيم المستقبلات نزولًا أو تحساسه أو التغيرات الفسيولوجية التعويضية. يمكن أن يُسهم كلا الآليتَين في آنٍ واحد."
+      }
+    },
+    {
+      "id": "pharm-050",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Biopharmaceutics",
+        "ar": "الصيدلانيات الحيوية"
+      },
+      "question": {
+        "en": "What is PBPK (physiologically based pharmacokinetic) modelling and what is its value in drug development?",
+        "ar": "ما نمذجة PBPK (الحركية الدوائية القائمة على علم وظائف الأعضاء) وما قيمتها في تطوير الأدوية؟"
+      },
+      "answer": {
+        "en": "PBPK models use mathematical equations representing actual organ volumes, blood flows, and biochemical processes to simulate drug distribution and elimination throughout the whole body. They can predict drug behavior in special populations (children, pregnant women, patients with renal/hepatic impairment) without exposing them to the drug — reducing costly animal studies and informing regulatory submissions for dose adjustment recommendations.",
+        "ar": "تستخدم نماذج PBPK معادلات رياضية تمثّل أحجام الأعضاء الفعلية وتدفقات الدم والعمليات البيوكيميائية لمحاكاة توزيع الدواء وإطراحه في الجسم كله. تستطيع التنبؤ بسلوك الدواء في فئات سكانية خاصة (أطفال وحوامل ومرضى ضعف كلوي/كبدي) دون تعريضهم للدواء — مما يُقلّل الدراسات الحيوانية المكلفة ويُعلم تقديمات الجهات التنظيمية لتوصيات تعديل الجرعة."
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /category-template.html
+Disallow: /api/
+
+Sitemap: https://jakh.net/sitemap.xml

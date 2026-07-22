@@ -1,0 +1,364 @@
+{
+  "slug": "world-habits-and-etiquette",
+  "title": { "en": "World Habits & Etiquette", "ar": "عادات البلدان والإتيكيت" },
+  "description": { "en": "Explore customs, traditions, and social etiquette from cultures around the world.", "ar": "استكشف العادات والتقاليد والإتيكيت الاجتماعي من ثقافات حول العالم." },
+  "cluster": { "en": "Culture", "ar": "الثقافة" },
+  "cluster_key": "culture",
+  "emoji": "🌐",
+  "mode": "trivia",
+  "count": 50,
+  "difficultyCounts": { "easy": 14, "medium": 8, "hard": 16, "very-advanced": 12 },
+  "subcategories": ["Greetings & Gestures", "Dining Etiquette", "Religious & Ceremonial", "Social Customs"],
+  "cards": [
+    {
+      "id": "world-habits-and-etiquette-001",
+      "difficulty": "easy",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "In Japan, bowing is the traditional greeting. What does a deeper bow generally indicate?", "ar": "في اليابان، الانحناء هو التحية التقليدية. ماذا يعني الانحناء الأعمق عموماً؟" },
+      "answer": { "en": "Greater respect or formality — a shallow bow (15°) is casual, a 30° bow shows respect, and a 45° bow indicates deep apology or reverence.", "ar": "احترام أو رسمية أكبر — الانحناء الخفيف (15°) غير رسمي، وانحناء 30° يُظهر الاحترام، وانحناء 45° يُشير إلى اعتذار عميق أو تبجيل." }
+    },
+    {
+      "id": "world-habits-and-etiquette-002",
+      "difficulty": "easy",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In China, what does tapping two fingers on the table during tea service mean?", "ar": "في الصين، ماذا يعني النقر بإصبعين على الطاولة أثناء خدمة الشاي؟" },
+      "answer": { "en": "It is a sign of thanks to the person pouring tea — originating from a story about an emperor who bowed anonymously; his companions tapped fingers to symbolise bowing without revealing his identity.", "ar": "هو إشارة شكر لمن يُسكب الشاي — يعود أصله إلى قصة إمبراطور انحنى دون الكشف عن هويته؛ رافقه نقر بالأصابع رمزاً للانحناء دون إفشاء شخصيته." }
+    },
+    {
+      "id": "world-habits-and-etiquette-003",
+      "difficulty": "easy",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "In many Middle Eastern and South Asian cultures, why is it considered rude to offer something with the left hand?", "ar": "في كثير من ثقافات الشرق الأوسط وجنوب آسيا، لماذا يُعدّ تقديم شيء باليد اليسرى أمراً مسيئاً؟" },
+      "answer": { "en": "Traditionally, the left hand is considered unclean because it is associated with hygiene tasks. Gifts, food, and greetings should always be given and received with the right hand.", "ar": "تقليدياً، تُعدّ اليد اليسرى نجسة لارتباطها بمهام النظافة. يجب دائماً تقديم الهدايا والطعام والتحيات باليد اليمنى." }
+    },
+    {
+      "id": "world-habits-and-etiquette-004",
+      "difficulty": "easy",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In France, what is considered impolite about asking for a 'doggy bag' at a restaurant?", "ar": "في فرنسا، ما اعتُبر غير لائق بشأن طلب 'كيس الطعام المتبقي' في المطعم؟" },
+      "answer": { "en": "It was long considered an insult to the chef — implying the portions were too large (over-served) or that the diner did not appreciate the food enough to eat it there. In recent years, France passed laws encouraging restaurants to offer take-home boxes to reduce food waste.", "ar": "اعتُبر طويلاً إهانة للطاهي — مما يُوحي بأن الحصص كانت كبيرة جداً أو أن الزبون لم يُقدّر الطعام بما يكفي لأكله هناك. في السنوات الأخيرة، سنّت فرنسا قوانين تُشجع المطاعم على تقديم صناديق يأخذها الزبون معه للحد من هدر الطعام." }
+    },
+    {
+      "id": "world-habits-and-etiquette-005",
+      "difficulty": "easy",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "In New Zealand, what is the name of the traditional Māori greeting performed by pressing noses and foreheads?", "ar": "في نيوزيلندا، ما اسم التحية التقليدية للماوري التي تتضمن لمس الأنوف والجباه؟" },
+      "answer": { "en": "The hongi — it symbolises the sharing of the breath of life (ha) between two people.", "ar": "الهونغي — يُرمز به إلى تبادل نفس الحياة (ها) بين شخصين." }
+    },
+    {
+      "id": "world-habits-and-etiquette-006",
+      "difficulty": "easy",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "In Thailand, why is it extremely disrespectful to touch someone on the head?", "ar": "في تايلاند، لماذا يُعدّ لمس رأس أحدهم بالغ الإساءة؟" },
+      "answer": { "en": "In Thai Buddhist belief, the head is the most sacred part of the body — the highest point — and is considered spiritually pure. The feet are the lowest and least sacred, so pointing feet at people or sacred objects is also rude.", "ar": "في المعتقد البوذي التايلاندي، الرأس هو الجزء الأكثر قدسية في الجسم — أعلى نقطة — ويُعدّ نقياً روحياً. والقدمان هما الأدنى والأقل قدسية، لذا يُعدّ توجيه القدمين نحو الناس أو الأشياء المقدسة أمراً مسيئاً أيضاً." }
+    },
+    {
+      "id": "world-habits-and-etiquette-007",
+      "difficulty": "easy",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In Japan, what is the etiquette rule about passing food from chopstick to chopstick?", "ar": "في اليابان، ما قاعدة الإتيكيت بشأن تمرير الطعام من عصا إلى عصا؟" },
+      "answer": { "en": "It is strictly forbidden — it mimics the ritual of passing cremated bones between family members at a funeral. Food should be placed on a plate before others pick it up.", "ar": "محظور تماماً — يُحاكي طقس تمرير عظام المحروقة بين أفراد الأسرة في الجنازة. يجب وضع الطعام على طبق قبل أن يلتقطه الآخرون." }
+    },
+    {
+      "id": "world-habits-and-etiquette-008",
+      "difficulty": "easy",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "When visiting a mosque, what must both men and women do before entering the prayer hall?", "ar": "عند زيارة المسجد، ما الذي يجب على الرجال والنساء فعله قبل دخول قاعة الصلاة؟" },
+      "answer": { "en": "Remove their shoes. Visitors must also dress modestly (cover shoulders and knees at minimum), and women are typically expected to cover their hair.", "ar": "خلع الأحذية. يجب أيضاً على الزوار ارتداء ملابس محتشمة (تغطية الكتفين والركبتين على الأقل)، ويُتوقع عادةً من النساء تغطية شعورهن." }
+    },
+    {
+      "id": "world-habits-and-etiquette-009",
+      "difficulty": "easy",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "In Brazil, what does the 'OK' hand gesture (circle formed by thumb and index finger) mean?", "ar": "في البرازيل، ماذا تعني إيماءة 'OK' (الدائرة المكوّنة من الإبهام والسبابة)؟" },
+      "answer": { "en": "It is a highly offensive obscene gesture — roughly equivalent to the middle finger in North American culture.", "ar": "إنها إيماءة مسيئة جداً وفاحشة — تعادل تقريباً إيماءة الإصبع الأوسط في الثقافة الأمريكية الشمالية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-010",
+      "difficulty": "easy",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "In many European countries (France, Spain, Italy), what is the typical greeting between people who know each other?", "ar": "في كثير من الدول الأوروبية (فرنسا، إسبانيا، إيطاليا)، ما التحية المعتادة بين الناس الذين يعرفون بعضهم؟" },
+      "answer": { "en": "Cheek kisses (la bise). The number of kisses varies: France is typically 2 (or 1-4 by region), Spain 2, Italy 2.", "ar": "تقبيل الخدين (لا بيز). يتفاوت عدد القبلات: فرنسا عادةً 2 (أو 1-4 حسب المنطقة)، إسبانيا 2، إيطاليا 2." }
+    },
+    {
+      "id": "world-habits-and-etiquette-011",
+      "difficulty": "easy",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In China, is it polite or impolite to finish all the food on your plate?", "ar": "في الصين، هل يُعدّ تناول كل الطعام في طبقك لطفاً أم إساءة؟" },
+      "answer": { "en": "Traditionally impolite — finishing everything can signal to the host that they did not provide enough food. Leaving a little shows you are full and satisfied.", "ar": "إساءة تقليدياً — إنهاء كل شيء قد يُشير للمضيف بأنه لم يُقدّم طعاماً كافياً. ترك القليل يُظهر أنك شبعت وراضٍ." }
+    },
+    {
+      "id": "world-habits-and-etiquette-012",
+      "difficulty": "easy",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "In India, during which festival do people throw coloured powder and water on each other?", "ar": "في الهند، خلال أي عيد يرمي الناس المسحوق الملوّن والماء على بعضهم؟" },
+      "answer": { "en": "Holi — the festival of colours, celebrated at the end of winter (usually March).", "ar": "هولي — عيد الألوان، يُحتفل به في نهاية الشتاء (عادةً في مارس)." }
+    },
+    {
+      "id": "world-habits-and-etiquette-013",
+      "difficulty": "easy",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "In Germany, what is considered very rude to do before everyone has their drink at a table and before the toast?", "ar": "في ألمانيا، ما الذي يُعدّ غير لائق جداً فعله قبل أن يحظى الجميع بمشروبهم وقبل النخب؟" },
+      "answer": { "en": "Drinking before the host or before making eye contact during the toast (Prost!). German tradition also holds that failing to make eye contact during the clink brings seven years of bad luck.", "ar": "الشرب قبل المضيف أو قبل التواصل البصري أثناء النخب (بروست!). تقليد ألماني يقول إن عدم التواصل البصري أثناء الطرق يجلب سبع سنوات من سوء الحظ." }
+    },
+    {
+      "id": "world-habits-and-etiquette-014",
+      "difficulty": "easy",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In Ethiopia, what is 'gursha' and what does it represent?", "ar": "في إثيوبيا، ما 'الغورشا' وماذا تمثل؟" },
+      "answer": { "en": "Gursha is the act of feeding a bite of food directly into another person's mouth — a gesture of love, respect, and deep friendship. Refusing it is considered an insult.", "ar": "الغورشا هو فعل وضع لقمة طعام مباشرةً في فم شخص آخر — إيماءة حب واحترام وصداقة عميقة. رفضها يُعدّ إهانة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-015",
+      "difficulty": "medium",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "In Japan, what is the concept of 'tatemae' and 'honne' and how does it shape social interaction?", "ar": "في اليابان، ما مفهومي 'تاتيمايي' و'هونيه' وكيف يُشكّلان التفاعل الاجتماعي؟" },
+      "answer": { "en": "Tatemae is the public face — what one presents to maintain group harmony and social expectations. Honne is the true inner feelings. Japanese social interaction often requires suppressing honne in favour of tatemae, avoiding direct confrontation or negative responses.", "ar": "تاتيمايي هو الواجهة العامة — ما يُقدّمه المرء للحفاظ على انسجام المجموعة والتوقعات الاجتماعية. هونيه هو المشاعر الداخلية الحقيقية. غالباً ما يستلزم التفاعل الاجتماعي الياباني قمع الهونيه لصالح التاتيمايي، وتجنب المواجهة المباشرة والردود السلبية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-016",
+      "difficulty": "medium",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In South Korea, what is the etiquette rule about who should pour drinks at the table?", "ar": "في كوريا الجنوبية، ما قاعدة الإتيكيت بشأن من يسكب المشروبات على الطاولة؟" },
+      "answer": { "en": "You should never pour your own drink — others at the table pour for you, and you pour for them. It reflects Confucian respect for hierarchy and communal care. The eldest or most senior person is typically served first.", "ar": "لا يجب أن تسكب لنفسك أبداً — يسكب لك الآخرون على الطاولة وتسكب لهم أنت. يعكس ذلك الاحترام الكونفوشيوسي للتسلسل الهرمي والرعاية المجتمعية. يُخدم عادةً الأكبر سناً أو الأعلى مرتبةً أولاً." }
+    },
+    {
+      "id": "world-habits-and-etiquette-017",
+      "difficulty": "medium",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "In Mexico, what is the Day of the Dead (Día de los Muertos) and how does it differ from a typical mourning tradition?", "ar": "في المكسيك، ما يوم الموتى (Día de los Muertos) وكيف يختلف عن تقاليد الحداد المعتادة؟" },
+      "answer": { "en": "Celebrated November 1–2, it honours deceased loved ones with altars (ofrendas), marigolds, sugar skulls, and their favourite food and objects. Unlike solemn mourning, it is joyful — the belief is that the dead return to visit the living during this window.", "ar": "يُحتفل به في 1-2 نوفمبر لتكريم المتوفين من الأحباء بالمذابح (أوفرينداس) والزهور البرتقالية وجماجم السكر وطعامهم وأشياءهم المفضلة. خلافاً للحداد الرسمي، إنه فرحٌ — الإيمان أن الموتى يعودون لزيارة الأحياء خلال هذه الفترة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-018",
+      "difficulty": "medium",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "In which country does nodding the head up and down mean 'no' rather than 'yes'?", "ar": "في أي دولة يعني إيماء الرأس للأعلى والأسفل 'لا' بدلاً من 'نعم'؟" },
+      "answer": { "en": "Bulgaria (and parts of Greece). A head toss upward means 'no', and a side-to-side shake can mean 'yes' — the opposite of most Western conventions.", "ar": "بلغاريا (وأجزاء من اليونان). قذف الرأس للأعلى يعني 'لا'، والهز من جانب لآخر قد يعني 'نعم' — عكس معظم الأعراف الغربية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-019",
+      "difficulty": "medium",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the Finnish concept of 'talkoot' and how does it reflect Finnish cultural values?", "ar": "ما مفهوم 'تالكوت' الفنلندي وكيف يعكس القيم الثقافية الفنلندية؟" },
+      "answer": { "en": "Talkoot is the tradition of communal work — neighbours and community members gathering to help each other with large tasks (harvesting, building). It reflects Finland's deeply communal, egalitarian values and practical mutual-aid ethic.", "ar": "التالكوت تقليد العمل الجماعي — تجمّع الجيران وأفراد المجتمع لمساعدة بعضهم في المهام الكبيرة (الحصاد، البناء). يعكس القيم المجتمعية والمساواتية العميقة في فنلندا وأخلاقيات المساعدة المتبادلة العملية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-020",
+      "difficulty": "medium",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In India, why do many Hindus avoid eating beef and why do many Muslims avoid pork?", "ar": "في الهند، لماذا يتجنب كثير من الهندوس تناول لحم البقر ولماذا يتجنب كثير من المسلمين لحم الخنزير؟" },
+      "answer": { "en": "Hinduism venerates the cow as sacred — a symbol of motherhood, abundance, and non-violence (ahimsa). Islam prohibits pork as haram (forbidden) based on Quranic dietary laws.", "ar": "الهندوسية تُبجّل البقرة بوصفها مقدسة — رمزاً للأمومة والوفرة وعدم العنف (أهيمسا). الإسلام يُحرّم لحم الخنزير باعتباره حراماً استناداً إلى الأحكام الغذائية القرآنية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-021",
+      "difficulty": "medium",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the significance of the number four in Japanese and Chinese cultures and why is it avoided?", "ar": "ما دلالة الرقم أربعة في الثقافتين اليابانية والصينية ولماذا يُتجنب؟" },
+      "answer": { "en": "The number four is considered unlucky because its pronunciation (shi in Japanese, sì in Chinese) sounds like the word for 'death'. This is called tetraphobia — hospitals and buildings often skip floor 4, and gifts are not given in sets of four.", "ar": "يُعدّ الرقم أربعة حاملاً للنحس لأن نطقه (شي في اليابانية، سي في الصينية) يشبه كلمة 'الموت'. يُسمى هذا الرهاب الرباعي — كثيراً ما تتخطى المستشفيات والمباني الطابق الرابع، ولا تُقدَّم الهدايا في مجموعات أربعة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-022",
+      "difficulty": "medium",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the concept of 'ubuntu' in southern African cultures?", "ar": "ما مفهوم 'أوبونتو' في ثقافات جنوب أفريقيا؟" },
+      "answer": { "en": "Ubuntu (often translated as 'I am because we are') is a philosophy of human interconnectedness and community — the idea that a person's humanity is expressed through their relationships with others and their contribution to community well-being.", "ar": "أوبونتو (يُترجم غالباً بـ'أنا موجود لأننا موجودون') فلسفة للترابط الإنساني والمجتمع — فكرة أن إنسانية الشخص تتجلى عبر علاقاته بالآخرين ومساهمته في رفاهية المجتمع." }
+    },
+    {
+      "id": "world-habits-and-etiquette-023",
+      "difficulty": "hard",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the concept of 'face' (mianzi/lian) in Chinese culture and how does it affect business interactions?", "ar": "ما مفهوم 'الوجه' (مياندزي/ليان) في الثقافة الصينية وكيف يؤثر في التعاملات التجارية؟" },
+      "answer": { "en": "Mianzi is social prestige/reputation; lian is moral character and integrity. Both must be protected. In business: never directly criticise, correct publicly, or refuse a request outright (which causes loss of face). Gifts, banquets, and indirect communication are used to preserve face. Causing someone to lose face is a serious, lasting offence.", "ar": "مياندزي هو المكانة الاجتماعية/السمعة؛ وليان هو الشخصية الأخلاقية والنزاهة. يجب حماية كليهما. في العمل: لا تنتقد مباشرة أو تُصحح علناً أو ترفض طلباً صراحةً (مما يُسبب فقدان الوجه). تُستخدم الهدايا والمآدب والتواصل غير المباشر للحفاظ على الوجه. إجبار شخص على فقدان وجهه إساءة بالغة ودائمة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-024",
+      "difficulty": "hard",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In Russia, what is the etiquette around vodka during a toast and what does refusing imply?", "ar": "في روسيا، ما آداب الفودكا أثناء النخب وماذا يُوحي الرفض؟" },
+      "answer": { "en": "At formal gatherings, vodka is drunk as full shots during toasts — not sipped. The first toast is often to health (Za zdorovye). Refusing to drink during a toast, especially the first one, can be read as disrespect to the host or occasion. One must drain the glass in one go (do dna — 'to the bottom').", "ar": "في التجمعات الرسمية، يُشرب الفودكا كجرعات كاملة أثناء النخب — لا رشفات. كثيراً ما يكون النخب الأول للصحة (زا زدوروفيه). قد يُقرأ رفض الشرب أثناء النخب، خاصة الأول، على أنه إهانة للمضيف أو المناسبة. يجب إفراغ الكأس دفعة واحدة (دو دنا — 'حتى القاع')." }
+    },
+    {
+      "id": "world-habits-and-etiquette-025",
+      "difficulty": "hard",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the significance of the Obon festival in Japan and how is it different from the Western concept of Halloween?", "ar": "ما أهمية مهرجان أوبون في اليابان وكيف يختلف عن مفهوم الغرب للهالووين؟" },
+      "answer": { "en": "Obon (mid-August) is a Buddhist festival honouring the spirits of deceased ancestors, who are believed to return to visit family. Families clean graves, light lanterns to guide spirits home, and perform Bon Odori dances. Unlike Halloween's fictional spooky imagery, Obon is a genuinely reverent, family-centred ancestral memorial.", "ar": "أوبون (منتصف أغسطس) مهرجان بوذي لتكريم أرواح الأجداد المتوفين الذين يُعتقد أنهم يعودون لزيارة عائلاتهم. تُنظّف الأسر القبور وتُضيء الفوانيس لإرشاد الأرواح للعودة وتُؤدّي رقصات بون أودوري. خلافاً للصور المخيفة الخيالية للهالووين، يُعدّ أوبون تذكاراً أجدادياً جاداً متمحوراً حول الأسرة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-026",
+      "difficulty": "hard",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the Norwegian concept of 'Janteloven' and how does it shape social norms in Scandinavian societies?", "ar": "ما مفهوم 'يانتيلوفين' النرويجي وكيف يُشكّل الأعراف الاجتماعية في المجتمعات الإسكندنافية؟" },
+      "answer": { "en": "Janteloven (coined by Aksel Sandemose) is a social code that discourages standing out, boasting, or considering yourself better than others. Its core: 'You are not to think you are anything special.' It promotes egalitarianism and collective modesty but can also suppress individual achievement and open ambition.", "ar": "يانتيلوفين (ابتكره أكسل سانديموس) قانون اجتماعي يُثبّط التميز أو التفاخر أو اعتبار النفس أفضل من الآخرين. جوهره: 'لا تظن أنك شيء مميز.' يُعزز المساواة والتواضع الجماعي لكن يمكنه أيضاً قمع التميز الفردي والطموح الصريح." }
+    },
+    {
+      "id": "world-habits-and-etiquette-027",
+      "difficulty": "hard",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "Why is the 'thumbs up' gesture offensive in some Middle Eastern and West African countries?", "ar": "لماذا تُعدّ إيماءة 'الإبهام لأعلى' مسيئة في بعض دول الشرق الأوسط وغرب أفريقيا؟" },
+      "answer": { "en": "In parts of Iran, Iraq, Nigeria, and other countries, the thumbs-up gesture is equivalent to raising the middle finger in Western cultures — a deeply offensive obscene insult. Western travellers who use it as a sign of approval can inadvertently cause serious offence.", "ar": "في أجزاء من إيران والعراق ونيجيريا ودول أخرى، تعادل إيماءة الإبهام لأعلى رفع الإصبع الأوسط في الثقافات الغربية — إهانة فاحشة شديدة. يمكن للمسافرين الغربيين الذين يستخدمونها علامةً للموافقة أن يُحدثوا إساءة خطيرة دون قصد." }
+    },
+    {
+      "id": "world-habits-and-etiquette-028",
+      "difficulty": "hard",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In which cuisine is it polite — and even expected — to make slurping sounds while eating noodles or soup?", "ar": "في أي مطبخ يُعدّ صوت الشفط أثناء تناول النودلز أو الحساء أمراً لطيفاً ومتوقعاً حتى؟" },
+      "answer": { "en": "Japan and China — slurping noodles (especially ramen in Japan) is a sign of enjoyment and appreciation for the food. It also aerates the noodles and food, enhancing flavour.", "ar": "اليابان والصين — شفط النودلز (خاصة الرامن في اليابان) علامة على الاستمتاع والتقدير للطعام. يُهوّي الشفط أيضاً النودلز والطعام مما يُعزز النكهة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-029",
+      "difficulty": "hard",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is 'gift-giving paralysis' in Japan and what are the cultural rules around giving and receiving gifts?", "ar": "ما 'شلل تقديم الهدايا' في اليابان وما القواعد الثقافية حول تقديم الهدايا وتلقّيها؟" },
+      "answer": { "en": "In Japan, gifts are a serious obligation requiring matching quality and occasion to status (omiyage culture). Rules: gifts are wrapped elaborately, presented and received with both hands and a bow, and generally not opened in front of the giver (to avoid visible disappointment). The obligation to reciprocate (お返し, okaeshi) makes gift exchanges complex and stressful.", "ar": "في اليابان، الهدايا التزام جاد يتطلب مطابقة الجودة والمناسبة للمرتبة (ثقافة أومياغي). القواعد: تُلفّ الهدايا بعناية، وتُقدَّم وتُستقبل بكلتا اليدين مع انحناء، ولا تُفتح عموماً أمام المُهدي (لتجنب الخيبة الظاهرة). الالتزام بالمعاملة بالمثل (أوكايشي) يجعل تبادل الهدايا أمراً معقداً ومُرهقاً." }
+    },
+    {
+      "id": "world-habits-and-etiquette-030",
+      "difficulty": "hard",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the significance of removing shoes before entering a home in many Asian and Middle Eastern cultures?", "ar": "ما دلالة خلع الأحذية قبل دخول المنزل في كثير من الثقافات الآسيوية وثقافات الشرق الأوسط؟" },
+      "answer": { "en": "Shoes are considered bearers of outside dirt, impurity, and negative energy — physically and spiritually contaminating the home. In Muslim homes it also relates to ritual cleanliness (tahara). The home is a sacred space; removing shoes signals respect and a transition from the public to the private sphere.", "ar": "تُعدّ الأحذية حاملة لوساخ الخارج ونجاسته وطاقته السلبية — مُلوِّثة للمنزل مادياً وروحياً. في المنازل الإسلامية يرتبط الأمر أيضاً بالطهارة الشعائرية (الطهارة). المنزل فضاء مقدس؛ خلع الأحذية يُشير إلى الاحترام والانتقال من المجال العام إلى الخاص." }
+    },
+    {
+      "id": "world-habits-and-etiquette-031",
+      "difficulty": "hard",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "In many Arab cultures, when two men greet each other, what might the greeting involve beyond a handshake?", "ar": "في كثير من الثقافات العربية، ماذا قد تتضمن التحية بين رجلين تجاوز المصافحة؟" },
+      "answer": { "en": "Cheek-to-cheek contact (nose touching in some Gulf cultures), extended handshakes while maintaining eye contact, and holding hands during conversation as a sign of warmth and brotherhood. The duration and physicality of the greeting signals closeness of the relationship.", "ar": "لمس الخد بالخد (لمس الأنف في بعض ثقافات الخليج)، والمصافحة المطوّلة مع التواصل البصري، ومسك الأيدي أثناء المحادثة علامةً على الدفء والأخوة. مدة التحية وجسدانيتها تُشير إلى قرب العلاقة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-032",
+      "difficulty": "hard",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the concept of 'hygge' in Danish culture and why has it attracted global attention?", "ar": "ما مفهوم 'هيغه' في الثقافة الدنماركية ولماذا استقطب اهتماماً عالمياً؟" },
+      "answer": { "en": "Hygge (roughly 'cosy well-being') describes a quality of cosiness and comfortable conviviality — candles, warm drinks, good company, and comfort over achievement. It has attracted attention as a contrast to hustle culture and a key part of Denmark's consistently high happiness rankings. It cannot be bought — it is an atmosphere intentionally created.", "ar": "الهيغه (تعني تقريباً 'الرفاهية المريحة') يصف جودة الراحة والمعاشرة المريحة — الشموع والمشروبات الدافئة والصحبة الطيبة والراحة على حساب الإنجاز. استقطب الاهتمام كنقيض لثقافة الاجتهاد المتواصل ومكوّن رئيسي في تصنيفات السعادة الدنماركية العالية باستمرار. لا يمكن شراؤه — إنه جو يُخلق بقصد." }
+    },
+    {
+      "id": "world-habits-and-etiquette-033",
+      "difficulty": "hard",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "In Morocco, what is the significance of serving mint tea three times, and what does each glass represent?", "ar": "في المغرب، ما دلالة تقديم الشاي بالنعناع ثلاث مرات وماذا يمثل كل كأس؟" },
+      "answer": { "en": "Moroccan mint tea (atay) is served in three glasses: the first is gentle as life, the second is strong as love, and the third is bitter as death. Refusing tea is considered impolite — accepting it is a sign of accepting the host's hospitality.", "ar": "يُقدَّم شاي النعناع المغربي (أتاي) في ثلاثة كؤوس: الأول خفيف كالحياة، والثاني قوي كالحب، والثالث مرّ كالموت. رفض الشاي يُعدّ غير لائق — قبوله علامة على قبول كرم المضيف." }
+    },
+    {
+      "id": "world-habits-and-etiquette-034",
+      "difficulty": "hard",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "In some West African cultures, what is 'libation pouring' and what purpose does it serve?", "ar": "في بعض ثقافات غرب أفريقيا، ما 'سكب السائل الطقسي' وما الغرض منه؟" },
+      "answer": { "en": "Libation is the ritual pouring of liquid (water, palm wine, alcohol) onto the ground to honour ancestors and spiritual forces. It opens ceremonies and gatherings by inviting ancestral spirits to attend and bless the event. The act maintains the link between the living and the dead.", "ar": "السكب الطقسي هو سكب سائل (ماء، نبيذ النخيل، كحول) على الأرض بشكل طقسي لتكريم الأجداد والقوى الروحية. يُفتح به الاحتفالات والتجمعات بدعوة أرواح الأجداد للحضور وتبريك الحدث. يُحافظ هذا الفعل على الرابط بين الأحياء والأموات." }
+    },
+    {
+      "id": "world-habits-and-etiquette-035",
+      "difficulty": "hard",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "What is the meaning of the 'wai' greeting in Thailand and how does the height of the hands reflect social hierarchy?", "ar": "ما معنى تحية 'واي' في تايلاند وكيف يعكس ارتفاع اليدين التسلسل الاجتماعي؟" },
+      "answer": { "en": "The wai is performed by pressing palms together (prayer position) and bowing. The height of the hands and depth of the bow varies by status: greeting a monk requires hands at forehead level with a deep bow; greeting a peer is at chin level; juniors always initiate the wai first.", "ar": "تُؤدَّى الواي بالضغط على راحتي اليدين معاً (وضع الصلاة) والانحناء. يتفاوت ارتفاع اليدين وعمق الانحناء بحسب المكانة: تحية الراهب تتطلب يدين عند مستوى الجبهة مع انحناء عميق؛ وتحية الند عند مستوى الذقن؛ ويبدأ الأصغر دائماً بالواي أولاً." }
+    },
+    {
+      "id": "world-habits-and-etiquette-036",
+      "difficulty": "hard",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the significance of the number eight in Chinese culture and how does it influence everyday decisions?", "ar": "ما دلالة الرقم ثمانية في الثقافة الصينية وكيف يؤثر على القرارات اليومية؟" },
+      "answer": { "en": "Eight (bā) sounds like the word for prosperity/fortune (fā). It is the luckiest number — people pay premium prices for phone numbers, license plates, and addresses with many eights. The 2008 Beijing Olympics opened at 8:08 PM on 8/8/08. Real estate prices for properties with '8' in the address are noticeably higher.", "ar": "الثمانية (با) تشبه في نطقها كلمة الازدهار/الثروة (فا). إنه الرقم الأكثر حظاً — يدفع الناس أثماناً مرتفعة لأرقام الهواتف ولوحات السيارات والعناوين التي تحتوي على ثمانيات كثيرة. افتُتحت أولمبياد بكين 2008 في تمام الساعة 8:08 مساءً في 8/8/08. أسعار العقارات للعقارات ذات '8' في العنوان أعلى بشكل ملحوظ." }
+    },
+    {
+      "id": "world-habits-and-etiquette-037",
+      "difficulty": "hard",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "What is the Ethiopian communal dining tradition of eating from a shared injera and how does it reflect cultural values?", "ar": "ما تقليد تناول الطعام الجماعي الإثيوبي من إنجيرا مشتركة وكيف يعكس القيم الثقافية؟" },
+      "answer": { "en": "Injera (spongy sourdough flatbread) is laid on a communal platter with stews (wot) on top. Everyone eats from the same bread without individual plates — using right-hand fingers to scoop. This practice (called 'gursha' when feeding others) embodies community, equality, and shared experience. Separate plates are considered antisocial.", "ar": "تُبسط الإنجيرا (خبز مسطح مخمر إسفنجي) على طبق مشترك مع اليخنات (ووت) فوقها. يأكل الجميع من الخبز ذاته دون أطباق فردية — باستخدام أصابع اليد اليمنى للغرف. تُجسّد هذه الممارسة (المسماة 'غورشا' عند إطعام الآخرين) المجتمع والمساواة والتجربة المشتركة. تُعدّ الأطباق المنفصلة ضداً للاجتماعية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-038",
+      "difficulty": "hard",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the Hindu concept of 'puja' and what role do offerings play in it?", "ar": "ما مفهوم 'البوجا' الهندوسي وما دور التقدمات فيه؟" },
+      "answer": { "en": "Puja is a devotional ritual of worship performed to a deity, involving offerings of flowers, incense, light (aarti lamp), water, and food (prasad). The offerings are presented to the deity's image or statue; the deity's 'blessing' returns through prasad given back to worshippers. Puja can be performed at home shrines or temples.", "ar": "البوجا طقوس عبادة تقدّمية لإله، تتضمن تقدمات من الزهور والبخور والنور (مصباح الأرتي) والماء والطعام (البراساد). تُقدَّم التقدمات لصورة الإله أو تمثاله؛ تعود 'بركة' الإله عبر البراساد الذي يُعطى للمصلين. يمكن أداء البوجا في الأضرحة المنزلية أو المعابد." }
+    },
+    {
+      "id": "world-habits-and-etiquette-039",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the concept of 'amae' (甘え) in Japanese psychology and how does it shape social expectations?", "ar": "ما مفهوم 'أماي' (甘え) في علم النفس الياباني وكيف يُشكّل التوقعات الاجتماعية؟" },
+      "answer": { "en": "Amae (coined by psychologist Takeo Doi) describes a dependent presumption upon another's benevolence — a comfortable reliance on another's goodwill, presuming they will accommodate your needs without being asked. It underpins Japanese group harmony: members expect to be 'read' and accommodated rather than having to articulate every need explicitly.", "ar": "الأماي (ابتكره عالم النفس تاكيو دوي) يصف الافتراض المعتمِد على خير الآخر — الاعتماد المريح على حسن نية شخص آخر بافتراض أنه سيُلبّي احتياجاتك دون طلب. يدعم انسجام المجموعة اليابانية: يتوقع الأعضاء أن يُقرأوا ويُستوعبوا بدلاً من أن يصرّحوا بكل احتياج صراحةً." }
+    },
+    {
+      "id": "world-habits-and-etiquette-040",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the Balinese concept of 'Tri Hita Karana' and how does it manifest in everyday life and ritual?", "ar": "ما مفهوم 'تري هيتا كارانا' البالية وكيف يتجلى في الحياة اليومية والطقوس؟" },
+      "answer": { "en": "Tri Hita Karana ('three causes of well-being') is the Balinese Hindu philosophy of harmonious relationships between humans and God (Parahyangan), humans and other humans (Pawongan), and humans and nature (Palemahan). It manifests in daily offerings (canang sari), community temple worship, environmental conservation, and the integration of ritual into agricultural cycles.", "ar": "تري هيتا كارانا ('الأسباب الثلاثة للرفاهية') هي فلسفة هندوسية بالية للعلاقات المتناسقة بين الإنسان والإله (باراهيانغان)، والإنسان والإنسان (باوونغان)، والإنسان والطبيعة (باليماهان). تتجلى في التقدمات اليومية (كاناغ ساري) وعبادة معبد المجتمع والحفاظ على البيئة ودمج الطقوس في الدورات الزراعية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-041",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What does anthropologist Edward Hall's concept of 'proxemics' reveal about cultural differences in personal space?", "ar": "ما الذي يكشفه مفهوم 'القربيات' (Proxemics) لعالم الأنثروبولوجيا إدوارد هول عن الفروق الثقافية في المساحة الشخصية؟" },
+      "answer": { "en": "Proxemics (1966) categorises space into intimate (0–45 cm), personal (45–120 cm), social (1.2–3.6 m), and public zones. Cultures differ significantly: Arab, Latin American, and southern European cultures are 'contact cultures' comfortable with closer proximity; northern Europeans, Japanese, and North Americans are 'non-contact cultures' requiring more personal space.", "ar": "القربيات (1966) تُصنّف الفضاء إلى: حميم (0-45 سم)، وشخصي (45-120 سم)، واجتماعي (1.2-3.6 م)، وعام. تتباين الثقافات بشكل ملحوظ: الثقافات العربية وأمريكا اللاتينية وجنوب أوروبا 'ثقافات تماس' مرتاحة للقرب الشديد؛ بينما شمال أوروبا واليابان وأمريكا الشمالية 'ثقافات بلا تماس' تستلزم مزيداً من المساحة الشخصية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-042",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Dining Etiquette", "ar": "آداب المائدة" },
+      "question": { "en": "What anthropological theory explains why food taboos (like pork avoidance or beef avoidance) persist across cultures, and what are the main competing explanations?", "ar": "ما النظرية الأنثروبولوجية التي تُفسّر استمرار محظورات الطعام (كتجنب الخنزير أو البقر) عبر الثقافات وما التفسيرات المتنافسة الرئيسية؟" },
+      "answer": { "en": "Marvin Harris's cultural materialism: taboos are rational adaptations to ecological conditions (pigs are ecologically costly in the Middle East; cows are more valuable alive in South Asia). Mary Douglas's symbolic approach: taboos enforce categorical thinking — prohibited animals are 'anomalous' in their culture's classification system. A third view: taboos reinforce group boundaries and religious identity, regardless of practical benefit.", "ar": "المادية الثقافية لمارفين هاريس: المحظورات تكيّفات عقلانية للظروف البيئية (الخنازير مكلفة بيئياً في الشرق الأوسط؛ الأبقار أكثر قيمة حيّةً في جنوب آسيا). النهج الرمزي لماري دوغلاس: المحظورات تُعزز التفكير التصنيفي — الحيوانات المحظورة 'شاذة' في نظام تصنيف ثقافتها. رأي ثالث: المحظورات تُعزز حدود المجموعة والهوية الدينية، بصرف النظر عن الفائدة العملية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-043",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is 'wasta' in Arab culture and how does it function as a form of social capital?", "ar": "ما 'الواسطة' في الثقافة العربية وكيف تعمل كشكل من أشكال رأس المال الاجتماعي؟" },
+      "answer": { "en": "Wasta is the use of personal connections and intermediaries to gain advantages in employment, bureaucracy, legal situations, or services. It operates through a network of obligations where helping someone creates a reciprocal debt. While parallel to Bourdieu's social capital, wasta is more formalised — embedded in extended family and tribal networks — and is debated for both facilitating social cohesion and undermining meritocracy.", "ar": "الواسطة هي استخدام الصلات الشخصية والوسطاء لاكتساب مزايا في التوظيف والبيروقراطية والمواقف القانونية أو الخدمات. تعمل عبر شبكة من الالتزامات حيث يُنشئ مساعدة شخص ما دَيناً متبادلاً. بالتوازي مع رأس المال الاجتماعي لبورديو، الواسطة أكثر رسمية — متجذّرة في شبكات الأسرة الممتدة والقبيلة — ويُتناقش حولها لكونها تُيسّر التماسك الاجتماعي وتُقوّض الجدارة في الوقت ذاته." }
+    },
+    {
+      "id": "world-habits-and-etiquette-044",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the Javanese concept of 'slametan' and how does it function as a communal ritual?", "ar": "ما مفهوم 'سلاماتان' الجاوي وكيف يعمل طقساً مجتمعياً؟" },
+      "answer": { "en": "Slametan is a communal feast-prayer meal held to mark life transitions (births, deaths, marriages, moving house) and to invoke spiritual safety (slamet = safe/well). Neighbours and community gather, a religious leader recites prayers, and food is shared. Anthropologist Clifford Geertz analysed it as the core ritual of Javanese social and spiritual life in 'The Religion of Java' (1960).", "ar": "السلاماتان وليمة-صلاة مجتمعية تُقام لإحياء انتقالات الحياة (الولادات، الوفيات، الزيجات، الانتقال للمنزل) ولاستدعاء الأمان الروحي (سلاميت = آمن/بخير). يجتمع الجيران والمجتمع ويتلو زعيم ديني الصلوات ويُتشارك الطعام. حلّل عالم الأنثروبولوجيا كليفورد غيرتز السلاماتان باعتبارها الطقس الجوهري للحياة الاجتماعية والروحية الجاوية في 'دين جاوة' (1960)." }
+    },
+    {
+      "id": "world-habits-and-etiquette-045",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is the concept of 'individualism vs. collectivism' in Hofstede's cultural dimensions and how does it predict etiquette differences?", "ar": "ما مفهوم 'الفردية مقابل الجماعية' في أبعاد هوفشتيد الثقافية وكيف يتنبأ بالفروق في الإتيكيت؟" },
+      "answer": { "en": "Hofstede's IDV dimension measures how much individuals prioritise personal goals over group goals. High IDV (USA, Australia, UK): directness, speaking one's mind, individual achievement celebrated. Low IDV (Guatemala, Ecuador, Japan): group harmony prioritised, indirect communication, public criticism avoided, decisions made by consensus. This predicts: individualist cultures value punctuality for personal time; collectivist cultures prioritise relationship-building over schedules.", "ar": "بُعد Hofstede IDV يقيس مقدار إعطاء الأفراد الأولوية لأهدافهم الشخصية على أهداف المجموعة. IDV عالٍ (الولايات المتحدة، أستراليا، المملكة المتحدة): مباشرة والتعبير عن الرأي والاحتفاء بالإنجاز الفردي. IDV منخفض (غواتيمالا، الإكوادور، اليابان): إعطاء الأولوية لانسجام المجموعة والتواصل غير المباشر وتجنب النقد العلني والقرارات بالتوافق. يتنبأ هذا بأن: الثقافات الفردية تُقدّر الالتزام بالمواعيد للوقت الشخصي؛ والثقافات الجماعية تُعطي الأولوية لبناء العلاقات على الجداول الزمنية." }
+    },
+    {
+      "id": "world-habits-and-etiquette-046",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "What is 'kinesics' as developed by Ray Birdwhistell and how does it challenge the idea of universal body language?", "ar": "ما 'الحركيات' (Kinesics) كما طوّرها راي بيردويستيل وكيف تتحدى فكرة لغة الجسد العالمية؟" },
+      "answer": { "en": "Birdwhistell developed kinesics — the study of body movement as communication — and argued there are no universally understood gestures; all body language is culturally learned and contextually variable, like a language. This challenged Ekman's claim of universal facial expressions and emphasised that interpreting nonverbal communication requires cultural fluency, not just observation.", "ar": "طوّر بيردويستيل الحركيات — دراسة حركة الجسد كتواصل — وجادل بعدم وجود إيماءات مفهومة عالمياً؛ كل لغة جسد مُكتسبة ثقافياً ومتغيرة سياقياً، كاللغة. تحدّى هذا ادعاء إيكمان بتعابير وجه عالمية وأكد أن تفسير التواصل غير اللفظي يتطلب طلاقة ثقافية لا مجرد ملاحظة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-047",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is 'emotional display rules' (Ekman & Friesen) and how do cultural norms regulate public emotional expression?", "ar": "ما 'قواعد عرض المشاعر' (إيكمان وفريسن) وكيف تُنظّم الأعراف الثقافية التعبير العاطفي العلني؟" },
+      "answer": { "en": "Display rules are cultural norms prescribing when, where, and to whom emotional expressions are appropriate. They cause the same underlying emotion to be expressed very differently: Japanese culture requires masking negative emotions in public (especially in professional settings); Italian culture encourages open expression; East Asian cultures value emotional restraint in formal contexts while West African cultures may express grief loudly and collectively.", "ar": "قواعد العرض أعراف ثقافية تُحدد متى وأين وأمام من يكون التعبير العاطفي مناسباً. تجعل العاطفة الجوهرية ذاتها تُعبَّر عنها بشكل مختلف جداً: تُلزم الثقافة اليابانية بإخفاء المشاعر السلبية علناً (خاصة في البيئات المهنية)؛ تُشجع الثقافة الإيطالية التعبير الصريح؛ تُقدّر الثقافات شرق آسيوية ضبط النفس العاطفي في السياقات الرسمية بينما قد تُعبّر الثقافات غرب أفريقية عن الحزن بصخب وجماعياً." }
+    },
+    {
+      "id": "world-habits-and-etiquette-048",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Religious & Ceremonial", "ar": "الديني والاحتفالي" },
+      "question": { "en": "What is the concept of 'ritual pollution' in many world cultures and how does it shape social behaviour?", "ar": "ما مفهوم 'النجاسة الطقسية' في كثير من الثقافات العالمية وكيف يُشكّل السلوك الاجتماعي؟" },
+      "answer": { "en": "Ritual pollution (discussed by Mary Douglas in 'Purity and Danger') refers to states of impurity that require purification rituals before resuming social/religious participation — e.g., contact with the dead, menstruation, childbirth, or eating forbidden substances. These systems enforce social boundaries, signal category distinctions, and maintain group identity through purification practices.", "ar": "النجاسة الطقسية (ناقشتها ماري دوغلاس في 'النقاء والخطر') تُشير إلى حالات نجاسة تستلزم طقوس تطهير قبل استئناف المشاركة الاجتماعية/الدينية — مثلاً ملامسة الميت أو الحيض أو الولادة أو تناول مواد محظورة. تُعزز هذه الأنظمة الحدود الاجتماعية وتُشير إلى الفوارق التصنيفية وتُحافظ على هوية المجموعة من خلال ممارسات التطهير." }
+    },
+    {
+      "id": "world-habits-and-etiquette-049",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Greetings & Gestures", "ar": "التحيات والإيماءات" },
+      "question": { "en": "What is the cross-cultural difference between 'high-context' and 'low-context' communication cultures (Edward Hall) and how does it affect greetings and negotiation?", "ar": "ما الفرق بين ثقافات التواصل 'عالية السياق' و'منخفضة السياق' (إدوارد هول) وكيف يؤثر ذلك على التحيات والتفاوض؟" },
+      "answer": { "en": "High-context cultures (Japan, China, Arab countries) rely heavily on implicit meaning, non-verbal cues, and shared context — much is unsaid but understood. Low-context cultures (USA, Germany, Scandinavia) communicate explicitly with words, expecting directness and written confirmation. In greetings, high-context cultures invest heavily in relationship-building before business; low-context cultures get to the point quickly.", "ar": "تعتمد ثقافات السياق العالي (اليابان والصين والدول العربية) بشكل كبير على المعنى الضمني والإشارات غير اللفظية والسياق المشترك — الكثير غير مقول لكنه مفهوم. تتواصل ثقافات السياق المنخفض (الولايات المتحدة وألمانيا وإسكندنافيا) بصراحة بالكلمات متوقعةً المباشرة والتأكيد الكتابي. في التحيات، تستثمر ثقافات السياق العالي بكثافة في بناء العلاقات قبل العمل؛ وثقافات السياق المنخفض تصل للنقطة بسرعة." }
+    },
+    {
+      "id": "world-habits-and-etiquette-050",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Social Customs", "ar": "العادات الاجتماعية" },
+      "question": { "en": "What is 'cultural lag' (William Ogburn) and how does it apply to changing etiquette norms in the digital age?", "ar": "ما 'التأخر الثقافي' (ويليام أوغبورن) وكيف ينطبق على تغيّر معايير الإتيكيت في العصر الرقمي؟" },
+      "answer": { "en": "Cultural lag describes the time gap between when material culture (technology) changes and when non-material culture (norms, values, laws) adapts. In the digital age: phone etiquette at the table, the norms around social media use during conversations, and 'phubbing' (phone snubbing) represent areas where material technology advanced faster than social norms — causing friction between generations and cultures still negotiating appropriate behaviour.", "ar": "التأخر الثقافي يصف الفجوة الزمنية بين تغيّر الثقافة المادية (التكنولوجيا) وتكيّف الثقافة غير المادية (الأعراف والقيم والقوانين). في العصر الرقمي: آداب الهاتف على الطاولة، ومعايير استخدام وسائل التواصل الاجتماعي أثناء المحادثات، و'الفبركة الهاتفية' (تجاهل الشخص لصالح الهاتف) تمثّل مجالات تقدّمت فيها التكنولوجيا المادية أسرع من الأعراف الاجتماعية — مما يُسبّب احتكاكاً بين الأجيال والثقافات التي لا تزال تتفاوض على السلوك المناسب." }
+    }
+  ]
+}

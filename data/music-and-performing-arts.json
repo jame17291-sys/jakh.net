@@ -1,0 +1,490 @@
+{
+  "slug": "music-and-performing-arts",
+  "title": {
+    "en": "Music & Performing Arts",
+    "ar": "الموسيقى والفنون الأدائية"
+  },
+  "count": 40,
+  "cards": [
+    {
+      "id": "mus-1",
+      "difficulty": "easy",
+      "question": {
+        "en": "How many keys are on a standard modern piano?",
+        "ar": "كم عدداً من المفاتيح في البيانو الحديث القياسي؟"
+      },
+      "answer": {
+        "en": "88",
+        "ar": "88"
+      }
+    },
+    {
+      "id": "mus-2",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which famous composer wrote the 'Fifth Symphony' and became deaf later in life?",
+        "ar": "أي ملحن شهير ألف 'السمفونية الخامسة' وأصيب بالصمم لاحقاً؟"
+      },
+      "answer": {
+        "en": "Ludwig van Beethoven",
+        "ar": "لودفيج فان بيتهوفن"
+      }
+    },
+    {
+      "id": "mus-3",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which string instrument is the smallest and has the highest pitch in an orchestra?",
+        "ar": "أي آلة وترية هي الأصغر ولها أعلى طبقة صوت في الأوركسترا؟"
+      },
+      "answer": {
+        "en": "Violin",
+        "ar": "الكمان"
+      }
+    },
+    {
+      "id": "mus-4",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is the term for a person who leads an orchestra?",
+        "ar": "ما هو المصطلح الذي يطلق على الشخص الذي يقود الأوركسترا؟"
+      },
+      "answer": {
+        "en": "Conductor",
+        "ar": "المايسترو (أو الموصل)"
+      }
+    },
+    {
+      "id": "mus-5",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which country is the birthplace of Opera?",
+        "ar": "أي بلد هو مسقط رأس الأوبرا؟"
+      },
+      "answer": {
+        "en": "Italy",
+        "ar": "إيطاليا"
+      }
+    },
+    {
+      "id": "mus-6",
+      "difficulty": "easy",
+      "question": {
+        "en": "How many strings does a standard guitar have?",
+        "ar": "كم عدداً من الأوتار في الجيتار القياسي؟"
+      },
+      "answer": {
+        "en": "Six",
+        "ar": "ستة"
+      }
+    },
+    {
+      "id": "mus-7",
+      "difficulty": "easy",
+      "question": {
+        "en": "Who is known as the 'King of Pop'?",
+        "ar": "من يلقب بـ 'ملك البوب'؟"
+      },
+      "answer": {
+        "en": "Michael Jackson",
+        "ar": "مايكل جاكسون"
+      }
+    },
+    {
+      "id": "mus-8",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is the term for the speed at which a piece of music is played?",
+        "ar": "ما هو المصطلح الذي يعبر عن السرعة التي يتم بها عزف قطعة موسيقية؟"
+      },
+      "answer": {
+        "en": "Tempo",
+        "ar": "السرعة (Tempo)"
+      }
+    },
+    {
+      "id": "mus-9",
+      "difficulty": "easy",
+      "question": {
+        "en": "Which family of instruments does the trumpet belong to?",
+        "ar": "إلى أي عائلة من الآلات ينتمي البوق؟"
+      },
+      "answer": {
+        "en": "Brass",
+        "ar": "الآلات النحاسية"
+      }
+    },
+    {
+      "id": "mus-10",
+      "difficulty": "easy",
+      "question": {
+        "en": "What is a 'Duet'?",
+        "ar": "ما هو الـ 'دويتو' (Duet)؟"
+      },
+      "answer": {
+        "en": "A musical composition for two performers",
+        "ar": "تأليف موسيقي لشخصين"
+      }
+    },
+    {
+      "id": "mus-11",
+      "difficulty": "medium",
+      "question": {
+        "en": "What does the term 'Forte' mean in music notation?",
+        "ar": "ماذا يعني مصطلح 'Forte' في التدوين الموسيقي؟"
+      },
+      "answer": {
+        "en": "Loud",
+        "ar": "قوي (أو مرتفع الصوت)"
+      }
+    },
+    {
+      "id": "mus-12",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who wrote the famous 'Four Seasons' concertos?",
+        "ar": "من ألف كونشيرتو 'الفصول الأربعة' الشهير؟"
+      },
+      "answer": {
+        "en": "Antonio Vivaldi",
+        "ar": "أنطونيو فيفالدي"
+      }
+    },
+    {
+      "id": "mus-13",
+      "difficulty": "medium",
+      "question": {
+        "en": "In jazz, what is the term for making up music on the spot?",
+        "ar": "في موسيقى الجاز، ما هو المصطلح الذي يطلق على تأليف الموسيقى فوراً؟"
+      },
+      "answer": {
+        "en": "Improvisation",
+        "ar": "الارتجال"
+      }
+    },
+    {
+      "id": "mus-14",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which woodwind instrument has a double reed?",
+        "ar": "أي آلة نفخ خشبية تمتلك ريشة مزدوجة؟"
+      },
+      "answer": {
+        "en": "Oboe (or Bassoon)",
+        "ar": "الأوبوا (أو الباسون)"
+      }
+    },
+    {
+      "id": "mus-15",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is a 'Symphony'?",
+        "ar": "ما هي 'السمفونية'؟"
+      },
+      "answer": {
+        "en": "An elaborate musical composition for a full orchestra",
+        "ar": "تأليف موسيقي معقد للأوركسترا الكاملة"
+      }
+    },
+    {
+      "id": "mus-16",
+      "difficulty": "medium",
+      "question": {
+        "en": "Who is the 'Father of the Symphony' and the 'Father of the String Quartet'?",
+        "ar": "من يلقب بـ 'أبو السمفونية' و 'أبو الرباعي الوتري'؟"
+      },
+      "answer": {
+        "en": "Joseph Haydn",
+        "ar": "جوزيف هايدن"
+      }
+    },
+    {
+      "id": "mus-17",
+      "difficulty": "medium",
+      "question": {
+        "en": "What does 'Staccato' mean?",
+        "ar": "ماذا يعني مصطلح 'Staccato'؟"
+      },
+      "answer": {
+        "en": "Short and detached notes",
+        "ar": "نوتات قصيرة ومنفصلة"
+      }
+    },
+    {
+      "id": "mus-18",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which famous Austrian composer was a child prodigy and wrote 'The Magic Flute'?",
+        "ar": "أي ملحن نمساوي شهير كان طفلاً عبقرياً وألف 'الناي السحري'؟"
+      },
+      "answer": {
+        "en": "Wolfgang Amadeus Mozart",
+        "ar": "فولفغانغ أماديوس موتسارت"
+      }
+    },
+    {
+      "id": "mus-19",
+      "difficulty": "medium",
+      "question": {
+        "en": "What is the name of the five lines and four spaces used for musical notation?",
+        "ar": "ما اسم الخطوط الخمسة والمسافات الأربعة المستخدمة للتدوين الموسيقي؟"
+      },
+      "answer": {
+        "en": "Staff (or Stave)",
+        "ar": "المدرج الموسيقي"
+      }
+    },
+    {
+      "id": "mus-20",
+      "difficulty": "medium",
+      "question": {
+        "en": "Which city is considered the birthplace of Jazz?",
+        "ar": "أي مدينة تعتبر مسقط رأس موسيقى الجاز؟"
+      },
+      "answer": {
+        "en": "New Orleans",
+        "ar": "نيو أورلينز"
+      }
+    },
+    {
+      "id": "mus-21",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the 'Circle of Fifths'?",
+        "ar": "ما هي 'دائرة الأخماس'؟"
+      },
+      "answer": {
+        "en": "A visual representation of the relationships between the 12 tones of the chromatic scale",
+        "ar": "تمثيل مرئي للعلاقات بين النغمات الـ 12 للسلم اللوني"
+      }
+    },
+    {
+      "id": "mus-22",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who composed the revolutionary ballet 'The Rite of Spring'?",
+        "ar": "من لحن باليه 'طقوس الربيع' الثوري؟"
+      },
+      "answer": {
+        "en": "Igor Stravinsky",
+        "ar": "إيغور سترافينسكي"
+      }
+    },
+    {
+      "id": "mus-23",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the term for a musical texture with a single melodic line without accompaniment?",
+        "ar": "ما هو المصطلح الذي يصف نسيجاً موسيقياً بخط لحني واحد بدون مرافق؟"
+      },
+      "answer": {
+        "en": "Monophony",
+        "ar": "أحادية الصوت (Monophony)"
+      }
+    },
+    {
+      "id": "mus-24",
+      "difficulty": "hard",
+      "question": {
+        "en": "In music theory, what is an 'Interval'?",
+        "ar": "في نظرية الموسيقى، ما هو 'الفاصل الموسيقي' (Interval)؟"
+      },
+      "answer": {
+        "en": "The distance between two pitches",
+        "ar": "المسافة بين درجتين صوتيتين"
+      }
+    },
+    {
+      "id": "mus-25",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which Baroque composer is famous for the 'Brandenburg Concertos' and 'The Well-Tempered Clavier'?",
+        "ar": "أي ملحن باروكي اشتهر بـ 'كونشيرتو براندنبورغ' و 'الكلافير المنسجم'؟"
+      },
+      "answer": {
+        "en": "Johann Sebastian Bach",
+        "ar": "يوهان سيباستيان باخ"
+      }
+    },
+    {
+      "id": "mus-26",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is a 'Leitmotif'?",
+        "ar": "ما هو الـ 'لايتموتيف' (Leitmotif)؟"
+      },
+      "answer": {
+        "en": "A recurring musical theme associated with a particular person, place, or idea",
+        "ar": "لحن متكرر يرتبط بشخص أو مكان أو فكرة معينة"
+      }
+    },
+    {
+      "id": "mus-27",
+      "difficulty": "hard",
+      "question": {
+        "en": "Which scale consists entirely of half steps?",
+        "ar": "أي سلم موسيقي يتكون بالكامل من أنصاف الدرجات؟"
+      },
+      "answer": {
+        "en": "Chromatic Scale",
+        "ar": "السلم اللوني (الكروماتيكي)"
+      }
+    },
+    {
+      "id": "mus-28",
+      "difficulty": "hard",
+      "question": {
+        "en": "Who is the female composer and mystic from the Middle Ages known for her 'Ordo Virtutum'?",
+        "ar": "من هي الملحنة والمتصوفة من العصور الوسطى المعروفة بعملها 'ترتيب الفضائل'؟"
+      },
+      "answer": {
+        "en": "Hildegard von Bingen",
+        "ar": "هيليغارد فون بنجن"
+      }
+    },
+    {
+      "id": "mus-29",
+      "difficulty": "hard",
+      "question": {
+        "en": "What is the term for the technique of playing a string instrument by plucking the strings?",
+        "ar": "ما هو المصطلح الذي يطلق على تقنية عزف الآلات الوترية عن طريق نقر الأوتار؟"
+      },
+      "answer": {
+        "en": "Pizzicato",
+        "ar": "بيزيكاتو (Pizzicato)"
+      }
+    },
+    {
+      "id": "mus-30",
+      "difficulty": "hard",
+      "question": {
+        "en": "What does the 'A' above middle C usually vibrate at (in Hertz)?",
+        "ar": "عند أي تردد (بالهرتز) يهتز نوتة 'A' فوق 'C' الوسطى عادة؟"
+      },
+      "answer": {
+        "en": "440 Hz",
+        "ar": "440 هرتز"
+      }
+    },
+    {
+      "id": "mus-31",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Serialism' in 20th-century music?",
+        "ar": "ما هي 'التسلسلية' في موسيقى القرن العشرين؟"
+      },
+      "answer": {
+        "en": "A method of composition using a series of all 12 notes of the chromatic scale",
+        "ar": "طريقة للتأليف تستخدم سلسلة من جميع النغمات الـ 12 للسلم اللوني"
+      }
+    },
+    {
+      "id": "mus-32",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who developed the 12-tone technique?",
+        "ar": "من طور تقنية النغمات الـ 12؟"
+      },
+      "answer": {
+        "en": "Arnold Schoenberg",
+        "ar": "أرنولد شوينبيرج"
+      }
+    },
+    {
+      "id": "mus-33",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the difference between 'Just Intonation' and 'Equal Temperament'?",
+        "ar": "ما هو الفرق بين 'الضبط العادل' و 'المزاج المتساوي'؟"
+      },
+      "answer": {
+        "en": "Just Intonation uses simple whole-number ratios; Equal Temperament divides the octave into 12 equal parts",
+        "ar": "الضبط العادل يستخدم نسب أعداد صحيحة بسيطة، بينما يقسم المزاج المتساوي الأوكتاف إلى 12 جزءاً متساوياً"
+      }
+    },
+    {
+      "id": "mus-34",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is a 'Picardy Third'?",
+        "ar": "ما هو الـ 'Picardy Third'؟"
+      },
+      "answer": {
+        "en": "Ending a musical piece in a minor key with a major chord",
+        "ar": "إنهاء مقطوعة موسيقية بمفتاح صغير بوتر كبير"
+      }
+    },
+    {
+      "id": "mus-35",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Who composed the 'Turangalîla-Symphonie', which features the Ondes Martenot?",
+        "ar": "من ألف 'سمفونية تورانغاليلا' التي تتميز بآلة موجات مارتينو؟"
+      },
+      "answer": {
+        "en": "Olivier Messiaen",
+        "ar": "أوليفييه ميسيان"
+      }
+    },
+    {
+      "id": "mus-36",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Musique Concrète'?",
+        "ar": "ما هي 'الموسيقى الملموسة' (Musique Concrète)؟"
+      },
+      "answer": {
+        "en": "A genre of electroacoustic music that uses recorded sounds as raw material",
+        "ar": "نوع من الموسيقى الكهروصوتية يستخدم الأصوات المسجلة كمواد خام"
+      }
+    },
+    {
+      "id": "mus-37",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Counterpoint'?",
+        "ar": "ما هو 'الكونتربوان' (Counterpoint)؟"
+      },
+      "answer": {
+        "en": "The relationship between voices that are harmonically interdependent yet independent in rhythm and contour",
+        "ar": "العلاقة بين الأصوات المعتمدة على بعضها هارمونياً ولكنها مستقلة في الإيقاع والمسار"
+      }
+    },
+    {
+      "id": "mus-38",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "Which composer's 'Symphony No. 9' is known as 'From the New World'?",
+        "ar": "أي ملحن اشتهرت سمفونيته التاسعة باسم 'من العالم الجديد'؟"
+      },
+      "answer": {
+        "en": "Antonín Dvořák",
+        "ar": "أنتونين دفورجاك"
+      }
+    },
+    {
+      "id": "mus-39",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is the 'Tritone' interval also known as due to its dissonance?",
+        "ar": "ماذا يلقب فاصل 'التريتون' بسبب نشازه؟"
+      },
+      "answer": {
+        "en": "Diabolus in Musica (The Devil in Music)",
+        "ar": "شيطان الموسيقى"
+      }
+    },
+    {
+      "id": "mus-40",
+      "difficulty": "very-advanced",
+      "question": {
+        "en": "What is 'Aleatoric Music'?",
+        "ar": "ما هي 'الموسيقى العشوائية' (Aleatoric Music)؟"
+      },
+      "answer": {
+        "en": "Music in which some element of the composition is left to chance",
+        "ar": "موسيقى تترك فيها بعض عناصر التأليف للصدفة"
+      }
+    }
+  ]
+}

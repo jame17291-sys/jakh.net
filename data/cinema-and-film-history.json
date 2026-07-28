@@ -99,7 +99,7 @@
       },
       "answer": {
         "en": "Snow White and the Seven Dwarfs",
-        "ar": "سنو وايت والأقزام السبعة"
+        "ar": "سلو وايت والأقزام السبعة"
       }
     },
     {
@@ -170,8 +170,8 @@
         "ar": "ما هو الـ 'ماكغافن' (MacGuffin) في السينما؟"
       },
       "answer": {
-        "en": "A plot device that motivates characters but is ultimately unimportant in itself",
-        "ar": "عنصر درامي يحرّك شخصيات القصة لكنه غير مهم في حد ذاته"
+        "en": "MacGuffin",
+        "ar": "ماكغافن"
       }
     },
     {
@@ -442,8 +442,8 @@
       "id": "cin-37",
       "difficulty": "very-advanced",
       "question": {
-        "en": "Who is the acclaimed cinematographer behind '1917' and 'Blade Runner 2049'?",
-        "ar": "من هو مدير التصوير المخضرم وراء أعمال '1917' و 'بليد رانر 2049'؟"
+        "en": "Who is the cinematographer famous for his work with Roger Deakins on '1917' and 'Blade Runner 2049'?",
+        "ar": "من هو مدير التصوير الشهير بعمله مع روجر ديكينز في '1917' و 'بليد رانر 2049'؟"
       },
       "answer": {
         "en": "Roger Deakins",

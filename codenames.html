@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#0b1020"/>
+  <meta name="description" content="Play Codenames on JAKH Riddles. AI gives clues — you find the secret agents."/>
+  <title>Codenames | JAKH Riddles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" href="styles.css" as="style"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/codenames"/>
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="Codenames | JAKH Riddles"/><meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/codenames"/><meta property="og:image" content="https://jakh.net/assets/og-image.webp"/>
+  <meta property="og:site_name" content="JAKH Riddles"/>
+  <link rel="stylesheet" href="styles.css?v=1785236400"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
+  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
+  <style>
+    /* scoped codenames styles */
+    :root {
+      --panel: rgba(28,22,38,.9);
+      --panel-strong: rgba(28,22,38,.99);
+      --accent: #E8613C;
+      --gilt: #C9A227;
+      --easy: #48d597;
+      --text: #F0E8D8;
+      --muted: rgba(240,232,216,.56);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --line-strong: rgba(246,239,224,.15);
+      --danger: #ff7a8a;
+      --blue-agent: rgba(74,144,217,0.7);
+      --red-agent: rgba(232,97,60,0.7);
+    }
+
+    #codenamesSection {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cn-clue-bar {
+      background: var(--panel-strong);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cn-clue-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gilt);
+      letter-spacing: 0.05em;
+      flex: 1;
+    }
+
+    .cn-clue-label span {
+      color: var(--text);
+    }
+
+    .cn-score-bar {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .cn-score-red {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .cn-score-blue {
+      color: #4A90D9;
+      font-weight: 700;
+    }
+
+    .cn-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cn-card {
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      color: var(--text);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.3s ease;
+      user-select: none;
+      letter-spacing: 0.04em;
+    }
+
+    .cn-card:not(.revealed):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      border-color: rgba(240,232,216,0.3);
+    }
+
+    .cn-card.revealed {
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    .cn-card.revealed-red {
+      background: var(--red-agent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .cn-card.revealed-blue {
+      background: var(--blue-agent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .cn-card.revealed-black {
+      background: #111;
+      color: #fff;
+      border-color: #333;
+    }
+
+    .cn-card.revealed-neutral {
+      background: rgba(201,162,39,0.4);
+      color: var(--text);
+      border-color: transparent;
+    }
+
+    .cn-card.flip-anim {
+      animation: cardFlip 0.35s ease forwards;
+    }
+
+    @keyframes cardFlip {
+      0%   { transform: scaleX(1); }
+      50%  { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    .cn-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .cn-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--panel);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+
+    .cn-btn:hover {
+      background: rgba(240,232,216,0.08);
+      border-color: rgba(240,232,216,0.3);
+    }
+
+    .cn-btn:active { transform: scale(0.97); }
+
+    .cn-btn-accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .cn-btn-accent:hover {
+      background: #d15430;
+      border-color: #d15430;
+    }
+
+    .cn-status-msg {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 0.4rem 0;
+      min-height: 1.4em;
+      transition: color 0.2s;
+    }
+
+    .cn-status-msg.highlight {
+      color: var(--text);
+    }
+
+    .cn-turn-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cn-turn-badge.human-turn {
+      background: rgba(232,97,60,0.2);
+      color: var(--accent);
+      border: 1px solid rgba(232,97,60,0.4);
+    }
+
+    .cn-turn-badge.ai-turn {
+      background: rgba(74,144,217,0.2);
+      color: #4A90D9;
+      border: 1px solid rgba(74,144,217,0.4);
+    }
+
+    /* Modal overlay */
+    .cn-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    .cn-modal-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cn-modal {
+      background: var(--panel-strong);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      transform: translateY(20px);
+      transition: transform 0.25s;
+    }
+
+    .cn-modal-overlay.visible .cn-modal {
+      transform: translateY(0);
+    }
+
+    .cn-modal h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .cn-modal p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .cn-modal-icon {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .cn-guesses-left {
+      font-size: 0.8rem;
+      color: var(--gilt);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cn-ai-thinking {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #4A90D9;
+      font-size: 0.85rem;
+    }
+
+    .cn-ai-thinking::after {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4A90D9;
+      animation: blink 0.8s infinite alternate;
+    }
+
+    @keyframes blink {
+      from { opacity: 0.2; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body data-page="game">
+  <a href="#top" class="skip-link">Skip to main content</a>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="grid-glow" aria-hidden="true"></div>
+
+  <header class="site-header shell">
+    <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+      <picture>
+        <source srcset="assets/logo.webp" type="image/webp"/>
+        <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+    <nav class="header-actions">
+      <a class="ghost-btn" href="index.html">Home</a>
+      <a class="ghost-btn" href="play.html">&#8592; Games</a>
+    </nav>
+    <div class="header-selects">
+      <label><span>Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" style="padding-bottom:1rem;">
+      <div class="hero-copy">
+        <p class="eyebrow">Social · Deduction</p>
+        <h1>&#128373; Codenames</h1>
+        <p class="hero-text">The AI Spymaster gives you clues. Find all 9 secret agents before time runs out — avoid the assassin.</p>
+      </div>
+    </section>
+
+    <section class="shell section-block" id="codenamesSection">
+      <!-- Codenames UI injected here -->
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy">All rights reserved to JAKH 2026</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       CODENAMES ENGINE — pure logic, no DOM
+       ============================================================ -->
+  <script id="codenames-engine">
+  const CodenamesEngine = (() => {
+    const WORDS = [
+      'AFRICA','AGENT','AIR','ALIEN','ALPS','ANCHOR','ANGEL','APPLE','ARCH','ARCTIC',
+      'BACK','BALL','BAND','BANK','BASE','BEAM','BEAR','BED','BELL','BIRD',
+      'BLOCK','BOARD','BOLT','BOMB','BONE','BOOK','BOOT','BOX','BRIDGE','BRUSH',
+      'BUG','CAKE','CAP','CAR','CARD','CASH','CASTLE','CAT','CHAIN','CHANGE',
+      'CHARGE','CHEST','CHIP','CITY','CLIFF','CLOUD','COAT','COIN','COLD','COMIC',
+      'COOK','COURT','CRANE','CROSS','CROWN','CUP','DARK','DATE','DAY','DECK',
+      'DEEP','DESK','DIAMOND','DICE','DISH','DOCK','DOG','DOOR','DRAFT','DRAGON',
+      'DRESS','DRILL','DROP','DRUM','DUCK','DUST','EAGLE','EARTH','ECHO','EGG',
+      'ENGINE','FACE','FALL','FAN','FIELD','FIGURE','FILE','FIRE','FISH','FLAG',
+      'FLASH','FLOOR','FLY','FORCE','FOREST','FORK','FRAME','GATE','GLASS','GOLD',
+      'GRAPE','GRASS','GRAVE','GRID','GROUND','GUARD','GUIDE','GUN','HAMMER','HAND',
+      'HEAD','HEART','HOOK','HORN','HORSE','HOUSE','ICE','IRON','JAM','KEY',
+      'KING','KNIFE','KNIGHT','LAMP','LEAF','LIGHT','LION','LOG','LOOP','MAP',
+      'MARK','MASK','MATCH','MINE','MIRROR','MOON','NET','NIGHT','NOTE','OIL',
+      'PALM','PAN','PARK','PASS','PATCH','PATH','PEAK','PEN','PIPE','PLATE',
+      'POINT','POOL','POST','PRESS','QUEEN','RAIL','RING','ROCK','ROPE','ROSE',
+      'ROUND','RUN','SAIL','SCALE','SEA','SEED','SHADOW','SHELL','SHIELD','SHIP',
+      'SHOE','SHOT','SIGN','SILVER','SKY','SLICE','SLIDE','SNOW','SOLDIER','SPACE',
+      'SPARK','SPEED','SPIKE','SQUARE','STAR','STONE','STORM','STREAM','STRIKE','STRING',
+      'SUN','SWITCH','TABLE','TANK','TIME','TRACK','TREE','TURN','VAULT','VINE',
+      'WALL','WATCH','WAVE','WELL','WIND','WING','WIRE','WOLF','WOOD','YARD'
+    ];
+
+    // Semantic category map for clue generation
+    // clue word -> list of WORDS it semantically relates to
+    const CLUE_CATEGORIES = {
+      'NATURE':   ['TREE','FOREST','LEAF','SEED','VINE','GRASS','FLOWER','STREAM','SEA','EARTH','MOON','SUN','SNOW','STORM','WIND','WAVE','ROCK','STONE'],
+      'ANIMAL':   ['BEAR','BIRD','CAT','DOG','DUCK','EAGLE','FISH','HORSE','LION','WOLF','DRAGON'],
+      'TOOL':     ['HAMMER','DRILL','BRUSH','KNIFE','FORK','PAN','PUMP','GEAR','PIPE','WIRE','HOOK'],
+      'WATER':    ['SEA','WAVE','STREAM','POOL','SAIL','SHIP','DOCK','ANCHOR','NET','FISH','DEEP'],
+      'WEATHER':  ['SNOW','STORM','WIND','CLOUD','ICE','COLD','FLASH','RAIN','DUST'],
+      'METAL':    ['IRON','GOLD','SILVER','STEEL','COIN','CHAIN','BOLT','BLADE'],
+      'ROYAL':    ['KING','QUEEN','CROWN','KNIGHT','CASTLE','COURT','GUARD','SHIELD'],
+      'DARKNESS': ['NIGHT','SHADOW','DARK','MASK','GRAVE','CAVE','BLACK','SMOKE'],
+      'FIRE':     ['FIRE','SPARK','FLAME','TORCH','ASH','MATCH','BURN','FLASH'],
+      'SKY':      ['SKY','AIR','CLOUD','EAGLE','WING','FLY','STAR','MOON','SUN','SPACE'],
+      'GROUND':   ['EARTH','GROUND','ROCK','STONE','MINE','BASE','FLOOR','FIELD','PATH'],
+      'SPEED':    ['SPEED','FLASH','RUN','RACE','BOLT','TRACK','SPIN','DART'],
+      'STRUCTURE':['ARCH','BRIDGE','WALL','GATE','TOWER','FRAME','BLOCK','POST','RAIL','DOOR'],
+      'MILITARY': ['SOLDIER','GUN','TANK','BOMB','MINE','GUARD','SHIELD','FORCE','STRIKE','BULLET'],
+      'COLD':     ['ICE','SNOW','COLD','ARCTIC','FROST','FREEZE'],
+      'MAGIC':    ['DRAGON','ANGEL','MIRROR','CRYSTAL','GHOST','SHADOW','MASK'],
+      'BODY':     ['HEAD','HAND','FACE','HEART','BONE','EAR','ARM','BACK'],
+      'TROPICAL': ['PALM','VINE','GRAPE','LEAF','AFRICA','SNAKE'],
+      'SHARP':    ['KNIFE','SPIKE','NEEDLE','BLADE','HOOK','DART','THORN'],
+      'ROUND':    ['BALL','RING','WHEEL','DRUM','CIRCLE','DOME','LOOP','ROUND'],
+      'LIGHT':    ['LAMP','BEAM','FLASH','STAR','SPARK','TORCH','LIGHT','SUN','GLOW'],
+      'SPORT':    ['BALL','COURT','TRACK','RACE','RING','FIELD','CAP','NET','SHOT'],
+      'MUSIC':    ['DRUM','HORN','STRING','NOTE','BAND','BEAT','ECHO'],
+      'FOOD':     ['CAKE','APPLE','GRAPE','EGG','FISH','DISH','PAN','COOK','JAM'],
+      'TRAVEL':   ['MAP','GUIDE','PATH','RAIL','SHIP','CAR','PASS','ROAD','TRACK'],
+      'TIME':     ['DAY','NIGHT','MOON','SUN','CLOCK','DATE','MARK','TURN'],
+      'MONEY':    ['CASH','COIN','GOLD','SILVER','BANK','CARD','CHARGE','PRESS'],
+      'GAME':     ['DICE','CARD','MATCH','KING','QUEEN','KNIGHT','BOARD','SCORE'],
+      'POWER':    ['CHARGE','FORCE','STRIKE','BOLT','SPARK','ENGINE','PUMP','DRIVE'],
+      'CLOTHING': ['COAT','BOOT','CAP','DRESS','SHOE','MASK','BAND'],
+      'SILENT':   ['SHADOW','ECHO','GHOST','WHISPER','FADE','DRIFT']
+    };
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function newGame() {
+      const selected = shuffle(WORDS).slice(0, 25);
+      const shuffledIdx = shuffle([...Array(25).keys()]);
+      const assignments = new Array(25).fill('neutral');
+
+      // 9 red, 8 blue, 1 black, 7 neutral
+      for (let i = 0; i < 9;  i++) assignments[shuffledIdx[i]]       = 'red';
+      for (let i = 9; i < 17; i++) assignments[shuffledIdx[i]]       = 'blue';
+      assignments[shuffledIdx[17]] = 'black';
+      // rest stay neutral
+
+      return {
+        grid: selected,
+        assignments,
+        revealed: new Array(25).fill(false),
+        turn: 'red',       // red = human's turn
+        redLeft: 9,
+        blueLeft: 8,
+        status: 'playing', // 'playing' | 'won' | 'lost'
+        clue: null,
+        clueCount: 0,
+        guessesLeft: 0
+      };
+    }
+
+    function generateClue(state) {
+      // Collect unrevealed red word indices
+      const redWords = [];
+      for (let i = 0; i < 25; i++) {
+        if (state.assignments[i] === 'red' && !state.revealed[i]) {
+          redWords.push(state.grid[i]);
+        }
+      }
+      if (redWords.length === 0) return { word: 'PASS', count: 0 };
+
+      // Find best clue category that covers most red words (avoid black)
+      const blackWords = [];
+      for (let i = 0; i < 25; i++) {
+        if (state.assignments[i] === 'black' && !state.revealed[i]) {
+          blackWords.push(state.grid[i]);
+        }
+      }
+
+      let bestClue = null;
+      let bestCount = 0;
+
+      const clueEntries = Object.entries(CLUE_CATEGORIES);
+      const shuffledClues = shuffle(clueEntries);
+
+      for (const [clueWord, relatedWords] of shuffledClues) {
+        // Skip if clue word is in the grid
+        if (state.grid.includes(clueWord)) continue;
+
+        // Count how many red words this clue covers
+        const redMatches = redWords.filter(w => relatedWords.includes(w));
+        // Count black matches (risky — avoid)
+        const blackMatches = blackWords.filter(w => relatedWords.includes(w));
+
+        if (blackMatches.length > 0) continue; // never risk the assassin
+
+        if (redMatches.length > bestCount) {
+          bestCount = redMatches.length;
+          bestClue = clueWord;
+        }
+      }
+
+      if (!bestClue) {
+        // Fallback: pick a random clue word not in the grid
+        const fallbacks = Object.keys(CLUE_CATEGORIES).filter(w => !state.grid.includes(w));
+        bestClue = fallbacks[Math.floor(Math.random() * fallbacks.length)] || 'SIGNAL';
+        bestCount = 1;
+      }
+
+      // Cap count at min(bestCount, redLeft, 3) but at least 1
+      const count = Math.min(Math.max(bestCount, 1), Math.min(state.redLeft, 3));
+
+      return { word: bestClue, count };
+    }
+
+    function reveal(state, index) {
+      if (state.revealed[index] || state.status !== 'playing') return state;
+      if (state.turn !== 'red') return state;
+
+      const s = {
+        ...state,
+        revealed: [...state.revealed],
+        redLeft: state.redLeft,
+        blueLeft: state.blueLeft,
+        guessesLeft: state.guessesLeft
+      };
+
+      s.revealed[index] = true;
+      const type = s.assignments[index];
+
+      if (type === 'black') {
+        s.status = 'lost';
+        s.loseReason = 'assassin';
+        return s;
+      }
+
+      if (type === 'red') {
+        s.redLeft--;
+        s.guessesLeft--;
+        if (s.redLeft === 0) {
+          s.status = 'won';
+          return s;
+        }
+        // If guesses used up, end turn
+        if (s.guessesLeft <= 0) {
+          s.turn = 'blue';
+          s.clue = null;
+          s.clueCount = 0;
+        }
+        return s;
+      }
+
+      // Hit neutral or blue — turn ends
+      if (type === 'blue') s.blueLeft--;
+      s.turn = 'blue';
+      s.clue = null;
+      s.clueCount = 0;
+      s.guessesLeft = 0;
+      return s;
+    }
+
+    function endTurn(state) {
+      // Human passes — AI reveals one blue card
+      const s = {
+        ...state,
+        revealed: [...state.revealed],
+        turn: 'blue'
+      };
+      s.clue = null;
+      s.clueCount = 0;
+      s.guessesLeft = 0;
+      return aiTakeTurn(s);
+    }
+
+    function aiTakeTurn(state) {
+      if (state.status !== 'playing') return state;
+
+      const s = {
+        ...state,
+        revealed: [...state.revealed],
+        blueLeft: state.blueLeft
+      };
+
+      // Find unrevealed blue cards
+      const blueUnrevealed = [];
+      for (let i = 0; i < 25; i++) {
+        if (s.assignments[i] === 'blue' && !s.revealed[i]) blueUnrevealed.push(i);
+      }
+
+      if (blueUnrevealed.length > 0) {
+        // Reveal first available blue card
+        const pick = blueUnrevealed[0];
+        s.revealed[pick] = true;
+        s.blueLeft--;
+
+        if (s.blueLeft === 0) {
+          s.status = 'lost';
+          s.loseReason = 'blue';
+        }
+      }
+
+      s.turn = 'red';
+      return s;
+    }
+
+    function isGameOver(state) {
+      return state.status !== 'playing';
+    }
+
+    return { newGame, generateClue, reveal, endTurn, aiTakeTurn, isGameOver };
+  })();
+  </script>
+
+  <!-- ============================================================
+       CODENAMES UI
+       ============================================================ -->
+  <script id="codenames-ui">
+  (() => {
+    const section = document.getElementById('codenamesSection');
+    let state = null;
+    let isAIThinking = false;
+
+    function buildUI() {
+      section.innerHTML = `
+        <div class="cn-clue-bar">
+          <div class="cn-clue-label" id="cnClueDisplay">Waiting for AI Spymaster...</div>
+          <div class="cn-score-bar">
+            <span>&#128308; <span class="cn-score-red" id="cnRedLeft">9</span></span>
+            <span>&#128309; <span class="cn-score-blue" id="cnBlueLeft">8</span></span>
+            <span id="cnTurnBadge" class="cn-turn-badge human-turn">YOUR TURN</span>
+          </div>
+        </div>
+        <div class="cn-grid" id="cnGrid"></div>
+        <div class="cn-actions">
+          <button class="cn-btn cn-btn-accent" id="cnPassBtn" disabled>Pass Turn</button>
+          <button class="cn-btn" id="cnNewGameBtn">New Game</button>
+          <span class="cn-status-msg" id="cnStatus"></span>
+        </div>
+        <div class="cn-modal-overlay" id="cnModal">
+          <div class="cn-modal">
+            <span class="cn-modal-icon" id="cnModalIcon"></span>
+            <h2 id="cnModalTitle"></h2>
+            <p id="cnModalDesc"></p>
+            <button class="cn-btn cn-btn-accent" id="cnModalBtn">Play Again</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('cnPassBtn').addEventListener('click', onPass);
+      document.getElementById('cnNewGameBtn').addEventListener('click', startNewGame);
+      document.getElementById('cnModalBtn').addEventListener('click', () => {
+        document.getElementById('cnModal').classList.remove('visible');
+        startNewGame();
+      });
+    }
+
+    function startNewGame() {
+      state = CodenamesEngine.newGame();
+      isAIThinking = false;
+      renderState();
+      // AI generates clue after brief delay
+      setTimeout(aiGenerateClue, 600);
+    }
+
+    function aiGenerateClue() {
+      if (!state || state.status !== 'playing' || state.turn !== 'red') return;
+
+      setStatus('<span class="cn-ai-thinking">AI Spymaster is thinking</span>');
+      isAIThinking = true;
+      renderGrid(); // disable clicks while thinking
+
+      setTimeout(() => {
+        const clue = CodenamesEngine.generateClue(state);
+        state = {
+          ...state,
+          clue: clue.word,
+          clueCount: clue.count,
+          guessesLeft: clue.count + 1 // classic codenames: count + 1 guesses
+        };
+        isAIThinking = false;
+        renderState();
+        setStatus(`You have ${state.guessesLeft} guess${state.guessesLeft !== 1 ? 'es' : ''}.`);
+        document.getElementById('cnPassBtn').disabled = false;
+      }, 900 + Math.random() * 700);
+    }
+
+    function renderState() {
+      updateScoreBar();
+      renderGrid();
+      updateClueDisplay();
+      updateTurnBadge();
+    }
+
+    function updateScoreBar() {
+      const redEl  = document.getElementById('cnRedLeft');
+      const blueEl = document.getElementById('cnBlueLeft');
+      if (redEl)  redEl.textContent  = state.redLeft;
+      if (blueEl) blueEl.textContent = state.blueLeft;
+    }
+
+    function updateClueDisplay() {
+      const el = document.getElementById('cnClueDisplay');
+      if (!el) return;
+      if (state.clue) {
+        el.innerHTML = `CLUE: <span>${state.clue}</span> &times; ${state.clueCount}`;
+      } else if (state.turn === 'red') {
+        el.innerHTML = 'Waiting for AI Spymaster...';
+      } else {
+        el.innerHTML = 'AI Blue team is playing...';
+      }
+    }
+
+    function updateTurnBadge() {
+      const badge = document.getElementById('cnTurnBadge');
+      if (!badge) return;
+      if (state.turn === 'red') {
+        badge.className = 'cn-turn-badge human-turn';
+        badge.textContent = 'YOUR TURN';
+      } else {
+        badge.className = 'cn-turn-badge ai-turn';
+        badge.textContent = 'AI TURN';
+      }
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('cnGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      for (let i = 0; i < 25; i++) {
+        const card = document.createElement('div');
+        card.className = 'cn-card';
+        card.textContent = state.grid[i];
+
+        if (state.revealed[i]) {
+          card.classList.add('revealed', `revealed-${state.assignments[i]}`);
+        } else {
+          // Only allow clicks if it's the human's turn and clue has been given and not thinking
+          const canClick = state.turn === 'red' && state.clue && !isAIThinking && state.status === 'playing' && state.guessesLeft > 0;
+          if (canClick) {
+            card.addEventListener('click', () => onCardClick(i));
+          } else {
+            card.style.cursor = 'default';
+          }
+        }
+
+        grid.appendChild(card);
+      }
+    }
+
+    function onCardClick(index) {
+      if (isAIThinking || state.status !== 'playing' || state.turn !== 'red' || !state.clue) return;
+      if (state.guessesLeft <= 0) return;
+
+      const card = document.getElementById('cnGrid').children[index];
+      card.classList.add('flip-anim');
+
+      setTimeout(() => {
+        const prevState = state;
+        state = CodenamesEngine.reveal(state, index);
+
+        if (CodenamesEngine.isGameOver(state)) {
+          renderState();
+          showGameOver();
+          return;
+        }
+
+        renderState();
+
+        if (state.turn === 'blue') {
+          // Human ended their turn (neutral/blue hit or guesses used)
+          document.getElementById('cnPassBtn').disabled = true;
+          setStatus('<span class="cn-ai-thinking">AI Blue team is playing</span>');
+          setTimeout(aiPlayTurn, 1200);
+        } else {
+          // Still red turn
+          const remaining = state.guessesLeft;
+          setStatus(`${remaining} guess${remaining !== 1 ? 'es' : ''} remaining.`);
+        }
+      }, 180);
+    }
+
+    function onPass() {
+      if (state.status !== 'playing' || state.turn !== 'red') return;
+      document.getElementById('cnPassBtn').disabled = true;
+      state = { ...state, turn: 'blue', clue: null, clueCount: 0, guessesLeft: 0 };
+      updateTurnBadge();
+      updateClueDisplay();
+      setStatus('<span class="cn-ai-thinking">AI Blue team is playing</span>');
+      setTimeout(aiPlayTurn, 1200);
+    }
+
+    function aiPlayTurn() {
+      if (state.status !== 'playing') return;
+
+      state = CodenamesEngine.aiTakeTurn(state);
+      renderState();
+
+      if (CodenamesEngine.isGameOver(state)) {
+        showGameOver();
+        return;
+      }
+
+      // Back to human's turn — generate new clue
+      setStatus('');
+      document.getElementById('cnPassBtn').disabled = true;
+      setTimeout(aiGenerateClue, 500);
+    }
+
+    function setStatus(html) {
+      const el = document.getElementById('cnStatus');
+      if (el) {
+        el.innerHTML = html;
+        el.className = html ? 'cn-status-msg highlight' : 'cn-status-msg';
+      }
+    }
+
+    function showGameOver() {
+      const modal  = document.getElementById('cnModal');
+      const icon   = document.getElementById('cnModalIcon');
+      const title  = document.getElementById('cnModalTitle');
+      const desc   = document.getElementById('cnModalDesc');
+
+      if (state.status === 'won') {
+        icon.textContent  = '🏆';
+        title.textContent = 'You Won!';
+        desc.textContent  = 'All 9 red agents found. Outstanding fieldwork, Agent.';
+      } else if (state.loseReason === 'assassin') {
+        icon.textContent  = '💀';
+        title.textContent = 'Game Over';
+        desc.textContent  = 'You hit the assassin. Mission failed.';
+      } else {
+        icon.textContent  = '😔';
+        title.textContent = 'Game Over';
+        desc.textContent  = 'The Blue team revealed all their agents first. Better luck next time.';
+      }
+
+      setTimeout(() => modal.classList.add('visible'), 200);
+    }
+
+    // Boot
+    buildUI();
+    startNewGame();
+  })();
+  </script>
+</body>
+</html>

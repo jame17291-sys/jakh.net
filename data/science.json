@@ -844,16 +844,16 @@
       "id": "science-052",
       "difficulty": "medium",
       "subcategory": {
-        "en": "Chemistry",
-        "ar": "الكيمياء"
+        "en": "Physics",
+        "ar": "الفيزياء"
       },
       "question": {
-        "en": "What is the half-life of a radioactive substance?",
-        "ar": "ما عمر النصف للمادة المشعة؟"
+        "en": "What is the SI unit of energy?",
+        "ar": "ما وحدة الطاقة في النظام الدولي للوحدات؟"
       },
       "answer": {
-        "en": "The time it takes for half of a radioactive sample to decay into another element or isotope",
-        "ar": "الزمن اللازم لتحلّل نصف عينة مشعة إلى عنصر أو نظير آخر"
+        "en": "Joule (J)",
+        "ar": "الجول (J)"
       }
     },
     {
@@ -944,12 +944,12 @@
         "ar": "الفيزياء"
       },
       "question": {
-        "en": "What is the difference between conduction, convection, and radiation as heat transfer methods?",
-        "ar": "ما الفرق بين التوصيل والحمل الحراري والإشعاع كطرق لانتقال الحرارة؟"
+        "en": "What is the Doppler Effect?",
+        "ar": "ما التأثير دوبلر؟"
       },
       "answer": {
-        "en": "Conduction: heat through direct contact; convection: heat through fluid movement; radiation: heat through electromagnetic waves (no medium needed)",
-        "ar": "التوصيل: انتقال الحرارة بالتلامس المباشر؛ الحمل: عبر حركة الموائع؛ الإشعاع: عبر الموجات الكهرومغناطيسية (لا يحتاج وسطاً)"
+        "en": "The change in frequency of a wave relative to a moving observer or source",
+        "ar": "التغيّر في تردد الموجة بالنسبة للمراقب أو المصدر المتحرك"
       }
     },
     {
@@ -1169,7 +1169,7 @@
       },
       "question": {
         "en": "What is the hybridisation of carbon in methane (CH₄)?",
-        "ar": "ما تهجين الكربون في الميثان (CH₄)؟"
+        "ar": "ما التهجين الهجيني للكربون في الميثان (CH₄)؟"
       },
       "answer": {
         "en": "sp³",
@@ -1313,7 +1313,7 @@
       },
       "question": {
         "en": "What is the Born-Haber cycle used for?",
-        "ar": "لماذا تُستخدم دورة بورن-هابر؟"
+        "ar": "لماذا يُستخدم دورة بورن-هابر؟"
       },
       "answer": {
         "en": "To calculate lattice energy of ionic compounds using Hess's Law",

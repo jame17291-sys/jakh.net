@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>document.documentElement.dataset.theme="dark";</script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content="3,000+ free bilingual riddles and quizzes in English and Arabic. 44 categories from math and science to history, football, anime, and kids puzzles. Test your knowledge with clear difficulty levels — easy, medium, hard, and very advanced." />
     <title>JAKH Riddles — Free Bilingual Riddles, Quizzes & Brain Teasers in English and Arabic</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/" />
     <meta name="robots" content="index,follow" />
@@ -124,28 +119,57 @@
             {"@type":"ListItem","position":43,"name":"Anime Universe Quiz","url":"https://jakh.net/anime.html"},
             {"@type":"ListItem","position":44,"name":"Spacetoon Classics Quiz","url":"https://jakh.net/ayam-tayebeen.html"}
           ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://jakh.net/#organization",
+          "name": "JAKH Riddles",
+          "url": "https://jakh.net/",
+          "logo": "https://jakh.net/assets/logo.png",
+          "sameAs": [
+            "https://www.instagram.com/jakhriddles/",
+            "https://www.facebook.com/profile.php?id=61588921894305"
+          ]
         }
       ]
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=1777150000" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
+    <link rel="stylesheet" href="styles.css?v=1785236400" />
     <link rel="manifest" href="manifest.webmanifest" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VQZQNK6VSV');
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          if (reg) reg.update();
+        });
+      }
+    </script>
+    <script src="fluid-shader.js" defer></script>
   </head>
   <body data-page="home">
 <a href="#top" class="skip-link">Skip to main content</a>
-    <div class="bg-orb orb-1" aria-hidden="true"></div>
-    <div class="bg-orb orb-2" aria-hidden="true"></div>
-    <div class="grid-glow" aria-hidden="true"></div>
 
     <header class="site-header shell">
       <a href="index.html" class="brand" aria-label="JAKH Riddles home">
-        <img src="assets/logo.svg" alt="JAKH Riddles" class="brand-logo" width="180" height="44" />
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" style="width: 68px; height: 36px; object-fit: contain;" loading="eager" fetchpriority="high" /></picture>
       </a>
 
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="index.html#categories" data-i18n="navCategories">Categories</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Categories</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
 
       </nav>
@@ -158,93 +182,122 @@
             <option value="ar">العربية</option>
           </select>
         </label>
-        <label>
-          <span data-i18n="theme">Theme</span>
-          <select id="themeSelect">
-            <option value="system" data-i18n="themeSystem">System</option>
-            <option value="dark" data-i18n="themeDark">Dark</option>
-            <option value="light" data-i18n="themeLight">Light</option>
-          </select>
-        </label>
 
       </div>
     </header>
 
-    
+
 <main id="top">
-  <section class="hero shell hero-home">
-    <div class="hero-copy">
-      <p class="eyebrow" data-i18n="homeEyebrow">Fun, smart, and mobile-first learning</p>
-      <h1 data-i18n="homeTitle">Learn faster with premium riddles, quizzes, and challenge pages.</h1>
-      <p class="hero-text" data-i18n="homeText">JAKH turns learning into short, satisfying wins. Browse curated categories, save progress, build teams, and move from free fun into harder premium-ready challenge levels without losing clarity or speed.</p>
-      <div class="hero-actions">
-        <a class="primary-btn" href="#categories" data-i18n="browseCategories">Browse categories</a>
-        <button class="secondary-btn" id="heroAuthBtn" data-i18n="createAccount">Create account</button>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="kv-hero" id="kv-hero">
+    <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
+    <canvas class="kv-fluid-canvas" id="kvFluidCanvas" aria-hidden="true"></canvas>
+
+    <div class="kv-hero-content">
+      <p class="kv-eyebrow" data-i18n="homeEyebrow">3,000+ Bilingual Riddles — English &amp; Arabic</p>
+
+      <h1 class="kv-hero-title">JAKH</h1>
+
+      <p class="kv-hero-subtitle" data-i18n="homeTitle">
+        Pick a topic. Flip cards. See how much you know.
+      </p>
+
+      <div class="kv-hero-cta">
+          <a href="mind-lab.html" class="kv-btn-primary" data-i18n="browseCategories">Explore Collections</a>
+        <a href="play.html" class="kv-btn-outline" data-i18n="heroGameHub">Game Hub</a>
       </div>
-      <div class="hero-badges">
-        <span id="badgeCategories">0 categories</span>
-        <span id="badgeQuestions">0 questions</span>
+
+      <div class="kv-hero-stats">
+        <div class="kv-stat">
+          <span class="kv-stat-number" id="badgeCategories">15</span>
+          <span class="kv-stat-label" data-i18n="statCategories">Collections</span>
+        </div>
+        <div class="kv-stat-divider" aria-hidden="true"></div>
+        <div class="kv-stat">
+          <span class="kv-stat-number" id="badgeQuestions">3,553</span>
+          <span class="kv-stat-label" data-i18n="statQuestions">Questions</span>
+        </div>
+        <div class="kv-stat-divider" aria-hidden="true"></div>
+        <div class="kv-stat">
+          <span class="kv-stat-number">2</span>
+          <span class="kv-stat-label" data-i18n="statLanguages">Languages</span>
+        </div>
       </div>
     </div>
 
-    <aside class="hero-panel hero-panel-rich" aria-label="Account snapshot">
-      <div id="accountSummaryMount"></div>
-    </aside>
+    <div class="kv-scroll-indicator" aria-hidden="true"></div>
   </section>
 
-  <div id="resumeMount"></div>
-  <div id="dailyChallengeMount"></div>
+  <!-- ═══════════════════ PORTALS ═══════════════════ -->
+  <section class="kv-portals shell">
+    <div class="kv-portals-grid">
 
-  <section class="shell section-block" id="categories">
-    <div class="section-heading library-head">
-      <div>
-        <p class="eyebrow" data-i18n="categoryEyebrow">Category directory</p>
-        <h2 data-i18n="categoryTitle">Choose a page and start from there</h2>
-      </div>
-      <p class="section-note" data-i18n="categoryText">Search categories, filter by track, and open a dedicated page for any subject. The home page does not show question cards directly.</p>
+      <!-- Mind Lab -->
+      <a class="kv-portal-card kv-portal-mind" href="mind-lab.html" aria-label="Enter The Mind Lab">
+        <p class="kv-portal-tag" data-i18n="portalMindTag">Mind Lab</p>
+        <span class="kv-portal-icon" aria-hidden="true">🧠</span>
+        <h2 class="kv-portal-title" data-i18n="portalMindTitle">The Mind Lab</h2>
+        <p class="kv-portal-desc" data-i18n="portalMindDesc">3,000+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.</p>
+        <div class="kv-portal-stats">
+          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">15 collections</span>
+          <span class="kv-portal-stat">Arabic &amp; English</span>
+        </div>
+        <span class="kv-portal-cta" data-i18n="portalMindCta">Explore Riddles →</span>
+      </a>
+
+      <!-- Game Hub -->
+      <a class="kv-portal-card kv-portal-games" href="play.html" aria-label="Enter The Game Hub">
+        <p class="kv-portal-tag" data-i18n="portalGamesTag">Game Hub</p>
+        <span class="kv-portal-icon" aria-hidden="true">🎮</span>
+        <h2 class="kv-portal-title" data-i18n="portalGamesTitle">The Game Hub</h2>
+        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.</p>
+        <div class="kv-portal-stats">
+          <span class="kv-portal-stat" data-i18n="portalGamesStat1">10 games live</span>
+          <span class="kv-portal-stat" data-i18n="portalGamesStat2">All in browser</span>
+        </div>
+        <span class="kv-portal-cta" data-i18n="portalGamesCta">Play Now →</span>
+      </a>
+
     </div>
-
-    <section class="control-panel" aria-label="Category filters">
-      <label class="search-field">
-        <span data-i18n="searchCategoriesLabel">Search category pages</span>
-        <input id="categorySearchInput" type="search" autocomplete="off" placeholder="Search by category, topic, or sector..." />
-      </label>
-
-      <div>
-        <p class="mini-label" data-i18n="tracksLabel">Tracks</p>
-        <div class="chip-row" id="clusterFilters"></div>
-      </div>
-    </section>
-
-    <div class="library-toolbar">
-      <p id="directoryResultsLabel"></p>
-      <div style="display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;">
-        <button class="random-btn" id="randomCategoryBtn">🎲 Surprise me</button>
-        <button class="text-btn" id="resetDirectoryBtn" data-i18n="resetDirectoryFilters">Reset filters</button>
-      </div>
-    </div>
-
-    <div id="categoryDirectoryGrid" class="category-grid" aria-live="polite"></div>
   </section>
+
+  <!-- ═══════════════════ WIDGETS ═══════════════════ -->
+  <div class="kv-widgets-row shell">
+    <div id="accountSummaryMount"></div>
+  </div>
+
+
 </main>
 
-
-    <section class="suggestion-box shell" id="suggestionBox">
-      <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
-      <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
-      <div class="suggestion-form" id="suggestionForm">
-        <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" placeholder="Your idea…"></textarea>
-        <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" placeholder="Email (optional)" />
-        <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">Submit Idea</button>
-      </div>
-      <p class="suggestion-thanks hidden" id="suggestionThanks" data-i18n="suggestThanks">Thank you! We'll take a look.</p>
-    </section>
-
     <footer class="site-footer shell">
-      <p data-i18n="footerNote">All rights reserved to JAKH 2026</p>
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
     </footer>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- Back to top button -->
+    <button id="backToTopBtn" aria-label="Back to top" title="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
 
     <div id="authModal" class="modal hidden" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="auth"></div>
@@ -261,6 +314,59 @@
     </div>
 
 
-    <script src="app.js?v=1777150000"></script>
+    <script defer src="app.js?v=1785236400"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var canvas = document.getElementById('kvFluidCanvas');
+        if (canvas && window.FluidShader) {
+          var mounted = window.FluidShader.mount(canvas);
+          if (!mounted) {
+            canvas.style.display = 'none';
+          } else if ('IntersectionObserver' in window) {
+            var heroSection = document.getElementById('kv-hero');
+            if (heroSection) {
+              var shaderIO = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                  if (entry.isIntersecting) {
+                    window.FluidShader.resume();
+                  } else {
+                    window.FluidShader.pause();
+                  }
+                });
+              }, { threshold: 0.05 });
+              shaderIO.observe(heroSection);
+            }
+          }
+        }
+      });
+    </script>
+    <script>
+      // Scroll-reveal: IntersectionObserver for category cards
+      (function() {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        function observeCards() {
+          document.querySelectorAll('.category-card:not(.is-visible)').forEach(function(c) { observer.observe(c); });
+        }
+        observeCards();
+        var gridEl = document.getElementById('categoryDirectoryGrid');
+        if (gridEl && window.MutationObserver) {
+          new MutationObserver(observeCards).observe(gridEl, { childList: true });
+        }
+      })();
+      // Back to Top
+      (function() {
+        var btn = document.getElementById('backToTopBtn');
+        if (!btn) return;
+        window.addEventListener('scroll', function() { btn.classList.toggle('visible', window.scrollY > 400); }, { passive: true });
+        btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+    </script>
   </body>
 </html>

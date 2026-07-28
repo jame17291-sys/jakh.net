@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.dataset.theme="dark";</script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="Play Mastermind on JAKH Riddles — crack the 4-colour code in 10 attempts." />
+    <title>Mastermind | JAKH Riddles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/mastermind" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="mastermind game, code-breaking puzzle, mastermind online, jakh riddles, logic game" />
+    <meta property="og:title" content="Mastermind | JAKH Riddles" />
+    <meta property="og:description" content="Play Mastermind on JAKH Riddles — crack the 4-colour code in 10 attempts." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jakh.net/mastermind" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="JAKH Riddles" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mastermind | JAKH Riddles" />
+    <meta name="twitter:description" content="Play Mastermind on JAKH Riddles — crack the 4-colour code in 10 attempts." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
+    <link rel="stylesheet" href="styles.css?v=1785236400" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VQZQNK6VSV');
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          if (reg) reg.update();
+        });
+      }
+    </script>
+
+    <style>
+      /* ── Mastermind page styles ── */
+      .mm-wrapper {
+        max-width: 460px;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+      }
+
+      /* Hero */
+      .mm-hero {
+        text-align: center;
+        padding: 2rem 0 1.5rem;
+      }
+      .mm-hero h1 {
+        font-family: var(--font-display);
+        font-variation-settings: 'opsz' 72, 'SOFT' 50;
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        letter-spacing: -0.02em;
+        font-weight: 400;
+        margin: 0 0 0.4rem;
+        color: var(--text);
+      }
+      .mm-hero p {
+        color: var(--muted);
+        font-size: 1rem;
+        margin: 0 0 0.5rem;
+      }
+      .mm-attempt-counter {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gilt);
+        background: rgba(201, 162, 39, 0.12);
+        border: 1px solid rgba(201, 162, 39, 0.25);
+        border-radius: 999px;
+        padding: 0.25rem 0.9rem;
+      }
+
+      /* Board */
+      .mm-board {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      /* Row */
+      .mm-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .mm-row-num {
+        font-size: 0.7rem;
+        color: var(--muted);
+        width: 1.4rem;
+        text-align: center;
+        flex-shrink: 0;
+        font-variant-numeric: tabular-nums;
+      }
+      .mm-pegs {
+        display: flex;
+        gap: 0.45rem;
+        flex: 1;
+      }
+      .mm-peg {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px dashed var(--line-strong);
+        background: transparent;
+        cursor: pointer;
+        transition: transform 0.1s, box-shadow 0.15s;
+        flex-shrink: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      @media (max-width: 480px) {
+        .mm-peg { width: 44px; height: 44px; }
+        .mm-swatch { width: 44px; height: 44px; }
+        .mm-fb-peg { width: 16px; height: 16px; }
+        .mm-feedback { width: 44px; gap: 5px; }
+      }
+      .mm-peg.filled {
+        border: none;
+      }
+      .mm-peg.active-slot {
+        box-shadow: 0 0 0 3px var(--accent);
+        border-color: transparent;
+      }
+      .mm-peg:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .mm-peg:hover:not(:disabled) {
+        transform: scale(1.08);
+      }
+      .mm-row.past .mm-peg {
+        cursor: default;
+      }
+      .mm-row.past .mm-peg:hover {
+        transform: none;
+      }
+
+      /* Feedback pegs 2×2 */
+      .mm-feedback {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        width: 36px;
+        flex-shrink: 0;
+      }
+      .mm-fb-peg {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+      }
+      .mm-fb-peg.black {
+        background: var(--text);
+      }
+      .mm-fb-peg.white {
+        border: 2px solid var(--text);
+        background: transparent;
+      }
+      .mm-fb-peg.empty {
+        background: var(--line);
+      }
+
+      /* Active row highlight */
+      .mm-row.active-row {
+        background: rgba(232, 97, 60, 0.06);
+        border-radius: 10px;
+        padding: 0.3rem 0.3rem;
+        margin: -0.3rem -0.3rem;
+      }
+
+      /* Palette */
+      .mm-palette-section {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius);
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .mm-palette-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.65rem;
+      }
+      .mm-palette {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .mm-swatch {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: transform 0.1s, box-shadow 0.15s;
+        position: relative;
+      }
+      .mm-swatch:hover {
+        transform: scale(1.1);
+      }
+      .mm-swatch.selected {
+        box-shadow: 0 0 0 3px var(--accent), 0 0 0 5px rgba(232, 97, 60, 0.3);
+        transform: scale(1.12);
+      }
+      .mm-swatch:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+      .mm-color-name {
+        font-size: 0.7rem;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 0.5rem;
+        min-height: 1em;
+      }
+
+      /* Action buttons */
+      .mm-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+      }
+      .mm-btn {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: var(--radius-sm);
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.15s, transform 0.1s;
+      }
+      .mm-btn:active {
+        transform: scale(0.97);
+      }
+      .mm-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      .mm-btn-submit {
+        background: var(--accent);
+        color: #fff;
+      }
+      .mm-btn-hint {
+        background: var(--panel-strong);
+        color: var(--text);
+        border: 1px solid var(--line-strong);
+      }
+      .mm-btn-new {
+        background: var(--easy);
+        color: #0d1224;
+        font-weight: 700;
+      }
+
+      /* Result banner */
+      .mm-result {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius);
+        padding: 1.25rem 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .mm-result.visible {
+        display: block;
+      }
+      .mm-result-icon {
+        font-size: 2.4rem;
+        margin-bottom: 0.5rem;
+      }
+      .mm-result-msg {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+      }
+      .mm-result-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+      .mm-secret-reveal {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .mm-secret-peg {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+
+      /* Hint loading */
+      .mm-hint-loading {
+        display: inline-block;
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 0.4rem;
+        min-height: 1.2em;
+      }
+    </style>
+  </head>
+  <body data-page="game">
+    <a href="#top" class="skip-link">Skip to main content</a>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+    <div class="grid-glow" aria-hidden="true"></div>
+
+    <header class="site-header shell">
+      <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp" />
+          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
+        </picture>
+      </a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a class="ghost-btn" href="index.html">Home</a>
+        <a class="ghost-btn" href="mind-lab.html">Categories</a>
+      </nav>
+
+      <div class="header-selects" aria-label="Language controls">
+        <label>
+          <span>Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="mm-wrapper">
+
+        <!-- Hero -->
+        <div class="mm-hero">
+          <h1>&#9822; Mastermind</h1>
+          <p>Crack the 4-colour code in 10 attempts</p>
+          <span class="mm-attempt-counter" id="attemptCounter">0 / 10 attempts</span>
+        </div>
+
+        <!-- Result banner (hidden until game ends) -->
+        <div class="mm-result" id="resultBanner" role="status" aria-live="polite">
+          <div class="mm-result-icon" id="resultIcon"></div>
+          <div class="mm-result-msg" id="resultMsg"></div>
+          <div class="mm-result-sub" id="resultSub"></div>
+          <div class="mm-secret-reveal" id="secretReveal" aria-label="Secret code"></div>
+          <button class="mm-btn mm-btn-new" id="newGameBtn">New Game</button>
+        </div>
+
+        <!-- Board -->
+        <div class="mm-board" id="mmBoard" aria-label="Mastermind guessing board"></div>
+
+        <!-- Palette & controls -->
+        <div class="mm-palette-section" id="paletteSection">
+          <div class="mm-palette-label">Select a colour then tap a slot</div>
+          <div class="mm-palette" id="palette" role="group" aria-label="Colour palette"></div>
+          <div class="mm-color-name" id="colorName" aria-live="polite"></div>
+          <div class="mm-actions">
+            <button class="mm-btn mm-btn-hint" id="hintBtn" title="Fill with optimal guess">Hint</button>
+            <button class="mm-btn mm-btn-submit" id="submitBtn">Submit Guess</button>
+          </div>
+          <div class="mm-hint-loading" id="hintStatus" aria-live="polite"></div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- SECTION 1: HEADLESS MASTERMIND ENGINE (zero DOM)   -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <script id="mastermind-engine">
+    const MastermindEngine = (() => {
+      const COLORS = [
+        '#E8613C', // 0 Ember
+        '#C9A227', // 1 Gold
+        '#48d597', // 2 Mint
+        '#9f7cff', // 3 Violet
+        '#ff7a8a', // 4 Rose
+        '#26C6DA', // 5 Cyan
+        '#F0E8D8', // 6 Parchment
+        '#6B4E8C', // 7 Plum
+      ];
+      const COLOR_NAMES = ['Ember', 'Gold', 'Mint', 'Violet', 'Rose', 'Cyan', 'Parchment', 'Plum'];
+      const CODE_LENGTH = 4;
+      const MAX_ATTEMPTS = 10;
+      const NUM_COLORS = COLORS.length; // 8
+
+      // ── Encode / decode helpers ──────────────────────────
+      // A code is an array of 4 ints [0..7]. We also work with
+      // flat integer keys: c[0]*512 + c[1]*64 + c[2]*8 + c[3]
+      function encode(code) {
+        return code[0] * 512 + code[1] * 64 + code[2] * 8 + code[3];
+      }
+      function decode(key) {
+        const c = [];
+        let k = key;
+        for (let i = 0; i < CODE_LENGTH; i++) {
+          c.unshift(k % NUM_COLORS);
+          k = Math.floor(k / NUM_COLORS);
+        }
+        return c;
+      }
+
+      // ── Score two codes (no secret needed externally) ────
+      function scoreCodes(secret, guess) {
+        let blacks = 0;
+        let whites = 0;
+        const sc = new Array(NUM_COLORS).fill(0);
+        const gc = new Array(NUM_COLORS).fill(0);
+        for (let i = 0; i < CODE_LENGTH; i++) {
+          if (secret[i] === guess[i]) {
+            blacks++;
+          } else {
+            sc[secret[i]]++;
+            gc[guess[i]]++;
+          }
+        }
+        for (let c = 0; c < NUM_COLORS; c++) {
+          whites += Math.min(sc[c], gc[c]);
+        }
+        return { blacks, whites };
+      }
+
+      // ── All 8^4 = 4096 possible codes ───────────────────
+      const ALL_CODES = [];
+      for (let i = 0; i < 4096; i++) {
+        ALL_CODES.push(decode(i));
+      }
+
+      // ── newGame ──────────────────────────────────────────
+      function newGame() {
+        const secret = [];
+        for (let i = 0; i < CODE_LENGTH; i++) {
+          secret.push(Math.floor(Math.random() * NUM_COLORS));
+        }
+        return {
+          secret,
+          attempts: [],
+          status: 'playing', // 'playing' | 'won' | 'lost'
+          maxAttempts: MAX_ATTEMPTS,
+        };
+      }
+
+      // ── guess ────────────────────────────────────────────
+      function guess(state, code) {
+        if (state.status !== 'playing') return state;
+        const { blacks, whites } = scoreCodes(state.secret, code);
+        const attempt = { code: [...code], blacks, whites };
+        const attempts = [...state.attempts, attempt];
+        let status = 'playing';
+        if (blacks === CODE_LENGTH) {
+          status = 'won';
+        } else if (attempts.length >= MAX_ATTEMPTS) {
+          status = 'lost';
+        }
+        return { ...state, attempts, status };
+      }
+
+      // ── isWin / isLoss ───────────────────────────────────
+      function isWin(attempt) {
+        return attempt.blacks === CODE_LENGTH;
+      }
+      function isLoss(state) {
+        return state.status === 'lost';
+      }
+
+      // ── Knuth minimax hint ───────────────────────────────
+      // Maintains a remaining-possibilities set. Picks the guess
+      // that minimises the worst-case count of remaining codes
+      // after any possible feedback response.
+      //
+      // The classic first guess is [0,0,1,1] (two pairs) which
+      // guarantees a win in ≤5 guesses. We use the full minimax.
+
+      function getHint(state) {
+        if (state.status !== 'playing') return null;
+
+        // Filter ALL_CODES to those still consistent with all attempts
+        let remaining = ALL_CODES.filter(candidate => {
+          return state.attempts.every(attempt => {
+            const fb = scoreCodes(candidate, attempt.code);
+            return fb.blacks === attempt.blacks && fb.whites === attempt.whites;
+          });
+        });
+
+        if (remaining.length === 0) return null;
+        if (remaining.length === 1) return [...remaining[0]];
+
+        // On first move Knuth's canonical first guess is fastest
+        if (state.attempts.length === 0) {
+          return [0, 0, 1, 1];
+        }
+
+        // Minimax: for each candidate guess (from ALL_CODES), compute
+        // the worst-case size of the partitioned remaining set.
+        // Among all guesses prefer ones in `remaining` (breaks ties).
+        let bestScore = Infinity;
+        let bestGuess = remaining[0];
+        let bestInRemaining = remaining.some(r => encode(r) === encode(remaining[0]));
+
+        // To keep this fast in the browser we only evaluate from
+        // remaining when remaining <= 20, else we search all 4096.
+        const searchSet = remaining.length <= 20 ? remaining : ALL_CODES;
+
+        for (const candidate of searchSet) {
+          // Partition remaining by (blacks, whites) response
+          const partition = new Map(); // key = blacks*5+whites → count
+          for (const poss of remaining) {
+            const fb = scoreCodes(poss, candidate);
+            const key = fb.blacks * 5 + fb.whites;
+            partition.set(key, (partition.get(key) || 0) + 1);
+          }
+          // worst-case bucket size
+          let worst = 0;
+          for (const count of partition.values()) {
+            if (count > worst) worst = count;
+          }
+          const inRemaining = remaining === searchSet; // always true when short
+          const prefer = inRemaining && partition.has(CODE_LENGTH * 5 + 0); // winning guess
+
+          if (worst < bestScore || (worst === bestScore && prefer)) {
+            bestScore = worst;
+            bestGuess = candidate;
+          }
+        }
+
+        return [...bestGuess];
+      }
+
+      return {
+        COLORS,
+        COLOR_NAMES,
+        CODE_LENGTH,
+        MAX_ATTEMPTS,
+        newGame,
+        guess,
+        getHint,
+        isWin,
+        isLoss,
+      };
+    })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- SECTION 2: UI LAYER                                  -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <script id="mastermind-ui">
+    (() => {
+      const E = MastermindEngine;
+      const { COLORS, COLOR_NAMES, CODE_LENGTH, MAX_ATTEMPTS } = E;
+
+      // ── State ────────────────────────────────────────────
+      let gameState = E.newGame();
+      let selectedColor = 0;       // palette index
+      let currentSlots = new Array(CODE_LENGTH).fill(null); // null = empty
+
+      // ── DOM refs ─────────────────────────────────────────
+      const board        = document.getElementById('mmBoard');
+      const palette      = document.getElementById('palette');
+      const colorNameEl  = document.getElementById('colorName');
+      const submitBtn    = document.getElementById('submitBtn');
+      const hintBtn      = document.getElementById('hintBtn');
+      const hintStatus   = document.getElementById('hintStatus');
+      const attemptCtr   = document.getElementById('attemptCounter');
+      const resultBanner = document.getElementById('resultBanner');
+      const resultIcon   = document.getElementById('resultIcon');
+      const resultMsg    = document.getElementById('resultMsg');
+      const resultSub    = document.getElementById('resultSub');
+      const secretReveal = document.getElementById('secretReveal');
+      const newGameBtn   = document.getElementById('newGameBtn');
+      const paletteSection = document.getElementById('paletteSection');
+
+      // ── Build palette ─────────────────────────────────────
+      function buildPalette() {
+        palette.innerHTML = '';
+        COLORS.forEach((color, i) => {
+          const swatch = document.createElement('button');
+          swatch.className = 'mm-swatch' + (i === selectedColor ? ' selected' : '');
+          swatch.style.background = color;
+          swatch.setAttribute('aria-label', COLOR_NAMES[i]);
+          swatch.setAttribute('title', COLOR_NAMES[i]);
+          swatch.addEventListener('click', () => selectColor(i));
+          palette.appendChild(swatch);
+        });
+        colorNameEl.textContent = COLOR_NAMES[selectedColor];
+      }
+
+      function selectColor(i) {
+        selectedColor = i;
+        document.querySelectorAll('.mm-swatch').forEach((sw, idx) => {
+          sw.classList.toggle('selected', idx === i);
+        });
+        colorNameEl.textContent = COLOR_NAMES[i];
+      }
+
+      // ── Build board ───────────────────────────────────────
+      function buildBoard() {
+        board.innerHTML = '';
+        const totalRows = MAX_ATTEMPTS;
+
+        for (let rowIdx = 0; rowIdx < totalRows; rowIdx++) {
+          const attempt = gameState.attempts[rowIdx];
+          const isActive = rowIdx === gameState.attempts.length && gameState.status === 'playing';
+          const isPast = rowIdx < gameState.attempts.length;
+
+          const row = document.createElement('div');
+          row.className = 'mm-row' +
+            (isActive ? ' active-row' : '') +
+            (isPast ? ' past' : '');
+          row.setAttribute('aria-label', `Row ${rowIdx + 1}`);
+
+          // Row number
+          const numEl = document.createElement('span');
+          numEl.className = 'mm-row-num';
+          numEl.textContent = rowIdx + 1;
+          row.appendChild(numEl);
+
+          // Pegs container
+          const pegsEl = document.createElement('div');
+          pegsEl.className = 'mm-pegs';
+
+          for (let slotIdx = 0; slotIdx < CODE_LENGTH; slotIdx++) {
+            const peg = document.createElement('button');
+            peg.className = 'mm-peg';
+            peg.setAttribute('aria-label', `Slot ${slotIdx + 1}`);
+
+            if (isPast && attempt) {
+              const colorIdx = attempt.code[slotIdx];
+              peg.style.background = COLORS[colorIdx];
+              peg.classList.add('filled');
+              peg.disabled = true;
+              peg.setAttribute('aria-label', `Slot ${slotIdx + 1}: ${COLOR_NAMES[colorIdx]}`);
+            } else if (isActive) {
+              const colorIdx = currentSlots[slotIdx];
+              if (colorIdx !== null) {
+                peg.style.background = COLORS[colorIdx];
+                peg.classList.add('filled');
+                peg.setAttribute('aria-label', `Slot ${slotIdx + 1}: ${COLOR_NAMES[colorIdx]}`);
+              }
+              peg.addEventListener('click', () => fillSlot(slotIdx));
+            } else {
+              peg.disabled = true;
+              peg.style.opacity = '0.35';
+            }
+
+            pegsEl.appendChild(peg);
+          }
+          row.appendChild(pegsEl);
+
+          // Feedback pegs (2×2 grid)
+          const feedbackEl = document.createElement('div');
+          feedbackEl.className = 'mm-feedback';
+          feedbackEl.setAttribute('aria-label', isPast && attempt
+            ? `${attempt.blacks} black, ${attempt.whites} white`
+            : '');
+
+          // Order: blacks first, then whites, then empty
+          const feedbackOrder = [];
+          if (isPast && attempt) {
+            for (let b = 0; b < attempt.blacks; b++) feedbackOrder.push('black');
+            for (let w = 0; w < attempt.whites; w++) feedbackOrder.push('white');
+          }
+          while (feedbackOrder.length < CODE_LENGTH) feedbackOrder.push('empty');
+
+          feedbackOrder.forEach(type => {
+            const fp = document.createElement('div');
+            fp.className = 'mm-fb-peg ' + type;
+            feedbackEl.appendChild(fp);
+          });
+          row.appendChild(feedbackEl);
+
+          board.appendChild(row);
+        }
+      }
+
+      // ── Fill a slot in the current row ───────────────────
+      function fillSlot(slotIdx) {
+        if (gameState.status !== 'playing') return;
+        currentSlots[slotIdx] = selectedColor;
+        buildBoard();
+        updateSubmitState();
+      }
+
+      // ── Submit guess ──────────────────────────────────────
+      function submitGuess() {
+        if (gameState.status !== 'playing') return;
+        if (currentSlots.some(s => s === null)) return;
+
+        gameState = E.guess(gameState, [...currentSlots]);
+        currentSlots = new Array(CODE_LENGTH).fill(null);
+        buildBoard();
+        updateAttemptCounter();
+        updateSubmitState();
+
+        if (gameState.status === 'won') {
+          showResult('win');
+        } else if (gameState.status === 'lost') {
+          showResult('loss');
+        }
+      }
+
+      // ── Hint ──────────────────────────────────────────────
+      function applyHint() {
+        if (gameState.status !== 'playing') return;
+        hintStatus.textContent = 'Computing optimal guess…';
+        hintBtn.disabled = true;
+
+        // Use setTimeout to let the browser paint before heavy computation
+        setTimeout(() => {
+          const h = E.getHint(gameState);
+          if (h) {
+            currentSlots = [...h];
+            buildBoard();
+            updateSubmitState();
+          }
+          hintStatus.textContent = '';
+          hintBtn.disabled = false;
+        }, 16);
+      }
+
+      // ── Result banner ─────────────────────────────────────
+      function showResult(outcome) {
+        const n = gameState.attempts.length;
+        if (outcome === 'win') {
+          resultIcon.textContent = '✅';
+          resultMsg.textContent = `You cracked it in ${n} attempt${n === 1 ? '' : 's'}!`;
+          resultSub.textContent = 'Excellent deduction.';
+          secretReveal.innerHTML = '';
+        } else {
+          resultIcon.textContent = '💀';
+          resultMsg.textContent = 'Out of attempts!';
+          resultSub.textContent = 'The secret code was:';
+          secretReveal.innerHTML = '';
+          gameState.secret.forEach(colorIdx => {
+            const peg = document.createElement('div');
+            peg.className = 'mm-secret-peg';
+            peg.style.background = COLORS[colorIdx];
+            peg.setAttribute('title', COLOR_NAMES[colorIdx]);
+            secretReveal.appendChild(peg);
+          });
+        }
+        resultBanner.classList.add('visible');
+        paletteSection.style.opacity = '0.45';
+        paletteSection.style.pointerEvents = 'none';
+        submitBtn.disabled = true;
+        hintBtn.disabled = true;
+      }
+
+      // ── New game ──────────────────────────────────────────
+      function startNewGame() {
+        gameState = E.newGame();
+        currentSlots = new Array(CODE_LENGTH).fill(null);
+        selectedColor = 0;
+        resultBanner.classList.remove('visible');
+        paletteSection.style.opacity = '';
+        paletteSection.style.pointerEvents = '';
+        buildPalette();
+        buildBoard();
+        updateAttemptCounter();
+        updateSubmitState();
+        hintStatus.textContent = '';
+      }
+
+      // ── UI state helpers ──────────────────────────────────
+      function updateAttemptCounter() {
+        const n = gameState.attempts.length;
+        attemptCtr.textContent = `${n} / ${MAX_ATTEMPTS} attempts`;
+      }
+
+      function updateSubmitState() {
+        const allFilled = currentSlots.every(s => s !== null);
+        submitBtn.disabled = !allFilled || gameState.status !== 'playing';
+      }
+
+      // ── Event listeners ───────────────────────────────────
+      submitBtn.addEventListener('click', submitGuess);
+      hintBtn.addEventListener('click', applyHint);
+      newGameBtn.addEventListener('click', startNewGame);
+
+// ── Init ──────────────────────────────────────────────
+      buildPalette();
+      buildBoard();
+      updateAttemptCounter();
+      updateSubmitState();
+    })();
+    </script>
+
+  </body>
+</html>

@@ -3,6 +3,7 @@ if (location.protocol === 'http:' && !/^(localhost|127\.0\.0\.1)$/i.test(locatio
   location.replace(`https://${location.host}${location.pathname}${location.search}${location.hash}`);
 }
 
+
 // ── Micro-animations ──────────────────────────────────────────────────────────
 function spawnConfetti(originEl) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -56,6 +57,172 @@ const DIFFICULTY_POINTS = {
 
 const PAGE_SIZE = 20;
 
+const DIRECTORY_PARENT_META = {
+  mind: {
+    mark: '01',
+    label: { en: 'Mind & Logic', ar: 'العقل والمنطق' },
+    gradient: 'linear-gradient(135deg,#25124d,#7c3aed 58%,#38bdf8)',
+  },
+  science: {
+    mark: '02',
+    label: { en: 'Science & Nature', ar: 'العلوم والطبيعة' },
+    gradient: 'linear-gradient(135deg,#063f46,#0f766e 52%,#a3e635)',
+  },
+  tech: {
+    mark: '03',
+    label: { en: 'Tech & Engineering', ar: 'التقنية والهندسة' },
+    gradient: 'linear-gradient(135deg,#111827,#2563eb 55%,#22d3ee)',
+  },
+  world: {
+    mark: '04',
+    label: { en: 'World & Society', ar: 'العالم والمجتمع' },
+    gradient: 'linear-gradient(135deg,#3d1f0f,#b45309 54%,#facc15)',
+  },
+  culture: {
+    mark: '05',
+    label: { en: 'Arts & Pop Culture', ar: 'الفنون والثقافة' },
+    gradient: 'linear-gradient(135deg,#3b0764,#be185d 52%,#f97316)',
+  },
+};
+
+const CATEGORY_COLLECTIONS = [
+  {
+    key: 'riddle-forge',
+    parent: 'mind',
+    title: { en: 'Riddle Forge', ar: 'ورشة الألغاز' },
+    description: { en: 'Classic, logic, and family-friendly puzzles grouped into one clear starting point.', ar: 'ألغاز كلاسيكية ومنطقية وعائلية في نقطة بداية واحدة واضحة.' },
+    gradient: 'linear-gradient(135deg,#1f1147,#7c3aed 48%,#f59e0b)',
+    accent: '#A78BFA',
+    members: ['classic-riddles', 'logic-puzzles', 'kids-riddles'],
+  },
+  {
+    key: 'human-signals',
+    parent: 'mind',
+    title: { en: 'Human Signals', ar: 'إشارات الإنسان' },
+    description: { en: 'Psychology, philosophy, and relationships for questions about how people think and connect.', ar: 'علم النفس والفلسفة والعلاقات لأسئلة عن التفكير والتواصل الإنساني.' },
+    gradient: 'linear-gradient(135deg,#2e1065,#9333ea 50%,#f472b6)',
+    accent: '#C084FC',
+    members: ['psychology', 'philosophy', 'relationship-questions'],
+  },
+  {
+    key: 'mystery-desk',
+    parent: 'mind',
+    title: { en: 'Mystery Desk', ar: 'مكتب الغموض' },
+    description: { en: 'Story riddles and true-crime style puzzles kept together for suspense seekers.', ar: 'ألغاز القصص والغموض والجريمة في مجموعة واحدة لمحبي التشويق.' },
+    gradient: 'linear-gradient(135deg,#111827,#4c0519 52%,#ef4444)',
+    accent: '#FB7185',
+    members: ['story-mysteries', 'true-crime'],
+  },
+  {
+    key: 'living-planet',
+    parent: 'science',
+    title: { en: 'Living Planet', ar: 'الكوكب الحي' },
+    description: { en: 'Biology, animals, ecology, and wilderness questions in one natural collection.', ar: 'الأحياء والحيوانات والبيئة والبقاء في مجموعة طبيعية واحدة.' },
+    gradient: 'linear-gradient(135deg,#052e16,#16a34a 48%,#22d3ee)',
+    accent: '#2DD4BF',
+    members: ['biology', 'animal-kingdom', 'environment-and-ecology', 'survival'],
+  },
+  {
+    key: 'core-science-lab',
+    parent: 'science',
+    title: { en: 'Core Science Lab', ar: 'مختبر العلوم الأساسية' },
+    description: { en: 'Math, chemistry, earth science, and broad science pages consolidated for STEM learners.', ar: 'الرياضيات والكيمياء وعلوم الأرض والعلوم العامة للمتعلمين في مسار واحد.' },
+    gradient: 'linear-gradient(135deg,#0f172a,#2563eb 48%,#22d3ee)',
+    accent: '#38BDF8',
+    members: ['math', 'science', 'chemistry', 'physical-and-life-sciences', 'geology'],
+  },
+  {
+    key: 'medicine-cabinet',
+    parent: 'science',
+    title: { en: 'Medicine Cabinet', ar: 'خزانة الطب' },
+    description: { en: 'Medical science and pharmacy grouped for health-focused study sessions.', ar: 'العلوم الطبية والصيدلة في مجموعة مخصصة للمعرفة الصحية.' },
+    gradient: 'linear-gradient(135deg,#4a044e,#be185d 50%,#86efac)',
+    accent: '#F472B6',
+    members: ['medical-questions', 'pharmacy'],
+  },
+  {
+    key: 'orbit-and-energy',
+    parent: 'science',
+    title: { en: 'Orbit & Energy', ar: 'المدار والطاقة' },
+    description: { en: 'Space, astronomy, future technology, and energy systems bundled as frontier topics.', ar: 'الفضاء والفلك والتقنيات المستقبلية والطاقة في مجموعة للحدود الجديدة.' },
+    gradient: 'linear-gradient(135deg,#020617,#1d4ed8 45%,#67e8f9)',
+    accent: '#67E8F9',
+    members: ['space-and-astrology', 'future-tech-and-energy'],
+  },
+  {
+    key: 'digital-workshop',
+    parent: 'tech',
+    title: { en: 'Digital Workshop', ar: 'ورشة التقنية' },
+    description: { en: 'Software, coding, design, and retro tech brought together for digital curiosity.', ar: 'البرمجة والتصميم والحوسبة والتقنية القديمة في مساحة رقمية واحدة.' },
+    gradient: 'linear-gradient(135deg,#0f172a,#4f46e5 48%,#84cc16)',
+    accent: '#60A5FA',
+    members: ['software-and-computing', 'coding-and-design', 'tech-retro'],
+  },
+  {
+    key: 'built-systems',
+    parent: 'tech',
+    title: { en: 'Built Systems', ar: 'الأنظمة المبنية' },
+    description: { en: 'Engineering disciplines, infrastructure, architecture, and invention questions under one roof.', ar: 'الهندسة والبنية التحتية والعمارة والاختراعات تحت سقف واحد.' },
+    gradient: 'linear-gradient(135deg,#111827,#475569 48%,#f97316)',
+    accent: '#94A3B8',
+    members: ['civil-engineering', 'electrical-engineering', 'mechanical-engineering', 'infrastructure-systems', 'architecture-and-landmarks', 'inventions-and-minds'],
+  },
+  {
+    key: 'speed-and-stadiums',
+    parent: 'tech',
+    title: { en: 'Speed & Stadiums', ar: 'السرعة والملاعب' },
+    description: { en: 'Football and automotive questions grouped around performance, machines, and competition.', ar: 'أسئلة كرة القدم والسيارات حول الأداء والآلات والمنافسة.' },
+    gradient: 'linear-gradient(135deg,#052e16,#16a34a 45%,#f97316)',
+    accent: '#4ADE80',
+    members: ['football', 'automotive'],
+  },
+  {
+    key: 'atlas-room',
+    parent: 'world',
+    title: { en: 'Atlas Room', ar: 'غرفة الأطلس' },
+    description: { en: 'Geography, flags, currencies, food, and daily customs for exploring the world quickly.', ar: 'الجغرافيا والأعلام والعملات والطعام والعادات لاستكشاف العالم بسهولة.' },
+    gradient: 'linear-gradient(135deg,#0c4a6e,#0284c7 48%,#facc15)',
+    accent: '#38BDF8',
+    members: ['geography', 'flag-questions', 'currencies', 'world-habits-and-etiquette', 'food-and-cuisines'],
+  },
+  {
+    key: 'time-archive',
+    parent: 'world',
+    title: { en: 'Time Archive', ar: 'أرشيف الزمن' },
+    description: { en: 'History, ancient civilizations, Middle East history, and regional law arranged as one timeline.', ar: 'التاريخ والحضارات القديمة وتاريخ الشرق الأوسط والقانون في خط زمني واحد.' },
+    gradient: 'linear-gradient(135deg,#431407,#92400e 50%,#fbbf24)',
+    accent: '#F9A825',
+    members: ['history', 'ancient-civilizations', 'middle-east-history', 'law-middle-east'],
+  },
+  {
+    key: 'society-engine',
+    parent: 'world',
+    title: { en: 'Society Engine', ar: 'محرك المجتمع' },
+    description: { en: 'Business, economics, social science, and language grouped around how societies work.', ar: 'الأعمال والاقتصاد والعلوم الاجتماعية واللغة لفهم طريقة عمل المجتمعات.' },
+    gradient: 'linear-gradient(135deg,#042f2e,#0f766e 48%,#f59e0b)',
+    accent: '#2DD4BF',
+    members: ['business-and-management', 'economics-and-finance', 'social-sciences', 'linguistics'],
+  },
+  {
+    key: 'gallery-and-myths',
+    parent: 'culture',
+    title: { en: 'Gallery & Myths', ar: 'المعرض والأساطير' },
+    description: { en: 'Art, books, music, and mythology combined for a richer creative-culture lane.', ar: 'الفن والكتب والموسيقى والأساطير في مسار ثقافي إبداعي واحد.' },
+    gradient: 'linear-gradient(135deg,#3b0764,#a21caf 48%,#f59e0b)',
+    accent: '#F0ABFC',
+    members: ['art-and-painters', 'books-and-quotes', 'music-and-performing-arts', 'mythology-legends'],
+  },
+  {
+    key: 'screen-worlds',
+    parent: 'culture',
+    title: { en: 'Screen Worlds', ar: 'عوالم الشاشة' },
+    description: { en: 'TV, cinema, anime, Spacetoon, superheroes, pop culture, and fictional universes in one fandom hub.', ar: 'التلفزيون والسينما والأنمي وسبيستون والأبطال والثقافة الشعبية والعوالم الخيالية في مركز واحد.' },
+    gradient: 'linear-gradient(135deg,#1e1b4b,#be185d 48%,#f97316)',
+    accent: '#FB7185',
+    members: ['tv-shows-trivia', 'cinema-and-film-history', 'anime', 'ayam-tayebeen', 'pop-culture', 'superheroes', 'fictional-worlds'],
+  },
+];
+
 const CATEGORY_GRADIENTS = {
   'art-and-painters':           'linear-gradient(135deg, #FF6B6B 0%, #FFA500 100%)',
   'biology':                    'linear-gradient(135deg, #00C9A7 0%, #005CE6 100%)',
@@ -102,6 +269,16 @@ const CATEGORY_GRADIENTS = {
   'future-tech-and-energy':     'linear-gradient(135deg, #006064 0%, #00E5FF 100%)',
   'anime':                      'linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)',
   'ayam-tayebeen':              'linear-gradient(135deg, #6C3483 0%, #1A5276 100%)',
+  'mythology-legends':          'linear-gradient(135deg, #D4AF37 0%, #8A2BE2 100%)',
+  'true-crime':                 'linear-gradient(135deg, #8B0000 0%, #1A1A1A 100%)',
+  'pop-culture':                'linear-gradient(135deg, #FF69B4 0%, #00FFFF 100%)',
+  'superheroes':                'linear-gradient(135deg, #EF4444 0%, #3B82F6 100%)',
+  'fictional-worlds':           'linear-gradient(135deg, #10B981 0%, #065F46 100%)',
+  'survival':                   'linear-gradient(135deg, #228B22 0%, #8B4513 100%)',
+  'automotive':                 'linear-gradient(135deg, #9CA3AF 0%, #F97316 100%)',
+  'linguistics':                'linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%)',
+  'currencies':                 'linear-gradient(135deg, #059669 0%, #F59E0B 100%)',
+  'tech-retro':                 'linear-gradient(135deg, #84CC16 0%, #111827 100%)',
 };
 
 const CATEGORY_COLORS = {
@@ -150,6 +327,16 @@ const CATEGORY_COLORS = {
   'future-tech-and-energy':     '#67E8F9',
   'anime':                      '#FB7185',
   'ayam-tayebeen':              '#C084FC',
+  'mythology-legends':          '#D4AF37',
+  'true-crime':                 '#8B0000',
+  'pop-culture':                '#FF69B4',
+  'superheroes':                '#EF4444',
+  'fictional-worlds':           '#10B981',
+  'survival':                   '#228B22',
+  'automotive':                 '#F97316',
+  'linguistics':                '#8B5CF6',
+  'currencies':                 '#059669',
+  'tech-retro':                 '#84CC16',
 };
 
 const UI = {
@@ -157,29 +344,40 @@ const UI = {
     brandSubtitle: 'bilingual categories, teams, and saved progress',
     navHome: 'Home',
     navCategories: 'Categories',
-    authOpen: 'Profile',
+    authOpen: 'Sign in',
     language: 'Language',
-    theme: 'Theme',
-    themeSystem: 'System',
-    themeDark: 'Dark',
-    themeLight: 'Light',
-    homeEyebrow: 'Fun, smart, and mobile-first learning',
-    homeTitle: 'Learn faster with premium riddles, quizzes, and challenge pages.',
-    homeText: 'JAKH turns learning into short, satisfying wins. Browse curated categories, save progress, build teams, and move from free fun into harder premium-ready challenge levels without losing clarity or speed.',
-    browseCategories: 'Start exploring',
-    createAccount: 'Save locally',
+    homeEyebrow: '3,000+ bilingual riddles — English & Arabic',
+    homeTitle: 'Pick a topic. Flip cards. See how much you know.',
+    homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
+    browseCategories: 'Explore collections',
+    heroGameHub: 'Game Hub',
+    statCategories: 'Collections',
+    statQuestions: 'Questions',
+    statLanguages: 'Languages',
+    portalMindTag: 'Mind Lab',
+    portalMindTitle: 'The Mind Lab',
+    portalMindDesc: '3,000+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.',
+    portalMindStat: '15 collections',
+    portalMindCta: 'Explore Riddles →',
+    portalGamesTag: 'Game Hub',
+    portalGamesTitle: 'The Game Hub',
+    portalGamesDesc: 'Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.',
+    portalGamesStat1: '10 games live',
+    portalGamesStat2: 'All in browser',
+    portalGamesCta: 'Play Now →',
+    createAccount: 'Save my progress',
     todayMomentum: 'Your snapshot',
-    localBrowserOnly: 'Saved in this browser',
-    categoryEyebrow: 'Category directory',
-    categoryTitle: 'Pick a category and start learning in seconds',
-    categoryText: 'Find a topic fast, open a dedicated challenge page, and move through clear levels without clutter.',
+    localBrowserOnly: 'Saved to your account',
+    categoryEyebrow: 'Choose a section',
+    categoryTitle: 'What would you like to explore?',
+    categoryText: 'Start with a curated collection, or search for a specific topic if you already know what you want.',
     searchCategoriesLabel: 'Search category pages',
     tracksLabel: 'Tracks',
     resetDirectoryFilters: 'Reset filters',
     authEyebrow: 'Profile',
-    authTitle: 'Local profile',
+    authTitle: 'Create account or sign in',
     footerNote: 'All rights reserved to JAKH 2026',
-    jumpToQuestions: 'Jump to questions',
+
     pageProgress: 'Page progress',
     insidePageEyebrow: 'Inside this page',
     insidePageTitle: 'Flip the full category set',
@@ -217,22 +415,22 @@ const UI = {
     showingFilteredCards: 'Showing {count} cards with your current filters.',
     openPage: 'Open page',
     savedProgress: 'Saved progress',
-    guestTitle: 'Local progress',
-    guestText: 'Save your progress, favorites, and score in this browser. No account or server is needed.',
-    createLocalProfile: 'Create local profile',
-    signedInAs: 'Saved as',
+    guestTitle: 'Create an account',
+    guestText: 'Create a free account to save your progress, favorites, and score across all your devices.',
+    createLocalProfile: 'Create account',
+    signedInAs: 'Signed in as',
     score: 'Score',
     solved: 'Solved',
     favorites: 'Favorites',
-    authSignInTab: 'Open profile',
-    authRegisterTab: 'Create profile',
+    authSignInTab: 'Sign in',
+    authRegisterTab: 'Create account',
     username: 'Username',
     password: 'Password',
-    passwordHint: 'Static mode: profile details stay on this device.',
-    signIn: 'Open profile',
-    register: 'Create profile',
+    passwordHint: 'Securely stored in your cloud account.',
+    signIn: 'Sign in',
+    register: 'Create account',
     logout: 'Log out',
-    accountReady: 'Your progress is saved in this browser.',
+    accountReady: 'Your progress is saved to your cloud account.',
     flipForAnswer: 'Flip for answer',
     backToQuestion: 'Back to question',
     addFavorite: 'Add favorite',
@@ -247,7 +445,6 @@ const UI = {
     signedOut: 'Signed out.',
     badLogin: 'Username or password is incorrect.',
     userExists: 'That username is already taken.',
-    themeSet: 'Theme updated.',
     languageSet: 'Language updated.',
     directoryResetDone: 'Category filters reset.',
     pageResetDone: 'Page filters reset.',
@@ -298,29 +495,40 @@ const UI = {
     brandSubtitle: 'فئات ثنائية اللغة مع فرق وتقدّم محفوظ',
     navHome: 'الرئيسية',
     navCategories: 'الفئات',
-    authOpen: 'الملف الشخصي',
+    authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    theme: 'المظهر',
-    themeSystem: 'تلقائي',
-    themeDark: 'داكن',
-    themeLight: 'فاتح',
-    homeEyebrow: 'تعلّم ممتع وذكي ومصمم للهاتف أولاً',
-    homeTitle: 'تعلّم أسرع عبر ألغاز واختبارات وصفحات تحدٍ بجودة عالية.',
-    homeText: 'يحوّل JAKH التعلّم إلى إنجازات قصيرة وممتعة. تصفّح فئات منسقة، واحفظ تقدمك، وابنِ فرقًا، وانتقل من المتعة المجانية إلى مستويات تحدٍ أعلى جاهزة للاشتراك من دون إرباك أو بطء.',
-    browseCategories: 'ابدأ الاستكشاف',
-    createAccount: 'احفظ محلياً',
+    homeEyebrow: '+3000 لغز ثنائي اللغة — عربي وإنجليزي',
+    homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
+    homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
+    browseCategories: 'استكشف المجموعات',
+    heroGameHub: 'مركز الألعاب',
+    statCategories: 'المجموعات',
+    statQuestions: 'الأسئلة',
+    statLanguages: 'اللغات',
+    portalMindTag: 'مختبر العقول',
+    portalMindTitle: 'مختبر العقول',
+    portalMindDesc: '+3000 سؤال ثنائي اللغة منظمة في 15 مجموعة مختارة ضمن 5 مسارات واضحة. اختر مجموعة، افتح موضوعًا، واقلب البطاقات وتابع نقاطك.',
+    portalMindStat: '15 مجموعة',
+    portalMindCta: 'استكشف الألغاز →',
+    portalGamesTag: 'مركز الألعاب',
+    portalGamesTitle: 'مركز الألعاب',
+    portalGamesDesc: 'شطرنج، ماستر مايند، غو، ريفرسي، كودنيمز، كاتان، طاولة، ست، هانابي، دبلوماسي — 10 ألعاب كاملة في المتصفح. بدون تنزيل أو تسجيل.',
+    portalGamesStat1: '10 ألعاب',
+    portalGamesStat2: 'كلها في المتصفح',
+    portalGamesCta: 'العب الآن →',
+    createAccount: 'احفظ تقدمي',
     todayMomentum: 'ملخصك',
-    localBrowserOnly: 'محفوظ في هذا المتصفح',
-    categoryEyebrow: 'دليل الفئات',
-    categoryTitle: 'اختر فئة وابدأ التعلّم خلال ثوانٍ',
-    categoryText: 'اعثر على الموضوع بسرعة، وافتح صفحة تحدٍ مخصصة، وتقدّم عبر مستويات واضحة من دون فوضى.',
+    localBrowserOnly: 'محفوظ في حسابك',
+    categoryEyebrow: 'اختر قسمًا',
+    categoryTitle: 'ماذا تريد أن تستكشف؟',
+    categoryText: 'ابدأ بمجموعة مختارة، أو ابحث عن موضوع محدد إذا كنت تعرف ما تريد.',
     searchCategoriesLabel: 'ابحث في صفحات الفئات',
     tracksLabel: 'المسارات',
     resetDirectoryFilters: 'إعادة الضبط',
     authEyebrow: 'الملف الشخصي',
-    authTitle: 'ملف محلي',
+    authTitle: 'أنشئ حسابًا أو سجّل الدخول',
     footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
-    jumpToQuestions: 'اذهب إلى الأسئلة',
+
     pageProgress: 'تقدم الصفحة',
     insidePageEyebrow: 'داخل هذه الصفحة',
     insidePageTitle: 'اقلب المجموعة الكاملة',
@@ -358,22 +566,22 @@ const UI = {
     showingFilteredCards: 'يتم عرض {count} بطاقة وفق الفلاتر الحالية.',
     openPage: 'افتح الصفحة',
     savedProgress: 'تقدم محفوظ',
-    guestTitle: 'تقدم محلي',
-    guestText: 'احفظ تقدمك ومفضلتك ونقاطك في هذا المتصفح من دون حساب أو خادم.',
-    createLocalProfile: 'أنشئ ملفاً محلياً',
-    signedInAs: 'محفوظ باسم',
+    guestTitle: 'أنشئ حسابًا',
+    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدمك ومفضلتك ونقاطك على جميع أجهزتك.',
+    createLocalProfile: 'أنشئ حسابًا',
+    signedInAs: 'مسجل باسم',
     score: 'النقاط',
     solved: 'المحلول',
     favorites: 'المفضلة',
-    authSignInTab: 'فتح الملف',
-    authRegisterTab: 'إنشاء ملف',
+    authSignInTab: 'تسجيل الدخول',
+    authRegisterTab: 'إنشاء حساب',
     username: 'اسم المستخدم',
     password: 'كلمة المرور',
-    passwordHint: 'الوضع الثابت: تبقى بيانات الملف على هذا الجهاز.',
-    signIn: 'فتح الملف',
-    register: 'إنشاء ملف',
+    passwordHint: 'تُخزن بأمان في حسابك السحابي.',
+    signIn: 'دخول',
+    register: 'إنشاء حساب',
     logout: 'تسجيل الخروج',
-    accountReady: 'تقدمك محفوظ في هذا المتصفح.',
+    accountReady: 'تقدمك محفوظ في حسابك السحابي.',
     flipForAnswer: 'اقلب للإجابة',
     backToQuestion: 'العودة للسؤال',
     addFavorite: 'أضف للمفضلة',
@@ -388,7 +596,6 @@ const UI = {
     signedOut: 'تم تسجيل الخروج.',
     badLogin: 'اسم المستخدم أو كلمة المرور غير صحيحين.',
     userExists: 'اسم المستخدم هذا مأخوذ بالفعل.',
-    themeSet: 'تم تحديث المظهر.',
     languageSet: 'تم تحديث اللغة.',
     directoryResetDone: 'تمت إعادة ضبط فلاتر الفئات.',
     pageResetDone: 'تمت إعادة ضبط فلاتر الصفحة.',
@@ -435,18 +642,20 @@ const UI = {
 
 const state = {
   lang: 'en',
-  theme: 'system',
+  theme: 'dark',
   catalog: null,
   page: document.body.dataset.page || 'home',
   categorySlug: document.body.dataset.category || '',
   categoryData: null,
   directorySearch: '',
   cluster: 'all',
+  collection: 'all',
   search: '',
   difficulty: 'all',
   view: 'all',
   sort: 'featured',
   subcategory: 'all',
+  apiAvailable: false,
   dbUser: null,
   flipped: new Set(),
   cardPage: 1,
@@ -463,12 +672,6 @@ const GUEST_KEYS = {
   solved: 'jakh-guest-solved',
   favorites: 'jakh-guest-favorites',
 };
-
-const LOCAL_PROFILE_KEY = 'jakh-local-profile';
-const LOCAL_PROFILE_ACTIVE_KEY = 'jakh-local-profile-active';
-const LOCAL_SUGGESTIONS_KEY = 'jakh-local-suggestions';
-const LOCAL_ACTIVITY_KEY = 'jakh-active-dates';
-const STATIC_BUILD_NOTICE = 'Static GitHub Pages build: localStorage only.';
 
 function getGuestSolvedMap() {
   return loadJson(GUEST_KEYS.solved, {});
@@ -545,13 +748,30 @@ function escapeHtml(value) {
 
 
 
-// ================= STATIC STORAGE ADAPTER =================
-async function apiFetch() {
-  return { ok: true, staticOnly: true, message: STATIC_BUILD_NOTICE };
+// ================= API WRAPPER =================
+const API_URL = '/api';
+
+async function apiFetch(endpoint, options = {}) {
+  options.credentials = 'include';
+  options.headers = { ...options.headers, 'Content-Type': 'application/json' };
+  try {
+    const res = await fetch(`${API_URL}${endpoint}`, options);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'API Error');
+    return data;
+  } catch (err) {
+    console.error(`[API] ${endpoint} failed:`, err.message);
+    throw err;
+  }
 }
 
 async function checkCloudSession() {
-  state.dbUser = loadLocalProfile();
+  try {
+    const data = await apiFetch('/user/profile');
+    state.dbUser = data;
+  } catch (err) {
+    state.dbUser = null;
+  }
 }
 
 function getActiveUser() {
@@ -561,6 +781,7 @@ function getActiveUser() {
   return {
     id: state.dbUser.id,
     username: state.dbUser.username,
+    avatar: state.dbUser.avatar || '👤',
     favorites: (state.dbUser.favorites || []).map(f => f.cardId),
     solved: solvedMap,
   };
@@ -584,6 +805,35 @@ function debounce(fn, delay) {
   };
 }
 
+async function detectApiAvailability() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 2500);
+  try {
+    const response = await fetch('/api/health', {
+      cache: 'no-store',
+      headers: { Accept: 'application/json' },
+      signal: controller.signal,
+    });
+    if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return false;
+    const payload = await response.json();
+    return payload?.ok === true;
+  } catch (_) {
+    return false;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function applyCapabilityVisibility() {
+  document.body.classList.toggle('api-unavailable', !state.apiAvailable);
+  if (state.apiAvailable) return;
+  [els.openAuthBtn, els.heroAuthBtn, document.getElementById('leaderboardBtn'), document.getElementById('battleNavBtn'), document.getElementById('bnProfileBtn')]
+    .filter(Boolean)
+    .forEach(element => { element.hidden = true; });
+  const suggestionBox = document.getElementById('suggestionBox');
+  if (suggestionBox) suggestionBox.hidden = true;
+}
+
 function saveJson(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -597,101 +847,11 @@ function loadJson(key, fallback) {
   }
 }
 
-function makeLocalProfile(username, email = '') {
-  const now = new Date().toISOString();
-  return {
-    id: `local-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
-    username,
-    email,
-    role: 'USER',
-    localOnly: true,
-    createdAt: now,
-    lastLoginAt: now,
-    progress: [],
-    favorites: [],
-  };
-}
-
-function normalizeLocalProfile(profile) {
-  if (!profile || typeof profile !== 'object') return null;
-  return {
-    ...profile,
-    id: profile.id || 'local-profile',
-    username: profile.username || 'JAKH Player',
-    role: profile.role || 'USER',
-    localOnly: true,
-    progress: Array.isArray(profile.progress) ? profile.progress : [],
-    favorites: Array.isArray(profile.favorites) ? profile.favorites : [],
-  };
-}
-
-function loadLocalProfile() {
-  if (localStorage.getItem(LOCAL_PROFILE_ACTIVE_KEY) === 'false') return null;
-  return normalizeLocalProfile(loadJson(LOCAL_PROFILE_KEY, null));
-}
-
-function persistLocalProfile() {
-  if (!state.dbUser?.localOnly) return;
-  saveJson(LOCAL_PROFILE_KEY, normalizeLocalProfile(state.dbUser));
-  localStorage.setItem(LOCAL_PROFILE_ACTIVE_KEY, 'true');
-}
-
-function getGuestProgressEntries() {
-  return Object.entries(getGuestSolvedMap()).map(([cardId, value]) => {
-    const entry = typeof value === 'object' && value !== null ? value : { status: value };
-    return {
-      cardId,
-      categoryId: entry.categoryId || 'unknown',
-      status: entry.status || 'correct',
-    };
-  });
-}
-
-function getProgressEntries() {
-  return state.dbUser ? (state.dbUser.progress || []) : getGuestProgressEntries();
-}
-
-function getLocalDisplayName() {
-  return state.dbUser?.username || (state.lang === 'ar' ? 'هذا الجهاز' : 'This browser');
-}
-
-function storeLocalSuggestion(text, email = '', type = 'suggestion') {
-  const suggestions = loadJson(LOCAL_SUGGESTIONS_KEY, []);
-  suggestions.unshift({
-    id: `local-${Date.now().toString(36)}`,
-    type,
-    text,
-    email,
-    createdAt: new Date().toISOString(),
-  });
-  saveJson(LOCAL_SUGGESTIONS_KEY, suggestions.slice(0, 100));
-}
-
-function computeLocalStreak() {
-  const dates = loadJson(LOCAL_ACTIVITY_KEY, []);
-  const set = new Set(Array.isArray(dates) ? dates : []);
-  let streak = 0;
-  const cursor = new Date();
-  while (set.has(cursor.toISOString().slice(0, 10))) {
-    streak += 1;
-    cursor.setDate(cursor.getDate() - 1);
-  }
-  return streak;
-}
-
-function recordLocalActivity() {
-  const today = new Date().toISOString().slice(0, 10);
-  const dates = new Set(loadJson(LOCAL_ACTIVITY_KEY, []));
-  dates.add(today);
-  saveJson(LOCAL_ACTIVITY_KEY, [...dates].sort().slice(-90));
-  state.streak = computeLocalStreak();
-}
-
 
 
 
 function saveSettings() {
-  saveJson(STORAGE_KEYS.settings, { lang: state.lang, theme: state.theme });
+  saveJson(STORAGE_KEYS.settings, { lang: state.lang });
   saveJson(`jakh-used-${state.lang}`, 1);
 }
 
@@ -699,26 +859,21 @@ async function mergeGuestProgress() {
   if (!state.dbUser) return;
   const guestSolved = getGuestSolvedMap();
   const guestFavs = getGuestFavorites();
-  state.dbUser.progress = state.dbUser.progress || [];
-  state.dbUser.favorites = state.dbUser.favorites || [];
+  const promises = [];
   for (const [cardId, val] of Object.entries(guestSolved)) {
     const status = _guestStatus(val);
-    const entry = typeof val === 'object' && val !== null ? val : { status };
-    state.dbUser.progress = state.dbUser.progress.filter(p => p.cardId !== cardId);
-    state.dbUser.progress.push({
-      cardId,
-      categoryId: entry.categoryId || 'unknown',
-      status,
-    });
-  }
-  for (const cardId of guestFavs) {
-    if (!state.dbUser.favorites.some(f => f.cardId === cardId)) {
-      state.dbUser.favorites.push({ cardId, categoryId: 'unknown' });
+    if (status === 'correct') {
+      promises.push(apiFetch('/user/progress', { method: 'POST', body: JSON.stringify({ cardId, status }) }).catch(() => {}));
     }
   }
+  for (const cardId of guestFavs) {
+    promises.push(apiFetch('/user/favorite', { method: 'POST', body: JSON.stringify({ cardId }) }).catch(() => {}));
+  }
+  if (promises.length === 0) return;
+  await Promise.all(promises);
   localStorage.removeItem(GUEST_KEYS.solved);
   localStorage.removeItem(GUEST_KEYS.favorites);
-  persistLocalProfile();
+  await checkCloudSession();
 }
 
 function getFavoriteSet() {
@@ -758,23 +913,31 @@ function getProgressResult(id) {
 function getCategoryProgress(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   const total = meta?.count || 1;
-  const solved = getProgressEntries()
-    .filter(p => p.categoryId === slug && !p.status.startsWith('wrong-'))
-    .length;
+  if (state.dbUser) {
+    const solved = (state.dbUser.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+    return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
+  }
+  const raw = getGuestSolvedMap();
+  const solved = Object.values(raw).filter(v => {
+    const entry = typeof v === 'object' && v !== null ? v : { status: v };
+    return entry.categoryId === slug && !entry.status.startsWith('wrong-');
+  }).length;
   return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
 }
 
 function getCorrectCountByDifficulty(diff) {
-  return getProgressEntries().filter(p => p.status === diff).length;
+  if (state.dbUser) return (state.dbUser.progress || []).filter(p => p.status === diff).length;
+  return Object.values(getGuestSolvedMap()).filter(v => _guestStatus(v) === diff).length;
 }
 
 function getTotalCorrectCount() {
-  return getProgressEntries().filter(p => !p.status.startsWith('wrong-')).length;
+  if (state.dbUser) return (state.dbUser.progress || []).filter(p => !p.status.startsWith('wrong-')).length;
+  return Object.values(getGuestSolvedMap()).filter(v => !_guestStatus(v).startsWith('wrong-')).length;
 }
 
 function isLevelUnlocked(difficulty) {
   if (difficulty === 'easy' || difficulty === 'medium') return true;
-  if (!state.dbUser) return true;
+  if (!state.dbUser) return false;
   if (difficulty === 'hard') {
     return getTotalCorrectCount() >= 10;
   }
@@ -784,76 +947,23 @@ function isLevelUnlocked(difficulty) {
   return true;
 }
 
-// ── Web Audio API Synthesizer (100% standalone sound FX) ─────────────────────
-const soundFx = {
-  ctx: null,
-  init() {
-    if (!this.ctx && typeof AudioContext !== 'undefined') {
-      this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-  },
-  flip() {
-    if (!state.audioEnabled) return;
-    try {
-      this.init();
-      if (!this.ctx) return;
-      const osc = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(350, this.ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(700, this.ctx.currentTime + 0.08);
-      gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.08);
-      osc.connect(gain);
-      gain.connect(this.ctx.destination);
-      osc.start();
-      osc.stop(this.ctx.currentTime + 0.08);
-    } catch (_e) {}
-  },
-  correct() {
-    if (!state.audioEnabled) return;
-    try {
-      this.init();
-      if (!this.ctx) return;
-      const now = this.ctx.currentTime;
-      [523.25, 659.25, 783.99].forEach((freq, i) => {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = freq;
-        gain.gain.setValueAtTime(0.15, now + i * 0.06);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.25);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(now + i * 0.06);
-        osc.stop(now + i * 0.06 + 0.25);
-      });
-    } catch (_e) {}
-  },
-  wrong() {
-    if (!state.audioEnabled) return;
-    try {
-      this.init();
-      if (!this.ctx) return;
-      const now = this.ctx.currentTime;
-      [311.13, 293.66].forEach((freq, i) => {
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.value = freq;
-        gain.gain.setValueAtTime(0.1, now + i * 0.12);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.12 + 0.2);
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-        osc.start(now + i * 0.12);
-        osc.stop(now + i * 0.12 + 0.2);
-      });
-    } catch (_e) {}
-  }
-};
+function isPremiumDifficulty(difficulty) {
+  return difficulty === 'hard' || difficulty === 'very-advanced';
+}
+function getTrialUsedSet() {
+  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEYS.trial)) || []); } catch { return new Set(); }
+}
+function saveTrialUsedSet(s) {
+  localStorage.setItem(STORAGE_KEYS.trial, JSON.stringify([...s]));
+}
+function isTrialUnlocked(cardId, difficulty) {
+  if (state.dbUser || !isPremiumDifficulty(difficulty)) return false;
+  const s = getTrialUsedSet();
+  return s.has(cardId) || s.size < 10;
+}
 
 function handleFlip(id, cardEl) {
-  soundFx.flip();
+  hapticTap();
   if (cardEl && cardEl.dataset.trial === '1') {
     const s = getTrialUsedSet();
     if (!s.has(id)) {
@@ -874,25 +984,23 @@ function handleFlip(id, cardEl) {
 }
 
 
-function showToast(message) {
+function showToast(message, isError) {
   if (!els.toast) return;
   els.toast.textContent = message;
+  els.toast.classList.toggle('is-error', !!isError);
   els.toast.classList.add('is-visible');
   clearTimeout(showToast.timer);
   showToast.timer = setTimeout(() => {
     els.toast.classList.remove('is-visible');
-  }, 2200);
+  }, isError ? 3200 : 2200);
 }
 
 function applyTheme() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const resolved = state.theme === 'system' ? (prefersDark ? 'dark' : 'light') : state.theme;
-  document.documentElement.dataset.theme = resolved;
+  document.documentElement.dataset.theme = 'dark';
   document.documentElement.dataset.accent = 'aurora';
   document.documentElement.lang = state.lang === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
   if (els.langSelect) els.langSelect.value = state.lang;
-  if (els.themeSelect) els.themeSelect.value = state.theme;
 }
 
 function applyStaticCopy() {
@@ -912,6 +1020,7 @@ function applyStaticCopy() {
   }
   updateSelectLabels();
   updateDocumentTitle();
+  updateBottomNavActive();
 }
 
 function updateDocumentTitle() {
@@ -948,16 +1057,32 @@ function updateSelectLabels() {
   }
 }
 
-async function fetchJson(path) {
-  const response = await fetch(path);
-  if (!response.ok) throw new Error(`Failed to load ${path}`);
-  return response.json();
+async function fetchJson(path, retries = 2) {
+  try {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.json();
+  } catch (err) {
+    if (retries > 0) {
+      await new Promise(r => setTimeout(r, 1000));
+      return fetchJson(path, retries - 1);
+    }
+    throw err;
+  }
+}
+
+function handleOfflineStatus() {
+  const isOff = !navigator.onLine;
+  document.body.classList.toggle('is-offline', isOff);
+  if (isOff) {
+    showToast(state.lang === 'ar' ? 'أنت تعمل حالياً بدون اتصال — قد لا تتوفر بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
+  }
 }
 
 function cacheEls() {
   [
-    'toast', 'langSelect', 'themeSelect', 'openAuthBtn',
-    'heroAuthBtn', 'categorySearchInput', 'clusterFilters', 'resetDirectoryBtn', 'directoryResultsLabel',
+    'toast', 'langSelect', 'openAuthBtn',
+    'heroAuthBtn', 'categorySearchInput', 'resetDirectoryBtn', 'directoryResultsLabel',
     'categoryDirectoryGrid', 'badgeCategories', 'badgeQuestions', 'accountSummaryMount',
     'authModal', 'authModalBody',
     'categoryKicker', 'categoryTitle', 'categoryDescription', 'categoryCountPill', 'categoryImage',
@@ -968,10 +1093,37 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
+const APP_VERSION = '2.4';
+function flushStaleStorage() {
+  const stored = localStorage.getItem('jakh-app-version');
+  if (stored !== null && stored !== APP_VERSION) {
+    sessionStorage.removeItem('jakh-home-scroll');
+    const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
+    staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
+    localStorage.setItem('jakh-app-version', APP_VERSION);
+    // Clear all SW caches then reload so new CSS/JS takes effect immediately
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then(reg => {
+        reg.active?.postMessage({ type: 'CLEAR_CACHE' });
+        setTimeout(() => location.reload(), 800);
+      }).catch(() => { location.reload(); });
+    } else {
+      location.reload();
+    }
+    return;
+  }
+  if (stored === null) localStorage.setItem('jakh-app-version', APP_VERSION);
+}
+
 function initializeFromStorage() {
+  flushStaleStorage();
   const settings = loadJson(STORAGE_KEYS.settings, {});
   state.lang = settings.lang || 'en';
-  state.theme = settings.theme || 'system';
+  state.theme = 'dark';
+  // Purge any stale theme preference — site is dark-only now
+  if (settings.theme && settings.theme !== 'dark') {
+    saveJson(STORAGE_KEYS.settings, { lang: state.lang });
+  }
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
 }
 
@@ -1019,7 +1171,7 @@ function showInstallBanner() {
 
 let globalEventsBound = false;
 
-async function spaNavigate(url) {
+async function spaNavigate(url, isPopState = false) {
   if (state.page === 'home') {
     sessionStorage.setItem('jakh-home-scroll', String(Math.round(window.scrollY)));
   }
@@ -1028,7 +1180,7 @@ async function spaNavigate(url) {
     const html = await res.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
-    
+
     document.title = doc.title;
     document.body.innerHTML = doc.body.innerHTML;
     document.body.className = doc.body.className;
@@ -1050,7 +1202,9 @@ async function spaNavigate(url) {
     state.subcategory = 'all';
     state.cardPage = 1;
 
-    history.pushState(null, '', url);
+    if (!isPopState) {
+      history.pushState(null, '', url);
+    }
     if (state.page !== 'home') window.scrollTo(0, 0);
 
     // Re-initialize for new DOM
@@ -1070,15 +1224,10 @@ function bindCommonEvents() {
       applyDir();
       applyStaticCopy();
       rerender();
+      document.getElementById('timedQuizOverlay')?.remove();
+      createTimedQuizModal();
+      renderCategoryPlayModes();
       showToast(t('languageSet'));
-    });
-  }
-  if (els.themeSelect) {
-    els.themeSelect.addEventListener('change', () => {
-      state.theme = els.themeSelect.value;
-      saveSettings();
-      applyTheme();
-      showToast(t('themeSet'));
     });
   }
   if (els.openAuthBtn) els.openAuthBtn.addEventListener('click', openAuthModal);
@@ -1113,18 +1262,6 @@ function bindCommonEvents() {
   }
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
 
-  // Inject battle button into category hero if on category page
-  if (state.page === 'category' && !document.getElementById('categoryBattleBtn')) {
-    const heroActions = document.querySelector('.hero-actions');
-    if (heroActions) {
-      const btn = document.createElement('button');
-      btn.id = 'categoryBattleBtn';
-      btn.className = 'ghost-btn';
-      btn.textContent = state.lang === 'ar' ? '⚡ معركة الفريق' : '⚡ Team Battle';
-      heroActions.appendChild(btn);
-    }
-  }
-  document.getElementById('categoryBattleBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
 
   // Handle #battle/CODE deep-link
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
@@ -1165,10 +1302,28 @@ function bindCommonEvents() {
       hbtn.setAttribute('aria-expanded', 'false');
       hbtn.textContent = '☰';
       header.insertBefore(hbtn, nav);
-      hbtn.addEventListener('click', () => {
+      const _toggleNav = (e) => {
+        if (e.type === 'touchstart') e.preventDefault();
         const open = nav.classList.toggle('nav-open');
         hbtn.setAttribute('aria-expanded', String(open));
+      };
+      hbtn.addEventListener('click', _toggleNav);
+      hbtn.addEventListener('touchstart', _toggleNav, { passive: false });
+
+      document.addEventListener('click', (e) => {
+        if (!nav || !nav.classList.contains('nav-open')) return;
+        if (!nav.contains(e.target) && !hbtn.contains(e.target)) {
+          nav.classList.remove('nav-open');
+          hbtn.setAttribute('aria-expanded', 'false');
+        }
       });
+      document.addEventListener('touchstart', (e) => {
+        if (!nav || !nav.classList.contains('nav-open')) return;
+        if (!nav.contains(e.target) && !hbtn.contains(e.target)) {
+          nav.classList.remove('nav-open');
+          hbtn.setAttribute('aria-expanded', 'false');
+        }
+      }, { passive: true });
     }
   }
 
@@ -1188,16 +1343,24 @@ function bindCommonEvents() {
       const link = e.target.closest('a');
       if (link && link.origin === location.origin) {
         const path = link.pathname;
-        if ((path.endsWith('.html') || path === '/' || path === '') && !path.includes('admin')) {
+        // Skip hash-only anchor links (e.g. #questionSection) — let native scroll handle them
+        if (link.hash && link.pathname === location.pathname) return;
+        const isHome = path === '/' || path === '' || path.endsWith('index.html');
+        if ((path.endsWith('.html') || isHome) && !path.includes('admin')) {
           e.preventDefault();
           spaNavigate(link.href);
+          if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
     });
 
     window.addEventListener('popstate', () => {
-      spaNavigate(location.href);
+      spaNavigate(location.href, true);
     });
+
+    window.addEventListener('online', handleOfflineStatus);
+    window.addEventListener('offline', handleOfflineStatus);
+    handleOfflineStatus();
 
     globalEventsBound = true;
   }
@@ -1206,15 +1369,18 @@ function bindCommonEvents() {
     els.resetDirectoryBtn.addEventListener('click', () => {
       state.directorySearch = '';
       state.cluster = 'all';
+      state.collection = 'all';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
-      renderClusterFilters();
-      renderCategoryDirectory();
+      renderClusterTabBar();
+      fadeAndRenderDirectory();
       showToast(t('directoryResetDone'));
     });
   }
   if (els.categorySearchInput) {
     els.categorySearchInput.addEventListener('input', debounce(() => {
       state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
+      if (state.directorySearch) state.collection = 'all';
+      renderClusterTabBar();
       renderCategoryDirectory();
     }, 200));
   }
@@ -1306,35 +1472,84 @@ function bindCommonEvents() {
       if (!id) return;
       handleFlip(id, card);
     });
-    els.cardGrid.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      const card = event.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
-      if (!card) return;
-      event.preventDefault();
-      const id = card.dataset.id;
-      if (!id) return;
-      handleFlip(id, card);
-    });
+    // ── Enhanced swipe: visual tilt + swipe-to-mark on flipped cards ──
+    let _sw = null;
 
-    // Swipe-to-flip on touch devices
-    let _swipeStart = null;
+    function _resetSwipeCard() {
+      if (!_sw?.cardEl) { _sw = null; return; }
+      const c = _sw.cardEl;
+      c.style.transform = '';
+      c.style.willChange = '';
+      c.classList.remove('is-swiping');
+      const ov = c.querySelector('.swipe-overlay');
+      if (ov) ov.style.opacity = '0';
+      _sw = null;
+    }
+
+    function _getSwipeOverlay(cardEl) {
+      let ov = cardEl.querySelector('.swipe-overlay');
+      if (!ov) {
+        ov = document.createElement('div');
+        ov.className = 'swipe-overlay';
+        cardEl.appendChild(ov);
+      }
+      return ov;
+    }
+
     els.cardGrid.addEventListener('touchstart', (e) => {
       const card = e.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
       if (!card) return;
       const t = e.touches[0];
-      _swipeStart = { x: t.clientX, y: t.clientY, id: card.dataset.id };
+      card.style.willChange = 'transform';
+      _sw = { x: t.clientX, y: t.clientY, id: card.dataset.id, cardEl: card };
     }, { passive: true });
+
+    els.cardGrid.addEventListener('touchmove', (e) => {
+      if (!_sw) return;
+      const t = e.touches[0];
+      const dx = t.clientX - _sw.x;
+      const dy = t.clientY - _sw.y;
+      if (Math.abs(dx) < 8 || Math.abs(dy) > Math.abs(dx) * 0.85) return;
+      const card = _sw.cardEl;
+      card.classList.add('is-swiping');
+      card.style.transform = `translateX(${dx * 0.22}px) rotate(${dx * 0.035}deg)`;
+      const isFlipped = card.classList.contains('is-flipped');
+      if (!isFlipped) return;
+      const isRtl = document.documentElement.dir === 'rtl';
+      const isCorrect = isRtl ? dx < 0 : dx > 0;
+      const ov = _getSwipeOverlay(card);
+      ov.style.background = isCorrect
+        ? 'color-mix(in srgb, var(--easy) 22%, transparent)'
+        : 'color-mix(in srgb, var(--danger) 20%, transparent)';
+      ov.style.color   = isCorrect ? 'var(--easy)' : 'var(--danger)';
+      ov.style.border  = isCorrect
+        ? '2px solid color-mix(in srgb, var(--easy) 55%, transparent)'
+        : '2px solid color-mix(in srgb, var(--danger) 50%, transparent)';
+      ov.textContent   = isCorrect ? '✓' : '✗';
+      ov.style.opacity = String(Math.min(Math.abs(dx) / 70, 1) * 0.95);
+    }, { passive: true });
+
     els.cardGrid.addEventListener('touchend', (e) => {
-      if (!_swipeStart) return;
+      if (!_sw) return;
       const t = e.changedTouches[0];
-      const dx = t.clientX - _swipeStart.x;
-      const dy = t.clientY - _swipeStart.y;
-      const id = _swipeStart.id;
-      _swipeStart = null;
+      const dx = t.clientX - _sw.x;
+      const dy = t.clientY - _sw.y;
+      const { id } = _sw;
+      const cardEl = _sw.cardEl;
+      const isFlipped = cardEl.classList.contains('is-flipped');
+      _resetSwipeCard();
       if (Math.abs(dx) < 42 || Math.abs(dy) > Math.abs(dx) * 0.9) return;
-      const swipeCardEl = els.cardGrid.querySelector(`[data-id="${CSS.escape(id)}"]`);
-      handleFlip(id, swipeCardEl);
+      const isRtl = document.documentElement.dir === 'rtl';
+      const isRightSwipe = isRtl ? dx < 0 : dx > 0;
+      if (!isFlipped) {
+        handleFlip(id, cardEl);
+      } else {
+        if (isRightSwipe) markCard(id, 'correct');
+        else              markCard(id, 'wrong');
+      }
     }, { passive: true });
+
+    els.cardGrid.addEventListener('touchcancel', () => { _resetSwipeCard(); }, { passive: true });
   }
 }
 
@@ -1344,16 +1559,16 @@ function rerender() {
   } else {
     renderCategoryPage();
   }
+  updateBottomNavActive();
 }
 
 function renderHome() {
   if (!state.catalog) return;
-  if (els.badgeCategories) els.badgeCategories.textContent = fmt('categoryCountLabel', { count: state.catalog.categories.length });
-  if (els.badgeQuestions) els.badgeQuestions.textContent = fmt('totalQuestionLabel', { count: state.catalog.site.totalQuestions });
+  if (els.badgeCategories) els.badgeCategories.textContent = getDirectoryCollections().length || state.catalog.categories.length;
+  if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
-  renderResumeButton();
   renderDailyChallenge();
-  renderClusterFilters();
+  renderClusterTabBar();
   renderCategoryDirectory();
   markCachedCategories();
   const savedScroll = sessionStorage.getItem('jakh-home-scroll');
@@ -1363,87 +1578,113 @@ function renderHome() {
   }
 }
 
-let tracksExpanded = false;
-function renderClusterFilters() {
-  if (!els.clusterFilters || !state.catalog) return;
-  const clusters = [{ key: 'all', label: state.lang === 'ar' ? UI.ar.allLevels : UI.en.allLevels }];
-  const seen = new Set();
-  state.catalog.categories.forEach((cat) => {
-    if (!seen.has(cat.cluster_key)) {
-      seen.add(cat.cluster_key);
-      clusters.push({ key: cat.cluster_key, label: cat.cluster[state.lang] });
-    }
-  });
+function getCategoryMap() {
+  return new Map((state.catalog?.categories || []).map(category => [category.slug, category]));
+}
 
-  // Mobile: Show only first few + Expand button
-  const isMobile = window.innerWidth <= 600;
-  let visibleClusters = clusters;
-  let showExpandBtn = false;
+function getDirectoryCollections() {
+  const categoryMap = getCategoryMap();
+  return CATEGORY_COLLECTIONS.map(collection => {
+    const categories = collection.members.map(slug => categoryMap.get(slug)).filter(Boolean);
+    return {
+      ...collection,
+      categories,
+      pageCount: categories.length,
+      count: categories.reduce((total, category) => total + Number(category.count || 0), 0),
+      parentMeta: DIRECTORY_PARENT_META[collection.parent],
+    };
+  }).filter(collection => collection.pageCount > 0);
+}
 
-  if (isMobile && !tracksExpanded && clusters.length > 6) {
-    visibleClusters = clusters.slice(0, 6);
-    showExpandBtn = true;
-  }
+function getCollectionByKey(key) {
+  return getDirectoryCollections().find(collection => collection.key === key) || null;
+}
 
-  let html = visibleClusters.map((c) => `
-    <button class="category-chip ${state.cluster === c.key ? 'is-active' : ''}" data-cluster="${escapeHtml(c.key)}">
-      ${escapeHtml(c.label)}
+function createCollectionCardMarkup(collection) {
+  const isAr = state.lang === 'ar';
+  const titleRaw = collection.title[state.lang] || collection.title.en;
+  const descriptionRaw = collection.description[state.lang] || collection.description.en;
+  const title = escapeHtml(titleRaw);
+  const description = escapeHtml(descriptionRaw);
+  const parentLabel = escapeHtml(collection.parentMeta?.label?.[state.lang] || collection.parentMeta?.label?.en || '');
+  const viewLabel = isAr ? 'عرض المواضيع' : 'View topics';
+  const pageLabel = isAr ? `${collection.pageCount} صفحات` : `${collection.pageCount} pages`;
+  const questionLabel = isAr ? `${collection.count} سؤال` : `${collection.count} questions`;
+  const ariaLabel = isAr ? `افتح مجموعة ${titleRaw}` : `Open ${titleRaw} collection`;
+  return `
+    <button class="category-card collection-card" type="button" data-collection="${escapeHtml(collection.key)}" aria-label="${escapeHtml(ariaLabel)}" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
+      <span class="category-card-stripe" style="background:${collection.gradient}" aria-hidden="true"></span>
+      <div class="category-card-bg collection-card-bg" aria-hidden="true">
+        <span class="category-card-count-badge">${pageLabel}</span>
+        <span class="collection-card-orbit collection-card-orbit-a"></span>
+        <span class="collection-card-orbit collection-card-orbit-b"></span>
+        <span class="category-card-corner-mark"></span>
+      </div>
+      <div class="category-card-overlay">
+        <span class="category-card-cluster cluster-chip" style="color:${collection.accent}">${parentLabel}</span>
+        <h3 class="category-title">${title}</h3>
+        <p class="collection-card-description">${description}</p>
+      </div>
+      <div class="category-card-footer">
+        <span class="category-card-label">${questionLabel}</span>
+        <span class="category-card-enter">${viewLabel}</span>
+      </div>
     </button>
-  `).join('');
+  `;
+}
 
-  if (showExpandBtn) {
-    html += `<button class="category-chip" id="expandTracksBtn" style="background:var(--accent); color:white; border:none; font-weight:700">+ ${clusters.length - 6}</button>`;
-  }
+function createCollectionHeaderMarkup(collection) {
+  const isAr = state.lang === 'ar';
+  const title = escapeHtml(collection.title[state.lang] || collection.title.en);
+  const description = escapeHtml(collection.description[state.lang] || collection.description.en);
+  const backLabel = isAr ? 'العودة للمجموعات' : 'Back to collections';
+  const eyebrow = isAr ? 'مجموعة مختارة' : 'Selected collection';
+  return `
+    <div class="collection-directory-header" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
+      <span class="collection-directory-glow" aria-hidden="true"></span>
+      <div>
+        <span class="collection-directory-eyebrow">${eyebrow}</span>
+        <h3>${title}</h3>
+        <p>${description}</p>
+      </div>
+      <button class="text-btn collection-back-btn" type="button" data-collection-reset>${backLabel}</button>
+    </div>
+  `;
+}
 
-  els.clusterFilters.innerHTML = html;
-
-  const expandBtn = document.getElementById('expandTracksBtn');
-  if (expandBtn) {
-    expandBtn.addEventListener('click', () => {
-      tracksExpanded = true;
-      renderClusterFilters();
-    });
-  }
-
-  els.clusterFilters.querySelectorAll('[data-cluster]').forEach((button) => {
-    button.addEventListener('click', () => {
-      state.cluster = button.dataset.cluster;
-      renderClusterFilters();
-      renderCategoryDirectory();
-    });
-  });
+function setDirectoryResultsLabel(text) {
+  if (els.directoryResultsLabel) els.directoryResultsLabel.textContent = text;
 }
 
 function createCategoryCardMarkup(meta) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
+  const gradient = CATEGORY_GRADIENTS[meta.slug] || `linear-gradient(135deg, ${color} 0%, rgba(255,255,255,0.12) 100%)`;
+  const isAr = state.lang === 'ar';
+  const title = escapeHtml(meta.title[state.lang]);
+  const cluster = escapeHtml(meta.cluster[state.lang]);
   const prog = getCategoryProgress(meta.slug);
-  const progressBar = prog.pct > 0 ? `
-    <div class="cat-progress-wrap">
-      <div class="cat-progress-label">
-        <span>${prog.solved} / ${meta.count} ${state.lang === 'ar' ? 'محلول' : 'solved'}</span>
-        <span>${prog.pct}%</span>
-      </div>
-      <div class="cat-progress-bar-track"><div class="cat-progress-bar-fill" style="width:${prog.pct}%;--pct:${prog.pct}"></div></div>
-    </div>` : '';
-  const enterLabel = state.lang === 'ar' ? 'ادخل ←' : 'Enter →';
-  const countLabel = escapeHtml(fmt('pageQuestions', { count: meta.count }));
+  const progressLine = prog.pct > 0
+    ? `<div class="card-progress-bar" style="width:${prog.pct}%;background:${color}" aria-hidden="true"></div>`
+    : '';
+  const doneLabel = prog.pct > 0 ? ` · ${prog.pct}% ${isAr ? 'مكتمل' : 'done'}` : '';
+  const enterLabel = isAr ? 'افتح' : 'Enter';
+  const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
-    <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${escapeHtml(meta.title[state.lang])}">
-      <div class="category-card-stripe" style="background:${color}" aria-hidden="true"></div>
-      <div class="category-card-bg">
-        <div class="category-card-disc" style="background:${color}22;border:1px solid ${color}55;box-shadow:0 0 28px ${color}38" aria-hidden="true">
-          <span class="category-card-emoji" aria-hidden="true">${meta.emoji}</span>
-        </div>
+    <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${title}">
+      <span class="category-card-stripe" style="background:${gradient}" aria-hidden="true"></span>
+      <div class="category-card-bg" aria-hidden="true">
+        <span class="category-card-count-badge">${cardCountLabel}</span>
+        <span class="category-card-corner-mark"></span>
       </div>
       <div class="category-card-overlay">
-        <span class="category-card-cluster">${escapeHtml(meta.cluster[state.lang])}</span>
-        <h3>${escapeHtml(meta.title[state.lang])}</h3>
+        <span class="category-card-cluster cluster-chip" style="color:${color}">${cluster}</span>
+        <h3 class="category-title">${title}</h3>
       </div>
       <div class="category-card-footer">
-        <span>${countLabel}</span>
-        <span class="category-card-enter" style="color:${color}">${enterLabel}</span>
+        <span class="category-card-label">${meta.count} ${isAr ? 'سؤال' : 'questions'}${doneLabel}</span>
+        <span class="category-card-enter">${enterLabel}</span>
       </div>
-      ${progressBar}
+      ${prog.pct > 0 ? `<div class="card-progress-track" aria-hidden="true">${progressLine}</div>` : ''}
     </a>
   `;
 }
@@ -1451,7 +1692,13 @@ function createCategoryCardMarkup(meta) {
 async function markCachedCategories() {
   if (!('caches' in window)) return;
   try {
-    const cache = await caches.open('jakh-assets-v2');
+    const cacheNames = await caches.keys();
+    const assetCacheName = cacheNames
+      .filter(name => /^jakh-assets-v\d+$/.test(name))
+      .sort((a, b) => Number(a.split('-v').pop()) - Number(b.split('-v').pop()))
+      .pop();
+    if (!assetCacheName) return;
+    const cache = await caches.open(assetCacheName);
     const keys = await cache.keys();
     const cachedPaths = new Set(keys.map(r => new URL(r.url).pathname));
     document.querySelectorAll('.category-card[href]').forEach(el => {
@@ -1470,38 +1717,159 @@ async function markCachedCategories() {
   } catch (_) {}
 }
 
+const lazyBgObserver = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-loaded');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '300px' }) : null;
+
 function renderCategoryDirectory() {
   if (!els.categoryDirectoryGrid || !state.catalog) return;
-  const filtered = state.catalog.categories.filter((meta) => {
-    if (state.cluster !== 'all' && meta.cluster_key !== state.cluster) return false;
-    if (!state.directorySearch) return true;
-    const haystack = [
-      meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, meta.cluster.en, meta.cluster.ar
-    ].join(' ').toLowerCase();
-    return haystack.includes(state.directorySearch);
-  });
-  els.categoryDirectoryGrid.innerHTML = filtered.map(createCategoryCardMarkup).join('');
-  if (els.directoryResultsLabel) {
-    els.directoryResultsLabel.textContent = filtered.length === state.catalog.categories.length
-      ? fmt('showingAllPages', { count: filtered.length })
-      : fmt('showingFilteredPages', { count: filtered.length });
+  const collections = getDirectoryCollections();
+  const selectedCollection = state.collection !== 'all' ? getCollectionByKey(state.collection) : null;
+  const searchTerm = state.directorySearch;
+  const isAr = state.lang === 'ar';
+  let markup = '';
+
+  if (searchTerm) {
+    const collectionBySlug = new Map();
+    collections.forEach(collection => collection.categories.forEach(category => collectionBySlug.set(category.slug, collection)));
+    const filtered = state.catalog.categories.filter((meta) => {
+      const collection = collectionBySlug.get(meta.slug);
+      if (state.cluster !== 'all' && collection?.parent !== state.cluster) return false;
+      const parentMeta = collection?.parentMeta;
+      const haystack = [
+        meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, meta.cluster.en, meta.cluster.ar,
+        collection?.title.en, collection?.title.ar, collection?.description.en, collection?.description.ar,
+        parentMeta?.label.en, parentMeta?.label.ar
+      ].filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(searchTerm);
+    });
+    markup = filtered.map(createCategoryCardMarkup).join('');
+    setDirectoryResultsLabel(isAr
+      ? `يتم عرض ${filtered.length} صفحة فئة مطابقة.`
+      : `Showing ${filtered.length} matching category pages.`);
+  } else if (selectedCollection) {
+    const categories = selectedCollection.categories;
+    markup = createCollectionHeaderMarkup(selectedCollection) + categories.map(createCategoryCardMarkup).join('');
+    setDirectoryResultsLabel(isAr
+      ? `يتم عرض ${categories.length} صفحات داخل مجموعة ${selectedCollection.title.ar}.`
+      : `Showing ${categories.length} category pages inside ${selectedCollection.title.en}.`);
+  } else {
+    const visibleCollections = state.cluster === 'all'
+      ? collections
+      : collections.filter(collection => collection.parent === state.cluster);
+    markup = visibleCollections.map(createCollectionCardMarkup).join('');
+    const totalPages = visibleCollections.reduce((sum, collection) => sum + collection.pageCount, 0);
+    setDirectoryResultsLabel(state.cluster === 'all'
+      ? (isAr
+          ? `يتم عرض ${visibleCollections.length} مجموعات مختارة تضم ${totalPages} صفحة فئة.`
+          : `Showing ${visibleCollections.length} curated collections covering ${totalPages} category pages.`)
+      : (isAr
+          ? `يتم عرض ${visibleCollections.length} مجموعات في هذا المسار.`
+          : `Showing ${visibleCollections.length} collections in this track.`));
   }
 
-  // Pre-fetch category page assets on hover/touch for instant page transitions
-  if (!els.categoryDirectoryGrid.dataset.prefetchBound) {
-    els.categoryDirectoryGrid.dataset.prefetchBound = '1';
-    const prefetchTarget = (e) => {
-      const card = e.target.closest('.category-card[href]');
-      if (!card) return;
-      const href = card.getAttribute('href');
-      if (!href) return;
-      const slug = href.replace(/\.html$/, '');
-      fetch(href, { priority: 'low' }).catch(() => {});
-      fetchJson(`data/${slug}.json`).catch(() => {});
-    };
-    els.categoryDirectoryGrid.addEventListener('mouseover', prefetchTarget, { passive: true });
-    els.categoryDirectoryGrid.addEventListener('touchstart', prefetchTarget, { passive: true });
+  els.categoryDirectoryGrid.innerHTML = markup || `
+    <div class="empty-state collection-empty-state">
+      <h3>${isAr ? 'لا توجد نتائج مطابقة.' : 'No matching topics.'}</h3>
+      <p>${isAr ? 'جرّب مسارًا آخر أو أزل البحث الحالي.' : 'Try another track or clear the current search.'}</p>
+    </div>
+  `;
+  const cards = [...els.categoryDirectoryGrid.querySelectorAll('.category-card')];
+  requestAnimationFrame(() => {
+    cards.forEach((el) => el.classList.add('is-visible'));
+  });
+  if (lazyBgObserver) {
+    cards.forEach(el => lazyBgObserver.observe(el));
   }
+  els.categoryDirectoryGrid.querySelectorAll('[data-collection]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.collection = btn.dataset.collection;
+      state.directorySearch = '';
+      if (els.categorySearchInput) els.categorySearchInput.value = '';
+      renderClusterTabBar();
+      fadeAndRenderDirectory();
+    });
+  });
+  els.categoryDirectoryGrid.querySelectorAll('[data-collection-reset]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.collection = 'all';
+      fadeAndRenderDirectory();
+    });
+  });
+}
+
+function renderClusterTabBar() {
+  const tabBar = document.getElementById('clusterTabBar');
+  if (!tabBar || !state.catalog) return;
+  const isAr = state.lang === 'ar';
+  const collections = getDirectoryCollections();
+  const countWord = isAr ? 'مجموعات' : 'collections';
+
+  const allTab = {
+    key: 'all',
+    label: { en: 'All Collections', ar: 'كل المجموعات' },
+    count: collections.length,
+    mark: 'ALL',
+    gradient: 'linear-gradient(135deg,#0f0c1a,#2a1f3d)',
+  };
+
+  const parentTabs = Object.entries(DIRECTORY_PARENT_META).map(([key, meta]) => ({
+    key,
+    label: meta.label,
+    count: collections.filter(collection => collection.parent === key).length,
+    mark: meta.mark,
+    gradient: meta.gradient,
+  })).filter(tab => tab.count > 0);
+
+  const tabs = [allTab, ...parentTabs];
+
+  tabBar.innerHTML = tabs.map(c => {
+    const name = c.key === 'all' ? (isAr ? c.label.ar : c.label.en) : (c.label[state.lang] || c.label.en);
+    const isActive = state.cluster === c.key;
+    return `
+      <button class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-label="${escapeHtml(name)}">
+        <div class="ml-cluster-tab-bg" style="background:${c.gradient};" aria-hidden="true"></div>
+        <div class="ml-cluster-tab-content">
+          <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${c.mark}</span>
+          <div class="ml-cluster-tab-text">
+            <span class="ml-cluster-tab-name">${escapeHtml(name)}</span>
+            <span class="ml-cluster-tab-count">${c.count} ${countWord}</span>
+          </div>
+        </div>
+      </button>`;
+  }).join('');
+
+  tabBar.querySelectorAll('.ml-cluster-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const newCluster = btn.dataset.cluster;
+      if (state.cluster === newCluster) return;
+      state.cluster = newCluster;
+      state.collection = 'all';
+      renderClusterTabBar();
+      fadeAndRenderDirectory();
+    });
+  });
+}
+
+function fadeAndRenderDirectory() {
+  const grid = els.categoryDirectoryGrid;
+  if (!grid) { renderCategoryDirectory(); return; }
+  grid.style.transition = 'none';
+  grid.style.opacity = '0';
+  grid.style.transform = 'translateY(10px)';
+  requestAnimationFrame(() => {
+    renderCategoryDirectory();
+    requestAnimationFrame(() => {
+      grid.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
+      grid.style.opacity = '1';
+      grid.style.transform = 'translateY(0)';
+    });
+  });
 }
 
 function getGreeting(name, lang) {
@@ -1554,17 +1922,19 @@ function renderAccountSummary(mount) {
     const hasProgress = guestSolvedCount > 0 || guestFavCount > 0;
     mount.innerHTML = `
       <section class="account-card">
-        <strong>${escapeHtml(t('guestTitle'))}</strong>
+        <strong>${escapeHtml(state.apiAvailable ? t('guestTitle') : (state.lang === 'ar' ? 'التقدم على الجهاز' : 'Progress on this device'))}</strong>
         ${hasProgress ? `
           <div class="stats-grid">
             <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${guestSolvedCount}</strong></div>
             <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${guestFavCount}</strong></div>
           </div>
-          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح.' : 'Progress saved in this browser.')}</p>
-        ` : `<p>${escapeHtml(t('guestText'))}</p>`}
-        <div class="hero-actions">
+          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.apiAvailable
+            ? (state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح. أنشئ حسابًا لمزامنته عبر أجهزتك.' : 'Progress saved in this browser. Sign up to sync across devices.')
+            : (state.lang === 'ar' ? 'تقدمك محفوظ بأمان على هذا الجهاز.' : 'Your progress is saved safely on this device.'))}</p>
+        ` : `<p>${escapeHtml(state.apiAvailable ? t('guestText') : (state.lang === 'ar' ? 'ابدأ بحل الأسئلة وسيُحفظ تقدمك على هذا الجهاز.' : 'Start solving questions and your progress will be saved on this device.'))}</p>`}
+        ${state.apiAvailable ? `<div class="hero-actions">
           <button class="primary-btn" id="inlineCreateProfileBtn">${escapeHtml(t('createLocalProfile'))}</button>
-        </div>
+        </div>` : ''}
       </section>
     `;
     const button = document.getElementById('inlineCreateProfileBtn');
@@ -1706,23 +2076,11 @@ function renderCategoryPage() {
   if (!state.categoryData || !state.catalog) return;
   injectBackToTop();
 
-  // Inject Quick Fire button once
-  const heroActions = document.querySelector('.hero-category .hero-actions');
-  if (heroActions && !document.getElementById('quickFireBtn')) {
-    const unlocked = (state.categoryData.cards || []).filter(c => isLevelUnlocked(c.difficulty));
-    if (unlocked.length >= 5) {
-      const btn = document.createElement('button');
-      btn.id = 'quickFireBtn';
-      btn.className = 'quick-fire-btn';
-      btn.innerHTML = '&#9889; Quick Fire';
-      btn.addEventListener('click', startTimedQuiz);
-      heroActions.appendChild(btn);
-    }
-  }
-
   const category = state.categoryData;
   if (els.categoryKicker) els.categoryKicker.textContent = category.cluster[state.lang];
   if (els.categoryTitle) els.categoryTitle.textContent = `${category.emoji} ${category.title[state.lang]}`;
+  const breadcrumbEl = document.getElementById('breadcrumbCategoryName');
+  if (breadcrumbEl) breadcrumbEl.textContent = category.title[state.lang];
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
   if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
   if (els.categoryImage) {
@@ -1882,7 +2240,7 @@ function createCardMarkup(card) {
       } else {
         const unlockLabel = state.lang === 'ar' ? '🔓 فتح الإجابة' : '🔓 Unlock answer';
         return `
-          <article class="riddle-card is-paywall" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" tabindex="0" role="button" aria-label="${escapeHtml(card.question[state.lang])}">
+          <article class="riddle-card is-paywall" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" aria-label="${escapeHtml(card.question[state.lang])}">
             <div class="card-inner">
               <section class="card-face card-front">
                 <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
@@ -1928,7 +2286,7 @@ function createCardMarkup(card) {
   }
 
   return `
-    <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" ${trialCard ? 'data-trial="1"' : ''} tabindex="0" role="button" aria-label="${escapeHtml(card.question[state.lang])}" aria-expanded="${flipped}">
+    <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" ${trialCard ? 'data-trial="1"' : ''} aria-label="${escapeHtml(card.question[state.lang])}">
       <div class="card-inner">
         <section class="card-face card-front">
           <div class="card-badges">
@@ -1951,7 +2309,7 @@ function createCardMarkup(card) {
               <button class="card-fav-btn${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}">${favorite ? '♥' : '♡'}</button>
               ${markBtns}
               <button class="mini-btn card-share-btn" data-action="share" data-id="${escapeHtml(card.id)}" title="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}">↗</button>
-              <button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('reportBtn'))}">⚑</button>
+              ${state.apiAvailable ? `<button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('reportBtn'))}">⚑</button>` : ''}
             </div>
           </div>
         </section>
@@ -2026,15 +2384,39 @@ function renderCards() {
 
 function renderRelatedCategories() {
   if (!els.relatedCategories || !state.catalog || !state.categoryData) return;
-  const related = state.catalog.categories
-    .filter((meta) => meta.slug !== state.categoryData.slug)
-    .sort((a, b) => {
-      const sameA = a.cluster_key === state.categoryData.cluster_key ? 0 : 1;
-      const sameB = b.cluster_key === state.categoryData.cluster_key ? 0 : 1;
-      return sameA - sameB || a.title[state.lang].localeCompare(b.title[state.lang], state.lang);
-    })
-    .slice(0, 6);
-  els.relatedCategories.innerHTML = related.length ? related.map(createCategoryCardMarkup).join('') : `<p class="muted">${escapeHtml(t('noRelated'))}</p>`;
+  const currentSlug = state.categoryData.slug;
+
+  // Deterministic per-page shuffle: each source page picks a stable but unique set
+  // of related pages, ensuring all categories receive inbound links (no orphans).
+  function slugHash(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+    return h >>> 0;
+  }
+  function seededShuffle(arr, seed) {
+    const out = [...arr];
+    for (let i = out.length - 1; i > 0; i--) {
+      const j = slugHash(seed + String(i)) % (i + 1);
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out;
+  }
+
+  const sameCluster = state.catalog.categories.filter(
+    m => m.slug !== currentSlug && m.cluster_key === state.categoryData.cluster_key
+  );
+  const otherCluster = state.catalog.categories.filter(
+    m => m.slug !== currentSlug && m.cluster_key !== state.categoryData.cluster_key
+  );
+
+  const related = [
+    ...seededShuffle(sameCluster, currentSlug),
+    ...seededShuffle(otherCluster, currentSlug),
+  ].slice(0, 6);
+
+  els.relatedCategories.innerHTML = related.length
+    ? related.map(createCategoryCardMarkup).join('')
+    : `<p class="muted">${escapeHtml(t('noRelated'))}</p>`;
 }
 
 
@@ -2065,23 +2447,24 @@ async function toggleFavorite(id) {
     dbUser.favorites = dbUser.favorites.filter(f => f.cardId !== id);
     showToast(t('favoriteRemoved'));
   }
-  persistLocalProfile();
   updateCardElOrRefresh(id);
   renderAccountSummary(els.categorySummaryMount);
 
-  void action;
+  try {
+    await apiFetch('/user/favorite', {
+      method: 'POST',
+      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', action })
+    });
+  } catch (err) {
+    showToast(state.lang === 'ar' ? 'خطأ في الحفظ السحابي' : 'Error saving to cloud');
+  }
 }
 
 async function markCard(id, result) {
   const card = state.categoryData?.cards.find(item => item.id === id);
   if (!card) return;
+  if (result === 'correct') hapticSuccess(); else hapticError();
   const status = result === 'correct' ? card.difficulty : `wrong-${card.difficulty}`;
-  if (result === 'correct') {
-    soundFx.correct();
-    recordLocalActivity();
-  } else {
-    soundFx.wrong();
-  }
   showToast(result === 'correct' ? t('solvedAdded') : t('markedWrong'));
   trackEvent(result === 'correct' ? 'card_correct' : 'card_wrong', { category: state.categorySlug, difficulty: card.difficulty });
   if (result === 'correct') {
@@ -2089,13 +2472,13 @@ async function markCard(id, result) {
     if (cardEl) spawnConfetti(cardEl);
     const h = new Date().getHours();
     if (h >= 0 && h < 5) saveJson('jakh-night-owl', 1);
+    checkNewAchievements();
   }
 
   if (!state.dbUser) {
     const guestSolved = getGuestSolvedMap();
     guestSolved[id] = { status, categoryId: state.categoryData?.slug || 'unknown' };
     saveJson(GUEST_KEYS.solved, guestSolved);
-    if (result === 'correct') checkNewAchievements();
     updateCardElOrRefresh(id);
     if (result === 'correct') flashCard(id);
     renderAccountSummary(els.categorySummaryMount);
@@ -2106,14 +2489,17 @@ async function markCard(id, result) {
   const dbUser = state.dbUser;
   dbUser.progress = dbUser.progress.filter(p => p.cardId !== id);
   dbUser.progress.push({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', status });
-  persistLocalProfile();
-  if (result === 'correct') checkNewAchievements();
   updateCardElOrRefresh(id);
   if (result === 'correct') flashCard(id);
   renderAccountSummary(els.categorySummaryMount);
   if (result === 'correct') setTimeout(() => checkCategoryComplete(state.categoryData?.slug || ''), 400);
 
-  void status;
+  try {
+    await apiFetch('/user/progress', {
+      method: 'POST',
+      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', status }),
+    });
+  } catch (e) {}
 }
 
 async function unmarkCard(id) {
@@ -2129,12 +2515,16 @@ async function unmarkCard(id) {
 
   const dbUser = state.dbUser;
   dbUser.progress = dbUser.progress.filter(p => p.cardId !== id);
-  persistLocalProfile();
   showToast(t('solvedRemoved'));
   updateCardElOrRefresh(id);
   renderAccountSummary(els.categorySummaryMount);
 
-  return;
+  try {
+    await apiFetch('/user/progress', {
+      method: 'DELETE',
+      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown' }),
+    });
+  } catch (e) {}
 }
 
 const FOCUSABLE = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
@@ -2206,15 +2596,15 @@ function openPaywallModal() {
         ? `جربت ${trialUsed} ألغاز مجانية!`
         : `You've previewed ${trialUsed} premium riddles free!`}</h2>
       <p class="paywall-body">${isAr
-        ? 'أنشئ ملفًا محليًا لفتح جميع تحديات الصعب والصعب جدًا وحفظ تقدمك في هذا المتصفح.'
-        : 'Create a local profile to unlock all Head Scratcher &amp; Brick Wall challenges and save progress in this browser.'}</p>
+        ? 'أنشئ حسابًا مجانيًا لفتح جميع تحديات الصعب والصعب جدًا — مع مزامنة التقدم ولوحة المتصدرين والفرق.'
+        : 'Create a free account to unlock all Head Scratcher &amp; Brick Wall challenges — plus progress sync, leaderboards, and teams.'}</p>
       <div class="paywall-actions">
-        <button class="primary-btn paywall-signup-btn">${isAr ? 'إنشاء ملف محلي' : 'Create local profile'}</button>
-        <button class="ghost-btn paywall-signin-btn">${isAr ? 'فتح ملف' : 'Open profile'}</button>
+        <button class="primary-btn paywall-signup-btn">${isAr ? 'إنشاء حساب مجاني' : 'Create free account'}</button>
+        <button class="ghost-btn paywall-signin-btn">${isAr ? 'تسجيل الدخول' : 'Sign in'}</button>
       </div>
       <p class="paywall-note">${isAr
-        ? 'تُفتح المستويات تلقائيًا بعد 10 إجابات صحيحة.'
-        : 'Levels unlock automatically after 10 correct answers.'}</p>
+        ? 'لديك حساب؟ تُفتح المستويات تلقائيًا بعد 10 إجابات صحيحة.'
+        : 'Already have an account? Levels unlock automatically after 10 correct answers.'}</p>
     </div>
   `;
   modal.querySelector('#paywallBackdrop').addEventListener('click', closePaywallModal);
@@ -2253,7 +2643,7 @@ function renderAuthModal(mode = 'signin') {
     ].filter(Boolean).join(' ') || '<span class="muted">—</span>';
 
     const byCategory = {};
-    getProgressEntries().forEach(p => {
+    (state.dbUser.progress || []).forEach(p => {
       const cat = p.categoryId && p.categoryId !== 'unknown' ? p.categoryId : null;
       if (!cat) return;
       if (!byCategory[cat]) byCategory[cat] = { correct: 0, wrong: 0 };
@@ -2284,11 +2674,16 @@ function renderAuthModal(mode = 'signin') {
 
     els.authModalBody.innerHTML = `
       <section class="auth-panel">
-        <strong>${escapeHtml(fmt('signedInAs', {}))}: ${escapeHtml(account.username)}</strong>
-        <p>${escapeHtml(t('accountReady'))}</p>
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+          <div style="font-size:3rem;line-height:1;background:var(--panel);padding:0.5rem;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,0.1);">${escapeHtml(account.avatar)}</div>
+          <div>
+            <strong style="font-size:1.2rem;">${escapeHtml(account.username)}</strong>
+            <p style="margin:0;opacity:0.7;font-size:0.9rem;">${escapeHtml(t('accountReady'))}</p>
+          </div>
+        </div>
         <div class="stats-grid">
           <div class="stat-box"><span>${escapeHtml(t('score'))}</span><strong>${getScore()}</strong></div>
-          <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${getTotalCorrectCount()}</strong></div>
+          <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${(state.dbUser?.progress || []).filter(p => !p.status.startsWith('wrong-')).length}</strong></div>
           <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${account.favorites.length}</strong></div>
         </div>
 
@@ -2298,7 +2693,27 @@ function renderAuthModal(mode = 'signin') {
 
         ${reportHtml}
 
-        <p class="muted" style="font-size:0.82rem;margin-top:1.5rem;">${escapeHtml(state.lang === 'ar' ? 'هذا ملف محلي فقط. لا يتم إرسال أي بيانات إلى خادم.' : 'This is a local-only profile. No profile data is sent to a server.')}</p>
+        <hr style="margin:1.5rem 0;opacity:0.2;" />
+        <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(state.lang === 'ar' ? 'اختر صورتك الرمزية' : 'Choose Your Avatar')}</strong>
+        <div id="avatarSelector" style="display:flex;gap:0.5rem;flex-wrap:wrap;font-size:1.75rem;margin-bottom:1rem;">
+          ${['👤','🦊','🦉','🐉','⚡️','🔥','👻','👽','🦄','🦁','🐼', '👑', '🚀', '🧠', '🧙‍♂️', '👾'].map(emoji => `
+             <button type="button" class="avatar-btn ${account.avatar === emoji ? 'is-active' : ''}" style="border:2px solid ${account.avatar === emoji ? 'var(--accent, #e8613c)' : 'transparent'};background:transparent;cursor:pointer;border-radius:50%;padding:4px;transition:all 0.2s;transform:${account.avatar === emoji ? 'scale(1.1)' : 'scale(1)'};" data-emoji="${emoji}">${emoji}</button>
+          `).join('')}
+        </div>
+
+        <hr style="margin:1.5rem 0;opacity:0.2;" />
+        <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(state.lang === 'ar' ? 'تغيير كلمة المرور' : 'Change Password')}</strong>
+        <div class="form-row" style="margin-bottom:1rem;">
+             <label>
+               <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الحالية' : 'Current Password')}</span>
+               <input type="password" id="currentPassword" />
+             </label>
+             <label>
+               <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الجديدة' : 'New Password')}</span>
+               <input type="password" id="newPassword" />
+             </label>
+        </div>
+        <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
 
         <div class="hero-actions" style="margin-top:2rem;">
           <button class="primary-btn" id="logoutBtn" style="background:#555;">${escapeHtml(t('logout'))}</button>
@@ -2308,12 +2723,47 @@ function renderAuthModal(mode = 'signin') {
     
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) logoutBtn.addEventListener('click', async () => {
-      localStorage.setItem(LOCAL_PROFILE_ACTIVE_KEY, 'false');
+      try { await apiFetch('/auth/logout', { method: 'POST' }); } catch(e){}
       state.dbUser = null;
       closeModal('auth');
       applyStaticCopy();
       rerender();
       showToast(t('signedOut'));
+    });
+
+    const avatarBtns = document.querySelectorAll('.avatar-btn');
+    avatarBtns.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const emoji = btn.dataset.emoji;
+        btn.style.opacity = '0.5';
+        try {
+          await apiFetch('/user/avatar', { method: 'PUT', body: JSON.stringify({ avatar: emoji }) });
+          state.dbUser.avatar = emoji;
+          renderAuthModal('signin');
+          showToast(state.lang === 'ar' ? 'تم تحديث الصورة!' : 'Avatar updated!');
+        } catch (err) {
+          showToast('Failed to save avatar');
+          btn.style.opacity = '1';
+        }
+      });
+    });
+
+    const cpBtn = document.getElementById('changePasswordBtn');
+    if (cpBtn) cpBtn.addEventListener('click', async () => {
+       const cur = document.getElementById('currentPassword').value;
+       const neu = document.getElementById('newPassword').value;
+       if (!cur || !neu) return showToast(state.lang === 'ar' ? 'الرجاء ملء حقلي كلمة المرور' : 'Fill both passwords');
+       cpBtn.textContent = '...';
+       try {
+          await apiFetch('/user/password', { method: 'POST', body: JSON.stringify({ currentPassword: cur, newPassword: neu }) });
+          showToast(state.lang === 'ar' ? 'تم تحديث كلمة المرور!' : 'Password updated!');
+          document.getElementById('currentPassword').value = '';
+          document.getElementById('newPassword').value = '';
+       } catch (err) {
+          showToast(err.message);
+       } finally {
+          cpBtn.textContent = state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password';
+       }
     });
     
     return;
@@ -2329,6 +2779,10 @@ function renderAuthModal(mode = 'signin') {
         <label>
           <span>${escapeHtml(t('username'))}</span>
           <input id="authUsername" required minlength="3" />
+        </label>
+        <label>
+          <span>${escapeHtml(t('password'))}</span>
+          <input id="authPassword" type="password" required minlength="8" />
         </label>
       </div>
       ${mode === 'register' ? `
@@ -2357,24 +2811,22 @@ function renderAuthModal(mode = 'signin') {
       btn.textContent = state.lang === 'ar' ? 'جاري التحميل...' : 'Loading...';
       
       const username = document.getElementById('authUsername').value.trim();
+      const password = document.getElementById('authPassword').value;
       const emailEl = document.getElementById('authEmail');
       const email = emailEl ? emailEl.value.trim() : null;
       
       try {
-          const existing = normalizeLocalProfile(loadJson(LOCAL_PROFILE_KEY, null));
-          if (mode === 'signin' && existing) {
-            state.dbUser = { ...existing, username: username || existing.username, lastLoginAt: new Date().toISOString() };
+          if (mode === 'signin') {
+             await apiFetch('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
           } else {
-            state.dbUser = existing && existing.username.toLowerCase() === username.toLowerCase()
-              ? { ...existing, email: email || existing.email || '', lastLoginAt: new Date().toISOString() }
-              : makeLocalProfile(username, email || '');
+             await apiFetch('/auth/register', { method: 'POST', body: JSON.stringify({ username, password, email }) });
           }
-          persistLocalProfile();
+          await checkCloudSession();
           await mergeGuestProgress();
           closeModal('auth');
           applyStaticCopy();
           rerender();
-          trackEvent(mode === 'signin' ? 'local_profile_open' : 'local_profile_create', { method: 'localStorage' });
+          trackEvent(mode === 'signin' ? 'login' : 'sign_up', { method: 'username' });
           showToast(mode === 'signin' ? t('signedIn') : t('accountCreated'));
       } catch (err) {
           showToast(err.message || t('badLogin'));
@@ -2401,7 +2853,9 @@ async function loadCategoryIfNeeded() {
   if (Array.isArray(raw)) {
     state.categoryData = { ...meta, cards: raw };
   } else {
-    state.categoryData = { ...meta, ...raw };
+    // Catalog metadata is the taxonomy source of truth; individual data files may
+    // still carry older cluster labels from previous generations.
+    state.categoryData = { ...raw, ...meta };
   }
 }
 
@@ -2411,22 +2865,107 @@ let _analyticsInterval = null;
 
 // ── Audio narration ───────────────────────────────────────────────────────────
 
-let _currentAudio = null;
+const _ttsCache = new Map(); // "lang:text" → blob URL
+let   _currentAudio = null;
 
-async function speakText(text, lang) {
+function _getBestVoice(lang) {
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return null;
+  const isArabic = lang === 'ar';
+  const targets = isArabic
+    ? ['ar-SA', 'ar-EG', 'ar-AE', 'ar']
+    : ['en-US', 'en-GB', 'en-AU', 'en'];
+
+  function score(v) {
+    const n = v.name.toLowerCase();
+    let s = 0;
+    if (n.includes('enhanced'))       s += 100;
+    else if (n.includes('premium'))   s += 90;
+    else if (n.includes('neural'))    s += 80;
+    else if (n.includes('google'))    s += 70;
+    else if (n.includes('natural'))   s += 60;
+    else if (n.includes('samantha') || n.includes('daniel')) s += 55;
+    if (v.localService) s += 10;
+    return s;
+  }
+
+  for (const tl of targets) {
+    const matches = voices.filter(v => v.lang === tl || v.lang.startsWith(tl + '-'));
+    if (matches.length) return matches.sort((a, b) => score(b) - score(a))[0];
+  }
+  const prefix = isArabic ? 'ar' : 'en';
+  const any = voices.filter(v => v.lang.startsWith(prefix));
+  return any.length ? any.sort((a, b) => score(b) - score(a))[0] : null;
+}
+
+function speakText(text, lang) {
   stopSpeech();
-  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
-    showToast(lang === 'ar' ? 'الصوت غير متاح في هذا المتصفح' : 'Speech is not available in this browser');
-    _clearAudioBtns();
+
+  // Arabic: always use server TTS (Google quality) — browser Arabic voices are robotic on all platforms
+  if (lang === 'ar') {
+    _speakTextFallback(text, lang);
     return;
   }
 
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = lang === 'ar' ? 'ar' : 'en';
-  utterance.rate = 0.95;
-  utterance.onend = utterance.onerror = _clearAudioBtns;
-  _currentAudio = utterance;
-  window.speechSynthesis.speak(utterance);
+  if (window.speechSynthesis) {
+    const doSpeak = () => {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang  = lang === 'ar' ? 'ar-SA' : 'en-US';
+      utterance.rate  = lang === 'ar' ? 0.82 : 0.92;
+      utterance.pitch = 1.05;
+      const voice = _getBestVoice(lang);
+      if (voice) utterance.voice = voice;
+      utterance.onend  = _clearAudioBtns;
+      utterance.onerror = _clearAudioBtns;
+      _currentAudio = { pause: () => window.speechSynthesis.cancel() };
+      window.speechSynthesis.speak(utterance);
+    };
+
+    if (window.speechSynthesis.getVoices().length > 0) {
+      doSpeak();
+    } else {
+      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
+    }
+    return;
+  }
+
+  // Fallback: server TTS via fetch (may be blocked on iOS without prior user gesture)
+  _speakTextFallback(text, lang);
+}
+
+async function _speakTextFallback(text, lang) {
+  const key = lang + ':' + text;
+  let src = _ttsCache.get(key);
+
+  if (!src) {
+    try {
+      const url = 'https://jakh.net/api/tts?lang=' + encodeURIComponent(lang)
+                + '&text=' + encodeURIComponent(text);
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(res.status);
+      const blob = await res.blob();
+      src = URL.createObjectURL(blob);
+      if (_ttsCache.size >= 200) {
+        const first = _ttsCache.keys().next().value;
+        URL.revokeObjectURL(_ttsCache.get(first));
+        _ttsCache.delete(first);
+      }
+      _ttsCache.set(key, src);
+    } catch (err) {
+      console.warn('[tts]', err);
+      _clearAudioBtns();
+      return;
+    }
+  }
+
+  const audio = new Audio(src);
+  _currentAudio = audio;
+  audio.onended = audio.onerror = _clearAudioBtns;
+  audio.play().catch(err => {
+    console.warn('[audio play]', err);
+    _clearAudioBtns();
+  });
 }
 
 function _clearAudioBtns() {
@@ -2438,10 +2977,7 @@ function _clearAudioBtns() {
 }
 
 function stopSpeech() {
-  if (_currentAudio && 'speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    _currentAudio = null;
-  }
+  if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
 }
 
 function handleAudioBtn(btn) {
@@ -2475,13 +3011,17 @@ function initSuggestionBox() {
     if (text.length < 5) { showToast(t('suggestError'), true); return; }
     els.suggestionSubmit.disabled = true;
     try {
-      storeLocalSuggestion(text, els.suggestionEmail?.value.trim() || '');
-      if (els.suggestionText) els.suggestionText.value = '';
-      if (els.suggestionEmail) els.suggestionEmail.value = '';
+      const res = await fetch('/api/suggestions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, email: els.suggestionEmail?.value.trim() || undefined }),
+      });
+      const data = await res.json();
+      if (!res.ok) { showToast(data.error || 'Error submitting', true); return; }
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
     } catch {
-      showToast(state.lang === 'ar' ? 'تعذر الحفظ محلياً.' : 'Could not save locally.', true);
+      showToast('Could not submit. Please try again.', true);
     } finally {
       els.suggestionSubmit.disabled = false;
     }
@@ -2491,12 +3031,20 @@ function initSuggestionBox() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function trackEvent(name, params = {}) {
-  void name;
-  void params;
+  try { window.gtag?.('event', name, params); } catch (_) {}
 }
 
 function startAnalyticsHeartbeat() {
-  _analyticsInterval = null;
+  if (_analyticsInterval) return;
+  _analyticsInterval = setInterval(async () => {
+    if (document.hidden || state.page !== 'category' || !state.categorySlug) return;
+    try {
+      await apiFetch('/analytics/time', {
+        method: 'POST',
+        body: JSON.stringify({ pageSlug: state.categorySlug, timeSpent: 30 })
+      });
+    } catch (err) {}
+  }, 30000);
 }
 // ======================================================
 
@@ -2543,15 +3091,13 @@ function renderDailyChallenge() {
         </div>
         <div class="daily-challenge-btns">
           <button class="primary-btn mini-btn" id="flipDailyBtn">${isFlipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
-          <a class="ghost-btn mini-btn" href="${escapeHtml(card.categorySlug)}.html">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
+          <a class="ghost-btn mini-btn" href="${escapeHtml(card.categorySlug)}">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
         </div>
       </div>
     </section>`;
   document.getElementById('flipDailyBtn')?.addEventListener('click', () => {
     if (!state.flipped.has('__daily__')) {
       localStorage.setItem(`jakh-daily-done-${today}`, '1');
-      recordLocalActivity();
-      checkNewAchievements();
     }
     if (state.flipped.has('__daily__')) state.flipped.delete('__daily__'); else state.flipped.add('__daily__');
     renderDailyChallenge();
@@ -2560,8 +3106,12 @@ function renderDailyChallenge() {
 
 // ================= STREAKS =================
 async function loadStreak() {
-  state.streak = computeLocalStreak();
-  state.freezeCount = 0;
+  if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
+  try {
+    const data = await apiFetch('/user/streak');
+    state.streak = data.streak || 0;
+    state.freezeCount = data.freezeCount || 0;
+  } catch (e) { state.streak = 0; state.freezeCount = 0; }
 }
 
 // ================= TIMED QUIZ (Quiz Master Mode) =================
@@ -2688,7 +3238,7 @@ function endTimedQuiz() {
   const pct = Math.round((score / total) * 100);
   document.getElementById('tqActions')?.classList.add('hidden');
   document.getElementById('tqQuestion')?.classList.add('hidden');
-  document.getElementById('tqAnswerReveal')?.classList.add('hidden');
+  document.getElementById('tqAnswer')?.classList.add('hidden');
   document.getElementById('tqResult')?.classList.remove('hidden');
   const scoreBig = document.getElementById('tqScoreBig');
   const scoreSub = document.getElementById('tqScoreSub');
@@ -2709,7 +3259,7 @@ function endTimedQuiz() {
   // Solo → Team conversion CTA
   if (resultEl && !resultEl.querySelector('.tq-challenge-cta')) {
     const catTitle = state.categoryData?.title?.[lang] || 'JAKH';
-    const challengeUrl = state.categorySlug ? `${location.origin}/${state.categorySlug}.html` : location.origin;
+    const challengeUrl = `${location.origin}/${state.categorySlug || ''}`;
     const ctaEl = document.createElement('div');
     ctaEl.className = 'tq-challenge-cta';
     ctaEl.innerHTML = `
@@ -2809,21 +3359,14 @@ async function runGlobalSearch() {
   }
   resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'جارٍ البحث...' : 'Searching…'}</p>`;
 
-  const cats = state.catalog?.categories || [];
-  const uncached = cats.filter(cat => !_gsCache[cat.slug]);
-  if (uncached.length > 0) {
-    await Promise.all(uncached.map(async cat => {
-      try {
-        _gsCache[cat.slug] = await fetchJson(`data/${cat.slug}.json`);
-      } catch (_e) {}
-    }));
-  }
-
   const hits = [];
+  const cats = state.catalog?.categories || [];
   for (const cat of cats) {
     if (hits.length >= 30) break;
+    if (!_gsCache[cat.slug]) {
+      try { _gsCache[cat.slug] = await fetchJson(`data/${cat.slug}.json`); } catch { continue; }
+    }
     const raw = _gsCache[cat.slug];
-    if (!raw) continue;
     const cards = Array.isArray(raw) ? raw : (raw.cards || []);
     for (const card of cards) {
       if (hits.length >= 30) break;
@@ -2854,21 +3397,27 @@ async function openLeaderboard() {
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
   const body = document.getElementById('leaderboardBody');
-  if (!body) return;
-  const score = getScore();
-  const solved = getTotalCorrectCount();
-  const name = getLocalDisplayName();
-  body.innerHTML = `
-    <div class="leaderboard-row">
-      <span class="leaderboard-rank top-3">1</span>
-      <span class="leaderboard-username leaderboard-you">${escapeHtml(name)}</span>
-      <span class="leaderboard-score">${score} pts</span>
-    </div>
-    <p style="padding:1rem 0.25rem 0;color:var(--muted);font-size:0.85rem;line-height:1.55;">
-      ${state.lang === 'ar'
-        ? `لوحة محلية لهذا المتصفح فقط. الأسئلة المحلولة: ${solved}.`
-        : `Local leaderboard for this browser only. Solved questions: ${solved}.`}
-    </p>`;
+  if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">Loading…</p>';
+  try {
+    const res = await fetch('/api/leaderboard');
+    const { leaderboard } = await res.json();
+    const currentUser = state.dbUser?.username;
+    const medals = ['🥇', '🥈', '🥉'];
+    if (!leaderboard?.length) {
+      if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">No scores yet — be the first!</p>';
+      return;
+    }
+    if (body) body.innerHTML = leaderboard.map(row => `
+      <div class="leaderboard-row">
+        <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || row.rank}</span>
+        <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">
+          <span style="margin-right:6px;font-size:1.1rem;">${row.avatar || '👤'}</span>${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}
+        </span>
+        <span class="leaderboard-score">${row.score} pts</span>
+      </div>`).join('');
+  } catch (e) {
+    if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--danger)">Failed to load.</p>';
+  }
 }
 
 // ================= RANDOM CATEGORY =================
@@ -2880,10 +3429,11 @@ function randomCategory() {
 
 // ================= ACHIEVEMENTS =================
 function getCategoryMasterCount() {
-  if (!state.catalog) return 0;
+  if (!state.catalog || !state.dbUser) return 0;
   return (state.catalog.categories || []).filter(cat => {
-    const progress = getCategoryProgress(cat.slug);
-    return progress.solved >= (cat.count || 1);
+    const meta = state.catalog.categories.find(c => c.slug === cat.slug);
+    const solved = (state.dbUser.progress || []).filter(p => p.categoryId === cat.slug && !p.status.startsWith('wrong-')).length;
+    return solved >= (meta?.count || 1);
   }).length;
 }
 
@@ -2892,62 +3442,26 @@ function computeAchievements() {
 }
 
 function checkNewAchievements() {
-  const key = `jakh-ach-${state.dbUser?.id || 'guest'}`;
+  if (!state.dbUser) return;
+  const key = `jakh-ach-${state.dbUser.id}`;
   const stored = new Set(loadJson(key, []));
   const earned = computeAchievements();
   const newOnes = earned.filter(a => !stored.has(a.id));
   if (!newOnes.length) return;
   newOnes.forEach(a => stored.add(a.id));
   saveJson(key, [...stored]);
-  newOnes.forEach((a, i) => setTimeout(() => showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${state.lang === 'ar' ? a.ar : a.en}!`), i * 2400));
-}
-
-// ================= RESUME BUTTON =================
-function getResumeSuggestion() {
-  if (!state.catalog) return null;
-  const progressBySlug = {};
-  getProgressEntries().forEach(p => {
-    if (!progressBySlug[p.categoryId]) progressBySlug[p.categoryId] = 0;
-    if (!p.status.startsWith('wrong-')) progressBySlug[p.categoryId]++;
-  });
-  let best = null;
-  for (const slug of Object.keys(progressBySlug)) {
-    const meta = state.catalog.categories.find(c => c.slug === slug);
-    if (!meta) continue;
-    const solved = progressBySlug[slug];
-    const pct = Math.min(100, Math.round((solved / (meta.count || 1)) * 100));
-    if (pct >= 100) continue;
-    if (!best || solved > progressBySlug[best.slug]) best = { ...meta, solved, pct };
-  }
-  return best;
-}
-
-function renderResumeButton() {
-  const mount = document.getElementById('resumeMount');
-  if (!mount) return;
-  const resume = getResumeSuggestion();
-  if (!resume) { mount.innerHTML = ''; return; }
-  const lang = state.lang;
-  mount.innerHTML = `
-    <div class="shell resume-banner">
-      <div class="resume-inner">
-        <span class="resume-emoji">${resume.emoji}</span>
-        <div class="resume-info">
-          <p class="resume-eyebrow">${lang === 'ar' ? 'استمر من حيث توقفت' : 'Continue where you left off'}</p>
-          <strong class="resume-title">${escapeHtml(resume.title[lang])}</strong>
-          <div class="cat-progress-bar-track" style="margin-top:0.35rem;max-width:160px;"><div class="cat-progress-bar-fill" style="width:${resume.pct}%;--pct:${resume.pct}"></div></div>
-        </div>
-        <a class="primary-btn resume-btn" href="${escapeHtml(resume.href)}">${lang === 'ar' ? 'متابعة ←' : 'Resume →'}</a>
-      </div>
-    </div>`;
+  newOnes.forEach((a, i) => setTimeout(() => {
+    hapticSuccess();
+    showToast(`${a.icon} ${state.lang === 'ar' ? 'إنجاز جديد: ' : 'Achievement unlocked: '}${state.lang === 'ar' ? a.ar : a.en}!`);
+  }, i * 2400));
 }
 
 // ================= CATEGORY COMPLETION =================
 function isCategoryComplete(slug) {
-  if (!state.catalog) return false;
+  if (!state.dbUser || !state.catalog) return false;
   const meta = state.catalog.categories.find(c => c.slug === slug);
   if (!meta) return false;
-  const solved = getProgressEntries().filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+  const solved = (state.dbUser.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
   return solved >= meta.count;
 }
 
@@ -2963,10 +3477,9 @@ function showCategoryCompleteModal(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   if (!meta) return;
   const lang = state.lang;
-  const entries = getProgressEntries().filter(p => p.categoryId === slug);
-  const solved = entries.filter(p => !p.status.startsWith('wrong-')).length;
-  const wrong = entries.filter(p => p.status.startsWith('wrong-')).length;
-  const points = entries.filter(p => !p.status.startsWith('wrong-')).reduce((sum, p) => sum + (DIFFICULTY_POINTS[p.status] || 0), 0);
+  const solved = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+  const wrong = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && p.status.startsWith('wrong-')).length;
+  const points = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).reduce((sum, p) => sum + (DIFFICULTY_POINTS[p.status] || 0), 0);
   const related = state.catalog.categories.find(c => c.slug !== slug && c.cluster_key === meta.cluster_key) || state.catalog.categories.find(c => c.slug !== slug);
   let el = document.getElementById('categoryCompleteModal');
   if (!el) {
@@ -3015,7 +3528,7 @@ function showCategoryCompleteModal(slug) {
   });
   document.getElementById('catCompleteChallengeBtn')?.addEventListener('click', () => {
     const isAr = lang === 'ar';
-    const url = `${location.origin}/${slug}.html`;
+    const url = `${location.origin}/${slug}`;
     const text = isAr
       ? `🏆 أنهيت "${meta.title.ar}" على JAKH بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
       : `🏆 I finished "${meta.title.en}" on JAKH with ${points} pts!\nCan you beat me? → ${url}`;
@@ -3054,8 +3567,12 @@ function shareCard(cardId) {
 async function reportCard(cardId, categoryId, questionText) {
   const text = `[REPORT] ${categoryId}/${cardId}: ${questionText.substring(0, 150)}`;
   try {
-    storeLocalSuggestion(text, '', 'report');
-    showToast(t('reportThanks'));
+    const res = await fetch('/api/suggestions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
+    showToast(res.ok || res.status === 429 ? t('reportThanks') : t('reportError'));
   } catch { showToast(t('reportError')); }
 }
 
@@ -3078,9 +3595,11 @@ function shareResult(score, total, categoryTitle) {
 
 // ================= ONBOARDING =================
 function checkOnboarding() {
-  if (state.page !== 'home') return;
-  if (localStorage.getItem('jakh-onboarded')) return;
-  setTimeout(showOnboarding, 1200);
+  if (state.page === 'home') {
+    if (!localStorage.getItem('jakh-onboarded')) setTimeout(showOnboarding, 1200);
+  } else if (state.page === 'category') {
+    if (!localStorage.getItem('jakh-card-tutorial-seen')) setTimeout(showCardTutorial, 1800);
+  }
 }
 
 function showOnboarding() {
@@ -3090,11 +3609,11 @@ function showOnboarding() {
       en: { title: 'Pick a Category', text: `Choose from ${state.catalog?.categories.length || 44} curated quiz categories — math, science, history, football, and more.` },
       ar: { title: 'اختر فئة', text: `اختر من ${state.catalog?.categories.length || 44} فئة منسقة — رياضيات وعلوم وتاريخ وكرة قدم والمزيد.` } },
     { icon: '💾',
-      en: { title: 'Save Your Progress', text: 'Create a free account to track your score, build streaks, and unlock harder levels.' },
-      ar: { title: 'احفظ تقدمك', text: 'أنشئ حسابًا مجانيًا لتتبع نقاطك وبناء سلاسل يومية وفتح المستويات الأصعب.' } },
+      en: { title: 'Save Your Progress', text: state.apiAvailable ? 'Create a free account to track your score, build streaks, and unlock harder levels.' : 'Your score, favorites, and unlocked levels are saved automatically on this device.' },
+      ar: { title: 'احفظ تقدمك', text: state.apiAvailable ? 'أنشئ حسابًا مجانيًا لتتبع نقاطك وبناء سلاسل يومية وفتح المستويات الأصعب.' : 'تُحفظ نقاطك ومفضلاتك ومستوياتك المفتوحة تلقائيًا على هذا الجهاز.' } },
     { icon: '🏆',
-      en: { title: 'Compete & Achieve', text: 'Try the Daily Challenge, race the clock in Quick Fire, and climb the global Leaderboard.' },
-      ar: { title: 'تنافس واحصد الإنجازات', text: 'جرّب تحدي اليوم وتسابق مع الوقت في الاختبار السريع وتسلق لوحة المتصدرين.' } },
+      en: { title: 'Challenge Yourself', text: state.apiAvailable ? 'Try the Daily Challenge, race the clock in Quick Fire, and climb the global Leaderboard.' : 'Try the Daily Challenge, race the clock in Quick Fire, and unlock harder question levels.' },
+      ar: { title: 'تحدَّ نفسك', text: state.apiAvailable ? 'جرّب تحدي اليوم وتسابق مع الوقت في الاختبار السريع وتسلق لوحة المتصدرين.' : 'جرّب تحدي اليوم وتسابق مع الوقت وافتح مستويات الأسئلة الأصعب.' } },
   ];
   let step = 0;
   const lang = state.lang;
@@ -3128,42 +3647,233 @@ function showOnboarding() {
   render();
 }
 
+function showCardTutorial() {
+  if (document.getElementById('cardTutorial')) return;
+  const isAr = state.lang === 'ar';
+  const steps = [
+    {
+      icon: '👆',
+      title: isAr ? 'اضغط لترى الإجابة' : 'Tap to flip',
+      text: isAr
+        ? 'اضغط في أي مكان على البطاقة لتظهر الإجابة. اضغط مجددًا للعودة إلى السؤال.'
+        : 'Tap anywhere on a card to flip it and reveal the answer. Tap again to go back.',
+    },
+    {
+      icon: '↔️',
+      title: isAr ? 'مرّر لتقييم إجابتك' : 'Swipe to score',
+      text: isAr
+        ? 'بعد رؤية الإجابة: مرّر يسارًا ✗ إذا كانت إجابتك خاطئة، ومرّر يمينًا ✓ إذا كانت صحيحة.'
+        : 'After flipping: swipe right ✓ if you were correct, swipe left ✗ if you were wrong.',
+    },
+    {
+      icon: '♥ ✓ ✗',
+      title: isAr ? 'أزرار الإجابة' : 'Answer buttons',
+      text: isAr
+        ? '♥ لإضافة للمفضلة · ✓ صحيح · ✗ خاطئ · 🔊 استمع للسؤال · ↩ إزالة التقييم'
+        : '♥ favorite · ✓ correct · ✗ wrong · 🔊 listen · ↩ undo — all on the card back.',
+    },
+  ];
+  let step = 0;
+  const el = document.createElement('div');
+  el.id = 'cardTutorial';
+  el.className = 'onboard-overlay';
+  document.body.appendChild(el);
+  el.addEventListener('click', e => { if (!e.target.closest('.onboard-card')) dismiss(); });
+
+  function render() {
+    const s = steps[step];
+    const isLast = step === steps.length - 1;
+    el.innerHTML = `
+      <div class="onboard-card card-tutorial-card">
+        <button class="onboard-skip" id="ctSkip">${isAr ? 'تخطي' : 'Skip'}</button>
+        <div class="onboard-icon">${s.icon}</div>
+        <h3 class="onboard-title">${escapeHtml(s.title)}</h3>
+        <p class="onboard-text">${escapeHtml(s.text)}</p>
+        <div class="onboard-dots">${steps.map((_,i) => `<span class="onboard-dot${i===step?' active':''}"></span>`).join('')}</div>
+        <button class="primary-btn onboard-next" id="ctNext">
+          ${isLast ? (isAr ? '✓ فهمت!' : '✓ Got it!') : (isAr ? 'التالي →' : 'Next →')}
+        </button>
+      </div>`;
+    document.getElementById('ctNext')?.addEventListener('click', () => {
+      if (step < steps.length - 1) { step++; render(); } else { dismiss(); }
+    });
+    document.getElementById('ctSkip')?.addEventListener('click', dismiss);
+  }
+
+  function dismiss() { localStorage.setItem('jakh-card-tutorial-seen', '1'); el.remove(); }
+  render();
+}
+
 let sessionInitialized = false;
+
+// ── Step 5: Haptic Feedback ───────────────────────────────────────────────────
+// Requires @capacitor/haptics + npx cap sync for native iOS/Android haptics.
+// Falls back to navigator.vibrate on Android WebView (silent on iOS without plugin).
+const Haptics = window.Capacitor?.Plugins?.Haptics;
+const ImpactStyle = { Light: 'LIGHT', Medium: 'MEDIUM', Heavy: 'HEAVY' };
+
+function haptic(type = 'light') {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try {
+    if (Haptics?.impact) {
+      const style = type === 'heavy' ? ImpactStyle.Heavy
+                  : type === 'medium' ? ImpactStyle.Medium
+                  : ImpactStyle.Light;
+      Haptics.impact({ style });
+    } else if (navigator.vibrate) {
+      const ms = type === 'heavy' ? 40 : type === 'medium' ? 20 : 10;
+      navigator.vibrate(ms);
+    }
+  } catch {}
+}
+
+function hapticSuccess() { haptic('medium'); }
+function hapticError()   { haptic('heavy'); }
+function hapticTap()     { haptic('light'); }
+
+// ── Step 4: Page Transition Exit Animation ────────────────────────────────────
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('javascript') ||
+        href.startsWith('mailto') || href.startsWith('tel') ||
+        link.target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    // Only animate same-origin .html navigation
+    try {
+      const url = new URL(href, location.href);
+      if (url.origin !== location.origin) return;
+    } catch { return; }
+    e.preventDefault();
+    document.body.classList.add('is-navigating');
+    setTimeout(() => { location.href = href; }, 220);
+  });
+}());
+
+// ── Bottom Navigation Bar ─────────────────────────────────────────────────────
+function injectBottomNav() {
+  if (document.getElementById('bottomNav')) { updateBottomNavActive(); return; }
+  const isAr = state.lang === 'ar';
+  const nav = document.createElement('nav');
+  nav.id = 'bottomNav';
+  nav.className = 'bottom-nav';
+  nav.setAttribute('aria-label', isAr ? 'التنقل الرئيسي' : 'Main navigation');
+  nav.innerHTML = `
+    <div class="bottom-nav-inner">
+      <a href="index.html" class="bottom-nav-tab" data-tab="home" aria-label="${isAr ? 'الرئيسية' : 'Home'}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+        <span>${isAr ? 'الرئيسية' : 'Home'}</span>
+      </a>
+      <a href="mind-lab.html" class="bottom-nav-tab" data-tab="explore" aria-label="${isAr ? 'استكشف' : 'Explore'}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span>${isAr ? 'استكشف' : 'Explore'}</span>
+      </a>
+      <button class="bottom-nav-tab" id="bnDailyBtn" data-tab="daily" aria-label="${isAr ? 'التحدي اليومي' : 'Daily'}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>${isAr ? 'يومي' : 'Daily'}</span>
+      </button>
+      <button class="bottom-nav-tab" id="bnProfileBtn" data-tab="profile" aria-label="${isAr ? 'حسابي' : 'Profile'}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+        <span>${isAr ? 'حسابي' : 'Profile'}</span>
+      </button>
+    </div>
+    <div class="bottom-nav-safe" aria-hidden="true"></div>`;
+  document.body.appendChild(nav);
+
+  document.getElementById('bnDailyBtn')?.addEventListener('click', () => {
+    if (state.page === 'home') {
+      const target = document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount');
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      sessionStorage.setItem('jakh-scroll-to', 'daily');
+      location.href = 'index.html';
+    }
+  });
+  document.getElementById('bnProfileBtn')?.addEventListener('click', () => {
+    document.getElementById('openAuthBtn')?.click();
+  });
+
+  updateBottomNavActive();
+}
+
+function updateBottomNavActive() {
+  const nav = document.getElementById('bottomNav');
+  if (!nav) return;
+  const activeTab = state.page === 'home' ? 'home' : 'explore';
+  nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
+    tab.classList.toggle('is-active', tab.dataset.tab === activeTab);
+  });
+  const isAr = state.lang === 'ar';
+  const labels = {
+    home:    isAr ? 'الرئيسية' : 'Home',
+    explore: isAr ? 'استكشف'  : 'Explore',
+    daily:   isAr ? 'يومي'    : 'Daily',
+    profile: isAr ? 'حسابي'   : 'Profile',
+  };
+  nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
+    const span = tab.querySelector('span');
+    if (span && labels[tab.dataset.tab]) span.textContent = labels[tab.dataset.tab];
+  });
+  const ariaLabels = {
+    home:    isAr ? 'الرئيسية' : 'Home',
+    explore: isAr ? 'استكشف'  : 'Explore',
+    daily:   isAr ? 'التحدي اليومي' : 'Daily',
+    profile: isAr ? 'حسابي'   : 'Profile',
+  };
+  nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
+    if (ariaLabels[tab.dataset.tab]) tab.setAttribute('aria-label', ariaLabels[tab.dataset.tab]);
+  });
+}
 
 async function init() {
   cacheEls();
   initializeFromStorage();
   applyDir();
   if (!sessionInitialized) {
-    await checkCloudSession();
-    await loadStreak();
+    state.apiAvailable = await detectApiAvailability();
+    if (state.apiAvailable) {
+      await checkCloudSession();
+      await loadStreak();
+    }
     sessionInitialized = true;
   }
-  startAnalyticsHeartbeat();
   applyTheme();
   bindCommonEvents();
+  applyCapabilityVisibility();
+  if (state.apiAvailable) startAnalyticsHeartbeat();
   createTimedQuizModal();
-  createLeaderboardModal();
-  createBattleModal();
-  initSuggestionBox();
+  if (state.apiAvailable) {
+    createLeaderboardModal();
+    createBattleModal();
+    initSuggestionBox();
+  }
   renderCategoryPlayModes();
   await loadCatalog();
   await loadDailyChallenge();
   await loadCategoryIfNeeded();
   applyStaticCopy();
   rerender();
+  injectBottomNav();
+  applyCapabilityVisibility();
   checkOnboarding();
   checkNewAchievements();
-}
-
-async function subscribePushNotifications() {
-  // Push notifications are disabled for the static GitHub Pages build.
+  // Handle daily-tab scroll triggered from category pages
+  if (state.page === 'home' && sessionStorage.getItem('jakh-scroll-to') === 'daily') {
+    sessionStorage.removeItem('jakh-scroll-to');
+    requestAnimationFrame(() => {
+      const target = document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount');
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 }
 
 // ================= CATEGORY PLAY MODES =========
 
 function renderCategoryPlayModes() {
-  if (state.page !== 'category' || document.getElementById('categoryPlayModes')) return;
+  if (state.page !== 'category') return;
+  document.getElementById('categoryPlayModes')?.remove();
   const isAr = state.lang === 'ar';
   const el = document.createElement('div');
   el.id = 'categoryPlayModes';
@@ -3182,12 +3892,12 @@ function renderCategoryPlayModes() {
           🎯 ${isAr ? 'ابدأ منفردًا' : 'Start Solo'}
         </button>
       </div>
-      <div class="play-mode-card play-mode-team">
+      ${state.apiAvailable ? `<div class="play-mode-card play-mode-team">
         <div class="play-mode-head">
           <span class="play-mode-icon">🏆</span>
           <div>
             <strong class="play-mode-title">${isAr ? 'معركة الفريق' : 'Team Battle'}</strong>
-            <p class="play-mode-sub">${isAr ? 'الغرف المباشرة متوقفة في النسخة الثابتة' : 'Live rooms are paused in the static build'}</p>
+            <p class="play-mode-sub">${isAr ? 'العب مع الآخرين في الوقت الفعلي' : 'Play with others live — up to 20'}</p>
           </div>
         </div>
         <div class="play-mode-battle-btns">
@@ -3198,7 +3908,7 @@ function renderCategoryPlayModes() {
             🔗 ${isAr ? 'الانضمام بكود' : 'Join with Code'}
           </button>
         </div>
-      </div>
+      </div>` : ''}
     </div>`;
 
   const questionSection = document.getElementById('questionSection');
@@ -3237,7 +3947,8 @@ const battleState = {
 };
 
 function getBattleWsUrl() {
-  return '';
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  return `${proto}//${location.host}/ws/battle`;
 }
 
 function createBattleModal() {
@@ -3298,31 +4009,6 @@ function renderBattleUI() {
 function renderBattleSetup(body) {
   const lang = state.lang;
   const isAr = lang === 'ar';
-  body.innerHTML = `
-    <div class="battle-setup">
-      <div class="battle-code-display">
-        <div class="battle-code-value">STATIC</div>
-        <p class="battle-code-hint">${isAr
-          ? 'غرف المعركة المباشرة تحتاج خادمًا، لذلك تم تعطيلها على GitHub Pages.'
-          : 'Live battle rooms need a server, so they are disabled on GitHub Pages.'}</p>
-      </div>
-      <div class="battle-form">
-        <p class="battle-waiting-msg">${isAr
-          ? 'يمكنك استخدام السباق السريع ومشاركة رابط الفئة كتحدٍ محلي.'
-          : 'Use Quick Fire and share the category link as a local challenge.'}</p>
-        <button class="primary-btn" id="battleCopyCategoryBtn">${isAr ? 'نسخ رابط التحدي' : 'Copy challenge link'}</button>
-        <button class="ghost-btn" id="battleStaticCloseBtn">${isAr ? 'إغلاق' : 'Close'}</button>
-      </div>
-    </div>`;
-  document.getElementById('battleCopyCategoryBtn')?.addEventListener('click', () => {
-    const slug = battleState.pendingSlug || state.categorySlug || '';
-    const url = slug ? `${location.origin}/${slug}.html` : location.origin;
-    navigator.clipboard?.writeText(url).then(() => showToast(isAr ? 'تم نسخ الرابط!' : 'Challenge link copied!'))
-      .catch(() => showToast(url));
-  });
-  document.getElementById('battleStaticCloseBtn')?.addEventListener('click', closeBattleModal);
-  return;
-  /* Static build fallback above keeps the old live-room UI disabled without a backend. */
   const slug = battleState.pendingSlug;
   const catOptions = (state.catalog?.categories || [])
     .map(c => `<option value="${escapeHtml(c.slug)}"${c.slug === slug ? ' selected' : ''}>${escapeHtml(c.title[lang])}</option>`)
@@ -3390,8 +4076,27 @@ function renderBattleSetup(body) {
 }
 
 async function handleBattleCreate() {
+  const name = document.getElementById('battleNameInput')?.value.trim() || '';
+  const category = document.getElementById('battleCatSelect')?.value || '';
+  const difficulty = document.getElementById('battleDiffSelect')?.value || 'all';
+  const count = parseInt(document.getElementById('battleCountSelect')?.value || '10', 10);
   const isAr = state.lang === 'ar';
-  showBattleError(isAr ? 'الغرف المباشرة غير متاحة في النسخة الثابتة.' : 'Live rooms are unavailable in the static build.');
+  if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
+  if (!category) { showBattleError(isAr ? 'اختر فئة' : 'Choose a category'); return; }
+  const btn = document.getElementById('battleCreateBtn');
+  if (btn) { btn.disabled = true; btn.textContent = isAr ? 'جارٍ الإنشاء...' : 'Creating...'; }
+  try {
+    const data = await apiFetch('/battle/create', {
+      method: 'POST',
+      body: JSON.stringify({ category, difficulty, questionCount: count }),
+    });
+    battleState.hostId = data.hostId;
+    battleState.isHost = true;
+    connectToBattle(data.code, name, data.hostId);
+  } catch (err) {
+    showBattleError(err.message || (isAr ? 'تعذر الإنشاء' : 'Could not create room'));
+    if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}`; }
+  }
 }
 
 function handleBattleJoin() {
@@ -3400,7 +4105,7 @@ function handleBattleJoin() {
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
   if (code.length < 4) { showBattleError(isAr ? 'أدخل كود الغرفة' : 'Enter the room code'); return; }
-  showBattleError(isAr ? 'الغرف المباشرة غير متاحة في النسخة الثابتة.' : 'Live rooms are unavailable in the static build.');
+  connectToBattle(code, name, null);
 }
 
 function showBattleError(msg) {
@@ -3410,10 +4115,17 @@ function showBattleError(msg) {
 
 function connectToBattle(code, name, hostId) {
   if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); }
+  const ws = new WebSocket(getBattleWsUrl());
+  battleState.ws = ws;
   battleState.roomCode = code;
-  void name;
-  void hostId;
-  showBattleError(state.lang === 'ar' ? 'الغرف المباشرة غير متاحة في النسخة الثابتة.' : 'Live rooms are unavailable in the static build.');
+  ws.onopen = () => ws.send(JSON.stringify({ type: 'join-room', code, name, hostId: hostId || '' }));
+  ws.onmessage = (e) => { try { handleBattleMessage(JSON.parse(e.data)); } catch (_) {} };
+  ws.onerror = () => showBattleError(state.lang === 'ar' ? 'تعذر الاتصال بالغرفة' : 'Connection failed');
+  ws.onclose = () => {
+    if (battleState.phase !== 'closed' && battleState.phase !== 'finished') {
+      showToast(state.lang === 'ar' ? 'انقطع الاتصال بالغرفة' : 'Disconnected from battle room');
+    }
+  };
 }
 
 function handleBattleMessage(msg) {
@@ -3767,12 +4479,25 @@ function spawnBattleConfetti() {
 
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => {
+        // Force an immediate update check so stale SWs are replaced without
+        // waiting for the browser's 24-hour throttle window.
+        reg.update().catch(() => {});
+      })
+      .catch(() => {});
+
+    // When a new SW takes control (after skipWaiting + claim), reload once so
+    // the page gets fresh assets served by the new worker.
+    let swRefreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (swRefreshing) return;
+      swRefreshing = true;
+      window.location.reload();
+    });
   }
   init().catch((error) => {
     console.error(error);
     showToast(error.message || 'Initialization error');
   });
-  // Ask for push permission after 30s (not immediately, to avoid consent fatigue)
-  setTimeout(subscribePushNotifications, 30000);
 });

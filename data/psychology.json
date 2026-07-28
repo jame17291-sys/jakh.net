@@ -49,7 +49,7 @@
       },
       "question": {
         "en": "What do you call a person who is generally quiet and energized by being alone?",
-        "ar": "كيف يُسمّى الشخص الهادئ الذي يستمد طاقته من الوحدة؟"
+        "ar": "كيف تُسمّى الشخص الهادئ الذي يستمد طاقته من الوحدة؟"
       },
       "answer": {
         "en": "Introvert",
@@ -149,7 +149,7 @@
       },
       "answer": {
         "en": "Compulsion",
-        "ar": "الإجبار"
+        "ar": "الوسواس القهري"
       }
     },
     {
@@ -385,7 +385,7 @@
       },
       "question": {
         "en": "Which psychologist coined the term 'Flow' for complete immersion in an activity?",
-        "ar": "أي عالم نفس صاغ مصطلح 'التدفق' للانغماس الكامل في نشاط؟"
+        "ar": "أي عالم نفس صاغ مصطلح 'التدفق' للوصف الكامل للانغماس في نشاط؟"
       },
       "answer": {
         "en": "Mihaly Csikszentmihalyi",
@@ -460,16 +460,16 @@
       "id": "psychology-028",
       "difficulty": "hard",
       "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
+        "en": "Diagnosis",
+        "ar": "التشخيص"
       },
       "question": {
-        "en": "What is exposure therapy and how does it work?",
-        "ar": "ما العلاج بالتعرّض وكيف يعمل؟"
+        "en": "What is the 'DSM' used for in psychology?",
+        "ar": "لماذا يُستخدم 'DSM' في علم النفس؟"
       },
       "answer": {
-        "en": "A behavioural therapy in which patients are gradually and systematically exposed to feared stimuli, reducing anxiety through habituation and extinction of the fear response",
-        "ar": "علاج سلوكي يُعرَّض فيه المرضى تدريجياً ومنهجياً للمحفّزات المخيفة، مما يُخفّف القلق عبر التعوّد وإخماد استجابة الخوف"
+        "en": "Diagnosing mental disorders",
+        "ar": "تشخيص الاضطرابات النفسية"
       }
     },
     {
@@ -672,12 +672,12 @@
         "ar": "السلوك"
       },
       "question": {
-        "en": "What is a phobia?",
-        "ar": "ما الرهاب (الفوبيا)؟"
+        "en": "What is cognitive dissonance?",
+        "ar": "ما التنافر المعرفي؟"
       },
       "answer": {
-        "en": "An intense, irrational fear of a specific object or situation that is out of proportion to the actual danger",
-        "ar": "خوف شديد وغير منطقي من شيء أو موقف بعينه يتجاوز الخطر الفعلي بكثير"
+        "en": "The mental discomfort from holding two contradictory beliefs or when behaviour conflicts with beliefs",
+        "ar": "الانزعاج النفسي من حمل معتقدَين متناقضَين أو تعارض السلوك مع المعتقدات"
       }
     },
     {
@@ -720,12 +720,12 @@
         "ar": "الشخصية"
       },
       "question": {
-        "en": "What is self-esteem?",
-        "ar": "ما تقدير الذات؟"
+        "en": "Who developed psychoanalysis?",
+        "ar": "من طوّر التحليل النفسي؟"
       },
       "answer": {
-        "en": "A person's overall sense of their own value or worth",
-        "ar": "إحساس الشخص العام بقيمته وقدره الذاتي"
+        "en": "Sigmund Freud",
+        "ar": "سيغموند فرويد"
       }
     },
     {
@@ -752,12 +752,12 @@
         "ar": "الاجتماعي"
       },
       "question": {
-        "en": "What is groupthink?",
-        "ar": "ما التفكير الجمعي؟"
+        "en": "What is the bystander effect?",
+        "ar": "ما تأثير المتفرّج؟"
       },
       "answer": {
-        "en": "A phenomenon where the desire for group harmony overrides realistic appraisal, leading to poor decisions",
-        "ar": "ظاهرة تطغى فيها الرغبة في الانسجام الجماعي على التقييم الواقعي، مما يؤدي إلى قرارات ضعيفة"
+        "en": "People are less likely to help in an emergency when others are present, assuming someone else will act",
+        "ar": "يقلّ احتمال تقديم الناس للمساعدة في حالة طوارئ عند وجود آخرين، لافتراض أن شخصاً آخر سيتصرف"
       }
     },
     {
@@ -768,12 +768,12 @@
         "ar": "السلوك"
       },
       "question": {
-        "en": "What is the nocebo effect?",
-        "ar": "ما تأثير النوسيبو؟"
+        "en": "What is the placebo effect?",
+        "ar": "ما تأثير الدواء الوهمي؟"
       },
       "answer": {
-        "en": "When a harmless treatment causes negative side effects because the patient expects them — the opposite of the placebo effect",
-        "ar": "حين يُسبّب علاج غير ضار آثاراً جانبية سلبية لأن المريض يتوقّعها — عكس تأثير الدواء الوهمي"
+        "en": "Improvement in a patient's condition due to belief in the treatment rather than the treatment itself",
+        "ar": "تحسّن حالة المريض بسبب الإيمان بالعلاج وليس العلاج في حد ذاته"
       }
     },
     {
@@ -864,12 +864,12 @@
         "ar": "الاجتماعي"
       },
       "question": {
-        "en": "What did Asch's conformity experiments demonstrate?",
-        "ar": "ما الذي أثبتته تجارب أش للامتثال؟"
+        "en": "What was the Milgram experiment about?",
+        "ar": "بماذا كانت تجربة ميلغرام؟"
       },
       "answer": {
-        "en": "That people often give incorrect answers to match the group's consensus, revealing the powerful pull of social conformity",
-        "ar": "أن الناس كثيراً ما يُعطون إجابات خاطئة لمطابقة الإجماع الجماعي، مما يكشف القوة الجذابة للامتثال الاجتماعي"
+        "en": "Obedience to authority — participants administered what they believed were dangerous electric shocks when instructed",
+        "ar": "الطاعة للسلطة — أعطى المشاركون ما يعتقدون أنه صدمات كهربائية خطيرة حين أُمروا بذلك"
       }
     },
     {

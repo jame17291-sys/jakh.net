@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#0b1020"/>
+  <meta name="description" content="Play Backgammon on JAKH Riddles. Classic board game — roll dice, move checkers, bear off to win."/>
+  <title>Backgammon | JAKH Riddles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" href="styles.css" as="style"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/backgammon"/>
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="Backgammon | JAKH Riddles"/><meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/backgammon"/><meta property="og:image" content="https://jakh.net/assets/og-image.webp"/>
+  <meta property="og:site_name" content="JAKH Riddles"/>
+  <link rel="stylesheet" href="styles.css?v=1785236400"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
+  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
+  <style>
+    /* scoped backgammon styles */
+    :root {
+      --panel: rgba(28,22,38,.9);
+      --panel-strong: rgba(28,22,38,.99);
+      --accent: #E8613C;
+      --gilt: #C9A227;
+      --easy: #48d597;
+      --text: #F0E8D8;
+      --muted: rgba(240,232,216,.56);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --line-strong: rgba(246,239,224,.15);
+      --danger: #ff7a8a;
+    }
+
+    #bgSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 0.5rem;
+      padding-bottom: 3rem;
+    }
+
+    /* ── Board container ────────────────────────────────────── */
+    .bg-outer {
+      width: min(700px, calc(100vw - 2rem));
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+
+    .bg-board {
+      background: #3D2B1F;
+      position: relative;
+      width: 100%;
+      /* height computed by JS */
+    }
+
+    .bg-half {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 0 4px;
+    }
+
+    .bg-bar-area {
+      width: 36px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .bg-bar-label {
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-family: 'Instrument Sans', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+
+    .bg-points-group {
+      display: flex;
+      flex: 1;
+      gap: 2px;
+    }
+
+    /* Each point column */
+    .bg-point {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      min-width: 0;
+    }
+    .bg-point:hover .bg-triangle { filter: brightness(1.25); }
+    .bg-point.selected .bg-triangle { filter: brightness(1.5) drop-shadow(0 0 4px var(--accent)); }
+    .bg-point.valid-dest .bg-triangle { filter: brightness(1.2) drop-shadow(0 0 3px var(--easy)); }
+
+    /* Triangle using clip-path */
+    .bg-triangle {
+      width: 100%;
+      transition: filter 0.15s;
+    }
+    .bg-triangle.gilt  { background: var(--gilt); }
+    .bg-triangle.plum  { background: #6B4E8C; }
+
+    /* Top triangles: point downward */
+    .bg-top .bg-triangle {
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    /* Bottom triangles: point upward */
+    .bg-bottom .bg-triangle {
+      clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    }
+
+    .bg-checkers-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      padding-top: 2px;
+    }
+    .bg-checkers-bottom {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 1px;
+      padding-bottom: 2px;
+    }
+
+    /* Middle divider */
+    .bg-mid {
+      height: 20px;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bg-mid-label {
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-family: 'Instrument Sans', sans-serif;
+      letter-spacing: 0.1em;
+    }
+
+    /* Checker circle */
+    .bg-checker {
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s;
+      box-sizing: border-box;
+    }
+    .bg-checker:hover { transform: scale(1.08); }
+    .bg-checker.w {
+      background: #F0E8D8;
+      border: 2px solid #aaa;
+      color: #222;
+    }
+    .bg-checker.b {
+      background: #13101a;
+      border: 2px solid #555;
+      color: #F0E8D8;
+    }
+    .bg-checker.selected-checker {
+      outline: 3px solid var(--accent);
+      outline-offset: 1px;
+    }
+
+    /* Point number labels */
+    .bg-point-num {
+      font-size: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1;
+      padding: 1px 0;
+    }
+
+    /* Bear-off zones */
+    .bg-bearoff-zone {
+      width: 44px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0,0,0,0.25);
+      border-left: 1px solid rgba(255,255,255,0.07);
+      border-right: 1px solid rgba(255,255,255,0.07);
+      padding: 4px 2px;
+    }
+    .bg-bearoff-label {
+      font-size: 0.6rem;
+      font-family: 'Instrument Sans', sans-serif;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .bg-bearoff-count {
+      font-size: 1.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+    .bg-bearoff-count.w { color: #F0E8D8; }
+    .bg-bearoff-count.b { color: #C9A227; }
+
+    /* ── Control panel ──────────────────────────────────────── */
+    .bg-controls {
+      background: var(--panel);
+      border-top: 1px solid var(--line-strong);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bg-info-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .bg-turn-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .bg-turn-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid rgba(240,232,216,0.3);
+    }
+    .bg-turn-dot.w { background: #F0E8D8; }
+    .bg-turn-dot.b { background: #13101a; }
+
+    .bg-status-msg {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+    .bg-status-msg.ok  { color: var(--easy); font-weight: 600; }
+    .bg-status-msg.err { color: var(--danger); }
+
+    /* Dice */
+    .bg-dice-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .bg-die {
+      width: 38px; height: 38px;
+      background: var(--panel-strong);
+      border: 1px solid var(--line-strong);
+      border-radius: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 5px;
+      position: relative;
+    }
+    .bg-die.used { opacity: 0.3; }
+
+    .bg-die-pip {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--text);
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .bg-btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .bg-btn {
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .bg-btn:active { transform: scale(0.97); }
+    .bg-btn.primary { background: var(--accent); color: #fff; }
+    .bg-btn.secondary { background: rgba(246,239,224,0.1); color: var(--text); border: 1px solid var(--line-strong); }
+    .bg-btn.ai-btn { background: rgba(200,162,39,0.18); color: var(--gilt); border: 1px solid rgba(200,162,39,0.3); }
+    .bg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* Mode toggle */
+    .bg-mode-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .bg-mode-row label { cursor: pointer; }
+
+    /* Result banner */
+    .bg-result-banner {
+      background: var(--panel-strong);
+      border: 1px solid var(--gilt);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.75rem;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-family: 'Instrument Sans', sans-serif;
+      width: min(420px, calc(100vw - 2rem));
+    }
+    .bg-result-banner.visible { display: flex; }
+    .bg-result-banner h2 { color: var(--gilt); margin: 0; font-size: 1.4rem; }
+    .bg-result-banner p  { color: var(--text); margin: 0; }
+
+    /* Point number row below board */
+    .bg-num-row {
+      display: flex;
+      background: rgba(0,0,0,0.28);
+      padding: 2px 4px;
+    }
+    .bg-num-cell {
+      flex: 1;
+      font-size: 0.55rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+      text-align: center;
+    }
+    .bg-num-spacer { width: 36px; flex-shrink: 0; }
+
+    @media (max-width: 480px) {
+      .bg-controls { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body data-page="game">
+  <a href="#top" class="skip-link">Skip to main content</a>
+  <div class="bg-orb orb-1" aria-hidden="true"></div><div class="bg-orb orb-2" aria-hidden="true"></div><div class="grid-glow" aria-hidden="true"></div>
+  <header class="site-header shell">
+    <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+      <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
+    </a>
+    <nav class="header-actions"><a class="ghost-btn" href="index.html">Home</a><a class="ghost-btn" href="play.html">&#8592; Games</a></nav>
+    <div class="header-selects"><label><span>Language</span><select id="langSelect"><option value="en">English</option><option value="ar">العربية</option></select></label></div>
+  </header>
+  <main id="top">
+    <section class="hero shell" style="padding-bottom:1rem;">
+      <div class="hero-copy"><p class="eyebrow">Strategy · Classic</p><h1>&#127922; Backgammon</h1><p class="hero-text">Roll dice, move your checkers, and bear them all off before your opponent. Blot-hitting and blocking encouraged.</p></div>
+    </section>
+    <section class="shell section-block" id="bgSection">
+      <div class="bg-outer" id="bgOuter">
+        <div class="bg-board" id="bgBoard"><!-- rendered by JS --></div>
+      </div>
+      <div class="bg-result-banner" id="bgResultBanner" role="status" aria-live="polite">
+        <h2 id="bgResultTitle">Game Over</h2>
+        <p id="bgResultDesc"></p>
+        <button class="bg-btn primary" id="bgPlayAgainBtn">Play Again</button>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy">All rights reserved to JAKH 2026</p><div class="footer-socials"><a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a></div></div></footer>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- BACKGAMMON ENGINE — Pure logic, zero DOM                   -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <script id="backgammon-engine">
+  var BackgammonEngine = (function() {
+    'use strict';
+
+    // Points array indices:
+    //   0  = white bar (white pieces that have been hit)
+    //   25 = black bar (black pieces that have been hit)
+    //   1-24 = board points
+    // White moves: 24 → 1, bears off at < 1 (index 0 = bear-off target direction)
+    // Black moves: 1 → 24, bears off at > 24 (index 25 = bear-off target direction)
+
+    function newGame() {
+      var points = [];
+      for (var i = 0; i < 26; i++) points.push({ color: null, count: 0 });
+
+      // Standard backgammon starting position
+      // White checkers (color 'w'): moves from high to low (24→1)
+      // Black checkers (color 'b'): moves from low to high (1→24)
+      function place(idx, color, count) { points[idx] = { color: color, count: count }; }
+
+      place(24, 'w', 2);
+      place(13, 'w', 5);
+      place(8,  'w', 3);
+      place(6,  'w', 5);
+
+      place(1,  'b', 2);
+      place(12, 'b', 5);
+      place(17, 'b', 3);
+      place(19, 'b', 5);
+
+      return {
+        points: points,
+        turn: 'w',
+        dice: [],
+        usedDice: [],
+        borneOff: { w: 0, b: 0 },
+        mustRoll: true,
+        phase: 'roll' // 'roll' | 'move'
+      };
+    }
+
+    function clonePoints(points) {
+      return points.map(function(p) { return { color: p.color, count: p.count }; });
+    }
+
+    function cloneState(state) {
+      return {
+        points: clonePoints(state.points),
+        turn: state.turn,
+        dice: state.dice.slice(),
+        usedDice: state.usedDice.slice(),
+        borneOff: { w: state.borneOff.w, b: state.borneOff.b },
+        mustRoll: state.mustRoll,
+        phase: state.phase
+      };
+    }
+
+    function rollDice() {
+      var d1 = Math.ceil(Math.random() * 6);
+      var d2 = Math.ceil(Math.random() * 6);
+      if (d1 === d2) return [d1, d1, d1, d1];
+      return [d1, d2];
+    }
+
+    function barPoint(color) { return color === 'w' ? 0 : 25; }
+    function direction(color) { return color === 'w' ? -1 : 1; }
+    function homeRange(color) {
+      // White home board: points 1-6; Black home board: points 19-24
+      return color === 'w' ? { lo: 1, hi: 6 } : { lo: 19, hi: 24 };
+    }
+
+    function hasOnBar(state, color) {
+      var bar = state.points[barPoint(color)];
+      return bar.color === color && bar.count > 0;
+    }
+
+    function canBearOff(state, color) {
+      if (hasOnBar(state, color)) return false;
+      var home = homeRange(color);
+      var total = 0;
+      for (var i = 1; i <= 24; i++) {
+        if (state.points[i].color === color) {
+          if (i < home.lo || i > home.hi) return false;
+          total += state.points[i].count;
+        }
+      }
+      return true;
+    }
+
+    function getStatus(state) {
+      if (state.borneOff.w >= 15) return 'white-wins';
+      if (state.borneOff.b >= 15) return 'black-wins';
+      return 'playing';
+    }
+
+    // Returns all legal {from, to, die} moves for the current player given remaining dice
+    function getLegalMoves(state) {
+      var color = state.turn;
+      var dir = direction(color);
+      var remaining = remainingDice(state);
+      if (remaining.length === 0) return [];
+
+      var moves = [];
+      var uniqueDice = [];
+      remaining.forEach(function(d) {
+        if (uniqueDice.indexOf(d) === -1) uniqueDice.push(d);
+      });
+
+      var onBar = hasOnBar(state, color);
+
+      uniqueDice.forEach(function(die) {
+        if (onBar) {
+          // Must enter from bar
+          var from = barPoint(color);
+          var to = color === 'w' ? (25 - die) : die;
+          if (to >= 1 && to <= 24) {
+            var dest = state.points[to];
+            if (dest.color === null || dest.color === color || dest.count === 1) {
+              moves.push({ from: from, to: to, die: die });
+            }
+          }
+        } else if (canBearOff(state, color)) {
+          // Bearing off
+          var home = homeRange(color);
+          for (var i = home.lo; i <= home.hi; i++) {
+            var pt = state.points[i];
+            if (pt.color !== color || pt.count === 0) continue;
+            var target = i + dir * die;
+            if (target === (color === 'w' ? 0 : 25)) {
+              // Exact bear-off
+              moves.push({ from: i, to: target, die: die });
+            } else if (color === 'w' && target < 0) {
+              // Overshoot — only if no checker on higher points
+              var anyHigher = false;
+              for (var j = i + 1; j <= 6; j++) {
+                if (state.points[j].color === 'w' && state.points[j].count > 0) { anyHigher = true; break; }
+              }
+              if (!anyHigher) moves.push({ from: i, to: 0, die: die });
+            } else if (color === 'b' && target > 25) {
+              var anyLower = false;
+              for (var j = 19; j < i; j++) {
+                if (state.points[j].color === 'b' && state.points[j].count > 0) { anyLower = true; break; }
+              }
+              if (!anyLower) moves.push({ from: i, to: 25, die: die });
+            } else if (target >= 1 && target <= 24) {
+              var dest = state.points[target];
+              if (dest.color === null || dest.color === color || dest.count === 1) {
+                moves.push({ from: i, to: target, die: die });
+              }
+            }
+          }
+        } else {
+          // Normal movement
+          for (var i = 1; i <= 24; i++) {
+            var pt = state.points[i];
+            if (pt.color !== color || pt.count === 0) continue;
+            var target = i + dir * die;
+            if (target < 1 || target > 24) continue;
+            var dest = state.points[target];
+            if (dest.color === null || dest.color === color || dest.count === 1) {
+              moves.push({ from: i, to: target, die: die });
+            }
+          }
+        }
+      });
+
+      // Deduplicate
+      var seen = {};
+      return moves.filter(function(m) {
+        var k = m.from + '_' + m.to + '_' + m.die;
+        if (seen[k]) return false;
+        seen[k] = true;
+        return true;
+      });
+    }
+
+    function remainingDice(state) {
+      var all = state.dice.slice();
+      var used = state.usedDice.slice();
+      var rem = [];
+      all.forEach(function(d) {
+        var idx = used.indexOf(d);
+        if (idx === -1) rem.push(d);
+        else used.splice(idx, 1);
+      });
+      return rem;
+    }
+
+    function applyMove(state, move) {
+      var ns = cloneState(state);
+      var color = ns.turn;
+      var opp = color === 'w' ? 'b' : 'w';
+      var from = move.from;
+      var to = move.to;
+
+      // Remove from source
+      ns.points[from].count--;
+      if (ns.points[from].count === 0) ns.points[from].color = null;
+
+      // Handle bear-off
+      if (to === 0 || to === 25) {
+        ns.borneOff[color]++;
+        ns.usedDice.push(move.die);
+        // Check if no more dice or no legal moves → switch turn
+        var rem = remainingDice(ns);
+        if (rem.length === 0 || getLegalMoves(ns).length === 0) {
+          ns.turn = opp;
+          ns.dice = [];
+          ns.usedDice = [];
+          ns.phase = 'roll';
+        }
+        return ns;
+      }
+
+      // Hit opponent blot?
+      var dest = ns.points[to];
+      if (dest.color === opp && dest.count === 1) {
+        // Send to bar
+        ns.points[to].count = 0;
+        ns.points[to].color = null;
+        var oppBar = barPoint(opp);
+        ns.points[oppBar].count++;
+        ns.points[oppBar].color = opp;
+      }
+
+      // Place on destination
+      if (ns.points[to].color === null || ns.points[to].count === 0) {
+        ns.points[to] = { color: color, count: 1 };
+      } else {
+        ns.points[to].count++;
+      }
+
+      ns.usedDice.push(move.die);
+
+      // If no remaining dice or no legal moves → switch turn
+      var rem = remainingDice(ns);
+      if (rem.length === 0 || getLegalMoves(ns).length === 0) {
+        ns.turn = opp;
+        ns.dice = [];
+        ns.usedDice = [];
+        ns.phase = 'roll';
+      }
+
+      return ns;
+    }
+
+    function applyRoll(state) {
+      var ns = cloneState(state);
+      ns.dice = rollDice();
+      ns.usedDice = [];
+      ns.phase = 'move';
+      // If no legal moves at all, skip turn
+      if (getLegalMoves(ns).length === 0) {
+        ns.turn = ns.turn === 'w' ? 'b' : 'w';
+        ns.dice = [];
+        ns.usedDice = [];
+        ns.phase = 'roll';
+      }
+      return ns;
+    }
+
+    // AI: greedy — prefer hitting blots, then making points, then bearing off
+    function getAIMove(state) {
+      var moves = getLegalMoves(state);
+      if (moves.length === 0) return null;
+      var color = state.turn;
+      var opp = color === 'w' ? 'b' : 'w';
+
+      // Score each move
+      function scoreMove(m) {
+        var s = 0;
+        var dest = state.points[m.to];
+        // Hit a blot
+        if (dest.color === opp && dest.count === 1) s += 100;
+        // Make a point (land where we already have 1)
+        if (dest.color === color && dest.count === 1) s += 50;
+        // Bearing off
+        if (m.to === 0 || m.to === 25) s += 200;
+        // Prefer larger dice usage (advance more)
+        s += m.die;
+        // Prefer moving from bar
+        if (m.from === 0 || m.from === 25) s += 80;
+        return s;
+      }
+
+      moves.sort(function(a, b) { return scoreMove(b) - scoreMove(a); });
+      return moves[0];
+    }
+
+    return { newGame, rollDice, getLegalMoves, applyMove, applyRoll, canBearOff, getStatus, getAIMove, remainingDice };
+  })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- BACKGAMMON UI — All DOM                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <script id="backgammon-ui">
+  (function() {
+    'use strict';
+
+    var boardEl      = document.getElementById('bgBoard');
+    var resultBanner = document.getElementById('bgResultBanner');
+    var resultTitle  = document.getElementById('bgResultTitle');
+    var resultDesc   = document.getElementById('bgResultDesc');
+    var playAgainBtn = document.getElementById('bgPlayAgainBtn');
+
+    var state = BackgammonEngine.newGame();
+    var selectedFrom = null; // point index currently selected
+    var vsAI = true;
+    var aiColor = 'b';
+    var aiThinking = false;
+
+    // ── Dice pip layouts ─────────────────────────────────────
+    var PIP_LAYOUTS = {
+      1: [[50, 50]],
+      2: [[25, 25],[75, 75]],
+      3: [[25, 25],[50, 50],[75, 75]],
+      4: [[25, 25],[75, 25],[25, 75],[75, 75]],
+      5: [[25, 25],[75, 25],[50, 50],[25, 75],[75, 75]],
+      6: [[25, 22],[75, 22],[25, 50],[75, 50],[25, 78],[75, 78]]
+    };
+
+    function renderDie(val, used) {
+      var div = document.createElement('div');
+      div.className = 'bg-die' + (used ? ' used' : '');
+      div.style.cssText = 'width:38px;height:38px;background:var(--panel-strong);border:1px solid var(--line-strong);border-radius:7px;position:relative;display:inline-block;';
+      var pips = PIP_LAYOUTS[val] || [[50,50]];
+      pips.forEach(function(p) {
+        var pip = document.createElement('div');
+        pip.style.cssText = 'position:absolute;width:7px;height:7px;border-radius:50%;background:var(--text);'
+          + 'left:' + (p[0] - 4) + '%;top:' + (p[1] - 4) + '%;transform:translate(-50%,-50%);';
+        div.appendChild(pip);
+      });
+      return div;
+    }
+
+    // ── Checker size based on board width ─────────────────────
+    function checkerSize() {
+      var bw = boardEl.offsetWidth || 700;
+      // 12 points per side + bar + margins; rough estimate
+      var pointW = (bw - 80) / 13;
+      return Math.max(14, Math.min(28, Math.floor(pointW * 0.82)));
+    }
+
+    // ── Render checkers on a point ────────────────────────────
+    function renderCheckers(color, count, dirClass) {
+      var frag = document.createDocumentFragment();
+      var sz = checkerSize();
+      var MAX_VISIBLE = 5;
+      var shown = Math.min(count, MAX_VISIBLE);
+      for (var i = 0; i < shown; i++) {
+        var c = document.createElement('div');
+        c.className = 'bg-checker ' + color;
+        c.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;font-size:' + Math.round(sz * 0.38) + 'px;';
+        if (i === shown - 1 && count > MAX_VISIBLE) {
+          c.textContent = count;
+          c.style.fontSize = Math.round(sz * 0.35) + 'px';
+        }
+        frag.appendChild(c);
+      }
+      return frag;
+    }
+
+    // ── Build the board HTML ──────────────────────────────────
+    function buildBoard() {
+      boardEl.innerHTML = '';
+
+      var legalMoves = (state.phase === 'move') ? BackgammonEngine.getLegalMoves(state) : [];
+      var validDests = {};
+      if (selectedFrom !== null) {
+        legalMoves.forEach(function(m) {
+          if (m.from === selectedFrom) validDests[m.to] = true;
+        });
+      }
+      var legalFroms = {};
+      legalMoves.forEach(function(m) { legalFroms[m.from] = true; });
+
+      var sz = checkerSize();
+
+      // ── TOP ROW (points 13–24, left to right) ────────────
+      //   Black's outer board: 13-18 | bar | Black's home: 19-24
+      var topRow = document.createElement('div');
+      topRow.className = 'bg-half bg-top';
+      topRow.style.cssText = 'display:flex;align-items:flex-start;padding:0 4px;gap:2px;';
+
+      // Points 13-18
+      var leftTop = document.createElement('div');
+      leftTop.style.cssText = 'display:flex;flex:1;gap:2px;';
+      for (var p = 13; p <= 18; p++) buildPoint(leftTop, p, 'top', legalFroms, validDests, sz);
+
+      // Bar
+      var barTop = buildBarArea('top', sz);
+
+      // Points 19-24
+      var rightTop = document.createElement('div');
+      rightTop.style.cssText = 'display:flex;flex:1;gap:2px;';
+      for (var p = 19; p <= 24; p++) buildPoint(rightTop, p, 'top', legalFroms, validDests, sz);
+
+      // Bear-off zone (white bears off to left of point 24 side — visually right)
+      var bearOffW = buildBearOff('w');
+
+      topRow.appendChild(leftTop);
+      topRow.appendChild(barTop);
+      topRow.appendChild(rightTop);
+      topRow.appendChild(bearOffW);
+      boardEl.appendChild(topRow);
+
+      // ── MID DIVIDER ───────────────────────────────────────
+      var mid = document.createElement('div');
+      mid.className = 'bg-mid';
+      mid.style.cssText = 'height:18px;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;';
+      var midLabel = document.createElement('span');
+      midLabel.style.cssText = 'color:var(--muted);font-size:0.62rem;font-family:"Instrument Sans",sans-serif;letter-spacing:0.1em;';
+      midLabel.textContent = 'BACKGAMMON';
+      mid.appendChild(midLabel);
+      boardEl.appendChild(mid);
+
+      // ── BOTTOM ROW (points 12–1, left to right means point 12 on left, 1 on right) ──
+      //   White's outer: 12-7 | bar | White's home: 6-1
+      var bottomRow = document.createElement('div');
+      bottomRow.className = 'bg-half bg-bottom';
+      bottomRow.style.cssText = 'display:flex;align-items:flex-end;padding:0 4px;gap:2px;';
+
+      // Points 12-7 (left side, shown 12→7)
+      var leftBot = document.createElement('div');
+      leftBot.style.cssText = 'display:flex;flex:1;gap:2px;';
+      for (var p = 12; p >= 7; p--) buildPoint(leftBot, p, 'bottom', legalFroms, validDests, sz);
+
+      // Bar
+      var barBot = buildBarArea('bottom', sz);
+
+      // Points 6-1 (right side, shown 6→1)
+      var rightBot = document.createElement('div');
+      rightBot.style.cssText = 'display:flex;flex:1;gap:2px;';
+      for (var p = 6; p >= 1; p--) buildPoint(rightBot, p, 'bottom', legalFroms, validDests, sz);
+
+      // Bear-off zone (black bears off to right of bottom row)
+      var bearOffB = buildBearOff('b');
+
+      bottomRow.appendChild(leftBot);
+      bottomRow.appendChild(barBot);
+      bottomRow.appendChild(rightBot);
+      bottomRow.appendChild(bearOffB);
+      boardEl.appendChild(bottomRow);
+
+      // ── CONTROLS ──────────────────────────────────────────
+      buildControls();
+    }
+
+    function buildPoint(container, ptIdx, rowClass, legalFroms, validDests, sz) {
+      var pt = state.points[ptIdx];
+      var triColor = (ptIdx % 2 === 0) ? 'gilt' : 'plum';
+      var triH = Math.max(60, sz * 5.5);
+
+      var col = document.createElement('div');
+      col.className = 'bg-point';
+      col.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;position:relative;cursor:pointer;min-width:0;';
+      col.dataset.point = ptIdx;
+
+      // Highlight states
+      var isValidDest = validDests[ptIdx];
+      var isLegalFrom = legalFroms[ptIdx] && pt.color === state.turn;
+      var isSelected  = (selectedFrom === ptIdx);
+
+      // Triangle
+      var tri = document.createElement('div');
+      tri.className = 'bg-triangle ' + triColor;
+      var clipTop = 'polygon(0 0, 100% 0, 50% 100%)';
+      var clipBot = 'polygon(50% 0, 0 100%, 100% 100%)';
+      tri.style.cssText = 'width:100%;height:' + triH + 'px;flex-shrink:0;transition:filter 0.15s;'
+        + 'clip-path:' + (rowClass === 'top' ? clipTop : clipBot) + ';';
+
+      if (isSelected)  { tri.style.background = '#E8613C'; tri.style.opacity = '0.9'; }
+      else if (isValidDest) { tri.style.filter = 'brightness(1.3) drop-shadow(0 0 4px #48d597)'; }
+      else if (isLegalFrom) { tri.style.filter = 'brightness(1.2)'; }
+
+      // Checkers container
+      var checkersDiv = document.createElement('div');
+      if (rowClass === 'top') {
+        checkersDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:2px;position:absolute;top:0;width:100%;';
+      } else {
+        checkersDiv.style.cssText = 'display:flex;flex-direction:column-reverse;align-items:center;gap:1px;padding-bottom:2px;position:absolute;bottom:0;width:100%;';
+      }
+
+      if (pt.count > 0 && pt.color) {
+        var MAX_VISIBLE = 5;
+        var shown = Math.min(pt.count, MAX_VISIBLE);
+        for (var i = 0; i < shown; i++) {
+          var c = document.createElement('div');
+          c.className = 'bg-checker ' + pt.color;
+          c.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;font-size:' + Math.round(sz * 0.36) + 'px;'
+            + 'border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;'
+            + 'box-sizing:border-box;flex-shrink:0;'
+            + (pt.color === 'w' ? 'background:#F0E8D8;border:2px solid #aaa;color:#222;' : 'background:#13101a;border:2px solid #555;color:#F0E8D8;')
+            + (isSelected && i === shown - 1 ? 'outline:2px solid var(--accent);outline-offset:1px;' : '');
+          if (i === shown - 1 && pt.count > MAX_VISIBLE) {
+            c.textContent = pt.count;
+          }
+          checkersDiv.appendChild(c);
+        }
+      }
+
+      if (rowClass === 'top') {
+        col.appendChild(tri);
+        col.appendChild(checkersDiv);
+      } else {
+        col.appendChild(checkersDiv);
+        col.appendChild(tri);
+      }
+
+      // Point number
+      var num = document.createElement('div');
+      num.style.cssText = 'font-size:0.55rem;font-family:"JetBrains Mono",monospace;color:var(--muted);text-align:center;line-height:1;padding:1px 0;';
+      num.textContent = ptIdx;
+      if (rowClass === 'top') col.appendChild(num);
+      else col.insertBefore(num, col.firstChild);
+
+      col.addEventListener('click', function() { handlePointClick(ptIdx); });
+      container.appendChild(col);
+    }
+
+    function buildBarArea(rowClass, sz) {
+      var bar = document.createElement('div');
+      bar.style.cssText = 'width:36px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(0,0,0,0.35);cursor:pointer;';
+
+      var lbl = document.createElement('div');
+      lbl.style.cssText = 'color:var(--muted);font-size:0.6rem;font-family:"Instrument Sans",sans-serif;text-transform:uppercase;letter-spacing:0.04em;';
+      lbl.textContent = 'BAR';
+      bar.appendChild(lbl);
+
+      // White bar (index 0) shown in top bar area? Actually white bar at top, black bar at bottom conventionally
+      // We'll show white bar chips in top area, black bar chips in bottom
+      if (rowClass === 'top') {
+        var wbar = state.points[0];
+        if (wbar.count > 0) {
+          for (var i = 0; i < Math.min(wbar.count, 3); i++) {
+            var c = document.createElement('div');
+            c.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;border-radius:50%;background:#F0E8D8;border:2px solid #aaa;box-sizing:border-box;';
+            bar.appendChild(c);
+          }
+          if (wbar.count > 1) {
+            var cnt = document.createElement('div');
+            cnt.style.cssText = 'color:#F0E8D8;font-size:0.65rem;font-family:"JetBrains Mono",monospace;';
+            cnt.textContent = 'x' + wbar.count;
+            bar.appendChild(cnt);
+          }
+        }
+      } else {
+        var bbar = state.points[25];
+        if (bbar.count > 0) {
+          for (var i = 0; i < Math.min(bbar.count, 3); i++) {
+            var c = document.createElement('div');
+            c.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;border-radius:50%;background:#13101a;border:2px solid #555;box-sizing:border-box;';
+            bar.appendChild(c);
+          }
+          if (bbar.count > 1) {
+            var cnt = document.createElement('div');
+            cnt.style.cssText = 'color:#C9A227;font-size:0.65rem;font-family:"JetBrains Mono",monospace;';
+            cnt.textContent = 'x' + bbar.count;
+            bar.appendChild(cnt);
+          }
+        }
+      }
+
+      // Click bar to select pieces on bar
+      bar.addEventListener('click', function() {
+        var barIdx = rowClass === 'top' ? 0 : 25;
+        // Only relevant if current player has pieces on bar
+        if (state.phase !== 'move') return;
+        var barPt = state.points[barIdx];
+        if (barPt.color === state.turn && barPt.count > 0) {
+          handlePointClick(barIdx);
+        }
+      });
+
+      return bar;
+    }
+
+    function buildBearOff(color) {
+      var div = document.createElement('div');
+      div.style.cssText = 'width:40px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;'
+        + 'background:rgba(0,0,0,0.25);border-left:1px solid rgba(255,255,255,0.07);padding:4px 2px;';
+
+      var lbl = document.createElement('div');
+      lbl.style.cssText = 'font-size:0.58rem;font-family:"Instrument Sans",sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
+      lbl.textContent = color === 'w' ? 'White\nOff' : 'Black\nOff';
+
+      var cnt = document.createElement('div');
+      cnt.style.cssText = 'font-size:1.2rem;font-family:"JetBrains Mono",monospace;font-weight:700;'
+        + (color === 'w' ? 'color:#F0E8D8;' : 'color:#C9A227;');
+      cnt.textContent = state.borneOff[color];
+
+      // Also make bear-off zone clickable as destination when bearing off
+      div.dataset.bearoff = color;
+      div.style.cursor = 'pointer';
+      div.addEventListener('click', function() {
+        if (selectedFrom !== null && state.phase === 'move') {
+          var dest = color === 'w' ? 0 : 25;
+          // Check if this is a valid destination
+          var legalMoves = BackgammonEngine.getLegalMoves(state);
+          var valid = legalMoves.some(function(m) { return m.from === selectedFrom && m.to === dest; });
+          if (valid) applySelectedMove(dest);
+        }
+      });
+
+      div.appendChild(lbl);
+      div.appendChild(cnt);
+      return div;
+    }
+
+    function buildControls() {
+      var ctrl = document.createElement('div');
+      ctrl.style.cssText = 'background:var(--panel);border-top:1px solid var(--line-strong);padding:0.9rem 1.1rem;display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center;justify-content:space-between;';
+
+      // Left: turn info + status
+      var infoGroup = document.createElement('div');
+      infoGroup.style.cssText = 'display:flex;flex-direction:column;gap:0.3rem;';
+
+      var turnRow = document.createElement('div');
+      turnRow.style.cssText = 'display:flex;align-items:center;gap:0.5rem;font-family:"Instrument Sans",sans-serif;font-size:0.92rem;color:var(--text);';
+
+      var dot = document.createElement('div');
+      dot.style.cssText = 'width:15px;height:15px;border-radius:50%;flex-shrink:0;border:2px solid rgba(240,232,216,0.3);'
+        + (state.turn === 'w' ? 'background:#F0E8D8;' : 'background:#13101a;');
+
+      var turnLbl = document.createElement('span');
+      var playerName = state.turn === 'w' ? 'White' : 'Black';
+      var isAIturn = vsAI && state.turn === aiColor;
+      turnLbl.textContent = playerName + (isAIturn ? ' (AI)' : '') + "'s turn";
+
+      turnRow.appendChild(dot);
+      turnRow.appendChild(turnLbl);
+
+      var statusMsg = document.createElement('div');
+      statusMsg.style.cssText = 'font-family:"Instrument Sans",sans-serif;font-size:0.8rem;color:var(--muted);';
+      if (state.phase === 'roll') statusMsg.textContent = 'Roll the dice to move.';
+      else if (state.dice.length > 0) {
+        var rem = BackgammonEngine.remainingDice(state);
+        statusMsg.textContent = 'Dice: ' + state.dice.join(', ') + '. Moves left: ' + rem.length;
+      }
+      if (selectedFrom !== null) {
+        statusMsg.textContent = 'Checker selected from point ' + selectedFrom + '. Click destination.';
+        statusMsg.style.color = 'var(--easy)';
+      }
+
+      infoGroup.appendChild(turnRow);
+      infoGroup.appendChild(statusMsg);
+
+      // Center: dice display
+      var diceRow = document.createElement('div');
+      diceRow.style.cssText = 'display:flex;gap:0.45rem;align-items:center;';
+
+      if (state.dice.length > 0) {
+        var remaining = BackgammonEngine.remainingDice(state);
+        state.dice.forEach(function(d, i) {
+          var used = !remaining.includes(d);
+          // For doubles, we need to track usage count
+          diceRow.appendChild(renderDie(d, false));
+        });
+        // Shade used ones
+        var usedCopy = state.usedDice.slice();
+        var allDice = diceRow.querySelectorAll('.bg-die');
+        // Re-render properly with usage
+        diceRow.innerHTML = '';
+        var usedCount = {};
+        state.usedDice.forEach(function(d) { usedCount[d] = (usedCount[d] || 0) + 1; });
+        var tempCount = Object.assign({}, usedCount);
+        state.dice.forEach(function(d) {
+          var isUsed = (tempCount[d] || 0) > 0;
+          if (isUsed) tempCount[d]--;
+          diceRow.appendChild(renderDie(d, isUsed));
+        });
+      }
+
+      // Right: buttons
+      var btnRow = document.createElement('div');
+      btnRow.style.cssText = 'display:flex;gap:0.45rem;flex-wrap:wrap;align-items:center;';
+
+      var rollBtn = document.createElement('button');
+      rollBtn.className = 'bg-btn primary';
+      rollBtn.textContent = 'Roll Dice';
+      rollBtn.disabled = state.phase !== 'roll' || (vsAI && state.turn === aiColor);
+      rollBtn.style.cssText = 'padding:0.52rem 1rem;border-radius:var(--radius-sm);border:none;cursor:pointer;font-family:"Instrument Sans",sans-serif;font-size:0.86rem;font-weight:600;background:var(--accent);color:#fff;';
+      if (rollBtn.disabled) rollBtn.style.opacity = '0.4';
+      rollBtn.addEventListener('click', function() {
+        if (state.phase !== 'roll') return;
+        state = BackgammonEngine.applyRoll(state);
+        selectedFrom = null;
+        render();
+        // If AI's turn after roll, trigger AI
+        if (vsAI && state.turn === aiColor && state.phase === 'move') {
+          scheduleAI();
+        }
+      });
+
+      var newBtn = document.createElement('button');
+      newBtn.style.cssText = 'padding:0.52rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--line-strong);cursor:pointer;font-family:"Instrument Sans",sans-serif;font-size:0.86rem;font-weight:600;background:rgba(246,239,224,0.1);color:var(--text);';
+      newBtn.textContent = 'New Game';
+      newBtn.addEventListener('click', startNew);
+
+      // Mode toggle
+      var modeLabel = document.createElement('label');
+      modeLabel.style.cssText = 'display:flex;align-items:center;gap:0.35rem;font-family:"Instrument Sans",sans-serif;font-size:0.78rem;color:var(--muted);cursor:pointer;';
+      var modeCheck = document.createElement('input');
+      modeCheck.type = 'checkbox';
+      modeCheck.checked = vsAI;
+      modeCheck.addEventListener('change', function() {
+        vsAI = modeCheck.checked;
+        startNew();
+      });
+      modeLabel.appendChild(modeCheck);
+      modeLabel.appendChild(document.createTextNode('vs AI'));
+
+      btnRow.appendChild(rollBtn);
+      btnRow.appendChild(newBtn);
+      btnRow.appendChild(modeLabel);
+
+      ctrl.appendChild(infoGroup);
+      ctrl.appendChild(diceRow);
+      ctrl.appendChild(btnRow);
+      boardEl.appendChild(ctrl);
+    }
+
+    // ── Point click logic ─────────────────────────────────────
+    function handlePointClick(ptIdx) {
+      if (state.phase !== 'move') return;
+      var isAIturn = vsAI && state.turn === aiColor;
+      if (isAIturn) return;
+
+      var pt = state.points[ptIdx];
+      var legalMoves = BackgammonEngine.getLegalMoves(state);
+
+      if (selectedFrom === null) {
+        // Select a checker
+        var hasOnBar = BackgammonEngine.remainingDice(state).length > 0
+          && state.points[state.turn === 'w' ? 0 : 25].color === state.turn
+          && state.points[state.turn === 'w' ? 0 : 25].count > 0;
+
+        if (hasOnBar) {
+          // Must move from bar
+          var barIdx = state.turn === 'w' ? 0 : 25;
+          if (ptIdx === barIdx) {
+            selectedFrom = ptIdx;
+            render();
+          }
+          return;
+        }
+
+        if (pt.color === state.turn && pt.count > 0) {
+          var canMove = legalMoves.some(function(m) { return m.from === ptIdx; });
+          if (canMove) { selectedFrom = ptIdx; render(); }
+        }
+      } else {
+        // Try to move to this destination
+        applySelectedMove(ptIdx);
+      }
+    }
+
+    function applySelectedMove(toPt) {
+      var legalMoves = BackgammonEngine.getLegalMoves(state);
+      var validMoves = legalMoves.filter(function(m) { return m.from === selectedFrom && m.to === toPt; });
+
+      if (validMoves.length === 0) {
+        // Maybe clicked another own checker — reselect
+        var pt = state.points[toPt];
+        if (pt.color === state.turn && pt.count > 0) {
+          var canMove = legalMoves.some(function(m) { return m.from === toPt; });
+          if (canMove) { selectedFrom = toPt; render(); return; }
+        }
+        selectedFrom = null;
+        render();
+        return;
+      }
+
+      // Prefer largest die for the move (or exact bear-off)
+      validMoves.sort(function(a, b) { return b.die - a.die; });
+      var move = validMoves[0];
+
+      var prevTurn = state.turn;
+      state = BackgammonEngine.applyMove(state, move);
+      selectedFrom = null;
+
+      var status = BackgammonEngine.getStatus(state);
+      if (status !== 'playing') {
+        render();
+        showResult(status);
+        return;
+      }
+
+      render();
+
+      // If turn changed to AI, schedule AI
+      if (vsAI && state.turn === aiColor && state.phase === 'roll') {
+        scheduleAIRoll();
+      }
+    }
+
+    // ── AI ────────────────────────────────────────────────────
+    function scheduleAIRoll() {
+      if (aiThinking) return;
+      aiThinking = true;
+      setTimeout(function() {
+        state = BackgammonEngine.applyRoll(state);
+        render();
+        if (state.phase === 'move') {
+          scheduleAI();
+        } else {
+          aiThinking = false;
+        }
+      }, 600);
+    }
+
+    function scheduleAI() {
+      setTimeout(function() {
+        aiStep();
+      }, 400);
+    }
+
+    function aiStep() {
+      if (BackgammonEngine.getStatus(state) !== 'playing') { aiThinking = false; return; }
+      if (state.turn !== aiColor || state.phase !== 'move') { aiThinking = false; return; }
+
+      var move = BackgammonEngine.getAIMove(state);
+      if (!move) { aiThinking = false; return; }
+
+      state = BackgammonEngine.applyMove(state, move);
+      render();
+
+      var status = BackgammonEngine.getStatus(state);
+      if (status !== 'playing') { aiThinking = false; showResult(status); return; }
+
+      // If AI still has moves (same turn), continue
+      if (state.turn === aiColor && state.phase === 'move') {
+        setTimeout(aiStep, 350);
+      } else if (state.turn === aiColor && state.phase === 'roll') {
+        scheduleAIRoll();
+      } else {
+        aiThinking = false;
+      }
+    }
+
+    // ── Result ────────────────────────────────────────────────
+    function showResult(status) {
+      resultBanner.classList.add('visible');
+      var winner = status === 'white-wins' ? 'White' : 'Black';
+      resultTitle.textContent = winner + ' wins!';
+      var isHuman = !(vsAI && ((status === 'white-wins' && aiColor === 'w') || (status === 'black-wins' && aiColor === 'b')));
+      resultDesc.textContent = isHuman ? 'Congratulations! Well played.' : (vsAI ? 'The AI won this round. Try again!' : 'Game over.');
+    }
+
+    playAgainBtn.addEventListener('click', startNew);
+
+    function startNew() {
+      state = BackgammonEngine.newGame();
+      selectedFrom = null;
+      aiThinking = false;
+      resultBanner.classList.remove('visible');
+      render();
+      // If AI goes first (black, but white starts — so AI only moves after white rolls)
+      // White always starts first move
+    }
+
+    // ── Main render ───────────────────────────────────────────
+    function render() {
+      buildBoard();
+    }
+
+    // ── Responsive resize ─────────────────────────────────────
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(render, 100);
+    });
+
+    // ── Init ──────────────────────────────────────────────────
+    render();
+
+  })();
+  </script>
+</body>
+</html>

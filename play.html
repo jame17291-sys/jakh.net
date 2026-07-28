@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>document.documentElement.dataset.theme="dark";</script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1A1520" />
+    <meta name="description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles — no download, no sign-up required." />
+    <title>Play | JAKH Riddles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/play" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="free browser games, chess online, mastermind game, logic puzzles, jakh riddles games" />
+    <meta property="og:title" content="Play | JAKH Riddles" />
+    <meta property="og:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles — no download, no sign-up required." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jakh.net/play" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="JAKH Riddles" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Play | JAKH Riddles" />
+    <meta name="twitter:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
+    <link rel="stylesheet" href="styles.css?v=1785236400" />
+    <script src="fluid-shader.js" defer></script>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VQZQNK6VSV');
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          if (reg) reg.update();
+        });
+      }
+    </script>
+  </head>
+  <body data-page="play">
+    <a href="#top" class="skip-link">Skip to main content</a>
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+    <div class="grid-glow" aria-hidden="true"></div>
+
+    <header class="site-header shell">
+      <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+        <picture>
+          <source srcset="assets/logo.webp" type="image/webp" />
+          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
+        </picture>
+      </a>
+      <nav class="header-actions" aria-label="Quick actions">
+        <a class="ghost-btn" href="index.html">Home</a>
+        <a class="ghost-btn" href="mind-lab.html">Mind Lab</a>
+      </nav>
+      <div class="header-selects" aria-label="Language controls">
+        <label>
+          <span>Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="kv-hero play-hero" style="min-height: 52vh; padding: 0;">
+        <div class="kv-hero-fallback-bg" style="background: radial-gradient(ellipse at 30% 50%, rgba(245,158,11,0.18) 0%, transparent 55%), radial-gradient(ellipse at 70% 40%, rgba(192,38,211,0.13) 0%, transparent 55%), linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%);"></div>
+        <canvas class="kv-fluid-canvas" id="playFluidCanvas" aria-hidden="true"></canvas>
+        <div class="kv-hero-content" style="padding-top: 4rem; padding-bottom: 3rem;">
+          <h1 class="kv-hero-title" style="font-size: clamp(3.5rem, 12vw, 9rem); text-shadow: 0 0 100px rgba(245,158,11,0.2);">Game Arena</h1>
+          <p class="kv-hero-subtitle">No download. No sign-up. Just play — straight from your browser on any device.</p>
+          <div class="kv-hero-stats" style="margin-top: 1.5rem;">
+            <div class="kv-stat"><span class="kv-stat-number">10</span><span class="kv-stat-label">Games</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global Leaderboard -->
+      <section class="shell" style="padding: 3rem 1rem 2rem; border-top: 1px solid rgba(252,252,252,0.08);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <p class="kv-eyebrow" style="color:#38bdf8;margin-bottom:0.25rem;">Top Players</p>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;color:#fcfcfc;margin:0;letter-spacing:-0.02em;">Leaderboard</h2>
+          </div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;" id="lbGameTabs">
+            <!-- tabs injected by JS -->
+          </div>
+        </div>
+        <div id="lbTable" style="background:rgba(252,252,252,0.03);border:1px solid rgba(252,252,252,0.08);">
+          <p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.4);font-size:0.9rem;">Loading...</p>
+        </div>
+      </section>
+
+      <!-- All 10 games -->
+      <section class="kv-lab-section shell">
+        <div class="kv-lab-header">
+          <p class="kv-eyebrow" style="color: #f59e0b;">10 games available now</p>
+          <h2>Pick a game</h2>
+          <p>All games run entirely in your browser — nothing installed.</p>
+        </div>
+
+        <div class="game-lobby-grid">
+          <!-- Chess -->
+          <a class="game-card" href="chess.html" aria-label="Play Chess">
+            <div class="game-card-icon">&#9822;</div>
+            <h3 class="game-card-title">Chess</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">2 players</span>
+              <span class="game-card-tag">vs Computer</span>
+              <span class="game-card-tag">Strategy</span>
+            </div>
+            <p class="game-card-desc">Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend.</p>
+            <span class="game-card-play">Play Chess &#8594;</span>
+          </a>
+
+          <!-- Mastermind -->
+          <a class="game-card" href="mastermind.html" aria-label="Play Mastermind">
+            <div class="game-card-icon">&#129504;</div>
+            <h3 class="game-card-title">Mastermind</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">Solo</span>
+              <span class="game-card-tag">10 attempts</span>
+              <span class="game-card-tag">Logic</span>
+            </div>
+            <p class="game-card-desc">Crack the secret 4-colour code in 10 attempts. Use the Hint button for the optimal Knuth move.</p>
+            <span class="game-card-play">Play Mastermind &#8594;</span>
+          </a>
+
+          <!-- Go -->
+          <a class="game-card" href="go.html" aria-label="Play Go">
+            <div class="game-card-icon">&#9898;</div>
+            <h3 class="game-card-title">Go (9×9)</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">2 players</span>
+              <span class="game-card-tag">Strategy</span>
+              <span class="game-card-tag">Classic</span>
+            </div>
+            <p class="game-card-desc">Ancient strategy: capture stones, claim territory on a 9×9 board. Two consecutive passes end the game — territory + captures decides the winner.</p>
+            <span class="game-card-play">Play Go &#8594;</span>
+          </a>
+
+          <!-- Reversi -->
+          <a class="game-card" href="reversi.html" aria-label="Play Reversi">
+            <div class="game-card-icon">&#9899;</div>
+            <h3 class="game-card-title">Reversi</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">vs Computer</span>
+              <span class="game-card-tag">2 players</span>
+              <span class="game-card-tag">Strategy</span>
+            </div>
+            <p class="game-card-desc">Flip your opponent's discs by trapping them. Corners are king. Minimax AI at depth 4 — control the board or get outflanked.</p>
+            <span class="game-card-play">Play Reversi &#8594;</span>
+          </a>
+
+          <!-- Codenames -->
+          <a class="game-card" href="codenames.html" aria-label="Play Codenames">
+            <div class="game-card-icon">&#128373;</div>
+            <h3 class="game-card-title">Codenames</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">Solo</span>
+              <span class="game-card-tag">AI Spymaster</span>
+              <span class="game-card-tag">Deduction</span>
+            </div>
+            <p class="game-card-desc">The AI Spymaster gives you one-word clues. Find all 9 red agents on the 5×5 grid — but avoid the assassin or it's game over.</p>
+            <span class="game-card-play">Play Codenames &#8594;</span>
+          </a>
+
+          <!-- Catan Lite -->
+          <a class="game-card" href="catan.html" aria-label="Play Catan Lite">
+            <div class="game-card-icon">&#127963;</div>
+            <h3 class="game-card-title">Catan Lite</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">vs Computer</span>
+              <span class="game-card-tag">Resources</span>
+              <span class="game-card-tag">Strategy</span>
+            </div>
+            <p class="game-card-desc">Roll dice, collect resources, build settlements and cities. First to 10 victory points wins. Simplified for quick browser play.</p>
+            <span class="game-card-play">Play Catan &#8594;</span>
+          </a>
+
+          <!-- Backgammon -->
+          <a class="game-card" href="backgammon.html" aria-label="Play Backgammon">
+            <div class="game-card-icon">&#127922;</div>
+            <h3 class="game-card-title">Backgammon</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">vs Computer</span>
+              <span class="game-card-tag">Dice</span>
+              <span class="game-card-tag">Classic</span>
+            </div>
+            <p class="game-card-desc">Race all 15 checkers around the 24-point board and bear them off before your opponent. Real dice, legal moves enforced, greedy AI.</p>
+            <span class="game-card-play">Play Backgammon &#8594;</span>
+          </a>
+
+          <!-- Set -->
+          <a class="game-card" href="set.html" aria-label="Play Set">
+            <div class="game-card-icon">&#127183;</div>
+            <h3 class="game-card-title">Set</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">Solo</span>
+              <span class="game-card-tag">Pattern</span>
+              <span class="game-card-tag">Logic</span>
+            </div>
+            <p class="game-card-desc">Find sets of 3 cards where each attribute is either all-same or all-different. 81-card deck with inline SVG shapes — use Hint when stuck.</p>
+            <span class="game-card-play">Play Set &#8594;</span>
+          </a>
+
+          <!-- Hanabi -->
+          <a class="game-card" href="hanabi.html" aria-label="Play Hanabi">
+            <div class="game-card-icon">&#127878;</div>
+            <h3 class="game-card-title">Hanabi</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">Cooperative</span>
+              <span class="game-card-tag">AI Partner</span>
+              <span class="game-card-tag">Memory</span>
+            </div>
+            <p class="game-card-desc">You can't see your own cards. Give and receive clues with your AI partner to play fireworks in the right order — score 25 for a perfect show.</p>
+            <span class="game-card-play">Play Hanabi &#8594;</span>
+          </a>
+
+          <!-- Diplomacy -->
+          <a class="game-card" href="diplomacy.html" aria-label="Play Diplomacy">
+            <div class="game-card-icon">&#9876;</div>
+            <h3 class="game-card-title">Diplomacy</h3>
+            <div class="game-card-meta">
+              <span class="game-card-tag">vs Computer</span>
+              <span class="game-card-tag">Area Control</span>
+              <span class="game-card-tag">Strategy</span>
+            </div>
+            <p class="game-card-desc">Control 12 territories through simultaneous order resolution. No dice — pure strategy. Outwit the AI to dominate the map.</p>
+            <span class="game-card-play">Play Diplomacy &#8594;</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var canvas = document.getElementById('playFluidCanvas');
+        if (canvas && window.FluidShader) {
+          window.FluidShader.mount(canvas);
+        }
+      });
+    </script>
+
+    <!-- ── Leaderboard ── -->
+    <script>
+    (function () {
+      var GAMES = ['chess','mastermind','go','reversi','codenames','catan','backgammon','set','hanabi','diplomacy'];
+      var LABELS = { chess:'Chess', mastermind:'Mastermind', go:'Go', reversi:'Reversi', codenames:'Codenames', catan:'Catan', backgammon:'Backgammon', set:'Set', hanabi:'Hanabi', diplomacy:'Diplomacy' };
+      var RANK_COLORS = ['#f59e0b','#9ca3af','#92400e'];
+      var activeGame = 'chess';
+      var tabsEl = document.getElementById('lbGameTabs');
+      var tableEl = document.getElementById('lbTable');
+      if (!tabsEl || !tableEl) return;
+
+      // Build tabs
+      GAMES.forEach(function (g) {
+        var btn = document.createElement('button');
+        btn.textContent = LABELS[g];
+        btn.dataset.game = g;
+        btn.style.cssText = 'padding:0.35rem 0.75rem;font-family:"Space Grotesk",sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border:1px solid rgba(252,252,252,0.15);background:transparent;color:rgba(252,252,252,0.5);cursor:pointer;transition:all 0.15s;';
+        btn.addEventListener('click', function () { loadBoard(g); });
+        tabsEl.appendChild(btn);
+      });
+
+      function setActiveTab(game) {
+        activeGame = game;
+        tabsEl.querySelectorAll('button').forEach(function (b) {
+          var on = b.dataset.game === game;
+          b.style.background = on ? '#38bdf8' : 'transparent';
+          b.style.color = on ? '#0a0a0a' : 'rgba(252,252,252,0.5)';
+          b.style.borderColor = on ? '#38bdf8' : 'rgba(252,252,252,0.15)';
+        });
+      }
+
+      function loadBoard(game) {
+        setActiveTab(game);
+        tableEl.innerHTML = '<p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.35);font-size:0.85rem;">Loading…</p>';
+        fetch('https://jakh.net/api/boardgame/leaderboard?game=' + game + '&limit=10')
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+          .then(function (data) { renderTable(data.leaderboard || []); })
+          .catch(function () {
+            var section = tableEl.closest('section');
+            if (section) section.remove();
+          });
+      }
+
+      function renderTable(rows) {
+        if (!rows.length) {
+          tableEl.innerHTML = '<p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.35);font-size:0.85rem;">No scores yet — be the first!</p>';
+          return;
+        }
+        var html = '<table style="width:100%;border-collapse:collapse;"><thead><tr style="border-bottom:1px solid rgba(252,252,252,0.08);">';
+        html += '<th style="padding:0.65rem 1rem;text-align:left;color:rgba(252,252,252,0.35);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">#</th>';
+        html += '<th style="padding:0.65rem 1rem;text-align:left;color:rgba(252,252,252,0.35);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Player</th>';
+        html += '<th style="padding:0.65rem 1rem;text-align:right;color:rgba(252,252,252,0.35);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Score</th>';
+        html += '</tr></thead><tbody>';
+        rows.forEach(function (row, i) {
+          var rankColor = i < 3 ? RANK_COLORS[i] : 'rgba(252,252,252,0.5)';
+          var bg = i % 2 === 0 ? 'transparent' : 'rgba(252,252,252,0.02)';
+          html += '<tr style="border-bottom:1px solid rgba(252,252,252,0.04);background:' + bg + ';">';
+          html += '<td style="padding:0.6rem 1rem;font-family:\'Space Grotesk\',sans-serif;font-weight:700;font-size:0.82rem;color:' + rankColor + ';">' + row.rank + '</td>';
+          html += '<td style="padding:0.6rem 1rem;color:#fcfcfc;font-size:0.88rem;">' + escapeHtml(row.username) + '</td>';
+          html += '<td style="padding:0.6rem 1rem;text-align:right;color:rgba(252,252,252,0.7);font-family:\'Space Grotesk\',sans-serif;font-size:0.82rem;">' + row.score + '</td>';
+          html += '</tr>';
+        });
+        html += '</tbody></table>';
+        tableEl.innerHTML = html;
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      }
+
+      loadBoard('chess');
+    })();
+    </script>
+  </body>
+</html>

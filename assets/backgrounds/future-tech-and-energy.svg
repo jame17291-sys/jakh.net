@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1200 340" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071120"/>
+      <stop offset="45%" stop-color="#0e1a31"/>
+      <stop offset="100%" stop-color="#19112b"/>
+    </linearGradient>
+    <radialGradient id="cyanGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#67f3ff" stop-opacity="0.82"/>
+      <stop offset="60%" stop-color="#67f3ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#67f3ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violetGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#9d7cff" stop-opacity="0.72"/>
+      <stop offset="60%" stop-color="#9d7cff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#9d7cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amberGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ffcf79" stop-opacity="0.74"/>
+      <stop offset="60%" stop-color="#ffcf79" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffcf79" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="340" fill="url(#bg)"/>
+  <ellipse cx="926" cy="90" rx="260" ry="148" fill="url(#cyanGlow)" opacity="0.36"/>
+  <ellipse cx="244" cy="248" rx="248" ry="138" fill="url(#violetGlow)" opacity="0.28"/>
+  <ellipse cx="612" cy="44" rx="180" ry="100" fill="url(#amberGlow)" opacity="0.22"/>
+
+  <g fill="none" stroke="#90a8d1" stroke-opacity="0.12">
+    <path d="M0 274C142 218 238 246 360 200S644 138 796 166S1046 214 1200 128"/>
+    <path d="M0 304C150 254 240 282 372 236S648 174 806 200S1050 248 1200 166"/>
+  </g>
+
+  <g transform="translate(120 58)" fill="none">
+    <circle cx="118" cy="112" r="86" stroke="#6bf0ff" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="118" cy="112" r="54" stroke="#ffcf79" stroke-opacity="0.34" stroke-width="2"/>
+    <path d="M118 26V198M32 112H204M57 51L179 173M57 173L179 51" stroke="#9f7cff" stroke-opacity="0.24"/>
+    <path d="M118 66C136 82 146 96 146 112C146 140 126 154 118 168C110 154 90 140 90 112C90 96 100 82 118 66Z" fill="#67f3ff" fill-opacity="0.12" stroke="#67f3ff" stroke-opacity="0.5" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(436 58)" fill="none">
+    <path d="M0 184L96 40L192 184Z" fill="#0d1728" fill-opacity="0.55" stroke="#9bdcff" stroke-opacity="0.34"/>
+    <path d="M96 40V184M48 112H144M24 148H168" stroke="#ffcf79" stroke-opacity="0.36"/>
+    <path d="M220 184L292 62L364 184Z" fill="#0d1728" fill-opacity="0.55" stroke="#77f2d4" stroke-opacity="0.34"/>
+    <path d="M292 62V184M256 118H328M238 152H346" stroke="#9d7cff" stroke-opacity="0.36"/>
+  </g>
+
+  <g transform="translate(842 62)">
+    <rect x="0" y="0" width="232" height="152" rx="22" fill="#08121f" fill-opacity="0.76" stroke="#8fdcff" stroke-opacity="0.18"/>
+    <path d="M28 112C60 86 96 84 124 98C154 112 186 112 206 84" fill="none" stroke="#67f3ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M28 86C48 60 72 48 98 48C126 48 150 66 166 80C184 96 194 102 206 100" fill="none" stroke="#ffcf79" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="28" cy="112" r="5" fill="#67f3ff"/><circle cx="124" cy="98" r="5" fill="#67f3ff"/><circle cx="206" cy="84" r="5" fill="#67f3ff"/>
+    <circle cx="28" cy="86" r="5" fill="#ffcf79"/><circle cx="98" cy="48" r="5" fill="#ffcf79"/><circle cx="206" cy="100" r="5" fill="#ffcf79"/>
+    <rect x="28" y="24" width="90" height="10" rx="5" fill="#d8eeff" opacity="0.16"/>
+  </g>
+
+  <g opacity="0.5" fill="#e8f3ff">
+    <circle cx="86" cy="42" r="1.2"/><circle cx="158" cy="34" r="1.2"/><circle cx="332" cy="46" r="1.2"/>
+    <circle cx="526" cy="36" r="1.2"/><circle cx="732" cy="52" r="1.2"/><circle cx="1036" cy="40" r="1.2"/><circle cx="1128" cy="88" r="1.2"/>
+  </g>
+</svg>

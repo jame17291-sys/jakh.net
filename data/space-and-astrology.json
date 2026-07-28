@@ -544,28 +544,28 @@
         "ar": "النظام الشمسي"
       },
       "question": {
-        "en": "Which planet rotates on its side with an axial tilt of about 98°?",
-        "ar": "أي كوكب يدور على جانبه بميل محوري يبلغ نحو 98°؟"
+        "en": "Which planet is known as the Red Planet?",
+        "ar": "أي كوكب يُعرف بالكوكب الأحمر؟"
       },
       "answer": {
-        "en": "Uranus",
-        "ar": "أورانوس"
+        "en": "Mars",
+        "ar": "المريخ"
       }
     },
     {
       "id": "space-034",
       "difficulty": "easy",
       "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
+        "en": "Moon",
+        "ar": "القمر"
       },
       "question": {
-        "en": "How long does it take Earth to complete one orbit around the Sun?",
-        "ar": "كم يستغرق الأرض لإتمام دورة كاملة حول الشمس؟"
+        "en": "Who was the first human to walk on the Moon?",
+        "ar": "من كان أول إنسان يمشي على سطح القمر؟"
       },
       "answer": {
-        "en": "About 365.25 days (one year)",
-        "ar": "حوالي 365.25 يوماً (سنة واحدة)"
+        "en": "Neil Armstrong (1969)",
+        "ar": "نيل أرمسترونغ (1969)"
       }
     },
     {
@@ -576,8 +576,8 @@
         "ar": "النظام الشمسي"
       },
       "question": {
-        "en": "Which planet in our solar system has the shortest day, completing a rotation in about 10 hours?",
-        "ar": "أي كوكب في مجموعتنا الشمسية له أقصر يوم، إذ يُكمل دورته في نحو 10 ساعات؟"
+        "en": "Which is the largest planet in our solar system?",
+        "ar": "أي كوكب هو الأكبر في نظامنا الشمسي؟"
       },
       "answer": {
         "en": "Jupiter",
@@ -844,16 +844,16 @@
       "id": "space-052",
       "difficulty": "medium",
       "subcategory": {
-        "en": "Exoplanets",
-        "ar": "الكواكب الخارجية"
+        "en": "Universe",
+        "ar": "الكون"
       },
       "question": {
-        "en": "What is the habitable zone (Goldilocks zone) around a star?",
-        "ar": "ما منطقة السكن (منطقة غولديلوكس) حول نجم؟"
+        "en": "What is a light-year?",
+        "ar": "ما السنة الضوئية؟"
       },
       "answer": {
-        "en": "The range of distances from a star where liquid water can exist on a planet's surface, making life as we know it possible",
-        "ar": "المدى من المسافات حول النجم الذي يمكن فيه للماء السائل التواجد على سطح كوكب، مما يجعل الحياة ممكنة"
+        "en": "The distance light travels in one year — about 9.46 trillion kilometres",
+        "ar": "المسافة التي يقطعها الضوء في سنة واحدة — حوالي 9.46 تريليون كيلومتر"
       }
     },
     {
@@ -908,16 +908,16 @@
       "id": "space-056",
       "difficulty": "medium",
       "subcategory": {
-        "en": "Comets",
-        "ar": "المذنبات"
+        "en": "Solar System",
+        "ar": "النظام الشمسي"
       },
       "question": {
-        "en": "What causes a comet to develop a tail as it approaches the Sun?",
-        "ar": "ما الذي يجعل المذنب يُطوّر ذيلاً عند اقترابه من الشمس؟"
+        "en": "What is the Kuiper Belt?",
+        "ar": "ما حزام كايبر؟"
       },
       "answer": {
-        "en": "Solar wind and radiation pressure push gas and dust away from the nucleus, so the tail always points away from the Sun",
-        "ar": "الرياح الشمسية وضغط الإشعاع يدفعان الغاز والغبار بعيداً عن النواة، لذا يشير الذيل دائماً بعيداً عن الشمس"
+        "en": "A region beyond Neptune filled with icy bodies including Pluto, comets, and other dwarf planets",
+        "ar": "منطقة تقع خلف نبتون مليئة بالأجسام الجليدية بما فيها بلوتو والمذنّبات وكواكب قزمة أخرى"
       }
     },
     {
@@ -940,16 +940,16 @@
       "id": "space-058",
       "difficulty": "medium",
       "subcategory": {
-        "en": "Space Telescopes",
-        "ar": "تلسكوبات الفضاء"
+        "en": "Space Exploration",
+        "ar": "استكشاف الفضاء"
       },
       "question": {
-        "en": "What is the difference between a refracting telescope and a reflecting telescope?",
-        "ar": "ما الفرق بين التلسكوب الكاسر والتلسكوب العاكس؟"
+        "en": "What is the Hubble Space Telescope?",
+        "ar": "ما تلسكوب هابل الفضائي؟"
       },
       "answer": {
-        "en": "Refracting: uses lenses to bend and focus light; Reflecting: uses mirrors to reflect and focus light — most large modern telescopes are reflectors",
-        "ar": "الكاسر: يستخدم العدسات لانكسار الضوء وتركيزه؛ العاكس: يستخدم المرايا لعكس الضوء وتركيزه — معظم التلسكوبات الكبيرة الحديثة عاكسة"
+        "en": "A space telescope launched in 1990 providing unprecedented optical images of the universe",
+        "ar": "تلسكوب فضائي أُطلق عام 1990 يوفّر صوراً بصرية غير مسبوقة للكون"
       }
     },
     {
@@ -992,12 +992,12 @@
         "ar": "الثقوب السوداء"
       },
       "question": {
-        "en": "What is the difference between a stellar-mass black hole and a supermassive black hole?",
-        "ar": "ما الفرق بين الثقب الأسود النجمي والثقب الأسود الفائق الكتلة؟"
+        "en": "What is the event horizon of a black hole?",
+        "ar": "ما أفق الحدث للثقب الأسود؟"
       },
       "answer": {
-        "en": "Stellar-mass: 3–100 solar masses, formed from collapsed massive stars; Supermassive: millions to billions of solar masses, found at galactic centres — origins still debated",
-        "ar": "النجمي: 3–100 كتلة شمسية، يتكوّن من انهيار نجم ضخم؛ الفائق الكتلة: ملايين إلى مليارات الكتل الشمسية، يوجد في مراكز المجرات — أصوله لا تزال مثار جدل"
+        "en": "The boundary around a black hole beyond which nothing — including light — can escape its gravitational pull",
+        "ar": "الحدّ المحيط بالثقب الأسود الذي لا يمكن لأي شيء — بما في ذلك الضوء — تخطّيه والإفلات من جاذبيته"
       }
     },
     {
@@ -1008,12 +1008,12 @@
         "ar": "النجوم"
       },
       "question": {
-        "en": "What is the difference between a Type Ia and a Type II supernova?",
-        "ar": "ما الفرق بين المستعر الأعظم من النوع Ia والنوع II؟"
+        "en": "What is the Chandrasekhar limit?",
+        "ar": "ما حدّ شاندراسيخار؟"
       },
       "answer": {
-        "en": "Type Ia: thermonuclear explosion of a white dwarf that accretes mass past the Chandrasekhar limit; Type II: core collapse of a massive star after iron builds up in its core",
-        "ar": "النوع Ia: انفجار نووي حراري لقزم أبيض يتراكم فيه الكتلة متجاوزاً حد شاندراسيخار؛ النوع II: انهيار نواة نجم ضخم بعد تراكم الحديد فيها"
+        "en": "The maximum mass (~1.4 solar masses) a white dwarf star can have before collapsing — key to understanding Type Ia supernovae",
+        "ar": "الكتلة القصوى (~1.4 كتلة شمسية) التي يمكن لنجم قزم أبيض أن يمتلكها قبل الانهيار — مفتاح فهم المستعرات العظمى من النوع Ia"
       }
     },
     {
@@ -1056,12 +1056,12 @@
         "ar": "النجوم"
       },
       "question": {
-        "en": "What is a white dwarf and what is its eventual fate?",
-        "ar": "ما القزم الأبيض وما مصيره النهائي؟"
+        "en": "What is a pulsar?",
+        "ar": "ما النجم النابض؟"
       },
       "answer": {
-        "en": "The dense remnant of a low-to-medium mass star after shedding its outer layers; it gradually cools over billions of years, theoretically becoming a cold black dwarf",
-        "ar": "البقايا الكثيفة لنجم منخفض إلى متوسط الكتلة بعد أن ينبذ طبقاته الخارجية؛ يبرد تدريجياً على مليارات السنين ليصبح نظرياً قزماً أسود بارداً"
+        "en": "A rapidly rotating neutron star emitting beams of electromagnetic radiation, detected as regular pulses",
+        "ar": "نجم نيوتروني يدور بسرعة كبيرة يُصدر حزماً من الإشعاع الكهرومغناطيسي تُكتشف على شكل نبضات منتظمة"
       }
     },
     {
@@ -1356,16 +1356,16 @@
       "id": "space-084",
       "difficulty": "very-advanced",
       "subcategory": {
-        "en": "SETI",
-        "ar": "البحث عن كائنات فضائية"
+        "en": "Space Exploration",
+        "ar": "استكشاف الفضاء"
       },
       "question": {
-        "en": "What is the Kardashev Scale?",
-        "ar": "ما مقياس كارداشيف؟"
+        "en": "What is the Drake Equation?",
+        "ar": "ما معادلة درايك؟"
       },
       "answer": {
-        "en": "A method for measuring a civilisation's technological advancement by energy use: Type I (planetary), Type II (stellar), Type III (galactic)",
-        "ar": "طريقة لقياس التقدم التكنولوجي للحضارة بناءً على استهلاك الطاقة: النوع I (كوكبي)، النوع II (نجمي)، النوع III (مجري)"
+        "en": "A probabilistic formula estimating the number of active, communicating civilisations in the Milky Way using factors like star formation rate, habitable planets, and life emergence probability",
+        "ar": "صيغة احتمالية تُقدّر عدد الحضارات النشطة والمتواصلة في درب التبانة باستخدام عوامل كمعدل تكوّن النجوم والكواكب الصالحة للسكن واحتمال نشوء الحياة"
       }
     },
     {

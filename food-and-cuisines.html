@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>document.documentElement.dataset.theme="dark";</script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content="A journey through tastes, ingredients, and global traditions." />
     <title>Food & Cuisines Quiz & Trivia | JAKH Riddles</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="app.js" as="script" />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href="https://jakh.net/food-and-cuisines.html" />
+    <link rel="canonical" href="https://jakh.net/food-and-cuisines" />
     <meta name="robots" content="index,follow" />
     <meta name="keywords" content="food & cuisines quiz, food & cuisines trivia, food and cuisines questions, jakh riddles, quiz, trivia" />
     <meta property="og:title" content="Food & Cuisines Quiz & Trivia" />
     <meta property="og:description" content="A journey through tastes, ingredients, and global traditions." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://jakh.net/food-and-cuisines.html" />
+    <meta property="og:url" content="https://jakh.net/food-and-cuisines" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Food & Cuisines Quiz & Trivia" />
     <meta name="twitter:description" content="A journey through tastes, ingredients, and global traditions." />
@@ -29,9 +32,9 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="JAKH Riddles" />
 
-    <!-- Hreflang for bilingual SEO -->    <link rel="alternate" hreflang="x-default" href="https://jakh.net/food-and-cuisines.html" />
-    <link rel="alternate" hreflang="en" href="https://jakh.net/food-and-cuisines.html" />
-    <link rel="alternate" hreflang="ar" href="https://jakh.net/food-and-cuisines.html" />
+    <!-- Hreflang for bilingual SEO -->    <link rel="alternate" hreflang="x-default" href="https://jakh.net/food-and-cuisines" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/food-and-cuisines" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/food-and-cuisines" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -42,7 +45,7 @@
             "@type": "Quiz",
             "name": "Food & Cuisines Quiz & Trivia — JAKH Riddles",
             "description": "A journey through tastes, ingredients, and global traditions.",
-            "url": "https://jakh.net/food-and-cuisines.html",
+            "url": "https://jakh.net/food-and-cuisines",
             "inLanguage": [
                 "en",
                 "ar"
@@ -80,15 +83,30 @@
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Food & Cuisines",
-                    "item": "https://jakh.net/food-and-cuisines.html"
+                    "item": "https://jakh.net/food-and-cuisines"
                 }
             ]
         }
     ]
 }
     </script>
-    <link rel="stylesheet" href="styles.css?v=1777150000" />
+    <link rel="stylesheet" href="styles.css?v=1785236400" />
     <link rel="manifest" href="manifest.webmanifest" />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VQZQNK6VSV');
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
+          if (reg) reg.update();
+        });
+      }
+    </script>
   </head>
   <body data-page="category" data-category="food-and-cuisines">
 <a href="#top" class="skip-link">Skip to main content</a>
@@ -98,12 +116,12 @@
 
     <header class="site-header shell">
       <a href="index.html" class="brand" aria-label="JAKH Riddles home">
-        <img src="assets/logo.svg" alt="JAKH Riddles" class="brand-logo" width="180" height="44" />
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" /></picture>
       </a>
 
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="index.html#categories" data-i18n="navCategories">Categories</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Categories</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
 
       </nav>
@@ -116,19 +134,11 @@
             <option value="ar">العربية</option>
           </select>
         </label>
-        <label>
-          <span data-i18n="theme">Theme</span>
-          <select id="themeSelect">
-            <option value="system" data-i18n="themeSystem">System</option>
-            <option value="dark" data-i18n="themeDark">Dark</option>
-            <option value="light" data-i18n="themeLight">Light</option>
-          </select>
-        </label>
 
       </div>
     </header>
 
-    
+
 <main id="top">
   <section class="hero shell hero-category">
     <div class="hero-copy">
@@ -136,7 +146,6 @@
       <h1 id="categoryTitle">Food & Cuisines</h1>
       <p class="hero-text" id="categoryDescription"></p>
       <div class="hero-actions">
-        <a class="primary-btn" href="#questionSection" data-i18n="jumpToQuestions">Jump to questions</a>
 
       </div>
       <div class="hero-badges">
@@ -234,7 +243,13 @@
 
 
     <footer class="site-footer shell">
-      <p data-i18n="footerNote">All rights reserved to JAKH 2026</p>
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a>
+        </div>
+      </div>
     </footer>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -254,6 +269,6 @@
     </div>
 
 
-    <script src="app.js?v=1777150000"></script>
+    <script src="app.js?v=1785236400"></script>
   </body>
 </html>

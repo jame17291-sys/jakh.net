@@ -3,7 +3,6 @@ if (location.protocol === 'http:' && !/^(localhost|127\.0\.0\.1)$/i.test(locatio
   location.replace(`https://${location.host}${location.pathname}${location.search}${location.hash}`);
 }
 
-let _sio = null; // Socket.io client instance (lazy-loaded)
 
 // ── Micro-animations ──────────────────────────────────────────────────────────
 function spawnConfetti(originEl) {
@@ -656,6 +655,7 @@ const state = {
   view: 'all',
   sort: 'featured',
   subcategory: 'all',
+  apiAvailable: false,
   dbUser: null,
   flipped: new Set(),
   cardPage: 1,
@@ -805,100 +805,33 @@ function debounce(fn, delay) {
   };
 }
 
-function _loadSocketIO() {
-  return new Promise((resolve) => {
-    if (window.io) { resolve(window.io); return; }
-    const s = document.createElement('script');
-    s.src = '/socket.io/socket.io.js';
-    s.onload = () => resolve(window.io);
-    s.onerror = () => resolve(null);
-    document.head.appendChild(s);
-  });
-}
-
-async function connectGameRoom() {
-  const io = await _loadSocketIO();
-  if (!io) { showToast('Multiplayer unavailable', 'error'); return null; }
-  if (_sio?.connected) return _sio;
-  _sio = io('https://jakh.net', { path: '/socket.io', transports: ['polling', 'websocket'] });
-  _sio.on('connect_error', (err) => {
-    showToast('Could not connect to game server. Try again.', 'error');
-  });
-  return _sio;
-}
-
-async function createGameRoom(playerName) {
-  const socket = await connectGameRoom();
-  if (!socket) return;
-  socket.emit('createRoom', { playerName: playerName || 'Host', category: state.categorySlug || '' });
-  socket.once('roomCreated', ({ roomId, url }) => {
-    navigator.clipboard?.writeText(url).catch(() => {});
-    showToast(`Room created! Link copied: ${url}`, 'success');
-    showGameRoomModal(roomId, url);
-  });
-  socket.once('error', ({ message }) => showToast(message, 'error'));
-}
-
-async function joinGameRoom(roomId, playerName) {
-  const socket = await connectGameRoom();
-  if (!socket) return;
-  socket.emit('joinRoom', { roomId, playerName: playerName || 'Guest' });
-  socket.once('roomJoined', ({ players, hostId }) => {
-    showToast(`Joined room! ${players.length} player(s) connected.`, 'success');
-    showGameRoomModal(roomId, `https://jakh.net/play/${roomId}`, players, hostId);
-  });
-  socket.once('error', ({ message }) => showToast(message, 'error'));
-}
-
-function showGameRoomModal(roomId, url, players = [], hostId = null) {
-  const existing = document.getElementById('gameRoomModal');
-  if (existing) existing.remove();
-  const isHost = hostId === null || (_sio && _sio.id === hostId);
-  const modal = document.createElement('div');
-  modal.id = 'gameRoomModal';
-  modal.className = 'modal is-open';
-  modal.innerHTML = `
-    <div class="modal-backdrop" data-close-modal="gameRoomModal"></div>
-    <div class="modal-card" role="dialog" aria-modal="true">
-      <div class="modal-head">
-        <h2>🎮 Game Room</h2>
-        <button class="ghost-btn" data-close-modal="gameRoomModal">✕</button>
-      </div>
-      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.75rem;">Share this link with friends:</p>
-      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
-        <input id="gameRoomUrl" class="input" value="${url}" readonly style="flex:1;font-size:0.85rem;" />
-        <button class="primary-btn" id="copyRoomUrlBtn">Copy</button>
-      </div>
-      <div id="gameRoomPlayers" style="margin-bottom:1rem;">
-        ${players.map(p => `<div class="ghost-btn" style="margin:0.25rem 0;width:100%;text-align:left;">👤 ${escapeHtml(p.name)}</div>`).join('') || '<p class="muted">Waiting for players…</p>'}
-      </div>
-      ${isHost ? `<button class="primary-btn" id="startGameRoomBtn" style="width:100%;">🚀 Start Battle</button>` : '<p class="muted" style="text-align:center;">Waiting for host to start…</p>'}
-    </div>`;
-  document.body.appendChild(modal);
-
-  document.getElementById('copyRoomUrlBtn')?.addEventListener('click', () => {
-    navigator.clipboard?.writeText(url).then(() => showToast('Link copied!', 'success'));
-  });
-  document.getElementById('startGameRoomBtn')?.addEventListener('click', () => {
-    if (_sio) _sio.emit('relay', { roomId, event: 'startBattle', data: { category: state.categorySlug } });
-    modal.remove();
-    openBattleModal(state.categorySlug);
-  });
-
-  // Live player list updates
-  if (_sio) {
-    _sio.on('playerJoined', ({ players: pl }) => {
-      const el = document.getElementById('gameRoomPlayers');
-      if (el) el.innerHTML = pl.map(p => `<div class="ghost-btn" style="margin:0.25rem 0;width:100%;text-align:left;">👤 ${escapeHtml(p.name)}</div>`).join('');
+async function detectApiAvailability() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 2500);
+  try {
+    const response = await fetch('/api/health', {
+      cache: 'no-store',
+      headers: { Accept: 'application/json' },
+      signal: controller.signal,
     });
-    _sio.on('playerLeft', ({ players: pl }) => {
-      const el = document.getElementById('gameRoomPlayers');
-      if (el) el.innerHTML = pl.map(p => `<div class="ghost-btn" style="margin:0.25rem 0;width:100%;text-align:left;">👤 ${escapeHtml(p.name)}</div>`).join('');
-    });
-    _sio.on('relayed', ({ event: ev }) => {
-      if (ev === 'startBattle') { modal.remove(); openBattleModal(state.categorySlug); }
-    });
+    if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return false;
+    const payload = await response.json();
+    return payload?.ok === true;
+  } catch (_) {
+    return false;
+  } finally {
+    clearTimeout(timeout);
   }
+}
+
+function applyCapabilityVisibility() {
+  document.body.classList.toggle('api-unavailable', !state.apiAvailable);
+  if (state.apiAvailable) return;
+  [els.openAuthBtn, els.heroAuthBtn, document.getElementById('leaderboardBtn'), document.getElementById('battleNavBtn'), document.getElementById('bnProfileBtn')]
+    .filter(Boolean)
+    .forEach(element => { element.hidden = true; });
+  const suggestionBox = document.getElementById('suggestionBox');
+  if (suggestionBox) suggestionBox.hidden = true;
 }
 
 function saveJson(key, value) {
@@ -1291,6 +1224,9 @@ function bindCommonEvents() {
       applyDir();
       applyStaticCopy();
       rerender();
+      document.getElementById('timedQuizOverlay')?.remove();
+      createTimedQuizModal();
+      renderCategoryPlayModes();
       showToast(t('languageSet'));
     });
   }
@@ -1326,16 +1262,6 @@ function bindCommonEvents() {
   }
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
 
-
-  // Handle /play/ROOMID path — auto-open join dialog
-  const playMatch = location.pathname.match(/^\/play\/([A-Z0-9]{6})$/i);
-  if (playMatch) {
-    const roomId = playMatch[1].toUpperCase();
-    setTimeout(async () => {
-      const name = localStorage.getItem('jakh-username') || 'Guest';
-      await joinGameRoom(roomId, name);
-    }, 800);
-  }
 
   // Handle #battle/CODE deep-link
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
@@ -1546,16 +1472,6 @@ function bindCommonEvents() {
       if (!id) return;
       handleFlip(id, card);
     });
-    els.cardGrid.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      const card = event.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
-      if (!card) return;
-      event.preventDefault();
-      const id = card.dataset.id;
-      if (!id) return;
-      handleFlip(id, card);
-    });
-
     // ── Enhanced swipe: visual tilt + swipe-to-mark on flipped cards ──
     let _sw = null;
 
@@ -1776,7 +1692,13 @@ function createCategoryCardMarkup(meta) {
 async function markCachedCategories() {
   if (!('caches' in window)) return;
   try {
-    const cache = await caches.open('jakh-assets-v2');
+    const cacheNames = await caches.keys();
+    const assetCacheName = cacheNames
+      .filter(name => /^jakh-assets-v\d+$/.test(name))
+      .sort((a, b) => Number(a.split('-v').pop()) - Number(b.split('-v').pop()))
+      .pop();
+    if (!assetCacheName) return;
+    const cache = await caches.open(assetCacheName);
     const keys = await cache.keys();
     const cachedPaths = new Set(keys.map(r => new URL(r.url).pathname));
     document.querySelectorAll('.category-card[href]').forEach(el => {
@@ -2000,17 +1922,19 @@ function renderAccountSummary(mount) {
     const hasProgress = guestSolvedCount > 0 || guestFavCount > 0;
     mount.innerHTML = `
       <section class="account-card">
-        <strong>${escapeHtml(t('guestTitle'))}</strong>
+        <strong>${escapeHtml(state.apiAvailable ? t('guestTitle') : (state.lang === 'ar' ? 'التقدم على الجهاز' : 'Progress on this device'))}</strong>
         ${hasProgress ? `
           <div class="stats-grid">
             <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${guestSolvedCount}</strong></div>
             <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${guestFavCount}</strong></div>
           </div>
-          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح. أنشئ حسابًا لمزامنته عبر أجهزتك.' : 'Progress saved in this browser. Sign up to sync across devices.')}</p>
-        ` : `<p>${escapeHtml(t('guestText'))}</p>`}
-        <div class="hero-actions">
+          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.apiAvailable
+            ? (state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح. أنشئ حسابًا لمزامنته عبر أجهزتك.' : 'Progress saved in this browser. Sign up to sync across devices.')
+            : (state.lang === 'ar' ? 'تقدمك محفوظ بأمان على هذا الجهاز.' : 'Your progress is saved safely on this device.'))}</p>
+        ` : `<p>${escapeHtml(state.apiAvailable ? t('guestText') : (state.lang === 'ar' ? 'ابدأ بحل الأسئلة وسيُحفظ تقدمك على هذا الجهاز.' : 'Start solving questions and your progress will be saved on this device.'))}</p>`}
+        ${state.apiAvailable ? `<div class="hero-actions">
           <button class="primary-btn" id="inlineCreateProfileBtn">${escapeHtml(t('createLocalProfile'))}</button>
-        </div>
+        </div>` : ''}
       </section>
     `;
     const button = document.getElementById('inlineCreateProfileBtn');
@@ -2316,7 +2240,7 @@ function createCardMarkup(card) {
       } else {
         const unlockLabel = state.lang === 'ar' ? '🔓 فتح الإجابة' : '🔓 Unlock answer';
         return `
-          <article class="riddle-card is-paywall" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" tabindex="0" role="button" aria-label="${escapeHtml(card.question[state.lang])}">
+          <article class="riddle-card is-paywall" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" aria-label="${escapeHtml(card.question[state.lang])}">
             <div class="card-inner">
               <section class="card-face card-front">
                 <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
@@ -2362,7 +2286,7 @@ function createCardMarkup(card) {
   }
 
   return `
-    <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" ${trialCard ? 'data-trial="1"' : ''} tabindex="0" role="button" aria-label="${escapeHtml(card.question[state.lang])}" aria-expanded="${flipped}">
+    <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" ${trialCard ? 'data-trial="1"' : ''} aria-label="${escapeHtml(card.question[state.lang])}">
       <div class="card-inner">
         <section class="card-face card-front">
           <div class="card-badges">
@@ -2385,7 +2309,7 @@ function createCardMarkup(card) {
               <button class="card-fav-btn${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}">${favorite ? '♥' : '♡'}</button>
               ${markBtns}
               <button class="mini-btn card-share-btn" data-action="share" data-id="${escapeHtml(card.id)}" title="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}">↗</button>
-              <button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('reportBtn'))}">⚑</button>
+              ${state.apiAvailable ? `<button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('reportBtn'))}">⚑</button>` : ''}
             </div>
           </div>
         </section>
@@ -2792,7 +2716,6 @@ function renderAuthModal(mode = 'signin') {
         <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
 
         <div class="hero-actions" style="margin-top:2rem;">
-          ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<a href="/admin.html" target="_blank" rel="noopener" class="primary-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;">⚙️ Admin Dashboard</a>` : ''}
           <button class="primary-btn" id="logoutBtn" style="background:#555;">${escapeHtml(t('logout'))}</button>
         </div>
       </section>
@@ -3686,11 +3609,11 @@ function showOnboarding() {
       en: { title: 'Pick a Category', text: `Choose from ${state.catalog?.categories.length || 44} curated quiz categories — math, science, history, football, and more.` },
       ar: { title: 'اختر فئة', text: `اختر من ${state.catalog?.categories.length || 44} فئة منسقة — رياضيات وعلوم وتاريخ وكرة قدم والمزيد.` } },
     { icon: '💾',
-      en: { title: 'Save Your Progress', text: 'Create a free account to track your score, build streaks, and unlock harder levels.' },
-      ar: { title: 'احفظ تقدمك', text: 'أنشئ حسابًا مجانيًا لتتبع نقاطك وبناء سلاسل يومية وفتح المستويات الأصعب.' } },
+      en: { title: 'Save Your Progress', text: state.apiAvailable ? 'Create a free account to track your score, build streaks, and unlock harder levels.' : 'Your score, favorites, and unlocked levels are saved automatically on this device.' },
+      ar: { title: 'احفظ تقدمك', text: state.apiAvailable ? 'أنشئ حسابًا مجانيًا لتتبع نقاطك وبناء سلاسل يومية وفتح المستويات الأصعب.' : 'تُحفظ نقاطك ومفضلاتك ومستوياتك المفتوحة تلقائيًا على هذا الجهاز.' } },
     { icon: '🏆',
-      en: { title: 'Compete & Achieve', text: 'Try the Daily Challenge, race the clock in Quick Fire, and climb the global Leaderboard.' },
-      ar: { title: 'تنافس واحصد الإنجازات', text: 'جرّب تحدي اليوم وتسابق مع الوقت في الاختبار السريع وتسلق لوحة المتصدرين.' } },
+      en: { title: 'Challenge Yourself', text: state.apiAvailable ? 'Try the Daily Challenge, race the clock in Quick Fire, and climb the global Leaderboard.' : 'Try the Daily Challenge, race the clock in Quick Fire, and unlock harder question levels.' },
+      ar: { title: 'تحدَّ نفسك', text: state.apiAvailable ? 'جرّب تحدي اليوم وتسابق مع الوقت في الاختبار السريع وتسلق لوحة المتصدرين.' : 'جرّب تحدي اليوم وتسابق مع الوقت وافتح مستويات الأسئلة الأصعب.' } },
   ];
   let step = 0;
   const lang = state.lang;
@@ -3909,17 +3832,23 @@ async function init() {
   initializeFromStorage();
   applyDir();
   if (!sessionInitialized) {
-    await checkCloudSession();
-    await loadStreak();
+    state.apiAvailable = await detectApiAvailability();
+    if (state.apiAvailable) {
+      await checkCloudSession();
+      await loadStreak();
+    }
     sessionInitialized = true;
   }
-  startAnalyticsHeartbeat();
   applyTheme();
   bindCommonEvents();
+  applyCapabilityVisibility();
+  if (state.apiAvailable) startAnalyticsHeartbeat();
   createTimedQuizModal();
-  createLeaderboardModal();
-  createBattleModal();
-  initSuggestionBox();
+  if (state.apiAvailable) {
+    createLeaderboardModal();
+    createBattleModal();
+    initSuggestionBox();
+  }
   renderCategoryPlayModes();
   await loadCatalog();
   await loadDailyChallenge();
@@ -3927,6 +3856,7 @@ async function init() {
   applyStaticCopy();
   rerender();
   injectBottomNav();
+  applyCapabilityVisibility();
   checkOnboarding();
   checkNewAchievements();
   // Handle daily-tab scroll triggered from category pages
@@ -3939,15 +3869,11 @@ async function init() {
   }
 }
 
-async function subscribePushNotifications() {
-  // Disabled until VAPID keys are generated on the server and /api/push/subscribe is implemented.
-  // To enable: run `npx web-push generate-vapid-keys`, set the public key below, and wire the endpoint.
-}
-
 // ================= CATEGORY PLAY MODES =========
 
 function renderCategoryPlayModes() {
-  if (state.page !== 'category' || document.getElementById('categoryPlayModes')) return;
+  if (state.page !== 'category') return;
+  document.getElementById('categoryPlayModes')?.remove();
   const isAr = state.lang === 'ar';
   const el = document.createElement('div');
   el.id = 'categoryPlayModes';
@@ -3966,7 +3892,7 @@ function renderCategoryPlayModes() {
           🎯 ${isAr ? 'ابدأ منفردًا' : 'Start Solo'}
         </button>
       </div>
-      <div class="play-mode-card play-mode-team">
+      ${state.apiAvailable ? `<div class="play-mode-card play-mode-team">
         <div class="play-mode-head">
           <span class="play-mode-icon">🏆</span>
           <div>
@@ -3982,7 +3908,7 @@ function renderCategoryPlayModes() {
             🔗 ${isAr ? 'الانضمام بكود' : 'Join with Code'}
           </button>
         </div>
-      </div>
+      </div>` : ''}
     </div>`;
 
   const questionSection = document.getElementById('questionSection');
@@ -4574,6 +4500,4 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error(error);
     showToast(error.message || 'Initialization error');
   });
-  // Ask for push permission after 30s (not immediately, to avoid consent fatigue)
-  setTimeout(subscribePushNotifications, 30000);
 });

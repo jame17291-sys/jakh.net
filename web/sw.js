@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v47';
-const ASSET_CACHE = 'jakh-assets-v47';
+const CACHE_NAME = 'jakh-v48';
+const ASSET_CACHE = 'jakh-assets-v48';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -47,7 +47,15 @@ self.addEventListener('fetch', (event) => {
   // Network-first for HTML navigation
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request).catch(() => caches.match('/index.html'))
+      caches.open(CACHE_NAME).then(async (cache) => {
+        try {
+          const response = await fetch(request);
+          if (response.ok) cache.put(request, response.clone());
+          return response;
+        } catch (_) {
+          return (await cache.match(request)) || caches.match('/index.html');
+        }
+      })
     );
     return;
   }
@@ -107,30 +115,6 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
-self.addEventListener('push', (event) => {
-  const data = event.data?.json() || {};
-  const title = data.title || 'JAKH Riddles';
-  const body = data.body || "Today's daily challenge is ready!";
-  const icon = '/assets/icon-192.png';
-  const badge = '/assets/icon-192.png';
-  event.waitUntil(
-    self.registration.showNotification(title, { body, icon, badge, data: { url: data.url || '/' } })
-  );
-});
-
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close();
-  const targetUrl = event.notification.data?.url || '/';
-  event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
-      const match = list.find(c => c.url === self.location.origin + targetUrl);
-      if (match) return match.focus();
-      const any = list.find(c => 'focus' in c);
-      if (any) { any.focus(); return any.navigate(targetUrl); }
-      return clients.openWindow(targetUrl);
-    })
-  );
-});
 
 // Allow the page to trigger a full cache flush (e.g. after a forced update)
 self.addEventListener('message', (event) => {

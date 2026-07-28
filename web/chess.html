@@ -29,8 +29,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="JAKH Riddles" />
-    <link rel="stylesheet" href="styles.css?v=1777441200" />
-    <script src="room.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=1785236400" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -483,17 +482,8 @@
                 <button class="mode-btn active" id="btnVsComputer">vs Computer</button>
                 <button class="mode-btn" id="btn2Players">2 Players</button>
               </div>
-              <button class="chess-btn" id="btnOnlineRoom" style="background:var(--accent);color:#0a0a0a;font-weight:700;">&#128279; Online Room</button>
               <button class="chess-btn" id="btnNewGame">&#9654; New Game</button>
               <button class="chess-btn" id="btnUndo">&#8592; Undo</button>
-            </div>
-
-            <!-- Room panel (hidden until Online Room clicked) -->
-            <div id="roomPanel" style="display:none;margin-top:0.75rem;padding:0.85rem;background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.2);border-radius:4px;font-size:0.82rem;">
-              <p id="roomStatus" style="margin:0 0 0.5rem;color:var(--accent);font-weight:600;font-size:0.8rem;">Creating room…</p>
-              <input id="roomLink" type="text" readonly style="width:100%;background:rgba(252,252,252,0.05);border:1px solid rgba(252,252,252,0.15);color:var(--text);padding:0.4rem 0.6rem;font-size:0.72rem;border-radius:2px;margin-bottom:0.5rem;box-sizing:border-box;" />
-              <button id="copyRoomLink" style="width:100%;padding:0.4rem;background:var(--accent);color:#0a0a0a;border:none;cursor:pointer;font-size:0.75rem;font-weight:700;border-radius:2px;">Copy Invite Link</button>
-              <p id="roomPlayers" style="margin:0.5rem 0 0;color:var(--muted);font-size:0.72rem;">Waiting for opponent…</p>
             </div>
 
             <div class="thinking-bar" id="thinkingBar">
@@ -1359,118 +1349,5 @@
     })();
     </script>
 
-    <!-- ── Online Room integration ── -->
-    <script>
-    (function () {
-      var roomBtn    = document.getElementById('btnOnlineRoom');
-      var roomPanel  = document.getElementById('roomPanel');
-      var roomStatus = document.getElementById('roomStatus');
-      var roomLinkEl = document.getElementById('roomLink');
-      var copyBtn    = document.getElementById('copyRoomLink');
-      var roomPlayers = document.getElementById('roomPlayers');
-
-      var playerName = '';
-      var myColor = null;   // 'w' for host, 'b' for guest
-      var inRoom = false;
-      var scorePosted = false;
-
-      function showPanel(msg) {
-        roomPanel.style.display = 'block';
-        roomStatus.textContent = msg;
-      }
-
-      roomBtn.addEventListener('click', function () {
-        if (inRoom) { roomPanel.style.display = roomPanel.style.display === 'none' ? 'block' : 'none'; return; }
-        playerName = prompt('Your name:', 'Host') || 'Host';
-        showPanel('Connecting…');
-
-        JakhRoom.init('chess').then(function () {
-          return JakhRoom.create(playerName);
-        }).then(function (data) {
-          inRoom = true;
-          myColor = 'w'; // host plays White
-          var url = window.location.origin + window.location.pathname + '?room=' + data.roomId;
-          roomLinkEl.value = url;
-          roomStatus.textContent = 'Room ' + data.roomId + ' created ✓';
-          roomPlayers.textContent = 'Waiting for opponent…';
-          roomBtn.textContent = '🟢 Room ' + data.roomId;
-        }).catch(function (err) {
-          roomStatus.textContent = 'Error: ' + (err.message || err);
-        });
-      });
-
-      copyBtn.addEventListener('click', function () {
-        navigator.clipboard.writeText(roomLinkEl.value).then(function () {
-          copyBtn.textContent = 'Copied!';
-          setTimeout(function () { copyBtn.textContent = 'Copy Invite Link'; }, 2000);
-        }).catch(function () {
-          roomLinkEl.select();
-          document.execCommand('copy');
-        });
-      });
-
-      // Auto-join from URL ?room=XXXX
-      var params = new URLSearchParams(window.location.search);
-      if (params.get('room')) {
-        playerName = prompt('Your name:', 'Guest') || 'Guest';
-        myColor = 'b'; // joiner plays Black
-        showPanel('Joining room…');
-        JakhRoom.init('chess').then(function (data) {
-          inRoom = true;
-          roomStatus.textContent = 'Joined room ' + JakhRoom.roomId + ' ✓';
-          var url = window.location.href;
-          roomLinkEl.value = url;
-          roomBtn.textContent = '🟢 Room ' + JakhRoom.roomId;
-          if (data && data.players) {
-            roomPlayers.textContent = 'Players: ' + data.players.map(function(p){ return p.name; }).join(', ');
-          }
-          roomBtn.style.display = 'block';
-          roomPanel.style.display = 'block';
-        }).catch(function (err) {
-          roomStatus.textContent = 'Error: ' + (err.message || err);
-        });
-      }
-
-      // Opponent joined notification
-      JakhRoom.onPlayerJoined(function (name, players) {
-        roomPlayers.textContent = 'Players: ' + players.map(function(p){ return p.name; }).join(', ');
-        roomStatus.textContent = name + ' joined — game on!';
-      });
-
-      JakhRoom.onPlayerLeft(function (name) {
-        roomStatus.textContent = name + ' left the room.';
-      });
-
-      // Relay local moves to room (only the local player's color)
-      document.addEventListener('chess-local-move', function (e) {
-        if (!inRoom || !JakhRoom.roomId) return;
-        if (e.detail.movingColor !== myColor) return; // don't relay opponent's applied moves
-        JakhRoom.sendMove({ move: e.detail.move, promoChoice: e.detail.promoChoice });
-      });
-
-      // Apply opponent's relayed move
-      JakhRoom.onMove(function (data) {
-        if (!inRoom || !data || !data.move) return;
-        // Only apply if it's the opponent's turn (not ours)
-        var currentTurn = window._chessGetTurn ? window._chessGetTurn() : null;
-        if (currentTurn && currentTurn !== myColor) {
-          if (window._chessApplyRemote) window._chessApplyRemote(data);
-        }
-      });
-
-      // Score submission on game over
-      document.addEventListener('chess-game-over', function (e) {
-        if (scorePosted) return;
-        scorePosted = true;
-        var moves = e.detail.moves || 0;
-        var winner = e.detail.winner;
-        var isWin = (winner === 'White' && myColor === 'w') || (winner === 'Black' && myColor === 'b');
-        JakhRoom.postScore(playerName || 'Anonymous', moves, {
-          result: e.detail.status === 'checkmate' ? (isWin ? 'win' : 'loss') : 'draw',
-          moves: moves,
-        });
-      });
-    })();
-    </script>
   </body>
 </html>

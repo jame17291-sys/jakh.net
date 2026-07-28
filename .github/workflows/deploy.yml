@@ -1,71 +1,32 @@
-name: Deploy to jakh.net
+name: Deploy jakh.net
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  detect-changes:
+  deploy:
+    name: Deploy static site
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    outputs:
-      web: ${{ steps.filter.outputs.web }}
-      api: ${{ steps.filter.outputs.api }}
     steps:
       - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
-        id: filter
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          filters: |
-            web:
-              - 'web/**'
-            api:
-              - 'api/**'
-
-  deploy-web:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.web == 'true'
-    name: Deploy Frontend
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Sync web files
-        run: |
-          rsync -a --delete \
-            --exclude='*.gz' \
-            --exclude='*.br' \
-            $GITHUB_WORKSPACE/web/ /var/www/jakh.net/
-
-      - name: Recompress static assets
-        run: |
-          cd /var/www/jakh.net
-          find . \( -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.json" -o -name "*.svg" \) | while read f; do
-            gzip -9 -k -f "$f"
-          done
-          echo "Compression done"
-
-  deploy-api:
-    needs: detect-changes
-    if: needs.detect-changes.outputs.api == 'true'
-    name: Deploy Backend API
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Sync API source
-        run: |
-          rsync -a --delete \
-            --exclude='node_modules' \
-            --exclude='dist' \
-            --exclude='.env' \
-            $GITHUB_WORKSPACE/api/ /var/www/jakh.net-api/
-
-      - name: Build and restart API
-        run: |
-          cd /var/www/jakh.net-api
-          npm ci
-          npm run build
-          npm prune --omit=dev
-          pm2 restart jakh-api
-          pm2 save
-          echo "API restarted OK"
+          path: web
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

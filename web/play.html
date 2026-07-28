@@ -30,7 +30,7 @@
     <meta name="twitter:title" content="Play | JAKH Riddles" />
     <meta name="twitter:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
-    <link rel="stylesheet" href="styles.css?v=1777441200" />
+    <link rel="stylesheet" href="styles.css?v=1785236400" />
     <script src="fluid-shader.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
@@ -311,7 +311,8 @@
           .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
           .then(function (data) { renderTable(data.leaderboard || []); })
           .catch(function () {
-            tableEl.innerHTML = '<p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.35);font-size:0.85rem;">Could not load leaderboard. Try again later.</p>';
+            var section = tableEl.closest('section');
+            if (section) section.remove();
           });
       }
 

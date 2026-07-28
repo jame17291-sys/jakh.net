@@ -1180,7 +1180,7 @@ async function spaNavigate(url, isPopState = false) {
     const html = await res.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
-    
+
     document.title = doc.title;
     document.body.innerHTML = doc.body.innerHTML;
     document.body.className = doc.body.className;
@@ -2747,7 +2747,7 @@ function renderAuthModal(mode = 'signin') {
         }
       });
     });
-    
+
     const cpBtn = document.getElementById('changePasswordBtn');
     if (cpBtn) cpBtn.addEventListener('click', async () => {
        const cur = document.getElementById('currentPassword').value;

@@ -21,7 +21,7 @@ test("password hashing helpers execute through the Durable Object", async () => 
   const env = localBinding("pepper-that-is-long-enough-for-tests");
   const record = await hashPasswordInHasher(env, "correct horse battery staple");
 
-  assert.equal(record.iterations, 310_000);
+  assert.equal(record.iterations, 100_000);
   assert.equal(
     await verifyPasswordInHasher(
       env,

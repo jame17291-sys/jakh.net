@@ -1,6 +1,9 @@
-import { hashPassword, verifyPassword } from "./security.js";
+import {
+  hashPassword,
+  PASSWORD_ITERATIONS,
+  verifyPassword,
+} from "./security.js";
 
-const PASSWORD_ITERATIONS = 310_000;
 const HASHER_SHARDS = 16;
 const INTERNAL_ORIGIN = "https://password-hasher.internal";
 const BASE64URL_PATTERN = /^[A-Za-z0-9_-]+$/u;
@@ -138,21 +141,26 @@ export class PasswordHasher implements DurableObject {
     if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
 
     const path = new URL(request.url).pathname;
+    let body: unknown;
     try {
-      const body = await parseBody(request);
-      if (!body || typeof body !== "object") return json({ error: "Invalid request" }, 400);
+      body = await parseBody(request);
+    } catch {
+      return json({ error: "Invalid request" }, 400);
+    }
+    if (!body || typeof body !== "object") return json({ error: "Invalid request" }, 400);
 
-      if (path === "/hash") {
-        const payload = body as Partial<HashRequest>;
-        const iterations = payload.iterations ?? PASSWORD_ITERATIONS;
-        if (
-          !isPassword(payload.password)
-          || (payload.salt !== undefined && !isSalt(payload.salt))
-          || !isSupportedIterations(iterations)
-        ) {
-          return json({ error: "Invalid request" }, 400);
-        }
+    if (path === "/hash") {
+      const payload = body as Partial<HashRequest>;
+      const iterations = payload.iterations ?? PASSWORD_ITERATIONS;
+      if (
+        !isPassword(payload.password)
+        || (payload.salt !== undefined && !isSalt(payload.salt))
+        || !isSupportedIterations(iterations)
+      ) {
+        return json({ error: "Invalid request" }, 400);
+      }
 
+      try {
         const record = await hashPassword(
           payload.password,
           this.env.PASSWORD_PEPPER,
@@ -160,19 +168,24 @@ export class PasswordHasher implements DurableObject {
           iterations,
         );
         return json(record);
+      } catch (error) {
+        console.error("Password hashing failed", error);
+        return json({ error: "Password hashing failed" }, 500);
+      }
+    }
+
+    if (path === "/verify") {
+      const payload = body as Partial<VerifyRequest>;
+      if (
+        !isPassword(payload.password)
+        || !isHash(payload.expectedHash)
+        || !isSalt(payload.salt)
+        || !isSupportedIterations(payload.iterations)
+      ) {
+        return json({ error: "Invalid request" }, 400);
       }
 
-      if (path === "/verify") {
-        const payload = body as Partial<VerifyRequest>;
-        if (
-          !isPassword(payload.password)
-          || !isHash(payload.expectedHash)
-          || !isSalt(payload.salt)
-          || !isSupportedIterations(payload.iterations)
-        ) {
-          return json({ error: "Invalid request" }, 400);
-        }
-
+      try {
         const valid = await verifyPassword(
           payload.password,
           this.env.PASSWORD_PEPPER,
@@ -181,11 +194,12 @@ export class PasswordHasher implements DurableObject {
           payload.iterations,
         );
         return json({ valid });
+      } catch (error) {
+        console.error("Password verification failed", error);
+        return json({ error: "Password verification failed" }, 500);
       }
-
-      return json({ error: "Not found" }, 404);
-    } catch {
-      return json({ error: "Invalid request" }, 400);
     }
+
+    return json({ error: "Not found" }, 404);
   }
 }

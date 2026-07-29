@@ -138,7 +138,7 @@ export async function login(request: Request, env: Env): Promise<Response> {
   ).bind(key).first<UserPasswordRow>();
 
   if (!user) {
-    await hashPasswordInHasher(env, password, "AAAAAAAAAAAAAAAAAAAAAA", 310_000);
+    await hashPasswordInHasher(env, password, "AAAAAAAAAAAAAAAAAAAAAA");
     throw new ApiError(401, "Invalid credentials");
   }
   if (user.is_banned) throw new ApiError(403, "This account has been suspended");

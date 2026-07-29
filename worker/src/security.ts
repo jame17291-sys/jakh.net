@@ -1,7 +1,7 @@
 import { ApiError } from "./http.js";
 
 const encoder = new TextEncoder();
-const PASSWORD_ITERATIONS = 310_000;
+export const PASSWORD_ITERATIONS = 100_000;
 const SESSION_MAX_AGE_SECONDS = 14 * 24 * 60 * 60;
 
 function bytesToBase64Url(bytes: Uint8Array): string {

@@ -1,6 +1,7 @@
 import { connectBattle, createBattle } from "./battle.js";
 import { BattleRoom } from "./battle-room.js";
 import { ApiError, json, originIsAllowed, preflight, withCors } from "./http.js";
+import { PasswordHasher } from "./password-hasher.js";
 import {
   analytics,
   avatar,
@@ -16,11 +17,12 @@ import {
   saveProgress,
   streak,
   suggestion,
+  syncUserData,
 } from "./routes.js";
 import { requireSecrets } from "./security.js";
 import type { Env } from "./types.js";
 
-export { BattleRoom };
+export { BattleRoom, PasswordHasher };
 
 async function route(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
@@ -40,6 +42,7 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/user/progress" && method === "POST") return saveProgress(request, env);
   if (path === "/api/user/progress" && method === "DELETE") return deleteProgress(request, env);
   if (path === "/api/user/favorite" && method === "POST") return favorite(request, env);
+  if (path === "/api/user/sync" && method === "POST") return syncUserData(request, env);
   if (path === "/api/user/streak" && method === "GET") return streak(request, env);
   if (path === "/api/analytics/time" && method === "POST") return analytics(request, env);
   if (path === "/api/leaderboard" && method === "GET") return leaderboard(env);

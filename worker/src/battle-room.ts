@@ -5,6 +5,9 @@ const REVEAL_TIME_MS = 4_000;
 const LOBBY_TTL_MS = 30 * 60_000;
 const FINISHED_TTL_MS = 5 * 60_000;
 const MAX_PLAYERS = 20;
+const MAX_SOCKETS = MAX_PLAYERS;
+const MAX_PREJOIN_SOCKETS = 4;
+const PREJOIN_TTL_MS = 15_000;
 const MAX_MESSAGE_BYTES = 8_192;
 
 interface InitPayload {
@@ -17,6 +20,7 @@ interface InitPayload {
 
 interface SocketAttachment {
   playerId?: string;
+  connectedAt?: number;
 }
 
 export class BattleRoom implements DurableObject {
@@ -26,10 +30,62 @@ export class BattleRoom implements DurableObject {
     const path = new URL(request.url).pathname;
     if (path === "/init" && request.method === "POST") return this.initialize(request);
     if (path === "/connect" && request.headers.get("upgrade")?.toLowerCase() === "websocket") {
+      const room = await this.ctx.storage.get<BattleRoomState>("room");
+      if (!room) {
+        this.closeSockets(1008, "Room not found");
+        return new Response("Room not found", {
+          status: 404,
+          headers: { "cache-control": "no-store" },
+        });
+      }
+      const now = Date.now();
+      if (
+        (room.phase === "lobby" || room.phase === "finished")
+        && room.deadline <= now
+      ) {
+        await this.expireRoom();
+        return new Response("Room expired", {
+          status: 410,
+          headers: { "cache-control": "no-store" },
+        });
+      }
+      if (room.phase !== "lobby") {
+        return new Response("Battle already started", {
+          status: 409,
+          headers: { "cache-control": "no-store" },
+        });
+      }
+
+      this.closeExpiredPreJoinSockets(now);
+      const sockets = this.ctx.getWebSockets().filter((socket) => {
+        const attachment = this.socketAttachment(socket);
+        return Boolean(attachment.playerId)
+          || (
+            typeof attachment.connectedAt === "number"
+            && attachment.connectedAt + PREJOIN_TTL_MS > now
+          );
+      });
+      if (room.players.length >= MAX_PLAYERS || sockets.length >= MAX_SOCKETS) {
+        return new Response("Room is full", {
+          status: 429,
+          headers: { "cache-control": "no-store", "retry-after": "5" },
+        });
+      }
+      const preJoinSockets = sockets.filter((socket) => {
+        return !this.socketAttachment(socket).playerId;
+      }).length;
+      if (preJoinSockets >= MAX_PREJOIN_SOCKETS) {
+        return new Response("Too many pending connections", {
+          status: 429,
+          headers: { "cache-control": "no-store", "retry-after": "5" },
+        });
+      }
+
       const pair = new WebSocketPair();
       const [client, server] = Object.values(pair);
       this.ctx.acceptWebSocket(server);
-      server.serializeAttachment({} satisfies SocketAttachment);
+      server.serializeAttachment({ connectedAt: now } satisfies SocketAttachment);
+      await this.scheduleAlarm(room, now);
       return new Response(null, { status: 101, webSocket: client });
     }
     return new Response("Not found", { status: 404 });
@@ -60,24 +116,33 @@ export class BattleRoom implements DurableObject {
   }
 
   async webSocketMessage(socket: WebSocket, message: string | ArrayBuffer): Promise<void> {
+    if (typeof message !== "string" && message.byteLength > MAX_MESSAGE_BYTES) {
+      socket.close(1009, "Message too large");
+      return;
+    }
     const text = typeof message === "string" ? message : new TextDecoder().decode(message);
-    if (new TextEncoder().encode(text).byteLength > MAX_MESSAGE_BYTES) {
+    if (typeof message === "string" && new TextEncoder().encode(text).byteLength > MAX_MESSAGE_BYTES) {
       socket.close(1009, "Message too large");
       return;
     }
 
-    let payload: Record<string, unknown>;
+    let parsed: unknown;
     try {
-      payload = JSON.parse(text) as Record<string, unknown>;
+      parsed = JSON.parse(text) as unknown;
     } catch {
-      this.send(socket, { type: "error", message: "Invalid message" });
+      this.rejectSocket(socket, "Invalid message");
       return;
     }
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      this.rejectSocket(socket, "Invalid message");
+      return;
+    }
+    const payload = parsed as Record<string, unknown>;
 
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) {
       this.send(socket, { type: "error", message: "Room not found" });
-      socket.close(1008, "Room not found");
+      await this.expireRoom(1008, "Room not found");
       return;
     }
 
@@ -86,10 +151,10 @@ export class BattleRoom implements DurableObject {
       return;
     }
 
-    const attachment = socket.deserializeAttachment() as SocketAttachment | null;
-    const player = room.players.find((item) => item.id === attachment?.playerId);
+    const attachment = this.socketAttachment(socket);
+    const player = room.players.find((item) => item.id === attachment.playerId);
     if (!player) {
-      this.send(socket, { type: "error", message: "Join the room first" });
+      this.rejectSocket(socket, "Join the room first");
       return;
     }
 
@@ -105,8 +170,8 @@ export class BattleRoom implements DurableObject {
   }
 
   async webSocketClose(socket: WebSocket): Promise<void> {
-    const attachment = socket.deserializeAttachment() as SocketAttachment | null;
-    if (!attachment?.playerId) return;
+    const attachment = this.socketAttachment(socket);
+    if (!attachment.playerId) return;
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) return;
 
@@ -122,8 +187,7 @@ export class BattleRoom implements DurableObject {
     if (room.phase === "lobby" && departed?.isHost && room.players[0]) {
       room.players[0].isHost = true;
       const promoted = this.ctx.getWebSockets().find((candidate) => {
-        const candidateAttachment = candidate.deserializeAttachment() as SocketAttachment | null;
-        return candidateAttachment?.playerId === room.players[0]?.id;
+        return this.socketAttachment(candidate).playerId === room.players[0]?.id;
       });
       if (promoted) this.send(promoted, { type: "joined", playerId: room.players[0].id, isHost: true });
     }
@@ -143,8 +207,10 @@ export class BattleRoom implements DurableObject {
   async alarm(): Promise<void> {
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) return;
-    if (room.deadline > Date.now() + 50) {
-      await this.ctx.storage.setAlarm(room.deadline);
+    const now = Date.now();
+    this.closeExpiredPreJoinSockets(now);
+    if (room.deadline > now + 50) {
+      await this.scheduleAlarm(room, now);
       return;
     }
 
@@ -173,24 +239,24 @@ export class BattleRoom implements DurableObject {
     room: BattleRoomState,
     payload: Record<string, unknown>,
   ): Promise<void> {
-    const attachment = socket.deserializeAttachment() as SocketAttachment | null;
-    if (attachment?.playerId) return;
+    const attachment = this.socketAttachment(socket);
+    if (attachment.playerId) return;
     if (room.phase !== "lobby") {
-      this.send(socket, { type: "error", message: "Battle already started" });
+      this.rejectSocket(socket, "Battle already started");
       return;
     }
     if (room.players.length >= MAX_PLAYERS) {
-      this.send(socket, { type: "error", message: "Room is full" });
+      this.rejectSocket(socket, "Room is full");
       return;
     }
     if (String(payload.code || "").trim().toUpperCase() !== room.code) {
-      this.send(socket, { type: "error", message: "Invalid room code" });
+      this.rejectSocket(socket, "Invalid room code");
       return;
     }
 
     const name = String(payload.name || "").trim().slice(0, 20);
     if (!name) {
-      this.send(socket, { type: "error", message: "Player name is required" });
+      this.rejectSocket(socket, "Player name is required");
       return;
     }
 
@@ -239,11 +305,16 @@ export class BattleRoom implements DurableObject {
     payload: Record<string, unknown>,
   ): Promise<void> {
     if (room.phase !== "question" || room.answers[player.id]) return;
+    const now = Date.now();
+    if (now >= room.deadline) {
+      await this.reveal(room);
+      return;
+    }
     const answerIndex = Number(payload.answerIndex);
     if (!Number.isInteger(answerIndex) || answerIndex < 0 || answerIndex > 3) return;
     room.answers[player.id] = {
       answerIndex,
-      timeMs: Math.min(QUESTION_TIME_MS, Math.max(0, Date.now() - room.questionStartTime)),
+      timeMs: Math.min(QUESTION_TIME_MS, Math.max(0, now - room.questionStartTime)),
     };
     await this.save(room);
     const answeredCount = Object.keys(room.answers).length;
@@ -302,7 +373,7 @@ export class BattleRoom implements DurableObject {
 
   private async save(room: BattleRoomState): Promise<void> {
     await this.ctx.storage.put("room", room);
-    await this.ctx.storage.setAlarm(room.deadline);
+    await this.scheduleAlarm(room);
   }
 
   private send(socket: WebSocket, payload: unknown): void {
@@ -313,9 +384,66 @@ export class BattleRoom implements DurableObject {
     }
   }
 
+  private socketAttachment(socket: WebSocket): SocketAttachment {
+    try {
+      return (socket.deserializeAttachment() as SocketAttachment | null) || {};
+    } catch {
+      return {};
+    }
+  }
+
+  private closeExpiredPreJoinSockets(now: number): void {
+    for (const socket of this.ctx.getWebSockets()) {
+      const attachment = this.socketAttachment(socket);
+      if (attachment.playerId) continue;
+      if (
+        typeof attachment.connectedAt === "number"
+        && attachment.connectedAt + PREJOIN_TTL_MS > now
+      ) {
+        continue;
+      }
+      try {
+        socket.close(1008, "Join timed out");
+      } catch {
+        // Ignore already closed sockets.
+      }
+    }
+  }
+
+  private async scheduleAlarm(room: BattleRoomState, now = Date.now()): Promise<void> {
+    let nextAlarm = room.deadline;
+    for (const socket of this.ctx.getWebSockets()) {
+      const attachment = this.socketAttachment(socket);
+      if (attachment.playerId || typeof attachment.connectedAt !== "number") continue;
+      const joinDeadline = attachment.connectedAt + PREJOIN_TTL_MS;
+      if (joinDeadline > now) nextAlarm = Math.min(nextAlarm, joinDeadline);
+    }
+    await this.ctx.storage.setAlarm(nextAlarm);
+  }
+
+  private rejectSocket(socket: WebSocket, message: string): void {
+    this.send(socket, { type: "error", message });
+    try {
+      socket.close(1008, message);
+    } catch {
+      // Ignore already closed sockets.
+    }
+  }
+
+  private closeSockets(code: number, reason: string): void {
+    for (const socket of this.ctx.getWebSockets()) {
+      try {
+        socket.close(code, reason);
+      } catch {
+        // Ignore already closed sockets.
+      }
+    }
+  }
+
   private broadcast(payload: unknown): void {
     const message = JSON.stringify(payload);
     for (const socket of this.ctx.getWebSockets()) {
+      if (!this.socketAttachment(socket).playerId) continue;
       try {
         socket.send(message);
       } catch {
@@ -324,14 +452,8 @@ export class BattleRoom implements DurableObject {
     }
   }
 
-  private async expireRoom(): Promise<void> {
-    for (const socket of this.ctx.getWebSockets()) {
-      try {
-        socket.close(1000, "Room expired");
-      } catch {
-        // Ignore already closed sockets.
-      }
-    }
+  private async expireRoom(code = 1000, reason = "Room expired"): Promise<void> {
+    this.closeSockets(code, reason);
     await this.ctx.storage.deleteAll();
   }
 }

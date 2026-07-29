@@ -11,10 +11,14 @@
     "ALLOWED_ORIGINS": "https://jakh.net,https://www.jakh.net,http://localhost:8765,http://127.0.0.1:8765",
     "STATIC_ORIGIN": "https://jakh.net"
   },
+  "secrets": {
+    "required": ["PASSWORD_PEPPER", "IP_HASH_SALT"]
+  },
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "jakh-db",
+      "database_id": "7fa30e72-85e4-4254-be85-40a9dfd8295c",
       "migrations_dir": "migrations"
     }
   ],
@@ -23,13 +27,17 @@
       {
         "name": "BATTLE_ROOMS",
         "class_name": "BattleRoom"
+      },
+      {
+        "name": "PASSWORD_HASHERS",
+        "class_name": "PasswordHasher"
       }
     ]
   },
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": ["BattleRoom"]
+      "new_sqlite_classes": ["BattleRoom", "PasswordHasher"]
     }
   ]
 }

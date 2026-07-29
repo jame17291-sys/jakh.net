@@ -78,6 +78,17 @@ export async function enforceRateLimit(
      RETURNING count`,
   ).bind(key, windowStart, expiresAt).first<{ count: number }>();
 
+  if (row?.count === 1 && key.charCodeAt(0) % 32 === 0) {
+    await env.DB.prepare(
+      `DELETE FROM rate_limits
+        WHERE key IN (
+          SELECT key FROM rate_limits
+           WHERE expires_at < ?
+           LIMIT 100
+        )`,
+    ).bind(now).run();
+  }
+
   if ((row?.count || 1) > limit) {
     throw new ApiError(429, "Too many attempts. Please try again later.", {
       "retry-after": String(windowSeconds),

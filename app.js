@@ -857,29 +857,89 @@ function saveSettings() {
   saveJson(`jakh-used-${state.lang}`, 1);
 }
 
-async function mergeGuestProgress() {
+let cardIndexPromise;
+
+async function loadCardIndex() {
+  if (!cardIndexPromise) {
+    cardIndexPromise = fetch('/data/card-index.json', {
+      cache: 'force-cache',
+      headers: { Accept: 'application/json' },
+    }).then(async response => {
+      if (!response.ok) throw new Error('Card index is unavailable');
+      const index = await response.json();
+      if (!index || typeof index !== 'object' || Array.isArray(index)) {
+        throw new Error('Card index is invalid');
+      }
+      return index;
+    }).catch(error => {
+      cardIndexPromise = null;
+      throw error;
+    });
+  }
+  return cardIndexPromise;
+}
+
+async function syncGuestProgress() {
   if (!state.dbUser) return;
   const guestSolved = getGuestSolvedMap();
   const guestFavs = getGuestFavorites();
-  const promises = [];
+  if (!Object.keys(guestSolved).length && !guestFavs.length) return;
+
+  const cardIndex = await loadCardIndex();
+  const items = [];
+  const remainingSolved = { ...guestSolved };
+  const remainingFavs = new Set(guestFavs);
   for (const [cardId, val] of Object.entries(guestSolved)) {
+    const card = cardIndex[cardId];
     const status = _guestStatus(val);
-    if (status) {
-      const categoryId = typeof val === 'object' && val !== null ? val.categoryId : 'unknown';
-      promises.push(apiFetch('/user/progress', {
-        method: 'POST',
-        body: JSON.stringify({ cardId, categoryId: categoryId || 'unknown', status }),
-      }));
+    if (!card || !status) {
+      delete remainingSolved[cardId];
+      continue;
     }
+    const categoryId = card[0];
+    items.push({ type: 'progress', value: { cardId, categoryId, status } });
   }
   for (const cardId of guestFavs) {
-    promises.push(apiFetch('/user/favorite', { method: 'POST', body: JSON.stringify({ cardId }) }));
+    const card = cardIndex[cardId];
+    if (!card) {
+      remainingFavs.delete(cardId);
+      continue;
+    }
+    items.push({
+      type: 'favorite',
+      value: { cardId, categoryId: card[0] },
+    });
   }
-  if (promises.length === 0) return;
-  const results = await Promise.allSettled(promises);
-  if (results.every(result => result.status === 'fulfilled')) {
-    localStorage.removeItem(GUEST_KEYS.solved);
-    localStorage.removeItem(GUEST_KEYS.favorites);
+
+  const chunkSize = 100;
+  for (let offset = 0; offset < items.length; offset += chunkSize) {
+    const chunk = items.slice(offset, offset + chunkSize);
+    await apiFetch('/user/sync', {
+      method: 'POST',
+      body: JSON.stringify({
+        progress: chunk.filter(item => item.type === 'progress').map(item => item.value),
+        favorites: chunk.filter(item => item.type === 'favorite').map(item => item.value),
+      }),
+    });
+    for (const item of chunk) {
+      if (item.type === 'progress') delete remainingSolved[item.value.cardId];
+      else remainingFavs.delete(item.value.cardId);
+    }
+    if (Object.keys(remainingSolved).length) saveJson(GUEST_KEYS.solved, remainingSolved);
+    else localStorage.removeItem(GUEST_KEYS.solved);
+    if (remainingFavs.size) saveJson(GUEST_KEYS.favorites, [...remainingFavs]);
+    else localStorage.removeItem(GUEST_KEYS.favorites);
+  }
+  localStorage.removeItem(GUEST_KEYS.solved);
+  localStorage.removeItem(GUEST_KEYS.favorites);
+  return true;
+}
+
+async function mergeGuestProgress() {
+  try {
+    return await syncGuestProgress();
+  } catch {
+    return false;
   }
 }
 
@@ -1167,7 +1227,7 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.5';
+const APP_VERSION = '2.6';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {

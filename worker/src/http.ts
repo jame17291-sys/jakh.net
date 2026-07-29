@@ -34,9 +34,28 @@ export async function parseJson<T>(request: Request, maxBytes = 32_768): Promise
     throw new ApiError(413, "Request body is too large");
   }
 
-  const text = await request.text();
-  if (new TextEncoder().encode(text).byteLength > maxBytes) {
-    throw new ApiError(413, "Request body is too large");
+  const reader = request.body?.getReader();
+  const decoder = new TextDecoder();
+  let receivedBytes = 0;
+  let text = "";
+
+  if (reader) {
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        receivedBytes += value.byteLength;
+        if (receivedBytes > maxBytes) {
+          void reader.cancel().catch(() => undefined);
+          throw new ApiError(413, "Request body is too large");
+        }
+        text += decoder.decode(value, { stream: true });
+      }
+      text += decoder.decode();
+    } finally {
+      reader.releaseLock();
+    }
   }
 
   try {
@@ -56,13 +75,21 @@ export function originIsAllowed(request: Request, csv: string): boolean {
 }
 
 export function withCors(response: Response, request: Request, csv: string): Response {
+  // Cloudflare attaches the accepted socket to its 101 Response. Reconstructing
+  // that response would either reject the status or detach the socket.
+  if (response.status === 101) return response;
+
   const origin = request.headers.get("origin");
   if (!origin || !allowedOrigins(csv).has(origin)) return response;
 
   const headers = new Headers(response.headers);
   headers.set("access-control-allow-origin", origin);
   headers.set("access-control-allow-credentials", "true");
-  headers.append("vary", "Origin");
+  const vary = headers.get("vary");
+  const varyTokens = vary?.split(",").map((token) => token.trim()).filter(Boolean) ?? [];
+  if (!varyTokens.some((token) => token === "*" || token.toLowerCase() === "origin")) {
+    headers.set("vary", [...varyTokens, "Origin"].join(", "));
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,

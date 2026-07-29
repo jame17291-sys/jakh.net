@@ -1,23 +1,27 @@
 import { createSession, enforceRateLimit, requireUser, sessionUser } from "./db.js";
+import { canonicalStatus, getCardIndex, validateCard } from "./catalog.js";
 import { ApiError, json, parseJson } from "./http.js";
+import {
+  hashPasswordInHasher,
+  verifyPasswordInHasher,
+} from "./password-hasher.js";
 import {
   clearSessionCookies,
   clientIp,
-  hashPassword,
   normalizeEmail,
   normalizeUsername,
   randomToken,
   sessionCookie,
   sha256,
   validatePassword,
-  verifyPassword,
 } from "./security.js";
 import type { Env } from "./types.js";
 
 const AVATARS = new Set(["👤", "🦊", "🦉", "🐉", "⚡️", "🔥", "👻", "👽", "🦄", "🦁", "🐼", "👑", "🚀", "🧠", "🧙‍♂️", "👾"]);
-const STATUSES = new Set(["easy", "medium", "hard", "very-advanced", "wrong-easy", "wrong-medium", "wrong-hard", "wrong-very-advanced"]);
 const ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
+const MAX_SYNC_ITEMS = 100;
+const SCHEMA_VERSION = "1";
 const POINTS_SQL = `CASE p.status
   WHEN 'easy' THEN 1
   WHEN 'medium' THEN 2
@@ -53,11 +57,27 @@ function setCookie(response: Response, cookie: string): Response {
 }
 
 export async function health(env: Env): Promise<Response> {
-  const configured = env.PASSWORD_PEPPER?.length >= 24 && env.IP_HASH_SALT?.length >= 24;
+  const configured = env.PASSWORD_PEPPER?.length >= 24
+    && env.IP_HASH_SALT?.length >= 24
+    && Boolean(env.BATTLE_ROOMS)
+    && Boolean(env.PASSWORD_HASHERS);
+  if (!configured) return json({ ok: false, service: "jakh-api" }, 503);
   try {
-    const result = await env.DB.prepare("SELECT 1 AS ok").first<{ ok: number }>();
-    if (!configured || result?.ok !== 1) return json({ ok: false, service: "jakh-api" }, 503);
-    return json({ ok: true, service: "jakh-api", version: "1.0.0" });
+    const [schema, cardIndex] = await Promise.all([
+      env.DB.prepare(
+        "SELECT value FROM schema_meta WHERE key = 'schema_version'",
+      ).first<{ value: string }>(),
+      getCardIndex(env),
+    ]);
+    if (schema?.value !== SCHEMA_VERSION || Object.keys(cardIndex).length < 1) {
+      return json({ ok: false, service: "jakh-api" }, 503);
+    }
+    return json({
+      ok: true,
+      service: "jakh-api",
+      version: "1.1.0",
+      schema: SCHEMA_VERSION,
+    });
   } catch {
     return json({ ok: false, service: "jakh-api" }, 503);
   }
@@ -70,7 +90,7 @@ export async function register(request: Request, env: Env): Promise<Response> {
   const { username, key } = normalizeUsername(body.username);
   const password = validatePassword(body.password);
   const email = normalizeEmail(body.email);
-  const passwordRecord = await hashPassword(password, env.PASSWORD_PEPPER);
+  const passwordRecord = await hashPasswordInHasher(env, password);
   const userId = crypto.randomUUID();
   const timestamp = now();
 
@@ -118,11 +138,17 @@ export async function login(request: Request, env: Env): Promise<Response> {
   ).bind(key).first<UserPasswordRow>();
 
   if (!user) {
-    await hashPassword(password, env.PASSWORD_PEPPER, "AAAAAAAAAAAAAAAAAAAAAA", 310_000);
+    await hashPasswordInHasher(env, password, "AAAAAAAAAAAAAAAAAAAAAA", 310_000);
     throw new ApiError(401, "Invalid credentials");
   }
   if (user.is_banned) throw new ApiError(403, "This account has been suspended");
-  if (!await verifyPassword(password, env.PASSWORD_PEPPER, user.password_hash, user.password_salt, user.password_iterations)) {
+  if (!await verifyPasswordInHasher(
+    env,
+    password,
+    user.password_hash,
+    user.password_salt,
+    user.password_iterations,
+  )) {
     throw new ApiError(401, "Invalid credentials");
   }
 
@@ -198,9 +224,9 @@ export async function changePassword(request: Request, env: Env): Promise<Respon
   const user = await env.DB.prepare(
     "SELECT password_hash, password_salt, password_iterations FROM users WHERE id = ?",
   ).bind(session.id).first<Pick<UserPasswordRow, "password_hash" | "password_salt" | "password_iterations">>();
-  if (!user || !await verifyPassword(
+  if (!user || !await verifyPasswordInHasher(
+    env,
     currentPassword,
-    env.PASSWORD_PEPPER,
     user.password_hash,
     user.password_salt,
     user.password_iterations,
@@ -208,7 +234,7 @@ export async function changePassword(request: Request, env: Env): Promise<Respon
     throw new ApiError(401, "Current password is incorrect");
   }
 
-  const passwordRecord = await hashPassword(newPassword, env.PASSWORD_PEPPER);
+  const passwordRecord = await hashPasswordInHasher(env, newPassword);
   await env.DB.batch([
     env.DB.prepare(
       `UPDATE users SET password_hash = ?, password_salt = ?, password_iterations = ?, updated_at = ?
@@ -226,20 +252,23 @@ function normalizeCardId(value: unknown): string {
 }
 
 function normalizeCategory(value: unknown): string {
-  if (value === undefined || value === null || value === "") return "unknown";
-  if (typeof value !== "string" || (value !== "unknown" && !CATEGORY_PATTERN.test(value))) {
-    throw new ApiError(400, "Invalid categoryId");
-  }
+  if (typeof value !== "string" || !CATEGORY_PATTERN.test(value)) throw new ApiError(400, "Invalid categoryId");
   return value;
 }
 
 export async function saveProgress(request: Request, env: Env): Promise<Response> {
   const user = await requireUser(request, env);
+  await enforceRateLimit(
+    env,
+    await requestRateKey(request, env, `progress:${user.id}`),
+    300,
+    60 * 60,
+  );
   const body = await parseJson<{ cardId?: unknown; categoryId?: unknown; status?: unknown }>(request);
   const cardId = normalizeCardId(body.cardId);
   const categoryId = normalizeCategory(body.categoryId);
-  const status = body.status === "correct" ? "easy" : body.status;
-  if (typeof status !== "string" || !STATUSES.has(status)) throw new ApiError(400, "Invalid status");
+  const card = await validateCard(env, cardId, categoryId);
+  const status = canonicalStatus(body.status, card.difficulty);
   const timestamp = now();
   const correctAt = status.startsWith("wrong-") ? null : timestamp;
   await env.DB.prepare(
@@ -257,6 +286,12 @@ export async function saveProgress(request: Request, env: Env): Promise<Response
 
 export async function deleteProgress(request: Request, env: Env): Promise<Response> {
   const user = await requireUser(request, env);
+  await enforceRateLimit(
+    env,
+    await requestRateKey(request, env, `progress:${user.id}`),
+    300,
+    60 * 60,
+  );
   const body = await parseJson<{ cardId?: unknown }>(request);
   const cardId = normalizeCardId(body.cardId);
   await env.DB.prepare("DELETE FROM progress WHERE user_id = ? AND card_id = ?").bind(user.id, cardId).run();
@@ -265,13 +300,20 @@ export async function deleteProgress(request: Request, env: Env): Promise<Respon
 
 export async function favorite(request: Request, env: Env): Promise<Response> {
   const user = await requireUser(request, env);
+  await enforceRateLimit(
+    env,
+    await requestRateKey(request, env, `favorite:${user.id}`),
+    300,
+    60 * 60,
+  );
   const body = await parseJson<{ cardId?: unknown; categoryId?: unknown; action?: unknown }>(request);
   const cardId = normalizeCardId(body.cardId);
-  const categoryId = normalizeCategory(body.categoryId);
   const action = body.action === undefined ? "add" : body.action;
   if (action !== "add" && action !== "remove") throw new ApiError(400, "Invalid favorite action");
 
   if (action === "add") {
+    const categoryId = normalizeCategory(body.categoryId);
+    await validateCard(env, cardId, categoryId);
     await env.DB.prepare(
       `INSERT INTO favorites (user_id, card_id, category_id, created_at)
        VALUES (?, ?, ?, ?)
@@ -281,6 +323,102 @@ export async function favorite(request: Request, env: Env): Promise<Response> {
     await env.DB.prepare("DELETE FROM favorites WHERE user_id = ? AND card_id = ?").bind(user.id, cardId).run();
   }
   return json({ success: true });
+}
+
+interface SyncProgressItem {
+  cardId?: unknown;
+  categoryId?: unknown;
+  status?: unknown;
+}
+
+interface SyncFavoriteItem {
+  cardId?: unknown;
+  categoryId?: unknown;
+}
+
+export async function syncUserData(request: Request, env: Env): Promise<Response> {
+  const user = await requireUser(request, env);
+  await enforceRateLimit(
+    env,
+    await requestRateKey(request, env, `sync:${user.id}`),
+    80,
+    60 * 60,
+  );
+  const body = await parseJson<{
+    progress?: unknown;
+    favorites?: unknown;
+  }>(request, 262_144);
+  const progressItems = body.progress === undefined ? [] : body.progress;
+  const favoriteItems = body.favorites === undefined ? [] : body.favorites;
+  if (!Array.isArray(progressItems) || !Array.isArray(favoriteItems)) {
+    throw new ApiError(400, "Invalid sync payload");
+  }
+  if (progressItems.length + favoriteItems.length > MAX_SYNC_ITEMS) {
+    throw new ApiError(413, `Sync is limited to ${MAX_SYNC_ITEMS} items`);
+  }
+
+  const timestamp = now();
+  const progress = new Map<string, {
+    cardId: string;
+    categoryId: string;
+    status: string;
+  }>();
+  for (const raw of progressItems as SyncProgressItem[]) {
+    if (!raw || typeof raw !== "object") throw new ApiError(400, "Invalid progress item");
+    const cardId = normalizeCardId(raw.cardId);
+    const categoryId = normalizeCategory(raw.categoryId);
+    const card = await validateCard(env, cardId, categoryId);
+    progress.set(cardId, {
+      cardId,
+      categoryId,
+      status: canonicalStatus(raw.status, card.difficulty),
+    });
+  }
+
+  const favorites = new Map<string, { cardId: string; categoryId: string }>();
+  for (const raw of favoriteItems as SyncFavoriteItem[]) {
+    if (!raw || typeof raw !== "object") throw new ApiError(400, "Invalid favorite item");
+    const cardId = normalizeCardId(raw.cardId);
+    const categoryId = normalizeCategory(raw.categoryId);
+    await validateCard(env, cardId, categoryId);
+    favorites.set(cardId, { cardId, categoryId });
+  }
+
+  const statements: D1PreparedStatement[] = [];
+  for (const item of progress.values()) {
+    const correctAt = item.status.startsWith("wrong-") ? null : timestamp;
+    statements.push(env.DB.prepare(
+      `INSERT INTO progress (
+        user_id, card_id, category_id, status, first_correct_at, created_at, updated_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(user_id, card_id) DO UPDATE SET
+        category_id = excluded.category_id,
+        status = excluded.status,
+        first_correct_at = COALESCE(progress.first_correct_at, excluded.first_correct_at),
+        updated_at = excluded.updated_at`,
+    ).bind(
+      user.id,
+      item.cardId,
+      item.categoryId,
+      item.status,
+      correctAt,
+      timestamp,
+      timestamp,
+    ));
+  }
+  for (const item of favorites.values()) {
+    statements.push(env.DB.prepare(
+      `INSERT INTO favorites (user_id, card_id, category_id, created_at)
+       VALUES (?, ?, ?, ?)
+       ON CONFLICT(user_id, card_id) DO UPDATE SET category_id = excluded.category_id`,
+    ).bind(user.id, item.cardId, item.categoryId, timestamp));
+  }
+  if (statements.length) await env.DB.batch(statements);
+  return json({
+    success: true,
+    progress: progress.size,
+    favorites: favorites.size,
+  });
 }
 
 function previousDate(date: string): string {
@@ -341,6 +479,12 @@ export async function streak(request: Request, env: Env): Promise<Response> {
 
 export async function analytics(request: Request, env: Env): Promise<Response> {
   const user = await requireUser(request, env);
+  await enforceRateLimit(
+    env,
+    await requestRateKey(request, env, `analytics:${user.id}`),
+    180,
+    60 * 60,
+  );
   const body = await parseJson<{ pageSlug?: unknown; timeSpent?: unknown }>(request);
   const pageSlug = normalizeCategory(body.pageSlug);
   const timeSpent = Number(body.timeSpent);

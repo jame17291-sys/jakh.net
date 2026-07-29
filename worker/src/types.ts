@@ -1,6 +1,9 @@
+import type { PasswordHasherStub } from "./password-hasher.js";
+
 export interface Env {
   DB: D1Database;
   BATTLE_ROOMS: DurableObjectNamespace<BattleRoomStub>;
+  PASSWORD_HASHERS: DurableObjectNamespace<PasswordHasherStub>;
   PASSWORD_PEPPER: string;
   IP_HASH_SALT: string;
   ALLOWED_ORIGINS: string;

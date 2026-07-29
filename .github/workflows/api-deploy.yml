@@ -13,8 +13,20 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Validate release source
+        run: node scripts/validate-static.mjs
+      - name: Validate API
+        working-directory: worker
+        run: |
+          npm install --no-audit --no-fund
+          npm run check
+          npm test
       - name: Apply database migrations
         uses: cloudflare/wrangler-action@v3
         with:
@@ -37,3 +49,12 @@ jobs:
         env:
           PASSWORD_PEPPER: ${{ secrets.JAKH_PASSWORD_PEPPER }}
           IP_HASH_SALT: ${{ secrets.JAKH_IP_HASH_SALT }}
+      - name: Verify production health
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            if curl --fail --silent --show-error https://api.jakh.net/api/health | grep -q '"ok":true'; then
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1

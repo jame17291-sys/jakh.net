@@ -19,6 +19,9 @@ interface ValidCard {
 
 const DIFFICULTIES = new Set(["all", "easy", "medium", "hard", "very-advanced"]);
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const ROOM_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/u;
+const CONNECT_RATE_LIMIT = 30;
+const CONNECT_RATE_WINDOW_SECONDS = 60;
 
 function randomInt(max: number): number {
   if (!Number.isSafeInteger(max) || max <= 0) throw new Error("Invalid random range");
@@ -154,7 +157,11 @@ export async function connectBattle(request: Request, env: Env): Promise<Respons
     throw new ApiError(426, "WebSocket upgrade required");
   }
   const code = new URL(request.url).searchParams.get("code")?.trim().toUpperCase() || "";
-  if (!/^[A-Z0-9]{8}$/u.test(code)) throw new ApiError(400, "Invalid room code");
+  if (!ROOM_CODE_PATTERN.test(code)) throw new ApiError(400, "Invalid room code");
+
+  const ipKey = await sha256(`${env.IP_HASH_SALT}:battle-connect:${clientIp(request)}`);
+  await enforceRateLimit(env, ipKey, CONNECT_RATE_LIMIT, CONNECT_RATE_WINDOW_SECONDS);
+
   const stub = env.BATTLE_ROOMS.get(env.BATTLE_ROOMS.idFromName(code));
   return stub.fetch(new Request("https://battle.internal/connect", request));
 }

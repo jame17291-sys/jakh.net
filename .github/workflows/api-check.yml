@@ -2,15 +2,7 @@ name: Validate API
 
 on:
   push:
-    paths:
-      - "worker/**"
-      - ".github/workflows/api-check.yml"
-      - ".github/workflows/api-deploy.yml"
   pull_request:
-    paths:
-      - "worker/**"
-      - ".github/workflows/api-check.yml"
-      - ".github/workflows/api-deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -23,14 +15,25 @@ concurrency:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: worker
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - run: npm install --no-audit --no-fund
-      - run: npm run check
-      - run: npm test
+      - name: Validate static source and generated card index
+        run: node scripts/validate-static.mjs
+      - name: Install API dependencies
+        working-directory: worker
+        run: npm install --no-audit --no-fund
+      - name: Type-check API
+        working-directory: worker
+        run: npm run check
+      - name: Test API
+        working-directory: worker
+        run: npm test
+      - name: Validate deploy bundle
+        working-directory: worker
+        env:
+          PASSWORD_PEPPER: ci-only-placeholder-password-pepper
+          IP_HASH_SALT: ci-only-placeholder-ip-hash-salt
+        run: npx wrangler deploy --dry-run --outdir /tmp/jakh-api-dry-run

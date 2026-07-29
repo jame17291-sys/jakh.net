@@ -15,6 +15,12 @@ function fail(message) {
   failures.push(message);
 }
 
+function stableObjectJson(value) {
+  return JSON.stringify(
+    Object.fromEntries(Object.entries(value || {}).sort(([left], [right]) => left.localeCompare(right))),
+  );
+}
+
 function localPath(reference) {
   if (
     !reference
@@ -65,8 +71,17 @@ for (const file of htmlFiles) {
 
 const catalogPath = path.join(root, "data", "catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+const cardIndexPath = path.join(root, "data", "card-index.json");
+const cardIndex = fs.existsSync(cardIndexPath)
+  ? JSON.parse(fs.readFileSync(cardIndexPath, "utf8"))
+  : null;
+const workerCardIndexPath = path.join(root, "worker", "src", "card-index.json");
+const workerCardIndex = fs.existsSync(workerCardIndexPath)
+  ? JSON.parse(fs.readFileSync(workerCardIndexPath, "utf8"))
+  : null;
 const catalogSlugs = new Set();
 const allCardIds = new Set();
+const expectedCardIndex = {};
 
 for (const category of catalog.categories || []) {
   if (!category.slug || catalogSlugs.has(category.slug)) fail(`catalog: invalid or duplicate slug "${category.slug}"`);
@@ -85,7 +100,7 @@ for (const file of dataFiles) {
     fail(`data/${file}: invalid JSON: ${error.message}`);
     continue;
   }
-  if (file === "catalog.json") continue;
+  if (file === "catalog.json" || file === "card-index.json") continue;
   const cards = Array.isArray(parsed) ? parsed : parsed.cards;
   if (!Array.isArray(cards)) {
     fail(`data/${file}: expected an array of cards`);
@@ -103,6 +118,7 @@ for (const file of dataFiles) {
     if (!["easy", "medium", "hard", "very-advanced"].includes(card?.difficulty)) {
       fail(`${label}: invalid difficulty "${card?.difficulty}"`);
     }
+    if (card?.id && card?.difficulty) expectedCardIndex[card.id] = [slug, card.difficulty];
     for (const field of ["question", "answer"]) {
       if (!card?.[field]?.en?.trim() || !card?.[field]?.ar?.trim()) fail(`${label}: incomplete bilingual ${field}`);
     }
@@ -110,6 +126,17 @@ for (const file of dataFiles) {
       fail(`${label}: incomplete bilingual subcategory`);
     }
   }
+}
+
+if (!cardIndex) {
+  fail("data/card-index.json: missing generated card index");
+} else if (stableObjectJson(cardIndex) !== stableObjectJson(expectedCardIndex)) {
+  fail("data/card-index.json: generated card index is stale; run node scripts/generate-card-index.mjs");
+}
+if (!workerCardIndex) {
+  fail("worker/src/card-index.json: missing generated card index");
+} else if (stableObjectJson(workerCardIndex) !== stableObjectJson(expectedCardIndex)) {
+  fail("worker/src/card-index.json: generated card index is stale; run node scripts/generate-card-index.mjs");
 }
 
 for (const file of ["app.js", "sw.js", "fluid-shader.js"]) {

@@ -1,3 +1,12 @@
+CREATE TABLE IF NOT EXISTS schema_meta (
+  key TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+
+INSERT INTO schema_meta (key, value)
+VALUES ('schema_version', '1')
+ON CONFLICT(key) DO UPDATE SET value = excluded.value;
+
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   username TEXT NOT NULL,

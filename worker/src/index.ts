@@ -48,9 +48,6 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/leaderboard" && method === "GET") return leaderboard(env);
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
-  if (path === "/api/tts" && method === "GET") {
-    throw new ApiError(501, "Server speech synthesis is unavailable; use the browser voice");
-  }
   return json({ error: "Not found" }, 404);
 }
 

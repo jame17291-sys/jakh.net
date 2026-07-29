@@ -24,7 +24,7 @@ jobs:
         run: node scripts/validate-static.mjs
       - name: Install API dependencies
         working-directory: worker
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Type-check API
         working-directory: worker
         run: npm run check

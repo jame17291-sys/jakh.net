@@ -24,7 +24,7 @@ jobs:
       - name: Validate API
         working-directory: worker
         run: |
-          npm install --no-audit --no-fund
+          npm ci --no-audit --no-fund
           npm run check
           npm test
       - name: Apply database migrations

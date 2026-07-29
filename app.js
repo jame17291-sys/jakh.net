@@ -346,7 +346,7 @@ const UI = {
     navCategories: 'Categories',
     authOpen: 'Sign in',
     language: 'Language',
-    homeEyebrow: '3,000+ bilingual riddles — English & Arabic',
+    homeEyebrow: '3,500+ bilingual riddles — English & Arabic',
     homeTitle: 'Pick a topic. Flip cards. See how much you know.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Explore collections',
@@ -356,7 +356,7 @@ const UI = {
     statLanguages: 'Languages',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
-    portalMindDesc: '3,000+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.',
+    portalMindDesc: '3,500+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.',
     portalMindStat: '15 collections',
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
@@ -497,7 +497,7 @@ const UI = {
     navCategories: 'الفئات',
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    homeEyebrow: '+3000 لغز ثنائي اللغة — عربي وإنجليزي',
+    homeEyebrow: '+3500 لغز ثنائي اللغة — عربي وإنجليزي',
     homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
     homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
     browseCategories: 'استكشف المجموعات',
@@ -507,7 +507,7 @@ const UI = {
     statLanguages: 'اللغات',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: '+3000 سؤال ثنائي اللغة منظمة في 15 مجموعة مختارة ضمن 5 مسارات واضحة. اختر مجموعة، افتح موضوعًا، واقلب البطاقات وتابع نقاطك.',
+    portalMindDesc: '+3500 سؤال ثنائي اللغة منظمة في 15 مجموعة مختارة ضمن 5 مسارات واضحة. اختر مجموعة، افتح موضوعًا، واقلب البطاقات وتابع نقاطك.',
     portalMindStat: '15 مجموعة',
     portalMindCta: 'استكشف الألغاز →',
     portalGamesTag: 'مركز الألعاب',
@@ -3008,7 +3008,6 @@ let _analyticsInterval = null;
 
 // ── Audio narration ───────────────────────────────────────────────────────────
 
-const _ttsCache = new Map(); // "lang:text" → blob URL
 let   _currentAudio = null;
 
 function _getBestVoice(lang) {
@@ -3044,12 +3043,6 @@ function _getBestVoice(lang) {
 function speakText(text, lang) {
   stopSpeech();
 
-  // Arabic: always use server TTS (Google quality) — browser Arabic voices are robotic on all platforms
-  if (lang === 'ar') {
-    _speakTextFallback(text, lang);
-    return;
-  }
-
   if (window.speechSynthesis) {
     const doSpeak = () => {
       window.speechSynthesis.cancel();
@@ -3073,42 +3066,7 @@ function speakText(text, lang) {
     return;
   }
 
-  // Fallback: server TTS via fetch (may be blocked on iOS without prior user gesture)
-  _speakTextFallback(text, lang);
-}
-
-async function _speakTextFallback(text, lang) {
-  const key = lang + ':' + text;
-  let src = _ttsCache.get(key);
-
-  if (!src) {
-    try {
-      const url = `${API_URL}/tts?lang=` + encodeURIComponent(lang)
-                + '&text=' + encodeURIComponent(text);
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(res.status);
-      const blob = await res.blob();
-      src = URL.createObjectURL(blob);
-      if (_ttsCache.size >= 200) {
-        const first = _ttsCache.keys().next().value;
-        URL.revokeObjectURL(_ttsCache.get(first));
-        _ttsCache.delete(first);
-      }
-      _ttsCache.set(key, src);
-    } catch (err) {
-      console.warn('[tts]', err);
-      _clearAudioBtns();
-      return;
-    }
-  }
-
-  const audio = new Audio(src);
-  _currentAudio = audio;
-  audio.onended = audio.onerror = _clearAudioBtns;
-  audio.play().catch(err => {
-    console.warn('[audio play]', err);
-    _clearAudioBtns();
-  });
+  _clearAudioBtns();
 }
 
 function _clearAudioBtns() {
@@ -3464,7 +3422,7 @@ function openGlobalSearch() {
     <div class="global-search-panel" role="dialog" aria-modal="true" aria-label="${state.lang === 'ar' ? 'البحث الشامل' : 'Global search'}">
       <div class="global-search-head">
         <input id="globalSearchInput" class="global-search-input" type="search" autocomplete="off"
-          placeholder="${state.lang === 'ar' ? 'ابحث في جميع الأسئلة...' : 'Search all 3,000+ questions…'}"
+          placeholder="${state.lang === 'ar' ? 'ابحث في جميع الأسئلة...' : 'Search all 3,500+ questions…'}"
           aria-label="${state.lang === 'ar' ? 'ابحث في جميع الأسئلة' : 'Search all questions'}" />
         <button class="global-search-close icon-btn" id="globalSearchClose" aria-label="Close">×</button>
       </div>

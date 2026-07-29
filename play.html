@@ -30,7 +30,7 @@
     <meta name="twitter:title" content="Play | JAKH Riddles" />
     <meta name="twitter:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
-    <link rel="stylesheet" href="styles.css?v=1785320574" />
+    <link rel="stylesheet" href="styles.css?v=1785331058" />
     <script src="fluid-shader.js" defer></script>
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
@@ -88,22 +88,6 @@
           <div class="kv-hero-stats" style="margin-top: 1.5rem;">
             <div class="kv-stat"><span class="kv-stat-number">10</span><span class="kv-stat-label">Games</span></div>
           </div>
-        </div>
-      </section>
-
-      <!-- Global Leaderboard -->
-      <section class="shell" style="padding: 3rem 1rem 2rem; border-top: 1px solid rgba(252,252,252,0.08);">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
-          <div>
-            <p class="kv-eyebrow" style="color:#38bdf8;margin-bottom:0.25rem;">Top Players</p>
-            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;color:#fcfcfc;margin:0;letter-spacing:-0.02em;">Leaderboard</h2>
-          </div>
-          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;" id="lbGameTabs">
-            <!-- tabs injected by JS -->
-          </div>
-        </div>
-        <div id="lbTable" style="background:rgba(252,252,252,0.03);border:1px solid rgba(252,252,252,0.08);">
-          <p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.4);font-size:0.9rem;">Loading...</p>
         </div>
       </section>
 
@@ -273,78 +257,5 @@
       });
     </script>
 
-    <!-- ── Leaderboard ── -->
-    <script>
-    (function () {
-      var GAMES = ['chess','mastermind','go','reversi','codenames','catan','backgammon','set','hanabi','diplomacy'];
-      var LABELS = { chess:'Chess', mastermind:'Mastermind', go:'Go', reversi:'Reversi', codenames:'Codenames', catan:'Catan', backgammon:'Backgammon', set:'Set', hanabi:'Hanabi', diplomacy:'Diplomacy' };
-      var RANK_COLORS = ['#f59e0b','#9ca3af','#92400e'];
-      var activeGame = 'chess';
-      var tabsEl = document.getElementById('lbGameTabs');
-      var tableEl = document.getElementById('lbTable');
-      if (!tabsEl || !tableEl) return;
-
-      // Build tabs
-      GAMES.forEach(function (g) {
-        var btn = document.createElement('button');
-        btn.textContent = LABELS[g];
-        btn.dataset.game = g;
-        btn.style.cssText = 'padding:0.35rem 0.75rem;font-family:"Space Grotesk",sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border:1px solid rgba(252,252,252,0.15);background:transparent;color:rgba(252,252,252,0.5);cursor:pointer;transition:all 0.15s;';
-        btn.addEventListener('click', function () { loadBoard(g); });
-        tabsEl.appendChild(btn);
-      });
-
-      function setActiveTab(game) {
-        activeGame = game;
-        tabsEl.querySelectorAll('button').forEach(function (b) {
-          var on = b.dataset.game === game;
-          b.style.background = on ? '#38bdf8' : 'transparent';
-          b.style.color = on ? '#0a0a0a' : 'rgba(252,252,252,0.5)';
-          b.style.borderColor = on ? '#38bdf8' : 'rgba(252,252,252,0.15)';
-        });
-      }
-
-      function loadBoard(game) {
-        setActiveTab(game);
-        tableEl.innerHTML = '<p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.35);font-size:0.85rem;">Loading…</p>';
-        fetch('https://jakh.net/api/boardgame/leaderboard?game=' + game + '&limit=10')
-          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-          .then(function (data) { renderTable(data.leaderboard || []); })
-          .catch(function () {
-            var section = tableEl.closest('section');
-            if (section) section.remove();
-          });
-      }
-
-      function renderTable(rows) {
-        if (!rows.length) {
-          tableEl.innerHTML = '<p style="padding:2rem;text-align:center;color:rgba(252,252,252,0.35);font-size:0.85rem;">No scores yet — be the first!</p>';
-          return;
-        }
-        var html = '<table style="width:100%;border-collapse:collapse;"><thead><tr style="border-bottom:1px solid rgba(252,252,252,0.08);">';
-        html += '<th style="padding:0.65rem 1rem;text-align:left;color:rgba(252,252,252,0.35);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">#</th>';
-        html += '<th style="padding:0.65rem 1rem;text-align:left;color:rgba(252,252,252,0.35);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Player</th>';
-        html += '<th style="padding:0.65rem 1rem;text-align:right;color:rgba(252,252,252,0.35);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Score</th>';
-        html += '</tr></thead><tbody>';
-        rows.forEach(function (row, i) {
-          var rankColor = i < 3 ? RANK_COLORS[i] : 'rgba(252,252,252,0.5)';
-          var bg = i % 2 === 0 ? 'transparent' : 'rgba(252,252,252,0.02)';
-          html += '<tr style="border-bottom:1px solid rgba(252,252,252,0.04);background:' + bg + ';">';
-          html += '<td style="padding:0.6rem 1rem;font-family:\'Space Grotesk\',sans-serif;font-weight:700;font-size:0.82rem;color:' + rankColor + ';">' + row.rank + '</td>';
-          html += '<td style="padding:0.6rem 1rem;color:#fcfcfc;font-size:0.88rem;">' + escapeHtml(row.username) + '</td>';
-          html += '<td style="padding:0.6rem 1rem;text-align:right;color:rgba(252,252,252,0.7);font-family:\'Space Grotesk\',sans-serif;font-size:0.82rem;">' + row.score + '</td>';
-          html += '</tr>';
-        });
-        html += '</tbody></table>';
-        tableEl.innerHTML = html;
-      }
-
-      function escapeHtml(s) {
-        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      }
-
-      loadBoard('chess');
-    })();
-    </script>
   </body>
 </html>

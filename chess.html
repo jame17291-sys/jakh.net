@@ -29,7 +29,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="JAKH Riddles" />
-    <link rel="stylesheet" href="styles.css?v=1785236400" />
+    <link rel="stylesheet" href="styles.css?v=1785309311" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -1128,10 +1128,10 @@
         if (status === 'check') {
           statusEl.classList.add('check');
           const turnName = turn === 'w' ? 'White' : 'Black';
-          statusText.innerHTML = `<span class="turn-indicator" id="turnDot" style="background:${turn==='w'?'#f0e8d8':'#13101a'};border:1.5px solid ${turn==='b'?'#f0e8d8':'rgba(0,0,0,0.3)'};display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle;"></span>${turnName} is in Check!`;
+          statusText.textContent = `${turnName} is in Check!`;
         } else {
           const turnName = turn === 'w' ? 'White' : 'Black';
-          statusText.innerHTML = `<span class="turn-indicator" id="turnDot" style="background:${turn==='w'?'#f0e8d8':'#13101a'};border:1.5px solid ${turn==='b'?'#f0e8d8':'rgba(0,0,0,0.3)'};display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle;"></span>${turnName}'s turn`;
+          statusText.textContent = `${turnName}'s turn`;
         }
       }
 

@@ -826,12 +826,11 @@ async function detectApiAvailability() {
 
 function applyCapabilityVisibility() {
   document.body.classList.toggle('api-unavailable', !state.apiAvailable);
-  if (state.apiAvailable) return;
   [els.openAuthBtn, els.heroAuthBtn, document.getElementById('leaderboardBtn'), document.getElementById('battleNavBtn'), document.getElementById('bnProfileBtn')]
     .filter(Boolean)
-    .forEach(element => { element.hidden = true; });
+    .forEach(element => { element.hidden = !state.apiAvailable; });
   const suggestionBox = document.getElementById('suggestionBox');
-  if (suggestionBox) suggestionBox.hidden = true;
+  if (suggestionBox) suggestionBox.hidden = !state.apiAvailable;
 }
 
 function saveJson(key, value) {
@@ -1010,6 +1009,7 @@ function applyStaticCopy() {
   });
   if (els.categorySearchInput) {
     els.categorySearchInput.placeholder = state.lang === 'ar' ? 'ابحث حسب الفئة أو الموضوع أو القطاع...' : 'Search by category, topic, or sector...';
+    els.categorySearchInput.setAttribute('aria-label', state.lang === 'ar' ? 'ابحث في صفحات الفئات' : 'Search category pages');
   }
   if (els.cardSearchInput) {
     els.cardSearchInput.placeholder = state.lang === 'ar' ? 'ابحث بكلمة أو جواب أو مفهوم...' : 'Search by keyword, answer, or concept...';
@@ -1093,7 +1093,7 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.4';
+const APP_VERSION = '2.5';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {
@@ -2226,6 +2226,8 @@ function createCardMarkup(card) {
   const flipped = state.flipped.has(card.id);
   const favorite = isFavorite(card.id);
   const result = getProgressResult(card.id);
+  const frontFocus = flipped ? 'tabindex="-1"' : '';
+  const backFocus = flipped ? '' : 'tabindex="-1"';
   const difficultyLabel = card.difficulty === 'very-advanced' ? t('veryAdvanced') : t(card.difficulty);
   const subcatText = card.subcategory ? (card.subcategory[state.lang] || card.subcategory.en || '') : '';
   const subcat = subcatText ? `<span class="badge badge-subcategory">${escapeHtml(subcatText)}</span>` : '';
@@ -2271,24 +2273,24 @@ function createCardMarkup(card) {
 
   const flipLabel = flipped ? t('backToQuestion') : t('flipForAnswer');
   const audioBtn = state.audioEnabled
-    ? `<button class="mini-btn card-audio-btn" data-action="audio" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('audioPlay'))}">🔊</button>`
+    ? `<button class="mini-btn card-audio-btn" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('audioPlay'))}" title="${escapeHtml(t('audioPlay'))}" ${frontFocus}>🔊</button>`
     : '';
   let markBtns;
   if (result === 'correct') {
-    markBtns = `<button class="card-mark-btn is-correct" data-action="unmark" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('markUnsolved'))}">✓</button>`;
+    markBtns = `<button class="card-mark-btn is-correct" data-action="unmark" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('markUnsolved'))}" title="${escapeHtml(t('markUnsolved'))}" ${backFocus}>✓</button>`;
   } else if (result === 'wrong') {
-    markBtns = `<button class="card-mark-btn is-wrong" data-action="unmark" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('markUnsolved'))}">✗</button>`;
+    markBtns = `<button class="card-mark-btn is-wrong" data-action="unmark" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('markUnsolved'))}" title="${escapeHtml(t('markUnsolved'))}" ${backFocus}>✗</button>`;
   } else {
     markBtns = `
-      <button class="card-mark-btn action-correct" data-action="markCorrect" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('markSolved'))}">✓</button>
-      <button class="card-mark-btn action-wrong" data-action="markWrong" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('markWrong'))}">✗</button>
+      <button class="card-mark-btn action-correct" data-action="markCorrect" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('markSolved'))}" title="${escapeHtml(t('markSolved'))}" ${backFocus}>✓</button>
+      <button class="card-mark-btn action-wrong" data-action="markWrong" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('markWrong'))}" title="${escapeHtml(t('markWrong'))}" ${backFocus}>✗</button>
     `;
   }
 
   return `
     <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" ${trialCard ? 'data-trial="1"' : ''} aria-label="${escapeHtml(card.question[state.lang])}">
       <div class="card-inner">
-        <section class="card-face card-front">
+        <section class="card-face card-front" aria-hidden="${flipped ? 'true' : 'false'}" ${flipped ? 'inert' : ''}>
           <div class="card-badges">
             ${categoryBadge}
             ${difficultyBadge}
@@ -2296,20 +2298,20 @@ function createCardMarkup(card) {
           </div>
           <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
           <div class="card-actions">
-            <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${escapeHtml(flipLabel)}</button>
-            <button class="mini-btn action-fav${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}">${favorite ? '♥' : '♡'}</button>
+            <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${frontFocus}>${escapeHtml(flipLabel)}</button>
+            <button class="mini-btn action-fav${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" ${frontFocus}>${favorite ? '♥' : '♡'}</button>
             ${audioBtn}
           </div>
         </section>
-        <section class="card-face card-back">
+        <section class="card-face card-back" aria-hidden="${flipped ? 'false' : 'true'}" ${flipped ? '' : 'inert'}>
           <p class="card-answer"><strong>${escapeHtml(card.answer[state.lang])}</strong></p>
           <div class="card-actions">
-            <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${escapeHtml(t('backToQuestion'))}</button>
+            <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${backFocus}>${escapeHtml(t('backToQuestion'))}</button>
             <div class="card-icon-row">
-              <button class="card-fav-btn${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}">${favorite ? '♥' : '♡'}</button>
+              <button class="card-fav-btn${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" ${backFocus}>${favorite ? '♥' : '♡'}</button>
               ${markBtns}
-              <button class="mini-btn card-share-btn" data-action="share" data-id="${escapeHtml(card.id)}" title="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}">↗</button>
-              ${state.apiAvailable ? `<button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" title="${escapeHtml(t('reportBtn'))}">⚑</button>` : ''}
+              <button class="mini-btn card-share-btn" data-action="share" data-id="${escapeHtml(card.id)}" aria-label="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}" title="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}" ${backFocus}>↗</button>
+              ${state.apiAvailable ? `<button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('reportBtn'))}" title="${escapeHtml(t('reportBtn'))}" ${backFocus}>⚑</button>` : ''}
             </div>
           </div>
         </section>
@@ -3829,6 +3831,9 @@ function updateBottomNavActive() {
 
 async function init() {
   cacheEls();
+  [els.openAuthBtn, els.heroAuthBtn].filter(Boolean).forEach(element => {
+    element.hidden = true;
+  });
   initializeFromStorage();
   applyDir();
   if (!sessionInitialized) {

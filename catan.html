@@ -16,7 +16,7 @@
   <meta property="og:title" content="Catan Lite | JAKH Riddles"/><meta property="og:type" content="website"/>
   <meta property="og:url" content="https://jakh.net/catan"/><meta property="og:image" content="https://jakh.net/assets/og-image.webp"/>
   <meta property="og:site_name" content="JAKH Riddles"/>
-  <link rel="stylesheet" href="styles.css?v=1785236400"/>
+  <link rel="stylesheet" href="styles.css?v=1785309311"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -582,9 +582,12 @@
       if (state.phase === 'setup') {
         const newState = deepClone(state);
         const cur = newState.turn;
-        // Check not already settled here by same player
-        if (newState.players[cur].settlements.includes(hexIdx)) {
-          return { state, msg: 'Already have a settlement there.' };
+        const occupied = ['p1', 'p2'].some(pid =>
+          newState.players[pid].settlements.includes(hexIdx) ||
+          newState.players[pid].cities.includes(hexIdx)
+        );
+        if (occupied) {
+          return { state, msg: 'That hex already has a settlement.' };
         }
         newState.players[cur].settlements.push(hexIdx);
         newState.players[cur].points += 1;
@@ -961,15 +964,28 @@
 
     function doAISetup() {
       // AI picks a hex not taken by p1, preferring high numbers
-      const p1Owned = new Set(state.players.p1.settlements);
+      const occupied = new Set([
+        ...state.players.p1.settlements,
+        ...state.players.p2.settlements,
+        ...state.players.p1.cities,
+        ...state.players.p2.cities,
+      ]);
+      const preferredNumbers = [6, 8, 5, 9, 4, 10];
       const candidates = state.hexes
-        .filter(h => h.type !== 'desert' && !p1Owned.has(h.id))
+        .filter(h => h.type !== 'desert' && !occupied.has(h.id))
         .sort((a,b) => {
-          const good = [6,8,5,9,4,10];
-          return good.indexOf(b.number) - good.indexOf(a.number);
+          const aRank = preferredNumbers.indexOf(a.number);
+          const bRank = preferredNumbers.indexOf(b.number);
+          return (aRank === -1 ? preferredNumbers.length : aRank)
+            - (bRank === -1 ? preferredNumbers.length : bRank);
         });
 
-      const target = candidates[0] ? candidates[0].id : state.hexes.find(h => !p1Owned.has(h.id)).id;
+      const fallback = state.hexes.find(h => !occupied.has(h.id));
+      if (!candidates[0] && !fallback) {
+        log('[AI] No open hex is available for setup.', 'log-action');
+        return;
+      }
+      const target = candidates[0] ? candidates[0].id : fallback.id;
       const result = CatanEngine.buildSettlement(state, target);
       state = result.state;
       log('[AI] ' + result.msg, 'log-highlight');

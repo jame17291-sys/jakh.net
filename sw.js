@@ -1,9 +1,11 @@
-const CACHE_NAME = 'jakh-v48';
-const ASSET_CACHE = 'jakh-assets-v48';
+const CACHE_NAME = 'jakh-v49';
+const ASSET_CACHE = 'jakh-assets-v49';
 
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
+  '/mind-lab.html',
+  '/play.html',
   '/app.js',
   '/styles.css',
   '/manifest.webmanifest',

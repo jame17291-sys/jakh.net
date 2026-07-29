@@ -3606,8 +3606,8 @@ function showOnboarding() {
   if (document.getElementById('onboardModal')) return;
   const steps = [
     { icon: '🗂️',
-      en: { title: 'Pick a Category', text: `Choose from ${state.catalog?.categories.length || 44} curated quiz categories — math, science, history, football, and more.` },
-      ar: { title: 'اختر فئة', text: `اختر من ${state.catalog?.categories.length || 44} فئة منسقة — رياضيات وعلوم وتاريخ وكرة قدم والمزيد.` } },
+      en: { title: 'Pick a Category', text: `Choose from ${state.catalog?.categories.length || 56} curated quiz categories — math, science, history, football, and more.` },
+      ar: { title: 'اختر فئة', text: `اختر من ${state.catalog?.categories.length || 56} فئة منسقة — رياضيات وعلوم وتاريخ وكرة قدم والمزيد.` } },
     { icon: '💾',
       en: { title: 'Save Your Progress', text: state.apiAvailable ? 'Create a free account to track your score, build streaks, and unlock harder levels.' : 'Your score, favorites, and unlocked levels are saved automatically on this device.' },
       ar: { title: 'احفظ تقدمك', text: state.apiAvailable ? 'أنشئ حسابًا مجانيًا لتتبع نقاطك وبناء سلاسل يومية وفتح المستويات الأصعب.' : 'تُحفظ نقاطك ومفضلاتك ومستوياتك المفتوحة تلقائيًا على هذا الجهاز.' } },

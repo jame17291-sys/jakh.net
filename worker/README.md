@@ -38,7 +38,7 @@ npx wrangler d1 migrations apply DB --remote
 npx wrangler deploy
 ```
 
-Keep `workers_dev` enabled only for the temporary launch canary. After the canary
-passes, configure the `api.jakh.net` custom domain and disable `workers.dev`.
+Production is served only from the `api.jakh.net` custom domain. Keep
+`workers_dev` disabled so the API does not have a second public hostname.
 
 Never commit `.dev.vars`, Cloudflare tokens, or generated secrets.

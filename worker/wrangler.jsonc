@@ -3,7 +3,13 @@
   "name": "jakh-api",
   "main": "src/index.ts",
   "compatibility_date": "2026-07-29",
-  "workers_dev": true,
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "api.jakh.net",
+      "custom_domain": true
+    }
+  ],
   "observability": {
     "enabled": true
   },

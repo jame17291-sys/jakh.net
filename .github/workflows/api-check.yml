@@ -1,0 +1,36 @@
+name: Validate API
+
+on:
+  push:
+    paths:
+      - "worker/**"
+      - ".github/workflows/api-check.yml"
+      - ".github/workflows/api-deploy.yml"
+  pull_request:
+    paths:
+      - "worker/**"
+      - ".github/workflows/api-check.yml"
+      - ".github/workflows/api-deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: worker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: npm install --no-audit --no-fund
+      - run: npm run check
+      - run: npm test

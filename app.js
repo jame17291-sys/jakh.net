@@ -749,20 +749,23 @@ function escapeHtml(value) {
 
 
 // ================= API WRAPPER =================
-const API_URL = '/api';
+const IS_LOCAL_PREVIEW = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+const API_ORIGIN = IS_LOCAL_PREVIEW
+  ? `${location.protocol}//${location.hostname}:8787`
+  : 'https://api.jakh.net';
+const API_URL = `${API_ORIGIN}/api`;
 
 async function apiFetch(endpoint, options = {}) {
   options.credentials = 'include';
-  options.headers = { ...options.headers, 'Content-Type': 'application/json' };
-  try {
-    const res = await fetch(`${API_URL}${endpoint}`, options);
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'API Error');
-    return data;
-  } catch (err) {
-    console.error(`[API] ${endpoint} failed:`, err.message);
-    throw err;
-  }
+  const headers = new Headers(options.headers || {});
+  headers.set('Accept', 'application/json');
+  if (options.body && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
+  options.headers = headers;
+  const res = await fetch(`${API_URL}${endpoint}`, options);
+  const contentType = res.headers.get('content-type') || '';
+  const data = contentType.includes('application/json') ? await res.json() : {};
+  if (!res.ok) throw new Error(data.error || `API request failed (${res.status})`);
+  return data;
 }
 
 async function checkCloudSession() {
@@ -809,7 +812,7 @@ async function detectApiAvailability() {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 2500);
   try {
-    const response = await fetch('/api/health', {
+    const response = await fetch(`${API_URL}/health`, {
       cache: 'no-store',
       headers: { Accept: 'application/json' },
       signal: controller.signal,
@@ -861,18 +864,78 @@ async function mergeGuestProgress() {
   const promises = [];
   for (const [cardId, val] of Object.entries(guestSolved)) {
     const status = _guestStatus(val);
-    if (status === 'correct') {
-      promises.push(apiFetch('/user/progress', { method: 'POST', body: JSON.stringify({ cardId, status }) }).catch(() => {}));
+    if (status) {
+      const categoryId = typeof val === 'object' && val !== null ? val.categoryId : 'unknown';
+      promises.push(apiFetch('/user/progress', {
+        method: 'POST',
+        body: JSON.stringify({ cardId, categoryId: categoryId || 'unknown', status }),
+      }));
     }
   }
   for (const cardId of guestFavs) {
-    promises.push(apiFetch('/user/favorite', { method: 'POST', body: JSON.stringify({ cardId }) }).catch(() => {}));
+    promises.push(apiFetch('/user/favorite', { method: 'POST', body: JSON.stringify({ cardId }) }));
   }
   if (promises.length === 0) return;
-  await Promise.all(promises);
-  localStorage.removeItem(GUEST_KEYS.solved);
-  localStorage.removeItem(GUEST_KEYS.favorites);
-  await checkCloudSession();
+  const results = await Promise.allSettled(promises);
+  if (results.every(result => result.status === 'fulfilled')) {
+    localStorage.removeItem(GUEST_KEYS.solved);
+    localStorage.removeItem(GUEST_KEYS.favorites);
+  }
+}
+
+const CLOUD_QUEUE_KEY = 'jakh-cloud-queue-v1';
+
+function loadCloudQueue() {
+  const queue = loadJson(CLOUD_QUEUE_KEY, []);
+  return Array.isArray(queue) ? queue : [];
+}
+
+function saveCloudQueue(items) {
+  if (items.length) saveJson(CLOUD_QUEUE_KEY, items);
+  else localStorage.removeItem(CLOUD_QUEUE_KEY);
+}
+
+function queueCloudMutation(key, endpoint, method, body) {
+  const userId = state.dbUser?.id;
+  if (!userId) return;
+  const queue = loadCloudQueue().filter(item => item.key !== key || item.userId !== userId);
+  queue.push({ key, userId, endpoint, method, body });
+  saveCloudQueue(queue.slice(-500));
+}
+
+function clearCloudMutation(key) {
+  const userId = state.dbUser?.id;
+  saveCloudQueue(loadCloudQueue().filter(item => item.key !== key || item.userId !== userId));
+}
+
+async function sendCloudMutation(key, endpoint, method, body) {
+  try {
+    await apiFetch(endpoint, { method, body: JSON.stringify(body) });
+    clearCloudMutation(key);
+    return true;
+  } catch {
+    queueCloudMutation(key, endpoint, method, body);
+    return false;
+  }
+}
+
+async function flushCloudQueue() {
+  if (!state.dbUser || !navigator.onLine) return;
+  const pending = loadCloudQueue();
+  if (!pending.length) return;
+  const remaining = [];
+  for (const item of pending) {
+    if (item.userId !== state.dbUser.id) {
+      remaining.push(item);
+      continue;
+    }
+    try {
+      await apiFetch(item.endpoint, { method: item.method, body: JSON.stringify(item.body) });
+    } catch {
+      remaining.push(item);
+    }
+  }
+  saveCloudQueue(remaining);
 }
 
 function getFavoriteSet() {
@@ -1071,11 +1134,22 @@ async function fetchJson(path, retries = 2) {
   }
 }
 
-function handleOfflineStatus() {
+async function handleOfflineStatus(event) {
   const isOff = !navigator.onLine;
   document.body.classList.toggle('is-offline', isOff);
   if (isOff) {
     showToast(state.lang === 'ar' ? 'أنت تعمل حالياً بدون اتصال — قد لا تتوفر بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
+  } else if (sessionInitialized && event?.type === 'online') {
+    state.apiAvailable = await detectApiAvailability();
+    if (state.apiAvailable) {
+      await checkCloudSession();
+      if (state.dbUser) {
+        await flushCloudQueue();
+        await mergeGuestProgress();
+        await checkCloudSession();
+      }
+    }
+    applyCapabilityVisibility();
   }
 }
 
@@ -2452,13 +2526,16 @@ async function toggleFavorite(id) {
   updateCardElOrRefresh(id);
   renderAccountSummary(els.categorySummaryMount);
 
-  try {
-    await apiFetch('/user/favorite', {
-      method: 'POST',
-      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', action })
-    });
-  } catch (err) {
-    showToast(state.lang === 'ar' ? 'خطأ في الحفظ السحابي' : 'Error saving to cloud');
+  const synced = await sendCloudMutation(`favorite:${id}`, '/user/favorite', 'POST', {
+    cardId: id,
+    categoryId: state.categoryData?.slug || 'unknown',
+    action,
+  });
+  if (!synced) {
+    const guestFavs = getGuestFavorites().filter(cardId => cardId !== id);
+    if (action === 'add') guestFavs.push(id);
+    saveJson(GUEST_KEYS.favorites, guestFavs);
+    showToast(state.lang === 'ar' ? 'سيتم الحفظ عند عودة الاتصال' : 'Saved on this device — cloud sync will retry');
   }
 }
 
@@ -2496,12 +2573,13 @@ async function markCard(id, result) {
   renderAccountSummary(els.categorySummaryMount);
   if (result === 'correct') setTimeout(() => checkCategoryComplete(state.categoryData?.slug || ''), 400);
 
-  try {
-    await apiFetch('/user/progress', {
-      method: 'POST',
-      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', status }),
-    });
-  } catch (e) {}
+  const categoryId = state.categoryData?.slug || 'unknown';
+  const synced = await sendCloudMutation(`progress:${id}`, '/user/progress', 'POST', { cardId: id, categoryId, status });
+  if (!synced) {
+    const guestSolved = getGuestSolvedMap();
+    guestSolved[id] = { status, categoryId };
+    saveJson(GUEST_KEYS.solved, guestSolved);
+  }
 }
 
 async function unmarkCard(id) {
@@ -2521,12 +2599,13 @@ async function unmarkCard(id) {
   updateCardElOrRefresh(id);
   renderAccountSummary(els.categorySummaryMount);
 
-  try {
-    await apiFetch('/user/progress', {
-      method: 'DELETE',
-      body: JSON.stringify({ cardId: id, categoryId: state.categoryData?.slug || 'unknown' }),
-    });
-  } catch (e) {}
+  const categoryId = state.categoryData?.slug || 'unknown';
+  const synced = await sendCloudMutation(`progress:${id}`, '/user/progress', 'DELETE', { cardId: id, categoryId });
+  if (!synced) {
+    const guestSolved = getGuestSolvedMap();
+    delete guestSolved[id];
+    saveJson(GUEST_KEYS.solved, guestSolved);
+  }
 }
 
 const FOCUSABLE = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
@@ -2824,7 +2903,9 @@ function renderAuthModal(mode = 'signin') {
              await apiFetch('/auth/register', { method: 'POST', body: JSON.stringify({ username, password, email }) });
           }
           await checkCloudSession();
+          await flushCloudQueue();
           await mergeGuestProgress();
+          await checkCloudSession();
           closeModal('auth');
           applyStaticCopy();
           rerender();
@@ -2942,7 +3023,7 @@ async function _speakTextFallback(text, lang) {
 
   if (!src) {
     try {
-      const url = 'https://jakh.net/api/tts?lang=' + encodeURIComponent(lang)
+      const url = `${API_URL}/tts?lang=` + encodeURIComponent(lang)
                 + '&text=' + encodeURIComponent(text);
       const res = await fetch(url);
       if (!res.ok) throw new Error(res.status);
@@ -3013,13 +3094,10 @@ function initSuggestionBox() {
     if (text.length < 5) { showToast(t('suggestError'), true); return; }
     els.suggestionSubmit.disabled = true;
     try {
-      const res = await fetch('/api/suggestions', {
+      await apiFetch('/suggestions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, email: els.suggestionEmail?.value.trim() || undefined }),
       });
-      const data = await res.json();
-      if (!res.ok) { showToast(data.error || 'Error submitting', true); return; }
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
     } catch {
@@ -3401,8 +3479,7 @@ async function openLeaderboard() {
   const body = document.getElementById('leaderboardBody');
   if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">Loading…</p>';
   try {
-    const res = await fetch('/api/leaderboard');
-    const { leaderboard } = await res.json();
+    const { leaderboard } = await apiFetch('/leaderboard');
     const currentUser = state.dbUser?.username;
     const medals = ['🥇', '🥈', '🥉'];
     if (!leaderboard?.length) {
@@ -3569,12 +3646,11 @@ function shareCard(cardId) {
 async function reportCard(cardId, categoryId, questionText) {
   const text = `[REPORT] ${categoryId}/${cardId}: ${questionText.substring(0, 150)}`;
   try {
-    const res = await fetch('/api/suggestions', {
+    await apiFetch('/suggestions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
     });
-    showToast(res.ok || res.status === 429 ? t('reportThanks') : t('reportError'));
+    showToast(t('reportThanks'));
   } catch { showToast(t('reportError')); }
 }
 
@@ -3840,7 +3916,12 @@ async function init() {
     state.apiAvailable = await detectApiAvailability();
     if (state.apiAvailable) {
       await checkCloudSession();
-      await loadStreak();
+      if (state.dbUser) {
+        await flushCloudQueue();
+        await mergeGuestProgress();
+        await checkCloudSession();
+        await loadStreak();
+      }
     }
     sessionInitialized = true;
   }
@@ -3951,9 +4032,10 @@ const battleState = {
   pendingSlug: '',
 };
 
-function getBattleWsUrl() {
-  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
-  return `${proto}//${location.host}/ws/battle`;
+function getBattleWsUrl(code) {
+  const api = new URL(API_ORIGIN);
+  const proto = api.protocol === 'https:' ? 'wss:' : 'ws:';
+  return `${proto}//${api.host}/ws/battle?code=${encodeURIComponent(code)}`;
 }
 
 function createBattleModal() {
@@ -4120,7 +4202,7 @@ function showBattleError(msg) {
 
 function connectToBattle(code, name, hostId) {
   if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); }
-  const ws = new WebSocket(getBattleWsUrl());
+  const ws = new WebSocket(getBattleWsUrl(code));
   battleState.ws = ws;
   battleState.roomCode = code;
   ws.onopen = () => ws.send(JSON.stringify({ type: 'join-room', code, name, hostId: hostId || '' }));

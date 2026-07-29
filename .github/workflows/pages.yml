@@ -24,12 +24,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Validate source
+        run: node scripts/validate-static.mjs
+
       - name: Prepare artifact
         run: |
           mkdir _site
           rsync -a \
             --exclude='.git' \
             --exclude='.github' \
+            --exclude='scripts' \
+            --exclude='worker' \
             --exclude='_site' \
             ./ _site/
 

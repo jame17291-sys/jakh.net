@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jakh-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-29",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://jakh.net,https://www.jakh.net,http://localhost:8765,http://127.0.0.1:8765",
+    "STATIC_ORIGIN": "https://jakh.net"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jakh-db",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "BATTLE_ROOMS",
+        "class_name": "BattleRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["BattleRoom"]
+    }
+  ]
+}

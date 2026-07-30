@@ -1,508 +1,482 @@
-{
-  "slug": "mechanical-engineering",
-  "title": {
-    "en": "Mechanical Engineering",
-    "ar": "الهندسة الميكانيكية"
-  },
-  "description": {
-    "en": "Forces, machines, thermodynamics, and the mechanics behind engineering.",
-    "ar": "قوى وآلات وديناميكا حرارية وميكانيكا الهندسة."
-  },
-  "cluster": {
-    "en": "Engineering",
-    "ar": "هندسة"
-  },
-  "cluster_key": "engineering",
-  "emoji": "⚙️",
-  "mode": "quiz",
-  "count": 30,
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 0
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "mechanical-engineering-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Simple Machines",
-        "ar": "الآلات البسيطة"
-      },
-      "question": {
-        "en": "What do you call the pivot point of a lever?",
-        "ar": "ما اسم نقطة ارتكاز الرافعة؟"
-      },
-      "answer": {
-        "en": "The Fulcrum",
-        "ar": "نقطة الارتكاز"
-      }
+[
+  {
+    "id": "mechanical-engineering-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
     },
-    {
-      "id": "mechanical-engineering-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Units",
-        "ar": "الوحدات"
-      },
-      "question": {
-        "en": "What is the SI unit for force?",
-        "ar": "ما وحدة القياس الدولية للقوة؟"
-      },
-      "answer": {
-        "en": "Newton (N)",
-        "ar": "النيوتن (N)"
-      }
+    "question": {
+      "en": "What do you call the pivot point of a lever?",
+      "ar": "ما اسم نقطة ارتكاز الرافعة؟"
     },
-    {
-      "id": "mechanical-engineering-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Simple Machines",
-        "ar": "الآلات البسيطة"
-      },
-      "question": {
-        "en": "A ramp is an example of which simple machine?",
-        "ar": "الرامب (المنحدر) مثال على أي آلة بسيطة؟"
-      },
-      "answer": {
-        "en": "Inclined plane",
-        "ar": "المستوى المائل"
-      }
-    },
-    {
-      "id": "mechanical-engineering-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Gears",
-        "ar": "التروس"
-      },
-      "question": {
-        "en": "If a large gear drives a smaller gear, does the smaller gear spin faster or slower?",
-        "ar": "إذا قادت تروس كبيرة تروساً أصغر، هل تدور الأصغر بسرعة أكبر أم أقل؟"
-      },
-      "answer": {
-        "en": "Faster",
-        "ar": "بسرعة أكبر"
-      }
-    },
-    {
-      "id": "mechanical-engineering-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Tools",
-        "ar": "الأدوات"
-      },
-      "question": {
-        "en": "Which tool is specifically designed to tighten or loosen bolts?",
-        "ar": "ما الأداة المصممة خصيصاً لشدّ البراغي أو إرخائها؟"
-      },
-      "answer": {
-        "en": "Wrench / Spanner",
-        "ar": "مفتاح الربط"
-      }
-    },
-    {
-      "id": "mechanical-engineering-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Energy",
-        "ar": "الطاقة"
-      },
-      "question": {
-        "en": "What type of energy does an object possess due to its motion?",
-        "ar": "ما نوع الطاقة التي يمتلكها الجسم بسبب حركته؟"
-      },
-      "answer": {
-        "en": "Kinetic energy",
-        "ar": "الطاقة الحركية"
-      }
-    },
-    {
-      "id": "mechanical-engineering-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Materials",
-        "ar": "المواد"
-      },
-      "question": {
-        "en": "Is steel an alloy or a pure element?",
-        "ar": "هل الفولاذ سبيكة أم عنصر خالص؟"
-      },
-      "answer": {
-        "en": "Alloy (iron and carbon)",
-        "ar": "سبيكة (من الحديد والكربون)"
-      }
-    },
-    {
-      "id": "mechanical-engineering-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Measurement",
-        "ar": "القياس"
-      },
-      "question": {
-        "en": "What tool measures the thickness of an object with high precision?",
-        "ar": "ما الأداة التي تقيس سماكة الجسم بدقة عالية؟"
-      },
-      "answer": {
-        "en": "Caliper or Micrometer",
-        "ar": "الفرجار أو الميكرومتر"
-      }
-    },
-    {
-      "id": "mechanical-engineering-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Lubrication",
-        "ar": "التزليق"
-      },
-      "question": {
-        "en": "What substance is added to machines to reduce friction between moving parts?",
-        "ar": "ما المادة التي تُضاف للآلات لتقليل الاحتكاك بين الأجزاء المتحركة؟"
-      },
-      "answer": {
-        "en": "Lubricant / Oil",
-        "ar": "مادة التزليق / الزيت"
-      }
-    },
-    {
-      "id": "mechanical-engineering-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Statics",
-        "ar": "الاستاتيكا"
-      },
-      "question": {
-        "en": "What is the formula for pressure?",
-        "ar": "ما صيغة حساب الضغط؟"
-      },
-      "answer": {
-        "en": "P = Force / Area",
-        "ar": "P = القوة / المساحة"
-      }
-    },
-    {
-      "id": "mechanical-engineering-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Thermodynamics",
-        "ar": "الديناميكا الحرارية"
-      },
-      "question": {
-        "en": "Which thermodynamic cycle is the basis for most internal combustion engines?",
-        "ar": "أي دورة ديناميكية حرارية تُشكّل أساس معظم محركات الاحتراق الداخلي؟"
-      },
-      "answer": {
-        "en": "The Otto Cycle",
-        "ar": "دورة أوتو"
-      }
-    },
-    {
-      "id": "mechanical-engineering-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Material Properties",
-        "ar": "خصائص المواد"
-      },
-      "question": {
-        "en": "What is the ratio of change in length to the original length of a material?",
-        "ar": "ما نسبة التغير في الطول إلى الطول الأصلي للمادة؟"
-      },
-      "answer": {
-        "en": "Strain",
-        "ar": "الانفعال (Strain)"
-      }
-    },
-    {
-      "id": "mechanical-engineering-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Thermodynamics",
-        "ar": "الديناميكا الحرارية"
-      },
-      "question": {
-        "en": "What does the First Law of Thermodynamics state about energy?",
-        "ar": "ماذا ينص القانون الأول للديناميكا الحرارية بشأن الطاقة؟"
-      },
-      "answer": {
-        "en": "Energy cannot be created or destroyed, only transformed",
-        "ar": "لا تُخلق الطاقة ولا تُفنى، بل تتحول من شكل لآخر"
-      }
-    },
-    {
-      "id": "mechanical-engineering-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Gears",
-        "ar": "التروس"
-      },
-      "question": {
-        "en": "If a drive gear has 20 teeth and driven gear has 60 teeth, what is the gear ratio?",
-        "ar": "إذا كان تروس القيادة 20 سنّاً والمقاد 60 سناً، ما نسبة الترس؟"
-      },
-      "answer": {
-        "en": "3:1",
-        "ar": "3:1"
-      }
-    },
-    {
-      "id": "mechanical-engineering-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Hydraulics",
-        "ar": "الهيدروليكا"
-      },
-      "question": {
-        "en": "Pascal's Law states that pressure applied to a confined fluid is transmitted how?",
-        "ar": "ينص قانون باسكال على أن الضغط المُطبَّق على سائل محصور ينتقل كيف؟"
-      },
-      "answer": {
-        "en": "Undiminished in all directions",
-        "ar": "دون تخفيف في جميع الاتجاهات"
-      }
-    },
-    {
-      "id": "mechanical-engineering-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Material Properties",
-        "ar": "خصائص المواد"
-      },
-      "question": {
-        "en": "What is the term for a material's ability to be stretched into a wire without breaking?",
-        "ar": "ما المصطلح الذي يصف قدرة المادة على السحب إلى سلك دون كسر؟"
-      },
-      "answer": {
-        "en": "Ductility",
-        "ar": "الليونة (Ductility)"
-      }
-    },
-    {
-      "id": "mechanical-engineering-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Dynamics",
-        "ar": "الديناميكا"
-      },
-      "question": {
-        "en": "What is the formula for torque?",
-        "ar": "ما صيغة حساب عزم الدوران؟"
-      },
-      "answer": {
-        "en": "T = Force × Radius",
-        "ar": "T = القوة × نصف القطر"
-      }
-    },
-    {
-      "id": "mechanical-engineering-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Heat Transfer",
-        "ar": "انتقال الحرارة"
-      },
-      "question": {
-        "en": "What are the three modes of heat transfer?",
-        "ar": "ما الأوضاع الثلاثة لانتقال الحرارة؟"
-      },
-      "answer": {
-        "en": "Conduction, Convection, Radiation",
-        "ar": "التوصيل والحمل والإشعاع"
-      }
-    },
-    {
-      "id": "mechanical-engineering-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Control Systems",
-        "ar": "أنظمة التحكم"
-      },
-      "question": {
-        "en": "What is the mechanical device used to regulate the speed of a machine?",
-        "ar": "ما الجهاز الميكانيكي المستخدم لتنظيم سرعة الآلة؟"
-      },
-      "answer": {
-        "en": "Governor",
-        "ar": "الحاكم (Governor)"
-      }
-    },
-    {
-      "id": "mechanical-engineering-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Material Failure",
-        "ar": "فشل المواد"
-      },
-      "question": {
-        "en": "What is the term for weakening of a material caused by repeatedly applied loads?",
-        "ar": "ما مصطلح ضعف المادة الناتج عن الأحمال المتكررة؟"
-      },
-      "answer": {
-        "en": "Fatigue",
-        "ar": "الإجهاد التعبي (Fatigue)"
-      }
-    },
-    {
-      "id": "mechanical-engineering-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Fluid Mechanics",
-        "ar": "ميكانيكا الموائع"
-      },
-      "question": {
-        "en": "What dimensionless number predicts if a fluid flow is laminar or turbulent?",
-        "ar": "ما الرقم عديم الأبعاد الذي يتنبأ بما إذا كان التدفق طبقياً أم مضطرباً؟"
-      },
-      "answer": {
-        "en": "Reynolds Number",
-        "ar": "رقم رينولدز"
-      }
-    },
-    {
-      "id": "mechanical-engineering-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Thermodynamics",
-        "ar": "الديناميكا الحرارية"
-      },
-      "question": {
-        "en": "What is the theoretical maximum efficiency of a heat engine called?",
-        "ar": "ما الاسم المعطى لأقصى كفاءة نظرية لمحرك حراري؟"
-      },
-      "answer": {
-        "en": "Carnot Efficiency",
-        "ar": "كفاءة كارنو"
-      }
-    },
-    {
-      "id": "mechanical-engineering-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Material Properties",
-        "ar": "خصائص المواد"
-      },
-      "question": {
-        "en": "What is the ratio of shear stress to shear strain?",
-        "ar": "ما نسبة إجهاد القص إلى انفعال القص؟"
-      },
-      "answer": {
-        "en": "Shear Modulus (Modulus of Rigidity)",
-        "ar": "معامل القص (معامل الصلابة)"
-      }
-    },
-    {
-      "id": "mechanical-engineering-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Mechanisms",
-        "ar": "الآليات"
-      },
-      "question": {
-        "en": "What is a 'Four-Bar Linkage'?",
-        "ar": "ما المقصود بـ'الرابط رباعي العصي'؟"
-      },
-      "answer": {
-        "en": "Four bodies connected in a loop by four joints",
-        "ar": "أربعة أجسام متصلة في حلقة بأربع مفاصل"
-      }
-    },
-    {
-      "id": "mechanical-engineering-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "HVAC",
-        "ar": "التكييف والتبريد"
-      },
-      "question": {
-        "en": "What chart is used to study the properties of moist air?",
-        "ar": "ما الرسم البياني المستخدم لدراسة خصائص الهواء الرطب؟"
-      },
-      "answer": {
-        "en": "Psychrometric Chart",
-        "ar": "المخطط السيكروميتري"
-      }
-    },
-    {
-      "id": "mechanical-engineering-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Engine Components",
-        "ar": "مكونات المحرك"
-      },
-      "question": {
-        "en": "What component in an engine converts reciprocating motion into rotational motion?",
-        "ar": "ما المكوّن في المحرك الذي يحوّل الحركة الترددية إلى دورانية؟"
-      },
-      "answer": {
-        "en": "Crankshaft",
-        "ar": "عمود الكرنك"
-      }
-    },
-    {
-      "id": "mechanical-engineering-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Vibrations",
-        "ar": "الاهتزازات"
-      },
-      "question": {
-        "en": "What is the term for a system vibrating at its natural frequency with high amplitude?",
-        "ar": "ما مصطلح اهتزاز نظام عند تردده الطبيعي بسعة عالية؟"
-      },
-      "answer": {
-        "en": "Resonance",
-        "ar": "الرنين"
-      }
-    },
-    {
-      "id": "mechanical-engineering-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Power Plants",
-        "ar": "محطات الطاقة"
-      },
-      "question": {
-        "en": "The Rankine cycle models the performance of what type of power plant?",
-        "ar": "دورة رانكين تُنمذج أداء أي نوع من محطات الطاقة؟"
-      },
-      "answer": {
-        "en": "Steam Power Plant",
-        "ar": "محطة الطاقة البخارية"
-      }
-    },
-    {
-      "id": "mechanical-engineering-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Material Testing",
-        "ar": "اختبار المواد"
-      },
-      "question": {
-        "en": "Which scale is commonly used to measure indentation hardness of steel?",
-        "ar": "أي مقياس شائع الاستخدام لقياس صلابة الاختراق للفولاذ؟"
-      },
-      "answer": {
-        "en": "Rockwell or Brinell scale",
-        "ar": "مقياس روكويل أو برينيل"
-      }
-    },
-    {
-      "id": "mechanical-engineering-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Structural Analysis",
-        "ar": "التحليل الإنشائي"
-      },
-      "question": {
-        "en": "What is the method of joints used for in truss analysis?",
-        "ar": "لماذا تُستخدم طريقة المفاصل في تحليل الجمالونات؟"
-      },
-      "answer": {
-        "en": "To find the internal forces in the members of a truss",
-        "ar": "لإيجاد القوى الداخلية في أعضاء الجمالون"
-      }
+    "answer": {
+      "en": "The Fulcrum",
+      "ar": "نقطة الارتكاز"
     }
-  ]
-}
+  },
+  {
+    "id": "mechanical-engineering-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Measurement & Maintenance",
+      "ar": "القياس والصيانة"
+    },
+    "question": {
+      "en": "What is the SI unit for force?",
+      "ar": "ما وحدة القياس الدولية للقوة؟"
+    },
+    "answer": {
+      "en": "Newton (N)",
+      "ar": "النيوتن (N)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "A ramp is an example of which simple machine?",
+      "ar": "الرامب (المنحدر) مثال على أي آلة بسيطة؟"
+    },
+    "answer": {
+      "en": "Inclined plane",
+      "ar": "المستوى المائل"
+    }
+  },
+  {
+    "id": "mechanical-engineering-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "If a large gear drives a smaller gear, does the smaller gear spin faster or slower?",
+      "ar": "إذا قادت تروس كبيرة تروساً أصغر، هل تدور الأصغر بسرعة أكبر أم أقل؟"
+    },
+    "answer": {
+      "en": "Faster",
+      "ar": "بسرعة أكبر"
+    }
+  },
+  {
+    "id": "mechanical-engineering-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "Which tool is specifically designed to tighten or loosen bolts?",
+      "ar": "ما الأداة المصممة خصيصاً لشدّ البراغي أو إرخائها؟"
+    },
+    "answer": {
+      "en": "Wrench / Spanner",
+      "ar": "مفتاح الربط"
+    }
+  },
+  {
+    "id": "mechanical-engineering-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "What type of energy does an object possess due to its motion?",
+      "ar": "ما نوع الطاقة التي يمتلكها الجسم بسبب حركته؟"
+    },
+    "answer": {
+      "en": "Kinetic energy",
+      "ar": "الطاقة الحركية"
+    }
+  },
+  {
+    "id": "mechanical-engineering-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "Is steel an alloy or a pure element?",
+      "ar": "هل الفولاذ سبيكة أم عنصر خالص؟"
+    },
+    "answer": {
+      "en": "Alloy (iron and carbon)",
+      "ar": "سبيكة (من الحديد والكربون)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Measurement & Maintenance",
+      "ar": "القياس والصيانة"
+    },
+    "question": {
+      "en": "What tool measures the thickness of an object with high precision?",
+      "ar": "ما الأداة التي تقيس سماكة الجسم بدقة عالية؟"
+    },
+    "answer": {
+      "en": "Caliper or Micrometer",
+      "ar": "الفرجار أو الميكرومتر"
+    }
+  },
+  {
+    "id": "mechanical-engineering-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Measurement & Maintenance",
+      "ar": "القياس والصيانة"
+    },
+    "question": {
+      "en": "What substance is added to machines to reduce friction between moving parts?",
+      "ar": "ما المادة التي تُضاف للآلات لتقليل الاحتكاك بين الأجزاء المتحركة؟"
+    },
+    "answer": {
+      "en": "Lubricant / Oil",
+      "ar": "مادة التزليق / الزيت"
+    }
+  },
+  {
+    "id": "mechanical-engineering-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Mechanics & Structural Analysis",
+      "ar": "الميكانيكا والتحليل الإنشائي"
+    },
+    "question": {
+      "en": "What is the formula for pressure?",
+      "ar": "ما صيغة حساب الضغط؟"
+    },
+    "answer": {
+      "en": "P = Force / Area",
+      "ar": "P = القوة / المساحة"
+    }
+  },
+  {
+    "id": "mechanical-engineering-011",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "Which thermodynamic cycle is the basis for most internal combustion engines?",
+      "ar": "أي دورة ديناميكية حرارية تُشكّل أساس معظم محركات الاحتراق الداخلي؟"
+    },
+    "answer": {
+      "en": "The Otto Cycle",
+      "ar": "دورة أوتو"
+    }
+  },
+  {
+    "id": "mechanical-engineering-012",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "What is the ratio of change in length to the original length of a material?",
+      "ar": "ما نسبة التغير في الطول إلى الطول الأصلي للمادة؟"
+    },
+    "answer": {
+      "en": "Strain",
+      "ar": "الانفعال (Strain)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-013",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "What does the First Law of Thermodynamics state about energy?",
+      "ar": "ماذا ينص القانون الأول للديناميكا الحرارية بشأن الطاقة؟"
+    },
+    "answer": {
+      "en": "Energy cannot be created or destroyed, only transformed",
+      "ar": "لا تُخلق الطاقة ولا تُفنى، بل تتحول من شكل لآخر"
+    }
+  },
+  {
+    "id": "mechanical-engineering-014",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "If a drive gear has 20 teeth and driven gear has 60 teeth, what is the gear ratio?",
+      "ar": "إذا كان تروس القيادة 20 سنّاً والمقاد 60 سناً، ما نسبة الترس؟"
+    },
+    "answer": {
+      "en": "3:1",
+      "ar": "3:1"
+    }
+  },
+  {
+    "id": "mechanical-engineering-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Fluids & Hydraulics",
+      "ar": "الموائع والهيدروليكا"
+    },
+    "question": {
+      "en": "Pascal's Law states that pressure applied to a confined fluid is transmitted how?",
+      "ar": "ينص قانون باسكال على أن الضغط المُطبَّق على سائل محصور ينتقل كيف؟"
+    },
+    "answer": {
+      "en": "Undiminished in all directions",
+      "ar": "دون تخفيف في جميع الاتجاهات"
+    }
+  },
+  {
+    "id": "mechanical-engineering-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "What is the term for a material's ability to be stretched into a wire without breaking?",
+      "ar": "ما المصطلح الذي يصف قدرة المادة على السحب إلى سلك دون كسر؟"
+    },
+    "answer": {
+      "en": "Ductility",
+      "ar": "الليونة (Ductility)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Mechanics & Structural Analysis",
+      "ar": "الميكانيكا والتحليل الإنشائي"
+    },
+    "question": {
+      "en": "What is the formula for torque?",
+      "ar": "ما صيغة حساب عزم الدوران؟"
+    },
+    "answer": {
+      "en": "T = Force × Radius",
+      "ar": "T = القوة × نصف القطر"
+    }
+  },
+  {
+    "id": "mechanical-engineering-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "What are the three modes of heat transfer?",
+      "ar": "ما الأوضاع الثلاثة لانتقال الحرارة؟"
+    },
+    "answer": {
+      "en": "Conduction, Convection, Radiation",
+      "ar": "التوصيل والحمل والإشعاع"
+    }
+  },
+  {
+    "id": "mechanical-engineering-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "What is the mechanical device used to regulate the speed of a machine?",
+      "ar": "ما الجهاز الميكانيكي المستخدم لتنظيم سرعة الآلة؟"
+    },
+    "answer": {
+      "en": "Governor",
+      "ar": "الحاكم (Governor)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "What is the term for weakening of a material caused by repeatedly applied loads?",
+      "ar": "ما مصطلح ضعف المادة الناتج عن الأحمال المتكررة؟"
+    },
+    "answer": {
+      "en": "Fatigue",
+      "ar": "الإجهاد التعبي (Fatigue)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Fluids & Hydraulics",
+      "ar": "الموائع والهيدروليكا"
+    },
+    "question": {
+      "en": "What dimensionless number predicts if a fluid flow is laminar or turbulent?",
+      "ar": "ما الرقم عديم الأبعاد الذي يتنبأ بما إذا كان التدفق طبقياً أم مضطرباً؟"
+    },
+    "answer": {
+      "en": "Reynolds Number",
+      "ar": "رقم رينولدز"
+    }
+  },
+  {
+    "id": "mechanical-engineering-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "What is the theoretical maximum efficiency of a heat engine called?",
+      "ar": "ما الاسم المعطى لأقصى كفاءة نظرية لمحرك حراري؟"
+    },
+    "answer": {
+      "en": "Carnot Efficiency",
+      "ar": "كفاءة كارنو"
+    }
+  },
+  {
+    "id": "mechanical-engineering-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "What is the ratio of shear stress to shear strain?",
+      "ar": "ما نسبة إجهاد القص إلى انفعال القص؟"
+    },
+    "answer": {
+      "en": "Shear Modulus (Modulus of Rigidity)",
+      "ar": "معامل القص (معامل الصلابة)"
+    }
+  },
+  {
+    "id": "mechanical-engineering-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "What is a 'Four-Bar Linkage'?",
+      "ar": "ما المقصود بـ'الرابط رباعي العصي'؟"
+    },
+    "answer": {
+      "en": "Four bodies connected in a loop by four joints",
+      "ar": "أربعة أجسام متصلة في حلقة بأربع مفاصل"
+    }
+  },
+  {
+    "id": "mechanical-engineering-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "What chart is used to study the properties of moist air?",
+      "ar": "ما الرسم البياني المستخدم لدراسة خصائص الهواء الرطب؟"
+    },
+    "answer": {
+      "en": "Psychrometric Chart",
+      "ar": "المخطط السيكروميتري"
+    }
+  },
+  {
+    "id": "mechanical-engineering-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Machines, Gears & Mechanisms",
+      "ar": "الآلات والتروس والآليات"
+    },
+    "question": {
+      "en": "What component in an engine converts reciprocating motion into rotational motion?",
+      "ar": "ما المكوّن في المحرك الذي يحوّل الحركة الترددية إلى دورانية؟"
+    },
+    "answer": {
+      "en": "Crankshaft",
+      "ar": "عمود الكرنك"
+    }
+  },
+  {
+    "id": "mechanical-engineering-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mechanics & Structural Analysis",
+      "ar": "الميكانيكا والتحليل الإنشائي"
+    },
+    "question": {
+      "en": "What is the term for a system vibrating at its natural frequency with high amplitude?",
+      "ar": "ما مصطلح اهتزاز نظام عند تردده الطبيعي بسعة عالية؟"
+    },
+    "answer": {
+      "en": "Resonance",
+      "ar": "الرنين"
+    }
+  },
+  {
+    "id": "mechanical-engineering-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Thermodynamics, Heat & Power",
+      "ar": "الديناميكا الحرارية والحرارة والطاقة"
+    },
+    "question": {
+      "en": "The Rankine cycle models the performance of what type of power plant?",
+      "ar": "دورة رانكين تُنمذج أداء أي نوع من محطات الطاقة؟"
+    },
+    "answer": {
+      "en": "Steam Power Plant",
+      "ar": "محطة الطاقة البخارية"
+    }
+  },
+  {
+    "id": "mechanical-engineering-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Materials & Failure",
+      "ar": "المواد والفشل"
+    },
+    "question": {
+      "en": "Which scale is commonly used to measure indentation hardness of steel?",
+      "ar": "أي مقياس شائع الاستخدام لقياس صلابة الاختراق للفولاذ؟"
+    },
+    "answer": {
+      "en": "Rockwell or Brinell scale",
+      "ar": "مقياس روكويل أو برينيل"
+    }
+  },
+  {
+    "id": "mechanical-engineering-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Mechanics & Structural Analysis",
+      "ar": "الميكانيكا والتحليل الإنشائي"
+    },
+    "question": {
+      "en": "What is the method of joints used for in truss analysis?",
+      "ar": "لماذا تُستخدم طريقة المفاصل في تحليل الجمالونات؟"
+    },
+    "answer": {
+      "en": "To find the internal forces in the members of a truss",
+      "ar": "لإيجاد القوى الداخلية في أعضاء الجمالون"
+    }
+  }
+]

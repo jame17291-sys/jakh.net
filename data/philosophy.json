@@ -1,828 +1,802 @@
-{
-  "slug": "philosophy",
-  "title": {
-    "en": "Philosophy",
-    "ar": "الفلسفة"
-  },
-  "description": {
-    "en": "Philosophers, schools of thought, classic arguments, and fundamental questions about existence, knowledge, and ethics.",
-    "ar": "فلاسفة ومدارس فكرية وحجج كلاسيكية وأسئلة جوهرية حول الوجود والمعرفة والأخلاق."
-  },
-  "cluster": {
-    "en": "Academic",
-    "ar": "أكاديمي"
-  },
-  "cluster_key": "academics",
-  "emoji": "🧠",
-  "mode": "quiz",
-  "count": 50,
-  "difficultyCounts": {
-    "easy": 14,
-    "medium": 7,
-    "hard": 16,
-    "very-advanced": 13
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "phil-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ancient Philosophy",
-        "ar": "الفلسفة القديمة"
-      },
-      "question": {
-        "en": "Who is considered the father of Western philosophy?",
-        "ar": "من يُعدّ أبا الفلسفة الغربية؟"
-      },
-      "answer": {
-        "en": "Socrates (470–399 BC), the Athenian philosopher who developed the Socratic method of questioning. He wrote nothing himself — his ideas are known through his student Plato.",
-        "ar": "سقراط (470–399 ق.م)، الفيلسوف الأثيني الذي طوّر المنهج السقراطي في التساؤل. لم يكتب شيئًا بنفسه — تُعرف أفكاره من خلال تلميذه أفلاطون."
-      }
+[
+  {
+    "id": "phil-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
     },
-    {
-      "id": "phil-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ancient Philosophy",
-        "ar": "الفلسفة القديمة"
-      },
-      "question": {
-        "en": "What is Plato's theory of Forms?",
-        "ar": "ما نظرية المُثُل (الأفكار) عند أفلاطون؟"
-      },
-      "answer": {
-        "en": "Plato argued that the physical world is an imperfect copy of a higher realm of perfect, eternal abstract entities called Forms or Ideas. For example, all beautiful things participate in the Form of Beauty itself, which exists independently of any physical example.",
-        "ar": "جادل أفلاطون بأن العالم المادي نسخة ناقصة من عالم أرقى من الكيانات المجردة الكاملة الأزلية تُسمى المُثُل أو الأفكار. على سبيل المثال، كل الأشياء الجميلة تشارك في مثال الجمال ذاته الموجود باستقلال عن أي مثال مادي."
-      }
+    "question": {
+      "en": "Who is considered the father of Western philosophy?",
+      "ar": "من يُعدّ أبا الفلسفة الغربية؟"
     },
-    {
-      "id": "phil-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ancient Philosophy",
-        "ar": "الفلسفة القديمة"
-      },
-      "question": {
-        "en": "What is Aristotle's concept of the 'Golden Mean'?",
-        "ar": "ما مفهوم أرسطو عن 'الوسط الذهبي'؟"
-      },
-      "answer": {
-        "en": "The ethical principle that virtue lies between two extremes (excess and deficiency). For example, courage is the mean between cowardice (deficiency) and recklessness (excess). This is part of his virtue ethics framework.",
-        "ar": "المبدأ الأخلاقي القاضي بأن الفضيلة تقع بين طرفَين متطرفَين (الزيادة والنقص). على سبيل المثال، الشجاعة هي الوسط بين الجبن (النقص) والتهور (الزيادة). هذا جزء من إطاره في أخلاق الفضيلة."
-      }
-    },
-    {
-      "id": "phil-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Modern Philosophy",
-        "ar": "الفلسفة الحديثة"
-      },
-      "question": {
-        "en": "What is René Descartes' most famous philosophical statement?",
-        "ar": "ما أشهر عبارة فلسفية لرينيه ديكارت؟"
-      },
-      "answer": {
-        "en": "'Cogito, ergo sum' — 'I think, therefore I am.' It was his foundational certainty: even if everything else could be doubted, the very act of doubting proves the existence of a thinking subject.",
-        "ar": "'أنا أفكر، إذن أنا موجود' (Cogito, ergo sum). كانت يقينه الأساسي: حتى لو أمكن الشك في كل شيء آخر، فإن فعل الشك ذاته يُثبت وجود ذات مفكّرة."
-      }
-    },
-    {
-      "id": "phil-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is utilitarianism?",
-        "ar": "ما المذهب النفعي (الأوتيليتارية)؟"
-      },
-      "answer": {
-        "en": "The ethical theory that the right action is the one that maximizes overall happiness or utility for the greatest number of people. Associated with Jeremy Bentham and John Stuart Mill.",
-        "ar": "النظرية الأخلاقية القائلة بأن الفعل الصحيح هو ما يُعظّم السعادة الإجمالية أو المنفعة لأكبر عدد من الناس. ترتبط بجيريمي بنثام وجون ستيوارت مل."
-      }
-    },
-    {
-      "id": "phil-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is Immanuel Kant's categorical imperative?",
-        "ar": "ما الأمر المطلق عند إيمانويل كانط؟"
-      },
-      "answer": {
-        "en": "Kant's supreme principle of morality: 'Act only according to that maxim by which you can at the same time will that it should become a universal law.' In other words, only do what you could will everyone to do.",
-        "ar": "المبدأ الأخلاقي الأسمى عند كانط: 'تصرّف وفق المبدأ الذي تستطيع في الوقت ذاته أن تريده قانونًا كونيًا'. بعبارة أخرى، افعل فقط ما يمكنك أن تريد أن يفعله الجميع."
-      }
-    },
-    {
-      "id": "phil-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Epistemology",
-        "ar": "نظرية المعرفة"
-      },
-      "question": {
-        "en": "What is epistemology?",
-        "ar": "ما نظرية المعرفة (الإبستمولوجيا)؟"
-      },
-      "answer": {
-        "en": "The branch of philosophy that studies the nature, sources, scope, and limits of knowledge. Key questions: What is knowledge? How do we know anything? What is the difference between belief and justified belief?",
-        "ar": "فرع الفلسفة الذي يدرس طبيعة المعرفة ومصادرها ونطاقها وحدودها. الأسئلة الجوهرية: ما المعرفة؟ كيف نعلم أي شيء؟ ما الفرق بين الاعتقاد والاعتقاد المُبرَّر؟"
-      }
-    },
-    {
-      "id": "phil-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the mind-body problem in philosophy?",
-        "ar": "ما مشكلة العقل والجسد في الفلسفة؟"
-      },
-      "answer": {
-        "en": "The question of how the immaterial mind (thoughts, consciousness) relates to the physical brain and body. Descartes' dualism says mind and body are separate substances. Physicalism says mind is entirely a product of physical brain processes.",
-        "ar": "السؤال حول كيف يرتبط العقل غير المادي (الأفكار والوعي) بالدماغ والجسد الماديَّين. الثنائية الديكارتية تقول إن العقل والجسد جوهران منفصلان. المادية تقول إن العقل نتاج العمليات الجسدية للدماغ كليًا."
-      }
-    },
-    {
-      "id": "phil-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ancient Philosophy",
-        "ar": "الفلسفة القديمة"
-      },
-      "question": {
-        "en": "What did Plato's allegory of the cave illustrate?",
-        "ar": "ما الذي توضّحه أسطورة الكهف عند أفلاطون؟"
-      },
-      "answer": {
-        "en": "Prisoners in a cave see only shadows on a wall and think this is reality. When one escapes and sees the real world and sun, he returns to tell the others who refuse to believe him. It illustrates how most people mistake appearances for reality, and how true knowledge requires philosophical 'enlightenment'.",
-        "ar": "سجناء في كهف يرون ظلالًا على جدار فيظنّونها حقيقة. حين يهرب أحدهم ويرى العالم الحقيقي والشمس، يعود ليُخبر الآخرين الذين يرفضون تصديقه. توضّح كيف يخلط معظم الناس المظاهر بالحقيقة، وكيف تستلزم المعرفة الحقيقية 'استنارة' فلسفية."
-      }
-    },
-    {
-      "id": "phil-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Political Philosophy",
-        "ar": "الفلسفة السياسية"
-      },
-      "question": {
-        "en": "What is the social contract theory associated with Locke, Hobbes, and Rousseau?",
-        "ar": "ما نظرية العقد الاجتماعي المرتبطة بلوك وهوبز وروسو؟"
-      },
-      "answer": {
-        "en": "The theory that legitimate political authority derives from an agreement (explicit or implicit) among individuals to form a society and give up certain freedoms to a government in exchange for security and social order.",
-        "ar": "النظرية القائلة بأن السلطة السياسية المشروعة مستمدة من اتفاق (صريح أو ضمني) بين الأفراد على تكوين مجتمع والتنازل عن حريات معينة لحكومة مقابل الأمن والنظام الاجتماعي."
-      }
-    },
-    {
-      "id": "phil-011",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ancient Philosophy",
-        "ar": "الفلسفة القديمة"
-      },
-      "question": {
-        "en": "What is Stoicism?",
-        "ar": "ما الرواقية؟"
-      },
-      "answer": {
-        "en": "A school of ancient Greek and Roman philosophy (founded by Zeno of Citium) teaching that virtue alone is sufficient for happiness, emotions should be governed by reason, and we should accept with equanimity what we cannot control.",
-        "ar": "مدرسة فلسفية يونانية رومانية قديمة (أسّسها زينو الكيتيوني) تعلّم أن الفضيلة وحدها كافية للسعادة، وأن العواطف ينبغي أن تُحكمها العقل، وأن نقبل بهدوء ما لا نستطيع السيطرة عليه."
-      }
-    },
-    {
-      "id": "phil-012",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Logic",
-        "ar": "منطق"
-      },
-      "question": {
-        "en": "What is a logical fallacy?",
-        "ar": "ما المغالطة المنطقية؟"
-      },
-      "answer": {
-        "en": "An error in reasoning that makes an argument invalid or misleading. Examples: ad hominem (attacking the person rather than the argument), straw man (misrepresenting an opponent's argument), false dichotomy (presenting only two options when more exist).",
-        "ar": "خطأ في التفكير يجعل الحجة غير صالحة أو مضلِّلة. أمثلة: الهجوم الشخصي (مهاجمة الشخص لا الحجة)، رجل القش (تحريف حجة الخصم)، الثنائية الزائفة (تقديم خيارَين فقط بينما يوجد أكثر)."
-      }
-    },
-    {
-      "id": "phil-013",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the trolley problem in ethics?",
-        "ar": "ما مسألة العربة (Trolley Problem) في الأخلاق؟"
-      },
-      "answer": {
-        "en": "A thought experiment: a runaway trolley will kill five people on the tracks. You can divert it to a side track where it will kill only one. Do you act? It tests whether the ethics of an action depends on outcomes (consequentialism) or on rules regardless of outcomes (deontology).",
-        "ar": "تجربة فكرية: عربة جامحة ستقتل خمسة أشخاص على القضبان. تستطيع تحويلها إلى مسار جانبي ستقتل فيه شخصًا واحدًا فقط. هل تتصرف؟ تختبر ما إذا كانت أخلاقيات الفعل تعتمد على النتائج (النفعية) أم على قواعد بغض النظر عن النتائج (الواجبية)."
-      }
-    },
-    {
-      "id": "phil-014",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Islamic Philosophy",
-        "ar": "الفلسفة الإسلامية"
-      },
-      "question": {
-        "en": "Who was Ibn Rushd (Averroes) and why was he significant in the history of philosophy?",
-        "ar": "من ابن رشد (أفيرويس) ولماذا كان بارزًا في تاريخ الفلسفة؟"
-      },
-      "answer": {
-        "en": "Ibn Rushd (1126–1198) was an Andalusian Muslim philosopher who wrote extensive commentaries on Aristotle. His work transmitted Aristotle's philosophy to medieval Europe, influencing Aquinas and scholasticism. He argued for the compatibility of reason and faith, believing philosophy and theology could be reconciled.",
-        "ar": "ابن رشد (1126–1198) فيلسوف مسلم أندلسي كتب شروحات مستفيضة على أرسطو. نقل عمله فلسفة أرسطو إلى أوروبا في العصور الوسطى مؤثّرًا في الأكويني والمدرسية. جادل بتوافق العقل والإيمان مؤمنًا بإمكانية التوفيق بين الفلسفة واللاهوت."
-      }
-    },
-    {
-      "id": "phil-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Epistemology",
-        "ar": "نظرية المعرفة"
-      },
-      "question": {
-        "en": "What is the Gettier problem in epistemology?",
-        "ar": "ما مشكلة غيتيه في نظرية المعرفة؟"
-      },
-      "answer": {
-        "en": "Edmund Gettier (1963) challenged the classical definition of knowledge as 'justified true belief' with counterexamples where someone has a justified true belief that is true by accident — suggesting they don't really 'know' it. This sparked decades of debate about what conditions are sufficient for knowledge.",
-        "ar": "ألدموند غيتيه (1963) طعن في التعريف الكلاسيكي للمعرفة بأنها 'اعتقاد صادق مُبرَّر' بأمثلة مضادة يملك فيها شخص اعتقادًا صادقًا مُبرَّرًا لكنه صادق بالمصادفة — مما يُشير إلى أنه لا 'يعلم' فعلًا. أثار هذا جدلًا امتد عقودًا حول الشروط الكافية للمعرفة."
-      }
-    },
-    {
-      "id": "phil-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the difference between deontological and consequentialist ethics?",
-        "ar": "ما الفرق بين الأخلاق الواجبية والأخلاق العواقبية؟"
-      },
-      "answer": {
-        "en": "Deontological ethics (Kant) judges actions as right or wrong based on whether they follow moral rules or duties — regardless of consequences. Consequentialist ethics (utilitarianism) judges actions by their outcomes — an action is right if it produces good consequences.",
-        "ar": "الأخلاق الواجبية (كانط) تحكم على الأفعال بالصواب أو الخطأ بناءً على مدى اتباعها للقواعد أو الواجبات الأخلاقية — بغض النظر عن العواقب. الأخلاق العواقبية (النفعية) تحكم على الأفعال بنتائجها — الفعل صواب إذا أنتج عواقب جيدة."
-      }
-    },
-    {
-      "id": "phil-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Political Philosophy",
-        "ar": "الفلسفة السياسية"
-      },
-      "question": {
-        "en": "What is John Rawls' 'veil of ignorance' thought experiment?",
-        "ar": "ما تجربة 'حجاب الجهل' الفكرية عند جون رولز؟"
-      },
-      "answer": {
-        "en": "Rawls asked: what principles of justice would rational people choose if they didn't know their own position in society (their wealth, class, race, talents)? Behind this 'veil of ignorance,' he argued, people would choose equal basic liberties and arrange inequalities to benefit the least advantaged — his 'difference principle.'",
-        "ar": "تساءل رولز: أي مبادئ عدالة سيختارها الناس العقلانيون لو لم يعلموا موضعهم في المجتمع (ثروتهم وطبقتهم وعرقهم ومواهبهم)؟ خلف هذا 'حجاب الجهل'، جادل بأن الناس سيختارون حريات أساسية متساوية وترتيب التفاوتات لصالح الأقل حظًا — وهو 'مبدأ الاختلاف' عنده."
-      }
-    },
-    {
-      "id": "phil-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is Leibniz's principle of the identity of indiscernibles?",
-        "ar": "ما مبدأ ليبنيز عن هوية المتشابهات (التماثل)?"
-      },
-      "answer": {
-        "en": "The principle that if two things are indistinguishable in all their properties, they are in fact the same thing. In other words, there cannot be two numerically distinct objects that are qualitatively identical in every respect.",
-        "ar": "المبدأ القائل بأنه إذا كان شيئان غير قابلَين للتمييز في جميع خصائصهما، فهما في الواقع الشيء ذاته. بعبارة أخرى، لا يمكن أن يوجد شيئان متمايزان عدديًا متماثلان نوعيًا من كل وجه."
-      }
-    },
-    {
-      "id": "phil-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Islamic Philosophy",
-        "ar": "الفلسفة الإسلامية"
-      },
-      "question": {
-        "en": "What was the central debate between Al-Ghazali and Ibn Rushd?",
-        "ar": "ما الجدل المحوري بين الغزالي وابن رشد؟"
-      },
-      "answer": {
-        "en": "Al-Ghazali wrote 'The Incoherence of the Philosophers' (Tahafut al-Falasifa) attacking Greek-influenced Islamic philosophy as heretical on issues like the eternity of the world and divine knowledge. Ibn Rushd responded with 'The Incoherence of the Incoherence' defending philosophy and rational inquiry.",
-        "ar": "كتب الغزالي 'تهافت الفلاسفة' مهاجمًا الفلسفة الإسلامية المتأثرة باليونان بوصفها هرطقة في مسائل كأزلية العالم والعلم الإلهي. ردّ ابن رشد بـ 'تهافت التهافت' مدافعًا عن الفلسفة والبحث العقلاني."
-      }
-    },
-    {
-      "id": "phil-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Philosophy of Science",
-        "ar": "فلسفة العلم"
-      },
-      "question": {
-        "en": "What is Karl Popper's criterion of falsifiability?",
-        "ar": "ما معيار قابلية الدحض عند كارل بوبر؟"
-      },
-      "answer": {
-        "en": "Popper argued that a scientific theory must be falsifiable — it must make predictions that could, in principle, be proven wrong by observation or experiment. Theories that can explain any outcome (unfalsifiable) are not scientific. This demarcated science from pseudoscience.",
-        "ar": "جادل بوبر بأن النظرية العلمية يجب أن تكون قابلة للدحض — يجب أن تقدم تنبؤات يمكن من حيث المبدأ إثبات خطئها بالملاحظة أو التجربة. النظريات التي تستطيع تفسير أي نتيجة (غير قابلة للدحض) ليست علمية. وهذا فصل العلم عن شبه العلم."
-      }
-    },
-    {
-      "id": "phil-021",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is virtue ethics and how does it differ from Kantian ethics?",
-        "ar": "ما أخلاق الفضيلة وكيف تختلف عن الأخلاق الكانطية؟"
-      },
-      "answer": {
-        "en": "Virtue ethics (Aristotle) focuses on what kind of person one should be — asking 'what is a good person?' rather than 'what is the right action?' It emphasizes character traits (virtues like courage, honesty, justice) developed through habit. Kantian ethics focuses on duty and following universal moral rules regardless of character.",
-        "ar": "أخلاق الفضيلة (أرسطو) تركّز على نوع الشخص الذي ينبغي أن يكون المرء — تتساءل 'ما الشخص الجيد؟' بدلًا من 'ما الفعل الصحيح؟'. تُشدد على سمات الشخصية (فضائل كالشجاعة والصدق والعدل) المطوَّرة بالعادة. الأخلاق الكانطية تركّز على الواجب واتباع القواعد الأخلاقية الكونية بغض النظر عن الشخصية."
-      }
-    },
-    {
-      "id": "phil-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is Hume's problem of induction?",
-        "ar": "ما مشكلة الاستقراء عند هيوم؟"
-      },
-      "answer": {
-        "en": "Hume argued that inductive reasoning (inferring general laws from observed cases — e.g. 'the sun has always risen, therefore it will rise tomorrow') cannot be logically justified. We have no rational basis to assume the future will resemble the past — we rely on habit and custom, not reason. This challenges the foundations of science and causation.",
-        "ar": "جادل هيوم بأن الاستدلال الاستقرائي (استنتاج قوانين عامة من الحالات المرصودة — مثل 'الشمس شرقت دائمًا، إذن ستشرق غدًا') لا يمكن تبريره منطقيًا. لا أساس عقلاني لنا لافتراض أن المستقبل سيُشابه الماضي — نعتمد على العادة والتقليد لا على العقل. هذا يطعن في أسس العلم والسببية."
-      }
-    },
-    {
-      "id": "phil-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Philosophy of Mind",
-        "ar": "فلسفة العقل"
-      },
-      "question": {
-        "en": "What is the 'hard problem of consciousness' described by David Chalmers?",
-        "ar": "ما 'المشكلة الصعبة للوعي' التي وصفها ديفيد تشالمرز؟"
-      },
-      "answer": {
-        "en": "The hard problem asks why physical brain processes give rise to subjective, first-person experience (qualia) — the 'what it is like' to see red, feel pain, or hear music. The 'easy problems' (explaining cognitive functions) seem tractable in principle; the hard problem — why any physical process produces inner experience at all — may be fundamentally beyond materialist explanation.",
-        "ar": "تتساءل المشكلة الصعبة لماذا تُفضي العمليات الدماغية المادية إلى تجربة ذاتية من منظور الشخص الأول (الكيفيات النوعية) — 'كيف يبدو' رؤية الأحمر أو الشعور بالألم أو سماع الموسيقى. 'المشكلات السهلة' (تفسير الوظائف المعرفية) تبدو قابلة للحل من حيث المبدأ؛ المشكلة الصعبة — لماذا تُنتج أي عملية مادية تجربة داخلية أصلًا — قد تكون خارج حدود التفسير المادي جوهريًا."
-      }
-    },
-    {
-      "id": "phil-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is Peter Singer's argument for effective altruism?",
-        "ar": "ما حجة بيتر سينغر للإيثار الفعّال؟"
-      },
-      "answer": {
-        "en": "Singer argues that if we can prevent something bad from happening without sacrificing anything of comparable moral importance, we ought to do it — regardless of distance. This leads to the conclusion that wealthy people in developed countries have a strong moral obligation to give significantly to reduce extreme global poverty, since geographic distance has no moral relevance.",
-        "ar": "يجادل سينغر بأنه إذا استطعنا منع شيء سيئ دون التضحية بشيء ذي أهمية أخلاقية مماثلة، يجب علينا ذلك — بغض النظر عن المسافة. يُفضي هذا إلى استنتاج بأن على الأثرياء في الدول المتقدمة واجبًا أخلاقيًا قويًا بالتبرع بشكل كبير للحدّ من الفقر المدقع عالميًا، إذ لا أهمية أخلاقية للمسافة الجغرافية."
-      }
-    },
-    {
-      "id": "phil-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the ship of Theseus paradox?",
-        "ar": "ما مفارقة سفينة ثيسيوس؟"
-      },
-      "answer": {
-        "en": "If every plank of a ship is gradually replaced, is it still the same ship? And if the original planks are reassembled elsewhere, which is the 'real' ship? The paradox questions the nature of identity and persistence through change — with implications for personal identity (if all our cells replace themselves, are we the same person?).",
-        "ar": "إذا استُبدلت كل لوح في سفينة تدريجيًا، هل ستظل نفس السفينة؟ وإذا جُمعت الألواح الأصلية في مكان آخر، أيٌّ منهما السفينة 'الحقيقية'؟ تتساءل المفارقة عن طبيعة الهوية والاستمرار عبر التغيير — مع تداعيات على الهوية الشخصية (إذا كانت جميع خلايانا تجدّد نفسها، هل نحن نفس الشخص؟)."
-      }
-    },
-    {
-      "id": "phil-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Political Philosophy",
-        "ar": "الفلسفة السياسية"
-      },
-      "question": {
-        "en": "What is Nietzsche's concept of the 'will to power'?",
-        "ar": "ما مفهوم نيتشه عن 'إرادة القوة'؟"
-      },
-      "answer": {
-        "en": "Nietzsche's concept that the fundamental drive underlying all human behavior is not pleasure-seeking (Schopenhauer) or survival, but the drive to express, exert, and expand one's power and creativity. It is not merely about domination — it includes artistic creation, intellectual mastery, and self-overcoming.",
-        "ar": "مفهوم نيتشه القائل بأن الدافع الأساسي الكامن وراء كل السلوك البشري ليس السعي نحو اللذة (شوبنهاور) أو البقاء، بل الدافع إلى التعبير والممارسة وتوسيع القوة والإبداع. ليس مجرد التسلط — يشمل الخلق الفني والإتقان الفكري والتغلب على الذات."
-      }
-    },
-    {
-      "id": "phil-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Philosophy of Science",
-        "ar": "فلسفة العلم"
-      },
-      "question": {
-        "en": "What is Thomas Kuhn's concept of scientific paradigm shifts?",
-        "ar": "ما مفهوم توماس كون عن التحولات في النموذج العلمي (باراديم)؟"
-      },
-      "answer": {
-        "en": "Kuhn argued in 'The Structure of Scientific Revolutions' that science does not progress by gradual accumulation but through revolutionary changes in 'paradigms' — the shared frameworks, assumptions, and methods of a scientific community. When anomalies accumulate, a crisis leads to a paradigm shift (e.g. Copernicus, Einstein, Darwin).",
-        "ar": "جادل كون في 'بنية الثورات العلمية' بأن العلم لا يتقدم بالتراكم التدريجي بل من خلال تغييرات ثورية في 'النماذج' — الأطر المشتركة والافتراضات والمناهج للمجتمع العلمي. حين تتراكم الشواذ، تؤدي أزمة إلى تحوّل في النموذج (مثل كوبيرنيكوس وأينشتاين وداروين)."
-      }
-    },
-    {
-      "id": "phil-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the ontological argument for God's existence and who formulated it?",
-        "ar": "ما البرهان الأنطولوجي (الوجودي) على وجود الله ومن صاغه؟"
-      },
-      "answer": {
-        "en": "Formulated by Anselm of Canterbury (11th century): God is 'that than which nothing greater can be conceived.' If God existed only in the mind, something greater (one that also exists in reality) could be conceived — contradiction. Therefore God must exist in reality. Kant famously criticized it: 'existence is not a predicate.'",
-        "ar": "صاغه أنسيلم الكانتربري (القرن الحادي عشر): الله هو 'ما لا يمكن تصوّر ما هو أعظم منه'. لو وُجد الله في الذهن فقط، يمكن تصوّر شيء أعظم (موجود في الواقع أيضًا) — تناقض. إذن يجب أن يوجد الله في الواقع. انتقده كانط بقوله الشهير: 'الوجود ليس محمولًا'."
-      }
-    },
-    {
-      "id": "phil-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Logic",
-        "ar": "منطق"
-      },
-      "question": {
-        "en": "What is Gödel's incompleteness theorem and why is it philosophically significant?",
-        "ar": "ما مبرهنة غودل عن عدم الاكتمال ولماذا لها أهمية فلسفية؟"
-      },
-      "answer": {
-        "en": "Kurt Gödel (1931) proved that in any consistent formal system powerful enough to express arithmetic, there are true statements that cannot be proved within that system. This showed that mathematics cannot be complete and self-verifying — demolishing Hilbert's program to ground all mathematics in a complete, consistent axiom system.",
-        "ar": "أثبت كورت غودل (1931) أنه في أي نظام رسمي متسق قوي بما يكفي للتعبير عن الحساب، توجد عبارات صحيحة لا يمكن إثباتها داخل ذلك النظام. أظهر هذا أن الرياضيات لا تستطيع أن تكون كاملة وذاتية التحقق — ما دمّر برنامج هيلبرت لتأسيس كل الرياضيات على نظام بديهيات كامل ومتسق."
-      }
-    },
-    {
-      "id": "phil-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the naturalistic fallacy in ethics, identified by G.E. Moore?",
-        "ar": "ما المغالطة الطبيعانية في الأخلاق التي حدّدها جورج إدوارد مور؟"
-      },
-      "answer": {
-        "en": "Moore argued that 'good' cannot be defined by any natural property (like pleasure, evolution, or God's will). Defining 'good' as something natural commits a fallacy because you can always meaningfully ask 'but is that thing actually good?' This is the 'open question argument'. It implies that ethical facts are distinct from natural facts.",
-        "ar": "جادل مور بأن 'الخير' لا يمكن تعريفه بأي خاصية طبيعية (كاللذة أو التطور أو إرادة الله). تعريف 'الخير' بشيء طبيعي يرتكب مغالطة لأنه يمكن دائمًا التساؤل بمعنى: 'لكن هل ذلك الشيء جيد فعلًا؟'. هذا هو 'حجة السؤال المفتوح'. يُشير إلى أن الحقائق الأخلاقية متميزة عن الحقائق الطبيعية."
-      }
-    },
-    {
-      "id": "phil-031",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Islamic Philosophy",
-        "ar": "الفلسفة الإسلامية"
-      },
-      "question": {
-        "en": "What is Ibn Sina's (Avicenna's) 'floating man' thought experiment?",
-        "ar": "ما تجربة ابن سينا الفكرية عن 'الإنسان الطائر'؟"
-      },
-      "answer": {
-        "en": "Imagine a person created fully formed but floating in empty space, with no sensory input — eyes covered, not touching anything. Would they still be aware of their own existence? Ibn Sina argued yes — the person would be aware of themselves as a thinking subject, even with no sensory or bodily experience. This preceded Descartes' Cogito by centuries and establishes the soul's independent existence.",
-        "ar": "تخيّل شخصًا خُلق مكتمل النمو لكنه يعوم في الفضاء الفارغ دون أي مدخل حسي — عيناه مغطاتان ولا يلمس شيئًا. هل سيدرك وجوده الخاص؟ جادل ابن سينا بنعم — سيدرك الشخص نفسه ذاتًا مفكّرة حتى دون تجربة حسية أو جسدية. سبق هذا 'الكوجيتو' الديكارتي بقرون ويُرسّخ الوجود المستقل للروح."
-      }
-    },
-    {
-      "id": "phil-032",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Philosophy of Language",
-        "ar": "فلسفة اللغة"
-      },
-      "question": {
-        "en": "What is Wittgenstein's private language argument?",
-        "ar": "ما حجة فتغنشتاين عن اللغة الخاصة؟"
-      },
-      "answer": {
-        "en": "The late Wittgenstein argued that a 'private language' — one that refers to inner experiences only the speaker can access — is impossible. Language requires public criteria for correct usage; without the possibility of public checking, there is no difference between 'using a word correctly' and 'thinking one is using it correctly.' This challenges Cartesian privacy of mind.",
-        "ar": "جادل فتغنشتاين المتأخر بأن 'اللغة الخاصة' — التي تشير إلى تجارب داخلية لا يستطيع الوصول إليها إلا المتحدث — مستحيلة. تتطلب اللغة معايير عامة للاستخدام الصحيح؛ بدون إمكانية التحقق العام، لا يوجد فرق بين 'استخدام كلمة بصحة' و'التفكير بأن المرء يستخدمها بصحة'. هذا يطعن في خصوصية الذهن الديكارتية."
-      }
-    },
-    {
-      "id": "phil-033",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Political Philosophy",
-        "ar": "الفلسفة السياسية"
-      },
-      "question": {
-        "en": "What is Hannah Arendt's concept of the 'banality of evil'?",
-        "ar": "ما مفهوم حنا أرنت عن 'ابتذال الشر'؟"
-      },
-      "answer": {
-        "en": "Based on her observation of Adolf Eichmann's trial (1961), Arendt argued that great evil is often committed not by monsters but by ordinary, thoughtless people who simply follow orders and bureaucratic routine without reflecting on the moral meaning of their actions. Evil requires no malicious intent — just the absence of thinking.",
-        "ar": "بناءً على ملاحظتها لمحاكمة أدولف أيخمان (1961)، جادلت أرنت بأن الشر العظيم كثيرًا ما يرتكبه لا وحوش بل أناس عاديون بلا تفكير يتبعون الأوامر والروتين البيروقراطي دون تأمل في المعنى الأخلاقي لأفعالهم. الشر لا يتطلب نية خبيثة — فقط غياب التفكير."
-      }
-    },
-    {
-      "id": "phil-034",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the principle of sufficient reason (PSR)?",
-        "ar": "ما مبدأ السبب الكافي؟"
-      },
-      "answer": {
-        "en": "The philosophical principle, associated with Leibniz, that everything that exists has a sufficient reason or explanation for why it exists and is the way it is, rather than not existing or being otherwise. It underpins arguments for God's existence (cosmological argument) and is contested by philosophers who accept brute facts with no explanation.",
-        "ar": "المبدأ الفلسفي المرتبط بليبنيز القائل بأن كل ما يوجد له سبب كافٍ أو تفسير لوجوده وكونه على ما هو عليه بدلًا من عدمه أو كونه على نحو آخر. يدعم الحجج على وجود الله (الحجة الكوسمولوجية) وتطعن فيه الفلاسفة الذين يقبلون حقائق خاما لا تفسير لها."
-      }
-    },
-    {
-      "id": "phil-035",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Logic",
-        "ar": "منطق"
-      },
-      "question": {
-        "en": "What is the paradox of the heap (sorites paradox)?",
-        "ar": "ما مفارقة الكومة (مفارقة السوريتس)؟"
-      },
-      "answer": {
-        "en": "If you have a heap of sand and remove one grain, it's still a heap. Repeating this, when does it stop being a heap? The paradox arises because 'heap' is vague — there's no precise point at which the transition occurs. It challenges classical two-valued logic (true/false) and raises questions about vague predicates in language and law.",
-        "ar": "لو أزلت حبة رمل من كومة، ستظل كومة. بتكرار ذلك، متى تتوقف عن كونها كومة؟ تنشأ المفارقة لأن 'الكومة' مبهمة — لا نقطة دقيقة للانتقال. تطعن في المنطق الكلاسيكي ثنائي القيمة (صح/خطأ) وتثير أسئلة حول المحمولات المبهمة في اللغة والقانون."
-      }
-    },
-    {
-      "id": "phil-036",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the is-ought problem identified by David Hume?",
-        "ar": "ما مشكلة 'الواقع والواجب' التي حدّدها ديفيد هيوم؟"
-      },
-      "answer": {
-        "en": "Hume observed that many moral arguments make an unjustified jump from descriptive facts ('is') to normative conclusions ('ought'). From 'humans evolved to be social' you cannot derive 'humans ought to behave socially' without additional premises. This gap — the is-ought gap — is a foundational challenge in metaethics.",
-        "ar": "لاحظ هيوم أن كثيرًا من الحجج الأخلاقية تنتقل انتقالًا غير مُبرَّر من الحقائق الوصفية ('هو') إلى الاستنتاجات المعيارية ('ينبغي'). من 'البشر تطوّروا ليكونوا اجتماعيين' لا يمكن استنتاج 'ينبغي للبشر أن يتصرفوا اجتماعيًا' دون مقدمات إضافية. هذه الفجوة — فجوة الواقع والواجب — تحدٍّ أساسي في الفلسفة الأخلاقية التأسيسية."
-      }
-    },
-    {
-      "id": "phil-037",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Existentialism",
-        "ar": "الوجودية"
-      },
-      "question": {
-        "en": "What is Sartre's concept of 'existence precedes essence'?",
-        "ar": "ما مفهوم سارتر 'الوجود يسبق الماهية'؟"
-      },
-      "answer": {
-        "en": "Sartre argued that humans are not born with a predetermined nature or purpose (essence). We exist first, then create our own essence through choices and actions. This is radically liberating but also terrifying — we are 'condemned to be free' and fully responsible for who we become.",
-        "ar": "جادل سارتر بأن البشر لا يولدون بطبيعة أو غاية محدودة مسبقًا (الماهية). نحن نوجد أولًا ثم نخلق ماهيتنا عبر الاختيارات والأفعال. هذا محرّر بشكل جذري لكنه أيضًا مرعب — نحن 'محكوم علينا بأن نكون أحرارًا' ومسؤولون تمامًا عمّن نكون."
-      }
-    },
-    {
-      "id": "phil-038",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the simulation hypothesis and what philosophical problems does it raise?",
-        "ar": "ما فرضية المحاكاة وما المشكلات الفلسفية التي تطرحها؟"
-      },
-      "answer": {
-        "en": "Nick Bostrom's trilemma: either civilizations go extinct before becoming technologically advanced enough to run simulations, or advanced civilizations don't run simulations, or we are almost certainly living in a simulation. It raises questions about the nature of reality (is it material?), identity, and whether any distinction exists between 'real' and 'simulated' experience.",
-        "ar": "مُعضَّلة بوستروم الثلاثية: إما أن الحضارات تنقرض قبل أن تصبح متقدمة تقنيًا بما يكفي لتشغيل المحاكاة، أو أن الحضارات المتقدمة لا تُشغّل محاكاة، أو أننا نعيش على الأرجح في محاكاة. تطرح أسئلة حول طبيعة الواقع (هل هو مادي؟) والهوية وما إذا كان هناك فارق بين التجربة 'الحقيقية' و'المحاكاة'."
-      }
-    },
-    {
-      "id": "phil-039",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Philosophy of Mind",
-        "ar": "فلسفة العقل"
-      },
-      "question": {
-        "en": "What is functionalism in philosophy of mind and what is the main objection against it?",
-        "ar": "ما الوظيفانية في فلسفة العقل وما الاعتراض الرئيسي عليها؟"
-      },
-      "answer": {
-        "en": "Functionalism defines mental states by their causal roles — what inputs they respond to and what outputs they produce — rather than by their physical substrate. A mental state is 'pain' if it is caused by damage and causes avoidance behavior, regardless of whether it occurs in neurons or silicon. Main objection: John Searle's Chinese Room — a system can perform all the right functions without genuinely understanding anything (absent qualia).",
-        "ar": "الوظيفانية تعرّف الحالات العقلية بأدوارها السببية — على ما تستجيب له من مدخلات وما تنتجه من مخرجات — لا بركيزتها المادية. الحالة العقلية 'ألم' إذا كانت ناجمة عن ضرر وتسبّب سلوك تجنّب، بغض النظر عن حدوثها في خلايا عصبية أو سيليكون. الاعتراض الرئيسي: غرفة الصينية لجون سيرل — النظام يستطيع أداء جميع الوظائف الصحيحة دون فهم حقيقي (غياب الكيفيات النوعية)."
-      }
-    },
-    {
-      "id": "phil-040",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is moral particularism and how does it differ from moral principlism?",
-        "ar": "ما الخصوصانية الأخلاقية وكيف تختلف عن المبدئية الأخلاقية؟"
-      },
-      "answer": {
-        "en": "Moral particularism (Jonathan Dancy) holds that moral features of a situation can vary in their moral relevance depending on context — a feature that counts in favor of an action in one situation may count against it in another. This contrasts with principlism (e.g. Kant, utilitarianism) which holds that moral principles apply universally across situations.",
-        "ar": "الخصوصانية الأخلاقية (جوناثان دانسي) ترى أن السمات الأخلاقية للموقف يمكن أن تتفاوت في أهميتها الأخلاقية حسب السياق — سمة تصبّ لصالح فعل في موقف ما قد تصبّ ضده في موقف آخر. يتعارض هذا مع المبدئية (مثل كانط والنفعية) التي ترى أن المبادئ الأخلاقية تنطبق بصورة كونية عبر المواقف."
-      }
-    },
-    {
-      "id": "phil-041",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Epistemology",
-        "ar": "نظرية المعرفة"
-      },
-      "question": {
-        "en": "What is epistemic injustice and what are its two main forms as described by Miranda Fricker?",
-        "ar": "ما الظلم المعرفي وما صورتاه الرئيسيتان كما وصفتهما ميراندا فريكر؟"
-      },
-      "answer": {
-        "en": "Epistemic injustice is a wrong done to someone specifically in their capacity as a knower. Miranda Fricker identifies: (1) Testimonial injustice — giving a speaker deflated credibility due to identity prejudice (e.g. disbelieving someone because of their gender or race); (2) Hermeneutical injustice — having inadequate conceptual resources to understand one's own experience (e.g. having no concept for 'sexual harassment' before it was named).",
-        "ar": "الظلم المعرفي خطأ يُلحق بشخص ما تحديدًا بوصفه عارفًا. تُحدّد ميراندا فريكر: (1) الظلم الشهادي — منح المتحدث مصداقية منقوصة بسبب تحيّز هوياتي (مثل عدم التصديق لأسباب جنسية أو عرقية)؛ (2) الظلم التأويلي — امتلاك موارد مفاهيمية قاصرة لفهم تجربة الفرد (مثل غياب مفهوم 'التحرش الجنسي' قبل تسميته)."
-      }
-    },
-    {
-      "id": "phil-042",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the distinction between de re and de dicto modality in modal logic?",
-        "ar": "ما الفرق بين الضرورة الذاتية (de re) والضرورة القولية (de dicto) في المنطق الوجهي؟"
-      },
-      "answer": {
-        "en": "De dicto modality applies to propositions: 'Necessarily, the number of planets is greater than 7' means the proposition is necessarily true. De re modality applies to objects: 'The number of planets necessarily has this property' makes a claim about the object itself. The distinction matters because: 'Necessarily, the Morning Star is the Evening Star' (de dicto) is false (it's a contingent astronomical fact), while 'Hesperus is necessarily Hesperus' (de re) is true.",
-        "ar": "الوجهية القولية (de dicto) تنطبق على القضايا: 'بالضرورة، عدد الكواكب أكبر من 7' تعني أن القضية صحيحة بالضرورة. الوجهية الذاتية (de re) تنطبق على الكيانات: 'عدد الكواكب يمتلك بالضرورة هذه الخاصية' يدّعي شيئًا عن الكيان ذاته. يهم الفرق لأن: 'بالضرورة، نجم الصباح هو نجم المساء' (de dicto) خاطئ (حقيقة فلكية ظرفية)، بينما 'هسبريوس هو بالضرورة هسبريوس' (de re) صحيح."
-      }
-    },
-    {
-      "id": "phil-043",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Philosophy of Science",
-        "ar": "فلسفة العلم"
-      },
-      "question": {
-        "en": "What is the Duhem-Quine thesis in philosophy of science?",
-        "ar": "ما أطروحة ديهم-كواين في فلسفة العلم؟"
-      },
-      "answer": {
-        "en": "The thesis that scientific hypotheses cannot be tested in isolation — any test involves auxiliary hypotheses (background assumptions, instrument calibration, ceteris paribus conditions). When a prediction fails, we cannot know if the main hypothesis is wrong or one of the auxiliaries is at fault. This means no single experiment can definitively refute a theory — only a whole web of beliefs can be tested as a unit.",
-        "ar": "الأطروحة القائلة بأن الفرضيات العلمية لا يمكن اختبارها منعزلةً — أي اختبار يتضمن فرضيات مساعدة (افتراضات خلفية ومعايرة الأجهزة وشروط 'تساوي العوامل الأخرى'). حين يفشل تنبؤ، لا نعرف إذا كانت الفرضية الرئيسية خاطئة أم أحد المساعدات. يعني ذلك أن أي تجربة واحدة لا تستطيع دحض نظرية بشكل قاطع — بل شبكة المعتقدات كلها يمكن اختبارها وحدةً واحدة."
-      }
-    },
-    {
-      "id": "phil-044",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Political Philosophy",
-        "ar": "الفلسفة السياسية"
-      },
-      "question": {
-        "en": "What is the difference between negative and positive liberty as described by Isaiah Berlin?",
-        "ar": "ما الفرق بين الحرية السلبية والحرية الإيجابية كما وصفهما إيزايا برلين؟"
-      },
-      "answer": {
-        "en": "Negative liberty: freedom from external constraints and interference (the absence of obstacles). Positive liberty: freedom to actually pursue one's goals and realize one's potential — which may require resources and conditions. Berlin warned that positive liberty can be co-opted by authoritarian regimes to justify imposing a 'true' freedom on citizens.",
-        "ar": "الحرية السلبية: الحرية من القيود والتدخل الخارجي (غياب العوائق). الحرية الإيجابية: الحرية في سعي الأهداف فعلًا وتحقيق إمكانات الفرد — وقد تستلزم موارد وشروطًا. حذّر برلين من أن الحرية الإيجابية يمكن أن تختطفها الأنظمة الاستبدادية لتبرير فرض حرية 'حقيقية' على المواطنين."
-      }
-    },
-    {
-      "id": "phil-045",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the repugnant conclusion in population ethics (Derek Parfit)?",
-        "ar": "ما الاستنتاج المقيت في أخلاقيات السكان عند ديريك بارفيت؟"
-      },
-      "answer": {
-        "en": "Parfit showed that totalist utilitarianism (maximize total welfare) implies that a world with billions of barely-worth-living lives would be better than a much smaller world of very happy people — as long as the sum total of welfare is higher. This 'repugnant conclusion' seems deeply wrong but is hard to avoid without abandoning standard utilitarian principles. It generates much of the literature in population ethics.",
-        "ar": "أظهر بارفيت أن النفعية الإجمالية (تعظيم الرفاهية الإجمالية) تستلزم أن عالمًا بمليارات من الحيوات التي تكاد تستحق العيش سيكون أفضل من عالم أصغر بكثير من الأشخاص السعداء جدًا — طالما أن مجموع الرفاهية الإجمالي أعلى. هذا 'الاستنتاج المقيت' يبدو خاطئًا جوهريًا لكن يصعب تجنّبه دون التخلي عن المبادئ النفعية القياسية. أنتج جزءًا كبيرًا من أدبيات أخلاقيات السكان."
-      }
-    },
-    {
-      "id": "phil-046",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Philosophy of Language",
-        "ar": "فلسفة اللغة"
-      },
-      "question": {
-        "en": "What is Kripke's causal theory of reference and how does it challenge Frege-Russell descriptivism?",
-        "ar": "ما نظرية كريبكي السببية للإشارة وكيف تطعن في الوصفية الفريجية الراسلية؟"
-      },
-      "answer": {
-        "en": "Frege-Russell descriptivism held that proper names refer by being associated with descriptions (Aristotle = 'the teacher of Alexander'). Kripke argued names are 'rigid designators' — they refer to the same object in all possible worlds, regardless of which descriptions are true. Reference is fixed causally: an initial baptism creates a chain of communication. Names still refer even when all believed descriptions are false.",
-        "ar": "الوصفية الفريجية الراسلية ترى أن الأسماء الخاصة تشير عبر ارتباطها بأوصاف (أرسطو = 'معلّم الإسكندر'). جادل كريبكي بأن الأسماء 'مُحدِّدات صارمة' — تشير إلى نفس الكيان في جميع العوالم الممكنة بغض النظر عن أي أوصاف صحيحة. الإشارة تُثبَّت سببيًا: تسمية أولية تخلق سلسلة تواصلية. الأسماء لا تزال تشير حتى حين تكون جميع الأوصاف المعتقدة خاطئة."
-      }
-    },
-    {
-      "id": "phil-047",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the separateness of persons objection to utilitarianism?",
-        "ar": "ما اعتراض 'انفصالية الأشخاص' على النفعية؟"
-      },
-      "answer": {
-        "en": "Rawls and Nozick argued that utilitarianism fails to take seriously the fact that people are distinct individuals. Maximizing aggregate welfare can justify sacrificing one person for the benefit of many — treating people as mere vessels of utility rather than ends in themselves. This fails to respect the separateness of persons — you cannot compensate my suffering with someone else's happiness, because they are not the same person.",
-        "ar": "جادل رولز ونوزيك بأن النفعية تفشل في أخذ حقيقة أن الناس أفراد متميزون بجدية. تعظيم الرفاهية الإجمالية قد يُبرر التضحية بشخص واحد لمصلحة كثيرين — معاملة الناس كأوعية للمنفعة لا كغايات في ذاتها. هذا يُخفق في احترام انفصالية الأشخاص — لا تستطيع تعويض معاناتي بسعادة شخص آخر لأنهما ليسا نفس الشخص."
-      }
-    },
-    {
-      "id": "phil-048",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Metaphysics",
-        "ar": "الميتافيزيقا"
-      },
-      "question": {
-        "en": "What is the debate between presentism and eternalism in the philosophy of time?",
-        "ar": "ما الجدل بين الحاضرية والأزلية (الأبدية) في فلسفة الزمن؟"
-      },
-      "answer": {
-        "en": "Presentism holds that only the present moment exists — the past is gone and the future does not yet exist. Eternalism (block universe theory) holds that all times — past, present, and future — are equally real and co-exist in a four-dimensional spacetime block. Eternalism is compatible with special relativity (which shows simultaneity is relative), while presentism struggles to accommodate relativity theory.",
-        "ar": "الحاضرية ترى أن اللحظة الراهنة فقط موجودة — الماضي زال والمستقبل لم يوجد بعد. الأزلية (نظرية الكون الكتلي) ترى أن جميع الأزمنة — الماضي والحاضر والمستقبل — حقيقية بالتساوي وتتعايش في كتلة رباعية الأبعاد من الزمكان. الأزلية متوافقة مع النسبية الخاصة (التي تُظهر أن التزامن نسبي)، بينما تصارع الحاضرية استيعاب نظرية النسبية."
-      }
-    },
-    {
-      "id": "phil-049",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Philosophy of Science",
-        "ar": "فلسفة العلم"
-      },
-      "question": {
-        "en": "What is structural realism in philosophy of science and how does it respond to the pessimistic meta-induction?",
-        "ar": "ما الواقعية البنيوية في فلسفة العلم وكيف ترد على الاستقراء التشاؤمي؟"
-      },
-      "answer": {
-        "en": "The pessimistic meta-induction (Laudan) notes that past successful theories (Newtonian mechanics, phlogiston, ether) were later shown false — so current theories are probably false too. Structural realism (Worrall) responds that even when theories are replaced, their mathematical structure is preserved (Newton's equations are a limit case of Einstein's). Science successfully tracks structure even if it doesn't track underlying entities.",
-        "ar": "يُلاحظ الاستقراء التشاؤمي (لوردان) أن النظريات الناجحة السابقة (الميكانيكا النيوتونية والفلوجستون والأثير) ظهر لاحقًا أنها خاطئة — لذا النظريات الحالية خاطئة على الأرجح أيضًا. ترد الواقعية البنيوية (وورال) بأنه حتى عند استبدال النظريات، يُحفظ بناؤها الرياضي (معادلات نيوتن هي حالة حدية لمعادلات أينشتاين). العلم يتتبع البنية بنجاح حتى لو لم يتتبع الكيانات الأساسية."
-      }
-    },
-    {
-      "id": "phil-050",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Ethics",
-        "ar": "أخلاق"
-      },
-      "question": {
-        "en": "What is the distinction between agent-relative and agent-neutral values in ethics?",
-        "ar": "ما الفرق بين القيم النسبية للفاعل والقيم المحايدة للفاعل في الأخلاق؟"
-      },
-      "answer": {
-        "en": "Agent-neutral values are equally important to everyone regardless of who the agent is (e.g. reducing total suffering is equally important to all). Agent-relative values are indexed to particular agents — I have special reasons to promote my own projects, relationships, or commitments that others don't share equally. Consequentialism tends to endorse only agent-neutral values; deontology and virtue ethics accommodate agent-relative permissions and requirements (e.g. special duties to family).",
-        "ar": "القيم المحايدة للفاعل مهمة للجميع بالتساوي بغض النظر عن هوية الفاعل (مثل الحدّ من المعاناة الإجمالية مهم بالتساوي للجميع). القيم النسبية للفاعل مُفهرسة لفاعلين بعينهم — لديّ أسباب خاصة لتعزيز مشاريعي وعلاقاتي والتزاماتي الخاصة لا يشاركني فيها الآخرون بالتساوي. النفعية تؤيد القيم المحايدة للفاعل فحسب؛ الواجبية وأخلاق الفضيلة تستوعبان الإذن بالقيم النسبية ومتطلباتها (مثل واجبات خاصة تجاه العائلة)."
-      }
+    "answer": {
+      "en": "Socrates (470–399 BC), the Athenian philosopher who developed the Socratic method of questioning. He wrote nothing himself — his ideas are known through his student Plato.",
+      "ar": "سقراط (470–399 ق.م)، الفيلسوف الأثيني الذي طوّر المنهج السقراطي في التساؤل. لم يكتب شيئًا بنفسه — تُعرف أفكاره من خلال تلميذه أفلاطون."
     }
-  ]
-}
+  },
+  {
+    "id": "phil-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What is Plato's theory of Forms?",
+      "ar": "ما نظرية المُثُل (الأفكار) عند أفلاطون؟"
+    },
+    "answer": {
+      "en": "Plato argued that the physical world is an imperfect copy of a higher realm of perfect, eternal abstract entities called Forms or Ideas. For example, all beautiful things participate in the Form of Beauty itself, which exists independently of any physical example.",
+      "ar": "جادل أفلاطون بأن العالم المادي نسخة ناقصة من عالم أرقى من الكيانات المجردة الكاملة الأزلية تُسمى المُثُل أو الأفكار. على سبيل المثال، كل الأشياء الجميلة تشارك في مثال الجمال ذاته الموجود باستقلال عن أي مثال مادي."
+    }
+  },
+  {
+    "id": "phil-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What is Aristotle's concept of the 'Golden Mean'?",
+      "ar": "ما مفهوم أرسطو عن 'الوسط الذهبي'؟"
+    },
+    "answer": {
+      "en": "The ethical principle that virtue lies between two extremes (excess and deficiency). For example, courage is the mean between cowardice (deficiency) and recklessness (excess). This is part of his virtue ethics framework.",
+      "ar": "المبدأ الأخلاقي القاضي بأن الفضيلة تقع بين طرفَين متطرفَين (الزيادة والنقص). على سبيل المثال، الشجاعة هي الوسط بين الجبن (النقص) والتهور (الزيادة). هذا جزء من إطاره في أخلاق الفضيلة."
+    }
+  },
+  {
+    "id": "phil-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What is René Descartes' most famous philosophical statement?",
+      "ar": "ما أشهر عبارة فلسفية لرينيه ديكارت؟"
+    },
+    "answer": {
+      "en": "'Cogito, ergo sum' — 'I think, therefore I am.' It was his foundational certainty: even if everything else could be doubted, the very act of doubting proves the existence of a thinking subject.",
+      "ar": "'أنا أفكر، إذن أنا موجود' (Cogito, ergo sum). كانت يقينه الأساسي: حتى لو أمكن الشك في كل شيء آخر، فإن فعل الشك ذاته يُثبت وجود ذات مفكّرة."
+    }
+  },
+  {
+    "id": "phil-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is utilitarianism?",
+      "ar": "ما المذهب النفعي (الأوتيليتارية)؟"
+    },
+    "answer": {
+      "en": "The ethical theory that the right action is the one that maximizes overall happiness or utility for the greatest number of people. Associated with Jeremy Bentham and John Stuart Mill.",
+      "ar": "النظرية الأخلاقية القائلة بأن الفعل الصحيح هو ما يُعظّم السعادة الإجمالية أو المنفعة لأكبر عدد من الناس. ترتبط بجيريمي بنثام وجون ستيوارت مل."
+    }
+  },
+  {
+    "id": "phil-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is Immanuel Kant's categorical imperative?",
+      "ar": "ما الأمر المطلق عند إيمانويل كانط؟"
+    },
+    "answer": {
+      "en": "Kant's supreme principle of morality: 'Act only according to that maxim by which you can at the same time will that it should become a universal law.' In other words, only do what you could will everyone to do.",
+      "ar": "المبدأ الأخلاقي الأسمى عند كانط: 'تصرّف وفق المبدأ الذي تستطيع في الوقت ذاته أن تريده قانونًا كونيًا'. بعبارة أخرى، افعل فقط ما يمكنك أن تريد أن يفعله الجميع."
+    }
+  },
+  {
+    "id": "phil-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Epistemology & Logic",
+      "ar": "نظرية المعرفة والمنطق"
+    },
+    "question": {
+      "en": "What is epistemology?",
+      "ar": "ما نظرية المعرفة (الإبستمولوجيا)؟"
+    },
+    "answer": {
+      "en": "The branch of philosophy that studies the nature, sources, scope, and limits of knowledge. Key questions: What is knowledge? How do we know anything? What is the difference between belief and justified belief?",
+      "ar": "فرع الفلسفة الذي يدرس طبيعة المعرفة ومصادرها ونطاقها وحدودها. الأسئلة الجوهرية: ما المعرفة؟ كيف نعلم أي شيء؟ ما الفرق بين الاعتقاد والاعتقاد المُبرَّر؟"
+    }
+  },
+  {
+    "id": "phil-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the mind-body problem in philosophy?",
+      "ar": "ما مشكلة العقل والجسد في الفلسفة؟"
+    },
+    "answer": {
+      "en": "The question of how the immaterial mind (thoughts, consciousness) relates to the physical brain and body. Descartes' dualism says mind and body are separate substances. Physicalism says mind is entirely a product of physical brain processes.",
+      "ar": "السؤال حول كيف يرتبط العقل غير المادي (الأفكار والوعي) بالدماغ والجسد الماديَّين. الثنائية الديكارتية تقول إن العقل والجسد جوهران منفصلان. المادية تقول إن العقل نتاج العمليات الجسدية للدماغ كليًا."
+    }
+  },
+  {
+    "id": "phil-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What did Plato's allegory of the cave illustrate?",
+      "ar": "ما الذي توضّحه أسطورة الكهف عند أفلاطون؟"
+    },
+    "answer": {
+      "en": "Prisoners in a cave see only shadows on a wall and think this is reality. When one escapes and sees the real world and sun, he returns to tell the others who refuse to believe him. It illustrates how most people mistake appearances for reality, and how true knowledge requires philosophical 'enlightenment'.",
+      "ar": "سجناء في كهف يرون ظلالًا على جدار فيظنّونها حقيقة. حين يهرب أحدهم ويرى العالم الحقيقي والشمس، يعود ليُخبر الآخرين الذين يرفضون تصديقه. توضّح كيف يخلط معظم الناس المظاهر بالحقيقة، وكيف تستلزم المعرفة الحقيقية 'استنارة' فلسفية."
+    }
+  },
+  {
+    "id": "phil-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Political Philosophy",
+      "ar": "الفلسفة السياسية"
+    },
+    "question": {
+      "en": "What is the social contract theory associated with Locke, Hobbes, and Rousseau?",
+      "ar": "ما نظرية العقد الاجتماعي المرتبطة بلوك وهوبز وروسو؟"
+    },
+    "answer": {
+      "en": "The theory that legitimate political authority derives from an agreement (explicit or implicit) among individuals to form a society and give up certain freedoms to a government in exchange for security and social order.",
+      "ar": "النظرية القائلة بأن السلطة السياسية المشروعة مستمدة من اتفاق (صريح أو ضمني) بين الأفراد على تكوين مجتمع والتنازل عن حريات معينة لحكومة مقابل الأمن والنظام الاجتماعي."
+    }
+  },
+  {
+    "id": "phil-011",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What is Stoicism?",
+      "ar": "ما الرواقية؟"
+    },
+    "answer": {
+      "en": "A school of ancient Greek and Roman philosophy (founded by Zeno of Citium) teaching that virtue alone is sufficient for happiness, emotions should be governed by reason, and we should accept with equanimity what we cannot control.",
+      "ar": "مدرسة فلسفية يونانية رومانية قديمة (أسّسها زينو الكيتيوني) تعلّم أن الفضيلة وحدها كافية للسعادة، وأن العواطف ينبغي أن تُحكمها العقل، وأن نقبل بهدوء ما لا نستطيع السيطرة عليه."
+    }
+  },
+  {
+    "id": "phil-012",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Epistemology & Logic",
+      "ar": "نظرية المعرفة والمنطق"
+    },
+    "question": {
+      "en": "What is a logical fallacy?",
+      "ar": "ما المغالطة المنطقية؟"
+    },
+    "answer": {
+      "en": "An error in reasoning that makes an argument invalid or misleading. Examples: ad hominem (attacking the person rather than the argument), straw man (misrepresenting an opponent's argument), false dichotomy (presenting only two options when more exist).",
+      "ar": "خطأ في التفكير يجعل الحجة غير صالحة أو مضلِّلة. أمثلة: الهجوم الشخصي (مهاجمة الشخص لا الحجة)، رجل القش (تحريف حجة الخصم)، الثنائية الزائفة (تقديم خيارَين فقط بينما يوجد أكثر)."
+    }
+  },
+  {
+    "id": "phil-013",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the trolley problem in ethics?",
+      "ar": "ما مسألة العربة (Trolley Problem) في الأخلاق؟"
+    },
+    "answer": {
+      "en": "A thought experiment: a runaway trolley will kill five people on the tracks. You can divert it to a side track where it will kill only one. Do you act? It tests whether the ethics of an action depends on outcomes (consequentialism) or on rules regardless of outcomes (deontology).",
+      "ar": "تجربة فكرية: عربة جامحة ستقتل خمسة أشخاص على القضبان. تستطيع تحويلها إلى مسار جانبي ستقتل فيه شخصًا واحدًا فقط. هل تتصرف؟ تختبر ما إذا كانت أخلاقيات الفعل تعتمد على النتائج (النفعية) أم على قواعد بغض النظر عن النتائج (الواجبية)."
+    }
+  },
+  {
+    "id": "phil-014",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "Who was Ibn Rushd (Averroes) and why was he significant in the history of philosophy?",
+      "ar": "من ابن رشد (أفيرويس) ولماذا كان بارزًا في تاريخ الفلسفة؟"
+    },
+    "answer": {
+      "en": "Ibn Rushd (1126–1198) was an Andalusian Muslim philosopher who wrote extensive commentaries on Aristotle. His work transmitted Aristotle's philosophy to medieval Europe, influencing Aquinas and scholasticism. He argued for the compatibility of reason and faith, believing philosophy and theology could be reconciled.",
+      "ar": "ابن رشد (1126–1198) فيلسوف مسلم أندلسي كتب شروحات مستفيضة على أرسطو. نقل عمله فلسفة أرسطو إلى أوروبا في العصور الوسطى مؤثّرًا في الأكويني والمدرسية. جادل بتوافق العقل والإيمان مؤمنًا بإمكانية التوفيق بين الفلسفة واللاهوت."
+    }
+  },
+  {
+    "id": "phil-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Epistemology & Logic",
+      "ar": "نظرية المعرفة والمنطق"
+    },
+    "question": {
+      "en": "What is the Gettier problem in epistemology?",
+      "ar": "ما مشكلة غيتيه في نظرية المعرفة؟"
+    },
+    "answer": {
+      "en": "Edmund Gettier (1963) challenged the classical definition of knowledge as 'justified true belief' with counterexamples where someone has a justified true belief that is true by accident — suggesting they don't really 'know' it. This sparked decades of debate about what conditions are sufficient for knowledge.",
+      "ar": "ألدموند غيتيه (1963) طعن في التعريف الكلاسيكي للمعرفة بأنها 'اعتقاد صادق مُبرَّر' بأمثلة مضادة يملك فيها شخص اعتقادًا صادقًا مُبرَّرًا لكنه صادق بالمصادفة — مما يُشير إلى أنه لا 'يعلم' فعلًا. أثار هذا جدلًا امتد عقودًا حول الشروط الكافية للمعرفة."
+    }
+  },
+  {
+    "id": "phil-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the difference between deontological and consequentialist ethics?",
+      "ar": "ما الفرق بين الأخلاق الواجبية والأخلاق العواقبية؟"
+    },
+    "answer": {
+      "en": "Deontological ethics (Kant) judges actions as right or wrong based on whether they follow moral rules or duties — regardless of consequences. Consequentialist ethics (utilitarianism) judges actions by their outcomes — an action is right if it produces good consequences.",
+      "ar": "الأخلاق الواجبية (كانط) تحكم على الأفعال بالصواب أو الخطأ بناءً على مدى اتباعها للقواعد أو الواجبات الأخلاقية — بغض النظر عن العواقب. الأخلاق العواقبية (النفعية) تحكم على الأفعال بنتائجها — الفعل صواب إذا أنتج عواقب جيدة."
+    }
+  },
+  {
+    "id": "phil-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Political Philosophy",
+      "ar": "الفلسفة السياسية"
+    },
+    "question": {
+      "en": "What is John Rawls' 'veil of ignorance' thought experiment?",
+      "ar": "ما تجربة 'حجاب الجهل' الفكرية عند جون رولز؟"
+    },
+    "answer": {
+      "en": "Rawls asked: what principles of justice would rational people choose if they didn't know their own position in society (their wealth, class, race, talents)? Behind this 'veil of ignorance,' he argued, people would choose equal basic liberties and arrange inequalities to benefit the least advantaged — his 'difference principle.'",
+      "ar": "تساءل رولز: أي مبادئ عدالة سيختارها الناس العقلانيون لو لم يعلموا موضعهم في المجتمع (ثروتهم وطبقتهم وعرقهم ومواهبهم)؟ خلف هذا 'حجاب الجهل'، جادل بأن الناس سيختارون حريات أساسية متساوية وترتيب التفاوتات لصالح الأقل حظًا — وهو 'مبدأ الاختلاف' عنده."
+    }
+  },
+  {
+    "id": "phil-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is Leibniz's principle of the identity of indiscernibles?",
+      "ar": "ما مبدأ ليبنيز عن هوية المتشابهات (التماثل)?"
+    },
+    "answer": {
+      "en": "The principle that if two things are indistinguishable in all their properties, they are in fact the same thing. In other words, there cannot be two numerically distinct objects that are qualitatively identical in every respect.",
+      "ar": "المبدأ القائل بأنه إذا كان شيئان غير قابلَين للتمييز في جميع خصائصهما، فهما في الواقع الشيء ذاته. بعبارة أخرى، لا يمكن أن يوجد شيئان متمايزان عدديًا متماثلان نوعيًا من كل وجه."
+    }
+  },
+  {
+    "id": "phil-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What was the central debate between Al-Ghazali and Ibn Rushd?",
+      "ar": "ما الجدل المحوري بين الغزالي وابن رشد؟"
+    },
+    "answer": {
+      "en": "Al-Ghazali wrote 'The Incoherence of the Philosophers' (Tahafut al-Falasifa) attacking Greek-influenced Islamic philosophy as heretical on issues like the eternity of the world and divine knowledge. Ibn Rushd responded with 'The Incoherence of the Incoherence' defending philosophy and rational inquiry.",
+      "ar": "كتب الغزالي 'تهافت الفلاسفة' مهاجمًا الفلسفة الإسلامية المتأثرة باليونان بوصفها هرطقة في مسائل كأزلية العالم والعلم الإلهي. ردّ ابن رشد بـ 'تهافت التهافت' مدافعًا عن الفلسفة والبحث العقلاني."
+    }
+  },
+  {
+    "id": "phil-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Language & Philosophy of Science",
+      "ar": "فلسفة اللغة والعلم"
+    },
+    "question": {
+      "en": "What is Karl Popper's criterion of falsifiability?",
+      "ar": "ما معيار قابلية الدحض عند كارل بوبر؟"
+    },
+    "answer": {
+      "en": "Popper argued that a scientific theory must be falsifiable — it must make predictions that could, in principle, be proven wrong by observation or experiment. Theories that can explain any outcome (unfalsifiable) are not scientific. This demarcated science from pseudoscience.",
+      "ar": "جادل بوبر بأن النظرية العلمية يجب أن تكون قابلة للدحض — يجب أن تقدم تنبؤات يمكن من حيث المبدأ إثبات خطئها بالملاحظة أو التجربة. النظريات التي تستطيع تفسير أي نتيجة (غير قابلة للدحض) ليست علمية. وهذا فصل العلم عن شبه العلم."
+    }
+  },
+  {
+    "id": "phil-021",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is virtue ethics and how does it differ from Kantian ethics?",
+      "ar": "ما أخلاق الفضيلة وكيف تختلف عن الأخلاق الكانطية؟"
+    },
+    "answer": {
+      "en": "Virtue ethics (Aristotle) focuses on what kind of person one should be — asking 'what is a good person?' rather than 'what is the right action?' It emphasizes character traits (virtues like courage, honesty, justice) developed through habit. Kantian ethics focuses on duty and following universal moral rules regardless of character.",
+      "ar": "أخلاق الفضيلة (أرسطو) تركّز على نوع الشخص الذي ينبغي أن يكون المرء — تتساءل 'ما الشخص الجيد؟' بدلًا من 'ما الفعل الصحيح؟'. تُشدد على سمات الشخصية (فضائل كالشجاعة والصدق والعدل) المطوَّرة بالعادة. الأخلاق الكانطية تركّز على الواجب واتباع القواعد الأخلاقية الكونية بغض النظر عن الشخصية."
+    }
+  },
+  {
+    "id": "phil-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is Hume's problem of induction?",
+      "ar": "ما مشكلة الاستقراء عند هيوم؟"
+    },
+    "answer": {
+      "en": "Hume argued that inductive reasoning (inferring general laws from observed cases — e.g. 'the sun has always risen, therefore it will rise tomorrow') cannot be logically justified. We have no rational basis to assume the future will resemble the past — we rely on habit and custom, not reason. This challenges the foundations of science and causation.",
+      "ar": "جادل هيوم بأن الاستدلال الاستقرائي (استنتاج قوانين عامة من الحالات المرصودة — مثل 'الشمس شرقت دائمًا، إذن ستشرق غدًا') لا يمكن تبريره منطقيًا. لا أساس عقلاني لنا لافتراض أن المستقبل سيُشابه الماضي — نعتمد على العادة والتقليد لا على العقل. هذا يطعن في أسس العلم والسببية."
+    }
+  },
+  {
+    "id": "phil-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the 'hard problem of consciousness' described by David Chalmers?",
+      "ar": "ما 'المشكلة الصعبة للوعي' التي وصفها ديفيد تشالمرز؟"
+    },
+    "answer": {
+      "en": "The hard problem asks why physical brain processes give rise to subjective, first-person experience (qualia) — the 'what it is like' to see red, feel pain, or hear music. The 'easy problems' (explaining cognitive functions) seem tractable in principle; the hard problem — why any physical process produces inner experience at all — may be fundamentally beyond materialist explanation.",
+      "ar": "تتساءل المشكلة الصعبة لماذا تُفضي العمليات الدماغية المادية إلى تجربة ذاتية من منظور الشخص الأول (الكيفيات النوعية) — 'كيف يبدو' رؤية الأحمر أو الشعور بالألم أو سماع الموسيقى. 'المشكلات السهلة' (تفسير الوظائف المعرفية) تبدو قابلة للحل من حيث المبدأ؛ المشكلة الصعبة — لماذا تُنتج أي عملية مادية تجربة داخلية أصلًا — قد تكون خارج حدود التفسير المادي جوهريًا."
+    }
+  },
+  {
+    "id": "phil-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is Peter Singer's argument for effective altruism?",
+      "ar": "ما حجة بيتر سينغر للإيثار الفعّال؟"
+    },
+    "answer": {
+      "en": "Singer argues that if we can prevent something bad from happening without sacrificing anything of comparable moral importance, we ought to do it — regardless of distance. This leads to the conclusion that wealthy people in developed countries have a strong moral obligation to give significantly to reduce extreme global poverty, since geographic distance has no moral relevance.",
+      "ar": "يجادل سينغر بأنه إذا استطعنا منع شيء سيئ دون التضحية بشيء ذي أهمية أخلاقية مماثلة، يجب علينا ذلك — بغض النظر عن المسافة. يُفضي هذا إلى استنتاج بأن على الأثرياء في الدول المتقدمة واجبًا أخلاقيًا قويًا بالتبرع بشكل كبير للحدّ من الفقر المدقع عالميًا، إذ لا أهمية أخلاقية للمسافة الجغرافية."
+    }
+  },
+  {
+    "id": "phil-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the ship of Theseus paradox?",
+      "ar": "ما مفارقة سفينة ثيسيوس؟"
+    },
+    "answer": {
+      "en": "If every plank of a ship is gradually replaced, is it still the same ship? And if the original planks are reassembled elsewhere, which is the 'real' ship? The paradox questions the nature of identity and persistence through change — with implications for personal identity (if all our cells replace themselves, are we the same person?).",
+      "ar": "إذا استُبدلت كل لوح في سفينة تدريجيًا، هل ستظل نفس السفينة؟ وإذا جُمعت الألواح الأصلية في مكان آخر، أيٌّ منهما السفينة 'الحقيقية'؟ تتساءل المفارقة عن طبيعة الهوية والاستمرار عبر التغيير — مع تداعيات على الهوية الشخصية (إذا كانت جميع خلايانا تجدّد نفسها، هل نحن نفس الشخص؟)."
+    }
+  },
+  {
+    "id": "phil-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Political Philosophy",
+      "ar": "الفلسفة السياسية"
+    },
+    "question": {
+      "en": "What is Nietzsche's concept of the 'will to power'?",
+      "ar": "ما مفهوم نيتشه عن 'إرادة القوة'؟"
+    },
+    "answer": {
+      "en": "Nietzsche's concept that the fundamental drive underlying all human behavior is not pleasure-seeking (Schopenhauer) or survival, but the drive to express, exert, and expand one's power and creativity. It is not merely about domination — it includes artistic creation, intellectual mastery, and self-overcoming.",
+      "ar": "مفهوم نيتشه القائل بأن الدافع الأساسي الكامن وراء كل السلوك البشري ليس السعي نحو اللذة (شوبنهاور) أو البقاء، بل الدافع إلى التعبير والممارسة وتوسيع القوة والإبداع. ليس مجرد التسلط — يشمل الخلق الفني والإتقان الفكري والتغلب على الذات."
+    }
+  },
+  {
+    "id": "phil-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Language & Philosophy of Science",
+      "ar": "فلسفة اللغة والعلم"
+    },
+    "question": {
+      "en": "What is Thomas Kuhn's concept of scientific paradigm shifts?",
+      "ar": "ما مفهوم توماس كون عن التحولات في النموذج العلمي (باراديم)؟"
+    },
+    "answer": {
+      "en": "Kuhn argued in 'The Structure of Scientific Revolutions' that science does not progress by gradual accumulation but through revolutionary changes in 'paradigms' — the shared frameworks, assumptions, and methods of a scientific community. When anomalies accumulate, a crisis leads to a paradigm shift (e.g. Copernicus, Einstein, Darwin).",
+      "ar": "جادل كون في 'بنية الثورات العلمية' بأن العلم لا يتقدم بالتراكم التدريجي بل من خلال تغييرات ثورية في 'النماذج' — الأطر المشتركة والافتراضات والمناهج للمجتمع العلمي. حين تتراكم الشواذ، تؤدي أزمة إلى تحوّل في النموذج (مثل كوبيرنيكوس وأينشتاين وداروين)."
+    }
+  },
+  {
+    "id": "phil-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the ontological argument for God's existence and who formulated it?",
+      "ar": "ما البرهان الأنطولوجي (الوجودي) على وجود الله ومن صاغه؟"
+    },
+    "answer": {
+      "en": "Formulated by Anselm of Canterbury (11th century): God is 'that than which nothing greater can be conceived.' If God existed only in the mind, something greater (one that also exists in reality) could be conceived — contradiction. Therefore God must exist in reality. Kant famously criticized it: 'existence is not a predicate.'",
+      "ar": "صاغه أنسيلم الكانتربري (القرن الحادي عشر): الله هو 'ما لا يمكن تصوّر ما هو أعظم منه'. لو وُجد الله في الذهن فقط، يمكن تصوّر شيء أعظم (موجود في الواقع أيضًا) — تناقض. إذن يجب أن يوجد الله في الواقع. انتقده كانط بقوله الشهير: 'الوجود ليس محمولًا'."
+    }
+  },
+  {
+    "id": "phil-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Epistemology & Logic",
+      "ar": "نظرية المعرفة والمنطق"
+    },
+    "question": {
+      "en": "What is Gödel's incompleteness theorem and why is it philosophically significant?",
+      "ar": "ما مبرهنة غودل عن عدم الاكتمال ولماذا لها أهمية فلسفية؟"
+    },
+    "answer": {
+      "en": "Kurt Gödel (1931) proved that in any consistent formal system powerful enough to express arithmetic, there are true statements that cannot be proved within that system. This showed that mathematics cannot be complete and self-verifying — demolishing Hilbert's program to ground all mathematics in a complete, consistent axiom system.",
+      "ar": "أثبت كورت غودل (1931) أنه في أي نظام رسمي متسق قوي بما يكفي للتعبير عن الحساب، توجد عبارات صحيحة لا يمكن إثباتها داخل ذلك النظام. أظهر هذا أن الرياضيات لا تستطيع أن تكون كاملة وذاتية التحقق — ما دمّر برنامج هيلبرت لتأسيس كل الرياضيات على نظام بديهيات كامل ومتسق."
+    }
+  },
+  {
+    "id": "phil-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the naturalistic fallacy in ethics, identified by G.E. Moore?",
+      "ar": "ما المغالطة الطبيعانية في الأخلاق التي حدّدها جورج إدوارد مور؟"
+    },
+    "answer": {
+      "en": "Moore argued that 'good' cannot be defined by any natural property (like pleasure, evolution, or God's will). Defining 'good' as something natural commits a fallacy because you can always meaningfully ask 'but is that thing actually good?' This is the 'open question argument'. It implies that ethical facts are distinct from natural facts.",
+      "ar": "جادل مور بأن 'الخير' لا يمكن تعريفه بأي خاصية طبيعية (كاللذة أو التطور أو إرادة الله). تعريف 'الخير' بشيء طبيعي يرتكب مغالطة لأنه يمكن دائمًا التساؤل بمعنى: 'لكن هل ذلك الشيء جيد فعلًا؟'. هذا هو 'حجة السؤال المفتوح'. يُشير إلى أن الحقائق الأخلاقية متميزة عن الحقائق الطبيعية."
+    }
+  },
+  {
+    "id": "phil-031",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What is Ibn Sina's (Avicenna's) 'floating man' thought experiment?",
+      "ar": "ما تجربة ابن سينا الفكرية عن 'الإنسان الطائر'؟"
+    },
+    "answer": {
+      "en": "Imagine a person created fully formed but floating in empty space, with no sensory input — eyes covered, not touching anything. Would they still be aware of their own existence? Ibn Sina argued yes — the person would be aware of themselves as a thinking subject, even with no sensory or bodily experience. This preceded Descartes' Cogito by centuries and establishes the soul's independent existence.",
+      "ar": "تخيّل شخصًا خُلق مكتمل النمو لكنه يعوم في الفضاء الفارغ دون أي مدخل حسي — عيناه مغطاتان ولا يلمس شيئًا. هل سيدرك وجوده الخاص؟ جادل ابن سينا بنعم — سيدرك الشخص نفسه ذاتًا مفكّرة حتى دون تجربة حسية أو جسدية. سبق هذا 'الكوجيتو' الديكارتي بقرون ويُرسّخ الوجود المستقل للروح."
+    }
+  },
+  {
+    "id": "phil-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Language & Philosophy of Science",
+      "ar": "فلسفة اللغة والعلم"
+    },
+    "question": {
+      "en": "What is Wittgenstein's private language argument?",
+      "ar": "ما حجة فتغنشتاين عن اللغة الخاصة؟"
+    },
+    "answer": {
+      "en": "The late Wittgenstein argued that a 'private language' — one that refers to inner experiences only the speaker can access — is impossible. Language requires public criteria for correct usage; without the possibility of public checking, there is no difference between 'using a word correctly' and 'thinking one is using it correctly.' This challenges Cartesian privacy of mind.",
+      "ar": "جادل فتغنشتاين المتأخر بأن 'اللغة الخاصة' — التي تشير إلى تجارب داخلية لا يستطيع الوصول إليها إلا المتحدث — مستحيلة. تتطلب اللغة معايير عامة للاستخدام الصحيح؛ بدون إمكانية التحقق العام، لا يوجد فرق بين 'استخدام كلمة بصحة' و'التفكير بأن المرء يستخدمها بصحة'. هذا يطعن في خصوصية الذهن الديكارتية."
+    }
+  },
+  {
+    "id": "phil-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Political Philosophy",
+      "ar": "الفلسفة السياسية"
+    },
+    "question": {
+      "en": "What is Hannah Arendt's concept of the 'banality of evil'?",
+      "ar": "ما مفهوم حنا أرنت عن 'ابتذال الشر'؟"
+    },
+    "answer": {
+      "en": "Based on her observation of Adolf Eichmann's trial (1961), Arendt argued that great evil is often committed not by monsters but by ordinary, thoughtless people who simply follow orders and bureaucratic routine without reflecting on the moral meaning of their actions. Evil requires no malicious intent — just the absence of thinking.",
+      "ar": "بناءً على ملاحظتها لمحاكمة أدولف أيخمان (1961)، جادلت أرنت بأن الشر العظيم كثيرًا ما يرتكبه لا وحوش بل أناس عاديون بلا تفكير يتبعون الأوامر والروتين البيروقراطي دون تأمل في المعنى الأخلاقي لأفعالهم. الشر لا يتطلب نية خبيثة — فقط غياب التفكير."
+    }
+  },
+  {
+    "id": "phil-034",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the principle of sufficient reason (PSR)?",
+      "ar": "ما مبدأ السبب الكافي؟"
+    },
+    "answer": {
+      "en": "The philosophical principle, associated with Leibniz, that everything that exists has a sufficient reason or explanation for why it exists and is the way it is, rather than not existing or being otherwise. It underpins arguments for God's existence (cosmological argument) and is contested by philosophers who accept brute facts with no explanation.",
+      "ar": "المبدأ الفلسفي المرتبط بليبنيز القائل بأن كل ما يوجد له سبب كافٍ أو تفسير لوجوده وكونه على ما هو عليه بدلًا من عدمه أو كونه على نحو آخر. يدعم الحجج على وجود الله (الحجة الكوسمولوجية) وتطعن فيه الفلاسفة الذين يقبلون حقائق خاما لا تفسير لها."
+    }
+  },
+  {
+    "id": "phil-035",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Epistemology & Logic",
+      "ar": "نظرية المعرفة والمنطق"
+    },
+    "question": {
+      "en": "What is the paradox of the heap (sorites paradox)?",
+      "ar": "ما مفارقة الكومة (مفارقة السوريتس)؟"
+    },
+    "answer": {
+      "en": "If you have a heap of sand and remove one grain, it's still a heap. Repeating this, when does it stop being a heap? The paradox arises because 'heap' is vague — there's no precise point at which the transition occurs. It challenges classical two-valued logic (true/false) and raises questions about vague predicates in language and law.",
+      "ar": "لو أزلت حبة رمل من كومة، ستظل كومة. بتكرار ذلك، متى تتوقف عن كونها كومة؟ تنشأ المفارقة لأن 'الكومة' مبهمة — لا نقطة دقيقة للانتقال. تطعن في المنطق الكلاسيكي ثنائي القيمة (صح/خطأ) وتثير أسئلة حول المحمولات المبهمة في اللغة والقانون."
+    }
+  },
+  {
+    "id": "phil-036",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the is-ought problem identified by David Hume?",
+      "ar": "ما مشكلة 'الواقع والواجب' التي حدّدها ديفيد هيوم؟"
+    },
+    "answer": {
+      "en": "Hume observed that many moral arguments make an unjustified jump from descriptive facts ('is') to normative conclusions ('ought'). From 'humans evolved to be social' you cannot derive 'humans ought to behave socially' without additional premises. This gap — the is-ought gap — is a foundational challenge in metaethics.",
+      "ar": "لاحظ هيوم أن كثيرًا من الحجج الأخلاقية تنتقل انتقالًا غير مُبرَّر من الحقائق الوصفية ('هو') إلى الاستنتاجات المعيارية ('ينبغي'). من 'البشر تطوّروا ليكونوا اجتماعيين' لا يمكن استنتاج 'ينبغي للبشر أن يتصرفوا اجتماعيًا' دون مقدمات إضافية. هذه الفجوة — فجوة الواقع والواجب — تحدٍّ أساسي في الفلسفة الأخلاقية التأسيسية."
+    }
+  },
+  {
+    "id": "phil-037",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Philosophical Traditions",
+      "ar": "المدارس الفلسفية"
+    },
+    "question": {
+      "en": "What is Sartre's concept of 'existence precedes essence'?",
+      "ar": "ما مفهوم سارتر 'الوجود يسبق الماهية'؟"
+    },
+    "answer": {
+      "en": "Sartre argued that humans are not born with a predetermined nature or purpose (essence). We exist first, then create our own essence through choices and actions. This is radically liberating but also terrifying — we are 'condemned to be free' and fully responsible for who we become.",
+      "ar": "جادل سارتر بأن البشر لا يولدون بطبيعة أو غاية محدودة مسبقًا (الماهية). نحن نوجد أولًا ثم نخلق ماهيتنا عبر الاختيارات والأفعال. هذا محرّر بشكل جذري لكنه أيضًا مرعب — نحن 'محكوم علينا بأن نكون أحرارًا' ومسؤولون تمامًا عمّن نكون."
+    }
+  },
+  {
+    "id": "phil-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the simulation hypothesis and what philosophical problems does it raise?",
+      "ar": "ما فرضية المحاكاة وما المشكلات الفلسفية التي تطرحها؟"
+    },
+    "answer": {
+      "en": "Nick Bostrom's trilemma: either civilizations go extinct before becoming technologically advanced enough to run simulations, or advanced civilizations don't run simulations, or we are almost certainly living in a simulation. It raises questions about the nature of reality (is it material?), identity, and whether any distinction exists between 'real' and 'simulated' experience.",
+      "ar": "مُعضَّلة بوستروم الثلاثية: إما أن الحضارات تنقرض قبل أن تصبح متقدمة تقنيًا بما يكفي لتشغيل المحاكاة، أو أن الحضارات المتقدمة لا تُشغّل محاكاة، أو أننا نعيش على الأرجح في محاكاة. تطرح أسئلة حول طبيعة الواقع (هل هو مادي؟) والهوية وما إذا كان هناك فارق بين التجربة 'الحقيقية' و'المحاكاة'."
+    }
+  },
+  {
+    "id": "phil-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is functionalism in philosophy of mind and what is the main objection against it?",
+      "ar": "ما الوظيفانية في فلسفة العقل وما الاعتراض الرئيسي عليها؟"
+    },
+    "answer": {
+      "en": "Functionalism defines mental states by their causal roles — what inputs they respond to and what outputs they produce — rather than by their physical substrate. A mental state is 'pain' if it is caused by damage and causes avoidance behavior, regardless of whether it occurs in neurons or silicon. Main objection: John Searle's Chinese Room — a system can perform all the right functions without genuinely understanding anything (absent qualia).",
+      "ar": "الوظيفانية تعرّف الحالات العقلية بأدوارها السببية — على ما تستجيب له من مدخلات وما تنتجه من مخرجات — لا بركيزتها المادية. الحالة العقلية 'ألم' إذا كانت ناجمة عن ضرر وتسبّب سلوك تجنّب، بغض النظر عن حدوثها في خلايا عصبية أو سيليكون. الاعتراض الرئيسي: غرفة الصينية لجون سيرل — النظام يستطيع أداء جميع الوظائف الصحيحة دون فهم حقيقي (غياب الكيفيات النوعية)."
+    }
+  },
+  {
+    "id": "phil-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is moral particularism and how does it differ from moral principlism?",
+      "ar": "ما الخصوصانية الأخلاقية وكيف تختلف عن المبدئية الأخلاقية؟"
+    },
+    "answer": {
+      "en": "Moral particularism (Jonathan Dancy) holds that moral features of a situation can vary in their moral relevance depending on context — a feature that counts in favor of an action in one situation may count against it in another. This contrasts with principlism (e.g. Kant, utilitarianism) which holds that moral principles apply universally across situations.",
+      "ar": "الخصوصانية الأخلاقية (جوناثان دانسي) ترى أن السمات الأخلاقية للموقف يمكن أن تتفاوت في أهميتها الأخلاقية حسب السياق — سمة تصبّ لصالح فعل في موقف ما قد تصبّ ضده في موقف آخر. يتعارض هذا مع المبدئية (مثل كانط والنفعية) التي ترى أن المبادئ الأخلاقية تنطبق بصورة كونية عبر المواقف."
+    }
+  },
+  {
+    "id": "phil-041",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Epistemology & Logic",
+      "ar": "نظرية المعرفة والمنطق"
+    },
+    "question": {
+      "en": "What is epistemic injustice and what are its two main forms as described by Miranda Fricker?",
+      "ar": "ما الظلم المعرفي وما صورتاه الرئيسيتان كما وصفتهما ميراندا فريكر؟"
+    },
+    "answer": {
+      "en": "Epistemic injustice is a wrong done to someone specifically in their capacity as a knower. Miranda Fricker identifies: (1) Testimonial injustice — giving a speaker deflated credibility due to identity prejudice (e.g. disbelieving someone because of their gender or race); (2) Hermeneutical injustice — having inadequate conceptual resources to understand one's own experience (e.g. having no concept for 'sexual harassment' before it was named).",
+      "ar": "الظلم المعرفي خطأ يُلحق بشخص ما تحديدًا بوصفه عارفًا. تُحدّد ميراندا فريكر: (1) الظلم الشهادي — منح المتحدث مصداقية منقوصة بسبب تحيّز هوياتي (مثل عدم التصديق لأسباب جنسية أو عرقية)؛ (2) الظلم التأويلي — امتلاك موارد مفاهيمية قاصرة لفهم تجربة الفرد (مثل غياب مفهوم 'التحرش الجنسي' قبل تسميته)."
+    }
+  },
+  {
+    "id": "phil-042",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the distinction between de re and de dicto modality in modal logic?",
+      "ar": "ما الفرق بين الضرورة الذاتية (de re) والضرورة القولية (de dicto) في المنطق الوجهي؟"
+    },
+    "answer": {
+      "en": "De dicto modality applies to propositions: 'Necessarily, the number of planets is greater than 7' means the proposition is necessarily true. De re modality applies to objects: 'The number of planets necessarily has this property' makes a claim about the object itself. The distinction matters because: 'Necessarily, the Morning Star is the Evening Star' (de dicto) is false (it's a contingent astronomical fact), while 'Hesperus is necessarily Hesperus' (de re) is true.",
+      "ar": "الوجهية القولية (de dicto) تنطبق على القضايا: 'بالضرورة، عدد الكواكب أكبر من 7' تعني أن القضية صحيحة بالضرورة. الوجهية الذاتية (de re) تنطبق على الكيانات: 'عدد الكواكب يمتلك بالضرورة هذه الخاصية' يدّعي شيئًا عن الكيان ذاته. يهم الفرق لأن: 'بالضرورة، نجم الصباح هو نجم المساء' (de dicto) خاطئ (حقيقة فلكية ظرفية)، بينما 'هسبريوس هو بالضرورة هسبريوس' (de re) صحيح."
+    }
+  },
+  {
+    "id": "phil-043",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Language & Philosophy of Science",
+      "ar": "فلسفة اللغة والعلم"
+    },
+    "question": {
+      "en": "What is the Duhem-Quine thesis in philosophy of science?",
+      "ar": "ما أطروحة ديهم-كواين في فلسفة العلم؟"
+    },
+    "answer": {
+      "en": "The thesis that scientific hypotheses cannot be tested in isolation — any test involves auxiliary hypotheses (background assumptions, instrument calibration, ceteris paribus conditions). When a prediction fails, we cannot know if the main hypothesis is wrong or one of the auxiliaries is at fault. This means no single experiment can definitively refute a theory — only a whole web of beliefs can be tested as a unit.",
+      "ar": "الأطروحة القائلة بأن الفرضيات العلمية لا يمكن اختبارها منعزلةً — أي اختبار يتضمن فرضيات مساعدة (افتراضات خلفية ومعايرة الأجهزة وشروط 'تساوي العوامل الأخرى'). حين يفشل تنبؤ، لا نعرف إذا كانت الفرضية الرئيسية خاطئة أم أحد المساعدات. يعني ذلك أن أي تجربة واحدة لا تستطيع دحض نظرية بشكل قاطع — بل شبكة المعتقدات كلها يمكن اختبارها وحدةً واحدة."
+    }
+  },
+  {
+    "id": "phil-044",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Political Philosophy",
+      "ar": "الفلسفة السياسية"
+    },
+    "question": {
+      "en": "What is the difference between negative and positive liberty as described by Isaiah Berlin?",
+      "ar": "ما الفرق بين الحرية السلبية والحرية الإيجابية كما وصفهما إيزايا برلين؟"
+    },
+    "answer": {
+      "en": "Negative liberty: freedom from external constraints and interference (the absence of obstacles). Positive liberty: freedom to actually pursue one's goals and realize one's potential — which may require resources and conditions. Berlin warned that positive liberty can be co-opted by authoritarian regimes to justify imposing a 'true' freedom on citizens.",
+      "ar": "الحرية السلبية: الحرية من القيود والتدخل الخارجي (غياب العوائق). الحرية الإيجابية: الحرية في سعي الأهداف فعلًا وتحقيق إمكانات الفرد — وقد تستلزم موارد وشروطًا. حذّر برلين من أن الحرية الإيجابية يمكن أن تختطفها الأنظمة الاستبدادية لتبرير فرض حرية 'حقيقية' على المواطنين."
+    }
+  },
+  {
+    "id": "phil-045",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the repugnant conclusion in population ethics (Derek Parfit)?",
+      "ar": "ما الاستنتاج المقيت في أخلاقيات السكان عند ديريك بارفيت؟"
+    },
+    "answer": {
+      "en": "Parfit showed that totalist utilitarianism (maximize total welfare) implies that a world with billions of barely-worth-living lives would be better than a much smaller world of very happy people — as long as the sum total of welfare is higher. This 'repugnant conclusion' seems deeply wrong but is hard to avoid without abandoning standard utilitarian principles. It generates much of the literature in population ethics.",
+      "ar": "أظهر بارفيت أن النفعية الإجمالية (تعظيم الرفاهية الإجمالية) تستلزم أن عالمًا بمليارات من الحيوات التي تكاد تستحق العيش سيكون أفضل من عالم أصغر بكثير من الأشخاص السعداء جدًا — طالما أن مجموع الرفاهية الإجمالي أعلى. هذا 'الاستنتاج المقيت' يبدو خاطئًا جوهريًا لكن يصعب تجنّبه دون التخلي عن المبادئ النفعية القياسية. أنتج جزءًا كبيرًا من أدبيات أخلاقيات السكان."
+    }
+  },
+  {
+    "id": "phil-046",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Language & Philosophy of Science",
+      "ar": "فلسفة اللغة والعلم"
+    },
+    "question": {
+      "en": "What is Kripke's causal theory of reference and how does it challenge Frege-Russell descriptivism?",
+      "ar": "ما نظرية كريبكي السببية للإشارة وكيف تطعن في الوصفية الفريجية الراسلية؟"
+    },
+    "answer": {
+      "en": "Frege-Russell descriptivism held that proper names refer by being associated with descriptions (Aristotle = 'the teacher of Alexander'). Kripke argued names are 'rigid designators' — they refer to the same object in all possible worlds, regardless of which descriptions are true. Reference is fixed causally: an initial baptism creates a chain of communication. Names still refer even when all believed descriptions are false.",
+      "ar": "الوصفية الفريجية الراسلية ترى أن الأسماء الخاصة تشير عبر ارتباطها بأوصاف (أرسطو = 'معلّم الإسكندر'). جادل كريبكي بأن الأسماء 'مُحدِّدات صارمة' — تشير إلى نفس الكيان في جميع العوالم الممكنة بغض النظر عن أي أوصاف صحيحة. الإشارة تُثبَّت سببيًا: تسمية أولية تخلق سلسلة تواصلية. الأسماء لا تزال تشير حتى حين تكون جميع الأوصاف المعتقدة خاطئة."
+    }
+  },
+  {
+    "id": "phil-047",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the separateness of persons objection to utilitarianism?",
+      "ar": "ما اعتراض 'انفصالية الأشخاص' على النفعية؟"
+    },
+    "answer": {
+      "en": "Rawls and Nozick argued that utilitarianism fails to take seriously the fact that people are distinct individuals. Maximizing aggregate welfare can justify sacrificing one person for the benefit of many — treating people as mere vessels of utility rather than ends in themselves. This fails to respect the separateness of persons — you cannot compensate my suffering with someone else's happiness, because they are not the same person.",
+      "ar": "جادل رولز ونوزيك بأن النفعية تفشل في أخذ حقيقة أن الناس أفراد متميزون بجدية. تعظيم الرفاهية الإجمالية قد يُبرر التضحية بشخص واحد لمصلحة كثيرين — معاملة الناس كأوعية للمنفعة لا كغايات في ذاتها. هذا يُخفق في احترام انفصالية الأشخاص — لا تستطيع تعويض معاناتي بسعادة شخص آخر لأنهما ليسا نفس الشخص."
+    }
+  },
+  {
+    "id": "phil-048",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Metaphysics & Mind",
+      "ar": "الميتافيزيقا وفلسفة العقل"
+    },
+    "question": {
+      "en": "What is the debate between presentism and eternalism in the philosophy of time?",
+      "ar": "ما الجدل بين الحاضرية والأزلية (الأبدية) في فلسفة الزمن؟"
+    },
+    "answer": {
+      "en": "Presentism holds that only the present moment exists — the past is gone and the future does not yet exist. Eternalism (block universe theory) holds that all times — past, present, and future — are equally real and co-exist in a four-dimensional spacetime block. Eternalism is compatible with special relativity (which shows simultaneity is relative), while presentism struggles to accommodate relativity theory.",
+      "ar": "الحاضرية ترى أن اللحظة الراهنة فقط موجودة — الماضي زال والمستقبل لم يوجد بعد. الأزلية (نظرية الكون الكتلي) ترى أن جميع الأزمنة — الماضي والحاضر والمستقبل — حقيقية بالتساوي وتتعايش في كتلة رباعية الأبعاد من الزمكان. الأزلية متوافقة مع النسبية الخاصة (التي تُظهر أن التزامن نسبي)، بينما تصارع الحاضرية استيعاب نظرية النسبية."
+    }
+  },
+  {
+    "id": "phil-049",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Language & Philosophy of Science",
+      "ar": "فلسفة اللغة والعلم"
+    },
+    "question": {
+      "en": "What is structural realism in philosophy of science and how does it respond to the pessimistic meta-induction?",
+      "ar": "ما الواقعية البنيوية في فلسفة العلم وكيف ترد على الاستقراء التشاؤمي؟"
+    },
+    "answer": {
+      "en": "The pessimistic meta-induction (Laudan) notes that past successful theories (Newtonian mechanics, phlogiston, ether) were later shown false — so current theories are probably false too. Structural realism (Worrall) responds that even when theories are replaced, their mathematical structure is preserved (Newton's equations are a limit case of Einstein's). Science successfully tracks structure even if it doesn't track underlying entities.",
+      "ar": "يُلاحظ الاستقراء التشاؤمي (لوردان) أن النظريات الناجحة السابقة (الميكانيكا النيوتونية والفلوجستون والأثير) ظهر لاحقًا أنها خاطئة — لذا النظريات الحالية خاطئة على الأرجح أيضًا. ترد الواقعية البنيوية (وورال) بأنه حتى عند استبدال النظريات، يُحفظ بناؤها الرياضي (معادلات نيوتن هي حالة حدية لمعادلات أينشتاين). العلم يتتبع البنية بنجاح حتى لو لم يتتبع الكيانات الأساسية."
+    }
+  },
+  {
+    "id": "phil-050",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Ethics",
+      "ar": "الأخلاق"
+    },
+    "question": {
+      "en": "What is the distinction between agent-relative and agent-neutral values in ethics?",
+      "ar": "ما الفرق بين القيم النسبية للفاعل والقيم المحايدة للفاعل في الأخلاق؟"
+    },
+    "answer": {
+      "en": "Agent-neutral values are equally important to everyone regardless of who the agent is (e.g. reducing total suffering is equally important to all). Agent-relative values are indexed to particular agents — I have special reasons to promote my own projects, relationships, or commitments that others don't share equally. Consequentialism tends to endorse only agent-neutral values; deontology and virtue ethics accommodate agent-relative permissions and requirements (e.g. special duties to family).",
+      "ar": "القيم المحايدة للفاعل مهمة للجميع بالتساوي بغض النظر عن هوية الفاعل (مثل الحدّ من المعاناة الإجمالية مهم بالتساوي للجميع). القيم النسبية للفاعل مُفهرسة لفاعلين بعينهم — لديّ أسباب خاصة لتعزيز مشاريعي وعلاقاتي والتزاماتي الخاصة لا يشاركني فيها الآخرون بالتساوي. النفعية تؤيد القيم المحايدة للفاعل فحسب؛ الواجبية وأخلاق الفضيلة تستوعبان الإذن بالقيم النسبية ومتطلباتها (مثل واجبات خاصة تجاه العائلة)."
+    }
+  }
+]

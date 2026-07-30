@@ -1,211 +1,3202 @@
 [
-  {"id":"ayt-001","difficulty":"easy","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"Who is Adnan's friend who loves eating frogs?","ar":"من هو صديق عدنان الذي يحب أكل الضفادع؟"},"answer":{"en":"Issa","ar":"عيسى"}},
-  {"id":"ayt-002","difficulty":"easy","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of the girl who has the power to communicate with birds?","ar":"ما اسم الفتاة التي تمتلك قدرة التواصل مع الطيور؟"},"answer":{"en":"Lina","ar":"لينا"}},
-  {"id":"ayt-003","difficulty":"easy","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"Where was Adnan living in the first episode?","ar":"أين كان يعيش عدنان في الحلقة الأولى؟"},"answer":{"en":"The Lost Island","ar":"الجزيرة المفقودة"}},
-  {"id":"ayt-004","difficulty":"easy","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of the captain who commands the Shark Ship?","ar":"ما هو اسم القبطان الذي يقود سفينة القرش؟"},"answer":{"en":"Namiq","ar":"نامق"}},
-  {"id":"ayt-005","difficulty":"easy","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"Who is the villain who controlled the fortress?","ar":"من هو الشرير الذي كان يقود القلعة؟"},"answer":{"en":"Allam","ar":"علام"}},
-  {"id":"ayt-006","difficulty":"medium","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of the green city governed by Uncle Badr?","ar":"ما اسم المدينة الخضراء التي يحكمها العم بدر؟"},"answer":{"en":"Land of Hope","ar":"أرض الأمل"}},
-  {"id":"ayt-007","difficulty":"medium","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What was Dr. Lao (Lina's grandfather) secretly doing inside the fortress?","ar":"ماذا كان يعمل الدكتور لاو (جد لينا) في الخفاء داخل القلعة؟"},"answer":{"en":"Mechanical engineer (Pedro)","ar":"مهندس ميكانيكي (بيدرو)"}},
-  {"id":"ayt-008","difficulty":"medium","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of the massive aircraft that was Allam's secret weapon?","ar":"ما اسم الطائرة الضخمة التي كانت سلاح علام السري؟"},"answer":{"en":"Jumana / Al-Qari'a","ar":"جومانا / القارعة"}},
-  {"id":"ayt-009","difficulty":"medium","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What animal did Issa keep in the Land of Hope?","ar":"ما هو الحيوان الذي كان يربيه عيسى في أرض الأمل؟"},"answer":{"en":"A small pig","ar":"خنزير صغير"}},
-  {"id":"ayt-010","difficulty":"medium","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"How could Adnan cling to high objects?","ar":"كيف كان عدنان يتمكن من التعلق بالأشياء العالية؟"},"answer":{"en":"Using his powerful toes","ar":"باستخدام أصابع قدميه القوية"}},
-  {"id":"ayt-011","difficulty":"hard","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What was the code number given to Lina's grandfather inside the fortress?","ar":"ما هو الرقم الرمزي الذي أُطلق على جد لينا في القلعة؟"},"answer":{"en":"Number 8","ar":"رقم 8"}},
-  {"id":"ayt-012","difficulty":"hard","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of Allam's military aide who wore a strange hat?","ar":"ما اسم المساعد العسكري لعلام والذي كان يرتدي قبعة غريبة؟"},"answer":{"en":"Qunsel (Consul)","ar":"قنصل"}},
-  {"id":"ayt-013","difficulty":"hard","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"Who was the strong woman who worked with Allam then helped Adnan?","ar":"من هي المرأة القوية التي كانت تعمل مع علام ثم ساعدت عدنان؟"},"answer":{"en":"Samira","ar":"سميرة"}},
-  {"id":"ayt-014","difficulty":"hard","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of the island where outlaws were exiled?","ar":"ما اسم الجزيرة التي كان يُنفى إليها الخارجون عن القانون؟"},"answer":{"en":"Ant Island","ar":"جزيرة النمل"}},
-  {"id":"ayt-015","difficulty":"hard","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"How did Captain Namiq sink with his ship in the end?","ar":"كيف غرق القبطان نامق بسفينته في النهاية؟"},"answer":{"en":"He blew it up himself so Adnan and Lina could escape","ar":"فجرها بنفسه ليهرب عدنان ولينا"}},
-  {"id":"ayt-016","difficulty":"very-advanced","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"In what year did World War III break out according to the show's intro?","ar":"في أي عام اندلعت الحرب العالمية الثالثة حسب المقدمة؟"},"answer":{"en":"Year 2008","ar":"عام 2008"}},
-  {"id":"ayt-017","difficulty":"very-advanced","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What name did the fortress residents use for solar energy?","ar":"ما هو الاسم الذي يطلقه سكان القلعة على الطاقة الشمسية؟"},"answer":{"en":"The Mighty Energy","ar":"الطاقة الجبارة"}},
-  {"id":"ayt-018","difficulty":"very-advanced","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What is the name of Lina's mother (mentioned in the story)?","ar":"ما اسم والدة لينا (التي ذكرت في القصة)؟"},"answer":{"en":"Misa'a","ar":"ميساء"}},
-  {"id":"ayt-019","difficulty":"very-advanced","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"How many survivors were with Adnan alone in the beginning?","ar":"كم عدد الناجين الذين كانوا مع عدنان وحده في البداية؟"},"answer":{"en":"No one — they were just the two of them","ar":"لا أحد، كانا هما الوحيدين"}},
-  {"id":"ayt-020","difficulty":"very-advanced","subcategory":{"en":"Adnan and Lina","ar":"عدنان ولينا"},"question":{"en":"What type of weapon destroyed the world according to the original story?","ar":"ما هو اسم القنبلة التي دمرت العالم حسب الرواية الأصلية؟"},"answer":{"en":"Magnetic missiles","ar":"القنابل المغناطيسية"}},
-
-  {"id":"ayt-021","difficulty":"easy","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of the team Majid joined at the beginning?","ar":"ما هو اسم الفريق الذي انضم إليه ماجد في البداية؟"},"answer":{"en":"Al-Majd (Nankatsu)","ar":"فريق المجد (نانكاتسو)"}},
-  {"id":"ayt-022","difficulty":"easy","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"Who is the goalkeeper who never conceded a goal from outside the penalty area?","ar":"من هو الحارس الذي لم يدخل مرماه هدف من خارج المنطقة؟"},"answer":{"en":"Walid","ar":"وليد"}},
-  {"id":"ayt-023","difficulty":"easy","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of Majid's Brazilian coach?","ar":"ما اسم المدرب البرازيلي لماجد؟"},"answer":{"en":"Fawaz (Roberto)","ar":"فوازر (روبرتو)"}},
-  {"id":"ayt-024","difficulty":"easy","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is Majid's famous shot?","ar":"ما هي الضربة الشهيرة لماجد؟"},"answer":{"en":"The Sheikh Strike / Thunderbolt","ar":"ضربة الشيخ / الصاعقة"}},
-  {"id":"ayt-025","difficulty":"easy","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of Majid's close friend who always passes to him?","ar":"ما اسم صديق ماجد المقرب الذي يمرر له دائماً؟"},"answer":{"en":"Yassin","ar":"ياسين"}},
-  {"id":"ayt-026","difficulty":"medium","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of the team led by Bassam?","ar":"ما اسم الفريق الذي كان يقوده بسام؟"},"answer":{"en":"Al-Farah (Meiwa)","ar":"فريق الفرح (ميووا)"}},
-  {"id":"ayt-027","difficulty":"medium","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"Who is the player nicknamed 'the Eagle of the Pitches'?","ar":"من هو اللاعب الذي كان يلقب بـ صقر الملاعب؟"},"answer":{"en":"Majed","ar":"مجد"}},
-  {"id":"ayt-028","difficulty":"medium","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of the massive goalkeeper who blocked shots with his body?","ar":"ما اسم الحارس الضخم الذي كان يصد الكرات بجسده؟"},"answer":{"en":"Ra'd (Thunder)","ar":"رعد"}},
-  {"id":"ayt-029","difficulty":"medium","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What illness did player Mazin suffer from?","ar":"ما هو المرض الذي كان يعاني منه اللاعب مازن؟"},"answer":{"en":"Heart disease","ar":"مرض القلب"}},
-  {"id":"ayt-030","difficulty":"medium","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"Who are the two brothers famous for jumping on the goalposts?","ar":"من هما الأخوان اللذان اشتهرا بالقفز على القائمين؟"},"answer":{"en":"The Shawqi brothers","ar":"الأخوين شوقي"}},
-  {"id":"ayt-031","difficulty":"hard","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What jersey number did Yassin wear?","ar":"ما هو رقم القميص الذي كان يرتديه ياسين؟"},"answer":{"en":"Number 11","ar":"رقم 11"}},
-  {"id":"ayt-032","difficulty":"hard","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What was the score in the first match between Majid's team and Walid's team?","ar":"كم كانت النتيجة في أول مباراة بين فريق ماجد وفريق وليد؟"},"answer":{"en":"Draw 1-1","ar":"التعادل 1-1"}},
-  {"id":"ayt-033","difficulty":"hard","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What jersey number did Bassam wear?","ar":"ما هو رقم القميص الذي كان يرتديه بسام؟"},"answer":{"en":"Number 10, then 9","ar":"رقم 10 ثم 9"}},
-  {"id":"ayt-034","difficulty":"hard","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of the sports commentator in the Arabic dub?","ar":"ما اسم المعلق الرياضي في الدبلجة العربية؟"},"answer":{"en":"Muhammad Arif","ar":"محمد عارف"}},
-  {"id":"ayt-035","difficulty":"hard","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of the school Bassam transferred to on a scholarship?","ar":"ما اسم المدرسة التي انتقل إليها بسام بمنحة دراسية؟"},"answer":{"en":"Al-Tawfiq School (Toho)","ar":"مدرسة التوفيق (توهو)"}},
-  {"id":"ayt-036","difficulty":"very-advanced","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of Majid's father and what is his profession?","ar":"ما هو اسم والد ماجد وما هي مهنته؟"},"answer":{"en":"Captain Kamel, a sea captain","ar":"الكابتن كامل، قبطان بحري"}},
-  {"id":"ayt-037","difficulty":"very-advanced","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the original Japanese name of the character Yassin?","ar":"ما هو الاسم الياباني الأصلي لشخصية ياسين؟"},"answer":{"en":"Taro Misaki","ar":"تارو ميساكي"}},
-  {"id":"ayt-038","difficulty":"very-advanced","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"How was Walid's leg injured in the national championship?","ar":"كيف أصيب وليد في ساقه في البطولة الوطنية؟"},"answer":{"en":"By colliding with the goalpost","ar":"اصطدامه بالقائم"}},
-  {"id":"ayt-039","difficulty":"very-advanced","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What is the name of the team for which Ammar (the fast player) played?","ar":"ما هو اسم الفريق الذي لعب له عمار (اللاعب السريع)؟"},"answer":{"en":"Al-Nour","ar":"فريق النور"}},
-  {"id":"ayt-040","difficulty":"very-advanced","subcategory":{"en":"Captain Majid","ar":"الكابتن ماجد"},"question":{"en":"What Japanese city were the events of the series set in?","ar":"ما هي المدينة اليابانية التي جرت فيها الأحداث؟"},"answer":{"en":"Shizuoka City","ar":"مدينة شيزوكا"}},
-
-  {"id":"ayt-041","difficulty":"easy","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"Who is the young hero of the story?","ar":"من هو الفتى بطل القصة؟"},"answer":{"en":"Jim Hawkins","ar":"جيم هوكنز"}},
-  {"id":"ayt-042","difficulty":"easy","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What is the name of the one-legged cook who is the main villain?","ar":"ما هو اسم الطاهي الأعرج الشرير الرئيسي؟"},"answer":{"en":"Long John Silver","ar":"جون سيلفر"}},
-  {"id":"ayt-043","difficulty":"easy","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What is the name of the ship that sailed for the treasure?","ar":"ما اسم السفينة التي أبحروا بها للبحث عن الكنز؟"},"answer":{"en":"Hispaniola","ar":"هيسبانيولا"}},
-  {"id":"ayt-044","difficulty":"easy","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What is the name of Silver's parrot?","ar":"ما اسم ببغاء سيلفر؟"},"answer":{"en":"Captain Flint","ar":"كابتن فلينت"}},
-  {"id":"ayt-045","difficulty":"easy","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What did Jim find in the chest that started his adventure?","ar":"ما الذي عثر عليه جيم في صندوق القبطان وبدأت به المغامرة؟"},"answer":{"en":"The treasure map","ar":"خريطة الكنز"}},
-  {"id":"ayt-046","difficulty":"medium","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"Who was the man who had been living alone on the island for years?","ar":"من هو الرجل الذي كان يعيش وحيداً على الجزيرة لسنوات؟"},"answer":{"en":"Ben Gunn","ar":"ابن غان"}},
-  {"id":"ayt-047","difficulty":"medium","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"Who is the doctor who accompanied the expedition?","ar":"من هو الطبيب الذي رافق الرحلة؟"},"answer":{"en":"Dr. Livesey","ar":"الدكتور ليفسي"}},
-  {"id":"ayt-048","difficulty":"medium","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"Who organized and funded the treasure expedition?","ar":"من هو الذي نظّم الرحلة ومولها للبحث عن الكنز؟"},"answer":{"en":"Squire Trelawney","ar":"السكوير ترلوني"}},
-  {"id":"ayt-049","difficulty":"medium","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What is the name of the blind pirate who gave the Black Spot?","ar":"ما اسم القرصان الأعمى الذي سلّم ورقة التهديد السوداء؟"},"answer":{"en":"Blind Pew","ar":"الأعمى بيو"}},
-  {"id":"ayt-050","difficulty":"medium","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What was the name of the inn owned by Jim's family?","ar":"ما اسم النزل الذي كانت تملكه عائلة جيم؟"},"answer":{"en":"Admiral Benbow Inn","ar":"نزل الأميرال بينبو"}},
-  {"id":"ayt-051","difficulty":"hard","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What was the name of the pirate whose treasure map the whole story revolves around?","ar":"ما اسم القرصان الذي تدور القصة كلها حول كنزه وخريطته؟"},"answer":{"en":"Captain Flint","ar":"كابتن فلينت"}},
-  {"id":"ayt-052","difficulty":"hard","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What is the name of the captain of the Hispaniola who sided with the pirates?","ar":"ما اسم ربّان الهيسبانيولا الذي انحاز للقراصنة؟"},"answer":{"en":"Captain Smollett (originally loyal) — the traitor was the first mate","ar":"كابتن سموليت"}},
-  {"id":"ayt-053","difficulty":"hard","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"Where did Jim hide and overhear Silver's pirate plot?","ar":"أين اختبأ جيم وسمع مؤامرة القراصنة؟"},"answer":{"en":"Inside an apple barrel","ar":"داخل برميل التفاح"}},
-  {"id":"ayt-054","difficulty":"hard","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What did Silver and the pirates want from the island?","ar":"ماذا أراد سيلفر والقراصنة من الجزيرة؟"},"answer":{"en":"Captain Flint's buried treasure","ar":"كنز الكابتن فلينت المدفون"}},
-  {"id":"ayt-055","difficulty":"hard","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What was the nickname Silver used among the pirates?","ar":"ما اللقب الذي كان يُعرف به سيلفر بين القراصنة؟"},"answer":{"en":"Long John (the Long One)","ar":"لونغ جون (الطويل)"}},
-  {"id":"ayt-056","difficulty":"very-advanced","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What phrase did Silver's parrot constantly shout?","ar":"ما هي العبارة التي كان يصرخ بها ببغاء سيلفر دائماً؟"},"answer":{"en":"Pieces of Eight!","ar":"قطع الثمانية!"}},
-  {"id":"ayt-057","difficulty":"very-advanced","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"In the end of the series, where did Long John Silver go?","ar":"في نهاية المسلسل، أين ذهب جون سيلفر؟"},"answer":{"en":"He escaped at a small port, taking part of the treasure with him","ar":"هرب في ميناء صغير ومعه جزء من الكنز"}},
-  {"id":"ayt-058","difficulty":"very-advanced","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What was Billy Bones' fate before the ship sailed?","ar":"ما مصير بيلي بونز قبل إقلاع السفينة؟"},"answer":{"en":"He died after receiving the Black Spot and suffering a stroke","ar":"مات بعد تلقيه ورقة السوداء وأصيب بجلطة"}},
-  {"id":"ayt-059","difficulty":"very-advanced","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"How long had Ben Gunn been marooned on the island?","ar":"كم سنة قضى ابن غان وحيداً على الجزيرة؟"},"answer":{"en":"Three years","ar":"ثلاث سنوات"}},
-  {"id":"ayt-060","difficulty":"very-advanced","subcategory":{"en":"Treasure Island","ar":"جزيرة الكنز"},"question":{"en":"What was the real reason Ben Gunn was left on the island?","ar":"ما السبب الحقيقي لتركه ابن غان وحيداً على الجزيرة؟"},"answer":{"en":"His crewmates abandoned him after a failed treasure hunt","ar":"تخلى عنه رفاقه بعد محاولة فاشلة للبحث عن الكنز"}},
-
-  {"id":"ayt-061","difficulty":"easy","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the hero of Grendizer's story?","ar":"ما هو اسم بطل قصة غرندايزر؟"},"answer":{"en":"Daisuke (Duke Fleed)","ar":"ديباكيو (ديوك فليد)"}},
-  {"id":"ayt-062","difficulty":"easy","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the giant robot?","ar":"ما هو اسم الروبوت العملاق؟"},"answer":{"en":"Grendizer","ar":"غرندايزر"}},
-  {"id":"ayt-063","difficulty":"easy","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Who is Grendizer's main enemy?","ar":"من هو العدو الرئيسي لغرندايزر؟"},"answer":{"en":"The Vega Army (Vega Bank)","ar":"فيغا بانك"}},
-  {"id":"ayt-064","difficulty":"easy","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the girl who helped the hero?","ar":"ما اسم الفتاة التي كانت تساعد البطل؟"},"answer":{"en":"Hikaru","ar":"هيكارو"}},
-  {"id":"ayt-065","difficulty":"easy","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Where does the hero hide Grendizer on Earth?","ar":"أين يختبئ البطل بغرندايزر على الأرض؟"},"answer":{"en":"The Makiba Farm","ar":"البيرة الكبيرة"}},
-  {"id":"ayt-066","difficulty":"medium","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the aircraft that combines with Grendizer?","ar":"ما اسم المركبة الجوية التي تتحد مع غرندايزر؟"},"answer":{"en":"Double Spazer","ar":"السبيستر الطائر"}},
-  {"id":"ayt-067","difficulty":"medium","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Who is the main commander of the Vega Army?","ar":"من هو القائد الرئيسي لجيش فيغا؟"},"answer":{"en":"King Vega (Khan Vega)","ar":"خان فيغا"}},
-  {"id":"ayt-068","difficulty":"medium","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the father figure who shelters the hero on Earth?","ar":"ما اسم الأب الذي يحتضن البطل على الأرض؟"},"answer":{"en":"Dr. Makiba","ar":"الدكتور ماكيبا"}},
-  {"id":"ayt-069","difficulty":"medium","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Who is the princess from Planet Fleed?","ar":"من هي الأميرة من كوكب فليد؟"},"answer":{"en":"Maria Grace (Maria Fleed)","ar":"ماريا"}},
-  {"id":"ayt-070","difficulty":"medium","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of Duke Fleed's home planet?","ar":"ما هو اسم كوكب ديوك فليد الأصلي؟"},"answer":{"en":"Planet Fleed","ar":"كوكب فليد"}},
-  {"id":"ayt-071","difficulty":"hard","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of Grendizer's signature blade weapon?","ar":"ما اسم سلاح النصل الشهير لغرندايزر؟"},"answer":{"en":"Screw Crusher (Harken Boomerang)","ar":"مضرب الشياطين"}},
-  {"id":"ayt-072","difficulty":"hard","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Who is the enemy who occasionally betrayed Vega to help the Duke?","ar":"من هو العدو الذي كان أحياناً يخون فيغا ويساعد الدوق؟"},"answer":{"en":"Blacky (Gandal in some versions)","ar":"بلاكي"}},
-  {"id":"ayt-073","difficulty":"hard","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What happened to Planet Fleed before the events of the show?","ar":"ماذا حدث لكوكب فليد قبل أحداث المسلسل؟"},"answer":{"en":"It was destroyed by the Vega Army","ar":"دمره جيش فيغا"}},
-  {"id":"ayt-074","difficulty":"hard","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the enemy monster that merged multiple Vega robots?","ar":"ما اسم الوحش الهجين الناتج عن دمج روبوتات فيغا؟"},"answer":{"en":"Hybrid Monster","ar":"وحش الهجين"}},
-  {"id":"ayt-075","difficulty":"hard","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the energy beam fired from Grendizer's horns?","ar":"ما اسم شعاع الطاقة الذي ينطلق من قرون غرندايزر؟"},"answer":{"en":"Space Thunder","ar":"رعد الفضاء"}},
-  {"id":"ayt-076","difficulty":"very-advanced","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What is the name of the villain who betrayed King Vega and sometimes aided the Duke?","ar":"ما اسم القائد الشرير الذي خان فيغا وساعد الدوق في بعض المواقف؟"},"answer":{"en":"Naida (or Zuril in some situations)","ar":"ناييدا (أو زوريل في مواقف)"}},
-  {"id":"ayt-077","difficulty":"very-advanced","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"What happened to Planet Fleed at the end of the series?","ar":"ماذا حدث لكوكب فليد في نهاية المسلسل؟"},"answer":{"en":"The Duke and Maria returned to revive it","ar":"عاد إليه الدوق وماريا لإحيائه"}},
-  {"id":"ayt-078","difficulty":"very-advanced","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Which Japanese animation studio produced Grendizer?","ar":"أي استوديو ياباني أنتج مسلسل غرندايزر؟"},"answer":{"en":"Toei Animation","ar":"توي أنيميشن"}},
-  {"id":"ayt-079","difficulty":"very-advanced","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"Who is the manga creator of Grendizer?","ar":"من هو مبتكر مانغا غرندايزر؟"},"answer":{"en":"Go Nagai","ar":"جو ناغاي"}},
-  {"id":"ayt-080","difficulty":"very-advanced","subcategory":{"en":"Grendizer","ar":"غرندايزر"},"question":{"en":"How did Duke Fleed come to be in hiding on Earth?","ar":"كيف وصل ديوك فليد إلى الاختباء على الأرض؟"},"answer":{"en":"He fled Planet Fleed in Grendizer when it was destroyed by the Vega Army","ar":"فرّ من كوكب فليد على متن غرندايزر حين دمره جيش فيغا"}},
-
-  {"id":"ayt-081","difficulty":"easy","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of Sally's father who works in a diamond mine?","ar":"ما اسم والد سالي الذي يعمل في مناجم الألماس؟"},"answer":{"en":"Captain Crewe","ar":"كايتن كرو"}},
-  {"id":"ayt-082","difficulty":"easy","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"Who is the strict headmistress who treated Sally unjustly?","ar":"من هي مديرة المعهد القاسية التي عاملت سالي بظلم؟"},"answer":{"en":"Miss Minchin","ar":"الآنسة منشن"}},
-  {"id":"ayt-083","difficulty":"easy","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of the doll Sally considered her secret friend?","ar":"ما اسم الدمية التي كانت سالي تعتبرها صديقتها السرية؟"},"answer":{"en":"Emily","ar":"إيميلي"}},
-  {"id":"ayt-084","difficulty":"easy","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"How did Sally's life suddenly change?","ar":"كيف تغيرت حياة سالي فجأة؟"},"answer":{"en":"Because of her father's death and bankruptcy","ar":"بسبب وفاة والدها وإفلاسه"}},
-  {"id":"ayt-085","difficulty":"easy","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"Where was Sally forced to sleep after becoming a servant?","ar":"أين كانت تضطر سالي للنوم بعد أن أصبحت خادمة؟"},"answer":{"en":"In the attic","ar":"في العلية"}},
-  {"id":"ayt-086","difficulty":"medium","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of the young servant girl who became Sally's friend?","ar":"ما اسم الخادمة الصغيرة التي أصبحت صديقة سالي؟"},"answer":{"en":"In Vicky","ar":"في فيكي"}},
-  {"id":"ayt-087","difficulty":"medium","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"Who is the boy who worked as a cart driver and helped Sally?","ar":"من هو الفتى الذي كان يعمل سائق عربة وساعد سالي؟"},"answer":{"en":"Peter","ar":"بيتر"}},
-  {"id":"ayt-088","difficulty":"medium","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of the small cat that comforted Sally in her loneliness?","ar":"ما اسم القطة الصغيرة التي كانت تؤنس وحدة سالي؟"},"answer":{"en":"Lucy","ar":"لوسي"}},
-  {"id":"ayt-089","difficulty":"medium","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"Who is the student who was always jealous of Sally?","ar":"من هي الطالبة التي كانت دائماً تغار من سالي؟"},"answer":{"en":"Lavinia","ar":"لافينيا"}},
-  {"id":"ayt-090","difficulty":"medium","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of Miss Minchin's kind sister?","ar":"ما اسم شقيقة الآنسة منشن الطيبة؟"},"answer":{"en":"Miss Amelia","ar":"الآنسة أميليا"}},
-  {"id":"ayt-091","difficulty":"hard","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of the institute where Sally studied?","ar":"ما هو اسم المعهد الذي كانت تدرس فيه سالي؟"},"answer":{"en":"Lavinia Institute for Ladies","ar":"معهد لافينيا للسيدات"}},
-  {"id":"ayt-092","difficulty":"hard","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What animal entered Sally's room and turned out to belong to her neighbour?","ar":"ما هو الحيوان الذي دخل غرفتها وكان ملكاً لجاره؟"},"answer":{"en":"The monkey Soula","ar":"القرد سوليا"}},
-  {"id":"ayt-093","difficulty":"hard","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"Who is Ermengarde and what was her role in Sally's life?","ar":"من هي إيرمنغارد؟"},"answer":{"en":"A simple student and loyal friend to Sally","ar":"طالبة بسيطة وصديقة مخلصة لسالي"}},
-  {"id":"ayt-094","difficulty":"hard","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What did Sally always imagine to bear her hardships?","ar":"ماذا كانت سالي تتخيل نفسها دائماً لتتحمل التعب؟"},"answer":{"en":"That she was a princess","ar":"تتخيل أنها أميرة"}},
-  {"id":"ayt-095","difficulty":"hard","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"How did Mr. Carrisford recognise Sally as the girl he was looking for?","ar":"كيف عرف السيد كريسفورد أن سالي هي الفتاة المطلوبة؟"},"answer":{"en":"From her name and resemblance to her father","ar":"من اسمها وشبهها بوالدها"}},
-  {"id":"ayt-096","difficulty":"very-advanced","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What nickname did Sally's father give her?","ar":"ما هو اللقب الذي كان يطلقه والد سالي عليها؟"},"answer":{"en":"The Little Princess","ar":"الأميرة الصغيرة"}},
-  {"id":"ayt-097","difficulty":"very-advanced","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"Who is the little girl Sally treated like her own daughter?","ar":"من هي الفتاة الصغيرة التي كانت سالي تعتبرها ابنتها؟"},"answer":{"en":"Lottie","ar":"لوتي"}},
-  {"id":"ayt-098","difficulty":"very-advanced","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What is the name of the Indian servant who worked for the neighbour?","ar":"ما اسم الخادم الهندي الذي كان يعمل لدى الجار؟"},"answer":{"en":"Ram Das","ar":"رام داس"}},
-  {"id":"ayt-099","difficulty":"very-advanced","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"What did Sally give the poor baker girl when she found money?","ar":"ماذا أهدت سالي للخبازة الفقيرة عندما وجدت نقوداً؟"},"answer":{"en":"Pieces of cake","ar":"قطع الكعك"}},
-  {"id":"ayt-100","difficulty":"very-advanced","subcategory":{"en":"Sally","ar":"سالي"},"question":{"en":"In which British city does the story take place?","ar":"في أي مدينة بريطانية تدور أحداث المسلسل؟"},"answer":{"en":"London","ar":"لندن"}},
-
-  {"id":"ayt-101","difficulty":"easy","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is Maruko's family name?","ar":"ما اسم عائلة ماروكو؟"},"answer":{"en":"Sakura","ar":"ساكورا"}},
-  {"id":"ayt-102","difficulty":"easy","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"Who is the family member who supports Maruko the most?","ar":"من هو أكثر شخص في العائلة يدعم ماروكو؟"},"answer":{"en":"Grandpa Tomozou","ar":"الجد توموزو"}},
-  {"id":"ayt-103","difficulty":"easy","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the colour of Maruko's famous shirt?","ar":"ما هو لون قميص ماروكو الشهير؟"},"answer":{"en":"White","ar":"أبيض"}},
-  {"id":"ayt-104","difficulty":"easy","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of Maruko's older sister?","ar":"ما اسم شقيقة ماروكو الكبرى؟"},"answer":{"en":"Jaco","ar":"جاكو"}},
-  {"id":"ayt-105","difficulty":"easy","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What talent did Maruko love to practise?","ar":"ما هي الموهبة التي كانت ماروكو تحب ممارستها؟"},"answer":{"en":"Drawing","ar":"الرسم"}},
-  {"id":"ayt-106","difficulty":"medium","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of Maruko's friend who wears glasses?","ar":"ما اسم صديقة ماروكو التي تضع نظارات؟"},"answer":{"en":"Tama","ar":"تاما"}},
-  {"id":"ayt-107","difficulty":"medium","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"Who is the rich classmate who always has a servant?","ar":"من هو الزميل الغني الذي يمتلك خادماً دائماً؟"},"answer":{"en":"Hanawa","ar":"هاناوا"}},
-  {"id":"ayt-108","difficulty":"medium","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of Hanawa's personal servant?","ar":"ماذا كان اسم الخادم الخاص بهاناوا؟"},"answer":{"en":"Hidetchi","ar":"هيديتشي"}},
-  {"id":"ayt-109","difficulty":"medium","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What trait characterises Grandma in the series?","ar":"ما هي الصفة التي تميز الجدة في المسلسل؟"},"answer":{"en":"Quiet and collecting old things","ar":"الهدوء وجمع الأشياء القديمة"}},
-  {"id":"ayt-110","difficulty":"medium","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of the classmate who laughs with a ha-ha-ha sound?","ar":"ما اسم الزميل الذي يضحك بـ خخخخ؟"},"answer":{"en":"Taro / Maro","ar":"ترو / مارو"}},
-  {"id":"ayt-111","difficulty":"hard","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is Maruko's favourite dish?","ar":"ما هي الوجبة المفضلة لماروكو؟"},"answer":{"en":"Hot pot (Nabe)","ar":"الهوت بوت (النابي)"}},
-  {"id":"ayt-112","difficulty":"hard","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of the student nicknamed 'the Onion'?","ar":"ما اسم الطالب الذي يلقب بـ البصلة؟"},"answer":{"en":"Nagasawa","ar":"ناجاساوا"}},
-  {"id":"ayt-113","difficulty":"hard","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of Maruko's class teacher?","ar":"ما هو اسم المعلم الخاص بفصل ماروكو؟"},"answer":{"en":"Mr. Togawa","ar":"السيد توغاوا"}},
-  {"id":"ayt-114","difficulty":"hard","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What was Maruko always doing in the last moments before school?","ar":"ماذا كانت ماروكو تفعل في اللحظات الأخيرة للمدرسة؟"},"answer":{"en":"Doing homework","ar":"كتابة الواجبات"}},
-  {"id":"ayt-115","difficulty":"hard","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"Who is the student who aspires to become class president?","ar":"من هو الطالب الذي يطمح لرئاسة الفصل؟"},"answer":{"en":"Maro","ar":"مارو"}},
-  {"id":"ayt-116","difficulty":"very-advanced","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of Maruko's mother?","ar":"ما هو اسم والدة ماروكو؟"},"answer":{"en":"Sumire","ar":"سوميري"}},
-  {"id":"ayt-117","difficulty":"very-advanced","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"In which decade are the events of the series set?","ar":"في أي حقبة تدور أحداث المسلسل؟"},"answer":{"en":"The 1970s","ar":"السبعينات"}},
-  {"id":"ayt-118","difficulty":"very-advanced","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of the singer Maruko was obsessed with?","ar":"ما اسم المغني الذي كانت ماروكو معجبة به؟"},"answer":{"en":"Momoe Yamaguchi","ar":"موموي ياماغوتشي"}},
-  {"id":"ayt-119","difficulty":"very-advanced","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is Grandpa Tomozou's strange hobby?","ar":"ما هي الهواية الغريبة للجد توموزو؟"},"answer":{"en":"Writing haiku poetry","ar":"كتابة قصائد هايكو"}},
-  {"id":"ayt-120","difficulty":"very-advanced","subcategory":{"en":"Chibi Maruko-chan","ar":"ماروكو الصغيرة"},"question":{"en":"What is the name of Nagasawa's loyal friend?","ar":"ما اسم صديق ناجاساوا المخلص؟"},"answer":{"en":"Fujiki","ar":"فوجيكي"}},
-
-  {"id":"ayt-121","difficulty":"easy","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What talent made Remi famous?","ar":"ما هي الموهبة التي اشتهرت بها ريمي؟"},"answer":{"en":"Singing","ar":"الغناء"}},
-  {"id":"ayt-122","difficulty":"easy","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"Who is the old man who bought Remi to work with him?","ar":"من هو العجوز الذي اشترى ريمي لتعمل معه؟"},"answer":{"en":"Uncle Vitalis","ar":"العم فيتاليس"}},
-  {"id":"ayt-123","difficulty":"easy","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of the small monkey dressed as a soldier?","ar":"ما اسم القرد الصغير الذي يرتدي ملابس جندي؟"},"answer":{"en":"Jolicoeur","ar":"جوليكور"}},
-  {"id":"ayt-124","difficulty":"easy","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of the white dog that led the pack?","ar":"ما اسم الكلب الأبيض الذي كان يقود الكلاب؟"},"answer":{"en":"Capi","ar":"كابي"}},
-  {"id":"ayt-125","difficulty":"easy","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What was Remi searching for throughout the series?","ar":"ماذا كانت ريمي تبحث عنه طوال المسلسل؟"},"answer":{"en":"Her real mother","ar":"والدتها الحقيقية"}},
-  {"id":"ayt-126","difficulty":"medium","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of the woman who raised Remi in the village?","ar":"ما اسم السيدة التي ربت ريمي في القرية؟"},"answer":{"en":"Mother Barberin","ar":"الأم باربرين"}},
-  {"id":"ayt-127","difficulty":"medium","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What musical instrument did Vitalis play?","ar":"ما هي الآلة الموسيقية التي عزف عليها فيتاليس؟"},"answer":{"en":"The guitar (lute)","ar":"القيثارة"}},
-  {"id":"ayt-128","difficulty":"medium","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"How did Remi earn money with the troupe?","ar":"كيف كانت ريمي تجني المال مع الفرقة؟"},"answer":{"en":"Travelling performances","ar":"العروض المتنقلة"}},
-  {"id":"ayt-129","difficulty":"medium","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of the boy Remi met in London?","ar":"ما اسم الفتى الذي التقت به ريمي في لندن؟"},"answer":{"en":"Mattia","ar":"ماتيا"}},
-  {"id":"ayt-130","difficulty":"medium","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What are the names of the three dogs with Vitalis?","ar":"ما هي أسماء الكلاب الثلاثة مع فيتاليس؟"},"answer":{"en":"Capi, Zerbino, Dolce","ar":"كابي، زيربينو، دولشي"}},
-  {"id":"ayt-131","difficulty":"hard","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of Remi's noble family?","ar":"ما هو اسم عائلة ريمي النبيلة؟"},"answer":{"en":"Remi Milligan","ar":"ريمي ميليغان"}},
-  {"id":"ayt-132","difficulty":"hard","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"Who is the wicked man who exploited children in London?","ar":"من هو الرجل الشرير الذي استغل الأطفال في لندن؟"},"answer":{"en":"Kasper","ar":"كاسبر"}},
-  {"id":"ayt-133","difficulty":"hard","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What happened to the two dogs Zerbino and Dolce?","ar":"ماذا حدث للكلبين زيربينو ودولشي؟"},"answer":{"en":"They were killed in a wolf attack","ar":"هجوم الذئاب"}},
-  {"id":"ayt-134","difficulty":"hard","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of Remi's crippled brother?","ar":"ما اسم الفتى المقعد الذي تبيّن أنه أخو ريمي؟"},"answer":{"en":"Arthur","ar":"آرتور"}},
-  {"id":"ayt-135","difficulty":"hard","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"Why was Uncle Vitalis imprisoned?","ar":"لماذا سجن العم فيتاليس؟"},"answer":{"en":"For defending Remi against a policeman","ar":"الدفاع عن ريمي ضد شرطي"}},
-  {"id":"ayt-136","difficulty":"very-advanced","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What was the secret in Remi's baby swaddling cloth?","ar":"ما هو السر في قماط ريمي الرضيعة؟"},"answer":{"en":"The family's embroidered crest","ar":"شعار العائلة المطرز"}},
-  {"id":"ayt-137","difficulty":"very-advanced","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What was Vitalis's real name in his past life?","ar":"ما هو اسم فيتاليس الحقيقي قديماً؟"},"answer":{"en":"Carlo Balzani","ar":"كارلو بالزاني"}},
-  {"id":"ayt-138","difficulty":"very-advanced","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"How did Uncle Vitalis die?","ar":"كيف توفي العم فيتاليس؟"},"answer":{"en":"From cold and snow","ar":"بسبب البرد والثلوج"}},
-  {"id":"ayt-139","difficulty":"very-advanced","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"What is the name of the village where Remi grew up?","ar":"ما اسم قرية ريمي التي نشأت فيها؟"},"answer":{"en":"Chavanon","ar":"شيفانون"}},
-  {"id":"ayt-140","difficulty":"very-advanced","subcategory":{"en":"Remi","ar":"ريمي"},"question":{"en":"Who kidnapped Remi when she was a baby?","ar":"من الشخص الذي خطف ريمي وهي رضيعة؟"},"answer":{"en":"Her uncle","ar":"عمها"}},
-
-  {"id":"ayt-141","difficulty":"easy","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of Sandybell's loyal dog?","ar":"ما اسم الكلب الوفي لساندييبيل؟"},"answer":{"en":"Forbee","ar":"فوربي"}},
-  {"id":"ayt-142","difficulty":"easy","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"Who is the young man Sandybell loves who likes to paint?","ar":"من هو الشاب الذي تحبه ساندييبيل ويحب الرسم؟"},"answer":{"en":"Mark","ar":"مارك"}},
-  {"id":"ayt-143","difficulty":"easy","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the colour of Sandybell's hair?","ar":"ما هو لون شعر ساندييبيل؟"},"answer":{"en":"Blonde","ar":"أشقر"}},
-  {"id":"ayt-144","difficulty":"easy","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"In which country do the events of the series begin?","ar":"في أي بلد بدأت أحداث المسلسل؟"},"answer":{"en":"Scotland","ar":"إسكتلندا"}},
-  {"id":"ayt-145","difficulty":"easy","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What did Sandybell love to do?","ar":"ماذا كانت ساندييبيل تحب أن تفعل؟"},"answer":{"en":"Spread happiness","ar":"نشر السعادة"}},
-  {"id":"ayt-146","difficulty":"medium","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of the rival rich girl?","ar":"ما اسم الفتاة الغنية المنافسة لساندييبيل؟"},"answer":{"en":"Kitty","ar":"كيتي"}},
-  {"id":"ayt-147","difficulty":"medium","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What happened to Sandybell's father (Christie)?","ar":"ماذا حدث لوالد ساندييبيل (كريستي)؟"},"answer":{"en":"He died of illness","ar":"توفي بالمرض"}},
-  {"id":"ayt-148","difficulty":"medium","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What was her profession when she worked in London?","ar":"ما هي المهنة التي عملت بها ساندييبيل في لندن؟"},"answer":{"en":"Roving journalist","ar":"صحفية متجولة"}},
-  {"id":"ayt-149","difficulty":"medium","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What flower is associated with the memory of her mother?","ar":"ما هي الزهرة المرتبطة بذكرى والدتها؟"},"answer":{"en":"Narcissus","ar":"النرجس"}},
-  {"id":"ayt-150","difficulty":"medium","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of the car that Sandybell drove?","ar":"ما اسم السيارة التي كانت ساندييبيل تقودها؟"},"answer":{"en":"Sandy","ar":"ساندي"}},
-  {"id":"ayt-151","difficulty":"hard","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"Who is the person who adopted Sandybell?","ar":"من هو الشخص الذي تبنى ساندييبيل؟"},"answer":{"en":"Mr. Christie","ar":"السيد كريستي"}},
-  {"id":"ayt-152","difficulty":"hard","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of the aunt who looked after Sandybell?","ar":"ما اسم الخالة التي اعتنت بساندييبيل؟"},"answer":{"en":"Aunt Mary","ar":"الخالة ماري"}},
-  {"id":"ayt-153","difficulty":"hard","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"How did Sandybell find out her mother was alive?","ar":"كيف عرفت ساندييبيل أن والدتها حية؟"},"answer":{"en":"From a painting drawn by Mark","ar":"من لوحة رسمها مارك"}},
-  {"id":"ayt-154","difficulty":"hard","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of the mountain she loves to go to?","ar":"ما اسم الجبل الذي تحب ساندييبيل الذهاب إليه؟"},"answer":{"en":"Flower Mountain","ar":"جبل الزهور"}},
-  {"id":"ayt-155","difficulty":"hard","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What was Mark's father's occupation?","ar":"ماذا كان يعمل والد مارك؟"},"answer":{"en":"A famous painter","ar":"رسام مشهور"}},
-  {"id":"ayt-156","difficulty":"very-advanced","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is Sandybell's full name?","ar":"ما هو الاسم الكامل لساندييبيل؟"},"answer":{"en":"Sandybell Leslie","ar":"ساندييبيل ليزلي"}},
-  {"id":"ayt-157","difficulty":"very-advanced","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"Where was her mother found in the end?","ar":"أين وجدت ساندييبيل والدتها في النهاية؟"},"answer":{"en":"In a convent (having lost her memory)","ar":"في دير (فاقدة للذاكرة)"}},
-  {"id":"ayt-158","difficulty":"very-advanced","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of the troublemaker boy in London?","ar":"ما اسم الفتى المشاكس في لندن؟"},"answer":{"en":"Alex","ar":"أليكس"}},
-  {"id":"ayt-159","difficulty":"very-advanced","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What prize did Mark dream of winning?","ar":"ما الجائزة التي حلم بها مارك؟"},"answer":{"en":"The Louvre Prize","ar":"جائزة لوفر"}},
-  {"id":"ayt-160","difficulty":"very-advanced","subcategory":{"en":"Sandybell","ar":"ساندييبيل"},"question":{"en":"What is the name of the castle where Kitty lived?","ar":"ما اسم القصر الذي عاشت فيه كيتي؟"},"answer":{"en":"Sherwood Castle","ar":"قصر شيروووود"}},
-
-  {"id":"ayt-161","difficulty":"easy","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What are the names of the two hero siblings?","ar":"ما هما اسما البطلين الأخ والأخت؟"},"answer":{"en":"Azam and Lumis","ar":"عزم ولميس"}},
-  {"id":"ayt-162","difficulty":"easy","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"Who does Iron Man fight against?","ar":"ضد من كان يحارب الرجل الحديدي؟"},"answer":{"en":"The Dinosaurs","ar":"الديناصورات"}},
-  {"id":"ayt-163","difficulty":"easy","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the combination move called?","ar":"ما هي حركة الاتحاد؟"},"answer":{"en":"Ring Touch","ar":"ملامسة الخواتم"}},
-  {"id":"ayt-164","difficulty":"easy","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the name of the giant vehicle they pilot?","ar":"ما اسم المركبة الضخمة التي يقودانها؟"},"answer":{"en":"Eisenberg","ar":"إيزنبيرغ"}},
-  {"id":"ayt-165","difficulty":"easy","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the colour of Iron Man's armour?","ar":"ما لون درع الرجل الحديدي؟"},"answer":{"en":"Red and silver","ar":"أحمر وفضي"}},
-  {"id":"ayt-166","difficulty":"medium","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"Who is the first commander of the Dinosaurs?","ar":"من هو قائد الديناصورات الأول؟"},"answer":{"en":"Ululou","ar":"أولولو"}},
-  {"id":"ayt-167","difficulty":"medium","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What weapons are hidden in Iron Man's head?","ar":"ما هي الأسلحة في رأس الرجل الحديدي؟"},"answer":{"en":"Sharp blades / saws","ar":"شفرات حادة / منشار"}},
-  {"id":"ayt-168","difficulty":"medium","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"How did the siblings become half-cyborg?","ar":"كيف أصبحا نصف آليين؟"},"answer":{"en":"Their parents' laboratory exploded","ar":"انفجار مختبر والدهما"}},
-  {"id":"ayt-169","difficulty":"medium","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"Who is the commander after Ululou?","ar":"من القائد بعد أولولو؟"},"answer":{"en":"Tyranos","ar":"تيرانوس"}},
-  {"id":"ayt-170","difficulty":"medium","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"Who is the scientist supervising them?","ar":"من هو العالم المشرف عليهم؟"},"answer":{"en":"Dr. Irfan","ar":"الدكتور عرفان"}},
-  {"id":"ayt-171","difficulty":"hard","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"How long is the maximum combination time?","ar":"ما مدة الاتحاد القصوى؟"},"answer":{"en":"3 minutes and 30 seconds","ar":"3 دقائق و30 ثانية"}},
-  {"id":"ayt-172","difficulty":"hard","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the name of the military support team?","ar":"ما اسم الفريق العسكري المساعد؟"},"answer":{"en":"Team D","ar":"فريق D"}},
-  {"id":"ayt-173","difficulty":"hard","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the merged dinosaur monster called?","ar":"ماذا يسمى وحش دمج الديناصورات؟"},"answer":{"en":"Hybrid Monster","ar":"وحش الهجين"}},
-  {"id":"ayt-174","difficulty":"hard","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the name of the beam weapon fired from the hands?","ar":"ما اسم السلاح الشعاعي من اليدين؟"},"answer":{"en":"Izen Beam","ar":"شعاع إيزن"}},
-  {"id":"ayt-175","difficulty":"hard","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"Where is the dinosaur base located?","ar":"أين تقع قاعدة الديناصورات؟"},"answer":{"en":"Underground","ar":"تحت الأرض"}},
-  {"id":"ayt-176","difficulty":"very-advanced","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What was their parents' original profession?","ar":"ما وظيفة والدهما الأصلية؟"},"answer":{"en":"Fossil science researchers","ar":"عالم حفريات"}},
-  {"id":"ayt-177","difficulty":"very-advanced","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is the name of the small friendly dinosaur?","ar":"ما اسم الديناصور الصغير الطيب؟"},"answer":{"en":"Stego","ar":"ستيغو"}},
-  {"id":"ayt-178","difficulty":"very-advanced","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"In what year did the Dinosaurs begin appearing?","ar":"في أي سنة بدأت الديناصورات بالظهور؟"},"answer":{"en":"1986","ar":"1986"}},
-  {"id":"ayt-179","difficulty":"very-advanced","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"What is Lumis's weakness?","ar":"ما هي نقطة ضعف لميس؟"},"answer":{"en":"Artificial heart weakness","ar":"ضعف القلب الاصطناعي"}},
-  {"id":"ayt-180","difficulty":"very-advanced","subcategory":{"en":"Iron Man","ar":"الرجل الحديدي"},"question":{"en":"How did Tyranos meet his end?","ar":"كيف انتهى تيرانوس؟"},"answer":{"en":"In a final confrontation with Iron Man","ar":"مواجهة نهائية مع الرجل الحديدي"}},
-
-  {"id":"ayt-181","difficulty":"easy","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What type of animal is Tom?","ar":"ما نوع حيوان توم؟"},"answer":{"en":"Cat","ar":"قط"}},
-  {"id":"ayt-182","difficulty":"easy","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What type of animal is Jerry?","ar":"ما نوع حيوان جيري؟"},"answer":{"en":"Mouse","ar":"فأر"}},
-  {"id":"ayt-183","difficulty":"easy","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the big dog?","ar":"ما اسم الكلب الضخم؟"},"answer":{"en":"Spike","ar":"سبايك"}},
-  {"id":"ayt-184","difficulty":"easy","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"Where does Jerry usually live?","ar":"أين يعيش جيري عادة؟"},"answer":{"en":"In a hole in the wall","ar":"ثقب بالجدار"}},
-  {"id":"ayt-185","difficulty":"easy","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"Do they talk in the classic episodes?","ar":"هل يتحدثان في الحلقات الكلاسيكية؟"},"answer":{"en":"No","ar":"لا"}},
-  {"id":"ayt-186","difficulty":"medium","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of Spike's small son?","ar":"ما اسم ابن سبايك الصغير؟"},"answer":{"en":"Tyke / Tike","ar":"تيكي / تيك"}},
-  {"id":"ayt-187","difficulty":"medium","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the small grey mouse?","ar":"ما اسم الفأر الصغير الرمادي؟"},"answer":{"en":"Nibbles / Tuffy","ar":"نيبليز / تافي"}},
-  {"id":"ayt-188","difficulty":"medium","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is Jerry's dominant colour?","ar":"ما هو اللون الغالب على جيري؟"},"answer":{"en":"Brown","ar":"بني"}},
-  {"id":"ayt-189","difficulty":"medium","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"Who is the character whose feet we only see — never her face?","ar":"من الشخصية التي لا نرى إلا قدميها؟"},"answer":{"en":"The housewife (homeowner)","ar":"صاحبة المنزل"}},
-  {"id":"ayt-190","difficulty":"medium","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What instrument does Tom play brilliantly?","ar":"ما الآلة التي يعزفها توم ببراعة؟"},"answer":{"en":"Piano","ar":"البيانو"}},
-  {"id":"ayt-191","difficulty":"hard","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the beautiful white female cat?","ar":"ما اسم القطة البيضاء الجميلة؟"},"answer":{"en":"Toodles Galore","ar":"تودلز غالور"}},
-  {"id":"ayt-192","difficulty":"hard","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the rival black cat?","ar":"ما اسم القط الأسود المنافس؟"},"answer":{"en":"Butch","ar":"بوتش"}},
-  {"id":"ayt-193","difficulty":"hard","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"In what year did the first Tom and Jerry short appear?","ar":"في أي عام ظهر أول عرض لتوم وجيري؟"},"answer":{"en":"1940","ar":"1940"}},
-  {"id":"ayt-194","difficulty":"hard","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What was Tom's original name in the very first episode?","ar":"ما الاسم الأصلي لتوم في أول حلقة؟"},"answer":{"en":"Jasper","ar":"جاسبر"}},
-  {"id":"ayt-195","difficulty":"hard","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"Who are the creators of the Tom and Jerry series?","ar":"من هما مبتكرا سلسلة توم وجيري؟"},"answer":{"en":"Hanna and Barbera","ar":"هانا وباربيرا"}},
-  {"id":"ayt-196","difficulty":"very-advanced","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"How many Academy Awards did the series win?","ar":"كم عدد الأوسكار التي فازت بها السلسلة؟"},"answer":{"en":"7","ar":"7"}},
-  {"id":"ayt-197","difficulty":"very-advanced","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of Jerry's brother who appears in some episodes?","ar":"ما اسم أخ جيري الذي يظهر في بعض الحلقات؟"},"answer":{"en":"Tuffy","ar":"تافي"}},
-  {"id":"ayt-198","difficulty":"very-advanced","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the episode that ended sadly?","ar":"ما اسم الحلقة التي انتهت بنهاية حزينة؟"},"answer":{"en":"Blue Cat Blues","ar":"Blue Cat Blues"}},
-  {"id":"ayt-199","difficulty":"very-advanced","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the small orange cat?","ar":"ما اسم القط البرتقالي الصغير؟"},"answer":{"en":"Lightning","ar":"لايتنينغ"}},
-  {"id":"ayt-200","difficulty":"very-advanced","subcategory":{"en":"Tom and Jerry","ar":"توم وجيري"},"question":{"en":"What is the name of the episode where Jerry becomes a superhero mouse?","ar":"ما اسم حلقة الفأر الخارق؟"},"answer":{"en":"Dr. Jekyll and Mr. Mouse","ar":"Dr. Jekyll and Mr. Mouse"}}
+  {
+    "id": "ayt-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "Who is Adnan's friend who loves eating frogs?",
+      "ar": "من هو صديق عدنان الذي يحب أكل الضفادع؟"
+    },
+    "answer": {
+      "en": "Issa",
+      "ar": "عيسى"
+    }
+  },
+  {
+    "id": "ayt-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of the girl who has the power to communicate with birds?",
+      "ar": "ما اسم الفتاة التي تمتلك قدرة التواصل مع الطيور؟"
+    },
+    "answer": {
+      "en": "Lina",
+      "ar": "لينا"
+    }
+  },
+  {
+    "id": "ayt-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "Where was Adnan living in the first episode?",
+      "ar": "أين كان يعيش عدنان في الحلقة الأولى؟"
+    },
+    "answer": {
+      "en": "The Lost Island",
+      "ar": "الجزيرة المفقودة"
+    }
+  },
+  {
+    "id": "ayt-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of the captain who commands the Shark Ship?",
+      "ar": "ما هو اسم القبطان الذي يقود سفينة القرش؟"
+    },
+    "answer": {
+      "en": "Namiq",
+      "ar": "نامق"
+    }
+  },
+  {
+    "id": "ayt-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "Who is the villain who controlled the fortress?",
+      "ar": "من هو الشرير الذي كان يقود القلعة؟"
+    },
+    "answer": {
+      "en": "Allam",
+      "ar": "علام"
+    }
+  },
+  {
+    "id": "ayt-006",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of the green city governed by Uncle Badr?",
+      "ar": "ما اسم المدينة الخضراء التي يحكمها العم بدر؟"
+    },
+    "answer": {
+      "en": "Land of Hope",
+      "ar": "أرض الأمل"
+    }
+  },
+  {
+    "id": "ayt-007",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What was Dr. Lao (Lina's grandfather) secretly doing inside the fortress?",
+      "ar": "ماذا كان يعمل الدكتور لاو (جد لينا) في الخفاء داخل القلعة؟"
+    },
+    "answer": {
+      "en": "Mechanical engineer (Pedro)",
+      "ar": "مهندس ميكانيكي (بيدرو)"
+    }
+  },
+  {
+    "id": "ayt-008",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of the massive aircraft that was Allam's secret weapon?",
+      "ar": "ما اسم الطائرة الضخمة التي كانت سلاح علام السري؟"
+    },
+    "answer": {
+      "en": "Jumana / Al-Qari'a",
+      "ar": "جومانا / القارعة"
+    }
+  },
+  {
+    "id": "ayt-009",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What animal did Issa keep in the Land of Hope?",
+      "ar": "ما هو الحيوان الذي كان يربيه عيسى في أرض الأمل؟"
+    },
+    "answer": {
+      "en": "A small pig",
+      "ar": "خنزير صغير"
+    }
+  },
+  {
+    "id": "ayt-010",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "How could Adnan cling to high objects?",
+      "ar": "كيف كان عدنان يتمكن من التعلق بالأشياء العالية؟"
+    },
+    "answer": {
+      "en": "Using his powerful toes",
+      "ar": "باستخدام أصابع قدميه القوية"
+    }
+  },
+  {
+    "id": "ayt-011",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What was the code number given to Lina's grandfather inside the fortress?",
+      "ar": "ما هو الرقم الرمزي الذي أُطلق على جد لينا في القلعة؟"
+    },
+    "answer": {
+      "en": "Number 8",
+      "ar": "رقم 8"
+    }
+  },
+  {
+    "id": "ayt-012",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of Allam's military aide who wore a strange hat?",
+      "ar": "ما اسم المساعد العسكري لعلام والذي كان يرتدي قبعة غريبة؟"
+    },
+    "answer": {
+      "en": "Qunsel (Consul)",
+      "ar": "قنصل"
+    }
+  },
+  {
+    "id": "ayt-013",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "Who was the strong woman who worked with Allam then helped Adnan?",
+      "ar": "من هي المرأة القوية التي كانت تعمل مع علام ثم ساعدت عدنان؟"
+    },
+    "answer": {
+      "en": "Samira",
+      "ar": "سميرة"
+    }
+  },
+  {
+    "id": "ayt-014",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of the island where outlaws were exiled?",
+      "ar": "ما اسم الجزيرة التي كان يُنفى إليها الخارجون عن القانون؟"
+    },
+    "answer": {
+      "en": "Ant Island",
+      "ar": "جزيرة النمل"
+    }
+  },
+  {
+    "id": "ayt-015",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "How did Captain Namiq sink with his ship in the end?",
+      "ar": "كيف غرق القبطان نامق بسفينته في النهاية؟"
+    },
+    "answer": {
+      "en": "He blew it up himself so Adnan and Lina could escape",
+      "ar": "فجرها بنفسه ليهرب عدنان ولينا"
+    }
+  },
+  {
+    "id": "ayt-016",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "In what year did World War III break out according to the show's intro?",
+      "ar": "في أي عام اندلعت الحرب العالمية الثالثة حسب المقدمة؟"
+    },
+    "answer": {
+      "en": "Year 2008",
+      "ar": "عام 2008"
+    }
+  },
+  {
+    "id": "ayt-017",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What name did the fortress residents use for solar energy?",
+      "ar": "ما هو الاسم الذي يطلقه سكان القلعة على الطاقة الشمسية؟"
+    },
+    "answer": {
+      "en": "The Mighty Energy",
+      "ar": "الطاقة الجبارة"
+    }
+  },
+  {
+    "id": "ayt-018",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What is the name of Lina's mother (mentioned in the story)?",
+      "ar": "ما اسم والدة لينا (التي ذكرت في القصة)؟"
+    },
+    "answer": {
+      "en": "Misa'a",
+      "ar": "ميساء"
+    }
+  },
+  {
+    "id": "ayt-019",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "How many survivors were with Adnan alone in the beginning?",
+      "ar": "كم عدد الناجين الذين كانوا مع عدنان وحده في البداية؟"
+    },
+    "answer": {
+      "en": "No one — they were just the two of them",
+      "ar": "لا أحد، كانا هما الوحيدين"
+    }
+  },
+  {
+    "id": "ayt-020",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Adnan and Lina",
+      "ar": "عدنان ولينا"
+    },
+    "question": {
+      "en": "What type of weapon destroyed the world according to the original story?",
+      "ar": "ما هو اسم القنبلة التي دمرت العالم حسب الرواية الأصلية؟"
+    },
+    "answer": {
+      "en": "Magnetic missiles",
+      "ar": "القنابل المغناطيسية"
+    }
+  },
+  {
+    "id": "ayt-021",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of the team Majid joined at the beginning?",
+      "ar": "ما هو اسم الفريق الذي انضم إليه ماجد في البداية؟"
+    },
+    "answer": {
+      "en": "Al-Majd (Nankatsu)",
+      "ar": "فريق المجد (نانكاتسو)"
+    }
+  },
+  {
+    "id": "ayt-022",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "Who is the goalkeeper who never conceded a goal from outside the penalty area?",
+      "ar": "من هو الحارس الذي لم يدخل مرماه هدف من خارج المنطقة؟"
+    },
+    "answer": {
+      "en": "Walid",
+      "ar": "وليد"
+    }
+  },
+  {
+    "id": "ayt-023",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of Majid's Brazilian coach?",
+      "ar": "ما اسم المدرب البرازيلي لماجد؟"
+    },
+    "answer": {
+      "en": "Fawaz (Roberto)",
+      "ar": "فوازر (روبرتو)"
+    }
+  },
+  {
+    "id": "ayt-024",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is Majid's famous shot?",
+      "ar": "ما هي الضربة الشهيرة لماجد؟"
+    },
+    "answer": {
+      "en": "The Sheikh Strike / Thunderbolt",
+      "ar": "ضربة الشيخ / الصاعقة"
+    }
+  },
+  {
+    "id": "ayt-025",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of Majid's close friend who always passes to him?",
+      "ar": "ما اسم صديق ماجد المقرب الذي يمرر له دائماً؟"
+    },
+    "answer": {
+      "en": "Yassin",
+      "ar": "ياسين"
+    }
+  },
+  {
+    "id": "ayt-026",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of the team led by Bassam?",
+      "ar": "ما اسم الفريق الذي كان يقوده بسام؟"
+    },
+    "answer": {
+      "en": "Al-Farah (Meiwa)",
+      "ar": "فريق الفرح (ميووا)"
+    }
+  },
+  {
+    "id": "ayt-027",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "Who is the player nicknamed 'the Eagle of the Pitches'?",
+      "ar": "من هو اللاعب الذي كان يلقب بـ صقر الملاعب؟"
+    },
+    "answer": {
+      "en": "Majed",
+      "ar": "مجد"
+    }
+  },
+  {
+    "id": "ayt-028",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of the massive goalkeeper who blocked shots with his body?",
+      "ar": "ما اسم الحارس الضخم الذي كان يصد الكرات بجسده؟"
+    },
+    "answer": {
+      "en": "Ra'd (Thunder)",
+      "ar": "رعد"
+    }
+  },
+  {
+    "id": "ayt-029",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What illness did player Mazin suffer from?",
+      "ar": "ما هو المرض الذي كان يعاني منه اللاعب مازن؟"
+    },
+    "answer": {
+      "en": "Heart disease",
+      "ar": "مرض القلب"
+    }
+  },
+  {
+    "id": "ayt-030",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "Who are the two brothers famous for jumping on the goalposts?",
+      "ar": "من هما الأخوان اللذان اشتهرا بالقفز على القائمين؟"
+    },
+    "answer": {
+      "en": "The Shawqi brothers",
+      "ar": "الأخوين شوقي"
+    }
+  },
+  {
+    "id": "ayt-031",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What jersey number did Yassin wear?",
+      "ar": "ما هو رقم القميص الذي كان يرتديه ياسين؟"
+    },
+    "answer": {
+      "en": "Number 11",
+      "ar": "رقم 11"
+    }
+  },
+  {
+    "id": "ayt-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What was the score in the first match between Majid's team and Walid's team?",
+      "ar": "كم كانت النتيجة في أول مباراة بين فريق ماجد وفريق وليد؟"
+    },
+    "answer": {
+      "en": "Draw 1-1",
+      "ar": "التعادل 1-1"
+    }
+  },
+  {
+    "id": "ayt-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What jersey number did Bassam wear?",
+      "ar": "ما هو رقم القميص الذي كان يرتديه بسام؟"
+    },
+    "answer": {
+      "en": "Number 10, then 9",
+      "ar": "رقم 10 ثم 9"
+    }
+  },
+  {
+    "id": "ayt-034",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of the sports commentator in the Arabic dub?",
+      "ar": "ما اسم المعلق الرياضي في الدبلجة العربية؟"
+    },
+    "answer": {
+      "en": "Muhammad Arif",
+      "ar": "محمد عارف"
+    }
+  },
+  {
+    "id": "ayt-035",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of the school Bassam transferred to on a scholarship?",
+      "ar": "ما اسم المدرسة التي انتقل إليها بسام بمنحة دراسية؟"
+    },
+    "answer": {
+      "en": "Al-Tawfiq School (Toho)",
+      "ar": "مدرسة التوفيق (توهو)"
+    }
+  },
+  {
+    "id": "ayt-036",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of Majid's father and what is his profession?",
+      "ar": "ما هو اسم والد ماجد وما هي مهنته؟"
+    },
+    "answer": {
+      "en": "Captain Kamel, a sea captain",
+      "ar": "الكابتن كامل، قبطان بحري"
+    }
+  },
+  {
+    "id": "ayt-037",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the original Japanese name of the character Yassin?",
+      "ar": "ما هو الاسم الياباني الأصلي لشخصية ياسين؟"
+    },
+    "answer": {
+      "en": "Taro Misaki",
+      "ar": "تارو ميساكي"
+    }
+  },
+  {
+    "id": "ayt-038",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "How was Walid's leg injured in the national championship?",
+      "ar": "كيف أصيب وليد في ساقه في البطولة الوطنية؟"
+    },
+    "answer": {
+      "en": "By colliding with the goalpost",
+      "ar": "اصطدامه بالقائم"
+    }
+  },
+  {
+    "id": "ayt-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What is the name of the team for which Ammar (the fast player) played?",
+      "ar": "ما هو اسم الفريق الذي لعب له عمار (اللاعب السريع)؟"
+    },
+    "answer": {
+      "en": "Al-Nour",
+      "ar": "فريق النور"
+    }
+  },
+  {
+    "id": "ayt-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Captain Majid",
+      "ar": "الكابتن ماجد"
+    },
+    "question": {
+      "en": "What Japanese city were the events of the series set in?",
+      "ar": "ما هي المدينة اليابانية التي جرت فيها الأحداث؟"
+    },
+    "answer": {
+      "en": "Shizuoka City",
+      "ar": "مدينة شيزوكا"
+    }
+  },
+  {
+    "id": "ayt-041",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "Who is the young hero of the story?",
+      "ar": "من هو الفتى بطل القصة؟"
+    },
+    "answer": {
+      "en": "Jim Hawkins",
+      "ar": "جيم هوكنز"
+    }
+  },
+  {
+    "id": "ayt-042",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What is the name of the one-legged cook who is the main villain?",
+      "ar": "ما هو اسم الطاهي الأعرج الشرير الرئيسي؟"
+    },
+    "answer": {
+      "en": "Long John Silver",
+      "ar": "جون سيلفر"
+    }
+  },
+  {
+    "id": "ayt-043",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What is the name of the ship that sailed for the treasure?",
+      "ar": "ما اسم السفينة التي أبحروا بها للبحث عن الكنز؟"
+    },
+    "answer": {
+      "en": "Hispaniola",
+      "ar": "هيسبانيولا"
+    }
+  },
+  {
+    "id": "ayt-044",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What is the name of Silver's parrot?",
+      "ar": "ما اسم ببغاء سيلفر؟"
+    },
+    "answer": {
+      "en": "Captain Flint",
+      "ar": "كابتن فلينت"
+    }
+  },
+  {
+    "id": "ayt-045",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What did Jim find in the chest that started his adventure?",
+      "ar": "ما الذي عثر عليه جيم في صندوق القبطان وبدأت به المغامرة؟"
+    },
+    "answer": {
+      "en": "The treasure map",
+      "ar": "خريطة الكنز"
+    }
+  },
+  {
+    "id": "ayt-046",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "Who was the man who had been living alone on the island for years?",
+      "ar": "من هو الرجل الذي كان يعيش وحيداً على الجزيرة لسنوات؟"
+    },
+    "answer": {
+      "en": "Ben Gunn",
+      "ar": "ابن غان"
+    }
+  },
+  {
+    "id": "ayt-047",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "Who is the doctor who accompanied the expedition?",
+      "ar": "من هو الطبيب الذي رافق الرحلة؟"
+    },
+    "answer": {
+      "en": "Dr. Livesey",
+      "ar": "الدكتور ليفسي"
+    }
+  },
+  {
+    "id": "ayt-048",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "Who organized and funded the treasure expedition?",
+      "ar": "من هو الذي نظّم الرحلة ومولها للبحث عن الكنز؟"
+    },
+    "answer": {
+      "en": "Squire Trelawney",
+      "ar": "السكوير ترلوني"
+    }
+  },
+  {
+    "id": "ayt-049",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What is the name of the blind pirate who gave the Black Spot?",
+      "ar": "ما اسم القرصان الأعمى الذي سلّم ورقة التهديد السوداء؟"
+    },
+    "answer": {
+      "en": "Blind Pew",
+      "ar": "الأعمى بيو"
+    }
+  },
+  {
+    "id": "ayt-050",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What was the name of the inn owned by Jim's family?",
+      "ar": "ما اسم النزل الذي كانت تملكه عائلة جيم؟"
+    },
+    "answer": {
+      "en": "Admiral Benbow Inn",
+      "ar": "نزل الأميرال بينبو"
+    }
+  },
+  {
+    "id": "ayt-051",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What was the name of the pirate whose treasure map the whole story revolves around?",
+      "ar": "ما اسم القرصان الذي تدور القصة كلها حول كنزه وخريطته؟"
+    },
+    "answer": {
+      "en": "Captain Flint",
+      "ar": "كابتن فلينت"
+    }
+  },
+  {
+    "id": "ayt-052",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What is the name of the captain of the Hispaniola who sided with the pirates?",
+      "ar": "ما اسم ربّان الهيسبانيولا الذي انحاز للقراصنة؟"
+    },
+    "answer": {
+      "en": "Captain Smollett (originally loyal) — the traitor was the first mate",
+      "ar": "كابتن سموليت"
+    }
+  },
+  {
+    "id": "ayt-053",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "Where did Jim hide and overhear Silver's pirate plot?",
+      "ar": "أين اختبأ جيم وسمع مؤامرة القراصنة؟"
+    },
+    "answer": {
+      "en": "Inside an apple barrel",
+      "ar": "داخل برميل التفاح"
+    }
+  },
+  {
+    "id": "ayt-054",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What did Silver and the pirates want from the island?",
+      "ar": "ماذا أراد سيلفر والقراصنة من الجزيرة؟"
+    },
+    "answer": {
+      "en": "Captain Flint's buried treasure",
+      "ar": "كنز الكابتن فلينت المدفون"
+    }
+  },
+  {
+    "id": "ayt-055",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What was the nickname Silver used among the pirates?",
+      "ar": "ما اللقب الذي كان يُعرف به سيلفر بين القراصنة؟"
+    },
+    "answer": {
+      "en": "Long John (the Long One)",
+      "ar": "لونغ جون (الطويل)"
+    }
+  },
+  {
+    "id": "ayt-056",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What phrase did Silver's parrot constantly shout?",
+      "ar": "ما هي العبارة التي كان يصرخ بها ببغاء سيلفر دائماً؟"
+    },
+    "answer": {
+      "en": "Pieces of Eight!",
+      "ar": "قطع الثمانية!"
+    }
+  },
+  {
+    "id": "ayt-057",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "In the end of the series, where did Long John Silver go?",
+      "ar": "في نهاية المسلسل، أين ذهب جون سيلفر؟"
+    },
+    "answer": {
+      "en": "He escaped at a small port, taking part of the treasure with him",
+      "ar": "هرب في ميناء صغير ومعه جزء من الكنز"
+    }
+  },
+  {
+    "id": "ayt-058",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What was Billy Bones' fate before the ship sailed?",
+      "ar": "ما مصير بيلي بونز قبل إقلاع السفينة؟"
+    },
+    "answer": {
+      "en": "He died after receiving the Black Spot and suffering a stroke",
+      "ar": "مات بعد تلقيه ورقة السوداء وأصيب بجلطة"
+    }
+  },
+  {
+    "id": "ayt-059",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "How long had Ben Gunn been marooned on the island?",
+      "ar": "كم سنة قضى ابن غان وحيداً على الجزيرة؟"
+    },
+    "answer": {
+      "en": "Three years",
+      "ar": "ثلاث سنوات"
+    }
+  },
+  {
+    "id": "ayt-060",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Treasure Island",
+      "ar": "جزيرة الكنز"
+    },
+    "question": {
+      "en": "What was the real reason Ben Gunn was left on the island?",
+      "ar": "ما السبب الحقيقي لتركه ابن غان وحيداً على الجزيرة؟"
+    },
+    "answer": {
+      "en": "His crewmates abandoned him after a failed treasure hunt",
+      "ar": "تخلى عنه رفاقه بعد محاولة فاشلة للبحث عن الكنز"
+    }
+  },
+  {
+    "id": "ayt-061",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the hero of Grendizer's story?",
+      "ar": "ما هو اسم بطل قصة غرندايزر؟"
+    },
+    "answer": {
+      "en": "Daisuke (Duke Fleed)",
+      "ar": "ديباكيو (ديوك فليد)"
+    }
+  },
+  {
+    "id": "ayt-062",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the giant robot?",
+      "ar": "ما هو اسم الروبوت العملاق؟"
+    },
+    "answer": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    }
+  },
+  {
+    "id": "ayt-063",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Who is Grendizer's main enemy?",
+      "ar": "من هو العدو الرئيسي لغرندايزر؟"
+    },
+    "answer": {
+      "en": "The Vega Army (Vega Bank)",
+      "ar": "فيغا بانك"
+    }
+  },
+  {
+    "id": "ayt-064",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the girl who helped the hero?",
+      "ar": "ما اسم الفتاة التي كانت تساعد البطل؟"
+    },
+    "answer": {
+      "en": "Hikaru",
+      "ar": "هيكارو"
+    }
+  },
+  {
+    "id": "ayt-065",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Where does the hero hide Grendizer on Earth?",
+      "ar": "أين يختبئ البطل بغرندايزر على الأرض؟"
+    },
+    "answer": {
+      "en": "The Makiba Farm",
+      "ar": "البيرة الكبيرة"
+    }
+  },
+  {
+    "id": "ayt-066",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the aircraft that combines with Grendizer?",
+      "ar": "ما اسم المركبة الجوية التي تتحد مع غرندايزر؟"
+    },
+    "answer": {
+      "en": "Double Spazer",
+      "ar": "السبيستر الطائر"
+    }
+  },
+  {
+    "id": "ayt-067",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Who is the main commander of the Vega Army?",
+      "ar": "من هو القائد الرئيسي لجيش فيغا؟"
+    },
+    "answer": {
+      "en": "King Vega (Khan Vega)",
+      "ar": "خان فيغا"
+    }
+  },
+  {
+    "id": "ayt-068",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the father figure who shelters the hero on Earth?",
+      "ar": "ما اسم الأب الذي يحتضن البطل على الأرض؟"
+    },
+    "answer": {
+      "en": "Dr. Makiba",
+      "ar": "الدكتور ماكيبا"
+    }
+  },
+  {
+    "id": "ayt-069",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Who is the princess from Planet Fleed?",
+      "ar": "من هي الأميرة من كوكب فليد؟"
+    },
+    "answer": {
+      "en": "Maria Grace (Maria Fleed)",
+      "ar": "ماريا"
+    }
+  },
+  {
+    "id": "ayt-070",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of Duke Fleed's home planet?",
+      "ar": "ما هو اسم كوكب ديوك فليد الأصلي؟"
+    },
+    "answer": {
+      "en": "Planet Fleed",
+      "ar": "كوكب فليد"
+    }
+  },
+  {
+    "id": "ayt-071",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of Grendizer's signature blade weapon?",
+      "ar": "ما اسم سلاح النصل الشهير لغرندايزر؟"
+    },
+    "answer": {
+      "en": "Screw Crusher (Harken Boomerang)",
+      "ar": "مضرب الشياطين"
+    }
+  },
+  {
+    "id": "ayt-072",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Who is the enemy who occasionally betrayed Vega to help the Duke?",
+      "ar": "من هو العدو الذي كان أحياناً يخون فيغا ويساعد الدوق؟"
+    },
+    "answer": {
+      "en": "Blacky (Gandal in some versions)",
+      "ar": "بلاكي"
+    }
+  },
+  {
+    "id": "ayt-073",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What happened to Planet Fleed before the events of the show?",
+      "ar": "ماذا حدث لكوكب فليد قبل أحداث المسلسل؟"
+    },
+    "answer": {
+      "en": "It was destroyed by the Vega Army",
+      "ar": "دمره جيش فيغا"
+    }
+  },
+  {
+    "id": "ayt-074",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the enemy monster that merged multiple Vega robots?",
+      "ar": "ما اسم الوحش الهجين الناتج عن دمج روبوتات فيغا؟"
+    },
+    "answer": {
+      "en": "Hybrid Monster",
+      "ar": "وحش الهجين"
+    }
+  },
+  {
+    "id": "ayt-075",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the energy beam fired from Grendizer's horns?",
+      "ar": "ما اسم شعاع الطاقة الذي ينطلق من قرون غرندايزر؟"
+    },
+    "answer": {
+      "en": "Space Thunder",
+      "ar": "رعد الفضاء"
+    }
+  },
+  {
+    "id": "ayt-076",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What is the name of the villain who betrayed King Vega and sometimes aided the Duke?",
+      "ar": "ما اسم القائد الشرير الذي خان فيغا وساعد الدوق في بعض المواقف؟"
+    },
+    "answer": {
+      "en": "Naida (or Zuril in some situations)",
+      "ar": "ناييدا (أو زوريل في مواقف)"
+    }
+  },
+  {
+    "id": "ayt-077",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "What happened to Planet Fleed at the end of the series?",
+      "ar": "ماذا حدث لكوكب فليد في نهاية المسلسل؟"
+    },
+    "answer": {
+      "en": "The Duke and Maria returned to revive it",
+      "ar": "عاد إليه الدوق وماريا لإحيائه"
+    }
+  },
+  {
+    "id": "ayt-078",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Which Japanese animation studio produced Grendizer?",
+      "ar": "أي استوديو ياباني أنتج مسلسل غرندايزر؟"
+    },
+    "answer": {
+      "en": "Toei Animation",
+      "ar": "توي أنيميشن"
+    }
+  },
+  {
+    "id": "ayt-079",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "Who is the manga creator of Grendizer?",
+      "ar": "من هو مبتكر مانغا غرندايزر؟"
+    },
+    "answer": {
+      "en": "Go Nagai",
+      "ar": "جو ناغاي"
+    }
+  },
+  {
+    "id": "ayt-080",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Grendizer",
+      "ar": "غرندايزر"
+    },
+    "question": {
+      "en": "How did Duke Fleed come to be in hiding on Earth?",
+      "ar": "كيف وصل ديوك فليد إلى الاختباء على الأرض؟"
+    },
+    "answer": {
+      "en": "He fled Planet Fleed in Grendizer when it was destroyed by the Vega Army",
+      "ar": "فرّ من كوكب فليد على متن غرندايزر حين دمره جيش فيغا"
+    }
+  },
+  {
+    "id": "ayt-081",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of Sally's father who works in a diamond mine?",
+      "ar": "ما اسم والد سالي الذي يعمل في مناجم الألماس؟"
+    },
+    "answer": {
+      "en": "Captain Crewe",
+      "ar": "كايتن كرو"
+    }
+  },
+  {
+    "id": "ayt-082",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "Who is the strict headmistress who treated Sally unjustly?",
+      "ar": "من هي مديرة المعهد القاسية التي عاملت سالي بظلم؟"
+    },
+    "answer": {
+      "en": "Miss Minchin",
+      "ar": "الآنسة منشن"
+    }
+  },
+  {
+    "id": "ayt-083",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of the doll Sally considered her secret friend?",
+      "ar": "ما اسم الدمية التي كانت سالي تعتبرها صديقتها السرية؟"
+    },
+    "answer": {
+      "en": "Emily",
+      "ar": "إيميلي"
+    }
+  },
+  {
+    "id": "ayt-084",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "How did Sally's life suddenly change?",
+      "ar": "كيف تغيرت حياة سالي فجأة؟"
+    },
+    "answer": {
+      "en": "Because of her father's death and bankruptcy",
+      "ar": "بسبب وفاة والدها وإفلاسه"
+    }
+  },
+  {
+    "id": "ayt-085",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "Where was Sally forced to sleep after becoming a servant?",
+      "ar": "أين كانت تضطر سالي للنوم بعد أن أصبحت خادمة؟"
+    },
+    "answer": {
+      "en": "In the attic",
+      "ar": "في العلية"
+    }
+  },
+  {
+    "id": "ayt-086",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of the young servant girl who became Sally's friend?",
+      "ar": "ما اسم الخادمة الصغيرة التي أصبحت صديقة سالي؟"
+    },
+    "answer": {
+      "en": "In Vicky",
+      "ar": "في فيكي"
+    }
+  },
+  {
+    "id": "ayt-087",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "Who is the boy who worked as a cart driver and helped Sally?",
+      "ar": "من هو الفتى الذي كان يعمل سائق عربة وساعد سالي؟"
+    },
+    "answer": {
+      "en": "Peter",
+      "ar": "بيتر"
+    }
+  },
+  {
+    "id": "ayt-088",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of the small cat that comforted Sally in her loneliness?",
+      "ar": "ما اسم القطة الصغيرة التي كانت تؤنس وحدة سالي؟"
+    },
+    "answer": {
+      "en": "Lucy",
+      "ar": "لوسي"
+    }
+  },
+  {
+    "id": "ayt-089",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "Who is the student who was always jealous of Sally?",
+      "ar": "من هي الطالبة التي كانت دائماً تغار من سالي؟"
+    },
+    "answer": {
+      "en": "Lavinia",
+      "ar": "لافينيا"
+    }
+  },
+  {
+    "id": "ayt-090",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of Miss Minchin's kind sister?",
+      "ar": "ما اسم شقيقة الآنسة منشن الطيبة؟"
+    },
+    "answer": {
+      "en": "Miss Amelia",
+      "ar": "الآنسة أميليا"
+    }
+  },
+  {
+    "id": "ayt-091",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of the institute where Sally studied?",
+      "ar": "ما هو اسم المعهد الذي كانت تدرس فيه سالي؟"
+    },
+    "answer": {
+      "en": "Lavinia Institute for Ladies",
+      "ar": "معهد لافينيا للسيدات"
+    }
+  },
+  {
+    "id": "ayt-092",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What animal entered Sally's room and turned out to belong to her neighbour?",
+      "ar": "ما هو الحيوان الذي دخل غرفتها وكان ملكاً لجاره؟"
+    },
+    "answer": {
+      "en": "The monkey Soula",
+      "ar": "القرد سوليا"
+    }
+  },
+  {
+    "id": "ayt-093",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "Who is Ermengarde and what was her role in Sally's life?",
+      "ar": "من هي إيرمنغارد؟"
+    },
+    "answer": {
+      "en": "A simple student and loyal friend to Sally",
+      "ar": "طالبة بسيطة وصديقة مخلصة لسالي"
+    }
+  },
+  {
+    "id": "ayt-094",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What did Sally always imagine to bear her hardships?",
+      "ar": "ماذا كانت سالي تتخيل نفسها دائماً لتتحمل التعب؟"
+    },
+    "answer": {
+      "en": "That she was a princess",
+      "ar": "تتخيل أنها أميرة"
+    }
+  },
+  {
+    "id": "ayt-095",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "How did Mr. Carrisford recognise Sally as the girl he was looking for?",
+      "ar": "كيف عرف السيد كريسفورد أن سالي هي الفتاة المطلوبة؟"
+    },
+    "answer": {
+      "en": "From her name and resemblance to her father",
+      "ar": "من اسمها وشبهها بوالدها"
+    }
+  },
+  {
+    "id": "ayt-096",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What nickname did Sally's father give her?",
+      "ar": "ما هو اللقب الذي كان يطلقه والد سالي عليها؟"
+    },
+    "answer": {
+      "en": "The Little Princess",
+      "ar": "الأميرة الصغيرة"
+    }
+  },
+  {
+    "id": "ayt-097",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "Who is the little girl Sally treated like her own daughter?",
+      "ar": "من هي الفتاة الصغيرة التي كانت سالي تعتبرها ابنتها؟"
+    },
+    "answer": {
+      "en": "Lottie",
+      "ar": "لوتي"
+    }
+  },
+  {
+    "id": "ayt-098",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What is the name of the Indian servant who worked for the neighbour?",
+      "ar": "ما اسم الخادم الهندي الذي كان يعمل لدى الجار؟"
+    },
+    "answer": {
+      "en": "Ram Das",
+      "ar": "رام داس"
+    }
+  },
+  {
+    "id": "ayt-099",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "What did Sally give the poor baker girl when she found money?",
+      "ar": "ماذا أهدت سالي للخبازة الفقيرة عندما وجدت نقوداً؟"
+    },
+    "answer": {
+      "en": "Pieces of cake",
+      "ar": "قطع الكعك"
+    }
+  },
+  {
+    "id": "ayt-100",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sally",
+      "ar": "سالي"
+    },
+    "question": {
+      "en": "In which British city does the story take place?",
+      "ar": "في أي مدينة بريطانية تدور أحداث المسلسل؟"
+    },
+    "answer": {
+      "en": "London",
+      "ar": "لندن"
+    }
+  },
+  {
+    "id": "ayt-101",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is Maruko's family name?",
+      "ar": "ما اسم عائلة ماروكو؟"
+    },
+    "answer": {
+      "en": "Sakura",
+      "ar": "ساكورا"
+    }
+  },
+  {
+    "id": "ayt-102",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "Who is the family member who supports Maruko the most?",
+      "ar": "من هو أكثر شخص في العائلة يدعم ماروكو؟"
+    },
+    "answer": {
+      "en": "Grandpa Tomozou",
+      "ar": "الجد توموزو"
+    }
+  },
+  {
+    "id": "ayt-103",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the colour of Maruko's famous shirt?",
+      "ar": "ما هو لون قميص ماروكو الشهير؟"
+    },
+    "answer": {
+      "en": "White",
+      "ar": "أبيض"
+    }
+  },
+  {
+    "id": "ayt-104",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of Maruko's older sister?",
+      "ar": "ما اسم شقيقة ماروكو الكبرى؟"
+    },
+    "answer": {
+      "en": "Jaco",
+      "ar": "جاكو"
+    }
+  },
+  {
+    "id": "ayt-105",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What talent did Maruko love to practise?",
+      "ar": "ما هي الموهبة التي كانت ماروكو تحب ممارستها؟"
+    },
+    "answer": {
+      "en": "Drawing",
+      "ar": "الرسم"
+    }
+  },
+  {
+    "id": "ayt-106",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of Maruko's friend who wears glasses?",
+      "ar": "ما اسم صديقة ماروكو التي تضع نظارات؟"
+    },
+    "answer": {
+      "en": "Tama",
+      "ar": "تاما"
+    }
+  },
+  {
+    "id": "ayt-107",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "Who is the rich classmate who always has a servant?",
+      "ar": "من هو الزميل الغني الذي يمتلك خادماً دائماً؟"
+    },
+    "answer": {
+      "en": "Hanawa",
+      "ar": "هاناوا"
+    }
+  },
+  {
+    "id": "ayt-108",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of Hanawa's personal servant?",
+      "ar": "ماذا كان اسم الخادم الخاص بهاناوا؟"
+    },
+    "answer": {
+      "en": "Hidetchi",
+      "ar": "هيديتشي"
+    }
+  },
+  {
+    "id": "ayt-109",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What trait characterises Grandma in the series?",
+      "ar": "ما هي الصفة التي تميز الجدة في المسلسل؟"
+    },
+    "answer": {
+      "en": "Quiet and collecting old things",
+      "ar": "الهدوء وجمع الأشياء القديمة"
+    }
+  },
+  {
+    "id": "ayt-110",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of the classmate who laughs with a ha-ha-ha sound?",
+      "ar": "ما اسم الزميل الذي يضحك بـ خخخخ؟"
+    },
+    "answer": {
+      "en": "Taro / Maro",
+      "ar": "ترو / مارو"
+    }
+  },
+  {
+    "id": "ayt-111",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is Maruko's favourite dish?",
+      "ar": "ما هي الوجبة المفضلة لماروكو؟"
+    },
+    "answer": {
+      "en": "Hot pot (Nabe)",
+      "ar": "الهوت بوت (النابي)"
+    }
+  },
+  {
+    "id": "ayt-112",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of the student nicknamed 'the Onion'?",
+      "ar": "ما اسم الطالب الذي يلقب بـ البصلة؟"
+    },
+    "answer": {
+      "en": "Nagasawa",
+      "ar": "ناجاساوا"
+    }
+  },
+  {
+    "id": "ayt-113",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of Maruko's class teacher?",
+      "ar": "ما هو اسم المعلم الخاص بفصل ماروكو؟"
+    },
+    "answer": {
+      "en": "Mr. Togawa",
+      "ar": "السيد توغاوا"
+    }
+  },
+  {
+    "id": "ayt-114",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What was Maruko always doing in the last moments before school?",
+      "ar": "ماذا كانت ماروكو تفعل في اللحظات الأخيرة للمدرسة؟"
+    },
+    "answer": {
+      "en": "Doing homework",
+      "ar": "كتابة الواجبات"
+    }
+  },
+  {
+    "id": "ayt-115",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "Who is the student who aspires to become class president?",
+      "ar": "من هو الطالب الذي يطمح لرئاسة الفصل؟"
+    },
+    "answer": {
+      "en": "Maro",
+      "ar": "مارو"
+    }
+  },
+  {
+    "id": "ayt-116",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of Maruko's mother?",
+      "ar": "ما هو اسم والدة ماروكو؟"
+    },
+    "answer": {
+      "en": "Sumire",
+      "ar": "سوميري"
+    }
+  },
+  {
+    "id": "ayt-117",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "In which decade are the events of the series set?",
+      "ar": "في أي حقبة تدور أحداث المسلسل؟"
+    },
+    "answer": {
+      "en": "The 1970s",
+      "ar": "السبعينات"
+    }
+  },
+  {
+    "id": "ayt-118",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of the singer Maruko was obsessed with?",
+      "ar": "ما اسم المغني الذي كانت ماروكو معجبة به؟"
+    },
+    "answer": {
+      "en": "Momoe Yamaguchi",
+      "ar": "موموي ياماغوتشي"
+    }
+  },
+  {
+    "id": "ayt-119",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is Grandpa Tomozou's strange hobby?",
+      "ar": "ما هي الهواية الغريبة للجد توموزو؟"
+    },
+    "answer": {
+      "en": "Writing haiku poetry",
+      "ar": "كتابة قصائد هايكو"
+    }
+  },
+  {
+    "id": "ayt-120",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Chibi Maruko-chan",
+      "ar": "ماروكو الصغيرة"
+    },
+    "question": {
+      "en": "What is the name of Nagasawa's loyal friend?",
+      "ar": "ما اسم صديق ناجاساوا المخلص؟"
+    },
+    "answer": {
+      "en": "Fujiki",
+      "ar": "فوجيكي"
+    }
+  },
+  {
+    "id": "ayt-121",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What talent made Remi famous?",
+      "ar": "ما هي الموهبة التي اشتهرت بها ريمي؟"
+    },
+    "answer": {
+      "en": "Singing",
+      "ar": "الغناء"
+    }
+  },
+  {
+    "id": "ayt-122",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "Who is the old man who bought Remi to work with him?",
+      "ar": "من هو العجوز الذي اشترى ريمي لتعمل معه؟"
+    },
+    "answer": {
+      "en": "Uncle Vitalis",
+      "ar": "العم فيتاليس"
+    }
+  },
+  {
+    "id": "ayt-123",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of the small monkey dressed as a soldier?",
+      "ar": "ما اسم القرد الصغير الذي يرتدي ملابس جندي؟"
+    },
+    "answer": {
+      "en": "Jolicoeur",
+      "ar": "جوليكور"
+    }
+  },
+  {
+    "id": "ayt-124",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of the white dog that led the pack?",
+      "ar": "ما اسم الكلب الأبيض الذي كان يقود الكلاب؟"
+    },
+    "answer": {
+      "en": "Capi",
+      "ar": "كابي"
+    }
+  },
+  {
+    "id": "ayt-125",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What was Remi searching for throughout the series?",
+      "ar": "ماذا كانت ريمي تبحث عنه طوال المسلسل؟"
+    },
+    "answer": {
+      "en": "Her real mother",
+      "ar": "والدتها الحقيقية"
+    }
+  },
+  {
+    "id": "ayt-126",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of the woman who raised Remi in the village?",
+      "ar": "ما اسم السيدة التي ربت ريمي في القرية؟"
+    },
+    "answer": {
+      "en": "Mother Barberin",
+      "ar": "الأم باربرين"
+    }
+  },
+  {
+    "id": "ayt-127",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What musical instrument did Vitalis play?",
+      "ar": "ما هي الآلة الموسيقية التي عزف عليها فيتاليس؟"
+    },
+    "answer": {
+      "en": "The guitar (lute)",
+      "ar": "القيثارة"
+    }
+  },
+  {
+    "id": "ayt-128",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "How did Remi earn money with the troupe?",
+      "ar": "كيف كانت ريمي تجني المال مع الفرقة؟"
+    },
+    "answer": {
+      "en": "Travelling performances",
+      "ar": "العروض المتنقلة"
+    }
+  },
+  {
+    "id": "ayt-129",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of the boy Remi met in London?",
+      "ar": "ما اسم الفتى الذي التقت به ريمي في لندن؟"
+    },
+    "answer": {
+      "en": "Mattia",
+      "ar": "ماتيا"
+    }
+  },
+  {
+    "id": "ayt-130",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What are the names of the three dogs with Vitalis?",
+      "ar": "ما هي أسماء الكلاب الثلاثة مع فيتاليس؟"
+    },
+    "answer": {
+      "en": "Capi, Zerbino, Dolce",
+      "ar": "كابي، زيربينو، دولشي"
+    }
+  },
+  {
+    "id": "ayt-131",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of Remi's noble family?",
+      "ar": "ما هو اسم عائلة ريمي النبيلة؟"
+    },
+    "answer": {
+      "en": "Remi Milligan",
+      "ar": "ريمي ميليغان"
+    }
+  },
+  {
+    "id": "ayt-132",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "Who is the wicked man who exploited children in London?",
+      "ar": "من هو الرجل الشرير الذي استغل الأطفال في لندن؟"
+    },
+    "answer": {
+      "en": "Kasper",
+      "ar": "كاسبر"
+    }
+  },
+  {
+    "id": "ayt-133",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What happened to the two dogs Zerbino and Dolce?",
+      "ar": "ماذا حدث للكلبين زيربينو ودولشي؟"
+    },
+    "answer": {
+      "en": "They were killed in a wolf attack",
+      "ar": "هجوم الذئاب"
+    }
+  },
+  {
+    "id": "ayt-134",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of Remi's crippled brother?",
+      "ar": "ما اسم الفتى المقعد الذي تبيّن أنه أخو ريمي؟"
+    },
+    "answer": {
+      "en": "Arthur",
+      "ar": "آرتور"
+    }
+  },
+  {
+    "id": "ayt-135",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "Why was Uncle Vitalis imprisoned?",
+      "ar": "لماذا سجن العم فيتاليس؟"
+    },
+    "answer": {
+      "en": "For defending Remi against a policeman",
+      "ar": "الدفاع عن ريمي ضد شرطي"
+    }
+  },
+  {
+    "id": "ayt-136",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What was the secret in Remi's baby swaddling cloth?",
+      "ar": "ما هو السر في قماط ريمي الرضيعة؟"
+    },
+    "answer": {
+      "en": "The family's embroidered crest",
+      "ar": "شعار العائلة المطرز"
+    }
+  },
+  {
+    "id": "ayt-137",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What was Vitalis's real name in his past life?",
+      "ar": "ما هو اسم فيتاليس الحقيقي قديماً؟"
+    },
+    "answer": {
+      "en": "Carlo Balzani",
+      "ar": "كارلو بالزاني"
+    }
+  },
+  {
+    "id": "ayt-138",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "How did Uncle Vitalis die?",
+      "ar": "كيف توفي العم فيتاليس؟"
+    },
+    "answer": {
+      "en": "From cold and snow",
+      "ar": "بسبب البرد والثلوج"
+    }
+  },
+  {
+    "id": "ayt-139",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "What is the name of the village where Remi grew up?",
+      "ar": "ما اسم قرية ريمي التي نشأت فيها؟"
+    },
+    "answer": {
+      "en": "Chavanon",
+      "ar": "شيفانون"
+    }
+  },
+  {
+    "id": "ayt-140",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Remi",
+      "ar": "ريمي"
+    },
+    "question": {
+      "en": "Who kidnapped Remi when she was a baby?",
+      "ar": "من الشخص الذي خطف ريمي وهي رضيعة؟"
+    },
+    "answer": {
+      "en": "Her uncle",
+      "ar": "عمها"
+    }
+  },
+  {
+    "id": "ayt-141",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of Sandybell's loyal dog?",
+      "ar": "ما اسم الكلب الوفي لساندييبيل؟"
+    },
+    "answer": {
+      "en": "Forbee",
+      "ar": "فوربي"
+    }
+  },
+  {
+    "id": "ayt-142",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "Who is the young man Sandybell loves who likes to paint?",
+      "ar": "من هو الشاب الذي تحبه ساندييبيل ويحب الرسم؟"
+    },
+    "answer": {
+      "en": "Mark",
+      "ar": "مارك"
+    }
+  },
+  {
+    "id": "ayt-143",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the colour of Sandybell's hair?",
+      "ar": "ما هو لون شعر ساندييبيل؟"
+    },
+    "answer": {
+      "en": "Blonde",
+      "ar": "أشقر"
+    }
+  },
+  {
+    "id": "ayt-144",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "In which country do the events of the series begin?",
+      "ar": "في أي بلد بدأت أحداث المسلسل؟"
+    },
+    "answer": {
+      "en": "Scotland",
+      "ar": "إسكتلندا"
+    }
+  },
+  {
+    "id": "ayt-145",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What did Sandybell love to do?",
+      "ar": "ماذا كانت ساندييبيل تحب أن تفعل؟"
+    },
+    "answer": {
+      "en": "Spread happiness",
+      "ar": "نشر السعادة"
+    }
+  },
+  {
+    "id": "ayt-146",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of the rival rich girl?",
+      "ar": "ما اسم الفتاة الغنية المنافسة لساندييبيل؟"
+    },
+    "answer": {
+      "en": "Kitty",
+      "ar": "كيتي"
+    }
+  },
+  {
+    "id": "ayt-147",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What happened to Sandybell's father (Christie)?",
+      "ar": "ماذا حدث لوالد ساندييبيل (كريستي)؟"
+    },
+    "answer": {
+      "en": "He died of illness",
+      "ar": "توفي بالمرض"
+    }
+  },
+  {
+    "id": "ayt-148",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What was her profession when she worked in London?",
+      "ar": "ما هي المهنة التي عملت بها ساندييبيل في لندن؟"
+    },
+    "answer": {
+      "en": "Roving journalist",
+      "ar": "صحفية متجولة"
+    }
+  },
+  {
+    "id": "ayt-149",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What flower is associated with the memory of her mother?",
+      "ar": "ما هي الزهرة المرتبطة بذكرى والدتها؟"
+    },
+    "answer": {
+      "en": "Narcissus",
+      "ar": "النرجس"
+    }
+  },
+  {
+    "id": "ayt-150",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of the car that Sandybell drove?",
+      "ar": "ما اسم السيارة التي كانت ساندييبيل تقودها؟"
+    },
+    "answer": {
+      "en": "Sandy",
+      "ar": "ساندي"
+    }
+  },
+  {
+    "id": "ayt-151",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "Who is the person who adopted Sandybell?",
+      "ar": "من هو الشخص الذي تبنى ساندييبيل؟"
+    },
+    "answer": {
+      "en": "Mr. Christie",
+      "ar": "السيد كريستي"
+    }
+  },
+  {
+    "id": "ayt-152",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of the aunt who looked after Sandybell?",
+      "ar": "ما اسم الخالة التي اعتنت بساندييبيل؟"
+    },
+    "answer": {
+      "en": "Aunt Mary",
+      "ar": "الخالة ماري"
+    }
+  },
+  {
+    "id": "ayt-153",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "How did Sandybell find out her mother was alive?",
+      "ar": "كيف عرفت ساندييبيل أن والدتها حية؟"
+    },
+    "answer": {
+      "en": "From a painting drawn by Mark",
+      "ar": "من لوحة رسمها مارك"
+    }
+  },
+  {
+    "id": "ayt-154",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of the mountain she loves to go to?",
+      "ar": "ما اسم الجبل الذي تحب ساندييبيل الذهاب إليه؟"
+    },
+    "answer": {
+      "en": "Flower Mountain",
+      "ar": "جبل الزهور"
+    }
+  },
+  {
+    "id": "ayt-155",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What was Mark's father's occupation?",
+      "ar": "ماذا كان يعمل والد مارك؟"
+    },
+    "answer": {
+      "en": "A famous painter",
+      "ar": "رسام مشهور"
+    }
+  },
+  {
+    "id": "ayt-156",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is Sandybell's full name?",
+      "ar": "ما هو الاسم الكامل لساندييبيل؟"
+    },
+    "answer": {
+      "en": "Sandybell Leslie",
+      "ar": "ساندييبيل ليزلي"
+    }
+  },
+  {
+    "id": "ayt-157",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "Where was her mother found in the end?",
+      "ar": "أين وجدت ساندييبيل والدتها في النهاية؟"
+    },
+    "answer": {
+      "en": "In a convent (having lost her memory)",
+      "ar": "في دير (فاقدة للذاكرة)"
+    }
+  },
+  {
+    "id": "ayt-158",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of the troublemaker boy in London?",
+      "ar": "ما اسم الفتى المشاكس في لندن؟"
+    },
+    "answer": {
+      "en": "Alex",
+      "ar": "أليكس"
+    }
+  },
+  {
+    "id": "ayt-159",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What prize did Mark dream of winning?",
+      "ar": "ما الجائزة التي حلم بها مارك؟"
+    },
+    "answer": {
+      "en": "The Louvre Prize",
+      "ar": "جائزة لوفر"
+    }
+  },
+  {
+    "id": "ayt-160",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Sandybell",
+      "ar": "ساندييبيل"
+    },
+    "question": {
+      "en": "What is the name of the castle where Kitty lived?",
+      "ar": "ما اسم القصر الذي عاشت فيه كيتي؟"
+    },
+    "answer": {
+      "en": "Sherwood Castle",
+      "ar": "قصر شيروووود"
+    }
+  },
+  {
+    "id": "ayt-161",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What are the names of the two hero siblings?",
+      "ar": "ما هما اسما البطلين الأخ والأخت؟"
+    },
+    "answer": {
+      "en": "Azam and Lumis",
+      "ar": "عزم ولميس"
+    }
+  },
+  {
+    "id": "ayt-162",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "Who does Iron Man fight against?",
+      "ar": "ضد من كان يحارب الرجل الحديدي؟"
+    },
+    "answer": {
+      "en": "The Dinosaurs",
+      "ar": "الديناصورات"
+    }
+  },
+  {
+    "id": "ayt-163",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the combination move called?",
+      "ar": "ما هي حركة الاتحاد؟"
+    },
+    "answer": {
+      "en": "Ring Touch",
+      "ar": "ملامسة الخواتم"
+    }
+  },
+  {
+    "id": "ayt-164",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the name of the giant vehicle they pilot?",
+      "ar": "ما اسم المركبة الضخمة التي يقودانها؟"
+    },
+    "answer": {
+      "en": "Eisenberg",
+      "ar": "إيزنبيرغ"
+    }
+  },
+  {
+    "id": "ayt-165",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the colour of Iron Man's armour?",
+      "ar": "ما لون درع الرجل الحديدي؟"
+    },
+    "answer": {
+      "en": "Red and silver",
+      "ar": "أحمر وفضي"
+    }
+  },
+  {
+    "id": "ayt-166",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "Who is the first commander of the Dinosaurs?",
+      "ar": "من هو قائد الديناصورات الأول؟"
+    },
+    "answer": {
+      "en": "Ululou",
+      "ar": "أولولو"
+    }
+  },
+  {
+    "id": "ayt-167",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What weapons are hidden in Iron Man's head?",
+      "ar": "ما هي الأسلحة في رأس الرجل الحديدي؟"
+    },
+    "answer": {
+      "en": "Sharp blades / saws",
+      "ar": "شفرات حادة / منشار"
+    }
+  },
+  {
+    "id": "ayt-168",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "How did the siblings become half-cyborg?",
+      "ar": "كيف أصبحا نصف آليين؟"
+    },
+    "answer": {
+      "en": "Their parents' laboratory exploded",
+      "ar": "انفجار مختبر والدهما"
+    }
+  },
+  {
+    "id": "ayt-169",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "Who is the commander after Ululou?",
+      "ar": "من القائد بعد أولولو؟"
+    },
+    "answer": {
+      "en": "Tyranos",
+      "ar": "تيرانوس"
+    }
+  },
+  {
+    "id": "ayt-170",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "Who is the scientist supervising them?",
+      "ar": "من هو العالم المشرف عليهم؟"
+    },
+    "answer": {
+      "en": "Dr. Irfan",
+      "ar": "الدكتور عرفان"
+    }
+  },
+  {
+    "id": "ayt-171",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "How long is the maximum combination time?",
+      "ar": "ما مدة الاتحاد القصوى؟"
+    },
+    "answer": {
+      "en": "3 minutes and 30 seconds",
+      "ar": "3 دقائق و30 ثانية"
+    }
+  },
+  {
+    "id": "ayt-172",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the name of the military support team?",
+      "ar": "ما اسم الفريق العسكري المساعد؟"
+    },
+    "answer": {
+      "en": "Team D",
+      "ar": "فريق D"
+    }
+  },
+  {
+    "id": "ayt-173",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the original Japanese series title of the show known in Arabic as Iron Man?",
+      "ar": "ما العنوان الياباني الأصلي للمسلسل المعروف عربياً باسم الرجل الحديدي؟"
+    },
+    "answer": {
+      "en": "Dinosaur War Aizenborg",
+      "ar": "حرب الديناصورات آيزنبرغ"
+    }
+  },
+  {
+    "id": "ayt-174",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the name of the beam weapon fired from the hands?",
+      "ar": "ما اسم السلاح الشعاعي من اليدين؟"
+    },
+    "answer": {
+      "en": "Izen Beam",
+      "ar": "شعاع إيزن"
+    }
+  },
+  {
+    "id": "ayt-175",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "Where is the dinosaur base located?",
+      "ar": "أين تقع قاعدة الديناصورات؟"
+    },
+    "answer": {
+      "en": "Underground",
+      "ar": "تحت الأرض"
+    }
+  },
+  {
+    "id": "ayt-176",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What was their parents' original profession?",
+      "ar": "ما وظيفة والدهما الأصلية؟"
+    },
+    "answer": {
+      "en": "Fossil science researchers",
+      "ar": "عالم حفريات"
+    }
+  },
+  {
+    "id": "ayt-177",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is the name of the small friendly dinosaur?",
+      "ar": "ما اسم الديناصور الصغير الطيب؟"
+    },
+    "answer": {
+      "en": "Stego",
+      "ar": "ستيغو"
+    }
+  },
+  {
+    "id": "ayt-178",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "In what year did the Dinosaurs begin appearing?",
+      "ar": "في أي سنة بدأت الديناصورات بالظهور؟"
+    },
+    "answer": {
+      "en": "1986",
+      "ar": "1986"
+    }
+  },
+  {
+    "id": "ayt-179",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "What is Lumis's weakness?",
+      "ar": "ما هي نقطة ضعف لميس؟"
+    },
+    "answer": {
+      "en": "Artificial heart weakness",
+      "ar": "ضعف القلب الاصطناعي"
+    }
+  },
+  {
+    "id": "ayt-180",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Iron Man",
+      "ar": "الرجل الحديدي"
+    },
+    "question": {
+      "en": "How did Tyranos meet his end?",
+      "ar": "كيف انتهى تيرانوس؟"
+    },
+    "answer": {
+      "en": "In a final confrontation with Iron Man",
+      "ar": "مواجهة نهائية مع الرجل الحديدي"
+    }
+  },
+  {
+    "id": "ayt-181",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What type of animal is Tom?",
+      "ar": "ما نوع حيوان توم؟"
+    },
+    "answer": {
+      "en": "Cat",
+      "ar": "قط"
+    }
+  },
+  {
+    "id": "ayt-182",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What type of animal is Jerry?",
+      "ar": "ما نوع حيوان جيري؟"
+    },
+    "answer": {
+      "en": "Mouse",
+      "ar": "فأر"
+    }
+  },
+  {
+    "id": "ayt-183",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the big dog?",
+      "ar": "ما اسم الكلب الضخم؟"
+    },
+    "answer": {
+      "en": "Spike",
+      "ar": "سبايك"
+    }
+  },
+  {
+    "id": "ayt-184",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "Where does Jerry usually live?",
+      "ar": "أين يعيش جيري عادة؟"
+    },
+    "answer": {
+      "en": "In a hole in the wall",
+      "ar": "ثقب بالجدار"
+    }
+  },
+  {
+    "id": "ayt-185",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "Do they talk in the classic episodes?",
+      "ar": "هل يتحدثان في الحلقات الكلاسيكية؟"
+    },
+    "answer": {
+      "en": "No",
+      "ar": "لا"
+    }
+  },
+  {
+    "id": "ayt-186",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of Spike's small son?",
+      "ar": "ما اسم ابن سبايك الصغير؟"
+    },
+    "answer": {
+      "en": "Tyke / Tike",
+      "ar": "تيكي / تيك"
+    }
+  },
+  {
+    "id": "ayt-187",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the small grey mouse?",
+      "ar": "ما اسم الفأر الصغير الرمادي؟"
+    },
+    "answer": {
+      "en": "Nibbles / Tuffy",
+      "ar": "نيبليز / تافي"
+    }
+  },
+  {
+    "id": "ayt-188",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is Jerry's dominant colour?",
+      "ar": "ما هو اللون الغالب على جيري؟"
+    },
+    "answer": {
+      "en": "Brown",
+      "ar": "بني"
+    }
+  },
+  {
+    "id": "ayt-189",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "Who is the character whose feet we only see — never her face?",
+      "ar": "من الشخصية التي لا نرى إلا قدميها؟"
+    },
+    "answer": {
+      "en": "The housewife (homeowner)",
+      "ar": "صاحبة المنزل"
+    }
+  },
+  {
+    "id": "ayt-190",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What instrument does Tom play brilliantly?",
+      "ar": "ما الآلة التي يعزفها توم ببراعة؟"
+    },
+    "answer": {
+      "en": "Piano",
+      "ar": "البيانو"
+    }
+  },
+  {
+    "id": "ayt-191",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the beautiful white female cat?",
+      "ar": "ما اسم القطة البيضاء الجميلة؟"
+    },
+    "answer": {
+      "en": "Toodles Galore",
+      "ar": "تودلز غالور"
+    }
+  },
+  {
+    "id": "ayt-192",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the rival black cat?",
+      "ar": "ما اسم القط الأسود المنافس؟"
+    },
+    "answer": {
+      "en": "Butch",
+      "ar": "بوتش"
+    }
+  },
+  {
+    "id": "ayt-193",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "In what year did the first Tom and Jerry short appear?",
+      "ar": "في أي عام ظهر أول عرض لتوم وجيري؟"
+    },
+    "answer": {
+      "en": "1940",
+      "ar": "1940"
+    }
+  },
+  {
+    "id": "ayt-194",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What was Tom's original name in the very first episode?",
+      "ar": "ما الاسم الأصلي لتوم في أول حلقة؟"
+    },
+    "answer": {
+      "en": "Jasper",
+      "ar": "جاسبر"
+    }
+  },
+  {
+    "id": "ayt-195",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "Who are the creators of the Tom and Jerry series?",
+      "ar": "من هما مبتكرا سلسلة توم وجيري؟"
+    },
+    "answer": {
+      "en": "Hanna and Barbera",
+      "ar": "هانا وباربيرا"
+    }
+  },
+  {
+    "id": "ayt-196",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "How many Academy Awards did the series win?",
+      "ar": "كم عدد الأوسكار التي فازت بها السلسلة؟"
+    },
+    "answer": {
+      "en": "7",
+      "ar": "7"
+    }
+  },
+  {
+    "id": "ayt-197",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of Jerry's brother who appears in some episodes?",
+      "ar": "ما اسم أخ جيري الذي يظهر في بعض الحلقات؟"
+    },
+    "answer": {
+      "en": "Tuffy",
+      "ar": "تافي"
+    }
+  },
+  {
+    "id": "ayt-198",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the episode that ended sadly?",
+      "ar": "ما اسم الحلقة التي انتهت بنهاية حزينة؟"
+    },
+    "answer": {
+      "en": "Blue Cat Blues",
+      "ar": "Blue Cat Blues"
+    }
+  },
+  {
+    "id": "ayt-199",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the small orange cat?",
+      "ar": "ما اسم القط البرتقالي الصغير؟"
+    },
+    "answer": {
+      "en": "Lightning",
+      "ar": "لايتنينغ"
+    }
+  },
+  {
+    "id": "ayt-200",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Tom and Jerry",
+      "ar": "توم وجيري"
+    },
+    "question": {
+      "en": "What is the name of the episode where Jerry becomes a superhero mouse?",
+      "ar": "ما اسم حلقة الفأر الخارق؟"
+    },
+    "answer": {
+      "en": "Dr. Jekyll and Mr. Mouse",
+      "ar": "Dr. Jekyll and Mr. Mouse"
+    }
+  }
 ]

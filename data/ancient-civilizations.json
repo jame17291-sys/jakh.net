@@ -1,490 +1,642 @@
-{
-  "slug": "ancient-civilizations",
-  "title": {
-    "en": "Ancient Civilizations",
-    "ar": "الحضارات القديمة"
-  },
-  "count": 40,
-  "cards": [
-    {
-      "id": "anc-1",
-      "difficulty": "easy",
-      "question": {
-        "en": "In which modern-day country would you find the Great Pyramids of Giza?",
-        "ar": "في أي بلد حديث تجد أهرامات الجيزة الكبرى؟"
-      },
-      "answer": {
-        "en": "Egypt",
-        "ar": "مصر"
-      }
+[
+  {
+    "id": "anc-1",
+    "difficulty": "easy",
+    "question": {
+      "en": "In which modern-day country would you find the Great Pyramids of Giza?",
+      "ar": "في أي بلد حديث تجد أهرامات الجيزة الكبرى؟"
     },
-    {
-      "id": "anc-2",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which ancient civilization built the Great Wall?",
-        "ar": "أي حضارة قديمة بنت سور الصين العظيم؟"
-      },
-      "answer": {
-        "en": "Ancient China",
-        "ar": "الصين القديمة"
-      }
+    "answer": {
+      "en": "Egypt",
+      "ar": "مصر"
     },
-    {
-      "id": "anc-3",
-      "difficulty": "easy",
-      "question": {
-        "en": "What was the name of the ancient city in Italy famous for its gladiatorial games at the Colosseum?",
-        "ar": "ما اسم المدينة القديمة في إيطاليا المشهورة بألعاب المصارعة في الكولوسيوم؟"
-      },
-      "answer": {
-        "en": "Rome",
-        "ar": "روما"
-      }
-    },
-    {
-      "id": "anc-4",
-      "difficulty": "easy",
-      "question": {
-        "en": "The Olympics originated in which ancient civilization?",
-        "ar": "أين نشأت الألعاب الأولمبية في أي حضارة قديمة؟"
-      },
-      "answer": {
-        "en": "Ancient Greece",
-        "ar": "اليونان القديمة"
-      }
-    },
-    {
-      "id": "anc-5",
-      "difficulty": "easy",
-      "question": {
-        "en": "What system of writing used picture-like symbols in Ancient Egypt?",
-        "ar": "ما هو نظام الكتابة الذي استخدم رموزاً تشبه الصور في مصر القديمة؟"
-      },
-      "answer": {
-        "en": "Hieroglyphics",
-        "ar": "الهيروغليفية"
-      }
-    },
-    {
-      "id": "anc-6",
-      "difficulty": "easy",
-      "question": {
-        "en": "Between which two rivers did the Mesopotamian civilization develop?",
-        "ar": "بين أي نهرين نشأت حضارة بلاد ما بين النهرين؟"
-      },
-      "answer": {
-        "en": "Tigris and Euphrates",
-        "ar": "دجلة والفرات"
-      }
-    },
-    {
-      "id": "anc-7",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which civilization is known for its lost city of Machu Picchu?",
-        "ar": "أي حضارة تشتهر بمدينتها المفقودة 'ماتشو بيتشو'؟"
-      },
-      "answer": {
-        "en": "Inca Empire",
-        "ar": "إمبراطورية الإنكا"
-      }
-    },
-    {
-      "id": "anc-8",
-      "difficulty": "easy",
-      "question": {
-        "en": "What was the title of the ancient rulers of Egypt?",
-        "ar": "ما هو لقب الحكام القدامى لمصر؟"
-      },
-      "answer": {
-        "en": "Pharaoh",
-        "ar": "فرعون"
-      }
-    },
-    {
-      "id": "anc-9",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which ancient civilization invented the concept of 'Zero' in Mesoamerica?",
-        "ar": "أي حضارة قديمة اخترعت مفهوم 'الصفر' في أمريكا الوسطى؟"
-      },
-      "answer": {
-        "en": "Maya Civilization",
-        "ar": "حضارة المايا"
-      }
-    },
-    {
-      "id": "anc-10",
-      "difficulty": "easy",
-      "question": {
-        "en": "The 'Hanging Gardens' were located in which ancient city?",
-        "ar": "أين كانت تقع 'الجنائن المعلقة' في أي مدينة قديمة؟"
-      },
-      "answer": {
-        "en": "Babylon",
-        "ar": "بابل"
-      }
-    },
-    {
-      "id": "anc-11",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the name of the wedge-shaped writing system used in ancient Sumer?",
-        "ar": "ما اسم نظام الكتابة المسمارية المستخدم في سومر القديمة؟"
-      },
-      "answer": {
-        "en": "Cuneiform",
-        "ar": "الكتابة المسمارية"
-      }
-    },
-    {
-      "id": "anc-12",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which famous stone was key to deciphering Egyptian hieroglyphics?",
-        "ar": "أي حجر شهير كان مفتاحاً لفك رموز الهيروغليفية المصرية؟"
-      },
-      "answer": {
-        "en": "Rosetta Stone",
-        "ar": "حجر رشيد"
-      }
-    },
-    {
-      "id": "anc-13",
-      "difficulty": "medium",
-      "question": {
-        "en": "What was the 'Silk Road'?",
-        "ar": "ما هو 'طريق الحرير'؟"
-      },
-      "answer": {
-        "en": "A network of trade routes connecting East and West",
-        "ar": "شبكة من الطرق التجارية التي تربط الشرق والغرب"
-      }
-    },
-    {
-      "id": "anc-14",
-      "difficulty": "medium",
-      "question": {
-        "en": "The 'Code of Hammurabi' is one of the oldest sets of laws from which city-state?",
-        "ar": "تعتبر 'شريعة حمورابي' واحدة من أقدم مجموعات القوانين، من أي مدينة-دولة؟"
-      },
-      "answer": {
-        "en": "Babylon",
-        "ar": "بابل"
-      }
-    },
-    {
-      "id": "anc-15",
-      "difficulty": "medium",
-      "question": {
-        "en": "Who was the first emperor of a unified China?",
-        "ar": "من كان أول إمبراطور للصين الموحدة؟"
-      },
-      "answer": {
-        "en": "Qin Shi Huang",
-        "ar": "تشين شي هوانغ"
-      }
-    },
-    {
-      "id": "anc-16",
-      "difficulty": "medium",
-      "question": {
-        "en": "The 'Valley of the Kings' is an ancient burial site in which country?",
-        "ar": "أين يقع 'وادي الملوك' كموقع دفن قديم؟"
-      },
-      "answer": {
-        "en": "Egypt",
-        "ar": "مصر"
-      }
-    },
-    {
-      "id": "anc-17",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which civilization built the city of Chichén Itzá?",
-        "ar": "أي حضارة بنت مدينة 'تشيتشن إيتزا'؟"
-      },
-      "answer": {
-        "en": "Maya",
-        "ar": "المايا"
-      }
-    },
-    {
-      "id": "anc-18",
-      "difficulty": "medium",
-      "question": {
-        "en": "The 'Great Library' of the ancient world was located in which city?",
-        "ar": "أين كانت تقع 'المكتبة الكبرى' في العالم القديم؟"
-      },
-      "answer": {
-        "en": "Alexandria",
-        "ar": "الإسكندرية"
-      }
-    },
-    {
-      "id": "anc-19",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which ancient civilization is credited with inventing the alphabet?",
-        "ar": "أي حضارة قديمة ينسب إليها الفضل في اختراع الأبجدية؟"
-      },
-      "answer": {
-        "en": "Phoenicians",
-        "ar": "الفينيقيون"
-      }
-    },
-    {
-      "id": "anc-20",
-      "difficulty": "medium",
-      "question": {
-        "en": "What were the 'Punic Wars' fought over?",
-        "ar": "على ماذا نشبت 'الحروب البونيقية'؟"
-      },
-      "answer": {
-        "en": "Control of the Mediterranean (Rome vs. Carthage)",
-        "ar": "السيطرة على البحر الأبيض المتوسط (بين روما وقرطاج)"
-      }
-    },
-    {
-      "id": "anc-21",
-      "difficulty": "hard",
-      "question": {
-        "en": "Who were the 'Sea Peoples' mentioned in late Bronze Age records?",
-        "ar": "من هم 'شعوب البحر' المذكورون في سجلات العصر البرونزي المتأخر؟"
-      },
-      "answer": {
-        "en": "A confederacy of naval raiders who attacked ancient Egypt and the Mediterranean",
-        "ar": "اتحاد من الغزاة البحريين الذين هاجموا مصر القديمة والبحر الأبيض المتوسط"
-      }
-    },
-    {
-      "id": "anc-22",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which empire was the primary rival of the Ancient Egyptians during the reign of Ramses II?",
-        "ar": "أي إمبراطورية كانت المنافس الرئيسي للمصريين القدماء في عهد رمسيس الثاني؟"
-      },
-      "answer": {
-        "en": "The Hittite Empire",
-        "ar": "الإمبراطورية الحيثية"
-      }
-    },
-    {
-      "id": "anc-23",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Epic of Gilgamesh'?",
-        "ar": "ما هي 'ملحمة جلجامش'؟"
-      },
-      "answer": {
-        "en": "The oldest surviving work of great literature, from ancient Mesopotamia",
-        "ar": "أقدم عمل أدبي عظيم باقٍ، من بلاد ما بين النهرين القديمة"
-      }
-    },
-    {
-      "id": "anc-24",
-      "difficulty": "hard",
-      "question": {
-        "en": "The 'Olmec' civilization is often called the 'Mother Culture' of which region?",
-        "ar": "غالباً ما تسمى حضارة 'الأولمك' بـ 'الثقافة الأم' لأي منطقة؟"
-      },
-      "answer": {
-        "en": "Mesoamerica",
-        "ar": "أمريكا الوسطى"
-      }
-    },
-    {
-      "id": "anc-25",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which ancient civilization developed the first known sewage system in the Indus Valley?",
-        "ar": "أي حضارة قديمة طورت أول نظام صرف صحي معروف في وادي السند؟"
-      },
-      "answer": {
-        "en": "Harappan (Indus Valley) Civilization",
-        "ar": "حضارة هارابان (وادي السند)"
-      }
-    },
-    {
-      "id": "anc-26",
-      "difficulty": "hard",
-      "question": {
-        "en": "What was the 'Stela of Aksum'?",
-        "ar": "ما هي 'مسلة أكسوم'؟"
-      },
-      "answer": {
-        "en": "A massive stone monument from the Kingdom of Aksum in modern-day Ethiopia",
-        "ar": "نصب حجري ضخم من مملكة أكسوم في إثيوبيا الحالية"
-      }
-    },
-    {
-      "id": "anc-27",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which famous philosopher was the tutor of Alexander the Great?",
-        "ar": "من هو الفيلسوف الشهير الذي كان معلماً للإسكندر الأكبر؟"
-      },
-      "answer": {
-        "en": "Aristotle",
-        "ar": "أرسطو"
-      }
-    },
-    {
-      "id": "anc-28",
-      "difficulty": "hard",
-      "question": {
-        "en": "The 'Terracotta Army' was buried with which emperor?",
-        "ar": "مع أي إمبراطور دفن 'جيش التراكوتا'؟"
-      },
-      "answer": {
-        "en": "Qin Shi Huang",
-        "ar": "تشين شي هوانغ"
-      }
-    },
-    {
-      "id": "anc-29",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the name of the step-pyramid structures found in ancient Mesopotamia?",
-        "ar": "ما اسم الهياكل الهرمية المدرجة الموجودة في بلاد ما بين النهرين القديمة؟"
-      },
-      "answer": {
-        "en": "Ziggurat",
-        "ar": "الزقورة"
-      }
-    },
-    {
-      "id": "anc-30",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which civilization is known for building the city of Petra in modern Jordan?",
-        "ar": "أي حضارة تشتهر ببناء مدينة البتراء في الأردن الحديث؟"
-      },
-      "answer": {
-        "en": "The Nabataeans",
-        "ar": "الأنباط"
-      }
-    },
-    {
-      "id": "anc-31",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Linear B'?",
-        "ar": "ما هي الكتابة 'الخطية ب' (Linear B)؟"
-      },
-      "answer": {
-        "en": "The oldest preserved form of written Greek, used by the Mycenaean civilization",
-        "ar": "أقدم شكل محفوظ لليونانية المكتوبة، استخدمته الحضارة الميسينية"
-      }
-    },
-    {
-      "id": "anc-32",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What was the significance of the Battle of Kadesh (~1274 BC)?",
-        "ar": "ما هي أهمية معركة قادش (حوالي 1274 ق.م)؟"
-      },
-      "answer": {
-        "en": "It led to the world's first recorded peace treaty between Egypt and the Hittites",
-        "ar": "أدت إلى أول معاهدة سلام مسجلة في العالم بين مصر والحيثيين"
-      }
-    },
-    {
-      "id": "anc-33",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "The 'Kipus' (or Quipu) were a system of recording information using what materials?",
-        "ar": "كان 'الكيبو' (Quipu) نظاماً لتسجيل المعلومات باستخدام أي مواد؟"
-      },
-      "answer": {
-        "en": "Knotted strings (used by the Incas)",
-        "ar": "خيوط معقودة (استخدمها الإنكا)"
-      }
-    },
-    {
-      "id": "anc-34",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "Who was 'Enheduanna' in ancient history?",
-        "ar": "من هي 'إنخيدوانا' في التاريخ القديم؟"
-      },
-      "answer": {
-        "en": "The world's first known author/poet, daughter of Sargon of Akkad",
-        "ar": "أول مؤلفة/شاعرة معروفة في العالم، ابنة سرجون الأكدي"
-      }
-    },
-    {
-      "id": "anc-35",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Antikythera Mechanism'?",
-        "ar": "ما هي 'آلية أنتيكيثيرا'؟"
-      },
-      "answer": {
-        "en": "An ancient Greek analog computer used to predict astronomical positions",
-        "ar": "كمبيوتر تماثلي يوناني قديم استخدم للتنبؤ بالمواقع الفلكية"
-      }
-    },
-    {
-      "id": "anc-36",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "Which ancient civilization used a base-60 (sexagesimal) number system?",
-        "ar": "أي حضارة قديمة استخدمت نظام عد ستيني (قاعدته 60)؟"
-      },
-      "answer": {
-        "en": "Sumerians/Babylonians",
-        "ar": "السومريون/البابليون"
-      }
-    },
-    {
-      "id": "anc-37",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "The 'Etruscan' civilization preceded which more famous empire in Italy?",
-        "ar": "أي حضارة سبقت الإمبراطورية الرومانية الشهيرة في إيطاليا؟"
-      },
-      "answer": {
-        "en": "The Roman Republic/Empire",
-        "ar": "الجمهورية/الإمبراطورية الرومانية"
-      }
-    },
-    {
-      "id": "anc-38",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What was the capital city of the Minoan civilization on Crete?",
-        "ar": "ما هي عاصمة الحضارة المينوية في كريت؟"
-      },
-      "answer": {
-        "en": "Knossos",
-        "ar": "كنوسوس"
-      }
-    },
-    {
-      "id": "anc-39",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "In Ancient Egypt, the 'Ba' and the 'Ka' were components of what?",
-        "ar": "في مصر القديمة، ماذا كانت تمثل الـ 'با' والـ 'كا'؟"
-      },
-      "answer": {
-        "en": "The Soul",
-        "ar": "الروح"
-      }
-    },
-    {
-      "id": "anc-40",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "The 'Royal Standard of Ur' provides rare insight into the social structure of which civilization?",
-        "ar": "يوفر 'راية أور الملكية' نظرة نادرة في البنية الاجتماعية لأي حضارة؟"
-      },
-      "answer": {
-        "en": "Sumerian",
-        "ar": "السومرية"
-      }
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
     }
-  ]
-}
+  },
+  {
+    "id": "anc-2",
+    "difficulty": "easy",
+    "question": {
+      "en": "Which ancient civilization built the Great Wall?",
+      "ar": "أي حضارة قديمة بنت سور الصين العظيم؟"
+    },
+    "answer": {
+      "en": "Ancient China",
+      "ar": "الصين القديمة"
+    },
+    "subcategory": {
+      "en": "Asian Civilizations",
+      "ar": "حضارات آسيا"
+    }
+  },
+  {
+    "id": "anc-3",
+    "difficulty": "easy",
+    "question": {
+      "en": "What was the name of the ancient city in Italy famous for its gladiatorial games at the Colosseum?",
+      "ar": "ما اسم المدينة القديمة في إيطاليا المشهورة بألعاب المصارعة في الكولوسيوم؟"
+    },
+    "answer": {
+      "en": "Rome",
+      "ar": "روما"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-4",
+    "difficulty": "easy",
+    "question": {
+      "en": "The Olympics originated in which ancient civilization?",
+      "ar": "أين نشأت الألعاب الأولمبية في أي حضارة قديمة؟"
+    },
+    "answer": {
+      "en": "Ancient Greece",
+      "ar": "اليونان القديمة"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-5",
+    "difficulty": "easy",
+    "question": {
+      "en": "What system of writing used picture-like symbols in Ancient Egypt?",
+      "ar": "ما هو نظام الكتابة الذي استخدم رموزاً تشبه الصور في مصر القديمة؟"
+    },
+    "answer": {
+      "en": "Hieroglyphics",
+      "ar": "الهيروغليفية"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-6",
+    "difficulty": "easy",
+    "question": {
+      "en": "Between which two rivers did the Mesopotamian civilization develop?",
+      "ar": "بين أي نهرين نشأت حضارة بلاد ما بين النهرين؟"
+    },
+    "answer": {
+      "en": "Tigris and Euphrates",
+      "ar": "دجلة والفرات"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-7",
+    "difficulty": "easy",
+    "question": {
+      "en": "Which civilization is known for its lost city of Machu Picchu?",
+      "ar": "أي حضارة تشتهر بمدينتها المفقودة 'ماتشو بيتشو'؟"
+    },
+    "answer": {
+      "en": "Inca Empire",
+      "ar": "إمبراطورية الإنكا"
+    },
+    "subcategory": {
+      "en": "Civilizations of the Americas",
+      "ar": "حضارات الأمريكتين"
+    }
+  },
+  {
+    "id": "anc-8",
+    "difficulty": "easy",
+    "question": {
+      "en": "What was the title of the ancient rulers of Egypt?",
+      "ar": "ما هو لقب الحكام القدامى لمصر؟"
+    },
+    "answer": {
+      "en": "Pharaoh",
+      "ar": "فرعون"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-9",
+    "difficulty": "easy",
+    "question": {
+      "en": "Which ancient civilization invented the concept of 'Zero' in Mesoamerica?",
+      "ar": "أي حضارة قديمة اخترعت مفهوم 'الصفر' في أمريكا الوسطى؟"
+    },
+    "answer": {
+      "en": "Maya Civilization",
+      "ar": "حضارة المايا"
+    },
+    "subcategory": {
+      "en": "Civilizations of the Americas",
+      "ar": "حضارات الأمريكتين"
+    }
+  },
+  {
+    "id": "anc-10",
+    "difficulty": "easy",
+    "question": {
+      "en": "The 'Hanging Gardens' were located in which ancient city?",
+      "ar": "أين كانت تقع 'الجنائن المعلقة' في أي مدينة قديمة؟"
+    },
+    "answer": {
+      "en": "Babylon",
+      "ar": "بابل"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-11",
+    "difficulty": "medium",
+    "question": {
+      "en": "What were canopic jars used for in ancient Egyptian mummification?",
+      "ar": "فيمَ كانت تُستخدم الأواني الكانوبية في التحنيط المصري القديم؟"
+    },
+    "answer": {
+      "en": "To preserve organs removed from the body",
+      "ar": "لحفظ الأعضاء التي أُزيلت من الجسد"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-12",
+    "difficulty": "medium",
+    "question": {
+      "en": "Which famous stone was key to deciphering Egyptian hieroglyphics?",
+      "ar": "أي حجر شهير كان مفتاحاً لفك رموز الهيروغليفية المصرية؟"
+    },
+    "answer": {
+      "en": "Rosetta Stone",
+      "ar": "حجر رشيد"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-13",
+    "difficulty": "medium",
+    "question": {
+      "en": "What was the 'Silk Road'?",
+      "ar": "ما هو 'طريق الحرير'؟"
+    },
+    "answer": {
+      "en": "A network of trade routes connecting East and West",
+      "ar": "شبكة من الطرق التجارية التي تربط الشرق والغرب"
+    },
+    "subcategory": {
+      "en": "Asian Civilizations",
+      "ar": "حضارات آسيا"
+    }
+  },
+  {
+    "id": "anc-14",
+    "difficulty": "medium",
+    "question": {
+      "en": "The 'Code of Hammurabi' is one of the oldest sets of laws from which city-state?",
+      "ar": "تعتبر 'شريعة حمورابي' واحدة من أقدم مجموعات القوانين، من أي مدينة-دولة؟"
+    },
+    "answer": {
+      "en": "Babylon",
+      "ar": "بابل"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-15",
+    "difficulty": "medium",
+    "question": {
+      "en": "Who was the first emperor of a unified China?",
+      "ar": "من كان أول إمبراطور للصين الموحدة؟"
+    },
+    "answer": {
+      "en": "Qin Shi Huang",
+      "ar": "تشين شي هوانغ"
+    },
+    "subcategory": {
+      "en": "Asian Civilizations",
+      "ar": "حضارات آسيا"
+    }
+  },
+  {
+    "id": "anc-16",
+    "difficulty": "medium",
+    "question": {
+      "en": "The 'Valley of the Kings' is an ancient burial site in which country?",
+      "ar": "أين يقع 'وادي الملوك' كموقع دفن قديم؟"
+    },
+    "answer": {
+      "en": "Egypt",
+      "ar": "مصر"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-17",
+    "difficulty": "medium",
+    "question": {
+      "en": "Which civilization built the city of Chichén Itzá?",
+      "ar": "أي حضارة بنت مدينة 'تشيتشن إيتزا'؟"
+    },
+    "answer": {
+      "en": "Maya",
+      "ar": "المايا"
+    },
+    "subcategory": {
+      "en": "Civilizations of the Americas",
+      "ar": "حضارات الأمريكتين"
+    }
+  },
+  {
+    "id": "anc-18",
+    "difficulty": "medium",
+    "question": {
+      "en": "The 'Great Library' of the ancient world was located in which city?",
+      "ar": "أين كانت تقع 'المكتبة الكبرى' في العالم القديم؟"
+    },
+    "answer": {
+      "en": "Alexandria",
+      "ar": "الإسكندرية"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-19",
+    "difficulty": "medium",
+    "question": {
+      "en": "Which ancient civilization is credited with inventing the alphabet?",
+      "ar": "أي حضارة قديمة ينسب إليها الفضل في اختراع الأبجدية؟"
+    },
+    "answer": {
+      "en": "Phoenicians",
+      "ar": "الفينيقيون"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    }
+  },
+  {
+    "id": "anc-20",
+    "difficulty": "medium",
+    "question": {
+      "en": "What were the 'Punic Wars' fought over?",
+      "ar": "على ماذا نشبت 'الحروب البونيقية'؟"
+    },
+    "answer": {
+      "en": "Control of the Mediterranean (Rome vs. Carthage)",
+      "ar": "السيطرة على البحر الأبيض المتوسط (بين روما وقرطاج)"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-21",
+    "difficulty": "hard",
+    "question": {
+      "en": "Who were the 'Sea Peoples' mentioned in late Bronze Age records?",
+      "ar": "من هم 'شعوب البحر' المذكورون في سجلات العصر البرونزي المتأخر؟"
+    },
+    "answer": {
+      "en": "A confederacy of naval raiders who attacked ancient Egypt and the Mediterranean",
+      "ar": "اتحاد من الغزاة البحريين الذين هاجموا مصر القديمة والبحر الأبيض المتوسط"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    }
+  },
+  {
+    "id": "anc-22",
+    "difficulty": "hard",
+    "question": {
+      "en": "Which empire was the primary rival of the Ancient Egyptians during the reign of Ramses II?",
+      "ar": "أي إمبراطورية كانت المنافس الرئيسي للمصريين القدماء في عهد رمسيس الثاني؟"
+    },
+    "answer": {
+      "en": "The Hittite Empire",
+      "ar": "الإمبراطورية الحيثية"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    }
+  },
+  {
+    "id": "anc-23",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Epic of Gilgamesh'?",
+      "ar": "ما هي 'ملحمة جلجامش'؟"
+    },
+    "answer": {
+      "en": "The oldest surviving work of great literature, from ancient Mesopotamia",
+      "ar": "أقدم عمل أدبي عظيم باقٍ، من بلاد ما بين النهرين القديمة"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-24",
+    "difficulty": "hard",
+    "question": {
+      "en": "The 'Olmec' civilization is often called the 'Mother Culture' of which region?",
+      "ar": "غالباً ما تسمى حضارة 'الأولمك' بـ 'الثقافة الأم' لأي منطقة؟"
+    },
+    "answer": {
+      "en": "Mesoamerica",
+      "ar": "أمريكا الوسطى"
+    },
+    "subcategory": {
+      "en": "Civilizations of the Americas",
+      "ar": "حضارات الأمريكتين"
+    }
+  },
+  {
+    "id": "anc-25",
+    "difficulty": "hard",
+    "question": {
+      "en": "Which ancient civilization developed the first known sewage system in the Indus Valley?",
+      "ar": "أي حضارة قديمة طورت أول نظام صرف صحي معروف في وادي السند؟"
+    },
+    "answer": {
+      "en": "Harappan (Indus Valley) Civilization",
+      "ar": "حضارة هارابان (وادي السند)"
+    },
+    "subcategory": {
+      "en": "Asian Civilizations",
+      "ar": "حضارات آسيا"
+    }
+  },
+  {
+    "id": "anc-26",
+    "difficulty": "hard",
+    "question": {
+      "en": "What was the 'Stela of Aksum'?",
+      "ar": "ما هي 'مسلة أكسوم'؟"
+    },
+    "answer": {
+      "en": "A massive stone monument from the Kingdom of Aksum in modern-day Ethiopia",
+      "ar": "نصب حجري ضخم من مملكة أكسوم في إثيوبيا الحالية"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    }
+  },
+  {
+    "id": "anc-27",
+    "difficulty": "hard",
+    "question": {
+      "en": "Which famous philosopher was the tutor of Alexander the Great?",
+      "ar": "من هو الفيلسوف الشهير الذي كان معلماً للإسكندر الأكبر؟"
+    },
+    "answer": {
+      "en": "Aristotle",
+      "ar": "أرسطو"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-28",
+    "difficulty": "hard",
+    "question": {
+      "en": "The 'Terracotta Army' was buried with which emperor?",
+      "ar": "مع أي إمبراطور دفن 'جيش التراكوتا'؟"
+    },
+    "answer": {
+      "en": "Qin Shi Huang",
+      "ar": "تشين شي هوانغ"
+    },
+    "subcategory": {
+      "en": "Asian Civilizations",
+      "ar": "حضارات آسيا"
+    }
+  },
+  {
+    "id": "anc-29",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the name of the step-pyramid structures found in ancient Mesopotamia?",
+      "ar": "ما اسم الهياكل الهرمية المدرجة الموجودة في بلاد ما بين النهرين القديمة؟"
+    },
+    "answer": {
+      "en": "Ziggurat",
+      "ar": "الزقورة"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-30",
+    "difficulty": "hard",
+    "question": {
+      "en": "Which civilization is known for building the city of Petra in modern Jordan?",
+      "ar": "أي حضارة تشتهر ببناء مدينة البتراء في الأردن الحديث؟"
+    },
+    "answer": {
+      "en": "The Nabataeans",
+      "ar": "الأنباط"
+    },
+    "subcategory": {
+      "en": "Africa & Near East",
+      "ar": "أفريقيا والشرق الأدنى"
+    }
+  },
+  {
+    "id": "anc-31",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Linear B'?",
+      "ar": "ما هي الكتابة 'الخطية ب' (Linear B)؟"
+    },
+    "answer": {
+      "en": "The oldest preserved form of written Greek, used by the Mycenaean civilization",
+      "ar": "أقدم شكل محفوظ لليونانية المكتوبة، استخدمته الحضارة الميسينية"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-32",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What was the significance of the Battle of Kadesh (~1274 BC)?",
+      "ar": "ما هي أهمية معركة قادش (حوالي 1274 ق.م)؟"
+    },
+    "answer": {
+      "en": "It led to the world's first recorded peace treaty between Egypt and the Hittites",
+      "ar": "أدت إلى أول معاهدة سلام مسجلة في العالم بين مصر والحيثيين"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-33",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "The 'Kipus' (or Quipu) were a system of recording information using what materials?",
+      "ar": "كان 'الكيبو' (Quipu) نظاماً لتسجيل المعلومات باستخدام أي مواد؟"
+    },
+    "answer": {
+      "en": "Knotted strings (used by the Incas)",
+      "ar": "خيوط معقودة (استخدمها الإنكا)"
+    },
+    "subcategory": {
+      "en": "Civilizations of the Americas",
+      "ar": "حضارات الأمريكتين"
+    }
+  },
+  {
+    "id": "anc-34",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Who was 'Enheduanna' in ancient history?",
+      "ar": "من هي 'إنخيدوانا' في التاريخ القديم؟"
+    },
+    "answer": {
+      "en": "The world's first known author/poet, daughter of Sargon of Akkad",
+      "ar": "أول مؤلفة/شاعرة معروفة في العالم، ابنة سرجون الأكدي"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-35",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Antikythera Mechanism'?",
+      "ar": "ما هي 'آلية أنتيكيثيرا'؟"
+    },
+    "answer": {
+      "en": "An ancient Greek analog computer used to predict astronomical positions",
+      "ar": "كمبيوتر تماثلي يوناني قديم استخدم للتنبؤ بالمواقع الفلكية"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-36",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which ancient civilization used a base-60 (sexagesimal) number system?",
+      "ar": "أي حضارة قديمة استخدمت نظام عد ستيني (قاعدته 60)؟"
+    },
+    "answer": {
+      "en": "Sumerians/Babylonians",
+      "ar": "السومريون/البابليون"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  },
+  {
+    "id": "anc-37",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "The 'Etruscan' civilization preceded which more famous empire in Italy?",
+      "ar": "أي حضارة سبقت الإمبراطورية الرومانية الشهيرة في إيطاليا؟"
+    },
+    "answer": {
+      "en": "The Roman Republic/Empire",
+      "ar": "الجمهورية/الإمبراطورية الرومانية"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-38",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What was the capital city of the Minoan civilization on Crete?",
+      "ar": "ما هي عاصمة الحضارة المينوية في كريت؟"
+    },
+    "answer": {
+      "en": "Knossos",
+      "ar": "كنوسوس"
+    },
+    "subcategory": {
+      "en": "Greece & Rome",
+      "ar": "اليونان وروما"
+    }
+  },
+  {
+    "id": "anc-39",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "In Ancient Egypt, the 'Ba' and the 'Ka' were components of what?",
+      "ar": "في مصر القديمة، ماذا كانت تمثل الـ 'با' والـ 'كا'؟"
+    },
+    "answer": {
+      "en": "The Soul",
+      "ar": "الروح"
+    },
+    "subcategory": {
+      "en": "Ancient Egypt",
+      "ar": "مصر القديمة"
+    }
+  },
+  {
+    "id": "anc-40",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "The 'Royal Standard of Ur' provides rare insight into the social structure of which civilization?",
+      "ar": "يوفر 'راية أور الملكية' نظرة نادرة في البنية الاجتماعية لأي حضارة؟"
+    },
+    "answer": {
+      "en": "Sumerian",
+      "ar": "السومرية"
+    },
+    "subcategory": {
+      "en": "Mesopotamia",
+      "ar": "بلاد الرافدين"
+    }
+  }
+]

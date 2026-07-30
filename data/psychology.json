@@ -1,1628 +1,1602 @@
-{
-  "slug": "psychology",
-  "title": {
-    "en": "Psychology",
-    "ar": "علم النفس"
-  },
-  "description": {
-    "en": "The human mind — from Freud and behavior to cognition and disorders.",
-    "ar": "العقل البشري — من فرويد والسلوك إلى الإدراك والاضطرابات."
-  },
-  "cluster": {
-    "en": "Society & Culture",
-    "ar": "مجتمع وثقافة"
-  },
-  "cluster_key": "society",
-  "emoji": "🧠",
-  "mode": "quiz",
-  "count": 100,
-  "difficultyCounts": {
-    "easy": 25,
-    "medium": 25,
-    "hard": 25,
-    "very-advanced": 25
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "psychology-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Founders",
-        "ar": "المؤسسون"
-      },
-      "question": {
-        "en": "Who is known as the 'Father of Psychoanalysis'?",
-        "ar": "من يُعرف بـ'أبي التحليل النفسي'؟"
-      },
-      "answer": {
-        "en": "Sigmund Freud",
-        "ar": "سيغموند فرويد"
-      }
-    },
-    {
-      "id": "psychology-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Personality",
-        "ar": "الشخصية"
-      },
-      "question": {
-        "en": "What do you call a person who is generally quiet and energized by being alone?",
-        "ar": "كيف تُسمّى الشخص الهادئ الذي يستمد طاقته من الوحدة؟"
-      },
-      "answer": {
-        "en": "Introvert",
-        "ar": "الانطوائي"
-      }
-    },
-    {
-      "id": "psychology-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Phobias",
-        "ar": "الرهاب"
-      },
-      "question": {
-        "en": "What is 'Arachnophobia' the fear of?",
-        "ar": "ما الذي يُشكّل خوف شخص مصاب بـ'الأراكنوفوبيا'؟"
-      },
-      "answer": {
-        "en": "Spiders",
-        "ar": "العناكب"
-      }
-    },
-    {
-      "id": "psychology-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Psychoanalysis",
-        "ar": "التحليل النفسي"
-      },
-      "question": {
-        "en": "Which part of the mind did Freud believe held our hidden desires?",
-        "ar": "أي جزء من العقل اعتقد فرويد أنه يحمل رغباتنا المخفية؟"
-      },
-      "answer": {
-        "en": "The Unconscious",
-        "ar": "اللاوعي"
-      }
-    },
-    {
-      "id": "psychology-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Intelligence",
-        "ar": "الذكاء"
-      },
-      "question": {
-        "en": "What does 'IQ' stand for?",
-        "ar": "ماذا يعني اختصار IQ؟"
-      },
-      "answer": {
-        "en": "Intelligence Quotient",
-        "ar": "نسبة الذكاء"
-      }
-    },
-    {
-      "id": "psychology-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Freudian Terms",
-        "ar": "مصطلحات فرويدية"
-      },
-      "question": {
-        "en": "What is the term for a 'slip of the tongue' that reveals a hidden thought?",
-        "ar": "ما المصطلح لزلّة اللسان التي تكشف فكرة مخفية؟"
-      },
-      "answer": {
-        "en": "Freudian Slip",
-        "ar": "زلة فرويد"
-      }
-    },
-    {
-      "id": "psychology-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Social Psychology",
-        "ar": "علم النفس الاجتماعي"
-      },
-      "question": {
-        "en": "What is the term for understanding and sharing the feelings of another?",
-        "ar": "ما مصطلح فهم مشاعر الآخرين ومشاركتهم إياها؟"
-      },
-      "answer": {
-        "en": "Empathy",
-        "ar": "التعاطف"
-      }
-    },
-    {
-      "id": "psychology-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Behavior",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is the term for a repetitive behavior a person feels driven to perform?",
-        "ar": "ما مصطلح السلوك المتكرر الذي يشعر الشخص بدافع للقيام به؟"
-      },
-      "answer": {
-        "en": "Compulsion",
-        "ar": "الوسواس القهري"
-      }
-    },
-    {
-      "id": "psychology-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Development",
-        "ar": "التطور"
-      },
-      "question": {
-        "en": "In the 'Nature vs. Nurture' debate, what does 'Nature' refer to?",
-        "ar": "في جدل 'الطبيعة مقابل التنشئة'، إلى ماذا تشير 'الطبيعة'؟"
-      },
-      "answer": {
-        "en": "Genetics / Biology",
-        "ar": "الجينات / البيولوجيا"
-      }
-    },
-    {
-      "id": "psychology-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Senses",
-        "ar": "الحواس"
-      },
-      "question": {
-        "en": "How many primary senses do humans have?",
-        "ar": "كم عدد الحواس الأساسية للإنسان؟"
-      },
-      "answer": {
-        "en": "Five",
-        "ar": "خمس"
-      }
-    },
-    {
-      "id": "psychology-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Conditioning",
-        "ar": "التكييف"
-      },
-      "question": {
-        "en": "Who famously trained dogs to salivate at the sound of a bell?",
-        "ar": "من اشتُهر بتدريب الكلاب على إفراز اللعاب عند سماع جرس؟"
-      },
-      "answer": {
-        "en": "Ivan Pavlov",
-        "ar": "إيفان بافلوف"
-      }
-    },
-    {
-      "id": "psychology-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Motivation",
-        "ar": "الدافعية"
-      },
-      "question": {
-        "en": "Abraham Maslow created a 'Hierarchy of...' what?",
-        "ar": "أنشأ أبراهام ماسلو 'هرم...' ماذا؟"
-      },
-      "answer": {
-        "en": "Needs",
-        "ar": "الاحتياجات"
-      }
-    },
-    {
-      "id": "psychology-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Assessment",
-        "ar": "التقييم"
-      },
-      "question": {
-        "en": "What is the name of the test that uses symmetrical inkblots?",
-        "ar": "ما اسم الاختبار الذي يستخدم بقع الحبر المتماثلة؟"
-      },
-      "answer": {
-        "en": "Rorschach test",
-        "ar": "اختبار رورشاخ"
-      }
-    },
-    {
-      "id": "psychology-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Social Psychology",
-        "ar": "علم النفس الاجتماعي"
-      },
-      "question": {
-        "en": "Which psychologist conducted the famous Stanford Prison Experiment?",
-        "ar": "أي عالم نفس أجرى التجربة الشهيرة لسجن ستانفورد؟"
-      },
-      "answer": {
-        "en": "Philip Zimbardo",
-        "ar": "فيليب زيمباردو"
-      }
-    },
-    {
-      "id": "psychology-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Cognition",
-        "ar": "الإدراك"
-      },
-      "question": {
-        "en": "What is 'Cognitive Dissonance'?",
-        "ar": "ما 'التنافر المعرفي'؟"
-      },
-      "answer": {
-        "en": "The mental discomfort of holding two conflicting beliefs",
-        "ar": "الانزعاج النفسي الناجم عن حمل معتقدين متعارضين"
-      }
-    },
-    {
-      "id": "psychology-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Social Psychology",
-        "ar": "علم النفس الاجتماعي"
-      },
-      "question": {
-        "en": "What is the effect where people are less likely to help if others are present?",
-        "ar": "ما التأثير الذي يجعل الناس أقل ميلاً للمساعدة حين يكون آخرون حاضرين؟"
-      },
-      "answer": {
-        "en": "Bystander Effect",
-        "ar": "أثر المتفرج"
-      }
-    },
-    {
-      "id": "psychology-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Psychoanalysis",
-        "ar": "التحليل النفسي"
-      },
-      "question": {
-        "en": "In Freud's theory, which part of the personality mediates between desires and reality?",
-        "ar": "في نظرية فرويد، أي جزء من الشخصية يتوسط بين الرغبات والواقع؟"
-      },
-      "answer": {
-        "en": "The Ego",
-        "ar": "الأنا"
-      }
-    },
-    {
-      "id": "psychology-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Development",
-        "ar": "التطور"
-      },
-      "question": {
-        "en": "Which psychologist is famous for his stages of cognitive development in children?",
-        "ar": "أي عالم نفس اشتُهر بمراحل التطور المعرفي عند الأطفال؟"
-      },
-      "answer": {
-        "en": "Jean Piaget",
-        "ar": "جان بياجيه"
-      }
-    },
-    {
-      "id": "psychology-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What is the 'Placebo Effect'?",
-        "ar": "ما 'أثر الغفل (البلاسيبو)'؟"
-      },
-      "answer": {
-        "en": "A beneficial effect from a fake treatment due to patient belief",
-        "ar": "تأثير إيجابي ناجم عن علاج وهمي بسبب اعتقاد المريض"
-      }
-    },
-    {
-      "id": "psychology-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Personality",
-        "ar": "الشخصية"
-      },
-      "question": {
-        "en": "Excessive self-admiration is known as what?",
-        "ar": "الإعجاب المفرط بالنفس يُعرف بماذا؟"
-      },
-      "answer": {
-        "en": "Narcissism",
-        "ar": "النرجسية"
-      }
-    },
-    {
-      "id": "psychology-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What was the Milgram experiment designed to measure?",
-        "ar": "لقياس ماذا صُمِّمت تجربة ميلغرام؟"
-      },
-      "answer": {
-        "en": "Obedience to authority",
-        "ar": "الطاعة للسلطة"
-      }
-    },
-    {
-      "id": "psychology-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Analytical Psychology",
-        "ar": "علم النفس التحليلي"
-      },
-      "question": {
-        "en": "Which psychologist introduced the 'Collective Unconscious' and 'Archetypes'?",
-        "ar": "أي عالم نفس قدّم مفهومي 'اللاوعي الجمعي' و'النماذج البدئية'؟"
-      },
-      "answer": {
-        "en": "Carl Jung",
-        "ar": "كارل يونغ"
-      }
-    },
-    {
-      "id": "psychology-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Positive Psychology",
-        "ar": "علم النفس الإيجابي"
-      },
-      "question": {
-        "en": "Which psychologist coined the term 'Flow' for complete immersion in an activity?",
-        "ar": "أي عالم نفس صاغ مصطلح 'التدفق' للوصف الكامل للانغماس في نشاط؟"
-      },
-      "answer": {
-        "en": "Mihaly Csikszentmihalyi",
-        "ar": "ميهالي تشيكسنتميهالي"
-      }
-    },
-    {
-      "id": "psychology-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Conditioning",
-        "ar": "التكييف"
-      },
-      "question": {
-        "en": "B.F. Skinner is the father of which type of conditioning?",
-        "ar": "ب. ف. سكينر أبو أي نوع من التكييف؟"
-      },
-      "answer": {
-        "en": "Operant Conditioning",
-        "ar": "التكييف الإجرائي"
-      }
-    },
-    {
-      "id": "psychology-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Development",
-        "ar": "التطور"
-      },
-      "question": {
-        "en": "According to Erikson, what is the primary 'crisis' during adolescence?",
-        "ar": "وفقاً لإريكسون، ما 'الأزمة' الرئيسية في مرحلة المراهقة؟"
-      },
-      "answer": {
-        "en": "Identity vs. Role Confusion",
-        "ar": "الهوية مقابل الارتباك في الأدوار"
-      }
-    },
-    {
-      "id": "psychology-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the primary function of the amygdala in the brain?",
-        "ar": "ما الوظيفة الرئيسية للوزة الدماغية (أميغدالا) في الدماغ؟"
-      },
-      "answer": {
-        "en": "Processing emotions, especially fear",
-        "ar": "معالجة المشاعر وخاصة الخوف"
-      }
-    },
-    {
-      "id": "psychology-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "Who developed the theory of 'Learned Helplessness' after experimenting with dogs?",
-        "ar": "من طور نظرية 'العجز المكتسب' بعد تجارب أجراها على الكلاب؟"
-      },
-      "answer": {
-        "en": "Martin Seligman",
-        "ar": "مارتن سيليغمان"
-      }
-    },
-    {
-      "id": "psychology-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Diagnosis",
-        "ar": "التشخيص"
-      },
-      "question": {
-        "en": "What is the 'DSM' used for in psychology?",
-        "ar": "لماذا يُستخدم 'DSM' في علم النفس؟"
-      },
-      "answer": {
-        "en": "Diagnosing mental disorders",
-        "ar": "تشخيص الاضطرابات النفسية"
-      }
-    },
-    {
-      "id": "psychology-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Gestalt",
-        "ar": "الغشطالت"
-      },
-      "question": {
-        "en": "What is the core principle of Gestalt psychology?",
-        "ar": "ما المبدأ الأساسي لعلم النفس الغشطالتي؟"
-      },
-      "answer": {
-        "en": "The whole is greater than the sum of its parts",
-        "ar": "الكل أكبر من مجموع أجزائه"
-      }
-    },
-    {
-      "id": "psychology-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Memory",
-        "ar": "الذاكرة"
-      },
-      "question": {
-        "en": "Elizabeth Loftus is a leading expert in which psychological phenomenon?",
-        "ar": "إليزابيث لوفتوس خبيرة رائدة في أي ظاهرة نفسية؟"
-      },
-      "answer": {
-        "en": "False Memories / Eyewitness Testimony",
-        "ar": "الذكريات الزائفة / شهادات شهود العيان"
-      }
-    },
-    {
-      "id": "psychology-031",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Basics",
-        "ar": "الأساسيات"
-      },
-      "question": {
-        "en": "Who is considered the founder of modern psychology?",
-        "ar": "من يُعدّ مؤسس علم النفس الحديث؟"
-      },
-      "answer": {
-        "en": "Wilhelm Wundt",
-        "ar": "فيلهلم فونت"
-      }
-    },
-    {
-      "id": "psychology-032",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is classical conditioning?",
-        "ar": "ما التكييف الكلاسيكي؟"
-      },
-      "answer": {
-        "en": "Learning through association — pairing a neutral stimulus with one that produces a response",
-        "ar": "التعلّم عبر التداعي — ربط محفّز محايد بآخر يُحدث استجابة"
-      }
-    },
-    {
-      "id": "psychology-033",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Memory",
-        "ar": "الذاكرة"
-      },
-      "question": {
-        "en": "What are the three stages of memory?",
-        "ar": "ما المراحل الثلاث للذاكرة؟"
-      },
-      "answer": {
-        "en": "Encoding, storage, and retrieval",
-        "ar": "الترميز، والتخزين، والاسترجاع"
-      }
-    },
-    {
-      "id": "psychology-034",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is Piaget's theory about?",
-        "ar": "بماذا تتعلق نظرية بياجيه؟"
-      },
-      "answer": {
-        "en": "Stages of cognitive development in children",
-        "ar": "مراحل التطور المعرفي لدى الأطفال"
-      }
-    },
-    {
-      "id": "psychology-035",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Personality",
-        "ar": "الشخصية"
-      },
-      "question": {
-        "en": "What are the Big Five personality traits?",
-        "ar": "ما السمات الخمس الكبرى للشخصية؟"
-      },
-      "answer": {
-        "en": "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism (OCEAN)",
-        "ar": "الانفتاح، الضمير، الانبساط، المقبولية، العصابية (OCEAN)"
-      }
-    },
-    {
-      "id": "psychology-036",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is operant conditioning?",
-        "ar": "ما الاشتراط الإجرائي؟"
-      },
-      "answer": {
-        "en": "Learning through consequences — behaviour is shaped by rewards and punishments",
-        "ar": "التعلّم من خلال النتائج — يتشكّل السلوك بالمكافآت والعقوبات"
-      }
-    },
-    {
-      "id": "psychology-037",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Motivation",
-        "ar": "الدافعية"
-      },
-      "question": {
-        "en": "What is Maslow's hierarchy of needs?",
-        "ar": "ما هرم ماسلو للاحتياجات؟"
-      },
-      "answer": {
-        "en": "A motivational theory ranking needs from physiological at the base to self-actualisation at the top",
-        "ar": "نظرية دافعية تصنّف الاحتياجات من الفسيولوجية في القاع إلى تحقيق الذات في القمة"
-      }
-    },
-    {
-      "id": "psychology-038",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Basics",
-        "ar": "الأساسيات"
-      },
-      "question": {
-        "en": "What is the difference between a psychologist and a psychiatrist?",
-        "ar": "ما الفرق بين عالم النفس والطبيب النفسي؟"
-      },
-      "answer": {
-        "en": "A psychiatrist is a medical doctor who can prescribe medication; a psychologist typically holds a PhD and provides therapy",
-        "ar": "الطبيب النفسي طبيب يمكنه وصف الأدوية؛ أما عالم النفس فيحمل عادةً دكتوراه ويقدّم العلاج النفسي"
-      }
-    },
-    {
-      "id": "psychology-039",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Emotion",
-        "ar": "المشاعر"
-      },
-      "question": {
-        "en": "What is the fight-or-flight response?",
-        "ar": "ما استجابة القتال أو الهروب؟"
-      },
-      "answer": {
-        "en": "A physiological reaction to a perceived threat, preparing the body to fight or flee",
-        "ar": "استجابة فسيولوجية لتهديد محسوس تُهيّئ الجسم للقتال أو الهروب"
-      }
-    },
-    {
-      "id": "psychology-040",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Sleep",
-        "ar": "النوم"
-      },
-      "question": {
-        "en": "What is REM sleep?",
-        "ar": "ما نوم حركة العين السريعة (REM)؟"
-      },
-      "answer": {
-        "en": "A stage of sleep characterised by rapid eye movements and vivid dreaming",
-        "ar": "مرحلة من مراحل النوم تتميز بالحركات السريعة للعينين والأحلام الواضحة"
-      }
-    },
-    {
-      "id": "psychology-041",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is cognitive dissonance?",
-        "ar": "ما التنافر المعرفي؟"
-      },
-      "answer": {
-        "en": "The mental discomfort from holding two contradictory beliefs or when behaviour conflicts with beliefs",
-        "ar": "الانزعاج النفسي من حمل معتقدَين متناقضَين أو تعارض السلوك مع المعتقدات"
-      }
-    },
-    {
-      "id": "psychology-042",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is attachment theory?",
-        "ar": "ما نظرية التعلّق؟"
-      },
-      "answer": {
-        "en": "A theory by Bowlby describing the deep emotional bond between infants and caregivers",
-        "ar": "نظرية لبولبي تصف الرابطة العاطفية العميقة بين الرضع ومقدّمي الرعاية"
-      }
-    },
-    {
-      "id": "psychology-043",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Basics",
-        "ar": "الأساسيات"
-      },
-      "question": {
-        "en": "What is the unconscious mind?",
-        "ar": "ما العقل الباطن؟"
-      },
-      "answer": {
-        "en": "The part of the mind that contains thoughts, feelings, and memories outside of conscious awareness",
-        "ar": "الجزء من العقل الذي يحتوي على أفكار ومشاعر وذكريات خارج نطاق الوعي الواعي"
-      }
-    },
-    {
-      "id": "psychology-044",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Personality",
-        "ar": "الشخصية"
-      },
-      "question": {
-        "en": "Who developed psychoanalysis?",
-        "ar": "من طوّر التحليل النفسي؟"
-      },
-      "answer": {
-        "en": "Sigmund Freud",
-        "ar": "سيغموند فرويد"
-      }
-    },
-    {
-      "id": "psychology-045",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Emotion",
-        "ar": "المشاعر"
-      },
-      "question": {
-        "en": "What is emotional intelligence (EQ)?",
-        "ar": "ما الذكاء العاطفي (EQ)؟"
-      },
-      "answer": {
-        "en": "The ability to recognise, understand, manage, and use emotions effectively",
-        "ar": "القدرة على التعرّف على المشاعر وفهمها وإدارتها وتوظيفها بفاعلية"
-      }
-    },
-    {
-      "id": "psychology-046",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is the bystander effect?",
-        "ar": "ما تأثير المتفرّج؟"
-      },
-      "answer": {
-        "en": "People are less likely to help in an emergency when others are present, assuming someone else will act",
-        "ar": "يقلّ احتمال تقديم الناس للمساعدة في حالة طوارئ عند وجود آخرين، لافتراض أن شخصاً آخر سيتصرف"
-      }
-    },
-    {
-      "id": "psychology-047",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is the placebo effect?",
-        "ar": "ما تأثير الدواء الوهمي؟"
-      },
-      "answer": {
-        "en": "Improvement in a patient's condition due to belief in the treatment rather than the treatment itself",
-        "ar": "تحسّن حالة المريض بسبب الإيمان بالعلاج وليس العلاج في حد ذاته"
-      }
-    },
-    {
-      "id": "psychology-048",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is the halo effect?",
-        "ar": "ما تأثير الهالة؟"
-      },
-      "answer": {
-        "en": "A cognitive bias where a positive impression in one area influences judgements in other areas",
-        "ar": "تحيّز معرفي تؤثر فيه الانطباعات الإيجابية في مجال ما على الأحكام في مجالات أخرى"
-      }
-    },
-    {
-      "id": "psychology-049",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Memory",
-        "ar": "الذاكرة"
-      },
-      "question": {
-        "en": "What is the serial position effect?",
-        "ar": "ما تأثير الموضع التسلسلي؟"
-      },
-      "answer": {
-        "en": "People remember items at the beginning (primacy) and end (recency) of a list better than those in the middle",
-        "ar": "يتذكّر الناس العناصر في بداية القائمة (أثر التقدّم) ونهايتها (أثر الحداثة) أفضل من تلك في المنتصف"
-      }
-    },
-    {
-      "id": "psychology-050",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is learned helplessness?",
-        "ar": "ما العجز المكتسب؟"
-      },
-      "answer": {
-        "en": "When repeated failure leads an organism to stop trying, even when success becomes possible",
-        "ar": "حين تدفع الفشل المتكرر الكائنَ الحي إلى التوقف عن المحاولة، حتى حين يصبح النجاح ممكناً"
-      }
-    },
-    {
-      "id": "psychology-051",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Personality",
-        "ar": "الشخصية"
-      },
-      "question": {
-        "en": "What is Carl Jung's concept of the collective unconscious?",
-        "ar": "ما مفهوم كارل يونغ للاشعور الجمعي؟"
-      },
-      "answer": {
-        "en": "A layer of the unconscious shared across humanity, containing archetypes and universal symbols",
-        "ar": "طبقة من اللاشعور مشتركة بين البشرية جمعاء، تحتوي على النماذج الأصلية والرموز الكونية"
-      }
-    },
-    {
-      "id": "psychology-052",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is Erikson's theory of psychosocial development?",
-        "ar": "ما نظرية إريكسون للنمو النفسي الاجتماعي؟"
-      },
-      "answer": {
-        "en": "Eight stages of development across the lifespan, each with a central conflict to resolve",
-        "ar": "ثماني مراحل من النمو عبر مراحل الحياة، لكل منها صراع محوري يجب حلّه"
-      }
-    },
-    {
-      "id": "psychology-053",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What was the Milgram experiment about?",
-        "ar": "بماذا كانت تجربة ميلغرام؟"
-      },
-      "answer": {
-        "en": "Obedience to authority — participants administered what they believed were dangerous electric shocks when instructed",
-        "ar": "الطاعة للسلطة — أعطى المشاركون ما يعتقدون أنه صدمات كهربائية خطيرة حين أُمروا بذلك"
-      }
-    },
-    {
-      "id": "psychology-054",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Emotion",
-        "ar": "المشاعر"
-      },
-      "question": {
-        "en": "What are the six universal basic emotions identified by Ekman?",
-        "ar": "ما المشاعر الأساسية الستة العالمية التي حدّدها إكمان؟"
-      },
-      "answer": {
-        "en": "Happiness, sadness, fear, disgust, anger, and surprise",
-        "ar": "السعادة، الحزن، الخوف، الاشمئزاز، الغضب، والمفاجأة"
-      }
-    },
-    {
-      "id": "psychology-055",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is the Dunning-Kruger effect?",
-        "ar": "ما تأثير دانينغ-كروغر؟"
-      },
-      "answer": {
-        "en": "A cognitive bias where people with limited competence overestimate their own ability",
-        "ar": "تحيّز معرفي يُبالغ فيه الأشخاص ذوو الكفاءة المحدودة في تقدير قدراتهم"
-      }
-    },
-    {
-      "id": "psychology-056",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Memory",
-        "ar": "الذاكرة"
-      },
-      "question": {
-        "en": "What is long-term potentiation (LTP)?",
-        "ar": "ما التعزيز طويل الأمد (LTP)؟"
-      },
-      "answer": {
-        "en": "A long-lasting strengthening of synaptic connections that forms the basis of memory and learning",
-        "ar": "تقوية دائمة للروابط التشابكية تشكّل أساس الذاكرة والتعلّم"
-      }
-    },
-    {
-      "id": "psychology-057",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is Vygotsky's Zone of Proximal Development (ZPD)?",
-        "ar": "ما منطقة النمو القريبة (ZPD) عند فيغوتسكي؟"
-      },
-      "answer": {
-        "en": "The gap between what a learner can do alone and what they can achieve with guidance",
-        "ar": "الفجوة بين ما يستطيع المتعلم فعله بمفرده وما يمكنه تحقيقه بمساعدة الآخرين"
-      }
-    },
-    {
-      "id": "psychology-058",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is social comparison theory?",
-        "ar": "ما نظرية المقارنة الاجتماعية؟"
-      },
-      "answer": {
-        "en": "People evaluate their own opinions and abilities by comparing themselves to others",
-        "ar": "يقيّم الناس آراءهم وقدراتهم بمقارنة أنفسهم بالآخرين"
-      }
-    },
-    {
-      "id": "psychology-059",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Personality",
-        "ar": "الشخصية"
-      },
-      "question": {
-        "en": "What is the MBTI (Myers-Briggs Type Indicator)?",
-        "ar": "ما مؤشر مايرز-بريغز للأنماط (MBTI)؟"
-      },
-      "answer": {
-        "en": "A personality framework classifying people into 16 types based on four dichotomies (E/I, S/N, T/F, J/P)",
-        "ar": "إطار للشخصية يصنّف الناس في 16 نمطاً بناءً على أربعة ثنائيات (E/I, S/N, T/F, J/P)"
-      }
-    },
-    {
-      "id": "psychology-060",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is confirmation bias?",
-        "ar": "ما تحيّز التأكيد؟"
-      },
-      "answer": {
-        "en": "The tendency to search for and favour information that confirms existing beliefs",
-        "ar": "الميل للبحث عن المعلومات التي تؤكد المعتقدات القائمة والتفضيل بينها"
-      }
-    },
-    {
-      "id": "psychology-061",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is DSM-5?",
-        "ar": "ما الدليل التشخيصي والإحصائي الخامس (DSM-5)؟"
-      },
-      "answer": {
-        "en": "Diagnostic and Statistical Manual of Mental Disorders (5th edition) — the standard classification of mental disorders",
-        "ar": "الدليل التشخيصي والإحصائي للاضطرابات النفسية (الطبعة الخامسة) — التصنيف القياسي للاضطرابات النفسية"
-      }
-    },
-    {
-      "id": "psychology-062",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the default mode network (DMN)?",
-        "ar": "ما شبكة الوضع الافتراضي (DMN)؟"
-      },
-      "answer": {
-        "en": "A brain network active during rest, mind-wandering, and self-referential thinking",
-        "ar": "شبكة دماغية نشطة أثناء الراحة والتفكير الشارد والتفكير المتعلق بالذات"
-      }
-    },
-    {
-      "id": "psychology-063",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is the fundamental attribution error?",
-        "ar": "ما خطأ العزو الأساسي؟"
-      },
-      "answer": {
-        "en": "Overestimating dispositional causes (character) and underestimating situational causes for others' behaviour",
-        "ar": "المبالغة في تأثير العوامل الشخصية وتقليل أثر العوامل الظرفية على سلوك الآخرين"
-      }
-    },
-    {
-      "id": "psychology-064",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is schema theory in cognitive psychology?",
-        "ar": "ما نظرية المخططات الذهنية في علم النفس المعرفي؟"
-      },
-      "answer": {
-        "en": "Mental frameworks organising and interpreting information based on prior experience",
-        "ar": "أطر ذهنية تنظّم المعلومات وتفسّرها بناءً على الخبرات السابقة"
-      }
-    },
-    {
-      "id": "psychology-065",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is Cognitive Behavioural Therapy (CBT)?",
-        "ar": "ما العلاج المعرفي السلوكي (CBT)؟"
-      },
-      "answer": {
-        "en": "A therapy targeting negative thought patterns and behaviours to treat mental health conditions",
-        "ar": "علاج يستهدف أنماط التفكير والسلوكيات السلبية لعلاج الاضطرابات النفسية"
-      }
-    },
-    {
-      "id": "psychology-066",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the role of dopamine in the brain's reward system?",
-        "ar": "ما دور الدوبامين في نظام المكافأة في الدماغ؟"
-      },
-      "answer": {
-        "en": "Dopamine signals reward and motivates approach behaviour, reinforcing actions that lead to positive outcomes",
-        "ar": "يُشير الدوبامين إلى المكافأة ويحفّز سلوك الاقتراب، ويعزّز الأفعال التي تؤدي إلى نتائج إيجابية"
-      }
-    },
-    {
-      "id": "psychology-067",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is the Strange Situation procedure (Ainsworth)?",
-        "ar": "ما إجراء الموقف الغريب (أينسورث)؟"
-      },
-      "answer": {
-        "en": "An experiment to classify infant attachment styles — secure, anxious-ambivalent, avoidant, and disorganised",
-        "ar": "تجربة لتصنيف أنماط التعلّق لدى الرضع — الآمن، القلق المتردّد، التجنّبي، والمضطرب"
-      }
-    },
-    {
-      "id": "psychology-068",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What was the Stanford Prison Experiment?",
-        "ar": "ما تجربة سجن ستانفورد؟"
-      },
-      "answer": {
-        "en": "A 1971 experiment by Zimbardo where participants assigned as guards abused prisoner participants, demonstrating situational influence on behaviour",
-        "ar": "تجربة عام 1971 أجراها زيمباردو حيث أساء المشاركون المعيّنون حراساً للمشاركين السجناء، مما أثبت تأثير الموقف على السلوك"
-      }
-    },
-    {
-      "id": "psychology-069",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is the difference between psychosis and neurosis?",
-        "ar": "ما الفرق بين الذهان والعصاب؟"
-      },
-      "answer": {
-        "en": "Psychosis involves loss of contact with reality (hallucinations, delusions); neurosis involves distressing but reality-intact conditions (anxiety, OCD)",
-        "ar": "الذهان يتضمّن فقدان التواصل مع الواقع (هلاوس، أوهام)؛ أما العصاب فيتضمّن حالات مزعجة مع الإبقاء على التواصل مع الواقع (قلق، وسواس)"
-      }
-    },
-    {
-      "id": "psychology-070",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is neurogenesis?",
-        "ar": "ما توليد الأعصاب (النيوروجينيسيس)؟"
-      },
-      "answer": {
-        "en": "The formation of new neurons — occurs in the hippocampus in adults, linked to memory and depression",
-        "ar": "تكوّن خلايا عصبية جديدة — يحدث في منطقة الحصين عند البالغين، مرتبط بالذاكرة والاكتئاب"
-      }
-    },
-    {
-      "id": "psychology-071",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is the difference between classical and operant conditioning?",
-        "ar": "ما الفرق بين التكييف الكلاسيكي والإجرائي؟"
-      },
-      "answer": {
-        "en": "Classical conditioning pairs stimuli to create involuntary responses; operant conditioning shapes voluntary behaviour through consequences",
-        "ar": "يقرن التكييف الكلاسيكي المحفّزات لإحداث استجابات لاإرادية؛ بينما يُشكّل الإجرائي السلوك الإرادي من خلال النتائج"
-      }
-    },
-    {
-      "id": "psychology-072",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is Kohlberg's theory of moral development?",
-        "ar": "ما نظرية كولبرغ للنمو الأخلاقي؟"
-      },
-      "answer": {
-        "en": "Six stages in three levels: pre-conventional, conventional, and post-conventional moral reasoning",
-        "ar": "ست مراحل في ثلاثة مستويات: تفكير أخلاقي ما قبل التقليدي، والتقليدي، وما بعد التقليدي"
-      }
-    },
-    {
-      "id": "psychology-073",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is social identity theory (Tajfel)?",
-        "ar": "ما نظرية الهوية الاجتماعية (تاجفيل)؟"
-      },
-      "answer": {
-        "en": "People derive part of their self-concept from group membership and favour their in-group over out-groups",
-        "ar": "يستمدّ الناس جزءاً من مفهومهم الذاتي من الانتماء الجماعي ويُفضّلون مجموعتهم على المجموعات الأخرى"
-      }
-    },
-    {
-      "id": "psychology-074",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is the spectrum model of mental disorders?",
-        "ar": "ما النموذج الطيفي للاضطرابات النفسية؟"
-      },
-      "answer": {
-        "en": "Mental disorders exist on a continuum rather than as discrete categories, with varying severity",
-        "ar": "توجد الاضطرابات النفسية على متصل مستمر لا كفئات منفصلة، وتتفاوت في شدّتها"
-      }
-    },
-    {
-      "id": "psychology-075",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is mirror neuron theory and its relevance to empathy?",
-        "ar": "ما نظرية الخلايا العصبية المرآتية وصلتها بالتعاطف؟"
-      },
-      "answer": {
-        "en": "Mirror neurons fire both when performing an action and observing someone else do it — theorised to underlie empathy and social cognition",
-        "ar": "تنشط الخلايا العصبية المرآتية عند القيام بفعل وعند مشاهدة شخص آخر يقوم به — يُنظَر إليها كأساس للتعاطف والإدراك الاجتماعي"
-      }
-    },
-    {
-      "id": "psychology-076",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What is the replication crisis in psychology?",
-        "ar": "ما أزمة التكرار في علم النفس؟"
-      },
-      "answer": {
-        "en": "The finding that many published psychological studies fail when replicated, raising concerns about methodology and publication bias",
-        "ar": "اكتشاف أن كثيراً من الدراسات النفسية المنشورة تفشل عند إعادة تكرارها، مما يثير مخاوف حول المنهجية والتحيّز في النشر"
-      }
-    },
-    {
-      "id": "psychology-077",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the predictive processing framework?",
-        "ar": "ما إطار المعالجة التنبّؤية؟"
-      },
-      "answer": {
-        "en": "The brain constantly generates predictions about sensory input and updates them based on prediction errors — perception is an active inference",
-        "ar": "يولّد الدماغ باستمرار توقعات حول المدخلات الحسية ويحدّثها بناءً على أخطاء التنبؤ — الإدراك استنتاج نشط"
-      }
-    },
-    {
-      "id": "psychology-078",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is the polyvagal theory (Porges)?",
-        "ar": "ما نظرية متعدد المبهم (بورجيس)؟"
-      },
-      "answer": {
-        "en": "The vagus nerve has three evolutionary circuits governing social engagement, fight-or-flight, and freeze responses",
-        "ar": "يمتلك العصب المبهم ثلاث دوائر تطورية تحكم التواصل الاجتماعي واستجابات القتال أو الهروب والتجمّد"
-      }
-    },
-    {
-      "id": "psychology-079",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is terror management theory (TMT)?",
-        "ar": "ما نظرية إدارة الرعب (TMT)؟"
-      },
-      "answer": {
-        "en": "Awareness of mortality motivates people to validate cultural worldviews and self-esteem as buffers against death anxiety",
-        "ar": "يدفع الوعي بالفناء الناسَ إلى التحقق من صحة رؤاهم الثقافية واحترام الذات كحواجز ضد قلق الموت"
-      }
-    },
-    {
-      "id": "psychology-080",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is dual process theory (System 1 vs System 2)?",
-        "ar": "ما نظرية المعالجة المزدوجة (النظام 1 مقابل النظام 2)؟"
-      },
-      "answer": {
-        "en": "System 1 is fast, automatic, intuitive; System 2 is slow, deliberate, and analytical (Kahneman)",
-        "ar": "النظام 1 سريع وتلقائي وحدسي؛ النظام 2 بطيء ومتعمّد وتحليلي (كانيمان)"
-      }
-    },
-    {
-      "id": "psychology-081",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the somatic marker hypothesis (Damasio)?",
-        "ar": "ما فرضية المحدّد الجسدي (داماسيو)؟"
-      },
-      "answer": {
-        "en": "Emotional signals from the body (somatic markers) guide decision-making, especially under uncertainty",
-        "ar": "الإشارات العاطفية من الجسم (المحدّدات الجسدية) توجّه عملية صنع القرار، خاصة في ظل الغموض"
-      }
-    },
-    {
-      "id": "psychology-082",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is theory of mind and when does it typically develop?",
-        "ar": "ما نظرية العقل ومتى تتطوّر عادةً؟"
-      },
-      "answer": {
-        "en": "The ability to attribute mental states to others; typically develops around age 4, often tested with the false-belief task",
-        "ar": "القدرة على إسناد الحالات العقلية للآخرين؛ تتطوّر عادةً في سن 4 سنوات تقريباً، وتُختبر كثيراً بمهمة الاعتقاد الخاطئ"
-      }
-    },
-    {
-      "id": "psychology-083",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What is ecological validity in psychology research?",
-        "ar": "ما الصدق البيئي في أبحاث علم النفس؟"
-      },
-      "answer": {
-        "en": "The degree to which research findings apply to real-world settings beyond the laboratory",
-        "ar": "الدرجة التي تنطبق بها نتائج البحث على الأوضاع الحقيقية خارج نطاق المختبر"
-      }
-    },
-    {
-      "id": "psychology-084",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is dialectical behaviour therapy (DBT)?",
-        "ar": "ما العلاج السلوكي الجدلي (DBT)؟"
-      },
-      "answer": {
-        "en": "A therapy developed by Linehan combining CBT with mindfulness, targeting emotional dysregulation — originally for borderline personality disorder",
-        "ar": "علاج طوّرته لينهان يجمع بين العلاج المعرفي السلوكي واليقظة الذهنية لعلاج خلل التنظيم العاطفي — طُوّر أصلاً لاضطراب الشخصية الحدّية"
-      }
-    },
-    {
-      "id": "psychology-085",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the global workspace theory of consciousness?",
-        "ar": "ما نظرية مساحة العمل العالمية للوعي؟"
-      },
-      "answer": {
-        "en": "Consciousness arises when information is broadcast widely across a global neural workspace, making it available to many brain processes",
-        "ar": "ينشأ الوعي حين تُبثّ المعلومات على نطاق واسع عبر مساحة عمل عصبية عالمية، مما يجعلها متاحة لعمليات دماغية كثيرة"
-      }
-    },
-    {
-      "id": "psychology-086",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is the contact hypothesis (Allport)?",
-        "ar": "ما فرضية التواصل (آلبورت)؟"
-      },
-      "answer": {
-        "en": "Prejudice between groups decreases when they have direct contact under conditions of equal status, cooperation, and institutional support",
-        "ar": "يتراجع التحيّز بين المجموعات عند تواصلها المباشر في ظل التكافؤ في المكانة والتعاون والدعم المؤسسي"
-      }
-    },
-    {
-      "id": "psychology-087",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is the Stroop effect?",
-        "ar": "ما تأثير ستروب؟"
-      },
-      "answer": {
-        "en": "The delay in reaction time when colour name and ink colour conflict (e.g. the word RED written in blue ink)",
-        "ar": "التأخّر في زمن الاستجابة عند تعارض اسم اللون ولون الحبر (مثل كلمة أحمر مكتوبة بالحبر الأزرق)"
-      }
-    },
-    {
-      "id": "psychology-088",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is the ACE (Adverse Childhood Experiences) study?",
-        "ar": "ما دراسة التجارب السلبية في مرحلة الطفولة (ACE)؟"
-      },
-      "answer": {
-        "en": "A landmark study showing that childhood trauma (abuse, neglect, household dysfunction) strongly predicts adult physical and mental health outcomes",
-        "ar": "دراسة رائدة تُظهر أن الصدمات في مرحلة الطفولة (إساءة، إهمال، اضطراب أسري) تتنبأ بقوة بالصحة الجسدية والنفسية في مرحلة البلوغ"
-      }
-    },
-    {
-      "id": "psychology-089",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What is the difference between reliability and validity in psychological measurement?",
-        "ar": "ما الفرق بين الموثوقية والصدق في القياس النفسي؟"
-      },
-      "answer": {
-        "en": "Reliability is consistency of measurement; validity is whether the test actually measures what it claims to measure",
-        "ar": "الموثوقية هي اتساق القياس؛ أما الصدق فهو ما إذا كان الاختبار يقيس فعلاً ما يدّعي قياسه"
-      }
-    },
-    {
-      "id": "psychology-090",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is mentalisation-based therapy (MBT)?",
-        "ar": "ما العلاج القائم على التأمّل الذهني (MBT)؟"
-      },
-      "answer": {
-        "en": "A therapy focusing on improving mentalization — the ability to understand mental states in oneself and others — primarily for personality disorders",
-        "ar": "علاج يركّز على تحسين التأمّل الذهني — القدرة على فهم الحالات العقلية في النفس والآخرين — بصفة أساسية لاضطرابات الشخصية"
-      }
-    },
-    {
-      "id": "psychology-091",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the hard problem of consciousness (Chalmers)?",
-        "ar": "ما المشكلة الصعبة للوعي (تشالمرز)؟"
-      },
-      "answer": {
-        "en": "Explaining why physical processes in the brain give rise to subjective experience (qualia) — why there is something it is like to be conscious",
-        "ar": "تفسير لماذا تُفضي العمليات الجسدية في الدماغ إلى تجربة ذاتية (كواليا) — لماذا ثمة شيء يشبه أن تكون واعياً"
-      }
-    },
-    {
-      "id": "psychology-092",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is deindividuation in social psychology?",
-        "ar": "ما فقدان الهوية الفردية في علم النفس الاجتماعي؟"
-      },
-      "answer": {
-        "en": "The loosening of self-awareness and restraint in group settings, leading to impulsive or anti-social behaviour",
-        "ar": "تراخي الوعي الذاتي والتحكّم في البيئات الجماعية، مما يؤدي إلى سلوك متهوّر أو مضاد للمجتمع"
-      }
-    },
-    {
-      "id": "psychology-093",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is the distinction between intrinsic and extrinsic motivation?",
-        "ar": "ما الفرق بين الدافعية الذاتية والخارجية؟"
-      },
-      "answer": {
-        "en": "Intrinsic motivation comes from internal satisfaction; extrinsic from external rewards — research shows over-rewarding can undermine intrinsic motivation",
-        "ar": "الدافعية الذاتية تنبع من الرضا الداخلي؛ الخارجية من مكافآت خارجية — تُظهر الأبحاث أن المكافأة الزائدة قد تقوّض الدافعية الذاتية"
-      }
-    },
-    {
-      "id": "psychology-094",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What is effect size and why is it more important than p-value alone?",
-        "ar": "ما حجم التأثير ولماذا يكون أهم من قيمة p وحدها؟"
-      },
-      "answer": {
-        "en": "Effect size measures the magnitude of a result; p-value only tells us significance — a significant but tiny effect may be practically meaningless",
-        "ar": "يقيس حجم التأثير حجم النتيجة؛ قيمة p تخبرنا فقط بالدلالة الإحصائية — تأثير دال لكن ضئيل قد يكون عديم الأهمية عملياً"
-      }
-    },
-    {
-      "id": "psychology-095",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Clinical",
-        "ar": "السريري"
-      },
-      "question": {
-        "en": "What is the neurodiversity paradigm?",
-        "ar": "ما نموذج التنوّع العصبي؟"
-      },
-      "answer": {
-        "en": "The view that neurological differences (autism, ADHD, dyslexia) are natural human variation rather than disorders to be cured",
-        "ar": "الرأي القائل إن الاختلافات العصبية (التوحّد، اضطراب التركيز، عسر القراءة) هي تنوّع بشري طبيعي لا اضطرابات تحتاج علاجاً"
-      }
-    },
-    {
-      "id": "psychology-096",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Neuroscience",
-        "ar": "علم الأعصاب"
-      },
-      "question": {
-        "en": "What is the role of the anterior cingulate cortex (ACC)?",
-        "ar": "ما دور القشرة الحزامية الأمامية (ACC)؟"
-      },
-      "answer": {
-        "en": "Conflict monitoring, error detection, pain processing, and regulating emotion — a key hub linking cognitive and emotional systems",
-        "ar": "مراقبة الصراعات وكشف الأخطاء ومعالجة الألم وتنظيم المشاعر — عقدة رئيسية تربط الأنظمة المعرفية والعاطفية"
-      }
-    },
-    {
-      "id": "psychology-097",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Social",
-        "ar": "الاجتماعي"
-      },
-      "question": {
-        "en": "What is the self-fulfilling prophecy?",
-        "ar": "ما النبوءة المحققة لذاتها؟"
-      },
-      "answer": {
-        "en": "A belief that causes itself to become true — expectations influence behaviour in ways that confirm the original belief",
-        "ar": "اعتقاد يتسبّب في تحقّق ذاته — تؤثر التوقعات على السلوك بطرق تؤكد الاعتقاد الأصلي"
-      }
-    },
-    {
-      "id": "psychology-098",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Development",
-        "ar": "النمو"
-      },
-      "question": {
-        "en": "What is resilience in developmental psychology?",
-        "ar": "ما المرونة النفسية في علم نفس النمو؟"
-      },
-      "answer": {
-        "en": "The capacity to recover from adversity, trauma, or stress, often supported by protective factors like social support and self-efficacy",
-        "ar": "القدرة على التعافي من الشدائد والصدمات والضغوط، يدعمها عوامل وقائية كالدعم الاجتماعي والكفاءة الذاتية"
-      }
-    },
-    {
-      "id": "psychology-099",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Behaviour",
-        "ar": "السلوك"
-      },
-      "question": {
-        "en": "What is behavioural economics and how does it differ from classical economics?",
-        "ar": "ما اقتصاد السلوك وكيف يختلف عن الاقتصاد الكلاسيكي؟"
-      },
-      "answer": {
-        "en": "Behavioural economics incorporates psychological insights to explain irrational decision-making, unlike classical economics which assumes rational actors",
-        "ar": "يدمج اقتصاد السلوك رؤى نفسية لتفسير صنع القرار غير العقلاني، بخلاف الاقتصاد الكلاسيكي الذي يفترض عقلانية الفاعلين"
-      }
-    },
-    {
-      "id": "psychology-100",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Research",
-        "ar": "البحث"
-      },
-      "question": {
-        "en": "What is the difference between correlation and causation?",
-        "ar": "ما الفرق بين الارتباط والسببية؟"
-      },
-      "answer": {
-        "en": "Correlation shows two variables move together; causation means one variable directly causes change in another — correlation never implies causation alone",
-        "ar": "يُظهر الارتباط تحرّك متغيّرَين معاً؛ أما السببية فتعني أن متغيراً واحداً يتسبب مباشرة في تغيير متغيّر آخر — الارتباط وحده لا يعني السببية"
-      }
+[
+  {
+    "id": "psychology-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "Who is known as the 'Father of Psychoanalysis'?",
+      "ar": "من يُعرف بـ'أبي التحليل النفسي'؟"
+    },
+    "answer": {
+      "en": "Sigmund Freud",
+      "ar": "سيغموند فرويد"
     }
-  ]
-}
+  },
+  {
+    "id": "psychology-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What do you call a person who is generally quiet and energized by being alone?",
+      "ar": "كيف تُسمّى الشخص الهادئ الذي يستمد طاقته من الوحدة؟"
+    },
+    "answer": {
+      "en": "Introvert",
+      "ar": "الانطوائي"
+    }
+  },
+  {
+    "id": "psychology-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is 'Arachnophobia' the fear of?",
+      "ar": "ما الذي يُشكّل خوف شخص مصاب بـ'الأراكنوفوبيا'؟"
+    },
+    "answer": {
+      "en": "Spiders",
+      "ar": "العناكب"
+    }
+  },
+  {
+    "id": "psychology-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "Which part of the mind did Freud believe held our hidden desires?",
+      "ar": "أي جزء من العقل اعتقد فرويد أنه يحمل رغباتنا المخفية؟"
+    },
+    "answer": {
+      "en": "The Unconscious",
+      "ar": "اللاوعي"
+    }
+  },
+  {
+    "id": "psychology-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What does 'IQ' stand for?",
+      "ar": "ماذا يعني اختصار IQ؟"
+    },
+    "answer": {
+      "en": "Intelligence Quotient",
+      "ar": "نسبة الذكاء"
+    }
+  },
+  {
+    "id": "psychology-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "What is the term for a 'slip of the tongue' that reveals a hidden thought?",
+      "ar": "ما المصطلح لزلّة اللسان التي تكشف فكرة مخفية؟"
+    },
+    "answer": {
+      "en": "Freudian Slip",
+      "ar": "زلة فرويد"
+    }
+  },
+  {
+    "id": "psychology-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the term for understanding and sharing the feelings of another?",
+      "ar": "ما مصطلح فهم مشاعر الآخرين ومشاركتهم إياها؟"
+    },
+    "answer": {
+      "en": "Empathy",
+      "ar": "التعاطف"
+    }
+  },
+  {
+    "id": "psychology-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the term for a repetitive behavior a person feels driven to perform?",
+      "ar": "ما مصطلح السلوك المتكرر الذي يشعر الشخص بدافع للقيام به؟"
+    },
+    "answer": {
+      "en": "Compulsion",
+      "ar": "الوسواس القهري"
+    }
+  },
+  {
+    "id": "psychology-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "In the 'Nature vs. Nurture' debate, what does 'Nature' refer to?",
+      "ar": "في جدل 'الطبيعة مقابل التنشئة'، إلى ماذا تشير 'الطبيعة'؟"
+    },
+    "answer": {
+      "en": "Genetics / Biology",
+      "ar": "الجينات / البيولوجيا"
+    }
+  },
+  {
+    "id": "psychology-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "How many primary senses do humans have?",
+      "ar": "كم عدد الحواس الأساسية للإنسان؟"
+    },
+    "answer": {
+      "en": "Five",
+      "ar": "خمس"
+    }
+  },
+  {
+    "id": "psychology-011",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "Who famously trained dogs to salivate at the sound of a bell?",
+      "ar": "من اشتُهر بتدريب الكلاب على إفراز اللعاب عند سماع جرس؟"
+    },
+    "answer": {
+      "en": "Ivan Pavlov",
+      "ar": "إيفان بافلوف"
+    }
+  },
+  {
+    "id": "psychology-012",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "What does Albert Bandura's term 'self-efficacy' mean?",
+      "ar": "ماذا يعني مصطلح «الكفاءة الذاتية» عند ألبرت باندورا؟"
+    },
+    "answer": {
+      "en": "A person's belief in their ability to succeed at a specific task or situation",
+      "ar": "اعتقاد الشخص بقدرته على النجاح في مهمة أو موقف محدد"
+    }
+  },
+  {
+    "id": "psychology-013",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the name of the test that uses symmetrical inkblots?",
+      "ar": "ما اسم الاختبار الذي يستخدم بقع الحبر المتماثلة؟"
+    },
+    "answer": {
+      "en": "Rorschach test",
+      "ar": "اختبار رورشاخ"
+    }
+  },
+  {
+    "id": "psychology-014",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "Which psychologist conducted the famous Stanford Prison Experiment?",
+      "ar": "أي عالم نفس أجرى التجربة الشهيرة لسجن ستانفورد؟"
+    },
+    "answer": {
+      "en": "Philip Zimbardo",
+      "ar": "فيليب زيمباردو"
+    }
+  },
+  {
+    "id": "psychology-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What bias makes an outcome seem as though it was predictable after it has already happened?",
+      "ar": "أي انحياز يجعل النتيجة تبدو كأنها كانت متوقعة بعد وقوعها بالفعل؟"
+    },
+    "answer": {
+      "en": "Hindsight bias",
+      "ar": "انحياز الإدراك المتأخر"
+    }
+  },
+  {
+    "id": "psychology-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the effect where people are less likely to help if others are present?",
+      "ar": "ما التأثير الذي يجعل الناس أقل ميلاً للمساعدة حين يكون آخرون حاضرين؟"
+    },
+    "answer": {
+      "en": "Bystander Effect",
+      "ar": "أثر المتفرج"
+    }
+  },
+  {
+    "id": "psychology-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "In Freud's theory, which part of the personality mediates between desires and reality?",
+      "ar": "في نظرية فرويد، أي جزء من الشخصية يتوسط بين الرغبات والواقع؟"
+    },
+    "answer": {
+      "en": "The Ego",
+      "ar": "الأنا"
+    }
+  },
+  {
+    "id": "psychology-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "Which psychologist is famous for his stages of cognitive development in children?",
+      "ar": "أي عالم نفس اشتُهر بمراحل التطور المعرفي عند الأطفال؟"
+    },
+    "answer": {
+      "en": "Jean Piaget",
+      "ar": "جان بياجيه"
+    }
+  },
+  {
+    "id": "psychology-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What cognitive bias causes an initial number or piece of information to influence later judgments too strongly?",
+      "ar": "أي انحياز معرفي يجعل رقماً أو معلومة أولية تؤثر بقوة مفرطة في الأحكام اللاحقة؟"
+    },
+    "answer": {
+      "en": "The anchoring effect",
+      "ar": "تأثير الإرساء"
+    }
+  },
+  {
+    "id": "psychology-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "Excessive self-admiration is known as what?",
+      "ar": "الإعجاب المفرط بالنفس يُعرف بماذا؟"
+    },
+    "answer": {
+      "en": "Narcissism",
+      "ar": "النرجسية"
+    }
+  },
+  {
+    "id": "psychology-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "What are 'demand characteristics' in a psychology experiment?",
+      "ar": "ما «خصائص الطلب» في التجربة النفسية؟"
+    },
+    "answer": {
+      "en": "Cues that reveal the study's purpose and cause participants to alter their behavior",
+      "ar": "إشارات تكشف هدف الدراسة فتدفع المشاركين إلى تغيير سلوكهم"
+    }
+  },
+  {
+    "id": "psychology-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "Which psychologist introduced the 'Collective Unconscious' and 'Archetypes'?",
+      "ar": "أي عالم نفس قدّم مفهومي 'اللاوعي الجمعي' و'النماذج البدئية'؟"
+    },
+    "answer": {
+      "en": "Carl Jung",
+      "ar": "كارل يونغ"
+    }
+  },
+  {
+    "id": "psychology-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "Which psychologist coined the term 'Flow' for complete immersion in an activity?",
+      "ar": "أي عالم نفس صاغ مصطلح 'التدفق' للوصف الكامل للانغماس في نشاط؟"
+    },
+    "answer": {
+      "en": "Mihaly Csikszentmihalyi",
+      "ar": "ميهالي تشيكسنتميهالي"
+    }
+  },
+  {
+    "id": "psychology-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "B.F. Skinner is the father of which type of conditioning?",
+      "ar": "ب. ف. سكينر أبو أي نوع من التكييف؟"
+    },
+    "answer": {
+      "en": "Operant Conditioning",
+      "ar": "التكييف الإجرائي"
+    }
+  },
+  {
+    "id": "psychology-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "According to Erikson, what is the primary 'crisis' during adolescence?",
+      "ar": "وفقاً لإريكسون، ما 'الأزمة' الرئيسية في مرحلة المراهقة؟"
+    },
+    "answer": {
+      "en": "Identity vs. Role Confusion",
+      "ar": "الهوية مقابل الارتباك في الأدوار"
+    }
+  },
+  {
+    "id": "psychology-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the primary function of the amygdala in the brain?",
+      "ar": "ما الوظيفة الرئيسية للوزة الدماغية (أميغدالا) في الدماغ؟"
+    },
+    "answer": {
+      "en": "Processing emotions, especially fear",
+      "ar": "معالجة المشاعر وخاصة الخوف"
+    }
+  },
+  {
+    "id": "psychology-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "Who developed the theory of 'Learned Helplessness' after experimenting with dogs?",
+      "ar": "من طور نظرية 'العجز المكتسب' بعد تجارب أجراها على الكلاب؟"
+    },
+    "answer": {
+      "en": "Martin Seligman",
+      "ar": "مارتن سيليغمان"
+    }
+  },
+  {
+    "id": "psychology-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the 'DSM' used for in psychology?",
+      "ar": "لماذا يُستخدم 'DSM' في علم النفس؟"
+    },
+    "answer": {
+      "en": "Diagnosing mental disorders",
+      "ar": "تشخيص الاضطرابات النفسية"
+    }
+  },
+  {
+    "id": "psychology-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "What is the core principle of Gestalt psychology?",
+      "ar": "ما المبدأ الأساسي لعلم النفس الغشطالتي؟"
+    },
+    "answer": {
+      "en": "The whole is greater than the sum of its parts",
+      "ar": "الكل أكبر من مجموع أجزائه"
+    }
+  },
+  {
+    "id": "psychology-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "Elizabeth Loftus is a leading expert in which psychological phenomenon?",
+      "ar": "إليزابيث لوفتوس خبيرة رائدة في أي ظاهرة نفسية؟"
+    },
+    "answer": {
+      "en": "False Memories / Eyewitness Testimony",
+      "ar": "الذكريات الزائفة / شهادات شهود العيان"
+    }
+  },
+  {
+    "id": "psychology-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "Who is considered the founder of modern psychology?",
+      "ar": "من يُعدّ مؤسس علم النفس الحديث؟"
+    },
+    "answer": {
+      "en": "Wilhelm Wundt",
+      "ar": "فيلهلم فونت"
+    }
+  },
+  {
+    "id": "psychology-032",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is classical conditioning?",
+      "ar": "ما التكييف الكلاسيكي؟"
+    },
+    "answer": {
+      "en": "Learning through association — pairing a neutral stimulus with one that produces a response",
+      "ar": "التعلّم عبر التداعي — ربط محفّز محايد بآخر يُحدث استجابة"
+    }
+  },
+  {
+    "id": "psychology-033",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What are the three stages of memory?",
+      "ar": "ما المراحل الثلاث للذاكرة؟"
+    },
+    "answer": {
+      "en": "Encoding, storage, and retrieval",
+      "ar": "الترميز، والتخزين، والاسترجاع"
+    }
+  },
+  {
+    "id": "psychology-034",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is Piaget's theory about?",
+      "ar": "بماذا تتعلق نظرية بياجيه؟"
+    },
+    "answer": {
+      "en": "Stages of cognitive development in children",
+      "ar": "مراحل التطور المعرفي لدى الأطفال"
+    }
+  },
+  {
+    "id": "psychology-035",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What are the Big Five personality traits?",
+      "ar": "ما السمات الخمس الكبرى للشخصية؟"
+    },
+    "answer": {
+      "en": "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism (OCEAN)",
+      "ar": "الانفتاح، الضمير، الانبساط، المقبولية، العصابية (OCEAN)"
+    }
+  },
+  {
+    "id": "psychology-036",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is operant conditioning?",
+      "ar": "ما الاشتراط الإجرائي؟"
+    },
+    "answer": {
+      "en": "Learning through consequences — behaviour is shaped by rewards and punishments",
+      "ar": "التعلّم من خلال النتائج — يتشكّل السلوك بالمكافآت والعقوبات"
+    }
+  },
+  {
+    "id": "psychology-037",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "What is Maslow's hierarchy of needs?",
+      "ar": "ما هرم ماسلو للاحتياجات؟"
+    },
+    "answer": {
+      "en": "A motivational theory ranking needs from physiological at the base to self-actualisation at the top",
+      "ar": "نظرية دافعية تصنّف الاحتياجات من الفسيولوجية في القاع إلى تحقيق الذات في القمة"
+    }
+  },
+  {
+    "id": "psychology-038",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "What is the difference between a psychologist and a psychiatrist?",
+      "ar": "ما الفرق بين عالم النفس والطبيب النفسي؟"
+    },
+    "answer": {
+      "en": "A psychiatrist is a medical doctor who can prescribe medication; a psychologist typically holds a PhD and provides therapy",
+      "ar": "الطبيب النفسي طبيب يمكنه وصف الأدوية؛ أما عالم النفس فيحمل عادةً دكتوراه ويقدّم العلاج النفسي"
+    }
+  },
+  {
+    "id": "psychology-039",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What is the fight-or-flight response?",
+      "ar": "ما استجابة القتال أو الهروب؟"
+    },
+    "answer": {
+      "en": "A physiological reaction to a perceived threat, preparing the body to fight or flee",
+      "ar": "استجابة فسيولوجية لتهديد محسوس تُهيّئ الجسم للقتال أو الهروب"
+    }
+  },
+  {
+    "id": "psychology-040",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is REM sleep?",
+      "ar": "ما نوم حركة العين السريعة (REM)؟"
+    },
+    "answer": {
+      "en": "A stage of sleep characterised by rapid eye movements and vivid dreaming",
+      "ar": "مرحلة من مراحل النوم تتميز بالحركات السريعة للعينين والأحلام الواضحة"
+    }
+  },
+  {
+    "id": "psychology-041",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is cognitive dissonance?",
+      "ar": "ما التنافر المعرفي؟"
+    },
+    "answer": {
+      "en": "The mental discomfort from holding two contradictory beliefs or when behaviour conflicts with beliefs",
+      "ar": "الانزعاج النفسي من حمل معتقدَين متناقضَين أو تعارض السلوك مع المعتقدات"
+    }
+  },
+  {
+    "id": "psychology-042",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is attachment theory?",
+      "ar": "ما نظرية التعلّق؟"
+    },
+    "answer": {
+      "en": "A theory by Bowlby describing the deep emotional bond between infants and caregivers",
+      "ar": "نظرية لبولبي تصف الرابطة العاطفية العميقة بين الرضع ومقدّمي الرعاية"
+    }
+  },
+  {
+    "id": "psychology-043",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Foundations, Learning & Motivation",
+      "ar": "الأسس والتعلم والدافعية"
+    },
+    "question": {
+      "en": "What is the unconscious mind?",
+      "ar": "ما العقل الباطن؟"
+    },
+    "answer": {
+      "en": "The part of the mind that contains thoughts, feelings, and memories outside of conscious awareness",
+      "ar": "الجزء من العقل الذي يحتوي على أفكار ومشاعر وذكريات خارج نطاق الوعي الواعي"
+    }
+  },
+  {
+    "id": "psychology-044",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is a phobia?",
+      "ar": "ما الرهاب؟"
+    },
+    "answer": {
+      "en": "A persistent, excessive fear of a specific object or situation",
+      "ar": "خوف مستمر ومفرط من شيء أو موقف محدد"
+    }
+  },
+  {
+    "id": "psychology-045",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What is emotional intelligence (EQ)?",
+      "ar": "ما الذكاء العاطفي (EQ)؟"
+    },
+    "answer": {
+      "en": "The ability to recognise, understand, manage, and use emotions effectively",
+      "ar": "القدرة على التعرّف على المشاعر وفهمها وإدارتها وتوظيفها بفاعلية"
+    }
+  },
+  {
+    "id": "psychology-046",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the bystander effect?",
+      "ar": "ما تأثير المتفرّج؟"
+    },
+    "answer": {
+      "en": "People are less likely to help in an emergency when others are present, assuming someone else will act",
+      "ar": "يقلّ احتمال تقديم الناس للمساعدة في حالة طوارئ عند وجود آخرين، لافتراض أن شخصاً آخر سيتصرف"
+    }
+  },
+  {
+    "id": "psychology-047",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is the placebo effect?",
+      "ar": "ما تأثير الدواء الوهمي؟"
+    },
+    "answer": {
+      "en": "Improvement in a patient's condition due to belief in the treatment rather than the treatment itself",
+      "ar": "تحسّن حالة المريض بسبب الإيمان بالعلاج وليس العلاج في حد ذاته"
+    }
+  },
+  {
+    "id": "psychology-048",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the halo effect?",
+      "ar": "ما تأثير الهالة؟"
+    },
+    "answer": {
+      "en": "A cognitive bias where a positive impression in one area influences judgements in other areas",
+      "ar": "تحيّز معرفي تؤثر فيه الانطباعات الإيجابية في مجال ما على الأحكام في مجالات أخرى"
+    }
+  },
+  {
+    "id": "psychology-049",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is the serial position effect?",
+      "ar": "ما تأثير الموضع التسلسلي؟"
+    },
+    "answer": {
+      "en": "People remember items at the beginning (primacy) and end (recency) of a list better than those in the middle",
+      "ar": "يتذكّر الناس العناصر في بداية القائمة (أثر التقدّم) ونهايتها (أثر الحداثة) أفضل من تلك في المنتصف"
+    }
+  },
+  {
+    "id": "psychology-050",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is learned helplessness?",
+      "ar": "ما العجز المكتسب؟"
+    },
+    "answer": {
+      "en": "When repeated failure leads an organism to stop trying, even when success becomes possible",
+      "ar": "حين تدفع الفشل المتكرر الكائنَ الحي إلى التوقف عن المحاولة، حتى حين يصبح النجاح ممكناً"
+    }
+  },
+  {
+    "id": "psychology-051",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What is Carl Jung's concept of the collective unconscious?",
+      "ar": "ما مفهوم كارل يونغ للاشعور الجمعي؟"
+    },
+    "answer": {
+      "en": "A layer of the unconscious shared across humanity, containing archetypes and universal symbols",
+      "ar": "طبقة من اللاشعور مشتركة بين البشرية جمعاء، تحتوي على النماذج الأصلية والرموز الكونية"
+    }
+  },
+  {
+    "id": "psychology-052",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is Erikson's theory of psychosocial development?",
+      "ar": "ما نظرية إريكسون للنمو النفسي الاجتماعي؟"
+    },
+    "answer": {
+      "en": "Eight stages of development across the lifespan, each with a central conflict to resolve",
+      "ar": "ثماني مراحل من النمو عبر مراحل الحياة، لكل منها صراع محوري يجب حلّه"
+    }
+  },
+  {
+    "id": "psychology-053",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What was the Milgram experiment about?",
+      "ar": "بماذا كانت تجربة ميلغرام؟"
+    },
+    "answer": {
+      "en": "Obedience to authority — participants administered what they believed were dangerous electric shocks when instructed",
+      "ar": "الطاعة للسلطة — أعطى المشاركون ما يعتقدون أنه صدمات كهربائية خطيرة حين أُمروا بذلك"
+    }
+  },
+  {
+    "id": "psychology-054",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What are the six universal basic emotions identified by Ekman?",
+      "ar": "ما المشاعر الأساسية الستة العالمية التي حدّدها إكمان؟"
+    },
+    "answer": {
+      "en": "Happiness, sadness, fear, disgust, anger, and surprise",
+      "ar": "السعادة، الحزن، الخوف، الاشمئزاز، الغضب، والمفاجأة"
+    }
+  },
+  {
+    "id": "psychology-055",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is the Dunning-Kruger effect?",
+      "ar": "ما تأثير دانينغ-كروغر؟"
+    },
+    "answer": {
+      "en": "A cognitive bias where people with limited competence overestimate their own ability",
+      "ar": "تحيّز معرفي يُبالغ فيه الأشخاص ذوو الكفاءة المحدودة في تقدير قدراتهم"
+    }
+  },
+  {
+    "id": "psychology-056",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is long-term potentiation (LTP)?",
+      "ar": "ما التعزيز طويل الأمد (LTP)؟"
+    },
+    "answer": {
+      "en": "A long-lasting strengthening of synaptic connections that forms the basis of memory and learning",
+      "ar": "تقوية دائمة للروابط التشابكية تشكّل أساس الذاكرة والتعلّم"
+    }
+  },
+  {
+    "id": "psychology-057",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is Vygotsky's Zone of Proximal Development (ZPD)?",
+      "ar": "ما منطقة النمو القريبة (ZPD) عند فيغوتسكي؟"
+    },
+    "answer": {
+      "en": "The gap between what a learner can do alone and what they can achieve with guidance",
+      "ar": "الفجوة بين ما يستطيع المتعلم فعله بمفرده وما يمكنه تحقيقه بمساعدة الآخرين"
+    }
+  },
+  {
+    "id": "psychology-058",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is social comparison theory?",
+      "ar": "ما نظرية المقارنة الاجتماعية؟"
+    },
+    "answer": {
+      "en": "People evaluate their own opinions and abilities by comparing themselves to others",
+      "ar": "يقيّم الناس آراءهم وقدراتهم بمقارنة أنفسهم بالآخرين"
+    }
+  },
+  {
+    "id": "psychology-059",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Personality & Emotion",
+      "ar": "الشخصية والانفعال"
+    },
+    "question": {
+      "en": "What is the MBTI (Myers-Briggs Type Indicator)?",
+      "ar": "ما مؤشر مايرز-بريغز للأنماط (MBTI)؟"
+    },
+    "answer": {
+      "en": "A personality framework classifying people into 16 types based on four dichotomies (E/I, S/N, T/F, J/P)",
+      "ar": "إطار للشخصية يصنّف الناس في 16 نمطاً بناءً على أربعة ثنائيات (E/I, S/N, T/F, J/P)"
+    }
+  },
+  {
+    "id": "psychology-060",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is confirmation bias?",
+      "ar": "ما تحيّز التأكيد؟"
+    },
+    "answer": {
+      "en": "The tendency to search for and favour information that confirms existing beliefs",
+      "ar": "الميل للبحث عن المعلومات التي تؤكد المعتقدات القائمة والتفضيل بينها"
+    }
+  },
+  {
+    "id": "psychology-061",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is DSM-5?",
+      "ar": "ما الدليل التشخيصي والإحصائي الخامس (DSM-5)؟"
+    },
+    "answer": {
+      "en": "Diagnostic and Statistical Manual of Mental Disorders (5th edition) — the standard classification of mental disorders",
+      "ar": "الدليل التشخيصي والإحصائي للاضطرابات النفسية (الطبعة الخامسة) — التصنيف القياسي للاضطرابات النفسية"
+    }
+  },
+  {
+    "id": "psychology-062",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the default mode network (DMN)?",
+      "ar": "ما شبكة الوضع الافتراضي (DMN)؟"
+    },
+    "answer": {
+      "en": "A brain network active during rest, mind-wandering, and self-referential thinking",
+      "ar": "شبكة دماغية نشطة أثناء الراحة والتفكير الشارد والتفكير المتعلق بالذات"
+    }
+  },
+  {
+    "id": "psychology-063",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the fundamental attribution error?",
+      "ar": "ما خطأ العزو الأساسي؟"
+    },
+    "answer": {
+      "en": "Overestimating dispositional causes (character) and underestimating situational causes for others' behaviour",
+      "ar": "المبالغة في تأثير العوامل الشخصية وتقليل أثر العوامل الظرفية على سلوك الآخرين"
+    }
+  },
+  {
+    "id": "psychology-064",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is schema theory in cognitive psychology?",
+      "ar": "ما نظرية المخططات الذهنية في علم النفس المعرفي؟"
+    },
+    "answer": {
+      "en": "Mental frameworks organising and interpreting information based on prior experience",
+      "ar": "أطر ذهنية تنظّم المعلومات وتفسّرها بناءً على الخبرات السابقة"
+    }
+  },
+  {
+    "id": "psychology-065",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is Cognitive Behavioural Therapy (CBT)?",
+      "ar": "ما العلاج المعرفي السلوكي (CBT)؟"
+    },
+    "answer": {
+      "en": "A therapy targeting negative thought patterns and behaviours to treat mental health conditions",
+      "ar": "علاج يستهدف أنماط التفكير والسلوكيات السلبية لعلاج الاضطرابات النفسية"
+    }
+  },
+  {
+    "id": "psychology-066",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the role of dopamine in the brain's reward system?",
+      "ar": "ما دور الدوبامين في نظام المكافأة في الدماغ؟"
+    },
+    "answer": {
+      "en": "Dopamine signals reward and motivates approach behaviour, reinforcing actions that lead to positive outcomes",
+      "ar": "يُشير الدوبامين إلى المكافأة ويحفّز سلوك الاقتراب، ويعزّز الأفعال التي تؤدي إلى نتائج إيجابية"
+    }
+  },
+  {
+    "id": "psychology-067",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is the Strange Situation procedure (Ainsworth)?",
+      "ar": "ما إجراء الموقف الغريب (أينسورث)؟"
+    },
+    "answer": {
+      "en": "An experiment to classify infant attachment styles — secure, anxious-ambivalent, avoidant, and disorganised",
+      "ar": "تجربة لتصنيف أنماط التعلّق لدى الرضع — الآمن، القلق المتردّد، التجنّبي، والمضطرب"
+    }
+  },
+  {
+    "id": "psychology-068",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What was the Stanford Prison Experiment?",
+      "ar": "ما تجربة سجن ستانفورد؟"
+    },
+    "answer": {
+      "en": "A 1971 experiment by Zimbardo where participants assigned as guards abused prisoner participants, demonstrating situational influence on behaviour",
+      "ar": "تجربة عام 1971 أجراها زيمباردو حيث أساء المشاركون المعيّنون حراساً للمشاركين السجناء، مما أثبت تأثير الموقف على السلوك"
+    }
+  },
+  {
+    "id": "psychology-069",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the difference between psychosis and neurosis?",
+      "ar": "ما الفرق بين الذهان والعصاب؟"
+    },
+    "answer": {
+      "en": "Psychosis involves loss of contact with reality (hallucinations, delusions); neurosis involves distressing but reality-intact conditions (anxiety, OCD)",
+      "ar": "الذهان يتضمّن فقدان التواصل مع الواقع (هلاوس، أوهام)؛ أما العصاب فيتضمّن حالات مزعجة مع الإبقاء على التواصل مع الواقع (قلق، وسواس)"
+    }
+  },
+  {
+    "id": "psychology-070",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is neurogenesis?",
+      "ar": "ما توليد الأعصاب (النيوروجينيسيس)؟"
+    },
+    "answer": {
+      "en": "The formation of new neurons — occurs in the hippocampus in adults, linked to memory and depression",
+      "ar": "تكوّن خلايا عصبية جديدة — يحدث في منطقة الحصين عند البالغين، مرتبط بالذاكرة والاكتئاب"
+    }
+  },
+  {
+    "id": "psychology-071",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is the difference between classical and operant conditioning?",
+      "ar": "ما الفرق بين التكييف الكلاسيكي والإجرائي؟"
+    },
+    "answer": {
+      "en": "Classical conditioning pairs stimuli to create involuntary responses; operant conditioning shapes voluntary behaviour through consequences",
+      "ar": "يقرن التكييف الكلاسيكي المحفّزات لإحداث استجابات لاإرادية؛ بينما يُشكّل الإجرائي السلوك الإرادي من خلال النتائج"
+    }
+  },
+  {
+    "id": "psychology-072",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is Kohlberg's theory of moral development?",
+      "ar": "ما نظرية كولبرغ للنمو الأخلاقي؟"
+    },
+    "answer": {
+      "en": "Six stages in three levels: pre-conventional, conventional, and post-conventional moral reasoning",
+      "ar": "ست مراحل في ثلاثة مستويات: تفكير أخلاقي ما قبل التقليدي، والتقليدي، وما بعد التقليدي"
+    }
+  },
+  {
+    "id": "psychology-073",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is social identity theory (Tajfel)?",
+      "ar": "ما نظرية الهوية الاجتماعية (تاجفيل)؟"
+    },
+    "answer": {
+      "en": "People derive part of their self-concept from group membership and favour their in-group over out-groups",
+      "ar": "يستمدّ الناس جزءاً من مفهومهم الذاتي من الانتماء الجماعي ويُفضّلون مجموعتهم على المجموعات الأخرى"
+    }
+  },
+  {
+    "id": "psychology-074",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the spectrum model of mental disorders?",
+      "ar": "ما النموذج الطيفي للاضطرابات النفسية؟"
+    },
+    "answer": {
+      "en": "Mental disorders exist on a continuum rather than as discrete categories, with varying severity",
+      "ar": "توجد الاضطرابات النفسية على متصل مستمر لا كفئات منفصلة، وتتفاوت في شدّتها"
+    }
+  },
+  {
+    "id": "psychology-075",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is mirror neuron theory and its relevance to empathy?",
+      "ar": "ما نظرية الخلايا العصبية المرآتية وصلتها بالتعاطف؟"
+    },
+    "answer": {
+      "en": "Mirror neurons fire both when performing an action and observing someone else do it — theorised to underlie empathy and social cognition",
+      "ar": "تنشط الخلايا العصبية المرآتية عند القيام بفعل وعند مشاهدة شخص آخر يقوم به — يُنظَر إليها كأساس للتعاطف والإدراك الاجتماعي"
+    }
+  },
+  {
+    "id": "psychology-076",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "What is the replication crisis in psychology?",
+      "ar": "ما أزمة التكرار في علم النفس؟"
+    },
+    "answer": {
+      "en": "The finding that many published psychological studies fail when replicated, raising concerns about methodology and publication bias",
+      "ar": "اكتشاف أن كثيراً من الدراسات النفسية المنشورة تفشل عند إعادة تكرارها، مما يثير مخاوف حول المنهجية والتحيّز في النشر"
+    }
+  },
+  {
+    "id": "psychology-077",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the predictive processing framework?",
+      "ar": "ما إطار المعالجة التنبّؤية؟"
+    },
+    "answer": {
+      "en": "The brain constantly generates predictions about sensory input and updates them based on prediction errors — perception is an active inference",
+      "ar": "يولّد الدماغ باستمرار توقعات حول المدخلات الحسية ويحدّثها بناءً على أخطاء التنبؤ — الإدراك استنتاج نشط"
+    }
+  },
+  {
+    "id": "psychology-078",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the polyvagal theory (Porges)?",
+      "ar": "ما نظرية متعدد المبهم (بورجيس)؟"
+    },
+    "answer": {
+      "en": "The vagus nerve has three evolutionary circuits governing social engagement, fight-or-flight, and freeze responses",
+      "ar": "يمتلك العصب المبهم ثلاث دوائر تطورية تحكم التواصل الاجتماعي واستجابات القتال أو الهروب والتجمّد"
+    }
+  },
+  {
+    "id": "psychology-079",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is terror management theory (TMT)?",
+      "ar": "ما نظرية إدارة الرعب (TMT)؟"
+    },
+    "answer": {
+      "en": "Awareness of mortality motivates people to validate cultural worldviews and self-esteem as buffers against death anxiety",
+      "ar": "يدفع الوعي بالفناء الناسَ إلى التحقق من صحة رؤاهم الثقافية واحترام الذات كحواجز ضد قلق الموت"
+    }
+  },
+  {
+    "id": "psychology-080",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is dual process theory (System 1 vs System 2)?",
+      "ar": "ما نظرية المعالجة المزدوجة (النظام 1 مقابل النظام 2)؟"
+    },
+    "answer": {
+      "en": "System 1 is fast, automatic, intuitive; System 2 is slow, deliberate, and analytical (Kahneman)",
+      "ar": "النظام 1 سريع وتلقائي وحدسي؛ النظام 2 بطيء ومتعمّد وتحليلي (كانيمان)"
+    }
+  },
+  {
+    "id": "psychology-081",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the somatic marker hypothesis (Damasio)?",
+      "ar": "ما فرضية المحدّد الجسدي (داماسيو)؟"
+    },
+    "answer": {
+      "en": "Emotional signals from the body (somatic markers) guide decision-making, especially under uncertainty",
+      "ar": "الإشارات العاطفية من الجسم (المحدّدات الجسدية) توجّه عملية صنع القرار، خاصة في ظل الغموض"
+    }
+  },
+  {
+    "id": "psychology-082",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is theory of mind and when does it typically develop?",
+      "ar": "ما نظرية العقل ومتى تتطوّر عادةً؟"
+    },
+    "answer": {
+      "en": "The ability to attribute mental states to others; typically develops around age 4, often tested with the false-belief task",
+      "ar": "القدرة على إسناد الحالات العقلية للآخرين؛ تتطوّر عادةً في سن 4 سنوات تقريباً، وتُختبر كثيراً بمهمة الاعتقاد الخاطئ"
+    }
+  },
+  {
+    "id": "psychology-083",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "What is ecological validity in psychology research?",
+      "ar": "ما الصدق البيئي في أبحاث علم النفس؟"
+    },
+    "answer": {
+      "en": "The degree to which research findings apply to real-world settings beyond the laboratory",
+      "ar": "الدرجة التي تنطبق بها نتائج البحث على الأوضاع الحقيقية خارج نطاق المختبر"
+    }
+  },
+  {
+    "id": "psychology-084",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is dialectical behaviour therapy (DBT)?",
+      "ar": "ما العلاج السلوكي الجدلي (DBT)؟"
+    },
+    "answer": {
+      "en": "A therapy developed by Linehan combining CBT with mindfulness, targeting emotional dysregulation — originally for borderline personality disorder",
+      "ar": "علاج طوّرته لينهان يجمع بين العلاج المعرفي السلوكي واليقظة الذهنية لعلاج خلل التنظيم العاطفي — طُوّر أصلاً لاضطراب الشخصية الحدّية"
+    }
+  },
+  {
+    "id": "psychology-085",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the global workspace theory of consciousness?",
+      "ar": "ما نظرية مساحة العمل العالمية للوعي؟"
+    },
+    "answer": {
+      "en": "Consciousness arises when information is broadcast widely across a global neural workspace, making it available to many brain processes",
+      "ar": "ينشأ الوعي حين تُبثّ المعلومات على نطاق واسع عبر مساحة عمل عصبية عالمية، مما يجعلها متاحة لعمليات دماغية كثيرة"
+    }
+  },
+  {
+    "id": "psychology-086",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the contact hypothesis (Allport)?",
+      "ar": "ما فرضية التواصل (آلبورت)؟"
+    },
+    "answer": {
+      "en": "Prejudice between groups decreases when they have direct contact under conditions of equal status, cooperation, and institutional support",
+      "ar": "يتراجع التحيّز بين المجموعات عند تواصلها المباشر في ظل التكافؤ في المكانة والتعاون والدعم المؤسسي"
+    }
+  },
+  {
+    "id": "psychology-087",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is the Stroop effect?",
+      "ar": "ما تأثير ستروب؟"
+    },
+    "answer": {
+      "en": "The delay in reaction time when colour name and ink colour conflict (e.g. the word RED written in blue ink)",
+      "ar": "التأخّر في زمن الاستجابة عند تعارض اسم اللون ولون الحبر (مثل كلمة أحمر مكتوبة بالحبر الأزرق)"
+    }
+  },
+  {
+    "id": "psychology-088",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is the ACE (Adverse Childhood Experiences) study?",
+      "ar": "ما دراسة التجارب السلبية في مرحلة الطفولة (ACE)؟"
+    },
+    "answer": {
+      "en": "A landmark study showing that childhood trauma (abuse, neglect, household dysfunction) strongly predicts adult physical and mental health outcomes",
+      "ar": "دراسة رائدة تُظهر أن الصدمات في مرحلة الطفولة (إساءة، إهمال، اضطراب أسري) تتنبأ بقوة بالصحة الجسدية والنفسية في مرحلة البلوغ"
+    }
+  },
+  {
+    "id": "psychology-089",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "What is the difference between reliability and validity in psychological measurement?",
+      "ar": "ما الفرق بين الموثوقية والصدق في القياس النفسي؟"
+    },
+    "answer": {
+      "en": "Reliability is consistency of measurement; validity is whether the test actually measures what it claims to measure",
+      "ar": "الموثوقية هي اتساق القياس؛ أما الصدق فهو ما إذا كان الاختبار يقيس فعلاً ما يدّعي قياسه"
+    }
+  },
+  {
+    "id": "psychology-090",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is mentalisation-based therapy (MBT)?",
+      "ar": "ما العلاج القائم على التأمّل الذهني (MBT)؟"
+    },
+    "answer": {
+      "en": "A therapy focusing on improving mentalization — the ability to understand mental states in oneself and others — primarily for personality disorders",
+      "ar": "علاج يركّز على تحسين التأمّل الذهني — القدرة على فهم الحالات العقلية في النفس والآخرين — بصفة أساسية لاضطرابات الشخصية"
+    }
+  },
+  {
+    "id": "psychology-091",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "Which theory separates perceptual sensitivity from a person's response bias when detecting a weak signal in noise?",
+      "ar": "أي نظرية تفصل بين الحساسية الإدراكية وانحياز استجابة الشخص عند اكتشاف إشارة ضعيفة وسط الضوضاء؟"
+    },
+    "answer": {
+      "en": "Signal detection theory",
+      "ar": "نظرية كشف الإشارة"
+    }
+  },
+  {
+    "id": "psychology-092",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is deindividuation in social psychology?",
+      "ar": "ما فقدان الهوية الفردية في علم النفس الاجتماعي؟"
+    },
+    "answer": {
+      "en": "The loosening of self-awareness and restraint in group settings, leading to impulsive or anti-social behaviour",
+      "ar": "تراخي الوعي الذاتي والتحكّم في البيئات الجماعية، مما يؤدي إلى سلوك متهوّر أو مضاد للمجتمع"
+    }
+  },
+  {
+    "id": "psychology-093",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is the distinction between intrinsic and extrinsic motivation?",
+      "ar": "ما الفرق بين الدافعية الذاتية والخارجية؟"
+    },
+    "answer": {
+      "en": "Intrinsic motivation comes from internal satisfaction; extrinsic from external rewards — research shows over-rewarding can undermine intrinsic motivation",
+      "ar": "الدافعية الذاتية تنبع من الرضا الداخلي؛ الخارجية من مكافآت خارجية — تُظهر الأبحاث أن المكافأة الزائدة قد تقوّض الدافعية الذاتية"
+    }
+  },
+  {
+    "id": "psychology-094",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "What is effect size and why is it more important than p-value alone?",
+      "ar": "ما حجم التأثير ولماذا يكون أهم من قيمة p وحدها؟"
+    },
+    "answer": {
+      "en": "Effect size measures the magnitude of a result; p-value only tells us significance — a significant but tiny effect may be practically meaningless",
+      "ar": "يقيس حجم التأثير حجم النتيجة؛ قيمة p تخبرنا فقط بالدلالة الإحصائية — تأثير دال لكن ضئيل قد يكون عديم الأهمية عملياً"
+    }
+  },
+  {
+    "id": "psychology-095",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Clinical & Mental Health",
+      "ar": "علم النفس السريري والصحة النفسية"
+    },
+    "question": {
+      "en": "What is the neurodiversity paradigm?",
+      "ar": "ما نموذج التنوّع العصبي؟"
+    },
+    "answer": {
+      "en": "The view that neurological differences (autism, ADHD, dyslexia) are natural human variation rather than disorders to be cured",
+      "ar": "الرأي القائل إن الاختلافات العصبية (التوحّد، اضطراب التركيز، عسر القراءة) هي تنوّع بشري طبيعي لا اضطرابات تحتاج علاجاً"
+    }
+  },
+  {
+    "id": "psychology-096",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
+    },
+    "question": {
+      "en": "What is the role of the anterior cingulate cortex (ACC)?",
+      "ar": "ما دور القشرة الحزامية الأمامية (ACC)؟"
+    },
+    "answer": {
+      "en": "Conflict monitoring, error detection, pain processing, and regulating emotion — a key hub linking cognitive and emotional systems",
+      "ar": "مراقبة الصراعات وكشف الأخطاء ومعالجة الألم وتنظيم المشاعر — عقدة رئيسية تربط الأنظمة المعرفية والعاطفية"
+    }
+  },
+  {
+    "id": "psychology-097",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Social Psychology",
+      "ar": "علم النفس الاجتماعي"
+    },
+    "question": {
+      "en": "What is the self-fulfilling prophecy?",
+      "ar": "ما النبوءة المحققة لذاتها؟"
+    },
+    "answer": {
+      "en": "A belief that causes itself to become true — expectations influence behaviour in ways that confirm the original belief",
+      "ar": "اعتقاد يتسبّب في تحقّق ذاته — تؤثر التوقعات على السلوك بطرق تؤكد الاعتقاد الأصلي"
+    }
+  },
+  {
+    "id": "psychology-098",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Developmental Psychology",
+      "ar": "علم نفس النمو"
+    },
+    "question": {
+      "en": "What is resilience in developmental psychology?",
+      "ar": "ما المرونة النفسية في علم نفس النمو؟"
+    },
+    "answer": {
+      "en": "The capacity to recover from adversity, trauma, or stress, often supported by protective factors like social support and self-efficacy",
+      "ar": "القدرة على التعافي من الشدائد والصدمات والضغوط، يدعمها عوامل وقائية كالدعم الاجتماعي والكفاءة الذاتية"
+    }
+  },
+  {
+    "id": "psychology-099",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Cognition, Memory & Perception",
+      "ar": "الإدراك والذاكرة والإحساس"
+    },
+    "question": {
+      "en": "What is behavioural economics and how does it differ from classical economics?",
+      "ar": "ما اقتصاد السلوك وكيف يختلف عن الاقتصاد الكلاسيكي؟"
+    },
+    "answer": {
+      "en": "Behavioural economics incorporates psychological insights to explain irrational decision-making, unlike classical economics which assumes rational actors",
+      "ar": "يدمج اقتصاد السلوك رؤى نفسية لتفسير صنع القرار غير العقلاني، بخلاف الاقتصاد الكلاسيكي الذي يفترض عقلانية الفاعلين"
+    }
+  },
+  {
+    "id": "psychology-100",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Research Methods",
+      "ar": "مناهج البحث"
+    },
+    "question": {
+      "en": "What is the difference between correlation and causation?",
+      "ar": "ما الفرق بين الارتباط والسببية؟"
+    },
+    "answer": {
+      "en": "Correlation shows two variables move together; causation means one variable directly causes change in another — correlation never implies causation alone",
+      "ar": "يُظهر الارتباط تحرّك متغيّرَين معاً؛ أما السببية فتعني أن متغيراً واحداً يتسبب مباشرة في تغيير متغيّر آخر — الارتباط وحده لا يعني السببية"
+    }
+  }
+]

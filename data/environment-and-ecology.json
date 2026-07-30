@@ -1,490 +1,642 @@
-{
-  "slug": "environment-and-ecology",
-  "title": {
-    "en": "Environment & Ecology",
-    "ar": "البيئة والإيكولوجيا"
-  },
-  "count": 40,
-  "cards": [
-    {
-      "id": "eco-1",
-      "difficulty": "easy",
-      "question": {
-        "en": "What gas do plants absorb from the atmosphere to perform photosynthesis?",
-        "ar": "ما هو الغاز الذي تمتصه النباتات من الغلاف الجوي للقيام بعملية التمثيل الضوئي؟"
-      },
-      "answer": {
-        "en": "Carbon Dioxide (CO2)",
-        "ar": "ثاني أكسيد الكربون"
-      }
+[
+  {
+    "id": "eco-1",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
     },
-    {
-      "id": "eco-2",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which layer of the atmosphere protects Earth from harmful UV radiation?",
-        "ar": "أي طبقة من الغلاف الجوي تحمي الأرض من الأشعة فوق البنفسجية الضارة؟"
-      },
-      "answer": {
-        "en": "Ozone Layer",
-        "ar": "طبقة الأوزون"
-      }
+    "difficulty": "easy",
+    "question": {
+      "en": "What gas do plants absorb from the atmosphere to perform photosynthesis?",
+      "ar": "ما هو الغاز الذي تمتصه النباتات من الغلاف الجوي للقيام بعملية التمثيل الضوئي؟"
     },
-    {
-      "id": "eco-3",
-      "difficulty": "easy",
-      "question": {
-        "en": "True or False: Plastic takes hundreds of years to decompose in nature.",
-        "ar": "صح أم خطأ: يستغرق البلاستيك مئات السنين لكي يتحلل في الطبيعة."
-      },
-      "answer": {
-        "en": "True",
-        "ar": "صح"
-      }
-    },
-    {
-      "id": "eco-4",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the primary source of energy for the Earth's ecosystems?",
-        "ar": "ما هو المصدر الرئيسي للطاقة في الأنظمة البيئية للأرض؟"
-      },
-      "answer": {
-        "en": "The Sun",
-        "ar": "الشمس"
-      }
-    },
-    {
-      "id": "eco-5",
-      "difficulty": "easy",
-      "question": {
-        "en": "What do we call the process of converting waste materials into new products?",
-        "ar": "ماذا نسمي عملية تحويل المواد العادمة إلى منتجات جديدة؟"
-      },
-      "answer": {
-        "en": "Recycling",
-        "ar": "إعادة التدوير"
-      }
-    },
-    {
-      "id": "eco-6",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which ocean is the largest on Earth?",
-        "ar": "ما هو أكبر محيط على وجه الأرض؟"
-      },
-      "answer": {
-        "en": "Pacific Ocean",
-        "ar": "المحيط الهادئ"
-      }
-    },
-    {
-      "id": "eco-7",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the term for a place where an organism lives?",
-        "ar": "ما هو المصطلح الذي يطلق على المكان الذي يعيش فيه الكائن الحي؟"
-      },
-      "answer": {
-        "en": "Habitat",
-        "ar": "الموطن"
-      }
-    },
-    {
-      "id": "eco-8",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the main cause of the 'Greenhouse Effect' related to human activity?",
-        "ar": "ما هو السبب الرئيسي لـ 'الاحتباس الحراري' المرتبط بالنشاط البشري؟"
-      },
-      "answer": {
-        "en": "Burning Fossil Fuels",
-        "ar": "حرق الوقود الأحفوري"
-      }
-    },
-    {
-      "id": "eco-9",
-      "difficulty": "easy",
-      "question": {
-        "en": "What color bin is universally associated with paper recycling?",
-        "ar": "ما هو لون السلة المرتبط عالمياً بإعادة تدوير الورق؟"
-      },
-      "answer": {
-        "en": "Blue",
-        "ar": "الأزرق"
-      }
-    },
-    {
-      "id": "eco-10",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which animal is often used as a symbol for endangered species conservation?",
-        "ar": "ما هو الحيوان الذي غالباً ما يستخدم كرمز للحفاظ على الأنواع المهددة بالانقراض؟"
-      },
-      "answer": {
-        "en": "Giant Panda",
-        "ar": "الباندا العملاق"
-      }
-    },
-    {
-      "id": "eco-11",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the term for the variety of life in a particular habitat or ecosystem?",
-        "ar": "ما هو المصطلح الذي يعبر عن تنوع الحياة في موطن أو نظام بيئي معين؟"
-      },
-      "answer": {
-        "en": "Biodiversity",
-        "ar": "التنوع البيولوجي"
-      }
-    },
-    {
-      "id": "eco-12",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which process occurs when excess nutrients cause algae to grow rapidly in water bodies?",
-        "ar": "ما هي العملية التي تحدث عندما تسبب العناصر الغذائية الزائدة نمواً سريعاً للطحالب في المسطحات المائية؟"
-      },
-      "answer": {
-        "en": "Eutrophication",
-        "ar": "التحصيب (أو المغذيات الزائدة)"
-      }
-    },
-    {
-      "id": "eco-13",
-      "difficulty": "medium",
-      "question": {
-        "en": "What phenomenon describes the warming of the ocean surface in the central and eastern Pacific?",
-        "ar": "ما هي الظاهرة التي تصف ارتفاع حرارة سطح المحيط في وسط وشرق المحيط الهادئ؟"
-      },
-      "answer": {
-        "en": "El Niño",
-        "ar": "النينو"
-      }
-    },
-    {
-      "id": "eco-14",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which gas is a more potent greenhouse gas than CO2, though it stays in the atmosphere for less time?",
-        "ar": "أي غاز يعتبر أقوى كغاز دفيئة من ثاني أكسيد الكربون، رغم بقائه في الغلاف الجوي لفترة أقل؟"
-      },
-      "answer": {
-        "en": "Methane (CH4)",
-        "ar": "الميثان"
-      }
-    },
-    {
-      "id": "eco-15",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the term for species that have a disproportionately large effect on their environment?",
-        "ar": "ما هو المصطلح الذي يطلق على الأنواع التي لها تأثير كبير بشكل غير متناسب على بيئتها؟"
-      },
-      "answer": {
-        "en": "Keystone Species",
-        "ar": "الأنواع الأساسية (أو المفتاحية)"
-      }
-    },
-    {
-      "id": "eco-16",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the measure of the amount of land needed to support a person's lifestyle?",
-        "ar": "ما هو قياس كمية الأرض اللازمة لدعم نمط حياة شخص ما؟"
-      },
-      "answer": {
-        "en": "Ecological Footprint",
-        "ar": "البصمة البيئية"
-      }
-    },
-    {
-      "id": "eco-17",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which treaty, signed in 1987, was designed to protect the ozone layer?",
-        "ar": "ما هي المعاهدة التي وقعت في عام 1987 وتهدف لحماية طبقة الأوزون؟"
-      },
-      "answer": {
-        "en": "Montreal Protocol",
-        "ar": "بروتوكول مونتريال"
-      }
-    },
-    {
-      "id": "eco-18",
-      "difficulty": "medium",
-      "question": {
-        "en": "What percentage of the Earth's water is fresh water?",
-        "ar": "ما هي نسبة المياه العذبة من إجمالي المياه على الأرض؟"
-      },
-      "answer": {
-        "en": "About 2.5% to 3%",
-        "ar": "حوالي 2.5% إلى 3%"
-      }
-    },
-    {
-      "id": "eco-19",
-      "difficulty": "medium",
-      "question": {
-        "en": "What do we call the point at which an ecosystem can no longer sustain a particular species?",
-        "ar": "ماذا نسمي النقطة التي لا يستطيع عندها النظام البيئي تحمل نوع معين؟"
-      },
-      "answer": {
-        "en": "Carrying Capacity",
-        "ar": "القدرة الاستيعابية"
-      }
-    },
-    {
-      "id": "eco-20",
-      "difficulty": "medium",
-      "question": {
-        "en": "Which ecosystem is often called the 'Lungs of the Planet'?",
-        "ar": "أي نظام بيئي يطلق عليه غالباً 'رئتا الكوكب'؟"
-      },
-      "answer": {
-        "en": "Amazon Rainforest",
-        "ar": "غابات الأمازون المطيرة"
-      }
-    },
-    {
-      "id": "eco-21",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the name of the process by which nitrogen gas is converted into a form plants can use?",
-        "ar": "ما هو اسم العملية التي يتم من خلالها تحويل غاز النيتروجين إلى شكل يمكن للنباتات استخدامه؟"
-      },
-      "answer": {
-        "en": "Nitrogen Fixation",
-        "ar": "تثبيت النيتروجين"
-      }
-    },
-    {
-      "id": "eco-22",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Albedo Effect' in the context of climate change?",
-        "ar": "ما هو 'تأثير الألبيدو' في سياق تغير المناخ؟"
-      },
-      "answer": {
-        "en": "The reflectivity of the Earth's surface",
-        "ar": "قدرة سطح الأرض على عكس الإشعاع الشمسي"
-      }
-    },
-    {
-      "id": "eco-23",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which international agreement aimed to reduce greenhouse gas emissions, coming into force in 2005?",
-        "ar": "أي اتفاقية دولية هدفت لتقليل انبعاثات الغازات الدفيئة ودخلت حيز التنفيذ في 2005؟"
-      },
-      "answer": {
-        "en": "Kyoto Protocol",
-        "ar": "بروتوكول كيوتو"
-      }
-    },
-    {
-      "id": "eco-24",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the term for the acidification of oceans caused by the uptake of CO2?",
-        "ar": "ما هو المصطلح الذي يعبر عن تحمض المحيطات الناتج عن امتصاص ثاني أكسيد الكربون؟"
-      },
-      "answer": {
-        "en": "Ocean Acidification",
-        "ar": "تحمض المحيطات"
-      }
-    },
-    {
-      "id": "eco-25",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is a 'Carbon Sink'?",
-        "ar": "ما هو 'بالوع الكربون' (أو خزان الكربون)؟"
-      },
-      "answer": {
-        "en": "Anything that absorbs more carbon than it releases",
-        "ar": "أي شيء يمتص كربوناً أكثر مما يطلقه (مثل الغابات والمحيطات)"
-      }
-    },
-    {
-      "id": "eco-26",
-      "difficulty": "hard",
-      "question": {
-        "en": "What does the term 'Endemism' refer to in ecology?",
-        "ar": "إلى ماذا يشير مصطلح 'التوطن' (Endemism) في علم البيئة؟"
-      },
-      "answer": {
-        "en": "Species found only in one specific geographic area",
-        "ar": "الأنواع التي توجد فقط في منطقة جغرافية محددة"
-      }
-    },
-    {
-      "id": "eco-27",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which heavy metal is primarily responsible for the Minamata disease?",
-        "ar": "ما هو المعدن الثقيل المسؤول بشكل رئيسي عن مرض ميناماتا؟"
-      },
-      "answer": {
-        "en": "Mercury",
-        "ar": "الزئبق"
-      }
-    },
-    {
-      "id": "eco-28",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the term for the gradual change in the species composition of a community over time?",
-        "ar": "ما هو المصطلح الذي يصف التغير التدريجي في تكوين أنواع مجتمع ما بمرور الوقت؟"
-      },
-      "answer": {
-        "en": "Ecological Succession",
-        "ar": "التعاقب البيئي"
-      }
-    },
-    {
-      "id": "eco-29",
-      "difficulty": "hard",
-      "question": {
-        "en": "Which atmospheric layer contains the vast majority of the Earth's weather systems?",
-        "ar": "أي طبقة جوية تحتوي على الغالبية العظمى من أنظمة الطقس في الأرض؟"
-      },
-      "answer": {
-        "en": "Troposphere",
-        "ar": "التروبوسفير"
-      }
-    },
-    {
-      "id": "eco-30",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the term for the loss of color in corals due to stress from rising water temperatures?",
-        "ar": "ما هو المصطلح الذي يصف فقدان المرجان للونه بسبب الإجهاد الناتج عن ارتفاع حرارة الماء؟"
-      },
-      "answer": {
-        "en": "Coral Bleaching",
-        "ar": "ابيضاض المرجان"
-      }
-    },
-    {
-      "id": "eco-31",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Great Oxygenation Event' (GOE) in Earth's history?",
-        "ar": "ما هو 'حدث الأكسجة الكبير' في تاريخ الأرض؟"
-      },
-      "answer": {
-        "en": "The biological induction of free oxygen into the atmosphere by cyanobacteria (~2.4 billion years ago)",
-        "ar": "الإدخال البيولوجي للأكسجين الحر في الغلاف الجوي بواسطة البكتيريا الزرقاء (قبل 2.4 مليار سنة)"
-      }
-    },
-    {
-      "id": "eco-32",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Hadley Cell' in atmospheric circulation?",
-        "ar": "ما هي 'خلية هادلي' في دوران الغلاف الجوي؟"
-      },
-      "answer": {
-        "en": "A tropical atmospheric circulation involving rising air near the equator",
-        "ar": "دوران جوي استوائي يتضمن صعود الهواء بالقرب من خط الاستواء"
-      }
-    },
-    {
-      "id": "eco-33",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "Which complex feedback loop involves permafrost melting releasing methane, which then increases warming?",
-        "ar": "أي حلقة تغذية راجعة معقدة تتضمن ذوبان التربة الصقيعية وإطلاق الميثان، مما يزيد من الاحترار؟"
-      },
-      "answer": {
-        "en": "Permafrost Carbon Feedback",
-        "ar": "التغذية الراجعة لكربون التربة الصقيعية"
-      }
-    },
-    {
-      "id": "eco-34",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What does the 'Milankovitch Theory' explain?",
-        "ar": "ماذا تشرح 'نظرية ميلانكوفيتش'؟"
-      },
-      "answer": {
-        "en": "How orbital variations affect long-term climate and ice ages",
-        "ar": "كيف تؤثر الاختلافات المدارية على المناخ طويل الأمد والعصور الجليدية"
-      }
-    },
-    {
-      "id": "eco-35",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Biomagnification'?",
-        "ar": "ما هو 'التضخم البيولوجي' (Biomagnification)؟"
-      },
-      "answer": {
-        "en": "The increasing concentration of a substance (like toxins) in the tissues of organisms at higher trophic levels",
-        "ar": "زيادة تركيز مادة ما (مثل السموم) في أنسجة الكائنات الحية في المستويات الغذائية الأعلى"
-      }
-    },
-    {
-      "id": "eco-36",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Thermohaline Circulation'?",
-        "ar": "ما هو 'الدوران الحراري الملحي'؟"
-      },
-      "answer": {
-        "en": "Deep-ocean currents driven by differences in density due to temperature and salinity",
-        "ar": "تيارات المحيطات العميقة الناتجة عن الاختلافات في الكثافة بسبب الحرارة والملوحة"
-      }
-    },
-    {
-      "id": "eco-37",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Redfield Ratio' in oceanography?",
-        "ar": "ما هي 'نسبة ريدفيلد' في علم المحيطات؟"
-      },
-      "answer": {
-        "en": "The atomic ratio of Carbon, Nitrogen, and Phosphorus (106:16:1) in phytoplankton",
-        "ar": "النسبة الذرية للكربون والنيتروجين والفوسفور (106:16:1) في العوالق النباتية"
-      }
-    },
-    {
-      "id": "eco-38",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Tipping Point' concept in climate science?",
-        "ar": "ما هو مفهوم 'نقطة التحول' (Tipping Point) في علوم المناخ؟"
-      },
-      "answer": {
-        "en": "The threshold beyond which a system undergoes irreversible change",
-        "ar": "العتبة التي يمر بعدها النظام بتغير لا يمكن الرجوع عنه"
-      }
-    },
-    {
-      "id": "eco-39",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "Which 1971 convention protects wetlands of international importance?",
-        "ar": "ما هي اتفاقية عام 1971 التي تحمي الأراضي الرطبة ذات الأهمية الدولية؟"
-      },
-      "answer": {
-        "en": "Ramsar Convention",
-        "ar": "اتفاقية رامسار"
-      }
-    },
-    {
-      "id": "eco-40",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Primary Productivity' in an ecosystem?",
-        "ar": "ما هي 'الإنتاجية الأولية' في النظام البيئي؟"
-      },
-      "answer": {
-        "en": "The rate at which energy is converted by autotrophs to organic substances",
-        "ar": "المعدل الذي تحول به الكائنات ذاتية التغذي الطاقة إلى مواد عضوية"
-      }
+    "answer": {
+      "en": "Carbon Dioxide (CO2)",
+      "ar": "ثاني أكسيد الكربون"
     }
-  ]
-}
+  },
+  {
+    "id": "eco-2",
+    "subcategory": {
+      "en": "Atmosphere & Weather",
+      "ar": "الغلاف الجوي والطقس"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which layer of the atmosphere protects Earth from harmful UV radiation?",
+      "ar": "أي طبقة من الغلاف الجوي تحمي الأرض من الأشعة فوق البنفسجية الضارة؟"
+    },
+    "answer": {
+      "en": "Ozone Layer",
+      "ar": "طبقة الأوزون"
+    }
+  },
+  {
+    "id": "eco-3",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "True or False: Plastic takes hundreds of years to decompose in nature.",
+      "ar": "صح أم خطأ: يستغرق البلاستيك مئات السنين لكي يتحلل في الطبيعة."
+    },
+    "answer": {
+      "en": "True",
+      "ar": "صح"
+    }
+  },
+  {
+    "id": "eco-4",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the primary source of energy for the Earth's ecosystems?",
+      "ar": "ما هو المصدر الرئيسي للطاقة في الأنظمة البيئية للأرض؟"
+    },
+    "answer": {
+      "en": "The Sun",
+      "ar": "الشمس"
+    }
+  },
+  {
+    "id": "eco-5",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What do we call the process of converting waste materials into new products?",
+      "ar": "ماذا نسمي عملية تحويل المواد العادمة إلى منتجات جديدة؟"
+    },
+    "answer": {
+      "en": "Recycling",
+      "ar": "إعادة التدوير"
+    }
+  },
+  {
+    "id": "eco-6",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which greenhouse gas is produced when organic waste decomposes without oxygen in landfills?",
+      "ar": "أي غاز دفيئة ينتج عند تحلل النفايات العضوية من دون أكسجين في مكبات النفايات؟"
+    },
+    "answer": {
+      "en": "Methane (CH₄).",
+      "ar": "الميثان (CH₄)."
+    }
+  },
+  {
+    "id": "eco-7",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the term for a place where an organism lives?",
+      "ar": "ما هو المصطلح الذي يطلق على المكان الذي يعيش فيه الكائن الحي؟"
+    },
+    "answer": {
+      "en": "Habitat",
+      "ar": "الموطن"
+    }
+  },
+  {
+    "id": "eco-8",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the main cause of the 'Greenhouse Effect' related to human activity?",
+      "ar": "ما هو السبب الرئيسي لـ 'الاحتباس الحراري' المرتبط بالنشاط البشري؟"
+    },
+    "answer": {
+      "en": "Burning Fossil Fuels",
+      "ar": "حرق الوقود الأحفوري"
+    }
+  },
+  {
+    "id": "eco-9",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What color bin is universally associated with paper recycling?",
+      "ar": "ما هو لون السلة المرتبط عالمياً بإعادة تدوير الورق؟"
+    },
+    "answer": {
+      "en": "Blue",
+      "ar": "الأزرق"
+    }
+  },
+  {
+    "id": "eco-10",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which animal is often used as a symbol for endangered species conservation?",
+      "ar": "ما هو الحيوان الذي غالباً ما يستخدم كرمز للحفاظ على الأنواع المهددة بالانقراض؟"
+    },
+    "answer": {
+      "en": "Giant Panda",
+      "ar": "الباندا العملاق"
+    }
+  },
+  {
+    "id": "eco-11",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the term for the variety of life in a particular habitat or ecosystem?",
+      "ar": "ما هو المصطلح الذي يعبر عن تنوع الحياة في موطن أو نظام بيئي معين؟"
+    },
+    "answer": {
+      "en": "Biodiversity",
+      "ar": "التنوع البيولوجي"
+    }
+  },
+  {
+    "id": "eco-12",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "Which process occurs when excess nutrients cause algae to grow rapidly in water bodies?",
+      "ar": "ما هي العملية التي تحدث عندما تسبب العناصر الغذائية الزائدة نمواً سريعاً للطحالب في المسطحات المائية؟"
+    },
+    "answer": {
+      "en": "Eutrophication",
+      "ar": "التحصيب (أو المغذيات الزائدة)"
+    }
+  },
+  {
+    "id": "eco-13",
+    "subcategory": {
+      "en": "Atmosphere & Weather",
+      "ar": "الغلاف الجوي والطقس"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What phenomenon describes the warming of the ocean surface in the central and eastern Pacific?",
+      "ar": "ما هي الظاهرة التي تصف ارتفاع حرارة سطح المحيط في وسط وشرق المحيط الهادئ؟"
+    },
+    "answer": {
+      "en": "El Niño",
+      "ar": "النينو"
+    }
+  },
+  {
+    "id": "eco-14",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "Which gas is a more potent greenhouse gas than CO2, though it stays in the atmosphere for less time?",
+      "ar": "أي غاز يعتبر أقوى كغاز دفيئة من ثاني أكسيد الكربون، رغم بقائه في الغلاف الجوي لفترة أقل؟"
+    },
+    "answer": {
+      "en": "Methane (CH4)",
+      "ar": "الميثان"
+    }
+  },
+  {
+    "id": "eco-15",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the term for species that have a disproportionately large effect on their environment?",
+      "ar": "ما هو المصطلح الذي يطلق على الأنواع التي لها تأثير كبير بشكل غير متناسب على بيئتها؟"
+    },
+    "answer": {
+      "en": "Keystone Species",
+      "ar": "الأنواع الأساسية (أو المفتاحية)"
+    }
+  },
+  {
+    "id": "eco-16",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the measure of the amount of land needed to support a person's lifestyle?",
+      "ar": "ما هو قياس كمية الأرض اللازمة لدعم نمط حياة شخص ما؟"
+    },
+    "answer": {
+      "en": "Ecological Footprint",
+      "ar": "البصمة البيئية"
+    }
+  },
+  {
+    "id": "eco-17",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "Which treaty, signed in 1987, was designed to protect the ozone layer?",
+      "ar": "ما هي المعاهدة التي وقعت في عام 1987 وتهدف لحماية طبقة الأوزون؟"
+    },
+    "answer": {
+      "en": "Montreal Protocol",
+      "ar": "بروتوكول مونتريال"
+    }
+  },
+  {
+    "id": "eco-18",
+    "subcategory": {
+      "en": "Oceans & Water",
+      "ar": "المحيطات والمياه"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What percentage of the Earth's water is fresh water?",
+      "ar": "ما هي نسبة المياه العذبة من إجمالي المياه على الأرض؟"
+    },
+    "answer": {
+      "en": "About 2.5% to 3%",
+      "ar": "حوالي 2.5% إلى 3%"
+    }
+  },
+  {
+    "id": "eco-19",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What do we call the point at which an ecosystem can no longer sustain a particular species?",
+      "ar": "ماذا نسمي النقطة التي لا يستطيع عندها النظام البيئي تحمل نوع معين؟"
+    },
+    "answer": {
+      "en": "Carrying Capacity",
+      "ar": "القدرة الاستيعابية"
+    }
+  },
+  {
+    "id": "eco-20",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "Which ecosystem is often called the 'Lungs of the Planet'?",
+      "ar": "أي نظام بيئي يطلق عليه غالباً 'رئتا الكوكب'؟"
+    },
+    "answer": {
+      "en": "Amazon Rainforest",
+      "ar": "غابات الأمازون المطيرة"
+    }
+  },
+  {
+    "id": "eco-21",
+    "subcategory": {
+      "en": "Biogeochemical Cycles",
+      "ar": "الدورات البيوجيوكيميائية"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the name of the process by which nitrogen gas is converted into a form plants can use?",
+      "ar": "ما هو اسم العملية التي يتم من خلالها تحويل غاز النيتروجين إلى شكل يمكن للنباتات استخدامه؟"
+    },
+    "answer": {
+      "en": "Nitrogen Fixation",
+      "ar": "تثبيت النيتروجين"
+    }
+  },
+  {
+    "id": "eco-22",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Albedo Effect' in the context of climate change?",
+      "ar": "ما هو 'تأثير الألبيدو' في سياق تغير المناخ؟"
+    },
+    "answer": {
+      "en": "The reflectivity of the Earth's surface",
+      "ar": "قدرة سطح الأرض على عكس الإشعاع الشمسي"
+    }
+  },
+  {
+    "id": "eco-23",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "Which international agreement aimed to reduce greenhouse gas emissions, coming into force in 2005?",
+      "ar": "أي اتفاقية دولية هدفت لتقليل انبعاثات الغازات الدفيئة ودخلت حيز التنفيذ في 2005؟"
+    },
+    "answer": {
+      "en": "Kyoto Protocol",
+      "ar": "بروتوكول كيوتو"
+    }
+  },
+  {
+    "id": "eco-24",
+    "subcategory": {
+      "en": "Oceans & Water",
+      "ar": "المحيطات والمياه"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the term for the acidification of oceans caused by the uptake of CO2?",
+      "ar": "ما هو المصطلح الذي يعبر عن تحمض المحيطات الناتج عن امتصاص ثاني أكسيد الكربون؟"
+    },
+    "answer": {
+      "en": "Ocean Acidification",
+      "ar": "تحمض المحيطات"
+    }
+  },
+  {
+    "id": "eco-25",
+    "subcategory": {
+      "en": "Biogeochemical Cycles",
+      "ar": "الدورات البيوجيوكيميائية"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is a 'Carbon Sink'?",
+      "ar": "ما هو 'بالوع الكربون' (أو خزان الكربون)؟"
+    },
+    "answer": {
+      "en": "Anything that absorbs more carbon than it releases",
+      "ar": "أي شيء يمتص كربوناً أكثر مما يطلقه (مثل الغابات والمحيطات)"
+    }
+  },
+  {
+    "id": "eco-26",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What does the term 'Endemism' refer to in ecology?",
+      "ar": "إلى ماذا يشير مصطلح 'التوطن' (Endemism) في علم البيئة؟"
+    },
+    "answer": {
+      "en": "Species found only in one specific geographic area",
+      "ar": "الأنواع التي توجد فقط في منطقة جغرافية محددة"
+    }
+  },
+  {
+    "id": "eco-27",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "Which heavy metal is primarily responsible for the Minamata disease?",
+      "ar": "ما هو المعدن الثقيل المسؤول بشكل رئيسي عن مرض ميناماتا؟"
+    },
+    "answer": {
+      "en": "Mercury",
+      "ar": "الزئبق"
+    }
+  },
+  {
+    "id": "eco-28",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the term for the gradual change in the species composition of a community over time?",
+      "ar": "ما هو المصطلح الذي يصف التغير التدريجي في تكوين أنواع مجتمع ما بمرور الوقت؟"
+    },
+    "answer": {
+      "en": "Ecological Succession",
+      "ar": "التعاقب البيئي"
+    }
+  },
+  {
+    "id": "eco-29",
+    "subcategory": {
+      "en": "Atmosphere & Weather",
+      "ar": "الغلاف الجوي والطقس"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "Which atmospheric layer contains the vast majority of the Earth's weather systems?",
+      "ar": "أي طبقة جوية تحتوي على الغالبية العظمى من أنظمة الطقس في الأرض؟"
+    },
+    "answer": {
+      "en": "Troposphere",
+      "ar": "التروبوسفير"
+    }
+  },
+  {
+    "id": "eco-30",
+    "subcategory": {
+      "en": "Oceans & Water",
+      "ar": "المحيطات والمياه"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the term for the loss of color in corals due to stress from rising water temperatures?",
+      "ar": "ما هو المصطلح الذي يصف فقدان المرجان للونه بسبب الإجهاد الناتج عن ارتفاع حرارة الماء؟"
+    },
+    "answer": {
+      "en": "Coral Bleaching",
+      "ar": "ابيضاض المرجان"
+    }
+  },
+  {
+    "id": "eco-31",
+    "subcategory": {
+      "en": "Biogeochemical Cycles",
+      "ar": "الدورات البيوجيوكيميائية"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Great Oxygenation Event' (GOE) in Earth's history?",
+      "ar": "ما هو 'حدث الأكسجة الكبير' في تاريخ الأرض؟"
+    },
+    "answer": {
+      "en": "The biological induction of free oxygen into the atmosphere by cyanobacteria (~2.4 billion years ago)",
+      "ar": "الإدخال البيولوجي للأكسجين الحر في الغلاف الجوي بواسطة البكتيريا الزرقاء (قبل 2.4 مليار سنة)"
+    }
+  },
+  {
+    "id": "eco-32",
+    "subcategory": {
+      "en": "Atmosphere & Weather",
+      "ar": "الغلاف الجوي والطقس"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Hadley Cell' in atmospheric circulation?",
+      "ar": "ما هي 'خلية هادلي' في دوران الغلاف الجوي؟"
+    },
+    "answer": {
+      "en": "A tropical atmospheric circulation involving rising air near the equator",
+      "ar": "دوران جوي استوائي يتضمن صعود الهواء بالقرب من خط الاستواء"
+    }
+  },
+  {
+    "id": "eco-33",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which complex feedback loop involves permafrost melting releasing methane, which then increases warming?",
+      "ar": "أي حلقة تغذية راجعة معقدة تتضمن ذوبان التربة الصقيعية وإطلاق الميثان، مما يزيد من الاحترار؟"
+    },
+    "answer": {
+      "en": "Permafrost Carbon Feedback",
+      "ar": "التغذية الراجعة لكربون التربة الصقيعية"
+    }
+  },
+  {
+    "id": "eco-34",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What does the 'Milankovitch Theory' explain?",
+      "ar": "ماذا تشرح 'نظرية ميلانكوفيتش'؟"
+    },
+    "answer": {
+      "en": "How orbital variations affect long-term climate and ice ages",
+      "ar": "كيف تؤثر الاختلافات المدارية على المناخ طويل الأمد والعصور الجليدية"
+    }
+  },
+  {
+    "id": "eco-35",
+    "subcategory": {
+      "en": "Pollution & Waste",
+      "ar": "التلوث والنفايات"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Biomagnification'?",
+      "ar": "ما هو 'التضخم البيولوجي' (Biomagnification)؟"
+    },
+    "answer": {
+      "en": "The increasing concentration of a substance (like toxins) in the tissues of organisms at higher trophic levels",
+      "ar": "زيادة تركيز مادة ما (مثل السموم) في أنسجة الكائنات الحية في المستويات الغذائية الأعلى"
+    }
+  },
+  {
+    "id": "eco-36",
+    "subcategory": {
+      "en": "Oceans & Water",
+      "ar": "المحيطات والمياه"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Thermohaline Circulation'?",
+      "ar": "ما هو 'الدوران الحراري الملحي'؟"
+    },
+    "answer": {
+      "en": "Deep-ocean currents driven by differences in density due to temperature and salinity",
+      "ar": "تيارات المحيطات العميقة الناتجة عن الاختلافات في الكثافة بسبب الحرارة والملوحة"
+    }
+  },
+  {
+    "id": "eco-37",
+    "subcategory": {
+      "en": "Oceans & Water",
+      "ar": "المحيطات والمياه"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Redfield Ratio' in oceanography?",
+      "ar": "ما هي 'نسبة ريدفيلد' في علم المحيطات؟"
+    },
+    "answer": {
+      "en": "The atomic ratio of Carbon, Nitrogen, and Phosphorus (106:16:1) in phytoplankton",
+      "ar": "النسبة الذرية للكربون والنيتروجين والفوسفور (106:16:1) في العوالق النباتية"
+    }
+  },
+  {
+    "id": "eco-38",
+    "subcategory": {
+      "en": "Climate Change",
+      "ar": "تغير المناخ"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Tipping Point' concept in climate science?",
+      "ar": "ما هو مفهوم 'نقطة التحول' (Tipping Point) في علوم المناخ؟"
+    },
+    "answer": {
+      "en": "The threshold beyond which a system undergoes irreversible change",
+      "ar": "العتبة التي يمر بعدها النظام بتغير لا يمكن الرجوع عنه"
+    }
+  },
+  {
+    "id": "eco-39",
+    "subcategory": {
+      "en": "Conservation & Policy",
+      "ar": "الحماية والسياسات البيئية"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Which 1971 convention protects wetlands of international importance?",
+      "ar": "ما هي اتفاقية عام 1971 التي تحمي الأراضي الرطبة ذات الأهمية الدولية؟"
+    },
+    "answer": {
+      "en": "Ramsar Convention",
+      "ar": "اتفاقية رامسار"
+    }
+  },
+  {
+    "id": "eco-40",
+    "subcategory": {
+      "en": "Ecosystems & Biodiversity",
+      "ar": "النظم البيئية والتنوع الحيوي"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Primary Productivity' in an ecosystem?",
+      "ar": "ما هي 'الإنتاجية الأولية' في النظام البيئي؟"
+    },
+    "answer": {
+      "en": "The rate at which energy is converted by autotrophs to organic substances",
+      "ar": "المعدل الذي تحول به الكائنات ذاتية التغذي الطاقة إلى مواد عضوية"
+    }
+  }
+]

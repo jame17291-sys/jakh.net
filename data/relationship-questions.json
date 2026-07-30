@@ -1,833 +1,802 @@
-{
-  "slug": "relationship-questions",
-  "title": {
-    "en": "Relationships",
-    "ar": "العلاقات"
-  },
-  "description": {
-    "en": "Explore psychology, communication, and the science behind human relationships and social bonds.",
-    "ar": "استكشف علم النفس والتواصل والعلم وراء العلاقات الإنسانية والروابط الاجتماعية."
-  },
-  "cluster": {
-    "en": "Social & Behavioral",
-    "ar": "الاجتماعي والسلوكي"
-  },
-  "cluster_key": "social",
-  "emoji": "💑",
-  "mode": "trivia",
-  "count": 50,
-  "difficultyCounts": {
-    "easy": 14,
-    "medium": 8,
-    "hard": 16,
-    "very-advanced": 12
-  },
-  "subcategories": [
-    "Communication",
-    "Psychology",
-    "Love & Attachment",
-    "Conflict & Resolution"
-  ],
-  "cards": [
-    {
-      "id": "relationship-questions-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What percentage of human communication is estimated to be nonverbal (body language, tone, etc.)?",
-        "ar": "ما النسبة المقدّرة من التواصل البشري التي تكون غير لفظية (لغة الجسد، النبرة، وما إلى ذلك)؟"
-      },
-      "answer": {
-        "en": "Research suggests over 70% of communication is nonverbal, including body language, facial expressions, and tone of voice.",
-        "ar": "تشير الأبحاث إلى أن أكثر من 70٪ من التواصل غير لفظي، ويشمل لغة الجسد وتعابير الوجه ونبرة الصوت."
-      }
+[
+  {
+    "id": "relationship-questions-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
     },
-    {
-      "id": "relationship-questions-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "According to Sternberg's Triangular Theory of Love, what are the three components of love?",
-        "ar": "وفقاً لنظرية المثلث للحب لستيرنبرغ، ما المكونات الثلاثة للحب؟"
-      },
-      "answer": {
-        "en": "Intimacy, passion, and commitment.",
-        "ar": "الحميمية، والشغف، والالتزام."
-      }
+    "question": {
+      "en": "What percentage of human communication is estimated to be nonverbal (body language, tone, etc.)?",
+      "ar": "ما النسبة المقدّرة من التواصل البشري التي تكون غير لفظية (لغة الجسد، النبرة، وما إلى ذلك)؟"
     },
-    {
-      "id": "relationship-questions-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'active listening'?",
-        "ar": "ما 'الاستماع الفعّال'؟"
-      },
-      "answer": {
-        "en": "Fully concentrating on what the other person is saying, understanding their message, responding thoughtfully, and remembering what was said — rather than passively hearing words.",
-        "ar": "التركيز الكامل على ما يقوله الشخص الآخر، وفهم رسالته، والرد بتأمل، وتذكر ما قيل — بدلاً من مجرد سماع الكلمات سلبياً."
-      }
-    },
-    {
-      "id": "relationship-questions-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is the 'silent treatment' and why do psychologists consider it harmful in relationships?",
-        "ar": "ما 'المعاملة الصامتة' ولماذا يعتبرها علماء النفس ضارة في العلاقات؟"
-      },
-      "answer": {
-        "en": "Deliberately ignoring or refusing to communicate with a partner as a form of punishment. It is harmful because it blocks resolution, creates emotional distance, and is a form of emotional manipulation.",
-        "ar": "تجاهل الشريك عمداً أو رفض التواصل معه كشكل من أشكال العقاب. وهو ضار لأنه يعيق الحل ويخلق مسافة عاطفية وهو شكل من أشكال التلاعب العاطفي."
-      }
-    },
-    {
-      "id": "relationship-questions-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What are John Gottman's 'Four Horsemen' — the four negative communication patterns that predict relationship breakdown?",
-        "ar": "ما 'الفرسان الأربعة' لجون غوتمان — الأنماط التواصلية السلبية الأربعة التي تتنبأ بانهيار العلاقة؟"
-      },
-      "answer": {
-        "en": "Criticism, contempt, defensiveness, and stonewalling.",
-        "ar": "النقد، والاحتقار، والتحفظ الدفاعي، والتجمّد (رفض التواصل)."
-      }
-    },
-    {
-      "id": "relationship-questions-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is empathy and how does it differ from sympathy?",
-        "ar": "ما التعاطف وكيف يختلف عن المشاركة الوجدانية؟"
-      },
-      "answer": {
-        "en": "Empathy is feeling with someone — stepping into their emotional experience. Sympathy is feeling for someone from a distance, acknowledging their feelings without sharing them.",
-        "ar": "التعاطف هو الشعور مع شخص ما — الدخول في تجربته العاطفية. المشاركة الوجدانية هي الشعور تجاه شخص ما من مسافة، مع الإقرار بمشاعره دون مشاركتها."
-      }
-    },
-    {
-      "id": "relationship-questions-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What does it mean to use 'I statements' in a conflict?",
-        "ar": "ماذا يعني استخدام 'جمل الأنا' في النزاع؟"
-      },
-      "answer": {
-        "en": "Expressing feelings from your own perspective ('I feel hurt when...') rather than blaming the other person ('You always...'). It reduces defensiveness and opens dialogue.",
-        "ar": "التعبير عن المشاعر من منظورك الخاص ('أشعر بالأذى عندما...') بدلاً من إلقاء اللوم على الآخر ('أنت دائماً...'). يُقلل هذا من الدفاعية ويفتح الحوار."
-      }
-    },
-    {
-      "id": "relationship-questions-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What are Gary Chapman's 'Five Love Languages'?",
-        "ar": "ما 'لغات الحب الخمس' لغاري تشابمان؟"
-      },
-      "answer": {
-        "en": "Words of Affirmation, Acts of Service, Receiving Gifts, Quality Time, and Physical Touch.",
-        "ar": "كلمات الإثبات، وأفعال الخدمة، واستقبال الهدايا، والوقت المميّز، واللمس الجسدي."
-      }
-    },
-    {
-      "id": "relationship-questions-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'gaslighting' in the context of relationships?",
-        "ar": "ما 'الغسيل الذهني' (Gaslighting) في سياق العلاقات؟"
-      },
-      "answer": {
-        "en": "A form of psychological manipulation where one person causes another to question their own memory, perception, or sanity — e.g., denying events that occurred or telling the victim they are 'overreacting'.",
-        "ar": "شكل من أشكال التلاعب النفسي حيث يجعل أحد الشخصين الآخرَ يشكك في ذاكرته أو إدراكه أو عقله — كإنكار أحداث وقعت أو إخبار الضحية بأنها 'مبالغة في ردة فعلها'."
-      }
-    },
-    {
-      "id": "relationship-questions-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is the 'sandwich' feedback method?",
-        "ar": "ما أسلوب التغذية الراجعة 'الساندويش'؟"
-      },
-      "answer": {
-        "en": "Delivering criticism between two positive statements: start with a compliment, deliver the criticism, end with encouragement. It softens the impact of negative feedback.",
-        "ar": "تقديم النقد بين عبارتين إيجابيتين: ابدأ بمجاملة، ثم قدّم النقد، ثم اختم بالتشجيع. يُخفف هذا من وقع التغذية الراجعة السلبية."
-      }
-    },
-    {
-      "id": "relationship-questions-011",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is the 'proximity effect' (mere exposure effect) in attraction?",
-        "ar": "ما 'أثر القرب' (أثر التعرض المجرد) في الجاذبية؟"
-      },
-      "answer": {
-        "en": "People tend to develop positive feelings toward things or people they are repeatedly exposed to simply due to familiarity — one reason relationships often form between neighbours or coworkers.",
-        "ar": "يميل الناس إلى تطوير مشاعر إيجابية تجاه الأشياء أو الأشخاص الذين يتعرضون لهم مراراً بسبب الألفة فحسب — وهو أحد أسباب تكوّن العلاقات بين الجيران أو زملاء العمل."
-      }
-    },
-    {
-      "id": "relationship-questions-012",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What does 'codependency' mean in a relationship?",
-        "ar": "ماذا تعني 'الاعتمادية المتبادلة' في العلاقة؟"
-      },
-      "answer": {
-        "en": "A pattern where one person excessively relies on the other for emotional validation and identity, often enabling unhealthy behaviours. One partner's needs consistently come before their own well-being.",
-        "ar": "نمط يعتمد فيه أحد الشريكين بشكل مفرط على الآخر للتحقق العاطفي وبناء الهوية، وكثيراً ما يُمكّن سلوكيات غير صحية. تُقدَّم احتياجات أحد الشريكين دائماً على حساب رفاهيته الذاتية."
-      }
-    },
-    {
-      "id": "relationship-questions-013",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is 'reflective listening'?",
-        "ar": "ما 'الاستماع الانعكاسي'؟"
-      },
-      "answer": {
-        "en": "Paraphrasing or summarising what the other person said to confirm understanding — e.g., 'So what you're saying is...' It shows the speaker they have been heard correctly.",
-        "ar": "إعادة صياغة أو تلخيص ما قاله الشخص الآخر للتأكد من الفهم — مثلاً: 'إذن ما تقوله هو...' يُظهر هذا للمتحدث أنه فُهم بشكل صحيح."
-      }
-    },
-    {
-      "id": "relationship-questions-014",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is 'attachment theory' in developmental psychology?",
-        "ar": "ما 'نظرية التعلق' في علم النفس التنموي؟"
-      },
-      "answer": {
-        "en": "John Bowlby's theory that early bonds with caregivers shape a child's emotional development and become a template for future relationships. Secure attachment with responsive caregivers leads to healthier adult relationships.",
-        "ar": "نظرية جون بولبي بأن الروابط المبكرة مع مقدمي الرعاية تُشكّل النمو العاطفي للطفل وتُصبح نموذجاً للعلاقات المستقبلية. يؤدي التعلق الآمن مع مقدمي رعاية متجاوبين إلى علاقات أكثر صحة في مرحلة البلوغ."
-      }
-    },
-    {
-      "id": "relationship-questions-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What are the four adult attachment styles identified in research by Hazan and Shaver, and how do they manifest?",
-        "ar": "ما أنماط التعلق الأربعة لدى البالغين التي حددها هازان وشيفر، وكيف تتجلى؟"
-      },
-      "answer": {
-        "en": "Secure (comfortable with intimacy), Anxious-Preoccupied (craves closeness, fears abandonment), Dismissive-Avoidant (values independence, suppresses intimacy), and Fearful-Avoidant (desires intimacy but fears it). Early caregiver relationships shape these styles.",
-        "ar": "الآمن (مرتاح مع الحميمية)، والقلق-المهموم (يتوق للقرب ويخاف الهجر)، والمتجنب-الرافض (يُقدّر الاستقلالية ويكبت الحميمية)، والخائف-المتجنب (يرغب في الحميمية لكن يخشاها). تُشكّل العلاقات المبكرة مع مقدمي الرعاية هذه الأنماط."
-      }
-    },
-    {
-      "id": "relationship-questions-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is 'flooding' in the context of couples conflict, and how does Gottman recommend dealing with it?",
-        "ar": "ما 'الفيضان العاطفي' في سياق نزاعات الأزواج، وكيف يوصي غوتمان بالتعامل معه؟"
-      },
-      "answer": {
-        "en": "Flooding is physiological overwhelm during conflict (heart rate spikes above 100 bpm) that impairs rational thinking. Gottman recommends calling a time-out of at least 20 minutes to allow the nervous system to calm before continuing the discussion.",
-        "ar": "الفيضان هو الإرهاق الفسيولوجي أثناء النزاع (ارتفاع معدل ضربات القلب فوق 100 نبضة/دقيقة) مما يُضعف التفكير المنطقي. يوصي غوتمان بأخذ استراحة لا تقل عن 20 دقيقة للسماح للجهاز العصبي بالهدوء قبل الاستمرار في النقاش."
-      }
-    },
-    {
-      "id": "relationship-questions-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is 'limerence' and how does it differ from mature love?",
-        "ar": "ما 'اللايميرنس' (الهيام الانتيابي) وكيف يختلف عن الحب الناضج؟"
-      },
-      "answer": {
-        "en": "Limerence (coined by Dorothy Tennov) is an intense, involuntary state of infatuation with intrusive thoughts and a desperate need for reciprocation. It's driven by neurochemicals (dopamine, norepinephrine) and typically peaks in 18–36 months. Mature love involves deeper commitment, care, and acceptance beyond the obsessive phase.",
-        "ar": "اللايميرنس (ابتكرت المصطلح دوروثي تينوف) هو حالة شغف مكثف وقسري مصحوب بأفكار تسلطية وحاجة يائسة للتبادل. تحرّكه المواد العصبية الكيميائية (الدوبامين، النورإبينفرين) وعادة ما يبلغ ذروته في 18-36 شهراً. أما الحب الناضج فينطوي على التزام أعمق ورعاية وقبول يتجاوز مرحلة الهوس."
-      }
-    },
-    {
-      "id": "relationship-questions-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is the 'demand-withdrawal' pattern in couple conflict and why is it damaging?",
-        "ar": "ما نمط 'الطلب والانسحاب' في صراعات الأزواج ولماذا هو مضر؟"
-      },
-      "answer": {
-        "en": "One partner pushes for discussion while the other withdraws; this creates a cycle of escalating pursuit and avoidance. Research links it to lower relationship satisfaction and higher rates of separation, because core issues never get resolved.",
-        "ar": "يضغط أحد الشريكين للمناقشة بينما ينسحب الآخر؛ ما يخلق دورة من التصعيد والتجنب. تربطه الأبحاث بانخفاض الرضا عن العلاقة وارتفاع معدلات الانفصال لأن المشكلات الجوهرية لا تُحل أبداً."
-      }
-    },
-    {
-      "id": "relationship-questions-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is 'nonviolent communication' (NVC) as developed by Marshall Rosenberg?",
-        "ar": "ما 'التواصل اللاعنفي' كما طوّره مارشال روزنبرغ؟"
-      },
-      "answer": {
-        "en": "A communication framework with four components: Observations (stating facts without evaluation), Feelings (naming emotions), Needs (identifying underlying needs), and Requests (making clear, doable requests). It aims to foster empathy and resolve conflict without blame.",
-        "ar": "إطار تواصلي بأربعة مكونات: الملاحظات (ذكر الوقائع دون تقييم)، والمشاعر (تسمية العواطف)، والاحتياجات (تحديد الاحتياجات الكامنة)، والطلبات (تقديم طلبات واضحة قابلة للتنفيذ). يهدف إلى تعزيز التعاطف وحل النزاع دون لوم."
-      }
-    },
-    {
-      "id": "relationship-questions-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What does research say about the relationship between self-disclosure and relationship closeness?",
-        "ar": "ماذا تقول الأبحاث عن العلاقة بين الإفصاح الذاتي وقرب العلاقة؟"
-      },
-      "answer": {
-        "en": "Progressive self-disclosure — sharing increasingly personal information over time — builds intimacy and trust (Social Penetration Theory, Altman & Taylor). Reciprocal disclosure accelerates closeness, and one-sided disclosure without reciprocation can feel intrusive or destabilising.",
-        "ar": "الإفصاح الذاتي التدريجي — مشاركة معلومات شخصية متصاعدة بمرور الوقت — يبني الحميمية والثقة (نظرية الاختراق الاجتماعي، ألتمان وتايلور). الإفصاح المتبادل يُسرّع القرب، والإفصاح الأحادي دون تبادل قد يبدو تدخلياً أو مزعزعاً للاستقرار."
-      }
-    },
-    {
-      "id": "relationship-questions-021",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is 'repair attempt' in Gottman's research and why is it important?",
-        "ar": "ما 'محاولة الإصلاح' في أبحاث غوتمان ولماذا هي مهمة؟"
-      },
-      "answer": {
-        "en": "A repair attempt is any action or statement during conflict that de-escalates tension — a joke, an apology, or touching the partner's hand. Couples who successfully use and accept repair attempts are far more likely to have stable, satisfying relationships.",
-        "ar": "محاولة الإصلاح هي أي فعل أو قول خلال النزاع يُخفف التوتر — نكتة، أو اعتذار، أو لمس يد الشريك. الأزواج الذين يستخدمون محاولات الإصلاح ويتقبلونها بنجاح أكثر عرضة بكثير للحفاظ على علاقات مستقرة ومُرضية."
-      }
-    },
-    {
-      "id": "relationship-questions-022",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'projection' in the context of relationships?",
-        "ar": "ما 'الإسقاط' في سياق العلاقات؟"
-      },
-      "answer": {
-        "en": "A defence mechanism where a person attributes their own unwanted feelings or traits onto their partner — e.g., someone who is angry accuses their partner of being angry. It deflects self-awareness and can create false conflict.",
-        "ar": "آلية دفاعية ينسب فيها الشخص مشاعره أو صفاته غير المرغوب فيها إلى شريكه — مثلاً، شخص يشعر بالغضب يتهم شريكه بالغضب. تُصرف الانتباه عن الوعي الذاتي وقد تُوجد صراعاً زائفاً."
-      }
-    },
-    {
-      "id": "relationship-questions-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is the 'Michelangelo phenomenon' in relationship psychology?",
-        "ar": "ما 'ظاهرة مايكل أنجلو' في علم نفس العلاقات؟"
-      },
-      "answer": {
-        "en": "The process by which close partners 'sculpt' each other toward their ideal selves through behavioural confirmation. Partners who affirm each other's ideal self-perceptions promote greater well-being and relationship satisfaction over time.",
-        "ar": "العملية التي 'ينحت' فيها الشركاء المقربون بعضهم نحو ذواتهم المثالية من خلال التأكيد السلوكي. الشركاء الذين يُعززون تصورات الذات المثالية لدى بعضهم يُعززون الرفاهية والرضا عن العلاقة مع مرور الوقت."
-      }
-    },
-    {
-      "id": "relationship-questions-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What neurochemical changes occur during the early stages of romantic love, and how do they differ from long-term attachment?",
-        "ar": "ما التغيرات العصبية الكيميائية التي تحدث في المراحل الأولى من الحب الرومانسي، وكيف تختلف عن التعلق طويل الأمد؟"
-      },
-      "answer": {
-        "en": "Early romantic love activates dopamine (reward/craving), norepinephrine (excitement), and serotonin drops (obsessive thinking). Long-term attachment shifts to oxytocin (bonding) and vasopressin (pair-bonding), producing calm, stable connection rather than intense craving.",
-        "ar": "يُنشّط الحب الرومانسي المبكر الدوبامين (المكافأة/الشوق)، والنورإبينفرين (الإثارة)، وينخفض السيروتونين (التفكير الهوسي). يتحوّل التعلق طويل الأمد نحو الأوكسيتوسين (التواصل) والفازوبريسين (الارتباط بالزوج)، مما يُنتج ارتباطاً هادئاً ومستقراً بدلاً من الشوق المكثف."
-      }
-    },
-    {
-      "id": "relationship-questions-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is the difference between 'solvable' and 'perpetual' problems in relationships, according to Gottman?",
-        "ar": "ما الفرق بين المشكلات 'القابلة للحل' و'الدائمة' في العلاقات، وفقاً لغوتمان؟"
-      },
-      "answer": {
-        "en": "Solvable problems have a clear resolution (logistics, chores). Perpetual problems (69% of all relationship conflicts) stem from fundamental personality differences or needs and never fully resolve — the goal is not to solve them but to manage them with humour, acceptance, and ongoing dialogue.",
-        "ar": "المشكلات القابلة للحل لها حل واضح (الخدمات اللوجستية، المهام المنزلية). المشكلات الدائمة (69٪ من جميع نزاعات العلاقات) تنبع من اختلافات أساسية في الشخصية أو الاحتياجات ولا تُحل كلياً أبداً — الهدف ليس حلها بل إدارتها بالفكاهة والقبول والحوار المستمر."
-      }
-    },
-    {
-      "id": "relationship-questions-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'anxious attachment' and what patterns of behaviour does it typically produce in adult romantic relationships?",
-        "ar": "ما 'التعلق القلق' وما أنماط السلوك التي ينتجها عادةً في العلاقات الرومانسية للبالغين؟"
-      },
-      "answer": {
-        "en": "Anxious attachment (preoccupied) produces hyperactivated attachment behaviour: constant reassurance-seeking, jealousy, fear of abandonment, difficulty tolerating partner independence, and protest behaviour (anger, crying) when separation is anticipated.",
-        "ar": "ينتج التعلق القلق (المهموم) سلوكاً تعلقياً مفرط التنشيط: الحاجة المستمرة للطمأنة، والغيرة، والخوف من الهجر، وصعوبة تحمّل استقلالية الشريك، وسلوكيات احتجاجية (الغضب، البكاء) عند توقع الفراق."
-      }
-    },
-    {
-      "id": "relationship-questions-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is 'stonewalling' and what does Gottman's research show about its physiological basis?",
-        "ar": "ما 'الانسحاب الكامل' ومن ماذا تُظهر أبحاث غوتمان عن أساسه الفسيولوجي؟"
-      },
-      "answer": {
-        "en": "Stonewalling is emotional shutdown — the listener withdraws all engagement (blank face, monosyllabic responses, physical stillness). Gottman found it typically follows flooding and is more common in men. The stonewallers' heart rate often exceeds 100 bpm, indicating they are actually in physiological overwhelm, not indifference.",
-        "ar": "الانسحاب الكامل هو الإغلاق العاطفي — يسحب المستمع كل تفاعله (وجه جامد، ردود أحادية المقطع، ثبات جسدي). وجد غوتمان أنه يتبع الفيضان العاطفي عادةً وأكثر شيوعاً لدى الرجال. معدل ضربات قلب المنسحبين كثيراً ما يتجاوز 100 نبضة/دقيقة، مما يشير إلى أنهم في الواقع مرهقون فسيولوجياً وليسوا غير مبالين."
-      }
-    },
-    {
-      "id": "relationship-questions-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is 'compassion fatigue' and how does it affect caregiving relationships?",
-        "ar": "ما 'التعب من التعاطف' وكيف يؤثر على علاقات الرعاية؟"
-      },
-      "answer": {
-        "en": "Compassion fatigue is emotional depletion from sustained exposure to others' suffering — common in caregivers and therapists. In intimate relationships, the caregiver partner may feel numbed, resentful, or burnt out, reducing their capacity for empathy. Self-care and professional support are critical mitigators.",
-        "ar": "تعب التعاطف هو الاستنزاف العاطفي من التعرض المستمر لمعاناة الآخرين — شائع لدى مقدمي الرعاية والمعالجين النفسيين. في العلاقات الحميمة، قد يشعر الشريك مقدم الرعاية بالخدر أو الاستياء أو الإرهاق، مما يُقلل قدرته على التعاطف. الاعتناء بالذات والدعم المهني من أهم عوامل التخفيف."
-      }
-    },
-    {
-      "id": "relationship-questions-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'self-expansion theory' in romantic relationships?",
-        "ar": "ما 'نظرية التوسع الذاتي' في العلاقات الرومانسية؟"
-      },
-      "answer": {
-        "en": "Arthur Aron's theory that people are motivated to expand the self by including others' perspectives, resources, and identities. Romantic partners who continue to offer novel, challenging experiences maintain higher satisfaction because the self-expansion drive continues to be met.",
-        "ar": "نظرية آرثر آرون بأن الناس يميلون لتوسيع الذات بتضمين وجهات نظر الآخرين ومواردهم وهوياتهم. الشركاء الرومانسيون الذين يواصلون تقديم تجارب جديدة وتحديات يحافظون على رضا أعلى لأن دافع التوسع الذاتي يستمر في الإشباع."
-      }
-    },
-    {
-      "id": "relationship-questions-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is DARVO and in what type of relationship dynamic does it typically appear?",
-        "ar": "ما DARVO وفي أي نوع من ديناميكيات العلاقات يظهر عادةً؟"
-      },
-      "answer": {
-        "en": "DARVO (Deny, Attack, Reverse Victim and Offender) is a manipulation tactic: the person accused of harmful behaviour denies it, attacks the person raising the concern, and then claims to be the real victim. It is typical in abusive or narcissistically structured relationships.",
-        "ar": "DARVO (إنكار، هجوم، عكس الضحية والمذنب) هو أسلوب تلاعب: يُنكر الشخص المتهم بسلوك ضار الاتهام، ويهاجم من يُثير القلق، ثم يدّعي أنه الضحية الحقيقية. شائع في العلاقات الإساءية أو ذات البنية النرجسية."
-      }
-    },
-    {
-      "id": "relationship-questions-031",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is 'secure base' in attachment theory, and how does it function in adult romantic relationships?",
-        "ar": "ما 'القاعدة الآمنة' في نظرية التعلق وكيف تعمل في العلاقات الرومانسية للبالغين؟"
-      },
-      "answer": {
-        "en": "Bowlby described the secure base as a trusted attachment figure from whom the individual can safely explore the world, knowing they can return for comfort. In adults, romantic partners serve as secure bases: felt security from the partner enables greater autonomy, risk-taking, and resilience.",
-        "ar": "وصف بولبي القاعدة الآمنة بأنها شخص تعلق موثوق به يستطيع الفرد منه استكشاف العالم بأمان مع العلم بإمكانية العودة للراحة. في البالغين، يعمل الشركاء الرومانسيون كقواعد آمنة: الشعور بالأمان من الشريك يُعزز الاستقلالية والمجازفة والمرونة."
-      }
-    },
-    {
-      "id": "relationship-questions-032",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'emotional regulation' and why is it important for relationship health?",
-        "ar": "ما 'التنظيم العاطفي' ولماذا هو مهم لصحة العلاقة؟"
-      },
-      "answer": {
-        "en": "The ability to manage and respond to emotional experiences in a flexible, adaptive way. Good emotional regulation prevents impulsive reactions during conflict, supports empathy, and promotes constructive communication. Poor regulation (over- or under-reactivity) is a major predictor of relationship dissatisfaction.",
-        "ar": "القدرة على إدارة التجارب العاطفية والاستجابة لها بطريقة مرنة وتكيفية. يمنع التنظيم العاطفي الجيد ردود الفعل المتهورة أثناء النزاع ويدعم التعاطف ويُعزز التواصل البنّاء. ضعف التنظيم (فرط أو نقص ردود الفعل) يُعدّ مُنبئاً رئيسياً بعدم الرضا عن العلاقة."
-      }
-    },
-    {
-      "id": "relationship-questions-033",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is 'meta-communication' and how is it used to improve relationship quality?",
-        "ar": "ما 'التواصل الفوقي' وكيف يُستخدم لتحسين جودة العلاقة؟"
-      },
-      "answer": {
-        "en": "Communication about communication — discussing how partners talk to each other, not just the content. E.g., 'I notice we tend to raise our voices when we talk about finances. Can we agree on a calmer approach?' It helps couples create shared norms and identify problematic patterns before they escalate.",
-        "ar": "التواصل حول التواصل — مناقشة كيفية حديث الشريكين مع بعضهما، وليس المحتوى فقط. مثلاً: 'لاحظت أننا نرفع أصواتنا عندما نتحدث عن الأمور المالية. هل يمكننا الاتفاق على نهج أكثر هدوءاً؟' يساعد هذا الأزواج على وضع معايير مشتركة وتحديد الأنماط الإشكالية قبل تصاعدها."
-      }
-    },
-    {
-      "id": "relationship-questions-034",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What does research show about the role of gratitude in long-term relationship satisfaction?",
-        "ar": "ماذا تُظهر الأبحاث عن دور الامتنان في الرضا عن العلاقة طويلة الأمد؟"
-      },
-      "answer": {
-        "en": "Studies by Sara Algoe and others show that expressing genuine gratitude toward a partner ('find, remind, and bind') strengthens communal norms, increases felt appreciation, and predicts greater relationship satisfaction and commitment months later — even after controlling for positive affect.",
-        "ar": "تُظهر دراسات سارة ألغو وغيرها أن التعبير عن الامتنان الصادق تجاه الشريك ('اكتشف، ذكّر، وارتبط') يُعزز المعايير المجتمعية ويزيد من الشعور بالتقدير ويتنبأ برضا أعلى عن العلاقة والتزام أكبر بعد أشهر — حتى بعد ضبط عامل المشاعر الإيجابية."
-      }
-    },
-    {
-      "id": "relationship-questions-035",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is 'collaborative problem-solving' and how does it differ from 'win-lose' conflict resolution?",
-        "ar": "ما 'حل المشكلات التعاوني' وكيف يختلف عن حل النزاع 'الفائز-الخاسر'؟"
-      },
-      "answer": {
-        "en": "In win-lose, one person's goal is met at the other's expense. In collaborative problem-solving, both partners articulate their underlying needs and work together to find solutions that satisfy both — producing higher-quality decisions, preserving the relationship, and increasing trust.",
-        "ar": "في نموذج الفائز-الخاسر، يتحقق هدف شخص واحد على حساب الآخر. في حل المشكلات التعاوني، يُعبّر كلا الشريكين عن احتياجاتهم الجوهرية ويعملان معاً لإيجاد حلول ترضيهما — مما ينتج قرارات أعلى جودة ويحفظ العلاقة ويُعزز الثقة."
-      }
-    },
-    {
-      "id": "relationship-questions-036",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'negative sentiment override' and how does it affect perception in troubled relationships?",
-        "ar": "ما 'السيطرة السلبية للمشاعر' وكيف تؤثر على الإدراك في العلاقات المتعثرة؟"
-      },
-      "answer": {
-        "en": "Gottman's term for a state in distressed couples where even neutral or positive partner behaviours are perceived as negative. It reverses the 'positive sentiment override' of healthy couples and creates a self-reinforcing negative lens that makes repair very difficult.",
-        "ar": "مصطلح غوتمان لحالة في الأزواج المتعثرين حيث تُدرَك حتى سلوكيات الشريك المحايدة أو الإيجابية على أنها سلبية. إنها تعكس 'السيطرة الإيجابية للمشاعر' لدى الأزواج الأصحاء وتخلق عدسة سلبية معززة لذاتها تجعل الإصلاح صعباً جداً."
-      }
-    },
-    {
-      "id": "relationship-questions-037",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is the 'closeness-communication bias' and why can it harm long-term relationships?",
-        "ar": "ما 'تحيز الاتصال بالقرب' ولماذا يمكن أن يضر العلاقات طويلة الأمد؟"
-      },
-      "answer": {
-        "en": "The tendency to assume close partners understand us better than they actually do — leading to less careful communication, omitted context, and untested assumptions. Research by Boaz Keysar found that partners are often no more accurate at understanding each other than strangers, making assumed communication dangerous.",
-        "ar": "الميل إلى افتراض أن الشركاء المقربين يفهموننا بشكل أفضل مما يفعلونه فعلاً — مما يؤدي إلى تواصل أقل دقة وسياق محذوف وافتراضات غير مختبرة. وجد بحث بواز كيسار أن الشركاء غالباً ليسوا أكثر دقة في فهم بعضهم من الغرباء، مما يجعل التواصل المفترض خطيراً."
-      }
-    },
-    {
-      "id": "relationship-questions-038",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is 'differentiation of self' in Bowen Family Systems Theory and why does it matter for intimacy?",
-        "ar": "ما 'التمايز الذاتي' في نظرية بوين لأنظمة الأسرة ولماذا يهم للحميمية؟"
-      },
-      "answer": {
-        "en": "Differentiation is the ability to maintain a stable sense of self while remaining emotionally connected to others. High differentiation allows genuine intimacy without fusion or distance; low differentiation leads to emotional fusion (losing the self in the relationship) or emotional cut-off.",
-        "ar": "التمايز هو القدرة على الحفاظ على شعور مستقر بالذات مع البقاء متصلاً عاطفياً بالآخرين. يُتيح التمايز العالي حميمية حقيقية دون اندماج أو مسافة؛ أما التمايز المنخفض فيؤدي إلى الاندماج العاطفي (فقدان الذات في العلاقة) أو القطيعة العاطفية."
-      }
-    },
-    {
-      "id": "relationship-questions-039",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is Mating Intelligence and how does it explain individual differences in relationship outcomes?",
-        "ar": "ما 'الذكاء في التزاوج' وكيف يفسر الفروق الفردية في نتائج العلاقات؟"
-      },
-      "answer": {
-        "en": "Mating intelligence (Geher & Miller) encompasses cognitive abilities related to navigating mating contexts: accurately assessing partner qualities, signalling one's own value, reading commitment cues, and detecting deception. Higher mating intelligence predicts better partner selection and longer relationship satisfaction, beyond general intelligence.",
-        "ar": "ذكاء التزاوج (جيهر وميلر) يشمل القدرات المعرفية المتعلقة بالتنقل في سياقات التزاوج: التقييم الدقيق لصفات الشريك، والإشارة إلى قيمة الذات، وقراءة إشارات الالتزام، وكشف الخداع. يتنبأ ذكاء التزاوج الأعلى باختيار أفضل للشريك ورضا أطول عن العلاقة، بمعزل عن الذكاء العام."
-      }
-    },
-    {
-      "id": "relationship-questions-040",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is the 'investment model' of relationship commitment (Rusbult) and what three factors predict commitment?",
-        "ar": "ما 'نموذج الاستثمار' للالتزام في العلاقة (راسبولت) وما العوامل الثلاثة التي تتنبأ بالالتزام؟"
-      },
-      "answer": {
-        "en": "Rusbult's Investment Model predicts commitment through: (1) Satisfaction — rewards minus costs; (2) Investment size — resources poured into the relationship (time, shared friends, memories); (3) Quality of alternatives — the attractiveness of leaving. High satisfaction + high investment + poor alternatives = strong commitment and accommodation of partner transgressions.",
-        "ar": "يتنبأ نموذج استثمار راسبولت بالالتزام من خلال: (1) الرضا — المكافآت ناقص التكاليف؛ (2) حجم الاستثمار — الموارد المُضخّة في العلاقة (الوقت، الأصدقاء المشتركون، الذكريات)؛ (3) جودة البدائل — جاذبية الانسحاب. رضا عالٍ + استثمار عالٍ + بدائل ضعيفة = التزام قوي وتسامح مع تجاوزات الشريك."
-      }
-    },
-    {
-      "id": "relationship-questions-041",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What does Terror Management Theory predict about the role of close relationships in mortality salience?",
-        "ar": "ما الذي تتنبأ به نظرية إدارة الرعب بشأن دور العلاقات الوثيقة في بروز الفناء؟"
-      },
-      "answer": {
-        "en": "TMT (Greenberg, Pyszczynski, Solomon) holds that awareness of death creates existential anxiety. Close relationships serve as symbolic immortality buffers — they give life meaning and continuity. Under mortality salience, people become more protective of romantic partners who share worldviews and more hostile to those who challenge them.",
-        "ar": "تقول نظرية TMT (غرينبرغ، بيزكينسكي، سولومون) إن الوعي بالموت يخلق قلقاً وجودياً. تعمل العلاقات الوثيقة كحواجز من الخلود الرمزي — تمنح الحياة معنى واستمرارية. في ظل بروز الفناء، يصبح الناس أكثر حماية للشركاء الرومانسيين الذين يتشاركون رؤاهم العالمية وأكثر عدائية تجاه من يتحداها."
-      }
-    },
-    {
-      "id": "relationship-questions-042",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'mentalization' (reflective functioning) and how does it protect against intergenerational transmission of attachment insecurity?",
-        "ar": "ما 'المنتلة' (الوظيفة الانعكاسية) وكيف تحمي من النقل عبر الأجيال لعدم أمان التعلق؟"
-      },
-      "answer": {
-        "en": "Mentalization is the ability to understand one's own and others' behaviour in terms of underlying mental states (intentions, feelings, desires). High reflective functioning (Fonagy) allows parents who had insecure childhoods to break the cycle by understanding their child's inner world, producing secure attachment in their children despite their own history.",
-        "ar": "المنتلة هي القدرة على فهم سلوك الذات والآخرين من حيث الحالات الذهنية الكامنة (النوايا، المشاعر، الرغبات). الوظيفة الانعكاسية العالية (فوناغي) تُتيح للآباء الذين عاشوا طفولة غير آمنة كسر الحلقة بفهم العالم الداخلي لأطفالهم، مما ينتج تعلقاً آمناً لدى أطفالهم رغم تاريخهم الخاص."
-      }
-    },
-    {
-      "id": "relationship-questions-043",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Communication",
-        "ar": "التواصل"
-      },
-      "question": {
-        "en": "What is 'affective forecasting error' and how does it affect relationship decisions?",
-        "ar": "ما 'خطأ التنبؤ العاطفي' وكيف يؤثر على قرارات العلاقات؟"
-      },
-      "answer": {
-        "en": "Affective forecasting error (Wilson & Gilbert) is the tendency to misjudge the intensity and duration of future emotional states. In relationships, people overestimate how happy they'll be after a positive event (e.g., marriage) and overestimate how devastated they'll be after a negative one (e.g., break-up), influencing commitment and exit decisions.",
-        "ar": "خطأ التنبؤ العاطفي (ويلسون وغيلبرت) هو الميل إلى سوء تقدير شدة الحالات العاطفية المستقبلية ومدتها. في العلاقات، يبالغ الناس في تقدير سعادتهم بعد حدث إيجابي (كالزواج) وفي تقدير مدى دمارهم بعد حدث سلبي (كالانفصال)، مما يؤثر على قرارات الالتزام والخروج."
-      }
-    },
-    {
-      "id": "relationship-questions-044",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is the 'dark triad' and what does research show about dark triad individuals' mating strategies?",
-        "ar": "ما 'الثالوث المظلم' وماذا تُظهر الأبحاث عن استراتيجيات التزاوج لدى أفراده؟"
-      },
-      "answer": {
-        "en": "The dark triad comprises narcissism, Machiavellianism, and psychopathy. Research shows dark triad individuals favour short-term mating: they engage in more deceptive self-presentation, manipulate partner poaching, tend toward infidelity and commitment avoidance, and display charm in early stages that later gives way to exploitation.",
-        "ar": "يتكون الثالوث المظلم من النرجسية والميكافيلية والاعتلال النفسي. تُظهر الأبحاث أن أفراده يُفضّلون التزاوج قصير الأمد: يمارسون تقديم الذات المخادع أكثر، ويتلاعبون في انتزاع الشريك، ويميلون نحو الخيانة وتجنب الالتزام، ويُظهرون جاذبية في المراحل الأولى سرعان ما تفسح الطريق للاستغلال."
-      }
-    },
-    {
-      "id": "relationship-questions-045",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'interpersonal complementarity' (Kiesler) and how does it shape relationship dynamics?",
-        "ar": "ما 'التكامل بين الأشخاص' (كيسلر) وكيف يُشكّل ديناميكيات العلاقة؟"
-      },
-      "answer": {
-        "en": "The principle that interpersonal behaviours pull for reciprocal responses: dominance pulls for submission, submission pulls for dominance (complementarity on control); affiliation pulls for affiliation (correspondence on warmth). These automatic pulls shape interaction patterns and can trap couples in rigid cycles (e.g., controlling partner + increasingly dependent partner).",
-        "ar": "المبدأ القائل بأن السلوكيات بين الأشخاص تستدعي استجابات متبادلة: الهيمنة تستدعي الخضوع، والخضوع يستدعي الهيمنة (تكامل في السيطرة)؛ والتودد يستدعي التودد (توافق في الدفء). هذه الاستدعاءات التلقائية تُشكّل أنماط التفاعل وقد تحبس الأزواج في دورات جامدة (مثلاً شريك مسيطر + شريك متصاعد الاعتمادية)."
-      }
-    },
-    {
-      "id": "relationship-questions-046",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is 'capitulation accommodation' versus 'exit-voice-loyalty-neglect' in relationship conflict, and what predicts which pathway is chosen?",
-        "ar": "ما 'تسوية الاستسلام' مقابل 'الخروج-الصوت-الولاء-الإهمال' في صراع العلاقة، وما الذي يتنبأ بالمسار المختار؟"
-      },
-      "answer": {
-        "en": "Rusbult's EVLN model describes responses to dissatisfaction: Exit (leave), Voice (discuss problem), Loyalty (wait hoping things improve), Neglect (passive deterioration). High commitment + positive sentiment override predicts constructive responses (Voice, Loyalty). Low investment + poor relationship quality predicts destructive ones (Exit, Neglect). Capitulation (immediate compliance) can be either accommodative or defensive depending on motivation.",
-        "ar": "نموذج EVLN لراسبولت يصف استجابات عدم الرضا: الخروج (المغادرة)، الصوت (مناقشة المشكلة)، الولاء (الانتظار أملاً في التحسن)، الإهمال (التدهور السلبي). الالتزام العالي + السيطرة الإيجابية للمشاعر يتنبأ بالاستجابات البنّاءة (الصوت، الولاء). الاستثمار المنخفض + جودة العلاقة المتدنية يتنبأ بالاستجابات المدمّرة (الخروج، الإهمال). قد يكون الاستسلام (الامتثال الفوري) تسوية أو دفاعياً بحسب الدافع."
-      }
-    },
-    {
-      "id": "relationship-questions-047",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Love & Attachment",
-        "ar": "الحب والتعلق"
-      },
-      "question": {
-        "en": "What is the 'actor-partner interdependence model' (APIM) and why is it important in relationship research?",
-        "ar": "ما 'نموذج الاعتماد المتبادل بين الشريكين' (APIM) ولماذا هو مهم في أبحاث العلاقات؟"
-      },
-      "answer": {
-        "en": "APIM (Kenny & Judd) is a statistical framework for dyadic data that simultaneously estimates actor effects (how one's own variable predicts one's outcome) and partner effects (how one partner's variable predicts the other's outcome). It is essential because standard independent-sample analyses assume non-independence, which is violated when both members of a couple are studied.",
-        "ar": "APIM (كيني وجود) هو إطار إحصائي للبيانات الثنائية يُقدّر في آنٍ واحد تأثيرات الفاعل (كيف تتنبأ متغيرات الشخص بنتائجه) وتأثيرات الشريك (كيف تتنبأ متغيرات أحد الشريكين بنتائج الآخر). إنه ضروري لأن التحليلات القياسية للعينات المستقلة تفترض الاستقلالية، وهو ما ينتهك عند دراسة كلا فردي الزوجين."
-      }
-    },
-    {
-      "id": "relationship-questions-048",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'perceived partner responsiveness' and what role does it play as a foundation of intimacy?",
-        "ar": "ما 'الاستجابة المتصوَّرة للشريك' وما دورها كأساس للحميمية؟"
-      },
-      "answer": {
-        "en": "Perceived partner responsiveness (Reis & Shaver) is the perception that a partner understands, validates, and cares for the self — comprising understanding, validation, and caring. It is considered the core ingredient of intimacy and predicts relationship satisfaction, trust, commitment, and personal well-being across cultures.",
-        "ar": "الاستجابة المتصوَّرة للشريك (ريس وشيفر) هي الإدراك بأن الشريك يفهم الذات ويُصادق عليها ويهتم بها — وتشمل الفهم والمصادقة والاهتمام. تُعتبر المكوّن الجوهري للحميمية وتتنبأ بالرضا عن العلاقة والثقة والالتزام والرفاهية الشخصية عبر الثقافات."
-      }
-    },
-    {
-      "id": "relationship-questions-049",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Conflict & Resolution",
-        "ar": "الصراع والحل"
-      },
-      "question": {
-        "en": "What is the 'abstinence violation effect' in the context of relationship relapse after separation?",
-        "ar": "ما 'أثر انتهاك الامتناع' في سياق الانتكاس في العلاقة بعد الانفصال؟"
-      },
-      "answer": {
-        "en": "Originally from addiction research (Marlatt), the abstinence violation effect describes how one slip (e.g., contacting an ex) leads to catastrophic thinking ('I've already failed') and complete relapse into the relationship. Applied to post-separation behaviour, it explains why a single moment of contact often triggers full reconciliation or destructive re-engagement cycles.",
-        "ar": "مستمد في الأصل من أبحاث الإدمان (مارلات)، يصف أثر انتهاك الامتناع كيف يؤدي انتهاك واحد (مثل التواصل مع الشريك السابق) إلى تفكير كارثي ('لقد فشلت بالفعل') وانتكاس كامل في العلاقة. وبتطبيقه على السلوك بعد الانفصال، يُفسّر لماذا غالباً ما يُطلق لحظة تواصل واحدة دورات مصالحة كاملة أو إعادة انخراط مدمّرة."
-      }
-    },
-    {
-      "id": "relationship-questions-050",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Psychology",
-        "ar": "علم النفس"
-      },
-      "question": {
-        "en": "What is 'communal versus exchange orientation' in relationships and when does each become appropriate?",
-        "ar": "ما 'التوجه المجتمعي مقابل التبادلي' في العلاقات ومتى يكون كل منهما مناسباً؟"
-      },
-      "answer": {
-        "en": "Clark & Mills: in communal relationships (close friends, romantic partners), people give benefits in response to need without expecting direct repayment — tracking debts signals distrust. In exchange relationships (business partners, acquaintances), people expect equivalent return for benefits given. Applying exchange norms to communal relationships lowers satisfaction and signals low commitment.",
-        "ar": "كلارك وميلز: في العلاقات المجتمعية (أصدقاء مقربون، شركاء رومانسيون)، يُقدّم الناس الفوائد استجابةً للحاجة دون توقع سداد مباشر — تتبّع الديون يُشير إلى عدم الثقة. في العلاقات التبادلية (شركاء الأعمال، المعارف)، يُتوقع الحصول على مقابل مكافئ للفوائد المُقدَّمة. تطبيق معايير التبادل على العلاقات المجتمعية يُقلل الرضا ويُشير إلى التزام منخفض."
-      }
+    "answer": {
+      "en": "Research suggests over 70% of communication is nonverbal, including body language, facial expressions, and tone of voice.",
+      "ar": "تشير الأبحاث إلى أن أكثر من 70٪ من التواصل غير لفظي، ويشمل لغة الجسد وتعابير الوجه ونبرة الصوت."
     }
-  ]
-}
+  },
+  {
+    "id": "relationship-questions-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "According to Sternberg's Triangular Theory of Love, what are the three components of love?",
+      "ar": "وفقاً لنظرية المثلث للحب لستيرنبرغ، ما المكونات الثلاثة للحب؟"
+    },
+    "answer": {
+      "en": "Intimacy, passion, and commitment.",
+      "ar": "الحميمية، والشغف، والالتزام."
+    }
+  },
+  {
+    "id": "relationship-questions-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'active listening'?",
+      "ar": "ما 'الاستماع الفعّال'؟"
+    },
+    "answer": {
+      "en": "Fully concentrating on what the other person is saying, understanding their message, responding thoughtfully, and remembering what was said — rather than passively hearing words.",
+      "ar": "التركيز الكامل على ما يقوله الشخص الآخر، وفهم رسالته، والرد بتأمل، وتذكر ما قيل — بدلاً من مجرد سماع الكلمات سلبياً."
+    }
+  },
+  {
+    "id": "relationship-questions-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is the 'silent treatment' and why do psychologists consider it harmful in relationships?",
+      "ar": "ما 'المعاملة الصامتة' ولماذا يعتبرها علماء النفس ضارة في العلاقات؟"
+    },
+    "answer": {
+      "en": "Deliberately ignoring or refusing to communicate with a partner as a form of punishment. It is harmful because it blocks resolution, creates emotional distance, and is a form of emotional manipulation.",
+      "ar": "تجاهل الشريك عمداً أو رفض التواصل معه كشكل من أشكال العقاب. وهو ضار لأنه يعيق الحل ويخلق مسافة عاطفية وهو شكل من أشكال التلاعب العاطفي."
+    }
+  },
+  {
+    "id": "relationship-questions-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What are John Gottman's 'Four Horsemen' — the four negative communication patterns that predict relationship breakdown?",
+      "ar": "ما 'الفرسان الأربعة' لجون غوتمان — الأنماط التواصلية السلبية الأربعة التي تتنبأ بانهيار العلاقة؟"
+    },
+    "answer": {
+      "en": "Criticism, contempt, defensiveness, and stonewalling.",
+      "ar": "النقد، والاحتقار، والتحفظ الدفاعي، والتجمّد (رفض التواصل)."
+    }
+  },
+  {
+    "id": "relationship-questions-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is empathy and how does it differ from sympathy?",
+      "ar": "ما التعاطف وكيف يختلف عن المشاركة الوجدانية؟"
+    },
+    "answer": {
+      "en": "Empathy is feeling with someone — stepping into their emotional experience. Sympathy is feeling for someone from a distance, acknowledging their feelings without sharing them.",
+      "ar": "التعاطف هو الشعور مع شخص ما — الدخول في تجربته العاطفية. المشاركة الوجدانية هي الشعور تجاه شخص ما من مسافة، مع الإقرار بمشاعره دون مشاركتها."
+    }
+  },
+  {
+    "id": "relationship-questions-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What does it mean to use 'I statements' in a conflict?",
+      "ar": "ماذا يعني استخدام 'جمل الأنا' في النزاع؟"
+    },
+    "answer": {
+      "en": "Expressing feelings from your own perspective ('I feel hurt when...') rather than blaming the other person ('You always...'). It reduces defensiveness and opens dialogue.",
+      "ar": "التعبير عن المشاعر من منظورك الخاص ('أشعر بالأذى عندما...') بدلاً من إلقاء اللوم على الآخر ('أنت دائماً...'). يُقلل هذا من الدفاعية ويفتح الحوار."
+    }
+  },
+  {
+    "id": "relationship-questions-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What are Gary Chapman's 'Five Love Languages'?",
+      "ar": "ما 'لغات الحب الخمس' لغاري تشابمان؟"
+    },
+    "answer": {
+      "en": "Words of Affirmation, Acts of Service, Receiving Gifts, Quality Time, and Physical Touch.",
+      "ar": "كلمات الإثبات، وأفعال الخدمة، واستقبال الهدايا، والوقت المميّز، واللمس الجسدي."
+    }
+  },
+  {
+    "id": "relationship-questions-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'gaslighting' in the context of relationships?",
+      "ar": "ما 'الغسيل الذهني' (Gaslighting) في سياق العلاقات؟"
+    },
+    "answer": {
+      "en": "A form of psychological manipulation where one person causes another to question their own memory, perception, or sanity — e.g., denying events that occurred or telling the victim they are 'overreacting'.",
+      "ar": "شكل من أشكال التلاعب النفسي حيث يجعل أحد الشخصين الآخرَ يشكك في ذاكرته أو إدراكه أو عقله — كإنكار أحداث وقعت أو إخبار الضحية بأنها 'مبالغة في ردة فعلها'."
+    }
+  },
+  {
+    "id": "relationship-questions-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is the 'sandwich' feedback method?",
+      "ar": "ما أسلوب التغذية الراجعة 'الساندويش'؟"
+    },
+    "answer": {
+      "en": "Delivering criticism between two positive statements: start with a compliment, deliver the criticism, end with encouragement. It softens the impact of negative feedback.",
+      "ar": "تقديم النقد بين عبارتين إيجابيتين: ابدأ بمجاملة، ثم قدّم النقد، ثم اختم بالتشجيع. يُخفف هذا من وقع التغذية الراجعة السلبية."
+    }
+  },
+  {
+    "id": "relationship-questions-011",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is the 'proximity effect' (mere exposure effect) in attraction?",
+      "ar": "ما 'أثر القرب' (أثر التعرض المجرد) في الجاذبية؟"
+    },
+    "answer": {
+      "en": "People tend to develop positive feelings toward things or people they are repeatedly exposed to simply due to familiarity — one reason relationships often form between neighbours or coworkers.",
+      "ar": "يميل الناس إلى تطوير مشاعر إيجابية تجاه الأشياء أو الأشخاص الذين يتعرضون لهم مراراً بسبب الألفة فحسب — وهو أحد أسباب تكوّن العلاقات بين الجيران أو زملاء العمل."
+    }
+  },
+  {
+    "id": "relationship-questions-012",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What does 'codependency' mean in a relationship?",
+      "ar": "ماذا تعني 'الاعتمادية المتبادلة' في العلاقة؟"
+    },
+    "answer": {
+      "en": "A pattern where one person excessively relies on the other for emotional validation and identity, often enabling unhealthy behaviours. One partner's needs consistently come before their own well-being.",
+      "ar": "نمط يعتمد فيه أحد الشريكين بشكل مفرط على الآخر للتحقق العاطفي وبناء الهوية، وكثيراً ما يُمكّن سلوكيات غير صحية. تُقدَّم احتياجات أحد الشريكين دائماً على حساب رفاهيته الذاتية."
+    }
+  },
+  {
+    "id": "relationship-questions-013",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is 'reflective listening'?",
+      "ar": "ما 'الاستماع الانعكاسي'؟"
+    },
+    "answer": {
+      "en": "Paraphrasing or summarising what the other person said to confirm understanding — e.g., 'So what you're saying is...' It shows the speaker they have been heard correctly.",
+      "ar": "إعادة صياغة أو تلخيص ما قاله الشخص الآخر للتأكد من الفهم — مثلاً: 'إذن ما تقوله هو...' يُظهر هذا للمتحدث أنه فُهم بشكل صحيح."
+    }
+  },
+  {
+    "id": "relationship-questions-014",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is 'attachment theory' in developmental psychology?",
+      "ar": "ما 'نظرية التعلق' في علم النفس التنموي؟"
+    },
+    "answer": {
+      "en": "John Bowlby's theory that early bonds with caregivers shape a child's emotional development and become a template for future relationships. Secure attachment with responsive caregivers leads to healthier adult relationships.",
+      "ar": "نظرية جون بولبي بأن الروابط المبكرة مع مقدمي الرعاية تُشكّل النمو العاطفي للطفل وتُصبح نموذجاً للعلاقات المستقبلية. يؤدي التعلق الآمن مع مقدمي رعاية متجاوبين إلى علاقات أكثر صحة في مرحلة البلوغ."
+    }
+  },
+  {
+    "id": "relationship-questions-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What are the four adult attachment styles identified in research by Hazan and Shaver, and how do they manifest?",
+      "ar": "ما أنماط التعلق الأربعة لدى البالغين التي حددها هازان وشيفر، وكيف تتجلى؟"
+    },
+    "answer": {
+      "en": "Secure (comfortable with intimacy), Anxious-Preoccupied (craves closeness, fears abandonment), Dismissive-Avoidant (values independence, suppresses intimacy), and Fearful-Avoidant (desires intimacy but fears it). Early caregiver relationships shape these styles.",
+      "ar": "الآمن (مرتاح مع الحميمية)، والقلق-المهموم (يتوق للقرب ويخاف الهجر)، والمتجنب-الرافض (يُقدّر الاستقلالية ويكبت الحميمية)، والخائف-المتجنب (يرغب في الحميمية لكن يخشاها). تُشكّل العلاقات المبكرة مع مقدمي الرعاية هذه الأنماط."
+    }
+  },
+  {
+    "id": "relationship-questions-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is 'flooding' in the context of couples conflict, and how does Gottman recommend dealing with it?",
+      "ar": "ما 'الفيضان العاطفي' في سياق نزاعات الأزواج، وكيف يوصي غوتمان بالتعامل معه؟"
+    },
+    "answer": {
+      "en": "Flooding is physiological overwhelm during conflict (heart rate spikes above 100 bpm) that impairs rational thinking. Gottman recommends calling a time-out of at least 20 minutes to allow the nervous system to calm before continuing the discussion.",
+      "ar": "الفيضان هو الإرهاق الفسيولوجي أثناء النزاع (ارتفاع معدل ضربات القلب فوق 100 نبضة/دقيقة) مما يُضعف التفكير المنطقي. يوصي غوتمان بأخذ استراحة لا تقل عن 20 دقيقة للسماح للجهاز العصبي بالهدوء قبل الاستمرار في النقاش."
+    }
+  },
+  {
+    "id": "relationship-questions-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is 'limerence' and how does it differ from mature love?",
+      "ar": "ما 'اللايميرنس' (الهيام الانتيابي) وكيف يختلف عن الحب الناضج؟"
+    },
+    "answer": {
+      "en": "Limerence (coined by Dorothy Tennov) is an intense, involuntary state of infatuation with intrusive thoughts and a desperate need for reciprocation. It's driven by neurochemicals (dopamine, norepinephrine) and typically peaks in 18–36 months. Mature love involves deeper commitment, care, and acceptance beyond the obsessive phase.",
+      "ar": "اللايميرنس (ابتكرت المصطلح دوروثي تينوف) هو حالة شغف مكثف وقسري مصحوب بأفكار تسلطية وحاجة يائسة للتبادل. تحرّكه المواد العصبية الكيميائية (الدوبامين، النورإبينفرين) وعادة ما يبلغ ذروته في 18-36 شهراً. أما الحب الناضج فينطوي على التزام أعمق ورعاية وقبول يتجاوز مرحلة الهوس."
+    }
+  },
+  {
+    "id": "relationship-questions-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is the 'demand-withdrawal' pattern in couple conflict and why is it damaging?",
+      "ar": "ما نمط 'الطلب والانسحاب' في صراعات الأزواج ولماذا هو مضر؟"
+    },
+    "answer": {
+      "en": "One partner pushes for discussion while the other withdraws; this creates a cycle of escalating pursuit and avoidance. Research links it to lower relationship satisfaction and higher rates of separation, because core issues never get resolved.",
+      "ar": "يضغط أحد الشريكين للمناقشة بينما ينسحب الآخر؛ ما يخلق دورة من التصعيد والتجنب. تربطه الأبحاث بانخفاض الرضا عن العلاقة وارتفاع معدلات الانفصال لأن المشكلات الجوهرية لا تُحل أبداً."
+    }
+  },
+  {
+    "id": "relationship-questions-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is 'nonviolent communication' (NVC) as developed by Marshall Rosenberg?",
+      "ar": "ما 'التواصل اللاعنفي' كما طوّره مارشال روزنبرغ؟"
+    },
+    "answer": {
+      "en": "A communication framework with four components: Observations (stating facts without evaluation), Feelings (naming emotions), Needs (identifying underlying needs), and Requests (making clear, doable requests). It aims to foster empathy and resolve conflict without blame.",
+      "ar": "إطار تواصلي بأربعة مكونات: الملاحظات (ذكر الوقائع دون تقييم)، والمشاعر (تسمية العواطف)، والاحتياجات (تحديد الاحتياجات الكامنة)، والطلبات (تقديم طلبات واضحة قابلة للتنفيذ). يهدف إلى تعزيز التعاطف وحل النزاع دون لوم."
+    }
+  },
+  {
+    "id": "relationship-questions-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What does research say about the relationship between self-disclosure and relationship closeness?",
+      "ar": "ماذا تقول الأبحاث عن العلاقة بين الإفصاح الذاتي وقرب العلاقة؟"
+    },
+    "answer": {
+      "en": "Progressive self-disclosure — sharing increasingly personal information over time — builds intimacy and trust (Social Penetration Theory, Altman & Taylor). Reciprocal disclosure accelerates closeness, and one-sided disclosure without reciprocation can feel intrusive or destabilising.",
+      "ar": "الإفصاح الذاتي التدريجي — مشاركة معلومات شخصية متصاعدة بمرور الوقت — يبني الحميمية والثقة (نظرية الاختراق الاجتماعي، ألتمان وتايلور). الإفصاح المتبادل يُسرّع القرب، والإفصاح الأحادي دون تبادل قد يبدو تدخلياً أو مزعزعاً للاستقرار."
+    }
+  },
+  {
+    "id": "relationship-questions-021",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is 'repair attempt' in Gottman's research and why is it important?",
+      "ar": "ما 'محاولة الإصلاح' في أبحاث غوتمان ولماذا هي مهمة؟"
+    },
+    "answer": {
+      "en": "A repair attempt is any action or statement during conflict that de-escalates tension — a joke, an apology, or touching the partner's hand. Couples who successfully use and accept repair attempts are far more likely to have stable, satisfying relationships.",
+      "ar": "محاولة الإصلاح هي أي فعل أو قول خلال النزاع يُخفف التوتر — نكتة، أو اعتذار، أو لمس يد الشريك. الأزواج الذين يستخدمون محاولات الإصلاح ويتقبلونها بنجاح أكثر عرضة بكثير للحفاظ على علاقات مستقرة ومُرضية."
+    }
+  },
+  {
+    "id": "relationship-questions-022",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'projection' in the context of relationships?",
+      "ar": "ما 'الإسقاط' في سياق العلاقات؟"
+    },
+    "answer": {
+      "en": "A defence mechanism where a person attributes their own unwanted feelings or traits onto their partner — e.g., someone who is angry accuses their partner of being angry. It deflects self-awareness and can create false conflict.",
+      "ar": "آلية دفاعية ينسب فيها الشخص مشاعره أو صفاته غير المرغوب فيها إلى شريكه — مثلاً، شخص يشعر بالغضب يتهم شريكه بالغضب. تُصرف الانتباه عن الوعي الذاتي وقد تُوجد صراعاً زائفاً."
+    }
+  },
+  {
+    "id": "relationship-questions-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is the 'Michelangelo phenomenon' in relationship psychology?",
+      "ar": "ما 'ظاهرة مايكل أنجلو' في علم نفس العلاقات؟"
+    },
+    "answer": {
+      "en": "The process by which close partners 'sculpt' each other toward their ideal selves through behavioural confirmation. Partners who affirm each other's ideal self-perceptions promote greater well-being and relationship satisfaction over time.",
+      "ar": "العملية التي 'ينحت' فيها الشركاء المقربون بعضهم نحو ذواتهم المثالية من خلال التأكيد السلوكي. الشركاء الذين يُعززون تصورات الذات المثالية لدى بعضهم يُعززون الرفاهية والرضا عن العلاقة مع مرور الوقت."
+    }
+  },
+  {
+    "id": "relationship-questions-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What neurochemical changes occur during the early stages of romantic love, and how do they differ from long-term attachment?",
+      "ar": "ما التغيرات العصبية الكيميائية التي تحدث في المراحل الأولى من الحب الرومانسي، وكيف تختلف عن التعلق طويل الأمد؟"
+    },
+    "answer": {
+      "en": "Early romantic love activates dopamine (reward/craving), norepinephrine (excitement), and serotonin drops (obsessive thinking). Long-term attachment shifts to oxytocin (bonding) and vasopressin (pair-bonding), producing calm, stable connection rather than intense craving.",
+      "ar": "يُنشّط الحب الرومانسي المبكر الدوبامين (المكافأة/الشوق)، والنورإبينفرين (الإثارة)، وينخفض السيروتونين (التفكير الهوسي). يتحوّل التعلق طويل الأمد نحو الأوكسيتوسين (التواصل) والفازوبريسين (الارتباط بالزوج)، مما يُنتج ارتباطاً هادئاً ومستقراً بدلاً من الشوق المكثف."
+    }
+  },
+  {
+    "id": "relationship-questions-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is the difference between 'solvable' and 'perpetual' problems in relationships, according to Gottman?",
+      "ar": "ما الفرق بين المشكلات 'القابلة للحل' و'الدائمة' في العلاقات، وفقاً لغوتمان؟"
+    },
+    "answer": {
+      "en": "Solvable problems have a clear resolution (logistics, chores). Perpetual problems (69% of all relationship conflicts) stem from fundamental personality differences or needs and never fully resolve — the goal is not to solve them but to manage them with humour, acceptance, and ongoing dialogue.",
+      "ar": "المشكلات القابلة للحل لها حل واضح (الخدمات اللوجستية، المهام المنزلية). المشكلات الدائمة (69٪ من جميع نزاعات العلاقات) تنبع من اختلافات أساسية في الشخصية أو الاحتياجات ولا تُحل كلياً أبداً — الهدف ليس حلها بل إدارتها بالفكاهة والقبول والحوار المستمر."
+    }
+  },
+  {
+    "id": "relationship-questions-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'anxious attachment' and what patterns of behaviour does it typically produce in adult romantic relationships?",
+      "ar": "ما 'التعلق القلق' وما أنماط السلوك التي ينتجها عادةً في العلاقات الرومانسية للبالغين؟"
+    },
+    "answer": {
+      "en": "Anxious attachment (preoccupied) produces hyperactivated attachment behaviour: constant reassurance-seeking, jealousy, fear of abandonment, difficulty tolerating partner independence, and protest behaviour (anger, crying) when separation is anticipated.",
+      "ar": "ينتج التعلق القلق (المهموم) سلوكاً تعلقياً مفرط التنشيط: الحاجة المستمرة للطمأنة، والغيرة، والخوف من الهجر، وصعوبة تحمّل استقلالية الشريك، وسلوكيات احتجاجية (الغضب، البكاء) عند توقع الفراق."
+    }
+  },
+  {
+    "id": "relationship-questions-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is 'stonewalling' and what does Gottman's research show about its physiological basis?",
+      "ar": "ما 'الانسحاب الكامل' ومن ماذا تُظهر أبحاث غوتمان عن أساسه الفسيولوجي؟"
+    },
+    "answer": {
+      "en": "Stonewalling is emotional shutdown — the listener withdraws all engagement (blank face, monosyllabic responses, physical stillness). Gottman found it typically follows flooding and is more common in men. The stonewallers' heart rate often exceeds 100 bpm, indicating they are actually in physiological overwhelm, not indifference.",
+      "ar": "الانسحاب الكامل هو الإغلاق العاطفي — يسحب المستمع كل تفاعله (وجه جامد، ردود أحادية المقطع، ثبات جسدي). وجد غوتمان أنه يتبع الفيضان العاطفي عادةً وأكثر شيوعاً لدى الرجال. معدل ضربات قلب المنسحبين كثيراً ما يتجاوز 100 نبضة/دقيقة، مما يشير إلى أنهم في الواقع مرهقون فسيولوجياً وليسوا غير مبالين."
+    }
+  },
+  {
+    "id": "relationship-questions-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is 'compassion fatigue' and how does it affect caregiving relationships?",
+      "ar": "ما 'التعب من التعاطف' وكيف يؤثر على علاقات الرعاية؟"
+    },
+    "answer": {
+      "en": "Compassion fatigue is emotional depletion from sustained exposure to others' suffering — common in caregivers and therapists. In intimate relationships, the caregiver partner may feel numbed, resentful, or burnt out, reducing their capacity for empathy. Self-care and professional support are critical mitigators.",
+      "ar": "تعب التعاطف هو الاستنزاف العاطفي من التعرض المستمر لمعاناة الآخرين — شائع لدى مقدمي الرعاية والمعالجين النفسيين. في العلاقات الحميمة، قد يشعر الشريك مقدم الرعاية بالخدر أو الاستياء أو الإرهاق، مما يُقلل قدرته على التعاطف. الاعتناء بالذات والدعم المهني من أهم عوامل التخفيف."
+    }
+  },
+  {
+    "id": "relationship-questions-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'self-expansion theory' in romantic relationships?",
+      "ar": "ما 'نظرية التوسع الذاتي' في العلاقات الرومانسية؟"
+    },
+    "answer": {
+      "en": "Arthur Aron's theory that people are motivated to expand the self by including others' perspectives, resources, and identities. Romantic partners who continue to offer novel, challenging experiences maintain higher satisfaction because the self-expansion drive continues to be met.",
+      "ar": "نظرية آرثر آرون بأن الناس يميلون لتوسيع الذات بتضمين وجهات نظر الآخرين ومواردهم وهوياتهم. الشركاء الرومانسيون الذين يواصلون تقديم تجارب جديدة وتحديات يحافظون على رضا أعلى لأن دافع التوسع الذاتي يستمر في الإشباع."
+    }
+  },
+  {
+    "id": "relationship-questions-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is DARVO and in what type of relationship dynamic does it typically appear?",
+      "ar": "ما DARVO وفي أي نوع من ديناميكيات العلاقات يظهر عادةً؟"
+    },
+    "answer": {
+      "en": "DARVO (Deny, Attack, Reverse Victim and Offender) is a manipulation tactic: the person accused of harmful behaviour denies it, attacks the person raising the concern, and then claims to be the real victim. It is typical in abusive or narcissistically structured relationships.",
+      "ar": "DARVO (إنكار، هجوم، عكس الضحية والمذنب) هو أسلوب تلاعب: يُنكر الشخص المتهم بسلوك ضار الاتهام، ويهاجم من يُثير القلق، ثم يدّعي أنه الضحية الحقيقية. شائع في العلاقات الإساءية أو ذات البنية النرجسية."
+    }
+  },
+  {
+    "id": "relationship-questions-031",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is 'secure base' in attachment theory, and how does it function in adult romantic relationships?",
+      "ar": "ما 'القاعدة الآمنة' في نظرية التعلق وكيف تعمل في العلاقات الرومانسية للبالغين؟"
+    },
+    "answer": {
+      "en": "Bowlby described the secure base as a trusted attachment figure from whom the individual can safely explore the world, knowing they can return for comfort. In adults, romantic partners serve as secure bases: felt security from the partner enables greater autonomy, risk-taking, and resilience.",
+      "ar": "وصف بولبي القاعدة الآمنة بأنها شخص تعلق موثوق به يستطيع الفرد منه استكشاف العالم بأمان مع العلم بإمكانية العودة للراحة. في البالغين، يعمل الشركاء الرومانسيون كقواعد آمنة: الشعور بالأمان من الشريك يُعزز الاستقلالية والمجازفة والمرونة."
+    }
+  },
+  {
+    "id": "relationship-questions-032",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'emotional regulation' and why is it important for relationship health?",
+      "ar": "ما 'التنظيم العاطفي' ولماذا هو مهم لصحة العلاقة؟"
+    },
+    "answer": {
+      "en": "The ability to manage and respond to emotional experiences in a flexible, adaptive way. Good emotional regulation prevents impulsive reactions during conflict, supports empathy, and promotes constructive communication. Poor regulation (over- or under-reactivity) is a major predictor of relationship dissatisfaction.",
+      "ar": "القدرة على إدارة التجارب العاطفية والاستجابة لها بطريقة مرنة وتكيفية. يمنع التنظيم العاطفي الجيد ردود الفعل المتهورة أثناء النزاع ويدعم التعاطف ويُعزز التواصل البنّاء. ضعف التنظيم (فرط أو نقص ردود الفعل) يُعدّ مُنبئاً رئيسياً بعدم الرضا عن العلاقة."
+    }
+  },
+  {
+    "id": "relationship-questions-033",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is 'meta-communication' and how is it used to improve relationship quality?",
+      "ar": "ما 'التواصل الفوقي' وكيف يُستخدم لتحسين جودة العلاقة؟"
+    },
+    "answer": {
+      "en": "Communication about communication — discussing how partners talk to each other, not just the content. E.g., 'I notice we tend to raise our voices when we talk about finances. Can we agree on a calmer approach?' It helps couples create shared norms and identify problematic patterns before they escalate.",
+      "ar": "التواصل حول التواصل — مناقشة كيفية حديث الشريكين مع بعضهما، وليس المحتوى فقط. مثلاً: 'لاحظت أننا نرفع أصواتنا عندما نتحدث عن الأمور المالية. هل يمكننا الاتفاق على نهج أكثر هدوءاً؟' يساعد هذا الأزواج على وضع معايير مشتركة وتحديد الأنماط الإشكالية قبل تصاعدها."
+    }
+  },
+  {
+    "id": "relationship-questions-034",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What does research show about the role of gratitude in long-term relationship satisfaction?",
+      "ar": "ماذا تُظهر الأبحاث عن دور الامتنان في الرضا عن العلاقة طويلة الأمد؟"
+    },
+    "answer": {
+      "en": "Studies by Sara Algoe and others show that expressing genuine gratitude toward a partner ('find, remind, and bind') strengthens communal norms, increases felt appreciation, and predicts greater relationship satisfaction and commitment months later — even after controlling for positive affect.",
+      "ar": "تُظهر دراسات سارة ألغو وغيرها أن التعبير عن الامتنان الصادق تجاه الشريك ('اكتشف، ذكّر، وارتبط') يُعزز المعايير المجتمعية ويزيد من الشعور بالتقدير ويتنبأ برضا أعلى عن العلاقة والتزام أكبر بعد أشهر — حتى بعد ضبط عامل المشاعر الإيجابية."
+    }
+  },
+  {
+    "id": "relationship-questions-035",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is 'collaborative problem-solving' and how does it differ from 'win-lose' conflict resolution?",
+      "ar": "ما 'حل المشكلات التعاوني' وكيف يختلف عن حل النزاع 'الفائز-الخاسر'؟"
+    },
+    "answer": {
+      "en": "In win-lose, one person's goal is met at the other's expense. In collaborative problem-solving, both partners articulate their underlying needs and work together to find solutions that satisfy both — producing higher-quality decisions, preserving the relationship, and increasing trust.",
+      "ar": "في نموذج الفائز-الخاسر، يتحقق هدف شخص واحد على حساب الآخر. في حل المشكلات التعاوني، يُعبّر كلا الشريكين عن احتياجاتهم الجوهرية ويعملان معاً لإيجاد حلول ترضيهما — مما ينتج قرارات أعلى جودة ويحفظ العلاقة ويُعزز الثقة."
+    }
+  },
+  {
+    "id": "relationship-questions-036",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'negative sentiment override' and how does it affect perception in troubled relationships?",
+      "ar": "ما 'السيطرة السلبية للمشاعر' وكيف تؤثر على الإدراك في العلاقات المتعثرة؟"
+    },
+    "answer": {
+      "en": "Gottman's term for a state in distressed couples where even neutral or positive partner behaviours are perceived as negative. It reverses the 'positive sentiment override' of healthy couples and creates a self-reinforcing negative lens that makes repair very difficult.",
+      "ar": "مصطلح غوتمان لحالة في الأزواج المتعثرين حيث تُدرَك حتى سلوكيات الشريك المحايدة أو الإيجابية على أنها سلبية. إنها تعكس 'السيطرة الإيجابية للمشاعر' لدى الأزواج الأصحاء وتخلق عدسة سلبية معززة لذاتها تجعل الإصلاح صعباً جداً."
+    }
+  },
+  {
+    "id": "relationship-questions-037",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is the 'closeness-communication bias' and why can it harm long-term relationships?",
+      "ar": "ما 'تحيز الاتصال بالقرب' ولماذا يمكن أن يضر العلاقات طويلة الأمد؟"
+    },
+    "answer": {
+      "en": "The tendency to assume close partners understand us better than they actually do — leading to less careful communication, omitted context, and untested assumptions. Research by Boaz Keysar found that partners are often no more accurate at understanding each other than strangers, making assumed communication dangerous.",
+      "ar": "الميل إلى افتراض أن الشركاء المقربين يفهموننا بشكل أفضل مما يفعلونه فعلاً — مما يؤدي إلى تواصل أقل دقة وسياق محذوف وافتراضات غير مختبرة. وجد بحث بواز كيسار أن الشركاء غالباً ليسوا أكثر دقة في فهم بعضهم من الغرباء، مما يجعل التواصل المفترض خطيراً."
+    }
+  },
+  {
+    "id": "relationship-questions-038",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is 'differentiation of self' in Bowen Family Systems Theory and why does it matter for intimacy?",
+      "ar": "ما 'التمايز الذاتي' في نظرية بوين لأنظمة الأسرة ولماذا يهم للحميمية؟"
+    },
+    "answer": {
+      "en": "Differentiation is the ability to maintain a stable sense of self while remaining emotionally connected to others. High differentiation allows genuine intimacy without fusion or distance; low differentiation leads to emotional fusion (losing the self in the relationship) or emotional cut-off.",
+      "ar": "التمايز هو القدرة على الحفاظ على شعور مستقر بالذات مع البقاء متصلاً عاطفياً بالآخرين. يُتيح التمايز العالي حميمية حقيقية دون اندماج أو مسافة؛ أما التمايز المنخفض فيؤدي إلى الاندماج العاطفي (فقدان الذات في العلاقة) أو القطيعة العاطفية."
+    }
+  },
+  {
+    "id": "relationship-questions-039",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is Mating Intelligence and how does it explain individual differences in relationship outcomes?",
+      "ar": "ما 'الذكاء في التزاوج' وكيف يفسر الفروق الفردية في نتائج العلاقات؟"
+    },
+    "answer": {
+      "en": "Mating intelligence (Geher & Miller) encompasses cognitive abilities related to navigating mating contexts: accurately assessing partner qualities, signalling one's own value, reading commitment cues, and detecting deception. Higher mating intelligence predicts better partner selection and longer relationship satisfaction, beyond general intelligence.",
+      "ar": "ذكاء التزاوج (جيهر وميلر) يشمل القدرات المعرفية المتعلقة بالتنقل في سياقات التزاوج: التقييم الدقيق لصفات الشريك، والإشارة إلى قيمة الذات، وقراءة إشارات الالتزام، وكشف الخداع. يتنبأ ذكاء التزاوج الأعلى باختيار أفضل للشريك ورضا أطول عن العلاقة، بمعزل عن الذكاء العام."
+    }
+  },
+  {
+    "id": "relationship-questions-040",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is the 'investment model' of relationship commitment (Rusbult) and what three factors predict commitment?",
+      "ar": "ما 'نموذج الاستثمار' للالتزام في العلاقة (راسبولت) وما العوامل الثلاثة التي تتنبأ بالالتزام؟"
+    },
+    "answer": {
+      "en": "Rusbult's Investment Model predicts commitment through: (1) Satisfaction — rewards minus costs; (2) Investment size — resources poured into the relationship (time, shared friends, memories); (3) Quality of alternatives — the attractiveness of leaving. High satisfaction + high investment + poor alternatives = strong commitment and accommodation of partner transgressions.",
+      "ar": "يتنبأ نموذج استثمار راسبولت بالالتزام من خلال: (1) الرضا — المكافآت ناقص التكاليف؛ (2) حجم الاستثمار — الموارد المُضخّة في العلاقة (الوقت، الأصدقاء المشتركون، الذكريات)؛ (3) جودة البدائل — جاذبية الانسحاب. رضا عالٍ + استثمار عالٍ + بدائل ضعيفة = التزام قوي وتسامح مع تجاوزات الشريك."
+    }
+  },
+  {
+    "id": "relationship-questions-041",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What does Terror Management Theory predict about the role of close relationships in mortality salience?",
+      "ar": "ما الذي تتنبأ به نظرية إدارة الرعب بشأن دور العلاقات الوثيقة في بروز الفناء؟"
+    },
+    "answer": {
+      "en": "TMT (Greenberg, Pyszczynski, Solomon) holds that awareness of death creates existential anxiety. Close relationships serve as symbolic immortality buffers — they give life meaning and continuity. Under mortality salience, people become more protective of romantic partners who share worldviews and more hostile to those who challenge them.",
+      "ar": "تقول نظرية TMT (غرينبرغ، بيزكينسكي، سولومون) إن الوعي بالموت يخلق قلقاً وجودياً. تعمل العلاقات الوثيقة كحواجز من الخلود الرمزي — تمنح الحياة معنى واستمرارية. في ظل بروز الفناء، يصبح الناس أكثر حماية للشركاء الرومانسيين الذين يتشاركون رؤاهم العالمية وأكثر عدائية تجاه من يتحداها."
+    }
+  },
+  {
+    "id": "relationship-questions-042",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'mentalization' (reflective functioning) and how does it protect against intergenerational transmission of attachment insecurity?",
+      "ar": "ما 'المنتلة' (الوظيفة الانعكاسية) وكيف تحمي من النقل عبر الأجيال لعدم أمان التعلق؟"
+    },
+    "answer": {
+      "en": "Mentalization is the ability to understand one's own and others' behaviour in terms of underlying mental states (intentions, feelings, desires). High reflective functioning (Fonagy) allows parents who had insecure childhoods to break the cycle by understanding their child's inner world, producing secure attachment in their children despite their own history.",
+      "ar": "المنتلة هي القدرة على فهم سلوك الذات والآخرين من حيث الحالات الذهنية الكامنة (النوايا، المشاعر، الرغبات). الوظيفة الانعكاسية العالية (فوناغي) تُتيح للآباء الذين عاشوا طفولة غير آمنة كسر الحلقة بفهم العالم الداخلي لأطفالهم، مما ينتج تعلقاً آمناً لدى أطفالهم رغم تاريخهم الخاص."
+    }
+  },
+  {
+    "id": "relationship-questions-043",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Communication",
+      "ar": "التواصل"
+    },
+    "question": {
+      "en": "What is 'affective forecasting error' and how does it affect relationship decisions?",
+      "ar": "ما 'خطأ التنبؤ العاطفي' وكيف يؤثر على قرارات العلاقات؟"
+    },
+    "answer": {
+      "en": "Affective forecasting error (Wilson & Gilbert) is the tendency to misjudge the intensity and duration of future emotional states. In relationships, people overestimate how happy they'll be after a positive event (e.g., marriage) and overestimate how devastated they'll be after a negative one (e.g., break-up), influencing commitment and exit decisions.",
+      "ar": "خطأ التنبؤ العاطفي (ويلسون وغيلبرت) هو الميل إلى سوء تقدير شدة الحالات العاطفية المستقبلية ومدتها. في العلاقات، يبالغ الناس في تقدير سعادتهم بعد حدث إيجابي (كالزواج) وفي تقدير مدى دمارهم بعد حدث سلبي (كالانفصال)، مما يؤثر على قرارات الالتزام والخروج."
+    }
+  },
+  {
+    "id": "relationship-questions-044",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is the 'dark triad' and what does research show about dark triad individuals' mating strategies?",
+      "ar": "ما 'الثالوث المظلم' وماذا تُظهر الأبحاث عن استراتيجيات التزاوج لدى أفراده؟"
+    },
+    "answer": {
+      "en": "The dark triad comprises narcissism, Machiavellianism, and psychopathy. Research shows dark triad individuals favour short-term mating: they engage in more deceptive self-presentation, manipulate partner poaching, tend toward infidelity and commitment avoidance, and display charm in early stages that later gives way to exploitation.",
+      "ar": "يتكون الثالوث المظلم من النرجسية والميكافيلية والاعتلال النفسي. تُظهر الأبحاث أن أفراده يُفضّلون التزاوج قصير الأمد: يمارسون تقديم الذات المخادع أكثر، ويتلاعبون في انتزاع الشريك، ويميلون نحو الخيانة وتجنب الالتزام، ويُظهرون جاذبية في المراحل الأولى سرعان ما تفسح الطريق للاستغلال."
+    }
+  },
+  {
+    "id": "relationship-questions-045",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'interpersonal complementarity' (Kiesler) and how does it shape relationship dynamics?",
+      "ar": "ما 'التكامل بين الأشخاص' (كيسلر) وكيف يُشكّل ديناميكيات العلاقة؟"
+    },
+    "answer": {
+      "en": "The principle that interpersonal behaviours pull for reciprocal responses: dominance pulls for submission, submission pulls for dominance (complementarity on control); affiliation pulls for affiliation (correspondence on warmth). These automatic pulls shape interaction patterns and can trap couples in rigid cycles (e.g., controlling partner + increasingly dependent partner).",
+      "ar": "المبدأ القائل بأن السلوكيات بين الأشخاص تستدعي استجابات متبادلة: الهيمنة تستدعي الخضوع، والخضوع يستدعي الهيمنة (تكامل في السيطرة)؛ والتودد يستدعي التودد (توافق في الدفء). هذه الاستدعاءات التلقائية تُشكّل أنماط التفاعل وقد تحبس الأزواج في دورات جامدة (مثلاً شريك مسيطر + شريك متصاعد الاعتمادية)."
+    }
+  },
+  {
+    "id": "relationship-questions-046",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is 'capitulation accommodation' versus 'exit-voice-loyalty-neglect' in relationship conflict, and what predicts which pathway is chosen?",
+      "ar": "ما 'تسوية الاستسلام' مقابل 'الخروج-الصوت-الولاء-الإهمال' في صراع العلاقة، وما الذي يتنبأ بالمسار المختار؟"
+    },
+    "answer": {
+      "en": "Rusbult's EVLN model describes responses to dissatisfaction: Exit (leave), Voice (discuss problem), Loyalty (wait hoping things improve), Neglect (passive deterioration). High commitment + positive sentiment override predicts constructive responses (Voice, Loyalty). Low investment + poor relationship quality predicts destructive ones (Exit, Neglect). Capitulation (immediate compliance) can be either accommodative or defensive depending on motivation.",
+      "ar": "نموذج EVLN لراسبولت يصف استجابات عدم الرضا: الخروج (المغادرة)، الصوت (مناقشة المشكلة)، الولاء (الانتظار أملاً في التحسن)، الإهمال (التدهور السلبي). الالتزام العالي + السيطرة الإيجابية للمشاعر يتنبأ بالاستجابات البنّاءة (الصوت، الولاء). الاستثمار المنخفض + جودة العلاقة المتدنية يتنبأ بالاستجابات المدمّرة (الخروج، الإهمال). قد يكون الاستسلام (الامتثال الفوري) تسوية أو دفاعياً بحسب الدافع."
+    }
+  },
+  {
+    "id": "relationship-questions-047",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Love & Attachment",
+      "ar": "الحب والتعلق"
+    },
+    "question": {
+      "en": "What is the 'actor-partner interdependence model' (APIM) and why is it important in relationship research?",
+      "ar": "ما 'نموذج الاعتماد المتبادل بين الشريكين' (APIM) ولماذا هو مهم في أبحاث العلاقات؟"
+    },
+    "answer": {
+      "en": "APIM (Kenny & Judd) is a statistical framework for dyadic data that simultaneously estimates actor effects (how one's own variable predicts one's outcome) and partner effects (how one partner's variable predicts the other's outcome). It is essential because standard independent-sample analyses assume non-independence, which is violated when both members of a couple are studied.",
+      "ar": "APIM (كيني وجود) هو إطار إحصائي للبيانات الثنائية يُقدّر في آنٍ واحد تأثيرات الفاعل (كيف تتنبأ متغيرات الشخص بنتائجه) وتأثيرات الشريك (كيف تتنبأ متغيرات أحد الشريكين بنتائج الآخر). إنه ضروري لأن التحليلات القياسية للعينات المستقلة تفترض الاستقلالية، وهو ما ينتهك عند دراسة كلا فردي الزوجين."
+    }
+  },
+  {
+    "id": "relationship-questions-048",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'perceived partner responsiveness' and what role does it play as a foundation of intimacy?",
+      "ar": "ما 'الاستجابة المتصوَّرة للشريك' وما دورها كأساس للحميمية؟"
+    },
+    "answer": {
+      "en": "Perceived partner responsiveness (Reis & Shaver) is the perception that a partner understands, validates, and cares for the self — comprising understanding, validation, and caring. It is considered the core ingredient of intimacy and predicts relationship satisfaction, trust, commitment, and personal well-being across cultures.",
+      "ar": "الاستجابة المتصوَّرة للشريك (ريس وشيفر) هي الإدراك بأن الشريك يفهم الذات ويُصادق عليها ويهتم بها — وتشمل الفهم والمصادقة والاهتمام. تُعتبر المكوّن الجوهري للحميمية وتتنبأ بالرضا عن العلاقة والثقة والالتزام والرفاهية الشخصية عبر الثقافات."
+    }
+  },
+  {
+    "id": "relationship-questions-049",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Conflict & Resolution",
+      "ar": "الصراع والحل"
+    },
+    "question": {
+      "en": "What is the 'abstinence violation effect' in the context of relationship relapse after separation?",
+      "ar": "ما 'أثر انتهاك الامتناع' في سياق الانتكاس في العلاقة بعد الانفصال؟"
+    },
+    "answer": {
+      "en": "Originally from addiction research (Marlatt), the abstinence violation effect describes how one slip (e.g., contacting an ex) leads to catastrophic thinking ('I've already failed') and complete relapse into the relationship. Applied to post-separation behaviour, it explains why a single moment of contact often triggers full reconciliation or destructive re-engagement cycles.",
+      "ar": "مستمد في الأصل من أبحاث الإدمان (مارلات)، يصف أثر انتهاك الامتناع كيف يؤدي انتهاك واحد (مثل التواصل مع الشريك السابق) إلى تفكير كارثي ('لقد فشلت بالفعل') وانتكاس كامل في العلاقة. وبتطبيقه على السلوك بعد الانفصال، يُفسّر لماذا غالباً ما يُطلق لحظة تواصل واحدة دورات مصالحة كاملة أو إعادة انخراط مدمّرة."
+    }
+  },
+  {
+    "id": "relationship-questions-050",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Psychology",
+      "ar": "علم النفس"
+    },
+    "question": {
+      "en": "What is 'communal versus exchange orientation' in relationships and when does each become appropriate?",
+      "ar": "ما 'التوجه المجتمعي مقابل التبادلي' في العلاقات ومتى يكون كل منهما مناسباً؟"
+    },
+    "answer": {
+      "en": "Clark & Mills: in communal relationships (close friends, romantic partners), people give benefits in response to need without expecting direct repayment — tracking debts signals distrust. In exchange relationships (business partners, acquaintances), people expect equivalent return for benefits given. Applying exchange norms to communal relationships lowers satisfaction and signals low commitment.",
+      "ar": "كلارك وميلز: في العلاقات المجتمعية (أصدقاء مقربون، شركاء رومانسيون)، يُقدّم الناس الفوائد استجابةً للحاجة دون توقع سداد مباشر — تتبّع الديون يُشير إلى عدم الثقة. في العلاقات التبادلية (شركاء الأعمال، المعارف)، يُتوقع الحصول على مقابل مكافئ للفوائد المُقدَّمة. تطبيق معايير التبادل على العلاقات المجتمعية يُقلل الرضا ويُشير إلى التزام منخفض."
+    }
+  }
+]

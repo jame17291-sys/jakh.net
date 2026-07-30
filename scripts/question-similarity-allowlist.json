@@ -1,0 +1,56 @@
+{
+  "reviewedDistinctPairs": [
+    {
+      "ids": ["geography-004", "geography-037"],
+      "reason": "Same answer, but one asks for the deepest ocean and the other for the largest."
+    },
+    {
+      "ids": ["football-026", "football-bw-022"],
+      "reason": "One asks for the club with the most European titles; the other asks who won the first European Cup."
+    },
+    {
+      "ids": ["football-004", "football-bw-016"],
+      "reason": "The questions concern two different Maradona goals in the same match."
+    },
+    {
+      "ids": ["tv-shows-trivia-126", "tv-shows-trivia-155"],
+      "reason": "The questions ask for the production countries of two different Syrian television shows."
+    },
+    {
+      "ids": ["tv-shows-trivia-130", "tv-shows-trivia-182"],
+      "reason": "The questions ask for the broadcast month of two different Ramadan television shows."
+    },
+    {
+      "ids": ["ayt-031", "ayt-033"],
+      "reason": "The questions use the same jersey-number format but ask about two different Captain Majid characters."
+    },
+    {
+      "ids": ["math-098", "math-128"],
+      "reason": "The questions count primes over different ranges and require different results."
+    },
+    {
+      "ids": ["tv-shows-trivia-153", "tv-shows-trivia-178"],
+      "reason": "The questions identify the formats of two different television shows."
+    },
+    {
+      "ids": ["math-080", "math-139"],
+      "reason": "The definite integrals have different integrands and require different solution methods."
+    },
+    {
+      "ids": ["math-028", "math-107"],
+      "reason": "One asks for a cube's edges; the other asks for its vertices."
+    },
+    {
+      "ids": ["math-044", "math-108"],
+      "reason": "One sums decimal digits through 10; the other sums the whole numbers from 1 through 9."
+    },
+    {
+      "ids": ["tv-shows-trivia-126", "tv-shows-trivia-137"],
+      "reason": "One asks where a show was produced; the other asks where it became popular."
+    },
+    {
+      "ids": ["football-026", "football-105"],
+      "reason": "The questions concern separate records in the Champions League and La Liga."
+    }
+  ]
+}

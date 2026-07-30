@@ -10,6 +10,144 @@
     },
     "totalQuestions": 3553
   },
+  "sections": [
+    {
+      "key": "mind",
+      "mark": "01",
+      "title": {
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
+      },
+      "description": {
+        "en": "Riddles, logic, psychology, philosophy, relationships, and mysteries.",
+        "ar": "ألغاز ومنطق وعلم نفس وفلسفة وعلاقات وغموض."
+      },
+      "gradient": "linear-gradient(135deg,#f5edff,#e7f2ff)",
+      "accent": "#6d49a7",
+      "members": [
+        "classic-riddles",
+        "logic-puzzles",
+        "kids-riddles",
+        "story-mysteries",
+        "true-crime",
+        "psychology",
+        "philosophy",
+        "relationship-questions"
+      ]
+    },
+    {
+      "key": "science",
+      "mark": "02",
+      "title": {
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
+      },
+      "description": {
+        "en": "Math, physical and life sciences, nature, space, medicine, and pharmacy.",
+        "ar": "رياضيات وعلوم فيزيائية وحياتية وطبيعة وفضاء وطب وصيدلة."
+      },
+      "gradient": "linear-gradient(135deg,#e8f7ef,#e8f4ff)",
+      "accent": "#1d7051",
+      "members": [
+        "math",
+        "science",
+        "physical-and-life-sciences",
+        "biology",
+        "chemistry",
+        "geology",
+        "space-and-astrology",
+        "environment-and-ecology",
+        "animal-kingdom",
+        "survival",
+        "medical-questions",
+        "pharmacy"
+      ]
+    },
+    {
+      "key": "tech",
+      "mark": "03",
+      "title": {
+        "en": "Technology & Engineering",
+        "ar": "التقنية والهندسة"
+      },
+      "description": {
+        "en": "Software, design, machines, infrastructure, energy, architecture, and invention.",
+        "ar": "برمجيات وتصميم وآلات وبنية تحتية وطاقة وعمارة واختراعات."
+      },
+      "gradient": "linear-gradient(135deg,#eef4ff,#e8fbfb)",
+      "accent": "#256aa9",
+      "members": [
+        "software-and-computing",
+        "coding-and-design",
+        "tech-retro",
+        "future-tech-and-energy",
+        "automotive",
+        "civil-engineering",
+        "electrical-engineering",
+        "mechanical-engineering",
+        "infrastructure-systems",
+        "architecture-and-landmarks",
+        "inventions-and-minds"
+      ]
+    },
+    {
+      "key": "world",
+      "mark": "04",
+      "title": {
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
+      },
+      "description": {
+        "en": "Places, peoples, history, law, language, business, money, customs, and food.",
+        "ar": "أماكن وشعوب وتاريخ وقانون ولغات وأعمال ومال وعادات وطعام."
+      },
+      "gradient": "linear-gradient(135deg,#fff4dc,#fff0e7)",
+      "accent": "#976006",
+      "members": [
+        "geography",
+        "flag-questions",
+        "currencies",
+        "history",
+        "middle-east-history",
+        "ancient-civilizations",
+        "law-middle-east",
+        "world-habits-and-etiquette",
+        "linguistics",
+        "business-and-management",
+        "economics-and-finance",
+        "social-sciences",
+        "food-and-cuisines"
+      ]
+    },
+    {
+      "key": "culture",
+      "mark": "05",
+      "title": {
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
+      },
+      "description": {
+        "en": "Art, books, music, screens, fandoms, anime, classic cartoons, and football.",
+        "ar": "فن وكتب وموسيقى وشاشات وعوالم جماهيرية وأنمي ورسوم كلاسيكية وكرة قدم."
+      },
+      "gradient": "linear-gradient(135deg,#fff0f4,#f8edff)",
+      "accent": "#a13f69",
+      "members": [
+        "fictional-worlds",
+        "superheroes",
+        "pop-culture",
+        "mythology-legends",
+        "art-and-painters",
+        "books-and-quotes",
+        "tv-shows-trivia",
+        "music-and-performing-arts",
+        "cinema-and-film-history",
+        "anime",
+        "ayam-tayebeen",
+        "football"
+      ]
+    }
+  ],
   "categories": [
     {
       "slug": "currencies",
@@ -22,8 +160,8 @@
       "color": "var(--easy)",
       "count": 40,
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "href": "currencies.html",
       "description": {
@@ -35,6 +173,54 @@
         "business-and-management",
         "history",
         "geography"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "National Currencies",
+          "ar": "العملات الوطنية",
+          "count": 12
+        },
+        {
+          "en": "Foreign Exchange",
+          "ar": "الصرف الأجنبي",
+          "count": 7
+        },
+        {
+          "en": "Monetary History",
+          "ar": "تاريخ النقود",
+          "count": 6
+        },
+        {
+          "en": "Money Basics",
+          "ar": "أساسيات المال",
+          "count": 5
+        },
+        {
+          "en": "Alternative Money",
+          "ar": "أشكال المال البديلة",
+          "count": 3
+        },
+        {
+          "en": "Monetary Policy",
+          "ar": "السياسة النقدية",
+          "count": 3
+        },
+        {
+          "en": "Digital Currency",
+          "ar": "العملات الرقمية",
+          "count": 2
+        },
+        {
+          "en": "Money & Banking",
+          "ar": "المال والمصارف",
+          "count": 2
+        }
       ]
     },
     {
@@ -48,8 +234,8 @@
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "href": "linguistics.html",
       "description": {
@@ -61,6 +247,44 @@
         "social-sciences",
         "philosophy",
         "psychology"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Language Use & Diversity",
+          "ar": "استخدام اللغة وتنوعها",
+          "count": 10
+        },
+        {
+          "en": "Grammar & Structure",
+          "ar": "القواعد والبنية",
+          "count": 8
+        },
+        {
+          "en": "Writing Systems",
+          "ar": "أنظمة الكتابة",
+          "count": 7
+        },
+        {
+          "en": "Words & Meaning",
+          "ar": "الكلمات والمعاني",
+          "count": 6
+        },
+        {
+          "en": "Historical Linguistics",
+          "ar": "اللسانيات التاريخية",
+          "count": 5
+        },
+        {
+          "en": "Sounds & Pronunciation",
+          "ar": "الأصوات والنطق",
+          "count": 4
+        }
       ]
     },
     {
@@ -74,7 +298,7 @@
       "color": "var(--warn)",
       "count": 40,
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "href": "tech-retro.html",
@@ -87,6 +311,49 @@
         "coding-and-design",
         "future-tech-and-energy",
         "inventions-and-minds"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Retro Gaming",
+          "ar": "ألعاب الفيديو الكلاسيكية",
+          "count": 12
+        },
+        {
+          "en": "Early Internet",
+          "ar": "الإنترنت المبكر",
+          "count": 9
+        },
+        {
+          "en": "Hardware & Storage",
+          "ar": "العتاد والتخزين",
+          "count": 5
+        },
+        {
+          "en": "Software & Programming",
+          "ar": "البرمجيات والبرمجة",
+          "count": 5
+        },
+        {
+          "en": "Mobile & Gadgets",
+          "ar": "الهواتف والأجهزة",
+          "count": 4
+        },
+        {
+          "en": "Personal Computers",
+          "ar": "الحواسيب الشخصية",
+          "count": 3
+        },
+        {
+          "en": "Computing Pioneers",
+          "ar": "رواد الحوسبة",
+          "count": 2
+        }
       ]
     },
     {
@@ -100,7 +367,7 @@
       "color": "var(--warn)",
       "count": 40,
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "href": "automotive.html",
@@ -113,6 +380,49 @@
         "civil-engineering",
         "electrical-engineering",
         "future-tech-and-energy"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Brands & Models",
+          "ar": "العلامات والطرازات",
+          "count": 12
+        },
+        {
+          "en": "Engines & Drivetrains",
+          "ar": "المحركات وأنظمة الدفع",
+          "count": 8
+        },
+        {
+          "en": "Motorsport",
+          "ar": "رياضة المحركات",
+          "count": 6
+        },
+        {
+          "en": "Components & Maintenance",
+          "ar": "المكونات والصيانة",
+          "count": 5
+        },
+        {
+          "en": "Safety & Vehicle Dynamics",
+          "ar": "السلامة وديناميكيات المركبات",
+          "count": 4
+        },
+        {
+          "en": "Automotive History",
+          "ar": "تاريخ السيارات",
+          "count": 3
+        },
+        {
+          "en": "Electric Vehicles",
+          "ar": "المركبات الكهربائية",
+          "count": 2
+        }
       ]
     },
     {
@@ -126,8 +436,8 @@
       "color": "var(--easy)",
       "count": 40,
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "href": "survival.html",
       "description": {
@@ -139,6 +449,54 @@
         "environment-and-ecology",
         "animal-kingdom",
         "physical-and-life-sciences"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Firecraft",
+          "ar": "مهارات إشعال النار",
+          "count": 6
+        },
+        {
+          "en": "First Aid & Field Medicine",
+          "ar": "الإسعافات الأولية والطب الميداني",
+          "count": 6
+        },
+        {
+          "en": "Navigation & Signaling",
+          "ar": "الملاحة وإشارات الاستغاثة",
+          "count": 6
+        },
+        {
+          "en": "Water & Hydration",
+          "ar": "المياه والترطيب",
+          "count": 6
+        },
+        {
+          "en": "Shelter & Fieldcraft",
+          "ar": "المأوى والمهارات الميدانية",
+          "count": 5
+        },
+        {
+          "en": "Food & Foraging",
+          "ar": "الغذاء وجمع الطعام",
+          "count": 4
+        },
+        {
+          "en": "Wildlife & Plant Hazards",
+          "ar": "مخاطر الحيوانات والنباتات",
+          "count": 4
+        },
+        {
+          "en": "Core Survival & Planning",
+          "ar": "أساسيات البقاء والتخطيط",
+          "count": 3
+        }
       ]
     },
     {
@@ -152,8 +510,8 @@
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "href": "fictional-worlds.html",
       "description": {
@@ -165,6 +523,44 @@
         "cinema-and-film-history",
         "anime",
         "superheroes"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Fantasy & Magic",
+          "ar": "الفانتازيا والسحر",
+          "count": 15
+        },
+        {
+          "en": "Science Fiction & Space",
+          "ar": "الخيال العلمي والفضاء",
+          "count": 12
+        },
+        {
+          "en": "Anime & Animation",
+          "ar": "الأنمي والرسوم المتحركة",
+          "count": 4
+        },
+        {
+          "en": "Superhero Worlds",
+          "ar": "عوالم الأبطال الخارقين",
+          "count": 4
+        },
+        {
+          "en": "Video Game Worlds",
+          "ar": "عوالم ألعاب الفيديو",
+          "count": 3
+        },
+        {
+          "en": "Horror & Dark Fiction",
+          "ar": "الرعب والخيال المظلم",
+          "count": 2
+        }
       ]
     },
     {
@@ -178,8 +574,8 @@
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "href": "superheroes.html",
       "description": {
@@ -191,6 +587,54 @@
         "tv-shows-trivia",
         "pop-culture",
         "fictional-worlds"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Villains & Rivalries",
+          "ar": "الأشرار والخصومات",
+          "count": 8
+        },
+        {
+          "en": "Origins & Identities",
+          "ar": "الأصول والهويات",
+          "count": 6
+        },
+        {
+          "en": "Powers, Materials & Artifacts",
+          "ar": "القوى والمواد والتحف",
+          "count": 6
+        },
+        {
+          "en": "DC Heroes",
+          "ar": "أبطال دي سي",
+          "count": 5
+        },
+        {
+          "en": "Comics History & Storylines",
+          "ar": "تاريخ القصص المصورة والأحداث",
+          "count": 4
+        },
+        {
+          "en": "Marvel Heroes",
+          "ar": "أبطال مارفل",
+          "count": 4
+        },
+        {
+          "en": "Worlds & Organizations",
+          "ar": "العوالم والمنظمات",
+          "count": 4
+        },
+        {
+          "en": "Teams & Alliances",
+          "ar": "الفرق والتحالفات",
+          "count": 3
+        }
       ]
     },
     {
@@ -204,8 +648,8 @@
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "href": "pop-culture.html",
       "description": {
@@ -217,6 +661,49 @@
         "cinema-and-film-history",
         "music-and-performing-arts",
         "anime"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Film & TV",
+          "ar": "الأفلام والتلفزيون",
+          "count": 10
+        },
+        {
+          "en": "Internet Culture",
+          "ar": "ثقافة الإنترنت",
+          "count": 9
+        },
+        {
+          "en": "Fan Culture",
+          "ar": "ثقافة المعجبين",
+          "count": 7
+        },
+        {
+          "en": "Music",
+          "ar": "الموسيقى",
+          "count": 6
+        },
+        {
+          "en": "Gaming",
+          "ar": "ألعاب الفيديو",
+          "count": 4
+        },
+        {
+          "en": "TV Animation",
+          "ar": "الرسوم المتحركة التلفزيونية",
+          "count": 2
+        },
+        {
+          "en": "TV Comedy",
+          "ar": "الكوميديا التلفزيونية",
+          "count": 2
+        }
       ]
     },
     {
@@ -230,8 +717,8 @@
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "href": "true-crime.html",
       "description": {
@@ -243,6 +730,44 @@
         "psychology",
         "social-sciences",
         "law-middle-east"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Forensic Science",
+          "ar": "علوم الأدلة الجنائية",
+          "count": 10
+        },
+        {
+          "en": "Organized Crime & Outlaws",
+          "ar": "الجريمة المنظمة والخارجون عن القانون",
+          "count": 8
+        },
+        {
+          "en": "Serial Killers & Unsolved Cases",
+          "ar": "القتلة المتسلسلون والقضايا الغامضة",
+          "count": 8
+        },
+        {
+          "en": "Heists, Kidnappings & Prisons",
+          "ar": "السرقات والخطف والسجون",
+          "count": 6
+        },
+        {
+          "en": "Assassinations & Political Crime",
+          "ar": "الاغتيالات والجرائم السياسية",
+          "count": 5
+        },
+        {
+          "en": "Cults & Mass Crimes",
+          "ar": "الطوائف والجرائم الجماعية",
+          "count": 3
+        }
       ]
     },
     {
@@ -256,8 +781,8 @@
       "color": "var(--accent)",
       "count": 40,
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "href": "mythology-legends.html",
       "description": {
@@ -269,6 +794,54 @@
         "ancient-civilizations",
         "philosophy",
         "middle-east-history"
+      ],
+      "difficultyCounts": {
+        "easy": 10,
+        "medium": 10,
+        "hard": 10,
+        "very-advanced": 10
+      },
+      "topics": [
+        {
+          "en": "Greek & Roman",
+          "ar": "الأساطير اليونانية والرومانية",
+          "count": 13
+        },
+        {
+          "en": "Heroes & Creatures",
+          "ar": "الأبطال والمخلوقات",
+          "count": 6
+        },
+        {
+          "en": "Norse",
+          "ar": "الأساطير الإسكندنافية",
+          "count": 6
+        },
+        {
+          "en": "Indigenous Traditions",
+          "ar": "التقاليد الأسطورية الأصلية",
+          "count": 4
+        },
+        {
+          "en": "Asian",
+          "ar": "الأساطير الآسيوية",
+          "count": 3
+        },
+        {
+          "en": "Celtic & Arthurian",
+          "ar": "الأساطير السلتية والآرثرية",
+          "count": 3
+        },
+        {
+          "en": "Egyptian",
+          "ar": "الأساطير المصرية",
+          "count": 3
+        },
+        {
+          "en": "Middle Eastern",
+          "ar": "أساطير الشرق الأوسط",
+          "count": 2
+        }
       ]
     },
     {
@@ -282,8 +855,8 @@
         "ar": "رسامون وأعمال مشهورة وأساليب فنية وأدلة ممتعة للعب الودي."
       },
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "emoji": "🎨",
@@ -292,12 +865,43 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "art-and-painters.html",
-      "image": "assets/art-and-painters.svg"
+      "image": "assets/art-and-painters.svg",
+      "topics": [
+        {
+          "en": "Artists & Masterpieces",
+          "ar": "الفنانون والروائع",
+          "count": 10
+        },
+        {
+          "en": "Movements & Styles",
+          "ar": "الحركات والأساليب الفنية",
+          "count": 9
+        },
+        {
+          "en": "Art History",
+          "ar": "تاريخ الفن",
+          "count": 4
+        },
+        {
+          "en": "Techniques & Materials",
+          "ar": "التقنيات والمواد",
+          "count": 4
+        },
+        {
+          "en": "Visual Language",
+          "ar": "اللغة البصرية",
+          "count": 3
+        }
+      ],
+      "related": [
+        "books-and-quotes",
+        "tv-shows-trivia",
+        "music-and-performing-arts",
+        "cinema-and-film-history"
+      ]
     },
     {
       "slug": "biology",
@@ -310,8 +914,8 @@
         "ar": "أحياء للمتعلمين الكبار تشمل الخلايا والوراثة ووظائف الأعضاء والبيئة والتطور والمناعة وأدوات الجزيئات الحديثة."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "🧬",
@@ -323,9 +927,56 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "biology.html",
-      "image": "assets/biology.svg"
+      "image": "assets/biology.svg",
+      "topics": [
+        {
+          "en": "Cells & Metabolism",
+          "ar": "الخلايا والأيض",
+          "count": 22
+        },
+        {
+          "en": "Genetics & Molecular Biology",
+          "ar": "الوراثة والأحياء الجزيئية",
+          "count": 19
+        },
+        {
+          "en": "Human Anatomy & Physiology",
+          "ar": "تشريح ووظائف جسم الإنسان",
+          "count": 18
+        },
+        {
+          "en": "Plant Biology",
+          "ar": "علم النبات",
+          "count": 10
+        },
+        {
+          "en": "Ecology",
+          "ar": "علم البيئة",
+          "count": 9
+        },
+        {
+          "en": "Evolution",
+          "ar": "التطور",
+          "count": 9
+        },
+        {
+          "en": "Animals & Classification",
+          "ar": "الحيوانات والتصنيف",
+          "count": 7
+        },
+        {
+          "en": "Microbiology & Immunity",
+          "ar": "الأحياء الدقيقة والمناعة",
+          "count": 6
+        }
+      ],
+      "related": [
+        "chemistry",
+        "geology",
+        "space-and-astrology",
+        "environment-and-ecology"
+      ]
     },
     {
       "slug": "books-and-quotes",
@@ -338,8 +989,8 @@
         "ar": "كتّاب وروايات واقتباسات مشهورة وأدلة أدبية في صفحة واحدة."
       },
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "emoji": "📚",
@@ -348,12 +999,38 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "books-and-quotes.html",
-      "image": "assets/books-and-quotes.svg"
+      "image": "assets/books-and-quotes.svg",
+      "topics": [
+        {
+          "en": "Authors & Identities",
+          "ar": "المؤلفون وهوياتهم",
+          "count": 10
+        },
+        {
+          "en": "Quotes & Opening Lines",
+          "ar": "الاقتباسات والمطالع",
+          "count": 8
+        },
+        {
+          "en": "Works & Characters",
+          "ar": "الأعمال والشخصيات",
+          "count": 7
+        },
+        {
+          "en": "Literary History, Terms & Awards",
+          "ar": "تاريخ الأدب ومصطلحاته وجوائزه",
+          "count": 5
+        }
+      ],
+      "related": [
+        "tv-shows-trivia",
+        "music-and-performing-arts",
+        "cinema-and-film-history",
+        "anime"
+      ]
     },
     {
       "slug": "business-and-management",
@@ -366,8 +1043,8 @@
         "ar": "إدارة أعمال للمتعلمين الكبار تشمل الاستراتيجية والمالية والعمليات والقيادة وسياق الأعمال في الخليج."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "📊",
@@ -376,12 +1053,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "business-and-management.html",
-      "image": "assets/business-and-management.svg"
+      "image": "assets/business-and-management.svg",
+      "topics": [
+        {
+          "en": "Finance & Accounting",
+          "ar": "المالية والمحاسبة",
+          "count": 7
+        },
+        {
+          "en": "Management & Organization",
+          "ar": "الإدارة والتنظيم",
+          "count": 6
+        },
+        {
+          "en": "Strategy & Competition",
+          "ar": "الاستراتيجية والمنافسة",
+          "count": 5
+        },
+        {
+          "en": "Marketing & Branding",
+          "ar": "التسويق وبناء العلامة",
+          "count": 4
+        },
+        {
+          "en": "Markets & Economics",
+          "ar": "الأسواق والاقتصاد",
+          "count": 4
+        },
+        {
+          "en": "Operations & Growth",
+          "ar": "العمليات والنمو",
+          "count": 4
+        }
+      ],
+      "related": [
+        "economics-and-finance",
+        "social-sciences",
+        "food-and-cuisines",
+        "geography"
+      ]
     },
     {
       "slug": "chemistry",
@@ -394,8 +1107,8 @@
         "ar": "مفردات الكيمياء وأفكار المختبر من التعرف السهل إلى الاستدعاء المتقدم جدًا."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "⚗️",
@@ -407,9 +1120,51 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "chemistry.html",
-      "image": "assets/chemistry.svg"
+      "image": "assets/chemistry.svg",
+      "topics": [
+        {
+          "en": "Atoms, Elements & Periodicity",
+          "ar": "الذرات والعناصر والجدول الدوري",
+          "count": 25
+        },
+        {
+          "en": "Thermodynamics & Physical Chemistry",
+          "ar": "الديناميكا الحرارية والكيمياء الفيزيائية",
+          "count": 18
+        },
+        {
+          "en": "Organic Chemistry",
+          "ar": "الكيمياء العضوية",
+          "count": 15
+        },
+        {
+          "en": "Bonding & Molecular Structure",
+          "ar": "الروابط والبنية الجزيئية",
+          "count": 13
+        },
+        {
+          "en": "Matter, Mixtures & Nuclear Chemistry",
+          "ar": "المادة والمخاليط والكيمياء النووية",
+          "count": 11
+        },
+        {
+          "en": "Reactions & Stoichiometry",
+          "ar": "التفاعلات والحسابات الكيميائية",
+          "count": 10
+        },
+        {
+          "en": "Acids, Bases & Equilibrium",
+          "ar": "الأحماض والقواعد والاتزان",
+          "count": 8
+        }
+      ],
+      "related": [
+        "geology",
+        "space-and-astrology",
+        "environment-and-ecology",
+        "animal-kingdom"
+      ]
     },
     {
       "slug": "civil-engineering",
@@ -422,7 +1177,7 @@
         "ar": "منشآت ومواد وأحمال وأنظمة مواقع لمجال الهندسة المدنية."
       },
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -432,12 +1187,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "civil-engineering.html",
-      "image": "assets/civil-engineering.svg"
+      "image": "assets/civil-engineering.svg",
+      "topics": [
+        {
+          "en": "Structures & Bridges",
+          "ar": "المنشآت والجسور",
+          "count": 10
+        },
+        {
+          "en": "Materials & Concrete",
+          "ar": "المواد والخرسانة",
+          "count": 5
+        },
+        {
+          "en": "Water & Hydraulics",
+          "ar": "المياه والهيدروليكا",
+          "count": 5
+        },
+        {
+          "en": "Geotechnical & Foundations",
+          "ar": "الهندسة الجيوتقنية والأساسات",
+          "count": 4
+        },
+        {
+          "en": "Surveying & Design",
+          "ar": "المساحة والتصميم",
+          "count": 3
+        },
+        {
+          "en": "Transport & Tunnels",
+          "ar": "النقل والأنفاق",
+          "count": 3
+        }
+      ],
+      "related": [
+        "electrical-engineering",
+        "mechanical-engineering",
+        "infrastructure-systems",
+        "architecture-and-landmarks"
+      ]
     },
     {
       "slug": "classic-riddles",
@@ -450,8 +1241,8 @@
         "ar": "ألغاز كلاسيكية ببطاقات قابلة للقلب مع أشياء يومية وأدلة ذكية ومسار متوازن من السهل إلى المتقدم جدًا."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "❓",
@@ -463,9 +1254,46 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "classic-riddles.html",
-      "image": "assets/classic-riddles.svg"
+      "image": "assets/classic-riddles.svg",
+      "topics": [
+        {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج",
+          "count": 22
+        },
+        {
+          "en": "Numbers & Codes",
+          "ar": "الأرقام والرموز",
+          "count": 21
+        },
+        {
+          "en": "Wordplay & Language",
+          "ar": "التلاعب بالكلمات واللغة",
+          "count": 20
+        },
+        {
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية",
+          "count": 19
+        },
+        {
+          "en": "Nature & the World",
+          "ar": "الطبيعة والعالم",
+          "count": 12
+        },
+        {
+          "en": "Time, Space & Measurement",
+          "ar": "الزمن والمكان والقياس",
+          "count": 6
+        }
+      ],
+      "related": [
+        "logic-puzzles",
+        "kids-riddles",
+        "story-mysteries",
+        "true-crime"
+      ]
     },
     {
       "slug": "logic-puzzles",
@@ -478,8 +1306,8 @@
         "ar": "اشحذ عقلك بالتفكير الجانبي وألغاز الأرقام وتحديات الاستنتاج والمفارقات الكلاسيكية."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "🧠",
@@ -491,9 +1319,46 @@
         "hard": 15,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "logic-puzzles.html",
-      "image": "assets/backgrounds/logic-puzzles.svg"
+      "image": "assets/backgrounds/logic-puzzles.svg",
+      "topics": [
+        {
+          "en": "Numbers & Patterns",
+          "ar": "الأرقام والأنماط",
+          "count": 18
+        },
+        {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج",
+          "count": 16
+        },
+        {
+          "en": "Lateral Thinking",
+          "ar": "التفكير الجانبي",
+          "count": 14
+        },
+        {
+          "en": "Constraints & Ordering",
+          "ar": "القيود والترتيب",
+          "count": 6
+        },
+        {
+          "en": "Mystery & Detection",
+          "ar": "الغموض والتحري",
+          "count": 3
+        },
+        {
+          "en": "Paradoxes & Philosophy",
+          "ar": "المفارقات والفلسفة",
+          "count": 3
+        }
+      ],
+      "related": [
+        "kids-riddles",
+        "story-mysteries",
+        "true-crime",
+        "psychology"
+      ]
     },
     {
       "slug": "coding-and-design",
@@ -506,7 +1371,7 @@
         "ar": "صفحة تجمع بين البرمجة ومفاهيم البرمجيات وبنية الواجهات ولغة التصميم العملية."
       },
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -516,12 +1381,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "coding-and-design.html",
-      "image": "assets/coding-and-design.svg"
+      "image": "assets/coding-and-design.svg",
+      "topics": [
+        {
+          "en": "Programming Fundamentals",
+          "ar": "أساسيات البرمجة",
+          "count": 8
+        },
+        {
+          "en": "Web Development",
+          "ar": "تطوير الويب",
+          "count": 7
+        },
+        {
+          "en": "UI/UX & Visual Design",
+          "ar": "واجهات وتجربة المستخدم والتصميم البصري",
+          "count": 5
+        },
+        {
+          "en": "Data, APIs & Tools",
+          "ar": "البيانات والواجهات والأدوات",
+          "count": 4
+        },
+        {
+          "en": "Algorithms & Data Structures",
+          "ar": "الخوارزميات وهياكل البيانات",
+          "count": 3
+        },
+        {
+          "en": "Computer Systems & Theory",
+          "ar": "أنظمة الحاسوب والنظرية",
+          "count": 3
+        }
+      ],
+      "related": [
+        "tech-retro",
+        "future-tech-and-energy",
+        "automotive",
+        "civil-engineering"
+      ]
     },
     {
       "slug": "electrical-engineering",
@@ -534,7 +1435,7 @@
         "ar": "دوائر وقدرة ومكونات وأنظمة حماية في تصميم سهل وواضح."
       },
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -544,12 +1445,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "electrical-engineering.html",
-      "image": "assets/electrical-engineering.svg"
+      "image": "assets/electrical-engineering.svg",
+      "topics": [
+        {
+          "en": "Components & Electronics",
+          "ar": "المكونات والإلكترونيات",
+          "count": 7
+        },
+        {
+          "en": "Electrical Fundamentals",
+          "ar": "أساسيات الكهرباء",
+          "count": 7
+        },
+        {
+          "en": "AC Power Systems",
+          "ar": "أنظمة القدرة المتناوبة",
+          "count": 5
+        },
+        {
+          "en": "Circuits & Measurement",
+          "ar": "الدوائر والقياس",
+          "count": 5
+        },
+        {
+          "en": "Electromagnetism",
+          "ar": "الكهرومغناطيسية",
+          "count": 4
+        },
+        {
+          "en": "Signals & Communications",
+          "ar": "الإشارات والاتصالات",
+          "count": 2
+        }
+      ],
+      "related": [
+        "mechanical-engineering",
+        "infrastructure-systems",
+        "architecture-and-landmarks",
+        "inventions-and-minds"
+      ]
     },
     {
       "slug": "flag-questions",
@@ -562,8 +1499,8 @@
         "ar": "معرفة بالأعلام والرموز مع أسئلة عن الجغرافيا والتصميم والتعرّف عليها."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "🚩",
@@ -572,12 +1509,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "flag-questions.html",
-      "image": "assets/flag-questions.svg"
+      "image": "assets/flag-questions.svg",
+      "topics": [
+        {
+          "en": "Flag Design & Vexillology",
+          "ar": "تصميم الأعلام وعلم الأعلام",
+          "count": 8
+        },
+        {
+          "en": "Americas",
+          "ar": "الأمريكتان",
+          "count": 5
+        },
+        {
+          "en": "Asia & Oceania",
+          "ar": "آسيا وأوقيانوسيا",
+          "count": 5
+        },
+        {
+          "en": "Africa & Middle East",
+          "ar": "أفريقيا والشرق الأوسط",
+          "count": 4
+        },
+        {
+          "en": "Europe",
+          "ar": "أوروبا",
+          "count": 4
+        },
+        {
+          "en": "Flag History & Identity",
+          "ar": "تاريخ الأعلام والهوية",
+          "count": 4
+        }
+      ],
+      "related": [
+        "currencies",
+        "history",
+        "middle-east-history",
+        "ancient-civilizations"
+      ]
     },
     {
       "slug": "football",
@@ -590,10 +1563,10 @@
         "ar": "أسئلة منظمة في كرة القدم تغطي القوانين والمراكز ومصطلحات المباراة والخطط وأساسيات البطولات."
       },
       "cluster": {
-        "en": "Tech & Engineering",
-        "ar": "التقنية والهندسة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
-      "cluster_key": "tech",
+      "cluster_key": "culture",
       "emoji": "⚽",
       "mode": "quiz",
       "count": 175,
@@ -603,9 +1576,56 @@
         "hard": 45,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "football.html",
-      "image": "assets/football.svg"
+      "image": "assets/football.svg",
+      "topics": [
+        {
+          "en": "International Football & World Cup",
+          "ar": "كرة القدم الدولية وكأس العالم",
+          "count": 35
+        },
+        {
+          "en": "Football History & Records",
+          "ar": "تاريخ كرة القدم والأرقام القياسية",
+          "count": 29
+        },
+        {
+          "en": "Club Competitions & Leagues",
+          "ar": "بطولات الأندية والدوريات",
+          "count": 26
+        },
+        {
+          "en": "Players & Awards",
+          "ar": "اللاعبون والجوائز",
+          "count": 25
+        },
+        {
+          "en": "Clubs, Stadiums & Identity",
+          "ar": "الأندية والملاعب والهوية",
+          "count": 20
+        },
+        {
+          "en": "Rules, Officials & Governance",
+          "ar": "القواعد والتحكيم والحوكمة",
+          "count": 20
+        },
+        {
+          "en": "Tactics, Skills & Management",
+          "ar": "التكتيكات والمهارات والإدارة",
+          "count": 15
+        },
+        {
+          "en": "Transfers & Football Business",
+          "ar": "الانتقالات وأعمال كرة القدم",
+          "count": 5
+        }
+      ],
+      "related": [
+        "fictional-worlds",
+        "superheroes",
+        "pop-culture",
+        "mythology-legends"
+      ]
     },
     {
       "slug": "geography",
@@ -618,8 +1638,8 @@
         "ar": "تضاريس ومناخات وأقاليم ومصطلحات خرائط في صفحة جغرافيا ممتعة."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "🧭",
@@ -631,9 +1651,51 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "geography.html",
-      "image": "assets/geography.svg"
+      "image": "assets/geography.svg",
+      "topics": [
+        {
+          "en": "Countries, Capitals & Borders",
+          "ar": "الدول والعواصم والحدود",
+          "count": 46
+        },
+        {
+          "en": "Oceans, Seas & Straits",
+          "ar": "المحيطات والبحار والمضائق",
+          "count": 14
+        },
+        {
+          "en": "Rivers, Lakes & Deltas",
+          "ar": "الأنهار والبحيرات والدلتا",
+          "count": 11
+        },
+        {
+          "en": "Mountains & Elevation",
+          "ar": "الجبال والارتفاعات",
+          "count": 9
+        },
+        {
+          "en": "Continents, Islands & Regions",
+          "ar": "القارات والجزر والمناطق",
+          "count": 8
+        },
+        {
+          "en": "Landforms, Deserts & Climate",
+          "ar": "التضاريس والصحاري والمناخ",
+          "count": 6
+        },
+        {
+          "en": "Maps & Coordinates",
+          "ar": "الخرائط والإحداثيات",
+          "count": 6
+        }
+      ],
+      "related": [
+        "flag-questions",
+        "currencies",
+        "history",
+        "middle-east-history"
+      ]
     },
     {
       "slug": "geology",
@@ -646,8 +1708,8 @@
         "ar": "صخور وطبقات وحرارة وضغط وأرض متحركة في بطاقات سهلة الفهم."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "🪨",
@@ -659,9 +1721,51 @@
         "hard": 18,
         "very-advanced": 12
       },
-      "subcategories": [],
       "href": "geology.html",
-      "image": "assets/geology.svg"
+      "image": "assets/geology.svg",
+      "topics": [
+        {
+          "en": "Plate Tectonics & Earth Structure",
+          "ar": "تكتونيات الصفائح وبنية الأرض",
+          "count": 11
+        },
+        {
+          "en": "Rocks, Petrology & Rock Cycle",
+          "ar": "الصخور وعلم الصخور ودورتها",
+          "count": 10
+        },
+        {
+          "en": "Minerals & Geochemistry",
+          "ar": "المعادن والجيوكيمياء",
+          "count": 8
+        },
+        {
+          "en": "Surface Processes & Landforms",
+          "ar": "العمليات السطحية والتضاريس",
+          "count": 7
+        },
+        {
+          "en": "Earthquakes & Seismology",
+          "ar": "الزلازل وعلم الزلازل",
+          "count": 5
+        },
+        {
+          "en": "Geological Time & Fossils",
+          "ar": "الزمن الجيولوجي والأحافير",
+          "count": 5
+        },
+        {
+          "en": "Volcanoes & Volcanology",
+          "ar": "البراكين وعلم البراكين",
+          "count": 4
+        }
+      ],
+      "related": [
+        "space-and-astrology",
+        "environment-and-ecology",
+        "animal-kingdom",
+        "survival"
+      ]
     },
     {
       "slug": "history",
@@ -674,8 +1778,8 @@
         "ar": "لحظات كبيرة وإمبراطوريات قديمة واختراعات ونقاط تحول في بطاقات متوازنة."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "🏺",
@@ -687,9 +1791,56 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "history.html",
-      "image": "assets/history.svg"
+      "image": "assets/history.svg",
+      "topics": [
+        {
+          "en": "Empires, States & Historical Figures",
+          "ar": "الإمبراطوريات والدول والشخصيات التاريخية",
+          "count": 29
+        },
+        {
+          "en": "Wars, Treaties & Diplomacy",
+          "ar": "الحروب والمعاهدات والدبلوماسية",
+          "count": 20
+        },
+        {
+          "en": "Ancient Civilizations & Archaeology",
+          "ar": "الحضارات القديمة وعلم الآثار",
+          "count": 14
+        },
+        {
+          "en": "Revolutions & Independence",
+          "ar": "الثورات والاستقلال",
+          "count": 12
+        },
+        {
+          "en": "Cold War & Modern Politics",
+          "ar": "الحرب الباردة والسياسة الحديثة",
+          "count": 9
+        },
+        {
+          "en": "Exploration, Science & Industry",
+          "ar": "الاستكشاف والعلوم والصناعة",
+          "count": 8
+        },
+        {
+          "en": "Medieval & Early Modern History",
+          "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث",
+          "count": 4
+        },
+        {
+          "en": "Society, Religion & Crisis",
+          "ar": "المجتمع والدين والأزمات",
+          "count": 4
+        }
+      ],
+      "related": [
+        "middle-east-history",
+        "ancient-civilizations",
+        "law-middle-east",
+        "world-habits-and-etiquette"
+      ]
     },
     {
       "slug": "infrastructure-systems",
@@ -702,7 +1853,7 @@
         "ar": "مرافق ونقل وشبكات وأنظمة على مستوى المدن في صفحة أسئلة سريعة."
       },
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -715,9 +1866,51 @@
         "hard": 20,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "infrastructure-systems.html",
-      "image": "assets/infrastructure-systems.svg"
+      "image": "assets/infrastructure-systems.svg",
+      "topics": [
+        {
+          "en": "Bridges & Structural Engineering",
+          "ar": "الجسور والهندسة الإنشائية",
+          "count": 9
+        },
+        {
+          "en": "Power & Energy Systems",
+          "ar": "أنظمة الطاقة والكهرباء",
+          "count": 9
+        },
+        {
+          "en": "Water & Wastewater Systems",
+          "ar": "أنظمة المياه والصرف الصحي",
+          "count": 9
+        },
+        {
+          "en": "Roads & Transport Planning",
+          "ar": "الطرق وتخطيط النقل",
+          "count": 8
+        },
+        {
+          "en": "Ports, Canals & Airports",
+          "ar": "الموانئ والقنوات والمطارات",
+          "count": 6
+        },
+        {
+          "en": "Railways & Tunnels",
+          "ar": "السكك الحديدية والأنفاق",
+          "count": 6
+        },
+        {
+          "en": "Digital & Urban Infrastructure",
+          "ar": "البنية التحتية الرقمية والحضرية",
+          "count": 3
+        }
+      ],
+      "related": [
+        "architecture-and-landmarks",
+        "inventions-and-minds",
+        "software-and-computing",
+        "coding-and-design"
+      ]
     },
     {
       "slug": "kids-riddles",
@@ -730,8 +1923,8 @@
         "ar": "قسم أطفال أخف من 300 بطاقة يغطي ألعابًا متنوعة في الكلمات والرياضيات والعلوم والقراءة والطبيعة والمنطق لمراحل عمرية مختلفة."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "🧩",
@@ -740,12 +1933,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 8,
-        "hard": 12,
-        "very-advanced": 0
+        "hard": 12
       },
-      "subcategories": [],
       "href": "kids-riddles.html",
-      "image": "assets/kids-riddles.svg"
+      "image": "assets/kids-riddles.svg",
+      "topics": [
+        {
+          "en": "Objects, Clothing & Technology",
+          "ar": "الأشياء والملابس والتقنية",
+          "count": 6
+        },
+        {
+          "en": "Art, Paper & School Tools",
+          "ar": "الفن والورق والأدوات المدرسية",
+          "count": 5
+        },
+        {
+          "en": "Logic, Codes & Patterns",
+          "ar": "المنطق والشفرات والأنماط",
+          "count": 5
+        },
+        {
+          "en": "Numbers & Counting",
+          "ar": "الأعداد والعد",
+          "count": 5
+        },
+        {
+          "en": "Time, Space & Directions",
+          "ar": "الوقت والفضاء والاتجاهات",
+          "count": 5
+        },
+        {
+          "en": "Wordplay & Classic Riddles",
+          "ar": "التلاعب بالكلمات والألغاز الكلاسيكية",
+          "count": 4
+        }
+      ],
+      "related": [
+        "story-mysteries",
+        "true-crime",
+        "psychology",
+        "philosophy"
+      ]
     },
     {
       "slug": "law-middle-east",
@@ -758,8 +1987,8 @@
         "ar": "معرفة قانونية بطابع الشرق الأوسط تشمل العقود والإثبات والإجراءات والممارسات التجارية والحكم المهني."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "⚖️",
@@ -771,30 +2000,51 @@
         "hard": 23,
         "very-advanced": 6
       },
-      "subcategories": [
+      "href": "law-middle-east.html",
+      "image": "assets/law-middle-east.svg",
+      "topics": [
         {
-          "en": "Commercial Basics",
-          "ar": "أساسيات تجارية"
+          "en": "International Law & Human Rights",
+          "ar": "القانون الدولي وحقوق الإنسان",
+          "count": 9
         },
         {
-          "en": "Dispute Resolution",
-          "ar": "حل النزاعات"
+          "en": "Islamic Jurisprudence & Sources",
+          "ar": "الفقه الإسلامي ومصادره",
+          "count": 8
         },
         {
-          "en": "Court Procedure",
-          "ar": "إجراءات قضائية"
+          "en": "Constitutional & Legal Systems",
+          "ar": "القانون الدستوري والأنظمة القانونية",
+          "count": 7
         },
         {
-          "en": "Documents & Authority",
-          "ar": "الوثائق والصلاحيات"
+          "en": "Criminal Law & Justice",
+          "ar": "القانون الجنائي والعدالة",
+          "count": 7
         },
         {
-          "en": "Rights & Compliance",
-          "ar": "الحقوق والامتثال"
+          "en": "Family & Inheritance Law",
+          "ar": "قانون الأسرة والميراث",
+          "count": 6
+        },
+        {
+          "en": "Islamic Finance & Commercial Law",
+          "ar": "التمويل الإسلامي والقانون التجاري",
+          "count": 6
+        },
+        {
+          "en": "Civil, Property & Labor Law",
+          "ar": "القانون المدني والملكية والعمل",
+          "count": 5
         }
       ],
-      "href": "law-middle-east.html",
-      "image": "assets/law-middle-east.svg"
+      "related": [
+        "world-habits-and-etiquette",
+        "linguistics",
+        "business-and-management",
+        "economics-and-finance"
+      ]
     },
     {
       "slug": "math",
@@ -807,8 +2057,8 @@
         "ar": "رياضيات للكبار بمزيج أقوى من الألغاز والأنماط والمنطق والهندسة والاحتمالات، مع حصة أصغر من الأسئلة المعتمدة على المعادلات المباشرة."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "∑",
@@ -820,130 +2070,56 @@
         "hard": 30,
         "very-advanced": 20
       },
-      "subcategories": [
+      "href": "math.html",
+      "image": "assets/math.svg",
+      "topics": [
         {
-          "en": "Probability & Paradoxes",
-          "ar": "الاحتمالات والمفارقات"
+          "en": "Number Theory & Number Riddles",
+          "ar": "نظرية الأعداد وألغازها",
+          "count": 36
         },
         {
-          "en": "Number Theory",
-          "ar": "نظرية الأعداد"
+          "en": "Geometry & Trigonometry",
+          "ar": "الهندسة وعلم المثلثات",
+          "count": 28
         },
         {
-          "en": "Number Riddles",
-          "ar": "ألغاز الأعداد"
+          "en": "Algebra & Functions",
+          "ar": "الجبر والدوال",
+          "count": 19
         },
         {
           "en": "Calculus & Analysis",
-          "ar": "التفاضل والتحليل"
+          "ar": "التفاضل والتكامل والتحليل",
+          "count": 17
         },
         {
-          "en": "Patterns & Sequences",
-          "ar": "الأنماط والمتتاليات"
+          "en": "Probability, Combinatorics & Statistics",
+          "ar": "الاحتمالات والتوافقيات والإحصاء",
+          "count": 15
         },
         {
-          "en": "Topology",
-          "ar": "الطوبولوجيا"
+          "en": "Patterns, Sequences & Word Problems",
+          "ar": "الأنماط والمتتاليات والمسائل اللفظية",
+          "count": 13
         },
         {
-          "en": "Set Theory & Logic",
-          "ar": "نظرية المجموعات والمنطق"
+          "en": "Logic, Foundations & Unsolved Problems",
+          "ar": "المنطق والأسس والمسائل غير المحلولة",
+          "count": 12
         },
         {
-          "en": "Word Problems",
-          "ar": "مسائل لفظية"
-        },
-        {
-          "en": "Algebra",
-          "ar": "الجبر"
-        },
-        {
-          "en": "Geometry & Measure",
-          "ar": "الهندسة والقياس"
-        },
-        {
-          "en": "Statistics & Data",
-          "ar": "الإحصاء والبيانات"
-        },
-        {
-          "en": "Euclidean Geometry",
-          "ar": "الهندسة الإقليدية"
-        },
-        {
-          "en": "Logic Puzzles",
-          "ar": "ألغاز منطقية"
-        },
-        {
-          "en": "Physics-Based Math",
-          "ar": "رياضيات مستندة إلى الفيزياء"
-        },
-        {
-          "en": "Combinatorics",
-          "ar": "التوافقيات"
-        },
-        {
-          "en": "Financial Math",
-          "ar": "الرياضيات المالية"
-        },
-        {
-          "en": "Graph Theory",
-          "ar": "نظرية الرسوم البيانية"
-        },
-        {
-          "en": "Sequences & Series",
-          "ar": "المتتاليات والسلاسل"
-        },
-        {
-          "en": "Discrete Math & Algorithms",
-          "ar": "الرياضيات المتقطعة والخوارزميات"
-        },
-        {
-          "en": "Game Theory",
-          "ar": "نظرية الألعاب"
-        },
-        {
-          "en": "Complex Analysis",
-          "ar": "التحليل العقدي"
-        },
-        {
-          "en": "History & Unsolved",
-          "ar": "التاريخ والمسائل غير المحلولة"
-        },
-        {
-          "en": "Teacher’s Lounge",
-          "ar": "نقاشات المعلّمين"
-        },
-        {
-          "en": "Linear Algebra",
-          "ar": "الجبر الخطي"
-        },
-        {
-          "en": "Geometry & Topology",
-          "ar": "الهندسة والطوبولوجيا"
-        },
-        {
-          "en": "Analysis",
-          "ar": "التحليل"
-        },
-        {
-          "en": "Fractals & Chaos",
-          "ar": "الكسيريات والفوضى"
-        },
-        {
-          "en": "Probability & Processes",
-          "ar": "الاحتمالات والعمليات"
-        },
-        {
-          "en": "Probability & Combinatorics",
-          "ar": "الاحتمالات والتوافقيات"
-        },
-        {
-          "en": "Geometry",
-          "ar": "الهندسة"
+          "en": "Arithmetic, Fractions & Percentages",
+          "ar": "الحساب والكسور والنسب المئوية",
+          "count": 10
         }
       ],
-      "href": "math.html",
-      "image": "assets/math.svg"
+      "related": [
+        "science",
+        "physical-and-life-sciences",
+        "biology",
+        "chemistry"
+      ]
     },
     {
       "slug": "mechanical-engineering",
@@ -956,7 +2132,7 @@
         "ar": "الحركة والآلات ونقل القدرة في بطاقات سهلة التصفح."
       },
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -966,12 +2142,48 @@
       "difficultyCounts": {
         "easy": 10,
         "medium": 10,
-        "hard": 10,
-        "very-advanced": 0
+        "hard": 10
       },
-      "subcategories": [],
       "href": "mechanical-engineering.html",
-      "image": "assets/mechanical-engineering.svg"
+      "image": "assets/mechanical-engineering.svg",
+      "topics": [
+        {
+          "en": "Machines, Gears & Mechanisms",
+          "ar": "الآلات والتروس والآليات",
+          "count": 8
+        },
+        {
+          "en": "Thermodynamics, Heat & Power",
+          "ar": "الديناميكا الحرارية والحرارة والطاقة",
+          "count": 7
+        },
+        {
+          "en": "Materials & Failure",
+          "ar": "المواد والفشل",
+          "count": 6
+        },
+        {
+          "en": "Mechanics & Structural Analysis",
+          "ar": "الميكانيكا والتحليل الإنشائي",
+          "count": 4
+        },
+        {
+          "en": "Measurement & Maintenance",
+          "ar": "القياس والصيانة",
+          "count": 3
+        },
+        {
+          "en": "Fluids & Hydraulics",
+          "ar": "الموائع والهيدروليكا",
+          "count": 2
+        }
+      ],
+      "related": [
+        "infrastructure-systems",
+        "architecture-and-landmarks",
+        "inventions-and-minds",
+        "software-and-computing"
+      ]
     },
     {
       "slug": "medical-questions",
@@ -984,8 +2196,8 @@
         "ar": "معرفة طبية بمستوى الكبار تركّز على الطب العام والاستدلال السريري الأساسي والموضوعات التي يفترض بأي طبيب متمكن أن يعرفها."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "🩺",
@@ -997,9 +2209,56 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "medical-questions.html",
-      "image": "assets/medical-questions.svg"
+      "image": "assets/medical-questions.svg",
+      "topics": [
+        {
+          "en": "Anatomy & Physiology",
+          "ar": "التشريح ووظائف الأعضاء",
+          "count": 32
+        },
+        {
+          "en": "Disease, Genetics & Pathology",
+          "ar": "الأمراض والوراثة وعلم الأمراض",
+          "count": 23
+        },
+        {
+          "en": "Pharmacology & Toxicology",
+          "ar": "علم الأدوية والسموم",
+          "count": 20
+        },
+        {
+          "en": "Organ Systems & Metabolism",
+          "ar": "أجهزة الجسم والأيض",
+          "count": 10
+        },
+        {
+          "en": "Cardiovascular & Blood",
+          "ar": "القلب والأوعية والدم",
+          "count": 5
+        },
+        {
+          "en": "Neurology & Mental Health",
+          "ar": "الأعصاب والصحة النفسية",
+          "count": 4
+        },
+        {
+          "en": "Clinical Care & Prevention",
+          "ar": "الرعاية السريرية والوقاية",
+          "count": 3
+        },
+        {
+          "en": "Immunity & Infection",
+          "ar": "المناعة والعدوى",
+          "count": 3
+        }
+      ],
+      "related": [
+        "pharmacy",
+        "math",
+        "science",
+        "physical-and-life-sciences"
+      ]
     },
     {
       "slug": "middle-east-history",
@@ -1012,8 +2271,8 @@
         "ar": "حضارات وعلماء ومدن ونقاط تحول من تاريخ الشرق الأوسط."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "🕌",
@@ -1025,9 +2284,36 @@
         "hard": 16,
         "very-advanced": 5
       },
-      "subcategories": [],
       "href": "middle-east-history.html",
-      "image": "assets/middle-east-history.svg"
+      "image": "assets/middle-east-history.svg",
+      "topics": [
+        {
+          "en": "Modern History",
+          "ar": "التاريخ الحديث",
+          "count": 23
+        },
+        {
+          "en": "Islamic History",
+          "ar": "التاريخ الإسلامي",
+          "count": 14
+        },
+        {
+          "en": "Ancient",
+          "ar": "عصور قديمة",
+          "count": 8
+        },
+        {
+          "en": "Ottoman History",
+          "ar": "التاريخ العثماني",
+          "count": 5
+        }
+      ],
+      "related": [
+        "ancient-civilizations",
+        "law-middle-east",
+        "world-habits-and-etiquette",
+        "linguistics"
+      ]
     },
     {
       "slug": "pharmacy",
@@ -1040,8 +2326,8 @@
         "ar": "تعلم صيدلي للكبار يشمل الأشكال الدوائية والسلامة والإرشاد والحركية الدوائية والتداول القانوني ومفاهيم الاستعمال السريري، مع توسعة واضحة تتجاوز حوض الإجابات المكرر السابق."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "💊",
@@ -1053,18 +2339,51 @@
         "hard": 11,
         "very-advanced": 14
       },
-      "subcategories": [
+      "href": "pharmacy.html",
+      "image": "assets/pharmacy.svg",
+      "topics": [
         {
-          "en": "Medicines & Dosage Forms",
-          "ar": "الأدوية والأشكال الدوائية"
+          "en": "Drug Classes & Therapeutics",
+          "ar": "فئات الأدوية والعلاج",
+          "count": 15
         },
         {
-          "en": "Safe Use & Practice",
-          "ar": "الاستخدام الآمن والممارسة"
+          "en": "Pharmacodynamics & Receptors",
+          "ar": "ديناميكية الدواء والمستقبلات",
+          "count": 8
+        },
+        {
+          "en": "Pharmacokinetics & Biopharmaceutics",
+          "ar": "حركية الدواء والصيدلانيات الحيوية",
+          "count": 8
+        },
+        {
+          "en": "Drug Safety & Interactions",
+          "ar": "سلامة الدواء والتفاعلات",
+          "count": 7
+        },
+        {
+          "en": "Antimicrobials & Resistance",
+          "ar": "مضادات الميكروبات والمقاومة",
+          "count": 5
+        },
+        {
+          "en": "Drug Development & Formulation",
+          "ar": "تطوير الأدوية والصياغة",
+          "count": 4
+        },
+        {
+          "en": "Precision & Biologic Therapies",
+          "ar": "العلاجات الدقيقة والبيولوجية",
+          "count": 3
         }
       ],
-      "href": "pharmacy.html",
-      "image": "assets/pharmacy.svg"
+      "related": [
+        "math",
+        "science",
+        "physical-and-life-sciences",
+        "biology"
+      ]
     },
     {
       "slug": "philosophy",
@@ -1077,8 +2396,8 @@
         "ar": "أفكار حول الأخلاق والحقيقة والمعرفة والمعنى بصيغة مناسبة للعب والسؤال."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "🧠",
@@ -1090,9 +2409,46 @@
         "hard": 16,
         "very-advanced": 13
       },
-      "subcategories": [],
       "href": "philosophy.html",
-      "image": "assets/philosophy.svg"
+      "image": "assets/philosophy.svg",
+      "topics": [
+        {
+          "en": "Ethics",
+          "ar": "الأخلاق",
+          "count": 12
+        },
+        {
+          "en": "Metaphysics & Mind",
+          "ar": "الميتافيزيقا وفلسفة العقل",
+          "count": 11
+        },
+        {
+          "en": "Philosophical Traditions",
+          "ar": "المدارس الفلسفية",
+          "count": 10
+        },
+        {
+          "en": "Epistemology & Logic",
+          "ar": "نظرية المعرفة والمنطق",
+          "count": 6
+        },
+        {
+          "en": "Language & Philosophy of Science",
+          "ar": "فلسفة اللغة والعلم",
+          "count": 6
+        },
+        {
+          "en": "Political Philosophy",
+          "ar": "الفلسفة السياسية",
+          "count": 5
+        }
+      ],
+      "related": [
+        "relationship-questions",
+        "classic-riddles",
+        "logic-puzzles",
+        "kids-riddles"
+      ]
     },
     {
       "slug": "physical-and-life-sciences",
@@ -1105,8 +2461,8 @@
         "ar": "صفحة علمية واسعة تغطي الأحياء والكيمياء وعلوم الأرض في مكان واحد."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "🔬",
@@ -1118,22 +2474,51 @@
         "hard": 12,
         "very-advanced": 12
       },
-      "subcategories": [
+      "href": "physical-and-life-sciences.html",
+      "image": "assets/physical-and-life-sciences.svg",
+      "topics": [
         {
-          "en": "Life Science Basics",
-          "ar": "أساسيات علوم الحياة"
+          "en": "Cell, Genetics & Microbiology",
+          "ar": "الخلية والوراثة والأحياء الدقيقة",
+          "count": 13
         },
         {
-          "en": "Chemistry",
-          "ar": "الكيمياء"
+          "en": "General Chemistry",
+          "ar": "الكيمياء العامة",
+          "count": 10
         },
         {
-          "en": "Earth Science",
-          "ar": "علوم الأرض"
+          "en": "Mechanics, Energy & Relativity",
+          "ar": "الميكانيكا والطاقة والنسبية",
+          "count": 7
+        },
+        {
+          "en": "Quantum & Particle Physics",
+          "ar": "فيزياء الكم والجسيمات",
+          "count": 7
+        },
+        {
+          "en": "Earth, Plant & Human Sciences",
+          "ar": "علوم الأرض والنبات والإنسان",
+          "count": 6
+        },
+        {
+          "en": "Organic & Biological Chemistry",
+          "ar": "الكيمياء العضوية والحيوية",
+          "count": 4
+        },
+        {
+          "en": "Waves & Optics",
+          "ar": "الموجات والبصريات",
+          "count": 3
         }
       ],
-      "href": "physical-and-life-sciences.html",
-      "image": "assets/physical-and-life-sciences.svg"
+      "related": [
+        "biology",
+        "chemistry",
+        "geology",
+        "space-and-astrology"
+      ]
     },
     {
       "slug": "psychology",
@@ -1146,8 +2531,8 @@
         "ar": "بطاقات علم نفس عن السلوك والذاكرة والعاطفة والأنماط الإنسانية."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "🫶",
@@ -1159,9 +2544,56 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "psychology.html",
-      "image": "assets/psychology.svg"
+      "image": "assets/psychology.svg",
+      "topics": [
+        {
+          "en": "Cognition, Memory & Perception",
+          "ar": "الإدراك والذاكرة والإحساس",
+          "count": 22
+        },
+        {
+          "en": "Foundations, Learning & Motivation",
+          "ar": "الأسس والتعلم والدافعية",
+          "count": 14
+        },
+        {
+          "en": "Social Psychology",
+          "ar": "علم النفس الاجتماعي",
+          "count": 14
+        },
+        {
+          "en": "Clinical & Mental Health",
+          "ar": "علم النفس السريري والصحة النفسية",
+          "count": 13
+        },
+        {
+          "en": "Developmental Psychology",
+          "ar": "علم نفس النمو",
+          "count": 12
+        },
+        {
+          "en": "Neuroscience",
+          "ar": "علم الأعصاب",
+          "count": 9
+        },
+        {
+          "en": "Personality & Emotion",
+          "ar": "الشخصية والانفعال",
+          "count": 8
+        },
+        {
+          "en": "Research Methods",
+          "ar": "مناهج البحث",
+          "count": 8
+        }
+      ],
+      "related": [
+        "philosophy",
+        "relationship-questions",
+        "classic-riddles",
+        "logic-puzzles"
+      ]
     },
     {
       "slug": "relationship-questions",
@@ -1174,8 +2606,8 @@
         "ar": "مواقف في العلاقات وخيارات تواصل وأسئلة عن الحدود بأسلوب ممتع ومفيد للكبار."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "💞",
@@ -1187,9 +2619,36 @@
         "hard": 16,
         "very-advanced": 12
       },
-      "subcategories": [],
       "href": "relationship-questions.html",
-      "image": "assets/relationship-questions.svg"
+      "image": "assets/relationship-questions.svg",
+      "topics": [
+        {
+          "en": "Psychology",
+          "ar": "علم النفس",
+          "count": 17
+        },
+        {
+          "en": "Love & Attachment",
+          "ar": "الحب والتعلق",
+          "count": 15
+        },
+        {
+          "en": "Communication",
+          "ar": "التواصل",
+          "count": 9
+        },
+        {
+          "en": "Conflict & Resolution",
+          "ar": "الصراع والحل",
+          "count": 9
+        }
+      ],
+      "related": [
+        "classic-riddles",
+        "logic-puzzles",
+        "kids-riddles",
+        "story-mysteries"
+      ]
     },
     {
       "slug": "science",
@@ -1202,8 +2661,8 @@
         "ar": "مفاهيم علمية أساسية من الأنظمة الحية إلى الفيزياء والفضاء في بطاقات سهلة اللعب."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "🔬",
@@ -1215,9 +2674,46 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "science.html",
-      "image": "assets/science.svg"
+      "image": "assets/science.svg",
+      "topics": [
+        {
+          "en": "Chemistry & Materials",
+          "ar": "الكيمياء والمواد",
+          "count": 26
+        },
+        {
+          "en": "Biology & Life Sciences",
+          "ar": "الأحياء وعلوم الحياة",
+          "count": 23
+        },
+        {
+          "en": "Quantum, Relativity & Cosmology",
+          "ar": "الكم والنسبية وعلم الكون",
+          "count": 21
+        },
+        {
+          "en": "Mechanics & Classical Physics",
+          "ar": "الميكانيكا والفيزياء الكلاسيكية",
+          "count": 15
+        },
+        {
+          "en": "Waves, Light & Sound",
+          "ar": "الموجات والضوء والصوت",
+          "count": 8
+        },
+        {
+          "en": "Heat & Energy",
+          "ar": "الحرارة والطاقة",
+          "count": 7
+        }
+      ],
+      "related": [
+        "physical-and-life-sciences",
+        "biology",
+        "chemistry",
+        "geology"
+      ]
     },
     {
       "slug": "social-sciences",
@@ -1230,8 +2726,8 @@
         "ar": "صفحة أوسع للعلوم الاجتماعية مبنية على مفاهيم علم النفس والسلوك بين الأشخاص والثقافة والإتيكيت."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "👥",
@@ -1243,22 +2739,36 @@
         "hard": 12,
         "very-advanced": 12
       },
-      "subcategories": [
+      "href": "social-sciences.html",
+      "image": "assets/social-sciences.svg",
+      "topics": [
         {
-          "en": "Psychology",
-          "ar": "علم النفس"
+          "en": "Sociology",
+          "ar": "علم الاجتماع",
+          "count": 16
         },
         {
-          "en": "Relationships",
-          "ar": "العلاقات"
+          "en": "Economics",
+          "ar": "الاقتصاد",
+          "count": 12
         },
         {
-          "en": "Culture & Etiquette",
-          "ar": "الثقافة والإتيكيت"
+          "en": "Political Science",
+          "ar": "العلوم السياسية",
+          "count": 12
+        },
+        {
+          "en": "Anthropology",
+          "ar": "الأنثروبولوجيا",
+          "count": 10
         }
       ],
-      "href": "social-sciences.html",
-      "image": "assets/social-sciences.svg"
+      "related": [
+        "food-and-cuisines",
+        "geography",
+        "flag-questions",
+        "currencies"
+      ]
     },
     {
       "slug": "software-and-computing",
@@ -1271,7 +2781,7 @@
         "ar": "مصطلحات حوسبة أساسية وأنظمة وأفكار تطوير للدراسة الممتعة."
       },
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -1284,9 +2794,36 @@
         "hard": 17,
         "very-advanced": 12
       },
-      "subcategories": [],
       "href": "software-and-computing.html",
-      "image": "assets/software-and-computing.svg"
+      "image": "assets/software-and-computing.svg",
+      "topics": [
+        {
+          "en": "Computer Science",
+          "ar": "علوم الحاسب",
+          "count": 14
+        },
+        {
+          "en": "Systems & Networking",
+          "ar": "الأنظمة والشبكات",
+          "count": 13
+        },
+        {
+          "en": "Software Engineering",
+          "ar": "هندسة البرمجيات",
+          "count": 12
+        },
+        {
+          "en": "Algorithms & Data Structures",
+          "ar": "الخوارزميات وهياكل البيانات",
+          "count": 11
+        }
+      ],
+      "related": [
+        "coding-and-design",
+        "tech-retro",
+        "future-tech-and-energy",
+        "automotive"
+      ]
     },
     {
       "slug": "space-and-astrology",
@@ -1299,8 +2836,8 @@
         "ar": "كواكب وكوكبات وأحداث قمرية وأسئلة مرتبطة بالأبراج للاعبين الفضوليين."
       },
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "emoji": "🌌",
@@ -1312,9 +2849,51 @@
         "hard": 25,
         "very-advanced": 25
       },
-      "subcategories": [],
       "href": "space-and-astrology.html",
-      "image": "assets/space-and-astrology.svg"
+      "image": "assets/space-and-astrology.svg",
+      "topics": [
+        {
+          "en": "Solar System & Planets",
+          "ar": "النظام الشمسي والكواكب",
+          "count": 27
+        },
+        {
+          "en": "Galaxies & Cosmology",
+          "ar": "المجرات وعلم الكون",
+          "count": 22
+        },
+        {
+          "en": "Stars & Stellar Evolution",
+          "ar": "النجوم وتطورها",
+          "count": 19
+        },
+        {
+          "en": "Space Exploration & Telescopes",
+          "ar": "استكشاف الفضاء والتلسكوبات",
+          "count": 14
+        },
+        {
+          "en": "Black Holes & Gravity",
+          "ar": "الثقوب السوداء والجاذبية",
+          "count": 11
+        },
+        {
+          "en": "Observational Astronomy",
+          "ar": "علم الفلك الرصدي",
+          "count": 5
+        },
+        {
+          "en": "Space Physics & Orbits",
+          "ar": "فيزياء الفضاء والمدارات",
+          "count": 2
+        }
+      ],
+      "related": [
+        "environment-and-ecology",
+        "animal-kingdom",
+        "survival",
+        "medical-questions"
+      ]
     },
     {
       "slug": "story-mysteries",
@@ -1327,8 +2906,8 @@
         "ar": "ألغاز قصصية طويلة بأسئلة نعم/لا للراوي، مع مقدمات أوضح وحلول أنظف وطريقة كشف أفضل."
       },
       "cluster": {
-        "en": "Mind & Logic",
-        "ar": "العقل والمنطق"
+        "en": "Mind & Puzzles",
+        "ar": "العقل والألغاز"
       },
       "cluster_key": "mind",
       "emoji": "🕯️",
@@ -1340,9 +2919,56 @@
         "hard": 12,
         "very-advanced": 12
       },
-      "subcategories": [],
       "href": "story-mysteries.html",
-      "image": "assets/story-mysteries.svg"
+      "image": "assets/story-mysteries.svg",
+      "topics": [
+        {
+          "en": "Arts, Language & Performance",
+          "ar": "الفنون واللغة والعروض",
+          "count": 9
+        },
+        {
+          "en": "Everyday & Family",
+          "ar": "الحياة اليومية والعائلة",
+          "count": 8
+        },
+        {
+          "en": "Crime & Investigation",
+          "ar": "الجريمة والتحقيق",
+          "count": 7
+        },
+        {
+          "en": "Society, Money & Power",
+          "ar": "المجتمع والمال والسلطة",
+          "count": 7
+        },
+        {
+          "en": "Survival & Accidents",
+          "ar": "النجاة والحوادث",
+          "count": 7
+        },
+        {
+          "en": "Games & Competition",
+          "ar": "الألعاب والمنافسة",
+          "count": 4
+        },
+        {
+          "en": "Logic & Paradoxes",
+          "ar": "المنطق والمفارقات",
+          "count": 4
+        },
+        {
+          "en": "Science & Medicine",
+          "ar": "العلوم والطب",
+          "count": 4
+        }
+      ],
+      "related": [
+        "true-crime",
+        "psychology",
+        "philosophy",
+        "relationship-questions"
+      ]
     },
     {
       "slug": "tv-shows-trivia",
@@ -1355,8 +2981,8 @@
         "ar": "250 سؤالاً ثنائي اللغة عبر 10 مسلسلات من الأعلى تقييماً — 5 إنجليزية (برايكينج باد، صراع العروش، فريندز، ذا واير، أشياء غريبة) و5 عربية (باب الحارة، مرايا، طاش ما طاش، قيامة أرطغرل، الحساسين)."
       },
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "emoji": "📺",
@@ -1368,50 +2994,66 @@
         "hard": 70,
         "very-advanced": 40
       },
-      "subcategories": [
+      "href": "tv-shows-trivia.html",
+      "image": "assets/tv-shows-trivia.svg",
+      "topics": [
         {
-          "en": "Breaking Bad",
-          "ar": "برايكينج باد"
-        },
-        {
-          "en": "Game of Thrones",
-          "ar": "صراع العروش"
-        },
-        {
-          "en": "Friends",
-          "ar": "فريندز"
-        },
-        {
-          "en": "The Wire",
-          "ar": "ذا واير"
-        },
-        {
-          "en": "Stranger Things",
-          "ar": "أشياء غريبة"
+          "en": "Al-Hasaseen",
+          "ar": "الحساسين",
+          "count": 25
         },
         {
           "en": "Bab Al-Hara",
-          "ar": "باب الحارة"
+          "ar": "باب الحارة",
+          "count": 25
         },
         {
-          "en": "Maraya",
-          "ar": "مرايا"
-        },
-        {
-          "en": "Tash Ma Tash",
-          "ar": "طاش ما طاش"
+          "en": "Breaking Bad",
+          "ar": "برايكينج باد",
+          "count": 25
         },
         {
           "en": "Diriliş: Ertuğrul",
-          "ar": "قيامة أرطغرل"
+          "ar": "قيامة أرطغرل",
+          "count": 25
         },
         {
-          "en": "Al-Hasaseen",
-          "ar": "الحساسين"
+          "en": "Friends",
+          "ar": "فريندز",
+          "count": 25
+        },
+        {
+          "en": "Game of Thrones",
+          "ar": "صراع العروش",
+          "count": 25
+        },
+        {
+          "en": "Maraya",
+          "ar": "مرايا",
+          "count": 25
+        },
+        {
+          "en": "Stranger Things",
+          "ar": "أشياء غريبة",
+          "count": 25
+        },
+        {
+          "en": "Tash Ma Tash",
+          "ar": "طاش ما طاش",
+          "count": 25
+        },
+        {
+          "en": "The Wire",
+          "ar": "ذا واير",
+          "count": 25
         }
       ],
-      "href": "tv-shows-trivia.html",
-      "image": "assets/tv-shows-trivia.svg"
+      "related": [
+        "music-and-performing-arts",
+        "cinema-and-film-history",
+        "anime",
+        "ayam-tayebeen"
+      ]
     },
     {
       "slug": "world-habits-and-etiquette",
@@ -1424,8 +3066,8 @@
         "ar": "عادات وتحيات وضيافة وسلوكيات اجتماعية من أنحاء العالم."
       },
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "emoji": "🌍",
@@ -1437,9 +3079,36 @@
         "hard": 16,
         "very-advanced": 12
       },
-      "subcategories": [],
       "href": "world-habits-and-etiquette.html",
-      "image": "assets/world-habits-and-etiquette.svg"
+      "image": "assets/world-habits-and-etiquette.svg",
+      "topics": [
+        {
+          "en": "Social Customs",
+          "ar": "العادات الاجتماعية",
+          "count": 18
+        },
+        {
+          "en": "Dining Etiquette",
+          "ar": "آداب المائدة",
+          "count": 12
+        },
+        {
+          "en": "Religious & Ceremonial",
+          "ar": "الديني والاحتفالي",
+          "count": 11
+        },
+        {
+          "en": "Greetings & Gestures",
+          "ar": "التحيات والإيماءات",
+          "count": 9
+        }
+      ],
+      "related": [
+        "linguistics",
+        "business-and-management",
+        "economics-and-finance",
+        "social-sciences"
+      ]
     },
     {
       "slug": "environment-and-ecology",
@@ -1453,8 +3122,8 @@
       },
       "emoji": "🌿",
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "mode": "quiz",
@@ -1465,9 +3134,51 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "environment-and-ecology.html",
-      "image": "assets/environment-and-ecology.svg"
+      "image": "assets/environment-and-ecology.svg",
+      "topics": [
+        {
+          "en": "Ecosystems & Biodiversity",
+          "ar": "النظم البيئية والتنوع الحيوي",
+          "count": 10
+        },
+        {
+          "en": "Pollution & Waste",
+          "ar": "التلوث والنفايات",
+          "count": 7
+        },
+        {
+          "en": "Climate Change",
+          "ar": "تغير المناخ",
+          "count": 6
+        },
+        {
+          "en": "Conservation & Policy",
+          "ar": "الحماية والسياسات البيئية",
+          "count": 5
+        },
+        {
+          "en": "Oceans & Water",
+          "ar": "المحيطات والمياه",
+          "count": 5
+        },
+        {
+          "en": "Atmosphere & Weather",
+          "ar": "الغلاف الجوي والطقس",
+          "count": 4
+        },
+        {
+          "en": "Biogeochemical Cycles",
+          "ar": "الدورات البيوجيوكيميائية",
+          "count": 3
+        }
+      ],
+      "related": [
+        "animal-kingdom",
+        "survival",
+        "medical-questions",
+        "pharmacy"
+      ]
     },
     {
       "slug": "ancient-civilizations",
@@ -1481,8 +3192,8 @@
       },
       "emoji": "🏛️",
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "mode": "quiz",
@@ -1493,9 +3204,46 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "ancient-civilizations.html",
-      "image": "assets/ancient-civilizations.svg"
+      "image": "assets/ancient-civilizations.svg",
+      "topics": [
+        {
+          "en": "Ancient Egypt",
+          "ar": "مصر القديمة",
+          "count": 9
+        },
+        {
+          "en": "Greece & Rome",
+          "ar": "اليونان وروما",
+          "count": 8
+        },
+        {
+          "en": "Mesopotamia",
+          "ar": "بلاد الرافدين",
+          "count": 8
+        },
+        {
+          "en": "Africa & Near East",
+          "ar": "أفريقيا والشرق الأدنى",
+          "count": 5
+        },
+        {
+          "en": "Asian Civilizations",
+          "ar": "حضارات آسيا",
+          "count": 5
+        },
+        {
+          "en": "Civilizations of the Americas",
+          "ar": "حضارات الأمريكتين",
+          "count": 5
+        }
+      ],
+      "related": [
+        "law-middle-east",
+        "world-habits-and-etiquette",
+        "linguistics",
+        "business-and-management"
+      ]
     },
     {
       "slug": "inventions-and-minds",
@@ -1509,7 +3257,7 @@
       },
       "emoji": "💡",
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -1521,9 +3269,56 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "inventions-and-minds.html",
-      "image": "assets/inventions-and-minds.svg"
+      "image": "assets/inventions-and-minds.svg",
+      "topics": [
+        {
+          "en": "Computing History",
+          "ar": "تاريخ الحوسبة",
+          "count": 11
+        },
+        {
+          "en": "Science & Medicine",
+          "ar": "العلوم والطب",
+          "count": 7
+        },
+        {
+          "en": "Communications",
+          "ar": "الاتصالات",
+          "count": 5
+        },
+        {
+          "en": "Everyday Technology",
+          "ar": "التكنولوجيا اليومية",
+          "count": 4
+        },
+        {
+          "en": "Materials",
+          "ar": "المواد",
+          "count": 4
+        },
+        {
+          "en": "Transportation",
+          "ar": "النقل",
+          "count": 4
+        },
+        {
+          "en": "Energy & Engineering",
+          "ar": "الطاقة والهندسة",
+          "count": 3
+        },
+        {
+          "en": "Navigation",
+          "ar": "الملاحة",
+          "count": 2
+        }
+      ],
+      "related": [
+        "software-and-computing",
+        "coding-and-design",
+        "tech-retro",
+        "future-tech-and-energy"
+      ]
     },
     {
       "slug": "animal-kingdom",
@@ -1537,8 +3332,8 @@
       },
       "emoji": "🐾",
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Science, Nature & Health",
+        "ar": "العلوم والطبيعة والصحة"
       },
       "cluster_key": "science",
       "mode": "quiz",
@@ -1549,9 +3344,56 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "animal-kingdom.html",
-      "image": "assets/animal-kingdom.svg"
+      "image": "assets/animal-kingdom.svg",
+      "topics": [
+        {
+          "en": "Birds & Flight",
+          "ar": "الطيور والطيران",
+          "count": 7
+        },
+        {
+          "en": "Behavior, Ecology & Adaptation",
+          "ar": "السلوك والبيئة والتكيف",
+          "count": 6
+        },
+        {
+          "en": "Insects & Arthropods",
+          "ar": "الحشرات ومفصليات الأرجل",
+          "count": 6
+        },
+        {
+          "en": "Marine Life",
+          "ar": "الحياة البحرية",
+          "count": 5
+        },
+        {
+          "en": "Animal Anatomy & Physiology",
+          "ar": "تشريح الحيوان ووظائف الأعضاء",
+          "count": 4
+        },
+        {
+          "en": "Mammals",
+          "ar": "الثدييات",
+          "count": 4
+        },
+        {
+          "en": "Reproduction & Life Cycles",
+          "ar": "التكاثر ودورات الحياة",
+          "count": 4
+        },
+        {
+          "en": "Reptiles & Amphibians",
+          "ar": "الزواحف والبرمائيات",
+          "count": 4
+        }
+      ],
+      "related": [
+        "survival",
+        "medical-questions",
+        "pharmacy",
+        "math"
+      ]
     },
     {
       "slug": "economics-and-finance",
@@ -1565,8 +3407,8 @@
       },
       "emoji": "📈",
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "mode": "quiz",
@@ -1577,9 +3419,56 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "economics-and-finance.html",
-      "image": "assets/economics-and-finance.svg"
+      "image": "assets/economics-and-finance.svg",
+      "topics": [
+        {
+          "en": "Macroeconomics",
+          "ar": "الاقتصاد الكلي",
+          "count": 12
+        },
+        {
+          "en": "Markets & Trade",
+          "ar": "الأسواق والتجارة",
+          "count": 7
+        },
+        {
+          "en": "Economic Thought",
+          "ar": "الفكر الاقتصادي",
+          "count": 5
+        },
+        {
+          "en": "Money & Banking",
+          "ar": "المال والمصارف",
+          "count": 5
+        },
+        {
+          "en": "Public Economics",
+          "ar": "الاقتصاد العام",
+          "count": 4
+        },
+        {
+          "en": "Investing & Corporate Finance",
+          "ar": "الاستثمار وتمويل الشركات",
+          "count": 3
+        },
+        {
+          "en": "Information Economics",
+          "ar": "اقتصاد المعلومات",
+          "count": 2
+        },
+        {
+          "en": "Personal Finance",
+          "ar": "التمويل الشخصي",
+          "count": 2
+        }
+      ],
+      "related": [
+        "social-sciences",
+        "food-and-cuisines",
+        "geography",
+        "flag-questions"
+      ]
     },
     {
       "slug": "architecture-and-landmarks",
@@ -1593,7 +3482,7 @@
       },
       "emoji": "🏙️",
       "cluster": {
-        "en": "Tech & Engineering",
+        "en": "Technology & Engineering",
         "ar": "التقنية والهندسة"
       },
       "cluster_key": "tech",
@@ -1605,9 +3494,51 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "architecture-and-landmarks.html",
-      "image": "assets/architecture-and-landmarks.svg"
+      "image": "assets/architecture-and-landmarks.svg",
+      "topics": [
+        {
+          "en": "Architects & Designers",
+          "ar": "المعماريون والمصممون",
+          "count": 9
+        },
+        {
+          "en": "World Landmarks",
+          "ar": "معالم العالم",
+          "count": 9
+        },
+        {
+          "en": "Architectural Elements",
+          "ar": "العناصر المعمارية",
+          "count": 6
+        },
+        {
+          "en": "Architectural Styles",
+          "ar": "الطرز المعمارية",
+          "count": 6
+        },
+        {
+          "en": "Classical Architecture",
+          "ar": "العمارة الكلاسيكية",
+          "count": 5
+        },
+        {
+          "en": "Architectural Theory",
+          "ar": "النظرية المعمارية",
+          "count": 3
+        },
+        {
+          "en": "Materials & Structures",
+          "ar": "المواد والإنشاءات",
+          "count": 2
+        }
+      ],
+      "related": [
+        "inventions-and-minds",
+        "software-and-computing",
+        "coding-and-design",
+        "tech-retro"
+      ]
     },
     {
       "slug": "music-and-performing-arts",
@@ -1621,8 +3552,8 @@
       },
       "emoji": "🎻",
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "mode": "quiz",
@@ -1633,9 +3564,51 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "music-and-performing-arts.html",
-      "image": "assets/music-and-performing-arts.svg"
+      "image": "assets/music-and-performing-arts.svg",
+      "topics": [
+        {
+          "en": "Music Theory & Notation",
+          "ar": "نظرية الموسيقى والتدوين",
+          "count": 11
+        },
+        {
+          "en": "Composers & Works",
+          "ar": "المؤلفون والأعمال الموسيقية",
+          "count": 9
+        },
+        {
+          "en": "Instruments & Ensembles",
+          "ar": "الآلات والفرق الموسيقية",
+          "count": 8
+        },
+        {
+          "en": "Modern & Experimental Music",
+          "ar": "الموسيقى الحديثة والتجريبية",
+          "count": 4
+        },
+        {
+          "en": "Genres & Traditions",
+          "ar": "الأنواع والتقاليد الموسيقية",
+          "count": 3
+        },
+        {
+          "en": "Performance Techniques",
+          "ar": "تقنيات الأداء",
+          "count": 3
+        },
+        {
+          "en": "Sound, Tuning & Acoustics",
+          "ar": "الصوت والضبط والصوتيات",
+          "count": 2
+        }
+      ],
+      "related": [
+        "cinema-and-film-history",
+        "anime",
+        "ayam-tayebeen",
+        "football"
+      ]
     },
     {
       "slug": "food-and-cuisines",
@@ -1649,8 +3622,8 @@
       },
       "emoji": "🍽️",
       "cluster": {
-        "en": "World & Society",
-        "ar": "العالم والمجتمع"
+        "en": "World, History & Society",
+        "ar": "العالم والتاريخ والمجتمع"
       },
       "cluster_key": "world",
       "mode": "quiz",
@@ -1661,9 +3634,51 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "food-and-cuisines.html",
-      "image": "assets/food-and-cuisines.svg"
+      "image": "assets/food-and-cuisines.svg",
+      "topics": [
+        {
+          "en": "Ingredients",
+          "ar": "المكونات",
+          "count": 9
+        },
+        {
+          "en": "Cooking Techniques",
+          "ar": "تقنيات الطهي",
+          "count": 7
+        },
+        {
+          "en": "Food Science",
+          "ar": "علوم الغذاء",
+          "count": 7
+        },
+        {
+          "en": "Drinks & Spices",
+          "ar": "المشروبات والتوابل",
+          "count": 6
+        },
+        {
+          "en": "World Cuisines",
+          "ar": "مطابخ العالم",
+          "count": 5
+        },
+        {
+          "en": "Baking & Fermentation",
+          "ar": "الخَبز والتخمير",
+          "count": 4
+        },
+        {
+          "en": "Food Culture",
+          "ar": "ثقافة الطعام",
+          "count": 2
+        }
+      ],
+      "related": [
+        "geography",
+        "flag-questions",
+        "currencies",
+        "history"
+      ]
     },
     {
       "slug": "cinema-and-film-history",
@@ -1677,8 +3692,8 @@
       },
       "emoji": "🎬",
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "mode": "quiz",
@@ -1689,9 +3704,56 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "cinema-and-film-history.html",
-      "image": "assets/cinema-and-film-history.svg"
+      "image": "assets/cinema-and-film-history.svg",
+      "topics": [
+        {
+          "en": "Filmmakers & Performers",
+          "ar": "صنّاع الأفلام والممثلون",
+          "count": 9
+        },
+        {
+          "en": "Film History & Milestones",
+          "ar": "تاريخ السينما ومحطاتها",
+          "count": 8
+        },
+        {
+          "en": "Cinematography & Camera",
+          "ar": "التصوير السينمائي والكاميرا",
+          "count": 7
+        },
+        {
+          "en": "Editing, Sound & Visual Effects",
+          "ar": "المونتاج والصوت والمؤثرات البصرية",
+          "count": 5
+        },
+        {
+          "en": "Awards, Festivals & Industry",
+          "ar": "الجوائز والمهرجانات والصناعة",
+          "count": 4
+        },
+        {
+          "en": "Film Theory & Storytelling",
+          "ar": "نظرية السينما والسرد",
+          "count": 3
+        },
+        {
+          "en": "Movements & Genres",
+          "ar": "الحركات والأنواع السينمائية",
+          "count": 2
+        },
+        {
+          "en": "Production Roles & Planning",
+          "ar": "أدوار الإنتاج والتخطيط",
+          "count": 2
+        }
+      ],
+      "related": [
+        "anime",
+        "ayam-tayebeen",
+        "football",
+        "fictional-worlds"
+      ]
     },
     {
       "slug": "future-tech-and-energy",
@@ -1705,10 +3767,10 @@
       },
       "emoji": "🚀",
       "cluster": {
-        "en": "Science & Nature",
-        "ar": "العلوم والطبيعة"
+        "en": "Technology & Engineering",
+        "ar": "التقنية والهندسة"
       },
-      "cluster_key": "science",
+      "cluster_key": "tech",
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
@@ -1717,9 +3779,56 @@
         "hard": 10,
         "very-advanced": 10
       },
-      "subcategories": [],
       "href": "future-tech-and-energy.html",
-      "image": "assets/future-tech-and-energy.svg"
+      "image": "assets/future-tech-and-energy.svg",
+      "topics": [
+        {
+          "en": "Computing & Security",
+          "ar": "الحوسبة والأمن",
+          "count": 9
+        },
+        {
+          "en": "AI & Machine Learning",
+          "ar": "الذكاء الاصطناعي وتعلم الآلة",
+          "count": 7
+        },
+        {
+          "en": "Connected & Immersive Tech",
+          "ar": "التقنيات المتصلة والغامرة",
+          "count": 6
+        },
+        {
+          "en": "Space Futures",
+          "ar": "مستقبل الفضاء",
+          "count": 5
+        },
+        {
+          "en": "Biotechnology & Human Enhancement",
+          "ar": "التقنية الحيوية وتعزيز الإنسان",
+          "count": 4
+        },
+        {
+          "en": "Advanced Materials & Manufacturing",
+          "ar": "المواد والتصنيع المتقدم",
+          "count": 3
+        },
+        {
+          "en": "Energy & Power Systems",
+          "ar": "الطاقة وأنظمة القدرة",
+          "count": 3
+        },
+        {
+          "en": "Robotics & Autonomous Systems",
+          "ar": "الروبوتات والأنظمة الذاتية",
+          "count": 3
+        }
+      ],
+      "related": [
+        "automotive",
+        "civil-engineering",
+        "electrical-engineering",
+        "mechanical-engineering"
+      ]
     },
     {
       "slug": "anime",
@@ -1732,8 +3841,8 @@
         "ar": "اختبر معرفتك عبر 10 سلاسل أنمي أيقونية — من ناروتو ودراغون بول زي إلى هجوم العمالقة وقاتل الشياطين."
       },
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "emoji": "⚔️",
@@ -1745,50 +3854,66 @@
         "hard": 39,
         "very-advanced": 31
       },
-      "subcategories": [
+      "href": "anime.html",
+      "image": "assets/anime.svg",
+      "topics": [
         {
-          "en": "Naruto",
-          "ar": "ناروتو"
-        },
-        {
-          "en": "Dragon Ball Z",
-          "ar": "دراغون بول زي"
-        },
-        {
-          "en": "Pokémon",
-          "ar": "بوكيمون"
+          "en": "Attack on Titan",
+          "ar": "هجوم العمالقة",
+          "count": 15
         },
         {
           "en": "Death Note",
-          "ar": "دفتر الموت"
-        },
-        {
-          "en": "Attack on Titan",
-          "ar": "هجوم العمالقة"
-        },
-        {
-          "en": "One Piece",
-          "ar": "ون بيس"
+          "ar": "دفتر الموت",
+          "count": 15
         },
         {
           "en": "Demon Slayer",
-          "ar": "قاتل الشياطين"
+          "ar": "قاتل الشياطين",
+          "count": 15
+        },
+        {
+          "en": "Dragon Ball Z",
+          "ar": "دراغون بول زي",
+          "count": 15
         },
         {
           "en": "Fullmetal Alchemist: Brotherhood",
-          "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
+          "ar": "المحوّل الكيميائي المدرّع: الأخوّة",
+          "count": 15
         },
         {
           "en": "My Hero Academia",
-          "ar": "أكاديمية بطلي"
+          "ar": "أكاديمية بطلي",
+          "count": 15
+        },
+        {
+          "en": "Naruto",
+          "ar": "ناروتو",
+          "count": 15
+        },
+        {
+          "en": "One Piece",
+          "ar": "ون بيس",
+          "count": 15
+        },
+        {
+          "en": "Pokémon",
+          "ar": "بوكيمون",
+          "count": 15
         },
         {
           "en": "Sword Art Online",
-          "ar": "فن السيف الإلكتروني"
+          "ar": "فن السيف الإلكتروني",
+          "count": 15
         }
       ],
-      "href": "anime.html",
-      "image": "assets/anime.svg"
+      "related": [
+        "ayam-tayebeen",
+        "football",
+        "fictional-worlds",
+        "superheroes"
+      ]
     },
     {
       "slug": "ayam-tayebeen",
@@ -1801,8 +3926,8 @@
         "ar": "عِش ذكريات الزمن الجميل مع سبيستون عبر 200 سؤال ثنائي اللغة في 10 مسلسلات كلاسيكية محبوبة — عدنان ولينا، الكابتن ماجد، غرندايزر، وأكثر."
       },
       "cluster": {
-        "en": "Arts & Pop Culture",
-        "ar": "الفنون والثقافة"
+        "en": "Arts, Culture & Entertainment",
+        "ar": "الفنون والثقافة والترفيه"
       },
       "cluster_key": "culture",
       "emoji": "📺",
@@ -1814,50 +3939,66 @@
         "hard": 50,
         "very-advanced": 50
       },
-      "subcategories": [
+      "href": "ayam-tayebeen.html",
+      "image": "assets/ayam-tayebeen.svg",
+      "topics": [
         {
           "en": "Adnan and Lina",
-          "ar": "عدنان ولينا"
+          "ar": "عدنان ولينا",
+          "count": 20
         },
         {
-          "en": "Captain Majed",
-          "ar": "الكابتن ماجد"
+          "en": "Captain Majid",
+          "ar": "الكابتن ماجد",
+          "count": 20
         },
         {
-          "en": "Treasure Island",
-          "ar": "جزيرة الكنز"
+          "en": "Chibi Maruko-chan",
+          "ar": "ماروكو الصغيرة",
+          "count": 20
         },
         {
           "en": "Grendizer",
-          "ar": "غرندايزر"
+          "ar": "غرندايزر",
+          "count": 20
         },
         {
-          "en": "Sally",
-          "ar": "سالي"
-        },
-        {
-          "en": "Little Maruko",
-          "ar": "ماروكو الصغيرة"
+          "en": "Iron Man",
+          "ar": "الرجل الحديدي",
+          "count": 20
         },
         {
           "en": "Remi",
-          "ar": "ريمي"
+          "ar": "ريمي",
+          "count": 20
         },
         {
-          "en": "Candy",
-          "ar": "ساندييبيل"
+          "en": "Sally",
+          "ar": "سالي",
+          "count": 20
         },
         {
-          "en": "Ironman",
-          "ar": "الرجل الحديدي"
+          "en": "Sandybell",
+          "ar": "ساندييبيل",
+          "count": 20
         },
         {
           "en": "Tom and Jerry",
-          "ar": "توم وجيري"
+          "ar": "توم وجيري",
+          "count": 20
+        },
+        {
+          "en": "Treasure Island",
+          "ar": "جزيرة الكنز",
+          "count": 20
         }
       ],
-      "href": "ayam-tayebeen.html",
-      "image": "assets/ayam-tayebeen.svg"
+      "related": [
+        "football",
+        "fictional-worlds",
+        "superheroes",
+        "pop-culture"
+      ]
     }
   ]
 }

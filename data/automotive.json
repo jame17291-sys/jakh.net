@@ -1,502 +1,642 @@
-{
-  "slug": "automotive",
-  "title": {
-    "en": "Automotive & Racing",
-    "ar": "سيارات ومحركات"
+[
+  {
+    "id": "automotive-1",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "What does the 'V' in V8 engine stand for?",
+      "ar": "ماذا يعني حرف 'V' في محرك V8؟"
+    },
+    "answer": {
+      "en": "The cylinder arrangement (V-shape)",
+      "ar": "ترتيب الأسطوانات (على شكل حرف V)"
+    },
+    "difficulty": "easy"
   },
-  "emoji": "🏎️",
-  "color": "var(--warn)",
-  "count": 40,
-  "cards": [
-    {
-      "id": "automotive-1",
-      "question": {
-        "en": "What does the 'V' in V8 engine stand for?",
-        "ar": "ماذا يعني حرف 'V' في محرك V8؟"
-      },
-      "answer": {
-        "en": "The cylinder arrangement (V-shape)",
-        "ar": "ترتيب الأسطوانات (على شكل حرف V)"
-      },
-      "difficulty": "easy"
+  {
+    "id": "automotive-2",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
     },
-    {
-      "id": "automotive-2",
-      "question": {
-        "en": "Which car brand uses a logo with four interlocking rings?",
-        "ar": "أي علامة تجارية للسيارات تستخدم شعاراً مكوناً من أربع حلقات متشابكة؟"
-      },
-      "answer": {
-        "en": "Audi",
-        "ar": "أودي"
-      },
-      "difficulty": "easy"
+    "question": {
+      "en": "Which car brand uses a logo with four interlocking rings?",
+      "ar": "أي علامة تجارية للسيارات تستخدم شعاراً مكوناً من أربع حلقات متشابكة؟"
     },
-    {
-      "id": "automotive-3",
-      "question": {
-        "en": "What is the pedal on the far left used for in a manual transmission car?",
-        "ar": "ما هو الدواسة في أقصى اليسار المستخدمة في سيارة ذات ناقل حركة يدوي؟"
-      },
-      "answer": {
-        "en": "Clutch",
-        "ar": "القابض (الكلتش)"
-      },
-      "difficulty": "easy"
+    "answer": {
+      "en": "Audi",
+      "ar": "أودي"
     },
-    {
-      "id": "automotive-4",
-      "question": {
-        "en": "What country is the car manufacturer Toyota from?",
-        "ar": "من أي بلد تأتي شركة تصنيع السيارات تويوتا؟"
-      },
-      "answer": {
-        "en": "Japan",
-        "ar": "اليابان"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-5",
-      "question": {
-        "en": "What fluid keeps the engine from overheating?",
-        "ar": "ما هو السائل الذي يمنع ارتفاع درجة حرارة المحرك؟"
-      },
-      "answer": {
-        "en": "Coolant / Antifreeze",
-        "ar": "سائل التبريد"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-6",
-      "question": {
-        "en": "What is the name of Tesla’s flagship electric sedan?",
-        "ar": "ما هو اسم سيارة السيدان الكهربائية الرئيسية لشركة تسلا؟"
-      },
-      "answer": {
-        "en": "Model S",
-        "ar": "موديل إس"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-7",
-      "question": {
-        "en": "Which American company built the Mustang?",
-        "ar": "أي شركة أمريكية صنعت الموستانج؟"
-      },
-      "answer": {
-        "en": "Ford",
-        "ar": "فورد"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-8",
-      "question": {
-        "en": "What does 'RPM' stand for on a car’s dashboard?",
-        "ar": "ماذا يعني اختصار 'RPM' على لوحة القيادة في السيارة؟"
-      },
-      "answer": {
-        "en": "Revolutions Per Minute",
-        "ar": "دورة في الدقيقة"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-9",
-      "question": {
-        "en": "What part of the car is responsible for generating electricity while the engine is running?",
-        "ar": "أي جزء من السيارة مسؤول عن توليد الكهرباء أثناء تشغيل المحرك؟"
-      },
-      "answer": {
-        "en": "Alternator",
-        "ar": "المولد"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-10",
-      "question": {
-        "en": "Which German brand manufactures the 911 sports car?",
-        "ar": "أي علامة تجارية ألمانية تصنع سيارة 911 الرياضية؟"
-      },
-      "answer": {
-        "en": "Porsche",
-        "ar": "بورشه"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "automotive-11",
-      "question": {
-        "en": "What was the first mass-produced car in the world?",
-        "ar": "ما كانت أول سيارة يتم إنتاجها بكميات كبيرة في العالم؟"
-      },
-      "answer": {
-        "en": "Ford Model T",
-        "ar": "فورد موديل تي"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-12",
-      "question": {
-        "en": "What Italian car manufacturer has a raging bull as its logo?",
-        "ar": "ما هي شركة تصنيع السيارات الإيطالية التي يتخذ شعارها شكل ثور هائج؟"
-      },
-      "answer": {
-        "en": "Lamborghini",
-        "ar": "لامبورجيني"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-13",
-      "question": {
-        "en": "What does ABS stand for in vehicle safety systems?",
-        "ar": "ماذا يعني ABS في أنظمة سلامة المركبات؟"
-      },
-      "answer": {
-        "en": "Anti-lock Braking System",
-        "ar": "نظام الفرامل المانعة للانغلاق"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-14",
-      "question": {
-        "en": "Which component connects the engine to the transmission?",
-        "ar": "أي مكون يربط المحرك بناقل الحركة؟"
-      },
-      "answer": {
-        "en": "The clutch or torque converter",
-        "ar": "القابض أو محول عزم الدوران"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-15",
-      "question": {
-        "en": "What type of engine does a Mazda RX-7 have?",
-        "ar": "ما نوع المحرك الذي تمتلكه مازدا RX-7؟"
-      },
-      "answer": {
-        "en": "Rotary engine (Wankel)",
-        "ar": "محرك دوار (فانكل)"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-16",
-      "question": {
-        "en": "What is the most produced car model in history?",
-        "ar": "ما هو طراز السيارة الأكثر إنتاجاً في التاريخ؟"
-      },
-      "answer": {
-        "en": "Toyota Corolla",
-        "ar": "تويوتا كورولا"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-17",
-      "question": {
-        "en": "Which racing series is considered the pinnacle of motorsport and features open-wheel cars?",
-        "ar": "أي سلسلة سباقات تُعتبر قمة رياضة السيارات وتتميز بسيارات ذات عجلات مكشوفة؟"
-      },
-      "answer": {
-        "en": "Formula 1",
-        "ar": "فورمولا 1"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-18",
-      "question": {
-        "en": "What does 'GT' typically stand for in car models?",
-        "ar": "ماذا يعني 'GT' عادة في طرازات السيارات؟"
-      },
-      "answer": {
-        "en": "Grand Touring (Gran Turismo)",
-        "ar": "جراند تورينج"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-19",
-      "question": {
-        "en": "Which car brand is known for its symmetrical all-wheel drive and boxer engines?",
-        "ar": "أي علامة تجارية للسيارات تُعرف بنظام الدفع الرباعي المتماثل والمحركات المسطحة (البوكسر)؟"
-      },
-      "answer": {
-        "en": "Subaru",
-        "ar": "سوبارو"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-20",
-      "question": {
-        "en": "What does the 'EV' in EV cars stand for?",
-        "ar": "ماذا يعني 'EV' في سيارات EV؟"
-      },
-      "answer": {
-        "en": "Electric Vehicle",
-        "ar": "مركبة كهربائية"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "automotive-21",
-      "question": {
-        "en": "Who holds the record for the most Formula 1 World Championships (tied at 7)?",
-        "ar": "من يحمل الرقم القياسي لأكبر عدد من بطولات العالم للفورمولا 1 (متعادلان بـ 7)؟"
-      },
-      "answer": {
-        "en": "Michael Schumacher & Lewis Hamilton",
-        "ar": "مايكل شوماخر ولويس هاميلتون"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-22",
-      "question": {
-        "en": "What is the name of the legendary endurance race held in France over 24 hours?",
-        "ar": "ما هو اسم سباق التحمل الأسطوري الذي يقام في فرنسا على مدار 24 ساعة؟"
-      },
-      "answer": {
-        "en": "24 Hours of Le Mans",
-        "ar": "24 ساعة في لومان"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-23",
-      "question": {
-        "en": "Which hypercar was the first production car to break the 300 mph barrier?",
-        "ar": "أي سيارة خارقة كانت أول سيارة إنتاج تكسر حاجز 300 ميل في الساعة؟"
-      },
-      "answer": {
-        "en": "Bugatti Chiron Super Sport 300+",
-        "ar": "بوجاتي تشيرون سوبر سبورت 300+"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-24",
-      "question": {
-        "en": "In an internal combustion engine, what are the four strokes of a typical cycle?",
-        "ar": "في محرك الاحتراق الداخلي، ما هي الأشواط الأربعة للدورة النموذجية؟"
-      },
-      "answer": {
-        "en": "Intake, Compression, Power, Exhaust",
-        "ar": "السحب، الضغط، الاحتراق، العادم"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-25",
-      "question": {
-        "en": "What car is affectionately known as the 'Godzilla' in the JDM community?",
-        "ar": "أي سيارة تُعرف بمودة باسم 'جودزيلا' في مجتمع السيارات اليابانية؟"
-      },
-      "answer": {
-        "en": "Nissan Skyline GT-R",
-        "ar": "نيسان سكايلاين جي تي-آر"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-26",
-      "question": {
-        "en": "What is the purpose of a turbocharger's wastegate?",
-        "ar": "ما هو الغرض من صمام تصريف العادم (wastegate) في الشاحن التوربيني؟"
-      },
-      "answer": {
-        "en": "To regulate maximum boost pressure",
-        "ar": "لتنظيم أقصى ضغط تعزيز"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-27",
-      "question": {
-        "en": "Which company owns the luxury car brand Bentley?",
-        "ar": "أي شركة تمتلك علامة السيارات الفاخرة بنتلي؟"
-      },
-      "answer": {
-        "en": "Volkswagen Group",
-        "ar": "مجموعة فولكس فاجن"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-28",
-      "question": {
-        "en": "What was the first Japanese car manufacturer?",
-        "ar": "ما كانت أول شركة يابانية لتصنيع السيارات؟"
-      },
-      "answer": {
-        "en": "Mitsubishi",
-        "ar": "ميتسوبيشي"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-29",
-      "question": {
-        "en": "What does 'LSD' stand for in automotive drivetrain terminology?",
-        "ar": "ماذا يعني 'LSD' في مصطلحات نظام الدفع في السيارات؟"
-      },
-      "answer": {
-        "en": "Limited Slip Differential",
-        "ar": "ترس تفاضلي محدود الانزلاق"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-30",
-      "question": {
-        "en": "Which classic movie featured a heavily modified DeLorean DMC-12?",
-        "ar": "أي فيلم كلاسيكي تضمن سيارة ديلوريان DMC-12 معدلة بشكل كبير؟"
-      },
-      "answer": {
-        "en": "Back to the Future",
-        "ar": "العودة إلى المستقبل"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "automotive-31",
-      "question": {
-        "en": "Which legendary Formula 1 designer created the revolutionary Williams FW14B and Red Bull RB19?",
-        "ar": "من هو مصمم الفورمولا 1 الأسطوري الذي ابتكر سيارة ويليامز FW14B وريد بول RB19 الثوريتين؟"
-      },
-      "answer": {
-        "en": "Adrian Newey",
-        "ar": "أدريان نيوي"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-32",
-      "question": {
-        "en": "What specific type of suspension system uses unequal length control arms to maximize tire contact patch?",
-        "ar": "ما هو النوع المحدد من نظام التعليق الذي يستخدم أذرع تحكم غير متساوية الطول لزيادة رقعة اتصال الإطار؟"
-      },
-      "answer": {
-        "en": "Double Wishbone",
-        "ar": "التعليق المزدوج الترقوة"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-33",
-      "question": {
-        "en": "What is the 'Ackermann steering geometry' designed to solve?",
-        "ar": "ما الذي صُممت 'هندسة التوجيه أكرمان' لحله؟"
-      },
-      "answer": {
-        "en": "The problem of wheels on the inside and outside of a turn needing to trace out circles of different radii",
-        "ar": "مشكلة العجلات الداخلية والخارجية في المنعطف التي تحتاج إلى رسم دوائر بأنصاف أقطار مختلفة"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-34",
-      "question": {
-        "en": "Which car model was the first to implement a modern 3-point seatbelt as standard equipment in 1959?",
-        "ar": "أي طراز سيارة كان الأول في تنفيذ حزام الأمان الحديث المكون من 3 نقاط كمعدات قياسية في عام 1959؟"
-      },
-      "answer": {
-        "en": "Volvo PV544",
-        "ar": "فولفو PV544"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-35",
-      "question": {
-        "en": "In engine tuning, what is the 'Stoichiometric ratio' for a gasoline internal combustion engine?",
-        "ar": "في ضبط المحرك، ما هي 'النسبة المتكافئة' لمحرك احتراق داخلي يعمل بالبنزين؟"
-      },
-      "answer": {
-        "en": "14.7 parts air to 1 part fuel",
-        "ar": "14.7 جزء من الهواء إلى جزء واحد من الوقود"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-36",
-      "question": {
-        "en": "What does the 'Desmodromic' valve system, famously used by Ducati, eliminate?",
-        "ar": "ما الذي يلغيه نظام الصمامات 'الديسمودروميك'، الذي تستخدمه دوكاتي بشكل شهير؟"
-      },
-      "answer": {
-        "en": "Valve springs (it uses cams to actively close the valves)",
-        "ar": "نوابض الصمامات (يستخدم كامات لإغلاق الصمامات بنشاط)"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-37",
-      "question": {
-        "en": "What was the first car to feature a full carbon-fiber monocoque chassis?",
-        "ar": "ما هي أول سيارة تتميز بهيكل أحادي كامل من ألياف الكربون؟"
-      },
-      "answer": {
-        "en": "McLaren F1",
-        "ar": "ماكلارين إف 1"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-38",
-      "question": {
-        "en": "Which engine configuration features cylinders opposed at 180 degrees but with each pair sharing a single crankpin?",
-        "ar": "أي تكوين محرك يتميز بأسطوانات متقابلة بزاوية 180 درجة ولكن مع اشتراك كل زوج في مسمار كرنك واحد؟"
-      },
-      "answer": {
-        "en": "Flat engine (not a true boxer)",
-        "ar": "المحرك المسطح"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-39",
-      "question": {
-        "en": "What is the aerodynamic phenomenon that ground-effect Formula 1 cars use to suck themselves to the track?",
-        "ar": "ما هي الظاهرة الديناميكية الهوائية التي تستخدمها سيارات الفورمولا 1 ذات التأثير الأرضي لشفط نفسها إلى المضمار؟"
-      },
-      "answer": {
-        "en": "Venturi effect",
-        "ar": "تأثير فنتوري"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "automotive-40",
-      "question": {
-        "en": "Which group B rally car was notorious for being so fast and dangerous that it led to the cancellation of the racing class?",
-        "ar": "أي سيارة رالي من المجموعة ب كانت سيئة السمعة لكونها سريعة وخطيرة لدرجة أنها أدت إلى إلغاء فئة السباق؟"
-      },
-      "answer": {
-        "en": "Lancia Delta S4 / Audi Sport Quattro S1",
-        "ar": "لانشيا دلتا إس 4 / أودي سبورت كواترو إس 1"
-      },
-      "difficulty": "very-advanced"
-    }
-  ],
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 10
+    "difficulty": "easy"
   },
-  "description": {
-    "en": "Explore questions about Automotive & Racing.",
-    "ar": "اكتشف أسئلة حول سيارات ومحركات."
+  {
+    "id": "automotive-3",
+    "subcategory": {
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
+    },
+    "question": {
+      "en": "What is the pedal on the far left used for in a manual transmission car?",
+      "ar": "ما هو الدواسة في أقصى اليسار المستخدمة في سيارة ذات ناقل حركة يدوي؟"
+    },
+    "answer": {
+      "en": "Clutch",
+      "ar": "القابض (الكلتش)"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-4",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "What country is the car manufacturer Toyota from?",
+      "ar": "من أي بلد تأتي شركة تصنيع السيارات تويوتا؟"
+    },
+    "answer": {
+      "en": "Japan",
+      "ar": "اليابان"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-5",
+    "subcategory": {
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
+    },
+    "question": {
+      "en": "What fluid keeps the engine from overheating?",
+      "ar": "ما هو السائل الذي يمنع ارتفاع درجة حرارة المحرك؟"
+    },
+    "answer": {
+      "en": "Coolant / Antifreeze",
+      "ar": "سائل التبريد"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-6",
+    "subcategory": {
+      "en": "Electric Vehicles",
+      "ar": "المركبات الكهربائية"
+    },
+    "question": {
+      "en": "What is the name of Tesla’s flagship electric sedan?",
+      "ar": "ما هو اسم سيارة السيدان الكهربائية الرئيسية لشركة تسلا؟"
+    },
+    "answer": {
+      "en": "Model S",
+      "ar": "موديل إس"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-7",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "Which American company built the Mustang?",
+      "ar": "أي شركة أمريكية صنعت الموستانج؟"
+    },
+    "answer": {
+      "en": "Ford",
+      "ar": "فورد"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-8",
+    "subcategory": {
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
+    },
+    "question": {
+      "en": "What does 'RPM' stand for on a car’s dashboard?",
+      "ar": "ماذا يعني اختصار 'RPM' على لوحة القيادة في السيارة؟"
+    },
+    "answer": {
+      "en": "Revolutions Per Minute",
+      "ar": "دورة في الدقيقة"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-9",
+    "subcategory": {
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
+    },
+    "question": {
+      "en": "What part of the car is responsible for generating electricity while the engine is running?",
+      "ar": "أي جزء من السيارة مسؤول عن توليد الكهرباء أثناء تشغيل المحرك؟"
+    },
+    "answer": {
+      "en": "Alternator",
+      "ar": "المولد"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-10",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "Which German brand manufactures the 911 sports car?",
+      "ar": "أي علامة تجارية ألمانية تصنع سيارة 911 الرياضية؟"
+    },
+    "answer": {
+      "en": "Porsche",
+      "ar": "بورشه"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "id": "automotive-11",
+    "subcategory": {
+      "en": "Automotive History",
+      "ar": "تاريخ السيارات"
+    },
+    "question": {
+      "en": "What was the first mass-produced car in the world?",
+      "ar": "ما كانت أول سيارة يتم إنتاجها بكميات كبيرة في العالم؟"
+    },
+    "answer": {
+      "en": "Ford Model T",
+      "ar": "فورد موديل تي"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-12",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "What Italian car manufacturer has a raging bull as its logo?",
+      "ar": "ما هي شركة تصنيع السيارات الإيطالية التي يتخذ شعارها شكل ثور هائج؟"
+    },
+    "answer": {
+      "en": "Lamborghini",
+      "ar": "لامبورجيني"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-13",
+    "subcategory": {
+      "en": "Safety & Vehicle Dynamics",
+      "ar": "السلامة وديناميكيات المركبات"
+    },
+    "question": {
+      "en": "What does ABS stand for in vehicle safety systems?",
+      "ar": "ماذا يعني ABS في أنظمة سلامة المركبات؟"
+    },
+    "answer": {
+      "en": "Anti-lock Braking System",
+      "ar": "نظام الفرامل المانعة للانغلاق"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-14",
+    "subcategory": {
+      "en": "Components & Maintenance",
+      "ar": "المكونات والصيانة"
+    },
+    "question": {
+      "en": "Which component connects the engine to the transmission?",
+      "ar": "أي مكون يربط المحرك بناقل الحركة؟"
+    },
+    "answer": {
+      "en": "The clutch or torque converter",
+      "ar": "القابض أو محول عزم الدوران"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-15",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "What type of engine does a Mazda RX-7 have?",
+      "ar": "ما نوع المحرك الذي تمتلكه مازدا RX-7؟"
+    },
+    "answer": {
+      "en": "Rotary engine (Wankel)",
+      "ar": "محرك دوار (فانكل)"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-16",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "What is the most produced car model in history?",
+      "ar": "ما هو طراز السيارة الأكثر إنتاجاً في التاريخ؟"
+    },
+    "answer": {
+      "en": "Toyota Corolla",
+      "ar": "تويوتا كورولا"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-17",
+    "subcategory": {
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
+    },
+    "question": {
+      "en": "Which racing series is considered the pinnacle of motorsport and features open-wheel cars?",
+      "ar": "أي سلسلة سباقات تُعتبر قمة رياضة السيارات وتتميز بسيارات ذات عجلات مكشوفة؟"
+    },
+    "answer": {
+      "en": "Formula 1",
+      "ar": "فورمولا 1"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-18",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "What does 'GT' typically stand for in car models?",
+      "ar": "ماذا يعني 'GT' عادة في طرازات السيارات؟"
+    },
+    "answer": {
+      "en": "Grand Touring (Gran Turismo)",
+      "ar": "جراند تورينج"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-19",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "Which car brand is known for its symmetrical all-wheel drive and boxer engines?",
+      "ar": "أي علامة تجارية للسيارات تُعرف بنظام الدفع الرباعي المتماثل والمحركات المسطحة (البوكسر)؟"
+    },
+    "answer": {
+      "en": "Subaru",
+      "ar": "سوبارو"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-20",
+    "subcategory": {
+      "en": "Electric Vehicles",
+      "ar": "المركبات الكهربائية"
+    },
+    "question": {
+      "en": "What does the 'EV' in EV cars stand for?",
+      "ar": "ماذا يعني 'EV' في سيارات EV؟"
+    },
+    "answer": {
+      "en": "Electric Vehicle",
+      "ar": "مركبة كهربائية"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "id": "automotive-21",
+    "subcategory": {
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
+    },
+    "question": {
+      "en": "Which two drivers have each won seven Formula 1 World Drivers' Championships?",
+      "ar": "أي سائقين فاز كل منهما بسبع بطولات عالم للسائقين في الفورمولا 1؟"
+    },
+    "answer": {
+      "en": "Michael Schumacher & Lewis Hamilton",
+      "ar": "مايكل شوماخر ولويس هاميلتون"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-22",
+    "subcategory": {
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
+    },
+    "question": {
+      "en": "What is the name of the legendary endurance race held in France over 24 hours?",
+      "ar": "ما هو اسم سباق التحمل الأسطوري الذي يقام في فرنسا على مدار 24 ساعة؟"
+    },
+    "answer": {
+      "en": "24 Hours of Le Mans",
+      "ar": "24 ساعة في لومان"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-23",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "Which hypercar was the first production car to break the 300 mph barrier?",
+      "ar": "أي سيارة خارقة كانت أول سيارة إنتاج تكسر حاجز 300 ميل في الساعة؟"
+    },
+    "answer": {
+      "en": "Bugatti Chiron Super Sport 300+",
+      "ar": "بوجاتي تشيرون سوبر سبورت 300+"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-24",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "In an internal combustion engine, what are the four strokes of a typical cycle?",
+      "ar": "في محرك الاحتراق الداخلي، ما هي الأشواط الأربعة للدورة النموذجية؟"
+    },
+    "answer": {
+      "en": "Intake, Compression, Power, Exhaust",
+      "ar": "السحب، الضغط، الاحتراق، العادم"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-25",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "What car is affectionately known as the 'Godzilla' in the JDM community?",
+      "ar": "أي سيارة تُعرف بمودة باسم 'جودزيلا' في مجتمع السيارات اليابانية؟"
+    },
+    "answer": {
+      "en": "Nissan Skyline GT-R",
+      "ar": "نيسان سكايلاين جي تي-آر"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-26",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "What is the purpose of a turbocharger's wastegate?",
+      "ar": "ما هو الغرض من صمام تصريف العادم (wastegate) في الشاحن التوربيني؟"
+    },
+    "answer": {
+      "en": "To regulate maximum boost pressure",
+      "ar": "لتنظيم أقصى ضغط تعزيز"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-27",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "Which company owns the luxury car brand Bentley?",
+      "ar": "أي شركة تمتلك علامة السيارات الفاخرة بنتلي؟"
+    },
+    "answer": {
+      "en": "Volkswagen Group",
+      "ar": "مجموعة فولكس فاجن"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-28",
+    "subcategory": {
+      "en": "Automotive History",
+      "ar": "تاريخ السيارات"
+    },
+    "question": {
+      "en": "What was the first Japanese car manufacturer?",
+      "ar": "ما كانت أول شركة يابانية لتصنيع السيارات؟"
+    },
+    "answer": {
+      "en": "Mitsubishi",
+      "ar": "ميتسوبيشي"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-29",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "What does 'LSD' stand for in automotive drivetrain terminology?",
+      "ar": "ماذا يعني 'LSD' في مصطلحات نظام الدفع في السيارات؟"
+    },
+    "answer": {
+      "en": "Limited Slip Differential",
+      "ar": "ترس تفاضلي محدود الانزلاق"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-30",
+    "subcategory": {
+      "en": "Brands & Models",
+      "ar": "العلامات والطرازات"
+    },
+    "question": {
+      "en": "Which classic movie featured a heavily modified DeLorean DMC-12?",
+      "ar": "أي فيلم كلاسيكي تضمن سيارة ديلوريان DMC-12 معدلة بشكل كبير؟"
+    },
+    "answer": {
+      "en": "Back to the Future",
+      "ar": "العودة إلى المستقبل"
+    },
+    "difficulty": "hard"
+  },
+  {
+    "id": "automotive-31",
+    "subcategory": {
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
+    },
+    "question": {
+      "en": "Which legendary Formula 1 designer created the revolutionary Williams FW14B and Red Bull RB19?",
+      "ar": "من هو مصمم الفورمولا 1 الأسطوري الذي ابتكر سيارة ويليامز FW14B وريد بول RB19 الثوريتين؟"
+    },
+    "answer": {
+      "en": "Adrian Newey",
+      "ar": "أدريان نيوي"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-32",
+    "subcategory": {
+      "en": "Safety & Vehicle Dynamics",
+      "ar": "السلامة وديناميكيات المركبات"
+    },
+    "question": {
+      "en": "What specific type of suspension system uses unequal length control arms to maximize tire contact patch?",
+      "ar": "ما هو النوع المحدد من نظام التعليق الذي يستخدم أذرع تحكم غير متساوية الطول لزيادة رقعة اتصال الإطار؟"
+    },
+    "answer": {
+      "en": "Double Wishbone",
+      "ar": "التعليق المزدوج الترقوة"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-33",
+    "subcategory": {
+      "en": "Safety & Vehicle Dynamics",
+      "ar": "السلامة وديناميكيات المركبات"
+    },
+    "question": {
+      "en": "What is the 'Ackermann steering geometry' designed to solve?",
+      "ar": "ما الذي صُممت 'هندسة التوجيه أكرمان' لحله؟"
+    },
+    "answer": {
+      "en": "The problem of wheels on the inside and outside of a turn needing to trace out circles of different radii",
+      "ar": "مشكلة العجلات الداخلية والخارجية في المنعطف التي تحتاج إلى رسم دوائر بأنصاف أقطار مختلفة"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-34",
+    "subcategory": {
+      "en": "Safety & Vehicle Dynamics",
+      "ar": "السلامة وديناميكيات المركبات"
+    },
+    "question": {
+      "en": "Which car model was the first to implement a modern 3-point seatbelt as standard equipment in 1959?",
+      "ar": "أي طراز سيارة كان الأول في تنفيذ حزام الأمان الحديث المكون من 3 نقاط كمعدات قياسية في عام 1959؟"
+    },
+    "answer": {
+      "en": "Volvo PV544",
+      "ar": "فولفو PV544"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-35",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "In engine tuning, what is the 'Stoichiometric ratio' for a gasoline internal combustion engine?",
+      "ar": "في ضبط المحرك، ما هي 'النسبة المتكافئة' لمحرك احتراق داخلي يعمل بالبنزين؟"
+    },
+    "answer": {
+      "en": "14.7 parts air to 1 part fuel",
+      "ar": "14.7 جزء من الهواء إلى جزء واحد من الوقود"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-36",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "What does the 'Desmodromic' valve system, famously used by Ducati, eliminate?",
+      "ar": "ما الذي يلغيه نظام الصمامات 'الديسمودروميك'، الذي تستخدمه دوكاتي بشكل شهير؟"
+    },
+    "answer": {
+      "en": "Valve springs (it uses cams to actively close the valves)",
+      "ar": "نوابض الصمامات (يستخدم كامات لإغلاق الصمامات بنشاط)"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-37",
+    "subcategory": {
+      "en": "Automotive History",
+      "ar": "تاريخ السيارات"
+    },
+    "question": {
+      "en": "What was the first car to feature a full carbon-fiber monocoque chassis?",
+      "ar": "ما هي أول سيارة تتميز بهيكل أحادي كامل من ألياف الكربون؟"
+    },
+    "answer": {
+      "en": "McLaren F1",
+      "ar": "ماكلارين إف 1"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-38",
+    "subcategory": {
+      "en": "Engines & Drivetrains",
+      "ar": "المحركات وأنظمة الدفع"
+    },
+    "question": {
+      "en": "Which engine configuration features cylinders opposed at 180 degrees but with each pair sharing a single crankpin?",
+      "ar": "أي تكوين محرك يتميز بأسطوانات متقابلة بزاوية 180 درجة ولكن مع اشتراك كل زوج في مسمار كرنك واحد؟"
+    },
+    "answer": {
+      "en": "Flat engine (not a true boxer)",
+      "ar": "المحرك المسطح"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-39",
+    "subcategory": {
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
+    },
+    "question": {
+      "en": "What is the aerodynamic phenomenon that ground-effect Formula 1 cars use to suck themselves to the track?",
+      "ar": "ما هي الظاهرة الديناميكية الهوائية التي تستخدمها سيارات الفورمولا 1 ذات التأثير الأرضي لشفط نفسها إلى المضمار؟"
+    },
+    "answer": {
+      "en": "Venturi effect",
+      "ar": "تأثير فنتوري"
+    },
+    "difficulty": "very-advanced"
+  },
+  {
+    "id": "automotive-40",
+    "subcategory": {
+      "en": "Motorsport",
+      "ar": "رياضة المحركات"
+    },
+    "question": {
+      "en": "Which group B rally car was notorious for being so fast and dangerous that it led to the cancellation of the racing class?",
+      "ar": "أي سيارة رالي من المجموعة ب كانت سيئة السمعة لكونها سريعة وخطيرة لدرجة أنها أدت إلى إلغاء فئة السباق؟"
+    },
+    "answer": {
+      "en": "Lancia Delta S4 / Audi Sport Quattro S1",
+      "ar": "لانشيا دلتا إس 4 / أودي سبورت كواترو إس 1"
+    },
+    "difficulty": "very-advanced"
   }
-}
+]

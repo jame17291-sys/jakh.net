@@ -1,502 +1,642 @@
-{
-  "slug": "mythology-legends",
-  "title": {
-    "en": "Mythology & Legends",
-    "ar": "أساطير وخرافات"
-  },
-  "emoji": "🐉",
-  "color": "var(--accent)",
-  "count": 40,
-  "cards": [
-    {
-      "id": "mythology-legends-1",
-      "question": {
-        "en": "Who is the Greek god of the sea?",
-        "ar": "من هو إله البحر في الأساطير اليونانية؟"
-      },
-      "answer": {
-        "en": "Poseidon",
-        "ar": "بوسيدون"
-      },
-      "difficulty": "easy"
+[
+  {
+    "id": "mythology-legends-1",
+    "question": {
+      "en": "Who is the Greek god of the sea?",
+      "ar": "من هو إله البحر في الأساطير اليونانية؟"
     },
-    {
-      "id": "mythology-legends-2",
-      "question": {
-        "en": "What is the name of Thor's hammer in Norse mythology?",
-        "ar": "ما هو اسم مطرقة ثور في الأساطير الإسكندنافية؟"
-      },
-      "answer": {
-        "en": "Mjölnir",
-        "ar": "ميولنير"
-      },
-      "difficulty": "easy"
+    "answer": {
+      "en": "Poseidon",
+      "ar": "بوسيدون"
     },
-    {
-      "id": "mythology-legends-3",
-      "question": {
-        "en": "Who is the king of the gods in Greek mythology?",
-        "ar": "من هو ملك الآلهة في الأساطير اليونانية؟"
-      },
-      "answer": {
-        "en": "Zeus",
-        "ar": "زيوس"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-4",
-      "question": {
-        "en": "What creature has the head of a bull and the body of a man?",
-        "ar": "ما هو المخلوق الذي له رأس ثور وجسد إنسان؟"
-      },
-      "answer": {
-        "en": "Minotaur",
-        "ar": "مينوتور"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-5",
-      "question": {
-        "en": "Which Egyptian god is associated with the afterlife and has a jackal head?",
-        "ar": "أي إله مصري يرتبط بالحياة الآخرة وله رأس ابن آوى؟"
-      },
-      "answer": {
-        "en": "Anubis",
-        "ar": "أنوبيس"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-6",
-      "question": {
-        "en": "Who is the Roman equivalent of the Greek goddess Aphrodite?",
-        "ar": "من هو المعادل الروماني للإلهة اليونانية أفروديت؟"
-      },
-      "answer": {
-        "en": "Venus",
-        "ar": "فينوس"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-7",
-      "question": {
-        "en": "What magical bird cyclically burns itself and is reborn from its ashes?",
-        "ar": "ما هو الطائر السحري الذي يحترق بشكل دوري ويولد من جديد من رماده؟"
-      },
-      "answer": {
-        "en": "Phoenix",
-        "ar": "العنقاء (فينيكس)"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-8",
-      "question": {
-        "en": "In Greek mythology, who flew too close to the sun with wax wings?",
-        "ar": "في الأساطير اليونانية، من طار قريباً جداً من الشمس بأجنحة من الشمع؟"
-      },
-      "answer": {
-        "en": "Icarus",
-        "ar": "إيكاروس"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-9",
-      "question": {
-        "en": "What is the name of the Greek hero known for his incredible strength and 12 labors?",
-        "ar": "ما اسم البطل اليوناني المعروف بقوته المذهلة وأعماله الاثني عشر؟"
-      },
-      "answer": {
-        "en": "Hercules (Heracles)",
-        "ar": "هرقل"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-10",
-      "question": {
-        "en": "What creature turns people to stone with her gaze and has snakes for hair?",
-        "ar": "ما هو المخلوق الذي يحول الناس إلى حجر بنظرته وله ثعابين بدلاً من الشعر؟"
-      },
-      "answer": {
-        "en": "Medusa",
-        "ar": "ميدوسا"
-      },
-      "difficulty": "easy"
-    },
-    {
-      "id": "mythology-legends-11",
-      "question": {
-        "en": "What is the name of the underworld in Norse mythology?",
-        "ar": "ما هو اسم العالم السفلي في الأساطير الإسكندنافية؟"
-      },
-      "answer": {
-        "en": "Helheim",
-        "ar": "هيلهايم"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-12",
-      "question": {
-        "en": "Who is the Greek goddess of wisdom and strategic warfare?",
-        "ar": "من هي إلهة الحكمة والحرب الاستراتيجية اليونانية؟"
-      },
-      "answer": {
-        "en": "Athena",
-        "ar": "أثينا"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-13",
-      "question": {
-        "en": "In Egyptian mythology, who is the god of the sun?",
-        "ar": "في الأساطير المصرية، من هو إله الشمس؟"
-      },
-      "answer": {
-        "en": "Ra",
-        "ar": "رع"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-14",
-      "question": {
-        "en": "What is the name of King Arthur's legendary sword?",
-        "ar": "ما هو اسم سيف الملك آرثر الأسطوري؟"
-      },
-      "answer": {
-        "en": "Excalibur",
-        "ar": "إكسكاليبر"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-15",
-      "question": {
-        "en": "What many-headed serpent did Hercules slay as his second labor?",
-        "ar": "ما هو الثعبان متعدد الرؤوس الذي قتله هرقل كعمله الثاني؟"
-      },
-      "answer": {
-        "en": "Hydra",
-        "ar": "هيدرا"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-16",
-      "question": {
-        "en": "Who ferries the souls of the dead across the rivers Styx and Acheron?",
-        "ar": "من ينقل أرواح الموتى عبر نهري ستيكس وأشيرون؟"
-      },
-      "answer": {
-        "en": "Charon",
-        "ar": "خارون"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-17",
-      "question": {
-        "en": "Which Norse god is known as the trickster god?",
-        "ar": "أي إله إسكندنافي يُعرف بإله الخداع؟"
-      },
-      "answer": {
-        "en": "Loki",
-        "ar": "لوكي"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-18",
-      "question": {
-        "en": "What mythical beast is part lion, part goat, and part snake?",
-        "ar": "ما هو الوحش الأسطوري الذي يتكون من أسد وعنزة وثعبان؟"
-      },
-      "answer": {
-        "en": "Chimera",
-        "ar": "كايميرا"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-19",
-      "question": {
-        "en": "Who is the Greek god of the underworld?",
-        "ar": "من هو إله العالم السفلي اليوناني؟"
-      },
-      "answer": {
-        "en": "Hades",
-        "ar": "هاديس"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-20",
-      "question": {
-        "en": "What magical object grants its owner immortality in Arthurian legend?",
-        "ar": "ما هو الشيء السحري الذي يمنح صاحبه الخلود في الأسطورة الآرثرية؟"
-      },
-      "answer": {
-        "en": "The Holy Grail",
-        "ar": "الكأس المقدسة"
-      },
-      "difficulty": "medium"
-    },
-    {
-      "id": "mythology-legends-21",
-      "question": {
-        "en": "In Japanese mythology, what is a Yokai?",
-        "ar": "في الأساطير اليابانية، ما هو اليوكاي؟"
-      },
-      "answer": {
-        "en": "A supernatural monster or spirit",
-        "ar": "وحش أو روح خارقة للطبيعة"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-22",
-      "question": {
-        "en": "Who is the Celtic god of the sea?",
-        "ar": "من هو إله البحر عند الكلت؟"
-      },
-      "answer": {
-        "en": "Lir (or Manannán mac Lir)",
-        "ar": "لير"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-23",
-      "question": {
-        "en": "What was the name of the giant wolf that bit off the hand of the Norse god Tyr?",
-        "ar": "ما كان اسم الذئب العملاق الذي قضم يد الإله الإسكندنافي تير؟"
-      },
-      "answer": {
-        "en": "Fenrir",
-        "ar": "فنرير"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-24",
-      "question": {
-        "en": "In Aztec mythology, who is the feathered serpent god?",
-        "ar": "في أساطير الأزتيك، من هو إله الثعبان ذو الريش؟"
-      },
-      "answer": {
-        "en": "Quetzalcoatl",
-        "ar": "كويتزالكواتل"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-25",
-      "question": {
-        "en": "Who was the mother of the Minotaur in Greek mythology?",
-        "ar": "من كانت والدة المينوتور في الأساطير اليونانية؟"
-      },
-      "answer": {
-        "en": "Pasiphaë",
-        "ar": "باسيفاي"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-26",
-      "question": {
-        "en": "What is the name of the great tree that connects the nine worlds in Norse cosmology?",
-        "ar": "ما اسم الشجرة العظيمة التي تربط العوالم التسعة في علم الكونيات الإسكندنافي؟"
-      },
-      "answer": {
-        "en": "Yggdrasil",
-        "ar": "يغدراسيل"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-27",
-      "question": {
-        "en": "In Hindu mythology, who is the preserver of the universe?",
-        "ar": "في الأساطير الهندوسية، من هو الحافظ للكون؟"
-      },
-      "answer": {
-        "en": "Vishnu",
-        "ar": "فيشنو"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-28",
-      "question": {
-        "en": "What is the name of the mythical city of gold in South America?",
-        "ar": "ما هو اسم مدينة الذهب الأسطورية في أمريكا الجنوبية؟"
-      },
-      "answer": {
-        "en": "El Dorado",
-        "ar": "إل دورادو"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-29",
-      "question": {
-        "en": "Who was the Greek hero who killed Hector during the Trojan War?",
-        "ar": "من هو البطل اليوناني الذي قتل هيكتور خلال حرب طروادة؟"
-      },
-      "answer": {
-        "en": "Achilles",
-        "ar": "أخيل"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-30",
-      "question": {
-        "en": "What Egyptian goddess is the wife of Osiris and mother of Horus?",
-        "ar": "من هي الإلهة المصرية زوجة أوزوريس وأم حورس؟"
-      },
-      "answer": {
-        "en": "Isis",
-        "ar": "إيزيس"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "mythology-legends-31",
-      "question": {
-        "en": "In Sumerian mythology, who is the Queen of Heaven?",
-        "ar": "في الأساطير السومرية، من هي ملكة السماء؟"
-      },
-      "answer": {
-        "en": "Inanna",
-        "ar": "إنانا"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-32",
-      "question": {
-        "en": "What is the name of the primordial void in Greek mythology from which everything else appeared?",
-        "ar": "ما هو اسم الفراغ الأزلي في الأساطير اليونانية الذي ظهر منه كل شيء آخر؟"
-      },
-      "answer": {
-        "en": "Chaos",
-        "ar": "كاوس"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-33",
-      "question": {
-        "en": "In Chinese mythology, what is the name of the creator goddess who molded humans from yellow clay?",
-        "ar": "في الأساطير الصينية، ما اسم إلهة الخلق التي شكلت البشر من الطين الأصفر؟"
-      },
-      "answer": {
-        "en": "Nüwa",
-        "ar": "نوا"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-34",
-      "question": {
-        "en": "What creature in aboriginal Australian mythology is said to lurk in swamps and billabongs?",
-        "ar": "ما هو المخلوق في أساطير السكان الأصليين الأستراليين الذي يُقال إنه يختبئ في المستنقعات؟"
-      },
-      "answer": {
-        "en": "Bunyip",
-        "ar": "بونييب"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-35",
-      "question": {
-        "en": "Which Mayan god is the god of rain, lightning, and storms?",
-        "ar": "من هو إله المايا للمطر والبرق والعواصف؟"
-      },
-      "answer": {
-        "en": "Chaac",
-        "ar": "تشاك"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-36",
-      "question": {
-        "en": "In Norse mythology, what is the name of the event that leads to the death of major figures and the submersion of the world in water?",
-        "ar": "في الأساطير الإسكندنافية، ما هو اسم الحدث الذي يؤدي إلى موت الشخصيات الرئيسية وغرق العالم في الماء؟"
-      },
-      "answer": {
-        "en": "Ragnarök",
-        "ar": "راجناروك"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-37",
-      "question": {
-        "en": "What is the name of the legendary island that supposedly sank into the Atlantic Ocean?",
-        "ar": "ما هو اسم الجزيرة الأسطورية التي يُزعم أنها غرقت في المحيط الأطلسي؟"
-      },
-      "answer": {
-        "en": "Atlantis",
-        "ar": "أتلانتس"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-38",
-      "question": {
-        "en": "Who was the first woman in Greek mythology, created by Hephaestus upon the instructions of Zeus?",
-        "ar": "من كانت أول امرأة في الأساطير اليونانية، خلقها هيفايستوس بناءً على تعليمات زيوس؟"
-      },
-      "answer": {
-        "en": "Pandora",
-        "ar": "باندورا"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-39",
-      "question": {
-        "en": "In Zoroastrianism, what is the name of the destructive spirit that represents evil?",
-        "ar": "في الزرادشتية، ما اسم الروح المدمرة التي تمثل الشر؟"
-      },
-      "answer": {
-        "en": "Angra Mainyu (Ahriman)",
-        "ar": "أهريمان"
-      },
-      "difficulty": "very-advanced"
-    },
-    {
-      "id": "mythology-legends-40",
-      "question": {
-        "en": "What is the name of the mythical dog with three heads that guards the gates of the Greek underworld?",
-        "ar": "ما اسم الكلب الأسطوري ذو الرؤوس الثلاثة الذي يحرس بوابات العالم السفلي اليوناني؟"
-      },
-      "answer": {
-        "en": "Cerberus",
-        "ar": "سيربيروس"
-      },
-      "difficulty": "very-advanced"
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
     }
-  ],
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 10
   },
-  "description": {
-    "en": "Explore questions about Mythology & Legends.",
-    "ar": "اكتشف أسئلة حول أساطير وخرافات."
+  {
+    "id": "mythology-legends-2",
+    "question": {
+      "en": "What is the name of Thor's hammer in Norse mythology?",
+      "ar": "ما هو اسم مطرقة ثور في الأساطير الإسكندنافية؟"
+    },
+    "answer": {
+      "en": "Mjölnir",
+      "ar": "ميولنير"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Norse",
+      "ar": "الأساطير الإسكندنافية"
+    }
+  },
+  {
+    "id": "mythology-legends-3",
+    "question": {
+      "en": "Who is the king of the gods in Greek mythology?",
+      "ar": "من هو ملك الآلهة في الأساطير اليونانية؟"
+    },
+    "answer": {
+      "en": "Zeus",
+      "ar": "زيوس"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-4",
+    "question": {
+      "en": "What creature has the head of a bull and the body of a man?",
+      "ar": "ما هو المخلوق الذي له رأس ثور وجسد إنسان؟"
+    },
+    "answer": {
+      "en": "Minotaur",
+      "ar": "مينوتور"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Heroes & Creatures",
+      "ar": "الأبطال والمخلوقات"
+    }
+  },
+  {
+    "id": "mythology-legends-5",
+    "question": {
+      "en": "Which Egyptian god is associated with the afterlife and has a jackal head?",
+      "ar": "أي إله مصري يرتبط بالحياة الآخرة وله رأس ابن آوى؟"
+    },
+    "answer": {
+      "en": "Anubis",
+      "ar": "أنوبيس"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Egyptian",
+      "ar": "الأساطير المصرية"
+    }
+  },
+  {
+    "id": "mythology-legends-6",
+    "question": {
+      "en": "Who is the Roman equivalent of the Greek goddess Aphrodite?",
+      "ar": "من هو المعادل الروماني للإلهة اليونانية أفروديت؟"
+    },
+    "answer": {
+      "en": "Venus",
+      "ar": "فينوس"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-7",
+    "question": {
+      "en": "What magical bird cyclically burns itself and is reborn from its ashes?",
+      "ar": "ما هو الطائر السحري الذي يحترق بشكل دوري ويولد من جديد من رماده؟"
+    },
+    "answer": {
+      "en": "Phoenix",
+      "ar": "العنقاء (فينيكس)"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Heroes & Creatures",
+      "ar": "الأبطال والمخلوقات"
+    }
+  },
+  {
+    "id": "mythology-legends-8",
+    "question": {
+      "en": "In Greek mythology, who flew too close to the sun with wax wings?",
+      "ar": "في الأساطير اليونانية، من طار قريباً جداً من الشمس بأجنحة من الشمع؟"
+    },
+    "answer": {
+      "en": "Icarus",
+      "ar": "إيكاروس"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-9",
+    "question": {
+      "en": "What is the name of the Greek hero known for his incredible strength and 12 labors?",
+      "ar": "ما اسم البطل اليوناني المعروف بقوته المذهلة وأعماله الاثني عشر؟"
+    },
+    "answer": {
+      "en": "Hercules (Heracles)",
+      "ar": "هرقل"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-10",
+    "question": {
+      "en": "What creature turns people to stone with her gaze and has snakes for hair?",
+      "ar": "ما هو المخلوق الذي يحول الناس إلى حجر بنظرته وله ثعابين بدلاً من الشعر؟"
+    },
+    "answer": {
+      "en": "Medusa",
+      "ar": "ميدوسا"
+    },
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Heroes & Creatures",
+      "ar": "الأبطال والمخلوقات"
+    }
+  },
+  {
+    "id": "mythology-legends-11",
+    "question": {
+      "en": "What is the name of the underworld in Norse mythology?",
+      "ar": "ما هو اسم العالم السفلي في الأساطير الإسكندنافية؟"
+    },
+    "answer": {
+      "en": "Helheim",
+      "ar": "هيلهايم"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Norse",
+      "ar": "الأساطير الإسكندنافية"
+    }
+  },
+  {
+    "id": "mythology-legends-12",
+    "question": {
+      "en": "Who is the Greek goddess of wisdom and strategic warfare?",
+      "ar": "من هي إلهة الحكمة والحرب الاستراتيجية اليونانية؟"
+    },
+    "answer": {
+      "en": "Athena",
+      "ar": "أثينا"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-13",
+    "question": {
+      "en": "In Egyptian mythology, who is the god of the sun?",
+      "ar": "في الأساطير المصرية، من هو إله الشمس؟"
+    },
+    "answer": {
+      "en": "Ra",
+      "ar": "رع"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Egyptian",
+      "ar": "الأساطير المصرية"
+    }
+  },
+  {
+    "id": "mythology-legends-14",
+    "question": {
+      "en": "What is the name of King Arthur's legendary sword?",
+      "ar": "ما هو اسم سيف الملك آرثر الأسطوري؟"
+    },
+    "answer": {
+      "en": "Excalibur",
+      "ar": "إكسكاليبر"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Celtic & Arthurian",
+      "ar": "الأساطير السلتية والآرثرية"
+    }
+  },
+  {
+    "id": "mythology-legends-15",
+    "question": {
+      "en": "What many-headed serpent did Hercules slay as his second labor?",
+      "ar": "ما هو الثعبان متعدد الرؤوس الذي قتله هرقل كعمله الثاني؟"
+    },
+    "answer": {
+      "en": "Hydra",
+      "ar": "هيدرا"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Heroes & Creatures",
+      "ar": "الأبطال والمخلوقات"
+    }
+  },
+  {
+    "id": "mythology-legends-16",
+    "question": {
+      "en": "Who ferries the souls of the dead across the rivers Styx and Acheron?",
+      "ar": "من ينقل أرواح الموتى عبر نهري ستيكس وأشيرون؟"
+    },
+    "answer": {
+      "en": "Charon",
+      "ar": "خارون"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-17",
+    "question": {
+      "en": "Which Norse god is known as the trickster god?",
+      "ar": "أي إله إسكندنافي يُعرف بإله الخداع؟"
+    },
+    "answer": {
+      "en": "Loki",
+      "ar": "لوكي"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Norse",
+      "ar": "الأساطير الإسكندنافية"
+    }
+  },
+  {
+    "id": "mythology-legends-18",
+    "question": {
+      "en": "What mythical beast is part lion, part goat, and part snake?",
+      "ar": "ما هو الوحش الأسطوري الذي يتكون من أسد وعنزة وثعبان؟"
+    },
+    "answer": {
+      "en": "Chimera",
+      "ar": "كايميرا"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Heroes & Creatures",
+      "ar": "الأبطال والمخلوقات"
+    }
+  },
+  {
+    "id": "mythology-legends-19",
+    "question": {
+      "en": "Who is the Greek god of the underworld?",
+      "ar": "من هو إله العالم السفلي اليوناني؟"
+    },
+    "answer": {
+      "en": "Hades",
+      "ar": "هاديس"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-20",
+    "question": {
+      "en": "What magical object grants its owner immortality in Arthurian legend?",
+      "ar": "ما هو الشيء السحري الذي يمنح صاحبه الخلود في الأسطورة الآرثرية؟"
+    },
+    "answer": {
+      "en": "The Holy Grail",
+      "ar": "الكأس المقدسة"
+    },
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Celtic & Arthurian",
+      "ar": "الأساطير السلتية والآرثرية"
+    }
+  },
+  {
+    "id": "mythology-legends-21",
+    "question": {
+      "en": "In Japanese mythology, what is a Yokai?",
+      "ar": "في الأساطير اليابانية، ما هو اليوكاي؟"
+    },
+    "answer": {
+      "en": "A supernatural monster or spirit",
+      "ar": "وحش أو روح خارقة للطبيعة"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Asian",
+      "ar": "الأساطير الآسيوية"
+    }
+  },
+  {
+    "id": "mythology-legends-22",
+    "question": {
+      "en": "Who is the Celtic god of the sea?",
+      "ar": "من هو إله البحر عند الكلت؟"
+    },
+    "answer": {
+      "en": "Lir (or Manannán mac Lir)",
+      "ar": "لير"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Celtic & Arthurian",
+      "ar": "الأساطير السلتية والآرثرية"
+    }
+  },
+  {
+    "id": "mythology-legends-23",
+    "question": {
+      "en": "What was the name of the giant wolf that bit off the hand of the Norse god Tyr?",
+      "ar": "ما كان اسم الذئب العملاق الذي قضم يد الإله الإسكندنافي تير؟"
+    },
+    "answer": {
+      "en": "Fenrir",
+      "ar": "فنرير"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Norse",
+      "ar": "الأساطير الإسكندنافية"
+    }
+  },
+  {
+    "id": "mythology-legends-24",
+    "question": {
+      "en": "In Aztec mythology, who is the feathered serpent god?",
+      "ar": "في أساطير الأزتيك، من هو إله الثعبان ذو الريش؟"
+    },
+    "answer": {
+      "en": "Quetzalcoatl",
+      "ar": "كويتزالكواتل"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Indigenous Traditions",
+      "ar": "التقاليد الأسطورية الأصلية"
+    }
+  },
+  {
+    "id": "mythology-legends-25",
+    "question": {
+      "en": "Who was the mother of the Minotaur in Greek mythology?",
+      "ar": "من كانت والدة المينوتور في الأساطير اليونانية؟"
+    },
+    "answer": {
+      "en": "Pasiphaë",
+      "ar": "باسيفاي"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-26",
+    "question": {
+      "en": "What is the name of the great tree that connects the nine worlds in Norse cosmology?",
+      "ar": "ما اسم الشجرة العظيمة التي تربط العوالم التسعة في علم الكونيات الإسكندنافي؟"
+    },
+    "answer": {
+      "en": "Yggdrasil",
+      "ar": "يغدراسيل"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Norse",
+      "ar": "الأساطير الإسكندنافية"
+    }
+  },
+  {
+    "id": "mythology-legends-27",
+    "question": {
+      "en": "In Hindu mythology, who is the preserver of the universe?",
+      "ar": "في الأساطير الهندوسية، من هو الحافظ للكون؟"
+    },
+    "answer": {
+      "en": "Vishnu",
+      "ar": "فيشنو"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Asian",
+      "ar": "الأساطير الآسيوية"
+    }
+  },
+  {
+    "id": "mythology-legends-28",
+    "question": {
+      "en": "What is the name of the mythical city of gold in South America?",
+      "ar": "ما هو اسم مدينة الذهب الأسطورية في أمريكا الجنوبية؟"
+    },
+    "answer": {
+      "en": "El Dorado",
+      "ar": "إل دورادو"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Indigenous Traditions",
+      "ar": "التقاليد الأسطورية الأصلية"
+    }
+  },
+  {
+    "id": "mythology-legends-29",
+    "question": {
+      "en": "Who was the Greek hero who killed Hector during the Trojan War?",
+      "ar": "من هو البطل اليوناني الذي قتل هيكتور خلال حرب طروادة؟"
+    },
+    "answer": {
+      "en": "Achilles",
+      "ar": "أخيل"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-30",
+    "question": {
+      "en": "What Egyptian goddess is the wife of Osiris and mother of Horus?",
+      "ar": "من هي الإلهة المصرية زوجة أوزوريس وأم حورس؟"
+    },
+    "answer": {
+      "en": "Isis",
+      "ar": "إيزيس"
+    },
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Egyptian",
+      "ar": "الأساطير المصرية"
+    }
+  },
+  {
+    "id": "mythology-legends-31",
+    "question": {
+      "en": "In Sumerian mythology, who is the Queen of Heaven?",
+      "ar": "في الأساطير السومرية، من هي ملكة السماء؟"
+    },
+    "answer": {
+      "en": "Inanna",
+      "ar": "إنانا"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
+    }
+  },
+  {
+    "id": "mythology-legends-32",
+    "question": {
+      "en": "What is the name of the primordial void in Greek mythology from which everything else appeared?",
+      "ar": "ما هو اسم الفراغ الأزلي في الأساطير اليونانية الذي ظهر منه كل شيء آخر؟"
+    },
+    "answer": {
+      "en": "Chaos",
+      "ar": "كاوس"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-33",
+    "question": {
+      "en": "In Chinese mythology, what is the name of the creator goddess who molded humans from yellow clay?",
+      "ar": "في الأساطير الصينية، ما اسم إلهة الخلق التي شكلت البشر من الطين الأصفر؟"
+    },
+    "answer": {
+      "en": "Nüwa",
+      "ar": "نوا"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Asian",
+      "ar": "الأساطير الآسيوية"
+    }
+  },
+  {
+    "id": "mythology-legends-34",
+    "question": {
+      "en": "What creature in aboriginal Australian mythology is said to lurk in swamps and billabongs?",
+      "ar": "ما هو المخلوق في أساطير السكان الأصليين الأستراليين الذي يُقال إنه يختبئ في المستنقعات؟"
+    },
+    "answer": {
+      "en": "Bunyip",
+      "ar": "بونييب"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Indigenous Traditions",
+      "ar": "التقاليد الأسطورية الأصلية"
+    }
+  },
+  {
+    "id": "mythology-legends-35",
+    "question": {
+      "en": "Which Mayan god is the god of rain, lightning, and storms?",
+      "ar": "من هو إله المايا للمطر والبرق والعواصف؟"
+    },
+    "answer": {
+      "en": "Chaac",
+      "ar": "تشاك"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Indigenous Traditions",
+      "ar": "التقاليد الأسطورية الأصلية"
+    }
+  },
+  {
+    "id": "mythology-legends-36",
+    "question": {
+      "en": "In Norse mythology, what is the name of the event that leads to the death of major figures and the submersion of the world in water?",
+      "ar": "في الأساطير الإسكندنافية، ما هو اسم الحدث الذي يؤدي إلى موت الشخصيات الرئيسية وغرق العالم في الماء؟"
+    },
+    "answer": {
+      "en": "Ragnarök",
+      "ar": "راجناروك"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Norse",
+      "ar": "الأساطير الإسكندنافية"
+    }
+  },
+  {
+    "id": "mythology-legends-37",
+    "question": {
+      "en": "What is the name of the legendary island that supposedly sank into the Atlantic Ocean?",
+      "ar": "ما هو اسم الجزيرة الأسطورية التي يُزعم أنها غرقت في المحيط الأطلسي؟"
+    },
+    "answer": {
+      "en": "Atlantis",
+      "ar": "أتلانتس"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-38",
+    "question": {
+      "en": "Who was the first woman in Greek mythology, created by Hephaestus upon the instructions of Zeus?",
+      "ar": "من كانت أول امرأة في الأساطير اليونانية، خلقها هيفايستوس بناءً على تعليمات زيوس؟"
+    },
+    "answer": {
+      "en": "Pandora",
+      "ar": "باندورا"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Greek & Roman",
+      "ar": "الأساطير اليونانية والرومانية"
+    }
+  },
+  {
+    "id": "mythology-legends-39",
+    "question": {
+      "en": "In Zoroastrianism, what is the name of the destructive spirit that represents evil?",
+      "ar": "في الزرادشتية، ما اسم الروح المدمرة التي تمثل الشر؟"
+    },
+    "answer": {
+      "en": "Angra Mainyu (Ahriman)",
+      "ar": "أهريمان"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Middle Eastern",
+      "ar": "أساطير الشرق الأوسط"
+    }
+  },
+  {
+    "id": "mythology-legends-40",
+    "question": {
+      "en": "What is the name of the mythical dog with three heads that guards the gates of the Greek underworld?",
+      "ar": "ما اسم الكلب الأسطوري ذو الرؤوس الثلاثة الذي يحرس بوابات العالم السفلي اليوناني؟"
+    },
+    "answer": {
+      "en": "Cerberus",
+      "ar": "سيربيروس"
+    },
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Heroes & Creatures",
+      "ar": "الأبطال والمخلوقات"
+    }
   }
-}
+]

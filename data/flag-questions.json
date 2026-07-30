@@ -1,508 +1,482 @@
-{
-  "slug": "flag-questions",
-  "title": {
-    "en": "World Flags",
-    "ar": "أعلام العالم"
-  },
-  "description": {
-    "en": "Test your knowledge of world flags, colors, symbols, and vexillology.",
-    "ar": "اختبر معرفتك بأعلام العالم وألوانها ورموزها وعلم الرايات."
-  },
-  "cluster": {
-    "en": "Geography & Travel",
-    "ar": "جغرافيا وسفر"
-  },
-  "cluster_key": "geography",
-  "emoji": "🚩",
-  "mode": "quiz",
-  "count": 30,
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 0
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "flag-questions-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Americas",
-        "ar": "الأمريكتان"
-      },
-      "question": {
-        "en": "How many stars are on the flag of the United States?",
-        "ar": "كم نجمة على علم الولايات المتحدة؟"
-      },
-      "answer": {
-        "en": "50",
-        "ar": "50"
-      }
+[
+  {
+    "id": "flag-questions-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Americas",
+      "ar": "الأمريكتان"
     },
-    {
-      "id": "flag-questions-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Asia",
-        "ar": "آسيا"
-      },
-      "question": {
-        "en": "Which country has a simple red circle on a white background?",
-        "ar": "أي دولة تحمل دائرة حمراء بسيطة على خلفية بيضاء؟"
-      },
-      "answer": {
-        "en": "Japan",
-        "ar": "اليابان"
-      }
+    "question": {
+      "en": "How many stars are on the flag of the United States?",
+      "ar": "كم نجمة على علم الولايات المتحدة؟"
     },
-    {
-      "id": "flag-questions-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Americas",
-        "ar": "الأمريكتان"
-      },
-      "question": {
-        "en": "Which country has a red maple leaf on its flag?",
-        "ar": "أي دولة تحمل ورقة قيقب حمراء على علمها؟"
-      },
-      "answer": {
-        "en": "Canada",
-        "ar": "كندا"
-      }
-    },
-    {
-      "id": "flag-questions-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Europe",
-        "ar": "أوروبا"
-      },
-      "question": {
-        "en": "What is the name of the national flag of the United Kingdom?",
-        "ar": "ما اسم العلم الوطني للمملكة المتحدة؟"
-      },
-      "answer": {
-        "en": "Union Jack",
-        "ar": "يونيون جاك"
-      }
-    },
-    {
-      "id": "flag-questions-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Europe",
-        "ar": "أوروبا"
-      },
-      "question": {
-        "en": "What are the three colors on the French flag?",
-        "ar": "ما ألوان العلم الفرنسي الثلاثة؟"
-      },
-      "answer": {
-        "en": "Blue, White, Red",
-        "ar": "الأزرق والأبيض والأحمر"
-      }
-    },
-    {
-      "id": "flag-questions-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Asia",
-        "ar": "آسيا"
-      },
-      "question": {
-        "en": "Which country features a large yellow crescent moon and five stars on a red field?",
-        "ar": "أي دولة تحمل هلالاً أصفر كبيراً وخمس نجوم على خلفية حمراء؟"
-      },
-      "answer": {
-        "en": "Singapore (or Turkey for crescent/star)",
-        "ar": "سنغافورة (أو تركيا للهلال والنجمة)"
-      }
-    },
-    {
-      "id": "flag-questions-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Oceania",
-        "ar": "أوقيانوسيا"
-      },
-      "question": {
-        "en": "Which country features the Southern Cross constellation and a Union Jack?",
-        "ar": "أي دولة يظهر في علمها كوكبة الصليب الجنوبي ويونيون جاك؟"
-      },
-      "answer": {
-        "en": "Australia or New Zealand",
-        "ar": "أستراليا أو نيوزيلندا"
-      }
-    },
-    {
-      "id": "flag-questions-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Europe",
-        "ar": "أوروبا"
-      },
-      "question": {
-        "en": "Green, White, Red vertical stripes — which European country?",
-        "ar": "شرائط رأسية خضراء وبيضاء وحمراء — أي دولة أوروبية؟"
-      },
-      "answer": {
-        "en": "Italy",
-        "ar": "إيطاليا"
-      }
-    },
-    {
-      "id": "flag-questions-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Asia",
-        "ar": "آسيا"
-      },
-      "question": {
-        "en": "Which country has a dragon on its flag?",
-        "ar": "أي دولة تحمل تنيناً على علمها؟"
-      },
-      "answer": {
-        "en": "Bhutan (or Wales)",
-        "ar": "بوتان (أو ويلز)"
-      }
-    },
-    {
-      "id": "flag-questions-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Europe",
-        "ar": "أوروبا"
-      },
-      "question": {
-        "en": "What shape is common to all Nordic flags?",
-        "ar": "ما الشكل المشترك في جميع أعلام الدول الإسكندنافية؟"
-      },
-      "answer": {
-        "en": "The Nordic Cross",
-        "ar": "الصليب الإسكندنافي"
-      }
-    },
-    {
-      "id": "flag-questions-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Unique Flags",
-        "ar": "أعلام فريدة"
-      },
-      "question": {
-        "en": "Which country has the only national flag that is not rectangular?",
-        "ar": "أي دولة تمتلك العلم الوطني الوحيد غير المستطيل؟"
-      },
-      "answer": {
-        "en": "Nepal",
-        "ar": "نيبال"
-      }
-    },
-    {
-      "id": "flag-questions-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Africa",
-        "ar": "أفريقيا"
-      },
-      "question": {
-        "en": "How many colors are in the South African flag?",
-        "ar": "كم عدد الألوان في العلم جنوب أفريقي؟"
-      },
-      "answer": {
-        "en": "Six",
-        "ar": "ستة"
-      }
-    },
-    {
-      "id": "flag-questions-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Americas",
-        "ar": "الأمريكتان"
-      },
-      "question": {
-        "en": "Which country features an eagle perched on a cactus eating a snake?",
-        "ar": "أي دولة يظهر في علمها نسر يجلس على صبار ويأكل ثعباناً؟"
-      },
-      "answer": {
-        "en": "Mexico",
-        "ar": "المكسيك"
-      }
-    },
-    {
-      "id": "flag-questions-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Unique Flags",
-        "ar": "أعلام فريدة"
-      },
-      "question": {
-        "en": "What is unique about the shape of the Swiss flag compared to most others?",
-        "ar": "ما الذي يميز شكل العلم السويسري عن معظم الأعلام الأخرى؟"
-      },
-      "answer": {
-        "en": "It is square",
-        "ar": "شكله مربع"
-      }
-    },
-    {
-      "id": "flag-questions-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Middle East",
-        "ar": "الشرق الأوسط"
-      },
-      "question": {
-        "en": "Which country features a blue Star of David?",
-        "ar": "أي دولة تحمل نجمة داود الزرقاء؟"
-      },
-      "answer": {
-        "en": "Israel",
-        "ar": "إسرائيل"
-      }
-    },
-    {
-      "id": "flag-questions-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Americas",
-        "ar": "الأمريكتان"
-      },
-      "question": {
-        "en": "What does the text on the Brazilian flag 'Ordem e Progresso' mean?",
-        "ar": "ماذا يعني نص 'Ordem e Progresso' على العلم البرازيلي؟"
-      },
-      "answer": {
-        "en": "Order and Progress",
-        "ar": "النظام والتقدم"
-      }
-    },
-    {
-      "id": "flag-questions-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Middle East",
-        "ar": "الشرق الأوسط"
-      },
-      "question": {
-        "en": "Which Middle Eastern country features a green cedar tree on its flag?",
-        "ar": "أي دولة شرق أوسطية تحمل شجرة أرز خضراء على علمها؟"
-      },
-      "answer": {
-        "en": "Lebanon",
-        "ar": "لبنان"
-      }
-    },
-    {
-      "id": "flag-questions-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Similar Flags",
-        "ar": "أعلام متشابهة"
-      },
-      "question": {
-        "en": "Which two countries have almost identical flags differing only by shade or ratio?",
-        "ar": "أي دولتان تمتلكان علمين متطابقين تقريباً يختلفان فقط في الظل أو النسبة؟"
-      },
-      "answer": {
-        "en": "Romania and Chad",
-        "ar": "رومانيا وتشاد"
-      }
-    },
-    {
-      "id": "flag-questions-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Americas",
-        "ar": "الأمريكتان"
-      },
-      "question": {
-        "en": "Which South American country features the 'Sun of May' with a face?",
-        "ar": "أي دولة جنوب أمريكية تحمل 'شمس مايو' ذات الوجه؟"
-      },
-      "answer": {
-        "en": "Argentina or Uruguay",
-        "ar": "الأرجنتين أو أوروغواي"
-      }
-    },
-    {
-      "id": "flag-questions-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Africa",
-        "ar": "أفريقيا"
-      },
-      "question": {
-        "en": "Before 2011, what was unique about the Libyan flag?",
-        "ar": "قبل عام 2011، ما الذي كان مميزاً في العلم الليبي؟"
-      },
-      "answer": {
-        "en": "It was a solid green field with no design",
-        "ar": "كان ميداناً أخضر خالصاً بلا أي رسم"
-      }
-    },
-    {
-      "id": "flag-questions-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Flag History",
-        "ar": "تاريخ الأعلام"
-      },
-      "question": {
-        "en": "Which country's flag is recognized as the oldest continuously used national flag?",
-        "ar": "علم أي دولة يُعترف به بوصفه أقدم علم وطني لا يزال مستخدماً؟"
-      },
-      "answer": {
-        "en": "Denmark — Dannebrog",
-        "ar": "الدنمارك — دانيبروغ"
-      }
-    },
-    {
-      "id": "flag-questions-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Vexillology",
-        "ar": "علم الأعلام"
-      },
-      "question": {
-        "en": "What is the study of flags called?",
-        "ar": "ما اسم العلم الذي يختص بدراسة الأعلام؟"
-      },
-      "answer": {
-        "en": "Vexillology",
-        "ar": "علم الرايات (Vexillology)"
-      }
-    },
-    {
-      "id": "flag-questions-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Similar Flags",
-        "ar": "أعلام متشابهة"
-      },
-      "question": {
-        "en": "What is the subtle difference between Monaco's and Indonesia's flags?",
-        "ar": "ما الفرق الدقيق بين علمَي موناكو وإندونيسيا؟"
-      },
-      "answer": {
-        "en": "Their dimensions/ratio differ",
-        "ar": "يختلفان في النسبة البُعدية"
-      }
-    },
-    {
-      "id": "flag-questions-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Unique Elements",
-        "ar": "عناصر فريدة"
-      },
-      "question": {
-        "en": "Which country features an AK-47 on its national flag?",
-        "ar": "أي دولة تحمل بندقية AK-47 على علمها الوطني؟"
-      },
-      "answer": {
-        "en": "Mozambique",
-        "ar": "موزمبيق"
-      }
-    },
-    {
-      "id": "flag-questions-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Unique Elements",
-        "ar": "عناصر فريدة"
-      },
-      "question": {
-        "en": "Which country's flag is the only one to feature a human being?",
-        "ar": "علم أي دولة هو الوحيد الذي يضم صورة إنسان؟"
-      },
-      "answer": {
-        "en": "Belize",
-        "ar": "بليز"
-      }
-    },
-    {
-      "id": "flag-questions-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Color History",
-        "ar": "تاريخ الألوان"
-      },
-      "question": {
-        "en": "Why is purple so rarely found on national flags?",
-        "ar": "لماذا نادراً ما نجد اللون البنفسجي في الأعلام الوطنية؟"
-      },
-      "answer": {
-        "en": "Historical cost and difficulty of producing purple dye",
-        "ar": "بسبب التكلفة التاريخية وصعوبة إنتاج الصبغة البنفسجية"
-      }
-    },
-    {
-      "id": "flag-questions-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Oceania",
-        "ar": "أوقيانوسيا"
-      },
-      "question": {
-        "en": "Which country has a yellow bird of paradise on its flag?",
-        "ar": "أي دولة تحمل طائر الجنة الأصفر على علمها؟"
-      },
-      "answer": {
-        "en": "Papua New Guinea",
-        "ar": "بابوا غينيا الجديدة"
-      }
-    },
-    {
-      "id": "flag-questions-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Unique Flags",
-        "ar": "أعلام فريدة"
-      },
-      "question": {
-        "en": "What is unique about the two sides of Paraguay's flag?",
-        "ar": "ما الذي يميز الوجهين على علم باراغواي؟"
-      },
-      "answer": {
-        "en": "Front and back have different emblems",
-        "ar": "الوجه والظهر يحملان شعارين مختلفين"
-      }
-    },
-    {
-      "id": "flag-questions-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Flag History",
-        "ar": "تاريخ الأعلام"
-      },
-      "question": {
-        "en": "The Nordic cross comes from Denmark's flag. What was the medieval union of these countries called?",
-        "ar": "الصليب الإسكندنافي مأخوذ من علم الدنمارك. ما اسم الاتحاد العصور الوسطى لهذه الدول؟"
-      },
-      "answer": {
-        "en": "The Kalmar Union",
-        "ar": "اتحاد كالمار"
-      }
-    },
-    {
-      "id": "flag-questions-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Pan-Arab",
-        "ar": "عروبة"
-      },
-      "question": {
-        "en": "Which four colors are known as the Pan-Arab colors?",
-        "ar": "ما الألوان الأربعة المعروفة بالألوان العربية الوحدوية؟"
-      },
-      "answer": {
-        "en": "Black, White, Green, Red",
-        "ar": "الأسود والأبيض والأخضر والأحمر"
-      }
+    "answer": {
+      "en": "50",
+      "ar": "50"
     }
-  ]
-}
+  },
+  {
+    "id": "flag-questions-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Asia & Oceania",
+      "ar": "آسيا وأوقيانوسيا"
+    },
+    "question": {
+      "en": "Which country has a simple red circle on a white background?",
+      "ar": "أي دولة تحمل دائرة حمراء بسيطة على خلفية بيضاء؟"
+    },
+    "answer": {
+      "en": "Japan",
+      "ar": "اليابان"
+    }
+  },
+  {
+    "id": "flag-questions-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Americas",
+      "ar": "الأمريكتان"
+    },
+    "question": {
+      "en": "Which country has a red maple leaf on its flag?",
+      "ar": "أي دولة تحمل ورقة قيقب حمراء على علمها؟"
+    },
+    "answer": {
+      "en": "Canada",
+      "ar": "كندا"
+    }
+  },
+  {
+    "id": "flag-questions-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Europe",
+      "ar": "أوروبا"
+    },
+    "question": {
+      "en": "What is the name of the national flag of the United Kingdom?",
+      "ar": "ما اسم العلم الوطني للمملكة المتحدة؟"
+    },
+    "answer": {
+      "en": "Union Jack",
+      "ar": "يونيون جاك"
+    }
+  },
+  {
+    "id": "flag-questions-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Europe",
+      "ar": "أوروبا"
+    },
+    "question": {
+      "en": "What are the three colors on the French flag?",
+      "ar": "ما ألوان العلم الفرنسي الثلاثة؟"
+    },
+    "answer": {
+      "en": "Blue, White, Red",
+      "ar": "الأزرق والأبيض والأحمر"
+    }
+  },
+  {
+    "id": "flag-questions-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Asia & Oceania",
+      "ar": "آسيا وأوقيانوسيا"
+    },
+    "question": {
+      "en": "Which country features a large yellow crescent moon and five stars on a red field?",
+      "ar": "أي دولة تحمل هلالاً أصفر كبيراً وخمس نجوم على خلفية حمراء؟"
+    },
+    "answer": {
+      "en": "Singapore (or Turkey for crescent/star)",
+      "ar": "سنغافورة (أو تركيا للهلال والنجمة)"
+    }
+  },
+  {
+    "id": "flag-questions-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Asia & Oceania",
+      "ar": "آسيا وأوقيانوسيا"
+    },
+    "question": {
+      "en": "Which country features the Southern Cross constellation and a Union Jack?",
+      "ar": "أي دولة يظهر في علمها كوكبة الصليب الجنوبي ويونيون جاك؟"
+    },
+    "answer": {
+      "en": "Australia or New Zealand",
+      "ar": "أستراليا أو نيوزيلندا"
+    }
+  },
+  {
+    "id": "flag-questions-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Europe",
+      "ar": "أوروبا"
+    },
+    "question": {
+      "en": "Green, White, Red vertical stripes — which European country?",
+      "ar": "شرائط رأسية خضراء وبيضاء وحمراء — أي دولة أوروبية؟"
+    },
+    "answer": {
+      "en": "Italy",
+      "ar": "إيطاليا"
+    }
+  },
+  {
+    "id": "flag-questions-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Asia & Oceania",
+      "ar": "آسيا وأوقيانوسيا"
+    },
+    "question": {
+      "en": "Which country has a dragon on its flag?",
+      "ar": "أي دولة تحمل تنيناً على علمها؟"
+    },
+    "answer": {
+      "en": "Bhutan (or Wales)",
+      "ar": "بوتان (أو ويلز)"
+    }
+  },
+  {
+    "id": "flag-questions-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Europe",
+      "ar": "أوروبا"
+    },
+    "question": {
+      "en": "What shape is common to all Nordic flags?",
+      "ar": "ما الشكل المشترك في جميع أعلام الدول الإسكندنافية؟"
+    },
+    "answer": {
+      "en": "The Nordic Cross",
+      "ar": "الصليب الإسكندنافي"
+    }
+  },
+  {
+    "id": "flag-questions-011",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "Which country has the only national flag that is not rectangular?",
+      "ar": "أي دولة تمتلك العلم الوطني الوحيد غير المستطيل؟"
+    },
+    "answer": {
+      "en": "Nepal",
+      "ar": "نيبال"
+    }
+  },
+  {
+    "id": "flag-questions-012",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "How many colors are in the South African flag?",
+      "ar": "كم عدد الألوان في العلم جنوب أفريقي؟"
+    },
+    "answer": {
+      "en": "Six",
+      "ar": "ستة"
+    }
+  },
+  {
+    "id": "flag-questions-013",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Americas",
+      "ar": "الأمريكتان"
+    },
+    "question": {
+      "en": "Which country features an eagle perched on a cactus eating a snake?",
+      "ar": "أي دولة يظهر في علمها نسر يجلس على صبار ويأكل ثعباناً؟"
+    },
+    "answer": {
+      "en": "Mexico",
+      "ar": "المكسيك"
+    }
+  },
+  {
+    "id": "flag-questions-014",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "What is unique about the shape of the Swiss flag compared to most others?",
+      "ar": "ما الذي يميز شكل العلم السويسري عن معظم الأعلام الأخرى؟"
+    },
+    "answer": {
+      "en": "It is square",
+      "ar": "شكله مربع"
+    }
+  },
+  {
+    "id": "flag-questions-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which country features a blue Star of David?",
+      "ar": "أي دولة تحمل نجمة داود الزرقاء؟"
+    },
+    "answer": {
+      "en": "Israel",
+      "ar": "إسرائيل"
+    }
+  },
+  {
+    "id": "flag-questions-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Americas",
+      "ar": "الأمريكتان"
+    },
+    "question": {
+      "en": "What does the text on the Brazilian flag 'Ordem e Progresso' mean?",
+      "ar": "ماذا يعني نص 'Ordem e Progresso' على العلم البرازيلي؟"
+    },
+    "answer": {
+      "en": "Order and Progress",
+      "ar": "النظام والتقدم"
+    }
+  },
+  {
+    "id": "flag-questions-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Which Middle Eastern country features a green cedar tree on its flag?",
+      "ar": "أي دولة شرق أوسطية تحمل شجرة أرز خضراء على علمها؟"
+    },
+    "answer": {
+      "en": "Lebanon",
+      "ar": "لبنان"
+    }
+  },
+  {
+    "id": "flag-questions-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "Which two countries have almost identical flags differing only by shade or ratio?",
+      "ar": "أي دولتان تمتلكان علمين متطابقين تقريباً يختلفان فقط في الظل أو النسبة؟"
+    },
+    "answer": {
+      "en": "Romania and Chad",
+      "ar": "رومانيا وتشاد"
+    }
+  },
+  {
+    "id": "flag-questions-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Americas",
+      "ar": "الأمريكتان"
+    },
+    "question": {
+      "en": "Which South American country features the 'Sun of May' with a face?",
+      "ar": "أي دولة جنوب أمريكية تحمل 'شمس مايو' ذات الوجه؟"
+    },
+    "answer": {
+      "en": "Argentina or Uruguay",
+      "ar": "الأرجنتين أو أوروغواي"
+    }
+  },
+  {
+    "id": "flag-questions-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Africa & Middle East",
+      "ar": "أفريقيا والشرق الأوسط"
+    },
+    "question": {
+      "en": "Before 2011, what was unique about the Libyan flag?",
+      "ar": "قبل عام 2011، ما الذي كان مميزاً في العلم الليبي؟"
+    },
+    "answer": {
+      "en": "It was a solid green field with no design",
+      "ar": "كان ميداناً أخضر خالصاً بلا أي رسم"
+    }
+  },
+  {
+    "id": "flag-questions-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag History & Identity",
+      "ar": "تاريخ الأعلام والهوية"
+    },
+    "question": {
+      "en": "Which country's flag is recognized as the oldest continuously used national flag?",
+      "ar": "علم أي دولة يُعترف به بوصفه أقدم علم وطني لا يزال مستخدماً؟"
+    },
+    "answer": {
+      "en": "Denmark — Dannebrog",
+      "ar": "الدنمارك — دانيبروغ"
+    }
+  },
+  {
+    "id": "flag-questions-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "What is the study of flags called?",
+      "ar": "ما اسم العلم الذي يختص بدراسة الأعلام؟"
+    },
+    "answer": {
+      "en": "Vexillology",
+      "ar": "علم الرايات (Vexillology)"
+    }
+  },
+  {
+    "id": "flag-questions-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "What is the subtle difference between Monaco's and Indonesia's flags?",
+      "ar": "ما الفرق الدقيق بين علمَي موناكو وإندونيسيا؟"
+    },
+    "answer": {
+      "en": "Their dimensions/ratio differ",
+      "ar": "يختلفان في النسبة البُعدية"
+    }
+  },
+  {
+    "id": "flag-questions-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "Which country features an AK-47 on its national flag?",
+      "ar": "أي دولة تحمل بندقية AK-47 على علمها الوطني؟"
+    },
+    "answer": {
+      "en": "Mozambique",
+      "ar": "موزمبيق"
+    }
+  },
+  {
+    "id": "flag-questions-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "Which country's flag is the only one to feature a human being?",
+      "ar": "علم أي دولة هو الوحيد الذي يضم صورة إنسان؟"
+    },
+    "answer": {
+      "en": "Belize",
+      "ar": "بليز"
+    }
+  },
+  {
+    "id": "flag-questions-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag History & Identity",
+      "ar": "تاريخ الأعلام والهوية"
+    },
+    "question": {
+      "en": "Why is purple so rarely found on national flags?",
+      "ar": "لماذا نادراً ما نجد اللون البنفسجي في الأعلام الوطنية؟"
+    },
+    "answer": {
+      "en": "Historical cost and difficulty of producing purple dye",
+      "ar": "بسبب التكلفة التاريخية وصعوبة إنتاج الصبغة البنفسجية"
+    }
+  },
+  {
+    "id": "flag-questions-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Asia & Oceania",
+      "ar": "آسيا وأوقيانوسيا"
+    },
+    "question": {
+      "en": "Which country has a yellow bird of paradise on its flag?",
+      "ar": "أي دولة تحمل طائر الجنة الأصفر على علمها؟"
+    },
+    "answer": {
+      "en": "Papua New Guinea",
+      "ar": "بابوا غينيا الجديدة"
+    }
+  },
+  {
+    "id": "flag-questions-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag Design & Vexillology",
+      "ar": "تصميم الأعلام وعلم الأعلام"
+    },
+    "question": {
+      "en": "What is unique about the two sides of Paraguay's flag?",
+      "ar": "ما الذي يميز الوجهين على علم باراغواي؟"
+    },
+    "answer": {
+      "en": "Front and back have different emblems",
+      "ar": "الوجه والظهر يحملان شعارين مختلفين"
+    }
+  },
+  {
+    "id": "flag-questions-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag History & Identity",
+      "ar": "تاريخ الأعلام والهوية"
+    },
+    "question": {
+      "en": "The Nordic cross comes from Denmark's flag. What was the medieval union of these countries called?",
+      "ar": "الصليب الإسكندنافي مأخوذ من علم الدنمارك. ما اسم الاتحاد العصور الوسطى لهذه الدول؟"
+    },
+    "answer": {
+      "en": "The Kalmar Union",
+      "ar": "اتحاد كالمار"
+    }
+  },
+  {
+    "id": "flag-questions-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Flag History & Identity",
+      "ar": "تاريخ الأعلام والهوية"
+    },
+    "question": {
+      "en": "Which four colors are known as the Pan-Arab colors?",
+      "ar": "ما الألوان الأربعة المعروفة بالألوان العربية الوحدوية؟"
+    },
+    "answer": {
+      "en": "Black, White, Green, Red",
+      "ar": "الأسود والأبيض والأخضر والأحمر"
+    }
+  }
+]

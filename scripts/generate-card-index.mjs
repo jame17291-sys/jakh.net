@@ -11,8 +11,8 @@ for (const category of catalog.categories || []) {
   const source = JSON.parse(
     fs.readFileSync(path.join(dataDir, `${category.slug}.json`), "utf8"),
   );
-  const cards = Array.isArray(source) ? source : source.cards;
-  if (!Array.isArray(cards)) throw new Error(`Invalid card data for ${category.slug}`);
+  if (!Array.isArray(source)) throw new Error(`Invalid card data for ${category.slug}`);
+  const cards = source;
 
   for (const card of cards) {
     if (!card?.id || !card?.difficulty) {

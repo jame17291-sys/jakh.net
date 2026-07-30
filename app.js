@@ -1047,9 +1047,22 @@ function getCategoryProgress(slug) {
   return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
 }
 
-function getCorrectCountByDifficulty(diff) {
-  if (state.dbUser) return (state.dbUser.progress || []).filter(p => p.status === diff).length;
-  return Object.values(getGuestSolvedMap()).filter(v => _guestStatus(v) === diff).length;
+function getCorrectCountByDifficulty(diff, categoryId = null) {
+  if (state.dbUser) {
+    return (state.dbUser.progress || []).filter(p =>
+      p.status === diff && (!categoryId || p.categoryId === categoryId)
+    ).length;
+  }
+  const raw = getGuestSolvedMap();
+  const activeCardIds = categoryId && state.categoryData?.slug === categoryId
+    ? new Set((state.categoryData.cards || []).map(card => card.id))
+    : null;
+  return Object.entries(raw).filter(([cardId, value]) => {
+    if (_guestStatus(value) !== diff) return false;
+    if (!categoryId) return true;
+    if (activeCardIds) return activeCardIds.has(cardId);
+    return typeof value === 'object' && value !== null && value.categoryId === categoryId;
+  }).length;
 }
 
 function getTotalCorrectCount() {
@@ -1227,11 +1240,10 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.6';
+const APP_VERSION = '2.7';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {
-    sessionStorage.removeItem('jakh-home-scroll');
     const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
     staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
     localStorage.setItem('jakh-app-version', APP_VERSION);
@@ -1289,65 +1301,24 @@ function showInstallBanner() {
     </div>
   `;
   document.body.appendChild(banner);
+  document.body.classList.add('install-banner-visible');
   document.getElementById('installAcceptBtn')?.addEventListener('click', async () => {
     if (!_installPrompt) return;
     _installPrompt.prompt();
     const { outcome } = await _installPrompt.userChoice;
     _installPrompt = null;
     banner.remove();
+    document.body.classList.remove('install-banner-visible');
     if (outcome === 'accepted') localStorage.setItem('jakh-install-dismissed', '1');
   });
   document.getElementById('installDismissBtn')?.addEventListener('click', () => {
     localStorage.setItem('jakh-install-dismissed', '1');
     banner.remove();
+    document.body.classList.remove('install-banner-visible');
   });
 }
 
 let globalEventsBound = false;
-
-async function spaNavigate(url, isPopState = false) {
-  if (state.page === 'home') {
-    sessionStorage.setItem('jakh-home-scroll', String(Math.round(window.scrollY)));
-  }
-  try {
-    const res = await fetch(url);
-    const html = await res.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-
-    document.title = doc.title;
-    document.body.innerHTML = doc.body.innerHTML;
-    document.body.className = doc.body.className;
-    
-    // Safely copy data attributes since DOMParser dataset can be unreliable
-    document.body.setAttribute('data-page', doc.body.getAttribute('data-page') || '');
-    document.body.setAttribute('data-category', doc.body.getAttribute('data-category') || '');
-
-    // Reset local state for the new page
-    state.page = doc.body.getAttribute('data-page') || 'home';
-    state.categorySlug = doc.body.getAttribute('data-category') || '';
-    state.categoryData = null;
-    state.directorySearch = '';
-    state.cluster = 'all';
-    state.search = '';
-    state.difficulty = 'all';
-    state.view = 'all';
-    state.sort = 'featured';
-    state.subcategory = 'all';
-    state.cardPage = 1;
-
-    if (!isPopState) {
-      history.pushState(null, '', url);
-    }
-    if (state.page !== 'home') window.scrollTo(0, 0);
-
-    // Re-initialize for new DOM
-    init();
-  } catch (err) {
-    console.error('SPA Navigation failed:', err);
-    location.href = url;
-  }
-}
 
 function bindCommonEvents() {
   if (els.langSelect) {
@@ -1361,6 +1332,7 @@ function bindCommonEvents() {
       document.getElementById('timedQuizOverlay')?.remove();
       createTimedQuizModal();
       renderCategoryPlayModes();
+      injectBackToTop();
       showToast(t('languageSet'));
     });
   }
@@ -1394,20 +1366,18 @@ function bindCommonEvents() {
       nav.insertBefore(btn, nav.children[2]);
     }
   }
-  document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug));
+  document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug, 'create'));
 
 
   // Handle #battle/CODE deep-link
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
   if (hashMatch) {
-    setTimeout(() => {
-      battleState.tab = 'join';
-      openBattleModal('');
-      setTimeout(() => {
-        const codeInput = document.getElementById('battleCodeInput');
-        if (codeInput) codeInput.value = hashMatch[1].toUpperCase();
-      }, 80);
-    }, 600);
+    const code = normalizeBattleCode(hashMatch[1]);
+    if (BATTLE_CODE_PATTERN.test(code)) {
+      openBattleModal('', 'join');
+      const codeInput = document.getElementById('battleCodeInput');
+      if (codeInput) codeInput.value = code;
+    }
   }
 
   // Inject global search button into nav
@@ -1443,21 +1413,6 @@ function bindCommonEvents() {
       };
       hbtn.addEventListener('click', _toggleNav);
       hbtn.addEventListener('touchstart', _toggleNav, { passive: false });
-
-      document.addEventListener('click', (e) => {
-        if (!nav || !nav.classList.contains('nav-open')) return;
-        if (!nav.contains(e.target) && !hbtn.contains(e.target)) {
-          nav.classList.remove('nav-open');
-          hbtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      document.addEventListener('touchstart', (e) => {
-        if (!nav || !nav.classList.contains('nav-open')) return;
-        if (!nav.contains(e.target) && !hbtn.contains(e.target)) {
-          nav.classList.remove('nav-open');
-          hbtn.setAttribute('aria-expanded', 'false');
-        }
-      }, { passive: true });
     }
   }
 
@@ -1465,31 +1420,24 @@ function bindCommonEvents() {
   if (randomBtn) randomBtn.addEventListener('click', randomCategory);
 
   if (!globalEventsBound) {
+    const closeOpenMobileNav = (event) => {
+      const nav = document.querySelector('.header-actions');
+      const button = document.getElementById('hamburgerBtn');
+      if (!nav?.classList.contains('nav-open') || !button) return;
+      if (!nav.contains(event.target) && !button.contains(event.target)) {
+        nav.classList.remove('nav-open');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    };
+    document.addEventListener('click', closeOpenMobileNav);
+    document.addEventListener('touchstart', closeOpenMobileNav, { passive: true });
+
     document.addEventListener('click', (event) => {
       const closeTarget = event.target.closest('[data-close-modal]');
       if (closeTarget) {
         const name = closeTarget.dataset.closeModal;
         closeModal(name);
       }
-    });
-
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a');
-      if (link && link.origin === location.origin) {
-        const path = link.pathname;
-        // Skip hash-only anchor links (e.g. #questionSection) — let native scroll handle them
-        if (link.hash && link.pathname === location.pathname) return;
-        const isHome = path === '/' || path === '' || path.endsWith('index.html');
-        if ((path.endsWith('.html') || isHome) && !path.includes('admin')) {
-          e.preventDefault();
-          spaNavigate(link.href);
-          if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }
-    });
-
-    window.addEventListener('popstate', () => {
-      spaNavigate(location.href, true);
     });
 
     window.addEventListener('online', handleOfflineStatus);
@@ -1705,11 +1653,6 @@ function renderHome() {
   renderClusterTabBar();
   renderCategoryDirectory();
   markCachedCategories();
-  const savedScroll = sessionStorage.getItem('jakh-home-scroll');
-  if (savedScroll) {
-    sessionStorage.removeItem('jakh-home-scroll');
-    requestAnimationFrame(() => window.scrollTo({ top: parseInt(savedScroll), behavior: 'instant' }));
-  }
 }
 
 function getCategoryMap() {
@@ -2090,7 +2033,7 @@ function renderAccountSummary(mount) {
     ].filter(d => dc[d.key] > 0);
     const bars = diffs.map(d => {
       const total = dc[d.key];
-      const done = getCorrectCountByDifficulty(d.key);
+      const done = getCorrectCountByDifficulty(d.key, state.categoryData?.slug || state.categorySlug);
       const pct = total ? Math.min(100, Math.round((done / total) * 100)) : 0;
       return `<div class="diff-row">
         <span class="diff-label">${escapeHtml(state.lang === 'ar' ? d.labelAr : d.labelEn)}</span>
@@ -2192,23 +2135,33 @@ function renderAccountSummary(mount) {
   `;
 }
 
+let backToTopScrollBound = false;
+
+function updateBackToTopVisibility() {
+  document.getElementById('backToTopBtn')?.classList.toggle('is-visible', window.scrollY > 500);
+}
+
 function injectBackToTop() {
-  if (document.getElementById('backToTopBtn')) return;
-  const btn = document.createElement('button');
-  btn.id = 'backToTopBtn';
-  btn.className = 'back-to-top-btn';
-  btn.setAttribute('aria-label', state.lang === 'ar' ? 'العودة للأعلى' : 'Back to top');
-  btn.textContent = '↑';
-  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  document.body.appendChild(btn);
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('is-visible', window.scrollY > 500);
-  }, { passive: true });
+  let btn = document.getElementById('backToTopBtn');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'backToTopBtn';
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(btn);
+  }
+  const label = state.lang === 'ar' ? 'العودة للأعلى' : 'Back to top';
+  btn.setAttribute('aria-label', label);
+  btn.title = label;
+  if (!backToTopScrollBound) {
+    window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+    backToTopScrollBound = true;
+  }
+  updateBackToTopVisibility();
 }
 
 function renderCategoryPage() {
   if (!state.categoryData || !state.catalog) return;
-  injectBackToTop();
 
   const category = state.categoryData;
   if (els.categoryKicker) els.categoryKicker.textContent = category.cluster[state.lang];
@@ -2310,7 +2263,6 @@ function syncFilterParams() {
   if (state.sort && state.sort !== 'featured') params.set('sort', state.sort); else params.delete('sort');
   if (state.subcategory && state.subcategory !== 'all') params.set('sub', state.subcategory); else params.delete('sub');
   if (state.search) params.set('q', state.search); else params.delete('q');
-  const newSearch = params.toString() ? `?${params.toString()}` : location.pathname;
   history.replaceState(null, '', params.toString() ? `${location.pathname}?${params.toString()}` : location.pathname);
 }
 
@@ -3178,6 +3130,8 @@ function renderDailyChallenge() {
   const today = new Date().toISOString().split('T')[0];
   const isDone = !!localStorage.getItem(`jakh-daily-done-${today}`);
   const isFlipped = state.flipped.has('__daily__');
+  const categoryHref = state.catalog?.categories
+    .find(category => category.slug === card.categorySlug)?.href || `${card.categorySlug}.html`;
   mount.innerHTML = `
     <section class="shell daily-challenge-section">
       <div class="daily-challenge-card ${isDone ? 'daily-done' : ''}">
@@ -3189,7 +3143,7 @@ function renderDailyChallenge() {
         </div>
         <div class="daily-challenge-btns">
           <button class="primary-btn mini-btn" id="flipDailyBtn">${isFlipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
-          <a class="ghost-btn mini-btn" href="${escapeHtml(card.categorySlug)}">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
+          <a class="ghost-btn mini-btn" href="${escapeHtml(categoryHref)}">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
         </div>
       </div>
     </section>`;
@@ -3199,6 +3153,13 @@ function renderDailyChallenge() {
     }
     if (state.flipped.has('__daily__')) state.flipped.delete('__daily__'); else state.flipped.add('__daily__');
     renderDailyChallenge();
+  });
+}
+
+function scrollToDailyChallenge() {
+  requestAnimationFrame(() => {
+    const target = document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount');
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
@@ -3485,7 +3446,7 @@ async function runGlobalSearch() {
     </a>
   `).join('');
   resultsEl.querySelectorAll('.gs-result').forEach(el => {
-    el.addEventListener('click', (e) => { e.preventDefault(); closeGlobalSearch(); spaNavigate(el.href); });
+    el.addEventListener('click', closeGlobalSearch);
   });
 }
 
@@ -3521,7 +3482,7 @@ async function openLeaderboard() {
 function randomCategory() {
   if (!state.catalog) return;
   const cats = state.catalog.categories;
-  spaNavigate(cats[Math.floor(Math.random() * cats.length)].href);
+  location.assign(cats[Math.floor(Math.random() * cats.length)].href);
 }
 
 // ================= ACHIEVEMENTS =================
@@ -3691,6 +3652,16 @@ function shareResult(score, total, categoryTitle) {
 
 // ================= ONBOARDING =================
 function checkOnboarding() {
+  const battleHash = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
+  const hasBattleIntent = battleHash
+    ? BATTLE_CODE_PATTERN.test(normalizeBattleCode(battleHash[1]))
+    : false;
+  const hasDailyIntent = new URLSearchParams(location.search).get('daily') === '1'
+    || sessionStorage.getItem('jakh-scroll-to') === 'daily';
+  const battleOverlay = document.getElementById('battleOverlay');
+  const battleIsOpen = !!battleOverlay && !battleOverlay.classList.contains('hidden');
+  if (hasBattleIntent || hasDailyIntent || battleIsOpen) return;
+
   if (state.page === 'home') {
     if (!localStorage.getItem('jakh-onboarded')) setTimeout(showOnboarding, 1200);
   } else if (state.page === 'category') {
@@ -3827,27 +3798,6 @@ function hapticSuccess() { haptic('medium'); }
 function hapticError()   { haptic('heavy'); }
 function hapticTap()     { haptic('light'); }
 
-// ── Step 4: Page Transition Exit Animation ────────────────────────────────────
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href]');
-    if (!link) return;
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('javascript') ||
-        href.startsWith('mailto') || href.startsWith('tel') ||
-        link.target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) return;
-    // Only animate same-origin .html navigation
-    try {
-      const url = new URL(href, location.href);
-      if (url.origin !== location.origin) return;
-    } catch { return; }
-    e.preventDefault();
-    document.body.classList.add('is-navigating');
-    setTimeout(() => { location.href = href; }, 220);
-  });
-}());
-
 // ── Bottom Navigation Bar ─────────────────────────────────────────────────────
 function injectBottomNav() {
   if (document.getElementById('bottomNav')) { updateBottomNavActive(); return; }
@@ -3879,9 +3829,8 @@ function injectBottomNav() {
   document.body.appendChild(nav);
 
   document.getElementById('bnDailyBtn')?.addEventListener('click', () => {
-    if (state.page === 'home') {
-      const target = document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount');
-      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (document.getElementById('dailyChallengeMount')) {
+      scrollToDailyChallenge();
     } else {
       sessionStorage.setItem('jakh-scroll-to', 'daily');
       location.href = 'index.html';
@@ -3897,7 +3846,8 @@ function injectBottomNav() {
 function updateBottomNavActive() {
   const nav = document.getElementById('bottomNav');
   if (!nav) return;
-  const activeTab = state.page === 'home' ? 'home' : 'explore';
+  const isMindLab = location.pathname.endsWith('/mind-lab.html') || location.pathname === '/mind-lab';
+  const activeTab = state.page === 'home' && !isMindLab ? 'home' : 'explore';
   nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
     tab.classList.toggle('is-active', tab.dataset.tab === activeTab);
   });
@@ -3960,16 +3910,21 @@ async function init() {
   applyStaticCopy();
   rerender();
   injectBottomNav();
+  injectBackToTop();
   applyCapabilityVisibility();
   checkOnboarding();
   checkNewAchievements();
-  // Handle daily-tab scroll triggered from category pages
-  if (state.page === 'home' && sessionStorage.getItem('jakh-scroll-to') === 'daily') {
+  const dailyParams = new URLSearchParams(location.search);
+  const dailySessionRequested = sessionStorage.getItem('jakh-scroll-to') === 'daily';
+  const dailyShortcutRequested = dailyParams.get('daily') === '1';
+  if (state.page === 'home' && (dailySessionRequested || dailyShortcutRequested)) {
     sessionStorage.removeItem('jakh-scroll-to');
-    requestAnimationFrame(() => {
-      const target = document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount');
-      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    if (dailyShortcutRequested) {
+      const cleanUrl = new URL(location.href);
+      cleanUrl.searchParams.delete('daily');
+      history.replaceState(null, '', `${cleanUrl.pathname}${cleanUrl.search}${cleanUrl.hash}`);
+    }
+    scrollToDailyChallenge();
   }
 }
 
@@ -4021,10 +3976,10 @@ function renderCategoryPlayModes() {
   }
   document.getElementById('playModeQuickFireBtn')?.addEventListener('click', startTimedQuiz);
   document.getElementById('playModeCreateRoomBtn')?.addEventListener('click', () => {
-    battleState.tab = 'create'; openBattleModal(state.categorySlug);
+    openBattleModal(state.categorySlug, 'create');
   });
   document.getElementById('playModeJoinBtn')?.addEventListener('click', () => {
-    battleState.tab = 'join'; openBattleModal(state.categorySlug);
+    openBattleModal(state.categorySlug, 'join');
   });
 }
 
@@ -4050,6 +4005,12 @@ const battleState = {
   pendingSlug: '',
 };
 
+const BATTLE_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/;
+
+function normalizeBattleCode(value) {
+  return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+}
+
 function getBattleWsUrl(code) {
   const api = new URL(API_ORIGIN);
   const proto = api.protocol === 'https:' ? 'wss:' : 'ws:';
@@ -4064,11 +4025,11 @@ function createBattleModal() {
   document.body.appendChild(el);
 }
 
-function openBattleModal(slug) {
+function openBattleModal(slug, tab = 'create') {
   if (!document.getElementById('battleOverlay')) createBattleModal();
   battleState.pendingSlug = slug || state.categorySlug || '';
   battleState.phase = 'setup';
-  battleState.tab = 'create';
+  battleState.tab = tab === 'join' ? 'join' : 'create';
   document.getElementById('battleOverlay')?.classList.remove('hidden');
   renderBattleUI();
 }
@@ -4163,8 +4124,8 @@ function renderBattleSetup(body) {
         ` : `
           <label>
             ${isAr ? 'كود الغرفة' : 'Room code'}
-            <input type="text" id="battleCodeInput" maxlength="10"
-              placeholder="${isAr ? 'مثال: BIO-7X2K' : 'e.g. BIO-7X2K'}"
+            <input type="text" id="battleCodeInput" maxlength="16"
+              placeholder="${isAr ? 'مثال: SCI7X2KQ' : 'e.g. SCI7X2KQ'}"
               style="text-transform:uppercase;font-family:var(--font-mono);letter-spacing:0.08em;"
               autocomplete="off" />
           </label>
@@ -4178,6 +4139,10 @@ function renderBattleSetup(body) {
   document.getElementById('battleTabJoin')?.addEventListener('click', () => { battleState.tab = 'join'; renderBattleUI(); });
   document.getElementById('battleCreateBtn')?.addEventListener('click', handleBattleCreate);
   document.getElementById('battleJoinBtn')?.addEventListener('click', handleBattleJoin);
+  const codeInput = document.getElementById('battleCodeInput');
+  codeInput?.addEventListener('input', () => {
+    codeInput.value = normalizeBattleCode(codeInput.value);
+  });
 }
 
 async function handleBattleCreate() {
@@ -4206,10 +4171,13 @@ async function handleBattleCreate() {
 
 function handleBattleJoin() {
   const name = document.getElementById('battleNameInput')?.value.trim() || '';
-  const code = (document.getElementById('battleCodeInput')?.value || '').trim().toUpperCase().replace(/[^A-Z0-9-]/g, '');
+  const code = normalizeBattleCode(document.getElementById('battleCodeInput')?.value);
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
-  if (code.length < 4) { showBattleError(isAr ? 'أدخل كود الغرفة' : 'Enter the room code'); return; }
+  if (!BATTLE_CODE_PATTERN.test(code)) {
+    showBattleError(isAr ? 'أدخل كود غرفة صالحاً من 8 رموز' : 'Enter a valid 8-character room code');
+    return;
+  }
   connectToBattle(code, name, null);
 }
 
@@ -4219,6 +4187,7 @@ function showBattleError(msg) {
 }
 
 function connectToBattle(code, name, hostId) {
+  code = normalizeBattleCode(code);
   if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); }
   const ws = new WebSocket(getBattleWsUrl(code));
   battleState.ws = ws;

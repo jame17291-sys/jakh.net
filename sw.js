@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v52';
-const ASSET_CACHE = 'jakh-assets-v52';
+const CACHE_NAME = 'jakh-v57';
+const ASSET_CACHE = 'jakh-assets-v57';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -12,6 +12,7 @@ const PRECACHE_ASSETS = [
   '/assets/logo.webp',
   '/assets/logo.png',
   '/assets/favicon.svg',
+  '/favicon.ico',
 ];
 
 self.addEventListener('install', (event) => {
@@ -55,7 +56,7 @@ self.addEventListener('fetch', (event) => {
           if (response.ok) cache.put(request, response.clone());
           return response;
         } catch (_) {
-          return (await cache.match(request)) || caches.match('/index.html');
+          return (await caches.match(request, { ignoreSearch: true })) || caches.match('/index.html');
         }
       })
     );
@@ -90,7 +91,7 @@ self.addEventListener('fetch', (event) => {
           if (response.ok) cache.put(request, response.clone());
           return response;
         } catch (_) {
-          const cached = await cache.match(request);
+          const cached = await cache.match(request, { ignoreSearch: true });
           if (cached) return cached;
           throw _;
         }
@@ -101,7 +102,7 @@ self.addEventListener('fetch', (event) => {
 
   // Cache-first for static media assets.
   if (
-    url.pathname.match(/\.(svg|png|jpg|webp|woff2)$/) &&
+    url.pathname.match(/\.(svg|png|jpg|webp|ico|woff2)$/) &&
     url.origin === self.location.origin
   ) {
     event.respondWith(

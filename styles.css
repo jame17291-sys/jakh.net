@@ -1390,7 +1390,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
 }
 
 /* ── Daily challenge widget ──────────────────────────── */
-.daily-challenge-section { margin: 1.3rem auto 0; width: var(--shell); }
+.daily-challenge-section { margin: 1.3rem auto 0; width: var(--shell); scroll-margin-top: 90px; }
 .daily-challenge-card {
   background: color-mix(in srgb, var(--panel) 92%, transparent);
   border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
@@ -1491,11 +1491,6 @@ textarea { min-height: 6.5rem; resize: vertical; }
 /* ── Achievement badge color fix ────────────────────── */
 .achievement-badge { color: var(--text); }
 
-/* ── Back to top button ──────────────────────────────── */
-.back-to-top-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 900; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.25); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity 0.25s, transform 0.25s; }
-.back-to-top-btn.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-.back-to-top-btn:hover { filter: brightness(1.1); }
-
 /* ── Daily challenge completion ──────────────────────── */
 .daily-done { opacity: 0.7; }
 .daily-done-badge { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.6rem; border-radius: 999px; background: color-mix(in srgb, var(--success, #22c55e) 18%, transparent); border: 1px solid color-mix(in srgb, var(--success, #22c55e) 35%, transparent); color: var(--success, #22c55e); font-size: 0.78rem; font-weight: 700; }
@@ -1563,7 +1558,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
   .category-card:hover .category-card-emoji { transform: none !important; }
   .cat-progress-bar-fill { transition: none !important; }
   .diff-fill { transition: none !important; }
-  .back-to-top-btn { transition: opacity 0.1s !important; }
+  #backToTopBtn { transition: opacity 0.1s !important; }
 }
 
 /* ── skip-to-content ─────────────────────────────────── */
@@ -1920,7 +1915,7 @@ textarea { min-height: 6.5rem; resize: vertical; }
   position: fixed;
   inset: 0;
   background: var(--bg);
-  z-index: 500;
+  z-index: 2500;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -2581,7 +2576,7 @@ body::after {
   position: fixed;
   bottom: 1.75rem;
   inset-inline-end: 1.75rem;
-  z-index: 99;
+  z-index: 900;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -2600,7 +2595,7 @@ body::after {
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.2s ease;
 }
-#backToTopBtn.visible {
+#backToTopBtn.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
@@ -2610,6 +2605,10 @@ body::after {
   box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 50%, transparent);
 }
 #backToTopBtn:active { transform: scale(0.94); }
+body.install-banner-visible #backToTopBtn {
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* ── Respect reduced motion ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
@@ -2827,10 +2826,6 @@ body.is-offline .category-card-bg {
     bottom: calc(1rem + 56px + env(safe-area-inset-bottom, 0px));
     inset-inline-end: 1.25rem;
   }
-  .back-to-top-btn {
-    bottom: calc(1.5rem + 56px + env(safe-area-inset-bottom, 0px));
-  }
-
   /* Collapse top header: hide nav links, keep logo + language */
   .site-header {
     grid-template-columns: auto auto;
@@ -2942,28 +2937,6 @@ html[dir="rtl"] .bottom-nav-tab.is-active::before {
     width: 2.5rem;
     height: 2.5rem;
   }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   MOBILE UI — Step 4: Smooth Page Transitions
-   Page fades/slides in on load; category cards link clicks fade out.
-═══════════════════════════════════════════════════════════════ */
-@keyframes page-enter {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes page-exit {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-10px); }
-}
-
-body.is-navigating {
-  animation: page-exit 0.22s ease forwards;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.is-navigating { animation: none !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════

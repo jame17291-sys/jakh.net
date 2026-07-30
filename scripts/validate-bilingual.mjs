@@ -186,6 +186,9 @@ for (const selector of [
 ]) {
   if (!appSource.includes(selector)) fail(`app.js: language changes do not update ${selector}`);
 }
+if (!/querySelectorAll\(["']button\[data-close-modal=["']auth["']\]["']\)/u.test(appSource)) {
+  fail("app.js: the account-dialog close button is not localized");
+}
 const catalog = JSON.parse(read("data/catalog.json"));
 const appPages = [
   "index.html",

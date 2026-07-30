@@ -7,6 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = "https://jakh.net";
 const ASSET_VERSION = "2026073005";
+const APP_ASSET_VERSION = "2026073006";
 const LAST_MODIFIED = "2026-07-30";
 const PREVIEW_CARD_COUNT = 20;
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
@@ -357,7 +358,7 @@ function renderCategoryPage(category, cards) {
     <meta name="description" content="${escapeHtml(description)}" />
     <title>${escapeHtml(title)}</title>
     <link rel="preload" href="/styles.css?v=${ASSET_VERSION}" as="style" />
-    <link rel="preload" href="/app.js?v=${ASSET_VERSION}" as="script" />
+    <link rel="preload" href="/app.js?v=${APP_ASSET_VERSION}" as="script" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="${canonical}" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -468,7 +469,7 @@ ${analyticsHead()}
 
     ${globalFooter("en", true, "", "app")}
     ${authModal()}
-    <script src="/app.js?v=${ASSET_VERSION}"></script>
+    <script src="/app.js?v=${APP_ASSET_VERSION}"></script>
   </body>
 </html>`;
 }
@@ -523,7 +524,7 @@ function normalizeSocialMeta(source) {
   let next = source.replaceAll("https://jakh.net/assets/og-image.webp", OG_IMAGE_URL);
   next = next.replaceAll("assets/og-image.webp", "/assets/og-image.jpg");
   next = next.replace(/styles\.css\?v=\d+/gu, `styles.css?v=${ASSET_VERSION}`);
-  next = next.replace(/app\.js\?v=\d+/gu, `app.js?v=${ASSET_VERSION}`);
+  next = next.replace(/app\.js\?v=\d+/gu, `app.js?v=${APP_ASSET_VERSION}`);
   next = next.replace(/site-i18n\.js\?v=\d+/gu, `site-i18n.js?v=${ASSET_VERSION}`);
   next = next.replace(/game-i18n\.js\?v=\d+/gu, `game-i18n.js?v=${ASSET_VERSION}`);
   next = next.replace(/\s*<meta name="keywords"[^>]*\/?>/giu, "");

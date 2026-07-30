@@ -322,19 +322,26 @@ const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 if (!appSource.includes("https://api.jakh.net")) fail("app.js: production API origin is not configured");
 if (/fetch\(\s*["']\/api\//u.test(appSource)) fail("app.js: stale same-origin API fetch remains");
 
-const assetVersions = new Set();
+const assetVersions = new Map();
 let assetReferenceCount = 0;
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
-  for (const match of source.matchAll(/\b(?:href|src)=["']((?:\/)?(?:app\.js|styles\.css)(?:\?[^"']*)?)["']/giu)) {
+  for (const match of source.matchAll(/\b(?:href|src)=["']((?:\/)?(?:app\.js|styles\.css|site-i18n\.js|game-i18n\.js)(?:\?[^"']*)?)["']/giu)) {
     assetReferenceCount += 1;
-    const version = match[1]?.match(/^\/?(?:app\.js|styles\.css)\?v=(\d+)$/u)?.[1];
-    if (!version) fail(`${file}: unversioned app/CSS reference "${match[1]}"`);
-    else assetVersions.add(version);
+    const parsed = match[1]?.match(/^\/?(app\.js|styles\.css|site-i18n\.js|game-i18n\.js)\?v=(\d+)$/u);
+    if (!parsed) {
+      fail(`${file}: unversioned runtime asset reference "${match[1]}"`);
+      continue;
+    }
+    const [, asset, version] = parsed;
+    if (!assetVersions.has(asset)) assetVersions.set(asset, new Set());
+    assetVersions.get(asset).add(version);
   }
 }
-if (!assetReferenceCount) fail("HTML contains no app.js or styles.css references");
-if (assetVersions.size !== 1) fail(`HTML asset versions are inconsistent: ${[...assetVersions].join(", ") || "none"}`);
+if (!assetReferenceCount) fail("HTML contains no versioned runtime asset references");
+for (const [asset, versions] of assetVersions) {
+  if (versions.size !== 1) fail(`${asset} versions are inconsistent: ${[...versions].join(", ")}`);
+}
 
 const faviconPath = path.join(root, "favicon.ico");
 if (!fs.existsSync(faviconPath)) {

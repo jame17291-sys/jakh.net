@@ -1421,7 +1421,9 @@ function applyRuntimeAccessibilityCopy() {
       state.page === 'category' ? t('questionFiltersLabel') : t('categoryFiltersLabel'),
     );
   }
-  document.querySelector('[data-close-modal="auth"]')?.setAttribute('aria-label', t('close'));
+  document.querySelectorAll('button[data-close-modal="auth"]').forEach((button) => {
+    button.setAttribute('aria-label', t('close'));
+  });
   document.querySelector('.kv-hero-title .sr-only')?.replaceChildren(document.createTextNode(` ${t('homeSrTitle')}`));
   document.getElementById('leaderboardBtn')?.setAttribute('aria-label', t('leaderboardTitle'));
   document.getElementById('battleNavBtn')?.setAttribute('aria-label', t('teamBattle'));

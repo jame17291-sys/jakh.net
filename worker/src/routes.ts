@@ -75,7 +75,7 @@ export async function health(env: Env): Promise<Response> {
     return json({
       ok: true,
       service: "jakh-api",
-      version: "1.1.0",
+      version: "1.1.1",
       schema: SCHEMA_VERSION,
     });
   } catch {

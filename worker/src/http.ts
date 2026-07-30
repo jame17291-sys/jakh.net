@@ -4,6 +4,7 @@ const JSON_HEADERS = {
   "x-content-type-options": "nosniff",
   "referrer-policy": "no-referrer",
 } as const;
+const HSTS_VALUE = "max-age=31536000";
 
 export class ApiError extends Error {
   constructor(
@@ -74,22 +75,39 @@ export function originIsAllowed(request: Request, csv: string): boolean {
   return !origin || allowedOrigins(csv).has(origin);
 }
 
+export function redirectToHttps(request: Request): Response | null {
+  const url = new URL(request.url);
+  if (url.protocol === "https:") return null;
+
+  url.protocol = "https:";
+  return new Response(null, {
+    status: 308,
+    headers: {
+      location: url.toString(),
+      "cache-control": "no-store",
+    },
+  });
+}
+
 export function withCors(response: Response, request: Request, csv: string): Response {
   // Cloudflare attaches the accepted socket to its 101 Response. Reconstructing
   // that response would either reject the status or detach the socket.
   if (response.status === 101) return response;
 
-  const origin = request.headers.get("origin");
-  if (!origin || !allowedOrigins(csv).has(origin)) return response;
-
   const headers = new Headers(response.headers);
-  headers.set("access-control-allow-origin", origin);
-  headers.set("access-control-allow-credentials", "true");
-  const vary = headers.get("vary");
-  const varyTokens = vary?.split(",").map((token) => token.trim()).filter(Boolean) ?? [];
-  if (!varyTokens.some((token) => token === "*" || token.toLowerCase() === "origin")) {
-    headers.set("vary", [...varyTokens, "Origin"].join(", "));
+  headers.set("strict-transport-security", HSTS_VALUE);
+
+  const origin = request.headers.get("origin");
+  if (origin && allowedOrigins(csv).has(origin)) {
+    headers.set("access-control-allow-origin", origin);
+    headers.set("access-control-allow-credentials", "true");
+    const vary = headers.get("vary");
+    const varyTokens = vary?.split(",").map((token) => token.trim()).filter(Boolean) ?? [];
+    if (!varyTokens.some((token) => token === "*" || token.toLowerCase() === "origin")) {
+      headers.set("vary", [...varyTokens, "Origin"].join(", "));
+    }
   }
+
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,

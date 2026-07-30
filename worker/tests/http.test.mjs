@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { ApiError, parseJson, withCors } from "../dist/http.js";
+import {
+  ApiError,
+  parseJson,
+  redirectToHttps,
+  withCors,
+} from "../dist/http.js";
 
 function requestFromChunks(chunks, headers = {}) {
   let index = 0;
@@ -80,9 +85,38 @@ test("withCors does not duplicate existing Vary tokens", async () => {
 
   assert.equal(response.headers.get("access-control-allow-origin"), "https://jakh.net");
   assert.equal(response.headers.get("access-control-allow-credentials"), "true");
+  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
   assert.deepEqual(
     response.headers.get("vary").split(",").map((token) => token.trim().toLowerCase()),
     ["accept-encoding", "origin"],
   );
   assert.equal(await response.text(), "ok");
+});
+
+test("withCors adds HSTS even when no CORS origin is present", () => {
+  const response = withCors(
+    new Response("ok"),
+    new Request("https://api.jakh.net/api/health"),
+    "https://jakh.net",
+  );
+
+  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
+  assert.equal(response.headers.has("access-control-allow-origin"), false);
+});
+
+test("HTTP requests redirect permanently to the same HTTPS path and query", () => {
+  const redirect = redirectToHttps(
+    new Request("http://api.jakh.net/api/health?source=smoke"),
+  );
+
+  assert.equal(redirect?.status, 308);
+  assert.equal(
+    redirect?.headers.get("location"),
+    "https://api.jakh.net/api/health?source=smoke",
+  );
+  assert.equal(redirect?.headers.get("cache-control"), "no-store");
+  assert.equal(
+    redirectToHttps(new Request("https://api.jakh.net/api/health")),
+    null,
+  );
 });

@@ -1,0 +1,41 @@
+name: Monitor production
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Deploy GitHub Pages"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-monitor
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    name: Check jakh.net and API
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Test monitor behavior
+        run: node --test scripts/monitor-production.test.mjs
+
+      - name: Check production
+        env:
+          JAKH_SITE_ORIGIN: https://jakh.net
+          JAKH_API_ORIGIN: https://api.jakh.net
+          JAKH_MONITOR_TIMEOUT_MS: "10000"
+          JAKH_SITE_MAX_MS: "5000"
+          JAKH_API_MAX_MS: "5000"
+        run: node scripts/monitor-production.mjs

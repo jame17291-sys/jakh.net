@@ -22,6 +22,8 @@ jobs:
           node-version: "24"
       - name: Validate static source and generated card index
         run: node scripts/validate-static.mjs
+      - name: Test production monitor
+        run: node --test scripts/monitor-production.test.mjs
       - name: Install API dependencies
         working-directory: worker
         run: npm ci --no-audit --no-fund

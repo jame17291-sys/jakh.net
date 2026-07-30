@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play 9×9 Go on JAKH Riddles. Classic strategy game — capture stones, claim territory."/>
   <title>Go | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/go"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +21,7 @@
   <meta name="twitter:title" content="Go | JAKH Riddles"/>
   <meta name="twitter:description" content="Play 9×9 Go on JAKH Riddles. Classic strategy game — capture stones, claim territory."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -33,17 +29,10 @@
   <style>
     /* scoped go styles */
     :root {
-      --panel: rgba(28,22,38,.9);
-      --panel-strong: rgba(28,22,38,.99);
-      --accent: #E8613C;
-      --gilt: #C9A227;
-      --easy: #48d597;
-      --text: #F0E8D8;
-      --muted: rgba(240,232,216,.56);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --line-strong: rgba(246,239,224,.15);
-      --danger: #ff7a8a;
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
     }
 
     #goSection {
@@ -160,7 +149,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.95rem;
       color: var(--text);
     }
@@ -183,7 +172,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.88rem;
       color: var(--muted);
     }
@@ -214,7 +203,7 @@
       border-radius: var(--radius-sm);
       border: none;
       cursor: pointer;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.9rem;
       font-weight: 600;
       transition: opacity 0.15s, transform 0.1s;
@@ -226,7 +215,7 @@
     .go-btn:disabled { opacity: 0.38; cursor: not-allowed; }
 
     .go-message {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.88rem;
       color: var(--muted);
       min-height: 1.2em;
@@ -243,7 +232,7 @@
       display: none;
       flex-direction: column;
       gap: 0.75rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
     }
     .go-result-banner.visible { display: flex; }
     .go-result-banner h2 { color: var(--gilt); margin: 0; font-size: 1.4rem; }
@@ -254,16 +243,15 @@
       .go-layout { flex-direction: column; align-items: center; }
     }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div><div class="bg-orb orb-2" aria-hidden="true"></div><div class="grid-glow" aria-hidden="true"></div>
+
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
     </a>
     <nav class="header-actions"><a class="ghost-btn" href="index.html">Home</a><a class="ghost-btn" href="play.html">&#8592; Games</a></nav>
-    <div class="header-selects"><label><span>Language</span><select id="langSelect"><option value="en">English</option><option value="ar">العربية</option></select></label></div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">

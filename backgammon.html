@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Backgammon on JAKH Riddles. Classic board game — roll dice, move checkers, bear off to win."/>
   <title>Backgammon | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/backgammon"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +21,7 @@
   <meta name="twitter:title" content="Backgammon | JAKH Riddles"/>
   <meta name="twitter:description" content="Play Backgammon on JAKH Riddles. Classic board game — roll dice, move checkers, bear off to win."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -33,17 +29,10 @@
   <style>
     /* scoped backgammon styles */
     :root {
-      --panel: rgba(28,22,38,.9);
-      --panel-strong: rgba(28,22,38,.99);
-      --accent: #E8613C;
-      --gilt: #C9A227;
-      --easy: #48d597;
-      --text: #F0E8D8;
-      --muted: rgba(240,232,216,.56);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --line-strong: rgba(246,239,224,.15);
-      --danger: #ff7a8a;
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
     }
 
     #bgSection {
@@ -93,7 +82,7 @@
     .bg-bar-label {
       color: var(--muted);
       font-size: 0.65rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       margin-bottom: 2px;
@@ -162,7 +151,7 @@
     .bg-mid-label {
       color: var(--muted);
       font-size: 0.65rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       letter-spacing: 0.1em;
     }
 
@@ -173,7 +162,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 600;
       cursor: pointer;
       transition: transform 0.1s;
@@ -219,7 +208,7 @@
     }
     .bg-bearoff-label {
       font-size: 0.6rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -255,7 +244,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.95rem;
       color: var(--text);
     }
@@ -269,7 +258,7 @@
     .bg-turn-dot.b { background: #13101a; }
 
     .bg-status-msg {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.83rem;
       color: var(--muted);
     }
@@ -312,7 +301,7 @@
       border-radius: var(--radius-sm);
       border: none;
       cursor: pointer;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.88rem;
       font-weight: 600;
       transition: opacity 0.15s, transform 0.1s;
@@ -328,7 +317,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.82rem;
       color: var(--muted);
     }
@@ -344,7 +333,7 @@
       display: none;
       flex-direction: column;
       gap: 0.75rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       width: min(420px, calc(100vw - 2rem));
     }
     .bg-result-banner.visible { display: flex; }
@@ -370,16 +359,15 @@
       .bg-controls { flex-direction: column; align-items: flex-start; }
     }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div><div class="bg-orb orb-2" aria-hidden="true"></div><div class="grid-glow" aria-hidden="true"></div>
+
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
     </a>
     <nav class="header-actions"><a class="ghost-btn" href="index.html">Home</a><a class="ghost-btn" href="play.html">&#8592; Games</a></nav>
-    <div class="header-selects"><label><span>Language</span><select id="langSelect"><option value="en">English</option><option value="ar">العربية</option></select></label></div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
@@ -745,25 +733,6 @@
       return Math.max(14, Math.min(28, Math.floor(pointW * 0.82)));
     }
 
-    // ── Render checkers on a point ────────────────────────────
-    function renderCheckers(color, count, dirClass) {
-      var frag = document.createDocumentFragment();
-      var sz = checkerSize();
-      var MAX_VISIBLE = 5;
-      var shown = Math.min(count, MAX_VISIBLE);
-      for (var i = 0; i < shown; i++) {
-        var c = document.createElement('div');
-        c.className = 'bg-checker ' + color;
-        c.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;font-size:' + Math.round(sz * 0.38) + 'px;';
-        if (i === shown - 1 && count > MAX_VISIBLE) {
-          c.textContent = count;
-          c.style.fontSize = Math.round(sz * 0.35) + 'px';
-        }
-        frag.appendChild(c);
-      }
-      return frag;
-    }
-
     // ── Build the board HTML ──────────────────────────────────
     function buildBoard() {
       boardEl.innerHTML = '';
@@ -813,7 +782,7 @@
       mid.className = 'bg-mid';
       mid.style.cssText = 'height:18px;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;';
       var midLabel = document.createElement('span');
-      midLabel.style.cssText = 'color:var(--muted);font-size:0.62rem;font-family:"Instrument Sans",sans-serif;letter-spacing:0.1em;';
+      midLabel.style.cssText = 'color:var(--muted);font-size:0.62rem;font-family: var(--font);letter-spacing:0.1em;';
       midLabel.textContent = 'BACKGAMMON';
       mid.appendChild(midLabel);
       boardEl.appendChild(mid);
@@ -927,7 +896,7 @@
       bar.style.cssText = 'width:36px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(0,0,0,0.35);cursor:pointer;';
 
       var lbl = document.createElement('div');
-      lbl.style.cssText = 'color:var(--muted);font-size:0.6rem;font-family:"Instrument Sans",sans-serif;text-transform:uppercase;letter-spacing:0.04em;';
+      lbl.style.cssText = 'color:var(--muted);font-size:0.6rem;font-family: var(--font);text-transform:uppercase;letter-spacing:0.04em;';
       lbl.textContent = 'BAR';
       bar.appendChild(lbl);
 
@@ -985,7 +954,7 @@
         + 'background:rgba(0,0,0,0.25);border-left:1px solid rgba(255,255,255,0.07);padding:4px 2px;';
 
       var lbl = document.createElement('div');
-      lbl.style.cssText = 'font-size:0.58rem;font-family:"Instrument Sans",sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
+      lbl.style.cssText = 'font-size:0.58rem;font-family: var(--font);color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
       lbl.textContent = color === 'w' ? 'White\nOff' : 'Black\nOff';
 
       var cnt = document.createElement('div');
@@ -1020,7 +989,7 @@
       infoGroup.style.cssText = 'display:flex;flex-direction:column;gap:0.3rem;';
 
       var turnRow = document.createElement('div');
-      turnRow.style.cssText = 'display:flex;align-items:center;gap:0.5rem;font-family:"Instrument Sans",sans-serif;font-size:0.92rem;color:var(--text);';
+      turnRow.style.cssText = 'display:flex;align-items:center;gap:0.5rem;font-family: var(--font);font-size:0.92rem;color:var(--text);';
 
       var dot = document.createElement('div');
       dot.style.cssText = 'width:15px;height:15px;border-radius:50%;flex-shrink:0;border:2px solid rgba(240,232,216,0.3);'
@@ -1035,7 +1004,7 @@
       turnRow.appendChild(turnLbl);
 
       var statusMsg = document.createElement('div');
-      statusMsg.style.cssText = 'font-family:"Instrument Sans",sans-serif;font-size:0.8rem;color:var(--muted);';
+      statusMsg.style.cssText = 'font-family: var(--font);font-size:0.8rem;color:var(--muted);';
       if (state.phase === 'roll') statusMsg.textContent = 'Roll the dice to move.';
       else if (state.dice.length > 0) {
         var rem = BackgammonEngine.remainingDice(state);
@@ -1083,7 +1052,7 @@
       rollBtn.className = 'bg-btn primary';
       rollBtn.textContent = 'Roll Dice';
       rollBtn.disabled = state.phase !== 'roll' || (vsAI && state.turn === aiColor);
-      rollBtn.style.cssText = 'padding:0.52rem 1rem;border-radius:var(--radius-sm);border:none;cursor:pointer;font-family:"Instrument Sans",sans-serif;font-size:0.86rem;font-weight:600;background:var(--accent);color:#fff;';
+      rollBtn.style.cssText = 'padding:0.52rem 1rem;border-radius:var(--radius-sm);border:none;cursor:pointer;font-family: var(--font);font-size:0.86rem;font-weight:600;background:var(--accent);color:#fff;';
       if (rollBtn.disabled) rollBtn.style.opacity = '0.4';
       rollBtn.addEventListener('click', function() {
         if (state.phase !== 'roll') return;
@@ -1097,13 +1066,13 @@
       });
 
       var newBtn = document.createElement('button');
-      newBtn.style.cssText = 'padding:0.52rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--line-strong);cursor:pointer;font-family:"Instrument Sans",sans-serif;font-size:0.86rem;font-weight:600;background:rgba(246,239,224,0.1);color:var(--text);';
+      newBtn.style.cssText = 'padding:0.52rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--line-strong);cursor:pointer;font-family: var(--font);font-size:0.86rem;font-weight:600;background:rgba(246,239,224,0.1);color:var(--text);';
       newBtn.textContent = 'New Game';
       newBtn.addEventListener('click', startNew);
 
       // Mode toggle
       var modeLabel = document.createElement('label');
-      modeLabel.style.cssText = 'display:flex;align-items:center;gap:0.35rem;font-family:"Instrument Sans",sans-serif;font-size:0.78rem;color:var(--muted);cursor:pointer;';
+      modeLabel.style.cssText = 'display:flex;align-items:center;gap:0.35rem;font-family: var(--font);font-size:0.78rem;color:var(--muted);cursor:pointer;';
       var modeCheck = document.createElement('input');
       modeCheck.type = 'checkbox';
       modeCheck.checked = vsAI;
@@ -1202,21 +1171,17 @@
     function scheduleAIRoll() {
       if (aiThinking) return;
       aiThinking = true;
-      setTimeout(function() {
-        state = BackgammonEngine.applyRoll(state);
-        render();
-        if (state.phase === 'move') {
-          scheduleAI();
-        } else {
-          aiThinking = false;
-        }
-      }, 600);
+      state = BackgammonEngine.applyRoll(state);
+      render();
+      if (state.phase === 'move') {
+        scheduleAI();
+      } else {
+        aiThinking = false;
+      }
     }
 
     function scheduleAI() {
-      setTimeout(function() {
-        aiStep();
-      }, 400);
+      aiStep();
     }
 
     function aiStep() {
@@ -1234,7 +1199,7 @@
 
       // If AI still has moves (same turn), continue
       if (state.turn === aiColor && state.phase === 'move') {
-        setTimeout(aiStep, 350);
+        aiStep();
       } else if (state.turn === aiColor && state.phase === 'roll') {
         scheduleAIRoll();
       } else {

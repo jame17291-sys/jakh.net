@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Hanabi on JAKH Riddles. A cooperative card game with your AI partner — perfect the fireworks display together."/>
   <title>Hanabi | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/hanabi"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +21,7 @@
   <meta name="twitter:title" content="Hanabi | JAKH Riddles"/>
   <meta name="twitter:description" content="Play Hanabi on JAKH Riddles. A cooperative card game with your AI partner — perfect the fireworks display together."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -33,22 +29,15 @@
   <style>
     /* scoped hanabi styles */
     :root {
-      --panel: rgba(28,22,38,.9);
-      --panel-strong: rgba(28,22,38,.99);
-      --accent: #E8613C;
-      --gilt: #C9A227;
-      --easy: #48d597;
-      --text: #F0E8D8;
-      --muted: rgba(240,232,216,.56);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --line-strong: rgba(246,239,224,.15);
-      --danger: #ff7a8a;
-      --suit-r: #E8613C;
-      --suit-y: #C9A227;
-      --suit-g: #48d597;
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
+      --suit-r: #d9505f;
+      --suit-y: #d7931a;
+      --suit-g: #278d65;
       --suit-b: #4A90D9;
-      --suit-w: #F0E8D8;
+      --suit-w: #f8fafc;
     }
 
     #hanabiSection {
@@ -84,7 +73,7 @@
 
     .hb-score-display {
       margin-left: auto;
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1.4rem;
       color: var(--gilt);
     }
@@ -92,7 +81,7 @@
     .hb-score-display span {
       font-size: 0.75rem;
       color: var(--muted);
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 500;
       display: block;
       text-align: right;
@@ -129,7 +118,7 @@
     }
 
     .hb-stack-value {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1.8rem;
       font-weight: 700;
       line-height: 1;
@@ -169,7 +158,7 @@
     }
 
     .hb-card-value {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1.5rem;
       line-height: 1;
     }
@@ -282,7 +271,7 @@
       border: 1px solid var(--line-strong);
       background: var(--panel);
       color: var(--text);
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 600;
       font-size: 0.85rem;
       cursor: pointer;
@@ -290,8 +279,8 @@
     }
 
     .hb-btn:hover:not(:disabled) {
-      background: rgba(240,232,216,0.08);
-      border-color: rgba(240,232,216,0.3);
+      background: var(--bg-soft);
+      border-color: var(--accent);
     }
 
     .hb-btn:active:not(:disabled) { transform: scale(0.97); }
@@ -308,8 +297,8 @@
     }
 
     .hb-btn-accent:hover:not(:disabled) {
-      background: #d15430;
-      border-color: #d15430;
+      background: #1e588e;
+      border-color: #1e588e;
     }
 
     .hb-btn-gilt {
@@ -418,7 +407,7 @@
     .hb-modal-overlay.visible .hb-modal { transform: translateY(0); }
 
     .hb-modal h2 {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 2rem;
       margin-bottom: 0.5rem;
       color: var(--text);
@@ -433,7 +422,7 @@
     }
 
     .hb-modal-score {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 3rem;
       color: var(--gilt);
       display: block;
@@ -449,27 +438,10 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .hb-ai-thinking::after {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #4A90D9;
-      animation: blinkDot 0.8s infinite alternate;
-    }
-
-    @keyframes blinkDot {
-      from { opacity: 0.2; }
-      to   { opacity: 1; }
-    }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="grid-glow" aria-hidden="true"></div>
 
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
@@ -482,14 +454,6 @@
       <a class="ghost-btn" href="index.html">Home</a>
       <a class="ghost-btn" href="play.html">&#8592; Games</a>
     </nav>
-    <div class="header-selects">
-      <label><span>Language</span>
-        <select id="langSelect">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-        </select>
-      </label>
-    </div>
   </header>
 
   <main id="top">
@@ -653,19 +617,6 @@
       return played[card.suit] + 1 === card.value;
     }
 
-    // Check if human has a card they know is playable (from clues)
-    function humanKnowsPlayable(state) {
-      for (const card of state.humanHand) {
-        if (card.clues.length === 0) continue;
-        const suitClue  = card.clues.find(c => c.type === 'suit');
-        const valueClue = card.clues.find(c => c.type === 'value');
-        if (suitClue && valueClue) {
-          if (isPlayable({ suit: suitClue.value, value: valueClue.value }, state.played)) return true;
-        }
-      }
-      return false;
-    }
-
     // AI action logic
     function getAIAction(state) {
       // 1. If human has a playable card and doesn't know it, give a clue
@@ -805,7 +756,7 @@
           </div>
           <div class="hb-score-display">
             <span>Score</span>
-            <span id="hbScore" style="font-size:1.4rem;color:var(--gilt);font-family:'Fraunces',serif;">0</span>
+            <span id="hbScore" style="font-size:1.4rem;color:var(--gilt);font-family: var(--font-display);">0</span>
           </div>
         </div>
 
@@ -1118,12 +1069,10 @@
     function scheduleAITurn() {
       aiBusy = true;
       renderActions();
-      setTimeout(() => {
-        state = HanabiEngine.executeAIAction(state);
-        aiBusy = false;
-        checkGameOver();
-        renderState();
-      }, 1100 + Math.random() * 600);
+      state = HanabiEngine.executeAIAction(state);
+      aiBusy = false;
+      checkGameOver();
+      renderState();
     }
 
     function checkGameOver() {

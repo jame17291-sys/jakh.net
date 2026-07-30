@@ -139,7 +139,7 @@ if (!workerCardIndex) {
   fail("worker/src/card-index.json: generated card index is stale; run node scripts/generate-card-index.mjs");
 }
 
-for (const file of ["app.js", "sw.js", "fluid-shader.js"]) {
+for (const file of ["app.js", "sw.js"]) {
   try {
     new vm.Script(fs.readFileSync(path.join(root, file), "utf8"), { filename: file });
   } catch (error) {

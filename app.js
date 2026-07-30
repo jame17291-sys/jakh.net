@@ -354,6 +354,15 @@ const UI = {
     statCategories: 'Collections',
     statQuestions: 'Questions',
     statLanguages: 'Languages',
+    mindHeroEyebrow: '3,500+ bilingual riddles — English & Arabic',
+    mindHeroTitle: 'The Mind Lab',
+    mindHeroSubtitle: 'Pick a topic. Flip cards. See how much you know.',
+    playHeroTitle: 'Game Arena',
+    playHeroSubtitle: 'No download. No sign-up. Just play — straight from your browser on any device.',
+    playHeroGames: 'Games',
+    playAvailable: '10 games available now',
+    playPick: 'Pick a game',
+    playBrowserOnly: 'All games run entirely in your browser — nothing installed.',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
     portalMindDesc: '3,500+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.',
@@ -505,6 +514,15 @@ const UI = {
     statCategories: 'المجموعات',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
+    mindHeroEyebrow: '+3500 لغز ثنائي اللغة — عربي وإنجليزي',
+    mindHeroTitle: 'مختبر العقول',
+    mindHeroSubtitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
+    playHeroTitle: 'ساحة الألعاب',
+    playHeroSubtitle: 'بدون تنزيل أو تسجيل. ابدأ اللعب مباشرة من متصفحك وعلى أي جهاز.',
+    playHeroGames: 'ألعاب',
+    playAvailable: '10 ألعاب متاحة الآن',
+    playPick: 'اختر لعبة',
+    playBrowserOnly: 'جميع الألعاب تعمل بالكامل في متصفحك — لا حاجة إلى تثبيت أي شيء.',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
     portalMindDesc: '+3500 سؤال ثنائي اللغة منظمة في 15 مجموعة مختارة ضمن 5 مسارات واضحة. اختر مجموعة، افتح موضوعًا، واقلب البطاقات وتابع نقاطك.',
@@ -642,7 +660,6 @@ const UI = {
 
 const state = {
   lang: 'en',
-  theme: 'dark',
   catalog: null,
   page: document.body.dataset.page || 'home',
   categorySlug: document.body.dataset.category || '',
@@ -1131,8 +1148,7 @@ function showToast(message, isError) {
 }
 
 function applyTheme() {
-  document.documentElement.dataset.theme = 'dark';
-  document.documentElement.dataset.accent = 'aurora';
+  document.documentElement.dataset.theme = 'light';
   document.documentElement.lang = state.lang === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
   if (els.langSelect) els.langSelect.value = state.lang;
@@ -1240,22 +1256,16 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.7';
+const APP_VERSION = '2.8';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {
     const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
     staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
     localStorage.setItem('jakh-app-version', APP_VERSION);
-    // Clear all SW caches then reload so new CSS/JS takes effect immediately
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.ready.then(reg => {
-        reg.active?.postMessage({ type: 'CLEAR_CACHE' });
-        setTimeout(() => location.reload(), 800);
-      }).catch(() => { location.reload(); });
-    } else {
-      location.reload();
-    }
+    // The current document already loaded versioned assets. Clear old caches in
+    // the background without showing a forced reload or loading transition.
+    navigator.serviceWorker?.controller?.postMessage({ type: 'CLEAR_CACHE' });
     return;
   }
   if (stored === null) localStorage.setItem('jakh-app-version', APP_VERSION);
@@ -1265,9 +1275,8 @@ function initializeFromStorage() {
   flushStaleStorage();
   const settings = loadJson(STORAGE_KEYS.settings, {});
   state.lang = settings.lang || 'en';
-  state.theme = 'dark';
-  // Purge any stale theme preference — site is dark-only now
-  if (settings.theme && settings.theme !== 'dark') {
+  // Purge the retired dark-only preference while preserving language.
+  if (settings.theme) {
     saveJson(STORAGE_KEYS.settings, { lang: state.lang });
   }
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
@@ -1454,7 +1463,7 @@ function bindCommonEvents() {
       state.collection = 'all';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
       renderClusterTabBar();
-      fadeAndRenderDirectory();
+      renderCategoryDirectory();
       showToast(t('directoryResetDone'));
     });
   }
@@ -1689,7 +1698,7 @@ function createCollectionCardMarkup(collection) {
   const questionLabel = isAr ? `${collection.count} سؤال` : `${collection.count} questions`;
   const ariaLabel = isAr ? `افتح مجموعة ${titleRaw}` : `Open ${titleRaw} collection`;
   return `
-    <button class="category-card collection-card" type="button" data-collection="${escapeHtml(collection.key)}" aria-label="${escapeHtml(ariaLabel)}" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
+    <button class="category-card collection-card has-art" type="button" data-collection="${escapeHtml(collection.key)}" aria-label="${escapeHtml(ariaLabel)}" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
       <span class="category-card-stripe" style="background:${collection.gradient}" aria-hidden="true"></span>
       <div class="category-card-bg collection-card-bg" aria-hidden="true">
         <span class="category-card-count-badge">${pageLabel}</span>
@@ -1747,7 +1756,7 @@ function createCategoryCardMarkup(meta) {
   const enterLabel = isAr ? 'افتح' : 'Enter';
   const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
-    <a class="category-card" href="${escapeHtml(meta.href)}" aria-label="${title}">
+    <a class="category-card has-art" href="${escapeHtml(meta.href)}" aria-label="${title}">
       <span class="category-card-stripe" style="background:${gradient}" aria-hidden="true"></span>
       <div class="category-card-bg" aria-hidden="true">
         <span class="category-card-count-badge">${cardCountLabel}</span>
@@ -1793,15 +1802,6 @@ async function markCachedCategories() {
     });
   } catch (_) {}
 }
-
-const lazyBgObserver = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-loaded');
-      obs.unobserve(entry.target);
-    }
-  });
-}, { rootMargin: '300px' }) : null;
 
 function renderCategoryDirectory() {
   if (!els.categoryDirectoryGrid || !state.catalog) return;
@@ -1856,26 +1856,19 @@ function renderCategoryDirectory() {
       <p>${isAr ? 'جرّب مسارًا آخر أو أزل البحث الحالي.' : 'Try another track or clear the current search.'}</p>
     </div>
   `;
-  const cards = [...els.categoryDirectoryGrid.querySelectorAll('.category-card')];
-  requestAnimationFrame(() => {
-    cards.forEach((el) => el.classList.add('is-visible'));
-  });
-  if (lazyBgObserver) {
-    cards.forEach(el => lazyBgObserver.observe(el));
-  }
   els.categoryDirectoryGrid.querySelectorAll('[data-collection]').forEach(btn => {
     btn.addEventListener('click', () => {
       state.collection = btn.dataset.collection;
       state.directorySearch = '';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
       renderClusterTabBar();
-      fadeAndRenderDirectory();
+      renderCategoryDirectory();
     });
   });
   els.categoryDirectoryGrid.querySelectorAll('[data-collection-reset]').forEach(btn => {
     btn.addEventListener('click', () => {
       state.collection = 'all';
-      fadeAndRenderDirectory();
+      renderCategoryDirectory();
     });
   });
 }
@@ -1928,23 +1921,7 @@ function renderClusterTabBar() {
       state.cluster = newCluster;
       state.collection = 'all';
       renderClusterTabBar();
-      fadeAndRenderDirectory();
-    });
-  });
-}
-
-function fadeAndRenderDirectory() {
-  const grid = els.categoryDirectoryGrid;
-  if (!grid) { renderCategoryDirectory(); return; }
-  grid.style.transition = 'none';
-  grid.style.opacity = '0';
-  grid.style.transform = 'translateY(10px)';
-  requestAnimationFrame(() => {
-    renderCategoryDirectory();
-    requestAnimationFrame(() => {
-      grid.style.transition = 'opacity 0.22s ease, transform 0.22s ease';
-      grid.style.opacity = '1';
-      grid.style.transform = 'translateY(0)';
+      renderCategoryDirectory();
     });
   });
 }
@@ -2901,7 +2878,9 @@ function renderAuthModal(mode = 'signin') {
       event.preventDefault();
       const btn = document.getElementById('authSubmitBtn');
       btn.disabled = true;
-      btn.textContent = state.lang === 'ar' ? 'جاري التحميل...' : 'Loading...';
+      btn.textContent = mode === 'signin'
+        ? (state.lang === 'ar' ? 'جارٍ تسجيل الدخول…' : 'Signing in…')
+        : (state.lang === 'ar' ? 'جارٍ إنشاء الحساب…' : 'Creating account…');
       
       const username = document.getElementById('authUsername').value.trim();
       const password = document.getElementById('authPassword').value;
@@ -3456,7 +3435,7 @@ async function openLeaderboard() {
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
   const body = document.getElementById('leaderboardBody');
-  if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">Loading…</p>';
+  if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">Loading scores…</p>';
   try {
     const { leaderboard } = await apiFetch('/leaderboard');
     const currentUser = state.dbUser?.username;
@@ -3663,9 +3642,9 @@ function checkOnboarding() {
   if (hasBattleIntent || hasDailyIntent || battleIsOpen) return;
 
   if (state.page === 'home') {
-    if (!localStorage.getItem('jakh-onboarded')) setTimeout(showOnboarding, 1200);
+    if (!localStorage.getItem('jakh-onboarded')) showOnboarding();
   } else if (state.page === 'category') {
-    if (!localStorage.getItem('jakh-card-tutorial-seen')) setTimeout(showCardTutorial, 1800);
+    if (!localStorage.getItem('jakh-card-tutorial-seen')) showCardTutorial();
   }
 }
 
@@ -3873,13 +3852,7 @@ function updateBottomNavActive() {
   });
 }
 
-async function init() {
-  cacheEls();
-  [els.openAuthBtn, els.heroAuthBtn].filter(Boolean).forEach(element => {
-    element.hidden = true;
-  });
-  initializeFromStorage();
-  applyDir();
+async function hydrateCloudCapabilities() {
   if (!sessionInitialized) {
     state.apiAvailable = await detectApiAvailability();
     if (state.apiAvailable) {
@@ -3893,20 +3866,32 @@ async function init() {
     }
     sessionInitialized = true;
   }
-  applyTheme();
-  bindCommonEvents();
   applyCapabilityVisibility();
   if (state.apiAvailable) startAnalyticsHeartbeat();
-  createTimedQuizModal();
   if (state.apiAvailable) {
     createLeaderboardModal();
     createBattleModal();
     initSuggestionBox();
   }
   renderCategoryPlayModes();
+  applyStaticCopy();
+  rerender();
+  applyCapabilityVisibility();
+}
+
+async function init() {
+  cacheEls();
+  [els.openAuthBtn, els.heroAuthBtn].filter(Boolean).forEach(element => {
+    element.hidden = true;
+  });
+  initializeFromStorage();
+  applyDir();
+  applyTheme();
+  bindCommonEvents();
+  applyCapabilityVisibility();
+  createTimedQuizModal();
   await loadCatalog();
-  await loadDailyChallenge();
-  await loadCategoryIfNeeded();
+  await Promise.all([loadDailyChallenge(), loadCategoryIfNeeded()]);
   applyStaticCopy();
   rerender();
   injectBottomNav();
@@ -3914,6 +3899,13 @@ async function init() {
   applyCapabilityVisibility();
   checkOnboarding();
   checkNewAchievements();
+  // Cloud account and multiplayer checks hydrate after local content is
+  // already usable, so a slow API never leaves the page blank.
+  hydrateCloudCapabilities().catch(() => {
+    state.apiAvailable = false;
+    sessionInitialized = true;
+    applyCapabilityVisibility();
+  });
   const dailyParams = new URLSearchParams(location.search);
   const dailySessionRequested = sessionStorage.getItem('jakh-scroll-to') === 'daily';
   const dailyShortcutRequested = dailyParams.get('daily') === '1';
@@ -4561,14 +4553,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(() => {});
 
-    // When a new SW takes control (after skipWaiting + claim), reload once so
-    // the page gets fresh assets served by the new worker.
-    let swRefreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (swRefreshing) return;
-      swRefreshing = true;
-      window.location.reload();
-    });
   }
   init().catch((error) => {
     console.error(error);

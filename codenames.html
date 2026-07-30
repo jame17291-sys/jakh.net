@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Codenames on JAKH Riddles. AI gives clues — you find the secret agents."/>
   <title>Codenames | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/codenames"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +21,7 @@
   <meta name="twitter:title" content="Codenames | JAKH Riddles"/>
   <meta name="twitter:description" content="Play Codenames on JAKH Riddles. AI gives clues — you find the secret agents."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -33,19 +29,12 @@
   <style>
     /* scoped codenames styles */
     :root {
-      --panel: rgba(28,22,38,.9);
-      --panel-strong: rgba(28,22,38,.99);
-      --accent: #E8613C;
-      --gilt: #C9A227;
-      --easy: #48d597;
-      --text: #F0E8D8;
-      --muted: rgba(240,232,216,.56);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --line-strong: rgba(246,239,224,.15);
-      --danger: #ff7a8a;
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
       --blue-agent: rgba(74,144,217,0.7);
-      --red-agent: rgba(232,97,60,0.7);
+      --red-agent: rgba(217,80,95,0.76);
     }
 
     #codenamesSection {
@@ -99,12 +88,13 @@
 
     .cn-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 0.5rem;
       margin-bottom: 1rem;
     }
 
     .cn-card {
+      min-width: 0;
       border-radius: var(--radius-sm);
       padding: 0.5rem;
       font-weight: 700;
@@ -121,6 +111,7 @@
       transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.3s ease;
       user-select: none;
       letter-spacing: 0.04em;
+      overflow-wrap: anywhere;
     }
 
     .cn-card:not(.revealed):hover {
@@ -182,7 +173,7 @@
       border: 1px solid var(--line-strong);
       background: var(--panel);
       color: var(--text);
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 600;
       font-size: 0.9rem;
       cursor: pointer;
@@ -190,8 +181,8 @@
     }
 
     .cn-btn:hover {
-      background: rgba(240,232,216,0.08);
-      border-color: rgba(240,232,216,0.3);
+      background: var(--bg-soft);
+      border-color: var(--accent);
     }
 
     .cn-btn:active { transform: scale(0.97); }
@@ -203,8 +194,8 @@
     }
 
     .cn-btn-accent:hover {
-      background: #d15430;
-      border-color: #d15430;
+      background: #1e588e;
+      border-color: #1e588e;
     }
 
     .cn-status-msg {
@@ -280,7 +271,7 @@
     }
 
     .cn-modal h2 {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 2rem;
       margin-bottom: 0.5rem;
       color: var(--text);
@@ -311,27 +302,10 @@
       font-size: 0.85rem;
     }
 
-    .cn-ai-thinking::after {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #4A90D9;
-      animation: blink 0.8s infinite alternate;
-    }
-
-    @keyframes blink {
-      from { opacity: 0.2; }
-      to   { opacity: 1; }
-    }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="grid-glow" aria-hidden="true"></div>
 
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
@@ -344,14 +318,6 @@
       <a class="ghost-btn" href="index.html">Home</a>
       <a class="ghost-btn" href="play.html">&#8592; Games</a>
     </nav>
-    <div class="header-selects">
-      <label><span>Language</span>
-        <select id="langSelect">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-        </select>
-      </label>
-    </div>
   </header>
 
   <main id="top">
@@ -688,8 +654,7 @@
       state = CodenamesEngine.newGame();
       isAIThinking = false;
       renderState();
-      // AI generates clue after brief delay
-      setTimeout(aiGenerateClue, 600);
+      aiGenerateClue();
     }
 
     function aiGenerateClue() {
@@ -699,19 +664,17 @@
       isAIThinking = true;
       renderGrid(); // disable clicks while thinking
 
-      setTimeout(() => {
-        const clue = CodenamesEngine.generateClue(state);
-        state = {
-          ...state,
-          clue: clue.word,
-          clueCount: clue.count,
-          guessesLeft: clue.count + 1 // classic codenames: count + 1 guesses
-        };
-        isAIThinking = false;
-        renderState();
-        setStatus(`You have ${state.guessesLeft} guess${state.guessesLeft !== 1 ? 'es' : ''}.`);
-        document.getElementById('cnPassBtn').disabled = false;
-      }, 900 + Math.random() * 700);
+      const clue = CodenamesEngine.generateClue(state);
+      state = {
+        ...state,
+        clue: clue.word,
+        clueCount: clue.count,
+        guessesLeft: clue.count + 1 // classic codenames: count + 1 guesses
+      };
+      isAIThinking = false;
+      renderState();
+      setStatus(`You have ${state.guessesLeft} guess${state.guessesLeft !== 1 ? 'es' : ''}.`);
+      document.getElementById('cnPassBtn').disabled = false;
     }
 
     function renderState() {
@@ -801,7 +764,7 @@
           // Human ended their turn (neutral/blue hit or guesses used)
           document.getElementById('cnPassBtn').disabled = true;
           setStatus('<span class="cn-ai-thinking">AI Blue team is playing</span>');
-          setTimeout(aiPlayTurn, 1200);
+          aiPlayTurn();
         } else {
           // Still red turn
           const remaining = state.guessesLeft;
@@ -817,7 +780,7 @@
       updateTurnBadge();
       updateClueDisplay();
       setStatus('<span class="cn-ai-thinking">AI Blue team is playing</span>');
-      setTimeout(aiPlayTurn, 1200);
+      aiPlayTurn();
     }
 
     function aiPlayTurn() {
@@ -834,7 +797,7 @@
       // Back to human's turn — generate new clue
       setStatus('');
       document.getElementById('cnPassBtn').disabled = true;
-      setTimeout(aiGenerateClue, 500);
+      aiGenerateClue();
     }
 
     function setStatus(html) {

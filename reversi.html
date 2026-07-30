@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Reversi (Othello) on JAKH Riddles. Classic disc-flipping strategy — vs computer or 2-player local."/>
   <title>Reversi | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/reversi"/>
   <meta name="robots" content="index,follow"/>
@@ -27,7 +22,7 @@
   <meta name="twitter:title" content="Reversi | JAKH Riddles"/>
   <meta name="twitter:description" content="Play Reversi (Othello) on JAKH Riddles. Classic disc-flipping strategy — vs computer or 2-player local."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -50,28 +45,28 @@
       justify-content: center;
     }
     .rv-btn {
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: .875rem;
       font-weight: 600;
       padding: .45rem 1.1rem;
       border-radius: var(--radius-sm, 10px);
-      border: 2px solid var(--line-strong, rgba(246,239,224,.15));
-      background: var(--panel, rgba(28,22,38,.9));
-      color: var(--text, #F0E8D8);
+      border: 2px solid var(--line-strong, rgba(32,50,71,.18));
+      background: var(--panel, #fff);
+      color: var(--text, #203247);
       cursor: pointer;
       transition: background .15s, border-color .15s;
     }
-    .rv-btn:hover { background: var(--plum, #6B4E8C); border-color: var(--plum, #6B4E8C); }
-    .rv-btn.active { background: var(--accent, #E8613C); border-color: var(--accent, #E8613C); }
+    .rv-btn:hover { background: var(--bg-soft); border-color: var(--accent); }
+    .rv-btn.active { background: var(--accent, #256aa9); border-color: var(--accent, #256aa9); color: #fff; }
 
     /* Score bar */
     .rv-scorebar {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      font-family: var(--font-display, "Fraunces", serif);
+      font-family: var(--font-display);
       font-size: 1.1rem;
-      color: var(--text, #F0E8D8);
+      color: var(--text, #203247);
     }
     .rv-score-disc {
       display: inline-block;
@@ -86,13 +81,13 @@
 
     /* Status text */
     .rv-status {
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: .95rem;
-      color: var(--muted, rgba(240,232,216,.56));
+      color: var(--muted, #5d6d81);
       min-height: 1.4em;
       text-align: center;
     }
-    .rv-status.highlight { color: var(--easy, #48d597); font-weight: 600; }
+    .rv-status.highlight { color: var(--easy, #1d7051); font-weight: 600; }
 
     /* Board wrapper — enforces square + responsive size */
     .rv-board-wrap {
@@ -100,7 +95,7 @@
       aspect-ratio: 1;
       border-radius: var(--radius, 16px);
       overflow: hidden;
-      border: 3px solid var(--line-strong, rgba(246,239,224,.15));
+      border: 3px solid var(--line-strong, rgba(32,50,71,.18));
       box-shadow: 0 8px 40px rgba(0,0,0,.55);
     }
 
@@ -123,8 +118,8 @@
       transition: filter .1s;
     }
     /* checkerboard: light = gilt-soft tint, dark = plum */
-    .rv-cell.light { background: color-mix(in srgb, var(--gilt, #C9A227) 18%, var(--bg, #13101a)); }
-    .rv-cell.dark  { background: var(--plum, #6B4E8C); }
+    .rv-cell.light { background: color-mix(in srgb, var(--gilt, #976006) 18%, var(--bg, #13101a)); }
+    .rv-cell.dark  { background: var(--plum, #8a63c7); }
     .rv-cell:hover { filter: brightness(1.25); }
     .rv-cell.no-interact { cursor: default; filter: none; }
 
@@ -158,18 +153,16 @@
 
     /* Thinking overlay */
     .rv-thinking {
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: .85rem;
-      color: var(--gilt, #C9A227);
+      color: var(--gilt, #976006);
       min-height: 1.2em;
     }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="grid-glow" aria-hidden="true"></div>
+
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
@@ -178,9 +171,6 @@
       <a class="ghost-btn" href="index.html">Home</a>
       <a class="ghost-btn" href="play.html">&#8592; Games</a>
     </nav>
-    <div class="header-selects">
-      <label><span>Language</span><select id="langSelect"><option value="en">English</option><option value="ar">العربية</option></select></label>
-    </div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
@@ -600,14 +590,6 @@
       startGame();
     });
     btnNewGame.addEventListener('click', startGame);
-
-    // ── Language select (cosmetic stub) ──
-    var langSel = document.getElementById('langSelect');
-    if (langSel) {
-      langSel.addEventListener('change', function() {
-        document.documentElement.lang = this.value;
-      });
-    }
 
     // ── Init ──
     startGame();

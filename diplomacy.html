@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Diplomacy Lite on JAKH Riddles. Command armies, issue orders, control territories. 2-player simultaneous strategy."/>
   <title>Diplomacy Lite | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/diplomacy"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +21,7 @@
   <meta name="twitter:title" content="Diplomacy Lite | JAKH Riddles"/>
   <meta name="twitter:description" content="Play Diplomacy Lite on JAKH Riddles. Command armies, issue orders, control territories. 2-player simultaneous strategy."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -33,17 +29,10 @@
   <style>
     /* scoped diplomacy styles */
     :root {
-      --panel: rgba(28,22,38,.9);
-      --panel-strong: rgba(28,22,38,.99);
-      --accent: #E8613C;
-      --gilt: #C9A227;
-      --easy: #48d597;
-      --text: #F0E8D8;
-      --muted: rgba(240,232,216,.56);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --line-strong: rgba(246,239,224,.15);
-      --danger: #ff7a8a;
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
       --p2-color: #4A90D9;
     }
 
@@ -67,14 +56,14 @@
     }
 
     #dip-turn-label {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 700;
       font-size: 1rem;
       color: var(--text);
     }
 
     #dip-phase-label {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--gilt);
     }
@@ -95,7 +84,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.9rem;
       color: var(--text);
     }
@@ -129,7 +118,7 @@
       padding: 1rem 1.5rem;
       background: linear-gradient(135deg, var(--gilt), #a07e1a);
       border-radius: var(--radius);
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1.4rem;
       color: #111;
       text-align: center;
@@ -178,7 +167,7 @@
     .dip-territory.has-clickable-unit:hover { transform: translateY(-1px); }
 
     .terr-name {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 700;
       font-size: 0.78rem;
       color: var(--text);
@@ -246,14 +235,14 @@
     }
 
     #dip-order-panel h3 {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1rem;
       color: var(--text);
       margin: 0;
     }
 
     #dip-order-hint {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--muted);
       min-height: 1.2rem;
@@ -297,7 +286,7 @@
     }
 
     .dip-btn {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.9rem;
       font-weight: 600;
       padding: 0.55rem 1.1rem;
@@ -362,12 +351,9 @@
       #dip-map { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
     }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="grid-glow" aria-hidden="true"></div>
 
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
@@ -380,15 +366,6 @@
       <a class="ghost-btn" href="index.html">Home</a>
       <a class="ghost-btn" href="play.html">&#8592; Games</a>
     </nav>
-    <div class="header-selects">
-      <label>
-        <span>Language</span>
-        <select id="langSelect">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-        </select>
-      </label>
-    </div>
   </header>
 
   <main id="top">
@@ -538,16 +515,6 @@
     function areAdjacent(state, idA, idB) {
       const t = getTerritory(state, idA);
       return t && t.adj.includes(idB);
-    }
-
-    function getTerritoryUnits(state, terrId, owner) {
-      const t = getTerritory(state, terrId);
-      if (!t) return [];
-      return owner ? t.units.filter(u => u.owner === owner) : t.units;
-    }
-
-    function getOrderForUnit(orders, unitId) {
-      return orders.find(o => o.unitId === unitId) || null;
     }
 
     function issueOrder(state, player, order) {
@@ -949,7 +916,7 @@
       listEl.innerHTML = '';
       if (s.orders.p1.length === 0) {
         const empty = document.createElement('div');
-        empty.style.cssText = 'font-size:0.8rem;color:var(--muted);font-family:Instrument Sans,sans-serif;';
+        empty.style.cssText = 'font-size:0.8rem;color:var(--muted);font-family: var(--font);';
         empty.textContent = 'No orders yet. All unordered units will hold.';
         listEl.appendChild(empty);
         return;
@@ -1095,25 +1062,22 @@
 
       render();
 
-      // Brief pause for animation feel, then resolve
-      setTimeout(() => {
-        const result = E.resolveOrders(state);
-        state = result.state;
+      const result = E.resolveOrders(state);
+      state = result.state;
 
-        for (const m of result.msgs) {
-          const cls = m.includes('bounce') || m.includes('Standoff') ? 'log-bounce'
-                    : m.includes('dislodged') ? 'log-bounce'
-                    : 'log-resolve';
-          log(m, cls);
-        }
+      for (const m of result.msgs) {
+        const cls = m.includes('bounce') || m.includes('Standoff') ? 'log-bounce'
+                  : m.includes('dislodged') ? 'log-bounce'
+                  : 'log-resolve';
+        log(m, cls);
+      }
 
-        resolving = false;
-        render();
+      resolving = false;
+      render();
 
-        if (state.status !== 'playing') {
-          log(state.status === 'p1-wins' ? '🏆 Player 1 wins!' : '🏆 AI wins!', 'log-win');
-        }
-      }, 500);
+      if (state.status !== 'playing') {
+        log(state.status === 'p1-wins' ? '🏆 Player 1 wins!' : '🏆 AI wins!', 'log-win');
+      }
     }
 
     function restart() {

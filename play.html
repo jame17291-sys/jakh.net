@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="dark";</script>
+    <script>document.documentElement.dataset.theme="light";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1A1520" />
+    <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles — no download, no sign-up required." />
     <title>Play | JAKH Riddles</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="styles.css?v=1785392862" as="style" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
-    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" /></noscript>
+    <link rel="preload" href="styles.css?v=1785400104" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/play" />
     <meta name="robots" content="index,follow" />
@@ -30,8 +24,7 @@
     <meta name="twitter:title" content="Play | JAKH Riddles" />
     <meta name="twitter:description" content="Play Chess, Mastermind, and more free browser games on JAKH Riddles." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
-    <link rel="stylesheet" href="styles.css?v=1785392862" />
-    <script src="fluid-shader.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=1785400104" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -51,9 +44,6 @@
   </head>
   <body data-page="play">
     <a href="#top" class="skip-link">Skip to main content</a>
-    <div class="bg-orb orb-1" aria-hidden="true"></div>
-    <div class="bg-orb orb-2" aria-hidden="true"></div>
-    <div class="grid-glow" aria-hidden="true"></div>
 
     <header class="site-header shell">
       <a href="index.html" class="brand" aria-label="JAKH Riddles home">
@@ -63,12 +53,12 @@
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="index.html">Home</a>
-        <a class="ghost-btn" href="mind-lab.html">Mind Lab</a>
+        <a class="ghost-btn" href="index.html" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="portalMindTag">Mind Lab</a>
       </nav>
       <div class="header-selects" aria-label="Language controls">
         <label>
-          <span>Language</span>
+          <span data-i18n="language">Language</span>
           <select id="langSelect">
             <option value="en">English</option>
             <option value="ar">العربية</option>
@@ -80,13 +70,12 @@
     <main id="top">
       <!-- Hero -->
       <section class="kv-hero play-hero" style="min-height: 52vh; padding: 0;">
-        <div class="kv-hero-fallback-bg" style="background: radial-gradient(ellipse at 30% 50%, rgba(245,158,11,0.18) 0%, transparent 55%), radial-gradient(ellipse at 70% 40%, rgba(192,38,211,0.13) 0%, transparent 55%), linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 100%);"></div>
-        <canvas class="kv-fluid-canvas" id="playFluidCanvas" aria-hidden="true"></canvas>
+        <div class="kv-hero-fallback-bg play-hero-bg" aria-hidden="true"></div>
         <div class="kv-hero-content" style="padding-top: 4rem; padding-bottom: 3rem;">
-          <h1 class="kv-hero-title" style="font-size: clamp(3.5rem, 12vw, 9rem); text-shadow: 0 0 100px rgba(245,158,11,0.2);">Game Arena</h1>
-          <p class="kv-hero-subtitle">No download. No sign-up. Just play — straight from your browser on any device.</p>
+          <h1 class="kv-hero-title" data-i18n="playHeroTitle" style="font-size: clamp(3.5rem, 12vw, 9rem); text-shadow: 0 0 100px rgba(245,158,11,0.2);">Game Arena</h1>
+          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">No download. No sign-up. Just play — straight from your browser on any device.</p>
           <div class="kv-hero-stats" style="margin-top: 1.5rem;">
-            <div class="kv-stat"><span class="kv-stat-number">10</span><span class="kv-stat-label">Games</span></div>
+            <div class="kv-stat"><span class="kv-stat-number">10</span><span class="kv-stat-label" data-i18n="playHeroGames">Games</span></div>
           </div>
         </div>
       </section>
@@ -94,9 +83,9 @@
       <!-- All 10 games -->
       <section class="kv-lab-section shell">
         <div class="kv-lab-header">
-          <p class="kv-eyebrow" style="color: #f59e0b;">10 games available now</p>
-          <h2>Pick a game</h2>
-          <p>All games run entirely in your browser — nothing installed.</p>
+          <p class="kv-eyebrow" data-i18n="playAvailable" style="color: var(--gilt);">10 games available now</p>
+          <h2 data-i18n="playPick">Pick a game</h2>
+          <p data-i18n="playBrowserOnly">All games run entirely in your browser — nothing installed.</p>
         </div>
 
         <div class="game-lobby-grid">
@@ -235,7 +224,7 @@
 
     <footer class="site-footer shell">
       <div class="footer-inner">
-        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -248,14 +237,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var canvas = document.getElementById('playFluidCanvas');
-        if (canvas && window.FluidShader) {
-          window.FluidShader.mount(canvas);
-        }
-      });
-    </script>
-
+    <script defer src="app.js?v=1785400104"></script>
   </body>
 </html>

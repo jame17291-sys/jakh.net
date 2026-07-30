@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play SET card game on JAKH Riddles. Find matching sets of three cards. Classic pattern recognition challenge."/>
   <title>SET | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/set"/>
   <meta name="robots" content="index,follow"/>
@@ -27,7 +22,7 @@
   <meta name="twitter:title" content="SET Card Game | JAKH Riddles"/>
   <meta name="twitter:description" content="Play SET card game on JAKH Riddles. Find matching sets of three cards. Classic pattern recognition challenge."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -47,19 +42,19 @@
       display: flex;
       gap: 2rem;
       align-items: center;
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: 1rem;
-      color: var(--text, #F0E8D8);
+      color: var(--text, #203247);
     }
     .set-stat-label {
-      color: var(--muted, rgba(240,232,216,.56));
+      color: var(--muted, #5d6d81);
       font-size: .78rem;
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-bottom: .15rem;
     }
     .set-stat-val {
-      font-family: var(--font-display, "Fraunces", serif);
+      font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 700;
       line-height: 1;
@@ -73,34 +68,34 @@
       justify-content: center;
     }
     .set-btn {
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: .875rem;
       font-weight: 600;
       padding: .45rem 1.1rem;
       border-radius: var(--radius-sm, 10px);
-      border: 2px solid var(--line-strong, rgba(246,239,224,.15));
-      background: var(--panel, rgba(28,22,38,.9));
-      color: var(--text, #F0E8D8);
+      border: 2px solid var(--line-strong, rgba(32,50,71,.18));
+      background: var(--panel, #fff);
+      color: var(--text, #203247);
       cursor: pointer;
       transition: background .15s, border-color .15s, opacity .15s;
     }
-    .set-btn:hover:not(:disabled) { background: var(--plum, #6B4E8C); border-color: var(--plum, #6B4E8C); }
+    .set-btn:hover:not(:disabled) { background: var(--bg-soft); border-color: var(--accent); }
     .set-btn:disabled { opacity: .4; cursor: default; }
-    .set-btn.primary { background: var(--accent, #E8613C); border-color: var(--accent, #E8613C); }
+    .set-btn.primary { background: var(--accent, #256aa9); border-color: var(--accent, #256aa9); color: #fff; }
     .set-btn.primary:hover:not(:disabled) { filter: brightness(1.1); }
 
     /* Status message */
     .set-status {
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: .95rem;
-      color: var(--muted, rgba(240,232,216,.56));
+      color: var(--muted, #5d6d81);
       min-height: 1.4em;
       text-align: center;
       transition: color .2s;
     }
-    .set-status.good  { color: var(--easy, #48d597); font-weight: 600; }
-    .set-status.bad   { color: var(--danger, #ff7a8a); font-weight: 600; }
-    .set-status.done  { color: var(--gilt, #C9A227); font-weight: 700; font-size: 1.1rem; }
+    .set-status.good  { color: var(--easy, #1d7051); font-weight: 600; }
+    .set-status.bad   { color: var(--danger, #b73545); font-weight: 600; }
+    .set-status.done  { color: var(--gilt, #976006); font-weight: 700; font-size: 1.1rem; }
 
     /* Card grid */
     .set-grid {
@@ -113,8 +108,8 @@
 
     /* Individual card */
     .set-card {
-      background: var(--panel, rgba(28,22,38,.9));
-      border: 2px solid var(--line-strong, rgba(246,239,224,.15));
+      background: var(--panel, #fff);
+      border: 2px solid var(--line-strong, rgba(32,50,71,.18));
       border-radius: var(--radius-sm, 10px);
       padding: .625rem .375rem;
       cursor: pointer;
@@ -127,27 +122,27 @@
       transition: border-color .15s, transform .15s, box-shadow .15s;
       user-select: none;
     }
-    .set-card:hover { border-color: var(--muted, rgba(240,232,216,.56)); }
+    .set-card:hover { border-color: var(--muted, #5d6d81); }
     .set-card.selected {
-      border-color: var(--accent, #E8613C);
+      border-color: var(--accent, #256aa9);
       transform: scale(1.04);
       box-shadow: 0 0 0 3px rgba(232,97,60,.25);
     }
     .set-card.hint {
-      border-color: var(--easy, #48d597);
+      border-color: var(--easy, #1d7051);
       box-shadow: 0 0 0 3px rgba(72,213,151,.3);
     }
 
     @keyframes set-flash-good {
-      0%,100% { border-color: var(--easy, #48d597); box-shadow: 0 0 0 3px rgba(72,213,151,.4); }
-      50%      { border-color: var(--easy, #48d597); box-shadow: 0 0 0 8px rgba(72,213,151,.15); }
+      0%,100% { border-color: var(--easy, #1d7051); box-shadow: 0 0 0 3px rgba(72,213,151,.4); }
+      50%      { border-color: var(--easy, #1d7051); box-shadow: 0 0 0 8px rgba(72,213,151,.15); }
     }
     @keyframes set-flash-bad {
-      0%,100% { border-color: var(--danger, #ff7a8a); box-shadow: 0 0 0 3px rgba(255,122,138,.4); }
-      50%      { border-color: var(--danger, #ff7a8a); box-shadow: 0 0 0 8px rgba(255,122,138,.15); }
+      0%,100% { border-color: var(--danger, #b73545); box-shadow: 0 0 0 3px rgba(255,122,138,.4); }
+      50%      { border-color: var(--danger, #b73545); box-shadow: 0 0 0 8px rgba(255,122,138,.15); }
     }
-    .set-card.flash-good { animation: set-flash-good .4s ease 2; border-color: var(--easy, #48d597); }
-    .set-card.flash-bad  { animation: set-flash-bad  .4s ease 2; border-color: var(--danger, #ff7a8a); transform: scale(1); }
+    .set-card.flash-good { animation: set-flash-good .4s ease 2; border-color: var(--easy, #1d7051); }
+    .set-card.flash-bad  { animation: set-flash-bad  .4s ease 2; border-color: var(--danger, #b73545); transform: scale(1); }
 
     /* Shapes inside cards */
     .set-shape-row {
@@ -172,15 +167,15 @@
 
     /* Deck remaining badge */
     .set-deck-info {
-      font-family: var(--font, "Instrument Sans", sans-serif);
+      font-family: var(--font);
       font-size: .82rem;
-      color: var(--muted, rgba(240,232,216,.56));
+      color: var(--muted, #5d6d81);
     }
 
     /* Game-over overlay card */
     .set-gameover {
-      background: var(--panel-strong, rgba(28,22,38,.99));
-      border: 2px solid var(--gilt, #C9A227);
+      background: var(--panel-strong, #eef5fb);
+      border: 2px solid var(--gilt, #976006);
       border-radius: var(--radius, 16px);
       padding: 2rem 2.5rem;
       text-align: center;
@@ -188,22 +183,20 @@
       width: 100%;
     }
     .set-gameover h2 {
-      font-family: var(--font-display, "Fraunces", serif);
-      color: var(--gilt, #C9A227);
+      font-family: var(--font-display);
+      color: var(--gilt, #976006);
       font-size: 1.6rem;
       margin-bottom: .5rem;
     }
     .set-gameover p {
-      color: var(--text, #F0E8D8);
+      color: var(--text, #203247);
       margin-bottom: 1rem;
     }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="grid-glow" aria-hidden="true"></div>
+
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
@@ -212,9 +205,6 @@
       <a class="ghost-btn" href="index.html">Home</a>
       <a class="ghost-btn" href="play.html">&#8592; Games</a>
     </nav>
-    <div class="header-selects">
-      <label><span>Language</span><select id="langSelect"><option value="en">English</option><option value="ar">العربية</option></select></label>
-    </div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
@@ -331,7 +321,7 @@
     var COLOR_NAMES = ['red', 'green', 'purple'];
     // Shape indices: 0=diamond, 1=square, 2=star
 
-    // ── Build skeleton DOM ──
+    // ── Build game DOM ──
     section.innerHTML = [
       '<div class="set-infobar">',
         '<div><div class="set-stat-label">Sets Found</div><div class="set-stat-val" id="setScore">0</div></div>',
@@ -671,13 +661,6 @@
     btnNew.addEventListener('click',  startGame);
     btnHint.addEventListener('click', onHint);
     btnMore.addEventListener('click', onAddMore);
-
-    var langSel = document.getElementById('langSelect');
-    if (langSel) {
-      langSel.addEventListener('change', function() {
-        document.documentElement.lang = this.value;
-      });
-    }
 
     // ── Init ──
     startGame();

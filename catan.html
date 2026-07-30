@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Catan Lite on JAKH Riddles. Roll dice, collect resources, build settlements. 2-player strategy."/>
   <title>Catan Lite | JAKH Riddles</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" href="styles.css?v=1785392862" as="style"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"/>
-  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&display=swap"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap"/></noscript>
+  <link rel="preload" href="styles.css?v=1785400104" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/catan"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +21,7 @@
   <meta name="twitter:title" content="Catan Lite | JAKH Riddles"/>
   <meta name="twitter:description" content="Play Catan Lite on JAKH Riddles. Roll dice, collect resources, build settlements. 2-player strategy."/>
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785392862"/>
+  <link rel="stylesheet" href="styles.css?v=1785400104"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -33,17 +29,10 @@
   <style>
     /* scoped catan styles */
     :root {
-      --panel: rgba(28,22,38,.9);
-      --panel-strong: rgba(28,22,38,.99);
-      --accent: #E8613C;
-      --gilt: #C9A227;
-      --easy: #48d597;
-      --text: #F0E8D8;
-      --muted: rgba(240,232,216,.56);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --line-strong: rgba(246,239,224,.15);
-      --danger: #ff7a8a;
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
     }
 
     #catanSection {
@@ -72,7 +61,7 @@
     }
 
     #catan-turn-label {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 600;
       font-size: 1rem;
       color: var(--text);
@@ -97,7 +86,7 @@
       padding: 1rem 1.5rem;
       background: linear-gradient(135deg, var(--gilt), #a07e1a);
       border-radius: var(--radius);
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1.4rem;
       color: #111;
       text-align: center;
@@ -190,7 +179,7 @@
     .catan-player-panel.p2-panel { border-left: 3px solid #4A90D9; }
 
     .player-name {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-weight: 700;
       font-size: 0.95rem;
       color: var(--text);
@@ -229,7 +218,7 @@
     .resource-chip .res-count { font-weight: 700; }
 
     .player-stats {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.78rem;
       color: var(--muted);
     }
@@ -243,7 +232,7 @@
     }
 
     .catan-btn {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.9rem;
       font-weight: 600;
       padding: 0.55rem 1.1rem;
@@ -309,7 +298,7 @@
     }
 
     .trade-modal-inner h3 {
-      font-family: 'Fraunces', serif;
+      font-family: var(--font-display);
       font-size: 1.15rem;
       color: var(--text);
       margin: 0;
@@ -322,7 +311,7 @@
     }
 
     .trade-row label {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.85rem;
       color: var(--muted);
     }
@@ -334,7 +323,7 @@
       border: 1px solid var(--line-strong);
       background: rgba(255,255,255,0.06);
       color: var(--text);
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.9rem;
     }
 
@@ -348,7 +337,7 @@
     .catan-hex.setup-mode:hover { border-color: var(--gilt); }
 
     #catan-setup-hint {
-      font-family: 'Instrument Sans', sans-serif;
+      font-family: var(--font);
       font-size: 0.88rem;
       color: var(--gilt);
       text-align: center;
@@ -364,12 +353,9 @@
       .catan-btn { font-size: 0.82rem; padding: 0.45rem 0.85rem; }
     }
   </style>
-</head>
+  </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="grid-glow" aria-hidden="true"></div>
 
   <header class="site-header shell">
     <a href="index.html" class="brand" aria-label="JAKH Riddles home">
@@ -382,15 +368,6 @@
       <a class="ghost-btn" href="index.html">Home</a>
       <a class="ghost-btn" href="play.html">&#8592; Games</a>
     </nav>
-    <div class="header-selects">
-      <label>
-        <span>Language</span>
-        <select id="langSelect">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-        </select>
-      </label>
-    </div>
   </header>
 
   <main id="top">
@@ -406,12 +383,12 @@
       <div id="catan-game">
         <!-- Status bar -->
         <div id="catan-status-bar">
-          <span id="catan-turn-label">Loading…</span>
+          <span id="catan-turn-label">Setup — 🔴 Player 1's turn</span>
           <div style="display:flex;align-items:center;gap:0.6rem;">
             <span id="catan-dice-display">⚀⚀</span>
             <span id="catan-dice-total"></span>
           </div>
-          <span id="catan-phase-label" style="font-size:0.82rem;color:var(--muted);font-family:'Instrument Sans',sans-serif;"></span>
+          <span id="catan-phase-label" style="font-size:0.82rem;color:var(--muted);font-family: var(--font);"></span>
         </div>
 
         <div id="catan-win-banner"></div>
@@ -942,7 +919,7 @@
         render();
         // If it's now p2's setup turn, trigger AI setup
         if (state.phase === 'setup' && state.turn === 'p2') {
-          setTimeout(doAISetup, 600);
+          doAISetup();
         } else if (state.phase === 'main') {
           // Setup done
         }
@@ -1002,7 +979,7 @@
 
       // If AI needs another setup turn (step 2)
       if (state.phase === 'setup' && state.turn === 'p2') {
-        setTimeout(doAISetup, 700);
+        doAISetup();
       }
     }
 
@@ -1060,7 +1037,7 @@
       render();
       // Trigger AI turn
       if (state.turn === 'p2' && state.phase === 'main' && state.status === 'playing') {
-        setTimeout(doAITurn, 800);
+        doAITurn();
       }
     }
 

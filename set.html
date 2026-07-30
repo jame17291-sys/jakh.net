@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Race to identify matching sets of three cards in this free pattern-recognition browser game. Play instantly with no download or sign-up." />
   <title>SET Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073003" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/set"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +25,8 @@
   <meta name="twitter:description" content="Race to identify matching sets of three cards in this free pattern-recognition browser game. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073003"/>
+  <link rel="stylesheet" href="styles.css?v=2026073005"/>
+  <script src="/game-i18n.js?v=2026073005"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -107,6 +108,7 @@
       gap: .625rem;
       width: 100%;
       max-width: 680px;
+      direction: ltr;
     }
 
     /* Individual card */
@@ -124,6 +126,9 @@
       min-height: 90px;
       transition: border-color .15s, transform .15s, box-shadow .15s;
       user-select: none;
+      font: inherit;
+      color: inherit;
+      unicode-bidi: isolate;
     }
     .set-card:hover { border-color: var(--muted, #5d6d81); }
     .set-card.selected {
@@ -203,6 +208,7 @@
   "name": "SET",
   "description": "Race to identify matching sets of three cards in this free pattern-recognition browser game.",
   "url": "https://jakh.net/set",
+  "inLanguage": ["en", "ar"],
   "gamePlatform": "Web browser",
   "operatingSystem": "Any",
   "applicationCategory": "GameApplication",
@@ -220,24 +226,33 @@
 }
     </script>
   </head>
-<body data-page="game">
-  <a href="#top" class="skip-link">Skip to main content</a>
+<body data-page="game" data-game="set">
+  <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
   <header class="site-header shell">
-    <a href="/" class="brand" aria-label="JAKH Riddles home">
+    <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
     </a>
-    <nav class="header-actions" aria-label="Quick actions">
-      <a class="ghost-btn" href="/">Home</a>
-      <a class="ghost-btn" href="/play">&#8592; Games</a>
+    <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+      <a class="ghost-btn" href="/play" data-i18n="navGamesBack">&#8592; Games</a>
     </nav>
+    <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
       <div class="hero-copy">
-        <p class="eyebrow">Pattern Recognition · Classic</p>
-        <h1>&#9670; SET</h1>
-        <p class="hero-text">Find groups of three cards where each attribute is all-same or all-different. Race against the clock.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">Pattern Recognition · Classic</p>
+        <h1 data-i18n="heroTitle">&#9670; SET</h1>
+        <p class="hero-text" data-i18n="heroText">Find groups of three cards where each attribute is all-same or all-different. Race against the clock.</p>
       </div>
     </section>
     <section class="shell section-block" id="setSection">
@@ -246,14 +261,85 @@
   </main>
   <footer class="site-footer shell">
     <div class="footer-inner">
-      <p class="footer-copy">All rights reserved to JAKH 2026</p>
+      <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
       <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
         <div class="footer-socials">
-        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
-        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a>
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">Instagram</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">Facebook</span></a>
       </div>
     </div>
   </footer>
+
+  <script>
+  JakhGameI18n.register('set', {
+    en: {
+      metaTitle: 'SET Online — Free Browser Game | JAKH',
+      metaDescription: 'Race to identify matching sets of three cards in this free pattern-recognition browser game. Play instantly with no download or sign-up.',
+      heroEyebrow: 'Pattern Recognition · Classic',
+      heroTitle: '◆ SET',
+      heroText: 'Find groups of three cards where every attribute is either all the same or all different. Race against the clock.',
+      setsFound: 'Sets Found',
+      time: 'Time',
+      deckLeft: 'Deck Left',
+      newGame: 'New Game',
+      hintButton: 'Hint',
+      addCards: '+3 Cards',
+      boardLabel: 'SET cards',
+      startPrompt: 'Find a Set! Select 3 cards.',
+      selectedCount: '{count} of 3 selected.',
+      setFound: 'Set found!',
+      notSet: 'Not a Set. Try again!',
+      gameOver: function (v) { return 'Game over! You found ' + v.score + ' set' + (v.scoreRaw === 1 ? '' : 's') + ' in ' + v.time + '.'; },
+      noSets: 'No sets available — deal more cards!',
+      hint: 'Hint: highlighted cards form a Set!',
+      cardsAdded: '3 cards added.',
+      cardLabel: '{count} {color} {fill} {shape}',
+      selectedCard: 'Selected. {card}',
+      colorRed: 'red',
+      colorGreen: 'green',
+      colorPurple: 'purple',
+      shapeDiamond: 'diamonds',
+      shapeSquare: 'squares',
+      shapeStar: 'stars',
+      fillSolid: 'solid',
+      fillStriped: 'striped',
+      fillOutline: 'outlined'
+    },
+    ar: {
+      metaTitle: 'لعبة SET أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'تسابق لاكتشاف مجموعات من ثلاث بطاقات في لعبة SET المجانية للتعرف على الأنماط، من دون تنزيل أو تسجيل.',
+      heroEyebrow: 'تمييز الأنماط · كلاسيكية',
+      heroTitle: '◆ سِت',
+      heroText: 'اعثر على ثلاث بطاقات تكون فيها كل سمة متطابقة تماماً أو مختلفة تماماً، وتسابق مع الوقت.',
+      setsFound: 'المجموعات المكتشفة',
+      time: 'الوقت',
+      deckLeft: 'البطاقات المتبقية',
+      newGame: 'لعبة جديدة',
+      hintButton: 'تلميح',
+      addCards: '+٣ بطاقات',
+      boardLabel: 'بطاقات SET',
+      startPrompt: 'اعثر على مجموعة! اختر ٣ بطاقات.',
+      selectedCount: 'تم اختيار {count} من ٣.',
+      setFound: 'وجدت مجموعة!',
+      notSet: 'ليست مجموعة. حاول مرة أخرى!',
+      gameOver: function (v) { return 'انتهت اللعبة! وجدت ' + v.score + ' مجموعة خلال ' + v.time + '.'; },
+      noSets: 'لا توجد مجموعة متاحة — أضف بطاقات جديدة!',
+      hint: 'تلميح: البطاقات المميزة تكوّن مجموعة!',
+      cardsAdded: 'تمت إضافة ٣ بطاقات.',
+      cardLabel: '{count} من أشكال {shape} باللون {color} وتعبئة {fill}',
+      selectedCard: 'محددة. {card}',
+      colorRed: 'الأحمر',
+      colorGreen: 'الأخضر',
+      colorPurple: 'البنفسجي',
+      shapeDiamond: 'المعين',
+      shapeSquare: 'المربع',
+      shapeStar: 'النجمة',
+      fillSolid: 'مصمتة',
+      fillStriped: 'مخططة',
+      fillOutline: 'مفرغة'
+    }
+  });
+  </script>
 
   <!-- ── ENGINE: pure logic, zero DOM ── -->
   <script id="set-engine">
@@ -341,6 +427,7 @@
     'use strict';
 
     var E = SetEngine;
+    var I = JakhGameI18n;
     var section = document.getElementById('setSection');
 
     // Color values for the 3 card colors (index 0,1,2)
@@ -351,17 +438,17 @@
     // ── Build game DOM ──
     section.innerHTML = [
       '<div class="set-infobar">',
-        '<div><div class="set-stat-label">Sets Found</div><div class="set-stat-val" id="setScore">0</div></div>',
-        '<div><div class="set-stat-label">Time</div><div class="set-stat-val" id="setTimer">0:00</div></div>',
-        '<div><div class="set-stat-label">Deck Left</div><div class="set-stat-val" id="setDeck">69</div></div>',
+        '<div><div class="set-stat-label" data-i18n="setsFound">Sets Found</div><div class="set-stat-val" id="setScore">0</div></div>',
+        '<div><div class="set-stat-label" data-i18n="time">Time</div><div class="set-stat-val" id="setTimer" dir="ltr">0:00</div></div>',
+        '<div><div class="set-stat-label" data-i18n="deckLeft">Deck Left</div><div class="set-stat-val" id="setDeck">69</div></div>',
       '</div>',
-      '<div class="set-status" id="setStatus">Find a Set! Select 3 cards.</div>',
+      '<div class="set-status" id="setStatus" role="status" aria-live="polite">Find a Set! Select 3 cards.</div>',
       '<div class="set-controls">',
-        '<button class="set-btn primary" id="setBtnNew">New Game</button>',
-        '<button class="set-btn" id="setBtnHint">Hint</button>',
-        '<button class="set-btn" id="setBtnMore">+3 Cards</button>',
+        '<button class="set-btn primary" id="setBtnNew" type="button" data-i18n="newGame">New Game</button>',
+        '<button class="set-btn" id="setBtnHint" type="button" data-i18n="hintButton">Hint</button>',
+        '<button class="set-btn" id="setBtnMore" type="button" data-i18n="addCards">+3 Cards</button>',
       '</div>',
-      '<div class="set-grid" id="setGrid"></div>'
+      '<div class="set-grid" id="setGrid" role="group" dir="ltr" aria-label="SET cards" data-i18n-aria-label="boardLabel"></div>'
     ].join('');
 
     var scoreEl   = document.getElementById('setScore');
@@ -382,6 +469,9 @@
     var timerID    = null;
     var gameOver   = false;
     var hintIndices = null; // [i,j,k] currently hinted
+    var statusKey = 'startPrompt';
+    var statusValues = {};
+    var statusType = '';
 
     // ── Shape SVG generators ──
     function makeDiamond(color, fill) {
@@ -416,6 +506,7 @@
       var svg = document.createElementNS(svgNS, 'svg');
       svg.setAttribute('viewBox', '0 0 34 22');
       svg.setAttribute('xmlns', svgNS);
+      svg.setAttribute('aria-hidden', 'true');
 
       if (fill === 1) {
         // Striped: use clipPath + lines
@@ -478,14 +569,16 @@
     // ── Render ──
     function render() {
       gridEl.innerHTML = '';
-      hintIndices = null; // clear hint on re-render
 
       for (var i = 0; i < tableau.length; i++) {
         (function(idx) {
           var card = tableau[idx];
-          var el = document.createElement('div');
+          var el = document.createElement('button');
+          el.type = 'button';
           el.className = 'set-card';
+          el.dir = I.dir;
           el.dataset.idx = idx;
+          el.disabled = gameOver;
 
           // Build shape column
           var shapeRow = document.createElement('div');
@@ -500,15 +593,30 @@
           el.appendChild(shapeRow);
 
           if (selected.indexOf(idx) !== -1) el.classList.add('selected');
+          if (hintIndices && hintIndices.indexOf(idx) !== -1) el.classList.add('hint');
+          var cardLabel = describeCard(card);
+          el.setAttribute('aria-pressed', selected.indexOf(idx) !== -1 ? 'true' : 'false');
+          el.setAttribute('aria-label', selected.indexOf(idx) !== -1
+            ? I.t('selectedCard', { card: cardLabel })
+            : cardLabel);
 
           el.addEventListener('click', function() { onCardClick(idx); });
           gridEl.appendChild(el);
         })(i);
       }
 
-      scoreEl.textContent = score;
-      deckEl.textContent  = remaining.length;
+      scoreEl.textContent = I.number(score);
+      deckEl.textContent  = I.number(remaining.length);
       updateButtons();
+    }
+
+    function describeCard(card) {
+      return I.t('cardLabel', {
+        count: I.number(card.count + 1),
+        color: I.t(['colorRed', 'colorGreen', 'colorPurple'][card.color]),
+        fill: I.t(['fillSolid', 'fillStriped', 'fillOutline'][card.fill]),
+        shape: I.t(['shapeDiamond', 'shapeSquare', 'shapeStar'][card.shape])
+      });
     }
 
     function updateButtons() {
@@ -527,7 +635,8 @@
         // Deselect
         selected.splice(pos, 1);
         getCardEl(idx).classList.remove('selected');
-        setStatus('Find a Set! Select 3 cards.', '');
+        setStatus('startPrompt', {}, '');
+        render();
         return;
       }
 
@@ -537,7 +646,8 @@
       if (selected.length === 3) {
         checkSelection();
       } else {
-        setStatus(selected.length + ' of 3 selected.', '');
+        setStatus('selectedCount', { count: I.number(selected.length) }, '');
+        render();
       }
     }
 
@@ -555,8 +665,8 @@
         // Flash green
         flashCards(selected.slice(), 'good');
         score++;
-        scoreEl.textContent = score;
-        setStatus('Set found!', 'good');
+        scoreEl.textContent = I.number(score);
+        setStatus('setFound', {}, 'good');
 
         var toRemove = selected.slice().sort(function(x,y){return y-x;}); // desc order
         selected = [];
@@ -576,7 +686,7 @@
       } else {
         // Flash red then deselect
         flashCards(selected.slice(), 'bad');
-        setStatus('Not a Set. Try again!', 'bad');
+        setStatus('notSet', {}, 'bad');
         var toDeselect = selected.slice();
         selected = [];
         setTimeout(function() {
@@ -584,7 +694,8 @@
             var el = getCardEl(i);
             if (el) { el.classList.remove('selected', 'flash-bad'); }
           });
-          setStatus('Find a Set! Select 3 cards.', '');
+          setStatus('startPrompt', {}, '');
+          render();
         }, 800);
       }
     }
@@ -603,7 +714,11 @@
       if (remaining.length === 0 && E.findAllSets(tableau).length === 0) {
         gameOver = true;
         stopTimer();
-        setStatus('Game Over! You found ' + score + ' set' + (score !== 1 ? 's' : '') + ' in ' + timerEl.textContent + '.', 'done');
+        setStatus('gameOver', {
+          score: I.number(score),
+          scoreRaw: score,
+          time: '\u2066' + timerEl.textContent + '\u2069'
+        }, 'done');
         updateButtons();
       }
     }
@@ -614,7 +729,7 @@
       clearHint();
       var sets = E.findAllSets(tableau);
       if (sets.length === 0) {
-        setStatus('No sets available — deal more cards!', 'bad');
+        setStatus('noSets', {}, 'bad');
         return;
       }
       hintIndices = sets[0];
@@ -622,7 +737,7 @@
         var el = getCardEl(i);
         if (el) el.classList.add('hint');
       });
-      setStatus('Hint: highlighted cards form a Set!', 'good');
+      setStatus('hint', {}, 'good');
     }
 
     function clearHint() {
@@ -637,18 +752,26 @@
     // ── Add 3 cards ──
     function onAddMore() {
       if (gameOver || remaining.length === 0) return;
+      clearHint();
       var result = E.addCards(tableau, remaining);
       tableau   = result.tableau;
       remaining = result.remaining;
       selected  = [];
-      setStatus('+3 cards added.', '');
+      setStatus('cardsAdded', {}, '');
       render();
     }
 
     // ── Status helper ──
-    function setStatus(msg, type) {
-      statusEl.textContent = msg;
-      statusEl.className = 'set-status' + (type ? ' ' + type : '');
+    function setStatus(key, values, type) {
+      statusKey = key;
+      statusValues = values || {};
+      statusType = type || '';
+      refreshStatus();
+    }
+
+    function refreshStatus() {
+      statusEl.textContent = I.t(statusKey, statusValues);
+      statusEl.className = 'set-status' + (statusType ? ' ' + statusType : '');
     }
 
     // ── Timer ──
@@ -679,7 +802,7 @@
       var deal   = E.dealInitial(deck);
       tableau    = deal.tableau;
       remaining  = deal.remaining;
-      setStatus('Find a Set! Select 3 cards.', '');
+      setStatus('startPrompt', {}, '');
       startTimer();
       render();
     }
@@ -689,7 +812,15 @@
     btnHint.addEventListener('click', onHint);
     btnMore.addEventListener('click', onAddMore);
 
+    I.onChange(function() {
+      if (statusKey === 'selectedCount') statusValues.count = I.number(selected.length);
+      if (statusKey === 'gameOver') statusValues.score = I.number(score);
+      refreshStatus();
+      render();
+    });
+
     // ── Init ──
+    I.apply();
     startGame();
   })();
   </script>

@@ -138,16 +138,20 @@ export class PasswordHasher implements DurableObject {
   ) {}
 
   async fetch(request: Request): Promise<Response> {
-    if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
+    if (request.method !== "POST") {
+      return json({ error: "Method not allowed", code: "METHOD_NOT_ALLOWED" }, 405);
+    }
 
     const path = new URL(request.url).pathname;
     let body: unknown;
     try {
       body = await parseBody(request);
     } catch {
-      return json({ error: "Invalid request" }, 400);
+      return json({ error: "Invalid request", code: "INVALID_REQUEST" }, 400);
     }
-    if (!body || typeof body !== "object") return json({ error: "Invalid request" }, 400);
+    if (!body || typeof body !== "object") {
+      return json({ error: "Invalid request", code: "INVALID_REQUEST" }, 400);
+    }
 
     if (path === "/hash") {
       const payload = body as Partial<HashRequest>;
@@ -157,7 +161,7 @@ export class PasswordHasher implements DurableObject {
         || (payload.salt !== undefined && !isSalt(payload.salt))
         || !isSupportedIterations(iterations)
       ) {
-        return json({ error: "Invalid request" }, 400);
+        return json({ error: "Invalid request", code: "INVALID_REQUEST" }, 400);
       }
 
       try {
@@ -170,7 +174,7 @@ export class PasswordHasher implements DurableObject {
         return json(record);
       } catch (error) {
         console.error("Password hashing failed", error);
-        return json({ error: "Password hashing failed" }, 500);
+        return json({ error: "Password hashing failed", code: "PASSWORD_HASH_FAILED" }, 500);
       }
     }
 
@@ -182,7 +186,7 @@ export class PasswordHasher implements DurableObject {
         || !isSalt(payload.salt)
         || !isSupportedIterations(payload.iterations)
       ) {
-        return json({ error: "Invalid request" }, 400);
+        return json({ error: "Invalid request", code: "INVALID_REQUEST" }, 400);
       }
 
       try {
@@ -196,10 +200,10 @@ export class PasswordHasher implements DurableObject {
         return json({ valid });
       } catch (error) {
         console.error("Password verification failed", error);
-        return json({ error: "Password verification failed" }, 500);
+        return json({ error: "Password verification failed", code: "PASSWORD_VERIFICATION_FAILED" }, 500);
       }
     }
 
-    return json({ error: "Not found" }, 404);
+    return json({ error: "Not found", code: "NOT_FOUND" }, 404);
   }
 }

@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite. Play instantly with no download or sign-up." />
   <title>Diplomacy Lite Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073003" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/diplomacy"/>
   <meta name="robots" content="index,follow"/>
@@ -24,8 +24,9 @@
   <meta name="twitter:description" content="Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073003"/>
+  <link rel="stylesheet" href="styles.css?v=2026073005"/>
   <link rel="manifest" href="manifest.webmanifest"/>
+  <script src="/game-i18n.js?v=2026073005"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
   <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
@@ -81,6 +82,7 @@
       background: var(--panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
+      direction: ltr;
     }
 
     .score-item {
@@ -133,6 +135,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0.75rem;
+      direction: ltr;
     }
 
     .dip-territory {
@@ -268,10 +271,11 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
       color: var(--text);
+      direction: ltr;
     }
     .order-chip .order-icon { font-size: 0.85rem; }
     .order-chip button {
-      margin-left: auto;
+      margin-inline-start: auto;
       background: none;
       border: none;
       color: var(--danger);
@@ -378,95 +382,253 @@
 }
     </script>
   </head>
-<body data-page="game">
-  <a href="#top" class="skip-link">Skip to main content</a>
+<body data-page="game" data-game="diplomacy">
+  <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
   <header class="site-header shell">
-    <a href="/" class="brand" aria-label="JAKH Riddles home">
+    <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture>
         <source srcset="assets/logo.webp" type="image/webp"/>
         <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
       </picture>
     </a>
-    <nav class="header-actions">
-      <a class="ghost-btn" href="/">Home</a>
-      <a class="ghost-btn" href="/play">&#8592; Games</a>
+    <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+      <a class="ghost-btn" href="/play" data-i18n="navGamesBack">&#8592; Games</a>
     </nav>
+    <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
       <div class="hero-copy">
-        <p class="eyebrow">Strategy · Area Control</p>
-        <h1>&#9876;&#65039; Diplomacy Lite</h1>
-        <p class="hero-text">Command armies, issue simultaneous orders, resolve conflicts. Control 7 of 12 territories to win.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">Strategy · Area Control</p>
+        <h1 data-i18n="heroTitle">&#9876;&#65039; Diplomacy Lite</h1>
+        <p class="hero-text" data-i18n="heroText">Command armies, issue simultaneous orders, resolve conflicts. Control 7 of 12 territories to win.</p>
       </div>
     </section>
 
     <section class="shell section-block" id="diplomacySection">
       <!-- Status -->
       <div id="dip-status-bar">
-        <span id="dip-turn-label">Turn 1</span>
-        <span id="dip-phase-label">Orders Phase</span>
+        <span id="dip-turn-label"></span>
+        <span id="dip-phase-label"></span>
       </div>
 
       <!-- Score -->
       <div id="dip-score-bar">
         <div class="score-item">
           <div class="score-dot p1"></div>
-          <span>Player 1</span>
-          <span class="score-count p1" id="score-p1">3</span>
+          <span dir="auto" data-i18n="player1">Player 1</span>
+          <span class="score-count p1" id="score-p1"></span>
         </div>
-        <span class="score-target">First to 7 wins</span>
+        <span class="score-target" dir="auto" data-i18n="scoreTarget">First to 7 wins</span>
         <div class="score-item">
           <div class="score-dot p2"></div>
-          <span>AI (P2)</span>
-          <span class="score-count p2" id="score-p2">3</span>
+          <span dir="auto" data-i18n="aiPlayer">AI (P2)</span>
+          <span class="score-count p2" id="score-p2"></span>
         </div>
       </div>
 
       <div id="dip-win-banner"></div>
 
       <!-- Map -->
-      <div id="dip-map" role="grid" aria-label="Diplomacy map"></div>
+      <div id="dip-map" role="grid" aria-label="Diplomacy map" data-i18n-aria-label="mapLabel" dir="ltr"></div>
 
       <!-- Order panel -->
       <div id="dip-order-panel">
-        <h2>&#128196; Your Orders (Player 1)</h2>
-        <div id="dip-order-hint">Click one of your armies, then click a target territory to move — or use Hold.</div>
+        <h2 data-i18n="ordersTitle">&#128196; Your Orders (Player 1)</h2>
+        <div id="dip-order-hint"></div>
         <div id="dip-p1-orders"></div>
       </div>
 
       <!-- Actions -->
       <div id="dip-actions">
-        <button class="dip-btn btn-secondary" id="btn-hold" onclick="dipUI.holdSelected()" disabled>🛡️ Hold Selected</button>
-        <button class="dip-btn btn-secondary" id="btn-support" onclick="dipUI.supportSelected()" disabled>⚔️ Support (hold)</button>
-        <button class="dip-btn btn-secondary" id="btn-cancel-select" onclick="dipUI.cancelSelect()" disabled>✕ Deselect</button>
-        <button class="dip-btn btn-easy" id="btn-resolve" onclick="dipUI.resolve()" disabled>▶ Resolve Orders</button>
-        <button class="dip-btn btn-danger" id="btn-restart" onclick="dipUI.restart()" style="margin-left:auto;">↺ Restart</button>
+        <button class="dip-btn btn-secondary" id="btn-hold" onclick="dipUI.holdSelected()" disabled data-i18n="holdSelected">🛡️ Hold Selected</button>
+        <button class="dip-btn btn-secondary" id="btn-support" onclick="dipUI.supportSelected()" disabled data-i18n="supportHold">⚔️ Support (hold)</button>
+        <button class="dip-btn btn-secondary" id="btn-cancel-select" onclick="dipUI.cancelSelect()" disabled data-i18n="deselect">✕ Deselect</button>
+        <button class="dip-btn btn-easy" id="btn-resolve" onclick="dipUI.resolve()" disabled data-i18n="resolveOrders">▶ Resolve Orders</button>
+        <button class="dip-btn btn-danger" id="btn-restart" onclick="dipUI.restart()" style="margin-inline-start:auto;" data-i18n="restart">↺ Restart</button>
       </div>
 
       <!-- Log -->
-      <div id="dip-log" aria-live="polite" aria-label="Game log"></div>
+      <div id="dip-log" aria-live="polite" aria-label="Game log" data-i18n-aria-label="gameLogLabel"></div>
     </section>
   </main>
 
   <footer class="site-footer shell">
     <div class="footer-inner">
-      <p class="footer-copy">All rights reserved to JAKH 2026</p>
+      <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
       <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
         <div class="footer-socials">
-        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Instagram" data-i18n-aria-label="instagramLabel">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          <span>Instagram</span>
+          <span data-i18n="instagramName">Instagram</span>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Facebook" data-i18n-aria-label="facebookLabel">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          <span>Facebook</span>
+          <span data-i18n="facebookName">Facebook</span>
         </a>
       </div>
     </div>
   </footer>
+
+  <script id="diplomacy-i18n">
+  JakhGameI18n.register('diplomacy', {
+    en: {
+      metaTitle: 'Diplomacy Lite Online — Free Browser Game | JAKH',
+      metaDescription: 'Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite. Play instantly with no download or sign-up.',
+      metaImageAlt: 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games',
+      heroEyebrow: 'Strategy · Area Control',
+      heroTitle: '⚔️ Diplomacy Lite',
+      heroText: 'Command armies, issue simultaneous orders, resolve conflicts. Control 7 of 12 territories to win.',
+      player1: 'Player 1',
+      aiPlayer: 'AI (P2)',
+      player1Name: 'Player 1',
+      aiName: 'AI',
+      scoreTarget: 'First to 7 wins',
+      mapLabel: 'Diplomacy map',
+      ordersTitle: '📄 Your Orders (Player 1)',
+      holdSelected: '🛡️ Hold Selected',
+      supportHold: '⚔️ Support (hold)',
+      deselect: '✕ Deselect',
+      resolveOrders: '▶ Resolve Orders',
+      restart: '↺ Restart',
+      gameLogLabel: 'Game log',
+      turnLabel: 'Turn {turn}',
+      phaseOrders: 'Orders Phase — Issue your commands',
+      phaseResolving: 'Resolving orders…',
+      statusP1Wins: '🏆 Player 1 Wins!',
+      statusAIWins: '🏆 AI Wins!',
+      winP1Banner: '🏆 Player 1 controls 7 territories — Victory!',
+      winAIBanner: '🏆 AI (Player 2) controls 7 territories — Defeat!',
+      hintSelected: 'Selected: {territory}. Click a highlighted territory to move, or use Hold/Support buttons.',
+      hintGameOver: 'Game over.',
+      hintSelect: 'Click one of your armies (🔴) to select it, then click a target to move.',
+      ownerP1: 'controlled by Player 1',
+      ownerP2: 'controlled by the AI',
+      ownerNeutral: 'neutral',
+      territoryAria: '{territory}, {owner}',
+      p1Army: 'Player 1 army',
+      p2Army: 'AI army',
+      badgeMove: '→ {territory}',
+      badgeHold: 'HOLD',
+      badgeSupport: 'SUP',
+      orderNone: 'No orders yet. All unordered units will hold.',
+      orderMove: '{from} → {to}',
+      orderHold: '{from}: HOLD',
+      orderSupport: '{from}: SUPPORT at {target}',
+      removeOrder: 'Remove order for {territory}',
+      eventPlayerMoveOrder: 'P1: {from} → {to}',
+      eventPlayerHoldOrder: 'P1: {territory} HOLD',
+      eventPlayerSupportOrder: 'P1: {territory} SUPPORT (hold)',
+      eventAIMoveOrder: 'AI: {from} → {to}',
+      eventAIHoldOrder: 'AI: {territory} HOLD',
+      eventBounceDefender: '{player} army from {from} bounced off {to} (defender held).',
+      eventStandoffAll: 'Standoff at {territory} — all attackers bounce.',
+      eventStandoffDefender: 'Standoff at {territory} — defender held.',
+      eventContestWin: '{player} army wins the contest at {territory} (strength {strength}).',
+      eventDislodged: '{player} army was dislodged from {territory}!',
+      eventMove: '{player} moves from {from} → {to}.',
+      eventP1Win: '🏆 Player 1 wins!',
+      eventAIWin: '🏆 AI wins!',
+      eventNewGame: 'New game started. Issue orders, then resolve.',
+      eventWelcome: 'Welcome to Diplomacy Lite! Click your armies to give orders.',
+      territoryNORTH: 'North',
+      territoryCOAST: 'Coast',
+      territoryVALLEY: 'Valley',
+      territoryMOUNTAINS: 'Mountains',
+      territoryPLAINS: 'Plains',
+      territoryRIVER: 'River',
+      territoryFOREST: 'Forest',
+      territoryDESERT: 'Desert',
+      territoryHARBOR: 'Harbor',
+      territoryCAPITAL_A: 'Capital A',
+      territoryCAPITAL_B: 'Capital B',
+      territoryCROSSROADS: 'Crossroads'
+    },
+    ar: {
+      metaTitle: 'دبلوماسية لايت أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'أصدر الأوامر بالتزامن وسيطر على المناطق وتفوّق على خصمك في دبلوماسية لايت. العب فورًا بلا تنزيل أو تسجيل.',
+      metaImageAlt: 'JAKH — 3,553 لغزًا ثنائي اللغة في 56 موضوعًا و10 ألعاب',
+      heroEyebrow: 'استراتيجية · سيطرة على المناطق',
+      heroTitle: '⚔️ دبلوماسية لايت',
+      heroText: 'قد الجيوش وأصدر الأوامر بالتزامن واحسم النزاعات. سيطر على 7 من أصل 12 منطقة للفوز.',
+      player1: 'اللاعب 1',
+      aiPlayer: 'الذكاء الاصطناعي (ل2)',
+      player1Name: 'اللاعب 1',
+      aiName: 'الذكاء الاصطناعي',
+      scoreTarget: 'أول من يسيطر على 7 يفوز',
+      mapLabel: 'خريطة دبلوماسية',
+      ordersTitle: '📄 أوامرك (اللاعب 1)',
+      holdSelected: '🛡️ ثبّت المحدد',
+      supportHold: '⚔️ دعم (ثبات)',
+      deselect: '✕ إلغاء التحديد',
+      resolveOrders: '▶ حسم الأوامر',
+      restart: '↺ إعادة البدء',
+      gameLogLabel: 'سجل اللعبة',
+      turnLabel: 'الدور {turn}',
+      phaseOrders: 'مرحلة الأوامر — أصدر تعليماتك',
+      phaseResolving: 'جارٍ حسم الأوامر…',
+      statusP1Wins: '🏆 فاز اللاعب 1!',
+      statusAIWins: '🏆 فاز الذكاء الاصطناعي!',
+      winP1Banner: '🏆 يسيطر اللاعب 1 على 7 مناطق — انتصار!',
+      winAIBanner: '🏆 يسيطر الذكاء الاصطناعي (اللاعب 2) على 7 مناطق — هزيمة!',
+      hintSelected: 'المحدد: {territory}. اضغط منطقة مميزة للتحرك، أو استخدم زري الثبات أو الدعم.',
+      hintGameOver: 'انتهت اللعبة.',
+      hintSelect: 'اضغط أحد جيوشك (🔴) لتحديده، ثم اضغط المنطقة التي تريد التحرك إليها.',
+      ownerP1: 'تحت سيطرة اللاعب 1',
+      ownerP2: 'تحت سيطرة الذكاء الاصطناعي',
+      ownerNeutral: 'محايدة',
+      territoryAria: '{territory}، {owner}',
+      p1Army: 'جيش اللاعب 1',
+      p2Army: 'جيش الذكاء الاصطناعي',
+      badgeMove: 'إلى {territory}',
+      badgeHold: 'ثبات',
+      badgeSupport: 'دعم',
+      orderNone: 'لا توجد أوامر بعد. ستثبت جميع الوحدات التي لم تُصدر لها أوامر.',
+      orderMove: 'من {from} إلى {to}',
+      orderHold: '{from}: ثبات',
+      orderSupport: '{from}: دعم في {target}',
+      removeOrder: 'إزالة أمر {territory}',
+      eventPlayerMoveOrder: 'اللاعب 1: من {from} إلى {to}',
+      eventPlayerHoldOrder: 'اللاعب 1: ثبات في {territory}',
+      eventPlayerSupportOrder: 'اللاعب 1: دعم الثبات في {territory}',
+      eventAIMoveOrder: 'الذكاء الاصطناعي: من {from} إلى {to}',
+      eventAIHoldOrder: 'الذكاء الاصطناعي: ثبات في {territory}',
+      eventBounceDefender: 'ارتد جيش {player} القادم من {from} عن {to} (صمد المدافع).',
+      eventStandoffAll: 'تعادل في {territory} — تراجعت جميع القوات المهاجمة.',
+      eventStandoffDefender: 'تعادل في {territory} — صمد المدافع.',
+      eventContestWin: 'فاز جيش {player} بالمواجهة في {territory} (القوة {strength}).',
+      eventDislodged: 'أُجبر جيش {player} على الانسحاب من {territory}!',
+      eventMove: 'تحرك {player} من {from} إلى {to}.',
+      eventP1Win: '🏆 فاز اللاعب 1!',
+      eventAIWin: '🏆 فاز الذكاء الاصطناعي!',
+      eventNewGame: 'بدأت لعبة جديدة. أصدر الأوامر ثم احسمها.',
+      eventWelcome: 'مرحبًا بك في دبلوماسية لايت! اضغط جيوشك لإصدار الأوامر.',
+      territoryNORTH: 'الشمال',
+      territoryCOAST: 'الساحل',
+      territoryVALLEY: 'الوادي',
+      territoryMOUNTAINS: 'الجبال',
+      territoryPLAINS: 'السهول',
+      territoryRIVER: 'النهر',
+      territoryFOREST: 'الغابة',
+      territoryDESERT: 'الصحراء',
+      territoryHARBOR: 'الميناء',
+      territoryCAPITAL_A: 'العاصمة أ',
+      territoryCAPITAL_B: 'العاصمة ب',
+      territoryCROSSROADS: 'ملتقى الطرق'
+    }
+  });
+  </script>
 
   <!-- Engine -->
   <script id="diplomacy-engine">
@@ -474,18 +636,18 @@
 
     // Territory definitions
     const TERRITORY_DEFS = [
-      { id: 'NORTH',      name: 'North',      adj: ['COAST','VALLEY','MOUNTAINS'] },
-      { id: 'COAST',      name: 'Coast',       adj: ['NORTH','HARBOR','PLAINS'] },
-      { id: 'VALLEY',     name: 'Valley',      adj: ['NORTH','PLAINS','FOREST'] },
-      { id: 'MOUNTAINS',  name: 'Mountains',   adj: ['NORTH','DESERT','CROSSROADS'] },
-      { id: 'PLAINS',     name: 'Plains',      adj: ['COAST','VALLEY','RIVER','CROSSROADS'] },
-      { id: 'RIVER',      name: 'River',       adj: ['PLAINS','HARBOR','CAPITAL-A'] },
-      { id: 'FOREST',     name: 'Forest',      adj: ['VALLEY','CAPITAL-B','CROSSROADS'] },
-      { id: 'DESERT',     name: 'Desert',      adj: ['MOUNTAINS','CAPITAL-B'] },
-      { id: 'HARBOR',     name: 'Harbor',      adj: ['COAST','RIVER'] },
-      { id: 'CAPITAL-A',  name: 'Capital A',   adj: ['RIVER'], capital: 'p1' },
-      { id: 'CAPITAL-B',  name: 'Capital B',   adj: ['FOREST','DESERT'], capital: 'p2' },
-      { id: 'CROSSROADS', name: 'Crossroads',  adj: ['MOUNTAINS','PLAINS','FOREST'] },
+      { id: 'NORTH',      adj: ['COAST','VALLEY','MOUNTAINS'] },
+      { id: 'COAST',      adj: ['NORTH','HARBOR','PLAINS'] },
+      { id: 'VALLEY',     adj: ['NORTH','PLAINS','FOREST'] },
+      { id: 'MOUNTAINS',  adj: ['NORTH','DESERT','CROSSROADS'] },
+      { id: 'PLAINS',     adj: ['COAST','VALLEY','RIVER','CROSSROADS'] },
+      { id: 'RIVER',      adj: ['PLAINS','HARBOR','CAPITAL-A'] },
+      { id: 'FOREST',     adj: ['VALLEY','CAPITAL-B','CROSSROADS'] },
+      { id: 'DESERT',     adj: ['MOUNTAINS','CAPITAL-B'] },
+      { id: 'HARBOR',     adj: ['COAST','RIVER'] },
+      { id: 'CAPITAL-A',  adj: ['RIVER'], capital: 'p1' },
+      { id: 'CAPITAL-B',  adj: ['FOREST','DESERT'], capital: 'p2' },
+      { id: 'CROSSROADS', adj: ['MOUNTAINS','PLAINS','FOREST'] },
     ];
 
     // Setup
@@ -506,7 +668,6 @@
     function initState() {
       const territories = TERRITORY_DEFS.map(td => ({
         id: td.id,
-        name: td.name,
         adj: [...td.adj],
         capital: td.capital || null,
         owner: INITIAL_OWNERSHIP[td.id] || null,
@@ -532,6 +693,9 @@
 
     let _idCounter = 1;
     function genId() { return 'u' + (_idCounter++); }
+    function event(code, params = {}, tone = 'resolve') {
+      return { code, params, tone };
+    }
 
     // ---- Order validation ----
 
@@ -557,34 +721,21 @@
 
     function resolveOrders(state) {
       const newState = deepClone(state);
-      const msgs = [];
+      const events = [];
 
       // Build move map: from -> {unitId, owner, to}
       const moves = [];
-      const holds = [];
       const supports = {};
 
       for (const player of ['p1','p2']) {
         for (const order of newState.orders[player]) {
           if (order.type === 'move') {
             moves.push({ unitId: order.unitId, owner: player, from: order.unitTerritory, to: order.target });
-          } else if (order.type === 'hold') {
-            holds.push({ unitId: order.unitId, owner: player, at: order.unitTerritory });
           } else if (order.type === 'support') {
             // support a move or hold at a territory
             const key = order.target;
             if (!supports[key]) supports[key] = { p1: 0, p2: 0 };
             supports[key][player] = (supports[key][player] || 0) + 1;
-          }
-        }
-      }
-
-      // Units without orders default to hold
-      for (const terr of newState.territories) {
-        for (const unit of terr.units) {
-          const hasOrder = [...newState.orders.p1, ...newState.orders.p2].some(o => o.unitId === unit.id);
-          if (!hasOrder) {
-            holds.push({ unitId: unit.id, owner: unit.owner, at: terr.id });
           }
         }
       }
@@ -598,7 +749,6 @@
       }
 
       const successful = new Set();
-      const bounced = new Set();
 
       for (const dest of Object.keys(byDest)) {
         const contenders = byDest[dest];
@@ -626,8 +776,11 @@
           const mv = strengths[0];
           // Check defender
           if (defenderUnits.length > 0 && defenderStrength >= mv.strength) {
-            bounced.add(mv.unitId);
-            msgs.push(`${mv.owner.toUpperCase()} army from ${mv.from} bounced off ${dest} (defender held).`);
+            events.push(event('bounceDefender', {
+              owner: mv.owner,
+              from: mv.from,
+              to: dest,
+            }, 'bounce'));
           } else {
             successful.add(mv.unitId);
           }
@@ -636,18 +789,19 @@
           const maxStr = Math.max(...strengths.map(s => s.strength));
           const winners = strengths.filter(s => s.strength === maxStr);
           if (winners.length > 1) {
-            for (const mv of strengths) { bounced.add(mv.unitId); }
-            msgs.push(`Standoff at ${dest} — all attackers bounce.`);
+            events.push(event('standoffAll', { territory: dest }, 'bounce'));
           } else {
             const winner = winners[0];
             // Winner must beat defender too
             if (defenderStrength >= winner.strength) {
-              for (const mv of strengths) { bounced.add(mv.unitId); }
-              msgs.push(`Standoff at ${dest} — defender held.`);
+              events.push(event('standoffDefender', { territory: dest }, 'bounce'));
             } else {
               successful.add(winner.unitId);
-              for (const mv of strengths) { if (mv.unitId !== winner.unitId) bounced.add(mv.unitId); }
-              msgs.push(`${winner.owner.toUpperCase()} army wins contest at ${dest} (strength ${winner.strength}).`);
+              events.push(event('contestWin', {
+                owner: winner.owner,
+                territory: dest,
+                strength: winner.strength,
+              }));
             }
           }
         }
@@ -669,13 +823,20 @@
           for (const eu of enemyInDest) {
             const ei = toTerr.units.findIndex(u => u.id === eu.id);
             if (ei !== -1) toTerr.units.splice(ei, 1);
-            msgs.push(`${eu.owner.toUpperCase()} army dislodged from ${mv.to}!`);
+            events.push(event('dislodged', {
+              owner: eu.owner,
+              territory: mv.to,
+            }, 'bounce'));
           }
         }
         toTerr.units.push(unit);
         // Change ownership
         toTerr.owner = unit.owner;
-        msgs.push(`${unit.owner.toUpperCase()} moves from ${mv.from} → ${mv.to}.`);
+        events.push(event('move', {
+          owner: unit.owner,
+          from: mv.from,
+          to: mv.to,
+        }));
       }
 
       // Update ownership for territories where units end up
@@ -699,9 +860,9 @@
       newState.turn += 1;
       newState.phase = 'orders';
       newState.orders = { p1: [], p2: [] };
-      newState.log = [...msgs.map(m => ({msg: m, type: 'resolve'})), ...newState.log];
+      newState.log = [...events, ...newState.log];
 
-      return { state: newState, msgs };
+      return { state: newState, events };
     }
 
     function getStatus(state) {
@@ -785,39 +946,99 @@
   <script id="diplomacy-ui">
   const dipUI = (() => {
     const E = DiplomacyEngine;
+    const i18n = JakhGameI18n;
     let state = E.initState();
     let selectedUnit = null; // { unitId, terrId }
     let resolving = false;
+    let logEntries = [{
+      code: 'welcome',
+      params: {},
+      tone: 'action',
+    }];
 
     function $(id) { return document.getElementById(id); }
+    function t(key, values) { return i18n.t(key, values); }
+    function territoryName(id) {
+      return id ? t(`territory${id.replaceAll('-', '_')}`) : '?';
+    }
+    function playerName(owner) {
+      return t(owner === 'p1' ? 'player1Name' : 'aiName');
+    }
+    function ownerName(owner) {
+      if (owner === 'p1') return t('ownerP1');
+      if (owner === 'p2') return t('ownerP2');
+      return t('ownerNeutral');
+    }
 
-    function log(msg, cls='') {
-      const el = document.createElement('div');
-      el.className = 'log-entry' + (cls ? ' ' + cls : '');
-      el.textContent = msg;
-      $('dip-log').prepend(el);
+    function formatEvent(entry) {
+      const p = entry.params || {};
+      const values = {
+        player: playerName(p.owner),
+        from: territoryName(p.from),
+        to: territoryName(p.to),
+        territory: territoryName(p.territory),
+        strength: p.strength === undefined ? '' : i18n.number(p.strength),
+      };
+      const keys = {
+        playerMoveOrder: 'eventPlayerMoveOrder',
+        playerHoldOrder: 'eventPlayerHoldOrder',
+        playerSupportOrder: 'eventPlayerSupportOrder',
+        aiMoveOrder: 'eventAIMoveOrder',
+        aiHoldOrder: 'eventAIHoldOrder',
+        bounceDefender: 'eventBounceDefender',
+        standoffAll: 'eventStandoffAll',
+        standoffDefender: 'eventStandoffDefender',
+        contestWin: 'eventContestWin',
+        dislodged: 'eventDislodged',
+        move: 'eventMove',
+        p1Win: 'eventP1Win',
+        aiWin: 'eventAIWin',
+        newGame: 'eventNewGame',
+        welcome: 'eventWelcome',
+      };
+      return t(keys[entry.code] || entry.code, values);
+    }
+
+    function addLog(code, params = {}, tone = 'action') {
+      logEntries.unshift({ code, params, tone });
+      renderLog();
+    }
+
+    function addLogs(entries) {
+      for (const entry of entries) logEntries.unshift(entry);
+      renderLog();
+    }
+
+    function renderLog() {
+      const logEl = $('dip-log');
+      logEl.innerHTML = '';
+      for (const entry of logEntries) {
+        const el = document.createElement('div');
+        el.className = `log-entry log-${entry.tone || 'resolve'}`;
+        el.dir = 'auto';
+        el.textContent = formatEvent(entry);
+        logEl.appendChild(el);
+      }
     }
 
     function render() {
       const s = state;
 
       // Status bar
-      $('dip-turn-label').textContent = `Turn ${s.turn}`;
+      $('dip-turn-label').textContent = t('turnLabel', { turn: i18n.number(s.turn) });
       $('dip-phase-label').textContent = s.status === 'playing'
-        ? (s.phase === 'orders' ? 'Orders Phase — Issue your commands' : 'Resolution…')
-        : (s.status === 'p1-wins' ? '🏆 Player 1 Wins!' : '🏆 AI Wins!');
+        ? t(resolving ? 'phaseResolving' : 'phaseOrders')
+        : t(s.status === 'p1-wins' ? 'statusP1Wins' : 'statusAIWins');
 
       // Score
-      $('score-p1').textContent = s.score.p1;
-      $('score-p2').textContent = s.score.p2;
+      $('score-p1').textContent = i18n.number(s.score.p1);
+      $('score-p2').textContent = i18n.number(s.score.p2);
 
       // Win banner
       const wb = $('dip-win-banner');
       if (s.status !== 'playing') {
         wb.style.display = 'block';
-        wb.textContent = s.status === 'p1-wins'
-          ? '🏆 Player 1 controls 7 territories — Victory!'
-          : '🏆 AI (Player 2) controls 7 territories — Defeat!';
+        wb.textContent = t(s.status === 'p1-wins' ? 'winP1Banner' : 'winAIBanner');
       } else {
         wb.style.display = 'none';
       }
@@ -829,7 +1050,6 @@
       renderOrderList(s);
 
       // Buttons
-      const hasOrders = s.orders.p1.length > 0;
       $('btn-hold').disabled = !selectedUnit || s.status !== 'playing';
       $('btn-support').disabled = !selectedUnit || s.status !== 'playing';
       $('btn-cancel-select').disabled = !selectedUnit;
@@ -838,13 +1058,15 @@
       // Hint
       const hint = $('dip-order-hint');
       if (selectedUnit) {
-        const t = E.getTerritory(state, selectedUnit.terrId);
-        hint.textContent = `Selected: ${t.name}. Click a highlighted territory to move, or use Hold/Support buttons.`;
+        hint.textContent = t('hintSelected', {
+          territory: territoryName(selectedUnit.terrId),
+        });
       } else if (s.status !== 'playing') {
-        hint.textContent = 'Game over.';
+        hint.textContent = t('hintGameOver');
       } else {
-        hint.textContent = 'Click one of your armies (🔴) to select it, then click a target to move.';
+        hint.textContent = t('hintSelect');
       }
+      hint.dir = 'auto';
     }
 
     function renderMap(s) {
@@ -855,8 +1077,14 @@
         const card = document.createElement('div');
         card.className = 'dip-territory';
         card.setAttribute('role', 'gridcell');
-        card.setAttribute('aria-label', `${terr.name}, ${terr.owner || 'neutral'}`);
+        card.setAttribute('aria-label', t('territoryAria', {
+          territory: territoryName(terr.id),
+          owner: ownerName(terr.owner),
+        }));
         card.dataset.terrId = terr.id;
+        card.setAttribute('aria-selected', String(Boolean(
+          selectedUnit && selectedUnit.terrId === terr.id
+        )));
 
         // Owner class
         if (terr.owner === 'p1') card.classList.add('owner-p1');
@@ -881,12 +1109,27 @@
           card.classList.add('has-clickable-unit');
         }
 
+        const canInteract = s.status === 'playing' && (
+          (!selectedUnit && hasP1Unit) ||
+          (selectedUnit && (
+            selectedUnit.terrId === terr.id ||
+            E.areAdjacent(s, selectedUnit.terrId, terr.id) ||
+            hasP1Unit
+          ))
+        );
+        if (canInteract) card.tabIndex = 0;
         card.addEventListener('click', () => onTerrClick(terr.id));
+        card.addEventListener('keydown', event => {
+          if (!canInteract || (event.key !== 'Enter' && event.key !== ' ')) return;
+          event.preventDefault();
+          onTerrClick(terr.id);
+        });
 
         // Name
         const nameEl = document.createElement('div');
         nameEl.className = 'terr-name';
-        nameEl.textContent = terr.name;
+        nameEl.dir = 'auto';
+        nameEl.textContent = territoryName(terr.id);
         card.appendChild(nameEl);
 
         // Units
@@ -895,7 +1138,9 @@
         for (const unit of terr.units) {
           const dot = document.createElement('div');
           dot.className = `unit-dot ${unit.owner}`;
-          dot.title = `${unit.owner === 'p1' ? 'Player 1' : 'AI'} army`;
+          dot.title = t(unit.owner === 'p1' ? 'p1Army' : 'p2Army');
+          dot.setAttribute('role', 'img');
+          dot.setAttribute('aria-label', dot.title);
           dot.textContent = unit.owner === 'p1' ? '🔴' : '🔵';
           dot.style.background = 'none';
           dot.style.fontSize = '14px';
@@ -916,13 +1161,15 @@
           const badge = document.createElement('div');
           badge.className = 'terr-order-badge';
           if (relatedOrder.type === 'move') {
-            const tgt = E.getTerritory(s, relatedOrder.target);
-            badge.textContent = `→ ${tgt ? tgt.name : '?'}`;
+            badge.textContent = t('badgeMove', {
+              territory: territoryName(relatedOrder.target),
+            });
           } else if (relatedOrder.type === 'hold') {
-            badge.textContent = 'HOLD';
+            badge.textContent = t('badgeHold');
           } else if (relatedOrder.type === 'support') {
-            badge.textContent = 'SUP';
+            badge.textContent = t('badgeSupport');
           }
+          badge.dir = 'auto';
           card.appendChild(badge);
         }
 
@@ -931,6 +1178,7 @@
           const cap = document.createElement('div');
           cap.className = 'terr-capital';
           cap.textContent = terr.capital === 'p1' ? '🔴★' : '🔵★';
+          cap.setAttribute('aria-hidden', 'true');
           card.appendChild(cap);
         }
 
@@ -944,35 +1192,48 @@
       if (s.orders.p1.length === 0) {
         const empty = document.createElement('div');
         empty.style.cssText = 'font-size:0.8rem;color:var(--muted);font-family: var(--font);';
-        empty.textContent = 'No orders yet. All unordered units will hold.';
+        empty.dir = 'auto';
+        empty.textContent = t('orderNone');
         listEl.appendChild(empty);
         return;
       }
       for (const order of s.orders.p1) {
         const chip = document.createElement('div');
         chip.className = 'order-chip';
-        const fromTerr = s.territories.find(t => t.units.some(u => u.id === order.unitId));
-        const fromName = fromTerr ? fromTerr.name : '?';
+        const fromName = territoryName(order.unitTerritory);
 
         let text = '';
         let icon = '🛡️';
         if (order.type === 'move') {
-          const tgt = E.getTerritory(s, order.target);
-          text = `${fromName} → ${tgt ? tgt.name : '?'}`;
+          text = t('orderMove', {
+            from: fromName,
+            to: territoryName(order.target),
+          });
           icon = '⚔️';
         } else if (order.type === 'hold') {
-          text = `${fromName}: HOLD`;
+          text = t('orderHold', { from: fromName });
           icon = '🛡️';
         } else if (order.type === 'support') {
-          text = `${fromName}: SUPPORT at ${order.target}`;
+          text = t('orderSupport', {
+            from: fromName,
+            target: territoryName(order.target),
+          });
           icon = '🤝';
         }
 
-        chip.innerHTML = `<span class="order-icon">${icon}</span><span>${text}</span>`;
+        const iconEl = document.createElement('span');
+        iconEl.className = 'order-icon';
+        iconEl.setAttribute('aria-hidden', 'true');
+        iconEl.textContent = icon;
+        const textEl = document.createElement('span');
+        textEl.dir = 'auto';
+        textEl.textContent = text;
+        chip.append(iconEl, textEl);
 
         const del = document.createElement('button');
         del.textContent = '✕';
-        del.title = 'Remove order';
+        del.title = t('removeOrder', { territory: fromName });
+        del.setAttribute('aria-label', del.title);
         del.addEventListener('click', () => {
           state = { ...state, orders: { ...state.orders, p1: state.orders.p1.filter(o => o.unitId !== order.unitId) } };
           render();
@@ -1006,13 +1267,14 @@
 
       // Check if valid move target
       if (E.areAdjacent(state, selectedUnit.terrId, terrId)) {
+        const from = selectedUnit.terrId;
         state = E.issueOrder(state, 'p1', {
           unitId: selectedUnit.unitId,
-          unitTerritory: selectedUnit.terrId,
+          unitTerritory: from,
           type: 'move',
           target: terrId,
         });
-        log(`P1: ${E.getTerritory(state, selectedUnit.terrId).name} → ${terr.name}`, 'log-action');
+        addLog('playerMoveOrder', { from, to: terrId }, 'action');
         selectedUnit = null;
         render();
         return;
@@ -1037,8 +1299,7 @@
         type: 'hold',
         target: null,
       });
-      const terrName = E.getTerritory(state, selectedUnit.terrId).name;
-      log(`P1: ${terrName} HOLD`, 'log-action');
+      addLog('playerHoldOrder', { territory: selectedUnit.terrId }, 'action');
       selectedUnit = null;
       render();
     }
@@ -1052,8 +1313,7 @@
         type: 'support',
         target: selectedUnit.terrId,
       });
-      const terrName = E.getTerritory(state, selectedUnit.terrId).name;
-      log(`P1: ${terrName} SUPPORT (hold)`, 'log-action');
+      addLog('playerSupportOrder', { territory: selectedUnit.terrId }, 'action');
       selectedUnit = null;
       render();
     }
@@ -1067,6 +1327,7 @@
       if (resolving || state.status !== 'playing') return;
       resolving = true;
       selectedUnit = null;
+      render();
 
       // Generate AI orders
       const aiOrders = E.getAIOrders(state);
@@ -1078,32 +1339,27 @@
 
       // Log AI orders
       for (const order of aiOrders) {
-        const fromTerr = state.territories.find(t => t.units.some(u => u.id === order.unitId));
         if (order.type === 'move') {
-          const tgt = E.getTerritory(state, order.target);
-          log(`AI: ${fromTerr ? fromTerr.name : '?'} → ${tgt ? tgt.name : '?'}`, 'log-ai');
+          addLog('aiMoveOrder', {
+            from: order.unitTerritory,
+            to: order.target,
+          }, 'ai');
         } else {
-          log(`AI: ${fromTerr ? fromTerr.name : '?'} HOLD`, 'log-ai');
+          addLog('aiHoldOrder', {
+            territory: order.unitTerritory,
+          }, 'ai');
         }
       }
 
-      render();
-
       const result = E.resolveOrders(state);
       state = result.state;
-
-      for (const m of result.msgs) {
-        const cls = m.includes('bounce') || m.includes('Standoff') ? 'log-bounce'
-                  : m.includes('dislodged') ? 'log-bounce'
-                  : 'log-resolve';
-        log(m, cls);
-      }
+      addLogs(result.events);
 
       resolving = false;
       render();
 
       if (state.status !== 'playing') {
-        log(state.status === 'p1-wins' ? '🏆 Player 1 wins!' : '🏆 AI wins!', 'log-win');
+        addLog(state.status === 'p1-wins' ? 'p1Win' : 'aiWin', {}, 'win');
       }
     }
 
@@ -1111,14 +1367,21 @@
       state = E.initState();
       selectedUnit = null;
       resolving = false;
-      $('dip-log').innerHTML = '';
-      log('New game started. Issue orders, then resolve.', 'log-action');
+      logEntries = [];
+      addLog('newGame', {}, 'action');
       render();
     }
 
-    // Init
-    log('Welcome to Diplomacy Lite! Click your armies to give orders.', 'log-action');
+    i18n.onChange(() => {
+      render();
+      renderLog();
+      document
+        .querySelectorAll('meta[property="og:image:alt"],meta[name="twitter:image:alt"]')
+        .forEach(meta => meta.setAttribute('content', t('metaImageAlt')));
+    });
+
     render();
+    renderLog();
 
     return { holdSelected, supportSelected, cancelSelect, resolve, restart };
   })();

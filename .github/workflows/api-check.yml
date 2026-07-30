@@ -32,6 +32,8 @@ jobs:
         run: node scripts/audit-question-bank.mjs --strict
       - name: Validate static source, taxonomy, and generated card index
         run: node scripts/validate-static.mjs
+      - name: Validate complete English and Arabic coverage
+        run: node scripts/validate-bilingual.mjs
       - name: Test production monitor
         run: node --test scripts/monitor-production.test.mjs
       - name: Install API dependencies

@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play Reversi online against the computer or a friend in this free disc-flipping strategy game. Play instantly with no download or sign-up." />
   <title>Reversi Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073003" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/reversi"/>
   <meta name="robots" content="index,follow"/>
@@ -25,7 +25,8 @@
   <meta name="twitter:description" content="Play Reversi online against the computer or a friend in this free disc-flipping strategy game. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073003"/>
+  <link rel="stylesheet" href="styles.css?v=2026073005"/>
+  <script src="/game-i18n.js?v=2026073005"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -118,6 +119,8 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      border: 0;
+      padding: 0;
       transition: filter .1s;
     }
     /* checkerboard: light = gilt-soft tint, dark = plum */
@@ -169,6 +172,7 @@
   "name": "Reversi",
   "description": "Play Reversi online against the computer or a friend in this free disc-flipping strategy game.",
   "url": "https://jakh.net/reversi",
+  "inLanguage": ["en", "ar"],
   "gamePlatform": "Web browser",
   "operatingSystem": "Any",
   "applicationCategory": "GameApplication",
@@ -186,24 +190,33 @@
 }
     </script>
   </head>
-<body data-page="game">
-  <a href="#top" class="skip-link">Skip to main content</a>
+<body data-page="game" data-game="reversi">
+  <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
   <header class="site-header shell">
-    <a href="/" class="brand" aria-label="JAKH Riddles home">
+    <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
     </a>
-    <nav class="header-actions" aria-label="Quick actions">
-      <a class="ghost-btn" href="/">Home</a>
-      <a class="ghost-btn" href="/play">&#8592; Games</a>
+    <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+      <a class="ghost-btn" href="/play" data-i18n="navGamesBack">&#8592; Games</a>
     </nav>
+    <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
       <div class="hero-copy">
-        <p class="eyebrow">Strategy · Classic</p>
-        <h1>&#9898; Reversi</h1>
-        <p class="hero-text">Flip your opponent's discs. Control the board. Classic Othello rules.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">Strategy · Classic</p>
+        <h1 data-i18n="heroTitle">&#9898; Reversi</h1>
+        <p class="hero-text" data-i18n="heroText">Flip your opponent's discs. Control the board. Classic Othello rules.</p>
       </div>
     </section>
     <section class="shell section-block" id="reversiSection">
@@ -212,14 +225,75 @@
   </main>
   <footer class="site-footer shell">
     <div class="footer-inner">
-      <p class="footer-copy">All rights reserved to JAKH 2026</p>
+      <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
       <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
         <div class="footer-socials">
-        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
-        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a>
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">Instagram</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">Facebook</span></a>
       </div>
     </div>
   </footer>
+
+  <script>
+  JakhGameI18n.register('reversi', {
+    en: {
+      metaTitle: 'Reversi Online — Free Browser Game | JAKH',
+      metaDescription: 'Play Reversi online against the computer or a friend in this free disc-flipping strategy game. Play instantly with no download or sign-up.',
+      heroEyebrow: 'Strategy · Classic',
+      heroTitle: '⚪ Reversi',
+      heroText: 'Flip your opponent’s discs. Control the board. Classic Othello rules.',
+      modeComputer: 'vs Computer',
+      modeTwoPlayer: '2 Players',
+      newGame: 'New Game',
+      versus: 'vs',
+      boardLabel: 'Reversi board',
+      scoreBlack: 'Black: {count} discs',
+      scoreWhite: 'White: {count} discs',
+      cellEmpty: 'Row {row}, column {column}, empty',
+      cellLegal: 'Row {row}, column {column}, legal move',
+      cellBlack: 'Row {row}, column {column}, black disc',
+      cellWhite: 'Row {row}, column {column}, white disc',
+      yourTurn: 'Your turn (Black)',
+      computerThinking: 'Computer thinking…',
+      blackTurn: 'Black’s turn',
+      whiteTurn: 'White’s turn',
+      youWin: 'You win! ⬤ Black wins.',
+      blackWins: '⬤ Black wins!',
+      computerWins: 'Computer wins. ○ White wins.',
+      whiteWins: '○ White wins!',
+      draw: 'It’s a draw!',
+      thinking: 'Thinking…'
+    },
+    ar: {
+      metaTitle: 'ريفيرسي أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'العب ريفيرسي أونلاين ضد الكمبيوتر أو صديق في لعبة استراتيجية مجانية لقلب الأقراص، من دون تنزيل أو تسجيل.',
+      heroEyebrow: 'استراتيجية · كلاسيكية',
+      heroTitle: '⚪ ريفيرسي',
+      heroText: 'اقلب أقراص خصمك وسيطر على الرقعة وفق قواعد أوثيلو الكلاسيكية.',
+      modeComputer: 'ضد الكمبيوتر',
+      modeTwoPlayer: 'لاعبان',
+      newGame: 'لعبة جديدة',
+      versus: 'ضد',
+      boardLabel: 'رقعة ريفيرسي',
+      scoreBlack: 'الأسود: {count} قرصاً',
+      scoreWhite: 'الأبيض: {count} قرصاً',
+      cellEmpty: 'الصف {row}، العمود {column}، خانة فارغة',
+      cellLegal: 'الصف {row}، العمود {column}، نقلة متاحة',
+      cellBlack: 'الصف {row}، العمود {column}، قرص أسود',
+      cellWhite: 'الصف {row}، العمود {column}، قرص أبيض',
+      yourTurn: 'دورك (الأسود)',
+      computerThinking: 'الكمبيوتر يفكر…',
+      blackTurn: 'دور الأسود',
+      whiteTurn: 'دور الأبيض',
+      youWin: 'فزت! فاز الأسود ⬤',
+      blackWins: 'فاز الأسود ⬤',
+      computerWins: 'فاز الكمبيوتر. فاز الأبيض ○',
+      whiteWins: 'فاز الأبيض ○',
+      draw: 'تعادل!',
+      thinking: 'جارٍ التفكير…'
+    }
+  });
+  </script>
 
   <!-- ── ENGINE: pure logic, zero DOM ── -->
   <script id="reversi-engine">
@@ -422,23 +496,24 @@
     'use strict';
 
     var E = ReversiEngine;
+    var I = JakhGameI18n;
     var section = document.getElementById('reversiSection');
 
     // ── Build DOM ──
     section.innerHTML = [
       '<div class="rv-controls">',
-        '<button class="rv-btn active" id="rvModeAI">vs Computer</button>',
-        '<button class="rv-btn" id="rvMode2P">2-Player</button>',
-        '<button class="rv-btn" id="rvNewGame">New Game</button>',
+        '<button class="rv-btn active" id="rvModeAI" type="button" data-i18n="modeComputer">vs Computer</button>',
+        '<button class="rv-btn" id="rvMode2P" type="button" data-i18n="modeTwoPlayer">2 Players</button>',
+        '<button class="rv-btn" id="rvNewGame" type="button" data-i18n="newGame">New Game</button>',
       '</div>',
-      '<div class="rv-scorebar">',
-        '<span><span class="rv-score-disc black"></span><span id="rvScoreB" class="rv-score-val">2</span></span>',
-        '<span style="color:var(--muted)">vs</span>',
-        '<span><span class="rv-score-disc white"></span><span id="rvScoreW" class="rv-score-val">2</span></span>',
+      '<div class="rv-scorebar" dir="ltr">',
+        '<span id="rvBlackScoreGroup"><span class="rv-score-disc black"></span><span id="rvScoreB" class="rv-score-val">2</span></span>',
+        '<span style="color:var(--muted)" data-i18n="versus">vs</span>',
+        '<span id="rvWhiteScoreGroup"><span class="rv-score-disc white"></span><span id="rvScoreW" class="rv-score-val">2</span></span>',
       '</div>',
-      '<div class="rv-status" id="rvStatus">Black\'s turn</div>',
-      '<div class="rv-thinking" id="rvThinking"></div>',
-      '<div class="rv-board-wrap"><div class="rv-board" id="rvBoard"></div></div>'
+      '<div class="rv-status" id="rvStatus" role="status" aria-live="polite">Black\'s turn</div>',
+      '<div class="rv-thinking" id="rvThinking" role="status" aria-live="polite"></div>',
+      '<div class="rv-board-wrap" dir="ltr"><div class="rv-board" id="rvBoard" role="grid" aria-label="Reversi board" data-i18n-aria-label="boardLabel"></div></div>'
     ].join('');
 
     var boardEl     = document.getElementById('rvBoard');
@@ -446,6 +521,8 @@
     var thinkingEl  = document.getElementById('rvThinking');
     var scoreBlackEl = document.getElementById('rvScoreB');
     var scoreWhiteEl = document.getElementById('rvScoreW');
+    var scoreBlackGroup = document.getElementById('rvBlackScoreGroup');
+    var scoreWhiteGroup = document.getElementById('rvWhiteScoreGroup');
     var btnModeAI   = document.getElementById('rvModeAI');
     var btnMode2P   = document.getElementById('rvMode2P');
     var btnNewGame  = document.getElementById('rvNewGame');
@@ -464,8 +541,10 @@
       for (var r = 0; r < 8; r++) {
         cells.push([]);
         for (var c = 0; c < 8; c++) {
-          var cell = document.createElement('div');
+          var cell = document.createElement('button');
+          cell.type = 'button';
           cell.className = 'rv-cell ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+          cell.setAttribute('role', 'gridcell');
           cell.dataset.r = r;
           cell.dataset.c = c;
           cell.addEventListener('click', onCellClick);
@@ -490,6 +569,8 @@
 
       scoreBlackEl.textContent = counts.b;
       scoreWhiteEl.textContent = counts.w;
+      scoreBlackGroup.setAttribute('aria-label', I.t('scoreBlack', { count: I.number(counts.b) }));
+      scoreWhiteGroup.setAttribute('aria-label', I.t('scoreWhite', { count: I.number(counts.w) }));
 
       // Legal moves only relevant while playing
       if (status === 'playing' && state.turn !== null) {
@@ -515,10 +596,25 @@
             cell.appendChild(dot);
           }
 
+          var cellKey = disc === 'b'
+            ? 'cellBlack'
+            : disc === 'w'
+              ? 'cellWhite'
+              : legalSet[r + ',' + c]
+                ? 'cellLegal'
+                : 'cellEmpty';
+          cell.setAttribute('aria-label', I.t(cellKey, {
+            row: I.number(r + 1),
+            column: I.number(c + 1)
+          }));
+
           // Disable clicking during AI turn or game over
           var isAITurn = vsComputer && state.turn !== playerColor;
           if (aiThinking || status !== 'playing' || isAITurn) {
             cell.classList.add('no-interact');
+            cell.disabled = true;
+          } else {
+            cell.disabled = !legalSet[r + ',' + c];
           }
         }
       }
@@ -526,17 +622,16 @@
       // Status text
       statusEl.className = 'rv-status';
       if (status === 'playing') {
-        var turnLabel = state.turn === 'b' ? 'Black' : 'White';
         if (vsComputer) {
-          statusEl.textContent = state.turn === playerColor ? 'Your turn (Black)' : 'Computer thinking…';
+          statusEl.textContent = I.t(state.turn === playerColor ? 'yourTurn' : 'computerThinking');
         } else {
-          statusEl.textContent = turnLabel + '\'s turn';
+          statusEl.textContent = I.t(state.turn === 'b' ? 'blackTurn' : 'whiteTurn');
         }
       } else {
         statusEl.classList.add('highlight');
-        if (status === 'black-wins') statusEl.textContent = vsComputer ? 'You win! ⬤ Black wins.' : '⬤ Black wins!';
-        else if (status === 'white-wins') statusEl.textContent = vsComputer ? 'Computer wins. ○ White wins.' : '○ White wins!';
-        else statusEl.textContent = 'It\'s a draw!';
+        if (status === 'black-wins') statusEl.textContent = I.t(vsComputer ? 'youWin' : 'blackWins');
+        else if (status === 'white-wins') statusEl.textContent = I.t(vsComputer ? 'computerWins' : 'whiteWins');
+        else statusEl.textContent = I.t('draw');
         thinkingEl.textContent = '';
       }
     }
@@ -588,7 +683,7 @@
 
     function scheduleAI() {
       aiThinking = true;
-      thinkingEl.textContent = 'Thinking…';
+      thinkingEl.textContent = I.t('thinking');
       render();
       setTimeout(function() {
         var best = E.getBestMove(gameState, gameState.turn, 4);
@@ -618,7 +713,13 @@
     });
     btnNewGame.addEventListener('click', startGame);
 
+    I.onChange(function() {
+      if (aiThinking) thinkingEl.textContent = I.t('thinking');
+      render();
+    });
+
     // ── Init ──
+    I.apply();
     startGame();
   })();
   </script>

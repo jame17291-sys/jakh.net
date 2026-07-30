@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up." />
   <title>Catan Lite Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073003" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/catan"/>
   <meta name="robots" content="index,follow"/>
@@ -24,8 +24,9 @@
   <meta name="twitter:description" content="Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073003"/>
+  <link rel="stylesheet" href="styles.css?v=2026073005"/>
   <link rel="manifest" href="manifest.webmanifest"/>
+  <script src="/game-i18n.js?v=2026073005"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
   <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
@@ -101,6 +102,7 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 0.5rem;
+      direction: ltr;
     }
 
     .catan-hex {
@@ -164,6 +166,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
+      direction: ltr;
     }
 
     .catan-player-panel {
@@ -380,28 +383,37 @@
 }
     </script>
   </head>
-<body data-page="game">
-  <a href="#top" class="skip-link">Skip to main content</a>
+<body data-page="game" data-game="catan">
+  <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
   <header class="site-header shell">
-    <a href="/" class="brand" aria-label="JAKH Riddles home">
+    <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture>
         <source srcset="assets/logo.webp" type="image/webp"/>
         <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
       </picture>
     </a>
-    <nav class="header-actions">
-      <a class="ghost-btn" href="/">Home</a>
-      <a class="ghost-btn" href="/play">&#8592; Games</a>
+    <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+      <a class="ghost-btn" href="/play" data-i18n="navGamesBack">&#8592; Games</a>
     </nav>
+    <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
       <div class="hero-copy">
-        <p class="eyebrow">Strategy · Resources</p>
-        <h1>&#127963; Catan Lite</h1>
-        <p class="hero-text">Roll dice, collect resources, build settlements and cities. First to 10 victory points wins.</p>
+        <p class="eyebrow" data-i18n="heroEyebrow">Strategy · Resources</p>
+        <h1 data-i18n="heroTitle">&#127963; Catan Lite</h1>
+        <p class="hero-text" data-i18n="heroText">Roll dice, collect resources, build settlements and cities. First to 10 victory points wins.</p>
       </div>
     </section>
 
@@ -409,7 +421,7 @@
       <div id="catan-game">
         <!-- Status bar -->
         <div id="catan-status-bar">
-          <span id="catan-turn-label">Setup — 🔴 Player 1's turn</span>
+          <span id="catan-turn-label"></span>
           <div style="display:flex;align-items:center;gap:0.6rem;">
             <span id="catan-dice-display">⚀⚀</span>
             <span id="catan-dice-total"></span>
@@ -421,22 +433,22 @@
         <div id="catan-setup-hint"></div>
 
         <!-- Hex board -->
-        <div id="catan-board" role="grid" aria-label="Catan board"></div>
+        <div id="catan-board" role="grid" aria-label="Catan board" data-i18n-aria-label="boardLabel" dir="ltr"></div>
 
         <!-- Players -->
         <div id="catan-players">
           <div class="catan-player-panel p1-panel" id="panel-p1">
             <div class="player-name">
-              <span>&#128308; Player 1</span>
-              <span class="player-vp" id="vp-p1">0 VP</span>
+              <span data-i18n="player1">&#128308; Player 1</span>
+              <span class="player-vp" id="vp-p1"></span>
             </div>
             <div class="resource-row" id="res-p1"></div>
             <div class="player-stats" id="stats-p1"></div>
           </div>
           <div class="catan-player-panel p2-panel" id="panel-p2">
             <div class="player-name">
-              <span>&#128309; Player 2 (AI)</span>
-              <span class="player-vp" id="vp-p2">0 VP</span>
+              <span data-i18n="player2">&#128309; Player 2 (AI)</span>
+              <span class="player-vp" id="vp-p2"></span>
             </div>
             <div class="resource-row" id="res-p2"></div>
             <div class="player-stats" id="stats-p2"></div>
@@ -445,57 +457,233 @@
 
         <!-- Actions -->
         <div id="catan-actions">
-          <button class="catan-btn btn-primary" id="btn-roll" onclick="catanUI.roll()">🎲 Roll Dice</button>
-          <button class="catan-btn btn-secondary" id="btn-settlement" onclick="catanUI.startBuildSettlement()">🏠 Settlement (W+B+Wh+Sh)</button>
-          <button class="catan-btn btn-secondary" id="btn-road" onclick="catanUI.buildRoad()">🛣️ Road (W+B)</button>
-          <button class="catan-btn btn-secondary" id="btn-city" onclick="catanUI.startBuildCity()">🏙️ City (2Wh+3O)</button>
-          <button class="catan-btn btn-secondary" id="btn-trade" onclick="catanUI.openTrade()">🔄 Trade 4:1</button>
-          <button class="catan-btn btn-gold" id="btn-end" onclick="catanUI.endTurn()">End Turn ▶</button>
-          <button class="catan-btn btn-danger" id="btn-restart" onclick="catanUI.restart()" style="margin-left:auto;">↺ Restart</button>
+          <button class="catan-btn btn-primary" id="btn-roll" onclick="catanUI.roll()" data-i18n="rollDice">🎲 Roll Dice</button>
+          <button class="catan-btn btn-secondary" id="btn-settlement" onclick="catanUI.startBuildSettlement()" data-i18n="buildSettlement">🏠 Settlement (W+B+Wh+Sh)</button>
+          <button class="catan-btn btn-secondary" id="btn-road" onclick="catanUI.buildRoad()" data-i18n="buildRoad">🛣️ Road (W+B)</button>
+          <button class="catan-btn btn-secondary" id="btn-city" onclick="catanUI.startBuildCity()" data-i18n="buildCity">🏙️ City (2Wh+3O)</button>
+          <button class="catan-btn btn-secondary" id="btn-trade" onclick="catanUI.openTrade()" data-i18n="tradeButton">🔄 Trade 4:1</button>
+          <button class="catan-btn btn-gold" id="btn-end" onclick="catanUI.endTurn()" data-i18n="endTurn">End Turn ▶</button>
+          <button class="catan-btn btn-danger" id="btn-restart" onclick="catanUI.restart()" style="margin-inline-start:auto;" data-i18n="restart">↺ Restart</button>
         </div>
 
         <!-- Log -->
-        <div id="catan-log" aria-live="polite" aria-label="Game log"></div>
+        <div id="catan-log" aria-live="polite" aria-label="Game log" data-i18n-aria-label="gameLogLabel"></div>
       </div>
     </section>
   </main>
 
   <!-- Trade Modal -->
-  <div id="catan-trade-modal" role="dialog" aria-modal="true" aria-label="Bank Trade">
+  <div id="catan-trade-modal" role="dialog" aria-modal="true" aria-label="Bank Trade" data-i18n-aria-label="bankTradeLabel">
     <div class="trade-modal-inner">
-      <h2>🔄 Bank Trade (4:1)</h2>
+      <h2 data-i18n="bankTradeTitle">🔄 Bank Trade (4:1)</h2>
       <div class="trade-row">
-        <label>Give (4 of):</label>
+        <label data-i18n="giveFour">Give (4 of):</label>
         <select id="trade-give">
-          <option value="w">🪵 Wood</option>
-          <option value="o">⛏️ Ore</option>
-          <option value="wh">🌾 Wheat</option>
-          <option value="b">🧱 Brick</option>
-          <option value="s">🐑 Sheep</option>
+          <option value="w" data-resource="w">🪵 Wood</option>
+          <option value="o" data-resource="o">⛏️ Ore</option>
+          <option value="wh" data-resource="wh">🌾 Wheat</option>
+          <option value="b" data-resource="b">🧱 Brick</option>
+          <option value="s" data-resource="s">🐑 Sheep</option>
         </select>
       </div>
       <div class="trade-row">
-        <label>Get (1 of):</label>
+        <label data-i18n="getOne">Get (1 of):</label>
         <select id="trade-get">
-          <option value="wh">🌾 Wheat</option>
-          <option value="o">⛏️ Ore</option>
-          <option value="w">🪵 Wood</option>
-          <option value="b">🧱 Brick</option>
-          <option value="s">🐑 Sheep</option>
+          <option value="wh" data-resource="wh">🌾 Wheat</option>
+          <option value="o" data-resource="o">⛏️ Ore</option>
+          <option value="w" data-resource="w">🪵 Wood</option>
+          <option value="b" data-resource="b">🧱 Brick</option>
+          <option value="s" data-resource="s">🐑 Sheep</option>
         </select>
       </div>
       <div class="trade-actions">
-        <button class="catan-btn btn-primary" onclick="catanUI.confirmTrade()">Confirm Trade</button>
-        <button class="catan-btn btn-secondary" onclick="catanUI.closeTrade()">Cancel</button>
+        <button class="catan-btn btn-primary" onclick="catanUI.confirmTrade()" data-i18n="confirmTrade">Confirm Trade</button>
+        <button class="catan-btn btn-secondary" onclick="catanUI.closeTrade()" data-i18n="cancel">Cancel</button>
       </div>
     </div>
   </div>
+
+  <script id="catan-i18n">
+  JakhGameI18n.register('catan', {
+    en: {
+      metaTitle: 'Catan Lite Online — Free Browser Game | JAKH',
+      metaDescription: 'Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up.',
+      metaImageAlt: 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games',
+      heroEyebrow: 'Strategy · Resources',
+      heroTitle: '🏛 Catan Lite',
+      heroText: 'Roll dice, collect resources, build settlements and cities. First to 10 victory points wins.',
+      boardLabel: 'Catan board',
+      player1: '🔴 Player 1',
+      player2: '🔵 Player 2 (AI)',
+      player1Name: 'Player 1',
+      player2Name: 'Player 2 (AI)',
+      player1Short: 'P1',
+      player2Short: 'P2',
+      setupTurn: 'Setup — {player}’s turn',
+      mainTurn: '{player}’s turn',
+      player1WinsShort: '🏆 Player 1 Wins!',
+      player2WinsShort: '🏆 Player 2 Wins!',
+      phaseSetup: 'Place your starting settlement (step {step}/4)',
+      phaseBuild: 'Build or end turn',
+      phaseRoll: 'Roll dice to start',
+      player1WinBanner: '🏆 Player 1 wins with 10 Victory Points!',
+      player2WinBanner: '🏆 Player 2 (AI) wins with 10 Victory Points!',
+      setupHintHuman: '🔴 Player 1: Click a hex to place your starting settlement.',
+      setupHintAI: '🔵 AI is placing its starting settlement…',
+      victoryPoints: '{points} VP',
+      playerStats: 'Settlements: {settlements} | Cities: {cities} | Roads: {roads}',
+      rollDice: '🎲 Roll Dice',
+      buildSettlement: '🏠 Settlement (W+B+Wh+Sh)',
+      buildRoad: '🛣️ Road (W+B)',
+      buildCity: '🏙️ City (2Wh+3O)',
+      tradeButton: '🔄 Trade 4:1',
+      endTurn: 'End Turn ▶',
+      restart: '↺ Restart',
+      gameLogLabel: 'Game log',
+      bankTradeLabel: 'Bank Trade',
+      bankTradeTitle: '🔄 Bank Trade (4:1)',
+      giveFour: 'Give (4 of):',
+      getOne: 'Get (1 of):',
+      confirmTrade: 'Confirm Trade',
+      cancel: 'Cancel',
+      resourceW: 'Wood',
+      resourceO: 'Ore',
+      resourceWh: 'Wheat',
+      resourceB: 'Brick',
+      resourceS: 'Sheep',
+      resourceDesert: 'Desert',
+      hexLabel: 'Hex {hex}: {resource}, number {number}',
+      hexSetupAction: '{hex}. Place your starting settlement here.',
+      hexSettlementAction: '{hex}. Build a settlement here.',
+      hexCityAction: '{hex}. Upgrade this settlement to a city.',
+      settlementMarker: '{player} settlement',
+      cityMarker: '{player} city',
+      eventAlreadyRolled: 'Already rolled this turn.',
+      eventNotMain: 'The main phase has not started.',
+      eventRoll: '{player} rolled {d1}+{d2}={total}. {outcome}',
+      productionGain: '{player} gets {resources}',
+      productionNone: 'No production.',
+      productionRobber: 'Robber! (No effect in Lite.)',
+      eventOccupied: 'That hex already has a settlement.',
+      eventSetupSettlement: '{player} placed a settlement on hex {hex}.',
+      eventSetupComplete: 'Setup complete! The game begins. Player 1 goes first.',
+      eventRollFirst: 'Roll dice first.',
+      eventCannotSettlement: 'Cannot build a settlement (need W+B+Wh+Sh, maximum 5).',
+      eventSettlementBuilt: '{player} built a settlement on hex {hex}. ({points} VP)',
+      eventCannotRoad: 'Cannot build a road (need W+B, maximum 15).',
+      eventRoadBuilt: '{player} built a road. ({roads} roads)',
+      eventCannotCity: 'Cannot build a city (need 2Wh+3O and an existing settlement).',
+      eventNoSettlement: 'There is no settlement there to upgrade.',
+      eventCityBuilt: '{player} upgraded to a city on hex {hex}. ({points} VP)',
+      eventSameResource: 'Choose two different resources.',
+      eventNeedTrade: 'Need 4 {resource} to trade. You have {count}.',
+      eventBankEmpty: 'The bank has no {resource}.',
+      eventTrade: '{player} traded 4{give} for 1{get}.',
+      eventTurnPassed: 'Turn passed to {player}.',
+      eventAINoOpen: 'AI could not find an open hex during setup.',
+      eventNeedSettlement: 'Not enough resources for a settlement.',
+      eventSelectSettlement: 'Click a hex to place your settlement.',
+      eventNeedCity: 'Not enough resources for a city.',
+      eventSelectCity: 'Click a hex with your settlement to upgrade it to a city.',
+      eventPlayerEnded: 'Player 1 ended the turn.',
+      eventAIEnded: 'AI ended the turn.',
+      eventGameOver: 'Game over!',
+      eventNewGame: 'New game started. Player 1: place your first settlement.',
+      eventWelcome: 'Welcome to Catan Lite! Place your starting settlement to begin.'
+    },
+    ar: {
+      metaTitle: 'كاتان لايت أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'ارمِ النرد واجمع الموارد وابنِ المستوطنات في لعبة استراتيجية مستوحاة من كاتان للاعبين، مجاناً وبلا تنزيل أو تسجيل.',
+      metaImageAlt: 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب',
+      heroEyebrow: 'استراتيجية · موارد',
+      heroTitle: '🏛 كاتان لايت',
+      heroText: 'ارمِ النرد واجمع الموارد وابنِ المستوطنات والمدن. أول من يصل إلى 10 نقاط فوز ينتصر.',
+      boardLabel: 'لوحة كاتان',
+      player1: '🔴 اللاعب 1',
+      player2: '🔵 اللاعب 2 (ذكي)',
+      player1Name: 'اللاعب 1',
+      player2Name: 'اللاعب 2 (ذكي)',
+      player1Short: 'ل1',
+      player2Short: 'ل2',
+      setupTurn: 'الإعداد — دور {player}',
+      mainTurn: 'دور {player}',
+      player1WinsShort: '🏆 فاز اللاعب 1!',
+      player2WinsShort: '🏆 فاز اللاعب 2!',
+      phaseSetup: 'ضع مستوطنتك الأولى (الخطوة {step}/4)',
+      phaseBuild: 'ابنِ أو أنهِ الدور',
+      phaseRoll: 'ارمِ النرد للبدء',
+      player1WinBanner: '🏆 فاز اللاعب 1 بعد وصوله إلى 10 نقاط فوز!',
+      player2WinBanner: '🏆 فاز اللاعب 2 الذكي بعد وصوله إلى 10 نقاط فوز!',
+      setupHintHuman: '🔴 اللاعب 1: اضغط على سداسي لوضع مستوطنتك الأولى.',
+      setupHintAI: '🔵 الذكاء الاصطناعي يضع مستوطنته الأولى…',
+      victoryPoints: '{points} نقطة فوز',
+      playerStats: 'المستوطنات: {settlements} | المدن: {cities} | الطرق: {roads}',
+      rollDice: '🎲 ارمِ النرد',
+      buildSettlement: '🏠 مستوطنة (خشب+طوب+قمح+خروف)',
+      buildRoad: '🛣️ طريق (خشب+طوب)',
+      buildCity: '🏙️ مدينة (2 قمح+3 خام)',
+      tradeButton: '🔄 مبادلة 4:1',
+      endTurn: 'إنهاء الدور ◀',
+      restart: '↺ إعادة البدء',
+      gameLogLabel: 'سجل اللعبة',
+      bankTradeLabel: 'مبادلة البنك',
+      bankTradeTitle: '🔄 مبادلة البنك (4:1)',
+      giveFour: 'أعطِ 4 من:',
+      getOne: 'خذ 1 من:',
+      confirmTrade: 'تأكيد المبادلة',
+      cancel: 'إلغاء',
+      resourceW: 'خشب',
+      resourceO: 'خام',
+      resourceWh: 'قمح',
+      resourceB: 'طوب',
+      resourceS: 'خروف',
+      resourceDesert: 'صحراء',
+      hexLabel: 'السداسي {hex}: {resource}، الرقم {number}',
+      hexSetupAction: '{hex}. ضع مستوطنتك الأولى هنا.',
+      hexSettlementAction: '{hex}. ابنِ مستوطنة هنا.',
+      hexCityAction: '{hex}. طوّر هذه المستوطنة إلى مدينة.',
+      settlementMarker: 'مستوطنة {player}',
+      cityMarker: 'مدينة {player}',
+      eventAlreadyRolled: 'رميت النرد بالفعل في هذا الدور.',
+      eventNotMain: 'لم تبدأ المرحلة الرئيسية بعد.',
+      eventRoll: 'رمى {player} النرد: {d1}+{d2}={total}. {outcome}',
+      productionGain: 'حصل {player} على {resources}',
+      productionNone: 'لا إنتاج.',
+      productionRobber: 'اللص! (بلا تأثير في النسخة الخفيفة.)',
+      eventOccupied: 'توجد مستوطنة على هذا السداسي بالفعل.',
+      eventSetupSettlement: 'وضع {player} مستوطنة على السداسي {hex}.',
+      eventSetupComplete: 'اكتمل الإعداد! تبدأ اللعبة ويلعب اللاعب 1 أولاً.',
+      eventRollFirst: 'ارمِ النرد أولاً.',
+      eventCannotSettlement: 'لا يمكن بناء مستوطنة (تحتاج خشباً وطوباً وقمحاً وخروفاً، والحد 5).',
+      eventSettlementBuilt: 'بنى {player} مستوطنة على السداسي {hex}. ({points} نقطة فوز)',
+      eventCannotRoad: 'لا يمكن بناء طريق (تحتاج خشباً وطوباً، والحد 15).',
+      eventRoadBuilt: 'بنى {player} طريقاً. (المجموع {roads})',
+      eventCannotCity: 'لا يمكن بناء مدينة (تحتاج 2 قمح و3 خام ومستوطنة قائمة).',
+      eventNoSettlement: 'لا توجد مستوطنة هنا لترقيتها.',
+      eventCityBuilt: 'رقّى {player} المستوطنة إلى مدينة على السداسي {hex}. ({points} نقطة فوز)',
+      eventSameResource: 'اختر موردين مختلفين.',
+      eventNeedTrade: 'تحتاج 4 من {resource} للمبادلة، ولديك {count}.',
+      eventBankEmpty: 'لا يملك البنك مورد {resource}.',
+      eventTrade: 'بادل {player} 4{give} مقابل 1{get}.',
+      eventTurnPassed: 'انتقل الدور إلى {player}.',
+      eventAINoOpen: 'لم يجد الذكاء الاصطناعي سدادسياً متاحاً أثناء الإعداد.',
+      eventNeedSettlement: 'لا توجد موارد كافية لبناء مستوطنة.',
+      eventSelectSettlement: 'اضغط على سداسي لوضع مستوطنتك.',
+      eventNeedCity: 'لا توجد موارد كافية لبناء مدينة.',
+      eventSelectCity: 'اضغط على سداسي توجد عليه مستوطنتك لترقيتها إلى مدينة.',
+      eventPlayerEnded: 'أنهى اللاعب 1 دوره.',
+      eventAIEnded: 'أنهى الذكاء الاصطناعي دوره.',
+      eventGameOver: 'انتهت اللعبة!',
+      eventNewGame: 'بدأت لعبة جديدة. اللاعب 1: ضع مستوطنتك الأولى.',
+      eventWelcome: 'مرحباً بك في كاتان لايت! ضع مستوطنتك الأولى للبدء.'
+    }
+  });
+  </script>
 
   <!-- Engine -->
   <script id="catan-engine">
   const CatanEngine = (() => {
     const RESOURCES = ['w','o','wh','b','s'];
-    const RES_NAMES = { w:'Wood', o:'Ore', wh:'Wheat', b:'Brick', s:'Sheep' };
     const RES_ICONS = { w:'🪵', o:'⛏️', wh:'🌾', b:'🧱', s:'🐑' };
     const RES_COLORS = { w:'#2D8B41', o:'#7A8B9A', wh:'#D4A017', b:'#C04A30', s:'#7EC850', desert:'#D4C89A' };
 
@@ -516,6 +704,8 @@
     function emptyResources() { return { w:0, o:0, wh:0, b:0, s:0 }; }
 
     function fullBank() { return { w:19, o:19, wh:19, b:19, s:19 }; }
+
+    function event(code, params = {}) { return { code, params }; }
 
     function initState() {
       return {
@@ -538,8 +728,8 @@
     }
 
     function rollDice(state) {
-      if (state.rolledThisTurn) return { state, msg: 'Already rolled this turn.' };
-      if (state.phase !== 'main') return { state, msg: 'Not in main phase.' };
+      if (state.rolledThisTurn) return { state, events: [event('alreadyRolled')] };
+      if (state.phase !== 'main') return { state, events: [event('notMain')] };
       const d1 = Math.floor(Math.random()*6)+1;
       const d2 = Math.floor(Math.random()*6)+1;
       const total = d1 + d2;
@@ -567,18 +757,27 @@
         }
       }
 
-      const msgs = [];
+      const gains = [];
       for (const pid of ['p1','p2']) {
         const r = gained[pid];
         const total2 = RESOURCES.reduce((s,k) => s + r[k], 0);
         if (total2 > 0) {
-          const parts = RESOURCES.filter(k => r[k]>0).map(k => `${r[k]}${RES_ICONS[k]}`);
-          msgs.push(`${pid==='p1'?'P1':'P2'} gets ${parts.join(' ')}`);
+          gains.push({
+            player: pid,
+            resources: RESOURCES.filter(k => r[k] > 0).map(k => ({ resource: k, count: r[k] }))
+          });
         }
       }
-      const rollMsg = `Rolled ${d1}+${d2}=${total}. ` + (msgs.length ? msgs.join('. ') : total===7 ? 'Robber! (no effect in lite).' : 'No production.');
-      newState.log = [rollMsg, ...newState.log];
-      return { state: newState, msg: rollMsg, d1, d2, total };
+      const rollEvent = event('roll', {
+        player: newState.turn,
+        d1,
+        d2,
+        total,
+        outcome: gains.length ? 'production' : total === 7 ? 'robber' : 'none',
+        gains
+      });
+      newState.log = [rollEvent, ...newState.log];
+      return { state: newState, events: [rollEvent], d1, d2, total };
     }
 
     function canBuild(state, player, type) {
@@ -599,7 +798,7 @@
           newState.players[pid].cities.includes(hexIdx)
         );
         if (occupied) {
-          return { state, msg: 'That hex already has a settlement.' };
+          return { state, events: [event('occupied')] };
         }
         newState.players[cur].settlements.push(hexIdx);
         newState.players[cur].points += 1;
@@ -609,8 +808,7 @@
           newState.players[cur].resources[hex.type] += 1;
         }
         newState.setupSettlementsPlaced[cur] += 1;
-        const msg = `${cur==='p1'?'Player 1':'Player 2'} placed settlement on hex ${hexIdx+1}.`;
-        newState.log = [msg, ...newState.log];
+        const events = [event('setupSettlement', { player: cur, hex: hexIdx + 1 })];
         // Setup order: p1, p2, p2, p1 (snake)
         const step = newState.setupStep + 1;
         newState.setupStep = step;
@@ -620,14 +818,15 @@
         else if (step >= 4) {
           newState.turn = 'p1';
           newState.phase = 'main';
-          newState.log = ['Setup complete! Game begins. P1 goes first.', ...newState.log];
+          events.push(event('setupComplete'));
         }
-        return { state: newState, msg };
+        newState.log = [...events, ...newState.log];
+        return { state: newState, events };
       }
 
       // Main phase
-      if (!state.rolledThisTurn) return { state, msg: 'Roll dice first.' };
-      if (!canBuild(state, state.turn, 'settlement')) return { state, msg: 'Cannot build settlement (need W+B+Wh+Sh, max 5).' };
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (!canBuild(state, state.turn, 'settlement')) return { state, events: [event('cannotSettlement')] };
       const newState = deepClone(state);
       const p = newState.players[newState.turn];
       p.resources.w -= 1; p.resources.b -= 1; p.resources.wh -= 1; p.resources.s -= 1;
@@ -635,31 +834,35 @@
       p.settlements.push(hexIdx);
       p.points += 1;
       newState.builtThisTurn = true;
-      const msg = `${newState.turn==='p1'?'Player 1':'Player 2'} built a settlement on hex ${hexIdx+1}. (${p.points} VP)`;
-      newState.log = [msg, ...newState.log];
+      const builtEvent = event('settlementBuilt', {
+        player: newState.turn,
+        hex: hexIdx + 1,
+        points: p.points
+      });
+      newState.log = [builtEvent, ...newState.log];
       newState.status = getStatus(newState);
-      return { state: newState, msg };
+      return { state: newState, events: [builtEvent] };
     }
 
     function buildRoad(state) {
-      if (!state.rolledThisTurn) return { state, msg: 'Roll dice first.' };
-      if (!canBuild(state, state.turn, 'road')) return { state, msg: 'Cannot build road (need W+B, max 15).' };
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (!canBuild(state, state.turn, 'road')) return { state, events: [event('cannotRoad')] };
       const newState = deepClone(state);
       const p = newState.players[newState.turn];
       p.resources.w -= 1; p.resources.b -= 1;
       newState.bank.w += 1; newState.bank.b += 1;
       p.roads += 1;
       newState.builtThisTurn = true;
-      const msg = `${newState.turn==='p1'?'Player 1':'Player 2'} built a road. (${p.roads} roads)`;
-      newState.log = [msg, ...newState.log];
-      return { state: newState, msg };
+      const roadEvent = event('roadBuilt', { player: newState.turn, roads: p.roads });
+      newState.log = [roadEvent, ...newState.log];
+      return { state: newState, events: [roadEvent] };
     }
 
     function buildCity(state, hexIdx) {
-      if (!state.rolledThisTurn) return { state, msg: 'Roll dice first.' };
-      if (!canBuild(state, state.turn, 'city')) return { state, msg: 'Cannot build city (need 2Wh+3O, must have settlement).' };
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (!canBuild(state, state.turn, 'city')) return { state, events: [event('cannotCity')] };
       const p = state.players[state.turn];
-      if (!p.settlements.includes(hexIdx)) return { state, msg: 'No settlement there to upgrade.' };
+      if (!p.settlements.includes(hexIdx)) return { state, events: [event('noSettlement')] };
       const newState = deepClone(state);
       const np = newState.players[newState.turn];
       np.resources.wh -= 2; np.resources.o -= 3;
@@ -670,27 +873,33 @@
       np.cities.push(hexIdx);
       np.points += 1; // settlement was 1, city is 2 → net +1
       newState.builtThisTurn = true;
-      const msg = `${newState.turn==='p1'?'Player 1':'Player 2'} upgraded to a city on hex ${hexIdx+1}. (${np.points} VP)`;
-      newState.log = [msg, ...newState.log];
+      const cityEvent = event('cityBuilt', {
+        player: newState.turn,
+        hex: hexIdx + 1,
+        points: np.points
+      });
+      newState.log = [cityEvent, ...newState.log];
       newState.status = getStatus(newState);
-      return { state: newState, msg };
+      return { state: newState, events: [cityEvent] };
     }
 
     function trade(state, give, get) {
-      if (!state.rolledThisTurn) return { state, msg: 'Roll dice first.' };
-      if (give === get) return { state, msg: 'Cannot trade same resource.' };
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (give === get) return { state, events: [event('sameResource')] };
       const p = state.players[state.turn];
-      if (p.resources[give] < 4) return { state, msg: `Need 4 ${RES_ICONS[give]} to trade. You have ${p.resources[give]}.` };
-      if (state.bank[get] < 1) return { state, msg: 'Bank has no ' + RES_NAMES[get] + '.' };
+      if (p.resources[give] < 4) {
+        return { state, events: [event('needTrade', { resource: give, count: p.resources[give] })] };
+      }
+      if (state.bank[get] < 1) return { state, events: [event('bankEmpty', { resource: get })] };
       const newState = deepClone(state);
       const np = newState.players[newState.turn];
       np.resources[give] -= 4;
       np.resources[get] += 1;
       newState.bank[give] += 4;
       newState.bank[get] -= 1;
-      const msg = `${newState.turn==='p1'?'Player 1':'Player 2'} traded 4${RES_ICONS[give]} for 1${RES_ICONS[get]}.`;
-      newState.log = [msg, ...newState.log];
-      return { state: newState, msg };
+      const tradeEvent = event('trade', { player: newState.turn, give, get });
+      newState.log = [tradeEvent, ...newState.log];
+      return { state: newState, events: [tradeEvent] };
     }
 
     function endTurn(state) {
@@ -699,8 +908,9 @@
       newState.rolledThisTurn = false;
       newState.builtThisTurn = false;
       newState.dice = null;
-      newState.log = [`Turn passed to ${newState.turn==='p1'?'Player 1':'Player 2'}.`, ...newState.log];
-      return { state: newState };
+      const turnEvent = event('turnPassed', { player: newState.turn });
+      newState.log = [turnEvent, ...newState.log];
+      return { state: newState, events: [turnEvent] };
     }
 
     function getStatus(state) {
@@ -713,12 +923,12 @@
     function getAI(state) {
       // AI = p2. Roll, then try to build the most valuable thing, then end turn.
       let s = deepClone(state);
-      const msgs = [];
+      const events = [];
 
       // Roll
       const rollResult = rollDice(s);
       s = rollResult.state;
-      msgs.push(rollResult.msg);
+      events.push(...rollResult.events);
 
       // Try city first, then settlement, then road
       const p2 = s.players.p2;
@@ -728,7 +938,7 @@
         const hexIdx = p2.settlements[0];
         const result = buildCity(s, hexIdx);
         s = result.state;
-        msgs.push(result.msg);
+        events.push(...result.events);
         built = true;
       }
 
@@ -750,7 +960,7 @@
         if (target !== -1) {
           const result = buildSettlement(s, target);
           s = result.state;
-          msgs.push(result.msg);
+          events.push(...result.events);
           built = true;
         }
       }
@@ -758,20 +968,20 @@
       if (!built && canBuild(s, 'p2', 'road')) {
         const result = buildRoad(s);
         s = result.state;
-        msgs.push(result.msg);
+        events.push(...result.events);
       }
 
       // End turn (back to p1)
       const endResult = endTurn(s);
       s = endResult.state;
-      msgs.push('AI ends turn.');
+      events.push(...endResult.events, event('aiEnded'));
 
-      return { state: s, msgs };
+      return { state: s, events };
     }
 
     function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
 
-    return { initState, rollDice, buildSettlement, buildRoad, buildCity, trade, endTurn, getStatus, canBuild, getAI, RESOURCES, RES_NAMES, RES_ICONS, RES_COLORS };
+    return { initState, rollDice, buildSettlement, buildRoad, buildCity, trade, endTurn, getStatus, canBuild, getAI, RESOURCES, RES_ICONS, RES_COLORS };
   })();
   </script>
 
@@ -779,34 +989,133 @@
   <script id="catan-ui">
   const catanUI = (() => {
     const E = CatanEngine;
+    const i18n = JakhGameI18n;
     let state = E.initState();
     let buildMode = null; // 'settlement' | 'city' | null
+    let logEntries = [];
 
     const DICE_FACES = ['', '⚀','⚁','⚂','⚃','⚄','⚅'];
 
     function $(id) { return document.getElementById(id); }
 
-    function log(msg, cls='') {
-      const el = document.createElement('div');
-      el.className = 'log-entry' + (cls ? ' '+cls : '');
-      el.textContent = msg;
-      $('catan-log').prepend(el);
+    function t(key, values) { return i18n.t(key, values); }
+
+    function playerName(player, short = false) {
+      if (player === 'p1') return t(short ? 'player1Short' : 'player1Name');
+      return t(short ? 'player2Short' : 'player2Name');
+    }
+
+    function resourceName(resource) {
+      return t({ w: 'resourceW', o: 'resourceO', wh: 'resourceWh', b: 'resourceB', s: 'resourceS', desert: 'resourceDesert' }[resource]);
+    }
+
+    function resourceToken(resource, count) {
+      return `${i18n.number(count)}${E.RES_ICONS[resource] || ''}`;
+    }
+
+    function formatEvent(entry) {
+      const params = entry?.params || {};
+      if (!entry?.code) return '';
+      if (entry.code === 'roll') {
+        let outcome = t('productionNone');
+        if (params.outcome === 'robber') {
+          outcome = t('productionRobber');
+        } else if (params.outcome === 'production') {
+          outcome = params.gains.map(gain => t('productionGain', {
+            player: playerName(gain.player, true),
+            resources: gain.resources.map(item => resourceToken(item.resource, item.count)).join(' ')
+          })).join('. ');
+        }
+        return t('eventRoll', {
+          player: playerName(params.player),
+          d1: i18n.number(params.d1),
+          d2: i18n.number(params.d2),
+          total: i18n.number(params.total),
+          outcome
+        });
+      }
+      const messageKey = {
+        alreadyRolled: 'eventAlreadyRolled',
+        notMain: 'eventNotMain',
+        occupied: 'eventOccupied',
+        setupSettlement: 'eventSetupSettlement',
+        setupComplete: 'eventSetupComplete',
+        rollFirst: 'eventRollFirst',
+        cannotSettlement: 'eventCannotSettlement',
+        settlementBuilt: 'eventSettlementBuilt',
+        cannotRoad: 'eventCannotRoad',
+        roadBuilt: 'eventRoadBuilt',
+        cannotCity: 'eventCannotCity',
+        noSettlement: 'eventNoSettlement',
+        cityBuilt: 'eventCityBuilt',
+        sameResource: 'eventSameResource',
+        needTrade: 'eventNeedTrade',
+        bankEmpty: 'eventBankEmpty',
+        trade: 'eventTrade',
+        turnPassed: 'eventTurnPassed',
+        aiNoOpen: 'eventAINoOpen',
+        needSettlement: 'eventNeedSettlement',
+        selectSettlement: 'eventSelectSettlement',
+        needCity: 'eventNeedCity',
+        selectCity: 'eventSelectCity',
+        playerEnded: 'eventPlayerEnded',
+        aiEnded: 'eventAIEnded',
+        gameOver: 'eventGameOver',
+        newGame: 'eventNewGame',
+        welcome: 'eventWelcome'
+      }[entry.code];
+      return messageKey ? t(messageKey, {
+        player: params.player ? playerName(params.player) : '',
+        hex: params.hex === undefined ? '' : i18n.number(params.hex),
+        points: params.points === undefined ? '' : i18n.number(params.points),
+        roads: params.roads === undefined ? '' : i18n.number(params.roads),
+        resource: params.resource ? `${E.RES_ICONS[params.resource] || ''} ${resourceName(params.resource)}` : '',
+        count: params.count === undefined ? '' : i18n.number(params.count),
+        give: params.give ? E.RES_ICONS[params.give] : '',
+        get: params.get ? E.RES_ICONS[params.get] : ''
+      }) : '';
+    }
+
+    function logEvents(events, cls = '') {
+      for (const entry of events || []) logEntries.unshift({ entry, cls });
+      renderLog();
+    }
+
+    function renderLog() {
+      const container = $('catan-log');
+      container.replaceChildren();
+      for (const item of logEntries.slice(0, 30)) {
+        const el = document.createElement('div');
+        el.className = 'log-entry' + (item.cls ? ` ${item.cls}` : '');
+        el.textContent = formatEvent(item.entry);
+        el.setAttribute('dir', 'auto');
+        container.appendChild(el);
+      }
+    }
+
+    function updateTradeOptions() {
+      document.querySelectorAll('#catan-trade-modal option[data-resource]').forEach(option => {
+        const resource = option.dataset.resource;
+        option.textContent = `${E.RES_ICONS[resource]} ${resourceName(resource)}`;
+      });
     }
 
     function render() {
       const s = state;
       // Status bar
-      const turnName = s.turn === 'p1' ? '🔴 Player 1' : '🔵 Player 2 (AI)';
+      const turnName = s.turn === 'p1' ? t('player1') : t('player2');
       $('catan-turn-label').textContent = s.status === 'playing'
-        ? (s.phase === 'setup' ? `Setup — ${turnName}'s turn` : `${turnName}'s turn`)
-        : (s.status === 'p1-wins' ? '🏆 Player 1 Wins!' : '🏆 Player 2 Wins!');
+        ? t(s.phase === 'setup' ? 'setupTurn' : 'mainTurn', { player: turnName })
+        : t(s.status === 'p1-wins' ? 'player1WinsShort' : 'player2WinsShort');
 
-      $('catan-phase-label').textContent = s.phase === 'setup' ? `Place your starting settlement (step ${s.setupStep+1}/4)` : (s.rolledThisTurn ? 'Build or end turn' : 'Roll dice to start');
+      $('catan-phase-label').textContent = s.phase === 'setup'
+        ? t('phaseSetup', { step: i18n.number(s.setupStep + 1) })
+        : t(s.rolledThisTurn ? 'phaseBuild' : 'phaseRoll');
 
       // Dice
       if (s.dice) {
         $('catan-dice-display').textContent = DICE_FACES[s.dice.d1] + DICE_FACES[s.dice.d2];
-        $('catan-dice-total').textContent = `= ${s.dice.total}`;
+        $('catan-dice-total').textContent = `= ${i18n.number(s.dice.total)}`;
       } else {
         $('catan-dice-display').textContent = '⚀⚀';
         $('catan-dice-total').textContent = '';
@@ -816,7 +1125,7 @@
       const wb = $('catan-win-banner');
       if (s.status !== 'playing') {
         wb.style.display = 'block';
-        wb.textContent = s.status === 'p1-wins' ? '🏆 Player 1 wins with 10 Victory Points!' : '🏆 Player 2 (AI) wins with 10 Victory Points!';
+        wb.textContent = t(s.status === 'p1-wins' ? 'player1WinBanner' : 'player2WinBanner');
       } else {
         wb.style.display = 'none';
       }
@@ -825,8 +1134,8 @@
       const sh = $('catan-setup-hint');
       if (s.phase === 'setup') {
         sh.textContent = s.turn === 'p1'
-          ? '🔴 Player 1: Click a hex to place your starting settlement.'
-          : '🔵 AI is placing its starting settlement…';
+          ? t('setupHintHuman')
+          : t('setupHintAI');
       } else {
         sh.textContent = '';
       }
@@ -840,7 +1149,7 @@
         const panel = $(`panel-${pid}`);
         panel.classList.toggle('active-player', s.turn === pid && s.phase === 'main');
 
-        $(`vp-${pid}`).textContent = `${p.points} VP`;
+        $(`vp-${pid}`).textContent = t('victoryPoints', { points: i18n.number(p.points) });
 
         const resEl = $(`res-${pid}`);
         resEl.innerHTML = '';
@@ -848,11 +1157,16 @@
         for (const k of resOrder) {
           const chip = document.createElement('div');
           chip.className = 'resource-chip';
-          chip.innerHTML = `<span class="res-icon">${E.RES_ICONS[k]}</span><span class="res-count">${p.resources[k]}</span>`;
+          chip.innerHTML = `<span class="res-icon">${E.RES_ICONS[k]}</span><span class="res-count">${i18n.number(p.resources[k])}</span>`;
+          chip.title = resourceName(k);
           resEl.appendChild(chip);
         }
 
-        $(`stats-${pid}`).textContent = `Settlements: ${p.settlements.length} | Cities: ${p.cities.length} | Roads: ${p.roads}`;
+        $(`stats-${pid}`).textContent = t('playerStats', {
+          settlements: i18n.number(p.settlements.length),
+          cities: i18n.number(p.cities.length),
+          roads: i18n.number(p.roads)
+        });
       }
 
       // Buttons
@@ -872,11 +1186,31 @@
     function renderBoard(s) {
       const board = $('catan-board');
       board.innerHTML = '';
+      board.setAttribute('aria-label', t('boardLabel'));
       for (const hex of s.hexes) {
         const cell = document.createElement('div');
         cell.className = 'catan-hex';
         cell.setAttribute('role', 'gridcell');
-        cell.setAttribute('aria-label', `Hex ${hex.id+1}: ${hex.type} number ${hex.number}`);
+        const baseLabel = t('hexLabel', {
+          hex: i18n.number(hex.id + 1),
+          resource: resourceName(hex.type),
+          number: i18n.number(hex.number)
+        });
+        const setupTarget = s.status === 'playing' && s.phase === 'setup' && s.turn === 'p1';
+        const settlementTarget = s.status === 'playing' && s.phase === 'main' && s.turn === 'p1' && buildMode === 'settlement';
+        const cityTarget = s.status === 'playing' && s.phase === 'main' && s.turn === 'p1' &&
+          buildMode === 'city' && s.players.p1.settlements.includes(hex.id);
+        const canInteract = setupTarget || settlementTarget || cityTarget;
+        const actionKey = setupTarget
+          ? 'hexSetupAction'
+          : settlementTarget
+            ? 'hexSettlementAction'
+            : cityTarget
+              ? 'hexCityAction'
+              : null;
+        cell.setAttribute('aria-label', actionKey ? t(actionKey, { hex: baseLabel }) : baseLabel);
+        cell.setAttribute('aria-disabled', String(!canInteract));
+        cell.tabIndex = canInteract ? 0 : -1;
         cell.style.background = E.RES_COLORS[hex.type] || '#555';
         cell.style.opacity = hex.type === 'desert' ? '0.7' : '1';
 
@@ -898,7 +1232,15 @@
           }
         }
 
-        cell.addEventListener('click', () => onHexClick(hex.id));
+        if (canInteract) {
+          const activate = () => onHexClick(hex.id);
+          cell.addEventListener('click', activate);
+          cell.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            activate();
+          });
+        }
 
         const icon = document.createElement('div');
         icon.className = 'hex-resource-icon';
@@ -907,7 +1249,7 @@
 
         const num = document.createElement('div');
         num.className = 'hex-number' + (hex.number === 6 || hex.number === 8 ? ' hot' : '');
-        num.textContent = hex.number;
+        num.textContent = i18n.number(hex.number);
         cell.appendChild(num);
 
         // Settlements/cities
@@ -918,13 +1260,13 @@
           for (const si of p.settlements.filter(x => x === hex.id)) {
             const m = document.createElement('div');
             m.className = `settlement-marker ${pid}`;
-            m.title = `${pid==='p1'?'P1':'P2'} settlement`;
+            m.title = t('settlementMarker', { player: playerName(pid) });
             settlDiv.appendChild(m);
           }
           for (const ci of p.cities.filter(x => x === hex.id)) {
             const m = document.createElement('div');
             m.className = `settlement-marker city ${pid}`;
-            m.title = `${pid==='p1'?'P1':'P2'} city`;
+            m.title = t('cityMarker', { player: playerName(pid) });
             settlDiv.appendChild(m);
           }
         }
@@ -941,7 +1283,7 @@
       if (state.phase === 'setup' && state.turn === 'p1') {
         const result = CatanEngine.buildSettlement(state, hexIdx);
         state = result.state;
-        log(result.msg, 'log-action');
+        logEvents(result.events, 'log-action');
         render();
         // If it's now p2's setup turn, trigger AI setup
         if (state.phase === 'setup' && state.turn === 'p2') {
@@ -958,18 +1300,18 @@
       if (buildMode === 'settlement') {
         const result = CatanEngine.buildSettlement(state, hexIdx);
         state = result.state;
-        log(result.msg, 'log-action');
+        logEvents(result.events, 'log-action');
         buildMode = null;
         render();
-        if (state.status !== 'playing') log('Game over!', 'log-win');
+        if (state.status !== 'playing') logEvents([{ code: 'gameOver', params: {} }], 'log-win');
       } else if (buildMode === 'city') {
         if (state.players.p1.settlements.includes(hexIdx)) {
           const result = CatanEngine.buildCity(state, hexIdx);
           state = result.state;
-          log(result.msg, 'log-action');
+          logEvents(result.events, 'log-action');
           buildMode = null;
           render();
-          if (state.status !== 'playing') log('Game over!', 'log-win');
+          if (state.status !== 'playing') logEvents([{ code: 'gameOver', params: {} }], 'log-win');
         }
       }
     }
@@ -994,13 +1336,13 @@
 
       const fallback = state.hexes.find(h => !occupied.has(h.id));
       if (!candidates[0] && !fallback) {
-        log('[AI] No open hex is available for setup.', 'log-action');
+        logEvents([{ code: 'aiNoOpen', params: {} }], 'log-action');
         return;
       }
       const target = candidates[0] ? candidates[0].id : fallback.id;
       const result = CatanEngine.buildSettlement(state, target);
       state = result.state;
-      log('[AI] ' + result.msg, 'log-highlight');
+      logEvents(result.events, 'log-highlight');
       render();
 
       // If AI needs another setup turn (step 2)
@@ -1012,28 +1354,34 @@
     function roll() {
       const result = CatanEngine.rollDice(state);
       state = result.state;
-      log(result.msg, 'log-highlight');
+      logEvents(result.events, 'log-highlight');
       render();
     }
 
     function startBuildSettlement() {
-      if (!CatanEngine.canBuild(state, 'p1', 'settlement')) { log('Not enough resources for settlement.'); return; }
+      if (!CatanEngine.canBuild(state, 'p1', 'settlement')) {
+        logEvents([{ code: 'needSettlement', params: {} }]);
+        return;
+      }
       buildMode = 'settlement';
-      log('Click a hex to place your settlement.', 'log-action');
+      logEvents([{ code: 'selectSettlement', params: {} }], 'log-action');
       render();
     }
 
     function buildRoad() {
       const result = CatanEngine.buildRoad(state);
       state = result.state;
-      log(result.msg, 'log-action');
+      logEvents(result.events, 'log-action');
       render();
     }
 
     function startBuildCity() {
-      if (!CatanEngine.canBuild(state, 'p1', 'city')) { log('Not enough resources for city.'); return; }
+      if (!CatanEngine.canBuild(state, 'p1', 'city')) {
+        logEvents([{ code: 'needCity', params: {} }]);
+        return;
+      }
       buildMode = 'city';
-      log('Click a hex with your settlement to upgrade to a city.', 'log-action');
+      logEvents([{ code: 'selectCity', params: {} }], 'log-action');
       render();
     }
 
@@ -1051,7 +1399,7 @@
       closeTrade();
       const result = CatanEngine.trade(state, give, get);
       state = result.state;
-      log(result.msg, 'log-action');
+      logEvents(result.events, 'log-action');
       render();
     }
 
@@ -1059,7 +1407,7 @@
       buildMode = null;
       const result = CatanEngine.endTurn(state);
       state = result.state;
-      log('Player 1 ended turn.', 'log-action');
+      logEvents([{ code: 'playerEnded', params: {} }], 'log-action');
       render();
       // Trigger AI turn
       if (state.turn === 'p2' && state.phase === 'main' && state.status === 'playing') {
@@ -1070,18 +1418,16 @@
     function doAITurn() {
       const result = CatanEngine.getAI(state);
       state = result.state;
-      for (const msg of result.msgs) {
-        log('[AI] ' + msg, 'log-highlight');
-      }
+      logEvents(result.events, 'log-highlight');
       render();
-      if (state.status !== 'playing') log('Game over!', 'log-win');
+      if (state.status !== 'playing') logEvents([{ code: 'gameOver', params: {} }], 'log-win');
     }
 
     function restart() {
       buildMode = null;
       state = CatanEngine.initState();
-      $('catan-log').innerHTML = '';
-      log('New game started. P1: place your first settlement.', 'log-action');
+      logEntries = [];
+      logEvents([{ code: 'newGame', params: {} }], 'log-action');
       render();
     }
 
@@ -1091,19 +1437,28 @@
     });
 
     // Init
-    log('Welcome to Catan Lite! Place your starting settlement to begin.', 'log-action');
+    updateTradeOptions();
+    logEvents([{ code: 'welcome', params: {} }], 'log-action');
     render();
+    i18n.onChange(() => {
+      render();
+      renderLog();
+      updateTradeOptions();
+      const imageAlt = t('metaImageAlt');
+      document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', imageAlt);
+      document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', imageAlt);
+    });
 
     return { roll, startBuildSettlement, buildRoad, startBuildCity, openTrade, closeTrade, confirmTrade, endTurn, restart };
   })();
   </script>
   <footer class="site-footer shell">
       <div class="footer-inner">
-        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><span>Facebook</span></a>
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel"><span data-i18n="instagramName">Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel"><span data-i18n="facebookName">Facebook</span></a>
         </div>
       </div>
     </footer>

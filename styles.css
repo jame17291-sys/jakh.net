@@ -39,6 +39,7 @@
   --shell:          min(1220px, calc(100vw - 2rem));
   --font:           ui-rounded, "SF Pro Rounded", "Avenir Next", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display:   ui-rounded, "SF Pro Rounded", "Avenir Next", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ar:        "Noto Sans Arabic", "Geeza Pro", Tahoma, Arial, sans-serif;
   --font-mono:      ui-monospace, "SFMono-Regular", Consolas, monospace;
   --theme-color:    #fffaf2;
   --body-bg-image:
@@ -71,6 +72,18 @@ a { color: inherit; text-decoration: none; }
 .shell { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 1rem; }
 [hidden] { display: none !important; }
 .hidden { display: none !important; }
+.bidi-isolate { unicode-bidi: isolate; }
+
+html[lang="ar"] {
+  --font: var(--font-ar);
+  --font-display: var(--font-ar);
+}
+html[lang="ar"] :where(h1, h2, h3, p, a, button, label, input, select, textarea, .badge, .eyebrow, .game-card-tag, .category-card-count-badge, .diff-label) {
+  letter-spacing: normal;
+}
+html[lang="ar"] :where(.badge, .eyebrow, .game-card-tag, .category-card-count-badge, .diff-label) {
+  text-transform: none;
+}
 
 
 .site-header {
@@ -628,7 +641,8 @@ textarea { min-height: 6.5rem; resize: vertical; }
 .category-card-bg::after {
   content: "";
   position: absolute;
-  inset: auto 1rem 1rem auto;
+  inset-block-end: 1rem;
+  inset-inline-end: 1rem;
   width: 88px;
   height: 88px;
   border-radius: 24px;
@@ -662,11 +676,12 @@ textarea { min-height: 6.5rem; resize: vertical; }
   width: 34px;
   height: 34px;
   border-top: 2px solid rgba(255,255,255,0.72);
-  border-right: 2px solid rgba(255,255,255,0.72);
+  border-inline-end: 2px solid rgba(255,255,255,0.72);
   opacity: 0.72;
   transition: transform 0.22s ease, opacity 0.22s ease;
 }
 .category-card:hover .category-card-corner-mark { transform: translate(2px, -2px); opacity: 1; }
+html[dir="rtl"] .category-card:hover .category-card-corner-mark { transform: translate(-2px, -2px); }
 .category-card:hover .category-card-count-badge { border-color: rgba(255,255,255,0.34); }
 
 /* Title area */
@@ -1652,6 +1667,7 @@ html[dir="rtl"] .seo-answer {
   content: ' →';
   color: var(--accent);
 }
+html[dir="rtl"] .suggestion-title::after { content: ' ←'; }
 
 .suggestion-sub {
   position: relative;
@@ -1969,7 +1985,7 @@ html[dir="rtl"] .seo-answer {
 .diff-label { font-size: 0.72rem; font-weight: 600; color: var(--muted); min-width: 4.5rem; text-transform: uppercase; letter-spacing: 0.04em; }
 .diff-track { flex: 1; height: 6px; border-radius: 999px; background: var(--line-strong); overflow: hidden; }
 .diff-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
-.diff-count { font-size: 0.72rem; font-weight: 600; color: var(--muted); min-width: 2.5rem; text-align: right; }
+.diff-count { font-size: 0.72rem; font-weight: 600; color: var(--muted); min-width: 2.5rem; text-align: end; }
 
 /* ── Card share button ───────────────────────────────── */
 .card-share-btn { opacity: 0.55; font-size: 0.9rem; padding: 0.25rem 0.5rem; }
@@ -2465,6 +2481,8 @@ html[dir="rtl"] .seo-answer {
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--accent);
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 .battle-code-hint { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; }
 .battle-player-list { display: flex; flex-direction: column; gap: 0.45rem; }
@@ -2494,7 +2512,7 @@ html[dir="rtl"] .seo-answer {
   flex-shrink: 0;
   flex-wrap: wrap;
 }
-.battle-hud-code { font-family: var(--font-mono); font-weight: 700; color: var(--accent); font-size: 0.82rem; }
+.battle-hud-code { font-family: var(--font-mono); font-weight: 700; color: var(--accent); font-size: 0.82rem; direction: ltr; unicode-bidi: isolate; }
 .battle-round-label { font-weight: 600; color: var(--text); }
 .battle-player-count { margin-inline-start: auto; }
 .battle-timer-badge {
@@ -3383,7 +3401,7 @@ input, select, textarea {
 .game-card-badge {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  inset-inline-end: 1rem;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -3454,6 +3472,7 @@ input, select, textarea {
 }
 
 .game-card-play:hover { background: var(--ember-deep); transform: translateX(2px); }
+html[dir="rtl"] .game-card-play:hover { transform: translateX(-2px); }
 
 .game-soon-grid {
   display: grid;

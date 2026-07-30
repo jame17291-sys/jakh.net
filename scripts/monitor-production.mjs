@@ -10,23 +10,23 @@ const ALLOWED_ORIGIN = "https://jakh.net";
 const DISALLOWED_ORIGIN = "https://example.invalid";
 
 export const HTML_ROUTES = [
-  { name: "Home", path: "/", marker: "<title>JAKH Riddles" },
-  { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab" },
-  { name: "Collections", path: "/collections", marker: "<title>Riddles &amp; Quiz Collections" },
-  { name: "Arabic riddles collection", path: "/ar/alghaz-ma-alhal/", marker: '<html lang="ar"' },
-  { name: "About", path: "/about", marker: "<title>About JAKH" },
-  { name: "Game Hub", path: "/play", marker: "<title>10 Free Browser Games" },
-  { name: "Science category", path: "/science", marker: "<title>Science Quiz" },
-  { name: "Chess", path: "/chess", marker: "<title>Chess Online" },
-  { name: "Mastermind", path: "/mastermind", marker: "<title>Mastermind Online" },
-  { name: "Go", path: "/go", marker: "<title>Go Online" },
-  { name: "Reversi", path: "/reversi", marker: "<title>Reversi Online" },
-  { name: "Codenames", path: "/codenames", marker: "<title>Codenames Online" },
-  { name: "Catan", path: "/catan", marker: "<title>Catan Lite Online" },
-  { name: "Backgammon", path: "/backgammon", marker: "<title>Backgammon Online" },
-  { name: "SET", path: "/set", marker: "<title>SET Online" },
-  { name: "Hanabi", path: "/hanabi", marker: "<title>Hanabi Online" },
-  { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online" },
+  { name: "Home", path: "/", marker: "<title>JAKH Riddles", bilingualMarker: 'id="langSelect"' },
+  { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
+  { name: "Collections", path: "/collections", marker: "<title>Riddles &amp; Quiz Collections", bilingualMarker: "site-i18n.js" },
+  { name: "Arabic riddles collection", path: "/ar/alghaz-ma-alhal/", marker: '<html lang="ar"', bilingualMarker: 'hreflang="en"' },
+  { name: "About", path: "/about", marker: "<title>About JAKH", bilingualMarker: "site-i18n.js" },
+  { name: "Game Hub", path: "/play", marker: "<title>10 Free Browser Games", bilingualMarker: 'id="langSelect"' },
+  { name: "Science category", path: "/science", marker: "<title>Science Quiz", bilingualMarker: 'id="langSelect"' },
+  { name: "Chess", path: "/chess", marker: "<title>Chess Online", bilingualMarker: "game-i18n.js" },
+  { name: "Mastermind", path: "/mastermind", marker: "<title>Mastermind Online", bilingualMarker: "game-i18n.js" },
+  { name: "Go", path: "/go", marker: "<title>Go Online", bilingualMarker: "game-i18n.js" },
+  { name: "Reversi", path: "/reversi", marker: "<title>Reversi Online", bilingualMarker: "game-i18n.js" },
+  { name: "Codenames", path: "/codenames", marker: "<title>Codenames Online", bilingualMarker: "game-i18n.js" },
+  { name: "Catan", path: "/catan", marker: "<title>Catan Lite Online", bilingualMarker: "game-i18n.js" },
+  { name: "Backgammon", path: "/backgammon", marker: "<title>Backgammon Online", bilingualMarker: "game-i18n.js" },
+  { name: "SET", path: "/set", marker: "<title>SET Online", bilingualMarker: "game-i18n.js" },
+  { name: "Hanabi", path: "/hanabi", marker: "<title>Hanabi Online", bilingualMarker: "game-i18n.js" },
+  { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
 ];
 
 function positiveInteger(value, fallback, label) {
@@ -208,6 +208,10 @@ export async function runProductionMonitor(options = {}) {
       expectStatus(resource.response, 200);
       expectContentType(resource.response, /^text\/html\b/iu);
       expect(resource.text.includes(route.marker), `missing page marker "${route.marker}"`);
+      expect(
+        resource.text.includes(route.bilingualMarker),
+        `missing bilingual marker "${route.bilingualMarker}"`,
+      );
       if (route.path === "/science") {
         const cardCount = (resource.text.match(/class="riddle-card"/gu) || []).length;
         expect(cardCount === 20, `science source contains ${cardCount} static cards instead of 20`);
@@ -294,6 +298,20 @@ export async function runProductionMonitor(options = {}) {
       type: /(?:text|application)\/javascript/iu,
       marker: "https://api.jakh.net",
       maxBytes: 350_000,
+    },
+    {
+      name: "Static page translations",
+      path: "/site-i18n.js",
+      type: /(?:text|application)\/javascript/iu,
+      marker: "window.JakhI18n",
+      maxBytes: 50_000,
+    },
+    {
+      name: "Game translations",
+      path: "/game-i18n.js",
+      type: /(?:text|application)\/javascript/iu,
+      marker: "window.JakhGameI18n",
+      maxBytes: 50_000,
     },
     {
       name: "CSS",

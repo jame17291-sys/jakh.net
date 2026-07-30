@@ -6,7 +6,7 @@ import { QA_HOLD_IDS, SEO_COLLECTIONS } from "./seo-collections.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = "https://jakh.net";
-const ASSET_VERSION = "2026073003";
+const ASSET_VERSION = "2026073005";
 const LAST_MODIFIED = "2026-07-30";
 const PREVIEW_CARD_COUNT = 20;
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
@@ -109,10 +109,13 @@ function jsonLd(value) {
   return JSON.stringify(value, null, 2).replaceAll("</", "<\\/");
 }
 
-function socialMeta({ title, description, url, type = "website" }) {
+function socialMeta({ title, description, url, type = "website", lang = "en" }) {
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeUrl = escapeHtml(url);
+  const imageAlt = lang === "ar"
+    ? "JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب"
+    : "JAKH — 3,553 bilingual riddles across 56 topics and 10 games";
   return `    <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDescription}" />
     <meta property="og:type" content="${type}" />
@@ -121,13 +124,13 @@ function socialMeta({ title, description, url, type = "website" }) {
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta property="og:image:alt" content="${imageAlt}" />
     <meta property="og:site_name" content="JAKH Riddles" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${safeTitle}" />
     <meta name="twitter:description" content="${safeDescription}" />
     <meta name="twitter:image" content="${OG_IMAGE_URL}" />
-    <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />`;
+    <meta name="twitter:image:alt" content="${imageAlt}" />`;
 }
 
 function analyticsHead() {
@@ -140,8 +143,10 @@ function analyticsHead() {
     </script>`;
 }
 
-function brandMarkup() {
-  return `<a href="/" class="brand" aria-label="JAKH Riddles home">
+function brandMarkup(lang = "en", dynamic = false, href = "/") {
+  const isAr = lang === "ar";
+  const i18nAttribute = dynamic ? ' data-i18n-aria-label="brandHomeLabel"' : "";
+  return `<a href="${escapeHtml(href)}" class="brand" aria-label="${isAr ? "الصفحة الرئيسية لألغاز JAKH" : "JAKH Riddles home"}"${i18nAttribute}>
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
@@ -149,18 +154,24 @@ function brandMarkup() {
       </a>`;
 }
 
-function globalFooter(lang = "en") {
+function globalFooter(lang = "en", dynamic = false, languageQuery = "", translationContract = "site") {
   const isAr = lang === "ar";
+  const instagramLabel = isAr ? "ألغاز JAKH على إنستغرام" : "JAKH Riddles on Instagram";
+  const facebookLabel = isAr ? "ألغاز JAKH على فيسبوك" : "JAKH Riddles on Facebook";
+  const instagramKey = translationContract === "app" ? "socialInstagramLabel" : "instagramLabel";
+  const facebookKey = translationContract === "app" ? "socialFacebookLabel" : "facebookLabel";
+  const instagramI18n = dynamic ? ` data-i18n-aria-label="${instagramKey}"` : "";
+  const facebookI18n = dynamic ? ` data-i18n-aria-label="${facebookKey}"` : "";
   return `<footer class="site-footer shell">
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">${isAr ? "جميع الحقوق محفوظة لـ JAKH 2026" : "All rights reserved to JAKH 2026"}</p>
         <nav class="footer-site-links" aria-label="${isAr ? "معلومات JAKH" : "JAKH information"}" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections" data-i18n="footerCollections">${isAr ? "المجموعات" : "Collections"}</a>
-          <a href="/about" data-i18n="footerAbout">${isAr ? "عن JAKH ومعايير المحتوى" : "About &amp; content standards"}</a>
+          <a href="/collections${escapeHtml(languageQuery)}" data-i18n="footerCollections">${isAr ? "المجموعات" : "Collections"}</a>
+          <a href="/about${escapeHtml(languageQuery)}" data-i18n="footerAbout">${isAr ? "عن JAKH ومعايير المحتوى" : "About &amp; content standards"}</a>
         </nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><span>Facebook</span></a>
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="${instagramLabel}"${instagramI18n}><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="${facebookLabel}"${facebookI18n}><span>Facebook</span></a>
         </div>
       </div>
     </footer>`;
@@ -361,7 +372,7 @@ ${analyticsHead()}
   <body data-page="category" data-category="${escapeHtml(category.slug)}">
     <a href="#top" class="skip-link">Skip to main content</a>
     <header class="site-header shell">
-      ${brandMarkup()}
+      ${brandMarkup("en", true)}
       <nav class="header-actions" aria-label="Quick actions">
         <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="/mind-lab" data-i18n="navCategories">Categories</a>
@@ -455,7 +466,7 @@ ${analyticsHead()}
       </section>
     </main>
 
-    ${globalFooter()}
+    ${globalFooter("en", true, "", "app")}
     ${authModal()}
     <script src="/app.js?v=${ASSET_VERSION}"></script>
   </body>
@@ -513,6 +524,8 @@ function normalizeSocialMeta(source) {
   next = next.replaceAll("assets/og-image.webp", "/assets/og-image.jpg");
   next = next.replace(/styles\.css\?v=\d+/gu, `styles.css?v=${ASSET_VERSION}`);
   next = next.replace(/app\.js\?v=\d+/gu, `app.js?v=${ASSET_VERSION}`);
+  next = next.replace(/site-i18n\.js\?v=\d+/gu, `site-i18n.js?v=${ASSET_VERSION}`);
+  next = next.replace(/game-i18n\.js\?v=\d+/gu, `game-i18n.js?v=${ASSET_VERSION}`);
   next = next.replace(/\s*<meta name="keywords"[^>]*\/?>/giu, "");
   next = next.replace(/\s*<!-- Hreflang[^>]*-->\s*/giu, "\n");
   next = next.replace(/\s*<link rel="alternate" hreflang="(?:en|ar|x-default)"[^>]*\/?>/giu, "");
@@ -697,6 +710,9 @@ function normalizeExistingPage(source, file) {
     next = replaceMetaContent(next, "property", "og:description", description);
     next = replaceMetaContent(next, "name", "twitter:title", title);
     next = replaceMetaContent(next, "name", "twitter:description", description);
+    if (!/\bdata-game=["']/iu.test(next)) {
+      next = next.replace(/<body([^>]*)>/iu, `<body$1 data-game="${slug}">`);
+    }
     if (!next.includes("site-footer")) {
       next = next.replace(/<\/body>/iu, `  ${globalFooter()}\n  </body>`);
     }
@@ -758,6 +774,7 @@ function renderCollectionPage(collection, lang, cards) {
   const otherLang = isAr ? "en" : "ar";
   const canonical = collectionUrl(collection, lang);
   const alternate = collectionUrl(collection, otherLang);
+  const languageQuery = `?lang=${lang}`;
   const title = collectionTitle(collection, lang);
   const description = collectionDescription(collection, lang);
   const label = isAr ? "الإجابة" : "Answer";
@@ -798,7 +815,7 @@ function renderCollectionPage(collection, lang, cards) {
             <div class="seo-answer">
               <p class="seo-answer-label">${label}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
-              <a href="/${escapeHtml(card.sourceCategory.slug)}?card=${encodeURIComponent(card.id)}">${sourceLabel} →</a>
+              <a href="/${escapeHtml(card.sourceCategory.slug)}?card=${encodeURIComponent(card.id)}&amp;lang=${lang}">${sourceLabel} ${isAr ? "←" : "→"}</a>
             </div>
           </details>
         </article>`).join("\n        ");
@@ -810,7 +827,15 @@ function renderCollectionPage(collection, lang, cards) {
 <html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
+    <script>
+      document.documentElement.dataset.theme = "light";
+      try {
+        var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
+        savedSettings.lang = "${lang}";
+        localStorage.setItem("jakh-riddles-settings", JSON.stringify(savedSettings));
+      } catch (_) {}
+    </script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="${escapeHtml(description)}" />
@@ -821,7 +846,7 @@ function renderCollectionPage(collection, lang, cards) {
     <link rel="alternate" hreflang="${otherLang}" href="${alternate}" />
     <link rel="alternate" hreflang="x-default" href="${collectionUrl(collection, "en")}" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-${socialMeta({ title, description, url: canonical, type: "article" })}
+${socialMeta({ title, description, url: canonical, type: "article", lang })}
     <script type="application/ld+json">
 ${jsonLd(structured)}
     </script>
@@ -831,11 +856,11 @@ ${analyticsHead()}
   <body class="seo-page">
     <a href="#content" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
     <header class="site-header shell">
-      ${brandMarkup()}
+      ${brandMarkup(lang, false, `/${languageQuery}`)}
       <nav class="header-actions" aria-label="${isAr ? "التنقل" : "Quick actions"}">
-        <a class="ghost-btn" href="/">${isAr ? "الرئيسية" : "Home"}</a>
-        <a class="ghost-btn" href="/collections">${isAr ? "المجموعات" : "Collections"}</a>
-        <a class="ghost-btn" href="${alternate}" lang="${otherLang}">${isAr ? "English" : "العربية"}</a>
+        <a class="ghost-btn" href="/${languageQuery}">${isAr ? "الرئيسية" : "Home"}</a>
+        <a class="ghost-btn" href="/collections${languageQuery}">${isAr ? "المجموعات" : "Collections"}</a>
+        <a class="ghost-btn" href="${alternate}" lang="${otherLang}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
       </nav>
     </header>
     <main id="content">
@@ -857,12 +882,12 @@ ${disclaimer ? `        ${disclaimer}\n` : ""}
         <h2>${isAr ? "واصل اللعب" : "Keep playing"}</h2>
         <p>${isAr ? "استكشف المجموعة الكاملة، وبدّل اللغة، وتابع نتيجتك في مختبر العقل." : "Explore the full library, switch languages, and track your score in the Mind Lab."}</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab">${isAr ? "افتح مختبر العقل" : "Open the Mind Lab"}</a>
-          <a class="ghost-btn" href="/collections">${isAr ? "كل المجموعات" : "All collections"}</a>
+          <a class="primary-btn" href="/mind-lab${languageQuery}">${isAr ? "افتح مختبر العقل" : "Open the Mind Lab"}</a>
+          <a class="ghost-btn" href="/collections${languageQuery}">${isAr ? "كل المجموعات" : "All collections"}</a>
         </div>
       </section>
     </main>
-    ${globalFooter(lang)}
+    ${globalFooter(lang, false, languageQuery)}
   </body>
 </html>`;
 }
@@ -870,15 +895,27 @@ ${disclaimer ? `        ${disclaimer}\n` : ""}
 function renderCollectionsHub(collectionsWithCards) {
   const title = "Riddles & Quiz Collections in English and Arabic | JAKH";
   const description = "Explore focused JAKH collections of riddles, kids questions, logic puzzles, general knowledge, football, and nostalgia quizzes in English and Arabic.";
-  const cards = collectionsWithCards.map(({ collection, cards }) => `<article class="seo-hub-card">
-          <p class="eyebrow">${cards.length} questions · ${escapeHtml(collectionSourceLabel(collection, "en"))}</p>
-          <h2>${escapeHtml(collectionHeading(collection, "en"))}</h2>
-          <p>${escapeHtml(collection.intro.en)}</p>
+  const translationPrefixes = {
+    "riddles-with-answers": "collectionClassic",
+    "kids-riddles-with-answers": "collectionKids",
+    "logic-puzzles-with-answers": "collectionLogic",
+    "general-knowledge-quiz-questions": "collectionGeneral",
+    "spacetoon-quiz": "collectionSpacetoon",
+    "football-rules-quiz": "collectionFootball",
+  };
+  const cards = collectionsWithCards.map(({ collection, cards: collectionCards }) => {
+    const prefix = translationPrefixes[collection.key];
+    if (!prefix) throw new Error(`Missing collections hub translation prefix for ${collection.key}`);
+    return `<article class="seo-hub-card">
+          <p class="eyebrow" data-i18n="${prefix}Meta">${collectionCards.length} questions · ${escapeHtml(collectionSourceLabel(collection, "en"))}</p>
+          <h2 data-i18n="${prefix}Title">${escapeHtml(collectionHeading(collection, "en"))}</h2>
+          <p data-i18n="${prefix}Text">${escapeHtml(collection.intro.en)}</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/${escapeHtml(collectionSlug(collection, "en"))}/">English</a>
-            <a class="ghost-btn" href="/ar/${escapeHtml(collectionSlug(collection, "ar"))}/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/${escapeHtml(collectionSlug(collection, "en"))}/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/${escapeHtml(collectionSlug(collection, "ar"))}/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
-        </article>`).join("\n        ");
+        </article>`;
+  }).join("\n        ");
   const structured = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -910,28 +947,37 @@ ${jsonLd(structured)}
     <link rel="stylesheet" href="/styles.css?v=${ASSET_VERSION}" />
 ${analyticsHead()}
   </head>
-  <body class="seo-page">
-    <a href="#content" class="skip-link">Skip to main content</a>
+  <body class="seo-page" data-i18n-page="collections">
+    <a href="#content" class="skip-link" data-i18n="skipMain">Skip to main content</a>
     <header class="site-header shell">
-      ${brandMarkup()}
-      <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/mind-lab">Mind Lab</a>
-        <a class="ghost-btn" href="/play">Games</a>
+      ${brandMarkup("en", true)}
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="/mind-lab" data-i18n="navMindLab">Mind Lab</a>
+        <a class="ghost-btn" href="/play" data-i18n="navGames">Games</a>
       </nav>
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
     </header>
     <main id="content">
       <section class="seo-collection-hero shell">
-        <p class="eyebrow">Focused ways to play</p>
-        <h1>Riddles and quiz collections</h1>
-        <p>Start with a search-friendly collection, reveal each answer at your own pace, then continue into the full 3,553-question Mind Lab.</p>
-        <p lang="ar" dir="rtl">ابدأ بمجموعة مختارة، واكشف كل إجابة بالسرعة التي تناسبك، ثم واصل اللعب في مختبر العقل الذي يضم 3,553 سؤالاً.</p>
+        <p class="eyebrow" data-i18n="collectionsEyebrow">Focused ways to play</p>
+        <h1 data-i18n="collectionsTitle">Riddles and quiz collections</h1>
+        <p data-i18n="collectionsIntro">Start with a focused collection, reveal each answer at your own pace, then continue into the full 3,553-question Mind Lab.</p>
       </section>
       <section class="seo-hub-grid shell">
         ${cards}
       </section>
     </main>
-    ${globalFooter()}
+    ${globalFooter("en", true)}
+    <script defer src="/site-i18n.js?v=${ASSET_VERSION}"></script>
   </body>
 </html>`;
 }
@@ -967,33 +1013,42 @@ ${jsonLd(structured)}
     <link rel="stylesheet" href="/styles.css?v=${ASSET_VERSION}" />
 ${analyticsHead()}
   </head>
-  <body class="seo-page">
-    <a href="#content" class="skip-link">Skip to main content</a>
+  <body class="seo-page" data-i18n-page="about">
+    <a href="#content" class="skip-link" data-i18n="skipMain">Skip to main content</a>
     <header class="site-header shell">
-      ${brandMarkup()}
-      <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/mind-lab">Mind Lab</a>
-        <a class="ghost-btn" href="/collections">Collections</a>
+      ${brandMarkup("en", true)}
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="/mind-lab" data-i18n="navMindLab">Mind Lab</a>
+        <a class="ghost-btn" href="/collections" data-i18n="navCollections">Collections</a>
       </nav>
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
     </header>
     <main id="content" class="standards-page shell">
       <section class="seo-collection-hero">
-        <p class="eyebrow">About JAKH</p>
-        <h1>A friendly bilingual place to think, learn, and play</h1>
-        <p>JAKH is a free English-and-Arabic riddle, quiz, and browser-game website. The library currently includes 3,553 question cards mapped into 56 topics and five clear sections.</p>
-        <p lang="ar" dir="rtl">JAKH موقع مجاني للألغاز والاختبارات والألعاب باللغتين العربية والإنجليزية. تضم المكتبة حالياً 3,553 بطاقة سؤال موزعة على 56 موضوعاً وخمسة أقسام واضحة.</p>
+        <p class="eyebrow" data-i18n="aboutEyebrow">About JAKH</p>
+        <h1 data-i18n="aboutTitle">A friendly bilingual place to think, learn, and play</h1>
+        <p data-i18n="aboutIntro">JAKH is a free English-and-Arabic riddle, quiz, and browser-game website. The library currently includes 3,553 question cards mapped into 56 topics and five clear sections.</p>
       </section>
       <section id="standards" class="standards-grid">
-        <article><h2>How content is organized</h2><p>Every question belongs to one category, one practical subtopic, and one difficulty level. Related categories and focused collections help people move through the library without a maze of overlapping pages.</p></article>
-        <article><h2>Review and translation</h2><p>Questions require complete English and Arabic prompts and answers. Automated audits catch missing fields, taxonomy drift, and exact duplicates; high-traffic collections receive an additional meaning and answer-parity review before publication.</p></article>
-        <article><h2>Accuracy and corrections</h2><p>Evergreen facts are preferred. Time-sensitive facts and professional topics need extra review. You can flag an individual card from its share/report controls or send a correction through the suggestion box in the <a href="/mind-lab">Mind Lab</a>.</p></article>
-        <article><h2>Educational boundaries</h2><p>JAKH is for learning and entertainment. Medical, legal, financial, pharmacy, and psychology questions are not professional advice and should not be used to make personal decisions.</p></article>
-        <article><h2>Independence</h2><p>Fan-made quizzes are clearly labelled and do not imply affiliation, endorsement, or ownership of third-party names or marks. JAKH does not use unlicensed character artwork in its focused collections.</p></article>
-        <article><h2>Stay connected</h2><p>Follow <a class="social-link" rel="me noopener noreferrer" href="https://www.instagram.com/jakhriddles/">JAKH Riddles on Instagram</a> and <a class="social-link" rel="me noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588921894305">JAKH Riddles on Facebook</a> for new riddles and site updates.</p></article>
+        <article><h2 data-i18n="standardsOrganizedTitle">How content is organized</h2><p data-i18n="standardsOrganizedText">Every question belongs to one category, one practical subtopic, and one difficulty level. Related categories and focused collections help people move through the library without a maze of overlapping pages.</p></article>
+        <article><h2 data-i18n="standardsTranslationTitle">Review and translation</h2><p data-i18n="standardsTranslationText">Questions require complete English and Arabic prompts and answers. Automated audits catch missing fields, taxonomy drift, and exact duplicates; high-traffic collections receive an additional meaning and answer-parity review before publication.</p></article>
+        <article><h2 data-i18n="standardsAccuracyTitle">Accuracy and corrections</h2><p data-i18n-html="standardsAccuracyText">Evergreen facts are preferred. Time-sensitive facts and professional topics need extra review. You can flag an individual card from its share/report controls or send a correction through the suggestion box in the <a href="/mind-lab">Mind Lab</a>.</p></article>
+        <article><h2 data-i18n="standardsBoundariesTitle">Educational boundaries</h2><p data-i18n="standardsBoundariesText">JAKH is for learning and entertainment. Medical, legal, financial, pharmacy, and psychology questions are not professional advice and should not be used to make personal decisions.</p></article>
+        <article><h2 data-i18n="standardsIndependenceTitle">Independence</h2><p data-i18n="standardsIndependenceText">Fan-made quizzes are clearly labelled and do not imply affiliation, endorsement, or ownership of third-party names or marks. JAKH does not use unlicensed character artwork in its focused collections.</p></article>
+        <article><h2 data-i18n="standardsConnectedTitle">Stay connected</h2><p data-i18n-html="standardsConnectedText">Follow <a class="social-link" rel="me noopener noreferrer" href="https://www.instagram.com/jakhriddles/">JAKH Riddles on Instagram</a> and <a class="social-link" rel="me noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588921894305">JAKH Riddles on Facebook</a> for new riddles and site updates.</p></article>
       </section>
     </main>
-    ${globalFooter()}
+    ${globalFooter("en", true)}
+    <script defer src="/site-i18n.js?v=${ASSET_VERSION}"></script>
   </body>
 </html>`;
 }

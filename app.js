@@ -197,6 +197,62 @@ const UI = {
     playAvailable: '10 games available now',
     playPick: 'Pick a game',
     playBrowserOnly: 'All games run entirely in your browser — nothing installed.',
+    playChessAria: 'Play Chess',
+    playChessTitle: 'Chess',
+    playChessDesc: 'Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend.',
+    playChessCta: 'Play Chess →',
+    playMastermindAria: 'Play Mastermind',
+    playMastermindTitle: 'Mastermind',
+    playMastermindDesc: 'Crack the secret 4-colour code in 10 attempts. Use the Hint button for the optimal Knuth move.',
+    playMastermindCta: 'Play Mastermind →',
+    playGoAria: 'Play Go',
+    playGoTitle: 'Go (9×9)',
+    playGoDesc: 'Ancient strategy: capture stones, claim territory on a 9×9 board. Two consecutive passes end the game — territory + captures decides the winner.',
+    playGoCta: 'Play Go →',
+    playReversiAria: 'Play Reversi',
+    playReversiTitle: 'Reversi',
+    playReversiDesc: 'Flip your opponent’s discs by trapping them. Corners are king. Minimax AI at depth 4 — control the board or get outflanked.',
+    playReversiCta: 'Play Reversi →',
+    playCodenamesAria: 'Play Codenames',
+    playCodenamesTitle: 'Codenames',
+    playCodenamesDesc: 'The AI Spymaster gives you one-word clues. Find all 9 red agents on the 5×5 grid — but avoid the assassin or it’s game over.',
+    playCodenamesCta: 'Play Codenames →',
+    playCatanAria: 'Play Catan Lite',
+    playCatanTitle: 'Catan Lite',
+    playCatanDesc: 'Roll dice, collect resources, build settlements and cities. First to 10 victory points wins. Simplified for quick browser play.',
+    playCatanCta: 'Play Catan →',
+    playBackgammonAria: 'Play Backgammon',
+    playBackgammonTitle: 'Backgammon',
+    playBackgammonDesc: 'Race all 15 checkers around the 24-point board and bear them off before your opponent. Real dice, legal moves enforced, greedy AI.',
+    playBackgammonCta: 'Play Backgammon →',
+    playSetAria: 'Play Set',
+    playSetTitle: 'Set',
+    playSetDesc: 'Find sets of 3 cards where each attribute is either all-same or all-different. 81-card deck with inline SVG shapes — use Hint when stuck.',
+    playSetCta: 'Play Set →',
+    playHanabiAria: 'Play Hanabi',
+    playHanabiTitle: 'Hanabi',
+    playHanabiDesc: 'You can’t see your own cards. Give and receive clues with your AI partner to play fireworks in the right order — score 25 for a perfect show.',
+    playHanabiCta: 'Play Hanabi →',
+    playDiplomacyAria: 'Play Diplomacy',
+    playDiplomacyTitle: 'Diplomacy',
+    playDiplomacyDesc: 'Control 12 territories through simultaneous order resolution. No dice — pure strategy. Outwit the AI to dominate the map.',
+    playDiplomacyCta: 'Play Diplomacy →',
+    gameTagTwoPlayers: '2 players',
+    gameTagComputer: 'vs Computer',
+    gameTagStrategy: 'Strategy',
+    gameTagSolo: 'Solo',
+    gameTagTenAttempts: '10 attempts',
+    gameTagLogic: 'Logic',
+    gameTagClassic: 'Classic',
+    gameTagAiSpymaster: 'AI Spymaster',
+    gameTagDeduction: 'Deduction',
+    gameTagResources: 'Resources',
+    gameTagDice: 'Dice',
+    gameTagPattern: 'Pattern',
+    gameTagCooperative: 'Cooperative',
+    gameTagAiPartner: 'AI Partner',
+    gameTagMemory: 'Memory',
+    gameTagAreaControl: 'Area Control',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
     portalMindDesc: '3,553 bilingual questions mapped directly into 56 topics across 5 clear sections. Pick a topic, flip cards, and track your score.',
@@ -227,6 +283,38 @@ const UI = {
     footerCollections: 'Collections',
     footerAbout: 'About & content standards',
     footerInfoLabel: 'JAKH information',
+    socialInstagramLabel: 'JAKH Riddles on Instagram',
+    socialFacebookLabel: 'JAKH Riddles on Facebook',
+    skipMain: 'Skip to main content',
+    brandHomeLabel: 'JAKH Riddles home',
+    quickActionsLabel: 'Quick actions',
+    languageControlsLabel: 'Language controls',
+    breadcrumbLabel: 'Breadcrumb',
+    breadcrumbHome: 'Home',
+    breadcrumbMindLab: 'Mind Lab',
+    questionFiltersLabel: 'Question filters',
+    categoryFiltersLabel: 'Category filters',
+    categorySectionsLabel: 'Category sections',
+    close: 'Close',
+    exit: 'Exit',
+    locked: 'Locked',
+    host: 'Host',
+    search: 'Search',
+    menu: 'Menu',
+    teamBattle: 'Team Battle',
+    backToTop: 'Back to top',
+    searchPlaceholder: 'Search topics and subtopics...',
+    cardSearchPlaceholder: 'Search by keyword, answer, or concept...',
+    homeSrTitle: 'Riddles and quizzes in English and Arabic',
+    standardsDefaultText: 'Questions are curated for learning and entertainment.',
+    standardsDefaultLink: 'See how JAKH reviews and improves content.',
+    standardsEducationLabel: 'Educational use:',
+    standardsEducationText: 'This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice.',
+    standardsEducationLink: 'Read our content standards.',
+    mindCalloutEyebrow: 'Prefer a shorter challenge?',
+    mindCalloutTitle: 'Try a focused bilingual collection',
+    mindCalloutText: 'Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.',
+    mindCalloutCta: 'Browse collections',
     createAccount: 'Save my progress',
     todayMomentum: 'Your snapshot',
     localBrowserOnly: 'Saved to your account',
@@ -338,6 +426,10 @@ const UI = {
     badgeSilver: 'Silver — 10 Brain Tickler answered correctly',
     badgeGold: 'Gold — 10 Head Scratcher answered correctly',
     badgeDiamond: 'Diamond — 10 Brick Wall answered correctly',
+    badgeBronzeName: 'Bronze',
+    badgeSilverName: 'Silver',
+    badgeGoldName: 'Gold',
+    badgeDiamondName: 'Diamond',
     reportTitle: 'Score Report',
     reportCategory: 'Category',
     reportCorrect: 'Correct',
@@ -351,6 +443,57 @@ const UI = {
     reportError: 'Could not submit report.',
     // Share
     shareCopied: 'Result copied to clipboard!',
+    shareChallengeTitle: 'JAKH Challenge',
+    shareRiddleTitle: 'JAKH Riddles',
+    shareBattleTitle: 'JAKH Battle',
+    avatarUpdated: 'Avatar updated!',
+    avatarSaveError: 'Could not save the avatar.',
+    chooseAvatarAria: 'Choose {avatar} as your avatar',
+    passwordFieldsRequired: 'Fill both password fields.',
+    passwordUpdated: 'Password updated!',
+    suggestionSubmitError: 'Could not submit. Please try again.',
+    initializationError: 'JAKH could not finish loading. Please refresh and try again.',
+    genericError: 'Something went wrong. Please try again.',
+    errorInvalidCredentials: 'Username or password is incorrect.',
+    errorUserExists: 'That username or email is already in use.',
+    errorAccountSuspended: 'This account has been suspended.',
+    errorUsernameRequired: 'Enter a username.',
+    errorUsernameInvalid: 'Use 3–20 letters, numbers, or underscores for the username.',
+    errorPasswordRequired: 'Enter a password.',
+    errorPasswordInvalid: 'Use a password between 8 and 128 characters.',
+    errorEmailInvalid: 'Enter a valid email address.',
+    errorRateLimited: 'Too many attempts. Please try again later.',
+    errorUnauthorized: 'Please sign in again.',
+    errorCurrentPassword: 'The current password is incorrect.',
+    errorNewPasswordDifferent: 'Choose a new password that is different.',
+    errorInvalidAvatar: 'That avatar is not available.',
+    errorRoomNotFound: 'That battle room could not be found.',
+    errorInvalidMessage: 'The battle room received an invalid message.',
+    errorJoinFirst: 'Join the battle room first.',
+    errorBattleStarted: 'This battle has already started.',
+    errorRoomFull: 'This battle room is full.',
+    errorPlayerNameRequired: 'Enter your name.',
+    errorBattleCreate: 'Could not create the battle room.',
+    errorInvalidCategory: 'Choose a valid category.',
+    errorInvalidDifficulty: 'Choose a valid difficulty.',
+    errorCategoryUnavailable: 'That category is unavailable.',
+    errorNoQuestions: 'No questions are available for this selection.',
+    errorInvalidRoomCode: 'Enter a valid room code.',
+    leaderboardTitle: 'Leaderboard',
+    leaderboardTop: 'Top 20 Players',
+    leaderboardEmpty: 'No scores yet — be the first!',
+    leaderboardLoadError: 'Could not load the leaderboard.',
+    pointsShort: 'pts',
+    globalSearchLabel: 'Global search',
+    globalSearchPlaceholder: 'Search all 3,500+ questions…',
+    globalSearchInputLabel: 'Search all questions',
+    globalSearchStart: 'Start typing to search across all categories…',
+    globalSearchMin: 'Type at least 2 characters…',
+    globalSearchUnavailable: 'Search is unavailable right now.',
+    globalSearchEmpty: 'No results.',
+    installPrompt: '📲 Add JAKH to your home screen for quick access',
+    install: 'Install',
+    secondsShort: 's',
     // Streak freeze
     streakFreezeLabel: '🧊 Freeze',
   },
@@ -377,17 +520,73 @@ const UI = {
     playAvailable: '10 ألعاب متاحة الآن',
     playPick: 'اختر لعبة',
     playBrowserOnly: 'جميع الألعاب تعمل بالكامل في متصفحك — لا حاجة إلى تثبيت أي شيء.',
+    playChessAria: 'العب الشطرنج',
+    playChessTitle: 'الشطرنج',
+    playChessDesc: 'شطرنج كامل مع إظهار النقلات القانونية والأخذ بالتجاوز والتبييت والترقية. العب ضد الحاسوب أو تناوب مع صديق.',
+    playChessCta: 'العب الشطرنج ←',
+    playMastermindAria: 'العب ماستر مايند',
+    playMastermindTitle: 'ماستر مايند',
+    playMastermindDesc: 'اكتشف الرمز السري المكوّن من أربعة ألوان خلال 10 محاولات. استخدم زر التلميح للحصول على أفضل نقلة وفق خوارزمية كنوث.',
+    playMastermindCta: 'العب ماستر مايند ←',
+    playGoAria: 'العب غو',
+    playGoTitle: 'غو (9×9)',
+    playGoDesc: 'لعبة استراتيجية عريقة: حاصر الأحجار وسيطر على المساحات في لوحة 9×9. ينتهي اللعب بعد تمريرتين متتاليتين، ويُحسم الفوز بالمساحات والأسر.',
+    playGoCta: 'العب غو ←',
+    playReversiAria: 'العب ريفيرسي',
+    playReversiTitle: 'ريفيرسي',
+    playReversiDesc: 'اقلب أقراص خصمك عبر محاصرتها. الزوايا حاسمة، والخصم الآلي يستخدم خوارزمية Minimax بعمق 4.',
+    playReversiCta: 'العب ريفيرسي ←',
+    playCodenamesAria: 'العب كودنيمز',
+    playCodenamesTitle: 'كودنيمز',
+    playCodenamesDesc: 'يمنحك رئيس الجواسيس الآلي تلميحات من كلمة واحدة. اعثر على العملاء التسعة في شبكة 5×5 وتجنب القاتل حتى لا تنتهي اللعبة.',
+    playCodenamesCta: 'العب كودنيمز ←',
+    playCatanAria: 'العب كاتان لايت',
+    playCatanTitle: 'كاتان لايت',
+    playCatanDesc: 'ارمِ النرد واجمع الموارد وابنِ المستوطنات والمدن. أول من يصل إلى 10 نقاط انتصار يفوز. نسخة مبسطة للعب السريع في المتصفح.',
+    playCatanCta: 'العب كاتان ←',
+    playBackgammonAria: 'العب طاولة الزهر',
+    playBackgammonTitle: 'طاولة الزهر',
+    playBackgammonDesc: 'حرّك أحجارك الخمسة عشر حول اللوحة ذات 24 خانة وأخرجها قبل خصمك. نرد حقيقي ونقلات قانونية وخصم آلي.',
+    playBackgammonCta: 'العب طاولة الزهر ←',
+    playSetAria: 'العب سِت',
+    playSetTitle: 'سِت',
+    playSetDesc: 'اعثر على مجموعات من ثلاث بطاقات تكون فيها كل سمة متطابقة تمامًا أو مختلفة تمامًا. تتضمن المجموعة 81 بطاقة وزر تلميح عند الحاجة.',
+    playSetCta: 'العب سِت ←',
+    playHanabiAria: 'العب هانابي',
+    playHanabiTitle: 'هانابي',
+    playHanabiDesc: 'لا يمكنك رؤية بطاقاتك. تبادل التلميحات مع شريكك الآلي لتشغيل الألعاب النارية بالترتيب الصحيح، وحقق 25 نقطة للعرض المثالي.',
+    playHanabiCta: 'العب هانابي ←',
+    playDiplomacyAria: 'العب دبلوماسي',
+    playDiplomacyTitle: 'دبلوماسي',
+    playDiplomacyDesc: 'سيطر على 12 إقليمًا عبر تنفيذ الأوامر المتزامنة. لا نرد هنا، بل استراتيجية خالصة للتفوق على الخصم الآلي والسيطرة على الخريطة.',
+    playDiplomacyCta: 'العب دبلوماسي ←',
+    gameTagTwoPlayers: 'لاعبان',
+    gameTagComputer: 'ضد الحاسوب',
+    gameTagStrategy: 'استراتيجية',
+    gameTagSolo: 'فردي',
+    gameTagTenAttempts: '10 محاولات',
+    gameTagLogic: 'منطق',
+    gameTagClassic: 'كلاسيكية',
+    gameTagAiSpymaster: 'رئيس جواسيس آلي',
+    gameTagDeduction: 'استنتاج',
+    gameTagResources: 'موارد',
+    gameTagDice: 'نرد',
+    gameTagPattern: 'أنماط',
+    gameTagCooperative: 'تعاونية',
+    gameTagAiPartner: 'شريك آلي',
+    gameTagMemory: 'ذاكرة',
+    gameTagAreaControl: 'سيطرة على المناطق',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
     portalMindDesc: '3,553 سؤالاً ثنائي اللغة موزعة مباشرة على 56 موضوعًا ضمن 5 أقسام واضحة. اختر موضوعًا واقلب البطاقات وتابع نقاطك.',
     portalMindStat: '56 موضوعًا',
-    portalMindCta: 'استكشف الألغاز →',
+    portalMindCta: 'استكشف الألغاز ←',
     portalGamesTag: 'مركز الألعاب',
     portalGamesTitle: 'مركز الألعاب',
     portalGamesDesc: 'شطرنج، ماستر مايند، غو، ريفرسي، كودنيمز، كاتان، طاولة، ست، هانابي، دبلوماسي — 10 ألعاب كاملة في المتصفح. بدون تنزيل أو تسجيل.',
     portalGamesStat1: '10 ألعاب',
     portalGamesStat2: 'كلها في المتصفح',
-    portalGamesCta: 'العب الآن →',
+    portalGamesCta: 'العب الآن ←',
     homeCollectionsEyebrow: 'طرق شائعة للبدء',
     homeCollectionsTitle: 'مجموعات مختارة من الألغاز والاختبارات',
     homeCollectionsText: 'افتح مجموعة مركزة تظهر فيها كل الأسئلة، واكشف كل إجابة بلمسة واحدة، ثم تابع إلى مختبر العقول الكامل.',
@@ -407,6 +606,38 @@ const UI = {
     footerCollections: 'المجموعات',
     footerAbout: 'عن JAKH ومعايير المحتوى',
     footerInfoLabel: 'معلومات JAKH',
+    socialInstagramLabel: 'ألغاز JAKH على إنستغرام',
+    socialFacebookLabel: 'ألغاز JAKH على فيسبوك',
+    skipMain: 'انتقل إلى المحتوى الرئيسي',
+    brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
+    quickActionsLabel: 'إجراءات سريعة',
+    languageControlsLabel: 'خيارات اللغة',
+    breadcrumbLabel: 'مسار التنقل',
+    breadcrumbHome: 'الرئيسية',
+    breadcrumbMindLab: 'مختبر العقول',
+    questionFiltersLabel: 'فلاتر الأسئلة',
+    categoryFiltersLabel: 'فلاتر الفئات',
+    categorySectionsLabel: 'أقسام الفئات',
+    close: 'إغلاق',
+    exit: 'خروج',
+    locked: 'مغلق',
+    host: 'المضيف',
+    search: 'بحث',
+    menu: 'القائمة',
+    teamBattle: 'معركة الفريق',
+    backToTop: 'العودة للأعلى',
+    searchPlaceholder: 'ابحث في المواضيع والمواضيع الفرعية...',
+    cardSearchPlaceholder: 'ابحث بكلمة أو إجابة أو مفهوم...',
+    homeSrTitle: 'ألغاز واختبارات بالعربية والإنجليزية',
+    standardsDefaultText: 'تُراجع الأسئلة لأغراض التعلم والترفيه.',
+    standardsDefaultLink: 'تعرّف على طريقة مراجعة JAKH للمحتوى وتحسينه.',
+    standardsEducationLabel: 'للاستخدام التعليمي:',
+    standardsEducationText: 'هذا الاختبار للتعلم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو متعلقة بالصحة النفسية.',
+    standardsEducationLink: 'اقرأ معايير المحتوى لدينا.',
+    mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
+    mindCalloutTitle: 'جرّب مجموعة ثنائية اللغة ومركزة',
+    mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا أو أسئلة للأطفال أو ألغاز منطق أو معلومات عامة أو كرة قدم أو أسئلة من زمن الطيبين.',
+    mindCalloutCta: 'تصفح المجموعات',
     createAccount: 'احفظ تقدمي',
     todayMomentum: 'ملخصك',
     localBrowserOnly: 'محفوظ في حسابك',
@@ -447,7 +678,7 @@ const UI = {
     onlyFavorites: 'المفضلة فقط',
     featuredOrder: 'الترتيب الأساسي',
     byDifficulty: 'حسب الصعوبة',
-    aToZ: 'أ → ي',
+    aToZ: 'أ–ي',
     shuffleNow: 'خلط',
     pageQuestions: '{count} سؤال',
     categoryCountLabel: '{count} فئة',
@@ -518,6 +749,10 @@ const UI = {
     badgeSilver: 'فضية — 10 أسئلة متوسطة صحيحة',
     badgeGold: 'ذهبية — 10 أسئلة صعبة صحيحة',
     badgeDiamond: 'ماسية — 10 أسئلة صعب جداً صحيحة',
+    badgeBronzeName: 'برونزية',
+    badgeSilverName: 'فضية',
+    badgeGoldName: 'ذهبية',
+    badgeDiamondName: 'ماسية',
     reportTitle: 'تقرير النتائج',
     reportCategory: 'الفئة',
     reportCorrect: 'صحيح',
@@ -528,6 +763,57 @@ const UI = {
     reportThanks: 'تم الإبلاغ — شكرًا على ملاحظتك!',
     reportError: 'تعذّر إرسال البلاغ.',
     shareCopied: 'تم نسخ النتيجة!',
+    shareChallengeTitle: 'تحدي JAKH',
+    shareRiddleTitle: 'ألغاز JAKH',
+    shareBattleTitle: 'معركة JAKH',
+    avatarUpdated: 'تم تحديث الصورة الرمزية!',
+    avatarSaveError: 'تعذّر حفظ الصورة الرمزية.',
+    chooseAvatarAria: 'اختر {avatar} صورة رمزية',
+    passwordFieldsRequired: 'املأ حقلي كلمة المرور.',
+    passwordUpdated: 'تم تحديث كلمة المرور!',
+    suggestionSubmitError: 'تعذّر إرسال الاقتراح. حاول مرة أخرى.',
+    initializationError: 'تعذّر إكمال تحميل JAKH. حدّث الصفحة وحاول مرة أخرى.',
+    genericError: 'حدث خطأ ما. حاول مرة أخرى.',
+    errorInvalidCredentials: 'اسم المستخدم أو كلمة المرور غير صحيحين.',
+    errorUserExists: 'اسم المستخدم أو البريد الإلكتروني مستخدم بالفعل.',
+    errorAccountSuspended: 'تم إيقاف هذا الحساب.',
+    errorUsernameRequired: 'أدخل اسم المستخدم.',
+    errorUsernameInvalid: 'استخدم من 3 إلى 20 حرفًا أو رقمًا أو شرطة سفلية لاسم المستخدم.',
+    errorPasswordRequired: 'أدخل كلمة المرور.',
+    errorPasswordInvalid: 'استخدم كلمة مرور يتراوح طولها بين 8 و128 حرفًا.',
+    errorEmailInvalid: 'أدخل بريدًا إلكترونيًا صالحًا.',
+    errorRateLimited: 'محاولات كثيرة جدًا. حاول مرة أخرى لاحقًا.',
+    errorUnauthorized: 'سجّل الدخول مرة أخرى.',
+    errorCurrentPassword: 'كلمة المرور الحالية غير صحيحة.',
+    errorNewPasswordDifferent: 'اختر كلمة مرور جديدة مختلفة.',
+    errorInvalidAvatar: 'هذه الصورة الرمزية غير متاحة.',
+    errorRoomNotFound: 'تعذّر العثور على غرفة المعركة.',
+    errorInvalidMessage: 'استقبلت غرفة المعركة رسالة غير صالحة.',
+    errorJoinFirst: 'انضم إلى غرفة المعركة أولًا.',
+    errorBattleStarted: 'بدأت هذه المعركة بالفعل.',
+    errorRoomFull: 'غرفة المعركة ممتلئة.',
+    errorPlayerNameRequired: 'أدخل اسمك.',
+    errorBattleCreate: 'تعذّر إنشاء غرفة المعركة.',
+    errorInvalidCategory: 'اختر فئة صالحة.',
+    errorInvalidDifficulty: 'اختر مستوى صعوبة صالحًا.',
+    errorCategoryUnavailable: 'هذه الفئة غير متاحة.',
+    errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
+    errorInvalidRoomCode: 'أدخل رمز غرفة صالحًا.',
+    leaderboardTitle: 'لوحة المتصدرين',
+    leaderboardTop: 'أفضل 20 لاعبًا',
+    leaderboardEmpty: 'لا توجد نتائج بعد — كن الأول!',
+    leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
+    pointsShort: 'نقطة',
+    globalSearchLabel: 'البحث الشامل',
+    globalSearchPlaceholder: 'ابحث في أكثر من 3,500 سؤال…',
+    globalSearchInputLabel: 'ابحث في جميع الأسئلة',
+    globalSearchStart: 'اكتب للبحث في جميع الفئات…',
+    globalSearchMin: 'اكتب حرفين على الأقل…',
+    globalSearchUnavailable: 'البحث غير متاح حاليًا.',
+    globalSearchEmpty: 'لا توجد نتائج.',
+    installPrompt: '📲 أضف JAKH إلى شاشتك الرئيسية للوصول السريع',
+    install: 'تثبيت',
+    secondsShort: 'ث',
     streakFreezeLabel: '🧊 تجميد',
   }
 };
@@ -627,6 +913,67 @@ function fmt(key, vars = {}) {
   return t(key).replace(/\{(\w+)\}/g, (_, token) => String(vars[token] ?? ''));
 }
 
+const API_ERROR_UI_KEYS = Object.freeze({
+  INVALID_CONTENT_TYPE: 'genericError',
+  REQUEST_BODY_TOO_LARGE: 'genericError',
+  INVALID_JSON: 'genericError',
+  ORIGIN_NOT_ALLOWED: 'genericError',
+  INVALID_CREDENTIALS: 'errorInvalidCredentials',
+  USERNAME_OR_EMAIL_EXISTS: 'errorUserExists',
+  ACCOUNT_SUSPENDED: 'errorAccountSuspended',
+  USERNAME_REQUIRED: 'errorUsernameRequired',
+  USERNAME_INVALID: 'errorUsernameInvalid',
+  PASSWORD_REQUIRED: 'errorPasswordRequired',
+  CURRENT_PASSWORD_REQUIRED: 'errorPasswordRequired',
+  NEW_PASSWORD_REQUIRED: 'errorPasswordRequired',
+  PASSWORD_INVALID: 'errorPasswordInvalid',
+  CURRENT_PASSWORD_INVALID: 'errorPasswordInvalid',
+  NEW_PASSWORD_INVALID: 'errorPasswordInvalid',
+  INVALID_EMAIL: 'errorEmailInvalid',
+  RATE_LIMITED: 'errorRateLimited',
+  UNAUTHORIZED: 'errorUnauthorized',
+  CURRENT_PASSWORD_INCORRECT: 'errorCurrentPassword',
+  NEW_PASSWORD_MUST_BE_DIFFERENT: 'errorNewPasswordDifferent',
+  INVALID_AVATAR: 'errorInvalidAvatar',
+  CARD_CATEGORY_MISMATCH: 'genericError',
+  CARD_STATUS_MISMATCH: 'genericError',
+  API_CONFIGURATION_INCOMPLETE: 'genericError',
+  INVALID_CARD_ID: 'genericError',
+  INVALID_CATEGORY_ID: 'genericError',
+  INVALID_FAVORITE_ACTION: 'genericError',
+  INVALID_SYNC_PAYLOAD: 'genericError',
+  SYNC_LIMIT_EXCEEDED: 'genericError',
+  INVALID_PROGRESS_ITEM: 'genericError',
+  INVALID_FAVORITE_ITEM: 'genericError',
+  INVALID_TIME_SPENT: 'genericError',
+  SUGGESTION_REQUIRED: 'suggestError',
+  SUGGESTION_INVALID: 'suggestError',
+  ROOM_NOT_FOUND: 'errorRoomNotFound',
+  INVALID_MESSAGE: 'errorInvalidMessage',
+  JOIN_ROOM_FIRST: 'errorJoinFirst',
+  BATTLE_ALREADY_STARTED: 'errorBattleStarted',
+  ROOM_FULL: 'errorRoomFull',
+  PLAYER_NAME_REQUIRED: 'errorPlayerNameRequired',
+  BATTLE_ERROR: 'genericError',
+  BATTLE_CREATE_FAILED: 'errorBattleCreate',
+  BATTLE_ROOM_ALLOCATION_FAILED: 'errorBattleCreate',
+  INVALID_CATEGORY: 'errorInvalidCategory',
+  INVALID_DIFFICULTY: 'errorInvalidDifficulty',
+  CATEGORY_UNAVAILABLE: 'errorCategoryUnavailable',
+  NO_QUESTIONS_AVAILABLE: 'errorNoQuestions',
+  INVALID_ROOM_CODE: 'errorInvalidRoomCode',
+  WEBSOCKET_UPGRADE_REQUIRED: 'errorBattleCreate',
+  NOT_FOUND: 'genericError',
+  INTERNAL_SERVER_ERROR: 'genericError',
+});
+
+function localizedErrorMessage(error, fallbackKey = 'genericError') {
+  const key = API_ERROR_UI_KEYS[error?.code];
+  if (key) return t(key);
+  if (state.lang === 'en' && error?.message) return error.message;
+  return t(fallbackKey);
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -655,7 +1002,12 @@ async function apiFetch(endpoint, options = {}) {
   const res = await fetch(`${API_URL}${endpoint}`, options);
   const contentType = res.headers.get('content-type') || '';
   const data = contentType.includes('application/json') ? await res.json() : {};
-  if (!res.ok) throw new Error(data.error || `API request failed (${res.status})`);
+  if (!res.ok) {
+    const error = new Error(data.error || `API request failed (${res.status})`);
+    error.code = typeof data.code === 'string' ? data.code : `HTTP_${res.status}`;
+    error.status = res.status;
+    throw error;
+  }
   return data;
 }
 
@@ -1028,6 +1380,57 @@ function applyTheme() {
   if (els.langSelect) els.langSelect.value = state.lang;
 }
 
+function applyCategoryShellCopy() {
+  if (state.page !== 'category') return;
+  const breadcrumb = document.querySelector('.page-breadcrumb');
+  if (breadcrumb) {
+    breadcrumb.setAttribute('aria-label', t('breadcrumbLabel'));
+    const links = breadcrumb.querySelectorAll('a');
+    if (links[0]) links[0].textContent = t('breadcrumbHome');
+    if (links[1]) links[1].textContent = t('breadcrumbMindLab');
+    if (links[2] && state.categoryData?.cluster) {
+      links[2].textContent = state.categoryData.cluster[state.lang] || state.categoryData.cluster.en;
+    }
+    breadcrumb.querySelectorAll('[aria-hidden="true"]').forEach((separator) => {
+      separator.textContent = state.lang === 'ar' ? '‹' : '›';
+    });
+  }
+
+  const standards = document.querySelector('.content-standards-note');
+  if (standards) {
+    if (!standards.dataset.standardsVariant) {
+      standards.dataset.standardsVariant = standards.querySelector('strong') ? 'education' : 'default';
+    }
+    const href = standards.querySelector('a')?.getAttribute('href') || '/about#standards';
+    standards.innerHTML = standards.dataset.standardsVariant === 'education'
+      ? `<strong>${escapeHtml(t('standardsEducationLabel'))}</strong> ${escapeHtml(t('standardsEducationText'))} <a href="${escapeHtml(href)}">${escapeHtml(t('standardsEducationLink'))}</a>`
+      : `${escapeHtml(t('standardsDefaultText'))} <a href="${escapeHtml(href)}">${escapeHtml(t('standardsDefaultLink'))}</a>`;
+  }
+}
+
+function applyRuntimeAccessibilityCopy() {
+  document.querySelector('.skip-link')?.replaceChildren(document.createTextNode(t('skipMain')));
+  document.querySelector('.brand')?.setAttribute('aria-label', t('brandHomeLabel'));
+  document.querySelector('.header-actions')?.setAttribute('aria-label', t('quickActionsLabel'));
+  document.querySelector('.header-selects')?.setAttribute('aria-label', t('languageControlsLabel'));
+  document.getElementById('clusterTabBar')?.setAttribute('aria-label', t('categorySectionsLabel'));
+  const controlPanel = document.querySelector('.control-panel');
+  if (controlPanel) {
+    controlPanel.setAttribute(
+      'aria-label',
+      state.page === 'category' ? t('questionFiltersLabel') : t('categoryFiltersLabel'),
+    );
+  }
+  document.querySelector('[data-close-modal="auth"]')?.setAttribute('aria-label', t('close'));
+  document.querySelector('.kv-hero-title .sr-only')?.replaceChildren(document.createTextNode(` ${t('homeSrTitle')}`));
+  document.getElementById('leaderboardBtn')?.setAttribute('aria-label', t('leaderboardTitle'));
+  document.getElementById('battleNavBtn')?.setAttribute('aria-label', t('teamBattle'));
+  document.getElementById('globalSearchBtn')?.setAttribute('aria-label', t('search'));
+  document.getElementById('hamburgerBtn')?.setAttribute('aria-label', t('menu'));
+  document.querySelector('a[href*="instagram.com"]')?.setAttribute('aria-label', t('socialInstagramLabel'));
+  document.querySelector('a[href*="facebook.com"]')?.setAttribute('aria-label', t('socialFacebookLabel'));
+}
+
 function applyStaticCopy() {
   document.querySelectorAll('[data-i18n]').forEach((node) => {
     const key = node.dataset.i18n;
@@ -1036,47 +1439,87 @@ function applyStaticCopy() {
   document.querySelectorAll('[data-i18n-aria-label]').forEach((node) => {
     node.setAttribute('aria-label', t(node.dataset.i18nAriaLabel));
   });
-  document.getElementById('globalSearchBtn')?.setAttribute('aria-label', state.lang === 'ar' ? 'بحث' : 'Search');
-  document.getElementById('hamburgerBtn')?.setAttribute('aria-label', state.lang === 'ar' ? 'القائمة' : 'Menu');
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((node) => {
+    node.setAttribute('placeholder', t(node.dataset.i18nPlaceholder));
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach((node) => {
+    node.setAttribute('title', t(node.dataset.i18nTitle));
+  });
   if (els.categorySearchInput) {
-    els.categorySearchInput.placeholder = state.lang === 'ar' ? 'ابحث في المواضيع والمواضيع الفرعية...' : 'Search topics and subtopics...';
-    els.categorySearchInput.setAttribute('aria-label', state.lang === 'ar' ? 'ابحث في المواضيع والمواضيع الفرعية' : 'Search topics and subtopics');
+    els.categorySearchInput.placeholder = t('searchPlaceholder');
+    els.categorySearchInput.setAttribute('aria-label', t('searchCategoriesLabel'));
   }
   if (els.cardSearchInput) {
-    els.cardSearchInput.placeholder = state.lang === 'ar' ? 'ابحث بكلمة أو جواب أو مفهوم...' : 'Search by keyword, answer, or concept...';
+    els.cardSearchInput.placeholder = t('cardSearchPlaceholder');
   }
   if (els.openAuthBtn) {
     const account = getActiveUser();
     els.openAuthBtn.textContent = account ? account.username : t('authOpen');
   }
+  applyCategoryShellCopy();
+  applyRuntimeAccessibilityCopy();
   updateSelectLabels();
   updateDocumentTitle();
   updateBottomNavActive();
 }
 
 function updateDocumentTitle() {
-  if (state.page === 'home') {
+  let title = '';
+  let description = '';
+
+  if (state.page === 'play') {
+    title = state.lang === 'ar'
+      ? '10 ألعاب مجانية على المتصفح | JAKH'
+      : '10 Free Browser Games | JAKH';
+    description = state.lang === 'ar'
+      ? 'العب 10 ألعاب متصفح مجانية على JAKH: الشطرنج وغو وريفيرسي وماسترمايند وكاتان لايت وطاولة الزهر وسِت وهانابي وكودنيمز ودبلوماسي.'
+      : 'Play 10 free browser games on JAKH: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy.';
+  } else if (state.page === 'home') {
     const cleanPath = location.pathname.replace(/\.html$/i, '').replace(/\/+$/, '') || '/';
     if (cleanPath === '/mind-lab') {
-      document.title = state.lang === 'ar'
+      title = state.lang === 'ar'
         ? 'مختبر العقل: 56 موضوع ألغاز وأسئلة | JAKH'
         : 'Mind Lab: 56 Riddle & Quiz Topics | JAKH';
-    } else if (cleanPath === '/play') {
-      document.title = state.lang === 'ar'
-        ? '10 ألعاب مجانية على المتصفح | JAKH'
-        : '10 Free Browser Games | JAKH';
+      description = state.lang === 'ar'
+        ? 'استكشف 3,553 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 56 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.'
+        : 'Explore 3,553 bilingual riddles and quizzes mapped directly to 56 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
     } else {
-      document.title = state.lang === 'ar'
+      title = state.lang === 'ar'
         ? 'JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية'
         : 'JAKH Riddles: Free Arabic & English Quizzes';
+      description = state.lang === 'ar'
+        ? 'العب 3,553 لغزاً واختباراً مجانياً بالعربية والإنجليزية ضمن 56 موضوعاً، إضافة إلى 10 ألعاب متصفح. اكشف الإجابات وتابع نتيجتك.'
+        : 'Play 3,553 free bilingual riddles and quizzes in English and Arabic across 56 topics, plus 10 browser games. Reveal answers and track your score.';
     }
-    return;
-  }
-  if (state.categoryData) {
-    document.title = state.lang === 'ar'
+  } else if (state.categoryData) {
+    const category = state.categoryData;
+    title = state.lang === 'ar'
       ? `${state.categoryData.title.ar}: اختبار وأسئلة | JAKH`
       : `${state.categoryData.title.en} Quiz & Questions | JAKH`;
+    const localizedCount = Number(category.count || 0).toLocaleString(state.lang === 'ar' ? 'ar' : 'en-US');
+    description = state.lang === 'ar'
+      ? `جرّب ${localizedCount} سؤالاً واختباراً في ${category.title.ar} مع الإجابات بالعربية والإنجليزية. ${category.description.ar} العب مجاناً وتابع نتيجتك.`
+      : `Try ${localizedCount} ${category.title.en} quiz questions with answers in English and Arabic. ${category.description.en} Play free and track your score.`;
   }
+
+  if (!title) return;
+  document.title = title;
+
+  const socialImageAlt = state.lang === 'ar'
+    ? 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب'
+    : 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games';
+  [
+    ['meta[name="description"]', description],
+    ['meta[property="og:title"]', title],
+    ['meta[property="og:description"]', description],
+    ['meta[name="twitter:title"]', title],
+    ['meta[name="twitter:description"]', description],
+    ['meta[property="og:image:alt"]', socialImageAlt],
+    ['meta[name="twitter:image:alt"]', socialImageAlt],
+    ['meta[property="og:locale"]', state.lang === 'ar' ? 'ar_AE' : 'en_US'],
+  ].forEach(([selector, content]) => {
+    document.querySelector(selector)?.setAttribute('content', content);
+  });
 }
 
 function updateSelectLabels() {
@@ -1168,9 +1611,25 @@ function flushStaleStorage() {
 function initializeFromStorage() {
   flushStaleStorage();
   const settings = loadJson(STORAGE_KEYS.settings, {});
-  state.lang = settings.lang || 'en';
-  // Purge the retired dark-only preference while preserving language.
-  if (settings.theme) {
+  const entryUrl = new URL(window.location.href);
+  const requestedLang = entryUrl.searchParams.get('lang');
+  const explicitLang = requestedLang === 'en' || requestedLang === 'ar' ? requestedLang : '';
+  const storedLang = settings.lang === 'ar' || settings.lang === 'en' ? settings.lang : 'en';
+  state.lang = explicitLang || storedLang;
+
+  if (explicitLang) {
+    entryUrl.searchParams.delete('lang');
+    history.replaceState(
+      history.state,
+      '',
+      `${entryUrl.pathname}${entryUrl.search}${entryUrl.hash}`,
+    );
+  }
+
+  // Persist explicit entry-language links and purge the retired theme preference.
+  if (explicitLang) {
+    saveSettings();
+  } else if (settings.theme || settings.lang !== state.lang) {
     saveJson(STORAGE_KEYS.settings, { lang: state.lang });
   }
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
@@ -1195,12 +1654,11 @@ function showInstallBanner() {
   const banner = document.createElement('div');
   banner.id = 'installBanner';
   banner.className = 'install-banner';
-  const isAr = state.lang === 'ar';
   banner.innerHTML = `
-    <span>${isAr ? '📲 أضف JAKH إلى شاشتك الرئيسية للوصول السريع' : '📲 Add JAKH to your home screen for quick access'}</span>
+    <span>${escapeHtml(t('installPrompt'))}</span>
     <div class="install-banner-actions">
-      <button class="primary-btn install-banner-btn" id="installAcceptBtn">${isAr ? 'تثبيت' : 'Install'}</button>
-      <button class="ghost-btn install-banner-close" id="installDismissBtn">✕</button>
+      <button class="primary-btn install-banner-btn" id="installAcceptBtn">${escapeHtml(t('install'))}</button>
+      <button class="ghost-btn install-banner-close" id="installDismissBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
     </div>
   `;
   document.body.appendChild(banner);
@@ -1221,6 +1679,56 @@ function showInstallBanner() {
   });
 }
 
+let authModalMode = 'signin';
+
+function refreshLocalizedTransientUi() {
+  const installBanner = document.getElementById('installBanner');
+  if (installBanner) {
+    installBanner.remove();
+    showInstallBanner();
+  }
+
+  const leaderboardModal = document.getElementById('leaderboardModal');
+  const leaderboardWasOpen = Boolean(leaderboardModal && !leaderboardModal.classList.contains('hidden'));
+  if (leaderboardModal) {
+    releaseFocus(leaderboardModal);
+    leaderboardModal.remove();
+  }
+  if (state.apiAvailable) {
+    createLeaderboardModal();
+    if (leaderboardWasOpen) void openLeaderboard();
+  }
+
+  const searchOverlay = document.getElementById('globalSearchOverlay');
+  if (searchOverlay) {
+    const searchWasOpen = !searchOverlay.classList.contains('hidden');
+    const searchValue = document.getElementById('globalSearchInput')?.value || '';
+    releaseFocus(searchOverlay);
+    searchOverlay.remove();
+    _gsGeneration += 1;
+    if (searchWasOpen) {
+      openGlobalSearch();
+      const input = document.getElementById('globalSearchInput');
+      if (input) {
+        input.value = searchValue;
+        if (searchValue) void runGlobalSearch();
+      }
+    }
+  }
+
+  if (els.authModal && !els.authModal.classList.contains('hidden')) {
+    renderAuthModal(authModalMode);
+  }
+  const paywall = document.getElementById('paywallModal');
+  if (paywall && !paywall.classList.contains('hidden')) openPaywallModal();
+  const categoryComplete = document.getElementById('categoryCompleteModal');
+  if (categoryComplete && !categoryComplete.classList.contains('hidden') && categoryComplete.dataset.categorySlug) {
+    showCategoryCompleteModal(categoryComplete.dataset.categorySlug);
+  }
+  const battle = document.getElementById('battleOverlay');
+  if (battle && !battle.classList.contains('hidden')) renderBattleUI();
+}
+
 let globalEventsBound = false;
 
 function bindCommonEvents() {
@@ -1233,10 +1741,12 @@ function bindCommonEvents() {
       applyDir();
       applyStaticCopy();
       rerender();
+      clearTimedQuizTimers();
       document.getElementById('timedQuizOverlay')?.remove();
       createTimedQuizModal();
       renderCategoryPlayModes();
       injectBackToTop();
+      refreshLocalizedTransientUi();
       showToast(t('languageSet'));
     });
   }
@@ -1251,7 +1761,7 @@ function bindCommonEvents() {
       btn.id = 'leaderboardBtn';
       btn.className = 'ghost-btn';
       btn.textContent = '🏆';
-      btn.setAttribute('aria-label', 'Leaderboard');
+      btn.setAttribute('aria-label', t('leaderboardTitle'));
       nav.insertBefore(btn, nav.children[2]);
     }
   }
@@ -1266,7 +1776,7 @@ function bindCommonEvents() {
       btn.id = 'battleNavBtn';
       btn.className = 'ghost-btn';
       btn.textContent = '⚡';
-      btn.setAttribute('aria-label', state.lang === 'ar' ? 'معركة الفريق' : 'Team Battle');
+      btn.setAttribute('aria-label', t('teamBattle'));
       nav.insertBefore(btn, nav.children[2]);
     }
   }
@@ -1291,7 +1801,7 @@ function bindCommonEvents() {
       const btn = document.createElement('button');
       btn.id = 'globalSearchBtn';
       btn.className = 'ghost-btn';
-      btn.setAttribute('aria-label', state.lang === 'ar' ? 'بحث' : 'Search');
+      btn.setAttribute('aria-label', t('search'));
       btn.textContent = '🔍';
       nav.insertBefore(btn, nav.firstElementChild);
     }
@@ -1306,7 +1816,7 @@ function bindCommonEvents() {
       const hbtn = document.createElement('button');
       hbtn.id = 'hamburgerBtn';
       hbtn.className = 'hamburger-btn';
-      hbtn.setAttribute('aria-label', state.lang === 'ar' ? 'القائمة' : 'Menu');
+      hbtn.setAttribute('aria-label', t('menu'));
       hbtn.setAttribute('aria-expanded', 'false');
       hbtn.textContent = '☰';
       header.insertBefore(hbtn, nav);
@@ -1997,7 +2507,7 @@ function injectBackToTop() {
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     document.body.appendChild(btn);
   }
-  const label = state.lang === 'ar' ? 'العودة للأعلى' : 'Back to top';
+  const label = t('backToTop');
   btn.setAttribute('aria-label', label);
   btn.title = label;
   if (!backToTopScrollBound) {
@@ -2217,7 +2727,7 @@ function createCardMarkup(card) {
     } else {
       const lockMsg = card.difficulty === 'hard' ? t('lockHard') : t('lockDifficult');
       return `
-        <article class="riddle-card is-locked" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" tabindex="0" aria-label="Locked">
+        <article class="riddle-card is-locked" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" tabindex="0" aria-label="${escapeHtml(t('locked'))}">
           <div class="card-inner">
             <section class="card-face card-front">
               <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
@@ -2556,7 +3066,7 @@ function openPaywallModal() {
   modal.innerHTML = `
     <div class="modal-backdrop" id="paywallBackdrop"></div>
     <div class="modal-card paywall-card">
-      <button class="paywall-close" aria-label="${isAr ? 'إغلاق' : 'Close'}">✕</button>
+      <button class="paywall-close" aria-label="${escapeHtml(t('close'))}">✕</button>
       <div class="paywall-icon">🔓</div>
       <h2 class="paywall-title" id="paywallTitle">${isAr
         ? `جربت ${trialUsed} ألغاز مجانية!`
@@ -2595,6 +3105,7 @@ function closePaywallModal() {
 
 function renderAuthModal(mode = 'signin') {
   if (!els.authModalBody) return;
+  authModalMode = mode;
   const account = getActiveUser();
   if (account) {
     const easyCount = getCorrectCountByDifficulty('easy');
@@ -2602,10 +3113,10 @@ function renderAuthModal(mode = 'signin') {
     const hardCount = getCorrectCountByDifficulty('hard');
     const advCount = getCorrectCountByDifficulty('very-advanced');
     const earnedBadges = [
-      easyCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeBronze'))}">🥉 Bronze</span>` : '',
-      medCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeSilver'))}">🥈 Silver</span>` : '',
-      hardCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeGold'))}">🥇 Gold</span>` : '',
-      advCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeDiamond'))}">💎 Diamond</span>` : '',
+      easyCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeBronze'))}">🥉 ${escapeHtml(t('badgeBronzeName'))}</span>` : '',
+      medCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeSilver'))}">🥈 ${escapeHtml(t('badgeSilverName'))}</span>` : '',
+      hardCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeGold'))}">🥇 ${escapeHtml(t('badgeGoldName'))}</span>` : '',
+      advCount >= 10 ? `<span class="badge" title="${escapeHtml(t('badgeDiamond'))}">💎 ${escapeHtml(t('badgeDiamondName'))}</span>` : '',
     ].filter(Boolean).join(' ') || '<span class="muted">—</span>';
 
     const byCategory = {};
@@ -2616,20 +3127,24 @@ function renderAuthModal(mode = 'signin') {
       if (p.status.startsWith('wrong-')) byCategory[cat].wrong++;
       else byCategory[cat].correct++;
     });
-    const reportRows = Object.entries(byCategory).map(([cat, counts]) => `
+    const reportRows = Object.entries(byCategory).map(([cat, counts]) => {
+      const category = state.catalog?.categories.find(item => item.slug === cat);
+      const categoryName = category?.title?.[state.lang] || category?.title?.en || cat;
+      return `
       <tr>
-        <td style="padding:0.3rem 0.5rem">${escapeHtml(cat)}</td>
+        <td style="padding:0.3rem 0.5rem">${escapeHtml(categoryName)}</td>
         <td style="padding:0.3rem 0.5rem;color:var(--c-green,#4caf50)">${counts.correct}</td>
         <td style="padding:0.3rem 0.5rem;color:var(--c-red,#f44336)">${counts.wrong}</td>
       </tr>
-    `).join('');
+    `;
+    }).join('');
     const reportHtml = reportRows ? `
       <hr style="margin:1.5rem 0;opacity:0.2;" />
       <strong style="display:block;margin-bottom:0.75rem;">${escapeHtml(t('reportTitle'))}</strong>
       <div style="overflow-x:auto">
         <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
           <thead><tr>
-            <th style="text-align:left;padding:0.3rem 0.5rem;opacity:0.6">${escapeHtml(t('reportCategory'))}</th>
+            <th style="text-align:start;padding:0.3rem 0.5rem;opacity:0.6">${escapeHtml(t('reportCategory'))}</th>
             <th style="padding:0.3rem 0.5rem;opacity:0.6">✓ ${escapeHtml(t('reportCorrect'))}</th>
             <th style="padding:0.3rem 0.5rem;opacity:0.6">✗ ${escapeHtml(t('reportWrong'))}</th>
           </tr></thead>
@@ -2663,7 +3178,7 @@ function renderAuthModal(mode = 'signin') {
         <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(state.lang === 'ar' ? 'اختر صورتك الرمزية' : 'Choose Your Avatar')}</strong>
         <div id="avatarSelector" style="display:flex;gap:0.5rem;flex-wrap:wrap;font-size:1.75rem;margin-bottom:1rem;">
           ${['👤','🦊','🦉','🐉','⚡️','🔥','👻','👽','🦄','🦁','🐼', '👑', '🚀', '🧠', '🧙‍♂️', '👾'].map(emoji => `
-             <button type="button" class="avatar-btn ${account.avatar === emoji ? 'is-active' : ''}" style="border:2px solid ${account.avatar === emoji ? 'var(--accent, #e8613c)' : 'transparent'};background:transparent;cursor:pointer;border-radius:50%;padding:4px;transition:all 0.2s;transform:${account.avatar === emoji ? 'scale(1.1)' : 'scale(1)'};" data-emoji="${emoji}">${emoji}</button>
+             <button type="button" class="avatar-btn ${account.avatar === emoji ? 'is-active' : ''}" aria-label="${escapeHtml(fmt('chooseAvatarAria', { avatar: emoji }))}" aria-pressed="${account.avatar === emoji ? 'true' : 'false'}" style="border:2px solid ${account.avatar === emoji ? 'var(--accent, #e8613c)' : 'transparent'};background:transparent;cursor:pointer;border-radius:50%;padding:4px;transition:all 0.2s;transform:${account.avatar === emoji ? 'scale(1.1)' : 'scale(1)'};" data-emoji="${emoji}">${emoji}</button>
           `).join('')}
         </div>
 
@@ -2706,9 +3221,9 @@ function renderAuthModal(mode = 'signin') {
           await apiFetch('/user/avatar', { method: 'PUT', body: JSON.stringify({ avatar: emoji }) });
           state.dbUser.avatar = emoji;
           renderAuthModal('signin');
-          showToast(state.lang === 'ar' ? 'تم تحديث الصورة!' : 'Avatar updated!');
+          showToast(t('avatarUpdated'));
         } catch (err) {
-          showToast('Failed to save avatar');
+          showToast(localizedErrorMessage(err, 'avatarSaveError'), true);
           btn.style.opacity = '1';
         }
       });
@@ -2718,15 +3233,15 @@ function renderAuthModal(mode = 'signin') {
     if (cpBtn) cpBtn.addEventListener('click', async () => {
        const cur = document.getElementById('currentPassword').value;
        const neu = document.getElementById('newPassword').value;
-       if (!cur || !neu) return showToast(state.lang === 'ar' ? 'الرجاء ملء حقلي كلمة المرور' : 'Fill both passwords');
+       if (!cur || !neu) return showToast(t('passwordFieldsRequired'), true);
        cpBtn.textContent = '...';
        try {
           await apiFetch('/user/password', { method: 'POST', body: JSON.stringify({ currentPassword: cur, newPassword: neu }) });
-          showToast(state.lang === 'ar' ? 'تم تحديث كلمة المرور!' : 'Password updated!');
+          showToast(t('passwordUpdated'));
           document.getElementById('currentPassword').value = '';
           document.getElementById('newPassword').value = '';
        } catch (err) {
-          showToast(err.message);
+          showToast(localizedErrorMessage(err), true);
        } finally {
           cpBtn.textContent = state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password';
        }
@@ -2799,7 +3314,7 @@ function renderAuthModal(mode = 'signin') {
           trackEvent(mode === 'signin' ? 'login' : 'sign_up', { method: 'username' });
           showToast(mode === 'signin' ? t('signedIn') : t('accountCreated'));
       } catch (err) {
-          showToast(err.message || t('badLogin'));
+          showToast(localizedErrorMessage(err, 'badLogin'), true);
       } finally {
           btn.disabled = false;
           btn.textContent = mode === 'signin' ? t('signIn') : t('register');
@@ -2951,8 +3466,8 @@ function initSuggestionBox() {
       });
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
-    } catch {
-      showToast('Could not submit. Please try again.', true);
+    } catch (error) {
+      showToast(localizedErrorMessage(error, 'suggestionSubmitError'), true);
     } finally {
       els.suggestionSubmit.disabled = false;
     }
@@ -3086,9 +3601,9 @@ function createTimedQuizModal() {
         <span id="tqProgressText" class="tq-progress-text">1 / 10</span>
         <div class="tq-timer-group">
           <span id="tqCountdown" class="timed-quiz-countdown">15</span>
-          <span class="tq-sec">s</span>
+          <span class="tq-sec">${escapeHtml(t('secondsShort'))}</span>
         </div>
-        <button class="tq-exit-btn" id="tqExitBtn" aria-label="Exit">✕</button>
+        <button class="tq-exit-btn" id="tqExitBtn" aria-label="${escapeHtml(t('exit'))}">✕</button>
       </div>
       <div class="timed-quiz-track"><div id="tqTrackFill" class="timed-quiz-track-fill" style="width:100%"></div></div>
       <div class="tq-qna-block">
@@ -3261,7 +3776,7 @@ function endTimedQuiz() {
       const text = isAr
         ? `🏆 حصلت على ${score}/${total} في "${catTitle}" على JAKH!\nهل تستطيع التفوق عليّ؟ ← ${challengeUrl}`
         : `🏆 I scored ${score}/${total} in "${catTitle}" on JAKH!\nCan you beat me? → ${challengeUrl}`;
-      navigator.share?.({ title: 'JAKH Challenge', text, url: challengeUrl })
+      navigator.share?.({ title: t('shareChallengeTitle'), text, url: challengeUrl })
         .catch(() => navigator.clipboard?.writeText(text).then(() => showToast(isAr ? 'تم نسخ التحدي!' : 'Challenge copied!')));
     });
     document.getElementById('tqBattleBtn')?.addEventListener('click', () => {
@@ -3281,13 +3796,13 @@ function createLeaderboardModal() {
   el.setAttribute('aria-hidden', 'true');
   el.innerHTML = `
     <div class="modal-backdrop" data-close-modal="leaderboard"></div>
-    <div class="modal-card" role="dialog" aria-modal="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="leaderboardTitle">
       <div class="modal-head">
         <div>
-          <p class="eyebrow">🏆 ${state.lang === 'ar' ? 'لوحة المتصدرين' : 'Leaderboard'}</p>
-          <h2>${state.lang === 'ar' ? 'أفضل 20 لاعباً' : 'Top 20 Players'}</h2>
+          <p class="eyebrow">🏆 ${escapeHtml(t('leaderboardTitle'))}</p>
+          <h2 id="leaderboardTitle">${escapeHtml(t('leaderboardTop'))}</h2>
         </div>
-        <button class="icon-btn" data-close-modal="leaderboard" aria-label="Close">×</button>
+        <button class="icon-btn" data-close-modal="leaderboard" aria-label="${escapeHtml(t('close'))}">×</button>
       </div>
       <div id="leaderboardBody" style="padding:0.25rem 0;min-height:120px;"></div>
     </div>`;
@@ -3333,15 +3848,15 @@ function openGlobalSearch() {
   overlay.className = 'global-search-overlay';
   overlay.innerHTML = `
     <div class="global-search-backdrop"></div>
-    <div class="global-search-panel" role="dialog" aria-modal="true" aria-label="${state.lang === 'ar' ? 'البحث الشامل' : 'Global search'}">
+    <div class="global-search-panel" role="dialog" aria-modal="true" aria-label="${escapeHtml(t('globalSearchLabel'))}">
       <div class="global-search-head">
         <input id="globalSearchInput" class="global-search-input" type="search" autocomplete="off"
-          placeholder="${state.lang === 'ar' ? 'ابحث في جميع الأسئلة...' : 'Search all 3,500+ questions…'}"
-          aria-label="${state.lang === 'ar' ? 'ابحث في جميع الأسئلة' : 'Search all questions'}" />
-        <button class="global-search-close icon-btn" id="globalSearchClose" aria-label="Close">×</button>
+          placeholder="${escapeHtml(t('globalSearchPlaceholder'))}"
+          aria-label="${escapeHtml(t('globalSearchInputLabel'))}" />
+        <button class="global-search-close icon-btn" id="globalSearchClose" aria-label="${escapeHtml(t('close'))}">×</button>
       </div>
       <div id="globalSearchResults" class="global-search-results">
-        <p class="global-search-hint">${state.lang === 'ar' ? 'اكتب للبدء في البحث...' : 'Start typing to search across all categories…'}</p>
+        <p class="global-search-hint">${escapeHtml(t('globalSearchStart'))}</p>
       </div>
     </div>
   `;
@@ -3369,7 +3884,7 @@ async function runGlobalSearch() {
   if (!resultsEl) return;
   if (!q || q.length < 2) {
     resultsEl.removeAttribute('aria-busy');
-    resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'اكتب حرفين على الأقل...' : 'Type at least 2 characters…'}</p>`;
+    resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchMin'))}</p>`;
     return;
   }
   resultsEl.replaceChildren();
@@ -3381,7 +3896,7 @@ async function runGlobalSearch() {
   } catch {
     if (generation === _gsGeneration) {
       resultsEl.removeAttribute('aria-busy');
-      resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'تعذر البحث الآن.' : 'Search is unavailable right now.'}</p>`;
+      resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchUnavailable'))}</p>`;
     }
     return;
   }
@@ -3406,7 +3921,7 @@ async function runGlobalSearch() {
 
   if (generation !== _gsGeneration) return;
   if (!hits.length) {
-    resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'لا نتائج.' : 'No results.'}</p>`;
+    resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchEmpty'))}</p>`;
     return;
   }
   resultsEl.innerHTML = hits.map(({ cat, question, answer }) => `
@@ -3436,19 +3951,19 @@ async function openLeaderboard() {
     const currentUser = state.dbUser?.username;
     const medals = ['🥇', '🥈', '🥉'];
     if (!leaderboard?.length) {
-      if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">No scores yet — be the first!</p>';
+      if (body) body.innerHTML = `<p style="padding:2rem;text-align:center;color:var(--muted)">${escapeHtml(t('leaderboardEmpty'))}</p>`;
       return;
     }
     if (body) body.innerHTML = leaderboard.map(row => `
       <div class="leaderboard-row">
         <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || row.rank}</span>
         <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">
-          <span style="margin-right:6px;font-size:1.1rem;">${row.avatar || '👤'}</span>${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}
+          <span style="margin-inline-end:6px;font-size:1.1rem;">${row.avatar || '👤'}</span>${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}
         </span>
-        <span class="leaderboard-score">${row.score} pts</span>
+        <span class="leaderboard-score bidi-isolate">${row.score} ${escapeHtml(t('pointsShort'))}</span>
       </div>`).join('');
   } catch (e) {
-    if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--danger)">Failed to load.</p>';
+    if (body) body.innerHTML = `<p style="padding:2rem;text-align:center;color:var(--danger)">${escapeHtml(t('leaderboardLoadError'))}</p>`;
   } finally {
     body?.removeAttribute('aria-busy');
   }
@@ -3523,14 +4038,15 @@ function showCategoryCompleteModal(slug) {
     el.setAttribute('aria-hidden', 'true');
     document.body.appendChild(el);
   }
+  el.dataset.categorySlug = slug;
   el.innerHTML = `
     <div class="modal-backdrop" id="catCompleteBackdrop"></div>
-    <div class="modal-card category-complete-card" role="dialog" aria-modal="true">
+    <div class="modal-card category-complete-card" role="dialog" aria-modal="true" aria-labelledby="categoryCompleteTitle">
       <div class="category-complete-top" style="background:${CATEGORY_GRADIENTS[slug] || 'linear-gradient(135deg,#1E3A5F,#4A90D9)'}">
         <span class="category-complete-emoji">${meta.emoji}</span>
       </div>
       <div class="category-complete-body">
-        <h2 style="margin:0 0 0.25rem;">${lang === 'ar' ? '🎉 أكملت الفئة!' : '🎉 Category Complete!'}</h2>
+        <h2 id="categoryCompleteTitle" style="margin:0 0 0.25rem;">${lang === 'ar' ? '🎉 أكملت الفئة!' : '🎉 Category Complete!'}</h2>
         <p style="margin:0 0 1rem;color:var(--muted);font-size:0.9rem;">${escapeHtml(meta.title[lang])}</p>
         <div class="stats-grid" style="margin-bottom:1.2rem;">
           <div class="stat-box"><span>${lang === 'ar' ? 'صحيح' : 'Correct'}</span><strong style="color:var(--easy)">${solved}</strong></div>
@@ -3566,7 +4082,7 @@ function showCategoryCompleteModal(slug) {
     const text = isAr
       ? `🏆 أنهيت "${meta.title.ar}" على JAKH بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
       : `🏆 I finished "${meta.title.en}" on JAKH with ${points} pts!\nCan you beat me? → ${url}`;
-    navigator.share?.({ title: 'JAKH Challenge', text, url })
+    navigator.share?.({ title: t('shareChallengeTitle'), text, url })
       .catch(() => navigator.clipboard?.writeText(text).then(() => showToast(isAr ? 'تم نسخ التحدي!' : 'Challenge copied!')));
   });
   checkNewAchievements();
@@ -3591,7 +4107,7 @@ function shareCard(cardId) {
     language: state.lang,
   });
   if (navigator.share) {
-    navigator.share({ title: 'JAKH Riddles', text, url }).catch(() => {});
+    navigator.share({ title: t('shareRiddleTitle'), text, url }).catch(() => {});
   } else {
     navigator.clipboard?.writeText(`${text}\n${url}`).then(() => {
       showToast(isAr ? 'تم نسخ السؤال!' : 'Question copied!');
@@ -3632,7 +4148,7 @@ function shareResult(score, total, categoryTitle) {
     language: state.lang,
   });
   if (navigator.share) {
-    navigator.share({ title: 'JAKH Riddles', text, url }).catch(() => {});
+    navigator.share({ title: t('shareRiddleTitle'), text, url }).catch(() => {});
   } else {
     navigator.clipboard?.writeText(text).then(() => showToast(t('shareCopied'))).catch(() => showToast(t('shareCopied')));
   }
@@ -3942,8 +4458,8 @@ function renderBattleUI() {
   };
   overlay.innerHTML = `
     <div class="battle-header">
-      <span class="battle-header-title">${titles[battleState.phase] || '⚡ Team Battle'}</span>
-      <button class="battle-exit-btn" id="battleExitBtn" aria-label="Close">✕</button>
+      <span class="battle-header-title">${titles[battleState.phase] || `⚡ ${escapeHtml(t('teamBattle'))}`}</span>
+      <button class="battle-exit-btn" id="battleExitBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
     </div>
     <div id="battleBody" class="battle-body"></div>`;
   document.getElementById('battleExitBtn')?.addEventListener('click', closeBattleModal);
@@ -4010,6 +4526,7 @@ function renderBattleSetup(body) {
             ${isAr ? 'كود الغرفة' : 'Room code'}
             <input type="text" id="battleCodeInput" maxlength="16"
               placeholder="${isAr ? 'مثال: SCI7X2KQ' : 'e.g. SCI7X2KQ'}"
+              dir="ltr"
               style="text-transform:uppercase;font-family:var(--font-mono);letter-spacing:0.08em;"
               autocomplete="off" />
           </label>
@@ -4048,7 +4565,7 @@ async function handleBattleCreate() {
     battleState.isHost = true;
     connectToBattle(data.code, name, data.hostId);
   } catch (err) {
-    showBattleError(err.message || (isAr ? 'تعذر الإنشاء' : 'Could not create room'));
+    showBattleError(localizedErrorMessage(err, 'errorBattleCreate'));
     if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}`; }
   }
 }
@@ -4087,7 +4604,10 @@ function connectToBattle(code, name, hostId) {
 }
 
 function handleBattleMessage(msg) {
-  if (msg.type === 'error') { showBattleError(msg.message); return; }
+  if (msg.type === 'error') {
+    showBattleError(localizedErrorMessage({ code: msg.code, message: msg.message }));
+    return;
+  }
   if (msg.type === 'joined') {
     battleState.playerId = msg.playerId;
     battleState.isHost = msg.isHost;
@@ -4166,7 +4686,7 @@ function renderBattleLobby(body) {
   body.innerHTML = `
     <div class="battle-lobby">
       <div class="battle-code-display">
-        <div class="battle-code-value">${escapeHtml(code)}</div>
+        <div class="battle-code-value bidi-isolate" dir="ltr">${escapeHtml(code)}</div>
         <p class="battle-code-hint">${isAr ? 'شارك هذا الكود لدعوة الآخرين' : 'Share this code to invite players'}</p>
         <button class="ghost-btn" id="battleShareBtn" style="margin-top:0.6rem;font-size:0.82rem;">
           🔗 ${isAr ? 'نسخ الرابط' : 'Copy invite link'}
@@ -4177,7 +4697,7 @@ function renderBattleLobby(body) {
         <div class="battle-player-list">
           ${players.map(p => `
             <div class="battle-player-row">
-              ${p.id === room?.hostId ? '<span class="battle-player-crown" aria-label="Host">👑</span>' : '<span style="width:1.2rem"></span>'}
+              ${p.id === room?.hostId ? `<span class="battle-player-crown" aria-label="${escapeHtml(t('host'))}">👑</span>` : '<span style="width:1.2rem"></span>'}
               <span style="flex:1">${escapeHtml(p.name)}</span>
               ${p.id === battleState.playerId ? `<span class="pill" style="font-size:0.7rem">${isAr ? 'أنت' : 'You'}</span>` : ''}
             </div>`).join('')}
@@ -4215,7 +4735,7 @@ function renderBattleQuestion(body) {
   body.innerHTML = `
     <div class="battle-game">
       <div class="battle-hud">
-        <span class="battle-hud-code">${escapeHtml(room.code)}</span>
+        <span class="battle-hud-code bidi-isolate" dir="ltr">${escapeHtml(room.code)}</span>
         <span class="battle-round-label">${isAr ? 'س' : 'Q'}${q.index + 1} / ${q.total}</span>
         <span class="battle-player-count">${room.totalPlayers} ${isAr ? 'لاعبين' : 'players'}</span>
         <span class="battle-timer-badge" id="battleTimerCount">${battleState.timeLeft}</span>
@@ -4290,7 +4810,7 @@ function renderBattleReveal(body) {
   body.innerHTML = `
     <div class="battle-game">
       <div class="battle-hud">
-        <span class="battle-hud-code">${escapeHtml(room.code)}</span>
+        <span class="battle-hud-code bidi-isolate" dir="ltr">${escapeHtml(room.code)}</span>
         <span class="battle-round-label">
           ${isAr ? 'س' : 'Q'}${q.index + 1}/${q.total} ·
           ${mySelected === null
@@ -4400,7 +4920,7 @@ function renderBattlePodium(body) {
     const text = isAr
       ? `⚡ انتهت معركة JAKH!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} نقطة\n🏅 مركزي: #${myPos}\njakh.net`
       : `⚡ JAKH Battle done!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} pts\n🏅 My rank: #${myPos}\njakh.net`;
-    navigator.share?.({ title: 'JAKH Battle', text }).catch(() =>
+    navigator.share?.({ title: t('shareBattleTitle'), text }).catch(() =>
       navigator.clipboard?.writeText(text).then(() => showToast(isAr ? 'تم النسخ!' : 'Copied!')));
   });
   document.getElementById('battleCloseFinBtn')?.addEventListener('click', closeBattleModal);
@@ -4448,6 +4968,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   init().catch((error) => {
     console.error(error);
-    showToast(error.message || 'Initialization error');
+    showToast(localizedErrorMessage(error, 'initializationError'), true);
   });
 });

@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v66';
-const ASSET_CACHE = 'jakh-assets-v66';
+const CACHE_NAME = 'jakh-v68';
+const ASSET_CACHE = 'jakh-assets-v68';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -8,6 +8,8 @@ const PRECACHE_ASSETS = [
   '/collections',
   '/about',
   '/app.js',
+  '/site-i18n.js',
+  '/game-i18n.js',
   '/styles.css',
   '/manifest.webmanifest',
   '/assets/logo.webp',

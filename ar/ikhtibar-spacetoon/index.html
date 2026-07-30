@@ -2,7 +2,15 @@
 <html lang="ar" dir="rtl" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
+    <script>
+      document.documentElement.dataset.theme = "light";
+      try {
+        var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
+        savedSettings.lang = "ar";
+        localStorage.setItem("jakh-riddles-settings", JSON.stringify(savedSettings));
+      } catch (_) {}
+    </script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="اختبار غير رسمي من 16 سؤالاً عن مسلسلات الطفولة المدبلجة، مع أسئلة وأجوبة بالعربية والإنجليزية." />
@@ -21,13 +29,13 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
     <meta property="og:site_name" content="JAKH Riddles" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="اختبار سبيستون: 16 سؤالاً من ذكريات الطفولة | JAKH" />
     <meta name="twitter:description" content="اختبار غير رسمي من 16 سؤالاً عن مسلسلات الطفولة المدبلجة، مع أسئلة وأجوبة بالعربية والإنجليزية." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg" />
-    <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -234,7 +242,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073003" />
+    <link rel="stylesheet" href="/styles.css?v=2026073005" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -246,16 +254,16 @@
   <body class="seo-page">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/?lang=ar" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="التنقل">
-        <a class="ghost-btn" href="/">الرئيسية</a>
-        <a class="ghost-btn" href="/collections">المجموعات</a>
-        <a class="ghost-btn" href="https://jakh.net/en/spacetoon-quiz/" lang="en">English</a>
+        <a class="ghost-btn" href="/?lang=ar">الرئيسية</a>
+        <a class="ghost-btn" href="/collections?lang=ar">المجموعات</a>
+        <a class="ghost-btn" href="https://jakh.net/en/spacetoon-quiz/" lang="en" dir="ltr">English</a>
       </nav>
     </header>
     <main id="content">
@@ -278,7 +286,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>جيم هوكنز</p>
-              <a href="/ayam-tayebeen?card=ayt-041">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-041&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -288,7 +296,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>كابتن فلينت</p>
-              <a href="/ayam-tayebeen?card=ayt-044">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-044&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -298,7 +306,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>هيسبانيولا</p>
-              <a href="/ayam-tayebeen?card=ayt-043">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-043&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -308,7 +316,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>خريطة الكنز</p>
-              <a href="/ayam-tayebeen?card=ayt-045">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-045&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -318,7 +326,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>الآنسة منشن</p>
-              <a href="/ayam-tayebeen?card=ayt-082">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-082&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -328,7 +336,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>إيميلي</p>
-              <a href="/ayam-tayebeen?card=ayt-083">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-083&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -338,7 +346,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>في العلية</p>
-              <a href="/ayam-tayebeen?card=ayt-085">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-085&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -348,7 +356,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>ساكورا</p>
-              <a href="/ayam-tayebeen?card=ayt-101">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-101&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -358,7 +366,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>سوميري</p>
-              <a href="/ayam-tayebeen?card=ayt-116">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-116&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -368,7 +376,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>تاما</p>
-              <a href="/ayam-tayebeen?card=ayt-106">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-106&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -378,7 +386,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>جوليكور</p>
-              <a href="/ayam-tayebeen?card=ayt-123">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-123&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -388,7 +396,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>كابي</p>
-              <a href="/ayam-tayebeen?card=ayt-124">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-124&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -398,7 +406,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>والدتها الحقيقية</p>
-              <a href="/ayam-tayebeen?card=ayt-125">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-125&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -408,7 +416,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>قط</p>
-              <a href="/ayam-tayebeen?card=ayt-181">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-181&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -418,7 +426,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>فأر</p>
-              <a href="/ayam-tayebeen?card=ayt-182">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-182&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -428,7 +436,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>سبايك</p>
-              <a href="/ayam-tayebeen?card=ayt-183">افتح البطاقة التفاعلية →</a>
+              <a href="/ayam-tayebeen?card=ayt-183&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -437,8 +445,8 @@
         <h2>واصل اللعب</h2>
         <p>استكشف المجموعة الكاملة، وبدّل اللغة، وتابع نتيجتك في مختبر العقل.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab">افتح مختبر العقل</a>
-          <a class="ghost-btn" href="/collections">كل المجموعات</a>
+          <a class="primary-btn" href="/mind-lab?lang=ar">افتح مختبر العقل</a>
+          <a class="ghost-btn" href="/collections?lang=ar">كل المجموعات</a>
         </div>
       </section>
     </main>
@@ -446,12 +454,12 @@
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
         <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections" data-i18n="footerCollections">المجموعات</a>
-          <a href="/about" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a>
+          <a href="/collections?lang=ar" data-i18n="footerCollections">المجموعات</a>
+          <a href="/about?lang=ar" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a>
         </nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><span>Facebook</span></a>
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام"><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك"><span>Facebook</span></a>
         </div>
       </div>
     </footer>

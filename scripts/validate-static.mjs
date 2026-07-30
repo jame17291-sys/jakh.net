@@ -5,10 +5,33 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
-const htmlFiles = fs.readdirSync(root).filter((name) => name.endsWith(".html")).sort();
+const ignoredHtmlDirectories = new Set([
+  ".git",
+  ".wrangler",
+  "_site",
+  "coverage",
+  "dist",
+  "node_modules",
+]);
+
+function discoverHtmlFiles(directory = root) {
+  const files = [];
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      if (!ignoredHtmlDirectories.has(entry.name)) {
+        files.push(...discoverHtmlFiles(path.join(directory, entry.name)));
+      }
+    } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".html")) {
+      files.push(path.relative(root, path.join(directory, entry.name)).split(path.sep).join("/"));
+    }
+  }
+  return files;
+}
+
+const htmlFiles = discoverHtmlFiles().sort();
 const dataFiles = fs.readdirSync(path.join(root, "data")).filter((name) => name.endsWith(".json")).sort();
 const localReference = /\b(?:href|src)=["']([^"'<>]+)["']/giu;
-const idAttribute = /\bid=["']([^"']+)["']/giu;
+const idAttribute = /\sid\s*=\s*["']([^"']+)["']/giu;
 const inlineScript = /<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/giu;
 
 function fail(message) {
@@ -21,7 +44,7 @@ function stableObjectJson(value) {
   );
 }
 
-function localPath(reference) {
+function localPath(reference, sourceFile) {
   if (
     !reference
     || reference.startsWith("#")
@@ -29,11 +52,43 @@ function localPath(reference) {
     || reference.startsWith("mailto:")
     || reference.startsWith("tel:")
     || reference.startsWith("javascript:")
-    || /^[a-z][a-z0-9+.-]*:\/\//iu.test(reference)
+    || reference.startsWith("//")
+    || /^[a-z][a-z0-9+.-]*:/iu.test(reference)
   ) return null;
-  const clean = decodeURIComponent(reference.split(/[?#]/u)[0] || "");
+  let clean;
+  try {
+    clean = decodeURIComponent(reference.split(/[?#]/u)[0] || "");
+  } catch {
+    return { invalid: true, candidates: [] };
+  }
   if (!clean) return null;
-  return path.join(root, clean === "/" ? "index.html" : clean.replace(/^\/+/u, ""));
+  const isRootRelative = clean.startsWith("/");
+  const base = isRootRelative ? root : path.dirname(path.join(root, sourceFile));
+  const route = isRootRelative ? clean.replace(/^\/+/u, "") : clean;
+  const target = path.resolve(base, route || ".");
+  const rootPrefix = `${root}${path.sep}`;
+  if (target !== root && !target.startsWith(rootPrefix)) {
+    return { invalid: true, candidates: [target] };
+  }
+
+  const candidates = [];
+  if (!route || clean.endsWith("/")) {
+    candidates.push(path.join(target, "index.html"));
+  } else {
+    candidates.push(target);
+    if (!path.extname(target)) {
+      candidates.push(`${target}.html`);
+      candidates.push(path.join(target, "index.html"));
+    }
+  }
+  const resolved = candidates.find((candidate) => {
+    try {
+      return fs.statSync(candidate).isFile();
+    } catch {
+      return false;
+    }
+  });
+  return { invalid: false, resolved, candidates };
 }
 
 for (const file of htmlFiles) {
@@ -47,9 +102,15 @@ for (const file of htmlFiles) {
   }
 
   for (const match of source.matchAll(localReference)) {
-    const resolved = localPath(match[1] || "");
-    if (resolved && !fs.existsSync(resolved)) {
-      fail(`${file}: missing local reference ${path.relative(root, resolved)}`);
+    const reference = match[1] || "";
+    const resolution = localPath(reference, file);
+    if (resolution?.invalid) {
+      fail(`${file}: invalid local reference "${reference}"`);
+    } else if (resolution && !resolution.resolved) {
+      const tried = resolution.candidates
+        .map((candidate) => path.relative(root, candidate).split(path.sep).join("/"))
+        .join(" or ");
+      fail(`${file}: missing local reference "${reference}" (tried ${tried})`);
     }
   }
 
@@ -89,7 +150,11 @@ for (const category of catalog.categories || []) {
   if (!category.slug || catalogSlugs.has(category.slug)) fail(`catalog: invalid or duplicate slug "${category.slug}"`);
   catalogSlugs.add(category.slug);
   categoriesBySlug.set(category.slug, category);
-  const expectedPage = path.join(root, category.href || "");
+  const expectedHref = `/${category.slug}`;
+  if (category.href !== expectedHref) {
+    fail(`catalog: ${category.slug} href must be "${expectedHref}", found "${category.href}"`);
+  }
+  const expectedPage = path.join(root, `${category.slug}.html`);
   const expectedData = path.join(root, "data", `${category.slug}.json`);
   if (!fs.existsSync(expectedPage)) fail(`catalog: missing page for ${category.slug}`);
   if (!fs.existsSync(expectedData)) fail(`catalog: missing data for ${category.slug}`);
@@ -261,9 +326,9 @@ const assetVersions = new Set();
 let assetReferenceCount = 0;
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
-  for (const match of source.matchAll(/\b(?:href|src)=["']((?:app\.js|styles\.css)(?:\?[^"']*)?)["']/giu)) {
+  for (const match of source.matchAll(/\b(?:href|src)=["']((?:\/)?(?:app\.js|styles\.css)(?:\?[^"']*)?)["']/giu)) {
     assetReferenceCount += 1;
-    const version = match[1]?.match(/^(?:app\.js|styles\.css)\?v=(\d+)$/u)?.[1];
+    const version = match[1]?.match(/^\/?(?:app\.js|styles\.css)\?v=(\d+)$/u)?.[1];
     if (!version) fail(`${file}: unversioned app/CSS reference "${match[1]}"`);
     else assetVersions.add(version);
   }
@@ -401,8 +466,10 @@ async function validateServiceWorkerOfflineShell() {
     const version = [...assetVersions][0] || "missing";
     const cases = [
       ["/?daily=1", "navigate", "precache:/"],
-      ["/mind-lab.html?offline=1", "navigate", "precache:/mind-lab.html"],
-      ["/play.html", "navigate", "precache:/play.html"],
+      ["/mind-lab?offline=1", "navigate", "precache:/mind-lab"],
+      ["/play", "navigate", "precache:/play"],
+      ["/collections?offline=1", "navigate", "precache:/collections"],
+      ["/about", "navigate", "precache:/about"],
       [`/app.js?v=${version}`, "same-origin", "precache:/app.js"],
       [`/styles.css?v=${version}`, "same-origin", "precache:/styles.css"],
     ];

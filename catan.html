@@ -3,25 +3,28 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
-  <meta name="description" content="Play Catan Lite on JAKH Riddles. Roll dice, collect resources, build settlements. 2-player strategy."/>
-  <title>Catan Lite | JAKH Riddles</title>
-  <link rel="preload" href="styles.css?v=1785418225" as="style"/>
+  <meta name="description" content="Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up." />
+  <title>Catan Lite Online — Free Browser Game | JAKH</title>
+  <link rel="preload" href="styles.css?v=2026073003" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/catan"/>
   <meta name="robots" content="index,follow"/>
-  <meta property="og:title" content="Catan Lite | JAKH Riddles"/>
-  <meta property="og:description" content="Play Catan Lite on JAKH Riddles. Roll dice, collect resources, build settlements. 2-player strategy."/>
+  <meta property="og:title" content="Catan Lite Online — Free Browser Game | JAKH" />
+  <meta property="og:description" content="Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up." />
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://jakh.net/catan"/>
-  <meta property="og:image" content="https://jakh.net/assets/og-image.webp"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
   <meta property="og:site_name" content="JAKH Riddles"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Catan Lite | JAKH Riddles"/>
-  <meta name="twitter:description" content="Play Catan Lite on JAKH Riddles. Roll dice, collect resources, build settlements. 2-player strategy."/>
-  <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp"/>
-  <link rel="stylesheet" href="styles.css?v=1785418225"/>
+  <meta name="twitter:title" content="Catan Lite Online — Free Browser Game | JAKH" />
+  <meta name="twitter:description" content="Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
+  <link rel="stylesheet" href="styles.css?v=2026073003"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -353,20 +356,43 @@
       .catan-btn { font-size: 0.82rem; padding: 0.45rem 0.85rem; }
     }
   </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Catan Lite",
+  "description": "Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game.",
+  "url": "https://jakh.net/catan",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
   </head>
 <body data-page="game">
   <a href="#top" class="skip-link">Skip to main content</a>
 
   <header class="site-header shell">
-    <a href="index.html" class="brand" aria-label="JAKH Riddles home">
+    <a href="/" class="brand" aria-label="JAKH Riddles home">
       <picture>
         <source srcset="assets/logo.webp" type="image/webp"/>
         <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
       </picture>
     </a>
     <nav class="header-actions">
-      <a class="ghost-btn" href="index.html">Home</a>
-      <a class="ghost-btn" href="play.html">&#8592; Games</a>
+      <a class="ghost-btn" href="/">Home</a>
+      <a class="ghost-btn" href="/play">&#8592; Games</a>
     </nav>
   </header>
 
@@ -437,7 +463,7 @@
   <!-- Trade Modal -->
   <div id="catan-trade-modal" role="dialog" aria-modal="true" aria-label="Bank Trade">
     <div class="trade-modal-inner">
-      <h3>🔄 Bank Trade (4:1)</h3>
+      <h2>🔄 Bank Trade (4:1)</h2>
       <div class="trade-row">
         <label>Give (4 of):</label>
         <select id="trade-give">
@@ -1071,5 +1097,15 @@
     return { roll, startBuildSettlement, buildRoad, startBuildCity, openTrade, closeTrade, confirmTrade, endTurn, restart };
   })();
   </script>
-</body>
+  <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><span>Facebook</span></a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

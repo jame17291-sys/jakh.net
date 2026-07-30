@@ -11,19 +11,22 @@ const DISALLOWED_ORIGIN = "https://example.invalid";
 
 export const HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>JAKH Riddles" },
-  { name: "Mind Lab", path: "/mind-lab.html", marker: "<title>Mind Lab" },
-  { name: "Game Hub", path: "/play.html", marker: "<title>Play | JAKH Riddles" },
-  { name: "Science category", path: "/science.html", marker: "<title>Science Quiz" },
-  { name: "Chess", path: "/chess.html", marker: "<title>Chess | JAKH Riddles" },
-  { name: "Mastermind", path: "/mastermind.html", marker: "<title>Mastermind | JAKH Riddles" },
-  { name: "Go", path: "/go.html", marker: "<title>Go | JAKH Riddles" },
-  { name: "Reversi", path: "/reversi.html", marker: "<title>Reversi | JAKH Riddles" },
-  { name: "Codenames", path: "/codenames.html", marker: "<title>Codenames | JAKH Riddles" },
-  { name: "Catan", path: "/catan.html", marker: "<title>Catan Lite | JAKH Riddles" },
-  { name: "Backgammon", path: "/backgammon.html", marker: "<title>Backgammon | JAKH Riddles" },
-  { name: "SET", path: "/set.html", marker: "<title>SET | JAKH Riddles" },
-  { name: "Hanabi", path: "/hanabi.html", marker: "<title>Hanabi | JAKH Riddles" },
-  { name: "Diplomacy", path: "/diplomacy.html", marker: "<title>Diplomacy Lite | JAKH Riddles" },
+  { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab" },
+  { name: "Collections", path: "/collections", marker: "<title>Riddles &amp; Quiz Collections" },
+  { name: "Arabic riddles collection", path: "/ar/alghaz-ma-alhal/", marker: '<html lang="ar"' },
+  { name: "About", path: "/about", marker: "<title>About JAKH" },
+  { name: "Game Hub", path: "/play", marker: "<title>10 Free Browser Games" },
+  { name: "Science category", path: "/science", marker: "<title>Science Quiz" },
+  { name: "Chess", path: "/chess", marker: "<title>Chess Online" },
+  { name: "Mastermind", path: "/mastermind", marker: "<title>Mastermind Online" },
+  { name: "Go", path: "/go", marker: "<title>Go Online" },
+  { name: "Reversi", path: "/reversi", marker: "<title>Reversi Online" },
+  { name: "Codenames", path: "/codenames", marker: "<title>Codenames Online" },
+  { name: "Catan", path: "/catan", marker: "<title>Catan Lite Online" },
+  { name: "Backgammon", path: "/backgammon", marker: "<title>Backgammon Online" },
+  { name: "SET", path: "/set", marker: "<title>SET Online" },
+  { name: "Hanabi", path: "/hanabi", marker: "<title>Hanabi Online" },
+  { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online" },
 ];
 
 function positiveInteger(value, fallback, label) {
@@ -205,6 +208,11 @@ export async function runProductionMonitor(options = {}) {
       expectStatus(resource.response, 200);
       expectContentType(resource.response, /^text\/html\b/iu);
       expect(resource.text.includes(route.marker), `missing page marker "${route.marker}"`);
+      if (route.path === "/science") {
+        const cardCount = (resource.text.match(/class="riddle-card"/gu) || []).length;
+        expect(cardCount === 20, `science source contains ${cardCount} static cards instead of 20`);
+        expect(resource.text.includes('"hasPart"'), "science Quiz schema has no hasPart questions");
+      }
       assertBudget(resource, config.siteMaxMs, 150_000);
       return resource;
     }),
@@ -242,6 +250,40 @@ export async function runProductionMonitor(options = {}) {
     expect(manifest.start_url === "/", "manifest start_url is not /");
     expect(Array.isArray(manifest.icons) && manifest.icons.length >= 2, "manifest icons are incomplete");
     assertBudget(resource, config.siteMaxMs, 20_000);
+    return resource;
+  });
+
+  await check("Site: sitemap", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/sitemap.xml", config.siteOrigin),
+      config.timeoutMs,
+    );
+    expectStatus(resource.response, 200);
+    expectContentType(resource.response, /(?:application|text)\/xml/iu);
+    const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
+    expect(urls.length >= 80, `sitemap contains only ${urls.length} URLs`);
+    expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
+    expect(urls.includes("https://jakh.net/collections"), "sitemap is missing collections");
+    expect(urls.includes("https://jakh.net/ar/alghaz-ma-alhal/"), "sitemap is missing Arabic riddles");
+    assertBudget(resource, config.siteMaxMs, 100_000);
+    return resource;
+  });
+
+  await check("Site: social preview image", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/assets/og-image.jpg", config.siteOrigin),
+      config.timeoutMs,
+    );
+    expectStatus(resource.response, 200);
+    expectContentType(resource.response, /^image\/jpeg\b/iu);
+    const signature = new Uint8Array(resource.body.slice(0, 3));
+    expect(
+      signature[0] === 0xff && signature[1] === 0xd8 && signature[2] === 0xff,
+      "social preview image does not have a JPEG signature",
+    );
+    assertBudget(resource, config.siteMaxMs, 400_000);
     return resource;
   });
 

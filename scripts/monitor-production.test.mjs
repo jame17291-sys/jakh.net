@@ -24,7 +24,12 @@ function apiHeaders(origin, cacheControl = "no-store") {
 
 function staticBody(pathname) {
   const route = HTML_ROUTES.find((candidate) => candidate.path === pathname);
-  if (route) return `<!doctype html><html><head>${route.marker}</title></head><body>ok</body></html>`;
+  if (route) {
+    const seoCards = pathname === "/science"
+      ? `${'<article class="riddle-card"></article>'.repeat(20)}<script type="application/ld+json">{"hasPart":[]}</script>`
+      : "";
+    return `<!doctype html><html><head>${route.marker}</title></head><body>${seoCards}ok</body></html>`;
+  }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
       categories: Array.from({ length: 56 }, (_, index) => ({ slug: `category-${index}` })),
@@ -36,6 +41,17 @@ function staticBody(pathname) {
       start_url: "/",
       icons: [{ src: "one.png" }, { src: "two.png" }],
     });
+  }
+  if (pathname === "/sitemap.xml") {
+    const urls = [
+      "https://jakh.net/collections",
+      "https://jakh.net/ar/alghaz-ma-alhal/",
+      ...Array.from({ length: 81 }, (_, index) => `https://jakh.net/test-${index}`),
+    ];
+    return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
+  }
+  if (pathname === "/assets/og-image.jpg") {
+    return Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0x4a, 0x46, 0x49, 0x46]);
   }
   if (pathname === "/app.js") return "const endpoint = 'https://api.jakh.net';";
   if (pathname === "/styles.css") return ":root { color-scheme: light; }";
@@ -110,6 +126,10 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
         ? "text/css; charset=utf-8"
         : url.pathname.endsWith(".js")
           ? "text/javascript; charset=utf-8"
+          : url.pathname.endsWith(".jpg")
+            ? "image/jpeg"
+            : url.pathname.endsWith(".xml")
+              ? "application/xml; charset=utf-8"
           : url.pathname.endsWith(".json")
             ? "application/json; charset=utf-8"
             : url.pathname.endsWith(".webmanifest")
@@ -159,7 +179,7 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, 26);
+    assert.equal(summary.results.length, 31);
   });
 });
 

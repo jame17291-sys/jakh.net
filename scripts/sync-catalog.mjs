@@ -57,6 +57,7 @@ for (const category of catalog.categories || []) {
 
   category.cluster_key = section.key;
   category.cluster = structuredClone(section.title);
+  category.href = `/${category.slug}`;
   category.count = cards.length;
   category.difficultyCounts = Object.fromEntries(
     ["easy", "medium", "hard", "very-advanced"]

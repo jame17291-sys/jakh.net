@@ -1,429 +1,538 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
   <url>
     <loc>https://jakh.net/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/"/>
   </url>
-
-  <!-- Trivia category pages -->
+  <url>
+    <loc>https://jakh.net/mind-lab</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/collections</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/play</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/about</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.60</priority>
+  </url>
   <url>
     <loc>https://jakh.net/currencies</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/linguistics</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/tech-retro</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/automotive</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/survival</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/fictional-worlds</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/superheroes</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/pop-culture</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/true-crime</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/mythology-legends</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/art-and-painters</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/biology</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/books-and-quotes</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/business-and-management</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/chemistry</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/civil-engineering</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/classic-riddles</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/logic-puzzles</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/coding-and-design</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/electrical-engineering</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/flag-questions</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/football</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/geography</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/geology</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/history</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/infrastructure-systems</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/kids-riddles</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/law-middle-east</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/math</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/mechanical-engineering</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/medical-questions</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/middle-east-history</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/pharmacy</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/philosophy</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/physical-and-life-sciences</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/psychology</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/relationship-questions</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/science</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/social-sciences</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/software-and-computing</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/space-and-astrology</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/story-mysteries</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/tv-shows-trivia</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/world-habits-and-etiquette</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/environment-and-ecology</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/ancient-civilizations</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/inventions-and-minds</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/animal-kingdom</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/economics-and-finance</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/architecture-and-landmarks</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/music-and-performing-arts</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/food-and-cuisines</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/cinema-and-film-history</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/future-tech-and-energy</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/anime</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jakh.net/ayam-tayebeen</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- Standalone games -->
-  <url>
-    <loc>https://jakh.net/backgammon</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://jakh.net/catan</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
   <url>
     <loc>https://jakh.net/chess</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://jakh.net/codenames</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://jakh.net/diplomacy</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://jakh.net/go</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://jakh.net/hanabi</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://jakh.net/mastermind</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/go</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://jakh.net/reversi</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/codenames</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/catan</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://jakh.net/backgammon</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://jakh.net/set</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
-
-  <!-- Discovery and play hubs -->
   <url>
-    <loc>https://jakh.net/mind-lab</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://jakh.net/hanabi</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://jakh.net/play</loc>
-    <lastmod>2026-07-29</lastmod>
+    <loc>https://jakh.net/diplomacy</loc>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
-
+  <url>
+    <loc>https://jakh.net/en/riddles-with-answers/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/riddles-with-answers/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/alghaz-ma-alhal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/riddles-with-answers/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/alghaz-ma-alhal/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/riddles-with-answers/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/alghaz-ma-alhal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/riddles-with-answers/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/en/kids-riddles-with-answers/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/kids-riddles-with-answers/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/alghaz-lil-atfal-ma-alhal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/kids-riddles-with-answers/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/alghaz-lil-atfal-ma-alhal/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/kids-riddles-with-answers/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/alghaz-lil-atfal-ma-alhal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/kids-riddles-with-answers/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/en/logic-puzzles-with-answers/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/logic-puzzles-with-answers/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/alghaz-mantiqiyya-ma-alhal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/logic-puzzles-with-answers/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/alghaz-mantiqiyya-ma-alhal/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/logic-puzzles-with-answers/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/alghaz-mantiqiyya-ma-alhal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/logic-puzzles-with-answers/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/en/general-knowledge-quiz-questions/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/general-knowledge-quiz-questions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/asila-amma-wa-ajwiba/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/general-knowledge-quiz-questions/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/asila-amma-wa-ajwiba/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/general-knowledge-quiz-questions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/asila-amma-wa-ajwiba/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/general-knowledge-quiz-questions/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/en/spacetoon-quiz/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/spacetoon-quiz/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/ikhtibar-spacetoon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/spacetoon-quiz/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/ikhtibar-spacetoon/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/spacetoon-quiz/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/ikhtibar-spacetoon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/spacetoon-quiz/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/en/football-rules-quiz/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/football-rules-quiz/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/ikhtibar-qawanin-korat-alqadam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/football-rules-quiz/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/ikhtibar-qawanin-korat-alqadam/</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/en/football-rules-quiz/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/ikhtibar-qawanin-korat-alqadam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/en/football-rules-quiz/"/>
+  </url>
 </urlset>

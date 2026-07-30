@@ -180,7 +180,7 @@ const UI = {
     navCategories: 'Categories',
     authOpen: 'Sign in',
     language: 'Language',
-    homeEyebrow: '3,500+ bilingual riddles — English & Arabic',
+    homeEyebrow: '3,553 bilingual riddles — English & Arabic',
     homeTitle: 'Pick a topic. Flip cards. See how much you know.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Explore topics',
@@ -199,7 +199,7 @@ const UI = {
     playBrowserOnly: 'All games run entirely in your browser — nothing installed.',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
-    portalMindDesc: '3,500+ bilingual questions mapped directly into 56 topics across 5 clear sections. Pick a topic, flip cards, and track your score.',
+    portalMindDesc: '3,553 bilingual questions mapped directly into 56 topics across 5 clear sections. Pick a topic, flip cards, and track your score.',
     portalMindStat: '56 topics',
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
@@ -208,6 +208,25 @@ const UI = {
     portalGamesStat1: '10 games live',
     portalGamesStat2: 'All in browser',
     portalGamesCta: 'Play Now →',
+    homeCollectionsEyebrow: 'Popular ways to start',
+    homeCollectionsTitle: 'Focused riddles and quiz collections',
+    homeCollectionsText: 'Open a compact collection with every question visible and every answer one tap away, then continue into the full Mind Lab.',
+    homeCollectionsCta: 'Browse all collections',
+    homeCollectionArabicTitle: 'Arabic riddles with answers',
+    homeCollectionArabicMeta: '16 bilingual riddles',
+    homeCollectionKidsTitle: 'Kids’ riddles with answers',
+    homeCollectionKidsMeta: 'Friendly, family-safe clues',
+    homeCollectionLogicTitle: 'Logic puzzles with explanations',
+    homeCollectionLogicMeta: 'Deduction, numbers, and careful reading',
+    homeCollectionFootballTitle: 'Football rules & tactics',
+    homeCollectionFootballMeta: '16 practical bilingual questions',
+    homeSocialEyebrow: 'New riddles and updates',
+    homeSocialTitle: 'Follow JAKH Riddles',
+    homeSocialText: 'Keep up with new questions, collections, and game updates on JAKH’s social pages.',
+    homeSocialLabel: 'JAKH social pages',
+    footerCollections: 'Collections',
+    footerAbout: 'About & content standards',
+    footerInfoLabel: 'JAKH information',
     createAccount: 'Save my progress',
     todayMomentum: 'Your snapshot',
     localBrowserOnly: 'Saved to your account',
@@ -341,7 +360,7 @@ const UI = {
     navCategories: 'الفئات',
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    homeEyebrow: '+3500 لغز ثنائي اللغة — عربي وإنجليزي',
+    homeEyebrow: '3,553 لغزاً ثنائي اللغة — عربي وإنجليزي',
     homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
     homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
     browseCategories: 'استكشف المواضيع',
@@ -360,7 +379,7 @@ const UI = {
     playBrowserOnly: 'جميع الألعاب تعمل بالكامل في متصفحك — لا حاجة إلى تثبيت أي شيء.',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: '+3500 سؤال ثنائي اللغة موزعة مباشرة على 56 موضوعًا ضمن 5 أقسام واضحة. اختر موضوعًا واقلب البطاقات وتابع نقاطك.',
+    portalMindDesc: '3,553 سؤالاً ثنائي اللغة موزعة مباشرة على 56 موضوعًا ضمن 5 أقسام واضحة. اختر موضوعًا واقلب البطاقات وتابع نقاطك.',
     portalMindStat: '56 موضوعًا',
     portalMindCta: 'استكشف الألغاز →',
     portalGamesTag: 'مركز الألعاب',
@@ -369,6 +388,25 @@ const UI = {
     portalGamesStat1: '10 ألعاب',
     portalGamesStat2: 'كلها في المتصفح',
     portalGamesCta: 'العب الآن →',
+    homeCollectionsEyebrow: 'طرق شائعة للبدء',
+    homeCollectionsTitle: 'مجموعات مختارة من الألغاز والاختبارات',
+    homeCollectionsText: 'افتح مجموعة مركزة تظهر فيها كل الأسئلة، واكشف كل إجابة بلمسة واحدة، ثم تابع إلى مختبر العقول الكامل.',
+    homeCollectionsCta: 'تصفح كل المجموعات',
+    homeCollectionArabicTitle: 'ألغاز مع الحل',
+    homeCollectionArabicMeta: '16 لغزاً ثنائي اللغة',
+    homeCollectionKidsTitle: 'ألغاز للأطفال مع الحل',
+    homeCollectionKidsMeta: 'ألغاز ودية وآمنة للعائلة',
+    homeCollectionLogicTitle: 'ألغاز منطق مع الشرح',
+    homeCollectionLogicMeta: 'استنتاج وأرقام وقراءة متأنية',
+    homeCollectionFootballTitle: 'قوانين وتكتيكات كرة القدم',
+    homeCollectionFootballMeta: '16 سؤالاً عملياً ثنائي اللغة',
+    homeSocialEyebrow: 'ألغاز وتحديثات جديدة',
+    homeSocialTitle: 'تابع JAKH Riddles',
+    homeSocialText: 'تابع أحدث الأسئلة والمجموعات وتحديثات الألعاب على صفحات JAKH الاجتماعية.',
+    homeSocialLabel: 'صفحات JAKH الاجتماعية',
+    footerCollections: 'المجموعات',
+    footerAbout: 'عن JAKH ومعايير المحتوى',
+    footerInfoLabel: 'معلومات JAKH',
     createAccount: 'احفظ تقدمي',
     todayMomentum: 'ملخصك',
     localBrowserOnly: 'محفوظ في حسابك',
@@ -514,6 +552,7 @@ const state = {
   streak: 0,
   freezeCount: 0,
   dailyCard: null,
+  sharedCardHandled: false,
 };
 
 const timedQuizState = {
@@ -994,6 +1033,9 @@ function applyStaticCopy() {
     const key = node.dataset.i18n;
     node.textContent = t(key);
   });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((node) => {
+    node.setAttribute('aria-label', t(node.dataset.i18nAriaLabel));
+  });
   document.getElementById('globalSearchBtn')?.setAttribute('aria-label', state.lang === 'ar' ? 'بحث' : 'Search');
   document.getElementById('hamburgerBtn')?.setAttribute('aria-label', state.lang === 'ar' ? 'القائمة' : 'Menu');
   if (els.categorySearchInput) {
@@ -1014,13 +1056,26 @@ function applyStaticCopy() {
 
 function updateDocumentTitle() {
   if (state.page === 'home') {
-    document.title = state.lang === 'ar' ? 'ألغاز جاخ' : 'JAKH Riddles';
+    const cleanPath = location.pathname.replace(/\.html$/i, '').replace(/\/+$/, '') || '/';
+    if (cleanPath === '/mind-lab') {
+      document.title = state.lang === 'ar'
+        ? 'مختبر العقل: 56 موضوع ألغاز وأسئلة | JAKH'
+        : 'Mind Lab: 56 Riddle & Quiz Topics | JAKH';
+    } else if (cleanPath === '/play') {
+      document.title = state.lang === 'ar'
+        ? '10 ألعاب مجانية على المتصفح | JAKH'
+        : '10 Free Browser Games | JAKH';
+    } else {
+      document.title = state.lang === 'ar'
+        ? 'JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية'
+        : 'JAKH Riddles: Free Arabic & English Quizzes';
+    }
     return;
   }
   if (state.categoryData) {
     document.title = state.lang === 'ar'
-      ? `${state.categoryData.title.ar} | ألغاز جاخ`
-      : `${state.categoryData.title.en} | JAKH Riddles`;
+      ? `${state.categoryData.title.ar}: اختبار وأسئلة | JAKH`
+      : `${state.categoryData.title.en} Quiz & Questions | JAKH`;
   }
 }
 
@@ -1172,6 +1227,7 @@ function bindCommonEvents() {
   if (els.langSelect) {
     els.langSelect.addEventListener('change', () => {
       state.lang = els.langSelect.value;
+      trackEvent('language_switch', { language: state.lang, page_type: state.page });
       saveSettings();
       applyTheme();
       applyDir();
@@ -1286,6 +1342,13 @@ function bindCommonEvents() {
         const name = closeTarget.dataset.closeModal;
         closeModal(name);
       }
+      const socialLink = event.target.closest('a.social-link');
+      if (socialLink) {
+        trackEvent('social_outbound', {
+          platform: socialLink.href.includes('instagram.com') ? 'instagram' : 'facebook',
+          link_url: socialLink.href,
+        });
+      }
     });
 
     window.addEventListener('online', handleOfflineStatus);
@@ -1310,6 +1373,9 @@ function bindCommonEvents() {
       state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
       renderClusterTabBar();
       renderCategoryDirectory();
+      if (state.directorySearch) {
+        trackEvent('search', { search_term: state.directorySearch, search_scope: 'directory' });
+      }
     }, 200));
   }
 
@@ -1337,6 +1403,13 @@ function bindCommonEvents() {
       state.cardPage = 1;
       syncFilterParams();
       renderCards();
+      if (state.search) {
+        trackEvent('search', {
+          search_term: state.search,
+          search_scope: 'category',
+          category: state.categorySlug,
+        });
+      }
     }, 250));
   }
   if (els.difficultySelect) {
@@ -1955,32 +2028,51 @@ function renderCategoryPage() {
   }
   if (els.categoryDiffBadge) els.categoryDiffBadge.textContent = buildDiffBadge(category);
   restoreFilterParams();
+  prepareSharedCard();
   renderAccountSummary(els.categorySummaryMount);
   renderSubcategoryFilters();
   renderCards();
   renderRelatedCategories();
   markCachedCategories();
-  injectFaqSchema();
+  scrollToSharedCard();
 }
 
-function injectFaqSchema() {
-  document.getElementById('faqSchema')?.remove();
-  if (!state.categoryData?.cards?.length) return;
-  const easy = state.categoryData.cards.filter(c => c.difficulty === 'easy' || c.difficulty === 'medium').slice(0, 8);
-  if (!easy.length) return;
-  const script = document.createElement('script');
-  script.id = 'faqSchema';
-  script.type = 'application/ld+json';
-  script.textContent = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: easy.map(c => ({
-      '@type': 'Question',
-      name: c.question.en,
-      acceptedAnswer: { '@type': 'Answer', text: c.answer.en },
-    })),
+function prepareSharedCard() {
+  if (state.sharedCardHandled || !state.categoryData?.cards?.length) return;
+  const cardId = new URLSearchParams(location.search).get('card');
+  if (!cardId) return;
+  const cardIndex = state.categoryData.cards.findIndex(card => card.id === cardId);
+  state.sharedCardHandled = true;
+  if (cardIndex < 0) {
+    trackEvent('shared_card_open', {
+      category: state.categorySlug,
+      card_id: cardId,
+      status: 'not_found',
+    });
+    return;
+  }
+  state.cardPage = Math.max(state.cardPage, Math.ceil((cardIndex + 1) / PAGE_SIZE));
+  state.flipped.add(cardId);
+  trackEvent('shared_card_open', {
+    category: state.categorySlug,
+    card_id: cardId,
+    status: 'found',
   });
-  document.head.appendChild(script);
+}
+
+function scrollToSharedCard() {
+  if (!state.sharedCardHandled) return;
+  const cardId = new URLSearchParams(location.search).get('card');
+  if (!cardId) return;
+  requestAnimationFrame(() => {
+    const card = els.cardGrid?.querySelector(`[data-id="${CSS.escape(cardId)}"]`);
+    if (!card) return;
+    card.classList.add('shared-card-target');
+    card.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'center',
+    });
+  });
 }
 
 function buildDiffBadge(category) {
@@ -2927,7 +3019,7 @@ function renderDailyChallenge() {
   const isDone = !!localStorage.getItem(`jakh-daily-done-${today}`);
   const isFlipped = state.flipped.has('__daily__');
   const categoryHref = state.catalog?.categories
-    .find(category => category.slug === card.categorySlug)?.href || `${card.categorySlug}.html`;
+    .find(category => category.slug === card.categorySlug)?.href || `/${card.categorySlug}`;
   mount.innerHTML = `
     <section class="shell daily-challenge-section">
       <div class="daily-challenge-card ${isDone ? 'daily-done' : ''}">
@@ -3493,6 +3585,11 @@ function shareCard(cardId) {
     ? `🧠 لغز من JAKH — ${catTitle}\n${bar}\n${question}\n${bar}\nهل تستطيع الإجابة؟ ← jakh.net`
     : `🧠 JAKH Riddle — ${catTitle}\n${bar}\n${question}\n${bar}\nCan you solve this? → jakh.net`;
   saveJson('jakh-shared', 1);
+  trackEvent('share_card', {
+    category: state.categorySlug,
+    card_id: cardId,
+    language: state.lang,
+  });
   if (navigator.share) {
     navigator.share({ title: 'JAKH Riddles', text, url }).catch(() => {});
   } else {
@@ -3527,132 +3624,18 @@ function shareResult(score, total, categoryTitle) {
   const text = isAr
     ? `${medal} أنهيت "${categoryTitle}" على JAKH!\n${bar}\n✓ ${score} صحيح من ${total}\n${bar}\nهل تستطيع التفوق عليّ؟ ← jakh.net`
     : `${medal} I finished "${categoryTitle}" on JAKH!\n${bar}\n✓ ${score} / ${total} correct (${pct}%)\n${bar}\nCan you beat my score? → jakh.net`;
+  trackEvent('share_result', {
+    category: state.categorySlug,
+    score,
+    total,
+    percent: pct,
+    language: state.lang,
+  });
   if (navigator.share) {
     navigator.share({ title: 'JAKH Riddles', text, url }).catch(() => {});
   } else {
     navigator.clipboard?.writeText(text).then(() => showToast(t('shareCopied'))).catch(() => showToast(t('shareCopied')));
   }
-}
-
-// ================= ONBOARDING =================
-function checkOnboarding() {
-  const battleHash = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
-  const hasBattleIntent = battleHash
-    ? BATTLE_CODE_PATTERN.test(normalizeBattleCode(battleHash[1]))
-    : false;
-  const hasDailyIntent = new URLSearchParams(location.search).get('daily') === '1'
-    || sessionStorage.getItem('jakh-scroll-to') === 'daily';
-  const battleOverlay = document.getElementById('battleOverlay');
-  const battleIsOpen = !!battleOverlay && !battleOverlay.classList.contains('hidden');
-  if (hasBattleIntent || hasDailyIntent || battleIsOpen) return;
-
-  if (state.page === 'home') {
-    if (!localStorage.getItem('jakh-onboarded')) showOnboarding();
-  } else if (state.page === 'category') {
-    if (!localStorage.getItem('jakh-card-tutorial-seen')) showCardTutorial();
-  }
-}
-
-function showOnboarding() {
-  if (document.getElementById('onboardModal')) return;
-  const steps = [
-    { icon: '🗂️',
-      en: { title: 'Pick a Category', text: `Choose from ${state.catalog?.categories.length || 56} curated quiz categories — math, science, history, football, and more.` },
-      ar: { title: 'اختر فئة', text: `اختر من ${state.catalog?.categories.length || 56} فئة منسقة — رياضيات وعلوم وتاريخ وكرة قدم والمزيد.` } },
-    { icon: '💾',
-      en: { title: 'Save Your Progress', text: state.apiAvailable ? 'Create a free account to track your score, build streaks, and unlock harder levels.' : 'Your score, favorites, and unlocked levels are saved automatically on this device.' },
-      ar: { title: 'احفظ تقدمك', text: state.apiAvailable ? 'أنشئ حسابًا مجانيًا لتتبع نقاطك وبناء سلاسل يومية وفتح المستويات الأصعب.' : 'تُحفظ نقاطك ومفضلاتك ومستوياتك المفتوحة تلقائيًا على هذا الجهاز.' } },
-    { icon: '🏆',
-      en: { title: 'Challenge Yourself', text: state.apiAvailable ? 'Try the Daily Challenge, race the clock in Quick Fire, and climb the global Leaderboard.' : 'Try the Daily Challenge, race the clock in Quick Fire, and unlock harder question levels.' },
-      ar: { title: 'تحدَّ نفسك', text: state.apiAvailable ? 'جرّب تحدي اليوم وتسابق مع الوقت في الاختبار السريع وتسلق لوحة المتصدرين.' : 'جرّب تحدي اليوم وتسابق مع الوقت وافتح مستويات الأسئلة الأصعب.' } },
-  ];
-  let step = 0;
-  const lang = state.lang;
-  const el = document.createElement('div');
-  el.id = 'onboardModal';
-  el.className = 'onboard-overlay';
-  document.body.appendChild(el);
-  el.addEventListener('click', (e) => { if (!e.target.closest('.onboard-card')) dismiss(); });
-
-  function render() {
-    const s = steps[step];
-    const isLast = step === steps.length - 1;
-    el.innerHTML = `
-      <div class="onboard-card">
-        <button class="onboard-skip" id="onboardSkipBtn">${lang === 'ar' ? 'تخطي' : 'Skip'}</button>
-        <div class="onboard-icon">${s.icon}</div>
-        <h3 class="onboard-title">${escapeHtml(s[lang]?.title || s.en.title)}</h3>
-        <p class="onboard-text">${escapeHtml(s[lang]?.text || s.en.text)}</p>
-        <div class="onboard-dots">${steps.map((_, i) => `<span class="onboard-dot${i === step ? ' active' : ''}"></span>`).join('')}</div>
-        <button class="primary-btn onboard-next" id="onboardNextBtn">
-          ${isLast ? (lang === 'ar' ? '🚀 ابدأ الاستكشاف!' : '🚀 Start exploring!') : (lang === 'ar' ? 'التالي →' : 'Next →')}
-        </button>
-      </div>`;
-    document.getElementById('onboardNextBtn')?.addEventListener('click', () => {
-      if (step < steps.length - 1) { step++; render(); } else { dismiss(); }
-    });
-    document.getElementById('onboardSkipBtn')?.addEventListener('click', dismiss);
-  }
-
-  function dismiss() { localStorage.setItem('jakh-onboarded', '1'); el.remove(); }
-  render();
-}
-
-function showCardTutorial() {
-  if (document.getElementById('cardTutorial')) return;
-  const isAr = state.lang === 'ar';
-  const steps = [
-    {
-      icon: '👆',
-      title: isAr ? 'اضغط لترى الإجابة' : 'Tap to flip',
-      text: isAr
-        ? 'اضغط في أي مكان على البطاقة لتظهر الإجابة. اضغط مجددًا للعودة إلى السؤال.'
-        : 'Tap anywhere on a card to flip it and reveal the answer. Tap again to go back.',
-    },
-    {
-      icon: '↔️',
-      title: isAr ? 'مرّر لتقييم إجابتك' : 'Swipe to score',
-      text: isAr
-        ? 'بعد رؤية الإجابة: مرّر يسارًا ✗ إذا كانت إجابتك خاطئة، ومرّر يمينًا ✓ إذا كانت صحيحة.'
-        : 'After flipping: swipe right ✓ if you were correct, swipe left ✗ if you were wrong.',
-    },
-    {
-      icon: '♥ ✓ ✗',
-      title: isAr ? 'أزرار الإجابة' : 'Answer buttons',
-      text: isAr
-        ? '♥ لإضافة للمفضلة · ✓ صحيح · ✗ خاطئ · 🔊 استمع للسؤال · ↩ إزالة التقييم'
-        : '♥ favorite · ✓ correct · ✗ wrong · 🔊 listen · ↩ undo — all on the card back.',
-    },
-  ];
-  let step = 0;
-  const el = document.createElement('div');
-  el.id = 'cardTutorial';
-  el.className = 'onboard-overlay';
-  document.body.appendChild(el);
-  el.addEventListener('click', e => { if (!e.target.closest('.onboard-card')) dismiss(); });
-
-  function render() {
-    const s = steps[step];
-    const isLast = step === steps.length - 1;
-    el.innerHTML = `
-      <div class="onboard-card card-tutorial-card">
-        <button class="onboard-skip" id="ctSkip">${isAr ? 'تخطي' : 'Skip'}</button>
-        <div class="onboard-icon">${s.icon}</div>
-        <h3 class="onboard-title">${escapeHtml(s.title)}</h3>
-        <p class="onboard-text">${escapeHtml(s.text)}</p>
-        <div class="onboard-dots">${steps.map((_,i) => `<span class="onboard-dot${i===step?' active':''}"></span>`).join('')}</div>
-        <button class="primary-btn onboard-next" id="ctNext">
-          ${isLast ? (isAr ? '✓ فهمت!' : '✓ Got it!') : (isAr ? 'التالي →' : 'Next →')}
-        </button>
-      </div>`;
-    document.getElementById('ctNext')?.addEventListener('click', () => {
-      if (step < steps.length - 1) { step++; render(); } else { dismiss(); }
-    });
-    document.getElementById('ctSkip')?.addEventListener('click', dismiss);
-  }
-
-  function dismiss() { localStorage.setItem('jakh-card-tutorial-seen', '1'); el.remove(); }
-  render();
 }
 
 let sessionInitialized = false;
@@ -3692,11 +3675,11 @@ function injectBottomNav() {
   nav.setAttribute('aria-label', isAr ? 'التنقل الرئيسي' : 'Main navigation');
   nav.innerHTML = `
     <div class="bottom-nav-inner">
-      <a href="index.html" class="bottom-nav-tab" data-tab="home" aria-label="${isAr ? 'الرئيسية' : 'Home'}">
+      <a href="/" class="bottom-nav-tab" data-tab="home" aria-label="${isAr ? 'الرئيسية' : 'Home'}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
         <span>${isAr ? 'الرئيسية' : 'Home'}</span>
       </a>
-      <a href="mind-lab.html" class="bottom-nav-tab" data-tab="explore" aria-label="${isAr ? 'استكشف' : 'Explore'}">
+      <a href="/mind-lab" class="bottom-nav-tab" data-tab="explore" aria-label="${isAr ? 'استكشف' : 'Explore'}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
         <span>${isAr ? 'استكشف' : 'Explore'}</span>
       </a>
@@ -3717,7 +3700,7 @@ function injectBottomNav() {
       scrollToDailyChallenge();
     } else {
       sessionStorage.setItem('jakh-scroll-to', 'daily');
-      location.href = 'index.html';
+      location.href = '/';
     }
   });
   document.getElementById('bnProfileBtn')?.addEventListener('click', () => {
@@ -3730,7 +3713,7 @@ function injectBottomNav() {
 function updateBottomNavActive() {
   const nav = document.getElementById('bottomNav');
   if (!nav) return;
-  const isMindLab = location.pathname.endsWith('/mind-lab.html') || location.pathname === '/mind-lab';
+  const isMindLab = location.pathname.replace(/\.html$/i, '').replace(/\/+$/, '') === '/mind-lab';
   const activeTab = state.page === 'home' && !isMindLab ? 'home' : 'explore';
   nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
     tab.classList.toggle('is-active', tab.dataset.tab === activeTab);
@@ -3807,7 +3790,6 @@ async function init() {
   injectBottomNav();
   injectBackToTop();
   applyCapabilityVisibility();
-  checkOnboarding();
   checkNewAchievements();
   // Cloud account and multiplayer checks hydrate after local content is
   // already usable, so a slow API never leaves the page blank.

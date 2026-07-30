@@ -1,11 +1,12 @@
-const CACHE_NAME = 'jakh-v63';
-const ASSET_CACHE = 'jakh-assets-v63';
+const CACHE_NAME = 'jakh-v66';
+const ASSET_CACHE = 'jakh-assets-v66';
 
 const PRECACHE_ASSETS = [
   '/',
-  '/index.html',
-  '/mind-lab.html',
-  '/play.html',
+  '/mind-lab',
+  '/play',
+  '/collections',
+  '/about',
   '/app.js',
   '/styles.css',
   '/manifest.webmanifest',
@@ -56,7 +57,7 @@ self.addEventListener('fetch', (event) => {
           if (response.ok) cache.put(request, response.clone());
           return response;
         } catch (_) {
-          return (await caches.match(request, { ignoreSearch: true })) || caches.match('/index.html');
+          return (await caches.match(request, { ignoreSearch: true })) || caches.match('/');
         }
       })
     );

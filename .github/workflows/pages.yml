@@ -25,7 +25,11 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Validate source
-        run: node scripts/validate-static.mjs
+        run: |
+          node scripts/sync-catalog.mjs --check
+          node scripts/generate-seo-pages.mjs --check
+          node scripts/validate-seo.mjs
+          node scripts/validate-static.mjs
 
       - name: Prepare artifact
         run: |

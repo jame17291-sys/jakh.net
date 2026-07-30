@@ -20,7 +20,11 @@ jobs:
         with:
           node-version: "24"
       - name: Validate release source
-        run: node scripts/validate-static.mjs
+        run: |
+          node scripts/sync-catalog.mjs --check
+          node scripts/generate-seo-pages.mjs --check
+          node scripts/validate-seo.mjs
+          node scripts/validate-static.mjs
       - name: Validate API
         working-directory: worker
         run: |

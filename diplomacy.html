@@ -452,11 +452,11 @@
 
       <!-- Actions -->
       <div id="dip-actions">
-        <button class="dip-btn btn-secondary" id="btn-hold" onclick="dipUI.holdSelected()" disabled data-i18n="holdSelected">🛡️ Hold Selected</button>
-        <button class="dip-btn btn-secondary" id="btn-support" onclick="dipUI.supportSelected()" disabled data-i18n="supportHold">⚔️ Support (hold)</button>
-        <button class="dip-btn btn-secondary" id="btn-cancel-select" onclick="dipUI.cancelSelect()" disabled data-i18n="deselect">✕ Deselect</button>
-        <button class="dip-btn btn-easy" id="btn-resolve" onclick="dipUI.resolve()" disabled data-i18n="resolveOrders">▶ Resolve Orders</button>
-        <button class="dip-btn btn-danger" id="btn-restart" onclick="dipUI.restart()" style="margin-inline-start:auto;" data-i18n="restart">↺ Restart</button>
+        <button class="dip-btn btn-secondary" id="btn-hold" disabled data-i18n="holdSelected">🛡️ Hold Selected</button>
+        <button class="dip-btn btn-secondary" id="btn-support" disabled data-i18n="supportHold">⚔️ Support (hold)</button>
+        <button class="dip-btn btn-secondary" id="btn-cancel-select" disabled data-i18n="deselect">✕ Deselect</button>
+        <button class="dip-btn btn-easy" id="btn-resolve" disabled data-i18n="resolveOrders">▶ Resolve Orders</button>
+        <button class="dip-btn btn-danger" id="btn-restart" style="margin-inline-start:auto;" data-i18n="restart">↺ Restart</button>
       </div>
 
       <!-- Log -->
@@ -944,7 +944,7 @@
 
   <!-- UI -->
   <script id="diplomacy-ui">
-  const dipUI = (() => {
+  (() => {
     const E = DiplomacyEngine;
     const i18n = JakhGameI18n;
     let state = E.initState();
@@ -1372,6 +1372,14 @@
       render();
     }
 
+    [
+      ['btn-hold', holdSelected],
+      ['btn-support', supportSelected],
+      ['btn-cancel-select', cancelSelect],
+      ['btn-resolve', resolve],
+      ['btn-restart', restart],
+    ].forEach(([id, handler]) => $(id).addEventListener('click', handler));
+
     i18n.onChange(() => {
       render();
       renderLog();
@@ -1383,7 +1391,6 @@
     render();
     renderLog();
 
-    return { holdSelected, supportSelected, cancelSelect, resolve, restart };
   })();
   </script>
 </body>

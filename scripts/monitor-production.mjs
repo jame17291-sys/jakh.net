@@ -372,8 +372,8 @@ export async function runProductionMonitor(options = {}) {
     const health = parseJson(resource);
     expect(health.ok === true, "health response is not ok");
     expect(health.service === "jakh-api", "health response has the wrong service");
-    expect(typeof health.version === "string" && health.version, "health response has no version");
-    expect(typeof health.schema === "string" && health.schema, "health response has no schema");
+    expect(health.version === "1.2.0", `unexpected API version "${health.version || "missing"}"`);
+    expect(health.schema === "1", `unexpected API schema "${health.schema || "missing"}"`);
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });
@@ -390,16 +390,10 @@ export async function runProductionMonitor(options = {}) {
     expectCors(resource.response, ALLOWED_ORIGIN);
     expectApiSecurityHeaders(resource.response);
     const payload = parseJson(resource);
+    expect(payload.status === "paused", "unverified public rankings are not paused");
+    expect(payload.scoreType === "unverified-disabled", "leaderboard score type is unsafe");
     expect(Array.isArray(payload.leaderboard), "leaderboard response is not an array");
-    expect(payload.leaderboard.length <= 20, "leaderboard contains more than 20 entries");
-    expect(
-      payload.leaderboard.every((entry, index) => (
-        entry?.rank === index + 1
-        && typeof entry.username === "string"
-        && Number.isFinite(entry.score)
-      )),
-      "leaderboard entry shape or ranking is invalid",
-    );
+    expect(payload.leaderboard.length === 0, "unverified leaderboard exposes ranked entries");
     assertBudget(resource, config.apiMaxMs, 50_000);
     return resource;
   });

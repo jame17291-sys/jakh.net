@@ -9,6 +9,7 @@ import {
   withCors,
 } from "./http.js";
 import { PasswordHasher } from "./password-hasher.js";
+import { cleanupExpiredSecurityState } from "./db.js";
 import {
   analytics,
   avatar,
@@ -50,7 +51,13 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/user/progress" && method === "DELETE") return deleteProgress(request, env);
   if (path === "/api/user/favorite" && method === "POST") return favorite(request, env);
   if (path === "/api/user/sync" && method === "POST") return syncUserData(request, env);
-  if (path === "/api/user/streak" && method === "GET") return streak(request, env);
+  if (
+    path === "/api/user/streak"
+    && (
+      method === "POST"
+      || (method === "GET" && Boolean(request.headers.get("origin")))
+    )
+  ) return streak(request, env);
   if (path === "/api/analytics/time" && method === "POST") return analytics(request, env);
   if (path === "/api/leaderboard" && method === "GET") return leaderboard(env);
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
@@ -91,5 +98,8 @@ export default {
         env.ALLOWED_ORIGINS,
       );
     }
+  },
+  async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
+    ctx.waitUntil(cleanupExpiredSecurityState(env));
   },
 } satisfies ExportedHandler<Env>;

@@ -1,4 +1,4 @@
-import { ApiError, parseJson } from "./http.js";
+import { ApiError, json, parseJson } from "./http.js";
 import { enforceRateLimit } from "./db.js";
 import { clientIp, randomToken, sha256 } from "./security.js";
 import type { BattleQuestion, Env } from "./types.js";
@@ -137,10 +137,7 @@ export async function createBattle(request: Request, env: Env): Promise<Response
       body: JSON.stringify({ code, category, difficulty, hostToken, questions }),
     }));
     if (response.status === 201) {
-      return new Response(JSON.stringify({ code, hostId: hostToken }), {
-        status: 201,
-        headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
-      });
+      return json({ code, hostId: hostToken }, 201);
     }
     if (response.status !== 409) throw new ApiError(503, "Could not create the battle room");
   }
@@ -154,10 +151,16 @@ export async function connectBattle(request: Request, env: Env): Promise<Respons
   }
   const code = new URL(request.url).searchParams.get("code")?.trim().toUpperCase() || "";
   if (!ROOM_CODE_PATTERN.test(code)) throw new ApiError(400, "Invalid room code");
+  if (!request.headers.get("origin")) throw new ApiError(403, "Origin is not allowed");
 
   const ipKey = await sha256(`${env.IP_HASH_SALT}:battle-connect:${clientIp(request)}`);
   await enforceRateLimit(env, ipKey, CONNECT_RATE_LIMIT, CONNECT_RATE_WINDOW_SECONDS);
 
   const stub = env.BATTLE_ROOMS.get(env.BATTLE_ROOMS.idFromName(code));
-  return stub.fetch(new Request("https://battle.internal/connect", request));
+  const internalRequest = new Request("https://battle.internal/connect", request);
+  internalRequest.headers.set(
+    "x-jakh-client-key",
+    await sha256(`${env.IP_HASH_SALT}:battle-participant:${clientIp(request)}`),
+  );
+  return stub.fetch(internalRequest);
 }

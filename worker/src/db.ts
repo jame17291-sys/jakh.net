@@ -16,9 +16,22 @@ export async function createSession(env: Env, userId: string): Promise<string> {
   const token = randomToken(32);
   const tokenHash = await sha256(token);
   const now = new Date().toISOString();
-  await env.DB.prepare(
-    "INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)",
-  ).bind(tokenHash, userId, now, sessionExpiry()).run();
+  await env.DB.batch([
+    env.DB.prepare(
+      "INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)",
+    ).bind(tokenHash, userId, now, sessionExpiry()),
+    env.DB.prepare(
+      `DELETE FROM sessions
+        WHERE user_id = ?
+          AND token_hash NOT IN (
+            SELECT token_hash
+              FROM sessions
+             WHERE user_id = ?
+             ORDER BY created_at DESC, rowid DESC
+             LIMIT 5
+          )`,
+    ).bind(userId, userId),
+  ]);
   return token;
 }
 
@@ -35,7 +48,8 @@ export async function sessionUser(request: Request, env: Env): Promise<SessionUs
       WHERE s.token_hash = ? AND s.expires_at > ?`,
   ).bind(tokenHash, now).first<SessionRow>();
 
-  if (!row || row.is_banned) {
+  if (!row) return null;
+  if (row.is_banned) {
     await env.DB.prepare("DELETE FROM sessions WHERE token_hash = ?").bind(tokenHash).run();
     return null;
   }
@@ -78,7 +92,9 @@ export async function enforceRateLimit(
      RETURNING count`,
   ).bind(key, windowStart, expiresAt).first<{ count: number }>();
 
-  if (row?.count === 1 && key.charCodeAt(0) % 32 === 0) {
+  const base64UrlAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+  const firstValue = base64UrlAlphabet.indexOf(key[0] || "");
+  if (row?.count === 1 && firstValue >= 0 && firstValue % 32 === 0) {
     await env.DB.prepare(
       `DELETE FROM rate_limits
         WHERE key IN (
@@ -94,4 +110,27 @@ export async function enforceRateLimit(
       "retry-after": String(windowSeconds),
     });
   }
+}
+
+export async function cleanupExpiredSecurityState(env: Env): Promise<void> {
+  const nowIso = new Date().toISOString();
+  const nowSeconds = Math.floor(Date.now() / 1000);
+  await env.DB.batch([
+    env.DB.prepare(
+      `DELETE FROM sessions
+        WHERE token_hash IN (
+          SELECT token_hash FROM sessions
+           WHERE expires_at <= ?
+           LIMIT 500
+        )`,
+    ).bind(nowIso),
+    env.DB.prepare(
+      `DELETE FROM rate_limits
+        WHERE key IN (
+          SELECT key FROM rate_limits
+           WHERE expires_at < ?
+           LIMIT 500
+        )`,
+    ).bind(nowSeconds),
+  ]);
 }

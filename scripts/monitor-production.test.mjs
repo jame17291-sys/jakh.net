@@ -93,7 +93,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
       response.end(JSON.stringify({
         ok: true,
         service: "jakh-api",
-        version: "test",
+        version: "1.2.0",
         schema: "1",
       }));
       return;
@@ -105,7 +105,9 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
         apiHeaders(brokenCors ? undefined : requestOrigin, "public, max-age=30"),
       );
       response.end(JSON.stringify({
-        leaderboard: [{ rank: 1, username: "player", avatar: "👤", score: 5 }],
+        status: "paused",
+        scoreType: "unverified-disabled",
+        leaderboard: [],
       }));
       return;
     }

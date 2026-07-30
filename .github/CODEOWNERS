@@ -1,0 +1,13 @@
+# Deployment and supply-chain controls
+/.github/workflows/ @jame17291-sys
+/.github/dependabot.yml @jame17291-sys
+/.github/CODEOWNERS @jame17291-sys
+
+# Stateful API, schema, and recovery controls
+/worker/ @jame17291-sys
+/worker/migrations/ @jame17291-sys
+
+# Browser persistence and public security policy
+/sw.js @jame17291-sys
+/SECURITY.md @jame17291-sys
+/.well-known/security.txt @jame17291-sys

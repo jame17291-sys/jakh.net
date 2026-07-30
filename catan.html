@@ -457,13 +457,13 @@
 
         <!-- Actions -->
         <div id="catan-actions">
-          <button class="catan-btn btn-primary" id="btn-roll" onclick="catanUI.roll()" data-i18n="rollDice">🎲 Roll Dice</button>
-          <button class="catan-btn btn-secondary" id="btn-settlement" onclick="catanUI.startBuildSettlement()" data-i18n="buildSettlement">🏠 Settlement (W+B+Wh+Sh)</button>
-          <button class="catan-btn btn-secondary" id="btn-road" onclick="catanUI.buildRoad()" data-i18n="buildRoad">🛣️ Road (W+B)</button>
-          <button class="catan-btn btn-secondary" id="btn-city" onclick="catanUI.startBuildCity()" data-i18n="buildCity">🏙️ City (2Wh+3O)</button>
-          <button class="catan-btn btn-secondary" id="btn-trade" onclick="catanUI.openTrade()" data-i18n="tradeButton">🔄 Trade 4:1</button>
-          <button class="catan-btn btn-gold" id="btn-end" onclick="catanUI.endTurn()" data-i18n="endTurn">End Turn ▶</button>
-          <button class="catan-btn btn-danger" id="btn-restart" onclick="catanUI.restart()" style="margin-inline-start:auto;" data-i18n="restart">↺ Restart</button>
+          <button class="catan-btn btn-primary" id="btn-roll" data-i18n="rollDice">🎲 Roll Dice</button>
+          <button class="catan-btn btn-secondary" id="btn-settlement" data-i18n="buildSettlement">🏠 Settlement (W+B+Wh+Sh)</button>
+          <button class="catan-btn btn-secondary" id="btn-road" data-i18n="buildRoad">🛣️ Road (W+B)</button>
+          <button class="catan-btn btn-secondary" id="btn-city" data-i18n="buildCity">🏙️ City (2Wh+3O)</button>
+          <button class="catan-btn btn-secondary" id="btn-trade" data-i18n="tradeButton">🔄 Trade 4:1</button>
+          <button class="catan-btn btn-gold" id="btn-end" data-i18n="endTurn">End Turn ▶</button>
+          <button class="catan-btn btn-danger" id="btn-restart" style="margin-inline-start:auto;" data-i18n="restart">↺ Restart</button>
         </div>
 
         <!-- Log -->
@@ -497,8 +497,8 @@
         </select>
       </div>
       <div class="trade-actions">
-        <button class="catan-btn btn-primary" onclick="catanUI.confirmTrade()" data-i18n="confirmTrade">Confirm Trade</button>
-        <button class="catan-btn btn-secondary" onclick="catanUI.closeTrade()" data-i18n="cancel">Cancel</button>
+        <button class="catan-btn btn-primary" id="btn-confirm-trade" data-i18n="confirmTrade">Confirm Trade</button>
+        <button class="catan-btn btn-secondary" id="btn-cancel-trade" data-i18n="cancel">Cancel</button>
       </div>
     </div>
   </div>
@@ -987,7 +987,7 @@
 
   <!-- UI -->
   <script id="catan-ui">
-  const catanUI = (() => {
+  (() => {
     const E = CatanEngine;
     const i18n = JakhGameI18n;
     let state = E.initState();
@@ -1431,6 +1431,18 @@
       render();
     }
 
+    [
+      ['btn-roll', roll],
+      ['btn-settlement', startBuildSettlement],
+      ['btn-road', buildRoad],
+      ['btn-city', startBuildCity],
+      ['btn-trade', openTrade],
+      ['btn-end', endTurn],
+      ['btn-restart', restart],
+      ['btn-confirm-trade', confirmTrade],
+      ['btn-cancel-trade', closeTrade],
+    ].forEach(([id, handler]) => $(id).addEventListener('click', handler));
+
     // Close modal on backdrop click
     $('catan-trade-modal').addEventListener('click', e => {
       if (e.target === $('catan-trade-modal')) closeTrade();
@@ -1449,7 +1461,6 @@
       document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', imageAlt);
     });
 
-    return { roll, startBuildSettlement, buildRoad, startBuildCity, openTrade, closeTrade, confirmTrade, endTurn, restart };
   })();
   </script>
   <footer class="site-footer shell">

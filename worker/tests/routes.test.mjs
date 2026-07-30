@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { health, syncUserData } from "../dist/routes.js";
+import { health, leaderboard, syncUserData } from "../dist/routes.js";
 
 function healthEnv(schemaVersion = "1") {
   return {
@@ -26,7 +26,7 @@ test("health reports ready only when secrets, bindings, schema, and catalog exis
   assert.deepEqual(await response.json(), {
     ok: true,
     service: "jakh-api",
-    version: "1.1.1",
+    version: "1.2.0",
     schema: "1",
   });
 });
@@ -45,6 +45,24 @@ test("health rejects stale schemas and incomplete security configuration", async
   const response = await health(incomplete);
   assert.equal(response.status, 503);
   assert.equal(databaseTouched, false);
+});
+
+test("unverified competitive rankings stay paused without querying D1", async () => {
+  const env = {
+    DB: {
+      prepare() {
+        throw new Error("A paused leaderboard must not read user scores");
+      },
+    },
+  };
+  const response = await leaderboard(env);
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), {
+    status: "paused",
+    scoreType: "unverified-disabled",
+    leaderboard: [],
+  });
 });
 
 function syncEnv() {
@@ -97,7 +115,7 @@ function syncRequest(body) {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      cookie: "__Host-jakh_session=test-session-token",
+      cookie: `__Host-jakh_session=${"A".repeat(43)}`,
       "cf-connecting-ip": "203.0.113.20",
     },
     body: JSON.stringify(body),

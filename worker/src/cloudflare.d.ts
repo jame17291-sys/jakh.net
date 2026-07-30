@@ -55,11 +55,18 @@ interface ResponseInit {
 
 interface ExportedHandler<Env = unknown> {
   fetch?(request: Request, env: Env, context: ExecutionContext): Response | Promise<Response>;
+  scheduled?(event: ScheduledEvent, env: Env, context: ExecutionContext): void | Promise<void>;
 }
 
 interface ExecutionContext {
   waitUntil(promise: Promise<unknown>): void;
   passThroughOnException(): void;
+}
+
+interface ScheduledEvent {
+  scheduledTime: number;
+  cron: string;
+  noRetry(): void;
 }
 
 declare namespace Rpc {

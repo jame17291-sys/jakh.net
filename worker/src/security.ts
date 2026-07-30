@@ -1,8 +1,13 @@
 import { ApiError } from "./http.js";
 
 const encoder = new TextEncoder();
+// Phase A keeps new hashes on the currently deployed cost while teaching the
+// runtime to read the stronger format. Phase B flips the default only after
+// this dual-reader release is live, preserving a safe rollback target.
 export const PASSWORD_ITERATIONS = 100_000;
+export const FUTURE_PASSWORD_ITERATIONS = 600_000;
 const SESSION_MAX_AGE_SECONDS = 14 * 24 * 60 * 60;
+const SESSION_TOKEN_PATTERN = /^[A-Za-z0-9_-]{43}$/u;
 
 function bytesToBase64Url(bytes: Uint8Array): string {
   let binary = "";
@@ -90,7 +95,13 @@ export function parseCookies(request: Request): Map<string, string> {
 
 export function getSessionToken(request: Request): string | null {
   const cookies = parseCookies(request);
-  return cookies.get("__Host-jakh_session") || cookies.get("jakh_session") || null;
+  const url = new URL(request.url);
+  const localDevelopment = url.protocol === "http:"
+    && (url.hostname === "localhost" || url.hostname === "127.0.0.1");
+  const token = cookies.get("__Host-jakh_session")
+    || (localDevelopment ? cookies.get("jakh_session") : null)
+    || null;
+  return token && SESSION_TOKEN_PATTERN.test(token) ? token : null;
 }
 
 export function sessionCookie(request: Request, token: string): string {
@@ -101,13 +112,14 @@ export function sessionCookie(request: Request, token: string): string {
     "Path=/",
     "HttpOnly",
     secure ? "Secure" : "",
-    "SameSite=Lax",
+    "SameSite=Strict",
+    "Priority=High",
     `Max-Age=${SESSION_MAX_AGE_SECONDS}`,
   ].filter(Boolean).join("; ");
 }
 
 export function clearSessionCookies(): string[] {
-  const attributes = "Path=/; HttpOnly; Max-Age=0; SameSite=Lax";
+  const attributes = "Path=/; HttpOnly; Max-Age=0; SameSite=Strict; Priority=High";
   return [
     `__Host-jakh_session=; ${attributes}; Secure`,
     `jakh_session=; ${attributes}`,
@@ -145,8 +157,49 @@ export function normalizeEmail(value: unknown): string | null {
   return email;
 }
 
+function ipv4Address(value: string): string | null {
+  if (!/^(?:\d{1,3}\.){3}\d{1,3}$/u.test(value)) return null;
+  const octets = value.split(".").map(Number);
+  return octets.every((octet) => octet >= 0 && octet <= 255)
+    ? octets.join(".")
+    : null;
+}
+
+function ipv6Network(value: string): string | null {
+  let address = value.split("%", 1)[0]?.toLowerCase() || "";
+  if (!address.includes(":")) return null;
+  const embeddedIpv4 = /^(.*:)([^:]+)$/u.exec(address);
+  if (embeddedIpv4?.[1] && embeddedIpv4[2]?.includes(".")) {
+    const ipv4 = ipv4Address(embeddedIpv4[2]);
+    if (!ipv4) return null;
+    const octets = ipv4.split(".").map(Number);
+    address = `${embeddedIpv4[1]}${(((octets[0] || 0) << 8) | (octets[1] || 0)).toString(16)}:${(((octets[2] || 0) << 8) | (octets[3] || 0)).toString(16)}`;
+  }
+  const halves = address.split("::");
+  if (halves.length > 2) return null;
+  const left = (halves[0] || "").split(":").filter(Boolean);
+  const right = (halves[1] || "").split(":").filter(Boolean);
+  if (
+    [...left, ...right].some((part) => !/^[0-9a-f]{1,4}$/u.test(part))
+    || (halves.length === 1 && left.length !== 8)
+    || left.length + right.length > 8
+  ) {
+    return null;
+  }
+  const omitted = halves.length === 2 ? 8 - left.length - right.length : 0;
+  if (halves.length === 2 && omitted < 1) return null;
+  const groups = [...left, ...Array<string>(omitted).fill("0"), ...right]
+    .map((part) => part.padStart(4, "0"));
+  return `${groups.slice(0, 4).join(":")}::/64`;
+}
+
 export function clientIp(request: Request): string {
-  return request.headers.get("cf-connecting-ip") || "local";
+  const value = request.headers.get("cf-connecting-ip")?.trim() || "";
+  const ipv4 = ipv4Address(value);
+  if (ipv4) return ipv4;
+  const mappedIpv4 = /^::ffff:(.+)$/iu.exec(value)?.[1];
+  if (mappedIpv4) return ipv4Address(mappedIpv4) || "local";
+  return ipv6Network(value) || "local";
 }
 
 export function requireSecrets(pepper: string | undefined, salt: string | undefined): void {

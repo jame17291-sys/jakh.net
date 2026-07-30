@@ -480,8 +480,9 @@ const UI = {
     errorNoQuestions: 'No questions are available for this selection.',
     errorInvalidRoomCode: 'Enter a valid room code.',
     leaderboardTitle: 'Leaderboard',
-    leaderboardTop: 'Top 20 Players',
-    leaderboardEmpty: 'No scores yet — be the first!',
+    leaderboardTop: 'Verified rankings are coming',
+    leaderboardDisclaimer: 'Public rankings are paused while we build server-verified scoring.',
+    leaderboardEmpty: 'Your personal progress still works. Fair community rankings will return after verification is ready.',
     leaderboardLoadError: 'Could not load the leaderboard.',
     pointsShort: 'pts',
     globalSearchLabel: 'Global search',
@@ -800,8 +801,9 @@ const UI = {
     errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
     errorInvalidRoomCode: 'أدخل رمز غرفة صالحًا.',
     leaderboardTitle: 'لوحة المتصدرين',
-    leaderboardTop: 'أفضل 20 لاعبًا',
-    leaderboardEmpty: 'لا توجد نتائج بعد — كن الأول!',
+    leaderboardTop: 'الترتيب الموثّق قادم',
+    leaderboardDisclaimer: 'أوقفنا الترتيب العام مؤقتًا حتى ننجز نظام نتائج موثّقًا من الخادم.',
+    leaderboardEmpty: 'يستمر تقدمك الشخصي بالعمل. سيعود ترتيب المجتمع العادل بعد اكتمال التحقق.',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
     pointsShort: 'نقطة',
     globalSearchLabel: 'البحث الشامل',
@@ -2110,7 +2112,7 @@ function createDirectorySectionMarkup(section) {
   const categoryLabel = isAr ? `${section.categoryCount} موضوعًا` : `${section.categoryCount} topics`;
   const questionLabel = isAr ? `${section.count} سؤال` : `${section.count} questions`;
   return `
-    <section class="directory-section-header" style="--section-gradient:${section.gradient};--section-accent:${section.accent};">
+    <section class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
       <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
       <div>
         <h3>${title}</h3>
@@ -2286,9 +2288,9 @@ function renderClusterTabBar() {
     const isActive = state.cluster === c.key;
     return `
       <button class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-label="${escapeHtml(name)}">
-        <div class="ml-cluster-tab-bg" style="background:${c.gradient};" aria-hidden="true"></div>
+        <div class="ml-cluster-tab-bg" style="background:${escapeHtml(c.gradient)};" aria-hidden="true"></div>
         <div class="ml-cluster-tab-content">
-          <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${c.mark}</span>
+          <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${escapeHtml(c.mark)}</span>
           <div class="ml-cluster-tab-text">
             <span class="ml-cluster-tab-name">${escapeHtml(name)}</span>
             <span class="ml-cluster-tab-count">${c.categoryCount} ${countWord}</span>
@@ -2534,7 +2536,7 @@ function renderCategoryPage() {
     const heroDiv = document.createElement('div');
     heroDiv.className = 'category-hero-bg';
     heroDiv.style.background = gradient;
-    heroDiv.innerHTML = `<span class="category-hero-emoji" aria-hidden="true">${category.emoji}</span>`;
+    heroDiv.innerHTML = `<span class="category-hero-emoji" aria-hidden="true">${escapeHtml(category.emoji)}</span>`;
     els.categoryImage.replaceWith(heroDiv);
     els.categoryImage = null;
   }
@@ -3189,11 +3191,11 @@ function renderAuthModal(mode = 'signin') {
         <div class="form-row" style="margin-bottom:1rem;">
              <label>
                <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الحالية' : 'Current Password')}</span>
-               <input type="password" id="currentPassword" />
+               <input type="password" id="currentPassword" autocomplete="current-password" />
              </label>
              <label>
                <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الجديدة' : 'New Password')}</span>
-               <input type="password" id="newPassword" />
+               <input type="password" id="newPassword" autocomplete="new-password" minlength="8" maxlength="128" />
              </label>
         </div>
         <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
@@ -3261,11 +3263,11 @@ function renderAuthModal(mode = 'signin') {
       <div class="form-row">
         <label>
           <span>${escapeHtml(t('username'))}</span>
-          <input id="authUsername" required minlength="3" />
+          <input id="authUsername" autocomplete="username" required minlength="3" maxlength="20" />
         </label>
         <label>
           <span>${escapeHtml(t('password'))}</span>
-          <input id="authPassword" type="password" required minlength="8" />
+          <input id="authPassword" type="password" autocomplete="${mode === 'signin' ? 'current-password' : 'new-password'}" required minlength="8" maxlength="128" />
         </label>
       </div>
       ${mode === 'register' ? `
@@ -3572,7 +3574,7 @@ function scrollToDailyChallenge() {
 async function loadStreak() {
   if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
   try {
-    const data = await apiFetch('/user/streak');
+    const data = await apiFetch('/user/streak', { method: 'POST' });
     state.streak = data.streak || 0;
     state.freezeCount = data.freezeCount || 0;
   } catch (e) { state.streak = 0; state.freezeCount = 0; }
@@ -3803,6 +3805,7 @@ function createLeaderboardModal() {
         <div>
           <p class="eyebrow">🏆 ${escapeHtml(t('leaderboardTitle'))}</p>
           <h2 id="leaderboardTitle">${escapeHtml(t('leaderboardTop'))}</h2>
+          <p class="muted">${escapeHtml(t('leaderboardDisclaimer'))}</p>
         </div>
         <button class="icon-btn" data-close-modal="leaderboard" aria-label="${escapeHtml(t('close'))}">×</button>
       </div>
@@ -3928,7 +3931,7 @@ async function runGlobalSearch() {
   }
   resultsEl.innerHTML = hits.map(({ cat, question, answer }) => `
     <a class="gs-result" href="${escapeHtml(cat.href)}?q=${encodeURIComponent(q)}">
-      <span class="gs-result-cat">${cat.emoji} ${escapeHtml(cat.title[state.lang])}</span>
+      <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}</span>
       <span class="gs-result-q">${escapeHtml(question)}</span>
       <span class="gs-result-a">${escapeHtml(answer)}</span>
     </a>
@@ -3958,11 +3961,11 @@ async function openLeaderboard() {
     }
     if (body) body.innerHTML = leaderboard.map(row => `
       <div class="leaderboard-row">
-        <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || row.rank}</span>
+        <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || escapeHtml(row.rank)}</span>
         <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">
-          <span style="margin-inline-end:6px;font-size:1.1rem;">${row.avatar || '👤'}</span>${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}
+          <span style="margin-inline-end:6px;font-size:1.1rem;">${escapeHtml(row.avatar || '👤')}</span>${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}
         </span>
-        <span class="leaderboard-score bidi-isolate">${row.score} ${escapeHtml(t('pointsShort'))}</span>
+        <span class="leaderboard-score bidi-isolate">${escapeHtml(row.score)} ${escapeHtml(t('pointsShort'))}</span>
       </div>`).join('');
   } catch (e) {
     if (body) body.innerHTML = `<p style="padding:2rem;text-align:center;color:var(--danger)">${escapeHtml(t('leaderboardLoadError'))}</p>`;
@@ -4045,7 +4048,7 @@ function showCategoryCompleteModal(slug) {
     <div class="modal-backdrop" id="catCompleteBackdrop"></div>
     <div class="modal-card category-complete-card" role="dialog" aria-modal="true" aria-labelledby="categoryCompleteTitle">
       <div class="category-complete-top" style="background:${CATEGORY_GRADIENTS[slug] || 'linear-gradient(135deg,#1E3A5F,#4A90D9)'}">
-        <span class="category-complete-emoji">${meta.emoji}</span>
+        <span class="category-complete-emoji">${escapeHtml(meta.emoji)}</span>
       </div>
       <div class="category-complete-body">
         <h2 id="categoryCompleteTitle" style="margin:0 0 0.25rem;">${lang === 'ar' ? '🎉 أكملت الفئة!' : '🎉 Category Complete!'}</h2>

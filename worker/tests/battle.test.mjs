@@ -56,6 +56,7 @@ test("WebSocket connection attempts are rate-limited before room lookup", async 
     headers: {
       upgrade: "websocket",
       "cf-connecting-ip": "203.0.113.10",
+      origin: "https://jakh.net",
     },
   });
 
@@ -64,6 +65,28 @@ test("WebSocket connection attempts are rate-limited before room lookup", async 
     (error) => error?.status === 429,
   );
   assert.equal(roomLookups, 0);
+});
+
+test("WebSocket connections require a browser Origin", async () => {
+  let databaseCalls = 0;
+  const env = {
+    DB: {
+      prepare() {
+        databaseCalls += 1;
+        throw new Error("Missing-origin requests must not consume the rate limiter");
+      },
+    },
+    BATTLE_ROOMS: {},
+    IP_HASH_SALT: "test-ip-hash-salt-at-least-24-characters",
+  };
+  const request = new Request("https://api.jakh.net/ws/battle?code=SCI23456", {
+    headers: { upgrade: "websocket" },
+  });
+  await assert.rejects(
+    () => connectBattle(request, env),
+    (error) => error?.status === 403,
+  );
+  assert.equal(databaseCalls, 0);
 });
 
 test("impossible room codes are rejected without creating random Durable Objects", async () => {

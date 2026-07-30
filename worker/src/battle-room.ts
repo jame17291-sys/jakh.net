@@ -5,10 +5,14 @@ const REVEAL_TIME_MS = 4_000;
 const LOBBY_TTL_MS = 30 * 60_000;
 const FINISHED_TTL_MS = 5 * 60_000;
 const MAX_PLAYERS = 20;
+const MAX_PLAYERS_PER_NETWORK = 4;
 const MAX_SOCKETS = MAX_PLAYERS;
 const MAX_PREJOIN_SOCKETS = 4;
+const MAX_PREJOIN_SOCKETS_PER_NETWORK = 1;
 const PREJOIN_TTL_MS = 15_000;
 const MAX_MESSAGE_BYTES = 8_192;
+const MESSAGE_RATE_WINDOW_MS = 10_000;
+const MAX_MESSAGES_PER_WINDOW = 30;
 
 const BATTLE_ERROR_CODES: Readonly<Record<string, string>> = Object.freeze({
   "Invalid message": "INVALID_MESSAGE",
@@ -18,6 +22,8 @@ const BATTLE_ERROR_CODES: Readonly<Record<string, string>> = Object.freeze({
   "Room is full": "ROOM_FULL",
   "Invalid room code": "INVALID_ROOM_CODE",
   "Player name is required": "PLAYER_NAME_REQUIRED",
+  "Too many players from this network": "NETWORK_PLAYER_LIMITED",
+  "Too many messages": "MESSAGE_RATE_LIMITED",
 });
 
 interface InitPayload {
@@ -31,6 +37,9 @@ interface InitPayload {
 interface SocketAttachment {
   playerId?: string;
   connectedAt?: number;
+  clientKey?: string;
+  messageWindowStartedAt?: number;
+  messageCount?: number;
 }
 
 export class BattleRoom implements DurableObject {
@@ -66,6 +75,14 @@ export class BattleRoom implements DurableObject {
         });
       }
 
+      const clientKey = request.headers.get("x-jakh-client-key");
+      if (!clientKey || !/^[A-Za-z0-9_-]{43}$/u.test(clientKey)) {
+        return new Response("Invalid connection", {
+          status: 403,
+          headers: { "cache-control": "no-store" },
+        });
+      }
+
       this.closeExpiredPreJoinSockets(now);
       const sockets = this.ctx.getWebSockets().filter((socket) => {
         const attachment = this.socketAttachment(socket);
@@ -90,11 +107,21 @@ export class BattleRoom implements DurableObject {
           headers: { "cache-control": "no-store", "retry-after": "5" },
         });
       }
+      const networkPreJoinSockets = sockets.filter((socket) => {
+        const attachment = this.socketAttachment(socket);
+        return !attachment.playerId && attachment.clientKey === clientKey;
+      }).length;
+      if (networkPreJoinSockets >= MAX_PREJOIN_SOCKETS_PER_NETWORK) {
+        return new Response("Too many pending connections from this network", {
+          status: 429,
+          headers: { "cache-control": "no-store", "retry-after": "5" },
+        });
+      }
 
       const pair = new WebSocketPair();
       const [client, server] = Object.values(pair);
       this.ctx.acceptWebSocket(server);
-      server.serializeAttachment({ connectedAt: now } satisfies SocketAttachment);
+      server.serializeAttachment({ connectedAt: now, clientKey } satisfies SocketAttachment);
       await this.scheduleAlarm(room, now);
       return new Response(null, { status: 101, webSocket: client });
     }
@@ -135,6 +162,7 @@ export class BattleRoom implements DurableObject {
       socket.close(1009, "Message too large");
       return;
     }
+    if (!this.consumeMessageAllowance(socket)) return;
 
     let parsed: unknown;
     try {
@@ -259,12 +287,30 @@ export class BattleRoom implements DurableObject {
       this.rejectSocket(socket, "Room is full");
       return;
     }
+    if (
+      attachment.clientKey
+      && this.ctx.getWebSockets().filter((candidate) => {
+        const candidateAttachment = this.socketAttachment(candidate);
+        return candidate !== socket
+          && Boolean(candidateAttachment.playerId)
+          && candidateAttachment.clientKey === attachment.clientKey;
+      }).length >= MAX_PLAYERS_PER_NETWORK
+    ) {
+      this.rejectSocket(socket, "Too many players from this network");
+      return;
+    }
     if (String(payload.code || "").trim().toUpperCase() !== room.code) {
       this.rejectSocket(socket, "Invalid room code");
       return;
     }
 
-    const name = String(payload.name || "").trim().slice(0, 20);
+    const name = [...String(payload.name || "")
+      .normalize("NFKC")
+      .replace(/[\u0000-\u001f\u007f-\u009f\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/gu, "")
+      .trim()
+      .replace(/\s+/gu, " ")]
+      .slice(0, 20)
+      .join("");
     if (!name) {
       this.rejectSocket(socket, "Player name is required");
       return;
@@ -279,7 +325,7 @@ export class BattleRoom implements DurableObject {
       isHost,
     };
     room.players.push(player);
-    socket.serializeAttachment({ playerId: player.id } satisfies SocketAttachment);
+    socket.serializeAttachment({ ...attachment, playerId: player.id } satisfies SocketAttachment);
     await this.save(room);
     this.send(socket, { type: "joined", playerId: player.id, isHost });
     this.broadcast({ type: "room-update", roomState: this.snapshot(room) });
@@ -400,6 +446,23 @@ export class BattleRoom implements DurableObject {
     } catch {
       return {};
     }
+  }
+
+  private consumeMessageAllowance(socket: WebSocket, now = Date.now()): boolean {
+    const attachment = this.socketAttachment(socket);
+    const currentWindow = attachment.messageWindowStartedAt;
+    const isCurrentWindow = typeof currentWindow === "number"
+      && currentWindow <= now
+      && currentWindow + MESSAGE_RATE_WINDOW_MS > now;
+    const messageCount = isCurrentWindow ? (attachment.messageCount || 0) + 1 : 1;
+    socket.serializeAttachment({
+      ...attachment,
+      messageWindowStartedAt: isCurrentWindow ? currentWindow : now,
+      messageCount,
+    } satisfies SocketAttachment);
+    if (messageCount <= MAX_MESSAGES_PER_WINDOW) return true;
+    this.rejectSocket(socket, "Too many messages");
+    return false;
   }
 
   private closeExpiredPreJoinSockets(now: number): void {

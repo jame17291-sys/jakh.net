@@ -4,5 +4,6 @@
 !.env.example
 .wrangler
 node_modules
+jakh-db*.sql
 coverage
 dist

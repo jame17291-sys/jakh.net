@@ -1,4 +1,5 @@
 import {
+  FUTURE_PASSWORD_ITERATIONS,
   hashPassword,
   PASSWORD_ITERATIONS,
   verifyPassword,
@@ -67,7 +68,7 @@ function isHash(value: unknown): value is string {
 }
 
 function isSupportedIterations(value: unknown): value is number {
-  return value === PASSWORD_ITERATIONS;
+  return value === PASSWORD_ITERATIONS || value === FUTURE_PASSWORD_ITERATIONS;
 }
 
 async function parseBody(request: Request): Promise<unknown> {

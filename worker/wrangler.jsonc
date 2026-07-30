@@ -13,8 +13,11 @@
   "observability": {
     "enabled": true
   },
+  "triggers": {
+    "crons": ["17 * * * *"]
+  },
   "vars": {
-    "ALLOWED_ORIGINS": "https://jakh.net,https://www.jakh.net,http://localhost:8765,http://127.0.0.1:8765",
+    "ALLOWED_ORIGINS": "https://jakh.net,https://www.jakh.net",
     "STATIC_ORIGIN": "https://jakh.net"
   },
   "secrets": {

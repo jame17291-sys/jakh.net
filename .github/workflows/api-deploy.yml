@@ -15,8 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24"
       - name: Validate release source
@@ -30,28 +32,30 @@ jobs:
         working-directory: worker
         run: |
           npm ci --no-audit --no-fund
+          npm run audit:security
           npm run check
           npm test
       - name: Apply database migrations
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.94.0"
+          wranglerVersion: "4.116.0"
           command: d1 migrations apply DB --remote
       - name: Deploy Worker
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.94.0"
+          wranglerVersion: "4.116.0"
           command: deploy
       - name: Verify production health
         run: |
           for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error https://api.jakh.net/api/health | grep -q '"ok":true'; then
+            if curl --fail --silent --show-error https://api.jakh.net/api/health \
+              | grep -q '"ok":true,"service":"jakh-api","version":"1.2.0","schema":"1"'; then
               exit 0
             fi
             sleep 10

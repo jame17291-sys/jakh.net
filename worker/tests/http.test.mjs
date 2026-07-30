@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   ApiError,
+  json,
+  originIsAllowed,
   parseJson,
   redirectToHttps,
   withCors,
@@ -61,6 +63,19 @@ test("parseJson rejects a streamed body that exceeds a misleading Content-Length
   assert.equal(streamed.wasCancelled(), true);
 });
 
+test("parseJson rejects non-object JSON bodies", async () => {
+  for (const body of ["null", "[]", "\"text\"", "42"]) {
+    await assert.rejects(
+      parseJson(new Request("https://api.jakh.net/test", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body,
+      })),
+      (error) => error instanceof ApiError && error.status === 400,
+    );
+  }
+});
+
 test("withCors leaves Cloudflare WebSocket upgrade responses untouched", () => {
   const upgradeResponse = { status: 101 };
   const request = new Request("https://api.jakh.net/ws/battle", {
@@ -85,7 +100,11 @@ test("withCors does not duplicate existing Vary tokens", async () => {
 
   assert.equal(response.headers.get("access-control-allow-origin"), "https://jakh.net");
   assert.equal(response.headers.get("access-control-allow-credentials"), "true");
-  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
+  assert.equal(
+    response.headers.get("strict-transport-security"),
+    "max-age=31536000; includeSubDomains",
+  );
+  assert.equal(response.headers.get("x-frame-options"), null);
   assert.deepEqual(
     response.headers.get("vary").split(",").map((token) => token.trim().toLowerCase()),
     ["accept-encoding", "origin"],
@@ -100,8 +119,43 @@ test("withCors adds HSTS even when no CORS origin is present", () => {
     "https://jakh.net",
   );
 
-  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
+  assert.equal(
+    response.headers.get("strict-transport-security"),
+    "max-age=31536000; includeSubDomains",
+  );
   assert.equal(response.headers.has("access-control-allow-origin"), false);
+});
+
+test("unsafe requests require an explicitly allowed Origin", () => {
+  const allowed = "https://jakh.net,https://www.jakh.net";
+  assert.equal(originIsAllowed(
+    new Request("https://api.jakh.net/api/user/avatar", { method: "PUT" }),
+    allowed,
+  ), false);
+  assert.equal(originIsAllowed(
+    new Request("https://api.jakh.net/api/user/avatar", {
+      method: "PUT",
+      headers: { origin: "https://jakh.net" },
+    }),
+    allowed,
+  ), true);
+  assert.equal(originIsAllowed(
+    new Request("https://api.jakh.net/api/health"),
+    allowed,
+  ), true);
+});
+
+test("JSON API responses carry browser isolation headers", () => {
+  const response = withCors(
+    json({ ok: true }),
+    new Request("https://api.jakh.net/api/health"),
+    "https://jakh.net",
+  );
+  assert.match(response.headers.get("content-security-policy"), /default-src 'none'/u);
+  assert.equal(response.headers.get("cross-origin-resource-policy"), "same-site");
+  assert.match(response.headers.get("permissions-policy"), /camera=\(\)/u);
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
 });
 
 test("HTTP requests redirect permanently to the same HTTPS path and query", () => {

@@ -85,7 +85,10 @@ function fakeContext(initialRoom, sockets = []) {
 
 function connectRequest() {
   return new Request("https://battle.internal/connect", {
-    headers: { upgrade: "websocket" },
+    headers: {
+      upgrade: "websocket",
+      "x-jakh-client-key": "A".repeat(43),
+    },
   });
 }
 
@@ -134,6 +137,19 @@ test("room socket and pending-join caps are enforced before acceptance", async (
     assert.equal(response.status, 429);
     assert.equal(context.accepted.length, 0);
   });
+
+  await t.test("one network cannot reserve multiple pending slots", async () => {
+    const sockets = [fakeSocket({
+      connectedAt: Date.now(),
+      clientKey: "A".repeat(43),
+    })];
+    const context = fakeContext(roomState(), sockets);
+    const response = await new BattleRoom(context).fetch(connectRequest());
+
+    assert.equal(response.status, 429);
+    assert.equal(await response.text(), "Too many pending connections from this network");
+    assert.equal(context.accepted.length, 0);
+  });
 });
 
 test("oversized binary messages are rejected before decoding or loading room state", async () => {
@@ -170,7 +186,7 @@ test("silent pre-join sockets expire through the hibernation-safe alarm", async 
 });
 
 test("serialized socket attachments preserve identity across hibernation", async () => {
-  const socket = fakeSocket({ connectedAt: Date.now() });
+  const socket = fakeSocket({ connectedAt: Date.now(), clientKey: "A".repeat(43) });
   const context = fakeContext(roomState(), [socket]);
 
   await new BattleRoom(context).webSocketMessage(socket, JSON.stringify({
@@ -192,6 +208,53 @@ test("serialized socket attachments preserve identity across hibernation", async
   assert.equal(context.storage.room.phase, "question");
   assert.equal(context.storage.room.players[0].id, playerId);
   assert.ok(socket.sent.some((message) => message.type === "question"));
+});
+
+test("one network cannot occupy an entire room", async () => {
+  const clientKey = "A".repeat(43);
+  const existingPlayers = Array.from({ length: 4 }, (_, index) => ({
+    id: `p-${index}`,
+    name: `Player ${index}`,
+    score: 0,
+    streak: 0,
+    isHost: index === 0,
+  }));
+  const sockets = existingPlayers.map((player) => fakeSocket({
+    playerId: player.id,
+    clientKey,
+  }));
+  const joining = fakeSocket({ connectedAt: Date.now(), clientKey });
+  sockets.push(joining);
+  const context = fakeContext(roomState({ players: existingPlayers }), sockets);
+
+  await new BattleRoom(context).webSocketMessage(joining, JSON.stringify({
+    type: "join-room",
+    code: "SCI23456",
+    name: "Fifth player",
+  }));
+
+  assert.equal(context.storage.room.players.length, 4);
+  assert.deepEqual(joining.closed, [{
+    code: 1008,
+    reason: "Too many players from this network",
+  }]);
+});
+
+test("joined sockets are disconnected before a message flood reaches storage", async () => {
+  const player = { id: "p-1", name: "Player", score: 0, streak: 0, isHost: true };
+  const socket = fakeSocket({ playerId: player.id, clientKey: "A".repeat(43) });
+  const context = fakeContext(roomState({ players: [player] }), [socket]);
+  const durableObject = new BattleRoom(context);
+
+  for (let index = 0; index < 31; index += 1) {
+    await durableObject.webSocketMessage(socket, JSON.stringify({ type: "unknown" }));
+  }
+
+  assert.equal(context.storage.getCount, 30);
+  assert.deepEqual(socket.closed.at(-1), {
+    code: 1008,
+    reason: "Too many messages",
+  });
 });
 
 test("answers at or after the deadline are not accepted", async () => {

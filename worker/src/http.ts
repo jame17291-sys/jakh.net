@@ -1,15 +1,21 @@
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
   "cache-control": "no-store",
+  "content-security-policy": "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+  "cross-origin-resource-policy": "same-site",
+  "permissions-policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
   "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "x-permitted-cross-domain-policies": "none",
   "referrer-policy": "no-referrer",
 } as const;
-const HSTS_VALUE = "max-age=31536000";
+const HSTS_VALUE = "max-age=31536000; includeSubDomains";
 
 const ERROR_CODE_BY_MESSAGE: Readonly<Record<string, string>> = Object.freeze({
   "Content-Type must be application/json": "INVALID_CONTENT_TYPE",
   "Request body is too large": "REQUEST_BODY_TOO_LARGE",
   "Invalid JSON": "INVALID_JSON",
+  "JSON body must be an object": "INVALID_JSON_OBJECT",
   "Origin is not allowed": "ORIGIN_NOT_ALLOWED",
   Unauthorized: "UNAUTHORIZED",
   "Too many attempts. Please try again later.": "RATE_LIMITED",
@@ -112,8 +118,13 @@ export async function parseJson<T>(request: Request, maxBytes = 32_768): Promise
   }
 
   try {
-    return JSON.parse(text) as T;
-  } catch {
+    const parsed = JSON.parse(text) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      throw new ApiError(400, "JSON body must be an object");
+    }
+    return parsed as T;
+  } catch (error) {
+    if (error instanceof ApiError) throw error;
     throw new ApiError(400, "Invalid JSON");
   }
 }
@@ -124,7 +135,8 @@ export function allowedOrigins(csv: string): Set<string> {
 
 export function originIsAllowed(request: Request, csv: string): boolean {
   const origin = request.headers.get("origin");
-  return !origin || allowedOrigins(csv).has(origin);
+  if (origin) return allowedOrigins(csv).has(origin);
+  return request.method === "GET" || request.method === "HEAD";
 }
 
 export function redirectToHttps(request: Request): Response | null {

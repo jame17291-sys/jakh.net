@@ -22,13 +22,6 @@ const ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 const MAX_SYNC_ITEMS = 100;
 const SCHEMA_VERSION = "1";
-const POINTS_SQL = `CASE p.status
-  WHEN 'easy' THEN 1
-  WHEN 'medium' THEN 2
-  WHEN 'hard' THEN 3
-  WHEN 'very-advanced' THEN 5
-  ELSE 0
-END`;
 
 interface UserPasswordRow {
   id: string;
@@ -75,7 +68,7 @@ export async function health(env: Env): Promise<Response> {
     return json({
       ok: true,
       service: "jakh-api",
-      version: "1.1.1",
+      version: "1.2.0",
       schema: SCHEMA_VERSION,
     });
   } catch {
@@ -141,23 +134,19 @@ export async function login(request: Request, env: Env): Promise<Response> {
     await hashPasswordInHasher(env, password, "AAAAAAAAAAAAAAAAAAAAAA");
     throw new ApiError(401, "Invalid credentials");
   }
-  if (user.is_banned) throw new ApiError(403, "This account has been suspended");
-  if (!await verifyPasswordInHasher(
+  const passwordIsValid = await verifyPasswordInHasher(
     env,
     password,
     user.password_hash,
     user.password_salt,
     user.password_iterations,
-  )) {
-    throw new ApiError(401, "Invalid credentials");
-  }
+  );
+  if (!passwordIsValid) throw new ApiError(401, "Invalid credentials");
+  if (user.is_banned) throw new ApiError(403, "This account has been suspended");
 
   const timestamp = now();
-  await env.DB.batch([
-    env.DB.prepare("UPDATE users SET last_login_at = ?, updated_at = ? WHERE id = ?")
-      .bind(timestamp, timestamp, user.id),
-    env.DB.prepare("DELETE FROM sessions WHERE expires_at <= ?").bind(timestamp),
-  ]);
+  await env.DB.prepare("UPDATE users SET last_login_at = ?, updated_at = ? WHERE id = ?")
+    .bind(timestamp, timestamp, user.id).run();
   const token = await createSession(env, user.id);
   return setCookie(
     json({ user: { id: user.id, username: user.username, email: user.email, role: user.role } }),
@@ -503,24 +492,11 @@ export async function analytics(request: Request, env: Env): Promise<Response> {
   return json({ success: true });
 }
 
-export async function leaderboard(env: Env): Promise<Response> {
-  const result = await env.DB.prepare(
-    `SELECT u.username, u.avatar, SUM(${POINTS_SQL}) AS score
-       FROM users u
-       JOIN progress p ON p.user_id = u.id
-      WHERE u.is_banned = 0 AND p.status NOT LIKE 'wrong-%'
-      GROUP BY u.id, u.username, u.avatar
-      HAVING score > 0
-      ORDER BY score DESC, u.created_at ASC
-      LIMIT 20`,
-  ).all<{ username: string; avatar: string; score: number }>();
+export async function leaderboard(_env: Env): Promise<Response> {
   return json({
-    leaderboard: result.results.map((row, index) => ({
-      rank: index + 1,
-      username: row.username,
-      avatar: row.avatar,
-      score: row.score,
-    })),
+    status: "paused",
+    scoreType: "unverified-disabled",
+    leaderboard: [],
   }, 200, { "cache-control": "public, max-age=30" });
 }
 

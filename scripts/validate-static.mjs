@@ -30,9 +30,10 @@ function discoverHtmlFiles(directory = root) {
 
 const htmlFiles = discoverHtmlFiles().sort();
 const dataFiles = fs.readdirSync(path.join(root, "data")).filter((name) => name.endsWith(".json")).sort();
-const localReference = /\b(?:href|src)=["']([^"'<>]+)["']/giu;
+const localReference = /\b(?:href|src)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/giu;
 const idAttribute = /\sid\s*=\s*["']([^"']+)["']/giu;
 const inlineScript = /<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/giu;
+const inlineEventHandler = /<[a-z][^>]*?(?:\s|\/)(on[a-z][a-z0-9:.-]*)\s*=/giu;
 
 function fail(message) {
   failures.push(message);
@@ -44,6 +45,32 @@ function stableObjectJson(value) {
   );
 }
 
+function decodeUrlCodePoint(digits, radix) {
+  const codePoint = Number.parseInt(digits, radix);
+  if (
+    !Number.isInteger(codePoint)
+    || codePoint < 0
+    || codePoint > 0x10FFFF
+    || (codePoint >= 0xD800 && codePoint <= 0xDFFF)
+  ) return "\uFFFD";
+  return String.fromCodePoint(codePoint);
+}
+
+function decodeUrlCharacterReferences(reference) {
+  return String(reference)
+    .replace(/&#x([0-9a-f]+);?/giu, (_, digits) => decodeUrlCodePoint(digits, 16))
+    .replace(/&#([0-9]+);?/gu, (_, digits) => decodeUrlCodePoint(digits, 10))
+    .replace(/&colon;/giu, ":")
+    .replace(/&(?:tab|newline);/giu, "");
+}
+
+function isJavascriptUrl(reference) {
+  return decodeUrlCharacterReferences(reference)
+    .replace(/[\u0000-\u0020\u007f]+/gu, "")
+    .toLowerCase()
+    .startsWith("javascript:");
+}
+
 function localPath(reference, sourceFile) {
   if (
     !reference
@@ -51,7 +78,6 @@ function localPath(reference, sourceFile) {
     || reference.startsWith("data:")
     || reference.startsWith("mailto:")
     || reference.startsWith("tel:")
-    || reference.startsWith("javascript:")
     || reference.startsWith("//")
     || /^[a-z][a-z0-9+.-]*:/iu.test(reference)
   ) return null;
@@ -101,8 +127,16 @@ for (const file of htmlFiles) {
     ids.add(id);
   }
 
+  for (const match of source.matchAll(inlineEventHandler)) {
+    fail(`${file}: inline event handler "${match[1]}" is forbidden`);
+  }
+
   for (const match of source.matchAll(localReference)) {
-    const reference = match[1] || "";
+    const reference = match[1] ?? match[2] ?? match[3] ?? "";
+    if (isJavascriptUrl(reference)) {
+      fail(`${file}: JavaScript URL is forbidden in "${reference}"`);
+      continue;
+    }
     const resolution = localPath(reference, file);
     if (resolution?.invalid) {
       fail(`${file}: invalid local reference "${reference}"`);
@@ -378,6 +412,8 @@ async function validateServiceWorkerOfflineShell() {
   const listeners = new Map();
   const origin = "https://jakh.net";
   const stores = new Map();
+  let online = true;
+  let fetchLabel = "precache";
 
   function keyOf(request, ignoreSearch = false) {
     const value = typeof request === "string" ? request : request.url;
@@ -389,6 +425,32 @@ async function validateServiceWorkerOfflineShell() {
     return url.href;
   }
 
+  function contentTypeFor(pathname) {
+    if (pathname.endsWith(".css")) return "text/css";
+    if (pathname.endsWith(".js")) return "text/javascript";
+    if (pathname.endsWith(".json")) return "application/json";
+    if (pathname.endsWith(".webmanifest")) return "application/manifest+json";
+    if (pathname.endsWith(".svg")) return "image/svg+xml";
+    if (pathname.endsWith(".png")) return "image/png";
+    if (pathname.endsWith(".jpg") || pathname.endsWith(".jpeg")) return "image/jpeg";
+    if (pathname.endsWith(".webp")) return "image/webp";
+    if (pathname.endsWith(".ico")) return "image/x-icon";
+    if (pathname.endsWith(".woff2")) return "font/woff2";
+    return "text/html";
+  }
+
+  function createFetchResponse(url) {
+    const headers = {
+      "content-type": url.searchParams.has("wrong-type") ? "text/plain" : contentTypeFor(url.pathname),
+    };
+    if (url.searchParams.has("no-store")) headers["cache-control"] = "private, no-store";
+    const response = new Response(`${fetchLabel}:${url.pathname}${url.search}`, { headers });
+    Object.defineProperty(response, "type", {
+      value: url.searchParams.has("non-basic") ? "cors" : "basic",
+    });
+    return response;
+  }
+
   class MemoryCache {
     constructor() {
       this.entries = new Map();
@@ -396,7 +458,7 @@ async function validateServiceWorkerOfflineShell() {
 
     async add(request) {
       const url = new URL(typeof request === "string" ? request : request.url, origin);
-      this.entries.set(url.href, new Response(`precache:${url.pathname}`));
+      this.entries.set(url.href, createFetchResponse(url));
     }
 
     async put(request, response) {
@@ -405,11 +467,19 @@ async function validateServiceWorkerOfflineShell() {
 
     async match(request, options = {}) {
       const key = keyOf(request, options.ignoreSearch);
-      if (!options.ignoreSearch) return this.entries.get(key);
+      if (!options.ignoreSearch) return this.entries.get(key)?.clone();
       for (const [storedKey, response] of this.entries) {
-        if (keyOf(storedKey, true) === key) return response;
+        if (keyOf(storedKey, true) === key) return response.clone();
       }
       return undefined;
+    }
+
+    async keys() {
+      return [...this.entries.keys()].map(key => new Request(key));
+    }
+
+    async delete(request) {
+      return this.entries.delete(keyOf(request));
     }
   }
 
@@ -436,41 +506,58 @@ async function validateServiceWorkerOfflineShell() {
   const fakeSelf = {
     location: { origin },
     clients: { async claim() {} },
-    skipWaiting() {},
+    async skipWaiting() {},
     addEventListener(type, listener) {
       listeners.set(type, listener);
     },
   };
 
   const context = vm.createContext({
+    Request,
     URL,
     Response,
     Promise,
     caches: fakeCaches,
-    fetch: async () => { throw new Error("offline"); },
+    fetch: async (request) => {
+      if (!online) throw new Error("offline");
+      const url = new URL(typeof request === "string" ? request : request.url, origin);
+      return createFetchResponse(url);
+    },
     self: fakeSelf,
   });
   new vm.Script(source, { filename: "sw.js" }).runInContext(context);
 
   async function dispatchWithLifetime(type, event = {}) {
-    let lifetime;
-    listeners.get(type)?.({ ...event, waitUntil(value) { lifetime = value; } });
-    if (lifetime) await lifetime;
+    const lifetimes = [];
+    listeners.get(type)?.({
+      ...event,
+      waitUntil(value) {
+        lifetimes.push(Promise.resolve(value));
+      },
+    });
+    await Promise.all(lifetimes);
+    return lifetimes.length;
   }
 
   async function dispatchFetch(url, mode) {
     let responsePromise;
+    const lifetimes = [];
     listeners.get("fetch")?.({
-      request: { url: new URL(url, origin).href, mode },
+      request: { url: new URL(url, origin).href, method: "GET", mode },
       respondWith(value) { responsePromise = value; },
+      waitUntil(value) { lifetimes.push(Promise.resolve(value)); },
     });
     if (!responsePromise) throw new Error(`No response handler for ${url}`);
-    return responsePromise;
+    const response = await responsePromise;
+    await Promise.all(lifetimes);
+    return response;
   }
 
   try {
     await dispatchWithLifetime("install");
-    const version = [...assetVersions][0] || "missing";
+    online = false;
+    const firstVersionSet = assetVersions.values().next().value;
+    const version = firstVersionSet?.values().next().value || "missing";
     const cases = [
       ["/?daily=1", "navigate", "precache:/"],
       ["/mind-lab?offline=1", "navigate", "precache:/mind-lab"],
@@ -486,9 +573,53 @@ async function validateServiceWorkerOfflineShell() {
       if (body !== expected) fail(`sw.js: offline ${url} returned "${body}" instead of "${expected}"`);
     }
 
+    fetchLabel = "network";
+    online = true;
+    await dispatchFetch("/science?seed=1", "navigate");
+    online = false;
+    const normalizedResponse = await dispatchFetch("/science?different=1", "navigate");
+    const normalizedBody = await normalizedResponse.text();
+    if (normalizedBody !== "network:/science?seed=1") {
+      fail(`sw.js: navigation cache did not normalize query strings (returned "${normalizedBody}")`);
+    }
+
+    for (const marker of ["no-store", "wrong-type", "non-basic"]) {
+      online = true;
+      await dispatchFetch(`/privacy?${marker}=1`, "navigate");
+      online = false;
+      const response = await dispatchFetch(`/privacy?retry=${marker}`, "navigate");
+      const body = await response.text();
+      if (body !== "precache:/") {
+        fail(`sw.js: cached a ${marker} navigation response`);
+      }
+    }
+
+    online = true;
+    for (let index = 0; index < 70; index += 1) {
+      await dispatchFetch(`/cache-limit-check-${index}`, "navigate");
+    }
+    const navigationStore = [...stores.entries()]
+      .find(([name]) => name.startsWith("jakh-v") && !name.startsWith("jakh-assets"))?.[1];
+    const navigationEntryCount = navigationStore ? (await navigationStore.keys()).length : 0;
+    if (navigationEntryCount > 64) {
+      fail(`sw.js: navigation cache grew to ${navigationEntryCount} entries`);
+    }
+
+    let handledCrossOrigin = false;
+    listeners.get("fetch")?.({
+      request: { url: "https://example.com/app.js", method: "GET", mode: "same-origin" },
+      respondWith() { handledCrossOrigin = true; },
+      waitUntil() {},
+    });
+    if (handledCrossOrigin) fail("sw.js: handled a cross-origin request");
+
     await fakeCaches.open("jakh-obsolete");
     await dispatchWithLifetime("activate");
     if ((await fakeCaches.keys()).includes("jakh-obsolete")) fail("sw.js: activate did not delete an obsolete cache");
+
+    const clearCacheLifetimes = await dispatchWithLifetime("message", { data: { type: "CLEAR_CACHE" } });
+    if (!clearCacheLifetimes) fail("sw.js: CLEAR_CACHE did not use event.waitUntil()");
+    if ((await fakeCaches.keys()).length) fail("sw.js: CLEAR_CACHE did not remove every cache");
   } catch (error) {
     fail(`sw.js: offline shell validation failed: ${error.message}`);
   }

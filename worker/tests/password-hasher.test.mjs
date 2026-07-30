@@ -44,6 +44,28 @@ test("password hashing helpers execute through the Durable Object", async () => 
   );
 });
 
+test("phase A can read the future 600,000-iteration format without writing it by default", async () => {
+  const env = localBinding("pepper-that-is-long-enough-for-tests");
+  const record = await hashPasswordInHasher(
+    env,
+    "correct horse battery staple",
+    undefined,
+    600_000,
+  );
+
+  assert.equal(record.iterations, 600_000);
+  assert.equal(
+    await verifyPasswordInHasher(
+      env,
+      "correct horse battery staple",
+      record.hash,
+      record.salt,
+      record.iterations,
+    ),
+    true,
+  );
+});
+
 test("password hasher rejects unsupported work factors", async () => {
   const env = localBinding("pepper-that-is-long-enough-for-tests");
 

@@ -3230,6 +3230,7 @@ async function loadGlobalSearchIndex() {
 }
 
 function openGlobalSearch() {
+  void loadGlobalSearchIndex().catch(() => undefined);
   if (document.getElementById('globalSearchOverlay')) {
     document.getElementById('globalSearchOverlay').classList.remove('hidden');
     document.getElementById('globalSearchInput')?.focus();
@@ -3275,21 +3276,25 @@ async function runGlobalSearch() {
   const resultsEl = document.getElementById('globalSearchResults');
   if (!resultsEl) return;
   if (!q || q.length < 2) {
+    resultsEl.removeAttribute('aria-busy');
     resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'اكتب حرفين على الأقل...' : 'Type at least 2 characters…'}</p>`;
     return;
   }
-  resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'جارٍ البحث...' : 'Searching…'}</p>`;
+  resultsEl.replaceChildren();
+  resultsEl.setAttribute('aria-busy', 'true');
 
   let searchIndex;
   try {
     searchIndex = await loadGlobalSearchIndex();
   } catch {
     if (generation === _gsGeneration) {
+      resultsEl.removeAttribute('aria-busy');
       resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'تعذر البحث الآن.' : 'Search is unavailable right now.'}</p>`;
     }
     return;
   }
   if (generation !== _gsGeneration) return;
+  resultsEl.removeAttribute('aria-busy');
 
   const hits = [];
   const categoriesBySlug = new Map((state.catalog?.categories || []).map(cat => [cat.slug, cat]));

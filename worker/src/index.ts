@@ -1,6 +1,13 @@
 import { connectBattle, createBattle } from "./battle.js";
 import { BattleRoom } from "./battle-room.js";
-import { ApiError, json, originIsAllowed, preflight, withCors } from "./http.js";
+import {
+  ApiError,
+  json,
+  originIsAllowed,
+  preflight,
+  redirectToHttps,
+  withCors,
+} from "./http.js";
 import { PasswordHasher } from "./password-hasher.js";
 import {
   analytics,
@@ -53,9 +60,17 @@ async function route(request: Request, env: Env): Promise<Response> {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    if (request.method === "OPTIONS") return preflight(request, env.ALLOWED_ORIGINS);
+    const redirect = redirectToHttps(request);
+    if (redirect) return redirect;
+    if (request.method === "OPTIONS") {
+      return withCors(preflight(request, env.ALLOWED_ORIGINS), request, env.ALLOWED_ORIGINS);
+    }
     if (!originIsAllowed(request, env.ALLOWED_ORIGINS)) {
-      return json({ error: "Origin is not allowed" }, 403);
+      return withCors(
+        json({ error: "Origin is not allowed" }, 403),
+        request,
+        env.ALLOWED_ORIGINS,
+      );
     }
 
     try {

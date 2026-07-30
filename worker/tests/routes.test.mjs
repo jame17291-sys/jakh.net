@@ -26,7 +26,7 @@ test("health reports ready only when secrets, bindings, schema, and catalog exis
   assert.deepEqual(await response.json(), {
     ok: true,
     service: "jakh-api",
-    version: "1.1.0",
+    version: "1.1.1",
     schema: "1",
   });
 });

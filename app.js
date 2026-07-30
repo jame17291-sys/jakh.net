@@ -57,172 +57,6 @@ const DIFFICULTY_POINTS = {
 
 const PAGE_SIZE = 20;
 
-const DIRECTORY_PARENT_META = {
-  mind: {
-    mark: '01',
-    label: { en: 'Mind & Logic', ar: 'العقل والمنطق' },
-    gradient: 'linear-gradient(135deg,#25124d,#7c3aed 58%,#38bdf8)',
-  },
-  science: {
-    mark: '02',
-    label: { en: 'Science & Nature', ar: 'العلوم والطبيعة' },
-    gradient: 'linear-gradient(135deg,#063f46,#0f766e 52%,#a3e635)',
-  },
-  tech: {
-    mark: '03',
-    label: { en: 'Tech & Engineering', ar: 'التقنية والهندسة' },
-    gradient: 'linear-gradient(135deg,#111827,#2563eb 55%,#22d3ee)',
-  },
-  world: {
-    mark: '04',
-    label: { en: 'World & Society', ar: 'العالم والمجتمع' },
-    gradient: 'linear-gradient(135deg,#3d1f0f,#b45309 54%,#facc15)',
-  },
-  culture: {
-    mark: '05',
-    label: { en: 'Arts & Pop Culture', ar: 'الفنون والثقافة' },
-    gradient: 'linear-gradient(135deg,#3b0764,#be185d 52%,#f97316)',
-  },
-};
-
-const CATEGORY_COLLECTIONS = [
-  {
-    key: 'riddle-forge',
-    parent: 'mind',
-    title: { en: 'Riddle Forge', ar: 'ورشة الألغاز' },
-    description: { en: 'Classic, logic, and family-friendly puzzles grouped into one clear starting point.', ar: 'ألغاز كلاسيكية ومنطقية وعائلية في نقطة بداية واحدة واضحة.' },
-    gradient: 'linear-gradient(135deg,#1f1147,#7c3aed 48%,#f59e0b)',
-    accent: '#A78BFA',
-    members: ['classic-riddles', 'logic-puzzles', 'kids-riddles'],
-  },
-  {
-    key: 'human-signals',
-    parent: 'mind',
-    title: { en: 'Human Signals', ar: 'إشارات الإنسان' },
-    description: { en: 'Psychology, philosophy, and relationships for questions about how people think and connect.', ar: 'علم النفس والفلسفة والعلاقات لأسئلة عن التفكير والتواصل الإنساني.' },
-    gradient: 'linear-gradient(135deg,#2e1065,#9333ea 50%,#f472b6)',
-    accent: '#C084FC',
-    members: ['psychology', 'philosophy', 'relationship-questions'],
-  },
-  {
-    key: 'mystery-desk',
-    parent: 'mind',
-    title: { en: 'Mystery Desk', ar: 'مكتب الغموض' },
-    description: { en: 'Story riddles and true-crime style puzzles kept together for suspense seekers.', ar: 'ألغاز القصص والغموض والجريمة في مجموعة واحدة لمحبي التشويق.' },
-    gradient: 'linear-gradient(135deg,#111827,#4c0519 52%,#ef4444)',
-    accent: '#FB7185',
-    members: ['story-mysteries', 'true-crime'],
-  },
-  {
-    key: 'living-planet',
-    parent: 'science',
-    title: { en: 'Living Planet', ar: 'الكوكب الحي' },
-    description: { en: 'Biology, animals, ecology, and wilderness questions in one natural collection.', ar: 'الأحياء والحيوانات والبيئة والبقاء في مجموعة طبيعية واحدة.' },
-    gradient: 'linear-gradient(135deg,#052e16,#16a34a 48%,#22d3ee)',
-    accent: '#2DD4BF',
-    members: ['biology', 'animal-kingdom', 'environment-and-ecology', 'survival'],
-  },
-  {
-    key: 'core-science-lab',
-    parent: 'science',
-    title: { en: 'Core Science Lab', ar: 'مختبر العلوم الأساسية' },
-    description: { en: 'Math, chemistry, earth science, and broad science pages consolidated for STEM learners.', ar: 'الرياضيات والكيمياء وعلوم الأرض والعلوم العامة للمتعلمين في مسار واحد.' },
-    gradient: 'linear-gradient(135deg,#0f172a,#2563eb 48%,#22d3ee)',
-    accent: '#38BDF8',
-    members: ['math', 'science', 'chemistry', 'physical-and-life-sciences', 'geology'],
-  },
-  {
-    key: 'medicine-cabinet',
-    parent: 'science',
-    title: { en: 'Medicine Cabinet', ar: 'خزانة الطب' },
-    description: { en: 'Medical science and pharmacy grouped for health-focused study sessions.', ar: 'العلوم الطبية والصيدلة في مجموعة مخصصة للمعرفة الصحية.' },
-    gradient: 'linear-gradient(135deg,#4a044e,#be185d 50%,#86efac)',
-    accent: '#F472B6',
-    members: ['medical-questions', 'pharmacy'],
-  },
-  {
-    key: 'orbit-and-energy',
-    parent: 'science',
-    title: { en: 'Orbit & Energy', ar: 'المدار والطاقة' },
-    description: { en: 'Space, astronomy, future technology, and energy systems bundled as frontier topics.', ar: 'الفضاء والفلك والتقنيات المستقبلية والطاقة في مجموعة للحدود الجديدة.' },
-    gradient: 'linear-gradient(135deg,#020617,#1d4ed8 45%,#67e8f9)',
-    accent: '#67E8F9',
-    members: ['space-and-astrology', 'future-tech-and-energy'],
-  },
-  {
-    key: 'digital-workshop',
-    parent: 'tech',
-    title: { en: 'Digital Workshop', ar: 'ورشة التقنية' },
-    description: { en: 'Software, coding, design, and retro tech brought together for digital curiosity.', ar: 'البرمجة والتصميم والحوسبة والتقنية القديمة في مساحة رقمية واحدة.' },
-    gradient: 'linear-gradient(135deg,#0f172a,#4f46e5 48%,#84cc16)',
-    accent: '#60A5FA',
-    members: ['software-and-computing', 'coding-and-design', 'tech-retro'],
-  },
-  {
-    key: 'built-systems',
-    parent: 'tech',
-    title: { en: 'Built Systems', ar: 'الأنظمة المبنية' },
-    description: { en: 'Engineering disciplines, infrastructure, architecture, and invention questions under one roof.', ar: 'الهندسة والبنية التحتية والعمارة والاختراعات تحت سقف واحد.' },
-    gradient: 'linear-gradient(135deg,#111827,#475569 48%,#f97316)',
-    accent: '#94A3B8',
-    members: ['civil-engineering', 'electrical-engineering', 'mechanical-engineering', 'infrastructure-systems', 'architecture-and-landmarks', 'inventions-and-minds'],
-  },
-  {
-    key: 'speed-and-stadiums',
-    parent: 'tech',
-    title: { en: 'Speed & Stadiums', ar: 'السرعة والملاعب' },
-    description: { en: 'Football and automotive questions grouped around performance, machines, and competition.', ar: 'أسئلة كرة القدم والسيارات حول الأداء والآلات والمنافسة.' },
-    gradient: 'linear-gradient(135deg,#052e16,#16a34a 45%,#f97316)',
-    accent: '#4ADE80',
-    members: ['football', 'automotive'],
-  },
-  {
-    key: 'atlas-room',
-    parent: 'world',
-    title: { en: 'Atlas Room', ar: 'غرفة الأطلس' },
-    description: { en: 'Geography, flags, currencies, food, and daily customs for exploring the world quickly.', ar: 'الجغرافيا والأعلام والعملات والطعام والعادات لاستكشاف العالم بسهولة.' },
-    gradient: 'linear-gradient(135deg,#0c4a6e,#0284c7 48%,#facc15)',
-    accent: '#38BDF8',
-    members: ['geography', 'flag-questions', 'currencies', 'world-habits-and-etiquette', 'food-and-cuisines'],
-  },
-  {
-    key: 'time-archive',
-    parent: 'world',
-    title: { en: 'Time Archive', ar: 'أرشيف الزمن' },
-    description: { en: 'History, ancient civilizations, Middle East history, and regional law arranged as one timeline.', ar: 'التاريخ والحضارات القديمة وتاريخ الشرق الأوسط والقانون في خط زمني واحد.' },
-    gradient: 'linear-gradient(135deg,#431407,#92400e 50%,#fbbf24)',
-    accent: '#F9A825',
-    members: ['history', 'ancient-civilizations', 'middle-east-history', 'law-middle-east'],
-  },
-  {
-    key: 'society-engine',
-    parent: 'world',
-    title: { en: 'Society Engine', ar: 'محرك المجتمع' },
-    description: { en: 'Business, economics, social science, and language grouped around how societies work.', ar: 'الأعمال والاقتصاد والعلوم الاجتماعية واللغة لفهم طريقة عمل المجتمعات.' },
-    gradient: 'linear-gradient(135deg,#042f2e,#0f766e 48%,#f59e0b)',
-    accent: '#2DD4BF',
-    members: ['business-and-management', 'economics-and-finance', 'social-sciences', 'linguistics'],
-  },
-  {
-    key: 'gallery-and-myths',
-    parent: 'culture',
-    title: { en: 'Gallery & Myths', ar: 'المعرض والأساطير' },
-    description: { en: 'Art, books, music, and mythology combined for a richer creative-culture lane.', ar: 'الفن والكتب والموسيقى والأساطير في مسار ثقافي إبداعي واحد.' },
-    gradient: 'linear-gradient(135deg,#3b0764,#a21caf 48%,#f59e0b)',
-    accent: '#F0ABFC',
-    members: ['art-and-painters', 'books-and-quotes', 'music-and-performing-arts', 'mythology-legends'],
-  },
-  {
-    key: 'screen-worlds',
-    parent: 'culture',
-    title: { en: 'Screen Worlds', ar: 'عوالم الشاشة' },
-    description: { en: 'TV, cinema, anime, Spacetoon, superheroes, pop culture, and fictional universes in one fandom hub.', ar: 'التلفزيون والسينما والأنمي وسبيستون والأبطال والثقافة الشعبية والعوالم الخيالية في مركز واحد.' },
-    gradient: 'linear-gradient(135deg,#1e1b4b,#be185d 48%,#f97316)',
-    accent: '#FB7185',
-    members: ['tv-shows-trivia', 'cinema-and-film-history', 'anime', 'ayam-tayebeen', 'pop-culture', 'superheroes', 'fictional-worlds'],
-  },
-];
-
 const CATEGORY_GRADIENTS = {
   'art-and-painters':           'linear-gradient(135deg, #FF6B6B 0%, #FFA500 100%)',
   'biology':                    'linear-gradient(135deg, #00C9A7 0%, #005CE6 100%)',
@@ -349,9 +183,9 @@ const UI = {
     homeEyebrow: '3,500+ bilingual riddles — English & Arabic',
     homeTitle: 'Pick a topic. Flip cards. See how much you know.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
-    browseCategories: 'Explore collections',
+    browseCategories: 'Explore topics',
     heroGameHub: 'Game Hub',
-    statCategories: 'Collections',
+    statCategories: 'Topics',
     statQuestions: 'Questions',
     statLanguages: 'Languages',
     mindHeroEyebrow: '3,500+ bilingual riddles — English & Arabic',
@@ -365,8 +199,8 @@ const UI = {
     playBrowserOnly: 'All games run entirely in your browser — nothing installed.',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
-    portalMindDesc: '3,500+ bilingual questions organized into 15 curated collections across 5 clear tracks. Pick a collection, open a topic, flip cards, track your score.',
-    portalMindStat: '15 collections',
+    portalMindDesc: '3,500+ bilingual questions mapped directly into 56 topics across 5 clear sections. Pick a topic, flip cards, and track your score.',
+    portalMindStat: '56 topics',
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
     portalGamesTitle: 'The Game Hub',
@@ -379,9 +213,10 @@ const UI = {
     localBrowserOnly: 'Saved to your account',
     categoryEyebrow: 'Choose a section',
     categoryTitle: 'What would you like to explore?',
-    categoryText: 'Start with a curated collection, or search for a specific topic if you already know what you want.',
-    searchCategoriesLabel: 'Search category pages',
-    tracksLabel: 'Tracks',
+    categoryText: 'Choose one of 5 clear sections, then open a topic directly—no extra layer.',
+    searchCategoriesLabel: 'Search topics and subtopics',
+    tracksLabel: 'Sections',
+    randomCategory: 'Surprise me',
     resetDirectoryFilters: 'Reset filters',
     authEyebrow: 'Profile',
     authTitle: 'Create account or sign in',
@@ -509,9 +344,9 @@ const UI = {
     homeEyebrow: '+3500 لغز ثنائي اللغة — عربي وإنجليزي',
     homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
     homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
-    browseCategories: 'استكشف المجموعات',
+    browseCategories: 'استكشف المواضيع',
     heroGameHub: 'مركز الألعاب',
-    statCategories: 'المجموعات',
+    statCategories: 'المواضيع',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
     mindHeroEyebrow: '+3500 لغز ثنائي اللغة — عربي وإنجليزي',
@@ -525,8 +360,8 @@ const UI = {
     playBrowserOnly: 'جميع الألعاب تعمل بالكامل في متصفحك — لا حاجة إلى تثبيت أي شيء.',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: '+3500 سؤال ثنائي اللغة منظمة في 15 مجموعة مختارة ضمن 5 مسارات واضحة. اختر مجموعة، افتح موضوعًا، واقلب البطاقات وتابع نقاطك.',
-    portalMindStat: '15 مجموعة',
+    portalMindDesc: '+3500 سؤال ثنائي اللغة موزعة مباشرة على 56 موضوعًا ضمن 5 أقسام واضحة. اختر موضوعًا واقلب البطاقات وتابع نقاطك.',
+    portalMindStat: '56 موضوعًا',
     portalMindCta: 'استكشف الألغاز →',
     portalGamesTag: 'مركز الألعاب',
     portalGamesTitle: 'مركز الألعاب',
@@ -539,9 +374,10 @@ const UI = {
     localBrowserOnly: 'محفوظ في حسابك',
     categoryEyebrow: 'اختر قسمًا',
     categoryTitle: 'ماذا تريد أن تستكشف؟',
-    categoryText: 'ابدأ بمجموعة مختارة، أو ابحث عن موضوع محدد إذا كنت تعرف ما تريد.',
-    searchCategoriesLabel: 'ابحث في صفحات الفئات',
-    tracksLabel: 'المسارات',
+    categoryText: 'اختر أحد الأقسام الخمسة، ثم افتح الموضوع مباشرة من دون طبقة إضافية.',
+    searchCategoriesLabel: 'ابحث في المواضيع والمواضيع الفرعية',
+    tracksLabel: 'الأقسام',
+    randomCategory: 'اختيار عشوائي',
     resetDirectoryFilters: 'إعادة الضبط',
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
@@ -666,7 +502,6 @@ const state = {
   categoryData: null,
   directorySearch: '',
   cluster: 'all',
-  collection: 'all',
   search: '',
   difficulty: 'all',
   view: 'all',
@@ -682,7 +517,7 @@ const state = {
 };
 
 const timedQuizState = {
-  cards: [], index: 0, score: 0, timer: null, timeLeft: 20,
+  cards: [], index: 0, score: 0, timer: null, advanceTimeout: null, session: 0, timeLeft: 20,
 };
 
 const GUEST_KEYS = {
@@ -1159,9 +994,11 @@ function applyStaticCopy() {
     const key = node.dataset.i18n;
     node.textContent = t(key);
   });
+  document.getElementById('globalSearchBtn')?.setAttribute('aria-label', state.lang === 'ar' ? 'بحث' : 'Search');
+  document.getElementById('hamburgerBtn')?.setAttribute('aria-label', state.lang === 'ar' ? 'القائمة' : 'Menu');
   if (els.categorySearchInput) {
-    els.categorySearchInput.placeholder = state.lang === 'ar' ? 'ابحث حسب الفئة أو الموضوع أو القطاع...' : 'Search by category, topic, or sector...';
-    els.categorySearchInput.setAttribute('aria-label', state.lang === 'ar' ? 'ابحث في صفحات الفئات' : 'Search category pages');
+    els.categorySearchInput.placeholder = state.lang === 'ar' ? 'ابحث في المواضيع والمواضيع الفرعية...' : 'Search topics and subtopics...';
+    els.categorySearchInput.setAttribute('aria-label', state.lang === 'ar' ? 'ابحث في المواضيع والمواضيع الفرعية' : 'Search topics and subtopics');
   }
   if (els.cardSearchInput) {
     els.cardSearchInput.placeholder = state.lang === 'ar' ? 'ابحث بكلمة أو جواب أو مفهوم...' : 'Search by keyword, answer, or concept...';
@@ -1227,6 +1064,7 @@ async function handleOfflineStatus(event) {
   const isOff = !navigator.onLine;
   document.body.classList.toggle('is-offline', isOff);
   if (isOff) {
+    stopAnalyticsHeartbeat();
     showToast(state.lang === 'ar' ? 'أنت تعمل حالياً بدون اتصال — قد لا تتوفر بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
   } else if (sessionInitialized && event?.type === 'online') {
     state.apiAvailable = await detectApiAvailability();
@@ -1236,9 +1074,10 @@ async function handleOfflineStatus(event) {
         await flushCloudQueue();
         await mergeGuestProgress();
         await checkCloudSession();
+        await loadStreak();
       }
     }
-    applyCapabilityVisibility();
+    hydrateCloudFeatureUi();
   }
 }
 
@@ -1256,7 +1095,7 @@ function cacheEls() {
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.8';
+const APP_VERSION = '2.9';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {
@@ -1460,7 +1299,6 @@ function bindCommonEvents() {
     els.resetDirectoryBtn.addEventListener('click', () => {
       state.directorySearch = '';
       state.cluster = 'all';
-      state.collection = 'all';
       if (els.categorySearchInput) els.categorySearchInput.value = '';
       renderClusterTabBar();
       renderCategoryDirectory();
@@ -1470,7 +1308,6 @@ function bindCommonEvents() {
   if (els.categorySearchInput) {
     els.categorySearchInput.addEventListener('input', debounce(() => {
       state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
-      if (state.directorySearch) state.collection = 'all';
       renderClusterTabBar();
       renderCategoryDirectory();
     }, 200));
@@ -1655,7 +1492,7 @@ function rerender() {
 
 function renderHome() {
   if (!state.catalog) return;
-  if (els.badgeCategories) els.badgeCategories.textContent = getDirectoryCollections().length || state.catalog.categories.length;
+  if (els.badgeCategories) els.badgeCategories.textContent = state.catalog.categories.length;
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
   renderDailyChallenge();
@@ -1668,78 +1505,60 @@ function getCategoryMap() {
   return new Map((state.catalog?.categories || []).map(category => [category.slug, category]));
 }
 
-function getDirectoryCollections() {
+function getDirectorySections() {
   const categoryMap = getCategoryMap();
-  return CATEGORY_COLLECTIONS.map(collection => {
-    const categories = collection.members.map(slug => categoryMap.get(slug)).filter(Boolean);
+  return (state.catalog?.sections || []).map(section => {
+    const categories = section.members.map(slug => categoryMap.get(slug)).filter(Boolean);
     return {
-      ...collection,
+      ...section,
       categories,
-      pageCount: categories.length,
+      categoryCount: categories.length,
       count: categories.reduce((total, category) => total + Number(category.count || 0), 0),
-      parentMeta: DIRECTORY_PARENT_META[collection.parent],
     };
-  }).filter(collection => collection.pageCount > 0);
+  }).filter(section => section.categoryCount > 0);
 }
 
-function getCollectionByKey(key) {
-  return getDirectoryCollections().find(collection => collection.key === key) || null;
-}
-
-function createCollectionCardMarkup(collection) {
+function createDirectorySectionMarkup(section) {
   const isAr = state.lang === 'ar';
-  const titleRaw = collection.title[state.lang] || collection.title.en;
-  const descriptionRaw = collection.description[state.lang] || collection.description.en;
-  const title = escapeHtml(titleRaw);
-  const description = escapeHtml(descriptionRaw);
-  const parentLabel = escapeHtml(collection.parentMeta?.label?.[state.lang] || collection.parentMeta?.label?.en || '');
-  const viewLabel = isAr ? 'عرض المواضيع' : 'View topics';
-  const pageLabel = isAr ? `${collection.pageCount} صفحات` : `${collection.pageCount} pages`;
-  const questionLabel = isAr ? `${collection.count} سؤال` : `${collection.count} questions`;
-  const ariaLabel = isAr ? `افتح مجموعة ${titleRaw}` : `Open ${titleRaw} collection`;
+  const title = escapeHtml(section.title[state.lang] || section.title.en);
+  const description = escapeHtml(section.description[state.lang] || section.description.en);
+  const categoryLabel = isAr ? `${section.categoryCount} موضوعًا` : `${section.categoryCount} topics`;
+  const questionLabel = isAr ? `${section.count} سؤال` : `${section.count} questions`;
   return `
-    <button class="category-card collection-card has-art" type="button" data-collection="${escapeHtml(collection.key)}" aria-label="${escapeHtml(ariaLabel)}" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
-      <span class="category-card-stripe" style="background:${collection.gradient}" aria-hidden="true"></span>
-      <div class="category-card-bg collection-card-bg" aria-hidden="true">
-        <span class="category-card-count-badge">${pageLabel}</span>
-        <span class="collection-card-orbit collection-card-orbit-a"></span>
-        <span class="collection-card-orbit collection-card-orbit-b"></span>
-        <span class="category-card-corner-mark"></span>
-      </div>
-      <div class="category-card-overlay">
-        <span class="category-card-cluster cluster-chip" style="color:${collection.accent}">${parentLabel}</span>
-        <h3 class="category-title">${title}</h3>
-        <p class="collection-card-description">${description}</p>
-      </div>
-      <div class="category-card-footer">
-        <span class="category-card-label">${questionLabel}</span>
-        <span class="category-card-enter">${viewLabel}</span>
-      </div>
-    </button>
-  `;
-}
-
-function createCollectionHeaderMarkup(collection) {
-  const isAr = state.lang === 'ar';
-  const title = escapeHtml(collection.title[state.lang] || collection.title.en);
-  const description = escapeHtml(collection.description[state.lang] || collection.description.en);
-  const backLabel = isAr ? 'العودة للمجموعات' : 'Back to collections';
-  const eyebrow = isAr ? 'مجموعة مختارة' : 'Selected collection';
-  return `
-    <div class="collection-directory-header" style="--collection-gradient:${collection.gradient};--collection-accent:${collection.accent};">
-      <span class="collection-directory-glow" aria-hidden="true"></span>
+    <section class="directory-section-header" style="--section-gradient:${section.gradient};--section-accent:${section.accent};">
+      <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
       <div>
-        <span class="collection-directory-eyebrow">${eyebrow}</span>
         <h3>${title}</h3>
         <p>${description}</p>
       </div>
-      <button class="text-btn collection-back-btn" type="button" data-collection-reset>${backLabel}</button>
-    </div>
+      <p class="directory-section-count">${categoryLabel} · ${questionLabel}</p>
+    </section>
   `;
 }
 
 function setDirectoryResultsLabel(text) {
   if (els.directoryResultsLabel) els.directoryResultsLabel.textContent = text;
+}
+
+let categoryArtObserver = null;
+
+function hydrateCategoryArt(root) {
+  categoryArtObserver?.disconnect();
+  categoryArtObserver = null;
+  const cards = [...root.querySelectorAll('.category-card.has-art:not(.is-art-ready)')];
+  if (!cards.length) return;
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(card => card.classList.add('is-art-ready'));
+    return;
+  }
+  categoryArtObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-art-ready');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '480px 0px' });
+  cards.forEach(card => categoryArtObserver.observe(card));
 }
 
 function createCategoryCardMarkup(meta) {
@@ -1748,6 +1567,13 @@ function createCategoryCardMarkup(meta) {
   const isAr = state.lang === 'ar';
   const title = escapeHtml(meta.title[state.lang]);
   const cluster = escapeHtml(meta.cluster[state.lang]);
+  const topicLabels = (meta.topics || [])
+    .slice(0, 3)
+    .map(topic => escapeHtml(topic[state.lang] || topic.en))
+    .filter(Boolean);
+  const topicMarkup = topicLabels.length
+    ? `<p class="category-card-topics">${topicLabels.join(' · ')}</p>`
+    : '';
   const prog = getCategoryProgress(meta.slug);
   const progressLine = prog.pct > 0
     ? `<div class="card-progress-bar" style="width:${prog.pct}%;background:${color}" aria-hidden="true"></div>`
@@ -1765,6 +1591,7 @@ function createCategoryCardMarkup(meta) {
       <div class="category-card-overlay">
         <span class="category-card-cluster cluster-chip" style="color:${color}">${cluster}</span>
         <h3 class="category-title">${title}</h3>
+        ${topicMarkup}
       </div>
       <div class="category-card-footer">
         <span class="category-card-label">${meta.count} ${isAr ? 'سؤال' : 'questions'}${doneLabel}</span>
@@ -1805,101 +1632,72 @@ async function markCachedCategories() {
 
 function renderCategoryDirectory() {
   if (!els.categoryDirectoryGrid || !state.catalog) return;
-  const collections = getDirectoryCollections();
-  const selectedCollection = state.collection !== 'all' ? getCollectionByKey(state.collection) : null;
+  const sections = getDirectorySections();
   const searchTerm = state.directorySearch;
   const isAr = state.lang === 'ar';
-  let markup = '';
+  const visibleSections = state.cluster === 'all'
+    ? sections
+    : sections.filter(section => section.key === state.cluster);
+  let visibleCategoryCount = 0;
 
-  if (searchTerm) {
-    const collectionBySlug = new Map();
-    collections.forEach(collection => collection.categories.forEach(category => collectionBySlug.set(category.slug, collection)));
-    const filtered = state.catalog.categories.filter((meta) => {
-      const collection = collectionBySlug.get(meta.slug);
-      if (state.cluster !== 'all' && collection?.parent !== state.cluster) return false;
-      const parentMeta = collection?.parentMeta;
+  const markup = visibleSections.map((section) => {
+    const categories = section.categories.filter((meta) => {
+      if (!searchTerm) return true;
+      const topicText = (meta.topics || [])
+        .flatMap(topic => [topic.en, topic.ar])
+        .filter(Boolean);
       const haystack = [
         meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, meta.cluster.en, meta.cluster.ar,
-        collection?.title.en, collection?.title.ar, collection?.description.en, collection?.description.ar,
-        parentMeta?.label.en, parentMeta?.label.ar
+        section.title.en, section.title.ar, section.description.en, section.description.ar,
+        ...topicText,
       ].filter(Boolean).join(' ').toLowerCase();
       return haystack.includes(searchTerm);
     });
-    markup = filtered.map(createCategoryCardMarkup).join('');
-    setDirectoryResultsLabel(isAr
-      ? `يتم عرض ${filtered.length} صفحة فئة مطابقة.`
-      : `Showing ${filtered.length} matching category pages.`);
-  } else if (selectedCollection) {
-    const categories = selectedCollection.categories;
-    markup = createCollectionHeaderMarkup(selectedCollection) + categories.map(createCategoryCardMarkup).join('');
-    setDirectoryResultsLabel(isAr
-      ? `يتم عرض ${categories.length} صفحات داخل مجموعة ${selectedCollection.title.ar}.`
-      : `Showing ${categories.length} category pages inside ${selectedCollection.title.en}.`);
-  } else {
-    const visibleCollections = state.cluster === 'all'
-      ? collections
-      : collections.filter(collection => collection.parent === state.cluster);
-    markup = visibleCollections.map(createCollectionCardMarkup).join('');
-    const totalPages = visibleCollections.reduce((sum, collection) => sum + collection.pageCount, 0);
-    setDirectoryResultsLabel(state.cluster === 'all'
-      ? (isAr
-          ? `يتم عرض ${visibleCollections.length} مجموعات مختارة تضم ${totalPages} صفحة فئة.`
-          : `Showing ${visibleCollections.length} curated collections covering ${totalPages} category pages.`)
-      : (isAr
-          ? `يتم عرض ${visibleCollections.length} مجموعات في هذا المسار.`
-          : `Showing ${visibleCollections.length} collections in this track.`));
-  }
+    if (!categories.length) return '';
+    visibleCategoryCount += categories.length;
+    return createDirectorySectionMarkup({
+      ...section,
+      categoryCount: categories.length,
+      count: categories.reduce((total, category) => total + Number(category.count || 0), 0),
+    }) + categories.map(createCategoryCardMarkup).join('');
+  }).join('');
+
+  setDirectoryResultsLabel(searchTerm
+    ? (isAr
+        ? `تم العثور على ${visibleCategoryCount} موضوع مطابق.`
+        : `${visibleCategoryCount} matching topics found.`)
+    : (isAr
+        ? `اختر مباشرة من ${visibleCategoryCount} موضوع ضمن ${visibleSections.length} أقسام واضحة.`
+        : `Choose directly from ${visibleCategoryCount} topics in ${visibleSections.length} clear sections.`));
 
   els.categoryDirectoryGrid.innerHTML = markup || `
-    <div class="empty-state collection-empty-state">
+    <div class="empty-state directory-empty-state">
       <h3>${isAr ? 'لا توجد نتائج مطابقة.' : 'No matching topics.'}</h3>
-      <p>${isAr ? 'جرّب مسارًا آخر أو أزل البحث الحالي.' : 'Try another track or clear the current search.'}</p>
+      <p>${isAr ? 'جرّب قسمًا آخر أو امسح البحث الحالي.' : 'Try another section or clear the current search.'}</p>
     </div>
   `;
-  els.categoryDirectoryGrid.querySelectorAll('[data-collection]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.collection = btn.dataset.collection;
-      state.directorySearch = '';
-      if (els.categorySearchInput) els.categorySearchInput.value = '';
-      renderClusterTabBar();
-      renderCategoryDirectory();
-    });
-  });
-  els.categoryDirectoryGrid.querySelectorAll('[data-collection-reset]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.collection = 'all';
-      renderCategoryDirectory();
-    });
-  });
+  hydrateCategoryArt(els.categoryDirectoryGrid);
 }
 
 function renderClusterTabBar() {
   const tabBar = document.getElementById('clusterTabBar');
   if (!tabBar || !state.catalog) return;
   const isAr = state.lang === 'ar';
-  const collections = getDirectoryCollections();
-  const countWord = isAr ? 'مجموعات' : 'collections';
+  const sections = getDirectorySections();
+  const countWord = isAr ? 'موضوعًا' : 'topics';
 
   const allTab = {
     key: 'all',
-    label: { en: 'All Collections', ar: 'كل المجموعات' },
-    count: collections.length,
+    title: { en: 'All topics', ar: 'كل المواضيع' },
+    categoryCount: state.catalog.categories.length,
     mark: 'ALL',
-    gradient: 'linear-gradient(135deg,#0f0c1a,#2a1f3d)',
+    gradient: 'linear-gradient(135deg,#fff8eb,#edf5ff)',
   };
 
-  const parentTabs = Object.entries(DIRECTORY_PARENT_META).map(([key, meta]) => ({
-    key,
-    label: meta.label,
-    count: collections.filter(collection => collection.parent === key).length,
-    mark: meta.mark,
-    gradient: meta.gradient,
-  })).filter(tab => tab.count > 0);
-
-  const tabs = [allTab, ...parentTabs];
+  const tabs = [allTab, ...sections];
 
   tabBar.innerHTML = tabs.map(c => {
-    const name = c.key === 'all' ? (isAr ? c.label.ar : c.label.en) : (c.label[state.lang] || c.label.en);
+    const name = c.title[state.lang] || c.title.en;
     const isActive = state.cluster === c.key;
     return `
       <button class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-label="${escapeHtml(name)}">
@@ -1908,7 +1706,7 @@ function renderClusterTabBar() {
           <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${c.mark}</span>
           <div class="ml-cluster-tab-text">
             <span class="ml-cluster-tab-name">${escapeHtml(name)}</span>
-            <span class="ml-cluster-tab-count">${c.count} ${countWord}</span>
+            <span class="ml-cluster-tab-count">${c.categoryCount} ${countWord}</span>
           </div>
         </div>
       </button>`;
@@ -1919,7 +1717,6 @@ function renderClusterTabBar() {
       const newCluster = btn.dataset.cluster;
       if (state.cluster === newCluster) return;
       state.cluster = newCluster;
-      state.collection = 'all';
       renderClusterTabBar();
       renderCategoryDirectory();
     });
@@ -2200,25 +1997,32 @@ function buildDiffBadge(category) {
 
 function renderSubcategoryFilters() {
   if (!els.subcategoryWrap || !els.subcategoryFilters || !state.categoryData) return;
-  let subcats = state.categoryData.subcategories || [];
-  if (!subcats.length) {
-    const counts = {};
-    for (const card of state.categoryData.cards || []) {
-      const sc = card.subcategory;
-      if (sc && sc.en) {
-        if (!counts[sc.en]) counts[sc.en] = { en: sc.en, ar: sc.ar || sc.en, count: 0 };
-        counts[sc.en].count++;
-      }
+  const counts = {};
+  for (const card of state.categoryData.cards || []) {
+    const sc = card.subcategory;
+    if (sc?.en) {
+      if (!counts[sc.en]) counts[sc.en] = { en: sc.en, ar: sc.ar || sc.en, count: 0 };
+      counts[sc.en].count++;
     }
-    subcats = Object.values(counts).sort((a, b) => b.count - a.count).slice(0, 12);
   }
+  const subcats = Object.values(counts).sort((a, b) => (
+    b.count - a.count
+    || a.en.localeCompare(b.en)
+  ));
   if (!subcats.length) {
     els.subcategoryWrap.classList.add('hidden');
     return;
   }
+  if (state.subcategory !== 'all' && !counts[state.subcategory]) state.subcategory = 'all';
   els.subcategoryWrap.classList.remove('hidden');
   const allLabel = state.lang === 'ar' ? 'الكل' : 'All';
-  const chips = [{ key: 'all', label: allLabel }, ...subcats.map((item) => ({ key: item.en, label: item[state.lang] || item.en || '' }))];
+  const chips = [
+    { key: 'all', label: `${allLabel} · ${state.categoryData.cards.length}` },
+    ...subcats.map((item) => ({
+      key: item.en,
+      label: `${item[state.lang] || item.en || ''} · ${item.count}`,
+    })),
+  ];
   els.subcategoryFilters.innerHTML = chips.map((chip) => `
     <button class="category-chip ${state.subcategory === chip.key ? 'is-active' : ''}" data-subcategory="${escapeHtml(chip.key)}">${escapeHtml(chip.label)}</button>
   `).join('');
@@ -2922,15 +2726,9 @@ async function loadCatalog() {
 async function loadCategoryIfNeeded() {
   if (state.page !== 'category' || !state.categorySlug) return;
   const raw = await fetchJson(`data/${state.categorySlug}.json`);
-  // Some category files are plain card arrays; normalise them using catalog metadata
+  if (!Array.isArray(raw)) throw new Error(`Invalid category data: ${state.categorySlug}`);
   const meta = (state.catalog?.categories || []).find(c => c.slug === state.categorySlug) || {};
-  if (Array.isArray(raw)) {
-    state.categoryData = { ...meta, cards: raw };
-  } else {
-    // Catalog metadata is the taxonomy source of truth; individual data files may
-    // still carry older cluster labels from previous generations.
-    state.categoryData = { ...raw, ...meta };
-  }
+  state.categoryData = { ...meta, cards: raw };
 }
 
 
@@ -2939,7 +2737,8 @@ let _analyticsInterval = null;
 
 // ── Audio narration ───────────────────────────────────────────────────────────
 
-let   _currentAudio = null;
+let _currentAudio = null;
+let _pendingVoicesHandler = null;
 
 function _getBestVoice(lang) {
   const voices = window.speechSynthesis.getVoices();
@@ -2992,7 +2791,13 @@ function speakText(text, lang) {
     if (window.speechSynthesis.getVoices().length > 0) {
       doSpeak();
     } else {
-      window.speechSynthesis.addEventListener('voiceschanged', doSpeak, { once: true });
+      const onVoicesChanged = () => {
+        if (_pendingVoicesHandler !== onVoicesChanged) return;
+        _pendingVoicesHandler = null;
+        doSpeak();
+      };
+      _pendingVoicesHandler = onVoicesChanged;
+      window.speechSynthesis.addEventListener('voiceschanged', onVoicesChanged, { once: true });
     }
     return;
   }
@@ -3009,6 +2814,10 @@ function _clearAudioBtns() {
 }
 
 function stopSpeech() {
+  if (_pendingVoicesHandler && window.speechSynthesis) {
+    window.speechSynthesis.removeEventListener('voiceschanged', _pendingVoicesHandler);
+    _pendingVoicesHandler = null;
+  }
   if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
 }
 
@@ -3037,7 +2846,8 @@ function handleAudioBtn(btn) {
 // ── Suggestion box ────────────────────────────────────────────────────────────
 
 function initSuggestionBox() {
-  if (!els.suggestionSubmit) return;
+  if (!els.suggestionSubmit || els.suggestionSubmit.dataset.suggestionBound === 'true') return;
+  els.suggestionSubmit.dataset.suggestionBound = 'true';
   els.suggestionSubmit.addEventListener('click', async () => {
     const text = els.suggestionText?.value.trim() || '';
     if (text.length < 5) { showToast(t('suggestError'), true); return; }
@@ -3075,6 +2885,12 @@ function startAnalyticsHeartbeat() {
     } catch (err) {}
   }, 30000);
 }
+
+function stopAnalyticsHeartbeat() {
+  if (!_analyticsInterval) return;
+  clearInterval(_analyticsInterval);
+  _analyticsInterval = null;
+}
 // ======================================================
 
 
@@ -3092,7 +2908,8 @@ async function loadDailyChallenge() {
     const cats = state.catalog.categories.filter(c => c.count >= 15 && c.mode !== 'story');
     const cat = cats[abs % cats.length];
     const raw = await fetchJson(`data/${cat.slug}.json`);
-    const cards = (Array.isArray(raw) ? raw : (raw.cards || [])).filter(c => c.difficulty === 'easy' || c.difficulty === 'medium');
+    if (!Array.isArray(raw)) return;
+    const cards = raw.filter(c => c.difficulty === 'easy' || c.difficulty === 'medium');
     if (!cards.length) return;
     const card = cards[(abs >> 4) % cards.length];
     state.dailyCard = { ...card, categorySlug: cat.slug, categoryTitle: cat.title, categoryEmoji: cat.emoji || '🎯' };
@@ -3153,6 +2970,18 @@ async function loadStreak() {
 }
 
 // ================= TIMED QUIZ (Quiz Master Mode) =================
+function clearTimedQuizTimers() {
+  clearInterval(timedQuizState.timer);
+  clearTimeout(timedQuizState.advanceTimeout);
+  timedQuizState.timer = null;
+  timedQuizState.advanceTimeout = null;
+}
+
+function isTimedQuizVisible() {
+  const overlay = document.getElementById('timedQuizOverlay');
+  return Boolean(overlay && !overlay.classList.contains('hidden'));
+}
+
 function createTimedQuizModal() {
   if (document.getElementById('timedQuizOverlay')) return;
   const lang = state.lang;
@@ -3196,7 +3025,11 @@ function createTimedQuizModal() {
       </div>
     </div>`;
   document.body.appendChild(el);
-  const exitQuiz = () => { clearInterval(timedQuizState.timer); document.getElementById('timedQuizOverlay')?.classList.add('hidden'); };
+  const exitQuiz = () => {
+    timedQuizState.session += 1;
+    clearTimedQuizTimers();
+    document.getElementById('timedQuizOverlay')?.classList.add('hidden');
+  };
   document.getElementById('tqCorrectBtn')?.addEventListener('click', () => answerTimedCard(true));
   document.getElementById('tqWrongBtn')?.addEventListener('click', () => answerTimedCard(false));
   document.getElementById('tqPlayAgain')?.addEventListener('click', startTimedQuiz);
@@ -3208,12 +3041,14 @@ function startTimedQuiz() {
   if (!state.categoryData?.cards?.length) return;
   const pool = shuffleArray(state.categoryData.cards.filter(c => isLevelUnlocked(c.difficulty))).slice(0, 10);
   if (!pool.length) return;
+  const overlay = document.getElementById('timedQuizOverlay');
+  if (!overlay) return;
+  clearTimedQuizTimers();
+  timedQuizState.session += 1;
   timedQuizState.cards = pool;
   timedQuizState.index = 0;
   timedQuizState.score = 0;
   trackEvent('timed_quiz_start', { category: state.categorySlug, total: pool.length });
-  const overlay = document.getElementById('timedQuizOverlay');
-  if (!overlay) return;
   overlay.classList.remove('hidden');
   document.getElementById('tqResult')?.classList.add('hidden');
   document.getElementById('tqActions')?.classList.remove('hidden');
@@ -3222,6 +3057,7 @@ function startTimedQuiz() {
 }
 
 function showTimedCard() {
+  if (!isTimedQuizVisible()) return;
   const card = timedQuizState.cards[timedQuizState.index];
   if (!card) { endTimedQuiz(); return; }
   const lang = state.lang;
@@ -3238,15 +3074,27 @@ function showTimedCard() {
   if (tqCorrect) tqCorrect.disabled = false;
   if (tqWrong) tqWrong.disabled = false;
   clearInterval(timedQuizState.timer);
+  timedQuizState.timer = null;
   timedQuizState.timeLeft = 15;
   if (tqCountdown) { tqCountdown.textContent = '15'; tqCountdown.classList.remove('urgent'); }
   if (tqFill) { tqFill.style.transition = 'none'; tqFill.style.width = '100%'; setTimeout(() => { if (tqFill) tqFill.style.transition = 'width 1s linear'; }, 50); }
-  timedQuizState.timer = setInterval(() => {
+  const session = timedQuizState.session;
+  const timer = setInterval(() => {
+    if (timedQuizState.session !== session || !isTimedQuizVisible()) {
+      clearInterval(timer);
+      if (timedQuizState.timer === timer) timedQuizState.timer = null;
+      return;
+    }
     timedQuizState.timeLeft -= 1;
     if (tqCountdown) { tqCountdown.textContent = String(timedQuizState.timeLeft); if (timedQuizState.timeLeft <= 5) tqCountdown.classList.add('urgent'); }
     if (tqFill) tqFill.style.width = `${(timedQuizState.timeLeft / 15) * 100}%`;
-    if (timedQuizState.timeLeft <= 0) { clearInterval(timedQuizState.timer); answerTimedCard(false); }
+    if (timedQuizState.timeLeft <= 0) {
+      clearInterval(timer);
+      if (timedQuizState.timer === timer) timedQuizState.timer = null;
+      answerTimedCard(false);
+    }
   }, 1000);
+  timedQuizState.timer = timer;
 }
 
 function revealAndAdvance() {
@@ -3254,14 +3102,22 @@ function revealAndAdvance() {
   const tqWrong = document.getElementById('tqWrongBtn');
   if (tqCorrect) tqCorrect.disabled = true;
   if (tqWrong) tqWrong.disabled = true;
-  setTimeout(() => {
+  clearTimeout(timedQuizState.advanceTimeout);
+  const session = timedQuizState.session;
+  const advanceTimeout = setTimeout(() => {
+    if (timedQuizState.advanceTimeout !== advanceTimeout) return;
+    timedQuizState.advanceTimeout = null;
+    if (timedQuizState.session !== session || !isTimedQuizVisible()) return;
     timedQuizState.index++;
     timedQuizState.index >= timedQuizState.cards.length ? endTimedQuiz() : showTimedCard();
   }, 600);
+  timedQuizState.advanceTimeout = advanceTimeout;
 }
 
 function answerTimedCard(correct) {
+  if (!isTimedQuizVisible()) return;
   clearInterval(timedQuizState.timer);
+  timedQuizState.timer = null;
   const card = timedQuizState.cards[timedQuizState.index];
   if (!card) return;
   if (correct) { timedQuizState.score++; markCard(card.id, 'correct'); }
@@ -3270,7 +3126,8 @@ function answerTimedCard(correct) {
 }
 
 function endTimedQuiz() {
-  clearInterval(timedQuizState.timer);
+  timedQuizState.session += 1;
+  clearTimedQuizTimers();
   const score = timedQuizState.score;
   const total = timedQuizState.cards.length;
   const pct = Math.round((score / total) * 100);
@@ -3346,7 +3203,31 @@ function createLeaderboardModal() {
 }
 
 // ================= GLOBAL SEARCH =================
-const _gsCache = {};
+let _gsIndex = null;
+let _gsIndexPromise = null;
+let _gsGeneration = 0;
+
+async function loadGlobalSearchIndex() {
+  if (_gsIndex) return _gsIndex;
+  if (!_gsIndexPromise) {
+    _gsIndexPromise = fetchJson('data/search-index.json')
+      .then((payload) => {
+        if (
+          payload?.version !== 1
+          || !Array.isArray(payload.categories)
+          || !Array.isArray(payload.cards)
+        ) {
+          throw new Error('Invalid global search index');
+        }
+        _gsIndex = payload;
+        return payload;
+      })
+      .finally(() => {
+        _gsIndexPromise = null;
+      });
+  }
+  return _gsIndexPromise;
+}
 
 function openGlobalSearch() {
   if (document.getElementById('globalSearchOverlay')) {
@@ -3384,10 +3265,12 @@ function openGlobalSearch() {
 }
 
 function closeGlobalSearch() {
+  _gsGeneration++;
   document.getElementById('globalSearchOverlay')?.classList.add('hidden');
 }
 
 async function runGlobalSearch() {
+  const generation = ++_gsGeneration;
   const q = document.getElementById('globalSearchInput')?.value.trim().toLowerCase();
   const resultsEl = document.getElementById('globalSearchResults');
   if (!resultsEl) return;
@@ -3397,31 +3280,43 @@ async function runGlobalSearch() {
   }
   resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'جارٍ البحث...' : 'Searching…'}</p>`;
 
-  const hits = [];
-  const cats = state.catalog?.categories || [];
-  for (const cat of cats) {
-    if (hits.length >= 30) break;
-    if (!_gsCache[cat.slug]) {
-      try { _gsCache[cat.slug] = await fetchJson(`data/${cat.slug}.json`); } catch { continue; }
+  let searchIndex;
+  try {
+    searchIndex = await loadGlobalSearchIndex();
+  } catch {
+    if (generation === _gsGeneration) {
+      resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'تعذر البحث الآن.' : 'Search is unavailable right now.'}</p>`;
     }
-    const raw = _gsCache[cat.slug];
-    const cards = Array.isArray(raw) ? raw : (raw.cards || []);
-    for (const card of cards) {
-      if (hits.length >= 30) break;
-      const hay = [card.question.en, card.question.ar, card.answer.en, card.answer.ar].join(' ').toLowerCase();
-      if (hay.includes(q)) hits.push({ card, cat });
+    return;
+  }
+  if (generation !== _gsGeneration) return;
+
+  const hits = [];
+  const categoriesBySlug = new Map((state.catalog?.categories || []).map(cat => [cat.slug, cat]));
+  for (const row of searchIndex.cards) {
+    if (hits.length >= 30) break;
+    const cat = categoriesBySlug.get(searchIndex.categories[row[0]]);
+    if (!cat) continue;
+    const hay = [row[1], row[2], row[3], row[4]].join(' ').toLowerCase();
+    if (hay.includes(q)) {
+      hits.push({
+        cat,
+        question: state.lang === 'ar' ? row[2] : row[1],
+        answer: state.lang === 'ar' ? row[4] : row[3],
+      });
     }
   }
 
+  if (generation !== _gsGeneration) return;
   if (!hits.length) {
     resultsEl.innerHTML = `<p class="global-search-hint">${state.lang === 'ar' ? 'لا نتائج.' : 'No results.'}</p>`;
     return;
   }
-  resultsEl.innerHTML = hits.map(({ card, cat }) => `
+  resultsEl.innerHTML = hits.map(({ cat, question, answer }) => `
     <a class="gs-result" href="${escapeHtml(cat.href)}?q=${encodeURIComponent(q)}">
       <span class="gs-result-cat">${cat.emoji} ${escapeHtml(cat.title[state.lang])}</span>
-      <span class="gs-result-q">${escapeHtml(card.question[state.lang])}</span>
-      <span class="gs-result-a">${escapeHtml(card.answer[state.lang])}</span>
+      <span class="gs-result-q">${escapeHtml(question)}</span>
+      <span class="gs-result-a">${escapeHtml(answer)}</span>
     </a>
   `).join('');
   resultsEl.querySelectorAll('.gs-result').forEach(el => {
@@ -3435,7 +3330,10 @@ async function openLeaderboard() {
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
   const body = document.getElementById('leaderboardBody');
-  if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--muted)">Loading scores…</p>';
+  if (body) {
+    body.replaceChildren();
+    body.setAttribute('aria-busy', 'true');
+  }
   try {
     const { leaderboard } = await apiFetch('/leaderboard');
     const currentUser = state.dbUser?.username;
@@ -3454,6 +3352,8 @@ async function openLeaderboard() {
       </div>`).join('');
   } catch (e) {
     if (body) body.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--danger)">Failed to load.</p>';
+  } finally {
+    body?.removeAttribute('aria-busy');
   }
 }
 
@@ -3866,12 +3766,17 @@ async function hydrateCloudCapabilities() {
     }
     sessionInitialized = true;
   }
-  applyCapabilityVisibility();
-  if (state.apiAvailable) startAnalyticsHeartbeat();
+  hydrateCloudFeatureUi();
+}
+
+function hydrateCloudFeatureUi() {
   if (state.apiAvailable) {
+    startAnalyticsHeartbeat();
     createLeaderboardModal();
     createBattleModal();
     initSuggestionBox();
+  } else {
+    stopAnalyticsHeartbeat();
   }
   renderCategoryPlayModes();
   applyStaticCopy();

@@ -1,508 +1,482 @@
-{
-  "slug": "books-and-quotes",
-  "title": {
-    "en": "Books & Quotes",
-    "ar": "الكتب والاقتباسات"
-  },
-  "description": {
-    "en": "Classic literature, famous authors, and iconic quotes from around the world.",
-    "ar": "أدب كلاسيكي ومؤلفون مشهورون واقتباسات أيقونية من حول العالم."
-  },
-  "cluster": {
-    "en": "Media & Stories",
-    "ar": "إعلام وقصص"
-  },
-  "cluster_key": "media",
-  "emoji": "📚",
-  "mode": "quiz",
-  "count": 30,
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 0
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "books-and-quotes-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Modern Literature",
-        "ar": "الأدب الحديث"
-      },
-      "question": {
-        "en": "Who wrote the Harry Potter series?",
-        "ar": "من كتب سلسلة هاري بوتر؟"
-      },
-      "answer": {
-        "en": "J.K. Rowling",
-        "ar": "ج. ك. رولينغ"
-      }
+[
+  {
+    "id": "books-and-quotes-001",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
     },
-    {
-      "id": "books-and-quotes-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Shakespeare",
-        "ar": "شكسبير"
-      },
-      "question": {
-        "en": "'To be, or not to be, that is the question' is from which Shakespeare play?",
-        "ar": "من أي مسرحية شكسبير جاءت عبارة 'أن تكون أو لا تكون، هذا هو السؤال'؟"
-      },
-      "answer": {
-        "en": "Hamlet",
-        "ar": "هاملت"
-      }
+    "question": {
+      "en": "Who wrote the Harry Potter series?",
+      "ar": "من كتب سلسلة هاري بوتر؟"
     },
-    {
-      "id": "books-and-quotes-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Classic Literature",
-        "ar": "الأدب الكلاسيكي"
-      },
-      "question": {
-        "en": "Which George Orwell novel introduced the concept of 'Big Brother'?",
-        "ar": "في أي رواية لجورج أورويل ظهر مفهوم 'الأخ الأكبر'؟"
-      },
-      "answer": {
-        "en": "1984",
-        "ar": "1984"
-      }
-    },
-    {
-      "id": "books-and-quotes-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Classic Literature",
-        "ar": "الأدب الكلاسيكي"
-      },
-      "question": {
-        "en": "Which famous fictional detective lives at 221B Baker Street?",
-        "ar": "أي محقق خيالي مشهور يسكن في 221B شارع بيكر؟"
-      },
-      "answer": {
-        "en": "Sherlock Holmes",
-        "ar": "شيرلوك هولمز"
-      }
-    },
-    {
-      "id": "books-and-quotes-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fantasy",
-        "ar": "الخيال"
-      },
-      "question": {
-        "en": "Who is the author of 'The Lord of the Rings'?",
-        "ar": "من هو مؤلف 'سيد الخواتم'؟"
-      },
-      "answer": {
-        "en": "J.R.R. Tolkien",
-        "ar": "ج. ر. ر. تولكين"
-      }
-    },
-    {
-      "id": "books-and-quotes-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Opening Lines",
-        "ar": "أسطر الافتتاح"
-      },
-      "question": {
-        "en": "'Call me Ishmael' is the opening line to which classic novel?",
-        "ar": "'ناديني إسماعيل' هو السطر الافتتاحي لأي رواية كلاسيكية؟"
-      },
-      "answer": {
-        "en": "Moby-Dick",
-        "ar": "موبي ديك"
-      }
-    },
-    {
-      "id": "books-and-quotes-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Historical Literature",
-        "ar": "الأدب التاريخي"
-      },
-      "question": {
-        "en": "Which young girl's diary became a famous account of the Holocaust?",
-        "ar": "مذكرات أي فتاة صغيرة أصبحت روايةً مشهورة عن المحرقة؟"
-      },
-      "answer": {
-        "en": "Anne Frank",
-        "ar": "آن فرانك"
-      }
-    },
-    {
-      "id": "books-and-quotes-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Classic Literature",
-        "ar": "الأدب الكلاسيكي"
-      },
-      "question": {
-        "en": "Who wrote 'Pride and Prejudice'?",
-        "ar": "من كتب 'كبرياء وتحيز'؟"
-      },
-      "answer": {
-        "en": "Jane Austen",
-        "ar": "جين أوستن"
-      }
-    },
-    {
-      "id": "books-and-quotes-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Famous Quotes",
-        "ar": "اقتباسات مشهورة"
-      },
-      "question": {
-        "en": "'I have a dream' is the famous opening of a speech by which civil rights leader?",
-        "ar": "'لديّ حلم' هو المطلع الشهير لخطاب أي زعيم حقوقي؟"
-      },
-      "answer": {
-        "en": "Martin Luther King Jr.",
-        "ar": "مارتن لوثر كينغ الابن"
-      }
-    },
-    {
-      "id": "books-and-quotes-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Shakespeare",
-        "ar": "شكسبير"
-      },
-      "question": {
-        "en": "Who is often called the 'Bard of Avon'?",
-        "ar": "من يُلقَّب بـ'شاعر أيفون'؟"
-      },
-      "answer": {
-        "en": "William Shakespeare",
-        "ar": "وليم شكسبير"
-      }
-    },
-    {
-      "id": "books-and-quotes-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Dystopian Literature",
-        "ar": "أدب الديستوبيا"
-      },
-      "question": {
-        "en": "In Ray Bradbury's 'Fahrenheit 451,' what does 451 represent?",
-        "ar": "في رواية 'فهرنهايت 451' لراي برادبري، ماذا تمثل 451؟"
-      },
-      "answer": {
-        "en": "The temperature at which book paper catches fire",
-        "ar": "درجة الحرارة التي تشتعل عندها أوراق الكتب"
-      }
-    },
-    {
-      "id": "books-and-quotes-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Pen Names",
-        "ar": "أسماء مستعارة"
-      },
-      "question": {
-        "en": "What was the real name of the author who wrote under the pen name Mark Twain?",
-        "ar": "ما الاسم الحقيقي للكاتب الذي كتب باسم مارك توين المستعار؟"
-      },
-      "answer": {
-        "en": "Samuel Clemens",
-        "ar": "صموئيل كليمنز"
-      }
-    },
-    {
-      "id": "books-and-quotes-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Opening Lines",
-        "ar": "أسطر الافتتاح"
-      },
-      "question": {
-        "en": "'It was the best of times, it was the worst of times' opens which Dickens novel?",
-        "ar": "'كانت أفضل الأوقات، كانت أسوأ الأوقات' افتتاح أي رواية لديكنز؟"
-      },
-      "answer": {
-        "en": "A Tale of Two Cities",
-        "ar": "قصة مدينتين"
-      }
-    },
-    {
-      "id": "books-and-quotes-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Ancient Literature",
-        "ar": "الأدب القديم"
-      },
-      "question": {
-        "en": "Which ancient Greek poet is traditionally credited with writing the Iliad and the Odyssey?",
-        "ar": "أي شاعر يوناني قديم يُنسب إليه تقليدياً كتابة الإلياذة والأوديسة؟"
-      },
-      "answer": {
-        "en": "Homer",
-        "ar": "هوميروس"
-      }
-    },
-    {
-      "id": "books-and-quotes-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "American Literature",
-        "ar": "الأدب الأمريكي"
-      },
-      "question": {
-        "en": "Who is the teenage protagonist of 'The Catcher in the Rye'?",
-        "ar": "من هو البطل المراهق في رواية 'الحارس في حقل الشيلم'؟"
-      },
-      "answer": {
-        "en": "Holden Caulfield",
-        "ar": "هولدن كولفيلد"
-      }
-    },
-    {
-      "id": "books-and-quotes-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Famous Quotes",
-        "ar": "اقتباسات مشهورة"
-      },
-      "question": {
-        "en": "'Hell is other people' is a line from which playwright's work?",
-        "ar": "'الجحيم هم الآخرون' جملة من أعمال أي كاتب مسرحي؟"
-      },
-      "answer": {
-        "en": "Jean-Paul Sartre",
-        "ar": "جان بول سارتر"
-      }
-    },
-    {
-      "id": "books-and-quotes-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Classic Literature",
-        "ar": "الأدب الكلاسيكي"
-      },
-      "question": {
-        "en": "In 'Lord of the Flies,' what item do the boys use to establish speaking order?",
-        "ar": "في 'سيد الذباب'، ما الشيء الذي يستخدمه الأولاد لتحديد ترتيب الكلام؟"
-      },
-      "answer": {
-        "en": "The conch shell",
-        "ar": "صدفة القوقعة"
-      }
-    },
-    {
-      "id": "books-and-quotes-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "American Literature",
-        "ar": "الأدب الأمريكي"
-      },
-      "question": {
-        "en": "What color is the light at the end of Daisy's dock in 'The Great Gatsby'?",
-        "ar": "ما لون الضوء في نهاية رصيف دايزي في 'غاتسبي العظيم'؟"
-      },
-      "answer": {
-        "en": "Green",
-        "ar": "أخضر"
-      }
-    },
-    {
-      "id": "books-and-quotes-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Russian Literature",
-        "ar": "الأدب الروسي"
-      },
-      "question": {
-        "en": "Who wrote the massive historical novel 'War and Peace'?",
-        "ar": "من كتب الرواية التاريخية الضخمة 'الحرب والسلام'؟"
-      },
-      "answer": {
-        "en": "Leo Tolstoy",
-        "ar": "ليو تولستوي"
-      }
-    },
-    {
-      "id": "books-and-quotes-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Gothic Literature",
-        "ar": "الأدب القوطي"
-      },
-      "question": {
-        "en": "Who wrote the gothic horror novel 'Frankenstein'?",
-        "ar": "من كتب رواية الرعب القوطي 'فرانكنشتاين'؟"
-      },
-      "answer": {
-        "en": "Mary Shelley",
-        "ar": "ماري شيلي"
-      }
-    },
-    {
-      "id": "books-and-quotes-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Pen Names",
-        "ar": "أسماء مستعارة"
-      },
-      "question": {
-        "en": "Richard Bachman is a pen name used by which famous American author?",
-        "ar": "ريتشارد باكمان اسم مستعار لأي كاتب أمريكي مشهور؟"
-      },
-      "answer": {
-        "en": "Stephen King",
-        "ar": "ستيفن كينغ"
-      }
-    },
-    {
-      "id": "books-and-quotes-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Literary Awards",
-        "ar": "الجوائز الأدبية"
-      },
-      "question": {
-        "en": "Who was the first American to win the Nobel Prize in Literature?",
-        "ar": "من كان أول أمريكي يفوز بجائزة نوبل في الأدب؟"
-      },
-      "answer": {
-        "en": "Sinclair Lewis",
-        "ar": "سينكلير لويس"
-      }
-    },
-    {
-      "id": "books-and-quotes-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Literary Terms",
-        "ar": "المصطلحات الأدبية"
-      },
-      "question": {
-        "en": "Who coined the term 'MacGuffin' for a plot device that drives a story but is unimportant itself?",
-        "ar": "من صاغ مصطلح 'ماكغافن' لوصف عنصر درامي يحرك القصة دون أهمية ذاتية؟"
-      },
-      "answer": {
-        "en": "Alfred Hitchcock (filmmaker, not a novelist)",
-        "ar": "ألفريد هيتشكوك (مخرج سينمائي لا روائي)"
-      }
-    },
-    {
-      "id": "books-and-quotes-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "American Literature",
-        "ar": "الأدب الأمريكي"
-      },
-      "question": {
-        "en": "'More weight' were the famous last words of which man during the Salem Witch Trials (in Miller's The Crucible)?",
-        "ar": "'مزيد من الوزن' كانت الكلمات الأخيرة لأي رجل في محاكم السحر في سالم كما في مسرحية ميلر؟"
-      },
-      "answer": {
-        "en": "Giles Corey",
-        "ar": "جايلز كوري"
-      }
-    },
-    {
-      "id": "books-and-quotes-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Literary History",
-        "ar": "التاريخ الأدبي"
-      },
-      "question": {
-        "en": "Which American author is credited with coining the term 'The Lost Generation'?",
-        "ar": "أي كاتبة أمريكية يُنسب إليها اختراع مصطلح 'الجيل الضائع'؟"
-      },
-      "answer": {
-        "en": "Gertrude Stein",
-        "ar": "غيرترود ستاين"
-      }
-    },
-    {
-      "id": "books-and-quotes-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Classic Literature",
-        "ar": "الأدب الكلاسيكي"
-      },
-      "question": {
-        "en": "In Dante's Divine Comedy, who acts as Dante's guide through Hell and Purgatory?",
-        "ar": "في الكوميديا الإلهية لدانتي، من يقود دانتي خلال الجحيم والمطهر؟"
-      },
-      "answer": {
-        "en": "Virgil",
-        "ar": "فيرجيل"
-      }
-    },
-    {
-      "id": "books-and-quotes-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Famous Quotes",
-        "ar": "اقتباسات مشهورة"
-      },
-      "question": {
-        "en": "'I am become Death, the destroyer of worlds' — from which ancient scripture?",
-        "ar": "'لقد صرت الموت، مدمّر العوالم' — من أي نص ديني قديم أُخذت هذه العبارة؟"
-      },
-      "answer": {
-        "en": "The Bhagavad Gita",
-        "ar": "البهاغافاد غيتا"
-      }
-    },
-    {
-      "id": "books-and-quotes-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "World Literature",
-        "ar": "الأدب العالمي"
-      },
-      "question": {
-        "en": "Written by Murasaki Shikibu in the 11th century, what is widely considered the world's first novel?",
-        "ar": "ما الرواية التي كتبتها موراساكي شيكيبو في القرن الحادي عشر وتُعدّ أقدم رواية في العالم؟"
-      },
-      "answer": {
-        "en": "The Tale of Genji",
-        "ar": "حكاية غينجي"
-      }
-    },
-    {
-      "id": "books-and-quotes-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Postmodern Literature",
-        "ar": "الأدب ما بعد الحداثي"
-      },
-      "question": {
-        "en": "'A screaming comes across the sky' opens which dense postmodern novel by Thomas Pynchon?",
-        "ar": "'صرخة تعبر السماء' هو مطلع أي رواية كثيفة لتوماس بينكون؟"
-      },
-      "answer": {
-        "en": "Gravity's Rainbow",
-        "ar": "قوس قزح الجاذبية"
-      }
-    },
-    {
-      "id": "books-and-quotes-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "British Literature",
-        "ar": "الأدب البريطاني"
-      },
-      "question": {
-        "en": "Which of the Brontë sisters wrote under the pen name Ellis Bell?",
-        "ar": "أي من أخوات برونتي كتبت تحت الاسم المستعار إليس بيل؟"
-      },
-      "answer": {
-        "en": "Emily Brontë",
-        "ar": "إيميلي برونتي"
-      }
+    "answer": {
+      "en": "J.K. Rowling",
+      "ar": "ج. ك. رولينغ"
     }
-  ]
-}
+  },
+  {
+    "id": "books-and-quotes-002",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'To be, or not to be, that is the question' is from which Shakespeare play?",
+      "ar": "من أي مسرحية شكسبير جاءت عبارة 'أن تكون أو لا تكون، هذا هو السؤال'؟"
+    },
+    "answer": {
+      "en": "Hamlet",
+      "ar": "هاملت"
+    }
+  },
+  {
+    "id": "books-and-quotes-003",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "Which George Orwell novel introduced the concept of 'Big Brother'?",
+      "ar": "في أي رواية لجورج أورويل ظهر مفهوم 'الأخ الأكبر'؟"
+    },
+    "answer": {
+      "en": "1984",
+      "ar": "1984"
+    }
+  },
+  {
+    "id": "books-and-quotes-004",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "Which famous fictional detective lives at 221B Baker Street?",
+      "ar": "أي محقق خيالي مشهور يسكن في 221B شارع بيكر؟"
+    },
+    "answer": {
+      "en": "Sherlock Holmes",
+      "ar": "شيرلوك هولمز"
+    }
+  },
+  {
+    "id": "books-and-quotes-005",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Who is the author of 'The Lord of the Rings'?",
+      "ar": "من هو مؤلف 'سيد الخواتم'؟"
+    },
+    "answer": {
+      "en": "J.R.R. Tolkien",
+      "ar": "ج. ر. ر. تولكين"
+    }
+  },
+  {
+    "id": "books-and-quotes-006",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'Call me Ishmael' is the opening line to which classic novel?",
+      "ar": "'ناديني إسماعيل' هو السطر الافتتاحي لأي رواية كلاسيكية؟"
+    },
+    "answer": {
+      "en": "Moby-Dick",
+      "ar": "موبي ديك"
+    }
+  },
+  {
+    "id": "books-and-quotes-007",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Literary History, Terms & Awards",
+        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+    },
+    "question": {
+      "en": "Which young girl's diary became a famous account of the Holocaust?",
+      "ar": "مذكرات أي فتاة صغيرة أصبحت روايةً مشهورة عن المحرقة؟"
+    },
+    "answer": {
+      "en": "Anne Frank",
+      "ar": "آن فرانك"
+    }
+  },
+  {
+    "id": "books-and-quotes-008",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Who wrote 'Pride and Prejudice'?",
+      "ar": "من كتب 'كبرياء وتحيز'؟"
+    },
+    "answer": {
+      "en": "Jane Austen",
+      "ar": "جين أوستن"
+    }
+  },
+  {
+    "id": "books-and-quotes-009",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'I have a dream' is the famous opening of a speech by which civil rights leader?",
+      "ar": "'لديّ حلم' هو المطلع الشهير لخطاب أي زعيم حقوقي؟"
+    },
+    "answer": {
+      "en": "Martin Luther King Jr.",
+      "ar": "مارتن لوثر كينغ الابن"
+    }
+  },
+  {
+    "id": "books-and-quotes-010",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Who is often called the 'Bard of Avon'?",
+      "ar": "من يُلقَّب بـ'شاعر أيفون'؟"
+    },
+    "answer": {
+      "en": "William Shakespeare",
+      "ar": "وليم شكسبير"
+    }
+  },
+  {
+    "id": "books-and-quotes-011",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "In Ray Bradbury's 'Fahrenheit 451,' what does 451 represent?",
+      "ar": "في رواية 'فهرنهايت 451' لراي برادبري، ماذا تمثل 451؟"
+    },
+    "answer": {
+      "en": "The temperature at which book paper catches fire",
+      "ar": "درجة الحرارة التي تشتعل عندها أوراق الكتب"
+    }
+  },
+  {
+    "id": "books-and-quotes-012",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "What was the real name of the author who wrote under the pen name Mark Twain?",
+      "ar": "ما الاسم الحقيقي للكاتب الذي كتب باسم مارك توين المستعار؟"
+    },
+    "answer": {
+      "en": "Samuel Clemens",
+      "ar": "صموئيل كليمنز"
+    }
+  },
+  {
+    "id": "books-and-quotes-013",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'It was the best of times, it was the worst of times' opens which Dickens novel?",
+      "ar": "'كانت أفضل الأوقات، كانت أسوأ الأوقات' افتتاح أي رواية لديكنز؟"
+    },
+    "answer": {
+      "en": "A Tale of Two Cities",
+      "ar": "قصة مدينتين"
+    }
+  },
+  {
+    "id": "books-and-quotes-014",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Which ancient Greek poet is traditionally credited with writing the Iliad and the Odyssey?",
+      "ar": "أي شاعر يوناني قديم يُنسب إليه تقليدياً كتابة الإلياذة والأوديسة؟"
+    },
+    "answer": {
+      "en": "Homer",
+      "ar": "هوميروس"
+    }
+  },
+  {
+    "id": "books-and-quotes-015",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "Who is the teenage protagonist of 'The Catcher in the Rye'?",
+      "ar": "من هو البطل المراهق في رواية 'الحارس في حقل الشيلم'؟"
+    },
+    "answer": {
+      "en": "Holden Caulfield",
+      "ar": "هولدن كولفيلد"
+    }
+  },
+  {
+    "id": "books-and-quotes-016",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'Hell is other people' is a line from which playwright's work?",
+      "ar": "'الجحيم هم الآخرون' جملة من أعمال أي كاتب مسرحي؟"
+    },
+    "answer": {
+      "en": "Jean-Paul Sartre",
+      "ar": "جان بول سارتر"
+    }
+  },
+  {
+    "id": "books-and-quotes-017",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "In 'Lord of the Flies,' what item do the boys use to establish speaking order?",
+      "ar": "في 'سيد الذباب'، ما الشيء الذي يستخدمه الأولاد لتحديد ترتيب الكلام؟"
+    },
+    "answer": {
+      "en": "The conch shell",
+      "ar": "صدفة القوقعة"
+    }
+  },
+  {
+    "id": "books-and-quotes-018",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "What color is the light at the end of Daisy's dock in 'The Great Gatsby'?",
+      "ar": "ما لون الضوء في نهاية رصيف دايزي في 'غاتسبي العظيم'؟"
+    },
+    "answer": {
+      "en": "Green",
+      "ar": "أخضر"
+    }
+  },
+  {
+    "id": "books-and-quotes-019",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Who wrote the massive historical novel 'War and Peace'?",
+      "ar": "من كتب الرواية التاريخية الضخمة 'الحرب والسلام'؟"
+    },
+    "answer": {
+      "en": "Leo Tolstoy",
+      "ar": "ليو تولستوي"
+    }
+  },
+  {
+    "id": "books-and-quotes-020",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Who wrote the gothic horror novel 'Frankenstein'?",
+      "ar": "من كتب رواية الرعب القوطي 'فرانكنشتاين'؟"
+    },
+    "answer": {
+      "en": "Mary Shelley",
+      "ar": "ماري شيلي"
+    }
+  },
+  {
+    "id": "books-and-quotes-021",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Richard Bachman is a pen name used by which famous American author?",
+      "ar": "ريتشارد باكمان اسم مستعار لأي كاتب أمريكي مشهور؟"
+    },
+    "answer": {
+      "en": "Stephen King",
+      "ar": "ستيفن كينغ"
+    }
+  },
+  {
+    "id": "books-and-quotes-022",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Literary History, Terms & Awards",
+        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+    },
+    "question": {
+      "en": "Who was the first American to win the Nobel Prize in Literature?",
+      "ar": "من كان أول أمريكي يفوز بجائزة نوبل في الأدب؟"
+    },
+    "answer": {
+      "en": "Sinclair Lewis",
+      "ar": "سينكلير لويس"
+    }
+  },
+  {
+    "id": "books-and-quotes-023",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Literary History, Terms & Awards",
+        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+    },
+    "question": {
+      "en": "Who coined the term 'MacGuffin' for a plot device that drives a story but is unimportant itself?",
+      "ar": "من صاغ مصطلح 'ماكغافن' لوصف عنصر درامي يحرك القصة دون أهمية ذاتية؟"
+    },
+    "answer": {
+      "en": "Alfred Hitchcock (filmmaker, not a novelist)",
+      "ar": "ألفريد هيتشكوك (مخرج سينمائي لا روائي)"
+    }
+  },
+  {
+    "id": "books-and-quotes-024",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'More weight' were the famous last words of which man during the Salem Witch Trials (in Miller's The Crucible)?",
+      "ar": "'مزيد من الوزن' كانت الكلمات الأخيرة لأي رجل في محاكم السحر في سالم كما في مسرحية ميلر؟"
+    },
+    "answer": {
+      "en": "Giles Corey",
+      "ar": "جايلز كوري"
+    }
+  },
+  {
+    "id": "books-and-quotes-025",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Literary History, Terms & Awards",
+        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+    },
+    "question": {
+      "en": "Which American author is credited with coining the term 'The Lost Generation'?",
+      "ar": "أي كاتبة أمريكية يُنسب إليها اختراع مصطلح 'الجيل الضائع'؟"
+    },
+    "answer": {
+      "en": "Gertrude Stein",
+      "ar": "غيرترود ستاين"
+    }
+  },
+  {
+    "id": "books-and-quotes-026",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Works & Characters",
+        "ar": "الأعمال والشخصيات"
+    },
+    "question": {
+      "en": "In Dante's Divine Comedy, who acts as Dante's guide through Hell and Purgatory?",
+      "ar": "في الكوميديا الإلهية لدانتي، من يقود دانتي خلال الجحيم والمطهر؟"
+    },
+    "answer": {
+      "en": "Virgil",
+      "ar": "فيرجيل"
+    }
+  },
+  {
+    "id": "books-and-quotes-027",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'I am become Death, the destroyer of worlds' — from which ancient scripture?",
+      "ar": "'لقد صرت الموت، مدمّر العوالم' — من أي نص ديني قديم أُخذت هذه العبارة؟"
+    },
+    "answer": {
+      "en": "The Bhagavad Gita",
+      "ar": "البهاغافاد غيتا"
+    }
+  },
+  {
+    "id": "books-and-quotes-028",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Literary History, Terms & Awards",
+        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+    },
+    "question": {
+      "en": "Written by Murasaki Shikibu in the 11th century, what is widely considered the world's first novel?",
+      "ar": "ما الرواية التي كتبتها موراساكي شيكيبو في القرن الحادي عشر وتُعدّ أقدم رواية في العالم؟"
+    },
+    "answer": {
+      "en": "The Tale of Genji",
+      "ar": "حكاية غينجي"
+    }
+  },
+  {
+    "id": "books-and-quotes-029",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Quotes & Opening Lines",
+        "ar": "الاقتباسات والمطالع"
+    },
+    "question": {
+      "en": "'A screaming comes across the sky' opens which dense postmodern novel by Thomas Pynchon?",
+      "ar": "'صرخة تعبر السماء' هو مطلع أي رواية كثيفة لتوماس بينكون؟"
+    },
+    "answer": {
+      "en": "Gravity's Rainbow",
+      "ar": "قوس قزح الجاذبية"
+    }
+  },
+  {
+    "id": "books-and-quotes-030",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Authors & Identities",
+        "ar": "المؤلفون وهوياتهم"
+    },
+    "question": {
+      "en": "Which of the Brontë sisters wrote under the pen name Ellis Bell?",
+      "ar": "أي من أخوات برونتي كتبت تحت الاسم المستعار إليس بيل؟"
+    },
+    "answer": {
+      "en": "Emily Brontë",
+      "ar": "إيميلي برونتي"
+    }
+  }
+]

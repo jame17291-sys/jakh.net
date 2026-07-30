@@ -21,8 +21,8 @@ test("battle questions preserve bilingual answer alignment", () => {
   }
 });
 
-test("wrapped category files are accepted", () => {
-  assert.equal(buildBattleQuestions({ cards }, "all", 5).length, 5);
+test("non-array category payloads are rejected", () => {
+  assert.deepEqual(buildBattleQuestions({ cards }, "all", 5), []);
 });
 
 test("WebSocket connection attempts are rate-limited before room lookup", async () => {

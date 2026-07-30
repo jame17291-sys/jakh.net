@@ -1,314 +1,852 @@
-{
-  "slug": "story-mysteries",
-  "title": {"en": "Story Mysteries", "ar": "ألغاز القصص"},
-  "description": {"en": "Lateral thinking story mysteries — the game master reads the scenario, players ask yes/no questions to figure out what really happened.", "ar": "ألغاز قصصية بالتفكير الجانبي — يقرأ مدير اللعبة القصة ويسأل اللاعبون أسئلة بنعم أو لا."},
-  "cluster": {"en": "Media & Stories", "ar": "إعلام وقصص"},
-  "cluster_key": "media",
-  "emoji": "🕯️",
-  "mode": "story",
-  "count": 50,
-  "difficultyCounts": {"easy": 13, "medium": 13, "hard": 12, "very-advanced": 12},
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "story-mysteries-001", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Bar & Restaurant", "ar": "بار ومطعم"},
-      "question": {"en": "A man walks into a bar and asks for a glass of water. The bartender pulls out a gun and points it at him. The man says 'thank you' and walks out. Why?", "ar": "دخل رجل إلى مطعم وطلب كوب ماء. أخرج النادل مسدسًا وصوّبه نحوه. قال الرجل شكرًا وخرج. لماذا؟"},
-      "answer": {"en": "The man had hiccups. The bartender scared him to cure them, and it worked — that's why the man thanked him.", "ar": "كان الرجل يعاني من الفواق. أراد النادل إخافته لعلاجه، فنجح الأمر — لذلك شكره الرجل."}
+[
+  {
+    "id": "story-mysteries-001",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
     },
-    {
-      "id": "story-mysteries-002", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Everyday Life", "ar": "الحياة اليومية"},
-      "question": {"en": "A cowboy rides into town on Friday, stays for three days, and leaves on Friday. How is this possible?", "ar": "وصل راعي بقر إلى المدينة يوم الجمعة، مكث ثلاثة أيام، ثم غادر يوم الجمعة. كيف يكون ذلك ممكنًا؟"},
-      "answer": {"en": "His horse is named Friday.", "ar": "اسم حصانه الجمعة."}
+    "question": {
+      "en": "A man walks into a bar and asks for a glass of water. The bartender pulls out a gun and points it at him. The man says 'thank you' and walks out. Why?",
+      "ar": "دخل رجل إلى مطعم وطلب كوب ماء. أخرج النادل مسدسًا وصوّبه نحوه. قال الرجل شكرًا وخرج. لماذا؟"
     },
-    {
-      "id": "story-mysteries-003", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Games & Puzzles", "ar": "ألعاب وألغاز"},
-      "question": {"en": "A man is found dead in a locked room containing 53 bicycles. What happened?", "ar": "وُجد رجل ميتًا في غرفة مقفلة تحتوي على 53 دراجة. ماذا حدث؟"},
-      "answer": {"en": "They are not real bicycles — they are playing cards. A standard deck has 52 cards plus one joker. The man was caught cheating at cards.", "ar": "لا تُقصد بها دراجات حقيقية، بل أوراق لعب. الورقة الزائدة هي الجوكر. اكتُشف أن الرجل كان يغش في اللعبة."}
-    },
-    {
-      "id": "story-mysteries-004", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Survival", "ar": "النجاة"},
-      "question": {"en": "A man is found dead in a field next to a small unopened package. What happened?", "ar": "وُجد رجل ميتًا في حقل إلى جانبه حقيبة صغيرة لم تُفتح. ماذا حدث؟"},
-      "answer": {"en": "The man jumped from an airplane. The unopened package was his parachute that failed to open.", "ar": "قفز الرجل من طائرة. الحقيبة غير المفتوحة هي مظلته التي لم تنفتح."}
-    },
-    {
-      "id": "story-mysteries-005", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Home Life", "ar": "الحياة المنزلية"},
-      "question": {"en": "Romeo and Juliet are found dead on the floor next to a broken glass bowl. Nobody entered the house. What happened?", "ar": "وُجد روميو وجولييت ميتَين على الأرض بجانب وعاء زجاجي مكسور. لم يدخل أحد المنزل. ماذا حدث؟"},
-      "answer": {"en": "Romeo and Juliet are fish. The cat knocked their fishbowl off the shelf and they died.", "ar": "روميو وجولييت سمكتان. دفعت القطة وعاءهما الزجاجي عن الرف فماتتا."}
-    },
-    {
-      "id": "story-mysteries-006", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Hospital", "ar": "مستشفى"},
-      "question": {"en": "A surgeon is about to operate on a patient but refuses and walks out. Why?", "ar": "كان طبيب جراح على وشك إجراء عملية لمريض لكنه رفض وخرج. لماذا؟"},
-      "answer": {"en": "The patient is the surgeon's child. The surgeon is the child's other parent who wasn't introduced — they recognized their own child on the operating table.", "ar": "المريض هو ابن الجراح. الجراح هو أحد الوالدين الذي لم يُعرَّف — تعرّف على طفله على طاولة العمليات."}
-    },
-    {
-      "id": "story-mysteries-007", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Outdoors", "ar": "في الخارج"},
-      "question": {"en": "A girl falls off a 100-meter cliff and survives without any injuries. How?", "ar": "سقطت فتاة من جرف ارتفاعه مئة متر ولم تُصب بأذى. كيف؟"},
-      "answer": {"en": "She fell off the bottom of the cliff — she was standing at the base looking up.", "ar": "سقطت من أسفل الجرف — كانت واقفة عند القاع تنظر إلى الأعلى."}
-    },
-    {
-      "id": "story-mysteries-008", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Games & Puzzles", "ar": "ألعاب وألغاز"},
-      "question": {"en": "A man pushes his car to a hotel and immediately goes bankrupt. What happened?", "ar": "دفع رجل سيارته نحو فندق وأفلس على الفور. ماذا حدث؟"},
-      "answer": {"en": "He is playing Monopoly and landed on a hotel he couldn't afford.", "ar": "كان يلعب لعبة المونوبولي ووصل إلى فندق لم يستطع دفع تكلفته."}
-    },
-    {
-      "id": "story-mysteries-009", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Farm & Barn", "ar": "مزرعة وحظيرة"},
-      "question": {"en": "A woman is found hanging in a barn. There is nothing in the barn except a small puddle of water beneath her feet. How did she do it?", "ar": "وُجدت امرأة مشنوقة في حظيرة. لا يوجد في الحظيرة إلا بركة ماء صغيرة تحت قدميها. كيف فعلت ذلك؟"},
-      "answer": {"en": "She stood on a large block of ice. It melted, leaving only the puddle.", "ar": "وقفت على قالب جليد كبير. ذاب الجليد ولم يبق إلا بركة الماء."}
-    },
-    {
-      "id": "story-mysteries-010", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Music & Arts", "ar": "موسيقى وفنون"},
-      "question": {"en": "A musician performs a full concert and not a single person in the audience hears any music. Why?", "ar": "أدّى موسيقي حفلة كاملة ولم يسمع أي شخص في الجمهور أي موسيقى. لماذا؟"},
-      "answer": {"en": "The audience is deaf. It is a concert for hearing-impaired people.", "ar": "الجمهور من الصمّ. إنها حفلة موسيقية لضعاف السمع."}
-    },
-    {
-      "id": "story-mysteries-011", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Disaster", "ar": "كارثة"},
-      "question": {"en": "A hiker finds a cabin deep in the woods. Inside are 20 people, all dead. There are no signs of violence. What happened?", "ar": "وجد متنزه كابينة في عمق الغابة. بداخلها 20 شخصًا، جميعهم أموات. لا آثار عنف. ماذا حدث؟"},
-      "answer": {"en": "The cabin is an airplane cabin. The plane crashed into the forest.", "ar": "الكابينة هي مقصورة طائرة. تحطمت الطائرة في الغابة."}
-    },
-    {
-      "id": "story-mysteries-012", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Everyday Life", "ar": "الحياة اليومية"},
-      "question": {"en": "A woman shoots her husband. Then they have a lovely dinner together. How?", "ar": "أطلقت امرأة النار على زوجها. ثم تناولا معًا عشاءً هنيئًا. كيف؟"},
-      "answer": {"en": "She is a photographer. She took his photo in the studio, then developed (shot) the image. They had dinner together afterward.", "ar": "هي مصوّرة فوتوغرافية. التقطت صورته في الاستوديو ثم ظهّرتها. بعد ذلك تناولا العشاء معًا."}
-    },
-    {
-      "id": "story-mysteries-013", "difficulty": "easy", "mode": "story",
-      "subcategory": {"en": "Travel", "ar": "سفر"},
-      "question": {"en": "A man is traveling on a plane. Halfway through the flight, he dies. The plane lands safely and nobody finds anything unusual. Why?", "ar": "كان رجل يسافر على متن طائرة. في منتصف الرحلة توفي. هبطت الطائرة بأمان ولم يلاحظ أحد شيئًا غريبًا. لماذا؟"},
-      "answer": {"en": "The man was a corpse being transported in the cargo hold. He was dead before the flight began.", "ar": "كان الرجل جثة يتم نقلها في عنبر الطائرة. كان ميتًا قبل بدء الرحلة."}
-    },
-    {
-      "id": "story-mysteries-014", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Apartment Life", "ar": "الحياة في الشقة"},
-      "question": {"en": "A man lives on the 30th floor. On rainy days he takes the elevator all the way up. On sunny days he only takes the elevator to the 15th floor and walks the rest. Why?", "ar": "يسكن رجل في الطابق الثلاثين. في الأيام الممطرة يستخدم المصعد حتى الطابق الثلاثين. في الأيام المشمسة يصعد إلى الطابق الخامس عشر فقط ثم يكمل سيرًا. لماذا؟"},
-      "answer": {"en": "The man is very short and cannot reach the button for floor 30. On rainy days he uses his umbrella to press it. On sunny days he has no umbrella.", "ar": "الرجل قصير القامة ولا يستطيع الوصول إلى زر الطابق الثلاثين. في الأيام الممطرة يستخدم مظلته للضغط عليه. في الأيام المشمسة لا يحمل مظلة."}
-    },
-    {
-      "id": "story-mysteries-015", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Photography & Art", "ar": "تصوير وفنون"},
-      "question": {"en": "A woman receives a photograph in the mail and immediately calls the police. What did she see in the photo?", "ar": "تلقّت امرأة صورة فوتوغرافية بالبريد فاتصلت بالشرطة فورًا. ماذا رأت في الصورة؟"},
-      "answer": {"en": "The photo shows her living room, but it was taken from inside a closet — meaning someone had been hiding in her home watching her.", "ar": "تُظهر الصورة غرفة معيشتها، لكنها التُقطت من داخل خزانة ملابس — أي أن شخصًا ما كان مختبئًا في منزلها يراقبها."}
-    },
-    {
-      "id": "story-mysteries-016", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Post Office", "ar": "مكتب بريد"},
-      "question": {"en": "A woman buys stamps at the post office. The clerk hands her the stamps and she begins to cry. Why?", "ar": "اشترت امرأة طوابع في مكتب البريد. ناولها الموظف الطوابع فبدأت تبكي. لماذا؟"},
-      "answer": {"en": "The stamps have a picture of her missing husband on them — she had been searching for him for years.", "ar": "الطوابع تحمل صورة زوجها المفقود — كانت تبحث عنه منذ سنوات."}
-    },
-    {
-      "id": "story-mysteries-017", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Sports", "ar": "رياضة"},
-      "question": {"en": "A baseball player hits a home run but does not move from home plate. The crowd cheers. What happened?", "ar": "ضرب لاعب بيسبول ضربة هوم ران لكنه لم يتحرك من قاعدة البيت. صفّق الجمهور. ماذا حدث؟"},
-      "answer": {"en": "He is watching the game on television and celebrating his favorite team's home run.", "ar": "كان يشاهد المباراة على التلفاز ويحتفل بضربة الهوم ران لفريقه المفضّل."}
-    },
-    {
-      "id": "story-mysteries-018", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Library", "ar": "مكتبة"},
-      "question": {"en": "A librarian stamps a book 'RETURN IMMEDIATELY' and gives it to a borrower. The borrower never returns it. Why?", "ar": "ختمت أمينة المكتبة كتابًا بـ 'أعِد فورًا' وسلّمته للمستعير. لم يُعِده قط. لماذا؟"},
-      "answer": {"en": "The book is titled 'How to Be Assertive.' The borrower is too passive to return it.", "ar": "عنوان الكتاب هو 'كيف تكون حازمًا'. المستعير شخصية سلبية جدًا لإعادته."}
-    },
-    {
-      "id": "story-mysteries-019", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Family Mystery", "ar": "لغز عائلي"},
-      "question": {"en": "Two men are born on the same day to the same mother, look identical, but are not twins. How?", "ar": "وُلد رجلان في نفس اليوم لنفس الأم، يتشابهان تمامًا، لكنهما ليسا توأمَين. كيف؟"},
-      "answer": {"en": "They are two of a set of triplets (or quadruplets, etc.).", "ar": "هما اثنان من ثلاثة توائم أو أكثر."}
-    },
-    {
-      "id": "story-mysteries-020", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Archaeology", "ar": "آثار"},
-      "question": {"en": "An archaeologist discovers a coin marked with the date 44 BC and knows immediately it is a forgery. How?", "ar": "اكتشف عالم آثار عملة نقدية تحمل تاريخ 44 قبل الميلاد وعرف فورًا أنها مزيّفة. كيف؟"},
-      "answer": {"en": "Nobody living in 44 BC would have labeled a coin 'BC' — that dating system was invented centuries later.", "ar": "لم يكن أحد في عام 44 ق.م يعلم أنه يعيش 'قبل الميلاد' — هذا النظام في التأريخ اخترع بعد قرون."}
-    },
-    {
-      "id": "story-mysteries-021", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Racing", "ar": "سباقات"},
-      "question": {"en": "Two cars compete in a race, but neither driver wants to win. Why?", "ar": "تنافست سيارتان في سباق، لكن لا يريد أي سائق الفوز. لماذا؟"},
-      "answer": {"en": "It is a race where the last car to finish wins. Each driver is trying to go as slowly as possible without stopping.", "ar": "إنه سباق تفوز فيه السيارة الأخيرة. يحاول كل سائق السير ببطء أكبر ما يمكن دون توقف."}
-    },
-    {
-      "id": "story-mysteries-022", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Cold Case", "ar": "قضية باردة"},
-      "question": {"en": "A detective arrests a woman the moment she calls to report a murder. Why?", "ar": "اعتقل المحقق امرأة فور اتصالها للإبلاغ عن جريمة قتل. لماذا؟"},
-      "answer": {"en": "She called to report a body she had not yet reached, revealing she knew where it was before it could have been found innocently.", "ar": "اتصلت للإبلاغ عن جثة لم تصل إليها بعد، مما كشف أنها تعرف مكانها مسبقًا."}
-    },
-    {
-      "id": "story-mysteries-023", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Theater & Stage", "ar": "مسرح"},
-      "question": {"en": "A student forgets every single line of his speech on stage and still wins first prize. How?", "ar": "نسي طالب كل كلمة من خطابه على المسرح وفاز بالجائزة الأولى. كيف؟"},
-      "answer": {"en": "The competition was for the best improvised speech. Forgetting his lines forced him to improvise, which impressed the judges most.", "ar": "كانت المسابقة عن أفضل خطاب ارتجالي. نسيانه لخطابه أجبره على الارتجال مما أعجب لجنة التحكيم."}
-    },
-    {
-      "id": "story-mysteries-024", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Hotel", "ar": "فندق"},
-      "question": {"en": "A man arrives at a hotel, goes to his room, and immediately calls the front desk to say there is a stranger in his room. The manager checks and finds no one. The man laughs. What happened?", "ar": "وصل رجل إلى الفندق ودخل غرفته واتصل بالاستقبال ليقول إن غريبًا في غرفته. تفقّد المدير ولم يجد أحدًا. ضحك الرجل. ماذا حدث؟"},
-      "answer": {"en": "The man saw his own reflection in the wardrobe mirror and didn't recognize himself at first — he had grown a beard during a long journey.", "ar": "رأى الرجل انعكاسه في مرآة الخزانة ولم يتعرف على نفسه في البداية — كان قد أطال لحيته خلال رحلته الطويلة."}
-    },
-    {
-      "id": "story-mysteries-025", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Mystery Death", "ar": "وفاة غامضة"},
-      "question": {"en": "A man dies every night and comes back to life every morning. He has a perfectly normal job. What does he do?", "ar": "يموت رجل كل ليلة ويعود للحياة كل صباح. له وظيفة طبيعية تمامًا. ماذا يعمل؟"},
-      "answer": {"en": "He is an actor in a nightly play where his character dies. Each morning he wakes for another performance.", "ar": "هو ممثل في مسرحية تُعرض ليلًا يموت فيها شخصيته. كل صباح يستيقظ لعرض جديد."}
-    },
-    {
-      "id": "story-mysteries-026", "difficulty": "medium", "mode": "story",
-      "subcategory": {"en": "Science Lab", "ar": "مختبر علمي"},
-      "question": {"en": "A researcher deletes the most important file on the lab computer and gets a promotion the same day. Why?", "ar": "حذف باحث أهم ملف على حاسوب المختبر وحصل على ترقية في نفس اليوم. لماذا؟"},
-      "answer": {"en": "The file contained fabricated data. By deleting it before it was published, he prevented a major scientific scandal — saving the lab's reputation.", "ar": "كان الملف يحتوي على بيانات مزوّرة. بحذفه قبل نشره، أنقذ سمعة المختبر من فضيحة علمية كبرى."}
-    },
-    {
-      "id": "story-mysteries-027", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "War & Espionage", "ar": "حرب وتجسس"},
-      "question": {"en": "A soldier wins a battle and is immediately arrested by his own side. Why?", "ar": "فاز جندي بمعركة واعتُقل فورًا من قِبَل جانبه. لماذا؟"},
-      "answer": {"en": "He was a mercenary hired specifically to lose the battle — winning violated his contract and exposed a deliberate plan to surrender territory.", "ar": "كان مرتزقًا مُستأجرًا خصيصًا لخسارة المعركة. فوزه خالف عقده وكشف عن خطة متعمدة للتنازل عن الأرض."}
-    },
-    {
-      "id": "story-mysteries-028", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Court & Law", "ar": "محاكم وقانون"},
-      "question": {"en": "A man proves he is innocent of murder by confessing to a crime. How does this work?", "ar": "برّأ رجل نفسه من تهمة القتل بالاعتراف بجريمة. كيف يكون ذلك؟"},
-      "answer": {"en": "He confesses to a different crime — one that gives him an alibi for the time of the murder. He was somewhere else committing that other offense.", "ar": "يعترف بجريمة مختلفة توفّر له حجة الغياب وقت الجريمة. كان في مكان آخر يرتكب تلك الجريمة الأخرى."}
-    },
-    {
-      "id": "story-mysteries-029", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Art & Museum", "ar": "فن ومتحف"},
-      "question": {"en": "A man destroys a priceless painting in a museum and is thanked warmly by the curator. What happened?", "ar": "دمّر رجل لوحة لا تقدّر بثمن في متحف فشكره مدير المتحف بحرارة. ماذا حدث؟"},
-      "answer": {"en": "The destroyed painting was a high-quality forgery placed over an original masterpiece. Removing it revealed the real, far more valuable work underneath.", "ar": "اللوحة المدمّرة كانت تقليدًا عالي الجودة موضوعًا فوق لوحة أصلية. إزالتها كشفت عن العمل الأصلي الأكثر قيمة تحتها."}
-    },
-    {
-      "id": "story-mysteries-030", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Heist", "ar": "سطو"},
-      "question": {"en": "A thief breaks into a bank vault but steals nothing. He is still sent to prison. When released, the bank manager thanks him. Why?", "ar": "اقتحم لص خزينة بنك لكنه لم يسرق شيئًا. سُجن مع ذلك. عند الإفراج عنه، شكره مدير البنك. لماذا؟"},
-      "answer": {"en": "He got trapped inside the vault when the time-lock engaged. Police found him innocent of theft but convicted of breaking and entering. The manager was grateful because the thief had unknowingly exposed a critical flaw in the vault's time-lock system.", "ar": "انقلب القفل الزمني عليه وحاصره. أُفرج عنه من تهمة السرقة لكن سُجن بسبب التسلل. المدير شكره لأنه كشف عن خلل خطير في نظام القفل الزمني."}
-    },
-    {
-      "id": "story-mysteries-031", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Royal & Political", "ar": "ملكي وسياسي"},
-      "question": {"en": "A king gives away his entire kingdom and becomes more powerful than before. How?", "ar": "تنازل ملك عن مملكته بأكملها وأصبح أكثر قوة من ذي قبل. كيف؟"},
-      "answer": {"en": "He distributed land to loyal nobles who each owed him military service. Without the burden of direct administration, he commanded a larger army than he ever could have maintained alone.", "ar": "وزّع الأرض على النبلاء الموالين الذين التزموا له بالخدمة العسكرية. دون عبء الإدارة المباشرة، أصبح يقود جيشًا أكبر مما كان يستطيع وحده."}
-    },
-    {
-      "id": "story-mysteries-032", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Medical", "ar": "طبي"},
-      "question": {"en": "A doctor prescribes medicine that kills the patient. He is given a national award. What happened?", "ar": "وصف طبيب دواءً قتل المريض. مُنح جائزة وطنية. ماذا حدث؟"},
-      "answer": {"en": "The patient had a fatal parasite. The only drug capable of killing the parasite was also lethal to the patient in their weakened state — but without it death was certain. The drug killed the parasite first, giving the patient a few extra days. The doctor's courageous decision became a landmark in parasite treatment.", "ar": "كان المريض يعاني من طفيلي مميت. الدواء الوحيد القادر على قتل الطفيلي كان مميتًا أيضًا للمريض في حالته الحرجة. لكن بدونه الموت محقق. أسهم الدواء في إطالة عمره أيامًا. قرار الطبيب الجريء أصبح معلمًا في علاج الطفيليات."}
-    },
-    {
-      "id": "story-mysteries-033", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Science Research", "ar": "بحث علمي"},
-      "question": {"en": "A scientist destroys all his research notes and wins the Nobel Prize for that work. How?", "ar": "دمّر عالم جميع ملاحظات بحثه وفاز بجائزة نوبل على ذلك العمل. كيف؟"},
-      "answer": {"en": "He published his findings before burning the notes. He burned them to prevent dangerous knowledge from being replicated by others. The Nobel committee awarded him for the published discovery, not the notes.", "ar": "نشر نتائجه قبل حرق الملاحظات. أحرقها لمنع المعرفة الخطرة من الانتشار. منحته لجنة نوبل الجائزة على الاكتشاف المنشور وليس الملاحظات."}
-    },
-    {
-      "id": "story-mysteries-034", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Music", "ar": "موسيقى"},
-      "question": {"en": "A pianist performs a concert where he never touches the keys. The audience gives a standing ovation. What is happening?", "ar": "أقام عازف بيانو حفلة لم يلمس فيها المفاتيح مطلقًا. منحه الجمهور تصفيقًا حارًا واقفًا. ما الذي يجري؟"},
-      "answer": {"en": "The piece being performed is John Cage's '4'33\" — a composition of silence lasting 4 minutes and 33 seconds. The pianist sat without playing as written.", "ar": "المقطوعة المُعزوفة هي '4'33\"' لجون كيج — مؤلفة من الصمت لمدة أربع دقائق وثلاث وثلاثين ثانية. جلس العازف دون عزف كما هو مكتوب."}
-    },
-    {
-      "id": "story-mysteries-035", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Language", "ar": "لغة"},
-      "question": {"en": "A woman answers every question on an exam correctly but still fails. The examiner says it was not her fault. What happened?", "ar": "أجابت امرأة على كل سؤال في الامتحان بشكل صحيح لكنها رسبت. قال الممتحن إنه ليس خطأها. ماذا حدث؟"},
-      "answer": {"en": "She answered in the wrong language. She was a foreign student who misunderstood which language was required, and the examiners could not mark answers they couldn't read.", "ar": "أجابت بلغة خاطئة. كانت طالبة أجنبية أساءت فهم اللغة المطلوبة، ولم يستطع الممتحنون تصحيح إجابات لم يستطيعوا قراءتها."}
-    },
-    {
-      "id": "story-mysteries-036", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Cold Case", "ar": "قضية باردة"},
-      "question": {"en": "A man is found innocent of a crime he definitely committed. The judge agrees with the verdict. What happened?", "ar": "بُرّئ رجل من جريمة ارتكبها بالتأكيد. وافق القاضي على الحكم. ماذا حدث؟"},
-      "answer": {"en": "The evidence was obtained illegally — through an unlawful search. The judge ruled it inadmissible, and without evidence the verdict had to be not guilty.", "ar": "الدليل حُصل عليه بطريقة غير قانونية — عبر تفتيش مخالف للقانون. رفض القاضي قبوله، وبدون دليل كان الحكم بالبراءة حتميًا."}
-    },
-    {
-      "id": "story-mysteries-037", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Finance", "ar": "مالية"},
-      "question": {"en": "A woman burns her entire life savings and becomes richer. What happened?", "ar": "أحرقت امرأة كل مدخراتها وأصبحت أكثر ثراءً. ماذا حدث؟"},
-      "answer": {"en": "Her savings were counterfeit bills. By burning them before using them, she avoided prosecution for forgery and collected the government's reward for reporting counterfeit currency.", "ar": "مدخراتها كانت أوراقًا نقدية مزوّرة. بإحراقها قبل استخدامها، تفادت الملاحقة القضائية وجمعت مكافأة الحكومة على الإبلاغ عن العملة المزيّفة."}
-    },
-    {
-      "id": "story-mysteries-038", "difficulty": "hard", "mode": "story",
-      "subcategory": {"en": "Lateral Thinking", "ar": "تفكير جانبي"},
-      "question": {"en": "A team paints a door shut from the outside and declares the building safer. The fire inspector agrees. Why?", "ar": "طلى فريق بابًا من الخارج وأعلن أن المبنى أصبح أكثر أمانًا. وافق مفتش الحريق. لماذا؟"},
-      "answer": {"en": "The door was a hidden emergency exit that opened directly into a narrow shaft — anyone escaping through it would have fallen to their death. Sealing it eliminated a fatal hazard.", "ar": "الباب كان مخرج طوارئ مخفيًا يفتح على فجوة ضيقة — أي شخص يهرب منه كان سيسقط إلى حتفه. إغلاقه أزال خطرًا قاتلًا."}
-    },
-    {
-      "id": "story-mysteries-039", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Paradox", "ar": "مفارقة"},
-      "question": {"en": "A mother gives her daughter advice in a lifeboat. They both die. What was the advice?", "ar": "أعطت أم ابنتها نصيحة في قارب نجاة. ماتت كلتاهما. ما النصيحة؟"},
-      "answer": {"en": "The lifeboat had one empty seat. The mother told her daughter to take it. The daughter refused to leave without her mother. In the argument, the lifeboat tipped and both drowned.", "ar": "كان في القارب مقعد واحد فارغ. قالت الأم لابنتها أن تأخذه. رفضت الابنة المغادرة بدون أمها. خلال الجدال، انقلب القارب وغرقتا معًا."}
-    },
-    {
-      "id": "story-mysteries-040", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Espionage", "ar": "تجسس"},
-      "question": {"en": "A spy gives away every secret he knows and is considered the most loyal agent in history. How?", "ar": "أفشى جاسوس كل أسرار يعلمها واعتُبر أكثر العملاء ولاءً في التاريخ. كيف؟"},
-      "answer": {"en": "Every secret he gave to the enemy was deliberately false — he was a double agent feeding disinformation. The bigger and more believable the lie, the more loyal he appeared to his real handlers.", "ar": "كل سر سرّبه للعدو كان كاذبًا عمدًا — كان عميلًا مزدوجًا يغذّي المعلومات المضللة. كلما كانت الكذبة أكبر وأكثر تصديقًا، بدا أكثر ولاءً لمشغّليه الحقيقيين."}
-    },
-    {
-      "id": "story-mysteries-041", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Philosophy", "ar": "فلسفة"},
-      "question": {"en": "A man is declared legally dead while still alive and is perfectly fine with it. Why?", "ar": "أُعلن رجل ميتًا قانونيًا وهو لا يزال حيًّا وكان بخير مع ذلك. لماذا؟"},
-      "answer": {"en": "He was massively in debt. Being declared legally dead erased all his financial obligations. He then started life over under a new identity with a clean slate.", "ar": "كان مثقلًا بالديون. إعلان وفاته القانونية محا جميع التزاماته المالية. ثم بدأ حياة جديدة بهوية مختلفة من الصفر."}
-    },
-    {
-      "id": "story-mysteries-042", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "War", "ar": "حرب"},
-      "question": {"en": "A country loses a war and within twenty years becomes the world's wealthiest nation. What happened?", "ar": "خسرت دولة حربًا وفي غضون عشرين عامًا أصبحت أغنى دولة في العالم. ماذا حدث؟"},
-      "answer": {"en": "The victorious nations funded massive reconstruction of the defeated country to prevent its radicalization — as happened with Germany and Japan after World War II. The investment transformed their economies.", "ar": "موّلت الدول المنتصرة إعادة إعمار الدولة المهزومة على نطاق واسع لمنع تطرفها — كما حدث مع ألمانيا واليابان بعد الحرب العالمية الثانية. حوّل هذا الاستثمار اقتصادهما."}
-    },
-    {
-      "id": "story-mysteries-043", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Medicine", "ar": "طب"},
-      "question": {"en": "A hospital saves more lives after it starts refusing to treat certain patients. What is going on?", "ar": "بدأ مستشفى ينقذ أرواحًا أكثر بعد أن بدأ يرفض علاج بعض المرضى. ما الذي يجري؟"},
-      "answer": {"en": "It stopped accepting patients it could not effectively treat and redirected them to specialist centers. By focusing only on cases within its expertise, its outcomes improved dramatically — matching patients to the right facility saves more lives overall.", "ar": "توقف عن قبول مرضى لا يستطيع علاجهم بفعالية وحوّلهم إلى مراكز متخصصة. بالتركيز فقط على الحالات ضمن تخصصه، تحسنت نتائجه بشكل كبير — توجيه المرضى إلى المنشأة الصحيحة ينقذ أرواحًا أكثر."}
-    },
-    {
-      "id": "story-mysteries-044", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Paradox", "ar": "مفارقة"},
-      "question": {"en": "A city celebrates when its only bridge is permanently closed. Why?", "ar": "احتفلت مدينة عندما أُغلق جسرها الوحيد نهائيًا. لماذا؟"},
-      "answer": {"en": "The bridge connected the city to a region that was a source of poverty and crime. Closing it allowed the city to develop its own internal economy. Alternatively: the bridge closure proved a new underground tunnel was finally complete.", "ar": "ربط الجسر المدينة بمنطقة كانت مصدر فقر وجريمة. إغلاقه أتاح للمدينة تطوير اقتصادها الداخلي. أو: إغلاق الجسر أثبت اكتمال نفق جديد تحت الأرض أخيرًا."}
-    },
-    {
-      "id": "story-mysteries-045", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Finance", "ar": "مالية"},
-      "question": {"en": "A banker is delighted when the vault opens at the wrong time. Why?", "ar": "أُسعد مصرفي عندما فُتحت الخزينة في وقت خاطئ. لماذا؟"},
-      "answer": {"en": "The early opening exposed a timing defect in the vault mechanism. By discovering it in a routine check before anyone was harmed, the bank could fix a flaw that criminals might have exploited.", "ar": "الفتح المبكر كشف عن خلل في توقيت آلية الخزينة. باكتشافه في فحص روتيني قبل أن يتضرر أحد، تمكّن البنك من إصلاح ثغرة كان المجرمون يستطيعون استغلالها."}
-    },
-    {
-      "id": "story-mysteries-046", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Logic", "ar": "منطق"},
-      "question": {"en": "A man is hired as a night watchman. On his first night, he tells his boss he dreamed the building would be robbed. The boss fires him. Why?", "ar": "استُؤجر رجل حارسًا ليليًا. في ليلته الأولى، أخبر مديره أنه حلم بأن المبنى سيُسرق. فصله المدير. لماذا؟"},
-      "answer": {"en": "A night watchman should not be sleeping on the job. The fact that he had a dream proves he was asleep during his shift.", "ar": "يجب ألا ينام الحارس الليلي أثناء عمله. حقيقة أنه كان يحلم تثبت أنه كان نائمًا أثناء وردته."}
-    },
-    {
-      "id": "story-mysteries-047", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Language & Identity", "ar": "لغة وهوية"},
-      "question": {"en": "A man who cannot speak a single word gives a famous speech that changes history. How?", "ar": "ألقى رجل لا يستطيع النطق بكلمة واحدة خطابًا شهيرًا غيّر مجرى التاريخ. كيف؟"},
-      "answer": {"en": "He wrote the speech which was read aloud by another person. Many great historical speeches were authored by people who never delivered them verbally — ghost writers and orators working together.", "ar": "كتب الخطاب وقرأه شخص آخر بصوت عالٍ. كثير من الخطابات التاريخية العظيمة كتبها أشخاص لم يلقوها شفهيًا — كتّاب خطابات ومتحدثون يعملون معًا."}
-    },
-    {
-      "id": "story-mysteries-048", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Lateral Thinking", "ar": "تفكير جانبي"},
-      "question": {"en": "A man walks into a room full of experts, says one sentence, and every expert immediately resigns. What did he say?", "ar": "دخل رجل إلى غرفة مليئة بخبراء وقال جملة واحدة فاستقال كل خبير فورًا. ماذا قال؟"},
-      "answer": {"en": "'The company is bankrupt and you will not be paid.' When the experts learned there was no payment, they had no incentive to continue — their expertise was contingent on compensation.", "ar": "'الشركة مفلسة ولن تُدفع رواتبكم'. عندما علم الخبراء بانعدام الأجر، لم يكن لديهم دافع للاستمرار — خبرتهم كانت مشروطة بالتعويض."}
-    },
-    {
-      "id": "story-mysteries-049", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Deep Inference", "ar": "استنتاج عميق"},
-      "question": {"en": "A city tears down its most beloved historic monument and within a year its tourism doubles. What happened?", "ar": "هدمت مدينة أعز آثارها التاريخية وفي غضون عام تضاعف سياحتها. ماذا حدث؟"},
-      "answer": {"en": "While excavating the monument's foundation, archaeologists discovered a far older and more significant site beneath it. The original monument was overshadowing a vastly more important treasure.", "ar": "أثناء حفر أساس الأثر، اكتشف علماء الآثار موقعًا أقدم بكثير وأكثر أهمية تحته. كان الأثر الأصلي يحجب كنزًا أكثر أهمية بكثير."}
-    },
-    {
-      "id": "story-mysteries-050", "difficulty": "very-advanced", "mode": "story",
-      "subcategory": {"en": "Deep Inference", "ar": "استنتاج عميق"},
-      "question": {"en": "A librarian burns a book and is praised by every author whose work is inside it. Why?", "ar": "أحرق أمين مكتبة كتابًا فأثنى عليه كل مؤلف له عمل بداخله. لماذا؟"},
-      "answer": {"en": "The book was an unauthorized pirated anthology that reproduced copyrighted work without permission or payment. Burning it destroyed evidence of infringement and demonstrated solidarity with the authors whose rights had been violated.", "ar": "الكتاب كان مختارات مقرصنة غير مرخصة نسخت أعمالًا محمية بحقوق النشر دون إذن أو دفع. إحراقه دمّر دليلًا على الانتهاك وأظهر تضامنًا مع المؤلفين الذين انتُهكت حقوقهم."}
+    "answer": {
+      "en": "The man had hiccups. The bartender scared him to cure them, and it worked — that's why the man thanked him.",
+      "ar": "كان الرجل يعاني من الفواق. أراد النادل إخافته لعلاجه، فنجح الأمر — لذلك شكره الرجل."
     }
-  ]
-}
+  },
+  {
+    "id": "story-mysteries-002",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Logic & Paradoxes",
+      "ar": "المنطق والمفارقات"
+    },
+    "question": {
+      "en": "During dinner, one cupcake disappears. Only Lina, Omar, or Sami could have taken it. Lina says, “Omar took it.” Omar says, “I did not take it.” Sami says, “Lina did not take it.” Exactly one statement is true. Who took the cupcake?",
+      "ar": "أثناء العشاء اختفت قطعة حلوى. لا يمكن أن يكون قد أخذها إلا لينا أو عمر أو سامي. قالت لينا: «عمر أخذها». وقال عمر: «أنا لم آخذها». وقال سامي: «لينا لم تأخذها». عبارة واحدة فقط صادقة. من أخذ قطعة الحلوى؟"
+    },
+    "answer": {
+      "en": "Lina. If Lina took it, Lina's statement is false, Omar's is true, and Sami's is false—exactly one true statement. Either other culprit would make two statements true.",
+      "ar": "لينا. إذا كانت لينا قد أخذتها، فقول لينا كاذب وقول عمر صادق وقول سامي كاذب، أي توجد عبارة صادقة واحدة فقط. أما اختيار أي شخص آخر فيجعل عبارتين صادقتين."
+    }
+  },
+  {
+    "id": "story-mysteries-003",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Games & Competition",
+      "ar": "الألعاب والمنافسة"
+    },
+    "question": {
+      "en": "A man is found dead in a locked room containing 53 bicycles. What happened?",
+      "ar": "وُجد رجل ميتًا في غرفة مقفلة تحتوي على 53 دراجة. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "They are not real bicycles — they are playing cards. A standard deck has 52 cards plus one joker. The man was caught cheating at cards.",
+      "ar": "لا تُقصد بها دراجات حقيقية، بل أوراق لعب. الورقة الزائدة هي الجوكر. اكتُشف أن الرجل كان يغش في اللعبة."
+    }
+  },
+  {
+    "id": "story-mysteries-004",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A man is found dead in a field next to a small unopened package. What happened?",
+      "ar": "وُجد رجل ميتًا في حقل إلى جانبه حقيبة صغيرة لم تُفتح. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The man jumped from an airplane. The unopened package was his parachute that failed to open.",
+      "ar": "قفز الرجل من طائرة. الحقيبة غير المفتوحة هي مظلته التي لم تنفتح."
+    }
+  },
+  {
+    "id": "story-mysteries-005",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "Romeo and Juliet are found dead on the floor next to a broken glass bowl. Nobody entered the house. What happened?",
+      "ar": "وُجد روميو وجولييت ميتَين على الأرض بجانب وعاء زجاجي مكسور. لم يدخل أحد المنزل. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "Romeo and Juliet are fish. The cat knocked their fishbowl off the shelf and they died.",
+      "ar": "روميو وجولييت سمكتان. دفعت القطة وعاءهما الزجاجي عن الرف فماتتا."
+    }
+  },
+  {
+    "id": "story-mysteries-006",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "A surgeon is about to operate on a patient but refuses and walks out. Why?",
+      "ar": "كان طبيب جراح على وشك إجراء عملية لمريض لكنه رفض وخرج. لماذا؟"
+    },
+    "answer": {
+      "en": "The patient is the surgeon's child. The surgeon is the child's other parent who wasn't introduced — they recognized their own child on the operating table.",
+      "ar": "المريض هو ابن الجراح. الجراح هو أحد الوالدين الذي لم يُعرَّف — تعرّف على طفله على طاولة العمليات."
+    }
+  },
+  {
+    "id": "story-mysteries-007",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A girl falls off a 100-meter cliff and survives without any injuries. How?",
+      "ar": "سقطت فتاة من جرف ارتفاعه مئة متر ولم تُصب بأذى. كيف؟"
+    },
+    "answer": {
+      "en": "She fell off the bottom of the cliff — she was standing at the base looking up.",
+      "ar": "سقطت من أسفل الجرف — كانت واقفة عند القاع تنظر إلى الأعلى."
+    }
+  },
+  {
+    "id": "story-mysteries-008",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Games & Competition",
+      "ar": "الألعاب والمنافسة"
+    },
+    "question": {
+      "en": "A man pushes his car to a hotel and immediately goes bankrupt. What happened?",
+      "ar": "دفع رجل سيارته نحو فندق وأفلس على الفور. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "He is playing Monopoly and landed on a hotel he couldn't afford.",
+      "ar": "كان يلعب لعبة المونوبولي ووصل إلى فندق لم يستطع دفع تكلفته."
+    }
+  },
+  {
+    "id": "story-mysteries-009",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A woman is found hanging in a barn. There is nothing in the barn except a small puddle of water beneath her feet. How did she do it?",
+      "ar": "وُجدت امرأة مشنوقة في حظيرة. لا يوجد في الحظيرة إلا بركة ماء صغيرة تحت قدميها. كيف فعلت ذلك؟"
+    },
+    "answer": {
+      "en": "She stood on a large block of ice. It melted, leaving only the puddle.",
+      "ar": "وقفت على قالب جليد كبير. ذاب الجليد ولم يبق إلا بركة الماء."
+    }
+  },
+  {
+    "id": "story-mysteries-010",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A musician performs a full concert and not a single person in the audience hears any music. Why?",
+      "ar": "أدّى موسيقي حفلة كاملة ولم يسمع أي شخص في الجمهور أي موسيقى. لماذا؟"
+    },
+    "answer": {
+      "en": "The audience is deaf. It is a concert for hearing-impaired people.",
+      "ar": "الجمهور من الصمّ. إنها حفلة موسيقية لضعاف السمع."
+    }
+  },
+  {
+    "id": "story-mysteries-011",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A hiker finds a cabin deep in the woods. Inside are 20 people, all dead. There are no signs of violence. What happened?",
+      "ar": "وجد متنزه كابينة في عمق الغابة. بداخلها 20 شخصًا، جميعهم أموات. لا آثار عنف. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The cabin is an airplane cabin. The plane crashed into the forest.",
+      "ar": "الكابينة هي مقصورة طائرة. تحطمت الطائرة في الغابة."
+    }
+  },
+  {
+    "id": "story-mysteries-012",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A woman shoots her husband. Then they have a lovely dinner together. How?",
+      "ar": "أطلقت امرأة النار على زوجها. ثم تناولا معًا عشاءً هنيئًا. كيف؟"
+    },
+    "answer": {
+      "en": "She is a photographer. She took his photo in the studio, then developed (shot) the image. They had dinner together afterward.",
+      "ar": "هي مصوّرة فوتوغرافية. التقطت صورته في الاستوديو ثم ظهّرتها. بعد ذلك تناولا العشاء معًا."
+    }
+  },
+  {
+    "id": "story-mysteries-013",
+    "difficulty": "easy",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A man is traveling on a plane. Halfway through the flight, he dies. The plane lands safely and nobody finds anything unusual. Why?",
+      "ar": "كان رجل يسافر على متن طائرة. في منتصف الرحلة توفي. هبطت الطائرة بأمان ولم يلاحظ أحد شيئًا غريبًا. لماذا؟"
+    },
+    "answer": {
+      "en": "The man was a corpse being transported in the cargo hold. He was dead before the flight began.",
+      "ar": "كان الرجل جثة يتم نقلها في عنبر الطائرة. كان ميتًا قبل بدء الرحلة."
+    }
+  },
+  {
+    "id": "story-mysteries-014",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "A man lives on the 30th floor. On rainy days he takes the elevator all the way up. On sunny days he only takes the elevator to the 15th floor and walks the rest. Why?",
+      "ar": "يسكن رجل في الطابق الثلاثين. في الأيام الممطرة يستخدم المصعد حتى الطابق الثلاثين. في الأيام المشمسة يصعد إلى الطابق الخامس عشر فقط ثم يكمل سيرًا. لماذا؟"
+    },
+    "answer": {
+      "en": "The man is very short and cannot reach the button for floor 30. On rainy days he uses his umbrella to press it. On sunny days he has no umbrella.",
+      "ar": "الرجل قصير القامة ولا يستطيع الوصول إلى زر الطابق الثلاثين. في الأيام الممطرة يستخدم مظلته للضغط عليه. في الأيام المشمسة لا يحمل مظلة."
+    }
+  },
+  {
+    "id": "story-mysteries-015",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A woman receives a photograph in the mail and immediately calls the police. What did she see in the photo?",
+      "ar": "تلقّت امرأة صورة فوتوغرافية بالبريد فاتصلت بالشرطة فورًا. ماذا رأت في الصورة؟"
+    },
+    "answer": {
+      "en": "The photo shows her living room, but it was taken from inside a closet — meaning someone had been hiding in her home watching her.",
+      "ar": "تُظهر الصورة غرفة معيشتها، لكنها التُقطت من داخل خزانة ملابس — أي أن شخصًا ما كان مختبئًا في منزلها يراقبها."
+    }
+  },
+  {
+    "id": "story-mysteries-016",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "A woman buys stamps at the post office. The clerk hands her the stamps and she begins to cry. Why?",
+      "ar": "اشترت امرأة طوابع في مكتب البريد. ناولها الموظف الطوابع فبدأت تبكي. لماذا؟"
+    },
+    "answer": {
+      "en": "The stamps have a picture of her missing husband on them — she had been searching for him for years.",
+      "ar": "الطوابع تحمل صورة زوجها المفقود — كانت تبحث عنه منذ سنوات."
+    }
+  },
+  {
+    "id": "story-mysteries-017",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Games & Competition",
+      "ar": "الألعاب والمنافسة"
+    },
+    "question": {
+      "en": "A baseball player hits a home run but does not move from home plate. The crowd cheers. What happened?",
+      "ar": "ضرب لاعب بيسبول ضربة هوم ران لكنه لم يتحرك من قاعدة البيت. صفّق الجمهور. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "He is watching the game on television and celebrating his favorite team's home run.",
+      "ar": "كان يشاهد المباراة على التلفاز ويحتفل بضربة الهوم ران لفريقه المفضّل."
+    }
+  },
+  {
+    "id": "story-mysteries-018",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "A librarian stamps a book 'RETURN IMMEDIATELY' and gives it to a borrower. The borrower never returns it. Why?",
+      "ar": "ختمت أمينة المكتبة كتابًا بـ 'أعِد فورًا' وسلّمته للمستعير. لم يُعِده قط. لماذا؟"
+    },
+    "answer": {
+      "en": "The book is titled 'How to Be Assertive.' The borrower is too passive to return it.",
+      "ar": "عنوان الكتاب هو 'كيف تكون حازمًا'. المستعير شخصية سلبية جدًا لإعادته."
+    }
+  },
+  {
+    "id": "story-mysteries-019",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "Two men are born on the same day to the same mother, look identical, but are not twins. How?",
+      "ar": "وُلد رجلان في نفس اليوم لنفس الأم، يتشابهان تمامًا، لكنهما ليسا توأمَين. كيف؟"
+    },
+    "answer": {
+      "en": "They are two of a set of triplets (or quadruplets, etc.).",
+      "ar": "هما اثنان من ثلاثة توائم أو أكثر."
+    }
+  },
+  {
+    "id": "story-mysteries-020",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A sculpture vanished from a gallery during a 20-minute total power outage. Emergency logs show that the elevator automatically returned to the ground floor and remained there with its doors open for the entire outage. Noor says she used the stairs, Hadi says he waited in the elevator while it was stalled between floors, and Mariam says she used her phone flashlight in the lobby. Which account is impossible?",
+      "ar": "اختفى تمثال من معرض أثناء انقطاع كامل للكهرباء دام 20 دقيقة. تُظهر سجلات الطوارئ أن المصعد عاد آلياً إلى الطابق الأرضي وظل هناك وأبوابه مفتوحة طوال الانقطاع. قالت نور إنها استخدمت الدرج، وقال هادي إنه انتظر داخل المصعد بعدما توقف بين الطوابق، وقالت مريم إنها استخدمت ضوء هاتفها في الردهة. أي رواية مستحيلة؟"
+    },
+    "answer": {
+      "en": "Hadi's account. The independently recorded elevator log proves it was at the ground floor with its doors open throughout the outage, so it could not have been stalled between floors.",
+      "ar": "رواية هادي. يثبت سجل المصعد المستقل أنه ظل في الطابق الأرضي وأبوابه مفتوحة طوال الانقطاع، لذلك يستحيل أن يكون قد توقف بين الطوابق."
+    }
+  },
+  {
+    "id": "story-mysteries-021",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Games & Competition",
+      "ar": "الألعاب والمنافسة"
+    },
+    "question": {
+      "en": "Two cars compete in a race, but neither driver wants to win. Why?",
+      "ar": "تنافست سيارتان في سباق، لكن لا يريد أي سائق الفوز. لماذا؟"
+    },
+    "answer": {
+      "en": "It is a race where the last car to finish wins. Each driver is trying to go as slowly as possible without stopping.",
+      "ar": "إنه سباق تفوز فيه السيارة الأخيرة. يحاول كل سائق السير ببطء أكبر ما يمكن دون توقف."
+    }
+  },
+  {
+    "id": "story-mysteries-022",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A detective arrests a woman the moment she calls to report a murder. Why?",
+      "ar": "اعتقل المحقق امرأة فور اتصالها للإبلاغ عن جريمة قتل. لماذا؟"
+    },
+    "answer": {
+      "en": "She called to report a body she had not yet reached, revealing she knew where it was before it could have been found innocently.",
+      "ar": "اتصلت للإبلاغ عن جثة لم تصل إليها بعد، مما كشف أنها تعرف مكانها مسبقًا."
+    }
+  },
+  {
+    "id": "story-mysteries-023",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A student forgets every single line of his speech on stage and still wins first prize. How?",
+      "ar": "نسي طالب كل كلمة من خطابه على المسرح وفاز بالجائزة الأولى. كيف؟"
+    },
+    "answer": {
+      "en": "The competition was for the best improvised speech. Forgetting his lines forced him to improvise, which impressed the judges most.",
+      "ar": "كانت المسابقة عن أفضل خطاب ارتجالي. نسيانه لخطابه أجبره على الارتجال مما أعجب لجنة التحكيم."
+    }
+  },
+  {
+    "id": "story-mysteries-024",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Everyday & Family",
+      "ar": "الحياة اليومية والعائلة"
+    },
+    "question": {
+      "en": "A man arrives at a hotel, goes to his room, and immediately calls the front desk to say there is a stranger in his room. The manager checks and finds no one. The man laughs. What happened?",
+      "ar": "وصل رجل إلى الفندق ودخل غرفته واتصل بالاستقبال ليقول إن غريبًا في غرفته. تفقّد المدير ولم يجد أحدًا. ضحك الرجل. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The man saw his own reflection in the wardrobe mirror and didn't recognize himself at first — he had grown a beard during a long journey.",
+      "ar": "رأى الرجل انعكاسه في مرآة الخزانة ولم يتعرف على نفسه في البداية — كان قد أطال لحيته خلال رحلته الطويلة."
+    }
+  },
+  {
+    "id": "story-mysteries-025",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A man dies every night and comes back to life every morning. He has a perfectly normal job. What does he do?",
+      "ar": "يموت رجل كل ليلة ويعود للحياة كل صباح. له وظيفة طبيعية تمامًا. ماذا يعمل؟"
+    },
+    "answer": {
+      "en": "He is an actor in a nightly play where his character dies. Each morning he wakes for another performance.",
+      "ar": "هو ممثل في مسرحية تُعرض ليلًا يموت فيها شخصيته. كل صباح يستيقظ لعرض جديد."
+    }
+  },
+  {
+    "id": "story-mysteries-026",
+    "difficulty": "medium",
+    "mode": "story",
+    "subcategory": {
+      "en": "Science & Medicine",
+      "ar": "العلوم والطب"
+    },
+    "question": {
+      "en": "A researcher deletes the most important file on the lab computer and gets a promotion the same day. Why?",
+      "ar": "حذف باحث أهم ملف على حاسوب المختبر وحصل على ترقية في نفس اليوم. لماذا؟"
+    },
+    "answer": {
+      "en": "The file contained fabricated data. By deleting it before it was published, he prevented a major scientific scandal — saving the lab's reputation.",
+      "ar": "كان الملف يحتوي على بيانات مزوّرة. بحذفه قبل نشره، أنقذ سمعة المختبر من فضيحة علمية كبرى."
+    }
+  },
+  {
+    "id": "story-mysteries-027",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A soldier wins a battle and is immediately arrested by his own side. Why?",
+      "ar": "فاز جندي بمعركة واعتُقل فورًا من قِبَل جانبه. لماذا؟"
+    },
+    "answer": {
+      "en": "He was a mercenary hired specifically to lose the battle — winning violated his contract and exposed a deliberate plan to surrender territory.",
+      "ar": "كان مرتزقًا مُستأجرًا خصيصًا لخسارة المعركة. فوزه خالف عقده وكشف عن خطة متعمدة للتنازل عن الأرض."
+    }
+  },
+  {
+    "id": "story-mysteries-028",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A man proves he is innocent of murder by confessing to a crime. How does this work?",
+      "ar": "برّأ رجل نفسه من تهمة القتل بالاعتراف بجريمة. كيف يكون ذلك؟"
+    },
+    "answer": {
+      "en": "He confesses to a different crime — one that gives him an alibi for the time of the murder. He was somewhere else committing that other offense.",
+      "ar": "يعترف بجريمة مختلفة توفّر له حجة الغياب وقت الجريمة. كان في مكان آخر يرتكب تلك الجريمة الأخرى."
+    }
+  },
+  {
+    "id": "story-mysteries-029",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A man destroys a priceless painting in a museum and is thanked warmly by the curator. What happened?",
+      "ar": "دمّر رجل لوحة لا تقدّر بثمن في متحف فشكره مدير المتحف بحرارة. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The destroyed painting was a high-quality forgery placed over an original masterpiece. Removing it revealed the real, far more valuable work underneath.",
+      "ar": "اللوحة المدمّرة كانت تقليدًا عالي الجودة موضوعًا فوق لوحة أصلية. إزالتها كشفت عن العمل الأصلي الأكثر قيمة تحتها."
+    }
+  },
+  {
+    "id": "story-mysteries-030",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A thief breaks into a bank vault but steals nothing. He is still sent to prison. When released, the bank manager thanks him. Why?",
+      "ar": "اقتحم لص خزينة بنك لكنه لم يسرق شيئًا. سُجن مع ذلك. عند الإفراج عنه، شكره مدير البنك. لماذا؟"
+    },
+    "answer": {
+      "en": "He got trapped inside the vault when the time-lock engaged. Police found him innocent of theft but convicted of breaking and entering. The manager was grateful because the thief had unknowingly exposed a critical flaw in the vault's time-lock system.",
+      "ar": "انقلب القفل الزمني عليه وحاصره. أُفرج عنه من تهمة السرقة لكن سُجن بسبب التسلل. المدير شكره لأنه كشف عن خلل خطير في نظام القفل الزمني."
+    }
+  },
+  {
+    "id": "story-mysteries-031",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A king gives away his entire kingdom and becomes more powerful than before. How?",
+      "ar": "تنازل ملك عن مملكته بأكملها وأصبح أكثر قوة من ذي قبل. كيف؟"
+    },
+    "answer": {
+      "en": "He distributed land to loyal nobles who each owed him military service. Without the burden of direct administration, he commanded a larger army than he ever could have maintained alone.",
+      "ar": "وزّع الأرض على النبلاء الموالين الذين التزموا له بالخدمة العسكرية. دون عبء الإدارة المباشرة، أصبح يقود جيشًا أكبر مما كان يستطيع وحده."
+    }
+  },
+  {
+    "id": "story-mysteries-032",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Science & Medicine",
+      "ar": "العلوم والطب"
+    },
+    "question": {
+      "en": "A doctor prescribes medicine that kills the patient. He is given a national award. What happened?",
+      "ar": "وصف طبيب دواءً قتل المريض. مُنح جائزة وطنية. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The patient had a fatal parasite. The only drug capable of killing the parasite was also lethal to the patient in their weakened state — but without it death was certain. The drug killed the parasite first, giving the patient a few extra days. The doctor's courageous decision became a landmark in parasite treatment.",
+      "ar": "كان المريض يعاني من طفيلي مميت. الدواء الوحيد القادر على قتل الطفيلي كان مميتًا أيضًا للمريض في حالته الحرجة. لكن بدونه الموت محقق. أسهم الدواء في إطالة عمره أيامًا. قرار الطبيب الجريء أصبح معلمًا في علاج الطفيليات."
+    }
+  },
+  {
+    "id": "story-mysteries-033",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Science & Medicine",
+      "ar": "العلوم والطب"
+    },
+    "question": {
+      "en": "A scientist destroys all his research notes and wins the Nobel Prize for that work. How?",
+      "ar": "دمّر عالم جميع ملاحظات بحثه وفاز بجائزة نوبل على ذلك العمل. كيف؟"
+    },
+    "answer": {
+      "en": "He published his findings before burning the notes. He burned them to prevent dangerous knowledge from being replicated by others. The Nobel committee awarded him for the published discovery, not the notes.",
+      "ar": "نشر نتائجه قبل حرق الملاحظات. أحرقها لمنع المعرفة الخطرة من الانتشار. منحته لجنة نوبل الجائزة على الاكتشاف المنشور وليس الملاحظات."
+    }
+  },
+  {
+    "id": "story-mysteries-034",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A pianist performs a concert where he never touches the keys. The audience gives a standing ovation. What is happening?",
+      "ar": "أقام عازف بيانو حفلة لم يلمس فيها المفاتيح مطلقًا. منحه الجمهور تصفيقًا حارًا واقفًا. ما الذي يجري؟"
+    },
+    "answer": {
+      "en": "The piece being performed is John Cage's '4'33\" — a composition of silence lasting 4 minutes and 33 seconds. The pianist sat without playing as written.",
+      "ar": "المقطوعة المُعزوفة هي '4'33\"' لجون كيج — مؤلفة من الصمت لمدة أربع دقائق وثلاث وثلاثين ثانية. جلس العازف دون عزف كما هو مكتوب."
+    }
+  },
+  {
+    "id": "story-mysteries-035",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A woman answers every question on an exam correctly but still fails. The examiner says it was not her fault. What happened?",
+      "ar": "أجابت امرأة على كل سؤال في الامتحان بشكل صحيح لكنها رسبت. قال الممتحن إنه ليس خطأها. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "She answered in the wrong language. She was a foreign student who misunderstood which language was required, and the examiners could not mark answers they couldn't read.",
+      "ar": "أجابت بلغة خاطئة. كانت طالبة أجنبية أساءت فهم اللغة المطلوبة، ولم يستطع الممتحنون تصحيح إجابات لم يستطيعوا قراءتها."
+    }
+  },
+  {
+    "id": "story-mysteries-036",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A man is found innocent of a crime he definitely committed. The judge agrees with the verdict. What happened?",
+      "ar": "بُرّئ رجل من جريمة ارتكبها بالتأكيد. وافق القاضي على الحكم. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The evidence was obtained illegally — through an unlawful search. The judge ruled it inadmissible, and without evidence the verdict had to be not guilty.",
+      "ar": "الدليل حُصل عليه بطريقة غير قانونية — عبر تفتيش مخالف للقانون. رفض القاضي قبوله، وبدون دليل كان الحكم بالبراءة حتميًا."
+    }
+  },
+  {
+    "id": "story-mysteries-037",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A woman burns her entire life savings and becomes richer. What happened?",
+      "ar": "أحرقت امرأة كل مدخراتها وأصبحت أكثر ثراءً. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "Her savings were counterfeit bills. By burning them before using them, she avoided prosecution for forgery and collected the government's reward for reporting counterfeit currency.",
+      "ar": "مدخراتها كانت أوراقًا نقدية مزوّرة. بإحراقها قبل استخدامها، تفادت الملاحقة القضائية وجمعت مكافأة الحكومة على الإبلاغ عن العملة المزيّفة."
+    }
+  },
+  {
+    "id": "story-mysteries-038",
+    "difficulty": "hard",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A team paints a door shut from the outside and declares the building safer. The fire inspector agrees. Why?",
+      "ar": "طلى فريق بابًا من الخارج وأعلن أن المبنى أصبح أكثر أمانًا. وافق مفتش الحريق. لماذا؟"
+    },
+    "answer": {
+      "en": "The door was a hidden emergency exit that opened directly into a narrow shaft — anyone escaping through it would have fallen to their death. Sealing it eliminated a fatal hazard.",
+      "ar": "الباب كان مخرج طوارئ مخفيًا يفتح على فجوة ضيقة — أي شخص يهرب منه كان سيسقط إلى حتفه. إغلاقه أزال خطرًا قاتلًا."
+    }
+  },
+  {
+    "id": "story-mysteries-039",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Survival & Accidents",
+      "ar": "النجاة والحوادث"
+    },
+    "question": {
+      "en": "A mother gives her daughter advice in a lifeboat. They both die. What was the advice?",
+      "ar": "أعطت أم ابنتها نصيحة في قارب نجاة. ماتت كلتاهما. ما النصيحة؟"
+    },
+    "answer": {
+      "en": "The lifeboat had one empty seat. The mother told her daughter to take it. The daughter refused to leave without her mother. In the argument, the lifeboat tipped and both drowned.",
+      "ar": "كان في القارب مقعد واحد فارغ. قالت الأم لابنتها أن تأخذه. رفضت الابنة المغادرة بدون أمها. خلال الجدال، انقلب القارب وغرقتا معًا."
+    }
+  },
+  {
+    "id": "story-mysteries-040",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Crime & Investigation",
+      "ar": "الجريمة والتحقيق"
+    },
+    "question": {
+      "en": "A spy gives away every secret he knows and is considered the most loyal agent in history. How?",
+      "ar": "أفشى جاسوس كل أسرار يعلمها واعتُبر أكثر العملاء ولاءً في التاريخ. كيف؟"
+    },
+    "answer": {
+      "en": "Every secret he gave to the enemy was deliberately false — he was a double agent feeding disinformation. The bigger and more believable the lie, the more loyal he appeared to his real handlers.",
+      "ar": "كل سر سرّبه للعدو كان كاذبًا عمدًا — كان عميلًا مزدوجًا يغذّي المعلومات المضللة. كلما كانت الكذبة أكبر وأكثر تصديقًا، بدا أكثر ولاءً لمشغّليه الحقيقيين."
+    }
+  },
+  {
+    "id": "story-mysteries-041",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A man is declared legally dead while still alive and is perfectly fine with it. Why?",
+      "ar": "أُعلن رجل ميتًا قانونيًا وهو لا يزال حيًّا وكان بخير مع ذلك. لماذا؟"
+    },
+    "answer": {
+      "en": "He was massively in debt. Being declared legally dead erased all his financial obligations. He then started life over under a new identity with a clean slate.",
+      "ar": "كان مثقلًا بالديون. إعلان وفاته القانونية محا جميع التزاماته المالية. ثم بدأ حياة جديدة بهوية مختلفة من الصفر."
+    }
+  },
+  {
+    "id": "story-mysteries-042",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A country loses a war and within twenty years becomes the world's wealthiest nation. What happened?",
+      "ar": "خسرت دولة حربًا وفي غضون عشرين عامًا أصبحت أغنى دولة في العالم. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "The victorious nations funded massive reconstruction of the defeated country to prevent its radicalization — as happened with Germany and Japan after World War II. The investment transformed their economies.",
+      "ar": "موّلت الدول المنتصرة إعادة إعمار الدولة المهزومة على نطاق واسع لمنع تطرفها — كما حدث مع ألمانيا واليابان بعد الحرب العالمية الثانية. حوّل هذا الاستثمار اقتصادهما."
+    }
+  },
+  {
+    "id": "story-mysteries-043",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Science & Medicine",
+      "ar": "العلوم والطب"
+    },
+    "question": {
+      "en": "A hospital saves more lives after it starts refusing to treat certain patients. What is going on?",
+      "ar": "بدأ مستشفى ينقذ أرواحًا أكثر بعد أن بدأ يرفض علاج بعض المرضى. ما الذي يجري؟"
+    },
+    "answer": {
+      "en": "It stopped accepting patients it could not effectively treat and redirected them to specialist centers. By focusing only on cases within its expertise, its outcomes improved dramatically — matching patients to the right facility saves more lives overall.",
+      "ar": "توقف عن قبول مرضى لا يستطيع علاجهم بفعالية وحوّلهم إلى مراكز متخصصة. بالتركيز فقط على الحالات ضمن تخصصه، تحسنت نتائجه بشكل كبير — توجيه المرضى إلى المنشأة الصحيحة ينقذ أرواحًا أكثر."
+    }
+  },
+  {
+    "id": "story-mysteries-044",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Logic & Paradoxes",
+      "ar": "المنطق والمفارقات"
+    },
+    "question": {
+      "en": "A city celebrates when its only bridge is permanently closed. Why?",
+      "ar": "احتفلت مدينة عندما أُغلق جسرها الوحيد نهائيًا. لماذا؟"
+    },
+    "answer": {
+      "en": "The bridge connected the city to a region that was a source of poverty and crime. Closing it allowed the city to develop its own internal economy. Alternatively: the bridge closure proved a new underground tunnel was finally complete.",
+      "ar": "ربط الجسر المدينة بمنطقة كانت مصدر فقر وجريمة. إغلاقه أتاح للمدينة تطوير اقتصادها الداخلي. أو: إغلاق الجسر أثبت اكتمال نفق جديد تحت الأرض أخيرًا."
+    }
+  },
+  {
+    "id": "story-mysteries-045",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A banker is delighted when the vault opens at the wrong time. Why?",
+      "ar": "أُسعد مصرفي عندما فُتحت الخزينة في وقت خاطئ. لماذا؟"
+    },
+    "answer": {
+      "en": "The early opening exposed a timing defect in the vault mechanism. By discovering it in a routine check before anyone was harmed, the bank could fix a flaw that criminals might have exploited.",
+      "ar": "الفتح المبكر كشف عن خلل في توقيت آلية الخزينة. باكتشافه في فحص روتيني قبل أن يتضرر أحد، تمكّن البنك من إصلاح ثغرة كان المجرمون يستطيعون استغلالها."
+    }
+  },
+  {
+    "id": "story-mysteries-046",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Logic & Paradoxes",
+      "ar": "المنطق والمفارقات"
+    },
+    "question": {
+      "en": "A man is hired as a night watchman. On his first night, he tells his boss he dreamed the building would be robbed. The boss fires him. Why?",
+      "ar": "استُؤجر رجل حارسًا ليليًا. في ليلته الأولى، أخبر مديره أنه حلم بأن المبنى سيُسرق. فصله المدير. لماذا؟"
+    },
+    "answer": {
+      "en": "A night watchman should not be sleeping on the job. The fact that he had a dream proves he was asleep during his shift.",
+      "ar": "يجب ألا ينام الحارس الليلي أثناء عمله. حقيقة أنه كان يحلم تثبت أنه كان نائمًا أثناء وردته."
+    }
+  },
+  {
+    "id": "story-mysteries-047",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A man who cannot speak a single word gives a famous speech that changes history. How?",
+      "ar": "ألقى رجل لا يستطيع النطق بكلمة واحدة خطابًا شهيرًا غيّر مجرى التاريخ. كيف؟"
+    },
+    "answer": {
+      "en": "He wrote the speech which was read aloud by another person. Many great historical speeches were authored by people who never delivered them verbally — ghost writers and orators working together.",
+      "ar": "كتب الخطاب وقرأه شخص آخر بصوت عالٍ. كثير من الخطابات التاريخية العظيمة كتبها أشخاص لم يلقوها شفهيًا — كتّاب خطابات ومتحدثون يعملون معًا."
+    }
+  },
+  {
+    "id": "story-mysteries-048",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Logic & Paradoxes",
+      "ar": "المنطق والمفارقات"
+    },
+    "question": {
+      "en": "A man walks into a room full of experts, says one sentence, and every expert immediately resigns. What did he say?",
+      "ar": "دخل رجل إلى غرفة مليئة بخبراء وقال جملة واحدة فاستقال كل خبير فورًا. ماذا قال؟"
+    },
+    "answer": {
+      "en": "'The company is bankrupt and you will not be paid.' When the experts learned there was no payment, they had no incentive to continue — their expertise was contingent on compensation.",
+      "ar": "'الشركة مفلسة ولن تُدفع رواتبكم'. عندما علم الخبراء بانعدام الأجر، لم يكن لديهم دافع للاستمرار — خبرتهم كانت مشروطة بالتعويض."
+    }
+  },
+  {
+    "id": "story-mysteries-049",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Society, Money & Power",
+      "ar": "المجتمع والمال والسلطة"
+    },
+    "question": {
+      "en": "A city tears down its most beloved historic monument and within a year its tourism doubles. What happened?",
+      "ar": "هدمت مدينة أعز آثارها التاريخية وفي غضون عام تضاعف سياحتها. ماذا حدث؟"
+    },
+    "answer": {
+      "en": "While excavating the monument's foundation, archaeologists discovered a far older and more significant site beneath it. The original monument was overshadowing a vastly more important treasure.",
+      "ar": "أثناء حفر أساس الأثر، اكتشف علماء الآثار موقعًا أقدم بكثير وأكثر أهمية تحته. كان الأثر الأصلي يحجب كنزًا أكثر أهمية بكثير."
+    }
+  },
+  {
+    "id": "story-mysteries-050",
+    "difficulty": "very-advanced",
+    "mode": "story",
+    "subcategory": {
+      "en": "Arts, Language & Performance",
+      "ar": "الفنون واللغة والعروض"
+    },
+    "question": {
+      "en": "A librarian burns a book and is praised by every author whose work is inside it. Why?",
+      "ar": "أحرق أمين مكتبة كتابًا فأثنى عليه كل مؤلف له عمل بداخله. لماذا؟"
+    },
+    "answer": {
+      "en": "The book was an unauthorized pirated anthology that reproduced copyrighted work without permission or payment. Burning it destroyed evidence of infringement and demonstrated solidarity with the authors whose rights had been violated.",
+      "ar": "الكتاب كان مختارات مقرصنة غير مرخصة نسخت أعمالًا محمية بحقوق النشر دون إذن أو دفع. إحراقه دمّر دليلًا على الانتهاك وأظهر تضامنًا مع المؤلفين الذين انتُهكت حقوقهم."
+    }
+  }
+]

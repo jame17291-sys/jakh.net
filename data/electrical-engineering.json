@@ -1,508 +1,482 @@
-{
-  "slug": "electrical-engineering",
-  "title": {
-    "en": "Electrical Engineering",
-    "ar": "الهندسة الكهربائية"
-  },
-  "description": {
-    "en": "Circuits, components, laws, and advanced electronics concepts.",
-    "ar": "دوائر ومكونات وقوانين ومفاهيم إلكترونيات متقدمة."
-  },
-  "cluster": {
-    "en": "Engineering",
-    "ar": "هندسة"
-  },
-  "cluster_key": "engineering",
-  "emoji": "⚡",
-  "mode": "quiz",
-  "count": 30,
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 0
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "electrical-engineering-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Batteries",
-        "ar": "البطاريات"
-      },
-      "question": {
-        "en": "Which terminal of a battery is usually marked with a plus sign?",
-        "ar": "أي طرف في البطارية يُعلَّم عادةً بعلامة الجمع؟"
-      },
-      "answer": {
-        "en": "Positive",
-        "ar": "الموجب"
-      }
+[
+  {
+    "id": "electrical-engineering-001",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
     },
-    {
-      "id": "electrical-engineering-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Current",
-        "ar": "التيار"
-      },
-      "question": {
-        "en": "What is the unit of measurement for electrical current?",
-        "ar": "ما وحدة قياس التيار الكهربائي؟"
-      },
-      "answer": {
-        "en": "Ampere (Amp)",
-        "ar": "الأمبير"
-      }
+    "question": {
+      "en": "Which terminal of a battery is usually marked with a plus sign?",
+      "ar": "أي طرف في البطارية يُعلَّم عادةً بعلامة الجمع؟"
     },
-    {
-      "id": "electrical-engineering-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Safety",
-        "ar": "السلامة"
-      },
-      "question": {
-        "en": "What is the purpose of a circuit breaker?",
-        "ar": "ما الغرض من قاطع الدارة الكهربائية؟"
-      },
-      "answer": {
-        "en": "To interrupt current flow after a fault is detected",
-        "ar": "لقطع التيار عند اكتشاف عطل"
-      }
-    },
-    {
-      "id": "electrical-engineering-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Voltage",
-        "ar": "الجهد"
-      },
-      "question": {
-        "en": "What is the unit of electrical potential?",
-        "ar": "ما وحدة الجهد الكهربائي؟"
-      },
-      "answer": {
-        "en": "Volt",
-        "ar": "الفولت"
-      }
-    },
-    {
-      "id": "electrical-engineering-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Circuits",
-        "ar": "الدوائر"
-      },
-      "question": {
-        "en": "What do you call a path that allows electricity to flow?",
-        "ar": "ما اسم المسار الذي يسمح للكهرباء بالتدفق؟"
-      },
-      "answer": {
-        "en": "A circuit",
-        "ar": "الدارة الكهربائية"
-      }
-    },
-    {
-      "id": "electrical-engineering-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Materials",
-        "ar": "المواد"
-      },
-      "question": {
-        "en": "Is rubber an insulator or a conductor?",
-        "ar": "هل المطاط عازل أم موصل؟"
-      },
-      "answer": {
-        "en": "Insulator",
-        "ar": "عازل"
-      }
-    },
-    {
-      "id": "electrical-engineering-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "History",
-        "ar": "التاريخ"
-      },
-      "question": {
-        "en": "Who is credited with inventing the first commercially practical incandescent light bulb?",
-        "ar": "لمن يُنسب اختراع أول مصباح متوهج عملي تجارياً؟"
-      },
-      "answer": {
-        "en": "Thomas Edison",
-        "ar": "توماس إديسون"
-      }
-    },
-    {
-      "id": "electrical-engineering-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Power",
-        "ar": "القدرة"
-      },
-      "question": {
-        "en": "What is the unit of electrical power?",
-        "ar": "ما وحدة القدرة الكهربائية؟"
-      },
-      "answer": {
-        "en": "Watt",
-        "ar": "الواط"
-      }
-    },
-    {
-      "id": "electrical-engineering-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Electromagnetism",
-        "ar": "الكهرومغناطيسية"
-      },
-      "question": {
-        "en": "What device uses an electric current to create a magnetic field?",
-        "ar": "ما الجهاز الذي يستخدم التيار الكهربائي لخلق مجال مغناطيسي؟"
-      },
-      "answer": {
-        "en": "Electromagnet",
-        "ar": "المغناطيس الكهربائي"
-      }
-    },
-    {
-      "id": "electrical-engineering-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "AC/DC",
-        "ar": "التيار المتردد/المستمر"
-      },
-      "question": {
-        "en": "What does 'AC' stand for in electricity?",
-        "ar": "ماذا تعني AC في الكهرباء؟"
-      },
-      "answer": {
-        "en": "Alternating Current",
-        "ar": "التيار المتردد"
-      }
-    },
-    {
-      "id": "electrical-engineering-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Ohm's Law",
-        "ar": "قانون أوم"
-      },
-      "question": {
-        "en": "If V is voltage, I is current, and R is resistance, what is Ohm's formula?",
-        "ar": "إذا كان V هو الجهد وI هو التيار وR هو المقاومة، ما صيغة قانون أوم؟"
-      },
-      "answer": {
-        "en": "V = IR",
-        "ar": "V = IR"
-      }
-    },
-    {
-      "id": "electrical-engineering-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Transformers",
-        "ar": "المحولات"
-      },
-      "question": {
-        "en": "What device is used to increase or decrease the voltage of alternating current?",
-        "ar": "ما الجهاز المستخدم لرفع أو خفض جهد التيار المتردد؟"
-      },
-      "answer": {
-        "en": "Transformer",
-        "ar": "المحول الكهربائي"
-      }
-    },
-    {
-      "id": "electrical-engineering-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Circuits",
-        "ar": "الدوائر"
-      },
-      "question": {
-        "en": "If two 10-ohm resistors are connected in series, what is the total resistance?",
-        "ar": "إذا وُصل مقاومان بقيمة 10 أوم على التوالي، ما المقاومة الكلية؟"
-      },
-      "answer": {
-        "en": "20 ohms",
-        "ar": "20 أوم"
-      }
-    },
-    {
-      "id": "electrical-engineering-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Components",
-        "ar": "المكونات"
-      },
-      "question": {
-        "en": "What component is designed to store energy in an electric field?",
-        "ar": "ما المكوّن المصمم لتخزين الطاقة في حقل كهربائي؟"
-      },
-      "answer": {
-        "en": "Capacitor",
-        "ar": "المكثف"
-      }
-    },
-    {
-      "id": "electrical-engineering-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Semiconductors",
-        "ar": "أشباه الموصلات"
-      },
-      "question": {
-        "en": "What is the most common element used in the production of computer chips?",
-        "ar": "ما العنصر الأكثر شيوعاً في تصنيع الرقائق الإلكترونية؟"
-      },
-      "answer": {
-        "en": "Silicon",
-        "ar": "السيليكون"
-      }
-    },
-    {
-      "id": "electrical-engineering-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Components",
-        "ar": "المكونات"
-      },
-      "question": {
-        "en": "What component allows current to flow in only one direction?",
-        "ar": "ما المكوّن الذي يسمح للتيار بالتدفق في اتجاه واحد فقط؟"
-      },
-      "answer": {
-        "en": "Diode",
-        "ar": "الثنائي (الديود)"
-      }
-    },
-    {
-      "id": "electrical-engineering-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Electromagnetism",
-        "ar": "الكهرومغناطيسية"
-      },
-      "question": {
-        "en": "Faraday's Law relates to EMF production across a conductor in a changing what?",
-        "ar": "يرتبط قانون فاراداي بإنتاج القوة الدافعة الكهربائية عبر موصل في مجال متغير من أي نوع؟"
-      },
-      "answer": {
-        "en": "Magnetic field",
-        "ar": "المجال المغناطيسي"
-      }
-    },
-    {
-      "id": "electrical-engineering-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "AC Systems",
-        "ar": "أنظمة التيار المتردد"
-      },
-      "question": {
-        "en": "What is the standard frequency of the electrical grid in most of the world?",
-        "ar": "ما التردد القياسي للشبكة الكهربائية في معظم دول العالم؟"
-      },
-      "answer": {
-        "en": "50 Hz or 60 Hz",
-        "ar": "50 هرتز أو 60 هرتز"
-      }
-    },
-    {
-      "id": "electrical-engineering-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Logic Gates",
-        "ar": "البوابات المنطقية"
-      },
-      "question": {
-        "en": "Which gate gives a HIGH output only if all its inputs are HIGH?",
-        "ar": "أي بوابة منطقية تعطي إشارة HIGH فقط إذا كانت جميع مداخلاتها HIGH؟"
-      },
-      "answer": {
-        "en": "AND gate",
-        "ar": "البوابة المنطقية AND"
-      }
-    },
-    {
-      "id": "electrical-engineering-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Measurement",
-        "ar": "القياس"
-      },
-      "question": {
-        "en": "What are the three primary things a standard multimeter measures?",
-        "ar": "ما الثلاثة أشياء الأساسية التي يقيسها جهاز قياس متعدد الوظائف؟"
-      },
-      "answer": {
-        "en": "Voltage, Current, and Resistance",
-        "ar": "الجهد والتيار والمقاومة"
-      }
-    },
-    {
-      "id": "electrical-engineering-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Electromagnetism",
-        "ar": "الكهرومغناطيسية"
-      },
-      "question": {
-        "en": "How many equations make up Maxwell's equations?",
-        "ar": "كم عدد معادلات ماكسويل؟"
-      },
-      "answer": {
-        "en": "Four",
-        "ar": "أربع معادلات"
-      }
-    },
-    {
-      "id": "electrical-engineering-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Transistors",
-        "ar": "الترانزستور"
-      },
-      "question": {
-        "en": "What are the three terminals of a Bipolar Junction Transistor (BJT)?",
-        "ar": "ما الأطراف الثلاثة للترانزستور ثنائي القطبية (BJT)؟"
-      },
-      "answer": {
-        "en": "Emitter, Base, Collector",
-        "ar": "الباعث والقاعدة والجامع"
-      }
-    },
-    {
-      "id": "electrical-engineering-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Signal Processing",
-        "ar": "معالجة الإشارات"
-      },
-      "question": {
-        "en": "What does a Fourier Transform convert a signal from the time domain into?",
-        "ar": "إلى ماذا يحوّل تحويل فورييه الإشارة من نطاق الزمن؟"
-      },
-      "answer": {
-        "en": "The frequency domain",
-        "ar": "نطاق التردد"
-      }
-    },
-    {
-      "id": "electrical-engineering-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "AC Circuits",
-        "ar": "دوائر التيار المتردد"
-      },
-      "question": {
-        "en": "In an AC circuit, what is the combination of resistance and reactance called?",
-        "ar": "في دارة التيار المتردد، ما اسم مجموع المقاومة والممانعة التفاعلية؟"
-      },
-      "answer": {
-        "en": "Impedance",
-        "ar": "الممانعة (الإمبيدانس)"
-      }
-    },
-    {
-      "id": "electrical-engineering-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Circuit Laws",
-        "ar": "قوانين الدوائر"
-      },
-      "question": {
-        "en": "What is the fundamental principle behind Kirchhoff's Current Law (KCL)?",
-        "ar": "ما المبدأ الأساسي لقانون كيرشهوف للتيار (KCL)؟"
-      },
-      "answer": {
-        "en": "Conservation of Charge",
-        "ar": "حفظ الشحنة الكهربائية"
-      }
-    },
-    {
-      "id": "electrical-engineering-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Physics Effects",
-        "ar": "مفاعيل فيزيائية"
-      },
-      "question": {
-        "en": "What is the production of a voltage difference across a conductor when a magnetic field is applied?",
-        "ar": "ما ظاهرة إنتاج فرق جهد عبر موصل عند تطبيق مجال مغناطيسي عليه؟"
-      },
-      "answer": {
-        "en": "The Hall Effect",
-        "ar": "تأثير هول"
-      }
-    },
-    {
-      "id": "electrical-engineering-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "AC Measurement",
-        "ar": "قياس التيار المتردد"
-      },
-      "question": {
-        "en": "Why is RMS used to measure AC voltage?",
-        "ar": "لماذا تُستخدم القيمة الجذرية التربيعية المتوسطة (RMS) لقياس جهد التيار المتردد؟"
-      },
-      "answer": {
-        "en": "It gives the equivalent DC value producing the same heating effect",
-        "ar": "لأنها تعطي المكافئ الذي يولد نفس التأثير الحراري كالتيار المستمر"
-      }
-    },
-    {
-      "id": "electrical-engineering-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Information Theory",
-        "ar": "نظرية المعلومات"
-      },
-      "question": {
-        "en": "What does Shannon's Theorem define in communication theory?",
-        "ar": "ماذا يحدد مبرهنة شانون في نظرية الاتصالات؟"
-      },
-      "answer": {
-        "en": "The maximum rate at which information can be transmitted over a channel",
-        "ar": "أقصى معدل يمكن بثّ المعلومات عبره على قناة اتصال"
-      }
-    },
-    {
-      "id": "electrical-engineering-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Amplifiers",
-        "ar": "المضخمات"
-      },
-      "question": {
-        "en": "What does 'Op-Amp' stand for?",
-        "ar": "ماذا تعني Op-Amp؟"
-      },
-      "answer": {
-        "en": "Operational Amplifier",
-        "ar": "المضخم العملياتي"
-      }
-    },
-    {
-      "id": "electrical-engineering-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Inductance",
-        "ar": "الحث الكهربائي"
-      },
-      "question": {
-        "en": "What is the unit of measurement for inductance?",
-        "ar": "ما وحدة قياس الحث الكهرومغناطيسي؟"
-      },
-      "answer": {
-        "en": "Henry",
-        "ar": "هنري"
-      }
+    "answer": {
+      "en": "Positive",
+      "ar": "الموجب"
     }
-  ]
-}
+  },
+  {
+    "id": "electrical-engineering-002",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "What is the unit of measurement for electrical current?",
+      "ar": "ما وحدة قياس التيار الكهربائي؟"
+    },
+    "answer": {
+      "en": "Ampere (Amp)",
+      "ar": "الأمبير"
+    }
+  },
+  {
+    "id": "electrical-engineering-003",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Circuits & Measurement",
+        "ar": "الدوائر والقياس"
+    },
+    "question": {
+      "en": "What is the purpose of a circuit breaker?",
+      "ar": "ما الغرض من قاطع الدارة الكهربائية؟"
+    },
+    "answer": {
+      "en": "To interrupt current flow after a fault is detected",
+      "ar": "لقطع التيار عند اكتشاف عطل"
+    }
+  },
+  {
+    "id": "electrical-engineering-004",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "What is the unit of electrical potential?",
+      "ar": "ما وحدة الجهد الكهربائي؟"
+    },
+    "answer": {
+      "en": "Volt",
+      "ar": "الفولت"
+    }
+  },
+  {
+    "id": "electrical-engineering-005",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Circuits & Measurement",
+        "ar": "الدوائر والقياس"
+    },
+    "question": {
+      "en": "What do you call a path that allows electricity to flow?",
+      "ar": "ما اسم المسار الذي يسمح للكهرباء بالتدفق؟"
+    },
+    "answer": {
+      "en": "A circuit",
+      "ar": "الدارة الكهربائية"
+    }
+  },
+  {
+    "id": "electrical-engineering-006",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "Is rubber an insulator or a conductor?",
+      "ar": "هل المطاط عازل أم موصل؟"
+    },
+    "answer": {
+      "en": "Insulator",
+      "ar": "عازل"
+    }
+  },
+  {
+    "id": "electrical-engineering-007",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "Who is credited with inventing the first commercially practical incandescent light bulb?",
+      "ar": "لمن يُنسب اختراع أول مصباح متوهج عملي تجارياً؟"
+    },
+    "answer": {
+      "en": "Thomas Edison",
+      "ar": "توماس إديسون"
+    }
+  },
+  {
+    "id": "electrical-engineering-008",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "What is the unit of electrical power?",
+      "ar": "ما وحدة القدرة الكهربائية؟"
+    },
+    "answer": {
+      "en": "Watt",
+      "ar": "الواط"
+    }
+  },
+  {
+    "id": "electrical-engineering-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Electromagnetism",
+      "ar": "الكهرومغناطيسية"
+    },
+    "question": {
+      "en": "What device uses an electric current to create a magnetic field?",
+      "ar": "ما الجهاز الذي يستخدم التيار الكهربائي لخلق مجال مغناطيسي؟"
+    },
+    "answer": {
+      "en": "Electromagnet",
+      "ar": "المغناطيس الكهربائي"
+    }
+  },
+  {
+    "id": "electrical-engineering-010",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "AC Power Systems",
+        "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "What does 'AC' stand for in electricity?",
+      "ar": "ماذا تعني AC في الكهرباء؟"
+    },
+    "answer": {
+      "en": "Alternating Current",
+      "ar": "التيار المتردد"
+    }
+  },
+  {
+    "id": "electrical-engineering-011",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Electrical Fundamentals",
+        "ar": "أساسيات الكهرباء"
+    },
+    "question": {
+      "en": "If V is voltage, I is current, and R is resistance, what is Ohm's formula?",
+      "ar": "إذا كان V هو الجهد وI هو التيار وR هو المقاومة، ما صيغة قانون أوم؟"
+    },
+    "answer": {
+      "en": "V = IR",
+      "ar": "V = IR"
+    }
+  },
+  {
+    "id": "electrical-engineering-012",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "AC Power Systems",
+        "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "What device is used to increase or decrease the voltage of alternating current?",
+      "ar": "ما الجهاز المستخدم لرفع أو خفض جهد التيار المتردد؟"
+    },
+    "answer": {
+      "en": "Transformer",
+      "ar": "المحول الكهربائي"
+    }
+  },
+  {
+    "id": "electrical-engineering-013",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Circuits & Measurement",
+        "ar": "الدوائر والقياس"
+    },
+    "question": {
+      "en": "If two 10-ohm resistors are connected in series, what is the total resistance?",
+      "ar": "إذا وُصل مقاومان بقيمة 10 أوم على التوالي، ما المقاومة الكلية؟"
+    },
+    "answer": {
+      "en": "20 ohms",
+      "ar": "20 أوم"
+    }
+  },
+  {
+    "id": "electrical-engineering-014",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "What component is designed to store energy in an electric field?",
+      "ar": "ما المكوّن المصمم لتخزين الطاقة في حقل كهربائي؟"
+    },
+    "answer": {
+      "en": "Capacitor",
+      "ar": "المكثف"
+    }
+  },
+  {
+    "id": "electrical-engineering-015",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "What is the most common element used in the production of computer chips?",
+      "ar": "ما العنصر الأكثر شيوعاً في تصنيع الرقائق الإلكترونية؟"
+    },
+    "answer": {
+      "en": "Silicon",
+      "ar": "السيليكون"
+    }
+  },
+  {
+    "id": "electrical-engineering-016",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "What component allows current to flow in only one direction?",
+      "ar": "ما المكوّن الذي يسمح للتيار بالتدفق في اتجاه واحد فقط؟"
+    },
+    "answer": {
+      "en": "Diode",
+      "ar": "الثنائي (الديود)"
+    }
+  },
+  {
+    "id": "electrical-engineering-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Electromagnetism",
+      "ar": "الكهرومغناطيسية"
+    },
+    "question": {
+      "en": "Faraday's Law relates to EMF production across a conductor in a changing what?",
+      "ar": "يرتبط قانون فاراداي بإنتاج القوة الدافعة الكهربائية عبر موصل في مجال متغير من أي نوع؟"
+    },
+    "answer": {
+      "en": "Magnetic field",
+      "ar": "المجال المغناطيسي"
+    }
+  },
+  {
+    "id": "electrical-engineering-018",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "AC Power Systems",
+        "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "What is the standard frequency of the electrical grid in most of the world?",
+      "ar": "ما التردد القياسي للشبكة الكهربائية في معظم دول العالم؟"
+    },
+    "answer": {
+      "en": "50 Hz or 60 Hz",
+      "ar": "50 هرتز أو 60 هرتز"
+    }
+  },
+  {
+    "id": "electrical-engineering-019",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "Which gate gives a HIGH output only if all its inputs are HIGH?",
+      "ar": "أي بوابة منطقية تعطي إشارة HIGH فقط إذا كانت جميع مداخلاتها HIGH؟"
+    },
+    "answer": {
+      "en": "AND gate",
+      "ar": "البوابة المنطقية AND"
+    }
+  },
+  {
+    "id": "electrical-engineering-020",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Circuits & Measurement",
+        "ar": "الدوائر والقياس"
+    },
+    "question": {
+      "en": "What are the three primary things a standard multimeter measures?",
+      "ar": "ما الثلاثة أشياء الأساسية التي يقيسها جهاز قياس متعدد الوظائف؟"
+    },
+    "answer": {
+      "en": "Voltage, Current, and Resistance",
+      "ar": "الجهد والتيار والمقاومة"
+    }
+  },
+  {
+    "id": "electrical-engineering-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Electromagnetism",
+      "ar": "الكهرومغناطيسية"
+    },
+    "question": {
+      "en": "How many equations make up Maxwell's equations?",
+      "ar": "كم عدد معادلات ماكسويل؟"
+    },
+    "answer": {
+      "en": "Four",
+      "ar": "أربع معادلات"
+    }
+  },
+  {
+    "id": "electrical-engineering-022",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "What are the three terminals of a Bipolar Junction Transistor (BJT)?",
+      "ar": "ما الأطراف الثلاثة للترانزستور ثنائي القطبية (BJT)؟"
+    },
+    "answer": {
+      "en": "Emitter, Base, Collector",
+      "ar": "الباعث والقاعدة والجامع"
+    }
+  },
+  {
+    "id": "electrical-engineering-023",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Signals & Communications",
+        "ar": "الإشارات والاتصالات"
+    },
+    "question": {
+      "en": "What does a Fourier Transform convert a signal from the time domain into?",
+      "ar": "إلى ماذا يحوّل تحويل فورييه الإشارة من نطاق الزمن؟"
+    },
+    "answer": {
+      "en": "The frequency domain",
+      "ar": "نطاق التردد"
+    }
+  },
+  {
+    "id": "electrical-engineering-024",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "AC Power Systems",
+        "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "In an AC circuit, what is the combination of resistance and reactance called?",
+      "ar": "في دارة التيار المتردد، ما اسم مجموع المقاومة والممانعة التفاعلية؟"
+    },
+    "answer": {
+      "en": "Impedance",
+      "ar": "الممانعة (الإمبيدانس)"
+    }
+  },
+  {
+    "id": "electrical-engineering-025",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Circuits & Measurement",
+        "ar": "الدوائر والقياس"
+    },
+    "question": {
+      "en": "What is the fundamental principle behind Kirchhoff's Current Law (KCL)?",
+      "ar": "ما المبدأ الأساسي لقانون كيرشهوف للتيار (KCL)؟"
+    },
+    "answer": {
+      "en": "Conservation of Charge",
+      "ar": "حفظ الشحنة الكهربائية"
+    }
+  },
+  {
+    "id": "electrical-engineering-026",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Electromagnetism",
+        "ar": "الكهرومغناطيسية"
+    },
+    "question": {
+      "en": "What is the production of a voltage difference across a conductor when a magnetic field is applied?",
+      "ar": "ما ظاهرة إنتاج فرق جهد عبر موصل عند تطبيق مجال مغناطيسي عليه؟"
+    },
+    "answer": {
+      "en": "The Hall Effect",
+      "ar": "تأثير هول"
+    }
+  },
+  {
+    "id": "electrical-engineering-027",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "AC Power Systems",
+        "ar": "أنظمة القدرة المتناوبة"
+    },
+    "question": {
+      "en": "Why is RMS used to measure AC voltage?",
+      "ar": "لماذا تُستخدم القيمة الجذرية التربيعية المتوسطة (RMS) لقياس جهد التيار المتردد؟"
+    },
+    "answer": {
+      "en": "It gives the equivalent DC value producing the same heating effect",
+      "ar": "لأنها تعطي المكافئ الذي يولد نفس التأثير الحراري كالتيار المستمر"
+    }
+  },
+  {
+    "id": "electrical-engineering-028",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Signals & Communications",
+        "ar": "الإشارات والاتصالات"
+    },
+    "question": {
+      "en": "What does Shannon's Theorem define in communication theory?",
+      "ar": "ماذا يحدد مبرهنة شانون في نظرية الاتصالات؟"
+    },
+    "answer": {
+      "en": "The maximum rate at which information can be transmitted over a channel",
+      "ar": "أقصى معدل يمكن بثّ المعلومات عبره على قناة اتصال"
+    }
+  },
+  {
+    "id": "electrical-engineering-029",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "What does 'Op-Amp' stand for?",
+      "ar": "ماذا تعني Op-Amp؟"
+    },
+    "answer": {
+      "en": "Operational Amplifier",
+      "ar": "المضخم العملياتي"
+    }
+  },
+  {
+    "id": "electrical-engineering-030",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Components & Electronics",
+        "ar": "المكونات والإلكترونيات"
+    },
+    "question": {
+      "en": "What is the unit of measurement for inductance?",
+      "ar": "ما وحدة قياس الحث الكهرومغناطيسي؟"
+    },
+    "answer": {
+      "en": "Henry",
+      "ar": "هنري"
+    }
+  }
+]

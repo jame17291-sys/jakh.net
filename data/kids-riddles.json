@@ -1,508 +1,482 @@
-{
-  "slug": "kids-riddles",
-  "title": {
-    "en": "Kids Riddles",
-    "ar": "ألغاز للأطفال"
-  },
-  "description": {
-    "en": "Fun and friendly riddles perfect for kids of all ages.",
-    "ar": "ألغاز ممتعة وبسيطة مناسبة للأطفال من جميع الأعمار."
-  },
-  "cluster": {
-    "en": "Games & Fun",
-    "ar": "ألعاب ومرح"
-  },
-  "cluster_key": "games",
-  "emoji": "🌟",
-  "mode": "quiz",
-  "count": 30,
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 8,
-    "hard": 12,
-    "very-advanced": 0
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "kids-riddles-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "I have many teeth but I cannot bite. What am I?",
-        "ar": "لديّ أسنان كثيرة لكنني لا أعض. ما أنا؟"
-      },
-      "answer": {
-        "en": "A comb",
-        "ar": "المشط"
-      }
+[
+  {
+    "id": "kids-riddles-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Art, Paper & School Tools",
+      "ar": "الفن والورق والأدوات المدرسية"
     },
-    {
-      "id": "kids-riddles-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What is orange and sounds like a parrot?",
-        "ar": "ما الذي يكون برتقالياً ويشبه صوته صوت الببغاء؟"
-      },
-      "answer": {
-        "en": "A carrot",
-        "ar": "الجزرة"
-      }
+    "question": {
+      "en": "I am made of colored wax, wear a paper jacket, and leave a bright trail on a page. What am I?",
+      "ar": "أنا مصنوع من شمع ملوّن، وأرتدي غلافاً ورقياً، وأترك خطاً زاهياً على الصفحة. ما أنا؟"
     },
-    {
-      "id": "kids-riddles-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What has four legs but cannot walk?",
-        "ar": "ما الذي له أربع أرجل لكنه لا يمشي؟"
-      },
-      "answer": {
-        "en": "A table or chair",
-        "ar": "الطاولة أو الكرسي"
-      }
-    },
-    {
-      "id": "kids-riddles-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What goes up when the rain comes down?",
-        "ar": "ما الذي يرتفع حين ينزل المطر؟"
-      },
-      "answer": {
-        "en": "An umbrella",
-        "ar": "الشمسية"
-      }
-    },
-    {
-      "id": "kids-riddles-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What gets wetter the more it dries?",
-        "ar": "ما الذي يزداد بللاً كلما جفّف أكثر؟"
-      },
-      "answer": {
-        "en": "A towel",
-        "ar": "المنشفة"
-      }
-    },
-    {
-      "id": "kids-riddles-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "If you say my name, I break. What am I?",
-        "ar": "إذا نطقت باسمي كسرتني. ما أنا؟"
-      },
-      "answer": {
-        "en": "Silence",
-        "ar": "الصمت"
-      }
-    },
-    {
-      "id": "kids-riddles-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "I follow you all day long, but when the sun goes down, I'm gone. What am I?",
-        "ar": "أتبعك طوال النهار، لكن حين تغرب الشمس أختفي. ما أنا؟"
-      },
-      "answer": {
-        "en": "A shadow",
-        "ar": "الظل"
-      }
-    },
-    {
-      "id": "kids-riddles-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What has to be broken before you can use it?",
-        "ar": "ما الذي يجب أن يُكسر قبل أن تستخدمه؟"
-      },
-      "answer": {
-        "en": "An egg",
-        "ar": "البيضة"
-      }
-    },
-    {
-      "id": "kids-riddles-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What has a neck but no head?",
-        "ar": "ما الذي له رقبة لكن لا رأس؟"
-      },
-      "answer": {
-        "en": "A bottle",
-        "ar": "الزجاجة"
-      }
-    },
-    {
-      "id": "kids-riddles-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Fun Riddles",
-        "ar": "ألغاز مسلية"
-      },
-      "question": {
-        "en": "What building has the most stories?",
-        "ar": "أي مبنى له أكثر الطوابق؟"
-      },
-      "answer": {
-        "en": "A library",
-        "ar": "المكتبة"
-      }
-    },
-    {
-      "id": "kids-riddles-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "What goes up but never comes down?",
-        "ar": "ما الذي يرتفع ولا ينزل أبداً؟"
-      },
-      "answer": {
-        "en": "Your age",
-        "ar": "عمرك"
-      }
-    },
-    {
-      "id": "kids-riddles-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "I have cities, but no houses. I have mountains, but no trees. What am I?",
-        "ar": "لديّ مدن لكن لا بيوت. لديّ جبال لكن لا أشجار. ما أنا؟"
-      },
-      "answer": {
-        "en": "A map",
-        "ar": "الخريطة"
-      }
-    },
-    {
-      "id": "kids-riddles-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "What can you break even if you never pick it up or touch it?",
-        "ar": "ما الذي يمكنك كسره حتى دون أن تلمسه؟"
-      },
-      "answer": {
-        "en": "A promise",
-        "ar": "الوعد"
-      }
-    },
-    {
-      "id": "kids-riddles-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "If you have me, you want to share me. If you share me, you haven't got me. What am I?",
-        "ar": "إذا كنت أملكك تريد مشاركتي. إذا شاركتني لم تعد تملكني. ما أنا؟"
-      },
-      "answer": {
-        "en": "A secret",
-        "ar": "السر"
-      }
-    },
-    {
-      "id": "kids-riddles-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "I have keys, but no locks. I have a space, but no room. You can enter, but never leave. What am I?",
-        "ar": "لديّ مفاتيح ولا أقفال. لديّ مسافة ولا غرفة. يمكنك الدخول لكن لا الخروج. ما أنا؟"
-      },
-      "answer": {
-        "en": "A keyboard",
-        "ar": "لوحة المفاتيح"
-      }
-    },
-    {
-      "id": "kids-riddles-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "What is so fragile that saying its name breaks it?",
-        "ar": "ما الشيء الهش لدرجة أن مجرد نطق اسمه يكسره؟"
-      },
-      "answer": {
-        "en": "Silence",
-        "ar": "الصمت"
-      }
-    },
-    {
-      "id": "kids-riddles-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "I am light as a feather, yet the strongest man cannot hold me long. What am I?",
-        "ar": "أنا خفيف كالريشة لكن أقوى رجل لا يستطيع إمساكي طويلاً. ما أنا؟"
-      },
-      "answer": {
-        "en": "Breath",
-        "ar": "النفَس"
-      }
-    },
-    {
-      "id": "kids-riddles-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Think Harder",
-        "ar": "فكّر أكثر"
-      },
-      "question": {
-        "en": "I am full of holes but still hold water. What am I?",
-        "ar": "أنا مليء بالثقوب لكنني أحتجز الماء. ما أنا؟"
-      },
-      "answer": {
-        "en": "A sponge",
-        "ar": "الإسفنج"
-      }
-    },
-    {
-      "id": "kids-riddles-019",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "I have no mouth but always reply when spoken to. What am I?",
-        "ar": "لا فم لديّ لكنني أرد دائماً حين يُكلَّم. ما أنا؟"
-      },
-      "answer": {
-        "en": "An echo",
-        "ar": "الصدى"
-      }
-    },
-    {
-      "id": "kids-riddles-020",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "The man who made it doesn't want it. The man who bought it doesn't need it. Who needs it doesn't know it. What is it?",
-        "ar": "من صنعه لا يريده. من اشتراه لا يحتاجه. من يحتاجه لا يعلم. ما هو؟"
-      },
-      "answer": {
-        "en": "A coffin",
-        "ar": "التابوت"
-      }
-    },
-    {
-      "id": "kids-riddles-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "I can be cracked, made, told, and played. What am I?",
-        "ar": "يمكن أن تُكسَر، تُصنَع، تُقال، وتُلعَب. ما أنا؟"
-      },
-      "answer": {
-        "en": "A joke",
-        "ar": "النكتة"
-      }
-    },
-    {
-      "id": "kids-riddles-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "I have a bed but never sleep. I have a mouth but never speak. What am I?",
-        "ar": "لديّ سرير لكنني لا أنام. لديّ فم لكنني لا أتكلم. ما أنا؟"
-      },
-      "answer": {
-        "en": "A river",
-        "ar": "النهر"
-      }
-    },
-    {
-      "id": "kids-riddles-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "I fly without wings. I cry without eyes. Wherever I go, darkness follows. What am I?",
-        "ar": "أطير بلا أجنحة. أبكي بلا عيون. حيثما ذهبت تبعني الظلام. ما أنا؟"
-      },
-      "answer": {
-        "en": "A cloud",
-        "ar": "السحابة"
-      }
-    },
-    {
-      "id": "kids-riddles-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "What belongs to you, but others use it more than you do?",
-        "ar": "ما الذي ينتمي إليك لكن الآخرون يستخدمونه أكثر منك؟"
-      },
-      "answer": {
-        "en": "Your name",
-        "ar": "اسمك"
-      }
-    },
-    {
-      "id": "kids-riddles-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "What is always coming but never arrives?",
-        "ar": "ما الذي يأتي دائماً لكنه لا يصل أبداً؟"
-      },
-      "answer": {
-        "en": "Tomorrow",
-        "ar": "الغد"
-      }
-    },
-    {
-      "id": "kids-riddles-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "What travels around the world but stays in one corner?",
-        "ar": "ما الذي يسافر حول العالم لكنه يبقى في زاوية واحدة؟"
-      },
-      "answer": {
-        "en": "A stamp",
-        "ar": "الطابع البريدي"
-      }
-    },
-    {
-      "id": "kids-riddles-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "A box without hinges, key, or lid, yet golden treasure inside is hid. What is it?",
-        "ar": "صندوق بلا مفصلات ولا مفتاح ولا غطاء، بداخله كنز ذهبي. ما هو؟"
-      },
-      "answer": {
-        "en": "An egg",
-        "ar": "البيضة"
-      }
-    },
-    {
-      "id": "kids-riddles-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "What 5-letter word becomes shorter when you add two letters to it?",
-        "ar": "ما الكلمة المكونة من 5 أحرف تصبح أقصر حين تضيف إليها حرفين؟"
-      },
-      "answer": {
-        "en": "Short",
-        "ar": "Short (تصبح Shorter أي أقصر)"
-      }
-    },
-    {
-      "id": "kids-riddles-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "I am tall when I'm young, and short when I'm old. What am I?",
-        "ar": "أنا طويل حين أكون صغيراً وقصير حين أكبر. ما أنا؟"
-      },
-      "answer": {
-        "en": "A candle",
-        "ar": "الشمعة"
-      }
-    },
-    {
-      "id": "kids-riddles-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Brain Teasers",
-        "ar": "ألغاز ذكاء"
-      },
-      "question": {
-        "en": "What can you catch but not throw?",
-        "ar": "ما الذي يمكنك الإمساك به لكن لا يمكنك رميه؟"
-      },
-      "answer": {
-        "en": "A cold",
-        "ar": "الزكام"
-      }
+    "answer": {
+      "en": "A crayon",
+      "ar": "قلم شمع ملوّن"
     }
-  ]
-}
+  },
+  {
+    "id": "kids-riddles-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Wordplay & Classic Riddles",
+      "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
+    },
+    "question": {
+      "en": "What is orange and sounds like a parrot?",
+      "ar": "ما الذي يكون برتقالياً ويشبه صوته صوت الببغاء؟"
+    },
+    "answer": {
+      "en": "A carrot",
+      "ar": "الجزرة"
+    }
+  },
+  {
+    "id": "kids-riddles-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Art, Paper & School Tools",
+      "ar": "الفن والورق والأدوات المدرسية"
+    },
+    "question": {
+      "en": "I begin as a flat square. With careful folds, I can become a crane without growing feathers. What am I?",
+      "ar": "أبدأ مربعاً مسطّحاً، وبطيّات دقيقة أتحول إلى طائر كركي من دون أن ينبت لي ريش. ما أنا؟"
+    },
+    "answer": {
+      "en": "A sheet of origami paper",
+      "ar": "ورقة أوريغامي"
+    }
+  },
+  {
+    "id": "kids-riddles-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Objects, Clothing & Technology",
+      "ar": "الأشياء والملابس والتقنية"
+    },
+    "question": {
+      "en": "I stand beside a bed with one foot and a shade. Touch my switch and I make a small sun indoors. What am I?",
+      "ar": "أقف بجانب السرير على قدم واحدة ولي غطاء. المس مفتاحي فأصنع شمساً صغيرة داخل الغرفة. ما أنا؟"
+    },
+    "answer": {
+      "en": "A bedside lamp",
+      "ar": "مصباح جانبي"
+    }
+  },
+  {
+    "id": "kids-riddles-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Objects, Clothing & Technology",
+      "ar": "الأشياء والملابس والتقنية"
+    },
+    "question": {
+      "en": "We are soft twins that guard your feet, but we hide whenever your shoes arrive. What are we?",
+      "ar": "نحن توأمان ناعمان نحمي قدميك، لكننا نختبئ كلما حضرت الأحذية. ما نحن؟"
+    },
+    "answer": {
+      "en": "A pair of socks",
+      "ar": "زوج من الجوارب"
+    }
+  },
+  {
+    "id": "kids-riddles-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Objects, Clothing & Technology",
+      "ar": "الأشياء والملابس والتقنية"
+    },
+    "question": {
+      "en": "I sit on your nose with two clear windows and help fuzzy letters become sharp. What am I?",
+      "ar": "أجلس على أنفك بنافذتين شفافتين، وأجعل الحروف الضبابية واضحة. ما أنا؟"
+    },
+    "answer": {
+      "en": "Eyeglasses",
+      "ar": "النظارات"
+    }
+  },
+  {
+    "id": "kids-riddles-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Wordplay & Classic Riddles",
+      "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
+    },
+    "question": {
+      "en": "I follow you all day long, but when the sun goes down, I'm gone. What am I?",
+      "ar": "أتبعك طوال النهار، لكن حين تغرب الشمس أختفي. ما أنا؟"
+    },
+    "answer": {
+      "en": "A shadow",
+      "ar": "الظل"
+    }
+  },
+  {
+    "id": "kids-riddles-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Art, Paper & School Tools",
+      "ar": "الفن والورق والأدوات المدرسية"
+    },
+    "question": {
+      "en": "I start with empty pages. After every drawing, I remember a picture without taking a photograph. What am I?",
+      "ar": "أبدأ بصفحات فارغة، وبعد كل رسمة أحفظ صورة من دون أن ألتقطها بكاميرا. ما أنا؟"
+    },
+    "answer": {
+      "en": "A sketchbook",
+      "ar": "دفتر رسم"
+    }
+  },
+  {
+    "id": "kids-riddles-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Art, Paper & School Tools",
+      "ar": "الفن والورق والأدوات المدرسية"
+    },
+    "question": {
+      "en": "I wear a cap, carry ink instead of blood, and leave words wherever my tip walks. What am I?",
+      "ar": "أرتدي غطاءً، وأحمل حبراً بدلاً من الدم، وأترك كلمات حيثما سار رأسي. ما أنا؟"
+    },
+    "answer": {
+      "en": "A pen",
+      "ar": "القلم"
+    }
+  },
+  {
+    "id": "kids-riddles-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Objects, Clothing & Technology",
+      "ar": "الأشياء والملابس والتقنية"
+    },
+    "question": {
+      "en": "I have a tongue that never tastes and laces that never tie themselves. Your foot lives inside me. What am I?",
+      "ar": "لي لسان لا يتذوق، وأربطة لا تعقد نفسها، وتسكن قدمك بداخلي. ما أنا؟"
+    },
+    "answer": {
+      "en": "A shoe",
+      "ar": "الحذاء"
+    }
+  },
+  {
+    "id": "kids-riddles-011",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "Four red blocks remain after two are removed from a set of six. One blue block is placed on each remaining red block. How many blocks are now in the four stacks?",
+      "ar": "بقيت أربع مكعبات حمراء بعد إزالة اثنين من مجموعة من ستة. وُضع مكعب أزرق فوق كل مكعب أحمر متبقٍ. كم مكعباً أصبح في الأكوام الأربعة؟"
+    },
+    "answer": {
+      "en": "8 blocks — four red and four blue",
+      "ar": "8 مكعبات — أربعة حمراء وأربعة زرقاء"
+    }
+  },
+  {
+    "id": "kids-riddles-012",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "I divide a year into twelve named parts and give every date its own square. What am I?",
+      "ar": "أقسّم السنة إلى اثني عشر جزءاً له أسماء، وأمنح كل تاريخ مربعاً خاصاً به. ما أنا؟"
+    },
+    "answer": {
+      "en": "A calendar",
+      "ar": "التقويم"
+    }
+  },
+  {
+    "id": "kids-riddles-013",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Wordplay & Classic Riddles",
+      "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
+    },
+    "question": {
+      "en": "What can you break even if you never pick it up or touch it?",
+      "ar": "ما الذي يمكنك كسره حتى دون أن تلمسه؟"
+    },
+    "answer": {
+      "en": "A promise",
+      "ar": "الوعد"
+    }
+  },
+  {
+    "id": "kids-riddles-014",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "I am spoken backward before a rocket rises — three, two, one — and I end exactly when the journey begins. What am I?",
+      "ar": "أُقال بترتيب عكسي قبل انطلاق الصاروخ — ثلاثة، اثنان، واحد — وأنتهي لحظة بدء الرحلة. ما أنا؟"
+    },
+    "answer": {
+      "en": "A countdown",
+      "ar": "العدّ التنازلي"
+    }
+  },
+  {
+    "id": "kids-riddles-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "If today is two days before Friday, what day is today?",
+      "ar": "إذا كان اليوم يسبق يوم الجمعة بيومين، فما اليوم؟"
+    },
+    "answer": {
+      "en": "Wednesday",
+      "ar": "الأربعاء"
+    }
+  },
+  {
+    "id": "kids-riddles-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Objects, Clothing & Technology",
+      "ar": "الأشياء والملابس والتقنية"
+    },
+    "question": {
+      "en": "I fit in a pocket, wake with a passcode, and hold maps, messages, and games without using shelves. What am I?",
+      "ar": "أدخل في الجيب، وأستيقظ برمز مرور، وأحمل خرائط ورسائل وألعاباً من دون رفوف. ما أنا؟"
+    },
+    "answer": {
+      "en": "A smartphone",
+      "ar": "هاتف ذكي"
+    }
+  },
+  {
+    "id": "kids-riddles-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Art, Paper & School Tools",
+      "ar": "الفن والورق والأدوات المدرسية"
+    },
+    "question": {
+      "en": "I grow smaller whenever I remove a pencil mistake, yet I never write anything myself. What am I?",
+      "ar": "أصغر كلما أزلت خطأً بالقلم الرصاص، ومع ذلك لا أكتب شيئاً بنفسي. ما أنا؟"
+    },
+    "answer": {
+      "en": "An eraser",
+      "ar": "الممحاة"
+    }
+  },
+  {
+    "id": "kids-riddles-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Objects, Clothing & Technology",
+      "ar": "الأشياء والملابس والتقنية"
+    },
+    "question": {
+      "en": "I have one handle and an open mouth. I hold your drink quietly until you tilt me. What am I?",
+      "ar": "لي مقبض واحد وفم مفتوح، وأحمل شرابك بهدوء حتى تميلني. ما أنا؟"
+    },
+    "answer": {
+      "en": "A mug",
+      "ar": "كوب ذو مقبض"
+    }
+  },
+  {
+    "id": "kids-riddles-019",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Logic, Codes & Patterns",
+      "ar": "المنطق والشفرات والأنماط"
+    },
+    "question": {
+      "en": "A three-digit code has a middle digit of 3. Its first digit is twice its last, and all three digits add to 9. What is the code?",
+      "ar": "رمز من ثلاثة أرقام، رقمه الأوسط 3. الرقم الأول يساوي ضعف الأخير، ومجموع الأرقام الثلاثة 9. ما الرمز؟"
+    },
+    "answer": {
+      "en": "432",
+      "ar": "432"
+    }
+  },
+  {
+    "id": "kids-riddles-020",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Logic, Codes & Patterns",
+      "ar": "المنطق والشفرات والأنماط"
+    },
+    "question": {
+      "en": "I am a battlefield with 64 equal squares and two armies that begin in opposite rows. What am I?",
+      "ar": "أنا ساحة معركة فيها 64 مربعاً متساوياً وجيشان يبدآن في صفين متقابلين. ما أنا؟"
+    },
+    "answer": {
+      "en": "A chessboard",
+      "ar": "رقعة الشطرنج"
+    }
+  },
+  {
+    "id": "kids-riddles-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "My two digits add to 9. I am 27 greater than the number made by reversing my digits. What number am I?",
+      "ar": "مجموع رقميّ يساوي 9، وأنا أكبر بـ27 من العدد الناتج عن عكس ترتيبهما. ما العدد؟"
+    },
+    "answer": {
+      "en": "63",
+      "ar": "63"
+    }
+  },
+  {
+    "id": "kids-riddles-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Logic, Codes & Patterns",
+      "ar": "المنطق والشفرات والأنماط"
+    },
+    "question": {
+      "en": "The numbers 2, 6, 12, and 20 are made by multiplying neighboring whole numbers: 1×2, 2×3, 3×4, 4×5. What comes next?",
+      "ar": "الأعداد 2 و6 و12 و20 ناتجة عن ضرب عددين صحيحين متتاليين: 1×2، 2×3، 3×4، 4×5. ما العدد التالي؟"
+    },
+    "answer": {
+      "en": "30 — from 5×6",
+      "ar": "30 — من 5×6"
+    }
+  },
+  {
+    "id": "kids-riddles-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Logic, Codes & Patterns",
+      "ar": "المنطق والشفرات والأنماط"
+    },
+    "question": {
+      "en": "A square garden has a lamp at each corner and one lamp halfway along each side. How many lamps are there altogether?",
+      "ar": "في حديقة مربعة مصباح عند كل زاوية ومصباح في منتصف كل ضلع. كم مصباحاً يوجد بالمجموع؟"
+    },
+    "answer": {
+      "en": "8 lamps",
+      "ar": "8 مصابيح"
+    }
+  },
+  {
+    "id": "kids-riddles-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "I am less than 50, divisible by both 6 and 8, and my digits add to 6. What number am I?",
+      "ar": "أنا أقل من 50، وأقبل القسمة على 6 وعلى 8، ومجموع رقميّ يساوي 6. ما العدد؟"
+    },
+    "answer": {
+      "en": "24",
+      "ar": "24"
+    }
+  },
+  {
+    "id": "kids-riddles-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "A toy robot faces west. It turns a quarter-turn right, a half-turn right, then a quarter-turn left. Which direction does it face?",
+      "ar": "روبوت لعبة يواجه الغرب. يدور ربع دورة يميناً، ثم نصف دورة يميناً، ثم ربع دورة يساراً. أي اتجاه يواجه الآن؟"
+    },
+    "answer": {
+      "en": "East",
+      "ar": "الشرق"
+    }
+  },
+  {
+    "id": "kids-riddles-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "The pages of a 12-page comic are numbered from 1 through 12. How many times is the digit 1 printed?",
+      "ar": "صفحات قصة مصوّرة من 12 صفحة مرقّمة من 1 إلى 12. كم مرة طُبع الرقم 1؟"
+    },
+    "answer": {
+      "en": "5 times — on pages 1, 10, twice on 11, and on 12",
+      "ar": "5 مرات — في الصفحات 1 و10، ومرتين في 11، ومرة في 12"
+    }
+  },
+  {
+    "id": "kids-riddles-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Logic, Codes & Patterns",
+      "ar": "المنطق والشفرات والأنماط"
+    },
+    "question": {
+      "en": "A lock code uses the digits 1, 2, and 3 exactly once. It is greater than 300, it is even, and its middle digit is 1. What is the code?",
+      "ar": "رمز قفل يستخدم الأرقام 1 و2 و3 مرة واحدة لكل منها. هو أكبر من 300، وعدد زوجي، ورقمه الأوسط 1. ما الرمز؟"
+    },
+    "answer": {
+      "en": "312",
+      "ar": "312"
+    }
+  },
+  {
+    "id": "kids-riddles-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Numbers & Counting",
+      "ar": "الأعداد والعد"
+    },
+    "question": {
+      "en": "Two cups hold 10 marbles altogether. One cup has four more marbles than the other. How many marbles are in each cup?",
+      "ar": "يحتوي كوبان على 10 كرات صغيرة بالمجموع. في أحدهما أربع كرات أكثر من الآخر. كم كرة في كل كوب؟"
+    },
+    "answer": {
+      "en": "7 marbles and 3 marbles",
+      "ar": "7 كرات و3 كرات"
+    }
+  },
+  {
+    "id": "kids-riddles-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Time, Space & Directions",
+      "ar": "الوقت والفضاء والاتجاهات"
+    },
+    "question": {
+      "en": "A clock chimes once at 1, twice at 2, and so on. How many chimes does it make from 1 through 5?",
+      "ar": "تدق الساعة مرة عند الواحدة، ومرتين عند الثانية، وهكذا. كم دقة تصدر من الواحدة حتى الخامسة؟"
+    },
+    "answer": {
+      "en": "15 chimes",
+      "ar": "15 دقة"
+    }
+  },
+  {
+    "id": "kids-riddles-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Wordplay & Classic Riddles",
+      "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
+    },
+    "question": {
+      "en": "What can you catch but not throw?",
+      "ar": "ما الذي يمكنك الإمساك به لكن لا يمكنك رميه؟"
+    },
+    "answer": {
+      "en": "A cold",
+      "ar": "الزكام"
+    }
+  }
+]

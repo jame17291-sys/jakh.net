@@ -1,508 +1,482 @@
-{
-  "slug": "art-and-painters",
-  "title": {
-    "en": "Art & Painters",
-    "ar": "الفن والرسامون"
-  },
-  "description": {
-    "en": "Test your knowledge of famous painters, iconic works, and art movements.",
-    "ar": "اختبر معرفتك بالرسامين المشهورين والأعمال الأيقونية والحركات الفنية."
-  },
-  "cluster": {
-    "en": "Media & Stories",
-    "ar": "إعلام وقصص"
-  },
-  "cluster_key": "media",
-  "emoji": "🎨",
-  "mode": "quiz",
-  "count": 30,
-  "difficultyCounts": {
-    "easy": 10,
-    "medium": 10,
-    "hard": 10,
-    "very-advanced": 0
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "art-and-painters-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Famous Works",
-        "ar": "أعمال مشهورة"
-      },
-      "question": {
-        "en": "Which Italian polymath painted the Mona Lisa?",
-        "ar": "من رسم لوحة الموناليزا؟"
-      },
-      "answer": {
-        "en": "Leonardo da Vinci",
-        "ar": "ليوناردو دا فينشي"
-      }
+[
+  {
+    "id": "art-and-painters-001",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
     },
-    {
-      "id": "art-and-painters-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Famous Artists",
-        "ar": "فنانون مشهورون"
-      },
-      "question": {
-        "en": "Which Dutch Post-Impressionist famously cut off part of his own ear?",
-        "ar": "أي رسام هولندي بعد انطباعي اشتُهر بقطع جزء من أذنه؟"
-      },
-      "answer": {
-        "en": "Vincent van Gogh",
-        "ar": "فنسنت فان غوخ"
-      }
+    "question": {
+      "en": "Which Italian polymath painted the Mona Lisa?",
+      "ar": "من رسم لوحة الموناليزا؟"
     },
-    {
-      "id": "art-and-painters-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Famous Works",
-        "ar": "أعمال مشهورة"
-      },
-      "question": {
-        "en": "Who painted the iconic fresco on the ceiling of the Sistine Chapel?",
-        "ar": "من رسم اللوحة الجدارية الشهيرة على سقف كنيسة سيستين؟"
-      },
-      "answer": {
-        "en": "Michelangelo",
-        "ar": "مايكل أنجلو"
-      }
-    },
-    {
-      "id": "art-and-painters-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Color Theory",
-        "ar": "نظرية الألوان"
-      },
-      "question": {
-        "en": "What are the three primary colors in traditional painting?",
-        "ar": "ما هي الألوان الأساسية الثلاثة في الرسم التقليدي؟"
-      },
-      "answer": {
-        "en": "Red, Yellow, Blue",
-        "ar": "الأحمر والأصفر والأزرق"
-      }
-    },
-    {
-      "id": "art-and-painters-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Pop Art",
-        "ar": "فن البوب"
-      },
-      "question": {
-        "en": "Which American pop artist is famous for his paintings of Campbell's Soup Cans?",
-        "ar": "أي فنان بوب أمريكي اشتُهر بلوحاته لعلب شوربة كامبل؟"
-      },
-      "answer": {
-        "en": "Andy Warhol",
-        "ar": "آندي وارهول"
-      }
-    },
-    {
-      "id": "art-and-painters-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Art Terms",
-        "ar": "مصطلحات فنية"
-      },
-      "question": {
-        "en": "What is the term for a painting of a person's face and shoulders?",
-        "ar": "ما المصطلح المستخدم لوصف لوحة تُصوِّر وجه شخص وكتفيه؟"
-      },
-      "answer": {
-        "en": "Portrait",
-        "ar": "بورتريه (صورة شخصية)"
-      }
-    },
-    {
-      "id": "art-and-painters-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Surrealism",
-        "ar": "السريالية"
-      },
-      "question": {
-        "en": "What object is famously melting in Dalí's 'The Persistence of Memory'?",
-        "ar": "ما الشيء الذي يذوب بشكل مشهور في لوحة دالي 'استمرارية الذاكرة'؟"
-      },
-      "answer": {
-        "en": "Clocks / Watches",
-        "ar": "الساعات"
-      }
-    },
-    {
-      "id": "art-and-painters-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Impressionism",
-        "ar": "الانطباعية"
-      },
-      "question": {
-        "en": "Which French Impressionist is famous for his series of Water Lilies paintings?",
-        "ar": "أي رسام فرنسي انطباعي اشتُهر بسلسلة لوحات أزهار الماء؟"
-      },
-      "answer": {
-        "en": "Claude Monet",
-        "ar": "كلود مونيه"
-      }
-    },
-    {
-      "id": "art-and-painters-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Famous Works",
-        "ar": "أعمال مشهورة"
-      },
-      "question": {
-        "en": "Which Norwegian artist painted the existential masterpiece 'The Scream'?",
-        "ar": "أي فنان نرويجي رسم التحفة الوجودية 'الصرخة'؟"
-      },
-      "answer": {
-        "en": "Edvard Munch",
-        "ar": "إدفارد مونك"
-      }
-    },
-    {
-      "id": "art-and-painters-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Art Techniques",
-        "ar": "تقنيات فنية"
-      },
-      "question": {
-        "en": "What do you call a painting executed on fresh, wet plaster?",
-        "ar": "ما الاسم الذي يُطلق على اللوحة التي تُرسم على الجص الرطب؟"
-      },
-      "answer": {
-        "en": "Fresco",
-        "ar": "الفريسكو (لوحة جدارية)"
-      }
-    },
-    {
-      "id": "art-and-painters-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Art Movements",
-        "ar": "حركات فنية"
-      },
-      "question": {
-        "en": "Along with Pablo Picasso, who is credited with co-founding the Cubist movement?",
-        "ar": "من يُنسب إليه تأسيس الحركة التكعيبية مع بابلو بيكاسو؟"
-      },
-      "answer": {
-        "en": "Georges Braque",
-        "ar": "جورج براك"
-      }
-    },
-    {
-      "id": "art-and-painters-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Dutch Masters",
-        "ar": "الأساتذة الهولنديون"
-      },
-      "question": {
-        "en": "Which Dutch Golden Age painter created 'Girl with the Pearl Earring'?",
-        "ar": "أي رسام هولندي من العصر الذهبي رسم 'الفتاة ذات القرط اللؤلؤي'؟"
-      },
-      "answer": {
-        "en": "Johannes Vermeer",
-        "ar": "يوهانس فيرمير"
-      }
-    },
-    {
-      "id": "art-and-painters-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Art Techniques",
-        "ar": "تقنيات فنية"
-      },
-      "question": {
-        "en": "What is the painting technique where small, distinct dots of color are applied to form an image?",
-        "ar": "ما تقنية الرسم التي تعتمد على وضع نقاط صغيرة متميزة من الألوان لتكوين صورة؟"
-      },
-      "answer": {
-        "en": "Pointillism",
-        "ar": "النقطانية (الرسم بالنقاط)"
-      }
-    },
-    {
-      "id": "art-and-painters-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Dutch Masters",
-        "ar": "الأساتذة الهولنديون"
-      },
-      "question": {
-        "en": "Which artist painted the large-scale militia portrait commonly known as 'The Night Watch'?",
-        "ar": "من رسم اللوحة الكبيرة للحرس المعروفة بـ'دورية الليل'؟"
-      },
-      "answer": {
-        "en": "Rembrandt",
-        "ar": "رامبرانت"
-      }
-    },
-    {
-      "id": "art-and-painters-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "American Art",
-        "ar": "الفن الأمريكي"
-      },
-      "question": {
-        "en": "In Grant Wood's 'American Gothic,' what do the two figures hold?",
-        "ar": "ماذا يحمل الشخصان في لوحة 'القوطي الأمريكي' لغرانت وود؟"
-      },
-      "answer": {
-        "en": "A pitchfork",
-        "ar": "شوكة الحقل"
-      }
-    },
-    {
-      "id": "art-and-painters-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Art Movements",
-        "ar": "حركات فنية"
-      },
-      "question": {
-        "en": "Which art movement, featuring artists like René Magritte, sought to channel the unconscious mind?",
-        "ar": "أي حركة فنية، يمثلها فنانون كرينيه ماغريت، سعت إلى التعبير عن اللاوعي؟"
-      },
-      "answer": {
-        "en": "Surrealism",
-        "ar": "السريالية"
-      }
-    },
-    {
-      "id": "art-and-painters-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Renaissance",
-        "ar": "عصر النهضة"
-      },
-      "question": {
-        "en": "In Michelangelo's 'The Creation of Adam,' what is God's hand reaching out to touch?",
-        "ar": "في لوحة 'خلق آدم' لمايكل أنجلو، ما الذي تمتد يد الله لتلمسه؟"
-      },
-      "answer": {
-        "en": "Adam's finger",
-        "ar": "إصبع آدم"
-      }
-    },
-    {
-      "id": "art-and-painters-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Street Art",
-        "ar": "فن الشوارع"
-      },
-      "question": {
-        "en": "What is the pseudonym of the anonymous British street artist known for stenciled political works?",
-        "ar": "ما الاسم المستعار للفنان البريطاني المجهول المعروف بأعماله السياسية المرسومة بالقوالب؟"
-      },
-      "answer": {
-        "en": "Banksy",
-        "ar": "بانكسي"
-      }
-    },
-    {
-      "id": "art-and-painters-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Art History",
-        "ar": "تاريخ الفن"
-      },
-      "question": {
-        "en": "The term 'Renaissance' translates to what English word?",
-        "ar": "ما ترجمة كلمة 'Renaissance' إلى العربية؟"
-      },
-      "answer": {
-        "en": "Rebirth",
-        "ar": "إعادة الميلاد / النهضة"
-      }
-    },
-    {
-      "id": "art-and-painters-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Art Techniques",
-        "ar": "تقنيات فنية"
-      },
-      "question": {
-        "en": "What is the term for paint laid onto a canvas in very thick layers?",
-        "ar": "ما المصطلح الذي يشير إلى الطلاء المُوضع على اللوحة في طبقات سميكة جداً؟"
-      },
-      "answer": {
-        "en": "Impasto",
-        "ar": "الإمباستو"
-      }
-    },
-    {
-      "id": "art-and-painters-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Art History",
-        "ar": "تاريخ الفن"
-      },
-      "question": {
-        "en": "What is the actual full original title of Rembrandt's 'The Night Watch'?",
-        "ar": "ما العنوان الكامل الأصلي للوحة رامبرانت المعروفة بـ'دورية الليل'؟"
-      },
-      "answer": {
-        "en": "Militia Company of District II under Captain Frans Banninck Cocq",
-        "ar": "فصيلة الميليشيا الثانية بقيادة النقيب فرانس بانينك كوك"
-      }
-    },
-    {
-      "id": "art-and-painters-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Art Heist",
-        "ar": "سرقة الفن"
-      },
-      "question": {
-        "en": "In 1990, the Isabella Stewart Gardner Museum was robbed. Name one of the stolen artists.",
-        "ar": "في 1990 سُرق متحف إيزابيلا ستيوارت غاردنر. اذكر اسم أحد الفنانين المسروقة أعمالهم."
-      },
-      "answer": {
-        "en": "Vermeer, Rembrandt, Degas, or Manet",
-        "ar": "فيرمير أو رامبرانت أو ديغا أو مانيه"
-      }
-    },
-    {
-      "id": "art-and-painters-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Japanese Art",
-        "ar": "الفن الياباني"
-      },
-      "question": {
-        "en": "'The Great Wave off Kanagawa' is a woodblock print by which Japanese artist?",
-        "ar": "لوحة 'الموجة العظيمة قبالة كاناغاوا' هي طباعة خشبية لأي فنان ياباني؟"
-      },
-      "answer": {
-        "en": "Katsushika Hokusai",
-        "ar": "كاتسوشيكا هوكوساي"
-      }
-    },
-    {
-      "id": "art-and-painters-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Abstract Art",
-        "ar": "الفن التجريدي"
-      },
-      "question": {
-        "en": "Which Russian artist is credited with painting one of the first purely abstract works in 1910?",
-        "ar": "أي فنان روسي يُنسب إليه رسم أحد أوائل الأعمال التجريدية البحتة عام 1910؟"
-      },
-      "answer": {
-        "en": "Wassily Kandinsky",
-        "ar": "واسيلي كاندينسكي"
-      }
-    },
-    {
-      "id": "art-and-painters-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Art Terms",
-        "ar": "مصطلحات فنية"
-      },
-      "question": {
-        "en": "What Italian term describes strong contrasts between light and dark to achieve volume?",
-        "ar": "ما المصطلح الإيطالي الذي يصف التباينات القوية بين الضوء والظل لإيجاد إحساس بالحجم؟"
-      },
-      "answer": {
-        "en": "Chiaroscuro",
-        "ar": "كياروسكورو"
-      }
-    },
-    {
-      "id": "art-and-painters-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Surrealism",
-        "ar": "السريالية"
-      },
-      "question": {
-        "en": "Magritte's pipe painting says 'Ceci n'est pas une pipe.' What does this translate to?",
-        "ar": "لوحة ماغريت للغليون مكتوب عليها 'Ceci n'est pas une pipe'. ما معنى هذه العبارة؟"
-      },
-      "answer": {
-        "en": "This is not a pipe",
-        "ar": "هذه ليست غليوناً"
-      }
-    },
-    {
-      "id": "art-and-painters-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Expressionism",
-        "ar": "التعبيرية"
-      },
-      "question": {
-        "en": "Der Blaue Reiter was a fundamental group of Expressionist artists founded in which country?",
-        "ar": "في أي دولة تأسست مجموعة 'الفارس الأزرق' الفنية التعبيرية؟"
-      },
-      "answer": {
-        "en": "Germany",
-        "ar": "ألمانيا"
-      }
-    },
-    {
-      "id": "art-and-painters-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Flemish Art",
-        "ar": "الفن الفلمنكي"
-      },
-      "question": {
-        "en": "In van Eyck's 'Arnolfini Portrait,' what object on the back wall reflects the entire room?",
-        "ar": "في 'صورة أرنولفيني' لفان إيك، ما الشيء المعلق على الجدار الخلفي الذي يعكس الغرفة بأكملها؟"
-      },
-      "answer": {
-        "en": "A convex mirror",
-        "ar": "مرآة محدبة"
-      }
-    },
-    {
-      "id": "art-and-painters-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Spanish Art",
-        "ar": "الفن الإسباني"
-      },
-      "question": {
-        "en": "What is the collective name for the 14 intense murals Goya painted directly onto his house walls?",
-        "ar": "ما الاسم الجماعي للوحات الجدارية الـ 14 التي رسمها غويا مباشرة على جدران منزله؟"
-      },
-      "answer": {
-        "en": "The Black Paintings",
-        "ar": "اللوحات السوداء"
-      }
-    },
-    {
-      "id": "art-and-painters-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Pigments",
-        "ar": "الأصباغ"
-      },
-      "question": {
-        "en": "During the Renaissance, ultramarine was more expensive than gold. What stone was it ground from?",
-        "ar": "في عصر النهضة، كان الأزرق الأولترامارين أغلى من الذهب. من أي حجر كان يُستخرج؟"
-      },
-      "answer": {
-        "en": "Lapis lazuli",
-        "ar": "اللازورد"
-      }
+    "answer": {
+      "en": "Leonardo da Vinci",
+      "ar": "ليوناردو دا فينشي"
     }
-  ]
-}
+  },
+  {
+    "id": "art-and-painters-002",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Dutch Post-Impressionist famously cut off part of his own ear?",
+      "ar": "أي رسام هولندي بعد انطباعي اشتُهر بقطع جزء من أذنه؟"
+    },
+    "answer": {
+      "en": "Vincent van Gogh",
+      "ar": "فنسنت فان غوخ"
+    }
+  },
+  {
+    "id": "art-and-painters-003",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Who painted the iconic fresco on the ceiling of the Sistine Chapel?",
+      "ar": "من رسم اللوحة الجدارية الشهيرة على سقف كنيسة سيستين؟"
+    },
+    "answer": {
+      "en": "Michelangelo",
+      "ar": "مايكل أنجلو"
+    }
+  },
+  {
+    "id": "art-and-painters-004",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Visual Language",
+        "ar": "اللغة البصرية"
+    },
+    "question": {
+      "en": "What are the three primary colors in traditional painting?",
+      "ar": "ما هي الألوان الأساسية الثلاثة في الرسم التقليدي؟"
+    },
+    "answer": {
+      "en": "Red, Yellow, Blue",
+      "ar": "الأحمر والأصفر والأزرق"
+    }
+  },
+  {
+    "id": "art-and-painters-005",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Which American pop artist is famous for his paintings of Campbell's Soup Cans?",
+      "ar": "أي فنان بوب أمريكي اشتُهر بلوحاته لعلب شوربة كامبل؟"
+    },
+    "answer": {
+      "en": "Andy Warhol",
+      "ar": "آندي وارهول"
+    }
+  },
+  {
+    "id": "art-and-painters-006",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Visual Language",
+        "ar": "اللغة البصرية"
+    },
+    "question": {
+      "en": "What is the term for a painting of a person's face and shoulders?",
+      "ar": "ما المصطلح المستخدم لوصف لوحة تُصوِّر وجه شخص وكتفيه؟"
+    },
+    "answer": {
+      "en": "Portrait",
+      "ar": "بورتريه (صورة شخصية)"
+    }
+  },
+  {
+    "id": "art-and-painters-007",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "What object is famously melting in Dalí's 'The Persistence of Memory'?",
+      "ar": "ما الشيء الذي يذوب بشكل مشهور في لوحة دالي 'استمرارية الذاكرة'؟"
+    },
+    "answer": {
+      "en": "Clocks / Watches",
+      "ar": "الساعات"
+    }
+  },
+  {
+    "id": "art-and-painters-008",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Which French Impressionist is famous for his series of Water Lilies paintings?",
+      "ar": "أي رسام فرنسي انطباعي اشتُهر بسلسلة لوحات أزهار الماء؟"
+    },
+    "answer": {
+      "en": "Claude Monet",
+      "ar": "كلود مونيه"
+    }
+  },
+  {
+    "id": "art-and-painters-009",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Norwegian artist painted the existential masterpiece 'The Scream'?",
+      "ar": "أي فنان نرويجي رسم التحفة الوجودية 'الصرخة'؟"
+    },
+    "answer": {
+      "en": "Edvard Munch",
+      "ar": "إدفارد مونك"
+    }
+  },
+  {
+    "id": "art-and-painters-010",
+    "difficulty": "easy",
+    "subcategory": {
+        "en": "Techniques & Materials",
+        "ar": "التقنيات والمواد"
+    },
+    "question": {
+      "en": "What do you call a painting executed on fresh, wet plaster?",
+      "ar": "ما الاسم الذي يُطلق على اللوحة التي تُرسم على الجص الرطب؟"
+    },
+    "answer": {
+      "en": "Fresco",
+      "ar": "الفريسكو (لوحة جدارية)"
+    }
+  },
+  {
+    "id": "art-and-painters-011",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Along with Pablo Picasso, who is credited with co-founding the Cubist movement?",
+      "ar": "من يُنسب إليه تأسيس الحركة التكعيبية مع بابلو بيكاسو؟"
+    },
+    "answer": {
+      "en": "Georges Braque",
+      "ar": "جورج براك"
+    }
+  },
+  {
+    "id": "art-and-painters-012",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which Dutch Golden Age painter created 'Girl with the Pearl Earring'?",
+      "ar": "أي رسام هولندي من العصر الذهبي رسم 'الفتاة ذات القرط اللؤلؤي'؟"
+    },
+    "answer": {
+      "en": "Johannes Vermeer",
+      "ar": "يوهانس فيرمير"
+    }
+  },
+  {
+    "id": "art-and-painters-013",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Techniques & Materials",
+        "ar": "التقنيات والمواد"
+    },
+    "question": {
+      "en": "What is the painting technique where small, distinct dots of color are applied to form an image?",
+      "ar": "ما تقنية الرسم التي تعتمد على وضع نقاط صغيرة متميزة من الألوان لتكوين صورة؟"
+    },
+    "answer": {
+      "en": "Pointillism",
+      "ar": "النقطانية (الرسم بالنقاط)"
+    }
+  },
+  {
+    "id": "art-and-painters-014",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "Which artist painted the large-scale militia portrait commonly known as 'The Night Watch'?",
+      "ar": "من رسم اللوحة الكبيرة للحرس المعروفة بـ'دورية الليل'؟"
+    },
+    "answer": {
+      "en": "Rembrandt",
+      "ar": "رامبرانت"
+    }
+  },
+  {
+    "id": "art-and-painters-015",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "In Grant Wood's 'American Gothic,' what do the two figures hold?",
+      "ar": "ماذا يحمل الشخصان في لوحة 'القوطي الأمريكي' لغرانت وود؟"
+    },
+    "answer": {
+      "en": "A pitchfork",
+      "ar": "شوكة الحقل"
+    }
+  },
+  {
+    "id": "art-and-painters-016",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Which art movement, featuring artists like René Magritte, sought to channel the unconscious mind?",
+      "ar": "أي حركة فنية، يمثلها فنانون كرينيه ماغريت، سعت إلى التعبير عن اللاوعي؟"
+    },
+    "answer": {
+      "en": "Surrealism",
+      "ar": "السريالية"
+    }
+  },
+  {
+    "id": "art-and-painters-017",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Art History",
+        "ar": "تاريخ الفن"
+    },
+    "question": {
+      "en": "In Michelangelo's 'The Creation of Adam,' what is God's hand reaching out to touch?",
+      "ar": "في لوحة 'خلق آدم' لمايكل أنجلو، ما الذي تمتد يد الله لتلمسه؟"
+    },
+    "answer": {
+      "en": "Adam's finger",
+      "ar": "إصبع آدم"
+    }
+  },
+  {
+    "id": "art-and-painters-018",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "What is the pseudonym of the anonymous British street artist known for stenciled political works?",
+      "ar": "ما الاسم المستعار للفنان البريطاني المجهول المعروف بأعماله السياسية المرسومة بالقوالب؟"
+    },
+    "answer": {
+      "en": "Banksy",
+      "ar": "بانكسي"
+    }
+  },
+  {
+    "id": "art-and-painters-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Art History",
+      "ar": "تاريخ الفن"
+    },
+    "question": {
+      "en": "The term 'Renaissance' translates to what English word?",
+      "ar": "ما ترجمة كلمة 'Renaissance' إلى العربية؟"
+    },
+    "answer": {
+      "en": "Rebirth",
+      "ar": "إعادة الميلاد / النهضة"
+    }
+  },
+  {
+    "id": "art-and-painters-020",
+    "difficulty": "medium",
+    "subcategory": {
+        "en": "Techniques & Materials",
+        "ar": "التقنيات والمواد"
+    },
+    "question": {
+      "en": "What is the term for paint laid onto a canvas in very thick layers?",
+      "ar": "ما المصطلح الذي يشير إلى الطلاء المُوضع على اللوحة في طبقات سميكة جداً؟"
+    },
+    "answer": {
+      "en": "Impasto",
+      "ar": "الإمباستو"
+    }
+  },
+  {
+    "id": "art-and-painters-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Art History",
+      "ar": "تاريخ الفن"
+    },
+    "question": {
+      "en": "What is the actual full original title of Rembrandt's 'The Night Watch'?",
+      "ar": "ما العنوان الكامل الأصلي للوحة رامبرانت المعروفة بـ'دورية الليل'؟"
+    },
+    "answer": {
+      "en": "Militia Company of District II under Captain Frans Banninck Cocq",
+      "ar": "فصيلة الميليشيا الثانية بقيادة النقيب فرانس بانينك كوك"
+    }
+  },
+  {
+    "id": "art-and-painters-022",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Art History",
+        "ar": "تاريخ الفن"
+    },
+    "question": {
+      "en": "In 1990, the Isabella Stewart Gardner Museum was robbed. Name one of the stolen artists.",
+      "ar": "في 1990 سُرق متحف إيزابيلا ستيوارت غاردنر. اذكر اسم أحد الفنانين المسروقة أعمالهم."
+    },
+    "answer": {
+      "en": "Vermeer, Rembrandt, Degas, or Manet",
+      "ar": "فيرمير أو رامبرانت أو ديغا أو مانيه"
+    }
+  },
+  {
+    "id": "art-and-painters-023",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "'The Great Wave off Kanagawa' is a woodblock print by which Japanese artist?",
+      "ar": "لوحة 'الموجة العظيمة قبالة كاناغاوا' هي طباعة خشبية لأي فنان ياباني؟"
+    },
+    "answer": {
+      "en": "Katsushika Hokusai",
+      "ar": "كاتسوشيكا هوكوساي"
+    }
+  },
+  {
+    "id": "art-and-painters-024",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Which Russian artist is credited with painting one of the first purely abstract works in 1910?",
+      "ar": "أي فنان روسي يُنسب إليه رسم أحد أوائل الأعمال التجريدية البحتة عام 1910؟"
+    },
+    "answer": {
+      "en": "Wassily Kandinsky",
+      "ar": "واسيلي كاندينسكي"
+    }
+  },
+  {
+    "id": "art-and-painters-025",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Visual Language",
+        "ar": "اللغة البصرية"
+    },
+    "question": {
+      "en": "What Italian term describes strong contrasts between light and dark to achieve volume?",
+      "ar": "ما المصطلح الإيطالي الذي يصف التباينات القوية بين الضوء والظل لإيجاد إحساس بالحجم؟"
+    },
+    "answer": {
+      "en": "Chiaroscuro",
+      "ar": "كياروسكورو"
+    }
+  },
+  {
+    "id": "art-and-painters-026",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Magritte's pipe painting says 'Ceci n'est pas une pipe.' What does this translate to?",
+      "ar": "لوحة ماغريت للغليون مكتوب عليها 'Ceci n'est pas une pipe'. ما معنى هذه العبارة؟"
+    },
+    "answer": {
+      "en": "This is not a pipe",
+      "ar": "هذه ليست غليوناً"
+    }
+  },
+  {
+    "id": "art-and-painters-027",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Movements & Styles",
+        "ar": "الحركات والأساليب الفنية"
+    },
+    "question": {
+      "en": "Der Blaue Reiter was a fundamental group of Expressionist artists founded in which country?",
+      "ar": "في أي دولة تأسست مجموعة 'الفارس الأزرق' الفنية التعبيرية؟"
+    },
+    "answer": {
+      "en": "Germany",
+      "ar": "ألمانيا"
+    }
+  },
+  {
+    "id": "art-and-painters-028",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "In van Eyck's 'Arnolfini Portrait,' what object on the back wall reflects the entire room?",
+      "ar": "في 'صورة أرنولفيني' لفان إيك، ما الشيء المعلق على الجدار الخلفي الذي يعكس الغرفة بأكملها؟"
+    },
+    "answer": {
+      "en": "A convex mirror",
+      "ar": "مرآة محدبة"
+    }
+  },
+  {
+    "id": "art-and-painters-029",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Artists & Masterpieces",
+        "ar": "الفنانون والروائع"
+    },
+    "question": {
+      "en": "What is the collective name for the 14 intense murals Goya painted directly onto his house walls?",
+      "ar": "ما الاسم الجماعي للوحات الجدارية الـ 14 التي رسمها غويا مباشرة على جدران منزله؟"
+    },
+    "answer": {
+      "en": "The Black Paintings",
+      "ar": "اللوحات السوداء"
+    }
+  },
+  {
+    "id": "art-and-painters-030",
+    "difficulty": "hard",
+    "subcategory": {
+        "en": "Techniques & Materials",
+        "ar": "التقنيات والمواد"
+    },
+    "question": {
+      "en": "During the Renaissance, ultramarine was more expensive than gold. What stone was it ground from?",
+      "ar": "في عصر النهضة، كان الأزرق الأولترامارين أغلى من الذهب. من أي حجر كان يُستخرج؟"
+    },
+    "answer": {
+      "en": "Lapis lazuli",
+      "ar": "اللازورد"
+    }
+  }
+]

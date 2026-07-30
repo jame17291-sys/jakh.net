@@ -1,1628 +1,1602 @@
-{
-  "slug": "space-and-astrology",
-  "title": {
-    "en": "Space & Astronomy",
-    "ar": "الفضاء وعلم الفلك"
-  },
-  "description": {
-    "en": "Planets, stars, black holes, and the mysteries of the cosmos.",
-    "ar": "كواكب ونجوم وثقوب سوداء وأسرار الكون."
-  },
-  "cluster": {
-    "en": "Science & Nature",
-    "ar": "العلوم والطبيعة"
-  },
-  "cluster_key": "science",
-  "emoji": "🚀",
-  "mode": "quiz",
-  "count": 100,
-  "difficultyCounts": {
-    "easy": 25,
-    "medium": 25,
-    "hard": 25,
-    "very-advanced": 25
-  },
-  "subcategories": [],
-  "cards": [
-    {
-      "id": "space-and-astrology-001",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which planet is known as the 'Red Planet'?",
-        "ar": "أي كوكب يُعرف بـ'الكوكب الأحمر'؟"
-      },
-      "answer": {
-        "en": "Mars",
-        "ar": "المريخ"
-      }
-    },
-    {
-      "id": "space-and-astrology-002",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is the largest planet in our solar system?",
-        "ar": "ما أكبر كوكب في مجموعتنا الشمسية؟"
-      },
-      "answer": {
-        "en": "Jupiter",
-        "ar": "المشتري"
-      }
-    },
-    {
-      "id": "space-and-astrology-003",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the name of the star at the center of our solar system?",
-        "ar": "ما اسم النجم في مركز مجموعتنا الشمسية؟"
-      },
-      "answer": {
-        "en": "The Sun",
-        "ar": "الشمس"
-      }
-    },
-    {
-      "id": "space-and-astrology-004",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Galaxies",
-        "ar": "المجرات"
-      },
-      "question": {
-        "en": "What is the name of the galaxy we live in?",
-        "ar": "ما اسم المجرة التي نعيش فيها؟"
-      },
-      "answer": {
-        "en": "The Milky Way",
-        "ar": "درب التبانة"
-      }
-    },
-    {
-      "id": "space-and-astrology-005",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "How many moons does Earth have?",
-        "ar": "كم قمراً للأرض؟"
-      },
-      "answer": {
-        "en": "One",
-        "ar": "قمر واحد"
-      }
-    },
-    {
-      "id": "space-and-astrology-006",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which planet is most famous for its visible rings?",
-        "ar": "أي كوكب يشتهر بحلقاته المرئية؟"
-      },
-      "answer": {
-        "en": "Saturn",
-        "ar": "زحل"
-      }
-    },
-    {
-      "id": "space-and-astrology-007",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Gravity",
-        "ar": "الجاذبية"
-      },
-      "question": {
-        "en": "Which force keeps the planets in orbit around the Sun?",
-        "ar": "أي قوة تُبقي الكواكب في مداراتها حول الشمس؟"
-      },
-      "answer": {
-        "en": "Gravity",
-        "ar": "الجاذبية"
-      }
-    },
-    {
-      "id": "space-and-astrology-008",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "Who was the first person to walk on the moon?",
-        "ar": "من كان أول شخص يمشي على سطح القمر؟"
-      },
-      "answer": {
-        "en": "Neil Armstrong",
-        "ar": "نيل أرمسترونغ"
-      }
-    },
-    {
-      "id": "space-and-astrology-009",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Is Pluto currently classified as a planet or a dwarf planet?",
-        "ar": "هل يُصنَّف بلوتو حالياً كوكباً أم كوكباً قزماً؟"
-      },
-      "answer": {
-        "en": "Dwarf planet",
-        "ar": "كوكب قزم"
-      }
-    },
-    {
-      "id": "space-and-astrology-010",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Physics",
-        "ar": "الفيزياء"
-      },
-      "question": {
-        "en": "What is the fastest thing in the universe?",
-        "ar": "ما أسرع شيء في الكون؟"
-      },
-      "answer": {
-        "en": "Light",
-        "ar": "الضوء"
-      }
-    },
-    {
-      "id": "space-and-astrology-011",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Measurement",
-        "ar": "القياس"
-      },
-      "question": {
-        "en": "What is a 'light-year' a measurement of?",
-        "ar": "ما الذي يقيسه السنة الضوئية؟"
-      },
-      "answer": {
-        "en": "Distance (the distance light travels in a year)",
-        "ar": "المسافة (المسافة التي يقطعها الضوء في سنة)"
-      }
-    },
-    {
-      "id": "space-and-astrology-012",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which planet is the hottest in our solar system due to its thick atmosphere?",
-        "ar": "أي كوكب هو الأشد حرارة في مجموعتنا الشمسية بسبب غلافه الجوي الكثيف؟"
-      },
-      "answer": {
-        "en": "Venus",
-        "ar": "الزهرة"
-      }
-    },
-    {
-      "id": "space-and-astrology-013",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Name the four 'gas giant' planets.",
-        "ar": "اذكر الكواكب الغازية العملاقة الأربعة."
-      },
-      "answer": {
-        "en": "Jupiter, Saturn, Uranus, Neptune",
-        "ar": "المشتري وزحل وأورانوس ونبتون"
-      }
-    },
-    {
-      "id": "space-and-astrology-014",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Comets",
-        "ar": "المذنبات"
-      },
-      "question": {
-        "en": "Which famous comet returns to Earth's vicinity every 75-76 years?",
-        "ar": "أي مذنب شهير يعود إلى مجاورة الأرض كل 75-76 سنة؟"
-      },
-      "answer": {
-        "en": "Halley's Comet",
-        "ar": "مذنب هالي"
-      }
-    },
-    {
-      "id": "space-and-astrology-015",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Space Telescopes",
-        "ar": "تلسكوبات الفضاء"
-      },
-      "question": {
-        "en": "What is the name of the famous space telescope launched in 1990?",
-        "ar": "ما اسم تلسكوب الفضاء الشهير الذي أُطلق عام 1990؟"
-      },
-      "answer": {
-        "en": "Hubble Space Telescope",
-        "ar": "تلسكوب هابل الفضائي"
-      }
-    },
-    {
-      "id": "space-and-astrology-016",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What do you call the boundary around a black hole from which nothing can escape?",
-        "ar": "ما اسم الحدود حول الثقب الأسود التي لا يمكن لشيء تجاوزها؟"
-      },
-      "answer": {
-        "en": "Event Horizon",
-        "ar": "أفق الحدث"
-      }
-    },
-    {
-      "id": "space-and-astrology-017",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Mars",
-        "ar": "المريخ"
-      },
-      "question": {
-        "en": "Name one of the NASA rovers that has explored the surface of Mars.",
-        "ar": "اذكر اسم أحد المركبات الجوالة لناسا التي استكشفت سطح المريخ."
-      },
-      "answer": {
-        "en": "Curiosity, Perseverance, Spirit, or Opportunity",
-        "ar": "كيوريوسيتي أو بيرسيفيرنس أو سبيريت أو أوبورتيونيتي"
-      }
-    },
-    {
-      "id": "space-and-astrology-018",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Constellations",
-        "ar": "الأبراج والكوكبات"
-      },
-      "question": {
-        "en": "Which constellation contains the 'Big Dipper' asterism?",
-        "ar": "أي كوكبة تحتوي نجمية 'الدب الأكبر' (المغرفة الكبيرة)؟"
-      },
-      "answer": {
-        "en": "Ursa Major",
-        "ar": "الدب الأكبر"
-      }
-    },
-    {
-      "id": "space-and-astrology-019",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Exoplanets",
-        "ar": "الكواكب الخارجية"
-      },
-      "question": {
-        "en": "What is the term for a planet that orbits a star outside our solar system?",
-        "ar": "ما مصطلح الكوكب الذي يدور حول نجم خارج مجموعتنا الشمسية؟"
-      },
-      "answer": {
-        "en": "Exoplanet",
-        "ar": "كوكب خارج المجموعة الشمسية (إكسوبلانيت)"
-      }
-    },
-    {
-      "id": "space-and-astrology-020",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Nebulae",
-        "ar": "السدم"
-      },
-      "question": {
-        "en": "What is a nebula?",
-        "ar": "ما السديم؟"
-      },
-      "answer": {
-        "en": "A giant cloud of dust and gas in space",
-        "ar": "سحابة ضخمة من الغبار والغاز في الفضاء"
-      }
-    },
-    {
-      "id": "space-and-astrology-021",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is the theoretical point of infinite density at the center of a black hole?",
-        "ar": "ما النقطة النظرية ذات الكثافة اللانهائية في مركز الثقب الأسود؟"
-      },
-      "answer": {
-        "en": "Singularity",
-        "ar": "التفرد (Singularity)"
-      }
-    },
-    {
-      "id": "space-and-astrology-022",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "SETI",
-        "ar": "البحث عن كائنات فضائية"
-      },
-      "question": {
-        "en": "What equation estimates the number of active communicative civilizations in the galaxy?",
-        "ar": "أي معادلة تُقدِّر عدد الحضارات الفضائية المتواصلة في المجرة؟"
-      },
-      "answer": {
-        "en": "Drake Equation",
-        "ar": "معادلة دريك"
-      }
-    },
-    {
-      "id": "space-and-astrology-023",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Space Telescopes",
-        "ar": "تلسكوبات الفضاء"
-      },
-      "question": {
-        "en": "Unlike Hubble, what part of the spectrum does James Webb primarily observe?",
-        "ar": "على عكس هابل، ما جزء الطيف الذي يرصده تلسكوب جيمس ويب بصورة رئيسية؟"
-      },
-      "answer": {
-        "en": "Infrared",
-        "ar": "الأشعة تحت الحمراء"
-      }
-    },
-    {
-      "id": "space-and-astrology-024",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is the name of the region beyond Neptune containing many small icy bodies?",
-        "ar": "ما اسم المنطقة الممتدة خارج نبتون التي تحتوي على أجسام جليدية صغيرة كثيرة؟"
-      },
-      "answer": {
-        "en": "The Kuiper Belt",
-        "ar": "حزام كايبر"
-      }
-    },
-    {
-      "id": "space-and-astrology-025",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Stellar Physics",
-        "ar": "فيزياء النجوم"
-      },
-      "question": {
-        "en": "What is the 'Chandrasekhar Limit'?",
-        "ar": "ما 'حد شاندراسيخار'؟"
-      },
-      "answer": {
-        "en": "The maximum mass of a stable white dwarf star",
-        "ar": "أقصى كتلة للقزم الأبيض المستقر"
-      }
-    },
-    {
-      "id": "space-and-astrology-026",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Cosmology",
-        "ar": "علم الكون"
-      },
-      "question": {
-        "en": "What mysterious force is thought to be causing the accelerating expansion of the universe?",
-        "ar": "ما القوة الغامضة التي يُعتقد أنها تسبب التمدد المتسارع للكون؟"
-      },
-      "answer": {
-        "en": "Dark Energy",
-        "ar": "الطاقة المظلمة"
-      }
-    },
-    {
-      "id": "space-and-astrology-027",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Measurement",
-        "ar": "القياس"
-      },
-      "question": {
-        "en": "How many light-years are approximately in one parsec?",
-        "ar": "كم سنة ضوئية تقريباً في فرسخ فلكي واحد (parsec)؟"
-      },
-      "answer": {
-        "en": "3.26 light-years",
-        "ar": "3.26 سنة ضوئية"
-      }
-    },
-    {
-      "id": "space-and-astrology-028",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Neutron Stars",
-        "ar": "النجوم النيوترونية"
-      },
-      "question": {
-        "en": "What is a pulsar?",
-        "ar": "ما النجم النابض (البولسار)؟"
-      },
-      "answer": {
-        "en": "A highly magnetized rotating neutron star emitting radiation beams",
-        "ar": "نجم نيوتروني شديد المغناطيسية يدور ويُصدر شعاعات إشعاعية"
-      }
-    },
-    {
-      "id": "space-and-astrology-029",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is the name of the theoretical cloud of icy objects surrounding the solar system?",
-        "ar": "ما اسم السحابة النظرية من الأجسام الجليدية المحيطة بالمجموعة الشمسية؟"
-      },
-      "answer": {
-        "en": "The Oort Cloud",
-        "ar": "سحابة أورت"
-      }
-    },
-    {
-      "id": "space-and-astrology-030",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Cosmology",
-        "ar": "علم الكون"
-      },
-      "question": {
-        "en": "What does 'CMB' stand for in cosmology?",
-        "ar": "ماذا تعني CMB في علم الكون؟"
-      },
-      "answer": {
-        "en": "Cosmic Microwave Background",
-        "ar": "إشعاع الخلفية الكونية الميكروي"
-      }
-    },
-    {
-      "id": "space-031",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "How many planets are in our solar system?",
-        "ar": "كم كوكباً يوجد في نظامنا الشمسي؟"
-      },
-      "answer": {
-        "en": "8",
-        "ar": "8"
-      }
-    },
-    {
-      "id": "space-032",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Sun",
-        "ar": "الشمس"
-      },
-      "question": {
-        "en": "How long does light from the Sun take to reach Earth?",
-        "ar": "كم يستغرق الضوء من الشمس للوصول إلى الأرض؟"
-      },
-      "answer": {
-        "en": "About 8 minutes",
-        "ar": "حوالي 8 دقائق"
-      }
-    },
-    {
-      "id": "space-033",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which planet is known as the Red Planet?",
-        "ar": "أي كوكب يُعرف بالكوكب الأحمر؟"
-      },
-      "answer": {
-        "en": "Mars",
-        "ar": "المريخ"
-      }
-    },
-    {
-      "id": "space-034",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Moon",
-        "ar": "القمر"
-      },
-      "question": {
-        "en": "Who was the first human to walk on the Moon?",
-        "ar": "من كان أول إنسان يمشي على سطح القمر؟"
-      },
-      "answer": {
-        "en": "Neil Armstrong (1969)",
-        "ar": "نيل أرمسترونغ (1969)"
-      }
-    },
-    {
-      "id": "space-035",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which is the largest planet in our solar system?",
-        "ar": "أي كوكب هو الأكبر في نظامنا الشمسي؟"
-      },
-      "answer": {
-        "en": "Jupiter",
-        "ar": "المشتري"
-      }
-    },
-    {
-      "id": "space-036",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the closest star to Earth (excluding the Sun)?",
-        "ar": "ما أقرب نجم إلى الأرض (باستثناء الشمس)؟"
-      },
-      "answer": {
-        "en": "Proxima Centauri",
-        "ar": "بروكسيما سنتوري"
-      }
-    },
-    {
-      "id": "space-037",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which planet has the most moons?",
-        "ar": "أي كوكب يمتلك أكبر عدد من الأقمار؟"
-      },
-      "answer": {
-        "en": "Saturn (146 confirmed)",
-        "ar": "زحل (146 قمراً مؤكداً)"
-      }
-    },
-    {
-      "id": "space-038",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What was the name of the first artificial satellite launched into space?",
-        "ar": "ما اسم أول قمر صناعي أُطلق في الفضاء؟"
-      },
-      "answer": {
-        "en": "Sputnik 1 (1957)",
-        "ar": "سبوتنيك 1 (1957)"
-      }
-    },
-    {
-      "id": "space-039",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is a star made of?",
-        "ar": "من ماذا يتكوّن النجم؟"
-      },
-      "answer": {
-        "en": "Plasma, primarily hydrogen and helium undergoing nuclear fusion",
-        "ar": "البلازما، المكوّنة أساساً من الهيدروجين والهيليوم التي تخضع للاندماج النووي"
-      }
-    },
-    {
-      "id": "space-040",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Which planet is closest to the Sun?",
-        "ar": "أي كوكب أقرب إلى الشمس؟"
-      },
-      "answer": {
-        "en": "Mercury",
-        "ar": "عطارد"
-      }
-    },
-    {
-      "id": "space-041",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is a galaxy?",
-        "ar": "ما المجرة؟"
-      },
-      "answer": {
-        "en": "A system of billions of stars, gas, dust, and dark matter held together by gravity",
-        "ar": "نظام من المليارات من النجوم والغاز والغبار والمادة المظلمة تتماسك بفعل الجاذبية"
-      }
-    },
-    {
-      "id": "space-042",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What are the rings of Saturn made of?",
-        "ar": "مِمَّ تتكوّن حلقات زحل؟"
-      },
-      "answer": {
-        "en": "Mostly ice and rock particles",
-        "ar": "معظمها من جزيئات الجليد والصخور"
-      }
-    },
-    {
-      "id": "space-043",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Moon",
-        "ar": "القمر"
-      },
-      "question": {
-        "en": "How long does it take the Moon to orbit the Earth?",
-        "ar": "كم يستغرق القمر للدوران حول الأرض؟"
-      },
-      "answer": {
-        "en": "About 27.3 days",
-        "ar": "حوالي 27.3 يوماً"
-      }
-    },
-    {
-      "id": "space-044",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the Big Bang theory?",
-        "ar": "ما نظرية الانفجار الكبير؟"
-      },
-      "answer": {
-        "en": "The prevailing theory that the universe originated from an extremely hot, dense state about 13.8 billion years ago",
-        "ar": "النظرية السائدة القائلة بأن الكون نشأ من حالة شديدة الحرارة والكثافة منذ حوالي 13.8 مليار سنة"
-      }
-    },
-    {
-      "id": "space-045",
-      "difficulty": "easy",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the Milky Way?",
-        "ar": "ما درب التبانة؟"
-      },
-      "answer": {
-        "en": "The galaxy that contains our solar system — a barred spiral galaxy with 200–400 billion stars",
-        "ar": "المجرة التي تحتوي نظامنا الشمسي — مجرة حلزونية ذات عارضة تضم 200–400 مليار نجم"
-      }
-    },
-    {
-      "id": "space-046",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is the asteroid belt and where is it located?",
-        "ar": "ما حزام الكويكبات وأين يقع؟"
-      },
-      "answer": {
-        "en": "A region between Mars and Jupiter containing millions of rocky bodies",
-        "ar": "منطقة بين المريخ والمشتري تحتوي على ملايين الأجسام الصخرية"
-      }
-    },
-    {
-      "id": "space-047",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is a neutron star?",
-        "ar": "ما النجم النيوتروني؟"
-      },
-      "answer": {
-        "en": "The dense remnant of a massive star after a supernova, composed almost entirely of neutrons",
-        "ar": "البقايا الكثيفة لنجم ضخم بعد انفجار مستعر أعظم، تتكوّن في معظمها من النيوترونات"
-      }
-    },
-    {
-      "id": "space-048",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is dark matter?",
-        "ar": "ما المادة المظلمة؟"
-      },
-      "answer": {
-        "en": "A hypothetical form of matter that does not emit or interact with light but has gravitational effects",
-        "ar": "شكل افتراضي من المادة لا تُصدر ضوءاً ولا تتفاعل معه لكن لها تأثيرات جاذبية"
-      }
-    },
-    {
-      "id": "space-049",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the International Space Station (ISS)?",
-        "ar": "ما محطة الفضاء الدولية (ISS)؟"
-      },
-      "answer": {
-        "en": "A habitable space station in low Earth orbit, a collaborative project between NASA, Roscosmos, ESA, JAXA, and CSA",
-        "ar": "محطة فضائية صالحة للسكن في مدار أرضي منخفض، مشروع مشترك بين ناسا وروسكوسموس ووكالة الفضاء الأوروبية وجاكسا ووكالة الفضاء الكندية"
-      }
-    },
-    {
-      "id": "space-050",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is a supernova?",
-        "ar": "ما المستعر الأعظم (السوبرنوفا)؟"
-      },
-      "answer": {
-        "en": "A powerful explosion at the end of a massive star's life, briefly outshining entire galaxies",
-        "ar": "انفجار هائل في نهاية حياة نجم ضخم، يُضيء لفترة وجيزة أكثر من المجرات بأسرها"
-      }
-    },
-    {
-      "id": "space-051",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "Why was Pluto reclassified as a dwarf planet?",
-        "ar": "لماذا أُعيد تصنيف بلوتو كوكباً قزماً؟"
-      },
-      "answer": {
-        "en": "It has not cleared its orbital neighbourhood of other debris — one of the three criteria for being a planet (IAU 2006)",
-        "ar": "لم ينظّف مسار مداره من الحطام الفضائي — أحد معايير الكوكب الثلاثة (الاتحاد الفلكي الدولي 2006)"
-      }
-    },
-    {
-      "id": "space-052",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is a light-year?",
-        "ar": "ما السنة الضوئية؟"
-      },
-      "answer": {
-        "en": "The distance light travels in one year — about 9.46 trillion kilometres",
-        "ar": "المسافة التي يقطعها الضوء في سنة واحدة — حوالي 9.46 تريليون كيلومتر"
-      }
-    },
-    {
-      "id": "space-053",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What was the Apollo 13 mission?",
-        "ar": "ما مهمة أبولو 13؟"
-      },
-      "answer": {
-        "en": "A 1970 Moon mission that was aborted after an oxygen tank exploded — crew returned safely using the lunar module as a lifeboat",
-        "ar": "مهمة قمرية عام 1970 أُلغيت بعد انفجار خزان أكسجين — عاد الطاقم سالماً مستخدماً المركبة القمرية كقارب نجاة"
-      }
-    },
-    {
-      "id": "space-054",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the Hertzsprung-Russell diagram?",
-        "ar": "ما مخطط هيرتسبرونغ-راسل؟"
-      },
-      "answer": {
-        "en": "A scatter plot of stars showing their luminosity versus temperature, used to classify stars and track their evolution",
-        "ar": "مخطط انتشار للنجوم يُظهر علاقة الإضاءة بدرجة الحرارة، يُستخدم لتصنيف النجوم وتتبّع تطوّرها"
-      }
-    },
-    {
-      "id": "space-055",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the cosmic microwave background (CMB)?",
-        "ar": "ما إشعاع الخلفية الكونية الميكروي (CMB)؟"
-      },
-      "answer": {
-        "en": "The thermal radiation left over from the Big Bang, filling all of space uniformly",
-        "ar": "الإشعاع الحراري المتبقّي من الانفجار الكبير، يملأ الفضاء بالتساوي"
-      }
-    },
-    {
-      "id": "space-056",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is the Kuiper Belt?",
-        "ar": "ما حزام كايبر؟"
-      },
-      "answer": {
-        "en": "A region beyond Neptune filled with icy bodies including Pluto, comets, and other dwarf planets",
-        "ar": "منطقة تقع خلف نبتون مليئة بالأجسام الجليدية بما فيها بلوتو والمذنّبات وكواكب قزمة أخرى"
-      }
-    },
-    {
-      "id": "space-057",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is nuclear fusion?",
-        "ar": "ما الاندماج النووي؟"
-      },
-      "answer": {
-        "en": "The process by which light atomic nuclei combine to form heavier nuclei, releasing enormous energy — how stars generate power",
-        "ar": "العملية التي تتحد فيها نوى ذرية خفيفة لتكوين نوى أثقل مع إطلاق طاقة هائلة — كيفية توليد النجوم للطاقة"
-      }
-    },
-    {
-      "id": "space-058",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Hubble Space Telescope?",
-        "ar": "ما تلسكوب هابل الفضائي؟"
-      },
-      "answer": {
-        "en": "A space telescope launched in 1990 providing unprecedented optical images of the universe",
-        "ar": "تلسكوب فضائي أُطلق عام 1990 يوفّر صوراً بصرية غير مسبوقة للكون"
-      }
-    },
-    {
-      "id": "space-059",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the observable universe's estimated diameter?",
-        "ar": "ما القطر التقديري للكون المرئي؟"
-      },
-      "answer": {
-        "en": "About 93 billion light-years",
-        "ar": "حوالي 93 مليار سنة ضوئية"
-      }
-    },
-    {
-      "id": "space-060",
-      "difficulty": "medium",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What causes the seasons on Earth?",
-        "ar": "ما الذي يسبّب الفصول على الأرض؟"
-      },
-      "answer": {
-        "en": "The tilt of Earth's axis (23.5°) relative to its orbital plane around the Sun",
-        "ar": "ميل محور الأرض (23.5°) بالنسبة لمستوى مدارها حول الشمس"
-      }
-    },
-    {
-      "id": "space-061",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is the event horizon of a black hole?",
-        "ar": "ما أفق الحدث للثقب الأسود؟"
-      },
-      "answer": {
-        "en": "The boundary around a black hole beyond which nothing — including light — can escape its gravitational pull",
-        "ar": "الحدّ المحيط بالثقب الأسود الذي لا يمكن لأي شيء — بما في ذلك الضوء — تخطّيه والإفلات من جاذبيته"
-      }
-    },
-    {
-      "id": "space-062",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the Chandrasekhar limit?",
-        "ar": "ما حدّ شاندراسيخار؟"
-      },
-      "answer": {
-        "en": "The maximum mass (~1.4 solar masses) a white dwarf star can have before collapsing — key to understanding Type Ia supernovae",
-        "ar": "الكتلة القصوى (~1.4 كتلة شمسية) التي يمكن لنجم قزم أبيض أن يمتلكها قبل الانهيار — مفتاح فهم المستعرات العظمى من النوع Ia"
-      }
-    },
-    {
-      "id": "space-063",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is gravitational lensing?",
-        "ar": "ما العدسة الجاذبية؟"
-      },
-      "answer": {
-        "en": "The bending of light from distant objects around massive bodies, predicted by General Relativity",
-        "ar": "انحناء الضوء القادم من أجسام بعيدة حول الأجسام الكتلية الضخمة، كما تنبّأ بذلك النسبية العامة"
-      }
-    },
-    {
-      "id": "space-064",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Voyager 1 spacecraft notable for?",
-        "ar": "بماذا تتميّز مركبة فوياجر 1؟"
-      },
-      "answer": {
-        "en": "It is the most distant human-made object — launched in 1977, it entered interstellar space in 2012",
-        "ar": "هي أبعد جسم من صنع الإنسان — أُطلقت عام 1977 ودخلت الفضاء بين النجوم عام 2012"
-      }
-    },
-    {
-      "id": "space-065",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is a pulsar?",
-        "ar": "ما النجم النابض؟"
-      },
-      "answer": {
-        "en": "A rapidly rotating neutron star emitting beams of electromagnetic radiation, detected as regular pulses",
-        "ar": "نجم نيوتروني يدور بسرعة كبيرة يُصدر حزماً من الإشعاع الكهرومغناطيسي تُكتشف على شكل نبضات منتظمة"
-      }
-    },
-    {
-      "id": "space-066",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is Hubble's Law?",
-        "ar": "ما قانون هابل؟"
-      },
-      "answer": {
-        "en": "Galaxies are receding from us at a speed proportional to their distance — evidence of the expanding universe",
-        "ar": "تبتعد المجرات عنا بسرعة تتناسب مع مسافتها — دليل على تمدّد الكون"
-      }
-    },
-    {
-      "id": "space-067",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is Roche limit?",
-        "ar": "ما حدّ روش؟"
-      },
-      "answer": {
-        "en": "The minimum distance at which a celestial body, held together by its own gravity, can orbit a larger body without being torn apart by tidal forces",
-        "ar": "أدنى مسافة يمكن لجسم سماوي متماسك بجاذبيته الدوران فيها حول جسم أكبر دون أن تمزّقه قوى المد والجزر"
-      }
-    },
-    {
-      "id": "space-068",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is Hawking radiation?",
-        "ar": "ما إشعاع هوكينغ؟"
-      },
-      "answer": {
-        "en": "Theoretical thermal radiation emitted by black holes due to quantum effects near the event horizon, causing them to slowly evaporate",
-        "ar": "إشعاع حراري نظري تُصدره الثقوب السوداء بسبب التأثيرات الكمية قرب أفق الحدث، مما يجعلها تتبخّر ببطء"
-      }
-    },
-    {
-      "id": "space-069",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the CNO cycle?",
-        "ar": "ما دورة CNO؟"
-      },
-      "answer": {
-        "en": "A catalytic nuclear fusion cycle in massive stars where carbon, nitrogen, and oxygen act as catalysts to fuse hydrogen into helium",
-        "ar": "دورة اندماج نووي حفزية في النجوم الضخمة يعمل فيها الكربون والنيتروجين والأكسجين محفّزات لدمج الهيدروجين في الهيليوم"
-      }
-    },
-    {
-      "id": "space-070",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What are quasars?",
-        "ar": "ما الكوازارات؟"
-      },
-      "answer": {
-        "en": "Extremely luminous active galactic nuclei powered by supermassive black holes accreting matter",
-        "ar": "نوى المجرات النشطة الشديدة السطوع التي تُغذّيها الثقوب السوداء الفائقة الكتلة عند ابتلاعها للمادة"
-      }
-    },
-    {
-      "id": "space-071",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the James Webb Space Telescope designed to observe?",
-        "ar": "ما الذي صُمّم تلسكوب جيمس ويب الفضائي لرصده؟"
-      },
-      "answer": {
-        "en": "The first galaxies, exoplanet atmospheres, and stars forming in dust clouds using infrared wavelengths",
-        "ar": "أوائل المجرات وأغلفة الكواكب الخارجية والنجوم المتكوّنة في سحب الغبار باستخدام الأطوال الموجية للأشعة تحت الحمراء"
-      }
-    },
-    {
-      "id": "space-072",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Solar System",
-        "ar": "النظام الشمسي"
-      },
-      "question": {
-        "en": "What is the difference between a meteor, meteoroid, and meteorite?",
-        "ar": "ما الفرق بين الشهاب والنيزك والحجر النيزكي؟"
-      },
-      "answer": {
-        "en": "Meteoroid: space rock; Meteor: the visible streak in the sky; Meteorite: a meteoroid that survives and hits Earth",
-        "ar": "النيزك: صخرة فضائية؛ الشهاب: الخط المضيء في السماء؛ الحجر النيزكي: نيزك يصمد ويصطدم بالأرض"
-      }
-    },
-    {
-      "id": "space-073",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the anthropic principle?",
-        "ar": "ما المبدأ الإنساني؟"
-      },
-      "answer": {
-        "en": "The observation that the universe's physical constants appear finely tuned for the existence of observers like us",
-        "ar": "ملاحظة أن الثوابت الفيزيائية للكون تبدو مضبوطة بدقة لتمكين وجود ملاحظين من أمثالنا"
-      }
-    },
-    {
-      "id": "space-074",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is a magnetar?",
-        "ar": "ما النجم المغناطيسي؟"
-      },
-      "answer": {
-        "en": "A type of neutron star with an extremely powerful magnetic field — the strongest known magnets in the universe",
-        "ar": "نوع من النجوم النيوترونية يمتلك مجالاً مغناطيسياً قوياً للغاية — أقوى المغناطيس المعروفة في الكون"
-      }
-    },
-    {
-      "id": "space-075",
-      "difficulty": "hard",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Lagrange point and why is it useful?",
-        "ar": "ما نقطة لاغرانج ولماذا تكون مفيدة؟"
-      },
-      "answer": {
-        "en": "Positions in space where gravitational forces balance allow a smaller object to stay in a stable orbit — used to park space telescopes (e.g. JWST at L2)",
-        "ar": "مواضع في الفضاء تتوازن فيها قوى الجاذبية تسمح لجسم أصغر بالبقاء في مدار مستقر — تُستخدم لإيقاف التلسكوبات الفضائية (مثل JWST عند L2)"
-      }
-    },
-    {
-      "id": "space-076",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is the information paradox of black holes?",
-        "ar": "ما مفارقة المعلومات في الثقوب السوداء؟"
-      },
-      "answer": {
-        "en": "The conflict between quantum mechanics (information cannot be destroyed) and black hole physics (Hawking radiation appears to destroy information)",
-        "ar": "التعارض بين ميكانيكا الكم (لا يمكن تدمير المعلومات) وفيزياء الثقوب السوداء (إشعاع هوكينغ يبدو أنه يدمّر المعلومات)"
-      }
-    },
-    {
-      "id": "space-077",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is inflationary cosmology?",
-        "ar": "ما الكوزمولوجيا التضخّمية؟"
-      },
-      "answer": {
-        "en": "The theory that the universe underwent exponential expansion in the first fraction of a second after the Big Bang, explaining the flatness and horizon problems",
-        "ar": "نظرية مفادها أن الكون شهد تمدّداً أسياً في الجزء الأول من الثانية بعد الانفجار الكبير، مما يفسّر مشكلتَي الاستواء والأفق"
-      }
-    },
-    {
-      "id": "space-078",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the Tolman-Oppenheimer-Volkoff (TOV) limit?",
-        "ar": "ما حدّ تولمان-أوبنهايمر-فولكوف (TOV)؟"
-      },
-      "answer": {
-        "en": "The maximum mass of a cold, non-rotating neutron star (about 2–3 solar masses) beyond which it collapses into a black hole",
-        "ar": "الكتلة القصوى لنجم نيوتروني بارد غير دوّار (حوالي 2–3 كتل شمسية) يتجاوزها فينهار مكوّناً ثقباً أسود"
-      }
-    },
-    {
-      "id": "space-079",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the holographic principle?",
-        "ar": "ما مبدأ الهولوغرافيك؟"
-      },
-      "answer": {
-        "en": "The idea that all information within a volume of space can be described by information on its boundary surface — inspired by black hole thermodynamics",
-        "ar": "الفكرة القائلة بأن كل المعلومات داخل حجم فضائي يمكن وصفها بمعلومات على سطحه الحدودي — مستوحاة من ثيرموديناميكا الثقوب السوداء"
-      }
-    },
-    {
-      "id": "space-080",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Parker Solar Probe mission?",
-        "ar": "ما مهمة المسبار الشمسي باركر؟"
-      },
-      "answer": {
-        "en": "A NASA spacecraft launched in 2018 to study the Sun's corona and solar wind by flying closer to the Sun than any previous spacecraft",
-        "ar": "مركبة فضائية تابعة لناسا أُطلقت عام 2018 لدراسة الهالة الشمسية والرياح الشمسية بالتحليق أقرب إلى الشمس من أي مركبة سابقة"
-      }
-    },
-    {
-      "id": "space-081",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is the Penrose process?",
-        "ar": "ما عملية بنروز؟"
-      },
-      "answer": {
-        "en": "A theoretical mechanism to extract rotational energy from a Kerr (rotating) black hole using the ergosphere region",
-        "ar": "آلية نظرية لاستخلاص طاقة دوران من ثقب أسود كير (دوّار) باستخدام منطقة الإرغوسفير"
-      }
-    },
-    {
-      "id": "space-082",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What are Population I, II, and III stars?",
-        "ar": "ما نجوم السكان I وII وIII؟"
-      },
-      "answer": {
-        "en": "Pop III: first metal-free stars; Pop II: old, metal-poor stars in galactic halos; Pop I: young, metal-rich stars like our Sun",
-        "ar": "III: أوائل النجوم الخالية من الفلزات؛ II: نجوم قديمة فقيرة بالفلزات في هالات المجرات؛ I: نجوم شابة غنية بالفلزات كشمسنا"
-      }
-    },
-    {
-      "id": "space-083",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the cosmological constant (Λ)?",
-        "ar": "ما الثابت الكوني (Λ)؟"
-      },
-      "answer": {
-        "en": "A term in Einstein's field equations representing the energy density of empty space — reintroduced to explain the accelerating expansion of the universe",
-        "ar": "حدّ في معادلات إنشتاين الميدانية يمثّل كثافة طاقة الفضاء الفارغ — أُعيد إدخاله لتفسير التمدّد المتسارع للكون"
-      }
-    },
-    {
-      "id": "space-084",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Drake Equation?",
-        "ar": "ما معادلة درايك؟"
-      },
-      "answer": {
-        "en": "A probabilistic formula estimating the number of active, communicating civilisations in the Milky Way using factors like star formation rate, habitable planets, and life emergence probability",
-        "ar": "صيغة احتمالية تُقدّر عدد الحضارات النشطة والمتواصلة في درب التبانة باستخدام عوامل كمعدل تكوّن النجوم والكواكب الصالحة للسكن واحتمال نشوء الحياة"
-      }
-    },
-    {
-      "id": "space-085",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What are gravitational waves and who first detected them?",
-        "ar": "ما موجات الجاذبية ومن اكتشفها أوّلاً؟"
-      },
-      "answer": {
-        "en": "Ripples in spacetime caused by accelerating massive objects — first directly detected by LIGO in 2015 from two merging black holes",
-        "ar": "تموّجات في نسيج الزمكان ناتجة عن تسارع الأجسام الضخمة — اكتشفها مرصد LIGO مباشرة عام 2015 من اندماج ثقبَين أسودَين"
-      }
-    },
-    {
-      "id": "space-086",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the s-process vs r-process in stellar nucleosynthesis?",
-        "ar": "ما الفرق بين العملية s والعملية r في التوليف النووي النجمي؟"
-      },
-      "answer": {
-        "en": "s-process (slow): neutron capture over long periods in AGB stars; r-process (rapid): fast neutron capture in supernovae or neutron star mergers — creates heavy elements",
-        "ar": "العملية s (البطيئة): التقاط نيوترون بمرور الوقت في نجوم AGB؛ العملية r (السريعة): التقاط سريع في المستعرات أو اندماج النجوم النيوترونية — تنتج عناصر ثقيلة"
-      }
-    },
-    {
-      "id": "space-087",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the Fermi Paradox?",
-        "ar": "ما مفارقة فيرمي؟"
-      },
-      "answer": {
-        "en": "The contradiction between the high probability of extraterrestrial civilisations and the lack of evidence for, or contact with, such civilisations",
-        "ar": "التناقض بين الاحتمال الكبير لوجود حضارات خارج كوكبنا وغياب الأدلة على وجودها أو التواصل معها"
-      }
-    },
-    {
-      "id": "space-088",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is spaghettification?",
-        "ar": "ما السباغيتيفيكيشن (التسمّك كالمكرونة)؟"
-      },
-      "answer": {
-        "en": "The tidal stretching of objects into long thin shapes when falling into a black hole due to extreme tidal gravity differences",
-        "ar": "التمدّد المديّ للأجسام إلى أشكال رفيعة طويلة عند سقوطها في ثقب أسود بسبب الفوارق الهائلة في الجاذبية المدّية"
-      }
-    },
-    {
-      "id": "space-089",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the concept of stellar evolution and the main sequence?",
-        "ar": "ما مفهوم التطور النجمي والتسلسل الرئيسي؟"
-      },
-      "answer": {
-        "en": "Stars spend most of their lives on the main sequence fusing hydrogen in their cores; mass determines lifespan and end state (white dwarf, neutron star, or black hole)",
-        "ar": "تقضي النجوم معظم حياتها في التسلسل الرئيسي تندمج فيه نوى الهيدروجين؛ الكتلة تحدّد العمر والحالة النهائية (قزم أبيض أو نجم نيوتروني أو ثقب أسود)"
-      }
-    },
-    {
-      "id": "space-090",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the multiverse hypothesis?",
-        "ar": "ما فرضية الكون المتعدد؟"
-      },
-      "answer": {
-        "en": "The theoretical proposition that multiple universes exist beyond our observable universe, each potentially with different physical laws",
-        "ar": "الاقتراح النظري بأن كوناً متعدداً يتجاوز كوننا المرصود، قد يمتلك كل منها قوانين فيزيائية مختلفة"
-      }
-    },
-    {
-      "id": "space-091",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Artemis programme?",
-        "ar": "ما برنامج أرتيميس؟"
-      },
-      "answer": {
-        "en": "NASA's programme to return humans to the Moon and establish a sustainable presence, as a stepping stone to Mars",
-        "ar": "برنامج ناسا لإعادة البشر إلى القمر وإقامة وجود مستدام هناك، كمحطة انطلاق نحو المريخ"
-      }
-    },
-    {
-      "id": "space-092",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is the no-hair theorem for black holes?",
-        "ar": "ما مبرهنة عدم الشعر للثقوب السوداء؟"
-      },
-      "answer": {
-        "en": "Black holes can be completely described by only three externally observable parameters: mass, electric charge, and angular momentum",
-        "ar": "يمكن وصف الثقوب السوداء بالكامل بثلاثة معاملات خارجية فقط: الكتلة والشحنة الكهربائية وكمية الحركة الزاوية"
-      }
-    },
-    {
-      "id": "space-093",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What are Cepheid variables and why are they important?",
-        "ar": "ما النجوم القيفاوية المتغيّرة ولماذا تكون مهمة؟"
-      },
-      "answer": {
-        "en": "Stars with pulsating luminosity in a period-luminosity relationship, used as 'standard candles' to measure cosmic distances",
-        "ar": "نجوم ذات إضاءة نابضة في علاقة الفترة بالإضاءة، تُستخدم كـ'شموع قياسية' لقياس المسافات الكونية"
-      }
-    },
-    {
-      "id": "space-094",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the Sunyaev-Zel'dovich effect?",
-        "ar": "ما تأثير سونياييف-زيلدوفيتش؟"
-      },
-      "answer": {
-        "en": "The distortion of the cosmic microwave background radiation by inverse Compton scattering of photons off electrons in galaxy clusters",
-        "ar": "تشوّه إشعاع الخلفية الكونية الميكروي بسبب التشتت الكومبتوني العكسي للفوتونات على الإلكترونات في عناقيد المجرات"
-      }
-    },
-    {
-      "id": "space-095",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Tsiolkovsky rocket equation?",
-        "ar": "ما معادلة تسيولكوفسكي للصاروخ؟"
-      },
-      "answer": {
-        "en": "Δv = ve × ln(m₀/mf) — relates rocket velocity change to exhaust velocity and mass ratio, fundamental to all space travel",
-        "ar": "Δv = ve × ln(m₀/mf) — تربط تغيّر سرعة الصاروخ بسرعة العادم ونسبة الكتلة، وهي أساسية لجميع رحلات الفضاء"
-      }
-    },
-    {
-      "id": "space-096",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Black Holes",
-        "ar": "الثقوب السوداء"
-      },
-      "question": {
-        "en": "What is the first black hole ever directly imaged?",
-        "ar": "ما أول ثقب أسود صُوِّر مباشرةً؟"
-      },
-      "answer": {
-        "en": "M87* — the supermassive black hole at the centre of galaxy M87, imaged by the Event Horizon Telescope in 2019",
-        "ar": "M87* — الثقب الأسود الفائق الكتلة في مركز مجرة M87، صوّره تلسكوب أفق الحدث عام 2019"
-      }
-    },
-    {
-      "id": "space-097",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is the Big Rip hypothesis?",
-        "ar": "ما فرضية التمزّق الكبير؟"
-      },
-      "answer": {
-        "en": "A cosmological model where dark energy causes the universe's expansion to accelerate until it tears apart all matter, from galaxy clusters down to atoms",
-        "ar": "نموذج كوزمولوجي تتسارع فيه توسّع الكون بسبب الطاقة المظلمة حتى تتمزّق كل المادة من عناقيد المجرات وصولاً إلى الذرات"
-      }
-    },
-    {
-      "id": "space-098",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Stars",
-        "ar": "النجوم"
-      },
-      "question": {
-        "en": "What is the Kelvin-Helmholtz mechanism?",
-        "ar": "ما آلية كلفن-هلمهولتز؟"
-      },
-      "answer": {
-        "en": "The gravitational contraction of a gas cloud releasing energy as heat and light — the original proposed power source of the Sun before nuclear fusion was understood",
-        "ar": "الانكماش الجاذبي لسحابة غازية يُصدر طاقة على شكل حرارة وضوء — المصدر المقترح أصلاً لطاقة الشمس قبل فهم الاندماج النووي"
-      }
-    },
-    {
-      "id": "space-099",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Universe",
-        "ar": "الكون"
-      },
-      "question": {
-        "en": "What is baryon acoustic oscillation (BAO)?",
-        "ar": "ما التذبذبات الصوتية للباريون (BAO)؟"
-      },
-      "answer": {
-        "en": "Imprinted patterns in the distribution of matter in the universe from sound waves in the early universe — used as a 'standard ruler' to measure cosmic distances",
-        "ar": "أنماط مطبوعة في توزيع المادة في الكون من موجات صوتية في الكون المبكّر — تُستخدم كـ'مسطرة قياسية' لقياس المسافات الكونية"
-      }
-    },
-    {
-      "id": "space-100",
-      "difficulty": "very-advanced",
-      "subcategory": {
-        "en": "Space Exploration",
-        "ar": "استكشاف الفضاء"
-      },
-      "question": {
-        "en": "What is the Cosmic Microwave Background (CMB) temperature?",
-        "ar": "ما درجة حرارة إشعاع الخلفية الكونية الميكروي (CMB)؟"
-      },
-      "answer": {
-        "en": "About 2.725 Kelvin (−270.4°C) — the remnant temperature from the Big Bang, nearly uniform across the sky",
-        "ar": "حوالي 2.725 كلفن (270.4- درجة مئوية) — درجة الحرارة المتبقّية من الانفجار الكبير، شبه موحّدة في السماء"
-      }
+[
+  {
+    "id": "space-and-astrology-001",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet is known as the 'Red Planet'?",
+      "ar": "أي كوكب يُعرف بـ'الكوكب الأحمر'؟"
+    },
+    "answer": {
+      "en": "Mars",
+      "ar": "المريخ"
     }
-  ]
-}
+  },
+  {
+    "id": "space-and-astrology-002",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet has the shortest orbital period around the Sun?",
+      "ar": "أي كوكب يملك أقصر مدة مدارية حول الشمس؟"
+    },
+    "answer": {
+      "en": "Mercury, completing one orbit in about 88 Earth days.",
+      "ar": "عطارد، إذ يكمل دورة حول الشمس في نحو 88 يوماً أرضياً."
+    }
+  },
+  {
+    "id": "space-and-astrology-003",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the name of the star at the center of our solar system?",
+      "ar": "ما اسم النجم في مركز مجموعتنا الشمسية؟"
+    },
+    "answer": {
+      "en": "The Sun",
+      "ar": "الشمس"
+    }
+  },
+  {
+    "id": "space-and-astrology-004",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the name of the galaxy we live in?",
+      "ar": "ما اسم المجرة التي نعيش فيها؟"
+    },
+    "answer": {
+      "en": "The Milky Way",
+      "ar": "درب التبانة"
+    }
+  },
+  {
+    "id": "space-and-astrology-005",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "How many moons does Earth have?",
+      "ar": "كم قمراً للأرض؟"
+    },
+    "answer": {
+      "en": "One",
+      "ar": "قمر واحد"
+    }
+  },
+  {
+    "id": "space-and-astrology-006",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet is most famous for its visible rings?",
+      "ar": "أي كوكب يشتهر بحلقاته المرئية؟"
+    },
+    "answer": {
+      "en": "Saturn",
+      "ar": "زحل"
+    }
+  },
+  {
+    "id": "space-and-astrology-007",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "Which force keeps the planets in orbit around the Sun?",
+      "ar": "أي قوة تُبقي الكواكب في مداراتها حول الشمس؟"
+    },
+    "answer": {
+      "en": "Gravity",
+      "ar": "الجاذبية"
+    }
+  },
+  {
+    "id": "space-and-astrology-008",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet rotates with an axial tilt of about 98°, appearing to spin on its side?",
+      "ar": "أي كوكب يدور بميل محوري يقارب 98 درجة فيبدو كأنه يدور على جانبه؟"
+    },
+    "answer": {
+      "en": "Uranus.",
+      "ar": "أورانوس."
+    }
+  },
+  {
+    "id": "space-and-astrology-009",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Is Pluto currently classified as a planet or a dwarf planet?",
+      "ar": "هل يُصنَّف بلوتو حالياً كوكباً أم كوكباً قزماً؟"
+    },
+    "answer": {
+      "en": "Dwarf planet",
+      "ar": "كوكب قزم"
+    }
+  },
+  {
+    "id": "space-and-astrology-010",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Space Physics & Orbits",
+      "ar": "فيزياء الفضاء والمدارات"
+    },
+    "question": {
+      "en": "What is the fastest thing in the universe?",
+      "ar": "ما أسرع شيء في الكون؟"
+    },
+    "answer": {
+      "en": "Light",
+      "ar": "الضوء"
+    }
+  },
+  {
+    "id": "space-and-astrology-011",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
+    },
+    "question": {
+      "en": "What distance does one astronomical unit represent?",
+      "ar": "ما المسافة التي تمثلها الوحدة الفلكية الواحدة؟"
+    },
+    "answer": {
+      "en": "Exactly 149,597,870,700 metres, approximately the average Earth-Sun distance.",
+      "ar": "149,597,870,700 متر بالضبط، أي ما يقارب متوسط المسافة بين الأرض والشمس."
+    }
+  },
+  {
+    "id": "space-and-astrology-012",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet is the hottest in our solar system due to its thick atmosphere?",
+      "ar": "أي كوكب هو الأشد حرارة في مجموعتنا الشمسية بسبب غلافه الجوي الكثيف؟"
+    },
+    "answer": {
+      "en": "Venus",
+      "ar": "الزهرة"
+    }
+  },
+  {
+    "id": "space-and-astrology-013",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Name the four 'gas giant' planets.",
+      "ar": "اذكر الكواكب الغازية العملاقة الأربعة."
+    },
+    "answer": {
+      "en": "Jupiter, Saturn, Uranus, Neptune",
+      "ar": "المشتري وزحل وأورانوس ونبتون"
+    }
+  },
+  {
+    "id": "space-and-astrology-014",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which famous comet returns to Earth's vicinity every 75-76 years?",
+      "ar": "أي مذنب شهير يعود إلى مجاورة الأرض كل 75-76 سنة؟"
+    },
+    "answer": {
+      "en": "Halley's Comet",
+      "ar": "مذنب هالي"
+    }
+  },
+  {
+    "id": "space-and-astrology-015",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the name of the famous space telescope launched in 1990?",
+      "ar": "ما اسم تلسكوب الفضاء الشهير الذي أُطلق عام 1990؟"
+    },
+    "answer": {
+      "en": "Hubble Space Telescope",
+      "ar": "تلسكوب هابل الفضائي"
+    }
+  },
+  {
+    "id": "space-and-astrology-016",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What do you call the boundary around a black hole from which nothing can escape?",
+      "ar": "ما اسم الحدود حول الثقب الأسود التي لا يمكن لشيء تجاوزها؟"
+    },
+    "answer": {
+      "en": "Event Horizon",
+      "ar": "أفق الحدث"
+    }
+  },
+  {
+    "id": "space-and-astrology-017",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Name one of the NASA rovers that has explored the surface of Mars.",
+      "ar": "اذكر اسم أحد المركبات الجوالة لناسا التي استكشفت سطح المريخ."
+    },
+    "answer": {
+      "en": "Curiosity, Perseverance, Spirit, or Opportunity",
+      "ar": "كيوريوسيتي أو بيرسيفيرنس أو سبيريت أو أوبورتيونيتي"
+    }
+  },
+  {
+    "id": "space-and-astrology-018",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
+    },
+    "question": {
+      "en": "Which constellation contains the 'Big Dipper' asterism?",
+      "ar": "أي كوكبة تحتوي نجمية 'الدب الأكبر' (المغرفة الكبيرة)؟"
+    },
+    "answer": {
+      "en": "Ursa Major",
+      "ar": "الدب الأكبر"
+    }
+  },
+  {
+    "id": "space-and-astrology-019",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
+    },
+    "question": {
+      "en": "What is the term for a planet that orbits a star outside our solar system?",
+      "ar": "ما مصطلح الكوكب الذي يدور حول نجم خارج مجموعتنا الشمسية؟"
+    },
+    "answer": {
+      "en": "Exoplanet",
+      "ar": "كوكب خارج المجموعة الشمسية (إكسوبلانيت)"
+    }
+  },
+  {
+    "id": "space-and-astrology-020",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is a nebula?",
+      "ar": "ما السديم؟"
+    },
+    "answer": {
+      "en": "A giant cloud of dust and gas in space",
+      "ar": "سحابة ضخمة من الغبار والغاز في الفضاء"
+    }
+  },
+  {
+    "id": "space-and-astrology-021",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is the theoretical point of infinite density at the center of a black hole?",
+      "ar": "ما النقطة النظرية ذات الكثافة اللانهائية في مركز الثقب الأسود؟"
+    },
+    "answer": {
+      "en": "Singularity",
+      "ar": "التفرد (Singularity)"
+    }
+  },
+  {
+    "id": "space-and-astrology-022",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
+    },
+    "question": {
+      "en": "What equation estimates the number of active communicative civilizations in the galaxy?",
+      "ar": "أي معادلة تُقدِّر عدد الحضارات الفضائية المتواصلة في المجرة؟"
+    },
+    "answer": {
+      "en": "Drake Equation",
+      "ar": "معادلة دريك"
+    }
+  },
+  {
+    "id": "space-and-astrology-023",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "Unlike Hubble, what part of the spectrum does James Webb primarily observe?",
+      "ar": "على عكس هابل، ما جزء الطيف الذي يرصده تلسكوب جيمس ويب بصورة رئيسية؟"
+    },
+    "answer": {
+      "en": "Infrared",
+      "ar": "الأشعة تحت الحمراء"
+    }
+  },
+  {
+    "id": "space-and-astrology-024",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What is the name of the region beyond Neptune containing many small icy bodies?",
+      "ar": "ما اسم المنطقة الممتدة خارج نبتون التي تحتوي على أجسام جليدية صغيرة كثيرة؟"
+    },
+    "answer": {
+      "en": "The Kuiper Belt",
+      "ar": "حزام كايبر"
+    }
+  },
+  {
+    "id": "space-and-astrology-025",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "Which fusion process supplies most of the Sun's energy?",
+      "ar": "أي عملية اندماج توفر معظم طاقة الشمس؟"
+    },
+    "answer": {
+      "en": "The proton-proton chain, which ultimately converts hydrogen nuclei into helium.",
+      "ar": "سلسلة البروتون-بروتون، التي تحول في النهاية نوى الهيدروجين إلى هيليوم."
+    }
+  },
+  {
+    "id": "space-and-astrology-026",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What mysterious force is thought to be causing the accelerating expansion of the universe?",
+      "ar": "ما القوة الغامضة التي يُعتقد أنها تسبب التمدد المتسارع للكون؟"
+    },
+    "answer": {
+      "en": "Dark Energy",
+      "ar": "الطاقة المظلمة"
+    }
+  },
+  {
+    "id": "space-and-astrology-027",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Observational Astronomy",
+      "ar": "علم الفلك الرصدي"
+    },
+    "question": {
+      "en": "How many light-years are approximately in one parsec?",
+      "ar": "كم سنة ضوئية تقريباً في فرسخ فلكي واحد (parsec)؟"
+    },
+    "answer": {
+      "en": "3.26 light-years",
+      "ar": "3.26 سنة ضوئية"
+    }
+  },
+  {
+    "id": "space-and-astrology-028",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Space Physics & Orbits",
+      "ar": "فيزياء الفضاء والمدارات"
+    },
+    "question": {
+      "en": "What is a celestial body's Hill sphere?",
+      "ar": "ما كرة هيل الخاصة بجسم سماوي؟"
+    },
+    "answer": {
+      "en": "The region around it where its gravity dominates over a larger body's tidal influence enough for satellites to remain bound.",
+      "ar": "المنطقة المحيطة به التي تتغلب فيها جاذبيته على تأثير المدّ لجسم أكبر بما يسمح ببقاء الأقمار مرتبطة به."
+    }
+  },
+  {
+    "id": "space-and-astrology-029",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What is the name of the theoretical cloud of icy objects surrounding the solar system?",
+      "ar": "ما اسم السحابة النظرية من الأجسام الجليدية المحيطة بالمجموعة الشمسية؟"
+    },
+    "answer": {
+      "en": "The Oort Cloud",
+      "ar": "سحابة أورت"
+    }
+  },
+  {
+    "id": "space-and-astrology-030",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What does 'CMB' stand for in cosmology?",
+      "ar": "ماذا تعني CMB في علم الكون؟"
+    },
+    "answer": {
+      "en": "Cosmic Microwave Background",
+      "ar": "إشعاع الخلفية الكونية الميكروي"
+    }
+  },
+  {
+    "id": "space-031",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "How many planets are in our solar system?",
+      "ar": "كم كوكباً يوجد في نظامنا الشمسي؟"
+    },
+    "answer": {
+      "en": "8",
+      "ar": "8"
+    }
+  },
+  {
+    "id": "space-032",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "How long does light from the Sun take to reach Earth?",
+      "ar": "كم يستغرق الضوء من الشمس للوصول إلى الأرض؟"
+    },
+    "answer": {
+      "en": "About 8 minutes",
+      "ar": "حوالي 8 دقائق"
+    }
+  },
+  {
+    "id": "space-033",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "On which planet did Voyager 2 observe the Great Dark Spot?",
+      "ar": "على أي كوكب رصدت فوياجر 2 البقعة المظلمة العظمى؟"
+    },
+    "answer": {
+      "en": "Neptune.",
+      "ar": "نبتون."
+    }
+  },
+  {
+    "id": "space-034",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Who was the first human to walk on the Moon?",
+      "ar": "من كان أول إنسان يمشي على سطح القمر؟"
+    },
+    "answer": {
+      "en": "Neil Armstrong (1969)",
+      "ar": "نيل أرمسترونغ (1969)"
+    }
+  },
+  {
+    "id": "space-035",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which is the largest planet in our solar system?",
+      "ar": "أي كوكب هو الأكبر في نظامنا الشمسي؟"
+    },
+    "answer": {
+      "en": "Jupiter",
+      "ar": "المشتري"
+    }
+  },
+  {
+    "id": "space-036",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the closest star to Earth (excluding the Sun)?",
+      "ar": "ما أقرب نجم إلى الأرض (باستثناء الشمس)؟"
+    },
+    "answer": {
+      "en": "Proxima Centauri",
+      "ar": "بروكسيما سنتوري"
+    }
+  },
+  {
+    "id": "space-037",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet has the most moons?",
+      "ar": "أي كوكب يمتلك أكبر عدد من الأقمار؟"
+    },
+    "answer": {
+      "en": "Saturn (146 confirmed)",
+      "ar": "زحل (146 قمراً مؤكداً)"
+    }
+  },
+  {
+    "id": "space-038",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What was the name of the first artificial satellite launched into space?",
+      "ar": "ما اسم أول قمر صناعي أُطلق في الفضاء؟"
+    },
+    "answer": {
+      "en": "Sputnik 1 (1957)",
+      "ar": "سبوتنيك 1 (1957)"
+    }
+  },
+  {
+    "id": "space-039",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is a star made of?",
+      "ar": "من ماذا يتكوّن النجم؟"
+    },
+    "answer": {
+      "en": "Plasma, primarily hydrogen and helium undergoing nuclear fusion",
+      "ar": "البلازما، المكوّنة أساساً من الهيدروجين والهيليوم التي تخضع للاندماج النووي"
+    }
+  },
+  {
+    "id": "space-040",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Which planet is closest to the Sun?",
+      "ar": "أي كوكب أقرب إلى الشمس؟"
+    },
+    "answer": {
+      "en": "Mercury",
+      "ar": "عطارد"
+    }
+  },
+  {
+    "id": "space-041",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is a galaxy?",
+      "ar": "ما المجرة؟"
+    },
+    "answer": {
+      "en": "A system of billions of stars, gas, dust, and dark matter held together by gravity",
+      "ar": "نظام من المليارات من النجوم والغاز والغبار والمادة المظلمة تتماسك بفعل الجاذبية"
+    }
+  },
+  {
+    "id": "space-042",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What are the rings of Saturn made of?",
+      "ar": "مِمَّ تتكوّن حلقات زحل؟"
+    },
+    "answer": {
+      "en": "Mostly ice and rock particles",
+      "ar": "معظمها من جزيئات الجليد والصخور"
+    }
+  },
+  {
+    "id": "space-043",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "How long does it take the Moon to orbit the Earth?",
+      "ar": "كم يستغرق القمر للدوران حول الأرض؟"
+    },
+    "answer": {
+      "en": "About 27.3 days",
+      "ar": "حوالي 27.3 يوماً"
+    }
+  },
+  {
+    "id": "space-044",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the Big Bang theory?",
+      "ar": "ما نظرية الانفجار الكبير؟"
+    },
+    "answer": {
+      "en": "The prevailing theory that the universe originated from an extremely hot, dense state about 13.8 billion years ago",
+      "ar": "النظرية السائدة القائلة بأن الكون نشأ من حالة شديدة الحرارة والكثافة منذ حوالي 13.8 مليار سنة"
+    }
+  },
+  {
+    "id": "space-045",
+    "difficulty": "easy",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the Milky Way?",
+      "ar": "ما درب التبانة؟"
+    },
+    "answer": {
+      "en": "The galaxy that contains our solar system — a barred spiral galaxy with 200–400 billion stars",
+      "ar": "المجرة التي تحتوي نظامنا الشمسي — مجرة حلزونية ذات عارضة تضم 200–400 مليار نجم"
+    }
+  },
+  {
+    "id": "space-046",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What is the asteroid belt and where is it located?",
+      "ar": "ما حزام الكويكبات وأين يقع؟"
+    },
+    "answer": {
+      "en": "A region between Mars and Jupiter containing millions of rocky bodies",
+      "ar": "منطقة بين المريخ والمشتري تحتوي على ملايين الأجسام الصخرية"
+    }
+  },
+  {
+    "id": "space-047",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is a neutron star?",
+      "ar": "ما النجم النيوتروني؟"
+    },
+    "answer": {
+      "en": "The dense remnant of a massive star after a supernova, composed almost entirely of neutrons",
+      "ar": "البقايا الكثيفة لنجم ضخم بعد انفجار مستعر أعظم، تتكوّن في معظمها من النيوترونات"
+    }
+  },
+  {
+    "id": "space-048",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is dark matter?",
+      "ar": "ما المادة المظلمة؟"
+    },
+    "answer": {
+      "en": "A hypothetical form of matter that does not emit or interact with light but has gravitational effects",
+      "ar": "شكل افتراضي من المادة لا تُصدر ضوءاً ولا تتفاعل معه لكن لها تأثيرات جاذبية"
+    }
+  },
+  {
+    "id": "space-049",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the International Space Station (ISS)?",
+      "ar": "ما محطة الفضاء الدولية (ISS)؟"
+    },
+    "answer": {
+      "en": "A habitable space station in low Earth orbit, a collaborative project between NASA, Roscosmos, ESA, JAXA, and CSA",
+      "ar": "محطة فضائية صالحة للسكن في مدار أرضي منخفض، مشروع مشترك بين ناسا وروسكوسموس ووكالة الفضاء الأوروبية وجاكسا ووكالة الفضاء الكندية"
+    }
+  },
+  {
+    "id": "space-050",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is a supernova?",
+      "ar": "ما المستعر الأعظم (السوبرنوفا)؟"
+    },
+    "answer": {
+      "en": "A powerful explosion at the end of a massive star's life, briefly outshining entire galaxies",
+      "ar": "انفجار هائل في نهاية حياة نجم ضخم، يُضيء لفترة وجيزة أكثر من المجرات بأسرها"
+    }
+  },
+  {
+    "id": "space-051",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "Why was Pluto reclassified as a dwarf planet?",
+      "ar": "لماذا أُعيد تصنيف بلوتو كوكباً قزماً؟"
+    },
+    "answer": {
+      "en": "It has not cleared its orbital neighbourhood of other debris — one of the three criteria for being a planet (IAU 2006)",
+      "ar": "لم ينظّف مسار مداره من الحطام الفضائي — أحد معايير الكوكب الثلاثة (الاتحاد الفلكي الدولي 2006)"
+    }
+  },
+  {
+    "id": "space-052",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is a light-year?",
+      "ar": "ما السنة الضوئية؟"
+    },
+    "answer": {
+      "en": "The distance light travels in one year — about 9.46 trillion kilometres",
+      "ar": "المسافة التي يقطعها الضوء في سنة واحدة — حوالي 9.46 تريليون كيلومتر"
+    }
+  },
+  {
+    "id": "space-053",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What was the Apollo 13 mission?",
+      "ar": "ما مهمة أبولو 13؟"
+    },
+    "answer": {
+      "en": "A 1970 Moon mission that was aborted after an oxygen tank exploded — crew returned safely using the lunar module as a lifeboat",
+      "ar": "مهمة قمرية عام 1970 أُلغيت بعد انفجار خزان أكسجين — عاد الطاقم سالماً مستخدماً المركبة القمرية كقارب نجاة"
+    }
+  },
+  {
+    "id": "space-054",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the Hertzsprung-Russell diagram?",
+      "ar": "ما مخطط هيرتسبرونغ-راسل؟"
+    },
+    "answer": {
+      "en": "A scatter plot of stars showing their luminosity versus temperature, used to classify stars and track their evolution",
+      "ar": "مخطط انتشار للنجوم يُظهر علاقة الإضاءة بدرجة الحرارة، يُستخدم لتصنيف النجوم وتتبّع تطوّرها"
+    }
+  },
+  {
+    "id": "space-055",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the cosmic microwave background (CMB)?",
+      "ar": "ما إشعاع الخلفية الكونية الميكروي (CMB)؟"
+    },
+    "answer": {
+      "en": "The thermal radiation left over from the Big Bang, filling all of space uniformly",
+      "ar": "الإشعاع الحراري المتبقّي من الانفجار الكبير، يملأ الفضاء بالتساوي"
+    }
+  },
+  {
+    "id": "space-056",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What is the Kuiper Belt?",
+      "ar": "ما حزام كايبر؟"
+    },
+    "answer": {
+      "en": "A region beyond Neptune filled with icy bodies including Pluto, comets, and other dwarf planets",
+      "ar": "منطقة تقع خلف نبتون مليئة بالأجسام الجليدية بما فيها بلوتو والمذنّبات وكواكب قزمة أخرى"
+    }
+  },
+  {
+    "id": "space-057",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is nuclear fusion?",
+      "ar": "ما الاندماج النووي؟"
+    },
+    "answer": {
+      "en": "The process by which light atomic nuclei combine to form heavier nuclei, releasing enormous energy — how stars generate power",
+      "ar": "العملية التي تتحد فيها نوى ذرية خفيفة لتكوين نوى أثقل مع إطلاق طاقة هائلة — كيفية توليد النجوم للطاقة"
+    }
+  },
+  {
+    "id": "space-058",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Hubble Space Telescope?",
+      "ar": "ما تلسكوب هابل الفضائي؟"
+    },
+    "answer": {
+      "en": "A space telescope launched in 1990 providing unprecedented optical images of the universe",
+      "ar": "تلسكوب فضائي أُطلق عام 1990 يوفّر صوراً بصرية غير مسبوقة للكون"
+    }
+  },
+  {
+    "id": "space-059",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the observable universe's estimated diameter?",
+      "ar": "ما القطر التقديري للكون المرئي؟"
+    },
+    "answer": {
+      "en": "About 93 billion light-years",
+      "ar": "حوالي 93 مليار سنة ضوئية"
+    }
+  },
+  {
+    "id": "space-060",
+    "difficulty": "medium",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What causes the seasons on Earth?",
+      "ar": "ما الذي يسبّب الفصول على الأرض؟"
+    },
+    "answer": {
+      "en": "The tilt of Earth's axis (23.5°) relative to its orbital plane around the Sun",
+      "ar": "ميل محور الأرض (23.5°) بالنسبة لمستوى مدارها حول الشمس"
+    }
+  },
+  {
+    "id": "space-061",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is the event horizon of a black hole?",
+      "ar": "ما أفق الحدث للثقب الأسود؟"
+    },
+    "answer": {
+      "en": "The boundary around a black hole beyond which nothing — including light — can escape its gravitational pull",
+      "ar": "الحدّ المحيط بالثقب الأسود الذي لا يمكن لأي شيء — بما في ذلك الضوء — تخطّيه والإفلات من جاذبيته"
+    }
+  },
+  {
+    "id": "space-062",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the Chandrasekhar limit?",
+      "ar": "ما حدّ شاندراسيخار؟"
+    },
+    "answer": {
+      "en": "The maximum mass (~1.4 solar masses) a white dwarf star can have before collapsing — key to understanding Type Ia supernovae",
+      "ar": "الكتلة القصوى (~1.4 كتلة شمسية) التي يمكن لنجم قزم أبيض أن يمتلكها قبل الانهيار — مفتاح فهم المستعرات العظمى من النوع Ia"
+    }
+  },
+  {
+    "id": "space-063",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is gravitational lensing?",
+      "ar": "ما العدسة الجاذبية؟"
+    },
+    "answer": {
+      "en": "The bending of light from distant objects around massive bodies, predicted by General Relativity",
+      "ar": "انحناء الضوء القادم من أجسام بعيدة حول الأجسام الكتلية الضخمة، كما تنبّأ بذلك النسبية العامة"
+    }
+  },
+  {
+    "id": "space-064",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Voyager 1 spacecraft notable for?",
+      "ar": "بماذا تتميّز مركبة فوياجر 1؟"
+    },
+    "answer": {
+      "en": "It is the most distant human-made object — launched in 1977, it entered interstellar space in 2012",
+      "ar": "هي أبعد جسم من صنع الإنسان — أُطلقت عام 1977 ودخلت الفضاء بين النجوم عام 2012"
+    }
+  },
+  {
+    "id": "space-065",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is a pulsar?",
+      "ar": "ما النجم النابض؟"
+    },
+    "answer": {
+      "en": "A rapidly rotating neutron star emitting beams of electromagnetic radiation, detected as regular pulses",
+      "ar": "نجم نيوتروني يدور بسرعة كبيرة يُصدر حزماً من الإشعاع الكهرومغناطيسي تُكتشف على شكل نبضات منتظمة"
+    }
+  },
+  {
+    "id": "space-066",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is Hubble's Law?",
+      "ar": "ما قانون هابل؟"
+    },
+    "answer": {
+      "en": "Galaxies are receding from us at a speed proportional to their distance — evidence of the expanding universe",
+      "ar": "تبتعد المجرات عنا بسرعة تتناسب مع مسافتها — دليل على تمدّد الكون"
+    }
+  },
+  {
+    "id": "space-067",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What is Roche limit?",
+      "ar": "ما حدّ روش؟"
+    },
+    "answer": {
+      "en": "The minimum distance at which a celestial body, held together by its own gravity, can orbit a larger body without being torn apart by tidal forces",
+      "ar": "أدنى مسافة يمكن لجسم سماوي متماسك بجاذبيته الدوران فيها حول جسم أكبر دون أن تمزّقه قوى المد والجزر"
+    }
+  },
+  {
+    "id": "space-068",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is Hawking radiation?",
+      "ar": "ما إشعاع هوكينغ؟"
+    },
+    "answer": {
+      "en": "Theoretical thermal radiation emitted by black holes due to quantum effects near the event horizon, causing them to slowly evaporate",
+      "ar": "إشعاع حراري نظري تُصدره الثقوب السوداء بسبب التأثيرات الكمية قرب أفق الحدث، مما يجعلها تتبخّر ببطء"
+    }
+  },
+  {
+    "id": "space-069",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the CNO cycle?",
+      "ar": "ما دورة CNO؟"
+    },
+    "answer": {
+      "en": "A catalytic nuclear fusion cycle in massive stars where carbon, nitrogen, and oxygen act as catalysts to fuse hydrogen into helium",
+      "ar": "دورة اندماج نووي حفزية في النجوم الضخمة يعمل فيها الكربون والنيتروجين والأكسجين محفّزات لدمج الهيدروجين في الهيليوم"
+    }
+  },
+  {
+    "id": "space-070",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What are quasars?",
+      "ar": "ما الكوازارات؟"
+    },
+    "answer": {
+      "en": "Extremely luminous active galactic nuclei powered by supermassive black holes accreting matter",
+      "ar": "نوى المجرات النشطة الشديدة السطوع التي تُغذّيها الثقوب السوداء الفائقة الكتلة عند ابتلاعها للمادة"
+    }
+  },
+  {
+    "id": "space-071",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the James Webb Space Telescope designed to observe?",
+      "ar": "ما الذي صُمّم تلسكوب جيمس ويب الفضائي لرصده؟"
+    },
+    "answer": {
+      "en": "The first galaxies, exoplanet atmospheres, and stars forming in dust clouds using infrared wavelengths",
+      "ar": "أوائل المجرات وأغلفة الكواكب الخارجية والنجوم المتكوّنة في سحب الغبار باستخدام الأطوال الموجية للأشعة تحت الحمراء"
+    }
+  },
+  {
+    "id": "space-072",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Solar System & Planets",
+      "ar": "النظام الشمسي والكواكب"
+    },
+    "question": {
+      "en": "What is the difference between a meteor, meteoroid, and meteorite?",
+      "ar": "ما الفرق بين الشهاب والنيزك والحجر النيزكي؟"
+    },
+    "answer": {
+      "en": "Meteoroid: space rock; Meteor: the visible streak in the sky; Meteorite: a meteoroid that survives and hits Earth",
+      "ar": "النيزك: صخرة فضائية؛ الشهاب: الخط المضيء في السماء؛ الحجر النيزكي: نيزك يصمد ويصطدم بالأرض"
+    }
+  },
+  {
+    "id": "space-073",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the anthropic principle?",
+      "ar": "ما المبدأ الإنساني؟"
+    },
+    "answer": {
+      "en": "The observation that the universe's physical constants appear finely tuned for the existence of observers like us",
+      "ar": "ملاحظة أن الثوابت الفيزيائية للكون تبدو مضبوطة بدقة لتمكين وجود ملاحظين من أمثالنا"
+    }
+  },
+  {
+    "id": "space-074",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is a magnetar?",
+      "ar": "ما النجم المغناطيسي؟"
+    },
+    "answer": {
+      "en": "A type of neutron star with an extremely powerful magnetic field — the strongest known magnets in the universe",
+      "ar": "نوع من النجوم النيوترونية يمتلك مجالاً مغناطيسياً قوياً للغاية — أقوى المغناطيس المعروفة في الكون"
+    }
+  },
+  {
+    "id": "space-075",
+    "difficulty": "hard",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Lagrange point and why is it useful?",
+      "ar": "ما نقطة لاغرانج ولماذا تكون مفيدة؟"
+    },
+    "answer": {
+      "en": "Positions in space where gravitational forces balance allow a smaller object to stay in a stable orbit — used to park space telescopes (e.g. JWST at L2)",
+      "ar": "مواضع في الفضاء تتوازن فيها قوى الجاذبية تسمح لجسم أصغر بالبقاء في مدار مستقر — تُستخدم لإيقاف التلسكوبات الفضائية (مثل JWST عند L2)"
+    }
+  },
+  {
+    "id": "space-076",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is the information paradox of black holes?",
+      "ar": "ما مفارقة المعلومات في الثقوب السوداء؟"
+    },
+    "answer": {
+      "en": "The conflict between quantum mechanics (information cannot be destroyed) and black hole physics (Hawking radiation appears to destroy information)",
+      "ar": "التعارض بين ميكانيكا الكم (لا يمكن تدمير المعلومات) وفيزياء الثقوب السوداء (إشعاع هوكينغ يبدو أنه يدمّر المعلومات)"
+    }
+  },
+  {
+    "id": "space-077",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is inflationary cosmology?",
+      "ar": "ما الكوزمولوجيا التضخّمية؟"
+    },
+    "answer": {
+      "en": "The theory that the universe underwent exponential expansion in the first fraction of a second after the Big Bang, explaining the flatness and horizon problems",
+      "ar": "نظرية مفادها أن الكون شهد تمدّداً أسياً في الجزء الأول من الثانية بعد الانفجار الكبير، مما يفسّر مشكلتَي الاستواء والأفق"
+    }
+  },
+  {
+    "id": "space-078",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the Tolman-Oppenheimer-Volkoff (TOV) limit?",
+      "ar": "ما حدّ تولمان-أوبنهايمر-فولكوف (TOV)؟"
+    },
+    "answer": {
+      "en": "The maximum mass of a cold, non-rotating neutron star (about 2–3 solar masses) beyond which it collapses into a black hole",
+      "ar": "الكتلة القصوى لنجم نيوتروني بارد غير دوّار (حوالي 2–3 كتل شمسية) يتجاوزها فينهار مكوّناً ثقباً أسود"
+    }
+  },
+  {
+    "id": "space-079",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the holographic principle?",
+      "ar": "ما مبدأ الهولوغرافيك؟"
+    },
+    "answer": {
+      "en": "The idea that all information within a volume of space can be described by information on its boundary surface — inspired by black hole thermodynamics",
+      "ar": "الفكرة القائلة بأن كل المعلومات داخل حجم فضائي يمكن وصفها بمعلومات على سطحه الحدودي — مستوحاة من ثيرموديناميكا الثقوب السوداء"
+    }
+  },
+  {
+    "id": "space-080",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Parker Solar Probe mission?",
+      "ar": "ما مهمة المسبار الشمسي باركر؟"
+    },
+    "answer": {
+      "en": "A NASA spacecraft launched in 2018 to study the Sun's corona and solar wind by flying closer to the Sun than any previous spacecraft",
+      "ar": "مركبة فضائية تابعة لناسا أُطلقت عام 2018 لدراسة الهالة الشمسية والرياح الشمسية بالتحليق أقرب إلى الشمس من أي مركبة سابقة"
+    }
+  },
+  {
+    "id": "space-081",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is the Penrose process?",
+      "ar": "ما عملية بنروز؟"
+    },
+    "answer": {
+      "en": "A theoretical mechanism to extract rotational energy from a Kerr (rotating) black hole using the ergosphere region",
+      "ar": "آلية نظرية لاستخلاص طاقة دوران من ثقب أسود كير (دوّار) باستخدام منطقة الإرغوسفير"
+    }
+  },
+  {
+    "id": "space-082",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What are Population I, II, and III stars?",
+      "ar": "ما نجوم السكان I وII وIII؟"
+    },
+    "answer": {
+      "en": "Pop III: first metal-free stars; Pop II: old, metal-poor stars in galactic halos; Pop I: young, metal-rich stars like our Sun",
+      "ar": "III: أوائل النجوم الخالية من الفلزات؛ II: نجوم قديمة فقيرة بالفلزات في هالات المجرات؛ I: نجوم شابة غنية بالفلزات كشمسنا"
+    }
+  },
+  {
+    "id": "space-083",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the cosmological constant (Λ)?",
+      "ar": "ما الثابت الكوني (Λ)؟"
+    },
+    "answer": {
+      "en": "A term in Einstein's field equations representing the energy density of empty space — reintroduced to explain the accelerating expansion of the universe",
+      "ar": "حدّ في معادلات إنشتاين الميدانية يمثّل كثافة طاقة الفضاء الفارغ — أُعيد إدخاله لتفسير التمدّد المتسارع للكون"
+    }
+  },
+  {
+    "id": "space-084",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Drake Equation?",
+      "ar": "ما معادلة درايك؟"
+    },
+    "answer": {
+      "en": "A probabilistic formula estimating the number of active, communicating civilisations in the Milky Way using factors like star formation rate, habitable planets, and life emergence probability",
+      "ar": "صيغة احتمالية تُقدّر عدد الحضارات النشطة والمتواصلة في درب التبانة باستخدام عوامل كمعدل تكوّن النجوم والكواكب الصالحة للسكن واحتمال نشوء الحياة"
+    }
+  },
+  {
+    "id": "space-085",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What are gravitational waves and who first detected them?",
+      "ar": "ما موجات الجاذبية ومن اكتشفها أوّلاً؟"
+    },
+    "answer": {
+      "en": "Ripples in spacetime caused by accelerating massive objects — first directly detected by LIGO in 2015 from two merging black holes",
+      "ar": "تموّجات في نسيج الزمكان ناتجة عن تسارع الأجسام الضخمة — اكتشفها مرصد LIGO مباشرة عام 2015 من اندماج ثقبَين أسودَين"
+    }
+  },
+  {
+    "id": "space-086",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the s-process vs r-process in stellar nucleosynthesis?",
+      "ar": "ما الفرق بين العملية s والعملية r في التوليف النووي النجمي؟"
+    },
+    "answer": {
+      "en": "s-process (slow): neutron capture over long periods in AGB stars; r-process (rapid): fast neutron capture in supernovae or neutron star mergers — creates heavy elements",
+      "ar": "العملية s (البطيئة): التقاط نيوترون بمرور الوقت في نجوم AGB؛ العملية r (السريعة): التقاط سريع في المستعرات أو اندماج النجوم النيوترونية — تنتج عناصر ثقيلة"
+    }
+  },
+  {
+    "id": "space-087",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the Fermi Paradox?",
+      "ar": "ما مفارقة فيرمي؟"
+    },
+    "answer": {
+      "en": "The contradiction between the high probability of extraterrestrial civilisations and the lack of evidence for, or contact with, such civilisations",
+      "ar": "التناقض بين الاحتمال الكبير لوجود حضارات خارج كوكبنا وغياب الأدلة على وجودها أو التواصل معها"
+    }
+  },
+  {
+    "id": "space-088",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is spaghettification?",
+      "ar": "ما السباغيتيفيكيشن (التسمّك كالمكرونة)؟"
+    },
+    "answer": {
+      "en": "The tidal stretching of objects into long thin shapes when falling into a black hole due to extreme tidal gravity differences",
+      "ar": "التمدّد المديّ للأجسام إلى أشكال رفيعة طويلة عند سقوطها في ثقب أسود بسبب الفوارق الهائلة في الجاذبية المدّية"
+    }
+  },
+  {
+    "id": "space-089",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the concept of stellar evolution and the main sequence?",
+      "ar": "ما مفهوم التطور النجمي والتسلسل الرئيسي؟"
+    },
+    "answer": {
+      "en": "Stars spend most of their lives on the main sequence fusing hydrogen in their cores; mass determines lifespan and end state (white dwarf, neutron star, or black hole)",
+      "ar": "تقضي النجوم معظم حياتها في التسلسل الرئيسي تندمج فيه نوى الهيدروجين؛ الكتلة تحدّد العمر والحالة النهائية (قزم أبيض أو نجم نيوتروني أو ثقب أسود)"
+    }
+  },
+  {
+    "id": "space-090",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the multiverse hypothesis?",
+      "ar": "ما فرضية الكون المتعدد؟"
+    },
+    "answer": {
+      "en": "The theoretical proposition that multiple universes exist beyond our observable universe, each potentially with different physical laws",
+      "ar": "الاقتراح النظري بأن كوناً متعدداً يتجاوز كوننا المرصود، قد يمتلك كل منها قوانين فيزيائية مختلفة"
+    }
+  },
+  {
+    "id": "space-091",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Artemis programme?",
+      "ar": "ما برنامج أرتيميس؟"
+    },
+    "answer": {
+      "en": "NASA's programme to return humans to the Moon and establish a sustainable presence, as a stepping stone to Mars",
+      "ar": "برنامج ناسا لإعادة البشر إلى القمر وإقامة وجود مستدام هناك، كمحطة انطلاق نحو المريخ"
+    }
+  },
+  {
+    "id": "space-092",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is the no-hair theorem for black holes?",
+      "ar": "ما مبرهنة عدم الشعر للثقوب السوداء؟"
+    },
+    "answer": {
+      "en": "Black holes can be completely described by only three externally observable parameters: mass, electric charge, and angular momentum",
+      "ar": "يمكن وصف الثقوب السوداء بالكامل بثلاثة معاملات خارجية فقط: الكتلة والشحنة الكهربائية وكمية الحركة الزاوية"
+    }
+  },
+  {
+    "id": "space-093",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What are Cepheid variables and why are they important?",
+      "ar": "ما النجوم القيفاوية المتغيّرة ولماذا تكون مهمة؟"
+    },
+    "answer": {
+      "en": "Stars with pulsating luminosity in a period-luminosity relationship, used as 'standard candles' to measure cosmic distances",
+      "ar": "نجوم ذات إضاءة نابضة في علاقة الفترة بالإضاءة، تُستخدم كـ'شموع قياسية' لقياس المسافات الكونية"
+    }
+  },
+  {
+    "id": "space-094",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the Sunyaev-Zel'dovich effect?",
+      "ar": "ما تأثير سونياييف-زيلدوفيتش؟"
+    },
+    "answer": {
+      "en": "The distortion of the cosmic microwave background radiation by inverse Compton scattering of photons off electrons in galaxy clusters",
+      "ar": "تشوّه إشعاع الخلفية الكونية الميكروي بسبب التشتت الكومبتوني العكسي للفوتونات على الإلكترونات في عناقيد المجرات"
+    }
+  },
+  {
+    "id": "space-095",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Tsiolkovsky rocket equation?",
+      "ar": "ما معادلة تسيولكوفسكي للصاروخ؟"
+    },
+    "answer": {
+      "en": "Δv = ve × ln(m₀/mf) — relates rocket velocity change to exhaust velocity and mass ratio, fundamental to all space travel",
+      "ar": "Δv = ve × ln(m₀/mf) — تربط تغيّر سرعة الصاروخ بسرعة العادم ونسبة الكتلة، وهي أساسية لجميع رحلات الفضاء"
+    }
+  },
+  {
+    "id": "space-096",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Black Holes & Gravity",
+      "ar": "الثقوب السوداء والجاذبية"
+    },
+    "question": {
+      "en": "What is the first black hole ever directly imaged?",
+      "ar": "ما أول ثقب أسود صُوِّر مباشرةً؟"
+    },
+    "answer": {
+      "en": "M87* — the supermassive black hole at the centre of galaxy M87, imaged by the Event Horizon Telescope in 2019",
+      "ar": "M87* — الثقب الأسود الفائق الكتلة في مركز مجرة M87، صوّره تلسكوب أفق الحدث عام 2019"
+    }
+  },
+  {
+    "id": "space-097",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is the Big Rip hypothesis?",
+      "ar": "ما فرضية التمزّق الكبير؟"
+    },
+    "answer": {
+      "en": "A cosmological model where dark energy causes the universe's expansion to accelerate until it tears apart all matter, from galaxy clusters down to atoms",
+      "ar": "نموذج كوزمولوجي تتسارع فيه توسّع الكون بسبب الطاقة المظلمة حتى تتمزّق كل المادة من عناقيد المجرات وصولاً إلى الذرات"
+    }
+  },
+  {
+    "id": "space-098",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Stars & Stellar Evolution",
+      "ar": "النجوم وتطورها"
+    },
+    "question": {
+      "en": "What is the Kelvin-Helmholtz mechanism?",
+      "ar": "ما آلية كلفن-هلمهولتز؟"
+    },
+    "answer": {
+      "en": "The gravitational contraction of a gas cloud releasing energy as heat and light — the original proposed power source of the Sun before nuclear fusion was understood",
+      "ar": "الانكماش الجاذبي لسحابة غازية يُصدر طاقة على شكل حرارة وضوء — المصدر المقترح أصلاً لطاقة الشمس قبل فهم الاندماج النووي"
+    }
+  },
+  {
+    "id": "space-099",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Galaxies & Cosmology",
+      "ar": "المجرات وعلم الكون"
+    },
+    "question": {
+      "en": "What is baryon acoustic oscillation (BAO)?",
+      "ar": "ما التذبذبات الصوتية للباريون (BAO)؟"
+    },
+    "answer": {
+      "en": "Imprinted patterns in the distribution of matter in the universe from sound waves in the early universe — used as a 'standard ruler' to measure cosmic distances",
+      "ar": "أنماط مطبوعة في توزيع المادة في الكون من موجات صوتية في الكون المبكّر — تُستخدم كـ'مسطرة قياسية' لقياس المسافات الكونية"
+    }
+  },
+  {
+    "id": "space-100",
+    "difficulty": "very-advanced",
+    "subcategory": {
+      "en": "Space Exploration & Telescopes",
+      "ar": "استكشاف الفضاء والتلسكوبات"
+    },
+    "question": {
+      "en": "What is the Cosmic Microwave Background (CMB) temperature?",
+      "ar": "ما درجة حرارة إشعاع الخلفية الكونية الميكروي (CMB)؟"
+    },
+    "answer": {
+      "en": "About 2.725 Kelvin (−270.4°C) — the remnant temperature from the Big Bang, nearly uniform across the sky",
+      "ar": "حوالي 2.725 كلفن (270.4- درجة مئوية) — درجة الحرارة المتبقّية من الانفجار الكبير، شبه موحّدة في السماء"
+    }
+  }
+]

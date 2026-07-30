@@ -20,7 +20,13 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: "24"
-      - name: Validate static source and generated card index
+      - name: Verify generated catalog metadata
+        run: node scripts/sync-catalog.mjs --check
+      - name: Verify compact global search index
+        run: node scripts/generate-search-index.mjs --check
+      - name: Audit exact and semantic question duplicates
+        run: node scripts/audit-question-bank.mjs --strict
+      - name: Validate static source, taxonomy, and generated card index
         run: node scripts/validate-static.mjs
       - name: Test production monitor
         run: node --test scripts/monitor-production.test.mjs

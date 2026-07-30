@@ -80,16 +80,71 @@ const workerCardIndex = fs.existsSync(workerCardIndexPath)
   ? JSON.parse(fs.readFileSync(workerCardIndexPath, "utf8"))
   : null;
 const catalogSlugs = new Set();
+const categoriesBySlug = new Map();
 const allCardIds = new Set();
 const expectedCardIndex = {};
+let expectedQuestionTotal = 0;
 
 for (const category of catalog.categories || []) {
   if (!category.slug || catalogSlugs.has(category.slug)) fail(`catalog: invalid or duplicate slug "${category.slug}"`);
   catalogSlugs.add(category.slug);
+  categoriesBySlug.set(category.slug, category);
   const expectedPage = path.join(root, category.href || "");
   const expectedData = path.join(root, "data", `${category.slug}.json`);
   if (!fs.existsSync(expectedPage)) fail(`catalog: missing page for ${category.slug}`);
   if (!fs.existsSync(expectedData)) fail(`catalog: missing data for ${category.slug}`);
+}
+
+const sectionKeys = new Set();
+const sectionBySlug = new Map();
+if ((catalog.sections || []).length !== 5) {
+  fail(`catalog: expected 5 directory sections, found ${(catalog.sections || []).length}`);
+}
+for (const [index, section] of (catalog.sections || []).entries()) {
+  const label = `catalog section ${index + 1}`;
+  if (!section?.key || sectionKeys.has(section.key)) fail(`${label}: missing or duplicate key "${section?.key}"`);
+  if (section?.key) sectionKeys.add(section.key);
+  if (!section?.title?.en?.trim() || !section?.title?.ar?.trim()) fail(`${label}: incomplete bilingual title`);
+  if (!section?.description?.en?.trim() || !section?.description?.ar?.trim()) {
+    fail(`${label}: incomplete bilingual description`);
+  }
+  if (!Array.isArray(section?.members) || !section.members.length) {
+    fail(`${label}: expected at least one category member`);
+    continue;
+  }
+  for (const slug of section.members) {
+    if (!catalogSlugs.has(slug)) fail(`${label}: unknown category member "${slug}"`);
+    if (sectionBySlug.has(slug)) {
+      fail(`${label}: category "${slug}" also belongs to section "${sectionBySlug.get(slug)?.key}"`);
+    } else {
+      sectionBySlug.set(slug, section);
+    }
+  }
+}
+
+for (const category of catalog.categories || []) {
+  const section = sectionBySlug.get(category.slug);
+  if (!section) {
+    fail(`catalog: category "${category.slug}" is not assigned to a directory section`);
+  } else {
+    if (category.cluster_key !== section.key) {
+      fail(`catalog: ${category.slug} cluster_key "${category.cluster_key}" does not match section "${section.key}"`);
+    }
+    if (stableObjectJson(category.cluster) !== stableObjectJson(section.title)) {
+      fail(`catalog: ${category.slug} cluster title does not match section "${section.key}"`);
+    }
+  }
+  if (!Array.isArray(category.related)) {
+    fail(`catalog: ${category.slug} needs a related category list`);
+  } else {
+    const related = new Set();
+    for (const slug of category.related) {
+      if (slug === category.slug) fail(`catalog: ${category.slug} cannot relate to itself`);
+      if (!catalogSlugs.has(slug)) fail(`catalog: ${category.slug} references unknown related category "${slug}"`);
+      if (related.has(slug)) fail(`catalog: ${category.slug} repeats related category "${slug}"`);
+      related.add(slug);
+    }
+  }
 }
 
 for (const file of dataFiles) {
@@ -100,16 +155,20 @@ for (const file of dataFiles) {
     fail(`data/${file}: invalid JSON: ${error.message}`);
     continue;
   }
-  if (file === "catalog.json" || file === "card-index.json") continue;
-  const cards = Array.isArray(parsed) ? parsed : parsed.cards;
-  if (!Array.isArray(cards)) {
-    fail(`data/${file}: expected an array of cards`);
+  if (file === "catalog.json" || file === "card-index.json" || file === "search-index.json") continue;
+  if (!Array.isArray(parsed)) {
+    fail(`data/${file}: category files must be plain card arrays; metadata belongs in data/catalog.json`);
     continue;
   }
+  const cards = parsed;
   const slug = file.replace(/\.json$/u, "");
-  const metadata = (catalog.categories || []).find((category) => category.slug === slug);
+  const metadata = categoriesBySlug.get(slug);
   if (!metadata) fail(`data/${file}: category is missing from catalog`);
   if (metadata?.count !== cards.length) fail(`data/${file}: catalog count ${metadata?.count} does not match ${cards.length}`);
+  expectedQuestionTotal += cards.length;
+  const difficultyCounts = {};
+  const topicCounts = new Map();
+  const topicEnglishByArabic = new Map();
 
   for (const [index, card] of cards.entries()) {
     const label = `data/${file} card ${index + 1}`;
@@ -119,13 +178,60 @@ for (const file of dataFiles) {
       fail(`${label}: invalid difficulty "${card?.difficulty}"`);
     }
     if (card?.id && card?.difficulty) expectedCardIndex[card.id] = [slug, card.difficulty];
+    if (card?.difficulty) difficultyCounts[card.difficulty] = (difficultyCounts[card.difficulty] || 0) + 1;
     for (const field of ["question", "answer"]) {
       if (!card?.[field]?.en?.trim() || !card?.[field]?.ar?.trim()) fail(`${label}: incomplete bilingual ${field}`);
     }
-    if (card?.subcategory && (!card.subcategory.en?.trim() || !card.subcategory.ar?.trim())) {
+    const topicEn = card?.subcategory?.en?.trim();
+    const topicAr = card?.subcategory?.ar?.trim();
+    if (!topicEn || !topicAr) {
       fail(`${label}: incomplete bilingual subcategory`);
+    } else {
+      if (!topicCounts.has(topicEn)) {
+        topicCounts.set(topicEn, {
+          en: topicEn,
+          ar: topicAr,
+          count: 0,
+        });
+      } else if (topicCounts.get(topicEn).ar !== topicAr) {
+        fail(`${label}: topic "${topicEn}" has inconsistent Arabic labels`);
+      }
+      if (topicEnglishByArabic.has(topicAr) && topicEnglishByArabic.get(topicAr) !== topicEn) {
+        fail(`${label}: Arabic topic "${topicAr}" maps to inconsistent English labels`);
+      } else {
+        topicEnglishByArabic.set(topicAr, topicEn);
+      }
+      topicCounts.get(topicEn).count += 1;
     }
   }
+
+  if (topicCounts.size > 10) {
+    fail(`data/${file}: taxonomy has ${topicCounts.size} subcategories; maximum is 10`);
+  }
+  for (const topic of topicCounts.values()) {
+    if (topic.count < 2) {
+      fail(`data/${file}: subcategory "${topic.en}" has ${topic.count} card; minimum is 2`);
+    }
+  }
+
+  const expectedDifficultyCounts = Object.fromEntries(
+    ["easy", "medium", "hard", "very-advanced"]
+      .filter((difficulty) => difficultyCounts[difficulty])
+      .map((difficulty) => [difficulty, difficultyCounts[difficulty]]),
+  );
+  if (JSON.stringify(metadata?.difficultyCounts || {}) !== JSON.stringify(expectedDifficultyCounts)) {
+    fail(`data/${file}: catalog difficulty counts are stale`);
+  }
+  const expectedTopics = [...topicCounts.values()].sort((left, right) => (
+    right.count - left.count || left.en.localeCompare(right.en)
+  ));
+  if (JSON.stringify(metadata?.topics || []) !== JSON.stringify(expectedTopics)) {
+    fail(`data/${file}: catalog topics are stale`);
+  }
+}
+
+if (catalog.site?.totalQuestions !== expectedQuestionTotal) {
+  fail(`catalog: site total ${catalog.site?.totalQuestions} does not match ${expectedQuestionTotal}`);
 }
 
 if (!cardIndex) {

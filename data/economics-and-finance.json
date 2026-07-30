@@ -1,490 +1,642 @@
-{
-  "slug": "economics-and-finance",
-  "title": {
-    "en": "Economics & Finance",
-    "ar": "الاقتصاد والمال"
-  },
-  "count": 40,
-  "cards": [
-    {
-      "id": "eco-f-1",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the primary currency used in the United States?",
-        "ar": "ما هي العملة الأساسية المستخدمة في الولايات المتحدة؟"
-      },
-      "answer": {
-        "en": "US Dollar",
-        "ar": "الدولار الأمريكي"
-      }
+[
+  {
+    "id": "eco-f-1",
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the primary currency used in the United States?",
+      "ar": "ما هي العملة الأساسية المستخدمة في الولايات المتحدة؟"
     },
-    {
-      "id": "eco-f-2",
-      "difficulty": "easy",
-      "question": {
-        "en": "What term describes a general increase in prices and fall in the purchasing value of money?",
-        "ar": "ما هو المصطلح الذي يصف الزيادة العامة في الأسعار وانخفاض القيمة الشرائية للمال؟"
-      },
-      "answer": {
-        "en": "Inflation",
-        "ar": "التضخم"
-      }
+    "answer": {
+      "en": "US Dollar",
+      "ar": "الدولار الأمريكي"
     },
-    {
-      "id": "eco-f-3",
-      "difficulty": "easy",
-      "question": {
-        "en": "True or False: A 'Bank' is a place where you can save and borrow money.",
-        "ar": "صح أم خطأ: 'البنك' هو مكان يمكنك فيه ادخار واقتراض المال."
-      },
-      "answer": {
-        "en": "True",
-        "ar": "صح"
-      }
-    },
-    {
-      "id": "eco-f-4",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the term for a person who starts their own business?",
-        "ar": "ما هو المصطلح الذي يطلق على الشخص الذي يبدأ مشروعه الخاص؟"
-      },
-      "answer": {
-        "en": "Entrepreneur",
-        "ar": "رائد أعمال"
-      }
-    },
-    {
-      "id": "eco-f-5",
-      "difficulty": "easy",
-      "question": {
-        "en": "What do we call the money you earn from working?",
-        "ar": "ماذا نسمي المال الذي تكسبه من العمل؟"
-      },
-      "answer": {
-        "en": "Income",
-        "ar": "الدخل"
-      }
-    },
-    {
-      "id": "eco-f-6",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which metal was historically used as the standard for many world currencies?",
-        "ar": "أي معدن تم استخدامه تاريخياً كمعيار للعديد من العملات العالمية؟"
-      },
-      "answer": {
-        "en": "Gold",
-        "ar": "الذهب"
-      }
-    },
-    {
-      "id": "eco-f-7",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is a 'Tax'?",
-        "ar": "ما هي 'الضريبة'؟"
-      },
-      "answer": {
-        "en": "A compulsory financial charge imposed by the government",
-        "ar": "رسوم مالية إلزامية تفرضها الحكومة"
-      }
-    },
-    {
-      "id": "eco-f-8",
-      "difficulty": "easy",
-      "question": {
-        "en": "What happens to the price of a product if the 'Demand' is high but the 'Supply' is low?",
-        "ar": "ماذا يحدث لسعر المنتج إذا كان 'الطلب' مرتفعاً و'العرض' منخفضاً؟"
-      },
-      "answer": {
-        "en": "Price Increases",
-        "ar": "يزداد السعر"
-      }
-    },
-    {
-      "id": "eco-f-9",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the term for a share in the ownership of a company?",
-        "ar": "ما هو المصطلح الذي يطلق على حصة في ملكية شركة ما؟"
-      },
-      "answer": {
-        "en": "Stock (or Share)",
-        "ar": "سهم"
-      }
-    },
-    {
-      "id": "eco-f-10",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is a 'Budget'?",
-        "ar": "ما هي 'الميزانية'؟"
-      },
-      "answer": {
-        "en": "A plan for spending and saving money",
-        "ar": "خطة لإنفاق وادخار المال"
-      }
-    },
-    {
-      "id": "eco-f-11",
-      "difficulty": "medium",
-      "question": {
-        "en": "What does 'GDP' stand for in economics?",
-        "ar": "إلى ماذا يرمز اختصار 'GDP' في الاقتصاد؟"
-      },
-      "answer": {
-        "en": "Gross Domestic Product",
-        "ar": "الناتج المحلي الإجمالي"
-      }
-    },
-    {
-      "id": "eco-f-12",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the 'Law of Demand'?",
-        "ar": "ما هو 'قانون الطلب'؟"
-      },
-      "answer": {
-        "en": "As price increases, the quantity demanded decreases",
-        "ar": "كلما زاد السعر، قلت الكمية المطلوبة"
-      }
-    },
-    {
-      "id": "eco-f-13",
-      "difficulty": "medium",
-      "question": {
-        "en": "Who is known as the 'Father of Modern Economics' and wrote 'The Wealth of Nations'?",
-        "ar": "من يعرف بـ 'أبو الاقتصاد الحديث' ومؤلف كتاب 'ثروة الأمم'؟"
-      },
-      "answer": {
-        "en": "Adam Smith",
-        "ar": "آدم سميث"
-      }
-    },
-    {
-      "id": "eco-f-14",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is a 'Monopoly'?",
-        "ar": "ما هو 'الاحتكار'؟"
-      },
-      "answer": {
-        "en": "When a single company controls the entire market for a product",
-        "ar": "عندما تسيطر شركة واحدة على السوق الكامل لمنتج ما"
-      }
-    },
-    {
-      "id": "eco-f-15",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the difference between an 'Export' and an 'Import'?",
-        "ar": "ما هو الفرق بين 'التصدير' و'الاستيراد'؟"
-      },
-      "answer": {
-        "en": "Export is selling goods abroad; Import is buying from abroad",
-        "ar": "التصدير هو بيع السلع للخارج، والاستيراد هو الشراء من الخارج"
-      }
-    },
-    {
-      "id": "eco-f-16",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Opportunity Cost'?",
-        "ar": "ما هي 'تكلفة الفرصة البديلة'؟"
-      },
-      "answer": {
-        "en": "The value of the next best alternative foregone",
-        "ar": "قيمة البديل الأفضل التالي الذي تم التخلي عنه"
-      }
-    },
-    {
-      "id": "eco-f-17",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the role of a 'Central Bank'?",
-        "ar": "ما هو دور 'البنك المركزي'؟"
-      },
-      "answer": {
-        "en": "To manage the country's currency and monetary policy",
-        "ar": "إدارة عملة الدولة والسياسة النقدية"
-      }
-    },
-    {
-      "id": "eco-f-18",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is a 'Bear Market' in stock trading?",
-        "ar": "ما هو 'سوق الدب' (Bear Market) في تداول الأسهم؟"
-      },
-      "answer": {
-        "en": "A market where prices are falling",
-        "ar": "سوق تنخفض فيه الأسعار"
-      }
-    },
-    {
-      "id": "eco-f-19",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the 'Interest Rate'?",
-        "ar": "ما هو 'سعر الفائدة'؟"
-      },
-      "answer": {
-        "en": "The cost of borrowing money, expressed as a percentage",
-        "ar": "تكلفة اقتراض المال، معبراً عنها كنسبة مئوية"
-      }
-    },
-    {
-      "id": "eco-f-20",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Laissez-faire' economics?",
-        "ar": "ما هو اقتصاد 'دعه يعمل' (Laissez-faire)؟"
-      },
-      "answer": {
-        "en": "A policy of minimum governmental interference in the economy",
-        "ar": "سياسة الحد الأدنى من التدخل الحكومي في الاقتصاد"
-      }
-    },
-    {
-      "id": "eco-f-21",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Keynesian Economics'?",
-        "ar": "ما هو 'الاقتصاد الكينزي'؟"
-      },
-      "answer": {
-        "en": "A theory advocating government spending to stimulate demand during a recession",
-        "ar": "نظرية تدعو للإنفاق الحكومي لتحفيز الطلب خلال الركود"
-      }
-    },
-    {
-      "id": "eco-f-22",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Comparative Advantage' theory?",
-        "ar": "ما هي نظرية 'الميزة النسبية'؟"
-      },
-      "answer": {
-        "en": "The ability to produce a good at a lower opportunity cost than others",
-        "ar": "القدرة على إنتاج سلعة بتكلفة فرصة بديلة أقل من الآخرين"
-      }
-    },
-    {
-      "id": "eco-f-23",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Gini Coefficient' used to measure?",
-        "ar": "ماذا يستخدم 'معامل جيني' لقياسه؟"
-      },
-      "answer": {
-        "en": "Income inequality within a population",
-        "ar": "عدم المساواة في الدخل بين السكان"
-      }
-    },
-    {
-      "id": "eco-f-24",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Stagflation'?",
-        "ar": "ما هو 'الركود التضخمي'؟"
-      },
-      "answer": {
-        "en": "A combination of stagnant economic growth and high inflation",
-        "ar": "مزيج من الركود الاقتصادي والتضخم المرتفع"
-      }
-    },
-    {
-      "id": "eco-f-25",
-      "difficulty": "hard",
-      "question": {
-        "en": "What does 'Quantitative Easing' (QE) mean?",
-        "ar": "ماذا يعني 'التيسير الكمي' (QE)؟"
-      },
-      "answer": {
-        "en": "A central bank policy of buying securities to increase the money supply",
-        "ar": "سياسة البنك المركزي بشراء الأوراق المالية لزيادة المعروض النقدي"
-      }
-    },
-    {
-      "id": "eco-f-26",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Multiplier Effect' in economics?",
-        "ar": "ما هو 'تأثير المضاعف' في الاقتصاد؟"
-      },
-      "answer": {
-        "en": "How an initial injection of spending leads to a larger overall increase in income",
-        "ar": "كيف يؤدي ضخ الإنفاق الأولي إلى زيادة إجمالية أكبر في الدخل"
-      }
-    },
-    {
-      "id": "eco-f-27",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Tragedy of the Commons'?",
-        "ar": "ما هي 'مأساة المشاع'؟"
-      },
-      "answer": {
-        "en": "When individuals deplete a shared resource for their own gain",
-        "ar": "عندما يستنزف الأفراد مورداً مشتركاً لمصلحتهم الخاصة"
-      }
-    },
-    {
-      "id": "eco-f-28",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is a 'Fiat Currency'?",
-        "ar": "ما هي 'العملة الإلزامية' (Fiat Currency)؟"
-      },
-      "answer": {
-        "en": "Money that is not backed by a physical commodity like gold",
-        "ar": "المال الذي لا يدعمه سلعة مادية مثل الذهب"
-      }
-    },
-    {
-      "id": "eco-f-29",
-      "difficulty": "hard",
-      "question": {
-        "en": "Who developed the concept of the 'Invisible Hand'?",
-        "ar": "من طور مفهوم 'اليد الخفية'؟"
-      },
-      "answer": {
-        "en": "Adam Smith",
-        "ar": "آدم سميث"
-      }
-    },
-    {
-      "id": "eco-f-30",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Hyperinflation'?",
-        "ar": "ما هو 'التضخم المفرط'؟"
-      },
-      "answer": {
-        "en": "Extremely rapid and out-of-control inflation",
-        "ar": "تضخم سريع للغاية وخارج عن السيطرة"
-      }
-    },
-    {
-      "id": "eco-f-31",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Lucas Critique'?",
-        "ar": "ما هو 'نقد لوكاس'؟"
-      },
-      "answer": {
-        "en": "The argument that economic policy cannot be based on historical data if the policy changes expectations",
-        "ar": "الحجة القائلة بأن السياسة الاقتصادية لا يمكن أن تستند إلى بيانات تاريخية إذا غيرت السياسة التوقعات"
-      }
-    },
-    {
-      "id": "eco-f-32",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Phillips Curve' relationship?",
-        "ar": "ما هي علاقة 'منحنى فيليبس'؟"
-      },
-      "answer": {
-        "en": "The inverse relationship between rates of unemployment and inflation",
-        "ar": "العلاقة العكسية بين معدلات البطالة والتضخم"
-      }
-    },
-    {
-      "id": "eco-f-33",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Dutch Disease' in economics?",
-        "ar": "ما هو 'المرض الهولندي' في الاقتصاد؟"
-      },
-      "answer": {
-        "en": "The negative impact on an economy from a sharp increase in a single sector (like natural resources)",
-        "ar": "التأثير السلبي على الاقتصاد الناتج عن زيادة حادة في قطاع واحد (مثل الموارد الطبيعية)"
-      }
-    },
-    {
-      "id": "eco-f-34",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "Who won the Nobel Prize for his work on 'Game Theory' and the 'Nash Equilibrium'?",
-        "ar": "من فاز بجائزة نوبل لعمله في 'نظرية الألعاب' و 'توازن ناش'؟"
-      },
-      "answer": {
-        "en": "John Nash",
-        "ar": "جون ناش"
-      }
-    },
-    {
-      "id": "eco-f-35",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Pareto Efficiency'?",
-        "ar": "ما هي 'كفاءة باريتو'؟"
-      },
-      "answer": {
-        "en": "A state where no one can be made better off without making someone else worse off",
-        "ar": "حالة لا يمكن فيها تحسين وضع شخص دون جعل شخص آخر في وضع أسوأ"
-      }
-    },
-    {
-      "id": "eco-f-36",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What was the 'Bretton Woods Conference' responsible for?",
-        "ar": "ما الذي كان 'مؤتمر بريتون وودز' مسؤولاً عنه؟"
-      },
-      "answer": {
-        "en": "Establishing the IMF and the World Bank after WWII",
-        "ar": "تأسيس صندوق النقد الدولي والبنك الدولي بعد الحرب العالمية الثانية"
-      }
-    },
-    {
-      "id": "eco-f-37",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Modigliani-Miller Theorem'?",
-        "ar": "ما هي 'مبرهنة موديلياني-ميلر'؟"
-      },
-      "answer": {
-        "en": "The idea that the value of a firm is unaffected by how it is financed (in a perfect market)",
-        "ar": "الفكرة القائلة بأن قيمة الشركة لا تتأثر بكيفية تمويلها (في سوق مثالي)"
-      }
-    },
-    {
-      "id": "eco-f-38",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Mundell-Fleming Model'?",
-        "ar": "ما هو 'نموذج ماندل-فليمنج'؟"
-      },
-      "answer": {
-        "en": "An extension of the IS-LM model to an open economy",
-        "ar": "توسعة لنموذج IS-LM ليشمل اقتصاداً مفتوحاً"
-      }
-    },
-    {
-      "id": "eco-f-39",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Asymmetric Information'?",
-        "ar": "ما هي 'المعلومات غير المتماثلة'؟"
-      },
-      "answer": {
-        "en": "When one party in a transaction has more or better information than the other",
-        "ar": "عندما تمتلك إحدى الأطراف في صفقة ما معلومات أكثر أو أفضل من الطرف الآخر"
-      }
-    },
-    {
-      "id": "eco-f-40",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Coase Theorem'?",
-        "ar": "ما هي 'مبرهنة كوز'؟"
-      },
-      "answer": {
-        "en": "The idea that private parties can solve externalities through bargaining if transaction costs are zero",
-        "ar": "الفكرة القائلة بأن الأطراف الخاصة يمكنها حل المشاكل الخارجية من خلال المساومة إذا كانت تكاليف الصفقات صفراً"
-      }
+    "subcategory": {
+      "en": "Money & Banking",
+      "ar": "المال والمصارف"
     }
-  ]
-}
+  },
+  {
+    "id": "eco-f-2",
+    "difficulty": "easy",
+    "question": {
+      "en": "What term describes a general increase in prices and fall in the purchasing value of money?",
+      "ar": "ما هو المصطلح الذي يصف الزيادة العامة في الأسعار وانخفاض القيمة الشرائية للمال؟"
+    },
+    "answer": {
+      "en": "Inflation",
+      "ar": "التضخم"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-3",
+    "difficulty": "easy",
+    "question": {
+      "en": "True or False: A 'Bank' is a place where you can save and borrow money.",
+      "ar": "صح أم خطأ: 'البنك' هو مكان يمكنك فيه ادخار واقتراض المال."
+    },
+    "answer": {
+      "en": "True",
+      "ar": "صح"
+    },
+    "subcategory": {
+      "en": "Money & Banking",
+      "ar": "المال والمصارف"
+    }
+  },
+  {
+    "id": "eco-f-4",
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the term for a person who starts their own business?",
+      "ar": "ما هو المصطلح الذي يطلق على الشخص الذي يبدأ مشروعه الخاص؟"
+    },
+    "answer": {
+      "en": "Entrepreneur",
+      "ar": "رائد أعمال"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-5",
+    "difficulty": "easy",
+    "question": {
+      "en": "What do we call the money you earn from working?",
+      "ar": "ماذا نسمي المال الذي تكسبه من العمل؟"
+    },
+    "answer": {
+      "en": "Income",
+      "ar": "الدخل"
+    },
+    "subcategory": {
+      "en": "Personal Finance",
+      "ar": "التمويل الشخصي"
+    }
+  },
+  {
+    "id": "eco-f-6",
+    "difficulty": "easy",
+    "question": {
+      "en": "Which metal was historically used as the standard for many world currencies?",
+      "ar": "أي معدن تم استخدامه تاريخياً كمعيار للعديد من العملات العالمية؟"
+    },
+    "answer": {
+      "en": "Gold",
+      "ar": "الذهب"
+    },
+    "subcategory": {
+      "en": "Money & Banking",
+      "ar": "المال والمصارف"
+    }
+  },
+  {
+    "id": "eco-f-7",
+    "difficulty": "easy",
+    "question": {
+      "en": "What is a 'Tax'?",
+      "ar": "ما هي 'الضريبة'؟"
+    },
+    "answer": {
+      "en": "A compulsory financial charge imposed by the government",
+      "ar": "رسوم مالية إلزامية تفرضها الحكومة"
+    },
+    "subcategory": {
+      "en": "Public Economics",
+      "ar": "الاقتصاد العام"
+    }
+  },
+  {
+    "id": "eco-f-8",
+    "difficulty": "easy",
+    "question": {
+      "en": "What happens to the price of a product if the 'Demand' is high but the 'Supply' is low?",
+      "ar": "ماذا يحدث لسعر المنتج إذا كان 'الطلب' مرتفعاً و'العرض' منخفضاً؟"
+    },
+    "answer": {
+      "en": "Price Increases",
+      "ar": "يزداد السعر"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-9",
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the term for a share in the ownership of a company?",
+      "ar": "ما هو المصطلح الذي يطلق على حصة في ملكية شركة ما؟"
+    },
+    "answer": {
+      "en": "Stock (or Share)",
+      "ar": "سهم"
+    },
+    "subcategory": {
+      "en": "Investing & Corporate Finance",
+      "ar": "الاستثمار وتمويل الشركات"
+    }
+  },
+  {
+    "id": "eco-f-10",
+    "difficulty": "easy",
+    "question": {
+      "en": "What is a 'Budget'?",
+      "ar": "ما هي 'الميزانية'؟"
+    },
+    "answer": {
+      "en": "A plan for spending and saving money",
+      "ar": "خطة لإنفاق وادخار المال"
+    },
+    "subcategory": {
+      "en": "Personal Finance",
+      "ar": "التمويل الشخصي"
+    }
+  },
+  {
+    "id": "eco-f-11",
+    "difficulty": "medium",
+    "question": {
+      "en": "What does 'GDP' stand for in economics?",
+      "ar": "إلى ماذا يرمز اختصار 'GDP' في الاقتصاد؟"
+    },
+    "answer": {
+      "en": "Gross Domestic Product",
+      "ar": "الناتج المحلي الإجمالي"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-12",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the 'Law of Demand'?",
+      "ar": "ما هو 'قانون الطلب'؟"
+    },
+    "answer": {
+      "en": "As price increases, the quantity demanded decreases",
+      "ar": "كلما زاد السعر، قلت الكمية المطلوبة"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-13",
+    "difficulty": "medium",
+    "question": {
+      "en": "Who is known as the 'Father of Modern Economics' and wrote 'The Wealth of Nations'?",
+      "ar": "من يعرف بـ 'أبو الاقتصاد الحديث' ومؤلف كتاب 'ثروة الأمم'؟"
+    },
+    "answer": {
+      "en": "Adam Smith",
+      "ar": "آدم سميث"
+    },
+    "subcategory": {
+      "en": "Economic Thought",
+      "ar": "الفكر الاقتصادي"
+    }
+  },
+  {
+    "id": "eco-f-14",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is a 'Monopoly'?",
+      "ar": "ما هو 'الاحتكار'؟"
+    },
+    "answer": {
+      "en": "When a single company controls the entire market for a product",
+      "ar": "عندما تسيطر شركة واحدة على السوق الكامل لمنتج ما"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-15",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the difference between an 'Export' and an 'Import'?",
+      "ar": "ما هو الفرق بين 'التصدير' و'الاستيراد'؟"
+    },
+    "answer": {
+      "en": "Export is selling goods abroad; Import is buying from abroad",
+      "ar": "التصدير هو بيع السلع للخارج، والاستيراد هو الشراء من الخارج"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-16",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Opportunity Cost'?",
+      "ar": "ما هي 'تكلفة الفرصة البديلة'؟"
+    },
+    "answer": {
+      "en": "The value of the next best alternative foregone",
+      "ar": "قيمة البديل الأفضل التالي الذي تم التخلي عنه"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-17",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the role of a 'Central Bank'?",
+      "ar": "ما هو دور 'البنك المركزي'؟"
+    },
+    "answer": {
+      "en": "To manage the country's currency and monetary policy",
+      "ar": "إدارة عملة الدولة والسياسة النقدية"
+    },
+    "subcategory": {
+      "en": "Money & Banking",
+      "ar": "المال والمصارف"
+    }
+  },
+  {
+    "id": "eco-f-18",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is a 'Bear Market' in stock trading?",
+      "ar": "ما هو 'سوق الدب' (Bear Market) في تداول الأسهم؟"
+    },
+    "answer": {
+      "en": "A market where prices are falling",
+      "ar": "سوق تنخفض فيه الأسعار"
+    },
+    "subcategory": {
+      "en": "Investing & Corporate Finance",
+      "ar": "الاستثمار وتمويل الشركات"
+    }
+  },
+  {
+    "id": "eco-f-19",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the 'Interest Rate'?",
+      "ar": "ما هو 'سعر الفائدة'؟"
+    },
+    "answer": {
+      "en": "The cost of borrowing money, expressed as a percentage",
+      "ar": "تكلفة اقتراض المال، معبراً عنها كنسبة مئوية"
+    },
+    "subcategory": {
+      "en": "Money & Banking",
+      "ar": "المال والمصارف"
+    }
+  },
+  {
+    "id": "eco-f-20",
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Laissez-faire' economics?",
+      "ar": "ما هو اقتصاد 'دعه يعمل' (Laissez-faire)؟"
+    },
+    "answer": {
+      "en": "A policy of minimum governmental interference in the economy",
+      "ar": "سياسة الحد الأدنى من التدخل الحكومي في الاقتصاد"
+    },
+    "subcategory": {
+      "en": "Economic Thought",
+      "ar": "الفكر الاقتصادي"
+    }
+  },
+  {
+    "id": "eco-f-21",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Keynesian Economics'?",
+      "ar": "ما هو 'الاقتصاد الكينزي'؟"
+    },
+    "answer": {
+      "en": "A theory advocating government spending to stimulate demand during a recession",
+      "ar": "نظرية تدعو للإنفاق الحكومي لتحفيز الطلب خلال الركود"
+    },
+    "subcategory": {
+      "en": "Economic Thought",
+      "ar": "الفكر الاقتصادي"
+    }
+  },
+  {
+    "id": "eco-f-22",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Comparative Advantage' theory?",
+      "ar": "ما هي نظرية 'الميزة النسبية'؟"
+    },
+    "answer": {
+      "en": "The ability to produce a good at a lower opportunity cost than others",
+      "ar": "القدرة على إنتاج سلعة بتكلفة فرصة بديلة أقل من الآخرين"
+    },
+    "subcategory": {
+      "en": "Markets & Trade",
+      "ar": "الأسواق والتجارة"
+    }
+  },
+  {
+    "id": "eco-f-23",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Gini Coefficient' used to measure?",
+      "ar": "ماذا يستخدم 'معامل جيني' لقياسه؟"
+    },
+    "answer": {
+      "en": "Income inequality within a population",
+      "ar": "عدم المساواة في الدخل بين السكان"
+    },
+    "subcategory": {
+      "en": "Public Economics",
+      "ar": "الاقتصاد العام"
+    }
+  },
+  {
+    "id": "eco-f-24",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Stagflation'?",
+      "ar": "ما هو 'الركود التضخمي'؟"
+    },
+    "answer": {
+      "en": "A combination of stagnant economic growth and high inflation",
+      "ar": "مزيج من الركود الاقتصادي والتضخم المرتفع"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-25",
+    "difficulty": "hard",
+    "question": {
+      "en": "What does 'Quantitative Easing' (QE) mean?",
+      "ar": "ماذا يعني 'التيسير الكمي' (QE)؟"
+    },
+    "answer": {
+      "en": "A central bank policy of buying securities to increase the money supply",
+      "ar": "سياسة البنك المركزي بشراء الأوراق المالية لزيادة المعروض النقدي"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-26",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Multiplier Effect' in economics?",
+      "ar": "ما هو 'تأثير المضاعف' في الاقتصاد؟"
+    },
+    "answer": {
+      "en": "How an initial injection of spending leads to a larger overall increase in income",
+      "ar": "كيف يؤدي ضخ الإنفاق الأولي إلى زيادة إجمالية أكبر في الدخل"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-27",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Tragedy of the Commons'?",
+      "ar": "ما هي 'مأساة المشاع'؟"
+    },
+    "answer": {
+      "en": "When individuals deplete a shared resource for their own gain",
+      "ar": "عندما يستنزف الأفراد مورداً مشتركاً لمصلحتهم الخاصة"
+    },
+    "subcategory": {
+      "en": "Public Economics",
+      "ar": "الاقتصاد العام"
+    }
+  },
+  {
+    "id": "eco-f-28",
+    "difficulty": "hard",
+    "question": {
+      "en": "What market problem occurs when hidden information before a transaction causes higher-risk participants to be overrepresented?",
+      "ar": "ما مشكلة السوق التي تحدث عندما تؤدي المعلومات الخفية قبل الصفقة إلى زيادة تمثيل المشاركين الأعلى مخاطرة؟"
+    },
+    "answer": {
+      "en": "Adverse selection",
+      "ar": "الاختيار المعاكس"
+    },
+    "subcategory": {
+      "en": "Information Economics",
+      "ar": "اقتصاد المعلومات"
+    }
+  },
+  {
+    "id": "eco-f-29",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the condition called when interest rates are near zero, people prefer holding cash, and conventional monetary policy loses traction?",
+      "ar": "ماذا تُسمّى الحالة التي تكون فيها أسعار الفائدة قريبة من الصفر ويفضّل الناس الاحتفاظ بالنقد فتضعف فعالية السياسة النقدية التقليدية؟"
+    },
+    "answer": {
+      "en": "A liquidity trap",
+      "ar": "فخ السيولة"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-30",
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Hyperinflation'?",
+      "ar": "ما هو 'التضخم المفرط'؟"
+    },
+    "answer": {
+      "en": "Extremely rapid and out-of-control inflation",
+      "ar": "تضخم سريع للغاية وخارج عن السيطرة"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-31",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Lucas Critique'?",
+      "ar": "ما هو 'نقد لوكاس'؟"
+    },
+    "answer": {
+      "en": "The argument that economic policy cannot be based on historical data if the policy changes expectations",
+      "ar": "الحجة القائلة بأن السياسة الاقتصادية لا يمكن أن تستند إلى بيانات تاريخية إذا غيرت السياسة التوقعات"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-32",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Phillips Curve' relationship?",
+      "ar": "ما هي علاقة 'منحنى فيليبس'؟"
+    },
+    "answer": {
+      "en": "The inverse relationship between rates of unemployment and inflation",
+      "ar": "العلاقة العكسية بين معدلات البطالة والتضخم"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-33",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Dutch Disease' in economics?",
+      "ar": "ما هو 'المرض الهولندي' في الاقتصاد؟"
+    },
+    "answer": {
+      "en": "The negative impact on an economy from a sharp increase in a single sector (like natural resources)",
+      "ar": "التأثير السلبي على الاقتصاد الناتج عن زيادة حادة في قطاع واحد (مثل الموارد الطبيعية)"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-34",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "Who won the Nobel Prize for his work on 'Game Theory' and the 'Nash Equilibrium'?",
+      "ar": "من فاز بجائزة نوبل لعمله في 'نظرية الألعاب' و 'توازن ناش'؟"
+    },
+    "answer": {
+      "en": "John Nash",
+      "ar": "جون ناش"
+    },
+    "subcategory": {
+      "en": "Economic Thought",
+      "ar": "الفكر الاقتصادي"
+    }
+  },
+  {
+    "id": "eco-f-35",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Pareto Efficiency'?",
+      "ar": "ما هي 'كفاءة باريتو'؟"
+    },
+    "answer": {
+      "en": "A state where no one can be made better off without making someone else worse off",
+      "ar": "حالة لا يمكن فيها تحسين وضع شخص دون جعل شخص آخر في وضع أسوأ"
+    },
+    "subcategory": {
+      "en": "Economic Thought",
+      "ar": "الفكر الاقتصادي"
+    }
+  },
+  {
+    "id": "eco-f-36",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What was the 'Bretton Woods Conference' responsible for?",
+      "ar": "ما الذي كان 'مؤتمر بريتون وودز' مسؤولاً عنه؟"
+    },
+    "answer": {
+      "en": "Establishing the IMF and the World Bank after WWII",
+      "ar": "تأسيس صندوق النقد الدولي والبنك الدولي بعد الحرب العالمية الثانية"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-37",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Modigliani-Miller Theorem'?",
+      "ar": "ما هي 'مبرهنة موديلياني-ميلر'؟"
+    },
+    "answer": {
+      "en": "The idea that the value of a firm is unaffected by how it is financed (in a perfect market)",
+      "ar": "الفكرة القائلة بأن قيمة الشركة لا تتأثر بكيفية تمويلها (في سوق مثالي)"
+    },
+    "subcategory": {
+      "en": "Investing & Corporate Finance",
+      "ar": "الاستثمار وتمويل الشركات"
+    }
+  },
+  {
+    "id": "eco-f-38",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Mundell-Fleming Model'?",
+      "ar": "ما هو 'نموذج ماندل-فليمنج'؟"
+    },
+    "answer": {
+      "en": "An extension of the IS-LM model to an open economy",
+      "ar": "توسعة لنموذج IS-LM ليشمل اقتصاداً مفتوحاً"
+    },
+    "subcategory": {
+      "en": "Macroeconomics",
+      "ar": "الاقتصاد الكلي"
+    }
+  },
+  {
+    "id": "eco-f-39",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Asymmetric Information'?",
+      "ar": "ما هي 'المعلومات غير المتماثلة'؟"
+    },
+    "answer": {
+      "en": "When one party in a transaction has more or better information than the other",
+      "ar": "عندما تمتلك إحدى الأطراف في صفقة ما معلومات أكثر أو أفضل من الطرف الآخر"
+    },
+    "subcategory": {
+      "en": "Information Economics",
+      "ar": "اقتصاد المعلومات"
+    }
+  },
+  {
+    "id": "eco-f-40",
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Coase Theorem'?",
+      "ar": "ما هي 'مبرهنة كوز'؟"
+    },
+    "answer": {
+      "en": "The idea that private parties can solve externalities through bargaining if transaction costs are zero",
+      "ar": "الفكرة القائلة بأن الأطراف الخاصة يمكنها حل المشاكل الخارجية من خلال المساومة إذا كانت تكاليف الصفقات صفراً"
+    },
+    "subcategory": {
+      "en": "Public Economics",
+      "ar": "الاقتصاد العام"
+    }
+  }
+]

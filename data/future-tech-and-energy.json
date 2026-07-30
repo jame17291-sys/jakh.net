@@ -1,490 +1,642 @@
-{
-  "slug": "future-tech-and-energy",
-  "title": {
-    "en": "Future Tech & Energy",
-    "ar": "تقنية المستقبل والطاقة"
-  },
-  "count": 40,
-  "cards": [
-    {
-      "id": "fut-1",
-      "difficulty": "easy",
-      "question": {
-        "en": "What does 'AI' stand for in technology?",
-        "ar": "إلى ماذا يرمز اختصار 'AI' في التكنولوجيا؟"
-      },
-      "answer": {
-        "en": "Artificial Intelligence",
-        "ar": "الذكاء الاصطناعي"
-      }
+[
+  {
+    "id": "fut-1",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
     },
-    {
-      "id": "fut-2",
-      "difficulty": "easy",
-      "question": {
-        "en": "What term describes a machine that can perform tasks automatically?",
-        "ar": "ما هو المصطلح الذي يصف آلة يمكنها أداء المهام تلقائياً؟"
-      },
-      "answer": {
-        "en": "Robot",
-        "ar": "روبوت"
-      }
+    "difficulty": "easy",
+    "question": {
+      "en": "What does 'AI' stand for in technology?",
+      "ar": "إلى ماذا يرمز اختصار 'AI' في التكنولوجيا؟"
     },
-    {
-      "id": "fut-3",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which source of energy uses panels to capture sunlight?",
-        "ar": "أي مصدر للطاقة يستخدم ألواحاً لالتقاط ضوء الشمس؟"
-      },
-      "answer": {
-        "en": "Solar Energy",
-        "ar": "الطاقة الشمسية"
-      }
-    },
-    {
-      "id": "fut-4",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the term for a car that can drive itself without a human driver?",
-        "ar": "ما هو المصطلح الذي يطلق على السيارة التي يمكنها قيادة نفسها بدون سائق بشري؟"
-      },
-      "answer": {
-        "en": "Self-driving (Autonomous) Car",
-        "ar": "سيارة ذاتية القيادة"
-      }
-    },
-    {
-      "id": "fut-5",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which technology allows you to wear a headset and enter a simulated 3D world?",
-        "ar": "أي تقنية تسمح لك بارتداء سماعة رأس ودخول عالم ثلاثي الأبعاد محاكى؟"
-      },
-      "answer": {
-        "en": "Virtual Reality (VR)",
-        "ar": "الواقع الافتراضي"
-      }
-    },
-    {
-      "id": "fut-6",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is 'The Cloud' in computing?",
-        "ar": "ما هو 'السحاب' في الحوسبة؟"
-      },
-      "answer": {
-        "en": "Servers accessed over the internet for data storage",
-        "ar": "خوادم يتم الوصول إليها عبر الإنترنت لتخزين البيانات"
-      }
-    },
-    {
-      "id": "fut-7",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the main goal of a 'Smart Home'?",
-        "ar": "ما هو الهدف الرئيسي لـ 'المنزل الذكي'؟"
-      },
-      "answer": {
-        "en": "To automate and control home systems (lighting, heating) remotely",
-        "ar": "أتمتة والتحكم في أنظمة المنزل عن بعد"
-      }
-    },
-    {
-      "id": "fut-8",
-      "difficulty": "easy",
-      "question": {
-        "en": "Which device, worn on the wrist, can track your steps and heart rate?",
-        "ar": "أي جهاز يرتدى على المعصم يمكنه تتبع خطواتك ومعدل ضربات قلبك؟"
-      },
-      "answer": {
-        "en": "Smartwatch (or Fitness Tracker)",
-        "ar": "ساعة ذكية"
-      }
-    },
-    {
-      "id": "fut-9",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the term for '3D Printing' in industrial terms?",
-        "ar": "ما هو المصطلح لـ 'الطباعة ثلاثية الأبعاد' في المصطلحات الصناعية؟"
-      },
-      "answer": {
-        "en": "Additive Manufacturing",
-        "ar": "التصنيع الإضافي"
-      }
-    },
-    {
-      "id": "fut-10",
-      "difficulty": "easy",
-      "question": {
-        "en": "What is the main purpose of a 'Drone'?",
-        "ar": "ما هو الغرض الرئيسي من 'الطائرة بدون طيار' (الدرون)؟"
-      },
-      "answer": {
-        "en": "An unmanned aerial vehicle for surveillance or delivery",
-        "ar": "طائرة بدون طيار للمراقبة أو التوصيل"
-      }
-    },
-    {
-      "id": "fut-11",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Blockchain' technology primarily known for supporting?",
-        "ar": "ما هو الشيء الرئيسي الذي تعرف تقنية 'البلوكشين' بدعمه؟"
-      },
-      "answer": {
-        "en": "Cryptocurrencies like Bitcoin",
-        "ar": "العملات الرقمية مثل البيتكوين"
-      }
-    },
-    {
-      "id": "fut-12",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Quantum Computing' based on?",
-        "ar": "على ماذا تعتمد 'الحوسبة الكمومية'؟"
-      },
-      "answer": {
-        "en": "Principles of quantum mechanics (like qubits)",
-        "ar": "مبادئ ميكانيكا الكم (مثل الكيوبتات)"
-      }
-    },
-    {
-      "id": "fut-13",
-      "difficulty": "medium",
-      "question": {
-        "en": "What does the 'Internet of Things' (IoT) refer to?",
-        "ar": "إلى ماذا يشير 'إنترنت الأشياء' (IoT)؟"
-      },
-      "answer": {
-        "en": "The network of physical objects connected to the internet",
-        "ar": "شبكة الأشياء المادية المتصلة بالإنترنت"
-      }
-    },
-    {
-      "id": "fut-14",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Augmented Reality' (AR)?",
-        "ar": "ما هو 'الواقع المعزز' (AR)؟"
-      },
-      "answer": {
-        "en": "Digital information overlaid on the real world",
-        "ar": "معلومات رقمية متراكبة على العالم الحقيقي"
-      }
-    },
-    {
-      "id": "fut-15",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'CRISPR' in the context of future biotechnology?",
-        "ar": "ما هو 'كريسبر' (CRISPR) في سياق التكنولوجيا الحيوية المستقبلية؟"
-      },
-      "answer": {
-        "en": "A tool for gene editing",
-        "ar": "أداة لتحرير الجينات"
-      }
-    },
-    {
-      "id": "fut-16",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Machine Learning'?",
-        "ar": "ما هو 'تعلم الآلة'؟"
-      },
-      "answer": {
-        "en": "A subset of AI where computers learn from data without being explicitly programmed",
-        "ar": "فرع من الذكاء الاصطناعي حيث تتعلم الحواسيب من البيانات بدون برمجة صريحة"
-      }
-    },
-    {
-      "id": "fut-17",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is the 'Metaverse'?",
-        "ar": "ما هو 'الميتافيرس'؟"
-      },
-      "answer": {
-        "en": "A virtual reality space where users can interact in a 3D environment",
-        "ar": "مساحة واقع افتراضي حيث يمكن للمستخدمين التفاعل في بيئة ثلاثية الأبعاد"
-      }
-    },
-    {
-      "id": "fut-18",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Biometrics' used for in security?",
-        "ar": "ماذا تستخدم 'القياسات الحيوية' (Biometrics) في الأمن؟"
-      },
-      "answer": {
-        "en": "Using physical characteristics (fingerprints, face) for identification",
-        "ar": "استخدام الخصائص المادية (بصمات الأصابع، الوجه) للتعرف على الهوية"
-      }
-    },
-    {
-      "id": "fut-19",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is 'Edge Computing'?",
-        "ar": "ما هي 'حوسبة الحافة' (Edge Computing)؟"
-      },
-      "answer": {
-        "en": "Processing data closer to where it is generated rather than in a central cloud",
-        "ar": "معالجة البيانات بالقرب من مكان إنتاجها بدلاً من سحابة مركزية"
-      }
-    },
-    {
-      "id": "fut-20",
-      "difficulty": "medium",
-      "question": {
-        "en": "What is a 'Neural Network' in AI?",
-        "ar": "ما هي 'الشبكة العصبية' في الذكاء الاصطناعي؟"
-      },
-      "answer": {
-        "en": "A computing system inspired by the human brain",
-        "ar": "نظام حوسبة مستوحى من الدماغ البشري"
-      }
-    },
-    {
-      "id": "fut-21",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Nanotechnology'?",
-        "ar": "ما هي 'تكنولوجيا النانو'؟"
-      },
-      "answer": {
-        "en": "Science and engineering conducted at the scale of atoms and molecules",
-        "ar": "العلوم والهندسة التي تجرى على مستوى الذرات والجزيئات"
-      }
-    },
-    {
-      "id": "fut-22",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Singularity' in the context of AI?",
-        "ar": "ما هي 'التفرد' (Singularity) في سياق الذكاء الاصطناعي؟"
-      },
-      "answer": {
-        "en": "A hypothetical point where AI becomes smarter than human intelligence",
-        "ar": "نقطة فرضية يصبح فيها الذكاء الاصطناعي أذكى من الذكاء البشري"
-      }
-    },
-    {
-      "id": "fut-23",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Brain-Computer Interface' (BCI) technology?",
-        "ar": "ما هي تقنية 'واجهة الدماغ والحاسوب' (BCI)؟"
-      },
-      "answer": {
-        "en": "Technology that allows communication between a brain and an external device",
-        "ar": "تقنية تسمح بالاتصال بين الدماغ وجهاز خارجي"
-      }
-    },
-    {
-      "id": "fut-24",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is a 'Dyson Sphere'?",
-        "ar": "ما هي 'كرة دايسون'؟"
-      },
-      "answer": {
-        "en": "A hypothetical megastructure that completely encompasses a star to capture its energy",
-        "ar": "هيكل ضخم افتراضي يحيط بنجم بالكامل لالتقاط طاقته"
-      }
-    },
-    {
-      "id": "fut-25",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Generative AI'?",
-        "ar": "ما هو 'الذكاء الاصطناعي التوليدي'؟"
-      },
-      "answer": {
-        "en": "AI capable of creating new content (text, images, music)",
-        "ar": "ذكاء اصطناعي قادر على إنشاء محتوى جديد (نصوص، صور، موسيقى)"
-      }
-    },
-    {
-      "id": "fut-26",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Fermi Paradox'?",
-        "ar": "ما هي 'مفارقة فيرمي'؟"
-      },
-      "answer": {
-        "en": "The contradiction between the high probability of extraterrestrial life and the lack of evidence for it",
-        "ar": "التناقض بين الاحتمالية العالية لوجود حياة خارج الأرض ونقص الأدلة عليها"
-      }
-    },
-    {
-      "id": "fut-27",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Post-Quantum Cryptography'?",
-        "ar": "ما هي 'تشفير ما بعد الكم'؟"
-      },
-      "answer": {
-        "en": "Cryptographic algorithms thought to be secure against a quantum computer attack",
-        "ar": "خوارزميات تشفير يعتقد أنها آمنة ضد هجوم الكمبيوتر الكمومي"
-      }
-    },
-    {
-      "id": "fut-28",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Nuclear Fusion' power?",
-        "ar": "ما هي طاقة 'الاندماج النووي'؟"
-      },
-      "answer": {
-        "en": "Generating energy by fusing atomic nuclei together (like the sun)",
-        "ar": "توليد الطاقة عن طريق دمج الأنوية الذرية معاً (مثل الشمس)"
-      }
-    },
-    {
-      "id": "fut-29",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is the 'Turing Test'?",
-        "ar": "ما هو 'اختبار تورينج'؟"
-      },
-      "answer": {
-        "en": "A test of a machine's ability to exhibit intelligent behavior indistinguishable from a human",
-        "ar": "اختبار لقدرة الآلة على إظهار سلوك ذكي لا يمكن تمييزه عن الإنسان"
-      }
-    },
-    {
-      "id": "fut-30",
-      "difficulty": "hard",
-      "question": {
-        "en": "What is 'Swarm Intelligence'?",
-        "ar": "ما هو 'ذكاء السرب'؟"
-      },
-      "answer": {
-        "en": "The collective behavior of decentralized, self-organized systems (like robot swarms)",
-        "ar": "السلوك الجماعي للأنظمة اللامركزية المنظمة ذاتياً (مثل أسراب الروبوتات)"
-      }
-    },
-    {
-      "id": "fut-31",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Moore's Law'?",
-        "ar": "ما هو 'قانون مور'؟"
-      },
-      "answer": {
-        "en": "The observation that the number of transistors on a microchip doubles about every two years",
-        "ar": "الملاحظة التي تفيد بأن عدد الترانزستورات على الرقاقة الدقيقة يتضاعف كل عامين تقريباً"
-      }
-    },
-    {
-      "id": "fut-32",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is a 'Type II Civilization' on the Kardashev Scale?",
-        "ar": "ما هي 'حضارة النوع الثاني' على مقياس كارداسيف؟"
-      },
-      "answer": {
-        "en": "A civilization capable of harnessing the total energy output of its parent star",
-        "ar": "حضارة قادرة على تسخير ناتج الطاقة الكامل لنجمها الأم"
-      }
-    },
-    {
-      "id": "fut-33",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Grey Goo' scenario in nanotechnology?",
-        "ar": "ما هو سيناريو 'المادة الرمادية اللزجة' (Grey Goo) في تكنولوجيا النانو؟"
-      },
-      "answer": {
-        "en": "A hypothetical end-of-the-world scenario where self-replicating nanobots consume all matter",
-        "ar": "سيناريو افتراضي لنهاية العالم حيث تستهلك الروبوتات النانوية ذاتية التكرار كل المادة"
-      }
-    },
-    {
-      "id": "fut-34",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Von Neumann Probe'?",
-        "ar": "ما هو 'مسبار فون نيومان'؟"
-      },
-      "answer": {
-        "en": "A hypothetical self-replicating spacecraft for interstellar exploration",
-        "ar": "مركبة فضائية افتراضية ذاتية التكرار للاستكشاف بين النجوم"
-      }
-    },
-    {
-      "id": "fut-35",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Quantum Entanglement'?",
-        "ar": "ما هو 'التشابك الكمي'؟"
-      },
-      "answer": {
-        "en": "A phenomenon where particles become linked such that the state of one instantly affects the other, regardless of distance",
-        "ar": "ظاهرة ترتبط فيها الجسيمات بحيث تؤثر حالة أحدهما فوراً على الآخر، بغض النظر عن المسافة"
-      }
-    },
-    {
-      "id": "fut-36",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is the 'Kessler Syndrome'?",
-        "ar": "ما هي 'متلازمة كيسلر'؟"
-      },
-      "answer": {
-        "en": "A scenario where space debris leads to a cascade of collisions, making low Earth orbit unusable",
-        "ar": "سيناريو تؤدي فيه الحطام الفضائي إلى سلسلة من الاصطدامات، مما يجعل مدار الأرض المنخفض غير قابل للاستخدام"
-      }
-    },
-    {
-      "id": "fut-37",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Transhumanism'?",
-        "ar": "ما هي 'ما بعد الإنسانية' (Transhumanism)؟"
-      },
-      "answer": {
-        "en": "The movement seeking to transform the human condition through advanced technologies to enhance intellect and physiology",
-        "ar": "الحركة التي تسعى لتحويل الحالة البشرية من خلال تقنيات متقدمة لتعزيز الذكاء والفيزيولوجيا"
-      }
-    },
-    {
-      "id": "fut-38",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Somatic Cell Nuclear Transfer' (SCNT)?",
-        "ar": "ما هو 'نقل نواة الخلية الجسدية' (SCNT)؟"
-      },
-      "answer": {
-        "en": "A laboratory technique for creating a viable embryo from a body cell and an egg cell (used in cloning)",
-        "ar": "تقنية مختبرية لإنشاء جنين قابل للحياة من خلية جسم وخلية بيضة (تستخدم في الاستنساخ)"
-      }
-    },
-    {
-      "id": "fut-39",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Optical Computing'?",
-        "ar": "ما هي 'الحوسبة الضوئية'؟"
-      },
-      "answer": {
-        "en": "Using photons (light) instead of electrons for digital computation",
-        "ar": "استخدام الفوتونات (الضوء) بدلاً من الإلكترونات للحوسبة الرقمية"
-      }
-    },
-    {
-      "id": "fut-40",
-      "difficulty": "very-advanced",
-      "question": {
-        "en": "What is 'Space Elevator' cable likely to be made of?",
-        "ar": "من ماذا يتوقع أن يصنع كابل 'مصعد الفضاء'؟"
-      },
-      "answer": {
-        "en": "Carbon Nanotubes (due to high tensile strength)",
-        "ar": "أنابيب الكربون النانوية (بسبب قوة الشد العالية)"
-      }
+    "answer": {
+      "en": "Artificial Intelligence",
+      "ar": "الذكاء الاصطناعي"
     }
-  ]
-}
+  },
+  {
+    "id": "fut-2",
+    "subcategory": {
+      "en": "Robotics & Autonomous Systems",
+      "ar": "الروبوتات والأنظمة الذاتية"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What term describes a machine that can perform tasks automatically?",
+      "ar": "ما هو المصطلح الذي يصف آلة يمكنها أداء المهام تلقائياً؟"
+    },
+    "answer": {
+      "en": "Robot",
+      "ar": "روبوت"
+    }
+  },
+  {
+    "id": "fut-3",
+    "subcategory": {
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which source of energy uses panels to capture sunlight?",
+      "ar": "أي مصدر للطاقة يستخدم ألواحاً لالتقاط ضوء الشمس؟"
+    },
+    "answer": {
+      "en": "Solar Energy",
+      "ar": "الطاقة الشمسية"
+    }
+  },
+  {
+    "id": "fut-4",
+    "subcategory": {
+      "en": "Robotics & Autonomous Systems",
+      "ar": "الروبوتات والأنظمة الذاتية"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the term for a car that can drive itself without a human driver?",
+      "ar": "ما هو المصطلح الذي يطلق على السيارة التي يمكنها قيادة نفسها بدون سائق بشري؟"
+    },
+    "answer": {
+      "en": "Self-driving (Autonomous) Car",
+      "ar": "سيارة ذاتية القيادة"
+    }
+  },
+  {
+    "id": "fut-5",
+    "subcategory": {
+      "en": "Connected & Immersive Tech",
+      "ar": "التقنيات المتصلة والغامرة"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which technology allows you to wear a headset and enter a simulated 3D world?",
+      "ar": "أي تقنية تسمح لك بارتداء سماعة رأس ودخول عالم ثلاثي الأبعاد محاكى؟"
+    },
+    "answer": {
+      "en": "Virtual Reality (VR)",
+      "ar": "الواقع الافتراضي"
+    }
+  },
+  {
+    "id": "fut-6",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is 'The Cloud' in computing?",
+      "ar": "ما هو 'السحاب' في الحوسبة؟"
+    },
+    "answer": {
+      "en": "Servers accessed over the internet for data storage",
+      "ar": "خوادم يتم الوصول إليها عبر الإنترنت لتخزين البيانات"
+    }
+  },
+  {
+    "id": "fut-7",
+    "subcategory": {
+      "en": "Connected & Immersive Tech",
+      "ar": "التقنيات المتصلة والغامرة"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the main goal of a 'Smart Home'?",
+      "ar": "ما هو الهدف الرئيسي لـ 'المنزل الذكي'؟"
+    },
+    "answer": {
+      "en": "To automate and control home systems (lighting, heating) remotely",
+      "ar": "أتمتة والتحكم في أنظمة المنزل عن بعد"
+    }
+  },
+  {
+    "id": "fut-8",
+    "subcategory": {
+      "en": "Connected & Immersive Tech",
+      "ar": "التقنيات المتصلة والغامرة"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "Which device, worn on the wrist, can track your steps and heart rate?",
+      "ar": "أي جهاز يرتدى على المعصم يمكنه تتبع خطواتك ومعدل ضربات قلبك؟"
+    },
+    "answer": {
+      "en": "Smartwatch (or Fitness Tracker)",
+      "ar": "ساعة ذكية"
+    }
+  },
+  {
+    "id": "fut-9",
+    "subcategory": {
+      "en": "Advanced Materials & Manufacturing",
+      "ar": "المواد والتصنيع المتقدم"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the term for '3D Printing' in industrial terms?",
+      "ar": "ما هو المصطلح لـ 'الطباعة ثلاثية الأبعاد' في المصطلحات الصناعية؟"
+    },
+    "answer": {
+      "en": "Additive Manufacturing",
+      "ar": "التصنيع الإضافي"
+    }
+  },
+  {
+    "id": "fut-10",
+    "subcategory": {
+      "en": "Robotics & Autonomous Systems",
+      "ar": "الروبوتات والأنظمة الذاتية"
+    },
+    "difficulty": "easy",
+    "question": {
+      "en": "What is the main purpose of a 'Drone'?",
+      "ar": "ما هو الغرض الرئيسي من 'الطائرة بدون طيار' (الدرون)؟"
+    },
+    "answer": {
+      "en": "An unmanned aerial vehicle for surveillance or delivery",
+      "ar": "طائرة بدون طيار للمراقبة أو التوصيل"
+    }
+  },
+  {
+    "id": "fut-11",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Blockchain' technology primarily known for supporting?",
+      "ar": "ما هو الشيء الرئيسي الذي تعرف تقنية 'البلوكشين' بدعمه؟"
+    },
+    "answer": {
+      "en": "Cryptocurrencies like Bitcoin",
+      "ar": "العملات الرقمية مثل البيتكوين"
+    }
+  },
+  {
+    "id": "fut-12",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Quantum Computing' based on?",
+      "ar": "على ماذا تعتمد 'الحوسبة الكمومية'؟"
+    },
+    "answer": {
+      "en": "Principles of quantum mechanics (like qubits)",
+      "ar": "مبادئ ميكانيكا الكم (مثل الكيوبتات)"
+    }
+  },
+  {
+    "id": "fut-13",
+    "subcategory": {
+      "en": "Connected & Immersive Tech",
+      "ar": "التقنيات المتصلة والغامرة"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What does the 'Internet of Things' (IoT) refer to?",
+      "ar": "إلى ماذا يشير 'إنترنت الأشياء' (IoT)؟"
+    },
+    "answer": {
+      "en": "The network of physical objects connected to the internet",
+      "ar": "شبكة الأشياء المادية المتصلة بالإنترنت"
+    }
+  },
+  {
+    "id": "fut-14",
+    "subcategory": {
+      "en": "Connected & Immersive Tech",
+      "ar": "التقنيات المتصلة والغامرة"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Augmented Reality' (AR)?",
+      "ar": "ما هو 'الواقع المعزز' (AR)؟"
+    },
+    "answer": {
+      "en": "Digital information overlaid on the real world",
+      "ar": "معلومات رقمية متراكبة على العالم الحقيقي"
+    }
+  },
+  {
+    "id": "fut-15",
+    "subcategory": {
+      "en": "Biotechnology & Human Enhancement",
+      "ar": "التقنية الحيوية وتعزيز الإنسان"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'CRISPR' in the context of future biotechnology?",
+      "ar": "ما هو 'كريسبر' (CRISPR) في سياق التكنولوجيا الحيوية المستقبلية؟"
+    },
+    "answer": {
+      "en": "A tool for gene editing",
+      "ar": "أداة لتحرير الجينات"
+    }
+  },
+  {
+    "id": "fut-16",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Machine Learning'?",
+      "ar": "ما هو 'تعلم الآلة'؟"
+    },
+    "answer": {
+      "en": "A subset of AI where computers learn from data without being explicitly programmed",
+      "ar": "فرع من الذكاء الاصطناعي حيث تتعلم الحواسيب من البيانات بدون برمجة صريحة"
+    }
+  },
+  {
+    "id": "fut-17",
+    "subcategory": {
+      "en": "Connected & Immersive Tech",
+      "ar": "التقنيات المتصلة والغامرة"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is the 'Metaverse'?",
+      "ar": "ما هو 'الميتافيرس'؟"
+    },
+    "answer": {
+      "en": "A virtual reality space where users can interact in a 3D environment",
+      "ar": "مساحة واقع افتراضي حيث يمكن للمستخدمين التفاعل في بيئة ثلاثية الأبعاد"
+    }
+  },
+  {
+    "id": "fut-18",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Biometrics' used for in security?",
+      "ar": "ماذا تستخدم 'القياسات الحيوية' (Biometrics) في الأمن؟"
+    },
+    "answer": {
+      "en": "Using physical characteristics (fingerprints, face) for identification",
+      "ar": "استخدام الخصائص المادية (بصمات الأصابع، الوجه) للتعرف على الهوية"
+    }
+  },
+  {
+    "id": "fut-19",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is 'Edge Computing'?",
+      "ar": "ما هي 'حوسبة الحافة' (Edge Computing)؟"
+    },
+    "answer": {
+      "en": "Processing data closer to where it is generated rather than in a central cloud",
+      "ar": "معالجة البيانات بالقرب من مكان إنتاجها بدلاً من سحابة مركزية"
+    }
+  },
+  {
+    "id": "fut-20",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+    },
+    "difficulty": "medium",
+    "question": {
+      "en": "What is a 'Neural Network' in AI?",
+      "ar": "ما هي 'الشبكة العصبية' في الذكاء الاصطناعي؟"
+    },
+    "answer": {
+      "en": "A computing system inspired by the human brain",
+      "ar": "نظام حوسبة مستوحى من الدماغ البشري"
+    }
+  },
+  {
+    "id": "fut-21",
+    "subcategory": {
+      "en": "Advanced Materials & Manufacturing",
+      "ar": "المواد والتصنيع المتقدم"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Nanotechnology'?",
+      "ar": "ما هي 'تكنولوجيا النانو'؟"
+    },
+    "answer": {
+      "en": "Science and engineering conducted at the scale of atoms and molecules",
+      "ar": "العلوم والهندسة التي تجرى على مستوى الذرات والجزيئات"
+    }
+  },
+  {
+    "id": "fut-22",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Singularity' in the context of AI?",
+      "ar": "ما هي 'التفرد' (Singularity) في سياق الذكاء الاصطناعي؟"
+    },
+    "answer": {
+      "en": "A hypothetical point where AI becomes smarter than human intelligence",
+      "ar": "نقطة فرضية يصبح فيها الذكاء الاصطناعي أذكى من الذكاء البشري"
+    }
+  },
+  {
+    "id": "fut-23",
+    "subcategory": {
+      "en": "Biotechnology & Human Enhancement",
+      "ar": "التقنية الحيوية وتعزيز الإنسان"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Brain-Computer Interface' (BCI) technology?",
+      "ar": "ما هي تقنية 'واجهة الدماغ والحاسوب' (BCI)؟"
+    },
+    "answer": {
+      "en": "Technology that allows communication between a brain and an external device",
+      "ar": "تقنية تسمح بالاتصال بين الدماغ وجهاز خارجي"
+    }
+  },
+  {
+    "id": "fut-24",
+    "subcategory": {
+      "en": "Space Futures",
+      "ar": "مستقبل الفضاء"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is a 'Dyson Sphere'?",
+      "ar": "ما هي 'كرة دايسون'؟"
+    },
+    "answer": {
+      "en": "A hypothetical megastructure that completely encompasses a star to capture its energy",
+      "ar": "هيكل ضخم افتراضي يحيط بنجم بالكامل لالتقاط طاقته"
+    }
+  },
+  {
+    "id": "fut-25",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Generative AI'?",
+      "ar": "ما هو 'الذكاء الاصطناعي التوليدي'؟"
+    },
+    "answer": {
+      "en": "AI capable of creating new content (text, images, music)",
+      "ar": "ذكاء اصطناعي قادر على إنشاء محتوى جديد (نصوص، صور، موسيقى)"
+    }
+  },
+  {
+    "id": "fut-26",
+    "subcategory": {
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "How does a perovskite-silicon tandem solar cell capture more of the solar spectrum than either material alone?",
+      "ar": "كيف تلتقط خلية شمسية ترادفية من البيروفسكايت والسيليكون نطاقاً أوسع من الطيف الشمسي مقارنة بكل مادة منفردة؟"
+    },
+    "answer": {
+      "en": "It stacks absorbers with complementary band gaps: the perovskite layer captures higher-energy photons while silicon captures lower-energy photons.",
+      "ar": "تكدّس ماصّات ذات فجوات نطاق متكاملة؛ فتلتقط طبقة البيروفسكايت الفوتونات الأعلى طاقة ويلتقط السيليكون الفوتونات الأقل طاقة."
+    }
+  },
+  {
+    "id": "fut-27",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Post-Quantum Cryptography'?",
+      "ar": "ما هي 'تشفير ما بعد الكم'؟"
+    },
+    "answer": {
+      "en": "Cryptographic algorithms thought to be secure against a quantum computer attack",
+      "ar": "خوارزميات تشفير يعتقد أنها آمنة ضد هجوم الكمبيوتر الكمومي"
+    }
+  },
+  {
+    "id": "fut-28",
+    "subcategory": {
+      "en": "Energy & Power Systems",
+      "ar": "الطاقة وأنظمة القدرة"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What distinguishes a solid-state transformer from a conventional power-frequency transformer?",
+      "ar": "ما الذي يميز محول الحالة الصلبة عن محول تردد القدرة التقليدي؟"
+    },
+    "answer": {
+      "en": "It uses power-electronic switching and a high-frequency transformer to provide controlled voltage conversion, often with bidirectional power flow and grid-support functions.",
+      "ar": "يستخدم مفاتيح إلكترونيات القدرة ومحولاً عالي التردد للتحكم في تحويل الجهد، وغالباً يتيح تدفق القدرة ثنائي الاتجاه ووظائف دعم الشبكة."
+    }
+  },
+  {
+    "id": "fut-29",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is the 'Turing Test'?",
+      "ar": "ما هو 'اختبار تورينج'؟"
+    },
+    "answer": {
+      "en": "A test of a machine's ability to exhibit intelligent behavior indistinguishable from a human",
+      "ar": "اختبار لقدرة الآلة على إظهار سلوك ذكي لا يمكن تمييزه عن الإنسان"
+    }
+  },
+  {
+    "id": "fut-30",
+    "subcategory": {
+      "en": "AI & Machine Learning",
+      "ar": "الذكاء الاصطناعي وتعلم الآلة"
+    },
+    "difficulty": "hard",
+    "question": {
+      "en": "What is 'Swarm Intelligence'?",
+      "ar": "ما هو 'ذكاء السرب'؟"
+    },
+    "answer": {
+      "en": "The collective behavior of decentralized, self-organized systems (like robot swarms)",
+      "ar": "السلوك الجماعي للأنظمة اللامركزية المنظمة ذاتياً (مثل أسراب الروبوتات)"
+    }
+  },
+  {
+    "id": "fut-31",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Moore's Law'?",
+      "ar": "ما هو 'قانون مور'؟"
+    },
+    "answer": {
+      "en": "The observation that the number of transistors on a microchip doubles about every two years",
+      "ar": "الملاحظة التي تفيد بأن عدد الترانزستورات على الرقاقة الدقيقة يتضاعف كل عامين تقريباً"
+    }
+  },
+  {
+    "id": "fut-32",
+    "subcategory": {
+      "en": "Space Futures",
+      "ar": "مستقبل الفضاء"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is a 'Type II Civilization' on the Kardashev Scale?",
+      "ar": "ما هي 'حضارة النوع الثاني' على مقياس كارداسيف؟"
+    },
+    "answer": {
+      "en": "A civilization capable of harnessing the total energy output of its parent star",
+      "ar": "حضارة قادرة على تسخير ناتج الطاقة الكامل لنجمها الأم"
+    }
+  },
+  {
+    "id": "fut-33",
+    "subcategory": {
+      "en": "Advanced Materials & Manufacturing",
+      "ar": "المواد والتصنيع المتقدم"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Grey Goo' scenario in nanotechnology?",
+      "ar": "ما هو سيناريو 'المادة الرمادية اللزجة' (Grey Goo) في تكنولوجيا النانو؟"
+    },
+    "answer": {
+      "en": "A hypothetical end-of-the-world scenario where self-replicating nanobots consume all matter",
+      "ar": "سيناريو افتراضي لنهاية العالم حيث تستهلك الروبوتات النانوية ذاتية التكرار كل المادة"
+    }
+  },
+  {
+    "id": "fut-34",
+    "subcategory": {
+      "en": "Space Futures",
+      "ar": "مستقبل الفضاء"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Von Neumann Probe'?",
+      "ar": "ما هو 'مسبار فون نيومان'؟"
+    },
+    "answer": {
+      "en": "A hypothetical self-replicating spacecraft for interstellar exploration",
+      "ar": "مركبة فضائية افتراضية ذاتية التكرار للاستكشاف بين النجوم"
+    }
+  },
+  {
+    "id": "fut-35",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the central idea of topological quantum computing?",
+      "ar": "ما الفكرة المركزية للحوسبة الكمية الطوبولوجية؟"
+    },
+    "answer": {
+      "en": "Quantum information is encoded in non-Abelian anyons and processed by braiding their paths, making operations resistant to many local errors because they depend on topology.",
+      "ar": "تُشفَّر المعلومات الكمية في شبه جسيمات أنيونية غير أبيلية وتُعالج بتضفير مساراتها، فتقاوم العمليات كثيراً من الأخطاء المحلية لاعتمادها على الطوبولوجيا."
+    }
+  },
+  {
+    "id": "fut-36",
+    "subcategory": {
+      "en": "Space Futures",
+      "ar": "مستقبل الفضاء"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is the 'Kessler Syndrome'?",
+      "ar": "ما هي 'متلازمة كيسلر'؟"
+    },
+    "answer": {
+      "en": "A scenario where space debris leads to a cascade of collisions, making low Earth orbit unusable",
+      "ar": "سيناريو تؤدي فيه الحطام الفضائي إلى سلسلة من الاصطدامات، مما يجعل مدار الأرض المنخفض غير قابل للاستخدام"
+    }
+  },
+  {
+    "id": "fut-37",
+    "subcategory": {
+      "en": "Biotechnology & Human Enhancement",
+      "ar": "التقنية الحيوية وتعزيز الإنسان"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Transhumanism'?",
+      "ar": "ما هي 'ما بعد الإنسانية' (Transhumanism)؟"
+    },
+    "answer": {
+      "en": "The movement seeking to transform the human condition through advanced technologies to enhance intellect and physiology",
+      "ar": "الحركة التي تسعى لتحويل الحالة البشرية من خلال تقنيات متقدمة لتعزيز الذكاء والفيزيولوجيا"
+    }
+  },
+  {
+    "id": "fut-38",
+    "subcategory": {
+      "en": "Biotechnology & Human Enhancement",
+      "ar": "التقنية الحيوية وتعزيز الإنسان"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Somatic Cell Nuclear Transfer' (SCNT)?",
+      "ar": "ما هو 'نقل نواة الخلية الجسدية' (SCNT)؟"
+    },
+    "answer": {
+      "en": "A laboratory technique for creating a viable embryo from a body cell and an egg cell (used in cloning)",
+      "ar": "تقنية مختبرية لإنشاء جنين قابل للحياة من خلية جسم وخلية بيضة (تستخدم في الاستنساخ)"
+    }
+  },
+  {
+    "id": "fut-39",
+    "subcategory": {
+      "en": "Computing & Security",
+      "ar": "الحوسبة والأمن"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Optical Computing'?",
+      "ar": "ما هي 'الحوسبة الضوئية'؟"
+    },
+    "answer": {
+      "en": "Using photons (light) instead of electrons for digital computation",
+      "ar": "استخدام الفوتونات (الضوء) بدلاً من الإلكترونات للحوسبة الرقمية"
+    }
+  },
+  {
+    "id": "fut-40",
+    "subcategory": {
+      "en": "Space Futures",
+      "ar": "مستقبل الفضاء"
+    },
+    "difficulty": "very-advanced",
+    "question": {
+      "en": "What is 'Space Elevator' cable likely to be made of?",
+      "ar": "من ماذا يتوقع أن يصنع كابل 'مصعد الفضاء'؟"
+    },
+    "answer": {
+      "en": "Carbon Nanotubes (due to high tensile strength)",
+      "ar": "أنابيب الكربون النانوية (بسبب قوة الشد العالية)"
+    }
+  }
+]

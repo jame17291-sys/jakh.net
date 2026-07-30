@@ -54,11 +54,7 @@ export function buildBattleQuestions(
   difficulty: string,
   requestedCount: number,
 ): BattleQuestion[] {
-  const rawCards = Array.isArray(source)
-    ? source
-    : source && typeof source === "object" && Array.isArray((source as { cards?: unknown }).cards)
-      ? (source as { cards: unknown[] }).cards
-      : [];
+  const rawCards = Array.isArray(source) ? source : [];
   const allCards = rawCards.filter((card): card is ValidCard => validCard(card as Card));
   const pool = difficulty === "all"
     ? allCards

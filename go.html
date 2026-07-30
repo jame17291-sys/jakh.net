@@ -2,10 +2,11 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <script src="game-i18n.js?v=2026073005"></script>
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Play a focused 9×9 game of Go online: capture stones, claim territory, and challenge your strategy. Play instantly with no download or sign-up." />
   <title>Go Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073003" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/go"/>
   <meta name="robots" content="index,follow"/>
@@ -24,7 +25,7 @@
   <meta name="twitter:description" content="Play a focused 9×9 game of Go online: capture stones, claim territory, and challenge your strategy. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073003"/>
+  <link rel="stylesheet" href="styles.css?v=2026073005"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
@@ -84,6 +85,21 @@
       position: absolute;
       inset: 0;
       cursor: crosshair;
+    }
+    .go-hit-layer:focus-visible {
+      outline: 3px solid #155f9f;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .go-keyboard-instructions {
+      max-width: 42rem;
+      margin: -0.4rem 1rem 0;
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.86rem;
+      line-height: 1.55;
+      text-align: center;
     }
 
     /* Stones */
@@ -270,66 +286,147 @@
 }
     </script>
   </head>
-<body data-page="game">
-  <a href="#top" class="skip-link">Skip to main content</a>
+<body data-page="game" data-game="go">
+  <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
   <header class="site-header shell">
-    <a href="/" class="brand" aria-label="JAKH Riddles home">
+    <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture><source srcset="assets/logo.webp" type="image/webp"/><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/></picture>
     </a>
-    <nav class="header-actions"><a class="ghost-btn" href="/">Home</a><a class="ghost-btn" href="/play">&#8592; Games</a></nav>
+    <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel"><a class="ghost-btn" href="/" data-i18n="navHome">Home</a><a class="ghost-btn" href="/play" data-i18n="navGamesBack">&#8592; Games</a></nav>
+    <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">Language</span>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </label>
+    </div>
   </header>
   <main id="top">
     <section class="hero shell" style="padding-bottom:1rem;">
-      <div class="hero-copy"><p class="eyebrow">Strategy · Classic</p><h1>&#9898; Go (9×9)</h1><p class="hero-text">Ancient strategy: capture stones, claim territory. Two consecutive passes end the game.</p></div>
+      <div class="hero-copy"><p class="eyebrow" data-i18n="goEyebrow">Strategy · Classic</p><h1 data-i18n="goTitle">&#9898; Go (9×9)</h1><p class="hero-text" data-i18n="goIntro">Ancient strategy: capture stones, claim territory. Two consecutive passes end the game.</p></div>
     </section>
     <section class="shell section-block" id="goSection">
       <div class="go-layout">
         <!-- Board -->
-        <div class="go-board-wrap" id="goBoard" role="grid" aria-label="9 by 9 Go board">
+        <div class="go-board-wrap" id="goBoard" role="group" dir="ltr" aria-label="9 by 9 Go board" data-i18n-aria-label="goBoardAria">
           <svg class="go-grid-svg" id="goGridSvg" aria-hidden="true"></svg>
           <div class="go-stones-layer" id="goStonesLayer"></div>
           <div class="go-hover-stone" id="goHoverStone"></div>
-          <canvas class="go-hit-layer" id="goHitLayer" aria-label="Click to place stone"></canvas>
+          <canvas class="go-hit-layer" id="goHitLayer" dir="ltr" tabindex="0" role="application"
+            aria-label="Interactive 9 by 9 Go board" data-i18n-aria-label="goPlaceAria"
+            aria-describedby="goKeyboardInstructions goKeyboardStatus"
+            aria-keyshortcuts="ArrowUp ArrowDown ArrowLeft ArrowRight Enter Space"></canvas>
         </div>
         <!-- Panel -->
         <div class="go-panel">
           <div class="go-status-row">
             <div class="go-turn-indicator black" id="goTurnDot"></div>
-            <span id="goTurnLabel">Black's turn</span>
+            <span id="goTurnLabel" data-i18n="goBlackTurn">Black's turn</span>
           </div>
           <div class="go-scores">
             <div class="go-score-row">
-              <div class="go-score-pill"><div class="go-score-dot black"></div><span>Black</span></div>
+              <div class="go-score-pill"><div class="go-score-dot black"></div><span data-i18n="goBlack">Black</span></div>
               <strong id="goScoreBlack">0</strong>
             </div>
             <div class="go-score-row">
-              <div class="go-score-pill"><div class="go-score-dot white"></div><span>White</span></div>
+              <div class="go-score-pill"><div class="go-score-dot white"></div><span data-i18n="goWhite">White</span></div>
               <strong id="goScoreWhite">0</strong>
             </div>
             <div class="go-score-row" style="margin-top:0.2rem; font-size:0.78rem;">
-              <span>Captures (B/W)</span>
+              <span data-i18n="goCaptures">Captures (B/W)</span>
               <span id="goCapturesLabel">0 / 0</span>
             </div>
           </div>
           <div class="go-btn-row">
-            <button class="go-btn primary" id="goPassBtn">Pass</button>
-            <button class="go-btn hint-btn" id="goHintBtn">Hint</button>
-            <button class="go-btn secondary" id="goNewBtn">New Game</button>
+            <button class="go-btn primary" id="goPassBtn" data-i18n="goPass">Pass</button>
+            <button class="go-btn hint-btn" id="goHintBtn" data-i18n="goHint">Hint</button>
+            <button class="go-btn secondary" id="goNewBtn" data-i18n="goNewGame">New Game</button>
           </div>
-          <p class="go-message" id="goMessage">Place your stone</p>
+          <p class="go-message" id="goMessage" aria-live="polite" data-i18n="goPlaceStone">Place your stone</p>
         </div>
       </div>
+      <p class="go-keyboard-instructions" id="goKeyboardInstructions" data-i18n="goKeyboardInstructions">Keyboard: use the arrow keys to move in fixed board directions, then press Enter or Space to place a stone.</p>
+      <p class="sr-only" id="goKeyboardStatus" role="status" aria-live="polite" aria-atomic="true"></p>
       <!-- Result -->
       <div class="go-result-banner" id="goResultBanner" role="status" aria-live="polite">
-        <h2 id="goResultTitle">Game Over</h2>
+        <h2 id="goResultTitle" data-i18n="goGameOver">Game Over</h2>
         <p id="goResultDesc"></p>
-        <button class="go-btn primary" id="goPlayAgainBtn" style="margin-top:0.25rem;">Play Again</button>
+        <button class="go-btn primary" id="goPlayAgainBtn" style="margin-top:0.25rem;" data-i18n="goPlayAgain">Play Again</button>
       </div>
     </section>
   </main>
-  <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy">All rights reserved to JAKH 2026</p><nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
-        <div class="footer-socials"><a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span></a></div></div></footer>
+  <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p><nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
+        <div class="footer-socials"><a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">Instagram</span></a><a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">Facebook</span></a></div></div></footer>
+
+  <script id="go-i18n">
+  JakhGameI18n.register('go', {
+    en: {
+      metaTitle: 'Go Online — Free Browser Game | JAKH',
+      metaDescription: 'Play a focused 9×9 game of Go online: capture stones, claim territory, and challenge your strategy. Play instantly with no download or sign-up.',
+      goEyebrow: 'Strategy · Classic',
+      goTitle: '⚪ Go (9×9)',
+      goIntro: 'Ancient strategy: capture stones, claim territory. Two consecutive passes end the game.',
+      goBoardAria: '9 by 9 Go board',
+      goPlaceAria: 'Interactive 9 by 9 Go board. Use the arrow keys to move, then press Enter or Space to place a stone.',
+      goKeyboardInstructions: 'Keyboard: use the arrow keys to move in fixed board directions, then press Enter or Space to place a stone.',
+      goKeyboardCursorEmpty: 'Keyboard cursor at row {row}, column {column}: empty intersection.',
+      goKeyboardCursorOccupied: 'Keyboard cursor at row {row}, column {column}: {player} stone.',
+      goBlack: 'Black',
+      goWhite: 'White',
+      goBlackTurn: "Black's turn",
+      goTurn: "{player}'s turn",
+      goCaptures: 'Captures (B/W)',
+      goPass: 'Pass',
+      goHint: 'Hint',
+      goNewGame: 'New Game',
+      goPlaceStone: 'Place your stone',
+      goGameOver: 'Game Over',
+      goPlayAgain: 'Play Again',
+      goWinner: '{winner} wins!',
+      goFinalScore: 'Final score — Black: {black} · White: {white} (includes {komi} komi)',
+      goIntersectionOccupied: 'Intersection occupied',
+      goSuicide: 'Illegal move (suicide)',
+      goPassedTurn: "Passed — {player}'s turn",
+      goHintAt: 'Hint: row {row}, column {column}',
+      goNoMoves: 'No moves available — consider passing',
+      goBlackFirst: 'Black goes first'
+    },
+    ar: {
+      metaTitle: 'غو أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'العب غو على لوحة 9×9 مجاناً عبر المتصفح: أسر الأحجار وسيطر على المساحات واختبر استراتيجيتك، من دون تنزيل أو تسجيل.',
+      goEyebrow: 'استراتيجية · كلاسيكية',
+      goTitle: '⚪ غو (9×9)',
+      goIntro: 'لعبة استراتيجية عريقة: أسر الأحجار وسيطر على المساحات. ينتهي اللعب بعد تمريرين متتاليين.',
+      goBoardAria: 'لوحة غو 9 في 9',
+      goPlaceAria: 'لوحة غو تفاعلية 9 في 9. استخدم مفاتيح الأسهم للتحرك، ثم اضغط Enter أو مفتاح المسافة لوضع حجر.',
+      goKeyboardInstructions: 'لوحة المفاتيح: استخدم مفاتيح الأسهم للتحرك في اتجاهات اللوحة الثابتة، ثم اضغط Enter أو مفتاح المسافة لوضع حجر.',
+      goKeyboardCursorEmpty: 'مؤشر لوحة المفاتيح عند الصف {row}، العمود {column}: نقطة تقاطع فارغة.',
+      goKeyboardCursorOccupied: 'مؤشر لوحة المفاتيح عند الصف {row}، العمود {column}: حجر {player}.',
+      goBlack: 'الأسود',
+      goWhite: 'الأبيض',
+      goBlackTurn: 'دور الأسود',
+      goTurn: 'دور {player}',
+      goCaptures: 'الأسر (أسود/أبيض)',
+      goPass: 'تمرير',
+      goHint: 'تلميح',
+      goNewGame: 'لعبة جديدة',
+      goPlaceStone: 'ضع حجرك',
+      goGameOver: 'انتهت اللعبة',
+      goPlayAgain: 'العب مجدداً',
+      goWinner: 'فوز {winner}!',
+      goFinalScore: 'النتيجة النهائية — الأسود: {black} · الأبيض: {white} (تشمل {komi} كومي)',
+      goIntersectionOccupied: 'نقطة التقاطع مشغولة',
+      goSuicide: 'نقلة غير قانونية (انتحار)',
+      goPassedTurn: 'تمرير — دور {player}',
+      goHintAt: 'تلميح: الصف {row}، العمود {column}',
+      goNoMoves: 'لا توجد نقلات متاحة — فكّر في التمرير',
+      goBlackFirst: 'الأسود يبدأ'
+    }
+  });
+  </script>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
   <!-- GO ENGINE — Pure logic, zero DOM                           -->
@@ -565,6 +662,20 @@
   (function() {
     'use strict';
 
+    var i18n = window.JakhGameI18n;
+    function t(key, values) { return i18n.t(key, values); }
+    function gameNumber(value, fractionDigits) {
+      var digits = fractionDigits || 0;
+      return i18n.number(value, {
+        useGrouping: false,
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits
+      });
+    }
+    function colorName(color) {
+      return t(color === 'b' ? 'goBlack' : 'goWhite');
+    }
+
     var SIZE = 9;
     var STAR_POINTS = [
       [2,2],[2,4],[2,6],
@@ -590,9 +701,12 @@
     var resultTitle  = document.getElementById('goResultTitle');
     var resultDesc   = document.getElementById('goResultDesc');
     var playAgainBtn = document.getElementById('goPlayAgainBtn');
+    var keyboardStatus = document.getElementById('goKeyboardStatus');
 
     var state = GoEngine.newGame();
     var hintCell = null;
+    var messageState = { key: 'goBlackFirst', values: {}, highlight: false };
+    var keyboardCell = { row: 4, col: 4 };
 
     // Board geometry
     function getBoardSize() {
@@ -702,15 +816,15 @@
     // ── Update panel UI ───────────────────────────────────────
     function updatePanel() {
       var sc = GoEngine.score(state);
-      scoreBlack.textContent = Math.round(sc.black);
-      scoreWhite.textContent = sc.white.toFixed(1);
-      capturesLbl.textContent = state.captured.b + ' / ' + state.captured.w;
+      scoreBlack.textContent = gameNumber(Math.round(sc.black));
+      scoreWhite.textContent = gameNumber(sc.white, 1);
+      capturesLbl.textContent = gameNumber(state.captured.b) + ' / ' + gameNumber(state.captured.w);
 
       var ended = GoEngine.getStatus(state) === 'ended';
       if (!ended) {
         var color = state.turn;
         turnDot.className = 'go-turn-indicator ' + (color === 'b' ? 'black' : 'white');
-        turnLabel.textContent = (color === 'b' ? 'Black' : 'White') + "'s turn";
+        turnLabel.textContent = t('goTurn', { player: colorName(color) });
         passBtn.disabled = false;
         hintBtn.disabled = false;
       } else {
@@ -722,15 +836,31 @@
 
     function showResult(sc) {
       resultBanner.classList.add('visible');
-      var winner = sc.black > sc.white ? 'Black' : 'White';
-      resultTitle.textContent = winner + ' wins!';
-      resultDesc.textContent = 'Final score — Black: ' + Math.round(sc.black)
-        + ' · White: ' + sc.white.toFixed(1) + ' (includes 6.5 komi)';
+      var winnerColor = sc.black > sc.white ? 'b' : 'w';
+      resultTitle.textContent = t('goWinner', { winner: colorName(winnerColor) });
+      resultDesc.textContent = t('goFinalScore', {
+        black: gameNumber(Math.round(sc.black)),
+        white: gameNumber(sc.white, 1),
+        komi: gameNumber(6.5, 1)
+      });
     }
 
-    function setMessage(msg, highlight) {
-      messageEl.textContent = msg;
-      messageEl.className = 'go-message' + (highlight ? ' highlight' : '');
+    function renderMessage() {
+      var values = Object.assign({}, messageState.values);
+      if (values.playerColor) values.player = colorName(values.playerColor);
+      if (values.rawRow !== undefined) values.row = gameNumber(values.rawRow);
+      if (values.rawColumn !== undefined) values.column = gameNumber(values.rawColumn);
+      messageEl.textContent = messageState.key ? t(messageState.key, values) : '';
+      messageEl.className = 'go-message' + (messageState.highlight ? ' highlight' : '');
+    }
+
+    function setMessage(key, values, highlight) {
+      messageState = {
+        key: key || '',
+        values: values || {},
+        highlight: Boolean(highlight)
+      };
+      renderMessage();
     }
 
     // ── Hit testing ───────────────────────────────────────────
@@ -767,6 +897,50 @@
       hitCanvas.height = sz;
     }
 
+    // ── Keyboard cursor ───────────────────────────────────────
+    function drawKeyboardCursor() {
+      var context = hitCanvas.getContext('2d');
+      context.clearRect(0, 0, hitCanvas.width, hitCanvas.height);
+      if (document.activeElement !== hitCanvas) return;
+
+      var pos = intersectionXY(keyboardCell.row, keyboardCell.col);
+      var radius = Math.max(10, Math.round(stoneRadius() * 0.72));
+
+      context.save();
+      context.beginPath();
+      context.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+      context.lineWidth = 6;
+      context.strokeStyle = 'rgba(255,255,255,0.96)';
+      context.stroke();
+      context.beginPath();
+      context.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+      context.lineWidth = 3;
+      context.strokeStyle = '#155f9f';
+      context.stroke();
+      context.restore();
+    }
+
+    function updateKeyboardStatus() {
+      var stone = state.board[keyboardCell.row][keyboardCell.col];
+      var values = {
+        row: gameNumber(keyboardCell.row + 1),
+        column: gameNumber(keyboardCell.col + 1)
+      };
+      if (stone) {
+        values.player = colorName(stone);
+        keyboardStatus.textContent = t('goKeyboardCursorOccupied', values);
+      } else {
+        keyboardStatus.textContent = t('goKeyboardCursorEmpty', values);
+      }
+    }
+
+    function moveKeyboardCursor(rowDelta, colDelta) {
+      keyboardCell.row = Math.max(0, Math.min(SIZE - 1, keyboardCell.row + rowDelta));
+      keyboardCell.col = Math.max(0, Math.min(SIZE - 1, keyboardCell.col + colDelta));
+      drawKeyboardCursor();
+      updateKeyboardStatus();
+    }
+
     // ── Hover ─────────────────────────────────────────────────
     hitCanvas.addEventListener('mousemove', function(e) {
       if (GoEngine.getStatus(state) === 'ended') { hoverStone.style.display = 'none'; return; }
@@ -788,16 +962,50 @@
       hoverStone.style.display = 'none';
     });
 
+    hitCanvas.addEventListener('focus', function() {
+      hoverStone.style.display = 'none';
+      drawKeyboardCursor();
+      updateKeyboardStatus();
+    });
+
+    hitCanvas.addEventListener('blur', function() {
+      drawKeyboardCursor();
+    });
+
+    hitCanvas.addEventListener('keydown', function(e) {
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+      // Board coordinates stay left-to-right even when the surrounding UI is Arabic.
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        moveKeyboardCursor(-1, 0);
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        moveKeyboardCursor(1, 0);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        moveKeyboardCursor(0, -1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        moveKeyboardCursor(0, 1);
+      } else if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        placeAt(keyboardCell.row, keyboardCell.col);
+        drawKeyboardCursor();
+        updateKeyboardStatus();
+      }
+    });
+
     // ── Click to place ────────────────────────────────────────
     function placeAt(row, col) {
       if (GoEngine.getStatus(state) === 'ended') return;
       if (state.board[row][col] !== null) {
-        setMessage('Intersection occupied');
+        setMessage('goIntersectionOccupied');
         return;
       }
       var newState = GoEngine.applyMove(state, row, col);
       if (newState === state) {
-        setMessage('Illegal move (suicide)');
+        setMessage('goSuicide');
         return;
       }
       hintCell = null;
@@ -809,14 +1017,22 @@
     hitCanvas.addEventListener('click', function(e) {
       var xy = getCanvasXY(e);
       var cell = nearestIntersection(xy.x, xy.y);
-      if (cell) placeAt(cell.row, cell.col);
+      if (cell) {
+        keyboardCell = cell;
+        placeAt(cell.row, cell.col);
+        drawKeyboardCursor();
+      }
     });
 
     hitCanvas.addEventListener('touchend', function(e) {
       e.preventDefault();
       var xy = getCanvasXY(e.changedTouches ? { clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY } : e);
       var cell = nearestIntersection(xy.x, xy.y);
-      if (cell) placeAt(cell.row, cell.col);
+      if (cell) {
+        keyboardCell = cell;
+        placeAt(cell.row, cell.col);
+        drawKeyboardCursor();
+      }
     }, { passive: false });
 
     // ── Buttons ───────────────────────────────────────────────
@@ -825,7 +1041,11 @@
       state = GoEngine.pass(state);
       hintCell = null;
       render();
-      if (GoEngine.getStatus(state) !== 'ended') setMessage('Passed — ' + (state.turn === 'b' ? 'Black' : 'White') + "'s turn");
+      if (GoEngine.getStatus(state) !== 'ended') {
+        setMessage('goPassedTurn', { playerColor: state.turn });
+      } else {
+        setMessage('');
+      }
     });
 
     hintBtn.addEventListener('click', function() {
@@ -834,9 +1054,12 @@
       if (hint) {
         hintCell = hint;
         render();
-        setMessage('Hint: row ' + (hint.row + 1) + ', col ' + (hint.col + 1), true);
+        setMessage('goHintAt', {
+          rawRow: hint.row + 1,
+          rawColumn: hint.col + 1
+        }, true);
       } else {
-        setMessage('No moves available — consider passing', true);
+        setMessage('goNoMoves', {}, true);
       }
     });
 
@@ -848,7 +1071,7 @@
       hintCell = null;
       resultBanner.classList.remove('visible');
       render();
-      setMessage('Black goes first');
+      setMessage('goBlackFirst');
     }
 
     // ── Main render ───────────────────────────────────────────
@@ -857,6 +1080,7 @@
       drawGrid();
       drawStones();
       updatePanel();
+      drawKeyboardCursor();
     }
 
     // ── Responsive resize ─────────────────────────────────────
@@ -866,9 +1090,15 @@
       resizeTimer = setTimeout(render, 80);
     });
 
+    i18n.onChange(function () {
+      render();
+      renderMessage();
+      if (document.activeElement === hitCanvas) updateKeyboardStatus();
+    });
+
     // ── Init ──────────────────────────────────────────────────
     render();
-    setMessage('Black goes first');
+    setMessage('goBlackFirst');
 
   })();
   </script>

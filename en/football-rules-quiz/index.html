@@ -2,7 +2,15 @@
 <html lang="en" dir="ltr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
+    <script>
+      document.documentElement.dataset.theme = "light";
+      try {
+        var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
+        savedSettings.lang = "en";
+        localStorage.setItem("jakh-riddles-settings", JSON.stringify(savedSettings));
+      } catch (_) {}
+    </script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Test your knowledge of football rules, restarts, VAR, transfer terms, and tactics with 16 bilingual questions and clear answers." />
@@ -234,7 +242,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073003" />
+    <link rel="stylesheet" href="/styles.css?v=2026073005" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -246,16 +254,16 @@
   <body class="seo-page">
     <a href="#content" class="skip-link">Skip to main content</a>
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/?lang=en" class="brand" aria-label="JAKH Riddles home">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Collections</a>
-        <a class="ghost-btn" href="https://jakh.net/ar/ikhtibar-qawanin-korat-alqadam/" lang="ar">العربية</a>
+        <a class="ghost-btn" href="/?lang=en">Home</a>
+        <a class="ghost-btn" href="/collections?lang=en">Collections</a>
+        <a class="ghost-btn" href="https://jakh.net/ar/ikhtibar-qawanin-korat-alqadam/" lang="ar" dir="rtl">العربية</a>
       </nav>
     </header>
     <main id="content">
@@ -278,7 +286,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Red</p>
-              <a href="/football?card=football-005">Open the interactive card →</a>
+              <a href="/football?card=football-005&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -288,7 +296,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Diego Maradona</p>
-              <a href="/football?card=football-004">Open the interactive card →</a>
+              <a href="/football?card=football-004&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -298,7 +306,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>12 yards</p>
-              <a href="/football?card=football-007">Open the interactive card →</a>
+              <a href="/football?card=football-007&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -308,7 +316,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Seven players</p>
-              <a href="/football?card=football-008">Open the interactive card →</a>
+              <a href="/football?card=football-008&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -318,7 +326,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A deep-lying playmaker who dictates tempo and starts attacks</p>
-              <a href="/football?card=football-bw-001">Open the interactive card →</a>
+              <a href="/football?card=football-bw-001&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -328,7 +336,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>An indirect free kick</p>
-              <a href="/football?card=football-022">Open the interactive card →</a>
+              <a href="/football?card=football-022&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -338,7 +346,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>9.15 metres (10 yards)</p>
-              <a href="/football?card=football-050">Open the interactive card →</a>
+              <a href="/football?card=football-050&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -348,7 +356,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Goalkeepers can no longer handle deliberate back-passes played with the foot by their own team</p>
-              <a href="/football?card=football-135">Open the interactive card →</a>
+              <a href="/football?card=football-135&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -358,7 +366,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Hat-trick</p>
-              <a href="/football?card=football-019">Open the interactive card →</a>
+              <a href="/football?card=football-019&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -368,7 +376,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Video Assistant Referee</p>
-              <a href="/football?card=football-052">Open the interactive card →</a>
+              <a href="/football?card=football-052&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -378,7 +386,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A goal scored directly from a corner kick</p>
-              <a href="/football?card=football-096">Open the interactive card →</a>
+              <a href="/football?card=football-096&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -388,7 +396,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Arsenal</p>
-              <a href="/football?card=football-012">Open the interactive card →</a>
+              <a href="/football?card=football-012&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -398,7 +406,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Lev Yashin</p>
-              <a href="/football?card=football-024">Open the interactive card →</a>
+              <a href="/football?card=football-024&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -408,7 +416,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Soviet Union</p>
-              <a href="/football?card=football-016">Open the interactive card →</a>
+              <a href="/football?card=football-016&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -418,7 +426,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Uruguay</p>
-              <a href="/football?card=football-021">Open the interactive card →</a>
+              <a href="/football?card=football-021&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -428,7 +436,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Germany</p>
-              <a href="/football?card=football-020">Open the interactive card →</a>
+              <a href="/football?card=football-020&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -437,8 +445,8 @@
         <h2>Keep playing</h2>
         <p>Explore the full library, switch languages, and track your score in the Mind Lab.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab">Open the Mind Lab</a>
-          <a class="ghost-btn" href="/collections">All collections</a>
+          <a class="primary-btn" href="/mind-lab?lang=en">Open the Mind Lab</a>
+          <a class="ghost-btn" href="/collections?lang=en">All collections</a>
         </div>
       </section>
     </main>
@@ -446,8 +454,8 @@
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections" data-i18n="footerCollections">Collections</a>
-          <a href="/about" data-i18n="footerAbout">About &amp; content standards</a>
+          <a href="/collections?lang=en" data-i18n="footerCollections">Collections</a>
+          <a href="/about?lang=en" data-i18n="footerAbout">About &amp; content standards</a>
         </nav>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>

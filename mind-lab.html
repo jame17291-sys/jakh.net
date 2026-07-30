@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="3,500+ bilingual riddles mapped directly into 56 topics in English and Arabic." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg" />
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-    <link rel="stylesheet" href="styles.css?v=2026073003" />
+    <link rel="stylesheet" href="styles.css?v=2026073005" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -822,19 +822,19 @@
 
         <aside class="directory-collection-callout">
           <div>
-            <p class="eyebrow">Prefer a shorter challenge?</p>
-            <h3>Try a focused bilingual collection</h3>
-            <p>Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.</p>
+            <p class="eyebrow" data-i18n="mindCalloutEyebrow">Prefer a shorter challenge?</p>
+            <h3 data-i18n="mindCalloutTitle">Try a focused bilingual collection</h3>
+            <p data-i18n="mindCalloutText">Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.</p>
           </div>
-          <a class="primary-btn" href="/collections">Browse collections</a>
+          <a class="primary-btn" href="/collections" data-i18n="mindCalloutCta">Browse collections</a>
         </aside>
 
         <section class="suggestion-box" id="suggestionBox" style="margin-top:3rem;">
           <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
           <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
           <div class="suggestion-form" id="suggestionForm">
-            <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" placeholder="Your idea…"></textarea>
-            <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" placeholder="Email (optional)" />
+            <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" data-i18n-aria-label="suggestPlaceholder" placeholder="Your idea…"></textarea>
+            <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" data-i18n-aria-label="suggestEmailPlaceholder" placeholder="Email (optional)" />
             <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">Submit Idea</button>
           </div>
           <p class="suggestion-thanks hidden" id="suggestionThanks" data-i18n="suggestThanks">Thank you! We'll take a look.</p>
@@ -877,6 +877,6 @@
       </div>
     </div>
 
-    <script defer src="app.js?v=2026073003"></script>
+    <script defer src="app.js?v=2026073005"></script>
   </body>
 </html>

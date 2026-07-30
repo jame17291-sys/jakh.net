@@ -2,7 +2,15 @@
 <html lang="ar" dir="rtl" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
+    <script>
+      document.documentElement.dataset.theme = "light";
+      try {
+        var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
+        savedSettings.lang = "ar";
+        localStorage.setItem("jakh-riddles-settings", JSON.stringify(savedSettings));
+      } catch (_) {}
+    </script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="اختبر تفكيرك مع 16 لغزاً منطقياً بالعربية والإنجليزية، من الاستنتاجات السريعة إلى المسائل الأصعب، مع الحل والشرح." />
@@ -21,13 +29,13 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
     <meta property="og:site_name" content="JAKH Riddles" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="16 لغزاً منطقياً مع الحل والشرح | JAKH" />
     <meta name="twitter:description" content="اختبر تفكيرك مع 16 لغزاً منطقياً بالعربية والإنجليزية، من الاستنتاجات السريعة إلى المسائل الأصعب، مع الحل والشرح." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg" />
-    <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -234,7 +242,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073003" />
+    <link rel="stylesheet" href="/styles.css?v=2026073005" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -246,16 +254,16 @@
   <body class="seo-page">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/?lang=ar" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="التنقل">
-        <a class="ghost-btn" href="/">الرئيسية</a>
-        <a class="ghost-btn" href="/collections">المجموعات</a>
-        <a class="ghost-btn" href="https://jakh.net/en/logic-puzzles-with-answers/" lang="en">English</a>
+        <a class="ghost-btn" href="/?lang=ar">الرئيسية</a>
+        <a class="ghost-btn" href="/collections?lang=ar">المجموعات</a>
+        <a class="ghost-btn" href="https://jakh.net/en/logic-puzzles-with-answers/" lang="en" dir="ltr">English</a>
       </nav>
     </header>
     <main id="content">
@@ -277,7 +285,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>47 يوماً. في اليوم 47 غطّت النصف، ثم تضاعفت في اليوم 48 لتغطي البركة كاملة.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-001">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-001&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -287,7 +295,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>7 أطفال: 4 بنات و3 أولاد. كل بنت لها 3 إخوة و3 أخوات. كل ولد له أخان و4 أخوات.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-002">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-002&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -297,7 +305,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>المركز الثاني. أخذت مركزهم — لم تتجاوز الشخص الأول.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-003">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-003&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -307,7 +315,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>اختارت نور الشاي، واختار سامي القهوة، واختارت لينا العصير. بعد تخصيص القهوة لسامي، لا يبقى لنور إلا الشاي، فيتبقى العصير للينا.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-005">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-005&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -317,7 +325,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>الأحمر، ثم الأخضر، ثم الأزرق.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-006">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-006&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -327,7 +335,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>67. كانت في الثالثة حين كنت في السادسة — إذن هي أصغر مني بثلاث سنوات دائماً.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-013">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-013&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -337,7 +345,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>47. إذا كان رقم العشرات a ورقم الآحاد b، فإن a+b=11 و9(b−a)=27، أي b−a=3. ومن ثم a=4 وb=7.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-016">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-016&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -347,7 +355,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>نعم، كلاهما يساوي 4. بشكل عام، x% من y تساوي دائماً y% من x.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-018">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-018&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -357,7 +365,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>5,050. صيغة غاوس: n(n+1)/2 = 100 × 101 / 2 = 5,050.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-019">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-019&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -367,7 +375,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>الصندوق 1. إذا كان الكنز فيه، تكون ورقة الصندوق 2 وحدها صادقة. أما وضعه في الصندوق 2 أو 3 فيجعل ورقتين صادقتين.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-024">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-024&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -377,7 +385,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>13:31، ويأتي بعد 70 دقيقة.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-026">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-026&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -387,7 +395,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>12. على كل واحد من أحرف المكعب الاثني عشر مكعب صغير واحد غير ركني، ولكل منها وجهان مطليان بالضبط.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-032">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-032&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -397,7 +405,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>7. عدد من يدرسون لغة واحدة على الأقل هو 25، لذا عدد التقاطع هو 18 + 14 − 25 = 7.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-033">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-033&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -407,7 +415,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>643. لنفرض أن الرقم الثالث هو t. تكون الأرقام 2t وt+1 وt، لذا 4t+1=13 ومنه t=3.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-017">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-017&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -417,7 +425,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>8 أيام. بعد 7 أيام يكون الحلزون عند 7 م. في اليوم الثامن يتسلق 3 م ليصل 10 م ويهرب قبل الانزلاق.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-049">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-049&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -427,7 +435,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الإجابة</p>
               <p>1. الرقم الأخير لقوى 7 يتكرر في دورات من 4: 7، 9، 3، 1. بما أن 100 ÷ 4 = 25 تماماً، الرقم الأخير هو 1.</p>
-              <a href="/logic-puzzles?card=logic-puzzles-057">افتح البطاقة التفاعلية →</a>
+              <a href="/logic-puzzles?card=logic-puzzles-057&amp;lang=ar">افتح البطاقة التفاعلية ←</a>
             </div>
           </details>
         </article>
@@ -436,8 +444,8 @@
         <h2>واصل اللعب</h2>
         <p>استكشف المجموعة الكاملة، وبدّل اللغة، وتابع نتيجتك في مختبر العقل.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab">افتح مختبر العقل</a>
-          <a class="ghost-btn" href="/collections">كل المجموعات</a>
+          <a class="primary-btn" href="/mind-lab?lang=ar">افتح مختبر العقل</a>
+          <a class="ghost-btn" href="/collections?lang=ar">كل المجموعات</a>
         </div>
       </section>
     </main>
@@ -445,12 +453,12 @@
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
         <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections" data-i18n="footerCollections">المجموعات</a>
-          <a href="/about" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a>
+          <a href="/collections?lang=ar" data-i18n="footerCollections">المجموعات</a>
+          <a href="/about?lang=ar" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a>
         </nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><span>Facebook</span></a>
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام"><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك"><span>Facebook</span></a>
         </div>
       </div>
     </footer>

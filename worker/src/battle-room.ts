@@ -10,6 +10,16 @@ const MAX_PREJOIN_SOCKETS = 4;
 const PREJOIN_TTL_MS = 15_000;
 const MAX_MESSAGE_BYTES = 8_192;
 
+const BATTLE_ERROR_CODES: Readonly<Record<string, string>> = Object.freeze({
+  "Invalid message": "INVALID_MESSAGE",
+  "Room not found": "ROOM_NOT_FOUND",
+  "Join the room first": "JOIN_ROOM_FIRST",
+  "Battle already started": "BATTLE_ALREADY_STARTED",
+  "Room is full": "ROOM_FULL",
+  "Invalid room code": "INVALID_ROOM_CODE",
+  "Player name is required": "PLAYER_NAME_REQUIRED",
+});
+
 interface InitPayload {
   code: string;
   category: string;
@@ -141,7 +151,7 @@ export class BattleRoom implements DurableObject {
 
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) {
-      this.send(socket, { type: "error", message: "Room not found" });
+      this.send(socket, { type: "error", code: "ROOM_NOT_FOUND", message: "Room not found" });
       await this.expireRoom(1008, "Room not found");
       return;
     }
@@ -422,7 +432,11 @@ export class BattleRoom implements DurableObject {
   }
 
   private rejectSocket(socket: WebSocket, message: string): void {
-    this.send(socket, { type: "error", message });
+    this.send(socket, {
+      type: "error",
+      code: BATTLE_ERROR_CODES[message] || "BATTLE_ERROR",
+      message,
+    });
     try {
       socket.close(1008, message);
     } catch {

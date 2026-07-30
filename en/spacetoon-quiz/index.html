@@ -2,7 +2,15 @@
 <html lang="en" dir="ltr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
+    <script>
+      document.documentElement.dataset.theme = "light";
+      try {
+        var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
+        savedSettings.lang = "en";
+        localStorage.setItem("jakh-riddles-settings", JSON.stringify(savedSettings));
+      } catch (_) {}
+    </script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Take an unofficial 16-question nostalgia quiz about classic Arabic-dubbed cartoons, with bilingual answers and familiar childhood favorites." />
@@ -234,7 +242,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073003" />
+    <link rel="stylesheet" href="/styles.css?v=2026073005" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -246,16 +254,16 @@
   <body class="seo-page">
     <a href="#content" class="skip-link">Skip to main content</a>
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/?lang=en" class="brand" aria-label="JAKH Riddles home">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Collections</a>
-        <a class="ghost-btn" href="https://jakh.net/ar/ikhtibar-spacetoon/" lang="ar">العربية</a>
+        <a class="ghost-btn" href="/?lang=en">Home</a>
+        <a class="ghost-btn" href="/collections?lang=en">Collections</a>
+        <a class="ghost-btn" href="https://jakh.net/ar/ikhtibar-spacetoon/" lang="ar" dir="rtl">العربية</a>
       </nav>
     </header>
     <main id="content">
@@ -278,7 +286,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Jim Hawkins</p>
-              <a href="/ayam-tayebeen?card=ayt-041">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-041&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -288,7 +296,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Captain Flint</p>
-              <a href="/ayam-tayebeen?card=ayt-044">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-044&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -298,7 +306,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Hispaniola</p>
-              <a href="/ayam-tayebeen?card=ayt-043">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-043&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -308,7 +316,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>The treasure map</p>
-              <a href="/ayam-tayebeen?card=ayt-045">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-045&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -318,7 +326,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Miss Minchin</p>
-              <a href="/ayam-tayebeen?card=ayt-082">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-082&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -328,7 +336,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Emily</p>
-              <a href="/ayam-tayebeen?card=ayt-083">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-083&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -338,7 +346,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>In the attic</p>
-              <a href="/ayam-tayebeen?card=ayt-085">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-085&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -348,7 +356,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Sakura</p>
-              <a href="/ayam-tayebeen?card=ayt-101">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-101&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -358,7 +366,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Sumire</p>
-              <a href="/ayam-tayebeen?card=ayt-116">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-116&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -368,7 +376,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Tama</p>
-              <a href="/ayam-tayebeen?card=ayt-106">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-106&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -378,7 +386,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Jolicoeur</p>
-              <a href="/ayam-tayebeen?card=ayt-123">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-123&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -388,7 +396,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Capi</p>
-              <a href="/ayam-tayebeen?card=ayt-124">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-124&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -398,7 +406,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Her real mother</p>
-              <a href="/ayam-tayebeen?card=ayt-125">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-125&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -408,7 +416,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Cat</p>
-              <a href="/ayam-tayebeen?card=ayt-181">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-181&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -418,7 +426,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Mouse</p>
-              <a href="/ayam-tayebeen?card=ayt-182">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-182&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -428,7 +436,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Spike</p>
-              <a href="/ayam-tayebeen?card=ayt-183">Open the interactive card →</a>
+              <a href="/ayam-tayebeen?card=ayt-183&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -437,8 +445,8 @@
         <h2>Keep playing</h2>
         <p>Explore the full library, switch languages, and track your score in the Mind Lab.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab">Open the Mind Lab</a>
-          <a class="ghost-btn" href="/collections">All collections</a>
+          <a class="primary-btn" href="/mind-lab?lang=en">Open the Mind Lab</a>
+          <a class="ghost-btn" href="/collections?lang=en">All collections</a>
         </div>
       </section>
     </main>
@@ -446,8 +454,8 @@
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections" data-i18n="footerCollections">Collections</a>
-          <a href="/about" data-i18n="footerAbout">About &amp; content standards</a>
+          <a href="/collections?lang=en" data-i18n="footerCollections">Collections</a>
+          <a href="/about?lang=en" data-i18n="footerAbout">About &amp; content standards</a>
         </nav>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>

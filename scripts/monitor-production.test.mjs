@@ -28,7 +28,7 @@ function staticBody(pathname) {
     const seoCards = pathname === "/science"
       ? `${'<article class="riddle-card"></article>'.repeat(20)}<script type="application/ld+json">{"hasPart":[]}</script>`
       : "";
-    return `<!doctype html><html><head>${route.marker}</title></head><body>${seoCards}ok</body></html>`;
+    return `<!doctype html><html><head>${route.marker}</title></head><body>${route.bilingualMarker}${seoCards}ok</body></html>`;
   }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
@@ -54,6 +54,8 @@ function staticBody(pathname) {
     return Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0x4a, 0x46, 0x49, 0x46]);
   }
   if (pathname === "/app.js") return "const endpoint = 'https://api.jakh.net';";
+  if (pathname === "/site-i18n.js") return "window.JakhI18n = {};";
+  if (pathname === "/game-i18n.js") return "window.JakhGameI18n = {};";
   if (pathname === "/styles.css") return ":root { color-scheme: light; }";
   if (pathname === "/sw.js") return "self.addEventListener('fetch', () => {});";
   return null;
@@ -179,7 +181,7 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, 31);
+    assert.equal(summary.results.length, 33);
   });
 });
 

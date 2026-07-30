@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <script>document.documentElement.dataset.theme="light";</script>
+    <script src="game-i18n.js?v=2026073005"></script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up." />
     <title>Chess Online — Free Browser Game | JAKH</title>
-    <link rel="preload" href="styles.css?v=2026073003" as="style" />
+    <link rel="preload" href="styles.css?v=2026073005" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/chess" />
     <meta name="robots" content="index,follow" />
@@ -26,7 +27,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
     <meta property="og:site_name" content="JAKH Riddles" />
-    <link rel="stylesheet" href="styles.css?v=2026073003" />
+    <link rel="stylesheet" href="styles.css?v=2026073005" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -131,6 +132,21 @@
         cursor: pointer;
         transition: background 0.12s;
         -webkit-tap-highlight-color: transparent;
+      }
+
+      .chess-square:focus-visible {
+        outline: none;
+      }
+
+      .chess-square:focus-visible::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        z-index: 6;
+        border: 3px solid #fffaf2;
+        border-radius: 3px;
+        box-shadow: 0 0 0 2px #185f8d;
+        pointer-events: none;
       }
 
       .chess-square.light { background: var(--gilt); }
@@ -430,71 +446,81 @@
 }
     </script>
   </head>
-  <body data-page="game">
-    <a href="#top" class="skip-link">Skip to main content</a>
+  <body data-page="game" data-game="chess">
+    <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="assets/logo.webp" type="image/webp" />
           <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
-      <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/mind-lab">Categories</a>
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="/mind-lab" data-i18n="navCategories">Categories</a>
       </nav>
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero shell" style="padding-bottom:1rem;">
         <div class="hero-copy">
-          <p class="eyebrow">Games &amp; Fun</p>
-          <h1>&#9817; Chess</h1>
-          <p class="hero-text">Two-player chess or play against the computer.</p>
+          <p class="eyebrow" data-i18n="chessEyebrow">Games &amp; Fun</p>
+          <h1 data-i18n="chessTitle">&#9817; Chess</h1>
+          <p class="hero-text" data-i18n="chessIntro">Two-player chess or play against the computer.</p>
         </div>
       </section>
 
       <section class="shell section-block" id="chessSection">
         <!-- Status bar -->
-        <div class="chess-status" id="chessStatus">
+        <div class="chess-status" id="chessStatus" role="status" aria-live="polite">
           <p class="status-text" id="statusText">
             <span class="turn-indicator" id="turnDot" style="background:#fff;"></span>
-            White's turn
+            <span id="statusMessage" data-i18n="chessWhiteTurn">White's turn</span>
           </p>
         </div>
 
         <div class="chess-layout">
           <!-- Board area -->
-          <div class="board-area">
+          <div class="board-area" dir="ltr">
             <div class="board-files" id="boardFiles"></div>
             <div class="board-ranks-row">
               <div class="board-rank-labels" id="rankLabels"></div>
-              <div id="chessBoard" role="grid" aria-label="Chess board"></div>
+              <div id="chessBoard" role="grid" dir="ltr" aria-label="Chess board" aria-describedby="chessKeyboardInstructions" data-i18n-aria-label="chessBoardAria"></div>
             </div>
+            <p class="sr-only" id="chessKeyboardInstructions" data-i18n="chessKeyboardInstructions">Use the arrow keys to move between squares. Press Enter or Space to select a piece or make a move.</p>
           </div>
 
           <!-- Side panel -->
           <div class="chess-side">
             <div class="chess-controls">
-              <p class="ctrl-label">Mode</p>
+              <p class="ctrl-label" data-i18n="chessMode">Mode</p>
               <div class="mode-toggle">
-                <button class="mode-btn active" id="btnVsComputer">vs Computer</button>
-                <button class="mode-btn" id="btn2Players">2 Players</button>
+                <button class="mode-btn active" id="btnVsComputer" data-i18n="chessVsComputer">vs Computer</button>
+                <button class="mode-btn" id="btn2Players" data-i18n="chessTwoPlayers">2 Players</button>
               </div>
-              <button class="chess-btn" id="btnNewGame">&#9654; New Game</button>
-              <button class="chess-btn" id="btnUndo">&#8592; Undo</button>
+              <button class="chess-btn" id="btnNewGame" data-i18n="chessNewGame">&#9654; New Game</button>
+              <button class="chess-btn" id="btnUndo" data-i18n="chessUndo">&#8592; Undo</button>
             </div>
 
             <div class="thinking-bar" id="thinkingBar">
-              <span>Computer thinking</span>
+              <span data-i18n="chessComputerThinking">Computer thinking</span>
               <span class="thinking-dots"><span>.</span><span>.</span><span>.</span></span>
             </div>
 
             <div class="captured-panel">
-              <p class="captured-label">Captured</p>
-              <div class="captured-row black" id="capturedByWhite"></div>
-              <div class="captured-row" id="capturedByBlack"></div>
+              <p class="captured-label" data-i18n="chessCaptured">Captured</p>
+              <div class="captured-row black" id="capturedByWhite" aria-label="Pieces captured by White" data-i18n-aria-label="chessCapturedByWhite"></div>
+              <div class="captured-row" id="capturedByBlack" aria-label="Pieces captured by Black" data-i18n-aria-label="chessCapturedByBlack"></div>
             </div>
           </div>
         </div>
@@ -503,28 +529,113 @@
 
     <footer class="site-footer shell">
       <div class="footer-inner">
-        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            <span>Instagram</span>
+            <span data-i18n="instagramName">Instagram</span>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            <span>Facebook</span>
+            <span data-i18n="facebookName">Facebook</span>
           </a>
         </div>
       </div>
     </footer>
 
     <!-- Promotion modal -->
-    <div class="promo-modal" id="promoModal" role="dialog" aria-modal="true" aria-label="Choose promotion piece">
+    <div class="promo-modal" id="promoModal" role="dialog" aria-modal="true" aria-label="Choose promotion piece" data-i18n-aria-label="chessPromotionDialog">
       <div class="promo-card">
-        <h2>Promote Pawn</h2>
+        <h2 data-i18n="chessPromotionTitle">Promote Pawn</h2>
         <div class="promo-options" id="promoOptions"></div>
       </div>
     </div>
+
+    <script id="chess-i18n">
+    JakhGameI18n.register('chess', {
+      en: {
+        metaTitle: 'Chess Online — Free Browser Game | JAKH',
+        metaDescription: 'Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up.',
+        chessEyebrow: 'Games & Fun',
+        chessTitle: '♙ Chess',
+        chessIntro: 'Two-player chess or play against the computer.',
+        chessWhiteTurn: "White's turn",
+        chessMode: 'Mode',
+        chessVsComputer: 'vs Computer',
+        chessTwoPlayers: '2 Players',
+        chessNewGame: '▶ New Game',
+        chessUndo: '← Undo',
+        chessComputerThinking: 'Computer thinking',
+        chessCaptured: 'Captured',
+        chessCapturedByWhite: 'Pieces captured by White',
+        chessCapturedByBlack: 'Pieces captured by Black',
+        chessBoardAria: 'Chess board',
+        chessKeyboardInstructions: 'Use the arrow keys to move between squares. Press Enter or Space to select a piece or make a move.',
+        chessPromotionDialog: 'Choose promotion piece',
+        chessPromotionTitle: 'Promote Pawn',
+        chessWhite: 'White',
+        chessBlack: 'Black',
+        chessPieceWhite: 'white',
+        chessPieceBlack: 'black',
+        chessTurn: "{player}'s turn",
+        chessCheck: '{player} is in check!',
+        chessCheckmate: 'Checkmate — {winner} wins!',
+        chessStalemate: 'Stalemate — Draw',
+        chessFiftyMove: '50-move rule — Draw',
+        chessSquareEmpty: 'Square {square}, empty',
+        chessSquarePiece: 'Square {square}, {color} {piece}',
+        chessSquareSelected: '{description}, selected',
+        chessSquareLegalMove: '{description}, legal move destination',
+        chessKing: 'king',
+        chessQueen: 'queen',
+        chessRook: 'rook',
+        chessBishop: 'bishop',
+        chessKnight: 'knight',
+        chessPawn: 'pawn'
+      },
+      ar: {
+        metaTitle: 'الشطرنج أونلاين — لعبة متصفح مجانية | JAKH',
+        metaDescription: 'العب الشطرنج مجاناً عبر المتصفح ضد الكمبيوتر أو مع صديق، من دون تنزيل أو تسجيل.',
+        chessEyebrow: 'ألعاب ومرح',
+        chessTitle: '♙ الشطرنج',
+        chessIntro: 'العب الشطرنج مع لاعب آخر أو ضد الكمبيوتر.',
+        chessWhiteTurn: 'دور الأبيض',
+        chessMode: 'نمط اللعب',
+        chessVsComputer: 'ضد الكمبيوتر',
+        chessTwoPlayers: 'لاعبان',
+        chessNewGame: '▶ لعبة جديدة',
+        chessUndo: '↩ تراجع',
+        chessComputerThinking: 'الكمبيوتر يفكّر',
+        chessCaptured: 'القطع المأسورة',
+        chessCapturedByWhite: 'القطع التي أسرها الأبيض',
+        chessCapturedByBlack: 'القطع التي أسرها الأسود',
+        chessBoardAria: 'رقعة الشطرنج',
+        chessKeyboardInstructions: 'استخدم مفاتيح الأسهم للتنقل بين المربعات. اضغط Enter أو مفتاح المسافة لاختيار قطعة أو تنفيذ نقلة.',
+        chessPromotionDialog: 'اختر قطعة الترقية',
+        chessPromotionTitle: 'ترقية البيدق',
+        chessWhite: 'الأبيض',
+        chessBlack: 'الأسود',
+        chessPieceWhite: 'أبيض',
+        chessPieceBlack: 'أسود',
+        chessTurn: 'دور {player}',
+        chessCheck: '{player} في حالة كش!',
+        chessCheckmate: 'كش مات — فوز {winner}!',
+        chessStalemate: 'تعادل بالخنق',
+        chessFiftyMove: 'قاعدة الخمسين نقلة — تعادل',
+        chessSquareEmpty: 'المربع {square}، فارغ',
+        chessSquarePiece: 'المربع {square}، {piece} {color}',
+        chessSquareSelected: '{description}، محدد',
+        chessSquareLegalMove: '{description}، وجهة نقلة قانونية',
+        chessKing: 'ملك',
+        chessQueen: 'ملكة',
+        chessRook: 'رخ',
+        chessBishop: 'فيل',
+        chessKnight: 'حصان',
+        chessPawn: 'بيدق'
+      }
+    });
+    </script>
 
     <!-- ═══════════════════════════════════════════════
          SECTION 1 — HEADLESS CHESS ENGINE
@@ -939,10 +1050,21 @@
     (() => {
       'use strict';
 
+      const i18n = window.JakhGameI18n;
+      const t = (key, values) => i18n.t(key, values);
+
       // ── Unicode piece symbols ──────────────────────────
       const SYMBOLS = {
         wK: '♔', wQ: '♕', wR: '♖', wB: '♗', wN: '♘', wP: '♙',
         bK: '♚', bQ: '♛', bR: '♜', bB: '♝', bN: '♞', bP: '♟',
+      };
+      const PIECE_NAME_KEYS = {
+        K: 'chessKing',
+        Q: 'chessQueen',
+        R: 'chessRook',
+        B: 'chessBishop',
+        N: 'chessKnight',
+        P: 'chessPawn',
       };
 
       // ── State ──────────────────────────────────────────
@@ -952,11 +1074,12 @@
       let vsComputer = true;
       let pendingPromoMove = null; // move awaiting promotion choice
       let isThinking = false;
+      let focusSquare = { row: 7, col: 0 }; // a1; board coordinates stay LTR in both languages
 
       // ── DOM refs ───────────────────────────────────────
       const boardEl      = document.getElementById('chessBoard');
       const statusEl     = document.getElementById('chessStatus');
-      const statusText   = document.getElementById('statusText');
+      const statusMessage = document.getElementById('statusMessage');
       const turnDot      = document.getElementById('turnDot');
       const thinkingBar  = document.getElementById('thinkingBar');
       const captByWhite  = document.getElementById('capturedByWhite');
@@ -1002,6 +1125,7 @@
             sq.dataset.col = c;
             sq.setAttribute('role', 'gridcell');
             sq.addEventListener('click', onSquareClick);
+            sq.addEventListener('keydown', onSquareKeydown);
             boardEl.appendChild(sq);
           }
         }
@@ -1012,8 +1136,21 @@
         return boardEl.querySelector(`[data-row="${r}"][data-col="${c}"]`);
       }
 
+      function setRovingFocus(row, col, moveDomFocus) {
+        focusSquare = {
+          row: Math.max(0, Math.min(7, row)),
+          col: Math.max(0, Math.min(7, col)),
+        };
+        boardEl.querySelectorAll('.chess-square').forEach((sq) => {
+          const isCurrent = Number(sq.dataset.row) === focusSquare.row
+            && Number(sq.dataset.col) === focusSquare.col;
+          sq.tabIndex = isCurrent ? 0 : -1;
+        });
+        if (moveDomFocus) getSq(focusSquare.row, focusSquare.col)?.focus();
+      }
+
       // ── Render the board from gameState ───────────────
-      function render() {
+      function render(silentGameOver) {
         const lastMove = gameState.history.length > 0 ? gameState.history[gameState.history.length - 1] : null;
         const status = ChessEngine.getStatus(gameState);
         let kingInCheckSq = null;
@@ -1040,10 +1177,27 @@
         for (let r = 0; r < 8; r++) {
           for (let c = 0; c < 8; c++) {
             const sq = getSq(r, c);
+            const piece = gameState.board[r][c];
+            const square = fileOf(c) + rankOf(r);
             // Reset classes
             sq.className = 'chess-square ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
             sq.innerHTML = '';
-            sq.setAttribute('aria-label', fileOf(c) + rankOf(r));
+            sq.tabIndex = focusSquare.row === r && focusSquare.col === c ? 0 : -1;
+            let squareLabel = piece
+              ? t('chessSquarePiece', {
+                  square,
+                  color: t(piece[0] === 'w' ? 'chessPieceWhite' : 'chessPieceBlack'),
+                  piece: t(PIECE_NAME_KEYS[piece[1]]),
+                })
+              : t('chessSquareEmpty', { square });
+            const isSelected = Boolean(selectedSquare && selectedSquare.row === r && selectedSquare.col === c);
+            if (isSelected) {
+              squareLabel = t('chessSquareSelected', { description: squareLabel });
+            } else if (legalSet.has(r + ',' + c)) {
+              squareLabel = t('chessSquareLegalMove', { description: squareLabel });
+            }
+            sq.setAttribute('aria-label', squareLabel);
+            sq.setAttribute('aria-selected', isSelected ? 'true' : 'false');
 
             // Last move highlight
             if (lastMove) {
@@ -1052,7 +1206,7 @@
             }
 
             // Selected
-            if (selectedSquare && selectedSquare.row === r && selectedSquare.col === c) {
+            if (isSelected) {
               sq.classList.add('selected');
             }
 
@@ -1077,7 +1231,6 @@
             }
 
             // Piece
-            const piece = gameState.board[r][c];
             if (piece && SYMBOLS[piece]) {
               const span = document.createElement('span');
               span.className = 'chess-piece';
@@ -1087,7 +1240,7 @@
           }
         }
 
-        renderStatus(status);
+        renderStatus(status, silentGameOver);
         renderCaptured();
       }
 
@@ -1095,30 +1248,47 @@
       function rankOf(r) { return 8 - r; }
 
       // ── Status bar ─────────────────────────────────────
-      function renderStatus(status) {
+      function renderStatus(status, silentGameOver) {
         statusEl.className = 'chess-status';
         const turn = gameState.turn;
 
         if (status === 'checkmate') {
           statusEl.classList.add('checkmate');
-          const winner = turn === 'w' ? 'Black' : 'White';
-          statusText.innerHTML = `Checkmate &mdash; ${winner} wins!`;
+          const winnerCode = turn === 'w' ? 'b' : 'w';
+          const winner = t(winnerCode === 'w' ? 'chessWhite' : 'chessBlack');
+          statusMessage.textContent = t('chessCheckmate', { winner });
           turnDot.style.display = 'none';
-          document.dispatchEvent(new CustomEvent('chess-game-over', { detail: { status, winner, moves: gameState.history.length } }));
+          if (!silentGameOver) {
+            document.dispatchEvent(new CustomEvent('chess-game-over', {
+              detail: {
+                status,
+                winner: winnerCode === 'w' ? 'White' : 'Black',
+                moves: gameState.history.length
+              }
+            }));
+          }
           return;
         }
         if (status === 'stalemate') {
           statusEl.classList.add('draw');
-          statusText.innerHTML = 'Stalemate &mdash; Draw';
+          statusMessage.textContent = t('chessStalemate');
           turnDot.style.display = 'none';
-          document.dispatchEvent(new CustomEvent('chess-game-over', { detail: { status, winner: null, moves: gameState.history.length } }));
+          if (!silentGameOver) {
+            document.dispatchEvent(new CustomEvent('chess-game-over', {
+              detail: { status, winner: null, moves: gameState.history.length }
+            }));
+          }
           return;
         }
         if (status === 'draw') {
           statusEl.classList.add('draw');
-          statusText.innerHTML = '50-move rule &mdash; Draw';
+          statusMessage.textContent = t('chessFiftyMove');
           turnDot.style.display = 'none';
-          document.dispatchEvent(new CustomEvent('chess-game-over', { detail: { status, winner: null, moves: gameState.history.length } }));
+          if (!silentGameOver) {
+            document.dispatchEvent(new CustomEvent('chess-game-over', {
+              detail: { status, winner: null, moves: gameState.history.length }
+            }));
+          }
           return;
         }
 
@@ -1128,11 +1298,11 @@
 
         if (status === 'check') {
           statusEl.classList.add('check');
-          const turnName = turn === 'w' ? 'White' : 'Black';
-          statusText.textContent = `${turnName} is in Check!`;
+          const turnName = t(turn === 'w' ? 'chessWhite' : 'chessBlack');
+          statusMessage.textContent = t('chessCheck', { player: turnName });
         } else {
-          const turnName = turn === 'w' ? 'White' : 'Black';
-          statusText.textContent = `${turnName}'s turn`;
+          const turnName = t(turn === 'w' ? 'chessWhite' : 'chessBlack');
+          statusMessage.textContent = t('chessTurn', { player: turnName });
         }
       }
 
@@ -1162,16 +1332,14 @@
         captByBlack.textContent = capturedB.join('');
       }
 
-      // ── Square click handler ───────────────────────────
-      function onSquareClick(e) {
+      // ── Square pointer and keyboard handlers ───────────
+      function activateSquare(row, col) {
         if (isThinking) return;
         const status = ChessEngine.getStatus(gameState);
         if (status === 'checkmate' || status === 'stalemate' || status === 'draw') return;
         // Don't allow moves for computer side
         if (vsComputer && gameState.turn === 'b') return;
 
-        const row = parseInt(e.currentTarget.dataset.row);
-        const col = parseInt(e.currentTarget.dataset.col);
         const piece = gameState.board[row][col];
 
         if (!selectedSquare) {
@@ -1208,6 +1376,34 @@
         }
       }
 
+      function onSquareClick(e) {
+        const row = Number(e.currentTarget.dataset.row);
+        const col = Number(e.currentTarget.dataset.col);
+        setRovingFocus(row, col, false);
+        activateSquare(row, col);
+      }
+
+      function onSquareKeydown(e) {
+        const row = Number(e.currentTarget.dataset.row);
+        const col = Number(e.currentTarget.dataset.col);
+        const deltas = {
+          ArrowUp: [-1, 0],
+          ArrowDown: [1, 0],
+          ArrowLeft: [0, -1],
+          ArrowRight: [0, 1],
+        };
+        if (deltas[e.key]) {
+          e.preventDefault();
+          setRovingFocus(row + deltas[e.key][0], col + deltas[e.key][1], true);
+          return;
+        }
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setRovingFocus(row, col, false);
+          activateSquare(row, col);
+        }
+      }
+
       // ── Execute a move ─────────────────────────────────
       function executeMove(move, promoChoice) {
         var movingColor = gameState.turn;
@@ -1238,7 +1434,7 @@
       window._chessGetStatus = function() { return ChessEngine.getStatus(gameState); };
 
       // ── Promotion modal ────────────────────────────────
-      function showPromotionModal(clr) {
+      function renderPromotionOptions(clr) {
         const pieces = ['Q','R','B','N'];
         promoOptions.innerHTML = '';
         for (const p of pieces) {
@@ -1246,16 +1442,23 @@
           const btn = document.createElement('button');
           btn.className = 'promo-piece';
           btn.textContent = SYMBOLS[key];
-          btn.title = { Q:'Queen', R:'Rook', B:'Bishop', N:'Knight' }[p];
+          btn.title = t(PIECE_NAME_KEYS[p]);
+          btn.setAttribute('aria-label', t(PIECE_NAME_KEYS[p]));
           btn.addEventListener('click', () => {
             promoModal.classList.remove('visible');
             const m = pendingPromoMove;
             pendingPromoMove = null;
             executeMove(m, p);
+            getSq(focusSquare.row, focusSquare.col)?.focus();
           });
           promoOptions.appendChild(btn);
         }
+      }
+
+      function showPromotionModal(clr) {
+        renderPromotionOptions(clr);
         promoModal.classList.add('visible');
+        promoOptions.querySelector('button')?.focus();
         // Clear selection visuals
         selectedSquare = null;
         legalMovesCache = [];
@@ -1341,6 +1544,13 @@
         selectedSquare = null;
         legalMovesCache = [];
         render();
+      });
+
+      i18n.onChange(() => {
+        render(true);
+        if (pendingPromoMove && promoModal.classList.contains('visible')) {
+          renderPromotionOptions(gameState.turn);
+        }
       });
 
       // ── Init ───────────────────────────────────────────

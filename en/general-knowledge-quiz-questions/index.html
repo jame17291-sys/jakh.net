@@ -2,7 +2,15 @@
 <html lang="en" dir="ltr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
+    <script>
+      document.documentElement.dataset.theme = "light";
+      try {
+        var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
+        savedSettings.lang = "en";
+        localStorage.setItem("jakh-riddles-settings", JSON.stringify(savedSettings));
+      } catch (_) {}
+    </script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Try 16 evergreen general knowledge questions across geography, history, science, animals, arts, food, music, and currencies." />
@@ -234,7 +242,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073003" />
+    <link rel="stylesheet" href="/styles.css?v=2026073005" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -246,16 +254,16 @@
   <body class="seo-page">
     <a href="#content" class="skip-link">Skip to main content</a>
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/?lang=en" class="brand" aria-label="JAKH Riddles home">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Collections</a>
-        <a class="ghost-btn" href="https://jakh.net/ar/asila-amma-wa-ajwiba/" lang="ar">العربية</a>
+        <a class="ghost-btn" href="/?lang=en">Home</a>
+        <a class="ghost-btn" href="/collections?lang=en">Collections</a>
+        <a class="ghost-btn" href="https://jakh.net/ar/asila-amma-wa-ajwiba/" lang="ar" dir="rtl">العربية</a>
       </nav>
     </header>
     <main id="content">
@@ -277,7 +285,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Asia</p>
-              <a href="/geography?card=geography-001">Open the interactive card →</a>
+              <a href="/geography?card=geography-001&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -287,7 +295,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Kazakhstan</p>
-              <a href="/geography?card=geography-011">Open the interactive card →</a>
+              <a href="/geography?card=geography-011&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -297,7 +305,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Berlin</p>
-              <a href="/history?card=history-004">Open the interactive card →</a>
+              <a href="/history?card=history-004&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -307,7 +315,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>USA and USSR</p>
-              <a href="/history?card=history-013">Open the interactive card →</a>
+              <a href="/history?card=history-013&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -317,7 +325,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Bats.</p>
-              <a href="/animal-kingdom?card=ani-2">Open the interactive card →</a>
+              <a href="/animal-kingdom?card=ani-2&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -327,7 +335,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Marsupials</p>
-              <a href="/animal-kingdom?card=ani-12">Open the interactive card →</a>
+              <a href="/animal-kingdom?card=ani-12&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -337,7 +345,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>No</p>
-              <a href="/science?card=science-006">Open the interactive card →</a>
+              <a href="/science?card=science-006&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -347,7 +355,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Metal conducts heat away from your hand much faster than wood, even though both begin at the same temperature.</p>
-              <a href="/science?card=science-012">Open the interactive card →</a>
+              <a href="/science?card=science-012&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -357,7 +365,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Leonardo da Vinci</p>
-              <a href="/art-and-painters?card=art-and-painters-001">Open the interactive card →</a>
+              <a href="/art-and-painters?card=art-and-painters-001&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -367,7 +375,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Pointillism</p>
-              <a href="/art-and-painters?card=art-and-painters-013">Open the interactive card →</a>
+              <a href="/art-and-painters?card=art-and-painters-013&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -377,7 +385,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Firm to the bite</p>
-              <a href="/food-and-cuisines?card=foo-13">Open the interactive card →</a>
+              <a href="/food-and-cuisines?card=foo-13&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -387,7 +395,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Bergamot</p>
-              <a href="/food-and-cuisines?card=foo-20">Open the interactive card →</a>
+              <a href="/food-and-cuisines?card=foo-20&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -397,7 +405,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Violin</p>
-              <a href="/music-and-performing-arts?card=mus-3">Open the interactive card →</a>
+              <a href="/music-and-performing-arts?card=mus-3&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -407,7 +415,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Improvisation</p>
-              <a href="/music-and-performing-arts?card=mus-13">Open the interactive card →</a>
+              <a href="/music-and-performing-arts?card=mus-13&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -417,7 +425,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Saudi Riyal</p>
-              <a href="/currencies?card=currencies-8">Open the interactive card →</a>
+              <a href="/currencies?card=currencies-8&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -427,7 +435,7 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>The exchange rate</p>
-              <a href="/currencies?card=currencies-16">Open the interactive card →</a>
+              <a href="/currencies?card=currencies-16&amp;lang=en">Open the interactive card →</a>
             </div>
           </details>
         </article>
@@ -436,8 +444,8 @@
         <h2>Keep playing</h2>
         <p>Explore the full library, switch languages, and track your score in the Mind Lab.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab">Open the Mind Lab</a>
-          <a class="ghost-btn" href="/collections">All collections</a>
+          <a class="primary-btn" href="/mind-lab?lang=en">Open the Mind Lab</a>
+          <a class="ghost-btn" href="/collections?lang=en">All collections</a>
         </div>
       </section>
     </main>
@@ -445,8 +453,8 @@
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections" data-i18n="footerCollections">Collections</a>
-          <a href="/about" data-i18n="footerAbout">About &amp; content standards</a>
+          <a href="/collections?lang=en" data-i18n="footerCollections">Collections</a>
+          <a href="/about?lang=en" data-i18n="footerAbout">About &amp; content standards</a>
         </nav>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>

@@ -106,7 +106,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073003" />
+    <link rel="stylesheet" href="/styles.css?v=2026073005" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -115,81 +115,89 @@
       gtag('config', 'G-VQZQNK6VSV');
     </script>
   </head>
-  <body class="seo-page">
-    <a href="#content" class="skip-link">Skip to main content</a>
+  <body class="seo-page" data-i18n-page="collections">
+    <a href="#content" class="skip-link" data-i18n="skipMain">Skip to main content</a>
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
         </picture>
       </a>
-      <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/mind-lab">Mind Lab</a>
-        <a class="ghost-btn" href="/play">Games</a>
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
+        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="/mind-lab" data-i18n="navMindLab">Mind Lab</a>
+        <a class="ghost-btn" href="/play" data-i18n="navGames">Games</a>
       </nav>
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
     </header>
     <main id="content">
       <section class="seo-collection-hero shell">
-        <p class="eyebrow">Focused ways to play</p>
-        <h1>Riddles and quiz collections</h1>
-        <p>Start with a search-friendly collection, reveal each answer at your own pace, then continue into the full 3,553-question Mind Lab.</p>
-        <p lang="ar" dir="rtl">ابدأ بمجموعة مختارة، واكشف كل إجابة بالسرعة التي تناسبك، ثم واصل اللعب في مختبر العقل الذي يضم 3,553 سؤالاً.</p>
+        <p class="eyebrow" data-i18n="collectionsEyebrow">Focused ways to play</p>
+        <h1 data-i18n="collectionsTitle">Riddles and quiz collections</h1>
+        <p data-i18n="collectionsIntro">Start with a focused collection, reveal each answer at your own pace, then continue into the full 3,553-question Mind Lab.</p>
       </section>
       <section class="seo-hub-grid shell">
         <article class="seo-hub-card">
-          <p class="eyebrow">16 questions · Classic Riddles</p>
-          <h2>16 Riddles With Answers in English &amp; Arabic</h2>
-          <p>Start with approachable clues, then work up to trickier classics. Reveal each answer only after you have made your best guess.</p>
+          <p class="eyebrow" data-i18n="collectionClassicMeta">16 questions · Classic Riddles</p>
+          <h2 data-i18n="collectionClassicTitle">16 Riddles With Answers in English &amp; Arabic</h2>
+          <p data-i18n="collectionClassicText">Start with approachable clues, then work up to trickier classics. Reveal each answer only after you have made your best guess.</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/riddles-with-answers/">English</a>
-            <a class="ghost-btn" href="/ar/alghaz-ma-alhal/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/riddles-with-answers/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/alghaz-ma-alhal/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
         </article>
         <article class="seo-hub-card">
-          <p class="eyebrow">16 questions · Kids Riddles</p>
-          <h2>16 Kids’ Riddles With Answers | English &amp; Arabic</h2>
-          <p>These friendly riddles use familiar objects, simple numbers, and clear clues. Guess first, then reveal the answer together.</p>
+          <p class="eyebrow" data-i18n="collectionKidsMeta">16 questions · Kids Riddles</p>
+          <h2 data-i18n="collectionKidsTitle">16 Kids’ Riddles With Answers | English &amp; Arabic</h2>
+          <p data-i18n="collectionKidsText">These friendly riddles use familiar objects, simple numbers, and clear clues. Guess first, then reveal the answer together.</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/kids-riddles-with-answers/">English</a>
-            <a class="ghost-btn" href="/ar/alghaz-lil-atfal-ma-alhal/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/kids-riddles-with-answers/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/alghaz-lil-atfal-ma-alhal/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
         </article>
         <article class="seo-hub-card">
-          <p class="eyebrow">16 questions · Logic Puzzles</p>
-          <h2>16 Logic Puzzles With Answers and Explanations</h2>
-          <p>Work through 16 logic puzzles that reward careful reading, deduction, and a little arithmetic. Each answer includes the key reasoning.</p>
+          <p class="eyebrow" data-i18n="collectionLogicMeta">16 questions · Logic Puzzles</p>
+          <h2 data-i18n="collectionLogicTitle">16 Logic Puzzles With Answers and Explanations</h2>
+          <p data-i18n="collectionLogicText">Work through 16 logic puzzles that reward careful reading, deduction, and a little arithmetic. Each answer includes the key reasoning.</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/logic-puzzles-with-answers/">English</a>
-            <a class="ghost-btn" href="/ar/alghaz-mantiqiyya-ma-alhal/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/logic-puzzles-with-answers/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/alghaz-mantiqiyya-ma-alhal/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
         </article>
         <article class="seo-hub-card">
-          <p class="eyebrow">16 questions · Geography, History, Animal Kingdom, Science, Art &amp; Painters, Food &amp; Cuisines, Music &amp; Performing Arts, World Currencies</p>
-          <h2>16 General Knowledge Quiz Questions &amp; Answers</h2>
-          <p>Test what you know across geography, history, science, animals, arts, food, music, and money with one balanced 16-question quiz.</p>
+          <p class="eyebrow" data-i18n="collectionGeneralMeta">16 questions · Geography, History, Animal Kingdom, Science, Art &amp; Painters, Food &amp; Cuisines, Music &amp; Performing Arts, World Currencies</p>
+          <h2 data-i18n="collectionGeneralTitle">16 General Knowledge Quiz Questions &amp; Answers</h2>
+          <p data-i18n="collectionGeneralText">Test what you know across geography, history, science, animals, arts, food, music, and money with one balanced 16-question quiz.</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/general-knowledge-quiz-questions/">English</a>
-            <a class="ghost-btn" href="/ar/asila-amma-wa-ajwiba/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/general-knowledge-quiz-questions/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/asila-amma-wa-ajwiba/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
         </article>
         <article class="seo-hub-card">
-          <p class="eyebrow">16 questions · Spacetoon Classics</p>
-          <h2>Spacetoon Classics Quiz: 16 Nostalgia Questions</h2>
-          <p>How much do you remember from classic Arabic-dubbed cartoons? Test your memory across Treasure Island, Sally, Maruko, Remi, and Tom and Jerry.</p>
+          <p class="eyebrow" data-i18n="collectionSpacetoonMeta">16 questions · Spacetoon Classics</p>
+          <h2 data-i18n="collectionSpacetoonTitle">Spacetoon Classics Quiz: 16 Nostalgia Questions</h2>
+          <p data-i18n="collectionSpacetoonText">How much do you remember from classic Arabic-dubbed cartoons? Test your memory across Treasure Island, Sally, Maruko, Remi, and Tom and Jerry.</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/spacetoon-quiz/">English</a>
-            <a class="ghost-btn" href="/ar/ikhtibar-spacetoon/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/spacetoon-quiz/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/ikhtibar-spacetoon/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
         </article>
         <article class="seo-hub-card">
-          <p class="eyebrow">16 questions · Football</p>
-          <h2>Football Rules &amp; Tactics Quiz: 16 Questions</h2>
-          <p>Check your understanding of football laws, restarts, match terms, transfers, and tactics in one practical 16-question challenge.</p>
+          <p class="eyebrow" data-i18n="collectionFootballMeta">16 questions · Football</p>
+          <h2 data-i18n="collectionFootballTitle">Football Rules &amp; Tactics Quiz: 16 Questions</h2>
+          <p data-i18n="collectionFootballText">Check your understanding of football laws, restarts, match terms, transfers, and tactics in one practical 16-question challenge.</p>
           <div class="seo-language-links">
-            <a class="primary-btn" href="/en/football-rules-quiz/">English</a>
-            <a class="ghost-btn" href="/ar/ikhtibar-qawanin-korat-alqadam/" lang="ar" dir="rtl">العربية</a>
+            <a class="primary-btn" href="/en/football-rules-quiz/" lang="en" dir="ltr" data-i18n="englishLabel">English</a>
+            <a class="ghost-btn" href="/ar/ikhtibar-qawanin-korat-alqadam/" lang="ar" dir="rtl" data-i18n="arabicLabel">العربية</a>
           </div>
         </article>
       </section>
@@ -202,10 +210,11 @@
           <a href="/about" data-i18n="footerAbout">About &amp; content standards</a>
         </nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram"><span>Instagram</span></a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook"><span>Facebook</span></a>
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel"><span>Instagram</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel"><span>Facebook</span></a>
         </div>
       </div>
     </footer>
+    <script defer src="/site-i18n.js?v=2026073005"></script>
   </body>
 </html>

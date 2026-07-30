@@ -55,7 +55,7 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/leaderboard" && method === "GET") return leaderboard(env);
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
-  return json({ error: "Not found" }, 404);
+  return json({ error: "Not found", code: "NOT_FOUND" }, 404);
 }
 
 export default {
@@ -67,7 +67,7 @@ export default {
     }
     if (!originIsAllowed(request, env.ALLOWED_ORIGINS)) {
       return withCors(
-        json({ error: "Origin is not allowed" }, 403),
+        json({ error: "Origin is not allowed", code: "ORIGIN_NOT_ALLOWED" }, 403),
         request,
         env.ALLOWED_ORIGINS,
       );
@@ -78,10 +78,18 @@ export default {
       return withCors(response, request, env.ALLOWED_ORIGINS);
     } catch (error) {
       if (error instanceof ApiError) {
-        return withCors(json({ error: error.message }, error.status, error.headers), request, env.ALLOWED_ORIGINS);
+        return withCors(
+          json({ error: error.message, code: error.code }, error.status, error.headers),
+          request,
+          env.ALLOWED_ORIGINS,
+        );
       }
       console.error("Unhandled API error", error);
-      return withCors(json({ error: "Internal server error" }, 500), request, env.ALLOWED_ORIGINS);
+      return withCors(
+        json({ error: "Internal server error", code: "INTERNAL_SERVER_ERROR" }, 500),
+        request,
+        env.ALLOWED_ORIGINS,
+      );
     }
   },
 } satisfies ExportedHandler<Env>;

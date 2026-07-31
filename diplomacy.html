@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite. Play instantly with no download or sign-up." />
   <title>Diplomacy Lite Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073103" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/diplomacy"/>
   <meta name="robots" content="index,follow"/>
@@ -24,9 +24,9 @@
   <meta name="twitter:description" content="Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073005"/>
+  <link rel="stylesheet" href="styles.css?v=2026073103"/>
   <link rel="manifest" href="manifest.webmanifest"/>
-  <script src="/game-i18n.js?v=2026073005"></script>
+  <script src="/game-i18n.js?v=2026073103"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
   <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
@@ -37,7 +37,7 @@
       --gilt: #976006;
       --easy: #1d7051;
       --danger: #b73545;
-      --p2-color: #4A90D9;
+      --p2-color: #7757bd;
     }
 
     #diplomacySection {
@@ -53,7 +53,7 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 0.75rem 1.25rem;
-      background: var(--panel-strong);
+      background: var(--panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
       flex-wrap: wrap;
@@ -114,18 +114,19 @@
 
     .score-target {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
       color: var(--muted);
     }
 
     #dip-win-banner {
       display: none;
       padding: 1rem 1.5rem;
-      background: linear-gradient(135deg, var(--gilt), #a07e1a);
+      background: linear-gradient(135deg, #f7d98a, #f1bf56);
+      border: 1px solid rgba(151, 96, 6, 0.24);
       border-radius: var(--radius);
       font-family: var(--font-display);
       font-size: 1.4rem;
-      color: #111;
+      color: var(--ink);
       text-align: center;
       font-weight: 700;
     }
@@ -154,11 +155,11 @@
     }
 
     .dip-territory.neutral { background: var(--panel); }
-    .dip-territory.owner-p1 { border-color: var(--accent); background: rgba(232,97,60,0.15); }
-    .dip-territory.owner-p2 { border-color: var(--p2-color); background: rgba(74,144,217,0.15); }
+    .dip-territory.owner-p1 { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, var(--panel)); }
+    .dip-territory.owner-p2 { border-color: var(--p2-color); background: color-mix(in srgb, var(--p2-color) 11%, var(--panel)); }
 
     .dip-territory.selected-unit {
-      box-shadow: 0 0 0 2px var(--gilt), 0 0 14px rgba(201,162,39,0.45);
+      box-shadow: 0 0 0 2px var(--gilt), 0 7px 18px rgba(32, 50, 71, 0.12);
       border-color: var(--gilt) !important;
     }
 
@@ -175,7 +176,7 @@
     .terr-name {
       font-family: var(--font);
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
       color: var(--text);
       line-height: 1.2;
       text-transform: uppercase;
@@ -190,14 +191,14 @@
     }
 
     .unit-dot {
-      width: 14px;
-      height: 14px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       border: 2px solid rgba(255,255,255,0.4);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 8px;
+      font-size: 0.8125rem;
       font-weight: 700;
     }
 
@@ -209,10 +210,11 @@
       position: absolute;
       top: 4px;
       right: 6px;
-      font-size: 0.68rem;
+      font-size: 0.8125rem;
       font-family: 'JetBrains Mono', monospace;
-      color: var(--gilt);
-      background: rgba(0,0,0,0.5);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
       border-radius: 4px;
       padding: 1px 4px;
       max-width: 80px;
@@ -225,7 +227,7 @@
       position: absolute;
       bottom: 4px;
       right: 6px;
-      font-size: 0.7rem;
+      font-size: 0.8125rem;
       opacity: 0.6;
     }
 
@@ -266,10 +268,10 @@
       gap: 0.5rem;
       padding: 0.3rem 0.65rem;
       border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.05);
+      background: var(--bg-soft);
       border: 1px solid var(--line-strong);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
       color: var(--text);
       direction: ltr;
     }
@@ -297,6 +299,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       padding: 0.55rem 1.1rem;
+      min-height: 44px;
       border-radius: var(--radius-sm);
       border: none;
       cursor: pointer;
@@ -307,9 +310,9 @@
     .dip-btn:disabled { opacity: 0.38; cursor: not-allowed; }
 
     .btn-primary { background: var(--accent); color: #fff; }
-    .btn-secondary { background: rgba(255,255,255,0.1); color: var(--text); border: 1px solid var(--line-strong); }
-    .btn-gold { background: var(--gilt); color: #111; }
-    .btn-easy { background: var(--easy); color: #111; }
+    .btn-secondary { background: var(--bg-soft); color: var(--text); border: 1px solid var(--line-strong); }
+    .btn-gold { background: #f1bf56; color: var(--ink); }
+    .btn-easy { background: var(--easy); color: #fff; }
     .btn-danger { background: rgba(255,122,138,0.2); color: var(--danger); border: 1px solid var(--danger); }
 
     /* Resolution animation */
@@ -325,7 +328,7 @@
 
     /* Log */
     #dip-log {
-      background: var(--panel-strong);
+      background: var(--bg-soft);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
       padding: 0.75rem 1rem;
@@ -338,7 +341,7 @@
 
     .log-entry {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
       color: var(--muted);
       line-height: 1.4;
     }
@@ -351,7 +354,7 @@
     @media (max-width: 680px) {
       #dip-map { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
       .dip-territory { padding: 0.55rem; min-height: 68px; }
-      .terr-name { font-size: 0.7rem; }
+      .terr-name { font-size: 0.8125rem; }
     }
 
     @media (max-width: 440px) {
@@ -389,7 +392,7 @@
     <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture>
         <source srcset="assets/logo.webp" type="image/webp"/>
-        <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
+        <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
       </picture>
     </a>
     <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
@@ -408,7 +411,7 @@
   </header>
 
   <main id="top">
-    <section class="hero shell" style="padding-bottom:1rem;">
+    <section class="hero shell">
       <div class="hero-copy">
         <p class="eyebrow" data-i18n="heroEyebrow">Strategy · Area Control</p>
         <h1 data-i18n="heroTitle">&#9876;&#65039; Diplomacy Lite</h1>
@@ -1191,7 +1194,7 @@
       listEl.innerHTML = '';
       if (s.orders.p1.length === 0) {
         const empty = document.createElement('div');
-        empty.style.cssText = 'font-size:0.8rem;color:var(--muted);font-family: var(--font);';
+        empty.style.cssText = 'font-size:0.8125rem;color:var(--muted);font-family:var(--font);';
         empty.dir = 'auto';
         empty.textContent = t('orderNone');
         listEl.appendChild(empty);

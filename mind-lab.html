@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Explore 3,500+ bilingual riddles and quizzes mapped directly to 56 topics in 5 clear sections. Pick a topic, flip cards, and track your score." />
@@ -25,7 +24,7 @@
     <meta name="twitter:description" content="3,500+ bilingual riddles mapped directly into 56 topics in English and Arabic." />
     <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg" />
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-    <link rel="stylesheet" href="styles.css?v=2026073005" />
+    <link rel="stylesheet" href="styles.css?v=2026073103" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -43,14 +42,14 @@
       }
     </script>
   </head>
-  <body data-page="home">
+  <body class="page-mind-lab" data-page="home">
     <a href="#top" class="skip-link">Skip to main content</a>
 
     <header class="site-header shell">
       <a href="/" class="brand" aria-label="JAKH Riddles home">
         <picture>
           <source srcset="assets/logo.webp" type="image/webp" />
-          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" style="width:68px;height:36px;object-fit:contain;" loading="eager" fetchpriority="high" />
+          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions">
@@ -72,13 +71,13 @@
     <main id="top">
 
       <!-- Page hero -->
-      <section class="kv-hero" id="kv-hero" style="min-height:36vh;">
+      <section class="kv-hero kv-hero-compact" id="kv-hero">
         <div class="kv-hero-fallback-bg mind-lab-hero-bg" aria-hidden="true"></div>
-        <div class="kv-hero-content" style="padding-top:3rem;padding-bottom:2.5rem;">
-          <p class="kv-eyebrow" data-i18n="mindHeroEyebrow">3,500+ Bilingual Riddles — English &amp; Arabic</p>
-          <h1 class="kv-hero-title" data-i18n="mindHeroTitle" style="font-size:clamp(3rem,10vw,7rem);">The Mind Lab</h1>
-          <p class="kv-hero-subtitle" data-i18n="mindHeroSubtitle">Pick a topic. Flip cards. See how much you know.</p>
-          <div class="kv-hero-stats" style="margin-top:1.25rem;">
+        <div class="kv-hero-content">
+          <p class="kv-eyebrow" data-i18n="mindHeroEyebrow">3,553 questions · 56 clear topics</p>
+          <h1 class="kv-hero-title" data-i18n="mindHeroTitle">The Mind Lab</h1>
+          <p class="kv-hero-subtitle" data-i18n="mindHeroSubtitle">Follow your curiosity. Every topic opens into a quick, satisfying challenge.</p>
+          <div class="kv-hero-stats">
             <div class="kv-stat">
               <span class="kv-stat-number" id="badgeCategories">56</span>
               <span class="kv-stat-label" data-i18n="statCategories">Topics</span>
@@ -95,15 +94,15 @@
       <!-- Category directory — all IDs preserved for app.js -->
       <section class="kv-lab-section shell" id="kv-lab">
         <div class="kv-lab-header">
-          <h2 data-i18n="categoryTitle">What would you like to explore?</h2>
-          <p data-i18n="categoryText">Choose one of 5 clear sections, then open a topic directly—no extra layer.</p>
+          <h2 data-i18n="categoryTitle">What are you curious about today?</h2>
+          <p data-i18n="categoryText">Choose a clear section, search by interest, or let JAKH surprise you.</p>
         </div>
 
         <!-- Five sections that filter direct topic links -->
         <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections"></div>
 
         <!-- Search + toolbar -->
-        <section class="control-panel" aria-label="Category filters" style="background:transparent;border:none;box-shadow:none;padding:0.5rem 0 0;">
+        <section class="control-panel directory-search-panel" aria-label="Category filters">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
             <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
@@ -112,7 +111,7 @@
 
         <div class="library-toolbar">
           <p id="directoryResultsLabel"></p>
-          <div style="display:flex;gap:0.5rem;align-items:center;">
+          <div class="directory-toolbar-actions">
             <button class="random-btn" id="randomCategoryBtn" data-i18n="randomCategory">Surprise me</button>
             <button class="text-btn" id="resetDirectoryBtn" data-i18n="resetDirectoryFilters">Reset filters</button>
           </div>
@@ -125,10 +124,11 @@
             <div><h3>Mind &amp; Puzzles</h3><p>Riddles, logic, psychology, philosophy, relationships, and mysteries.</p></div>
             <p class="directory-section-count">8 topics · 480 questions</p>
           </section>
-          <a class="category-card has-art is-art-ready" href="/classic-riddles" aria-label="Classic Riddles">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/classic-riddles" aria-label="Classic Riddles">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">❓ Classic Riddles</h3>
             <p class="category-card-topics">Logic &amp; Deduction · Numbers &amp; Codes · Wordplay &amp; Language</p>
           </div>
@@ -137,10 +137,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/logic-puzzles" aria-label="Logic Puzzles">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/logic-puzzles" aria-label="Logic Puzzles">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">60 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">🧠 Logic Puzzles</h3>
             <p class="category-card-topics">Numbers &amp; Patterns · Logic &amp; Deduction · Lateral Thinking</p>
           </div>
@@ -149,10 +150,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/kids-riddles" aria-label="Kids Riddles">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/kids-riddles" aria-label="Kids Riddles">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">🧩 Kids Riddles</h3>
             <p class="category-card-topics">Objects, Clothing &amp; Technology · Art, Paper &amp; School Tools · Logic, Codes &amp; Patterns</p>
           </div>
@@ -161,10 +163,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/story-mysteries" aria-label="Story Mysteries">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/story-mysteries" aria-label="Story Mysteries">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">🕯️ Story Mysteries</h3>
             <p class="category-card-topics">Arts, Language &amp; Performance · Everyday &amp; Family · Crime &amp; Investigation</p>
           </div>
@@ -173,10 +176,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/true-crime" aria-label="True Crime &amp; Mysteries">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/true-crime" aria-label="True Crime &amp; Mysteries">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">🕵️‍♂️ True Crime &amp; Mysteries</h3>
             <p class="category-card-topics">Forensic Science · Organized Crime &amp; Outlaws · Serial Killers &amp; Unsolved Cases</p>
           </div>
@@ -185,10 +189,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/psychology" aria-label="Psychology">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/psychology" aria-label="Psychology">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">🫶 Psychology</h3>
             <p class="category-card-topics">Cognition, Memory &amp; Perception · Foundations, Learning &amp; Motivation · Social Psychology</p>
           </div>
@@ -197,10 +202,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/philosophy" aria-label="Philosophy">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/philosophy" aria-label="Philosophy">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">🧠 Philosophy</h3>
             <p class="category-card-topics">Ethics · Metaphysics &amp; Mind · Philosophical Traditions</p>
           </div>
@@ -209,10 +215,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/relationship-questions" aria-label="Relationships">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/relationship-questions" aria-label="Relationships">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Mind &amp; Puzzles</span>
             <h3 class="category-title">💞 Relationships</h3>
             <p class="category-card-topics">Psychology · Love &amp; Attachment · Communication</p>
           </div>
@@ -226,10 +233,11 @@
             <div><h3>Science, Nature &amp; Health</h3><p>Math, physical and life sciences, nature, space, medicine, and pharmacy.</p></div>
             <p class="directory-section-count">12 topics · 920 questions</p>
           </section>
-          <a class="category-card has-art is-art-ready" href="/math" aria-label="Math">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/math" aria-label="Math">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">150 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">∑ Math</h3>
             <p class="category-card-topics">Number Theory &amp; Number Riddles · Geometry &amp; Trigonometry · Algebra &amp; Functions</p>
           </div>
@@ -238,10 +246,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/science" aria-label="Science">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/science" aria-label="Science">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🔬 Science</h3>
             <p class="category-card-topics">Chemistry &amp; Materials · Biology &amp; Life Sciences · Quantum, Relativity &amp; Cosmology</p>
           </div>
@@ -250,10 +259,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/physical-and-life-sciences" aria-label="Physical &amp; Life Sciences">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/physical-and-life-sciences" aria-label="Physical &amp; Life Sciences">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🔬 Physical &amp; Life Sciences</h3>
             <p class="category-card-topics">Cell, Genetics &amp; Microbiology · General Chemistry · Mechanics, Energy &amp; Relativity</p>
           </div>
@@ -262,10 +272,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/biology" aria-label="Biology">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/biology" aria-label="Biology">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🧬 Biology</h3>
             <p class="category-card-topics">Cells &amp; Metabolism · Genetics &amp; Molecular Biology · Human Anatomy &amp; Physiology</p>
           </div>
@@ -274,10 +285,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/chemistry" aria-label="Chemistry">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/chemistry" aria-label="Chemistry">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">⚗️ Chemistry</h3>
             <p class="category-card-topics">Atoms, Elements &amp; Periodicity · Thermodynamics &amp; Physical Chemistry · Organic Chemistry</p>
           </div>
@@ -286,10 +298,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/geology" aria-label="Geology">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/geology" aria-label="Geology">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🪨 Geology</h3>
             <p class="category-card-topics">Plate Tectonics &amp; Earth Structure · Rocks, Petrology &amp; Rock Cycle · Minerals &amp; Geochemistry</p>
           </div>
@@ -298,10 +311,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/space-and-astrology" aria-label="Space &amp; Astronomy">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/space-and-astrology" aria-label="Space &amp; Astronomy">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🌌 Space &amp; Astronomy</h3>
             <p class="category-card-topics">Solar System &amp; Planets · Galaxies &amp; Cosmology · Stars &amp; Stellar Evolution</p>
           </div>
@@ -310,10 +324,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/environment-and-ecology" aria-label="Environment &amp; Ecology">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/environment-and-ecology" aria-label="Environment &amp; Ecology">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🌿 Environment &amp; Ecology</h3>
             <p class="category-card-topics">Ecosystems &amp; Biodiversity · Pollution &amp; Waste · Climate Change</p>
           </div>
@@ -322,10 +337,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/animal-kingdom" aria-label="Animal Kingdom">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/animal-kingdom" aria-label="Animal Kingdom">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🐾 Animal Kingdom</h3>
             <p class="category-card-topics">Birds &amp; Flight · Behavior, Ecology &amp; Adaptation · Insects &amp; Arthropods</p>
           </div>
@@ -334,10 +350,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/survival" aria-label="Survival &amp; Wilderness">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/survival" aria-label="Survival &amp; Wilderness">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🏕️ Survival &amp; Wilderness</h3>
             <p class="category-card-topics">Firecraft · First Aid &amp; Field Medicine · Navigation &amp; Signaling</p>
           </div>
@@ -346,10 +363,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/medical-questions" aria-label="Medical Science">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/medical-questions" aria-label="Medical Science">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">🩺 Medical Science</h3>
             <p class="category-card-topics">Anatomy &amp; Physiology · Disease, Genetics &amp; Pathology · Pharmacology &amp; Toxicology</p>
           </div>
@@ -358,10 +376,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/pharmacy" aria-label="Pharmacy">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/pharmacy" aria-label="Pharmacy">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Science, Nature &amp; Health</span>
             <h3 class="category-title">💊 Pharmacy</h3>
             <p class="category-card-topics">Drug Classes &amp; Therapeutics · Pharmacodynamics &amp; Receptors · Pharmacokinetics &amp; Biopharmaceutics</p>
           </div>
@@ -375,10 +394,11 @@
             <div><h3>Technology &amp; Engineering</h3><p>Software, design, machines, infrastructure, energy, architecture, and invention.</p></div>
             <p class="directory-section-count">11 topics · 420 questions</p>
           </section>
-          <a class="category-card has-art is-art-ready" href="/software-and-computing" aria-label="Software &amp; Computing">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/software-and-computing" aria-label="Software &amp; Computing">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">💻 Software &amp; Computing</h3>
             <p class="category-card-topics">Computer Science · Systems &amp; Networking · Software Engineering</p>
           </div>
@@ -387,10 +407,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/coding-and-design" aria-label="Coding &amp; Design">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/coding-and-design" aria-label="Coding &amp; Design">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">💻 Coding &amp; Design</h3>
             <p class="category-card-topics">Programming Fundamentals · Web Development · UI/UX &amp; Visual Design</p>
           </div>
@@ -399,10 +420,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/tech-retro" aria-label="Tech &amp; Retro Gaming">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/tech-retro" aria-label="Tech &amp; Retro Gaming">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🕹️ Tech &amp; Retro Gaming</h3>
             <p class="category-card-topics">Retro Gaming · Early Internet · Hardware &amp; Storage</p>
           </div>
@@ -411,10 +433,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/future-tech-and-energy" aria-label="Future Tech &amp; Energy">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/future-tech-and-energy" aria-label="Future Tech &amp; Energy">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🚀 Future Tech &amp; Energy</h3>
             <p class="category-card-topics">Computing &amp; Security · AI &amp; Machine Learning · Connected &amp; Immersive Tech</p>
           </div>
@@ -423,10 +446,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/automotive" aria-label="Automotive &amp; Racing">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/automotive" aria-label="Automotive &amp; Racing">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🏎️ Automotive &amp; Racing</h3>
             <p class="category-card-topics">Brands &amp; Models · Engines &amp; Drivetrains · Motorsport</p>
           </div>
@@ -435,10 +459,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/civil-engineering" aria-label="Civil Engineering">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/civil-engineering" aria-label="Civil Engineering">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🏗️ Civil Engineering</h3>
             <p class="category-card-topics">Structures &amp; Bridges · Materials &amp; Concrete · Water &amp; Hydraulics</p>
           </div>
@@ -447,10 +472,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/electrical-engineering" aria-label="Electrical Engineering">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/electrical-engineering" aria-label="Electrical Engineering">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🔌 Electrical Engineering</h3>
             <p class="category-card-topics">Components &amp; Electronics · Electrical Fundamentals · AC Power Systems</p>
           </div>
@@ -459,10 +485,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/mechanical-engineering" aria-label="Mechanical Engineering">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/mechanical-engineering" aria-label="Mechanical Engineering">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">⚙️ Mechanical Engineering</h3>
             <p class="category-card-topics">Machines, Gears &amp; Mechanisms · Thermodynamics, Heat &amp; Power · Materials &amp; Failure</p>
           </div>
@@ -471,10 +498,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/infrastructure-systems" aria-label="Infrastructure Systems">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/infrastructure-systems" aria-label="Infrastructure Systems">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🚦 Infrastructure Systems</h3>
             <p class="category-card-topics">Bridges &amp; Structural Engineering · Power &amp; Energy Systems · Water &amp; Wastewater Systems</p>
           </div>
@@ -483,10 +511,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/architecture-and-landmarks" aria-label="Architecture &amp; Landmarks">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/architecture-and-landmarks" aria-label="Architecture &amp; Landmarks">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">🏙️ Architecture &amp; Landmarks</h3>
             <p class="category-card-topics">Architects &amp; Designers · World Landmarks · Architectural Elements</p>
           </div>
@@ -495,10 +524,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/inventions-and-minds" aria-label="Inventions &amp; Ideas">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/inventions-and-minds" aria-label="Inventions &amp; Ideas">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Technology &amp; Engineering</span>
             <h3 class="category-title">💡 Inventions &amp; Ideas</h3>
             <p class="category-card-topics">Computing History · Science &amp; Medicine · Communications</p>
           </div>
@@ -512,10 +542,11 @@
             <div><h3>World, History &amp; Society</h3><p>Places, peoples, history, law, language, business, money, customs, and food.</p></div>
             <p class="directory-section-count">13 topics · 658 questions</p>
           </section>
-          <a class="category-card has-art is-art-ready" href="/geography" aria-label="Geography">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/geography" aria-label="Geography">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🧭 Geography</h3>
             <p class="category-card-topics">Countries, Capitals &amp; Borders · Oceans, Seas &amp; Straits · Rivers, Lakes &amp; Deltas</p>
           </div>
@@ -524,10 +555,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/flag-questions" aria-label="World Flags">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/flag-questions" aria-label="World Flags">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🚩 World Flags</h3>
             <p class="category-card-topics">Flag Design &amp; Vexillology · Americas · Asia &amp; Oceania</p>
           </div>
@@ -536,10 +568,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/currencies" aria-label="World Currencies">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/currencies" aria-label="World Currencies">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">💰 World Currencies</h3>
             <p class="category-card-topics">National Currencies · Foreign Exchange · Monetary History</p>
           </div>
@@ -548,10 +581,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/history" aria-label="History">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/history" aria-label="History">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">100 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🏺 History</h3>
             <p class="category-card-topics">Empires, States &amp; Historical Figures · Wars, Treaties &amp; Diplomacy · Ancient Civilizations &amp; Archaeology</p>
           </div>
@@ -560,10 +594,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/middle-east-history" aria-label="Middle East History">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/middle-east-history" aria-label="Middle East History">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🕌 Middle East History</h3>
             <p class="category-card-topics">Modern History · Islamic History · Ancient</p>
           </div>
@@ -572,10 +607,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/ancient-civilizations" aria-label="Ancient Civilizations">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/ancient-civilizations" aria-label="Ancient Civilizations">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🏛️ Ancient Civilizations</h3>
             <p class="category-card-topics">Ancient Egypt · Greece &amp; Rome · Mesopotamia</p>
           </div>
@@ -584,10 +620,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/law-middle-east" aria-label="Middle East Law">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/law-middle-east" aria-label="Middle East Law">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">48 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">⚖️ Middle East Law</h3>
             <p class="category-card-topics">International Law &amp; Human Rights · Islamic Jurisprudence &amp; Sources · Constitutional &amp; Legal Systems</p>
           </div>
@@ -596,10 +633,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/world-habits-and-etiquette" aria-label="World Habits &amp; Etiquette">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/world-habits-and-etiquette" aria-label="World Habits &amp; Etiquette">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🌍 World Habits &amp; Etiquette</h3>
             <p class="category-card-topics">Social Customs · Dining Etiquette · Religious &amp; Ceremonial</p>
           </div>
@@ -608,10 +646,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/linguistics" aria-label="Linguistics">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/linguistics" aria-label="Linguistics">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">✍️ Linguistics</h3>
             <p class="category-card-topics">Language Use &amp; Diversity · Grammar &amp; Structure · Writing Systems</p>
           </div>
@@ -620,10 +659,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/business-and-management" aria-label="Business Management">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/business-and-management" aria-label="Business Management">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">📊 Business Management</h3>
             <p class="category-card-topics">Finance &amp; Accounting · Management &amp; Organization · Strategy &amp; Competition</p>
           </div>
@@ -632,10 +672,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/economics-and-finance" aria-label="Economics &amp; Finance">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/economics-and-finance" aria-label="Economics &amp; Finance">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">📈 Economics &amp; Finance</h3>
             <p class="category-card-topics">Macroeconomics · Markets &amp; Trade · Economic Thought</p>
           </div>
@@ -644,10 +685,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/social-sciences" aria-label="Social Sciences">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/social-sciences" aria-label="Social Sciences">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">50 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">👥 Social Sciences</h3>
             <p class="category-card-topics">Sociology · Economics · Political Science</p>
           </div>
@@ -656,10 +698,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/food-and-cuisines" aria-label="Food &amp; Cuisines">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/food-and-cuisines" aria-label="Food &amp; Cuisines">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">World, History &amp; Society</span>
             <h3 class="category-title">🍽️ Food &amp; Cuisines</h3>
             <p class="category-card-topics">Ingredients · Cooking Techniques · Food Science</p>
           </div>
@@ -673,10 +716,11 @@
             <div><h3>Arts, Culture &amp; Entertainment</h3><p>Art, books, music, screens, fandoms, anime, classic cartoons, and football.</p></div>
             <p class="directory-section-count">12 topics · 1,075 questions</p>
           </section>
-          <a class="category-card has-art is-art-ready" href="/fictional-worlds" aria-label="Fictional Worlds">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/fictional-worlds" aria-label="Fictional Worlds">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">🧙‍♂️ Fictional Worlds</h3>
             <p class="category-card-topics">Fantasy &amp; Magic · Science Fiction &amp; Space · Anime &amp; Animation</p>
           </div>
@@ -685,10 +729,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/superheroes" aria-label="Superhero Universe">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/superheroes" aria-label="Superhero Universe">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">🦸‍♂️ Superhero Universe</h3>
             <p class="category-card-topics">Villains &amp; Rivalries · Origins &amp; Identities · Powers, Materials &amp; Artifacts</p>
           </div>
@@ -697,10 +742,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/pop-culture" aria-label="Pop Culture &amp; Web">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/pop-culture" aria-label="Pop Culture &amp; Web">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">📱 Pop Culture &amp; Web</h3>
             <p class="category-card-topics">Film &amp; TV · Internet Culture · Fan Culture</p>
           </div>
@@ -709,10 +755,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/mythology-legends" aria-label="Mythology &amp; Legends">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/mythology-legends" aria-label="Mythology &amp; Legends">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">🐉 Mythology &amp; Legends</h3>
             <p class="category-card-topics">Greek &amp; Roman · Heroes &amp; Creatures · Norse</p>
           </div>
@@ -721,10 +768,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/art-and-painters" aria-label="Art &amp; Painters">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/art-and-painters" aria-label="Art &amp; Painters">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">🎨 Art &amp; Painters</h3>
             <p class="category-card-topics">Artists &amp; Masterpieces · Movements &amp; Styles · Art History</p>
           </div>
@@ -733,10 +781,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/books-and-quotes" aria-label="Books &amp; Quotes">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/books-and-quotes" aria-label="Books &amp; Quotes">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">30 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">📚 Books &amp; Quotes</h3>
             <p class="category-card-topics">Authors &amp; Identities · Quotes &amp; Opening Lines · Works &amp; Characters</p>
           </div>
@@ -745,10 +794,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/tv-shows-trivia" aria-label="TV Shows">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/tv-shows-trivia" aria-label="TV Shows">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">250 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">📺 TV Shows</h3>
             <p class="category-card-topics">Al-Hasaseen · Bab Al-Hara · Breaking Bad</p>
           </div>
@@ -757,10 +807,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/music-and-performing-arts" aria-label="Music &amp; Performing Arts">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/music-and-performing-arts" aria-label="Music &amp; Performing Arts">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">🎻 Music &amp; Performing Arts</h3>
             <p class="category-card-topics">Music Theory &amp; Notation · Composers &amp; Works · Instruments &amp; Ensembles</p>
           </div>
@@ -769,10 +820,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/cinema-and-film-history" aria-label="Cinema &amp; Film">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/cinema-and-film-history" aria-label="Cinema &amp; Film">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">40 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">🎬 Cinema &amp; Film</h3>
             <p class="category-card-topics">Filmmakers &amp; Performers · Film History &amp; Milestones · Cinematography &amp; Camera</p>
           </div>
@@ -781,10 +833,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/anime" aria-label="Anime">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/anime" aria-label="Anime">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">150 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">⚔️ Anime</h3>
             <p class="category-card-topics">Attack on Titan · Death Note · Demon Slayer</p>
           </div>
@@ -793,10 +846,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/ayam-tayebeen" aria-label="Spacetoon Classics">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/ayam-tayebeen" aria-label="Spacetoon Classics">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">200 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">📺 Spacetoon Classics</h3>
             <p class="category-card-topics">Adnan and Lina · Captain Majid · Chibi Maruko-chan</p>
           </div>
@@ -805,10 +859,11 @@
             <span class="category-card-enter">Enter</span>
           </div>
         </a>
-          <a class="category-card has-art is-art-ready" href="/football" aria-label="Football">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+          <a class="category-card has-art" href="/football" aria-label="Football">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">175 Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">Arts, Culture &amp; Entertainment</span>
             <h3 class="category-title">⚽ Football</h3>
             <p class="category-card-topics">International Football &amp; World Cup · Football History &amp; Records · Club Competitions &amp; Leagues</p>
           </div>
@@ -829,7 +884,7 @@
           <a class="primary-btn" href="/collections" data-i18n="mindCalloutCta">Browse collections</a>
         </aside>
 
-        <section class="suggestion-box" id="suggestionBox" style="margin-top:3rem;">
+        <section class="suggestion-box suggestion-box-directory" id="suggestionBox">
           <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
           <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
           <div class="suggestion-form" id="suggestionForm">
@@ -877,6 +932,6 @@
       </div>
     </div>
 
-    <script defer src="app.js?v=2026073006"></script>
+    <script defer src="app.js?v=2026073103"></script>
   </body>
 </html>

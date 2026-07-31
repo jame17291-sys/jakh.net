@@ -57,64 +57,6 @@ const DIFFICULTY_POINTS = {
 
 const PAGE_SIZE = 20;
 
-const CATEGORY_GRADIENTS = {
-  'art-and-painters':           'linear-gradient(135deg, #FF6B6B 0%, #FFA500 100%)',
-  'biology':                    'linear-gradient(135deg, #00C9A7 0%, #005CE6 100%)',
-  'books-and-quotes':           'linear-gradient(135deg, #6B3A2A 0%, #D4A017 100%)',
-  'business-and-management':    'linear-gradient(135deg, #1E3A5F 0%, #4A90D9 100%)',
-  'chemistry':                  'linear-gradient(135deg, #7B2FBE 0%, #00C9A7 100%)',
-  'civil-engineering':          'linear-gradient(135deg, #607D8B 0%, #B0BEC5 100%)',
-  'classic-riddles':            'linear-gradient(135deg, #4A0E8F 0%, #C77DFF 100%)',
-  'coding-and-design':          'linear-gradient(135deg, #0D47A1 0%, #26C6DA 100%)',
-  'electrical-engineering':     'linear-gradient(135deg, #FF8F00 0%, #EF5350 100%)',
-  'flag-questions':             'linear-gradient(135deg, #C62828 0%, #1565C0 100%)',
-  'football':                   'linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%)',
-  'geography':                  'linear-gradient(135deg, #0277BD 0%, #26C6DA 100%)',
-  'geology':                    'linear-gradient(135deg, #5D4037 0%, #D7CCC8 100%)',
-  'history':                    'linear-gradient(135deg, #B71C1C 0%, #4A148C 100%)',
-  'infrastructure-systems':     'linear-gradient(135deg, #37474F 0%, #78909C 100%)',
-  'kids-riddles':               'linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%)',
-  'law-middle-east':            'linear-gradient(135deg, #1A237E 0%, #C0A060 100%)',
-  'math':                       'linear-gradient(135deg, #0D47A1 0%, #7B1FA2 100%)',
-  'mechanical-engineering':     'linear-gradient(135deg, #263238 0%, #78909C 100%)',
-  'medical-questions':          'linear-gradient(135deg, #AD1457 0%, #F48FB1 100%)',
-  'middle-east-history':        'linear-gradient(135deg, #4E342E 0%, #F9A825 100%)',
-  'philosophy':                 'linear-gradient(135deg, #4A148C 0%, #9C4DCC 100%)',
-  'physical-and-life-sciences': 'linear-gradient(135deg, #0D47A1 0%, #00BCD4 100%)',
-  'pharmacy':                   'linear-gradient(135deg, #1B5E20 0%, #66BB6A 100%)',
-  'psychology':                 'linear-gradient(135deg, #4527A0 0%, #9C4DCC 100%)',
-  'relationship-questions':     'linear-gradient(135deg, #880E4F 0%, #F06292 100%)',
-  'science':                    'linear-gradient(135deg, #01579B 0%, #26C6DA 100%)',
-  'social-sciences':            'linear-gradient(135deg, #006064 0%, #26C6DA 100%)',
-  'software-and-computing':     'linear-gradient(135deg, #1A1A2E 0%, #5C6BC0 100%)',
-  'space-and-astrology':        'linear-gradient(135deg, #0D0D2B 0%, #1A237E 100%)',
-  'story-mysteries':            'linear-gradient(135deg, #1A1A2E 0%, #4A4A8A 100%)',
-  'tv-shows-trivia':            'linear-gradient(135deg, #311B92 0%, #AD1457 100%)',
-  'world-habits-and-etiquette': 'linear-gradient(135deg, #BF360C 0%, #5C6BC0 100%)',
-  'environment-and-ecology':    'linear-gradient(135deg, #1B5E20 0%, #76FF03 100%)',
-  'ancient-civilizations':      'linear-gradient(135deg, #4E342E 0%, #FFD54F 100%)',
-  'inventions-and-minds':       'linear-gradient(135deg, #1A237E 0%, #FF6F00 100%)',
-  'animal-kingdom':             'linear-gradient(135deg, #33691E 0%, #FF8F00 100%)',
-  'economics-and-finance':      'linear-gradient(135deg, #004D40 0%, #FFD600 100%)',
-  'architecture-and-landmarks': 'linear-gradient(135deg, #37474F 0%, #FF8A65 100%)',
-  'music-and-performing-arts':  'linear-gradient(135deg, #4A148C 0%, #F50057 100%)',
-  'food-and-cuisines':          'linear-gradient(135deg, #E65100 0%, #FDD835 100%)',
-  'cinema-and-film-history':    'linear-gradient(135deg, #212121 0%, #B71C1C 100%)',
-  'future-tech-and-energy':     'linear-gradient(135deg, #006064 0%, #00E5FF 100%)',
-  'anime':                      'linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%)',
-  'ayam-tayebeen':              'linear-gradient(135deg, #6C3483 0%, #1A5276 100%)',
-  'mythology-legends':          'linear-gradient(135deg, #D4AF37 0%, #8A2BE2 100%)',
-  'true-crime':                 'linear-gradient(135deg, #8B0000 0%, #1A1A1A 100%)',
-  'pop-culture':                'linear-gradient(135deg, #FF69B4 0%, #00FFFF 100%)',
-  'superheroes':                'linear-gradient(135deg, #EF4444 0%, #3B82F6 100%)',
-  'fictional-worlds':           'linear-gradient(135deg, #10B981 0%, #065F46 100%)',
-  'survival':                   'linear-gradient(135deg, #228B22 0%, #8B4513 100%)',
-  'automotive':                 'linear-gradient(135deg, #9CA3AF 0%, #F97316 100%)',
-  'linguistics':                'linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%)',
-  'currencies':                 'linear-gradient(135deg, #059669 0%, #F59E0B 100%)',
-  'tech-retro':                 'linear-gradient(135deg, #84CC16 0%, #111827 100%)',
-};
-
 const CATEGORY_COLORS = {
   'art-and-painters':           '#FF6B6B',
   'biology':                    '#2DD4BF',
@@ -173,6 +115,11 @@ const CATEGORY_COLORS = {
   'tech-retro':                 '#84CC16',
 };
 
+function categoryGradient(slug) {
+  const color = CATEGORY_COLORS[slug] || '#256aa9';
+  return `linear-gradient(135deg, color-mix(in srgb, ${color} 22%, white), color-mix(in srgb, ${color} 42%, #eef5fb))`;
+}
+
 const UI = {
   en: {
     brandSubtitle: 'bilingual categories, teams, and saved progress',
@@ -180,23 +127,23 @@ const UI = {
     navCategories: 'Categories',
     authOpen: 'Sign in',
     language: 'Language',
-    homeEyebrow: '3,553 bilingual riddles — English & Arabic',
-    homeTitle: 'Pick a topic. Flip cards. See how much you know.',
+    homeEyebrow: 'A bilingual playground for curious minds',
+    homeTitle: 'Pick what sparks your curiosity. Learn, play, and surprise yourself.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Explore topics',
     heroGameHub: 'Game Hub',
     statCategories: 'Topics',
     statQuestions: 'Questions',
     statLanguages: 'Languages',
-    mindHeroEyebrow: '3,500+ bilingual riddles — English & Arabic',
+    mindHeroEyebrow: '3,553 questions · 56 clear topics',
     mindHeroTitle: 'The Mind Lab',
-    mindHeroSubtitle: 'Pick a topic. Flip cards. See how much you know.',
-    playHeroTitle: 'Game Arena',
-    playHeroSubtitle: 'No download. No sign-up. Just play — straight from your browser on any device.',
+    mindHeroSubtitle: 'Follow your curiosity. Every topic opens into a quick, satisfying challenge.',
+    playHeroTitle: 'The Game Room',
+    playHeroSubtitle: 'Ten thoughtful games, ready when you are. No download and no sign-up.',
     playHeroGames: 'Games',
-    playAvailable: '10 games available now',
-    playPick: 'Pick a game',
-    playBrowserOnly: 'All games run entirely in your browser — nothing installed.',
+    playAvailable: 'Ready to play',
+    playPick: 'Pick a game and start playing',
+    playBrowserOnly: 'Every game runs in your browser, with nothing to install.',
     playChessAria: 'Play Chess',
     playChessTitle: 'Chess',
     playChessDesc: 'Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend.',
@@ -255,19 +202,20 @@ const UI = {
     gameTagAreaControl: 'Area Control',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
-    portalMindDesc: '3,553 bilingual questions mapped directly into 56 topics across 5 clear sections. Pick a topic, flip cards, and track your score.',
+    portalMindDesc: 'Explore 3,553 English and Arabic questions, organized into 56 clear topics. Flip each card, reveal the answer, and keep score as you go.',
     portalMindStat: '56 topics',
+    portalBilingualStat: 'English & Arabic',
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
     portalGamesTitle: 'The Game Hub',
-    portalGamesDesc: 'Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.',
+    portalGamesDesc: 'Play 10 complete browser games, from Chess and Go to Codenames and Catan. Nothing to install, and no sign-up needed.',
     portalGamesStat1: '10 games live',
     portalGamesStat2: 'All in browser',
     portalGamesCta: 'Play Now →',
-    homeCollectionsEyebrow: 'Popular ways to start',
-    homeCollectionsTitle: 'Focused riddles and quiz collections',
-    homeCollectionsText: 'Open a compact collection with every question visible and every answer one tap away, then continue into the full Mind Lab.',
-    homeCollectionsCta: 'Browse all collections',
+    homeCollectionsEyebrow: 'Quick ways to begin',
+    homeCollectionsTitle: 'Start with a collection that fits your mood',
+    homeCollectionsText: 'Try a short set of riddles, family-friendly clues, logic puzzles, or football questions. Every answer is one tap away.',
+    homeCollectionsCta: 'See all collections',
     homeCollectionArabicTitle: 'Arabic riddles with answers',
     homeCollectionArabicMeta: '16 bilingual riddles',
     homeCollectionKidsTitle: 'Kids’ riddles with answers',
@@ -276,9 +224,9 @@ const UI = {
     homeCollectionLogicMeta: 'Deduction, numbers, and careful reading',
     homeCollectionFootballTitle: 'Football rules & tactics',
     homeCollectionFootballMeta: '16 practical bilingual questions',
-    homeSocialEyebrow: 'New riddles and updates',
-    homeSocialTitle: 'Follow JAKH Riddles',
-    homeSocialText: 'Keep up with new questions, collections, and game updates on JAKH’s social pages.',
+    homeSocialEyebrow: 'Stay curious',
+    homeSocialTitle: 'Get fresh challenges from JAKH',
+    homeSocialText: 'Follow along for new riddles, quick quizzes, and game updates.',
     homeSocialLabel: 'JAKH social pages',
     footerCollections: 'Collections',
     footerAbout: 'About & content standards',
@@ -319,8 +267,8 @@ const UI = {
     todayMomentum: 'Your snapshot',
     localBrowserOnly: 'Saved to your account',
     categoryEyebrow: 'Choose a section',
-    categoryTitle: 'What would you like to explore?',
-    categoryText: 'Choose one of 5 clear sections, then open a topic directly—no extra layer.',
+    categoryTitle: 'What are you curious about today?',
+    categoryText: 'Choose a clear section, search by interest, or let JAKH surprise you.',
     searchCategoriesLabel: 'Search topics and subtopics',
     tracksLabel: 'Sections',
     randomCategory: 'Surprise me',
@@ -504,23 +452,23 @@ const UI = {
     navCategories: 'الفئات',
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    homeEyebrow: '3,553 لغزاً ثنائي اللغة — عربي وإنجليزي',
-    homeTitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
+    homeEyebrow: 'مساحة ثنائية اللغة للعقول الفضولية',
+    homeTitle: 'اختر ما يثير فضولك، وتعلّم والعب واكتشف شيئًا جديدًا.',
     homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
     browseCategories: 'استكشف المواضيع',
     heroGameHub: 'مركز الألعاب',
     statCategories: 'المواضيع',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
-    mindHeroEyebrow: '+3500 لغز ثنائي اللغة — عربي وإنجليزي',
+    mindHeroEyebrow: '3,553 سؤالًا · 56 موضوعًا واضحًا',
     mindHeroTitle: 'مختبر العقول',
-    mindHeroSubtitle: 'اختر موضوعًا، اقلب البطاقات، واكتشف قدراتك.',
-    playHeroTitle: 'ساحة الألعاب',
-    playHeroSubtitle: 'بدون تنزيل أو تسجيل. ابدأ اللعب مباشرة من متصفحك وعلى أي جهاز.',
+    mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
+    playHeroTitle: 'غرفة الألعاب',
+    playHeroSubtitle: 'عشر ألعاب ممتعة جاهزة لك، بلا تنزيل وبلا حاجة إلى التسجيل.',
     playHeroGames: 'ألعاب',
-    playAvailable: '10 ألعاب متاحة الآن',
-    playPick: 'اختر لعبة',
-    playBrowserOnly: 'جميع الألعاب تعمل بالكامل في متصفحك — لا حاجة إلى تثبيت أي شيء.',
+    playAvailable: 'جاهز للعب؟',
+    playPick: 'اختر لعبة وابدأ',
+    playBrowserOnly: 'كل لعبة تعمل مباشرة في متصفحك، من دون تثبيت أي شيء.',
     playChessAria: 'العب الشطرنج',
     playChessTitle: 'الشطرنج',
     playChessDesc: 'شطرنج كامل مع إظهار النقلات القانونية والأخذ بالتجاوز والتبييت والترقية. العب ضد الحاسوب أو تناوب مع صديق.',
@@ -579,19 +527,20 @@ const UI = {
     gameTagAreaControl: 'سيطرة على المناطق',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: '3,553 سؤالاً ثنائي اللغة موزعة مباشرة على 56 موضوعًا ضمن 5 أقسام واضحة. اختر موضوعًا واقلب البطاقات وتابع نقاطك.',
+    portalMindDesc: 'استكشف 3,553 سؤالًا بالعربية والإنجليزية، مرتبة في 56 موضوعًا واضحًا. اقلب البطاقة، واكشف الإجابة، وتابع نتيجتك بسهولة.',
     portalMindStat: '56 موضوعًا',
+    portalBilingualStat: 'العربية والإنجليزية',
     portalMindCta: 'استكشف الألغاز ←',
     portalGamesTag: 'مركز الألعاب',
     portalGamesTitle: 'مركز الألعاب',
-    portalGamesDesc: 'شطرنج، ماستر مايند، غو، ريفرسي، كودنيمز، كاتان، طاولة، ست، هانابي، دبلوماسي — 10 ألعاب كاملة في المتصفح. بدون تنزيل أو تسجيل.',
+    portalGamesDesc: 'العب 10 ألعاب كاملة في المتصفح، من الشطرنج وغو إلى كودنيمز وكاتان. بلا تنزيل وبلا حاجة إلى التسجيل.',
     portalGamesStat1: '10 ألعاب',
     portalGamesStat2: 'كلها في المتصفح',
     portalGamesCta: 'العب الآن ←',
-    homeCollectionsEyebrow: 'طرق شائعة للبدء',
-    homeCollectionsTitle: 'مجموعات مختارة من الألغاز والاختبارات',
-    homeCollectionsText: 'افتح مجموعة مركزة تظهر فيها كل الأسئلة، واكشف كل إجابة بلمسة واحدة، ثم تابع إلى مختبر العقول الكامل.',
-    homeCollectionsCta: 'تصفح كل المجموعات',
+    homeCollectionsEyebrow: 'بداية سريعة',
+    homeCollectionsTitle: 'ابدأ بمجموعة تناسب مزاجك',
+    homeCollectionsText: 'جرّب مجموعة قصيرة من الألغاز، أو الأسئلة العائلية، أو تحديات المنطق، أو أسئلة كرة القدم. كل إجابة على بُعد لمسة.',
+    homeCollectionsCta: 'شاهد كل المجموعات',
     homeCollectionArabicTitle: 'ألغاز مع الحل',
     homeCollectionArabicMeta: '16 لغزاً ثنائي اللغة',
     homeCollectionKidsTitle: 'ألغاز للأطفال مع الحل',
@@ -600,9 +549,9 @@ const UI = {
     homeCollectionLogicMeta: 'استنتاج وأرقام وقراءة متأنية',
     homeCollectionFootballTitle: 'قوانين وتكتيكات كرة القدم',
     homeCollectionFootballMeta: '16 سؤالاً عملياً ثنائي اللغة',
-    homeSocialEyebrow: 'ألغاز وتحديثات جديدة',
-    homeSocialTitle: 'تابع JAKH Riddles',
-    homeSocialText: 'تابع أحدث الأسئلة والمجموعات وتحديثات الألعاب على صفحات JAKH الاجتماعية.',
+    homeSocialEyebrow: 'ابقَ فضوليًا',
+    homeSocialTitle: 'تحديات جديدة من JAKH',
+    homeSocialText: 'تابعنا لألغاز جديدة، واختبارات سريعة، وتحديثات الألعاب.',
     homeSocialLabel: 'صفحات JAKH الاجتماعية',
     footerCollections: 'المجموعات',
     footerAbout: 'عن JAKH ومعايير المحتوى',
@@ -643,8 +592,8 @@ const UI = {
     todayMomentum: 'ملخصك',
     localBrowserOnly: 'محفوظ في حسابك',
     categoryEyebrow: 'اختر قسمًا',
-    categoryTitle: 'ماذا تريد أن تستكشف؟',
-    categoryText: 'اختر أحد الأقسام الخمسة، ثم افتح الموضوع مباشرة من دون طبقة إضافية.',
+    categoryTitle: 'ما الذي يثير فضولك اليوم؟',
+    categoryText: 'اختر قسمًا واضحًا، أو ابحث حسب اهتمامك، أو دع JAKH يفاجئك.',
     searchCategoriesLabel: 'ابحث في المواضيع والمواضيع الفرعية',
     tracksLabel: 'الأقسام',
     randomCategory: 'اختيار عشوائي',
@@ -1375,8 +1324,7 @@ function showToast(message, isError) {
   }, isError ? 3200 : 2200);
 }
 
-function applyTheme() {
-  document.documentElement.dataset.theme = 'light';
+function applyDocumentLanguage() {
   document.documentElement.lang = state.lang === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
   if (els.langSelect) els.langSelect.value = state.lang;
@@ -1431,8 +1379,12 @@ function applyRuntimeAccessibilityCopy() {
   document.getElementById('battleNavBtn')?.setAttribute('aria-label', t('teamBattle'));
   document.getElementById('globalSearchBtn')?.setAttribute('aria-label', t('search'));
   document.getElementById('hamburgerBtn')?.setAttribute('aria-label', t('menu'));
-  document.querySelector('a[href*="instagram.com"]')?.setAttribute('aria-label', t('socialInstagramLabel'));
-  document.querySelector('a[href*="facebook.com"]')?.setAttribute('aria-label', t('socialFacebookLabel'));
+  document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
+    link.setAttribute('aria-label', t('socialInstagramLabel'));
+  });
+  document.querySelectorAll('a[href*="facebook.com"]').forEach((link) => {
+    link.setAttribute('aria-label', t('socialFacebookLabel'));
+  });
 }
 
 function applyStaticCopy() {
@@ -1448,6 +1400,9 @@ function applyStaticCopy() {
   });
   document.querySelectorAll('[data-i18n-title]').forEach((node) => {
     node.setAttribute('title', t(node.dataset.i18nTitle));
+  });
+  document.querySelectorAll('[data-href-en][data-href-ar]').forEach((node) => {
+    node.setAttribute('href', state.lang === 'ar' ? node.dataset.hrefAr : node.dataset.hrefEn);
   });
   if (els.categorySearchInput) {
     els.categorySearchInput.placeholder = t('searchPlaceholder');
@@ -1639,11 +1594,6 @@ function initializeFromStorage() {
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
 }
 
-function applyDir() {
-  document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
-  document.documentElement.lang = state.lang;
-}
-
 let _installPrompt = null;
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
@@ -1741,8 +1691,7 @@ function bindCommonEvents() {
       state.lang = els.langSelect.value;
       trackEvent('language_switch', { language: state.lang, page_type: state.page });
       saveSettings();
-      applyTheme();
-      applyDir();
+      applyDocumentLanguage();
       applyStaticCopy();
       rerender();
       clearTimedQuizTimers();
@@ -2150,10 +2099,8 @@ function hydrateCategoryArt(root) {
 
 function createCategoryCardMarkup(meta) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
-  const gradient = CATEGORY_GRADIENTS[meta.slug] || `linear-gradient(135deg, ${color} 0%, rgba(255,255,255,0.12) 100%)`;
   const isAr = state.lang === 'ar';
   const title = escapeHtml(meta.title[state.lang]);
-  const cluster = escapeHtml(meta.cluster[state.lang]);
   const topicLabels = (meta.topics || [])
     .slice(0, 3)
     .map(topic => escapeHtml(topic[state.lang] || topic.en))
@@ -2170,13 +2117,10 @@ function createCategoryCardMarkup(meta) {
   const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
     <a class="category-card has-art" href="${escapeHtml(meta.href)}" aria-label="${title}">
-      <span class="category-card-stripe" style="background:${gradient}" aria-hidden="true"></span>
       <div class="category-card-bg" aria-hidden="true">
         <span class="category-card-count-badge">${cardCountLabel}</span>
-        <span class="category-card-corner-mark"></span>
       </div>
       <div class="category-card-overlay">
-        <span class="category-card-cluster cluster-chip" style="color:${color}">${cluster}</span>
         <h3 class="category-title">${title}</h3>
         ${topicMarkup}
       </div>
@@ -2532,7 +2476,7 @@ function renderCategoryPage() {
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
   if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
   if (els.categoryImage) {
-    const gradient = CATEGORY_GRADIENTS[category.slug] || 'linear-gradient(135deg, #1E3A5F 0%, #4A90D9 100%)';
+    const gradient = categoryGradient(category.slug);
     const heroDiv = document.createElement('div');
     heroDiv.className = 'category-hero-bg';
     heroDiv.style.background = gradient;
@@ -2798,11 +2742,9 @@ function updateCardEl(id) {
   if (!el) return;
   const card = state.categoryData?.cards.find(c => c.id === id);
   if (!card) return;
-  const cardI = el.style.getPropertyValue('--card-i');
   const tmp = document.createElement('div');
   tmp.innerHTML = createCardMarkup(card);
   const newEl = tmp.firstElementChild;
-  newEl.style.setProperty('--card-i', cardI || '0');
   newEl.style.animation = 'none';
   el.replaceWith(newEl);
 }
@@ -2827,9 +2769,6 @@ function renderCards() {
   const visible = filtered.slice(0, pageEnd);
 
   els.cardGrid.innerHTML = visible.map(createCardMarkup).join('');
-  els.cardGrid.querySelectorAll('.riddle-card').forEach((el, i) => {
-    el.style.setProperty('--card-i', Math.min(i, 10));
-  });
 
   // Append Load More button when more cards remain
   if (filtered.length > pageEnd) {
@@ -4047,7 +3986,7 @@ function showCategoryCompleteModal(slug) {
   el.innerHTML = `
     <div class="modal-backdrop" id="catCompleteBackdrop"></div>
     <div class="modal-card category-complete-card" role="dialog" aria-modal="true" aria-labelledby="categoryCompleteTitle">
-      <div class="category-complete-top" style="background:${CATEGORY_GRADIENTS[slug] || 'linear-gradient(135deg,#1E3A5F,#4A90D9)'}">
+      <div class="category-complete-top" style="background:${categoryGradient(slug)}">
         <span class="category-complete-emoji">${escapeHtml(meta.emoji)}</span>
       </div>
       <div class="category-complete-body">
@@ -4299,8 +4238,7 @@ async function init() {
     element.hidden = true;
   });
   initializeFromStorage();
-  applyDir();
-  applyTheme();
+  applyDocumentLanguage();
   bindCommonEvents();
   applyCapabilityVisibility();
   createTimedQuizModal();
@@ -4704,7 +4642,7 @@ function renderBattleLobby(body) {
             <div class="battle-player-row">
               ${p.id === room?.hostId ? `<span class="battle-player-crown" aria-label="${escapeHtml(t('host'))}">👑</span>` : '<span style="width:1.2rem"></span>'}
               <span style="flex:1">${escapeHtml(p.name)}</span>
-              ${p.id === battleState.playerId ? `<span class="pill" style="font-size:0.7rem">${isAr ? 'أنت' : 'You'}</span>` : ''}
+              ${p.id === battleState.playerId ? `<span class="pill" style="font-size:var(--text-xs)">${isAr ? 'أنت' : 'You'}</span>` : ''}
             </div>`).join('')}
           ${players.length === 0 ? `<p class="battle-waiting-msg">${isAr ? 'في انتظار اللاعبين...' : 'Waiting for players to join...'}</p>` : ''}
         </div>

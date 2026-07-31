@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Play 3,553 free bilingual riddles and quizzes in English and Arabic across 56 topics, plus 10 browser games. Reveal answers and track your score." />
@@ -77,7 +76,7 @@
 }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2026073005" />
+    <link rel="stylesheet" href="styles.css?v=2026073103" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -95,12 +94,12 @@
       }
     </script>
   </head>
-  <body data-page="home">
+  <body class="page-home" data-page="home">
 <a href="#top" class="skip-link">Skip to main content</a>
 
     <header class="site-header shell">
       <a href="/" class="brand" aria-label="JAKH Riddles home">
-        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" style="width: 68px; height: 36px; object-fit: contain;" loading="eager" fetchpriority="high" /></picture>
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" /></picture>
       </a>
 
       <nav class="header-actions" aria-label="Quick actions">
@@ -130,12 +129,12 @@
     <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
 
     <div class="kv-hero-content">
-      <p class="kv-eyebrow" data-i18n="homeEyebrow">3,553 Bilingual Riddles — English &amp; Arabic</p>
+      <p class="kv-eyebrow" data-i18n="homeEyebrow">A bilingual playground for curious minds</p>
 
       <h1 class="kv-hero-title">JAKH<span class="sr-only"> Riddles and Quizzes in English and Arabic</span></h1>
 
       <p class="kv-hero-subtitle" data-i18n="homeTitle">
-        Pick a topic. Flip cards. See how much you know.
+        Pick what sparks your curiosity. Learn, play, and surprise yourself.
       </p>
 
       <div class="kv-hero-cta">
@@ -168,24 +167,24 @@
     <div class="kv-portals-grid">
 
       <!-- Mind Lab -->
-      <a class="kv-portal-card kv-portal-mind" href="/mind-lab" aria-label="Enter The Mind Lab">
+      <a class="kv-portal-card kv-portal-mind" href="/mind-lab" aria-label="The Mind Lab" data-i18n-aria-label="portalMindTitle">
         <p class="kv-portal-tag" data-i18n="portalMindTag">Mind Lab</p>
         <span class="kv-portal-icon" aria-hidden="true">🧠</span>
         <h2 class="kv-portal-title" data-i18n="portalMindTitle">The Mind Lab</h2>
-        <p class="kv-portal-desc" data-i18n="portalMindDesc">3,553 bilingual questions mapped directly into 56 topics across 5 clear sections. Pick a topic, flip cards, and track your score.</p>
+        <p class="kv-portal-desc" data-i18n="portalMindDesc">Explore 3,553 English and Arabic questions, organized into 56 clear topics. Flip each card, reveal the answer, and keep score as you go.</p>
         <div class="kv-portal-stats">
           <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">56 topics</span>
-          <span class="kv-portal-stat">Arabic &amp; English</span>
+          <span class="kv-portal-stat" data-i18n="portalBilingualStat">English &amp; Arabic</span>
         </div>
         <span class="kv-portal-cta" data-i18n="portalMindCta">Explore Riddles →</span>
       </a>
 
       <!-- Game Hub -->
-      <a class="kv-portal-card kv-portal-games" href="/play" aria-label="Enter The Game Hub">
+      <a class="kv-portal-card kv-portal-games" href="/play" aria-label="The Game Hub" data-i18n-aria-label="portalGamesTitle">
         <p class="kv-portal-tag" data-i18n="portalGamesTag">Game Hub</p>
         <span class="kv-portal-icon" aria-hidden="true">🎮</span>
         <h2 class="kv-portal-title" data-i18n="portalGamesTitle">The Game Hub</h2>
-        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Chess, Mastermind, Go, Reversi, Codenames, Catan, Backgammon, Set, Hanabi, Diplomacy — 10 fully playable browser games. No download, no sign-up.</p>
+        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Play 10 complete browser games, from Chess and Go to Codenames and Catan. Nothing to install, and no sign-up needed.</p>
         <div class="kv-portal-stats">
           <span class="kv-portal-stat" data-i18n="portalGamesStat1">10 games live</span>
           <span class="kv-portal-stat" data-i18n="portalGamesStat2">All in browser</span>
@@ -198,24 +197,24 @@
 
   <section class="home-discovery shell" aria-labelledby="popularCollectionsTitle">
     <div class="home-discovery-copy">
-      <p class="eyebrow" data-i18n="homeCollectionsEyebrow">Popular ways to start</p>
-      <h2 id="popularCollectionsTitle" data-i18n="homeCollectionsTitle">Focused riddles and quiz collections</h2>
-      <p data-i18n="homeCollectionsText">Open a compact collection with every question visible and every answer one tap away, then continue into the full Mind Lab.</p>
-      <a class="primary-btn" href="/collections" data-i18n="homeCollectionsCta">Browse all collections</a>
+      <p class="eyebrow" data-i18n="homeCollectionsEyebrow">Quick ways to begin</p>
+      <h2 id="popularCollectionsTitle" data-i18n="homeCollectionsTitle">Start with a collection that fits your mood</h2>
+      <p data-i18n="homeCollectionsText">Try a short set of riddles, family-friendly clues, logic puzzles, or football questions. Every answer is one tap away.</p>
+      <a class="primary-btn" href="/collections" data-i18n="homeCollectionsCta">See all collections</a>
     </div>
     <div class="home-discovery-links">
-      <a href="/ar/alghaz-ma-alhal/"><span data-i18n="homeCollectionArabicTitle">Arabic riddles with answers</span><small data-i18n="homeCollectionArabicMeta">16 bilingual riddles</small></a>
-      <a href="/en/kids-riddles-with-answers/"><span data-i18n="homeCollectionKidsTitle">Kids’ riddles with answers</span><small data-i18n="homeCollectionKidsMeta">Friendly, family-safe clues</small></a>
-      <a href="/en/logic-puzzles-with-answers/"><span data-i18n="homeCollectionLogicTitle">Logic puzzles with explanations</span><small data-i18n="homeCollectionLogicMeta">Deduction, numbers, and careful reading</small></a>
-      <a href="/en/football-rules-quiz/"><span data-i18n="homeCollectionFootballTitle">Football rules &amp; tactics</span><small data-i18n="homeCollectionFootballMeta">16 practical bilingual questions</small></a>
+      <a href="/en/riddles-with-answers/" data-href-en="/en/riddles-with-answers/" data-href-ar="/ar/alghaz-ma-alhal/"><span data-i18n="homeCollectionArabicTitle">Arabic riddles with answers</span><small data-i18n="homeCollectionArabicMeta">16 bilingual riddles</small></a>
+      <a href="/en/kids-riddles-with-answers/" data-href-en="/en/kids-riddles-with-answers/" data-href-ar="/ar/alghaz-lil-atfal-ma-alhal/"><span data-i18n="homeCollectionKidsTitle">Kids’ riddles with answers</span><small data-i18n="homeCollectionKidsMeta">Friendly, family-safe clues</small></a>
+      <a href="/en/logic-puzzles-with-answers/" data-href-en="/en/logic-puzzles-with-answers/" data-href-ar="/ar/alghaz-mantiqiyya-ma-alhal/"><span data-i18n="homeCollectionLogicTitle">Logic puzzles with explanations</span><small data-i18n="homeCollectionLogicMeta">Deduction, numbers, and careful reading</small></a>
+      <a href="/en/football-rules-quiz/" data-href-en="/en/football-rules-quiz/" data-href-ar="/ar/ikhtibar-qawanin-korat-alqadam/"><span data-i18n="homeCollectionFootballTitle">Football rules &amp; tactics</span><small data-i18n="homeCollectionFootballMeta">16 practical bilingual questions</small></a>
     </div>
   </section>
 
   <section class="home-social shell" aria-label="JAKH social pages" data-i18n-aria-label="homeSocialLabel">
     <div>
-      <p class="eyebrow" data-i18n="homeSocialEyebrow">New riddles and updates</p>
-      <h2 data-i18n="homeSocialTitle">Follow JAKH Riddles</h2>
-      <p data-i18n="homeSocialText">Keep up with new questions, collections, and game updates on JAKH’s social pages.</p>
+      <p class="eyebrow" data-i18n="homeSocialEyebrow">Stay curious</p>
+      <h2 data-i18n="homeSocialTitle">Get fresh challenges from JAKH</h2>
+      <p data-i18n="homeSocialText">Follow along for new riddles, quick quizzes, and game updates.</p>
     </div>
     <div class="home-social-actions">
       <a class="ghost-btn social-link" href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer">Instagram @jakhriddles</a>
@@ -273,6 +272,6 @@
     </div>
 
 
-    <script defer src="app.js?v=2026073006"></script>
+    <script defer src="app.js?v=2026073103"></script>
   </body>
 </html>

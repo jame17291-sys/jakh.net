@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
-    <script src="game-i18n.js?v=2026073005"></script>
+    <script src="game-i18n.js?v=2026073103"></script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up." />
     <title>Chess Online — Free Browser Game | JAKH</title>
-    <link rel="preload" href="styles.css?v=2026073005" as="style" />
+    <link rel="preload" href="styles.css?v=2026073103" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/chess" />
     <meta name="robots" content="index,follow" />
@@ -27,7 +26,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
     <meta property="og:site_name" content="JAKH Riddles" />
-    <link rel="stylesheet" href="styles.css?v=2026073005" />
+    <link rel="stylesheet" href="styles.css?v=2026073103" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
@@ -79,7 +78,7 @@
 
       .board-file-label {
         text-align: center;
-        font-size: 0.72rem;
+        font-size: 0.8125rem;
         font-weight: 600;
         color: var(--muted);
         padding: 0.15rem 0;
@@ -104,7 +103,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.72rem;
+        font-size: 0.8125rem;
         font-weight: 600;
         color: var(--muted);
         user-select: none;
@@ -117,10 +116,10 @@
         grid-template-rows: repeat(8, 1fr);
         width: var(--chess-board-size);
         aspect-ratio: 1 / 1;
-        border: 3px solid color-mix(in srgb, var(--plum) 60%, transparent);
-        border-radius: 6px;
+        border: 2px solid var(--line-strong);
+        border-radius: var(--radius-sm);
         overflow: hidden;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        box-shadow: 0 14px 34px rgba(32, 50, 71, 0.16);
         flex-shrink: 0;
       }
 
@@ -149,15 +148,15 @@
         pointer-events: none;
       }
 
-      .chess-square.light { background: var(--gilt); }
-      .chess-square.dark  { background: var(--plum); }
+      .chess-square.light { background: #f7ecd5; }
+      .chess-square.dark  { background: #8eb7d7; }
 
       .chess-square.selected {
         box-shadow: inset 0 0 0 3px var(--accent), inset 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent);
-        background: color-mix(in srgb, var(--accent) 30%, var(--gilt)) !important;
+        background: color-mix(in srgb, var(--accent) 28%, #f7ecd5) !important;
       }
       .chess-square.selected.dark {
-        background: color-mix(in srgb, var(--accent) 30%, var(--plum)) !important;
+        background: color-mix(in srgb, var(--accent) 28%, #8eb7d7) !important;
       }
 
       .chess-square.in-check {
@@ -171,7 +170,7 @@
       }
       .chess-square.last-move-from.dark,
       .chess-square.last-move-to.dark {
-        background: color-mix(in srgb, var(--gilt) 35%, var(--plum)) !important;
+        background: color-mix(in srgb, var(--gilt-soft) 52%, #8eb7d7) !important;
       }
 
       /* Legal move dot */
@@ -202,7 +201,7 @@
         z-index: 3;
         user-select: none;
         pointer-events: none;
-        filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+        filter: drop-shadow(0 1px 2px rgba(32, 50, 71, 0.3));
         transition: transform 0.08s;
       }
 
@@ -224,7 +223,7 @@
       /* Status bar */
       .chess-status {
         background: var(--panel);
-        border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+        border: 1px solid var(--line-strong);
         border-radius: var(--radius-sm);
         padding: 0.75rem 1rem;
         text-align: center;
@@ -254,7 +253,7 @@
       /* Controls panel */
       .chess-controls {
         background: var(--panel);
-        border: 1px solid color-mix(in srgb, var(--plum) 30%, transparent);
+        border: 1px solid var(--line-strong);
         border-radius: var(--radius-sm);
         padding: 0.85rem;
         display: flex;
@@ -263,7 +262,7 @@
       }
 
       .chess-controls .ctrl-label {
-        font-size: 0.75rem;
+        font-size: 0.8125rem;
         font-weight: 600;
         color: var(--muted);
         text-transform: uppercase;
@@ -275,14 +274,14 @@
         display: flex;
         border-radius: var(--radius-sm);
         overflow: hidden;
-        border: 1px solid color-mix(in srgb, var(--plum) 50%, transparent);
+        border: 1px solid var(--line-strong);
       }
 
       .mode-btn {
         flex: 1;
         padding: 0.45rem 0.5rem;
         min-height: 44px;
-        font-size: 0.78rem;
+        font-size: 0.8125rem;
         font-weight: 600;
         font-family: inherit;
         border: none;
@@ -301,10 +300,10 @@
       .chess-btn {
         padding: 0.5rem 0.75rem;
         min-height: 44px;
-        font-size: 0.82rem;
+        font-size: 0.875rem;
         font-weight: 600;
         font-family: inherit;
-        border: 1px solid color-mix(in srgb, var(--plum) 50%, transparent);
+        border: 1px solid var(--line-strong);
         border-radius: var(--radius-sm);
         cursor: pointer;
         background: color-mix(in srgb, var(--panel) 80%, transparent);
@@ -326,13 +325,13 @@
       /* Captured pieces */
       .captured-panel {
         background: var(--panel);
-        border: 1px solid color-mix(in srgb, var(--plum) 30%, transparent);
+        border: 1px solid var(--line-strong);
         border-radius: var(--radius-sm);
         padding: 0.75rem;
       }
 
       .captured-label {
-        font-size: 0.72rem;
+        font-size: 0.8125rem;
         font-weight: 600;
         color: var(--muted);
         text-transform: uppercase;
@@ -355,12 +354,12 @@
         display: none;
         align-items: center;
         gap: 0.5rem;
-        font-size: 0.8rem;
+        font-size: 0.8125rem;
         color: var(--muted);
         padding: 0.4rem 0.75rem;
         background: var(--panel);
         border-radius: var(--radius-sm);
-        border: 1px solid color-mix(in srgb, var(--plum) 30%, transparent);
+        border: 1px solid var(--line-strong);
       }
 
       .thinking-bar.visible { display: flex; }
@@ -377,18 +376,18 @@
         z-index: 1000;
         align-items: center;
         justify-content: center;
-        background: rgba(0,0,0,0.65);
+        background: rgba(32, 50, 71, 0.38);
       }
 
       .promo-modal.visible { display: flex; }
 
       .promo-card {
-        background: var(--panel-strong);
-        border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
         border-radius: var(--radius);
         padding: 1.5rem;
         text-align: center;
-        box-shadow: 0 16px 48px rgba(0,0,0,0.7);
+        box-shadow: var(--shadow-lg);
       }
 
       .promo-card h3 {
@@ -410,7 +409,7 @@
         font-size: 2.2rem;
         line-height: 56px;
         border-radius: var(--radius-sm);
-        border: 2px solid color-mix(in srgb, var(--plum) 50%, transparent);
+        border: 2px solid var(--line-strong);
         background: var(--panel);
         cursor: pointer;
         transition: border-color 0.15s, transform 0.1s;
@@ -453,7 +452,7 @@
       <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="assets/logo.webp" type="image/webp" />
-          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
+          <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
@@ -472,7 +471,7 @@
     </header>
 
     <main id="top">
-      <section class="hero shell" style="padding-bottom:1rem;">
+      <section class="hero shell">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="chessEyebrow">Games &amp; Fun</p>
           <h1 data-i18n="chessTitle">&#9817; Chess</h1>

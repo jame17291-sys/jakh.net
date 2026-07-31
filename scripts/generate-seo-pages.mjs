@@ -6,9 +6,9 @@ import { QA_HOLD_IDS, SEO_COLLECTIONS } from "./seo-collections.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = "https://jakh.net";
-const ASSET_VERSION = "2026073005";
-const APP_ASSET_VERSION = "2026073006";
-const LAST_MODIFIED = "2026-07-30";
+const ASSET_VERSION = "2026073103";
+const APP_ASSET_VERSION = "2026073103";
+const LAST_MODIFIED = "2026-07-31";
 const PREVIEW_CARD_COUNT = 20;
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
 const QA_HOLD_SET = new Set(QA_HOLD_IDS);
@@ -150,7 +150,7 @@ function brandMarkup(lang = "en", dynamic = false, href = "/") {
   return `<a href="${escapeHtml(href)}" class="brand" aria-label="${isAr ? "الصفحة الرئيسية لألغاز JAKH" : "JAKH Riddles home"}"${i18nAttribute}>
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
-          <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
+          <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>`;
 }
@@ -223,14 +223,14 @@ function categoryMetaDescription(category) {
   );
 }
 
-function staticCardMarkup(category, card, index) {
+function staticCardMarkup(category, card) {
   const difficulty = card.difficulty === "very-advanced"
     ? "Very advanced"
     : card.difficulty.charAt(0).toUpperCase() + card.difficulty.slice(1);
   const subcategory = card.subcategory?.en
     ? `<span class="badge badge-subcategory">${escapeHtml(card.subcategory.en)}</span>`
     : "";
-  return `<article class="riddle-card" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" style="--card-i:${Math.min(index, 10)}" aria-label="${escapeHtml(card.question.en)}">
+  return `<article class="riddle-card" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" aria-label="${escapeHtml(card.question.en)}">
           <div class="card-inner">
             <section class="card-face card-front" aria-hidden="false">
               <div class="card-badges">
@@ -280,10 +280,11 @@ function categoryImagePath(category) {
 
 function simpleCategoryCard(category) {
   const topics = (category.topics || []).slice(0, 3).map((topic) => topic.en).join(" · ");
-  return `<a class="category-card has-art is-art-ready" href="/${escapeHtml(category.slug)}" aria-label="${escapeHtml(category.title.en)}">
-          <span class="category-card-stripe" aria-hidden="true"></span>
+  return `<a class="category-card has-art" href="/${escapeHtml(category.slug)}" aria-label="${escapeHtml(category.title.en)}">
+          <div class="category-card-bg" aria-hidden="true">
+            <span class="category-card-count-badge">${category.count} Q</span>
+          </div>
           <div class="category-card-overlay">
-            <span class="category-card-cluster cluster-chip">${escapeHtml(category.cluster.en)}</span>
             <h3 class="category-title">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title.en)}</h3>
             ${topics ? `<p class="category-card-topics">${escapeHtml(topics)}</p>` : ""}
           </div>
@@ -349,10 +350,9 @@ function renderCategoryPage(category, cards) {
     : `<p class="content-standards-note">Questions are curated for learning and entertainment. <a href="/about#standards">See how JAKH reviews and improves content.</a></p>`;
 
   return `<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="${escapeHtml(description)}" />
@@ -671,6 +671,18 @@ function normalizeExistingPage(source, file) {
   let next = normalizeInternalLinks(source);
   next = normalizeSocialMeta(next);
   next = ensureFooterLinks(next);
+  next = next
+    .replace(/\sdata-theme="light"/gu, "")
+    .replace(/\s*document\.documentElement\.dataset\.theme\s*=\s*["']light["'];?\s*/gu, "\n")
+    .replace(/<script>\s*<\/script>\s*/gu, "")
+    .replace(
+      /(class="brand-logo"\s+width=")180("\s+height=")44(")/gu,
+      "$140$240$3",
+    )
+    .replace(
+      /<section class="hero shell" style="padding-bottom:1rem;">/gu,
+      '<section class="hero shell">',
+    );
   if (file === "mind-lab.html") next = injectDirectory(next);
   if (file === "index.html") {
     next = updateHomeStructuredData(next)
@@ -825,11 +837,10 @@ function renderCollectionPage(collection, lang, cards) {
     ? `<aside class="collection-disclaimer">${escapeHtml(disclaimerText)}</aside>`
     : "";
   return `<!DOCTYPE html>
-<html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}" data-theme="light">
+<html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">
   <head>
     <meta charset="UTF-8" />
     <script>
-      document.documentElement.dataset.theme = "light";
       try {
         var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
         if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
@@ -930,10 +941,9 @@ function renderCollectionsHub(collectionsWithCards) {
     ])),
   };
   return `<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="${escapeHtml(description)}" />
@@ -996,10 +1006,9 @@ function renderAboutPage() {
     about: { "@id": `${SITE_ORIGIN}/#organization` },
   };
   return `<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script>document.documentElement.dataset.theme="light";</script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <meta name="description" content="${escapeHtml(description)}" />

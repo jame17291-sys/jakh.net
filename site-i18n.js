@@ -17,6 +17,7 @@
       footerInfoLabel: 'JAKH information',
       quickActionsLabel: 'Quick actions',
       languageControlsLabel: 'Language controls',
+      menu: 'Menu',
       brandHomeLabel: 'JAKH Riddles home',
       instagramLabel: 'JAKH Riddles on Instagram',
       facebookLabel: 'JAKH Riddles on Facebook',
@@ -37,6 +38,7 @@
       footerInfoLabel: 'معلومات JAKH',
       quickActionsLabel: 'روابط سريعة',
       languageControlsLabel: 'خيارات اللغة',
+      menu: 'القائمة',
       brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
       instagramLabel: 'ألغاز JAKH على إنستغرام',
       facebookLabel: 'ألغاز JAKH على فيسبوك',
@@ -263,6 +265,45 @@
     apply();
   }
 
+  function ensureMobileMenu() {
+    if (document.getElementById('hamburgerBtn')) return;
+    const header = document.querySelector('.site-header');
+    const nav = header?.querySelector('.header-actions');
+    if (!header || !nav) return;
+
+    const button = document.createElement('button');
+    button.id = 'hamburgerBtn';
+    button.className = 'hamburger-btn';
+    button.type = 'button';
+    button.textContent = '☰';
+    button.dataset.i18nAriaLabel = 'menu';
+    button.setAttribute('aria-label', message('menu'));
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'siteHeaderActions');
+    nav.id ||= 'siteHeaderActions';
+    header.insertBefore(button, nav);
+
+    const closeMenu = () => {
+      nav.classList.remove('nav-open');
+      button.setAttribute('aria-expanded', 'false');
+    };
+
+    button.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      button.setAttribute('aria-expanded', String(open));
+    });
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('click', (event) => {
+      if (!nav.classList.contains('nav-open')) return;
+      if (!header.contains(event.target)) closeMenu();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+
   function register(page, translations) {
     extraPages[page] = translations;
     if (!activePage) activePage = page;
@@ -276,6 +317,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const select = document.getElementById('langSelect');
     select?.addEventListener('change', () => setLanguage(select.value));
+    ensureMobileMenu();
     apply();
   }, { once: true });
 

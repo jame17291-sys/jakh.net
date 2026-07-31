@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="light">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <script>
-      document.documentElement.dataset.theme = "light";
       try {
         var savedSettings = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
         if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) savedSettings = {};
@@ -242,7 +241,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=2026073005" />
+    <link rel="stylesheet" href="/styles.css?v=2026073103" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -257,7 +256,7 @@
       <a href="/?lang=en" class="brand" aria-label="JAKH Riddles home">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
-          <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high" />
+          <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
       <nav class="header-actions" aria-label="Quick actions">

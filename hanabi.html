@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Work with an AI partner to build a fireworks display in this cooperative Hanabi browser game. Play instantly with no download or sign-up." />
   <title>Hanabi Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073005" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073103" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/hanabi"/>
   <meta name="robots" content="index,follow"/>
@@ -24,9 +24,9 @@
   <meta name="twitter:description" content="Work with an AI partner to build a fireworks display in this cooperative Hanabi browser game. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073005"/>
+  <link rel="stylesheet" href="styles.css?v=2026073103"/>
   <link rel="manifest" href="manifest.webmanifest"/>
-  <script src="/game-i18n.js?v=2026073005"></script>
+  <script src="/game-i18n.js?v=2026073103"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
   <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
@@ -54,7 +54,7 @@
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      background: var(--panel-strong);
+      background: var(--panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
       padding: 0.75rem 1.25rem;
@@ -83,7 +83,7 @@
     }
 
     .hb-score-display span {
-      font-size: 0.75rem;
+      font-size: 0.8125rem;
       color: var(--muted);
       font-family: var(--font);
       font-weight: 500;
@@ -115,7 +115,7 @@
     }
 
     .hb-stack-label {
-      font-size: 0.65rem;
+      font-size: 0.8125rem;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -153,13 +153,13 @@
 
     .hb-card.selectable:hover {
       transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 22px rgba(32, 50, 71, 0.12);
     }
 
     .hb-card.selected {
       border-color: var(--gilt);
       transform: translateY(-6px);
-      box-shadow: 0 8px 24px rgba(201,162,39,0.4);
+      box-shadow: 0 8px 22px rgba(151, 96, 6, 0.18);
     }
 
     .hb-card-value {
@@ -169,7 +169,7 @@
     }
 
     .hb-card-suit-icon {
-      font-size: 0.7rem;
+      font-size: 0.8125rem;
       opacity: 0.8;
     }
 
@@ -178,7 +178,7 @@
       position: absolute;
       top: 3px;
       right: 4px;
-      font-size: 0.55rem;
+      font-size: 0.8125rem;
       font-weight: 800;
       line-height: 1;
     }
@@ -215,7 +215,7 @@
     }
 
     .hb-hand-title {
-      font-size: 0.75rem;
+      font-size: 0.8125rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -232,12 +232,6 @@
       border-radius: 50%;
       background: var(--accent);
       display: inline-block;
-      animation: pulse 1s infinite alternate;
-    }
-
-    @keyframes pulse {
-      from { opacity: 0.4; }
-      to   { opacity: 1; }
     }
 
     .hb-cards-row {
@@ -249,7 +243,7 @@
 
     /* Actions panel */
     .hb-actions {
-      background: var(--panel-strong);
+      background: var(--bg-soft);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
       padding: 0.75rem 1.25rem;
@@ -257,7 +251,7 @@
     }
 
     .hb-actions-title {
-      font-size: 0.75rem;
+      font-size: 0.8125rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -274,13 +268,14 @@
 
     .hb-btn {
       padding: 0.5rem 1rem;
+      min-height: 44px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--line-strong);
       background: var(--panel);
       color: var(--text);
       font-family: var(--font);
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       cursor: pointer;
       transition: background 0.15s, border-color 0.15s, transform 0.1s;
     }
@@ -324,7 +319,7 @@
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
       padding: 0.6rem 0.9rem;
-      font-size: 0.8rem;
+      font-size: 0.8125rem;
       color: var(--muted);
       min-height: 48px;
       max-height: 100px;
@@ -335,7 +330,7 @@
 
     .hb-log-entry {
       padding: 0.15rem 0;
-      border-bottom: 1px solid rgba(240,232,216,0.05);
+      border-bottom: 1px solid var(--line);
       color: var(--text);
     }
 
@@ -357,15 +352,15 @@
     .hb-clue-picker.visible { display: flex; }
 
     .hb-clue-picker-label {
-      font-size: 0.8rem;
+      font-size: 0.8125rem;
       color: var(--muted);
       width: 100%;
     }
 
     /* Suit pip buttons */
     .hb-suit-btn {
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
       border-radius: 6px;
       border: 2px solid transparent;
       font-size: 0.85rem;
@@ -377,18 +372,17 @@
       transition: transform 0.1s, box-shadow 0.1s;
     }
 
-    .hb-suit-btn:hover { transform: scale(1.1); box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+    .hb-suit-btn:hover { transform: scale(1.05); box-shadow: 0 5px 14px rgba(32, 50, 71, 0.12); }
 
     /* Modal */
     .hb-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.7);
+      background: rgba(32, 50, 71, 0.38);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      backdrop-filter: blur(4px);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s;
@@ -400,7 +394,7 @@
     }
 
     .hb-modal {
-      background: var(--panel-strong);
+      background: var(--panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius);
       padding: 2rem 2.5rem;
@@ -441,7 +435,7 @@
       align-items: center;
       gap: 0.4rem;
       color: #4A90D9;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -477,7 +471,7 @@
     <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
       <picture>
         <source srcset="assets/logo.webp" type="image/webp"/>
-        <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="180" height="44" loading="eager" fetchpriority="high"/>
+        <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
       </picture>
     </a>
     <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
@@ -496,7 +490,7 @@
   </header>
 
   <main id="top">
-    <section class="hero shell" style="padding-bottom:1rem;">
+    <section class="hero shell">
       <div class="hero-copy">
         <p class="eyebrow" data-i18n="heroEyebrow">Cooperative · Deduction</p>
         <h1 data-i18n="heroTitle">&#127880; Hanabi</h1>

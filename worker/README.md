@@ -3,8 +3,10 @@
 Cloudflare Worker backend for the static JAKH site. It provides:
 
 - Username/password sessions using HttpOnly cookies
-- Cloud progress, favorites, avatars, streaks, and leaderboards
-- Suggestions and authenticated time analytics
+- Cloud progress, favorites, avatars, and streaks
+- One-time, server-issued quiz challenges and verified-only public rankings
+- Optional account-linked suggestions, account data export, permanent deletion,
+  privacy preferences, and consent-gated learning-time analytics
 - Real-time battle rooms using Durable Objects and hibernating WebSockets
 
 ## Runtime resources
@@ -21,6 +23,14 @@ custom domain so cookies remain first-party to JAKH.
 Password derivation runs inside a SQLite Durable Object so the strong PBKDF2
 work factor does not exceed the Free Worker HTTP CPU limit. Card scores and
 sync payloads are validated against the generated `src/card-index.json`.
+Verified challenges use only concise bilingual answers, keep answer commitments
+server-side, expire after 15 minutes, and can be submitted once. This prevents
+forged, changed, replayed, and implausibly fast scores; it is not remote
+proctoring and cannot prevent a player from looking up a public answer.
+
+Analytics defaults to off. The write itself is conditional on a current consent
+row, and scheduled cleanup enforces the documented retention windows. Signed-in
+suggestions are linked to an account only when the sender explicitly opts in.
 
 ## Validation
 

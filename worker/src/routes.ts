@@ -15,13 +15,14 @@ import {
   sha256,
   validatePassword,
 } from "./security.js";
+import { PRIVACY_NOTICE_VERSION } from "./privacy.js";
 import type { Env } from "./types.js";
 
 const AVATARS = new Set(["👤", "🦊", "🦉", "🐉", "⚡️", "🔥", "👻", "👽", "🦄", "🦁", "🐼", "👑", "🚀", "🧠", "🧙‍♂️", "👾"]);
 const ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 const MAX_SYNC_ITEMS = 100;
-const SCHEMA_VERSION = "1";
+const SCHEMA_VERSION = "3";
 
 interface UserPasswordRow {
   id: string;
@@ -68,7 +69,7 @@ export async function health(env: Env): Promise<Response> {
     return json({
       ok: true,
       service: "jakh-api",
-      version: "1.2.0",
+      version: "1.4.0",
       schema: SCHEMA_VERSION,
     });
   } catch {
@@ -482,34 +483,48 @@ export async function analytics(request: Request, env: Env): Promise<Response> {
   }
   const timestamp = now();
   const activityDate = timestamp.slice(0, 10);
-  await env.DB.prepare(
+  const recorded = await env.DB.prepare(
     `INSERT INTO analytics_daily (user_id, page_slug, activity_date, time_spent, updated_at)
-     VALUES (?, ?, ?, ?, ?)
+     SELECT ?, ?, ?, ?, ?
+      WHERE EXISTS (
+        SELECT 1
+          FROM privacy_preferences
+         WHERE user_id = ?
+           AND usage_analytics_enabled = 1
+           AND notice_version = ?
+      )
      ON CONFLICT(user_id, page_slug, activity_date) DO UPDATE SET
        time_spent = MIN(86400, analytics_daily.time_spent + excluded.time_spent),
-       updated_at = excluded.updated_at`,
-  ).bind(user.id, pageSlug, activityDate, timeSpent, timestamp).run();
-  return json({ success: true });
-}
-
-export async function leaderboard(_env: Env): Promise<Response> {
-  return json({
-    status: "paused",
-    scoreType: "unverified-disabled",
-    leaderboard: [],
-  }, 200, { "cache-control": "public, max-age=30" });
+       updated_at = excluded.updated_at
+     RETURNING user_id`,
+  ).bind(
+    user.id,
+    pageSlug,
+    activityDate,
+    timeSpent,
+    timestamp,
+    user.id,
+    PRIVACY_NOTICE_VERSION,
+  ).first<{ user_id: string }>();
+  return json({ success: true, recorded: recorded?.user_id === user.id });
 }
 
 export async function suggestion(request: Request, env: Env): Promise<Response> {
   const ipHash = await requestRateKey(request, env, "suggestion");
   await enforceRateLimit(env, ipHash, 5, 60 * 60);
-  const body = await parseJson<{ text?: unknown; email?: unknown }>(request, 8_192);
+  const body = await parseJson<{
+    text?: unknown;
+    email?: unknown;
+    saveWithAccount?: unknown;
+  }>(request, 8_192);
+  const user = body.saveWithAccount === true ? await requireUser(request, env) : null;
   if (typeof body.text !== "string") throw new ApiError(400, "Suggestion text is required");
   const text = body.text.trim();
   if (text.length < 5 || text.length > 2_000) throw new ApiError(400, "Suggestion must be 5–2,000 characters");
   const email = normalizeEmail(body.email);
   await env.DB.prepare(
-    "INSERT INTO suggestions (id, text, email, ip_hash, created_at) VALUES (?, ?, ?, ?, ?)",
-  ).bind(randomToken(18), text, email, ipHash, now()).run();
-  return json({ success: true }, 201);
+    `INSERT INTO suggestions (id, user_id, text, email, ip_hash, created_at)
+     VALUES (?, ?, ?, ?, ?, ?)`,
+  ).bind(randomToken(18), user?.id || null, text, email, ipHash, now()).run();
+  return json({ success: true, savedWithAccount: Boolean(user) }, 201);
 }

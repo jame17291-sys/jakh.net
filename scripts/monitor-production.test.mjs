@@ -46,7 +46,9 @@ function staticBody(pathname) {
     const urls = [
       "https://jakh.net/collections",
       "https://jakh.net/ar/alghaz-ma-alhal/",
-      ...Array.from({ length: 81 }, (_, index) => `https://jakh.net/test-${index}`),
+      "https://jakh.net/ar/topics/science/",
+      "https://jakh.net/privacy",
+      ...Array.from({ length: 136 }, (_, index) => `https://jakh.net/test-${index}`),
     ];
     return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
   }
@@ -56,6 +58,7 @@ function staticBody(pathname) {
   if (pathname === "/app.js") return "const endpoint = 'https://api.jakh.net';";
   if (pathname === "/site-i18n.js") return "window.JakhI18n = {};";
   if (pathname === "/game-i18n.js") return "window.JakhGameI18n = {};";
+  if (pathname === "/privacy-consent.js") return "window.JakhPrivacy = {};";
   if (pathname === "/styles.css") return ":root { color-scheme: light; }";
   if (pathname === "/sw.js") return "self.addEventListener('fetch', () => {});";
   return null;
@@ -93,8 +96,8 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
       response.end(JSON.stringify({
         ok: true,
         service: "jakh-api",
-        version: "1.2.0",
-        schema: "1",
+        version: "1.4.0",
+        schema: "3",
       }));
       return;
     }
@@ -105,8 +108,8 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
         apiHeaders(brokenCors ? undefined : requestOrigin, "public, max-age=30"),
       );
       response.end(JSON.stringify({
-        status: "paused",
-        scoreType: "unverified-disabled",
+        status: "active",
+        scoreType: "server-verified",
         leaderboard: [],
       }));
       return;
@@ -183,7 +186,7 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, 33);
+    assert.equal(summary.results.length, 36);
   });
 });
 

@@ -93,11 +93,21 @@ export function parseCookies(request: Request): Map<string, string> {
   return cookies;
 }
 
-export function getSessionToken(request: Request): string | null {
+export function getSessionToken(request: Request, configuredStaticOrigin = ""): string | null {
   const cookies = parseCookies(request);
   const url = new URL(request.url);
-  const localDevelopment = url.protocol === "http:"
-    && (url.hostname === "localhost" || url.hostname === "127.0.0.1");
+  let configuredLocalDevelopment = false;
+  try {
+    const staticOrigin = new URL(configuredStaticOrigin);
+    configuredLocalDevelopment = staticOrigin.protocol === "http:"
+      && (staticOrigin.hostname === "localhost" || staticOrigin.hostname === "127.0.0.1");
+  } catch {
+    configuredLocalDevelopment = false;
+  }
+  const localDevelopment = (
+    url.protocol === "http:"
+    && (url.hostname === "localhost" || url.hostname === "127.0.0.1")
+  ) || configuredLocalDevelopment;
   const token = cookies.get("__Host-jakh_session")
     || (localDevelopment ? cookies.get("jakh_session") : null)
     || null;

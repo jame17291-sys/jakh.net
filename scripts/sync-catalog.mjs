@@ -6,6 +6,21 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogPath = path.join(root, "data", "catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 
+function conciseVerifiedAnswer(value) {
+  if (typeof value !== "string") return false;
+  const normalized = value
+    .normalize("NFKC")
+    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
+    .replace(/[أإآٱ]/gu, "ا")
+    .replace(/ى/gu, "ي")
+    .replace(/\p{P}+/gu, " ")
+    .replace(/\s+/gu, " ")
+    .trim();
+  return normalized.length > 0
+    && normalized.length <= 96
+    && normalized.split(" ").length <= 14;
+}
+
 const categoriesBySlug = new Map(
   (catalog.categories || []).map((category) => [category.slug, category]),
 );
@@ -59,6 +74,10 @@ for (const category of catalog.categories || []) {
   category.cluster = structuredClone(section.title);
   category.href = `/${category.slug}`;
   category.count = cards.length;
+  category.verifiedQuestionCount = cards.filter((card) => (
+    conciseVerifiedAnswer(card.answer?.en)
+    && conciseVerifiedAnswer(card.answer?.ar)
+  )).length;
   category.difficultyCounts = Object.fromEntries(
     ["easy", "medium", "hard", "very-advanced"]
       .filter((difficulty) => difficultyCounts[difficulty])

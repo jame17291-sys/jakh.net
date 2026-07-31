@@ -30,15 +30,19 @@ jobs:
         run: |
           node scripts/sync-catalog.mjs --check
           node scripts/generate-seo-pages.mjs --check
+          node scripts/generate-search-index.mjs --check
+          node scripts/audit-question-bank.mjs --strict
           node scripts/validate-seo.mjs
           node scripts/validate-static.mjs
           node scripts/validate-bilingual.mjs
+          node --test scripts/monitor-production.test.mjs
 
       - name: Prepare artifact
         run: |
           mkdir _site
           rsync -a \
             --exclude='.git' \
+            --exclude='.gitignore' \
             --exclude='.github' \
             --exclude='scripts' \
             --exclude='worker' \

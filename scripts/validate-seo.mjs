@@ -321,6 +321,7 @@ const pages = htmlPaths.map((file) => {
     noindex,
     indexable: relative !== "404.html" && !noindex,
     htmlLanguage: (htmlTag ? attr(htmlTag, "lang") : "")?.toLowerCase() || "",
+    htmlDirection: (htmlTag ? attr(htmlTag, "dir") : "")?.toLowerCase() || "",
     body: extractTags(source, "body")[0],
     alternates,
     jsonLd: documents,
@@ -358,7 +359,40 @@ for (const page of pages) {
     fail(page.relative, "references obsolete assets/og-image.webp");
   }
 
-  for (const anchor of extractTags(page.source, "a")) {
+  if (/googletagmanager\.com\/gtag\/js/iu.test(page.source)) {
+    fail(page.relative, "loads Google Analytics before privacy consent");
+  }
+  const consentScripts = extractTags(page.source, "script").filter((tag) => {
+    const source = normalizeSpace(attr(tag, "src"));
+    if (!source) return false;
+    try {
+      return new URL(source, `${siteOrigin}${page.route}`).pathname === "/privacy-consent.js";
+    } catch {
+      return false;
+    }
+  });
+  if (consentScripts.length !== 1) {
+    fail(page.relative, `expected exactly one privacy-consent.js loader, found ${consentScripts.length}`);
+  } else if (!/[?&]v=\d+/u.test(attr(consentScripts[0], "src") || "")) {
+    fail(page.relative, "privacy-consent.js loader must be versioned");
+  }
+
+  const anchors = extractTags(page.source, "a");
+  if (page.source.includes("site-footer")) {
+    const hasPrivacyLink = anchors.some((anchor) => {
+      const href = normalizeSpace(attr(anchor, "href"));
+      if (!href) return false;
+      try {
+        const target = new URL(href, page.canonical || `${siteOrigin}${page.route}`);
+        return target.origin === siteOrigin && target.pathname.replace(/\/+$/u, "") === "/privacy";
+      } catch {
+        return false;
+      }
+    });
+    if (!hasPrivacyLink) fail(page.relative, "global footer is missing the /privacy link");
+  }
+
+  for (const anchor of anchors) {
     const href = normalizeSpace(attr(anchor, "href"));
     if (
       !href
@@ -392,19 +426,60 @@ for (const page of pages) {
 
 const sitemapPath = path.join(root, "sitemap.xml");
 const sitemapUrls = [];
+const sitemapAlternateMaps = new Map();
 if (!fs.existsSync(sitemapPath)) {
   fail("sitemap.xml", "file is missing");
 } else {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
+  if (!/xmlns:xhtml=["']http:\/\/www\.w3\.org\/1999\/xhtml["']/u.test(sitemap)) {
+    fail("sitemap.xml", "missing the xhtml namespace required for hreflang links");
+  }
   for (const match of sitemap.matchAll(/<loc\b[^>]*>([\s\S]*?)<\/loc>/giu)) {
     const raw = normalizeSpace(decodeHtml(match[1]));
     const normalized = parseSiteUrl(raw, "sitemap.xml", "<loc>");
     if (normalized) sitemapUrls.push(normalized);
   }
+  for (const match of sitemap.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/giu)) {
+    const block = match[1];
+    const locMatches = [...block.matchAll(/<loc\b[^>]*>([\s\S]*?)<\/loc>/giu)];
+    if (locMatches.length !== 1) {
+      fail("sitemap.xml", `each <url> needs exactly one <loc>; found ${locMatches.length}`);
+      continue;
+    }
+    const loc = parseSiteUrl(
+      normalizeSpace(decodeHtml(locMatches[0][1])),
+      "sitemap.xml",
+      "<url>/<loc>",
+    );
+    if (!loc) continue;
+    const alternates = new Map();
+    for (const link of extractTags(block, "xhtml:link")) {
+      if (!hasRel(link, "alternate")) continue;
+      const language = normalizeSpace(attr(link, "hreflang")).toLowerCase();
+      if (!language) {
+        fail("sitemap.xml", `${loc} has an alternate without hreflang`);
+        continue;
+      }
+      if (alternates.has(language)) {
+        fail("sitemap.xml", `${loc} duplicates hreflang="${language}"`);
+        continue;
+      }
+      const target = parseSiteUrl(
+        attr(link, "href") || "",
+        "sitemap.xml",
+        `${loc} hreflang="${language}"`,
+      );
+      if (target) alternates.set(language, target);
+    }
+    sitemapAlternateMaps.set(loc, alternates);
+  }
   if (!sitemapUrls.length) fail("sitemap.xml", "contains no <loc> URLs");
 }
 
 const uniqueSitemapUrls = new Set(sitemapUrls);
+if (!uniqueSitemapUrls.has(`${siteOrigin}/privacy`)) {
+  fail("sitemap.xml", `must include ${siteOrigin}/privacy`);
+}
 if (uniqueSitemapUrls.size !== sitemapUrls.length) {
   const seen = new Set();
   const duplicates = new Set();
@@ -457,8 +532,12 @@ for (const section of catalog?.sections || []) {
 const categoryBodyPages = pages.filter(
   (page) => page.body && attr(page.body, "data-page") === "category",
 );
-if (categoryBodyPages.length !== 56) {
-  fail("category pages", `expected exactly 56 data-page="category" pages, found ${categoryBodyPages.length}`);
+const expectedCategoryPageCount = categories.length * 2;
+if (categoryBodyPages.length !== expectedCategoryPageCount) {
+  fail(
+    "category pages",
+    `expected exactly ${expectedCategoryPageCount} localized data-page="category" pages, found ${categoryBodyPages.length}`,
+  );
 }
 
 function questionPartId(part) {
@@ -493,19 +572,6 @@ function breadcrumbItemUrl(item) {
 
 for (const category of categories) {
   if (!category?.slug) continue;
-  const scope = `${category.slug}.html`;
-  const page = pages.find((candidate) => candidate.relative === scope);
-  if (!page) {
-    fail(scope, "category page is missing");
-    continue;
-  }
-  if (attr(page.body || { attributes: new Map() }, "data-page") !== "category") {
-    fail(scope, 'body must declare data-page="category"');
-  }
-  if (attr(page.body || { attributes: new Map() }, "data-category") !== category.slug) {
-    fail(scope, `body data-category must be "${category.slug}"`);
-  }
-
   const dataPath = path.join(root, "data", `${category.slug}.json`);
   const cards = fs.existsSync(dataPath) ? readJson(dataPath, `data/${category.slug}.json`) : null;
   if (!Array.isArray(cards)) {
@@ -518,120 +584,164 @@ for (const category of categories) {
   }
   const expectedCards = cards.slice(0, 20);
   const expectedIds = expectedCards.map((card) => String(card?.id || ""));
-  const cardGrid = extractElementById(page.source, "cardGrid");
-  if (!cardGrid) {
-    fail(scope, "could not find a complete #cardGrid element");
-    continue;
-  }
-  const visibleCards = extractTags(cardGrid.inner, "article")
-    .filter((tag) => (attr(tag, "class") || "").split(/\s+/u).includes("riddle-card"));
-  const visibleIds = visibleCards.map((tag) => attr(tag, "data-id") || "");
-  if (visibleCards.length !== 20) {
-    fail(scope, `#cardGrid must contain exactly 20 static riddle cards, found ${visibleCards.length}`);
-  }
-  for (const [index, cardTag] of visibleCards.entries()) {
-    const classes = (attr(cardTag, "class") || "").split(/\s+/u);
-    if (
-      cardTag.attributes.has("hidden")
-      || attr(cardTag, "aria-hidden") === "true"
-      || classes.includes("hidden")
-    ) {
-      fail(scope, `static card ${index + 1} (${visibleIds[index] || "missing id"}) is hidden`);
-    }
-  }
-  if (JSON.stringify(visibleIds) !== JSON.stringify(expectedIds)) {
-    fail(
-      scope,
-      `static card order must equal the first 20 data IDs; expected [${expectedIds.join(", ")}], found [${visibleIds.join(", ")}]`,
-    );
-  }
+  const variants = [
+    { language: "en", direction: "ltr", relative: `${category.slug}.html` },
+    { language: "ar", direction: "rtl", relative: `ar/topics/${category.slug}/index.html` },
+  ];
 
-  const quizzes = page.nodes.filter((node) => hasType(node, "Quiz"));
-  if (quizzes.length !== 1) {
-    fail(scope, `expected exactly one Quiz JSON-LD node, found ${quizzes.length}`);
-  } else {
-    const quiz = quizzes[0];
-    if (quiz.url !== page.canonical) {
-      fail(scope, `Quiz URL must equal canonical "${page.canonical}", found "${quiz.url}"`);
+  for (const variant of variants) {
+    const { language, direction, relative: scope } = variant;
+    const page = pages.find((candidate) => candidate.relative === scope);
+    if (!page) {
+      fail(scope, `localized ${language} category page is missing`);
+      continue;
     }
-    if (!Array.isArray(quiz.hasPart) || quiz.hasPart.length !== 20) {
-      fail(scope, `Quiz hasPart must contain exactly 20 questions, found ${quiz.hasPart?.length ?? 0}`);
-    } else {
-      const partIds = quiz.hasPart.map(questionPartId);
-      if (JSON.stringify(partIds) !== JSON.stringify(expectedIds)) {
-        fail(
-          scope,
-          `Quiz hasPart IDs must match visible cards in order; expected [${expectedIds.join(", ")}], found [${partIds.join(", ")}]`,
-        );
-      }
-      for (const [index, part] of quiz.hasPart.entries()) {
-        const card = expectedCards[index];
-        if (!hasType(part, "Question")) {
-          fail(scope, `Quiz hasPart ${index + 1} must have @type "Question"`);
-        }
-        const questionText = part?.text ?? part?.name;
-        if (normalizeSpace(questionText) !== normalizeSpace(card?.question?.en)) {
-          fail(scope, `Quiz hasPart ${index + 1} text does not match data/${category.slug}.json`);
-        }
-        const { answer, text } = acceptedAnswerText(part);
-        if (!answer || !hasType(answer, "Answer")) {
-          fail(scope, `Quiz hasPart ${index + 1} needs an acceptedAnswer of @type "Answer"`);
-        }
-        if (normalizeSpace(text) !== normalizeSpace(card?.answer?.en)) {
-          fail(scope, `Quiz hasPart ${index + 1} acceptedAnswer does not match data/${category.slug}.json`);
-        }
+    const body = page.body || { attributes: new Map() };
+    if (attr(body, "data-page") !== "category") {
+      fail(scope, 'body must declare data-page="category"');
+    }
+    if (attr(body, "data-category") !== category.slug) {
+      fail(scope, `body data-category must be "${category.slug}"`);
+    }
+    if (attr(body, "data-route-lang") !== language) {
+      fail(scope, `body data-route-lang must be "${language}"`);
+    }
+    if (page.htmlLanguage !== language) {
+      fail(scope, `html lang must be "${language}", found "${page.htmlLanguage}"`);
+    }
+    if (page.htmlDirection !== direction) {
+      fail(scope, `html dir must be "${direction}", found "${page.htmlDirection}"`);
+    }
+
+    const cardGrid = extractElementById(page.source, "cardGrid");
+    if (!cardGrid) {
+      fail(scope, "could not find a complete #cardGrid element");
+      continue;
+    }
+    const visibleCards = extractTags(cardGrid.inner, "article")
+      .filter((tag) => (attr(tag, "class") || "").split(/\s+/u).includes("riddle-card"));
+    const visibleIds = visibleCards.map((tag) => attr(tag, "data-id") || "");
+    if (visibleCards.length !== 20) {
+      fail(scope, `#cardGrid must contain exactly 20 static riddle cards, found ${visibleCards.length}`);
+    }
+    for (const [index, cardTag] of visibleCards.entries()) {
+      const classes = (attr(cardTag, "class") || "").split(/\s+/u);
+      if (
+        cardTag.attributes.has("hidden")
+        || attr(cardTag, "aria-hidden") === "true"
+        || classes.includes("hidden")
+      ) {
+        fail(scope, `static card ${index + 1} (${visibleIds[index] || "missing id"}) is hidden`);
       }
     }
-  }
+    if (JSON.stringify(visibleIds) !== JSON.stringify(expectedIds)) {
+      fail(
+        scope,
+        `static card order must equal the first 20 data IDs; expected [${expectedIds.join(", ")}], found [${visibleIds.join(", ")}]`,
+      );
+    }
+    const decodedCardGrid = decodeHtml(cardGrid.inner);
+    for (const [index, card] of expectedCards.entries()) {
+      if (!decodedCardGrid.includes(String(card?.question?.[language] || ""))) {
+        fail(scope, `static card ${index + 1} is missing question.${language}`);
+      }
+      if (!decodedCardGrid.includes(String(card?.answer?.[language] || ""))) {
+        fail(scope, `static card ${index + 1} is missing answer.${language}`);
+      }
+    }
 
-  const breadcrumbs = page.nodes.filter((node) => hasType(node, "BreadcrumbList"));
-  if (breadcrumbs.length !== 1) {
-    fail(scope, `expected exactly one BreadcrumbList JSON-LD node, found ${breadcrumbs.length}`);
-  } else {
-    const items = breadcrumbs[0].itemListElement;
-    const section = sectionBySlug.get(category.slug);
-    if (!section) {
-      fail(scope, "category has no catalog section for its breadcrumb");
-    } else if (!Array.isArray(items) || items.length !== 4) {
-      fail(scope, `breadcrumb must contain exactly 4 levels, found ${items?.length ?? 0}`);
+    const quizzes = page.nodes.filter((node) => hasType(node, "Quiz"));
+    if (quizzes.length !== 1) {
+      fail(scope, `expected exactly one Quiz JSON-LD node, found ${quizzes.length}`);
     } else {
-      const expectedNames = ["Home", "Mind Lab", section.title?.en, category.title?.en];
-      for (const [index, item] of items.entries()) {
-        if (!hasType(item, "ListItem")) {
-          fail(scope, `breadcrumb level ${index + 1} must have @type "ListItem"`);
-        }
-        if (item.position !== index + 1) {
-          fail(scope, `breadcrumb level ${index + 1} has incorrect position "${item.position}"`);
-        }
-        if (normalizeSpace(item.name) !== normalizeSpace(expectedNames[index])) {
+      const quiz = quizzes[0];
+      if (quiz.url !== page.canonical) {
+        fail(scope, `Quiz URL must equal canonical "${page.canonical}", found "${quiz.url}"`);
+      }
+      if (quiz.inLanguage !== language) {
+        fail(scope, `Quiz inLanguage must be "${language}", found "${quiz.inLanguage}"`);
+      }
+      if (!Array.isArray(quiz.hasPart) || quiz.hasPart.length !== 20) {
+        fail(scope, `Quiz hasPart must contain exactly 20 questions, found ${quiz.hasPart?.length ?? 0}`);
+      } else {
+        const partIds = quiz.hasPart.map(questionPartId);
+        if (JSON.stringify(partIds) !== JSON.stringify(expectedIds)) {
           fail(
             scope,
-            `breadcrumb level ${index + 1} must be "${expectedNames[index]}", found "${item.name}"`,
+            `Quiz hasPart IDs must match visible cards in order; expected [${expectedIds.join(", ")}], found [${partIds.join(", ")}]`,
           );
         }
+        for (const [index, part] of quiz.hasPart.entries()) {
+          const card = expectedCards[index];
+          if (!hasType(part, "Question")) {
+            fail(scope, `Quiz hasPart ${index + 1} must have @type "Question"`);
+          }
+          const questionText = part?.text ?? part?.name;
+          if (normalizeSpace(questionText) !== normalizeSpace(card?.question?.[language])) {
+            fail(scope, `Quiz hasPart ${index + 1} text does not match question.${language}`);
+          }
+          const { answer, text } = acceptedAnswerText(part);
+          if (!answer || !hasType(answer, "Answer")) {
+            fail(scope, `Quiz hasPart ${index + 1} needs an acceptedAnswer of @type "Answer"`);
+          }
+          if (normalizeSpace(text) !== normalizeSpace(card?.answer?.[language])) {
+            fail(scope, `Quiz hasPart ${index + 1} acceptedAnswer does not match answer.${language}`);
+          }
+        }
       }
-      const itemUrls = items.map(breadcrumbItemUrl);
-      if (itemUrls[0] !== `${siteOrigin}/`) {
-        fail(scope, `breadcrumb Home item must be "${siteOrigin}/"`);
-      }
-      if (itemUrls[1] !== `${siteOrigin}/mind-lab`) {
-        fail(scope, `breadcrumb Mind Lab item must be "${siteOrigin}/mind-lab"`);
-      }
-      const expectedSectionAnchor = `${siteOrigin}/mind-lab#section-${section.key}`;
-      const sectionUrl = parseSiteUrl(
-        itemUrls[2],
-        scope,
-        "section breadcrumb item",
-        { allowHash: true },
-      );
-      if (sectionUrl !== expectedSectionAnchor) {
-        fail(
+    }
+
+    const breadcrumbs = page.nodes.filter((node) => hasType(node, "BreadcrumbList"));
+    if (breadcrumbs.length !== 1) {
+      fail(scope, `expected exactly one BreadcrumbList JSON-LD node, found ${breadcrumbs.length}`);
+    } else {
+      const items = breadcrumbs[0].itemListElement;
+      const section = sectionBySlug.get(category.slug);
+      if (!section) {
+        fail(scope, "category has no catalog section for its breadcrumb");
+      } else if (!Array.isArray(items) || items.length !== 4) {
+        fail(scope, `breadcrumb must contain exactly 4 levels, found ${items?.length ?? 0}`);
+      } else {
+        const expectedNames = language === "ar"
+          ? ["الرئيسية", "مختبر العقل", section.title?.ar, category.title?.ar]
+          : ["Home", "Mind Lab", section.title?.en, category.title?.en];
+        for (const [index, item] of items.entries()) {
+          if (!hasType(item, "ListItem")) {
+            fail(scope, `breadcrumb level ${index + 1} must have @type "ListItem"`);
+          }
+          if (item.position !== index + 1) {
+            fail(scope, `breadcrumb level ${index + 1} has incorrect position "${item.position}"`);
+          }
+          if (normalizeSpace(item.name) !== normalizeSpace(expectedNames[index])) {
+            fail(
+              scope,
+              `breadcrumb level ${index + 1} must be "${expectedNames[index]}", found "${item.name}"`,
+            );
+          }
+        }
+        const itemUrls = items.map(breadcrumbItemUrl);
+        if (itemUrls[0] !== `${siteOrigin}/`) {
+          fail(scope, `breadcrumb Home item must be "${siteOrigin}/"`);
+        }
+        if (itemUrls[1] !== `${siteOrigin}/mind-lab`) {
+          fail(scope, `breadcrumb Mind Lab item must be "${siteOrigin}/mind-lab"`);
+        }
+        const expectedSectionAnchor = `${siteOrigin}/mind-lab#section-${section.key}`;
+        const sectionUrl = parseSiteUrl(
+          itemUrls[2],
           scope,
-          `section breadcrumb must target "${expectedSectionAnchor}"`,
+          "section breadcrumb item",
+          { allowHash: true },
         );
-      }
-      if (itemUrls[3] !== page.canonical) {
-        fail(scope, `breadcrumb category item must equal canonical "${page.canonical}"`);
+        if (sectionUrl !== expectedSectionAnchor) {
+          fail(
+            scope,
+            `section breadcrumb must target "${expectedSectionAnchor}"`,
+          );
+        }
+        if (itemUrls[3] !== page.canonical) {
+          fail(scope, `breadcrumb category item must equal canonical "${page.canonical}"`);
+        }
       }
     }
   }
@@ -662,6 +772,73 @@ function alternateMap(page) {
 }
 
 const alternateMaps = new Map(pages.map((page) => [page, alternateMap(page)]));
+
+function assertLanguageCluster(scope, actual, expected, sourceLabel) {
+  if (!actual) {
+    fail(scope, `${sourceLabel} is missing`);
+    return;
+  }
+  if (actual.size !== expected.size) {
+    fail(scope, `${sourceLabel} must contain exactly ${expected.size} hreflang links, found ${actual.size}`);
+  }
+  for (const [language, target] of expected) {
+    if (actual.get(language) !== target) {
+      fail(
+        scope,
+        `${sourceLabel} hreflang="${language}" must target "${target}", found "${actual.get(language)}"`,
+      );
+    }
+  }
+  for (const language of actual.keys()) {
+    if (!expected.has(language)) fail(scope, `${sourceLabel} has unexpected hreflang="${language}"`);
+  }
+}
+
+const expectedCategoryLocalePages = new Map();
+for (const category of categories) {
+  if (!category?.slug) continue;
+  const enCanonical = `${siteOrigin}/${category.slug}`;
+  const arCanonical = `${siteOrigin}/ar/topics/${category.slug}/`;
+  const cluster = new Map([
+    ["en", enCanonical],
+    ["ar", arCanonical],
+    ["x-default", enCanonical],
+  ]);
+  expectedCategoryLocalePages.set(`${category.slug}.html`, {
+    language: "en",
+    canonical: enCanonical,
+    cluster,
+  });
+  expectedCategoryLocalePages.set(`ar/topics/${category.slug}/index.html`, {
+    language: "ar",
+    canonical: arCanonical,
+    cluster,
+  });
+}
+
+for (const [relative, expected] of expectedCategoryLocalePages) {
+  const page = pages.find((candidate) => candidate.relative === relative);
+  if (!page) continue;
+  if (page.canonical !== expected.canonical) {
+    fail(relative, `canonical must be "${expected.canonical}", found "${page.canonical}"`);
+  }
+  assertLanguageCluster(relative, alternateMaps.get(page), expected.cluster, "HTML head");
+  assertLanguageCluster(relative, sitemapAlternateMaps.get(page.canonical), expected.cluster, "sitemap entry");
+  for (const language of ["en", "ar"]) {
+    const targetPage = canonicalToPage.get(expected.cluster.get(language));
+    if (!targetPage) {
+      fail(relative, `hreflang="${language}" target has no canonical HTML page`);
+      continue;
+    }
+    assertLanguageCluster(
+      relative,
+      alternateMaps.get(targetPage),
+      expected.cluster,
+      `${targetPage.relative} reciprocal HTML head`,
+    );
+  }
+}
+
 const expectedLocalePages = new Map();
 for (const collection of SEO_COLLECTIONS) {
   const enSlug = collection?.slug?.en || collection?.slugs?.en;
@@ -692,7 +869,7 @@ for (const collection of SEO_COLLECTIONS) {
 }
 
 const localeCollectionPages = pages.filter(
-  (page) => /^https:\/\/jakh\.net\/(?:en|ar)\//u.test(page.canonical || ""),
+  (page) => /^https:\/\/jakh\.net\/(?:en\/|ar\/(?!topics\/))/u.test(page.canonical || ""),
 );
 if (localeCollectionPages.length !== expectedLocalePages.size) {
   fail(
@@ -719,19 +896,8 @@ for (const [relative, expected] of expectedLocalePages) {
     fail(relative, `html lang must be "${expected.language}", found "${page.htmlLanguage}"`);
   }
   const map = alternateMaps.get(page);
-  if (map.size !== 3) {
-    fail(relative, `expected exactly 3 hreflang links, found ${map.size}`);
-  }
-  for (const [language, target] of expected.cluster) {
-    if (map.get(language) !== target) {
-      fail(relative, `hreflang="${language}" must target "${target}", found "${map.get(language)}"`);
-    }
-  }
-  for (const language of map.keys()) {
-    if (!expected.cluster.has(language)) {
-      fail(relative, `unexpected hreflang="${language}"`);
-    }
-  }
+  assertLanguageCluster(relative, map, expected.cluster, "HTML head");
+  assertLanguageCluster(relative, sitemapAlternateMaps.get(page.canonical), expected.cluster, "sitemap entry");
   for (const language of ["en", "ar"]) {
     const targetPage = canonicalToPage.get(expected.cluster.get(language));
     if (!targetPage) {
@@ -753,10 +919,14 @@ for (const [relative, expected] of expectedLocalePages) {
 const localeCollectionSet = new Set(
   pages.filter((page) => expectedLocalePages.has(page.relative)),
 );
+const localizedClusterSet = new Set([
+  ...localeCollectionSet,
+  ...pages.filter((page) => expectedCategoryLocalePages.has(page.relative)),
+]);
 for (const page of pages) {
   const map = alternateMaps.get(page);
   if (!map.size) continue;
-  if (!localeCollectionSet.has(page)) {
+  if (!localizedClusterSet.has(page)) {
     const targets = [...map.values()];
     if (new Set(targets).size < targets.length) {
       fail(page.relative, "false hreflang annotations point multiple languages to the same URL");

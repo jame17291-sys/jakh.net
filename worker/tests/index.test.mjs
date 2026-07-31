@@ -43,6 +43,7 @@ test("unsafe full-handler requests require an allowed Origin", async () => {
 
 test("scheduled dispatch keeps cleanup inside the event lifetime", async () => {
   const promises = [];
+  const batchSizes = [];
   const cleanupEnv = {
     ...env(),
     DB: {
@@ -54,7 +55,7 @@ test("scheduled dispatch keeps cleanup inside the event lifetime", async () => {
         };
       },
       async batch(items) {
-        assert.equal(items.length, 2);
+        batchSizes.push(items.length);
         return items.map(() => ({ success: true }));
       },
     },
@@ -67,4 +68,5 @@ test("scheduled dispatch keeps cleanup inside the event lifetime", async () => {
   );
   assert.equal(promises.length, 1);
   await Promise.all(promises);
+  assert.deepEqual(batchSizes.sort(), [2, 2, 3]);
 });

@@ -120,6 +120,11 @@ function categoryGradient(slug) {
   return `linear-gradient(135deg, color-mix(in srgb, ${color} 22%, white), color-mix(in srgb, ${color} 42%, #eef5fb))`;
 }
 
+function categoryRouteForLanguage(slug, lang) {
+  const safeSlug = encodeURIComponent(String(slug || '').trim());
+  return lang === 'ar' ? `/ar/topics/${safeSlug}/` : `/${safeSlug}`;
+}
+
 const UI = {
   en: {
     brandSubtitle: 'bilingual categories, teams, and saved progress',
@@ -230,6 +235,7 @@ const UI = {
     homeSocialLabel: 'JAKH social pages',
     footerCollections: 'Collections',
     footerAbout: 'About & content standards',
+    footerPrivacy: 'Privacy Centre',
     footerInfoLabel: 'JAKH information',
     socialInstagramLabel: 'JAKH Riddles on Instagram',
     socialFacebookLabel: 'JAKH Riddles on Facebook',
@@ -315,10 +321,10 @@ const UI = {
     openPage: 'Open page',
     savedProgress: 'Saved progress',
     guestTitle: 'Create an account',
-    guestText: 'Create a free account to save your progress, favorites, and score across all your devices.',
+    guestText: 'Create a free account to save your progress, favorites, and practice score across all your devices.',
     createLocalProfile: 'Create account',
     signedInAs: 'Signed in as',
-    score: 'Score',
+    score: 'Practice points',
     solved: 'Solved',
     favorites: 'Favorites',
     authSignInTab: 'Sign in',
@@ -361,6 +367,8 @@ const UI = {
     audioOff: 'Audio off',
     suggestTitle: 'Got a topic idea?',
     suggestSub: 'Suggest a new riddle category or topic and we\'ll consider adding it.',
+    suggestPrivacy: 'If you tick the account option while signed in, the suggestion is included in export and deletion. Otherwise it stays unlinked. Retained up to 12 months.',
+    suggestLinkAccount: 'Link this suggestion to my signed-in account',
     suggestPlaceholder: 'Your idea…',
     suggestEmailPlaceholder: 'Email (optional)',
     suggestSubmit: 'Submit Idea',
@@ -427,11 +435,34 @@ const UI = {
     errorCategoryUnavailable: 'That category is unavailable.',
     errorNoQuestions: 'No questions are available for this selection.',
     errorInvalidRoomCode: 'Enter a valid room code.',
-    leaderboardTitle: 'Leaderboard',
-    leaderboardTop: 'Verified rankings are coming',
-    leaderboardDisclaimer: 'Public rankings are paused while we build server-verified scoring.',
-    leaderboardEmpty: 'Your personal progress still works. Fair community rankings will return after verification is ready.',
+    leaderboardTitle: 'Verified leaderboard',
+    leaderboardTop: 'Fair, server-verified rankings',
+    leaderboardDisclaimer: 'Only one-time challenges issued and scored by JAKH enter this board. Your practice points stay private.',
+    leaderboardEmpty: 'No verified scores yet. Start a challenge and set the first fair score.',
     leaderboardLoadError: 'Could not load the leaderboard.',
+    verifiedStartTitle: 'Take a verified challenge',
+    verifiedStartText: 'Choose a topic and answer 10 questions in one sitting. You have 15 minutes; answers are checked by the server.',
+    verifiedCategory: 'Challenge topic',
+    verifiedStart: 'Start verified challenge',
+    verifiedSignIn: 'Sign in to enter the verified leaderboard.',
+    verifiedAnswerAll: 'Answer all 10 questions before submitting.',
+    verifiedSubmit: 'Submit verified answers',
+    verifiedCancel: 'Cancel challenge',
+    verifiedQuestion: 'Question {number} of {total}',
+    verifiedAnswerPlaceholder: 'Type your answer',
+    verifiedResultTitle: 'Verified result',
+    verifiedResult: '{correct}/{total} correct · {score} points',
+    verifiedResultNote: 'This score is verified and eligible for the public leaderboard.',
+    verifiedTryAgain: 'Try another challenge',
+    verifiedStarting: 'Starting…',
+    verifiedSubmitting: 'Checking answers…',
+    verifiedChallengeError: 'Could not start the verified challenge.',
+    verifiedSubmitError: 'Could not verify these answers.',
+    verifiedTooFast: 'Take a little more time before submitting.',
+    verifiedExpired: 'This challenge expired. Start a new one.',
+    verifiedReplayed: 'This challenge has already been submitted.',
+    verifiedTampered: 'The challenge changed and cannot be verified. Start again.',
+    verifiedUnavailable: 'This topic is not available for verified scoring yet.',
     pointsShort: 'pts',
     globalSearchLabel: 'Global search',
     globalSearchPlaceholder: 'Search all 3,500+ questions…',
@@ -555,6 +586,7 @@ const UI = {
     homeSocialLabel: 'صفحات JAKH الاجتماعية',
     footerCollections: 'المجموعات',
     footerAbout: 'عن JAKH ومعايير المحتوى',
+    footerPrivacy: 'مركز الخصوصية',
     footerInfoLabel: 'معلومات JAKH',
     socialInstagramLabel: 'ألغاز JAKH على إنستغرام',
     socialFacebookLabel: 'ألغاز JAKH على فيسبوك',
@@ -640,10 +672,10 @@ const UI = {
     openPage: 'افتح الصفحة',
     savedProgress: 'تقدم محفوظ',
     guestTitle: 'أنشئ حسابًا',
-    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدمك ومفضلتك ونقاطك على جميع أجهزتك.',
+    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدمك ومفضلتك ونقاط التدريب على جميع أجهزتك.',
     createLocalProfile: 'أنشئ حسابًا',
     signedInAs: 'مسجل باسم',
-    score: 'النقاط',
+    score: 'نقاط التدريب',
     solved: 'المحلول',
     favorites: 'المفضلة',
     authSignInTab: 'تسجيل الدخول',
@@ -686,6 +718,8 @@ const UI = {
     audioOff: 'الصوت معطّل',
     suggestTitle: 'هل لديك فكرة لموضوع جديد؟',
     suggestSub: 'اقترح فئة أو موضوعًا جديدًا وسنأخذه بعين الاعتبار.',
+    suggestPrivacy: 'إذا اخترت ربطه أثناء تسجيل الدخول فسيظهر ضمن التصدير والحذف. وإلا يبقى غير مرتبط، ويستمر الاحتفاظ حتى 12 شهرًا.',
+    suggestLinkAccount: 'اربط هذا الاقتراح بحسابي المسجّل',
     suggestPlaceholder: 'فكرتك…',
     suggestEmailPlaceholder: 'البريد الإلكتروني (اختياري)',
     suggestSubmit: 'أرسل الفكرة',
@@ -749,11 +783,34 @@ const UI = {
     errorCategoryUnavailable: 'هذه الفئة غير متاحة.',
     errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
     errorInvalidRoomCode: 'أدخل رمز غرفة صالحًا.',
-    leaderboardTitle: 'لوحة المتصدرين',
-    leaderboardTop: 'الترتيب الموثّق قادم',
-    leaderboardDisclaimer: 'أوقفنا الترتيب العام مؤقتًا حتى ننجز نظام نتائج موثّقًا من الخادم.',
-    leaderboardEmpty: 'يستمر تقدمك الشخصي بالعمل. سيعود ترتيب المجتمع العادل بعد اكتمال التحقق.',
+    leaderboardTitle: 'لوحة النتائج الموثّقة',
+    leaderboardTop: 'ترتيب عادل وموثّق من الخادم',
+    leaderboardDisclaimer: 'لا تظهر هنا إلا تحديات JAKH المؤقتة التي يصدرها الخادم ويصححها. تبقى نقاط التدريب خاصة بك.',
+    leaderboardEmpty: 'لا توجد نتائج موثّقة بعد. ابدأ تحديًا وسجّل أول نتيجة عادلة.',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
+    verifiedStartTitle: 'ابدأ تحديًا موثّقًا',
+    verifiedStartText: 'اختر موضوعًا وأجب عن 10 أسئلة في جلسة واحدة. لديك 15 دقيقة، والخادم يتحقق من الإجابات.',
+    verifiedCategory: 'موضوع التحدي',
+    verifiedStart: 'ابدأ التحدي الموثّق',
+    verifiedSignIn: 'سجّل الدخول للمشاركة في لوحة النتائج الموثّقة.',
+    verifiedAnswerAll: 'أجب عن الأسئلة العشرة قبل الإرسال.',
+    verifiedSubmit: 'أرسل الإجابات للتحقق',
+    verifiedCancel: 'إلغاء التحدي',
+    verifiedQuestion: 'السؤال {number} من {total}',
+    verifiedAnswerPlaceholder: 'اكتب إجابتك',
+    verifiedResultTitle: 'نتيجة موثّقة',
+    verifiedResult: '{correct}/{total} صحيحة · {score} نقطة',
+    verifiedResultNote: 'هذه النتيجة موثّقة ومؤهلة للظهور في لوحة المتصدرين.',
+    verifiedTryAgain: 'جرّب تحديًا آخر',
+    verifiedStarting: 'جارٍ البدء…',
+    verifiedSubmitting: 'جارٍ التحقق…',
+    verifiedChallengeError: 'تعذّر بدء التحدي الموثّق.',
+    verifiedSubmitError: 'تعذّر التحقق من هذه الإجابات.',
+    verifiedTooFast: 'خذ وقتًا أطول قليلًا قبل الإرسال.',
+    verifiedExpired: 'انتهت صلاحية هذا التحدي. ابدأ تحديًا جديدًا.',
+    verifiedReplayed: 'تم إرسال هذا التحدي من قبل.',
+    verifiedTampered: 'تغيّر التحدي ولا يمكن توثيقه. ابدأ من جديد.',
+    verifiedUnavailable: 'هذا الموضوع غير متاح للنتائج الموثّقة حاليًا.',
     pointsShort: 'نقطة',
     globalSearchLabel: 'البحث الشامل',
     globalSearchPlaceholder: 'ابحث في أكثر من 3,500 سؤال…',
@@ -784,6 +841,7 @@ const state = {
   subcategory: 'all',
   apiAvailable: false,
   dbUser: null,
+  accountAnalyticsAllowed: false,
   flipped: new Set(),
   cardPage: 1,
   streak: 0,
@@ -909,6 +967,18 @@ const API_ERROR_UI_KEYS = Object.freeze({
   BATTLE_CREATE_FAILED: 'errorBattleCreate',
   BATTLE_ROOM_ALLOCATION_FAILED: 'errorBattleCreate',
   INVALID_CATEGORY: 'errorInvalidCategory',
+  INVALID_VERIFIED_CHALLENGE: 'verifiedSubmitError',
+  INVALID_VERIFIED_ANSWER: 'verifiedSubmitError',
+  INVALID_VERIFIED_ANSWER_SET: 'verifiedAnswerAll',
+  VERIFIED_CATEGORY_UNAVAILABLE: 'verifiedUnavailable',
+  QUESTION_SOURCE_UNAVAILABLE: 'verifiedChallengeError',
+  QUESTION_SOURCE_INVALID: 'verifiedChallengeError',
+  VERIFIED_CHALLENGE_NOT_FOUND: 'verifiedExpired',
+  VERIFIED_CHALLENGE_REPLAYED: 'verifiedReplayed',
+  VERIFIED_CHALLENGE_EXPIRED: 'verifiedExpired',
+  VERIFIED_CHALLENGE_TOO_FAST: 'verifiedTooFast',
+  VERIFIED_CHALLENGE_TAMPERED: 'verifiedTampered',
+  STORED_CHALLENGE_INVALID: 'verifiedSubmitError',
   INVALID_DIFFICULTY: 'errorInvalidDifficulty',
   CATEGORY_UNAVAILABLE: 'errorCategoryUnavailable',
   NO_QUESTIONS_AVAILABLE: 'errorNoQuestions',
@@ -966,8 +1036,15 @@ async function checkCloudSession() {
   try {
     const data = await apiFetch('/user/profile');
     state.dbUser = data;
+    try {
+      const preference = await apiFetch('/user/privacy');
+      state.accountAnalyticsAllowed = preference?.privacy?.usageAnalyticsEnabled === true;
+    } catch (_) {
+      state.accountAnalyticsAllowed = false;
+    }
   } catch (err) {
     state.dbUser = null;
+    state.accountAnalyticsAllowed = false;
   }
 }
 
@@ -1548,11 +1625,11 @@ function cacheEls() {
     'categorySummaryMount', 'cardSearchInput', 'difficultySelect', 'viewSelect', 'sortSelect',
     'subcategoryWrap', 'subcategoryFilters', 'resultsLabel', 'resetPageBtn', 'cardGrid', 'emptyState',
     'relatedCategories', 'categoryDiffBadge',
-    'suggestionText', 'suggestionEmail', 'suggestionSubmit', 'suggestionThanks', 'suggestionForm',
+    'suggestionText', 'suggestionEmail', 'suggestionLinkAccount', 'suggestionSubmit', 'suggestionThanks', 'suggestionForm',
   ].forEach((id) => { els[id] = document.getElementById(id); });
 }
 
-const APP_VERSION = '2.9';
+const APP_VERSION = '3.0';
 function flushStaleStorage() {
   const stored = localStorage.getItem('jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {
@@ -1573,8 +1650,20 @@ function initializeFromStorage() {
   const entryUrl = new URL(window.location.href);
   const requestedLang = entryUrl.searchParams.get('lang');
   const explicitLang = requestedLang === 'en' || requestedLang === 'ar' ? requestedLang : '';
+  const routeLang = document.body.dataset.routeLang === 'ar' || document.body.dataset.routeLang === 'en'
+    ? document.body.dataset.routeLang
+    : '';
   const storedLang = settings.lang === 'ar' || settings.lang === 'en' ? settings.lang : 'en';
-  state.lang = explicitLang || storedLang;
+
+  if (state.page === 'category' && explicitLang && routeLang && explicitLang !== routeLang) {
+    entryUrl.searchParams.delete('lang');
+    const target = `${categoryRouteForLanguage(state.categorySlug, explicitLang)}${entryUrl.search}${entryUrl.hash}`;
+    saveJson(STORAGE_KEYS.settings, { lang: explicitLang });
+    location.replace(target);
+    return false;
+  }
+
+  state.lang = routeLang || explicitLang || storedLang;
 
   if (explicitLang) {
     entryUrl.searchParams.delete('lang');
@@ -1592,6 +1681,7 @@ function initializeFromStorage() {
     saveJson(STORAGE_KEYS.settings, { lang: state.lang });
   }
   state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
+  return true;
 }
 
 let _installPrompt = null;
@@ -1691,6 +1781,15 @@ function bindCommonEvents() {
       state.lang = els.langSelect.value;
       trackEvent('language_switch', { language: state.lang, page_type: state.page });
       saveSettings();
+      if (state.page === 'category' && state.categorySlug) {
+        const nextUrl = new URL(categoryRouteForLanguage(state.categorySlug, state.lang), location.origin);
+        const currentUrl = new URL(location.href);
+        currentUrl.searchParams.delete('lang');
+        nextUrl.search = currentUrl.search;
+        nextUrl.hash = currentUrl.hash;
+        location.assign(`${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+        return;
+      }
       applyDocumentLanguage();
       applyStaticCopy();
       rerender();
@@ -2116,7 +2215,7 @@ function createCategoryCardMarkup(meta) {
   const enterLabel = isAr ? 'افتح' : 'Enter';
   const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
-    <a class="category-card has-art" href="${escapeHtml(meta.href)}" aria-label="${title}">
+    <a class="category-card has-art" href="${escapeHtml(categoryRouteForLanguage(meta.slug, state.lang))}" aria-label="${title}">
       <div class="category-card-bg" aria-hidden="true">
         <span class="category-card-count-badge">${cardCountLabel}</span>
       </div>
@@ -2147,7 +2246,7 @@ async function markCachedCategories() {
     const cachedPaths = new Set(keys.map(r => new URL(r.url).pathname));
     document.querySelectorAll('.category-card[href]').forEach(el => {
       const href = el.getAttribute('href');
-      const slug = href.replace(/\.html$/, '').replace(/.*\//, '');
+      const slug = href.replace(/[?#].*$/, '').replace(/\/+$/, '').replace(/\.html$/, '').replace(/.*\//, '');
       if (cachedPaths.has(`/data/${slug}.json`)) {
         if (!el.querySelector('.offline-badge')) {
           const badge = document.createElement('span');
@@ -2178,8 +2277,7 @@ function renderCategoryDirectory() {
         .flatMap(topic => [topic.en, topic.ar])
         .filter(Boolean);
       const haystack = [
-        meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, meta.cluster.en, meta.cluster.ar,
-        section.title.en, section.title.ar, section.description.en, section.description.ar,
+        meta.title.en, meta.title.ar, meta.description.en, meta.description.ar,
         ...topicText,
       ].filter(Boolean).join(' ').toLowerCase();
       return haystack.includes(searchTerm);
@@ -2403,7 +2501,7 @@ function renderAccountSummary(mount) {
         <span class="dash-greeting">${escapeHtml(getGreeting(account.username, state.lang))}</span>
         <div class="dash-score-display">
           <span class="dash-score-num">${getScore()}</span>
-          <span class="dash-score-unit">${isAr ? 'نقطة' : 'pts'}</span>
+          <span class="dash-score-unit">${isAr ? 'نقطة تدريب' : 'practice pts'}</span>
         </div>
       </div>
 
@@ -3140,6 +3238,7 @@ function renderAuthModal(mode = 'signin') {
         <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
 
         <div class="hero-actions" style="margin-top:2rem;">
+          <a class="secondary-btn" href="/privacy${state.lang === 'ar' ? '?lang=ar' : ''}">${escapeHtml(state.lang === 'ar' ? 'الخصوصية وبيانات الحساب' : 'Privacy & account data')}</a>
           <button class="primary-btn" id="logoutBtn" style="background:#555;">${escapeHtml(t('logout'))}</button>
         </div>
       </section>
@@ -3149,6 +3248,11 @@ function renderAuthModal(mode = 'signin') {
     if (logoutBtn) logoutBtn.addEventListener('click', async () => {
       try { await apiFetch('/auth/logout', { method: 'POST' }); } catch(e){}
       state.dbUser = null;
+      state.accountAnalyticsAllowed = false;
+      stopAnalyticsHeartbeat();
+      const suggestionAccountLabel = els.suggestionLinkAccount?.closest('.suggestion-account-link');
+      if (suggestionAccountLabel) suggestionAccountLabel.hidden = true;
+      if (els.suggestionLinkAccount) els.suggestionLinkAccount.checked = false;
       closeModal('auth');
       applyStaticCopy();
       rerender();
@@ -3251,6 +3355,9 @@ function renderAuthModal(mode = 'signin') {
           await flushCloudQueue();
           await mergeGuestProgress();
           await checkCloudSession();
+          refreshAnalyticsHeartbeat();
+          const suggestionAccountLabel = els.suggestionLinkAccount?.closest('.suggestion-account-link');
+          if (suggestionAccountLabel) suggestionAccountLabel.hidden = false;
           closeModal('auth');
           applyStaticCopy();
           rerender();
@@ -3270,12 +3377,12 @@ function renderAuthModal(mode = 'signin') {
 
 async function loadCatalog() {
   if (state.catalog) return;
-  state.catalog = await fetchJson('data/catalog.json');
+  state.catalog = await fetchJson('/data/catalog.json');
 }
 
 async function loadCategoryIfNeeded() {
   if (state.page !== 'category' || !state.categorySlug) return;
-  const raw = await fetchJson(`data/${state.categorySlug}.json`);
+  const raw = await fetchJson(`/data/${state.categorySlug}.json`);
   if (!Array.isArray(raw)) throw new Error(`Invalid category data: ${state.categorySlug}`);
   const meta = (state.catalog?.categories || []).find(c => c.slug === state.categorySlug) || {};
   state.categoryData = { ...meta, cards: raw };
@@ -3405,7 +3512,11 @@ function initSuggestionBox() {
     try {
       await apiFetch('/suggestions', {
         method: 'POST',
-        body: JSON.stringify({ text, email: els.suggestionEmail?.value.trim() || undefined }),
+        body: JSON.stringify({
+          text,
+          email: els.suggestionEmail?.value.trim() || undefined,
+          saveWithAccount: els.suggestionLinkAccount?.checked === true,
+        }),
       });
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
@@ -3423,10 +3534,24 @@ function trackEvent(name, params = {}) {
   try { window.gtag?.('event', name, params); } catch (_) {}
 }
 
+function refreshAnalyticsHeartbeat() {
+  if (state.apiAvailable && state.dbUser && state.accountAnalyticsAllowed) {
+    startAnalyticsHeartbeat();
+  } else {
+    stopAnalyticsHeartbeat();
+  }
+}
+
 function startAnalyticsHeartbeat() {
-  if (_analyticsInterval) return;
+  if (_analyticsInterval || !state.dbUser || !state.accountAnalyticsAllowed) return;
   _analyticsInterval = setInterval(async () => {
-    if (document.hidden || state.page !== 'category' || !state.categorySlug) return;
+    if (
+      document.hidden
+      || !state.dbUser
+      || !state.accountAnalyticsAllowed
+      || state.page !== 'category'
+      || !state.categorySlug
+    ) return;
     try {
       await apiFetch('/analytics/time', {
         method: 'POST',
@@ -3441,6 +3566,7 @@ function stopAnalyticsHeartbeat() {
   clearInterval(_analyticsInterval);
   _analyticsInterval = null;
 }
+
 // ======================================================
 
 
@@ -3457,7 +3583,7 @@ async function loadDailyChallenge() {
     const abs = Math.abs(hash);
     const cats = state.catalog.categories.filter(c => c.count >= 15 && c.mode !== 'story');
     const cat = cats[abs % cats.length];
-    const raw = await fetchJson(`data/${cat.slug}.json`);
+    const raw = await fetchJson(`/data/${cat.slug}.json`);
     if (!Array.isArray(raw)) return;
     const cards = raw.filter(c => c.difficulty === 'easy' || c.difficulty === 'medium');
     if (!cards.length) return;
@@ -3476,8 +3602,7 @@ function renderDailyChallenge() {
   const today = new Date().toISOString().split('T')[0];
   const isDone = !!localStorage.getItem(`jakh-daily-done-${today}`);
   const isFlipped = state.flipped.has('__daily__');
-  const categoryHref = state.catalog?.categories
-    .find(category => category.slug === card.categorySlug)?.href || `/${card.categorySlug}`;
+  const categoryHref = categoryRouteForLanguage(card.categorySlug, lang);
   mount.innerHTML = `
     <section class="shell daily-challenge-section">
       <div class="daily-challenge-card ${isDone ? 'daily-done' : ''}">
@@ -3704,7 +3829,7 @@ function endTimedQuiz() {
   // Solo → Team conversion CTA
   if (resultEl && !resultEl.querySelector('.tq-challenge-cta')) {
     const catTitle = state.categoryData?.title?.[lang] || 'JAKH';
-    const challengeUrl = `${location.origin}/${state.categorySlug || ''}`;
+    const challengeUrl = `${location.origin}${categoryRouteForLanguage(state.categorySlug, lang)}`;
     const ctaEl = document.createElement('div');
     ctaEl.className = 'tq-challenge-cta';
     ctaEl.innerHTML = `
@@ -3730,7 +3855,9 @@ function endTimedQuiz() {
   checkNewAchievements();
 }
 
-// ================= LEADERBOARD =================
+// ================= VERIFIED LEADERBOARD =================
+let verifiedChallenge = null;
+
 function createLeaderboardModal() {
   if (document.getElementById('leaderboardModal')) return;
   const el = document.createElement('div');
@@ -3739,7 +3866,7 @@ function createLeaderboardModal() {
   el.setAttribute('aria-hidden', 'true');
   el.innerHTML = `
     <div class="modal-backdrop" data-close-modal="leaderboard"></div>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="leaderboardTitle">
+    <div class="modal-card verified-leaderboard-card" role="dialog" aria-modal="true" aria-labelledby="leaderboardTitle">
       <div class="modal-head">
         <div>
           <p class="eyebrow">🏆 ${escapeHtml(t('leaderboardTitle'))}</p>
@@ -3748,7 +3875,14 @@ function createLeaderboardModal() {
         </div>
         <button class="icon-btn" data-close-modal="leaderboard" aria-label="${escapeHtml(t('close'))}">×</button>
       </div>
-      <div id="leaderboardBody" style="padding:0.25rem 0;min-height:120px;"></div>
+      <div id="verifiedChallengeMount"></div>
+      <section class="verified-ranking-section" aria-labelledby="verifiedRankingTitle">
+        <div class="verified-section-head">
+          <h3 id="verifiedRankingTitle">${escapeHtml(t('leaderboardTitle'))}</h3>
+          <span class="verified-shield" aria-label="${escapeHtml(state.lang === 'ar' ? 'موثّق من الخادم' : 'Server verified')}">✓</span>
+        </div>
+        <div id="leaderboardBody" class="verified-ranking-list" aria-live="polite"></div>
+      </section>
     </div>`;
   document.body.appendChild(el);
 }
@@ -3761,7 +3895,7 @@ let _gsGeneration = 0;
 async function loadGlobalSearchIndex() {
   if (_gsIndex) return _gsIndex;
   if (!_gsIndexPromise) {
-    _gsIndexPromise = fetchJson('data/search-index.json')
+    _gsIndexPromise = fetchJson('/data/search-index.json')
       .then((payload) => {
         if (
           payload?.version !== 1
@@ -3869,7 +4003,7 @@ async function runGlobalSearch() {
     return;
   }
   resultsEl.innerHTML = hits.map(({ cat, question, answer }) => `
-    <a class="gs-result" href="${escapeHtml(cat.href)}?q=${encodeURIComponent(q)}">
+    <a class="gs-result" href="${escapeHtml(categoryRouteForLanguage(cat.slug, state.lang))}?q=${encodeURIComponent(q)}">
       <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}</span>
       <span class="gs-result-q">${escapeHtml(question)}</span>
       <span class="gs-result-a">${escapeHtml(answer)}</span>
@@ -3880,37 +4014,237 @@ async function runGlobalSearch() {
   });
 }
 
+function verifiedCategoryOptions() {
+  return (state.catalog?.categories || [])
+    .filter(category => Number(category.verifiedQuestionCount) >= 10)
+    .sort((a, b) => String(a.title?.[state.lang] || a.title?.en || a.slug)
+      .localeCompare(String(b.title?.[state.lang] || b.title?.en || b.slug), state.lang));
+}
+
+function renderVerifiedStarter() {
+  const mount = document.getElementById('verifiedChallengeMount');
+  if (!mount) return;
+  if (verifiedChallenge) {
+    renderVerifiedChallenge(verifiedChallenge);
+    return;
+  }
+  if (!state.dbUser) {
+    mount.innerHTML = `
+      <section class="verified-starter verified-signin-prompt">
+        <div>
+          <h3>${escapeHtml(t('verifiedStartTitle'))}</h3>
+          <p>${escapeHtml(t('verifiedSignIn'))}</p>
+        </div>
+        <button type="button" class="primary-btn" id="verifiedSignInBtn">${escapeHtml(t('signIn'))}</button>
+      </section>`;
+    document.getElementById('verifiedSignInBtn')?.addEventListener('click', () => {
+      closeModal('leaderboard');
+      openAuthModal();
+    });
+    return;
+  }
+
+  const categories = verifiedCategoryOptions();
+  const preferredSlug = categories.some(category => category.slug === state.categorySlug)
+    ? state.categorySlug
+    : categories[0]?.slug;
+  mount.innerHTML = `
+    <section class="verified-starter">
+      <div>
+        <h3>${escapeHtml(t('verifiedStartTitle'))}</h3>
+        <p>${escapeHtml(t('verifiedStartText'))}</p>
+      </div>
+      <form id="verifiedStartForm" class="verified-start-form">
+        <label for="verifiedCategorySelect">
+          <span>${escapeHtml(t('verifiedCategory'))}</span>
+          <select id="verifiedCategorySelect" required>
+            ${categories.map(category => `
+              <option value="${escapeHtml(category.slug)}" ${category.slug === preferredSlug ? 'selected' : ''}>
+                ${escapeHtml(`${category.emoji || '🧠'} ${category.title?.[state.lang] || category.title?.en || category.slug}`)}
+              </option>`).join('')}
+          </select>
+        </label>
+        <button type="submit" class="primary-btn" id="verifiedStartBtn" ${categories.length ? '' : 'disabled'}>${escapeHtml(t('verifiedStart'))}</button>
+      </form>
+    </section>`;
+  document.getElementById('verifiedStartForm')?.addEventListener('submit', startVerifiedChallenge);
+}
+
+async function startVerifiedChallenge(event) {
+  event?.preventDefault();
+  const categoryId = document.getElementById('verifiedCategorySelect')?.value;
+  const button = document.getElementById('verifiedStartBtn');
+  if (!categoryId || !button) return;
+  button.disabled = true;
+  button.textContent = t('verifiedStarting');
+  try {
+    const challenge = await apiFetch('/scores/verified/challenge', {
+      method: 'POST',
+      body: JSON.stringify({ categoryId }),
+    });
+    if (!Array.isArray(challenge.questions) || challenge.questions.length !== challenge.questionCount) {
+      throw new Error('Invalid verified challenge');
+    }
+    verifiedChallenge = challenge;
+    renderVerifiedChallenge(challenge);
+  } catch (error) {
+    showToast(localizedErrorMessage(error, 'verifiedChallengeError'), true);
+    button.disabled = false;
+    button.textContent = t('verifiedStart');
+  }
+}
+
+function renderVerifiedChallenge(challenge) {
+  const mount = document.getElementById('verifiedChallengeMount');
+  if (!mount) return;
+  const questions = Array.isArray(challenge?.questions) ? challenge.questions : [];
+  const expiresAt = new Date(challenge.expiresAt);
+  const expiryLabel = Number.isNaN(expiresAt.getTime())
+    ? ''
+    : new Intl.DateTimeFormat(state.lang === 'ar' ? 'ar-AE' : 'en', {
+      hour: 'numeric', minute: '2-digit',
+    }).format(expiresAt);
+  mount.innerHTML = `
+    <section class="verified-challenge" aria-labelledby="verifiedChallengeTitle">
+      <div class="verified-section-head">
+        <div>
+          <h3 id="verifiedChallengeTitle">${escapeHtml(t('verifiedStartTitle'))}</h3>
+          <p>${escapeHtml(state.lang === 'ar'
+            ? `أجب مرة واحدة قبل ${expiryLabel || 'انتهاء المهلة'}. لا تغلق هذه الصفحة قبل الإرسال.`
+            : `Submit once before ${expiryLabel || 'the deadline'}. Keep this page open until you finish.`)}</p>
+        </div>
+        <button type="button" class="text-btn mini-btn" id="verifiedCancelBtn">${escapeHtml(t('verifiedCancel'))}</button>
+      </div>
+      <form id="verifiedChallengeForm" class="verified-question-list">
+        ${questions.map((item, index) => `
+          <label class="verified-question" for="verifiedAnswer${index}">
+            <span class="verified-question-number">${escapeHtml(fmt('verifiedQuestion', { number: index + 1, total: questions.length }))}</span>
+            <strong dir="auto">${escapeHtml(item.question?.[state.lang] || item.question?.en || '')}</strong>
+            <input id="verifiedAnswer${index}" name="verifiedAnswer${index}" type="text" dir="auto"
+              autocomplete="off" maxlength="256" required placeholder="${escapeHtml(t('verifiedAnswerPlaceholder'))}" />
+          </label>`).join('')}
+        <p class="verified-form-error hidden" id="verifiedFormError" role="alert"></p>
+        <button type="submit" class="primary-btn" id="verifiedSubmitBtn">${escapeHtml(t('verifiedSubmit'))}</button>
+      </form>
+    </section>`;
+  document.getElementById('verifiedCancelBtn')?.addEventListener('click', () => {
+    verifiedChallenge = null;
+    renderVerifiedStarter();
+  });
+  document.getElementById('verifiedChallengeForm')?.addEventListener('submit', submitVerifiedChallenge);
+  document.getElementById('verifiedAnswer0')?.focus();
+}
+
+async function submitVerifiedChallenge(event) {
+  event.preventDefault();
+  const challenge = verifiedChallenge;
+  if (!challenge) return;
+  const inputs = challenge.questions.map((_, index) => document.getElementById(`verifiedAnswer${index}`));
+  const formError = document.getElementById('verifiedFormError');
+  if (inputs.some(input => !input?.value.trim())) {
+    if (formError) {
+      formError.textContent = t('verifiedAnswerAll');
+      formError.classList.remove('hidden');
+    }
+    inputs.find(input => !input?.value.trim())?.focus();
+    return;
+  }
+  formError?.classList.add('hidden');
+  const button = document.getElementById('verifiedSubmitBtn');
+  if (!button) return;
+  button.disabled = true;
+  button.textContent = t('verifiedSubmitting');
+  try {
+    const result = await apiFetch('/scores/verified/submit', {
+      method: 'POST',
+      body: JSON.stringify({
+        challengeId: challenge.challengeId,
+        submissionToken: challenge.submissionToken,
+        answers: challenge.questions.map((question, index) => ({
+          cardId: question.cardId,
+          answer: inputs[index].value.trim(),
+        })),
+      }),
+    });
+    verifiedChallenge = null;
+    renderVerifiedResult(result);
+    await refreshVerifiedLeaderboard();
+  } catch (error) {
+    const message = localizedErrorMessage(error, 'verifiedSubmitError');
+    if (formError) {
+      formError.textContent = message;
+      formError.classList.remove('hidden');
+    }
+    button.disabled = false;
+    button.textContent = t('verifiedSubmit');
+  }
+}
+
+function renderVerifiedResult(result) {
+  const mount = document.getElementById('verifiedChallengeMount');
+  if (!mount) return;
+  mount.innerHTML = `
+    <section class="verified-result" aria-live="polite">
+      <span class="verified-result-mark" aria-hidden="true">✓</span>
+      <div>
+        <h3>${escapeHtml(t('verifiedResultTitle'))}</h3>
+        <p class="verified-result-score">${escapeHtml(fmt('verifiedResult', {
+          correct: result.correctCount,
+          total: result.questionCount,
+          score: result.score,
+        }))}</p>
+        <p>${escapeHtml(t('verifiedResultNote'))}</p>
+      </div>
+      <button type="button" class="secondary-btn" id="verifiedTryAgainBtn">${escapeHtml(t('verifiedTryAgain'))}</button>
+    </section>`;
+  document.getElementById('verifiedTryAgainBtn')?.addEventListener('click', renderVerifiedStarter);
+}
+
+async function refreshVerifiedLeaderboard() {
+  const body = document.getElementById('leaderboardBody');
+  if (!body) return;
+  body.replaceChildren();
+  body.setAttribute('aria-busy', 'true');
+  try {
+    const { leaderboard, scoreType, status } = await apiFetch('/leaderboard');
+    if (status !== 'active' || scoreType !== 'server-verified') {
+      throw new Error('Leaderboard verification is unavailable');
+    }
+    const currentUser = state.dbUser?.username;
+    const medals = ['🥇', '🥈', '🥉'];
+    if (!leaderboard?.length) {
+      body.innerHTML = `<p class="verified-empty">${escapeHtml(t('leaderboardEmpty'))}</p>`;
+      return;
+    }
+    body.innerHTML = leaderboard.map(row => {
+      const category = state.catalog?.categories.find(item => item.slug === row.categoryId);
+      const categoryTitle = category?.title?.[state.lang] || category?.title?.en || row.categoryId;
+      return `
+        <div class="leaderboard-row">
+          <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || escapeHtml(row.rank)}</span>
+          <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">
+            <span class="leaderboard-name"><span aria-hidden="true">${escapeHtml(row.avatar || '👤')}</span> ${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}</span>
+            <small>${escapeHtml(categoryTitle)} · ${escapeHtml(`${row.correctCount}/${row.questionCount}`)}</small>
+          </span>
+          <span class="leaderboard-score bidi-isolate">${escapeHtml(row.score)} ${escapeHtml(t('pointsShort'))}</span>
+        </div>`;
+    }).join('');
+  } catch (_) {
+    body.innerHTML = `<p class="verified-empty is-error">${escapeHtml(t('leaderboardLoadError'))}</p>`;
+  } finally {
+    body.removeAttribute('aria-busy');
+  }
+}
+
 async function openLeaderboard() {
+  createLeaderboardModal();
   const modal = document.getElementById('leaderboardModal');
   if (!modal) return;
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
-  const body = document.getElementById('leaderboardBody');
-  if (body) {
-    body.replaceChildren();
-    body.setAttribute('aria-busy', 'true');
-  }
-  try {
-    const { leaderboard } = await apiFetch('/leaderboard');
-    const currentUser = state.dbUser?.username;
-    const medals = ['🥇', '🥈', '🥉'];
-    if (!leaderboard?.length) {
-      if (body) body.innerHTML = `<p style="padding:2rem;text-align:center;color:var(--muted)">${escapeHtml(t('leaderboardEmpty'))}</p>`;
-      return;
-    }
-    if (body) body.innerHTML = leaderboard.map(row => `
-      <div class="leaderboard-row">
-        <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || escapeHtml(row.rank)}</span>
-        <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">
-          <span style="margin-inline-end:6px;font-size:1.1rem;">${escapeHtml(row.avatar || '👤')}</span>${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}
-        </span>
-        <span class="leaderboard-score bidi-isolate">${escapeHtml(row.score)} ${escapeHtml(t('pointsShort'))}</span>
-      </div>`).join('');
-  } catch (e) {
-    if (body) body.innerHTML = `<p style="padding:2rem;text-align:center;color:var(--danger)">${escapeHtml(t('leaderboardLoadError'))}</p>`;
-  } finally {
-    body?.removeAttribute('aria-busy');
-  }
+  renderVerifiedStarter();
+  trapFocus(modal);
+  await refreshVerifiedLeaderboard();
 }
 
 // ================= RANDOM CATEGORY =================
@@ -4000,7 +4334,7 @@ function showCategoryCompleteModal(slug) {
         <div class="hero-actions" style="justify-content:center;flex-wrap:wrap;gap:0.75rem;">
           <button class="secondary-btn" id="catCompleteShare">🔗 ${lang === 'ar' ? 'شارك النتيجة' : 'Share result'}</button>
           <button class="ghost-btn" id="catCompleteBattle">⚡ ${lang === 'ar' ? 'تحدٍ مباشر' : 'Team Battle'}</button>
-          ${related ? `<a class="primary-btn" href="${escapeHtml(related.href)}" style="text-decoration:none;">${lang === 'ar' ? 'الفئة التالية ←' : 'Next category →'}</a>` : ''}
+          ${related ? `<a class="primary-btn" href="${escapeHtml(categoryRouteForLanguage(related.slug, lang))}" style="text-decoration:none;">${lang === 'ar' ? 'الفئة التالية ←' : 'Next category →'}</a>` : ''}
           <button class="ghost-btn" id="catCompleteClose">${lang === 'ar' ? 'إغلاق' : 'Close'}</button>
         </div>
         <div class="tq-challenge-cta" style="margin-top:1rem;">
@@ -4218,8 +4552,11 @@ async function hydrateCloudCapabilities() {
 }
 
 function hydrateCloudFeatureUi() {
+  const suggestionAccountLabel = els.suggestionLinkAccount?.closest('.suggestion-account-link');
+  if (suggestionAccountLabel) suggestionAccountLabel.hidden = !state.dbUser;
+  if (!state.dbUser && els.suggestionLinkAccount) els.suggestionLinkAccount.checked = false;
   if (state.apiAvailable) {
-    startAnalyticsHeartbeat();
+    refreshAnalyticsHeartbeat();
     createLeaderboardModal();
     createBattleModal();
     initSuggestionBox();
@@ -4237,7 +4574,7 @@ async function init() {
   [els.openAuthBtn, els.heroAuthBtn].filter(Boolean).forEach(element => {
     element.hidden = true;
   });
-  initializeFromStorage();
+  if (!initializeFromStorage()) return;
   applyDocumentLanguage();
   bindCommonEvents();
   applyCapabilityVisibility();

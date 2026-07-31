@@ -190,11 +190,16 @@ if (!/querySelectorAll\(["']button\[data-close-modal=["']auth["']\]["']\)/u.test
   fail("app.js: the account-dialog close button is not localized");
 }
 const catalog = JSON.parse(read("data/catalog.json"));
+const categoryPagePairs = (catalog.categories || []).map((category) => ({
+  slug: category.slug,
+  en: `${category.slug}.html`,
+  ar: `ar/topics/${category.slug}/index.html`,
+}));
 const appPages = [
   "index.html",
   "mind-lab.html",
   "play.html",
-  ...(catalog.categories || []).map((category) => `${category.slug}.html`),
+  ...categoryPagePairs.flatMap((pair) => [pair.en, pair.ar]),
 ];
 
 for (const file of appPages) {
@@ -202,6 +207,47 @@ for (const file of appPages) {
   if (!/<select[^>]+id=["']langSelect["']/iu.test(source)) fail(`${file}: missing visible language selector`);
   if (!/<script[^>]+src=["'][^"']*app\.js(?:\?[^"']*)?["']/iu.test(source)) fail(`${file}: missing app.js`);
   assertKnownKeys(file, attributeKeys(source), appKeys);
+}
+
+if (!appSource.includes("return lang === 'ar' ? `/ar/topics/${safeSlug}/` : `/${safeSlug}`")) {
+  fail("app.js: category language routes are not mapped to dedicated English and Arabic URLs");
+}
+if (!appSource.includes("if (!initializeFromStorage()) return;")) {
+  fail("app.js: legacy ?lang redirects do not stop initialization before navigation");
+}
+for (const rootRelativeLoad of [
+  "fetchJson('/data/catalog.json')",
+  "fetchJson(`/data/${state.categorySlug}.json`)",
+  "fetchJson('/data/search-index.json')",
+]) {
+  if (!appSource.includes(rootRelativeLoad)) fail(`app.js: missing root-relative load ${rootRelativeLoad}`);
+}
+
+for (const pair of categoryPagePairs) {
+  const expected = {
+    en: { file: pair.en, dir: "ltr", canonical: `https://jakh.net/${pair.slug}`, alternate: `https://jakh.net/ar/topics/${pair.slug}/` },
+    ar: { file: pair.ar, dir: "rtl", canonical: `https://jakh.net/ar/topics/${pair.slug}/`, alternate: `https://jakh.net/${pair.slug}` },
+  };
+  for (const lang of ["en", "ar"]) {
+    const { file, dir, canonical, alternate } = expected[lang];
+    const source = read(file);
+    const other = lang === "ar" ? "en" : "ar";
+    if (!new RegExp(`<html[^>]+lang=["']${lang}["'][^>]+dir=["']${dir}["']`, "iu").test(source)) {
+      fail(`${file}: expected lang="${lang}" and dir="${dir}"`);
+    }
+    if (!new RegExp(`<body[^>]+data-page=["']category["'][^>]+data-category=["']${pair.slug}["'][^>]+data-route-lang=["']${lang}["']`, "iu").test(source)) {
+      fail(`${file}: body does not bind the category and route language`);
+    }
+    if (!source.includes(`<link rel="canonical" href="${canonical}"`)) {
+      fail(`${file}: canonical does not match its localized route`);
+    }
+    if (!source.includes(`hreflang="${other}" href="${alternate}"`)) {
+      fail(`${file}: missing reciprocal ${other} hreflang`);
+    }
+    if (!source.includes(`class="ghost-btn language-route-link" href="${alternate}"`)) {
+      fail(`${file}: visible language switch does not target ${alternate}`);
+    }
+  }
 }
 
 const siteRuntime = read("site-i18n.js");
@@ -289,6 +335,22 @@ for (const [lang, files] of Object.entries(localizedPages)) {
   }
 }
 
+const footerPages = new Set([
+  ...appPages,
+  ...Object.keys(sitePages),
+  ...games.map((game) => `${game}.html`),
+  ...localizedPages.en,
+  ...localizedPages.ar,
+]);
+if (fs.existsSync(path.join(root, "privacy.html"))) footerPages.add("privacy.html");
+for (const file of footerPages) {
+  const source = read(file);
+  if (!source.includes("site-footer")) continue;
+  if (!/<a[^>]+href=["']\/privacy(?:[?][^"']*)?["'][^>]*>/iu.test(source)) {
+    fail(`${file}: global footer is missing the /privacy link`);
+  }
+}
+
 let cardCount = 0;
 for (const category of catalog.categories || []) {
   const cards = JSON.parse(read(`data/${category.slug}.json`));
@@ -315,6 +377,6 @@ if (failures.length) {
 }
 
 console.log(
-  `Bilingual validation passed: ${appPages.length} app pages, ${Object.keys(sitePages).length} static pages, `
+  `Bilingual validation passed: ${appPages.length} app pages (${categoryPagePairs.length * 2} localized topics), ${Object.keys(sitePages).length} static pages, `
   + `${games.length} games, ${localizedPages.en.length + localizedPages.ar.length} localized collections, and ${cardCount} cards.`,
 );

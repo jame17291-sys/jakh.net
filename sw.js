@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v73';
-const ASSET_CACHE = 'jakh-assets-v73';
+const CACHE_NAME = 'jakh-v76';
+const ASSET_CACHE = 'jakh-assets-v76';
 const MAX_NAVIGATION_CACHE_ENTRIES = 64;
 
 const PRECACHE_ASSETS = [
@@ -8,9 +8,12 @@ const PRECACHE_ASSETS = [
   '/play',
   '/collections',
   '/about',
+  '/privacy',
   '/app.js',
   '/site-i18n.js',
   '/game-i18n.js',
+  '/privacy-consent.js',
+  '/privacy-page.js',
   '/styles.css',
   '/manifest.webmanifest',
   '/assets/logo.webp',

@@ -11,13 +11,19 @@ import {
 import { PasswordHasher } from "./password-hasher.js";
 import { cleanupExpiredSecurityState } from "./db.js";
 import {
+  cleanupPrivacyRetentionState,
+  deleteAccount,
+  exportAccountData,
+  getPrivacyPreferences,
+  updatePrivacyPreferences,
+} from "./privacy.js";
+import {
   analytics,
   avatar,
   changePassword,
   deleteProgress,
   favorite,
   health,
-  leaderboard,
   login,
   logout,
   profile,
@@ -28,6 +34,12 @@ import {
   syncUserData,
 } from "./routes.js";
 import { requireSecrets } from "./security.js";
+import {
+  cleanupExpiredVerifiedChallenges,
+  createVerifiedChallenge,
+  submitVerifiedChallenge,
+  verifiedLeaderboard,
+} from "./verified-scoring.js";
 import type { Env } from "./types.js";
 
 export { BattleRoom, PasswordHasher };
@@ -45,6 +57,10 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/auth/login" && method === "POST") return login(request, env);
   if (path === "/api/auth/logout" && method === "POST") return logout(request, env);
   if (path === "/api/user/profile" && method === "GET") return profile(request, env);
+  if (path === "/api/user/export" && method === "GET") return exportAccountData(request, env);
+  if (path === "/api/user/privacy" && method === "GET") return getPrivacyPreferences(request, env);
+  if (path === "/api/user/privacy" && method === "PUT") return updatePrivacyPreferences(request, env);
+  if (path === "/api/user/account" && method === "DELETE") return deleteAccount(request, env);
   if (path === "/api/user/avatar" && method === "PUT") return avatar(request, env);
   if (path === "/api/user/password" && method === "POST") return changePassword(request, env);
   if (path === "/api/user/progress" && method === "POST") return saveProgress(request, env);
@@ -59,7 +75,13 @@ async function route(request: Request, env: Env): Promise<Response> {
     )
   ) return streak(request, env);
   if (path === "/api/analytics/time" && method === "POST") return analytics(request, env);
-  if (path === "/api/leaderboard" && method === "GET") return leaderboard(env);
+  if (path === "/api/leaderboard" && method === "GET") return verifiedLeaderboard(request, env);
+  if (path === "/api/scores/verified/challenge" && method === "POST") {
+    return createVerifiedChallenge(request, env);
+  }
+  if (path === "/api/scores/verified/submit" && method === "POST") {
+    return submitVerifiedChallenge(request, env);
+  }
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
   return json({ error: "Not found", code: "NOT_FOUND" }, 404);
@@ -67,7 +89,7 @@ async function route(request: Request, env: Env): Promise<Response> {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const redirect = redirectToHttps(request);
+    const redirect = redirectToHttps(request, env.STATIC_ORIGIN);
     if (redirect) return redirect;
     if (request.method === "OPTIONS") {
       return withCors(preflight(request, env.ALLOWED_ORIGINS), request, env.ALLOWED_ORIGINS);
@@ -100,6 +122,10 @@ export default {
     }
   },
   async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    ctx.waitUntil(cleanupExpiredSecurityState(env));
+    ctx.waitUntil(Promise.all([
+      cleanupExpiredSecurityState(env),
+      cleanupPrivacyRetentionState(env),
+      cleanupExpiredVerifiedChallenges(env),
+    ]).then(() => undefined));
   },
 } satisfies ExportedHandler<Env>;

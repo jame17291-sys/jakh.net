@@ -139,9 +139,22 @@ export function originIsAllowed(request: Request, csv: string): boolean {
   return request.method === "GET" || request.method === "HEAD";
 }
 
-export function redirectToHttps(request: Request): Response | null {
+export function redirectToHttps(request: Request, configuredStaticOrigin = ""): Response | null {
   const url = new URL(request.url);
-  if (url.protocol === "https:") return null;
+  let usesLocalDevelopmentOrigin = false;
+  try {
+    const staticOrigin = new URL(configuredStaticOrigin);
+    usesLocalDevelopmentOrigin = staticOrigin.protocol === "http:"
+      && (staticOrigin.hostname === "localhost" || staticOrigin.hostname === "127.0.0.1");
+  } catch {
+    usesLocalDevelopmentOrigin = false;
+  }
+  if (
+    url.protocol === "https:"
+    || url.hostname === "localhost"
+    || url.hostname === "127.0.0.1"
+    || usesLocalDevelopmentOrigin
+  ) return null;
 
   url.protocol = "https:";
   return new Response(null, {

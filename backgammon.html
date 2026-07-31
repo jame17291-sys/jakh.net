@@ -5,7 +5,7 @@
   <meta name="theme-color" content="#fffaf2"/>
   <meta name="description" content="Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up." />
   <title>Backgammon Online — Free Browser Game | JAKH</title>
-  <link rel="preload" href="styles.css?v=2026073103" as="style"/>
+  <link rel="preload" href="styles.css?v=2026073105" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/backgammon"/>
   <meta name="robots" content="index,follow"/>
@@ -24,11 +24,11 @@
   <meta name="twitter:description" content="Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up." />
   <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
     <meta name="twitter:image:alt" content="JAKH — 3,553 bilingual riddles across 56 topics and 10 games" />
-  <link rel="stylesheet" href="styles.css?v=2026073103"/>
-  <script src="/game-i18n.js?v=2026073103"></script>
+  <link rel="stylesheet" href="styles.css?v=2026073105"/>
+  <script src="/game-i18n.js?v=2026073105"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VQZQNK6VSV');</script>
+
+
   <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* scoped backgammon styles */
@@ -362,6 +362,28 @@
 
     @media (max-width: 480px) {
       .bg-controls { flex-direction: column; align-items: flex-start; }
+      .bg-outer {
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+      }
+      .bg-half,
+      .bg-mid { min-width: 356px; }
+      .bg-half {
+        gap: 0 !important;
+        padding-inline: 0 !important;
+      }
+      .bg-points-group { gap: 0 !important; }
+      .bg-point { min-width: 24px; }
+      .bg-bar-area {
+        width: 28px !important;
+        min-width: 28px;
+      }
+      .bg-bearoff-zone {
+        width: 40px !important;
+        min-width: 40px;
+      }
     }
   </style>
       <script type="application/ld+json">
@@ -388,6 +410,8 @@
   }
 }
     </script>
+
+      <script defer src="/privacy-consent.js?v=2026073105"></script>
   </head>
 <body data-page="game" data-game="backgammon">
   <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
@@ -414,7 +438,7 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p><nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
+  <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p><nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav>
         <div class="footer-socials"><a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">Instagram</span></a><a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">Facebook</span></a></div></div></footer>
 
   <script>
@@ -880,6 +904,7 @@
 
       // Points 13-18
       var leftTop = document.createElement('div');
+      leftTop.className = 'bg-points-group';
       leftTop.style.cssText = 'display:flex;flex:1;gap:2px;';
       for (var p = 13; p <= 18; p++) buildPoint(leftTop, p, 'top', legalFroms, validDests, sz);
 
@@ -888,6 +913,7 @@
 
       // Points 19-24
       var rightTop = document.createElement('div');
+      rightTop.className = 'bg-points-group';
       rightTop.style.cssText = 'display:flex;flex:1;gap:2px;';
       for (var p = 19; p <= 24; p++) buildPoint(rightTop, p, 'top', legalFroms, validDests, sz);
 
@@ -921,6 +947,7 @@
 
       // Points 12-7 (left side, shown 12→7)
       var leftBot = document.createElement('div');
+      leftBot.className = 'bg-points-group';
       leftBot.style.cssText = 'display:flex;flex:1;gap:2px;';
       for (var p = 12; p >= 7; p--) buildPoint(leftBot, p, 'bottom', legalFroms, validDests, sz);
 
@@ -929,6 +956,7 @@
 
       // Points 6-1 (right side, shown 6→1)
       var rightBot = document.createElement('div');
+      rightBot.className = 'bg-points-group';
       rightBot.style.cssText = 'display:flex;flex:1;gap:2px;';
       for (var p = 6; p >= 1; p--) buildPoint(rightBot, p, 'bottom', legalFroms, validDests, sz);
 
@@ -1038,6 +1066,7 @@
 
     function buildBarArea(rowClass, sz) {
       var bar = document.createElement('div');
+      bar.className = 'bg-bar-area';
       bar.setAttribute('role', 'button');
       bar.tabIndex = 0;
       bar.style.cssText = 'width:36px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(32,50,71,0.16);cursor:pointer;';
@@ -1113,6 +1142,7 @@
 
     function buildBearOff(color) {
       var div = document.createElement('div');
+      div.className = 'bg-bearoff-zone';
       div.setAttribute('role', 'button');
       div.tabIndex = 0;
       div.style.cssText = 'width:40px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;'

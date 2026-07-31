@@ -36,7 +36,7 @@ export async function createSession(env: Env, userId: string): Promise<string> {
 }
 
 export async function sessionUser(request: Request, env: Env): Promise<SessionUser | null> {
-  const token = getSessionToken(request);
+  const token = getSessionToken(request, env.STATIC_ORIGIN);
   if (!token) return null;
 
   const tokenHash = await sha256(token);

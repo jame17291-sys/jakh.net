@@ -14,7 +14,9 @@ export const HTML_ROUTES = [
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
   { name: "Collections", path: "/collections", marker: "<title>Riddles &amp; Quiz Collections", bilingualMarker: "site-i18n.js" },
   { name: "Arabic riddles collection", path: "/ar/alghaz-ma-alhal/", marker: '<html lang="ar"', bilingualMarker: 'hreflang="en"' },
+  { name: "Arabic science topic", path: "/ar/topics/science/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
   { name: "About", path: "/about", marker: "<title>About JAKH", bilingualMarker: "site-i18n.js" },
+  { name: "Privacy Centre", path: "/privacy", marker: "<title>Privacy Centre", bilingualMarker: "privacy-consent.js" },
   { name: "Game Hub", path: "/play", marker: "<title>10 Free Browser Games", bilingualMarker: 'id="langSelect"' },
   { name: "Science category", path: "/science", marker: "<title>Science Quiz", bilingualMarker: 'id="langSelect"' },
   { name: "Chess", path: "/chess", marker: "<title>Chess Online", bilingualMarker: "game-i18n.js" },
@@ -266,11 +268,13 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-    expect(urls.length >= 80, `sitemap contains only ${urls.length} URLs`);
+    expect(urls.length >= 140, `sitemap contains only ${urls.length} URLs`);
     expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
     expect(urls.includes("https://jakh.net/collections"), "sitemap is missing collections");
     expect(urls.includes("https://jakh.net/ar/alghaz-ma-alhal/"), "sitemap is missing Arabic riddles");
-    assertBudget(resource, config.siteMaxMs, 100_000);
+    expect(urls.includes("https://jakh.net/ar/topics/science/"), "sitemap is missing Arabic science");
+    expect(urls.includes("https://jakh.net/privacy"), "sitemap is missing the Privacy Centre");
+    assertBudget(resource, config.siteMaxMs, 300_000);
     return resource;
   });
 
@@ -312,6 +316,13 @@ export async function runProductionMonitor(options = {}) {
       type: /(?:text|application)\/javascript/iu,
       marker: "window.JakhGameI18n",
       maxBytes: 50_000,
+    },
+    {
+      name: "Privacy consent controls",
+      path: "/privacy-consent.js",
+      type: /(?:text|application)\/javascript/iu,
+      marker: "window.JakhPrivacy",
+      maxBytes: 30_000,
     },
     {
       name: "CSS",
@@ -372,8 +383,8 @@ export async function runProductionMonitor(options = {}) {
     const health = parseJson(resource);
     expect(health.ok === true, "health response is not ok");
     expect(health.service === "jakh-api", "health response has the wrong service");
-    expect(health.version === "1.2.0", `unexpected API version "${health.version || "missing"}"`);
-    expect(health.schema === "1", `unexpected API schema "${health.schema || "missing"}"`);
+    expect(health.version === "1.4.0", `unexpected API version "${health.version || "missing"}"`);
+    expect(health.schema === "3", `unexpected API schema "${health.schema || "missing"}"`);
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });
@@ -390,10 +401,13 @@ export async function runProductionMonitor(options = {}) {
     expectCors(resource.response, ALLOWED_ORIGIN);
     expectApiSecurityHeaders(resource.response);
     const payload = parseJson(resource);
-    expect(payload.status === "paused", "unverified public rankings are not paused");
-    expect(payload.scoreType === "unverified-disabled", "leaderboard score type is unsafe");
+    expect(payload.status === "active", "verified public rankings are not active");
+    expect(payload.scoreType === "server-verified", "leaderboard score type is not server verified");
     expect(Array.isArray(payload.leaderboard), "leaderboard response is not an array");
-    expect(payload.leaderboard.length === 0, "unverified leaderboard exposes ranked entries");
+    expect(
+      payload.leaderboard.every((entry) => entry && Number.isInteger(entry.rank)),
+      "leaderboard contains an invalid ranked entry",
+    );
     assertBudget(resource, config.apiMaxMs, 50_000);
     return resource;
   });

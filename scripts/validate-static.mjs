@@ -45,6 +45,21 @@ function stableObjectJson(value) {
   );
 }
 
+function conciseVerifiedAnswer(value) {
+  if (typeof value !== "string") return false;
+  const normalized = value
+    .normalize("NFKC")
+    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
+    .replace(/[أإآٱ]/gu, "ا")
+    .replace(/ى/gu, "ي")
+    .replace(/\p{P}+/gu, " ")
+    .replace(/\s+/gu, " ")
+    .trim();
+  return normalized.length > 0
+    && normalized.length <= 96
+    && normalized.split(" ").length <= 14;
+}
+
 function decodeUrlCodePoint(digits, radix) {
   const codePoint = Number.parseInt(digits, radix);
   if (
@@ -266,6 +281,7 @@ for (const file of dataFiles) {
   if (metadata?.count !== cards.length) fail(`data/${file}: catalog count ${metadata?.count} does not match ${cards.length}`);
   expectedQuestionTotal += cards.length;
   const difficultyCounts = {};
+  let verifiedQuestionCount = 0;
   const topicCounts = new Map();
   const topicEnglishByArabic = new Map();
 
@@ -281,6 +297,10 @@ for (const file of dataFiles) {
     for (const field of ["question", "answer"]) {
       if (!card?.[field]?.en?.trim() || !card?.[field]?.ar?.trim()) fail(`${label}: incomplete bilingual ${field}`);
     }
+    if (
+      conciseVerifiedAnswer(card?.answer?.en)
+      && conciseVerifiedAnswer(card?.answer?.ar)
+    ) verifiedQuestionCount += 1;
     const topicEn = card?.subcategory?.en?.trim();
     const topicAr = card?.subcategory?.ar?.trim();
     if (!topicEn || !topicAr) {
@@ -321,6 +341,9 @@ for (const file of dataFiles) {
   if (JSON.stringify(metadata?.difficultyCounts || {}) !== JSON.stringify(expectedDifficultyCounts)) {
     fail(`data/${file}: catalog difficulty counts are stale`);
   }
+  if (metadata?.verifiedQuestionCount !== verifiedQuestionCount) {
+    fail(`data/${file}: catalog verified question count is stale`);
+  }
   const expectedTopics = [...topicCounts.values()].sort((left, right) => (
     right.count - left.count || left.en.localeCompare(right.en)
   ));
@@ -355,14 +378,33 @@ for (const file of ["app.js", "sw.js"]) {
 const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 if (!appSource.includes("https://api.jakh.net")) fail("app.js: production API origin is not configured");
 if (/fetch\(\s*["']\/api\//u.test(appSource)) fail("app.js: stale same-origin API fetch remains");
+const directorySearchStart = appSource.indexOf("function renderCategoryDirectory()");
+const directorySearchEnd = appSource.indexOf("\nfunction renderClusterTabBar()", directorySearchStart);
+if (directorySearchStart < 0 || directorySearchEnd < 0) {
+  fail("app.js: category directory search renderer is missing");
+} else {
+  const directorySearchSource = appSource.slice(directorySearchStart, directorySearchEnd);
+  if (/\b(?:section\.(?:title|description)|meta\.cluster)\b/u.test(directorySearchSource)) {
+    fail("app.js: category search must not match shared section metadata");
+  }
+}
 
 const assetVersions = new Map();
 let assetReferenceCount = 0;
+const versionedRuntimeAsset = "app\\.js|styles\\.css|site-i18n\\.js|game-i18n\\.js|privacy-consent\\.js|privacy-page\\.js";
+const versionedRuntimeReference = new RegExp(
+  `\\b(?:href|src)=["']((?:/)?(?:${versionedRuntimeAsset})(?:\\?[^"']*)?)["']`,
+  "giu",
+);
+const parsedVersionedRuntimeReference = new RegExp(
+  `^/?(${versionedRuntimeAsset})\\?v=(\\d+)$`,
+  "u",
+);
 for (const file of htmlFiles) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
-  for (const match of source.matchAll(/\b(?:href|src)=["']((?:\/)?(?:app\.js|styles\.css|site-i18n\.js|game-i18n\.js)(?:\?[^"']*)?)["']/giu)) {
+  for (const match of source.matchAll(versionedRuntimeReference)) {
     assetReferenceCount += 1;
-    const parsed = match[1]?.match(/^\/?(app\.js|styles\.css|site-i18n\.js|game-i18n\.js)\?v=(\d+)$/u);
+    const parsed = match[1]?.match(parsedVersionedRuntimeReference);
     if (!parsed) {
       fail(`${file}: unversioned runtime asset reference "${match[1]}"`);
       continue;
@@ -566,6 +608,8 @@ async function validateServiceWorkerOfflineShell() {
       ["/about", "navigate", "precache:/about"],
       [`/app.js?v=${version}`, "same-origin", "precache:/app.js"],
       [`/styles.css?v=${version}`, "same-origin", "precache:/styles.css"],
+      [`/privacy-consent.js?v=${version}`, "same-origin", "precache:/privacy-consent.js"],
+      [`/privacy-page.js?v=${version}`, "same-origin", "precache:/privacy-page.js"],
     ];
     for (const [url, mode, expected] of cases) {
       const response = await dispatchFetch(url, mode);
@@ -589,7 +633,7 @@ async function validateServiceWorkerOfflineShell() {
       online = false;
       const response = await dispatchFetch(`/privacy?retry=${marker}`, "navigate");
       const body = await response.text();
-      if (body !== "precache:/") {
+      if (body !== "precache:/privacy") {
         fail(`sw.js: cached a ${marker} navigation response`);
       }
     }

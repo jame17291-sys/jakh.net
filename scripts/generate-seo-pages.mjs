@@ -6,8 +6,9 @@ import { QA_HOLD_IDS, SEO_COLLECTIONS } from "./seo-collections.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = "https://jakh.net";
-const ASSET_VERSION = "2026073103";
-const APP_ASSET_VERSION = "2026073103";
+const ASSET_VERSION = "2026073105";
+const APP_ASSET_VERSION = "2026073105";
+const PRIVACY_ASSET_VERSION = "2026073105";
 const LAST_MODIFIED = "2026-07-31";
 const PREVIEW_CARD_COUNT = 20;
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
@@ -114,6 +115,7 @@ function socialMeta({ title, description, url, type = "website", lang = "en" }) 
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeUrl = escapeHtml(url);
+  const locale = lang === "ar" ? "ar_AE" : "en_US";
   const imageAlt = lang === "ar"
     ? "JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب"
     : "JAKH — 3,553 bilingual riddles across 56 topics and 10 games";
@@ -121,6 +123,7 @@ function socialMeta({ title, description, url, type = "website", lang = "en" }) 
     <meta property="og:description" content="${safeDescription}" />
     <meta property="og:type" content="${type}" />
     <meta property="og:url" content="${safeUrl}" />
+    <meta property="og:locale" content="${locale}" />
     <meta property="og:image" content="${OG_IMAGE_URL}" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -135,13 +138,7 @@ function socialMeta({ title, description, url, type = "website", lang = "en" }) 
 }
 
 function analyticsHead() {
-  return `    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-VQZQNK6VSV');
-    </script>`;
+  return `    <script defer src="/privacy-consent.js?v=${PRIVACY_ASSET_VERSION}"></script>`;
 }
 
 function brandMarkup(lang = "en", dynamic = false, href = "/") {
@@ -169,6 +166,7 @@ function globalFooter(lang = "en", dynamic = false, languageQuery = "", translat
         <nav class="footer-site-links" aria-label="${isAr ? "معلومات JAKH" : "JAKH information"}" data-i18n-aria-label="footerInfoLabel">
           <a href="/collections${escapeHtml(languageQuery)}" data-i18n="footerCollections">${isAr ? "المجموعات" : "Collections"}</a>
           <a href="/about${escapeHtml(languageQuery)}" data-i18n="footerAbout">${isAr ? "عن JAKH ومعايير المحتوى" : "About &amp; content standards"}</a>
+          <a href="/privacy${escapeHtml(languageQuery)}" data-i18n="footerPrivacy">${isAr ? "مركز الخصوصية" : "Privacy Centre"}</a>
         </nav>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="${instagramLabel}"${instagramI18n}><span>Instagram</span></a>
@@ -178,17 +176,18 @@ function globalFooter(lang = "en", dynamic = false, languageQuery = "", translat
     </footer>`;
 }
 
-function authModal() {
+function authModal(lang = "en") {
+  const isAr = lang === "ar";
   return `<div id="toast" class="toast" role="status" aria-live="polite"></div>
     <div id="authModal" class="modal hidden" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="auth"></div>
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
         <div class="modal-head">
           <div>
-            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
-            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+            <p class="eyebrow" data-i18n="authEyebrow">${isAr ? "الملف الشخصي" : "Profile"}</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">${isAr ? "أنشئ حساباً أو سجّل الدخول" : "Create account or sign in"}</h2>
           </div>
-          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+          <button class="icon-btn" data-close-modal="auth" aria-label="${isAr ? "إغلاق" : "Close"}">×</button>
         </div>
         <div id="authModalBody"></div>
       </div>
@@ -215,38 +214,56 @@ for (const category of catalog.categories || []) {
 }
 emit("data/catalog.json", `${JSON.stringify(catalog, null, 2)}\n`);
 
-function categoryMetaDescription(category) {
-  const topic = category.topics?.[0]?.en;
+function categoryRoute(category, lang = "en") {
+  return lang === "ar"
+    ? `/ar/topics/${category.slug}/`
+    : `/${category.slug}`;
+}
+
+function categoryUrl(category, lang = "en") {
+  return `${SITE_ORIGIN}${categoryRoute(category, lang)}`;
+}
+
+function categoryMetaDescription(category, lang = "en") {
+  const topic = category.topics?.[0]?.[lang];
+  if (lang === "ar") {
+    return truncate(
+      `جرّب ${category.count} سؤالاً واختباراً في ${category.title.ar} مع الإجابات بالعربية والإنجليزية${topic ? `، تشمل ${topic} والمزيد` : ""}. العب مجاناً وتابع نتيجتك.`,
+      158,
+    );
+  }
   return truncate(
     `Try ${category.count} ${category.title.en} quiz questions with answers in English and Arabic${topic ? `, covering ${topic} and more` : ""}. Play free and track your score.`,
     158,
   );
 }
 
-function staticCardMarkup(category, card) {
-  const difficulty = card.difficulty === "very-advanced"
-    ? "Very advanced"
-    : card.difficulty.charAt(0).toUpperCase() + card.difficulty.slice(1);
-  const subcategory = card.subcategory?.en
-    ? `<span class="badge badge-subcategory">${escapeHtml(card.subcategory.en)}</span>`
+function staticCardMarkup(category, card, lang = "en") {
+  const isAr = lang === "ar";
+  const difficultyLabels = isAr
+    ? { easy: "سهل", medium: "متوسط", hard: "صعب", "very-advanced": "صعب جداً" }
+    : { easy: "Easy", medium: "Medium", hard: "Hard", "very-advanced": "Very advanced" };
+  const difficulty = difficultyLabels[card.difficulty] || card.difficulty;
+  const subcategory = card.subcategory?.[lang]
+    ? `<span class="badge badge-subcategory">${escapeHtml(card.subcategory[lang])}</span>`
     : "";
-  return `<article class="riddle-card" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" aria-label="${escapeHtml(card.question.en)}">
+  return `<article class="riddle-card" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" aria-label="${escapeHtml(card.question[lang])}">
           <div class="card-inner">
             <section class="card-face card-front" aria-hidden="false">
               <div class="card-badges">
-                <span class="badge badge-category">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title.en)}</span>
+                <span class="badge badge-category">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title[lang])}</span>
                 <span class="badge badge-difficulty" data-difficulty="${escapeHtml(card.difficulty)}">${escapeHtml(difficulty)}</span>
                 ${subcategory}
               </div>
-              <p class="card-question">${escapeHtml(card.question.en)}</p>
+              <p class="card-question">${escapeHtml(card.question[lang])}</p>
               <div class="card-actions">
-                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">Flip for the answer</button>
+                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${isAr ? "اكشف الإجابة" : "Flip for the answer"}</button>
               </div>
             </section>
             <section class="card-face card-back" aria-hidden="true" inert>
-              <p class="card-answer"><strong>${escapeHtml(card.answer.en)}</strong></p>
+              <p class="card-answer"><strong>${escapeHtml(card.answer[lang])}</strong></p>
               <div class="card-actions">
-                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" tabindex="-1">Back to the question</button>
+                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" tabindex="-1">${isAr ? "العودة إلى السؤال" : "Back to the question"}</button>
               </div>
             </section>
           </div>
@@ -278,79 +295,92 @@ function categoryImagePath(category) {
   return `/${match || "assets/logo.png"}`;
 }
 
-function simpleCategoryCard(category) {
-  const topics = (category.topics || []).slice(0, 3).map((topic) => topic.en).join(" · ");
-  return `<a class="category-card has-art" href="/${escapeHtml(category.slug)}" aria-label="${escapeHtml(category.title.en)}">
+function simpleCategoryCard(category, lang = "en") {
+  const isAr = lang === "ar";
+  const topics = (category.topics || []).slice(0, 3).map((topic) => topic[lang] || topic.en).join(" · ");
+  return `<a class="category-card has-art" href="${escapeHtml(categoryRoute(category, lang))}" aria-label="${escapeHtml(category.title[lang])}">
           <div class="category-card-bg" aria-hidden="true">
-            <span class="category-card-count-badge">${category.count} Q</span>
+            <span class="category-card-count-badge">${category.count} ${isAr ? "س" : "Q"}</span>
           </div>
           <div class="category-card-overlay">
-            <h3 class="category-title">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title.en)}</h3>
+            <h3 class="category-title">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title[lang])}</h3>
             ${topics ? `<p class="category-card-topics">${escapeHtml(topics)}</p>` : ""}
           </div>
           <div class="category-card-footer">
-            <span class="category-card-label">${category.count} questions</span>
-            <span class="category-card-enter">Enter</span>
+            <span class="category-card-label">${category.count} ${isAr ? "سؤالاً" : "questions"}</span>
+            <span class="category-card-enter">${isAr ? "افتح" : "Enter"}</span>
           </div>
         </a>`;
 }
 
-function renderCategoryPage(category, cards) {
+function renderCategoryPage(category, cards, lang = "en") {
+  const isAr = lang === "ar";
+  const otherLang = isAr ? "en" : "ar";
   const section = sectionBySlug.get(category.slug);
   if (!section) throw new Error(`Missing section for ${category.slug}`);
   const previewCards = cards.slice(0, PREVIEW_CARD_COUNT);
-  const canonical = `${SITE_ORIGIN}/${category.slug}`;
-  const title = `${category.title.en} Quiz: ${category.count} Questions | JAKH`;
-  const description = categoryMetaDescription(category);
+  const canonical = categoryUrl(category, lang);
+  const alternate = categoryUrl(category, otherLang);
+  const englishCanonical = categoryUrl(category, "en");
+  const languageQuery = isAr ? "?lang=ar" : "";
+  const title = isAr
+    ? `اختبار ${category.title.ar}: ${category.count} سؤالاً | JAKH`
+    : `${category.title.en} Quiz: ${category.count} Questions | JAKH`;
+  const description = categoryMetaDescription(category, lang);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Quiz",
         "@id": `${canonical}#quiz`,
-        name: `${category.title.en} Quiz & Questions`,
+        name: isAr ? `اختبار وأسئلة ${category.title.ar}` : `${category.title.en} Quiz & Questions`,
         description,
         url: canonical,
-        inLanguage: ["en", "ar"],
+        inLanguage: lang,
         isAccessibleForFree: true,
-        educationalLevel: "beginner to advanced",
-        about: { "@type": "Thing", name: category.title.en },
+        educationalLevel: isAr ? "من المبتدئ إلى المتقدم" : "beginner to advanced",
+        about: { "@type": "Thing", name: category.title[lang] },
         provider: { "@type": "Organization", name: "JAKH Riddles", url: `${SITE_ORIGIN}/` },
         hasPart: previewCards.map((card) => ({
           "@type": "Question",
           "@id": `${canonical}#${card.id}`,
           eduQuestionType: "Flashcard",
-          text: card.question.en,
-          acceptedAnswer: { "@type": "Answer", text: card.answer.en },
+          text: card.question[lang],
+          acceptedAnswer: { "@type": "Answer", text: card.answer[lang] },
         })),
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_ORIGIN}/` },
-          { "@type": "ListItem", position: 2, name: "Mind Lab", item: `${SITE_ORIGIN}/mind-lab` },
+          { "@type": "ListItem", position: 1, name: isAr ? "الرئيسية" : "Home", item: `${SITE_ORIGIN}/` },
+          { "@type": "ListItem", position: 2, name: isAr ? "مختبر العقل" : "Mind Lab", item: `${SITE_ORIGIN}/mind-lab` },
           {
             "@type": "ListItem",
             position: 3,
-            name: section.title.en,
+            name: section.title[lang],
             item: `${SITE_ORIGIN}/mind-lab#section-${section.key}`,
           },
-          { "@type": "ListItem", position: 4, name: category.title.en, item: canonical },
+          { "@type": "ListItem", position: 4, name: category.title[lang], item: canonical },
         ],
       },
     ],
   };
   const diffSummary = Object.entries(category.difficultyCounts || [])
-    .map(([level, count]) => `${count} ${level.replace("-", " ")}`)
+    .map(([level, count]) => {
+      const labels = isAr
+        ? { easy: "سهل", medium: "متوسط", hard: "صعب", "very-advanced": "صعب جداً" }
+        : { easy: "easy", medium: "medium", hard: "hard", "very-advanced": "very advanced" };
+      return `${count} ${labels[level] || level.replace("-", " ")}`;
+    })
     .join(" · ");
   const topics = category.topics || [];
   const related = relatedCategories(category, section);
   const professionalNote = YMYL_SLUGS.has(category.slug)
-    ? `<p class="content-standards-note"><strong>Educational use:</strong> This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice. <a href="/about#standards">Read our content standards.</a></p>`
-    : `<p class="content-standards-note">Questions are curated for learning and entertainment. <a href="/about#standards">See how JAKH reviews and improves content.</a></p>`;
+    ? `<p class="content-standards-note"><strong>${isAr ? "للاستخدام التعليمي:" : "Educational use:"}</strong> ${isAr ? "هذا الاختبار للتعلّم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو نفسية." : "This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice."} <a href="/about${languageQuery}#standards">${isAr ? "اقرأ معايير المحتوى لدينا." : "Read our content standards."}</a></p>`
+    : `<p class="content-standards-note">${isAr ? "تُراجع الأسئلة للتعلّم والترفيه." : "Questions are curated for learning and entertainment."} <a href="/about${languageQuery}#standards">${isAr ? "تعرّف إلى طريقة مراجعة JAKH للمحتوى وتحسينه." : "See how JAKH reviews and improves content."}</a></p>`;
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
@@ -361,8 +391,11 @@ function renderCategoryPage(category, cards) {
     <link rel="preload" href="/app.js?v=${APP_ASSET_VERSION}" as="script" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="${canonical}" />
+    <link rel="alternate" hreflang="en" href="${englishCanonical}" />
+    <link rel="alternate" hreflang="ar" href="${categoryUrl(category, "ar")}" />
+    <link rel="alternate" hreflang="x-default" href="${englishCanonical}" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-${socialMeta({ title, description, url: canonical, type: "article" })}
+${socialMeta({ title, description, url: canonical, type: "article", lang })}
     <script type="application/ld+json">
 ${jsonLd(structuredData)}
     </script>
@@ -370,47 +403,48 @@ ${jsonLd(structuredData)}
     <link rel="manifest" href="/manifest.webmanifest" />
 ${analyticsHead()}
   </head>
-  <body data-page="category" data-category="${escapeHtml(category.slug)}">
-    <a href="#top" class="skip-link">Skip to main content</a>
+  <body data-page="category" data-category="${escapeHtml(category.slug)}" data-route-lang="${lang}">
+    <a href="#top" class="skip-link">${isAr ? "انتقل إلى المحتوى الرئيسي" : "Skip to main content"}</a>
     <header class="site-header shell">
-      ${brandMarkup("en", true)}
-      <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="/mind-lab" data-i18n="navCategories">Categories</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+      ${brandMarkup(lang, true, `/${languageQuery}`)}
+      <nav class="header-actions" aria-label="${isAr ? "إجراءات سريعة" : "Quick actions"}">
+        <a class="ghost-btn" href="/${languageQuery}" data-i18n="navHome">${isAr ? "الرئيسية" : "Home"}</a>
+        <a class="ghost-btn" href="/mind-lab${languageQuery}" data-i18n="navCategories">${isAr ? "المواضيع" : "Categories"}</a>
+        <a class="ghost-btn language-route-link" href="${alternate}" hreflang="${otherLang}" lang="${otherLang}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
+        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">${isAr ? "تسجيل الدخول" : "Sign in"}</button>
       </nav>
-      <div class="header-selects" aria-label="Language controls">
+      <div class="header-selects" aria-label="${isAr ? "إعدادات اللغة" : "Language controls"}">
         <label>
-          <span data-i18n="language">Language</span>
+          <span data-i18n="language">${isAr ? "اللغة" : "Language"}</span>
           <select id="langSelect">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
+            <option value="en"${isAr ? "" : " selected"}>English</option>
+            <option value="ar"${isAr ? " selected" : ""}>العربية</option>
           </select>
         </label>
       </div>
     </header>
 
     <main id="top">
-      <nav class="page-breadcrumb shell" aria-label="Breadcrumb">
-        <a href="/">Home</a><span aria-hidden="true">›</span>
-        <a href="/mind-lab">Mind Lab</a><span aria-hidden="true">›</span>
-        <a href="/mind-lab#section-${escapeHtml(section.key)}">${escapeHtml(section.title.en)}</a><span aria-hidden="true">›</span>
-        <span id="breadcrumbCategoryName" aria-current="page">${escapeHtml(category.title.en)}</span>
+      <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}">
+        <a href="/${languageQuery}">${isAr ? "الرئيسية" : "Home"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="/mind-lab${languageQuery}">${isAr ? "مختبر العقل" : "Mind Lab"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="/mind-lab${languageQuery}#section-${escapeHtml(section.key)}">${escapeHtml(section.title[lang])}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <span id="breadcrumbCategoryName" aria-current="page">${escapeHtml(category.title[lang])}</span>
       </nav>
       <section class="hero shell hero-category">
         <div class="hero-copy">
-          <p class="eyebrow" id="categoryKicker">${escapeHtml(category.cluster.en)}</p>
-          <h1 id="categoryTitle">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title.en)}</h1>
-          <p class="hero-text" id="categoryDescription">${escapeHtml(category.description.en)}</p>
+          <p class="eyebrow" id="categoryKicker">${escapeHtml(category.cluster[lang])}</p>
+          <h1 id="categoryTitle">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title[lang])}</h1>
+          <p class="hero-text" id="categoryDescription">${escapeHtml(category.description[lang])}</p>
           <div class="hero-badges">
-            <span id="categoryCountPill">${category.count} questions</span>
+            <span id="categoryCountPill">${category.count} ${isAr ? "سؤالاً" : "questions"}</span>
             <span id="categoryDiffBadge">${escapeHtml(diffSummary)}</span>
           </div>
           ${professionalNote}
         </div>
         <aside class="hero-panel hero-panel-rich">
           <img class="hero-illustration" id="categoryImage" src="${escapeHtml(categoryImagePath(category))}" alt="" />
-          <div class="hero-panel-head"><p data-i18n="pageProgress">Page progress</p></div>
+          <div class="hero-panel-head"><p data-i18n="pageProgress">${isAr ? "تقدّم الصفحة" : "Page progress"}</p></div>
           <div id="categorySummaryMount"></div>
         </aside>
       </section>
@@ -418,57 +452,57 @@ ${analyticsHead()}
       <section class="shell section-block" id="questionSection">
         <div class="section-heading library-head">
           <div>
-            <p class="eyebrow" data-i18n="insidePageEyebrow">Inside this page</p>
-            <h2 data-i18n="insidePageTitle">Flip the full category set</h2>
+            <p class="eyebrow" data-i18n="insidePageEyebrow">${isAr ? "داخل هذه الصفحة" : "Inside this page"}</p>
+            <h2 data-i18n="insidePageTitle">${isAr ? "اقلب بطاقات الموضوع كاملة" : "Flip the full category set"}</h2>
           </div>
-          <p class="section-note" data-i18n="insidePageText">Use search, difficulty, favorites, solved state, and show filters where available.</p>
+          <p class="section-note" data-i18n="insidePageText">${isAr ? "استخدم البحث ومستوى الصعوبة والمفضلة وحالة الحل والفلاتر المتاحة." : "Use search, difficulty, favorites, solved state, and show filters where available."}</p>
         </div>
-        <section class="control-panel" aria-label="Question filters">
+        <section class="control-panel" aria-label="${isAr ? "فلاتر الأسئلة" : "Question filters"}">
           <label class="search-field">
-            <span data-i18n="searchThisPageLabel">Search this page</span>
-            <input id="cardSearchInput" type="search" autocomplete="off" placeholder="Search by keyword, answer, or concept..." />
+            <span data-i18n="searchThisPageLabel">${isAr ? "ابحث في هذه الصفحة" : "Search this page"}</span>
+            <input id="cardSearchInput" type="search" autocomplete="off" placeholder="${isAr ? "ابحث بكلمة أو إجابة أو مفهوم..." : "Search by keyword, answer, or concept..."}" />
           </label>
           <div class="select-grid">
-            <label><span data-i18n="difficultyLabel">Difficulty</span><select id="difficultySelect"><option value="all">All levels</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option><option value="very-advanced">Difficult</option></select></label>
-            <label><span data-i18n="showLabel">Show</span><select id="viewSelect"><option value="all">Everything</option><option value="unsolved">Only unsolved</option><option value="solved">Only solved</option><option value="favorites">Only favorites</option></select></label>
-            <label><span data-i18n="sortLabel">Sort</span><select id="sortSelect"><option value="featured">Featured order</option><option value="difficulty">By difficulty</option><option value="az">A → Z</option><option value="random">Shuffle now</option></select></label>
+            <label><span data-i18n="difficultyLabel">${isAr ? "الصعوبة" : "Difficulty"}</span><select id="difficultySelect"><option value="all">${isAr ? "كل المستويات" : "All levels"}</option><option value="easy">${isAr ? "سهل" : "Easy"}</option><option value="medium">${isAr ? "متوسط" : "Medium"}</option><option value="hard">${isAr ? "صعب" : "Hard"}</option><option value="very-advanced">${isAr ? "صعب جداً" : "Difficult"}</option></select></label>
+            <label><span data-i18n="showLabel">${isAr ? "إظهار" : "Show"}</span><select id="viewSelect"><option value="all">${isAr ? "كل شيء" : "Everything"}</option><option value="unsolved">${isAr ? "غير المحلول فقط" : "Only unsolved"}</option><option value="solved">${isAr ? "المحلول فقط" : "Only solved"}</option><option value="favorites">${isAr ? "المفضلة فقط" : "Only favorites"}</option></select></label>
+            <label><span data-i18n="sortLabel">${isAr ? "الترتيب" : "Sort"}</span><select id="sortSelect"><option value="featured">${isAr ? "الترتيب المختار" : "Featured order"}</option><option value="difficulty">${isAr ? "حسب الصعوبة" : "By difficulty"}</option><option value="az">${isAr ? "أ ← ي" : "A → Z"}</option><option value="random">${isAr ? "اخلط الآن" : "Shuffle now"}</option></select></label>
           </div>
           <div id="subcategoryWrap" class="subcategory-wrap">
-            <p class="mini-label" data-i18n="subcategoriesLabel">Subcategories</p>
+            <p class="mini-label" data-i18n="subcategoriesLabel">${isAr ? "الموضوعات الفرعية" : "Subcategories"}</p>
             <div class="chip-row" id="subcategoryFilters">
-              <button class="category-chip is-active" data-subcategory="all">All · ${category.count}</button>
-              ${topics.map((topic) => `<button class="category-chip" data-subcategory="${escapeHtml(topic.en)}">${escapeHtml(topic.en)} · ${topic.count}</button>`).join("\n              ")}
+              <button class="category-chip is-active" data-subcategory="all">${isAr ? "الكل" : "All"} · ${category.count}</button>
+              ${topics.map((topic) => `<button class="category-chip" data-subcategory="${escapeHtml(topic.en)}">${escapeHtml(topic[lang] || topic.en)} · ${topic.count}</button>`).join("\n              ")}
             </div>
           </div>
         </section>
         <div class="library-toolbar">
-          <p id="resultsLabel">Showing all ${category.count} cards.</p>
-          <button class="text-btn" id="resetPageBtn" data-i18n="resetFilters">Reset filters</button>
+          <p id="resultsLabel">${isAr ? `عرض جميع البطاقات وعددها ${category.count}.` : `Showing all ${category.count} cards.`}</p>
+          <button class="text-btn" id="resetPageBtn" data-i18n="resetFilters">${isAr ? "إعادة ضبط الفلاتر" : "Reset filters"}</button>
         </div>
         <div id="emptyState" class="empty-state hidden">
-          <strong data-i18n="emptyTitle">No cards match that combination.</strong>
-          <p data-i18n="emptyText">Try clearing a filter or broadening the search.</p>
+          <strong data-i18n="emptyTitle">${isAr ? "لا توجد بطاقات تطابق هذا الاختيار." : "No cards match that combination."}</strong>
+          <p data-i18n="emptyText">${isAr ? "جرّب إزالة أحد الفلاتر أو توسيع البحث." : "Try clearing a filter or broadening the search."}</p>
         </div>
         <div id="cardGrid" class="riddle-grid" aria-live="polite">
         <!-- SEO:CARDS:START -->
-        ${previewCards.map((card, index) => staticCardMarkup(category, card, index)).join("\n        ")}
+        ${previewCards.map((card) => staticCardMarkup(category, card, lang)).join("\n        ")}
         <!-- SEO:CARDS:END -->
         </div>
       </section>
 
       <section class="shell section-block">
         <div class="section-heading library-head">
-          <div><p class="eyebrow" data-i18n="relatedEyebrow">Keep exploring</p><h2 data-i18n="relatedTitle">Related category pages</h2></div>
-          <p class="section-note" data-i18n="relatedText">Jump to nearby topics without going back to the home page.</p>
+          <div><p class="eyebrow" data-i18n="relatedEyebrow">${isAr ? "واصل الاستكشاف" : "Keep exploring"}</p><h2 data-i18n="relatedTitle">${isAr ? "صفحات موضوعات مرتبطة" : "Related category pages"}</h2></div>
+          <p class="section-note" data-i18n="relatedText">${isAr ? "انتقل إلى موضوع قريب من دون العودة إلى الصفحة الرئيسية." : "Jump to nearby topics without going back to the home page."}</p>
         </div>
         <div id="relatedCategories" class="category-grid">
-          ${related.map(simpleCategoryCard).join("\n          ")}
+          ${related.map((item) => simpleCategoryCard(item, lang)).join("\n          ")}
         </div>
       </section>
     </main>
 
-    ${globalFooter("en", true, "", "app")}
-    ${authModal()}
+    ${globalFooter(lang, true, languageQuery, "app")}
+    ${authModal(lang)}
     <script src="/app.js?v=${APP_ASSET_VERSION}"></script>
   </body>
 </html>`;
@@ -509,6 +543,7 @@ function normalizeInternalLinks(source) {
     "play",
     "collections",
     "about",
+    "privacy",
   ]);
   return source.replace(/\bhref=(["'])([^"']+)\1/giu, (full, quote, raw) => {
     if (!raw || raw.startsWith("#") || raw.startsWith("/") || /^[a-z][a-z0-9+.-]*:/iu.test(raw)) return full;
@@ -555,8 +590,19 @@ function normalizeSocialMeta(source) {
   return next;
 }
 
+function normalizeAnalytics(source) {
+  const scriptPattern = /[ \t]*<script\b(?:[^>"']|"[^"]*"|'[^']*')*>(?:[\s\S]*?)<\/script\s*>[ \t]*(?:\r?\n)?/giu;
+  const withoutLegacyAnalytics = source.replace(scriptPattern, (block) => {
+    if (/googletagmanager\.com\/gtag\/js/iu.test(block)) return "";
+    if (/\bgtag\s*\(\s*["']config["']/u.test(block)) return "";
+    if (/\bsrc\s*=\s*["'][^"']*privacy-consent\.js(?:\?[^"']*)?["']/iu.test(block)) return "";
+    return block;
+  });
+  return withoutLegacyAnalytics.replace(/<\/head>/iu, `${analyticsHead()}\n  </head>`);
+}
+
 function ensureFooterLinks(source) {
-  const footerLinks = `<nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>`;
+  const footerLinks = `<nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav>`;
   if (source.includes("footer-site-links")) {
     return source.replace(
       /<nav class="footer-site-links"[\s\S]*?<\/nav>/iu,
@@ -568,6 +614,9 @@ function ensureFooterLinks(source) {
       '<div class="footer-socials">',
       `${footerLinks}\n        <div class="footer-socials">`,
     );
+  }
+  if (source.includes("site-footer")) {
+    return source.replace(/<\/footer>/iu, `  ${footerLinks}\n    </footer>`);
   }
   return source;
 }
@@ -670,6 +719,7 @@ ${jsonLd({
 function normalizeExistingPage(source, file) {
   let next = normalizeInternalLinks(source);
   next = normalizeSocialMeta(next);
+  next = normalizeAnalytics(next);
   next = ensureFooterLinks(next);
   next = next
     .replace(/\sdata-theme="light"/gu, "")
@@ -828,7 +878,7 @@ function renderCollectionPage(collection, lang, cards) {
             <div class="seo-answer">
               <p class="seo-answer-label">${label}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
-              <a href="/${escapeHtml(card.sourceCategory.slug)}?card=${encodeURIComponent(card.id)}&amp;lang=${lang}">${sourceLabel} ${isAr ? "←" : "→"}</a>
+              <a href="${escapeHtml(categoryRoute(card.sourceCategory, lang))}?card=${encodeURIComponent(card.id)}">${sourceLabel} ${isAr ? "←" : "→"}</a>
             </div>
           </details>
         </article>`).join("\n        ");
@@ -1082,9 +1132,16 @@ function renderSitemap() {
     sitemapUrl(`${SITE_ORIGIN}/collections`, "0.95"),
     sitemapUrl(`${SITE_ORIGIN}/play`, "0.90"),
     sitemapUrl(`${SITE_ORIGIN}/about`, "0.60"),
-    ...(catalog.categories || []).map((category) => sitemapUrl(`${SITE_ORIGIN}/${category.slug}`, "0.85")),
+    sitemapUrl(`${SITE_ORIGIN}/privacy`, "0.60"),
     ...GAME_SLUGS.map((slug) => sitemapUrl(`${SITE_ORIGIN}/${slug}`, "0.75")),
   ];
+  for (const category of catalog.categories || []) {
+    const en = categoryUrl(category, "en");
+    const ar = categoryUrl(category, "ar");
+    const alternates = { en, ar, "x-default": en };
+    entries.push(sitemapUrl(en, "0.85", alternates));
+    entries.push(sitemapUrl(ar, "0.85", alternates));
+  }
   for (const collection of SEO_COLLECTIONS) {
     const en = collectionUrl(collection, "en");
     const ar = collectionUrl(collection, "ar");
@@ -1101,7 +1158,8 @@ ${entries.join("\n")}
 
 for (const category of catalog.categories || []) {
   const cards = JSON.parse(fs.readFileSync(path.join(root, "data", `${category.slug}.json`), "utf8"));
-  emit(`${category.slug}.html`, renderCategoryPage(category, cards));
+  emit(`${category.slug}.html`, renderCategoryPage(category, cards, "en"));
+  emit(`ar/topics/${category.slug}/index.html`, renderCategoryPage(category, cards, "ar"));
 }
 
 for (const file of ["index.html", "mind-lab.html", "play.html", "404.html", ...GAME_SLUGS.map((slug) => `${slug}.html`)]) {
@@ -1132,6 +1190,6 @@ if (stale.length) {
 
 console.log(
   `${checkOnly ? "SEO generation is current" : "Generated SEO pages"}: `
-  + `${catalog.categories.length} categories, ${SEO_COLLECTIONS.length * 2} localized collections, `
+  + `${catalog.categories.length * 2} localized category pages, ${SEO_COLLECTIONS.length * 2} localized collections, `
   + `${GAME_SLUGS.length} games.`,
 );

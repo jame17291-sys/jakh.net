@@ -76,16 +76,11 @@
 }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=2026073103" />
+    <link rel="stylesheet" href="styles.css?v=2026073105" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQZQNK6VSV"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-VQZQNK6VSV');
-    </script>
+
+
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
@@ -93,6 +88,8 @@
         });
       }
     </script>
+
+      <script defer src="/privacy-consent.js?v=2026073105"></script>
   </head>
   <body class="page-home" data-page="home">
 <a href="#top" class="skip-link">Skip to main content</a>
@@ -235,7 +232,7 @@
     <footer class="site-footer shell">
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
-        <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a></nav>
+        <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -272,6 +269,6 @@
     </div>
 
 
-    <script defer src="app.js?v=2026073103"></script>
+    <script defer src="app.js?v=2026073105"></script>
   </body>
 </html>

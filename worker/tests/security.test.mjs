@@ -56,6 +56,9 @@ test("production sessions accept only a valid __Host token", () => {
   assert.equal(getSessionToken(new Request("http://localhost:8787/api/user/profile", {
     headers: { cookie: `jakh_session=${token}` },
   })), token);
+  assert.equal(getSessionToken(new Request("http://api.jakh.net/api/user/profile", {
+    headers: { cookie: `jakh_session=${token}` },
+  }), "http://127.0.0.1:8765"), token);
 });
 
 test("session cookies use strict first-party protections", () => {

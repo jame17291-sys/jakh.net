@@ -174,3 +174,15 @@ test("HTTP requests redirect permanently to the same HTTPS path and query", () =
     null,
   );
 });
+
+test("local development HTTP is served without an unusable TLS redirect", () => {
+  assert.equal(redirectToHttps(new Request("http://127.0.0.1:8787/api/health")), null);
+  assert.equal(redirectToHttps(new Request("http://localhost:8787/api/health")), null);
+  assert.equal(
+    redirectToHttps(
+      new Request("http://api.jakh.net/api/health"),
+      "http://127.0.0.1:8765",
+    ),
+    null,
+  );
+});

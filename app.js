@@ -1401,6 +1401,13 @@ function showToast(message, isError) {
   }, isError ? 3200 : 2200);
 }
 
+function clearToast() {
+  if (!els.toast) return;
+  clearTimeout(showToast.timer);
+  els.toast.textContent = '';
+  els.toast.classList.remove('is-visible', 'is-error');
+}
+
 function applyDocumentLanguage() {
   document.documentElement.lang = state.lang === 'ar' ? 'ar' : 'en';
   document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
@@ -3518,6 +3525,7 @@ function initSuggestionBox() {
           saveWithAccount: els.suggestionLinkAccount?.checked === true,
         }),
       });
+      clearToast();
       if (els.suggestionForm) els.suggestionForm.classList.add('hidden');
       if (els.suggestionThanks) els.suggestionThanks.classList.remove('hidden');
     } catch (error) {

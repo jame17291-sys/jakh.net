@@ -1,0 +1,99 @@
+name: Deploy jakh.net
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: jakh-net-production
+  cancel-in-progress: true
+
+jobs:
+  validate-and-deploy:
+    name: Validate & Deploy to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate Root Production Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Validate API TypeScript Build
+        run: |
+          if [ -d "api" ]; then
+            echo "Installing API dependencies and testing build..."
+            cd api
+            npm ci
+            npm run build
+          fi
+
+      - name: Deploy latest main on server
+        env:
+          JAKH_SSH_HOST: ${{ secrets.JAKH_SSH_HOST }}
+          JAKH_SSH_USER: ${{ secrets.JAKH_SSH_USER }}
+          JAKH_SSH_KEY: ${{ secrets.JAKH_SSH_KEY }}
+          JAKH_SSH_KEY_B64: ${{ secrets.JAKH_SSH_KEY_B64 }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${JAKH_SSH_HOST}" ] || [ -z "${JAKH_SSH_USER}" ]; then
+            echo "Missing one or more required secrets: JAKH_SSH_HOST, JAKH_SSH_USER"
+            exit 1
+          fi
+
+          if [ -z "${JAKH_SSH_KEY}" ] && [ -z "${JAKH_SSH_KEY_B64}" ]; then
+            echo "Missing SSH key secret. Add JAKH_SSH_KEY_B64 or JAKH_SSH_KEY."
+            exit 1
+          fi
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          if [ -n "${JAKH_SSH_KEY_B64}" ]; then
+            printf '%s' "${JAKH_SSH_KEY_B64}" | base64 -d > ~/.ssh/jakh.pem
+          else
+            printf '%s\n' "${JAKH_SSH_KEY}" > ~/.ssh/jakh.pem
+          fi
+          chmod 600 ~/.ssh/jakh.pem
+
+          echo "Checking SSH private key format..."
+          if ! grep -q "BEGIN .*PRIVATE KEY" ~/.ssh/jakh.pem; then
+            echo "The SSH key secret does not look like a private key. Re-copy ~/Downloads/JAKH.pem into JAKH_SSH_KEY_B64."
+            exit 1
+          fi
+
+          echo "Adding EC2 host key..."
+          ssh-keyscan -T 20 -H "${JAKH_SSH_HOST}" >> ~/.ssh/known_hosts
+
+          echo "Connecting to EC2 and deploying main..."
+          ssh -i ~/.ssh/jakh.pem -o BatchMode=yes -o StrictHostKeyChecking=yes "${JAKH_SSH_USER}@${JAKH_SSH_HOST}" "
+            set -euo pipefail
+            cd /var/www/jakh.net
+            git pull --ff-only origin main
+            npm ci
+            npm run build
+            if [ -d 'api' ]; then
+              cd api && npm ci && npx prisma generate && npm run build && cd ..
+            fi
+            cd dist
+            find . -type f \( -name '*.gz' -o -name '*.br' \) -delete
+            find . -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.xml' -o -name '*.txt' -o -name '*.webmanifest' -o -name '*.svg' -o -name '*.json' \) -exec gzip -kf -9 {} \;
+            if command -v brotli &> /dev/null; then
+              find . -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.xml' -o -name '*.txt' -o -name '*.webmanifest' -o -name '*.svg' -o -name '*.json' \) -exec brotli -kf -9 {} \;
+            fi
+            cd ..
+            sudo nginx -t
+            sudo systemctl reload nginx
+            curl -sS -fail https://jakh.net/ > /dev/null || (echo 'Post-deployment health check failed' && exit 1)
+            git rev-parse --short HEAD
+          "

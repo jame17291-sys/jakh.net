@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17151c" />
+    <meta name="description" content="Play a JAKH brain game against the computer or invite a player with an online room link. Learn the rules, then test your strategy." />
+    <title>Brain Game - Play Computer or Invite a Player | JAKH</title>
+    <link rel="preload" href="styles.css?v=1778122800" as="style" />
+    <link rel="preload" as="style" href="assets/fonts/fonts.css" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="assets/fonts/fonts.css" /></noscript>
+    <link rel="preload" href="game-core.js?v=20260524005559" as="script" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/game.html" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/game.html" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/game.html" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/game.html" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Brain Game | JAKH" />
+    <meta property="og:description" content="Play a JAKH brain game against the computer or invite a player with an online room link. Learn the rules, then test your strategy." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.webp" />
+    <meta property="og:url" content="https://jakh.net/game.html" />
+    <meta property="og:site_name" content="JAKH" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brain Game - Play Computer or Invite a Player | JAKH" />
+    <meta name="twitter:description" content="Play a JAKH brain game against the computer or invite a player with an online room link. Learn the rules, then test your strategy." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.webp" />
+    <link rel="stylesheet" href="styles.css?v=1778122800" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script defer src="analytics.js?v=1778122800"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "JAKH Brain Games & Board Games",
+      "operatingSystem": "Web",
+      "applicationCategory": "GameApplication",
+      "genre": "Board Game / Strategy / Puzzle",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+  </head>
+  <body data-page="brain-game">
+    <a href="#top" class="skip-link">Skip to main content</a>
+
+        <header class="site-header shell">
+      <a href="/" class="brand" aria-label="JAKH home">
+        <picture><source srcset="assets/logo.webp" type="image/webp" /><img src="assets/logo.png" alt="JAKH" class="brand-logo" style="width: 68px; height: 36px; object-fit: contain;" loading="eager" fetchpriority="high" /></picture>
+      </a>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
+        <a class="ghost-btn" href="mind-lab.html" data-i18n="navCategories">Mind Lab</a>
+        <a class="ghost-btn" href="play.html" data-i18n="navGameHub">Game Hub</a>
+        <a class="ghost-btn" href="contact.html" data-i18n="navContact" aria-label="Contact JAKH">Contact</a>
+        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+      </nav>
+
+      <div class="header-selects" aria-label="Language controls">
+        <label>
+          <span data-i18n="language">Language</span>
+          <select id="langSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top" class="brain-table shell">
+      <section class="brain-table-head">
+        <div>
+          <p class="brain-kicker" id="gameKicker">Educational brain game</p>
+          <h1 id="gameTitle">Loading game</h1>
+          <p id="gameSummary">Preparing the board.</p>
+        </div>
+        <div class="brain-table-actions">
+          <button class="brain-pill-btn" type="button" id="computerModeBtn">Play Computer</button>
+          <button class="brain-pill-btn" type="button" id="onlineModeBtn">Invite a Player</button>
+          <button class="brain-pill-btn" type="button" id="leaderboardBtn">Top Scores</button>
+          <button class="brain-pill-btn" type="button" id="newGameBtn">New Game</button>
+        </div>
+      </section>
+
+      <section class="brain-room-panel" id="roomPanel" hidden>
+        <div>
+          <label for="playerNameInput">Player name</label>
+          <input id="playerNameInput" type="text" maxlength="24" autocomplete="nickname" value="Player" />
+        </div>
+        <button class="brain-pill-btn" type="button" id="createRoomBtn">Create Invite Link</button>
+        <div class="brain-room-link" id="roomLinkBlock" hidden>
+          <input id="roomLinkInput" type="text" readonly />
+          <button class="brain-pill-btn" type="button" id="copyRoomBtn">Copy Link</button>
+        </div>
+        <p id="roomStatus">Create a private room, copy the link, and send it to another player.</p>
+      </section>
+
+      <section class="brain-game-layout">
+        <aside class="brain-game-side">
+          <div class="brain-status-card">
+            <span id="modeLabel">Computer mode</span>
+            <strong id="turnLabel">Your turn</strong>
+            <p id="statusText">Select a legal move to begin.</p>
+          </div>
+          <div class="brain-status-card">
+            <span id="scoreMeta">Score</span>
+            <strong id="scoreText">0</strong>
+            <p id="rulesText">Rules load with each game.</p>
+          </div>
+          <div class="brain-status-card">
+            <span id="howToMeta">How to play</span>
+            <ol class="brain-how-to" id="howToList"></ol>
+          </div>
+        </aside>
+        <section class="brain-board-wrap" aria-label="Game board">
+          <div id="gameBoard" class="brain-board" role="grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy">All rights reserved to JAKH 2026</p>
+        <div class="footer-legal">
+          <a href="contact.html#suggestionBox" class="social-link" aria-label="Recommend a change to JAKH"><span>Recommend changes</span></a>
+          <a href="privacy.html" class="social-link" aria-label="Read the JAKH privacy page"><span>Privacy</span></a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="brainModalRoot"></div>
+    <script src="games/catalog.js?v=1778122800"></script>
+    <script src="room.js?v=1778122800"></script>
+    <script src="games/_grid.js?v=1778122800"></script>
+    <script src="game-core.js?v=20260524005559"></script>
+      <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="auth"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
+            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
+          </div>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+        </div>
+        <div id="authModalBody"></div>
+      </div>
+    </div>
+
+</body>
+</html>

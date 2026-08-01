@@ -11,8 +11,12 @@ import {
 import { PasswordHasher } from "./password-hasher.js";
 import {
   adminOverview,
+  adminAudit,
+  adminSecurity,
   adminSuggestions,
   adminUsers,
+  reauthenticateAdmin,
+  revokeNonOwnerSessions,
   updateSuggestion,
   updateUserBan,
   updateUserRole,
@@ -94,6 +98,14 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/admin/overview" && method === "GET") return adminOverview(request, env);
   if (path === "/api/admin/users" && method === "GET") return adminUsers(request, env);
   if (path === "/api/admin/suggestions" && method === "GET") return adminSuggestions(request, env);
+  if (path === "/api/admin/audit" && method === "GET") return adminAudit(request, env);
+  if (path === "/api/admin/security" && method === "GET") return adminSecurity(request, env);
+  if (path === "/api/admin/security/reauthenticate" && method === "POST") {
+    return reauthenticateAdmin(request, env);
+  }
+  if (path === "/api/admin/security/revoke-non-owner-sessions" && method === "POST") {
+    return revokeNonOwnerSessions(request, env);
+  }
   const roleMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/role$/u.exec(path);
   if (roleMatch && method === "PATCH") return updateUserRole(request, env, roleMatch[1] || "");
   const banMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/ban$/u.exec(path);

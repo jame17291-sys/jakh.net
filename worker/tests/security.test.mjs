@@ -4,6 +4,7 @@ import {
   clientIp,
   getSessionToken,
   hashPassword,
+  normalizeLoginIdentifier,
   randomToken,
   sessionCookie,
   sha256,
@@ -71,6 +72,21 @@ test("session cookies use strict first-party protections", () => {
   assert.match(cookie, /; Secure;/u);
   assert.match(cookie, /; SameSite=Strict;/u);
   assert.match(cookie, /; Priority=High;/u);
+});
+
+test("login accepts a canonical username or email without weakening registration rules", () => {
+  assert.deepEqual(normalizeLoginIdentifier("Jameel"), {
+    column: "username_key",
+    value: "jameel",
+  });
+  assert.deepEqual(normalizeLoginIdentifier(" Jame17291@Gmail.com "), {
+    column: "email",
+    value: "jame17291@gmail.com",
+  });
+  assert.throws(
+    () => normalizeLoginIdentifier("not an email@example"),
+    (error) => error?.status === 400 && error?.code === "INVALID_EMAIL",
+  );
 });
 
 test("IPv6 clients share a canonical /64 rate-limit network", () => {

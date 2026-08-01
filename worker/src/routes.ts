@@ -9,6 +9,7 @@ import {
   clearSessionCookies,
   clientIp,
   normalizeEmail,
+  normalizeLoginIdentifier,
   normalizeUsername,
   randomToken,
   sessionCookie,
@@ -22,7 +23,7 @@ const AVATARS = new Set(["👤", "🦊", "🦉", "🐉", "⚡️", "🔥", "👻
 const ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 const MAX_SYNC_ITEMS = 100;
-const SCHEMA_VERSION = "4";
+const SCHEMA_VERSION = "5";
 
 interface UserPasswordRow {
   id: string;
@@ -121,15 +122,15 @@ export async function register(request: Request, env: Env): Promise<Response> {
 
 export async function login(request: Request, env: Env): Promise<Response> {
   const body = await parseJson<{ username?: unknown; password?: unknown }>(request);
-  const { key } = normalizeUsername(body.username);
+  const identifier = normalizeLoginIdentifier(body.username);
   const password = validatePassword(body.password);
   const rateKey = await requestRateKey(request, env, "login");
   await enforceRateLimit(env, rateKey, 20, 15 * 60);
 
   const user = await env.DB.prepare(
     `SELECT id, username, email, avatar, role, is_banned, password_hash, password_salt, password_iterations
-       FROM users WHERE username_key = ?`,
-  ).bind(key).first<UserPasswordRow>();
+       FROM users WHERE ${identifier.column} = ?`,
+  ).bind(identifier.value).first<UserPasswordRow>();
 
   if (!user) {
     await hashPasswordInHasher(env, password, "AAAAAAAAAAAAAAAAAAAAAA");

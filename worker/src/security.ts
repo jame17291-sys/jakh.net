@@ -149,6 +149,27 @@ export function normalizeUsername(value: unknown): { username: string; key: stri
   return { username, key: username.toLowerCase() };
 }
 
+/**
+ * Accept either of the identifiers users actually remember at sign-in while
+ * keeping account creation's username rules deliberately strict.
+ */
+export function normalizeLoginIdentifier(value: unknown): {
+  column: "username_key" | "email";
+  value: string;
+} {
+  if (typeof value !== "string") {
+    throw new ApiError(400, "Username or email is required");
+  }
+  const identifier = value.trim();
+  if (!identifier) throw new ApiError(400, "Username or email is required");
+  if (identifier.includes("@")) {
+    const email = normalizeEmail(identifier);
+    if (!email) throw new ApiError(400, "Invalid email");
+    return { column: "email", value: email };
+  }
+  return { column: "username_key", value: normalizeUsername(identifier).key };
+}
+
 export function validatePassword(value: unknown, label = "Password"): string {
   if (typeof value !== "string") throw new ApiError(400, `${label} is required`);
   if (value.length < 8 || value.length > 128) {

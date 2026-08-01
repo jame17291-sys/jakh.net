@@ -330,6 +330,9 @@ const UI = {
     authSignInTab: 'Sign in',
     authRegisterTab: 'Create account',
     username: 'Username',
+    usernameOrEmail: 'Username or email',
+    adminConsole: 'Admin console',
+    adminConsoleAria: 'Open the JAKH administration console',
     password: 'Password',
     passwordHint: 'Securely stored in your cloud account.',
     signIn: 'Sign in',
@@ -681,6 +684,9 @@ const UI = {
     authSignInTab: 'تسجيل الدخول',
     authRegisterTab: 'إنشاء حساب',
     username: 'اسم المستخدم',
+    usernameOrEmail: 'اسم المستخدم أو البريد الإلكتروني',
+    adminConsole: 'لوحة الإدارة',
+    adminConsoleAria: 'فتح لوحة إدارة JAKH',
     password: 'كلمة المرور',
     passwordHint: 'تُخزن بأمان في حسابك السحابي.',
     signIn: 'دخول',
@@ -1045,6 +1051,19 @@ async function checkCloudSession() {
   } catch (err) {
     state.dbUser = null;
     state.accountAnalyticsAllowed = false;
+  }
+}
+
+function postAuthDestination() {
+  const next = new URL(location.href).searchParams.get('next');
+  if (!next) return '';
+  try {
+    const target = new URL(next, location.origin);
+    if (target.origin !== location.origin) return '';
+    if (target.pathname !== '/admin' && target.pathname !== '/admin.html') return '';
+    return `${target.pathname}${target.search}${target.hash}`;
+  } catch (_) {
+    return '';
   }
 }
 
@@ -1506,11 +1525,31 @@ function applyStaticCopy() {
     const account = getActiveUser();
     els.openAuthBtn.textContent = account ? account.username : t('authOpen');
   }
+  syncAdminEntry();
   applyCategoryShellCopy();
   applyRuntimeAccessibilityCopy();
   updateSelectLabels();
   updateDocumentTitle();
   updateBottomNavActive();
+}
+
+function syncAdminEntry() {
+  const nav = document.querySelector('.header-actions');
+  if (!nav) return;
+  const isAdmin = state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER';
+  const existing = document.getElementById('adminNavBtn');
+  if (!isAdmin) {
+    existing?.remove();
+    return;
+  }
+  const link = existing || document.createElement('a');
+  link.id = 'adminNavBtn';
+  link.className = 'ghost-btn admin-nav-btn';
+  link.href = `/admin${state.lang === 'ar' ? '?lang=ar' : ''}`;
+  link.textContent = `🛡 ${t('adminConsole')}`;
+  link.setAttribute('aria-label', t('adminConsoleAria'));
+  link.title = t('adminConsole');
+  if (!existing) nav.insertBefore(link, els.openAuthBtn || null);
 }
 
 function updateDocumentTitle() {
@@ -3252,6 +3291,7 @@ function renderAuthModal(mode = 'signin') {
         <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
 
         <div class="hero-actions" style="margin-top:2rem;">
+          ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<a class="secondary-btn" href="/admin${state.lang === 'ar' ? '?lang=ar' : ''}">🛡 ${escapeHtml(t('adminConsole'))}</a>` : ''}
           <a class="secondary-btn" href="/privacy${state.lang === 'ar' ? '?lang=ar' : ''}">${escapeHtml(state.lang === 'ar' ? 'الخصوصية وبيانات الحساب' : 'Privacy & account data')}</a>
           <button class="primary-btn" id="logoutBtn" style="background:#555;">${escapeHtml(t('logout'))}</button>
         </div>
@@ -3319,8 +3359,8 @@ function renderAuthModal(mode = 'signin') {
     <form class="auth-form" id="authForm">
       <div class="form-row">
         <label>
-          <span>${escapeHtml(t('username'))}</span>
-          <input id="authUsername" autocomplete="username" required minlength="3" maxlength="20" />
+          <span>${escapeHtml(mode === 'signin' ? t('usernameOrEmail') : t('username'))}</span>
+          <input id="authUsername" autocomplete="username" required minlength="3" maxlength="${mode === 'signin' ? '254' : '20'}" inputmode="${mode === 'signin' ? 'email' : 'text'}" />
         </label>
         <label>
           <span>${escapeHtml(t('password'))}</span>
@@ -3377,6 +3417,8 @@ function renderAuthModal(mode = 'signin') {
           rerender();
           trackEvent(mode === 'signin' ? 'login' : 'sign_up', { method: 'username' });
           showToast(mode === 'signin' ? t('signedIn') : t('accountCreated'));
+          const destination = mode === 'signin' ? postAuthDestination() : '';
+          if (destination) location.assign(destination);
       } catch (err) {
           showToast(localizedErrorMessage(err, 'badLogin'), true);
       } finally {

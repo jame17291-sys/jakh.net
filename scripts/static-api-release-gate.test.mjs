@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { compareStaticApiEvidence, verifyStaticApiRelease } from "./static-api-release-gate.mjs";
@@ -175,4 +175,33 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   assert.match(workflow, /steps\.runtime_monitor\.outcome != 'success'/u);
   assert.match(workflow, /API dry-run artifact: inventoried only; it is not evidence of a live API release/u);
   assert.doesNotMatch(workflow, /Cross-artifact release SHA/u);
+});
+
+test("no parallel EC2 or nondeterministic artifact path can bypass the guarded release lanes", async () => {
+  const workflowDirectory = new URL("../.github/workflows/", import.meta.url);
+  const workflowNames = (await readdir(workflowDirectory)).filter((name) => /\.ya?ml$/u.test(name));
+  for (const name of workflowNames) {
+    const workflow = await readFile(new URL(name, workflowDirectory), "utf8");
+    assert.doesNotMatch(workflow, /\bssh(?:-keyscan)?\b|systemctl\s+reload\s+nginx|git\s+pull\s+--ff-only\s+origin\s+main/u, `${name} contains an unmanaged server deployment path`);
+  }
+
+  const retiredPaths = [
+    "../.github/workflows/deploy.yml",
+    "../scripts/build.js",
+    "../scripts/generate-sitemap.js",
+    "../game.html",
+    "../api/src/routes/tts.ts",
+    "../nginx/jakh.net.conf",
+  ];
+  for (const path of retiredPaths) {
+    await assert.rejects(
+      readFile(new URL(path, import.meta.url)),
+      (error) => error?.code === "ENOENT",
+      `${path} must remain outside the production release tree`,
+    );
+  }
+
+  const rootPackage = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
+  assert.equal(rootPackage.scripts?.build, undefined, "the retired EC2 builder must not become the default production build");
+  assert.equal(rootPackage.devDependencies?.esbuild, undefined, "unreviewed esbuild must not enter the release dependency graph");
 });

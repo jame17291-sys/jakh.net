@@ -8,6 +8,14 @@ const DEFAULT_SITE_MAX_MS = 5_000;
 const DEFAULT_API_MAX_MS = 5_000;
 const ALLOWED_ORIGIN = "https://jakh.net";
 const DISALLOWED_ORIGIN = "https://example.invalid";
+const MAX_CHECK_ATTEMPTS = 2;
+
+class RetryableCheckError extends Error {
+  constructor(message, options) {
+    super(message, options);
+    this.name = "RetryableCheckError";
+  }
+}
 
 export const HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>JAKH Riddles", bilingualMarker: 'id="langSelect"' },
@@ -58,10 +66,12 @@ function expect(condition, message) {
 }
 
 function expectStatus(response, status) {
-  expect(
-    response.status === status,
-    `expected HTTP ${status}, received ${response.status}`,
-  );
+  if (response.status === status) return;
+  const message = `expected HTTP ${status}, received ${response.status}`;
+  if (response.status === 429 || (response.status >= 500 && response.status <= 599)) {
+    throw new RetryableCheckError(message);
+  }
+  throw new Error(message);
 }
 
 function expectContentType(response, pattern) {
@@ -122,9 +132,10 @@ async function fetchResource(fetchImpl, url, timeoutMs, options = {}) {
     };
   } catch (error) {
     if (error?.name === "AbortError") {
-      throw new Error(`request timed out after ${timeoutMs}ms`);
+      throw new RetryableCheckError(`request timed out after ${timeoutMs}ms`, { cause: error });
     }
-    throw error;
+    const message = error instanceof Error ? error.message : String(error);
+    throw new RetryableCheckError(message, { cause: error });
   } finally {
     clearTimeout(timer);
   }
@@ -139,14 +150,15 @@ function parseJson(resource) {
 }
 
 function assertBudget(resource, maxMs, maxBytes) {
-  expect(
-    resource.elapsedMs <= maxMs,
-    `response took ${Math.round(resource.elapsedMs)}ms (budget ${maxMs}ms)`,
-  );
   if (maxBytes) {
     expect(
       resource.body.byteLength <= maxBytes,
       `response is ${resource.body.byteLength} bytes (budget ${maxBytes} bytes)`,
+    );
+  }
+  if (resource.elapsedMs > maxMs) {
+    throw new RetryableCheckError(
+      `response took ${Math.round(resource.elapsedMs)}ms (budget ${maxMs}ms)`,
     );
   }
 }
@@ -187,16 +199,26 @@ export async function runProductionMonitor(options = {}) {
   const failures = [];
 
   async function check(name, run) {
-    try {
-      const resource = await run();
-      results.push({
-        name,
-        status: resource.response.status,
-        elapsedMs: resource.elapsedMs,
-        bytes: resource.body.byteLength,
-      });
-    } catch (error) {
-      failures.push({ name, message: error instanceof Error ? error.message : String(error) });
+    for (let attempt = 1; attempt <= MAX_CHECK_ATTEMPTS; attempt += 1) {
+      try {
+        const resource = await run();
+        results.push({
+          name,
+          status: resource.response.status,
+          elapsedMs: resource.elapsedMs,
+          bytes: resource.body.byteLength,
+          attempts: attempt,
+        });
+        return;
+      } catch (error) {
+        if (error instanceof RetryableCheckError && attempt < MAX_CHECK_ATTEMPTS) continue;
+        failures.push({
+          name,
+          message: error instanceof Error ? error.message : String(error),
+          attempts: attempt,
+        });
+        return;
+      }
     }
   }
 
@@ -490,13 +512,15 @@ export async function runProductionMonitor(options = {}) {
   });
 
   for (const result of results) {
+    const retry = result.attempts > 1 ? `  recovered on attempt ${result.attempts}` : "";
     logger.log(
       `PASS  ${result.name.padEnd(36)} ${String(result.status).padEnd(3)} `
-      + `${Math.round(result.elapsedMs).toString().padStart(5)}ms  ${formatBytes(result.bytes)}`,
+      + `${Math.round(result.elapsedMs).toString().padStart(5)}ms  ${formatBytes(result.bytes)}${retry}`,
     );
   }
   for (const failure of failures) {
-    logger.error(`FAIL  ${failure.name}: ${failure.message}`);
+    const attempts = failure.attempts > 1 ? ` after ${failure.attempts} attempts` : "";
+    logger.error(`FAIL  ${failure.name}${attempts}: ${failure.message}`);
   }
 
   const summary = { config, results, failures };

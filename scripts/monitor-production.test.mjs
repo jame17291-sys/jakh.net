@@ -209,6 +209,113 @@ test("production monitor reports broken CORS without hiding other results", asyn
   });
 });
 
+test("production monitor recovers once from transient network, status, and latency failures", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    const attempts = new Map();
+    const fetchImpl = async (input, options) => {
+      const pathname = new URL(input).pathname;
+      const attempt = (attempts.get(pathname) || 0) + 1;
+      attempts.set(pathname, attempt);
+
+      if (pathname === "/data/catalog.json" && attempt === 1) {
+        throw new TypeError("simulated connection reset");
+      }
+      if (pathname === "/assets/og-image.jpg" && attempt === 1) {
+        return new Response("temporarily unavailable", { status: 503 });
+      }
+      if (pathname === "/" && attempt === 1) {
+        await new Promise((resolve) => setTimeout(resolve, 80));
+      }
+      return fetch(input, options);
+    };
+
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      fetchImpl,
+      timeoutMs: 2_000,
+      siteMaxMs: 30,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+
+    assert.equal(summary.failures.length, 0);
+    assert.equal(attempts.get("/"), 2);
+    assert.equal(attempts.get("/data/catalog.json"), 2);
+    assert.equal(attempts.get("/assets/og-image.jpg"), 2);
+    assert.equal(summary.results.find(({ name }) => name === "Site: Home")?.attempts, 2);
+    assert.equal(summary.results.find(({ name }) => name === "Site: catalog data")?.attempts, 2);
+    assert.equal(summary.results.find(({ name }) => name === "Site: social preview image")?.attempts, 2);
+  });
+});
+
+test("production monitor fails after one retry when a transient status persists", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    let socialPreviewAttempts = 0;
+    const fetchImpl = async (input, options) => {
+      if (new URL(input).pathname === "/assets/og-image.jpg") {
+        socialPreviewAttempts += 1;
+        return new Response("temporarily unavailable", { status: 503 });
+      }
+      return fetch(input, options);
+    };
+
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      fetchImpl,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+      throwOnFailure: false,
+    });
+
+    assert.equal(socialPreviewAttempts, 2);
+    assert.deepEqual(
+      summary.failures.find(({ name }) => name === "Site: social preview image"),
+      {
+        name: "Site: social preview image",
+        message: "expected HTTP 200, received 503",
+        attempts: 2,
+      },
+    );
+  });
+});
+
+test("production monitor does not retry a contract failure", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    let socialPreviewAttempts = 0;
+    const fetchImpl = async (input, options) => {
+      if (new URL(input).pathname === "/assets/og-image.jpg") {
+        socialPreviewAttempts += 1;
+        return new Response("not a jpeg", {
+          status: 200,
+          headers: { "content-type": "text/plain" },
+        });
+      }
+      return fetch(input, options);
+    };
+
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      fetchImpl,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+      throwOnFailure: false,
+    });
+
+    assert.equal(socialPreviewAttempts, 1);
+    assert.match(
+      summary.failures.find(({ name }) => name === "Site: social preview image")?.message || "",
+      /unexpected Content-Type/u,
+    );
+  });
+});
+
 test("production monitor enforces its response-time budget", async () => {
   await withFixture({ homeDelayMs: 80 }, async (fixtureOrigin) => {
     const summary = await runProductionMonitor({

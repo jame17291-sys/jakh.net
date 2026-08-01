@@ -1,5 +1,5 @@
-const CACHE_NAME = 'jakh-v76';
-const ASSET_CACHE = 'jakh-assets-v76';
+const CACHE_NAME = 'jakh-v77';
+const ASSET_CACHE = 'jakh-assets-v77';
 const MAX_NAVIGATION_CACHE_ENTRIES = 64;
 
 const PRECACHE_ASSETS = [

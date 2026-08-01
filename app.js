@@ -1409,9 +1409,16 @@ function clearToast() {
 }
 
 function applyDocumentLanguage() {
-  document.documentElement.lang = state.lang === 'ar' ? 'ar' : 'en';
-  document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
+  const nextLang = state.lang === 'ar' ? 'ar' : 'en';
+  const languageChanged = document.documentElement.lang !== nextLang;
+  document.documentElement.lang = nextLang;
+  document.documentElement.dir = nextLang === 'ar' ? 'rtl' : 'ltr';
   if (els.langSelect) els.langSelect.value = state.lang;
+  if (languageChanged) {
+    document.dispatchEvent(new CustomEvent('jakh:languagechange', {
+      detail: { language: nextLang },
+    }));
+  }
 }
 
 function applyCategoryShellCopy() {

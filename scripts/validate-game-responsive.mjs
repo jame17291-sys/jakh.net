@@ -1,4 +1,5 @@
 import { createRequire } from 'node:module';
+import { existsSync } from 'node:fs';
 
 const require = createRequire(import.meta.url);
 const playwrightModule = process.env.JAKH_PLAYWRIGHT_MODULE || 'playwright';
@@ -155,12 +156,10 @@ async function pageMetrics(page, name, viewport) {
   return metrics;
 }
 
-const browser = await chromium.launch({
-  headless: true,
-  ...(process.env.JAKH_BROWSER_EXECUTABLE
-    ? { executablePath: process.env.JAKH_BROWSER_EXECUTABLE }
-    : {})
-});
+const configuredExecutable = process.env.JAKH_BROWSER_EXECUTABLE;
+const macChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const executablePath = configuredExecutable || (existsSync(macChrome) ? macChrome : undefined);
+const browser = await chromium.launch({ headless: true, executablePath });
 const report = [];
 try {
   for (const viewport of viewports) {

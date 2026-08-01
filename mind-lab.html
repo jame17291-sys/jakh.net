@@ -38,18 +38,18 @@
     <a href="#top" class="skip-link">Skip to main content</a>
 
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="assets/logo.webp" type="image/webp" />
           <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
-      <nav class="header-actions" aria-label="Quick actions">
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
         <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="/play" data-i18n="heroGameHub">Game Hub</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
       </nav>
-      <div class="header-selects" aria-label="Language controls">
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
         <label>
           <span data-i18n="language">Language</span>
           <select id="langSelect">
@@ -91,7 +91,7 @@
         </div>
 
         <!-- Five sections that filter direct topic links -->
-        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections">
+        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections" data-i18n-aria-label="categorySectionsLabel">
           <button class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-label="All topics">
             <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff8eb,#edf5ff);" aria-hidden="true"></div>
             <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">ALL</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">All topics</span><span class="ml-cluster-tab-count">56 topics</span></div></div>
@@ -119,10 +119,10 @@
         </div>
 
         <!-- Search + toolbar -->
-        <section class="control-panel directory-search-panel" aria-label="Category filters">
+        <section class="control-panel directory-search-panel" aria-label="Category filters" data-i18n-aria-label="categoryFiltersLabel">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
+            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
           </label>
         </section>
 
@@ -979,11 +979,11 @@
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="socialInstagramLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             <span>Instagram</span>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="socialFacebookLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span>Facebook</span>
           </a>
@@ -1001,7 +1001,7 @@
             <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
             <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
           </div>
-          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close" data-i18n-aria-label="close">×</button>
         </div>
         <div id="authModalBody"></div>
       </div>

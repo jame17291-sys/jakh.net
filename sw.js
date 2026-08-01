@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v80';
+const CACHE_VERSION = 'v81';
 const CORE_CACHE = `jakh-core-${CACHE_VERSION}`;
 const NAVIGATION_CACHE = `jakh-navigation-${CACHE_VERSION}`;
 const ASSET_CACHE = `jakh-assets-${CACHE_VERSION}`;
@@ -13,7 +13,7 @@ const CURRENT_CACHES = new Set([
 const MAX_NAVIGATION_CACHE_ENTRIES = 64;
 const MAX_ASSET_CACHE_ENTRIES = 96;
 const MAX_DATA_CACHE_ENTRIES = 64;
-const OFFLINE_FALLBACK_PATH = '/offline.html';
+const OFFLINE_FALLBACK_PATH = '/offline';
 
 const GAME_DOCUMENTS = [
   '/backgammon',
@@ -29,13 +29,13 @@ const GAME_DOCUMENTS = [
 ];
 
 const ARABIC_SHARED_DOCUMENTS = [
-  '/ar',
-  '/ar/mind-lab',
-  '/ar/collections',
-  '/ar/play',
-  '/ar/about',
-  '/ar/privacy',
-  ...GAME_DOCUMENTS.map((route) => `/ar/games${route}`),
+  '/ar/',
+  '/ar/mind-lab/',
+  '/ar/collections/',
+  '/ar/play/',
+  '/ar/about/',
+  '/ar/privacy/',
+  ...GAME_DOCUMENTS.map((route) => `/ar/games${route}/`),
 ];
 
 // This order mirrors the catalog categories eligible for the Home daily card.
@@ -113,6 +113,7 @@ const REQUIRED_CORE_ASSETS = [
   '/game-i18n.js',
   '/privacy-consent.js',
   '/privacy-page.js',
+  '/privacy.css',
   '/styles.css',
   '/manifest.webmanifest',
   '/assets/logo.webp',
@@ -169,7 +170,11 @@ function normalizeNavigationPath(pathname) {
   let normalized = pathname.replace(/\/{2,}/gu, '/');
   normalized = normalized.replace(/\/index\.html$/iu, '/');
   normalized = normalized.replace(/\.html$/iu, '');
-  if (normalized.length > 1) normalized = normalized.replace(/\/+$/u, '');
+  if (normalized === '/ar' || normalized.startsWith('/ar/')) {
+    normalized = `${normalized.replace(/\/+$/u, '')}/`;
+  } else if (normalized.length > 1) {
+    normalized = normalized.replace(/\/+$/u, '');
+  }
   return normalized || '/';
 }
 

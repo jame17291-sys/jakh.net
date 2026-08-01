@@ -393,7 +393,7 @@
         </div>
 
         <!-- Board -->
-        <div class="mm-board" id="mmBoard" role="grid" dir="ltr" aria-label="Mastermind guessing board" data-i18n-aria-label="mmBoardAria"></div>
+        <div class="mm-board" id="mmBoard" role="grid" aria-rowcount="10" aria-colcount="6" dir="ltr" aria-label="Mastermind guessing board" data-i18n-aria-label="mmBoardAria"></div>
 
         <!-- Palette & controls -->
         <div class="mm-palette-section" id="paletteSection">
@@ -759,22 +759,28 @@
             (isActive ? ' active-row' : '') +
             (isPast ? ' past' : '');
           row.setAttribute('role', 'row');
+          row.setAttribute('aria-rowindex', String(rowIdx + 1));
           row.setAttribute('aria-label', t('mmRowAria', { row: formatNumber(rowIdx + 1) }));
 
           // Row number
           const numEl = document.createElement('span');
           numEl.className = 'mm-row-num';
           numEl.textContent = formatNumber(rowIdx + 1);
+          numEl.setAttribute('role', 'rowheader');
+          numEl.setAttribute('aria-colindex', '1');
           row.appendChild(numEl);
 
           // Pegs container
           const pegsEl = document.createElement('div');
           pegsEl.className = 'mm-pegs';
+          pegsEl.setAttribute('role', 'presentation');
 
           for (let slotIdx = 0; slotIdx < CODE_LENGTH; slotIdx++) {
             const peg = document.createElement('button');
             peg.type = 'button';
             peg.className = 'mm-peg';
+            peg.setAttribute('role', 'gridcell');
+            peg.setAttribute('aria-colindex', String(slotIdx + 2));
             peg.dataset.rowIndex = String(rowIdx);
             peg.dataset.slotIndex = String(slotIdx);
             peg.setAttribute('aria-label', t('mmSlotAria', { slot: formatNumber(slotIdx + 1) }));
@@ -811,6 +817,8 @@
           // Feedback pegs (2×2 grid)
           const feedbackEl = document.createElement('div');
           feedbackEl.className = 'mm-feedback';
+          feedbackEl.setAttribute('role', 'gridcell');
+          feedbackEl.setAttribute('aria-colindex', '6');
           feedbackEl.setAttribute('aria-label', isPast && attempt
             ? t('mmFeedbackAria', {
                 black: formatNumber(attempt.blacks),
@@ -829,6 +837,7 @@
           feedbackOrder.forEach(type => {
             const fp = document.createElement('div');
             fp.className = 'mm-fb-peg ' + type;
+            fp.setAttribute('aria-hidden', 'true');
             feedbackEl.appendChild(fp);
           });
           row.appendChild(feedbackEl);

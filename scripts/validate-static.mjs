@@ -264,7 +264,11 @@ for (const file of dataFiles) {
     fail(`data/${file}: invalid JSON: ${error.message}`);
     continue;
   }
-  if (file === "catalog.json" || file === "card-index.json" || file === "search-index.json") continue;
+  if (
+    file === "catalog.json"
+    || file === "card-index.json"
+    || /^search-index(?:\.(?:en|ar))?\.json$/u.test(file)
+  ) continue;
   if (!Array.isArray(parsed)) {
     fail(`data/${file}: category files must be plain card arrays; metadata belongs in data/catalog.json`);
     continue;

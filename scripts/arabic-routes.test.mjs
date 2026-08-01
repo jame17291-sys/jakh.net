@@ -27,6 +27,20 @@ const routes = [
   ["ar/privacy/index.html", "/privacy", "/ar/privacy/"],
   ...GAME_SLUGS.map((slug) => [`ar/games/${slug}/index.html`, `/${slug}`, `/ar/games/${slug}/`]),
 ];
+const ENGLISH_COMMON_ARIA_LABELS = new Set([
+  "JAKH Riddles home",
+  "Quick actions",
+  "Language controls",
+  "Language",
+  "Category sections",
+  "Category filters",
+  "Search topics and subtopics",
+  "Privacy Centre sections",
+  "JAKH information",
+  "JAKH Riddles on Instagram",
+  "JAKH Riddles on Facebook",
+  "Close",
+]);
 
 function read(relativePath) {
   return fs.readFileSync(path.join(root, relativePath), "utf8");
@@ -62,6 +76,7 @@ test("all 16 physical Arabic routes have self canonicals and reciprocal alternat
     assert.ok(bodyArabicCharacters.length >= 10, `${file}: Arabic body copy`);
     assert.doesNotMatch(html, /(?:href|src|srcset)="(?:assets\/|styles\.css|app\.js|game-i18n\.js|manifest\.webmanifest)/iu, `${file}: root-relative resources`);
     assert.doesNotMatch(html, /href="[^"]*[?&]lang=(?:ar|en)(?:[&#"])/iu, `${file}: retired language query`);
+    assert.doesNotMatch(html, /\/\s+(?:aria-|data-|class=|id=|placeholder=|title=)/iu, `${file}: malformed self-closing tag`);
   }
 });
 
@@ -77,6 +92,22 @@ test("Arabic hubs keep shared, game, and topic navigation on clean Arabic paths"
   assert.equal(topicLinks.length, 56);
   assert.equal(new Set(topicLinks.map((match) => match[1])).size, 56);
   assert.doesNotMatch(mindLab, /class="category-card[^>]*href="\/(?!ar\/topics\/)/u);
+});
+
+test("no-script Arabic routes localize common accessible names", () => {
+  for (const [file] of routes) {
+    const html = read(file);
+    const ariaLabels = [...html.matchAll(/\baria-label=(?:"([^"]*)"|'([^']*)')/giu)]
+      .map((match) => match[1] || match[2]);
+    const leaked = ariaLabels.filter((label) => ENGLISH_COMMON_ARIA_LABELS.has(label));
+    assert.deepEqual(leaked, [], `${file}: English common aria-labels leaked into Arabic output`);
+  }
+
+  for (const file of ["index.html", "mind-lab.html", "play.html", "privacy.html"]) {
+    const source = read(file);
+    assert.match(source, /class="brand"[^>]*data-i18n-aria-label="brandHomeLabel"/u, `${file}: brand hook`);
+    assert.match(source, /class="header-actions"[^>]*data-i18n-aria-label="quickActionsLabel"/u, `${file}: quick-actions hook`);
+  }
 });
 
 test("runtime language controls route physically and discard only the retired lang parameter", () => {

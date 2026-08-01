@@ -186,6 +186,7 @@ const siteI18n = read("site-i18n.js");
 const siteCommon = extractObject(siteI18n, "const COMMON =", "site-i18n.js COMMON").ar;
 const sitePages = extractObject(siteI18n, "const PAGES =", "site-i18n.js PAGES");
 const gameCommon = extractObject(read("game-i18n.js"), "var COMMON =", "game-i18n.js COMMON").ar;
+const privacyMessages = extractObject(read("privacy-page.js"), "const copy =", "privacy-page.js copy").ar;
 const catalog = JSON.parse(read("data/catalog.json"));
 const categoriesBySlug = new Map((catalog.categories || []).map((category) => [category.slug, category]));
 const sectionsByKey = new Map((catalog.sections || []).map((section) => [section.key, section]));
@@ -194,6 +195,7 @@ function messagesFor(route, source) {
   if (route.runtime === "app") return appMessages;
   if (route.runtime === "site") return { ...siteCommon, ...(sitePages[route.page]?.ar || {}) };
   if (route.runtime === "game") return { ...gameCommon, ...extractGameTranslations(source, route.game).ar };
+  if (route.runtime === "privacy") return privacyMessages;
   return {};
 }
 
@@ -201,7 +203,10 @@ function replaceAttribute(tag, attribute, value) {
   const encoded = escapeAttribute(value);
   const matcher = new RegExp(`\\s${attribute}=(?:"[^"]*"|'[^']*')`, "iu");
   if (matcher.test(tag)) return tag.replace(matcher, ` ${attribute}="${encoded}"`);
-  return tag.replace(/>$/u, ` ${attribute}="${encoded}">`);
+  return tag.replace(
+    /\s*(\/?)>$/u,
+    (_closing, selfClosing) => ` ${attribute}="${encoded}"${selfClosing ? " />" : ">"}`,
+  );
 }
 
 function localizeDataAttributes(html, messages) {
@@ -340,6 +345,7 @@ function normalizeResourcePaths(html) {
     [/(\bsrc=["'])site-i18n\.js/giu, "$1/site-i18n.js"],
     [/(\bsrc=["'])privacy-(?:consent|page)\.js/giu, (match) => match.replace('="', '="/').replace("='", "='/")],
     [/(\bhref=["'])styles\.css/giu, "$1/styles.css"],
+    [/(\bhref=["'])privacy\.css/giu, "$1/privacy.css"],
     [/(\bhref=["'])manifest\.webmanifest/giu, "$1/manifest.webmanifest"],
   ];
   for (const [matcher, replacement] of replacements) html = html.replace(matcher, replacement);

@@ -176,8 +176,21 @@ function assertKnownKeys(label, usedKeys, availableKeys) {
 }
 
 const appSource = read("app.js");
+const searchLeaderboardSource = read("search-leaderboard.js");
 const appUi = extractObject(appSource, "const UI =", "app.js UI");
 const appKeys = assertParity("app.js UI", appUi);
+const searchLeaderboardCopy = extractObject(
+  searchLeaderboardSource,
+  "const FEATURE_COPY =",
+  "search-leaderboard.js FEATURE_COPY",
+);
+const searchLeaderboardKeys = assertParity("search-leaderboard.js FEATURE_COPY", searchLeaderboardCopy);
+for (const match of searchLeaderboardSource.matchAll(/\bt\(\s*["']([^"']+)["']/gu)) {
+  const key = match[1];
+  if (!searchLeaderboardKeys.has(key) && !appKeys.has(key)) {
+    fail(`search-leaderboard.js: unknown bilingual key "${key}"`);
+  }
+}
 for (const selector of [
   'meta[name="description"]',
   'meta[property="og:title"]',
@@ -224,9 +237,14 @@ if (!appSource.includes("if (!initializeFromStorage()) return;")) {
 for (const rootRelativeLoad of [
   "fetchJson('/data/catalog.json')",
   "fetchJson(`/data/${state.categorySlug}.json`)",
-  "fetchJson('/data/search-index.json')",
 ]) {
   if (!appSource.includes(rootRelativeLoad)) fail(`app.js: missing root-relative load ${rootRelativeLoad}`);
+}
+if (!searchLeaderboardSource.includes("fetchJson(`/data/search-index.${language}.json`)")) {
+  fail("search-leaderboard.js: missing root-relative language-shard load");
+}
+if (!appSource.includes("const SEARCH_LEADERBOARD_MODULE_PATH = '/search-leaderboard.js'")) {
+  fail("app.js: missing root-relative search/leaderboard module boundary");
 }
 
 for (const pair of categoryPagePairs) {

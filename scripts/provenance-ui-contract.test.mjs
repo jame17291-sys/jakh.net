@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+const searchLeaderboard = fs.readFileSync(path.join(root, 'search-leaderboard.js'), 'utf8');
+const productSource = `${app}\n${searchLeaderboard}`;
 const css = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
 
 test('every question-card branch exposes an honest bilingual review status', () => {
@@ -36,11 +38,11 @@ test('reviewed cards expose date, reviewer, and HTTPS sources using safe externa
 });
 
 test('server scoring uses the scorable count and never masquerades as fact review', () => {
-  assert.match(app, /Number\(category\.scorableQuestionCount\) >= 10/u);
-  assert.doesNotMatch(app, /verifiedQuestionCount/u);
+  assert.match(searchLeaderboard, /Number\(category\.scorableQuestionCount\) >= 10/u);
+  assert.doesNotMatch(productSource, /verifiedQuestionCount/u);
   assert.match(app, /leaderboardTitle: 'Server-checked leaderboard'/u);
-  assert.match(app, /Server checking applies to submitted answers and scoring, not editorial fact review\./u);
-  assert.match(app, /وهذا منفصل عن المراجعة التحريرية للمعلومات/u);
-  assert.match(app, /'Server checked'/u);
-  assert.doesNotMatch(app, /'Server verified'/u);
+  assert.match(searchLeaderboard, /Server checking applies to submitted answers and scoring, not editorial fact review\./u);
+  assert.match(searchLeaderboard, /وهذا منفصل عن المراجعة التحريرية للمعلومات/u);
+  assert.match(searchLeaderboard, /'Server checked'/u);
+  assert.doesNotMatch(productSource, /'Server verified'/u);
 });

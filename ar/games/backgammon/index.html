@@ -86,7 +86,7 @@
     }
 
     .bg-bar-label {
-      color: var(--ink-soft);
+      color: #162638;
       font-size: 0.8125rem;
       font-family: var(--font);
       text-transform: uppercase;
@@ -155,7 +155,7 @@
       justify-content: center;
     }
     .bg-mid-label {
-      color: var(--ink-soft);
+      color: #162638;
       font-size: 0.8125rem;
       font-family: var(--font);
       letter-spacing: 0.1em;
@@ -194,7 +194,7 @@
     .bg-point-num {
       font-size: 0.8125rem;
       font-family: 'JetBrains Mono', monospace;
-      color: var(--muted);
+      color: #162638;
       text-align: center;
       line-height: 1;
       padding: 1px 0;
@@ -215,7 +215,7 @@
     .bg-bearoff-label {
       font-size: 0.8125rem;
       font-family: var(--font);
-      color: var(--muted);
+      color: #162638;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       margin-bottom: 4px;
@@ -946,7 +946,7 @@
       mid.dir = 'ltr';
       mid.style.cssText = 'height:24px;background:rgba(32,50,71,0.2);display:flex;align-items:center;justify-content:center;';
       var midLabel = document.createElement('span');
-      midLabel.style.cssText = 'color:var(--ink-soft);font-size:0.8125rem;font-family:var(--font);letter-spacing:0.06em;';
+      midLabel.style.cssText = 'color:#162638;font-size:0.8125rem;font-family:var(--font);letter-spacing:0.06em;';
       midLabel.textContent = I.t('boardName');
       midLabel.dir = I.dir;
       mid.appendChild(midLabel);
@@ -1064,7 +1064,7 @@
 
       // Point number
       var num = document.createElement('div');
-      num.style.cssText = 'font-size:0.8125rem;font-family:var(--font-mono);color:var(--muted);text-align:center;line-height:1;padding:1px 0;';
+      num.style.cssText = 'font-size:0.8125rem;font-family:var(--font-mono);color:#162638;text-align:center;line-height:1;padding:1px 0;';
       num.textContent = ptIdx;
       if (rowClass === 'top') col.appendChild(num);
       else col.insertBefore(num, col.firstChild);
@@ -1087,7 +1087,7 @@
 
       var lbl = document.createElement('div');
       lbl.className = 'bg-bar-label';
-      lbl.style.cssText = 'color:var(--ink-soft);font-size:0.8125rem;font-family:var(--font);text-transform:uppercase;letter-spacing:0.04em;';
+      lbl.style.cssText = 'color:#162638;font-size:0.8125rem;font-family:var(--font);text-transform:uppercase;letter-spacing:0.04em;';
       lbl.textContent = I.t('bar');
       lbl.dir = I.dir;
       bar.appendChild(lbl);
@@ -1165,7 +1165,7 @@
 
       var lbl = document.createElement('div');
       lbl.className = 'bg-bearoff-label';
-      lbl.style.cssText = 'font-size:0.8125rem;font-family:var(--font);color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
+      lbl.style.cssText = 'font-size:0.8125rem;font-family:var(--font);color:#162638;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
       lbl.textContent = I.t(color === 'w' ? 'whiteOff' : 'blackOff');
       lbl.dir = I.dir;
 

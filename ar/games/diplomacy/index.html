@@ -229,9 +229,15 @@
       position: absolute;
       bottom: 4px;
       right: 6px;
-      font-size: 0.8125rem;
-      opacity: 0.6;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(22, 38, 56, 0.55);
     }
+
+    .terr-capital.p1 { background: var(--accent); }
+    .terr-capital.p2 { background: var(--p2-color); }
 
     /* Order panel */
     #dip-order-panel {
@@ -448,7 +454,7 @@
       <div id="dip-win-banner"></div>
 
       <!-- Map -->
-      <div id="dip-map" role="grid" aria-label="خريطة دبلوماسية" data-i18n-aria-label="mapLabel" dir="ltr"></div>
+      <div id="dip-map" role="group" aria-label="خريطة دبلوماسية" data-i18n-aria-label="mapLabel" dir="ltr"></div>
 
       <!-- Order panel -->
       <div id="dip-order-panel">
@@ -1083,13 +1089,13 @@
       for (const terr of s.territories) {
         const card = document.createElement('div');
         card.className = 'dip-territory';
-        card.setAttribute('role', 'gridcell');
+        card.setAttribute('role', 'button');
         card.setAttribute('aria-label', t('territoryAria', {
           territory: territoryName(terr.id),
           owner: ownerName(terr.owner),
         }));
         card.dataset.terrId = terr.id;
-        card.setAttribute('aria-selected', String(Boolean(
+        card.setAttribute('aria-pressed', String(Boolean(
           selectedUnit && selectedUnit.terrId === terr.id
         )));
 
@@ -1124,6 +1130,7 @@
             hasP1Unit
           ))
         );
+        card.setAttribute('aria-disabled', String(!canInteract));
         if (canInteract) card.tabIndex = 0;
         card.addEventListener('click', () => onTerrClick(terr.id));
         card.addEventListener('keydown', event => {
@@ -1183,8 +1190,7 @@
         // Capital marker
         if (terr.capital) {
           const cap = document.createElement('div');
-          cap.className = 'terr-capital';
-          cap.textContent = terr.capital === 'p1' ? '🔴★' : '🔵★';
+          cap.className = `terr-capital ${terr.capital}`;
           cap.setAttribute('aria-hidden', 'true');
           card.appendChild(cap);
         }

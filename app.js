@@ -547,35 +547,11 @@ const UI = {
     errorNoQuestions: 'No questions are available for this selection.',
     errorInvalidRoomCode: 'Enter a valid room code.',
     leaderboardTitle: 'Server-checked leaderboard',
-    leaderboardTop: 'Accuracy-only submitted-answer rankings',
-    leaderboardDisclaimer: 'Only one-time challenges issued and scored by JAKH enter this board. Server checking applies to submitted answers and scoring, not editorial fact review. Your practice points stay private.',
-    leaderboardEmpty: 'No server-checked scores yet. Start a challenge and submit the first accuracy-only score.',
     leaderboardLoadError: 'Could not load the leaderboard.',
-    verifiedStartTitle: 'Take a server-checked challenge',
-    verifiedStartText: 'Choose a topic and answer 10 questions in one sitting. You have 15 minutes; submitted answers are checked automatically by the server. This is separate from editorial fact review.',
-    verifiedCategory: 'Challenge topic',
-    verifiedStart: 'Start server-checked challenge',
-    verifiedSignIn: 'Sign in to enter the server-checked leaderboard.',
     verifiedAnswerAll: 'Answer all 10 questions before submitting.',
-    verifiedSubmit: 'Submit answers for server checking',
-    verifiedCancel: 'Cancel challenge',
     verifiedActive: 'A server-checked challenge for this topic is already active. Return to the original tab or wait up to 15 minutes for it to expire.',
-    verifiedActiveWarning: 'Discarding it can invalidate a challenge still open in another tab. Continue only if you want to replace that attempt.',
-    verifiedDiscardActive: 'Discard active attempt and retry',
-    verifiedKeepActive: 'Keep active attempt',
-    verifiedDiscarding: 'Discarding…',
     verifiedCancelError: 'Could not cancel the challenge. Your answers and token are still kept in this tab; retry before closing.',
     verifiedDiscardError: 'Could not discard the active attempt. It was not replaced.',
-    verifiedQuestion: 'Question {number} of {total}',
-    verifiedAnswerPlaceholder: 'Type your answer',
-    verifiedResultTitle: 'Server-checked result',
-    verifiedResult: '{correct}/{total} correct · {score} points',
-    verifiedResultNote: 'The server checked this score, so it is eligible for the public leaderboard. This does not indicate human editorial review of the card content.',
-    serverCheckedAutomationDisclaimer: 'This is accuracy-only server checking, not proctoring. JAKH does not verify who answered or prevent lookups or automated tools.',
-    verifiedReviewUnavailable: 'Editorial review status was not supplied for these server-checked questions. Do not treat server scoring as factual or safety review.',
-    verifiedTryAgain: 'Try another challenge',
-    verifiedStarting: 'Starting…',
-    verifiedSubmitting: 'Checking answers…',
     verifiedChallengeError: 'Could not start the server-checked challenge.',
     verifiedSubmitError: 'The server could not check these answers.',
     verifiedTooFast: 'Take a little more time before submitting.',
@@ -583,14 +559,7 @@ const UI = {
     verifiedReplayed: 'This challenge has already been submitted.',
     verifiedTampered: 'The challenge changed and cannot be checked by the server. Start again.',
     verifiedUnavailable: 'This topic is not available for server scoring yet.',
-    pointsShort: 'pts',
-    globalSearchLabel: 'Global search',
-    globalSearchPlaceholder: 'Search all 3,500+ questions…',
-    globalSearchInputLabel: 'Search all questions',
-    globalSearchStart: 'Start typing to search across all categories…',
-    globalSearchMin: 'Type at least 2 characters…',
     globalSearchUnavailable: 'Search is unavailable right now.',
-    globalSearchEmpty: 'No results.',
     installPrompt: '📲 Add JAKH to your home screen for quick access',
     install: 'Install',
     secondsShort: 's',
@@ -940,35 +909,11 @@ const UI = {
     errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
     errorInvalidRoomCode: 'أدخل رمز غرفة صالحًا.',
     leaderboardTitle: 'لوحة نتائج يتحقق منها الخادم',
-    leaderboardTop: 'ترتيب الإجابات المرسلة بحسب الدقة فقط',
-    leaderboardDisclaimer: 'لا تظهر هنا إلا تحديات JAKH المؤقتة التي يصدرها الخادم ويصححها. يشير تحقق الخادم إلى الإجابات المرسلة وحساب النتيجة، وليس إلى مراجعة تحريرية بشرية للمعلومات. تبقى نقاط التدريب خاصة بك.',
-    leaderboardEmpty: 'لا توجد نتائج تحقّق منها الخادم بعد. ابدأ تحديًا وأرسل أول نتيجة محسوبة بحسب الدقة فقط.',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
-    verifiedStartTitle: 'ابدأ تحديًا يتحقق منه الخادم',
-    verifiedStartText: 'اختر موضوعًا وأجب عن 10 أسئلة في جلسة واحدة. لديك 15 دقيقة، ويتحقق الخادم آليًا من الإجابات المرسلة. وهذا منفصل عن المراجعة التحريرية للمعلومات.',
-    verifiedCategory: 'موضوع التحدي',
-    verifiedStart: 'ابدأ تحديًا يتحقق منه الخادم',
-    verifiedSignIn: 'سجّل الدخول للمشاركة في لوحة النتائج التي يتحقق منها الخادم.',
     verifiedAnswerAll: 'أجب عن الأسئلة العشرة قبل الإرسال.',
-    verifiedSubmit: 'أرسل الإجابات ليتحقق منها الخادم',
-    verifiedCancel: 'إلغاء التحدي',
     verifiedActive: 'يوجد تحدٍ نشط يتحقق منه الخادم لهذا الموضوع. عد إلى علامة التبويب الأصلية أو انتظر حتى 15 دقيقة لانتهاء صلاحيته.',
-    verifiedActiveWarning: 'قد يؤدي حذفه إلى إبطال تحدٍ ما زال مفتوحًا في علامة تبويب أخرى. تابع فقط إذا أردت استبدال تلك المحاولة.',
-    verifiedDiscardActive: 'احذف المحاولة النشطة وأعد المحاولة',
-    verifiedKeepActive: 'احتفظ بالمحاولة النشطة',
-    verifiedDiscarding: 'جارٍ الحذف…',
     verifiedCancelError: 'تعذر إلغاء التحدي. ما زالت إجاباتك والرمز محفوظين في علامة التبويب هذه؛ أعد المحاولة قبل الإغلاق.',
     verifiedDiscardError: 'تعذر حذف المحاولة النشطة، ولم تُستبدل.',
-    verifiedQuestion: 'السؤال {number} من {total}',
-    verifiedAnswerPlaceholder: 'اكتب إجابتك',
-    verifiedResultTitle: 'نتيجة تحقّق منها الخادم',
-    verifiedResult: '{correct}/{total} صحيحة · {score} نقطة',
-    verifiedResultNote: 'تحقّق الخادم من هذه النتيجة، لذا فهي مؤهلة للظهور في لوحة المتصدرين. ولا يعني ذلك أن محتوى البطاقات خضع لمراجعة تحريرية بشرية.',
-    serverCheckedAutomationDisclaimer: 'هذا تحقق خادمي من الدقة فقط وليس مراقبة للاختبار. لا يتحقق JAKH من هوية المجيب ولا يمنع البحث أو الأدوات الآلية.',
-    verifiedReviewUnavailable: 'لم يرسل الخادم حالة المراجعة التحريرية لهذه الأسئلة. لا تعتبر حساب النتيجة مراجعة للمعلومة أو السلامة.',
-    verifiedTryAgain: 'جرّب تحديًا آخر',
-    verifiedStarting: 'جارٍ البدء…',
-    verifiedSubmitting: 'جارٍ التحقق…',
     verifiedChallengeError: 'تعذّر بدء التحدي الذي يتحقق منه الخادم.',
     verifiedSubmitError: 'تعذّر على الخادم التحقق من هذه الإجابات.',
     verifiedTooFast: 'خذ وقتًا أطول قليلًا قبل الإرسال.',
@@ -976,14 +921,7 @@ const UI = {
     verifiedReplayed: 'تم إرسال هذا التحدي من قبل.',
     verifiedTampered: 'تغيّر التحدي ولا يمكن للخادم التحقق منه. ابدأ من جديد.',
     verifiedUnavailable: 'هذا الموضوع غير متاح حاليًا لحساب النتائج على الخادم.',
-    pointsShort: 'نقطة',
-    globalSearchLabel: 'البحث الشامل',
-    globalSearchPlaceholder: 'ابحث في أكثر من 3,500 سؤال…',
-    globalSearchInputLabel: 'ابحث في جميع الأسئلة',
-    globalSearchStart: 'اكتب للبحث في جميع الفئات…',
-    globalSearchMin: 'اكتب حرفين على الأقل…',
     globalSearchUnavailable: 'البحث غير متاح حاليًا.',
-    globalSearchEmpty: 'لا توجد نتائج.',
     installPrompt: '📲 أضف JAKH إلى شاشتك الرئيسية للوصول السريع',
     install: 'تثبيت',
     secondsShort: 'ث',
@@ -2108,11 +2046,38 @@ function initializeFromStorage() {
   return true;
 }
 
+const INSTALL_PROMPT_DISMISSAL_KEY = 'jakh-install-dismissed';
+const INSTALL_PROMPT_DISMISSAL_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
+function installPromptIsSuppressed(now = Date.now()) {
+  const raw = safeStorageGet('local', INSTALL_PROMPT_DISMISSAL_KEY);
+  if (!raw) return false;
+  try {
+    const record = JSON.parse(raw);
+    const dismissedAt = Number(record?.dismissedAt);
+    if (Number.isFinite(dismissedAt) && dismissedAt > 0 && now - dismissedAt < INSTALL_PROMPT_DISMISSAL_TTL_MS) {
+      return true;
+    }
+  } catch {
+    // Retired boolean values had no reset date, so they must not suppress the
+    // prompt forever after this policy ships.
+  }
+  safeStorageRemove('local', INSTALL_PROMPT_DISMISSAL_KEY);
+  return false;
+}
+
+function suppressInstallPrompt(reason = 'dismissed') {
+  safeStorageSet('local', INSTALL_PROMPT_DISMISSAL_KEY, JSON.stringify({
+    dismissedAt: Date.now(),
+    reason,
+  }));
+}
+
 let _installPrompt = null;
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   _installPrompt = e;
-  if (!safeStorageGet('local', 'jakh-install-dismissed')) {
+  if (!installPromptIsSuppressed()) {
     showInstallBanner();
   }
 });
@@ -2154,17 +2119,17 @@ function showInstallBanner() {
     const { outcome } = await _installPrompt.userChoice;
     _installPrompt = null;
     removeInstallBanner();
-    if (outcome === 'accepted') safeStorageSet('local', 'jakh-install-dismissed', '1');
+    if (outcome === 'accepted') suppressInstallPrompt('accepted');
   });
   document.getElementById('installDismissBtn')?.addEventListener('click', () => {
-    safeStorageSet('local', 'jakh-install-dismissed', '1');
+    suppressInstallPrompt('dismissed');
     removeInstallBanner();
   });
 }
 
 document.addEventListener('jakh:consentchange', () => {
   refreshFixedUiLayout();
-  if (_installPrompt && !safeStorageGet('local', 'jakh-install-dismissed')) showInstallBanner();
+  if (_installPrompt && !installPromptIsSuppressed()) showInstallBanner();
 });
 
 window.addEventListener('appinstalled', () => {
@@ -2187,7 +2152,6 @@ function refreshLocalizedTransientUi() {
     releaseFocus(leaderboardModal);
     leaderboardModal.remove();
   }
-  createLeaderboardModal();
   if (leaderboardWasOpen) void openLeaderboard();
 
   const searchOverlay = document.getElementById('globalSearchOverlay');
@@ -2196,14 +2160,9 @@ function refreshLocalizedTransientUi() {
     const searchValue = document.getElementById('globalSearchInput')?.value || '';
     releaseFocus(searchOverlay);
     searchOverlay.remove();
-    _gsGeneration += 1;
+    _searchLeaderboard?.resetTransientUi();
     if (searchWasOpen) {
-      openGlobalSearch();
-      const input = document.getElementById('globalSearchInput');
-      if (input) {
-        input.value = searchValue;
-        if (searchValue) void runGlobalSearch();
-      }
+      void openGlobalSearch(searchValue);
     }
   }
 
@@ -2299,9 +2258,7 @@ function bindCommonEvents() {
   if (hashMatch) {
     const code = normalizeBattleCode(hashMatch[1]);
     if (BATTLE_CODE_PATTERN.test(code)) {
-      openBattleModal('', 'join');
-      const codeInput = document.getElementById('battleCodeInput');
-      if (codeInput) codeInput.value = code;
+      openBattleModal('', 'join', code);
     }
   }
 
@@ -4949,537 +4906,88 @@ function endTimedQuiz() {
   checkNewAchievements();
 }
 
-// ================= VERIFIED LEADERBOARD =================
-let verifiedChallenge = null;
+// ================= LAZY SEARCH + LEADERBOARD =================
 
-function createLeaderboardModal() {
-  if (document.getElementById('leaderboardModal')) return;
-  const el = document.createElement('div');
-  el.id = 'leaderboardModal';
-  el.className = 'modal hidden';
-  el.setAttribute('aria-hidden', 'true');
-  el.innerHTML = `
-    <div class="modal-backdrop" data-close-modal="leaderboard"></div>
-    <div class="modal-card verified-leaderboard-card" role="dialog" aria-modal="true" aria-labelledby="leaderboardTitle">
-      <div class="modal-head">
-        <div>
-          <p class="eyebrow">🏆 ${escapeHtml(t('leaderboardTitle'))}</p>
-          <h2 id="leaderboardTitle">${escapeHtml(t('leaderboardTop'))}</h2>
-          <p class="muted">${escapeHtml(t('leaderboardDisclaimer'))}</p>
-          <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
-        </div>
-        <button class="icon-btn" data-close-modal="leaderboard" aria-label="${escapeHtml(t('close'))}">×</button>
-      </div>
-      <div id="verifiedChallengeMount"></div>
-      <section class="verified-ranking-section" aria-labelledby="verifiedRankingTitle">
-        <div class="verified-section-head">
-          <h3 id="verifiedRankingTitle">${escapeHtml(t('leaderboardTitle'))}</h3>
-          <span class="verified-shield" aria-label="${escapeHtml(state.lang === 'ar' ? 'يتحقق منه الخادم' : 'Server checked')}">✓</span>
-        </div>
-        <div id="leaderboardBody" class="verified-ranking-list" aria-live="polite"></div>
-      </section>
-    </div>`;
-  document.body.appendChild(el);
-}
+const SEARCH_LEADERBOARD_MODULE_PATH = '/search-leaderboard.js';
+const SEARCH_LEADERBOARD_STYLES_PATH = '/search-leaderboard.css';
+let _searchLeaderboard = null;
+let _searchLeaderboardPromise = null;
+let _searchLeaderboardStylesPromise = null;
 
-// ================= GLOBAL SEARCH =================
-let _gsIndex = null;
-let _gsIndexPromise = null;
-let _gsGeneration = 0;
-
-async function loadGlobalSearchIndex() {
-  if (_gsIndex) return _gsIndex;
-  if (!_gsIndexPromise) {
-    _gsIndexPromise = fetchJson('/data/search-index.json')
-      .then((payload) => {
-        if (
-          payload?.version !== 1
-          || !Array.isArray(payload.categories)
-          || !Array.isArray(payload.cards)
-        ) {
-          throw new Error('Invalid global search index');
-        }
-        _gsIndex = payload;
-        return payload;
-      })
-      .finally(() => {
-        _gsIndexPromise = null;
-      });
-  }
-  return _gsIndexPromise;
-}
-
-function openGlobalSearch() {
-  void loadGlobalSearchIndex().catch(() => undefined);
-  const existingOverlay = document.getElementById('globalSearchOverlay');
-  if (existingOverlay) {
-    existingOverlay.classList.remove('hidden');
-    existingOverlay.setAttribute('aria-hidden', 'false');
-    trapFocus(existingOverlay, {
-      key: 'global-search',
-      initialFocus: '#globalSearchInput',
-      onEscape: closeGlobalSearch,
-      returnFallback: '#globalSearchBtn',
-    });
-    return;
-  }
-  const overlay = document.createElement('div');
-  overlay.id = 'globalSearchOverlay';
-  overlay.className = 'global-search-overlay';
-  overlay.setAttribute('aria-hidden', 'false');
-  overlay.innerHTML = `
-    <div class="global-search-backdrop"></div>
-    <div class="global-search-panel" role="dialog" aria-modal="true" aria-label="${escapeHtml(t('globalSearchLabel'))}">
-      <div class="global-search-head">
-        <input id="globalSearchInput" class="global-search-input" type="search" autocomplete="off"
-          placeholder="${escapeHtml(t('globalSearchPlaceholder'))}"
-          aria-label="${escapeHtml(t('globalSearchInputLabel'))}" />
-        <button class="global-search-close icon-btn" id="globalSearchClose" aria-label="${escapeHtml(t('close'))}">×</button>
-      </div>
-      <div id="globalSearchResults" class="global-search-results">
-        <p class="global-search-hint">${escapeHtml(t('globalSearchStart'))}</p>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-  trapFocus(overlay, {
-    key: 'global-search',
-    initialFocus: '#globalSearchInput',
-    onEscape: closeGlobalSearch,
-    returnFallback: '#globalSearchBtn',
-  });
-
-  overlay.querySelector('.global-search-backdrop').addEventListener('click', closeGlobalSearch);
-  document.getElementById('globalSearchClose').addEventListener('click', closeGlobalSearch);
-
-  const input = document.getElementById('globalSearchInput');
-  input?.addEventListener('input', debounce(runGlobalSearch, 280));
-}
-
-function closeGlobalSearch() {
-  _gsGeneration++;
-  const overlay = document.getElementById('globalSearchOverlay');
-  if (!overlay || overlay.classList.contains('hidden')) return;
-  overlay.classList.add('hidden');
-  overlay.setAttribute('aria-hidden', 'true');
-  releaseFocus(overlay, { restore: true });
-}
-
-function rankGlobalSearch(searchIndex, categories, query, lang) {
-  const q = String(query || '').trim().toLowerCase();
-  if (!q) return [];
-  const categoriesBySlug = new Map((categories || []).map(category => [category.slug, category]));
-  const relevance = (value, exact, prefix, includes) => {
-    const normalized = String(value || '').toLowerCase();
-    if (!normalized) return 0;
-    if (normalized === q) return exact;
-    if (normalized.startsWith(q)) return prefix;
-    return normalized.includes(q) ? includes : 0;
-  };
-  const hits = [];
-  searchIndex.cards.forEach((row, sourceIndex) => {
-    const cat = categoriesBySlug.get(searchIndex.categories[row[0]]);
-    if (!cat) return;
-    const categoryText = [cat.slug, cat.title?.en, cat.title?.ar].join(' ');
-    const questionText = [row[1], row[2]].join(' ');
-    const answerText = [row[3], row[4]].join(' ');
-    const score = relevance(categoryText, 150, 125, 100)
-      + relevance(questionText, 120, 95, 75)
-      + relevance(answerText, 70, 55, 40);
-    if (score > 0) {
-      hits.push({
-        cat,
-        question: lang === 'ar' ? row[2] : row[1],
-        answer: lang === 'ar' ? row[4] : row[3],
-        score,
-        sourceIndex,
-      });
-    }
-  });
-  return hits.sort((a, b) => b.score - a.score
-    || a.cat.slug.localeCompare(b.cat.slug, 'en')
-    || a.question.localeCompare(b.question, lang)
-    || a.answer.localeCompare(b.answer, lang)
-    || a.sourceIndex - b.sourceIndex);
-}
-
-async function runGlobalSearch() {
-  const generation = ++_gsGeneration;
-  const q = document.getElementById('globalSearchInput')?.value.trim().toLowerCase();
-  const resultsEl = document.getElementById('globalSearchResults');
-  if (!resultsEl) return;
-  if (!q || q.length < 2) {
-    resultsEl.removeAttribute('aria-busy');
-    resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchMin'))}</p>`;
-    return;
-  }
-  resultsEl.replaceChildren();
-  resultsEl.setAttribute('aria-busy', 'true');
-
-  let searchIndex;
-  try {
-    searchIndex = await loadGlobalSearchIndex();
-  } catch {
-    if (generation === _gsGeneration) {
-      resultsEl.removeAttribute('aria-busy');
-      resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchUnavailable'))}</p>`;
-    }
-    return;
-  }
-  if (generation !== _gsGeneration) return;
-  resultsEl.removeAttribute('aria-busy');
-
-  const hits = rankGlobalSearch(searchIndex, state.catalog?.categories || [], q, state.lang);
-
-  if (generation !== _gsGeneration) return;
-  if (!hits.length) {
-    resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchEmpty'))}</p>`;
-    return;
-  }
-  const shownHits = hits.slice(0, 30);
-  const resultSummary = state.lang === 'ar'
-    ? `تم العثور على ${hits.length} نتيجة. عرض أفضل ${shownHits.length} نتيجة مرتبة حسب الصلة.`
-    : `${hits.length} results found. Showing the top ${shownHits.length}, ranked by relevance.`;
-  resultsEl.innerHTML = `<p class="global-search-summary" role="status">${escapeHtml(resultSummary)}</p>` + shownHits.map(({ cat, question, answer }) => `
-    <a class="gs-result" href="${escapeHtml(categoryRouteForLanguage(cat.slug, state.lang))}?q=${encodeURIComponent(q)}">
-      <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}</span>
-      <span class="gs-result-q">${escapeHtml(question)}</span>
-      <span class="gs-result-a">${escapeHtml(answer)}</span>
-    </a>
-  `).join('');
-  resultsEl.querySelectorAll('.gs-result').forEach(el => {
-    el.addEventListener('click', closeGlobalSearch);
-  });
-}
-
-function verifiedCategoryOptions() {
-  return (state.catalog?.categories || [])
-    .filter(category => Number(category.scorableQuestionCount) >= 10)
-    .sort((a, b) => String(a.title?.[state.lang] || a.title?.en || a.slug)
-      .localeCompare(String(b.title?.[state.lang] || b.title?.en || b.slug), state.lang));
-}
-
-function hasServerCheckedContract(payload) {
-  return payload?.scoreType === 'server-checked'
-    && payload?.serverChecked === true
-    && payload?.proctored === false
-    && payload?.scoring === 'accuracy-only'
-    && typeof payload?.automationDisclaimer === 'string'
-    && payload.automationDisclaimer.trim().length > 0;
-}
-
-function renderVerifiedStarter() {
-  const mount = document.getElementById('verifiedChallengeMount');
-  if (!mount) return;
-  if (verifiedChallenge) {
-    renderVerifiedChallenge(verifiedChallenge);
-    return;
-  }
-  if (!state.dbUser) {
-    mount.innerHTML = `
-      <section class="verified-starter verified-signin-prompt">
-        <div>
-          <h3>${escapeHtml(t('verifiedStartTitle'))}</h3>
-          <p>${escapeHtml(t('verifiedSignIn'))}</p>
-        </div>
-        <button type="button" class="primary-btn" id="verifiedSignInBtn">${escapeHtml(t('signIn'))}</button>
-      </section>`;
-    document.getElementById('verifiedSignInBtn')?.addEventListener('click', () => {
-      closeModal('leaderboard');
-      openAuthModal();
-    });
-    return;
-  }
-
-  const categories = verifiedCategoryOptions();
-  const preferredSlug = categories.some(category => category.slug === state.categorySlug)
-    ? state.categorySlug
-    : categories[0]?.slug;
-  mount.innerHTML = `
-    <section class="verified-starter">
-      <div>
-        <h3>${escapeHtml(t('verifiedStartTitle'))}</h3>
-        <p>${escapeHtml(t('verifiedStartText'))}</p>
-        <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
-      </div>
-      <form id="verifiedStartForm" class="verified-start-form">
-        <label for="verifiedCategorySelect">
-          <span>${escapeHtml(t('verifiedCategory'))}</span>
-          <select id="verifiedCategorySelect" required>
-            ${categories.map(category => `
-              <option value="${escapeHtml(category.slug)}" ${category.slug === preferredSlug ? 'selected' : ''}>
-                ${escapeHtml(`${category.emoji || '🧠'} ${category.title?.[state.lang] || category.title?.en || category.slug}`)}
-              </option>`).join('')}
-          </select>
-        </label>
-        <button type="submit" class="primary-btn" id="verifiedStartBtn" ${categories.length ? '' : 'disabled'}>${escapeHtml(t('verifiedStart'))}</button>
-      </form>
-    </section>`;
-  document.getElementById('verifiedStartForm')?.addEventListener('submit', startVerifiedChallenge);
-}
-
-async function startVerifiedChallenge(event) {
-  event?.preventDefault();
-  const categoryId = document.getElementById('verifiedCategorySelect')?.value;
-  const button = document.getElementById('verifiedStartBtn');
-  if (!categoryId || !button) return;
-  button.disabled = true;
-  button.textContent = t('verifiedStarting');
-  try {
-    const challenge = await apiFetch('/scores/server-checked/challenge', {
-      method: 'POST',
-      body: JSON.stringify({ categoryId }),
-    });
-    if (!hasServerCheckedContract(challenge)
-      || !Array.isArray(challenge.questions)
-      || challenge.questions.length !== challenge.questionCount) {
-      throw new Error('Invalid server-checked challenge');
-    }
-    verifiedChallenge = challenge;
-    renderVerifiedChallenge(challenge);
-  } catch (error) {
-    if (error?.code === 'SERVER_CHECKED_CHALLENGE_ACTIVE') {
-      renderActiveChallengeConflict(categoryId);
+function loadSearchLeaderboardStyles() {
+  if (_searchLeaderboardStylesPromise) return _searchLeaderboardStylesPromise;
+  _searchLeaderboardStylesPromise = new Promise((resolve, reject) => {
+    const existing = document.getElementById('searchLeaderboardStyles');
+    if (existing?.sheet) {
+      resolve();
       return;
     }
-    showToast(localizedErrorMessage(error, 'verifiedChallengeError'), true);
-    button.disabled = false;
-    button.textContent = t('verifiedStart');
-  }
-}
-
-function renderActiveChallengeConflict(categoryId) {
-  const mount = document.getElementById('verifiedChallengeMount');
-  if (!mount) return;
-  mount.innerHTML = `
-    <section class="verified-starter server-check-conflict" role="alert" aria-labelledby="verifiedActiveTitle">
-      <div>
-        <h3 id="verifiedActiveTitle">${escapeHtml(t('verifiedActive'))}</h3>
-        <p>${escapeHtml(t('verifiedActiveWarning'))}</p>
-        <p id="verifiedDiscardStatus" class="verified-form-error hidden"></p>
-      </div>
-      <div class="hero-actions">
-        <button type="button" class="primary-btn verified-danger-btn" id="verifiedDiscardActiveBtn">${escapeHtml(t('verifiedDiscardActive'))}</button>
-        <button type="button" class="ghost-btn" id="verifiedKeepActiveBtn">${escapeHtml(t('verifiedKeepActive'))}</button>
-      </div>
-    </section>`;
-  document.getElementById('verifiedKeepActiveBtn')?.addEventListener('click', renderVerifiedStarter);
-  document.getElementById('verifiedDiscardActiveBtn')?.addEventListener('click', async () => {
-    const button = document.getElementById('verifiedDiscardActiveBtn');
-    const status = document.getElementById('verifiedDiscardStatus');
-    if (!button) return;
-    button.disabled = true;
-    button.textContent = t('verifiedDiscarding');
-    try {
-      const result = await apiFetch('/scores/server-checked/challenge', {
-        method: 'DELETE',
-        body: JSON.stringify({ categoryId }),
-      });
-      if (typeof result?.discarded !== 'boolean') throw new Error('Invalid discard response');
-      renderVerifiedStarter();
-      const select = document.getElementById('verifiedCategorySelect');
-      if (select) select.value = categoryId;
-      await startVerifiedChallenge({ preventDefault() {} });
-    } catch (error) {
-      if (status) {
-        status.textContent = localizedErrorMessage(error, 'verifiedDiscardError');
-        status.classList.remove('hidden');
-      }
-      button.disabled = false;
-      button.textContent = t('verifiedDiscardActive');
-    }
+    const link = existing || document.createElement('link');
+    link.id = 'searchLeaderboardStyles';
+    link.rel = 'stylesheet';
+    link.href = SEARCH_LEADERBOARD_STYLES_PATH;
+    link.addEventListener('load', resolve, { once: true });
+    link.addEventListener('error', () => reject(new Error('Search/leaderboard stylesheet failed to load')), { once: true });
+    if (!existing) document.head.appendChild(link);
+  }).catch((error) => {
+    document.getElementById('searchLeaderboardStyles')?.remove();
+    _searchLeaderboardStylesPromise = null;
+    throw error;
   });
+  return _searchLeaderboardStylesPromise;
 }
 
-function renderVerifiedChallenge(challenge) {
-  const mount = document.getElementById('verifiedChallengeMount');
-  if (!mount) return;
-  const questions = Array.isArray(challenge?.questions) ? challenge.questions : [];
-  const expiresAt = new Date(challenge.expiresAt);
-  const expiryLabel = Number.isNaN(expiresAt.getTime())
-    ? ''
-    : new Intl.DateTimeFormat(state.lang === 'ar' ? 'ar-AE' : 'en', {
-      hour: 'numeric', minute: '2-digit',
-    }).format(expiresAt);
-  const allReviewMetadataSupplied = questions.every(item => item?.review
-    && ['pending', 'reviewed'].includes(item.review.status));
-  mount.innerHTML = `
-    <section class="verified-challenge" aria-labelledby="verifiedChallengeTitle">
-      <div class="verified-section-head">
-        <div>
-          <h3 id="verifiedChallengeTitle">${escapeHtml(t('verifiedStartTitle'))}</h3>
-          <p>${escapeHtml(state.lang === 'ar'
-            ? `أجب مرة واحدة قبل ${expiryLabel || 'انتهاء المهلة'}. لا تغلق هذه الصفحة قبل الإرسال.`
-            : `Submit once before ${expiryLabel || 'the deadline'}. Keep this page open until you finish.`)}</p>
-          <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
-          ${allReviewMetadataSupplied ? '' : `<p class="card-review card-review--safety" role="note">⚠ ${escapeHtml(t('verifiedReviewUnavailable'))}</p>`}
-        </div>
-        <button type="button" class="text-btn mini-btn" id="verifiedCancelBtn">${escapeHtml(t('verifiedCancel'))}</button>
-      </div>
-      <form id="verifiedChallengeForm" class="verified-question-list">
-        ${questions.map((item, index) => `
-          <div class="verified-question">
-            <label for="verifiedAnswer${index}">
-              <span class="verified-question-number">${escapeHtml(fmt('verifiedQuestion', { number: index + 1, total: questions.length }))}</span>
-              <strong dir="auto">${escapeHtml(item.question?.[state.lang] || item.question?.en || '')}</strong>
-              <input id="verifiedAnswer${index}" name="verifiedAnswer${index}" type="text" dir="auto"
-                autocomplete="off" maxlength="256" required placeholder="${escapeHtml(t('verifiedAnswerPlaceholder'))}" />
-            </label>
-            ${item?.review && ['pending', 'reviewed'].includes(item.review.status) ? createReviewMarkup({ review: item.review }) : ''}
-          </div>`).join('')}
-        <p class="verified-form-error hidden" id="verifiedFormError" role="alert"></p>
-        <button type="submit" class="primary-btn" id="verifiedSubmitBtn">${escapeHtml(t('verifiedSubmit'))}</button>
-      </form>
-    </section>`;
-  document.getElementById('verifiedCancelBtn')?.addEventListener('click', async () => {
-    const button = document.getElementById('verifiedCancelBtn');
-    const formError = document.getElementById('verifiedFormError');
-    if (!button) return;
-    button.disabled = true;
-    button.textContent = t('verifiedDiscarding');
-    try {
-      const result = await apiFetch('/scores/server-checked/challenge', {
-        method: 'DELETE',
-        body: JSON.stringify({
-          categoryId: challenge.categoryId,
-          challengeId: challenge.challengeId,
-          submissionToken: challenge.submissionToken,
-        }),
+function loadSearchLeaderboard() {
+  if (_searchLeaderboard) return Promise.resolve(_searchLeaderboard);
+  if (!_searchLeaderboardPromise) {
+    _searchLeaderboardPromise = Promise.all([
+      loadSearchLeaderboardStyles(),
+      import(SEARCH_LEADERBOARD_MODULE_PATH),
+    ]).then(([, module]) => {
+      if (typeof module.createSearchLeaderboard !== 'function') throw new Error('Invalid search/leaderboard module');
+      _searchLeaderboard = module.createSearchLeaderboard({
+        apiFetch,
+        categoryRouteForLanguage,
+        closeModal,
+        createReviewMarkup,
+        debounce,
+        escapeHtml,
+        fetchJson,
+        localizedErrorMessage,
+        openAuthModal,
+        releaseFocus,
+        showToast,
+        state,
+        t,
+        trapFocus,
       });
-      if (typeof result?.discarded !== 'boolean') throw new Error('Invalid cancel response');
-      verifiedChallenge = null;
-      renderVerifiedStarter();
-    } catch (error) {
-      if (formError) {
-        formError.textContent = localizedErrorMessage(error, 'verifiedCancelError');
-        formError.classList.remove('hidden');
-      }
-      button.disabled = false;
-      button.textContent = t('verifiedCancel');
-    }
-  });
-  document.getElementById('verifiedChallengeForm')?.addEventListener('submit', submitVerifiedChallenge);
-  document.getElementById('verifiedAnswer0')?.focus();
-}
-
-async function submitVerifiedChallenge(event) {
-  event.preventDefault();
-  const challenge = verifiedChallenge;
-  if (!challenge) return;
-  const inputs = challenge.questions.map((_, index) => document.getElementById(`verifiedAnswer${index}`));
-  const formError = document.getElementById('verifiedFormError');
-  if (inputs.some(input => !input?.value.trim())) {
-    if (formError) {
-      formError.textContent = t('verifiedAnswerAll');
-      formError.classList.remove('hidden');
-    }
-    inputs.find(input => !input?.value.trim())?.focus();
-    return;
-  }
-  formError?.classList.add('hidden');
-  const button = document.getElementById('verifiedSubmitBtn');
-  if (!button) return;
-  button.disabled = true;
-  button.textContent = t('verifiedSubmitting');
-  try {
-    const result = await apiFetch('/scores/server-checked/submit', {
-      method: 'POST',
-      body: JSON.stringify({
-        challengeId: challenge.challengeId,
-        submissionToken: challenge.submissionToken,
-        answers: challenge.questions.map((question, index) => ({
-          cardId: question.cardId,
-          answer: inputs[index].value.trim(),
-        })),
-      }),
+      return _searchLeaderboard;
+    }).catch((error) => {
+      _searchLeaderboardPromise = null;
+      throw error;
     });
-    if (!hasServerCheckedContract(result)) throw new Error('Invalid server-checked result');
-    verifiedChallenge = null;
-    renderVerifiedResult(result);
-    await refreshVerifiedLeaderboard();
-  } catch (error) {
-    const message = localizedErrorMessage(error, 'verifiedSubmitError');
-    if (formError) {
-      formError.textContent = message;
-      formError.classList.remove('hidden');
-    }
-    button.disabled = false;
-    button.textContent = t('verifiedSubmit');
   }
+  return _searchLeaderboardPromise;
 }
 
-function renderVerifiedResult(result) {
-  const mount = document.getElementById('verifiedChallengeMount');
-  if (!mount) return;
-  mount.innerHTML = `
-    <section class="verified-result" aria-live="polite">
-      <span class="verified-result-mark" aria-hidden="true">✓</span>
-      <div>
-        <h3>${escapeHtml(t('verifiedResultTitle'))}</h3>
-        <p class="verified-result-score">${escapeHtml(fmt('verifiedResult', {
-          correct: result.correctCount,
-          total: result.questionCount,
-          score: result.score,
-        }))}</p>
-        <p>${escapeHtml(t('verifiedResultNote'))}</p>
-        <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
-      </div>
-      <button type="button" class="secondary-btn" id="verifiedTryAgainBtn">${escapeHtml(t('verifiedTryAgain'))}</button>
-    </section>`;
-  document.getElementById('verifiedTryAgainBtn')?.addEventListener('click', renderVerifiedStarter);
-}
-
-async function refreshVerifiedLeaderboard() {
-  const body = document.getElementById('leaderboardBody');
-  if (!body) return;
-  body.replaceChildren();
-  body.setAttribute('aria-busy', 'true');
+async function openGlobalSearch(initialValue = '') {
   try {
-    const payload = await apiFetch('/leaderboard');
-    const { leaderboard, status } = payload;
-    if (status !== 'active' || !hasServerCheckedContract(payload)) {
-      throw new Error('Server-checked leaderboard is unavailable');
-    }
-    const currentUser = state.dbUser?.username;
-    const medals = ['🥇', '🥈', '🥉'];
-    if (!leaderboard?.length) {
-      body.innerHTML = `<p class="verified-empty">${escapeHtml(t('leaderboardEmpty'))}</p>`;
-      return;
-    }
-    body.innerHTML = leaderboard.map(row => {
-      const category = state.catalog?.categories.find(item => item.slug === row.categoryId);
-      const categoryTitle = category?.title?.[state.lang] || category?.title?.en || row.categoryId;
-      return `
-        <div class="leaderboard-row">
-          <span class="leaderboard-rank ${row.rank <= 3 ? 'top-3' : ''}">${medals[row.rank - 1] || escapeHtml(row.rank)}</span>
-          <span class="leaderboard-username ${row.username === currentUser ? 'leaderboard-you' : ''}">
-            <span class="leaderboard-name"><span aria-hidden="true">${escapeHtml(row.avatar || '👤')}</span> ${escapeHtml(row.username)}${row.username === currentUser ? ' ✦' : ''}</span>
-            <small>${escapeHtml(categoryTitle)} · ${escapeHtml(`${row.correctCount}/${row.questionCount}`)}</small>
-          </span>
-          <span class="leaderboard-score bidi-isolate">${escapeHtml(row.score)} ${escapeHtml(t('pointsShort'))}</span>
-        </div>`;
-    }).join('');
-  } catch (_) {
-    body.innerHTML = `<p class="verified-empty is-error">${escapeHtml(t('leaderboardLoadError'))}</p>`;
-  } finally {
-    body.removeAttribute('aria-busy');
+    const feature = await loadSearchLeaderboard();
+    feature.openGlobalSearch(initialValue);
+  } catch (error) {
+    console.error('Unable to load global search', error);
+    showToast(t('globalSearchUnavailable'), true);
   }
 }
 
 async function openLeaderboard() {
-  createLeaderboardModal();
-  const modal = document.getElementById('leaderboardModal');
-  if (!modal) return;
-  modal.classList.remove('hidden');
-  modal.setAttribute('aria-hidden', 'false');
-  renderVerifiedStarter();
-  trapFocus(modal, {
-    key: 'leaderboard',
-    initialFocus: '[data-close-modal="leaderboard"]',
-    onEscape: () => closeModal('leaderboard'),
-    returnFallback: '#leaderboardBtn',
-  });
-  await refreshVerifiedLeaderboard();
+  try {
+    const feature = await loadSearchLeaderboard();
+    await feature.openLeaderboard();
+  } catch (error) {
+    console.error('Unable to load leaderboard', error);
+    showToast(t('leaderboardLoadError'), true);
+  }
 }
 
 // ================= RANDOM CATEGORY =================
@@ -5875,7 +5383,7 @@ function hydrateCloudFeatureUi() {
     stopAnalyticsHeartbeat();
   }
   // A health probe is advisory; each feature owns its request and retry state.
-  createLeaderboardModal();
+  // Search and leaderboard UI stays unloaded until its first invocation.
   createBattleModal();
   initSuggestionBox();
   renderCategoryPlayModes();
@@ -5981,584 +5489,171 @@ function renderCategoryPlayModes() {
   });
 }
 
-// ================= BATTLE MODE =================
-
-const battleState = {
-  ws: null,
-  playerId: null,
-  isHost: false,
-  hostId: null,
-  roomCode: null,
-  phase: 'closed',      // closed | setup | lobby | question | reveal | finished
-  tab: 'create',        // create | join
-  roomData: null,
-  currentQuestion: null,
-  selectedAnswer: null,
-  answerStartTime: null,
-  answeredCount: 0,
-  totalPlayers: 0,
-  revealData: null,
-  timerInterval: null,
-  timeLeft: 15,
-  pendingSlug: '',
-};
+// ================= LAZY BATTLE MODE =================
 
 const BATTLE_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/;
+const BATTLE_MODULE_PATH = '/battle-mode.js';
+const BATTLE_STYLES_PATH = '/battle-mode.css';
+let _battleMode = null;
+let _battleModePromise = null;
+let _battleStylesPromise = null;
+let _battleOpenGeneration = 0;
 
 function normalizeBattleCode(value) {
   return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
 }
 
-function getBattleWsUrl(code) {
-  const api = new URL(API_ORIGIN);
-  const proto = api.protocol === 'https:' ? 'wss:' : 'ws:';
-  return `${proto}//${api.host}/ws/battle?code=${encodeURIComponent(code)}`;
-}
-
 function createBattleModal() {
   if (document.getElementById('battleOverlay')) return;
-  const el = document.createElement('div');
-  el.id = 'battleOverlay';
-  el.className = 'battle-overlay hidden';
-  document.body.appendChild(el);
+  const overlay = document.createElement('div');
+  overlay.id = 'battleOverlay';
+  // The shared modal shell gives immediate loading/error feedback without
+  // pulling either feature stylesheet into the initial route.
+  overlay.className = 'modal hidden';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.setAttribute('aria-labelledby', 'battleLoadingTitle');
+  document.body.appendChild(overlay);
 }
 
-function openBattleModal(slug, tab = 'create') {
-  if (!document.getElementById('battleOverlay')) createBattleModal();
-  battleState.pendingSlug = slug || state.categorySlug || '';
-  battleState.phase = 'setup';
-  battleState.tab = tab === 'join' ? 'join' : 'create';
-  document.getElementById('battleOverlay')?.classList.remove('hidden');
-  renderBattleUI();
+function activateBattleFocus(initialFocus = '#battleExitBtn') {
+  const overlay = document.getElementById('battleOverlay');
+  if (!overlay) return;
+  trapFocus(overlay, {
+    key: 'battle',
+    initialFocus,
+    onEscape: closeBattleModal,
+    returnFallback: '#battleNavBtn, #playModeCreateRoomBtn, #playModeJoinBtn, #tqBattleBtn, #catCompleteBattle',
+  });
+}
+
+function deactivateBattleFocus() {
+  const overlay = document.getElementById('battleOverlay');
+  if (overlay) releaseFocus(overlay, { restore: true });
+}
+
+function loadBattleStylesheet() {
+  if (_battleStylesPromise) return _battleStylesPromise;
+  _battleStylesPromise = new Promise((resolve, reject) => {
+    const existing = document.getElementById('battleModeStyles');
+    if (existing?.sheet) {
+      resolve();
+      return;
+    }
+    const link = existing || document.createElement('link');
+    link.id = 'battleModeStyles';
+    link.rel = 'stylesheet';
+    link.href = BATTLE_STYLES_PATH;
+    link.addEventListener('load', resolve, { once: true });
+    link.addEventListener('error', () => reject(new Error('Battle stylesheet failed to load')), { once: true });
+    if (!existing) document.head.appendChild(link);
+  }).catch((error) => {
+    document.getElementById('battleModeStyles')?.remove();
+    _battleStylesPromise = null;
+    throw error;
+  });
+  return _battleStylesPromise;
+}
+
+function loadBattleMode() {
+  if (_battleMode) return Promise.resolve(_battleMode);
+  if (!_battleModePromise) {
+    _battleModePromise = Promise.all([
+      loadBattleStylesheet(),
+      import(BATTLE_MODULE_PATH),
+    ]).then(([, module]) => {
+      if (typeof module.createBattleMode !== 'function') throw new Error('Invalid Battle module');
+      _battleMode = module.createBattleMode({
+        API_ORIGIN,
+        apiFetch,
+        escapeHtml,
+        localizedErrorMessage,
+        shareOrCopy,
+        showToast,
+        state,
+        t,
+        activateFocus: activateBattleFocus,
+        deactivateFocus: deactivateBattleFocus,
+      });
+      return _battleMode;
+    }).catch((error) => {
+      _battleModePromise = null;
+      throw error;
+    });
+  }
+  return _battleModePromise;
+}
+
+async function openBattleModal(slug, tab = 'create', initialCode = '') {
+  createBattleModal();
+  const overlay = document.getElementById('battleOverlay');
+  if (!overlay) return;
+  if (_battleMode) {
+    _battleMode.openBattleModal(slug, tab, initialCode);
+    return;
+  }
+  const generation = ++_battleOpenGeneration;
+  const isAr = state.lang === 'ar';
+  overlay.className = 'modal';
+  overlay.classList.remove('hidden');
+  overlay.setAttribute('aria-hidden', 'false');
+  overlay.setAttribute('aria-busy', 'true');
+  overlay.innerHTML = `
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <strong id="battleLoadingTitle">${isAr ? '⚡ جارٍ تحميل غرفة المعركة…' : '⚡ Loading Battle Room…'}</strong>
+        <button class="icon-btn" id="battleLoadExitBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
+      </div>
+    </div>`;
+  document.getElementById('battleLoadExitBtn')?.addEventListener('click', closeBattleModal);
+  activateBattleFocus('#battleLoadExitBtn');
+  try {
+    const mode = await loadBattleMode();
+    if (generation !== _battleOpenGeneration || overlay.classList.contains('hidden')) return;
+    overlay.removeAttribute('aria-busy');
+    overlay.setAttribute('aria-labelledby', 'battleTitle');
+    overlay.className = 'battle-overlay';
+    mode.openBattleModal(slug, tab, initialCode);
+  } catch (error) {
+    console.error('Unable to load Battle Room', error);
+    if (generation !== _battleOpenGeneration || overlay.classList.contains('hidden')) return;
+    overlay.removeAttribute('aria-busy');
+    const message = isAr
+      ? 'تعذّر تحميل غرفة المعركة. تحقق من الاتصال وحاول مرة أخرى.'
+      : 'Battle Room could not load. Check your connection and try again.';
+    overlay.className = 'modal';
+    overlay.innerHTML = `
+      <div class="modal-backdrop"></div>
+      <div class="modal-card">
+        <div class="modal-head">
+          <strong id="battleLoadingTitle">${escapeHtml(message)}</strong>
+          <button class="icon-btn" id="battleLoadExitBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
+        </div>
+      </div>`;
+    document.getElementById('battleLoadExitBtn')?.addEventListener('click', closeBattleModal);
+    activateBattleFocus('#battleLoadExitBtn');
+    showToast(message, true);
+  }
 }
 
 function closeBattleModal() {
-  clearInterval(battleState.timerInterval);
-  if (battleState.ws) {
-    battleState.ws.onclose = null;
-    battleState.ws.close();
-    battleState.ws = null;
+  _battleOpenGeneration += 1;
+  if (_battleMode) {
+    _battleMode.closeBattleModal();
+    return;
   }
-  document.getElementById('battleOverlay')?.classList.add('hidden');
-  battleState.phase = 'closed';
+  const overlay = document.getElementById('battleOverlay');
+  overlay?.classList.add('hidden');
+  overlay?.setAttribute('aria-hidden', 'true');
+  overlay?.removeAttribute('aria-busy');
+  deactivateBattleFocus();
 }
 
 function renderBattleUI() {
-  const overlay = document.getElementById('battleOverlay');
-  if (!overlay) return;
-  const isAr = state.lang === 'ar';
-  const titles = {
-    setup: isAr ? '⚡ غرفة المعركة' : '⚡ Battle Room',
-    lobby: isAr ? '⚡ غرفة الانتظار' : '⚡ Battle Lobby',
-    question: isAr ? '⚡ المعركة جارية' : '⚡ Battle in Progress',
-    reveal: isAr ? '⚡ الإجابة' : '⚡ Answer Reveal',
-    finished: isAr ? '🏆 انتهت المعركة' : '🏆 Battle Complete',
-  };
-  overlay.innerHTML = `
-    <div class="battle-header">
-      <span class="battle-header-title">${titles[battleState.phase] || `⚡ ${escapeHtml(t('teamBattle'))}`}</span>
-      <button class="battle-exit-btn" id="battleExitBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
-    </div>
-    <div id="battleBody" class="battle-body"></div>`;
-  document.getElementById('battleExitBtn')?.addEventListener('click', closeBattleModal);
-  const body = document.getElementById('battleBody');
-  if (!body) return;
-  if (battleState.phase === 'setup') renderBattleSetup(body);
-  else if (battleState.phase === 'lobby') renderBattleLobby(body);
-  else if (battleState.phase === 'question') renderBattleQuestion(body);
-  else if (battleState.phase === 'reveal') renderBattleReveal(body);
-  else if (battleState.phase === 'finished') renderBattlePodium(body);
+  if (_battleMode) _battleMode.renderBattleUI();
 }
-
-function renderBattleSetup(body) {
-  const lang = state.lang;
-  const isAr = lang === 'ar';
-  const slug = battleState.pendingSlug;
-  const catOptions = (state.catalog?.categories || [])
-    .map(c => `<option value="${escapeHtml(c.slug)}"${c.slug === slug ? ' selected' : ''}>${escapeHtml(c.title[lang])}</option>`)
-    .join('');
-
-  body.innerHTML = `
-    <div class="battle-setup">
-      <div class="battle-setup-tabs">
-        <button class="battle-tab${battleState.tab === 'create' ? ' active' : ''}" id="battleTabCreate">
-          + ${isAr ? 'إنشاء غرفة' : 'Create Room'}
-        </button>
-        <button class="battle-tab${battleState.tab === 'join' ? ' active' : ''}" id="battleTabJoin">
-          ← ${isAr ? 'الانضمام' : 'Join Room'}
-        </button>
-      </div>
-      <div class="battle-form">
-        <label>
-          ${isAr ? 'اسمك' : 'Your name'}
-          <input type="text" id="battleNameInput" maxlength="20"
-            placeholder="${isAr ? 'أدخل اسمك' : 'Enter your name'}"
-            value="${escapeHtml(state.dbUser?.username || '')}" autocomplete="nickname" />
-        </label>
-        ${battleState.tab === 'create' ? `
-          <label>
-            ${isAr ? 'الفئة' : 'Category'}
-            <select id="battleCatSelect">${catOptions}</select>
-          </label>
-          <label>
-            ${isAr ? 'المستوى' : 'Difficulty'}
-            <select id="battleDiffSelect">
-              <option value="all">${isAr ? 'جميع المستويات' : 'All levels'}</option>
-              <option value="easy">${isAr ? 'سهل' : 'Easy'}</option>
-              <option value="medium">${isAr ? 'متوسط' : 'Medium'}</option>
-              <option value="hard">${isAr ? 'صعب' : 'Hard'}</option>
-              <option value="very-advanced">${isAr ? 'صعب جداً' : 'Very difficult'}</option>
-            </select>
-          </label>
-          <label>
-            ${isAr ? 'عدد الأسئلة' : 'Questions'}
-            <select id="battleCountSelect">
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-          </label>
-          <button class="primary-btn" id="battleCreateBtn">⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}</button>
-        ` : `
-          <label>
-            ${isAr ? 'كود الغرفة' : 'Room code'}
-            <input type="text" id="battleCodeInput" maxlength="16"
-              placeholder="${isAr ? 'مثال: SCI7X2KQ' : 'e.g. SCI7X2KQ'}"
-              dir="ltr"
-              style="text-transform:uppercase;font-family:var(--font-mono);letter-spacing:0.08em;"
-              autocomplete="off" />
-          </label>
-          <button class="primary-btn" id="battleJoinBtn">⚡ ${isAr ? 'انضمام' : 'Join Room'}</button>
-        `}
-        <p class="battle-error hidden" id="battleSetupError"></p>
-      </div>
-    </div>`;
-
-  document.getElementById('battleTabCreate')?.addEventListener('click', () => { battleState.tab = 'create'; renderBattleUI(); });
-  document.getElementById('battleTabJoin')?.addEventListener('click', () => { battleState.tab = 'join'; renderBattleUI(); });
-  document.getElementById('battleCreateBtn')?.addEventListener('click', handleBattleCreate);
-  document.getElementById('battleJoinBtn')?.addEventListener('click', handleBattleJoin);
-  const codeInput = document.getElementById('battleCodeInput');
-  codeInput?.addEventListener('input', () => {
-    codeInput.value = normalizeBattleCode(codeInput.value);
-  });
-}
-
-async function handleBattleCreate() {
-  const name = document.getElementById('battleNameInput')?.value.trim() || '';
-  const category = document.getElementById('battleCatSelect')?.value || '';
-  const difficulty = document.getElementById('battleDiffSelect')?.value || 'all';
-  const count = parseInt(document.getElementById('battleCountSelect')?.value || '10', 10);
-  const isAr = state.lang === 'ar';
-  if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
-  if (!category) { showBattleError(isAr ? 'اختر فئة' : 'Choose a category'); return; }
-  const btn = document.getElementById('battleCreateBtn');
-  if (btn) { btn.disabled = true; btn.textContent = isAr ? 'جارٍ الإنشاء...' : 'Creating...'; }
-  try {
-    const data = await apiFetch('/battle/create', {
-      method: 'POST',
-      body: JSON.stringify({ category, difficulty, questionCount: count }),
-    });
-    battleState.hostId = data.hostId;
-    battleState.isHost = true;
-    connectToBattle(data.code, name, data.hostId);
-  } catch (err) {
-    showBattleError(localizedErrorMessage(err, 'errorBattleCreate'));
-    if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}`; }
-  }
-}
-
-function handleBattleJoin() {
-  const name = document.getElementById('battleNameInput')?.value.trim() || '';
-  const code = normalizeBattleCode(document.getElementById('battleCodeInput')?.value);
-  const isAr = state.lang === 'ar';
-  if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
-  if (!BATTLE_CODE_PATTERN.test(code)) {
-    showBattleError(isAr ? 'أدخل كود غرفة صالحاً من 8 رموز' : 'Enter a valid 8-character room code');
-    return;
-  }
-  connectToBattle(code, name, null);
-}
-
-function showBattleError(msg) {
-  const el = document.getElementById('battleSetupError');
-  if (el) { el.textContent = msg; el.classList.remove('hidden'); }
-}
-
-function connectToBattle(code, name, hostId) {
-  code = normalizeBattleCode(code);
-  if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); }
-  const ws = new WebSocket(getBattleWsUrl(code));
-  battleState.ws = ws;
-  battleState.roomCode = code;
-  ws.onopen = () => ws.send(JSON.stringify({ type: 'join-room', code, name, hostId: hostId || '' }));
-  ws.onmessage = (e) => { try { handleBattleMessage(JSON.parse(e.data)); } catch (_) {} };
-  ws.onerror = () => showBattleError(state.lang === 'ar' ? 'تعذر الاتصال بالغرفة' : 'Connection failed');
-  ws.onclose = () => {
-    if (battleState.phase !== 'closed' && battleState.phase !== 'finished') {
-      showToast(state.lang === 'ar' ? 'انقطع الاتصال بالغرفة' : 'Disconnected from battle room');
-    }
-  };
-}
-
-function handleBattleMessage(msg) {
-  if (msg.type === 'error') {
-    showBattleError(localizedErrorMessage({ code: msg.code, message: msg.message }));
-    return;
-  }
-  if (msg.type === 'joined') {
-    battleState.playerId = msg.playerId;
-    battleState.isHost = msg.isHost;
-    battleState.phase = 'lobby';
-    renderBattleUI();
-    return;
-  }
-  if (msg.type === 'room-update') {
-    battleState.roomData = msg.roomState;
-    if (battleState.phase === 'lobby') renderBattleUI();
-    return;
-  }
-  if (msg.type === 'question') {
-    clearInterval(battleState.timerInterval);
-    battleState.roomData = msg.roomState;
-    battleState.currentQuestion = msg.question;
-    battleState.selectedAnswer = null;
-    battleState.answeredCount = 0;
-    battleState.totalPlayers = msg.roomState.totalPlayers;
-    battleState.phase = 'question';
-    battleState.timeLeft = Math.round(msg.timeMs / 1000);
-    battleState.answerStartTime = Date.now();
-    renderBattleUI();
-    startBattleTimer(msg.timeMs);
-    return;
-  }
-  if (msg.type === 'answer-count') {
-    battleState.answeredCount = msg.answeredCount;
-    battleState.totalPlayers = msg.totalPlayers;
-    const el = document.getElementById('battleAnswerCount');
-    if (el) el.textContent = `${msg.answeredCount}/${msg.totalPlayers} ${state.lang === 'ar' ? 'أجابوا' : 'answered'}`;
-    return;
-  }
-  if (msg.type === 'reveal') {
-    clearInterval(battleState.timerInterval);
-    battleState.roomData = msg.roomState;
-    battleState.revealData = { correctIndex: msg.correctIndex, correctAnswer: msg.correctAnswer };
-    battleState.phase = 'reveal';
-    renderBattleUI();
-    return;
-  }
-  if (msg.type === 'game-end') {
-    clearInterval(battleState.timerInterval);
-    battleState.roomData = msg.roomState;
-    battleState.phase = 'finished';
-    renderBattleUI();
-    spawnBattleConfetti();
-    return;
-  }
-}
-
-function startBattleTimer(timeMs) {
-  const totalSec = Math.round(timeMs / 1000);
-  battleState.timeLeft = totalSec;
-  battleState.timerInterval = setInterval(() => {
-    battleState.timeLeft = Math.max(0, battleState.timeLeft - 1);
-    const countEl = document.getElementById('battleTimerCount');
-    const fillEl = document.getElementById('battleTimerFill');
-    if (countEl) {
-      countEl.textContent = String(battleState.timeLeft);
-      if (battleState.timeLeft <= 5) countEl.classList.add('urgent');
-      else countEl.classList.remove('urgent');
-    }
-    if (fillEl) fillEl.style.width = `${(battleState.timeLeft / totalSec) * 100}%`;
-    if (battleState.timeLeft <= 0) clearInterval(battleState.timerInterval);
-  }, 1000);
-}
-
-function renderBattleLobby(body) {
-  const isAr = state.lang === 'ar';
-  const room = battleState.roomData;
-  const players = room?.players || [];
-  const code = battleState.roomCode || '';
-  const shareUrl = `${location.origin}/#battle/${code}`;
-
-  body.innerHTML = `
-    <div class="battle-lobby">
-      <div class="battle-code-display">
-        <div class="battle-code-value bidi-isolate" dir="ltr">${escapeHtml(code)}</div>
-        <p class="battle-code-hint">${isAr ? 'شارك هذا الكود لدعوة الآخرين' : 'Share this code to invite players'}</p>
-        <button class="ghost-btn" id="battleShareBtn" style="margin-top:0.6rem;font-size:0.82rem;">
-          🔗 ${isAr ? 'نسخ الرابط' : 'Copy invite link'}
-        </button>
-      </div>
-      <div>
-        <p class="mini-label" style="margin-bottom:0.5rem">${isAr ? 'اللاعبون' : 'Players'} (${players.length})</p>
-        <div class="battle-player-list">
-          ${players.map(p => `
-            <div class="battle-player-row">
-              ${p.id === room?.hostId ? `<span class="battle-player-crown" aria-label="${escapeHtml(t('host'))}">👑</span>` : '<span style="width:1.2rem"></span>'}
-              <span style="flex:1">${escapeHtml(p.name)}</span>
-              ${p.id === battleState.playerId ? `<span class="pill" style="font-size:var(--text-xs)">${isAr ? 'أنت' : 'You'}</span>` : ''}
-            </div>`).join('')}
-          ${players.length === 0 ? `<p class="battle-waiting-msg">${isAr ? 'في انتظار اللاعبين...' : 'Waiting for players to join...'}</p>` : ''}
-        </div>
-      </div>
-      ${battleState.isHost
-        ? `<button class="primary-btn" id="battleStartBtn"${players.length < 1 ? ' disabled' : ''}>
-             ⚡ ${isAr ? 'ابدأ المعركة' : 'Start Battle'} (${players.length} ${isAr ? 'لاعب' : players.length === 1 ? 'player' : 'players'})
-           </button>
-           <p class="battle-waiting-msg" style="margin-top:-0.25rem">${isAr ? 'يمكنك البدء بلاعب واحد أو أكثر' : 'You can start with 1 or more players'}</p>`
-        : `<p class="battle-waiting-msg">⏳ ${isAr ? 'في انتظار المضيف لبدء المعركة...' : 'Waiting for host to start the battle...'}</p>`}
-    </div>`;
-
-  document.getElementById('battleShareBtn')?.addEventListener('click', () => {
-    void shareOrCopy({
-      title: t('shareBattleTitle'),
-      text: isAr ? 'انضم إلى غرفة معركة JAKH المباشرة' : 'Join this live JAKH Battle Room',
-      url: shareUrl,
-      copiedMessage: isAr ? 'تم نسخ الرابط!' : 'Link copied!',
-    });
-  });
-  document.getElementById('battleStartBtn')?.addEventListener('click', () => {
-    battleState.ws?.send(JSON.stringify({ type: 'start-game', hostId: battleState.hostId || '' }));
-  });
-}
-
-function renderBattleQuestion(body) {
-  const lang = state.lang;
-  const isAr = lang === 'ar';
-  const q = battleState.currentQuestion;
-  const room = battleState.roomData;
-  if (!q || !room) return;
-  const options = (q.options?.[lang] || q.options?.en || []);
-  const labels = ['A', 'B', 'C', 'D'];
-  const scores = room.players.map(p => p.score);
-  const maxScore = Math.max(...scores, 1);
-
-  body.innerHTML = `
-    <div class="battle-game">
-      <div class="battle-hud">
-        <span class="battle-hud-code bidi-isolate" dir="ltr">${escapeHtml(room.code)}</span>
-        <span class="battle-round-label">${isAr ? 'س' : 'Q'}${q.index + 1} / ${q.total}</span>
-        <span class="battle-player-count">${room.totalPlayers} ${isAr ? 'لاعبين' : 'players'}</span>
-        <span class="battle-timer-badge" id="battleTimerCount">${battleState.timeLeft}</span>
-      </div>
-      <div class="battle-timer-bar">
-        <div class="battle-timer-fill" id="battleTimerFill" style="width:${(battleState.timeLeft / 15) * 100}%"></div>
-      </div>
-      <div class="battle-question-area">
-        <p class="battle-question-text">${escapeHtml(q.text?.[lang] || q.text?.en || '')}</p>
-        <div class="battle-options" id="battleOptions">
-          ${options.map((opt, i) => `
-            <button class="battle-option-btn${battleState.selectedAnswer === i ? ' selected' : ''}"
-              data-index="${i}" ${battleState.selectedAnswer !== null ? 'disabled' : ''}>
-              <span class="battle-option-label">${labels[i]}</span>
-              <span>${escapeHtml(String(opt))}</span>
-            </button>`).join('')}
-        </div>
-        <p class="battle-answer-status" id="battleAnswerCount">
-          ${battleState.answeredCount}/${room.totalPlayers} ${isAr ? 'أجابوا' : 'answered'}
-        </p>
-      </div>
-      <div class="battle-bottom">
-        <div class="battle-mini-lb">
-          ${room.players.slice(0, 5).map((p, i) => {
-            const barW = maxScore > 0 ? Math.round((p.score / maxScore) * 100) : 0;
-            const isMe = p.id === battleState.playerId;
-            return `<div class="battle-mini-lb-row${isMe ? ' is-me' : ''}">
-              <span class="battle-mini-lb-pos">${i + 1}</span>
-              <span class="battle-mini-lb-name">${escapeHtml(p.name)}${isMe ? (isAr ? ' (أنت)' : ' (you)') : ''}</span>
-              ${p.streak >= 2 ? `<span class="battle-streak-badge">🔥${p.streak}×</span>` : ''}
-              <div class="battle-mini-lb-bar"><div class="battle-mini-lb-bar-fill" style="width:${barW}%"></div></div>
-              <span class="battle-mini-lb-score">${p.score}</span>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>
-    </div>`;
-
-  document.querySelectorAll('.battle-option-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (battleState.selectedAnswer !== null || btn.disabled) return;
-      submitBattleAnswer(parseInt(btn.dataset.index, 10));
-    });
-  });
-}
-
-function submitBattleAnswer(index) {
-  if (battleState.selectedAnswer !== null) return;
-  battleState.selectedAnswer = index;
-  const timeMs = Date.now() - (battleState.answerStartTime || Date.now());
-  battleState.ws?.send(JSON.stringify({ type: 'submit-answer', answerIndex: index, timeMs }));
-  document.querySelectorAll('.battle-option-btn').forEach((btn, i) => {
-    btn.disabled = true;
-    if (i === index) btn.classList.add('selected');
-  });
-}
-
-function renderBattleReveal(body) {
-  const lang = state.lang;
-  const isAr = lang === 'ar';
-  const q = battleState.currentQuestion;
-  const room = battleState.roomData;
-  const reveal = battleState.revealData;
-  if (!q || !room || !reveal) return;
-  const options = (q.options?.[lang] || q.options?.en || []);
-  const labels = ['A', 'B', 'C', 'D'];
-  const maxScore = Math.max(...room.players.map(p => p.score), 1);
-  const mySelected = battleState.selectedAnswer;
-  const correctIndex = reveal.correctIndex;
-  const myCorrect = mySelected !== null && mySelected === correctIndex;
-
-  body.innerHTML = `
-    <div class="battle-game">
-      <div class="battle-hud">
-        <span class="battle-hud-code bidi-isolate" dir="ltr">${escapeHtml(room.code)}</span>
-        <span class="battle-round-label">
-          ${isAr ? 'س' : 'Q'}${q.index + 1}/${q.total} ·
-          ${mySelected === null
-            ? (isAr ? '⏱️ انتهى الوقت' : '⏱️ Time\'s up')
-            : myCorrect
-              ? (isAr ? '✓ صحيح!' : '✓ Correct!')
-              : (isAr ? '✗ خاطئ' : '✗ Wrong')}
-        </span>
-      </div>
-      <div class="battle-timer-bar"><div class="battle-timer-fill" style="width:0%;transition:none"></div></div>
-      <div class="battle-question-area">
-        <p class="battle-question-text">${escapeHtml(q.text?.[lang] || q.text?.en || '')}</p>
-        <div class="battle-options">
-          ${options.map((opt, i) => {
-            const isCorrect = i === correctIndex;
-            const isWrong = i === mySelected && !isCorrect;
-            let cls = isCorrect ? ' correct' : isWrong ? ' wrong' : '';
-            const lbl = isCorrect ? '✓' : isWrong ? '✗' : labels[i];
-            return `<button class="battle-option-btn${cls}" disabled>
-              <span class="battle-option-label">${lbl}</span>
-              <span>${escapeHtml(String(opt))}</span>
-            </button>`;
-          }).join('')}
-        </div>
-        <p class="battle-answer-status">${isAr ? '⏭️ القادم خلال ثوانٍ...' : '⏭️ Next question in a moment...'}</p>
-      </div>
-      <div class="battle-bottom">
-        <div class="battle-mini-lb">
-          ${room.players.slice(0, 5).map((p, i) => {
-            const barW = maxScore > 0 ? Math.round((p.score / maxScore) * 100) : 0;
-            const isMe = p.id === battleState.playerId;
-            return `<div class="battle-mini-lb-row${isMe ? ' is-me' : ''}">
-              <span class="battle-mini-lb-pos">${i + 1}</span>
-              <span class="battle-mini-lb-name">${escapeHtml(p.name)}</span>
-              ${p.streak >= 2 ? `<span class="battle-streak-badge">🔥${p.streak}×</span>` : ''}
-              <div class="battle-mini-lb-bar"><div class="battle-mini-lb-bar-fill" style="width:${barW}%"></div></div>
-              <span class="battle-mini-lb-score">${p.score}</span>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>
-    </div>`;
-}
-
-function renderBattlePodium(body) {
-  const lang = state.lang;
-  const isAr = lang === 'ar';
-  const room = battleState.roomData;
-  if (!room) return;
-  const players = room.players;
-  const medals = ['🥇', '🥈', '🥉'];
-  const top3 = players.slice(0, 3);
-  // Podium display order: 2nd | 1st | 3rd
-  const podiumOrder = top3.length >= 2
-    ? [top3[1], top3[0], top3[2]].filter(Boolean)
-    : top3;
-  const podiumHeights = [60, 80, 45];
-  const podiumColors = [
-    'linear-gradient(135deg,#94A3B8,#CBD5E1)',
-    'linear-gradient(135deg,#C9A227,#E2C566)',
-    'linear-gradient(135deg,#B45309,#D97706)',
-  ];
-  const podiumRanks = top3.length >= 2 ? [2, 1, 3] : [1, 2, 3];
-
-  body.innerHTML = `
-    <div class="battle-podium">
-      <h2 class="battle-podium-title">
-        ${isAr ? '🏆 انتهت المعركة!' : '🏆 Battle Complete!'}
-      </h2>
-      <div class="battle-podium-places">
-        ${podiumOrder.map((p, di) => {
-          const rank = podiumRanks[di];
-          const isMe = p.id === battleState.playerId;
-          return `<div class="battle-podium-place">
-            <div class="battle-podium-medal">${medals[rank - 1] || ''}</div>
-            <div class="battle-podium-name${isMe ? ' you' : ''}">${escapeHtml(p.name)}</div>
-            <div class="battle-podium-pts">${p.score} ${isAr ? 'نقطة' : 'pts'}</div>
-            <div class="battle-podium-block" style="height:${podiumHeights[di]}px;background:${podiumColors[di]}">${rank}</div>
-          </div>`;
-        }).join('')}
-      </div>
-      ${players.length > 3 ? `
-        <div class="battle-full-lb">
-          ${players.map((p, i) => `
-            <div class="battle-full-lb-row${p.id === battleState.playerId ? ' is-me' : ''}">
-              <span style="color:var(--muted);font-family:var(--font-mono);width:1.4rem">${i + 1}</span>
-              <span style="flex:1;font-weight:500">${escapeHtml(p.name)}</span>
-              <span style="font-family:var(--font-mono);font-weight:700;color:var(--accent-2)">${p.score}</span>
-            </div>`).join('')}
-        </div>` : ''}
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem;">
-        <button class="primary-btn" id="battlePlayAgainBtn">⚡ ${isAr ? 'جولة جديدة' : 'Play Again'}</button>
-        <button class="secondary-btn" id="battleShareResultBtn">🔗 ${isAr ? 'شارك' : 'Share'}</button>
-        <button class="ghost-btn" id="battleCloseFinBtn">${isAr ? 'إغلاق' : 'Close'}</button>
-      </div>
-    </div>`;
-
-  document.getElementById('battlePlayAgainBtn')?.addEventListener('click', () => {
-    battleState.phase = 'setup';
-    battleState.tab = 'create';
-    if (battleState.ws) { battleState.ws.onclose = null; battleState.ws.close(); battleState.ws = null; }
-    renderBattleUI();
-  });
-  document.getElementById('battleShareResultBtn')?.addEventListener('click', () => {
-    const winner = players[0];
-    const myPos = players.findIndex(p => p.id === battleState.playerId) + 1;
-    const text = isAr
-      ? `⚡ انتهت معركة JAKH!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} نقطة\n🏅 مركزي: #${myPos}\njakh.net`
-      : `⚡ JAKH Battle done!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} pts\n🏅 My rank: #${myPos}\njakh.net`;
-    void shareOrCopy({
-      title: t('shareBattleTitle'), text, url: location.origin,
-      copiedMessage: isAr ? 'تم النسخ!' : 'Copied!',
-    });
-  });
-  document.getElementById('battleCloseFinBtn')?.addEventListener('click', closeBattleModal);
-}
-
-function spawnBattleConfetti() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const colors = ['#E8613C','#C9A227','#48d597','#9f7cff','#E2C566','#ff7a8a','#5ac8ff'];
-  for (let i = 0; i < 60; i++) {
-    setTimeout(() => {
-      const dot = document.createElement('div');
-      dot.className = 'confetti-dot';
-      const cx = Math.random() * window.innerWidth;
-      const angle = (Math.random() - 0.5) * Math.PI * 1.8;
-      const dist = 120 + Math.random() * 180;
-      const size = 5 + Math.random() * 9;
-      dot.style.cssText = [
-        `left:${cx}px`,
-        `top:${window.innerHeight * 0.25}px`,
-        `width:${size}px`,
-        `height:${size}px`,
-        `background:${colors[Math.floor(Math.random() * colors.length)]}`,
-        `border-radius:${Math.random() > 0.5 ? '50%' : '3px'}`,
-        `--dx:${(Math.cos(angle) * dist).toFixed(1)}px`,
-        `--dy:${(-60 - Math.random() * 160).toFixed(1)}px`,
-        `--rot:${(Math.random() > 0.5 ? 1 : -1) * (360 + Math.random() * 720)}deg`,
-        `animation-delay:0ms`,
-      ].join(';');
-      document.body.appendChild(dot);
-      dot.addEventListener('animationend', () => dot.remove(), { once: true });
-    }, i * 35);
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')

@@ -1,9 +1,17 @@
-name: Deploy GitHub Pages
+name: Legacy GitHub Pages (break-glass only)
+run-name: Legacy Pages break-glass · ${{ github.sha }}
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type DEPLOY LEGACY GITHUB PAGES"
+        required: true
+        type: string
+      incident_reference:
+        description: "Required incident/change reference explaining the break-glass release"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -11,23 +19,110 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  # Shared with static-site.yml so the two hosting paths can never run concurrently.
+  group: static-site-production
+  cancel-in-progress: false
 
 jobs:
+  authorize:
+    name: Authorize legacy break-glass release
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require exact confirmation, incident reference, and protected main
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          INCIDENT_REFERENCE: ${{ inputs.incident_reference }}
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_REF_PROTECTED: ${{ github.ref_protected }}
+          RELEASE_SHA: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ "$CONFIRMATION" != "DEPLOY LEGACY GITHUB PAGES" ]; then
+            echo "::error title=Legacy Pages blocked::Confirmation must exactly match DEPLOY LEGACY GITHUB PAGES."
+            exit 1
+          fi
+          if [ "$RELEASE_REF" != "refs/heads/main" ] || [ "$RELEASE_REF_PROTECTED" != "true" ]; then
+            echo "::error title=Legacy Pages blocked::Break-glass deployment requires protected refs/heads/main."
+            exit 1
+          fi
+          if [ "${#INCIDENT_REFERENCE}" -lt 8 ]; then
+            echo "::error title=Legacy Pages blocked::Provide a meaningful incident or approved change reference."
+            exit 1
+          fi
+
+          branch_response="$RUNNER_TEMP/main-branch.json"
+          branch_status="$(curl --silent --show-error \
+            --output "$branch_response" \
+            --write-out '%{http_code}' \
+            --header "Authorization: Bearer $GITHUB_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/branches/main")"
+          if [ "$branch_status" != "200" ]; then
+            echo "::error title=Legacy Pages blocked::Could not verify the current protected main branch (GitHub HTTP $branch_status)."
+            exit 1
+          fi
+          node --input-type=module - "$branch_response" "$RELEASE_SHA" <<'NODE'
+          import { readFileSync } from "node:fs";
+          const branch = JSON.parse(readFileSync(process.argv[2], "utf8"));
+          if (branch.name !== "main" || branch.protected !== true || branch.commit?.sha !== process.argv[3]) {
+            throw new Error("Legacy Pages requires the current tip of protected main");
+          }
+          NODE
+
   deploy:
-    name: Deploy static site
+    name: Deploy legacy static artifact
+    needs: authorize
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24"
+
+      - name: Bind checkout to the authorized commit
+        env:
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD)" != "$RELEASE_SHA" ]; then
+            echo "::error title=Legacy Pages blocked::Checkout does not match the authorized main commit."
+            exit 1
+          fi
+
+      - name: Refuse a second hosting deployment
+        env:
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          node --input-type=module <<'NODE'
+          const response = await fetch(`https://jakh.net/?legacy_pages_probe=${process.env.RUN_ID}`, {
+            redirect: "manual",
+            headers: { "cache-control": "no-cache", "user-agent": "jakh-legacy-pages-safety-gate/1.0" },
+            signal: AbortSignal.timeout(15000),
+          });
+          if (response.status !== 200) {
+            throw new Error(`Legacy hosting probe returned HTTP ${response.status}; restore and verify legacy DNS before deploying Pages`);
+          }
+          if (response.headers.has("x-jakh-site-version")) {
+            throw new Error("jakh.net is still attached to jakh-site; detach the Worker and restore verified legacy DNS before deploying Pages");
+          }
+          NODE
+
+      - name: Install pinned validation dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Audit validation dependencies
+        run: npm audit --audit-level=high
 
       - name: Validate source
         run: |
@@ -42,62 +137,31 @@ jobs:
           node scripts/validate-bilingual.mjs
           node scripts/validate-responsive-images.mjs
           node scripts/validate-game-focus.mjs
-          node --test \
-            scripts/accessibility-contracts.test.mjs \
-            scripts/arabic-routes.test.mjs \
-            scripts/content-review.test.mjs \
-            scripts/frontend-product-contract.test.mjs \
-            scripts/provenance-ui-contract.test.mjs \
-            scripts/responsive-layout-contract.test.mjs \
-            scripts/seo-pagination.test.mjs \
-            scripts/seo-validation-contract.test.mjs \
-            scripts/service-worker-contract.test.mjs
+          npm run check:performance
+          npm run test:contracts
           node --test scripts/monitor-production.test.mjs scripts/route-production-alert.test.mjs
 
-      - name: Install pinned browser test dependencies
-        run: npm ci --no-audit --no-fund
+      - name: Install Playwright browser matrix
+        run: ./node_modules/.bin/playwright install --with-deps chromium firefox webkit
 
-      - name: Audit browser test dependencies
-        run: npm audit --audit-level=high
-
-      - name: Install Playwright Chromium
-        run: ./node_modules/.bin/playwright install --with-deps chromium
-
-      - name: Validate responsive game controls in Chromium
+      - name: Prepare exact artifact once
         run: |
-          python3 -m http.server 8791 --bind 127.0.0.1 > "$RUNNER_TEMP/jakh-static.log" 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid"' EXIT
-          for attempt in 1 2 3 4 5 6 7 8 9 10; do
-            if curl --fail --silent http://127.0.0.1:8791/ > /dev/null; then
-              break
-            fi
-            if [ "$attempt" -eq 10 ]; then
-              cat "$RUNNER_TEMP/jakh-static.log"
-              exit 1
-            fi
-            sleep 1
-          done
-          node scripts/validate-game-responsive.mjs
+          node scripts/build-static-site.mjs \
+            --output _site \
+            --manifest "$RUNNER_TEMP/legacy-pages-manifest.json" \
+            --module "$RUNNER_TEMP/legacy-pages-manifest.js"
 
-      - name: Run browser regression suite
-        run: npm run test:browser
+      - name: Run browser regression matrix against exact artifact
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/_site
+          JAKH_SITE_MANIFEST: ${{ runner.temp }}/legacy-pages-manifest.json
+        run: npm run test:browser:matrix
 
-      - name: Prepare artifact
-        run: |
-          mkdir _site
-          rsync -a \
-            --exclude='.git' \
-            --exclude='.gitignore' \
-            --exclude='.github' \
-            --exclude='docs' \
-            --exclude='node_modules' \
-            --exclude='package.json' \
-            --exclude='package-lock.json' \
-            --exclude='scripts' \
-            --exclude='worker' \
-            --exclude='_site' \
-            ./ _site/
+      - name: Run WCAG browser suite against exact artifact
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/_site
+          JAKH_SITE_MANIFEST: ${{ runner.temp }}/legacy-pages-manifest.json
+        run: npm run test:a11y
 
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 

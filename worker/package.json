@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "typescript": "5.9.3",
-    "wrangler": "4.116.0"
+    "wrangler": "4.116.0",
+    "ws": "8.21.0"
   }
 }

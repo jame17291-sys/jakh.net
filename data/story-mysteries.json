@@ -544,12 +544,12 @@
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A sculpture vanished from a gallery during a 20-minute total power outage. Emergency logs show that the elevator automatically returned to the ground floor and remained there with its doors open for the entire outage. Noor says she used the stairs, Hadi says he waited in the elevator while it was stalled between floors, and Mariam says she used her phone flashlight in the lobby. Which account is impossible?",
-      "ar": "اختفى تمثال من معرض أثناء انقطاع كامل للكهرباء دام 20 دقيقة. تُظهر سجلات الطوارئ أن المصعد عاد آلياً إلى الطابق الأرضي وظل هناك وأبوابه مفتوحة طوال الانقطاع. قالت نور إنها استخدمت الدرج، وقال هادي إنه انتظر داخل المصعد بعدما توقف بين الطوابق، وقالت مريم إنها استخدمت ضوء هاتفها في الردهة. أي رواية مستحيلة؟"
+      "en": "A sculpture vanished during a 20-minute blackout. Emergency logs show the elevator stayed open on the ground floor throughout. Noor used the stairs, Hadi says the elevator trapped him between floors, and Mariam used her phone light in the lobby. Which account is impossible?",
+      "ar": "اختفى تمثال خلال انقطاع للكهرباء دام 20 دقيقة. تُظهر سجلات الطوارئ أن المصعد ظل مفتوحاً في الطابق الأرضي طوال الوقت. استخدمت نور الدرج، وقال هادي إن المصعد احتجزه بين الطوابق، واستخدمت مريم ضوء هاتفها في الردهة. أي رواية مستحيلة؟"
     },
     "answer": {
-      "en": "Hadi's account. The independently recorded elevator log proves it was at the ground floor with its doors open throughout the outage, so it could not have been stalled between floors.",
-      "ar": "رواية هادي. يثبت سجل المصعد المستقل أنه ظل في الطابق الأرضي وأبوابه مفتوحة طوال الانقطاع، لذلك يستحيل أن يكون قد توقف بين الطوابق."
+      "en": "Hadi's account: the elevator log places it open on the ground floor throughout the blackout, not stalled between floors.",
+      "ar": "رواية هادي؛ فسجل المصعد يثبت أنه ظل مفتوحاً في الطابق الأرضي، لا متوقفاً بين الطوابق."
     },
     "review": {
       "status": "pending"

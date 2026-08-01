@@ -1432,12 +1432,12 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A man lives on the 30th floor of an apartment building. Every morning he takes the elevator down to the ground floor. When he returns in the evening on a rainy day, or if there is someone else in the elevator, he goes to the 30th floor directly. Otherwise, he gets off at the 15th floor and walks up. Why?",
-      "ar": "يعيش رجل في الطابق الثلاثين. صباحاً ينزل بالمصعد. مساءً في الأيام الممطرة أو عند وجود شخص آخر يصعد مباشرة إلى الطابق الثلاثين. وإلا يتوقف في الطابق الخامس عشر ويصعد مشياً. لماذا؟"
+      "en": "A man lives on floor 30 and rides down each morning. Returning alone, he rides to floor 15 and walks up; on rainy days or with another rider, he reaches floor 30. Why?",
+      "ar": "يعيش رجل في الطابق 30 وينزل بالمصعد كل صباح. عند عودته وحيداً يصعد إلى الطابق 15 ثم يكمل مشياً؛ وفي المطر أو مع راكب آخر يصل إلى الطابق 30. لماذا؟"
     },
     "answer": {
-      "en": "He is short — he can only reach the button for the 15th floor. On rainy days he uses his umbrella to reach higher, or asks someone to press 30 for him",
-      "ar": "إنه قصير القامة — يستطيع الضغط على زر الطابق الخامس عشر فقط. في الأيام الممطرة يستخدم مظلته للوصول إلى الأعلى، أو يطلب من شخص آخر الضغط على 30"
+      "en": "He is short and can reach only the floor-15 button. His umbrella reaches the floor-30 button on rainy days; otherwise, another rider can press it for him.",
+      "ar": "إنه قصير القامة ولا يصل إلا إلى زر الطابق 15. في المطر يستخدم مظلته للضغط على زر الطابق 30، أو يطلب من راكب آخر ضغطه."
     },
     "review": {
       "status": "pending"
@@ -1489,8 +1489,8 @@
       "ar": "الأرقام والرموز"
     },
     "question": {
-      "en": "Crack a three-digit code with distinct digits. 571 has exactly one correct digit in the right place; 183 has exactly one correct digit in the wrong place; 120 has exactly two correct digits, both in the wrong places; 765 has no correct digits; 248 has exactly one correct digit in the wrong place. What is the code?",
-      "ar": "فك رمزاً من ثلاثة أرقام مختلفة. في 571 رقم واحد صحيح وفي مكانه؛ وفي 183 رقم واحد صحيح لكن في مكان خاطئ؛ وفي 120 رقمان صحيحان وكلاهما في مكان خاطئ؛ وفي 765 لا رقم صحيح؛ وفي 248 رقم واحد صحيح لكن في مكان خاطئ. ما الرمز؟"
+      "en": "Find the three distinct digits: 571 has one correct and placed; 183 has one correct but misplaced; 120 has two correct, both misplaced; 765 has none; 248 has one correct but misplaced. What is the code?",
+      "ar": "أوجد أرقام الرمز الثلاثة المختلفة: في 571 رقم صحيح وفي مكانه؛ وفي 183 رقم صحيح لكنه في مكان خاطئ؛ وفي 120 رقمان صحيحان وكلاهما في مكان خاطئ؛ وفي 765 لا رقم صحيح؛ وفي 248 رقم صحيح لكنه في مكان خاطئ. ما الرمز؟"
     },
     "answer": {
       "en": "401",

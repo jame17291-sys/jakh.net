@@ -19,7 +19,13 @@
     en: {
       title: 'Privacy Centre | JAKH',
       description: 'Control analytics, export your JAKH account data, permanently delete your account, and read the bilingual JAKH privacy notice.',
+      brandHomeLabel: 'JAKH Riddles home',
+      quickActionsLabel: 'Quick actions',
       languageLabel: 'Language',
+      privacySectionsLabel: 'Privacy Centre sections',
+      footerInfoLabel: 'JAKH information',
+      instagramLabel: 'JAKH Riddles on Instagram',
+      facebookLabel: 'JAKH Riddles on Facebook',
       deviceUnset: 'No current choice is saved. Website analytics remains denied by default.',
       deviceAllowed: 'Optional website analytics is allowed on this device.',
       deviceDenied: 'Only essential features are active. Future analytics is disabled and known analytics browser data was cleared where the browser permits.',
@@ -66,7 +72,13 @@
     ar: {
       title: 'مركز الخصوصية | JAKH',
       description: 'تحكّم في القياس، ونزّل بيانات حساب JAKH، واحذف حسابك نهائياً، واقرأ إشعار الخصوصية ثنائي اللغة.',
+      brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
+      quickActionsLabel: 'إجراءات سريعة',
       languageLabel: 'اللغة',
+      privacySectionsLabel: 'أقسام مركز الخصوصية',
+      footerInfoLabel: 'معلومات JAKH',
+      instagramLabel: 'ألغاز JAKH على إنستغرام',
+      facebookLabel: 'ألغاز JAKH على فيسبوك',
       deviceUnset: 'لا يوجد اختيار حالي محفوظ. يبقى قياس الموقع مرفوضاً افتراضياً.',
       deviceAllowed: 'القياس الاختياري للموقع مسموح على هذا الجهاز.',
       deviceDenied: 'الميزات الأساسية فقط مفعّلة. تم إيقاف القياس اللاحق ومسح بيانات القياس المعروفة في المتصفح حيث يسمح المتصفح.',
@@ -180,7 +192,10 @@
     const localized = currentCopy();
     document.title = localized.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', localized.description);
-    elements.language?.setAttribute('aria-label', localized.languageLabel);
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+      const value = localized[element.dataset.i18nAriaLabel];
+      if (typeof value === 'string') element.setAttribute('aria-label', value);
+    });
     elements.deleteUsername?.setAttribute('placeholder', localized.usernamePlaceholder);
     elements.deletePassword?.setAttribute('placeholder', localized.passwordPlaceholder);
     elements.privacyRequestType?.querySelectorAll('option').forEach((option) => {

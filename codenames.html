@@ -92,10 +92,17 @@
 
     .cn-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-rows: repeat(5, auto);
       gap: 0.5rem;
       margin-bottom: 1rem;
       direction: ltr;
+    }
+
+    .cn-grid-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.5rem;
+      min-width: 0;
     }
 
     .cn-card {
@@ -231,13 +238,13 @@
 
     .cn-turn-badge.human-turn {
       background: rgba(232,97,60,0.2);
-      color: var(--accent);
+      color: #7f2718;
       border: 1px solid rgba(232,97,60,0.4);
     }
 
     .cn-turn-badge.ai-turn {
       background: rgba(74,144,217,0.2);
-      color: #4A90D9;
+      color: #185581;
       border: 1px solid rgba(74,144,217,0.4);
     }
 
@@ -258,6 +265,10 @@
     .cn-modal-overlay.visible {
       opacity: 1;
       pointer-events: all;
+    }
+
+    .cn-modal-overlay[hidden] {
+      display: none;
     }
 
     .cn-modal {
@@ -789,13 +800,13 @@
             <span id="cnTurnBadge" class="cn-turn-badge human-turn"></span>
           </div>
         </div>
-        <div class="cn-grid" id="cnGrid" role="grid" dir="ltr"></div>
+        <div class="cn-grid" id="cnGrid" role="grid" aria-rowcount="5" aria-colcount="5" dir="ltr"></div>
         <div class="cn-actions">
           <button class="cn-btn cn-btn-accent" id="cnPassBtn" disabled data-i18n="passTurn">${t('passTurn')}</button>
           <button class="cn-btn" id="cnNewGameBtn" data-i18n="newGame">${t('newGame')}</button>
           <span class="cn-status-msg" id="cnStatus"></span>
         </div>
-        <div class="cn-modal-overlay" id="cnModal" aria-hidden="true">
+        <div class="cn-modal-overlay" id="cnModal" hidden>
           <div class="cn-modal" role="dialog" aria-modal="true" aria-labelledby="cnModalTitle" aria-describedby="cnModalDesc">
             <span class="cn-modal-icon" id="cnModalIcon"></span>
             <h2 id="cnModalTitle">${t('gameMessage')}</h2>
@@ -809,8 +820,9 @@
       document.getElementById('cnPassBtn').addEventListener('click', onPass);
       document.getElementById('cnNewGameBtn').addEventListener('click', startNewGame);
       document.getElementById('cnModalBtn').addEventListener('click', () => {
-        document.getElementById('cnModal').classList.remove('visible');
-        document.getElementById('cnModal').setAttribute('aria-hidden', 'true');
+        const modal = document.getElementById('cnModal');
+        modal.classList.remove('visible');
+        modal.hidden = true;
         startNewGame();
         const firstCard = document.querySelector('#cnGrid .cn-card:not(:disabled)');
         (firstCard || document.getElementById('cnNewGameBtn')).focus();
@@ -822,7 +834,7 @@
       isAIThinking = false;
       statusView = null;
       document.getElementById('cnModal').classList.remove('visible');
-      document.getElementById('cnModal').setAttribute('aria-hidden', 'true');
+      document.getElementById('cnModal').hidden = true;
       renderState();
       aiGenerateClue();
     }
@@ -899,14 +911,14 @@
       if (!card) return null;
       return {
         conceptId: card.dataset.conceptId,
-        index: Array.from(grid.children).indexOf(card),
+        index: Array.from(grid.querySelectorAll('.cn-card')).indexOf(card),
       };
     }
 
     function restoreGridFocus(snapshot) {
       if (!snapshot) return;
       const grid = document.getElementById('cnGrid');
-      const cards = Array.from(grid.children);
+      const cards = Array.from(grid.querySelectorAll('.cn-card'));
       let target = cards.find(card => (
         card.dataset.conceptId === snapshot.conceptId && !card.disabled
       ));
@@ -935,11 +947,20 @@
       grid.innerHTML = '';
       grid.setAttribute('aria-label', t('boardLabel'));
 
+      let row;
       for (let i = 0; i < 25; i++) {
+        if (i % 5 === 0) {
+          row = document.createElement('div');
+          row.className = 'cn-grid-row';
+          row.setAttribute('role', 'row');
+          row.setAttribute('aria-rowindex', String(Math.floor(i / 5) + 1));
+          grid.appendChild(row);
+        }
         const card = document.createElement('button');
         card.type = 'button';
         card.className = 'cn-card';
         card.setAttribute('role', 'gridcell');
+        card.setAttribute('aria-colindex', String((i % 5) + 1));
         card.setAttribute('dir', 'auto');
         card.dataset.conceptId = state.grid[i];
         const label = wordLabel(state.grid[i]);
@@ -974,7 +995,7 @@
           }
         }
 
-        grid.appendChild(card);
+        row.appendChild(card);
       }
       restoreGridFocus(focusSnapshot);
     }
@@ -983,7 +1004,7 @@
       if (isAIThinking || state.status !== 'playing' || state.turn !== 'red' || !state.clue) return;
       if (state.guessesLeft <= 0) return;
 
-      const card = document.getElementById('cnGrid').children[index];
+      const card = document.querySelectorAll('#cnGrid .cn-card')[index];
       card.classList.add('flip-anim');
 
       setTimeout(() => {
@@ -1079,8 +1100,8 @@
 
       if (open) {
         setTimeout(() => {
+          modal.hidden = false;
           modal.classList.add('visible');
-          modal.setAttribute('aria-hidden', 'false');
           document.getElementById('cnModalBtn').focus();
         }, 200);
       }

@@ -5,12 +5,14 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import WebSocket from "ws";
 
 const WORKER_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE_ROOT = resolve(WORKER_ROOT, "..");
 const WRANGLER = join(WORKER_ROOT, "node_modules", ".bin", "wrangler");
 const TEST_PASSWORD = "Local-integration-password-42";
 const RESET_PASSWORD = "Local-integration-reset-84";
+const RETENTION_BACKLOG_ROWS = 5_001;
 
 function listen(server, port = 0) {
   return new Promise((resolveListen, reject) => {
@@ -126,6 +128,115 @@ async function stopChild(child) {
   if (child.exitCode === null) child.kill("SIGKILL");
 }
 
+function runLocalD1(stateDir, args, label) {
+  const command = spawnSync(
+    WRANGLER,
+    ["d1", ...args, "--local", "--persist-to", stateDir],
+    {
+      cwd: WORKER_ROOT,
+      encoding: "utf8",
+      env: {
+        ...process.env,
+        CI: "1",
+        WRANGLER_LOG_PATH: join(stateDir, `${label}.log`),
+      },
+      maxBuffer: 8 * 1_024 * 1_024,
+    },
+  );
+  if (command.status !== 0) {
+    throw new Error(`${label} failed\n${command.stdout}\n${command.stderr}`);
+  }
+  return command.stdout;
+}
+
+async function seedRetentionBacklog(stateDir) {
+  const seedPath = join(stateDir, "retention-backlog.sql");
+  const rows = Array.from({ length: RETENTION_BACKLOG_ROWS }, (_, index) => (
+    `INSERT INTO rate_limits (key, window_start, count, expires_at) VALUES ('integration-backlog-${String(index).padStart(4, "0")}', 0, 1, 0);`
+  ));
+  await writeFile(seedPath, `BEGIN TRANSACTION;\n${rows.join("\n")}\nCOMMIT;\n`, { mode: 0o600 });
+  runLocalD1(stateDir, ["execute", "DB", "--file", seedPath], "retention-backlog-seed");
+}
+
+async function waitForOutput(output, pattern, label) {
+  const deadline = Date.now() + 10_000;
+  while (Date.now() < deadline) {
+    if (pattern.test(output())) return;
+    await new Promise((resolveDelay) => setTimeout(resolveDelay, 50));
+  }
+  throw new Error(`Wrangler output did not report ${label}\n${output()}`);
+}
+
+function openWebSocket(url, origin) {
+  return new Promise((resolveOpen, rejectOpen) => {
+    const socket = new WebSocket(url, { origin, handshakeTimeout: 10_000 });
+    const onError = (error) => {
+      socket.removeListener("open", onOpen);
+      rejectOpen(error);
+    };
+    const onOpen = () => {
+      socket.removeListener("error", onError);
+      resolveOpen(socket);
+    };
+    socket.once("error", onError);
+    socket.once("open", onOpen);
+    socket.once("unexpected-response", (_request, response) => {
+      rejectOpen(new Error(`WebSocket upgrade returned HTTP ${response.statusCode}`));
+    });
+  });
+}
+
+function waitForWebSocketMessage(socket, predicate, label) {
+  return new Promise((resolveMessage, rejectMessage) => {
+    const timeout = setTimeout(() => {
+      cleanup();
+      rejectMessage(new Error(`Timed out waiting for WebSocket ${label}`));
+    }, 10_000);
+    const onMessage = (data) => {
+      let payload;
+      try {
+        payload = JSON.parse(data.toString());
+      } catch {
+        return;
+      }
+      if (!predicate(payload)) return;
+      cleanup();
+      resolveMessage(payload);
+    };
+    const onClose = (code, reason) => {
+      cleanup();
+      rejectMessage(new Error(
+        `WebSocket closed before ${label}: ${code} ${reason.toString()}`,
+      ));
+    };
+    const onError = (error) => {
+      cleanup();
+      rejectMessage(error);
+    };
+    function cleanup() {
+      clearTimeout(timeout);
+      socket.removeListener("message", onMessage);
+      socket.removeListener("close", onClose);
+      socket.removeListener("error", onError);
+    }
+    socket.on("message", onMessage);
+    socket.once("close", onClose);
+    socket.once("error", onError);
+  });
+}
+
+async function closeWebSocket(socket) {
+  if (!socket || socket.readyState === WebSocket.CLOSED) return;
+  await new Promise((resolveClose) => {
+    const timeout = setTimeout(resolveClose, 2_000);
+    socket.once("close", () => {
+      clearTimeout(timeout);
+      resolveClose();
+    });
+    socket.close(1000, "Integration complete");
+  });
+}
+
 async function run() {
   const stateDir = await mkdtemp(join(tmpdir(), "jakh-api-integration-"));
   const staticServer = createStaticServer();
@@ -133,23 +244,8 @@ async function run() {
   let devOutput = "";
 
   try {
-    const migration = spawnSync(
-      WRANGLER,
-      ["d1", "migrations", "apply", "DB", "--local", "--persist-to", stateDir],
-      {
-        cwd: WORKER_ROOT,
-        encoding: "utf8",
-        env: {
-          ...process.env,
-          CI: "1",
-          WRANGLER_LOG_PATH: join(stateDir, "migrations.log"),
-        },
-        maxBuffer: 8 * 1_024 * 1_024,
-      },
-    );
-    if (migration.status !== 0) {
-      throw new Error(`Local D1 migration failed\n${migration.stdout}\n${migration.stderr}`);
-    }
+    runLocalD1(stateDir, ["migrations", "apply", "DB"], "migrations");
+    await seedRetentionBacklog(stateDir);
 
     const staticPort = await listen(staticServer);
     const workerPort = await freePort();
@@ -221,6 +317,29 @@ async function run() {
     });
     assert.equal(health.schema, "8");
 
+    const saturatedScheduled = await fetch(`${baseUrl}/cdn-cgi/handler/scheduled`);
+    assert.equal(
+      saturatedScheduled.status,
+      500,
+      "A retention backlog beyond the processing ceiling was not surfaced",
+    );
+    await waitForOutput(
+      () => devOutput,
+      /RETENTION_CLEANUP_SATURATED job=security-state operations=expired-rate-limits perOperationCeiling=5000/u,
+      "the exact cleanup backlog",
+    );
+    await waitForOutput(
+      () => devOutput,
+      /SCHEDULED_MAINTENANCE_FAILED jobs=security-state/u,
+      "the named scheduled-job failure",
+    );
+    const recoveredScheduled = await fetch(`${baseUrl}/cdn-cgi/handler/scheduled`);
+    assert.equal(
+      recoveredScheduled.status,
+      200,
+      "Scheduled maintenance did not recover after draining the final backlog row",
+    );
+
     const anonymous = await requestJson(baseUrl, "/api/auth/session");
     assert.deepEqual(anonymous.payload, { authenticated: false });
 
@@ -272,6 +391,59 @@ async function run() {
       type: "access",
       savedWithAccount: false,
     });
+
+    const battle = await requestJson(baseUrl, "/api/battle/create", {
+      expected: 201,
+      body: { category: "science", difficulty: "all", questionCount: 5 },
+    });
+    assert.match(battle.payload.code, /^SCI[A-HJ-NP-Z2-9]{5}$/u);
+    assert.match(battle.payload.hostId, /^[A-Za-z0-9_-]{32}$/u);
+    let battleSocket;
+    try {
+      battleSocket = await openWebSocket(
+        `${baseUrl.replace(/^http/u, "ws")}/ws/battle?code=${battle.payload.code}`,
+        baseUrl,
+      );
+      const joinedMessage = waitForWebSocketMessage(
+        battleSocket,
+        (message) => message?.type === "joined",
+        "host join",
+      );
+      battleSocket.send(JSON.stringify({
+        type: "join-room",
+        code: battle.payload.code,
+        name: "Integration Host",
+        hostId: battle.payload.hostId,
+      }));
+      const joined = await joinedMessage;
+      assert.equal(joined.isHost, true);
+      assert.match(joined.playerId, /^[0-9a-f-]{36}$/u);
+
+      const questionMessage = waitForWebSocketMessage(
+        battleSocket,
+        (message) => message?.type === "question",
+        "first battle question",
+      );
+      battleSocket.send(JSON.stringify({ type: "start-game" }));
+      const question = await questionMessage;
+      assert.equal(question.question.index, 0);
+      assert.equal(question.question.total, 5);
+      assert.equal(question.question.options.en.length, 4);
+      assert.equal(question.question.options.ar.length, 4);
+
+      const revealMessage = waitForWebSocketMessage(
+        battleSocket,
+        (message) => message?.type === "reveal",
+        "battle answer reveal",
+      );
+      battleSocket.send(JSON.stringify({ type: "submit-answer", answerIndex: 0 }));
+      const reveal = await revealMessage;
+      assert.ok(Number.isInteger(reveal.correctIndex));
+      assert.ok(reveal.correctIndex >= 0 && reveal.correctIndex <= 3);
+      assert.equal(reveal.roomState.phase, "reveal");
+    } finally {
+      await closeWebSocket(battleSocket);
+    }
 
     const challenge = await requestJson(baseUrl, "/api/scores/server-checked/challenge", {
       expected: 201,
@@ -339,7 +511,7 @@ async function run() {
     const deletedSession = await requestJson(baseUrl, "/api/auth/session", { cookie: recoveryCookie });
     assert.deepEqual(deletedSession.payload, { authenticated: false });
 
-    console.log("Local Wrangler/D1 integration passed: migrations, auth, recovery, privacy, scoring, scheduled maintenance, and deletion.");
+    console.log("Local Wrangler/D1 integration passed: migrations, auth, recovery, privacy, scoring, battle WebSocket, bounded cleanup failure/recovery, scheduled maintenance, and deletion.");
   } finally {
     if (wrangler) await stopChild(wrangler);
     if (staticServer.listening) await close(staticServer);

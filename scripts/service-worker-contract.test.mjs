@@ -195,6 +195,7 @@ function expectedDailyPath(date, catalog) {
 test('required install fails closed and does not request activation', async () => {
   for (const options of [
     { failedPaths: ['/styles.css'] },
+    { failedPaths: ['/privacy.css'] },
     { rejectedPaths: ['/manifest.webmanifest'] },
     { failedCachePutPaths: ['/styles.css'] },
   ]) {
@@ -217,8 +218,9 @@ test('complete install guarantees the bilingual core shell, ten games, and curre
   const paths = new Set((await core.keys()).map((request) => new URL(request.url).pathname));
   for (const requiredPath of [
     '/',
-    '/offline.html',
+    '/offline',
     '/app.js',
+    '/privacy.css',
     '/styles.css',
     '/manifest.webmanifest',
     '/data/catalog.json',
@@ -236,22 +238,22 @@ test('complete install guarantees the bilingual core shell, ten games, and curre
     '/mastermind',
     '/reversi',
     '/set',
-    '/ar',
-    '/ar/mind-lab',
-    '/ar/collections',
-    '/ar/play',
-    '/ar/about',
-    '/ar/privacy',
-    '/ar/games/backgammon',
-    '/ar/games/catan',
-    '/ar/games/chess',
-    '/ar/games/codenames',
-    '/ar/games/diplomacy',
-    '/ar/games/go',
-    '/ar/games/hanabi',
-    '/ar/games/mastermind',
-    '/ar/games/reversi',
-    '/ar/games/set',
+    '/ar/',
+    '/ar/mind-lab/',
+    '/ar/collections/',
+    '/ar/play/',
+    '/ar/about/',
+    '/ar/privacy/',
+    '/ar/games/backgammon/',
+    '/ar/games/catan/',
+    '/ar/games/chess/',
+    '/ar/games/codenames/',
+    '/ar/games/diplomacy/',
+    '/ar/games/go/',
+    '/ar/games/hanabi/',
+    '/ar/games/mastermind/',
+    '/ar/games/reversi/',
+    '/ar/games/set/',
   ]) {
     assert.ok(paths.has(requiredPath), `required core asset missing: ${requiredPath}`);
   }
@@ -283,15 +285,15 @@ test('offline navigation returns compatible cached documents or the dedicated fa
   assert.equal(await (await harness.dispatchFetch('/catan.html?lang=ar', 'navigate')).text(), 'network:/catan');
   assert.equal(
     await (await harness.dispatchFetch('/ar/games/catan/?source=offline', 'navigate')).text(),
-    'network:/ar/games/catan',
+    'network:/ar/games/catan/',
   );
   assert.equal(
     await (await harness.dispatchFetch('/ar/privacy/?source=offline', 'navigate')).text(),
-    'network:/ar/privacy',
+    'network:/ar/privacy/',
   );
   assert.equal(
     await (await harness.dispatchFetch('/never-visited-category?filter=hard', 'navigate')).text(),
-    'network:/offline.html',
+    'network:/offline',
   );
 });
 
@@ -375,18 +377,18 @@ test('all direct game entries use the shared registration path', () => {
   const arabicShared = JSON.parse(createHarness().evaluate('JSON.stringify(ARABIC_SHARED_DOCUMENTS)'));
   assert.equal(games.length, 10);
   assert.deepEqual(arabicShared, [
-    '/ar',
-    '/ar/mind-lab',
-    '/ar/collections',
-    '/ar/play',
-    '/ar/about',
-    '/ar/privacy',
-    ...games.map((route) => `/ar/games${route}`),
+    '/ar/',
+    '/ar/mind-lab/',
+    '/ar/collections/',
+    '/ar/play/',
+    '/ar/about/',
+    '/ar/privacy/',
+    ...games.map((route) => `/ar/games${route}/`),
   ]);
   assert.equal(new Set(arabicShared).size, 16);
   for (const route of arabicShared) {
-    const directory = route === '/ar' ? path.join(root, 'ar') : path.join(root, route.slice(1));
-    assert.equal(fs.existsSync(path.join(directory, 'index.html')), true, `${route}/ has no physical page`);
+    const directory = route === '/ar/' ? path.join(root, 'ar') : path.join(root, route.slice(1));
+    assert.equal(fs.existsSync(path.join(directory, 'index.html')), true, `${route} has no physical page`);
   }
   for (const route of games) {
     const file = `${route.slice(1)}.html`;

@@ -40,18 +40,18 @@
     <a href="#top" class="skip-link">Skip to main content</a>
 
     <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="/assets/logo.webp" type="image/webp" />
           <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
-      <nav class="header-actions" aria-label="Quick actions">
+      <nav class="header-actions" aria-label="إجراءات سريعة" data-i18n-aria-label="quickActionsLabel">
         <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
         <a class="ghost-btn" href="/ar/play/" data-i18n="heroGameHub">مركز الألعاب</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">تسجيل الدخول</button>
       </nav>
-      <div class="header-selects" aria-label="Language controls">
+      <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
         <label>
           <span data-i18n="language">اللغة</span>
           <select id="langSelect">
@@ -93,7 +93,7 @@
         </div>
 
         <!-- Five sections that filter direct topic links -->
-        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections">
+        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="أقسام الفئات" data-i18n-aria-label="categorySectionsLabel">
           <button class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-label="كل المواضيع">
             <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff8eb,#edf5ff);" aria-hidden="true"></div>
             <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">ALL</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">كل المواضيع</span><span class="ml-cluster-tab-count">56 موضوعًا</span></div></div>
@@ -121,10 +121,10 @@
         </div>
 
         <!-- Search + toolbar -->
-        <section class="control-panel directory-search-panel" aria-label="Category filters">
+        <section class="control-panel directory-search-panel" aria-label="فلاتر الفئات" data-i18n-aria-label="categoryFiltersLabel">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث في المواضيع والمواضيع الفرعية..." />
+            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="ابحث في المواضيع والمواضيع الفرعية" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث في المواضيع والمواضيع الفرعية..." />
           </label>
         </section>
 
@@ -964,7 +964,7 @@
           <p class="suggestion-sub" data-i18n="suggestSub">اقترح فئة أو موضوعًا جديدًا وسنأخذه بعين الاعتبار.</p>
           <div class="suggestion-form" id="suggestionForm">
             <textarea class="suggestion-textarea" id="suggestionText" maxlength="500" data-i18n-placeholder="suggestPlaceholder" data-i18n-aria-label="suggestPlaceholder" placeholder="فكرتك…" aria-label="فكرتك…"></textarea>
-            <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" data-i18n-aria-label="suggestEmailPlaceholder" placeholder="البريد الإلكتروني (اختياري)" / aria-label="البريد الإلكتروني (اختياري)">
+            <input class="suggestion-email" id="suggestionEmail" type="email" maxlength="100" data-i18n-placeholder="suggestEmailPlaceholder" data-i18n-aria-label="suggestEmailPlaceholder" placeholder="البريد الإلكتروني (اختياري)" aria-label="البريد الإلكتروني (اختياري)" />
             <label class="suggestion-account-link" hidden><input id="suggestionLinkAccount" type="checkbox" /> <span data-i18n="suggestLinkAccount">اربط هذا الاقتراح بحسابي المسجّل</span></label>
             <button class="primary-btn suggestion-submit" id="suggestionSubmit" data-i18n="suggestSubmit">أرسل الفكرة</button>
             <p class="suggestion-privacy-note"><span data-i18n="suggestPrivacy">إذا اخترت ربطه أثناء تسجيل الدخول فسيظهر ضمن التصدير والحذف. وإلا يبقى غير مرتبط، ويستمر الاحتفاظ حتى 12 شهرًا.</span> <a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></p>
@@ -981,11 +981,11 @@
         <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
         <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="socialInstagramLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             <span>Instagram</span>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="socialFacebookLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span>Facebook</span>
           </a>
@@ -1003,7 +1003,7 @@
             <p class="eyebrow" data-i18n="authEyebrow">الملف الشخصي</p>
             <h2 id="authModalTitle" data-i18n="authTitle">أنشئ حسابًا أو سجّل الدخول</h2>
           </div>
-          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+          <button class="icon-btn" data-close-modal="auth" aria-label="إغلاق" data-i18n-aria-label="close">×</button>
         </div>
         <div id="authModalBody"></div>
       </div>

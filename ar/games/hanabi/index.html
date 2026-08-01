@@ -308,7 +308,7 @@
     .hb-btn-gilt {
       background: rgba(201,162,39,0.15);
       border-color: rgba(201,162,39,0.4);
-      color: var(--gilt);
+      color: #785000;
     }
 
     .hb-btn-gilt:hover:not(:disabled) {
@@ -461,6 +461,10 @@
     .hb-modal-overlay.visible {
       opacity: 1;
       pointer-events: all;
+    }
+
+    .hb-modal-overlay[hidden] {
+      display: none;
     }
 
     .hb-modal {
@@ -1098,7 +1102,7 @@
         <div class="hb-log" id="hbLog" aria-live="polite"></div>
 
         <!-- Game over modal -->
-        <div class="hb-modal-overlay" id="hbModal" aria-hidden="true">
+        <div class="hb-modal-overlay" id="hbModal" hidden>
           <div class="hb-modal" role="dialog" aria-modal="true" aria-labelledby="hbModalTitle" aria-describedby="hbModalDesc">
             <span class="hb-modal-icon" id="hbModalIcon"></span>
             <h2 id="hbModalTitle">${t('gameMessage')}</h2>
@@ -1119,8 +1123,9 @@
       document.getElementById('hbCluePickerCancel').addEventListener('click', closeCluePicker);
       document.getElementById('hbNewGameBtn').addEventListener('click', startNewGame);
       document.getElementById('hbModalBtn').addEventListener('click', () => {
-        document.getElementById('hbModal').classList.remove('visible');
-        document.getElementById('hbModal').setAttribute('aria-hidden', 'true');
+        const modal = document.getElementById('hbModal');
+        modal.classList.remove('visible');
+        modal.hidden = true;
         startNewGame();
       });
     }
@@ -1131,7 +1136,7 @@
       pendingClueType = null;
       aiBusy = false;
       document.getElementById('hbModal').classList.remove('visible');
-      document.getElementById('hbModal').setAttribute('aria-hidden', 'true');
+      document.getElementById('hbModal').hidden = true;
       renderState();
     }
 
@@ -1431,8 +1436,9 @@
 
       if (open) {
         setTimeout(() => {
+          modal.hidden = false;
           modal.classList.add('visible');
-          modal.setAttribute('aria-hidden', 'false');
+          document.getElementById('hbModalBtn').focus();
         }, 400);
       }
     }

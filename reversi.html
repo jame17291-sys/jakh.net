@@ -107,10 +107,16 @@
     /* 8×8 CSS grid */
     .rv-board {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
       grid-template-rows: repeat(8, 1fr);
       width: 100%;
       height: 100%;
+    }
+
+    .rv-board-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      min-width: 0;
+      min-height: 0;
     }
 
     /* Individual cells */
@@ -597,7 +603,7 @@
       '</div>',
       '<div class="rv-status" id="rvStatus" role="status" aria-live="polite">Black\'s turn</div>',
       '<div class="rv-thinking" id="rvThinking" role="status" aria-live="polite"></div>',
-      '<div class="rv-board-wrap" dir="ltr"><div class="rv-board" id="rvBoard" role="grid" aria-label="Reversi board" aria-describedby="rvPreciseHint" data-i18n-aria-label="boardLabel"></div></div>',
+      '<div class="rv-board-wrap" dir="ltr"><div class="rv-board" id="rvBoard" role="grid" aria-rowcount="8" aria-colcount="8" aria-label="Reversi board" aria-describedby="rvPreciseHint" data-i18n-aria-label="boardLabel"></div></div>',
       '<div class="rv-precise-moves" id="rvPreciseMoves" aria-labelledby="rvPreciseTitle">',
         '<h2 id="rvPreciseTitle" data-i18n="preciseMovesTitle">Precise move controls</h2>',
         '<p id="rvPreciseHint" data-i18n="preciseMovesHint">On very narrow screens, use these full-size buttons when a board cell is too small to tap precisely.</p>',
@@ -630,17 +636,23 @@
       boardEl.innerHTML = '';
       for (var r = 0; r < 8; r++) {
         cells.push([]);
+        var row = document.createElement('div');
+        row.className = 'rv-board-row';
+        row.setAttribute('role', 'row');
+        row.setAttribute('aria-rowindex', String(r + 1));
         for (var c = 0; c < 8; c++) {
           var cell = document.createElement('button');
           cell.type = 'button';
           cell.className = 'rv-cell ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
           cell.setAttribute('role', 'gridcell');
+          cell.setAttribute('aria-colindex', String(c + 1));
           cell.dataset.r = r;
           cell.dataset.c = c;
           cell.addEventListener('click', onCellClick);
-          boardEl.appendChild(cell);
+          row.appendChild(cell);
           cells[r].push(cell);
         }
+        boardEl.appendChild(row);
       }
     })();
 

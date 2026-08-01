@@ -441,7 +441,7 @@
         <div id="catan-setup-hint"></div>
 
         <!-- Hex board -->
-        <div id="catan-board" role="grid" aria-label="لوحة كاتان" data-i18n-aria-label="boardLabel" dir="ltr"></div>
+        <div id="catan-board" role="group" aria-label="لوحة كاتان" data-i18n-aria-label="boardLabel" dir="ltr"></div>
 
         <!-- Players -->
         <div id="catan-players">
@@ -1252,7 +1252,7 @@
         const cell = document.createElement('div');
         cell.className = 'catan-hex';
         cell.dataset.hexId = String(hex.id);
-        cell.setAttribute('role', 'gridcell');
+        cell.setAttribute('role', 'button');
         const baseLabel = t('hexLabel', {
           hex: i18n.number(hex.id + 1),
           resource: resourceName(hex.type),

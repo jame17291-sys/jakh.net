@@ -8,24 +8,25 @@ import vm from 'node:vm';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
 const styles = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
+const searchLeaderboard = fs.readFileSync(path.join(root, 'search-leaderboard.js'), 'utf8');
 const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const playHtml = fs.readFileSync(path.join(root, 'play.html'), 'utf8');
 const mindLabHtml = fs.readFileSync(path.join(root, 'mind-lab.html'), 'utf8');
 
-function topLevelFunction(name) {
-  const asyncStart = app.indexOf(`async function ${name}(`);
-  const start = asyncStart >= 0 ? asyncStart : app.indexOf(`function ${name}(`);
+function topLevelFunction(name, source = app) {
+  const asyncStart = source.indexOf(`async function ${name}(`);
+  const start = asyncStart >= 0 ? asyncStart : source.indexOf(`function ${name}(`);
   assert.notEqual(start, -1, `missing function ${name}`);
-  const end = app.indexOf('\n}', start);
+  const end = source.indexOf('\n}', start);
   assert.notEqual(end, -1, `unterminated function ${name}`);
-  return app.slice(start, end + 2);
+  return source.slice(start, end + 2);
 }
 
-function functionBlock(name, nextName) {
-  const start = app.indexOf(`function ${name}(`);
-  const end = app.indexOf(`function ${nextName}(`, start + 1);
+function functionBlock(name, nextName, source = app) {
+  const start = source.indexOf(`function ${name}(`);
+  const end = source.indexOf(`function ${nextName}(`, start + 1);
   assert.ok(start >= 0 && end > start, `missing ${name}/${nextName} boundary`);
-  return app.slice(start, end);
+  return source.slice(start, end);
 }
 
 test('storage SecurityError and quota failures preserve an in-memory current view', () => {
@@ -53,6 +54,32 @@ test('storage SecurityError and quota failures preserve an in-memory current vie
   assert.equal(context.safeRemove('local', 'progress'), false);
   assert.equal(context.safeGet('local', 'progress'), null);
   assert.doesNotMatch(app, /\blocalStorage\.|\bsessionStorage\./u);
+});
+
+test('install dismissal expires instead of suppressing the prompt forever', () => {
+  const storage = new Map();
+  const context = vm.createContext({
+    INSTALL_PROMPT_DISMISSAL_KEY: 'jakh-install-dismissed',
+    INSTALL_PROMPT_DISMISSAL_TTL_MS: 30 * 24 * 60 * 60 * 1000,
+    safeStorageGet: (_area, key) => storage.get(key) ?? null,
+    safeStorageRemove: (_area, key) => storage.delete(key),
+    Date,
+    JSON,
+    Number,
+  });
+  vm.runInContext(`${topLevelFunction('installPromptIsSuppressed')}\nthis.isSuppressed = installPromptIsSuppressed;`, context);
+
+  storage.set('jakh-install-dismissed', JSON.stringify({ dismissedAt: Date.now(), reason: 'dismissed' }));
+  assert.equal(context.isSuppressed(Date.now()), true);
+
+  const expiredAt = Date.now() - (31 * 24 * 60 * 60 * 1000);
+  storage.set('jakh-install-dismissed', JSON.stringify({ dismissedAt: expiredAt, reason: 'dismissed' }));
+  assert.equal(context.isSuppressed(Date.now()), false);
+  assert.equal(storage.has('jakh-install-dismissed'), false);
+
+  storage.set('jakh-install-dismissed', '1');
+  assert.equal(context.isSuppressed(Date.now()), false);
+  assert.equal(storage.has('jakh-install-dismissed'), false);
 });
 
 test('cloud retries are limited to network/408/425/429/5xx and backoff is bounded', () => {
@@ -204,7 +231,11 @@ test('daily reveal is not completion; only explicit outcome buttons persist', ()
 
 test('global search evaluates every hit, ranks deterministically, and reports total/top N', () => {
   const context = vm.createContext({ Map });
-  vm.runInContext(`${topLevelFunction('rankGlobalSearch')}\nthis.rank = rankGlobalSearch;`, context);
+  vm.runInContext([
+    topLevelFunction('normalizeGlobalSearchText', searchLeaderboard),
+    topLevelFunction('rankGlobalSearch', searchLeaderboard),
+    'this.rank = rankGlobalSearch;',
+  ].join('\n'), context);
   const categories = [
     { slug: 'alpha', title: { en: 'Planets', ar: 'كواكب' } },
     { slug: 'beta', title: { en: 'Other', ar: 'أخرى' } },
@@ -212,16 +243,16 @@ test('global search evaluates every hit, ranks deterministically, and reports to
   const payload = {
     categories: ['alpha', 'beta'],
     cards: [
-      [1, 'What is red?', '', 'Mars', ''],
-      [0, 'Planets', '', 'Many', ''],
-      [1, 'Name a planet', '', 'Mars', ''],
+      [1, 'red', 'What is red?', 'Mars'],
+      [0, 'planets', 'Planets', 'Many'],
+      [1, 'planet', 'Name a planet', 'Mars'],
     ],
   };
   const hits = context.rank(payload, categories, 'planet', 'en');
   assert.equal(hits.length, 2);
   assert.equal(hits[0].cat.slug, 'alpha');
-  assert.match(app, /Showing the top \$\{shownHits\.length\}, ranked by relevance/u);
-  assert.doesNotMatch(functionBlock('runGlobalSearch', 'verifiedCategoryOptions'), /hits\.length >= 30/u);
+  assert.match(searchLeaderboard, /Showing the top \$\{shownHits\.length\}, ranked by relevance/u);
+  assert.doesNotMatch(functionBlock('runGlobalSearch', 'verifiedCategoryOptions', searchLeaderboard), /hits\.length >= 30/u);
 });
 
 test('share fallback handles Web Share failure, cancellation, Clipboard failure, and manual selection', async () => {
@@ -267,17 +298,17 @@ test('category count copy distinguishes rendered, matched, total, and remaining'
 });
 
 test('truthful product and server-checking wording is enforced', () => {
-  const ownedCopy = [app, indexHtml, playHtml].join('\n');
+  const ownedCopy = [app, searchLeaderboard, indexHtml, playHtml].join('\n');
   for (const claim of [/Team Battle/iu, /unlock all/iu, /10 complete browser games/iu, /10 games live/iu, /server-verified/iu, /verified score/iu]) {
     assert.doesNotMatch(ownedCopy, claim);
   }
   assert.match(app, /Battle Room/u);
   assert.match(app, /browser adaptations and simplified games/u);
-  assert.match(app, /scoreType === 'server-checked'/u);
-  assert.match(app, /proctored === false/u);
-  assert.match(app, /serverCheckedAutomationDisclaimer/u);
-  assert.match(app, /\/scores\/server-checked\/challenge/u);
-  assert.match(app, /\/scores\/server-checked\/submit/u);
+  assert.match(searchLeaderboard, /scoreType === 'server-checked'/u);
+  assert.match(searchLeaderboard, /proctored === false/u);
+  assert.match(searchLeaderboard, /serverCheckedAutomationDisclaimer/u);
+  assert.match(searchLeaderboard, /\/scores\/server-checked\/challenge/u);
+  assert.match(searchLeaderboard, /\/scores\/server-checked\/submit/u);
 });
 
 test('anonymous session, transient identity, review disclosure, and signed-out markup contracts remain honest', () => {
@@ -285,16 +316,16 @@ test('anonymous session, transient identity, review disclosure, and signed-out m
   assert.ok(session.indexOf("apiFetch('/auth/session')") < session.indexOf("apiFetch('/user/profile')"));
   assert.match(session, /state\.dbUser = previousUser/u);
   assert.match(session, /error\?\.status === 401 \|\| error\?\.status === 403/u);
-  const starter = functionBlock('renderVerifiedStarter', 'startVerifiedChallenge');
+  const starter = functionBlock('renderVerifiedStarter', 'startVerifiedChallenge', searchLeaderboard);
   assert.doesNotMatch(starter, /mount\.innerHTML = `\s*mount\.innerHTML/u);
   assert.match(starter, /verified-signin-prompt/u);
-  const challenge = functionBlock('renderVerifiedChallenge', 'submitVerifiedChallenge');
+  const challenge = functionBlock('renderVerifiedChallenge', 'submitVerifiedChallenge', searchLeaderboard);
   assert.match(challenge, /verifiedReviewUnavailable/u);
   assert.match(challenge, /createReviewMarkup\(\{ review: item\.review \}\)/u);
 });
 
 test('server-checked cancellation keeps the token locally on failure and validates discard responses', () => {
-  const challenge = functionBlock('renderVerifiedChallenge', 'submitVerifiedChallenge');
+  const challenge = functionBlock('renderVerifiedChallenge', 'submitVerifiedChallenge', searchLeaderboard);
   const cancelStart = challenge.indexOf("document.getElementById('verifiedCancelBtn')");
   const cancel = challenge.slice(cancelStart);
   assert.ok(cancelStart >= 0, 'missing normal challenge cancellation handler');
@@ -311,13 +342,13 @@ test('server-checked cancellation keeps the token locally on failure and validat
     'local challenge state must clear only after a valid successful DELETE response');
   assert.doesNotMatch(cancel.slice(catchIndex), /verifiedChallenge\s*=/u,
     'failed DELETE must preserve the local answers and submission token');
-  assert.match(app, /Your answers and token are still kept in this tab/u);
+  assert.match(app + searchLeaderboard, /Your answers and token are still kept in this tab/u);
 });
 
 test('ACTIVE conflict warns before category-only discard and retries only after validated success', () => {
-  const active = functionBlock('renderActiveChallengeConflict', 'renderVerifiedChallenge');
+  const active = functionBlock('renderActiveChallengeConflict', 'renderVerifiedChallenge', searchLeaderboard);
   assert.match(active, /verifiedActiveWarning/u);
-  assert.match(app, /invalidate a challenge still open in another tab/u);
+  assert.match(searchLeaderboard, /invalidate a challenge still open in another tab/u);
   assert.match(active, /apiFetch\('\/scores\/server-checked\/challenge',\s*\{\s*method: 'DELETE'/u);
   assert.match(active, /body: JSON\.stringify\(\{ categoryId \}\)/u);
   assert.doesNotMatch(active, /challengeId|submissionToken/u,

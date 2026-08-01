@@ -103,7 +103,6 @@
       /* The board itself */
       #chessBoard {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(8, 1fr);
         width: var(--chess-board-size);
         aspect-ratio: 1 / 1;
@@ -112,6 +111,13 @@
         overflow: hidden;
         box-shadow: 0 14px 34px rgba(32, 50, 71, 0.16);
         flex-shrink: 0;
+      }
+
+      .chess-board-row {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        min-width: 0;
+        min-height: 0;
       }
 
       .chess-square {
@@ -591,7 +597,7 @@
             <div class="board-files" id="boardFiles"></div>
             <div class="board-ranks-row">
               <div class="board-rank-labels" id="rankLabels"></div>
-              <div id="chessBoard" role="grid" dir="ltr" aria-label="رقعة الشطرنج" aria-describedby="chessKeyboardInstructions" data-i18n-aria-label="chessBoardAria"></div>
+              <div id="chessBoard" role="grid" aria-rowcount="8" aria-colcount="8" dir="ltr" aria-label="رقعة الشطرنج" aria-describedby="chessKeyboardInstructions" data-i18n-aria-label="chessBoardAria"></div>
             </div>
             <p class="sr-only" id="chessKeyboardInstructions" data-i18n="chessKeyboardInstructions">استخدم مفاتيح الأسهم للتنقل بين المربعات. اضغط Enter أو مفتاح المسافة لاختيار قطعة أو تنفيذ نقلة.</p>
           </div>
@@ -631,8 +637,8 @@
 
             <div class="captured-panel">
               <p class="captured-label" data-i18n="chessCaptured">القطع المأسورة</p>
-              <div class="captured-row black" id="capturedByWhite" aria-label="القطع التي أسرها الأبيض" data-i18n-aria-label="chessCapturedByWhite"></div>
-              <div class="captured-row" id="capturedByBlack" aria-label="القطع التي أسرها الأسود" data-i18n-aria-label="chessCapturedByBlack"></div>
+              <div class="captured-row black" id="capturedByWhite" role="group" aria-label="القطع التي أسرها الأبيض" data-i18n-aria-label="chessCapturedByWhite"></div>
+              <div class="captured-row" id="capturedByBlack" role="group" aria-label="القطع التي أسرها الأسود" data-i18n-aria-label="chessCapturedByBlack"></div>
             </div>
           </div>
         </div>
@@ -1247,16 +1253,22 @@
       function buildBoard() {
         boardEl.innerHTML = '';
         for (let r = 0; r < 8; r++) {
+          const row = document.createElement('div');
+          row.className = 'chess-board-row';
+          row.setAttribute('role', 'row');
+          row.setAttribute('aria-rowindex', String(r + 1));
           for (let c = 0; c < 8; c++) {
             const sq = document.createElement('div');
             sq.className = 'chess-square ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
             sq.dataset.row = r;
             sq.dataset.col = c;
             sq.setAttribute('role', 'gridcell');
+            sq.setAttribute('aria-colindex', String(c + 1));
             sq.addEventListener('click', onSquareClick);
             sq.addEventListener('keydown', onSquareKeydown);
-            boardEl.appendChild(sq);
+            row.appendChild(sq);
           }
+          boardEl.appendChild(row);
         }
       }
 

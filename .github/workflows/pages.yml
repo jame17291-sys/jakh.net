@@ -35,7 +35,7 @@ jobs:
           node scripts/validate-seo.mjs
           node scripts/validate-static.mjs
           node scripts/validate-bilingual.mjs
-          node --test scripts/monitor-production.test.mjs
+          node --test scripts/monitor-production.test.mjs scripts/route-production-alert.test.mjs
 
       - name: Prepare artifact
         run: |

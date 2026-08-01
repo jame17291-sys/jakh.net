@@ -1,3 +1,4 @@
+import { writeFile } from "node:fs/promises";
 import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
 
@@ -9,6 +10,12 @@ const DEFAULT_API_MAX_MS = 5_000;
 const ALLOWED_ORIGIN = "https://jakh.net";
 const DISALLOWED_ORIGIN = "https://example.invalid";
 const MAX_CHECK_ATTEMPTS = 2;
+
+export const API_RELEASE_CONTRACT = Object.freeze({
+  service: "jakh-api",
+  version: "1.4.0",
+  schema: "6",
+});
 
 class RetryableCheckError extends Error {
   constructor(message, options) {
@@ -37,6 +44,13 @@ export const HTML_ROUTES = [
   { name: "SET", path: "/set", marker: "<title>SET Online", bilingualMarker: "game-i18n.js" },
   { name: "Hanabi", path: "/hanabi", marker: "<title>Hanabi Online", bilingualMarker: "game-i18n.js" },
   { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
+];
+
+export const UNAUTHENTICATED_API_GET_ROUTES = [
+  { name: "profile", path: "/api/user/profile" },
+  { name: "privacy preferences", path: "/api/user/privacy" },
+  { name: "account export", path: "/api/user/export" },
+  { name: "admin overview", path: "/api/admin/overview" },
 ];
 
 function positiveInteger(value, fallback, label) {
@@ -300,6 +314,28 @@ export async function runProductionMonitor(options = {}) {
     return resource;
   });
 
+  await check("Site: security contact", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/.well-known/security.txt", config.siteOrigin),
+      config.timeoutMs,
+    );
+    expectStatus(resource.response, 200);
+    expectContentType(resource.response, /^text\/plain\b/iu);
+    expect(
+      resource.text.includes("Contact: https://github.com/jame17291-sys/jakh.net/security/advisories/new"),
+      "security.txt is missing the vulnerability-reporting contact",
+    );
+    expect(
+      resource.text.includes("Canonical: https://jakh.net/.well-known/security.txt"),
+      "security.txt is missing its canonical URL",
+    );
+    expect(/^Expires: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/mu.test(resource.text),
+      "security.txt is missing a valid UTC expiry");
+    assertBudget(resource, config.siteMaxMs, 10_000);
+    return resource;
+  });
+
   await check("Site: social preview image", async () => {
     const resource = await fetchResource(
       fetchImpl,
@@ -404,9 +440,18 @@ export async function runProductionMonitor(options = {}) {
     expect(resource.response.headers.get("cache-control") === "no-store", "health response is cacheable");
     const health = parseJson(resource);
     expect(health.ok === true, "health response is not ok");
-    expect(health.service === "jakh-api", "health response has the wrong service");
-    expect(health.version === "1.4.0", `unexpected API version "${health.version || "missing"}"`);
-    expect(health.schema === "5", `unexpected API schema "${health.schema || "missing"}"`);
+    expect(
+      health.service === API_RELEASE_CONTRACT.service,
+      `unexpected API service "${health.service || "missing"}"`,
+    );
+    expect(
+      health.version === API_RELEASE_CONTRACT.version,
+      `unexpected API version "${health.version || "missing"}"`,
+    );
+    expect(
+      health.schema === API_RELEASE_CONTRACT.schema,
+      `unexpected API schema "${health.schema || "missing"}"`,
+    );
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });
@@ -434,22 +479,25 @@ export async function runProductionMonitor(options = {}) {
     return resource;
   });
 
-  await check("API: unauthenticated profile", async () => {
-    const resource = await fetchResource(
-      fetchImpl,
-      new URL("/api/user/profile", config.apiOrigin),
-      config.timeoutMs,
-      { headers: { origin: ALLOWED_ORIGIN } },
-    );
-    expectStatus(resource.response, 401);
-    expectContentType(resource.response, /application\/json/iu);
-    expectCors(resource.response, ALLOWED_ORIGIN);
-    expectApiSecurityHeaders(resource.response);
-    expect(resource.response.headers.get("set-cookie") === null, "unauthenticated request set a cookie");
-    expect(parseJson(resource).error === "Unauthorized", "unexpected authentication error response");
-    assertBudget(resource, config.apiMaxMs, 20_000);
-    return resource;
-  });
+  await Promise.all(UNAUTHENTICATED_API_GET_ROUTES.map((route) =>
+    check(`API: unauthenticated ${route.name}`, async () => {
+      const resource = await fetchResource(
+        fetchImpl,
+        new URL(route.path, config.apiOrigin),
+        config.timeoutMs,
+        { headers: { origin: ALLOWED_ORIGIN } },
+      );
+      expectStatus(resource.response, 401);
+      expectContentType(resource.response, /application\/json/iu);
+      expectCors(resource.response, ALLOWED_ORIGIN);
+      expectApiSecurityHeaders(resource.response);
+      expect(resource.response.headers.get("cache-control") === "no-store", "authentication error is cacheable");
+      expect(resource.response.headers.get("set-cookie") === null, "unauthenticated request set a cookie");
+      expect(parseJson(resource).error === "Unauthorized", "unexpected authentication error response");
+      assertBudget(resource, config.apiMaxMs, 20_000);
+      return resource;
+    }),
+  ));
 
   await check("API: allowed CORS preflight", async () => {
     const resource = await fetchResource(
@@ -535,9 +583,33 @@ export async function runProductionMonitor(options = {}) {
   return summary;
 }
 
+export function buildMonitorReport(summary, generatedAt = new Date()) {
+  return {
+    schemaVersion: 1,
+    generatedAt: generatedAt.toISOString(),
+    status: summary.failures.length ? "failure" : "success",
+    totalChecks: summary.results.length + summary.failures.length,
+    passedChecks: summary.results.length,
+    failedChecks: summary.failures.length,
+    apiReleaseContract: API_RELEASE_CONTRACT,
+    results: summary.results,
+    failures: summary.failures,
+  };
+}
+
+export async function writeMonitorReport(path, summary, generatedAt) {
+  const report = buildMonitorReport(summary, generatedAt);
+  await writeFile(path, `${JSON.stringify(report, null, 2)}\n`, "utf8");
+  return report;
+}
+
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (isMain) {
-  runProductionMonitor().catch((error) => {
+  runProductionMonitor({ throwOnFailure: false }).then(async (summary) => {
+    const reportPath = process.env.JAKH_MONITOR_RESULT_PATH;
+    if (reportPath) await writeMonitorReport(reportPath, summary);
+    if (summary.failures.length) process.exitCode = 1;
+  }).catch((error) => {
     console.error(error.message);
     process.exitCode = 1;
   });

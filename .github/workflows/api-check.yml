@@ -37,7 +37,10 @@ jobs:
       - name: Validate complete English and Arabic coverage
         run: node scripts/validate-bilingual.mjs
       - name: Test production monitor
-        run: node --test scripts/monitor-production.test.mjs
+        run: >-
+          node --test scripts/api-release-receipt.test.mjs
+          scripts/monitor-production.test.mjs
+          scripts/route-production-alert.test.mjs
       - name: Install API dependencies
         working-directory: worker
         run: npm ci --no-audit --no-fund

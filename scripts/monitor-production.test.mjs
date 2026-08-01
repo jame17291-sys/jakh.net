@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import http from "node:http";
 import test from "node:test";
-import { HTML_ROUTES, runProductionMonitor } from "./monitor-production.mjs";
+import {
+  API_RELEASE_CONTRACT,
+  buildMonitorReport,
+  HTML_ROUTES,
+  runProductionMonitor,
+  UNAUTHENTICATED_API_GET_ROUTES,
+} from "./monitor-production.mjs";
 
 function quietLogger() {
   return { log() {}, error() {} };
@@ -52,6 +58,13 @@ function staticBody(pathname) {
     ];
     return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
   }
+  if (pathname === "/.well-known/security.txt") {
+    return [
+      "Contact: https://github.com/jame17291-sys/jakh.net/security/advisories/new",
+      "Expires: 2027-07-30T23:59:59Z",
+      "Canonical: https://jakh.net/.well-known/security.txt",
+    ].join("\n");
+  }
   if (pathname === "/assets/og-image.jpg") {
     return Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0x4a, 0x46, 0x49, 0x46]);
   }
@@ -95,9 +108,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
       response.writeHead(200, apiHeaders(brokenCors ? undefined : requestOrigin));
       response.end(JSON.stringify({
         ok: true,
-        service: "jakh-api",
-        version: "1.4.0",
-        schema: "5",
+        ...API_RELEASE_CONTRACT,
       }));
       return;
     }
@@ -115,7 +126,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
       return;
     }
 
-    if (url.pathname === "/api/user/profile") {
+    if (UNAUTHENTICATED_API_GET_ROUTES.some(({ path }) => path === url.pathname)) {
       response.writeHead(401, apiHeaders(brokenCors ? undefined : requestOrigin));
       response.end(JSON.stringify({ error: "Unauthorized" }));
       return;
@@ -137,6 +148,8 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
             ? "image/jpeg"
             : url.pathname.endsWith(".xml")
               ? "application/xml; charset=utf-8"
+              : url.pathname.endsWith(".txt")
+                ? "text/plain; charset=utf-8"
           : url.pathname.endsWith(".json")
             ? "application/json; charset=utf-8"
             : url.pathname.endsWith(".webmanifest")
@@ -186,7 +199,27 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, 36);
+    assert.equal(summary.results.length, 40);
+  });
+});
+
+test("production monitor emits a stable structured report for alert routing", () => {
+  const summary = {
+    results: [{ name: "Site: Home", status: 200, elapsedMs: 42, bytes: 100, attempts: 1 }],
+    failures: [{ name: "API: health", message: "expected HTTP 200, received 503", attempts: 2 }],
+  };
+  const report = buildMonitorReport(summary, new Date("2026-08-01T08:00:00.000Z"));
+
+  assert.deepEqual(report, {
+    schemaVersion: 1,
+    generatedAt: "2026-08-01T08:00:00.000Z",
+    status: "failure",
+    totalChecks: 2,
+    passedChecks: 1,
+    failedChecks: 1,
+    apiReleaseContract: API_RELEASE_CONTRACT,
+    results: summary.results,
+    failures: summary.failures,
   });
 });
 

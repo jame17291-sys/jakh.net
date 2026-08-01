@@ -1,0 +1,153 @@
+name: Verify recovery readiness
+
+on:
+  schedule:
+    - cron: "23 4 * * 1"
+    - cron: "53 4 1 1,4,7,10 *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Evidence operation"
+        required: true
+        default: "readiness"
+        type: choice
+        options:
+          - readiness
+          - bookmark
+          - restore-drill
+      drill_database_name:
+        description: "For restore-drill only: must be jakh-recovery-drill"
+        required: false
+        type: string
+      drill_database_id:
+        description: "For restore-drill only: dedicated non-production D1 UUID"
+        required: false
+        type: string
+      confirmation:
+        description: "For restore-drill only: type RESTORE jakh-recovery-drill"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: recovery-verification
+  cancel-in-progress: false
+
+jobs:
+  readiness:
+    name: Rebuild schema and verify recovery policy
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '53 4 1 1,4,7,10 *') ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'readiness')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install pinned Wrangler
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+      - name: Test recovery safeguards
+        working-directory: worker
+        run: node --test tests/recovery-evidence.test.mjs
+      - name: Create local recovery-readiness receipt
+        working-directory: worker
+        run: >-
+          node scripts/recovery-evidence.mjs readiness
+          --required-ref refs/heads/main
+          --output "$RUNNER_TEMP/recovery-evidence/readiness.json"
+      - name: Retain recovery-readiness evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: recovery-readiness-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/recovery-evidence/readiness.json
+          if-no-files-found: error
+          retention-days: 90
+
+  bookmark:
+    name: Verify production Time Travel (read-only)
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '23 4 * * 1') ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'bookmark')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install pinned Wrangler
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+      - name: Test recovery safeguards
+        working-directory: worker
+        run: node --test tests/recovery-evidence.test.mjs
+      - name: Capture bookmark and release receipt
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_RECOVERY_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: >-
+          node scripts/recovery-evidence.mjs bookmark
+          --required-ref refs/heads/main
+          --lookback-hours 24
+          --output "$RUNNER_TEMP/recovery-evidence/bookmark.json"
+      - name: Retain bookmark evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: recovery-bookmark-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/recovery-evidence/bookmark.json
+          if-no-files-found: error
+          retention-days: 90
+
+  restore-drill:
+    name: Restore dedicated non-production D1
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '53 4 1 1,4,7,10 *') ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'restore-drill')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: recovery-drill
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install pinned Wrangler
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+      - name: Test recovery safeguards
+        working-directory: worker
+        run: node --test tests/recovery-evidence.test.mjs
+      - name: Run guarded restore and undo drill
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_RECOVERY_DRILL_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECOVERY_DRILL_DATABASE_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.drill_database_name || 'jakh-recovery-drill' }}
+          RECOVERY_DRILL_DATABASE_ID: ${{ github.event_name == 'workflow_dispatch' && inputs.drill_database_id || secrets.CLOUDFLARE_RECOVERY_DRILL_DATABASE_ID }}
+          RECOVERY_DRILL_CONFIRMATION: ${{ github.event_name == 'workflow_dispatch' && inputs.confirmation || 'RESTORE jakh-recovery-drill' }}
+        run: >-
+          node scripts/recovery-evidence.mjs drill
+          --required-ref refs/heads/main
+          --output "$RUNNER_TEMP/recovery-evidence/restore-drill.json"
+      - name: Retain restore-drill evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: recovery-restore-drill-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/recovery-evidence/restore-drill.json
+          if-no-files-found: error
+          retention-days: 90

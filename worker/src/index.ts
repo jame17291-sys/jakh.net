@@ -9,6 +9,14 @@ import {
   withCors,
 } from "./http.js";
 import { PasswordHasher } from "./password-hasher.js";
+import {
+  adminOverview,
+  adminSuggestions,
+  adminUsers,
+  updateSuggestion,
+  updateUserBan,
+  updateUserRole,
+} from "./admin.js";
 import { cleanupExpiredSecurityState } from "./db.js";
 import {
   cleanupPrivacyRetentionState,
@@ -83,6 +91,15 @@ async function route(request: Request, env: Env): Promise<Response> {
     return submitVerifiedChallenge(request, env);
   }
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
+  if (path === "/api/admin/overview" && method === "GET") return adminOverview(request, env);
+  if (path === "/api/admin/users" && method === "GET") return adminUsers(request, env);
+  if (path === "/api/admin/suggestions" && method === "GET") return adminSuggestions(request, env);
+  const roleMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/role$/u.exec(path);
+  if (roleMatch && method === "PATCH") return updateUserRole(request, env, roleMatch[1] || "");
+  const banMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/ban$/u.exec(path);
+  if (banMatch && method === "PATCH") return updateUserBan(request, env, banMatch[1] || "");
+  const suggestionMatch = /^\/api\/admin\/suggestions\/([A-Za-z0-9-]{36})$/u.exec(path);
+  if (suggestionMatch && method === "PATCH") return updateSuggestion(request, env, suggestionMatch[1] || "");
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
   return json({ error: "Not found", code: "NOT_FOUND" }, 404);
 }

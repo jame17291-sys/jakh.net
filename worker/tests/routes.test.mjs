@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { health, suggestion, syncUserData } from "../dist/routes.js";
 
-function healthEnv(schemaVersion = "3") {
+function healthEnv(schemaVersion = "4") {
   return {
     PASSWORD_PEPPER: "password-pepper-longer-than-24-characters",
     IP_HASH_SALT: "ip-hash-salt-longer-than-24-characters",
@@ -27,7 +27,7 @@ test("health reports ready only when secrets, bindings, schema, and catalog exis
     ok: true,
     service: "jakh-api",
     version: "1.4.0",
-    schema: "3",
+    schema: "4",
   });
 });
 

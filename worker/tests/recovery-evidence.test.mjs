@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -225,7 +225,13 @@ test("bookmark receipt correlates source, migrations, and two read-only bookmark
     assert.equal(receipt.status, "passed");
     assert.equal(receipt.workflow.gitSha, "a".repeat(40));
     assert.equal(receipt.checks.databaseContentRead, false);
-    assert.equal(receipt.release.migrations.files.length, 5);
+    const migrationNames = (await readdir(new URL("../migrations/", import.meta.url)))
+      .filter((name) => name.endsWith(".sql"))
+      .sort();
+    assert.deepEqual(
+      receipt.release.migrations.files.map(({ name }) => name),
+      migrationNames,
+    );
     assert.equal(calls.length, 2);
     assert.ok(calls.every((args) => args.includes("time-travel") && args.includes("info")));
     assert.ok(calls.every((args) => !args.includes("execute") && !args.includes("restore")));

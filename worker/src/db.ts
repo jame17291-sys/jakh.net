@@ -10,7 +10,12 @@ interface SessionRow {
   role: string;
   is_banned: number;
   token_hash: string;
+  sessionCreatedAt: string;
+  adminLastActiveAt: string | null;
 }
+
+export const PRIVILEGED_SESSION_IDLE_MS = 15 * 60 * 1_000;
+export const PRIVILEGED_SESSION_MAX_AGE_MS = 8 * 60 * 60 * 1_000;
 
 export async function createSession(env: Env, userId: string): Promise<string> {
   const token = randomToken(32);
@@ -42,7 +47,8 @@ export async function sessionUser(request: Request, env: Env): Promise<SessionUs
   const tokenHash = await sha256(token);
   const now = new Date().toISOString();
   const row = await env.DB.prepare(
-    `SELECT u.id, u.username, u.email, u.avatar, u.role, u.is_banned, s.token_hash
+    `SELECT u.id, u.username, u.email, u.avatar, u.role, u.is_banned, s.token_hash,
+            s.created_at AS sessionCreatedAt, s.admin_last_active_at AS adminLastActiveAt
        FROM sessions s
        JOIN users u ON u.id = s.user_id
       WHERE s.token_hash = ? AND s.expires_at > ?`,
@@ -61,6 +67,8 @@ export async function sessionUser(request: Request, env: Env): Promise<SessionUs
     avatar: row.avatar,
     role: row.role,
     tokenHash: row.token_hash,
+    sessionCreatedAt: row.sessionCreatedAt,
+    adminLastActiveAt: row.adminLastActiveAt,
   };
 }
 
@@ -68,6 +76,40 @@ export async function requireUser(request: Request, env: Env): Promise<SessionUs
   const user = await sessionUser(request, env);
   if (!user) throw new ApiError(401, "Unauthorized");
   return user;
+}
+
+/**
+ * Admin console use must remain deliberately short-lived even though a normal
+ * JAKH learning session can remain signed in for longer. This updates activity
+ * only for API-enforced privileged requests, never public-site activity.
+ */
+export async function touchPrivilegedSession(env: Env, user: SessionUser): Promise<void> {
+  const now = new Date();
+  const nowMs = now.getTime();
+  const createdAtMs = Date.parse(user.sessionCreatedAt);
+  const lastActiveMs = user.adminLastActiveAt === null ? null : Date.parse(user.adminLastActiveAt);
+  const invalidTimestamp = !Number.isFinite(createdAtMs)
+    || (user.adminLastActiveAt !== null && !Number.isFinite(lastActiveMs));
+  const expired = invalidTimestamp
+    || nowMs - createdAtMs >= PRIVILEGED_SESSION_MAX_AGE_MS
+    || (lastActiveMs !== null && nowMs - lastActiveMs >= PRIVILEGED_SESSION_IDLE_MS);
+
+  if (expired) {
+    await env.DB.batch([
+      env.DB.prepare("DELETE FROM admin_step_ups WHERE token_hash = ?").bind(user.tokenHash),
+      env.DB.prepare("DELETE FROM sessions WHERE token_hash = ?").bind(user.tokenHash),
+    ]);
+    throw new ApiError(
+      401,
+      "Your privileged session expired. Sign in again to continue.",
+      undefined,
+      "ADMIN_SESSION_EXPIRED",
+    );
+  }
+
+  await env.DB.prepare(
+    "UPDATE sessions SET admin_last_active_at = ? WHERE token_hash = ?",
+  ).bind(now.toISOString(), user.tokenHash).run();
 }
 
 export async function enforceRateLimit(

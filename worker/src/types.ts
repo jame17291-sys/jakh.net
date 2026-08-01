@@ -21,6 +21,8 @@ export interface SessionUser {
   avatar: string;
   role: string;
   tokenHash: string;
+  sessionCreatedAt: string;
+  adminLastActiveAt: string | null;
 }
 
 export interface BattleQuestion {

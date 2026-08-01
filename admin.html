@@ -6,13 +6,12 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="cache-control" content="no-store, max-age=0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'self' https://api.jakh.net https://www.google-analytics.com https://region1.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; object-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self'; form-action 'self'; frame-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'self' https://api.jakh.net; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'; form-action 'self'; frame-src 'none'">
   <link rel="canonical" href="https://jakh.net/admin">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="/admin.css?v=2026080101">
+  <link rel="stylesheet" href="/admin.css?v=2026080102">
   <title>JAKH · Administration</title>
-  <script defer src="/privacy-consent.js?v=2026080101"></script>
-  <script defer src="/admin.js?v=2026080101"></script>
+  <script defer src="/admin.js?v=2026080102"></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skipToMain">Skip to main content</a>
@@ -219,13 +218,33 @@
     </div>
   </div>
 
-  <dialog id="reauthDialog" class="reauth-dialog" aria-labelledby="reauthTitle">
+  <dialog id="reauthDialog" class="admin-dialog reauth-dialog" aria-labelledby="reauthTitle">
     <form id="reauthForm" novalidate>
       <div class="dialog-heading"><span class="shield-mark" aria-hidden="true">🛡</span><div><span class="eyebrow" data-i18n="security">Security</span><h2 id="reauthTitle" data-i18n="reauthTitle">Confirm it is you</h2></div></div>
       <p data-i18n="reauthLead">Enter your current JAKH password. It is used only to confirm this session and is never stored by the console.</p>
       <label class="input-label"><span data-i18n="currentPassword">Current password</span><input id="reauthPassword" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label>
       <p id="reauthError" class="form-error" role="alert" hidden></p>
       <div class="button-row dialog-actions"><button id="reauthCancel" class="quiet-button" type="button" data-i18n="cancel">Cancel</button><button id="reauthSubmit" class="primary-button" type="submit" data-i18n="confirmPassword">Confirm password</button></div>
+    </form>
+  </dialog>
+  <dialog id="actionReviewDialog" class="admin-dialog action-review-dialog" aria-labelledby="actionReviewTitle" aria-describedby="actionReviewLead actionReviewDetails">
+    <form id="actionReviewForm" novalidate>
+      <div class="dialog-heading"><span class="shield-mark" aria-hidden="true">🛡</span><div><span class="eyebrow" data-i18n="reviewAction">Review action</span><h2 id="actionReviewTitle" data-i18n="reviewActionTitle">Review before confirming</h2></div></div>
+      <p id="actionReviewLead" data-i18n="reviewActionLead">Check the target and impact before this protected change is sent.</p>
+      <dl id="actionReviewDetails" class="action-review-details">
+        <div><dt data-i18n="action">Action</dt><dd id="actionReviewAction">—</dd></div>
+        <div><dt data-i18n="target">Target</dt><dd id="actionReviewTarget">—</dd></div>
+        <div><dt data-i18n="impact">Impact</dt><dd id="actionReviewImpact">—</dd></div>
+      </dl>
+      <label class="input-label action-review-reason"><span data-i18n="reasonOptional">Reason (optional)</span><textarea id="actionReviewReason" rows="3" maxlength="280" data-i18n-placeholder="reasonPlaceholder" placeholder="Add a short operational reason"></textarea></label>
+      <p class="field-hint" data-i18n="reasonHint">If supplied, this reason is recorded in the audit log.</p>
+      <section id="actionReviewTypedConfirmationWrap" class="typed-confirmation" hidden aria-labelledby="actionReviewTypedTitle">
+        <h3 id="actionReviewTypedTitle" class="typed-confirmation-title" data-i18n="typedConfirmation">Confirmation required</h3>
+        <p id="actionReviewTypedLead"></p>
+        <label class="input-label"><span data-i18n="typedConfirmationInput">Type the confirmation phrase</span><input id="actionReviewTypedConfirmation" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="16" aria-describedby="actionReviewTypedLead actionReviewTypedError"></label>
+        <p id="actionReviewTypedError" class="form-error" role="alert" hidden></p>
+      </section>
+      <div class="button-row dialog-actions"><button id="actionReviewCancel" class="quiet-button" type="button" data-i18n="cancel">Cancel</button><button id="actionReviewConfirm" class="danger-button" type="submit" data-i18n="confirmAction">Confirm action</button></div>
     </form>
   </dialog>
   <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>

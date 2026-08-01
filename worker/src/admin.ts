@@ -1,4 +1,4 @@
-import { enforceRateLimit, requireUser } from "./db.js";
+import { enforceRateLimit, requireUser, touchPrivilegedSession } from "./db.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
 import { clientIp, sha256, validatePassword } from "./security.js";
@@ -44,6 +44,7 @@ interface PasswordRow {
 }
 
 const STEP_UP_MAX_AGE_MS = 10 * 60 * 1_000;
+const AUDIT_REASON_MAX_LENGTH = 280;
 const ASSIGNABLE_ROLES = new Set<AssignableRole>(["USER", "ADMIN"]);
 const SUGGESTION_STATUSES = new Set<SuggestionStatus>(["new", "reviewed", "implemented", "rejected"]);
 
@@ -78,6 +79,7 @@ async function requireAdmin(request: Request, env: Env): Promise<SessionUser> {
   if (user.role !== "ADMIN" && user.role !== "OWNER") {
     throw new ApiError(403, "Administrator access is required", undefined, "ADMIN_REQUIRED");
   }
+  await touchPrivilegedSession(env, user);
   return user;
 }
 
@@ -114,6 +116,44 @@ function boundedOffset(request: Request): number {
 
 function redactEmail<T extends { email: string | null }>(row: T, canViewEmail: boolean): T {
   return canViewEmail ? row : { ...row, email: null };
+}
+
+function optionalAuditReason(value: unknown): string | undefined {
+  if (value === undefined) return undefined;
+  if (typeof value !== "string") {
+    throw new ApiError(
+      400,
+      `Reason must be a 1–${AUDIT_REASON_MAX_LENGTH} character human-readable message`,
+      undefined,
+      "AUDIT_REASON_INVALID",
+    );
+  }
+  const reason = value.trim();
+  if (
+    !reason
+    || reason.length > AUDIT_REASON_MAX_LENGTH
+    || /[\u0000-\u001F\u007F-\u009F]/u.test(reason)
+  ) {
+    throw new ApiError(
+      400,
+      `Reason must be a 1–${AUDIT_REASON_MAX_LENGTH} character human-readable message`,
+      undefined,
+      "AUDIT_REASON_INVALID",
+    );
+  }
+  return reason;
+}
+
+function detailWithReason<T extends Record<string, unknown>>(detail: T, reason: string | undefined): T & { reason?: string } {
+  return reason === undefined ? detail : { ...detail, reason };
+}
+
+async function optionalReasonFromRequest(request: Request): Promise<string | undefined> {
+  const contentType = request.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().startsWith("application/json") || request.body === null) return undefined;
+  if (request.headers.get("content-length") === "0") return undefined;
+  const body = await parseJson<{ reason?: unknown }>(request, 1_024);
+  return optionalAuditReason(body.reason);
 }
 
 async function currentStepUp(env: Env, user: SessionUser): Promise<{ verifiedAt: string | null; expiresAt: string | null }> {
@@ -205,8 +245,13 @@ export async function adminUsers(request: Request, env: Env): Promise<Response> 
   const banState = optionalBanState(request);
   const limit = boundedLimit(request, 40);
   const offset = boundedOffset(request);
-  const filters = ["(username LIKE ? ESCAPE '\\' OR email LIKE ? ESCAPE '\\')"];
-  const values: (string | number)[] = [query, query];
+  const canViewEmail = admin.role === "OWNER";
+  const filters = [
+    canViewEmail
+      ? "(username LIKE ? ESCAPE '\\' OR email LIKE ? ESCAPE '\\')"
+      : "username LIKE ? ESCAPE '\\'",
+  ];
+  const values: (string | number)[] = canViewEmail ? [query, query] : [query];
   if (role) {
     filters.push("role = ?");
     values.push(role);
@@ -221,7 +266,6 @@ export async function adminUsers(request: Request, env: Env): Promise<Response> 
       ORDER BY created_at DESC LIMIT ? OFFSET ?`,
   ).bind(...values, limit + 1, offset).all<AdminUserRow>();
   const hasMore = rows.results.length > limit;
-  const canViewEmail = admin.role === "OWNER";
   return json({
     users: rows.results.slice(0, limit).map((row) => redactEmail(row, canViewEmail)),
     nextOffset: hasMore ? offset + limit : null,
@@ -233,10 +277,11 @@ export async function updateUserRole(request: Request, env: Env, targetId: strin
   const owner = await requireOwner(request, env);
   await rateLimitAdmin(request, env, owner, "role");
   await requireRecentStepUp(env, owner);
-  const body = await parseJson<{ role?: unknown }>(request, 1_024);
+  const body = await parseJson<{ role?: unknown; reason?: unknown }>(request, 1_024);
   if (!ASSIGNABLE_ROLES.has(body.role as AssignableRole)) {
     throw new ApiError(400, "Invalid role", undefined, "ROLE_INVALID");
   }
+  const reason = optionalAuditReason(body.reason);
   const target = await env.DB.prepare("SELECT id, role, is_banned AS isBanned FROM users WHERE id = ?")
     .bind(targetId).first<Pick<AdminUserRow, "id" | "role" | "isBanned">>();
   if (!target) throw new ApiError(404, "User not found", undefined, "USER_NOT_FOUND");
@@ -247,7 +292,10 @@ export async function updateUserRole(request: Request, env: Env, targetId: strin
   await env.DB.batch([
     env.DB.prepare("UPDATE users SET role = ?, updated_at = ? WHERE id = ?").bind(role, now, targetId),
     env.DB.prepare("DELETE FROM sessions WHERE user_id = ?").bind(targetId),
-    auditStatement(env, owner, "user.role_changed", "user", targetId, { from: target.role, to: role }),
+    auditStatement(env, owner, "user.role_changed", "user", targetId, detailWithReason({
+      from: target.role,
+      to: role,
+    }, reason)),
   ]);
   return json({ success: true, changed: true, sessionsRevoked: true });
 }
@@ -256,8 +304,9 @@ export async function updateUserBan(request: Request, env: Env, targetId: string
   const admin = await requireAdmin(request, env);
   await rateLimitAdmin(request, env, admin, "ban");
   await requireRecentStepUp(env, admin);
-  const body = await parseJson<{ banned?: unknown }>(request, 1_024);
+  const body = await parseJson<{ banned?: unknown; reason?: unknown }>(request, 1_024);
   if (typeof body.banned !== "boolean") throw new ApiError(400, "Invalid ban state", undefined, "BAN_STATE_INVALID");
+  const reason = optionalAuditReason(body.reason);
   const target = await env.DB.prepare("SELECT id, role, is_banned AS isBanned FROM users WHERE id = ?")
     .bind(targetId).first<Pick<AdminUserRow, "id" | "role" | "isBanned">>();
   if (!target) throw new ApiError(404, "User not found", undefined, "USER_NOT_FOUND");
@@ -273,10 +322,10 @@ export async function updateUserBan(request: Request, env: Env, targetId: string
     env.DB.prepare("UPDATE users SET is_banned = ?, updated_at = ? WHERE id = ?")
       .bind(isBanned, timestamp(), targetId),
     ...(body.banned ? [env.DB.prepare("DELETE FROM sessions WHERE user_id = ?").bind(targetId)] : []),
-    auditStatement(env, admin, body.banned ? "user.banned" : "user.unbanned", "user", targetId, {
+    auditStatement(env, admin, body.banned ? "user.banned" : "user.unbanned", "user", targetId, detailWithReason({
       from: Boolean(target.isBanned),
       to: body.banned,
-    }),
+    }, reason)),
   ]);
   return json({ success: true, changed: true, sessionsRevoked: body.banned });
 }
@@ -304,10 +353,11 @@ export async function adminSuggestions(request: Request, env: Env): Promise<Resp
 export async function updateSuggestion(request: Request, env: Env, suggestionId: string): Promise<Response> {
   const admin = await requireAdmin(request, env);
   await rateLimitAdmin(request, env, admin, "suggestion");
-  const body = await parseJson<{ status?: unknown }>(request, 1_024);
+  const body = await parseJson<{ status?: unknown; reason?: unknown }>(request, 1_024);
   if (!SUGGESTION_STATUSES.has(body.status as SuggestionStatus)) {
     throw new ApiError(400, "Invalid suggestion status", undefined, "SUGGESTION_STATUS_INVALID");
   }
+  const reason = optionalAuditReason(body.reason);
   const suggestion = await env.DB.prepare("SELECT id, status FROM suggestions WHERE id = ?")
     .bind(suggestionId).first<Pick<SuggestionRow, "id" | "status">>();
   if (!suggestion) throw new ApiError(404, "Suggestion not found", undefined, "SUGGESTION_NOT_FOUND");
@@ -315,10 +365,10 @@ export async function updateSuggestion(request: Request, env: Env, suggestionId:
   if (suggestion.status === status) return json({ success: true, changed: false });
   await env.DB.batch([
     env.DB.prepare("UPDATE suggestions SET status = ? WHERE id = ?").bind(status, suggestionId),
-    auditStatement(env, admin, "suggestion.status_changed", "suggestion", suggestionId, {
+    auditStatement(env, admin, "suggestion.status_changed", "suggestion", suggestionId, detailWithReason({
       from: suggestion.status,
       to: status,
-    }),
+    }, reason)),
   ]);
   return json({ success: true, changed: true });
 }
@@ -390,6 +440,7 @@ export async function revokeNonOwnerSessions(request: Request, env: Env): Promis
   const owner = await requireOwner(request, env);
   await rateLimitAdmin(request, env, owner, "revoke-non-owner-sessions");
   await requireRecentStepUp(env, owner);
+  const reason = await optionalReasonFromRequest(request);
   const count = await env.DB.prepare(
     `SELECT COUNT(*) AS count
        FROM sessions s
@@ -402,7 +453,14 @@ export async function revokeNonOwnerSessions(request: Request, env: Env): Promis
       `DELETE FROM sessions
         WHERE user_id IN (SELECT id FROM users WHERE role <> 'OWNER')`,
     ),
-    auditStatement(env, owner, "security.non_owner_sessions_revoked", "session", "non-owner", { revokedSessions }),
+    auditStatement(
+      env,
+      owner,
+      "security.non_owner_sessions_revoked",
+      "session",
+      "non-owner",
+      detailWithReason({ revokedSessions }, reason),
+    ),
   ]);
   return json({ success: true, revokedSessions });
 }

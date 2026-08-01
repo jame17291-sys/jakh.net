@@ -23,7 +23,7 @@ const AVATARS = new Set(["👤", "🦊", "🦉", "🐉", "⚡️", "🔥", "👻
 const ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 const MAX_SYNC_ITEMS = 100;
-const SCHEMA_VERSION = "5";
+const SCHEMA_VERSION = "6";
 
 interface UserPasswordRow {
   id: string;

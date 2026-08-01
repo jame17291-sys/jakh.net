@@ -5,6 +5,8 @@
   const ADMIN_ROLES = new Set(["ADMIN", "OWNER"]);
   const ROLE_KEYS = Object.freeze({ USER: "member", ADMIN: "administrator", OWNER: "owner" });
   const FEEDBACK_STATES = ["new", "reviewed", "implemented", "rejected"];
+  const ACTION_CONFIRMATION_TOKEN = "REVOKE";
+  const ACTION_REASON_MAX_LENGTH = 280;
 
   const COPY = {
     en: {
@@ -125,10 +127,29 @@
       suspend: "Suspend",
       restore: "Restore",
       updateState: "Update state",
-      roleChangeConfirm: "Change {name} to {role}? Their active sessions will end.",
-      suspendConfirm: "Suspend {name}? Their active sessions will end immediately.",
-      restoreConfirm: "Restore access for {name}?",
-      revokeSessionsConfirm: "Sign out every non-owner session? This cannot be undone.",
+      reviewAction: "Review action",
+      reviewActionTitle: "Review before confirming",
+      reviewActionLead: "Check the target and impact before this protected change is sent.",
+      action: "Action",
+      target: "Target",
+      impact: "Impact",
+      reasonOptional: "Reason (optional)",
+      reasonPlaceholder: "Add a short operational reason",
+      reasonHint: "If supplied, this reason is recorded in the audit log.",
+      typedConfirmation: "Confirmation required",
+      typedConfirmationLead: "Type {token} to sign out every non-owner session.",
+      typedConfirmationInput: "Type the confirmation phrase",
+      typedConfirmationMismatch: "Type {token} exactly before confirming this action.",
+      confirmAction: "Confirm action",
+      roleChangeAction: "Change role",
+      suspendAction: "Suspend account",
+      restoreAction: "Restore access",
+      revokeSessionsAction: "Sign out non-owner sessions",
+      roleChangeImpact: "The role will change to {role}, and active sessions will end.",
+      suspendImpact: "The account will be suspended and active sessions will end immediately.",
+      restoreImpact: "The account will regain access. Ended sessions remain ended.",
+      revokeSessionsImpact: "Every active non-owner session will end. This cannot be undone; your owner session stays signed in.",
+      allNonOwnerAccounts: "All non-owner accounts",
       roleUpdated: "Role updated and affected sessions ended.",
       accessSuspended: "Account suspended and active sessions ended.",
       accessRestored: "Account access restored.",
@@ -160,7 +181,6 @@
       actionTarget: "Target: {target}",
       switchLanguage: "Switch language",
       refreshComplete: "Console refreshed.",
-      signOutConfirm: "Sign out of the JAKH administration console?",
       privacyShort: "Contact data is restricted to owners.",
     },
     ar: {
@@ -281,10 +301,29 @@
       suspend: "تعليق",
       restore: "استعادة",
       updateState: "تحديث الحالة",
-      roleChangeConfirm: "تغيير دور {name} إلى {role}؟ ستنتهي جلساته النشطة.",
-      suspendConfirm: "تعليق {name}؟ ستنتهي جلساته النشطة فوراً.",
-      restoreConfirm: "استعادة وصول {name}؟",
-      revokeSessionsConfirm: "تسجيل خروج كل جلسات غير المالك؟ لا يمكن التراجع عن ذلك.",
+      reviewAction: "مراجعة الإجراء",
+      reviewActionTitle: "راجع قبل التأكيد",
+      reviewActionLead: "تحقق من الهدف والأثر قبل إرسال هذا التغيير المحمي.",
+      action: "الإجراء",
+      target: "الهدف",
+      impact: "الأثر",
+      reasonOptional: "السبب (اختياري)",
+      reasonPlaceholder: "أضف سبباً تشغيلياً مختصراً",
+      reasonHint: "إذا أضفته، يُسجل هذا السبب في سجل التدقيق.",
+      typedConfirmation: "يلزم تأكيد إضافي",
+      typedConfirmationLead: "اكتب {token} لتسجيل خروج كل جلسات غير المالك.",
+      typedConfirmationInput: "اكتب عبارة التأكيد",
+      typedConfirmationMismatch: "اكتب {token} تماماً قبل تأكيد هذا الإجراء.",
+      confirmAction: "تأكيد الإجراء",
+      roleChangeAction: "تغيير الدور",
+      suspendAction: "تعليق الحساب",
+      restoreAction: "استعادة الوصول",
+      revokeSessionsAction: "تسجيل خروج جلسات غير المالك",
+      roleChangeImpact: "سيتغير الدور إلى {role} وستنتهي الجلسات النشطة.",
+      suspendImpact: "سيُعلّق الحساب وتنتهي جلساته النشطة فوراً.",
+      restoreImpact: "سيستعيد الحساب الوصول. تبقى الجلسات المنتهية منتهية.",
+      revokeSessionsImpact: "ستنتهي كل جلسات غير المالك النشطة. لا يمكن التراجع عن ذلك؛ تبقى جلسة المالك مسجلة.",
+      allNonOwnerAccounts: "كل حسابات غير المالك",
       roleUpdated: "تم تحديث الدور وإنهاء الجلسات المتأثرة.",
       accessSuspended: "تم تعليق الحساب وإنهاء الجلسات النشطة.",
       accessRestored: "تمت استعادة وصول الحساب.",
@@ -316,7 +355,6 @@
       actionTarget: "الهدف: {target}",
       switchLanguage: "تغيير اللغة",
       refreshComplete: "تم تحديث اللوحة.",
-      signOutConfirm: "تسجيل الخروج من لوحة إدارة JAKH؟",
       privacyShort: "بيانات التواصل مقيدة للمالكين.",
     },
   };
@@ -333,6 +371,8 @@
     people: { items: [], nextOffset: null, canViewEmail: false },
     feedback: { items: [], nextOffset: null, canViewEmail: false },
     stepUpResolver: null,
+    actionReview: null,
+    actionReviewResolver: null,
   };
 
   const $ = (selector) => document.querySelector(selector);
@@ -442,6 +482,7 @@
     if (state.feedback.items.length) renderFeedback();
     if (state.audit) renderAudit();
     if (state.security) renderSecurity();
+    if (state.actionReview) renderActionReview();
   }
 
   function persistLanguage() {
@@ -756,6 +797,15 @@
     if (state.activeTab === "feedback") tasks.push(loadFeedback(true));
     if (state.activeTab === "audit" && state.me?.role === "OWNER") tasks.push(loadAudit());
     const results = await Promise.allSettled(tasks);
+    const sessionFailure = results.find((result) => (
+      result.status === "rejected"
+      && result.reason instanceof AdminApiError
+      && result.reason.status === 401
+    ));
+    if (sessionFailure) {
+      handleActionError(sessionFailure.reason);
+      return;
+    }
     const failed = results.some((result) => result.status === "rejected");
     if (failed) showToast(t("requestFailed"), true);
     else if (showMessage) showToast(t("refreshComplete"));
@@ -857,16 +907,112 @@
     return new Promise((resolve) => { state.stepUpResolver = resolve; });
   }
 
+  function actionReviewReason() {
+    return els.actionReviewReason.value
+      .replace(/[\r\n]+/gu, " ")
+      .replace(/\s{2,}/gu, " ")
+      .trim()
+      .slice(0, ACTION_REASON_MAX_LENGTH);
+  }
+
+  function mutationPayload(values, reason) {
+    return JSON.stringify(reason ? { ...values, reason } : values);
+  }
+
+  function resetActionReview() {
+    els.actionReviewForm.reset();
+    els.actionReviewTypedConfirmationWrap.hidden = true;
+    els.actionReviewTypedConfirmation.required = false;
+    els.actionReviewTypedConfirmation.removeAttribute("aria-required");
+    els.actionReviewTypedConfirmation.removeAttribute("aria-invalid");
+    els.actionReviewTypedError.textContent = "";
+    els.actionReviewTypedError.hidden = true;
+  }
+
+  function renderActionReview() {
+    const review = state.actionReview;
+    if (!review) return;
+    const requiresTypedConfirmation = Boolean(review.requiresTypedConfirmation);
+    els.actionReviewAction.textContent = t(review.actionKey);
+    els.actionReviewTarget.textContent = review.target;
+    els.actionReviewImpact.textContent = t(review.impactKey, review.impactValues);
+    els.actionReviewTypedConfirmationWrap.hidden = !requiresTypedConfirmation;
+    els.actionReviewTypedLead.textContent = requiresTypedConfirmation
+      ? t("typedConfirmationLead", { token: ACTION_CONFIRMATION_TOKEN })
+      : "";
+    els.actionReviewTypedConfirmation.required = requiresTypedConfirmation;
+    if (requiresTypedConfirmation) els.actionReviewTypedConfirmation.setAttribute("aria-required", "true");
+    else els.actionReviewTypedConfirmation.removeAttribute("aria-required");
+  }
+
+  function requestActionReview(review) {
+    const dialog = els.actionReviewDialog;
+    if (typeof dialog.showModal !== "function" || dialog.open) {
+      showToast(t("requestFailed"), true);
+      return Promise.resolve(null);
+    }
+    state.actionReview = review;
+    resetActionReview();
+    renderActionReview();
+    dialog.returnValue = "";
+    try {
+      dialog.showModal();
+    } catch {
+      state.actionReview = null;
+      showToast(t("requestFailed"), true);
+      return Promise.resolve(null);
+    }
+    const focusTarget = review.requiresTypedConfirmation ? els.actionReviewTypedConfirmation : els.actionReviewReason;
+    setTimeout(() => focusTarget.focus(), 0);
+    return new Promise((resolve) => { state.actionReviewResolver = resolve; });
+  }
+
+  function resolveActionReview() {
+    const review = state.actionReview;
+    const resolve = state.actionReviewResolver;
+    const confirmed = els.actionReviewDialog.returnValue === "confirmed";
+    const reason = confirmed ? actionReviewReason() : "";
+    state.actionReview = null;
+    state.actionReviewResolver = null;
+    resetActionReview();
+    if (resolve) resolve(confirmed && review ? { reason } : null);
+  }
+
+  function submitActionReview(event) {
+    event.preventDefault();
+    const review = state.actionReview;
+    if (!review) return;
+    if (review.requiresTypedConfirmation && els.actionReviewTypedConfirmation.value.trim() !== ACTION_CONFIRMATION_TOKEN) {
+      els.actionReviewTypedError.textContent = t("typedConfirmationMismatch", { token: ACTION_CONFIRMATION_TOKEN });
+      els.actionReviewTypedError.hidden = false;
+      els.actionReviewTypedConfirmation.setAttribute("aria-invalid", "true");
+      els.actionReviewTypedConfirmation.focus();
+      return;
+    }
+    els.actionReviewDialog.close("confirmed");
+  }
+
+  function clearTypedConfirmationError() {
+    els.actionReviewTypedError.hidden = true;
+    els.actionReviewTypedConfirmation.removeAttribute("aria-invalid");
+  }
+
   async function changeUserRole(select) {
     const userId = select.dataset.roleChange;
     const username = select.dataset.name || t("member");
     const role = select.value;
     if (!userId || !role) return;
     if (!await requestStepUp()) { await loadPeople(true); return; }
-    if (!confirm(t("roleChangeConfirm", { name: username, role: roleLabel(role) }))) { await loadPeople(true); return; }
+    const review = await requestActionReview({
+      actionKey: "roleChangeAction",
+      target: username,
+      impactKey: "roleChangeImpact",
+      impactValues: { role: roleLabel(role) },
+    });
+    if (!review) { await loadPeople(true); return; }
     setButtonBusy(select, true);
     try {
-      await api(`/admin/users/${encodeURIComponent(userId)}/role`, { method: "PATCH", body: JSON.stringify({ role }) });
+      await api(`/admin/users/${encodeURIComponent(userId)}/role`, { method: "PATCH", body: mutationPayload({ role }, review.reason) });
       showToast(t("roleUpdated"));
       await Promise.all([loadPeople(true), loadOverview(), loadSecurity()]);
       if (state.audit) await loadAudit();
@@ -884,11 +1030,16 @@
     const banned = button.dataset.banned === "1";
     if (!userId) return;
     if (!await requestStepUp()) return;
-    const confirmationKey = banned ? "suspendConfirm" : "restoreConfirm";
-    if (!confirm(t(confirmationKey, { name: username }))) return;
+    const review = await requestActionReview({
+      actionKey: banned ? "suspendAction" : "restoreAction",
+      target: username,
+      impactKey: banned ? "suspendImpact" : "restoreImpact",
+      impactValues: {},
+    });
+    if (!review) return;
     setButtonBusy(button, true);
     try {
-      await api(`/admin/users/${encodeURIComponent(userId)}/ban`, { method: "PATCH", body: JSON.stringify({ banned }) });
+      await api(`/admin/users/${encodeURIComponent(userId)}/ban`, { method: "PATCH", body: mutationPayload({ banned }, review.reason) });
       showToast(t(banned ? "accessSuspended" : "accessRestored"));
       await Promise.all([loadPeople(true), loadOverview(), loadSecurity()]);
       if (state.audit) await loadAudit();
@@ -944,10 +1095,17 @@
 
   async function revokeSessions(button) {
     if (!await requestStepUp()) return;
-    if (!confirm(t("revokeSessionsConfirm"))) return;
+    const review = await requestActionReview({
+      actionKey: "revokeSessionsAction",
+      target: t("allNonOwnerAccounts"),
+      impactKey: "revokeSessionsImpact",
+      impactValues: {},
+      requiresTypedConfirmation: true,
+    });
+    if (!review) return;
     setButtonBusy(button, true);
     try {
-      const result = await api("/admin/security/revoke-non-owner-sessions", { method: "POST", body: "{}" });
+      const result = await api("/admin/security/revoke-non-owner-sessions", { method: "POST", body: mutationPayload({}, review.reason) });
       showToast(t("sessionsRevoked", { count: numberFormat(result.revokedSessions) }));
       await Promise.all([loadOverview(), loadSecurity()]);
       if (state.audit) await loadAudit();
@@ -966,7 +1124,6 @@
     });
     els.refreshButton.addEventListener("click", () => void refreshVisible(true));
     els.logoutButton.addEventListener("click", async () => {
-      if (!confirm(t("signOutConfirm"))) return;
       try { await api("/auth/logout", { method: "POST", body: "{}" }); } catch { /* local navigation still clears the static UI */ }
       location.assign(state.lang === "ar" ? "/?lang=ar" : "/");
     });
@@ -1014,6 +1171,10 @@
       state.stepUpResolver = null;
       if (resolve) resolve(els.reauthDialog.returnValue === "confirmed");
     });
+    els.actionReviewForm.addEventListener("submit", submitActionReview);
+    els.actionReviewCancel.addEventListener("click", () => els.actionReviewDialog.close("cancelled"));
+    els.actionReviewTypedConfirmation.addEventListener("input", clearTypedConfirmationError);
+    els.actionReviewDialog.addEventListener("close", resolveActionReview);
   }
 
   function cacheElements() {
@@ -1025,6 +1186,9 @@
       "peoplePrivacyNotice", "peopleResults", "loadMorePeople", "feedbackStatus", "feedbackFilterButton", "feedbackResults", "loadMoreFeedback",
       "reloadAudit", "auditResults", "stepUpPill", "stepUpMessage", "reauthenticateButton", "revokeSessionsButton",
       "reauthDialog", "reauthForm", "reauthPassword", "reauthError", "reauthSubmit", "reauthCancel", "toastRegion",
+      "actionReviewDialog", "actionReviewForm", "actionReviewAction", "actionReviewTarget", "actionReviewImpact", "actionReviewReason",
+      "actionReviewTypedConfirmationWrap", "actionReviewTypedLead", "actionReviewTypedConfirmation", "actionReviewTypedError",
+      "actionReviewConfirm", "actionReviewCancel",
     ].forEach((id) => { els[id] = document.getElementById(id); });
   }
 

@@ -11,7 +11,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  production-branch:
+    name: Confirm production branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require main
+        env:
+          DEPLOY_REF: ${{ github.ref }}
+        run: |
+          if [ "$DEPLOY_REF" != "refs/heads/main" ]; then
+            echo "::error title=Production deployment blocked::Deploy the API only from main. Merge the branch first, then re-run this workflow from main."
+            exit 1
+          fi
   deploy:
+    needs: production-branch
     runs-on: ubuntu-latest
     environment: production
     steps:

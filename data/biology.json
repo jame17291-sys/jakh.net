@@ -3,8 +3,8 @@
     "id": "biology-001",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What cell organelle is famously known as the 'powerhouse of the cell'?",
@@ -13,14 +13,17 @@
     "answer": {
       "en": "Mitochondria",
       "ar": "الميتوكوندريا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "How many bones are in the average adult human body?",
@@ -29,14 +32,17 @@
     "answer": {
       "en": "206",
       "ar": "206"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-003",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What does DNA stand for?",
@@ -45,14 +51,17 @@
     "answer": {
       "en": "Deoxyribonucleic acid",
       "ar": "حمض الديوكسي ريبونيوكليك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-004",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What process allows plants to convert light energy into chemical energy stored in sugars?",
@@ -61,14 +70,17 @@
     "answer": {
       "en": "Photosynthesis",
       "ar": "التمثيل الضوئي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "Which human organ is responsible for pumping blood throughout the body?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "The heart",
       "ar": "القلب"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What protein makes human blood red?",
@@ -93,14 +108,17 @@
     "answer": {
       "en": "Hemoglobin",
       "ar": "الهيموغلوبين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-007",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "Which organ produces bile to help digest fats?",
@@ -109,14 +127,17 @@
     "answer": {
       "en": "The liver",
       "ar": "الكبد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-008",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "Are mushrooms classified as plants, animals, or fungi?",
@@ -125,14 +146,17 @@
     "answer": {
       "en": "Fungi",
       "ar": "فطريات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-009",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What gas do humans primarily exhale?",
@@ -141,14 +165,17 @@
     "answer": {
       "en": "Carbon dioxide",
       "ar": "ثاني أكسيد الكربون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-010",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the largest organ of the human body?",
@@ -157,14 +184,17 @@
     "answer": {
       "en": "The skin",
       "ar": "الجلد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-011",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the process of cell division that results in two identical daughter cells?",
@@ -173,14 +203,17 @@
     "answer": {
       "en": "Mitosis",
       "ar": "الانقسام المتساوي (الميتوزis)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-012",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "Which 19th-century monk is considered the father of modern genetics?",
@@ -189,14 +222,17 @@
     "answer": {
       "en": "Gregor Mendel",
       "ar": "غريغور مندل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-013",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the rarest human blood type (ignoring Rh-null)?",
@@ -205,14 +241,17 @@
     "answer": {
       "en": "AB negative",
       "ar": "فصيلة AB سالبة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-014",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "In DNA, adenine (A) always pairs with which other nitrogenous base?",
@@ -221,14 +260,17 @@
     "answer": {
       "en": "Thymine (T)",
       "ar": "الثايمين (T)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-015",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "What is the biological classification that comes directly below 'Kingdom'?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "Phylum",
       "ar": "الشعبة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Microbiology & Immunity",
-        "ar": "الأحياء الدقيقة والمناعة"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
       "en": "What is the medical term for white blood cells?",
@@ -253,14 +298,17 @@
     "answer": {
       "en": "Leukocytes",
       "ar": "كريات الدم البيضاء (الكريات البيض)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-017",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What part of the brain controls balance and muscle coordination?",
@@ -269,6 +317,9 @@
     "answer": {
       "en": "The cerebellum",
       "ar": "المخيخ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,14 +336,17 @@
     "answer": {
       "en": "Mutualism",
       "ar": "التكافل المتبادل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "How many pairs of chromosomes does a typical human have?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "23 pairs",
       "ar": "23 زوجاً"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What enzyme in human saliva begins the breakdown of starches?",
@@ -317,14 +374,17 @@
     "answer": {
       "en": "Amylase",
       "ar": "الأميلاز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-021",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "In genetic translation, what is the sequence of the universal start codon?",
@@ -333,14 +393,17 @@
     "answer": {
       "en": "AUG",
       "ar": "AUG"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-022",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "In cellular respiration, which cycle directly follows glycolysis?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "The Krebs Cycle / Citric Acid Cycle",
       "ar": "دورة كريبس / دورة حمض الستريك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-023",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What biological concept describes the limit on how many times a normal human cell will divide?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "The Hayflick Limit",
       "ar": "حد هايفليك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-024",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What are the protective caps at the ends of chromosomes that shorten as we age?",
@@ -381,14 +450,17 @@
     "answer": {
       "en": "Telomeres",
       "ar": "التيلوميرات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-025",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "Which inhibitory neurotransmitter in the central nervous system helps regulate excitability?",
@@ -397,14 +469,17 @@
     "answer": {
       "en": "GABA",
       "ar": "جابا (حمض غاما-أمينوبيوتيريك)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-026",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the U-shaped tube in a kidney nephron that recovers water and sodium chloride?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "The Loop of Henle",
       "ar": "حلقة هنلي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-027",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What process describes a cell engulfing a solid particle to form a phagosome?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "Phagocytosis",
       "ar": "البلعمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-028",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the scientific term for programmed cell death?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "Apoptosis",
       "ar": "الموت الخلوي المبرمج (أبوبتوسيس)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-029",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Microbiology & Immunity",
-        "ar": "الأحياء الدقيقة والمناعة"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
       "en": "What type of infectious agent consists entirely of protein and causes diseases like Mad Cow?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "A prion",
       "ar": "البريون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-030",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is the name of the light-independent reactions in photosynthesis?",
@@ -477,14 +564,17 @@
     "answer": {
       "en": "The Calvin Cycle",
       "ar": "دورة كالفن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-031",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the basic unit of life?",
@@ -493,14 +583,17 @@
     "answer": {
       "en": "The cell",
       "ar": "الخلية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-032",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What green pigment allows plants to absorb sunlight?",
@@ -509,14 +602,17 @@
     "answer": {
       "en": "Chlorophyll",
       "ar": "الكلوروفيل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-033",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "What is the largest land animal?",
@@ -525,14 +621,17 @@
     "answer": {
       "en": "The African elephant",
       "ar": "الفيل الأفريقي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-034",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "How many chambers does the human heart have?",
@@ -541,6 +640,9 @@
     "answer": {
       "en": "Four",
       "ar": "أربع حجرات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,14 +659,17 @@
     "answer": {
       "en": "Charles Darwin",
       "ar": "تشارلز داروين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-036",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What are the two types of nucleic acids in cells?",
@@ -573,14 +678,17 @@
     "answer": {
       "en": "DNA and RNA",
       "ar": "الحمض النووي DNA والحمض النووي الريبوزي RNA"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-037",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "What is the fastest land animal?",
@@ -589,14 +697,17 @@
     "answer": {
       "en": "The cheetah",
       "ar": "الفهد السريع"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-038",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the function of the lungs?",
@@ -605,14 +716,17 @@
     "answer": {
       "en": "Gas exchange — breathing in oxygen and expelling carbon dioxide",
       "ar": "تبادل الغازات — استنشاق الأكسجين وطرح ثاني أكسيد الكربون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-039",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What do plants release during photosynthesis?",
@@ -621,14 +735,17 @@
     "answer": {
       "en": "Oxygen",
       "ar": "الأكسجين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-040",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "Which organelle contains the cell's genetic material?",
@@ -637,14 +754,17 @@
     "answer": {
       "en": "The nucleus",
       "ar": "النواة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-041",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "What is a group of lions called?",
@@ -653,14 +773,17 @@
     "answer": {
       "en": "A pride",
       "ar": "قطيع (فخر)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-042",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "Which vitamin is produced when skin is exposed to sunlight?",
@@ -669,14 +792,17 @@
     "answer": {
       "en": "Vitamin D",
       "ar": "فيتامين D"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-043",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "What is the largest animal on Earth?",
@@ -685,14 +811,17 @@
     "answer": {
       "en": "The blue whale",
       "ar": "الحوت الأزرق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-044",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is the male reproductive part of a flower called?",
@@ -701,14 +830,17 @@
     "answer": {
       "en": "Stamen",
       "ar": "السداة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-045",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What do we call organisms made of a single cell?",
@@ -717,14 +849,17 @@
     "answer": {
       "en": "Unicellular organisms",
       "ar": "الكائنات وحيدة الخلية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-046",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is the difference between dominant and recessive alleles?",
@@ -733,14 +868,17 @@
     "answer": {
       "en": "A dominant allele's trait is expressed even with one copy; recessive requires two copies",
       "ar": "تتجلّى صفة الأليل السائد حتى مع نسخة واحدة؛ أما المتنحّي فيحتاج إلى نسختين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-047",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the difference between plant and animal cells?",
@@ -749,14 +887,17 @@
     "answer": {
       "en": "Plant cells have a cell wall, chloroplasts, and a large central vacuole; animal cells do not",
       "ar": "تمتلك الخلايا النباتية جداراً خلوياً وصانعات خضراء وفجوة مركزية كبيرة؛ بينما تفتقر الخلايا الحيوانية إليها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-048",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Microbiology & Immunity",
-        "ar": "الأحياء الدقيقة والمناعة"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
       "en": "What is the role of white blood cells?",
@@ -765,6 +906,9 @@
     "answer": {
       "en": "Fighting infection and disease as part of the immune system",
       "ar": "مكافحة العدوى والأمراض كجزء من الجهاز المناعي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -781,6 +925,9 @@
     "answer": {
       "en": "A new population founded by a small number of individuals carries only a sample of the original population's genetic variation, so allele frequencies can differ by chance.",
       "ar": "تنشأ جماعة جديدة من عدد قليل من الأفراد فتحمل عينة فقط من التنوع الوراثي للجماعة الأصلية، وقد تختلف تكرارات الأليلات بالمصادفة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -797,14 +944,17 @@
     "answer": {
       "en": "A sequence showing the transfer of energy from one organism to another through feeding",
       "ar": "سلسلة تُظهر انتقال الطاقة من كائن إلى آخر عبر التغذية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-051",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is pleiotropy in genetics?",
@@ -813,14 +963,17 @@
     "answer": {
       "en": "It occurs when one gene influences two or more distinct traits.",
       "ar": "يحدث عندما يؤثر جين واحد في صفتين مختلفتين أو أكثر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-052",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "Which organelle breaks down very-long-chain fatty acids and detoxifies hydrogen peroxide?",
@@ -829,14 +982,17 @@
     "answer": {
       "en": "The peroxisome",
       "ar": "البيروكسيسوم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-053",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the function of the kidneys?",
@@ -845,14 +1001,17 @@
     "answer": {
       "en": "To filter waste products from the blood and produce urine",
       "ar": "تصفية الفضلات من الدم وإنتاج البول"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-054",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is transpiration in plants?",
@@ -861,14 +1020,17 @@
     "answer": {
       "en": "The process by which plants lose water through their leaves",
       "ar": "العملية التي تفقد فيها النباتات الماء عبر أوراقها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-055",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Animals & Classification",
-        "ar": "الحيوانات والتصنيف"
+      "en": "Animals & Classification",
+      "ar": "الحيوانات والتصنيف"
     },
     "question": {
       "en": "What is the difference between cold-blooded and warm-blooded animals?",
@@ -877,6 +1039,9 @@
     "answer": {
       "en": "Warm-blooded animals regulate their own body temperature; cold-blooded rely on the environment",
       "ar": "تنظّم الحيوانات ذوات الدم الحار درجة حرارتها بنفسها؛ أما ذوات الدم البارد فتعتمد على البيئة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -893,14 +1058,17 @@
     "answer": {
       "en": "A close interaction between two different organisms living together",
       "ar": "علاقة وثيقة بين كائنَين مختلفَين يعيشان معاً"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-057",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the role of insulin in the body?",
@@ -909,14 +1077,17 @@
     "answer": {
       "en": "Regulating blood glucose levels — allowing cells to take up glucose",
       "ar": "تنظيم مستويات الجلوكوز في الدم — إتاحة امتصاص الخلايا للجلوكوز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-058",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the function of the cell membrane?",
@@ -925,14 +1096,17 @@
     "answer": {
       "en": "To control what enters and exits the cell",
       "ar": "التحكّم فيما يدخل الخلية ويخرج منها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-059",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is a mutation?",
@@ -941,6 +1115,9 @@
     "answer": {
       "en": "A change in the DNA sequence of an organism",
       "ar": "تغيّر في تسلسل الحمض النووي لكائن حي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -957,14 +1134,17 @@
     "answer": {
       "en": "When unrelated species independently evolve similar traits due to similar environments",
       "ar": "عندما تطوّر أنواع غير مترابطة سمات متشابهة بشكل مستقل بسبب بيئات متشابهة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-061",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is the role of mRNA in protein synthesis?",
@@ -973,14 +1153,17 @@
     "answer": {
       "en": "It carries the genetic code from DNA in the nucleus to the ribosome for translation",
       "ar": "ينقل الشفرة الوراثية من الحمض النووي في النواة إلى الريبوسوم للترجمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-062",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the main function of tight junctions between epithelial cells?",
@@ -989,6 +1172,9 @@
     "answer": {
       "en": "They seal the space between neighboring cells, limiting paracellular movement and helping maintain distinct membrane domains.",
       "ar": "تغلق الفراغ بين الخلايا المتجاورة فتحد من المرور بينها، وتساعد على الحفاظ على نطاقات غشائية متميزة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1005,14 +1191,17 @@
     "answer": {
       "en": "An ecosystem is a community of organisms in a local environment; a biome is a large geographic region defined by its climate and dominant vegetation",
       "ar": "النظام البيئي هو مجتمع من الكائنات في بيئة محلية؛ أما البيوم فهو منطقة جغرافية واسعة تتميز بمناخها ونباتاتها السائدة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-064",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the endosymbiotic theory?",
@@ -1021,14 +1210,17 @@
     "answer": {
       "en": "Mitochondria and chloroplasts originated as free-living prokaryotes that were engulfed by ancestral eukaryotic cells",
       "ar": "نشأت الميتوكوندريا والصانعات الخضراء كبدائيات نوى حرة ابتلعتها خلايا أولية قديمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-065",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is epigenetic inheritance?",
@@ -1037,14 +1229,17 @@
     "answer": {
       "en": "Heritable changes in gene expression caused by mechanisms other than changes in DNA sequence",
       "ar": "تغيّرات وراثية في تعبير الجينات ناجمة عن آليات غير التغييرات في تسلسل الحمض النووي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-066",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is the action potential in neurons?",
@@ -1053,6 +1248,9 @@
     "answer": {
       "en": "A rapid electrical signal generated when a neuron is sufficiently stimulated, causing a change in membrane potential",
       "ar": "إشارة كهربائية سريعة تُولَّد عند تحفيز خلية عصبية بما فيه الكفاية، مما يتسبب في تغيير جهد الغشاء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1069,14 +1267,17 @@
     "answer": {
       "en": "The theory that evolutionary change occurs in rapid bursts interspersed with long periods of stability",
       "ar": "النظرية القائلة بأن التغيّر التطوري يحدث على شكل موجات سريعة تتخللها فترات طويلة من الاستقرار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-068",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is the Calvin Cycle?",
@@ -1085,14 +1286,17 @@
     "answer": {
       "en": "The light-independent reactions of photosynthesis that use CO₂ to produce glucose",
       "ar": "التفاعلات المستقلة عن الضوء في التمثيل الضوئي التي تستخدم CO₂ لإنتاج الجلوكوز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-069",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the difference between apoptosis and necrosis?",
@@ -1101,6 +1305,9 @@
     "answer": {
       "en": "Apoptosis is programmed cell death; necrosis is uncontrolled cell death caused by injury or disease",
       "ar": "الاستماتة موت خلوي مبرمج؛ أما النخر فهو موت خلوي غير منضبط ناجم عن إصابة أو مرض"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1117,14 +1324,17 @@
     "answer": {
       "en": "The biogeochemical cycle by which nitrogen is converted between its various chemical forms in ecosystems",
       "ar": "الدورة الجيوكيميائية الحيوية التي يتحوّل فيها النيتروجين بين أشكاله الكيميائية المختلفة في النظم البيئية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-071",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is a plasmid?",
@@ -1133,14 +1343,17 @@
     "answer": {
       "en": "A small, circular DNA molecule in bacteria that can replicate independently of chromosomal DNA",
       "ar": "جزيء DNA صغير دائري في البكتيريا يمكنه التضاعف باستقلالية عن الحمض النووي الكروموسومي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-072",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What are stem cells?",
@@ -1149,6 +1362,9 @@
     "answer": {
       "en": "Undifferentiated cells capable of developing into many different cell types",
       "ar": "خلايا غير متمايزة قادرة على التطور إلى أنواع مختلفة كثيرة من الخلايا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1165,14 +1381,17 @@
     "answer": {
       "en": "The formation of new species when populations are geographically separated, preventing gene flow",
       "ar": "تشكّل أنواع جديدة عندما تنفصل المجتمعات جغرافياً مما يمنع تدفق الجينات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-074",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is the role of auxins in plants?",
@@ -1181,14 +1400,17 @@
     "answer": {
       "en": "Plant hormones that promote cell elongation and are responsible for phototropism and gravitropism",
       "ar": "هرمونات نباتية تحفّز استطالة الخلايا وتكون مسؤولة عن الانجذاب الضوئي والجاذبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-075",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the function of lysosomes?",
@@ -1197,14 +1419,17 @@
     "answer": {
       "en": "They digest cellular waste and foreign material using hydrolytic enzymes",
       "ar": "تهضم النفايات الخلوية والمواد الغريبة باستخدام إنزيمات مائية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-076",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is alternative splicing and why is it significant?",
@@ -1213,14 +1438,17 @@
     "answer": {
       "en": "Different exons are combined from a single pre-mRNA, allowing one gene to code for multiple proteins",
       "ar": "يُجمع بين إكسونات مختلفة من mRNA أولي واحد، مما يتيح لجين واحد ترميز بروتينات متعددة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-077",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the unfolded protein response (UPR)?",
@@ -1229,6 +1457,9 @@
     "answer": {
       "en": "A cellular stress response to the accumulation of unfolded proteins in the endoplasmic reticulum",
       "ar": "استجابة إجهاد خلوي لتراكم البروتينات غير المطوية في الشبكة الإندوبلازمية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1245,14 +1476,17 @@
     "answer": {
       "en": "The transfer of genetic material between organisms other than by parent-to-offspring inheritance",
       "ar": "نقل المادة الوراثية بين الكائنات بطريقة أخرى غير الوراثة من الوالد إلى الذرية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-079",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Microbiology & Immunity",
-        "ar": "الأحياء الدقيقة والمناعة"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
       "en": "What is the difference between MHC class I and class II molecules?",
@@ -1261,6 +1495,9 @@
     "answer": {
       "en": "Class I is on all nucleated cells and activates cytotoxic T cells; Class II is on antigen-presenting cells and activates helper T cells",
       "ar": "الفئة الأولى موجودة على كل الخلايا المنوّاة وتنشّط خلايا T السامة للخلايا؛ الفئة الثانية موجودة على خلايا عرض المستضد وتنشّط خلايا T المساعدة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1277,14 +1514,17 @@
     "answer": {
       "en": "Two species competing for the same limited resource cannot coexist — one will outcompete and exclude the other",
       "ar": "لا يمكن لنوعَين يتنافسان على نفس الموارد المحدودة التعايش — أحدهما سيتغلّب على الآخر ويستبعده"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-081",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is RNA interference (RNAi)?",
@@ -1293,14 +1533,17 @@
     "answer": {
       "en": "A biological process where RNA molecules inhibit gene expression by degrading target mRNA",
       "ar": "عملية بيولوجية تُثبط فيها جزيئات RNA التعبير الجيني عن طريق تحليل mRNA المستهدف"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-082",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is autophagy?",
@@ -1309,14 +1552,17 @@
     "answer": {
       "en": "A cellular process that degrades and recycles damaged organelles and proteins",
       "ar": "عملية خلوية تحلّل العضيات والبروتينات التالفة وتعيد تدويرها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-083",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Microbiology & Immunity",
-        "ar": "الأحياء الدقيقة والمناعة"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
       "en": "What are Toll-like receptors (TLRs)?",
@@ -1325,6 +1571,9 @@
     "answer": {
       "en": "Pattern recognition receptors of the innate immune system that detect pathogen-associated molecular patterns",
       "ar": "مستقبلات تعرّف الأنماط في الجهاز المناعي الفطري التي تكتشف الأنماط الجزيئية المرتبطة بمسبّبات الأمراض"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1341,14 +1590,17 @@
     "answer": {
       "en": "Natural selection that favours altruistic behaviour towards genetic relatives, increasing inclusive fitness",
       "ar": "الانتخاب الطبيعي الذي يُفضّل السلوك الإيثاري تجاه الأقارب الجينيين، مما يزيد من اللياقة الشاملة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-085",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is the role of the apical meristem?",
@@ -1357,14 +1609,17 @@
     "answer": {
       "en": "Region of actively dividing cells at the tip of plant shoots and roots responsible for primary growth",
       "ar": "منطقة الخلايا التي تنقسم بنشاط عند طرف نبات الجذع والجذور المسؤولة عن النمو الأولي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-086",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is a SNP (Single Nucleotide Polymorphism)?",
@@ -1373,14 +1628,17 @@
     "answer": {
       "en": "A variation in a single nucleotide at a specific position in the genome occurring in a significant portion of a population",
       "ar": "تباين في نيوكليوتيد واحد عند موضع محدد في الجينوم يظهر في شريحة معتبرة من السكان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-087",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the role of the Golgi apparatus?",
@@ -1389,6 +1647,9 @@
     "answer": {
       "en": "Processes and packages proteins and lipids for secretion or transport to other organelles",
       "ar": "يعالج البروتينات والدهون ويعبّئها للإفراز أو النقل إلى عضيات أخرى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1405,14 +1666,17 @@
     "answer": {
       "en": "Indirect ecological effects caused by removing or adding a top predator that alter the abundance of organisms at lower trophic levels",
       "ar": "تأثيرات بيئية غير مباشرة تحدث نتيجة إضافة أو إزالة مفترس قمّي تُغيّر وفرة الكائنات في المستويات الغذائية الأدنى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-089",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Microbiology & Immunity",
-        "ar": "الأحياء الدقيقة والمناعة"
+      "en": "Microbiology & Immunity",
+      "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
       "en": "What is the mechanism of action of β-lactam antibiotics?",
@@ -1421,14 +1685,17 @@
     "answer": {
       "en": "They inhibit bacterial cell wall synthesis by binding to penicillin-binding proteins (PBPs)",
       "ar": "تثبّط تخليق جدار الخلية البكتيرية بالارتباط ببروتينات رابطة للبنسلين (PBPs)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-090",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is the difference between oncogenes and tumour suppressor genes?",
@@ -1437,6 +1704,9 @@
     "answer": {
       "en": "Oncogenes promote uncontrolled cell division; tumour suppressors inhibit cell division and trigger apoptosis when damaged",
       "ar": "تعزّز الجينات الورمية انقسام الخلايا غير المنضبط؛ بينما تثبّط الجينات المثبطة للأورام انقسام الخلايا وتطلق الاستماتة عند تلفها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1453,14 +1723,17 @@
     "answer": {
       "en": "Most genetic variation at the molecular level is neutral — neither harmful nor beneficial — and evolves by genetic drift",
       "ar": "معظم التباين الجيني على المستوى الجزيئي محايد — لا ضار ولا نافع — ويتطور بالانجراف الجيني"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-092",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is the significance of the electron transport chain?",
@@ -1469,14 +1742,17 @@
     "answer": {
       "en": "It generates most of a cell's ATP through oxidative phosphorylation in the inner mitochondrial membrane",
       "ar": "تولّد معظم ATP الخلية من خلال الفسفرة التأكسدية في الغشاء الميتوكوندري الداخلي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-093",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Plant Biology",
-        "ar": "علم النبات"
+      "en": "Plant Biology",
+      "ar": "علم النبات"
     },
     "question": {
       "en": "What is the difference between C3, C4, and CAM photosynthesis?",
@@ -1485,14 +1761,17 @@
     "answer": {
       "en": "C3: most common, fixes CO₂ directly; C4: concentrates CO₂ to reduce photorespiration (e.g. maize); CAM: stores CO₂ at night for arid plants",
       "ar": "C3: الأكثر شيوعاً، يثبّت CO₂ مباشرة؛ C4: يركّز CO₂ لتقليل التنفس الضوئي (مثل الذرة)؛ CAM: يخزّن CO₂ ليلاً لنباتات المناطق الجافة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-094",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Human Anatomy & Physiology",
-        "ar": "تشريح ووظائف جسم الإنسان"
+      "en": "Human Anatomy & Physiology",
+      "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
       "en": "What is neuroplasticity?",
@@ -1501,6 +1780,9 @@
     "answer": {
       "en": "The brain's ability to reorganise itself by forming new neural connections throughout life",
       "ar": "قدرة الدماغ على إعادة تنظيم نفسه من خلال تكوين روابط عصبية جديدة طوال الحياة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1517,14 +1799,17 @@
     "answer": {
       "en": "A theory (MacArthur & Wilson) describing how species richness on islands is determined by immigration and extinction rates relative to island size and isolation",
       "ar": "نظرية (ماكآرثر وويلسون) تصف كيف يُحدَّد تنوّع الأنواع في الجزر من خلال معدلات الهجرة والانقراض بالنسبة لحجم الجزيرة وعزلتها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-096",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What is the significance of the lac operon model in genetics?",
@@ -1533,14 +1818,17 @@
     "answer": {
       "en": "It was the first model of gene regulation showing how gene expression is controlled by environmental signals (lactose availability)",
       "ar": "كان أول نموذج لتنظيم الجينات يُظهر كيف يتحكّم في التعبير الجيني إشارات بيئية (توافر اللاكتوز)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-097",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Cells & Metabolism",
-        "ar": "الخلايا والأيض"
+      "en": "Cells & Metabolism",
+      "ar": "الخلايا والأيض"
     },
     "question": {
       "en": "What is anoikis?",
@@ -1549,6 +1837,9 @@
     "answer": {
       "en": "A form of apoptosis triggered when cells detach from the extracellular matrix — a barrier against tumour metastasis",
       "ar": "شكل من أشكال الاستماتة يُطلَق عندما تنفصل الخلايا عن المصفوفة خارج الخلوية — حاجز ضد انبثاث الأورام"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1565,14 +1856,17 @@
     "answer": {
       "en": "Species must constantly evolve not to gain advantage but merely to keep up with co-evolving competitors and pathogens",
       "ar": "يجب على الأنواع التطور باستمرار ليس للحصول على ميزة بل فقط لمواكبة المنافسين ومسبّبات الأمراض المتطورة باستمرار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "biology-099",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Genetics & Molecular Biology",
-        "ar": "الوراثة والأحياء الجزيئية"
+      "en": "Genetics & Molecular Biology",
+      "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
       "en": "What are long non-coding RNAs (lncRNAs)?",
@@ -1581,6 +1875,9 @@
     "answer": {
       "en": "RNA molecules longer than 200 nucleotides that don't code for proteins but regulate gene expression",
       "ar": "جزيئات RNA أطول من 200 نيوكليوتيد لا تُرمّز البروتينات لكنها تنظّم تعبير الجينات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1597,6 +1894,9 @@
     "answer": {
       "en": "A phenomenon where individual fitness decreases as population size falls below a critical threshold",
       "ar": "ظاهرة تنخفض فيها لياقة الفرد عندما ينخفض حجم السكان دون حدٍّ حرج"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

@@ -1,0 +1,13 @@
+{
+  "name": "jakh-static-quality",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:browser": "node scripts/browser-regression.mjs",
+    "test:contracts": "node --test scripts/accessibility-contracts.test.mjs scripts/arabic-routes.test.mjs scripts/content-review.test.mjs scripts/frontend-product-contract.test.mjs scripts/provenance-ui-contract.test.mjs scripts/responsive-layout-contract.test.mjs scripts/seo-pagination.test.mjs scripts/seo-validation-contract.test.mjs scripts/service-worker-contract.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.61.1"
+  }
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
@@ -8,6 +8,9 @@
   <link rel="preload" href="styles.css?v=2026080101" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/catan"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/catan" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/catan/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/catan" />
   <meta name="robots" content="index,follow"/>
   <meta property="og:title" content="Catan Lite Online — Free Browser Game | JAKH" />
   <meta property="og:description" content="Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up." />
@@ -27,9 +30,6 @@
   <link rel="stylesheet" href="styles.css?v=2026080101"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script src="/game-i18n.js?v=2026080101"></script>
-
-
-  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* scoped catan styles */
     :root {
@@ -479,12 +479,12 @@
   </main>
 
   <!-- Trade Modal -->
-  <div id="catan-trade-modal" role="dialog" aria-modal="true" aria-label="Bank Trade" data-i18n-aria-label="bankTradeLabel">
+  <div id="catan-trade-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="catan-trade-title">
     <div class="trade-modal-inner">
-      <h2 data-i18n="bankTradeTitle">🔄 Bank Trade (4:1)</h2>
+      <h2 id="catan-trade-title" data-i18n="bankTradeTitle">🔄 Bank Trade (4:1)</h2>
       <div class="trade-row">
-        <label data-i18n="giveFour">Give (4 of):</label>
-        <select id="trade-give">
+        <label id="trade-give-label" for="trade-give" data-i18n="giveFour">Give (4 of):</label>
+        <select id="trade-give" aria-labelledby="trade-give-label">
           <option value="w" data-resource="w">🪵 Wood</option>
           <option value="o" data-resource="o">⛏️ Ore</option>
           <option value="wh" data-resource="wh">🌾 Wheat</option>
@@ -493,8 +493,8 @@
         </select>
       </div>
       <div class="trade-row">
-        <label data-i18n="getOne">Get (1 of):</label>
-        <select id="trade-get">
+        <label id="trade-get-label" for="trade-get" data-i18n="getOne">Get (1 of):</label>
+        <select id="trade-get" aria-labelledby="trade-get-label">
           <option value="wh" data-resource="wh">🌾 Wheat</option>
           <option value="o" data-resource="o">⛏️ Ore</option>
           <option value="w" data-resource="w">🪵 Wood</option>
@@ -999,6 +999,8 @@
     let state = E.initState();
     let buildMode = null; // 'settlement' | 'city' | null
     let logEntries = [];
+    let pendingBoardFocus = null;
+    let tradeOpener = null;
 
     function $(id) { return document.getElementById(id); }
 
@@ -1104,8 +1106,56 @@
       });
     }
 
+    function captureBoardFocus() {
+      const board = $('catan-board');
+      const active = document.activeElement;
+      if (!active || !board.contains(active)) return;
+      const hexId = Number(active.dataset.hexId);
+      if (Number.isInteger(hexId)) pendingBoardFocus = { hexId };
+    }
+
+    function restoreBoardFocus(s) {
+      if (!pendingBoardFocus) return;
+      const board = $('catan-board');
+      const occupied = new Set([
+        ...s.players.p1.settlements,
+        ...s.players.p2.settlements,
+        ...s.players.p1.cities,
+        ...s.players.p2.cities,
+      ]);
+      const desired = board.querySelector(`[data-hex-id="${pendingBoardFocus.hexId}"][tabindex="0"]`);
+      const target = desired && !(s.phase === 'setup' && occupied.has(pendingBoardFocus.hexId))
+        ? desired
+        : Array.from(board.querySelectorAll('[data-hex-id][tabindex="0"]'))
+          .find(cell => s.phase !== 'setup' || !occupied.has(Number(cell.dataset.hexId)));
+
+      if (target) {
+        target.focus();
+        pendingBoardFocus = null;
+        return;
+      }
+
+      const fallback = [
+        'btn-roll',
+        'btn-settlement',
+        'btn-road',
+        'btn-city',
+        'btn-trade',
+        'btn-end',
+        'btn-restart',
+      ].map($).find(control => !control.disabled);
+      fallback?.focus();
+
+      // During the automatic setup turns, retain the pending hex so the next
+      // human-interactive board rebuild can restore focus to the board.
+      if (!(s.status === 'playing' && s.phase === 'setup' && s.turn === 'p2')) {
+        pendingBoardFocus = null;
+      }
+    }
+
     function render() {
       const s = state;
+      captureBoardFocus();
       // Status bar
       const turnName = s.turn === 'p1' ? t('player1') : t('player2');
       $('catan-turn-label').textContent = s.status === 'playing'
@@ -1185,6 +1235,11 @@
       $('btn-city').disabled = !inMain || !isP1Turn || !rolled || !E.canBuild(s,'p1','city') || status !== 'playing';
       $('btn-trade').disabled = !inMain || !isP1Turn || !rolled || status !== 'playing';
       $('btn-end').disabled = !inMain || !isP1Turn || !rolled || status !== 'playing';
+      restoreBoardFocus(s);
+
+      if ($('catan-trade-modal').classList.contains('open') && $('btn-trade').disabled) {
+        closeTrade();
+      }
     }
 
     function renderBoard(s) {
@@ -1194,6 +1249,7 @@
       for (const hex of s.hexes) {
         const cell = document.createElement('div');
         cell.className = 'catan-hex';
+        cell.dataset.hexId = String(hex.id);
         cell.setAttribute('role', 'gridcell');
         const baseLabel = t('hexLabel', {
           hex: i18n.number(hex.id + 1),
@@ -1389,12 +1445,59 @@
       render();
     }
 
+    function tradeModalControls() {
+      return Array.from($('catan-trade-modal').querySelectorAll('select, button'))
+        .filter(control => !control.disabled);
+    }
+
+    function onTradeModalKeydown(event) {
+      if (!$('catan-trade-modal').classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeTrade();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const controls = tradeModalControls();
+      if (!controls.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !$('catan-trade-modal').contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !$('catan-trade-modal').contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
     function openTrade() {
-      $('catan-trade-modal').classList.add('open');
+      const modal = $('catan-trade-modal');
+      if (modal.classList.contains('open')) return;
+      tradeOpener = document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : $('btn-trade');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.addEventListener('keydown', onTradeModalKeydown);
+      $('trade-give').focus();
     }
 
     function closeTrade() {
-      $('catan-trade-modal').classList.remove('open');
+      const modal = $('catan-trade-modal');
+      if (!modal.classList.contains('open')) return;
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', onTradeModalKeydown);
+      const target = tradeOpener && tradeOpener.isConnected && !tradeOpener.disabled
+        ? tradeOpener
+        : [$('btn-trade'), $('btn-restart')].find(control => !control.disabled);
+      tradeOpener = null;
+      target?.focus();
     }
 
     function confirmTrade() {

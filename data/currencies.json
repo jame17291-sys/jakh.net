@@ -13,6 +13,9 @@
     "subcategory": {
       "en": "Money Basics",
       "ar": "أساسيات المال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "subcategory": {
       "en": "Digital Currency",
       "ar": "العملات الرقمية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "subcategory": {
       "en": "Money Basics",
       "ar": "أساسيات المال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "subcategory": {
       "en": "Alternative Money",
       "ar": "أشكال المال البديلة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "subcategory": {
       "en": "Money Basics",
       "ar": "أساسيات المال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "subcategory": {
       "en": "Money Basics",
       "ar": "أساسيات المال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "subcategory": {
       "en": "Monetary Policy",
       "ar": "السياسة النقدية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "subcategory": {
       "en": "Money & Banking",
       "ar": "المال والمصارف"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,22 +469,42 @@
     "subcategory": {
       "en": "Money Basics",
       "ar": "أساسيات المال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "currencies-26",
     "question": {
-      "en": "Which European currency is the highest valued currency unit in the world (often tied with Kuwaiti Dinar)?",
-      "ar": "ما هي العملة التي تعتبر أعلى وحدة عملة قيمة في العالم؟"
+      "en": "Which currency is Kuwait's official monetary unit and is divided into 1,000 fils?",
+      "ar": "ما العملة التي تُعد وحدة النقد الرسمية في الكويت وتنقسم إلى 1000 فلس؟"
     },
     "answer": {
-      "en": "Kuwaiti Dinar (European is often Swiss Franc, but globally it's Kuwaiti Dinar)",
+      "en": "The Kuwaiti dinar",
       "ar": "الدينار الكويتي"
     },
     "difficulty": "hard",
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "reviewed",
+      "reviewedAt": "2026-08-01",
+      "reviewer": "JAKH editorial review",
+      "sources": [
+        {
+          "title": "Chapter I: Currency",
+          "publisher": "Central Bank of Kuwait",
+          "url": "https://www.cbk.gov.kw/en/legislation-and-regulation/cbk-law/chapter-one"
+        },
+        {
+          "title": "الباب الأول: النقد",
+          "publisher": "بنك الكويت المركزي",
+          "url": "https://www.cbk.gov.kw/ar/legislation-and-regulation/cbk-law/chapter-one"
+        }
+      ]
     }
   },
   {
@@ -429,6 +521,9 @@
     "subcategory": {
       "en": "Digital Currency",
       "ar": "العملات الرقمية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +540,9 @@
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +559,9 @@
     "subcategory": {
       "en": "Monetary Policy",
       "ar": "السياسة النقدية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +578,9 @@
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +597,9 @@
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +616,9 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,12 +635,15 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "currencies-34",
     "question": {
-      "en": "Which ancient item was commonly used as currency in West Africa and parts of China, known as 'cowrie'? ",
+      "en": "Which ancient item was commonly used as currency in West Africa and parts of China, known as 'cowrie'?",
       "ar": "أي عنصر قديم كان يُستخدم بشكل شائع كعملة في غرب إفريقيا وأجزاء من الصين، ويُعرف باسم 'الودع' (Cowrie)؟"
     },
     "answer": {
@@ -541,6 +654,9 @@
     "subcategory": {
       "en": "Alternative Money",
       "ar": "أشكال المال البديلة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +673,9 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +692,9 @@
     "subcategory": {
       "en": "Monetary Policy",
       "ar": "السياسة النقدية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +711,9 @@
     "subcategory": {
       "en": "Money & Banking",
       "ar": "المال والمصارف"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +730,9 @@
     "subcategory": {
       "en": "Alternative Money",
       "ar": "أشكال المال البديلة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +749,9 @@
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +768,9 @@
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

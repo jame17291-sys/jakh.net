@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import {
+  buildPostCompatibility,
   buildPostDeploy,
   buildPostMigration,
   buildPostRollback,
@@ -11,10 +12,17 @@ import {
   extractDatabaseSchema,
   finalizeReceipt,
   inspectSource,
+  validateHealthContract,
 } from "./api-release-receipt.mjs";
 
 const OLD_VERSION_ID = "11111111-1111-4111-8111-111111111111";
-const NEW_VERSION_ID = "22222222-2222-4222-8222-222222222222";
+const COMPATIBILITY_VERSION_ID = "22222222-2222-4222-8222-222222222222";
+const FINAL_VERSION_ID = "33333333-3333-4333-8333-333333333333";
+const RELEASE_ENV = {
+  GITHUB_SHA: "abc123",
+  GITHUB_RUN_ID: "98765",
+  GITHUB_ACTOR: "release-operator",
+};
 
 function deployment(versionId, percentage = 100, message) {
   return {
@@ -29,179 +37,328 @@ function database(schema) {
   return [{ results: [{ value: schema }], success: true }];
 }
 
-function health(version, schema) {
+function basicHealth(version, schema) {
   return { ok: true, service: "jakh-api", version, schema };
 }
 
-function source(schema = "5", version = "1.4.0") {
+function compatibilityHealth(schema, overrides = {}) {
+  const value = Number(schema);
+  return {
+    ok: true,
+    service: "jakh-api",
+    version: "1.4.0",
+    schema,
+    targetSchema: "8",
+    compatibleSchemas: ["6", "7", "8"],
+    features: {
+      registration: value >= 7,
+      accountRecovery: value >= 7,
+      accountDeletion: value >= 8,
+    },
+    ...overrides,
+  };
+}
+
+function source() {
   return {
     service: "jakh-api",
-    version,
-    schema,
-    migrations: Array.from({ length: Number(schema) }, (_, index) => ({
+    version: "1.4.0",
+    schema: "8",
+    compatibleSchemas: ["6", "7", "8"],
+    migrations: Array.from({ length: 8 }, (_, index) => ({
       name: `${String(index + 1).padStart(4, "0")}_migration.sql`,
       schema: String(index + 1),
     })),
   };
 }
 
-function successfulPreflight(overrides = {}) {
+function compatibilityPreflight(overrides = {}) {
   const result = buildPreflight({
+    phase: "compatibility",
     source: source(),
     deployment: deployment(OLD_VERSION_ID),
-    health: health("1.4.0", "5"),
-    databaseResult: database("5"),
-    migrationList: "✅ No migrations to apply!",
-    environment: {
-      GITHUB_SHA: "abc123",
-      GITHUB_RUN_ID: "98765",
-      GITHUB_ACTOR: "release-operator",
-    },
+    health: basicHealth("1.3.0", "6"),
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    environment: RELEASE_ENV,
     ...overrides,
   });
   assert.deepEqual(result.errors, []);
   return result.receipt;
 }
 
-test("repository Worker and migrations declare one consistent schema", async () => {
-  const releaseSource = await inspectSource();
-  assert.equal(releaseSource.service, "jakh-api");
-  assert.match(releaseSource.version, /^\d+\.\d+\.\d+/u);
-  assert.deepEqual(
-    releaseSource.migrations.map((migration) => migration.schema),
-    Array.from({ length: releaseSource.migrations.length }, (_, index) => String(index + 1))
-  );
-  assert.equal(releaseSource.schema, releaseSource.migrations.at(-1).schema);
-});
-
-test("deployment workflow rolls back an explicit version non-interactively", async () => {
-  const workflow = await readFile(new URL("../.github/workflows/api-deploy.yml", import.meta.url), "utf8");
-  assert.match(workflow, /rollback \$\{\{ steps\.preflight\.outputs\.rollback-version \}\}/u);
-  assert.match(workflow, /--message "Automatic rollback/u);
-  assert.doesNotMatch(workflow, /rollback[^\n]*--yes|--yes[^\n]*rollback/u);
-});
-
-test("preflight records the exact single-version rollback target", () => {
-  const receipt = successfulPreflight();
-  assert.equal(receipt.safety.workerRollbackTarget, OLD_VERSION_ID);
-  assert.equal(receipt.safety.schemaChanged, false);
-  assert.equal(receipt.safety.automaticDatabaseRollback, false);
-});
-
-test("split production traffic is rejected because rollback could not restore it exactly", () => {
-  assert.throws(
-    () =>
-      extractActiveVersion({
-        versions: [
-          { version_id: OLD_VERSION_ID, percentage: 90 },
-          { version_id: NEW_VERSION_ID, percentage: 10 },
-        ],
-      }),
-    /exactly one Worker version/u
-  );
-});
-
-test("schema-changing release requires an explicit compatibility declaration", () => {
+function finalPreflight(overrides = {}) {
   const result = buildPreflight({
-    source: source("6", "1.5.0"),
-    deployment: deployment(OLD_VERSION_ID),
-    health: health("1.4.0", "5"),
-    databaseResult: database("5"),
-    migrationList: "Migrations to be applied:\n0006_expand.sql",
-  });
-  assert.match(result.errors.join("\n"), /rollback-compatible-schema=6/u);
-
-  const declared = buildPreflight({
-    source: source("6", "1.5.0"),
-    deployment: deployment(OLD_VERSION_ID),
-    health: health("1.4.0", "5"),
-    databaseResult: database("5"),
-    migrationList: "Migrations to be applied:\n0006_expand.sql",
-    rollbackCompatibleSchema: "6",
-  });
-  assert.deepEqual(declared.errors, []);
-});
-
-test("post-migration gate requires the previous Worker to stay healthy on the new schema", () => {
-  const receipt = successfulPreflight({
-    source: source("6", "1.5.0"),
-    databaseResult: database("5"),
-    migrationList: "Migrations to be applied:\n0006_expand.sql",
-    rollbackCompatibleSchema: "6",
-  });
-  const result = buildPostMigration({
-    receipt,
-    deployment: deployment(OLD_VERSION_ID),
-    health: health("1.4.0", "5"),
+    phase: "migrate-final",
+    source: source(),
+    deployment: deployment(
+      COMPATIBILITY_VERSION_ID,
+      100,
+      "JAKH compatibility abc123 target schema 8 run 12345",
+    ),
+    health: compatibilityHealth("6"),
     databaseResult: database("6"),
-    migrationList: "✅ No migrations to apply!",
-  });
-  assert.match(result.errors.join("\n"), /health schema was 5, expected 6/u);
-  assert.equal(result.receipt.result, "migration-compatibility-failed");
-});
-
-test("verified deployment records the new Worker and migrated D1 state", () => {
-  const receipt = successfulPreflight();
-  const migrationResult = buildPostMigration({
-    receipt,
-    deployment: deployment(OLD_VERSION_ID),
-    health: health("1.4.0", "5"),
-    databaseResult: database("5"),
-    migrationList: "✅ No migrations to apply!",
-  });
-  assert.deepEqual(migrationResult.errors, []);
-
-  const deployResult = buildPostDeploy({
-    receipt: migrationResult.receipt,
-    deployment: deployment(NEW_VERSION_ID, 100, "GitHub Actions abc123 run 98765"),
-    health: health("1.4.0", "5"),
-    httpStatus: "200",
-    databaseResult: database("5"),
-    migrationList: "✅ No migrations to apply!",
-  });
-  assert.deepEqual(deployResult.errors, []);
-  assert.equal(deployResult.receipt.result, "deployed-and-verified");
-  assert.equal(deployResult.receipt.postDeployment.activeWorkerVersion, NEW_VERSION_ID);
-});
-
-test("rollback receipt proves the Worker reverted while D1 did not", () => {
-  const receipt = successfulPreflight();
-  receipt.postDeployment = { activeWorkerVersion: NEW_VERSION_ID };
-  receipt.result = "post-deploy-verification-failed";
-
-  const result = buildPostRollback({
-    receipt,
-    deployment: deployment(OLD_VERSION_ID),
-    health: health("1.4.0", "5"),
-    httpStatus: "200",
-    databaseResult: database("5"),
-    migrationList: "✅ No migrations to apply!",
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    environment: RELEASE_ENV,
+    ...overrides,
   });
   assert.deepEqual(result.errors, []);
-  assert.equal(result.receipt.result, "worker-rolled-back-and-verified");
-  assert.equal(result.receipt.rollback.databaseRolledBack, false);
-});
+  return result.receipt;
+}
 
-test("D1 parser rejects ambiguous or failed schema queries", () => {
-  assert.equal(extractDatabaseSchema(database("5")), "5");
-  assert.throws(() => extractDatabaseSchema([{ results: [], success: false }]), /failed operation/u);
-  assert.throws(
-    () => extractDatabaseSchema([{ results: [{ value: "4" }, { value: "5" }], success: true }]),
-    /Expected one/u
+test("repository Worker, compatibility range, and migrations are internally consistent", async () => {
+  const releaseSource = await inspectSource();
+  assert.equal(releaseSource.service, "jakh-api");
+  assert.equal(releaseSource.schema, "8");
+  assert.deepEqual(releaseSource.compatibleSchemas, ["6", "7", "8"]);
+  assert.equal(releaseSource.schema, releaseSource.migrations.at(-1).schema);
+  assert.deepEqual(
+    releaseSource.migrations.map((migration) => migration.schema),
+    Array.from({ length: releaseSource.migrations.length }, (_, index) => String(index + 1)),
   );
 });
 
-test("final receipt cannot hide a failed automatic Worker rollback", () => {
-  const receipt = successfulPreflight();
+test("compatibility preflight records a no-mutation phase and exact rollback target", () => {
+  const receipt = compatibilityPreflight();
+  assert.equal(receipt.phase, "compatibility");
+  assert.equal(receipt.safety.workerRollbackTarget, OLD_VERSION_ID);
+  assert.equal(receipt.safety.databaseMutationAllowed, false);
+  assert.equal(receipt.safety.provenCompatibilityWorker, null);
+  assert.equal(receipt.preDeployment.databaseSchema, "6");
+});
+
+test("compatibility deployment must leave D1 untouched and prove the live contract", () => {
+  const receipt = compatibilityPreflight();
+  const successful = buildPostCompatibility({
+    receipt,
+    deployment: deployment(
+      COMPATIBILITY_VERSION_ID,
+      100,
+      "JAKH compatibility abc123 target schema 8 run 98765",
+    ),
+    health: compatibilityHealth("6"),
+    httpStatus: "200",
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+  });
+  assert.deepEqual(successful.errors, []);
+  assert.equal(successful.receipt.result, "compatibility-worker-verified");
+
+  const mutated = buildPostCompatibility({
+    receipt: compatibilityPreflight(),
+    deployment: deployment(
+      COMPATIBILITY_VERSION_ID,
+      100,
+      "JAKH compatibility abc123 target schema 8 run 98765",
+    ),
+    health: compatibilityHealth("7"),
+    httpStatus: "200",
+    databaseResult: database("7"),
+    migrationList: "Migrations to be applied:\n0008_audit_log_retention.sql",
+  });
+  assert.match(mutated.errors.join("\n"), /D1 schema changed/u);
+});
+
+test("migrate-final refuses before mutation without active compatibility evidence", () => {
+  const legacy = buildPreflight({
+    phase: "migrate-final",
+    source: source(),
+    deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: basicHealth("1.4.0", "6"),
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+  });
+  assert.match(legacy.errors.join("\n"), /targetSchema|compatibleSchemas|feature readiness/u);
+
+  const missingTarget = buildPreflight({
+    phase: "migrate-final",
+    source: source(),
+    deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: compatibilityHealth("6", { compatibleSchemas: ["6", "7"] }),
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+  });
+  assert.match(missingTarget.errors.join("\n"), /does not include target schema 8/u);
+
+  const falseReadiness = buildPreflight({
+    phase: "migrate-final",
+    source: source(),
+    deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: compatibilityHealth("6", {
+      features: { registration: true, accountRecovery: true, accountDeletion: true },
+    }),
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+  });
+  assert.match(falseReadiness.errors.join("\n"), /registration readiness was true, expected false/u);
+});
+
+test("migrate-final requires the active compatibility Worker from the exact source commit", () => {
+  const wrongCommit = buildPreflight({
+    phase: "migrate-final",
+    source: source(),
+    deployment: deployment(
+      COMPATIBILITY_VERSION_ID,
+      100,
+      "JAKH compatibility older-commit target schema 8 run 12345",
+    ),
+    health: compatibilityHealth("6"),
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    environment: RELEASE_ENV,
+  });
+  assert.match(wrongCommit.errors.join("\n"), /exact source commit and target schema/u);
+});
+
+test("migrate-final binds rollback to the exact active compatibility Worker", () => {
+  const receipt = finalPreflight();
+  assert.equal(receipt.safety.provenCompatibilityWorker, COMPATIBILITY_VERSION_ID);
+  assert.equal(receipt.safety.workerRollbackTarget, COMPATIBILITY_VERSION_ID);
+  assert.equal(receipt.safety.databaseMutationAllowed, true);
+  assert.equal(receipt.safety.compatibilityEvidenceSource, "active-worker-health-contract");
+});
+
+test("post-migration requires the same compatibility Worker healthy on target schema", () => {
+  const success = buildPostMigration({
+    receipt: finalPreflight(),
+    deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.deepEqual(success.errors, []);
+  assert.equal(success.receipt.result, "migration-compatibility-passed");
+
+  const changedWorker = buildPostMigration({
+    receipt: finalPreflight(),
+    deployment: deployment(OLD_VERSION_ID),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.match(changedWorker.errors.join("\n"), /active compatibility Worker changed/u);
+});
+
+test("final deployment is verified and can roll back to the proven compatible Worker", () => {
+  const migrated = buildPostMigration({
+    receipt: finalPreflight(),
+    deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  }).receipt;
+  const deployed = buildPostDeploy({
+    receipt: migrated,
+    deployment: deployment(FINAL_VERSION_ID, 100, "JAKH final abc123 schema 8 run 98765"),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.deepEqual(deployed.errors, []);
+  assert.equal(deployed.receipt.result, "deployed-and-verified");
+
+  const rollback = buildPostRollback({
+    receipt: deployed.receipt,
+    deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.deepEqual(rollback.errors, []);
+  assert.equal(rollback.receipt.rollback.databaseRolledBack, false);
+});
+
+test("compatibility-phase rollback expects the original Worker and untouched schema", () => {
+  const receipt = compatibilityPreflight();
+  receipt.compatibilityDeployment = { activeWorkerVersion: COMPATIBILITY_VERSION_ID };
+  const rollback = buildPostRollback({
+    receipt,
+    deployment: deployment(OLD_VERSION_ID),
+    health: basicHealth("1.3.0", "6"),
+    httpStatus: "200",
+    databaseResult: database("6"),
+    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+  });
+  assert.deepEqual(rollback.errors, []);
+  assert.equal(rollback.receipt.result, "worker-rolled-back-and-verified");
+});
+
+test("health validation rejects unsupported claims and malformed compatibility arrays", () => {
+  const errors = validateHealthContract(compatibilityHealth("6", {
+    compatibleSchemas: ["6", "6", "8"],
+  }), {
+    version: "1.4.0",
+    schema: "6",
+    targetSchema: "8",
+    requireCompatibility: true,
+  });
+  assert.match(errors.join("\n"), /unique positive-integer strings/u);
+});
+
+test("split traffic and ambiguous D1 state remain hard failures", () => {
+  assert.throws(() => extractActiveVersion({
+    versions: [
+      { version_id: OLD_VERSION_ID, percentage: 90 },
+      { version_id: COMPATIBILITY_VERSION_ID, percentage: 10 },
+    ],
+  }), /exactly one Worker version/u);
+  assert.equal(extractDatabaseSchema(database("6")), "6");
+  assert.throws(() => extractDatabaseSchema([{ results: [], success: false }]), /failed operation/u);
+  assert.throws(
+    () => extractDatabaseSchema([{ results: [{ value: "6" }, { value: "7" }], success: true }]),
+    /Expected one/u,
+  );
+});
+
+test("final receipt cannot hide a failed exact Worker rollback", () => {
+  const receipt = finalPreflight();
   receipt.result = "post-deploy-verification-failed";
   finalizeReceipt(receipt, {
+    preflight: "success",
+    compatibilityDeploy: "skipped",
     migrations: "success",
     migrationCompatibility: "success",
-    workerDeploy: "success",
+    finalDeploy: "success",
     productionVerification: "failure",
     workerRollback: "failure",
     rollbackVerification: "skipped",
   });
-  assert.equal(receipt.result, "automatic-worker-rollback-failed");
-  assert.equal(receipt.workflowSteps.workerRollback, "failure");
+  assert.equal(receipt.result, "post-deploy-verification-failed-without-confirmed-rollback");
+});
+
+test("workflow statically separates no-migration compatibility from gated migration-final", async () => {
+  const workflow = await readFile(new URL("../.github/workflows/api-deploy.yml", import.meta.url), "utf8");
+  const monitorWorkflow = await readFile(
+    new URL("../.github/workflows/production-monitor.yml", import.meta.url),
+    "utf8",
+  );
+  assert.match(workflow, /run-name: API \$\{\{ inputs\.release_phase \}\}/u);
+  assert.match(workflow, /release_phase:/u);
+  assert.match(workflow, /compatibility:/u);
+  assert.match(workflow, /migrate-final:/u);
+  assert.match(workflow, /preflight[\s\S]+--phase migrate-final/u);
+  assert.match(workflow, /recovery-evidence\.mjs bookmark/u);
+  assert.match(workflow, /d1 migrations apply DB --remote/u);
+  assert.ok(
+    workflow.indexOf("--phase migrate-final") < workflow.indexOf("recovery-evidence.mjs bookmark")
+      && workflow.indexOf("recovery-evidence.mjs bookmark") < workflow.indexOf("d1 migrations apply DB --remote"),
+    "active compatibility evidence and a recovery bookmark must precede D1 mutation",
+  );
+  const compatibilityJob = workflow.slice(
+    workflow.indexOf("  compatibility:"),
+    workflow.indexOf("  migrate-final:"),
+  );
+  assert.doesNotMatch(compatibilityJob, /d1 migrations apply|recovery-evidence\.mjs bookmark/u);
+  assert.match(workflow, /rollback \$\{\{ steps\.preflight\.outputs\.rollback-version \}\}/u);
+  assert.doesNotMatch(workflow, /rollback[^\n]*--yes|--yes[^\n]*rollback/u);
+  assert.match(
+    monitorWorkflow,
+    /workflow_run\.name == 'Deploy API'[\s\S]+startsWith\(github\.event\.workflow_run\.display_title, 'API compatibility ·'\)/u,
+  );
+  assert.doesNotMatch(monitorWorkflow, /API migrate-final[^\n]+ALLOW_COMPATIBLE/u);
 });

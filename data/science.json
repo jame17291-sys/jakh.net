@@ -13,6 +13,9 @@
     "answer": {
       "en": "Isaac Newton",
       "ar": "إسحاق نيوتن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "c",
       "ar": "c"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "Condensation.",
       "ar": "التكاثف."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "Chemical energy",
       "ar": "الطاقة الكيميائية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "North and South",
       "ar": "الشمالي والجنوبي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "No",
       "ar": "لا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "It splits into a rainbow/spectrum",
       "ar": "ينقسم إلى طيف قوس قزح"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Friction",
       "ar": "الاحتكاك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "Albert Einstein",
       "ar": "ألبرت آينشتاين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "Electron",
       "ar": "الإلكترون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Inertia",
       "ar": "القصور الذاتي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Metal conducts heat away from your hand much faster than wood, even though both begin at the same temperature.",
       "ar": "لأن المعدن ينقل الحرارة بعيداً عن يدك أسرع بكثير من الخشب، رغم أن كليهما يبدأ بدرجة الحرارة نفسها."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "The Doppler Effect",
       "ar": "تأثير دوبلر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "Refraction",
       "ar": "الانكسار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "The energy required to raise the temperature of one unit mass of the substance by one degree.",
       "ar": "الطاقة اللازمة لرفع درجة حرارة وحدة كتلة من المادة درجة واحدة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "-273.15°C",
       "ar": "-273.15 درجة مئوية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "Archimedes",
       "ar": "أرخميدس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "A photon",
       "ar": "الفوتون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Conduction",
       "ar": "التوصيل الحراري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "Velocity includes direction; speed does not",
       "ar": "السرعة الاتجاهية تتضمن الاتجاه؛ العددية لا تتضمنه"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "'Spooky action at a distance'",
       "ar": "'التأثير المخيف عن بُعد'"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "Werner Heisenberg",
       "ar": "فيرنر هايزنبرغ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "The Second Law of Thermodynamics",
       "ar": "القانون الثاني للديناميكا الحرارية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "Quantum Mechanics",
       "ar": "ميكانيكا الكم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "The energy of a photon to its frequency",
       "ar": "طاقة الفوتون بتردده"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "Dark Matter",
       "ar": "المادة المظلمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "The Higgs Boson",
       "ar": "بوزون هيغز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "Time slows down",
       "ar": "يتباطأ الوقت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "Escape Velocity",
       "ar": "سرعة الإفلات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Superconductivity",
       "ar": "الموصلية الفائقة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "An ammeter, connected in series with the circuit element.",
       "ar": "الأميتر، ويُوصل على التوالي مع عنصر الدائرة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "Xylem.",
       "ar": "نسيج الخشب (الزيليم)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "Potassium. The symbol comes from its Neo-Latin name, kalium.",
       "ar": "البوتاسيوم. اشتُق الرمز من اسمه اللاتيني الحديث «كاليوم»."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "Elastic potential energy.",
       "ar": "طاقة وضع مرونية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "A tendon.",
       "ar": "الوتر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "Water",
       "ar": "الماء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "The Ohm (Ω)",
       "ar": "الأوم (Ω)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "Arteries. Pulmonary arteries are an exception to the usual oxygen-rich pattern, but they still carry blood away from the heart.",
       "ar": "الشرايين. والشرايين الرئوية استثناء من نمط الدم الغني بالأكسجين، لكنها تظل تنقل الدم بعيداً عن القلب."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "Red.",
       "ar": "الأحمر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "Atmospheric pressure.",
       "ar": "الضغط الجوي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -653,6 +773,9 @@
     "answer": {
       "en": "The anther, which is part of the stamen.",
       "ar": "المتك، وهو جزء من السداة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -669,6 +792,9 @@
     "answer": {
       "en": "6",
       "ar": "6"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -685,6 +811,9 @@
     "answer": {
       "en": "Speed = Distance ÷ Time",
       "ar": "السرعة = المسافة ÷ الزمن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -701,6 +830,9 @@
     "answer": {
       "en": "Phloem.",
       "ar": "نسيج اللحاء (الفلوم)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -717,6 +849,9 @@
     "answer": {
       "en": "Gas",
       "ar": "الغاز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -733,6 +868,9 @@
     "answer": {
       "en": "Force = Mass × Acceleration (F = ma)",
       "ar": "القوة = الكتلة × التسارع (F = ma)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -749,6 +887,9 @@
     "answer": {
       "en": "A sequence of three nucleotides in messenger RNA that specifies an amino acid or a stop signal during translation.",
       "ar": "تتابع من ثلاث نيوكليوتيدات في الحمض النووي الريبي الرسول يحدد حمضاً أمينياً أو إشارة توقف أثناء الترجمة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -765,6 +906,9 @@
     "answer": {
       "en": "Moles of solute per litre of solution.",
       "ar": "عدد مولات المذاب في كل لتر من المحلول."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -781,6 +925,9 @@
     "answer": {
       "en": "400–700 nanometres",
       "ar": "400–700 نانومتر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -797,6 +944,9 @@
     "answer": {
       "en": "Metaphase.",
       "ar": "الطور الاستوائي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -813,6 +963,9 @@
     "answer": {
       "en": "NaCl",
       "ar": "NaCl"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -829,6 +982,9 @@
     "answer": {
       "en": "Joule (J)",
       "ar": "الجول (J)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -845,6 +1001,9 @@
     "answer": {
       "en": "To carry oxygen from the lungs to the body's tissues",
       "ar": "نقل الأكسجين من الرئتين إلى أنسجة الجسم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -861,6 +1020,9 @@
     "answer": {
       "en": "−2. Important exceptions include peroxides, superoxides, and compounds bonded to fluorine.",
       "ar": "−2. ومن الاستثناءات المهمة فوق الأكاسيد والأكاسيد الفائقة ومركبات الأكسجين مع الفلور."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -877,6 +1039,9 @@
     "answer": {
       "en": "Refraction and dispersion of light through water droplets",
       "ar": "انكسار الضوء وتشتّته عبر قطرات الماء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -893,6 +1058,9 @@
     "answer": {
       "en": "Movement of water through a semi-permeable membrane from low to high solute concentration",
       "ar": "انتقال الماء عبر غشاء شبه نفوذ من منطقة التركيز المنخفض إلى التركيز المرتفع"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -909,6 +1077,9 @@
     "answer": {
       "en": "The simplest whole-number ratio of atoms of each element in a compound.",
       "ar": "أبسط نسبة عددية صحيحة بين ذرات كل عنصر في المركب."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -925,6 +1096,9 @@
     "answer": {
       "en": "Rayleigh scattering: molecules in the atmosphere scatter shorter visible wavelengths more strongly than longer ones.",
       "ar": "بسبب تشتت رايلي؛ فجزيئات الغلاف الجوي تشتت الأطوال الموجية المرئية القصيرة أكثر من الطويلة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -941,6 +1115,9 @@
     "answer": {
       "en": "It holds sister chromatids together and forms the region where the kinetochore assembles for spindle attachment.",
       "ar": "يبقي الكروماتيدين الشقيقين متصلين، ويكوّن منطقة تجمّع الكينيتوكور لارتباط خيوط المغزل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -957,6 +1134,9 @@
     "answer": {
       "en": "Deposition, also called desublimation.",
       "ar": "الترسّب، ويُسمى أيضاً التسامي العكسي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -973,6 +1153,9 @@
     "answer": {
       "en": "6.626 × 10⁻³⁴ J·s",
       "ar": "6.626 × 10⁻³⁴ جول·ثانية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -989,6 +1172,9 @@
     "answer": {
       "en": "To predict allele frequencies in a non-evolving population",
       "ar": "للتنبؤ بتكرارات الأليلات في مجتمع غير متطور"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1005,6 +1191,9 @@
     "answer": {
       "en": "sp². Each carbon forms three sigma bonds and contributes one unhybridized p orbital to the pi bond.",
       "ar": "sp². تكوّن كل ذرة كربون ثلاث روابط سيغما، ويسهم مدار p غير مهجّن في رابطة باي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1021,6 +1210,9 @@
     "answer": {
       "en": "Every continuous symmetry of a system's action corresponds to a conservation law; for example, time-translation symmetry gives conservation of energy.",
       "ar": "كل تناظر مستمر لفعل النظام يقابله قانون حفظ؛ فمثلاً تناظر الإزاحة الزمنية يقابل حفظ الطاقة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1037,6 +1229,9 @@
     "answer": {
       "en": "Helicase",
       "ar": "الهيليكاز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1053,6 +1248,9 @@
     "answer": {
       "en": "Electrons fill orbitals in order of increasing energy levels",
       "ar": "تملأ الإلكترونات المدارات بترتيب تصاعدي لمستويات الطاقة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1069,6 +1267,9 @@
     "answer": {
       "en": "Photon",
       "ar": "الفوتون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1085,6 +1286,9 @@
     "answer": {
       "en": "Regulates body temperature, hunger, thirst, and hormone release",
       "ar": "ينظّم درجة حرارة الجسم والجوع والعطش وإفراز الهرمونات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1101,6 +1305,9 @@
     "answer": {
       "en": "Exothermic releases heat; endothermic absorbs heat",
       "ar": "الطاردة تُصدر حرارة؛ الماصة تمتصّ حرارة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1117,6 +1324,9 @@
     "answer": {
       "en": "Quantum superposition — a particle can exist in multiple states until observed",
       "ar": "التراكب الكمي — يمكن للجسيم أن يتواجد في حالات متعددة حتى يُلاحَظ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1133,6 +1343,9 @@
     "answer": {
       "en": "DNA ligase.",
       "ar": "إنزيم ربط الحمض النووي (DNA ligase)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1149,6 +1362,9 @@
     "answer": {
       "en": "sp³",
       "ar": "sp³"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1165,6 +1381,9 @@
     "answer": {
       "en": "λ = h/p, where h is Planck's constant and p is the particle's momentum.",
       "ar": "λ = h/p، حيث h ثابت بلانك وp زخم الجسيم."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1181,6 +1400,9 @@
     "answer": {
       "en": "The proteasome",
       "ar": "البروتيازوم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1197,6 +1419,9 @@
     "answer": {
       "en": "Adding an ion already present in an equilibrium suppresses the ionization of a weak electrolyte or reduces the solubility of a sparingly soluble salt.",
       "ar": "إضافة أيون موجود أصلاً في الاتزان تقلل تأين إلكتروليت ضعيف أو تقلل ذوبانية ملح قليل الذوبان."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1213,6 +1438,9 @@
     "answer": {
       "en": "SU(3)C × SU(2)L × U(1)Y, corresponding to the strong and electroweak interactions before symmetry breaking.",
       "ar": "SU(3)C × SU(2)L × U(1)Y، وتقابل التآثر القوي والتآثر الكهروضعيف قبل كسر التناظر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1229,6 +1457,9 @@
     "answer": {
       "en": "PrP (Prion Protein)",
       "ar": "PrP (بروتين البريون)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1245,6 +1476,9 @@
     "answer": {
       "en": "ΔG = ΔH − TΔS",
       "ar": "ΔG = ΔH − TΔS"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1261,6 +1495,9 @@
     "answer": {
       "en": "A uniformly accelerating observer perceives the inertial vacuum as a thermal bath, with temperature proportional to the observer's acceleration.",
       "ar": "يرى الراصد المتسارع بانتظام الفراغ القصوري كأنه حمام حراري، وتتناسب حرارته مع تسارع الراصد."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1277,6 +1514,9 @@
     "answer": {
       "en": "Genome editing — precisely cutting and modifying DNA sequences",
       "ar": "تحرير الجينوم — قطع تسلسلات الحمض النووي وتعديلها بدقة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1293,6 +1533,9 @@
     "answer": {
       "en": "To calculate lattice energy of ionic compounds using Hess's Law",
       "ar": "لحساب طاقة الشبكة البلورية للمركبات الأيونية باستخدام قانون هيس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1309,6 +1552,9 @@
     "answer": {
       "en": "Gravity, electromagnetic, strong nuclear, and weak nuclear forces",
       "ar": "الجاذبية، الكهرومغناطيسية، القوة النووية الشديدة، والقوة النووية الضعيفة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1325,6 +1571,9 @@
     "answer": {
       "en": "Protective caps at the ends of chromosomes that prevent DNA degradation during replication",
       "ar": "أغطية واقية في أطراف الكروموسومات تمنع تدهور الحمض النووي أثناء التضاعف"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1341,6 +1590,9 @@
     "answer": {
       "en": "Matrix mechanics formulation of quantum mechanics and uncertainty principle",
       "ar": "صياغة ميكانيكا المصفوفات لميكانيكا الكم ومبدأ الشك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1357,6 +1609,9 @@
     "answer": {
       "en": "An elementary particle that gives mass to other fundamental particles via the Higgs field",
       "ar": "جسيم أولي يمنح الكتلة للجسيمات الأساسية الأخرى عبر حقل هيغز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1373,6 +1628,9 @@
     "answer": {
       "en": "Programmed cell death — a regulated process of cellular self-destruction",
       "ar": "موت الخلايا المبرمج — عملية منظّمة لتدمير الخلية لنفسها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1389,6 +1647,9 @@
     "answer": {
       "en": "SN1 is unimolecular (two steps, carbocation intermediate); SN2 is bimolecular (one step, inversion)",
       "ar": "SN1 أحادية الجزيء (خطوتان، وسيط الكربوكاتيون)؛ SN2 ثنائية الجزيء (خطوة واحدة، انعكاس)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1405,6 +1666,9 @@
     "answer": {
       "en": "A phenomenon where two particles become correlated so the state of one instantly affects the other regardless of distance",
       "ar": "ظاهرة يصبح فيها جسيمان مرتبطَين بحيث تؤثّر حالة أحدهما فوراً على الآخر بصرف النظر عن المسافة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1421,6 +1685,9 @@
     "answer": {
       "en": "Fragments of genetic material from past invaders, such as bacteriophages, which guide sequence-specific immune defense.",
       "ar": "قطع من المادة الوراثية لغزاة سابقين مثل العاثيات، وتوجّه دفاعاً مناعياً نوعياً للتسلسل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1437,6 +1704,9 @@
     "answer": {
       "en": "A molecule with both positive and negative charges in different regions, with no net charge overall",
       "ar": "جزيء يحمل شحنات موجبة وسالبة في مناطق مختلفة مع عدم وجود شحنة كلية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1453,6 +1723,9 @@
     "answer": {
       "en": "No two fermions in the same quantum system can have the same quantum state simultaneously",
       "ar": "لا يمكن لفيرميونَين في نفس النظام الكمي أن يمتلكا نفس الحالة الكمية في آنٍ واحد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1469,6 +1742,9 @@
     "answer": {
       "en": "A cascade of proteins that enhance the ability of antibodies to clear pathogens",
       "ar": "سلسلة من البروتينات تعزّز قدرة الأجسام المضادة على القضاء على مسبّبات الأمراض"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1485,6 +1761,9 @@
     "answer": {
       "en": "Bent (angular), with a bond angle of approximately 104.5°",
       "ar": "منحنٍ (زاوي)، بزاوية رابطة تبلغ نحو 104.5°"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1501,6 +1780,9 @@
     "answer": {
       "en": "A hypothetical form of energy permeating all space and causing the universe's accelerating expansion",
       "ar": "شكل افتراضي من الطاقة يتخلّل كل الفضاء ويتسبّب في التمدّد المتسارع للكون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1517,6 +1799,9 @@
     "answer": {
       "en": "To establish that a specific microorganism is the cause of a specific disease",
       "ar": "لإثبات أن كائناً دقيقاً محدداً هو سبب مرض بعينه"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1533,6 +1818,9 @@
     "answer": {
       "en": "The unique temperature and pressure at which the three phases (solid, liquid, gas) coexist in equilibrium",
       "ar": "درجة الحرارة والضغط الفريدَين اللذان تتواجد فيهما الحالات الثلاث (صلبة، سائلة، غازية) في توازن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1549,6 +1837,9 @@
     "answer": {
       "en": "A quantum system can exist in multiple states simultaneously until a measurement collapses it to one",
       "ar": "يمكن للنظام الكمي أن يتواجد في حالات متعددة في آنٍ واحد حتى يُقلّصه القياس إلى حالة واحدة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1565,6 +1856,9 @@
     "answer": {
       "en": "It regulates the genes needed to metabolise lactose — a key model for gene regulation",
       "ar": "ينظّم الجينات اللازمة لاستقلاب اللاكتوز — نموذج رئيسي لتنظيم الجينات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1581,6 +1875,9 @@
     "answer": {
       "en": "A property of a molecule that is non-superimposable on its mirror image",
       "ar": "خاصية جزيء لا يمكن تطابقه مع صورته المرآوية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1597,6 +1894,9 @@
     "answer": {
       "en": "The existence of the luminiferous aether — the medium through which light was once thought to travel",
       "ar": "وجود الأثير المضيء — الوسط الذي كان يُعتقد أن الضوء يسير فيه"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

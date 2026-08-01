@@ -13,6 +13,9 @@
     "answer": {
       "en": "Mars",
       "ar": "المريخ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "Mercury, completing one orbit in about 88 Earth days.",
       "ar": "عطارد، إذ يكمل دورة حول الشمس في نحو 88 يوماً أرضياً."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "The Sun",
       "ar": "الشمس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "The Milky Way",
       "ar": "درب التبانة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "One",
       "ar": "قمر واحد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Saturn",
       "ar": "زحل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "Gravity",
       "ar": "الجاذبية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Uranus.",
       "ar": "أورانوس."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "Dwarf planet",
       "ar": "كوكب قزم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "Light",
       "ar": "الضوء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Exactly 149,597,870,700 metres, approximately the average Earth-Sun distance.",
       "ar": "149,597,870,700 متر بالضبط، أي ما يقارب متوسط المسافة بين الأرض والشمس."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Venus",
       "ar": "الزهرة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "Jupiter, Saturn, Uranus, Neptune",
       "ar": "المشتري وزحل وأورانوس ونبتون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "Halley's Comet",
       "ar": "مذنب هالي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "Hubble Space Telescope",
       "ar": "تلسكوب هابل الفضائي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Event Horizon",
       "ar": "أفق الحدث"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "Curiosity, Perseverance, Spirit, or Opportunity",
       "ar": "كيوريوسيتي أو بيرسيفيرنس أو سبيريت أو أوبورتيونيتي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "Ursa Major",
       "ar": "الدب الأكبر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Exoplanet",
       "ar": "كوكب خارج المجموعة الشمسية (إكسوبلانيت)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "A giant cloud of dust and gas in space",
       "ar": "سحابة ضخمة من الغبار والغاز في الفضاء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "Singularity",
       "ar": "التفرد (Singularity)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "Drake Equation",
       "ar": "معادلة دريك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Infrared",
       "ar": "الأشعة تحت الحمراء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "The Kuiper Belt",
       "ar": "حزام كايبر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "The proton-proton chain, which ultimately converts hydrogen nuclei into helium.",
       "ar": "سلسلة البروتون-بروتون، التي تحول في النهاية نوى الهيدروجين إلى هيليوم."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "Dark Energy",
       "ar": "الطاقة المظلمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "3.26 light-years",
       "ar": "3.26 سنة ضوئية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "The region around it where its gravity dominates over a larger body's tidal influence enough for satellites to remain bound.",
       "ar": "المنطقة المحيطة به التي تتغلب فيها جاذبيته على تأثير المدّ لجسم أكبر بما يسمح ببقاء الأقمار مرتبطة به."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "The Oort Cloud",
       "ar": "سحابة أورت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Cosmic Microwave Background",
       "ar": "إشعاع الخلفية الكونية الميكروي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "8",
       "ar": "8"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "About 8 minutes",
       "ar": "حوالي 8 دقائق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "Neptune.",
       "ar": "نبتون."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "Neil Armstrong (1969)",
       "ar": "نيل أرمسترونغ (1969)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "Jupiter",
       "ar": "المشتري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "Proxima Centauri",
       "ar": "بروكسيما سنتوري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "Saturn (146 confirmed)",
       "ar": "زحل (146 قمراً مؤكداً)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "Sputnik 1 (1957)",
       "ar": "سبوتنيك 1 (1957)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "Plasma, primarily hydrogen and helium undergoing nuclear fusion",
       "ar": "البلازما، المكوّنة أساساً من الهيدروجين والهيليوم التي تخضع للاندماج النووي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "Mercury",
       "ar": "عطارد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -653,6 +773,9 @@
     "answer": {
       "en": "A system of billions of stars, gas, dust, and dark matter held together by gravity",
       "ar": "نظام من المليارات من النجوم والغاز والغبار والمادة المظلمة تتماسك بفعل الجاذبية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -669,6 +792,9 @@
     "answer": {
       "en": "Mostly ice and rock particles",
       "ar": "معظمها من جزيئات الجليد والصخور"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -685,6 +811,9 @@
     "answer": {
       "en": "About 27.3 days",
       "ar": "حوالي 27.3 يوماً"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -701,6 +830,9 @@
     "answer": {
       "en": "The prevailing theory that the universe originated from an extremely hot, dense state about 13.8 billion years ago",
       "ar": "النظرية السائدة القائلة بأن الكون نشأ من حالة شديدة الحرارة والكثافة منذ حوالي 13.8 مليار سنة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -717,6 +849,9 @@
     "answer": {
       "en": "The galaxy that contains our solar system — a barred spiral galaxy with 200–400 billion stars",
       "ar": "المجرة التي تحتوي نظامنا الشمسي — مجرة حلزونية ذات عارضة تضم 200–400 مليار نجم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -733,6 +868,9 @@
     "answer": {
       "en": "A region between Mars and Jupiter containing millions of rocky bodies",
       "ar": "منطقة بين المريخ والمشتري تحتوي على ملايين الأجسام الصخرية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -749,6 +887,9 @@
     "answer": {
       "en": "The dense remnant of a massive star after a supernova, composed almost entirely of neutrons",
       "ar": "البقايا الكثيفة لنجم ضخم بعد انفجار مستعر أعظم، تتكوّن في معظمها من النيوترونات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -765,6 +906,9 @@
     "answer": {
       "en": "A hypothetical form of matter that does not emit or interact with light but has gravitational effects",
       "ar": "شكل افتراضي من المادة لا تُصدر ضوءاً ولا تتفاعل معه لكن لها تأثيرات جاذبية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -781,6 +925,9 @@
     "answer": {
       "en": "A habitable space station in low Earth orbit, a collaborative project between NASA, Roscosmos, ESA, JAXA, and CSA",
       "ar": "محطة فضائية صالحة للسكن في مدار أرضي منخفض، مشروع مشترك بين ناسا وروسكوسموس ووكالة الفضاء الأوروبية وجاكسا ووكالة الفضاء الكندية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -797,6 +944,9 @@
     "answer": {
       "en": "A powerful explosion at the end of a massive star's life, briefly outshining entire galaxies",
       "ar": "انفجار هائل في نهاية حياة نجم ضخم، يُضيء لفترة وجيزة أكثر من المجرات بأسرها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -813,6 +963,9 @@
     "answer": {
       "en": "It has not cleared its orbital neighbourhood of other debris — one of the three criteria for being a planet (IAU 2006)",
       "ar": "لم ينظّف مسار مداره من الحطام الفضائي — أحد معايير الكوكب الثلاثة (الاتحاد الفلكي الدولي 2006)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -829,6 +982,9 @@
     "answer": {
       "en": "The distance light travels in one year — about 9.46 trillion kilometres",
       "ar": "المسافة التي يقطعها الضوء في سنة واحدة — حوالي 9.46 تريليون كيلومتر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -845,6 +1001,9 @@
     "answer": {
       "en": "A 1970 Moon mission that was aborted after an oxygen tank exploded — crew returned safely using the lunar module as a lifeboat",
       "ar": "مهمة قمرية عام 1970 أُلغيت بعد انفجار خزان أكسجين — عاد الطاقم سالماً مستخدماً المركبة القمرية كقارب نجاة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -861,6 +1020,9 @@
     "answer": {
       "en": "A scatter plot of stars showing their luminosity versus temperature, used to classify stars and track their evolution",
       "ar": "مخطط انتشار للنجوم يُظهر علاقة الإضاءة بدرجة الحرارة، يُستخدم لتصنيف النجوم وتتبّع تطوّرها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -877,6 +1039,9 @@
     "answer": {
       "en": "The thermal radiation left over from the Big Bang, filling all of space uniformly",
       "ar": "الإشعاع الحراري المتبقّي من الانفجار الكبير، يملأ الفضاء بالتساوي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -893,6 +1058,9 @@
     "answer": {
       "en": "A region beyond Neptune filled with icy bodies including Pluto, comets, and other dwarf planets",
       "ar": "منطقة تقع خلف نبتون مليئة بالأجسام الجليدية بما فيها بلوتو والمذنّبات وكواكب قزمة أخرى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -909,6 +1077,9 @@
     "answer": {
       "en": "The process by which light atomic nuclei combine to form heavier nuclei, releasing enormous energy — how stars generate power",
       "ar": "العملية التي تتحد فيها نوى ذرية خفيفة لتكوين نوى أثقل مع إطلاق طاقة هائلة — كيفية توليد النجوم للطاقة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -925,6 +1096,9 @@
     "answer": {
       "en": "A space telescope launched in 1990 providing unprecedented optical images of the universe",
       "ar": "تلسكوب فضائي أُطلق عام 1990 يوفّر صوراً بصرية غير مسبوقة للكون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -941,6 +1115,9 @@
     "answer": {
       "en": "About 93 billion light-years",
       "ar": "حوالي 93 مليار سنة ضوئية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -957,6 +1134,9 @@
     "answer": {
       "en": "The tilt of Earth's axis (23.5°) relative to its orbital plane around the Sun",
       "ar": "ميل محور الأرض (23.5°) بالنسبة لمستوى مدارها حول الشمس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -973,6 +1153,9 @@
     "answer": {
       "en": "The boundary around a black hole beyond which nothing — including light — can escape its gravitational pull",
       "ar": "الحدّ المحيط بالثقب الأسود الذي لا يمكن لأي شيء — بما في ذلك الضوء — تخطّيه والإفلات من جاذبيته"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -989,6 +1172,9 @@
     "answer": {
       "en": "The maximum mass (~1.4 solar masses) a white dwarf star can have before collapsing — key to understanding Type Ia supernovae",
       "ar": "الكتلة القصوى (~1.4 كتلة شمسية) التي يمكن لنجم قزم أبيض أن يمتلكها قبل الانهيار — مفتاح فهم المستعرات العظمى من النوع Ia"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1005,6 +1191,9 @@
     "answer": {
       "en": "The bending of light from distant objects around massive bodies, predicted by General Relativity",
       "ar": "انحناء الضوء القادم من أجسام بعيدة حول الأجسام الكتلية الضخمة، كما تنبّأ بذلك النسبية العامة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1021,6 +1210,9 @@
     "answer": {
       "en": "It is the most distant human-made object — launched in 1977, it entered interstellar space in 2012",
       "ar": "هي أبعد جسم من صنع الإنسان — أُطلقت عام 1977 ودخلت الفضاء بين النجوم عام 2012"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1037,6 +1229,9 @@
     "answer": {
       "en": "A rapidly rotating neutron star emitting beams of electromagnetic radiation, detected as regular pulses",
       "ar": "نجم نيوتروني يدور بسرعة كبيرة يُصدر حزماً من الإشعاع الكهرومغناطيسي تُكتشف على شكل نبضات منتظمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1053,6 +1248,9 @@
     "answer": {
       "en": "Galaxies are receding from us at a speed proportional to their distance — evidence of the expanding universe",
       "ar": "تبتعد المجرات عنا بسرعة تتناسب مع مسافتها — دليل على تمدّد الكون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1069,6 +1267,9 @@
     "answer": {
       "en": "The minimum distance at which a celestial body, held together by its own gravity, can orbit a larger body without being torn apart by tidal forces",
       "ar": "أدنى مسافة يمكن لجسم سماوي متماسك بجاذبيته الدوران فيها حول جسم أكبر دون أن تمزّقه قوى المد والجزر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1085,6 +1286,9 @@
     "answer": {
       "en": "Theoretical thermal radiation emitted by black holes due to quantum effects near the event horizon, causing them to slowly evaporate",
       "ar": "إشعاع حراري نظري تُصدره الثقوب السوداء بسبب التأثيرات الكمية قرب أفق الحدث، مما يجعلها تتبخّر ببطء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1101,6 +1305,9 @@
     "answer": {
       "en": "A catalytic nuclear fusion cycle in massive stars where carbon, nitrogen, and oxygen act as catalysts to fuse hydrogen into helium",
       "ar": "دورة اندماج نووي حفزية في النجوم الضخمة يعمل فيها الكربون والنيتروجين والأكسجين محفّزات لدمج الهيدروجين في الهيليوم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1117,6 +1324,9 @@
     "answer": {
       "en": "Extremely luminous active galactic nuclei powered by supermassive black holes accreting matter",
       "ar": "نوى المجرات النشطة الشديدة السطوع التي تُغذّيها الثقوب السوداء الفائقة الكتلة عند ابتلاعها للمادة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1133,6 +1343,9 @@
     "answer": {
       "en": "The first galaxies, exoplanet atmospheres, and stars forming in dust clouds using infrared wavelengths",
       "ar": "أوائل المجرات وأغلفة الكواكب الخارجية والنجوم المتكوّنة في سحب الغبار باستخدام الأطوال الموجية للأشعة تحت الحمراء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1149,6 +1362,9 @@
     "answer": {
       "en": "Meteoroid: space rock; Meteor: the visible streak in the sky; Meteorite: a meteoroid that survives and hits Earth",
       "ar": "النيزك: صخرة فضائية؛ الشهاب: الخط المضيء في السماء؛ الحجر النيزكي: نيزك يصمد ويصطدم بالأرض"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1165,6 +1381,9 @@
     "answer": {
       "en": "The observation that the universe's physical constants appear finely tuned for the existence of observers like us",
       "ar": "ملاحظة أن الثوابت الفيزيائية للكون تبدو مضبوطة بدقة لتمكين وجود ملاحظين من أمثالنا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1181,6 +1400,9 @@
     "answer": {
       "en": "A type of neutron star with an extremely powerful magnetic field — the strongest known magnets in the universe",
       "ar": "نوع من النجوم النيوترونية يمتلك مجالاً مغناطيسياً قوياً للغاية — أقوى المغناطيس المعروفة في الكون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1197,6 +1419,9 @@
     "answer": {
       "en": "Positions in space where gravitational forces balance allow a smaller object to stay in a stable orbit — used to park space telescopes (e.g. JWST at L2)",
       "ar": "مواضع في الفضاء تتوازن فيها قوى الجاذبية تسمح لجسم أصغر بالبقاء في مدار مستقر — تُستخدم لإيقاف التلسكوبات الفضائية (مثل JWST عند L2)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1213,6 +1438,9 @@
     "answer": {
       "en": "The conflict between quantum mechanics (information cannot be destroyed) and black hole physics (Hawking radiation appears to destroy information)",
       "ar": "التعارض بين ميكانيكا الكم (لا يمكن تدمير المعلومات) وفيزياء الثقوب السوداء (إشعاع هوكينغ يبدو أنه يدمّر المعلومات)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1229,6 +1457,9 @@
     "answer": {
       "en": "The theory that the universe underwent exponential expansion in the first fraction of a second after the Big Bang, explaining the flatness and horizon problems",
       "ar": "نظرية مفادها أن الكون شهد تمدّداً أسياً في الجزء الأول من الثانية بعد الانفجار الكبير، مما يفسّر مشكلتَي الاستواء والأفق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1245,6 +1476,9 @@
     "answer": {
       "en": "The maximum mass of a cold, non-rotating neutron star (about 2–3 solar masses) beyond which it collapses into a black hole",
       "ar": "الكتلة القصوى لنجم نيوتروني بارد غير دوّار (حوالي 2–3 كتل شمسية) يتجاوزها فينهار مكوّناً ثقباً أسود"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1261,6 +1495,9 @@
     "answer": {
       "en": "The idea that all information within a volume of space can be described by information on its boundary surface — inspired by black hole thermodynamics",
       "ar": "الفكرة القائلة بأن كل المعلومات داخل حجم فضائي يمكن وصفها بمعلومات على سطحه الحدودي — مستوحاة من ثيرموديناميكا الثقوب السوداء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1277,6 +1514,9 @@
     "answer": {
       "en": "A NASA spacecraft launched in 2018 to study the Sun's corona and solar wind by flying closer to the Sun than any previous spacecraft",
       "ar": "مركبة فضائية تابعة لناسا أُطلقت عام 2018 لدراسة الهالة الشمسية والرياح الشمسية بالتحليق أقرب إلى الشمس من أي مركبة سابقة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1293,6 +1533,9 @@
     "answer": {
       "en": "A theoretical mechanism to extract rotational energy from a Kerr (rotating) black hole using the ergosphere region",
       "ar": "آلية نظرية لاستخلاص طاقة دوران من ثقب أسود كير (دوّار) باستخدام منطقة الإرغوسفير"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1309,6 +1552,9 @@
     "answer": {
       "en": "Pop III: first metal-free stars; Pop II: old, metal-poor stars in galactic halos; Pop I: young, metal-rich stars like our Sun",
       "ar": "III: أوائل النجوم الخالية من الفلزات؛ II: نجوم قديمة فقيرة بالفلزات في هالات المجرات؛ I: نجوم شابة غنية بالفلزات كشمسنا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1325,6 +1571,9 @@
     "answer": {
       "en": "A term in Einstein's field equations representing the energy density of empty space — reintroduced to explain the accelerating expansion of the universe",
       "ar": "حدّ في معادلات إنشتاين الميدانية يمثّل كثافة طاقة الفضاء الفارغ — أُعيد إدخاله لتفسير التمدّد المتسارع للكون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1341,6 +1590,9 @@
     "answer": {
       "en": "A probabilistic formula estimating the number of active, communicating civilisations in the Milky Way using factors like star formation rate, habitable planets, and life emergence probability",
       "ar": "صيغة احتمالية تُقدّر عدد الحضارات النشطة والمتواصلة في درب التبانة باستخدام عوامل كمعدل تكوّن النجوم والكواكب الصالحة للسكن واحتمال نشوء الحياة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1357,6 +1609,9 @@
     "answer": {
       "en": "Ripples in spacetime caused by accelerating massive objects — first directly detected by LIGO in 2015 from two merging black holes",
       "ar": "تموّجات في نسيج الزمكان ناتجة عن تسارع الأجسام الضخمة — اكتشفها مرصد LIGO مباشرة عام 2015 من اندماج ثقبَين أسودَين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1373,6 +1628,9 @@
     "answer": {
       "en": "s-process (slow): neutron capture over long periods in AGB stars; r-process (rapid): fast neutron capture in supernovae or neutron star mergers — creates heavy elements",
       "ar": "العملية s (البطيئة): التقاط نيوترون بمرور الوقت في نجوم AGB؛ العملية r (السريعة): التقاط سريع في المستعرات أو اندماج النجوم النيوترونية — تنتج عناصر ثقيلة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1389,6 +1647,9 @@
     "answer": {
       "en": "The contradiction between the high probability of extraterrestrial civilisations and the lack of evidence for, or contact with, such civilisations",
       "ar": "التناقض بين الاحتمال الكبير لوجود حضارات خارج كوكبنا وغياب الأدلة على وجودها أو التواصل معها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1405,6 +1666,9 @@
     "answer": {
       "en": "The tidal stretching of objects into long thin shapes when falling into a black hole due to extreme tidal gravity differences",
       "ar": "التمدّد المديّ للأجسام إلى أشكال رفيعة طويلة عند سقوطها في ثقب أسود بسبب الفوارق الهائلة في الجاذبية المدّية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1421,6 +1685,9 @@
     "answer": {
       "en": "Stars spend most of their lives on the main sequence fusing hydrogen in their cores; mass determines lifespan and end state (white dwarf, neutron star, or black hole)",
       "ar": "تقضي النجوم معظم حياتها في التسلسل الرئيسي تندمج فيه نوى الهيدروجين؛ الكتلة تحدّد العمر والحالة النهائية (قزم أبيض أو نجم نيوتروني أو ثقب أسود)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1437,6 +1704,9 @@
     "answer": {
       "en": "The theoretical proposition that multiple universes exist beyond our observable universe, each potentially with different physical laws",
       "ar": "الاقتراح النظري بأن كوناً متعدداً يتجاوز كوننا المرصود، قد يمتلك كل منها قوانين فيزيائية مختلفة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1453,6 +1723,9 @@
     "answer": {
       "en": "NASA's programme to return humans to the Moon and establish a sustainable presence, as a stepping stone to Mars",
       "ar": "برنامج ناسا لإعادة البشر إلى القمر وإقامة وجود مستدام هناك، كمحطة انطلاق نحو المريخ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1469,6 +1742,9 @@
     "answer": {
       "en": "Black holes can be completely described by only three externally observable parameters: mass, electric charge, and angular momentum",
       "ar": "يمكن وصف الثقوب السوداء بالكامل بثلاثة معاملات خارجية فقط: الكتلة والشحنة الكهربائية وكمية الحركة الزاوية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1485,6 +1761,9 @@
     "answer": {
       "en": "Stars with pulsating luminosity in a period-luminosity relationship, used as 'standard candles' to measure cosmic distances",
       "ar": "نجوم ذات إضاءة نابضة في علاقة الفترة بالإضاءة، تُستخدم كـ'شموع قياسية' لقياس المسافات الكونية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1501,6 +1780,9 @@
     "answer": {
       "en": "The distortion of the cosmic microwave background radiation by inverse Compton scattering of photons off electrons in galaxy clusters",
       "ar": "تشوّه إشعاع الخلفية الكونية الميكروي بسبب التشتت الكومبتوني العكسي للفوتونات على الإلكترونات في عناقيد المجرات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1517,6 +1799,9 @@
     "answer": {
       "en": "Δv = ve × ln(m₀/mf) — relates rocket velocity change to exhaust velocity and mass ratio, fundamental to all space travel",
       "ar": "Δv = ve × ln(m₀/mf) — تربط تغيّر سرعة الصاروخ بسرعة العادم ونسبة الكتلة، وهي أساسية لجميع رحلات الفضاء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1533,6 +1818,9 @@
     "answer": {
       "en": "M87* — the supermassive black hole at the centre of galaxy M87, imaged by the Event Horizon Telescope in 2019",
       "ar": "M87* — الثقب الأسود الفائق الكتلة في مركز مجرة M87، صوّره تلسكوب أفق الحدث عام 2019"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1549,6 +1837,9 @@
     "answer": {
       "en": "A cosmological model where dark energy causes the universe's expansion to accelerate until it tears apart all matter, from galaxy clusters down to atoms",
       "ar": "نموذج كوزمولوجي تتسارع فيه توسّع الكون بسبب الطاقة المظلمة حتى تتمزّق كل المادة من عناقيد المجرات وصولاً إلى الذرات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1565,6 +1856,9 @@
     "answer": {
       "en": "The gravitational contraction of a gas cloud releasing energy as heat and light — the original proposed power source of the Sun before nuclear fusion was understood",
       "ar": "الانكماش الجاذبي لسحابة غازية يُصدر طاقة على شكل حرارة وضوء — المصدر المقترح أصلاً لطاقة الشمس قبل فهم الاندماج النووي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1581,6 +1875,9 @@
     "answer": {
       "en": "Imprinted patterns in the distribution of matter in the universe from sound waves in the early universe — used as a 'standard ruler' to measure cosmic distances",
       "ar": "أنماط مطبوعة في توزيع المادة في الكون من موجات صوتية في الكون المبكّر — تُستخدم كـ'مسطرة قياسية' لقياس المسافات الكونية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -1597,6 +1894,9 @@
     "answer": {
       "en": "About 2.725 Kelvin (−270.4°C) — the remnant temperature from the Big Bang, nearly uniform across the sky",
       "ar": "حوالي 2.725 كلفن (270.4- درجة مئوية) — درجة الحرارة المتبقّية من الانفجار الكبير، شبه موحّدة في السماء"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

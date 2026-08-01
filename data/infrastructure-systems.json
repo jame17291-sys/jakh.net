@@ -13,6 +13,9 @@
     "answer": {
       "en": "Asphalt.",
       "ar": "الإسفلت."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "A suspension bridge.",
       "ar": "الجسر المعلّق."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "A dam and reservoir.",
       "ar": "السد والخزان."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "The electrical grid (power grid).",
       "ar": "الشبكة الكهربائية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "The sewer system.",
       "ar": "شبكة الصرف الصحي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "The Gotthard Base Tunnel in Switzerland, at 57 km (opened 2016).",
       "ar": "نفق غوثارد القاعدي في سويسرا، بطول 57 كم (افتُتح عام 2016)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "Maglev (magnetic levitation) train.",
       "ar": "قطار الرفع المغناطيسي (ماغليف)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Submarine (undersea) fiber-optic cables.",
       "ar": "كابلات الألياف الضوئية تحت البحر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "The Port of Shanghai, China.",
       "ar": "ميناء شنغهاي، الصين."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "The Autobahn.",
       "ar": "الأوتوبان."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Desalination.",
       "ar": "تحلية المياه."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "A hydroelectric power station.",
       "ar": "محطة الطاقة الكهرومائية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "A runway.",
       "ar": "المدرج."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "A cable-stayed bridge. Unlike suspension bridges, the cables connect directly to the deck.",
       "ar": "الجسر المشدود بالكابلات. خلافًا للجسور المعلّقة، ترتبط الكابلات مباشرةً بالسطح."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "To remove contaminants and pathogens from raw water sources to make it safe for drinking and domestic use.",
       "ar": "إزالة الملوثات والمسببات المرضية من مصادر المياه الخام لجعلها آمنة للشرب والاستخدام المنزلي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Temporarily reducing or disconnecting demand to keep supply and demand balanced and prevent grid collapse.",
       "ar": "خفض الطلب أو فصل جزء منه مؤقتًا لموازنة العرض والطلب ومنع انهيار الشبكة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "A section of canal enclosed by gates that allows boats to be raised or lowered between water levels of different elevations.",
       "ar": "قسم من القناة محاط ببوابات يُمكِّن القوارب من الصعود أو الهبوط بين مستويات المياه ذات الارتفاعات المختلفة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "A Tunnel Boring Machine (TBM).",
       "ar": "آلة الحفر النفقي (TBM)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Using bridges, overpasses, or underpasses to allow two roads to cross at different levels without intersecting, eliminating traffic conflicts.",
       "ar": "استخدام الجسور والعبارات العلوية والسفلية للسماح لطريقَين بالتقاطع على مستويات مختلفة دون تقاطع مباشر، مما يُزيل تعارض حركة المرور."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "Standard gauge is 1435 mm (4 ft 8½ in) — the distance between the inner faces of the two rails. It is used by most of the world's railways.",
       "ar": "المقاس القياسي هو 1435 ملم (4 أقدام و8.5 بوصة) — المسافة بين الوجهَين الداخليَّين للقضيبَين. تستخدمه معظم سكك الحديد في العالم."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "It demonstrated aeroelastic flutter — resonance induced by wind caused the bridge to oscillate and destroy itself, fundamentally changing aerodynamic design requirements for bridges.",
       "ar": "أثبت الرفرفة الهوائية المرنة — أحدث الرنين الناجم عن الرياح تأرجحًا في الجسر دمّره، مما غيّر جذريًا متطلبات التصميم الديناميكي الهوائي للجسور."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "Potable water is treated, clean water safe for consumption. Grey water is lightly used wastewater from sinks, showers, and laundry — reusable for irrigation but not safe to drink without further treatment.",
       "ar": "المياه الصالحة للشرب هي مياه نظيفة معالجة آمنة للاستهلاك. المياه الرمادية هي مياه مستعملة جزئيًا من المغاسل والدشات والغسيل — يمكن إعادة استخدامها للري لكنها غير آمنة للشرب دون معالجة إضافية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Higher voltage means lower current for the same power, and lower current means much less energy lost as heat in transmission line resistance (P = I²R). Voltages are then stepped down locally for safe use.",
       "ar": "الجهد الأعلى يعني تيارًا أقل لنفس الطاقة، والتيار الأقل يعني ضياعًا أقل بكثير للطاقة على شكل حرارة في مقاومة خطوط النقل (P = I²R). ثم تُخفَّض الجهود محليًا للاستخدام الآمن."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "Teams dug from both the UK and French sides using TBMs and had to meet in the middle under the sea with alignment accuracy within a few centimeters across 38 km of underwater drilling.",
       "ar": "عملت فرق الحفر من الجانبَين البريطاني والفرنسي باستخدام TBMs والتقت في المنتصف تحت البحر بدقة محاذاة في حدود بضعة سنتيمترات عبر 38 كم من الحفر تحت الماء."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "Long columns driven deep into the ground to transfer structural loads to deep, stronger soil or rock. Used when surface soil is too weak to support a building's weight directly.",
       "ar": "أعمدة طويلة مدفوعة عمقًا في الأرض لنقل الأحمال الإنشائية إلى طبقات التربة أو الصخر الأعمق والأقوى. يُستخدم عندما تكون التربة السطحية ضعيفة جدًا لحمل وزن المبنى مباشرةً."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "A slight convex curvature across the road surface that drains rainwater to the sides, improving safety and surface longevity.",
       "ar": "انحناء محدّب طفيف عبر سطح الطريق يصرف مياه الأمطار إلى الجانبَين، مما يحسّن الأمان وعمر السطح."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "A combined sewer carries both sewage and storm water. During heavy rain, the system overflows, discharging untreated sewage mixed with rainwater into rivers or the sea, contaminating them with pathogens.",
       "ar": "يحمل الصرف المشترك كلًا من مياه الصرف ومياه الأمطار. أثناء الأمطار الغزيرة، يفيض النظام ويصرف مياه صرف غير معالجة مختلطة بمياه الأمطار في الأنهار أو البحر، مما يلوّثها بالمسببات المرضية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "A simply supported beam spans between two supports independently. A continuous beam extends over multiple supports, distributing loads more efficiently but requiring foundations that resist upward reaction forces.",
       "ar": "تمتد الكمرة المدعومة ببساطة بين دعامتَين بصورة مستقلة. تمتد الكمرة المستمرة فوق دعامات متعددة، موزّعةً الأحمال بكفاءة أكبر لكنها تتطلب أساسات تتحمل قوى الرد الصاعدة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "A pressure surge caused by sudden change in water flow velocity — such as rapid valve closure. It can damage pipes and valves. Engineers mitigate it using surge tanks and slow-closing valves.",
       "ar": "موجة ضغط تنجم عن تغيير مفاجئ في سرعة تدفق المياه — كإغلاق صمام بسرعة. يمكن أن تتلف الأنابيب والصمامات. يتصدى لها المهندسون بخزانات الانتظار وصمامات بطيئة الإغلاق."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "AC reverses direction periodically and is easily transformed to different voltages, ideal for grid transmission. DC flows constantly in one direction and is more efficient for very long distance (HVDC) or submarine cable transmission.",
       "ar": "يعكس التيار المتردد اتجاهه بصفة دورية وسهل التحويل إلى جهود مختلفة، مثالي لنقل الشبكة. يتدفق التيار المستمر في اتجاه واحد وأكثر كفاءة للنقل لمسافات طويلة جدًا (HVDC) أو كابلات تحت الماء."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "A structure built in open water to absorb or deflect wave energy, protecting harbor facilities, vessels, and coastlines from wave action and erosion.",
       "ar": "منشأة مبنية في المياه المفتوحة لامتصاص طاقة الأمواج أو تحويلها، تحمي مرافق الميناء والسفن والسواحل من الأمواج والتآكل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "Intentional gaps that allow concrete to expand in heat and contract in cold without cracking or buckling due to thermal stress.",
       "ar": "فجوات مقصودة تتيح للخرسانة التمدد في الحر والانقباض في البرد دون تشقق أو انبعاج بسبب إجهاد الحرارة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "It receives and transmits radio signals between mobile devices and the core network. Each tower covers a geographic cell; as users move, connections hand off to the next tower seamlessly.",
       "ar": "يستقبل الإشارات الراديوية ويبثّها بين الأجهزة المحمولة وشبكة النواة. يغطي كل برج خلية جغرافية؛ وعند انتقال المستخدمين تُحوَّل الاتصالات إلى البرج التالي بسلاسة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "A movable bridge section that pivots upward like a seesaw to let tall ships pass. A counterweight on one end reduces the force needed to raise the movable span.",
       "ar": "قسم متحرك من الجسر يتمحور للأعلى كالأرجوحة لتمرير السفن الطويلة. الثقل الموازن في أحد الطرفَين يقلل القوة اللازمة لرفع البحر المتحرك."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "Increasing fluid velocity decreases pressure. Engineers use this to design venturi flow meters and predict pressure changes at pipe constrictions, helping size pumps and prevent cavitation.",
       "ar": "زيادة سرعة السائل تُقلل الضغط. يستخدم المهندسون ذلك لتصميم عدادات تدفق فنتوري وتوقع تغيرات الضغط عند انقباضات الأنابيب، مما يساعد على تحديد أحجام المضخات ومنع التكهف."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "A metro runs on fully grade-separated, dedicated track — usually underground or elevated — with high frequency and capacity. Light rail may share road space, runs at surface level, carries fewer passengers, but costs less to build.",
       "ar": "يعمل المترو على مسارات مفصولة تمامًا مخصصة له — عادةً تحت الأرض أو مرتفعة — بتردد وطاقة عاليَين. قد يشارك القطار الخفيف مسار الطريق، يعمل على مستوى السطح، يحمل ركابًا أقل، لكنه أرخص في الإنشاء."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "An electrical network incorporating digital communication for two-way utility-consumer interaction, real-time power flow monitoring, renewable energy integration, and automatic fault detection.",
       "ar": "شبكة كهربائية تدمج الاتصالات الرقمية للتفاعل الثنائي الاتجاه بين المرافق والمستهلكين، ومراقبة تدفق الطاقة في الوقت الفعلي، ودمج الطاقة المتجددة، والكشف التلقائي عن الأعطال."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "A ground-based radio navigation system providing approaching aircraft with horizontal (localizer) and vertical (glideslope) guidance to land safely even in low-visibility conditions.",
       "ar": "نظام ملاحة راديوية أرضي يوفّر للطائرات المقتربة توجيهًا أفقيًا (محدد الاتجاه) وعموديًا (منحدر الاقتراب) للهبوط بأمان حتى في ظروف الرؤية الضعيفة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "It measures a soil's load-bearing capacity by comparing the pressure to penetrate a soil sample versus a standard crushed rock, determining whether ground can support pavement layers.",
       "ar": "يقيس قدرة تحمّل التربة بمقارنة الضغط اللازم لاختراق عيّنة التربة مقابل صخر مسحوق قياسي، لتحديد ما إذا كانت الأرض تستطيع دعم طبقات الرصف."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "Designing systems with multiple load paths so failure of one element does not cause total collapse. A redundant bridge tolerates one member failing; a redundant grid reroutes power around failed lines.",
       "ar": "تصميم الأنظمة بمسارات حمل متعددة بحيث لا يؤدي فشل عنصر واحد إلى الانهيار الكلي. الجسر المتكرر يتحمل فشل عضو؛ والشبكة المتكررة تعيد توجيه الطاقة حول الخطوط المعطلة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -653,6 +773,9 @@
     "answer": {
       "en": "An initial failure overloads adjacent elements, causing them to fail in turn — a domino effect. The 2003 US Northeast blackout cut power to 55 million people this way.",
       "ar": "عطل أوّلي يُثقل عناصر مجاورة فتفشل بالتسلسل — تأثير الدومينو. حرم انقطاع الكهرباء في شمال شرق الولايات المتحدة عام 2003 نحو 55 مليون شخص من الكهرباء بهذه الطريقة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -669,6 +792,9 @@
     "answer": {
       "en": "Building more road capacity generates additional traffic rather than relieving congestion — the increased ease of travel attracts more drivers until the new capacity fills up and congestion returns.",
       "ar": "زيادة الطاقة الاستيعابية للطرق تولّد مزيدًا من حركة المرور بدلًا من تخفيف الازدحام — تجذب سهولة التنقل المزيد من السائقين حتى تمتلئ الطاقة الجديدة ويعود الازدحام."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -685,6 +811,9 @@
     "answer": {
       "en": "The difference between water put into a distribution system and water billed to customers — including leaks, pipe bursts, meter errors, and theft. In many cities NRW exceeds 30% of production, representing significant revenue loss and resource waste.",
       "ar": "الفرق بين المياه المضخوخة في نظام التوزيع والمياه المُفوتَرة للعملاء — بما فيها التسرّبات وانفجار الأنابيب وأخطاء العدادات والسرقة. في كثير من المدن تتجاوز NRW 30% من الإنتاج، مما يمثّل خسارة إيرادات كبيرة وهدرًا للموارد."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -701,6 +830,9 @@
     "answer": {
       "en": "Networks of embedded sensors (strain gauges, accelerometers, corrosion monitors) continuously measure a structure's response to loads and environment, enabling early detection of damage or degradation before costly failures occur.",
       "ar": "شبكات من أجهزة الاستشعار المدمجة (مقاييس الإجهاد وقياسات التسارع وشاشات التآكل) تقيس باستمرار استجابة المنشأة للأحمال والبيئة، مما يتيح الكشف المبكر عن التلف أو التدهور قبل وقوع أعطال مكلفة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -717,6 +849,9 @@
     "answer": {
       "en": "They pump water uphill during excess electricity periods, then release it through turbines during peak demand — acting as large-scale rechargeable batteries, the most mature form of grid-scale energy storage.",
       "ar": "تضخ الماء إلى مخزون في المرتفعات خلال فترات فائض الكهرباء ثم تطلقه عبر توربينات خلال ذروة الطلب — تعمل كبطاريات قابلة للشحن على نطاق واسع، وهي الشكل الأكثر نضجًا لتخزين الطاقة على مستوى الشبكة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -733,6 +868,9 @@
     "answer": {
       "en": "Perpetual pavement is designed so fatigue cracking and rutting remain confined to replaceable surface layers while the deep structural layers last indefinitely. Conventional flexible pavement targets a finite 20-year life before full reconstruction.",
       "ar": "الرصف الدائم مصمم بحيث يبقى التشقق والتخدد محصورَين في الطبقات السطحية القابلة للاستبدال بينما تدوم الطبقات الهيكلية العميقة إلى أجل غير محدد. الرصف المرن التقليدي يستهدف عمرًا محدودًا 20 عامًا قبل إعادة البناء الكاملة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -749,6 +887,9 @@
     "answer": {
       "en": "Dry bulk handles loose solids (coal, grain) using conveyors and grab cranes. Liquid bulk handles petroleum, chemicals, or LNG using pipelines, pumps, and tanker berths with spill containment. Each requires completely different handling infrastructure.",
       "ar": "السائبة الجافة تتعامل مع المواد الصلبة (الفحم والحبوب) باستخدام ناقلات ورافعات. السائبة السائلة تتعامل مع النفط والكيماويات والغاز المسال باستخدام أنابيب ومضخات ومراسٍ مع احتواء الانسكاب. كل منهما يتطلب بنية تحتية مختلفة تمامًا."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -765,6 +906,9 @@
     "answer": {
       "en": "The deep interdependency between water and energy: energy is needed to pump, treat, and distribute water; water is needed for power plant cooling, hydropower, and fuel extraction. Stressing one resource typically stresses the other.",
       "ar": "الاعتماد المتبادل العميق بين المياه والطاقة: تحتاج الطاقة لضخ المياه ومعالجتها وتوزيعها؛ وتحتاج المياه لتبريد محطات الطاقة والطاقة الكهرومائية واستخراج الوقود. إجهاد أحد الموردَين يُجهد الآخر في الغالب."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -781,6 +925,9 @@
     "answer": {
       "en": "Service life design specifies a target lifespan (e.g. 100 years) and selects materials and protective measures to achieve it. Prescriptive design follows code rules without explicitly targeting a lifespan — it is less precise for long-term asset management.",
       "ar": "يحدد تصميم العمر الافتراضي عمرًا مستهدفًا (مثل 100 عام) ويختار المواد والتدابير الوقائية لتحقيقه. التصميم المعياري يتبع قواعد الكود دون استهداف عمر صريح — أقل دقة لإدارة الأصول طويلة المدى."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -797,6 +944,9 @@
     "answer": {
       "en": "Power, water, transport, and telecoms systems are deeply interdependent — power outages disable water pumps; telecom failures disrupt emergency response; transport breakdowns prevent maintenance. Restoring one system often requires another to already work, creating cascading failure risks that require holistic resilience modelling.",
       "ar": "أنظمة الطاقة والمياه والنقل والاتصالات متشابكة الاعتماد — انقطاع الكهرباء يُعطّل مضخات المياه؛ أعطال الاتصالات تُعطّل الاستجابة للطوارئ؛ انهيارات النقل تمنع الصيانة. استعادة نظام واحد تستلزم في الغالب عمل آخر، مما يخلق مخاطر فشل متسلسل تتطلب نمذجة صمود شاملة."
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

@@ -5,9 +5,25 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { SEO_COLLECTIONS } from "./seo-collections.mjs";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const root = process.env.JAKH_SEO_VALIDATION_ROOT
+  ? path.resolve(process.env.JAKH_SEO_VALIDATION_ROOT)
+  : defaultRoot;
 const siteOrigin = "https://jakh.net";
-const socialImageUrl = `${siteOrigin}/assets/og-image.jpg`;
+const TOPIC_PAGE_SIZE = 20;
+const EXPECTED_CARD_TOTAL = 3553;
+const GAME_SLUGS = [
+  "set",
+  "mastermind",
+  "codenames",
+  "catan",
+  "diplomacy",
+  "hanabi",
+  "backgammon",
+  "chess",
+  "reversi",
+  "go",
+];
 const excludedDirectories = new Set([
   ".git",
   ".wrangler",
@@ -79,6 +95,14 @@ function metaValues(source, keyType, key) {
   return extractTags(source, "meta")
     .filter((tag) => (attr(tag, keyType) || "").toLowerCase() === key.toLowerCase())
     .map((tag) => attr(tag, "content") || "");
+}
+
+function elementTextValues(source, tagName) {
+  const pattern = new RegExp(
+    `<${tagName}\\b(?:[^>"']|"[^"]*"|'[^']*')*>([\\s\\S]*?)<\\/${tagName}\\s*>`,
+    "giu",
+  );
+  return [...source.matchAll(pattern)].map((match) => normalizeSpace(decodeHtml(match[1])));
 }
 
 function walkHtmlFiles(directory = root) {
@@ -257,6 +281,166 @@ function jpegDimensions(buffer) {
   return null;
 }
 
+function pngDimensions(buffer) {
+  const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  if (buffer.length < 24 || !buffer.subarray(0, 8).equals(signature)) return null;
+  if (buffer.toString("ascii", 12, 16) !== "IHDR") return null;
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20),
+  };
+}
+
+function webpDimensions(buffer) {
+  if (
+    buffer.length < 30
+    || buffer.toString("ascii", 0, 4) !== "RIFF"
+    || buffer.toString("ascii", 8, 12) !== "WEBP"
+  ) return null;
+
+  let offset = 12;
+  while (offset + 8 <= buffer.length) {
+    const chunk = buffer.toString("ascii", offset, offset + 4);
+    const length = buffer.readUInt32LE(offset + 4);
+    const payload = offset + 8;
+    if (payload + length > buffer.length) return null;
+    if (chunk === "VP8X" && length >= 10) {
+      return {
+        width: buffer.readUIntLE(payload + 4, 3) + 1,
+        height: buffer.readUIntLE(payload + 7, 3) + 1,
+      };
+    }
+    if (chunk === "VP8L" && length >= 5 && buffer[payload] === 0x2f) {
+      const byte1 = buffer[payload + 1];
+      const byte2 = buffer[payload + 2];
+      const byte3 = buffer[payload + 3];
+      const byte4 = buffer[payload + 4];
+      return {
+        width: 1 + byte1 + ((byte2 & 0x3f) << 8),
+        height: 1 + (byte2 >> 6) + (byte3 << 2) + ((byte4 & 0x0f) << 10),
+      };
+    }
+    if (
+      chunk === "VP8 "
+      && length >= 10
+      && buffer[payload + 3] === 0x9d
+      && buffer[payload + 4] === 0x01
+      && buffer[payload + 5] === 0x2a
+    ) {
+      return {
+        width: buffer.readUInt16LE(payload + 6) & 0x3fff,
+        height: buffer.readUInt16LE(payload + 8) & 0x3fff,
+      };
+    }
+    offset = payload + length + (length % 2);
+  }
+  return null;
+}
+
+function rasterInfo(buffer) {
+  const jpeg = jpegDimensions(buffer);
+  if (jpeg) return { ...jpeg, mime: "image/jpeg", extensions: new Set([".jpg", ".jpeg"]) };
+  const png = pngDimensions(buffer);
+  if (png) return { ...png, mime: "image/png", extensions: new Set([".png"]) };
+  const webp = webpDimensions(buffer);
+  if (webp) return { ...webp, mime: "image/webp", extensions: new Set([".webp"]) };
+  return null;
+}
+
+function oneMetaValue(page, keyType, key) {
+  const values = metaValues(page.source, keyType, key);
+  if (values.length !== 1) {
+    fail(page.relative, `expected exactly one ${key}, found ${values.length}`);
+    return null;
+  }
+  return values[0];
+}
+
+const socialImageCache = new Map();
+function inspectSocialImage(rawUrl, page, label) {
+  const normalized = parseSiteUrl(rawUrl, page.relative, label);
+  if (!normalized) return null;
+  const parsed = new URL(normalized);
+  let decodedPath;
+  try {
+    decodedPath = decodeURIComponent(parsed.pathname);
+  } catch {
+    fail(page.relative, `${label} contains invalid URL encoding: "${rawUrl}"`);
+    return null;
+  }
+  const relativePath = decodedPath.replace(/^\/+/, "");
+  const absolutePath = path.resolve(root, relativePath);
+  if (!absolutePath.startsWith(`${root}${path.sep}`)) {
+    fail(page.relative, `${label} escapes the generated site root: "${rawUrl}"`);
+    return null;
+  }
+  if (!fs.existsSync(absolutePath) || !fs.statSync(absolutePath).isFile()) {
+    fail(page.relative, `${label} points to a missing physical file: "${decodedPath}"`);
+    return null;
+  }
+  if (!socialImageCache.has(absolutePath)) {
+    const buffer = fs.readFileSync(absolutePath);
+    const detected = rasterInfo(buffer);
+    socialImageCache.set(absolutePath, detected ? { ...detected, bytes: buffer.length } : null);
+  }
+  const info = socialImageCache.get(absolutePath);
+  if (!info) {
+    fail(page.relative, `${label} must be a valid JPEG, PNG, or WebP raster file: "${decodedPath}"`);
+    return null;
+  }
+  const extension = path.extname(decodedPath).toLowerCase();
+  if (!info.extensions.has(extension)) {
+    fail(
+      page.relative,
+      `${label} extension "${extension || "(none)"}" does not match detected ${info.mime}`,
+    );
+  }
+  return { ...info, url: normalized, path: decodedPath };
+}
+
+function validateSocialMetadata(page) {
+  const ogImage = oneMetaValue(page, "property", "og:image");
+  const ogType = oneMetaValue(page, "property", "og:image:type");
+  const ogWidth = oneMetaValue(page, "property", "og:image:width");
+  const ogHeight = oneMetaValue(page, "property", "og:image:height");
+  const twitterImage = oneMetaValue(page, "name", "twitter:image");
+  oneMeta(page, "name", "twitter:card", "summary_large_image");
+
+  const info = ogImage ? inspectSocialImage(ogImage, page, "og:image") : null;
+  if (info) {
+    const aspectRatio = info.width / info.height;
+    if (
+      info.width < 300
+      || info.height < 157
+      || info.width > 4096
+      || info.height > 4096
+      || aspectRatio < 0.5
+      || aspectRatio > 2.1
+      || info.bytes > 5 * 1024 * 1024
+    ) {
+      fail(
+        page.relative,
+        `og:image ${info.path} (${info.width}x${info.height}, ${info.bytes} bytes) is not compatible with summary_large_image; use the documented 1200x630 generic fallback`,
+      );
+    }
+    if (ogType !== info.mime) {
+      fail(page.relative, `og:image:type must be "${info.mime}", found "${ogType}"`);
+    }
+    if (ogWidth !== String(info.width)) {
+      fail(page.relative, `og:image:width must be "${info.width}", found "${ogWidth}"`);
+    }
+    if (ogHeight !== String(info.height)) {
+      fail(page.relative, `og:image:height must be "${info.height}", found "${ogHeight}"`);
+    }
+  }
+  if (twitterImage) {
+    const twitterInfo = inspectSocialImage(twitterImage, page, "twitter:image");
+    if (info && twitterInfo && twitterInfo.url !== info.url) {
+      fail(page.relative, "twitter:image must use the same physical social image as og:image");
+    }
+  }
+}
+
 function oneMeta(page, keyType, key, expected) {
   const values = metaValues(page.source, keyType, key);
   if (values.length !== 1) {
@@ -270,25 +454,6 @@ function oneMeta(page, keyType, key, expected) {
 
 function listDifference(left, right) {
   return [...left].filter((value) => !right.has(value)).sort();
-}
-
-const imagePath = path.join(root, "assets", "og-image.jpg");
-if (!fs.existsSync(imagePath)) {
-  fail("assets/og-image.jpg", "missing social image");
-} else {
-  const image = fs.readFileSync(imagePath);
-  const dimensions = jpegDimensions(image);
-  if (!dimensions) {
-    fail("assets/og-image.jpg", "file is not a valid JPEG image");
-  } else if (dimensions.width !== 1200 || dimensions.height !== 630) {
-    fail(
-      "assets/og-image.jpg",
-      `expected 1200x630 pixels, found ${dimensions.width}x${dimensions.height}`,
-    );
-  }
-}
-if (fs.existsSync(path.join(root, "assets", "og-image.webp"))) {
-  fail("assets/og-image.webp", "obsolete social image must be removed");
 }
 
 const htmlPaths = walkHtmlFiles();
@@ -385,17 +550,21 @@ for (const page of pages) {
 
   const anchors = extractTags(page.source, "a");
   if (page.source.includes("site-footer")) {
+    const expectedPrivacyPath = page.htmlLanguage === "ar" ? "/ar/privacy" : "/privacy";
     const hasPrivacyLink = anchors.some((anchor) => {
       const href = normalizeSpace(attr(anchor, "href"));
       if (!href) return false;
       try {
         const target = new URL(href, page.canonical || `${siteOrigin}${page.route}`);
-        return target.origin === siteOrigin && target.pathname.replace(/\/+$/u, "") === "/privacy";
+        return target.origin === siteOrigin
+          && target.pathname.replace(/\/+$/u, "") === expectedPrivacyPath;
       } catch {
         return false;
       }
     });
-    if (!hasPrivacyLink) fail(page.relative, "global footer is missing the /privacy link");
+    if (!hasPrivacyLink) {
+      fail(page.relative, `global footer is missing the ${expectedPrivacyPath} language-route link`);
+    }
   }
 
   for (const anchor of anchors) {
@@ -417,16 +586,14 @@ for (const page of pages) {
     ) {
       fail(page.relative, `local anchor uses .html URL: "${href}"`);
     }
+    if (page.canonical && target.origin === siteOrigin && target.searchParams.has("lang")) {
+      fail(page.relative, `local anchor uses the retired ?lang= route selector: "${href}"`);
+    }
   }
 
   if (!page.indexable) continue;
   if (!page.canonical) fail(page.relative, "indexable page has no valid canonical");
-  oneMeta(page, "property", "og:image", socialImageUrl);
-  oneMeta(page, "property", "og:image:type", "image/jpeg");
-  oneMeta(page, "property", "og:image:width", "1200");
-  oneMeta(page, "property", "og:image:height", "630");
-  oneMeta(page, "name", "twitter:image", socialImageUrl);
-  oneMeta(page, "name", "twitter:card", "summary_large_image");
+  validateSocialMetadata(page);
   if (page.canonical) oneMeta(page, "property", "og:url", page.canonical);
 }
 
@@ -506,6 +673,19 @@ if (missingFromSitemap.length) {
 }
 if (extraInSitemap.length) {
   fail("sitemap.xml", `contains non-canonical URLs: ${extraInSitemap.join(", ")}`);
+}
+for (const [loc, alternates] of sitemapAlternateMaps) {
+  if (!canonicalToPage.has(loc)) {
+    fail("sitemap.xml", `<loc> has no physical self-canonical HTML route: ${loc}`);
+  }
+  for (const [language, target] of alternates) {
+    if (!canonicalToPage.has(target)) {
+      fail(
+        "sitemap.xml",
+        `${loc} hreflang="${language}" has no physical self-canonical HTML route: ${target}`,
+      );
+    }
+  }
 }
 
 const catalogPath = path.join(root, "data", "catalog.json");
@@ -697,19 +877,121 @@ for (const page of pages) {
     validateEducationQuiz(`${page.relative} Quiz ${index + 1}`, page, quiz);
   }
 }
-const expectedEducationQuizCount = categories.length * 2 + SEO_COLLECTIONS.length * 2;
-if (educationQuizCount !== expectedEducationQuizCount) {
-  fail(
-    "Education Q&A",
-    `expected exactly ${expectedEducationQuizCount} leaf Quiz nodes, found ${educationQuizCount}`,
-  );
-}
 
 function breadcrumbItemUrl(item) {
   if (typeof item?.item === "string") return item.item;
   if (item?.item && typeof item.item === "object") return item.item["@id"] || item.item.url;
   return "";
 }
+
+function topicPageRelative(slug, language, pageNumber) {
+  if (pageNumber === 1) {
+    return language === "ar" ? `ar/topics/${slug}/index.html` : `${slug}.html`;
+  }
+  const prefix = language === "ar" ? `ar/topics/${slug}` : slug;
+  return `${prefix}/page/${pageNumber}/index.html`;
+}
+
+function topicPageCanonical(slug, language, pageNumber) {
+  if (pageNumber === 1) {
+    return language === "ar"
+      ? `${siteOrigin}/ar/topics/${slug}/`
+      : `${siteOrigin}/${slug}`;
+  }
+  const prefix = language === "ar" ? `/ar/topics/${slug}` : `/${slug}`;
+  return `${siteOrigin}${prefix}/page/${pageNumber}/`;
+}
+
+function assertPaginationLink(page, relation, expected) {
+  const links = extractTags(page.source, "link").filter((tag) => hasRel(tag, relation));
+  if (!expected) {
+    if (links.length) {
+      fail(page.relative, `must not declare rel="${relation}" on this pagination boundary`);
+    }
+    return;
+  }
+  if (links.length !== 1) {
+    fail(page.relative, `expected exactly one rel="${relation}", found ${links.length}`);
+    return;
+  }
+  const actual = parseSiteUrl(
+    attr(links[0], "href") || "",
+    page.relative,
+    `rel="${relation}"`,
+  );
+  if (actual !== expected) {
+    fail(page.relative, `rel="${relation}" must target "${expected}", found "${actual}"`);
+  }
+}
+
+function assertTopicBreadcrumb(page, category, language, pageNumber) {
+  const scope = page.relative;
+  const breadcrumbs = page.nodes.filter((node) => hasType(node, "BreadcrumbList"));
+  if (breadcrumbs.length !== 1) {
+    fail(scope, `expected exactly one BreadcrumbList JSON-LD node, found ${breadcrumbs.length}`);
+    return;
+  }
+  const items = breadcrumbs[0].itemListElement;
+  const section = sectionBySlug.get(category.slug);
+  const expectedLength = pageNumber === 1 ? 4 : 5;
+  if (!section) {
+    fail(scope, "category has no catalog section for its breadcrumb");
+    return;
+  }
+  if (!Array.isArray(items) || items.length !== expectedLength) {
+    fail(scope, `breadcrumb must contain exactly ${expectedLength} levels, found ${items?.length ?? 0}`);
+    return;
+  }
+
+  const isArabic = language === "ar";
+  const home = isArabic ? `${siteOrigin}/ar/` : `${siteOrigin}/`;
+  const mindLab = isArabic ? `${siteOrigin}/ar/mind-lab/` : `${siteOrigin}/mind-lab`;
+  const sectionUrl = `${mindLab}#section-${section.key}`;
+  const mainCategory = topicPageCanonical(category.slug, language, 1);
+  const expectedNames = isArabic
+    ? ["الرئيسية", "مختبر العقل", section.title?.ar, category.title?.ar]
+    : ["Home", "Mind Lab", section.title?.en, category.title?.en];
+  const expectedUrls = pageNumber === 1
+    ? [home, mindLab, sectionUrl, page.canonical]
+    : [home, mindLab, sectionUrl, mainCategory, page.canonical];
+
+  for (const [index, item] of items.entries()) {
+    if (!hasType(item, "ListItem")) {
+      fail(scope, `breadcrumb level ${index + 1} must have @type "ListItem"`);
+    }
+    if (item.position !== index + 1) {
+      fail(scope, `breadcrumb level ${index + 1} has incorrect position "${item.position}"`);
+    }
+    if (index < expectedNames.length) {
+      if (normalizeSpace(item.name) !== normalizeSpace(expectedNames[index])) {
+        fail(
+          scope,
+          `breadcrumb level ${index + 1} must be "${expectedNames[index]}", found "${item.name}"`,
+        );
+      }
+    } else if (!normalizeSpace(item.name)) {
+      fail(scope, `breadcrumb level ${index + 1} needs a nonempty localized page name`);
+    }
+    const rawUrl = breadcrumbItemUrl(item);
+    const normalized = parseSiteUrl(
+      rawUrl,
+      scope,
+      `breadcrumb level ${index + 1}`,
+      { allowHash: index === 2 },
+    );
+    if (normalized !== expectedUrls[index]) {
+      fail(
+        scope,
+        `breadcrumb level ${index + 1} must target "${expectedUrls[index]}", found "${normalized}"`,
+      );
+    }
+  }
+}
+
+const expectedTopicLocalePages = new Map();
+let expectedTopicQuizCount = 0;
+let dataCardTotal = 0;
+const crawlCardTotals = { en: 0, ar: 0 };
 
 for (const category of categories) {
   if (!category?.slug) continue;
@@ -719,174 +1001,272 @@ for (const category of categories) {
     fail(`data/${category.slug}.json`, "expected a card array");
     continue;
   }
-  if (cards.length < 20) {
-    fail(`data/${category.slug}.json`, `needs at least 20 cards, found ${cards.length}`);
+  if (cards.length < TOPIC_PAGE_SIZE) {
+    fail(
+      `data/${category.slug}.json`,
+      `needs at least ${TOPIC_PAGE_SIZE} cards, found ${cards.length}`,
+    );
     continue;
   }
-  const expectedCards = cards.slice(0, 20);
-  const expectedIds = expectedCards.map((card) => String(card?.id || ""));
-  const variants = [
-    { language: "en", direction: "ltr", relative: `${category.slug}.html` },
-    { language: "ar", direction: "rtl", relative: `ar/topics/${category.slug}/index.html` },
-  ];
+  dataCardTotal += cards.length;
+  const sourceIds = cards.map((card) => String(card?.id || ""));
+  if (sourceIds.some((id) => !id)) {
+    fail(`data/${category.slug}.json`, "every card needs a nonempty stable id");
+  }
+  if (new Set(sourceIds).size !== sourceIds.length) {
+    fail(`data/${category.slug}.json`, "card ids must be unique within the topic");
+  }
 
-  for (const variant of variants) {
-    const { language, direction, relative: scope } = variant;
-    const page = pages.find((candidate) => candidate.relative === scope);
-    if (!page) {
-      fail(scope, `localized ${language} category page is missing`);
-      continue;
-    }
-    const body = page.body || { attributes: new Map() };
-    if (attr(body, "data-page") !== "category") {
-      fail(scope, 'body must declare data-page="category"');
-    }
-    if (attr(body, "data-category") !== category.slug) {
-      fail(scope, `body data-category must be "${category.slug}"`);
-    }
-    if (attr(body, "data-route-lang") !== language) {
-      fail(scope, `body data-route-lang must be "${language}"`);
-    }
-    if (page.htmlLanguage !== language) {
-      fail(scope, `html lang must be "${language}", found "${page.htmlLanguage}"`);
-    }
-    if (page.htmlDirection !== direction) {
-      fail(scope, `html dir must be "${direction}", found "${page.htmlDirection}"`);
-    }
-
-    const cardGrid = extractElementById(page.source, "cardGrid");
-    if (!cardGrid) {
-      fail(scope, "could not find a complete #cardGrid element");
-      continue;
-    }
-    const visibleCards = extractTags(cardGrid.inner, "article")
-      .filter((tag) => (attr(tag, "class") || "").split(/\s+/u).includes("riddle-card"));
-    const visibleIds = visibleCards.map((tag) => attr(tag, "data-id") || "");
-    if (visibleCards.length !== 20) {
-      fail(scope, `#cardGrid must contain exactly 20 static riddle cards, found ${visibleCards.length}`);
-    }
-    for (const [index, cardTag] of visibleCards.entries()) {
-      const classes = (attr(cardTag, "class") || "").split(/\s+/u);
-      if (
-        cardTag.attributes.has("hidden")
-        || attr(cardTag, "aria-hidden") === "true"
-        || classes.includes("hidden")
-      ) {
-        fail(scope, `static card ${index + 1} (${visibleIds[index] || "missing id"}) is hidden`);
+  const pageCount = Math.ceil(cards.length / TOPIC_PAGE_SIZE);
+  expectedTopicQuizCount += pageCount * 2;
+  for (const language of ["en", "ar"]) {
+    const direction = language === "ar" ? "rtl" : "ltr";
+    const seenIds = new Map();
+    const seenTitles = new Map();
+    const seenDescriptions = new Map();
+    for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
+      const scope = topicPageRelative(category.slug, language, pageNumber);
+      const canonical = topicPageCanonical(category.slug, language, pageNumber);
+      const englishCanonical = topicPageCanonical(category.slug, "en", pageNumber);
+      const arabicCanonical = topicPageCanonical(category.slug, "ar", pageNumber);
+      const cluster = new Map([
+        ["en", englishCanonical],
+        ["ar", arabicCanonical],
+        ["x-default", englishCanonical],
+      ]);
+      expectedTopicLocalePages.set(scope, {
+        language,
+        canonical,
+        cluster,
+        category,
+        pageNumber,
+        pageCount,
+      });
+      const page = pages.find((candidate) => candidate.relative === scope);
+      if (!page) {
+        fail(scope, `localized ${language} topic page ${pageNumber} of ${pageCount} is missing`);
+        continue;
       }
-    }
-    if (JSON.stringify(visibleIds) !== JSON.stringify(expectedIds)) {
-      fail(
-        scope,
-        `static card order must equal the first 20 data IDs; expected [${expectedIds.join(", ")}], found [${visibleIds.join(", ")}]`,
+      if (!page.indexable) fail(scope, "crawlable topic pagination page must be indexable");
+      if (page.canonical !== canonical) {
+        fail(scope, `canonical must be "${canonical}", found "${page.canonical}"`);
+      }
+      if (page.htmlLanguage !== language) {
+        fail(scope, `html lang must be "${language}", found "${page.htmlLanguage}"`);
+      }
+      if (page.htmlDirection !== direction) {
+        fail(scope, `html dir must be "${direction}", found "${page.htmlDirection}"`);
+      }
+
+      const body = page.body || { attributes: new Map() };
+      if (pageNumber === 1) {
+        if (attr(body, "data-page") !== "category") {
+          fail(scope, 'body must declare data-page="category"');
+        }
+        if (attr(body, "data-category") !== category.slug) {
+          fail(scope, `body data-category must be "${category.slug}"`);
+        }
+        if (attr(body, "data-route-lang") !== language) {
+          fail(scope, `body data-route-lang must be "${language}"`);
+        }
+      } else if (attr(body, "data-page") === "category") {
+        fail(scope, "static pagination pages must not opt into category hydration");
+      }
+
+      const start = (pageNumber - 1) * TOPIC_PAGE_SIZE;
+      const expectedCards = cards.slice(start, start + TOPIC_PAGE_SIZE);
+      const expectedIds = expectedCards.map((card) => String(card?.id || ""));
+      const cardScope = pageNumber === 1 ? extractElementById(page.source, "cardGrid") : null;
+      if (pageNumber === 1 && !cardScope) {
+        fail(scope, "could not find a complete #cardGrid element");
+      }
+      const cardMarkup = pageNumber === 1 ? (cardScope?.inner || "") : page.source;
+      const expectedClass = pageNumber === 1 ? "riddle-card" : "seo-qa-card";
+      const visibleCards = extractTags(cardMarkup, "article").filter((tag) =>
+        (attr(tag, "class") || "").split(/\s+/u).includes(expectedClass),
       );
-    }
-    const decodedCardGrid = decodeHtml(cardGrid.inner);
-    for (const [index, card] of expectedCards.entries()) {
-      if (!decodedCardGrid.includes(String(card?.question?.[language] || ""))) {
-        fail(scope, `static card ${index + 1} is missing question.${language}`);
+      const visibleIds = visibleCards.map((tag) => attr(tag, "data-id") || "");
+      if (visibleCards.length !== expectedCards.length) {
+        fail(
+          scope,
+          `must contain exactly ${expectedCards.length} static ${expectedClass} articles, found ${visibleCards.length}`,
+        );
       }
-      if (!decodedCardGrid.includes(String(card?.answer?.[language] || ""))) {
-        fail(scope, `static card ${index + 1} is missing answer.${language}`);
+      for (const [index, cardTag] of visibleCards.entries()) {
+        const classes = (attr(cardTag, "class") || "").split(/\s+/u);
+        if (
+          cardTag.attributes.has("hidden")
+          || attr(cardTag, "aria-hidden") === "true"
+          || classes.includes("hidden")
+        ) {
+          fail(scope, `static card ${index + 1} (${visibleIds[index] || "missing id"}) is hidden`);
+        }
       }
-    }
+      if (JSON.stringify(visibleIds) !== JSON.stringify(expectedIds)) {
+        fail(
+          scope,
+          `static card IDs must equal source slice ${start + 1}-${start + expectedCards.length}; expected [${expectedIds.join(", ")}], found [${visibleIds.join(", ")}]`,
+        );
+      }
+      for (const id of visibleIds) seenIds.set(id, (seenIds.get(id) || 0) + 1);
+      crawlCardTotals[language] += visibleCards.length;
 
-    const quizzes = page.nodes.filter((node) => hasType(node, "Quiz"));
-    if (quizzes.length !== 1) {
-      fail(scope, `expected exactly one Quiz JSON-LD node, found ${quizzes.length}`);
-    } else {
-      const quiz = quizzes[0];
-      assertQuizSubjects(scope, quiz, [category.title?.[language]]);
-      if (quiz.url !== page.canonical) {
-        fail(scope, `Quiz URL must equal canonical "${page.canonical}", found "${quiz.url}"`);
+      const decodedMarkup = decodeHtml(cardMarkup);
+      for (const [index, card] of expectedCards.entries()) {
+        if (!decodedMarkup.includes(String(card?.question?.[language] || ""))) {
+          fail(scope, `static card ${index + 1} is missing question.${language}`);
+        }
+        if (!decodedMarkup.includes(String(card?.answer?.[language] || ""))) {
+          fail(scope, `static card ${index + 1} is missing answer.${language}`);
+        }
       }
-      if (quiz.inLanguage !== language) {
-        fail(scope, `Quiz inLanguage must be "${language}", found "${quiz.inLanguage}"`);
-      }
-      if (!Array.isArray(quiz.hasPart) || quiz.hasPart.length !== 20) {
-        fail(scope, `Quiz hasPart must contain exactly 20 questions, found ${quiz.hasPart?.length ?? 0}`);
+
+      const titles = elementTextValues(page.source, "title");
+      if (titles.length !== 1 || !titles[0]) {
+        fail(scope, `expected exactly one nonempty <title>, found ${titles.length}`);
+      } else if (seenTitles.has(titles[0])) {
+        fail(scope, `<title> duplicates ${seenTitles.get(titles[0])}: "${titles[0]}"`);
       } else {
-        const partIds = quiz.hasPart.map(questionPartId);
-        if (JSON.stringify(partIds) !== JSON.stringify(expectedIds)) {
+        seenTitles.set(titles[0], scope);
+      }
+      const descriptions = metaValues(page.source, "name", "description").map(normalizeSpace);
+      if (descriptions.length !== 1 || !descriptions[0]) {
+        fail(scope, `expected exactly one nonempty meta description, found ${descriptions.length}`);
+      } else if (seenDescriptions.has(descriptions[0])) {
+        fail(scope, `meta description duplicates ${seenDescriptions.get(descriptions[0])}`);
+      } else {
+        seenDescriptions.set(descriptions[0], scope);
+      }
+
+      const previous = pageNumber > 1
+        ? topicPageCanonical(category.slug, language, pageNumber - 1)
+        : null;
+      const next = pageNumber < pageCount
+        ? topicPageCanonical(category.slug, language, pageNumber + 1)
+        : null;
+      assertPaginationLink(page, "prev", previous);
+      assertPaginationLink(page, "next", next);
+
+      const quizzes = page.nodes.filter((node) => hasType(node, "Quiz"));
+      if (quizzes.length !== 1) {
+        fail(scope, `expected exactly one Quiz JSON-LD node, found ${quizzes.length}`);
+      } else {
+        const quiz = quizzes[0];
+        assertQuizSubjects(scope, quiz, [category.title?.[language]]);
+        if (!Array.isArray(quiz.hasPart) || quiz.hasPart.length !== expectedCards.length) {
           fail(
             scope,
-            `Quiz hasPart IDs must match visible cards in order; expected [${expectedIds.join(", ")}], found [${partIds.join(", ")}]`,
+            `Quiz hasPart must contain exactly ${expectedCards.length} questions, found ${quiz.hasPart?.length ?? 0}`,
           );
-        }
-        for (const [index, part] of quiz.hasPart.entries()) {
-          const card = expectedCards[index];
-          if (!hasType(part, "Question")) {
-            fail(scope, `Quiz hasPart ${index + 1} must have @type "Question"`);
-          }
-          const questionText = part?.text ?? part?.name;
-          if (normalizeSpace(questionText) !== normalizeSpace(card?.question?.[language])) {
-            fail(scope, `Quiz hasPart ${index + 1} text does not match question.${language}`);
-          }
-          const { answer, text } = acceptedAnswerText(part);
-          if (!answer || !hasType(answer, "Answer")) {
-            fail(scope, `Quiz hasPart ${index + 1} needs an acceptedAnswer of @type "Answer"`);
-          }
-          if (normalizeSpace(text) !== normalizeSpace(card?.answer?.[language])) {
-            fail(scope, `Quiz hasPart ${index + 1} acceptedAnswer does not match answer.${language}`);
-          }
-        }
-      }
-    }
-
-    const breadcrumbs = page.nodes.filter((node) => hasType(node, "BreadcrumbList"));
-    if (breadcrumbs.length !== 1) {
-      fail(scope, `expected exactly one BreadcrumbList JSON-LD node, found ${breadcrumbs.length}`);
-    } else {
-      const items = breadcrumbs[0].itemListElement;
-      const section = sectionBySlug.get(category.slug);
-      if (!section) {
-        fail(scope, "category has no catalog section for its breadcrumb");
-      } else if (!Array.isArray(items) || items.length !== 4) {
-        fail(scope, `breadcrumb must contain exactly 4 levels, found ${items?.length ?? 0}`);
-      } else {
-        const expectedNames = language === "ar"
-          ? ["الرئيسية", "مختبر العقل", section.title?.ar, category.title?.ar]
-          : ["Home", "Mind Lab", section.title?.en, category.title?.en];
-        for (const [index, item] of items.entries()) {
-          if (!hasType(item, "ListItem")) {
-            fail(scope, `breadcrumb level ${index + 1} must have @type "ListItem"`);
-          }
-          if (item.position !== index + 1) {
-            fail(scope, `breadcrumb level ${index + 1} has incorrect position "${item.position}"`);
-          }
-          if (normalizeSpace(item.name) !== normalizeSpace(expectedNames[index])) {
+        } else {
+          const partIds = quiz.hasPart.map(questionPartId);
+          if (JSON.stringify(partIds) !== JSON.stringify(expectedIds)) {
             fail(
               scope,
-              `breadcrumb level ${index + 1} must be "${expectedNames[index]}", found "${item.name}"`,
+              `Quiz hasPart IDs must match visible cards; expected [${expectedIds.join(", ")}], found [${partIds.join(", ")}]`,
             );
           }
+          for (const [index, part] of quiz.hasPart.entries()) {
+            const card = expectedCards[index];
+            const questionText = part?.text ?? part?.name;
+            if (normalizeSpace(questionText) !== normalizeSpace(card?.question?.[language])) {
+              fail(scope, `Quiz hasPart ${index + 1} text does not match question.${language}`);
+            }
+            const { answer, text } = acceptedAnswerText(part);
+            if (!answer || !hasType(answer, "Answer")) {
+              fail(scope, `Quiz hasPart ${index + 1} needs an acceptedAnswer of @type "Answer"`);
+            }
+            if (normalizeSpace(text) !== normalizeSpace(card?.answer?.[language])) {
+              fail(scope, `Quiz hasPart ${index + 1} acceptedAnswer does not match answer.${language}`);
+            }
+          }
         }
-        const itemUrls = items.map(breadcrumbItemUrl);
-        if (itemUrls[0] !== `${siteOrigin}/`) {
-          fail(scope, `breadcrumb Home item must be "${siteOrigin}/"`);
-        }
-        if (itemUrls[1] !== `${siteOrigin}/mind-lab`) {
-          fail(scope, `breadcrumb Mind Lab item must be "${siteOrigin}/mind-lab"`);
-        }
-        const expectedSectionAnchor = `${siteOrigin}/mind-lab#section-${section.key}`;
-        const sectionUrl = parseSiteUrl(
-          itemUrls[2],
-          scope,
-          "section breadcrumb item",
-          { allowHash: true },
+      }
+      assertTopicBreadcrumb(page, category, language, pageNumber);
+    }
+
+    for (const id of sourceIds) {
+      const occurrences = seenIds.get(id) || 0;
+      if (occurrences !== 1) {
+        fail(
+          `${category.slug} ${language} crawl set`,
+          `card "${id}" must occur in exactly one indexable pagination article, found ${occurrences}`,
         );
-        if (sectionUrl !== expectedSectionAnchor) {
-          fail(
-            scope,
-            `section breadcrumb must target "${expectedSectionAnchor}"`,
-          );
-        }
-        if (itemUrls[3] !== page.canonical) {
-          fail(scope, `breadcrumb category item must equal canonical "${page.canonical}"`);
-        }
+      }
+    }
+    for (const id of seenIds.keys()) {
+      if (!sourceIds.includes(id)) {
+        fail(`${category.slug} ${language} crawl set`, `unexpected card id "${id}"`);
       }
     }
   }
+}
+
+if (dataCardTotal !== EXPECTED_CARD_TOTAL) {
+  fail("crawl coverage", `expected ${EXPECTED_CARD_TOTAL} source cards, found ${dataCardTotal}`);
+}
+for (const language of ["en", "ar"]) {
+  if (crawlCardTotals[language] !== EXPECTED_CARD_TOTAL) {
+    fail(
+      "crawl coverage",
+      `expected ${EXPECTED_CARD_TOTAL} visible ${language} topic-card occurrences, found ${crawlCardTotals[language]}`,
+    );
+  }
+}
+
+const actualTopicPaginationFiles = new Set(
+  pages
+    .map((page) => page.relative)
+    .filter((relative) => /(?:^|\/)page\/\d+\/index\.html$/u.test(relative)),
+);
+const expectedTopicPaginationFiles = new Set(
+  [...expectedTopicLocalePages.keys()].filter((relative) => relative.includes("/page/")),
+);
+for (const relative of listDifference(actualTopicPaginationFiles, expectedTopicPaginationFiles)) {
+  fail(relative, "unexpected topic pagination file");
+}
+for (const relative of listDifference(expectedTopicPaginationFiles, actualTopicPaginationFiles)) {
+  fail(relative, "missing topic pagination file");
+}
+for (const page of pages) {
+  if (/\/page\/1(?:\/|[?#]|$)/u.test(page.relative)) {
+    fail(page.relative, "page 1 must use the main topic route, never a /page/1/ variant");
+  }
+  for (const tagName of ["a", "link"]) {
+    for (const tag of extractTags(page.source, tagName)) {
+      const href = normalizeSpace(attr(tag, "href"));
+      if (!href) continue;
+      let target;
+      try {
+        target = new URL(href, page.canonical || `${siteOrigin}${page.route}`);
+      } catch {
+        continue;
+      }
+      if (target.origin === siteOrigin && /\/page\/1(?:\/|$)/u.test(target.pathname)) {
+        fail(page.relative, `${tagName} references forbidden page-1 variant: "${href}"`);
+      }
+    }
+  }
+}
+for (const url of sitemapUrls) {
+  if (/\/page\/1(?:\/|$)/u.test(new URL(url).pathname)) {
+    fail("sitemap.xml", `must not include a page-1 variant: ${url}`);
+  }
+}
+for (const [loc, alternates] of sitemapAlternateMaps) {
+  for (const [language, target] of alternates) {
+    if (/\/page\/1(?:\/|$)/u.test(new URL(target).pathname)) {
+      fail("sitemap.xml", `${loc} hreflang="${language}" references a page-1 variant: ${target}`);
+    }
+  }
+}
+
+const expectedEducationQuizCount = expectedTopicQuizCount + SEO_COLLECTIONS.length * 2;
+if (educationQuizCount !== expectedEducationQuizCount) {
+  fail(
+    "Education Q&A",
+    `expected exactly ${expectedEducationQuizCount} leaf Quiz nodes, found ${educationQuizCount}`,
+  );
 }
 
 for (const page of categoryBodyPages) {
@@ -936,29 +1316,7 @@ function assertLanguageCluster(scope, actual, expected, sourceLabel) {
   }
 }
 
-const expectedCategoryLocalePages = new Map();
-for (const category of categories) {
-  if (!category?.slug) continue;
-  const enCanonical = `${siteOrigin}/${category.slug}`;
-  const arCanonical = `${siteOrigin}/ar/topics/${category.slug}/`;
-  const cluster = new Map([
-    ["en", enCanonical],
-    ["ar", arCanonical],
-    ["x-default", enCanonical],
-  ]);
-  expectedCategoryLocalePages.set(`${category.slug}.html`, {
-    language: "en",
-    canonical: enCanonical,
-    cluster,
-  });
-  expectedCategoryLocalePages.set(`ar/topics/${category.slug}/index.html`, {
-    language: "ar",
-    canonical: arCanonical,
-    cluster,
-  });
-}
-
-for (const [relative, expected] of expectedCategoryLocalePages) {
+for (const [relative, expected] of expectedTopicLocalePages) {
   const page = pages.find((candidate) => candidate.relative === relative);
   if (!page) continue;
   if (page.canonical !== expected.canonical) {
@@ -970,6 +1328,87 @@ for (const [relative, expected] of expectedCategoryLocalePages) {
     const targetPage = canonicalToPage.get(expected.cluster.get(language));
     if (!targetPage) {
       fail(relative, `hreflang="${language}" target has no canonical HTML page`);
+      continue;
+    }
+    assertLanguageCluster(
+      relative,
+      alternateMaps.get(targetPage),
+      expected.cluster,
+      `${targetPage.relative} reciprocal HTML head`,
+    );
+  }
+}
+
+const sharedExperiencePairs = [
+  { key: "home", enFile: "index.html", enPath: "/", arFile: "ar/index.html", arPath: "/ar/" },
+  { key: "mind-lab", enFile: "mind-lab.html", enPath: "/mind-lab", arFile: "ar/mind-lab/index.html", arPath: "/ar/mind-lab/" },
+  { key: "collections", enFile: "collections.html", enPath: "/collections", arFile: "ar/collections/index.html", arPath: "/ar/collections/" },
+  { key: "game-hub", enFile: "play.html", enPath: "/play", arFile: "ar/play/index.html", arPath: "/ar/play/" },
+  { key: "about", enFile: "about.html", enPath: "/about", arFile: "ar/about/index.html", arPath: "/ar/about/" },
+  { key: "privacy", enFile: "privacy.html", enPath: "/privacy", arFile: "ar/privacy/index.html", arPath: "/ar/privacy/" },
+  ...GAME_SLUGS.map((slug) => ({
+    key: `game:${slug}`,
+    enFile: `${slug}.html`,
+    enPath: `/${slug}`,
+    arFile: `ar/games/${slug}/index.html`,
+    arPath: `/ar/games/${slug}/`,
+  })),
+];
+
+if (sharedExperiencePairs.length !== 16) {
+  fail("shared routes", `expected exactly 16 shared experience pairs, found ${sharedExperiencePairs.length}`);
+}
+
+const expectedSharedLocalePages = new Map();
+for (const pair of sharedExperiencePairs) {
+  const enCanonical = `${siteOrigin}${pair.enPath}`;
+  const arCanonical = `${siteOrigin}${pair.arPath}`;
+  const cluster = new Map([
+    ["en", enCanonical],
+    ["ar", arCanonical],
+    ["x-default", enCanonical],
+  ]);
+  expectedSharedLocalePages.set(pair.enFile, {
+    key: pair.key,
+    language: "en",
+    direction: "ltr",
+    canonical: enCanonical,
+    cluster,
+  });
+  expectedSharedLocalePages.set(pair.arFile, {
+    key: pair.key,
+    language: "ar",
+    direction: "rtl",
+    canonical: arCanonical,
+    cluster,
+  });
+}
+
+for (const [relative, expected] of expectedSharedLocalePages) {
+  const page = pages.find((candidate) => candidate.relative === relative);
+  if (!page) {
+    fail(relative, `missing ${expected.language} physical route for shared experience ${expected.key}`);
+    continue;
+  }
+  if (!page.indexable) fail(relative, "shared language route must be indexable");
+  if (page.canonical !== expected.canonical) {
+    fail(relative, `canonical must be "${expected.canonical}", found "${page.canonical}"`);
+  }
+  if (page.htmlLanguage !== expected.language) {
+    fail(relative, `html lang must be "${expected.language}", found "${page.htmlLanguage}"`);
+  }
+  if (
+    (expected.language === "ar" && page.htmlDirection !== expected.direction)
+    || (expected.language === "en" && page.htmlDirection && page.htmlDirection !== expected.direction)
+  ) {
+    fail(relative, `html dir must be "${expected.direction}", found "${page.htmlDirection}"`);
+  }
+  assertLanguageCluster(relative, alternateMaps.get(page), expected.cluster, "HTML head");
+  assertLanguageCluster(relative, sitemapAlternateMaps.get(page.canonical), expected.cluster, "sitemap entry");
+  for (const language of ["en", "ar"]) {
+    const targetPage = canonicalToPage.get(expected.cluster.get(language));
+    if (!targetPage) {
+      fail(relative, `hreflang="${language}" target has no physical self-canonical HTML page`);
       continue;
     }
     assertLanguageCluster(
@@ -1046,17 +1485,21 @@ for (const collection of SEO_COLLECTIONS) {
   });
 }
 
-const localeCollectionPages = pages.filter(
-  (page) => /^https:\/\/jakh\.net\/(?:en\/|ar\/(?!topics\/))/u.test(page.canonical || ""),
-);
+const localeCollectionPages = pages.filter((page) => expectedLocalePages.has(page.relative));
 if (localeCollectionPages.length !== expectedLocalePages.size) {
   fail(
     "hreflang",
     `expected exactly ${expectedLocalePages.size} locale collection pages, found ${localeCollectionPages.length}`,
   );
 }
-for (const page of localeCollectionPages) {
-  if (!expectedLocalePages.has(page.relative)) {
+for (const page of pages) {
+  const bodyClasses = (page.body ? attr(page.body, "class") : "")?.split(/\s+/u) || [];
+  if (
+    /^(?:en|ar)\/[^/]+\/index\.html$/u.test(page.relative)
+    && bodyClasses.includes("seo-page")
+    && !expectedLocalePages.has(page.relative)
+    && !expectedSharedLocalePages.has(page.relative)
+  ) {
     fail(page.relative, "unexpected locale collection page not declared in SEO_COLLECTIONS");
   }
 }
@@ -1231,7 +1674,8 @@ const localeCollectionSet = new Set(
 );
 const localizedClusterSet = new Set([
   ...localeCollectionSet,
-  ...pages.filter((page) => expectedCategoryLocalePages.has(page.relative)),
+  ...pages.filter((page) => expectedTopicLocalePages.has(page.relative)),
+  ...pages.filter((page) => expectedSharedLocalePages.has(page.relative)),
 ]);
 for (const page of pages) {
   const map = alternateMaps.get(page);

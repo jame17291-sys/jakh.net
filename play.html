@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
@@ -9,6 +9,9 @@
     <link rel="preload" href="styles.css?v=2026080101" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/play" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/play" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/play/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/play" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="10 Free Browser Games | JAKH" />
     <meta property="og:description" content="Play 10 free browser games on JAKH: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy." />
@@ -30,13 +33,6 @@
     <!-- Google Analytics -->
 
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-          if (reg) reg.update();
-        });
-      }
-    </script>
       <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -141,7 +137,7 @@
         <div class="kv-hero-fallback-bg play-hero-bg" aria-hidden="true"></div>
         <div class="kv-hero-content">
           <h1 class="kv-hero-title" data-i18n="playHeroTitle">The Game Room</h1>
-          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">Ten thoughtful games, ready when you are. No download and no sign-up.</p>
+          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">Ten browser adaptations and simplified games, ready with no download or sign-up.</p>
           <div class="kv-hero-stats">
             <div class="kv-stat"><span class="kv-stat-number">10</span><span class="kv-stat-label" data-i18n="playHeroGames">Games</span></div>
           </div>
@@ -153,7 +149,7 @@
         <div class="kv-lab-header">
           <p class="kv-eyebrow play-available" data-i18n="playAvailable">Ready to play</p>
           <h2 data-i18n="playPick">Pick a game and start playing</h2>
-          <p data-i18n="playBrowserOnly">Every game runs in your browser, with nothing to install.</p>
+          <p data-i18n="playBrowserOnly">Every title is a browser adaptation; rules and AI depth vary by game, with nothing to install.</p>
         </div>
 
         <div class="game-lobby-grid">
@@ -166,7 +162,7 @@
               <span class="game-card-tag" data-i18n="gameTagComputer">vs Computer</span>
               <span class="game-card-tag" data-i18n="gameTagStrategy">Strategy</span>
             </div>
-            <p class="game-card-desc" data-i18n="playChessDesc">Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend.</p>
+            <p class="game-card-desc" data-i18n="playChessDesc">A browser chess adaptation with legal-move highlighting, en passant, castling, and promotion. Play the built-in AI or take turns locally.</p>
             <span class="game-card-play" data-i18n="playChessCta">Play Chess &#8594;</span>
           </a>
 
@@ -244,7 +240,7 @@
               <span class="game-card-tag" data-i18n="gameTagDice">Dice</span>
               <span class="game-card-tag" data-i18n="gameTagClassic">Classic</span>
             </div>
-            <p class="game-card-desc" data-i18n="playBackgammonDesc">Race all 15 checkers around the 24-point board and bear them off before your opponent. Real dice, legal moves enforced, greedy AI.</p>
+            <p class="game-card-desc" data-i18n="playBackgammonDesc">A simplified browser adaptation: race 15 checkers around 24 points, with virtual dice, enforced moves, and a greedy AI.</p>
             <span class="game-card-play" data-i18n="playBackgammonCta">Play Backgammon &#8594;</span>
           </a>
 

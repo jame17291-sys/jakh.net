@@ -31,6 +31,7 @@ import {
 } from "./privacy.js";
 import {
   analytics,
+  authSession,
   avatar,
   changePassword,
   deleteProgress,
@@ -38,8 +39,12 @@ import {
   health,
   login,
   logout,
+  privacyRequest,
   profile,
   register,
+  requireSchemaFeature,
+  resetPasswordWithRecovery,
+  rotateRecoveryCode,
   saveProgress,
   streak,
   suggestion,
@@ -49,12 +54,45 @@ import { requireSecrets } from "./security.js";
 import {
   cleanupExpiredVerifiedChallenges,
   createVerifiedChallenge,
+  discardServerCheckedChallenge,
   submitVerifiedChallenge,
   verifiedLeaderboard,
 } from "./verified-scoring.js";
 import type { Env } from "./types.js";
 
 export { BattleRoom, PasswordHasher };
+
+const MAINTENANCE_JOBS = Object.freeze([
+  { name: "security-state", run: cleanupExpiredSecurityState },
+  { name: "privacy-retention", run: cleanupPrivacyRetentionState },
+  { name: "server-checked-challenges", run: cleanupExpiredVerifiedChallenges },
+] as const);
+
+export class ScheduledMaintenanceError extends Error {
+  readonly code = "SCHEDULED_MAINTENANCE_FAILED";
+
+  constructor(readonly failedJobs: readonly string[]) {
+    super(`SCHEDULED_MAINTENANCE_FAILED jobs=${failedJobs.join(",")}`);
+    this.name = "ScheduledMaintenanceError";
+  }
+}
+
+export async function runScheduledMaintenance(env: Env): Promise<void> {
+  const results = await Promise.allSettled(
+    MAINTENANCE_JOBS.map(({ run }) => Promise.resolve().then(() => run(env))),
+  );
+  const failedJobs: string[] = [];
+  results.forEach((result, index) => {
+    if (result.status === "fulfilled") return;
+    const job = MAINTENANCE_JOBS[index]?.name || "unknown";
+    failedJobs.push(job);
+    console.error("Scheduled maintenance job failed", {
+      job,
+      error: result.reason instanceof Error ? result.reason.message : String(result.reason),
+    });
+  });
+  if (failedJobs.length > 0) throw new ScheduledMaintenanceError(failedJobs);
+}
 
 async function route(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
@@ -65,36 +103,57 @@ async function route(request: Request, env: Env): Promise<Response> {
   requireSecrets(env.PASSWORD_PEPPER, env.IP_HASH_SALT);
 
   if (path === "/ws/battle" && method === "GET") return connectBattle(request, env);
-  if (path === "/api/auth/register" && method === "POST") return register(request, env);
+  if (path === "/api/auth/register" && method === "POST") {
+    await requireSchemaFeature(env, "registration");
+    return register(request, env);
+  }
   if (path === "/api/auth/login" && method === "POST") return login(request, env);
+  if (path === "/api/auth/session" && method === "GET") return authSession(request, env);
+  if (path === "/api/auth/recovery/reset" && method === "POST") {
+    await requireSchemaFeature(env, "accountRecovery");
+    return resetPasswordWithRecovery(request, env);
+  }
   if (path === "/api/auth/logout" && method === "POST") return logout(request, env);
   if (path === "/api/user/profile" && method === "GET") return profile(request, env);
   if (path === "/api/user/export" && method === "GET") return exportAccountData(request, env);
   if (path === "/api/user/privacy" && method === "GET") return getPrivacyPreferences(request, env);
   if (path === "/api/user/privacy" && method === "PUT") return updatePrivacyPreferences(request, env);
-  if (path === "/api/user/account" && method === "DELETE") return deleteAccount(request, env);
+  if (path === "/api/user/account" && method === "DELETE") {
+    await requireSchemaFeature(env, "accountDeletion");
+    return deleteAccount(request, env);
+  }
   if (path === "/api/user/avatar" && method === "PUT") return avatar(request, env);
+  if (path === "/api/auth/recovery/rotate" && method === "POST") {
+    await requireSchemaFeature(env, "accountRecovery");
+    return rotateRecoveryCode(request, env);
+  }
   if (path === "/api/user/password" && method === "POST") return changePassword(request, env);
   if (path === "/api/user/progress" && method === "POST") return saveProgress(request, env);
   if (path === "/api/user/progress" && method === "DELETE") return deleteProgress(request, env);
   if (path === "/api/user/favorite" && method === "POST") return favorite(request, env);
   if (path === "/api/user/sync" && method === "POST") return syncUserData(request, env);
-  if (
-    path === "/api/user/streak"
-    && (
-      method === "POST"
-      || (method === "GET" && Boolean(request.headers.get("origin")))
-    )
-  ) return streak(request, env);
+  if (path === "/api/user/streak" && method === "POST") return streak(request, env);
   if (path === "/api/analytics/time" && method === "POST") return analytics(request, env);
   if (path === "/api/leaderboard" && method === "GET") return verifiedLeaderboard(request, env);
-  if (path === "/api/scores/verified/challenge" && method === "POST") {
+  if (path === "/api/scores/server-checked/challenge" && method === "DELETE") {
+    return discardServerCheckedChallenge(request, env);
+  }
+  if (
+    (path === "/api/scores/server-checked/challenge"
+      || path === "/api/scores/verified/challenge")
+    && method === "POST"
+  ) {
     return createVerifiedChallenge(request, env);
   }
-  if (path === "/api/scores/verified/submit" && method === "POST") {
+  if (
+    (path === "/api/scores/server-checked/submit"
+      || path === "/api/scores/verified/submit")
+    && method === "POST"
+  ) {
     return submitVerifiedChallenge(request, env);
   }
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
+  if (path === "/api/privacy/requests" && method === "POST") return privacyRequest(request, env);
   if (path === "/api/admin/overview" && method === "GET") return adminOverview(request, env);
   if (path === "/api/admin/users" && method === "GET") return adminUsers(request, env);
   if (path === "/api/admin/suggestions" && method === "GET") return adminSuggestions(request, env);
@@ -151,10 +210,8 @@ export default {
     }
   },
   async scheduled(_event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    ctx.waitUntil(Promise.all([
-      cleanupExpiredSecurityState(env),
-      cleanupPrivacyRetentionState(env),
-      cleanupExpiredVerifiedChallenges(env),
-    ]).then(() => undefined));
+    const maintenance = runScheduledMaintenance(env);
+    ctx.waitUntil(maintenance);
+    await maintenance;
   },
 } satisfies ExportedHandler<Env>;

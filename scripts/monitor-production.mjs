@@ -14,7 +14,14 @@ const MAX_CHECK_ATTEMPTS = 2;
 export const API_RELEASE_CONTRACT = Object.freeze({
   service: "jakh-api",
   version: "1.4.0",
-  schema: "6",
+  schema: "8",
+  targetSchema: "8",
+  compatibleSchemas: ["6", "7", "8"],
+  features: {
+    registration: true,
+    accountRecovery: true,
+    accountDeletion: true,
+  },
 });
 
 class RetryableCheckError extends Error {
@@ -202,6 +209,9 @@ function loadConfig(options) {
       DEFAULT_API_MAX_MS,
       "API performance budget",
     ),
+    allowCompatibleSchema:
+      options.allowCompatibleSchema === true
+      || env.JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA === "true",
   };
 }
 
@@ -448,9 +458,38 @@ export async function runProductionMonitor(options = {}) {
       health.version === API_RELEASE_CONTRACT.version,
       `unexpected API version "${health.version || "missing"}"`,
     );
+    const schemaIsAllowed = config.allowCompatibleSchema
+      ? API_RELEASE_CONTRACT.compatibleSchemas.includes(health.schema)
+      : health.schema === API_RELEASE_CONTRACT.schema;
+    expect(schemaIsAllowed, `unexpected API schema "${health.schema || "missing"}"`);
     expect(
-      health.schema === API_RELEASE_CONTRACT.schema,
-      `unexpected API schema "${health.schema || "missing"}"`,
+      health.targetSchema === API_RELEASE_CONTRACT.targetSchema,
+      `unexpected API target schema "${health.targetSchema || "missing"}"`,
+    );
+    expect(
+      Array.isArray(health.compatibleSchemas)
+        && health.compatibleSchemas.length === API_RELEASE_CONTRACT.compatibleSchemas.length
+        && health.compatibleSchemas.every(
+          (schema, index) => schema === API_RELEASE_CONTRACT.compatibleSchemas[index],
+        ),
+      "unexpected API compatible schema contract",
+    );
+    const schemaNumber = Number(health.schema);
+    const expectedFeatures = config.allowCompatibleSchema
+      ? {
+          registration: schemaNumber >= 7,
+          accountRecovery: schemaNumber >= 7,
+          accountDeletion: schemaNumber >= 8,
+        }
+      : API_RELEASE_CONTRACT.features;
+    expect(
+      health.features
+        && Object.entries(expectedFeatures).every(
+          ([feature, ready]) => health.features[feature] === ready,
+        ),
+      config.allowCompatibleSchema
+        ? "API feature readiness is inconsistent with its actual schema"
+        : "one or more final-schema API features are not ready",
     );
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
@@ -468,8 +507,14 @@ export async function runProductionMonitor(options = {}) {
     expectCors(resource.response, ALLOWED_ORIGIN);
     expectApiSecurityHeaders(resource.response);
     const payload = parseJson(resource);
-    expect(payload.status === "active", "verified public rankings are not active");
-    expect(payload.scoreType === "server-verified", "leaderboard score type is not server verified");
+    expect(payload.status === "active", "server-checked public rankings are not active");
+    expect(payload.scoreType === "server-checked", "leaderboard score type is not server checked");
+    expect(payload.serverChecked === true, "leaderboard does not declare server-side answer checking");
+    expect(payload.proctored === false, "leaderboard must not claim proctoring");
+    expect(
+      typeof payload.automationDisclaimer === "string" && payload.automationDisclaimer.trim().length > 0,
+      "leaderboard is missing its automation disclaimer",
+    );
     expect(Array.isArray(payload.leaderboard), "leaderboard response is not an array");
     expect(
       payload.leaderboard.every((entry) => entry && Number.isInteger(entry.rank)),

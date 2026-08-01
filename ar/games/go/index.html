@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="العب غو على لوحة 9×9 مجاناً عبر المتصفح: أسر الأحجار وسيطر على المساحات واختبر استراتيجيتك، من دون تنزيل أو تسجيل." />
+  <title>غو أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/go/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/go" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/go/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/go" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="غو أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="العب غو على لوحة 9×9 مجاناً عبر المتصفح: أسر الأحجار وسيطر على المساحات واختبر استراتيجيتك، من دون تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/go/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="غو أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="العب غو على لوحة 9×9 مجاناً عبر المتصفح: أسر الأحجار وسيطر على المساحات واختبر استراتيجيتك، من دون تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <style>
+    /* scoped go styles */
+    :root {
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
+    }
+
+    #goSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 0.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .go-layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Board wrapper */
+    .go-board-wrap {
+      position: relative;
+      width: min(420px, calc(100vw - 2rem));
+      height: min(420px, calc(100vw - 2rem));
+      background: #d8b778;
+      border: 2px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 14px 34px rgba(32, 50, 71, 0.16), inset 0 0 0 3px rgba(32, 50, 71, 0.14);
+      flex-shrink: 0;
+    }
+
+    .go-grid-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .go-stones-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .go-hit-layer {
+      position: absolute;
+      inset: 0;
+      cursor: crosshair;
+    }
+    .go-hit-layer:focus-visible {
+      outline: 3px solid #155f9f;
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .go-keyboard-instructions {
+      max-width: 42rem;
+      margin: -0.4rem 1rem 0;
+      color: var(--muted);
+      font-family: var(--font);
+      font-size: 0.86rem;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    /* Stones */
+    .go-stone {
+      position: absolute;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: transform 0.08s ease;
+    }
+    .go-stone.black {
+      background: radial-gradient(circle at 35% 30%, #555 0%, #13101a 60%);
+      box-shadow: 1px 2px 4px rgba(32, 50, 71, 0.34);
+    }
+    .go-stone.white {
+      background: radial-gradient(circle at 35% 30%, #fff 0%, #F0E8D8 60%);
+      box-shadow: 1px 2px 4px rgba(32, 50, 71, 0.24);
+    }
+    .go-stone .last-dot {
+      position: absolute;
+      width: 28%;
+      height: 28%;
+      border-radius: 50%;
+      background: var(--accent);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    /* Hover ghost */
+    .go-hover-stone {
+      position: absolute;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0.45;
+      display: none;
+    }
+    .go-hover-stone.black { background: #13101a; }
+    .go-hover-stone.white { background: #F0E8D8; }
+
+    /* Star points (hoshi) */
+    .go-star {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.75);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* Panel */
+    .go-panel {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      min-width: 200px;
+      max-width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .go-status-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .go-turn-indicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid rgba(240,232,216,0.3);
+    }
+    .go-turn-indicator.black { background: #13101a; }
+    .go-turn-indicator.white { background: #F0E8D8; }
+
+    .go-scores {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .go-score-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .go-score-row strong {
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .go-score-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .go-score-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .go-score-dot.black { background: #13101a; border: 1px solid rgba(255,255,255,0.2); }
+    .go-score-dot.white { background: #F0E8D8; border: 1px solid rgba(0,0,0,0.2); }
+
+    .go-btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .go-btn {
+      padding: 0.6rem 1rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .go-btn:active { transform: scale(0.97); }
+    .go-btn.primary { background: var(--accent); color: #fff; }
+    .go-btn.secondary { background: var(--bg-soft); color: var(--text); border: 1px solid var(--line-strong); }
+    .go-btn.hint-btn { background: rgba(200,162,39,0.18); color: var(--gilt); border: 1px solid rgba(200,162,39,0.3); }
+    .go-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .go-message {
+      font-family: var(--font);
+      font-size: 0.88rem;
+      color: var(--muted);
+      min-height: 1.2em;
+      text-align: center;
+    }
+    .go-message.highlight { color: var(--easy); font-weight: 600; }
+
+    .go-result-banner {
+      background: var(--panel);
+      border: 1px solid var(--gilt);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.75rem;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      font-family: var(--font);
+    }
+    .go-result-banner.visible { display: flex; }
+    .go-result-banner h2 { color: var(--gilt); margin: 0; font-size: 1.4rem; }
+    .go-result-banner p { color: var(--text); margin: 0; }
+
+    @media (max-width: 520px) {
+      .go-panel { max-width: 100%; min-width: unset; width: min(420px, calc(100vw - 2rem)); }
+      .go-layout { flex-direction: column; align-items: center; }
+    }
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Go",
+  "description": "Play a focused 9×9 game of Go online: capture stones, claim territory, and challenge your strategy.",
+  "url": "https://jakh.net/go",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="go" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture><source srcset="/assets/logo.webp" type="image/webp"/><img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/></picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel"><a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a><a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a></nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy"><p class="eyebrow" data-i18n="goEyebrow">استراتيجية · كلاسيكية</p><h1 data-i18n="goTitle">⚪ غو (9×9)</h1><p class="hero-text" data-i18n="goIntro">لعبة استراتيجية عريقة: أسر الأحجار وسيطر على المساحات. ينتهي اللعب بعد تمريرين متتاليين.</p></div>
+    </section>
+    <section class="shell section-block" id="goSection">
+      <div class="go-layout">
+        <!-- Board -->
+        <div class="go-board-wrap" id="goBoard" role="group" dir="ltr" aria-label="لوحة غو 9 في 9" data-i18n-aria-label="goBoardAria">
+          <svg class="go-grid-svg" id="goGridSvg" aria-hidden="true"></svg>
+          <div class="go-stones-layer" id="goStonesLayer"></div>
+          <div class="go-hover-stone" id="goHoverStone"></div>
+          <canvas class="go-hit-layer" id="goHitLayer" dir="ltr" tabindex="0" role="application"
+            aria-label="لوحة غو تفاعلية 9 في 9. استخدم مفاتيح الأسهم للتحرك، ثم اضغط Enter أو مفتاح المسافة لوضع حجر." data-i18n-aria-label="goPlaceAria"
+            aria-describedby="goKeyboardInstructions goKeyboardStatus"
+            aria-keyshortcuts="ArrowUp ArrowDown ArrowLeft ArrowRight Enter Space"></canvas>
+        </div>
+        <!-- Panel -->
+        <div class="go-panel">
+          <div class="go-status-row">
+            <div class="go-turn-indicator black" id="goTurnDot"></div>
+            <span id="goTurnLabel" data-i18n="goBlackTurn">دور الأسود</span>
+          </div>
+          <div class="go-scores">
+            <div class="go-score-row">
+              <div class="go-score-pill"><div class="go-score-dot black"></div><span data-i18n="goBlack">الأسود</span></div>
+              <strong id="goScoreBlack">0</strong>
+            </div>
+            <div class="go-score-row">
+              <div class="go-score-pill"><div class="go-score-dot white"></div><span data-i18n="goWhite">الأبيض</span></div>
+              <strong id="goScoreWhite">0</strong>
+            </div>
+            <div class="go-score-row" style="margin-top:0.2rem; font-size:0.8125rem;">
+              <span data-i18n="goCaptures">الأسر (أسود/أبيض)</span>
+              <span id="goCapturesLabel">0 / 0</span>
+            </div>
+          </div>
+          <div class="go-btn-row">
+            <button class="go-btn primary" id="goPassBtn" data-i18n="goPass">تمرير</button>
+            <button class="go-btn hint-btn" id="goHintBtn" data-i18n="goHint">تلميح</button>
+            <button class="go-btn secondary" id="goNewBtn" data-i18n="goNewGame">لعبة جديدة</button>
+          </div>
+          <p class="go-message" id="goMessage" aria-live="polite" data-i18n="goPlaceStone">ضع حجرك</p>
+        </div>
+      </div>
+      <p class="go-keyboard-instructions" id="goKeyboardInstructions" data-i18n="goKeyboardInstructions">لوحة المفاتيح: استخدم مفاتيح الأسهم للتحرك في اتجاهات اللوحة الثابتة، ثم اضغط Enter أو مفتاح المسافة لوضع حجر.</p>
+      <p class="sr-only" id="goKeyboardStatus" role="status" aria-live="polite" aria-atomic="true"></p>
+      <!-- Result -->
+      <div class="go-result-banner" id="goResultBanner" role="status" aria-live="polite">
+        <h2 id="goResultTitle" data-i18n="goGameOver">انتهت اللعبة</h2>
+        <p id="goResultDesc"></p>
+        <button class="go-btn primary" id="goPlayAgainBtn" style="margin-top:0.25rem;" data-i18n="goPlayAgain">العب مجدداً</button>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer shell"><div class="footer-inner"><p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p><nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials"><a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">إنستغرام</span></a><a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">فيسبوك</span></a></div></div></footer>
+
+  <script id="go-i18n">
+  JakhGameI18n.register('go', {
+    en: {
+      metaTitle: 'Go Online — Free Browser Game | JAKH',
+      metaDescription: 'Play a focused 9×9 game of Go online: capture stones, claim territory, and challenge your strategy. Play instantly with no download or sign-up.',
+      goEyebrow: 'Strategy · Classic',
+      goTitle: '⚪ Go (9×9)',
+      goIntro: 'Ancient strategy: capture stones, claim territory. Two consecutive passes end the game.',
+      goBoardAria: '9 by 9 Go board',
+      goPlaceAria: 'Interactive 9 by 9 Go board. Use the arrow keys to move, then press Enter or Space to place a stone.',
+      goKeyboardInstructions: 'Keyboard: use the arrow keys to move in fixed board directions, then press Enter or Space to place a stone.',
+      goKeyboardCursorEmpty: 'Keyboard cursor at row {row}, column {column}: empty intersection.',
+      goKeyboardCursorOccupied: 'Keyboard cursor at row {row}, column {column}: {player} stone.',
+      goBlack: 'Black',
+      goWhite: 'White',
+      goBlackTurn: "Black's turn",
+      goTurn: "{player}'s turn",
+      goCaptures: 'Captures (B/W)',
+      goPass: 'Pass',
+      goHint: 'Hint',
+      goNewGame: 'New Game',
+      goPlaceStone: 'Place your stone',
+      goGameOver: 'Game Over',
+      goPlayAgain: 'Play Again',
+      goWinner: '{winner} wins!',
+      goFinalScore: 'Final score — Black: {black} · White: {white} (includes {komi} komi)',
+      goIntersectionOccupied: 'Intersection occupied',
+      goSuicide: 'Illegal move (suicide)',
+      goPassedTurn: "Passed — {player}'s turn",
+      goHintAt: 'Hint: row {row}, column {column}',
+      goNoMoves: 'No moves available — consider passing',
+      goBlackFirst: 'Black goes first'
+    },
+    ar: {
+      metaTitle: 'غو أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'العب غو على لوحة 9×9 مجاناً عبر المتصفح: أسر الأحجار وسيطر على المساحات واختبر استراتيجيتك، من دون تنزيل أو تسجيل.',
+      goEyebrow: 'استراتيجية · كلاسيكية',
+      goTitle: '⚪ غو (9×9)',
+      goIntro: 'لعبة استراتيجية عريقة: أسر الأحجار وسيطر على المساحات. ينتهي اللعب بعد تمريرين متتاليين.',
+      goBoardAria: 'لوحة غو 9 في 9',
+      goPlaceAria: 'لوحة غو تفاعلية 9 في 9. استخدم مفاتيح الأسهم للتحرك، ثم اضغط Enter أو مفتاح المسافة لوضع حجر.',
+      goKeyboardInstructions: 'لوحة المفاتيح: استخدم مفاتيح الأسهم للتحرك في اتجاهات اللوحة الثابتة، ثم اضغط Enter أو مفتاح المسافة لوضع حجر.',
+      goKeyboardCursorEmpty: 'مؤشر لوحة المفاتيح عند الصف {row}، العمود {column}: نقطة تقاطع فارغة.',
+      goKeyboardCursorOccupied: 'مؤشر لوحة المفاتيح عند الصف {row}، العمود {column}: حجر {player}.',
+      goBlack: 'الأسود',
+      goWhite: 'الأبيض',
+      goBlackTurn: 'دور الأسود',
+      goTurn: 'دور {player}',
+      goCaptures: 'الأسر (أسود/أبيض)',
+      goPass: 'تمرير',
+      goHint: 'تلميح',
+      goNewGame: 'لعبة جديدة',
+      goPlaceStone: 'ضع حجرك',
+      goGameOver: 'انتهت اللعبة',
+      goPlayAgain: 'العب مجدداً',
+      goWinner: 'فوز {winner}!',
+      goFinalScore: 'النتيجة النهائية — الأسود: {black} · الأبيض: {white} (تشمل {komi} كومي)',
+      goIntersectionOccupied: 'نقطة التقاطع مشغولة',
+      goSuicide: 'نقلة غير قانونية (انتحار)',
+      goPassedTurn: 'تمرير — دور {player}',
+      goHintAt: 'تلميح: الصف {row}، العمود {column}',
+      goNoMoves: 'لا توجد نقلات متاحة — فكّر في التمرير',
+      goBlackFirst: 'الأسود يبدأ'
+    }
+  });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- GO ENGINE — Pure logic, zero DOM                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <script id="go-engine">
+  var GoEngine = (function() {
+    'use strict';
+
+    var SIZE = 9;
+
+    function emptyBoard() {
+      var b = [];
+      for (var r = 0; r < SIZE; r++) {
+        b[r] = [];
+        for (var c = 0; c < SIZE; c++) b[r][c] = null;
+      }
+      return b;
+    }
+
+    function cloneBoard(board) {
+      return board.map(function(row) { return row.slice(); });
+    }
+
+    function cloneState(state) {
+      return {
+        board: cloneBoard(state.board),
+        turn: state.turn,
+        captured: { b: state.captured.b, w: state.captured.w },
+        passes: state.passes,
+        history: state.history.slice()
+      };
+    }
+
+    function newGame() {
+      return {
+        board: emptyBoard(),
+        turn: 'b',
+        captured: { b: 0, w: 0 },
+        passes: 0,
+        history: []
+      };
+    }
+
+    function neighbors(r, c) {
+      var ns = [];
+      if (r > 0)        ns.push([r-1, c]);
+      if (r < SIZE-1)   ns.push([r+1, c]);
+      if (c > 0)        ns.push([r, c-1]);
+      if (c < SIZE-1)   ns.push([r, c+1]);
+      return ns;
+    }
+
+    // Flood-fill group from (r,c) for given color; returns {stones:[[r,c]...], liberties:count}
+    function getGroup(board, r, c) {
+      var color = board[r][c];
+      if (!color) return null;
+      var visited = {};
+      var stones = [];
+      var libertySet = {};
+      var queue = [[r, c]];
+      visited[r + ',' + c] = true;
+      while (queue.length) {
+        var cur = queue.shift();
+        stones.push(cur);
+        var ns = neighbors(cur[0], cur[1]);
+        for (var i = 0; i < ns.length; i++) {
+          var nr = ns[i][0], nc = ns[i][1];
+          var key = nr + ',' + nc;
+          if (board[nr][nc] === null) {
+            libertySet[key] = true;
+          } else if (board[nr][nc] === color && !visited[key]) {
+            visited[key] = true;
+            queue.push([nr, nc]);
+          }
+        }
+      }
+      return { stones: stones, liberties: Object.keys(libertySet).length };
+    }
+
+    // Remove group from board, return count removed
+    function removeGroup(board, stones) {
+      for (var i = 0; i < stones.length; i++) {
+        board[stones[i][0]][stones[i][1]] = null;
+      }
+      return stones.length;
+    }
+
+    // Try placing color at (r,c) on a copy of board.
+    // Returns {ok:bool, board:newBoard, captured:int}
+    function tryPlace(board, r, c, color) {
+      if (board[r][c] !== null) return { ok: false };
+      var nb = cloneBoard(board);
+      nb[r][c] = color;
+      var opp = color === 'b' ? 'w' : 'b';
+      var totalCaptured = 0;
+      // Capture opponent groups with 0 liberties
+      var ns = neighbors(r, c);
+      for (var i = 0; i < ns.length; i++) {
+        var nr = ns[i][0], nc = ns[i][1];
+        if (nb[nr][nc] === opp) {
+          var g = getGroup(nb, nr, nc);
+          if (g && g.liberties === 0) {
+            totalCaptured += removeGroup(nb, g.stones);
+          }
+        }
+      }
+      // Check suicide: own group must have liberties
+      var ownGroup = getGroup(nb, r, c);
+      if (ownGroup.liberties === 0) return { ok: false };
+      return { ok: true, board: nb, captured: totalCaptured };
+    }
+
+    function getLegalMoves(state, color) {
+      var moves = [];
+      if (getStatus(state) === 'ended') return moves;
+      for (var r = 0; r < SIZE; r++) {
+        for (var c = 0; c < SIZE; c++) {
+          if (state.board[r][c] === null) {
+            var result = tryPlace(state.board, r, c, color);
+            if (result.ok) moves.push({ row: r, col: c });
+          }
+        }
+      }
+      return moves;
+    }
+
+    function applyMove(state, row, col) {
+      var color = state.turn;
+      var result = tryPlace(state.board, row, col, color);
+      if (!result.ok) return state; // illegal
+      var ns = cloneState(state);
+      ns.board = result.board;
+      var opp = color === 'b' ? 'w' : 'b';
+      ns.captured[color] += result.captured;
+      ns.passes = 0;
+      ns.turn = opp;
+      ns.history.push({ type: 'move', row: row, col: col, color: color });
+      return ns;
+    }
+
+    function pass(state) {
+      var ns = cloneState(state);
+      ns.passes += 1;
+      ns.turn = state.turn === 'b' ? 'w' : 'b';
+      ns.history.push({ type: 'pass', color: state.turn });
+      return ns;
+    }
+
+    function getStatus(state) {
+      return state.passes >= 2 ? 'ended' : 'playing';
+    }
+
+    // Simple flood-fill territory scoring
+    // An empty region belongs to a color if all adjacent stones are that color
+    function score(state) {
+      var board = state.board;
+      var visited = {};
+      var blackTerritory = 0, whiteTerritory = 0;
+
+      for (var r = 0; r < SIZE; r++) {
+        for (var c = 0; c < SIZE; c++) {
+          if (board[r][c] === null && !visited[r + ',' + c]) {
+            // Flood-fill empty region
+            var region = [];
+            var queue = [[r, c]];
+            var borderColors = {};
+            visited[r + ',' + c] = true;
+            while (queue.length) {
+              var cur = queue.shift();
+              region.push(cur);
+              var ns = neighbors(cur[0], cur[1]);
+              for (var i = 0; i < ns.length; i++) {
+                var nr = ns[i][0], nc = ns[i][1];
+                var key = nr + ',' + nc;
+                if (board[nr][nc] === null && !visited[key]) {
+                  visited[key] = true;
+                  queue.push([nr, nc]);
+                } else if (board[nr][nc] !== null) {
+                  borderColors[board[nr][nc]] = true;
+                }
+              }
+            }
+            var colors = Object.keys(borderColors);
+            if (colors.length === 1) {
+              if (colors[0] === 'b') blackTerritory += region.length;
+              else whiteTerritory += region.length;
+            }
+          }
+        }
+      }
+
+      return {
+        black: blackTerritory + state.captured.b,
+        white: whiteTerritory + state.captured.w + 6.5 // komi
+      };
+    }
+
+    function getHint(state) {
+      var color = state.turn;
+      var legal = getLegalMoves(state, color);
+      if (legal.length === 0) return null;
+      var opp = color === 'b' ? 'w' : 'b';
+
+      // Prefer capturing moves
+      var capturing = legal.filter(function(m) {
+        var result = tryPlace(state.board, m.row, m.col, color);
+        return result.ok && result.captured > 0;
+      });
+      if (capturing.length > 0) {
+        return capturing[Math.floor(Math.random() * capturing.length)];
+      }
+
+      // Prefer moves that expand groups (have neighbors of own color)
+      var expanding = legal.filter(function(m) {
+        var ns = neighbors(m.row, m.col);
+        return ns.some(function(n) { return state.board[n[0]][n[1]] === color; });
+      });
+      if (expanding.length > 0) {
+        return expanding[Math.floor(Math.random() * expanding.length)];
+      }
+
+      return legal[Math.floor(Math.random() * legal.length)];
+    }
+
+    return { newGame, getLegalMoves, applyMove, pass, getStatus, score, getHint };
+  })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- GO UI — All DOM                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <script id="go-ui">
+  (function() {
+    'use strict';
+
+    var i18n = window.JakhGameI18n;
+    function t(key, values) { return i18n.t(key, values); }
+    function gameNumber(value, fractionDigits) {
+      var digits = fractionDigits || 0;
+      return i18n.number(value, {
+        useGrouping: false,
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits
+      });
+    }
+    function colorName(color) {
+      return t(color === 'b' ? 'goBlack' : 'goWhite');
+    }
+
+    var SIZE = 9;
+    var STAR_POINTS = [
+      [2,2],[2,4],[2,6],
+      [4,2],[4,4],[4,6],
+      [6,2],[6,4],[6,6]
+    ];
+
+    var boardEl      = document.getElementById('goBoard');
+    var gridSvg      = document.getElementById('goGridSvg');
+    var stonesLayer  = document.getElementById('goStonesLayer');
+    var hitCanvas    = document.getElementById('goHitLayer');
+    var hoverStone   = document.getElementById('goHoverStone');
+    var turnDot      = document.getElementById('goTurnDot');
+    var turnLabel    = document.getElementById('goTurnLabel');
+    var scoreBlack   = document.getElementById('goScoreBlack');
+    var scoreWhite   = document.getElementById('goScoreWhite');
+    var capturesLbl  = document.getElementById('goCapturesLabel');
+    var messageEl    = document.getElementById('goMessage');
+    var passBtn      = document.getElementById('goPassBtn');
+    var hintBtn      = document.getElementById('goHintBtn');
+    var newBtn       = document.getElementById('goNewBtn');
+    var resultBanner = document.getElementById('goResultBanner');
+    var resultTitle  = document.getElementById('goResultTitle');
+    var resultDesc   = document.getElementById('goResultDesc');
+    var playAgainBtn = document.getElementById('goPlayAgainBtn');
+    var keyboardStatus = document.getElementById('goKeyboardStatus');
+
+    var state = GoEngine.newGame();
+    var hintCell = null;
+    var messageState = { key: 'goBlackFirst', values: {}, highlight: false };
+    var keyboardCell = { row: 4, col: 4 };
+
+    // Board geometry
+    function getBoardSize() {
+      return boardEl.offsetWidth;
+    }
+
+    function getPadding() {
+      return Math.round(getBoardSize() * 0.065);
+    }
+
+    function cellSize() {
+      var pad = getPadding();
+      return (getBoardSize() - pad * 2) / (SIZE - 1);
+    }
+
+    function intersectionXY(row, col) {
+      var pad = getPadding();
+      var cs = cellSize();
+      return {
+        x: pad + col * cs,
+        y: pad + row * cs
+      };
+    }
+
+    function stoneRadius() {
+      return Math.round(cellSize() * 0.46);
+    }
+
+    // ── Draw grid ─────────────────────────────────────────────
+    function drawGrid() {
+      var pad = getPadding();
+      var cs = cellSize();
+      var bSize = getBoardSize();
+      gridSvg.innerHTML = '';
+      gridSvg.setAttribute('viewBox', '0 0 ' + bSize + ' ' + bSize);
+
+      // Lines
+      for (var i = 0; i < SIZE; i++) {
+        var x = pad + i * cs;
+        var y = pad + i * cs;
+        // Vertical
+        var vl = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        vl.setAttribute('x1', x); vl.setAttribute('y1', pad);
+        vl.setAttribute('x2', x); vl.setAttribute('y2', bSize - pad);
+        vl.setAttribute('stroke', 'rgba(0,0,0,0.7)'); vl.setAttribute('stroke-width', '1');
+        gridSvg.appendChild(vl);
+        // Horizontal
+        var hl = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        hl.setAttribute('x1', pad); hl.setAttribute('y1', y);
+        hl.setAttribute('x2', bSize - pad); hl.setAttribute('y2', y);
+        hl.setAttribute('stroke', 'rgba(0,0,0,0.7)'); hl.setAttribute('stroke-width', '1');
+        gridSvg.appendChild(hl);
+      }
+
+      // Star points
+      for (var s = 0; s < STAR_POINTS.length; s++) {
+        var sr = STAR_POINTS[s][0], sc = STAR_POINTS[s][1];
+        var pos = intersectionXY(sr, sc);
+        var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', pos.x); circle.setAttribute('cy', pos.y);
+        circle.setAttribute('r', '3.5');
+        circle.setAttribute('fill', 'rgba(0,0,0,0.75)');
+        gridSvg.appendChild(circle);
+      }
+    }
+
+    // ── Draw stones ───────────────────────────────────────────
+    function drawStones() {
+      stonesLayer.innerHTML = '';
+      var board = state.board;
+      var r = stoneRadius();
+      var lastMove = null;
+      for (var h = state.history.length - 1; h >= 0; h--) {
+        if (state.history[h].type === 'move') { lastMove = state.history[h]; break; }
+      }
+
+      // Hint highlight
+      if (hintCell) {
+        var hpos = intersectionXY(hintCell.row, hintCell.col);
+        var hd = document.createElement('div');
+        hd.style.cssText = 'position:absolute;width:' + (r*2) + 'px;height:' + (r*2) + 'px;'
+          + 'border-radius:50%;left:' + hpos.x + 'px;top:' + hpos.y + 'px;'
+          + 'transform:translate(-50%,-50%);background:rgba(232,97,60,0.35);'
+          + 'border:2px solid rgba(232,97,60,0.7);pointer-events:none;';
+        stonesLayer.appendChild(hd);
+      }
+
+      for (var row = 0; row < SIZE; row++) {
+        for (var col = 0; col < SIZE; col++) {
+          if (board[row][col]) {
+            var pos = intersectionXY(row, col);
+            var el = document.createElement('div');
+            el.className = 'go-stone ' + (board[row][col] === 'b' ? 'black' : 'white');
+            el.style.cssText = 'width:' + (r*2) + 'px;height:' + (r*2) + 'px;'
+              + 'left:' + pos.x + 'px;top:' + pos.y + 'px;';
+            if (lastMove && lastMove.row === row && lastMove.col === col) {
+              var dot = document.createElement('div');
+              dot.className = 'last-dot';
+              el.appendChild(dot);
+            }
+            stonesLayer.appendChild(el);
+          }
+        }
+      }
+    }
+
+    // ── Update panel UI ───────────────────────────────────────
+    function updatePanel() {
+      var sc = GoEngine.score(state);
+      scoreBlack.textContent = gameNumber(Math.round(sc.black));
+      scoreWhite.textContent = gameNumber(sc.white, 1);
+      capturesLbl.textContent = gameNumber(state.captured.b) + ' / ' + gameNumber(state.captured.w);
+
+      var ended = GoEngine.getStatus(state) === 'ended';
+      if (!ended) {
+        var color = state.turn;
+        turnDot.className = 'go-turn-indicator ' + (color === 'b' ? 'black' : 'white');
+        turnLabel.textContent = t('goTurn', { player: colorName(color) });
+        passBtn.disabled = false;
+        hintBtn.disabled = false;
+      } else {
+        passBtn.disabled = true;
+        hintBtn.disabled = true;
+        showResult(sc);
+      }
+    }
+
+    function showResult(sc) {
+      resultBanner.classList.add('visible');
+      var winnerColor = sc.black > sc.white ? 'b' : 'w';
+      resultTitle.textContent = t('goWinner', { winner: colorName(winnerColor) });
+      resultDesc.textContent = t('goFinalScore', {
+        black: gameNumber(Math.round(sc.black)),
+        white: gameNumber(sc.white, 1),
+        komi: gameNumber(6.5, 1)
+      });
+    }
+
+    function renderMessage() {
+      var values = Object.assign({}, messageState.values);
+      if (values.playerColor) values.player = colorName(values.playerColor);
+      if (values.rawRow !== undefined) values.row = gameNumber(values.rawRow);
+      if (values.rawColumn !== undefined) values.column = gameNumber(values.rawColumn);
+      messageEl.textContent = messageState.key ? t(messageState.key, values) : '';
+      messageEl.className = 'go-message' + (messageState.highlight ? ' highlight' : '');
+    }
+
+    function setMessage(key, values, highlight) {
+      messageState = {
+        key: key || '',
+        values: values || {},
+        highlight: Boolean(highlight)
+      };
+      renderMessage();
+    }
+
+    // ── Hit testing ───────────────────────────────────────────
+    function nearestIntersection(canvasX, canvasY) {
+      var pad = getPadding();
+      var cs = cellSize();
+      var col = Math.round((canvasX - pad) / cs);
+      var row = Math.round((canvasY - pad) / cs);
+      col = Math.max(0, Math.min(SIZE - 1, col));
+      row = Math.max(0, Math.min(SIZE - 1, row));
+      // Check if close enough (within half a cell)
+      var pos = intersectionXY(row, col);
+      var dx = canvasX - pos.x, dy = canvasY - pos.y;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < cs * 0.6) return { row, col };
+      return null;
+    }
+
+    function getCanvasXY(evt) {
+      var rect = hitCanvas.getBoundingClientRect();
+      var scaleX = hitCanvas.width / rect.width;
+      var scaleY = hitCanvas.height / rect.height;
+      var clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+      var clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+      return {
+        x: (clientX - rect.left) * scaleX,
+        y: (clientY - rect.top) * scaleY
+      };
+    }
+
+    function resizeCanvas() {
+      var sz = getBoardSize();
+      hitCanvas.width = sz;
+      hitCanvas.height = sz;
+    }
+
+    // ── Keyboard cursor ───────────────────────────────────────
+    function drawKeyboardCursor() {
+      var context = hitCanvas.getContext('2d');
+      context.clearRect(0, 0, hitCanvas.width, hitCanvas.height);
+      if (document.activeElement !== hitCanvas) return;
+
+      var pos = intersectionXY(keyboardCell.row, keyboardCell.col);
+      var radius = Math.max(10, Math.round(stoneRadius() * 0.72));
+
+      context.save();
+      context.beginPath();
+      context.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+      context.lineWidth = 6;
+      context.strokeStyle = 'rgba(255,255,255,0.96)';
+      context.stroke();
+      context.beginPath();
+      context.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+      context.lineWidth = 3;
+      context.strokeStyle = '#155f9f';
+      context.stroke();
+      context.restore();
+    }
+
+    function updateKeyboardStatus() {
+      var stone = state.board[keyboardCell.row][keyboardCell.col];
+      var values = {
+        row: gameNumber(keyboardCell.row + 1),
+        column: gameNumber(keyboardCell.col + 1)
+      };
+      if (stone) {
+        values.player = colorName(stone);
+        keyboardStatus.textContent = t('goKeyboardCursorOccupied', values);
+      } else {
+        keyboardStatus.textContent = t('goKeyboardCursorEmpty', values);
+      }
+    }
+
+    function moveKeyboardCursor(rowDelta, colDelta) {
+      keyboardCell.row = Math.max(0, Math.min(SIZE - 1, keyboardCell.row + rowDelta));
+      keyboardCell.col = Math.max(0, Math.min(SIZE - 1, keyboardCell.col + colDelta));
+      drawKeyboardCursor();
+      updateKeyboardStatus();
+    }
+
+    // ── Hover ─────────────────────────────────────────────────
+    hitCanvas.addEventListener('mousemove', function(e) {
+      if (GoEngine.getStatus(state) === 'ended') { hoverStone.style.display = 'none'; return; }
+      var xy = getCanvasXY(e);
+      var cell = nearestIntersection(xy.x, xy.y);
+      if (!cell || state.board[cell.row][cell.col] !== null) {
+        hoverStone.style.display = 'none'; return;
+      }
+      var r = stoneRadius();
+      var pos = intersectionXY(cell.row, cell.col);
+      hoverStone.className = 'go-hover-stone ' + (state.turn === 'b' ? 'black' : 'white');
+      hoverStone.style.cssText = 'display:block;width:' + (r*2) + 'px;height:' + (r*2) + 'px;'
+        + 'left:' + pos.x + 'px;top:' + pos.y + 'px;border-radius:50%;'
+        + 'transform:translate(-50%,-50%);pointer-events:none;opacity:0.45;'
+        + (state.turn === 'b' ? 'background:#13101a;' : 'background:#F0E8D8;');
+    });
+
+    hitCanvas.addEventListener('mouseleave', function() {
+      hoverStone.style.display = 'none';
+    });
+
+    hitCanvas.addEventListener('focus', function() {
+      hoverStone.style.display = 'none';
+      drawKeyboardCursor();
+      updateKeyboardStatus();
+    });
+
+    hitCanvas.addEventListener('blur', function() {
+      drawKeyboardCursor();
+    });
+
+    hitCanvas.addEventListener('keydown', function(e) {
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+      // Board coordinates stay left-to-right even when the surrounding UI is Arabic.
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        moveKeyboardCursor(-1, 0);
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        moveKeyboardCursor(1, 0);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        moveKeyboardCursor(0, -1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        moveKeyboardCursor(0, 1);
+      } else if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        placeAt(keyboardCell.row, keyboardCell.col);
+        drawKeyboardCursor();
+        updateKeyboardStatus();
+      }
+    });
+
+    // ── Click to place ────────────────────────────────────────
+    function placeAt(row, col) {
+      if (GoEngine.getStatus(state) === 'ended') return;
+      if (state.board[row][col] !== null) {
+        setMessage('goIntersectionOccupied');
+        return;
+      }
+      var newState = GoEngine.applyMove(state, row, col);
+      if (newState === state) {
+        setMessage('goSuicide');
+        return;
+      }
+      hintCell = null;
+      state = newState;
+      render();
+      setMessage('');
+    }
+
+    hitCanvas.addEventListener('click', function(e) {
+      var xy = getCanvasXY(e);
+      var cell = nearestIntersection(xy.x, xy.y);
+      if (cell) {
+        keyboardCell = cell;
+        placeAt(cell.row, cell.col);
+        drawKeyboardCursor();
+      }
+    });
+
+    hitCanvas.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      var xy = getCanvasXY(e.changedTouches ? { clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY } : e);
+      var cell = nearestIntersection(xy.x, xy.y);
+      if (cell) {
+        keyboardCell = cell;
+        placeAt(cell.row, cell.col);
+        drawKeyboardCursor();
+      }
+    }, { passive: false });
+
+    // ── Buttons ───────────────────────────────────────────────
+    passBtn.addEventListener('click', function() {
+      if (GoEngine.getStatus(state) === 'ended') return;
+      state = GoEngine.pass(state);
+      hintCell = null;
+      render();
+      if (GoEngine.getStatus(state) !== 'ended') {
+        setMessage('goPassedTurn', { playerColor: state.turn });
+      } else {
+        setMessage('');
+      }
+    });
+
+    hintBtn.addEventListener('click', function() {
+      if (GoEngine.getStatus(state) === 'ended') return;
+      var hint = GoEngine.getHint(state);
+      if (hint) {
+        hintCell = hint;
+        render();
+        setMessage('goHintAt', {
+          rawRow: hint.row + 1,
+          rawColumn: hint.col + 1
+        }, true);
+      } else {
+        setMessage('goNoMoves', {}, true);
+      }
+    });
+
+    newBtn.addEventListener('click', startNew);
+    playAgainBtn.addEventListener('click', startNew);
+
+    function startNew() {
+      state = GoEngine.newGame();
+      hintCell = null;
+      resultBanner.classList.remove('visible');
+      render();
+      setMessage('goBlackFirst');
+    }
+
+    // ── Main render ───────────────────────────────────────────
+    function render() {
+      resizeCanvas();
+      drawGrid();
+      drawStones();
+      updatePanel();
+      drawKeyboardCursor();
+    }
+
+    // ── Responsive resize ─────────────────────────────────────
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(render, 80);
+    });
+
+    i18n.onChange(function () {
+      render();
+      renderMessage();
+      if (document.activeElement === hitCanvas) updateKeyboardStatus();
+    });
+
+    // ── Init ──────────────────────────────────────────────────
+    render();
+    setMessage('goBlackFirst');
+
+  })();
+  </script>
+</body>
+</html>

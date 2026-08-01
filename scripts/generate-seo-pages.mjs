@@ -10,7 +10,7 @@ const ASSET_VERSION = "2026080101";
 const APP_ASSET_VERSION = "2026080103";
 const PRIVACY_ASSET_VERSION = "2026080101";
 const LAST_MODIFIED = "2026-08-01";
-const PREVIEW_CARD_COUNT = 20;
+const TOPIC_PAGE_SIZE = 20;
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
 const QA_HOLD_SET = new Set(QA_HOLD_IDS);
 const GAME_SLUGS = [
@@ -49,6 +49,27 @@ const GAME_DESCRIPTIONS = {
   hanabi: "Work with an AI partner to build a fireworks display in this cooperative Hanabi browser game.",
   diplomacy: "Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite.",
 };
+const SHARED_LOCALIZED_ROUTES = [
+  { file: "index.html", en: "/", ar: "/ar/", priority: "1.0" },
+  { file: "mind-lab.html", en: "/mind-lab", ar: "/ar/mind-lab/", priority: "0.95" },
+  { file: "collections.html", en: "/collections", ar: "/ar/collections/", priority: "0.95" },
+  { file: "play.html", en: "/play", ar: "/ar/play/", priority: "0.90" },
+  { file: "about.html", en: "/about", ar: "/ar/about/", priority: "0.60" },
+  { file: "privacy.html", en: "/privacy", ar: "/ar/privacy/", priority: "0.60" },
+  ...GAME_SLUGS.map((slug) => ({
+    file: `${slug}.html`,
+    en: `/${slug}`,
+    ar: `/ar/games/${slug}/`,
+    priority: "0.75",
+  })),
+];
+const SHARED_ROUTE_BY_FILE = new Map(SHARED_LOCALIZED_ROUTES.map((route) => [route.file, route]));
+
+function localizedSharedRoute(file, lang = "en") {
+  const route = SHARED_ROUTE_BY_FILE.get(file);
+  if (!route) throw new Error(`Unknown localized shared route for ${file}`);
+  return route[lang];
+}
 const YMYL_SLUGS = new Set([
   "medical-questions",
   "pharmacy",
@@ -111,6 +132,84 @@ function jsonLd(value) {
   return JSON.stringify(value, null, 2).replaceAll("</", "<\\/");
 }
 
+function rasterDimensions(buffer) {
+  if (
+    buffer.length >= 24
+    && buffer.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
+  ) {
+    return { type: "image/png", width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+  }
+  if (buffer.length >= 30 && buffer[0] === 0xFF && buffer[1] === 0xD8) {
+    let offset = 2;
+    while (offset + 9 < buffer.length) {
+      if (buffer[offset] !== 0xFF) {
+        offset += 1;
+        continue;
+      }
+      const marker = buffer[offset + 1];
+      offset += 2;
+      if (marker === 0xD8 || marker === 0xD9 || (marker >= 0xD0 && marker <= 0xD7)) continue;
+      if (offset + 2 > buffer.length) break;
+      const length = buffer.readUInt16BE(offset);
+      if (length < 2 || offset + length > buffer.length) break;
+      if ([0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF].includes(marker)) {
+        return { type: "image/jpeg", width: buffer.readUInt16BE(offset + 5), height: buffer.readUInt16BE(offset + 3) };
+      }
+      offset += length;
+    }
+  }
+  if (
+    buffer.length >= 30
+    && buffer.toString("ascii", 0, 4) === "RIFF"
+    && buffer.toString("ascii", 8, 12) === "WEBP"
+  ) {
+    const format = buffer.toString("ascii", 12, 16);
+    if (format === "VP8 ") {
+      return {
+        type: "image/webp",
+        width: buffer.readUInt16LE(26) & 0x3FFF,
+        height: buffer.readUInt16LE(28) & 0x3FFF,
+      };
+    }
+    if (format === "VP8X") {
+      return {
+        type: "image/webp",
+        width: 1 + buffer.readUIntLE(24, 3),
+        height: 1 + buffer.readUIntLE(27, 3),
+      };
+    }
+    if (format === "VP8L") {
+      const bits = buffer.readUInt32LE(21);
+      return {
+        type: "image/webp",
+        width: 1 + (bits & 0x3FFF),
+        height: 1 + ((bits >> 14) & 0x3FFF),
+      };
+    }
+  }
+  return null;
+}
+
+function rasterSocialImage(relativePath, alt) {
+  const absolutePath = path.join(root, relativePath);
+  if (!fs.existsSync(absolutePath)) return null;
+  const dimensions = rasterDimensions(fs.readFileSync(absolutePath));
+  if (!dimensions?.width || !dimensions?.height) return null;
+  return {
+    url: `${SITE_ORIGIN}/${relativePath}`,
+    type: dimensions.type,
+    width: dimensions.width,
+    height: dimensions.height,
+    alt,
+  };
+}
+
+const DEFAULT_SOCIAL_IMAGE = rasterSocialImage(
+  "assets/og-image.jpg",
+  "JAKH — 3,553 bilingual riddles across 56 topics and 10 games",
+);
+if (!DEFAULT_SOCIAL_IMAGE) throw new Error("Missing or unreadable assets/og-image.jpg");
+
 function quizStructuredData({ canonical, name, description, lang, subjectNames, cards }) {
   const subjects = [...new Set(subjectNames.map(cleanText).filter(Boolean))];
   if (!subjects.length) throw new Error(`Quiz ${canonical} needs at least one educational subject`);
@@ -140,30 +239,31 @@ function quizStructuredData({ canonical, name, description, lang, subjectNames, 
   };
 }
 
-function socialMeta({ title, description, url, type = "website", lang = "en" }) {
+function socialMeta({ title, description, url, type = "website", lang = "en", image = DEFAULT_SOCIAL_IMAGE }) {
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const safeUrl = escapeHtml(url);
   const locale = lang === "ar" ? "ar_AE" : "en_US";
-  const imageAlt = lang === "ar"
+  const selectedImage = image || DEFAULT_SOCIAL_IMAGE;
+  const imageAlt = selectedImage === DEFAULT_SOCIAL_IMAGE && lang === "ar"
     ? "JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب"
-    : "JAKH — 3,553 bilingual riddles across 56 topics and 10 games";
+    : selectedImage.alt;
   return `    <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDescription}" />
     <meta property="og:type" content="${type}" />
     <meta property="og:url" content="${safeUrl}" />
     <meta property="og:locale" content="${locale}" />
-    <meta property="og:image" content="${OG_IMAGE_URL}" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="${imageAlt}" />
+    <meta property="og:image" content="${escapeHtml(selectedImage.url)}" />
+    <meta property="og:image:type" content="${escapeHtml(selectedImage.type)}" />
+    <meta property="og:image:width" content="${selectedImage.width}" />
+    <meta property="og:image:height" content="${selectedImage.height}" />
+    <meta property="og:image:alt" content="${escapeHtml(imageAlt)}" />
     <meta property="og:site_name" content="JAKH Riddles" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${safeTitle}" />
     <meta name="twitter:description" content="${safeDescription}" />
-    <meta name="twitter:image" content="${OG_IMAGE_URL}" />
-    <meta name="twitter:image:alt" content="${imageAlt}" />`;
+    <meta name="twitter:image" content="${escapeHtml(selectedImage.url)}" />
+    <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}" />`;
 }
 
 function analyticsHead() {
@@ -181,7 +281,7 @@ function brandMarkup(lang = "en", dynamic = false, href = "/") {
       </a>`;
 }
 
-function globalFooter(lang = "en", dynamic = false, languageQuery = "", translationContract = "site") {
+function globalFooter(lang = "en", dynamic = false, languageQuery = "", translationContract = "site", physicalRoutes = false) {
   const isAr = lang === "ar";
   const instagramLabel = isAr ? "ألغاز JAKH على إنستغرام" : "JAKH Riddles on Instagram";
   const facebookLabel = isAr ? "ألغاز JAKH على فيسبوك" : "JAKH Riddles on Facebook";
@@ -189,13 +289,16 @@ function globalFooter(lang = "en", dynamic = false, languageQuery = "", translat
   const facebookKey = translationContract === "app" ? "socialFacebookLabel" : "facebookLabel";
   const instagramI18n = dynamic ? ` data-i18n-aria-label="${instagramKey}"` : "";
   const facebookI18n = dynamic ? ` data-i18n-aria-label="${facebookKey}"` : "";
+  const collectionsHref = physicalRoutes && isAr ? "/ar/collections/" : `/collections${languageQuery}`;
+  const aboutHref = physicalRoutes && isAr ? "/ar/about/" : `/about${languageQuery}`;
+  const privacyHref = physicalRoutes && isAr ? "/ar/privacy/" : `/privacy${languageQuery}`;
   return `<footer class="site-footer shell">
       <div class="footer-inner">
         <p class="footer-copy" data-i18n="footerNote">${isAr ? "جميع الحقوق محفوظة لـ JAKH 2026" : "All rights reserved to JAKH 2026"}</p>
         <nav class="footer-site-links" aria-label="${isAr ? "معلومات JAKH" : "JAKH information"}" data-i18n-aria-label="footerInfoLabel">
-          <a href="/collections${escapeHtml(languageQuery)}" data-i18n="footerCollections">${isAr ? "المجموعات" : "Collections"}</a>
-          <a href="/about${escapeHtml(languageQuery)}" data-i18n="footerAbout">${isAr ? "عن JAKH ومعايير المحتوى" : "About &amp; content standards"}</a>
-          <a href="/privacy${escapeHtml(languageQuery)}" data-i18n="footerPrivacy">${isAr ? "مركز الخصوصية" : "Privacy Centre"}</a>
+          <a href="${escapeHtml(collectionsHref)}" data-i18n="footerCollections">${isAr ? "المجموعات" : "Collections"}</a>
+          <a href="${escapeHtml(aboutHref)}" data-i18n="footerAbout">${isAr ? "عن JAKH ومعايير المحتوى" : "About &amp; content standards"}</a>
+          <a href="${escapeHtml(privacyHref)}" data-i18n="footerPrivacy">${isAr ? "مركز الخصوصية" : "Privacy Centre"}</a>
         </nav>
         <div class="footer-socials">
           <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="${instagramLabel}"${instagramI18n}><span>Instagram</span></a>
@@ -253,6 +356,17 @@ function categoryUrl(category, lang = "en") {
   return `${SITE_ORIGIN}${categoryRoute(category, lang)}`;
 }
 
+function categoryPageRoute(category, lang = "en", pageNumber = 1) {
+  if (pageNumber === 1) return categoryRoute(category, lang);
+  return lang === "ar"
+    ? `/ar/topics/${category.slug}/page/${pageNumber}/`
+    : `/${category.slug}/page/${pageNumber}/`;
+}
+
+function categoryPageUrl(category, lang = "en", pageNumber = 1) {
+  return `${SITE_ORIGIN}${categoryPageRoute(category, lang, pageNumber)}`;
+}
+
 function categoryMetaDescription(category, lang = "en") {
   const topic = category.topics?.[0]?.[lang];
   if (lang === "ar") {
@@ -267,6 +381,69 @@ function categoryMetaDescription(category, lang = "en") {
   );
 }
 
+function categorySocialImage(category, lang = "en") {
+  const alt = lang === "ar"
+    ? `اختبار ${category.title.ar} على JAKH`
+    : `${category.title.en} quiz on JAKH`;
+  for (const relativePath of [
+    `assets/backgrounds_new/${category.slug}.jpg`,
+    `assets/backgrounds/${category.slug}.webp`,
+    `assets/backgrounds/${category.slug}.png`,
+  ]) {
+    const image = rasterSocialImage(relativePath, alt);
+    if (
+      image
+      && image.width >= 300
+      && image.height >= 157
+      && image.width / image.height <= 2.1
+    ) return image;
+  }
+  return DEFAULT_SOCIAL_IMAGE;
+}
+
+function safeHttpsUrl(value) {
+  try {
+    const parsed = new URL(String(value));
+    return parsed.protocol === "https:" && parsed.hostname ? parsed.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function staticReviewMarkup(card, lang = "en") {
+  const isAr = lang === "ar";
+  const review = card?.review || { status: "pending" };
+  const safetySensitive = review.safetySensitive === true || review.priority === "high";
+  if (review.status !== "reviewed") {
+    const label = safetySensitive
+      ? (isAr ? "محتوى حساس — المراجعة التحريرية معلّقة" : "Safety-sensitive content — editorial review pending")
+      : (isAr ? "المراجعة التحريرية للحقائق معلّقة" : "Editorial fact review pending");
+    return `<div class="card-review card-review--pending${safetySensitive ? " card-review--safety" : ""}" role="note" aria-label="${escapeHtml(label)}">
+              <p class="card-review-label"><span aria-hidden="true">${safetySensitive ? "⚠" : "◷"}</span> ${escapeHtml(label)}</p>
+            </div>`;
+  }
+
+  const reviewedAt = cleanText(review.reviewedAt);
+  const reviewer = cleanText(review.reviewer);
+  const sources = (Array.isArray(review.sources) ? review.sources : [])
+    .map((source) => ({ ...source, safeUrl: safeHttpsUrl(source?.url) }))
+    .filter((source) => source.safeUrl);
+  const label = isAr ? "تمت المراجعة التحريرية" : "Editorially reviewed";
+  const sourceLinks = sources.map((source, index) => {
+    const title = cleanText(source.title || source.publisher || source.safeUrl);
+    const publisher = cleanText(source.publisher || title);
+    const sourceLabel = isAr
+      ? `المصدر ${index + 1}: ${title} — ${publisher}`
+      : `Source ${index + 1}: ${title} — ${publisher}`;
+    return `<li><a href="${escapeHtml(source.safeUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(sourceLabel)}"><span>${escapeHtml(title)} — ${escapeHtml(publisher)}</span><span class="card-review-external" aria-hidden="true">↗</span></a></li>`;
+  }).join("");
+  return `<div class="card-review card-review--reviewed" role="note" aria-label="${escapeHtml(label)}">
+              <p class="card-review-label"><span aria-hidden="true">✓</span> ${escapeHtml(label)}</p>
+              <p class="card-review-meta">${reviewedAt ? `<time datetime="${escapeHtml(reviewedAt)}">${isAr ? "تاريخ المراجعة" : "Reviewed"}: ${escapeHtml(reviewedAt)}</time>` : ""}${reviewer ? `<span>${isAr ? "المراجع" : "Reviewer"}: ${escapeHtml(reviewer)}</span>` : ""}</p>
+              ${sourceLinks ? `<div class="card-review-sources"><span class="card-review-sources-title">${isAr ? "المصادر" : "Sources"}</span><ul>${sourceLinks}</ul></div>` : ""}
+            </div>`;
+}
+
 function staticCardMarkup(category, card, lang = "en") {
   const isAr = lang === "ar";
   const difficultyLabels = isAr
@@ -276,7 +453,7 @@ function staticCardMarkup(category, card, lang = "en") {
   const subcategory = card.subcategory?.[lang]
     ? `<span class="badge badge-subcategory">${escapeHtml(card.subcategory[lang])}</span>`
     : "";
-  return `<article class="riddle-card" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" aria-label="${escapeHtml(card.question[lang])}">
+  return `<article class="riddle-card" id="${escapeHtml(card.id)}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" aria-label="${escapeHtml(card.question[lang])}">
           <div class="card-inner">
             <section class="card-face card-front" aria-hidden="false">
               <div class="card-badges">
@@ -285,6 +462,7 @@ function staticCardMarkup(category, card, lang = "en") {
                 ${subcategory}
               </div>
               <p class="card-question">${escapeHtml(card.question[lang])}</p>
+              ${staticReviewMarkup(card, lang)}
               <div class="card-actions">
                 <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${isAr ? "اكشف الإجابة" : "Flip for the answer"}</button>
               </div>
@@ -316,22 +494,35 @@ function categoryImagePath(category) {
     category.image,
     `assets/${category.slug}.svg`,
     `assets/backgrounds_new/${category.slug}.jpg`,
+    `assets/backgrounds/${category.slug}.webp`,
     `assets/backgrounds/${category.slug}.png`,
     `assets/backgrounds/${category.slug}.svg`,
-    `assets/backgrounds/${category.slug}.webp`,
     "assets/logo.png",
   ].filter(Boolean);
   const match = candidates.find((candidate) => fs.existsSync(path.join(root, candidate)));
   return `/${match || "assets/logo.png"}`;
 }
 
+const CATEGORY_CARD_IMAGE_SIZES = "(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)";
+
+function categoryCardImageAttributes(category) {
+  const source = `assets/backgrounds_new/${category.slug}.jpg`;
+  const derivative = `assets/backgrounds_new/${category.slug}-320.jpg`;
+  if (fs.existsSync(path.join(root, source)) && fs.existsSync(path.join(root, derivative))) {
+    return `src="/${escapeHtml(source)}" srcset="/${escapeHtml(derivative)} 320w, /${escapeHtml(source)} 640w" sizes="${CATEGORY_CARD_IMAGE_SIZES}" width="640" height="640"`;
+  }
+
+  const image = categoryImagePath(category);
+  const isSquareWebp = /^\/assets\/backgrounds\/(?:fictional-worlds|linguistics|mythology-legends|superheroes|survival|tech-retro|true-crime)\.webp$/u.test(image);
+  return `src="${escapeHtml(image)}" width="${isSquareWebp ? "800" : "640"}" height="${isSquareWebp ? "800" : "420"}"`;
+}
+
 function simpleCategoryCard(category, lang = "en") {
   const isAr = lang === "ar";
-  const image = categoryImagePath(category);
   const topics = (category.topics || []).slice(0, 3).map((topic) => topic[lang] || topic.en).join(" · ");
   return `<a class="category-card has-art" href="${escapeHtml(categoryRoute(category, lang))}" aria-label="${escapeHtml(category.title[lang])}">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="${escapeHtml(image)}" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" ${categoryCardImageAttributes(category)} alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">${category.count} ${isAr ? "س" : "Q"}</span>
           </div>
           <div class="category-card-overlay">
@@ -345,16 +536,34 @@ function simpleCategoryCard(category, lang = "en") {
         </a>`;
 }
 
+function topicPaginationMarkup(category, lang, currentPage, totalPages) {
+  if (totalPages <= 1) return "";
+  const isAr = lang === "ar";
+  const pageLinks = Array.from({ length: totalPages }, (_, index) => {
+    const pageNumber = index + 1;
+    const current = pageNumber === currentPage;
+    return `<a class="${current ? "primary-btn" : "ghost-btn"}" href="${escapeHtml(categoryPageRoute(category, lang, pageNumber))}"${current ? ' aria-current="page"' : ""}>${pageNumber}</a>`;
+  }).join("\n          ");
+  return `<nav class="seo-language-links" aria-label="${isAr ? "صفحات أسئلة الموضوع" : "Topic question pages"}">
+          ${pageLinks}
+        </nav>`;
+}
+
 function renderCategoryPage(category, cards, lang = "en") {
   const isAr = lang === "ar";
   const otherLang = isAr ? "en" : "ar";
   const section = sectionBySlug.get(category.slug);
   if (!section) throw new Error(`Missing section for ${category.slug}`);
-  const previewCards = cards.slice(0, PREVIEW_CARD_COUNT);
+  const previewCards = cards.slice(0, TOPIC_PAGE_SIZE);
+  const totalPages = Math.ceil(cards.length / TOPIC_PAGE_SIZE);
   const canonical = categoryUrl(category, lang);
   const alternate = categoryUrl(category, otherLang);
   const englishCanonical = categoryUrl(category, "en");
-  const languageQuery = isAr ? "?lang=ar" : "";
+  const localizedHome = isAr ? `${SITE_ORIGIN}/ar/` : `${SITE_ORIGIN}/`;
+  const localizedMindLab = isAr ? `${SITE_ORIGIN}/ar/mind-lab/` : `${SITE_ORIGIN}/mind-lab`;
+  const localizedHomeRoute = localizedSharedRoute("index.html", lang);
+  const localizedMindLabRoute = localizedSharedRoute("mind-lab.html", lang);
+  const localizedAboutRoute = localizedSharedRoute("about.html", lang);
   const title = isAr
     ? `اختبار ${category.title.ar}: ${category.count} سؤالاً | JAKH`
     : `${category.title.en} Quiz: ${category.count} Questions | JAKH`;
@@ -373,13 +582,13 @@ function renderCategoryPage(category, cards, lang = "en") {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: isAr ? "الرئيسية" : "Home", item: `${SITE_ORIGIN}/` },
-          { "@type": "ListItem", position: 2, name: isAr ? "مختبر العقل" : "Mind Lab", item: `${SITE_ORIGIN}/mind-lab` },
+          { "@type": "ListItem", position: 1, name: isAr ? "الرئيسية" : "Home", item: localizedHome },
+          { "@type": "ListItem", position: 2, name: isAr ? "مختبر العقل" : "Mind Lab", item: localizedMindLab },
           {
             "@type": "ListItem",
             position: 3,
             name: section.title[lang],
-            item: `${SITE_ORIGIN}/mind-lab#section-${section.key}`,
+            item: `${localizedMindLab}#section-${section.key}`,
           },
           { "@type": "ListItem", position: 4, name: category.title[lang], item: canonical },
         ],
@@ -397,8 +606,8 @@ function renderCategoryPage(category, cards, lang = "en") {
   const topics = category.topics || [];
   const related = relatedCategories(category, section);
   const professionalNote = YMYL_SLUGS.has(category.slug)
-    ? `<p class="content-standards-note"><strong>${isAr ? "للاستخدام التعليمي:" : "Educational use:"}</strong> ${isAr ? "هذا الاختبار للتعلّم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو نفسية." : "This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice."} <a href="/about${languageQuery}#standards">${isAr ? "اقرأ معايير المحتوى لدينا." : "Read our content standards."}</a></p>`
-    : `<p class="content-standards-note">${isAr ? "تُراجع الأسئلة للتعلّم والترفيه." : "Questions are curated for learning and entertainment."} <a href="/about${languageQuery}#standards">${isAr ? "تعرّف إلى طريقة مراجعة JAKH للمحتوى وتحسينه." : "See how JAKH reviews and improves content."}</a></p>`;
+    ? `<p class="content-standards-note"><strong>${isAr ? "للاستخدام التعليمي:" : "Educational use:"}</strong> ${isAr ? "هذا الاختبار للتعلّم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو نفسية." : "This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice."} <a href="${localizedAboutRoute}#standards">${isAr ? "اقرأ معايير المحتوى لدينا." : "Read our content standards."}</a></p>`
+    : `<p class="content-standards-note">${isAr ? "تُراجع الأسئلة للتعلّم والترفيه." : "Questions are curated for learning and entertainment."} <a href="${localizedAboutRoute}#standards">${isAr ? "تعرّف إلى طريقة مراجعة JAKH للمحتوى وتحسينه." : "See how JAKH reviews and improves content."}</a></p>`;
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">
@@ -415,8 +624,9 @@ function renderCategoryPage(category, cards, lang = "en") {
     <link rel="alternate" hreflang="en" href="${englishCanonical}" />
     <link rel="alternate" hreflang="ar" href="${categoryUrl(category, "ar")}" />
     <link rel="alternate" hreflang="x-default" href="${englishCanonical}" />
+    ${totalPages > 1 ? `<link rel="next" href="${categoryPageUrl(category, lang, 2)}" />` : ""}
     <meta name="robots" content="index,follow,max-image-preview:large" />
-${socialMeta({ title, description, url: canonical, type: "article", lang })}
+${socialMeta({ title, description, url: canonical, type: "article", lang, image: categorySocialImage(category, lang) })}
     <script type="application/ld+json">
 ${jsonLd(structuredData)}
     </script>
@@ -427,10 +637,10 @@ ${analyticsHead()}
   <body data-page="category" data-category="${escapeHtml(category.slug)}" data-route-lang="${lang}">
     <a href="#top" class="skip-link">${isAr ? "انتقل إلى المحتوى الرئيسي" : "Skip to main content"}</a>
     <header class="site-header shell">
-      ${brandMarkup(lang, true, `/${languageQuery}`)}
+      ${brandMarkup(lang, true, localizedHomeRoute)}
       <nav class="header-actions" aria-label="${isAr ? "إجراءات سريعة" : "Quick actions"}">
-        <a class="ghost-btn" href="/${languageQuery}" data-i18n="navHome">${isAr ? "الرئيسية" : "Home"}</a>
-        <a class="ghost-btn" href="/mind-lab${languageQuery}" data-i18n="navCategories">${isAr ? "المواضيع" : "Categories"}</a>
+        <a class="ghost-btn" href="${localizedHomeRoute}" data-i18n="navHome">${isAr ? "الرئيسية" : "Home"}</a>
+        <a class="ghost-btn" href="${localizedMindLabRoute}" data-i18n="navCategories">${isAr ? "المواضيع" : "Categories"}</a>
         <a class="ghost-btn language-route-link" href="${alternate}" hreflang="${otherLang}" lang="${otherLang}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">${isAr ? "تسجيل الدخول" : "Sign in"}</button>
       </nav>
@@ -447,9 +657,9 @@ ${analyticsHead()}
 
     <main id="top">
       <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}">
-        <a href="/${languageQuery}">${isAr ? "الرئيسية" : "Home"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
-        <a href="/mind-lab${languageQuery}">${isAr ? "مختبر العقل" : "Mind Lab"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
-        <a href="/mind-lab${languageQuery}#section-${escapeHtml(section.key)}">${escapeHtml(section.title[lang])}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="${localizedHomeRoute}">${isAr ? "الرئيسية" : "Home"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="${localizedMindLabRoute}">${isAr ? "مختبر العقل" : "Mind Lab"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="${localizedMindLabRoute}#section-${escapeHtml(section.key)}">${escapeHtml(section.title[lang])}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
         <span id="breadcrumbCategoryName" aria-current="page">${escapeHtml(category.title[lang])}</span>
       </nav>
       <section class="hero shell hero-category">
@@ -509,6 +719,7 @@ ${analyticsHead()}
         ${previewCards.map((card) => staticCardMarkup(category, card, lang)).join("\n        ")}
         <!-- SEO:CARDS:END -->
         </div>
+        ${topicPaginationMarkup(category, lang, 1, totalPages)}
       </section>
 
       <section class="shell section-block">
@@ -522,9 +733,159 @@ ${analyticsHead()}
       </section>
     </main>
 
-    ${globalFooter(lang, true, languageQuery, "app")}
+    ${globalFooter(lang, true, "", "app", true)}
     ${authModal(lang)}
     <script src="/app.js?v=${APP_ASSET_VERSION}"></script>
+  </body>
+</html>`;
+}
+
+function staticTopicCardMarkup(category, card, lang, position) {
+  const isAr = lang === "ar";
+  const label = isAr ? "الإجابة" : "Answer";
+  const interactiveLabel = isAr ? "افتح البطاقة في الاختبار التفاعلي" : "Open this card in the interactive quiz";
+  return `<article class="seo-qa-card" id="${escapeHtml(card.id)}" data-id="${escapeHtml(card.id)}">
+          <details>
+            <summary><span class="seo-question-number">${String(position).padStart(2, "0")}</span><span>${escapeHtml(card.question[lang])}</span></summary>
+            <div class="seo-answer">
+              <p class="seo-answer-label">${label}</p>
+              <p>${escapeHtml(card.answer[lang])}</p>
+              ${staticReviewMarkup(card, lang)}
+              <a href="${escapeHtml(categoryRoute(category, lang))}?card=${encodeURIComponent(card.id)}">${interactiveLabel} ${isAr ? "←" : "→"}</a>
+            </div>
+          </details>
+        </article>`;
+}
+
+function renderCategoryPaginationPage(category, cards, lang, pageNumber) {
+  const isAr = lang === "ar";
+  const section = sectionBySlug.get(category.slug);
+  if (!section) throw new Error(`Missing section for ${category.slug}`);
+  const totalPages = Math.ceil(cards.length / TOPIC_PAGE_SIZE);
+  if (pageNumber < 2 || pageNumber > totalPages) {
+    throw new Error(`Invalid page ${pageNumber} for ${category.slug}`);
+  }
+  const startIndex = (pageNumber - 1) * TOPIC_PAGE_SIZE;
+  const pageCards = cards.slice(startIndex, startIndex + TOPIC_PAGE_SIZE);
+  const endPosition = startIndex + pageCards.length;
+  const canonical = categoryPageUrl(category, lang, pageNumber);
+  const englishAlternate = categoryPageUrl(category, "en", pageNumber);
+  const arabicAlternate = categoryPageUrl(category, "ar", pageNumber);
+  const localizedHomeRoute = isAr ? "/ar/" : "/";
+  const localizedMindLabRoute = isAr ? "/ar/mind-lab/" : "/mind-lab";
+  const localizedHome = `${SITE_ORIGIN}${localizedHomeRoute}`;
+  const localizedMindLab = `${SITE_ORIGIN}${localizedMindLabRoute}`;
+  const title = isAr
+    ? `${category.title.ar}: الصفحة ${pageNumber} من ${totalPages} | JAKH`
+    : `${category.title.en} Questions: Page ${pageNumber} of ${totalPages} | JAKH`;
+  const description = isAr
+    ? truncate(`الصفحة ${pageNumber} من أسئلة ${category.title.ar}: الأسئلة من ${startIndex + 1} إلى ${endPosition} مع الإجابات وحالة المراجعة التحريرية وروابط المصادر المتاحة.`, 158)
+    : truncate(`Page ${pageNumber} of ${category.title.en} questions: items ${startIndex + 1}–${endPosition}, with answers, editorial review status, and available source links.`, 158);
+  const pageHeading = isAr
+    ? `${category.title.ar} — الصفحة ${pageNumber} من ${totalPages}`
+    : `${category.title.en} — Page ${pageNumber} of ${totalPages}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      quizStructuredData({
+        canonical,
+        name: pageHeading,
+        description,
+        lang,
+        subjectNames: [category.title[lang]],
+        cards: pageCards,
+      }),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: isAr ? "الرئيسية" : "Home", item: localizedHome },
+          { "@type": "ListItem", position: 2, name: isAr ? "مختبر العقل" : "Mind Lab", item: localizedMindLab },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: section.title[lang],
+            item: `${localizedMindLab}#section-${section.key}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: category.title[lang],
+            item: categoryUrl(category, lang),
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            name: isAr ? `الصفحة ${pageNumber}` : `Page ${pageNumber}`,
+            item: canonical,
+          },
+        ],
+      },
+    ],
+  };
+  const previousUrl = categoryPageUrl(category, lang, pageNumber - 1);
+  const nextUrl = pageNumber < totalPages ? categoryPageUrl(category, lang, pageNumber + 1) : "";
+  const languageRoute = categoryPageRoute(category, isAr ? "en" : "ar", pageNumber);
+  const pageCardsMarkup = pageCards
+    .map((card, index) => staticTopicCardMarkup(category, card, lang, startIndex + index + 1))
+    .join("\n        ");
+
+  return `<!DOCTYPE html>
+<html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffaf2" />
+    <meta name="description" content="${escapeHtml(description)}" />
+    <title>${escapeHtml(title)}</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="${canonical}" />
+    <link rel="alternate" hreflang="en" href="${englishAlternate}" />
+    <link rel="alternate" hreflang="ar" href="${arabicAlternate}" />
+    <link rel="alternate" hreflang="x-default" href="${englishAlternate}" />
+    <link rel="prev" href="${previousUrl}" />
+${nextUrl ? `    <link rel="next" href="${nextUrl}" />` : ""}
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+${socialMeta({ title, description, url: canonical, type: "article", lang, image: categorySocialImage(category, lang) })}
+    <script type="application/ld+json">
+${jsonLd(structuredData)}
+    </script>
+    <link rel="stylesheet" href="/styles.css?v=${ASSET_VERSION}" />
+${analyticsHead()}
+  </head>
+  <body class="seo-page" data-seo-topic="${escapeHtml(category.slug)}" data-seo-page="${pageNumber}">
+    <a href="#content" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
+    <header class="site-header shell">
+      ${brandMarkup(lang, false, localizedHomeRoute)}
+      <nav class="header-actions" aria-label="${isAr ? "التنقل" : "Quick actions"}">
+        <a class="ghost-btn" href="${localizedHomeRoute}">${isAr ? "الرئيسية" : "Home"}</a>
+        <a class="ghost-btn" href="${localizedMindLabRoute}">${isAr ? "مختبر العقل" : "Mind Lab"}</a>
+        <a class="ghost-btn" href="${languageRoute}" hreflang="${isAr ? "en" : "ar"}" lang="${isAr ? "en" : "ar"}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
+      </nav>
+    </header>
+    <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}">
+        <a href="${localizedHomeRoute}">${isAr ? "الرئيسية" : "Home"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="${localizedMindLabRoute}">${isAr ? "مختبر العقل" : "Mind Lab"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="${categoryRoute(category, lang)}">${escapeHtml(category.title[lang])}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <span aria-current="page">${isAr ? `الصفحة ${pageNumber}` : `Page ${pageNumber}`}</span>
+      </nav>
+      <section class="seo-collection-hero shell">
+        <p class="eyebrow">${escapeHtml(category.cluster[lang])}</p>
+        <h1>${escapeHtml(pageHeading)}</h1>
+        <p>${isAr ? `الأسئلة من ${startIndex + 1} إلى ${endPosition} من أصل ${cards.length}.` : `Questions ${startIndex + 1}–${endPosition} of ${cards.length}.`}</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="${categoryRoute(category, lang)}">${isAr ? "افتح الاختبار التفاعلي الكامل" : "Open the full interactive quiz"}</a>
+        </div>
+      </section>
+      <section class="seo-question-list shell" aria-label="${isAr ? "الأسئلة والأجوبة" : "Questions and answers"}">
+        ${pageCardsMarkup}
+      </section>
+      <section class="seo-next-step shell">
+        <h2>${isAr ? "تصفّح جميع صفحات الموضوع" : "Browse every topic page"}</h2>
+        ${topicPaginationMarkup(category, lang, pageNumber, totalPages)}
+      </section>
+    </main>
+    ${globalFooter(lang, false, "", "site", true)}
   </body>
 </html>`;
 }
@@ -609,6 +970,24 @@ function normalizeSocialMeta(source) {
     'rel="me noopener noreferrer"',
   );
   return next;
+}
+
+function sharedLanguageAlternatesMarkup(route) {
+  const en = `${SITE_ORIGIN}${route.en}`;
+  const ar = `${SITE_ORIGIN}${route.ar}`;
+  return `    <link rel="alternate" hreflang="en" href="${en}" />
+    <link rel="alternate" hreflang="ar" href="${ar}" />
+    <link rel="alternate" hreflang="x-default" href="${en}" />`;
+}
+
+function ensureSharedLanguageAlternates(source, file) {
+  const route = SHARED_ROUTE_BY_FILE.get(file);
+  if (!route) return source;
+  const withoutExisting = source.replace(/\s*<link rel="alternate" hreflang="(?:en|ar|x-default)"[^>]*\/?>/giu, "");
+  return withoutExisting.replace(
+    /(<link rel="canonical"[^>]*\/?>)/iu,
+    `$1\n${sharedLanguageAlternatesMarkup(route)}`,
+  );
 }
 
 function normalizeAnalytics(source) {
@@ -740,9 +1119,11 @@ ${jsonLd({
 function normalizeExistingPage(source, file) {
   let next = normalizeInternalLinks(source);
   next = normalizeSocialMeta(next);
+  next = ensureSharedLanguageAlternates(next, file);
   next = normalizeAnalytics(next);
   next = ensureFooterLinks(next);
   next = next
+    .replace(/<html\s+lang="en"(?![^>]*\bdir=)([^>]*)>/iu, '<html lang="en" dir="ltr"$1>')
     .replace(/\sdata-theme="light"/gu, "")
     .replace(/\s*document\.documentElement\.dataset\.theme\s*=\s*["']light["'];?\s*/gu, "\n")
     .replace(/<script>\s*<\/script>\s*/gu, "")
@@ -861,12 +1242,31 @@ function collectionUrl(collection, lang) {
   return `${SITE_ORIGIN}/${lang}/${collectionSlug(collection, lang)}/`;
 }
 
+function collectionSocialImage(collection, lang) {
+  for (const source of collection.sourceCategories || []) {
+    const category = categoryBySlug.get(source.slug);
+    if (!category) continue;
+    const image = categorySocialImage(category, lang);
+    if (image !== DEFAULT_SOCIAL_IMAGE) {
+      return {
+        ...image,
+        alt: lang === "ar"
+          ? `${collectionHeading(collection, lang)} على JAKH`
+          : `${collectionHeading(collection, lang)} on JAKH`,
+      };
+    }
+  }
+  return DEFAULT_SOCIAL_IMAGE;
+}
+
 function renderCollectionPage(collection, lang, cards) {
   const isAr = lang === "ar";
   const otherLang = isAr ? "en" : "ar";
   const canonical = collectionUrl(collection, lang);
   const alternate = collectionUrl(collection, otherLang);
-  const languageQuery = `?lang=${lang}`;
+  const localizedHomeRoute = localizedSharedRoute("index.html", lang);
+  const localizedCollectionsRoute = localizedSharedRoute("collections.html", lang);
+  const localizedMindLabRoute = localizedSharedRoute("mind-lab.html", lang);
   const title = collectionTitle(collection, lang);
   const description = collectionDescription(collection, lang);
   const label = isAr ? "الإجابة" : "Answer";
@@ -898,6 +1298,7 @@ function renderCollectionPage(collection, lang, cards) {
             <div class="seo-answer">
               <p class="seo-answer-label">${label}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
+              ${staticReviewMarkup(card, lang)}
               <a href="${escapeHtml(categoryRoute(card.sourceCategory, lang))}?card=${encodeURIComponent(card.id)}">${sourceLabel} ${isAr ? "←" : "→"}</a>
             </div>
           </details>
@@ -928,7 +1329,7 @@ function renderCollectionPage(collection, lang, cards) {
     <link rel="alternate" hreflang="${otherLang}" href="${alternate}" />
     <link rel="alternate" hreflang="x-default" href="${collectionUrl(collection, "en")}" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-${socialMeta({ title, description, url: canonical, type: "article", lang })}
+${socialMeta({ title, description, url: canonical, type: "article", lang, image: collectionSocialImage(collection, lang) })}
     <script type="application/ld+json">
 ${jsonLd(structured)}
     </script>
@@ -938,10 +1339,10 @@ ${analyticsHead()}
   <body class="seo-page">
     <a href="#content" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
     <header class="site-header shell">
-      ${brandMarkup(lang, false, `/${languageQuery}`)}
+      ${brandMarkup(lang, false, localizedHomeRoute)}
       <nav class="header-actions" aria-label="${isAr ? "التنقل" : "Quick actions"}">
-        <a class="ghost-btn" href="/${languageQuery}">${isAr ? "الرئيسية" : "Home"}</a>
-        <a class="ghost-btn" href="/collections${languageQuery}">${isAr ? "المجموعات" : "Collections"}</a>
+        <a class="ghost-btn" href="${localizedHomeRoute}">${isAr ? "الرئيسية" : "Home"}</a>
+        <a class="ghost-btn" href="${localizedCollectionsRoute}">${isAr ? "المجموعات" : "Collections"}</a>
         <a class="ghost-btn" href="${alternate}" lang="${otherLang}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
       </nav>
     </header>
@@ -964,12 +1365,12 @@ ${disclaimer ? `        ${disclaimer}\n` : ""}
         <h2>${isAr ? "واصل اللعب" : "Keep playing"}</h2>
         <p>${isAr ? "استكشف المجموعة الكاملة، وبدّل اللغة، وتابع نتيجتك في مختبر العقل." : "Explore the full library, switch languages, and track your score in the Mind Lab."}</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="/mind-lab${languageQuery}">${isAr ? "افتح مختبر العقل" : "Open the Mind Lab"}</a>
-          <a class="ghost-btn" href="/collections${languageQuery}">${isAr ? "كل المجموعات" : "All collections"}</a>
+          <a class="primary-btn" href="${localizedMindLabRoute}">${isAr ? "افتح مختبر العقل" : "Open the Mind Lab"}</a>
+          <a class="ghost-btn" href="${localizedCollectionsRoute}">${isAr ? "كل المجموعات" : "All collections"}</a>
         </div>
       </section>
     </main>
-    ${globalFooter(lang, false, languageQuery)}
+    ${globalFooter(lang, false, "", "site", true)}
   </body>
 </html>`;
 }
@@ -1027,7 +1428,7 @@ function renderCollectionsHub(collectionsWithCards) {
     },
   };
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
@@ -1036,6 +1437,7 @@ function renderCollectionsHub(collectionsWithCards) {
     <title>${escapeHtml(title)}</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="${SITE_ORIGIN}/collections" />
+${sharedLanguageAlternatesMarkup(SHARED_ROUTE_BY_FILE.get("collections.html"))}
     <meta name="robots" content="index,follow,max-image-preview:large" />
 ${socialMeta({ title, description, url: `${SITE_ORIGIN}/collections` })}
     <script type="application/ld+json">
@@ -1092,7 +1494,7 @@ function renderAboutPage() {
     about: { "@id": `${SITE_ORIGIN}/#organization` },
   };
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
@@ -1101,6 +1503,7 @@ function renderAboutPage() {
     <title>${escapeHtml(title)}</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="${SITE_ORIGIN}/about" />
+${sharedLanguageAlternatesMarkup(SHARED_ROUTE_BY_FILE.get("about.html"))}
     <meta name="robots" content="index,follow,max-image-preview:large" />
 ${socialMeta({ title, description, url: `${SITE_ORIGIN}/about` })}
     <script type="application/ld+json">
@@ -1162,21 +1565,24 @@ function sitemapUrl(url, priority, alternates = null) {
 }
 
 function renderSitemap() {
-  const entries = [
-    sitemapUrl(`${SITE_ORIGIN}/`, "1.0"),
-    sitemapUrl(`${SITE_ORIGIN}/mind-lab`, "0.95"),
-    sitemapUrl(`${SITE_ORIGIN}/collections`, "0.95"),
-    sitemapUrl(`${SITE_ORIGIN}/play`, "0.90"),
-    sitemapUrl(`${SITE_ORIGIN}/about`, "0.60"),
-    sitemapUrl(`${SITE_ORIGIN}/privacy`, "0.60"),
-    ...GAME_SLUGS.map((slug) => sitemapUrl(`${SITE_ORIGIN}/${slug}`, "0.75")),
-  ];
-  for (const category of catalog.categories || []) {
-    const en = categoryUrl(category, "en");
-    const ar = categoryUrl(category, "ar");
+  const entries = [];
+  for (const route of SHARED_LOCALIZED_ROUTES) {
+    const en = `${SITE_ORIGIN}${route.en}`;
+    const ar = `${SITE_ORIGIN}${route.ar}`;
     const alternates = { en, ar, "x-default": en };
-    entries.push(sitemapUrl(en, "0.85", alternates));
-    entries.push(sitemapUrl(ar, "0.85", alternates));
+    entries.push(sitemapUrl(en, route.priority, alternates));
+    entries.push(sitemapUrl(ar, route.priority, alternates));
+  }
+  for (const category of catalog.categories || []) {
+    const cards = JSON.parse(fs.readFileSync(path.join(root, "data", `${category.slug}.json`), "utf8"));
+    const totalPages = Math.ceil(cards.length / TOPIC_PAGE_SIZE);
+    for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
+      const en = categoryPageUrl(category, "en", pageNumber);
+      const ar = categoryPageUrl(category, "ar", pageNumber);
+      const alternates = { en, ar, "x-default": en };
+      entries.push(sitemapUrl(en, pageNumber === 1 ? "0.85" : "0.75", alternates));
+      entries.push(sitemapUrl(ar, pageNumber === 1 ? "0.85" : "0.75", alternates));
+    }
   }
   for (const collection of SEO_COLLECTIONS) {
     const en = collectionUrl(collection, "en");
@@ -1196,6 +1602,11 @@ for (const category of catalog.categories || []) {
   const cards = JSON.parse(fs.readFileSync(path.join(root, "data", `${category.slug}.json`), "utf8"));
   emit(`${category.slug}.html`, renderCategoryPage(category, cards, "en"));
   emit(`ar/topics/${category.slug}/index.html`, renderCategoryPage(category, cards, "ar"));
+  const totalPages = Math.ceil(cards.length / TOPIC_PAGE_SIZE);
+  for (let pageNumber = 2; pageNumber <= totalPages; pageNumber += 1) {
+    emit(`${category.slug}/page/${pageNumber}/index.html`, renderCategoryPaginationPage(category, cards, "en", pageNumber));
+    emit(`ar/topics/${category.slug}/page/${pageNumber}/index.html`, renderCategoryPaginationPage(category, cards, "ar", pageNumber));
+  }
 }
 
 for (const file of ["index.html", "mind-lab.html", "play.html", "404.html", ...GAME_SLUGS.map((slug) => `${slug}.html`)]) {
@@ -1226,6 +1637,6 @@ if (stale.length) {
 
 console.log(
   `${checkOnly ? "SEO generation is current" : "Generated SEO pages"}: `
-  + `${catalog.categories.length * 2} localized category pages, ${SEO_COLLECTIONS.length * 2} localized collections, `
+  + `${catalog.categories.length * 2} localized interactive category pages plus crawlable pagination, ${SEO_COLLECTIONS.length * 2} localized collections, `
   + `${GAME_SLUGS.length} games.`,
 );

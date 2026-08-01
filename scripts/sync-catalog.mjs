@@ -1,31 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  conciseScorableAnswer,
+  hasScorableAnswer,
+  normalizeScorableAnswer,
+  reviewValidationErrors,
+} from "./content-review-lib.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogPath = path.join(root, "data", "catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
 const maxExplicitAnswersPerLanguage = 8;
-
-function normalizeVerifiedAnswer(value) {
-  if (typeof value !== "string") return "";
-  return value
-    .normalize("NFKC")
-    .toLocaleLowerCase("en-US")
-    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
-    .replace(/[أإآٱ]/gu, "ا")
-    .replace(/ى/gu, "ي")
-    .replace(/\p{P}+/gu, " ")
-    .replace(/\s+/gu, " ")
-    .trim();
-}
-
-function conciseVerifiedAnswer(value) {
-  const normalized = normalizeVerifiedAnswer(value);
-  return normalized.length > 0
-    && normalized.length <= 96
-    && normalized.split(" ").length <= 14;
-}
 
 function acceptedAnswersAreValid(value) {
   if (value === undefined) return true;
@@ -36,20 +22,12 @@ function acceptedAnswersAreValid(value) {
     if (
       !Array.isArray(answers)
       || answers.length > maxExplicitAnswersPerLanguage
-      || answers.some((answer) => !conciseVerifiedAnswer(answer))
+      || answers.some((answer) => !conciseScorableAnswer(answer))
     ) return false;
-    const normalized = answers.map(normalizeVerifiedAnswer);
+    const normalized = answers.map(normalizeScorableAnswer);
     if (new Set(normalized).size !== normalized.length) return false;
   }
   return true;
-}
-
-function hasConciseVerifiedAnswer(card, language) {
-  return conciseVerifiedAnswer(card?.answer?.[language])
-    || (
-      Array.isArray(card?.acceptedAnswers?.[language])
-      && card.acceptedAnswers[language].some(conciseVerifiedAnswer)
-    );
 }
 
 const categoriesBySlug = new Map(
@@ -88,6 +66,13 @@ for (const category of catalog.categories || []) {
     if (!acceptedAnswersAreValid(card?.acceptedAnswers)) {
       throw new Error(`Invalid acceptedAnswers in ${category.slug}:${card?.id || "unknown"}`);
     }
+    const reviewErrors = reviewValidationErrors(card?.review, category.slug);
+    if (reviewErrors.length) {
+      throw new Error(
+        `Invalid review metadata in ${category.slug}:${card?.id || "unknown"}: `
+        + reviewErrors.join("; "),
+      );
+    }
   }
 
   const difficultyCounts = {};
@@ -111,9 +96,13 @@ for (const category of catalog.categories || []) {
   category.cluster = structuredClone(section.title);
   category.href = `/${category.slug}`;
   category.count = cards.length;
-  category.verifiedQuestionCount = cards.filter((card) => (
-    hasConciseVerifiedAnswer(card, "en")
-    && hasConciseVerifiedAnswer(card, "ar")
+  delete category.verifiedQuestionCount;
+  category.scorableQuestionCount = cards.filter((card) => (
+    hasScorableAnswer(card, "en")
+    && hasScorableAnswer(card, "ar")
+  )).length;
+  category.reviewedQuestionCount = cards.filter((card) => (
+    card?.review?.status === "reviewed"
   )).length;
   category.difficultyCounts = Object.fromEntries(
     ["easy", "medium", "hard", "very-advanced"]

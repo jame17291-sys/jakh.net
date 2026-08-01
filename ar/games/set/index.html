@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="تسابق لاكتشاف مجموعات من ثلاث بطاقات في لعبة SET المجانية للتعرف على الأنماط، من دون تنزيل أو تسجيل." />
+  <title>لعبة SET أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/set/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/set" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/set/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/set" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="لعبة SET أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="تسابق لاكتشاف مجموعات من ثلاث بطاقات في لعبة SET المجانية للتعرف على الأنماط، من دون تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/set/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="لعبة SET أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="تسابق لاكتشاف مجموعات من ثلاث بطاقات في لعبة SET المجانية للتعرف على الأنماط، من دون تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <style>
+    /* ── SET scoped styles ── */
+    #setSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Top info bar: score + timer */
+    .set-infobar {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      font-family: var(--font);
+      font-size: 1rem;
+      color: var(--text, #203247);
+    }
+    .set-stat-label {
+      color: var(--muted, #5d6d81);
+      font-size: .8125rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .15rem;
+    }
+    .set-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* Controls */
+    .set-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .625rem;
+      justify-content: center;
+    }
+    .set-btn {
+      font-family: var(--font);
+      font-size: .875rem;
+      font-weight: 600;
+      padding: .45rem 1.1rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm, 10px);
+      border: 2px solid var(--line-strong, rgba(32,50,71,.18));
+      background: var(--panel, #fff);
+      color: var(--text, #203247);
+      cursor: pointer;
+      transition: background .15s, border-color .15s, opacity .15s;
+    }
+    .set-btn:hover:not(:disabled) { background: var(--bg-soft); border-color: var(--accent); }
+    .set-btn:disabled { opacity: .4; cursor: default; }
+    .set-btn.primary { background: var(--accent, #256aa9); border-color: var(--accent, #256aa9); color: #fff; }
+    .set-btn.primary:hover:not(:disabled) {
+      background: var(--accent, #256aa9);
+      border-color: var(--accent, #256aa9);
+      color: #fff;
+      filter: brightness(1.1);
+    }
+
+    /* Status message */
+    .set-status {
+      font-family: var(--font);
+      font-size: .95rem;
+      color: var(--muted, #5d6d81);
+      min-height: 1.4em;
+      text-align: center;
+      transition: color .2s;
+    }
+    .set-status.good  { color: var(--easy, #1d7051); font-weight: 600; }
+    .set-status.bad   { color: var(--danger, #b73545); font-weight: 600; }
+    .set-status.done  { color: var(--gilt, #976006); font-weight: 700; font-size: 1.1rem; }
+
+    /* Card grid */
+    .set-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: .625rem;
+      width: 100%;
+      max-width: 680px;
+      direction: ltr;
+    }
+
+    /* Individual card */
+    .set-card {
+      background: var(--panel, #fff);
+      border: 2px solid var(--line-strong, rgba(32,50,71,.18));
+      border-radius: var(--radius-sm, 10px);
+      padding: .625rem .375rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .3rem;
+      min-height: 90px;
+      transition: border-color .15s, transform .15s, box-shadow .15s;
+      user-select: none;
+      font: inherit;
+      color: inherit;
+      unicode-bidi: isolate;
+    }
+    .set-card:hover { border-color: var(--muted, #5d6d81); }
+    .set-card.selected {
+      border-color: var(--accent, #256aa9);
+      transform: scale(1.04);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+    }
+    .set-card.hint {
+      border-color: var(--easy, #1d7051);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--easy) 22%, transparent);
+    }
+
+    @keyframes set-flash-good {
+      0%,100% { border-color: var(--easy, #1d7051); box-shadow: 0 0 0 3px rgba(72,213,151,.4); }
+      50%      { border-color: var(--easy, #1d7051); box-shadow: 0 0 0 8px rgba(72,213,151,.15); }
+    }
+    @keyframes set-flash-bad {
+      0%,100% { border-color: var(--danger, #b73545); box-shadow: 0 0 0 3px rgba(255,122,138,.4); }
+      50%      { border-color: var(--danger, #b73545); box-shadow: 0 0 0 8px rgba(255,122,138,.15); }
+    }
+    .set-card.flash-good { animation: set-flash-good .4s ease 2; border-color: var(--easy, #1d7051); }
+    .set-card.flash-bad  { animation: set-flash-bad  .4s ease 2; border-color: var(--danger, #b73545); transform: scale(1); }
+
+    /* Shapes inside cards */
+    .set-shape-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .set-shape {
+      width: 36px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .set-shape svg {
+      width: 34px;
+      height: 22px;
+      overflow: visible;
+    }
+
+    /* Deck remaining badge */
+    .set-deck-info {
+      font-family: var(--font);
+      font-size: .82rem;
+      color: var(--muted, #5d6d81);
+    }
+
+    /* Game-over overlay card */
+    .set-gameover {
+      background: var(--panel, #fff);
+      border: 1px solid var(--line-strong, rgba(32,50,71,.18));
+      border-radius: var(--radius, 16px);
+      padding: 2rem 2.5rem;
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: var(--shadow);
+    }
+    .set-gameover h2 {
+      font-family: var(--font-display);
+      color: var(--accent, #256aa9);
+      font-size: 1.6rem;
+      margin-bottom: .5rem;
+    }
+    .set-gameover p {
+      color: var(--text, #203247);
+      margin-bottom: 1rem;
+    }
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "SET",
+  "description": "Race to identify matching sets of three cards in this free pattern-recognition browser game.",
+  "url": "https://jakh.net/set",
+  "inLanguage": [
+    "en",
+    "ar"
+  ],
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="set" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture><source srcset="/assets/logo.webp" type="image/webp"/><img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/></picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+      <a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a>
+    </nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">تمييز الأنماط · كلاسيكية</p>
+        <h1 data-i18n="heroTitle">◆ سِت</h1>
+        <p class="hero-text" data-i18n="heroText">اعثر على ثلاث بطاقات تكون فيها كل سمة متطابقة تماماً أو مختلفة تماماً، وتسابق مع الوقت.</p>
+      </div>
+    </section>
+    <section class="shell section-block" id="setSection">
+      <!-- Rendered by set-ui script -->
+    </section>
+  </main>
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+      <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">إنستغرام</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">فيسبوك</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  JakhGameI18n.register('set', {
+    en: {
+      metaTitle: 'SET Online — Free Browser Game | JAKH',
+      metaDescription: 'Race to identify matching sets of three cards in this free pattern-recognition browser game. Play instantly with no download or sign-up.',
+      heroEyebrow: 'Pattern Recognition · Classic',
+      heroTitle: '◆ SET',
+      heroText: 'Find groups of three cards where every attribute is either all the same or all different. Race against the clock.',
+      setsFound: 'Sets Found',
+      time: 'Time',
+      deckLeft: 'Deck Left',
+      newGame: 'New Game',
+      hintButton: 'Hint',
+      addCards: '+3 Cards',
+      boardLabel: 'SET cards',
+      startPrompt: 'Find a Set! Select 3 cards.',
+      selectedCount: '{count} of 3 selected.',
+      setFound: 'Set found!',
+      notSet: 'Not a Set. Try again!',
+      gameOver: function (v) { return 'Game over! You found ' + v.score + ' set' + (v.scoreRaw === 1 ? '' : 's') + ' in ' + v.time + '.'; },
+      noSets: 'No sets available — deal more cards!',
+      hint: 'Hint: highlighted cards form a Set!',
+      cardsAdded: '3 cards added.',
+      cardLabel: '{count} {color} {fill} {shape}',
+      selectedCard: 'Selected. {card}',
+      colorRed: 'red',
+      colorGreen: 'green',
+      colorPurple: 'purple',
+      shapeDiamond: 'diamonds',
+      shapeSquare: 'squares',
+      shapeStar: 'stars',
+      fillSolid: 'solid',
+      fillStriped: 'striped',
+      fillOutline: 'outlined'
+    },
+    ar: {
+      metaTitle: 'لعبة SET أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'تسابق لاكتشاف مجموعات من ثلاث بطاقات في لعبة SET المجانية للتعرف على الأنماط، من دون تنزيل أو تسجيل.',
+      heroEyebrow: 'تمييز الأنماط · كلاسيكية',
+      heroTitle: '◆ سِت',
+      heroText: 'اعثر على ثلاث بطاقات تكون فيها كل سمة متطابقة تماماً أو مختلفة تماماً، وتسابق مع الوقت.',
+      setsFound: 'المجموعات المكتشفة',
+      time: 'الوقت',
+      deckLeft: 'البطاقات المتبقية',
+      newGame: 'لعبة جديدة',
+      hintButton: 'تلميح',
+      addCards: '+٣ بطاقات',
+      boardLabel: 'بطاقات SET',
+      startPrompt: 'اعثر على مجموعة! اختر ٣ بطاقات.',
+      selectedCount: 'تم اختيار {count} من ٣.',
+      setFound: 'وجدت مجموعة!',
+      notSet: 'ليست مجموعة. حاول مرة أخرى!',
+      gameOver: function (v) { return 'انتهت اللعبة! وجدت ' + v.score + ' مجموعة خلال ' + v.time + '.'; },
+      noSets: 'لا توجد مجموعة متاحة — أضف بطاقات جديدة!',
+      hint: 'تلميح: البطاقات المميزة تكوّن مجموعة!',
+      cardsAdded: 'تمت إضافة ٣ بطاقات.',
+      cardLabel: '{count} من أشكال {shape} باللون {color} وتعبئة {fill}',
+      selectedCard: 'محددة. {card}',
+      colorRed: 'الأحمر',
+      colorGreen: 'الأخضر',
+      colorPurple: 'البنفسجي',
+      shapeDiamond: 'المعين',
+      shapeSquare: 'المربع',
+      shapeStar: 'النجمة',
+      fillSolid: 'مصمتة',
+      fillStriped: 'مخططة',
+      fillOutline: 'مفرغة'
+    }
+  });
+  </script>
+
+  <!-- ── ENGINE: pure logic, zero DOM ── -->
+  <script id="set-engine">
+  var SetEngine = (function() {
+    'use strict';
+
+    // Card attrs: color 0|1|2, shape 0|1|2, count 0|1|2, fill 0|1|2
+    function generateDeck() {
+      var deck = [];
+      for (var color = 0; color < 3; color++) {
+        for (var shape = 0; shape < 3; shape++) {
+          for (var count = 0; count < 3; count++) {
+            for (var fill = 0; fill < 3; fill++) {
+              deck.push({ color: color, shape: shape, count: count, fill: fill });
+            }
+          }
+        }
+      }
+      // Fisher-Yates shuffle
+      for (var i = deck.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = deck[i]; deck[i] = deck[j]; deck[j] = tmp;
+      }
+      return deck;
+    }
+
+    function isSet(a, b, c) {
+      // For each attribute, values must be all-same or all-different
+      var attrs = ['color', 'shape', 'count', 'fill'];
+      for (var i = 0; i < attrs.length; i++) {
+        var key = attrs[i];
+        var va = a[key], vb = b[key], vc = c[key];
+        var allSame = (va === vb && vb === vc);
+        var allDiff = (va !== vb && vb !== vc && va !== vc);
+        if (!allSame && !allDiff) return false;
+      }
+      return true;
+    }
+
+    function findAllSets(cards) {
+      var results = [];
+      var n = cards.length;
+      for (var i = 0; i < n - 2; i++) {
+        for (var j = i + 1; j < n - 1; j++) {
+          for (var k = j + 1; k < n; k++) {
+            if (isSet(cards[i], cards[j], cards[k])) {
+              results.push([i, j, k]);
+            }
+          }
+        }
+      }
+      return results;
+    }
+
+    function dealInitial(deck) {
+      var remaining = deck.slice();
+      var tableau = remaining.splice(0, 12);
+      return { tableau: tableau, remaining: remaining };
+    }
+
+    function addCards(tableau, remaining) {
+      // Add 3 more cards from remaining to tableau
+      var newTableau = tableau.slice();
+      var newRemaining = remaining.slice();
+      var toAdd = Math.min(3, newRemaining.length);
+      for (var i = 0; i < toAdd; i++) {
+        newTableau.push(newRemaining.shift());
+      }
+      return { tableau: newTableau, remaining: newRemaining };
+    }
+
+    return {
+      generateDeck: generateDeck,
+      isSet: isSet,
+      findAllSets: findAllSets,
+      dealInitial: dealInitial,
+      addCards: addCards
+    };
+  })();
+  </script>
+
+  <!-- ── UI: all DOM access ── -->
+  <script id="set-ui">
+  (function() {
+    'use strict';
+
+    var E = SetEngine;
+    var I = JakhGameI18n;
+    var section = document.getElementById('setSection');
+
+    // Color values for the 3 card colors (index 0,1,2)
+    var COLORS = ['#E8613C', '#48d597', '#9f7cff'];
+    var COLOR_NAMES = ['red', 'green', 'purple'];
+    // Shape indices: 0=diamond, 1=square, 2=star
+
+    // ── Build game DOM ──
+    section.innerHTML = [
+      '<div class="set-infobar">',
+        '<div><div class="set-stat-label" data-i18n="setsFound">المجموعات المكتشفة</div><div class="set-stat-val" id="setScore">0</div></div>',
+        '<div><div class="set-stat-label" data-i18n="time">الوقت</div><div class="set-stat-val" id="setTimer" dir="ltr">0:00</div></div>',
+        '<div><div class="set-stat-label" data-i18n="deckLeft">البطاقات المتبقية</div><div class="set-stat-val" id="setDeck">69</div></div>',
+      '</div>',
+      '<div class="set-status" id="setStatus" role="status" aria-live="polite">Find a Set! Select 3 cards.</div>',
+      '<div class="set-controls">',
+        '<button class="set-btn primary" id="setBtnNew" type="button" data-i18n="newGame">لعبة جديدة</button>',
+        '<button class="set-btn" id="setBtnHint" type="button" data-i18n="hintButton">تلميح</button>',
+        '<button class="set-btn" id="setBtnMore" type="button" data-i18n="addCards">+٣ بطاقات</button>',
+      '</div>',
+      '<div class="set-grid" id="setGrid" role="group" dir="ltr" aria-label="بطاقات SET" data-i18n-aria-label="boardLabel"></div>'
+    ].join('');
+
+    var scoreEl   = document.getElementById('setScore');
+    var timerEl   = document.getElementById('setTimer');
+    var deckEl    = document.getElementById('setDeck');
+    var statusEl  = document.getElementById('setStatus');
+    var gridEl    = document.getElementById('setGrid');
+    var btnNew    = document.getElementById('setBtnNew');
+    var btnHint   = document.getElementById('setBtnHint');
+    var btnMore   = document.getElementById('setBtnMore');
+
+    // ── Game state ──
+    var tableau    = [];
+    var remaining  = [];
+    var selected   = []; // indices into tableau
+    var score      = 0;
+    var seconds    = 0;
+    var timerID    = null;
+    var gameOver   = false;
+    var hintIndices = null; // [i,j,k] currently hinted
+    var statusKey = 'startPrompt';
+    var statusValues = {};
+    var statusType = '';
+
+    // ── Shape SVG generators ──
+    function makeDiamond(color, fill) {
+      // Diamond: rotated square
+      var pts = '17,1 33,11 17,21 1,11';
+      return makeShape('polygon', { points: pts }, color, fill);
+    }
+
+    function makeSquare(color, fill) {
+      return makeShape('rect', { x: 2, y: 2, width: 30, height: 18, rx: 2 }, color, fill);
+    }
+
+    function makeStar(color, fill) {
+      // 5-point star
+      var pts = starPoints(17, 11, 11, 4.5, 5);
+      return makeShape('polygon', { points: pts }, color, fill);
+    }
+
+    function starPoints(cx, cy, outerR, innerR, points) {
+      var pts = [];
+      for (var i = 0; i < points * 2; i++) {
+        var angle = (Math.PI / points) * i - Math.PI / 2;
+        var r = i % 2 === 0 ? outerR : innerR;
+        pts.push((cx + r * Math.cos(angle)).toFixed(2) + ',' + (cy + r * Math.sin(angle)).toFixed(2));
+      }
+      return pts.join(' ');
+    }
+
+    function makeShape(tag, attrs, color, fill) {
+      // fill: 0=solid, 1=striped, 2=outline
+      var svgNS = 'http://www.w3.org/2000/svg';
+      var svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('viewBox', '0 0 34 22');
+      svg.setAttribute('xmlns', svgNS);
+      svg.setAttribute('aria-hidden', 'true');
+
+      if (fill === 1) {
+        // Striped: use clipPath + lines
+        var defs = document.createElementNS(svgNS, 'defs');
+        var clipId = 'clip-' + Math.random().toString(36).slice(2);
+        var clip = document.createElementNS(svgNS, 'clipPath');
+        clip.setAttribute('id', clipId);
+        var clipShape = document.createElementNS(svgNS, tag);
+        for (var a in attrs) clipShape.setAttribute(a, attrs[a]);
+        clip.appendChild(clipShape);
+        defs.appendChild(clip);
+        svg.appendChild(defs);
+
+        // Outline
+        var outline = document.createElementNS(svgNS, tag);
+        for (var a in attrs) outline.setAttribute(a, attrs[a]);
+        outline.setAttribute('fill', 'none');
+        outline.setAttribute('stroke', color);
+        outline.setAttribute('stroke-width', '2');
+        svg.appendChild(outline);
+
+        // Stripes
+        var stripGroup = document.createElementNS(svgNS, 'g');
+        stripGroup.setAttribute('clip-path', 'url(#' + clipId + ')');
+        for (var x = 0; x <= 34; x += 4) {
+          var line = document.createElementNS(svgNS, 'line');
+          line.setAttribute('x1', x); line.setAttribute('y1', 0);
+          line.setAttribute('x2', x); line.setAttribute('y2', 22);
+          line.setAttribute('stroke', color); line.setAttribute('stroke-width', '1.5');
+          stripGroup.appendChild(line);
+        }
+        svg.appendChild(stripGroup);
+      } else {
+        var shape = document.createElementNS(svgNS, tag);
+        for (var a in attrs) shape.setAttribute(a, attrs[a]);
+        if (fill === 0) {
+          // Solid
+          shape.setAttribute('fill', color);
+          shape.setAttribute('stroke', color);
+          shape.setAttribute('stroke-width', '1');
+        } else {
+          // Outline
+          shape.setAttribute('fill', 'none');
+          shape.setAttribute('stroke', color);
+          shape.setAttribute('stroke-width', '2');
+        }
+        svg.appendChild(shape);
+      }
+      return svg;
+    }
+
+    function makeShapeSVG(card) {
+      var color = COLORS[card.color];
+      var fill  = card.fill;
+      if (card.shape === 0) return makeDiamond(color, fill);
+      if (card.shape === 1) return makeSquare(color, fill);
+      return makeStar(color, fill);
+    }
+
+    function captureGridFocus() {
+      var active = document.activeElement;
+      if (!active || !gridEl.contains(active)) return null;
+      var index = Number(active.dataset.idx);
+      if (!Number.isInteger(index)) return null;
+      return { card: tableau[index], index: index };
+    }
+
+    function restoreGridFocus(snapshot) {
+      if (!snapshot) return;
+      if (gameOver) {
+        btnNew.focus();
+        return;
+      }
+
+      var index = snapshot.card ? tableau.indexOf(snapshot.card) : -1;
+      if (index === -1) {
+        index = Math.min(Math.max(snapshot.index, 0), tableau.length - 1);
+      }
+      var target = getCardEl(index) || gridEl.querySelector('.set-card:not(:disabled)');
+      if (target) target.focus();
+      else btnNew.focus();
+    }
+
+    // ── Render ──
+    function render(focusSnapshot) {
+      if (arguments.length === 0) focusSnapshot = captureGridFocus();
+      gridEl.innerHTML = '';
+
+      for (var i = 0; i < tableau.length; i++) {
+        (function(idx) {
+          var card = tableau[idx];
+          var el = document.createElement('button');
+          el.type = 'button';
+          el.className = 'set-card';
+          el.dir = I.dir;
+          el.dataset.idx = idx;
+          el.disabled = gameOver;
+
+          // Build shape column
+          var shapeRow = document.createElement('div');
+          shapeRow.className = 'set-shape-row';
+          var count = card.count + 1; // 1,2,3
+          for (var n = 0; n < count; n++) {
+            var shapeWrap = document.createElement('div');
+            shapeWrap.className = 'set-shape';
+            shapeWrap.appendChild(makeShapeSVG(card));
+            shapeRow.appendChild(shapeWrap);
+          }
+          el.appendChild(shapeRow);
+
+          if (selected.indexOf(idx) !== -1) el.classList.add('selected');
+          if (hintIndices && hintIndices.indexOf(idx) !== -1) el.classList.add('hint');
+          var cardLabel = describeCard(card);
+          el.setAttribute('aria-pressed', selected.indexOf(idx) !== -1 ? 'true' : 'false');
+          el.setAttribute('aria-label', selected.indexOf(idx) !== -1
+            ? I.t('selectedCard', { card: cardLabel })
+            : cardLabel);
+
+          el.addEventListener('click', function() { onCardClick(idx); });
+          gridEl.appendChild(el);
+        })(i);
+      }
+
+      scoreEl.textContent = I.number(score);
+      deckEl.textContent  = I.number(remaining.length);
+      updateButtons();
+      restoreGridFocus(focusSnapshot);
+    }
+
+    function describeCard(card) {
+      return I.t('cardLabel', {
+        count: I.number(card.count + 1),
+        color: I.t(['colorRed', 'colorGreen', 'colorPurple'][card.color]),
+        fill: I.t(['fillSolid', 'fillStriped', 'fillOutline'][card.fill]),
+        shape: I.t(['shapeDiamond', 'shapeSquare', 'shapeStar'][card.shape])
+      });
+    }
+
+    function updateButtons() {
+      btnMore.disabled = remaining.length === 0;
+      btnHint.disabled = gameOver;
+      btnMore.disabled = gameOver || remaining.length === 0;
+    }
+
+    // ── Card click ──
+    function onCardClick(idx) {
+      if (gameOver) return;
+      clearHint();
+
+      var pos = selected.indexOf(idx);
+      if (pos !== -1) {
+        // Deselect
+        selected.splice(pos, 1);
+        getCardEl(idx).classList.remove('selected');
+        setStatus('startPrompt', {}, '');
+        render();
+        return;
+      }
+
+      selected.push(idx);
+      getCardEl(idx).classList.add('selected');
+
+      if (selected.length === 3) {
+        checkSelection();
+      } else {
+        setStatus('selectedCount', { count: I.number(selected.length) }, '');
+        render();
+      }
+    }
+
+    function getCardEl(idx) {
+      return gridEl.querySelector('[data-idx="' + idx + '"]');
+    }
+
+    function checkSelection() {
+      var a = tableau[selected[0]];
+      var b = tableau[selected[1]];
+      var c = tableau[selected[2]];
+      var valid = E.isSet(a, b, c);
+
+      if (valid) {
+        // Flash green
+        flashCards(selected.slice(), 'good');
+        score++;
+        scoreEl.textContent = I.number(score);
+        setStatus('setFound', {}, 'good');
+
+        var toRemove = selected.slice().sort(function(x,y){return y-x;}); // desc order
+        var focusSnapshot = captureGridFocus();
+        selected = [];
+
+        setTimeout(function() {
+          // Remove matched cards, replace from deck if possible
+          for (var i = 0; i < toRemove.length; i++) {
+            tableau.splice(toRemove[i], 1);
+          }
+          // Refill from remaining if tableau < 12 and remaining has cards
+          while (tableau.length < 12 && remaining.length > 0) {
+            tableau.push(remaining.shift());
+          }
+          checkGameOver();
+          render(focusSnapshot);
+        }, 700);
+      } else {
+        // Flash red then deselect
+        flashCards(selected.slice(), 'bad');
+        setStatus('notSet', {}, 'bad');
+        var toDeselect = selected.slice();
+        var focusSnapshot = captureGridFocus();
+        selected = [];
+        setTimeout(function() {
+          toDeselect.forEach(function(i) {
+            var el = getCardEl(i);
+            if (el) { el.classList.remove('selected', 'flash-bad'); }
+          });
+          setStatus('startPrompt', {}, '');
+          render(focusSnapshot);
+        }, 800);
+      }
+    }
+
+    function flashCards(indices, type) {
+      indices.forEach(function(i) {
+        var el = getCardEl(i);
+        if (!el) return;
+        el.classList.remove('flash-good', 'flash-bad', 'selected');
+        void el.offsetWidth; // reflow
+        el.classList.add('flash-' + type);
+      });
+    }
+
+    function checkGameOver() {
+      if (remaining.length === 0 && E.findAllSets(tableau).length === 0) {
+        gameOver = true;
+        stopTimer();
+        setStatus('gameOver', {
+          score: I.number(score),
+          scoreRaw: score,
+          time: '\u2066' + timerEl.textContent + '\u2069'
+        }, 'done');
+        updateButtons();
+      }
+    }
+
+    // ── Hint ──
+    function onHint() {
+      if (gameOver) return;
+      clearHint();
+      var sets = E.findAllSets(tableau);
+      if (sets.length === 0) {
+        setStatus('noSets', {}, 'bad');
+        return;
+      }
+      hintIndices = sets[0];
+      hintIndices.forEach(function(i) {
+        var el = getCardEl(i);
+        if (el) el.classList.add('hint');
+      });
+      setStatus('hint', {}, 'good');
+    }
+
+    function clearHint() {
+      if (!hintIndices) return;
+      hintIndices.forEach(function(i) {
+        var el = getCardEl(i);
+        if (el) el.classList.remove('hint');
+      });
+      hintIndices = null;
+    }
+
+    // ── Add 3 cards ──
+    function onAddMore() {
+      if (gameOver || remaining.length === 0) return;
+      clearHint();
+      var result = E.addCards(tableau, remaining);
+      tableau   = result.tableau;
+      remaining = result.remaining;
+      selected  = [];
+      setStatus('cardsAdded', {}, '');
+      render();
+    }
+
+    // ── Status helper ──
+    function setStatus(key, values, type) {
+      statusKey = key;
+      statusValues = values || {};
+      statusType = type || '';
+      refreshStatus();
+    }
+
+    function refreshStatus() {
+      statusEl.textContent = I.t(statusKey, statusValues);
+      statusEl.className = 'set-status' + (statusType ? ' ' + statusType : '');
+    }
+
+    // ── Timer ──
+    function startTimer() {
+      seconds = 0;
+      timerEl.textContent = '0:00';
+      clearInterval(timerID);
+      timerID = setInterval(function() {
+        seconds++;
+        var m = Math.floor(seconds / 60);
+        var s = seconds % 60;
+        timerEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(timerID);
+      timerID = null;
+    }
+
+    // ── New game ──
+    function startGame() {
+      gameOver  = false;
+      score     = 0;
+      selected  = [];
+      hintIndices = null;
+      var deck   = E.generateDeck();
+      var deal   = E.dealInitial(deck);
+      tableau    = deal.tableau;
+      remaining  = deal.remaining;
+      setStatus('startPrompt', {}, '');
+      startTimer();
+      render();
+    }
+
+    // ── Events ──
+    btnNew.addEventListener('click',  startGame);
+    btnHint.addEventListener('click', onHint);
+    btnMore.addEventListener('click', onAddMore);
+
+    I.onChange(function() {
+      if (statusKey === 'selectedCount') statusValues.count = I.number(selected.length);
+      if (statusKey === 'gameOver') statusValues.score = I.number(score);
+      refreshStatus();
+      render();
+    });
+
+    // ── Init ──
+    I.apply();
+    startGame();
+  })();
+  </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
@@ -8,6 +8,9 @@
   <link rel="preload" href="styles.css?v=2026080101" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/backgammon"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/backgammon" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/backgammon/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/backgammon" />
   <meta name="robots" content="index,follow"/>
   <meta property="og:title" content="Backgammon Online — Free Browser Game | JAKH" />
   <meta property="og:description" content="Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up." />
@@ -27,9 +30,6 @@
   <link rel="stylesheet" href="styles.css?v=2026080101"/>
   <script src="/game-i18n.js?v=2026080101"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
-
-
-  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* scoped backgammon styles */
     :root {
@@ -50,7 +50,7 @@
 
     /* ── Board container ────────────────────────────────────── */
     .bg-outer {
-      width: min(700px, calc(100vw - 2rem));
+      width: min(700px, 100%);
       background: var(--panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius);
@@ -363,26 +363,35 @@
     @media (max-width: 480px) {
       .bg-controls { flex-direction: column; align-items: flex-start; }
       .bg-outer {
-        overflow-x: auto;
-        overflow-y: hidden;
-        overscroll-behavior-inline: contain;
-        -webkit-overflow-scrolling: touch;
+        overflow: hidden;
       }
       .bg-half,
-      .bg-mid { min-width: 356px; }
+      .bg-mid {
+        width: 100%;
+        min-width: 0;
+      }
       .bg-half {
         gap: 0 !important;
         padding-inline: 0 !important;
       }
       .bg-points-group { gap: 0 !important; }
-      .bg-point { min-width: 24px; }
+      .bg-point { min-width: 0; }
       .bg-bar-area {
-        width: 28px !important;
-        min-width: 28px;
+        width: 22px !important;
+        min-width: 22px;
       }
       .bg-bearoff-zone {
-        width: 40px !important;
-        min-width: 40px;
+        width: 26px !important;
+        min-width: 26px;
+        padding-inline: 1px !important;
+      }
+      .bg-bar-label,
+      .bg-bearoff-label {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        font-size: 0.625rem !important;
+        line-height: 1.05;
+        letter-spacing: 0 !important;
       }
     }
   </style>
@@ -1072,6 +1081,7 @@
       bar.style.cssText = 'width:36px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(32,50,71,0.16);cursor:pointer;';
 
       var lbl = document.createElement('div');
+      lbl.className = 'bg-bar-label';
       lbl.style.cssText = 'color:var(--ink-soft);font-size:0.8125rem;font-family:var(--font);text-transform:uppercase;letter-spacing:0.04em;';
       lbl.textContent = I.t('bar');
       lbl.dir = I.dir;
@@ -1149,6 +1159,7 @@
         + 'background:rgba(255,255,255,0.22);border-left:1px solid rgba(32,50,71,0.12);padding:4px 2px;';
 
       var lbl = document.createElement('div');
+      lbl.className = 'bg-bearoff-label';
       lbl.style.cssText = 'font-size:0.8125rem;font-family:var(--font);color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:4px;text-align:center;';
       lbl.textContent = I.t(color === 'w' ? 'whiteOff' : 'blackOff');
       lbl.dir = I.dir;

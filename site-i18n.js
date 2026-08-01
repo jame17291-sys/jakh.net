@@ -2,6 +2,22 @@
   'use strict';
 
   const STORAGE_KEY = 'jakh-riddles-settings';
+  let memorySettings = '{}';
+
+  function readSettings() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw !== null) memorySettings = raw;
+      return JSON.parse(raw || memorySettings || '{}');
+    } catch (_) {
+      try { return JSON.parse(memorySettings || '{}'); } catch { return {}; }
+    }
+  }
+
+  function writeSettings(settings) {
+    memorySettings = JSON.stringify(settings);
+    try { localStorage.setItem(STORAGE_KEY, memorySettings); return true; } catch (_) { return false; }
+  }
 
   const COMMON = {
     en: {
@@ -170,9 +186,54 @@
     return value === 'ar' ? 'ar' : 'en';
   }
 
+  const SHARED_LANGUAGE_ROUTES = Object.freeze([
+    { en: '/', ar: '/ar/' },
+    { en: '/mind-lab', ar: '/ar/mind-lab/' },
+    { en: '/collections', ar: '/ar/collections/' },
+    { en: '/play', ar: '/ar/play/' },
+    { en: '/about', ar: '/ar/about/' },
+    { en: '/privacy', ar: '/ar/privacy/' },
+    ...['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
+      .map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/` })),
+  ]);
+
+  function normalizeRoutePath(pathname) {
+    let normalized = String(pathname || '/').replace(/\/{2,}/g, '/');
+    normalized = normalized.replace(/\/index(?:\.html)?$/i, '/').replace(/\.html$/i, '');
+    if (normalized !== '/') normalized = normalized.replace(/\/+$/, '');
+    return normalized || '/';
+  }
+
+  function sharedRoute(pathname = window.location.pathname) {
+    const normalized = normalizeRoutePath(pathname);
+    for (const route of SHARED_LANGUAGE_ROUTES) {
+      if (normalizeRoutePath(route.en) === normalized) return { ...route, lang: 'en' };
+      if (normalizeRoutePath(route.ar) === normalized) return { ...route, lang: 'ar' };
+    }
+    return null;
+  }
+
+  function routeForLanguage(pathname, lang) {
+    const route = sharedRoute(pathname);
+    return route ? route[normalizeLanguage(lang)] : '';
+  }
+
+  function localizedHref(href, lang) {
+    try {
+      const url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin) return href;
+      const pathname = routeForLanguage(url.pathname, lang);
+      if (!pathname) return href;
+      url.searchParams.delete('lang');
+      return `${pathname}${url.search}${url.hash}`;
+    } catch (_) {
+      return href;
+    }
+  }
+
   function readLanguage() {
     try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      const saved = readSettings();
       return normalizeLanguage(saved.lang);
     } catch (_) {
       return 'en';
@@ -181,10 +242,10 @@
 
   function saveLanguage(nextLanguage) {
     try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      const saved = readSettings();
       const settings = saved && typeof saved === 'object' && !Array.isArray(saved) ? saved : {};
       settings.lang = normalizeLanguage(nextLanguage);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+      writeSettings(settings);
     } catch (_) {}
   }
 
@@ -192,11 +253,17 @@
     try {
       const url = new URL(window.location.href);
       const requested = url.searchParams.get('lang');
-      if (requested !== 'en' && requested !== 'ar') return null;
-      saveLanguage(requested);
-      url.searchParams.delete('lang');
-      window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
-      return requested;
+      const route = sharedRoute(url.pathname);
+      if (requested === 'en' || requested === 'ar') {
+        saveLanguage(requested);
+        url.searchParams.delete('lang');
+        const pathname = route ? route[requested] : url.pathname;
+        const target = `${pathname}${url.search}${url.hash}`;
+        if (normalizeRoutePath(pathname) !== normalizeRoutePath(url.pathname)) window.location.replace(target);
+        else window.history.replaceState(null, '', target);
+        return requested;
+      }
+      return route?.lang || null;
     } catch (_) {
       return null;
     }
@@ -236,6 +303,12 @@
     root.querySelectorAll('[data-i18n-placeholder]').forEach((node) => {
       node.setAttribute('placeholder', message(node.dataset.i18nPlaceholder));
     });
+    root.querySelectorAll('a[href]').forEach((node) => {
+      const href = node.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      const localized = localizedHref(href, language);
+      if (localized !== href) node.setAttribute('href', localized);
+    });
 
     const select = document.getElementById('langSelect');
     if (select) select.value = language;
@@ -264,6 +337,13 @@
   function setLanguage(nextLanguage) {
     language = normalizeLanguage(nextLanguage);
     saveLanguage(language);
+    const pathname = routeForLanguage(window.location.pathname, language);
+    if (pathname) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('lang');
+      window.location.assign(`${pathname}${url.search}${url.hash}`);
+      return;
+    }
     apply();
   }
 
@@ -325,6 +405,7 @@
 
   window.addEventListener('storage', (event) => {
     if (event.key !== STORAGE_KEY) return;
+    if (sharedRoute()) return;
     const nextLanguage = readLanguage();
     if (nextLanguage === language) return;
     language = nextLanguage;

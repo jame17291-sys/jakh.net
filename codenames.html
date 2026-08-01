@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
@@ -8,6 +8,9 @@
   <link rel="preload" href="styles.css?v=2026080101" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/codenames"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/codenames" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/codenames/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/codenames" />
   <meta name="robots" content="index,follow"/>
   <meta property="og:title" content="Codenames Online — Free Browser Game | JAKH" />
   <meta property="og:description" content="Follow an AI clue giver and uncover the secret agents in this free browser version of Codenames. Play instantly with no download or sign-up." />
@@ -27,9 +30,6 @@
   <link rel="stylesheet" href="styles.css?v=2026080101"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script src="/game-i18n.js?v=2026080101"></script>
-
-
-  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* scoped codenames styles */
     :root {
@@ -812,6 +812,8 @@
         document.getElementById('cnModal').classList.remove('visible');
         document.getElementById('cnModal').setAttribute('aria-hidden', 'true');
         startNewGame();
+        const firstCard = document.querySelector('#cnGrid .cn-card:not(:disabled)');
+        (firstCard || document.getElementById('cnNewGameBtn')).focus();
       });
     }
 
@@ -889,9 +891,47 @@
       }
     }
 
+    function captureGridFocus() {
+      const grid = document.getElementById('cnGrid');
+      const active = document.activeElement;
+      if (!grid || !active || !grid.contains(active)) return null;
+      const card = active.closest('.cn-card');
+      if (!card) return null;
+      return {
+        conceptId: card.dataset.conceptId,
+        index: Array.from(grid.children).indexOf(card),
+      };
+    }
+
+    function restoreGridFocus(snapshot) {
+      if (!snapshot) return;
+      const grid = document.getElementById('cnGrid');
+      const cards = Array.from(grid.children);
+      let target = cards.find(card => (
+        card.dataset.conceptId === snapshot.conceptId && !card.disabled
+      ));
+
+      if (!target) {
+        for (let offset = 1; offset <= cards.length; offset++) {
+          const candidate = cards[(snapshot.index + offset) % cards.length];
+          if (candidate && !candidate.disabled) {
+            target = candidate;
+            break;
+          }
+        }
+      }
+
+      if (!target && state.status === 'playing' && state.turn === 'red') {
+        const pass = document.getElementById('cnPassBtn');
+        if (!pass.disabled) target = pass;
+      }
+      (target || document.getElementById('cnNewGameBtn')).focus();
+    }
+
     function renderGrid() {
       const grid = document.getElementById('cnGrid');
       if (!grid) return;
+      const focusSnapshot = captureGridFocus();
       grid.innerHTML = '';
       grid.setAttribute('aria-label', t('boardLabel'));
 
@@ -936,6 +976,7 @@
 
         grid.appendChild(card);
       }
+      restoreGridFocus(focusSnapshot);
     }
 
     function onCardClick(index) {
@@ -1040,6 +1081,7 @@
         setTimeout(() => {
           modal.classList.add('visible');
           modal.setAttribute('aria-hidden', 'false');
+          document.getElementById('cnModalBtn').focus();
         }, 200);
       }
     }

@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="تعاون مع شريك ذكي لبناء عرض ألعاب نارية في لعبة هانابي المجانية على المتصفح، بلا تنزيل أو تسجيل." />
+  <title>هانابي أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/hanabi/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/hanabi" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/hanabi/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/hanabi" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="هانابي أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="تعاون مع شريك ذكي لبناء عرض ألعاب نارية في لعبة هانابي المجانية على المتصفح، بلا تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/hanabi/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="هانابي أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="تعاون مع شريك ذكي لبناء عرض ألعاب نارية في لعبة هانابي المجانية على المتصفح، بلا تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <style>
+    /* scoped hanabi styles */
+    :root {
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
+      --suit-r: #d9505f;
+      --suit-y: #d7931a;
+      --suit-g: #278d65;
+      --suit-b: #4A90D9;
+      --suit-w: #f8fafc;
+    }
+
+    #hanabiSection {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    /* Tokens row */
+    .hb-tokens {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hb-token-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hb-token-group strong {
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hb-score-display {
+      margin-left: auto;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gilt);
+    }
+
+    .hb-score-display span {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-family: var(--font);
+      font-weight: 500;
+      display: block;
+      text-align: right;
+    }
+
+    /* Fireworks stacks */
+    .hb-stacks {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      direction: ltr;
+    }
+
+    .hb-stack {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      text-align: center;
+      min-height: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+    }
+
+    .hb-stack-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .hb-stack-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* Cards */
+    .hb-card {
+      border-radius: 8px;
+      width: 48px;
+      height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      position: relative;
+      border: 2px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      cursor: default;
+      flex-shrink: 0;
+    }
+
+    .hb-card.selectable {
+      cursor: pointer;
+    }
+
+    .hb-card.selectable:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(32, 50, 71, 0.12);
+    }
+
+    .hb-card.selected {
+      border-color: var(--gilt);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(151, 96, 6, 0.18);
+    }
+
+    .hb-card-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .hb-card-suit-icon {
+      font-size: 0.8125rem;
+      opacity: 0.8;
+    }
+
+    /* Clue annotation pip */
+    .hb-clue-pip {
+      position: absolute;
+      top: 3px;
+      right: 4px;
+      font-size: 0.8125rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* Face-down card */
+    .hb-card-hidden {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      color: var(--muted);
+    }
+
+    /* Hands */
+    .hb-hands {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      direction: ltr;
+    }
+
+    @media (max-width: 560px) {
+      .hb-hands { grid-template-columns: 1fr; }
+    }
+
+    .hb-hand-panel {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+    }
+
+    .hb-hand-panel.active-player {
+      border-color: rgba(232,97,60,0.4);
+    }
+
+    .hb-hand-title {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hb-hand-title .turn-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .hb-cards-row {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      direction: ltr;
+    }
+
+    /* Actions panel */
+    .hb-actions {
+      background: var(--bg-soft);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .hb-actions-title {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .hb-action-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hb-btn {
+      padding: 0.5rem 1rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--panel);
+      color: var(--text);
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+
+    .hb-btn:hover:not(:disabled) {
+      background: var(--bg-soft);
+      border-color: var(--accent);
+    }
+
+    .hb-btn:active:not(:disabled) { transform: scale(0.97); }
+
+    .hb-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .hb-btn-accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .hb-btn-accent:hover:not(:disabled) {
+      background: #1e588e;
+      border-color: #1e588e;
+    }
+
+    .hb-btn-gilt {
+      background: rgba(201,162,39,0.15);
+      border-color: rgba(201,162,39,0.4);
+      color: var(--gilt);
+    }
+
+    .hb-btn-gilt:hover:not(:disabled) {
+      background: rgba(201,162,39,0.25);
+    }
+
+    /* Log */
+    .hb-log {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.9rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      min-height: 48px;
+      max-height: 100px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hb-log-entry {
+      padding: 0.15rem 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .hb-log-entry:last-child { border-bottom: none; }
+
+    .hb-log-entry.good  { color: var(--easy); }
+    .hb-log-entry.bad   { color: var(--danger); }
+    .hb-log-entry.info  { color: var(--gilt); }
+
+    /* Keep every game-state region inside a 320 CSS-pixel viewport. */
+    @media (max-width: 400px) {
+      #hanabiSection {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .hb-tokens {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+        padding: 0.65rem;
+      }
+
+      .hb-token-group {
+        min-width: 0;
+        flex-wrap: wrap;
+        line-height: 1.25;
+      }
+
+      .hb-score-display {
+        margin-left: 0;
+        justify-self: end;
+      }
+
+      .hb-stacks {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.25rem;
+      }
+
+      .hb-stack {
+        min-width: 0;
+        min-height: 64px;
+        padding: 0.35rem 0.1rem;
+      }
+
+      .hb-stack-label {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        font-size: 0.625rem;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .hb-stack-value {
+        font-size: 1.4rem;
+      }
+
+      .hb-hand-panel,
+      .hb-actions,
+      .hb-log {
+        min-width: 0;
+      }
+
+      .hb-hand-panel {
+        padding: 0.6rem;
+      }
+
+      .hb-card {
+        width: 44px;
+        height: 66px;
+      }
+
+      .hb-cards-row {
+        gap: 0.25rem;
+      }
+    }
+
+    /* Clue sub-action modal */
+    .hb-clue-picker {
+      display: none;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+      align-items: center;
+    }
+
+    .hb-clue-picker.visible { display: flex; }
+
+    .hb-clue-picker-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      width: 100%;
+    }
+
+    /* Suit pip buttons */
+    .hb-suit-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .hb-suit-btn:hover { transform: scale(1.05); box-shadow: 0 5px 14px rgba(32, 50, 71, 0.12); }
+
+    /* Modal */
+    .hb-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(32, 50, 71, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    .hb-modal-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .hb-modal {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      transform: translateY(20px);
+      transition: transform 0.25s;
+    }
+
+    .hb-modal-overlay.visible .hb-modal { transform: translateY(0); }
+
+    .hb-modal h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .hb-modal p { color: var(--muted); margin-bottom: 1.5rem; }
+
+    .hb-modal-icon {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .hb-modal-score {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--gilt);
+      display: block;
+      margin: 0.5rem 0;
+    }
+
+    .hb-ai-thinking {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #4A90D9;
+      font-size: 0.875rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Hanabi",
+  "description": "Work with an AI partner to build a fireworks display in this cooperative Hanabi browser game.",
+  "url": "https://jakh.net/hanabi",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="hanabi" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture>
+        <source srcset="/assets/logo.webp" type="image/webp"/>
+        <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+      <a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a>
+    </nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">تعاونية · استنتاج</p>
+        <h1 data-i18n="heroTitle">🎈 هانابي</h1>
+        <p class="hero-text" data-i18n="heroText">ترى بطاقات شريكك الذكي ولا ترى بطاقاتك. تعاونا عبر التلميحات لبناء عرض الألعاب النارية المثالي — 25 نقطة تحقق الفوز!</p>
+      </div>
+    </section>
+
+    <section class="shell section-block" id="hanabiSection">
+      <!-- Hanabi UI injected here -->
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+      <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span data-i18n="instagramName">إنستغرام</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+          <span data-i18n="facebookName">فيسبوك</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script id="hanabi-i18n">
+  JakhGameI18n.register('hanabi', {
+    en: {
+      metaTitle: 'Hanabi Online — Free Browser Game | JAKH',
+      metaDescription: 'Work with an AI partner to build a fireworks display in this cooperative Hanabi browser game. Play instantly with no download or sign-up.',
+      metaImageAlt: 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games',
+      heroEyebrow: 'Cooperative · Deduction',
+      heroTitle: '🎈 Hanabi',
+      heroText: "You can see your AI partner's cards but not your own. Work together through clues to build the perfect fireworks display — 25 points wins!",
+      clues: 'Clues:',
+      fuses: 'Fuses:',
+      deck: 'Deck:',
+      score: 'Score',
+      yourHand: 'YOUR HAND (face-down)',
+      aiHand: "AI PARTNER'S HAND",
+      chooseAction: 'Select a card from your hand, then choose an action',
+      playCard: 'Play Card',
+      discardCard: 'Discard Card',
+      giveSuitClue: 'Give Suit Clue',
+      giveValueClue: 'Give Value Clue',
+      pickSuit: 'Pick a suit:',
+      cancel: 'Cancel',
+      newGame: 'New Game',
+      gameMessage: 'Game message',
+      playAgain: 'Play Again',
+      aiThinking: 'AI partner is thinking…',
+      aiTakingTurn: 'AI is taking its turn…',
+      cardSelected: 'Card {index} selected. Choose an action.',
+      pickSuitForAI: "Pick a suit to clue about the AI partner's hand:",
+      pickValueForAI: "Pick a value to clue about the AI partner's hand:",
+      suitRed: 'Red',
+      suitYellow: 'Yellow',
+      suitGreen: 'Green',
+      suitBlue: 'Blue',
+      suitWhite: 'White',
+      stacksLabel: 'Fireworks stacks',
+      humanHandLabel: 'Your hidden hand',
+      aiHandLabel: "AI partner's visible hand",
+      hiddenCardLabel: 'Hidden card {index}{clues}',
+      suitClueLabel: ', suit clue {suit}',
+      valueClueLabel: ', value clue {value}',
+      aiCardLabel: 'AI card {index}: {suit} {value}',
+      perfectTitle: 'Perfection!',
+      perfectDesc: 'You and your AI partner achieved a perfect score! Legendary teamwork.',
+      boomTitle: 'BOOM!',
+      boomDesc: 'All fuses burned out. The fireworks show is cancelled.',
+      showOverTitle: "Show's Over",
+      deckOverExcellent: 'The deck ran out. Excellent!',
+      deckOverGood: 'The deck ran out. Good effort.',
+      deckOverPractice: 'The deck ran out. Keep practicing.',
+      actorHuman: 'you',
+      actorAI: 'AI',
+      targetHuman: 'you',
+      targetAI: 'AI',
+      eventGameStart: 'Game started! Work together to build the fireworks.',
+      eventClue: 'Clue from {actor} to {target}: “{clue}” — {count} card(s) match.',
+      eventHumanPlaySuccess: 'You played {card} — SUCCESS!',
+      eventHumanPlayMisfire: 'You played {card} — MISFIRE! ({fuses} fuse(s) left)',
+      eventHumanBonus: 'Bonus clue token gained!',
+      eventHumanDiscard: 'You discarded {card}. Clue token recovered.',
+      eventAIPlaySuccess: 'AI played {card} — SUCCESS!',
+      eventAIPlayMisfire: 'AI played {card} — MISFIRE! ({fuses} fuse(s) left)',
+      eventAIBonus: 'AI earned a bonus clue!',
+      eventAIDiscard: 'AI discarded {card} and recovered a clue token.'
+    },
+    ar: {
+      metaTitle: 'هانابي أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'تعاون مع شريك ذكي لبناء عرض ألعاب نارية في لعبة هانابي المجانية على المتصفح، بلا تنزيل أو تسجيل.',
+      metaImageAlt: 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب',
+      heroEyebrow: 'تعاونية · استنتاج',
+      heroTitle: '🎈 هانابي',
+      heroText: 'ترى بطاقات شريكك الذكي ولا ترى بطاقاتك. تعاونا عبر التلميحات لبناء عرض الألعاب النارية المثالي — 25 نقطة تحقق الفوز!',
+      clues: 'التلميحات:',
+      fuses: 'فتائل الأمان:',
+      deck: 'الرزمة:',
+      score: 'النقاط',
+      yourHand: 'يدك (مخفية)',
+      aiHand: 'يد الشريك الذكي',
+      chooseAction: 'اختر بطاقة من يدك ثم اختر إجراءً',
+      playCard: 'العب البطاقة',
+      discardCard: 'تخلّص من البطاقة',
+      giveSuitClue: 'تلميح عن اللون',
+      giveValueClue: 'تلميح عن الرقم',
+      pickSuit: 'اختر لوناً:',
+      cancel: 'إلغاء',
+      newGame: 'لعبة جديدة',
+      gameMessage: 'رسالة اللعبة',
+      playAgain: 'العب مجدداً',
+      aiThinking: 'الشريك الذكي يفكر…',
+      aiTakingTurn: 'الشريك الذكي ينفذ دوره…',
+      cardSelected: 'اخترت البطاقة {index}. اختر إجراءً.',
+      pickSuitForAI: 'اختر لوناً لتقديم تلميح عن يد الشريك الذكي:',
+      pickValueForAI: 'اختر رقماً لتقديم تلميح عن يد الشريك الذكي:',
+      suitRed: 'أحمر',
+      suitYellow: 'أصفر',
+      suitGreen: 'أخضر',
+      suitBlue: 'أزرق',
+      suitWhite: 'أبيض',
+      stacksLabel: 'أكوام الألعاب النارية',
+      humanHandLabel: 'يدك المخفية',
+      aiHandLabel: 'يد الشريك الذكي الظاهرة',
+      hiddenCardLabel: 'البطاقة المخفية {index}{clues}',
+      suitClueLabel: '، تلميح اللون {suit}',
+      valueClueLabel: '، تلميح الرقم {value}',
+      aiCardLabel: 'بطاقة الشريك {index}: {suit} {value}',
+      perfectTitle: 'عرض مثالي!',
+      perfectDesc: 'حققت أنت وشريكك الذكي العلامة الكاملة. تعاون أسطوري!',
+      boomTitle: 'انفجار!',
+      boomDesc: 'نفدت جميع فتائل الأمان. أُلغي عرض الألعاب النارية.',
+      showOverTitle: 'انتهى العرض',
+      deckOverExcellent: 'نفدت الرزمة. أداء ممتاز!',
+      deckOverGood: 'نفدت الرزمة. محاولة جيدة.',
+      deckOverPractice: 'نفدت الرزمة. واصل التدريب.',
+      actorHuman: 'أنت',
+      actorAI: 'الذكاء الاصطناعي',
+      targetHuman: 'أنت',
+      targetAI: 'الذكاء الاصطناعي',
+      eventGameStart: 'بدأت اللعبة! تعاونا لبناء الألعاب النارية.',
+      eventClue: 'تلميح من {actor} إلى {target}: «{clue}» — يطابق {count} بطاقة.',
+      eventHumanPlaySuccess: 'لعبت {card} — نجاح!',
+      eventHumanPlayMisfire: 'لعبت {card} — إخفاق! (بقي {fuses} من فتائل الأمان)',
+      eventHumanBonus: 'حصلت على رمز تلميح إضافي!',
+      eventHumanDiscard: 'تخلصت من {card} واستعدت رمز تلميح.',
+      eventAIPlaySuccess: 'لعب الشريك الذكي {card} — نجاح!',
+      eventAIPlayMisfire: 'لعب الشريك الذكي {card} — إخفاق! (بقي {fuses} من فتائل الأمان)',
+      eventAIBonus: 'حصل الشريك الذكي على تلميح إضافي!',
+      eventAIDiscard: 'تخلص الشريك الذكي من {card} واستعاد رمز تلميح.'
+    }
+  });
+  </script>
+
+  <!-- ============================================================
+       HANABI ENGINE — pure logic, no DOM
+       ============================================================ -->
+  <script id="hanabi-engine">
+  const HanabiEngine = (() => {
+    const SUITS = ['r','y','g','b','w'];
+    const SUIT_ICONS = { r:'🔴', y:'🟡', g:'🟢', b:'🔵', w:'⚪' };
+    // distribution: 1,1,1,2,2,3,3,4,4,5 per suit
+    const VALUE_DIST = [1,1,1,2,2,3,3,4,4,5];
+
+    function buildDeck() {
+      const deck = [];
+      for (const suit of SUITS) {
+        for (const v of VALUE_DIST) {
+          deck.push({ suit, value: v, clues: [] });
+        }
+      }
+      return shuffle(deck);
+    }
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function deepClone(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function event(code, params = {}, tone = '') {
+      return { code, params, tone };
+    }
+
+    function newGame() {
+      const deck = buildDeck();
+      const humanHand = deck.splice(0, 4);
+      const aiHand    = deck.splice(0, 4);
+
+      return {
+        deck,
+        humanHand,   // human can NOT see these (only clue annotations shown)
+        aiHand,      // human CAN see AI's hand
+        clues:  8,
+        fuses:  3,
+        played: { r:0, y:0, g:0, b:0, w:0 },
+        discard:[],
+        turn:   'human',
+        log:    [event('gameStart', {}, 'info')],
+        score:  0
+      };
+    }
+
+    function computeScore(state) {
+      return Object.values(state.played).reduce((a,b) => a+b, 0);
+    }
+
+    // Give a clue to 'target' ('human'|'ai') about a suit or value
+    // Returns new state or null if no clues left
+    function giveClue(state, target, type, value, actor = 'human') {
+      if (state.clues <= 0) return null;
+      const s = deepClone(state);
+      s.clues--;
+
+      const hand = target === 'human' ? s.humanHand : s.aiHand;
+      let matchCount = 0;
+      for (const card of hand) {
+        if ((type === 'suit' && card.suit === value) ||
+            (type === 'value' && card.value === value)) {
+          card.clues.push({ type, value });
+          matchCount++;
+        }
+      }
+
+      s.log.push(event('clue', { actor, target, type, value, matchCount }, 'info'));
+      return s;
+    }
+
+    // Play a card from human hand by index
+    function playCard(state, handIndex) {
+      const s = deepClone(state);
+      const card = s.humanHand.splice(handIndex, 1)[0];
+
+      // Draw replacement
+      if (s.deck.length > 0) s.humanHand.push(s.deck.shift());
+
+      const next = s.played[card.suit] + 1;
+      if (next === card.value) {
+        s.played[card.suit] = next;
+        s.score = computeScore(s);
+        s.log.push(event('humanPlaySuccess', { suit: card.suit, value: card.value }, 'good'));
+        // Bonus clue for completing a 5
+        if (card.value === 5 && s.clues < 8) {
+          s.clues++;
+          s.log.push(event('humanBonus', {}, 'info'));
+        }
+      } else {
+        s.fuses--;
+        s.discard.push(card);
+        s.log.push(event('humanPlayMisfire', {
+          suit: card.suit,
+          value: card.value,
+          fuses: s.fuses
+        }, 'bad'));
+      }
+      s.turn = 'ai';
+      return s;
+    }
+
+    // Discard a card from human hand by index
+    function discardCard(state, handIndex) {
+      if (state.clues >= 8) return null; // can't discard at max clues
+      const s = deepClone(state);
+      const card = s.humanHand.splice(handIndex, 1)[0];
+      s.discard.push(card);
+      if (s.deck.length > 0) s.humanHand.push(s.deck.shift());
+      if (s.clues < 8) s.clues++;
+      s.log.push(event('humanDiscard', { suit: card.suit, value: card.value }, 'info'));
+      s.turn = 'ai';
+      return s;
+    }
+
+    // Determine if a card is currently playable
+    function isPlayable(card, played) {
+      return played[card.suit] + 1 === card.value;
+    }
+
+    // AI action logic
+    function getAIAction(state) {
+      // 1. If human has a playable card and doesn't know it, give a clue
+      if (state.clues > 0) {
+        for (let i = 0; i < state.humanHand.length; i++) {
+          const card = state.humanHand[i];
+          if (isPlayable(card, state.played)) {
+            const hasValueClue = card.clues.some(c => c.type === 'value' && c.value === card.value);
+            if (!hasValueClue) {
+              return { action: 'clue', target: 'human', type: 'value', value: card.value };
+            }
+          }
+        }
+      }
+
+      // 2. If AI has a card it knows is playable (fully identified via clues), play it
+      for (let i = 0; i < state.aiHand.length; i++) {
+        const card = state.aiHand[i];
+        const suitClue  = card.clues.find(c => c.type === 'suit');
+        const valueClue = card.clues.find(c => c.type === 'value');
+        if (suitClue && valueClue && isPlayable({ suit: suitClue.value, value: valueClue.value }, state.played)) {
+          return { action: 'play', handIndex: i };
+        }
+      }
+
+      // 3. If clues available and a human card has suit clue but not value, give value clue for playable card
+      if (state.clues > 0) {
+        for (let i = 0; i < state.humanHand.length; i++) {
+          const card = state.humanHand[i];
+          if (isPlayable(card, state.played)) {
+            return { action: 'clue', target: 'human', type: 'suit', value: card.suit };
+          }
+        }
+      }
+
+      // 4. If clues available and AI hand has playable card, give self clue
+      if (state.clues > 0) {
+        for (let i = 0; i < state.aiHand.length; i++) {
+          const card = state.aiHand[i];
+          if (isPlayable(card, state.played)) {
+            const hasSuitClue  = card.clues.some(c => c.type === 'suit' && c.value === card.suit);
+            if (!hasSuitClue) return { action: 'clue', target: 'ai', type: 'suit', value: card.suit };
+          }
+        }
+      }
+
+      // 5. Discard oldest card in AI hand (if clues not at max)
+      if (state.clues < 8) {
+        return { action: 'discard', handIndex: 0 };
+      }
+
+      // 6. Last resort: play oldest AI card
+      return { action: 'play', handIndex: 0 };
+    }
+
+    // Execute AI turn
+    function executeAIAction(state) {
+      const action = getAIAction(state);
+      let s = deepClone(state);
+
+      if (action.action === 'clue') {
+        const result = giveClue(s, action.target, action.type, action.value, 'ai');
+        if (result) {
+          s = result;
+        }
+      } else if (action.action === 'play') {
+        const card = s.aiHand.splice(action.handIndex, 1)[0];
+        if (s.deck.length > 0) s.aiHand.push(s.deck.shift());
+        const next = s.played[card.suit] + 1;
+        if (next === card.value) {
+          s.played[card.suit] = next;
+          s.score = computeScore(s);
+          s.log.push(event('aiPlaySuccess', { suit: card.suit, value: card.value }, 'good'));
+          if (card.value === 5 && s.clues < 8) {
+            s.clues++;
+            s.log.push(event('aiBonus', {}, 'info'));
+          }
+        } else {
+          s.fuses--;
+          s.discard.push(card);
+          s.log.push(event('aiPlayMisfire', {
+            suit: card.suit,
+            value: card.value,
+            fuses: s.fuses
+          }, 'bad'));
+        }
+      } else if (action.action === 'discard') {
+        const card = s.aiHand.splice(action.handIndex, 1)[0];
+        s.discard.push(card);
+        if (s.deck.length > 0) s.aiHand.push(s.deck.shift());
+        if (s.clues < 8) s.clues++;
+        s.log.push(event('aiDiscard', { suit: card.suit, value: card.value }, 'info'));
+      }
+
+      s.turn = 'human';
+      return s;
+    }
+
+    function isGameOver(state) {
+      if (state.fuses <= 0) return 'fuses';
+      if (computeScore(state) === 25) return 'perfect';
+      if (state.deck.length === 0 && state.humanHand.length < 4 && state.aiHand.length < 4) return 'deck';
+      // All suits complete
+      if (Object.values(state.played).every(v => v === 5)) return 'perfect';
+      return false;
+    }
+
+    return {
+      SUITS, SUIT_ICONS,
+      newGame, giveClue, playCard, discardCard,
+      executeAIAction, getAIAction,
+      isGameOver, computeScore, isPlayable
+    };
+  })();
+  </script>
+
+  <!-- ============================================================
+       HANABI UI
+       ============================================================ -->
+  <script id="hanabi-ui">
+  (() => {
+    const section  = document.getElementById('hanabiSection');
+    const i18n     = JakhGameI18n;
+    let state      = null;
+    let aiBusy     = false;
+    let selectedHumanCard = -1; // index of selected human card for actions
+    let pendingClueType   = null; // 'suit' or 'value'
+
+    const SUIT_COLORS = { r:'#E8613C', y:'#C9A227', g:'#48d597', b:'#4A90D9', w:'#F0E8D8' };
+
+    function t(key, values) {
+      return i18n.t(key, values);
+    }
+
+    function suitName(suit) {
+      const key = { r: 'suitRed', y: 'suitYellow', g: 'suitGreen', b: 'suitBlue', w: 'suitWhite' }[suit];
+      return t(key);
+    }
+
+    function formatCard(suit, value) {
+      return `${HanabiEngine.SUIT_ICONS[suit]}${i18n.number(value)}`;
+    }
+
+    function formatEvent(entry) {
+      const params = entry?.params || {};
+      if (!entry?.code) return '';
+      if (entry.code === 'gameStart') return t('eventGameStart');
+      if (entry.code === 'clue') {
+        const clue = params.type === 'suit'
+          ? `${HanabiEngine.SUIT_ICONS[params.value]} ${suitName(params.value)}`
+          : i18n.number(params.value);
+        return t('eventClue', {
+          actor: t(params.actor === 'ai' ? 'actorAI' : 'actorHuman'),
+          target: t(params.target === 'ai' ? 'targetAI' : 'targetHuman'),
+          clue,
+          count: i18n.number(params.matchCount)
+        });
+      }
+      const messageKey = {
+        humanPlaySuccess: 'eventHumanPlaySuccess',
+        humanPlayMisfire: 'eventHumanPlayMisfire',
+        humanBonus: 'eventHumanBonus',
+        humanDiscard: 'eventHumanDiscard',
+        aiPlaySuccess: 'eventAIPlaySuccess',
+        aiPlayMisfire: 'eventAIPlayMisfire',
+        aiBonus: 'eventAIBonus',
+        aiDiscard: 'eventAIDiscard'
+      }[entry.code];
+      return messageKey ? t(messageKey, {
+        card: params.suit ? formatCard(params.suit, params.value) : '',
+        fuses: i18n.number(params.fuses)
+      }) : '';
+    }
+
+    function buildUI() {
+      section.innerHTML = `
+        <!-- Token bar -->
+        <div class="hb-tokens">
+          <div class="hb-token-group">
+            <span data-i18n="clues">التلميحات:</span> <strong id="hbClues"></strong> <span id="hbClueIcons"></span>
+          </div>
+          <div class="hb-token-group">
+            <span data-i18n="fuses">فتائل الأمان:</span> <strong id="hbFuses"></strong> <span id="hbFuseIcons"></span>
+          </div>
+          <div class="hb-token-group">
+            <span data-i18n="deck">الرزمة:</span> <strong id="hbDeck"></strong>
+          </div>
+          <div class="hb-score-display">
+            <span data-i18n="score">النقاط</span>
+            <span id="hbScore" style="font-size:1.4rem;color:var(--gilt);font-family: var(--font-display);">0</span>
+          </div>
+        </div>
+
+        <!-- Fireworks stacks -->
+        <div class="hb-stacks" id="hbStacks" role="group" dir="ltr"></div>
+
+        <!-- Hands -->
+        <div class="hb-hands" dir="ltr">
+          <div class="hb-hand-panel" id="hbHumanPanel">
+            <div class="hb-hand-title" id="hbHumanTitle">
+              <span class="turn-dot" id="hbHumanDot" style="display:none;"></span>
+              <span data-i18n="yourHand">يدك (مخفية)</span>
+            </div>
+            <div class="hb-cards-row" id="hbHumanCards" role="group" dir="ltr"></div>
+          </div>
+          <div class="hb-hand-panel" id="hbAIPanel">
+            <div class="hb-hand-title" id="hbAITitle">
+              <span data-i18n="aiHand">يد الشريك الذكي</span>
+            </div>
+            <div class="hb-cards-row" id="hbAICards" role="group" dir="ltr"></div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="hb-actions" id="hbActions">
+          <div class="hb-actions-title" id="hbActionTitle">${t('chooseAction')}</div>
+          <div class="hb-action-row">
+            <button class="hb-btn hb-btn-accent" id="hbPlayBtn" disabled data-i18n="playCard">العب البطاقة</button>
+            <button class="hb-btn" id="hbDiscardBtn" disabled data-i18n="discardCard">تخلّص من البطاقة</button>
+            <button class="hb-btn hb-btn-gilt" id="hbClueSuitBtn" disabled data-i18n="giveSuitClue">تلميح عن اللون</button>
+            <button class="hb-btn hb-btn-gilt" id="hbClueValueBtn" disabled data-i18n="giveValueClue">تلميح عن الرقم</button>
+          </div>
+          <!-- Clue picker sub-panel -->
+          <div class="hb-clue-picker" id="hbCluePicker">
+            <span class="hb-clue-picker-label" id="hbCluePickerLabel">${t('pickSuit')}</span>
+            <div id="hbCluePickerOptions" style="display:flex;gap:0.4rem;flex-wrap:wrap;"></div>
+            <button class="hb-btn" id="hbCluePickerCancel" style="margin-inline-start:auto;" data-i18n="cancel">إلغاء</button>
+          </div>
+        </div>
+
+        <!-- New Game -->
+        <div style="margin-bottom:1rem;">
+          <button class="hb-btn" id="hbNewGameBtn" data-i18n="newGame">لعبة جديدة</button>
+        </div>
+
+        <!-- Log -->
+        <div class="hb-log" id="hbLog" aria-live="polite"></div>
+
+        <!-- Game over modal -->
+        <div class="hb-modal-overlay" id="hbModal" aria-hidden="true">
+          <div class="hb-modal" role="dialog" aria-modal="true" aria-labelledby="hbModalTitle" aria-describedby="hbModalDesc">
+            <span class="hb-modal-icon" id="hbModalIcon"></span>
+            <h2 id="hbModalTitle">${t('gameMessage')}</h2>
+            <span class="hb-modal-score" id="hbModalScore"></span>
+            <p id="hbModalDesc"></p>
+            <button class="hb-btn hb-btn-accent" id="hbModalBtn" data-i18n="playAgain">العب مجدداً</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('hbStacks').setAttribute('aria-label', t('stacksLabel'));
+      document.getElementById('hbHumanCards').setAttribute('aria-label', t('humanHandLabel'));
+      document.getElementById('hbAICards').setAttribute('aria-label', t('aiHandLabel'));
+
+      document.getElementById('hbPlayBtn').addEventListener('click', onPlayCard);
+      document.getElementById('hbDiscardBtn').addEventListener('click', onDiscardCard);
+      document.getElementById('hbClueSuitBtn').addEventListener('click', () => openCluePicker('suit'));
+      document.getElementById('hbClueValueBtn').addEventListener('click', () => openCluePicker('value'));
+      document.getElementById('hbCluePickerCancel').addEventListener('click', closeCluePicker);
+      document.getElementById('hbNewGameBtn').addEventListener('click', startNewGame);
+      document.getElementById('hbModalBtn').addEventListener('click', () => {
+        document.getElementById('hbModal').classList.remove('visible');
+        document.getElementById('hbModal').setAttribute('aria-hidden', 'true');
+        startNewGame();
+      });
+    }
+
+    function startNewGame() {
+      state = HanabiEngine.newGame();
+      selectedHumanCard = -1;
+      pendingClueType = null;
+      aiBusy = false;
+      document.getElementById('hbModal').classList.remove('visible');
+      document.getElementById('hbModal').setAttribute('aria-hidden', 'true');
+      renderState();
+    }
+
+    function renderState() {
+      if (!state) return;
+      renderTokens();
+      renderStacks();
+      renderHands();
+      renderActions();
+      renderLog();
+    }
+
+    function renderTokens() {
+      document.getElementById('hbClues').textContent  = i18n.number(state.clues);
+      document.getElementById('hbFuses').textContent  = i18n.number(state.fuses);
+      document.getElementById('hbDeck').textContent   = i18n.number(state.deck.length);
+      document.getElementById('hbScore').textContent  = i18n.number(HanabiEngine.computeScore(state));
+      document.getElementById('hbClueIcons').textContent = '🔵'.repeat(state.clues);
+      document.getElementById('hbFuseIcons').textContent = '💥'.repeat(state.fuses);
+    }
+
+    function renderStacks() {
+      const container = document.getElementById('hbStacks');
+      container.innerHTML = '';
+      container.setAttribute('aria-label', t('stacksLabel'));
+      for (const suit of HanabiEngine.SUITS) {
+        const val = state.played[suit];
+        const div = document.createElement('div');
+        div.className = 'hb-stack';
+        div.setAttribute('dir', 'auto');
+        div.setAttribute('aria-label', `${suitName(suit)}: ${i18n.number(val)}`);
+        div.style.borderColor = val > 0 ? SUIT_COLORS[suit] + '60' : 'var(--line-strong)';
+        div.innerHTML = `
+          <div class="hb-stack-label">${HanabiEngine.SUIT_ICONS[suit]} ${suitName(suit)}</div>
+          <div class="hb-stack-value" style="color:${SUIT_COLORS[suit]}">${val ? i18n.number(val) : '–'}</div>
+        `;
+        container.appendChild(div);
+      }
+    }
+
+    function renderHands() {
+      renderHumanHand();
+      renderAIHand();
+      // Turn indicator
+      const dot = document.getElementById('hbHumanDot');
+      const humanPanel = document.getElementById('hbHumanPanel');
+      const aiPanel    = document.getElementById('hbAIPanel');
+      if (state.turn === 'human' && !aiBusy) {
+        dot.style.display = 'inline-block';
+        humanPanel.classList.add('active-player');
+        aiPanel.classList.remove('active-player');
+      } else {
+        dot.style.display = 'none';
+        humanPanel.classList.remove('active-player');
+        aiPanel.classList.add('active-player');
+      }
+    }
+
+    function renderHumanHand() {
+      const row = document.getElementById('hbHumanCards');
+      row.innerHTML = '';
+      row.setAttribute('aria-label', t('humanHandLabel'));
+      const isHumanTurn = state.turn === 'human' && !aiBusy;
+
+      state.humanHand.forEach((card, i) => {
+        const div = document.createElement('div');
+        div.className = 'hb-card hb-card-hidden' + (isHumanTurn ? ' selectable' : '');
+        div.setAttribute('role', isHumanTurn ? 'button' : 'img');
+        if (i === selectedHumanCard) div.classList.add('selected');
+
+        // Build clue annotation
+        const suitClue  = card.clues.slice().reverse().find(c => c.type === 'suit');
+        const valueClue = card.clues.slice().reverse().find(c => c.type === 'value');
+
+        if (suitClue || valueClue) {
+          const suitIcon  = suitClue  ? `<span class="hb-clue-pip" style="color:${SUIT_COLORS[suitClue.value]}">${HanabiEngine.SUIT_ICONS[suitClue.value]}</span>` : '';
+          const valueText = valueClue ? `<span class="hb-card-value" style="color:var(--gilt)">${i18n.number(valueClue.value)}</span>` : '<span class="hb-card-value" style="color:var(--muted)">?</span>';
+          div.innerHTML = suitIcon + valueText;
+        } else {
+          div.innerHTML = '<span class="hb-card-value" style="color:var(--muted)">?</span>';
+        }
+        let clues = '';
+        if (suitClue) clues += t('suitClueLabel', { suit: suitName(suitClue.value) });
+        if (valueClue) clues += t('valueClueLabel', { value: i18n.number(valueClue.value) });
+        div.setAttribute('aria-label', t('hiddenCardLabel', {
+          index: i18n.number(i + 1),
+          clues
+        }));
+
+        if (isHumanTurn) {
+          div.tabIndex = 0;
+          div.addEventListener('click', () => {
+            selectedHumanCard = selectedHumanCard === i ? -1 : i;
+            closeCluePicker();
+            renderHands();
+            renderActions();
+          });
+          div.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            div.click();
+          });
+        }
+
+        row.appendChild(div);
+      });
+    }
+
+    function renderAIHand() {
+      const row = document.getElementById('hbAICards');
+      row.innerHTML = '';
+      row.setAttribute('aria-label', t('aiHandLabel'));
+
+      state.aiHand.forEach((card, i) => {
+        const div = document.createElement('div');
+        div.className = 'hb-card';
+        div.setAttribute('role', 'img');
+        div.setAttribute('aria-label', t('aiCardLabel', {
+          index: i18n.number(i + 1),
+          suit: suitName(card.suit),
+          value: i18n.number(card.value)
+        }));
+        div.style.background = SUIT_COLORS[card.suit];
+        div.style.color = card.suit === 'w' ? '#111' : '#fff';
+
+        const suitClue  = card.clues.some(c => c.type === 'suit');
+        const valueClue = card.clues.some(c => c.type === 'value');
+        const clueIndicator = (suitClue || valueClue) ? `<span class="hb-clue-pip" style="color:${card.suit === 'w' ? '#333' : 'rgba(255,255,255,0.9)'}">★</span>` : '';
+
+        div.innerHTML = `${clueIndicator}<span class="hb-card-value">${i18n.number(card.value)}</span><span class="hb-card-suit-icon">${HanabiEngine.SUIT_ICONS[card.suit]}</span>`;
+        row.appendChild(div);
+      });
+    }
+
+    function renderActions() {
+      const isHumanTurn = state.turn === 'human' && !aiBusy;
+      const cardSelected = selectedHumanCard >= 0;
+      const hasClues = state.clues > 0;
+      const canDiscard = state.clues < 8;
+
+      document.getElementById('hbPlayBtn').disabled    = !isHumanTurn || !cardSelected;
+      document.getElementById('hbDiscardBtn').disabled = !isHumanTurn || !cardSelected || !canDiscard;
+      document.getElementById('hbClueSuitBtn').disabled  = !isHumanTurn || !hasClues;
+      document.getElementById('hbClueValueBtn').disabled = !isHumanTurn || !hasClues;
+
+      const titleEl = document.getElementById('hbActionTitle');
+      if (aiBusy) {
+        const thinking = document.createElement('span');
+        thinking.className = 'hb-ai-thinking';
+        thinking.textContent = t('aiThinking');
+        titleEl.replaceChildren(thinking);
+      } else if (!isHumanTurn) {
+        titleEl.textContent = t('aiTakingTurn');
+      } else if (!cardSelected) {
+        titleEl.textContent = t('chooseAction');
+      } else {
+        titleEl.textContent = t('cardSelected', { index: i18n.number(selectedHumanCard + 1) });
+      }
+
+      if (!isHumanTurn) closeCluePicker();
+    }
+
+    function renderLog() {
+      const logEl = document.getElementById('hbLog');
+      if (!logEl || !state.log) return;
+      logEl.innerHTML = '';
+      const entries = state.log.slice(-8); // show last 8 entries
+      for (const entry of entries) {
+        const div = document.createElement('div');
+        div.className = 'hb-log-entry';
+        if (entry.tone) div.classList.add(entry.tone);
+        div.textContent = formatEvent(entry);
+        div.setAttribute('dir', 'auto');
+        logEl.appendChild(div);
+      }
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function onPlayCard() {
+      if (selectedHumanCard < 0 || state.turn !== 'human' || aiBusy) return;
+      state = HanabiEngine.playCard(state, selectedHumanCard);
+      selectedHumanCard = -1;
+      closeCluePicker();
+      checkGameOver();
+      renderState();
+      if (state.turn === 'ai') scheduleAITurn();
+    }
+
+    function onDiscardCard() {
+      if (selectedHumanCard < 0 || state.turn !== 'human' || aiBusy) return;
+      if (state.clues >= 8) return;
+      state = HanabiEngine.discardCard(state, selectedHumanCard);
+      selectedHumanCard = -1;
+      closeCluePicker();
+      checkGameOver();
+      renderState();
+      if (state.turn === 'ai') scheduleAITurn();
+    }
+
+    function openCluePicker(type) {
+      if (state.clues <= 0 || state.turn !== 'human' || aiBusy) return;
+      pendingClueType = type;
+      selectedHumanCard = -1;
+
+      const picker  = document.getElementById('hbCluePicker');
+      const label   = document.getElementById('hbCluePickerLabel');
+      const options = document.getElementById('hbCluePickerOptions');
+      options.innerHTML = '';
+      picker.classList.add('visible');
+
+      if (type === 'suit') {
+        label.textContent = t('pickSuitForAI');
+        for (const suit of HanabiEngine.SUITS) {
+          const btn = document.createElement('button');
+          btn.className = 'hb-suit-btn';
+          btn.style.background = SUIT_COLORS[suit];
+          btn.style.color = suit === 'w' ? '#111' : '#fff';
+          btn.style.borderColor = SUIT_COLORS[suit];
+          btn.title = suitName(suit);
+          btn.setAttribute('aria-label', suitName(suit));
+          btn.textContent = HanabiEngine.SUIT_ICONS[suit];
+          btn.addEventListener('click', () => submitClue(type, suit));
+          options.appendChild(btn);
+        }
+      } else {
+        label.textContent = t('pickValueForAI');
+        for (let v = 1; v <= 5; v++) {
+          const btn = document.createElement('button');
+          btn.className = 'hb-suit-btn';
+          btn.style.background = 'rgba(201,162,39,0.2)';
+          btn.style.borderColor = 'var(--gilt)';
+          btn.style.color = 'var(--gilt)';
+          btn.textContent = i18n.number(v);
+          btn.setAttribute('aria-label', i18n.number(v));
+          const vCopy = v;
+          btn.addEventListener('click', () => submitClue(type, vCopy));
+          options.appendChild(btn);
+        }
+      }
+    }
+
+    function closeCluePicker() {
+      pendingClueType = null;
+      const picker = document.getElementById('hbCluePicker');
+      if (picker) picker.classList.remove('visible');
+    }
+
+    function submitClue(type, value) {
+      if (state.clues <= 0) return;
+      // Always clue AI (human gives clue to AI partner)
+      const result = HanabiEngine.giveClue(state, 'ai', type, value);
+      if (!result) return;
+      state = result;
+      state.turn = 'ai';
+      closeCluePicker();
+      selectedHumanCard = -1;
+      checkGameOver();
+      renderState();
+      scheduleAITurn();
+    }
+
+    function scheduleAITurn() {
+      aiBusy = true;
+      renderActions();
+      state = HanabiEngine.executeAIAction(state);
+      aiBusy = false;
+      checkGameOver();
+      renderState();
+    }
+
+    function checkGameOver(open = true) {
+      const result = HanabiEngine.isGameOver(state);
+      if (!result) return;
+
+      const score   = HanabiEngine.computeScore(state);
+      const modal   = document.getElementById('hbModal');
+      const icon    = document.getElementById('hbModalIcon');
+      const title   = document.getElementById('hbModalTitle');
+      const scoreEl = document.getElementById('hbModalScore');
+      const desc    = document.getElementById('hbModalDesc');
+
+      scoreEl.textContent = `${i18n.number(score)} / ${i18n.number(25)}`;
+
+      if (result === 'perfect') {
+        icon.textContent  = '🎆';
+        title.textContent = t('perfectTitle');
+        desc.textContent  = t('perfectDesc');
+      } else if (result === 'fuses') {
+        icon.textContent  = '💥';
+        title.textContent = t('boomTitle');
+        desc.textContent  = t('boomDesc');
+      } else {
+        icon.textContent  = '✨';
+        title.textContent = t('showOverTitle');
+        desc.textContent = t(score >= 20 ? 'deckOverExcellent' : score >= 15 ? 'deckOverGood' : 'deckOverPractice');
+      }
+
+      if (open) {
+        setTimeout(() => {
+          modal.classList.add('visible');
+          modal.setAttribute('aria-hidden', 'false');
+        }, 400);
+      }
+    }
+
+    // Boot
+    buildUI();
+    startNewGame();
+    i18n.onChange(() => {
+      if (!state) return;
+      renderState();
+      if (pendingClueType) openCluePicker(pendingClueType);
+      if (document.getElementById('hbModal').classList.contains('visible')) checkGameOver(false);
+      const imageAlt = t('metaImageAlt');
+      document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', imageAlt);
+      document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', imageAlt);
+    });
+  })();
+  </script>
+</body>
+</html>

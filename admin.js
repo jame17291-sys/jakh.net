@@ -16,6 +16,7 @@
       viewSite: "View site",
       refresh: "Refresh",
       signOut: "Sign out",
+      signOutFailed: "Could not sign out. This admin session is still active; check your connection and try again.",
       secureAdmin: "Secure administration",
       checkingAccessTitle: "Checking your access",
       checkingAccessMessage: "We are verifying your signed-in JAKH account and role.",
@@ -190,6 +191,7 @@
       viewSite: "عرض الموقع",
       refresh: "تحديث",
       signOut: "تسجيل الخروج",
+      signOutFailed: "تعذر تسجيل الخروج. ما زالت جلسة الإدارة نشطة؛ تحقق من الاتصال وحاول مرة أخرى.",
       secureAdmin: "إدارة آمنة",
       checkingAccessTitle: "جارٍ التحقق من صلاحياتك",
       checkingAccessMessage: "نتحقق من حساب JAKH المسجل ودوره.",
@@ -360,7 +362,7 @@
   };
 
   const state = {
-    lang: initialLanguage(),
+    lang: "en",
     me: null,
     overview: null,
     health: null,
@@ -374,6 +376,25 @@
     actionReview: null,
     actionReviewResolver: null,
   };
+
+  const settingsMemory = new Map();
+  function safeSettingsRead() {
+    try {
+      const raw = localStorage.getItem("jakh-riddles-settings");
+      if (raw !== null) settingsMemory.set("jakh-riddles-settings", raw);
+      return JSON.parse(raw || settingsMemory.get("jakh-riddles-settings") || "{}");
+    } catch {
+      try { return JSON.parse(settingsMemory.get("jakh-riddles-settings") || "{}"); } catch { return {}; }
+    }
+  }
+
+  function safeSettingsWrite(value) {
+    const raw = JSON.stringify(value);
+    settingsMemory.set("jakh-riddles-settings", raw);
+    try { localStorage.setItem("jakh-riddles-settings", raw); return true; } catch { return false; }
+  }
+
+  state.lang = initialLanguage();
 
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -391,7 +412,7 @@
     const requested = new URL(location.href).searchParams.get("lang");
     if (requested === "ar" || requested === "en") return requested;
     try {
-      const saved = JSON.parse(localStorage.getItem("jakh-riddles-settings") || "{}");
+      const saved = safeSettingsRead();
       return saved.lang === "ar" ? "ar" : "en";
     } catch {
       return "en";
@@ -486,7 +507,7 @@
   }
 
   function persistLanguage() {
-    try { localStorage.setItem("jakh-riddles-settings", JSON.stringify({ lang: state.lang })); } catch { /* storage is optional */ }
+    safeSettingsWrite({ lang: state.lang });
     const url = new URL(location.href);
     if (state.lang === "ar") url.searchParams.set("lang", "ar");
     else url.searchParams.delete("lang");
@@ -1124,8 +1145,16 @@
     });
     els.refreshButton.addEventListener("click", () => void refreshVisible(true));
     els.logoutButton.addEventListener("click", async () => {
-      try { await api("/auth/logout", { method: "POST", body: "{}" }); } catch { /* local navigation still clears the static UI */ }
-      location.assign(state.lang === "ar" ? "/?lang=ar" : "/");
+      setButtonBusy(els.logoutButton, true);
+      try {
+        await api("/auth/logout", { method: "POST", body: "{}" });
+        location.assign(state.lang === "ar" ? "/?lang=ar" : "/");
+      } catch {
+        showToast(t("signOutFailed"), true);
+        els.logoutButton.focus();
+      } finally {
+        setButtonBusy(els.logoutButton, false, t("signOut"));
+      }
     });
     els.adminTabs.addEventListener("click", (event) => {
       const button = event.target.closest("[data-tab]");

@@ -21,7 +21,7 @@ test("password hashing helpers execute through the Durable Object", async () => 
   const env = localBinding("pepper-that-is-long-enough-for-tests");
   const record = await hashPasswordInHasher(env, "correct horse battery staple");
 
-  assert.equal(record.iterations, 100_000);
+  assert.equal(record.iterations, 600_000);
   assert.equal(
     await verifyPasswordInHasher(
       env,
@@ -44,16 +44,16 @@ test("password hashing helpers execute through the Durable Object", async () => 
   );
 });
 
-test("phase A can read the future 600,000-iteration format without writing it by default", async () => {
+test("legacy 100,000-iteration records remain readable after the default is strengthened", async () => {
   const env = localBinding("pepper-that-is-long-enough-for-tests");
   const record = await hashPasswordInHasher(
     env,
     "correct horse battery staple",
     undefined,
-    600_000,
+    100_000,
   );
 
-  assert.equal(record.iterations, 600_000);
+  assert.equal(record.iterations, 100_000);
   assert.equal(
     await verifyPasswordInHasher(
       env,

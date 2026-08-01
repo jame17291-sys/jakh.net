@@ -27,6 +27,24 @@ failed check also emits a failed receipt when possible. Workflow logs and
 artifacts are evidence, not backups; deleting a workflow run also deletes its
 artifacts.
 
+The API deployment workflow uses two explicit runs. The `compatibility` run
+deploys schema-tolerant code without a bookmark or any D1 migration command and
+proves the database state stayed unchanged. The later `migrate-final` run first
+requires the active Worker health contract to name the actual schema, target
+schema, compatible schema range, source version, and honest feature readiness.
+Only after that machine-verifiable evidence passes does it resolve both the
+current production Time Travel bookmark and a point 24 hours earlier. The
+`pre-migration-recovery-bookmark.json` receipt is uploaded with the release
+receipt, binding the recovery point to the exact release commit and migration
+manifest. It proves Cloudflare recovery availability inside the plan's Time
+Travel window; it does not replace a separately controlled, long-retention
+encrypted backup.
+
+The monitor triggered by a successful `compatibility` run accepts only a schema
+inside that Worker's declared range and checks feature readiness against the
+actual schema. Scheduled, manual, Pages-triggered, and `migrate-final` monitors
+remain strict: production must report target schema 8 with every feature ready.
+
 ## Required one-time configuration
 
 1. Create a Cloudflare API token with account-level **D1 Read** only. Save it as
@@ -62,16 +80,30 @@ receipt in the release record.
 
 ## Before every production migration
 
-1. Require a successful current `recovery-bookmark-*` artifact. Record its
-   workflow URL beside the release approval; it provides the Git commit,
-   migration manifest, database identity, and current Time Travel bookmark.
-   A receipt from another commit is not valid for the release.
-2. Create an encrypted D1 export in private storage controlled separately from
+1. Run **Deploy API** with phase `compatibility`. Confirm its receipt says
+   `compatibility-worker-verified`, that `databaseMutationAllowed` is `false`,
+   and that the pre- and post-deployment D1 schema and migration state match.
+   This phase cannot apply D1 migrations.
+2. In a separate workflow run, select `migrate-final`. Before approving any
+   further action, confirm preflight recorded the exact one active Worker as
+   both `provenCompatibilityWorker` and `workerRollbackTarget`. The workflow
+   derives compatibility from the live health contract; a typed or manual
+   compatibility attestation is not accepted as evidence. It also requires the
+   active compatibility deployment message to match the exact current commit
+   and target schema, so a changed `main` must repeat the compatibility phase.
+3. Confirm the final-phase run produced
+   `pre-migration-recovery-bookmark.json`. It provides the Git commit, migration
+   manifest, database identity, current bookmark, and a 24-hour historical
+   bookmark. The workflow blocks before migrations if this evidence is absent.
+4. Create an encrypted D1 export in private storage controlled separately from
    the public GitHub repository. Never upload a raw database export as a public
    repository artifact.
-3. Apply migrations, deploy the Worker, and verify health, registration/login,
-   profile sync, leaderboard, suggestions, and battle-room creation.
-4. Keep the pre-change bookmark and export until the release has been stable
+5. Let the workflow apply migrations. It must prove the same active
+   compatibility Worker stays healthy on the target schema before the final
+   Worker deployment can begin. Verify health, registration/login, recovery,
+   account deletion, profile sync, leaderboard, suggestions, and battle-room
+   creation as applicable to the reported feature readiness.
+6. Keep the pre-change bookmark and export until the release has been stable
    through the recovery window.
 
 Useful discovery commands (read-only unless an export is explicitly requested):
@@ -131,9 +163,12 @@ to a different release.
 ## Worker rollback
 
 Use `npx wrangler deployments list` to identify the last known-good version and
-follow the current Wrangler rollback prompt. A Worker rollback does not undo a
-D1 migration; evaluate Worker and database compatibility separately. Verify the
-API and WebSocket smoke tests immediately after rollback.
+follow the current Wrangler rollback prompt. The automated release path records
+and rolls back an exact version: the prior Worker in `compatibility`, or the
+proven compatibility Worker in `migrate-final`. A Worker rollback does not undo
+a D1 migration; evaluate Worker and database compatibility separately. Verify
+the reported actual schema, compatibility contract, feature readiness, API, and
+WebSocket smoke tests immediately after rollback.
 
 ## Credential or account compromise
 

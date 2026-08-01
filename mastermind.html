@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <script src="game-i18n.js?v=2026080101"></script>
@@ -10,6 +10,9 @@
     <link rel="preload" href="styles.css?v=2026080101" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/mastermind" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/mastermind" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/mastermind/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/mastermind" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="Mastermind Online — Free Browser Game | JAKH" />
     <meta property="og:description" content="Crack the four-colour code in ten attempts with this free Mastermind browser game. Play instantly with no download or sign-up." />
@@ -29,16 +32,6 @@
     <link rel="stylesheet" href="styles.css?v=2026080101" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
-
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-          if (reg) reg.update();
-        });
-      }
-    </script>
-
     <style>
       /* ── Mastermind page styles ── */
       .mm-wrapper {
@@ -705,31 +698,54 @@
       const newGameBtn   = document.getElementById('newGameBtn');
       const paletteSection = document.getElementById('paletteSection');
 
+      function activePaletteIndex() {
+        const active = document.activeElement;
+        if (!active || !palette.contains(active)) return null;
+        const index = Number(active.dataset.colorIndex);
+        return Number.isInteger(index) ? index : null;
+      }
+
+      function activeBoardSlot() {
+        const active = document.activeElement;
+        if (!active || !board.contains(active)) return null;
+        const slot = Number(active.dataset.slotIndex);
+        return Number.isInteger(slot) ? slot : null;
+      }
+
       // ── Build palette ─────────────────────────────────────
       function buildPalette() {
+        const focusIndex = activePaletteIndex();
         palette.innerHTML = '';
         COLORS.forEach((color, i) => {
           const swatch = document.createElement('button');
+          swatch.type = 'button';
           swatch.className = 'mm-swatch' + (i === selectedColor ? ' selected' : '');
+          swatch.dataset.colorIndex = String(i);
           swatch.style.background = color;
           swatch.setAttribute('aria-label', t('mmColorChoice', { color: colorName(i) }));
+          swatch.setAttribute('aria-pressed', String(i === selectedColor));
           swatch.setAttribute('title', colorName(i));
           swatch.addEventListener('click', () => selectColor(i));
           palette.appendChild(swatch);
         });
         colorNameEl.textContent = colorName(selectedColor);
+        if (focusIndex !== null) {
+          palette.querySelector(`[data-color-index="${focusIndex}"]`)?.focus();
+        }
       }
 
       function selectColor(i) {
         selectedColor = i;
         document.querySelectorAll('.mm-swatch').forEach((sw, idx) => {
           sw.classList.toggle('selected', idx === i);
+          sw.setAttribute('aria-pressed', String(idx === i));
         });
         colorNameEl.textContent = colorName(i);
       }
 
       // ── Build board ───────────────────────────────────────
       function buildBoard() {
+        const focusSlot = activeBoardSlot();
         board.innerHTML = '';
         const totalRows = MAX_ATTEMPTS;
 
@@ -757,7 +773,10 @@
 
           for (let slotIdx = 0; slotIdx < CODE_LENGTH; slotIdx++) {
             const peg = document.createElement('button');
+            peg.type = 'button';
             peg.className = 'mm-peg';
+            peg.dataset.rowIndex = String(rowIdx);
+            peg.dataset.slotIndex = String(slotIdx);
             peg.setAttribute('aria-label', t('mmSlotAria', { slot: formatNumber(slotIdx + 1) }));
 
             if (isPast && attempt) {
@@ -815,6 +834,12 @@
           row.appendChild(feedbackEl);
 
           board.appendChild(row);
+        }
+
+        if (focusSlot !== null) {
+          const target = board.querySelector(`.active-row .mm-peg[data-slot-index="${focusSlot}"]:not(:disabled)`);
+          if (target) target.focus();
+          else newGameBtn.focus();
         }
       }
 

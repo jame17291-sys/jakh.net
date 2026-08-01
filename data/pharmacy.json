@@ -13,6 +13,11 @@
     "answer": {
       "en": "Analgesics/antipyretics (pain relievers and fever reducers).",
       "ar": "المسكّنات وخافضات الحرارة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -29,6 +34,11 @@
     "answer": {
       "en": "Antibiotics (antibacterials).",
       "ar": "المضادات الحيوية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -45,6 +55,11 @@
     "answer": {
       "en": "Antihistamines (H1-receptor antagonists).",
       "ar": "مضادات الهيستامين (حاصرات مستقبلات H1)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -63,8 +78,19 @@
       "ar": "دواء يزيد إنتاج البول، يُستخدم عادةً لعلاج ارتفاع ضغط الدم والوذمة (احتباس السوائل)."
     },
     "acceptedAnswers": {
-      "en": ["A urine-increasing drug used for hypertension and edema.", "Diuretics increase urine output and commonly treat high blood pressure and fluid retention."],
-      "ar": ["دواء يزيد إدرار البول ويعالج عادةً ارتفاع الضغط والوذمة.", "مدر البول يزيد إنتاج البول ويستخدم لارتفاع ضغط الدم واحتباس السوائل."]
+      "en": [
+        "A urine-increasing drug used for hypertension and edema.",
+        "Diuretics increase urine output and commonly treat high blood pressure and fluid retention."
+      ],
+      "ar": [
+        "دواء يزيد إدرار البول ويعالج عادةً ارتفاع الضغط والوذمة.",
+        "مدر البول يزيد إنتاج البول ويستخدم لارتفاع ضغط الدم واحتباس السوائل."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -81,6 +107,11 @@
     "answer": {
       "en": "Antidiabetic drugs — including insulin (injected) and oral hypoglycemics like metformin.",
       "ar": "أدوية السكري — بما فيها الإنسولين (بالحقن) والأدوية الفموية الخافضة لسكر الدم كالميتفورمين."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -99,8 +130,19 @@
       "ar": "الزمن اللازم لانخفاض تركيز الدواء في الجسم إلى النصف. يحدد مدى تكرار جرعات الدواء."
     },
     "acceptedAnswers": {
-      "en": ["Time required for a drug's body concentration to fall by half.", "Time for a drug concentration to decrease by 50%."],
-      "ar": ["الزمن اللازم لانخفاض تركيز الدواء في الجسم إلى النصف.", "مدة هبوط تركيز الدواء في الجسم إلى نصف قيمته."]
+      "en": [
+        "Time required for a drug's body concentration to fall by half.",
+        "Time for a drug concentration to decrease by 50%."
+      ],
+      "ar": [
+        "الزمن اللازم لانخفاض تركيز الدواء في الجسم إلى النصف.",
+        "مدة هبوط تركيز الدواء في الجسم إلى نصف قيمته."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -119,8 +161,19 @@
       "ar": "الأثر الجانبي أي تأثير ثانوي غير مقصود عادةً عند الجرعات العلاجية. التفاعل الدوائي الضار استجابة ضارة وغير مقصودة عند الجرعات الطبيعية — فئة فرعية من الآثار الجانبية المُسبِّبة للضرر."
     },
     "acceptedAnswers": {
-      "en": ["Side effects are secondary effects; ADRs are harmful unintended responses at normal doses.", "Side effects are secondary; ADRs are unintended harmful effects at usual doses."],
-      "ar": ["الأثر الجانبي تأثير ثانوي؛ والتفاعل الضار استجابة مؤذية غير مقصودة بجرعات عادية.", "الأثر الجانبي ثانوي؛ والتفاعل الضار استجابة مؤذية غير مقصودة بالجرعة المعتادة."]
+      "en": [
+        "Side effects are secondary effects; ADRs are harmful unintended responses at normal doses.",
+        "Side effects are secondary; ADRs are unintended harmful effects at usual doses."
+      ],
+      "ar": [
+        "الأثر الجانبي تأثير ثانوي؛ والتفاعل الضار استجابة مؤذية غير مقصودة بجرعات عادية.",
+        "الأثر الجانبي ثانوي؛ والتفاعل الضار استجابة مؤذية غير مقصودة بالجرعة المعتادة."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -139,8 +192,19 @@
       "ar": "تثبّط NSAIDs إنزيم سيكلوأوكسيجيناز (COX)، مما يُقلّل تخليق البروستاغلاندين — وبالتالي يُخفّف الالتهاب والألم والحمى."
     },
     "acceptedAnswers": {
-      "en": ["NSAIDs inhibit COX, reducing prostaglandin synthesis, inflammation, pain, and fever.", "COX inhibition lowers prostaglandins, thereby reducing pain, fever, and inflammation."],
-      "ar": ["تثبط إنزيم COX فتقلل تصنيع البروستاغلاندين والالتهاب والألم والحمى.", "تمنع مضادات الالتهاب COX فتخفض البروستاغلاندينات ومن ثم الألم والحمى والالتهاب."]
+      "en": [
+        "NSAIDs inhibit COX, reducing prostaglandin synthesis, inflammation, pain, and fever.",
+        "COX inhibition lowers prostaglandins, thereby reducing pain, fever, and inflammation."
+      ],
+      "ar": [
+        "تثبط إنزيم COX فتقلل تصنيع البروستاغلاندين والالتهاب والألم والحمى.",
+        "تمنع مضادات الالتهاب COX فتخفض البروستاغلاندينات ومن ثم الألم والحمى والالتهاب."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -157,6 +221,11 @@
     "answer": {
       "en": "The fraction of an orally administered drug that reaches the systemic circulation unchanged. A drug with 100% bioavailability is fully absorbed; low bioavailability means much is destroyed before reaching the bloodstream.",
       "ar": "النسبة من الدواء المُعطى فمويًا التي تصل إلى الدورة الدموية الجهازية دون تغيير. الدواء ذو توافر بيولوجي 100% يُمتصّ كليًا؛ التوافر البيولوجي المنخفض يعني أن جزءًا كبيرًا يُدمَّر قبل وصوله إلى مجرى الدم."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -175,8 +244,19 @@
       "ar": "الستاتينات (مثل أتورفاستاتين وسيمفاستاتين) أدوية تثبّط إنزيم HMG-CoA ريداكتاز مما يُقلّل تخليق الكوليسترول في الكبد. تعالج فرط كوليسترول الدم وتُقلّل خطر الأمراض القلبية الوعائية."
     },
     "acceptedAnswers": {
-      "en": ["Statins inhibit HMG-CoA reductase and treat hypercholesterolemia.", "Statins are HMG-CoA reductase inhibitors for high cholesterol."],
-      "ar": ["تثبط الستاتينات إنزيم HMG-CoA ريداكتاز وتعالج فرط كوليسترول الدم.", "الستاتينات مثبطات HMG-CoA ريداكتاز لعلاج ارتفاع الكوليسترول."]
+      "en": [
+        "Statins inhibit HMG-CoA reductase and treat hypercholesterolemia.",
+        "Statins are HMG-CoA reductase inhibitors for high cholesterol."
+      ],
+      "ar": [
+        "تثبط الستاتينات إنزيم HMG-CoA ريداكتاز وتعالج فرط كوليسترول الدم.",
+        "الستاتينات مثبطات HMG-CoA ريداكتاز لعلاج ارتفاع الكوليسترول."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -193,6 +273,11 @@
     "answer": {
       "en": "Drugs that block beta-adrenergic receptors, slowing the heart rate and reducing blood pressure. Used for hypertension, angina, heart failure, and arrhythmias (e.g. atenolol, metoprolol).",
       "ar": "أدوية تحجب مستقبلات بيتا الأدرينالية، تُبطّئ معدل ضربات القلب وتُخفّض ضغط الدم. تُستخدم لعلاج ارتفاع ضغط الدم والذبحة الصدرية وقصور القلب وعدم انتظام ضربات القلب (مثل أتينولول وميتوبرولول)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -209,6 +294,11 @@
     "answer": {
       "en": "A specific situation or condition in which a drug should NOT be used because it may be harmful to the patient — for example, aspirin is contraindicated in children with viral infections (Reye's syndrome risk).",
       "ar": "وضع أو حالة بعينها لا يجب فيها استخدام الدواء لأنه قد يكون ضارًا بالمريض — على سبيل المثال، الأسبرين يُمنع عند الأطفال المصابين بعدوى فيروسية (خطر متلازمة راي)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -225,6 +315,11 @@
     "answer": {
       "en": "A branded drug is the original patented formulation. A generic drug contains the same active ingredient, same dose, same route, and meets bioequivalence standards — but is sold under its chemical name at lower cost once the patent expires.",
       "ar": "الدواء المحمي بالعلامة التجارية هو التركيبة الأصلية المحمية ببراءة اختراع. الدواء الجنيسي يحتوي على نفس المادة الفعّالة بنفس الجرعة وطريقة الإعطاء ويستوفي معايير التكافؤ البيولوجي — لكنه يُباع باسمه الكيميائي بسعر أقل بعد انتهاء فترة البراءة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -243,8 +338,19 @@
       "ar": "الامتصاص (يدخل الدواء إلى الدورة الدموية)، التوزيع (ينتشر الدواء إلى الأنسجة)، التمثيل الغذائي (يتحوّل الدواء كيميائيًا في الغالب بالكبد)، والإطراح (يُطرح الدواء في الغالب بالكلى)."
     },
     "acceptedAnswers": {
-      "en": ["Absorption, distribution, metabolism, and excretion.", "ADME: absorption, distribution, metabolism, excretion."],
-      "ar": ["الامتصاص والتوزيع والاستقلاب والإطراح.", "ADME: الامتصاص والتوزيع والأيض والإخراج."]
+      "en": [
+        "Absorption, distribution, metabolism, and excretion.",
+        "ADME: absorption, distribution, metabolism, excretion."
+      ],
+      "ar": [
+        "الامتصاص والتوزيع والاستقلاب والإطراح.",
+        "ADME: الامتصاص والتوزيع والأيض والإخراج."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -261,6 +367,11 @@
     "answer": {
       "en": "When one drug affects the activity of another. Example: Warfarin (blood thinner) combined with aspirin increases bleeding risk because both inhibit clotting through different mechanisms — dose adjustment and monitoring are required.",
       "ar": "عندما يؤثر دواء ما على نشاط دواء آخر. مثال: الوارفارين (مُرقّق الدم) مع الأسبرين يزيد خطر النزيف لأن كليهما يثبّط التخثر بآليتَين مختلفتَين — يلزم تعديل الجرعة والمتابعة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -277,6 +388,11 @@
     "answer": {
       "en": "The ability of bacteria to survive and grow despite antibiotic treatment. It develops when bacteria acquire mutations or resistance genes — accelerated by overuse, incomplete courses, and use in livestock. Resistant bacteria spread, making infections harder to treat.",
       "ar": "قدرة البكتيريا على البقاء والنمو رغم العلاج بالمضادات الحيوية. تتطور عندما تكتسب البكتيريا طفرات أو جينات مقاومة — يُعجّل ذلك الإفراط في الاستخدام وعدم إكمال الجرعة والاستخدام في المواشي. تنتشر البكتيريا المقاومة فتصعب معالجة العدوى."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -293,6 +409,11 @@
     "answer": {
       "en": "Drugs that block the angiotensin-converting enzyme (ACE), preventing conversion of angiotensin I to the vasoconstrictor angiotensin II. They lower blood pressure and are first-line for hypertension and heart failure (e.g. lisinopril, enalapril).",
       "ar": "أدوية تحجب إنزيم تحويل الأنجيوتنسين (ACE)، مانعةً تحوّل الأنجيوتنسين I إلى الأنجيوتنسين II المضيّق للأوعية. تُخفّض ضغط الدم وهي خط أول لارتفاع ضغط الدم وقصور القلب (مثل ليسينوبريل وإيناﻻبريل)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -311,8 +432,19 @@
       "ar": "الناهض يرتبط بمستقبل ويُنشّطه مُنتجًا استجابةً بيولوجية. المضاد يرتبط بالمستقبل لكنه لا يُنشّطه — يحجب ارتباط النواهض ويُقلّل الاستجابة."
     },
     "acceptedAnswers": {
-      "en": ["An agonist activates its receptor; an antagonist binds without activation and blocks agonists.", "Receptor activation defines agonists; blockade without activation defines antagonists."],
-      "ar": ["الناهض ينشط المستقبل؛ والمضاد يرتبط دون تنشيطه ويحجب النواهض.", "الناهض يفعل المستقبل؛ والمناهض يرتبط بلا تفعيل ويمنع عمل النواهض."]
+      "en": [
+        "An agonist activates its receptor; an antagonist binds without activation and blocks agonists.",
+        "Receptor activation defines agonists; blockade without activation defines antagonists."
+      ],
+      "ar": [
+        "الناهض ينشط المستقبل؛ والمضاد يرتبط دون تنشيطه ويحجب النواهض.",
+        "الناهض يفعل المستقبل؛ والمناهض يرتبط بلا تفعيل ويمنع عمل النواهض."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -331,8 +463,19 @@
       "ar": "نسبة الجرعة السامة إلى الجرعة الفعّالة (TD50/ED50). المؤشر العلاجي الواسع يعني أن الدواء آمن نسبيًا؛ المؤشر الضيق (مثل الوارفارين والليثيوم والديجوكسين) يعني أن تغييرات صغيرة في الجرعة يمكن أن تسبب سُمية أو فقدان التأثير."
     },
     "acceptedAnswers": {
-      "en": ["The toxic-dose to effective-dose ratio, commonly TD50/ED50.", "TD50 divided by ED50: the ratio of toxic to effective dose."],
-      "ar": ["نسبة الجرعة السامة إلى الجرعة الفعالة، وعادةً TD50/ED50.", "TD50 مقسومًا على ED50: نسبة الجرعة السامة إلى الفعالة."]
+      "en": [
+        "The toxic-dose to effective-dose ratio, commonly TD50/ED50.",
+        "TD50 divided by ED50: the ratio of toxic to effective dose."
+      ],
+      "ar": [
+        "نسبة الجرعة السامة إلى الجرعة الفعالة، وعادةً TD50/ED50.",
+        "TD50 مقسومًا على ED50: نسبة الجرعة السامة إلى الفعالة."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -351,8 +494,19 @@
       "ar": "تثبّط PPIs بصورة لا رجعية مضخة البروتون H⁺/K⁺-ATPase في الخلايا الجدارية للمعدة، مما يوقف إفراز الحمض. تعالج قرحة المعدة والارتداد الحمضي (GERD) وعدوى H. pylori."
     },
     "acceptedAnswers": {
-      "en": ["PPIs irreversibly inhibit gastric H⁺/K⁺-ATPase, suppressing acid secretion.", "PPIs permanently block parietal-cell proton pumps, stopping gastric acid secretion."],
-      "ar": ["تثبط PPIs مضخة H⁺/K⁺-ATPase المعدية بلا رجعة فتوقف إفراز الحمض.", "تغلق مثبطات المضخة بلا رجعة مضخة البروتون بالخلايا الجدارية فتوقف حمض المعدة."]
+      "en": [
+        "PPIs irreversibly inhibit gastric H⁺/K⁺-ATPase, suppressing acid secretion.",
+        "PPIs permanently block parietal-cell proton pumps, stopping gastric acid secretion."
+      ],
+      "ar": [
+        "تثبط PPIs مضخة H⁺/K⁺-ATPase المعدية بلا رجعة فتوقف إفراز الحمض.",
+        "تغلق مثبطات المضخة بلا رجعة مضخة البروتون بالخلايا الجدارية فتوقف حمض المعدة."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -369,6 +523,11 @@
     "answer": {
       "en": "Penicillins inhibit bacterial cell wall synthesis by blocking transpeptidase enzymes (penicillin-binding proteins), preventing cross-linking of peptidoglycan chains. This weakens the cell wall, causing the bacterium to burst (lyse).",
       "ar": "تثبّط البنسيلينات تخليق جدار الخلية البكتيرية بحجب إنزيمات الترانسببتيداز (بروتينات رابطة البنسيلين)، مانعةً تشابك سلاسل الببتيدوغليكان. يُضعف ذلك جدار الخلية فتنفجر البكتيريا (تتحلّل)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -385,6 +544,11 @@
     "answer": {
       "en": "When an orally administered drug is absorbed through the gut and passes through the portal vein to the liver before reaching systemic circulation, much of it is metabolized — reducing bioavailability. Highly metabolized drugs like morphine, nitroglycerin, and lidocaine show significant first-pass effects and may need higher oral doses or alternative routes.",
       "ar": "عندما يُمتصّ الدواء المُعطى فمويًا عبر الأمعاء ويمرّ عبر الوريد البابي إلى الكبد قبل وصوله إلى الدورة الجهازية، يُستقلب جزء كبير منه — مما يُقلّل التوافر البيولوجي. الأدوية عالية الأيض كالمورفين والنيتروغليسرين والليدوكايين تُظهر تأثيرات مرور أول كبيرة وقد تحتاج جرعات فموية أعلى أو طرق إعطاء بديلة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -401,6 +565,11 @@
     "answer": {
       "en": "Selective serotonin reuptake inhibitors block reuptake of serotonin in synapses, increasing serotonin availability. They are the first-line treatment for depression and anxiety disorders (e.g. fluoxetine, sertraline, escitalopram).",
       "ar": "مثبّطات إعادة امتصاص السيروتونين الانتقائية تحجب إعادة امتصاص السيروتونين في المشابك، مما يزيد توافر السيروتونين. هي الخط الأول لعلاج الاكتئاب واضطرابات القلق (مثل فلوكستين وسيرترالين وإسيتالوبرام)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -417,6 +586,11 @@
     "answer": {
       "en": "A system for classifying drugs by the organ or body system they act on and their therapeutic, pharmacological, and chemical properties — organized in five levels. It is used globally for drug utilization research and comparison.",
       "ar": "نظام لتصنيف الأدوية حسب العضو أو جهاز الجسم الذي تعمل عليه وخصائصها العلاجية والدوائية والكيميائية — منظّم في خمسة مستويات. يُستخدم عالميًا لأبحاث استخدام الأدوية والمقارنة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -435,8 +609,19 @@
       "ar": "الهيبارين مضاد للتخثر يُعطى حقنًا ينشّط مضاد الثرومبين III، الذي يُثبّط سريعًا الثرومبين والعامل Xa — وهما إنزيمان رئيسيان في سلسلة التخثر. يُستخدم للوقاية من الجلطات الدموية وعلاجها (DVT والانسداد الرئوي)."
     },
     "acceptedAnswers": {
-      "en": ["Injectable heparin activates antithrombin III, inhibiting thrombin and factor Xa.", "Heparin is injectable anticoagulant activating antithrombin to block thrombin and factor Xa."],
-      "ar": ["الهيبارين مضاد تخثر حقني ينشط مضاد الثرومبين III فيثبط الثرومبين والعامل Xa.", "الهيبارين حقني ينشط مضاد الثرومبين فيعطل الثرومبين والعامل Xa."]
+      "en": [
+        "Injectable heparin activates antithrombin III, inhibiting thrombin and factor Xa.",
+        "Heparin is injectable anticoagulant activating antithrombin to block thrombin and factor Xa."
+      ],
+      "ar": [
+        "الهيبارين مضاد تخثر حقني ينشط مضاد الثرومبين III فيثبط الثرومبين والعامل Xa.",
+        "الهيبارين حقني ينشط مضاد الثرومبين فيعطل الثرومبين والعامل Xa."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -453,6 +638,11 @@
     "answer": {
       "en": "When a receptor is chronically activated (by an agonist drug), the cell reduces the number of available receptors. This causes drug tolerance — the same dose produces a weaker effect over time, requiring dose escalation. It is a major issue with opioids and beta-agonists in asthma.",
       "ar": "عندما يُنشَّط مستقبل باستمرار (بدواء ناهض)، تُقلّل الخلية عدد المستقبلات المتاحة. يُسبّب ذلك التحمّل الدوائي — نفس الجرعة تُنتج تأثيرًا أضعف بمرور الوقت مما يستلزم رفع الجرعة. وهي مشكلة رئيسية مع الأفيونيات وناهضات بيتا في الربو."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -471,8 +661,19 @@
       "ar": "حجم التوزيع هو حجم افتراضي يربط الكمية الإجمالية للدواء في الجسم بتركيزه في البلازما (Vd = الدواء الكلي / تركيز البلازما). القيمة المرتفعة تعني أن الدواء يتوزع على نطاق واسع في الأنسجة وليس محصورًا في البلازما — مما يُصعّب إزالته بالغسيل الكلوي. الأدوية المحبة للدهون (مثل الكلوروكين والأميودارون) لها قيم Vd مرتفعة جدًا."
     },
     "acceptedAnswers": {
-      "en": ["Vd relates body drug amount to plasma level; high Vd means wide tissue distribution.", "Vd equals body drug amount over plasma level; high values mean wide tissue distribution."],
-      "ar": ["يربط Vd كمية الدواء بتركيزه البلازمي؛ وارتفاعه يدل على توزيع نسيجي واسع.", "حجم التوزيع يساوي كمية الدواء بالجسم على تركيزه بالبلازما؛ وارتفاعه يعني انتشارًا نسيجيًا."]
+      "en": [
+        "Vd relates body drug amount to plasma level; high Vd means wide tissue distribution.",
+        "Vd equals body drug amount over plasma level; high values mean wide tissue distribution."
+      ],
+      "ar": [
+        "يربط Vd كمية الدواء بتركيزه البلازمي؛ وارتفاعه يدل على توزيع نسيجي واسع.",
+        "حجم التوزيع يساوي كمية الدواء بالجسم على تركيزه بالبلازما؛ وارتفاعه يعني انتشارًا نسيجيًا."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -489,6 +690,11 @@
     "answer": {
       "en": "Bactericidal antibiotics kill bacteria (e.g. penicillins, fluoroquinolones, aminoglycosides); bacteriostatic antibiotics inhibit growth, relying on immune clearance (e.g. tetracyclines, macrolides, sulfonamides). In immunocompromised patients or endocarditis, bactericidal drugs are preferred because the immune system cannot finish the job.",
       "ar": "المضادات الحيوية القاتلة للبكتيريا تقتل البكتيريا (مثل البنسيلينات والفلوروكينولونات والأمينوغليكوسيدات)؛ المثبّطة للنمو تثبّط النمو معتمدةً على التطهير المناعي (مثل التتراسيكلينات والماكروليدات والسلفوناميدات). في المرضى مقلّصي المناعة أو التهاب الشغاف، تُفضَّل المضادات القاتلة لأن الجهاز المناعي لا يستطيع إتمام المهمة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -507,8 +713,19 @@
       "ar": "تفاعل فرط حساسية نادر لكن يهدد الحياة يُسبّب تقرّح وتقشّر الجلد والأغشية المخاطية. تُحرّضه عادةً أدوية منها كاربامازيبين وألوبورينول ولاموتريجين والسلفوناميدات وNSAIDs. يستلزم وقف الدواء المسبّب فورًا والرعاية الداعمة المكثفة."
     },
     "acceptedAnswers": {
-      "en": ["A life-threatening drug hypersensitivity causing skin and mucosal blistering and peeling.", "Severe drug reaction causing skin detachment and mucosal lesions; stop the drug immediately."],
-      "ar": ["تفاعل دوائي تحسسي مهدد للحياة يسبب تقرح الجلد والأغشية المخاطية وتقشرها.", "متلازمة جلدية مخاطية شديدة بالتقرح والتقشر تستلزم إيقاف الدواء فورًا."]
+      "en": [
+        "A life-threatening drug hypersensitivity causing skin and mucosal blistering and peeling.",
+        "Severe drug reaction causing skin detachment and mucosal lesions; stop the drug immediately."
+      ],
+      "ar": [
+        "تفاعل دوائي تحسسي مهدد للحياة يسبب تقرح الجلد والأغشية المخاطية وتقشرها.",
+        "متلازمة جلدية مخاطية شديدة بالتقرح والتقشر تستلزم إيقاف الدواء فورًا."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -525,6 +742,11 @@
     "answer": {
       "en": "Metformin primarily activates AMP-activated protein kinase (AMPK) in the liver, inhibiting gluconeogenesis (glucose production) and reducing hepatic glucose output. It also improves insulin sensitivity in peripheral tissues. It does not cause hypoglycemia and is weight-neutral.",
       "ar": "يُنشّط الميتفورمين بصورة أساسية إنزيم AMPK في الكبد، مثبّطًا استحداث الجلوكوز (إنتاج الجلوكوز) ومُقلّلًا كمية الجلوكوز الصادرة من الكبد. يُحسّن أيضًا حساسية الإنسولين في الأنسجة الطرفية. لا يُسبّب نقص سكر الدم وهو محايد من حيث الوزن."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -543,8 +765,19 @@
       "ar": "تفاعلات الطور الأول (بصورة أساسية بإنزيمات CYP450 في الكبد) تُدخل مجموعات وظيفية أو تكشفها (أكسدة وإرجاع وتحلل مائي) — غالبًا تُنشّط الأدوية الأولية أو تجعل الأدوية أكثر قطبية. تقترن تفاعلات الطور الثاني بالدواء أو مستقلبات الطور الأول مع جزيئات داخلية (غلوكورنيدات وكبريتات وأسيتيل) لجعلها أكثر قابلية للذوبان في الماء للإطراح."
     },
     "acceptedAnswers": {
-      "en": ["Phase I modifies functional groups; Phase II conjugates drugs for water-soluble excretion.", "Phase I exposes functional groups; Phase II adds conjugates to promote water-soluble elimination."],
-      "ar": ["يعدل الطور الأول المجموعات الوظيفية؛ ويقترن الطور الثاني بالدواء لتسهيل إطراحه المائي.", "يكشف الطور الأول مجموعات وظيفية؛ ويضيف الثاني اقترانات تسهل الإطراح المائي."]
+      "en": [
+        "Phase I modifies functional groups; Phase II conjugates drugs for water-soluble excretion.",
+        "Phase I exposes functional groups; Phase II adds conjugates to promote water-soluble elimination."
+      ],
+      "ar": [
+        "يعدل الطور الأول المجموعات الوظيفية؛ ويقترن الطور الثاني بالدواء لتسهيل إطراحه المائي.",
+        "يكشف الطور الأول مجموعات وظيفية؛ ويضيف الثاني اقترانات تسهل الإطراح المائي."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -563,8 +796,19 @@
       "ar": "يثبّط الوارفارين إنزيم فيتامين K إيبوكسيد ريداكتاز، مانعًا تجديد فيتامين K — الضروري لإنتاج عوامل التخثر II وVII وIX وX. يُقاس تأثيره بالـ INR. له مؤشر علاجي ضيق ويتأثر بالنظام الغذائي (أطعمة فيتامين K) والعديد من التفاعلات الدوائية (خاصةً مثبّطات ومُحرّضات CYP2C9)، مما يستلزم تعديل الجرعة بانتظام."
     },
     "acceptedAnswers": {
-      "en": ["Warfarin inhibits vitamin K recycling; narrow index and interactions require INR monitoring.", "Warfarin blocks vitamin K regeneration; interactions and narrow range demand INR checks."],
-      "ar": ["يثبط الوارفارين إعادة تدوير فيتامين K؛ وضيق مؤشره وتفاعلاته يستلزمان مراقبة INR.", "يمنع الوارفارين تجدد فيتامين K؛ وتفرض تفاعلاته ومجاله الضيق فحوص INR."]
+      "en": [
+        "Warfarin inhibits vitamin K recycling; narrow index and interactions require INR monitoring.",
+        "Warfarin blocks vitamin K regeneration; interactions and narrow range demand INR checks."
+      ],
+      "ar": [
+        "يثبط الوارفارين إعادة تدوير فيتامين K؛ وضيق مؤشره وتفاعلاته يستلزمان مراقبة INR.",
+        "يمنع الوارفارين تجدد فيتامين K؛ وتفرض تفاعلاته ومجاله الضيق فحوص INR."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -581,6 +825,11 @@
     "answer": {
       "en": "Tolerance: reduced drug effect with repeated use, requiring higher doses. Physical dependence: physiological adaptation where abrupt cessation causes withdrawal syndrome. Addiction: compulsive drug-seeking behavior despite harmful consequences — a neurological disease. All three can coexist; tolerance and dependence can occur without addiction.",
       "ar": "التحمّل: انخفاض تأثير الدواء مع الاستخدام المتكرر مما يستلزم جرعات أعلى. الاعتماد الجسدي: تكيّف فسيولوجي يُسبّب التوقف المفاجئ أعراض انسحاب. الإدمان: سلوك قهري للبحث عن الدواء رغم العواقب الضارة — مرض عصبي. يمكن أن تتعايش الثلاثة معًا؛ التحمّل والاعتماد يمكن أن يحدثا دون إدمان."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -597,6 +846,11 @@
     "answer": {
       "en": "Drug toxicity is a dose-dependent, pharmacologically predictable harmful effect (e.g. acetaminophen overdose causing liver failure). Drug allergy is an immune-mediated reaction (hypersensitivity) that can occur at any dose, is unpredictable from pharmacology, and requires prior sensitization — ranging from mild rash to life-threatening anaphylaxis.",
       "ar": "سُمية الدواء تأثير ضار يعتمد على الجرعة وقابل للتنبؤ فارماكولوجيًا (مثل جرعة زائدة من الباراسيتامول تُسبّب فشل الكبد). الحساسية الدوائية تفاعل مناعي (فرط حساسية) يمكن أن يحدث بأي جرعة وغير قابل للتنبؤ من الفارماكولوجيا ويستلزم تحسيسًا سابقًا — يتراوح من طفح خفيف إلى صدمة تأقية تهدد الحياة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -615,8 +869,19 @@
       "ar": "ترتبط الأمينوغليكوسيدات (جنتاميسين، أميكاسين) بصورة لا رجعية بالوحدة الريبوسومية 30S مُسبِّبةً خطأ في قراءة mRNA وإنتاج بروتينات معيبة — قاتلةً البكتيريا. سُميتها الرئيسية هي السُمية الكلوية (تلف الكلى) والسُمية الأذنية (تلف السمع/التوازن)، وهما تعتمدان على الجرعة وتراكميتان."
     },
     "acceptedAnswers": {
-      "en": ["Aminoglycosides bind 30S, causing mistranslation; main toxicities are kidney and ear damage.", "30S binding causes mRNA misreading; aminoglycosides chiefly damage kidneys and hearing."],
-      "ar": ["ترتبط الأمينوغليكوسيدات بالوحدة 30S فتسبب أخطاء الترجمة؛ وأبرز سميتها كلوية وأذنية.", "الارتباط بالوحدة 30S يخطئ قراءة mRNA؛ وتضر الأمينوغليكوسيدات الكلى والسمع أساسًا."]
+      "en": [
+        "Aminoglycosides bind 30S, causing mistranslation; main toxicities are kidney and ear damage.",
+        "30S binding causes mRNA misreading; aminoglycosides chiefly damage kidneys and hearing."
+      ],
+      "ar": [
+        "ترتبط الأمينوغليكوسيدات بالوحدة 30S فتسبب أخطاء الترجمة؛ وأبرز سميتها كلوية وأذنية.",
+        "الارتباط بالوحدة 30S يخطئ قراءة mRNA؛ وتضر الأمينوغليكوسيدات الكلى والسمع أساسًا."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -633,6 +898,11 @@
     "answer": {
       "en": "TDM is the practice of measuring drug concentrations in blood to optimize dosing. Most useful for drugs with a narrow therapeutic index and high inter-patient variability: aminoglycosides, vancomycin, lithium, phenytoin, digoxin, cyclosporine, and tacrolimus.",
       "ar": "TDM هو ممارسة قياس تركيزات الدواء في الدم لتحسين الجرعة. يُفيد أكثر للأدوية ذات المؤشر العلاجي الضيق والتباين العالي بين المرضى: الأمينوغليكوسيدات والفانكومايسين والليثيوم والفينيتوين والديجوكسين والسيكلوسبورين والتاكروليموس."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -651,8 +921,19 @@
       "ar": "علم صيدلة الجينوم يدرس كيف يؤثر التباين الجيني على الاستجابة للدواء. يستقلب CYP2D6 نحو 25% من الأدوية (كوديين وتاموكسيفين وكثير من مضادات الاكتئاب). ضعيفو الأيض يتراكم الدواء عندهم مع خطر السُمية؛ فائقو سرعة الأيض يستقلبونه بسرعة مفرطة فيفقدون الفعالية. الكوديين في فائقي سرعة الأيض يتحول إلى مستويات خطرة من المورفين — خطر مُصنَّف من قِبَل FDA."
     },
     "acceptedAnswers": {
-      "en": ["Study of how genes affect drug response; CYP2D6 variants alter metabolism, efficacy, and toxicity.", "Genetic study of drug response; CYP2D6 variants change metabolism, efficacy, and toxicity."],
-      "ar": ["يربط علم صيدلة الجينوم الجينات بالاستجابة؛ وتغيرات CYP2D6 تبدل الأيض والفعالية والسمية.", "دراسة أثر الجينات في الاستجابة الدوائية؛ فتغيرات CYP2D6 تبدل الأيض والفعالية والسمية."]
+      "en": [
+        "Study of how genes affect drug response; CYP2D6 variants alter metabolism, efficacy, and toxicity.",
+        "Genetic study of drug response; CYP2D6 variants change metabolism, efficacy, and toxicity."
+      ],
+      "ar": [
+        "يربط علم صيدلة الجينوم الجينات بالاستجابة؛ وتغيرات CYP2D6 تبدل الأيض والفعالية والسمية.",
+        "دراسة أثر الجينات في الاستجابة الدوائية؛ فتغيرات CYP2D6 تبدل الأيض والفعالية والسمية."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -671,8 +952,19 @@
       "ar": "حركية الرتبة الأولى: تُطرح نسبة ثابتة من الدواء لكل وحدة زمنية (معظم الأدوية) — منحنى التركيز-الزمن أسي. حركية الرتبة الصفرية: تُطرح كمية ثابتة لكل وحدة زمنية بغض النظر عن التركيز (مثل الإيثانول والفينيتوين بجرعات عالية) — لأن إنزيمات الإطراح مشبعة. تُسبّب حركية الرتبة الصفرية سُمية غير متناسبة مع رفع الجرعة."
     },
     "acceptedAnswers": {
-      "en": ["First-order removes a constant fraction; zero-order removes a constant amount over time.", "First-order clears a fixed fraction per time; zero-order clears a fixed amount."],
-      "ar": ["تطرح الرتبة الأولى نسبة ثابتة؛ وتطرح الرتبة الصفرية كمية ثابتة لكل وحدة زمن.", "تزيل الرتبة الأولى نسبة ثابتة زمنيًا؛ والصفرية كمية ثابتة زمنيًا."]
+      "en": [
+        "First-order removes a constant fraction; zero-order removes a constant amount over time.",
+        "First-order clears a fixed fraction per time; zero-order clears a fixed amount."
+      ],
+      "ar": [
+        "تطرح الرتبة الأولى نسبة ثابتة؛ وتطرح الرتبة الصفرية كمية ثابتة لكل وحدة زمن.",
+        "تزيل الرتبة الأولى نسبة ثابتة زمنيًا؛ والصفرية كمية ثابتة زمنيًا."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -691,8 +983,19 @@
       "ar": "المرحلة الأولى: الأمان والتحمّل وحركية/ديناميكية الدواء في عدد صغير من المتطوعين الأصحاء. المرحلة الثانية: الفعالية والسلامة في مجموعات مرضى صغيرة لإيجاد الجرعة. المرحلة الثالثة: تجارب عشوائية محكومة كبيرة تُؤكد الفعالية والسلامة مقابل الدواء الوهمي/الرعاية القياسية — مطلوبة للموافقة التنظيمية. المرحلة الرابعة: مراقبة ما بعد التسويق للآثار الضارة طويلة المدى أو النادرة."
     },
     "acceptedAnswers": {
-      "en": ["Phase I: safety; II: efficacy and dose; III: large confirmatory trials; IV: postmarketing surveillance.", "Phase 1 safety; 2 efficacy and dosing; 3 confirmatory trials; 4 post-approval monitoring."],
-      "ar": ["الأولى: الأمان؛ الثانية: الفعالية والجرعة؛ الثالثة: تجارب تأكيدية واسعة؛ الرابعة: مراقبة ما بعد التسويق.", "المرحلة 1 للأمان؛ 2 للفعالية والجرعة؛ 3 للتأكيد؛ 4 لمراقبة ما بعد الاعتماد."]
+      "en": [
+        "Phase I: safety; II: efficacy and dose; III: large confirmatory trials; IV: postmarketing surveillance.",
+        "Phase 1 safety; 2 efficacy and dosing; 3 confirmatory trials; 4 post-approval monitoring."
+      ],
+      "ar": [
+        "الأولى: الأمان؛ الثانية: الفعالية والجرعة؛ الثالثة: تجارب تأكيدية واسعة؛ الرابعة: مراقبة ما بعد التسويق.",
+        "المرحلة 1 للأمان؛ 2 للفعالية والجرعة؛ 3 للتأكيد؛ 4 لمراقبة ما بعد الاعتماد."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -709,6 +1012,11 @@
     "answer": {
       "en": "Targeted therapy attacks specific molecular abnormalities in cancer cells rather than killing all rapidly dividing cells. Tyrosine kinase inhibitors (TKIs) like imatinib (Gleevec) block overactive kinase enzymes (e.g. BCR-ABL in CML) that drive cancer cell proliferation. They are more selective and often have fewer side effects than traditional chemotherapy.",
       "ar": "العلاج الموجَّه يهاجم تشوهات جزيئية بعينها في الخلايا السرطانية بدلًا من قتل جميع الخلايا سريعة الانقسام. مثبّطات كيناز التيروزين (TKIs) مثل إيماتينيب (غليفيك) تحجب إنزيمات كيناز فرطة النشاط (مثل BCR-ABL في ابيضاض الدم النخاعي المزمن) التي تدفع تكاثر الخلايا السرطانية. أكثر انتقائية وغالبًا لها آثار جانبية أقل من العلاج الكيميائي التقليدي."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -727,8 +1035,19 @@
       "ar": "1. التعطيل الإنزيمي (مثل بيتا-لاكتاماز يُدمّر البنسيلينات). 2. تعديل الهدف (بروتينات رابطة البنسيلين المُعدَّلة في MRSA). 3. مضخات الطرد (طرد المضاد الحيوي فعليًا من الخلية). 4. انخفاض النفاذية (انخفاض مسامات الغشاء الخارجي). 5. تجاوز الهدف (مسارات استقلابية بديلة). يمكن أن تنتقل جينات المقاومة بين البكتيريا عبر البلازميدات (النقل الجيني الأفقي)."
     },
     "acceptedAnswers": {
-      "en": ["Enzyme inactivation, target changes, efflux, low permeability, bypass, and horizontal gene transfer.", "Drug-inactivating enzymes, target changes, efflux, poor entry, bypass, and horizontal gene transfer."],
-      "ar": ["التعطيل الإنزيمي، وتعديل الهدف، والطرد، وخفض النفاذية، وتجاوز الهدف، والنقل الجيني الأفقي.", "إنزيمات التعطيل، وتغيير الأهداف، والطرد، ومنع الدخول، والتجاوز، والنقل الجيني الأفقي."]
+      "en": [
+        "Enzyme inactivation, target changes, efflux, low permeability, bypass, and horizontal gene transfer.",
+        "Drug-inactivating enzymes, target changes, efflux, poor entry, bypass, and horizontal gene transfer."
+      ],
+      "ar": [
+        "التعطيل الإنزيمي، وتعديل الهدف، والطرد، وخفض النفاذية، وتجاوز الهدف، والنقل الجيني الأفقي.",
+        "إنزيمات التعطيل، وتغيير الأهداف، والطرد، ومنع الدخول، والتجاوز، والنقل الجيني الأفقي."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -745,6 +1064,11 @@
     "answer": {
       "en": "A competitive reversible antagonist competes with the agonist for the same binding site — its effect can be overcome by increasing agonist concentration (the dose-response curve shifts right but maximum effect is maintained). A non-competitive/irreversible antagonist binds covalently or at an allosteric site, and its effect cannot be overcome by more agonist — maximum effect is reduced even at high agonist doses.",
       "ar": "المضاد التنافسي القابل للعكس يتنافس مع الناهض على نفس موضع الارتباط — يمكن التغلب على تأثيره بزيادة تركيز الناهض (تنزاح منحنى الاستجابة للجرعة يمينًا لكن يُحافظ على الحد الأقصى للتأثير). المضاد غير التنافسي/غير القابل للعكس يرتبط تساهميًا أو في موضع أُلوستيري، ولا يمكن التغلب على تأثيره بمزيد من الناهض — يُقلَّل الحد الأقصى للتأثير حتى بجرعات ناهض عالية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -763,8 +1087,19 @@
       "ar": "الدواء الأولي مركّب غير نشط يتحوّل في الجسم إلى صورته الفعّالة. تحسّن تصميم الدواء الأولي التوافر البيولوجي أو الاستقرار أو يُقلّل السُمية. مثال: الإيناﻻبريل إستر دواء أولي للإيناﻻبريلات — مثبّط ACE الفعّال — لأن الإيناﻻبريلات يُمتصّ فمويًا بشكل سيئ لكن إستر الإيناﻻبريل يُمتصّ جيدًا ويُميأ إلى الإيناﻻبريلات بعد الامتصاص."
     },
     "acceptedAnswers": {
-      "en": ["An inactive precursor converted into active drug; enalapril becomes enalaprilat.", "A prodrug is inactive until converted in vivo; enalapril becomes active enalaprilat."],
-      "ar": ["مركب غير نشط يتحول إلى دواء فعال؛ مثل تحول الإينالابريل إلى إينالابريلات.", "الدواء الأولي غير نشط حتى يتحول داخل الجسم؛ فالإينالابريل يصير إينالابريلات فعالًا."]
+      "en": [
+        "An inactive precursor converted into active drug; enalapril becomes enalaprilat.",
+        "A prodrug is inactive until converted in vivo; enalapril becomes active enalaprilat."
+      ],
+      "ar": [
+        "مركب غير نشط يتحول إلى دواء فعال؛ مثل تحول الإينالابريل إلى إينالابريلات.",
+        "الدواء الأولي غير نشط حتى يتحول داخل الجسم؛ فالإينالابريل يصير إينالابريلات فعالًا."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -781,6 +1116,11 @@
     "answer": {
       "en": "Monoclonal antibodies (mAbs) are laboratory-produced antibodies that bind a specific target (antigen) with high precision. As drugs, they can block disease-causing proteins (e.g. trastuzumab blocks HER2 in breast cancer; adalimumab blocks TNF-α in rheumatoid arthritis; rituximab depletes CD20-positive B cells in lymphoma). They often have suffix -mab in their name.",
       "ar": "الأجسام المضادة وحيدة النسيلة (mAbs) أجسام مضادة مُنتجة معمليًا ترتبط بهدف بعينه (مستضد) بدقة عالية. كأدوية، تستطيع حجب البروتينات المُسبِّبة للمرض (مثل تراستوزوماب يحجب HER2 في سرطان الثدي؛ وأدالموماب يحجب TNF-α في التهاب المفاصل الرثياني؛ وريتوكسيماب يستنفد خلايا B الموجبة لـ CD20 في الليمفوما). غالبًا تنتهي أسماؤها بـ -mab."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -797,6 +1137,11 @@
     "answer": {
       "en": "Some drugs are metabolized by CYP450 enzymes into reactive intermediates that permanently inactivate the enzyme — 'committing suicide.' This causes irreversible drug interactions lasting until new enzyme is synthesized (days–weeks). Examples: erythromycin (CYP3A4), isoniazid (CYP2E1), grapefruit furanocoumarins (CYP3A4 in gut wall). Drug levels of CYP3A4 substrates can rise dramatically when grapefruit is consumed.",
       "ar": "تُستقلب بعض الأدوية بإنزيمات CYP450 إلى وسيطات تفاعلية تُعطّل الإنزيم بصفة دائمة — 'تنتحر'. يُسبّب ذلك تفاعلات دوائية لا رجعية تدوم حتى يُخلَّق إنزيم جديد (أيام-أسابيع). أمثلة: الإريثرومايسين (CYP3A4)، والإيزونيازيد (CYP2E1)، وفوراتوكوماريلات الجريب فروت (CYP3A4 في جدار الأمعاء). يمكن أن ترتفع مستويات ركائز CYP3A4 بشكل كبير عند تناول الجريب فروت."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -813,6 +1158,11 @@
     "answer": {
       "en": "The BCS classifies drugs by aqueous solubility and intestinal permeability into 4 classes: I (high solubility, high permeability — ideal), II (low solubility, high permeability — formulation key to improving dissolution), III (high solubility, low permeability — absorption enhancement needed), IV (low solubility, low permeability — most challenging). BCS guides whether modified-release or special delivery systems are needed for adequate bioavailability.",
       "ar": "يُصنّف BCS الأدوية حسب الذوبانية المائية والنفاذية المعوية في 4 فئات: الأولى (ذوبانية عالية، نفاذية عالية — مثالية)، الثانية (ذوبانية منخفضة، نفاذية عالية — الصياغة مفتاح لتحسين الذوبان)، الثالثة (ذوبانية عالية، نفاذية منخفضة — يلزم تعزيز الامتصاص)، الرابعة (ذوبانية منخفضة، نفاذية منخفضة — الأصعب). يوجّه BCS ما إذا كانت أنظمة توصيل معدّلة أو خاصة ضرورية للحصول على توافر بيولوجي كافٍ."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -829,6 +1179,11 @@
     "answer": {
       "en": "Tumor cells evade immune destruction by expressing inhibitory checkpoint proteins (PD-L1, CTLA-4) that suppress T-cell activity. Checkpoint inhibitors (e.g. nivolumab, pembrolizumab block PD-1; ipilimumab blocks CTLA-4) remove these brakes, allowing T cells to recognize and kill cancer cells. This can cause immune-related adverse effects in normal tissues.",
       "ar": "تتهرب الخلايا السرطانية من التدمير المناعي بالتعبير عن بروتينات نقاط تفتيش مثبّطة (PD-L1 وCTLA-4) تُقمع نشاط الخلايا التائية. مثبّطات نقاط التفتيش (مثل نيفولوماب وبيمبروليزوماب يحجبان PD-1؛ وإيبيليموماب يحجب CTLA-4) ترفع هذه الكوابح مُتيحةً للخلايا التائية التعرف على الخلايا السرطانية وقتلها. يمكن أن يُسبّب ذلك آثارًا ضارة مرتبطة بالمناعة في الأنسجة الطبيعية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -845,6 +1200,11 @@
     "answer": {
       "en": "Lipid nanoparticles are tiny spherical vesicles made of lipids that encapsulate and protect mRNA from degradation and facilitate its delivery into cells. They fuse with cell membranes, releasing mRNA into the cytoplasm. This technology, developed over decades, was essential for COVID-19 mRNA vaccines (Pfizer-BioNTech and Moderna) — solving the major challenge that naked mRNA is rapidly degraded in the body.",
       "ar": "الجسيمات النانوية الدهنية حويصلات كروية صغيرة مصنوعة من الدهون تُغلّف mRNA وتحميه من التحلل وتُسهّل توصيله إلى الخلايا. تندمج مع أغشية الخلايا محرّرةً mRNA في السيتوبلازم. هذه التقنية المطوَّرة على مدى عقود كانت ضرورية للقاحات mRNA لكوفيد-19 (فايزر-بيونتك وموديرنا) — إذ حلّت التحدي الرئيسي القائل بأن mRNA العاري يتحلل بسرعة في الجسم."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -861,6 +1221,11 @@
     "answer": {
       "en": "Pharmacokinetic tolerance: the body metabolizes or excretes the drug faster over time (enzyme induction), reducing plasma levels after the same dose. Pharmacodynamic tolerance: the drug concentration is unchanged but the target response is reduced — via receptor downregulation, desensitization, or compensatory physiological changes. Both mechanisms can contribute simultaneously.",
       "ar": "التحمّل الحركي: يستقلب الجسم الدواء أو يُطرحه بصورة أسرع مع الوقت (تحريض الإنزيم)، مما يُقلّل مستويات البلازما بعد نفس الجرعة. التحمّل الديناميكي: تركيز الدواء دون تغيير لكن الاستجابة المستهدفة تتراجع — عبر تنظيم المستقبلات نزولًا أو تحساسه أو التغيرات الفسيولوجية التعويضية. يمكن أن يُسهم كلا الآليتَين في آنٍ واحد."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -877,6 +1242,11 @@
     "answer": {
       "en": "PBPK models use mathematical equations representing actual organ volumes, blood flows, and biochemical processes to simulate drug distribution and elimination throughout the whole body. They can predict drug behavior in special populations (children, pregnant women, patients with renal/hepatic impairment) without exposing them to the drug — reducing costly animal studies and informing regulatory submissions for dose adjustment recommendations.",
       "ar": "تستخدم نماذج PBPK معادلات رياضية تمثّل أحجام الأعضاء الفعلية وتدفقات الدم والعمليات البيوكيميائية لمحاكاة توزيع الدواء وإطراحه في الجسم كله. تستطيع التنبؤ بسلوك الدواء في فئات سكانية خاصة (أطفال وحوامل ومرضى ضعف كلوي/كبدي) دون تعريضهم للدواء — مما يُقلّل الدراسات الحيوانية المكلفة ويُعلم تقديمات الجهات التنظيمية لتوصيات تعديل الجرعة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   }
 ]

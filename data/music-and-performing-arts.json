@@ -13,6 +13,9 @@
     "answer": {
       "en": "88",
       "ar": "88"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "Ludwig van Beethoven",
       "ar": "لودفيج فان بيتهوفن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "Violin",
       "ar": "الكمان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "Conductor",
       "ar": "المايسترو (أو الموصل)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "Italy",
       "ar": "إيطاليا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Six",
       "ar": "ستة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "Michael Jackson",
       "ar": "مايكل جاكسون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Tempo",
       "ar": "السرعة (Tempo)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "Brass",
       "ar": "الآلات النحاسية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "A musical composition for two performers",
       "ar": "تأليف موسيقي لشخصين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Loud",
       "ar": "قوي (أو مرتفع الصوت)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Antonio Vivaldi",
       "ar": "أنطونيو فيفالدي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "Improvisation",
       "ar": "الارتجال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "Oboe (or Bassoon)",
       "ar": "الأوبوا (أو الباسون)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "An elaborate musical composition for a full orchestra",
       "ar": "تأليف موسيقي معقد للأوركسترا الكاملة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Joseph Haydn",
       "ar": "جوزيف هايدن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "Short and detached notes",
       "ar": "نوتات قصيرة ومنفصلة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "Wolfgang Amadeus Mozart",
       "ar": "فولفغانغ أماديوس موتسارت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Staff (or Stave)",
       "ar": "المدرج الموسيقي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "New Orleans",
       "ar": "نيو أورلينز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "A visual representation of the relationships between the 12 tones of the chromatic scale",
       "ar": "تمثيل مرئي للعلاقات بين النغمات الـ 12 للسلم اللوني"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "Igor Stravinsky",
       "ar": "إيغور سترافينسكي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Monophony",
       "ar": "أحادية الصوت (Monophony)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "The distance between two pitches",
       "ar": "المسافة بين درجتين صوتيتين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "Johann Sebastian Bach",
       "ar": "يوهان سيباستيان باخ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "A recurring musical theme associated with a particular person, place, or idea",
       "ar": "لحن متكرر يرتبط بشخص أو مكان أو فكرة معينة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "Chromatic Scale",
       "ar": "السلم اللوني (الكروماتيكي)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "Hildegard von Bingen",
       "ar": "هيليغارد فون بنجن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "Pizzicato",
       "ar": "بيزيكاتو (Pizzicato)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "440 Hz",
       "ar": "440 هرتز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "A method of composition using a series of all 12 notes of the chromatic scale",
       "ar": "طريقة للتأليف تستخدم سلسلة من جميع النغمات الـ 12 للسلم اللوني"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "Arnold Schoenberg",
       "ar": "أرنولد شوينبيرج"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "Just Intonation uses simple whole-number ratios; Equal Temperament divides the octave into 12 equal parts",
       "ar": "الضبط العادل يستخدم نسب أعداد صحيحة بسيطة، بينما يقسم المزاج المتساوي الأوكتاف إلى 12 جزءاً متساوياً"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "Ending a musical piece in a minor key with a major chord",
       "ar": "إنهاء مقطوعة موسيقية بمفتاح صغير بوتر كبير"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "Olivier Messiaen",
       "ar": "أوليفييه ميسيان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "A genre of electroacoustic music that uses recorded sounds as raw material",
       "ar": "نوع من الموسيقى الكهروصوتية يستخدم الأصوات المسجلة كمواد خام"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "The relationship between voices that are harmonically interdependent yet independent in rhythm and contour",
       "ar": "العلاقة بين الأصوات المعتمدة على بعضها هارمونياً ولكنها مستقلة في الإيقاع والمسار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "Antonín Dvořák",
       "ar": "أنتونين دفورجاك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "Diabolus in Musica (The Devil in Music)",
       "ar": "شيطان الموسيقى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "Music in which some element of the composition is left to chance",
       "ar": "موسيقى تترك فيها بعض عناصر التأليف للصدفة"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

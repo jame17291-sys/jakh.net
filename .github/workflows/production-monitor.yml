@@ -46,6 +46,7 @@ jobs:
           JAKH_MONITOR_TIMEOUT_MS: "10000"
           JAKH_SITE_MAX_MS: "5000"
           JAKH_API_MAX_MS: "5000"
+          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.name == 'Deploy API' && startsWith(github.event.workflow_run.display_title, 'API compatibility ·') && 'true' || 'false' }}
           JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
         run: node scripts/monitor-production.mjs
 

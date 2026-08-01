@@ -13,6 +13,9 @@
     "answer": {
       "en": "Artificial Intelligence",
       "ar": "الذكاء الاصطناعي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "Robot",
       "ar": "روبوت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "Solar Energy",
       "ar": "الطاقة الشمسية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "Self-driving (Autonomous) Car",
       "ar": "سيارة ذاتية القيادة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "Virtual Reality (VR)",
       "ar": "الواقع الافتراضي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Servers accessed over the internet for data storage",
       "ar": "خوادم يتم الوصول إليها عبر الإنترنت لتخزين البيانات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "To automate and control home systems (lighting, heating) remotely",
       "ar": "أتمتة والتحكم في أنظمة المنزل عن بعد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Smartwatch (or Fitness Tracker)",
       "ar": "ساعة ذكية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "Additive Manufacturing",
       "ar": "التصنيع الإضافي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "An unmanned aerial vehicle for surveillance or delivery",
       "ar": "طائرة بدون طيار للمراقبة أو التوصيل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Cryptocurrencies like Bitcoin",
       "ar": "العملات الرقمية مثل البيتكوين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Principles of quantum mechanics (like qubits)",
       "ar": "مبادئ ميكانيكا الكم (مثل الكيوبتات)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "The network of physical objects connected to the internet",
       "ar": "شبكة الأشياء المادية المتصلة بالإنترنت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "Digital information overlaid on the real world",
       "ar": "معلومات رقمية متراكبة على العالم الحقيقي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "A tool for gene editing",
       "ar": "أداة لتحرير الجينات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "A subset of AI where computers learn from data without being explicitly programmed",
       "ar": "فرع من الذكاء الاصطناعي حيث تتعلم الحواسيب من البيانات بدون برمجة صريحة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "A virtual reality space where users can interact in a 3D environment",
       "ar": "مساحة واقع افتراضي حيث يمكن للمستخدمين التفاعل في بيئة ثلاثية الأبعاد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "Using physical characteristics (fingerprints, face) for identification",
       "ar": "استخدام الخصائص المادية (بصمات الأصابع، الوجه) للتعرف على الهوية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Processing data closer to where it is generated rather than in a central cloud",
       "ar": "معالجة البيانات بالقرب من مكان إنتاجها بدلاً من سحابة مركزية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "A computing system inspired by the human brain",
       "ar": "نظام حوسبة مستوحى من الدماغ البشري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "Science and engineering conducted at the scale of atoms and molecules",
       "ar": "العلوم والهندسة التي تجرى على مستوى الذرات والجزيئات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "A hypothetical point where AI becomes smarter than human intelligence",
       "ar": "نقطة فرضية يصبح فيها الذكاء الاصطناعي أذكى من الذكاء البشري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Technology that allows communication between a brain and an external device",
       "ar": "تقنية تسمح بالاتصال بين الدماغ وجهاز خارجي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "A hypothetical megastructure that completely encompasses a star to capture its energy",
       "ar": "هيكل ضخم افتراضي يحيط بنجم بالكامل لالتقاط طاقته"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "AI capable of creating new content (text, images, music)",
       "ar": "ذكاء اصطناعي قادر على إنشاء محتوى جديد (نصوص، صور، موسيقى)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "It stacks absorbers with complementary band gaps: the perovskite layer captures higher-energy photons while silicon captures lower-energy photons.",
       "ar": "تكدّس ماصّات ذات فجوات نطاق متكاملة؛ فتلتقط طبقة البيروفسكايت الفوتونات الأعلى طاقة ويلتقط السيليكون الفوتونات الأقل طاقة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "Cryptographic algorithms thought to be secure against a quantum computer attack",
       "ar": "خوارزميات تشفير يعتقد أنها آمنة ضد هجوم الكمبيوتر الكمومي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "It uses power-electronic switching and a high-frequency transformer to provide controlled voltage conversion, often with bidirectional power flow and grid-support functions.",
       "ar": "يستخدم مفاتيح إلكترونيات القدرة ومحولاً عالي التردد للتحكم في تحويل الجهد، وغالباً يتيح تدفق القدرة ثنائي الاتجاه ووظائف دعم الشبكة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "A test of a machine's ability to exhibit intelligent behavior indistinguishable from a human",
       "ar": "اختبار لقدرة الآلة على إظهار سلوك ذكي لا يمكن تمييزه عن الإنسان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "The collective behavior of decentralized, self-organized systems (like robot swarms)",
       "ar": "السلوك الجماعي للأنظمة اللامركزية المنظمة ذاتياً (مثل أسراب الروبوتات)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "The observation that the number of transistors on a microchip doubles about every two years",
       "ar": "الملاحظة التي تفيد بأن عدد الترانزستورات على الرقاقة الدقيقة يتضاعف كل عامين تقريباً"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "A civilization capable of harnessing the total energy output of its parent star",
       "ar": "حضارة قادرة على تسخير ناتج الطاقة الكامل لنجمها الأم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "A hypothetical end-of-the-world scenario where self-replicating nanobots consume all matter",
       "ar": "سيناريو افتراضي لنهاية العالم حيث تستهلك الروبوتات النانوية ذاتية التكرار كل المادة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "A hypothetical self-replicating spacecraft for interstellar exploration",
       "ar": "مركبة فضائية افتراضية ذاتية التكرار للاستكشاف بين النجوم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "Quantum information is encoded in non-Abelian anyons and processed by braiding their paths, making operations resistant to many local errors because they depend on topology.",
       "ar": "تُشفَّر المعلومات الكمية في شبه جسيمات أنيونية غير أبيلية وتُعالج بتضفير مساراتها، فتقاوم العمليات كثيراً من الأخطاء المحلية لاعتمادها على الطوبولوجيا."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "A scenario where space debris leads to a cascade of collisions, making low Earth orbit unusable",
       "ar": "سيناريو تؤدي فيه الحطام الفضائي إلى سلسلة من الاصطدامات، مما يجعل مدار الأرض المنخفض غير قابل للاستخدام"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "The movement seeking to transform the human condition through advanced technologies to enhance intellect and physiology",
       "ar": "الحركة التي تسعى لتحويل الحالة البشرية من خلال تقنيات متقدمة لتعزيز الذكاء والفيزيولوجيا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "A laboratory technique for creating a viable embryo from a body cell and an egg cell (used in cloning)",
       "ar": "تقنية مختبرية لإنشاء جنين قابل للحياة من خلية جسم وخلية بيضة (تستخدم في الاستنساخ)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "Using photons (light) instead of electrons for digital computation",
       "ar": "استخدام الفوتونات (الضوء) بدلاً من الإلكترونات للحوسبة الرقمية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "Carbon Nanotubes (due to high tensile strength)",
       "ar": "أنابيب الكربون النانوية (بسبب قوة الشد العالية)"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

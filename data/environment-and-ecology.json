@@ -13,6 +13,9 @@
     "answer": {
       "en": "Carbon Dioxide (CO2)",
       "ar": "ثاني أكسيد الكربون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "Ozone Layer",
       "ar": "طبقة الأوزون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "True",
       "ar": "صح"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "The Sun",
       "ar": "الشمس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "Recycling",
       "ar": "إعادة التدوير"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Methane (CH₄).",
       "ar": "الميثان (CH₄)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "Habitat",
       "ar": "الموطن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Burning Fossil Fuels",
       "ar": "حرق الوقود الأحفوري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "Blue",
       "ar": "الأزرق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "Giant Panda",
       "ar": "الباندا العملاق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Biodiversity",
       "ar": "التنوع البيولوجي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Eutrophication",
       "ar": "التحصيب (أو المغذيات الزائدة)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "El Niño",
       "ar": "النينو"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "Methane (CH4)",
       "ar": "الميثان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "Keystone Species",
       "ar": "الأنواع الأساسية (أو المفتاحية)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Ecological Footprint",
       "ar": "البصمة البيئية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "Montreal Protocol",
       "ar": "بروتوكول مونتريال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "About 2.5% to 3%",
       "ar": "حوالي 2.5% إلى 3%"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Carrying Capacity",
       "ar": "القدرة الاستيعابية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "Amazon Rainforest",
       "ar": "غابات الأمازون المطيرة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "Nitrogen Fixation",
       "ar": "تثبيت النيتروجين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "The reflectivity of the Earth's surface",
       "ar": "قدرة سطح الأرض على عكس الإشعاع الشمسي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Kyoto Protocol",
       "ar": "بروتوكول كيوتو"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "Ocean Acidification",
       "ar": "تحمض المحيطات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "Anything that absorbs more carbon than it releases",
       "ar": "أي شيء يمتص كربوناً أكثر مما يطلقه (مثل الغابات والمحيطات)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "Species found only in one specific geographic area",
       "ar": "الأنواع التي توجد فقط في منطقة جغرافية محددة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "Mercury",
       "ar": "الزئبق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "Ecological Succession",
       "ar": "التعاقب البيئي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "Troposphere",
       "ar": "التروبوسفير"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Coral Bleaching",
       "ar": "ابيضاض المرجان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "The biological induction of free oxygen into the atmosphere by cyanobacteria (~2.4 billion years ago)",
       "ar": "الإدخال البيولوجي للأكسجين الحر في الغلاف الجوي بواسطة البكتيريا الزرقاء (قبل 2.4 مليار سنة)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "A tropical atmospheric circulation involving rising air near the equator",
       "ar": "دوران جوي استوائي يتضمن صعود الهواء بالقرب من خط الاستواء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "Permafrost Carbon Feedback",
       "ar": "التغذية الراجعة لكربون التربة الصقيعية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "How orbital variations affect long-term climate and ice ages",
       "ar": "كيف تؤثر الاختلافات المدارية على المناخ طويل الأمد والعصور الجليدية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "The increasing concentration of a substance (like toxins) in the tissues of organisms at higher trophic levels",
       "ar": "زيادة تركيز مادة ما (مثل السموم) في أنسجة الكائنات الحية في المستويات الغذائية الأعلى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "Deep-ocean currents driven by differences in density due to temperature and salinity",
       "ar": "تيارات المحيطات العميقة الناتجة عن الاختلافات في الكثافة بسبب الحرارة والملوحة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "The atomic ratio of Carbon, Nitrogen, and Phosphorus (106:16:1) in phytoplankton",
       "ar": "النسبة الذرية للكربون والنيتروجين والفوسفور (106:16:1) في العوالق النباتية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "The threshold beyond which a system undergoes irreversible change",
       "ar": "العتبة التي يمر بعدها النظام بتغير لا يمكن الرجوع عنه"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "Ramsar Convention",
       "ar": "اتفاقية رامسار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "The rate at which energy is converted by autotrophs to organic substances",
       "ar": "المعدل الذي تحول به الكائنات ذاتية التغذي الطاقة إلى مواد عضوية"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

@@ -13,6 +13,9 @@
     "answer": {
       "en": "Paris",
       "ar": "باريس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "subcategory": {
       "en": "Architectural Elements",
       "ar": "العناصر المعمارية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "Burj Khalifa",
       "ar": "برج خليفة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "Leaning Tower of Pisa",
       "ar": "برج بيزا المائل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "Ancient Rome",
       "ar": "روما القديمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Taj Mahal",
       "ar": "تاج محل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "Snow (Ice blocks)",
       "ar": "الثلج (كتل جليدية)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Sydney Opera House",
       "ar": "دار أوبرا سيدني"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "Suspension Bridge",
       "ar": "جسر معلق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "New York City",
       "ar": "مدينة نيويورك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Gothic",
       "ar": "القوطي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Frank Gehry",
       "ar": "فرانك جيري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "Parthenon",
       "ar": "البارثينون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "Bauhaus",
       "ar": "باوهاوس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "subcategory": {
       "en": "Classical Architecture",
       "ar": "العمارة الكلاسيكية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Barcelona",
       "ar": "برشلونة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "Frank Lloyd Wright",
       "ar": "فرانك لويد رايت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "Nave",
       "ar": "الصحن (Nave)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Rose Window",
       "ar": "نافذة الوردة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "subcategory": {
       "en": "Classical Architecture",
       "ar": "العمارة الكلاسيكية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "1.618 (approx.)",
       "ar": "1.618 (تقريباً)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "Philip Johnson",
       "ar": "فيليب جونسون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Keystone",
       "ar": "حجر الزاوية (أو حجر الغلق)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "Romanesque",
       "ar": "الرومانسكي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "I. M. Pei",
       "ar": "إيوه مينغ بي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "A triangular segment of a sphere that allows a dome to be placed over a square room",
       "ar": "قطاع مثلثي من كرة يسمح بوضع قبة فوق غرفة مربعة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "A style characterized by raw, unadorned concrete surfaces",
       "ar": "نمط يتميز بأسطح خرسانية خام غير مزينة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "Philip Johnson",
       "ar": "فيليب جونسون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "Angkor Wat",
       "ar": "أنكور وات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "The horizontal superstructure above columns",
       "ar": "البنية الأفقية فوق الأعمدة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "Le Corbusier",
       "ar": "لو كوربوزييه"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "A movement characterized by fragmentation and non-rectilinear shapes",
       "ar": "حركة تتميز بالتفتيت والأشكال غير المستقيمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "Frederick Kiesler and Armand Bartos",
       "ar": "فريدريك كيسلر وأرماند بارتوس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "The proportions of the human body as a guide for architectural design",
       "ar": "تناسب جسم الإنسان كدليل للتصميم المعماري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "William Van Alen",
       "ar": "ويليام فان ألن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "An anthropometric scale of proportions based on the human body and the golden ratio",
       "ar": "مقياس أنثروبومتري للتناسب يعتمد على جسم الإنسان والنسبة الذهبية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "Ġgantija Temples",
       "ar": "معابد جيجانتيا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "Maya Lin",
       "ar": "مايا لين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "A style based on digital design and algorithms to create complex forms",
       "ar": "نمط يعتمد على التصميم الرقمي والخوارزميات لإنشاء أشكال معقدة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "A large room with a roof supported by many columns",
       "ar": "غرفة كبيرة لها سقف مدعوم بالعديد من الأعمدة"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

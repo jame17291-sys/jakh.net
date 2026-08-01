@@ -13,6 +13,11 @@
     "answer": {
       "en": "Sharia (الشريعة).",
       "ar": "الشريعة الإسلامية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -31,8 +36,19 @@
       "ar": "الفقه هو علم الأحكام الإسلامية العملية التي يستنبطها العلماء من مصادر الشريعة."
     },
     "acceptedAnswers": {
-      "en": ["Islamic jurisprudence: practical Sharia rulings derived by scholars.", "Islamic jurisprudence."],
-      "ar": ["علم الأحكام الشرعية العملية التي يستنبطها العلماء.", "الفقه الإسلامي."]
+      "en": [
+        "Islamic jurisprudence: practical Sharia rulings derived by scholars.",
+        "Islamic jurisprudence."
+      ],
+      "ar": [
+        "علم الأحكام الشرعية العملية التي يستنبطها العلماء.",
+        "الفقه الإسلامي."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -51,8 +67,19 @@
       "ar": "القرآن الكريم، والسنة النبوية (الحديث)، والإجماع، والقياس."
     },
     "acceptedAnswers": {
-      "en": ["The Quran, Sunnah, ijma, and qiyas.", "Quran, Sunnah, scholarly consensus, and analogical reasoning."],
-      "ar": ["القرآن والسنة والإجماع والقياس.", "القرآن الكريم والسنة النبوية والإجماع والقياس."]
+      "en": [
+        "The Quran, Sunnah, ijma, and qiyas.",
+        "Quran, Sunnah, scholarly consensus, and analogical reasoning."
+      ],
+      "ar": [
+        "القرآن والسنة والإجماع والقياس.",
+        "القرآن الكريم والسنة النبوية والإجماع والقياس."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -71,8 +98,19 @@
       "ar": "رأي قانوني أو حكم رسمي يُصدره عالم إسلامي مؤهل (مفتٍ) في مسألة دينية أو قانونية."
     },
     "acceptedAnswers": {
-      "en": ["A qualified mufti's formal legal opinion on a religious or legal question.", "A qualified mufti's formal religious or legal ruling."],
-      "ar": ["رأي شرعي رسمي يصدره مفتٍ مؤهل في مسألة دينية أو قانونية.", "رأي قانوني شرعي يصدره مفتٍ مؤهل."]
+      "en": [
+        "A qualified mufti's formal legal opinion on a religious or legal question.",
+        "A qualified mufti's formal religious or legal ruling."
+      ],
+      "ar": [
+        "رأي شرعي رسمي يصدره مفتٍ مؤهل في مسألة دينية أو قانونية.",
+        "رأي قانوني شرعي يصدره مفتٍ مؤهل."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -89,6 +127,11 @@
     "answer": {
       "en": "Civil law (code law) system, as inherited from French or Egyptian civil codes.",
       "ar": "نظام القانون المدني (قانون التقنين)، الموروث من القانون الفرنسي أو المصري المدني."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -105,6 +148,11 @@
     "answer": {
       "en": "Hudud (حدود) — the set of specific punishments for crimes like theft, slander, and highway robbery.",
       "ar": "الحدود — العقوبات المحددة لجرائم كالسرقة والقذف والحرابة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -123,8 +171,19 @@
       "ar": "القصاص هو مبدأ المعاملة بالمثل في حالات القتل أو الأذى الجسدي، حيث يحق لأسرة الضحية اختيار القصاص أو الدية أو العفو."
     },
     "acceptedAnswers": {
-      "en": ["Proportional retaliation for murder or bodily harm, with diya or forgiveness alternatives.", "Proportional retaliation in murder or bodily injury cases."],
-      "ar": ["المعاملة بالمثل في القتل أو الأذى، مع إمكان الدية أو العفو.", "قصاص متناسب في القتل أو الأذى مع بديلَي الدية والعفو."]
+      "en": [
+        "Proportional retaliation for murder or bodily harm, with diya or forgiveness alternatives.",
+        "Proportional retaliation in murder or bodily injury cases."
+      ],
+      "ar": [
+        "المعاملة بالمثل في القتل أو الأذى، مع إمكان الدية أو العفو.",
+        "قصاص متناسب في القتل أو الأذى مع بديلَي الدية والعفو."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -141,6 +200,11 @@
     "answer": {
       "en": "Aqd al-nikah (عقد النكاح) — the marriage contract requiring offer, acceptance, two witnesses, and a dowry (mahr).",
       "ar": "عقد النكاح — يستلزم الإيجاب والقبول وشاهدَين والمهر."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -157,6 +221,11 @@
     "answer": {
       "en": "A mandatory gift or payment made by the groom to the bride, which becomes her exclusive property.",
       "ar": "هدية أو مبلغ إلزامي يقدمه العريس للعروس ويصبح ملكًا خالصًا لها."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -173,6 +242,11 @@
     "answer": {
       "en": "Iddah (عدة) — typically three menstrual cycles after divorce, or four months and ten days after a husband's death.",
       "ar": "العدة — عادةً ثلاثة قروء بعد الطلاق، أو أربعة أشهر وعشرة أيام بعد وفاة الزوج."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -189,6 +263,11 @@
     "answer": {
       "en": "A waqf is a religious endowment — property donated for charitable, religious, or educational purposes, which cannot be sold or transferred.",
       "ar": "الوقف هو تبرع ديني — ملكية تُوقف لأغراض خيرية أو دينية أو تعليمية، لا يمكن بيعها أو التصرف فيها."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -205,6 +284,11 @@
     "answer": {
       "en": "Ilm al-faraidh (علم الفرائض) — the science of prescribed inheritance shares defined in the Quran.",
       "ar": "علم الفرائض — علم حصص الميراث المحددة في القرآن الكريم."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -221,6 +305,11 @@
     "answer": {
       "en": "The exclusive authority of a state to govern itself, make laws, and conduct affairs within its territory without interference from other states.",
       "ar": "السلطة الحصرية للدولة لحكم نفسها وسنّ القوانين وإدارة شؤونها داخل أراضيها دون تدخل من دول أخرى."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -237,6 +326,11 @@
     "answer": {
       "en": "A defendant is considered innocent until proven guilty beyond reasonable doubt — the prosecution bears the burden of proof.",
       "ar": "يُعدّ المتهم بريئًا حتى تثبت إدانته خارج نطاق الشك المعقول — ويقع عبء الإثبات على الادعاء."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -255,8 +349,19 @@
       "ar": "مصر — القانون المدني المصري (1949)، الذي صاغه عبد الرزاق السنهوري، اعتُمد أساسًا للقانون المدني في العراق وسوريا وليبيا والكويت وغيرها."
     },
     "acceptedAnswers": {
-      "en": ["Egypt.", "The Arab Republic of Egypt."],
-      "ar": ["مصر.", "جمهورية مصر العربية."]
+      "en": [
+        "Egypt.",
+        "The Arab Republic of Egypt."
+      ],
+      "ar": [
+        "مصر.",
+        "جمهورية مصر العربية."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -273,6 +378,11 @@
     "answer": {
       "en": "Wajib (obligatory), Mandub (recommended), Mubah (permissible), Makruh (discouraged), and Haram (forbidden).",
       "ar": "الواجب، والمندوب، والمباح، والمكروه، والحرام."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -291,8 +401,19 @@
       "ar": "المذهب الحنفي والمالكي والشافعي والحنبلي، كل منها منسوب إلى مؤسسه."
     },
     "acceptedAnswers": {
-      "en": ["The Hanafi, Maliki, Shafi'i, and Hanbali schools.", "Hanafi, Maliki, Shafii, and Hanbali."],
-      "ar": ["المذاهب الحنفي والمالكي والشافعي والحنبلي.", "الحنفية والمالكية والشافعية والحنبلية."]
+      "en": [
+        "The Hanafi, Maliki, Shafi'i, and Hanbali schools.",
+        "Hanafi, Maliki, Shafii, and Hanbali."
+      ],
+      "ar": [
+        "المذاهب الحنفي والمالكي والشافعي والحنبلي.",
+        "الحنفية والمالكية والشافعية والحنبلية."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -311,8 +432,19 @@
       "ar": "الإيجاب والقبول (التراضي)، وأهلية الطرفَين القانونية، ومحل مشروع، وسبب مشروع."
     },
     "acceptedAnswers": {
-      "en": ["Offer, acceptance, legal capacity, lawful object, and lawful cause.", "Mutual consent, legal capacity, lawful subject matter, and lawful cause."],
-      "ar": ["الإيجاب والقبول والأهلية القانونية والمحل المشروع والسبب المشروع.", "التراضي والأهلية والمحل المشروع والسبب المشروع."]
+      "en": [
+        "Offer, acceptance, legal capacity, lawful object, and lawful cause.",
+        "Mutual consent, legal capacity, lawful subject matter, and lawful cause."
+      ],
+      "ar": [
+        "الإيجاب والقبول والأهلية القانونية والمحل المشروع والسبب المشروع.",
+        "التراضي والأهلية والمحل المشروع والسبب المشروع."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -331,8 +463,19 @@
       "ar": "تأسست جامعة الدول العربية عام 1945، وهي منظمة إقليمية تضم الدول العربية تعزّز التعاون وتنسّق السياسات. تتبنى قرارات واتفاقيات، غير أن صكوكها القانونية غير مُلزِمة للدول الأعضاء عمومًا دون التصديق الداخلي."
     },
     "acceptedAnswers": {
-      "en": ["Regional Arab body coordinating policy; legal instruments generally need domestic ratification.", "The Arab League coordinates states; its acts generally bind only after domestic ratification."],
-      "ar": ["منظمة عربية إقليمية تنسق السياسات، وتتطلب صكوكها عمومًا تصديقًا داخليًا.", "جامعة الدول العربية تنسق التعاون؛ وصكوكها غير ملزمة بلا تصديق محلي."]
+      "en": [
+        "Regional Arab body coordinating policy; legal instruments generally need domestic ratification.",
+        "The Arab League coordinates states; its acts generally bind only after domestic ratification."
+      ],
+      "ar": [
+        "منظمة عربية إقليمية تنسق السياسات، وتتطلب صكوكها عمومًا تصديقًا داخليًا.",
+        "جامعة الدول العربية تنسق التعاون؛ وصكوكها غير ملزمة بلا تصديق محلي."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -351,8 +494,19 @@
       "ar": "تُقرّ الدول الثلاث بأن الشريعة الإسلامية هي المصدر الرئيسي (أو أحد المصادر الرئيسية) للتشريع في وثائقها الدستورية."
     },
     "acceptedAnswers": {
-      "en": ["Islamic Sharia is a principal source of legislation in all three.", "All three make Sharia a principal source of legislation."],
-      "ar": ["الشريعة الإسلامية مصدر رئيسي للتشريع في الدول الثلاث.", "تعد الشريعة مصدرًا رئيسيًا للتشريع في السعودية وقطر والإمارات."]
+      "en": [
+        "Islamic Sharia is a principal source of legislation in all three.",
+        "All three make Sharia a principal source of legislation."
+      ],
+      "ar": [
+        "الشريعة الإسلامية مصدر رئيسي للتشريع في الدول الثلاث.",
+        "تعد الشريعة مصدرًا رئيسيًا للتشريع في السعودية وقطر والإمارات."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -371,8 +525,19 @@
       "ar": "العقوبات التقديرية التي يفرضها القاضي على الجرائم غير المشمولة بالحدود أو القصاص، وتُترك نوعية العقوبة وشدتها للسلطة التقديرية للقضاء."
     },
     "acceptedAnswers": {
-      "en": ["Judge-determined discretionary punishment for offenses outside hudud and qisas.", "Discretionary judicial punishment for crimes beyond hudud and qisas."],
-      "ar": ["عقوبة تقديرية يحددها القاضي لجرائم لا تشملها الحدود أو القصاص.", "تعزير قضائي تقديري للجرائم الخارجة عن الحدود والقصاص."]
+      "en": [
+        "Judge-determined discretionary punishment for offenses outside hudud and qisas.",
+        "Discretionary judicial punishment for crimes beyond hudud and qisas."
+      ],
+      "ar": [
+        "عقوبة تقديرية يحددها القاضي لجرائم لا تشملها الحدود أو القصاص.",
+        "تعزير قضائي تقديري للجرائم الخارجة عن الحدود والقصاص."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -389,6 +554,11 @@
     "answer": {
       "en": "Riba (ربا) means any increase or excess charged over a loan principal — broadly interpreted as interest. It is prohibited in Islam. Islamic finance uses profit-sharing instruments (mudarabah, musharakah) to achieve similar economic outcomes without charging fixed interest.",
       "ar": "الربا هو أي زيادة أو فضل يُفرض على أصل القرض — يُفسَّر على نطاق واسع بالفائدة. وهو محرَّم في الإسلام. يستخدم التمويل الإسلامي أدوات تقاسم الأرباح (المضاربة والمشاركة) لتحقيق نتائج اقتصادية مماثلة دون فرض فائدة ثابتة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -407,8 +577,19 @@
       "ar": "الطلاق هو الطلاق الذي يُبادر به الزوج بنطق صيغة الطلاق. الخلع هو الطلاق الذي تُبادر به الزوجة، عادةً بردّ المهر للزوج مقابل الإفراج عنها من الزواج."
     },
     "acceptedAnswers": {
-      "en": ["Talaq is husband-initiated; khul' is wife-initiated, typically in return for the mahr.", "Talaq comes from the husband; khul comes from the wife, usually returning mahr."],
-      "ar": ["الطلاق يبادر به الزوج، والخلع تبادر به الزوجة عادةً مقابل رد المهر.", "الطلاق من الزوج؛ والخلع من الزوجة غالبًا برد المهر."]
+      "en": [
+        "Talaq is husband-initiated; khul' is wife-initiated, typically in return for the mahr.",
+        "Talaq comes from the husband; khul comes from the wife, usually returning mahr."
+      ],
+      "ar": [
+        "الطلاق يبادر به الزوج، والخلع تبادر به الزوجة عادةً مقابل رد المهر.",
+        "الطلاق من الزوج؛ والخلع من الزوجة غالبًا برد المهر."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -427,8 +608,19 @@
       "ar": "الصكوك شهادات مالية إسلامية تمثّل حصص ملكية في أصول أو مشاريع — وهي المكافئ الإسلامي للسندات. تدرّ عوائد من خلال تقاسم الأرباح أو الإيجار من الأصل الأساسي بدلًا من مدفوعات الفائدة."
     },
     "acceptedAnswers": {
-      "en": ["Sharia-compliant asset-ownership certificates yielding profit or rent rather than interest.", "Islamic ownership certificates paying profit or rent instead of interest."],
-      "ar": ["شهادات ملكية متوافقة مع الشريعة تدر ربحًا أو إيجارًا بدل الفائدة.", "صكوك ملكية إسلامية تحقق عائدًا بالربح أو الإيجار لا بالفائدة."]
+      "en": [
+        "Sharia-compliant asset-ownership certificates yielding profit or rent rather than interest.",
+        "Islamic ownership certificates paying profit or rent instead of interest."
+      ],
+      "ar": [
+        "شهادات ملكية متوافقة مع الشريعة تدر ربحًا أو إيجارًا بدل الفائدة.",
+        "صكوك ملكية إسلامية تحقق عائدًا بالربح أو الإيجار لا بالفائدة."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -445,6 +637,11 @@
     "answer": {
       "en": "The kafala system ties a migrant worker's legal residency and employment to a specific local sponsor (kafeel). Workers cannot change employers or leave the country without sponsor permission, creating dependency and vulnerability to exploitation. Several Gulf states have begun reforming or dismantling the system.",
       "ar": "نظام الكفالة يربط إقامة العامل المهاجر القانونية وعمله بكفيل محلي بعينه. لا يستطيع العمال تغيير أصحاب العمل أو مغادرة البلاد دون إذن الكفيل، مما يخلق تبعية وهشاشة أمام الاستغلال. بدأت عدة دول خليجية في إصلاح النظام أو تفكيكه."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -461,6 +658,11 @@
     "answer": {
       "en": "The principle that states are forbidden from intervening in the internal affairs of other sovereign states — enshrined in Article 2(1) of the UN Charter. It prohibits coercive interference in political, economic, or social matters.",
       "ar": "المبدأ القاضي بمنع الدول من التدخل في الشؤون الداخلية للدول ذات السيادة الأخرى — المكرَّس في المادة 2(1) من ميثاق الأمم المتحدة. يحظر التدخل القسري في الشؤون السياسية والاقتصادية والاجتماعية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -477,6 +679,11 @@
     "answer": {
       "en": "Adopted by the Organisation of Islamic Cooperation (OIC), it affirms human rights but subordinates them to Islamic Sharia, offering an alternative framework to the Universal Declaration of Human Rights. It is criticized for limiting rights to what Sharia permits.",
       "ar": "اعتمدته منظمة التعاون الإسلامي، ويؤكد حقوق الإنسان لكن يُخضعها للشريعة الإسلامية، مقدّمًا إطارًا بديلًا للإعلان العالمي لحقوق الإنسان. يُنتقد لتقييده الحقوق بما تجيزه الشريعة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -493,6 +700,11 @@
     "answer": {
       "en": "Extremely high — for example, zina (adultery/fornication) requires four male witnesses to the act itself. This effectively made enforcement rare in classical fiqh, with scholars arguing the strict standard was intended to limit actual punishment.",
       "ar": "مرتفع جدًا — على سبيل المثال، تستلزم جريمة الزنا أربعة شهود ذكور على الفعل ذاته. هذا جعل التطبيق نادرًا في الفقه الكلاسيكي، إذ يرى العلماء أن المعيار الصارم كان مقصودًا للحدّ من العقوبة الفعلية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -511,8 +723,19 @@
       "ar": "المرابحة هي ترتيب تمويل بالتكلفة زائد ربح: يشتري البنك أصلًا بشكل مباشر ثم يبيعه للعميل بهامش ربح محدد مسبقًا، يدفعه على أقساط. هذا يتجنب الفائدة مع تحقيق نتائج تمويلية مماثلة."
     },
     "acceptedAnswers": {
-      "en": ["Bank buys an asset and resells it at disclosed markup, usually in installments.", "Cost-plus sale: bank purchases the home or car, then resells it for installments."],
-      "ar": ["يشتري البنك الأصل ثم يبيعه للعميل بربح معلوم وأقساط.", "بيع بالتكلفة وربح معلوم: يشتري المصرف المنزل أو السيارة ويعيد بيعها بالتقسيط."]
+      "en": [
+        "Bank buys an asset and resells it at disclosed markup, usually in installments.",
+        "Cost-plus sale: bank purchases the home or car, then resells it for installments."
+      ],
+      "ar": [
+        "يشتري البنك الأصل ثم يبيعه للعميل بربح معلوم وأقساط.",
+        "بيع بالتكلفة وربح معلوم: يشتري المصرف المنزل أو السيارة ويعيد بيعها بالتقسيط."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -529,6 +752,11 @@
     "answer": {
       "en": "In a presidential system (e.g. USA, Egypt), the executive is separate from the legislature and directly elected. In a parliamentary system (e.g. UK, Jordan), the executive (prime minister) is drawn from and accountable to the legislature.",
       "ar": "في النظام الرئاسي (مثل الولايات المتحدة ومصر)، السلطة التنفيذية منفصلة عن التشريعية ومنتخبة مباشرةً. في النظام البرلماني (مثل المملكة المتحدة والأردن)، ينبثق رئيس الوزراء من البرلمان ويكون مسؤولًا أمامه."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -547,8 +775,19 @@
       "ar": "قواعد آمرة في القانون الدولي لا يجوز الانحراف عنها — كحظر الإبادة الجماعية والرق والتعذيب. لا يمكن لأي معاهدة تجاوزها."
     },
     "acceptedAnswers": {
-      "en": ["Non-derogable peremptory international-law norms that no treaty may override.", "Peremptory international norms permitting no derogation, even by treaty."],
-      "ar": ["قواعد دولية آمرة لا يجوز الانتقاص منها ولا تتجاوزها معاهدة.", "قواعد آمرة لا تقبل المخالفة ولا يمكن للمعاهدات تجاوزها."]
+      "en": [
+        "Non-derogable peremptory international-law norms that no treaty may override.",
+        "Peremptory international norms permitting no derogation, even by treaty."
+      ],
+      "ar": [
+        "قواعد دولية آمرة لا يجوز الانتقاص منها ولا تتجاوزها معاهدة.",
+        "قواعد آمرة لا تقبل المخالفة ولا يمكن للمعاهدات تجاوزها."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -565,6 +804,11 @@
     "answer": {
       "en": "Wilaya is guardianship or protective authority — most commonly the male guardian's (wali) role in a woman's marriage, which classical fiqh requires for the marriage contract's validity. Contemporary Muslim-majority states vary widely in how strictly they apply this requirement.",
       "ar": "الولاية هي الحضانة أو السلطة الوقائية — وأكثر ما تُعرف بها دور الولي الذكر في زواج المرأة، الذي يشترطه الفقه الكلاسيكي لصحة عقد الزواج. تتفاوت دول ذات الأغلبية المسلمة تفاوتًا كبيرًا في مدى تطبيق هذا الشرط."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -581,6 +825,11 @@
     "answer": {
       "en": "Ijara is an Islamic leasing contract where a bank or financier buys an asset and leases it to the customer for an agreed rental, with ownership optionally transferring at the end. It is used for vehicle and equipment financing as an interest-free alternative.",
       "ar": "الإجارة عقد تأجير إسلامي يشتري فيه البنك أصلًا ويؤجّره للعميل بإيجار متفق عليه، مع إمكانية نقل الملكية في النهاية. تُستخدم لتمويل السيارات والمعدات كبديل خالٍ من الفائدة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -597,6 +846,11 @@
     "answer": {
       "en": "Diya is financial compensation paid to the victim or victim's family in cases of unintentional killing or bodily harm, as an alternative to qisas retaliation. Amounts vary by injury type and are still applied in several Muslim-majority legal systems.",
       "ar": "الدية تعويض مالي يُدفع للضحية أو أسرتها في حالات القتل الخطأ أو الأذى الجسدي، كبديل للقصاص. تتفاوت المبالغ بحسب نوع الإصابة ولا تزال مطبّقة في عدة أنظمة قانونية ذات أغلبية مسلمة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -613,6 +867,11 @@
     "answer": {
       "en": "The principal judicial organ of the UN, based in The Hague. It settles legal disputes between states (contentious cases) and gives advisory opinions on legal questions referred by UN organs. Only states — not individuals — can be parties to contentious cases.",
       "ar": "الجهاز القضائي الرئيسي للأمم المتحدة، مقرّه لاهاي. يفصل في النزاعات القانونية بين الدول (القضايا الخلافية) ويُصدر آراء استشارية بشأن المسائل القانونية التي تحيل بها هيئات الأمم المتحدة. الدول وحدها — لا الأفراد — يمكنها أن تكون طرفًا في القضايا الخلافية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -629,6 +888,11 @@
     "answer": {
       "en": "A human rights instrument adopted by the Arab League in 2004, entering into force in 2008. It guarantees civil, political, economic, social, and cultural rights, but is criticized for allowing derogation on national security grounds and for not fully aligning with international standards.",
       "ar": "صك لحقوق الإنسان اعتمدته جامعة الدول العربية عام 2004، دخل حيز التنفيذ عام 2008. يكفل الحقوق المدنية والسياسية والاقتصادية والاجتماعية والثقافية، لكن يُنتقد بسبب إجازة الانحراف عنه لأسباب أمنية وعدم تماشيه الكامل مع المعايير الدولية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -645,6 +909,11 @@
     "answer": {
       "en": "Egypt's Supreme Constitutional Court has exclusive jurisdiction over the constitutionality of legislation, interprets legislative texts referred to it, and settles jurisdictional conflicts between courts. Its rulings are final and binding on all state organs.",
       "ar": "تختص المحكمة الدستورية العليا المصرية حصريًا بالرقابة على دستورية التشريعات وتفسير النصوص التشريعية المحالة إليها والفصل في تنازع الاختصاص بين المحاكم. أحكامها نهائية ومُلزِمة لجميع هيئات الدولة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -661,6 +930,11 @@
     "answer": {
       "en": "An electronic salary monitoring system that requires employers to pay workers' wages through approved financial channels on time. Compliance is tracked by authorities, and non-paying employers face fines, work permit bans, or criminal prosecution.",
       "ar": "نظام إلكتروني لمراقبة الرواتب يُلزم أصحاب العمل بدفع أجور العمال عبر قنوات مالية معتمدة في الوقت المحدد. تتابع السلطات الامتثال، ويواجه أصحاب العمل المخالفون غرامات وحظر تأشيرات عمل أو ملاحقة جنائية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -677,6 +951,11 @@
     "answer": {
       "en": "Ijtihad is independent legal reasoning to derive new rulings on matters not explicitly addressed in the Quran or Sunnah. It became controversial after classical scholars declared 'the closing of the gate of ijtihad' — suggesting most major legal questions had been settled — though this view is contested and modern reformists strongly advocate reopening ijtihad.",
       "ar": "الاجتهاد هو الاستنباط القانوني المستقل للأحكام في المسائل التي لم يرد فيها نص صريح في القرآن أو السنة. أصبح خلافيًا بعد أن أعلن العلماء الكلاسيكيون 'إغلاق باب الاجتهاد' — بمعنى أن أغلب المسائل القانونية الكبرى قد حُسمت — رغم أن هذا الرأي محلّ جدل وأن المصلحين المعاصرين يدعون بقوة إلى إعادة فتح باب الاجتهاد."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -693,6 +972,11 @@
     "answer": {
       "en": "Arbitration is a private dispute resolution process where parties agree to submit disputes to one or more arbitrators whose decision (award) is binding. In international trade, it is preferred over national courts because it is neutral, confidential, and awards are enforceable internationally under the New York Convention (1958).",
       "ar": "التحكيم عملية خاصة لتسوية النزاعات يتفق فيها الطرفان على إحالة خلافاتهما إلى محكّم أو أكثر يصدر قرارًا (حكمًا) مُلزِمًا. في التجارة الدولية، يُفضَّل على المحاكم الوطنية لكونه محايدًا وسريًا وأحكامه قابلة للتنفيذ دوليًا بموجب اتفاقية نيويورك (1958)."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -709,6 +993,11 @@
     "answer": {
       "en": "A crime is a wrong against society prosecuted by the state, resulting in criminal penalties (imprisonment, fines). A tort (civil wrong) is a wrong against an individual that gives rise to a private civil action for compensation. The same act can constitute both a crime and a tort simultaneously.",
       "ar": "الجريمة هي خطأ بحق المجتمع تلاحقه الدولة ويترتب عليه عقوبات جنائية (سجن وغرامات). الفعل الضار (الضرر المدني) هو خطأ بحق فرد يُخوّله حق رفع دعوى مدنية خاصة للتعويض. يمكن أن يُشكّل الفعل الواحد جريمة وفعلًا ضارًا في آنٍ واحد."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -725,6 +1014,11 @@
     "answer": {
       "en": "Ownership (milkiyya) is the full legal right to use, enjoy, and dispose of property. Possession (hiyaza) is the physical control of property, which may exist without ownership (e.g. a tenant possesses but doesn't own). Possession can give rise to certain legal protections even without full title.",
       "ar": "الملكية هي الحق القانوني الكامل في استخدام الشيء والانتفاع به والتصرف فيه. الحيازة هي السيطرة المادية على الشيء، وقد توجد بدون ملكية (كالمستأجر الذي يحوز لكن لا يملك). قد تُنشئ الحيازة حمايات قانونية معينة حتى دون سند ملكية كامل."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -743,8 +1037,19 @@
       "ar": "تطبّق هذه الدول قوانين مدنية (مستمدة من الفرنسية) للشؤون التجارية والجنائية، بينما تطبّق الشريعة في قانون الأحوال الشخصية (الزواج والطلاق والميراث والولاية). محاكم منفصلة (الأحوال الشخصية أو الشريعة) تتولى الشؤون الأسرية، بينما تتولى المحاكم المدنية والجنائية الباقي. التكامل معقّد — غالبًا ما تُلهم مبادئ الشريعة التفسير الدستوري حتى في المجال المدني."
     },
     "acceptedAnswers": {
-      "en": ["Civil codes govern commercial and criminal matters; Sharia governs Muslim personal status.", "Civil law covers commerce and crime; Sharia covers Muslim family and inheritance."],
-      "ar": ["تحكم القوانين المدنية الشؤون التجارية والجنائية، وتحكم الشريعة الأحوال الشخصية للمسلمين.", "القانون المدني للتجارة والجنايات؛ والشريعة للأحوال الشخصية للمسلمين."]
+      "en": [
+        "Civil codes govern commercial and criminal matters; Sharia governs Muslim personal status.",
+        "Civil law covers commerce and crime; Sharia covers Muslim family and inheritance."
+      ],
+      "ar": [
+        "تحكم القوانين المدنية الشؤون التجارية والجنائية، وتحكم الشريعة الأحوال الشخصية للمسلمين.",
+        "القانون المدني للتجارة والجنايات؛ والشريعة للأحوال الشخصية للمسلمين."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -763,8 +1068,19 @@
       "ar": "المصلحة مبدأ يجيز استنباط الأحكام أو إصلاحها لخدمة الصالح العام، حتى لو لم تُستمد مباشرةً من نصوص القرآن أو السنة، بشرط ألا تتعارض مع المبادئ الراسخة. يستخدمه العلماء الإصلاحيون للمطالبة بتحديث الشريعة في مسائل كحقوق المرأة والمصارف والعقوبات الجنائية لتتوافق مع السياق المعاصر."
     },
     "acceptedAnswers": {
-      "en": ["Public interest allows Sharia-consistent rulings and reforms without explicit scripture.", "Maslaha permits public-interest legal reform consistent with Sharia principles."],
-      "ar": ["تجيز المصلحة أحكامًا وإصلاحات للصالح العام بلا نص صريح إذا وافقت مبادئ الشريعة.", "المصلحة تجيز إصلاح الأحكام لخدمة العامة بشرط موافقة أصول الشريعة."]
+      "en": [
+        "Public interest allows Sharia-consistent rulings and reforms without explicit scripture.",
+        "Maslaha permits public-interest legal reform consistent with Sharia principles."
+      ],
+      "ar": [
+        "تجيز المصلحة أحكامًا وإصلاحات للصالح العام بلا نص صريح إذا وافقت مبادئ الشريعة.",
+        "المصلحة تجيز إصلاح الأحكام لخدمة العامة بشرط موافقة أصول الشريعة."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -783,8 +1099,19 @@
       "ar": "يقضي مبدأ مسؤولية الحماية بأن للدول مسؤولية أولية لحماية مواطنيها من الإبادة الجماعية وجرائم الحرب والتطهير العرقي والجرائم ضد الإنسانية. عند فشل الدولة، يجوز للمجتمع الدولي التدخل. استُدعي المبدأ في التدخل العسكري لحلف الناتو في ليبيا عام 2011 (قرار مجلس الأمن 1973) بصورة خلافية، مثيرًا نقاشات حول حدوده وإمكانية إساءة استخدامه."
     },
     "acceptedAnswers": {
-      "en": ["States prevent atrocity crimes; international action may follow failure, as in Libya.", "R2P requires state protection; international intervention may follow failure, as in Libya."],
-      "ar": ["تحمي الدولة سكانها من الفظائع؛ وقد يتدخل المجتمع الدولي عند فشلها كما في ليبيا.", "مسؤولية الدولة منع الفظائع؛ وعند فشلها يجوز تدخل دولي كما في ليبيا."]
+      "en": [
+        "States prevent atrocity crimes; international action may follow failure, as in Libya.",
+        "R2P requires state protection; international intervention may follow failure, as in Libya."
+      ],
+      "ar": [
+        "تحمي الدولة سكانها من الفظائع؛ وقد يتدخل المجتمع الدولي عند فشلها كما في ليبيا.",
+        "مسؤولية الدولة منع الفظائع؛ وعند فشلها يجوز تدخل دولي كما في ليبيا."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -803,8 +1130,19 @@
       "ar": "الشورى مبدأ التشاور — يجب على الحكام التشاور مع المستشارين أو الممثلين قبل اتخاذ القرارات. تُدمجه دول الخليج عبر المجالس الاستشارية (كمجلس الشورى السعودي أو مجلس قطر) التي تستشير الحاكم لكن تفتقر إلى سلطة تشريعية كاملة، مما يمثّل أسلوبًا في تأسيس مبادئ الشورى."
     },
     "acceptedAnswers": {
-      "en": ["Consultation in governance through Gulf advisory councils with limited legislative power.", "Shura means consultation, embodied in Gulf advisory councils with limited lawmaking powers."],
-      "ar": ["الشورى هي التشاور في الحكم عبر مجالس خليجية استشارية محدودة السلطة التشريعية.", "تشاور الحاكم عبر مجالس الشورى الخليجية ذات الصلاحيات التشريعية المحدودة."]
+      "en": [
+        "Consultation in governance through Gulf advisory councils with limited legislative power.",
+        "Shura means consultation, embodied in Gulf advisory councils with limited lawmaking powers."
+      ],
+      "ar": [
+        "الشورى هي التشاور في الحكم عبر مجالس خليجية استشارية محدودة السلطة التشريعية.",
+        "تشاور الحاكم عبر مجالس الشورى الخليجية ذات الصلاحيات التشريعية المحدودة."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -823,8 +1161,19 @@
       "ar": "هيئة الرقابة الشرعية لجنة من العلماء المسلمين المؤهلين تراجع وتُشهد على مطابقة المنتجات المالية والعقود وعمليات البنك لمبادئ الشريعة. تُصدر فتاوى بشأن المنتجات وتراجع المعاملات. استقلاليتها واتساقها عبر المؤسسات لا يزال موضع نقاش في حوكمة التمويل الإسلامي."
     },
     "acceptedAnswers": {
-      "en": ["It reviews, certifies, and audits financial products and operations for Sharia compliance.", "Scholars certify and audit bank products, contracts, and operations for Sharia compliance."],
-      "ar": ["تراجع الهيئة المنتجات والعقود والعمليات وتجيزها وتدققها لضمان امتثالها للشريعة.", "تضمن الهيئة شرعية منتجات المصرف وعقوده وعملياته بالفتوى والتدقيق."]
+      "en": [
+        "It reviews, certifies, and audits financial products and operations for Sharia compliance.",
+        "Scholars certify and audit bank products, contracts, and operations for Sharia compliance."
+      ],
+      "ar": [
+        "تراجع الهيئة المنتجات والعقود والعمليات وتجيزها وتدققها لضمان امتثالها للشريعة.",
+        "تضمن الهيئة شرعية منتجات المصرف وعقوده وعملياته بالفتوى والتدقيق."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -843,8 +1192,19 @@
       "ar": "أسّس نظام روما (1998) المحكمة الجنائية الدولية، أول محكمة جنائية دولية دائمة تختص بالإبادة الجماعية والجرائم ضد الإنسانية وجرائم الحرب. لم تُصادق كثير من الدول العربية عليه بسبب مخاوف تتعلق بالسيادة وإمكانية الملاحقة القضائية ذات الدوافع السياسية وتركيز المحكمة السابق على الأوضاع الأفريقية والشرق أوسطية. واجه الرئيس السوداني البشير مذكرات اعتقال من المحكمة بشأن جرائم حرب دارفور — مما يُسلّط الضوء على التوترات بين المساءلة والسيادة."
     },
     "acceptedAnswers": {
-      "en": ["Rome Statute created the ICC for atrocity crimes; sovereignty concerns deter Arab ratification.", "Rome Statute founded the ICC for atrocities; sovereignty and politicization deter ratification."],
-      "ar": ["أنشأ نظام روما المحكمة الجنائية الدولية لجرائم الفظائع؛ وتعوق مخاوف السيادة التصديق العربي.", "نظام روما أسس محكمة جرائم الفظائع؛ ومخاوف السيادة والتسييس تعطل التصديق."]
+      "en": [
+        "Rome Statute created the ICC for atrocity crimes; sovereignty concerns deter Arab ratification.",
+        "Rome Statute founded the ICC for atrocities; sovereignty and politicization deter ratification."
+      ],
+      "ar": [
+        "أنشأ نظام روما المحكمة الجنائية الدولية لجرائم الفظائع؛ وتعوق مخاوف السيادة التصديق العربي.",
+        "نظام روما أسس محكمة جرائم الفظائع؛ ومخاوف السيادة والتسييس تعطل التصديق."
+      ]
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   }
 ]

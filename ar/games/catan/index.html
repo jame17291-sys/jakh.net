@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="ارمِ النرد واجمع الموارد وابنِ المستوطنات في لعبة استراتيجية مستوحاة من كاتان للاعبين، مجاناً وبلا تنزيل أو تسجيل." />
+  <title>كاتان لايت أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/catan/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/catan" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/catan/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/catan" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="كاتان لايت أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="ارمِ النرد واجمع الموارد وابنِ المستوطنات في لعبة استراتيجية مستوحاة من كاتان للاعبين، مجاناً وبلا تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/catan/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="كاتان لايت أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="ارمِ النرد واجمع الموارد وابنِ المستوطنات في لعبة استراتيجية مستوحاة من كاتان للاعبين، مجاناً وبلا تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <style>
+    /* scoped catan styles */
+    :root {
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
+    }
+
+    #catanSection {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    #catan-game {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Status bar */
+    #catan-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+    }
+
+    #catan-turn-label {
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    #catan-dice-display {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      letter-spacing: 0.15em;
+      min-width: 4rem;
+      text-align: center;
+    }
+
+    #catan-dice-total {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--gilt);
+      font-weight: 600;
+    }
+
+    #catan-win-banner {
+      display: none;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #f7d98a, #f1bf56);
+      border: 1px solid rgba(151, 96, 6, 0.24);
+      border-radius: var(--radius);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--ink);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Board */
+    #catan-board {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      direction: ltr;
+    }
+
+    .catan-hex {
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s, transform 0.15s;
+      position: relative;
+      min-height: 90px;
+      user-select: none;
+    }
+
+    .catan-hex:hover { transform: translateY(-2px); }
+    .catan-hex.selected { border-color: var(--gilt) !important; box-shadow: 0 0 0 2px var(--gilt); }
+
+    .hex-resource-icon { font-size: 1.5rem; line-height: 1; }
+    .hex-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(32, 50, 71, 0.14);
+      border-radius: 50%;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hex-number.hot { color: #ff7a8a; }
+
+    .hex-settlements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      justify-content: center;
+      min-height: 1rem;
+    }
+
+    .settlement-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.5);
+    }
+    .settlement-marker.city {
+      border-radius: 3px;
+      width: 12px;
+      height: 12px;
+    }
+    .settlement-marker.p1 { background: var(--accent); }
+    .settlement-marker.p2 { background: #4A90D9; }
+
+    /* Players */
+    #catan-players {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      direction: ltr;
+    }
+
+    .catan-player-panel {
+      background: var(--panel);
+      border: 2px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: border-color 0.2s;
+    }
+
+    .catan-player-panel.active-player { border-color: var(--gilt); }
+    .catan-player-panel.p1-panel { border-left: 3px solid var(--accent); }
+    .catan-player-panel.p2-panel { border-left: 3px solid #4A90D9; }
+
+    .player-name {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .player-vp {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--gilt);
+      font-weight: 600;
+    }
+
+    .resource-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .resource-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-soft);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+    }
+
+    .resource-chip .res-icon { font-size: 0.9rem; }
+    .resource-chip .res-count { font-weight: 700; }
+
+    .player-stats {
+      font-family: var(--font);
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    /* Actions */
+    #catan-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .catan-btn {
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .catan-btn:active { transform: scale(0.97); }
+    .catan-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--bg-soft); color: var(--text); border: 1px solid var(--line-strong); }
+    .btn-gold { background: #f1bf56; color: var(--ink); }
+    .btn-danger { background: rgba(255,122,138,0.2); color: var(--danger); border: 1px solid var(--danger); }
+
+    /* Log */
+    #catan-log {
+      background: var(--bg-soft);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      max-height: 120px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0.2rem;
+    }
+
+    .log-entry {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .log-entry.log-highlight { color: var(--gilt); }
+    .log-entry.log-action { color: var(--easy); }
+    .log-entry.log-win { color: var(--gilt); font-weight: 700; }
+
+    /* Trade modal */
+    #catan-trade-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(32, 50, 71, 0.38);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    #catan-trade-modal.open { display: flex; }
+
+    .trade-modal-inner {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .trade-modal-inner h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .trade-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .trade-row label {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .trade-row select {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--bg-soft);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+    }
+
+    .trade-actions {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    /* Setup mode */
+    .catan-hex.setup-mode { cursor: pointer; border-color: rgba(201,162,39,0.4); }
+    .catan-hex.setup-mode:hover { border-color: var(--gilt); }
+
+    #catan-setup-hint {
+      font-family: var(--font);
+      font-size: 0.88rem;
+      color: var(--gilt);
+      text-align: center;
+      padding: 0.4rem;
+    }
+
+    @media (max-width: 600px) {
+      #catan-board { grid-template-columns: repeat(5, 1fr); gap: 0.3rem; }
+      .catan-hex { padding: 0.5rem 0.25rem; min-height: 72px; }
+      .hex-resource-icon { font-size: 1.2rem; }
+      #catan-players { grid-template-columns: 1fr; }
+      #catan-actions { gap: 0.4rem; }
+      .catan-btn { font-size: 0.8125rem; padding: 0.55rem 0.8rem; }
+    }
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Catan Lite",
+  "description": "Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game.",
+  "url": "https://jakh.net/catan",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="catan" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture>
+        <source srcset="/assets/logo.webp" type="image/webp"/>
+        <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+      <a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a>
+    </nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">استراتيجية · موارد</p>
+        <h1 data-i18n="heroTitle">🏛 كاتان لايت</h1>
+        <p class="hero-text" data-i18n="heroText">ارمِ النرد واجمع الموارد وابنِ المستوطنات والمدن. أول من يصل إلى 10 نقاط فوز ينتصر.</p>
+      </div>
+    </section>
+
+    <section class="shell section-block" id="catanSection">
+      <div id="catan-game">
+        <!-- Status bar -->
+        <div id="catan-status-bar">
+          <span id="catan-turn-label"></span>
+          <div style="display:flex;align-items:center;gap:0.6rem;">
+            <span id="catan-dice-display">⚀⚀</span>
+            <span id="catan-dice-total"></span>
+          </div>
+          <span id="catan-phase-label" style="font-size:0.82rem;color:var(--muted);font-family: var(--font);"></span>
+        </div>
+
+        <div id="catan-win-banner"></div>
+        <div id="catan-setup-hint"></div>
+
+        <!-- Hex board -->
+        <div id="catan-board" role="grid" aria-label="لوحة كاتان" data-i18n-aria-label="boardLabel" dir="ltr"></div>
+
+        <!-- Players -->
+        <div id="catan-players">
+          <div class="catan-player-panel p1-panel" id="panel-p1">
+            <div class="player-name">
+              <span data-i18n="player1">🔴 اللاعب 1</span>
+              <span class="player-vp" id="vp-p1"></span>
+            </div>
+            <div class="resource-row" id="res-p1"></div>
+            <div class="player-stats" id="stats-p1"></div>
+          </div>
+          <div class="catan-player-panel p2-panel" id="panel-p2">
+            <div class="player-name">
+              <span data-i18n="player2">🔵 اللاعب 2 (ذكي)</span>
+              <span class="player-vp" id="vp-p2"></span>
+            </div>
+            <div class="resource-row" id="res-p2"></div>
+            <div class="player-stats" id="stats-p2"></div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div id="catan-actions">
+          <button class="catan-btn btn-primary" id="btn-roll" data-i18n="rollDice">🎲 ارمِ النرد</button>
+          <button class="catan-btn btn-secondary" id="btn-settlement" data-i18n="buildSettlement">🏠 مستوطنة (خشب+طوب+قمح+خروف)</button>
+          <button class="catan-btn btn-secondary" id="btn-road" data-i18n="buildRoad">🛣️ طريق (خشب+طوب)</button>
+          <button class="catan-btn btn-secondary" id="btn-city" data-i18n="buildCity">🏙️ مدينة (2 قمح+3 خام)</button>
+          <button class="catan-btn btn-secondary" id="btn-trade" data-i18n="tradeButton">🔄 مبادلة 4:1</button>
+          <button class="catan-btn btn-gold" id="btn-end" data-i18n="endTurn">إنهاء الدور ◀</button>
+          <button class="catan-btn btn-danger" id="btn-restart" style="margin-inline-start:auto;" data-i18n="restart">↺ إعادة البدء</button>
+        </div>
+
+        <!-- Log -->
+        <div id="catan-log" aria-live="polite" aria-label="سجل اللعبة" data-i18n-aria-label="gameLogLabel"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Trade Modal -->
+  <div id="catan-trade-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="catan-trade-title">
+    <div class="trade-modal-inner">
+      <h2 id="catan-trade-title" data-i18n="bankTradeTitle">🔄 مبادلة البنك (4:1)</h2>
+      <div class="trade-row">
+        <label id="trade-give-label" for="trade-give" data-i18n="giveFour">أعطِ 4 من:</label>
+        <select id="trade-give" aria-labelledby="trade-give-label">
+          <option value="w" data-resource="w">🪵 Wood</option>
+          <option value="o" data-resource="o">⛏️ Ore</option>
+          <option value="wh" data-resource="wh">🌾 Wheat</option>
+          <option value="b" data-resource="b">🧱 Brick</option>
+          <option value="s" data-resource="s">🐑 Sheep</option>
+        </select>
+      </div>
+      <div class="trade-row">
+        <label id="trade-get-label" for="trade-get" data-i18n="getOne">خذ 1 من:</label>
+        <select id="trade-get" aria-labelledby="trade-get-label">
+          <option value="wh" data-resource="wh">🌾 Wheat</option>
+          <option value="o" data-resource="o">⛏️ Ore</option>
+          <option value="w" data-resource="w">🪵 Wood</option>
+          <option value="b" data-resource="b">🧱 Brick</option>
+          <option value="s" data-resource="s">🐑 Sheep</option>
+        </select>
+      </div>
+      <div class="trade-actions">
+        <button class="catan-btn btn-primary" id="btn-confirm-trade" data-i18n="confirmTrade">تأكيد المبادلة</button>
+        <button class="catan-btn btn-secondary" id="btn-cancel-trade" data-i18n="cancel">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <script id="catan-i18n">
+  JakhGameI18n.register('catan', {
+    en: {
+      metaTitle: 'Catan Lite Online — Free Browser Game | JAKH',
+      metaDescription: 'Roll dice, collect resources, and build settlements in a compact two-player Catan-inspired strategy game. Play instantly with no download or sign-up.',
+      metaImageAlt: 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games',
+      heroEyebrow: 'Strategy · Resources',
+      heroTitle: '🏛 Catan Lite',
+      heroText: 'Roll dice, collect resources, build settlements and cities. First to 10 victory points wins.',
+      boardLabel: 'Catan board',
+      player1: '🔴 Player 1',
+      player2: '🔵 Player 2 (AI)',
+      player1Name: 'Player 1',
+      player2Name: 'Player 2 (AI)',
+      player1Short: 'P1',
+      player2Short: 'P2',
+      setupTurn: 'Setup — {player}’s turn',
+      mainTurn: '{player}’s turn',
+      player1WinsShort: '🏆 Player 1 Wins!',
+      player2WinsShort: '🏆 Player 2 Wins!',
+      phaseSetup: 'Place your starting settlement (step {step}/4)',
+      phaseBuild: 'Build or end turn',
+      phaseRoll: 'Roll dice to start',
+      player1WinBanner: '🏆 Player 1 wins with 10 Victory Points!',
+      player2WinBanner: '🏆 Player 2 (AI) wins with 10 Victory Points!',
+      setupHintHuman: '🔴 Player 1: Click a hex to place your starting settlement.',
+      setupHintAI: '🔵 AI is placing its starting settlement…',
+      victoryPoints: '{points} VP',
+      playerStats: 'Settlements: {settlements} | Cities: {cities} | Roads: {roads}',
+      rollDice: '🎲 Roll Dice',
+      buildSettlement: '🏠 Settlement (W+B+Wh+Sh)',
+      buildRoad: '🛣️ Road (W+B)',
+      buildCity: '🏙️ City (2Wh+3O)',
+      tradeButton: '🔄 Trade 4:1',
+      endTurn: 'End Turn ▶',
+      restart: '↺ Restart',
+      gameLogLabel: 'Game log',
+      bankTradeLabel: 'Bank Trade',
+      bankTradeTitle: '🔄 Bank Trade (4:1)',
+      giveFour: 'Give (4 of):',
+      getOne: 'Get (1 of):',
+      confirmTrade: 'Confirm Trade',
+      cancel: 'Cancel',
+      resourceW: 'Wood',
+      resourceO: 'Ore',
+      resourceWh: 'Wheat',
+      resourceB: 'Brick',
+      resourceS: 'Sheep',
+      resourceDesert: 'Desert',
+      hexLabel: 'Hex {hex}: {resource}, number {number}',
+      hexSetupAction: '{hex}. Place your starting settlement here.',
+      hexSettlementAction: '{hex}. Build a settlement here.',
+      hexCityAction: '{hex}. Upgrade this settlement to a city.',
+      settlementMarker: '{player} settlement',
+      cityMarker: '{player} city',
+      eventAlreadyRolled: 'Already rolled this turn.',
+      eventNotMain: 'The main phase has not started.',
+      eventRoll: '{player} rolled {d1}+{d2}={total}. {outcome}',
+      productionGain: '{player} gets {resources}',
+      productionNone: 'No production.',
+      productionRobber: 'Robber! (No effect in Lite.)',
+      eventOccupied: 'That hex already has a settlement.',
+      eventSetupSettlement: '{player} placed a settlement on hex {hex}.',
+      eventSetupComplete: 'Setup complete! The game begins. Player 1 goes first.',
+      eventRollFirst: 'Roll dice first.',
+      eventCannotSettlement: 'Cannot build a settlement (need W+B+Wh+Sh, maximum 5).',
+      eventSettlementBuilt: '{player} built a settlement on hex {hex}. ({points} VP)',
+      eventCannotRoad: 'Cannot build a road (need W+B, maximum 15).',
+      eventRoadBuilt: '{player} built a road. ({roads} roads)',
+      eventCannotCity: 'Cannot build a city (need 2Wh+3O and an existing settlement).',
+      eventNoSettlement: 'There is no settlement there to upgrade.',
+      eventCityBuilt: '{player} upgraded to a city on hex {hex}. ({points} VP)',
+      eventSameResource: 'Choose two different resources.',
+      eventNeedTrade: 'Need 4 {resource} to trade. You have {count}.',
+      eventBankEmpty: 'The bank has no {resource}.',
+      eventTrade: '{player} traded 4{give} for 1{get}.',
+      eventTurnPassed: 'Turn passed to {player}.',
+      eventAINoOpen: 'AI could not find an open hex during setup.',
+      eventNeedSettlement: 'Not enough resources for a settlement.',
+      eventSelectSettlement: 'Click a hex to place your settlement.',
+      eventNeedCity: 'Not enough resources for a city.',
+      eventSelectCity: 'Click a hex with your settlement to upgrade it to a city.',
+      eventPlayerEnded: 'Player 1 ended the turn.',
+      eventAIEnded: 'AI ended the turn.',
+      eventGameOver: 'Game over!',
+      eventNewGame: 'New game started. Player 1: place your first settlement.',
+      eventWelcome: 'Welcome to Catan Lite! Place your starting settlement to begin.'
+    },
+    ar: {
+      metaTitle: 'كاتان لايت أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'ارمِ النرد واجمع الموارد وابنِ المستوطنات في لعبة استراتيجية مستوحاة من كاتان للاعبين، مجاناً وبلا تنزيل أو تسجيل.',
+      metaImageAlt: 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب',
+      heroEyebrow: 'استراتيجية · موارد',
+      heroTitle: '🏛 كاتان لايت',
+      heroText: 'ارمِ النرد واجمع الموارد وابنِ المستوطنات والمدن. أول من يصل إلى 10 نقاط فوز ينتصر.',
+      boardLabel: 'لوحة كاتان',
+      player1: '🔴 اللاعب 1',
+      player2: '🔵 اللاعب 2 (ذكي)',
+      player1Name: 'اللاعب 1',
+      player2Name: 'اللاعب 2 (ذكي)',
+      player1Short: 'ل1',
+      player2Short: 'ل2',
+      setupTurn: 'الإعداد — دور {player}',
+      mainTurn: 'دور {player}',
+      player1WinsShort: '🏆 فاز اللاعب 1!',
+      player2WinsShort: '🏆 فاز اللاعب 2!',
+      phaseSetup: 'ضع مستوطنتك الأولى (الخطوة {step}/4)',
+      phaseBuild: 'ابنِ أو أنهِ الدور',
+      phaseRoll: 'ارمِ النرد للبدء',
+      player1WinBanner: '🏆 فاز اللاعب 1 بعد وصوله إلى 10 نقاط فوز!',
+      player2WinBanner: '🏆 فاز اللاعب 2 الذكي بعد وصوله إلى 10 نقاط فوز!',
+      setupHintHuman: '🔴 اللاعب 1: اضغط على سداسي لوضع مستوطنتك الأولى.',
+      setupHintAI: '🔵 الذكاء الاصطناعي يضع مستوطنته الأولى…',
+      victoryPoints: '{points} نقطة فوز',
+      playerStats: 'المستوطنات: {settlements} | المدن: {cities} | الطرق: {roads}',
+      rollDice: '🎲 ارمِ النرد',
+      buildSettlement: '🏠 مستوطنة (خشب+طوب+قمح+خروف)',
+      buildRoad: '🛣️ طريق (خشب+طوب)',
+      buildCity: '🏙️ مدينة (2 قمح+3 خام)',
+      tradeButton: '🔄 مبادلة 4:1',
+      endTurn: 'إنهاء الدور ◀',
+      restart: '↺ إعادة البدء',
+      gameLogLabel: 'سجل اللعبة',
+      bankTradeLabel: 'مبادلة البنك',
+      bankTradeTitle: '🔄 مبادلة البنك (4:1)',
+      giveFour: 'أعطِ 4 من:',
+      getOne: 'خذ 1 من:',
+      confirmTrade: 'تأكيد المبادلة',
+      cancel: 'إلغاء',
+      resourceW: 'خشب',
+      resourceO: 'خام',
+      resourceWh: 'قمح',
+      resourceB: 'طوب',
+      resourceS: 'خروف',
+      resourceDesert: 'صحراء',
+      hexLabel: 'السداسي {hex}: {resource}، الرقم {number}',
+      hexSetupAction: '{hex}. ضع مستوطنتك الأولى هنا.',
+      hexSettlementAction: '{hex}. ابنِ مستوطنة هنا.',
+      hexCityAction: '{hex}. طوّر هذه المستوطنة إلى مدينة.',
+      settlementMarker: 'مستوطنة {player}',
+      cityMarker: 'مدينة {player}',
+      eventAlreadyRolled: 'رميت النرد بالفعل في هذا الدور.',
+      eventNotMain: 'لم تبدأ المرحلة الرئيسية بعد.',
+      eventRoll: 'رمى {player} النرد: {d1}+{d2}={total}. {outcome}',
+      productionGain: 'حصل {player} على {resources}',
+      productionNone: 'لا إنتاج.',
+      productionRobber: 'اللص! (بلا تأثير في النسخة الخفيفة.)',
+      eventOccupied: 'توجد مستوطنة على هذا السداسي بالفعل.',
+      eventSetupSettlement: 'وضع {player} مستوطنة على السداسي {hex}.',
+      eventSetupComplete: 'اكتمل الإعداد! تبدأ اللعبة ويلعب اللاعب 1 أولاً.',
+      eventRollFirst: 'ارمِ النرد أولاً.',
+      eventCannotSettlement: 'لا يمكن بناء مستوطنة (تحتاج خشباً وطوباً وقمحاً وخروفاً، والحد 5).',
+      eventSettlementBuilt: 'بنى {player} مستوطنة على السداسي {hex}. ({points} نقطة فوز)',
+      eventCannotRoad: 'لا يمكن بناء طريق (تحتاج خشباً وطوباً، والحد 15).',
+      eventRoadBuilt: 'بنى {player} طريقاً. (المجموع {roads})',
+      eventCannotCity: 'لا يمكن بناء مدينة (تحتاج 2 قمح و3 خام ومستوطنة قائمة).',
+      eventNoSettlement: 'لا توجد مستوطنة هنا لترقيتها.',
+      eventCityBuilt: 'رقّى {player} المستوطنة إلى مدينة على السداسي {hex}. ({points} نقطة فوز)',
+      eventSameResource: 'اختر موردين مختلفين.',
+      eventNeedTrade: 'تحتاج 4 من {resource} للمبادلة، ولديك {count}.',
+      eventBankEmpty: 'لا يملك البنك مورد {resource}.',
+      eventTrade: 'بادل {player} 4{give} مقابل 1{get}.',
+      eventTurnPassed: 'انتقل الدور إلى {player}.',
+      eventAINoOpen: 'لم يجد الذكاء الاصطناعي سدادسياً متاحاً أثناء الإعداد.',
+      eventNeedSettlement: 'لا توجد موارد كافية لبناء مستوطنة.',
+      eventSelectSettlement: 'اضغط على سداسي لوضع مستوطنتك.',
+      eventNeedCity: 'لا توجد موارد كافية لبناء مدينة.',
+      eventSelectCity: 'اضغط على سداسي توجد عليه مستوطنتك لترقيتها إلى مدينة.',
+      eventPlayerEnded: 'أنهى اللاعب 1 دوره.',
+      eventAIEnded: 'أنهى الذكاء الاصطناعي دوره.',
+      eventGameOver: 'انتهت اللعبة!',
+      eventNewGame: 'بدأت لعبة جديدة. اللاعب 1: ضع مستوطنتك الأولى.',
+      eventWelcome: 'مرحباً بك في كاتان لايت! ضع مستوطنتك الأولى للبدء.'
+    }
+  });
+  </script>
+
+  <!-- Engine -->
+  <script id="catan-engine">
+  const CatanEngine = (() => {
+    const RESOURCES = ['w','o','wh','b','s'];
+    const RES_ICONS = { w:'🪵', o:'⛏️', wh:'🌾', b:'🧱', s:'🐑' };
+    const RES_COLORS = { w:'#2D8B41', o:'#7A8B9A', wh:'#D4A017', b:'#C04A30', s:'#7EC850', desert:'#D4C89A' };
+
+    // Fixed hex layout: 10 hexes
+    const HEX_LAYOUT = [
+      { type:'w',  number:2  },
+      { type:'b',  number:3  },
+      { type:'wh', number:4  },
+      { type:'o',  number:5  },
+      { type:'s',  number:6  },
+      { type:'desert', number:7 },
+      { type:'b',  number:8  },
+      { type:'wh', number:9  },
+      { type:'o',  number:10 },
+      { type:'w',  number:11 },
+    ];
+
+    function emptyResources() { return { w:0, o:0, wh:0, b:0, s:0 }; }
+
+    function fullBank() { return { w:19, o:19, wh:19, b:19, s:19 }; }
+
+    function event(code, params = {}) { return { code, params }; }
+
+    function initState() {
+      return {
+        turn: 'p1',
+        phase: 'setup', // setup -> main
+        setupSettlementsPlaced: { p1: 0, p2: 0 },
+        setupStep: 0, // 0..3: p1 place, p2 place, p2 place (2nd), p1 place (2nd) — simplified: just p1 then p2 one each
+        players: {
+          p1: { resources: emptyResources(), settlements: [], cities: [], roads: 0, points: 0 },
+          p2: { resources: emptyResources(), settlements: [], cities: [], roads: 0, points: 0 },
+        },
+        hexes: HEX_LAYOUT.map((h,i) => ({ ...h, id: i })),
+        dice: null,
+        bank: fullBank(),
+        rolledThisTurn: false,
+        builtThisTurn: false,
+        status: 'playing',
+        log: [],
+      };
+    }
+
+    function rollDice(state) {
+      if (state.rolledThisTurn) return { state, events: [event('alreadyRolled')] };
+      if (state.phase !== 'main') return { state, events: [event('notMain')] };
+      const d1 = Math.floor(Math.random()*6)+1;
+      const d2 = Math.floor(Math.random()*6)+1;
+      const total = d1 + d2;
+      const newState = deepClone(state);
+      newState.dice = { d1, d2, total };
+      newState.rolledThisTurn = true;
+
+      // Distribute resources for matching hexes
+      let gained = { p1: emptyResources(), p2: emptyResources() };
+      if (total !== 7) {
+        for (const hex of newState.hexes) {
+          if (hex.number === total && hex.type !== 'desert') {
+            for (const pid of ['p1','p2']) {
+              const player = newState.players[pid];
+              const settlCount = player.settlements.filter(s => s === hex.id).length;
+              const cityCount = player.cities.filter(c => c === hex.id).length;
+              const amount = settlCount + cityCount * 2;
+              if (amount > 0 && newState.bank[hex.type] >= amount) {
+                player.resources[hex.type] += amount;
+                newState.bank[hex.type] -= amount;
+                gained[pid][hex.type] += amount;
+              }
+            }
+          }
+        }
+      }
+
+      const gains = [];
+      for (const pid of ['p1','p2']) {
+        const r = gained[pid];
+        const total2 = RESOURCES.reduce((s,k) => s + r[k], 0);
+        if (total2 > 0) {
+          gains.push({
+            player: pid,
+            resources: RESOURCES.filter(k => r[k] > 0).map(k => ({ resource: k, count: r[k] }))
+          });
+        }
+      }
+      const rollEvent = event('roll', {
+        player: newState.turn,
+        d1,
+        d2,
+        total,
+        outcome: gains.length ? 'production' : total === 7 ? 'robber' : 'none',
+        gains
+      });
+      newState.log = [rollEvent, ...newState.log];
+      return { state: newState, events: [rollEvent], d1, d2, total };
+    }
+
+    function canBuild(state, player, type) {
+      const p = state.players[player];
+      const r = p.resources;
+      if (type === 'settlement') return r.w>=1 && r.b>=1 && r.wh>=1 && r.s>=1 && p.settlements.length + p.cities.length < 5;
+      if (type === 'road') return r.w>=1 && r.b>=1 && p.roads < 15;
+      if (type === 'city') return r.wh>=2 && r.o>=3 && p.settlements.length > 0;
+      return false;
+    }
+
+    function buildSettlement(state, hexIdx) {
+      if (state.phase === 'setup') {
+        const newState = deepClone(state);
+        const cur = newState.turn;
+        const occupied = ['p1', 'p2'].some(pid =>
+          newState.players[pid].settlements.includes(hexIdx) ||
+          newState.players[pid].cities.includes(hexIdx)
+        );
+        if (occupied) {
+          return { state, events: [event('occupied')] };
+        }
+        newState.players[cur].settlements.push(hexIdx);
+        newState.players[cur].points += 1;
+        // Setup startup resources: give 1 of each adjacent hex resource
+        const hex = newState.hexes[hexIdx];
+        if (hex.type !== 'desert') {
+          newState.players[cur].resources[hex.type] += 1;
+        }
+        newState.setupSettlementsPlaced[cur] += 1;
+        const events = [event('setupSettlement', { player: cur, hex: hexIdx + 1 })];
+        // Setup order: p1, p2, p2, p1 (snake)
+        const step = newState.setupStep + 1;
+        newState.setupStep = step;
+        if (step === 1) { newState.turn = 'p2'; }
+        else if (step === 2) { newState.turn = 'p2'; } // p2 second settlement
+        else if (step === 3) { newState.turn = 'p1'; } // p1 second settlement
+        else if (step >= 4) {
+          newState.turn = 'p1';
+          newState.phase = 'main';
+          events.push(event('setupComplete'));
+        }
+        newState.log = [...events, ...newState.log];
+        return { state: newState, events };
+      }
+
+      // Main phase
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (!canBuild(state, state.turn, 'settlement')) return { state, events: [event('cannotSettlement')] };
+      const newState = deepClone(state);
+      const p = newState.players[newState.turn];
+      p.resources.w -= 1; p.resources.b -= 1; p.resources.wh -= 1; p.resources.s -= 1;
+      newState.bank.w += 1; newState.bank.b += 1; newState.bank.wh += 1; newState.bank.s += 1;
+      p.settlements.push(hexIdx);
+      p.points += 1;
+      newState.builtThisTurn = true;
+      const builtEvent = event('settlementBuilt', {
+        player: newState.turn,
+        hex: hexIdx + 1,
+        points: p.points
+      });
+      newState.log = [builtEvent, ...newState.log];
+      newState.status = getStatus(newState);
+      return { state: newState, events: [builtEvent] };
+    }
+
+    function buildRoad(state) {
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (!canBuild(state, state.turn, 'road')) return { state, events: [event('cannotRoad')] };
+      const newState = deepClone(state);
+      const p = newState.players[newState.turn];
+      p.resources.w -= 1; p.resources.b -= 1;
+      newState.bank.w += 1; newState.bank.b += 1;
+      p.roads += 1;
+      newState.builtThisTurn = true;
+      const roadEvent = event('roadBuilt', { player: newState.turn, roads: p.roads });
+      newState.log = [roadEvent, ...newState.log];
+      return { state: newState, events: [roadEvent] };
+    }
+
+    function buildCity(state, hexIdx) {
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (!canBuild(state, state.turn, 'city')) return { state, events: [event('cannotCity')] };
+      const p = state.players[state.turn];
+      if (!p.settlements.includes(hexIdx)) return { state, events: [event('noSettlement')] };
+      const newState = deepClone(state);
+      const np = newState.players[newState.turn];
+      np.resources.wh -= 2; np.resources.o -= 3;
+      newState.bank.wh += 2; newState.bank.o += 3;
+      // Remove one settlement, add city
+      const si = np.settlements.indexOf(hexIdx);
+      np.settlements.splice(si, 1);
+      np.cities.push(hexIdx);
+      np.points += 1; // settlement was 1, city is 2 → net +1
+      newState.builtThisTurn = true;
+      const cityEvent = event('cityBuilt', {
+        player: newState.turn,
+        hex: hexIdx + 1,
+        points: np.points
+      });
+      newState.log = [cityEvent, ...newState.log];
+      newState.status = getStatus(newState);
+      return { state: newState, events: [cityEvent] };
+    }
+
+    function trade(state, give, get) {
+      if (!state.rolledThisTurn) return { state, events: [event('rollFirst')] };
+      if (give === get) return { state, events: [event('sameResource')] };
+      const p = state.players[state.turn];
+      if (p.resources[give] < 4) {
+        return { state, events: [event('needTrade', { resource: give, count: p.resources[give] })] };
+      }
+      if (state.bank[get] < 1) return { state, events: [event('bankEmpty', { resource: get })] };
+      const newState = deepClone(state);
+      const np = newState.players[newState.turn];
+      np.resources[give] -= 4;
+      np.resources[get] += 1;
+      newState.bank[give] += 4;
+      newState.bank[get] -= 1;
+      const tradeEvent = event('trade', { player: newState.turn, give, get });
+      newState.log = [tradeEvent, ...newState.log];
+      return { state: newState, events: [tradeEvent] };
+    }
+
+    function endTurn(state) {
+      const newState = deepClone(state);
+      newState.turn = newState.turn === 'p1' ? 'p2' : 'p1';
+      newState.rolledThisTurn = false;
+      newState.builtThisTurn = false;
+      newState.dice = null;
+      const turnEvent = event('turnPassed', { player: newState.turn });
+      newState.log = [turnEvent, ...newState.log];
+      return { state: newState, events: [turnEvent] };
+    }
+
+    function getStatus(state) {
+      for (const pid of ['p1','p2']) {
+        if (state.players[pid].points >= 10) return `${pid}-wins`;
+      }
+      return 'playing';
+    }
+
+    function getAI(state) {
+      // AI = p2. Roll, then try to build the most valuable thing, then end turn.
+      let s = deepClone(state);
+      const events = [];
+
+      // Roll
+      const rollResult = rollDice(s);
+      s = rollResult.state;
+      events.push(...rollResult.events);
+
+      // Try city first, then settlement, then road
+      const p2 = s.players.p2;
+      let built = false;
+
+      if (!built && canBuild(s, 'p2', 'city') && p2.settlements.length > 0) {
+        const hexIdx = p2.settlements[0];
+        const result = buildCity(s, hexIdx);
+        s = result.state;
+        events.push(...result.events);
+        built = true;
+      }
+
+      if (!built && canBuild(s, 'p2', 'settlement')) {
+        // Find a hex p2 doesn't own yet
+        const owned = new Set([...p2.settlements, ...p2.cities]);
+        let target = -1;
+        // Prefer high-production hexes (6 or 8)
+        for (const h of s.hexes) {
+          if (!owned.has(h.id) && h.type !== 'desert') {
+            if (h.number === 6 || h.number === 8) { target = h.id; break; }
+          }
+        }
+        if (target === -1) {
+          for (const h of s.hexes) {
+            if (!owned.has(h.id) && h.type !== 'desert') { target = h.id; break; }
+          }
+        }
+        if (target !== -1) {
+          const result = buildSettlement(s, target);
+          s = result.state;
+          events.push(...result.events);
+          built = true;
+        }
+      }
+
+      if (!built && canBuild(s, 'p2', 'road')) {
+        const result = buildRoad(s);
+        s = result.state;
+        events.push(...result.events);
+      }
+
+      // End turn (back to p1)
+      const endResult = endTurn(s);
+      s = endResult.state;
+      events.push(...endResult.events, event('aiEnded'));
+
+      return { state: s, events };
+    }
+
+    function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
+
+    return { initState, rollDice, buildSettlement, buildRoad, buildCity, trade, endTurn, getStatus, canBuild, getAI, RESOURCES, RES_ICONS, RES_COLORS };
+  })();
+  </script>
+
+  <!-- UI -->
+  <script id="catan-ui">
+  (() => {
+    const E = CatanEngine;
+    const i18n = JakhGameI18n;
+    let state = E.initState();
+    let buildMode = null; // 'settlement' | 'city' | null
+    let logEntries = [];
+    let pendingBoardFocus = null;
+    let tradeOpener = null;
+
+    function $(id) { return document.getElementById(id); }
+
+    function t(key, values) { return i18n.t(key, values); }
+
+    function playerName(player, short = false) {
+      if (player === 'p1') return t(short ? 'player1Short' : 'player1Name');
+      return t(short ? 'player2Short' : 'player2Name');
+    }
+
+    function resourceName(resource) {
+      return t({ w: 'resourceW', o: 'resourceO', wh: 'resourceWh', b: 'resourceB', s: 'resourceS', desert: 'resourceDesert' }[resource]);
+    }
+
+    function resourceToken(resource, count) {
+      return `${i18n.number(count)}${E.RES_ICONS[resource] || ''}`;
+    }
+
+    function formatEvent(entry) {
+      const params = entry?.params || {};
+      if (!entry?.code) return '';
+      if (entry.code === 'roll') {
+        let outcome = t('productionNone');
+        if (params.outcome === 'robber') {
+          outcome = t('productionRobber');
+        } else if (params.outcome === 'production') {
+          outcome = params.gains.map(gain => t('productionGain', {
+            player: playerName(gain.player, true),
+            resources: gain.resources.map(item => resourceToken(item.resource, item.count)).join(' ')
+          })).join('. ');
+        }
+        return t('eventRoll', {
+          player: playerName(params.player),
+          d1: i18n.number(params.d1),
+          d2: i18n.number(params.d2),
+          total: i18n.number(params.total),
+          outcome
+        });
+      }
+      const messageKey = {
+        alreadyRolled: 'eventAlreadyRolled',
+        notMain: 'eventNotMain',
+        occupied: 'eventOccupied',
+        setupSettlement: 'eventSetupSettlement',
+        setupComplete: 'eventSetupComplete',
+        rollFirst: 'eventRollFirst',
+        cannotSettlement: 'eventCannotSettlement',
+        settlementBuilt: 'eventSettlementBuilt',
+        cannotRoad: 'eventCannotRoad',
+        roadBuilt: 'eventRoadBuilt',
+        cannotCity: 'eventCannotCity',
+        noSettlement: 'eventNoSettlement',
+        cityBuilt: 'eventCityBuilt',
+        sameResource: 'eventSameResource',
+        needTrade: 'eventNeedTrade',
+        bankEmpty: 'eventBankEmpty',
+        trade: 'eventTrade',
+        turnPassed: 'eventTurnPassed',
+        aiNoOpen: 'eventAINoOpen',
+        needSettlement: 'eventNeedSettlement',
+        selectSettlement: 'eventSelectSettlement',
+        needCity: 'eventNeedCity',
+        selectCity: 'eventSelectCity',
+        playerEnded: 'eventPlayerEnded',
+        aiEnded: 'eventAIEnded',
+        gameOver: 'eventGameOver',
+        newGame: 'eventNewGame',
+        welcome: 'eventWelcome'
+      }[entry.code];
+      return messageKey ? t(messageKey, {
+        player: params.player ? playerName(params.player) : '',
+        hex: params.hex === undefined ? '' : i18n.number(params.hex),
+        points: params.points === undefined ? '' : i18n.number(params.points),
+        roads: params.roads === undefined ? '' : i18n.number(params.roads),
+        resource: params.resource ? `${E.RES_ICONS[params.resource] || ''} ${resourceName(params.resource)}` : '',
+        count: params.count === undefined ? '' : i18n.number(params.count),
+        give: params.give ? E.RES_ICONS[params.give] : '',
+        get: params.get ? E.RES_ICONS[params.get] : ''
+      }) : '';
+    }
+
+    function logEvents(events, cls = '') {
+      for (const entry of events || []) logEntries.unshift({ entry, cls });
+      renderLog();
+    }
+
+    function renderLog() {
+      const container = $('catan-log');
+      container.replaceChildren();
+      for (const item of logEntries.slice(0, 30)) {
+        const el = document.createElement('div');
+        el.className = 'log-entry' + (item.cls ? ` ${item.cls}` : '');
+        el.textContent = formatEvent(item.entry);
+        el.setAttribute('dir', 'auto');
+        container.appendChild(el);
+      }
+    }
+
+    function updateTradeOptions() {
+      document.querySelectorAll('#catan-trade-modal option[data-resource]').forEach(option => {
+        const resource = option.dataset.resource;
+        option.textContent = `${E.RES_ICONS[resource]} ${resourceName(resource)}`;
+      });
+    }
+
+    function captureBoardFocus() {
+      const board = $('catan-board');
+      const active = document.activeElement;
+      if (!active || !board.contains(active)) return;
+      const hexId = Number(active.dataset.hexId);
+      if (Number.isInteger(hexId)) pendingBoardFocus = { hexId };
+    }
+
+    function restoreBoardFocus(s) {
+      if (!pendingBoardFocus) return;
+      const board = $('catan-board');
+      const occupied = new Set([
+        ...s.players.p1.settlements,
+        ...s.players.p2.settlements,
+        ...s.players.p1.cities,
+        ...s.players.p2.cities,
+      ]);
+      const desired = board.querySelector(`[data-hex-id="${pendingBoardFocus.hexId}"][tabindex="0"]`);
+      const target = desired && !(s.phase === 'setup' && occupied.has(pendingBoardFocus.hexId))
+        ? desired
+        : Array.from(board.querySelectorAll('[data-hex-id][tabindex="0"]'))
+          .find(cell => s.phase !== 'setup' || !occupied.has(Number(cell.dataset.hexId)));
+
+      if (target) {
+        target.focus();
+        pendingBoardFocus = null;
+        return;
+      }
+
+      const fallback = [
+        'btn-roll',
+        'btn-settlement',
+        'btn-road',
+        'btn-city',
+        'btn-trade',
+        'btn-end',
+        'btn-restart',
+      ].map($).find(control => !control.disabled);
+      fallback?.focus();
+
+      // During the automatic setup turns, retain the pending hex so the next
+      // human-interactive board rebuild can restore focus to the board.
+      if (!(s.status === 'playing' && s.phase === 'setup' && s.turn === 'p2')) {
+        pendingBoardFocus = null;
+      }
+    }
+
+    function render() {
+      const s = state;
+      captureBoardFocus();
+      // Status bar
+      const turnName = s.turn === 'p1' ? t('player1') : t('player2');
+      $('catan-turn-label').textContent = s.status === 'playing'
+        ? t(s.phase === 'setup' ? 'setupTurn' : 'mainTurn', { player: turnName })
+        : t(s.status === 'p1-wins' ? 'player1WinsShort' : 'player2WinsShort');
+
+      $('catan-phase-label').textContent = s.phase === 'setup'
+        ? t('phaseSetup', { step: i18n.number(s.setupStep + 1) })
+        : t(s.rolledThisTurn ? 'phaseBuild' : 'phaseRoll');
+
+      // Dice
+      if (s.dice) {
+        $('catan-dice-display').textContent = `${i18n.number(s.dice.d1)} · ${i18n.number(s.dice.d2)}`;
+        $('catan-dice-total').textContent = `= ${i18n.number(s.dice.total)}`;
+      } else {
+        $('catan-dice-display').textContent = '— · —';
+        $('catan-dice-total').textContent = '';
+      }
+
+      // Win banner
+      const wb = $('catan-win-banner');
+      if (s.status !== 'playing') {
+        wb.style.display = 'block';
+        wb.textContent = t(s.status === 'p1-wins' ? 'player1WinBanner' : 'player2WinBanner');
+      } else {
+        wb.style.display = 'none';
+      }
+
+      // Setup hint
+      const sh = $('catan-setup-hint');
+      if (s.phase === 'setup') {
+        sh.textContent = s.turn === 'p1'
+          ? t('setupHintHuman')
+          : t('setupHintAI');
+      } else {
+        sh.textContent = '';
+      }
+
+      // Board
+      renderBoard(s);
+
+      // Players
+      for (const pid of ['p1','p2']) {
+        const p = s.players[pid];
+        const panel = $(`panel-${pid}`);
+        panel.classList.toggle('active-player', s.turn === pid && s.phase === 'main');
+
+        $(`vp-${pid}`).textContent = t('victoryPoints', { points: i18n.number(p.points) });
+
+        const resEl = $(`res-${pid}`);
+        resEl.innerHTML = '';
+        const resOrder = ['w','b','wh','o','s'];
+        for (const k of resOrder) {
+          const chip = document.createElement('div');
+          chip.className = 'resource-chip';
+          chip.innerHTML = `<span class="res-icon">${E.RES_ICONS[k]}</span><span class="res-count">${i18n.number(p.resources[k])}</span>`;
+          chip.title = resourceName(k);
+          resEl.appendChild(chip);
+        }
+
+        $(`stats-${pid}`).textContent = t('playerStats', {
+          settlements: i18n.number(p.settlements.length),
+          cities: i18n.number(p.cities.length),
+          roads: i18n.number(p.roads)
+        });
+      }
+
+      // Buttons
+      const inMain = s.phase === 'main';
+      const isP1Turn = s.turn === 'p1';
+      const rolled = s.rolledThisTurn;
+      const status = s.status;
+
+      $('btn-roll').disabled = !inMain || !isP1Turn || rolled || status !== 'playing';
+      $('btn-settlement').disabled = !inMain || !isP1Turn || !rolled || !E.canBuild(s,'p1','settlement') || status !== 'playing';
+      $('btn-road').disabled = !inMain || !isP1Turn || !rolled || !E.canBuild(s,'p1','road') || status !== 'playing';
+      $('btn-city').disabled = !inMain || !isP1Turn || !rolled || !E.canBuild(s,'p1','city') || status !== 'playing';
+      $('btn-trade').disabled = !inMain || !isP1Turn || !rolled || status !== 'playing';
+      $('btn-end').disabled = !inMain || !isP1Turn || !rolled || status !== 'playing';
+      restoreBoardFocus(s);
+
+      if ($('catan-trade-modal').classList.contains('open') && $('btn-trade').disabled) {
+        closeTrade();
+      }
+    }
+
+    function renderBoard(s) {
+      const board = $('catan-board');
+      board.innerHTML = '';
+      board.setAttribute('aria-label', t('boardLabel'));
+      for (const hex of s.hexes) {
+        const cell = document.createElement('div');
+        cell.className = 'catan-hex';
+        cell.dataset.hexId = String(hex.id);
+        cell.setAttribute('role', 'gridcell');
+        const baseLabel = t('hexLabel', {
+          hex: i18n.number(hex.id + 1),
+          resource: resourceName(hex.type),
+          number: i18n.number(hex.number)
+        });
+        const setupTarget = s.status === 'playing' && s.phase === 'setup' && s.turn === 'p1';
+        const settlementTarget = s.status === 'playing' && s.phase === 'main' && s.turn === 'p1' && buildMode === 'settlement';
+        const cityTarget = s.status === 'playing' && s.phase === 'main' && s.turn === 'p1' &&
+          buildMode === 'city' && s.players.p1.settlements.includes(hex.id);
+        const canInteract = setupTarget || settlementTarget || cityTarget;
+        const actionKey = setupTarget
+          ? 'hexSetupAction'
+          : settlementTarget
+            ? 'hexSettlementAction'
+            : cityTarget
+              ? 'hexCityAction'
+              : null;
+        cell.setAttribute('aria-label', actionKey ? t(actionKey, { hex: baseLabel }) : baseLabel);
+        cell.setAttribute('aria-disabled', String(!canInteract));
+        cell.tabIndex = canInteract ? 0 : -1;
+        cell.style.background = E.RES_COLORS[hex.type] || '#555';
+        cell.style.opacity = hex.type === 'desert' ? '0.7' : '1';
+
+        // Highlight active dice number
+        if (s.dice && s.dice.total === hex.number && hex.type !== 'desert') {
+          cell.style.boxShadow = '0 0 0 2px var(--gilt), 0 0 12px rgba(201,162,39,0.4)';
+        }
+
+        // Build mode highlight
+        if (buildMode === 'settlement' && s.phase === 'main') {
+          cell.classList.add('setup-mode');
+        } else if (s.phase === 'setup' && s.turn === 'p1') {
+          cell.classList.add('setup-mode');
+        }
+
+        if (buildMode === 'city') {
+          if (s.players.p1.settlements.includes(hex.id)) {
+            cell.classList.add('setup-mode');
+          }
+        }
+
+        if (canInteract) {
+          const activate = () => onHexClick(hex.id);
+          cell.addEventListener('click', activate);
+          cell.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            activate();
+          });
+        }
+
+        const icon = document.createElement('div');
+        icon.className = 'hex-resource-icon';
+        icon.textContent = hex.type === 'desert' ? '🏜️' : E.RES_ICONS[hex.type];
+        cell.appendChild(icon);
+
+        const num = document.createElement('div');
+        num.className = 'hex-number' + (hex.number === 6 || hex.number === 8 ? ' hot' : '');
+        num.textContent = i18n.number(hex.number);
+        cell.appendChild(num);
+
+        // Settlements/cities
+        const settlDiv = document.createElement('div');
+        settlDiv.className = 'hex-settlements';
+        for (const pid of ['p1','p2']) {
+          const p = s.players[pid];
+          for (const si of p.settlements.filter(x => x === hex.id)) {
+            const m = document.createElement('div');
+            m.className = `settlement-marker ${pid}`;
+            m.title = t('settlementMarker', { player: playerName(pid) });
+            settlDiv.appendChild(m);
+          }
+          for (const ci of p.cities.filter(x => x === hex.id)) {
+            const m = document.createElement('div');
+            m.className = `settlement-marker city ${pid}`;
+            m.title = t('cityMarker', { player: playerName(pid) });
+            settlDiv.appendChild(m);
+          }
+        }
+        cell.appendChild(settlDiv);
+
+        board.appendChild(cell);
+      }
+    }
+
+    function onHexClick(hexIdx) {
+      if (state.status !== 'playing') return;
+
+      // Setup phase — p1 clicks to place
+      if (state.phase === 'setup' && state.turn === 'p1') {
+        const result = CatanEngine.buildSettlement(state, hexIdx);
+        state = result.state;
+        logEvents(result.events, 'log-action');
+        render();
+        // If it's now p2's setup turn, trigger AI setup
+        if (state.phase === 'setup' && state.turn === 'p2') {
+          doAISetup();
+        } else if (state.phase === 'main') {
+          // Setup done
+        }
+        return;
+      }
+
+      if (state.phase !== 'main') return;
+      if (state.turn !== 'p1') return;
+
+      if (buildMode === 'settlement') {
+        const result = CatanEngine.buildSettlement(state, hexIdx);
+        state = result.state;
+        logEvents(result.events, 'log-action');
+        buildMode = null;
+        render();
+        if (state.status !== 'playing') logEvents([{ code: 'gameOver', params: {} }], 'log-win');
+      } else if (buildMode === 'city') {
+        if (state.players.p1.settlements.includes(hexIdx)) {
+          const result = CatanEngine.buildCity(state, hexIdx);
+          state = result.state;
+          logEvents(result.events, 'log-action');
+          buildMode = null;
+          render();
+          if (state.status !== 'playing') logEvents([{ code: 'gameOver', params: {} }], 'log-win');
+        }
+      }
+    }
+
+    function doAISetup() {
+      // AI picks a hex not taken by p1, preferring high numbers
+      const occupied = new Set([
+        ...state.players.p1.settlements,
+        ...state.players.p2.settlements,
+        ...state.players.p1.cities,
+        ...state.players.p2.cities,
+      ]);
+      const preferredNumbers = [6, 8, 5, 9, 4, 10];
+      const candidates = state.hexes
+        .filter(h => h.type !== 'desert' && !occupied.has(h.id))
+        .sort((a,b) => {
+          const aRank = preferredNumbers.indexOf(a.number);
+          const bRank = preferredNumbers.indexOf(b.number);
+          return (aRank === -1 ? preferredNumbers.length : aRank)
+            - (bRank === -1 ? preferredNumbers.length : bRank);
+        });
+
+      const fallback = state.hexes.find(h => !occupied.has(h.id));
+      if (!candidates[0] && !fallback) {
+        logEvents([{ code: 'aiNoOpen', params: {} }], 'log-action');
+        return;
+      }
+      const target = candidates[0] ? candidates[0].id : fallback.id;
+      const result = CatanEngine.buildSettlement(state, target);
+      state = result.state;
+      logEvents(result.events, 'log-highlight');
+      render();
+
+      // If AI needs another setup turn (step 2)
+      if (state.phase === 'setup' && state.turn === 'p2') {
+        doAISetup();
+      }
+    }
+
+    function roll() {
+      const result = CatanEngine.rollDice(state);
+      state = result.state;
+      logEvents(result.events, 'log-highlight');
+      render();
+    }
+
+    function startBuildSettlement() {
+      if (!CatanEngine.canBuild(state, 'p1', 'settlement')) {
+        logEvents([{ code: 'needSettlement', params: {} }]);
+        return;
+      }
+      buildMode = 'settlement';
+      logEvents([{ code: 'selectSettlement', params: {} }], 'log-action');
+      render();
+    }
+
+    function buildRoad() {
+      const result = CatanEngine.buildRoad(state);
+      state = result.state;
+      logEvents(result.events, 'log-action');
+      render();
+    }
+
+    function startBuildCity() {
+      if (!CatanEngine.canBuild(state, 'p1', 'city')) {
+        logEvents([{ code: 'needCity', params: {} }]);
+        return;
+      }
+      buildMode = 'city';
+      logEvents([{ code: 'selectCity', params: {} }], 'log-action');
+      render();
+    }
+
+    function tradeModalControls() {
+      return Array.from($('catan-trade-modal').querySelectorAll('select, button'))
+        .filter(control => !control.disabled);
+    }
+
+    function onTradeModalKeydown(event) {
+      if (!$('catan-trade-modal').classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeTrade();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const controls = tradeModalControls();
+      if (!controls.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !$('catan-trade-modal').contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !$('catan-trade-modal').contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    function openTrade() {
+      const modal = $('catan-trade-modal');
+      if (modal.classList.contains('open')) return;
+      tradeOpener = document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : $('btn-trade');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.addEventListener('keydown', onTradeModalKeydown);
+      $('trade-give').focus();
+    }
+
+    function closeTrade() {
+      const modal = $('catan-trade-modal');
+      if (!modal.classList.contains('open')) return;
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', onTradeModalKeydown);
+      const target = tradeOpener && tradeOpener.isConnected && !tradeOpener.disabled
+        ? tradeOpener
+        : [$('btn-trade'), $('btn-restart')].find(control => !control.disabled);
+      tradeOpener = null;
+      target?.focus();
+    }
+
+    function confirmTrade() {
+      const give = $('trade-give').value;
+      const get = $('trade-get').value;
+      closeTrade();
+      const result = CatanEngine.trade(state, give, get);
+      state = result.state;
+      logEvents(result.events, 'log-action');
+      render();
+    }
+
+    function endTurn() {
+      buildMode = null;
+      const result = CatanEngine.endTurn(state);
+      state = result.state;
+      logEvents([{ code: 'playerEnded', params: {} }], 'log-action');
+      render();
+      // Trigger AI turn
+      if (state.turn === 'p2' && state.phase === 'main' && state.status === 'playing') {
+        doAITurn();
+      }
+    }
+
+    function doAITurn() {
+      const result = CatanEngine.getAI(state);
+      state = result.state;
+      logEvents(result.events, 'log-highlight');
+      render();
+      if (state.status !== 'playing') logEvents([{ code: 'gameOver', params: {} }], 'log-win');
+    }
+
+    function restart() {
+      buildMode = null;
+      state = CatanEngine.initState();
+      logEntries = [];
+      logEvents([{ code: 'newGame', params: {} }], 'log-action');
+      render();
+    }
+
+    [
+      ['btn-roll', roll],
+      ['btn-settlement', startBuildSettlement],
+      ['btn-road', buildRoad],
+      ['btn-city', startBuildCity],
+      ['btn-trade', openTrade],
+      ['btn-end', endTurn],
+      ['btn-restart', restart],
+      ['btn-confirm-trade', confirmTrade],
+      ['btn-cancel-trade', closeTrade],
+    ].forEach(([id, handler]) => $(id).addEventListener('click', handler));
+
+    // Close modal on backdrop click
+    $('catan-trade-modal').addEventListener('click', e => {
+      if (e.target === $('catan-trade-modal')) closeTrade();
+    });
+
+    // Init
+    updateTradeOptions();
+    logEvents([{ code: 'welcome', params: {} }], 'log-action');
+    render();
+    i18n.onChange(() => {
+      render();
+      renderLog();
+      updateTradeOptions();
+      const imageAlt = t('metaImageAlt');
+      document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', imageAlt);
+      document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', imageAlt);
+    });
+
+  })();
+  </script>
+  <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+        <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">إنستغرام</span></a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">فيسبوك</span></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

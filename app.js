@@ -125,17 +125,71 @@ function categoryRouteForLanguage(slug, lang) {
   return lang === 'ar' ? `/ar/topics/${safeSlug}/` : `/${safeSlug}`;
 }
 
+const SHARED_LANGUAGE_ROUTES = Object.freeze([
+  { en: '/', ar: '/ar/' },
+  { en: '/mind-lab', ar: '/ar/mind-lab/' },
+  { en: '/collections', ar: '/ar/collections/' },
+  { en: '/play', ar: '/ar/play/' },
+  { en: '/about', ar: '/ar/about/' },
+  { en: '/privacy', ar: '/ar/privacy/' },
+  ...['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
+    .map(slug => ({ en: `/${slug}`, ar: `/ar/games/${slug}/` })),
+]);
+
+function normalizeSharedRoutePath(pathname) {
+  let normalized = String(pathname || '/').replace(/\/{2,}/g, '/');
+  normalized = normalized.replace(/\/index(?:\.html)?$/i, '/').replace(/\.html$/i, '');
+  if (normalized !== '/') normalized = normalized.replace(/\/+$/, '');
+  return normalized || '/';
+}
+
+function sharedLanguageRoute(pathname = location.pathname) {
+  const normalized = normalizeSharedRoutePath(pathname);
+  for (const route of SHARED_LANGUAGE_ROUTES) {
+    if (normalizeSharedRoutePath(route.en) === normalized) return { ...route, lang: 'en' };
+    if (normalizeSharedRoutePath(route.ar) === normalized) return { ...route, lang: 'ar' };
+  }
+  return null;
+}
+
+function sharedRouteForLanguage(pathname, lang) {
+  const route = sharedLanguageRoute(pathname);
+  return route ? route[lang === 'ar' ? 'ar' : 'en'] : '';
+}
+
+function localizedSharedHref(href, lang = state.lang) {
+  try {
+    const url = new URL(href, location.origin);
+    if (url.origin !== location.origin) return href;
+    const target = sharedRouteForLanguage(url.pathname, lang);
+    if (!target) return href;
+    url.searchParams.delete('lang');
+    return `${target}${url.search}${url.hash}`;
+  } catch {
+    return href;
+  }
+}
+
+function localizeSharedRuntimeLinks(root = document) {
+  root.querySelectorAll('a[href]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+    const localized = localizedSharedHref(href, state.lang);
+    if (localized !== href) link.setAttribute('href', localized);
+  });
+}
+
 const LEGACY_CATEGORY_ART = Object.freeze({
   currencies: 'assets/backgrounds/currencies.svg',
-  linguistics: 'assets/backgrounds/linguistics.png',
-  'tech-retro': 'assets/backgrounds/tech-retro.png',
+  linguistics: 'assets/backgrounds/linguistics.webp',
+  'tech-retro': 'assets/backgrounds/tech-retro.webp',
   automotive: 'assets/backgrounds/automotive.svg',
-  survival: 'assets/backgrounds/survival.png',
-  'fictional-worlds': 'assets/backgrounds/fictional-worlds.png',
-  superheroes: 'assets/backgrounds/superheroes.png',
+  survival: 'assets/backgrounds/survival.webp',
+  'fictional-worlds': 'assets/backgrounds/fictional-worlds.webp',
+  superheroes: 'assets/backgrounds/superheroes.webp',
   'pop-culture': 'assets/backgrounds/pop-culture.svg',
-  'true-crime': 'assets/backgrounds/true-crime.png',
-  'mythology-legends': 'assets/backgrounds/mythology-legends.png',
+  'true-crime': 'assets/backgrounds/true-crime.webp',
+  'mythology-legends': 'assets/backgrounds/mythology-legends.webp',
   'logic-puzzles': 'assets/backgrounds/logic-puzzles.svg',
 });
 
@@ -148,7 +202,7 @@ function categoryArtUrl(meta) {
 
 const UI = {
   en: {
-    brandSubtitle: 'bilingual categories, teams, and saved progress',
+    brandSubtitle: 'bilingual topics, saved progress, and live Battle Rooms',
     navHome: 'Home',
     navCategories: 'Categories',
     authOpen: 'Sign in',
@@ -165,14 +219,14 @@ const UI = {
     mindHeroTitle: 'The Mind Lab',
     mindHeroSubtitle: 'Follow your curiosity. Every topic opens into a quick, satisfying challenge.',
     playHeroTitle: 'The Game Room',
-    playHeroSubtitle: 'Ten thoughtful games, ready when you are. No download and no sign-up.',
+    playHeroSubtitle: 'Ten browser adaptations and simplified games, ready with no download or sign-up.',
     playHeroGames: 'Games',
     playAvailable: 'Ready to play',
     playPick: 'Pick a game and start playing',
-    playBrowserOnly: 'Every game runs in your browser, with nothing to install.',
+    playBrowserOnly: 'Every title is a browser adaptation; rules and AI depth vary by game, with nothing to install.',
     playChessAria: 'Play Chess',
     playChessTitle: 'Chess',
-    playChessDesc: 'Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend.',
+    playChessDesc: 'A browser chess adaptation with legal-move highlighting, en passant, castling, and promotion. Play the built-in AI or take turns locally.',
     playChessCta: 'Play Chess →',
     playMastermindAria: 'Play Mastermind',
     playMastermindTitle: 'Mastermind',
@@ -196,7 +250,7 @@ const UI = {
     playCatanCta: 'Play Catan →',
     playBackgammonAria: 'Play Backgammon',
     playBackgammonTitle: 'Backgammon',
-    playBackgammonDesc: 'Race all 15 checkers around the 24-point board and bear them off before your opponent. Real dice, legal moves enforced, greedy AI.',
+    playBackgammonDesc: 'A simplified browser adaptation: race 15 checkers around 24 points, with virtual dice, enforced moves, and a greedy AI.',
     playBackgammonCta: 'Play Backgammon →',
     playSetAria: 'Play Set',
     playSetTitle: 'Set',
@@ -234,8 +288,8 @@ const UI = {
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
     portalGamesTitle: 'The Game Hub',
-    portalGamesDesc: 'Play 10 complete browser games, from Chess and Go to Codenames and Catan. Nothing to install, and no sign-up needed.',
-    portalGamesStat1: '10 games live',
+    portalGamesDesc: 'Play 10 browser adaptations and simplified games, from Chess and Go to Codenames and Catan. Nothing to install, and no sign-up needed.',
+    portalGamesStat1: '10 browser games',
     portalGamesStat2: 'All in browser',
     portalGamesCta: 'Play Now →',
     homeCollectionsEyebrow: 'Quick ways to begin',
@@ -276,7 +330,7 @@ const UI = {
     host: 'Host',
     search: 'Search',
     menu: 'Menu',
-    teamBattle: 'Team Battle',
+    teamBattle: 'Battle Room',
     backToTop: 'Back to top',
     searchPlaceholder: 'Search topics and subtopics...',
     cardSearchPlaceholder: 'Search by keyword, answer, or concept...',
@@ -286,6 +340,13 @@ const UI = {
     standardsEducationLabel: 'Educational use:',
     standardsEducationText: 'This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice.',
     standardsEducationLink: 'Read our content standards.',
+    reviewStatusReviewed: 'Editorially reviewed',
+    reviewStatusPending: 'Editorial review pending',
+    reviewSafetyPending: 'Editorial review pending · Safety-sensitive educational content',
+    reviewDate: 'Reviewed {date}',
+    reviewReviewer: 'Reviewer: {reviewer}',
+    reviewSources: 'Sources',
+    reviewSourceLabel: 'Source {number}: {title}, {publisher}',
     mindCalloutEyebrow: 'Prefer a shorter challenge?',
     mindCalloutTitle: 'Try a focused bilingual collection',
     mindCalloutText: 'Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.',
@@ -350,15 +411,41 @@ const UI = {
     favorites: 'Favorites',
     authSignInTab: 'Sign in',
     authRegisterTab: 'Create account',
+    authRecoveryAction: 'Use a recovery code',
     username: 'Username',
     usernameOrEmail: 'Username or email',
     adminConsole: 'Admin console',
     adminConsoleAria: 'Open the JAKH administration console',
     password: 'Password',
+    newPassword: 'New password',
     passwordHint: 'Securely stored in your cloud account.',
+    confirmPassword: 'Confirm password',
+    passwordsDoNotMatch: 'The password confirmation does not match.',
     signIn: 'Sign in',
     register: 'Create account',
+    recoveryCode: 'Recovery code',
+    recoveryFormTitle: 'Recover your account',
+    recoveryFormLead: 'Enter the one-time recovery code you saved and choose a new password. A successful reset signs you in, ends every older session, and replaces the recovery code.',
+    registrationRecoveryNotice: 'After account creation, JAKH shows a recovery code once. Save it securely; it is the only self-service way to recover an account without your password.',
+    recoveryReset: 'Reset password and sign in',
+    recoveryResetting: 'Resetting password…',
+    recoveryFailed: 'The account could not be recovered. Check the username, code, and new password, then try again.',
+    recoveryReceiptTitle: 'Save your new recovery code now',
+    recoveryReceiptLead: 'This code is shown only once. Store it in a password manager or another secure place. Anyone with this code can reset your password.',
+    recoveryReceiptReplacement: 'Generating another recovery code immediately invalidates this one. JAKH does not store a readable copy and cannot show it again.',
+    recoveryCopy: 'Copy recovery code',
+    recoveryCopied: 'Recovery code copied. Save it somewhere secure.',
+    recoveryCopyFailed: 'Automatic copy is unavailable. Select the code and copy it manually.',
+    recoverySaved: 'I saved this code',
+    recoveryCloseBlocked: 'Save the recovery code, then confirm that you saved it before closing.',
+    recoveryRotateTitle: 'Replace recovery code',
+    recoveryRotateLead: 'Enter your current password to create a replacement. Your old recovery code stops working immediately.',
+    recoveryRotate: 'Create replacement code',
+    recoveryRotating: 'Creating replacement…',
+    recoveryCodeUnavailable: 'The server did not provide a recovery code. Use “Replace recovery code” before leaving this account.',
+    recoverySyncWarning: 'Your new recovery code was issued, but some account data did not finish loading. Save the code below, then retry after checking your connection.',
     logout: 'Log out',
+    logoutFailed: 'Could not log out. Your account is still shown as signed in; check your connection and try again.',
     accountReady: 'Your progress is saved to your cloud account.',
     flipForAnswer: 'Flip for answer',
     backToQuestion: 'Back to question',
@@ -459,34 +546,43 @@ const UI = {
     errorCategoryUnavailable: 'That category is unavailable.',
     errorNoQuestions: 'No questions are available for this selection.',
     errorInvalidRoomCode: 'Enter a valid room code.',
-    leaderboardTitle: 'Verified leaderboard',
-    leaderboardTop: 'Fair, server-verified rankings',
-    leaderboardDisclaimer: 'Only one-time challenges issued and scored by JAKH enter this board. Your practice points stay private.',
-    leaderboardEmpty: 'No verified scores yet. Start a challenge and set the first fair score.',
+    leaderboardTitle: 'Server-checked leaderboard',
+    leaderboardTop: 'Accuracy-only submitted-answer rankings',
+    leaderboardDisclaimer: 'Only one-time challenges issued and scored by JAKH enter this board. Server checking applies to submitted answers and scoring, not editorial fact review. Your practice points stay private.',
+    leaderboardEmpty: 'No server-checked scores yet. Start a challenge and submit the first accuracy-only score.',
     leaderboardLoadError: 'Could not load the leaderboard.',
-    verifiedStartTitle: 'Take a verified challenge',
-    verifiedStartText: 'Choose a topic and answer 10 questions in one sitting. You have 15 minutes; answers are checked by the server.',
+    verifiedStartTitle: 'Take a server-checked challenge',
+    verifiedStartText: 'Choose a topic and answer 10 questions in one sitting. You have 15 minutes; submitted answers are checked automatically by the server. This is separate from editorial fact review.',
     verifiedCategory: 'Challenge topic',
-    verifiedStart: 'Start verified challenge',
-    verifiedSignIn: 'Sign in to enter the verified leaderboard.',
+    verifiedStart: 'Start server-checked challenge',
+    verifiedSignIn: 'Sign in to enter the server-checked leaderboard.',
     verifiedAnswerAll: 'Answer all 10 questions before submitting.',
-    verifiedSubmit: 'Submit verified answers',
+    verifiedSubmit: 'Submit answers for server checking',
     verifiedCancel: 'Cancel challenge',
+    verifiedActive: 'A server-checked challenge for this topic is already active. Return to the original tab or wait up to 15 minutes for it to expire.',
+    verifiedActiveWarning: 'Discarding it can invalidate a challenge still open in another tab. Continue only if you want to replace that attempt.',
+    verifiedDiscardActive: 'Discard active attempt and retry',
+    verifiedKeepActive: 'Keep active attempt',
+    verifiedDiscarding: 'Discarding…',
+    verifiedCancelError: 'Could not cancel the challenge. Your answers and token are still kept in this tab; retry before closing.',
+    verifiedDiscardError: 'Could not discard the active attempt. It was not replaced.',
     verifiedQuestion: 'Question {number} of {total}',
     verifiedAnswerPlaceholder: 'Type your answer',
-    verifiedResultTitle: 'Verified result',
+    verifiedResultTitle: 'Server-checked result',
     verifiedResult: '{correct}/{total} correct · {score} points',
-    verifiedResultNote: 'This score is verified and eligible for the public leaderboard.',
+    verifiedResultNote: 'The server checked this score, so it is eligible for the public leaderboard. This does not indicate human editorial review of the card content.',
+    serverCheckedAutomationDisclaimer: 'This is accuracy-only server checking, not proctoring. JAKH does not verify who answered or prevent lookups or automated tools.',
+    verifiedReviewUnavailable: 'Editorial review status was not supplied for these server-checked questions. Do not treat server scoring as factual or safety review.',
     verifiedTryAgain: 'Try another challenge',
     verifiedStarting: 'Starting…',
     verifiedSubmitting: 'Checking answers…',
-    verifiedChallengeError: 'Could not start the verified challenge.',
-    verifiedSubmitError: 'Could not verify these answers.',
+    verifiedChallengeError: 'Could not start the server-checked challenge.',
+    verifiedSubmitError: 'The server could not check these answers.',
     verifiedTooFast: 'Take a little more time before submitting.',
     verifiedExpired: 'This challenge expired. Start a new one.',
     verifiedReplayed: 'This challenge has already been submitted.',
-    verifiedTampered: 'The challenge changed and cannot be verified. Start again.',
-    verifiedUnavailable: 'This topic is not available for verified scoring yet.',
+    verifiedTampered: 'The challenge changed and cannot be checked by the server. Start again.',
+    verifiedUnavailable: 'This topic is not available for server scoring yet.',
     pointsShort: 'pts',
     globalSearchLabel: 'Global search',
     globalSearchPlaceholder: 'Search all 3,500+ questions…',
@@ -502,7 +598,7 @@ const UI = {
     streakFreezeLabel: '🧊 Freeze',
   },
   ar: {
-    brandSubtitle: 'فئات ثنائية اللغة مع فرق وتقدّم محفوظ',
+    brandSubtitle: 'مواضيع ثنائية اللغة وتقدّم محفوظ وغرف معركة مباشرة',
     navHome: 'الرئيسية',
     navCategories: 'الفئات',
     authOpen: 'تسجيل الدخول',
@@ -519,14 +615,14 @@ const UI = {
     mindHeroTitle: 'مختبر العقول',
     mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
     playHeroTitle: 'غرفة الألعاب',
-    playHeroSubtitle: 'عشر ألعاب ممتعة جاهزة لك، بلا تنزيل وبلا حاجة إلى التسجيل.',
+    playHeroSubtitle: 'عشر نسخ متصفح وألعاب مبسطة جاهزة بلا تنزيل وبلا حاجة إلى التسجيل.',
     playHeroGames: 'ألعاب',
     playAvailable: 'جاهز للعب؟',
     playPick: 'اختر لعبة وابدأ',
-    playBrowserOnly: 'كل لعبة تعمل مباشرة في متصفحك، من دون تثبيت أي شيء.',
+    playBrowserOnly: 'كل عنوان نسخة متصفح، وتختلف القواعد وعمق الخصم الآلي بين الألعاب، من دون تثبيت.',
     playChessAria: 'العب الشطرنج',
     playChessTitle: 'الشطرنج',
-    playChessDesc: 'شطرنج كامل مع إظهار النقلات القانونية والأخذ بالتجاوز والتبييت والترقية. العب ضد الحاسوب أو تناوب مع صديق.',
+    playChessDesc: 'نسخة متصفح من الشطرنج مع إظهار النقلات القانونية والأخذ بالتجاوز والتبييت والترقية. العب ضد الخصم المدمج أو تناوب محليًا مع صديق.',
     playChessCta: 'العب الشطرنج ←',
     playMastermindAria: 'العب ماستر مايند',
     playMastermindTitle: 'ماستر مايند',
@@ -550,7 +646,7 @@ const UI = {
     playCatanCta: 'العب كاتان ←',
     playBackgammonAria: 'العب طاولة الزهر',
     playBackgammonTitle: 'طاولة الزهر',
-    playBackgammonDesc: 'حرّك أحجارك الخمسة عشر حول اللوحة ذات 24 خانة وأخرجها قبل خصمك. نرد حقيقي ونقلات قانونية وخصم آلي.',
+    playBackgammonDesc: 'نسخة متصفح مبسطة: حرّك 15 حجرًا حول 24 خانة، مع نرد افتراضي ونقلات مفروضة وخصم آلي بسيط.',
     playBackgammonCta: 'العب طاولة الزهر ←',
     playSetAria: 'العب سِت',
     playSetTitle: 'سِت',
@@ -588,8 +684,8 @@ const UI = {
     portalMindCta: 'استكشف الألغاز ←',
     portalGamesTag: 'مركز الألعاب',
     portalGamesTitle: 'مركز الألعاب',
-    portalGamesDesc: 'العب 10 ألعاب كاملة في المتصفح، من الشطرنج وغو إلى كودنيمز وكاتان. بلا تنزيل وبلا حاجة إلى التسجيل.',
-    portalGamesStat1: '10 ألعاب',
+    portalGamesDesc: 'العب 10 نسخ متصفح وألعاب مبسطة، من الشطرنج وغو إلى كودنيمز وكاتان. بلا تنزيل وبلا حاجة إلى التسجيل.',
+    portalGamesStat1: '10 ألعاب متصفح',
     portalGamesStat2: 'كلها في المتصفح',
     portalGamesCta: 'العب الآن ←',
     homeCollectionsEyebrow: 'بداية سريعة',
@@ -630,7 +726,7 @@ const UI = {
     host: 'المضيف',
     search: 'بحث',
     menu: 'القائمة',
-    teamBattle: 'معركة الفريق',
+    teamBattle: 'غرفة المعركة',
     backToTop: 'العودة للأعلى',
     searchPlaceholder: 'ابحث في المواضيع والمواضيع الفرعية...',
     cardSearchPlaceholder: 'ابحث بكلمة أو إجابة أو مفهوم...',
@@ -640,6 +736,13 @@ const UI = {
     standardsEducationLabel: 'للاستخدام التعليمي:',
     standardsEducationText: 'هذا الاختبار للتعلم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو متعلقة بالصحة النفسية.',
     standardsEducationLink: 'اقرأ معايير المحتوى لدينا.',
+    reviewStatusReviewed: 'تمت مراجعته تحريريًا',
+    reviewStatusPending: 'بانتظار المراجعة التحريرية',
+    reviewSafetyPending: 'بانتظار المراجعة التحريرية · محتوى تعليمي حساس للسلامة',
+    reviewDate: 'تاريخ المراجعة: {date}',
+    reviewReviewer: 'المراجع: {reviewer}',
+    reviewSources: 'المصادر',
+    reviewSourceLabel: 'المصدر {number}: {title}، {publisher}',
     mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
     mindCalloutTitle: 'جرّب مجموعة ثنائية اللغة ومركزة',
     mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا أو أسئلة للأطفال أو ألغاز منطق أو معلومات عامة أو كرة قدم أو أسئلة من زمن الطيبين.',
@@ -704,15 +807,41 @@ const UI = {
     favorites: 'المفضلة',
     authSignInTab: 'تسجيل الدخول',
     authRegisterTab: 'إنشاء حساب',
+    authRecoveryAction: 'استخدام رمز الاسترداد',
     username: 'اسم المستخدم',
     usernameOrEmail: 'اسم المستخدم أو البريد الإلكتروني',
     adminConsole: 'لوحة الإدارة',
     adminConsoleAria: 'فتح لوحة إدارة JAKH',
     password: 'كلمة المرور',
+    newPassword: 'كلمة المرور الجديدة',
     passwordHint: 'تُخزن بأمان في حسابك السحابي.',
+    confirmPassword: 'تأكيد كلمة المرور',
+    passwordsDoNotMatch: 'تأكيد كلمة المرور غير مطابق.',
     signIn: 'دخول',
     register: 'إنشاء حساب',
+    recoveryCode: 'رمز الاسترداد',
+    recoveryFormTitle: 'استرداد حسابك',
+    recoveryFormLead: 'أدخل رمز الاسترداد الذي حفظته واختر كلمة مرور جديدة. عند النجاح تُسجّل دخولك وتنتهي كل الجلسات القديمة ويُستبدل رمز الاسترداد.',
+    registrationRecoveryNotice: 'بعد إنشاء الحساب، يعرض JAKH رمز استرداد مرة واحدة. احفظه بأمان؛ فهو الطريقة الذاتية الوحيدة لاسترداد الحساب من دون كلمة المرور.',
+    recoveryReset: 'إعادة التعيين وتسجيل الدخول',
+    recoveryResetting: 'جارٍ إعادة تعيين كلمة المرور…',
+    recoveryFailed: 'تعذر استرداد الحساب. تحقق من اسم المستخدم والرمز وكلمة المرور الجديدة ثم حاول مرة أخرى.',
+    recoveryReceiptTitle: 'احفظ رمز الاسترداد الجديد الآن',
+    recoveryReceiptLead: 'يظهر هذا الرمز مرة واحدة فقط. احفظه في مدير كلمات مرور أو مكان آمن آخر. يستطيع أي شخص يملكه إعادة تعيين كلمة مرورك.',
+    recoveryReceiptReplacement: 'يؤدي إنشاء رمز استرداد آخر إلى إبطال هذا الرمز فوراً. لا يحتفظ JAKH بنسخة قابلة للقراءة ولا يستطيع عرضه مجدداً.',
+    recoveryCopy: 'نسخ رمز الاسترداد',
+    recoveryCopied: 'تم نسخ رمز الاسترداد. احفظه في مكان آمن.',
+    recoveryCopyFailed: 'النسخ التلقائي غير متاح. حدّد الرمز وانسخه يدوياً.',
+    recoverySaved: 'حفظت هذا الرمز',
+    recoveryCloseBlocked: 'احفظ رمز الاسترداد، ثم أكد أنك حفظته قبل الإغلاق.',
+    recoveryRotateTitle: 'استبدال رمز الاسترداد',
+    recoveryRotateLead: 'أدخل كلمة مرورك الحالية لإنشاء بديل. يتوقف رمز الاسترداد القديم عن العمل فوراً.',
+    recoveryRotate: 'إنشاء رمز بديل',
+    recoveryRotating: 'جارٍ إنشاء البديل…',
+    recoveryCodeUnavailable: 'لم يرسل الخادم رمز استرداد. استخدم «استبدال رمز الاسترداد» قبل مغادرة الحساب.',
+    recoverySyncWarning: 'صدر رمز الاسترداد الجديد، لكن بعض بيانات الحساب لم يكتمل تحميلها. احفظ الرمز أدناه ثم حاول مجدداً بعد التحقق من الاتصال.',
     logout: 'تسجيل الخروج',
+    logoutFailed: 'تعذر تسجيل الخروج. ما زال الحساب ظاهراً كمسجّل؛ تحقق من الاتصال وحاول مرة أخرى.',
     accountReady: 'تقدمك محفوظ في حسابك السحابي.',
     flipForAnswer: 'اقلب للإجابة',
     backToQuestion: 'العودة للسؤال',
@@ -810,34 +939,43 @@ const UI = {
     errorCategoryUnavailable: 'هذه الفئة غير متاحة.',
     errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
     errorInvalidRoomCode: 'أدخل رمز غرفة صالحًا.',
-    leaderboardTitle: 'لوحة النتائج الموثّقة',
-    leaderboardTop: 'ترتيب عادل وموثّق من الخادم',
-    leaderboardDisclaimer: 'لا تظهر هنا إلا تحديات JAKH المؤقتة التي يصدرها الخادم ويصححها. تبقى نقاط التدريب خاصة بك.',
-    leaderboardEmpty: 'لا توجد نتائج موثّقة بعد. ابدأ تحديًا وسجّل أول نتيجة عادلة.',
+    leaderboardTitle: 'لوحة نتائج يتحقق منها الخادم',
+    leaderboardTop: 'ترتيب الإجابات المرسلة بحسب الدقة فقط',
+    leaderboardDisclaimer: 'لا تظهر هنا إلا تحديات JAKH المؤقتة التي يصدرها الخادم ويصححها. يشير تحقق الخادم إلى الإجابات المرسلة وحساب النتيجة، وليس إلى مراجعة تحريرية بشرية للمعلومات. تبقى نقاط التدريب خاصة بك.',
+    leaderboardEmpty: 'لا توجد نتائج تحقّق منها الخادم بعد. ابدأ تحديًا وأرسل أول نتيجة محسوبة بحسب الدقة فقط.',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
-    verifiedStartTitle: 'ابدأ تحديًا موثّقًا',
-    verifiedStartText: 'اختر موضوعًا وأجب عن 10 أسئلة في جلسة واحدة. لديك 15 دقيقة، والخادم يتحقق من الإجابات.',
+    verifiedStartTitle: 'ابدأ تحديًا يتحقق منه الخادم',
+    verifiedStartText: 'اختر موضوعًا وأجب عن 10 أسئلة في جلسة واحدة. لديك 15 دقيقة، ويتحقق الخادم آليًا من الإجابات المرسلة. وهذا منفصل عن المراجعة التحريرية للمعلومات.',
     verifiedCategory: 'موضوع التحدي',
-    verifiedStart: 'ابدأ التحدي الموثّق',
-    verifiedSignIn: 'سجّل الدخول للمشاركة في لوحة النتائج الموثّقة.',
+    verifiedStart: 'ابدأ تحديًا يتحقق منه الخادم',
+    verifiedSignIn: 'سجّل الدخول للمشاركة في لوحة النتائج التي يتحقق منها الخادم.',
     verifiedAnswerAll: 'أجب عن الأسئلة العشرة قبل الإرسال.',
-    verifiedSubmit: 'أرسل الإجابات للتحقق',
+    verifiedSubmit: 'أرسل الإجابات ليتحقق منها الخادم',
     verifiedCancel: 'إلغاء التحدي',
+    verifiedActive: 'يوجد تحدٍ نشط يتحقق منه الخادم لهذا الموضوع. عد إلى علامة التبويب الأصلية أو انتظر حتى 15 دقيقة لانتهاء صلاحيته.',
+    verifiedActiveWarning: 'قد يؤدي حذفه إلى إبطال تحدٍ ما زال مفتوحًا في علامة تبويب أخرى. تابع فقط إذا أردت استبدال تلك المحاولة.',
+    verifiedDiscardActive: 'احذف المحاولة النشطة وأعد المحاولة',
+    verifiedKeepActive: 'احتفظ بالمحاولة النشطة',
+    verifiedDiscarding: 'جارٍ الحذف…',
+    verifiedCancelError: 'تعذر إلغاء التحدي. ما زالت إجاباتك والرمز محفوظين في علامة التبويب هذه؛ أعد المحاولة قبل الإغلاق.',
+    verifiedDiscardError: 'تعذر حذف المحاولة النشطة، ولم تُستبدل.',
     verifiedQuestion: 'السؤال {number} من {total}',
     verifiedAnswerPlaceholder: 'اكتب إجابتك',
-    verifiedResultTitle: 'نتيجة موثّقة',
+    verifiedResultTitle: 'نتيجة تحقّق منها الخادم',
     verifiedResult: '{correct}/{total} صحيحة · {score} نقطة',
-    verifiedResultNote: 'هذه النتيجة موثّقة ومؤهلة للظهور في لوحة المتصدرين.',
+    verifiedResultNote: 'تحقّق الخادم من هذه النتيجة، لذا فهي مؤهلة للظهور في لوحة المتصدرين. ولا يعني ذلك أن محتوى البطاقات خضع لمراجعة تحريرية بشرية.',
+    serverCheckedAutomationDisclaimer: 'هذا تحقق خادمي من الدقة فقط وليس مراقبة للاختبار. لا يتحقق JAKH من هوية المجيب ولا يمنع البحث أو الأدوات الآلية.',
+    verifiedReviewUnavailable: 'لم يرسل الخادم حالة المراجعة التحريرية لهذه الأسئلة. لا تعتبر حساب النتيجة مراجعة للمعلومة أو السلامة.',
     verifiedTryAgain: 'جرّب تحديًا آخر',
     verifiedStarting: 'جارٍ البدء…',
     verifiedSubmitting: 'جارٍ التحقق…',
-    verifiedChallengeError: 'تعذّر بدء التحدي الموثّق.',
-    verifiedSubmitError: 'تعذّر التحقق من هذه الإجابات.',
+    verifiedChallengeError: 'تعذّر بدء التحدي الذي يتحقق منه الخادم.',
+    verifiedSubmitError: 'تعذّر على الخادم التحقق من هذه الإجابات.',
     verifiedTooFast: 'خذ وقتًا أطول قليلًا قبل الإرسال.',
     verifiedExpired: 'انتهت صلاحية هذا التحدي. ابدأ تحديًا جديدًا.',
     verifiedReplayed: 'تم إرسال هذا التحدي من قبل.',
-    verifiedTampered: 'تغيّر التحدي ولا يمكن توثيقه. ابدأ من جديد.',
-    verifiedUnavailable: 'هذا الموضوع غير متاح للنتائج الموثّقة حاليًا.',
+    verifiedTampered: 'تغيّر التحدي ولا يمكن للخادم التحقق منه. ابدأ من جديد.',
+    verifiedUnavailable: 'هذا الموضوع غير متاح حاليًا لحساب النتائج على الخادم.',
     pointsShort: 'نقطة',
     globalSearchLabel: 'البحث الشامل',
     globalSearchPlaceholder: 'ابحث في أكثر من 3,500 سؤال…',
@@ -876,10 +1014,13 @@ const state = {
   freezeCount: 0,
   dailyCard: null,
   sharedCardHandled: false,
+  storageDurable: true,
+  capabilityMessage: '',
 };
 
 const timedQuizState = {
-  cards: [], index: 0, score: 0, timer: null, advanceTimeout: null, session: 0, timeLeft: 20,
+  cards: [], index: 0, score: 0, completed: 0, answered: false,
+  timer: null, advanceTimeout: null, session: 0, timeLeft: 20,
 };
 
 const GUEST_KEYS = {
@@ -956,6 +1097,7 @@ const API_ERROR_UI_KEYS = Object.freeze({
   INVALID_JSON: 'genericError',
   ORIGIN_NOT_ALLOWED: 'genericError',
   INVALID_CREDENTIALS: 'errorInvalidCredentials',
+  RECOVERY_CREDENTIALS_INVALID: 'recoveryFailed',
   USERNAME_OR_EMAIL_EXISTS: 'errorUserExists',
   ACCOUNT_SUSPENDED: 'errorAccountSuspended',
   USERNAME_REQUIRED: 'errorUsernameRequired',
@@ -996,16 +1138,26 @@ const API_ERROR_UI_KEYS = Object.freeze({
   BATTLE_ROOM_ALLOCATION_FAILED: 'errorBattleCreate',
   INVALID_CATEGORY: 'errorInvalidCategory',
   INVALID_VERIFIED_CHALLENGE: 'verifiedSubmitError',
+  INVALID_SERVER_CHECKED_CHALLENGE: 'verifiedSubmitError',
   INVALID_VERIFIED_ANSWER: 'verifiedSubmitError',
+  INVALID_SERVER_CHECKED_ANSWER: 'verifiedSubmitError',
   INVALID_VERIFIED_ANSWER_SET: 'verifiedAnswerAll',
+  INVALID_SERVER_CHECKED_ANSWER_SET: 'verifiedAnswerAll',
   VERIFIED_CATEGORY_UNAVAILABLE: 'verifiedUnavailable',
+  SERVER_CHECKED_CATEGORY_UNAVAILABLE: 'verifiedUnavailable',
+  SERVER_CHECKED_CHALLENGE_ACTIVE: 'verifiedActive',
   QUESTION_SOURCE_UNAVAILABLE: 'verifiedChallengeError',
   QUESTION_SOURCE_INVALID: 'verifiedChallengeError',
   VERIFIED_CHALLENGE_NOT_FOUND: 'verifiedExpired',
+  SERVER_CHECKED_CHALLENGE_NOT_FOUND: 'verifiedExpired',
   VERIFIED_CHALLENGE_REPLAYED: 'verifiedReplayed',
+  SERVER_CHECKED_CHALLENGE_REPLAYED: 'verifiedReplayed',
   VERIFIED_CHALLENGE_EXPIRED: 'verifiedExpired',
+  SERVER_CHECKED_CHALLENGE_EXPIRED: 'verifiedExpired',
   VERIFIED_CHALLENGE_TOO_FAST: 'verifiedTooFast',
+  SERVER_CHECKED_CHALLENGE_TOO_FAST: 'verifiedTooFast',
   VERIFIED_CHALLENGE_TAMPERED: 'verifiedTampered',
+  SERVER_CHECKED_CHALLENGE_TAMPERED: 'verifiedTampered',
   STORED_CHALLENGE_INVALID: 'verifiedSubmitError',
   INVALID_DIFFICULTY: 'errorInvalidDifficulty',
   CATEGORY_UNAVAILABLE: 'errorCategoryUnavailable',
@@ -1043,36 +1195,79 @@ const API_ORIGIN = IS_LOCAL_PREVIEW
 const API_URL = `${API_ORIGIN}/api`;
 
 async function apiFetch(endpoint, options = {}) {
-  options.credentials = 'include';
-  const headers = new Headers(options.headers || {});
+  const requestOptions = { ...options, credentials: 'include' };
+  const headers = new Headers(requestOptions.headers || {});
   headers.set('Accept', 'application/json');
-  if (options.body && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
-  options.headers = headers;
-  const res = await fetch(`${API_URL}${endpoint}`, options);
-  const contentType = res.headers.get('content-type') || '';
-  const data = contentType.includes('application/json') ? await res.json() : {};
-  if (!res.ok) {
-    const error = new Error(data.error || `API request failed (${res.status})`);
-    error.code = typeof data.code === 'string' ? data.code : `HTTP_${res.status}`;
-    error.status = res.status;
-    throw error;
+  if (requestOptions.body && !headers.has('Content-Type')) headers.set('Content-Type', 'application/json');
+  requestOptions.headers = headers;
+  const method = String(requestOptions.method || 'GET').toUpperCase();
+  const attempts = method === 'GET' ? 2 : 1;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const res = await fetch(`${API_URL}${endpoint}`, requestOptions);
+      const contentType = res.headers.get('content-type') || '';
+      const data = contentType.includes('application/json') ? await res.json() : {};
+      if (!res.ok) {
+        const error = new Error(data.error || `API request failed (${res.status})`);
+        error.code = typeof data.code === 'string' ? data.code : `HTTP_${res.status}`;
+        error.status = res.status;
+        throw error;
+      }
+      const capabilityRecovered = state.apiChecked && !state.apiAvailable;
+      state.apiAvailable = true;
+      if (capabilityRecovered) applyCapabilityVisibility();
+      return data;
+    } catch (error) {
+      if (attempt >= attempts || !isRetryableCloudError(error)) {
+        if (isRetryableCloudError(error)) {
+          state.apiAvailable = false;
+          state.apiChecked = true;
+          applyCapabilityVisibility();
+        }
+        throw error;
+      }
+      await new Promise(resolve => setTimeout(resolve, 250 * attempt));
+    }
   }
-  return data;
+  return {};
 }
 
 async function checkCloudSession() {
+  const previousUser = state.dbUser;
+  const previousUserId = previousUser?.id || null;
+  const previousAnalyticsAllowed = state.accountAnalyticsAllowed;
   try {
+    const session = await apiFetch('/auth/session');
+    if (session?.authenticated !== true) {
+      state.dbUser = null;
+      state.accountAnalyticsAllowed = false;
+      clearAllCloudMutations();
+      return;
+    }
     const data = await apiFetch('/user/profile');
     state.dbUser = data;
+    if (previousUserId && previousUserId !== data?.id) clearAllCloudMutations();
+    retainCloudMutationsForUser(data?.id);
     try {
       const preference = await apiFetch('/user/privacy');
       state.accountAnalyticsAllowed = preference?.privacy?.usageAnalyticsEnabled === true;
-    } catch (_) {
-      state.accountAnalyticsAllowed = false;
+    } catch (error) {
+      state.accountAnalyticsAllowed = isRetryableCloudError(error)
+        ? previousAnalyticsAllowed
+        : false;
     }
-  } catch (err) {
-    state.dbUser = null;
-    state.accountAnalyticsAllowed = false;
+  } catch (error) {
+    if (error?.status === 401 || error?.status === 403) {
+      state.dbUser = null;
+      state.accountAnalyticsAllowed = false;
+      clearAllCloudMutations();
+      return;
+    }
+    // A transient profile/session failure must not visually sign out an
+    // identity that was already established. The next bounded recheck can
+    // refresh it without destroying the current account view.
+    state.dbUser = previousUser;
+    state.accountAnalyticsAllowed = previousAnalyticsAllowed;
   }
 }
 
@@ -1120,42 +1315,102 @@ function debounce(fn, delay) {
   };
 }
 
-async function detectApiAvailability() {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 2500);
-  try {
-    const response = await fetch(`${API_URL}/health`, {
-      cache: 'no-store',
-      headers: { Accept: 'application/json' },
-      signal: controller.signal,
-    });
-    if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return false;
-    const payload = await response.json();
-    return payload?.ok === true;
-  } catch (_) {
-    return false;
-  } finally {
-    clearTimeout(timeout);
+async function detectApiAvailability(attempts = 2) {
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 2500);
+    try {
+      const response = await fetch(`${API_URL}/health`, {
+        cache: 'no-store',
+        headers: { Accept: 'application/json' },
+        signal: controller.signal,
+      });
+      if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
+        const payload = await response.json();
+        if (payload?.ok === true) return true;
+      }
+    } catch (_) {
+      // A health probe is advisory. Individual controls still make their own request.
+    } finally {
+      clearTimeout(timeout);
+    }
+    if (attempt < attempts) await new Promise(resolve => setTimeout(resolve, 350 * attempt));
   }
+  return false;
 }
 
 function applyCapabilityVisibility() {
   const apiUnavailable = state.apiChecked && !state.apiAvailable;
   document.body.classList.toggle('api-unavailable', apiUnavailable);
-  [els.openAuthBtn, els.heroAuthBtn, document.getElementById('leaderboardBtn'), document.getElementById('battleNavBtn'), document.getElementById('bnProfileBtn')]
+  const capabilityControls = [els.openAuthBtn, els.heroAuthBtn, document.getElementById('leaderboardBtn'), document.getElementById('battleNavBtn'), document.getElementById('bnProfileBtn')]
     .filter(Boolean)
-    .forEach(element => { element.hidden = apiUnavailable; });
-  const suggestionBox = document.getElementById('suggestionBox');
-  if (suggestionBox) suggestionBox.hidden = apiUnavailable;
+  capabilityControls.forEach(element => {
+    element.hidden = false;
+    if (apiUnavailable) element.setAttribute('aria-describedby', 'cloudCapabilityStatus');
+    else element.removeAttribute('aria-describedby');
+  });
+  let status = document.getElementById('cloudCapabilityStatus');
+  if (apiUnavailable && !status) {
+    status = document.createElement('p');
+    status.id = 'cloudCapabilityStatus';
+    status.className = 'cloud-capability-status shell';
+    status.setAttribute('role', 'status');
+    document.querySelector('.site-header')?.insertAdjacentElement('afterend', status);
+  }
+  if (status) {
+    status.textContent = apiUnavailable
+      ? (state.lang === 'ar'
+          ? 'تعذر الوصول مؤقتًا إلى خدمات الحساب واللوحة والغرفة المباشرة. تبقى الأدوات متاحة لإعادة المحاولة، ويستمر المحتوى المحلي بالعمل.'
+          : 'Account, leaderboard, and live Battle Room services are temporarily unreachable. Controls remain available to retry, and local content still works.')
+      : '';
+    status.hidden = !apiUnavailable;
+  }
+}
+
+const storageMemory = Object.freeze({ local: new Map(), session: new Map() });
+
+function safeStorageGet(area, key) {
+  const memory = storageMemory[area];
+  try {
+    const value = window[`${area}Storage`].getItem(key);
+    if (value !== null) memory.set(key, value);
+    return value !== null ? value : (memory.has(key) ? memory.get(key) : null);
+  } catch (_) {
+    state.storageDurable = false;
+    return memory.has(key) ? memory.get(key) : null;
+  }
+}
+
+function safeStorageSet(area, key, value) {
+  const serialized = String(value);
+  storageMemory[area].set(key, serialized);
+  try {
+    window[`${area}Storage`].setItem(key, serialized);
+    return true;
+  } catch (_) {
+    state.storageDurable = false;
+    return false;
+  }
+}
+
+function safeStorageRemove(area, key) {
+  storageMemory[area].delete(key);
+  try {
+    window[`${area}Storage`].removeItem(key);
+    return true;
+  } catch (_) {
+    state.storageDurable = false;
+    return false;
+  }
 }
 
 function saveJson(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  return safeStorageSet('local', key, JSON.stringify(value));
 }
 
 function loadJson(key, fallback) {
   try {
-    const raw = localStorage.getItem(key);
+    const raw = safeStorageGet('local', key);
     return raw ? JSON.parse(raw) : fallback;
   } catch (_error) {
     return fallback;
@@ -1239,12 +1494,12 @@ async function syncGuestProgress() {
       else remainingFavs.delete(item.value.cardId);
     }
     if (Object.keys(remainingSolved).length) saveJson(GUEST_KEYS.solved, remainingSolved);
-    else localStorage.removeItem(GUEST_KEYS.solved);
+    else safeStorageRemove('local', GUEST_KEYS.solved);
     if (remainingFavs.size) saveJson(GUEST_KEYS.favorites, [...remainingFavs]);
-    else localStorage.removeItem(GUEST_KEYS.favorites);
+    else safeStorageRemove('local', GUEST_KEYS.favorites);
   }
-  localStorage.removeItem(GUEST_KEYS.solved);
-  localStorage.removeItem(GUEST_KEYS.favorites);
+  safeStorageRemove('local', GUEST_KEYS.solved);
+  safeStorageRemove('local', GUEST_KEYS.favorites);
   return true;
 }
 
@@ -1257,6 +1512,18 @@ async function mergeGuestProgress() {
 }
 
 const CLOUD_QUEUE_KEY = 'jakh-cloud-queue-v1';
+const CLOUD_QUEUE_MAX = 100;
+const CLOUD_QUEUE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+const CLOUD_QUEUE_MAX_ATTEMPTS = 5;
+
+function isRetryableCloudError(error) {
+  const status = Number(error?.status);
+  return !Number.isFinite(status) || status === 408 || status === 425 || status === 429 || status >= 500;
+}
+
+function cloudQueueBackoffMs(attempts) {
+  return Math.min(60 * 60 * 1000, 5_000 * (2 ** Math.max(0, attempts - 1)));
+}
 
 function loadCloudQueue() {
   const queue = loadJson(CLOUD_QUEUE_KEY, []);
@@ -1265,50 +1532,110 @@ function loadCloudQueue() {
 
 function saveCloudQueue(items) {
   if (items.length) saveJson(CLOUD_QUEUE_KEY, items);
-  else localStorage.removeItem(CLOUD_QUEUE_KEY);
+  else safeStorageRemove('local', CLOUD_QUEUE_KEY);
 }
 
-function queueCloudMutation(key, endpoint, method, body) {
-  const userId = state.dbUser?.id;
+function queueCloudMutation(userId, key, endpoint, method, body, previous = null) {
+  if (!userId) return false;
+  const now = Date.now();
+  const queue = loadCloudQueue().filter(item => item.userId === userId && item.key !== key);
+  const attempts = Math.min(CLOUD_QUEUE_MAX_ATTEMPTS, Number(previous?.attempts || 0) + 1);
+  queue.push({
+    key, userId, endpoint, method, body,
+    createdAt: Number(previous?.createdAt || now),
+    attempts,
+    nextAttemptAt: now + cloudQueueBackoffMs(attempts),
+  });
+  saveCloudQueue(queue.slice(-CLOUD_QUEUE_MAX));
+  return true;
+}
+
+function clearCloudMutation(userId, key) {
   if (!userId) return;
-  const queue = loadCloudQueue().filter(item => item.key !== key || item.userId !== userId);
-  queue.push({ key, userId, endpoint, method, body });
-  saveCloudQueue(queue.slice(-500));
-}
-
-function clearCloudMutation(key) {
-  const userId = state.dbUser?.id;
   saveCloudQueue(loadCloudQueue().filter(item => item.key !== key || item.userId !== userId));
 }
 
-async function sendCloudMutation(key, endpoint, method, body) {
+const cloudMutationChains = new Map();
+
+async function dispatchCloudMutation(userId, key, endpoint, method, body) {
+  if (!userId || state.dbUser?.id !== userId) {
+    return { synced: false, retryQueued: false, staleUser: true };
+  }
   try {
     await apiFetch(endpoint, { method, body: JSON.stringify(body) });
-    clearCloudMutation(key);
-    return true;
-  } catch {
-    queueCloudMutation(key, endpoint, method, body);
-    return false;
+    clearCloudMutation(userId, key);
+    return { synced: true, retryQueued: false };
+  } catch (error) {
+    const retryQueued = isRetryableCloudError(error) && state.dbUser?.id === userId
+      ? queueCloudMutation(userId, key, endpoint, method, body)
+      : false;
+    return { synced: false, retryQueued, error };
   }
+}
+
+function sendCloudMutation(key, endpoint, method, body) {
+  const userId = state.dbUser?.id;
+  if (!userId) return Promise.resolve({ synced: false, retryQueued: false, staleUser: true });
+  const chainKey = `${userId}:${key}`;
+  const previous = cloudMutationChains.get(chainKey) || Promise.resolve();
+  const task = previous
+    .catch(() => undefined)
+    .then(() => dispatchCloudMutation(userId, key, endpoint, method, body));
+  cloudMutationChains.set(chainKey, task);
+  void task.finally(() => {
+    if (cloudMutationChains.get(chainKey) === task) cloudMutationChains.delete(chainKey);
+  });
+  return task;
 }
 
 async function flushCloudQueue() {
   if (!state.dbUser || !navigator.onLine) return;
   const pending = loadCloudQueue();
   if (!pending.length) return;
+  const now = Date.now();
   const remaining = [];
   for (const item of pending) {
-    if (item.userId !== state.dbUser.id) {
-      remaining.push(item);
-      continue;
-    }
+    if (item.userId !== state.dbUser.id) continue;
+    if (!Number.isFinite(item.createdAt) || now - item.createdAt > CLOUD_QUEUE_MAX_AGE_MS) continue;
+    if (Number(item.attempts || 0) >= CLOUD_QUEUE_MAX_ATTEMPTS) continue;
+    if (Number(item.nextAttemptAt || 0) > now) { remaining.push(item); continue; }
     try {
       await apiFetch(item.endpoint, { method: item.method, body: JSON.stringify(item.body) });
-    } catch {
-      remaining.push(item);
+    } catch (error) {
+      if (isRetryableCloudError(error)) {
+        const attempts = Number(item.attempts || 0) + 1;
+        if (attempts < CLOUD_QUEUE_MAX_ATTEMPTS) {
+          remaining.push({ ...item, attempts, nextAttemptAt: now + cloudQueueBackoffMs(attempts) });
+        }
+      }
     }
   }
-  saveCloudQueue(remaining);
+  saveCloudQueue(remaining.slice(-CLOUD_QUEUE_MAX));
+}
+
+function clearAllCloudMutations() {
+  saveCloudQueue([]);
+}
+
+function retainCloudMutationsForUser(userId) {
+  if (!userId) { clearAllCloudMutations(); return; }
+  saveCloudQueue(loadCloudQueue().filter(item => item.userId === userId).slice(-CLOUD_QUEUE_MAX));
+}
+
+function cloudMutationStatusMessage(result) {
+  if (result.retryQueued) {
+    if (!state.storageDurable) {
+      return state.lang === 'ar'
+        ? 'التغيير ظاهر الآن، لكن إعادة المحاولة محفوظة لهذا العرض فقط لأن التخزين الدائم محظور'
+        : 'Change is visible now; retry is held for this view only because durable storage is blocked';
+    }
+    return state.lang === 'ar'
+      ? 'التغيير ظاهر الآن وستُعاد محاولة المزامنة السحابية'
+      : 'Change is visible now — cloud sync will retry';
+  }
+  return state.lang === 'ar'
+    ? 'التغيير ظاهر الآن، لكن الخادم رفضه ولن يُعاد تلقائيًا'
+    : 'Change is visible now, but the server rejected it so it will not retry automatically';
 }
 
 function getFavoriteSet() {
@@ -1399,10 +1726,10 @@ function isPremiumDifficulty(difficulty) {
   return difficulty === 'hard' || difficulty === 'very-advanced';
 }
 function getTrialUsedSet() {
-  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEYS.trial)) || []); } catch { return new Set(); }
+  try { return new Set(JSON.parse(safeStorageGet('local', STORAGE_KEYS.trial)) || []); } catch { return new Set(); }
 }
 function saveTrialUsedSet(s) {
-  localStorage.setItem(STORAGE_KEYS.trial, JSON.stringify([...s]));
+  return safeStorageSet('local', STORAGE_KEYS.trial, JSON.stringify([...s]));
 }
 function isTrialUnlocked(cardId, difficulty) {
   if (state.dbUser || !isPremiumDifficulty(difficulty)) return false;
@@ -1421,14 +1748,19 @@ function handleFlip(id, cardEl) {
       const wasFlipped = state.flipped.has(id);
       if (wasFlipped) state.flipped.delete(id); else state.flipped.add(id);
       if (!wasFlipped) trackEvent('card_flip', { category: state.categorySlug, card_id: id });
-      if (s.size >= 10) renderCards(); else updateCardEl(id);
+      if (s.size >= 10) {
+        const focusRequest = captureCardFocus(id, ['flip']);
+        renderCards(focusRequest);
+      } else {
+        updateCardEl(id, ['flip']);
+      }
       return;
     }
   }
   const wasFlipped = state.flipped.has(id);
   if (wasFlipped) state.flipped.delete(id); else state.flipped.add(id);
   if (!wasFlipped) trackEvent('card_flip', { category: state.categorySlug, card_id: id });
-  updateCardEl(id);
+  updateCardEl(id, ['flip']);
 }
 
 
@@ -1537,6 +1869,7 @@ function applyStaticCopy() {
   document.querySelectorAll('[data-href-en][data-href-ar]').forEach((node) => {
     node.setAttribute('href', state.lang === 'ar' ? node.dataset.hrefAr : node.dataset.hrefEn);
   });
+  localizeSharedRuntimeLinks();
   if (els.categorySearchInput) {
     els.categorySearchInput.placeholder = t('searchPlaceholder');
     els.categorySearchInput.setAttribute('aria-label', t('searchCategoriesLabel'));
@@ -1587,8 +1920,8 @@ function updateDocumentTitle() {
       ? 'العب 10 ألعاب متصفح مجانية على JAKH: الشطرنج وغو وريفيرسي وماسترمايند وكاتان لايت وطاولة الزهر وسِت وهانابي وكودنيمز ودبلوماسي.'
       : 'Play 10 free browser games on JAKH: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy.';
   } else if (state.page === 'home') {
-    const cleanPath = location.pathname.replace(/\.html$/i, '').replace(/\/+$/, '') || '/';
-    if (cleanPath === '/mind-lab') {
+    const route = sharedLanguageRoute();
+    if (route?.en === '/mind-lab') {
       title = state.lang === 'ar'
         ? 'مختبر العقل: 56 موضوع ألغاز وأسئلة | JAKH'
         : 'Mind Lab: 56 Riddle & Quiz Topics | JAKH';
@@ -1677,7 +2010,7 @@ async function handleOfflineStatus(event) {
     stopAnalyticsHeartbeat();
     showToast(state.lang === 'ar' ? 'أنت تعمل حالياً بدون اتصال — قد لا تتوفر بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
   } else if (sessionInitialized && event?.type === 'online') {
-    state.apiAvailable = await detectApiAvailability();
+    state.apiAvailable = await detectApiAvailability(2);
     state.apiChecked = true;
     if (state.apiAvailable) {
       await checkCloudSession();
@@ -1690,6 +2023,18 @@ async function handleOfflineStatus(event) {
     }
     hydrateCloudFeatureUi();
   }
+}
+
+let capabilityRecheckInFlight = null;
+async function recheckCloudCapabilities() {
+  if (!navigator.onLine || capabilityRecheckInFlight) return capabilityRecheckInFlight;
+  capabilityRecheckInFlight = (async () => {
+    state.apiAvailable = await detectApiAvailability(2);
+    state.apiChecked = true;
+    if (state.apiAvailable) await checkCloudSession();
+    hydrateCloudFeatureUi();
+  })().finally(() => { capabilityRecheckInFlight = null; });
+  return capabilityRecheckInFlight;
 }
 
 function cacheEls() {
@@ -1708,17 +2053,14 @@ function cacheEls() {
 
 const APP_VERSION = '3.0';
 function flushStaleStorage() {
-  const stored = localStorage.getItem('jakh-app-version');
+  const stored = safeStorageGet('local', 'jakh-app-version');
   if (stored !== null && stored !== APP_VERSION) {
     const staleKeys = ['jakh-catalog-cache', 'jakh-cluster-cache', 'jakh-home-state'];
-    staleKeys.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
-    localStorage.setItem('jakh-app-version', APP_VERSION);
-    // The current document already loaded versioned assets. Clear old caches in
-    // the background without showing a forced reload or loading transition.
-    navigator.serviceWorker?.controller?.postMessage({ type: 'CLEAR_CACHE' });
+    staleKeys.forEach(k => { safeStorageRemove('local', k); safeStorageRemove('session', k); });
+    safeStorageSet('local', 'jakh-app-version', APP_VERSION);
     return;
   }
-  if (stored === null) localStorage.setItem('jakh-app-version', APP_VERSION);
+  if (stored === null) safeStorageSet('local', 'jakh-app-version', APP_VERSION);
 }
 
 function initializeFromStorage() {
@@ -1727,14 +2069,19 @@ function initializeFromStorage() {
   const entryUrl = new URL(window.location.href);
   const requestedLang = entryUrl.searchParams.get('lang');
   const explicitLang = requestedLang === 'en' || requestedLang === 'ar' ? requestedLang : '';
+  const sharedRouteLang = sharedLanguageRoute(entryUrl.pathname)?.lang || '';
   const routeLang = document.body.dataset.routeLang === 'ar' || document.body.dataset.routeLang === 'en'
     ? document.body.dataset.routeLang
-    : '';
+    : sharedRouteLang;
   const storedLang = settings.lang === 'ar' || settings.lang === 'en' ? settings.lang : 'en';
 
-  if (state.page === 'category' && explicitLang && routeLang && explicitLang !== routeLang) {
+  if (explicitLang && routeLang && explicitLang !== routeLang) {
     entryUrl.searchParams.delete('lang');
-    const target = `${categoryRouteForLanguage(state.categorySlug, explicitLang)}${entryUrl.search}${entryUrl.hash}`;
+    const languagePath = state.page === 'category' && state.categorySlug
+      ? categoryRouteForLanguage(state.categorySlug, explicitLang)
+      : sharedRouteForLanguage(entryUrl.pathname, explicitLang);
+    if (!languagePath) return true;
+    const target = `${languagePath}${entryUrl.search}${entryUrl.hash}`;
     saveJson(STORAGE_KEYS.settings, { lang: explicitLang });
     location.replace(target);
     return false;
@@ -1757,7 +2104,7 @@ function initializeFromStorage() {
   } else if (settings.theme || settings.lang !== state.lang) {
     saveJson(STORAGE_KEYS.settings, { lang: state.lang });
   }
-  state.audioEnabled = localStorage.getItem(STORAGE_KEYS.audio) !== 'false';
+  state.audioEnabled = safeStorageGet('local', STORAGE_KEYS.audio) !== 'false';
   return true;
 }
 
@@ -1765,47 +2112,72 @@ let _installPrompt = null;
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   _installPrompt = e;
-  if (!localStorage.getItem('jakh-install-dismissed')) {
+  if (!safeStorageGet('local', 'jakh-install-dismissed')) {
     showInstallBanner();
   }
 });
 
+function refreshFixedUiLayout() {
+  window.JakhFixedUi?.refresh();
+}
+
+function removeInstallBanner() {
+  document.getElementById('installBanner')?.remove();
+  document.body.classList.remove('install-banner-visible');
+  refreshFixedUiLayout();
+}
+
 function showInstallBanner() {
-  if (document.getElementById('installBanner')) return;
+  if (
+    !_installPrompt
+    || document.getElementById('installBanner')
+    || document.getElementById('privacyConsentBanner')
+  ) return;
   const banner = document.createElement('div');
   banner.id = 'installBanner';
   banner.className = 'install-banner';
+  banner.setAttribute('role', 'region');
+  banner.setAttribute('aria-labelledby', 'installBannerText');
   banner.innerHTML = `
-    <span>${escapeHtml(t('installPrompt'))}</span>
+    <span id="installBannerText">${escapeHtml(t('installPrompt'))}</span>
     <div class="install-banner-actions">
-      <button class="primary-btn install-banner-btn" id="installAcceptBtn">${escapeHtml(t('install'))}</button>
-      <button class="ghost-btn install-banner-close" id="installDismissBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
+      <button type="button" class="primary-btn install-banner-btn" id="installAcceptBtn">${escapeHtml(t('install'))}</button>
+      <button type="button" class="ghost-btn install-banner-close" id="installDismissBtn" aria-label="${escapeHtml(t('close'))}">✕</button>
     </div>
   `;
   document.body.appendChild(banner);
   document.body.classList.add('install-banner-visible');
+  refreshFixedUiLayout();
   document.getElementById('installAcceptBtn')?.addEventListener('click', async () => {
     if (!_installPrompt) return;
     _installPrompt.prompt();
     const { outcome } = await _installPrompt.userChoice;
     _installPrompt = null;
-    banner.remove();
-    document.body.classList.remove('install-banner-visible');
-    if (outcome === 'accepted') localStorage.setItem('jakh-install-dismissed', '1');
+    removeInstallBanner();
+    if (outcome === 'accepted') safeStorageSet('local', 'jakh-install-dismissed', '1');
   });
   document.getElementById('installDismissBtn')?.addEventListener('click', () => {
-    localStorage.setItem('jakh-install-dismissed', '1');
-    banner.remove();
-    document.body.classList.remove('install-banner-visible');
+    safeStorageSet('local', 'jakh-install-dismissed', '1');
+    removeInstallBanner();
   });
 }
+
+document.addEventListener('jakh:consentchange', () => {
+  refreshFixedUiLayout();
+  if (_installPrompt && !safeStorageGet('local', 'jakh-install-dismissed')) showInstallBanner();
+});
+
+window.addEventListener('appinstalled', () => {
+  _installPrompt = null;
+  removeInstallBanner();
+});
 
 let authModalMode = 'signin';
 
 function refreshLocalizedTransientUi() {
   const installBanner = document.getElementById('installBanner');
   if (installBanner) {
-    installBanner.remove();
+    removeInstallBanner();
     showInstallBanner();
   }
 
@@ -1815,10 +2187,8 @@ function refreshLocalizedTransientUi() {
     releaseFocus(leaderboardModal);
     leaderboardModal.remove();
   }
-  if (state.apiAvailable) {
-    createLeaderboardModal();
-    if (leaderboardWasOpen) void openLeaderboard();
-  }
+  createLeaderboardModal();
+  if (leaderboardWasOpen) void openLeaderboard();
 
   const searchOverlay = document.getElementById('globalSearchOverlay');
   if (searchOverlay) {
@@ -1837,7 +2207,11 @@ function refreshLocalizedTransientUi() {
     }
   }
 
-  if (els.authModal && !els.authModal.classList.contains('hidden')) {
+  if (
+    els.authModal
+    && !els.authModal.classList.contains('hidden')
+    && authModalMode !== 'recovery-receipt'
+  ) {
     renderAuthModal(authModalMode);
   }
   const paywall = document.getElementById('paywallModal');
@@ -1867,11 +2241,19 @@ function bindCommonEvents() {
         location.assign(`${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
         return;
       }
+      const sharedPath = sharedRouteForLanguage(location.pathname, state.lang);
+      if (sharedPath) {
+        const currentUrl = new URL(location.href);
+        currentUrl.searchParams.delete('lang');
+        location.assign(`${sharedPath}${currentUrl.search}${currentUrl.hash}`);
+        return;
+      }
       applyDocumentLanguage();
       applyStaticCopy();
       rerender();
       clearTimedQuizTimers();
-      document.getElementById('timedQuizOverlay')?.remove();
+      const timedOverlay = document.getElementById('timedQuizOverlay');
+      if (timedOverlay) { releaseFocus(timedOverlay, { discard: true }); timedOverlay.remove(); }
       createTimedQuizModal();
       renderCategoryPlayModes();
       injectBackToTop();
@@ -1992,6 +2374,7 @@ function bindCommonEvents() {
 
     window.addEventListener('online', handleOfflineStatus);
     window.addEventListener('offline', handleOfflineStatus);
+    window.addEventListener('focus', () => { void recheckCloudCapabilities(); });
     handleOfflineStatus();
 
     globalEventsBound = true;
@@ -2031,6 +2414,7 @@ function bindCommonEvents() {
       if (els.difficultySelect) els.difficultySelect.value = 'all';
       if (els.viewSelect) els.viewSelect.value = 'all';
       if (els.sortSelect) els.sortSelect.value = 'featured';
+      clearCategoryFilterParams();
       renderSubcategoryFilters();
       renderCards();
       showToast(t('pageResetDone'));
@@ -2106,6 +2490,7 @@ function bindCommonEvents() {
         }
         return;
       }
+      if (event.target.closest('.card-review-sources a')) return;
       const card = event.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
       if (!card) return;
       const id = card.dataset.id;
@@ -2294,18 +2679,27 @@ async function markCachedCategories() {
   if (!('caches' in window)) return;
   try {
     const cacheNames = await caches.keys();
-    const assetCacheName = cacheNames
-      .filter(name => /^jakh-assets-v\d+$/.test(name))
+    const dataCacheName = cacheNames
+      .filter(name => /^jakh-data-v\d+$/.test(name))
       .sort((a, b) => Number(a.split('-v').pop()) - Number(b.split('-v').pop()))
       .pop();
-    if (!assetCacheName) return;
-    const cache = await caches.open(assetCacheName);
-    const keys = await cache.keys();
-    const cachedPaths = new Set(keys.map(r => new URL(r.url).pathname));
+    const navigationCacheName = cacheNames
+      .filter(name => /^jakh-navigation-v\d+$/.test(name))
+      .sort((a, b) => Number(a.split('-v').pop()) - Number(b.split('-v').pop()))
+      .pop();
+    if (!dataCacheName || !navigationCacheName) return;
+    const [dataCache, navigationCache] = await Promise.all([
+      caches.open(dataCacheName),
+      caches.open(navigationCacheName),
+    ]);
+    const [dataKeys, navigationKeys] = await Promise.all([dataCache.keys(), navigationCache.keys()]);
+    const cachedDataPaths = new Set(dataKeys.map(request => new URL(request.url).pathname));
+    const cachedNavigationPaths = new Set(navigationKeys.map(request => new URL(request.url).pathname.replace(/\/+$/, '') || '/'));
     document.querySelectorAll('.category-card[href]').forEach(el => {
       const href = el.getAttribute('href');
-      const slug = href.replace(/[?#].*$/, '').replace(/\/+$/, '').replace(/\.html$/, '').replace(/.*\//, '');
-      if (cachedPaths.has(`/data/${slug}.json`)) {
+      const pathname = new URL(href, location.origin).pathname.replace(/\.html$/i, '').replace(/\/+$/, '') || '/';
+      const slug = pathname.replace(/.*\//, '');
+      if (cachedDataPaths.has(`/data/${slug}.json`) && cachedNavigationPaths.has(pathname)) {
         if (!el.querySelector('.offline-badge')) {
           const badge = document.createElement('span');
           badge.className = 'offline-badge';
@@ -2366,8 +2760,13 @@ function renderCategoryDirectory() {
 }
 
 function renderClusterTabBar() {
+  const focusCluster = typeof arguments[0] === 'string' ? arguments[0] : '';
   const tabBar = document.getElementById('clusterTabBar');
   if (!tabBar || !state.catalog) return;
+  const activeCluster = tabBar.contains(document.activeElement)
+    ? document.activeElement.closest('[data-cluster]')?.dataset.cluster || ''
+    : '';
+  const focusKey = focusCluster || activeCluster;
   const isAr = state.lang === 'ar';
   const sections = getDirectorySections();
   const countWord = isAr ? 'موضوعًا' : 'topics';
@@ -2386,7 +2785,7 @@ function renderClusterTabBar() {
     const name = c.title[state.lang] || c.title.en;
     const isActive = state.cluster === c.key;
     return `
-      <button class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-label="${escapeHtml(name)}">
+      <button type="button" class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-controls="categoryDirectoryGrid" tabindex="${isActive ? '0' : '-1'}" aria-label="${escapeHtml(name)}">
         <div class="ml-cluster-tab-bg" style="background:${escapeHtml(c.gradient)};" aria-hidden="true"></div>
         <div class="ml-cluster-tab-content">
           <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${escapeHtml(c.mark)}</span>
@@ -2403,10 +2802,35 @@ function renderClusterTabBar() {
       const newCluster = btn.dataset.cluster;
       if (state.cluster === newCluster) return;
       state.cluster = newCluster;
-      renderClusterTabBar();
+      renderClusterTabBar(newCluster);
       renderCategoryDirectory();
     });
   });
+  const renderedTabs = [...tabBar.querySelectorAll('[role="tab"][data-cluster]')];
+  if (tabBar._clusterKeyHandler) tabBar.removeEventListener('keydown', tabBar._clusterKeyHandler);
+  tabBar._clusterKeyHandler = (event) => {
+    const currentIndex = renderedTabs.indexOf(event.target.closest('[role="tab"]'));
+    if (currentIndex < 0) return;
+    const forwardKey = state.lang === 'ar' ? 'ArrowLeft' : 'ArrowRight';
+    const backwardKey = state.lang === 'ar' ? 'ArrowRight' : 'ArrowLeft';
+    let nextIndex = currentIndex;
+    if (event.key === forwardKey) nextIndex = (currentIndex + 1) % renderedTabs.length;
+    else if (event.key === backwardKey) nextIndex = (currentIndex - 1 + renderedTabs.length) % renderedTabs.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = renderedTabs.length - 1;
+    else return;
+    event.preventDefault();
+    renderedTabs[nextIndex].click();
+  };
+  tabBar.addEventListener('keydown', tabBar._clusterKeyHandler);
+  if (focusKey) {
+    requestAnimationFrame(() => {
+      const correspondingTab = [...tabBar.querySelectorAll('[data-cluster]')]
+        .find(tab => tab.dataset.cluster === focusKey)
+        || tabBar.querySelector('[aria-selected="true"]');
+      correspondingTab?.focus();
+    });
+  }
 }
 
 function getGreeting(name, lang) {
@@ -2465,13 +2889,15 @@ function renderAccountSummary(mount) {
             <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${guestSolvedCount}</strong></div>
             <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${guestFavCount}</strong></div>
           </div>
-          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.apiAvailable
-            ? (state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح. أنشئ حسابًا لمزامنته عبر أجهزتك.' : 'Progress saved in this browser. Sign up to sync across devices.')
-            : (state.lang === 'ar' ? 'تقدمك محفوظ بأمان على هذا الجهاز.' : 'Your progress is saved safely on this device.'))}</p>
-        ` : `<p>${escapeHtml(state.apiAvailable ? t('guestText') : (state.lang === 'ar' ? 'ابدأ بحل الأسئلة وسيُحفظ تقدمك على هذا الجهاز.' : 'Start solving questions and your progress will be saved on this device.'))}</p>`}
-        ${state.apiAvailable ? `<div class="hero-actions">
+          <p class="muted" style="font-size:0.82rem">${escapeHtml(state.storageDurable
+            ? (state.lang === 'ar' ? 'تقدمك محفوظ في هذا المتصفح. أنشئ حسابًا لمزامنته عبر أجهزتك.' : 'Progress is stored in this browser. Sign up to sync across devices.')
+            : (state.lang === 'ar' ? 'يظهر تقدمك في هذه الصفحة الآن، لكن المتصفح منع التخزين الدائم وقد يُفقد بعد الإغلاق.' : 'Progress is available in this view, but the browser blocked durable storage and it may be lost after closing.'))}</p>
+        ` : `<p>${escapeHtml(state.storageDurable
+          ? t('guestText')
+          : (state.lang === 'ar' ? 'ابدأ بالحل؛ سيبقى التقدم في العرض الحالي فقط لأن التخزين الدائم محظور.' : 'Start solving; progress will remain in this view only because durable storage is blocked.'))}</p>`}
+        <div class="hero-actions">
           <button class="primary-btn" id="inlineCreateProfileBtn">${escapeHtml(t('createLocalProfile'))}</button>
-        </div>` : ''}
+        </div>
       </section>
     `;
     const button = document.getElementById('inlineCreateProfileBtn');
@@ -2631,7 +3057,10 @@ function renderCategoryPage() {
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
   if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
   if (els.categoryImage) {
-    els.categoryImage.src = categoryArtUrl(category);
+    // Generated category pages already contain the first valid local asset
+    // selected at build time. Preserve it instead of fetching, rendering, and
+    // then discarding it for a runtime fallback.
+    if (!els.categoryImage.getAttribute('src')) els.categoryImage.src = categoryArtUrl(category);
   }
   if (els.categoryDiffBadge) els.categoryDiffBadge.textContent = buildDiffBadge(category);
   restoreFilterParams();
@@ -2694,8 +3123,12 @@ function buildDiffBadge(category) {
   return parts.length ? `${totalLabel} — ${parts.join(' · ')}` : totalLabel;
 }
 
-function renderSubcategoryFilters() {
+function renderSubcategoryFilters(focusSubcategory = '') {
   if (!els.subcategoryWrap || !els.subcategoryFilters || !state.categoryData) return;
+  const activeFilter = els.subcategoryFilters.contains(document.activeElement)
+    ? document.activeElement.closest('[data-subcategory]')?.dataset.subcategory || ''
+    : '';
+  const focusKey = focusSubcategory || activeFilter;
   const counts = {};
   for (const card of state.categoryData.cards || []) {
     const sc = card.subcategory;
@@ -2723,16 +3156,25 @@ function renderSubcategoryFilters() {
     })),
   ];
   els.subcategoryFilters.innerHTML = chips.map((chip) => `
-    <button class="category-chip ${state.subcategory === chip.key ? 'is-active' : ''}" data-subcategory="${escapeHtml(chip.key)}">${escapeHtml(chip.label)}</button>
+    <button type="button" class="category-chip ${state.subcategory === chip.key ? 'is-active' : ''}" data-subcategory="${escapeHtml(chip.key)}" aria-pressed="${state.subcategory === chip.key ? 'true' : 'false'}" aria-controls="cardGrid">${escapeHtml(chip.label)}</button>
   `).join('');
   els.subcategoryFilters.querySelectorAll('[data-subcategory]').forEach((button) => {
     button.addEventListener('click', () => {
       state.subcategory = button.dataset.subcategory;
       state.cardPage = 1;
-      renderSubcategoryFilters();
+      syncFilterParams();
+      renderSubcategoryFilters(state.subcategory);
       renderCards();
     });
   });
+  if (focusKey) {
+    requestAnimationFrame(() => {
+      const correspondingFilter = [...els.subcategoryFilters.querySelectorAll('[data-subcategory]')]
+        .find(button => button.dataset.subcategory === focusKey)
+        || els.subcategoryFilters.querySelector('[aria-pressed="true"]');
+      correspondingFilter?.focus();
+    });
+  }
 }
 
 function syncFilterParams() {
@@ -2744,6 +3186,13 @@ function syncFilterParams() {
   if (state.subcategory && state.subcategory !== 'all') params.set('sub', state.subcategory); else params.delete('sub');
   if (state.search) params.set('q', state.search); else params.delete('q');
   history.replaceState(null, '', params.toString() ? `${location.pathname}?${params.toString()}` : location.pathname);
+}
+
+function clearCategoryFilterParams() {
+  if (state.page !== 'category') return;
+  const url = new URL(location.href);
+  ['difficulty', 'view', 'sort', 'sub', 'q', 'card'].forEach(key => url.searchParams.delete(key));
+  history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
 }
 
 function restoreFilterParams() {
@@ -2788,6 +3237,77 @@ function getFilteredCards() {
   return cards;
 }
 
+function safeHttpsSourceUrl(value) {
+  try {
+    const parsed = new URL(String(value));
+    return parsed.protocol === 'https:' && parsed.hostname ? parsed.href : '';
+  } catch (_) {
+    return '';
+  }
+}
+
+function formatReviewDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return String(value || '');
+  const date = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat(state.lang === 'ar' ? 'ar-AE' : 'en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+}
+
+function createReviewMarkup(card, sourceLinkFocus = '') {
+  const review = card?.review || { status: 'pending' };
+  const reviewed = review.status === 'reviewed';
+  if (!reviewed) {
+    const safetySensitive = review.safetySensitive === true || review.priority === 'high';
+    const label = t(safetySensitive ? 'reviewSafetyPending' : 'reviewStatusPending');
+    return `
+      <div class="card-review card-review--pending${safetySensitive ? ' card-review--safety' : ''}" role="note" aria-label="${escapeHtml(label)}">
+        <p class="card-review-label"><span aria-hidden="true">${safetySensitive ? '⚠' : '◷'}</span> ${escapeHtml(label)}</p>
+      </div>`;
+  }
+
+  const reviewedAt = String(review.reviewedAt || '');
+  const reviewer = String(review.reviewer || '');
+  const sources = (Array.isArray(review.sources) ? review.sources : [])
+    .map(source => ({ ...source, safeUrl: safeHttpsSourceUrl(source?.url) }))
+    .filter(source => source.safeUrl);
+  const statusLabel = t('reviewStatusReviewed');
+  const sourceLinks = sources.map((source, index) => {
+    const title = String(source.title || source.publisher || source.safeUrl);
+    const publisher = String(source.publisher || title);
+    const ariaLabel = fmt('reviewSourceLabel', {
+      number: index + 1,
+      title,
+      publisher,
+    });
+    return `
+      <li>
+        <a href="${escapeHtml(source.safeUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(ariaLabel)}" ${sourceLinkFocus}>
+          <span>${escapeHtml(title)} — ${escapeHtml(publisher)}</span>
+          <span class="card-review-external" aria-hidden="true">↗</span>
+        </a>
+      </li>`;
+  }).join('');
+
+  return `
+    <div class="card-review card-review--reviewed" role="note" aria-label="${escapeHtml(statusLabel)}">
+      <p class="card-review-label"><span aria-hidden="true">✓</span> ${escapeHtml(statusLabel)}</p>
+      <p class="card-review-meta">
+        <time datetime="${escapeHtml(reviewedAt)}">${escapeHtml(fmt('reviewDate', { date: formatReviewDate(reviewedAt) }))}</time>
+        <span>${escapeHtml(fmt('reviewReviewer', { reviewer }))}</span>
+      </p>
+      ${sourceLinks ? `
+        <div class="card-review-sources">
+          <span class="card-review-sources-title">${escapeHtml(t('reviewSources'))}</span>
+          <ul>${sourceLinks}</ul>
+        </div>` : ''}
+    </div>`;
+}
+
 function createCardMarkup(card) {
   const flipped = state.flipped.has(card.id);
   const favorite = isFavorite(card.id);
@@ -2799,6 +3319,7 @@ function createCardMarkup(card) {
   const subcat = subcatText ? `<span class="badge badge-subcategory">${escapeHtml(subcatText)}</span>` : '';
   const categoryBadge = `<span class="badge badge-category">${escapeHtml(card.mode === 'story' ? '🕯️' : state.categoryData.emoji || '❔')} ${escapeHtml(state.categoryData.title[state.lang])}</span>`;
   const difficultyBadge = `<span class="badge badge-difficulty" data-difficulty="${escapeHtml(card.difficulty)}">${escapeHtml(difficultyLabel)}</span>`;
+  const cardReviewMarkup = createReviewMarkup(card);
 
   let trialCard = false;
   if (!isLevelUnlocked(card.difficulty)) {
@@ -2813,6 +3334,7 @@ function createCardMarkup(card) {
               <section class="card-face card-front">
                 <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
                 <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
+                ${cardReviewMarkup}
                 <div class="card-actions">
                   <button class="primary-btn mini-btn" data-action="paywall" data-id="${escapeHtml(card.id)}">${escapeHtml(unlockLabel)}</button>
                 </div>
@@ -2829,6 +3351,7 @@ function createCardMarkup(card) {
             <section class="card-face card-front">
               <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
               <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
+              ${cardReviewMarkup}
               <p class="lock-msg">🔒 ${escapeHtml(lockMsg)}</p>
             </section>
           </div>
@@ -2841,6 +3364,8 @@ function createCardMarkup(card) {
   const audioBtn = state.audioEnabled
     ? `<button class="mini-btn card-audio-btn" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('audioPlay'))}" title="${escapeHtml(t('audioPlay'))}" ${frontFocus}>🔊</button>`
     : '';
+  const frontReviewMarkup = createReviewMarkup(card, frontFocus);
+  const backReviewMarkup = createReviewMarkup(card, backFocus);
   let markBtns;
   if (result === 'correct') {
     markBtns = `<button class="card-mark-btn is-correct" data-action="unmark" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('markUnsolved'))}" title="${escapeHtml(t('markUnsolved'))}" ${backFocus}>✓</button>`;
@@ -2863,6 +3388,7 @@ function createCardMarkup(card) {
             ${subcat}
           </div>
           <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
+          ${frontReviewMarkup}
           <div class="card-actions">
             <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${frontFocus}>${escapeHtml(flipLabel)}</button>
             <button class="mini-btn action-fav${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" ${frontFocus}>${favorite ? '♥' : '♡'}</button>
@@ -2871,13 +3397,14 @@ function createCardMarkup(card) {
         </section>
         <section class="card-face card-back" aria-hidden="${flipped ? 'false' : 'true'}" ${flipped ? '' : 'inert'}>
           <p class="card-answer"><strong>${escapeHtml(card.answer[state.lang])}</strong></p>
+          ${backReviewMarkup}
           <div class="card-actions">
             <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${backFocus}>${escapeHtml(t('backToQuestion'))}</button>
             <div class="card-icon-row">
               <button class="card-fav-btn${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" ${backFocus}>${favorite ? '♥' : '♡'}</button>
               ${markBtns}
               <button class="mini-btn card-share-btn" data-action="share" data-id="${escapeHtml(card.id)}" aria-label="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}" title="${state.lang === 'ar' ? 'مشاركة السؤال' : 'Share question'}" ${backFocus}>↗</button>
-              ${state.apiAvailable ? `<button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('reportBtn'))}" title="${escapeHtml(t('reportBtn'))}" ${backFocus}>⚑</button>` : ''}
+              <button class="mini-btn report-btn" data-action="report" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('reportBtn'))}" title="${escapeHtml(t('reportBtn'))}" ${backFocus}>⚑</button>
             </div>
           </div>
         </section>
@@ -2886,9 +3413,49 @@ function createCardMarkup(card) {
   `;
 }
 
-function updateCardEl(id) {
+function captureCardFocus(id, preferredActions = []) {
+  const card = els.cardGrid?.querySelector(`[data-id="${CSS.escape(id)}"]`);
+  if (!card || !card.contains(document.activeElement)) return null;
+  const cards = [...els.cardGrid.querySelectorAll('.riddle-card[data-id]')];
+  return {
+    cardId: id,
+    cardIndex: Math.max(0, cards.indexOf(card)),
+    target: describeFocusTarget(document.activeElement),
+    preferredActions,
+  };
+}
+
+function restoreCardFocus(request) {
+  if (!request) return;
+  requestAnimationFrame(() => {
+    const escapedId = CSS.escape(request.cardId);
+    const card = els.cardGrid?.querySelector(`[data-id="${escapedId}"]`);
+    let target = resolveFocusTarget(request.target, card || document);
+    if (!target && card) {
+      for (const action of request.preferredActions || []) {
+        target = card.querySelector(`[data-action="${CSS.escape(action)}"]:not([tabindex="-1"])`);
+        if (target) break;
+      }
+    }
+    if (!target && card) {
+      target = card.querySelector('[data-action="flip"]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"])');
+    }
+    if (!target) {
+      const visibleCards = [...(els.cardGrid?.querySelectorAll('.riddle-card[data-id]') || [])];
+      const nearbyCard = visibleCards[Math.min(request.cardIndex, Math.max(0, visibleCards.length - 1))];
+      target = nearbyCard?.querySelector('[data-action="flip"]:not([tabindex="-1"]), button:not([disabled]):not([tabindex="-1"])')
+        || els.subcategoryFilters?.querySelector('[aria-pressed="true"]')
+        || els.viewSelect
+        || els.cardSearchInput;
+    }
+    focusElement(target);
+  });
+}
+
+function updateCardEl(id, preferredActions = []) {
   const el = els.cardGrid?.querySelector(`[data-id="${CSS.escape(id)}"]`);
   if (!el) return;
+  const focusRequest = captureCardFocus(id, preferredActions);
   const card = state.categoryData?.cards.find(c => c.id === id);
   if (!card) return;
   const tmp = document.createElement('div');
@@ -2896,18 +3463,20 @@ function updateCardEl(id) {
   const newEl = tmp.firstElementChild;
   newEl.style.animation = 'none';
   el.replaceWith(newEl);
+  restoreCardFocus(focusRequest);
 }
 
 // When marking or favoriting, visibility may change if a filter is active
-function updateCardElOrRefresh(id) {
+function updateCardElOrRefresh(id, preferredActions = []) {
+  const focusRequest = captureCardFocus(id, preferredActions);
   if (state.view !== 'all') {
-    renderCards();
+    renderCards(focusRequest);
   } else {
-    updateCardEl(id);
+    updateCardEl(id, preferredActions);
   }
 }
 
-function renderCards() {
+function renderCards(focusRequest = null) {
   if (!els.cardGrid || !state.categoryData) return;
 
   // Remove any previous load-more button
@@ -2938,11 +3507,16 @@ function renderCards() {
 
   if (els.emptyState) els.emptyState.classList.toggle('hidden', filtered.length > 0);
   if (els.resultsLabel) {
-    els.resultsLabel.textContent = filtered.length === state.categoryData.cards.length
-      ? fmt('showingAllCards', { count: filtered.length })
-      : fmt('showingFilteredCards', { count: filtered.length });
+    const rendered = visible.length;
+    const matched = filtered.length;
+    const categoryTotal = state.categoryData.cards.length;
+    const remaining = Math.max(0, matched - rendered);
+    els.resultsLabel.textContent = state.lang === 'ar'
+      ? `المعروض الآن ${rendered} من ${matched} سؤالًا مطابقًا (إجمالي الموضوع ${categoryTotal}).${remaining ? ` يتوفر ${remaining} سؤالًا إضافيًا عبر زر «عرض المزيد».` : ' كل النتائج المطابقة معروضة.'}`
+      : `Showing ${rendered} of ${matched} matching questions (${categoryTotal} total in this topic).${remaining ? ` ${remaining} more available via “Show more.”` : ' All matching results are rendered.'}`;
   }
   renderAccountSummary(els.categorySummaryMount);
+  restoreCardFocus(focusRequest);
 }
 
 function renderRelatedCategories() {
@@ -2996,7 +3570,7 @@ async function toggleFavorite(id) {
       saveJson(GUEST_KEYS.favorites, favs);
       showToast(t('favoriteAdded'));
     }
-    updateCardElOrRefresh(id);
+    updateCardElOrRefresh(id, ['favorite']);
     renderAccountSummary(els.categorySummaryMount);
     return;
   }
@@ -3010,19 +3584,16 @@ async function toggleFavorite(id) {
     dbUser.favorites = dbUser.favorites.filter(f => f.cardId !== id);
     showToast(t('favoriteRemoved'));
   }
-  updateCardElOrRefresh(id);
+  updateCardElOrRefresh(id, ['favorite']);
   renderAccountSummary(els.categorySummaryMount);
 
-  const synced = await sendCloudMutation(`favorite:${id}`, '/user/favorite', 'POST', {
+  const syncResult = await sendCloudMutation(`favorite:${id}`, '/user/favorite', 'POST', {
     cardId: id,
     categoryId: state.categoryData?.slug || 'unknown',
     action,
   });
-  if (!synced) {
-    const guestFavs = getGuestFavorites().filter(cardId => cardId !== id);
-    if (action === 'add') guestFavs.push(id);
-    saveJson(GUEST_KEYS.favorites, guestFavs);
-    showToast(state.lang === 'ar' ? 'سيتم الحفظ عند عودة الاتصال' : 'Saved on this device — cloud sync will retry');
+  if (!syncResult.synced) {
+    showToast(cloudMutationStatusMessage(syncResult));
   }
 }
 
@@ -3038,14 +3609,14 @@ async function markCard(id, result) {
     if (cardEl) spawnConfetti(cardEl);
     const h = new Date().getHours();
     if (h >= 0 && h < 5) saveJson('jakh-night-owl', 1);
-    checkNewAchievements();
   }
 
   if (!state.dbUser) {
     const guestSolved = getGuestSolvedMap();
     guestSolved[id] = { status, categoryId: state.categoryData?.slug || 'unknown' };
     saveJson(GUEST_KEYS.solved, guestSolved);
-    updateCardElOrRefresh(id);
+    if (result === 'correct') checkNewAchievements();
+    updateCardElOrRefresh(id, ['unmark']);
     if (result === 'correct') flashCard(id);
     renderAccountSummary(els.categorySummaryMount);
     if (result === 'correct') setTimeout(() => checkCategoryComplete(state.categoryData?.slug || ''), 400);
@@ -3055,17 +3626,16 @@ async function markCard(id, result) {
   const dbUser = state.dbUser;
   dbUser.progress = dbUser.progress.filter(p => p.cardId !== id);
   dbUser.progress.push({ cardId: id, categoryId: state.categoryData?.slug || 'unknown', status });
-  updateCardElOrRefresh(id);
+  if (result === 'correct') checkNewAchievements();
+  updateCardElOrRefresh(id, ['unmark']);
   if (result === 'correct') flashCard(id);
   renderAccountSummary(els.categorySummaryMount);
   if (result === 'correct') setTimeout(() => checkCategoryComplete(state.categoryData?.slug || ''), 400);
 
   const categoryId = state.categoryData?.slug || 'unknown';
-  const synced = await sendCloudMutation(`progress:${id}`, '/user/progress', 'POST', { cardId: id, categoryId, status });
-  if (!synced) {
-    const guestSolved = getGuestSolvedMap();
-    guestSolved[id] = { status, categoryId };
-    saveJson(GUEST_KEYS.solved, guestSolved);
+  const syncResult = await sendCloudMutation(`progress:${id}`, '/user/progress', 'POST', { cardId: id, categoryId, status });
+  if (!syncResult.synced) {
+    showToast(cloudMutationStatusMessage(syncResult));
   }
 }
 
@@ -3075,7 +3645,7 @@ async function unmarkCard(id) {
     delete guestSolved[id];
     saveJson(GUEST_KEYS.solved, guestSolved);
     showToast(t('solvedRemoved'));
-    updateCardElOrRefresh(id);
+    updateCardElOrRefresh(id, ['markCorrect', 'markWrong']);
     renderAccountSummary(els.categorySummaryMount);
     return;
   }
@@ -3083,37 +3653,131 @@ async function unmarkCard(id) {
   const dbUser = state.dbUser;
   dbUser.progress = dbUser.progress.filter(p => p.cardId !== id);
   showToast(t('solvedRemoved'));
-  updateCardElOrRefresh(id);
+  updateCardElOrRefresh(id, ['markCorrect', 'markWrong']);
   renderAccountSummary(els.categorySummaryMount);
 
   const categoryId = state.categoryData?.slug || 'unknown';
-  const synced = await sendCloudMutation(`progress:${id}`, '/user/progress', 'DELETE', { cardId: id, categoryId });
-  if (!synced) {
-    const guestSolved = getGuestSolvedMap();
-    delete guestSolved[id];
-    saveJson(GUEST_KEYS.solved, guestSolved);
+  const syncResult = await sendCloudMutation(`progress:${id}`, '/user/progress', 'DELETE', { cardId: id, categoryId });
+  if (!syncResult.synced) {
+    showToast(cloudMutationStatusMessage(syncResult));
   }
 }
 
 const FOCUSABLE = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+const overlayFocusReturns = new Map();
 
-function trapFocus(el) {
-  const nodes = () => [...el.querySelectorAll(FOCUSABLE)].filter(n => !n.closest('[aria-hidden="true"]'));
+function describeFocusTarget(node) {
+  if (!(node instanceof Element) || node === document.body || node === document.documentElement) return null;
+  const selectors = [];
+  if (node.id) selectors.push(`#${CSS.escape(node.id)}`);
+  const dataKeys = ['action', 'id', 'subcategory', 'cluster', 'emoji', 'tab', 'authMode'];
+  const dataSelector = dataKeys
+    .filter(key => node.dataset?.[key])
+    .map(key => `[data-${key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`)}="${CSS.escape(node.dataset[key])}"]`)
+    .join('');
+  if (dataSelector) selectors.push(dataSelector);
+  if (node.getAttribute('name')) selectors.push(`[name="${CSS.escape(node.getAttribute('name'))}"]`);
+  return { node, selectors };
+}
+
+function canReceiveFocus(node) {
+  return Boolean(
+    node
+    && node.isConnected
+    && !node.matches?.(':disabled')
+    && !node.closest?.('[hidden],.hidden,[aria-hidden="true"],[inert]'),
+  );
+}
+
+function resolveFocusTarget(descriptor, root = document) {
+  if (!descriptor) return null;
+  if (
+    canReceiveFocus(descriptor.node)
+    && (root === document || root === descriptor.node || root.contains?.(descriptor.node))
+  ) {
+    return descriptor.node;
+  }
+  for (const selector of descriptor.selectors || []) {
+    const candidate = root.querySelector?.(selector);
+    if (canReceiveFocus(candidate)) return candidate;
+  }
+  return null;
+}
+
+function focusElement(node) {
+  if (!canReceiveFocus(node)) return false;
+  try {
+    node.focus({ preventScroll: true });
+    return document.activeElement === node;
+  } catch (_) {
+    return false;
+  }
+}
+
+function restoreFocusTarget(descriptor, fallbackSelector = '') {
+  requestAnimationFrame(() => {
+    const target = resolveFocusTarget(descriptor)
+      || (fallbackSelector ? document.querySelector(fallbackSelector) : null);
+    focusElement(target);
+  });
+}
+
+function trapFocus(el, options = {}) {
+  const {
+    key = el.id || '',
+    initialFocus = '',
+    onEscape = null,
+    returnFallback = '',
+    returnTarget = document.activeElement,
+  } = options;
+  releaseFocus(el);
+  if (key && !overlayFocusReturns.has(key)) {
+    overlayFocusReturns.set(key, {
+      target: describeFocusTarget(returnTarget),
+      fallback: returnFallback,
+    });
+  }
+  el._focusKey = key;
+  const nodes = () => [...el.querySelectorAll(FOCUSABLE)].filter(canReceiveFocus);
   el._trapHandler = (e) => {
+    if (e.key === 'Escape' && typeof onEscape === 'function') {
+      e.preventDefault();
+      e.stopPropagation();
+      onEscape();
+      return;
+    }
     if (e.key !== 'Tab') return;
     const items = nodes();
-    if (!items.length) return;
+    if (!items.length) {
+      e.preventDefault();
+      focusElement(el.querySelector('[role="dialog"]') || el);
+      return;
+    }
     const first = items[0], last = items[items.length - 1];
     if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
     else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
   };
   el.addEventListener('keydown', el._trapHandler);
-  const firstFocusable = nodes()[0];
-  if (firstFocusable) requestAnimationFrame(() => firstFocusable.focus());
+  const initialTarget = typeof initialFocus === 'string'
+    ? el.querySelector(initialFocus)
+    : initialFocus;
+  const firstFocusable = canReceiveFocus(initialTarget) ? initialTarget : nodes()[0];
+  if (firstFocusable) requestAnimationFrame(() => focusElement(firstFocusable));
 }
 
-function releaseFocus(el) {
+function releaseFocus(el, { restore = false, discard = false } = {}) {
   if (el._trapHandler) el.removeEventListener('keydown', el._trapHandler);
+  delete el._trapHandler;
+  const key = el._focusKey || el.id || '';
+  delete el._focusKey;
+  if (!key) return;
+  if (restore) {
+    const returnState = overlayFocusReturns.get(key);
+    overlayFocusReturns.delete(key);
+    restoreFocusTarget(returnState?.target, returnState?.fallback || '');
+  } else if (discard) {
+    overlayFocusReturns.delete(key);
+  }
 }
 
 function openModal(name) {
@@ -3121,20 +3785,41 @@ function openModal(name) {
   if (!modal) return;
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
-  trapFocus(modal);
+  const initialFocus = state.dbUser
+    ? '#signedInAccountPanel'
+    : `#tab${authModalMode === 'register' ? 'Register' : authModalMode === 'recover' ? 'Recover' : 'Signin'}`;
+  trapFocus(modal, {
+    key: 'auth',
+    initialFocus,
+    onEscape: () => closeModal('auth'),
+    returnFallback: '#openAuthBtn, #heroAuthBtn, #bnProfileBtn',
+  });
 }
 
 function closeModal(name) {
   if (name === 'leaderboard') {
     const lb = document.getElementById('leaderboardModal');
-    if (lb) { lb.classList.add('hidden'); lb.setAttribute('aria-hidden', 'true'); releaseFocus(lb); }
+    if (lb) {
+      lb.classList.add('hidden');
+      lb.setAttribute('aria-hidden', 'true');
+      releaseFocus(lb, { restore: true });
+    }
     return;
   }
   const modal = els.authModal;
   if (!modal) return;
+  if (authModalMode === 'recovery-receipt') {
+    setAuthInlineStatus(
+      document.getElementById('recoveryCopyStatus'),
+      t('recoveryCloseBlocked'),
+      'error',
+    );
+    focusAuthControl('acknowledgeRecoveryCodeBtn');
+    return;
+  }
   modal.classList.add('hidden');
   modal.setAttribute('aria-hidden', 'true');
-  releaseFocus(modal);
+  releaseFocus(modal, { restore: true });
 }
 
 function openAuthModal() {
@@ -3164,8 +3849,8 @@ function openPaywallModal() {
         ? `جربت ${trialUsed} ألغاز مجانية!`
         : `You've previewed ${trialUsed} premium riddles free!`}</h2>
       <p class="paywall-body">${isAr
-        ? 'أنشئ حسابًا مجانيًا لفتح جميع تحديات الصعب والصعب جدًا — مع مزامنة التقدم ولوحة المتصدرين والفرق.'
-        : 'Create a free account to unlock all Head Scratcher &amp; Brick Wall challenges — plus progress sync, leaderboards, and teams.'}</p>
+        ? 'الحساب المجاني يتيح مسار الفتح ومزامنة التقدم ولوحة النتائج. يُفتح مستوى الصعب بعد 10 إجابات صحيحة، ثم الصعب جدًا بعد 10 إجابات صحيحة في مستوى الصعب.'
+        : 'A free account enables the unlock path, progress sync, and leaderboard. Head Scratcher unlocks after 10 correct answers; Brick Wall then requires 10 correct Head Scratcher answers.'}</p>
       <div class="paywall-actions">
         <button class="primary-btn paywall-signup-btn">${isAr ? 'إنشاء حساب مجاني' : 'Create free account'}</button>
         <button class="ghost-btn paywall-signin-btn">${isAr ? 'تسجيل الدخول' : 'Sign in'}</button>
@@ -3178,25 +3863,118 @@ function openPaywallModal() {
   modal.querySelector('#paywallBackdrop').addEventListener('click', closePaywallModal);
   modal.querySelector('.paywall-close').addEventListener('click', closePaywallModal);
   modal.querySelector('.paywall-signup-btn').addEventListener('click', () => {
-    closePaywallModal();
+    const returnState = overlayFocusReturns.get('paywall');
+    closePaywallModal({ restoreFocus: false });
+    if (returnState) overlayFocusReturns.set('auth', returnState);
     renderAuthModal('register');
     openModal('auth');
   });
   modal.querySelector('.paywall-signin-btn').addEventListener('click', () => {
-    closePaywallModal();
-    openAuthModal();
+    const returnState = overlayFocusReturns.get('paywall');
+    closePaywallModal({ restoreFocus: false });
+    if (returnState) overlayFocusReturns.set('auth', returnState);
+    renderAuthModal('signin');
+    openModal('auth');
   });
   modal.classList.remove('hidden');
-  trapFocus(modal);
+  modal.setAttribute('aria-hidden', 'false');
+  trapFocus(modal, {
+    key: 'paywall',
+    initialFocus: '.paywall-close',
+    onEscape: closePaywallModal,
+    returnFallback: '#cardGrid [data-action="paywall"], #openAuthBtn',
+  });
 }
 
-function closePaywallModal() {
+function closePaywallModal(options = {}) {
   const modal = document.getElementById('paywallModal');
-  if (modal) { modal.classList.add('hidden'); releaseFocus(modal); }
+  if (!modal) return;
+  const restore = options.restoreFocus !== false;
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
+  releaseFocus(modal, { restore, discard: !restore });
+}
+
+function focusAuthControl(id) {
+  requestAnimationFrame(() => document.getElementById(id)?.focus());
+}
+
+function setAuthInlineStatus(node, message, tone = '') {
+  if (!node) return;
+  node.textContent = message || '';
+  if (tone) node.dataset.tone = tone;
+  else delete node.dataset.tone;
+}
+
+function recoveryCodeFromResponse(response) {
+  return typeof response?.recoveryCode === 'string' && response.recoveryCode.trim()
+    ? response.recoveryCode.trim()
+    : '';
+}
+
+async function hydrateAuthenticatedExperience() {
+  await checkCloudSession();
+  if (!state.dbUser) throw new Error(t('genericError'));
+  await flushCloudQueue();
+  await mergeGuestProgress();
+  await checkCloudSession();
+  if (!state.dbUser) throw new Error(t('genericError'));
+  refreshAnalyticsHeartbeat();
+  const suggestionAccountLabel = els.suggestionLinkAccount?.closest('.suggestion-account-link');
+  if (suggestionAccountLabel) suggestionAccountLabel.hidden = false;
+  applyStaticCopy();
+  rerender();
+}
+
+function renderRecoveryCodeReceipt(recoveryCode) {
+  if (!els.authModalBody || !recoveryCode) return false;
+  authModalMode = 'recovery-receipt';
+  els.authModalBody.innerHTML = `
+    <section class="auth-panel recovery-receipt" aria-labelledby="recoveryReceiptTitle" aria-describedby="recoveryReceiptLead recoveryReceiptReplacement">
+      <h3 id="recoveryReceiptTitle" tabindex="-1">${escapeHtml(t('recoveryReceiptTitle'))}</h3>
+      <p id="recoveryReceiptLead">${escapeHtml(t('recoveryReceiptLead'))}</p>
+      <code id="oneTimeRecoveryCode" class="recovery-code" dir="ltr" tabindex="0" aria-label="${escapeHtml(t('recoveryCode'))}"></code>
+      <p id="recoveryReceiptReplacement" class="muted">${escapeHtml(t('recoveryReceiptReplacement'))}</p>
+      <p id="recoveryCopyStatus" class="auth-inline-status" role="status" aria-live="polite"></p>
+      <div class="hero-actions">
+        <button class="secondary-btn" type="button" id="copyRecoveryCodeBtn">${escapeHtml(t('recoveryCopy'))}</button>
+        <button class="primary-btn" type="button" id="acknowledgeRecoveryCodeBtn">${escapeHtml(t('recoverySaved'))}</button>
+      </div>
+    </section>`;
+
+  const codeNode = document.getElementById('oneTimeRecoveryCode');
+  const copyStatus = document.getElementById('recoveryCopyStatus');
+  codeNode.textContent = recoveryCode;
+
+  document.getElementById('copyRecoveryCodeBtn')?.addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(codeNode.textContent || '');
+      setAuthInlineStatus(copyStatus, t('recoveryCopied'), 'success');
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(codeNode);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
+      codeNode.focus();
+      setAuthInlineStatus(copyStatus, t('recoveryCopyFailed'), 'error');
+    }
+  });
+
+  document.getElementById('acknowledgeRecoveryCodeBtn')?.addEventListener('click', () => {
+    codeNode.textContent = '';
+    renderAuthModal('signin');
+    focusAuthControl('signedInAccountPanel');
+  });
+  focusAuthControl('recoveryReceiptTitle');
+  return true;
 }
 
 function renderAuthModal(mode = 'signin') {
   if (!els.authModalBody) return;
+  const previousFocus = els.authModalBody.contains(document.activeElement)
+    ? describeFocusTarget(document.activeElement)
+    : null;
   authModalMode = mode;
   const account = getActiveUser();
   if (account) {
@@ -3246,7 +4024,7 @@ function renderAuthModal(mode = 'signin') {
     ` : '';
 
     els.authModalBody.innerHTML = `
-      <section class="auth-panel">
+      <section class="auth-panel" id="signedInAccountPanel" tabindex="-1">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
           <div style="font-size:3rem;line-height:1;background:var(--panel);padding:0.5rem;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,0.1);">${escapeHtml(account.avatar)}</div>
           <div>
@@ -3288,17 +4066,44 @@ function renderAuthModal(mode = 'signin') {
         </div>
         <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
 
+        <hr style="margin:1.5rem 0;opacity:0.2;" />
+        <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(t('recoveryRotateTitle'))}</strong>
+        <p class="muted">${escapeHtml(t('recoveryRotateLead'))}</p>
+        <div class="form-row">
+          <label>
+            <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الحالية' : 'Current Password')}</span>
+            <input type="password" id="recoveryRotatePassword" autocomplete="current-password" required minlength="8" maxlength="128" />
+          </label>
+        </div>
+        <p id="recoveryRotateStatus" class="auth-inline-status" role="status" aria-live="polite"></p>
+        <button class="mini-btn" type="button" id="rotateRecoveryCodeBtn">${escapeHtml(t('recoveryRotate'))}</button>
+
         <div class="hero-actions" style="margin-top:2rem;">
           ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<a class="secondary-btn" href="/admin${state.lang === 'ar' ? '?lang=ar' : ''}">🛡 ${escapeHtml(t('adminConsole'))}</a>` : ''}
-          <a class="secondary-btn" href="/privacy${state.lang === 'ar' ? '?lang=ar' : ''}">${escapeHtml(state.lang === 'ar' ? 'الخصوصية وبيانات الحساب' : 'Privacy & account data')}</a>
+          <a class="secondary-btn" href="${sharedRouteForLanguage('/privacy', state.lang)}">${escapeHtml(state.lang === 'ar' ? 'الخصوصية وبيانات الحساب' : 'Privacy & account data')}</a>
           <button class="primary-btn" id="logoutBtn" style="background:#555;">${escapeHtml(t('logout'))}</button>
         </div>
+        <p id="logoutStatus" class="auth-inline-status" role="status" aria-live="polite"></p>
       </section>
     `;
     
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) logoutBtn.addEventListener('click', async () => {
-      try { await apiFetch('/auth/logout', { method: 'POST' }); } catch(e){}
+      const logoutStatus = document.getElementById('logoutStatus');
+      logoutBtn.disabled = true;
+      logoutBtn.setAttribute('aria-busy', 'true');
+      setAuthInlineStatus(logoutStatus, '');
+      try {
+        await apiFetch('/auth/logout', { method: 'POST' });
+      } catch {
+        setAuthInlineStatus(logoutStatus, t('logoutFailed'), 'error');
+        showToast(t('logoutFailed'), true);
+        return;
+      } finally {
+        logoutBtn.disabled = false;
+        logoutBtn.removeAttribute('aria-busy');
+      }
+      clearAllCloudMutations();
       state.dbUser = null;
       state.accountAnalyticsAllowed = false;
       stopAnalyticsHeartbeat();
@@ -3345,93 +4150,237 @@ function renderAuthModal(mode = 'signin') {
           cpBtn.textContent = state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password';
        }
     });
+
+    const rotateRecoveryCodeBtn = document.getElementById('rotateRecoveryCodeBtn');
+    if (rotateRecoveryCodeBtn) rotateRecoveryCodeBtn.addEventListener('click', async () => {
+      const passwordInput = document.getElementById('recoveryRotatePassword');
+      const status = document.getElementById('recoveryRotateStatus');
+      const password = passwordInput.value;
+      if (!password) {
+        setAuthInlineStatus(status, t('errorPasswordRequired'), 'error');
+        passwordInput.focus();
+        return;
+      }
+      if (password.length < 8 || password.length > 128) {
+        setAuthInlineStatus(status, t('errorPasswordInvalid'), 'error');
+        passwordInput.focus();
+        return;
+      }
+      rotateRecoveryCodeBtn.disabled = true;
+      rotateRecoveryCodeBtn.setAttribute('aria-busy', 'true');
+      rotateRecoveryCodeBtn.textContent = t('recoveryRotating');
+      setAuthInlineStatus(status, '');
+      try {
+        const response = await apiFetch('/auth/recovery/rotate', {
+          method: 'POST',
+          body: JSON.stringify({ password }),
+        });
+        passwordInput.value = '';
+        const recoveryCode = recoveryCodeFromResponse(response);
+        if (!renderRecoveryCodeReceipt(recoveryCode)) {
+          setAuthInlineStatus(status, t('recoveryCodeUnavailable'), 'error');
+        }
+      } catch (err) {
+        setAuthInlineStatus(status, localizedErrorMessage(err, 'recoveryFailed'), 'error');
+        passwordInput.focus();
+      } finally {
+        if (document.body.contains(rotateRecoveryCodeBtn)) {
+          rotateRecoveryCodeBtn.disabled = false;
+          rotateRecoveryCodeBtn.removeAttribute('aria-busy');
+          rotateRecoveryCodeBtn.textContent = t('recoveryRotate');
+        }
+      }
+    });
     
+    if (previousFocus) restoreFocusTarget(previousFocus, '#signedInAccountPanel');
     return;
   }
   
+  const isRecovery = mode === 'recover';
+  const isRegister = mode === 'register';
+  const activeTabId = isRecovery ? 'tabRecover' : isRegister ? 'tabRegister' : 'tabSignin';
+  const submitLabel = isRecovery ? t('recoveryReset') : isRegister ? t('register') : t('signIn');
   els.authModalBody.innerHTML = `
-    <div class="auth-tabs">
-      <button class="auth-tab ${mode === 'signin' ? 'is-active' : ''}" id="tabSignin">${escapeHtml(t('authSignInTab'))}</button>
-      <button class="auth-tab ${mode === 'register' ? 'is-active' : ''}" id="tabRegister">${escapeHtml(t('authRegisterTab'))}</button>
+    <div class="auth-tabs" role="tablist" aria-label="${escapeHtml(t('authTitle'))}">
+      <button type="button" role="tab" class="auth-tab ${mode === 'signin' ? 'is-active' : ''}" id="tabSignin" data-auth-mode="signin" aria-selected="${mode === 'signin'}" aria-controls="authForm" tabindex="${mode === 'signin' ? '0' : '-1'}">${escapeHtml(t('authSignInTab'))}</button>
+      <button type="button" role="tab" class="auth-tab ${isRegister ? 'is-active' : ''}" id="tabRegister" data-auth-mode="register" aria-selected="${isRegister}" aria-controls="authForm" tabindex="${isRegister ? '0' : '-1'}">${escapeHtml(t('authRegisterTab'))}</button>
+      <button type="button" role="tab" class="auth-tab ${isRecovery ? 'is-active' : ''}" id="tabRecover" data-auth-mode="recover" aria-selected="${isRecovery}" aria-controls="authForm" tabindex="${isRecovery ? '0' : '-1'}">${escapeHtml(t('authRecoveryAction'))}</button>
     </div>
-    <form class="auth-form" id="authForm">
+    <form class="auth-form" id="authForm" role="tabpanel" aria-labelledby="${activeTabId}">
+      ${isRecovery ? `
+        <div>
+          <h3 id="recoveryFormTitle">${escapeHtml(t('recoveryFormTitle'))}</h3>
+          <p class="muted" id="recoveryFormLead">${escapeHtml(t('recoveryFormLead'))}</p>
+        </div>` : ''}
       <div class="form-row">
         <label>
           <span>${escapeHtml(mode === 'signin' ? t('usernameOrEmail') : t('username'))}</span>
           <input id="authUsername" autocomplete="username" required minlength="3" maxlength="${mode === 'signin' ? '254' : '20'}" inputmode="${mode === 'signin' ? 'email' : 'text'}" />
         </label>
+        ${isRecovery ? `
+        <label>
+          <span>${escapeHtml(t('recoveryCode'))}</span>
+          <input id="authRecoveryCode" class="recovery-code-input" dir="ltr" autocomplete="off" autocapitalize="none" spellcheck="false" required minlength="8" maxlength="128" />
+        </label>` : `
         <label>
           <span>${escapeHtml(t('password'))}</span>
           <input id="authPassword" type="password" autocomplete="${mode === 'signin' ? 'current-password' : 'new-password'}" required minlength="8" maxlength="128" />
+        </label>`}
+      </div>
+      ${isRegister ? `
+      <div class="form-row">
+        <label>
+          <span>${escapeHtml(state.lang === 'ar' ? 'البريد الإلكتروني (اختياري)' : 'Email (optional)')}</span>
+          <input id="authEmail" type="email" inputmode="email" autocomplete="email" maxlength="254" />
+        </label>
+        <label>
+          <span>${escapeHtml(t('confirmPassword'))}</span>
+          <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
         </label>
       </div>
-      ${mode === 'register' ? `
-      <div class="form-row" style="margin-top: 1rem;">
-         <label>
-           <span>${escapeHtml(state.lang === 'ar' ? 'البريد الإلكتروني (اختياري)' : 'Email (optional)')}</span>
-           <input id="authEmail" type="email" />
-         </label>
+      <p class="muted">${escapeHtml(t('registrationRecoveryNotice'))} <a href="${sharedRouteForLanguage('/privacy', state.lang)}" target="_blank" rel="noopener">${state.lang === 'ar' ? 'اقرأ إشعار الخصوصية وبيانات الحساب.' : 'Read the privacy and account-data notice.'}</a></p>` : ''}
+      ${isRecovery ? `
+      <div class="form-row">
+        <label>
+          <span>${escapeHtml(t('newPassword'))}</span>
+          <input id="authNewPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
+        </label>
+        <label>
+          <span>${escapeHtml(t('confirmPassword'))}</span>
+          <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
+        </label>
       </div>` : ''}
       <p class="muted">${escapeHtml(t('passwordHint'))}</p>
+      <p id="authFormStatus" class="auth-inline-status" role="status" aria-live="polite"></p>
       <div class="hero-actions">
-        <button class="primary-btn" type="submit" id="authSubmitBtn">${escapeHtml(mode === 'signin' ? t('signIn') : t('register'))}</button>
+        <button class="primary-btn" type="submit" id="authSubmitBtn">${escapeHtml(submitLabel)}</button>
       </div>
     </form>
   `;
-  const tabSignin = document.getElementById('tabSignin');
-  const tabRegister = document.getElementById('tabRegister');
-  if (tabSignin) tabSignin.addEventListener('click', () => renderAuthModal('signin'));
-  if (tabRegister) tabRegister.addEventListener('click', () => renderAuthModal('register'));
+  const authTabs = [...els.authModalBody.querySelectorAll('[role="tab"][data-auth-mode]')];
+  const activateAuthTab = (tab) => {
+    if (!tab || tab.getAttribute('aria-selected') === 'true') return;
+    renderAuthModal(tab.dataset.authMode);
+    focusAuthControl(tab.id);
+  };
+  authTabs.forEach((tab) => tab.addEventListener('click', () => activateAuthTab(tab)));
+  els.authModalBody.querySelector('[role="tablist"]')?.addEventListener('keydown', (event) => {
+    const currentIndex = authTabs.indexOf(event.target.closest('[role="tab"]'));
+    if (currentIndex < 0) return;
+    const forwardKey = state.lang === 'ar' ? 'ArrowLeft' : 'ArrowRight';
+    const backwardKey = state.lang === 'ar' ? 'ArrowRight' : 'ArrowLeft';
+    let nextIndex = currentIndex;
+    if (event.key === forwardKey) nextIndex = (currentIndex + 1) % authTabs.length;
+    else if (event.key === backwardKey) nextIndex = (currentIndex - 1 + authTabs.length) % authTabs.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = authTabs.length - 1;
+    else return;
+    event.preventDefault();
+    activateAuthTab(authTabs[nextIndex]);
+  });
   const form = document.getElementById('authForm');
   if (form) {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const btn = document.getElementById('authSubmitBtn');
+      const status = document.getElementById('authFormStatus');
+      const password = isRecovery
+        ? document.getElementById('authNewPassword').value
+        : document.getElementById('authPassword').value;
+      const passwordConfirmation = document.getElementById('authConfirmPassword')?.value || '';
+      if ((isRegister || isRecovery) && password !== passwordConfirmation) {
+        setAuthInlineStatus(status, t('passwordsDoNotMatch'), 'error');
+        document.getElementById('authConfirmPassword')?.focus();
+        return;
+      }
       btn.disabled = true;
-      btn.textContent = mode === 'signin'
+      btn.setAttribute('aria-busy', 'true');
+      setAuthInlineStatus(status, '');
+      btn.textContent = isRecovery
+        ? t('recoveryResetting')
+        : mode === 'signin'
         ? (state.lang === 'ar' ? 'جارٍ تسجيل الدخول…' : 'Signing in…')
         : (state.lang === 'ar' ? 'جارٍ إنشاء الحساب…' : 'Creating account…');
       
       const username = document.getElementById('authUsername').value.trim();
-      const password = document.getElementById('authPassword').value;
       const emailEl = document.getElementById('authEmail');
       const email = emailEl ? emailEl.value.trim() : null;
+      let recoveryCode = '';
       
       try {
-          if (mode === 'signin') {
-             await apiFetch('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
-          } else {
-             await apiFetch('/auth/register', { method: 'POST', body: JSON.stringify({ username, password, email }) });
-          }
-          await checkCloudSession();
-          await flushCloudQueue();
-          await mergeGuestProgress();
-          await checkCloudSession();
-          refreshAnalyticsHeartbeat();
-          const suggestionAccountLabel = els.suggestionLinkAccount?.closest('.suggestion-account-link');
-          if (suggestionAccountLabel) suggestionAccountLabel.hidden = false;
-          closeModal('auth');
-          applyStaticCopy();
-          rerender();
+        if (mode === 'signin') {
+          await apiFetch('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
+        } else if (isRegister) {
+          const response = await apiFetch('/auth/register', {
+            method: 'POST',
+            body: JSON.stringify({ username, password, email }),
+          });
+          recoveryCode = recoveryCodeFromResponse(response);
+        } else {
+          const response = await apiFetch('/auth/recovery/reset', {
+            method: 'POST',
+            body: JSON.stringify({
+              username,
+              recoveryCode: document.getElementById('authRecoveryCode').value.trim(),
+              newPassword: password,
+            }),
+          });
+          recoveryCode = recoveryCodeFromResponse(response);
+        }
+
+        await hydrateAuthenticatedExperience();
+        if (!isRecovery) {
           trackEvent(mode === 'signin' ? 'login' : 'sign_up', { method: 'username' });
-          showToast(mode === 'signin' ? t('signedIn') : t('accountCreated'));
-          const destination = mode === 'signin' ? postAuthDestination() : '';
+        }
+
+        if (mode === 'signin') {
+          closeModal('auth');
+          showToast(t('signedIn'));
+          const destination = postAuthDestination();
           if (destination) location.assign(destination);
+        } else if (!renderRecoveryCodeReceipt(recoveryCode)) {
+          renderAuthModal('signin');
+          showToast(t('recoveryCodeUnavailable'), true);
+        }
       } catch (err) {
-          showToast(localizedErrorMessage(err, 'badLogin'), true);
+        if (recoveryCode && (isRegister || isRecovery)) {
+          renderRecoveryCodeReceipt(recoveryCode);
+          showToast(t('recoverySyncWarning'), true);
+        } else {
+          const fallbackKey = isRecovery ? 'recoveryFailed' : 'badLogin';
+          const message = localizedErrorMessage(err, fallbackKey);
+          setAuthInlineStatus(status, message, 'error');
+          showToast(message, true);
+        }
       } finally {
+        if (document.body.contains(btn)) {
           btn.disabled = false;
-          btn.textContent = mode === 'signin' ? t('signIn') : t('register');
+          btn.removeAttribute('aria-busy');
+          btn.textContent = submitLabel;
+        }
       }
     });
   }
+  if (previousFocus) restoreFocusTarget(previousFocus, `#${activeTabId}`);
 }
 
 
 
+let catalogPromise = null;
 async function loadCatalog() {
-  if (state.catalog) return;
-  state.catalog = await fetchJson('/data/catalog.json');
+  if (state.catalog) return state.catalog;
+  if (!catalogPromise) {
+    catalogPromise = fetchJson('/data/catalog.json')
+      .then(catalog => {
+        state.catalog = catalog;
+        return catalog;
+      })
+      .catch(error => {
+        catalogPromise = null;
+        throw error;
+      });
+  }
+  return catalogPromise;
 }
 
 async function loadCategoryIfNeeded() {
@@ -3589,6 +4538,7 @@ function initSuggestionBox() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function trackEvent(name, params = {}) {
+  if (window.JakhPrivacy?.analyticsAllowed?.() !== true) return;
   try { window.gtag?.('event', name, params); } catch (_) {}
 }
 
@@ -3634,7 +4584,7 @@ async function loadDailyChallenge() {
   const today = new Date().toISOString().split('T')[0];
   const cacheKey = `jakh-daily-${today}`;
   try {
-    const cached = sessionStorage.getItem(cacheKey);
+    const cached = safeStorageGet('session', cacheKey);
     if (cached) { state.dailyCard = JSON.parse(cached); return; }
     if (!state.catalog) return;
     const hash = today.split('').reduce((h, c) => ((h * 31) + c.charCodeAt(0)) | 0, 0);
@@ -3647,7 +4597,7 @@ async function loadDailyChallenge() {
     if (!cards.length) return;
     const card = cards[(abs >> 4) % cards.length];
     state.dailyCard = { ...card, categorySlug: cat.slug, categoryTitle: cat.title, categoryEmoji: cat.emoji || '🎯' };
-    sessionStorage.setItem(cacheKey, JSON.stringify(state.dailyCard));
+    safeStorageSet('session', cacheKey, JSON.stringify(state.dailyCard));
   } catch (e) { state.dailyCard = null; }
 }
 
@@ -3658,9 +4608,12 @@ function renderDailyChallenge() {
   const card = state.dailyCard;
   const lang = state.lang;
   const today = new Date().toISOString().split('T')[0];
-  const isDone = !!localStorage.getItem(`jakh-daily-done-${today}`);
+  const outcomeKey = `jakh-daily-outcome-${today}`;
+  const outcome = loadJson(outcomeKey, null);
+  const isDone = outcome?.cardId === card.id && ['correct', 'review'].includes(outcome?.result);
   const isFlipped = state.flipped.has('__daily__');
   const categoryHref = categoryRouteForLanguage(card.categorySlug, lang);
+  const reviewMarkup = createReviewMarkup(card);
   mount.innerHTML = `
     <section class="shell daily-challenge-section">
       <div class="daily-challenge-card ${isDone ? 'daily-done' : ''}">
@@ -3668,7 +4621,15 @@ function renderDailyChallenge() {
           <p class="daily-challenge-eyebrow">🎯 ${lang === 'ar' ? 'تحدي اليوم' : "Today's Challenge"}${isDone ? ` <span class="daily-done-badge">${lang === 'ar' ? '✓ مكتمل' : '✓ Done'}</span>` : ''}</p>
           <p class="daily-challenge-meta">${escapeHtml(card.categoryEmoji)} ${escapeHtml(card.categoryTitle[lang])} &nbsp;·&nbsp; ${escapeHtml(t(card.difficulty === 'very-advanced' ? 'veryAdvanced' : card.difficulty))}</p>
           <p class="daily-challenge-q">${escapeHtml(card.question[lang])}</p>
-          ${isFlipped ? `<div class="daily-challenge-answer">💡 ${escapeHtml(card.answer[lang])}</div>` : ''}
+          ${reviewMarkup}
+          ${isFlipped ? `<div class="daily-challenge-answer" role="status">💡 ${escapeHtml(card.answer[lang])}</div>` : ''}
+          ${isFlipped && !isDone ? `<div class="daily-outcome-actions" aria-label="${lang === 'ar' ? 'سجّل نتيجة إجابتك' : 'Record your answer outcome'}">
+            <button class="primary-btn mini-btn" id="dailyKnewBtn">✓ ${lang === 'ar' ? 'كنت أعرفها' : 'I knew it'}</button>
+            <button class="ghost-btn mini-btn" id="dailyReviewBtn">↻ ${lang === 'ar' ? 'راجعها مرة أخرى' : 'Review again'}</button>
+          </div>` : ''}
+          ${isDone ? `<p class="daily-outcome-note">${outcome.result === 'correct'
+            ? (lang === 'ar' ? 'سُجلت كإجابة عرفتها.' : 'Recorded as an answer you knew.')
+            : (lang === 'ar' ? 'سُجلت للمراجعة مرة أخرى.' : 'Recorded to review again.')}</p>` : ''}
         </div>
         <div class="daily-challenge-btns">
           <button class="primary-btn mini-btn" id="flipDailyBtn">${isFlipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
@@ -3677,12 +4638,15 @@ function renderDailyChallenge() {
       </div>
     </section>`;
   document.getElementById('flipDailyBtn')?.addEventListener('click', () => {
-    if (!state.flipped.has('__daily__')) {
-      localStorage.setItem(`jakh-daily-done-${today}`, '1');
-    }
     if (state.flipped.has('__daily__')) state.flipped.delete('__daily__'); else state.flipped.add('__daily__');
     renderDailyChallenge();
   });
+  const recordOutcome = (result) => {
+    saveJson(outcomeKey, { cardId: card.id, categoryId: card.categorySlug, result, recordedAt: new Date().toISOString() });
+    renderDailyChallenge();
+  };
+  document.getElementById('dailyKnewBtn')?.addEventListener('click', () => recordOutcome('correct'));
+  document.getElementById('dailyReviewBtn')?.addEventListener('click', () => recordOutcome('review'));
 }
 
 function scrollToDailyChallenge() {
@@ -3721,8 +4685,10 @@ function createTimedQuizModal() {
   const el = document.createElement('div');
   el.id = 'timedQuizOverlay';
   el.className = 'timed-quiz-overlay hidden';
+  el.setAttribute('aria-hidden', 'true');
   el.innerHTML = `
-    <div class="timed-quiz-card">
+    <div class="timed-quiz-card" role="dialog" aria-modal="true" aria-labelledby="tqDialogTitle">
+      <h2 id="tqDialogTitle" class="sr-only">${lang === 'ar' ? 'اختبار السباق السريع' : 'Quick Fire quiz'}</h2>
       <div class="tq-header">
         <span id="tqProgressText" class="tq-progress-text">1 / 10</span>
         <div class="tq-timer-group">
@@ -3736,16 +4702,16 @@ function createTimedQuizModal() {
         <div class="tq-q-wrap">
           <span class="tq-block-label">${lang === 'ar' ? 'السؤال' : 'Question'}</span>
           <p id="tqQuestion" class="timed-quiz-question"></p>
+          <div id="tqReview"></div>
         </div>
-        <div class="tq-qna-divider"></div>
-        <div class="tq-a-wrap">
+        <div id="tqAnswerWrap" class="tq-a-wrap hidden">
           <span class="tq-block-label tq-answer-label">${lang === 'ar' ? 'الإجابة' : 'Answer'}</span>
-          <p id="tqAnswer" class="tq-answer-text"></p>
+          <p id="tqAnswer" class="tq-answer-text" role="status"></p>
         </div>
       </div>
+      <div id="tqOptions" class="timed-quiz-options" role="group" aria-label="${lang === 'ar' ? 'خيارات الإجابة' : 'Answer choices'}"></div>
+      <div id="tqFeedback" class="timed-quiz-feedback" role="status" aria-live="polite"></div>
       <div id="tqActions" class="timed-quiz-actions">
-        <button class="tq-wrong" id="tqWrongBtn">✗ ${lang === 'ar' ? 'خاطئ' : 'Wrong'}</button>
-        <button class="tq-correct" id="tqCorrectBtn">✓ ${lang === 'ar' ? 'صحيح' : 'Correct'}</button>
       </div>
       <div id="tqResult" class="timed-quiz-result hidden">
         <h3>${lang === 'ar' ? 'انتهى الاختبار!' : 'Quiz Complete!'}</h3>
@@ -3761,10 +4727,17 @@ function createTimedQuizModal() {
   const exitQuiz = () => {
     timedQuizState.session += 1;
     clearTimedQuizTimers();
-    document.getElementById('timedQuizOverlay')?.classList.add('hidden');
+    const overlay = document.getElementById('timedQuizOverlay');
+    if (overlay) {
+      overlay.classList.add('hidden');
+      overlay.setAttribute('aria-hidden', 'true');
+      releaseFocus(overlay, { restore: true });
+    }
   };
-  document.getElementById('tqCorrectBtn')?.addEventListener('click', () => answerTimedCard(true));
-  document.getElementById('tqWrongBtn')?.addEventListener('click', () => answerTimedCard(false));
+  document.getElementById('tqOptions')?.addEventListener('click', (event) => {
+    const option = event.target.closest('[data-tq-option]');
+    if (option) answerTimedCard(Number(option.dataset.tqOption));
+  });
   document.getElementById('tqPlayAgain')?.addEventListener('click', startTimedQuiz);
   document.getElementById('tqExitBtn')?.addEventListener('click', exitQuiz);
   document.getElementById('tqClose')?.addEventListener('click', exitQuiz);
@@ -3772,7 +4745,13 @@ function createTimedQuizModal() {
 
 function startTimedQuiz() {
   if (!state.categoryData?.cards?.length) return;
-  const pool = shuffleArray(state.categoryData.cards.filter(c => isLevelUnlocked(c.difficulty))).slice(0, 10);
+  const eligible = state.categoryData.cards.filter(c => isLevelUnlocked(c.difficulty));
+  const distinctAnswers = new Set(eligible.map(card => String(card.answer?.[state.lang] || '').trim().toLocaleLowerCase(state.lang)));
+  if (distinctAnswers.size < 4) {
+    showToast(state.lang === 'ar' ? 'لا تتوفر إجابات متنوعة كافية لهذا الاختبار.' : 'This topic does not have enough distinct answers for Quick Fire.', true);
+    return;
+  }
+  const pool = shuffleArray(eligible).slice(0, Math.min(10, eligible.length));
   if (!pool.length) return;
   const overlay = document.getElementById('timedQuizOverlay');
   if (!overlay) return;
@@ -3781,12 +4760,22 @@ function startTimedQuiz() {
   timedQuizState.cards = pool;
   timedQuizState.index = 0;
   timedQuizState.score = 0;
+  timedQuizState.completed = 0;
+  timedQuizState.answered = false;
   trackEvent('timed_quiz_start', { category: state.categorySlug, total: pool.length });
   overlay.classList.remove('hidden');
+  overlay.setAttribute('aria-hidden', 'false');
   document.getElementById('tqResult')?.classList.add('hidden');
   document.getElementById('tqActions')?.classList.remove('hidden');
   document.getElementById('tqQuestion')?.classList.remove('hidden');
+  document.getElementById('tqOptions')?.classList.remove('hidden');
   showTimedCard();
+  trapFocus(overlay, {
+    key: 'quick-fire',
+    initialFocus: '#tqOptions [data-tq-option="0"]',
+    onEscape: () => document.getElementById('tqExitBtn')?.click(),
+    returnFallback: '#playModeQuickFireBtn',
+  });
 }
 
 function showTimedCard() {
@@ -3796,16 +4785,34 @@ function showTimedCard() {
   const lang = state.lang;
   const tqQ = document.getElementById('tqQuestion');
   const tqA = document.getElementById('tqAnswer');
+  const tqAnswerWrap = document.getElementById('tqAnswerWrap');
+  const tqOptions = document.getElementById('tqOptions');
+  const tqFeedback = document.getElementById('tqFeedback');
+  const tqReview = document.getElementById('tqReview');
   const tqPT = document.getElementById('tqProgressText');
   const tqCountdown = document.getElementById('tqCountdown');
   const tqFill = document.getElementById('tqTrackFill');
-  const tqCorrect = document.getElementById('tqCorrectBtn');
-  const tqWrong = document.getElementById('tqWrongBtn');
   if (tqQ) tqQ.textContent = card.question[lang];
-  if (tqA) tqA.textContent = card.answer[lang];
+  if (tqA) { tqA.textContent = ''; tqA.classList.remove('hidden'); }
+  tqAnswerWrap?.classList.add('hidden');
+  if (tqFeedback) { tqFeedback.textContent = ''; tqFeedback.className = 'timed-quiz-feedback'; }
+  if (tqReview) tqReview.innerHTML = createReviewMarkup(card);
   if (tqPT) tqPT.textContent = `${timedQuizState.index + 1} / ${timedQuizState.cards.length}`;
-  if (tqCorrect) tqCorrect.disabled = false;
-  if (tqWrong) tqWrong.disabled = false;
+  const canonical = String(card.answer?.[lang] || '');
+  const canonicalKey = canonical.trim().toLocaleLowerCase(lang);
+  const distractors = shuffleArray(state.categoryData.cards)
+    .map(item => String(item.answer?.[lang] || '').trim())
+    .filter((answer, index, list) => answer && answer.toLocaleLowerCase(lang) !== canonicalKey
+      && list.findIndex(value => value.toLocaleLowerCase(lang) === answer.toLocaleLowerCase(lang)) === index)
+    .slice(0, 3);
+  timedQuizState.currentOptions = shuffleArray([canonical, ...distractors]);
+  timedQuizState.correctOption = timedQuizState.currentOptions.findIndex(answer => answer.trim().toLocaleLowerCase(lang) === canonicalKey);
+  timedQuizState.answered = false;
+  if (tqOptions) {
+    tqOptions.innerHTML = timedQuizState.currentOptions.map((answer, index) => `
+      <button type="button" class="tq-option" data-tq-option="${index}"><span aria-hidden="true">${String.fromCharCode(65 + index)}</span><span dir="auto">${escapeHtml(answer)}</span></button>`).join('');
+    tqOptions.querySelector('[data-tq-option="0"]')?.focus();
+  }
   clearInterval(timedQuizState.timer);
   timedQuizState.timer = null;
   timedQuizState.timeLeft = 15;
@@ -3824,17 +4831,14 @@ function showTimedCard() {
     if (timedQuizState.timeLeft <= 0) {
       clearInterval(timer);
       if (timedQuizState.timer === timer) timedQuizState.timer = null;
-      answerTimedCard(false);
+      answerTimedCard(null, 'timeout');
     }
   }, 1000);
   timedQuizState.timer = timer;
 }
 
 function revealAndAdvance() {
-  const tqCorrect = document.getElementById('tqCorrectBtn');
-  const tqWrong = document.getElementById('tqWrongBtn');
-  if (tqCorrect) tqCorrect.disabled = true;
-  if (tqWrong) tqWrong.disabled = true;
+  document.querySelectorAll('#tqOptions [data-tq-option]').forEach(button => { button.disabled = true; });
   clearTimeout(timedQuizState.advanceTimeout);
   const session = timedQuizState.session;
   const advanceTimeout = setTimeout(() => {
@@ -3843,30 +4847,53 @@ function revealAndAdvance() {
     if (timedQuizState.session !== session || !isTimedQuizVisible()) return;
     timedQuizState.index++;
     timedQuizState.index >= timedQuizState.cards.length ? endTimedQuiz() : showTimedCard();
-  }, 600);
+  }, 1400);
   timedQuizState.advanceTimeout = advanceTimeout;
 }
 
-function answerTimedCard(correct) {
-  if (!isTimedQuizVisible()) return;
+function answerTimedCard(optionIndex, reason = 'answer') {
+  if (!isTimedQuizVisible() || timedQuizState.answered) return false;
+  timedQuizState.answered = true;
   clearInterval(timedQuizState.timer);
   timedQuizState.timer = null;
   const card = timedQuizState.cards[timedQuizState.index];
-  if (!card) return;
-  if (correct) { timedQuizState.score++; markCard(card.id, 'correct'); }
-  else { markCard(card.id, 'wrong'); }
+  if (!card) return false;
+  const correct = Number.isInteger(optionIndex) && optionIndex === timedQuizState.correctOption;
+  timedQuizState.completed += 1;
+  if (correct) timedQuizState.score += 1;
+  document.querySelectorAll('#tqOptions [data-tq-option]').forEach((button, index) => {
+    button.disabled = true;
+    if (index === timedQuizState.correctOption) button.classList.add('is-correct');
+    if (index === optionIndex && !correct) button.classList.add('is-wrong');
+  });
+  const answer = document.getElementById('tqAnswer');
+  const answerWrap = document.getElementById('tqAnswerWrap');
+  const feedback = document.getElementById('tqFeedback');
+  if (answer) answer.textContent = card.answer[state.lang];
+  answerWrap?.classList.remove('hidden');
+  if (feedback) {
+    feedback.textContent = reason === 'timeout'
+      ? (state.lang === 'ar' ? 'انتهى الوقت — سُجلت إجابة واحدة خاطئة.' : 'Time expired — recorded once as incorrect.')
+      : correct
+        ? (state.lang === 'ar' ? 'إجابة صحيحة.' : 'Correct.')
+        : (state.lang === 'ar' ? 'إجابة غير صحيحة.' : 'Not correct.');
+    feedback.classList.add(correct ? 'is-correct' : 'is-wrong');
+  }
+  void markCard(card.id, correct ? 'correct' : 'wrong');
   revealAndAdvance();
+  return true;
 }
 
 function endTimedQuiz() {
   timedQuizState.session += 1;
   clearTimedQuizTimers();
   const score = timedQuizState.score;
-  const total = timedQuizState.cards.length;
-  const pct = Math.round((score / total) * 100);
+  const total = timedQuizState.completed;
+  const pct = total ? Math.round((score / total) * 100) : 0;
   document.getElementById('tqActions')?.classList.add('hidden');
   document.getElementById('tqQuestion')?.classList.add('hidden');
-  document.getElementById('tqAnswer')?.classList.add('hidden');
+  document.getElementById('tqAnswerWrap')?.classList.add('hidden');
+  document.getElementById('tqOptions')?.classList.add('hidden');
   document.getElementById('tqResult')?.classList.remove('hidden');
   const scoreBig = document.getElementById('tqScoreBig');
   const scoreSub = document.getElementById('tqScoreSub');
@@ -3874,7 +4901,7 @@ function endTimedQuiz() {
   const lang = state.lang;
   if (scoreSub) scoreSub.textContent = pct >= 80 ? (lang === 'ar' ? '🏆 ممتاز!' : '🏆 Excellent!') : pct >= 60 ? (lang === 'ar' ? '👍 عمل جيد!' : '👍 Good job!') : (lang === 'ar' ? '💪 استمر في التدريب!' : '💪 Keep practicing!');
   trackEvent('timed_quiz_end', { category: state.categorySlug, score, total, pct });
-  if (pct >= 80) saveJson('jakh-speed-demon', 1);
+  if (total === timedQuizState.cards.length && total >= 10 && pct >= 80) saveJson('jakh-speed-demon', 1);
   const resultEl = document.getElementById('tqResult');
   const actionsEl = resultEl?.querySelector('.hero-actions');
   if (actionsEl && !actionsEl.querySelector('.tq-share-btn')) {
@@ -3894,7 +4921,7 @@ function endTimedQuiz() {
       <p>💡 ${lang === 'ar' ? 'هل تريد تحدي شخص ما؟' : 'Want to challenge someone?'}</p>
       <div class="tq-challenge-cta-btns">
         <button class="mini-btn" id="tqChallengeFriendBtn">🏆 ${lang === 'ar' ? 'تحدٍ صديق' : 'Challenge a Friend'}</button>
-        <button class="mini-btn" id="tqBattleBtn">⚡ ${lang === 'ar' ? 'معركة مباشرة' : 'Team Battle'}</button>
+        <button class="mini-btn" id="tqBattleBtn">⚡ ${lang === 'ar' ? 'غرفة معركة مباشرة' : 'Live Battle Room'}</button>
       </div>`;
     resultEl.appendChild(ctaEl);
     document.getElementById('tqChallengeFriendBtn')?.addEventListener('click', () => {
@@ -3902,11 +4929,20 @@ function endTimedQuiz() {
       const text = isAr
         ? `🏆 حصلت على ${score}/${total} في "${catTitle}" على JAKH!\nهل تستطيع التفوق عليّ؟ ← ${challengeUrl}`
         : `🏆 I scored ${score}/${total} in "${catTitle}" on JAKH!\nCan you beat me? → ${challengeUrl}`;
-      navigator.share?.({ title: t('shareChallengeTitle'), text, url: challengeUrl })
-        .catch(() => navigator.clipboard?.writeText(text).then(() => showToast(isAr ? 'تم نسخ التحدي!' : 'Challenge copied!')));
+      void shareOrCopy({
+        title: t('shareChallengeTitle'), text, url: challengeUrl,
+        copiedMessage: isAr ? 'تم نسخ التحدي!' : 'Challenge copied!',
+      });
     });
     document.getElementById('tqBattleBtn')?.addEventListener('click', () => {
-      document.getElementById('timedQuizOverlay')?.classList.add('hidden');
+      const overlay = document.getElementById('timedQuizOverlay');
+      timedQuizState.session += 1;
+      clearTimedQuizTimers();
+      if (overlay) {
+        overlay.classList.add('hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        releaseFocus(overlay, { discard: true });
+      }
       openBattleModal(state.categorySlug);
     });
   }
@@ -3930,6 +4966,7 @@ function createLeaderboardModal() {
           <p class="eyebrow">🏆 ${escapeHtml(t('leaderboardTitle'))}</p>
           <h2 id="leaderboardTitle">${escapeHtml(t('leaderboardTop'))}</h2>
           <p class="muted">${escapeHtml(t('leaderboardDisclaimer'))}</p>
+          <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
         </div>
         <button class="icon-btn" data-close-modal="leaderboard" aria-label="${escapeHtml(t('close'))}">×</button>
       </div>
@@ -3937,7 +4974,7 @@ function createLeaderboardModal() {
       <section class="verified-ranking-section" aria-labelledby="verifiedRankingTitle">
         <div class="verified-section-head">
           <h3 id="verifiedRankingTitle">${escapeHtml(t('leaderboardTitle'))}</h3>
-          <span class="verified-shield" aria-label="${escapeHtml(state.lang === 'ar' ? 'موثّق من الخادم' : 'Server verified')}">✓</span>
+          <span class="verified-shield" aria-label="${escapeHtml(state.lang === 'ar' ? 'يتحقق منه الخادم' : 'Server checked')}">✓</span>
         </div>
         <div id="leaderboardBody" class="verified-ranking-list" aria-live="polite"></div>
       </section>
@@ -3974,14 +5011,22 @@ async function loadGlobalSearchIndex() {
 
 function openGlobalSearch() {
   void loadGlobalSearchIndex().catch(() => undefined);
-  if (document.getElementById('globalSearchOverlay')) {
-    document.getElementById('globalSearchOverlay').classList.remove('hidden');
-    document.getElementById('globalSearchInput')?.focus();
+  const existingOverlay = document.getElementById('globalSearchOverlay');
+  if (existingOverlay) {
+    existingOverlay.classList.remove('hidden');
+    existingOverlay.setAttribute('aria-hidden', 'false');
+    trapFocus(existingOverlay, {
+      key: 'global-search',
+      initialFocus: '#globalSearchInput',
+      onEscape: closeGlobalSearch,
+      returnFallback: '#globalSearchBtn',
+    });
     return;
   }
   const overlay = document.createElement('div');
   overlay.id = 'globalSearchOverlay';
   overlay.className = 'global-search-overlay';
+  overlay.setAttribute('aria-hidden', 'false');
   overlay.innerHTML = `
     <div class="global-search-backdrop"></div>
     <div class="global-search-panel" role="dialog" aria-modal="true" aria-label="${escapeHtml(t('globalSearchLabel'))}">
@@ -3997,20 +5042,65 @@ function openGlobalSearch() {
     </div>
   `;
   document.body.appendChild(overlay);
-  trapFocus(overlay);
+  trapFocus(overlay, {
+    key: 'global-search',
+    initialFocus: '#globalSearchInput',
+    onEscape: closeGlobalSearch,
+    returnFallback: '#globalSearchBtn',
+  });
 
   overlay.querySelector('.global-search-backdrop').addEventListener('click', closeGlobalSearch);
   document.getElementById('globalSearchClose').addEventListener('click', closeGlobalSearch);
-  overlay.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGlobalSearch(); });
 
   const input = document.getElementById('globalSearchInput');
-  input?.focus();
   input?.addEventListener('input', debounce(runGlobalSearch, 280));
 }
 
 function closeGlobalSearch() {
   _gsGeneration++;
-  document.getElementById('globalSearchOverlay')?.classList.add('hidden');
+  const overlay = document.getElementById('globalSearchOverlay');
+  if (!overlay || overlay.classList.contains('hidden')) return;
+  overlay.classList.add('hidden');
+  overlay.setAttribute('aria-hidden', 'true');
+  releaseFocus(overlay, { restore: true });
+}
+
+function rankGlobalSearch(searchIndex, categories, query, lang) {
+  const q = String(query || '').trim().toLowerCase();
+  if (!q) return [];
+  const categoriesBySlug = new Map((categories || []).map(category => [category.slug, category]));
+  const relevance = (value, exact, prefix, includes) => {
+    const normalized = String(value || '').toLowerCase();
+    if (!normalized) return 0;
+    if (normalized === q) return exact;
+    if (normalized.startsWith(q)) return prefix;
+    return normalized.includes(q) ? includes : 0;
+  };
+  const hits = [];
+  searchIndex.cards.forEach((row, sourceIndex) => {
+    const cat = categoriesBySlug.get(searchIndex.categories[row[0]]);
+    if (!cat) return;
+    const categoryText = [cat.slug, cat.title?.en, cat.title?.ar].join(' ');
+    const questionText = [row[1], row[2]].join(' ');
+    const answerText = [row[3], row[4]].join(' ');
+    const score = relevance(categoryText, 150, 125, 100)
+      + relevance(questionText, 120, 95, 75)
+      + relevance(answerText, 70, 55, 40);
+    if (score > 0) {
+      hits.push({
+        cat,
+        question: lang === 'ar' ? row[2] : row[1],
+        answer: lang === 'ar' ? row[4] : row[3],
+        score,
+        sourceIndex,
+      });
+    }
+  });
+  return hits.sort((a, b) => b.score - a.score
+    || a.cat.slug.localeCompare(b.cat.slug, 'en')
+    || a.question.localeCompare(b.question, lang)
+    || a.answer.localeCompare(b.answer, lang)
+    || a.sourceIndex - b.sourceIndex);
 }
 
 async function runGlobalSearch() {
@@ -4039,28 +5129,18 @@ async function runGlobalSearch() {
   if (generation !== _gsGeneration) return;
   resultsEl.removeAttribute('aria-busy');
 
-  const hits = [];
-  const categoriesBySlug = new Map((state.catalog?.categories || []).map(cat => [cat.slug, cat]));
-  for (const row of searchIndex.cards) {
-    if (hits.length >= 30) break;
-    const cat = categoriesBySlug.get(searchIndex.categories[row[0]]);
-    if (!cat) continue;
-    const hay = [row[1], row[2], row[3], row[4]].join(' ').toLowerCase();
-    if (hay.includes(q)) {
-      hits.push({
-        cat,
-        question: state.lang === 'ar' ? row[2] : row[1],
-        answer: state.lang === 'ar' ? row[4] : row[3],
-      });
-    }
-  }
+  const hits = rankGlobalSearch(searchIndex, state.catalog?.categories || [], q, state.lang);
 
   if (generation !== _gsGeneration) return;
   if (!hits.length) {
     resultsEl.innerHTML = `<p class="global-search-hint">${escapeHtml(t('globalSearchEmpty'))}</p>`;
     return;
   }
-  resultsEl.innerHTML = hits.map(({ cat, question, answer }) => `
+  const shownHits = hits.slice(0, 30);
+  const resultSummary = state.lang === 'ar'
+    ? `تم العثور على ${hits.length} نتيجة. عرض أفضل ${shownHits.length} نتيجة مرتبة حسب الصلة.`
+    : `${hits.length} results found. Showing the top ${shownHits.length}, ranked by relevance.`;
+  resultsEl.innerHTML = `<p class="global-search-summary" role="status">${escapeHtml(resultSummary)}</p>` + shownHits.map(({ cat, question, answer }) => `
     <a class="gs-result" href="${escapeHtml(categoryRouteForLanguage(cat.slug, state.lang))}?q=${encodeURIComponent(q)}">
       <span class="gs-result-cat">${escapeHtml(cat.emoji)} ${escapeHtml(cat.title[state.lang])}</span>
       <span class="gs-result-q">${escapeHtml(question)}</span>
@@ -4074,9 +5154,18 @@ async function runGlobalSearch() {
 
 function verifiedCategoryOptions() {
   return (state.catalog?.categories || [])
-    .filter(category => Number(category.verifiedQuestionCount) >= 10)
+    .filter(category => Number(category.scorableQuestionCount) >= 10)
     .sort((a, b) => String(a.title?.[state.lang] || a.title?.en || a.slug)
       .localeCompare(String(b.title?.[state.lang] || b.title?.en || b.slug), state.lang));
+}
+
+function hasServerCheckedContract(payload) {
+  return payload?.scoreType === 'server-checked'
+    && payload?.serverChecked === true
+    && payload?.proctored === false
+    && payload?.scoring === 'accuracy-only'
+    && typeof payload?.automationDisclaimer === 'string'
+    && payload.automationDisclaimer.trim().length > 0;
 }
 
 function renderVerifiedStarter() {
@@ -4111,6 +5200,7 @@ function renderVerifiedStarter() {
       <div>
         <h3>${escapeHtml(t('verifiedStartTitle'))}</h3>
         <p>${escapeHtml(t('verifiedStartText'))}</p>
+        <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
       </div>
       <form id="verifiedStartForm" class="verified-start-form">
         <label for="verifiedCategorySelect">
@@ -4136,20 +5226,69 @@ async function startVerifiedChallenge(event) {
   button.disabled = true;
   button.textContent = t('verifiedStarting');
   try {
-    const challenge = await apiFetch('/scores/verified/challenge', {
+    const challenge = await apiFetch('/scores/server-checked/challenge', {
       method: 'POST',
       body: JSON.stringify({ categoryId }),
     });
-    if (!Array.isArray(challenge.questions) || challenge.questions.length !== challenge.questionCount) {
-      throw new Error('Invalid verified challenge');
+    if (!hasServerCheckedContract(challenge)
+      || !Array.isArray(challenge.questions)
+      || challenge.questions.length !== challenge.questionCount) {
+      throw new Error('Invalid server-checked challenge');
     }
     verifiedChallenge = challenge;
     renderVerifiedChallenge(challenge);
   } catch (error) {
+    if (error?.code === 'SERVER_CHECKED_CHALLENGE_ACTIVE') {
+      renderActiveChallengeConflict(categoryId);
+      return;
+    }
     showToast(localizedErrorMessage(error, 'verifiedChallengeError'), true);
     button.disabled = false;
     button.textContent = t('verifiedStart');
   }
+}
+
+function renderActiveChallengeConflict(categoryId) {
+  const mount = document.getElementById('verifiedChallengeMount');
+  if (!mount) return;
+  mount.innerHTML = `
+    <section class="verified-starter server-check-conflict" role="alert" aria-labelledby="verifiedActiveTitle">
+      <div>
+        <h3 id="verifiedActiveTitle">${escapeHtml(t('verifiedActive'))}</h3>
+        <p>${escapeHtml(t('verifiedActiveWarning'))}</p>
+        <p id="verifiedDiscardStatus" class="verified-form-error hidden"></p>
+      </div>
+      <div class="hero-actions">
+        <button type="button" class="primary-btn verified-danger-btn" id="verifiedDiscardActiveBtn">${escapeHtml(t('verifiedDiscardActive'))}</button>
+        <button type="button" class="ghost-btn" id="verifiedKeepActiveBtn">${escapeHtml(t('verifiedKeepActive'))}</button>
+      </div>
+    </section>`;
+  document.getElementById('verifiedKeepActiveBtn')?.addEventListener('click', renderVerifiedStarter);
+  document.getElementById('verifiedDiscardActiveBtn')?.addEventListener('click', async () => {
+    const button = document.getElementById('verifiedDiscardActiveBtn');
+    const status = document.getElementById('verifiedDiscardStatus');
+    if (!button) return;
+    button.disabled = true;
+    button.textContent = t('verifiedDiscarding');
+    try {
+      const result = await apiFetch('/scores/server-checked/challenge', {
+        method: 'DELETE',
+        body: JSON.stringify({ categoryId }),
+      });
+      if (typeof result?.discarded !== 'boolean') throw new Error('Invalid discard response');
+      renderVerifiedStarter();
+      const select = document.getElementById('verifiedCategorySelect');
+      if (select) select.value = categoryId;
+      await startVerifiedChallenge({ preventDefault() {} });
+    } catch (error) {
+      if (status) {
+        status.textContent = localizedErrorMessage(error, 'verifiedDiscardError');
+        status.classList.remove('hidden');
+      }
+      button.disabled = false;
+      button.textContent = t('verifiedDiscardActive');
+    }
+  });
 }
 
 function renderVerifiedChallenge(challenge) {
@@ -4162,6 +5301,8 @@ function renderVerifiedChallenge(challenge) {
     : new Intl.DateTimeFormat(state.lang === 'ar' ? 'ar-AE' : 'en', {
       hour: 'numeric', minute: '2-digit',
     }).format(expiresAt);
+  const allReviewMetadataSupplied = questions.every(item => item?.review
+    && ['pending', 'reviewed'].includes(item.review.status));
   mount.innerHTML = `
     <section class="verified-challenge" aria-labelledby="verifiedChallengeTitle">
       <div class="verified-section-head">
@@ -4170,24 +5311,52 @@ function renderVerifiedChallenge(challenge) {
           <p>${escapeHtml(state.lang === 'ar'
             ? `أجب مرة واحدة قبل ${expiryLabel || 'انتهاء المهلة'}. لا تغلق هذه الصفحة قبل الإرسال.`
             : `Submit once before ${expiryLabel || 'the deadline'}. Keep this page open until you finish.`)}</p>
+          <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
+          ${allReviewMetadataSupplied ? '' : `<p class="card-review card-review--safety" role="note">⚠ ${escapeHtml(t('verifiedReviewUnavailable'))}</p>`}
         </div>
         <button type="button" class="text-btn mini-btn" id="verifiedCancelBtn">${escapeHtml(t('verifiedCancel'))}</button>
       </div>
       <form id="verifiedChallengeForm" class="verified-question-list">
         ${questions.map((item, index) => `
-          <label class="verified-question" for="verifiedAnswer${index}">
-            <span class="verified-question-number">${escapeHtml(fmt('verifiedQuestion', { number: index + 1, total: questions.length }))}</span>
-            <strong dir="auto">${escapeHtml(item.question?.[state.lang] || item.question?.en || '')}</strong>
-            <input id="verifiedAnswer${index}" name="verifiedAnswer${index}" type="text" dir="auto"
-              autocomplete="off" maxlength="256" required placeholder="${escapeHtml(t('verifiedAnswerPlaceholder'))}" />
-          </label>`).join('')}
+          <div class="verified-question">
+            <label for="verifiedAnswer${index}">
+              <span class="verified-question-number">${escapeHtml(fmt('verifiedQuestion', { number: index + 1, total: questions.length }))}</span>
+              <strong dir="auto">${escapeHtml(item.question?.[state.lang] || item.question?.en || '')}</strong>
+              <input id="verifiedAnswer${index}" name="verifiedAnswer${index}" type="text" dir="auto"
+                autocomplete="off" maxlength="256" required placeholder="${escapeHtml(t('verifiedAnswerPlaceholder'))}" />
+            </label>
+            ${item?.review && ['pending', 'reviewed'].includes(item.review.status) ? createReviewMarkup({ review: item.review }) : ''}
+          </div>`).join('')}
         <p class="verified-form-error hidden" id="verifiedFormError" role="alert"></p>
         <button type="submit" class="primary-btn" id="verifiedSubmitBtn">${escapeHtml(t('verifiedSubmit'))}</button>
       </form>
     </section>`;
-  document.getElementById('verifiedCancelBtn')?.addEventListener('click', () => {
-    verifiedChallenge = null;
-    renderVerifiedStarter();
+  document.getElementById('verifiedCancelBtn')?.addEventListener('click', async () => {
+    const button = document.getElementById('verifiedCancelBtn');
+    const formError = document.getElementById('verifiedFormError');
+    if (!button) return;
+    button.disabled = true;
+    button.textContent = t('verifiedDiscarding');
+    try {
+      const result = await apiFetch('/scores/server-checked/challenge', {
+        method: 'DELETE',
+        body: JSON.stringify({
+          categoryId: challenge.categoryId,
+          challengeId: challenge.challengeId,
+          submissionToken: challenge.submissionToken,
+        }),
+      });
+      if (typeof result?.discarded !== 'boolean') throw new Error('Invalid cancel response');
+      verifiedChallenge = null;
+      renderVerifiedStarter();
+    } catch (error) {
+      if (formError) {
+        formError.textContent = localizedErrorMessage(error, 'verifiedCancelError');
+        formError.classList.remove('hidden');
+      }
+      button.disabled = false;
+      button.textContent = t('verifiedCancel');
+    }
   });
   document.getElementById('verifiedChallengeForm')?.addEventListener('submit', submitVerifiedChallenge);
   document.getElementById('verifiedAnswer0')?.focus();
@@ -4213,7 +5382,7 @@ async function submitVerifiedChallenge(event) {
   button.disabled = true;
   button.textContent = t('verifiedSubmitting');
   try {
-    const result = await apiFetch('/scores/verified/submit', {
+    const result = await apiFetch('/scores/server-checked/submit', {
       method: 'POST',
       body: JSON.stringify({
         challengeId: challenge.challengeId,
@@ -4224,6 +5393,7 @@ async function submitVerifiedChallenge(event) {
         })),
       }),
     });
+    if (!hasServerCheckedContract(result)) throw new Error('Invalid server-checked result');
     verifiedChallenge = null;
     renderVerifiedResult(result);
     await refreshVerifiedLeaderboard();
@@ -4252,6 +5422,7 @@ function renderVerifiedResult(result) {
           score: result.score,
         }))}</p>
         <p>${escapeHtml(t('verifiedResultNote'))}</p>
+        <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
       </div>
       <button type="button" class="secondary-btn" id="verifiedTryAgainBtn">${escapeHtml(t('verifiedTryAgain'))}</button>
     </section>`;
@@ -4264,9 +5435,10 @@ async function refreshVerifiedLeaderboard() {
   body.replaceChildren();
   body.setAttribute('aria-busy', 'true');
   try {
-    const { leaderboard, scoreType, status } = await apiFetch('/leaderboard');
-    if (status !== 'active' || scoreType !== 'server-verified') {
-      throw new Error('Leaderboard verification is unavailable');
+    const payload = await apiFetch('/leaderboard');
+    const { leaderboard, status } = payload;
+    if (status !== 'active' || !hasServerCheckedContract(payload)) {
+      throw new Error('Server-checked leaderboard is unavailable');
     }
     const currentUser = state.dbUser?.username;
     const medals = ['🥇', '🥈', '🥉'];
@@ -4301,7 +5473,12 @@ async function openLeaderboard() {
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
   renderVerifiedStarter();
-  trapFocus(modal);
+  trapFocus(modal, {
+    key: 'leaderboard',
+    initialFocus: '[data-close-modal="leaderboard"]',
+    onEscape: () => closeModal('leaderboard'),
+    returnFallback: '#leaderboardBtn',
+  });
   await refreshVerifiedLeaderboard();
 }
 
@@ -4391,7 +5568,7 @@ function showCategoryCompleteModal(slug) {
         </div>
         <div class="hero-actions" style="justify-content:center;flex-wrap:wrap;gap:0.75rem;">
           <button class="secondary-btn" id="catCompleteShare">🔗 ${lang === 'ar' ? 'شارك النتيجة' : 'Share result'}</button>
-          <button class="ghost-btn" id="catCompleteBattle">⚡ ${lang === 'ar' ? 'تحدٍ مباشر' : 'Team Battle'}</button>
+          <button class="ghost-btn" id="catCompleteBattle">⚡ ${lang === 'ar' ? 'غرفة معركة مباشرة' : 'Live Battle Room'}</button>
           ${related ? `<a class="primary-btn" href="${escapeHtml(categoryRouteForLanguage(related.slug, lang))}" style="text-decoration:none;">${lang === 'ar' ? 'الفئة التالية ←' : 'Next category →'}</a>` : ''}
           <button class="ghost-btn" id="catCompleteClose">${lang === 'ar' ? 'إغلاق' : 'Close'}</button>
         </div>
@@ -4405,26 +5582,95 @@ function showCategoryCompleteModal(slug) {
     </div>`;
   el.classList.remove('hidden');
   el.setAttribute('aria-hidden', 'false');
-  document.getElementById('catCompleteBackdrop')?.addEventListener('click', () => el.classList.add('hidden'));
-  document.getElementById('catCompleteClose')?.addEventListener('click', () => el.classList.add('hidden'));
+  const closeCategoryComplete = ({ restore = true } = {}) => {
+    el.classList.add('hidden');
+    el.setAttribute('aria-hidden', 'true');
+    releaseFocus(el, { restore, discard: !restore });
+  };
+  document.getElementById('catCompleteBackdrop')?.addEventListener('click', () => closeCategoryComplete());
+  document.getElementById('catCompleteClose')?.addEventListener('click', () => closeCategoryComplete());
   document.getElementById('catCompleteShare')?.addEventListener('click', () => shareResult(solved, meta.count, meta.title[lang]));
   document.getElementById('catCompleteBattle')?.addEventListener('click', () => {
-    el.classList.add('hidden');
+    closeCategoryComplete({ restore: false });
     openBattleModal(slug);
   });
   document.getElementById('catCompleteChallengeBtn')?.addEventListener('click', () => {
     const isAr = lang === 'ar';
-    const url = `${location.origin}/${slug}`;
+    const url = `${location.origin}${categoryRouteForLanguage(slug, lang)}`;
     const text = isAr
       ? `🏆 أنهيت "${meta.title.ar}" على JAKH بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
       : `🏆 I finished "${meta.title.en}" on JAKH with ${points} pts!\nCan you beat me? → ${url}`;
-    navigator.share?.({ title: t('shareChallengeTitle'), text, url })
-      .catch(() => navigator.clipboard?.writeText(text).then(() => showToast(isAr ? 'تم نسخ التحدي!' : 'Challenge copied!')));
+    void shareOrCopy({
+      title: t('shareChallengeTitle'), text, url,
+      copiedMessage: isAr ? 'تم نسخ التحدي!' : 'Challenge copied!',
+    });
+  });
+  trapFocus(el, {
+    key: 'category-complete',
+    initialFocus: '#catCompleteClose',
+    onEscape: () => closeCategoryComplete(),
+    returnFallback: '#cardGrid [data-action="unmark"], #cardGrid [data-action="flip"]',
   });
   checkNewAchievements();
 }
 
 // ================= SHARE =================
+function showSelectableShareFallback(payload) {
+  let modal = document.getElementById('shareFallbackModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'shareFallbackModal';
+    modal.className = 'modal hidden';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(modal);
+  }
+  const close = () => {
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    releaseFocus(modal, { restore: true });
+  };
+  modal.innerHTML = `
+    <div class="modal-backdrop" data-share-fallback-close></div>
+    <div class="modal-card share-fallback-card" role="dialog" aria-modal="true" aria-labelledby="shareFallbackTitle">
+      <h2 id="shareFallbackTitle">${state.lang === 'ar' ? 'انسخ النص للمشاركة' : 'Copy this share text'}</h2>
+      <p>${state.lang === 'ar' ? 'تعذر فتح المشاركة أو الحافظة. حدّد النص أدناه وانسخه يدويًا.' : 'Sharing and Clipboard are unavailable. Select the text below and copy it manually.'}</p>
+      <textarea id="shareFallbackText" readonly dir="auto">${escapeHtml(payload)}</textarea>
+      <button type="button" class="primary-btn" data-share-fallback-close>${state.lang === 'ar' ? 'إغلاق' : 'Close'}</button>
+    </div>`;
+  modal.querySelectorAll('[data-share-fallback-close]').forEach(button => button.addEventListener('click', close));
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  trapFocus(modal, {
+    key: 'share-fallback',
+    initialFocus: '#shareFallbackText',
+    onEscape: close,
+  });
+  const textarea = document.getElementById('shareFallbackText');
+  textarea?.focus();
+  textarea?.select();
+}
+
+async function shareOrCopy({ title, text, url = '', copiedMessage = '' }) {
+  const payload = [text, url && !String(text).includes(url) ? url : ''].filter(Boolean).join('\n');
+  if (typeof navigator.share === 'function') {
+    try {
+      await navigator.share({ title, text, ...(url ? { url } : {}) });
+      return 'shared';
+    } catch (error) {
+      if (error?.name === 'AbortError') return 'cancelled';
+    }
+  }
+  try {
+    if (typeof navigator.clipboard?.writeText !== 'function') throw new Error('Clipboard unavailable');
+    await navigator.clipboard.writeText(payload);
+    showToast(copiedMessage || t('shareCopied'));
+    return 'copied';
+  } catch (_) {
+    showSelectableShareFallback(payload);
+    return 'manual';
+  }
+}
+
 function shareCard(cardId) {
   const card = state.categoryData?.cards.find(c => c.id === cardId);
   if (!card) return;
@@ -4442,15 +5688,10 @@ function shareCard(cardId) {
     card_id: cardId,
     language: state.lang,
   });
-  if (navigator.share) {
-    navigator.share({ title: t('shareRiddleTitle'), text, url }).catch(() => {});
-  } else {
-    navigator.clipboard?.writeText(`${text}\n${url}`).then(() => {
-      showToast(isAr ? 'تم نسخ السؤال!' : 'Question copied!');
-    }).catch(() => {
-      showToast(isAr ? 'تعذر النسخ' : 'Copy failed');
-    });
-  }
+  void shareOrCopy({
+    title: t('shareRiddleTitle'), text, url,
+    copiedMessage: isAr ? 'تم نسخ السؤال!' : 'Question copied!',
+  });
   checkNewAchievements();
 }
 
@@ -4483,11 +5724,7 @@ function shareResult(score, total, categoryTitle) {
     percent: pct,
     language: state.lang,
   });
-  if (navigator.share) {
-    navigator.share({ title: t('shareRiddleTitle'), text, url }).catch(() => {});
-  } else {
-    navigator.clipboard?.writeText(text).then(() => showToast(t('shareCopied'))).catch(() => showToast(t('shareCopied')));
-  }
+  void shareOrCopy({ title: t('shareRiddleTitle'), text, url, copiedMessage: t('shareCopied') });
 }
 
 let sessionInitialized = false;
@@ -4535,6 +5772,10 @@ function injectBottomNav() {
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
         <span>${isAr ? 'استكشف' : 'Explore'}</span>
       </a>
+      <a href="/play" class="bottom-nav-tab" data-tab="games" aria-label="${isAr ? 'الألعاب' : 'Games'}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8h8a5 5 0 0 1 4.8 6.4l-1 3.3a2 2 0 0 1-3.3.9L14 16h-4l-2.5 2.6a2 2 0 0 1-3.3-.9l-1-3.3A5 5 0 0 1 8 8z"/><path d="M7 12v4M5 14h4M16.5 12.5h.01M18.5 14.5h.01"/></svg>
+        <span>${isAr ? 'الألعاب' : 'Games'}</span>
+      </a>
       <button class="bottom-nav-tab" id="bnDailyBtn" data-tab="daily" aria-label="${isAr ? 'التحدي اليومي' : 'Daily'}">
         <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         <span>${isAr ? 'يومي' : 'Daily'}</span>
@@ -4546,13 +5787,14 @@ function injectBottomNav() {
     </div>
     <div class="bottom-nav-safe" aria-hidden="true"></div>`;
   document.body.appendChild(nav);
+  localizeSharedRuntimeLinks(nav);
 
   document.getElementById('bnDailyBtn')?.addEventListener('click', () => {
     if (document.getElementById('dailyChallengeMount')) {
       scrollToDailyChallenge();
     } else {
-      sessionStorage.setItem('jakh-scroll-to', 'daily');
-      location.href = '/';
+      safeStorageSet('session', 'jakh-scroll-to', 'daily');
+      location.href = sharedRouteForLanguage('/', state.lang);
     }
   });
   document.getElementById('bnProfileBtn')?.addEventListener('click', () => {
@@ -4560,20 +5802,32 @@ function injectBottomNav() {
   });
 
   updateBottomNavActive();
+  refreshFixedUiLayout();
 }
 
 function updateBottomNavActive() {
   const nav = document.getElementById('bottomNav');
   if (!nav) return;
-  const isMindLab = location.pathname.replace(/\.html$/i, '').replace(/\/+$/, '') === '/mind-lab';
-  const activeTab = state.page === 'home' && !isMindLab ? 'home' : 'explore';
+  const normalizedPath = normalizeSharedRoutePath(location.pathname);
+  const sharedRoute = sharedLanguageRoute();
+  const isMindLab = normalizedPath === '/mind-lab' || sharedRoute?.en === '/mind-lab';
+  const isGameHub = state.page === 'play' || normalizedPath === '/play' || sharedRoute?.en === '/play';
+  const activeTab = isGameHub
+    ? 'games'
+    : state.page === 'home' && !isMindLab
+      ? 'home'
+      : 'explore';
   nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
-    tab.classList.toggle('is-active', tab.dataset.tab === activeTab);
+    const isActive = tab.dataset.tab === activeTab;
+    tab.classList.toggle('is-active', isActive);
+    if (isActive && tab.matches('a')) tab.setAttribute('aria-current', 'page');
+    else tab.removeAttribute('aria-current');
   });
   const isAr = state.lang === 'ar';
   const labels = {
     home:    isAr ? 'الرئيسية' : 'Home',
     explore: isAr ? 'استكشف'  : 'Explore',
+    games:   isAr ? 'الألعاب'  : 'Games',
     daily:   isAr ? 'يومي'    : 'Daily',
     profile: isAr ? 'حسابي'   : 'Profile',
   };
@@ -4584,6 +5838,7 @@ function updateBottomNavActive() {
   const ariaLabels = {
     home:    isAr ? 'الرئيسية' : 'Home',
     explore: isAr ? 'استكشف'  : 'Explore',
+    games:   isAr ? 'الألعاب'  : 'Games',
     daily:   isAr ? 'التحدي اليومي' : 'Daily',
     profile: isAr ? 'حسابي'   : 'Profile',
   };
@@ -4594,7 +5849,7 @@ function updateBottomNavActive() {
 
 async function hydrateCloudCapabilities() {
   if (!sessionInitialized) {
-    state.apiAvailable = await detectApiAvailability();
+    state.apiAvailable = await detectApiAvailability(2);
     if (state.apiAvailable) {
       await checkCloudSession();
       if (state.dbUser) {
@@ -4616,12 +5871,13 @@ function hydrateCloudFeatureUi() {
   if (!state.dbUser && els.suggestionLinkAccount) els.suggestionLinkAccount.checked = false;
   if (state.apiAvailable) {
     refreshAnalyticsHeartbeat();
-    createLeaderboardModal();
-    createBattleModal();
-    initSuggestionBox();
   } else {
     stopAnalyticsHeartbeat();
   }
+  // A health probe is advisory; each feature owns its request and retry state.
+  createLeaderboardModal();
+  createBattleModal();
+  initSuggestionBox();
   renderCategoryPlayModes();
   applyStaticCopy();
   rerender();
@@ -4656,10 +5912,10 @@ async function init() {
     applyCapabilityVisibility();
   });
   const dailyParams = new URLSearchParams(location.search);
-  const dailySessionRequested = sessionStorage.getItem('jakh-scroll-to') === 'daily';
+  const dailySessionRequested = safeStorageGet('session', 'jakh-scroll-to') === 'daily';
   const dailyShortcutRequested = dailyParams.get('daily') === '1';
   if (state.page === 'home' && (dailySessionRequested || dailyShortcutRequested)) {
-    sessionStorage.removeItem('jakh-scroll-to');
+    safeStorageRemove('session', 'jakh-scroll-to');
     if (dailyShortcutRequested) {
       const cleanUrl = new URL(location.href);
       cleanUrl.searchParams.delete('daily');
@@ -4692,12 +5948,13 @@ function renderCategoryPlayModes() {
           🎯 ${isAr ? 'ابدأ منفردًا' : 'Start Solo'}
         </button>
       </div>
-      ${state.apiAvailable ? `<div class="play-mode-card play-mode-team">
+      <div class="play-mode-card play-mode-team">
         <div class="play-mode-head">
           <span class="play-mode-icon">🏆</span>
           <div>
-            <strong class="play-mode-title">${isAr ? 'معركة الفريق' : 'Team Battle'}</strong>
-            <p class="play-mode-sub">${isAr ? 'العب مع الآخرين في الوقت الفعلي' : 'Play with others live — up to 20'}</p>
+            <strong class="play-mode-title">${isAr ? 'غرفة المعركة' : 'Battle Room'}</strong>
+            <p class="play-mode-sub">${isAr ? 'منافسة مباشرة فردية للجميع عبر الخادم — حتى 20 لاعبًا' : 'Live server-hosted free-for-all — up to 20 players'}</p>
+            ${state.apiChecked && !state.apiAvailable ? `<p class="play-mode-service-note" role="status">${isAr ? 'الخدمة غير متاحة مؤقتًا؛ يمكنك إعادة المحاولة.' : 'Service is temporarily unreachable; you can still retry.'}</p>` : ''}
           </div>
         </div>
         <div class="play-mode-battle-btns">
@@ -4708,7 +5965,7 @@ function renderCategoryPlayModes() {
             🔗 ${isAr ? 'الانضمام بكود' : 'Join with Code'}
           </button>
         </div>
-      </div>` : ''}
+      </div>
     </div>`;
 
   const questionSection = document.getElementById('questionSection');
@@ -4791,7 +6048,7 @@ function renderBattleUI() {
   if (!overlay) return;
   const isAr = state.lang === 'ar';
   const titles = {
-    setup: isAr ? '⚡ معركة الفريق' : '⚡ Team Battle',
+    setup: isAr ? '⚡ غرفة المعركة' : '⚡ Battle Room',
     lobby: isAr ? '⚡ غرفة الانتظار' : '⚡ Battle Lobby',
     question: isAr ? '⚡ المعركة جارية' : '⚡ Battle in Progress',
     reveal: isAr ? '⚡ الإجابة' : '⚡ Answer Reveal',
@@ -5054,8 +6311,12 @@ function renderBattleLobby(body) {
     </div>`;
 
   document.getElementById('battleShareBtn')?.addEventListener('click', () => {
-    navigator.clipboard?.writeText(shareUrl).then(() => showToast(isAr ? 'تم نسخ الرابط!' : 'Link copied!'))
-      .catch(() => showToast(shareUrl));
+    void shareOrCopy({
+      title: t('shareBattleTitle'),
+      text: isAr ? 'انضم إلى غرفة معركة JAKH المباشرة' : 'Join this live JAKH Battle Room',
+      url: shareUrl,
+      copiedMessage: isAr ? 'تم نسخ الرابط!' : 'Link copied!',
+    });
   });
   document.getElementById('battleStartBtn')?.addEventListener('click', () => {
     battleState.ws?.send(JSON.stringify({ type: 'start-game', hostId: battleState.hostId || '' }));
@@ -5261,8 +6522,10 @@ function renderBattlePodium(body) {
     const text = isAr
       ? `⚡ انتهت معركة JAKH!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} نقطة\n🏅 مركزي: #${myPos}\njakh.net`
       : `⚡ JAKH Battle done!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} pts\n🏅 My rank: #${myPos}\njakh.net`;
-    navigator.share?.({ title: t('shareBattleTitle'), text }).catch(() =>
-      navigator.clipboard?.writeText(text).then(() => showToast(isAr ? 'تم النسخ!' : 'Copied!')));
+    void shareOrCopy({
+      title: t('shareBattleTitle'), text, url: location.origin,
+      copiedMessage: isAr ? 'تم النسخ!' : 'Copied!',
+    });
   });
   document.getElementById('battleCloseFinBtn')?.addEventListener('click', closeBattleModal);
 }

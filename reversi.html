@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
@@ -9,6 +9,9 @@
   <link rel="preload" href="styles.css?v=2026080101" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/reversi"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/reversi" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/reversi/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/reversi" />
   <meta name="robots" content="index,follow"/>
   <meta property="og:title" content="Reversi Online — Free Browser Game | JAKH" />
   <meta property="og:description" content="Play Reversi online against the computer or a friend in this free disc-flipping strategy game. Play instantly with no download or sign-up." />
@@ -28,9 +31,6 @@
   <link rel="stylesheet" href="styles.css?v=2026080101"/>
   <script src="/game-i18n.js?v=2026080101"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
-
-
-  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* ── Reversi scoped styles ── */
     #reversiSection {
@@ -123,6 +123,7 @@
       border: 0;
       padding: 0;
       transition: filter .1s;
+      touch-action: manipulation;
     }
     /* Calm, high-contrast checkerboard shared with the JAKH game palette. */
     .rv-cell.light { background: #f7ecd5; }
@@ -164,6 +165,78 @@
       font-size: .875rem;
       color: var(--gilt, #976006);
       min-height: 1.2em;
+    }
+
+    .rv-precise-moves {
+      display: none;
+      width: calc(100% - 2rem);
+      padding: .85rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      background: var(--panel);
+    }
+
+    .rv-precise-moves h2,
+    .rv-precise-moves p {
+      margin: 0;
+    }
+
+    .rv-precise-moves h2 {
+      font-size: 1rem;
+    }
+
+    .rv-precise-moves p {
+      color: var(--muted);
+      font-size: .8125rem;
+      line-height: 1.45;
+    }
+
+    .rv-precise-move-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .5rem;
+    }
+
+    .rv-precise-move {
+      min-width: 0;
+      min-height: 44px;
+      padding: .45rem .35rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      background: var(--panel-strong);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Remove outer gutters so cells reach at least 44px from 352px upward. */
+    @media (max-width: 400px) {
+      #reversiSection {
+        padding-inline: 0 !important;
+      }
+
+      .rv-board-wrap {
+        width: min(480px, 100vw);
+        border-radius: 0;
+      }
+
+      .rv-controls,
+      .rv-scorebar,
+      .rv-status,
+      .rv-thinking {
+        max-width: calc(100% - 2rem);
+      }
+    }
+
+    /* Eight 44px cells need 352px; provide separate 44px legal-move buttons below that. */
+    @media (max-width: 351px) {
+      .rv-cell {
+        min-height: 0 !important;
+      }
+
+      .rv-precise-moves {
+        display: grid;
+        gap: .65rem;
+      }
     }
   </style>
       <script type="application/ld+json">
@@ -256,6 +329,10 @@
       cellLegal: 'Row {row}, column {column}, legal move',
       cellBlack: 'Row {row}, column {column}, black disc',
       cellWhite: 'Row {row}, column {column}, white disc',
+      preciseMovesTitle: 'Precise move controls',
+      preciseMovesHint: 'On very narrow screens, use these full-size buttons when a board cell is too small to tap precisely.',
+      preciseMoveLabel: 'Play row {row}, column {column}',
+      noPreciseMoves: 'No legal move is available right now.',
       yourTurn: 'Your turn (Black)',
       computerThinking: 'Computer thinking…',
       blackTurn: 'Black’s turn',
@@ -284,6 +361,10 @@
       cellLegal: 'الصف {row}، العمود {column}، نقلة متاحة',
       cellBlack: 'الصف {row}، العمود {column}، قرص أسود',
       cellWhite: 'الصف {row}، العمود {column}، قرص أبيض',
+      preciseMovesTitle: 'عناصر تحكم دقيقة للنقلة',
+      preciseMovesHint: 'على الشاشات الضيقة جداً، استخدم هذه الأزرار بالحجم الكامل عندما يصعب لمس خلية الرقعة بدقة.',
+      preciseMoveLabel: 'العب في الصف {row}، العمود {column}',
+      noPreciseMoves: 'لا توجد نقلة قانونية متاحة الآن.',
       yourTurn: 'دورك (الأسود)',
       computerThinking: 'الكمبيوتر يفكر…',
       blackTurn: 'دور الأسود',
@@ -516,7 +597,12 @@
       '</div>',
       '<div class="rv-status" id="rvStatus" role="status" aria-live="polite">Black\'s turn</div>',
       '<div class="rv-thinking" id="rvThinking" role="status" aria-live="polite"></div>',
-      '<div class="rv-board-wrap" dir="ltr"><div class="rv-board" id="rvBoard" role="grid" aria-label="Reversi board" data-i18n-aria-label="boardLabel"></div></div>'
+      '<div class="rv-board-wrap" dir="ltr"><div class="rv-board" id="rvBoard" role="grid" aria-label="Reversi board" aria-describedby="rvPreciseHint" data-i18n-aria-label="boardLabel"></div></div>',
+      '<div class="rv-precise-moves" id="rvPreciseMoves" aria-labelledby="rvPreciseTitle">',
+        '<h2 id="rvPreciseTitle" data-i18n="preciseMovesTitle">Precise move controls</h2>',
+        '<p id="rvPreciseHint" data-i18n="preciseMovesHint">On very narrow screens, use these full-size buttons when a board cell is too small to tap precisely.</p>',
+        '<div class="rv-precise-move-list" id="rvPreciseMoveList"></div>',
+      '</div>'
     ].join('');
 
     var boardEl     = document.getElementById('rvBoard');
@@ -529,6 +615,7 @@
     var btnModeAI   = document.getElementById('rvModeAI');
     var btnMode2P   = document.getElementById('rvMode2P');
     var btnNewGame  = document.getElementById('rvNewGame');
+    var preciseMoveList = document.getElementById('rvPreciseMoveList');
 
     // ── State ──
     var gameState   = null;
@@ -637,15 +724,48 @@
         else statusEl.textContent = I.t('draw');
         thinkingEl.textContent = '';
       }
+
+      renderPreciseMoves(status, legalSet);
+    }
+
+    function renderPreciseMoves(status, legalSet) {
+      preciseMoveList.innerHTML = '';
+      var isAITurn = vsComputer && gameState.turn !== playerColor;
+      var keys = status === 'playing' && !aiThinking && !isAITurn
+        ? Object.keys(legalSet)
+        : [];
+
+      if (keys.length === 0) {
+        var empty = document.createElement('p');
+        empty.textContent = I.t('noPreciseMoves');
+        preciseMoveList.appendChild(empty);
+        return;
+      }
+
+      keys.forEach(function(key) {
+        var coordinates = key.split(',').map(Number);
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'rv-precise-move';
+        button.textContent = I.t('preciseMoveLabel', {
+          row: I.number(coordinates[0] + 1),
+          column: I.number(coordinates[1] + 1)
+        });
+        button.addEventListener('click', function() {
+          playMoveAt(coordinates[0], coordinates[1]);
+        });
+        preciseMoveList.appendChild(button);
+      });
     }
 
     function onCellClick(e) {
+      playMoveAt(parseInt(this.dataset.r, 10), parseInt(this.dataset.c, 10));
+    }
+
+    function playMoveAt(r, c) {
       if (!gameState || aiThinking) return;
       var status = E.getStatus(gameState);
       if (status !== 'playing') return;
-
-      var r = parseInt(this.dataset.r, 10);
-      var c = parseInt(this.dataset.c, 10);
       var turn = gameState.turn;
 
       // In AI mode, only allow human's colour

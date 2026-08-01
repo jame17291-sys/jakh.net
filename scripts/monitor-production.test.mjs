@@ -77,7 +77,7 @@ function staticBody(pathname) {
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "8" } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -109,6 +109,12 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
       response.end(JSON.stringify({
         ok: true,
         ...API_RELEASE_CONTRACT,
+        schema: apiSchema,
+        features: {
+          registration: Number(apiSchema) >= 7,
+          accountRecovery: Number(apiSchema) >= 7,
+          accountDeletion: Number(apiSchema) >= 8,
+        },
       }));
       return;
     }
@@ -120,7 +126,10 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
       );
       response.end(JSON.stringify({
         status: "active",
-        scoreType: "server-verified",
+        scoreType: "server-checked",
+        serverChecked: true,
+        proctored: false,
+        automationDisclaimer: "Server checking does not prevent lookups or automation.",
         leaderboard: [],
       }));
       return;
@@ -200,6 +209,32 @@ test("production monitor passes all deterministic checks", async () => {
 
     assert.equal(summary.failures.length, 0);
     assert.equal(summary.results.length, 40);
+  });
+});
+
+test("only a compatibility-triggered monitor accepts a supported pre-migration schema", async () => {
+  await withFixture({ apiSchema: "6" }, async (fixtureOrigin) => {
+    const compatibility = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      allowCompatibleSchema: true,
+      logger: quietLogger(),
+    });
+    assert.equal(compatibility.failures.length, 0);
+
+    const strict = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+      throwOnFailure: false,
+    });
+    assert.ok(strict.failures.some(({ name }) => name === "API: health and allowed CORS"));
   });
 });
 

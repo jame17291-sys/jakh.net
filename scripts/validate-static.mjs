@@ -2,6 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import {
+  conciseScorableAnswer,
+  hasScorableAnswer,
+  normalizeScorableAnswer,
+  reviewValidationErrors,
+} from "./content-review-lib.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
@@ -44,34 +50,6 @@ function stableObjectJson(value) {
   return JSON.stringify(
     Object.fromEntries(Object.entries(value || {}).sort(([left], [right]) => left.localeCompare(right))),
   );
-}
-
-function normalizeVerifiedAnswer(value) {
-  if (typeof value !== "string") return "";
-  return value
-    .normalize("NFKC")
-    .toLocaleLowerCase("en-US")
-    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
-    .replace(/[أإآٱ]/gu, "ا")
-    .replace(/ى/gu, "ي")
-    .replace(/\p{P}+/gu, " ")
-    .replace(/\s+/gu, " ")
-    .trim();
-}
-
-function conciseVerifiedAnswer(value) {
-  const normalized = normalizeVerifiedAnswer(value);
-  return normalized.length > 0
-    && normalized.length <= 96
-    && normalized.split(" ").length <= 14;
-}
-
-function hasConciseVerifiedAnswer(card, language) {
-  return conciseVerifiedAnswer(card?.answer?.[language])
-    || (
-      Array.isArray(card?.acceptedAnswers?.[language])
-      && card.acceptedAnswers[language].some(conciseVerifiedAnswer)
-    );
 }
 
 function decodeUrlCodePoint(digits, radix) {
@@ -211,6 +189,9 @@ let expectedQuestionTotal = 0;
 
 for (const category of catalog.categories || []) {
   if (!category.slug || catalogSlugs.has(category.slug)) fail(`catalog: invalid or duplicate slug "${category.slug}"`);
+  if (Object.hasOwn(category, "verifiedQuestionCount")) {
+    fail(`catalog: ${category.slug} uses misleading legacy field verifiedQuestionCount`);
+  }
   catalogSlugs.add(category.slug);
   categoriesBySlug.set(category.slug, category);
   const expectedHref = `/${category.slug}`;
@@ -295,7 +276,8 @@ for (const file of dataFiles) {
   if (metadata?.count !== cards.length) fail(`data/${file}: catalog count ${metadata?.count} does not match ${cards.length}`);
   expectedQuestionTotal += cards.length;
   const difficultyCounts = {};
-  let verifiedQuestionCount = 0;
+  let scorableQuestionCount = 0;
+  let reviewedQuestionCount = 0;
   const topicCounts = new Map();
   const topicEnglishByArabic = new Map();
 
@@ -311,6 +293,10 @@ for (const file of dataFiles) {
     for (const field of ["question", "answer"]) {
       if (!card?.[field]?.en?.trim() || !card?.[field]?.ar?.trim()) fail(`${label}: incomplete bilingual ${field}`);
     }
+    for (const error of reviewValidationErrors(card?.review, slug)) {
+      fail(`${label}: ${error}`);
+    }
+    if (card?.review?.status === "reviewed") reviewedQuestionCount += 1;
     if (card?.acceptedAnswers !== undefined) {
       if (
         !card.acceptedAnswers
@@ -326,10 +312,10 @@ for (const file of dataFiles) {
             fail(`${label}: acceptedAnswers.${language} must be an array`);
           } else if (answers.length > maxExplicitAnswersPerLanguage) {
             fail(`${label}: acceptedAnswers.${language} exceeds ${maxExplicitAnswersPerLanguage} entries`);
-          } else if (answers.some((answer) => !conciseVerifiedAnswer(answer))) {
+          } else if (answers.some((answer) => !conciseScorableAnswer(answer))) {
             fail(`${label}: acceptedAnswers.${language} entries must be at most 96 characters and 14 words`);
           } else {
-            const normalized = answers.map(normalizeVerifiedAnswer);
+            const normalized = answers.map(normalizeScorableAnswer);
             if (new Set(normalized).size !== normalized.length) {
               fail(`${label}: acceptedAnswers.${language} contains duplicate normalized answers`);
             }
@@ -338,9 +324,9 @@ for (const file of dataFiles) {
       }
     }
     if (
-      hasConciseVerifiedAnswer(card, "en")
-      && hasConciseVerifiedAnswer(card, "ar")
-    ) verifiedQuestionCount += 1;
+      hasScorableAnswer(card, "en")
+      && hasScorableAnswer(card, "ar")
+    ) scorableQuestionCount += 1;
     const topicEn = card?.subcategory?.en?.trim();
     const topicAr = card?.subcategory?.ar?.trim();
     if (!topicEn || !topicAr) {
@@ -381,8 +367,11 @@ for (const file of dataFiles) {
   if (JSON.stringify(metadata?.difficultyCounts || {}) !== JSON.stringify(expectedDifficultyCounts)) {
     fail(`data/${file}: catalog difficulty counts are stale`);
   }
-  if (metadata?.verifiedQuestionCount !== verifiedQuestionCount) {
-    fail(`data/${file}: catalog verified question count is stale`);
+  if (metadata?.scorableQuestionCount !== scorableQuestionCount) {
+    fail(`data/${file}: catalog scorable question count is stale`);
+  }
+  if (metadata?.reviewedQuestionCount !== reviewedQuestionCount) {
+    fail(`data/${file}: catalog reviewed question count is stale`);
   }
   const expectedTopics = [...topicCounts.values()].sort((left, right) => (
     right.count - left.count || left.en.localeCompare(right.en)
@@ -701,9 +690,9 @@ async function validateServiceWorkerOfflineShell() {
     await dispatchWithLifetime("activate");
     if ((await fakeCaches.keys()).includes("jakh-obsolete")) fail("sw.js: activate did not delete an obsolete cache");
 
-    const clearCacheLifetimes = await dispatchWithLifetime("message", { data: { type: "CLEAR_CACHE" } });
-    if (!clearCacheLifetimes) fail("sw.js: CLEAR_CACHE did not use event.waitUntil()");
-    if ((await fakeCaches.keys()).length) fail("sw.js: CLEAR_CACHE did not remove every cache");
+    if (/\b(?:CLEAR_CACHE|SKIP_WAITING)\b/u.test(source)) {
+      fail("sw.js: retains a page-message cache/lifecycle command without a sender");
+    }
   } catch (error) {
     fail(`sw.js: offline shell validation failed: ${error.message}`);
   }

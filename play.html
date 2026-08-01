@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
@@ -9,6 +9,9 @@
     <link rel="preload" href="styles.css?v=2026080101" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/play" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/play" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/play/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/play" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="10 Free Browser Games | JAKH" />
     <meta property="og:description" content="Play 10 free browser games on JAKH: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy." />
@@ -30,13 +33,6 @@
     <!-- Google Analytics -->
 
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-          if (reg) reg.update();
-        });
-      }
-    </script>
       <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -114,17 +110,17 @@
     <a href="#top" class="skip-link">Skip to main content</a>
 
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="assets/logo.webp" type="image/webp" />
           <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
-      <nav class="header-actions" aria-label="Quick actions">
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
         <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="/mind-lab" data-i18n="portalMindTag">Mind Lab</a>
       </nav>
-      <div class="header-selects" aria-label="Language controls">
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
         <label>
           <span data-i18n="language">Language</span>
           <select id="langSelect">
@@ -141,7 +137,7 @@
         <div class="kv-hero-fallback-bg play-hero-bg" aria-hidden="true"></div>
         <div class="kv-hero-content">
           <h1 class="kv-hero-title" data-i18n="playHeroTitle">The Game Room</h1>
-          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">Ten thoughtful games, ready when you are. No download and no sign-up.</p>
+          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">Ten browser adaptations and simplified games, ready with no download or sign-up.</p>
           <div class="kv-hero-stats">
             <div class="kv-stat"><span class="kv-stat-number">10</span><span class="kv-stat-label" data-i18n="playHeroGames">Games</span></div>
           </div>
@@ -153,7 +149,7 @@
         <div class="kv-lab-header">
           <p class="kv-eyebrow play-available" data-i18n="playAvailable">Ready to play</p>
           <h2 data-i18n="playPick">Pick a game and start playing</h2>
-          <p data-i18n="playBrowserOnly">Every game runs in your browser, with nothing to install.</p>
+          <p data-i18n="playBrowserOnly">Every title is a browser adaptation; rules and AI depth vary by game, with nothing to install.</p>
         </div>
 
         <div class="game-lobby-grid">
@@ -166,7 +162,7 @@
               <span class="game-card-tag" data-i18n="gameTagComputer">vs Computer</span>
               <span class="game-card-tag" data-i18n="gameTagStrategy">Strategy</span>
             </div>
-            <p class="game-card-desc" data-i18n="playChessDesc">Full chess with legal move highlighting, en passant, castling, and promotion. Play against the AI or take turns with a friend.</p>
+            <p class="game-card-desc" data-i18n="playChessDesc">A browser chess adaptation with legal-move highlighting, en passant, castling, and promotion. Play the built-in AI or take turns locally.</p>
             <span class="game-card-play" data-i18n="playChessCta">Play Chess &#8594;</span>
           </a>
 
@@ -244,7 +240,7 @@
               <span class="game-card-tag" data-i18n="gameTagDice">Dice</span>
               <span class="game-card-tag" data-i18n="gameTagClassic">Classic</span>
             </div>
-            <p class="game-card-desc" data-i18n="playBackgammonDesc">Race all 15 checkers around the 24-point board and bear them off before your opponent. Real dice, legal moves enforced, greedy AI.</p>
+            <p class="game-card-desc" data-i18n="playBackgammonDesc">A simplified browser adaptation: race 15 checkers around 24 points, with virtual dice, enforced moves, and a greedy AI.</p>
             <span class="game-card-play" data-i18n="playBackgammonCta">Play Backgammon &#8594;</span>
           </a>
 
@@ -295,11 +291,11 @@
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="socialInstagramLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             <span>Instagram</span>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="socialFacebookLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span>Facebook</span>
           </a>

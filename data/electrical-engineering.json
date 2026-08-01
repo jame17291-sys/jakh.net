@@ -3,8 +3,8 @@
     "id": "electrical-engineering-001",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "Which terminal of a battery is usually marked with a plus sign?",
@@ -13,14 +13,17 @@
     "answer": {
       "en": "Positive",
       "ar": "الموجب"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "What is the unit of measurement for electrical current?",
@@ -29,14 +32,17 @@
     "answer": {
       "en": "Ampere (Amp)",
       "ar": "الأمبير"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-003",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Circuits & Measurement",
-        "ar": "الدوائر والقياس"
+      "en": "Circuits & Measurement",
+      "ar": "الدوائر والقياس"
     },
     "question": {
       "en": "What is the purpose of a circuit breaker?",
@@ -45,14 +51,17 @@
     "answer": {
       "en": "To interrupt current flow after a fault is detected",
       "ar": "لقطع التيار عند اكتشاف عطل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-004",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "What is the unit of electrical potential?",
@@ -61,14 +70,17 @@
     "answer": {
       "en": "Volt",
       "ar": "الفولت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Circuits & Measurement",
-        "ar": "الدوائر والقياس"
+      "en": "Circuits & Measurement",
+      "ar": "الدوائر والقياس"
     },
     "question": {
       "en": "What do you call a path that allows electricity to flow?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "A circuit",
       "ar": "الدارة الكهربائية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "Is rubber an insulator or a conductor?",
@@ -93,14 +108,17 @@
     "answer": {
       "en": "Insulator",
       "ar": "عازل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-007",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "Who is credited with inventing the first commercially practical incandescent light bulb?",
@@ -109,14 +127,17 @@
     "answer": {
       "en": "Thomas Edison",
       "ar": "توماس إديسون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-008",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "What is the unit of electrical power?",
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Watt",
       "ar": "الواط"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,14 +165,17 @@
     "answer": {
       "en": "Electromagnet",
       "ar": "المغناطيس الكهربائي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-010",
     "difficulty": "easy",
     "subcategory": {
-        "en": "AC Power Systems",
-        "ar": "أنظمة القدرة المتناوبة"
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
       "en": "What does 'AC' stand for in electricity?",
@@ -157,14 +184,17 @@
     "answer": {
       "en": "Alternating Current",
       "ar": "التيار المتردد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-011",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Electrical Fundamentals",
-        "ar": "أساسيات الكهرباء"
+      "en": "Electrical Fundamentals",
+      "ar": "أساسيات الكهرباء"
     },
     "question": {
       "en": "If V is voltage, I is current, and R is resistance, what is Ohm's formula?",
@@ -173,14 +203,17 @@
     "answer": {
       "en": "V = IR",
       "ar": "V = IR"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-012",
     "difficulty": "medium",
     "subcategory": {
-        "en": "AC Power Systems",
-        "ar": "أنظمة القدرة المتناوبة"
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
       "en": "What device is used to increase or decrease the voltage of alternating current?",
@@ -189,14 +222,17 @@
     "answer": {
       "en": "Transformer",
       "ar": "المحول الكهربائي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-013",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Circuits & Measurement",
-        "ar": "الدوائر والقياس"
+      "en": "Circuits & Measurement",
+      "ar": "الدوائر والقياس"
     },
     "question": {
       "en": "If two 10-ohm resistors are connected in series, what is the total resistance?",
@@ -205,14 +241,17 @@
     "answer": {
       "en": "20 ohms",
       "ar": "20 أوم"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-014",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "What component is designed to store energy in an electric field?",
@@ -221,14 +260,17 @@
     "answer": {
       "en": "Capacitor",
       "ar": "المكثف"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-015",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "What is the most common element used in the production of computer chips?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "Silicon",
       "ar": "السيليكون"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "What component allows current to flow in only one direction?",
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Diode",
       "ar": "الثنائي (الديود)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,14 +317,17 @@
     "answer": {
       "en": "Magnetic field",
       "ar": "المجال المغناطيسي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-018",
     "difficulty": "medium",
     "subcategory": {
-        "en": "AC Power Systems",
-        "ar": "أنظمة القدرة المتناوبة"
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
       "en": "What is the standard frequency of the electrical grid in most of the world?",
@@ -285,14 +336,17 @@
     "answer": {
       "en": "50 Hz or 60 Hz",
       "ar": "50 هرتز أو 60 هرتز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "Which gate gives a HIGH output only if all its inputs are HIGH?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "AND gate",
       "ar": "البوابة المنطقية AND"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Circuits & Measurement",
-        "ar": "الدوائر والقياس"
+      "en": "Circuits & Measurement",
+      "ar": "الدوائر والقياس"
     },
     "question": {
       "en": "What are the three primary things a standard multimeter measures?",
@@ -317,6 +374,9 @@
     "answer": {
       "en": "Voltage, Current, and Resistance",
       "ar": "الجهد والتيار والمقاومة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,14 +393,17 @@
     "answer": {
       "en": "Four",
       "ar": "أربع معادلات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-022",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "What are the three terminals of a Bipolar Junction Transistor (BJT)?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "Emitter, Base, Collector",
       "ar": "الباعث والقاعدة والجامع"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-023",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Signals & Communications",
-        "ar": "الإشارات والاتصالات"
+      "en": "Signals & Communications",
+      "ar": "الإشارات والاتصالات"
     },
     "question": {
       "en": "What does a Fourier Transform convert a signal from the time domain into?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "The frequency domain",
       "ar": "نطاق التردد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-024",
     "difficulty": "hard",
     "subcategory": {
-        "en": "AC Power Systems",
-        "ar": "أنظمة القدرة المتناوبة"
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
       "en": "In an AC circuit, what is the combination of resistance and reactance called?",
@@ -381,14 +450,17 @@
     "answer": {
       "en": "Impedance",
       "ar": "الممانعة (الإمبيدانس)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-025",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Circuits & Measurement",
-        "ar": "الدوائر والقياس"
+      "en": "Circuits & Measurement",
+      "ar": "الدوائر والقياس"
     },
     "question": {
       "en": "What is the fundamental principle behind Kirchhoff's Current Law (KCL)?",
@@ -397,14 +469,17 @@
     "answer": {
       "en": "Conservation of Charge",
       "ar": "حفظ الشحنة الكهربائية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-026",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Electromagnetism",
-        "ar": "الكهرومغناطيسية"
+      "en": "Electromagnetism",
+      "ar": "الكهرومغناطيسية"
     },
     "question": {
       "en": "What is the production of a voltage difference across a conductor when a magnetic field is applied?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "The Hall Effect",
       "ar": "تأثير هول"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-027",
     "difficulty": "hard",
     "subcategory": {
-        "en": "AC Power Systems",
-        "ar": "أنظمة القدرة المتناوبة"
+      "en": "AC Power Systems",
+      "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
       "en": "Why is RMS used to measure AC voltage?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "It gives the equivalent DC value producing the same heating effect",
       "ar": "لأنها تعطي المكافئ الذي يولد نفس التأثير الحراري كالتيار المستمر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-028",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Signals & Communications",
-        "ar": "الإشارات والاتصالات"
+      "en": "Signals & Communications",
+      "ar": "الإشارات والاتصالات"
     },
     "question": {
       "en": "What does Shannon's Theorem define in communication theory?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "The maximum rate at which information can be transmitted over a channel",
       "ar": "أقصى معدل يمكن بثّ المعلومات عبره على قناة اتصال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-029",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "What does 'Op-Amp' stand for?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "Operational Amplifier",
       "ar": "المضخم العملياتي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "electrical-engineering-030",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Components & Electronics",
-        "ar": "المكونات والإلكترونيات"
+      "en": "Components & Electronics",
+      "ar": "المكونات والإلكترونيات"
     },
     "question": {
       "en": "What is the unit of measurement for inductance?",
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Henry",
       "ar": "هنري"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

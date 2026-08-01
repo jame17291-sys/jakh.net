@@ -16,6 +16,93 @@ interface SessionRow {
 
 export const PRIVILEGED_SESSION_IDLE_MS = 15 * 60 * 1_000;
 export const PRIVILEGED_SESSION_MAX_AGE_MS = 8 * 60 * 60 * 1_000;
+export const RETENTION_CLEANUP_BATCH_SIZE = 500;
+export const RETENTION_CLEANUP_MAX_PASSES = 10;
+
+export interface BoundedCleanupOperation {
+  name: string;
+  prepare: () => D1PreparedStatement;
+  probe: () => D1PreparedStatement;
+}
+
+export class RetentionCleanupSaturationError extends Error {
+  readonly code = "RETENTION_CLEANUP_SATURATED";
+
+  constructor(
+    readonly job: string,
+    readonly operations: readonly string[],
+    readonly perOperationCeiling: number,
+  ) {
+    super(
+      `RETENTION_CLEANUP_SATURATED job=${job} operations=${operations.join(",")} `
+      + `perOperationCeiling=${perOperationCeiling}`,
+    );
+    this.name = "RetentionCleanupSaturationError";
+  }
+}
+
+function cleanupResultChanges(
+  result: D1Result | undefined,
+  job: string,
+  operation: string,
+): number {
+  const changes = result?.meta?.changes;
+  if (typeof changes !== "number" || !Number.isSafeInteger(changes) || changes < 0) {
+    throw new Error(
+      `RETENTION_CLEANUP_RESULT_INVALID job=${job} operation=${operation}`,
+    );
+  }
+  return changes;
+}
+
+/**
+ * Each statement must affect no more than RETENTION_CLEANUP_BATCH_SIZE rows.
+ * Saturated batches are retried up to a finite ceiling, then one-row read-only
+ * probes distinguish an exact drain from a remaining alertable backlog.
+ */
+export async function runBoundedRetentionCleanup(
+  db: D1Database,
+  job: string,
+  operations: readonly BoundedCleanupOperation[],
+): Promise<void> {
+  if (operations.length < 1) return;
+
+  let saturatedOperations: string[] = [];
+  for (let pass = 1; pass <= RETENTION_CLEANUP_MAX_PASSES; pass += 1) {
+    const results = await db.batch(operations.map(({ prepare }) => prepare()));
+    if (results.length !== operations.length) {
+      throw new Error(`RETENTION_CLEANUP_RESULT_INVALID job=${job} operation=batch-size`);
+    }
+    saturatedOperations = operations.flatMap((operation, index) => (
+      cleanupResultChanges(results[index], job, operation.name) >= RETENTION_CLEANUP_BATCH_SIZE
+        ? [operation.name]
+        : []
+    ));
+    if (saturatedOperations.length === 0) return;
+  }
+
+  const saturated = operations.filter(({ name }) => saturatedOperations.includes(name));
+  const probes = await db.batch(saturated.map(({ probe }) => probe()));
+  if (probes.length !== saturated.length) {
+    throw new Error(`RETENTION_CLEANUP_RESULT_INVALID job=${job} operation=probe-size`);
+  }
+  const remainingOperations = saturated.flatMap((operation, index) => {
+    const rows = probes[index]?.results;
+    if (!Array.isArray(rows)) {
+      throw new Error(
+        `RETENTION_CLEANUP_RESULT_INVALID job=${job} operation=${operation.name}-probe`,
+      );
+    }
+    return rows.length > 0 ? [operation.name] : [];
+  });
+  if (remainingOperations.length === 0) return;
+
+  throw new RetentionCleanupSaturationError(
+    job,
+    remainingOperations,
+    RETENTION_CLEANUP_BATCH_SIZE * RETENTION_CLEANUP_MAX_PASSES,
+  );
+}
 
 export async function createSession(env: Env, userId: string): Promise<string> {
   const token = randomToken(32);
@@ -157,22 +244,38 @@ export async function enforceRateLimit(
 export async function cleanupExpiredSecurityState(env: Env): Promise<void> {
   const nowIso = new Date().toISOString();
   const nowSeconds = Math.floor(Date.now() / 1000);
-  await env.DB.batch([
-    env.DB.prepare(
-      `DELETE FROM sessions
-        WHERE token_hash IN (
-          SELECT token_hash FROM sessions
-           WHERE expires_at <= ?
-           LIMIT 500
-        )`,
-    ).bind(nowIso),
-    env.DB.prepare(
-      `DELETE FROM rate_limits
-        WHERE key IN (
-          SELECT key FROM rate_limits
-           WHERE expires_at < ?
-           LIMIT 500
-        )`,
-    ).bind(nowSeconds),
+  await runBoundedRetentionCleanup(env.DB, "security-state", [
+    {
+      name: "expired-sessions",
+      prepare: () => env.DB.prepare(
+        `DELETE FROM sessions
+          WHERE token_hash IN (
+            SELECT token_hash FROM sessions
+             WHERE expires_at <= ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(nowIso),
+      probe: () => env.DB.prepare(
+        `SELECT token_hash FROM sessions
+          WHERE expires_at <= ?
+          LIMIT 1`,
+      ).bind(nowIso),
+    },
+    {
+      name: "expired-rate-limits",
+      prepare: () => env.DB.prepare(
+        `DELETE FROM rate_limits
+          WHERE key IN (
+            SELECT key FROM rate_limits
+             WHERE expires_at < ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(nowSeconds),
+      probe: () => env.DB.prepare(
+        `SELECT key FROM rate_limits
+          WHERE expires_at < ?
+          LIMIT 1`,
+      ).bind(nowSeconds),
+    },
   ]);
 }

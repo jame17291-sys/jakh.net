@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="اتبع تلميحات رئيس الجواسيس الذكي واكشف العملاء السريين في نسخة كودنيمز المجانية على المتصفح، بلا تنزيل أو تسجيل." />
+  <title>كودنيمز أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/codenames/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/codenames" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/codenames/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/codenames" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="كودنيمز أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="اتبع تلميحات رئيس الجواسيس الذكي واكشف العملاء السريين في نسخة كودنيمز المجانية على المتصفح، بلا تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/codenames/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="كودنيمز أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="اتبع تلميحات رئيس الجواسيس الذكي واكشف العملاء السريين في نسخة كودنيمز المجانية على المتصفح، بلا تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <style>
+    /* scoped codenames styles */
+    :root {
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
+      --blue-agent: #356f9e;
+      --red-agent: #b94a58;
+    }
+
+    #codenamesSection {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cn-clue-bar {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cn-clue-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gilt);
+      letter-spacing: 0.05em;
+      flex: 1;
+    }
+
+    .cn-clue-label span {
+      color: var(--text);
+    }
+
+    .cn-score-bar {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .cn-score-red {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    .cn-score-blue {
+      color: #4A90D9;
+      font-weight: 700;
+    }
+
+    .cn-grid {
+      display: grid;
+      grid-template-rows: repeat(5, auto);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      direction: ltr;
+    }
+
+    .cn-grid-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .cn-card {
+      min-width: 0;
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      text-align: center;
+      cursor: pointer;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      color: var(--text);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.3s ease;
+      user-select: none;
+      letter-spacing: 0.02em;
+      overflow-wrap: anywhere;
+      unicode-bidi: isolate;
+    }
+
+    .cn-card:not(.revealed):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(32, 50, 71, 0.12);
+      border-color: color-mix(in srgb, var(--accent) 35%, var(--line-strong));
+    }
+
+    .cn-card.revealed {
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    .cn-card.revealed-red {
+      background: var(--red-agent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .cn-card.revealed-blue {
+      background: var(--blue-agent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .cn-card.revealed-black {
+      background: #111;
+      color: #fff;
+      border-color: #333;
+    }
+
+    .cn-card.revealed-neutral {
+      background: #f2d897;
+      color: var(--text);
+      border-color: transparent;
+    }
+
+    .cn-card.flip-anim {
+      animation: cardFlip 0.35s ease forwards;
+    }
+
+    @keyframes cardFlip {
+      0%   { transform: scaleX(1); }
+      50%  { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    .cn-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .cn-btn {
+      padding: 0.6rem 1.2rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--panel);
+      color: var(--text);
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+
+    .cn-btn:hover {
+      background: var(--bg-soft);
+      border-color: var(--accent);
+    }
+
+    .cn-btn:active { transform: scale(0.97); }
+
+    .cn-btn-accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .cn-btn-accent:hover {
+      background: #1e588e;
+      border-color: #1e588e;
+    }
+
+    .cn-status-msg {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 0.4rem 0;
+      min-height: 1.4em;
+      transition: color 0.2s;
+    }
+
+    .cn-status-msg.highlight {
+      color: var(--text);
+    }
+
+    .cn-turn-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 99px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .cn-turn-badge.human-turn {
+      background: rgba(232,97,60,0.2);
+      color: #7f2718;
+      border: 1px solid rgba(232,97,60,0.4);
+    }
+
+    .cn-turn-badge.ai-turn {
+      background: rgba(74,144,217,0.2);
+      color: #185581;
+      border: 1px solid rgba(74,144,217,0.4);
+    }
+
+    /* Modal overlay */
+    .cn-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(32, 50, 71, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    .cn-modal-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cn-modal-overlay[hidden] {
+      display: none;
+    }
+
+    .cn-modal {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      transform: translateY(20px);
+      transition: transform 0.25s;
+    }
+
+    .cn-modal-overlay.visible .cn-modal {
+      transform: translateY(0);
+    }
+
+    .cn-modal h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .cn-modal p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .cn-modal-icon {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .cn-guesses-left {
+      font-size: 0.8125rem;
+      color: var(--gilt);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cn-ai-thinking {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #4A90D9;
+      font-size: 0.875rem;
+    }
+
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Codenames",
+  "description": "Follow an AI clue giver and uncover the secret agents in this free browser version of Codenames.",
+  "url": "https://jakh.net/codenames",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="codenames" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture>
+        <source srcset="/assets/logo.webp" type="image/webp"/>
+        <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+      <a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a>
+    </nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">اجتماعية · استنتاج</p>
+        <h1 data-i18n="heroTitle">🕵 كودنيمز</h1>
+        <p class="hero-text" data-i18n="heroText">يمنحك رئيس الجواسيس الذكي تلميحات. اعثر على العملاء التسعة وتجنب القاتل.</p>
+      </div>
+    </section>
+
+    <section class="shell section-block" id="codenamesSection">
+      <!-- Codenames UI injected here -->
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+      <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span data-i18n="instagramName">إنستغرام</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+          <span data-i18n="facebookName">فيسبوك</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script id="codenames-i18n">
+  const CodenamesConcepts = [
+    ['AFRICA','أفريقيا'],['AGENT','عميل'],['AIR','هواء'],['ALIEN','فضائي'],['ALPS','جبال الألب'],
+    ['ANCHOR','مرساة'],['ANGEL','ملاك'],['APPLE','تفاحة'],['ARCH','قوس'],['ARCTIC','القطب الشمالي'],
+    ['BACK','ظهر'],['BALL','كرة'],['BAND','فرقة'],['BANK','بنك'],['BASE','قاعدة'],
+    ['BEAM','شعاع'],['BEAR','دب'],['BED','سرير'],['BELL','جرس'],['BIRD','طائر'],
+    ['BLOCK','كتلة'],['BOARD','لوح'],['BOLT','صاعقة'],['BOMB','قنبلة'],['BONE','عظم'],
+    ['BOOK','كتاب'],['BOOT','جزمة'],['BOX','صندوق'],['BRIDGE','جسر'],['BRUSH','فرشاة'],
+    ['BUG','حشرة'],['CAKE','كعكة'],['CAP','قبعة'],['CAR','سيارة'],['CARD','بطاقة'],
+    ['CASH','نقد'],['CASTLE','قلعة'],['CAT','قطة'],['CHAIN','سلسلة'],['CHANGE','تغيير'],
+    ['CHARGE','شحنة'],['CHEST','صدر'],['CHIP','رقاقة'],['CITY','مدينة'],['CLIFF','جرف'],
+    ['CLOUD','سحابة'],['COAT','معطف'],['COIN','عملة'],['COLD','برد'],['COMIC','قصة مصورة'],
+    ['COOK','طباخ'],['COURT','ملعب'],['CRANE','رافعة'],['CROSS','صليب'],['CROWN','تاج'],
+    ['CUP','كوب'],['DARK','ظلام'],['DATE','تاريخ'],['DAY','يوم'],['DECK','سطح'],
+    ['DEEP','عميق'],['DESK','مكتب'],['DIAMOND','ألماس'],['DICE','نرد'],['DISH','طبق'],
+    ['DOCK','رصيف'],['DOG','كلب'],['DOOR','باب'],['DRAFT','مسودة'],['DRAGON','تنين'],
+    ['DRESS','فستان'],['DRILL','مثقاب'],['DROP','قطرة'],['DRUM','طبل'],['DUCK','بطة'],
+    ['DUST','غبار'],['EAGLE','نسر'],['EARTH','الأرض'],['ECHO','صدى'],['EGG','بيضة'],
+    ['ENGINE','محرك'],['FACE','وجه'],['FALL','سقوط'],['FAN','مروحة'],['FIELD','حقل'],
+    ['FIGURE','شكل'],['FILE','ملف'],['FIRE','نار'],['FISH','سمكة'],['FLAG','علم'],
+    ['FLASH','وميض'],['FLOOR','أرضية'],['FLY','ذبابة'],['FORCE','قوة'],['FOREST','غابة'],
+    ['FORK','شوكة'],['FRAME','إطار'],['GATE','بوابة'],['GLASS','زجاج'],['GOLD','ذهب'],
+    ['GRAPE','عنب'],['GRASS','عشب'],['GRAVE','قبر'],['GRID','شبكة'],['GROUND','أرض'],
+    ['GUARD','حارس'],['GUIDE','دليل'],['GUN','بندقية'],['HAMMER','مطرقة'],['HAND','يد'],
+    ['HEAD','رأس'],['HEART','قلب'],['HOOK','خطاف'],['HORN','بوق'],['HORSE','حصان'],
+    ['HOUSE','منزل'],['ICE','جليد'],['IRON','حديد'],['JAM','مربى'],['KEY','مفتاح'],
+    ['KING','ملك'],['KNIFE','سكين'],['KNIGHT','فارس'],['LAMP','مصباح'],['LEAF','ورقة'],
+    ['LIGHT','ضوء'],['LION','أسد'],['LOG','جذع'],['LOOP','حلقة'],['MAP','خريطة'],
+    ['MARK','علامة'],['MASK','قناع'],['MATCH','عود ثقاب'],['MINE','منجم'],['MIRROR','مرآة'],
+    ['MOON','قمر'],['NET','شبكة صيد'],['NIGHT','ليل'],['NOTE','نغمة'],['OIL','زيت'],
+    ['PALM','نخلة'],['PAN','مقلاة'],['PARK','حديقة'],['PASS','ممر'],['PATCH','رقعة'],
+    ['PATH','مسار'],['PEAK','قمة'],['PEN','قلم'],['PIPE','أنبوب'],['PLATE','صحن'],
+    ['POINT','نقطة'],['POOL','مسبح'],['POST','عمود'],['PRESS','مطبعة'],['QUEEN','ملكة'],
+    ['RAIL','سكة'],['RING','خاتم'],['ROCK','صخرة'],['ROPE','حبل'],['ROSE','وردة'],
+    ['ROUND','جولة'],['RUN','ركض'],['SAIL','شراع'],['SCALE','ميزان'],['SEA','بحر'],
+    ['SEED','بذرة'],['SHADOW','ظل'],['SHELL','صدفة'],['SHIELD','درع'],['SHIP','سفينة'],
+    ['SHOE','حذاء'],['SHOT','طلقة'],['SIGN','إشارة'],['SILVER','فضة'],['SKY','سماء'],
+    ['SLICE','شريحة'],['SLIDE','زلاقة'],['SNOW','ثلج'],['SOLDIER','جندي'],['SPACE','فضاء'],
+    ['SPARK','شرارة'],['SPEED','سرعة'],['SPIKE','شوكة حادة'],['SQUARE','مربع'],['STAR','نجمة'],
+    ['STONE','حجر'],['STORM','عاصفة'],['STREAM','جدول'],['STRIKE','ضربة'],['STRING','وتر'],
+    ['SUN','شمس'],['SWITCH','مبدّل'],['TABLE','طاولة'],['TANK','دبابة'],['TIME','وقت'],
+    ['TRACK','مضمار'],['TREE','شجرة'],['TURN','دور'],['VAULT','خزنة'],['VINE','كرمة'],
+    ['WALL','جدار'],['WATCH','ساعة'],['WAVE','موجة'],['WELL','بئر'],['WIND','ريح'],
+    ['WING','جناح'],['WIRE','سلك'],['WOLF','ذئب'],['WOOD','خشب'],['YARD','ساحة']
+  ];
+  const CodenamesClues = [
+    ['NATURE','الطبيعة'],['ANIMAL','حيوان'],['TOOL','أداة'],['WATER','ماء'],['WEATHER','طقس'],
+    ['METAL','معدن'],['ROYAL','ملكي'],['DARKNESS','ظلام'],['FIRE','نار'],['SKY','سماء'],
+    ['GROUND','أرض'],['SPEED','سرعة'],['STRUCTURE','بناء'],['MILITARY','عسكري'],['COLD','برد'],
+    ['MAGIC','سحر'],['BODY','جسم'],['TROPICAL','استوائي'],['SHARP','حاد'],['ROUND','دائري'],
+    ['LIGHT','ضوء'],['SPORT','رياضة'],['MUSIC','موسيقى'],['FOOD','طعام'],['TRAVEL','سفر'],
+    ['TIME','وقت'],['MONEY','مال'],['GAME','لعبة'],['POWER','طاقة'],['CLOTHING','ملابس'],
+    ['SILENT','صامت'],['PASS','تمرير'],['SIGNAL','إشارة']
+  ];
+  const codenamesEn = {
+    metaTitle: 'Codenames Online — Free Browser Game | JAKH',
+    metaDescription: 'Follow an AI clue giver and uncover the secret agents in this free browser version of Codenames. Play instantly with no download or sign-up.',
+    metaImageAlt: 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games',
+    heroEyebrow: 'Social · Deduction',
+    heroTitle: '🕵 Codenames',
+    heroText: 'The AI Spymaster gives you clues. Find all 9 secret agents before time runs out — avoid the assassin.',
+    waitingClue: 'Waiting for AI Spymaster…',
+    bluePlaying: 'AI Blue team is playing…',
+    clueLabel: 'CLUE:',
+    yourTurn: 'YOUR TURN',
+    aiTurn: 'AI TURN',
+    passTurn: 'Pass Turn',
+    newGame: 'New Game',
+    gameMessage: 'Game message',
+    playAgain: 'Play Again',
+    aiThinking: 'AI Spymaster is thinking…',
+    guessesAvailable: ({ count }) => `You have ${count} guess${Number(count) === 1 ? '' : 'es'}.`,
+    guessesRemaining: ({ count }) => `${count} guess${Number(count) === 1 ? '' : 'es'} remaining.`,
+    wonTitle: 'You Won!',
+    wonDesc: 'All 9 red agents found. Outstanding fieldwork, Agent.',
+    gameOverTitle: 'Game Over',
+    assassinDesc: 'You hit the assassin. Mission failed.',
+    blueWonDesc: 'The Blue team revealed all their agents first. Better luck next time.',
+    boardLabel: 'Codenames word grid',
+    hiddenCardLabel: 'Word {index}: {word}',
+    revealedCardLabel: 'Word {index}: {word}, revealed as {role}',
+    roleRed: 'a red agent',
+    roleBlue: 'a blue agent',
+    roleBlack: 'the assassin',
+    roleNeutral: 'a neutral bystander'
+  };
+  const codenamesAr = {
+    metaTitle: 'كودنيمز أونلاين — لعبة متصفح مجانية | JAKH',
+    metaDescription: 'اتبع تلميحات رئيس الجواسيس الذكي واكشف العملاء السريين في نسخة كودنيمز المجانية على المتصفح، بلا تنزيل أو تسجيل.',
+    metaImageAlt: 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب',
+    heroEyebrow: 'اجتماعية · استنتاج',
+    heroTitle: '🕵 كودنيمز',
+    heroText: 'يمنحك رئيس الجواسيس الذكي تلميحات. اعثر على العملاء التسعة وتجنب القاتل.',
+    waitingClue: 'بانتظار تلميح رئيس الجواسيس…',
+    bluePlaying: 'فريق الذكاء الاصطناعي الأزرق يلعب…',
+    clueLabel: 'التلميح:',
+    yourTurn: 'دورك',
+    aiTurn: 'دور الذكاء الاصطناعي',
+    passTurn: 'إنهاء الدور',
+    newGame: 'لعبة جديدة',
+    gameMessage: 'رسالة اللعبة',
+    playAgain: 'العب مجدداً',
+    aiThinking: 'رئيس الجواسيس يفكر…',
+    guessesAvailable: ({ count }) => `لديك ${count} محاولة.`,
+    guessesRemaining: ({ count }) => `بقيت ${count} محاولة.`,
+    wonTitle: 'فزت!',
+    wonDesc: 'عثرت على العملاء الحمر التسعة. عمل ميداني ممتاز أيها العميل.',
+    gameOverTitle: 'انتهت اللعبة',
+    assassinDesc: 'اخترت القاتل. فشلت المهمة.',
+    blueWonDesc: 'كشف الفريق الأزرق جميع عملائه أولاً. حظاً أوفر في المرة القادمة.',
+    boardLabel: 'شبكة كلمات كودنيمز',
+    hiddenCardLabel: 'الكلمة {index}: {word}',
+    revealedCardLabel: 'الكلمة {index}: {word}، كُشفت بصفتها {role}',
+    roleRed: 'عميلاً أحمر',
+    roleBlue: 'عميلاً أزرق',
+    roleBlack: 'القاتل',
+    roleNeutral: 'شخصاً محايداً'
+  };
+  for (const [id, ar] of CodenamesConcepts) {
+    codenamesEn[`word.${id}`] = id;
+    codenamesAr[`word.${id}`] = ar;
+  }
+  for (const [id, ar] of CodenamesClues) {
+    codenamesEn[`clue.${id}`] = id;
+    codenamesAr[`clue.${id}`] = ar;
+  }
+  JakhGameI18n.register('codenames', { en: codenamesEn, ar: codenamesAr });
+  </script>
+
+  <!-- ============================================================
+       CODENAMES ENGINE — pure logic, no DOM
+       ============================================================ -->
+  <script id="codenames-engine">
+  const CodenamesEngine = (() => {
+    // Stable concept IDs. Display labels are resolved independently per locale.
+    const WORDS = CodenamesConcepts.map(([id]) => id);
+
+    // Semantic category map for clue generation
+    // clue word -> list of WORDS it semantically relates to
+    const CLUE_CATEGORIES = {
+      'NATURE':   ['TREE','FOREST','LEAF','SEED','VINE','GRASS','FLOWER','STREAM','SEA','EARTH','MOON','SUN','SNOW','STORM','WIND','WAVE','ROCK','STONE'],
+      'ANIMAL':   ['BEAR','BIRD','CAT','DOG','DUCK','EAGLE','FISH','HORSE','LION','WOLF','DRAGON'],
+      'TOOL':     ['HAMMER','DRILL','BRUSH','KNIFE','FORK','PAN','PUMP','GEAR','PIPE','WIRE','HOOK'],
+      'WATER':    ['SEA','WAVE','STREAM','POOL','SAIL','SHIP','DOCK','ANCHOR','NET','FISH','DEEP'],
+      'WEATHER':  ['SNOW','STORM','WIND','CLOUD','ICE','COLD','FLASH','RAIN','DUST'],
+      'METAL':    ['IRON','GOLD','SILVER','STEEL','COIN','CHAIN','BOLT','BLADE'],
+      'ROYAL':    ['KING','QUEEN','CROWN','KNIGHT','CASTLE','COURT','GUARD','SHIELD'],
+      'DARKNESS': ['NIGHT','SHADOW','DARK','MASK','GRAVE','CAVE','BLACK','SMOKE'],
+      'FIRE':     ['FIRE','SPARK','FLAME','TORCH','ASH','MATCH','BURN','FLASH'],
+      'SKY':      ['SKY','AIR','CLOUD','EAGLE','WING','FLY','STAR','MOON','SUN','SPACE'],
+      'GROUND':   ['EARTH','GROUND','ROCK','STONE','MINE','BASE','FLOOR','FIELD','PATH'],
+      'SPEED':    ['SPEED','FLASH','RUN','RACE','BOLT','TRACK','SPIN','DART'],
+      'STRUCTURE':['ARCH','BRIDGE','WALL','GATE','TOWER','FRAME','BLOCK','POST','RAIL','DOOR'],
+      'MILITARY': ['SOLDIER','GUN','TANK','BOMB','MINE','GUARD','SHIELD','FORCE','STRIKE','BULLET'],
+      'COLD':     ['ICE','SNOW','COLD','ARCTIC','FROST','FREEZE'],
+      'MAGIC':    ['DRAGON','ANGEL','MIRROR','CRYSTAL','GHOST','SHADOW','MASK'],
+      'BODY':     ['HEAD','HAND','FACE','HEART','BONE','EAR','ARM','BACK'],
+      'TROPICAL': ['PALM','VINE','GRAPE','LEAF','AFRICA','SNAKE'],
+      'SHARP':    ['KNIFE','SPIKE','NEEDLE','BLADE','HOOK','DART','THORN'],
+      'ROUND':    ['BALL','RING','WHEEL','DRUM','CIRCLE','DOME','LOOP','ROUND'],
+      'LIGHT':    ['LAMP','BEAM','FLASH','STAR','SPARK','TORCH','LIGHT','SUN','GLOW'],
+      'SPORT':    ['BALL','COURT','TRACK','RACE','RING','FIELD','CAP','NET','SHOT'],
+      'MUSIC':    ['DRUM','HORN','STRING','NOTE','BAND','BEAT','ECHO'],
+      'FOOD':     ['CAKE','APPLE','GRAPE','EGG','FISH','DISH','PAN','COOK','JAM'],
+      'TRAVEL':   ['MAP','GUIDE','PATH','RAIL','SHIP','CAR','PASS','ROAD','TRACK'],
+      'TIME':     ['DAY','NIGHT','MOON','SUN','CLOCK','DATE','MARK','TURN'],
+      'MONEY':    ['CASH','COIN','GOLD','SILVER','BANK','CARD','CHARGE','PRESS'],
+      'GAME':     ['DICE','CARD','MATCH','KING','QUEEN','KNIGHT','BOARD','SCORE'],
+      'POWER':    ['CHARGE','FORCE','STRIKE','BOLT','SPARK','ENGINE','PUMP','DRIVE'],
+      'CLOTHING': ['COAT','BOOT','CAP','DRESS','SHOE','MASK','BAND'],
+      'SILENT':   ['SHADOW','ECHO','GHOST','WHISPER','FADE','DRIFT']
+    };
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function newGame() {
+      const selected = shuffle(WORDS).slice(0, 25);
+      const shuffledIdx = shuffle([...Array(25).keys()]);
+      const assignments = new Array(25).fill('neutral');
+
+      // 9 red, 8 blue, 1 black, 7 neutral
+      for (let i = 0; i < 9;  i++) assignments[shuffledIdx[i]]       = 'red';
+      for (let i = 9; i < 17; i++) assignments[shuffledIdx[i]]       = 'blue';
+      assignments[shuffledIdx[17]] = 'black';
+      // rest stay neutral
+
+      return {
+        grid: selected,
+        assignments,
+        revealed: new Array(25).fill(false),
+        turn: 'red',       // red = human's turn
+        redLeft: 9,
+        blueLeft: 8,
+        status: 'playing', // 'playing' | 'won' | 'lost'
+        clue: null,
+        clueCount: 0,
+        guessesLeft: 0
+      };
+    }
+
+    function generateClue(state) {
+      // Collect unrevealed red word indices
+      const redWords = [];
+      for (let i = 0; i < 25; i++) {
+        if (state.assignments[i] === 'red' && !state.revealed[i]) {
+          redWords.push(state.grid[i]);
+        }
+      }
+      if (redWords.length === 0) return { word: 'PASS', count: 0 };
+
+      // Find best clue category that covers most red words (avoid black)
+      const blackWords = [];
+      for (let i = 0; i < 25; i++) {
+        if (state.assignments[i] === 'black' && !state.revealed[i]) {
+          blackWords.push(state.grid[i]);
+        }
+      }
+
+      let bestClue = null;
+      let bestCount = 0;
+
+      const clueEntries = Object.entries(CLUE_CATEGORIES);
+      const shuffledClues = shuffle(clueEntries);
+
+      for (const [clueWord, relatedWords] of shuffledClues) {
+        // Skip if clue word is in the grid
+        if (state.grid.includes(clueWord)) continue;
+
+        // Count how many red words this clue covers
+        const redMatches = redWords.filter(w => relatedWords.includes(w));
+        // Count black matches (risky — avoid)
+        const blackMatches = blackWords.filter(w => relatedWords.includes(w));
+
+        if (blackMatches.length > 0) continue; // never risk the assassin
+
+        if (redMatches.length > bestCount) {
+          bestCount = redMatches.length;
+          bestClue = clueWord;
+        }
+      }
+
+      if (!bestClue) {
+        // Fallback: pick a random clue word not in the grid
+        const fallbacks = Object.keys(CLUE_CATEGORIES).filter(w => !state.grid.includes(w));
+        bestClue = fallbacks[Math.floor(Math.random() * fallbacks.length)] || 'SIGNAL';
+        bestCount = 1;
+      }
+
+      // Cap count at min(bestCount, redLeft, 3) but at least 1
+      const count = Math.min(Math.max(bestCount, 1), Math.min(state.redLeft, 3));
+
+      return { word: bestClue, count };
+    }
+
+    function reveal(state, index) {
+      if (state.revealed[index] || state.status !== 'playing') return state;
+      if (state.turn !== 'red') return state;
+
+      const s = {
+        ...state,
+        revealed: [...state.revealed],
+        redLeft: state.redLeft,
+        blueLeft: state.blueLeft,
+        guessesLeft: state.guessesLeft
+      };
+
+      s.revealed[index] = true;
+      const type = s.assignments[index];
+
+      if (type === 'black') {
+        s.status = 'lost';
+        s.loseReason = 'assassin';
+        return s;
+      }
+
+      if (type === 'red') {
+        s.redLeft--;
+        s.guessesLeft--;
+        if (s.redLeft === 0) {
+          s.status = 'won';
+          return s;
+        }
+        // If guesses used up, end turn
+        if (s.guessesLeft <= 0) {
+          s.turn = 'blue';
+          s.clue = null;
+          s.clueCount = 0;
+        }
+        return s;
+      }
+
+      // Hit neutral or blue — turn ends
+      if (type === 'blue') s.blueLeft--;
+      s.turn = 'blue';
+      s.clue = null;
+      s.clueCount = 0;
+      s.guessesLeft = 0;
+      return s;
+    }
+
+    function endTurn(state) {
+      // Human passes — AI reveals one blue card
+      const s = {
+        ...state,
+        revealed: [...state.revealed],
+        turn: 'blue'
+      };
+      s.clue = null;
+      s.clueCount = 0;
+      s.guessesLeft = 0;
+      return aiTakeTurn(s);
+    }
+
+    function aiTakeTurn(state) {
+      if (state.status !== 'playing') return state;
+
+      const s = {
+        ...state,
+        revealed: [...state.revealed],
+        blueLeft: state.blueLeft
+      };
+
+      // Find unrevealed blue cards
+      const blueUnrevealed = [];
+      for (let i = 0; i < 25; i++) {
+        if (s.assignments[i] === 'blue' && !s.revealed[i]) blueUnrevealed.push(i);
+      }
+
+      if (blueUnrevealed.length > 0) {
+        // Reveal first available blue card
+        const pick = blueUnrevealed[0];
+        s.revealed[pick] = true;
+        s.blueLeft--;
+
+        if (s.blueLeft === 0) {
+          s.status = 'lost';
+          s.loseReason = 'blue';
+        }
+      }
+
+      s.turn = 'red';
+      return s;
+    }
+
+    function isGameOver(state) {
+      return state.status !== 'playing';
+    }
+
+    return { newGame, generateClue, reveal, endTurn, aiTakeTurn, isGameOver };
+  })();
+  </script>
+
+  <!-- ============================================================
+       CODENAMES UI
+       ============================================================ -->
+  <script id="codenames-ui">
+  (() => {
+    const section = document.getElementById('codenamesSection');
+    const i18n = JakhGameI18n;
+    let state = null;
+    let isAIThinking = false;
+    let statusView = null;
+
+    function t(key, values) {
+      return i18n.t(key, values);
+    }
+
+    function wordLabel(id) {
+      return t(`word.${id}`);
+    }
+
+    function clueLabel(id) {
+      return t(`clue.${id}`);
+    }
+
+    function buildUI() {
+      section.innerHTML = `
+        <div class="cn-clue-bar">
+          <div class="cn-clue-label" id="cnClueDisplay"></div>
+          <div class="cn-score-bar">
+            <span>&#128308; <span class="cn-score-red" id="cnRedLeft">9</span></span>
+            <span>&#128309; <span class="cn-score-blue" id="cnBlueLeft">8</span></span>
+            <span id="cnTurnBadge" class="cn-turn-badge human-turn"></span>
+          </div>
+        </div>
+        <div class="cn-grid" id="cnGrid" role="grid" aria-rowcount="5" aria-colcount="5" dir="ltr"></div>
+        <div class="cn-actions">
+          <button class="cn-btn cn-btn-accent" id="cnPassBtn" disabled data-i18n="passTurn">إنهاء الدور</button>
+          <button class="cn-btn" id="cnNewGameBtn" data-i18n="newGame">لعبة جديدة</button>
+          <span class="cn-status-msg" id="cnStatus"></span>
+        </div>
+        <div class="cn-modal-overlay" id="cnModal" hidden>
+          <div class="cn-modal" role="dialog" aria-modal="true" aria-labelledby="cnModalTitle" aria-describedby="cnModalDesc">
+            <span class="cn-modal-icon" id="cnModalIcon"></span>
+            <h2 id="cnModalTitle">${t('gameMessage')}</h2>
+            <p id="cnModalDesc"></p>
+            <button class="cn-btn cn-btn-accent" id="cnModalBtn" data-i18n="playAgain">العب مجدداً</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('cnGrid').setAttribute('aria-label', t('boardLabel'));
+
+      document.getElementById('cnPassBtn').addEventListener('click', onPass);
+      document.getElementById('cnNewGameBtn').addEventListener('click', startNewGame);
+      document.getElementById('cnModalBtn').addEventListener('click', () => {
+        const modal = document.getElementById('cnModal');
+        modal.classList.remove('visible');
+        modal.hidden = true;
+        startNewGame();
+        const firstCard = document.querySelector('#cnGrid .cn-card:not(:disabled)');
+        (firstCard || document.getElementById('cnNewGameBtn')).focus();
+      });
+    }
+
+    function startNewGame() {
+      state = CodenamesEngine.newGame();
+      isAIThinking = false;
+      statusView = null;
+      document.getElementById('cnModal').classList.remove('visible');
+      document.getElementById('cnModal').hidden = true;
+      renderState();
+      aiGenerateClue();
+    }
+
+    function aiGenerateClue() {
+      if (!state || state.status !== 'playing' || state.turn !== 'red') return;
+
+      setStatus('aiThinking', {}, true);
+      isAIThinking = true;
+      renderGrid(); // disable clicks while thinking
+
+      const clue = CodenamesEngine.generateClue(state);
+      state = {
+        ...state,
+        clue: clue.word,
+        clueCount: clue.count,
+        guessesLeft: clue.count + 1 // classic codenames: count + 1 guesses
+      };
+      isAIThinking = false;
+      renderState();
+      setStatus('guessesAvailable', { count: state.guessesLeft });
+      document.getElementById('cnPassBtn').disabled = false;
+    }
+
+    function renderState() {
+      updateScoreBar();
+      renderGrid();
+      updateClueDisplay();
+      updateTurnBadge();
+    }
+
+    function updateScoreBar() {
+      const redEl  = document.getElementById('cnRedLeft');
+      const blueEl = document.getElementById('cnBlueLeft');
+      if (redEl)  redEl.textContent  = i18n.number(state.redLeft);
+      if (blueEl) blueEl.textContent = i18n.number(state.blueLeft);
+    }
+
+    function updateClueDisplay() {
+      const el = document.getElementById('cnClueDisplay');
+      if (!el) return;
+      if (state.clue) {
+        const clue = document.createElement('span');
+        clue.textContent = clueLabel(state.clue);
+        el.replaceChildren(
+          document.createTextNode(`${t('clueLabel')} `),
+          clue,
+          document.createTextNode(` × ${i18n.number(state.clueCount)}`)
+        );
+      } else if (state.turn === 'red') {
+        el.textContent = t('waitingClue');
+      } else {
+        el.textContent = t('bluePlaying');
+      }
+    }
+
+    function updateTurnBadge() {
+      const badge = document.getElementById('cnTurnBadge');
+      if (!badge) return;
+      if (state.turn === 'red') {
+        badge.className = 'cn-turn-badge human-turn';
+        badge.textContent = t('yourTurn');
+      } else {
+        badge.className = 'cn-turn-badge ai-turn';
+        badge.textContent = t('aiTurn');
+      }
+    }
+
+    function captureGridFocus() {
+      const grid = document.getElementById('cnGrid');
+      const active = document.activeElement;
+      if (!grid || !active || !grid.contains(active)) return null;
+      const card = active.closest('.cn-card');
+      if (!card) return null;
+      return {
+        conceptId: card.dataset.conceptId,
+        index: Array.from(grid.querySelectorAll('.cn-card')).indexOf(card),
+      };
+    }
+
+    function restoreGridFocus(snapshot) {
+      if (!snapshot) return;
+      const grid = document.getElementById('cnGrid');
+      const cards = Array.from(grid.querySelectorAll('.cn-card'));
+      let target = cards.find(card => (
+        card.dataset.conceptId === snapshot.conceptId && !card.disabled
+      ));
+
+      if (!target) {
+        for (let offset = 1; offset <= cards.length; offset++) {
+          const candidate = cards[(snapshot.index + offset) % cards.length];
+          if (candidate && !candidate.disabled) {
+            target = candidate;
+            break;
+          }
+        }
+      }
+
+      if (!target && state.status === 'playing' && state.turn === 'red') {
+        const pass = document.getElementById('cnPassBtn');
+        if (!pass.disabled) target = pass;
+      }
+      (target || document.getElementById('cnNewGameBtn')).focus();
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('cnGrid');
+      if (!grid) return;
+      const focusSnapshot = captureGridFocus();
+      grid.innerHTML = '';
+      grid.setAttribute('aria-label', t('boardLabel'));
+
+      let row;
+      for (let i = 0; i < 25; i++) {
+        if (i % 5 === 0) {
+          row = document.createElement('div');
+          row.className = 'cn-grid-row';
+          row.setAttribute('role', 'row');
+          row.setAttribute('aria-rowindex', String(Math.floor(i / 5) + 1));
+          grid.appendChild(row);
+        }
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'cn-card';
+        card.setAttribute('role', 'gridcell');
+        card.setAttribute('aria-colindex', String((i % 5) + 1));
+        card.setAttribute('dir', 'auto');
+        card.dataset.conceptId = state.grid[i];
+        const label = wordLabel(state.grid[i]);
+        card.textContent = label;
+
+        if (state.revealed[i]) {
+          card.classList.add('revealed', `revealed-${state.assignments[i]}`);
+          card.disabled = true;
+          const roleKey = state.assignments[i] === 'red'
+            ? 'roleRed'
+            : state.assignments[i] === 'blue'
+              ? 'roleBlue'
+              : state.assignments[i] === 'black'
+                ? 'roleBlack'
+                : 'roleNeutral';
+          card.setAttribute('aria-label', t('revealedCardLabel', {
+            index: i18n.number(i + 1),
+            word: label,
+            role: t(roleKey)
+          }));
+        } else {
+          card.setAttribute('aria-label', t('hiddenCardLabel', {
+            index: i18n.number(i + 1),
+            word: label
+          }));
+          // Only allow clicks if it's the human's turn and clue has been given and not thinking
+          const canClick = state.turn === 'red' && state.clue && !isAIThinking && state.status === 'playing' && state.guessesLeft > 0;
+          if (canClick) {
+            card.addEventListener('click', () => onCardClick(i));
+          } else {
+            card.disabled = true;
+          }
+        }
+
+        row.appendChild(card);
+      }
+      restoreGridFocus(focusSnapshot);
+    }
+
+    function onCardClick(index) {
+      if (isAIThinking || state.status !== 'playing' || state.turn !== 'red' || !state.clue) return;
+      if (state.guessesLeft <= 0) return;
+
+      const card = document.querySelectorAll('#cnGrid .cn-card')[index];
+      card.classList.add('flip-anim');
+
+      setTimeout(() => {
+        state = CodenamesEngine.reveal(state, index);
+
+        if (CodenamesEngine.isGameOver(state)) {
+          renderState();
+          showGameOver();
+          return;
+        }
+
+        renderState();
+
+        if (state.turn === 'blue') {
+          // Human ended their turn (neutral/blue hit or guesses used)
+          document.getElementById('cnPassBtn').disabled = true;
+          setStatus('bluePlaying', {}, true);
+          aiPlayTurn();
+        } else {
+          // Still red turn
+          const remaining = state.guessesLeft;
+          setStatus('guessesRemaining', { count: remaining });
+        }
+      }, 180);
+    }
+
+    function onPass() {
+      if (state.status !== 'playing' || state.turn !== 'red') return;
+      document.getElementById('cnPassBtn').disabled = true;
+      state = { ...state, turn: 'blue', clue: null, clueCount: 0, guessesLeft: 0 };
+      updateTurnBadge();
+      updateClueDisplay();
+      setStatus('bluePlaying', {}, true);
+      aiPlayTurn();
+    }
+
+    function aiPlayTurn() {
+      if (state.status !== 'playing') return;
+
+      state = CodenamesEngine.aiTakeTurn(state);
+      renderState();
+
+      if (CodenamesEngine.isGameOver(state)) {
+        showGameOver();
+        return;
+      }
+
+      // Back to human's turn — generate new clue
+      setStatus(null);
+      document.getElementById('cnPassBtn').disabled = true;
+      aiGenerateClue();
+    }
+
+    function setStatus(key, values = {}, thinking = false) {
+      statusView = key ? { key, values, thinking } : null;
+      renderStatus();
+    }
+
+    function renderStatus() {
+      const el = document.getElementById('cnStatus');
+      if (!el) return;
+      el.replaceChildren();
+      if (!statusView) {
+        el.className = 'cn-status-msg';
+        return;
+      }
+      const content = statusView.thinking ? document.createElement('span') : el;
+      if (statusView.thinking) content.className = 'cn-ai-thinking';
+      content.textContent = t(statusView.key, statusView.values);
+      if (content !== el) el.appendChild(content);
+      el.className = 'cn-status-msg highlight';
+    }
+
+    function showGameOver(open = true) {
+      const modal  = document.getElementById('cnModal');
+      const icon   = document.getElementById('cnModalIcon');
+      const title  = document.getElementById('cnModalTitle');
+      const desc   = document.getElementById('cnModalDesc');
+
+      if (state.status === 'won') {
+        icon.textContent  = '🏆';
+        title.textContent = t('wonTitle');
+        desc.textContent  = t('wonDesc');
+      } else if (state.loseReason === 'assassin') {
+        icon.textContent  = '💀';
+        title.textContent = t('gameOverTitle');
+        desc.textContent  = t('assassinDesc');
+      } else {
+        icon.textContent  = '😔';
+        title.textContent = t('gameOverTitle');
+        desc.textContent  = t('blueWonDesc');
+      }
+
+      if (open) {
+        setTimeout(() => {
+          modal.hidden = false;
+          modal.classList.add('visible');
+          document.getElementById('cnModalBtn').focus();
+        }, 200);
+      }
+    }
+
+    // Boot
+    buildUI();
+    startNewGame();
+    i18n.onChange(() => {
+      if (!state) return;
+      renderState();
+      renderStatus();
+      if (document.getElementById('cnModal').classList.contains('visible')) showGameOver(false);
+      const imageAlt = t('metaImageAlt');
+      document.querySelector('meta[property="og:image:alt"]')?.setAttribute('content', imageAlt);
+      document.querySelector('meta[name="twitter:image:alt"]')?.setAttribute('content', imageAlt);
+    });
+  })();
+  </script>
+</body>
+</html>

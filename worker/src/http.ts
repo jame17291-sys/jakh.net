@@ -28,6 +28,7 @@ const ERROR_CODE_BY_MESSAGE: Readonly<Record<string, string>> = Object.freeze({
   "API security configuration is incomplete": "API_CONFIGURATION_INCOMPLETE",
   "Username or email already exists": "USERNAME_OR_EMAIL_EXISTS",
   "Invalid credentials": "INVALID_CREDENTIALS",
+  "Recovery credentials are invalid": "RECOVERY_CREDENTIALS_INVALID",
   "This account has been suspended": "ACCOUNT_SUSPENDED",
   "Invalid avatar": "INVALID_AVATAR",
   "New password must be different": "NEW_PASSWORD_MUST_BE_DIFFERENT",

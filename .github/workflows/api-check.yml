@@ -26,18 +26,51 @@ jobs:
         run: node scripts/sync-catalog.mjs --check
       - name: Verify generated SEO pages and sitemap
         run: node scripts/generate-seo-pages.mjs --check
-      - name: Validate SEO metadata and crawlable content
-        run: node scripts/validate-seo.mjs
+      - name: Verify generated physical Arabic routes
+        run: node scripts/generate-arabic-routes.mjs --check
       - name: Verify compact global search index
         run: node scripts/generate-search-index.mjs --check
+      - name: Verify editorial review governance
+        run: node scripts/content-review-report.mjs --check
+      - name: Verify production publication quarantine
+        run: node scripts/generate-production-quarantine.mjs --check
       - name: Audit exact and semantic question duplicates
         run: node scripts/audit-question-bank.mjs --strict
+      - name: Validate SEO metadata and crawlable content
+        run: node scripts/validate-seo.mjs
       - name: Validate static source, taxonomy, and generated card index
         run: node scripts/validate-static.mjs
       - name: Validate complete English and Arabic coverage
         run: node scripts/validate-bilingual.mjs
+      - name: Validate responsive image derivatives
+        run: node scripts/validate-responsive-images.mjs
+      - name: Validate game focus contracts
+        run: node scripts/validate-game-focus.mjs
+      - name: Test source quality contracts
+        run: >-
+          node --test
+          scripts/accessibility-contracts.test.mjs
+          scripts/arabic-routes.test.mjs
+          scripts/content-review.test.mjs
+          scripts/frontend-product-contract.test.mjs
+          scripts/provenance-ui-contract.test.mjs
+          scripts/public-history-policy.test.mjs
+          scripts/publication-quarantine.test.mjs
+          scripts/responsive-layout-contract.test.mjs
+          scripts/seo-pagination.test.mjs
+          scripts/seo-validation-contract.test.mjs
+          scripts/service-worker-contract.test.mjs
+      - name: Build and test exact public static projection
+        run: |
+          npm run build:site
+          npm --prefix site-worker test
       - name: Test production monitor
-        run: node --test scripts/monitor-production.test.mjs
+        run: >-
+          node --test scripts/api-release-receipt.test.mjs
+          scripts/monitor-production.test.mjs
+          scripts/pages-quarantine-receipt.test.mjs
+          scripts/route-production-alert.test.mjs
+          scripts/runtime-monitor-proof.test.mjs
       - name: Install API dependencies
         working-directory: worker
         run: npm ci --no-audit --no-fund
@@ -47,12 +80,53 @@ jobs:
       - name: Type-check API
         working-directory: worker
         run: npm run check
-      - name: Test API
+      - name: Test API with coverage thresholds
         working-directory: worker
-        run: npm test
+        run: npm run test:coverage
+      - name: Test API against local Wrangler and migrated D1
+        working-directory: worker
+        run: npm run test:integration
       - name: Validate deploy bundle
         working-directory: worker
         env:
           PASSWORD_PEPPER: ci-only-placeholder-password-pepper
           IP_HASH_SALT: ci-only-placeholder-ip-hash-salt
         run: npx wrangler deploy --dry-run --outdir /tmp/jakh-api-dry-run
+
+  browser:
+    name: Browser regression
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Install pinned browser test dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Audit browser test dependencies
+        run: npm audit --audit-level=high
+      - name: Install Playwright Chromium
+        run: ./node_modules/.bin/playwright install --with-deps chromium
+      - name: Validate responsive game controls in Chromium
+        run: |
+          python3 -m http.server 8791 --bind 127.0.0.1 > "$RUNNER_TEMP/jakh-static.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --fail --silent http://127.0.0.1:8791/ > /dev/null; then
+              break
+            fi
+            if [ "$attempt" -eq 10 ]; then
+              cat "$RUNNER_TEMP/jakh-static.log"
+              exit 1
+            fi
+            sleep 1
+          done
+          node scripts/validate-game-responsive.mjs
+      - name: Run browser regression suite
+        run: npm run test:browser

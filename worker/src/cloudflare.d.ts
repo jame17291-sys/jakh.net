@@ -1,6 +1,9 @@
 interface D1Result<T = unknown> {
   success: boolean;
   results?: T[];
+  meta?: {
+    changes?: number;
+  };
 }
 
 interface D1PreparedStatement {

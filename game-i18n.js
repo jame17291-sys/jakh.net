@@ -53,6 +53,65 @@
     return value === 'ar' ? 'ar' : 'en';
   }
 
+  var SHARED_LANGUAGE_ROUTES = [
+    { en: '/', ar: '/ar/' },
+    { en: '/mind-lab', ar: '/ar/mind-lab/' },
+    { en: '/collections', ar: '/ar/collections/' },
+    { en: '/play', ar: '/ar/play/' },
+    { en: '/about', ar: '/ar/about/' },
+    { en: '/privacy', ar: '/ar/privacy/' }
+  ];
+  ['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
+    .forEach(function (slug) {
+      SHARED_LANGUAGE_ROUTES.push({ en: '/' + slug, ar: '/ar/games/' + slug + '/' });
+    });
+
+  function normalizeRoutePath(pathname) {
+    var normalized = String(pathname || '/').replace(/\/{2,}/g, '/');
+    normalized = normalized.replace(/\/index(?:\.html)?$/i, '/').replace(/\.html$/i, '');
+    if (normalized !== '/') normalized = normalized.replace(/\/+$/, '');
+    return normalized || '/';
+  }
+
+  function sharedRoute(pathname) {
+    var normalized = normalizeRoutePath(pathname || window.location.pathname);
+    for (var index = 0; index < SHARED_LANGUAGE_ROUTES.length; index += 1) {
+      var route = SHARED_LANGUAGE_ROUTES[index];
+      if (normalizeRoutePath(route.en) === normalized) return { en: route.en, ar: route.ar, lang: 'en' };
+      if (normalizeRoutePath(route.ar) === normalized) return { en: route.en, ar: route.ar, lang: 'ar' };
+    }
+    return null;
+  }
+
+  function routeForLanguage(pathname, lang) {
+    var route = sharedRoute(pathname);
+    return route ? route[normalizeLanguage(lang)] : '';
+  }
+
+  function localizedHref(href, lang) {
+    try {
+      var url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin) return href;
+      var pathname = routeForLanguage(url.pathname, lang);
+      if (!pathname) return href;
+      url.searchParams.delete('lang');
+      return pathname + url.search + url.hash;
+    } catch (_) {
+      return href;
+    }
+  }
+
+  function registerServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+    try {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(function (registration) {
+          registration.update().catch(function () {});
+        })
+        .catch(function () {});
+    } catch (_) {}
+  }
+
   function readSettings() {
     try {
       var parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
@@ -74,11 +133,17 @@
     try {
       var url = new URL(window.location.href);
       var requested = url.searchParams.get('lang');
-      if (requested !== 'en' && requested !== 'ar') return null;
-      persistLanguage(requested);
-      url.searchParams.delete('lang');
-      window.history.replaceState(null, '', url.pathname + url.search + url.hash);
-      return requested;
+      var route = sharedRoute(url.pathname);
+      if (requested === 'en' || requested === 'ar') {
+        persistLanguage(requested);
+        url.searchParams.delete('lang');
+        var pathname = route ? route[requested] : url.pathname;
+        var target = pathname + url.search + url.hash;
+        if (normalizeRoutePath(pathname) !== normalizeRoutePath(url.pathname)) window.location.replace(target);
+        else window.history.replaceState(null, '', target);
+        return requested;
+      }
+      return route ? route.lang : null;
     } catch (_) {
       return null;
     }
@@ -175,6 +240,12 @@
     scope.querySelectorAll('[data-i18n-placeholder]').forEach(function (node) {
       node.setAttribute('placeholder', t(node.dataset.i18nPlaceholder));
     });
+    scope.querySelectorAll('a[href]').forEach(function (node) {
+      var href = node.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return;
+      var localized = localizedHref(href, language);
+      if (localized !== href) node.setAttribute('href', localized);
+    });
 
     var select = document.getElementById('langSelect');
     if (select) select.value = language;
@@ -196,6 +267,13 @@
   function setLanguage(nextLanguage) {
     language = normalizeLanguage(nextLanguage);
     persistLanguage(language);
+    var pathname = routeForLanguage(window.location.pathname, language);
+    if (pathname) {
+      var url = new URL(window.location.href);
+      url.searchParams.delete('lang');
+      window.location.assign(pathname + url.search + url.hash);
+      return;
+    }
     apply();
   }
 
@@ -227,6 +305,7 @@
 
   document.documentElement.lang = language;
   document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+  registerServiceWorker();
 
   document.addEventListener('DOMContentLoaded', function () {
     bindControls();
@@ -235,6 +314,7 @@
 
   window.addEventListener('storage', function (event) {
     if (event.key !== STORAGE_KEY) return;
+    if (sharedRoute()) return;
     var nextLanguage = normalizeLanguage(readSettings().lang);
     if (nextLanguage === language) return;
     language = nextLanguage;

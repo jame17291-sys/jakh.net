@@ -3,8 +3,8 @@
     "id": "business-and-management-001",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Management & Organization",
-        "ar": "الإدارة والتنظيم"
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
     },
     "question": {
       "en": "What does the acronym 'CEO' stand for?",
@@ -13,14 +13,17 @@
     "answer": {
       "en": "Chief Executive Officer",
       "ar": "الرئيس التنفيذي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Markets & Economics",
-        "ar": "الأسواق والاقتصاد"
+      "en": "Markets & Economics",
+      "ar": "الأسواق والاقتصاد"
     },
     "question": {
       "en": "If supply goes down but demand stays the same, what happens to price?",
@@ -29,14 +32,17 @@
     "answer": {
       "en": "It increases",
       "ar": "يرتفع"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-003",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "In accounting, what does 'the bottom line' refer to?",
@@ -45,14 +51,17 @@
     "answer": {
       "en": "Net income or profit",
       "ar": "صافي الدخل أو الربح"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-004",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Markets & Economics",
-        "ar": "الأسواق والاقتصاد"
+      "en": "Markets & Economics",
+      "ar": "الأسواق والاقتصاد"
     },
     "question": {
       "en": "What is it called when a single company dominates an entire market?",
@@ -61,14 +70,17 @@
     "answer": {
       "en": "A monopoly",
       "ar": "الاحتكار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Marketing & Branding",
-        "ar": "التسويق وبناء العلامة"
+      "en": "Marketing & Branding",
+      "ar": "التسويق وبناء العلامة"
     },
     "question": {
       "en": "What do you call a recognizable sign or emblem used to identify a company?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "A logo",
       "ar": "الشعار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Marketing & Branding",
-        "ar": "التسويق وبناء العلامة"
+      "en": "Marketing & Branding",
+      "ar": "التسويق وبناء العلامة"
     },
     "question": {
       "en": "What is the term for the public's perception and emotional connection to a company?",
@@ -93,14 +108,17 @@
     "answer": {
       "en": "Brand",
       "ar": "العلامة التجارية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-007",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "Is 'cash on hand' considered an asset or a liability?",
@@ -109,14 +127,17 @@
     "answer": {
       "en": "Asset",
       "ar": "أصل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-008",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Operations & Growth",
-        "ar": "العمليات والنمو"
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
     },
     "question": {
       "en": "What is the common term for a newly emerged business venture?",
@@ -125,14 +146,17 @@
     "answer": {
       "en": "A startup",
       "ar": "الشركة الناشئة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-009",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Management & Organization",
-        "ar": "الإدارة والتنظيم"
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
     },
     "question": {
       "en": "Which department is responsible for hiring, training, and employee well-being?",
@@ -141,14 +165,17 @@
     "answer": {
       "en": "Human Resources (HR)",
       "ar": "الموارد البشرية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-010",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Management & Organization",
-        "ar": "الإدارة والتنظيم"
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
     },
     "question": {
       "en": "What is the term for the latest time or date by which something must be completed?",
@@ -157,14 +184,17 @@
     "answer": {
       "en": "Deadline",
       "ar": "الموعد النهائي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-011",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Strategy & Competition",
-        "ar": "الاستراتيجية والمنافسة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
       "en": "In a SWOT analysis, what do the four letters stand for?",
@@ -173,14 +203,17 @@
     "answer": {
       "en": "Strengths, Weaknesses, Opportunities, Threats",
       "ar": "نقاط القوة والضعف والفرص والتهديدات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-012",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "What is the formula for Return on Investment (ROI)?",
@@ -189,14 +222,17 @@
     "answer": {
       "en": "Net Profit / Cost of Investment × 100",
       "ar": "صافي الربح ÷ تكلفة الاستثمار × 100"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-013",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Marketing & Branding",
-        "ar": "التسويق وبناء العلامة"
+      "en": "Marketing & Branding",
+      "ar": "التسويق وبناء العلامة"
     },
     "question": {
       "en": "In marketing, what are the '4 Ps'?",
@@ -205,14 +241,17 @@
     "answer": {
       "en": "Product, Price, Place, Promotion",
       "ar": "المنتج والسعر والمكان والترويج"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-014",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Strategy & Competition",
-        "ar": "الاستراتيجية والمنافسة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
       "en": "What does the business model 'B2B' stand for?",
@@ -221,14 +260,17 @@
     "answer": {
       "en": "Business-to-Business",
       "ar": "من شركة إلى شركة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-015",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "Which of these is a fixed cost: Raw materials or Monthly Rent?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "Monthly Rent",
       "ar": "الإيجار الشهري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "In the stock market, what does a 'Bull Market' signify?",
@@ -253,14 +298,17 @@
     "answer": {
       "en": "Rising prices and investor optimism",
       "ar": "ارتفاع الأسعار وتفاؤل المستثمرين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-017",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Operations & Growth",
-        "ar": "العمليات والنمو"
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
     },
     "question": {
       "en": "What is the practice of hiring an outside party to perform services?",
@@ -269,14 +317,17 @@
     "answer": {
       "en": "Outsourcing",
       "ar": "الاستعانة بمصادر خارجية (الاستعراض)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-018",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "What do you call private equity capital provided to high-potential startups?",
@@ -285,14 +336,17 @@
     "answer": {
       "en": "Venture Capital",
       "ar": "رأس المال المخاطر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Operations & Growth",
-        "ar": "العمليات والنمو"
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
     },
     "question": {
       "en": "What is the ability of a business to handle a growing amount of work?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "Scalability",
       "ar": "قابلية التوسع"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Marketing & Branding",
-        "ar": "التسويق وبناء العلامة"
+      "en": "Marketing & Branding",
+      "ar": "التسويق وبناء العلامة"
     },
     "question": {
       "en": "What is the term for a small, specialized area of the market for a particular product?",
@@ -317,14 +374,17 @@
     "answer": {
       "en": "A niche market",
       "ar": "السوق المتخصص"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-021",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Strategy & Competition",
-        "ar": "الاستراتيجية والمنافسة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
       "en": "Who developed the framework analyzing competitive forces within an industry?",
@@ -333,14 +393,17 @@
     "answer": {
       "en": "Michael Porter",
       "ar": "مايكل بورتر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-022",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Management & Organization",
-        "ar": "الإدارة والتنظيم"
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
     },
     "question": {
       "en": "What principle states that people in a hierarchy rise to their 'level of incompetence'?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "The Peter Principle",
       "ar": "مبدأ بيتر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-023",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Management & Organization",
-        "ar": "الإدارة والتنظيم"
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
     },
     "question": {
       "en": "The '80/20 rule' states that 80% of results come from how much of causes?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "20% of causes",
       "ar": "20% من الأسباب"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-024",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Operations & Growth",
-        "ar": "العمليات والنمو"
+      "en": "Operations & Growth",
+      "ar": "العمليات والنمو"
     },
     "question": {
       "en": "Which Japanese automotive company perfected the 'Just-in-Time' (JIT) manufacturing system?",
@@ -381,14 +450,17 @@
     "answer": {
       "en": "Toyota",
       "ar": "تويوتا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-025",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Management & Organization",
-        "ar": "الإدارة والتنظيم"
+      "en": "Management & Organization",
+      "ar": "الإدارة والتنظيم"
     },
     "question": {
       "en": "What is the Japanese business philosophy of 'continuous improvement'?",
@@ -397,14 +469,17 @@
     "answer": {
       "en": "Kaizen",
       "ar": "كايزن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-026",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Strategy & Competition",
-        "ar": "الاستراتيجية والمنافسة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
       "en": "What is a 'Blue Ocean' in business strategy?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "An uncontested market space where competition is irrelevant",
       "ar": "فضاء سوقي غير متنازع عليه تنعدم فيه المنافسة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-027",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Strategy & Competition",
-        "ar": "الاستراتيجية والمنافسة"
+      "en": "Strategy & Competition",
+      "ar": "الاستراتيجية والمنافسة"
     },
     "question": {
       "en": "What is it called when a company acquires another at the same level of the value chain?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "Horizontal Integration",
       "ar": "التكامل الأفقي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-028",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Finance & Accounting",
-        "ar": "المالية والمحاسبة"
+      "en": "Finance & Accounting",
+      "ar": "المالية والمحاسبة"
     },
     "question": {
       "en": "Which ratio measures a company's ability to pay off short-term liabilities with current assets?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "Current Ratio",
       "ar": "نسبة السيولة الجارية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-029",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Markets & Economics",
-        "ar": "الأسواق والاقتصاد"
+      "en": "Markets & Economics",
+      "ar": "الأسواق والاقتصاد"
     },
     "question": {
       "en": "Which market structure features many sellers offering differentiated products and relatively low barriers to entry?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "Monopolistic competition",
       "ar": "المنافسة الاحتكارية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "business-and-management-030",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Markets & Economics",
-        "ar": "الأسواق والاقتصاد"
+      "en": "Markets & Economics",
+      "ar": "الأسواق والاقتصاد"
     },
     "question": {
       "en": "What is the value of the next best alternative forgone when a choice is made?",
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Opportunity Cost",
       "ar": "تكلفة الفرصة البديلة"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

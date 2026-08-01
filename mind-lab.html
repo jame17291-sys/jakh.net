@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
@@ -8,6 +8,9 @@
     <title>Mind Lab — 56 Topics | JAKH Riddles</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/mind-lab" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/mind-lab" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/mind-lab/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/mind-lab" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="Mind Lab — 56 Topics | JAKH Riddles" />
     <meta property="og:description" content="3,500+ bilingual riddles mapped directly into 56 topics across Science, Engineering, Culture, Society, and Logic." />
@@ -29,32 +32,24 @@
     <!-- Google Analytics -->
 
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-          if (reg) reg.update();
-        });
-      }
-    </script>
-
       <script defer src="/privacy-consent.js?v=2026080101"></script>
   </head>
   <body class="page-mind-lab" data-page="home">
     <a href="#top" class="skip-link">Skip to main content</a>
 
     <header class="site-header shell">
-      <a href="/" class="brand" aria-label="JAKH Riddles home">
+      <a href="/" class="brand" aria-label="JAKH Riddles home" data-i18n-aria-label="brandHomeLabel">
         <picture>
           <source srcset="assets/logo.webp" type="image/webp" />
           <img src="assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>
-      <nav class="header-actions" aria-label="Quick actions">
+      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
         <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
         <a class="ghost-btn" href="/play" data-i18n="heroGameHub">Game Hub</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
       </nav>
-      <div class="header-selects" aria-label="Language controls">
+      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
         <label>
           <span data-i18n="language">Language</span>
           <select id="langSelect">
@@ -96,7 +91,7 @@
         </div>
 
         <!-- Five sections that filter direct topic links -->
-        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections">
+        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections" data-i18n-aria-label="categorySectionsLabel">
           <button class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-label="All topics">
             <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff8eb,#edf5ff);" aria-hidden="true"></div>
             <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">ALL</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">All topics</span><span class="ml-cluster-tab-count">56 topics</span></div></div>
@@ -124,10 +119,10 @@
         </div>
 
         <!-- Search + toolbar -->
-        <section class="control-panel directory-search-panel" aria-label="Category filters">
+        <section class="control-panel directory-search-panel" aria-label="Category filters" data-i18n-aria-label="categoryFiltersLabel">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
+            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
           </label>
         </section>
 
@@ -148,7 +143,7 @@
           </section>
           <a class="category-card has-art" href="/classic-riddles" aria-label="Classic Riddles">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/classic-riddles.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/classic-riddles.jpg" srcset="/assets/backgrounds_new/classic-riddles-320.jpg 320w, /assets/backgrounds_new/classic-riddles.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -162,7 +157,7 @@
         </a>
           <a class="category-card has-art" href="/logic-puzzles" aria-label="Logic Puzzles">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/logic-puzzles.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/logic-puzzles.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">60 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -176,7 +171,7 @@
         </a>
           <a class="category-card has-art" href="/kids-riddles" aria-label="Kids Riddles">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/kids-riddles.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/kids-riddles.jpg" srcset="/assets/backgrounds_new/kids-riddles-320.jpg 320w, /assets/backgrounds_new/kids-riddles.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -190,7 +185,7 @@
         </a>
           <a class="category-card has-art" href="/story-mysteries" aria-label="Story Mysteries">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/story-mysteries.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/story-mysteries.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -204,7 +199,7 @@
         </a>
           <a class="category-card has-art" href="/true-crime" aria-label="True Crime &amp; Mysteries">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/true-crime.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/true-crime.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -218,7 +213,7 @@
         </a>
           <a class="category-card has-art" href="/psychology" aria-label="Psychology">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/psychology.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/psychology.jpg" srcset="/assets/backgrounds_new/psychology-320.jpg 320w, /assets/backgrounds_new/psychology.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -232,7 +227,7 @@
         </a>
           <a class="category-card has-art" href="/philosophy" aria-label="Philosophy">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/philosophy.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/philosophy.jpg" srcset="/assets/backgrounds_new/philosophy-320.jpg 320w, /assets/backgrounds_new/philosophy.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -246,7 +241,7 @@
         </a>
           <a class="category-card has-art" href="/relationship-questions" aria-label="Relationships">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/relationship-questions.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/relationship-questions.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -265,7 +260,7 @@
           </section>
           <a class="category-card has-art" href="/math" aria-label="Math">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/math.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/math.jpg" srcset="/assets/backgrounds_new/math-320.jpg 320w, /assets/backgrounds_new/math.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">150 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -279,7 +274,7 @@
         </a>
           <a class="category-card has-art" href="/science" aria-label="Science">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/science.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/science.jpg" srcset="/assets/backgrounds_new/science-320.jpg 320w, /assets/backgrounds_new/science.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -293,7 +288,7 @@
         </a>
           <a class="category-card has-art" href="/physical-and-life-sciences" aria-label="Physical &amp; Life Sciences">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/physical-and-life-sciences.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/physical-and-life-sciences.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -307,7 +302,7 @@
         </a>
           <a class="category-card has-art" href="/biology" aria-label="Biology">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/biology.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/biology.jpg" srcset="/assets/backgrounds_new/biology-320.jpg 320w, /assets/backgrounds_new/biology.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -321,7 +316,7 @@
         </a>
           <a class="category-card has-art" href="/chemistry" aria-label="Chemistry">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/chemistry.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/chemistry.jpg" srcset="/assets/backgrounds_new/chemistry-320.jpg 320w, /assets/backgrounds_new/chemistry.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -335,7 +330,7 @@
         </a>
           <a class="category-card has-art" href="/geology" aria-label="Geology">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/geology.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/geology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -349,7 +344,7 @@
         </a>
           <a class="category-card has-art" href="/space-and-astrology" aria-label="Space &amp; Astronomy">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/space-and-astrology.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/space-and-astrology.jpg" srcset="/assets/backgrounds_new/space-and-astrology-320.jpg 320w, /assets/backgrounds_new/space-and-astrology.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -363,7 +358,7 @@
         </a>
           <a class="category-card has-art" href="/environment-and-ecology" aria-label="Environment &amp; Ecology">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/environment-and-ecology.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/environment-and-ecology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -377,7 +372,7 @@
         </a>
           <a class="category-card has-art" href="/animal-kingdom" aria-label="Animal Kingdom">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/animal-kingdom.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/animal-kingdom.jpg" srcset="/assets/backgrounds_new/animal-kingdom-320.jpg 320w, /assets/backgrounds_new/animal-kingdom.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -391,7 +386,7 @@
         </a>
           <a class="category-card has-art" href="/survival" aria-label="Survival &amp; Wilderness">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/survival.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/survival.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -405,7 +400,7 @@
         </a>
           <a class="category-card has-art" href="/medical-questions" aria-label="Medical Science">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/medical-questions.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/medical-questions.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -419,7 +414,7 @@
         </a>
           <a class="category-card has-art" href="/pharmacy" aria-label="Pharmacy">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/pharmacy.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/pharmacy.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -438,7 +433,7 @@
           </section>
           <a class="category-card has-art" href="/software-and-computing" aria-label="Software &amp; Computing">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/software-and-computing.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/software-and-computing.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -452,7 +447,7 @@
         </a>
           <a class="category-card has-art" href="/coding-and-design" aria-label="Coding &amp; Design">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/coding-and-design.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/coding-and-design.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -466,7 +461,7 @@
         </a>
           <a class="category-card has-art" href="/tech-retro" aria-label="Tech &amp; Retro Gaming">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/tech-retro.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/tech-retro.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -480,7 +475,7 @@
         </a>
           <a class="category-card has-art" href="/future-tech-and-energy" aria-label="Future Tech &amp; Energy">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/future-tech-and-energy.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/future-tech-and-energy.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -494,7 +489,7 @@
         </a>
           <a class="category-card has-art" href="/automotive" aria-label="Automotive &amp; Racing">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/automotive.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/automotive.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -508,7 +503,7 @@
         </a>
           <a class="category-card has-art" href="/civil-engineering" aria-label="Civil Engineering">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/civil-engineering.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/civil-engineering.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -522,7 +517,7 @@
         </a>
           <a class="category-card has-art" href="/electrical-engineering" aria-label="Electrical Engineering">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/electrical-engineering.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/electrical-engineering.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -536,7 +531,7 @@
         </a>
           <a class="category-card has-art" href="/mechanical-engineering" aria-label="Mechanical Engineering">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/mechanical-engineering.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/mechanical-engineering.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -550,7 +545,7 @@
         </a>
           <a class="category-card has-art" href="/infrastructure-systems" aria-label="Infrastructure Systems">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/infrastructure-systems.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/infrastructure-systems.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -564,7 +559,7 @@
         </a>
           <a class="category-card has-art" href="/architecture-and-landmarks" aria-label="Architecture &amp; Landmarks">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/architecture-and-landmarks.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/architecture-and-landmarks.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -578,7 +573,7 @@
         </a>
           <a class="category-card has-art" href="/inventions-and-minds" aria-label="Inventions &amp; Ideas">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/inventions-and-minds.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/inventions-and-minds.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -597,7 +592,7 @@
           </section>
           <a class="category-card has-art" href="/geography" aria-label="Geography">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/geography.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/geography.jpg" srcset="/assets/backgrounds_new/geography-320.jpg 320w, /assets/backgrounds_new/geography.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -611,7 +606,7 @@
         </a>
           <a class="category-card has-art" href="/flag-questions" aria-label="World Flags">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/flag-questions.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/flag-questions.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -625,7 +620,7 @@
         </a>
           <a class="category-card has-art" href="/currencies" aria-label="World Currencies">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/currencies.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/currencies.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -639,7 +634,7 @@
         </a>
           <a class="category-card has-art" href="/history" aria-label="History">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/history.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/history.jpg" srcset="/assets/backgrounds_new/history-320.jpg 320w, /assets/backgrounds_new/history.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">100 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -653,7 +648,7 @@
         </a>
           <a class="category-card has-art" href="/middle-east-history" aria-label="Middle East History">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/middle-east-history.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/middle-east-history.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -667,7 +662,7 @@
         </a>
           <a class="category-card has-art" href="/ancient-civilizations" aria-label="Ancient Civilizations">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/ancient-civilizations.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/ancient-civilizations.jpg" srcset="/assets/backgrounds_new/ancient-civilizations-320.jpg 320w, /assets/backgrounds_new/ancient-civilizations.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -681,7 +676,7 @@
         </a>
           <a class="category-card has-art" href="/law-middle-east" aria-label="Middle East Law">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/law-middle-east.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/law-middle-east.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">48 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -695,7 +690,7 @@
         </a>
           <a class="category-card has-art" href="/world-habits-and-etiquette" aria-label="World Habits &amp; Etiquette">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/world-habits-and-etiquette.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/world-habits-and-etiquette.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -709,7 +704,7 @@
         </a>
           <a class="category-card has-art" href="/linguistics" aria-label="Linguistics">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/linguistics.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/linguistics.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -723,7 +718,7 @@
         </a>
           <a class="category-card has-art" href="/business-and-management" aria-label="Business Management">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/business-and-management.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/business-and-management.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -737,7 +732,7 @@
         </a>
           <a class="category-card has-art" href="/economics-and-finance" aria-label="Economics &amp; Finance">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/economics-and-finance.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/economics-and-finance.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -751,7 +746,7 @@
         </a>
           <a class="category-card has-art" href="/social-sciences" aria-label="Social Sciences">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/social-sciences.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/social-sciences.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">50 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -765,7 +760,7 @@
         </a>
           <a class="category-card has-art" href="/food-and-cuisines" aria-label="Food &amp; Cuisines">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/food-and-cuisines.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/food-and-cuisines.jpg" srcset="/assets/backgrounds_new/food-and-cuisines-320.jpg 320w, /assets/backgrounds_new/food-and-cuisines.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -784,7 +779,7 @@
           </section>
           <a class="category-card has-art" href="/fictional-worlds" aria-label="Fictional Worlds">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/fictional-worlds.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/fictional-worlds.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -798,7 +793,7 @@
         </a>
           <a class="category-card has-art" href="/superheroes" aria-label="Superhero Universe">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/superheroes.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/superheroes.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -812,7 +807,7 @@
         </a>
           <a class="category-card has-art" href="/pop-culture" aria-label="Pop Culture &amp; Web">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/pop-culture.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/pop-culture.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -826,7 +821,7 @@
         </a>
           <a class="category-card has-art" href="/mythology-legends" aria-label="Mythology &amp; Legends">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/backgrounds/mythology-legends.png" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds/mythology-legends.webp" width="800" height="800" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -840,7 +835,7 @@
         </a>
           <a class="category-card has-art" href="/art-and-painters" aria-label="Art &amp; Painters">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/art-and-painters.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/art-and-painters.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -854,7 +849,7 @@
         </a>
           <a class="category-card has-art" href="/books-and-quotes" aria-label="Books &amp; Quotes">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/books-and-quotes.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/books-and-quotes.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">30 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -868,7 +863,7 @@
         </a>
           <a class="category-card has-art" href="/tv-shows-trivia" aria-label="TV Shows">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/tv-shows-trivia.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/tv-shows-trivia.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">250 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -882,7 +877,7 @@
         </a>
           <a class="category-card has-art" href="/music-and-performing-arts" aria-label="Music &amp; Performing Arts">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/music-and-performing-arts.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/music-and-performing-arts.jpg" srcset="/assets/backgrounds_new/music-and-performing-arts-320.jpg 320w, /assets/backgrounds_new/music-and-performing-arts.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -896,7 +891,7 @@
         </a>
           <a class="category-card has-art" href="/cinema-and-film-history" aria-label="Cinema &amp; Film">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/cinema-and-film-history.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/cinema-and-film-history.jpg" srcset="/assets/backgrounds_new/cinema-and-film-history-320.jpg 320w, /assets/backgrounds_new/cinema-and-film-history.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">40 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -910,7 +905,7 @@
         </a>
           <a class="category-card has-art" href="/anime" aria-label="Anime">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/anime.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/anime.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">150 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -924,7 +919,7 @@
         </a>
           <a class="category-card has-art" href="/ayam-tayebeen" aria-label="Spacetoon Classics">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/ayam-tayebeen.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/ayam-tayebeen.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">200 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -938,7 +933,7 @@
         </a>
           <a class="category-card has-art" href="/football" aria-label="Football">
           <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/football.svg" alt="" width="640" height="420" loading="lazy" decoding="async" />
+            <img class="category-card-image" src="/assets/backgrounds_new/football.jpg" srcset="/assets/backgrounds_new/football-320.jpg 320w, /assets/backgrounds_new/football.jpg 640w" sizes="(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)" width="640" height="640" alt="" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">175 Q</span>
           </div>
           <div class="category-card-overlay">
@@ -984,11 +979,11 @@
         <p class="footer-copy" data-i18n="footerNote">All rights reserved to JAKH 2026</p>
         <nav class="footer-site-links" aria-label="JAKH information" data-i18n-aria-label="footerInfoLabel"><a href="/collections" data-i18n="footerCollections">Collections</a><a href="/about" data-i18n="footerAbout">About &amp; content standards</a><a href="/privacy" data-i18n="footerPrivacy">Privacy Centre</a></nav>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Instagram" data-i18n-aria-label="socialInstagramLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             <span>Instagram</span>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="JAKH Riddles on Facebook" data-i18n-aria-label="socialFacebookLabel">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span>Facebook</span>
           </a>
@@ -1006,7 +1001,7 @@
             <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
             <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
           </div>
-          <button class="icon-btn" data-close-modal="auth" aria-label="Close">×</button>
+          <button class="icon-btn" data-close-modal="auth" aria-label="Close" data-i18n-aria-label="close">×</button>
         </div>
         <div id="authModalBody"></div>
       </div>

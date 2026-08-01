@@ -88,7 +88,7 @@ function exportEnv() {
             if (sql.includes("FROM privacy_preferences")) {
               return {
                 usage_analytics_enabled: 1,
-                notice_version: "2026-07-31",
+                notice_version: "2026-08-01",
                 consent_updated_at: "2026-07-20T00:00:00.000Z",
               };
             }
@@ -124,14 +124,14 @@ function exportEnv() {
             if (sql.includes("FROM verified_score_sessions")) {
               return {
                 results: [{
-                  id: "verified-1",
+                  id: "checked-1",
                   categoryId: "currencies",
                   questionCount: 10,
                   status: "completed",
                   correctCount: 9,
-                  score: 920,
+                  score: 9_000,
                   elapsedMs: 18_000,
-                  verified: 1,
+                  serverChecked: 1,
                 }],
               };
             }
@@ -143,6 +143,25 @@ function exportEnv() {
                   email: "tester@example.com",
                   status: "new",
                   createdAt: "2026-07-20T00:00:00.000Z",
+                }],
+              };
+            }
+            if (sql.includes("FROM admin_audit_log") && sql.includes("actor_user_id")) {
+              return {
+                results: [{
+                  id: "audit-owned-1",
+                  action: "user.role_changed",
+                  targetType: "user",
+                  createdAt: "2026-07-20T00:00:00.000Z",
+                }],
+              };
+            }
+            if (sql.includes("FROM admin_audit_log") && sql.includes("target_type = 'user'")) {
+              return {
+                results: [{
+                  id: "audit-about-1",
+                  action: "user.banned",
+                  createdAt: "2026-07-21T00:00:00.000Z",
                 }],
               };
             }
@@ -169,6 +188,7 @@ test("account export contains useful account data but no credentials or sessions
   const serialized = JSON.stringify(payload);
 
   assert.equal(response.status, 200);
+  assert.equal(payload.exportVersion, 2);
   assert.match(
     response.headers.get("content-disposition"),
     /^attachment; filename="jakh-account-export-\d{4}-\d{2}-\d{2}\.json"$/u,
@@ -178,8 +198,31 @@ test("account export contains useful account data but no credentials or sessions
   assert.equal(payload.progress.length, 1);
   assert.equal(payload.favorites.length, 1);
   assert.equal(payload.usageAnalytics.length, 1);
-  assert.equal(payload.verifiedScores.length, 1);
+  assert.equal(payload.serverCheckedScores.length, 1);
+  assert.deepEqual(
+    {
+      score: payload.serverCheckedScores[0].score,
+      scoreType: payload.serverCheckedScores[0].scoreType,
+      serverChecked: payload.serverCheckedScores[0].serverChecked,
+      proctored: payload.serverCheckedScores[0].proctored,
+    },
+    {
+      score: 9_000,
+      scoreType: "server-checked",
+      serverChecked: true,
+      proctored: false,
+    },
+  );
+  assert.match(payload.serverCheckedScores[0].automationDisclaimer, /automation/u);
+  assert.equal("verifiedScores" in payload, false);
+  const scoreStatement = env.statements.find(({ sql }) => sql.includes("FROM verified_score_sessions"));
+  assert.match(scoreStatement.sql, /correct_count \* 1000/u);
+  assert.match(scoreStatement.sql, /AS serverChecked/u);
   assert.equal(payload.suggestions.length, 1);
+  assert.equal(payload.administrativeActivity.actionsPerformed.length, 1);
+  assert.equal(payload.administrativeActivity.actionsAboutAccount.length, 1);
+  assert.equal(payload.administrativeActivity.actionsPerformed[0].targetId, undefined);
+  assert.equal(payload.administrativeActivity.actionsAboutAccount[0].actorUserId, undefined);
   assert.doesNotMatch(serialized, /must-never-be-exported/u);
   assert.doesNotMatch(serialized, /stored-session-token-hash/u);
   assert.doesNotMatch(serialized, /password_hash|password_salt|tokenHash|token_hash/u);
@@ -259,7 +302,7 @@ test("permanent deletion reauthenticates, deletes every account-owned table, and
 
   assert.equal(response.status, 200);
   assert.equal(captured.hasherCalls, 1);
-  assert.equal(captured.batch.length, 8);
+  assert.equal(captured.batch.length, 10);
   for (const table of [
     "analytics_daily",
     "privacy_preferences",
@@ -267,11 +310,13 @@ test("permanent deletion reauthenticates, deletes every account-owned table, and
     "suggestions",
     "favorites",
     "progress",
+    "account_recovery_codes",
     "sessions",
     "users",
   ]) {
     assert.match(sql, new RegExp(`DELETE FROM ${table}`, "u"));
   }
+  assert.match(sql, /UPDATE admin_audit_log[\s\S]+SET target_id = 'deleted-user'/u);
   assert.match(response.headers.get("set-cookie"), /Max-Age=0/u);
   const payload = await response.json();
   assert.equal(payload.success, true);
@@ -327,7 +372,7 @@ test("privacy preferences default to denied and accept only allowed or denied", 
     privacy: {
       analytics: "denied",
       usageAnalyticsEnabled: false,
-      noticeVersion: "2026-07-31",
+      noticeVersion: "2026-08-01",
       consentUpdatedAt: null,
       needsRenewal: false,
     },
@@ -371,7 +416,7 @@ test("analytics consent from an older privacy notice is denied until renewed", a
   assert.deepEqual((await response.json()).privacy, {
     analytics: "denied",
     usageAnalyticsEnabled: false,
-    noticeVersion: "2026-07-31",
+    noticeVersion: "2026-08-01",
     consentUpdatedAt: "2025-01-01T00:00:00.000Z",
     needsRenewal: true,
   });
@@ -418,7 +463,7 @@ test("account time analytics use one consent-guarded atomic write", async () => 
     assert.equal(analyticsStatements.length, 1);
     assert.match(analyticsStatements[0].sql, /WHERE EXISTS[\s\S]+usage_analytics_enabled = 1/u);
     assert.match(analyticsStatements[0].sql, /notice_version = \?/u);
-    assert.equal(analyticsStatements[0].values.at(-1), "2026-07-31");
+    assert.equal(analyticsStatements[0].values.at(-1), "2026-08-01");
   }
 });
 
@@ -436,7 +481,7 @@ test("retention cleanup is bounded and enforces 13-month analytics and 12-month 
       },
       async batch(statements) {
         assert.equal(statements.length, 3);
-        return statements.map(() => ({ success: true }));
+        return statements.map(() => ({ success: true, meta: { changes: 0 } }));
       },
     },
   };

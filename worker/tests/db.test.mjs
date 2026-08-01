@@ -4,6 +4,9 @@ import {
   cleanupExpiredSecurityState,
   createSession,
   PRIVILEGED_SESSION_MAX_AGE_MS,
+  RETENTION_CLEANUP_BATCH_SIZE,
+  RETENTION_CLEANUP_MAX_PASSES,
+  runBoundedRetentionCleanup,
   sessionUser,
   touchPrivilegedSession,
 } from "../dist/db.js";
@@ -69,7 +72,7 @@ test("scheduled maintenance deletes expired rows in bounded batches", async () =
       },
       async batch(items) {
         assert.equal(items.length, 2);
-        return items.map(() => ({ success: true }));
+        return items.map(() => ({ success: true, meta: { changes: 0 } }));
       },
     },
   };
@@ -80,6 +83,88 @@ test("scheduled maintenance deletes expired rows in bounded batches", async () =
   assert.ok(statements.every(({ sql }) => /LIMIT 500/u.test(sql)));
   assert.match(statements[0].sql, /DELETE FROM sessions/u);
   assert.match(statements[1].sql, /DELETE FROM rate_limits/u);
+});
+
+test("bounded retention cleanup drains multiple saturated batches before succeeding", async () => {
+  let batches = 0;
+  const db = {
+    async batch(items) {
+      batches += 1;
+      return items.map(() => ({
+        success: true,
+        meta: { changes: batches === 1 ? RETENTION_CLEANUP_BATCH_SIZE : 3 },
+      }));
+    },
+  };
+
+  await runBoundedRetentionCleanup(db, "test-retention", [{
+    name: "test-rows",
+    prepare: () => ({ sql: "DELETE test rows" }),
+    probe: () => ({ sql: "SELECT id FROM test_rows LIMIT 1" }),
+  }]);
+
+  assert.equal(batches, 2);
+});
+
+test("bounded retention cleanup accepts exactly the processing ceiling when no row remains", async () => {
+  let batches = 0;
+  const db = {
+    async batch(items) {
+      batches += 1;
+      if (batches > RETENTION_CLEANUP_MAX_PASSES) {
+        assert.ok(items.every(({ sql }) => /^SELECT\b/u.test(sql) && /LIMIT 1/u.test(sql)));
+        return items.map(() => ({ success: true, results: [], meta: { changes: 0 } }));
+      }
+      return items.map(() => ({
+        success: true,
+        meta: { changes: RETENTION_CLEANUP_BATCH_SIZE },
+      }));
+    },
+  };
+
+  await runBoundedRetentionCleanup(db, "test-retention", [{
+    name: "test-rows",
+    prepare: () => ({ sql: "DELETE test rows" }),
+    probe: () => ({ sql: "SELECT id FROM test_rows LIMIT 1" }),
+  }]);
+  assert.equal(batches, RETENTION_CLEANUP_MAX_PASSES + 1);
+});
+
+test("bounded retention cleanup surfaces a backlog beyond the processing ceiling", async () => {
+  let batches = 0;
+  const db = {
+    async batch(items) {
+      batches += 1;
+      if (batches > RETENTION_CLEANUP_MAX_PASSES) {
+        assert.ok(items.every(({ sql }) => /^SELECT\b/u.test(sql) && /LIMIT 1/u.test(sql)));
+        return items.map(() => ({
+          success: true,
+          results: [{ remaining: 1 }],
+          meta: { changes: 0 },
+        }));
+      }
+      return items.map(() => ({
+        success: true,
+        meta: { changes: RETENTION_CLEANUP_BATCH_SIZE },
+      }));
+    },
+  };
+
+  await assert.rejects(
+    runBoundedRetentionCleanup(db, "test-retention", [{
+      name: "test-rows",
+      prepare: () => ({ sql: "DELETE test rows" }),
+      probe: () => ({ sql: "SELECT id FROM test_rows LIMIT 1" }),
+    }]),
+    (error) => (
+      error?.code === "RETENTION_CLEANUP_SATURATED"
+      && error?.job === "test-retention"
+      && error?.operations?.[0] === "test-rows"
+      && error?.perOperationCeiling
+        === RETENTION_CLEANUP_BATCH_SIZE * RETENTION_CLEANUP_MAX_PASSES
+    ),
+  );
+  assert.equal(batches, RETENTION_CLEANUP_MAX_PASSES + 1);
 });
 
 test("session pruning uses a stable newest-first tiebreaker", async () => {

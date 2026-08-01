@@ -1,0 +1,584 @@
+name: Deploy static site to Cloudflare Workers
+run-name: Static site production release · ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type DEPLOY jakh-site FROM protected main"
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: jakh-production-release
+  cancel-in-progress: false
+
+jobs:
+  authorize:
+    name: Authorize protected-main release
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require exact confirmation and protected main
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_REF_PROTECTED: ${{ github.ref_protected }}
+          RELEASE_SHA: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ "$CONFIRMATION" != "DEPLOY jakh-site FROM protected main" ]; then
+            echo "::error title=Static release blocked::Confirmation must exactly match DEPLOY jakh-site FROM protected main."
+            exit 1
+          fi
+          if [ "$RELEASE_REF" != "refs/heads/main" ]; then
+            echo "::error title=Static release blocked::Select the main branch when dispatching this workflow."
+            exit 1
+          fi
+          if [ "$RELEASE_REF_PROTECTED" != "true" ]; then
+            echo "::error title=Static release blocked::GitHub does not report refs/heads/main as protected."
+            exit 1
+          fi
+
+          branch_response="$RUNNER_TEMP/main-branch.json"
+          branch_status="$(curl --silent --show-error \
+            --output "$branch_response" \
+            --write-out '%{http_code}' \
+            --header "Authorization: Bearer $GITHUB_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/branches/main")"
+          if [ "$branch_status" != "200" ]; then
+            echo "::error title=Static release blocked::Could not verify the current protected main branch (GitHub HTTP $branch_status)."
+            exit 1
+          fi
+          node --input-type=module - "$branch_response" "$RELEASE_SHA" <<'NODE'
+          import { readFileSync } from "node:fs";
+          const branch = JSON.parse(readFileSync(process.argv[2], "utf8"));
+          const expectedSha = process.argv[3];
+          if (branch.name !== "main" || branch.protected !== true) {
+            throw new Error("GitHub branch verification did not return a protected main branch");
+          }
+          if (branch.commit?.sha !== expectedSha) {
+            throw new Error(`Dispatched commit ${expectedSha} is no longer the tip of main (${branch.commit?.sha || "missing"})`);
+          }
+          NODE
+
+          environment_response="$RUNNER_TEMP/production-environment.json"
+          environment_status="$(curl --silent --show-error \
+            --output "$environment_response" \
+            --write-out '%{http_code}' \
+            --header "Authorization: Bearer $GITHUB_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/environments/production")"
+          if [ "$environment_status" != "200" ]; then
+            echo "::error title=Static release blocked::Could not verify the production environment (GitHub HTTP $environment_status)."
+            exit 1
+          fi
+          node --input-type=module - "$environment_response" <<'NODE'
+          import { readFileSync } from "node:fs";
+          const environment = JSON.parse(readFileSync(process.argv[2], "utf8"));
+          const rules = Array.isArray(environment.protection_rules) ? environment.protection_rules : [];
+          if (!rules.some((rule) => rule.type === "required_reviewers")) {
+            throw new Error("The production environment must require an approving reviewer");
+          }
+          if (environment.deployment_branch_policy?.protected_branches !== true) {
+            throw new Error("The production environment must allow only protected branches");
+          }
+          NODE
+
+  release:
+    name: Validate and release exact static artifact
+    needs: authorize
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: production
+      url: https://jakh.net
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            site-worker/package-lock.json
+            worker/package-lock.json
+
+      - name: Bind checkout to the authorized commit
+        env:
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          actual_sha="$(git rev-parse HEAD)"
+          if [ "$actual_sha" != "$RELEASE_SHA" ]; then
+            echo "::error title=Static release blocked::Checked out $actual_sha instead of authorized commit $RELEASE_SHA."
+            exit 1
+          fi
+
+      - name: Install pinned validation and Worker dependencies
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --prefix site-worker --no-audit --no-fund
+          npm ci --prefix worker --no-audit --no-fund
+
+      - name: Audit production release tooling
+        run: |
+          npm audit --audit-level=high
+          npm audit --prefix site-worker --audit-level=high
+          npm --prefix worker run audit:security
+
+      - name: Validate source contracts
+        run: |
+          node scripts/sync-catalog.mjs --check
+          node scripts/generate-seo-pages.mjs --check
+          node scripts/generate-arabic-routes.mjs --check
+          node scripts/generate-search-index.mjs --check
+          node scripts/generate-production-quarantine.mjs --check
+          node scripts/content-review-report.mjs --check
+          node scripts/audit-question-bank.mjs --strict
+          node scripts/validate-seo.mjs
+          node scripts/validate-static.mjs
+          node scripts/validate-bilingual.mjs
+          node scripts/validate-responsive-images.mjs
+          node scripts/validate-game-focus.mjs
+          npm run check:performance
+          npm run test:contracts
+          node --test \
+            scripts/monitor-production.test.mjs \
+            scripts/runtime-monitor-proof.test.mjs \
+            scripts/route-production-alert.test.mjs \
+            scripts/static-api-release-gate.test.mjs
+
+      - name: Build exact static candidate once
+        env:
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          npm run build:site
+          node scripts/site-release-receipt.mjs validate-source \
+            --manifest site-worker/generated/site-manifest.json
+          cp site-worker/generated/site-manifest.json "$RECEIPT_DIR/candidate-manifest.json"
+
+      - name: Install Playwright browser matrix
+        run: ./node_modules/.bin/playwright install --with-deps chromium firefox webkit
+
+      - name: Validate browser matrix
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+        run: npm run test:browser:matrix
+
+      - name: Validate WCAG browser contracts
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+        run: npm run test:a11y
+
+      - name: Verify static candidate and inventory API dry-run
+        id: artifact
+        env:
+          API_ARTIFACT_DIR: ${{ runner.temp }}/jakh-api-artifact
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-dry-run.log
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          npm --prefix site-worker test
+          cmp site-worker/generated/site-manifest.json "$RECEIPT_DIR/candidate-manifest.json"
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deploy --dry-run --outdir=dist-worker
+          )
+          npm --prefix worker run check
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deploy --dry-run --outdir="$API_ARTIFACT_DIR"
+          )
+          node scripts/release-manifest.mjs create \
+            --source-commit "$GITHUB_SHA" \
+            --expected-schema 8 \
+            --pages-name "jakh-static-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            --pages-dir site-worker/dist \
+            --worker-name "jakh-api-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            --worker-dir "$API_ARTIFACT_DIR" \
+            --migrations-dir worker/migrations \
+            --output "$RECEIPT_DIR/candidate-artifact-inventory.json"
+          node scripts/release-manifest.mjs verify \
+            --manifest "$RECEIPT_DIR/candidate-artifact-inventory.json" \
+            --source-commit "$GITHUB_SHA" \
+            --expected-schema 8 \
+            --pages-name "jakh-static-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            --pages-dir site-worker/dist \
+            --worker-name "jakh-api-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
+            --worker-dir "$API_ARTIFACT_DIR" \
+            --migrations-dir worker/migrations
+          candidate_inventory_sha="$(node -e 'const m=require(process.argv[1]); process.stdout.write(m.releaseSha256)' "$RECEIPT_DIR/candidate-artifact-inventory.json")"
+          echo "candidate-inventory-sha=$candidate_inventory_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Require configured production credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_API_RELEASE_READ_TOKEN: ${{ secrets.CLOUDFLARE_API_RELEASE_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error title=Static release blocked::Configure the production environment secret CLOUDFLARE_STATIC_SITE_API_TOKEN."
+            exit 1
+          fi
+          if [ -z "$CLOUDFLARE_API_RELEASE_READ_TOKEN" ]; then
+            echo "::error title=Static release blocked::Configure the least-privilege production environment secret CLOUDFLARE_API_RELEASE_READ_TOKEN."
+            exit 1
+          fi
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error title=Static release blocked::Configure the production environment secret CLOUDFLARE_ACCOUNT_ID."
+            exit 1
+          fi
+
+      - name: Capture exact rollback target and baseline
+        id: preflight
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-preflight.log
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-before.json"
+          )
+          node scripts/site-release-receipt.mjs smoke \
+            --output "$RECEIPT_DIR/smoke-before.json" \
+            --attempts 3 \
+            --delay-ms 5000
+          node scripts/site-release-receipt.mjs preflight \
+            --manifest "$RECEIPT_DIR/candidate-manifest.json" \
+            --deployment "$RECEIPT_DIR/deployment-before.json" \
+            --baseline-smoke "$RECEIPT_DIR/smoke-before.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Prove exact static predecessor before authorizing deployment
+        id: rollback_proof
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          JAKH_MONITOR_SCOPE: site
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/rollback-target-monitor.json
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-preflight.log
+        run: |
+          set -euo pipefail
+          set +e
+          node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-before-reread.json"
+          )
+          node scripts/site-release-receipt.mjs runtime-proof \
+            --stage rollback-target \
+            --deployment-before "$RECEIPT_DIR/deployment-before.json" \
+            --deployment-after "$RECEIPT_DIR/deployment-before-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-target-monitor.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+          if [ "$monitor_status" -ne 0 ]; then exit "$monitor_status"; fi
+
+      - name: Prove live API exact source before static deployment
+        id: api_before
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_RELEASE_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-read-predeploy.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/api-deployment-before-static.json"
+          )
+          health_status="$(curl --silent --show-error \
+            --retry 3 --retry-all-errors --connect-timeout 10 --max-time 30 \
+            --output "$RECEIPT_DIR/api-health-before-static.json" \
+            --write-out '%{http_code}' \
+            https://api.jakh.net/api/health)"
+          node scripts/static-api-release-gate.mjs verify \
+            --deployment "$RECEIPT_DIR/api-deployment-before-static.json" \
+            --health "$RECEIPT_DIR/api-health-before-static.json" \
+            --http-status "$health_status" \
+            --expected-commit "$GITHUB_SHA" \
+            --expected-schema 8 \
+            --receipt "$RECEIPT_DIR/api-gate-before-static.json" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Deploy exact candidate
+        id: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-deploy.log
+        run: |
+          set -euo pipefail
+          cd site-worker
+          ./node_modules/.bin/wrangler deploy --strict \
+            --message "JAKH site $GITHUB_SHA build ${{ steps.preflight.outputs.candidate-build-id }} run $GITHUB_RUN_ID"
+
+      - name: Capture exact candidate Worker identity before smoke
+        id: candidate_identity
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
+        run: |
+          set -euo pipefail
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-initial.json"
+          )
+          worker_version="$(node scripts/site-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/deployment-after-initial.json")"
+          echo "worker-version=$worker_version" >> "$GITHUB_OUTPUT"
+
+      - name: Smoke exact candidate
+        id: smoke
+        env:
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+        run: |
+          node scripts/site-release-receipt.mjs smoke \
+            --expected-build-id "${{ steps.preflight.outputs.candidate-build-id }}" \
+            --expected-worker-version "${{ steps.candidate_identity.outputs.worker-version }}" \
+            --output "$RECEIPT_DIR/smoke-after.json" \
+            --attempts 8 \
+            --delay-ms 10000
+
+      - name: Verify active Worker version and release identity
+        id: verification
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
+        run: |
+          set -euo pipefail
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after.json"
+          )
+          node scripts/site-release-receipt.mjs post-deploy \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --deployment "$RECEIPT_DIR/deployment-after.json" \
+            --smoke "$RECEIPT_DIR/smoke-after.json"
+
+      - name: Re-prove live API after static deployment
+        id: api_after
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_RELEASE_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-read-postdeploy.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/api-deployment-after-static.json"
+          )
+          health_status="$(curl --silent --show-error \
+            --retry 3 --retry-all-errors --connect-timeout 10 --max-time 30 \
+            --output "$RECEIPT_DIR/api-health-after-static.json" \
+            --write-out '%{http_code}' \
+            https://api.jakh.net/api/health)"
+          node scripts/static-api-release-gate.mjs verify \
+            --deployment "$RECEIPT_DIR/api-deployment-after-static.json" \
+            --health "$RECEIPT_DIR/api-health-after-static.json" \
+            --http-status "$health_status" \
+            --expected-commit "$GITHUB_SHA" \
+            --expected-schema 8 \
+            --receipt "$RECEIPT_DIR/api-gate-after-static.json" \
+            --github-output "$GITHUB_OUTPUT"
+          node scripts/static-api-release-gate.mjs compare \
+            --before "$RECEIPT_DIR/api-gate-before-static.json" \
+            --after "$RECEIPT_DIR/api-gate-after-static.json" \
+            --receipt "$RECEIPT_DIR/api-identity-continuity.json"
+
+      - name: Verify complete live quarantine contract
+        id: runtime_monitor
+        env:
+          JAKH_MONITOR_SCOPE: site
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/runtime-monitor.json
+        run: node scripts/monitor-production.mjs
+
+      - name: Bind live static quarantine proof to the exact candidate Worker
+        id: candidate_runtime_proof
+        if: ${{ always() && steps.verification.outcome == 'success' && steps.runtime_monitor.outcome != 'skipped' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
+        run: |
+          set -euo pipefail
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-runtime-monitor.json"
+          )
+          node scripts/site-release-receipt.mjs runtime-proof \
+            --stage candidate \
+            --deployment-before "$RECEIPT_DIR/deployment-after.json" \
+            --deployment-after "$RECEIPT_DIR/deployment-after-runtime-monitor.json" \
+            --monitor "$RECEIPT_DIR/runtime-monitor.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+
+      - name: Roll back any unverified release
+        id: rollback
+        if: >-
+          ${{ always() && steps.preflight.outcome == 'success' &&
+              steps.rollback_proof.outputs.rollback-safe == 'true' &&
+              steps.deploy.outcome != 'skipped' &&
+              (steps.deploy.outcome != 'success' ||
+               steps.smoke.outcome != 'success' ||
+               steps.verification.outcome != 'success' ||
+               steps.api_after.outcome != 'success' ||
+               steps.runtime_monitor.outcome != 'success' ||
+               steps.candidate_runtime_proof.outcome != 'success') }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-rollback.log
+        run: |
+          set -euo pipefail
+          cd site-worker
+          ./node_modules/.bin/wrangler rollback ${{ steps.preflight.outputs.rollback-version }} \
+            --yes \
+            --message "Automatic static-site rollback after GitHub Actions run $GITHUB_RUN_ID"
+
+      - name: Verify exact rollback version and build
+        id: rollback_verification
+        if: ${{ always() && steps.rollback.outcome == 'success' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-rollback-verify.log
+        run: |
+          set -euo pipefail
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-rollback.json"
+          )
+          node scripts/site-release-receipt.mjs smoke \
+            --expected-build-id "${{ steps.preflight.outputs.rollback-build-id }}" \
+            --expected-worker-version "${{ steps.preflight.outputs.rollback-version }}" \
+            --output "$RECEIPT_DIR/smoke-after-rollback.json" \
+            --attempts 8 \
+            --delay-ms 10000
+          node scripts/site-release-receipt.mjs post-rollback \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --deployment "$RECEIPT_DIR/deployment-after-rollback.json" \
+            --smoke "$RECEIPT_DIR/smoke-after-rollback.json"
+          set +e
+          JAKH_MONITOR_SCOPE=site \
+          JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
+            node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-rollback-reread.json"
+          )
+          node scripts/site-release-receipt.mjs runtime-proof \
+            --stage rollback \
+            --deployment-before "$RECEIPT_DIR/deployment-after-rollback.json" \
+            --deployment-after "$RECEIPT_DIR/deployment-after-rollback-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-monitor.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+          if [ "$monitor_status" -ne 0 ]; then exit "$monitor_status"; fi
+
+      - name: Finalize release receipt
+        if: ${{ always() }}
+        env:
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+        run: |
+          if [ -f "$RECEIPT_DIR/release-receipt.json" ]; then
+            verification_outcome="${{ steps.verification.outcome }}"
+            if [ "${{ steps.deploy.outcome }}" = "success" ] && \
+               [ "$verification_outcome" = "success" ]; then
+              if [ "${{ steps.api_after.outcome }}" != "success" ] || \
+                 [ "${{ steps.runtime_monitor.outcome }}" != "success" ] || \
+                 [ "${{ steps.candidate_runtime_proof.outcome }}" != "success" ]; then
+                verification_outcome="failure"
+              fi
+            fi
+            node scripts/site-release-receipt.mjs finalize \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --preflight-outcome "${{ steps.preflight.outcome }}" \
+              --deploy-outcome "${{ steps.deploy.outcome }}" \
+              --smoke-outcome "${{ steps.smoke.outcome }}" \
+              --verification-outcome "$verification_outcome" \
+              --rollback-outcome "${{ steps.rollback.outcome }}" \
+              --rollback-verification-outcome "${{ steps.rollback_verification.outcome }}" \
+              --rollback-proof-outcome "${{ steps.rollback_proof.outcome }}"
+            node scripts/site-release-receipt.mjs summary \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --github-summary "$GITHUB_STEP_SUMMARY"
+          else
+            echo "## Static site release receipt" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Preflight did not produce a release receipt; no deployment was authorized." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f "$RECEIPT_DIR/candidate-artifact-inventory.json" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Candidate inventory SHA: \`${{ steps.artifact.outputs.candidate-inventory-sha }}\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- API dry-run artifact: inventoried only; it is not evidence of a live API release" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f "$RECEIPT_DIR/api-gate-before-static.json" ]; then
+            api_before_result="$(node -e 'const r=require(process.argv[1]); process.stdout.write(r.result)' "$RECEIPT_DIR/api-gate-before-static.json")"
+            echo "- Live API pre-deploy gate: \`$api_before_result\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f "$RECEIPT_DIR/api-gate-after-static.json" ]; then
+            api_after_result="$(node -e 'const r=require(process.argv[1]); process.stdout.write(r.result)' "$RECEIPT_DIR/api-gate-after-static.json")"
+            echo "- Live API post-deploy gate: \`$api_after_result\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f "$RECEIPT_DIR/runtime-monitor.json" ]; then
+            runtime_result="$(node -e 'const r=require(process.argv[1]); process.stdout.write(r.status)' "$RECEIPT_DIR/runtime-monitor.json")"
+            echo "- Live quarantine monitor: \`$runtime_result\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Retain release and rollback evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: static-site-release-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/jakh-site-release
+            ${{ runner.temp }}/jakh-api-artifact
+            site-worker/dist
+            worker/migrations
+          if-no-files-found: warn
+          retention-days: 90

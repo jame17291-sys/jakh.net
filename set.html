@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
@@ -9,6 +9,9 @@
   <link rel="preload" href="styles.css?v=2026080101" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/set"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/set" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/set/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/set" />
   <meta name="robots" content="index,follow"/>
   <meta property="og:title" content="SET Online — Free Browser Game | JAKH" />
   <meta property="og:description" content="Race to identify matching sets of three cards in this free pattern-recognition browser game. Play instantly with no download or sign-up." />
@@ -28,9 +31,6 @@
   <link rel="stylesheet" href="styles.css?v=2026080101"/>
   <script src="/game-i18n.js?v=2026080101"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
-
-
-  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* ── SET scoped styles ── */
     #setSection {
@@ -575,8 +575,33 @@
       return makeStar(color, fill);
     }
 
+    function captureGridFocus() {
+      var active = document.activeElement;
+      if (!active || !gridEl.contains(active)) return null;
+      var index = Number(active.dataset.idx);
+      if (!Number.isInteger(index)) return null;
+      return { card: tableau[index], index: index };
+    }
+
+    function restoreGridFocus(snapshot) {
+      if (!snapshot) return;
+      if (gameOver) {
+        btnNew.focus();
+        return;
+      }
+
+      var index = snapshot.card ? tableau.indexOf(snapshot.card) : -1;
+      if (index === -1) {
+        index = Math.min(Math.max(snapshot.index, 0), tableau.length - 1);
+      }
+      var target = getCardEl(index) || gridEl.querySelector('.set-card:not(:disabled)');
+      if (target) target.focus();
+      else btnNew.focus();
+    }
+
     // ── Render ──
-    function render() {
+    function render(focusSnapshot) {
+      if (arguments.length === 0) focusSnapshot = captureGridFocus();
       gridEl.innerHTML = '';
 
       for (var i = 0; i < tableau.length; i++) {
@@ -617,6 +642,7 @@
       scoreEl.textContent = I.number(score);
       deckEl.textContent  = I.number(remaining.length);
       updateButtons();
+      restoreGridFocus(focusSnapshot);
     }
 
     function describeCard(card) {
@@ -678,6 +704,7 @@
         setStatus('setFound', {}, 'good');
 
         var toRemove = selected.slice().sort(function(x,y){return y-x;}); // desc order
+        var focusSnapshot = captureGridFocus();
         selected = [];
 
         setTimeout(function() {
@@ -690,13 +717,14 @@
             tableau.push(remaining.shift());
           }
           checkGameOver();
-          render();
+          render(focusSnapshot);
         }, 700);
       } else {
         // Flash red then deselect
         flashCards(selected.slice(), 'bad');
         setStatus('notSet', {}, 'bad');
         var toDeselect = selected.slice();
+        var focusSnapshot = captureGridFocus();
         selected = [];
         setTimeout(function() {
           toDeselect.forEach(function(i) {
@@ -704,7 +732,7 @@
             if (el) { el.classList.remove('selected', 'flash-bad'); }
           });
           setStatus('startPrompt', {}, '');
-          render();
+          render(focusSnapshot);
         }, 800);
       }
     }

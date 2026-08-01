@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <script src="game-i18n.js?v=2026080101"></script>
@@ -10,6 +10,9 @@
     <link rel="preload" href="styles.css?v=2026080101" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://jakh.net/chess" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/chess" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/chess/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/chess" />
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="Chess Online — Free Browser Game | JAKH" />
     <meta property="og:description" content="Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up." />
@@ -29,15 +32,6 @@
     <link rel="stylesheet" href="styles.css?v=2026080101" />
     <link rel="manifest" href="manifest.webmanifest" />
     <!-- Google Analytics -->
-
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistration('/sw.js').then(function(reg) {
-          if (reg) reg.update();
-        });
-      }
-    </script>
     <style>
       /* ── Chess page scoped styles ── */
       #chessSection {
@@ -107,7 +101,6 @@
       /* The board itself */
       #chessBoard {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(8, 1fr);
         width: var(--chess-board-size);
         aspect-ratio: 1 / 1;
@@ -118,6 +111,13 @@
         flex-shrink: 0;
       }
 
+      .chess-board-row {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        min-width: 0;
+        min-height: 0;
+      }
+
       .chess-square {
         display: flex;
         align-items: center;
@@ -125,6 +125,7 @@
         position: relative;
         cursor: pointer;
         transition: background 0.12s;
+        touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
       }
 
@@ -213,6 +214,109 @@
       @media (max-width: 640px) {
         .chess-layout { flex-direction: column; align-items: center; }
         .chess-side { max-width: min(480px, calc(100vw - 2rem)); width: 100%; flex-direction: row; flex-wrap: wrap; min-width: 0; }
+      }
+
+      .chess-touch-controls {
+        display: none;
+        width: calc(100% - 2rem);
+        padding: 0.85rem;
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        background: var(--panel);
+      }
+
+      .chess-touch-controls h2,
+      .chess-touch-controls p {
+        margin: 0;
+      }
+
+      .chess-touch-controls h2 {
+        font-size: 1rem;
+      }
+
+      .chess-touch-fields {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .chess-touch-fields label {
+        display: grid;
+        gap: 0.3rem;
+        color: var(--muted);
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
+      .chess-touch-fields select,
+      .chess-touch-move {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .chess-touch-fields select {
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        background: var(--panel-strong);
+        color: var(--text);
+        padding-inline: 0.65rem;
+      }
+
+      .chess-touch-move {
+        border: 0;
+        border-radius: var(--radius-sm);
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .chess-touch-move:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+      }
+
+      .chess-touch-hint {
+        color: var(--muted);
+        font-size: 0.8125rem;
+        line-height: 1.45;
+      }
+
+      /* At 360px and wider, an edge-to-edge board gives every square at least 44px. */
+      @media (max-width: 400px) {
+        #chessSection {
+          padding-inline: 0 !important;
+        }
+
+        .chess-layout,
+        .board-area,
+        .board-ranks-row {
+          width: 100%;
+        }
+
+        .board-area {
+          --chess-board-size: min(480px, 100vw);
+        }
+
+        .board-files,
+        .board-rank-labels {
+          display: none;
+        }
+
+        .board-ranks-row {
+          justify-content: center;
+        }
+
+        .chess-status,
+        .chess-side {
+          width: calc(100% - 2rem);
+        }
+      }
+
+      /* Eight 44px squares need 352px; expose full-size precise controls below that. */
+      @media (max-width: 351px) {
+        .chess-touch-controls {
+          display: grid;
+          gap: 0.65rem;
+        }
       }
 
       /* Status bar */
@@ -491,9 +595,25 @@
             <div class="board-files" id="boardFiles"></div>
             <div class="board-ranks-row">
               <div class="board-rank-labels" id="rankLabels"></div>
-              <div id="chessBoard" role="grid" dir="ltr" aria-label="Chess board" aria-describedby="chessKeyboardInstructions" data-i18n-aria-label="chessBoardAria"></div>
+              <div id="chessBoard" role="grid" aria-rowcount="8" aria-colcount="8" dir="ltr" aria-label="Chess board" aria-describedby="chessKeyboardInstructions" data-i18n-aria-label="chessBoardAria"></div>
             </div>
             <p class="sr-only" id="chessKeyboardInstructions" data-i18n="chessKeyboardInstructions">Use the arrow keys to move between squares. Press Enter or Space to select a piece or make a move.</p>
+          </div>
+
+          <div class="chess-touch-controls" id="chessTouchControls" aria-labelledby="chessTouchTitle">
+            <h2 id="chessTouchTitle" data-i18n="chessTouchTitle">Precise move controls</h2>
+            <div class="chess-touch-fields">
+              <label>
+                <span data-i18n="chessTouchPiece">Piece</span>
+                <select id="chessTouchFrom"></select>
+              </label>
+              <label>
+                <span data-i18n="chessTouchDestination">Destination</span>
+                <select id="chessTouchTo"></select>
+              </label>
+              <button class="chess-touch-move" id="chessTouchMove" type="button" data-i18n="chessTouchMove">Make move</button>
+            </div>
+            <p class="chess-touch-hint" data-i18n="chessTouchHint">On very narrow screens, use these full-size controls when a board square is too small to tap precisely.</p>
           </div>
 
           <!-- Side panel -->
@@ -515,8 +635,8 @@
 
             <div class="captured-panel">
               <p class="captured-label" data-i18n="chessCaptured">Captured</p>
-              <div class="captured-row black" id="capturedByWhite" aria-label="Pieces captured by White" data-i18n-aria-label="chessCapturedByWhite"></div>
-              <div class="captured-row" id="capturedByBlack" aria-label="Pieces captured by Black" data-i18n-aria-label="chessCapturedByBlack"></div>
+              <div class="captured-row black" id="capturedByWhite" role="group" aria-label="Pieces captured by White" data-i18n-aria-label="chessCapturedByWhite"></div>
+              <div class="captured-row" id="capturedByBlack" role="group" aria-label="Pieces captured by Black" data-i18n-aria-label="chessCapturedByBlack"></div>
             </div>
           </div>
         </div>
@@ -583,6 +703,13 @@
         chessSquarePiece: 'Square {square}, {color} {piece}',
         chessSquareSelected: '{description}, selected',
         chessSquareLegalMove: '{description}, legal move destination',
+        chessTouchTitle: 'Precise move controls',
+        chessTouchPiece: 'Piece',
+        chessTouchDestination: 'Destination',
+        chessTouchMove: 'Make move',
+        chessTouchHint: 'On very narrow screens, use these full-size controls when a board square is too small to tap precisely.',
+        chessTouchChoosePiece: 'Choose a movable piece',
+        chessTouchChooseDestination: 'Choose a destination',
         chessKing: 'king',
         chessQueen: 'queen',
         chessRook: 'rook',
@@ -623,6 +750,13 @@
         chessSquarePiece: 'المربع {square}، {piece} {color}',
         chessSquareSelected: '{description}، محدد',
         chessSquareLegalMove: '{description}، وجهة نقلة قانونية',
+        chessTouchTitle: 'عناصر تحكم دقيقة للنقلة',
+        chessTouchPiece: 'القطعة',
+        chessTouchDestination: 'الوجهة',
+        chessTouchMove: 'تنفيذ النقلة',
+        chessTouchHint: 'على الشاشات الضيقة جداً، استخدم عناصر التحكم بالحجم الكامل عندما يصعب لمس مربع الرقعة بدقة.',
+        chessTouchChoosePiece: 'اختر قطعة قابلة للتحريك',
+        chessTouchChooseDestination: 'اختر وجهة',
         chessKing: 'ملك',
         chessQueen: 'ملكة',
         chessRook: 'رخ',
@@ -1084,6 +1218,9 @@
       const promoOptions = document.getElementById('promoOptions');
       const boardFiles   = document.getElementById('boardFiles');
       const rankLabels   = document.getElementById('rankLabels');
+      const touchFrom    = document.getElementById('chessTouchFrom');
+      const touchTo      = document.getElementById('chessTouchTo');
+      const touchMoveBtn = document.getElementById('chessTouchMove');
 
       // ── Build rank/file labels ─────────────────────────
       function buildLabels() {
@@ -1114,16 +1251,22 @@
       function buildBoard() {
         boardEl.innerHTML = '';
         for (let r = 0; r < 8; r++) {
+          const row = document.createElement('div');
+          row.className = 'chess-board-row';
+          row.setAttribute('role', 'row');
+          row.setAttribute('aria-rowindex', String(r + 1));
           for (let c = 0; c < 8; c++) {
             const sq = document.createElement('div');
             sq.className = 'chess-square ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
             sq.dataset.row = r;
             sq.dataset.col = c;
             sq.setAttribute('role', 'gridcell');
+            sq.setAttribute('aria-colindex', String(c + 1));
             sq.addEventListener('click', onSquareClick);
             sq.addEventListener('keydown', onSquareKeydown);
-            boardEl.appendChild(sq);
+            row.appendChild(sq);
           }
+          boardEl.appendChild(row);
         }
       }
 
@@ -1238,6 +1381,76 @@
 
         renderStatus(status, silentGameOver);
         renderCaptured();
+        renderTouchMoveControls();
+      }
+
+      function addTouchPlaceholder(select, key) {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = t(key);
+        select.appendChild(option);
+      }
+
+      function touchMoveAvailable() {
+        const status = ChessEngine.getStatus(gameState);
+        return !isThinking
+          && status !== 'checkmate'
+          && status !== 'stalemate'
+          && status !== 'draw'
+          && !(vsComputer && gameState.turn === 'b');
+      }
+
+      function renderTouchDestinations() {
+        const previous = touchTo.value;
+        touchTo.innerHTML = '';
+        addTouchPlaceholder(touchTo, 'chessTouchChooseDestination');
+
+        const coordinates = touchFrom.value.split(',').map(Number);
+        const hasSource = touchFrom.value !== '' && coordinates.length === 2;
+        const moves = hasSource
+          ? ChessEngine.getLegalMoves(gameState, coordinates[0], coordinates[1])
+          : [];
+
+        for (const move of moves) {
+          const option = document.createElement('option');
+          option.value = move.toRow + ',' + move.toCol;
+          option.textContent = fileOf(move.toCol) + rankOf(move.toRow);
+          touchTo.appendChild(option);
+        }
+
+        if ([...touchTo.options].some((option) => option.value === previous)) {
+          touchTo.value = previous;
+        }
+        touchTo.disabled = !touchMoveAvailable() || moves.length === 0;
+        touchMoveBtn.disabled = touchTo.disabled || touchTo.value === '';
+      }
+
+      function renderTouchMoveControls() {
+        const previous = touchFrom.value;
+        touchFrom.innerHTML = '';
+        addTouchPlaceholder(touchFrom, 'chessTouchChoosePiece');
+
+        if (touchMoveAvailable()) {
+          for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+              const piece = gameState.board[row][col];
+              const moves = piece && piece[0] === gameState.turn
+                ? ChessEngine.getLegalMoves(gameState, row, col)
+                : [];
+              if (moves.length === 0) continue;
+              const option = document.createElement('option');
+              option.value = row + ',' + col;
+              option.textContent = fileOf(col) + rankOf(row) + ' — ' + t(PIECE_NAME_KEYS[piece[1]]);
+              touchFrom.appendChild(option);
+            }
+          }
+        }
+
+        if ([...touchFrom.options].some((option) => option.value === previous)) {
+          touchFrom.value = previous;
+        }
+        touchFrom.disabled = !touchMoveAvailable() || touchFrom.options.length === 1;
+        renderTouchDestinations();
       }
 
       function fileOf(c) { return 'abcdefgh'[c]; }
@@ -1399,6 +1612,26 @@
           activateSquare(row, col);
         }
       }
+
+      touchFrom.addEventListener('change', renderTouchDestinations);
+      touchTo.addEventListener('change', () => {
+        touchMoveBtn.disabled = touchTo.value === '';
+      });
+      touchMoveBtn.addEventListener('click', () => {
+        if (!touchMoveAvailable() || !touchFrom.value || !touchTo.value) return;
+        const from = touchFrom.value.split(',').map(Number);
+        const to = touchTo.value.split(',').map(Number);
+        const move = ChessEngine.getLegalMoves(gameState, from[0], from[1])
+          .find((candidate) => candidate.toRow === to[0] && candidate.toCol === to[1]);
+        if (!move) return;
+        setRovingFocus(to[0], to[1], false);
+        if (move.special === 'promotion') {
+          pendingPromoMove = move;
+          showPromotionModal(gameState.turn);
+          return;
+        }
+        executeMove(move);
+      });
 
       // ── Execute a move ─────────────────────────────────
       function executeMove(move, promoChoice) {

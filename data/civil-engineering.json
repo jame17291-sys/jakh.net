@@ -3,8 +3,8 @@
     "id": "civil-engineering-001",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What type of bridge is the Golden Gate Bridge?",
@@ -13,14 +13,17 @@
     "answer": {
       "en": "Suspension Bridge",
       "ar": "جسر معلق"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Materials & Concrete",
-        "ar": "المواد والخرسانة"
+      "en": "Materials & Concrete",
+      "ar": "المواد والخرسانة"
     },
     "question": {
       "en": "What are the three basic ingredients in concrete?",
@@ -29,14 +32,17 @@
     "answer": {
       "en": "Water, aggregate, and cement",
       "ar": "الماء والركام والإسمنت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-003",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What is the primary structural material used in most modern skyscrapers?",
@@ -45,14 +51,17 @@
     "answer": {
       "en": "Steel",
       "ar": "الفولاذ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-004",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Surveying & Design",
-        "ar": "المساحة والتصميم"
+      "en": "Surveying & Design",
+      "ar": "المساحة والتصميم"
     },
     "question": {
       "en": "What does the acronym 'CAD' stand for?",
@@ -61,14 +70,17 @@
     "answer": {
       "en": "Computer-Aided Design",
       "ar": "التصميم بمساعدة الحاسوب"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Water & Hydraulics",
-        "ar": "المياه والهيدروليكا"
+      "en": "Water & Hydraulics",
+      "ar": "المياه والهيدروليكا"
     },
     "question": {
       "en": "What is the main purpose of a dam?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "Water storage or hydroelectric power",
       "ar": "تخزين المياه أو توليد الكهرباء المائية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Geotechnical & Foundations",
-        "ar": "الهندسة الجيوتقنية والأساسات"
+      "en": "Geotechnical & Foundations",
+      "ar": "الهندسة الجيوتقنية والأساسات"
     },
     "question": {
       "en": "What is the lowest part of a building that transfers its weight to the ground?",
@@ -93,14 +108,17 @@
     "answer": {
       "en": "Foundation",
       "ar": "الأساس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-007",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Surveying & Design",
-        "ar": "المساحة والتصميم"
+      "en": "Surveying & Design",
+      "ar": "المساحة والتصميم"
     },
     "question": {
       "en": "What instrument do surveyors use to measure angles in horizontal and vertical planes?",
@@ -109,14 +127,17 @@
     "answer": {
       "en": "Theodolite",
       "ar": "جهاز الثيودوليت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-008",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "Why is an arch a strong shape for a bridge?",
@@ -125,14 +146,17 @@
     "answer": {
       "en": "It dissipates force outwards and downwards",
       "ar": "لأنه يوزع القوى خارجياً ونحو الأسفل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-009",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Water & Hydraulics",
-        "ar": "المياه والهيدروليكا"
+      "en": "Water & Hydraulics",
+      "ar": "المياه والهيدروليكا"
     },
     "question": {
       "en": "What is the structure that channels water beneath a road called?",
@@ -141,14 +165,17 @@
     "answer": {
       "en": "A culvert",
       "ar": "عبّارة مائية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-010",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Transport & Tunnels",
-        "ar": "النقل والأنفاق"
+      "en": "Transport & Tunnels",
+      "ar": "النقل والأنفاق"
     },
     "question": {
       "en": "What do you call a machine used to excavate tunnels through soil and rock?",
@@ -157,14 +184,17 @@
     "answer": {
       "en": "TBM - Tunnel Boring Machine",
       "ar": "آلة حفر الأنفاق (TBM)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-011",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Materials & Concrete",
-        "ar": "المواد والخرسانة"
+      "en": "Materials & Concrete",
+      "ar": "المواد والخرسانة"
     },
     "question": {
       "en": "What does Young's Modulus measure in a material?",
@@ -173,14 +203,17 @@
     "answer": {
       "en": "Stiffness or elasticity",
       "ar": "الصلابة أو المرونة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-012",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Materials & Concrete",
-        "ar": "المواد والخرسانة"
+      "en": "Materials & Concrete",
+      "ar": "المواد والخرسانة"
     },
     "question": {
       "en": "What is 'Rebar' short for?",
@@ -189,14 +222,17 @@
     "answer": {
       "en": "Reinforcing bar",
       "ar": "قضيب التسليح"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-013",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Geotechnical & Foundations",
-        "ar": "الهندسة الجيوتقنية والأساسات"
+      "en": "Geotechnical & Foundations",
+      "ar": "الهندسة الجيوتقنية والأساسات"
     },
     "question": {
       "en": "What is the term for when soil loses strength and behaves like a liquid during an earthquake?",
@@ -205,14 +241,17 @@
     "answer": {
       "en": "Liquefaction",
       "ar": "التسييل (الاسالة)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-014",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Water & Hydraulics",
-        "ar": "المياه والهيدروليكا"
+      "en": "Water & Hydraulics",
+      "ar": "المياه والهيدروليكا"
     },
     "question": {
       "en": "What is the pressure of water at rest called?",
@@ -221,14 +260,17 @@
     "answer": {
       "en": "Hydrostatic pressure",
       "ar": "الضغط الهيدروستاتيكي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-015",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What do you call a beam supported at only one end?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "Cantilever",
       "ar": "الكمرة الكابولية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "In a structure in equilibrium, what must the sum of all forces equal?",
@@ -253,14 +298,17 @@
     "answer": {
       "en": "Zero",
       "ar": "صفر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-017",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What geometric shape is the fundamental building block of a truss?",
@@ -269,14 +317,17 @@
     "answer": {
       "en": "Triangle",
       "ar": "المثلث"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-018",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What is the difference between 'Dead Load' and 'Live Load'?",
@@ -285,14 +336,17 @@
     "answer": {
       "en": "Dead load is the structure's own weight; live load is people/objects",
       "ar": "الحمل الميت هو وزن الهيكل نفسه؛ الحمل الحي هو وزن الأشخاص والمحتويات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Surveying & Design",
-        "ar": "المساحة والتصميم"
+      "en": "Surveying & Design",
+      "ar": "المساحة والتصميم"
     },
     "question": {
       "en": "What is the term for a fixed point of known elevation used as a reference?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "Benchmark",
       "ar": "نقطة المرجع (Benchmark)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Transport & Tunnels",
-        "ar": "النقل والأنفاق"
+      "en": "Transport & Tunnels",
+      "ar": "النقل والأنفاق"
     },
     "question": {
       "en": "What does 'LOS' stand for in traffic engineering?",
@@ -317,14 +374,17 @@
     "answer": {
       "en": "Level of Service",
       "ar": "مستوى الخدمة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-021",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What does the Moment of Inertia represent in structural engineering?",
@@ -333,14 +393,17 @@
     "answer": {
       "en": "Resistance to bending and deflection",
       "ar": "مقاومة الانحناء والانتقال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-022",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Materials & Concrete",
-        "ar": "المواد والخرسانة"
+      "en": "Materials & Concrete",
+      "ar": "المواد والخرسانة"
     },
     "question": {
       "en": "What is the purpose of 'pre-tensioning' concrete?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "To introduce compressive stress to counteract tensile stress from loads",
       "ar": "لإدخال إجهاد ضغطي يقاوم إجهاد الشد الناجم عن الأحمال"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-023",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Water & Hydraulics",
-        "ar": "المياه والهيدروليكا"
+      "en": "Water & Hydraulics",
+      "ar": "المياه والهيدروليكا"
     },
     "question": {
       "en": "For an inviscid flow, an increase in fluid speed occurs with a decrease in what?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "Pressure or potential energy",
       "ar": "الضغط أو الطاقة الكامنة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-024",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Materials & Concrete",
-        "ar": "المواد والخرسانة"
+      "en": "Materials & Concrete",
+      "ar": "المواد والخرسانة"
     },
     "question": {
       "en": "What is the typical range for Poisson's Ratio for common construction materials?",
@@ -381,14 +450,17 @@
     "answer": {
       "en": "0.1 to 0.5",
       "ar": "0.1 إلى 0.5"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-025",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What is the point in a beam where shear force changes sign and bending moment is maximum?",
@@ -397,14 +469,17 @@
     "answer": {
       "en": "Point of zero shear",
       "ar": "نقطة الإجهاد الصفري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-026",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Water & Hydraulics",
-        "ar": "المياه والهيدروليكا"
+      "en": "Water & Hydraulics",
+      "ar": "المياه والهيدروليكا"
     },
     "question": {
       "en": "What is a 'Return Period' in flood analysis?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "An estimate of the likelihood of an event occurring",
       "ar": "تقدير لاحتمالية حدوث حدث كالفيضان خلال فترة زمنية معينة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-027",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Structures & Bridges",
-        "ar": "المنشآت والجسور"
+      "en": "Structures & Bridges",
+      "ar": "المنشآت والجسور"
     },
     "question": {
       "en": "What is the 'Stiffness Method' also known as?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "The Displacement Method",
       "ar": "طريقة الإزاحة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-028",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Geotechnical & Foundations",
-        "ar": "الهندسة الجيوتقنية والأساسات"
+      "en": "Geotechnical & Foundations",
+      "ar": "الهندسة الجيوتقنية والأساسات"
     },
     "question": {
       "en": "What are 'Atterberg Limits' used to classify?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "Fine-grained soils",
       "ar": "التربة دقيقة الحبيبات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-029",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Geotechnical & Foundations",
-        "ar": "الهندسة الجيوتقنية والأساسات"
+      "en": "Geotechnical & Foundations",
+      "ar": "الهندسة الجيوتقنية والأساسات"
     },
     "question": {
       "en": "What is the formula and name for effective stress in soil mechanics?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "σ' = σ - u (total stress minus pore water pressure)",
       "ar": "σ' = σ - u (الإجهاد الكلي ناقص ضغط مياه المسام)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "civil-engineering-030",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Transport & Tunnels",
-        "ar": "النقل والأنفاق"
+      "en": "Transport & Tunnels",
+      "ar": "النقل والأنفاق"
     },
     "question": {
       "en": "What is the purpose of a 'roundabout' from a traffic engineering perspective?",
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Reduce conflict points and improve traffic flow at intersections",
       "ar": "تقليل نقاط التعارض وتحسين تدفق المرور عند التقاطعات"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

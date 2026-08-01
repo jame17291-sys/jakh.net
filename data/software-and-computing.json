@@ -13,6 +13,9 @@
     "answer": {
       "en": "Central Processing Unit — the primary component that executes instructions and performs calculations in a computer.",
       "ar": "وحدة المعالجة المركزية — المكوّن الرئيسي الذي ينفّذ التعليمات ويُجري العمليات الحسابية في الحاسب."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -39,6 +42,9 @@
         "RAM ذاكرة مؤقتة متطايرة؛ ROM تخزين دائم غير متطاير للتعليمات.",
         "تفقد RAM بيانات العمل بانقطاع الطاقة؛ وتحتفظ ROM بالتعليمات المخزنة."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -65,6 +71,9 @@
         "النظام الثنائي يستخدم 0 و1 لأن للترانزستورات حالتين كهربائيتين.",
         "أرقام الأساس اثنين توافق حالتي تشغيل الترانزستور وإيقافه؛ لذا تستخدم الحواسيب صفراً وواحداً."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -91,6 +100,9 @@
         "تخزين متجاور مفهرس لعناصر من النوع نفسه، يبدأ عادة بالفهرس صفر.",
         "عناصر من نوع واحد تُخزن متجاورة وتُوصل بفهارس تبدأ من الصفر."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -107,6 +119,9 @@
     "answer": {
       "en": "A unique numerical label assigned to each device on a network, used to identify and communicate with it. IPv4 uses 32-bit addresses (e.g., 192.168.1.1); IPv6 uses 128-bit addresses.",
       "ar": "تسمية رقمية فريدة مُعيَّنة لكل جهاز في الشبكة، تُستخدم لتعريفه والتواصل معه. يستخدم IPv4 عناوين 32 بت (مثلاً 192.168.1.1)؛ ويستخدم IPv6 عناوين 128 بت."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -133,6 +148,9 @@
         "المجمّع يترجم المصدر كاملاً قبل التنفيذ؛ المفسّر يترجم وينفذ تدريجياً أثناء التشغيل.",
         "المجمّعات تترجم البرامج كاملة قبل التنفيذ؛ والمفسرات تترجم أثناء التشغيل."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -149,6 +167,9 @@
     "answer": {
       "en": "Software that manages hardware resources and provides services for application programs. Examples: Windows, macOS, Linux.",
       "ar": "برنامج يُدير موارد العتاد ويوفر خدمات للتطبيقات. أمثلة: ويندوز، ماك أو إس، لينوكس."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -165,6 +186,9 @@
     "answer": {
       "en": "A linked list is a data structure where each element (node) stores data and a pointer to the next node. Unlike arrays, nodes are not contiguous in memory, making insertions/deletions fast (O(1) if pointer is known) but random access slow (O(n)).",
       "ar": "القائمة المترابطة هيكل بيانات يُخزّن فيه كل عنصر (عقدة) بيانات ومؤشراً للعقدة التالية. خلافاً للمصفوفات، العقد ليست متجاورة في الذاكرة، مما يجعل الإدراج/الحذف سريعاً (O(1) إذا كان المؤشر معروفاً) لكن الوصول العشوائي بطيئاً (O(n))."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -181,6 +205,9 @@
     "answer": {
       "en": "HyperText Transfer Protocol — the foundation of data communication on the World Wide Web, used to transfer web pages and other resources between a browser and a server.",
       "ar": "بروتوكول نقل النص التشعبي — أساس الاتصال البياني على الشبكة العالمية للمعلومات، يُستخدم لنقل صفحات الويب والموارد الأخرى بين المتصفح والخادم."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -197,6 +224,9 @@
     "answer": {
       "en": "Version control tracks changes to code over time, allowing teams to collaborate, roll back errors, and maintain history. Git is a distributed VCS — every developer has a full copy of the repository, enabling offline work and fast branching.",
       "ar": "التحكم في الإصدارات يتتبع التغييرات في الكود بمرور الوقت، مما يُتيح للفرق التعاون والتراجع عن الأخطاء والحفاظ على السجل. Git نظام تحكم إصدار موزع — كل مطوّر لديه نسخة كاملة من المستودع مما يُتيح العمل دون اتصال والتفريع السريع."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -213,6 +243,9 @@
     "answer": {
       "en": "A finite, ordered set of well-defined instructions that solves a problem or accomplishes a task.",
       "ar": "مجموعة محدودة ومرتبة من التعليمات المحددة بدقة التي تحل مشكلة أو تُنجز مهمة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -229,6 +262,9 @@
     "answer": {
       "en": "A process is an independent program instance with its own memory space. Threads are lighter-weight units of execution within a process, sharing the same memory — enabling concurrency with less overhead.",
       "ar": "العملية هي نموذج برنامج مستقل بفضاء ذاكرة خاص به. الخيوط وحدات تنفيذ خفيفة الوزن داخل عملية واحدة تُشارك الذاكرة ذاتها — مما يُتيح التزامن بعبء أقل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -245,6 +281,9 @@
     "answer": {
       "en": "A programming paradigm that organises code around 'objects' — entities that bundle data (attributes) and behaviour (methods). Core principles: encapsulation, inheritance, polymorphism, and abstraction.",
       "ar": "نموذج برمجي ينظم الكود حول 'كائنات' — كيانات تجمع البيانات (الخصائص) والسلوك (الأساليب). المبادئ الأساسية: التغليف، والوراثة، وتعدد الأشكال، والتجريد."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -271,6 +310,9 @@
         "هيكل آخر داخل أول خارج؛ push يضيف للقمة وpop يزيل الأحدث أولاً.",
         "مكدس LIFO تُضاف عناصره وتُزال من القمة، والأحدث يخرج أولاً."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -287,6 +329,9 @@
     "answer": {
       "en": "Big O describes the worst-case time or space complexity of an algorithm as input size (n) grows. O(n log n) means execution time grows proportionally to n multiplied by the logarithm of n — typical of efficient comparison-based sorting algorithms like merge sort and heapsort.",
       "ar": "رمز O الكبير يصف تعقيد الوقت أو الفضاء في الحالة الأسوأ للخوارزمية مع نمو حجم المدخل (n). O(n log n) يعني نمو وقت التنفيذ بنسبة n مضروبة في لوغاريتم n — نمط خوارزميات الفرز القائمة على المقارنة الكفوءة كالفرز بالدمج والفرز الكومي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -313,6 +358,9 @@
         "إطار شبكي بسبع طبقات: المادية، ربط البيانات، الشبكة، النقل، الجلسة، التقديم، التطبيق.",
         "طبقات OSI السبع: التطبيق، التقديم، الجلسة، النقل، الشبكة، ربط البيانات، المادية."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -329,6 +377,9 @@
     "answer": {
       "en": "SQL (relational) databases store structured data in tables with fixed schemas and use SQL for queries — strong consistency, ACID transactions (e.g., PostgreSQL, MySQL). NoSQL databases use flexible schemas (document, key-value, graph, column) — better horizontal scalability and performance for unstructured data (e.g., MongoDB, Redis, Cassandra).",
       "ar": "قواعد بيانات SQL (العلائقية) تُخزّن بيانات منظمة في جداول بمخططات ثابتة وتستخدم SQL للاستعلامات — تناسق قوي ومعاملات ACID (مثل PostgreSQL وMySQL). قواعد NoSQL تستخدم مخططات مرنة (مستند، مفتاح-قيمة، رسم بياني، عمود) — قابلية توسع أفقي أفضل وأداء عالٍ للبيانات غير المنظمة (مثل MongoDB وRedis وCassandra)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -355,6 +406,9 @@
         "تخزين مفتاح-قيمة مفهرس بتجزئة المفتاح؛ متوسط البحث O(1).",
         "تحدد تجزئة المفتاح موقع القيمة؛ والبحث في المتوسط O(1)."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +435,9 @@
         "يحوّل DNS النطاقات إلى عناوين IP عبر خوادم الجذر ثم TLD ثم الموثوقة.",
         "يستعلم المحلل خوادم الجذر وTLD والموثوقة لربط النطاق بعنوان IP."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -407,6 +464,9 @@
         "المسؤولية الفردية، المفتوح-المغلق، ليسكوف، فصل الواجهات، انعكاس الاعتمادية.",
         "SRP وOCP وLSP وISP وDIP؛ مبادئ SOLID الخمسة لتصميم الكائنات."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -433,6 +493,9 @@
         "تستدعي الدالة نفسها على مدخل أصغر؛ وتوقفها الحالة الأساسية.",
         "حل عودي باستدعاء الذات ينتهي عند شرط أساسي."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -459,6 +522,9 @@
         "ترخية جشعة تجد أقصر المسارات بحواف غير سالبة؛ بالكومة O((V+E) log V).",
         "رخِّ أقرب الرؤوس بجشع لأقصر مسارات غير سالبة؛ تكلفة الكومة O((V+E)log V)."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -485,6 +551,9 @@
         "سلوك البيانات المشتركة يعتمد بلا توقع على توقيت الخيوط؛ تمنعه المزامنة أو العمليات الذرية.",
         "يغير توقيت الخيوط نتائج الحالة المشتركة؛ استخدم الأقفال أو العمليات الذرية."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -501,6 +570,9 @@
     "answer": {
       "en": "CAP theorem (Brewer) states a distributed system can guarantee at most two of three properties simultaneously: Consistency (every read receives the most recent write), Availability (every request receives a response), and Partition Tolerance (system continues despite network partitions).",
       "ar": "نظرية CAP (برور) تقول إن النظام الموزع يمكنه ضمان اثنتين فقط من ثلاث خصائص في آنٍ: التناسق (كل قراءة تتلقى آخر كتابة)، والتوافر (كل طلب يتلقى استجابة)، وتحمل التقسيم (النظام يواصل العمل رغم انقسامات الشبكة)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -517,6 +589,9 @@
     "answer": {
       "en": "Dynamic programming solves problems by breaking them into overlapping subproblems and storing results (memoisation/tabulation) — optimal solution guaranteed. Greedy algorithms make locally optimal choices at each step without reconsidering — faster but not always globally optimal (e.g., Dijkstra is greedy and optimal; fractional knapsack is greedy; 0/1 knapsack requires DP).",
       "ar": "البرمجة الديناميكية تحل المشكلات بتقسيمها إلى مشاكل فرعية متداخلة وتخزين النتائج (الحفظ/الجدولة) — ضمان الحل الأمثل. الخوارزميات الجشعة تتخذ اختيارات محلية مثلى في كل خطوة دون إعادة النظر — أسرع لكن ليست دائماً مثلى عالمياً (مثلاً ديكسترا جشعة ومثلى؛ المسح الجزئي جشع؛ مسألة الحقيبة 0/1 تحتاج البرمجة الديناميكية)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -533,6 +608,9 @@
     "answer": {
       "en": "Virtual memory gives each process the illusion of a large, private address space even if physical RAM is limited. Paging divides virtual addresses into fixed-size pages mapped to physical frames by a page table. When a page is not in RAM (page fault), the OS loads it from disk.",
       "ar": "الذاكرة الافتراضية تمنح كل عملية وهم فضاء عنوان كبير وخاص حتى لو كانت ذاكرة RAM الفعلية محدودة. التصفيح يُقسّم العناوين الافتراضية إلى صفحات ذات حجم ثابت مُعيَّنة لإطارات فيزيائية بجدول صفحات. عندما لا تكون الصفحة في RAM (خطأ صفحة)، يُحمّلها نظام التشغيل من القرص."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -559,6 +637,9 @@
         "الاختبارات أولاً؛ أحمر: فشل؛ أخضر: أدنى نجاح؛ إعادة الهيكلة مع بقاء النجاح.",
         "اكتب اختباراً فاشلاً، مرره بأقل كود، ثم أعد الهيكلة دون كسر الاختبارات."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -585,6 +666,9 @@
         "لا خوارزمية تحدد توقف كل برنامج أو استمراره؛ أثبت تورينغ أنها غير قابلة للبت.",
         "أثبت تورينغ استحالة تقرير توقف أي برنامج عموماً؛ فتلك مشكلة غير قابلة للبت."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -601,6 +685,9 @@
     "answer": {
       "en": "A BST where the heights of subtrees are kept close (e.g., AVL tree: height difference ≤ 1; Red-Black tree: more relaxed). Balance ensures search, insertion, and deletion remain O(log n) in the worst case. An unbalanced BST can degrade to O(n) — a linked list.",
       "ar": "شجرة BST تُحافظ فيها ارتفاعات الأشجار الفرعية على قرب (مثلاً شجرة AVL: فرق الارتفاع ≤ 1؛ شجرة أحمر-أسود: أكثر مرونة). يضمن التوازن بقاء البحث والإدراج والحذف O(log n) في الحالة الأسوأ. شجرة BST غير متوازنة قد تتدهور إلى O(n) — قائمة مترابطة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -617,6 +704,9 @@
     "answer": {
       "en": "TCP (Transmission Control Protocol) is connection-oriented with guaranteed delivery, ordering, and error checking — higher overhead (e.g., web, email). UDP (User Datagram Protocol) is connectionless with no delivery guarantees — lower latency, used for real-time applications (e.g., video streaming, DNS, gaming).",
       "ar": "TCP (بروتوكول التحكم في الإرسال) موجّه للاتصال مع ضمان التسليم والترتيب وفحص الأخطاء — عبء أعلى (مثلاً الويب والبريد الإلكتروني). UDP (بروتوكول مخطط البيانات للمستخدم) بلا اتصال بدون ضمانات تسليم — كمون أقل، يُستخدم للتطبيقات الفورية (مثلاً بث الفيديو وDNS والألعاب)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -633,6 +723,9 @@
     "answer": {
       "en": "Monolithic: a single deployable unit containing all functionality — simple to develop initially but hard to scale and modify. Microservices: functionality split into small, independently deployable services communicating via APIs — better scalability and team autonomy, but increased operational complexity (networking, distributed tracing, eventual consistency).",
       "ar": "أحادية: وحدة نشر واحدة تحتوي على جميع الوظائف — بسيطة في التطوير مبدئياً لكن صعبة التوسع والتعديل. الخدمات المصغّرة: الوظائف تُقسَّم إلى خدمات صغيرة مستقلة النشر تتواصل عبر APIs — قابلية توسع أفضل واستقلالية الفريق لكن تعقيد تشغيلي أكبر (الشبكات والتتبع الموزع والتناسق النهائي)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -649,6 +742,9 @@
     "answer": {
       "en": "Garbage collection automatically reclaims memory no longer referenced — preventing memory leaks at the cost of runtime pauses and overhead (e.g., Java, Python, Go). Manual management (C, C++) gives precise control and no GC pauses but risks memory leaks, use-after-free, and double-free bugs.",
       "ar": "جمع القمامة يستعيد تلقائياً الذاكرة التي لم تعد مُشار إليها — يمنع تسرب الذاكرة على حساب توقفات زمنية أثناء التشغيل وعبء إضافي (مثلاً جافا، بايثون، Go). الإدارة اليدوية (C، C++) تمنح تحكماً دقيقاً بدون توقفات GC لكن بخطر تسرب الذاكرة والاستخدام بعد التحرير وأخطاء التحرير المزدوج."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -665,6 +761,9 @@
     "answer": {
       "en": "DFS explores as far as possible along each branch before backtracking — uses a stack (or recursion); good for cycle detection, topological sort. BFS explores all neighbours at the current depth before going deeper — uses a queue; good for shortest path in unweighted graphs.",
       "ar": "DFS يستكشف أبعد ما يمكن على طول كل فرع قبل الرجوع — يستخدم مكدساً (أو العودية)؛ جيد لاكتشاف الدورات والترتيب الطولوجي. BFS يستكشف جميع الجيران على العمق الحالي قبل التعمق — يستخدم طابوراً؛ جيد للمسار الأقصر في الرسوم البيانية غير الموزونة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -691,6 +790,9 @@
         "انتظار متبادل دائم؛ شروطه الاستبعاد المتبادل والاحتفاظ والانتظار وعدم الاستباق والانتظار الدائري.",
         "تتعطل العمليات دائماً مع الاستبعاد والاحتفاظ والانتظار ومنع الاستباق ودائرة الانتظار."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -707,6 +809,9 @@
     "answer": {
       "en": "A consistency model where, given no new updates, all replicas of data will eventually converge to the same value — but temporary inconsistencies are allowed between replicas. Used by highly available systems (Cassandra, DynamoDB). Contrasts with strong consistency (all reads reflect the latest write immediately).",
       "ar": "نموذج تناسق حيث، في غياب تحديثات جديدة، تتقارب جميع نسخ البيانات في نهاية المطاف إلى القيمة ذاتها — لكن التناسقات المؤقتة مسموح بها بين النسخ. تستخدمه الأنظمة عالية التوافر (Cassandra، DynamoDB). يتناقض مع التناسق القوي (جميع القراءات تعكس آخر كتابة فوراً)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -723,6 +828,9 @@
     "answer": {
       "en": "P: problems solvable in polynomial time. NP: problems where a proposed solution can be verified in polynomial time (but may not be solvable that fast). NP-complete: the hardest NP problems — every NP problem reduces to them in polynomial time. Whether P = NP is the most famous unsolved problem in computer science.",
       "ar": "P: مسائل قابلة للحل في وقت كثيرحدي. NP: مسائل يمكن التحقق من حل مقترح لها في وقت كثيرحدي (لكن قد لا تُحلّ بهذه السرعة). NP-complete: أصعب مسائل NP — كل مسألة NP تُختزل إليها في وقت كثيرحدي. هل P = NP؟ هي أشهر مسألة غير محلولة في علوم الحاسب."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -739,6 +847,9 @@
     "answer": {
       "en": "HTTPS is HTTP over TLS (Transport Layer Security). TLS provides encryption (prevents eavesdropping), authentication (server certificate verifies identity), and integrity (prevents tampering). The TLS handshake negotiates cipher suites and exchanges session keys using asymmetric cryptography before switching to symmetric encryption.",
       "ar": "HTTPS هو HTTP عبر TLS (أمان طبقة النقل). يوفر TLS التشفير (يمنع التنصت)، والمصادقة (شهادة الخادم تتحقق من الهوية)، والسلامة (تمنع التلاعب). مصافحة TLS تتفاوض على مجموعات التشفير وتبادل مفاتيح الجلسة باستخدام التشفير غير المتماثل قبل التحويل إلى التشفير المتماثل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -755,6 +866,9 @@
     "answer": {
       "en": "Reusable solutions to common software design problems (GoF book). Three examples: Singleton (ensure only one instance of a class exists), Observer (subject notifies a list of observers on state change — event-driven systems), Factory Method (delegate object creation to subclasses, hiding instantiation logic).",
       "ar": "حلول قابلة لإعادة الاستخدام لمشاكل تصميم البرمجيات الشائعة (كتاب GoF). ثلاثة أمثلة: Singleton (ضمان وجود نسخة واحدة فقط من الصنف)، وObserver (الموضوع يُخطر قائمة من المراقبين عند تغيير الحالة — الأنظمة المدفوعة بالأحداث)، وFactory Method (تفويض إنشاء الكائنات للأصناف الفرعية مع إخفاء منطق التهيئة)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -771,6 +885,9 @@
     "answer": {
       "en": "Byzantine fault tolerance (Lamport, 1982) is the ability of a system to continue operating even if some nodes fail in arbitrary ways — including sending conflicting information. Standard fault tolerance handles crash failures; Byzantine tolerance handles malicious or corrupted nodes. It requires at least 3f+1 nodes to tolerate f faulty ones. Critical for blockchain consensus (PBFT, Tendermint).",
       "ar": "تحمّل الأعطال البيزنطية (لامبورت، 1982) هو قدرة النظام على الاستمرار في العمل حتى لو فشلت بعض العقد بطرق عشوائية — بما في ذلك إرسال معلومات متضاربة. تحمّل الأعطال القياسي يُعالج أعطال الانهيار؛ تحمّل البيزنطية يُعالج العقد الخبيثة أو الفاسدة. يتطلب على الأقل 3f+1 عقدة لتحمل f عقدة معطوبة. أساسي لإجماع سلسلة الكتل (PBFT، Tendermint)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -797,6 +914,9 @@
         "يحقق Raft إجماعاً متحملاً للأعطال عبر انتخاب القائد وتكرار السجل والسلامة.",
         "انتخاب القائد وتكرار السجل والسلامة تجعل العقد تتفق رغم الأعطال."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -823,6 +943,9 @@
         "يوحد رؤية مخابئ الأنوية للذاكرة ويمنع القراءات القديمة؛ MESI مثال.",
         "يحافظ التماسك على اتساق مخبأ كل نواة ويمنع قراءة كتابة قديمة من أخرى."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -849,6 +972,9 @@
         "الأوتوماتون المحدود للغات المنتظمة؛ آلة تورينغ ذات الشريط للغات المعددة حسابياً.",
         "المحدود بلا شريط ويقبل المنتظمة؛ تورينغ ذات شريط وتقبل القابلة للتعرف."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -875,6 +1001,9 @@
         "في CRUD تُخزّن الحالة الحالية؛ في Event Sourcing تُخزّن الأحداث وتُشتق الحالة بإعادتها.",
         "مصادر الأحداث تعيد التاريخ الثابت لبناء الحالة؛ وCRUD يحفظ الحالة الحالية مباشرة."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -901,6 +1030,9 @@
         "قائمة احتمالية متعددة الطبقات ببحث وإدراج وحذف متوقع O(log n).",
         "طبقات مترابطة احتمالية تتيح البحث والإضافة والحذف بوقت لوغاريتمي متوقع."
       ]
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -917,6 +1049,9 @@
     "answer": {
       "en": "eBPF allows sandboxed programs to run in the Linux kernel without modifying kernel source or loading modules. Modern uses: high-performance networking (bypassing kernel stack — XDP), observability (tracing system calls, latency without overhead — Cilium, BPF Compiler Collection), security (runtime threat detection), and load balancing.",
       "ar": "eBPF يُتيح تشغيل برامج في صندوق رمل داخل نواة Linux دون تعديل كودها المصدري أو تحميل وحدات. الاستخدامات الحديثة: الشبكات عالية الأداء (تجاوز مكدس النواة — XDP)، والرصد (تتبع نداءات النظام والكمون بدون عبء — Cilium، BCC)، والأمن (اكتشاف التهديدات أثناء التشغيل)، وموازنة التحميل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -933,6 +1068,9 @@
     "answer": {
       "en": "Pessimistic concurrency: acquires locks before reading/writing, preventing conflicts — safer but reduces throughput (deadlock risk). Optimistic concurrency: no locks; transactions proceed and only check for conflicts at commit time; if a conflict is detected, the transaction is rolled back and retried. Better for low-contention workloads.",
       "ar": "التزامن التشاؤمي: يُحصّل الأقفال قبل القراءة/الكتابة، مما يمنع التعارضات — أكثر أماناً لكن يُقلل الإنتاجية (خطر الإغلاق التام). التزامن التفاؤلي: بلا أقفال؛ المعاملات تتقدم وتفحص التعارضات فقط عند الإيداع؛ عند اكتشاف تعارض، تُلغى المعاملة وتُعاد المحاولة. أفضل لأعباء العمل ذات الاحتكاك المنخفض."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -949,6 +1087,9 @@
     "answer": {
       "en": "Type theory studies formal systems that classify values by type. The Curry-Howard correspondence states that types are propositions and programs are proofs — an inhabited type corresponds to a provable proposition. This deep connection underpins dependently typed languages (Coq, Agda, Lean) used for program verification.",
       "ar": "نظرية النوع تدرس الأنظمة الرسمية التي تُصنّف القيم حسب النوع. مراسلة كاري-هاوارد تقول إن الأنواع هي قضايا والبرامج هي براهين — النوع المأهول يقابل قضية قابلة للبرهان. هذا الارتباط العميق يدعم اللغات ذات الأنواع التابعة (Coq، Agda، Lean) المُستخدمة للتحقق من البرامج."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -965,6 +1106,9 @@
     "answer": {
       "en": "Amortised analysis computes the average cost per operation over a sequence, even if some individual operations are expensive. A dynamic array doubles its capacity when full: most appends are O(1), but occasional resize is O(n). Amortised cost per append is still O(1) because each element is moved at most a constant number of times across all doublings.",
       "ar": "التحليل المستهلك يحسب متوسط تكلفة كل عملية عبر تسلسل، حتى لو كانت بعض العمليات الفردية مكلفة. المصفوفة الديناميكية تضاعف سعتها عند امتلائها: معظم إضافات O(1)، لكن تغيير الحجم العرضي O(n). التكلفة المستهلكة لكل إضافة لا تزال O(1) لأن كل عنصر يُنقل بحد أقصى عدداً ثابتاً من المرات عبر جميع المضاعفات."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -981,6 +1125,9 @@
     "answer": {
       "en": "The LMAX Disruptor is a high-performance inter-thread messaging library using a ring buffer with no locks. Key techniques: pre-allocated fixed-size ring buffer (no GC pressure), CPU cache-line padding to avoid false sharing, memory barriers instead of locks, and busy-spin waiting for lowest latency. It achieves millions of events per second within a JVM.",
       "ar": "LMAX Disruptor مكتبة رسائل بين الخيوط عالية الأداء تستخدم مخزن دائري بلا أقفال. التقنيات الرئيسية: مخزن دائري ذو حجم ثابت مُخصَّص مسبقاً (بلا ضغط GC)، وحشو خط ذاكرة CPU لتجنب المشاركة الزائفة، وحواجز ذاكرة بدلاً من الأقفال، والانتظار بالدوران المكثف لأقل كمون. يحقق ملايين الأحداث في الثانية داخل JVM."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -997,6 +1144,9 @@
     "answer": {
       "en": "Quantum computers use qubits (superposition of 0 and 1) and entanglement to perform massively parallel computations. Proven speedups: Shor's algorithm (factoring large numbers exponentially faster — breaks RSA), Grover's algorithm (unstructured search in O(√n) vs classical O(n)). Practical quantum advantage for broader problems is still being researched.",
       "ar": "الحاسبات الكمية تستخدم كيوبتات (تراكب 0 و1) والتشابك لإجراء عمليات حسابية متوازية بشكل هائل. تسريعات مثبتة: خوارزمية شور (تحليل الأعداد الكبيرة أسرع أسياً — تكسر RSA)، وخوارزمية غروفر (البحث غير المنظم في O(√n) مقابل O(n) كلاسيكياً). الميزة الكمية العملية للمشكلات الأوسع لا تزال قيد البحث."
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

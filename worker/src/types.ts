@@ -1,6 +1,7 @@
 import type { PasswordHasherStub } from "./password-hasher.js";
 
 export interface Env {
+  CF_VERSION_METADATA: WorkerVersionMetadata;
   DB: D1Database;
   BATTLE_ROOMS: DurableObjectNamespace<BattleRoomStub>;
   PASSWORD_HASHERS: DurableObjectNamespace<PasswordHasherStub>;
@@ -8,6 +9,12 @@ export interface Env {
   IP_HASH_SALT: string;
   ALLOWED_ORIGINS: string;
   STATIC_ORIGIN: string;
+}
+
+interface WorkerVersionMetadata {
+  id: string;
+  tag: string;
+  timestamp: string;
 }
 
 export interface BattleRoomStub extends Rpc.DurableObjectBranded {

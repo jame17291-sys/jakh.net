@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
@@ -8,6 +8,9 @@
   <link rel="preload" href="styles.css?v=2026080101" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://jakh.net/hanabi"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/hanabi" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/hanabi/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/hanabi" />
   <meta name="robots" content="index,follow"/>
   <meta property="og:title" content="Hanabi Online — Free Browser Game | JAKH" />
   <meta property="og:description" content="Work with an AI partner to build a fireworks display in this cooperative Hanabi browser game. Play instantly with no download or sign-up." />
@@ -27,9 +30,6 @@
   <link rel="stylesheet" href="styles.css?v=2026080101"/>
   <link rel="manifest" href="manifest.webmanifest"/>
   <script src="/game-i18n.js?v=2026080101"></script>
-
-
-  <script>if('serviceWorker'in navigator){navigator.serviceWorker.getRegistration('/sw.js').then(r=>{if(r)r.update();});}</script>
   <style>
     /* scoped hanabi styles */
     :root {
@@ -306,7 +306,7 @@
     .hb-btn-gilt {
       background: rgba(201,162,39,0.15);
       border-color: rgba(201,162,39,0.4);
-      color: var(--gilt);
+      color: #785000;
     }
 
     .hb-btn-gilt:hover:not(:disabled) {
@@ -339,6 +339,74 @@
     .hb-log-entry.good  { color: var(--easy); }
     .hb-log-entry.bad   { color: var(--danger); }
     .hb-log-entry.info  { color: var(--gilt); }
+
+    /* Keep every game-state region inside a 320 CSS-pixel viewport. */
+    @media (max-width: 400px) {
+      #hanabiSection {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .hb-tokens {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+        padding: 0.65rem;
+      }
+
+      .hb-token-group {
+        min-width: 0;
+        flex-wrap: wrap;
+        line-height: 1.25;
+      }
+
+      .hb-score-display {
+        margin-left: 0;
+        justify-self: end;
+      }
+
+      .hb-stacks {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.25rem;
+      }
+
+      .hb-stack {
+        min-width: 0;
+        min-height: 64px;
+        padding: 0.35rem 0.1rem;
+      }
+
+      .hb-stack-label {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        font-size: 0.625rem;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .hb-stack-value {
+        font-size: 1.4rem;
+      }
+
+      .hb-hand-panel,
+      .hb-actions,
+      .hb-log {
+        min-width: 0;
+      }
+
+      .hb-hand-panel {
+        padding: 0.6rem;
+      }
+
+      .hb-card {
+        width: 44px;
+        height: 66px;
+      }
+
+      .hb-cards-row {
+        gap: 0.25rem;
+      }
+    }
 
     /* Clue sub-action modal */
     .hb-clue-picker {
@@ -391,6 +459,10 @@
     .hb-modal-overlay.visible {
       opacity: 1;
       pointer-events: all;
+    }
+
+    .hb-modal-overlay[hidden] {
+      display: none;
     }
 
     .hb-modal {
@@ -1028,7 +1100,7 @@
         <div class="hb-log" id="hbLog" aria-live="polite"></div>
 
         <!-- Game over modal -->
-        <div class="hb-modal-overlay" id="hbModal" aria-hidden="true">
+        <div class="hb-modal-overlay" id="hbModal" hidden>
           <div class="hb-modal" role="dialog" aria-modal="true" aria-labelledby="hbModalTitle" aria-describedby="hbModalDesc">
             <span class="hb-modal-icon" id="hbModalIcon"></span>
             <h2 id="hbModalTitle">${t('gameMessage')}</h2>
@@ -1049,8 +1121,9 @@
       document.getElementById('hbCluePickerCancel').addEventListener('click', closeCluePicker);
       document.getElementById('hbNewGameBtn').addEventListener('click', startNewGame);
       document.getElementById('hbModalBtn').addEventListener('click', () => {
-        document.getElementById('hbModal').classList.remove('visible');
-        document.getElementById('hbModal').setAttribute('aria-hidden', 'true');
+        const modal = document.getElementById('hbModal');
+        modal.classList.remove('visible');
+        modal.hidden = true;
         startNewGame();
       });
     }
@@ -1061,7 +1134,7 @@
       pendingClueType = null;
       aiBusy = false;
       document.getElementById('hbModal').classList.remove('visible');
-      document.getElementById('hbModal').setAttribute('aria-hidden', 'true');
+      document.getElementById('hbModal').hidden = true;
       renderState();
     }
 
@@ -1361,8 +1434,9 @@
 
       if (open) {
         setTimeout(() => {
+          modal.hidden = false;
           modal.classList.add('visible');
-          modal.setAttribute('aria-hidden', 'false');
+          document.getElementById('hbModalBtn').focus();
         }, 400);
       }
     }

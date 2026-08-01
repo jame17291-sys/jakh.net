@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="/game-i18n.js?v=2026080101"></script>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffaf2" />
+    <meta name="description" content="العب الشطرنج مجاناً عبر المتصفح ضد الكمبيوتر أو مع صديق، من دون تنزيل أو تسجيل." />
+    <title>الشطرنج أونلاين — لعبة متصفح مجانية | JAKH</title>
+    <link rel="preload" href="/styles.css?v=2026080101" as="style" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://jakh.net/ar/games/chess/" />
+    <link rel="alternate" hreflang="en" href="https://jakh.net/chess" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/chess/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/chess" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="الشطرنج أونلاين — لعبة متصفح مجانية | JAKH" />
+    <meta property="og:description" content="العب الشطرنج مجاناً عبر المتصفح ضد الكمبيوتر أو مع صديق، من دون تنزيل أو تسجيل." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jakh.net/ar/games/chess/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="الشطرنج أونلاين — لعبة متصفح مجانية | JAKH" />
+    <meta name="twitter:description" content="العب الشطرنج مجاناً عبر المتصفح ضد الكمبيوتر أو مع صديق، من دون تنزيل أو تسجيل." />
+    <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg" />
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+    <meta property="og:image" content="https://jakh.net/assets/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+    <meta property="og:site_name" content="JAKH Riddles" />
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="/styles.css?v=2026080101" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- Google Analytics -->
+    <style>
+      /* ── Chess page scoped styles ── */
+      #chessSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .chess-layout {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      /* Board wrapper with rank labels */
+      .board-area {
+        --chess-board-size: min(480px, calc(100vw - 3.5rem));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.15rem;
+      }
+
+      .board-files {
+        display: grid;
+        grid-template-columns: 1.4rem repeat(8, 1fr);
+        width: calc(var(--chess-board-size) + 1.4rem);
+      }
+
+      .board-file-label {
+        text-align: center;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--muted);
+        padding: 0.15rem 0;
+        user-select: none;
+      }
+
+      .board-ranks-row {
+        display: flex;
+        align-items: stretch;
+        width: calc(var(--chess-board-size) + 1.4rem);
+      }
+
+      .board-rank-labels {
+        display: flex;
+        flex-direction: column;
+        width: 1.4rem;
+        flex-shrink: 0;
+      }
+
+      .board-rank-label {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--muted);
+        user-select: none;
+      }
+
+      /* The board itself */
+      #chessBoard {
+        display: grid;
+        grid-template-rows: repeat(8, 1fr);
+        width: var(--chess-board-size);
+        aspect-ratio: 1 / 1;
+        border: 2px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        box-shadow: 0 14px 34px rgba(32, 50, 71, 0.16);
+        flex-shrink: 0;
+      }
+
+      .chess-board-row {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        min-width: 0;
+        min-height: 0;
+      }
+
+      .chess-square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.12s;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .chess-square:focus-visible {
+        outline: none;
+      }
+
+      .chess-square:focus-visible::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        z-index: 6;
+        border: 3px solid #fffaf2;
+        border-radius: 3px;
+        box-shadow: 0 0 0 2px #185f8d;
+        pointer-events: none;
+      }
+
+      .chess-square.light { background: #f7ecd5; }
+      .chess-square.dark  { background: #8eb7d7; }
+
+      .chess-square.selected {
+        box-shadow: inset 0 0 0 3px var(--accent), inset 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent);
+        background: color-mix(in srgb, var(--accent) 28%, #f7ecd5) !important;
+      }
+      .chess-square.selected.dark {
+        background: color-mix(in srgb, var(--accent) 28%, #8eb7d7) !important;
+      }
+
+      .chess-square.in-check {
+        background: color-mix(in srgb, var(--danger) 55%, transparent) !important;
+        box-shadow: inset 0 0 0 3px var(--danger);
+      }
+
+      .chess-square.last-move-from,
+      .chess-square.last-move-to {
+        background: color-mix(in srgb, var(--gilt-soft) 55%, transparent) !important;
+      }
+      .chess-square.last-move-from.dark,
+      .chess-square.last-move-to.dark {
+        background: color-mix(in srgb, var(--gilt-soft) 52%, #8eb7d7) !important;
+      }
+
+      /* Legal move dot */
+      .legal-dot {
+        position: absolute;
+        width: 28%;
+        height: 28%;
+        border-radius: 50%;
+        background: color-mix(in srgb, var(--easy) 75%, transparent);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* Capture ring */
+      .capture-ring {
+        position: absolute;
+        inset: 4%;
+        border-radius: 50%;
+        border: 3px solid color-mix(in srgb, var(--easy) 75%, transparent);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* Chess piece */
+      .chess-piece {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        line-height: 1;
+        z-index: 3;
+        user-select: none;
+        pointer-events: none;
+        filter: drop-shadow(0 1px 2px rgba(32, 50, 71, 0.3));
+        transition: transform 0.08s;
+      }
+
+      /* Side panel */
+      .chess-side {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        min-width: 180px;
+        max-width: 220px;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 640px) {
+        .chess-layout { flex-direction: column; align-items: center; }
+        .chess-side { max-width: min(480px, calc(100vw - 2rem)); width: 100%; flex-direction: row; flex-wrap: wrap; min-width: 0; }
+      }
+
+      .chess-touch-controls {
+        display: none;
+        width: calc(100% - 2rem);
+        padding: 0.85rem;
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        background: var(--panel);
+      }
+
+      .chess-touch-controls h2,
+      .chess-touch-controls p {
+        margin: 0;
+      }
+
+      .chess-touch-controls h2 {
+        font-size: 1rem;
+      }
+
+      .chess-touch-fields {
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .chess-touch-fields label {
+        display: grid;
+        gap: 0.3rem;
+        color: var(--muted);
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
+      .chess-touch-fields select,
+      .chess-touch-move {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .chess-touch-fields select {
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        background: var(--panel-strong);
+        color: var(--text);
+        padding-inline: 0.65rem;
+      }
+
+      .chess-touch-move {
+        border: 0;
+        border-radius: var(--radius-sm);
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .chess-touch-move:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+      }
+
+      .chess-touch-hint {
+        color: var(--muted);
+        font-size: 0.8125rem;
+        line-height: 1.45;
+      }
+
+      /* At 360px and wider, an edge-to-edge board gives every square at least 44px. */
+      @media (max-width: 400px) {
+        #chessSection {
+          padding-inline: 0 !important;
+        }
+
+        .chess-layout,
+        .board-area,
+        .board-ranks-row {
+          width: 100%;
+        }
+
+        .board-area {
+          --chess-board-size: min(480px, 100vw);
+        }
+
+        .board-files,
+        .board-rank-labels {
+          display: none;
+        }
+
+        .board-ranks-row {
+          justify-content: center;
+        }
+
+        .chess-status,
+        .chess-side {
+          width: calc(100% - 2rem);
+        }
+      }
+
+      /* Eight 44px squares need 352px; expose full-size precise controls below that. */
+      @media (max-width: 351px) {
+        .chess-touch-controls {
+          display: grid;
+          gap: 0.65rem;
+        }
+      }
+
+      /* Status bar */
+      .chess-status {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem 1rem;
+        text-align: center;
+      }
+
+      .chess-status .status-text {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .chess-status .turn-indicator {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 6px;
+        vertical-align: middle;
+        border: 1.5px solid rgba(0,0,0,0.3);
+      }
+
+      .chess-status.check .status-text { color: var(--danger); }
+      .chess-status.checkmate .status-text { color: var(--accent); }
+      .chess-status.draw .status-text { color: var(--muted); }
+
+      /* Controls panel */
+      .chess-controls {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        padding: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .chess-controls .ctrl-label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0 0 0.1rem;
+      }
+
+      .mode-toggle {
+        display: flex;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid var(--line-strong);
+      }
+
+      .mode-btn {
+        flex: 1;
+        padding: 0.45rem 0.5rem;
+        min-height: 44px;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        font-family: inherit;
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+        background: transparent;
+        color: var(--muted);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .mode-btn.active {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .chess-btn {
+        padding: 0.5rem 0.75rem;
+        min-height: 44px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        font-family: inherit;
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        background: color-mix(in srgb, var(--panel) 80%, transparent);
+        color: var(--text);
+        transition: background 0.15s, border-color 0.15s, transform 0.1s;
+        width: 100%;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .chess-btn:hover {
+        background: color-mix(in srgb, var(--accent) 15%, var(--panel));
+        border-color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .chess-btn:active { transform: translateY(0); }
+
+      /* Captured pieces */
+      .captured-panel {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        padding: 0.75rem;
+      }
+
+      .captured-label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0 0 0.35rem;
+      }
+
+      .captured-row {
+        min-height: 1.6rem;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        word-break: break-all;
+        letter-spacing: 0.05em;
+      }
+
+      .captured-row.black { margin-bottom: 0.35rem; }
+
+      /* Thinking indicator */
+      .thinking-bar {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        color: var(--muted);
+        padding: 0.4rem 0.75rem;
+        background: var(--panel);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--line-strong);
+      }
+
+      .thinking-bar.visible { display: flex; }
+
+      .thinking-dots span {
+        opacity: 1;
+      }
+
+      /* Promotion modal */
+      .promo-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        background: rgba(32, 50, 71, 0.38);
+      }
+
+      .promo-modal.visible { display: flex; }
+
+      .promo-card {
+        background: var(--panel);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .promo-card h3 {
+        margin: 0 0 1rem;
+        font-family: var(--font-display);
+        color: var(--text);
+        font-size: 1.2rem;
+      }
+
+      .promo-options {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+
+      .promo-piece {
+        width: 56px;
+        height: 56px;
+        font-size: 2.2rem;
+        line-height: 56px;
+        border-radius: var(--radius-sm);
+        border: 2px solid var(--line-strong);
+        background: var(--panel);
+        cursor: pointer;
+        transition: border-color 0.15s, transform 0.1s;
+        text-align: center;
+      }
+
+      .promo-piece:hover {
+        border-color: var(--accent);
+        transform: scale(1.08);
+      }
+    </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Chess",
+  "description": "Play chess online against the computer or a friend in a fast, free browser game with no download required.",
+  "url": "https://jakh.net/chess",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+  <body data-page="game" data-game="chess" data-route-lang="ar">
+    <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+    <header class="site-header shell">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+        <picture>
+          <source srcset="/assets/logo.webp" type="image/webp" />
+          <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
+        </picture>
+      </a>
+      <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+        <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+        <a class="ghost-btn" href="/ar/mind-lab/" data-i18n="navCategories">الفئات</a>
+      </nav>
+      <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+        <label>
+          <span data-i18n="language">اللغة</span>
+          <select id="langSelect">
+            <option value="en" lang="en" dir="ltr">English</option>
+            <option value="ar" lang="ar" dir="rtl">العربية</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="chessEyebrow">ألعاب ومرح</p>
+          <h1 data-i18n="chessTitle">♙ الشطرنج</h1>
+          <p class="hero-text" data-i18n="chessIntro">العب الشطرنج مع لاعب آخر أو ضد الكمبيوتر.</p>
+        </div>
+      </section>
+
+      <section class="shell section-block" id="chessSection">
+        <!-- Status bar -->
+        <div class="chess-status" id="chessStatus" role="status" aria-live="polite">
+          <p class="status-text" id="statusText">
+            <span class="turn-indicator" id="turnDot" style="background:#fff;"></span>
+            <span id="statusMessage" data-i18n="chessWhiteTurn">دور الأبيض</span>
+          </p>
+        </div>
+
+        <div class="chess-layout">
+          <!-- Board area -->
+          <div class="board-area" dir="ltr">
+            <div class="board-files" id="boardFiles"></div>
+            <div class="board-ranks-row">
+              <div class="board-rank-labels" id="rankLabels"></div>
+              <div id="chessBoard" role="grid" aria-rowcount="8" aria-colcount="8" dir="ltr" aria-label="رقعة الشطرنج" aria-describedby="chessKeyboardInstructions" data-i18n-aria-label="chessBoardAria"></div>
+            </div>
+            <p class="sr-only" id="chessKeyboardInstructions" data-i18n="chessKeyboardInstructions">استخدم مفاتيح الأسهم للتنقل بين المربعات. اضغط Enter أو مفتاح المسافة لاختيار قطعة أو تنفيذ نقلة.</p>
+          </div>
+
+          <div class="chess-touch-controls" id="chessTouchControls" aria-labelledby="chessTouchTitle">
+            <h2 id="chessTouchTitle" data-i18n="chessTouchTitle">عناصر تحكم دقيقة للنقلة</h2>
+            <div class="chess-touch-fields">
+              <label>
+                <span data-i18n="chessTouchPiece">القطعة</span>
+                <select id="chessTouchFrom"></select>
+              </label>
+              <label>
+                <span data-i18n="chessTouchDestination">الوجهة</span>
+                <select id="chessTouchTo"></select>
+              </label>
+              <button class="chess-touch-move" id="chessTouchMove" type="button" data-i18n="chessTouchMove">تنفيذ النقلة</button>
+            </div>
+            <p class="chess-touch-hint" data-i18n="chessTouchHint">على الشاشات الضيقة جداً، استخدم عناصر التحكم بالحجم الكامل عندما يصعب لمس مربع الرقعة بدقة.</p>
+          </div>
+
+          <!-- Side panel -->
+          <div class="chess-side">
+            <div class="chess-controls">
+              <p class="ctrl-label" data-i18n="chessMode">نمط اللعب</p>
+              <div class="mode-toggle">
+                <button class="mode-btn active" id="btnVsComputer" data-i18n="chessVsComputer">ضد الكمبيوتر</button>
+                <button class="mode-btn" id="btn2Players" data-i18n="chessTwoPlayers">لاعبان</button>
+              </div>
+              <button class="chess-btn" id="btnNewGame" data-i18n="chessNewGame">▶ لعبة جديدة</button>
+              <button class="chess-btn" id="btnUndo" data-i18n="chessUndo">↩ تراجع</button>
+            </div>
+
+            <div class="thinking-bar" id="thinkingBar">
+              <span data-i18n="chessComputerThinking">الكمبيوتر يفكّر</span>
+              <span class="thinking-dots"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+
+            <div class="captured-panel">
+              <p class="captured-label" data-i18n="chessCaptured">القطع المأسورة</p>
+              <div class="captured-row black" id="capturedByWhite" role="group" aria-label="القطع التي أسرها الأبيض" data-i18n-aria-label="chessCapturedByWhite"></div>
+              <div class="captured-row" id="capturedByBlack" role="group" aria-label="القطع التي أسرها الأسود" data-i18n-aria-label="chessCapturedByBlack"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+        <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span data-i18n="instagramName">إنستغرام</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span data-i18n="facebookName">فيسبوك</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Promotion modal -->
+    <div class="promo-modal" id="promoModal" role="dialog" aria-modal="true" aria-label="اختر قطعة الترقية" data-i18n-aria-label="chessPromotionDialog">
+      <div class="promo-card">
+        <h2 data-i18n="chessPromotionTitle">ترقية البيدق</h2>
+        <div class="promo-options" id="promoOptions"></div>
+      </div>
+    </div>
+
+    <script id="chess-i18n">
+    JakhGameI18n.register('chess', {
+      en: {
+        metaTitle: 'Chess Online — Free Browser Game | JAKH',
+        metaDescription: 'Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up.',
+        chessEyebrow: 'Games & Fun',
+        chessTitle: '♙ Chess',
+        chessIntro: 'Two-player chess or play against the computer.',
+        chessWhiteTurn: "White's turn",
+        chessMode: 'Mode',
+        chessVsComputer: 'vs Computer',
+        chessTwoPlayers: '2 Players',
+        chessNewGame: '▶ New Game',
+        chessUndo: '← Undo',
+        chessComputerThinking: 'Computer thinking',
+        chessCaptured: 'Captured',
+        chessCapturedByWhite: 'Pieces captured by White',
+        chessCapturedByBlack: 'Pieces captured by Black',
+        chessBoardAria: 'Chess board',
+        chessKeyboardInstructions: 'Use the arrow keys to move between squares. Press Enter or Space to select a piece or make a move.',
+        chessPromotionDialog: 'Choose promotion piece',
+        chessPromotionTitle: 'Promote Pawn',
+        chessWhite: 'White',
+        chessBlack: 'Black',
+        chessPieceWhite: 'white',
+        chessPieceBlack: 'black',
+        chessTurn: "{player}'s turn",
+        chessCheck: '{player} is in check!',
+        chessCheckmate: 'Checkmate — {winner} wins!',
+        chessStalemate: 'Stalemate — Draw',
+        chessFiftyMove: '50-move rule — Draw',
+        chessSquareEmpty: 'Square {square}, empty',
+        chessSquarePiece: 'Square {square}, {color} {piece}',
+        chessSquareSelected: '{description}, selected',
+        chessSquareLegalMove: '{description}, legal move destination',
+        chessTouchTitle: 'Precise move controls',
+        chessTouchPiece: 'Piece',
+        chessTouchDestination: 'Destination',
+        chessTouchMove: 'Make move',
+        chessTouchHint: 'On very narrow screens, use these full-size controls when a board square is too small to tap precisely.',
+        chessTouchChoosePiece: 'Choose a movable piece',
+        chessTouchChooseDestination: 'Choose a destination',
+        chessKing: 'king',
+        chessQueen: 'queen',
+        chessRook: 'rook',
+        chessBishop: 'bishop',
+        chessKnight: 'knight',
+        chessPawn: 'pawn'
+      },
+      ar: {
+        metaTitle: 'الشطرنج أونلاين — لعبة متصفح مجانية | JAKH',
+        metaDescription: 'العب الشطرنج مجاناً عبر المتصفح ضد الكمبيوتر أو مع صديق، من دون تنزيل أو تسجيل.',
+        chessEyebrow: 'ألعاب ومرح',
+        chessTitle: '♙ الشطرنج',
+        chessIntro: 'العب الشطرنج مع لاعب آخر أو ضد الكمبيوتر.',
+        chessWhiteTurn: 'دور الأبيض',
+        chessMode: 'نمط اللعب',
+        chessVsComputer: 'ضد الكمبيوتر',
+        chessTwoPlayers: 'لاعبان',
+        chessNewGame: '▶ لعبة جديدة',
+        chessUndo: '↩ تراجع',
+        chessComputerThinking: 'الكمبيوتر يفكّر',
+        chessCaptured: 'القطع المأسورة',
+        chessCapturedByWhite: 'القطع التي أسرها الأبيض',
+        chessCapturedByBlack: 'القطع التي أسرها الأسود',
+        chessBoardAria: 'رقعة الشطرنج',
+        chessKeyboardInstructions: 'استخدم مفاتيح الأسهم للتنقل بين المربعات. اضغط Enter أو مفتاح المسافة لاختيار قطعة أو تنفيذ نقلة.',
+        chessPromotionDialog: 'اختر قطعة الترقية',
+        chessPromotionTitle: 'ترقية البيدق',
+        chessWhite: 'الأبيض',
+        chessBlack: 'الأسود',
+        chessPieceWhite: 'أبيض',
+        chessPieceBlack: 'أسود',
+        chessTurn: 'دور {player}',
+        chessCheck: '{player} في حالة كش!',
+        chessCheckmate: 'كش مات — فوز {winner}!',
+        chessStalemate: 'تعادل بالخنق',
+        chessFiftyMove: 'قاعدة الخمسين نقلة — تعادل',
+        chessSquareEmpty: 'المربع {square}، فارغ',
+        chessSquarePiece: 'المربع {square}، {piece} {color}',
+        chessSquareSelected: '{description}، محدد',
+        chessSquareLegalMove: '{description}، وجهة نقلة قانونية',
+        chessTouchTitle: 'عناصر تحكم دقيقة للنقلة',
+        chessTouchPiece: 'القطعة',
+        chessTouchDestination: 'الوجهة',
+        chessTouchMove: 'تنفيذ النقلة',
+        chessTouchHint: 'على الشاشات الضيقة جداً، استخدم عناصر التحكم بالحجم الكامل عندما يصعب لمس مربع الرقعة بدقة.',
+        chessTouchChoosePiece: 'اختر قطعة قابلة للتحريك',
+        chessTouchChooseDestination: 'اختر وجهة',
+        chessKing: 'ملك',
+        chessQueen: 'ملكة',
+        chessRook: 'رخ',
+        chessBishop: 'فيل',
+        chessKnight: 'حصان',
+        chessPawn: 'بيدق'
+      }
+    });
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 1 — HEADLESS CHESS ENGINE
+         Zero DOM access. Pure logic only.
+    ════════════════════════════════════════════════ -->
+    <script id="chess-engine">
+    const ChessEngine = (() => {
+      'use strict';
+
+      // ── Piece symbols mapping ──────────────────────────
+      const PIECE_VALUES = { Q: 9, R: 5, B: 3, N: 3, P: 1, K: 0 };
+
+      // ── Center bonus table (for pawns/knights/bishops) ──
+      const CENTER_BONUS = [
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,1,1,1,1,0,0],
+        [0,0,1,2,2,1,0,0],
+        [0,0,1,2,2,1,0,0],
+        [0,0,1,1,1,1,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+      ];
+
+      // ── Deep-clone a state ─────────────────────────────
+      function cloneState(state) {
+        return {
+          board: state.board.map(r => r.slice()),
+          turn: state.turn,
+          castling: { ...state.castling },
+          enPassant: state.enPassant ? { ...state.enPassant } : null,
+          halfmove: state.halfmove,
+          history: state.history.map(m => ({ ...m })),
+        };
+      }
+
+      // ── Initial board setup ────────────────────────────
+      function newGame() {
+        const board = Array(8).fill(null).map(() => Array(8).fill(null));
+        // Black back rank (row 0)
+        const back = ['R','N','B','Q','K','B','N','R'];
+        for (let c = 0; c < 8; c++) {
+          board[0][c] = 'b' + back[c];
+          board[1][c] = 'bP';
+          board[6][c] = 'wP';
+          board[7][c] = 'w' + back[c];
+        }
+        return {
+          board,
+          turn: 'w',
+          castling: { wK: true, wQ: true, bK: true, bQ: true },
+          enPassant: null,
+          halfmove: 0,
+          history: [],
+        };
+      }
+
+      // ── Helpers ────────────────────────────────────────
+      function inBounds(r, c) { return r >= 0 && r < 8 && c >= 0 && c < 8; }
+
+      function color(piece) { return piece ? piece[0] : null; }
+      function ptype(piece) { return piece ? piece[1] : null; }
+      function opp(clr) { return clr === 'w' ? 'b' : 'w'; }
+
+      // ── Raw moves (before check-filter) ───────────────
+      function rawMoves(state, row, col) {
+        const piece = state.board[row][col];
+        if (!piece) return [];
+        const clr = color(piece);
+        const type = ptype(piece);
+        const moves = [];
+        const b = state.board;
+
+        function push(tr, tc, special) {
+          if (!inBounds(tr, tc)) return;
+          const target = b[tr][tc];
+          if (target && color(target) === clr) return; // own piece
+          moves.push({ fromRow: row, fromCol: col, toRow: tr, toCol: tc, special });
+        }
+
+        function slide(dr, dc) {
+          let r = row + dr, c = col + dc;
+          while (inBounds(r, c)) {
+            const target = b[r][c];
+            if (target) {
+              if (color(target) !== clr) push(r, c);
+              break;
+            }
+            push(r, c);
+            r += dr; c += dc;
+          }
+        }
+
+        if (type === 'P') {
+          const dir = clr === 'w' ? -1 : 1;
+          const startRow = clr === 'w' ? 6 : 1;
+          const promoRow = clr === 'w' ? 0 : 7;
+          // Forward one
+          if (inBounds(row + dir, col) && !b[row + dir][col]) {
+            const special = (row + dir === promoRow) ? 'promotion' : undefined;
+            moves.push({ fromRow: row, fromCol: col, toRow: row + dir, toCol: col, special });
+            // Forward two from start
+            if (row === startRow && !b[row + 2 * dir][col]) {
+              moves.push({ fromRow: row, fromCol: col, toRow: row + 2 * dir, toCol: col, special: 'doublePush' });
+            }
+          }
+          // Captures
+          for (const dc of [-1, 1]) {
+            const tr = row + dir, tc = col + dc;
+            if (!inBounds(tr, tc)) continue;
+            if (b[tr][tc] && color(b[tr][tc]) !== clr) {
+              const special = (tr === promoRow) ? 'promotion' : undefined;
+              moves.push({ fromRow: row, fromCol: col, toRow: tr, toCol: tc, special });
+            }
+            // En passant
+            if (state.enPassant && tr === state.enPassant.row && tc === state.enPassant.col) {
+              moves.push({ fromRow: row, fromCol: col, toRow: tr, toCol: tc, special: 'enPassant' });
+            }
+          }
+        }
+
+        if (type === 'N') {
+          const knightMoves = [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]];
+          for (const [dr, dc] of knightMoves) push(row + dr, col + dc);
+        }
+
+        if (type === 'B' || type === 'Q') {
+          for (const [dr, dc] of [[-1,-1],[-1,1],[1,-1],[1,1]]) slide(dr, dc);
+        }
+
+        if (type === 'R' || type === 'Q') {
+          for (const [dr, dc] of [[-1,0],[1,0],[0,-1],[0,1]]) slide(dr, dc);
+        }
+
+        if (type === 'K') {
+          for (const [dr, dc] of [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]]) push(row + dr, col + dc);
+          // Castling
+          const backRow = clr === 'w' ? 7 : 0;
+          if (row === backRow && col === 4) {
+            // King-side
+            if (state.castling[clr + 'K'] &&
+                !b[backRow][5] && !b[backRow][6] &&
+                color(b[backRow][7]) === clr && ptype(b[backRow][7]) === 'R') {
+              moves.push({ fromRow: backRow, fromCol: 4, toRow: backRow, toCol: 6, special: 'castleK' });
+            }
+            // Queen-side
+            if (state.castling[clr + 'Q'] &&
+                !b[backRow][3] && !b[backRow][2] && !b[backRow][1] &&
+                color(b[backRow][0]) === clr && ptype(b[backRow][0]) === 'R') {
+              moves.push({ fromRow: backRow, fromCol: 4, toRow: backRow, toCol: 2, special: 'castleQ' });
+            }
+          }
+        }
+
+        return moves;
+      }
+
+      // ── Find king position ─────────────────────────────
+      function findKing(board, clr) {
+        for (let r = 0; r < 8; r++)
+          for (let c = 0; c < 8; c++)
+            if (board[r][c] === clr + 'K') return [r, c];
+        return null;
+      }
+
+      // ── Is square attacked by `byColor`? ──────────────
+      function isAttacked(board, row, col, byColor) {
+        // Make a fake state to call rawMoves (no en passant / castling needed)
+        const fakeState = { board, turn: byColor, castling: { wK:false, wQ:false, bK:false, bQ:false }, enPassant: null, halfmove: 0, history: [] };
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            if (!board[r][c] || color(board[r][c]) !== byColor) continue;
+            const ms = rawMoves(fakeState, r, c);
+            for (const m of ms) {
+              if (m.toRow === row && m.toCol === col) return true;
+            }
+          }
+        }
+        return false;
+      }
+
+      // ── Apply move to board (returns new state) ────────
+      function applyMoveToState(state, move, promoChoice) {
+        const ns = cloneState(state);
+        const { fromRow, fromCol, toRow, toCol, special } = move;
+        const piece = ns.board[fromRow][fromCol];
+        const clr = color(piece);
+        const type = ptype(piece);
+        const captured = ns.board[toRow][toCol];
+
+        // Halfmove clock
+        if (type === 'P' || captured) {
+          ns.halfmove = 0;
+        } else {
+          ns.halfmove++;
+        }
+
+        // Clear en passant target
+        ns.enPassant = null;
+
+        // Move piece
+        ns.board[toRow][toCol] = piece;
+        ns.board[fromRow][fromCol] = null;
+
+        // Special moves
+        if (special === 'doublePush') {
+          const epRow = clr === 'w' ? toRow + 1 : toRow - 1;
+          ns.enPassant = { row: epRow, col: toCol };
+        }
+
+        if (special === 'enPassant') {
+          const capturedRow = clr === 'w' ? toRow + 1 : toRow - 1;
+          ns.board[capturedRow][toCol] = null;
+        }
+
+        if (special === 'promotion') {
+          const promoPiece = promoChoice || 'Q';
+          ns.board[toRow][toCol] = clr + promoPiece;
+        }
+
+        if (special === 'castleK') {
+          const backRow = clr === 'w' ? 7 : 0;
+          ns.board[backRow][5] = ns.board[backRow][7];
+          ns.board[backRow][7] = null;
+        }
+
+        if (special === 'castleQ') {
+          const backRow = clr === 'w' ? 7 : 0;
+          ns.board[backRow][3] = ns.board[backRow][0];
+          ns.board[backRow][0] = null;
+        }
+
+        // Update castling rights
+        if (type === 'K') {
+          ns.castling[clr + 'K'] = false;
+          ns.castling[clr + 'Q'] = false;
+        }
+        if (type === 'R') {
+          if (fromCol === 7) ns.castling[clr + 'K'] = false;
+          if (fromCol === 0) ns.castling[clr + 'Q'] = false;
+        }
+        // If rook captured
+        if (toCol === 7 && toRow === (clr === 'w' ? 0 : 7)) ns.castling[opp(clr) + 'K'] = false;
+        if (toCol === 0 && toRow === (clr === 'w' ? 0 : 7)) ns.castling[opp(clr) + 'Q'] = false;
+
+        // Record in history
+        ns.history.push({ ...move, piece, captured });
+
+        // Switch turn
+        ns.turn = opp(clr);
+
+        return ns;
+      }
+
+      // ── Public: applyMove (auto-queen promotion for engine) ──
+      function applyMove(state, move, promoChoice) {
+        return applyMoveToState(state, move, promoChoice || 'Q');
+      }
+
+      // ── Is current player's king in check? ────────────
+      function inCheck(state, clr) {
+        const [kr, kc] = findKing(state.board, clr);
+        return isAttacked(state.board, kr, kc, opp(clr));
+      }
+
+      // ── Legal moves for a square ───────────────────────
+      function getLegalMoves(state, row, col) {
+        const piece = state.board[row][col];
+        if (!piece || color(piece) !== state.turn) return [];
+        const clr = color(piece);
+        const candidates = rawMoves(state, row, col);
+        const legal = [];
+
+        for (const move of candidates) {
+          // For castling, check intermediate squares not in check
+          if (move.special === 'castleK' || move.special === 'castleQ') {
+            const backRow = clr === 'w' ? 7 : 0;
+            // King cannot be in check now
+            if (inCheck(state, clr)) continue;
+            // King cannot pass through check
+            const passingCol = move.special === 'castleK' ? 5 : 3;
+            const midState = cloneState(state);
+            midState.board[backRow][passingCol] = midState.board[backRow][4];
+            midState.board[backRow][4] = null;
+            if (isAttacked(midState.board, backRow, passingCol, opp(clr))) continue;
+          }
+
+          const next = applyMoveToState(state, move, 'Q');
+          // After move, our king must not be in check
+          if (!inCheck(next, clr)) {
+            legal.push(move);
+          }
+        }
+
+        return legal;
+      }
+
+      // ── All legal moves for a color ────────────────────
+      function allLegalMoves(state, clr) {
+        const moves = [];
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            if (!state.board[r][c] || color(state.board[r][c]) !== clr) continue;
+            const fake = { ...state, turn: clr };
+            const ms = getLegalMoves(fake, r, c);
+            moves.push(...ms);
+          }
+        }
+        return moves;
+      }
+
+      // ── Game status ────────────────────────────────────
+      function getStatus(state) {
+        // 50-move draw
+        if (state.halfmove >= 100) return 'draw';
+
+        const clr = state.turn;
+        const moves = allLegalMoves(state, clr);
+
+        if (moves.length === 0) {
+          return inCheck(state, clr) ? 'checkmate' : 'stalemate';
+        }
+
+        if (inCheck(state, clr)) return 'check';
+        return 'playing';
+      }
+
+      // ── Material evaluation ────────────────────────────
+      function evaluate(state) {
+        let score = 0;
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            const p = state.board[r][c];
+            if (!p) continue;
+            const val = PIECE_VALUES[ptype(p)] || 0;
+            const bonus = CENTER_BONUS[r][c] * 0.1;
+            if (color(p) === 'w') score += val + bonus;
+            else score -= val + bonus;
+          }
+        }
+        return score;
+      }
+
+      // ── Minimax with alpha-beta ────────────────────────
+      function minimax(state, depth, alpha, beta, maximizing) {
+        const status = getStatus(state);
+        if (status === 'checkmate') return maximizing ? -1000 : 1000;
+        if (status === 'stalemate' || status === 'draw') return 0;
+        if (depth === 0) return evaluate(state);
+
+        const clr = maximizing ? 'w' : 'b';
+        const moves = allLegalMoves(state, clr);
+
+        if (maximizing) {
+          let best = -Infinity;
+          for (const move of moves) {
+            const next = applyMoveToState(state, move, 'Q');
+            const val = minimax(next, depth - 1, alpha, beta, false);
+            if (val > best) best = val;
+            if (best > alpha) alpha = best;
+            if (beta <= alpha) break;
+          }
+          return best;
+        } else {
+          let best = Infinity;
+          for (const move of moves) {
+            const next = applyMoveToState(state, move, 'Q');
+            const val = minimax(next, depth - 1, alpha, beta, true);
+            if (val < best) best = val;
+            if (best < beta) beta = best;
+            if (beta <= alpha) break;
+          }
+          return best;
+        }
+      }
+
+      // ── Best move for current player ───────────────────
+      function getBestMove(state, depth) {
+        depth = depth || 2;
+        const clr = state.turn;
+        const maximizing = clr === 'w';
+        const moves = allLegalMoves(state, clr);
+        if (moves.length === 0) return null;
+
+        let best = maximizing ? -Infinity : Infinity;
+        let bestMove = null;
+
+        // Shuffle moves for variety
+        const shuffled = moves.slice().sort(() => Math.random() - 0.5);
+
+        for (const move of shuffled) {
+          const next = applyMoveToState(state, move, 'Q');
+          const val = minimax(next, depth - 1, -Infinity, Infinity, !maximizing);
+          if (maximizing ? val > best : val < best) {
+            best = val;
+            bestMove = move;
+          }
+        }
+
+        return bestMove;
+      }
+
+      return { newGame, getLegalMoves, applyMove, getStatus, getBestMove };
+    })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 2 — UI LAYER
+         Reads from ChessEngine only. All DOM here.
+    ════════════════════════════════════════════════ -->
+    <script id="chess-ui">
+    (() => {
+      'use strict';
+
+      const i18n = window.JakhGameI18n;
+      const t = (key, values) => i18n.t(key, values);
+
+      // ── Unicode piece symbols ──────────────────────────
+      const SYMBOLS = {
+        wK: '♔', wQ: '♕', wR: '♖', wB: '♗', wN: '♘', wP: '♙',
+        bK: '♚', bQ: '♛', bR: '♜', bB: '♝', bN: '♞', bP: '♟',
+      };
+      const PIECE_NAME_KEYS = {
+        K: 'chessKing',
+        Q: 'chessQueen',
+        R: 'chessRook',
+        B: 'chessBishop',
+        N: 'chessKnight',
+        P: 'chessPawn',
+      };
+
+      // ── State ──────────────────────────────────────────
+      let gameState = ChessEngine.newGame();
+      let selectedSquare = null;   // {row, col} or null
+      let legalMovesCache = [];
+      let vsComputer = true;
+      let pendingPromoMove = null; // move awaiting promotion choice
+      let isThinking = false;
+      let focusSquare = { row: 7, col: 0 }; // a1; board coordinates stay LTR in both languages
+
+      // ── DOM refs ───────────────────────────────────────
+      const boardEl      = document.getElementById('chessBoard');
+      const statusEl     = document.getElementById('chessStatus');
+      const statusMessage = document.getElementById('statusMessage');
+      const turnDot      = document.getElementById('turnDot');
+      const thinkingBar  = document.getElementById('thinkingBar');
+      const captByWhite  = document.getElementById('capturedByWhite');
+      const captByBlack  = document.getElementById('capturedByBlack');
+      const promoModal   = document.getElementById('promoModal');
+      const promoOptions = document.getElementById('promoOptions');
+      const boardFiles   = document.getElementById('boardFiles');
+      const rankLabels   = document.getElementById('rankLabels');
+      const touchFrom    = document.getElementById('chessTouchFrom');
+      const touchTo      = document.getElementById('chessTouchTo');
+      const touchMoveBtn = document.getElementById('chessTouchMove');
+
+      // ── Build rank/file labels ─────────────────────────
+      function buildLabels() {
+        // File labels (a–h) — first cell is empty spacer
+        boardFiles.innerHTML = '';
+        const spacer = document.createElement('div');
+        spacer.className = 'board-file-label';
+        boardFiles.appendChild(spacer);
+        const files = ['a','b','c','d','e','f','g','h'];
+        for (const f of files) {
+          const el = document.createElement('div');
+          el.className = 'board-file-label';
+          el.textContent = f;
+          boardFiles.appendChild(el);
+        }
+
+        // Rank labels (8–1, top to bottom)
+        rankLabels.innerHTML = '';
+        for (let r = 0; r < 8; r++) {
+          const el = document.createElement('div');
+          el.className = 'board-rank-label';
+          el.textContent = 8 - r;
+          rankLabels.appendChild(el);
+        }
+      }
+
+      // ── Build the 64 squares once ──────────────────────
+      function buildBoard() {
+        boardEl.innerHTML = '';
+        for (let r = 0; r < 8; r++) {
+          const row = document.createElement('div');
+          row.className = 'chess-board-row';
+          row.setAttribute('role', 'row');
+          row.setAttribute('aria-rowindex', String(r + 1));
+          for (let c = 0; c < 8; c++) {
+            const sq = document.createElement('div');
+            sq.className = 'chess-square ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+            sq.dataset.row = r;
+            sq.dataset.col = c;
+            sq.setAttribute('role', 'gridcell');
+            sq.setAttribute('aria-colindex', String(c + 1));
+            sq.addEventListener('click', onSquareClick);
+            sq.addEventListener('keydown', onSquareKeydown);
+            row.appendChild(sq);
+          }
+          boardEl.appendChild(row);
+        }
+      }
+
+      // ── Get square element ─────────────────────────────
+      function getSq(r, c) {
+        return boardEl.querySelector(`[data-row="${r}"][data-col="${c}"]`);
+      }
+
+      function setRovingFocus(row, col, moveDomFocus) {
+        focusSquare = {
+          row: Math.max(0, Math.min(7, row)),
+          col: Math.max(0, Math.min(7, col)),
+        };
+        boardEl.querySelectorAll('.chess-square').forEach((sq) => {
+          const isCurrent = Number(sq.dataset.row) === focusSquare.row
+            && Number(sq.dataset.col) === focusSquare.col;
+          sq.tabIndex = isCurrent ? 0 : -1;
+        });
+        if (moveDomFocus) getSq(focusSquare.row, focusSquare.col)?.focus();
+      }
+
+      // ── Render the board from gameState ───────────────
+      function render(silentGameOver) {
+        const lastMove = gameState.history.length > 0 ? gameState.history[gameState.history.length - 1] : null;
+        const status = ChessEngine.getStatus(gameState);
+        let kingInCheckSq = null;
+
+        if (status === 'check' || status === 'checkmate') {
+          // Find the king in check
+          const clr = gameState.turn;
+          for (let r = 0; r < 8; r++) {
+            for (let c = 0; c < 8; c++) {
+              if (gameState.board[r][c] === clr + 'K') {
+                kingInCheckSq = { r, c };
+              }
+            }
+          }
+        }
+
+        // Build set of legal target squares
+        const legalSet = new Set(legalMovesCache.map(m => m.toRow + ',' + m.toCol));
+        const legalMoveMap = {};
+        for (const m of legalMovesCache) {
+          legalMoveMap[m.toRow + ',' + m.toCol] = m;
+        }
+
+        for (let r = 0; r < 8; r++) {
+          for (let c = 0; c < 8; c++) {
+            const sq = getSq(r, c);
+            const piece = gameState.board[r][c];
+            const square = fileOf(c) + rankOf(r);
+            // Reset classes
+            sq.className = 'chess-square ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+            sq.innerHTML = '';
+            sq.tabIndex = focusSquare.row === r && focusSquare.col === c ? 0 : -1;
+            let squareLabel = piece
+              ? t('chessSquarePiece', {
+                  square,
+                  color: t(piece[0] === 'w' ? 'chessPieceWhite' : 'chessPieceBlack'),
+                  piece: t(PIECE_NAME_KEYS[piece[1]]),
+                })
+              : t('chessSquareEmpty', { square });
+            const isSelected = Boolean(selectedSquare && selectedSquare.row === r && selectedSquare.col === c);
+            if (isSelected) {
+              squareLabel = t('chessSquareSelected', { description: squareLabel });
+            } else if (legalSet.has(r + ',' + c)) {
+              squareLabel = t('chessSquareLegalMove', { description: squareLabel });
+            }
+            sq.setAttribute('aria-label', squareLabel);
+            sq.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+
+            // Last move highlight
+            if (lastMove) {
+              if (r === lastMove.fromRow && c === lastMove.fromCol) sq.classList.add('last-move-from');
+              if (r === lastMove.toRow && c === lastMove.toCol) sq.classList.add('last-move-to');
+            }
+
+            // Selected
+            if (isSelected) {
+              sq.classList.add('selected');
+            }
+
+            // King in check
+            if (kingInCheckSq && kingInCheckSq.r === r && kingInCheckSq.c === c) {
+              sq.classList.add('in-check');
+            }
+
+            // Legal move indicators
+            if (legalSet.has(r + ',' + c)) {
+              if (gameState.board[r][c]) {
+                // Capture ring
+                const ring = document.createElement('div');
+                ring.className = 'capture-ring';
+                sq.appendChild(ring);
+              } else {
+                // Move dot
+                const dot = document.createElement('div');
+                dot.className = 'legal-dot';
+                sq.appendChild(dot);
+              }
+            }
+
+            // Piece
+            if (piece && SYMBOLS[piece]) {
+              const span = document.createElement('span');
+              span.className = 'chess-piece';
+              span.textContent = SYMBOLS[piece];
+              sq.appendChild(span);
+            }
+          }
+        }
+
+        renderStatus(status, silentGameOver);
+        renderCaptured();
+        renderTouchMoveControls();
+      }
+
+      function addTouchPlaceholder(select, key) {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = t(key);
+        select.appendChild(option);
+      }
+
+      function touchMoveAvailable() {
+        const status = ChessEngine.getStatus(gameState);
+        return !isThinking
+          && status !== 'checkmate'
+          && status !== 'stalemate'
+          && status !== 'draw'
+          && !(vsComputer && gameState.turn === 'b');
+      }
+
+      function renderTouchDestinations() {
+        const previous = touchTo.value;
+        touchTo.innerHTML = '';
+        addTouchPlaceholder(touchTo, 'chessTouchChooseDestination');
+
+        const coordinates = touchFrom.value.split(',').map(Number);
+        const hasSource = touchFrom.value !== '' && coordinates.length === 2;
+        const moves = hasSource
+          ? ChessEngine.getLegalMoves(gameState, coordinates[0], coordinates[1])
+          : [];
+
+        for (const move of moves) {
+          const option = document.createElement('option');
+          option.value = move.toRow + ',' + move.toCol;
+          option.textContent = fileOf(move.toCol) + rankOf(move.toRow);
+          touchTo.appendChild(option);
+        }
+
+        if ([...touchTo.options].some((option) => option.value === previous)) {
+          touchTo.value = previous;
+        }
+        touchTo.disabled = !touchMoveAvailable() || moves.length === 0;
+        touchMoveBtn.disabled = touchTo.disabled || touchTo.value === '';
+      }
+
+      function renderTouchMoveControls() {
+        const previous = touchFrom.value;
+        touchFrom.innerHTML = '';
+        addTouchPlaceholder(touchFrom, 'chessTouchChoosePiece');
+
+        if (touchMoveAvailable()) {
+          for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+              const piece = gameState.board[row][col];
+              const moves = piece && piece[0] === gameState.turn
+                ? ChessEngine.getLegalMoves(gameState, row, col)
+                : [];
+              if (moves.length === 0) continue;
+              const option = document.createElement('option');
+              option.value = row + ',' + col;
+              option.textContent = fileOf(col) + rankOf(row) + ' — ' + t(PIECE_NAME_KEYS[piece[1]]);
+              touchFrom.appendChild(option);
+            }
+          }
+        }
+
+        if ([...touchFrom.options].some((option) => option.value === previous)) {
+          touchFrom.value = previous;
+        }
+        touchFrom.disabled = !touchMoveAvailable() || touchFrom.options.length === 1;
+        renderTouchDestinations();
+      }
+
+      function fileOf(c) { return 'abcdefgh'[c]; }
+      function rankOf(r) { return 8 - r; }
+
+      // ── Status bar ─────────────────────────────────────
+      function renderStatus(status, silentGameOver) {
+        statusEl.className = 'chess-status';
+        const turn = gameState.turn;
+
+        if (status === 'checkmate') {
+          statusEl.classList.add('checkmate');
+          const winnerCode = turn === 'w' ? 'b' : 'w';
+          const winner = t(winnerCode === 'w' ? 'chessWhite' : 'chessBlack');
+          statusMessage.textContent = t('chessCheckmate', { winner });
+          turnDot.style.display = 'none';
+          if (!silentGameOver) {
+            document.dispatchEvent(new CustomEvent('chess-game-over', {
+              detail: {
+                status,
+                winner: winnerCode === 'w' ? 'White' : 'Black',
+                moves: gameState.history.length
+              }
+            }));
+          }
+          return;
+        }
+        if (status === 'stalemate') {
+          statusEl.classList.add('draw');
+          statusMessage.textContent = t('chessStalemate');
+          turnDot.style.display = 'none';
+          if (!silentGameOver) {
+            document.dispatchEvent(new CustomEvent('chess-game-over', {
+              detail: { status, winner: null, moves: gameState.history.length }
+            }));
+          }
+          return;
+        }
+        if (status === 'draw') {
+          statusEl.classList.add('draw');
+          statusMessage.textContent = t('chessFiftyMove');
+          turnDot.style.display = 'none';
+          if (!silentGameOver) {
+            document.dispatchEvent(new CustomEvent('chess-game-over', {
+              detail: { status, winner: null, moves: gameState.history.length }
+            }));
+          }
+          return;
+        }
+
+        turnDot.style.display = 'inline-block';
+        turnDot.style.background = turn === 'w' ? '#f0e8d8' : '#13101a';
+        turnDot.style.border = turn === 'b' ? '1.5px solid #f0e8d8' : '1.5px solid rgba(0,0,0,0.3)';
+
+        if (status === 'check') {
+          statusEl.classList.add('check');
+          const turnName = t(turn === 'w' ? 'chessWhite' : 'chessBlack');
+          statusMessage.textContent = t('chessCheck', { player: turnName });
+        } else {
+          const turnName = t(turn === 'w' ? 'chessWhite' : 'chessBlack');
+          statusMessage.textContent = t('chessTurn', { player: turnName });
+        }
+      }
+
+      // ── Captured pieces display ────────────────────────
+      function renderCaptured() {
+        const capturedW = []; // pieces captured by white (black pieces gone)
+        const capturedB = []; // pieces captured by black (white pieces gone)
+
+        // Count what's on the board vs starting counts
+        const startCount = { wQ:1,wR:2,wB:2,wN:2,wP:8,bQ:1,bR:2,bB:2,bN:2,bP:8 };
+        const onBoard = {};
+        for (let r = 0; r < 8; r++)
+          for (let c = 0; c < 8; c++) {
+            const p = gameState.board[r][c];
+            if (p && p[1] !== 'K') onBoard[p] = (onBoard[p] || 0) + 1;
+          }
+
+        for (const [piece, startN] of Object.entries(startCount)) {
+          const missing = startN - (onBoard[piece] || 0);
+          for (let i = 0; i < missing; i++) {
+            if (piece[0] === 'b') capturedW.push(SYMBOLS[piece]);
+            else capturedB.push(SYMBOLS[piece]);
+          }
+        }
+
+        captByWhite.textContent = capturedW.join('');
+        captByBlack.textContent = capturedB.join('');
+      }
+
+      // ── Square pointer and keyboard handlers ───────────
+      function activateSquare(row, col) {
+        if (isThinking) return;
+        const status = ChessEngine.getStatus(gameState);
+        if (status === 'checkmate' || status === 'stalemate' || status === 'draw') return;
+        // Don't allow moves for computer side
+        if (vsComputer && gameState.turn === 'b') return;
+
+        const piece = gameState.board[row][col];
+
+        if (!selectedSquare) {
+          // Select a piece
+          if (piece && piece[0] === gameState.turn) {
+            selectedSquare = { row, col };
+            legalMovesCache = ChessEngine.getLegalMoves(gameState, row, col);
+            render();
+          }
+          return;
+        }
+
+        // Already selected — check if clicking a legal target
+        const move = legalMovesCache.find(m => m.toRow === row && m.toCol === col);
+
+        if (move) {
+          // Check for promotion
+          if (move.special === 'promotion') {
+            pendingPromoMove = move;
+            showPromotionModal(gameState.turn);
+            return;
+          }
+          executeMove(move);
+        } else if (piece && piece[0] === gameState.turn && !(row === selectedSquare.row && col === selectedSquare.col)) {
+          // Reselect another own piece
+          selectedSquare = { row, col };
+          legalMovesCache = ChessEngine.getLegalMoves(gameState, row, col);
+          render();
+        } else {
+          // Deselect
+          selectedSquare = null;
+          legalMovesCache = [];
+          render();
+        }
+      }
+
+      function onSquareClick(e) {
+        const row = Number(e.currentTarget.dataset.row);
+        const col = Number(e.currentTarget.dataset.col);
+        setRovingFocus(row, col, false);
+        activateSquare(row, col);
+      }
+
+      function onSquareKeydown(e) {
+        const row = Number(e.currentTarget.dataset.row);
+        const col = Number(e.currentTarget.dataset.col);
+        const deltas = {
+          ArrowUp: [-1, 0],
+          ArrowDown: [1, 0],
+          ArrowLeft: [0, -1],
+          ArrowRight: [0, 1],
+        };
+        if (deltas[e.key]) {
+          e.preventDefault();
+          setRovingFocus(row + deltas[e.key][0], col + deltas[e.key][1], true);
+          return;
+        }
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setRovingFocus(row, col, false);
+          activateSquare(row, col);
+        }
+      }
+
+      touchFrom.addEventListener('change', renderTouchDestinations);
+      touchTo.addEventListener('change', () => {
+        touchMoveBtn.disabled = touchTo.value === '';
+      });
+      touchMoveBtn.addEventListener('click', () => {
+        if (!touchMoveAvailable() || !touchFrom.value || !touchTo.value) return;
+        const from = touchFrom.value.split(',').map(Number);
+        const to = touchTo.value.split(',').map(Number);
+        const move = ChessEngine.getLegalMoves(gameState, from[0], from[1])
+          .find((candidate) => candidate.toRow === to[0] && candidate.toCol === to[1]);
+        if (!move) return;
+        setRovingFocus(to[0], to[1], false);
+        if (move.special === 'promotion') {
+          pendingPromoMove = move;
+          showPromotionModal(gameState.turn);
+          return;
+        }
+        executeMove(move);
+      });
+
+      // ── Execute a move ─────────────────────────────────
+      function executeMove(move, promoChoice) {
+        var movingColor = gameState.turn;
+        gameState = ChessEngine.applyMove(gameState, move, promoChoice);
+        selectedSquare = null;
+        legalMovesCache = [];
+        render();
+        // Dispatch for room relay (ignored if no room active)
+        document.dispatchEvent(new CustomEvent('chess-local-move', {
+          detail: { move: move, promoChoice: promoChoice || null, movingColor: movingColor }
+        }));
+        // Trigger computer move if needed
+        if (vsComputer && gameState.turn === 'b') {
+          scheduleComputerMove();
+        }
+      }
+
+      // ── Apply a remote (opponent) move ─────────────────
+      window._chessApplyRemote = function(moveData) {
+        if (!moveData || isThinking) return;
+        var move = moveData.move;
+        var promoChoice = moveData.promoChoice || undefined;
+        if (!move) return;
+        // Only apply if it's the remote player's turn
+        executeMove(move, promoChoice);
+      };
+      window._chessGetTurn = function() { return gameState ? gameState.turn : null; };
+      window._chessGetStatus = function() { return ChessEngine.getStatus(gameState); };
+
+      // ── Promotion modal ────────────────────────────────
+      function renderPromotionOptions(clr) {
+        const pieces = ['Q','R','B','N'];
+        promoOptions.innerHTML = '';
+        for (const p of pieces) {
+          const key = clr + p;
+          const btn = document.createElement('button');
+          btn.className = 'promo-piece';
+          btn.textContent = SYMBOLS[key];
+          btn.title = t(PIECE_NAME_KEYS[p]);
+          btn.setAttribute('aria-label', t(PIECE_NAME_KEYS[p]));
+          btn.addEventListener('click', () => {
+            promoModal.classList.remove('visible');
+            const m = pendingPromoMove;
+            pendingPromoMove = null;
+            executeMove(m, p);
+            getSq(focusSquare.row, focusSquare.col)?.focus();
+          });
+          promoOptions.appendChild(btn);
+        }
+      }
+
+      function showPromotionModal(clr) {
+        renderPromotionOptions(clr);
+        promoModal.classList.add('visible');
+        promoOptions.querySelector('button')?.focus();
+        // Clear selection visuals
+        selectedSquare = null;
+        legalMovesCache = [];
+        render();
+      }
+
+      // ── Computer move ──────────────────────────────────
+      function scheduleComputerMove() {
+        isThinking = true;
+        thinkingBar.classList.add('visible');
+
+        setTimeout(() => {
+          const move = ChessEngine.getBestMove(gameState, 2);
+          isThinking = false;
+          thinkingBar.classList.remove('visible');
+
+          if (move) {
+            if (move.special === 'promotion') {
+              gameState = ChessEngine.applyMove(gameState, move, 'Q');
+              selectedSquare = null;
+              legalMovesCache = [];
+              render();
+            } else {
+              gameState = ChessEngine.applyMove(gameState, move);
+              selectedSquare = null;
+              legalMovesCache = [];
+              render();
+            }
+          }
+        }, 50); // small delay so UI updates first
+      }
+
+      // ── Controls ───────────────────────────────────────
+      document.getElementById('btnNewGame').addEventListener('click', () => {
+        if (isThinking) return;
+        pendingPromoMove = null;
+        promoModal.classList.remove('visible');
+        gameState = ChessEngine.newGame();
+        selectedSquare = null;
+        legalMovesCache = [];
+        isThinking = false;
+        thinkingBar.classList.remove('visible');
+        render();
+      });
+
+      document.getElementById('btnUndo').addEventListener('click', () => {
+        if (isThinking) return;
+        if (gameState.history.length === 0) return;
+
+        // Rebuild state from scratch for undo (replay all but last)
+        const history = gameState.history.slice(0, -1);
+        // If vs computer, undo 2 moves (one for computer, one for player)
+        const undoCount = (vsComputer && gameState.history.length >= 2) ? 2 : 1;
+        const replayHistory = gameState.history.slice(0, -undoCount);
+
+        let s = ChessEngine.newGame();
+        for (const move of replayHistory) {
+          s = ChessEngine.applyMove(s, move, move.special === 'promotion' ? (move.piece ? move.piece[1] : 'Q') : undefined);
+        }
+        gameState = s;
+        selectedSquare = null;
+        legalMovesCache = [];
+        render();
+      });
+
+      document.getElementById('btnVsComputer').addEventListener('click', () => {
+        if (isThinking) return;
+        vsComputer = true;
+        document.getElementById('btnVsComputer').classList.add('active');
+        document.getElementById('btn2Players').classList.remove('active');
+        gameState = ChessEngine.newGame();
+        selectedSquare = null;
+        legalMovesCache = [];
+        render();
+      });
+
+      document.getElementById('btn2Players').addEventListener('click', () => {
+        if (isThinking) return;
+        vsComputer = false;
+        document.getElementById('btn2Players').classList.add('active');
+        document.getElementById('btnVsComputer').classList.remove('active');
+        gameState = ChessEngine.newGame();
+        selectedSquare = null;
+        legalMovesCache = [];
+        render();
+      });
+
+      i18n.onChange(() => {
+        render(true);
+        if (pendingPromoMove && promoModal.classList.contains('visible')) {
+          renderPromotionOptions(gameState.turn);
+        }
+      });
+
+      // ── Init ───────────────────────────────────────────
+      buildLabels();
+      buildBoard();
+      render();
+    })();
+    </script>
+
+  </body>
+</html>

@@ -3,8 +3,8 @@
     "id": "books-and-quotes-001",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Who wrote the Harry Potter series?",
@@ -13,14 +13,17 @@
     "answer": {
       "en": "J.K. Rowling",
       "ar": "ج. ك. رولينغ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'To be, or not to be, that is the question' is from which Shakespeare play?",
@@ -29,14 +32,17 @@
     "answer": {
       "en": "Hamlet",
       "ar": "هاملت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-003",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "Which George Orwell novel introduced the concept of 'Big Brother'?",
@@ -45,14 +51,17 @@
     "answer": {
       "en": "1984",
       "ar": "1984"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-004",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "Which famous fictional detective lives at 221B Baker Street?",
@@ -61,14 +70,17 @@
     "answer": {
       "en": "Sherlock Holmes",
       "ar": "شيرلوك هولمز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Who is the author of 'The Lord of the Rings'?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "J.R.R. Tolkien",
       "ar": "ج. ر. ر. تولكين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'Call me Ishmael' is the opening line to which classic novel?",
@@ -93,14 +108,17 @@
     "answer": {
       "en": "Moby-Dick",
       "ar": "موبي ديك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-007",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Literary History, Terms & Awards",
-        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
       "en": "Which young girl's diary became a famous account of the Holocaust?",
@@ -109,14 +127,17 @@
     "answer": {
       "en": "Anne Frank",
       "ar": "آن فرانك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-008",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Who wrote 'Pride and Prejudice'?",
@@ -125,14 +146,17 @@
     "answer": {
       "en": "Jane Austen",
       "ar": "جين أوستن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-009",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'I have a dream' is the famous opening of a speech by which civil rights leader?",
@@ -141,14 +165,17 @@
     "answer": {
       "en": "Martin Luther King Jr.",
       "ar": "مارتن لوثر كينغ الابن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-010",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Who is often called the 'Bard of Avon'?",
@@ -157,14 +184,17 @@
     "answer": {
       "en": "William Shakespeare",
       "ar": "وليم شكسبير"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-011",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "In Ray Bradbury's 'Fahrenheit 451,' what does 451 represent?",
@@ -173,14 +203,17 @@
     "answer": {
       "en": "The temperature at which book paper catches fire",
       "ar": "درجة الحرارة التي تشتعل عندها أوراق الكتب"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-012",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "What was the real name of the author who wrote under the pen name Mark Twain?",
@@ -189,14 +222,17 @@
     "answer": {
       "en": "Samuel Clemens",
       "ar": "صموئيل كليمنز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-013",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'It was the best of times, it was the worst of times' opens which Dickens novel?",
@@ -205,14 +241,17 @@
     "answer": {
       "en": "A Tale of Two Cities",
       "ar": "قصة مدينتين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-014",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Which ancient Greek poet is traditionally credited with writing the Iliad and the Odyssey?",
@@ -221,14 +260,17 @@
     "answer": {
       "en": "Homer",
       "ar": "هوميروس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-015",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "Who is the teenage protagonist of 'The Catcher in the Rye'?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "Holden Caulfield",
       "ar": "هولدن كولفيلد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'Hell is other people' is a line from which playwright's work?",
@@ -253,14 +298,17 @@
     "answer": {
       "en": "Jean-Paul Sartre",
       "ar": "جان بول سارتر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-017",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "In 'Lord of the Flies,' what item do the boys use to establish speaking order?",
@@ -269,14 +317,17 @@
     "answer": {
       "en": "The conch shell",
       "ar": "صدفة القوقعة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-018",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "What color is the light at the end of Daisy's dock in 'The Great Gatsby'?",
@@ -285,14 +336,17 @@
     "answer": {
       "en": "Green",
       "ar": "أخضر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Who wrote the massive historical novel 'War and Peace'?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "Leo Tolstoy",
       "ar": "ليو تولستوي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Who wrote the gothic horror novel 'Frankenstein'?",
@@ -317,14 +374,17 @@
     "answer": {
       "en": "Mary Shelley",
       "ar": "ماري شيلي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-021",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Richard Bachman is a pen name used by which famous American author?",
@@ -333,14 +393,17 @@
     "answer": {
       "en": "Stephen King",
       "ar": "ستيفن كينغ"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-022",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Literary History, Terms & Awards",
-        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
       "en": "Who was the first American to win the Nobel Prize in Literature?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "Sinclair Lewis",
       "ar": "سينكلير لويس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-023",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Literary History, Terms & Awards",
-        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
       "en": "Who coined the term 'MacGuffin' for a plot device that drives a story but is unimportant itself?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "Alfred Hitchcock (filmmaker, not a novelist)",
       "ar": "ألفريد هيتشكوك (مخرج سينمائي لا روائي)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-024",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'More weight' were the famous last words of which man during the Salem Witch Trials (in Miller's The Crucible)?",
@@ -381,14 +450,17 @@
     "answer": {
       "en": "Giles Corey",
       "ar": "جايلز كوري"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-025",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Literary History, Terms & Awards",
-        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
       "en": "Which American author is credited with coining the term 'The Lost Generation'?",
@@ -397,14 +469,17 @@
     "answer": {
       "en": "Gertrude Stein",
       "ar": "غيرترود ستاين"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-026",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Works & Characters",
-        "ar": "الأعمال والشخصيات"
+      "en": "Works & Characters",
+      "ar": "الأعمال والشخصيات"
     },
     "question": {
       "en": "In Dante's Divine Comedy, who acts as Dante's guide through Hell and Purgatory?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "Virgil",
       "ar": "فيرجيل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-027",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'I am become Death, the destroyer of worlds' — from which ancient scripture?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "The Bhagavad Gita",
       "ar": "البهاغافاد غيتا"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-028",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Literary History, Terms & Awards",
-        "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
+      "en": "Literary History, Terms & Awards",
+      "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
       "en": "Written by Murasaki Shikibu in the 11th century, what is widely considered the world's first novel?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "The Tale of Genji",
       "ar": "حكاية غينجي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-029",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Quotes & Opening Lines",
-        "ar": "الاقتباسات والمطالع"
+      "en": "Quotes & Opening Lines",
+      "ar": "الاقتباسات والمطالع"
     },
     "question": {
       "en": "'A screaming comes across the sky' opens which dense postmodern novel by Thomas Pynchon?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "Gravity's Rainbow",
       "ar": "قوس قزح الجاذبية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "books-and-quotes-030",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Authors & Identities",
-        "ar": "المؤلفون وهوياتهم"
+      "en": "Authors & Identities",
+      "ar": "المؤلفون وهوياتهم"
     },
     "question": {
       "en": "Which of the Brontë sisters wrote under the pen name Ellis Bell?",
@@ -477,6 +564,9 @@
     "answer": {
       "en": "Emily Brontë",
       "ar": "إيميلي برونتي"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

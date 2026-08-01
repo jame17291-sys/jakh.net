@@ -1,32 +1,103 @@
 name: Deploy API
+run-name: API ${{ inputs.release_phase }} · ${{ github.sha }}
 
 on:
   workflow_dispatch:
+    inputs:
+      release_phase:
+        description: >-
+          Compatibility deploys schema-tolerant code without touching D1. Migrate-final is a
+          separate run that requires the active compatibility Worker before applying migrations.
+        required: true
+        default: compatibility
+        type: choice
+        options:
+          - compatibility
+          - migrate-final
 
 permissions:
   contents: read
 
 concurrency:
-  group: api-production
+  group: jakh-production-release
   cancel-in-progress: false
 
 jobs:
   production-branch:
-    name: Confirm production branch
+    name: Authorize protected-main production release
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: production
     steps:
-      - name: Require main
+      - name: Require current protected main and protected production environment
         env:
-          DEPLOY_REF: ${{ github.ref }}
+          RELEASE_REF: ${{ github.ref }}
+          RELEASE_REF_PROTECTED: ${{ github.ref_protected }}
+          RELEASE_SHA: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
         run: |
-          if [ "$DEPLOY_REF" != "refs/heads/main" ]; then
+          set -euo pipefail
+          if [ "$RELEASE_REF" != "refs/heads/main" ]; then
             echo "::error title=Production deployment blocked::Deploy the API only from main. Merge the branch first, then re-run this workflow from main."
             exit 1
           fi
-  deploy:
+          if [ "$RELEASE_REF_PROTECTED" != "true" ]; then
+            echo "::error title=Production deployment blocked::GitHub does not report refs/heads/main as protected."
+            exit 1
+          fi
+
+          branch_response="$RUNNER_TEMP/main-branch.json"
+          branch_status="$(curl --silent --show-error \
+            --output "$branch_response" \
+            --write-out '%{http_code}' \
+            --header "Authorization: Bearer $GITHUB_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/branches/main")"
+          if [ "$branch_status" != "200" ]; then
+            echo "::error title=Production deployment blocked::Could not verify current protected main (GitHub HTTP $branch_status)."
+            exit 1
+          fi
+          node --input-type=module - "$branch_response" "$RELEASE_SHA" <<'NODE'
+          import { readFileSync } from "node:fs";
+          const branch = JSON.parse(readFileSync(process.argv[2], "utf8"));
+          if (branch.name !== "main" || branch.protected !== true) {
+            throw new Error("GitHub branch verification did not return protected main");
+          }
+          if (branch.commit?.sha !== process.argv[3]) {
+            throw new Error(`Dispatched commit ${process.argv[3]} is no longer the tip of main (${branch.commit?.sha || "missing"})`);
+          }
+          NODE
+
+          environment_response="$RUNNER_TEMP/production-environment.json"
+          environment_status="$(curl --silent --show-error \
+            --output "$environment_response" \
+            --write-out '%{http_code}' \
+            --header "Authorization: Bearer $GITHUB_TOKEN" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/environments/production")"
+          if [ "$environment_status" != "200" ]; then
+            echo "::error title=Production deployment blocked::Could not verify the production environment (GitHub HTTP $environment_status)."
+            exit 1
+          fi
+          node --input-type=module - "$environment_response" <<'NODE'
+          import { readFileSync } from "node:fs";
+          const environment = JSON.parse(readFileSync(process.argv[2], "utf8"));
+          const rules = Array.isArray(environment.protection_rules) ? environment.protection_rules : [];
+          if (!rules.some((rule) => rule.type === "required_reviewers")) {
+            throw new Error("The production environment must require an approving reviewer");
+          }
+          if (environment.deployment_branch_policy?.protected_branches !== true) {
+            throw new Error("The production environment must allow only protected branches");
+          }
+          NODE
+
+  validate:
+    name: Validate release source and API
     needs: production-branch
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -36,14 +107,37 @@ jobs:
           node-version: "24"
       - name: Validate release source
         run: |
+          node scripts/api-release-receipt.mjs validate-source
+          node --test scripts/api-release-receipt.test.mjs
           node scripts/sync-catalog.mjs --check
           node scripts/generate-seo-pages.mjs --check
+          node scripts/generate-arabic-routes.mjs --check
           node scripts/generate-search-index.mjs --check
+          node scripts/content-review-report.mjs --check
+          node scripts/generate-production-quarantine.mjs --check
           node scripts/audit-question-bank.mjs --strict
           node scripts/validate-seo.mjs
           node scripts/validate-static.mjs
           node scripts/validate-bilingual.mjs
-          node --test scripts/monitor-production.test.mjs
+          node scripts/validate-responsive-images.mjs
+          node scripts/validate-game-focus.mjs
+          node --test \
+            scripts/accessibility-contracts.test.mjs \
+            scripts/arabic-routes.test.mjs \
+            scripts/content-review.test.mjs \
+            scripts/frontend-product-contract.test.mjs \
+            scripts/provenance-ui-contract.test.mjs \
+            scripts/public-history-policy.test.mjs \
+            scripts/publication-quarantine.test.mjs \
+            scripts/responsive-layout-contract.test.mjs \
+            scripts/seo-pagination.test.mjs \
+            scripts/seo-validation-contract.test.mjs \
+            scripts/service-worker-contract.test.mjs
+          node --test \
+            scripts/monitor-production.test.mjs \
+            scripts/pages-quarantine-receipt.test.mjs \
+            scripts/route-production-alert.test.mjs \
+            scripts/runtime-monitor-proof.test.mjs
       - name: Validate API
         working-directory: worker
         env:
@@ -53,9 +147,404 @@ jobs:
           npm ci --no-audit --no-fund
           npm run audit:security
           npm run check
-          npm test
+          npm run test:coverage
+          npm run test:integration
           npx wrangler deploy --dry-run --outdir /tmp/jakh-api-dry-run
+
+  compatibility:
+    name: Deploy compatibility Worker without D1 mutation
+    needs: validate
+    if: ${{ inputs.release_phase == 'compatibility' }}
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install pinned Worker tooling
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+      - name: Capture compatibility preflight without mutating D1
+        id: preflight
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          curl --fail --silent --show-error --retry 5 --retry-all-errors \
+            https://api.jakh.net/api/health > "$RECEIPT_DIR/health-before.json"
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-before.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-before.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote \
+              > "$RECEIPT_DIR/migrations-before.txt"
+          )
+          node scripts/api-release-receipt.mjs preflight \
+            --phase compatibility \
+            --deployment "$RECEIPT_DIR/worker-before.json" \
+            --health "$RECEIPT_DIR/health-before.json" \
+            --database "$RECEIPT_DIR/database-before.json" \
+            --migrations "$RECEIPT_DIR/migrations-before.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+      - name: Assess exact predecessor as an automatic rollback target
+        id: rollback_proof
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/rollback-target-monitor.json
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          set +e
+          node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-before-reread.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage rollback-target \
+            --deployment-before "$RECEIPT_DIR/worker-before.json" \
+            --deployment-after "$RECEIPT_DIR/worker-before-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-target-monitor.json" \
+            --allow-compatible-schema true \
+            --require-safe false \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+          echo "monitor-exit=$monitor_status" >> "$GITHUB_OUTPUT"
+      - name: Deploy compatibility Worker
+        id: deploy_compatibility
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          wranglerVersion: "4.116.0"
+          command: deploy --strict --message "JAKH compatibility ${{ github.sha }} target schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}"
+      - name: Verify compatibility Worker and unchanged D1
+        id: verify_production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-compatibility-initial.json"
+          )
+          expected_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-compatibility-initial.json")"
+          set +e
+          health_status=000
+          for attempt in 1 2 3 4 5 6; do
+            if health_status="$(curl --silent --show-error \
+              --output "$RECEIPT_DIR/health-after-compatibility.json" \
+              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              && node scripts/api-release-receipt.mjs probe \
+                --stage compatibility \
+                --health "$RECEIPT_DIR/health-after-compatibility.json" \
+                --http-status "$health_status" \
+                --expected-worker-version "$expected_worker_version" \
+                --receipt "$RECEIPT_DIR/release-receipt.json"; then
+              break
+            fi
+            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+          done
+          set -e
+          echo "$health_status" > "$RECEIPT_DIR/health-after-compatibility.http"
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-compatibility.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-after-compatibility.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote \
+              > "$RECEIPT_DIR/migrations-after-compatibility.txt"
+          )
+          reread_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-compatibility.json")"
+          if [ "$reread_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=API release race::Active Worker changed while compatibility health was being verified."
+            exit 1
+          fi
+          node scripts/api-release-receipt.mjs post-compatibility \
+            --deployment "$RECEIPT_DIR/worker-after-compatibility.json" \
+            --health "$RECEIPT_DIR/health-after-compatibility.json" \
+            --http-status "$health_status" \
+            --database "$RECEIPT_DIR/database-after-compatibility.json" \
+            --migrations "$RECEIPT_DIR/migrations-after-compatibility.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Verify live compatibility API quarantine behavior
+        id: runtime_monitor
+        env:
+          JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/runtime-monitor.json
+        run: node scripts/monitor-production.mjs
+      - name: Bind compatibility quarantine proof to one exact Worker version
+        id: candidate_runtime_proof
+        if: ${{ always() && steps.verify_production.outcome == 'success' && steps.runtime_monitor.outcome != 'skipped' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-runtime-monitor.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage candidate \
+            --deployment-before "$RECEIPT_DIR/worker-after-compatibility.json" \
+            --deployment-after "$RECEIPT_DIR/worker-after-runtime-monitor.json" \
+            --monitor "$RECEIPT_DIR/runtime-monitor.json" \
+            --allow-compatible-schema true \
+            --require-safe true \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Roll back failed compatibility deployment
+        id: rollback_worker
+        if: ${{ always() && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.deploy_compatibility.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          wranglerVersion: "4.116.0"
+          command: >-
+            rollback ${{ steps.preflight.outputs.rollback-version }}
+            --message "Automatic compatibility rollback after GitHub Actions run ${{ github.run_id }}"
+      - name: Verify exact compatibility rollback
+        id: verify_rollback
+        if: ${{ always() && steps.rollback_worker.outcome == 'success' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-rollback-initial.json"
+          )
+          expected_worker_version="${{ steps.preflight.outputs.rollback-version }}"
+          initial_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-rollback-initial.json")"
+          if [ "$initial_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=API rollback mismatch::Rollback activated $initial_worker_version instead of $expected_worker_version."
+            exit 1
+          fi
+          set +e
+          health_status=000
+          for attempt in 1 2 3 4 5 6; do
+            if health_status="$(curl --silent --show-error \
+              --output "$RECEIPT_DIR/health-after-rollback.json" \
+              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              && node scripts/api-release-receipt.mjs probe \
+                --stage rollback \
+                --health "$RECEIPT_DIR/health-after-rollback.json" \
+                --http-status "$health_status" \
+                --expected-worker-version "$expected_worker_version" \
+                --receipt "$RECEIPT_DIR/release-receipt.json"; then
+              break
+            fi
+            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+          done
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json > "$RECEIPT_DIR/worker-after-rollback.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-after-rollback.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote > "$RECEIPT_DIR/migrations-after-rollback.txt"
+          )
+          reread_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-rollback.json")"
+          if [ "$reread_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=API rollback race::Active Worker changed while rollback health was being verified."
+            exit 1
+          fi
+          node scripts/api-release-receipt.mjs post-rollback \
+            --deployment "$RECEIPT_DIR/worker-after-rollback.json" \
+            --health "$RECEIPT_DIR/health-after-rollback.json" \
+            --http-status "$health_status" \
+            --database "$RECEIPT_DIR/database-after-rollback.json" \
+            --migrations "$RECEIPT_DIR/migrations-after-rollback.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+          set +e
+          JAKH_MONITOR_SCOPE=api \
+          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA=true \
+          JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
+            node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-rollback-reread.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage rollback \
+            --deployment-before "$RECEIPT_DIR/worker-after-rollback.json" \
+            --deployment-after "$RECEIPT_DIR/worker-after-rollback-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-monitor.json" \
+            --allow-compatible-schema true \
+            --require-safe true \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+          if [ "$monitor_status" -ne 0 ]; then exit "$monitor_status"; fi
+      - name: Finalize compatibility receipt
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+        run: |
+          if [ -f "$RECEIPT_DIR/release-receipt.json" ]; then
+            production_verification_outcome="${{ steps.verify_production.outcome }}"
+            if [ "${{ steps.runtime_monitor.outcome }}" != "success" ] || \
+               [ "${{ steps.candidate_runtime_proof.outcome }}" != "success" ]; then
+              production_verification_outcome="failure"
+            fi
+            node scripts/api-release-receipt.mjs finalize \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --preflight-outcome "${{ steps.preflight.outcome }}" \
+              --compatibility-deploy-outcome "${{ steps.deploy_compatibility.outcome }}" \
+              --migrations-outcome skipped \
+              --migration-compatibility-outcome skipped \
+              --final-deploy-outcome skipped \
+              --production-verification-outcome "$production_verification_outcome" \
+              --worker-rollback-outcome "${{ steps.rollback_worker.outcome }}" \
+              --rollback-verification-outcome "${{ steps.verify_rollback.outcome }}" \
+              --rollback-proof-outcome "${{ steps.rollback_proof.outcome }}" \
+              --migration-quarantine-proof-outcome skipped \
+              --migration-authorization-outcome skipped
+            node scripts/api-release-receipt.mjs summary \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --github-summary "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload compatibility receipt
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: api-compatibility-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/jakh-api-release
+          if-no-files-found: warn
+          retention-days: 90
+
+  migrate-final:
+    name: Migrate D1 and finalize proven-compatible Worker
+    needs: validate
+    if: ${{ inputs.release_phase == 'migrate-final' }}
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install pinned Worker tooling
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+      - name: Prove active Worker compatibility before D1 mutation
+        id: preflight
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          curl --fail --silent --show-error --retry 5 --retry-all-errors \
+            https://api.jakh.net/api/health > "$RECEIPT_DIR/health-before.json"
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json > "$RECEIPT_DIR/worker-before.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-before.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote > "$RECEIPT_DIR/migrations-before.txt"
+          )
+          node scripts/api-release-receipt.mjs preflight \
+            --phase migrate-final \
+            --deployment "$RECEIPT_DIR/worker-before.json" \
+            --health "$RECEIPT_DIR/health-before.json" \
+            --database "$RECEIPT_DIR/database-before.json" \
+            --migrations "$RECEIPT_DIR/migrations-before.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+      - name: Prove the exact compatibility Worker is a safe rollback target
+        id: rollback_proof
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/rollback-target-monitor.json
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          node scripts/monitor-production.mjs
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-before-reread.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage rollback-target \
+            --deployment-before "$RECEIPT_DIR/worker-before.json" \
+            --deployment-after "$RECEIPT_DIR/worker-before-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-target-monitor.json" \
+            --allow-compatible-schema true \
+            --require-safe true \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+      - name: Fail closed until compatibility receipt and encrypted off-account D1 backup are enforced
+        id: migration_authorization
+        run: |
+          echo "::error title=D1 mutation blocked::migrate-final is intentionally disabled until this workflow verifies a successful same-commit compatibility receipt and uploads a tested encrypted off-account D1 backup receipt before mutation. Time Travel alone is not an off-account backup."
+          exit 1
+      - name: Capture pre-migration Time Travel evidence
+        if: ${{ steps.migration_authorization.outcome == 'success' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          node worker/scripts/recovery-evidence.mjs bookmark \
+            --required-ref refs/heads/main \
+            --lookback-hours 24 \
+            --output "$RECEIPT_DIR/pre-migration-recovery-bookmark.json"
       - name: Apply database migrations
+        id: apply_migrations
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -63,21 +552,308 @@ jobs:
           workingDirectory: worker
           wranglerVersion: "4.116.0"
           command: d1 migrations apply DB --remote
-      - name: Deploy Worker
+      - name: Verify the same compatibility Worker after migration
+        id: verify_migration_compatibility
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-migrations-initial.json"
+          )
+          expected_worker_version="${{ steps.preflight.outputs.rollback-version }}"
+          initial_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-migrations-initial.json")"
+          if [ "$initial_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=Migration safety gate::Compatibility Worker changed while migrations were being applied."
+            exit 1
+          fi
+          set +e
+          health_status=000
+          for attempt in 1 2 3 4 5 6; do
+            if health_status="$(curl --silent --show-error \
+              --output "$RECEIPT_DIR/health-after-migrations.json" \
+              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              && node scripts/api-release-receipt.mjs probe \
+                --stage migration \
+                --health "$RECEIPT_DIR/health-after-migrations.json" \
+                --http-status "$health_status" \
+                --expected-worker-version "$expected_worker_version" \
+                --receipt "$RECEIPT_DIR/release-receipt.json"; then
+              break
+            fi
+            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+          done
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json > "$RECEIPT_DIR/worker-after-migrations.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-after-migrations.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote > "$RECEIPT_DIR/migrations-after-migrations.txt"
+          )
+          reread_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-migrations.json")"
+          if [ "$reread_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=Migration safety race::Active Worker changed while post-migration health was being verified."
+            exit 1
+          fi
+          node scripts/api-release-receipt.mjs post-migration \
+            --deployment "$RECEIPT_DIR/worker-after-migrations.json" \
+            --health "$RECEIPT_DIR/health-after-migrations.json" \
+            --http-status "$health_status" \
+            --database "$RECEIPT_DIR/database-after-migrations.json" \
+            --migrations "$RECEIPT_DIR/migrations-after-migrations.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Prove strict quarantine on the same post-migration compatibility Worker
+        id: post_migration_runtime_proof
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/post-migration-monitor.json
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          node scripts/monitor-production.mjs
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-migrations-reread.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage post-migration \
+            --deployment-before "$RECEIPT_DIR/worker-after-migrations.json" \
+            --deployment-after "$RECEIPT_DIR/worker-after-migrations-reread.json" \
+            --monitor "$RECEIPT_DIR/post-migration-monitor.json" \
+            --allow-compatible-schema false \
+            --require-safe true \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Deploy final Worker
+        id: deploy_final
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           wranglerVersion: "4.116.0"
-          command: deploy
-      - name: Verify production health
+          command: deploy --strict --message "JAKH final ${{ github.sha }} schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}"
+      - name: Verify final production health
+        id: verify_production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-worker-initial.json"
+          )
+          expected_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-worker-initial.json")"
+          set +e
+          health_status=000
           for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error https://api.jakh.net/api/health \
-              | grep -q '"ok":true,"service":"jakh-api","version":"1.4.0","schema":"6"'; then
-              exit 0
+            if health_status="$(curl --silent --show-error \
+              --output "$RECEIPT_DIR/health-after-worker.json" \
+              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              && node scripts/api-release-receipt.mjs probe \
+                --stage final \
+                --health "$RECEIPT_DIR/health-after-worker.json" \
+                --http-status "$health_status" \
+                --expected-worker-version "$expected_worker_version" \
+                --receipt "$RECEIPT_DIR/release-receipt.json"; then
+              break
             fi
-            sleep 10
+            if [ "$attempt" -lt 6 ]; then sleep 10; fi
           done
-          exit 1
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json > "$RECEIPT_DIR/worker-after-worker.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-after-worker.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote > "$RECEIPT_DIR/migrations-after-worker.txt"
+          )
+          reread_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-worker.json")"
+          if [ "$reread_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=API release race::Active Worker changed while final health was being verified."
+            exit 1
+          fi
+          node scripts/api-release-receipt.mjs post-deploy \
+            --deployment "$RECEIPT_DIR/worker-after-worker.json" \
+            --health "$RECEIPT_DIR/health-after-worker.json" \
+            --http-status "$health_status" \
+            --database "$RECEIPT_DIR/database-after-worker.json" \
+            --migrations "$RECEIPT_DIR/migrations-after-worker.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Verify live final API quarantine behavior
+        id: runtime_monitor
+        env:
+          JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/runtime-monitor.json
+        run: node scripts/monitor-production.mjs
+      - name: Bind final quarantine proof to one exact Worker version
+        id: candidate_runtime_proof
+        if: ${{ always() && steps.verify_production.outcome == 'success' && steps.runtime_monitor.outcome != 'skipped' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-runtime-monitor.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage candidate \
+            --deployment-before "$RECEIPT_DIR/worker-after-worker.json" \
+            --deployment-after "$RECEIPT_DIR/worker-after-runtime-monitor.json" \
+            --monitor "$RECEIPT_DIR/runtime-monitor.json" \
+            --allow-compatible-schema false \
+            --require-safe true \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Roll back final Worker to proven compatibility version
+        id: rollback_worker
+        if: ${{ always() && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.post_migration_runtime_proof.outcome == 'success' && steps.deploy_final.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
+          wranglerVersion: "4.116.0"
+          command: >-
+            rollback ${{ steps.preflight.outputs.rollback-version }}
+            --message "Automatic final rollback after GitHub Actions run ${{ github.run_id }}"
+      - name: Verify exact final-phase Worker rollback
+        id: verify_rollback
+        if: ${{ always() && steps.rollback_worker.outcome == 'success' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
+        run: |
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-rollback-initial.json"
+          )
+          expected_worker_version="${{ steps.preflight.outputs.rollback-version }}"
+          initial_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-rollback-initial.json")"
+          if [ "$initial_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=API rollback mismatch::Rollback activated $initial_worker_version instead of $expected_worker_version."
+            exit 1
+          fi
+          set +e
+          health_status=000
+          for attempt in 1 2 3 4 5 6; do
+            if health_status="$(curl --silent --show-error \
+              --output "$RECEIPT_DIR/health-after-rollback.json" \
+              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              && node scripts/api-release-receipt.mjs probe \
+                --stage rollback \
+                --health "$RECEIPT_DIR/health-after-rollback.json" \
+                --http-status "$health_status" \
+                --expected-worker-version "$expected_worker_version" \
+                --receipt "$RECEIPT_DIR/release-receipt.json"; then
+              break
+            fi
+            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+          done
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json > "$RECEIPT_DIR/worker-after-rollback.json"
+            ./node_modules/.bin/wrangler d1 execute DB --remote --json \
+              --command "SELECT value FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/database-after-rollback.json"
+            ./node_modules/.bin/wrangler d1 migrations list DB --remote > "$RECEIPT_DIR/migrations-after-rollback.txt"
+          )
+          reread_worker_version="$(node scripts/api-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/worker-after-rollback.json")"
+          if [ "$reread_worker_version" != "$expected_worker_version" ]; then
+            echo "::error title=API rollback race::Active Worker changed while rollback health was being verified."
+            exit 1
+          fi
+          node scripts/api-release-receipt.mjs post-rollback \
+            --deployment "$RECEIPT_DIR/worker-after-rollback.json" \
+            --health "$RECEIPT_DIR/health-after-rollback.json" \
+            --http-status "$health_status" \
+            --database "$RECEIPT_DIR/database-after-rollback.json" \
+            --migrations "$RECEIPT_DIR/migrations-after-rollback.txt" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+          set +e
+          JAKH_MONITOR_SCOPE=api \
+          JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
+            node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/worker-after-rollback-reread.json"
+          )
+          node scripts/api-release-receipt.mjs runtime-proof \
+            --stage rollback \
+            --deployment-before "$RECEIPT_DIR/worker-after-rollback.json" \
+            --deployment-after "$RECEIPT_DIR/worker-after-rollback-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-monitor.json" \
+            --allow-compatible-schema false \
+            --require-safe true \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+          if [ "$monitor_status" -ne 0 ]; then exit "$monitor_status"; fi
+      - name: Finalize release receipt
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+        run: |
+          if [ -f "$RECEIPT_DIR/release-receipt.json" ]; then
+            production_verification_outcome="${{ steps.verify_production.outcome }}"
+            if [ "${{ steps.runtime_monitor.outcome }}" != "success" ] || \
+               [ "${{ steps.candidate_runtime_proof.outcome }}" != "success" ]; then
+              production_verification_outcome="failure"
+            fi
+            node scripts/api-release-receipt.mjs finalize \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --preflight-outcome "${{ steps.preflight.outcome }}" \
+              --compatibility-deploy-outcome skipped \
+              --migrations-outcome "${{ steps.apply_migrations.outcome }}" \
+              --migration-compatibility-outcome "${{ steps.verify_migration_compatibility.outcome }}" \
+              --final-deploy-outcome "${{ steps.deploy_final.outcome }}" \
+              --production-verification-outcome "$production_verification_outcome" \
+              --worker-rollback-outcome "${{ steps.rollback_worker.outcome }}" \
+              --rollback-verification-outcome "${{ steps.verify_rollback.outcome }}" \
+              --rollback-proof-outcome "${{ steps.rollback_proof.outcome }}" \
+              --migration-quarantine-proof-outcome "${{ steps.post_migration_runtime_proof.outcome }}" \
+              --migration-authorization-outcome "${{ steps.migration_authorization.outcome }}"
+            node scripts/api-release-receipt.mjs summary \
+              --receipt "$RECEIPT_DIR/release-receipt.json" \
+              --github-summary "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload final release receipt
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: api-final-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/jakh-api-release
+          if-no-files-found: warn
+          retention-days: 90

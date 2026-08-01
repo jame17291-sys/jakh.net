@@ -222,7 +222,8 @@
           "count": 2
         }
       ],
-      "verifiedQuestionCount": 33
+      "scorableQuestionCount": 33,
+      "reviewedQuestionCount": 1
     },
     {
       "slug": "linguistics",
@@ -287,7 +288,8 @@
           "count": 4
         }
       ],
-      "verifiedQuestionCount": 38
+      "scorableQuestionCount": 38,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "tech-retro",
@@ -357,7 +359,8 @@
           "count": 2
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "automotive",
@@ -427,7 +430,8 @@
           "count": 2
         }
       ],
-      "verifiedQuestionCount": 39
+      "scorableQuestionCount": 39,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "survival",
@@ -502,7 +506,8 @@
           "count": 3
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "fictional-worlds",
@@ -567,7 +572,8 @@
           "count": 2
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "superheroes",
@@ -642,7 +648,8 @@
           "count": 3
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "pop-culture",
@@ -712,7 +719,8 @@
           "count": 2
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "true-crime",
@@ -777,7 +785,8 @@
           "count": 3
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "mythology-legends",
@@ -852,7 +861,8 @@
           "count": 2
         }
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "art-and-painters",
@@ -912,7 +922,8 @@
         "music-and-performing-arts",
         "cinema-and-film-history"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "biology",
@@ -988,7 +999,8 @@
         "space-and-astrology",
         "environment-and-ecology"
       ],
-      "verifiedQuestionCount": 69
+      "scorableQuestionCount": 69,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "books-and-quotes",
@@ -1043,7 +1055,8 @@
         "cinema-and-film-history",
         "anime"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "business-and-management",
@@ -1108,7 +1121,8 @@
         "food-and-cuisines",
         "geography"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "chemistry",
@@ -1179,7 +1193,8 @@
         "environment-and-ecology",
         "animal-kingdom"
       ],
-      "verifiedQuestionCount": 65
+      "scorableQuestionCount": 65,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "civil-engineering",
@@ -1244,7 +1259,8 @@
         "infrastructure-systems",
         "architecture-and-landmarks"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "classic-riddles",
@@ -1310,7 +1326,8 @@
         "story-mysteries",
         "true-crime"
       ],
-      "verifiedQuestionCount": 92
+      "scorableQuestionCount": 92,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "logic-puzzles",
@@ -1376,7 +1393,8 @@
         "true-crime",
         "psychology"
       ],
-      "verifiedQuestionCount": 20
+      "scorableQuestionCount": 20,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "coding-and-design",
@@ -1441,7 +1459,8 @@
         "automotive",
         "civil-engineering"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "electrical-engineering",
@@ -1506,7 +1525,8 @@
         "architecture-and-landmarks",
         "inventions-and-minds"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "flag-questions",
@@ -1571,7 +1591,8 @@
         "middle-east-history",
         "ancient-civilizations"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "football",
@@ -1647,7 +1668,8 @@
         "pop-culture",
         "mythology-legends"
       ],
-      "verifiedQuestionCount": 160
+      "scorableQuestionCount": 160,
+      "reviewedQuestionCount": 1
     },
     {
       "slug": "geography",
@@ -1718,7 +1740,8 @@
         "history",
         "middle-east-history"
       ],
-      "verifiedQuestionCount": 100
+      "scorableQuestionCount": 100,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "geology",
@@ -1789,7 +1812,8 @@
         "animal-kingdom",
         "survival"
       ],
-      "verifiedQuestionCount": 31
+      "scorableQuestionCount": 31,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "history",
@@ -1865,7 +1889,8 @@
         "law-middle-east",
         "world-habits-and-etiquette"
       ],
-      "verifiedQuestionCount": 100
+      "scorableQuestionCount": 100,
+      "reviewedQuestionCount": 1
     },
     {
       "slug": "infrastructure-systems",
@@ -1936,7 +1961,8 @@
         "software-and-computing",
         "coding-and-design"
       ],
-      "verifiedQuestionCount": 15
+      "scorableQuestionCount": 15,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "kids-riddles",
@@ -2001,7 +2027,8 @@
         "psychology",
         "philosophy"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "law-middle-east",
@@ -2072,7 +2099,8 @@
         "business-and-management",
         "economics-and-finance"
       ],
-      "verifiedQuestionCount": 23
+      "scorableQuestionCount": 23,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "math",
@@ -2148,7 +2176,8 @@
         "biology",
         "chemistry"
       ],
-      "verifiedQuestionCount": 99
+      "scorableQuestionCount": 99,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "mechanical-engineering",
@@ -2213,7 +2242,8 @@
         "inventions-and-minds",
         "software-and-computing"
       ],
-      "verifiedQuestionCount": 30
+      "scorableQuestionCount": 30,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "medical-questions",
@@ -2289,7 +2319,8 @@
         "science",
         "physical-and-life-sciences"
       ],
-      "verifiedQuestionCount": 50
+      "scorableQuestionCount": 50,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "middle-east-history",
@@ -2345,7 +2376,8 @@
         "world-habits-and-etiquette",
         "linguistics"
       ],
-      "verifiedQuestionCount": 11
+      "scorableQuestionCount": 11,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "pharmacy",
@@ -2416,7 +2448,8 @@
         "physical-and-life-sciences",
         "biology"
       ],
-      "verifiedQuestionCount": 24
+      "scorableQuestionCount": 24,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "philosophy",
@@ -2482,7 +2515,8 @@
         "logic-puzzles",
         "kids-riddles"
       ],
-      "verifiedQuestionCount": 20
+      "scorableQuestionCount": 20,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "physical-and-life-sciences",
@@ -2553,7 +2587,8 @@
         "geology",
         "space-and-astrology"
       ],
-      "verifiedQuestionCount": 13
+      "scorableQuestionCount": 13,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "psychology",
@@ -2629,7 +2664,8 @@
         "classic-riddles",
         "logic-puzzles"
       ],
-      "verifiedQuestionCount": 54
+      "scorableQuestionCount": 54,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "relationship-questions",
@@ -2685,7 +2721,8 @@
         "kids-riddles",
         "story-mysteries"
       ],
-      "verifiedQuestionCount": 23
+      "scorableQuestionCount": 23,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "science",
@@ -2751,7 +2788,8 @@
         "chemistry",
         "geology"
       ],
-      "verifiedQuestionCount": 80
+      "scorableQuestionCount": 80,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "social-sciences",
@@ -2807,7 +2845,8 @@
         "flag-questions",
         "currencies"
       ],
-      "verifiedQuestionCount": 21
+      "scorableQuestionCount": 21,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "software-and-computing",
@@ -2863,7 +2902,8 @@
         "future-tech-and-energy",
         "automotive"
       ],
-      "verifiedQuestionCount": 20
+      "scorableQuestionCount": 20,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "space-and-astrology",
@@ -2934,7 +2974,8 @@
         "survival",
         "medical-questions"
       ],
-      "verifiedQuestionCount": 47
+      "scorableQuestionCount": 47,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "story-mysteries",
@@ -3010,7 +3051,8 @@
         "philosophy",
         "relationship-questions"
       ],
-      "verifiedQuestionCount": 23
+      "scorableQuestionCount": 23,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "tv-shows-trivia",
@@ -3096,7 +3138,8 @@
         "anime",
         "ayam-tayebeen"
       ],
-      "verifiedQuestionCount": 204
+      "scorableQuestionCount": 204,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "world-habits-and-etiquette",
@@ -3152,7 +3195,8 @@
         "economics-and-finance",
         "social-sciences"
       ],
-      "verifiedQuestionCount": 20
+      "scorableQuestionCount": 20,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "environment-and-ecology",
@@ -3223,7 +3267,8 @@
         "medical-questions",
         "pharmacy"
       ],
-      "verifiedQuestionCount": 38
+      "scorableQuestionCount": 38,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "ancient-civilizations",
@@ -3289,7 +3334,8 @@
         "linguistics",
         "business-and-management"
       ],
-      "verifiedQuestionCount": 39
+      "scorableQuestionCount": 39,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "inventions-and-minds",
@@ -3365,7 +3411,8 @@
         "tech-retro",
         "future-tech-and-energy"
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "animal-kingdom",
@@ -3441,7 +3488,8 @@
         "pharmacy",
         "math"
       ],
-      "verifiedQuestionCount": 40
+      "scorableQuestionCount": 40,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "economics-and-finance",
@@ -3517,7 +3565,8 @@
         "geography",
         "flag-questions"
       ],
-      "verifiedQuestionCount": 35
+      "scorableQuestionCount": 35,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "architecture-and-landmarks",
@@ -3588,7 +3637,8 @@
         "coding-and-design",
         "tech-retro"
       ],
-      "verifiedQuestionCount": 39
+      "scorableQuestionCount": 39,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "music-and-performing-arts",
@@ -3659,7 +3709,8 @@
         "ayam-tayebeen",
         "football"
       ],
-      "verifiedQuestionCount": 37
+      "scorableQuestionCount": 37,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "food-and-cuisines",
@@ -3730,7 +3781,8 @@
         "currencies",
         "history"
       ],
-      "verifiedQuestionCount": 36
+      "scorableQuestionCount": 36,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "cinema-and-film-history",
@@ -3806,7 +3858,8 @@
         "football",
         "fictional-worlds"
       ],
-      "verifiedQuestionCount": 39
+      "scorableQuestionCount": 39,
+      "reviewedQuestionCount": 1
     },
     {
       "slug": "future-tech-and-energy",
@@ -3882,7 +3935,8 @@
         "electrical-engineering",
         "mechanical-engineering"
       ],
-      "verifiedQuestionCount": 32
+      "scorableQuestionCount": 32,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "anime",
@@ -3968,7 +4022,8 @@
         "fictional-worlds",
         "superheroes"
       ],
-      "verifiedQuestionCount": 148
+      "scorableQuestionCount": 148,
+      "reviewedQuestionCount": 0
     },
     {
       "slug": "ayam-tayebeen",
@@ -4054,7 +4109,8 @@
         "superheroes",
         "pop-culture"
       ],
-      "verifiedQuestionCount": 200
+      "scorableQuestionCount": 200,
+      "reviewedQuestionCount": 0
     }
   ]
 }

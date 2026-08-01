@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="العب ريفيرسي أونلاين ضد الكمبيوتر أو صديق في لعبة استراتيجية مجانية لقلب الأقراص، من دون تنزيل أو تسجيل." />
+  <title>ريفيرسي أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/reversi/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/reversi" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/reversi/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/reversi" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="ريفيرسي أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="العب ريفيرسي أونلاين ضد الكمبيوتر أو صديق في لعبة استراتيجية مجانية لقلب الأقراص، من دون تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/reversi/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="ريفيرسي أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="العب ريفيرسي أونلاين ضد الكمبيوتر أو صديق في لعبة استراتيجية مجانية لقلب الأقراص، من دون تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <style>
+    /* ── Reversi scoped styles ── */
+    #reversiSection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Controls row */
+    .rv-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .625rem;
+      justify-content: center;
+    }
+    .rv-btn {
+      font-family: var(--font);
+      font-size: .875rem;
+      font-weight: 600;
+      padding: .45rem 1.1rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm, 10px);
+      border: 2px solid var(--line-strong, rgba(32,50,71,.18));
+      background: var(--panel, #fff);
+      color: var(--text, #203247);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+    .rv-btn:hover { background: var(--bg-soft); border-color: var(--accent); }
+    .rv-btn.active { background: var(--accent, #256aa9); border-color: var(--accent, #256aa9); color: #fff; }
+
+    /* Score bar */
+    .rv-scorebar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--text, #203247);
+    }
+    .rv-score-disc {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: .35rem;
+    }
+    .rv-score-disc.black { background: #13101a; border: 2px solid #444; }
+    .rv-score-disc.white { background: #F0E8D8; border: 2px solid #ccc; }
+    .rv-score-val { font-weight: 700; font-size: 1.3rem; }
+
+    /* Status text */
+    .rv-status {
+      font-family: var(--font);
+      font-size: .95rem;
+      color: var(--muted, #5d6d81);
+      min-height: 1.4em;
+      text-align: center;
+    }
+    .rv-status.highlight { color: var(--easy, #1d7051); font-weight: 600; }
+
+    /* Board wrapper — enforces square + responsive size */
+    .rv-board-wrap {
+      width: min(480px, calc(100vw - 2rem));
+      aspect-ratio: 1;
+      border-radius: var(--radius, 16px);
+      overflow: hidden;
+      border: 3px solid var(--line-strong, rgba(32,50,71,.18));
+      box-shadow: 0 14px 34px rgba(32, 50, 71, 0.16);
+    }
+
+    /* 8×8 CSS grid */
+    .rv-board {
+      display: grid;
+      grid-template-rows: repeat(8, 1fr);
+      width: 100%;
+      height: 100%;
+    }
+
+    .rv-board-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      min-width: 0;
+      min-height: 0;
+    }
+
+    /* Individual cells */
+    .rv-cell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+      transition: filter .1s;
+      touch-action: manipulation;
+    }
+    /* Calm, high-contrast checkerboard shared with the JAKH game palette. */
+    .rv-cell.light { background: #f7ecd5; }
+    .rv-cell.dark  { background: #8eb7d7; }
+    .rv-cell:hover { filter: brightness(1.25); }
+    .rv-cell.no-interact { cursor: default; filter: none; }
+
+    /* Discs */
+    .rv-disc {
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform .18s cubic-bezier(.34,1.56,.64,1);
+    }
+    .rv-disc.black { background: #13101a; border: 2px solid #444; }
+    .rv-disc.white { background: #F0E8D8; border: 2px solid #ccc; }
+
+    /* Legal move indicator dot */
+    .rv-legal-dot {
+      width: 32%;
+      height: 32%;
+      border-radius: 50%;
+      background: rgba(72,213,151,.55);
+      pointer-events: none;
+    }
+
+    /* Flip animation */
+    @keyframes rv-flip {
+      0%   { transform: scaleX(1); }
+      50%  { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+    .rv-disc.flipping { animation: rv-flip .28s ease-in-out; }
+
+    /* Thinking overlay */
+    .rv-thinking {
+      font-family: var(--font);
+      font-size: .875rem;
+      color: var(--gilt, #976006);
+      min-height: 1.2em;
+    }
+
+    .rv-precise-moves {
+      display: none;
+      width: calc(100% - 2rem);
+      padding: .85rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      background: var(--panel);
+    }
+
+    .rv-precise-moves h2,
+    .rv-precise-moves p {
+      margin: 0;
+    }
+
+    .rv-precise-moves h2 {
+      font-size: 1rem;
+    }
+
+    .rv-precise-moves p {
+      color: var(--muted);
+      font-size: .8125rem;
+      line-height: 1.45;
+    }
+
+    .rv-precise-move-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .5rem;
+    }
+
+    .rv-precise-move {
+      min-width: 0;
+      min-height: 44px;
+      padding: .45rem .35rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      background: var(--panel-strong);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Remove outer gutters so cells reach at least 44px from 352px upward. */
+    @media (max-width: 400px) {
+      #reversiSection {
+        padding-inline: 0 !important;
+      }
+
+      .rv-board-wrap {
+        width: min(480px, 100vw);
+        border-radius: 0;
+      }
+
+      .rv-controls,
+      .rv-scorebar,
+      .rv-status,
+      .rv-thinking {
+        max-width: calc(100% - 2rem);
+      }
+    }
+
+    /* Eight 44px cells need 352px; provide separate 44px legal-move buttons below that. */
+    @media (max-width: 351px) {
+      .rv-cell {
+        min-height: 0 !important;
+      }
+
+      .rv-precise-moves {
+        display: grid;
+        gap: .65rem;
+      }
+    }
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Reversi",
+  "description": "Play Reversi online against the computer or a friend in this free disc-flipping strategy game.",
+  "url": "https://jakh.net/reversi",
+  "inLanguage": [
+    "en",
+    "ar"
+  ],
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="reversi" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture><source srcset="/assets/logo.webp" type="image/webp"/><img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/></picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+      <a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a>
+    </nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">استراتيجية · كلاسيكية</p>
+        <h1 data-i18n="heroTitle">⚪ ريفيرسي</h1>
+        <p class="hero-text" data-i18n="heroText">اقلب أقراص خصمك وسيطر على الرقعة وفق قواعد أوثيلو الكلاسيكية.</p>
+      </div>
+    </section>
+    <section class="shell section-block" id="reversiSection">
+      <!-- Rendered by reversi-ui script -->
+    </section>
+  </main>
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+      <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="instagramName">إنستغرام</span></a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span data-i18n="facebookName">فيسبوك</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  JakhGameI18n.register('reversi', {
+    en: {
+      metaTitle: 'Reversi Online — Free Browser Game | JAKH',
+      metaDescription: 'Play Reversi online against the computer or a friend in this free disc-flipping strategy game. Play instantly with no download or sign-up.',
+      heroEyebrow: 'Strategy · Classic',
+      heroTitle: '⚪ Reversi',
+      heroText: 'Flip your opponent’s discs. Control the board. Classic Othello rules.',
+      modeComputer: 'vs Computer',
+      modeTwoPlayer: '2 Players',
+      newGame: 'New Game',
+      versus: 'vs',
+      boardLabel: 'Reversi board',
+      scoreBlack: 'Black: {count} discs',
+      scoreWhite: 'White: {count} discs',
+      cellEmpty: 'Row {row}, column {column}, empty',
+      cellLegal: 'Row {row}, column {column}, legal move',
+      cellBlack: 'Row {row}, column {column}, black disc',
+      cellWhite: 'Row {row}, column {column}, white disc',
+      preciseMovesTitle: 'Precise move controls',
+      preciseMovesHint: 'On very narrow screens, use these full-size buttons when a board cell is too small to tap precisely.',
+      preciseMoveLabel: 'Play row {row}, column {column}',
+      noPreciseMoves: 'No legal move is available right now.',
+      yourTurn: 'Your turn (Black)',
+      computerThinking: 'Computer thinking…',
+      blackTurn: 'Black’s turn',
+      whiteTurn: 'White’s turn',
+      youWin: 'You win! ⬤ Black wins.',
+      blackWins: '⬤ Black wins!',
+      computerWins: 'Computer wins. ○ White wins.',
+      whiteWins: '○ White wins!',
+      draw: 'It’s a draw!',
+      thinking: 'Thinking…'
+    },
+    ar: {
+      metaTitle: 'ريفيرسي أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'العب ريفيرسي أونلاين ضد الكمبيوتر أو صديق في لعبة استراتيجية مجانية لقلب الأقراص، من دون تنزيل أو تسجيل.',
+      heroEyebrow: 'استراتيجية · كلاسيكية',
+      heroTitle: '⚪ ريفيرسي',
+      heroText: 'اقلب أقراص خصمك وسيطر على الرقعة وفق قواعد أوثيلو الكلاسيكية.',
+      modeComputer: 'ضد الكمبيوتر',
+      modeTwoPlayer: 'لاعبان',
+      newGame: 'لعبة جديدة',
+      versus: 'ضد',
+      boardLabel: 'رقعة ريفيرسي',
+      scoreBlack: 'الأسود: {count} قرصاً',
+      scoreWhite: 'الأبيض: {count} قرصاً',
+      cellEmpty: 'الصف {row}، العمود {column}، خانة فارغة',
+      cellLegal: 'الصف {row}، العمود {column}، نقلة متاحة',
+      cellBlack: 'الصف {row}، العمود {column}، قرص أسود',
+      cellWhite: 'الصف {row}، العمود {column}، قرص أبيض',
+      preciseMovesTitle: 'عناصر تحكم دقيقة للنقلة',
+      preciseMovesHint: 'على الشاشات الضيقة جداً، استخدم هذه الأزرار بالحجم الكامل عندما يصعب لمس خلية الرقعة بدقة.',
+      preciseMoveLabel: 'العب في الصف {row}، العمود {column}',
+      noPreciseMoves: 'لا توجد نقلة قانونية متاحة الآن.',
+      yourTurn: 'دورك (الأسود)',
+      computerThinking: 'الكمبيوتر يفكر…',
+      blackTurn: 'دور الأسود',
+      whiteTurn: 'دور الأبيض',
+      youWin: 'فزت! فاز الأسود ⬤',
+      blackWins: 'فاز الأسود ⬤',
+      computerWins: 'فاز الكمبيوتر. فاز الأبيض ○',
+      whiteWins: 'فاز الأبيض ○',
+      draw: 'تعادل!',
+      thinking: 'جارٍ التفكير…'
+    }
+  });
+  </script>
+
+  <!-- ── ENGINE: pure logic, zero DOM ── -->
+  <script id="reversi-engine">
+  var ReversiEngine = (function() {
+    'use strict';
+
+    var DIRS = [
+      [-1,-1],[-1,0],[-1,1],
+      [ 0,-1],        [ 0,1],
+      [ 1,-1],[ 1,0],[ 1,1]
+    ];
+
+    function cloneBoard(board) {
+      return board.map(function(row) { return row.slice(); });
+    }
+
+    function newGame() {
+      var board = [];
+      for (var r = 0; r < 8; r++) {
+        board.push([null,null,null,null,null,null,null,null]);
+      }
+      board[3][3] = 'w'; board[3][4] = 'b';
+      board[4][3] = 'b'; board[4][4] = 'w';
+      return { board: board, turn: 'b' };
+    }
+
+    function opponent(color) {
+      return color === 'b' ? 'w' : 'b';
+    }
+
+    // Returns array of cells that would be flipped if color plays (row,col). Empty = illegal.
+    function flipsFor(board, row, col, color) {
+      if (board[row][col] !== null) return [];
+      var opp = opponent(color);
+      var flips = [];
+      for (var d = 0; d < DIRS.length; d++) {
+        var dr = DIRS[d][0], dc = DIRS[d][1];
+        var line = [];
+        var r = row + dr, c = col + dc;
+        while (r >= 0 && r < 8 && c >= 0 && c < 8 && board[r][c] === opp) {
+          line.push([r, c]);
+          r += dr; c += dc;
+        }
+        if (line.length > 0 && r >= 0 && r < 8 && c >= 0 && c < 8 && board[r][c] === color) {
+          flips = flips.concat(line);
+        }
+      }
+      return flips;
+    }
+
+    function getLegalMoves(state, color) {
+      var moves = [];
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (flipsFor(state.board, r, c, color).length > 0) {
+            moves.push([r, c]);
+          }
+        }
+      }
+      return moves;
+    }
+
+    function applyMove(state, row, col, color) {
+      var newBoard = cloneBoard(state.board);
+      var flips = flipsFor(newBoard, row, col, color);
+      newBoard[row][col] = color;
+      for (var i = 0; i < flips.length; i++) {
+        newBoard[flips[i][0]][flips[i][1]] = color;
+      }
+      // Determine next turn: opponent if they have moves, else same player, else null
+      var opp = opponent(color);
+      var nextTurn;
+      var newState = { board: newBoard, turn: opp };
+      if (getLegalMoves(newState, opp).length > 0) {
+        nextTurn = opp;
+      } else if (getLegalMoves(newState, color).length > 0) {
+        nextTurn = color;
+      } else {
+        nextTurn = null; // game over
+      }
+      return { board: newBoard, turn: nextTurn };
+    }
+
+    function countDiscs(board) {
+      var b = 0, w = 0;
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (board[r][c] === 'b') b++;
+          else if (board[r][c] === 'w') w++;
+        }
+      }
+      return { b: b, w: w };
+    }
+
+    function getStatus(state) {
+      if (state.turn !== null) return 'playing';
+      var counts = countDiscs(state.board);
+      if (counts.b > counts.w) return 'black-wins';
+      if (counts.w > counts.b) return 'white-wins';
+      return 'draw';
+    }
+
+    // ── Minimax with alpha-beta ──
+    // Positional weights — corners/edges are valuable
+    var WEIGHTS = [
+      [120,-20, 20,  5,  5, 20,-20,120],
+      [-20,-40, -5, -5, -5, -5,-40,-20],
+      [ 20, -5, 15,  3,  3, 15, -5, 20],
+      [  5, -5,  3,  3,  3,  3, -5,  5],
+      [  5, -5,  3,  3,  3,  3, -5,  5],
+      [ 20, -5, 15,  3,  3, 15, -5, 20],
+      [-20,-40, -5, -5, -5, -5,-40,-20],
+      [120,-20, 20,  5,  5, 20,-20,120]
+    ];
+
+    function evaluate(state, color) {
+      var opp = opponent(color);
+      var score = 0;
+      var counts = countDiscs(state.board);
+      // Disc count difference
+      score += (counts[color] - counts[opp]) * 2;
+      // Positional weight
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (state.board[r][c] === color) score += WEIGHTS[r][c];
+          else if (state.board[r][c] === opp) score -= WEIGHTS[r][c];
+        }
+      }
+      // Mobility
+      var myMoves = getLegalMoves(state, color).length;
+      var oppMoves = getLegalMoves(state, opp).length;
+      score += (myMoves - oppMoves) * 5;
+      return score;
+    }
+
+    function minimax(state, depth, alpha, beta, maximizing, rootColor) {
+      var status = getStatus(state);
+      if (depth === 0 || status !== 'playing') {
+        return evaluate(state, rootColor);
+      }
+      var currentColor = maximizing ? rootColor : opponent(rootColor);
+      var moves = getLegalMoves(state, currentColor);
+      if (moves.length === 0) {
+        // Must pass — flip maximizing
+        return minimax(state, depth - 1, alpha, beta, !maximizing, rootColor);
+      }
+      if (maximizing) {
+        var best = -Infinity;
+        for (var i = 0; i < moves.length; i++) {
+          var next = applyMove(state, moves[i][0], moves[i][1], currentColor);
+          var val = minimax(next, depth - 1, alpha, beta, false, rootColor);
+          if (val > best) best = val;
+          if (val > alpha) alpha = val;
+          if (beta <= alpha) break;
+        }
+        return best;
+      } else {
+        var best = Infinity;
+        for (var i = 0; i < moves.length; i++) {
+          var next = applyMove(state, moves[i][0], moves[i][1], currentColor);
+          var val = minimax(next, depth - 1, alpha, beta, true, rootColor);
+          if (val < best) best = val;
+          if (val < beta) beta = val;
+          if (beta <= alpha) break;
+        }
+        return best;
+      }
+    }
+
+    function getBestMove(state, color, depth) {
+      var moves = getLegalMoves(state, color);
+      if (moves.length === 0) return null;
+      var bestVal = -Infinity;
+      var bestMove = moves[0];
+      for (var i = 0; i < moves.length; i++) {
+        var next = applyMove(state, moves[i][0], moves[i][1], color);
+        var val = minimax(next, depth - 1, -Infinity, Infinity, false, color);
+        if (val > bestVal) {
+          bestVal = val;
+          bestMove = moves[i];
+        }
+      }
+      return bestMove;
+    }
+
+    return {
+      newGame: newGame,
+      getLegalMoves: getLegalMoves,
+      applyMove: applyMove,
+      getStatus: getStatus,
+      getBestMove: getBestMove,
+      countDiscs: countDiscs
+    };
+  })();
+  </script>
+
+  <!-- ── UI: all DOM access ── -->
+  <script id="reversi-ui">
+  (function() {
+    'use strict';
+
+    var E = ReversiEngine;
+    var I = JakhGameI18n;
+    var section = document.getElementById('reversiSection');
+
+    // ── Build DOM ──
+    section.innerHTML = [
+      '<div class="rv-controls">',
+        '<button class="rv-btn active" id="rvModeAI" type="button" data-i18n="modeComputer">ضد الكمبيوتر</button>',
+        '<button class="rv-btn" id="rvMode2P" type="button" data-i18n="modeTwoPlayer">لاعبان</button>',
+        '<button class="rv-btn" id="rvNewGame" type="button" data-i18n="newGame">لعبة جديدة</button>',
+      '</div>',
+      '<div class="rv-scorebar" dir="ltr">',
+        '<span id="rvBlackScoreGroup"><span class="rv-score-disc black"></span><span id="rvScoreB" class="rv-score-val">2</span></span>',
+        '<span style="color:var(--muted)" data-i18n="versus">ضد</span>',
+        '<span id="rvWhiteScoreGroup"><span class="rv-score-disc white"></span><span id="rvScoreW" class="rv-score-val">2</span></span>',
+      '</div>',
+      '<div class="rv-status" id="rvStatus" role="status" aria-live="polite">Black\'s turn</div>',
+      '<div class="rv-thinking" id="rvThinking" role="status" aria-live="polite"></div>',
+      '<div class="rv-board-wrap" dir="ltr"><div class="rv-board" id="rvBoard" role="grid" aria-rowcount="8" aria-colcount="8" aria-label="رقعة ريفيرسي" aria-describedby="rvPreciseHint" data-i18n-aria-label="boardLabel"></div></div>',
+      '<div class="rv-precise-moves" id="rvPreciseMoves" aria-labelledby="rvPreciseTitle">',
+        '<h2 id="rvPreciseTitle" data-i18n="preciseMovesTitle">عناصر تحكم دقيقة للنقلة</h2>',
+        '<p id="rvPreciseHint" data-i18n="preciseMovesHint">على الشاشات الضيقة جداً، استخدم هذه الأزرار بالحجم الكامل عندما يصعب لمس خلية الرقعة بدقة.</p>',
+        '<div class="rv-precise-move-list" id="rvPreciseMoveList"></div>',
+      '</div>'
+    ].join('');
+
+    var boardEl     = document.getElementById('rvBoard');
+    var statusEl    = document.getElementById('rvStatus');
+    var thinkingEl  = document.getElementById('rvThinking');
+    var scoreBlackEl = document.getElementById('rvScoreB');
+    var scoreWhiteEl = document.getElementById('rvScoreW');
+    var scoreBlackGroup = document.getElementById('rvBlackScoreGroup');
+    var scoreWhiteGroup = document.getElementById('rvWhiteScoreGroup');
+    var btnModeAI   = document.getElementById('rvModeAI');
+    var btnMode2P   = document.getElementById('rvMode2P');
+    var btnNewGame  = document.getElementById('rvNewGame');
+    var preciseMoveList = document.getElementById('rvPreciseMoveList');
+
+    // ── State ──
+    var gameState   = null;
+    var vsComputer  = true;
+    var playerColor = 'b'; // human is always black in AI mode
+    var aiThinking  = false;
+    var cells       = []; // 8×8 array of <div> elements
+
+    // ── Build board cells ──
+    (function buildGrid() {
+      cells = [];
+      boardEl.innerHTML = '';
+      for (var r = 0; r < 8; r++) {
+        cells.push([]);
+        var row = document.createElement('div');
+        row.className = 'rv-board-row';
+        row.setAttribute('role', 'row');
+        row.setAttribute('aria-rowindex', String(r + 1));
+        for (var c = 0; c < 8; c++) {
+          var cell = document.createElement('button');
+          cell.type = 'button';
+          cell.className = 'rv-cell ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+          cell.setAttribute('role', 'gridcell');
+          cell.setAttribute('aria-colindex', String(c + 1));
+          cell.dataset.r = r;
+          cell.dataset.c = c;
+          cell.addEventListener('click', onCellClick);
+          row.appendChild(cell);
+          cells[r].push(cell);
+        }
+        boardEl.appendChild(row);
+      }
+    })();
+
+    function startGame() {
+      aiThinking = false;
+      gameState = E.newGame();
+      render();
+    }
+
+    function render() {
+      if (!gameState) return;
+      var state   = gameState;
+      var status  = E.getStatus(state);
+      var counts  = E.countDiscs(state.board);
+      var legalSet = {};
+
+      scoreBlackEl.textContent = counts.b;
+      scoreWhiteEl.textContent = counts.w;
+      scoreBlackGroup.setAttribute('aria-label', I.t('scoreBlack', { count: I.number(counts.b) }));
+      scoreWhiteGroup.setAttribute('aria-label', I.t('scoreWhite', { count: I.number(counts.w) }));
+
+      // Legal moves only relevant while playing
+      if (status === 'playing' && state.turn !== null) {
+        var moves = E.getLegalMoves(state, state.turn);
+        moves.forEach(function(m) { legalSet[m[0] + ',' + m[1]] = true; });
+      }
+
+      // Render each cell
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          var cell = cells[r][c];
+          var disc = state.board[r][c];
+          cell.innerHTML = '';
+          cell.classList.remove('no-interact');
+
+          if (disc) {
+            var d = document.createElement('div');
+            d.className = 'rv-disc ' + (disc === 'b' ? 'black' : 'white');
+            cell.appendChild(d);
+          } else if (legalSet[r + ',' + c] && !aiThinking) {
+            var dot = document.createElement('div');
+            dot.className = 'rv-legal-dot';
+            cell.appendChild(dot);
+          }
+
+          var cellKey = disc === 'b'
+            ? 'cellBlack'
+            : disc === 'w'
+              ? 'cellWhite'
+              : legalSet[r + ',' + c]
+                ? 'cellLegal'
+                : 'cellEmpty';
+          cell.setAttribute('aria-label', I.t(cellKey, {
+            row: I.number(r + 1),
+            column: I.number(c + 1)
+          }));
+
+          // Disable clicking during AI turn or game over
+          var isAITurn = vsComputer && state.turn !== playerColor;
+          if (aiThinking || status !== 'playing' || isAITurn) {
+            cell.classList.add('no-interact');
+            cell.disabled = true;
+          } else {
+            cell.disabled = !legalSet[r + ',' + c];
+          }
+        }
+      }
+
+      // Status text
+      statusEl.className = 'rv-status';
+      if (status === 'playing') {
+        if (vsComputer) {
+          statusEl.textContent = I.t(state.turn === playerColor ? 'yourTurn' : 'computerThinking');
+        } else {
+          statusEl.textContent = I.t(state.turn === 'b' ? 'blackTurn' : 'whiteTurn');
+        }
+      } else {
+        statusEl.classList.add('highlight');
+        if (status === 'black-wins') statusEl.textContent = I.t(vsComputer ? 'youWin' : 'blackWins');
+        else if (status === 'white-wins') statusEl.textContent = I.t(vsComputer ? 'computerWins' : 'whiteWins');
+        else statusEl.textContent = I.t('draw');
+        thinkingEl.textContent = '';
+      }
+
+      renderPreciseMoves(status, legalSet);
+    }
+
+    function renderPreciseMoves(status, legalSet) {
+      preciseMoveList.innerHTML = '';
+      var isAITurn = vsComputer && gameState.turn !== playerColor;
+      var keys = status === 'playing' && !aiThinking && !isAITurn
+        ? Object.keys(legalSet)
+        : [];
+
+      if (keys.length === 0) {
+        var empty = document.createElement('p');
+        empty.textContent = I.t('noPreciseMoves');
+        preciseMoveList.appendChild(empty);
+        return;
+      }
+
+      keys.forEach(function(key) {
+        var coordinates = key.split(',').map(Number);
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'rv-precise-move';
+        button.textContent = I.t('preciseMoveLabel', {
+          row: I.number(coordinates[0] + 1),
+          column: I.number(coordinates[1] + 1)
+        });
+        button.addEventListener('click', function() {
+          playMoveAt(coordinates[0], coordinates[1]);
+        });
+        preciseMoveList.appendChild(button);
+      });
+    }
+
+    function onCellClick(e) {
+      playMoveAt(parseInt(this.dataset.r, 10), parseInt(this.dataset.c, 10));
+    }
+
+    function playMoveAt(r, c) {
+      if (!gameState || aiThinking) return;
+      var status = E.getStatus(gameState);
+      if (status !== 'playing') return;
+      var turn = gameState.turn;
+
+      // In AI mode, only allow human's colour
+      if (vsComputer && turn !== playerColor) return;
+
+      var moves = E.getLegalMoves(gameState, turn);
+      var legal = moves.some(function(m) { return m[0] === r && m[1] === c; });
+      if (!legal) return;
+
+      gameState = E.applyMove(gameState, r, c, turn);
+      render();
+
+      // Animate flipped discs
+      animateFlips(r, c, turn);
+
+      // AI move
+      if (vsComputer && E.getStatus(gameState) === 'playing' && gameState.turn !== playerColor) {
+        scheduleAI();
+      }
+    }
+
+    function animateFlips(row, col, color) {
+      // Find all discs of color that changed (simplified: flash all color discs)
+      // We add a CSS animation class briefly to all newly-placed same-color discs
+      for (var r = 0; r < 8; r++) {
+        for (var c = 0; c < 8; c++) {
+          if (gameState.board[r][c] === color && !(r === row && c === col)) {
+            var cell = cells[r][c];
+            var disc = cell.querySelector('.rv-disc');
+            if (disc) {
+              disc.classList.add('flipping');
+              (function(d){ setTimeout(function(){ d.classList.remove('flipping'); }, 300); })(disc);
+            }
+          }
+        }
+      }
+    }
+
+    function scheduleAI() {
+      aiThinking = true;
+      thinkingEl.textContent = I.t('thinking');
+      render();
+      setTimeout(function() {
+        var best = E.getBestMove(gameState, gameState.turn, 4);
+        if (best) {
+          var prevTurn = gameState.turn;
+          gameState = E.applyMove(gameState, best[0], best[1], prevTurn);
+        }
+        aiThinking = false;
+        thinkingEl.textContent = '';
+        render();
+        if (best) animateFlips(best[0], best[1], 'w');
+      }, 30); // small timeout so browser renders "Thinking…" first
+    }
+
+    // ── Button events ──
+    btnModeAI.addEventListener('click', function() {
+      vsComputer = true;
+      btnModeAI.classList.add('active');
+      btnMode2P.classList.remove('active');
+      startGame();
+    });
+    btnMode2P.addEventListener('click', function() {
+      vsComputer = false;
+      btnMode2P.classList.add('active');
+      btnModeAI.classList.remove('active');
+      startGame();
+    });
+    btnNewGame.addEventListener('click', startGame);
+
+    I.onChange(function() {
+      if (aiThinking) thinkingEl.textContent = I.t('thinking');
+      render();
+    });
+
+    // ── Init ──
+    I.apply();
+    startGame();
+  })();
+  </script>
+</body>
+</html>

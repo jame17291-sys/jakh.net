@@ -3,8 +3,8 @@
     "id": "classic-riddles-001",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I am always with you but never there when it's dark. What am I?",
@@ -13,14 +13,17 @@
     "answer": {
       "en": "Your shadow",
       "ar": "ظلك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "I am a curved mark with a dot below. Put me at the end of a sentence and it asks instead of tells. What am I?",
@@ -29,14 +32,17 @@
     "answer": {
       "en": "A question mark",
       "ar": "علامة الاستفهام"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-003",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I have a zipper for a mouth, carry books in my belly, and ride on your back. What am I?",
@@ -45,14 +51,17 @@
     "answer": {
       "en": "A backpack",
       "ar": "حقيبة ظهر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-004",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Time, Space & Measurement",
-        "ar": "الزمن والمكان والقياس"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
       "en": "I am always coming but never arrive. What am I?",
@@ -61,14 +70,17 @@
     "answer": {
       "en": "Tomorrow",
       "ar": "الغد"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "What begins with T, finishes with T, and has T in it?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "A teapot",
       "ar": "إبريق الشاي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I have keys but no locks. I have a space but no room. What am I?",
@@ -93,14 +108,17 @@
     "answer": {
       "en": "A keyboard",
       "ar": "لوحة المفاتيح"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-007",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I am a number in your bank app. Deposits raise me and purchases lower me, but I never leave the screen. What am I?",
@@ -109,14 +127,17 @@
     "answer": {
       "en": "Your account balance",
       "ar": "رصيد حسابك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-008",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I have no mouth but always reply when spoken to. What am I?",
@@ -125,14 +146,17 @@
     "answer": {
       "en": "An echo",
       "ar": "الصدى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-009",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I am tall when I'm young and short when I'm old. What am I?",
@@ -141,14 +165,17 @@
     "answer": {
       "en": "A candle",
       "ar": "الشمعة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-010",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "We are two curved marks that hug extra words inside a sentence. What are we?",
@@ -157,14 +184,17 @@
     "answer": {
       "en": "Parentheses",
       "ar": "القوسان"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-011",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Layla points to a boy and says, “His mother is the only daughter of my mother.” Layla has no sisters. Who is the boy to Layla?",
@@ -173,14 +203,17 @@
     "answer": {
       "en": "He is her son",
       "ar": "هو ابنها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-012",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I have a bed but never sleep. I have a mouth but never speak. What am I?",
@@ -189,14 +222,17 @@
     "answer": {
       "en": "A river",
       "ar": "النهر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-013",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I can fly without wings. I can cry without eyes. Wherever I go, darkness follows me. What am I?",
@@ -205,14 +241,17 @@
     "answer": {
       "en": "A cloud",
       "ar": "السحابة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-014",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I have no life, but I can die. I have no lungs, but I need air. What am I?",
@@ -221,14 +260,17 @@
     "answer": {
       "en": "A fire",
       "ar": "النار"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-015",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "My face is built from thousands of tiny squares. Touch me and colors move; unplug me and my face goes dark. What am I?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "A touchscreen",
       "ar": "شاشة لمس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "I am a mathematical statement believed to be true but not yet proven. Once a proof confirms me, I receive a different title. What am I?",
@@ -253,14 +298,17 @@
     "answer": {
       "en": "A conjecture — once proved, it becomes a theorem",
       "ar": "حدسية — وإذا ثبتت تصبح مبرهنة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-017",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "What has roots nobody sees, is taller than trees, up it goes, yet never grows?",
@@ -269,14 +317,17 @@
     "answer": {
       "en": "A mountain",
       "ar": "الجبل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-018",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "Three consecutive whole numbers have a total of 72. What are the numbers?",
@@ -285,14 +336,17 @@
     "answer": {
       "en": "23, 24, and 25",
       "ar": "23 و24 و25"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "What has a thumb and four fingers but no flesh or bone?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "A glove",
       "ar": "القفاز"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Time, Space & Measurement",
-        "ar": "الزمن والمكان والقياس"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
       "en": "What goes up and down but never moves?",
@@ -317,14 +374,17 @@
     "answer": {
       "en": "A staircase",
       "ar": "الدرج"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-021",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "What walks on four legs in the morning, two in the afternoon, and three in the evening?",
@@ -333,14 +393,17 @@
     "answer": {
       "en": "Man (baby, adult, elder with cane)",
       "ar": "الإنسان (طفل، بالغ، عجوز يتكئ على عصا)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-022",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Two guards: one always lies, one always tells the truth. What one question reveals the right path?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "'What would the other guard say?' then take the opposite",
       "ar": "'ماذا سيقول الحارس الآخر؟' ثم خذ الاتجاه المعاكس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-023",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What is so fragile that even saying its name breaks it?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "Silence",
       "ar": "الصمت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-024",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "The more of this there is, the less you see. What is it?",
@@ -381,14 +450,17 @@
     "answer": {
       "en": "Darkness",
       "ar": "الظلام"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-025",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "'This statement is false.' Is it true or false?",
@@ -397,14 +469,17 @@
     "answer": {
       "en": "It is a paradox — neither true nor false",
       "ar": "مفارقة — لا صحيحة ولا كاذبة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-026",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "What can bring back the dead, make you cry, make you laugh, and lasts a lifetime?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "A memory",
       "ar": "الذكرى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-027",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Which is heavier: a pound of feathers or a pound of gold?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "Feathers (gold uses lighter Troy pounds)",
       "ar": "الريش (الذهب يُقاس بأوقية تروي الأخف)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-028",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "A box without hinges, key, or lid, yet golden treasure inside is hid. What is it?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "An egg",
       "ar": "البيضة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-029",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "I am a four-digit number. My first digit is twice my last, my second is one more than my last, my third is two more than my last, and all my digits add to 18. What number am I?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "6453",
       "ar": "6453"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-030",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "If you have me, you want to share me. If you share me, you haven't got me. What am I?",
@@ -477,14 +564,17 @@
     "answer": {
       "en": "A secret",
       "ar": "السر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-031",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "I have hands but cannot clap. What am I?",
@@ -493,14 +583,17 @@
     "answer": {
       "en": "A clock",
       "ar": "الساعة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-032",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I am full of holes but can hold water. What am I?",
@@ -509,14 +602,17 @@
     "answer": {
       "en": "A sponge",
       "ar": "الإسفنجة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-033",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What goes up but never comes down?",
@@ -525,14 +621,17 @@
     "answer": {
       "en": "Your age",
       "ar": "عمرك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-034",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I have two blades that cross, two finger holes, and I open and close to cut paper. What am I?",
@@ -541,14 +640,17 @@
     "answer": {
       "en": "Scissors",
       "ar": "المقص"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-035",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "The more you take, the more you leave behind. What am I?",
@@ -557,14 +659,17 @@
     "answer": {
       "en": "Footsteps",
       "ar": "الخطوات"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-036",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "A musician writes me as a symbol, but you hear me only when an instrument plays me. What am I?",
@@ -573,14 +678,17 @@
     "answer": {
       "en": "A musical note",
       "ar": "نغمة موسيقية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-037",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What has one eye but cannot see?",
@@ -589,14 +697,17 @@
     "answer": {
       "en": "A needle",
       "ar": "الإبرة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-038",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I have a neck but no head. What am I?",
@@ -605,14 +716,17 @@
     "answer": {
       "en": "A bottle",
       "ar": "الزجاجة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-039",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I fall as tiny crystals, rest as a white blanket, and leave as water when the air warms. What am I?",
@@ -621,14 +735,17 @@
     "answer": {
       "en": "Snow",
       "ar": "الثلج"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-040",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I have legs but cannot walk. What am I?",
@@ -637,14 +754,17 @@
     "answer": {
       "en": "A table or chair",
       "ar": "الطاولة أو الكرسي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-041",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What is always in front of you but cannot be seen?",
@@ -653,14 +773,17 @@
     "answer": {
       "en": "The future",
       "ar": "المستقبل"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-042",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "What goes through a door but never enters or exits?",
@@ -669,14 +792,17 @@
     "answer": {
       "en": "A keyhole",
       "ar": "ثقب المفتاح"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-043",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "The more you use me the smaller I get. What am I?",
@@ -685,14 +811,17 @@
     "answer": {
       "en": "A bar of soap (or a pencil/candle)",
       "ar": "قطعة الصابون (أو القلم / الشمعة)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-044",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What has teeth but cannot bite?",
@@ -701,14 +830,17 @@
     "answer": {
       "en": "A comb",
       "ar": "المشط"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-045",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "I am light as a feather, but even the strongest person cannot hold me for more than 5 minutes. What am I?",
@@ -717,14 +849,17 @@
     "answer": {
       "en": "Breath",
       "ar": "النَّفَس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-046",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Time, Space & Measurement",
-        "ar": "الزمن والمكان والقياس"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
       "en": "Each side of a square café table seats one guest. If two such tables are pushed together along one full side, how many guests can sit around the exposed sides?",
@@ -733,14 +868,17 @@
     "answer": {
       "en": "6 guests",
       "ar": "6 ضيوف"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-047",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What word contains 26 letters but only has three syllables?",
@@ -749,14 +887,17 @@
     "answer": {
       "en": "Alphabet",
       "ar": "الأبجدية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-048",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "A three-digit code uses 0, 4, and 7 exactly once. Zero is not first, 7 is left of 4, and 0 is right of 4. What is the code?",
@@ -765,14 +906,17 @@
     "answer": {
       "en": "740",
       "ar": "740"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-049",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "What has cities but no houses live in them, mountains but no trees, and water but no fish?",
@@ -781,14 +925,17 @@
     "answer": {
       "en": "A map",
       "ar": "الخريطة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-050",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "Which five-letter English word is still pronounced the same after four of its letters are removed?",
@@ -797,14 +944,17 @@
     "answer": {
       "en": "Queue — remove 'ueue' and the remaining Q is still pronounced 'queue'",
       "ar": "Queue — عند حذف ueue يبقى الحرف Q ويُنطق بالطريقة نفسها"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-051",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "Using the numbers 2, 3, and 4 exactly once, and only addition and multiplication, how can you make 14?",
@@ -813,14 +963,17 @@
     "answer": {
       "en": "3×4+2 = 14",
       "ar": "3×4+2 = 14"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-052",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What can you hold in your right hand but not your left?",
@@ -829,14 +982,17 @@
     "answer": {
       "en": "Your left hand",
       "ar": "يدك اليسرى"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-053",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Every tulip in a vase is yellow. A flower taken from that vase is red. Can that flower be a tulip?",
@@ -845,14 +1001,17 @@
     "answer": {
       "en": "No — it would contradict the given rule",
       "ar": "لا — فهذا يناقض القاعدة المعطاة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-054",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I turn a blank wall into a window onto another place, but when I am unplugged the wall becomes plain again. What am I?",
@@ -861,14 +1020,17 @@
     "answer": {
       "en": "A projector",
       "ar": "جهاز عرض"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-055",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Nature & the World",
-        "ar": "الطبيعة والعالم"
+      "en": "Nature & the World",
+      "ar": "الطبيعة والعالم"
     },
     "question": {
       "en": "What gets bigger the more you take from it?",
@@ -877,14 +1039,17 @@
     "answer": {
       "en": "A hole",
       "ar": "الحفرة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-056",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "If you throw me from the window, I will leave a grieving wife. Bring me back, but in the door, and you'll see someone give a smile. Who am I?",
@@ -893,14 +1058,17 @@
     "answer": {
       "en": "The letter N (widow/window = without N; door/indoor)",
       "ar": "حرف معيّن يغيّر معنى الكلمة (لعبة كلمات بالإنجليزية)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-057",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "I am an odd number. Take away one letter and I become even. What number am I?",
@@ -909,14 +1077,17 @@
     "answer": {
       "en": "Seven (remove the 's' to get 'even')",
       "ar": "Seven — أزل الحرف S ليصبح even (زوجي بالإنجليزية)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-058",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What starts with E, ends with E, but only has one letter?",
@@ -925,14 +1096,17 @@
     "answer": {
       "en": "An envelope",
       "ar": "المظروف (envelope)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-059",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I can be cracked, made, told, and played. What am I?",
@@ -941,14 +1115,17 @@
     "answer": {
       "en": "A joke",
       "ar": "النكتة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-060",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "Cards numbered 1 through 9 are in a box. How many different unordered pairs of distinct cards add to 10?",
@@ -957,14 +1134,17 @@
     "answer": {
       "en": "4 pairs: 1+9, 2+8, 3+7, and 4+6",
       "ar": "4 أزواج: 1+9 و2+8 و3+7 و4+6"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-061",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A man is found dead in a locked room. The only items in the room are a pool of water, a window, and a rope. How did he die?",
@@ -973,14 +1153,17 @@
     "answer": {
       "en": "He stood on a block of ice with the rope around his neck; the ice melted, leaving only water",
       "ar": "وقف على كتلة جليد مع الحبل حول رقبته؛ ذاب الجليد وترك فقط الماء"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-062",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "You have 3 stoves, 3 gas burners, and 3 electric burners — but only one match. Which do you light first?",
@@ -989,14 +1172,17 @@
     "answer": {
       "en": "The match",
       "ar": "عود الكبريت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-063",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "I have branches but no fruit, trunk but no leaves. What am I?",
@@ -1005,14 +1191,17 @@
     "answer": {
       "en": "A bank",
       "ar": "البنك"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-064",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A prize is in exactly one of boxes A, B, and C. Box A says “The prize is in B.” Box B says “The prize is not in B.” Box C says “The prize is not in A.” Exactly one statement is true. Where is the prize?",
@@ -1021,14 +1210,17 @@
     "answer": {
       "en": "Box A",
       "ar": "الصندوق A"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-065",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "I am taken from a mine and locked up in a wooden case from which I am never released, yet I am used by almost every person. What am I?",
@@ -1037,14 +1229,17 @@
     "answer": {
       "en": "A pencil (graphite is mined, encased in wood)",
       "ar": "قلم الرصاص (الجرافيت مستخرج من منجم، محاط بالخشب)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-066",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "What can travel around the world while staying in a corner?",
@@ -1053,14 +1248,17 @@
     "answer": {
       "en": "A stamp",
       "ar": "الطابع البريدي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-067",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "What 4-digit number has the same result whether you add 3 to it or multiply it by 3?",
@@ -1069,14 +1267,17 @@
     "answer": {
       "en": "There is no 4-digit number with that property — the riddle highlights the impossibility: only 1.5 satisfies x+3=3x",
       "ar": "لا يوجد رقم مكوّن من 4 أرقام بهذه الخاصية — الأحجية تستهدف رصد الاستحالة: 1.5 فقط يحقق x+3=3x"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-068",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "I have a golden head and a golden tail but no golden body. What am I?",
@@ -1085,14 +1286,17 @@
     "answer": {
       "en": "A gold coin",
       "ar": "عملة ذهبية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-069",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Five tiles numbered 1 through 5 stand in a row. Tile 3 is at the far right, 2 is immediately left of 3, 5 is immediately left of 1, and 4 is left of 5. What is the order?",
@@ -1101,14 +1305,17 @@
     "answer": {
       "en": "4, 5, 1, 2, 3",
       "ar": "4، 5، 1، 2، 3"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-070",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "The person who makes it, sells it. The person who buys it never uses it. The person who uses it doesn't know they're using it. What is it?",
@@ -1117,14 +1324,17 @@
     "answer": {
       "en": "A coffin",
       "ar": "التابوت"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-071",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "What is the smallest positive number that leaves remainder 3 when divided by 4, remainder 4 when divided by 5, and remainder 5 when divided by 6?",
@@ -1133,14 +1343,17 @@
     "answer": {
       "en": "59",
       "ar": "59"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-072",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "Place me to the right of a whole number and its value becomes ten times larger. Place me to its left and its value stays the same. What digit am I?",
@@ -1149,14 +1362,17 @@
     "answer": {
       "en": "0",
       "ar": "0"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-073",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "How many seconds are in a year?",
@@ -1165,14 +1381,17 @@
     "answer": {
       "en": "12 — January 2nd, February 2nd, March 2nd...",
       "ar": "12 — الثاني من يناير، الثاني من فبراير... (اللعبة على كلمة 'second' بالإنجليزية)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-074",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Objects & Everyday Life",
-        "ar": "الأشياء والحياة اليومية"
+      "en": "Objects & Everyday Life",
+      "ar": "الأشياء والحياة اليومية"
     },
     "question": {
       "en": "What is at the end of a rainbow?",
@@ -1181,14 +1400,17 @@
     "answer": {
       "en": "The letter W",
       "ar": "حرف W (نهاية كلمة rainbow)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-075",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Time, Space & Measurement",
-        "ar": "الزمن والمكان والقياس"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
       "en": "In a non-leap year, January 1 is a Monday. What day of the week is March 1?",
@@ -1197,30 +1419,36 @@
     "answer": {
       "en": "Thursday",
       "ar": "الخميس"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-076",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A man lives on the 30th floor of an apartment building. Every morning he takes the elevator down to the ground floor. When he returns in the evening on a rainy day, or if there is someone else in the elevator, he goes to the 30th floor directly. Otherwise, he gets off at the 15th floor and walks up. Why?",
-      "ar": "يعيش رجل في الطابق الثلاثين. صباحاً ينزل بالمصعد. مساءً في الأيام الممطرة أو عند وجود شخص آخر يصعد مباشرة إلى الطابق الثلاثين. وإلا يتوقف في الطابق الخامس عشر ويصعد مشياً. لماذا؟"
+      "en": "A man lives on floor 30 and rides down each morning. Returning alone, he rides to floor 15 and walks up; on rainy days or with another rider, he reaches floor 30. Why?",
+      "ar": "يعيش رجل في الطابق 30 وينزل بالمصعد كل صباح. عند عودته وحيداً يصعد إلى الطابق 15 ثم يكمل مشياً؛ وفي المطر أو مع راكب آخر يصل إلى الطابق 30. لماذا؟"
     },
     "answer": {
-      "en": "He is short — he can only reach the button for the 15th floor. On rainy days he uses his umbrella to reach higher, or asks someone to press 30 for him",
-      "ar": "إنه قصير القامة — يستطيع الضغط على زر الطابق الخامس عشر فقط. في الأيام الممطرة يستخدم مظلته للوصول إلى الأعلى، أو يطلب من شخص آخر الضغط على 30"
+      "en": "He is short and can reach only the floor-15 button. His umbrella reaches the floor-30 button on rainy days; otherwise, another rider can press it for him.",
+      "ar": "إنه قصير القامة ولا يصل إلا إلى زر الطابق 15. في المطر يستخدم مظلته للضغط على زر الطابق 30، أو يطلب من راكب آخر ضغطه."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-077",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "You have weights of 1, 3, 9, and 27 units and a two-pan balance. Weights may be placed on either pan. How can you balance an object weighing 20 units?",
@@ -1229,14 +1457,17 @@
     "answer": {
       "en": "Put the object with the 9- and 1-unit weights on one pan, and the 27- and 3-unit weights on the other: 20+9+1 = 27+3",
       "ar": "ضع الجسم مع ثقلي 9 و1 في كفة، وثقلي 27 و3 في الكفة الأخرى: 20+9+1 = 27+3"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-078",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "I am a 3-digit number. My tens digit is five more than my ones digit. My hundreds digit is eight less than my tens digit. What number am I?",
@@ -1245,30 +1476,36 @@
     "answer": {
       "en": "194 (tens=9, ones=4, hundreds=1)",
       "ar": "194 (العشرات=9، الآحاد=4، المئات=1)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-079",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
-      "en": "Crack a three-digit code with distinct digits. 571 has exactly one correct digit in the right place; 183 has exactly one correct digit in the wrong place; 120 has exactly two correct digits, both in the wrong places; 765 has no correct digits; 248 has exactly one correct digit in the wrong place. What is the code?",
-      "ar": "فك رمزاً من ثلاثة أرقام مختلفة. في 571 رقم واحد صحيح وفي مكانه؛ وفي 183 رقم واحد صحيح لكن في مكان خاطئ؛ وفي 120 رقمان صحيحان وكلاهما في مكان خاطئ؛ وفي 765 لا رقم صحيح؛ وفي 248 رقم واحد صحيح لكن في مكان خاطئ. ما الرمز؟"
+      "en": "Find the three distinct digits: 571 has one correct and placed; 183 has one correct but misplaced; 120 has two correct, both misplaced; 765 has none; 248 has one correct but misplaced. What is the code?",
+      "ar": "أوجد أرقام الرمز الثلاثة المختلفة: في 571 رقم صحيح وفي مكانه؛ وفي 183 رقم صحيح لكنه في مكان خاطئ؛ وفي 120 رقمان صحيحان وكلاهما في مكان خاطئ؛ وفي 765 لا رقم صحيح؛ وفي 248 رقم صحيح لكنه في مكان خاطئ. ما الرمز؟"
     },
     "answer": {
       "en": "401",
       "ar": "401"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-080",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "I contain multitudes. I can be long or short, spoken or written. I can be broken, but it takes more than you think. What am I?",
@@ -1277,14 +1514,17 @@
     "answer": {
       "en": "A record",
       "ar": "الرقم القياسي (أو السجل)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-081",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Three gods called True, False and Random are seated. True always tells the truth, False always lies, Random answers randomly. You may ask three yes/no questions. How do you identify each god?",
@@ -1293,14 +1533,17 @@
     "answer": {
       "en": "Use counterfactual questions to identify True/False regardless of language, then triangulate Random — a classic logic puzzle with multiple valid strategies",
       "ar": "استخدم أسئلة شرطية افتراضية لتحديد الصادق/الكاذب بمعزل عن اللغة، ثم حدّد العشوائي — أحجية منطقية كلاسيكية لها استراتيجيات متعددة صحيحة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-082",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "What is the smallest positive integer that is divisible by 7 and leaves remainder 1 when divided by each of 2, 3, 4, 5, and 6?",
@@ -1309,14 +1552,17 @@
     "answer": {
       "en": "301",
       "ar": "301"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-083",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Five runners are Amal, Basel, Dana, Hadi, and Lina. Dana finishes immediately after Amal; Hadi is last; Amal finishes before Lina; Lina finishes before Basel; and Basel is not second. What is the finishing order?",
@@ -1325,14 +1571,17 @@
     "answer": {
       "en": "Amal, Dana, Lina, Basel, Hadi",
       "ar": "أمل، دانا، لينا، باسل، هادي"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-084",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What comes once in a minute, twice in a moment, but never in a thousand years?",
@@ -1341,14 +1590,17 @@
     "answer": {
       "en": "The letter M",
       "ar": "حرف M"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-085",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Time, Space & Measurement",
-        "ar": "الزمن والمكان والقياس"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
       "en": "An 8-liter container is full, while unmarked 5-liter and 3-liter containers are empty. By pouring only until a container is full or empty, how can you split the water into two equal 4-liter portions?",
@@ -1357,14 +1609,17 @@
     "answer": {
       "en": "Track amounts as (8L,5L,3L): (8,0,0) → (3,5,0) → (3,2,3) → (6,2,0) → (6,0,2) → (1,5,2) → (1,4,3) → (4,4,0)",
       "ar": "رتّب الكميات بصيغة (8 ل، 5 ل، 3 ل): ابدأ بـ(8,0,0)، ثم (3,5,0)، ثم (3,2,3)، ثم (6,2,0)، ثم (6,0,2)، ثم (1,5,2)، ثم (1,4,3)، وأخيراً (4,4,0)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-086",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "I am a three-digit number whose digits increase by 2 from left to right. Reversing my digits makes the number 396 larger, and my digits add to 15. What number am I?",
@@ -1373,14 +1628,17 @@
     "answer": {
       "en": "357",
       "ar": "357"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-087",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "This thing all things devours, birds, beasts, trees, flowers. Gnaws iron, bites steel, grinds hard stones to meal. Slays king, ruins town, and beats high mountain down. What is it?",
@@ -1389,14 +1647,17 @@
     "answer": {
       "en": "Time",
       "ar": "الزمن"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-088",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "What is the smallest number of moves to solve the Tower of Hanoi with 10 discs?",
@@ -1405,14 +1666,17 @@
     "answer": {
       "en": "2¹⁰ − 1 = 1023 moves",
       "ar": "2¹⁰ − 1 = 1023 حركة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-089",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "There is a room with a door and no windows. The door is locked. Inside the room are a man and a saw, and a pile of sawdust. The man cannot cut through the door or walls. How does he get out?",
@@ -1421,14 +1685,17 @@
     "answer": {
       "en": "He used the saw to cut the pile of sawdust in two halves, making two halves (two halves = whole). He climbed out through the 'hole'",
       "ar": "استخدم المنشار لقطع كومة نشارة الخشب إلى نصفين؛ نصفان = ثقب (whole/hole لعبة صوتية بالإنجليزية)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-090",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "I have a head like a cat, feet like a cat, tail like a cat, but I am not a cat. What am I?",
@@ -1437,14 +1704,17 @@
     "answer": {
       "en": "A kitten",
       "ar": "قطة صغيرة (هرة)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-091",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A, B, and C are each either always truthful or always lying. A says, “B is truthful.” B says, “C is lying.” C says, “A and B are different types.” Which type is each person?",
@@ -1453,14 +1723,17 @@
     "answer": {
       "en": "A and B are truthful; C is lying",
       "ar": "A وB صادقان، وC كاذب"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-092",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "What is special about the number 8,549,176,320?",
@@ -1469,14 +1742,17 @@
     "answer": {
       "en": "It contains each digit (0–9) exactly once and the digits are in alphabetical order (eight, five, four, nine, one, seven, six, three, two, zero)",
       "ar": "يحتوي كل رقم من 0 إلى 9 مرة واحدة بالضبط، والأرقام مرتّبة أبجدياً بالإنجليزية"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-093",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A boy is at a carnival and goes up to a booth where the man says 'If I write your exact weight on this piece of paper, you have to give me $50. If I cannot, I will pay you $50.' The boy lost. How did the man win?",
@@ -1485,14 +1761,17 @@
     "answer": {
       "en": "The man wrote 'your exact weight' (the phrase itself) on the paper",
       "ar": "كتب الرجل 'وزنك الدقيق' — الجملة ذاتها — على الورقة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-094",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What five-letter word becomes shorter when you add two letters to it?",
@@ -1501,14 +1780,17 @@
     "answer": {
       "en": "Short — add 'er' to get 'shorter'",
       "ar": "short — أضف 'er' لتحصل على 'shorter' (أقصر)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-095",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "100 fish are in a tank. 10 drown. 15 are caught. 5 come back. How many fish are there now?",
@@ -1517,14 +1799,17 @@
     "answer": {
       "en": "90 (fish don't drown — so 100 − 15 + 5 = 90)",
       "ar": "90 (الأسماك لا تغرق — إذن 100 − 15 + 5 = 90)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-096",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "What is the smallest odd positive integer that has exactly six positive divisors?",
@@ -1533,14 +1818,17 @@
     "answer": {
       "en": "45 — its divisors are 1, 3, 5, 9, 15, and 45",
       "ar": "45 — قواسمه هي 1 و3 و5 و9 و15 و45"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-097",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "I am a two-digit number equal to four times the sum of my digits. Reversing my digits makes me 9 larger. What number am I?",
@@ -1549,14 +1837,17 @@
     "answer": {
       "en": "12",
       "ar": "12"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-098",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Wordplay & Language",
-        "ar": "التلاعب بالكلمات واللغة"
+      "en": "Wordplay & Language",
+      "ar": "التلاعب بالكلمات واللغة"
     },
     "question": {
       "en": "What English word has three consecutive double letters?",
@@ -1565,14 +1856,17 @@
     "answer": {
       "en": "Bookkeeper (oo, kk, ee)",
       "ar": "bookkeeper (oo، kk، ee)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-099",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Time, Space & Measurement",
-        "ar": "الزمن والمكان والقياس"
+      "en": "Time, Space & Measurement",
+      "ar": "الزمن والمكان والقياس"
     },
     "question": {
       "en": "Gear A has 12 teeth and drives gear B with 18 teeth. B shares an axle with gear C, which has 10 teeth and drives gear D with 25 teeth. If A turns 15 times clockwise, how many times and in which direction does D turn?",
@@ -1581,14 +1875,17 @@
     "answer": {
       "en": "4 clockwise rotations",
       "ar": "4 دورات مع عقارب الساعة"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "classic-riddles-100",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Codes",
-        "ar": "الأرقام والرموز"
+      "en": "Numbers & Codes",
+      "ar": "الأرقام والرموز"
     },
     "question": {
       "en": "If there are 6 apples and you take away 4, how many apples do YOU have?",
@@ -1597,6 +1894,9 @@
     "answer": {
       "en": "4 — you took 4, so you have 4",
       "ar": "4 — أخذت 4، إذن لديك 4"
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

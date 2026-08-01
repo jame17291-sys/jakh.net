@@ -13,6 +13,11 @@
     "answer": {
       "en": "Femur",
       "ar": "عظمة الفخذ"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -29,6 +34,11 @@
     "answer": {
       "en": "Group O.",
       "ar": "الفصيلة O."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -45,6 +55,11 @@
     "answer": {
       "en": "Red blood cells",
       "ar": "خلايا الدم الحمراء"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -61,6 +76,11 @@
     "answer": {
       "en": "Radial artery",
       "ar": "الشريان الكعبري"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -77,6 +97,11 @@
     "answer": {
       "en": "Kidneys",
       "ar": "الكلى"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -93,6 +118,11 @@
     "answer": {
       "en": "Antibiotics",
       "ar": "المضادات الحيوية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -109,6 +139,11 @@
     "answer": {
       "en": "Melanin",
       "ar": "الميلانين"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -125,6 +160,11 @@
     "answer": {
       "en": "Ligament",
       "ar": "الرباط"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -141,6 +181,11 @@
     "answer": {
       "en": "Insulin",
       "ar": "الأنسولين"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -157,6 +202,11 @@
     "answer": {
       "en": "37°C",
       "ar": "37 درجة مئوية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -173,6 +223,11 @@
     "answer": {
       "en": "Jonas Salk",
       "ar": "جوناس سالك"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -189,6 +244,11 @@
     "answer": {
       "en": "The sinoatrial (SA) node",
       "ar": "العقدة الجيبية الأذينية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -205,6 +265,11 @@
     "answer": {
       "en": "Cerebrum / Cerebral Cortex",
       "ar": "المخ / القشرة المخية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -221,6 +286,11 @@
     "answer": {
       "en": "Human Immunodeficiency Virus",
       "ar": "فيروس نقص المناعة البشرية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -237,6 +307,11 @@
     "answer": {
       "en": "Retina",
       "ar": "الشبكية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -253,6 +328,11 @@
     "answer": {
       "en": "The QRS complex.",
       "ar": "مركّب QRS."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -269,6 +349,11 @@
     "answer": {
       "en": "Hydrochloric acid",
       "ar": "حمض الهيدروكلوريك"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -285,6 +370,11 @@
     "answer": {
       "en": "23",
       "ar": "23"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -301,6 +391,11 @@
     "answer": {
       "en": "Hepatitis",
       "ar": "التهاب الكبد"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -317,6 +412,11 @@
     "answer": {
       "en": "Alveoli",
       "ar": "الحويصلات الهوائية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -333,6 +433,11 @@
     "answer": {
       "en": "Olfactory nerve (Cranial Nerve I)",
       "ar": "العصب الشمي (العصب القحفي الأول)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -349,6 +454,11 @@
     "answer": {
       "en": "Alexander Fleming",
       "ar": "ألكسندر فليمنغ"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -365,6 +475,11 @@
     "answer": {
       "en": "Pituitary gland",
       "ar": "الغدة النخامية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -381,6 +496,11 @@
     "answer": {
       "en": "Even at full receptor occupancy, a partial agonist produces a lower maximum response; in the presence of a full agonist it can act as a functional antagonist.",
       "ar": "حتى عند إشغال جميع المستقبلات يعطي الناهض الجزئي استجابة قصوى أقل، وقد يعمل كمضاد وظيفي بوجود ناهض كامل."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -397,6 +517,11 @@
     "answer": {
       "en": "A caregiver creates or fakes symptoms in someone under their care",
       "ar": "مقدّم الرعاية يختلق أو يُزيّف أعراضاً في شخص يرعاه"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -413,6 +538,11 @@
     "answer": {
       "en": "Dopamine",
       "ar": "الدوبامين"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -429,6 +559,11 @@
     "answer": {
       "en": "Lymphocytes (White blood cells)",
       "ar": "الخلايا اللمفاوية (خلايا الدم البيضاء)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -445,6 +580,11 @@
     "answer": {
       "en": "Myocardial infarction",
       "ar": "احتشاء عضلة القلب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -461,6 +601,11 @@
     "answer": {
       "en": "Hypothalamus",
       "ar": "منطقة ما تحت المهاد (الهيبوثالاموس)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -477,6 +622,11 @@
     "answer": {
       "en": "Lipase",
       "ar": "الليباز"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -493,6 +643,11 @@
     "answer": {
       "en": "Patella",
       "ar": "الرضفة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -509,6 +664,11 @@
     "answer": {
       "en": "33 (26 in adults after fusion)",
       "ar": "33 (26 عند البالغين بعد الاندماج)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -525,6 +685,11 @@
     "answer": {
       "en": "Autoimmune destruction of insulin-producing beta cells in the pancreas",
       "ar": "التدمير المناعي الذاتي لخلايا بيتا المنتجة للإنسولين في البنكرياس"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -541,6 +706,11 @@
     "answer": {
       "en": "Vitamin C (ascorbic acid)",
       "ar": "فيتامين C (حمض الأسكوربيك)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -557,6 +727,11 @@
     "answer": {
       "en": "Appendicitis.",
       "ar": "التهاب الزائدة الدودية."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -573,6 +748,11 @@
     "answer": {
       "en": "The mitral, or bicuspid, valve.",
       "ar": "الصمام التاجي، ويُسمى أيضاً الصمام ثنائي الشرفات."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -589,6 +769,11 @@
     "answer": {
       "en": "Around 120/80 mmHg",
       "ar": "حوالي 120/80 ملم زئبق"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -605,6 +790,11 @@
     "answer": {
       "en": "A chronic condition causing airway inflammation, narrowing, and difficulty breathing",
       "ar": "حالة مزمنة تسبّب التهاب مجاري الهواء وتضيّقها وصعوبة التنفس"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -621,6 +811,11 @@
     "answer": {
       "en": "The liver",
       "ar": "الكبد"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -637,6 +832,11 @@
     "answer": {
       "en": "Calcium",
       "ar": "الكالسيوم"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -653,6 +853,11 @@
     "answer": {
       "en": "A heart rate above 100 beats per minute.",
       "ar": "معدل ضربات قلب يزيد على 100 ضربة في الدقيقة."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -669,6 +874,11 @@
     "answer": {
       "en": "Persistently elevated blood pressure above 140/90 mmHg",
       "ar": "ارتفاع مستمر في ضغط الدم فوق 140/90 ملم زئبق"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -685,6 +895,11 @@
     "answer": {
       "en": "Produces digestive enzymes and hormones like insulin and glucagon to regulate blood sugar",
       "ar": "ينتج إنزيمات هضمية وهرمونات كالإنسولين والغلوكاغون لتنظيم سكر الدم"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -701,6 +916,11 @@
     "answer": {
       "en": "Carries oxygen in red blood cells from the lungs to the body's tissues",
       "ar": "يحمل الأكسجين في خلايا الدم الحمراء من الرئتين إلى أنسجة الجسم"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -717,6 +937,11 @@
     "answer": {
       "en": "Lung cancer (or prostate cancer depending on region)",
       "ar": "سرطان الرئة (أو سرطان البروستاتا حسب المنطقة)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -733,6 +958,11 @@
     "answer": {
       "en": "Irreversibly inhibits COX-1 and COX-2 enzymes, reducing prostaglandin synthesis (anti-inflammatory, analgesic, antipyretic, antiplatelet)",
       "ar": "يثبّط إنزيمات COX-1 وCOX-2 بشكل لا رجعة فيه، مما يقلّل تركيب البروستاغلاندين (مضاد للالتهاب والألم والحمى وتخثّر الصفائح)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -749,6 +979,11 @@
     "answer": {
       "en": "Draining excess tissue fluid back to the bloodstream, transporting dietary fats, and supporting immune function",
       "ar": "تصريف السوائل الزائدة في الأنسجة إلى مجرى الدم، ونقل الدهون الغذائية، ودعم وظيفة المناعة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -765,6 +1000,11 @@
     "answer": {
       "en": "Face drooping, Arm weakness, Speech difficulty, Time to call emergency services",
       "ar": "تدلّي الوجه (Face)، ضعف الذراع (Arm)، صعوبة الكلام (Speech)، الوقت للاتصال بالطوارئ (Time)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -781,6 +1021,11 @@
     "answer": {
       "en": "Systolic: pressure when the heart beats; Diastolic: pressure when the heart rests between beats",
       "ar": "الانقباضي: الضغط عند انقباض القلب؛ الانبساطي: الضغط عند ارتخاء القلب بين الضربات"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -797,6 +1042,11 @@
     "answer": {
       "en": "Type 1: autoimmune insulin absence (onset in youth); Type 2: insulin resistance (usually adult-onset, linked to lifestyle)",
       "ar": "النوع 1: غياب الإنسولين ذاتي المناعة (يبدأ في الشباب)؛ النوع 2: مقاومة الإنسولين (عادةً في البلوغ، مرتبط بنمط الحياة)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -813,6 +1063,11 @@
     "answer": {
       "en": "Bacteriostatic inhibit bacterial growth; bactericidal kill bacteria directly",
       "ar": "الموقفة تثبّط نمو البكتيريا؛ القاتلة تقتل البكتيريا مباشرةً"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -829,6 +1084,11 @@
     "answer": {
       "en": "A network of nerves from C5-T1 that supply the shoulder, arm, and hand",
       "ar": "شبكة من الأعصاب من C5 إلى T1 تعصّب الكتف والذراع واليد"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -845,6 +1105,11 @@
     "answer": {
       "en": "A measure of kidney function — the rate at which blood is filtered by the glomeruli; normal is ~90–120 mL/min",
       "ar": "مقياس لوظيفة الكلى — معدل ترشيح الدم بواسطة الكبيبات؛ الطبيعي حوالي 90–120 مل/دقيقة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -861,6 +1126,11 @@
     "answer": {
       "en": "The buildup of fatty plaques inside artery walls, narrowing them and increasing risk of heart attack and stroke",
       "ar": "تراكم اللويحات الدهنية داخل جدران الشرايين، مما يضيّقها ويزيد خطر النوبات القلبية والسكتة الدماغية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -877,6 +1147,11 @@
     "answer": {
       "en": "An inactive compound that is converted into an active drug in the body by metabolic processes",
       "ar": "مركّب غير نشط يتحوّل إلى دواء فعّال في الجسم عبر العمليات الأيضية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -893,6 +1168,11 @@
     "answer": {
       "en": "Right atrium and ventricle (pump deoxygenated blood to lungs); Left atrium and ventricle (pump oxygenated blood to body)",
       "ar": "الأذين والبطين الأيمن (يضخّان الدم غير المؤكسج إلى الرئتين)؛ الأذين والبطين الأيسر (يضخّان الدم المؤكسج إلى الجسم)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -909,6 +1189,11 @@
     "answer": {
       "en": "A hormonal cascade regulating blood pressure and fluid balance by controlling kidney sodium retention and vasoconstriction",
       "ar": "شلّال هرموني ينظّم ضغط الدم وتوازن السوائل عن طريق التحكّم في احتجاز الصوديوم الكلوي وتضيّق الأوعية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -925,6 +1210,11 @@
     "answer": {
       "en": "A life-threatening dysregulation of the body's response to infection, leading to organ dysfunction",
       "ar": "استجابة مهدّدة للحياة تتعطّل فيها ردّة فعل الجسم تجاه العدوى، مما يؤدي إلى خلل وظيفي في الأعضاء"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -941,6 +1231,11 @@
     "answer": {
       "en": "An initial, often larger dose given to reach the target drug concentration rapidly.",
       "ar": "جرعة أولية تكون غالباً أكبر، وتُعطى للوصول سريعاً إلى التركيز الدوائي المستهدف."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -957,6 +1252,11 @@
     "answer": {
       "en": "A selective barrier protecting the brain from pathogens and toxins — important because many drugs cannot cross it to treat CNS conditions",
       "ar": "حاجز انتقائي يحمي الدماغ من مسبّبات الأمراض والسموم — مهم لأن كثيراً من الأدوية لا تستطيع عبوره لعلاج أمراض الجهاز العصبي المركزي"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -973,6 +1273,11 @@
     "answer": {
       "en": "Benign tumours grow locally without invading or metastasising; malignant tumours invade surrounding tissue and can spread to distant sites",
       "ar": "الأورام الحميدة تنمو محلياً دون غزو أو انبثاث؛ الخبيثة تغزو الأنسجة المحيطة ويمكنها الانتشار إلى مواضع بعيدة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -989,6 +1294,11 @@
     "answer": {
       "en": "They inhibit HMG-CoA reductase — the rate-limiting enzyme of cholesterol synthesis — reducing LDL cholesterol",
       "ar": "تثبّط إنزيم HMG-CoA ريداكتاز — الإنزيم المحدّد للمعدل في تركيب الكوليسترول — مما يخفّض كوليسترول LDL"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1005,6 +1315,11 @@
     "answer": {
       "en": "Cardiac output = oxygen consumption ÷ (arteriovenous oxygen difference) — used to calculate heart output",
       "ar": "الناتج القلبي = استهلاك الأكسجين ÷ (فرق الأكسجين الوريدي الشرياني) — يُستخدم لحساب ناتج القلب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1021,6 +1336,11 @@
     "answer": {
       "en": "The radial nerve (runs in the spiral groove of the humerus)",
       "ar": "العصب الكعبري (يسير في الأخدود الحلزوني لعظمة العضد)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1037,6 +1357,11 @@
     "answer": {
       "en": "A condition where widespread clot formation throughout the body simultaneously depletes clotting factors, causing both clotting and bleeding",
       "ar": "حالة تتشكّل فيها جلطات واسعة الانتشار في الجسم مع استنزاف عوامل التخثّر في آن واحد، مما يسبّب تخثّراً ونزيفاً معاً"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1053,6 +1378,11 @@
     "answer": {
       "en": "They act in the thick ascending limb of the loop of Henle and inhibit the Na⁺-K⁺-2Cl⁻ cotransporter (NKCC2).",
       "ar": "تعمل في الجزء الصاعد السميك من عروة هنلي وتثبط الناقل المشترك Na⁺-K⁺-2Cl⁻ المعروف بـ NKCC2."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1069,6 +1399,11 @@
     "answer": {
       "en": "Cardiac output increases as venous return (preload) increases, because greater stretch of cardiac muscle produces stronger contraction",
       "ar": "يزيد الناتج القلبي مع زيادة العائد الوريدي (ما قبل الحمل)، لأن التمدد الأكبر لعضلة القلب يُنتج تقلصاً أقوى"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1085,6 +1420,11 @@
     "answer": {
       "en": "A group of diseases in which abnormal amyloid protein accumulates in organs, impairing their function",
       "ar": "مجموعة من الأمراض تتراكم فيها بروتينات الأميلويد غير الطبيعية في الأعضاء مما يضرّ بوظائفها"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1101,6 +1441,11 @@
     "answer": {
       "en": "Excess production of the toxic metabolite NAPQI depletes glutathione and damages hepatocytes. N-acetylcysteine replenishes glutathione and is the antidote.",
       "ar": "يزداد إنتاج المستقلب السام NAPQI فيستنزف الغلوتاثيون ويؤذي خلايا الكبد. والترياق هو إن-أسيتيل سيستئين الذي يعيد تكوين الغلوتاثيون."
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1117,6 +1462,11 @@
     "answer": {
       "en": "Calculating the resting membrane potential of a cell based on ion concentrations and permeabilities across the membrane",
       "ar": "حساب جهد الغشاء في حالة الراحة بناءً على تركيزات الأيونات ونفاذية الغشاء لها"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1133,6 +1483,11 @@
     "answer": {
       "en": "An anastomotic ring of arteries at the base of the brain providing collateral circulation to protect against ischaemia",
       "ar": "حلقة من الشرايين المتفاغرة عند قاعدة الدماغ تُوفّر الدورة الدموية الجانبية للحماية من نقص التروية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1149,6 +1504,11 @@
     "answer": {
       "en": "Plaque rupture → platelet aggregation → thrombus occluding a coronary artery → ischaemia → cell death → infarction",
       "ar": "تمزّق اللويحة → تجمّع الصفائح الدموية → جلطة تسدّ شريان تاجي → نقص تروية → موت الخلايا → احتشاء"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1165,6 +1525,11 @@
     "answer": {
       "en": "Crohn's: any part of the GI tract, transmural, skip lesions, granulomas; UC: limited to colon, mucosal only, continuous lesions, no granulomas",
       "ar": "كرون: أي جزء من الجهاز الهضمي، عبر الجدار، آفات متقطعة، أورام حبيبية؛ التقرحي: مقتصر على القولون، مخاطي فقط، آفات مستمرة، بلا أورام حبيبية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1181,6 +1546,11 @@
     "answer": {
       "en": "Bind to mu, delta, and kappa opioid receptors (GPCRs), inhibiting adenylyl cyclase and reducing neuronal excitability — producing analgesia, euphoria, and respiratory depression",
       "ar": "ترتبط بمستقبلات الأفيون mu وdelta وkappa (GPCRs)، مثبّطةً الأدينيليل سيكلاز ومقلّلةً من استثارة الخلايا العصبية — مُنتجةً تخديراً وبهجةً واكتئاباً تنفسياً"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1197,6 +1567,11 @@
     "answer": {
       "en": "An S-shaped curve describing oxygen binding affinity; right shift (Bohr effect): low pH, high CO₂, high temperature, high 2,3-DPG — all promoting O₂ release to tissues",
       "ar": "منحنى على شكل حرف S يصف ميل الهيموغلوبين لارتباط الأكسجين؛ الانزياح لليمين (تأثير بور): pH منخفض، CO₂ مرتفع، حرارة مرتفعة، 2,3-DPG مرتفع — وكلها تعزّز إطلاق الأكسجين للأنسجة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1213,6 +1588,11 @@
     "answer": {
       "en": "Pharmacokinetics: what the body does to the drug (ADME — absorption, distribution, metabolism, excretion); Pharmacodynamics: what the drug does to the body",
       "ar": "الحرائك الدوائية: ما يفعله الجسم بالدواء (ADME — الامتصاص والتوزيع والاستقلاب والإخراج)؛ الديناميكا الدوائية: ما يفعله الدواء بالجسم"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1229,6 +1609,11 @@
     "answer": {
       "en": "Cancer cells preferentially use aerobic glycolysis (rather than oxidative phosphorylation) even in the presence of oxygen — generates rapid ATP and biosynthetic precursors",
       "ar": "تُفضّل خلايا السرطان استخدام التحلّل السكري الهوائي (بدلاً من الفسفرة التأكسدية) حتى في وجود الأكسجين — يولّد ATP سريعاً وسلائف تخليقية حيوية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1245,6 +1630,11 @@
     "answer": {
       "en": "Classical pathway (antibody-antigen), lectin pathway (mannose on pathogens), alternative pathway (spontaneous C3 hydrolysis) — all converge to form MAC (membrane attack complex)",
       "ar": "المسار الكلاسيكي (مستضد-جسم مضاد)، مسار اللكتين (المانوز على مسبّبات الأمراض)، المسار البديل (تحلّل C3 عفوي) — تتقارب كلها لتكوين مركّب هجوم الغشاء (MAC)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1261,6 +1651,11 @@
     "answer": {
       "en": "TI = TD50/ED50 — the ratio of toxic dose to effective dose; a narrow TI means a drug requires careful monitoring (e.g. digoxin, lithium, warfarin)",
       "ar": "TI = TD50/ED50 — نسبة الجرعة السامة إلى الجرعة الفعّالة؛ النافذة الضيقة تعني حاجة الدواء لمراقبة دقيقة (مثل الديجوكسين والليثيوم والوارفارين)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1277,6 +1672,11 @@
     "answer": {
       "en": "Sustained proliferative signalling, evading growth suppressors, resisting cell death, enabling replicative immortality, inducing angiogenesis, activating invasion and metastasis, and others",
       "ar": "الإشارات التكاثرية المستدامة، التهرّب من كابحات النمو، مقاومة موت الخلايا، الخلود التكاثري، تحريض تكوّن الأوعية، تفعيل الغزو والانبثاث، وغيرها"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1293,6 +1693,11 @@
     "answer": {
       "en": "Prolonged cardiac repolarisation (due to potassium channel mutations or drugs) delays the cardiac action potential, increasing risk of torsades de pointes arrhythmia",
       "ar": "إطالة إعادة الاستقطاب القلبي (بسبب طفرات قنوات البوتاسيوم أو الأدوية) تُؤخّر جهد الفعل القلبي، مما يزيد خطر اضطراب نظم القلب torsades de pointes"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1309,6 +1714,11 @@
     "answer": {
       "en": "Drugs targeting immune checkpoint proteins (PD-1, PD-L1, CTLA-4) to 'release the brakes' on T cells, allowing them to attack cancer cells",
       "ar": "أدوية تستهدف بروتينات نقاط التفتيش المناعية (PD-1، PD-L1، CTLA-4) لـ'رفع الفرامل' عن خلايا T مما يتيح لها مهاجمة خلايا السرطان"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1325,6 +1735,11 @@
     "answer": {
       "en": "Autoimmune demyelination of CNS axons — T cells attack myelin sheaths, disrupting nerve signal conduction",
       "ar": "إزالة المايلين المناعي الذاتي من محاور الجهاز العصبي المركزي — تهاجم خلايا T غمد المايلين، مما يعطّل توصيل الإشارات العصبية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1341,6 +1756,11 @@
     "answer": {
       "en": "pH = pKa + log([A⁻]/[HA]) — used to calculate blood pH from bicarbonate and CO₂, guiding acid-base disorder management",
       "ar": "pH = pKa + log([A⁻]/[HA]) — تُستخدم لحساب pH الدم من البيكربونات وCO₂، توجيهاً لإدارة اضطرابات الحمض القاعدي"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1357,6 +1777,11 @@
     "answer": {
       "en": "Lipid nanoparticles deliver synthetic mRNA encoding a pathogen protein into cells; ribosomes translate it; immune system recognises the protein and builds memory",
       "ar": "جسيمات دهنية نانوية تُوصّل mRNA تركيبياً يُرمّز بروتين مسبّب المرض إلى الخلايا؛ ريبوسومات تترجمه؛ الجهاز المناعي يتعرّف على البروتين ويبني ذاكرة مناعية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1373,6 +1798,11 @@
     "answer": {
       "en": "ER stress triggers UPR — if unresolved, it promotes apoptosis; linked to neurodegeneration, diabetes, and cancer",
       "ar": "يُطلق إجهاد الشبكة الإندوبلازمية استجابة UPR — إن لم تُحلّ تعزّز الاستماتة؛ مرتبطة بالتنكّس العصبي والسكري والسرطان"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1389,6 +1819,11 @@
     "answer": {
       "en": "A cluster of conditions (central obesity, hypertension, dyslipidaemia, hyperglycaemia) increasing risk of cardiovascular disease and diabetes",
       "ar": "مجموعة من الحالات (السمنة المركزية، ارتفاع ضغط الدم، اضطراب الدهون، ارتفاع سكر الدم) تزيد خطر أمراض القلب والأوعية والسكري"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1405,6 +1840,11 @@
     "answer": {
       "en": "Inhibit lanosterol 14α-demethylase (CYP51), blocking ergosterol synthesis — depleting the fungal cell membrane and causing cell death",
       "ar": "تثبّط إنزيم لانوستيرول 14ألفا-ديميثيلاز (CYP51)، مما يمنع تركيب إرغوستيرول — يستنزف غشاء الخلية الفطرية مما يسبّب موتها"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1421,6 +1861,11 @@
     "answer": {
       "en": "Age-related somatic mutations in haematopoietic stem cells conferring a growth advantage, associated with increased risk of blood cancers and cardiovascular disease",
       "ar": "طفرات جسدية مرتبطة بالتقدّم في السن في الخلايا الجذعية المكوّنة للدم تمنحها ميزة نمو، مرتبطة بزيادة خطر سرطانات الدم وأمراض القلب والأوعية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1437,6 +1882,11 @@
     "answer": {
       "en": "The ability of the immune system not to attack self-antigens — central tolerance (thymus/bone marrow) and peripheral tolerance mechanisms prevent autoimmunity",
       "ar": "قدرة الجهاز المناعي على عدم مهاجمة المستضدات الذاتية — التسامح المركزي (الغدة الصعترية / نخاع العظم) والآليات المحيطية تمنع المناعة الذاتية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1453,6 +1903,11 @@
     "answer": {
       "en": "Block sodium-glucose co-transporter 2 in the kidney proximal tubule, preventing glucose reabsorption and causing glycosuria — used in type 2 diabetes and heart failure",
       "ar": "تمنع ناقل الصوديوم-الجلوكوز المشترك 2 في الأنبوب الكلوي القريب، مما يمنع إعادة امتصاص الجلوكوز ويسبّب السكر في البول — تُستخدم في النوع 2 من السكري وفشل القلب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1469,6 +1924,11 @@
     "answer": {
       "en": "Detection of circulating tumour DNA (ctDNA), cells, or exosomes in blood, enabling non-invasive cancer diagnosis, monitoring, and treatment response assessment",
       "ar": "الكشف عن الحمض النووي الورمي المتداول (ctDNA) أو الخلايا أو الإكسوسومات في الدم، مما يتيح تشخيص السرطان وإدارته وتقييم الاستجابة للعلاج دون تدخّل جراحي"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1485,6 +1945,11 @@
     "answer": {
       "en": "DNA methylation and histone modification alter gene expression without DNA sequence changes — aberrant epigenetics drives cancer, metabolic disease, and neurodegeneration",
       "ar": "تُغيّر مثيلة الحمض النووي وتعديل الهيستون التعبير الجيني دون تغيّر التسلسل — الإبيجينتيك المضطرب يقود السرطان والأمراض الأيضية والتنكّس العصبي"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1501,6 +1966,11 @@
     "answer": {
       "en": "The study of how genetic variation affects drug response — enabling personalised medicine by predicting efficacy and toxicity based on an individual's genome",
       "ar": "دراسة كيفية تأثير التباين الجيني على استجابة الدواء — تُمكّن من الطب المخصّص بالتنبّؤ بالفاعلية والسمية بناءً على الجينوم الفردي"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1517,6 +1987,11 @@
     "answer": {
       "en": "Innate: fast, non-specific, first line (neutrophils, macrophages, NK cells, complement); Adaptive: slow, specific, memory-forming (T cells, B cells, antibodies)",
       "ar": "الفطرية: سريعة وغير نوعية وخط دفاع أول (العدلات والبالعات وخلايا NK والمتمّم)؛ التكيّفية: بطيئة ونوعية وتُشكّل ذاكرة (خلايا T وB والأجسام المضادة)"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1533,6 +2008,11 @@
     "answer": {
       "en": "Diseases caused by dysfunction of the mitochondria, impairing ATP production — affecting high-energy tissues like muscles, brain, and heart; can be inherited maternally",
       "ar": "أمراض ناجمة عن خلل في الميتوكوندريا يُعيق إنتاج ATP — تؤثر على الأنسجة عالية الطاقة كالعضلات والدماغ والقلب؛ يمكن توارثها أموياً"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1549,6 +2029,11 @@
     "answer": {
       "en": "Imatinib inhibits BCR-ABL tyrosine kinase — the product of the Philadelphia chromosome translocation — blocking proliferation of malignant cells",
       "ar": "يثبّط إيماتينيب إنزيم BCR-ABL تيروزين كيناز — ناتج إزاحة كروموسوم فيلادلفيا — مانعاً تكاثر الخلايا الخبيثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1565,6 +2050,11 @@
     "answer": {
       "en": "Widespread lung inflammation → increased capillary permeability → non-cardiogenic pulmonary oedema → impaired gas exchange → hypoxaemia",
       "ar": "التهاب رئوي واسع النطاق → زيادة نفاذية الشعيرات الدموية → وذمة رئوية غير قلبية → ضعف تبادل الغازات → نقص أكسجين الدم"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1581,6 +2071,11 @@
     "answer": {
       "en": "The production of blood cells from haematopoietic stem cells — primarily in red bone marrow of flat bones (sternum, iliac crest, vertebrae, ribs) in adults",
       "ar": "إنتاج خلايا الدم من الخلايا الجذعية المكوّنة للدم — أساساً في نخاع العظم الأحمر للعظام المسطّحة (القص، قمة الحرقفة، الفقرات، الأضلاع) عند البالغين"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -1597,6 +2092,11 @@
     "answer": {
       "en": "Tumours acquire resistance through: drug efflux pumps, DNA repair upregulation, target mutations, anti-apoptotic signalling, and clonal selection of resistant cells",
       "ar": "تكتسب الأورام المقاومة عبر: مضخّات طرد الدواء، وتنظيم صعودي لإصلاح الحمض النووي، وطفرات الهدف، وإشارات مضادة للاستماتة، والانتقاء المستنسخ للخلايا المقاومة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   }
 ]

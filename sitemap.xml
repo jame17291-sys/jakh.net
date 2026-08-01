@@ -6,96 +6,288 @@
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/"/>
   </url>
   <url>
     <loc>https://jakh.net/mind-lab</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mind-lab"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/mind-lab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mind-lab"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/mind-lab/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mind-lab"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/mind-lab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mind-lab"/>
   </url>
   <url>
     <loc>https://jakh.net/collections</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/collections"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/collections/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/collections"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/collections/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/collections"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/collections/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/collections"/>
   </url>
   <url>
     <loc>https://jakh.net/play</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/play"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/play/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/play"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/play/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/play"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/play/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/play"/>
   </url>
   <url>
     <loc>https://jakh.net/about</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.60</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/about"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/about/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.60</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/about"/>
   </url>
   <url>
     <loc>https://jakh.net/privacy</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.60</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/privacy"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/privacy/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.60</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/privacy"/>
   </url>
   <url>
     <loc>https://jakh.net/chess</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chess"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/chess/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chess"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/chess/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chess"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/chess/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chess"/>
   </url>
   <url>
     <loc>https://jakh.net/mastermind</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mastermind"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/mastermind/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mastermind"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/mastermind/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mastermind"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/mastermind/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mastermind"/>
   </url>
   <url>
     <loc>https://jakh.net/go</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/go"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/go/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/go"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/go/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/go"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/go/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/go"/>
   </url>
   <url>
     <loc>https://jakh.net/reversi</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/reversi"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/reversi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/reversi"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/reversi/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/reversi"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/reversi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/reversi"/>
   </url>
   <url>
     <loc>https://jakh.net/codenames</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/codenames"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/codenames/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/codenames"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/codenames/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/codenames"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/codenames/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/codenames"/>
   </url>
   <url>
     <loc>https://jakh.net/catan</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/catan"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/catan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/catan"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/catan/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/catan"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/catan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/catan"/>
   </url>
   <url>
     <loc>https://jakh.net/backgammon</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/backgammon"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/backgammon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/backgammon"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/backgammon/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/backgammon"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/backgammon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/backgammon"/>
   </url>
   <url>
     <loc>https://jakh.net/set</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/set"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/set/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/set"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/set/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/set"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/set/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/set"/>
   </url>
   <url>
     <loc>https://jakh.net/hanabi</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/hanabi"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/hanabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/hanabi"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/hanabi/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/hanabi"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/hanabi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/hanabi"/>
   </url>
   <url>
     <loc>https://jakh.net/diplomacy</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/diplomacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/diplomacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/diplomacy"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/games/diplomacy/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/diplomacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/diplomacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/diplomacy"/>
   </url>
   <url>
     <loc>https://jakh.net/currencies</loc>
@@ -116,6 +308,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/currencies"/>
   </url>
   <url>
+    <loc>https://jakh.net/currencies/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/currencies/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/currencies/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/currencies/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/currencies/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/currencies/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/currencies/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/currencies/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/linguistics</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -132,6 +342,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/linguistics"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/linguistics/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/linguistics"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/linguistics/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/linguistics/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/linguistics/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/linguistics/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/linguistics/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/linguistics/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/linguistics/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/linguistics/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/tech-retro</loc>
@@ -152,6 +380,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tech-retro"/>
   </url>
   <url>
+    <loc>https://jakh.net/tech-retro/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tech-retro/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tech-retro/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tech-retro/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tech-retro/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tech-retro/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tech-retro/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tech-retro/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/automotive</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -168,6 +414,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/automotive"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/automotive/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/automotive"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/automotive/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/automotive/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/automotive/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/automotive/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/automotive/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/automotive/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/automotive/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/automotive/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/survival</loc>
@@ -188,6 +452,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/survival"/>
   </url>
   <url>
+    <loc>https://jakh.net/survival/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/survival/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/survival/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/survival/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/survival/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/survival/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/survival/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/survival/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/fictional-worlds</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -204,6 +486,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/fictional-worlds"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/fictional-worlds/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/fictional-worlds"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/fictional-worlds/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/fictional-worlds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/fictional-worlds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/fictional-worlds/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/fictional-worlds/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/fictional-worlds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/fictional-worlds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/fictional-worlds/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/superheroes</loc>
@@ -224,6 +524,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/superheroes"/>
   </url>
   <url>
+    <loc>https://jakh.net/superheroes/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/superheroes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/superheroes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/superheroes/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/superheroes/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/superheroes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/superheroes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/superheroes/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/pop-culture</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -240,6 +558,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pop-culture"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pop-culture/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pop-culture"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/pop-culture/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pop-culture/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pop-culture/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pop-culture/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/pop-culture/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pop-culture/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pop-culture/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pop-culture/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/true-crime</loc>
@@ -260,6 +596,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/true-crime"/>
   </url>
   <url>
+    <loc>https://jakh.net/true-crime/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/true-crime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/true-crime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/true-crime/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/true-crime/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/true-crime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/true-crime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/true-crime/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/mythology-legends</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -276,6 +630,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mythology-legends"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/mythology-legends/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mythology-legends"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/mythology-legends/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mythology-legends/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/mythology-legends/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mythology-legends/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/mythology-legends/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mythology-legends/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/mythology-legends/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mythology-legends/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/art-and-painters</loc>
@@ -296,6 +668,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/art-and-painters"/>
   </url>
   <url>
+    <loc>https://jakh.net/art-and-painters/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/art-and-painters/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/art-and-painters/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/art-and-painters/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/art-and-painters/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/art-and-painters/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/art-and-painters/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/art-and-painters/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/biology</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -312,6 +702,78 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/biology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/biology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/biology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/biology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/biology/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/biology/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/biology/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/biology/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/biology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/biology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/biology/page/5/"/>
   </url>
   <url>
     <loc>https://jakh.net/books-and-quotes</loc>
@@ -332,6 +794,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/books-and-quotes"/>
   </url>
   <url>
+    <loc>https://jakh.net/books-and-quotes/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/books-and-quotes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/books-and-quotes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/books-and-quotes/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/books-and-quotes/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/books-and-quotes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/books-and-quotes/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/books-and-quotes/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/business-and-management</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -348,6 +828,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/business-and-management"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/business-and-management/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/business-and-management"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/business-and-management/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/business-and-management/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/business-and-management/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/business-and-management/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/business-and-management/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/business-and-management/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/business-and-management/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/business-and-management/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/chemistry</loc>
@@ -368,6 +866,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry"/>
   </url>
   <url>
+    <loc>https://jakh.net/chemistry/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/chemistry/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/chemistry/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/chemistry/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/chemistry/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/chemistry/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/chemistry/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/chemistry/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/chemistry/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/chemistry/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/chemistry/page/5/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/civil-engineering</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -384,6 +954,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/civil-engineering"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/civil-engineering/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/civil-engineering"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/civil-engineering/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/civil-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/civil-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/civil-engineering/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/civil-engineering/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/civil-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/civil-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/civil-engineering/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/classic-riddles</loc>
@@ -404,6 +992,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles"/>
   </url>
   <url>
+    <loc>https://jakh.net/classic-riddles/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/classic-riddles/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/classic-riddles/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/classic-riddles/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/classic-riddles/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/classic-riddles/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/classic-riddles/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/classic-riddles/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/classic-riddles/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/classic-riddles/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/classic-riddles/page/5/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/logic-puzzles</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -420,6 +1080,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/logic-puzzles"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/logic-puzzles/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/logic-puzzles"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/logic-puzzles/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/logic-puzzles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/logic-puzzles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/logic-puzzles/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/logic-puzzles/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/logic-puzzles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/logic-puzzles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/logic-puzzles/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/logic-puzzles/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/logic-puzzles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/logic-puzzles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/logic-puzzles/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/logic-puzzles/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/logic-puzzles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/logic-puzzles/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/logic-puzzles/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/coding-and-design</loc>
@@ -440,6 +1136,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/coding-and-design"/>
   </url>
   <url>
+    <loc>https://jakh.net/coding-and-design/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/coding-and-design/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/coding-and-design/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/coding-and-design/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/coding-and-design/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/coding-and-design/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/coding-and-design/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/coding-and-design/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/electrical-engineering</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -456,6 +1170,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/electrical-engineering"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/electrical-engineering/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/electrical-engineering"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/electrical-engineering/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/electrical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/electrical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/electrical-engineering/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/electrical-engineering/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/electrical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/electrical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/electrical-engineering/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/flag-questions</loc>
@@ -476,6 +1208,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/flag-questions"/>
   </url>
   <url>
+    <loc>https://jakh.net/flag-questions/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/flag-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/flag-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/flag-questions/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/flag-questions/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/flag-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/flag-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/flag-questions/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/football</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -492,6 +1242,150 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/football/page/9/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/9/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/football/page/9/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/football/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/football/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/football/page/9/"/>
   </url>
   <url>
     <loc>https://jakh.net/geography</loc>
@@ -512,6 +1406,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography"/>
   </url>
   <url>
+    <loc>https://jakh.net/geography/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/geography/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/geography/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/geography/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/geography/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/geography/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/geography/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/geography/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geography/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geography/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geography/page/5/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/geology</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -528,6 +1494,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geology"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geology/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geology"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/geology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/geology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/geology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/geology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/geology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/geology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/geology/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/history</loc>
@@ -548,6 +1550,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history"/>
   </url>
   <url>
+    <loc>https://jakh.net/history/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/history/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/history/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/history/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/history/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/history/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/history/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/history/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/history/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/history/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/history/page/5/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/infrastructure-systems</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -564,6 +1638,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/infrastructure-systems"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/infrastructure-systems/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/infrastructure-systems"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/infrastructure-systems/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/infrastructure-systems/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/infrastructure-systems/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/infrastructure-systems/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/infrastructure-systems/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/infrastructure-systems/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/infrastructure-systems/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/infrastructure-systems/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/infrastructure-systems/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/infrastructure-systems/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/infrastructure-systems/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/infrastructure-systems/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/infrastructure-systems/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/infrastructure-systems/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/infrastructure-systems/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/infrastructure-systems/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/kids-riddles</loc>
@@ -584,6 +1694,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/kids-riddles"/>
   </url>
   <url>
+    <loc>https://jakh.net/kids-riddles/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/kids-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/kids-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/kids-riddles/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/kids-riddles/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/kids-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/kids-riddles/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/kids-riddles/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/law-middle-east</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -600,6 +1728,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/law-middle-east"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/law-middle-east/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/law-middle-east"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/law-middle-east/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/law-middle-east/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/law-middle-east/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/law-middle-east/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/law-middle-east/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/law-middle-east/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/law-middle-east/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/law-middle-east/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/law-middle-east/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/law-middle-east/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/law-middle-east/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/law-middle-east/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/law-middle-east/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/law-middle-east/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/law-middle-east/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/law-middle-east/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/math</loc>
@@ -620,6 +1784,132 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math"/>
   </url>
   <url>
+    <loc>https://jakh.net/math/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/math/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/math/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/math/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/math/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/math/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/math/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/math/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/math/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/math/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/math/page/8/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/mechanical-engineering</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -636,6 +1926,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mechanical-engineering"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/mechanical-engineering/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mechanical-engineering"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/mechanical-engineering/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mechanical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/mechanical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mechanical-engineering/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/mechanical-engineering/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/mechanical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/mechanical-engineering/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/mechanical-engineering/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/medical-questions</loc>
@@ -656,6 +1964,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions"/>
   </url>
   <url>
+    <loc>https://jakh.net/medical-questions/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/medical-questions/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/medical-questions/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/medical-questions/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/medical-questions/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/medical-questions/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/medical-questions/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/medical-questions/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/medical-questions/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/medical-questions/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/medical-questions/page/5/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/middle-east-history</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -672,6 +2052,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/middle-east-history"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/middle-east-history/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/middle-east-history"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/middle-east-history/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/middle-east-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/middle-east-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/middle-east-history/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/middle-east-history/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/middle-east-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/middle-east-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/middle-east-history/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/middle-east-history/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/middle-east-history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/middle-east-history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/middle-east-history/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/middle-east-history/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/middle-east-history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/middle-east-history/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/middle-east-history/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/pharmacy</loc>
@@ -692,6 +2108,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pharmacy"/>
   </url>
   <url>
+    <loc>https://jakh.net/pharmacy/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pharmacy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pharmacy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pharmacy/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/pharmacy/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pharmacy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pharmacy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pharmacy/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/pharmacy/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pharmacy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pharmacy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pharmacy/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/pharmacy/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/pharmacy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/pharmacy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/pharmacy/page/3/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/philosophy</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -708,6 +2160,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/philosophy"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/philosophy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/philosophy"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/philosophy/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/philosophy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/philosophy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/philosophy/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/philosophy/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/philosophy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/philosophy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/philosophy/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/philosophy/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/philosophy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/philosophy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/philosophy/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/philosophy/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/philosophy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/philosophy/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/philosophy/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/physical-and-life-sciences</loc>
@@ -728,6 +2216,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/physical-and-life-sciences"/>
   </url>
   <url>
+    <loc>https://jakh.net/physical-and-life-sciences/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/physical-and-life-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/physical-and-life-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/physical-and-life-sciences/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/physical-and-life-sciences/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/physical-and-life-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/physical-and-life-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/physical-and-life-sciences/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/physical-and-life-sciences/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/physical-and-life-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/physical-and-life-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/physical-and-life-sciences/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/physical-and-life-sciences/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/physical-and-life-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/physical-and-life-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/physical-and-life-sciences/page/3/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/psychology</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -744,6 +2268,78 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/psychology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/psychology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/psychology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/psychology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/psychology/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/psychology/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/psychology/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/psychology/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/psychology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/psychology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/psychology/page/5/"/>
   </url>
   <url>
     <loc>https://jakh.net/relationship-questions</loc>
@@ -764,6 +2360,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/relationship-questions"/>
   </url>
   <url>
+    <loc>https://jakh.net/relationship-questions/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/relationship-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/relationship-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/relationship-questions/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/relationship-questions/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/relationship-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/relationship-questions/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/relationship-questions/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/relationship-questions/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/relationship-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/relationship-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/relationship-questions/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/relationship-questions/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/relationship-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/relationship-questions/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/relationship-questions/page/3/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/science</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -780,6 +2412,78 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/science/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/science/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/science/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/science/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/science/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/science/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/science/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/science/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/science/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/science/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/science/page/5/"/>
   </url>
   <url>
     <loc>https://jakh.net/social-sciences</loc>
@@ -800,6 +2504,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/social-sciences"/>
   </url>
   <url>
+    <loc>https://jakh.net/social-sciences/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/social-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/social-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/social-sciences/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/social-sciences/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/social-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/social-sciences/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/social-sciences/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/social-sciences/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/social-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/social-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/social-sciences/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/social-sciences/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/social-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/social-sciences/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/social-sciences/page/3/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/software-and-computing</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -816,6 +2556,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/software-and-computing"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/software-and-computing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/software-and-computing"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/software-and-computing/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/software-and-computing/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/software-and-computing/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/software-and-computing/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/software-and-computing/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/software-and-computing/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/software-and-computing/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/software-and-computing/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/software-and-computing/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/software-and-computing/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/software-and-computing/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/software-and-computing/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/software-and-computing/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/software-and-computing/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/software-and-computing/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/software-and-computing/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/space-and-astrology</loc>
@@ -836,6 +2612,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology"/>
   </url>
   <url>
+    <loc>https://jakh.net/space-and-astrology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/space-and-astrology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/space-and-astrology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/space-and-astrology/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/space-and-astrology/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/space-and-astrology/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/space-and-astrology/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/space-and-astrology/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/space-and-astrology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/space-and-astrology/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/space-and-astrology/page/5/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/story-mysteries</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -852,6 +2700,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/story-mysteries"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/story-mysteries/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/story-mysteries"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/story-mysteries/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/story-mysteries/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/story-mysteries/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/story-mysteries/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/story-mysteries/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/story-mysteries/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/story-mysteries/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/story-mysteries/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/story-mysteries/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/story-mysteries/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/story-mysteries/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/story-mysteries/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/story-mysteries/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/story-mysteries/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/story-mysteries/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/story-mysteries/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/tv-shows-trivia</loc>
@@ -872,6 +2756,222 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia"/>
   </url>
   <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/9/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/9/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/9/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/9/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/10/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/10/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/10/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/10/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/11/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/11/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/11/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/11/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/11/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/11/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/11/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/11/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/12/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/12/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/12/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/12/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/12/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/12/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/12/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/12/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/tv-shows-trivia/page/13/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/13/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/13/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/13/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/tv-shows-trivia/page/13/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/tv-shows-trivia/page/13/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/tv-shows-trivia/page/13/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/tv-shows-trivia/page/13/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/world-habits-and-etiquette</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -888,6 +2988,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/world-habits-and-etiquette"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/world-habits-and-etiquette/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/world-habits-and-etiquette"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/world-habits-and-etiquette/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/world-habits-and-etiquette/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/world-habits-and-etiquette/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/world-habits-and-etiquette/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/world-habits-and-etiquette/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/world-habits-and-etiquette/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/world-habits-and-etiquette/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/world-habits-and-etiquette/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/world-habits-and-etiquette/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/world-habits-and-etiquette/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/world-habits-and-etiquette/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/world-habits-and-etiquette/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/world-habits-and-etiquette/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/world-habits-and-etiquette/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/world-habits-and-etiquette/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/world-habits-and-etiquette/page/3/"/>
   </url>
   <url>
     <loc>https://jakh.net/environment-and-ecology</loc>
@@ -908,6 +3044,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/environment-and-ecology"/>
   </url>
   <url>
+    <loc>https://jakh.net/environment-and-ecology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/environment-and-ecology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/environment-and-ecology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/environment-and-ecology/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/environment-and-ecology/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/environment-and-ecology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/environment-and-ecology/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/environment-and-ecology/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/ancient-civilizations</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -924,6 +3078,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ancient-civilizations"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ancient-civilizations/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ancient-civilizations"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ancient-civilizations/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ancient-civilizations/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ancient-civilizations/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ancient-civilizations/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ancient-civilizations/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ancient-civilizations/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ancient-civilizations/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ancient-civilizations/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/inventions-and-minds</loc>
@@ -944,6 +3116,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/inventions-and-minds"/>
   </url>
   <url>
+    <loc>https://jakh.net/inventions-and-minds/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/inventions-and-minds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/inventions-and-minds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/inventions-and-minds/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/inventions-and-minds/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/inventions-and-minds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/inventions-and-minds/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/inventions-and-minds/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/animal-kingdom</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -960,6 +3150,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/animal-kingdom"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/animal-kingdom/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/animal-kingdom"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/animal-kingdom/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/animal-kingdom/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/animal-kingdom/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/animal-kingdom/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/animal-kingdom/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/animal-kingdom/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/animal-kingdom/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/animal-kingdom/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/economics-and-finance</loc>
@@ -980,6 +3188,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/economics-and-finance"/>
   </url>
   <url>
+    <loc>https://jakh.net/economics-and-finance/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/economics-and-finance/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/economics-and-finance/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/economics-and-finance/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/economics-and-finance/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/economics-and-finance/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/economics-and-finance/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/economics-and-finance/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/architecture-and-landmarks</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -996,6 +3222,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/architecture-and-landmarks"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/architecture-and-landmarks/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/architecture-and-landmarks"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/architecture-and-landmarks/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/architecture-and-landmarks/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/architecture-and-landmarks/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/architecture-and-landmarks/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/architecture-and-landmarks/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/architecture-and-landmarks/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/architecture-and-landmarks/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/architecture-and-landmarks/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/music-and-performing-arts</loc>
@@ -1016,6 +3260,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/music-and-performing-arts"/>
   </url>
   <url>
+    <loc>https://jakh.net/music-and-performing-arts/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/music-and-performing-arts/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/music-and-performing-arts/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/music-and-performing-arts/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/music-and-performing-arts/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/music-and-performing-arts/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/music-and-performing-arts/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/music-and-performing-arts/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/food-and-cuisines</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1032,6 +3294,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/food-and-cuisines"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/food-and-cuisines/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/food-and-cuisines"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/food-and-cuisines/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/food-and-cuisines/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/food-and-cuisines/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/food-and-cuisines/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/food-and-cuisines/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/food-and-cuisines/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/food-and-cuisines/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/food-and-cuisines/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/cinema-and-film-history</loc>
@@ -1052,6 +3332,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/cinema-and-film-history"/>
   </url>
   <url>
+    <loc>https://jakh.net/cinema-and-film-history/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/cinema-and-film-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/cinema-and-film-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/cinema-and-film-history/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/cinema-and-film-history/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/cinema-and-film-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/cinema-and-film-history/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/cinema-and-film-history/page/2/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/future-tech-and-energy</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1068,6 +3366,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/future-tech-and-energy"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/future-tech-and-energy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/future-tech-and-energy"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/future-tech-and-energy/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/future-tech-and-energy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/future-tech-and-energy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/future-tech-and-energy/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/future-tech-and-energy/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/future-tech-and-energy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/future-tech-and-energy/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/future-tech-and-energy/page/2/"/>
   </url>
   <url>
     <loc>https://jakh.net/anime</loc>
@@ -1088,6 +3404,132 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime"/>
   </url>
   <url>
+    <loc>https://jakh.net/anime/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/anime/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/anime/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/anime/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/anime/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/anime/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/anime/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/anime/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/anime/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/anime/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/anime/page/8/"/>
+  </url>
+  <url>
     <loc>https://jakh.net/ayam-tayebeen</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1104,6 +3546,168 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/2/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/2/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/2/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/3/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/3/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/3/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/4/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/4/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/4/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/5/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/5/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/5/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/6/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/6/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/6/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/7/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/7/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/7/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/8/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/8/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/8/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/9/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/9/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/9/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/9/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ayam-tayebeen/page/10/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/10/"/>
+  </url>
+  <url>
+    <loc>https://jakh.net/ar/topics/ayam-tayebeen/page/10/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakh.net/ayam-tayebeen/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://jakh.net/ar/topics/ayam-tayebeen/page/10/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakh.net/ayam-tayebeen/page/10/"/>
   </url>
   <url>
     <loc>https://jakh.net/en/riddles-with-answers/</loc>

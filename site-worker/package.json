@@ -1,0 +1,14 @@
+{
+  "name": "jakh-static-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ../scripts/build-static-site.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm test && wrangler deploy --dry-run --outdir=dist-worker"
+  },
+  "devDependencies": {
+    "wrangler": "4.116.0"
+  }
+}

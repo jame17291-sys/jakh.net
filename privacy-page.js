@@ -6,15 +6,30 @@
     : 'https://api.jakh.net';
   const API_URL = `${API_ORIGIN}/api`;
   const LANGUAGE_KEY = 'jakh-privacy-language';
+  const PRIVACY_ROUTES = Object.freeze({ en: '/privacy', ar: '/ar/privacy/' });
+  const PRIVACY_REQUEST_TYPES = new Set([
+    'access',
+    'correction',
+    'deletion-help',
+    'objection',
+    'other',
+  ]);
 
   const copy = Object.freeze({
     en: {
       title: 'Privacy Centre | JAKH',
       description: 'Control analytics, export your JAKH account data, permanently delete your account, and read the bilingual JAKH privacy notice.',
+      brandHomeLabel: 'JAKH Riddles home',
+      quickActionsLabel: 'Quick actions',
       languageLabel: 'Language',
-      deviceUnset: 'No device analytics choice has been saved yet.',
+      privacySectionsLabel: 'Privacy Centre sections',
+      footerInfoLabel: 'JAKH information',
+      instagramLabel: 'JAKH Riddles on Instagram',
+      facebookLabel: 'JAKH Riddles on Facebook',
+      deviceUnset: 'No current choice is saved. Website analytics remains denied by default.',
       deviceAllowed: 'Optional website analytics is allowed on this device.',
-      deviceDenied: 'Only essential features are active on this device.',
+      deviceDenied: 'Only essential features are active. Future analytics is disabled and known analytics browser data was cleared where the browser permits.',
+      deviceDeniedAfterLoad: 'Future analytics is disabled, the injected loader was removed, and known analytics browser data was cleared where possible. Analytics code already executed on this page cannot be undone; reload to finish with a clean page.',
       deviceUnavailable: 'Privacy controls are temporarily unavailable. No new analytics choice was saved.',
       clearConfirm: 'Clear JAKH preferences, local progress, favorites, and privacy choice from this browser?',
       clearingDevice: 'Device data will be cleared and this page will reopen.',
@@ -41,14 +56,33 @@
       deleteFailed: 'The account was not deleted. Check the username and current password, then try again.',
       usernamePlaceholder: 'Exact username',
       passwordPlaceholder: 'Current password',
+      privacyRequestLinkChecking: 'Checking whether account linking is available. You can send this request unlinked now.',
+      privacyRequestLinkReady: 'Account linking is available and remains off unless you tick the checkbox.',
+      privacyRequestLinkSignedOut: 'This request will remain unlinked. Sign in first if you want it included in account export and deletion.',
+      privacyRequestLinkUnavailable: 'Account linking could not be checked. You can still send this request unlinked.',
+      privacyRequestInvalidType: 'Choose a valid privacy request type.',
+      privacyRequestInvalidText: 'Enter between 5 and 2,000 characters of request details.',
+      privacyRequestInvalidEmail: 'Enter a valid reply email or leave the email field empty.',
+      privacyRequestSending: 'Sending your privacy request…',
+      privacyRequestDone: 'Your privacy request was accepted.',
+      privacyRequestFailed: 'The privacy request could not be sent. Your entries are still here; please try again.',
+      privacyRequestAuthFailed: 'Account linking failed because the sign-in is no longer active. Sign in again, or send the request without linking it.',
+      privacyRequestRateLimited: 'Too many privacy requests were sent from this network. Please wait before retrying.',
     },
     ar: {
       title: 'مركز الخصوصية | JAKH',
       description: 'تحكّم في القياس، ونزّل بيانات حساب JAKH، واحذف حسابك نهائياً، واقرأ إشعار الخصوصية ثنائي اللغة.',
+      brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
+      quickActionsLabel: 'إجراءات سريعة',
       languageLabel: 'اللغة',
-      deviceUnset: 'لم يتم حفظ اختيار لقياس الجهاز بعد.',
+      privacySectionsLabel: 'أقسام مركز الخصوصية',
+      footerInfoLabel: 'معلومات JAKH',
+      instagramLabel: 'ألغاز JAKH على إنستغرام',
+      facebookLabel: 'ألغاز JAKH على فيسبوك',
+      deviceUnset: 'لا يوجد اختيار حالي محفوظ. يبقى قياس الموقع مرفوضاً افتراضياً.',
       deviceAllowed: 'القياس الاختياري للموقع مسموح على هذا الجهاز.',
-      deviceDenied: 'الميزات الأساسية فقط مفعّلة على هذا الجهاز.',
+      deviceDenied: 'الميزات الأساسية فقط مفعّلة. تم إيقاف القياس اللاحق ومسح بيانات القياس المعروفة في المتصفح حيث يسمح المتصفح.',
+      deviceDeniedAfterLoad: 'تم إيقاف القياس اللاحق وإزالة أداة التحميل ومسح بيانات القياس المعروفة حيث أمكن. لا يمكن التراجع عن برنامج القياس الذي نُفذ بالفعل في هذه الصفحة؛ أعد تحميلها لإكمال الإيقاف بصفحة نظيفة.',
       deviceUnavailable: 'أدوات الخصوصية غير متاحة مؤقتاً. لم يتم حفظ اختيار جديد.',
       clearConfirm: 'هل تريد مسح تفضيلات JAKH والتقدّم المحلي والمفضلة وخيار الخصوصية من هذا المتصفح؟',
       clearingDevice: 'سيتم مسح بيانات الجهاز ثم إعادة فتح هذه الصفحة.',
@@ -75,6 +109,18 @@
       deleteFailed: 'لم يتم حذف الحساب. تحقق من اسم المستخدم وكلمة المرور الحالية ثم حاول مرة أخرى.',
       usernamePlaceholder: 'اسم المستخدم كما هو',
       passwordPlaceholder: 'كلمة المرور الحالية',
+      privacyRequestLinkChecking: 'يجري التحقق من توفر ربط الحساب. يمكنك إرسال هذا الطلب الآن من دون ربطه.',
+      privacyRequestLinkReady: 'ربط الحساب متاح وسيبقى متوقفاً ما لم تحدد مربع الاختيار.',
+      privacyRequestLinkSignedOut: 'سيبقى هذا الطلب غير مرتبط. سجّل الدخول أولاً إذا أردت تضمينه في تصدير الحساب وحذفه.',
+      privacyRequestLinkUnavailable: 'تعذر التحقق من ربط الحساب. ما زال بإمكانك إرسال الطلب من دون ربطه.',
+      privacyRequestInvalidType: 'اختر نوعاً صالحاً لطلب الخصوصية.',
+      privacyRequestInvalidText: 'أدخل تفاصيل الطلب في نص يتراوح بين 5 و2,000 حرف.',
+      privacyRequestInvalidEmail: 'أدخل بريداً صالحاً للرد أو اترك حقل البريد فارغاً.',
+      privacyRequestSending: 'جارٍ إرسال طلب الخصوصية…',
+      privacyRequestDone: 'تم قبول طلب الخصوصية.',
+      privacyRequestFailed: 'تعذر إرسال طلب الخصوصية. ما زالت مدخلاتك موجودة؛ حاول مرة أخرى.',
+      privacyRequestAuthFailed: 'تعذر ربط الحساب لأن جلسة الدخول لم تعد نشطة. سجّل الدخول من جديد أو أرسل الطلب من دون ربطه.',
+      privacyRequestRateLimited: 'أُرسلت طلبات خصوصية كثيرة من هذه الشبكة. انتظر قبل إعادة المحاولة.',
     },
   });
 
@@ -85,9 +131,51 @@
     accountMode: 'checking',
     accountStatusOverride: '',
     accountStatusTone: '',
+    deviceReloadRecommended: false,
   };
 
   const elements = {};
+
+  function normalizePrivacyPath(pathname) {
+    let normalized = String(pathname || '/').replace(/\/{2,}/g, '/');
+    normalized = normalized.replace(/\/index(?:\.html)?$/i, '/').replace(/\.html$/i, '');
+    if (normalized !== '/') normalized = normalized.replace(/\/+$/, '');
+    return normalized || '/';
+  }
+
+  function privacyRouteLanguage(pathname = location.pathname) {
+    const normalized = normalizePrivacyPath(pathname);
+    if (normalized === normalizePrivacyPath(PRIVACY_ROUTES.ar)) return 'ar';
+    if (normalized === normalizePrivacyPath(PRIVACY_ROUTES.en)) return 'en';
+    return '';
+  }
+
+  function localizePrivacyLinks() {
+    const sharedRoutes = new Map([
+      ['/', { en: '/', ar: '/ar/' }],
+      ['/mind-lab', { en: '/mind-lab', ar: '/ar/mind-lab/' }],
+      ['/collections', { en: '/collections', ar: '/ar/collections/' }],
+      ['/about', { en: '/about', ar: '/ar/about/' }],
+      ['/privacy', PRIVACY_ROUTES],
+    ]);
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      try {
+        const url = new URL(href, location.origin);
+        if (url.origin !== location.origin) return;
+        const normalized = normalizePrivacyPath(url.pathname);
+        const route = [...sharedRoutes.values()].find((candidate) => (
+          normalizePrivacyPath(candidate.en) === normalized || normalizePrivacyPath(candidate.ar) === normalized
+        ));
+        if (!route) return;
+        url.searchParams.delete('lang');
+        link.setAttribute('href', `${route[state.lang]}${url.search}${url.hash}`);
+      } catch {
+        // Leave malformed or non-navigation values unchanged.
+      }
+    });
+  }
 
   function currentCopy() {
     return copy[state.lang];
@@ -104,9 +192,17 @@
     const localized = currentCopy();
     document.title = localized.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', localized.description);
-    elements.language?.setAttribute('aria-label', localized.languageLabel);
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+      const value = localized[element.dataset.i18nAriaLabel];
+      if (typeof value === 'string') element.setAttribute('aria-label', value);
+    });
     elements.deleteUsername?.setAttribute('placeholder', localized.usernamePlaceholder);
     elements.deletePassword?.setAttribute('placeholder', localized.passwordPlaceholder);
+    elements.privacyRequestType?.querySelectorAll('option').forEach((option) => {
+      option.textContent = state.lang === 'ar'
+        ? option.dataset.labelAr || option.textContent
+        : option.dataset.labelEn || option.textContent;
+    });
   }
 
   function updateDeviceStatus() {
@@ -116,7 +212,9 @@
       ? localized.deviceUnset
       : preference.analytics
         ? localized.deviceAllowed
-        : localized.deviceDenied;
+        : state.deviceReloadRecommended
+          ? localized.deviceDeniedAfterLoad
+          : localized.deviceDenied;
     setStatus(elements.deviceConsentStatus, message, preference?.analytics ? 'success' : '');
   }
 
@@ -143,6 +241,18 @@
     elements.accountStatusText.textContent = message;
     elements.accountControls.disabled = state.accountMode !== 'signed-in';
     elements.accountHomeLink.hidden = state.accountMode === 'signed-in';
+
+    const canLinkPrivacyRequest = state.accountMode === 'signed-in' && Boolean(state.user);
+    elements.privacyRequestSaveWithAccount.disabled = !canLinkPrivacyRequest;
+    if (!canLinkPrivacyRequest) elements.privacyRequestSaveWithAccount.checked = false;
+    const privacyRequestLinkMessage = canLinkPrivacyRequest
+      ? localized.privacyRequestLinkReady
+      : state.accountMode === 'checking'
+        ? localized.privacyRequestLinkChecking
+        : state.accountMode === 'unavailable'
+          ? localized.privacyRequestLinkUnavailable
+          : localized.privacyRequestLinkSignedOut;
+    setStatus(elements.privacyRequestLinkStatus, privacyRequestLinkMessage);
 
     if (state.privacy) {
       const analyticsMessage = state.privacy.needsRenewal
@@ -177,9 +287,11 @@
     }
     if (updateUrl) {
       const url = new URL(location.href);
-      url.searchParams.set('lang', state.lang);
-      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+      url.searchParams.delete('lang');
+      location.assign(`${PRIVACY_ROUTES[state.lang]}${url.search}${url.hash}`);
+      return;
     }
+    localizePrivacyLinks();
     updateMetadata();
     updateDeviceStatus();
     updateAccountPresentation();
@@ -239,11 +351,17 @@
     updateDeviceStatus();
   }
 
+  function handleConsentChange(event) {
+    state.deviceReloadRecommended = event?.detail?.reloadRecommended === true;
+    updateDeviceStatus();
+  }
+
   async function clearDeviceData() {
     const localized = currentCopy();
     if (!window.confirm(localized.clearConfirm)) return;
     setStatus(elements.deviceClearStatus, localized.clearingDevice, 'success');
     try {
+      window.JakhPrivacy?.setAnalyticsConsent?.(false, 'clear-device');
       localStorage.clear();
       sessionStorage.clear();
       if ('caches' in window) {
@@ -251,8 +369,7 @@
         await Promise.all(keys.map((key) => caches.delete(key)));
       }
     } finally {
-      const url = new URL('/privacy', location.origin);
-      url.searchParams.set('lang', state.lang);
+      const url = new URL(PRIVACY_ROUTES[state.lang], location.origin);
       url.hash = 'choices';
       location.replace(url.toString());
     }
@@ -355,6 +472,84 @@
     }
   }
 
+  function privacyRequestValidationIssue() {
+    const localized = currentCopy();
+    if (!PRIVACY_REQUEST_TYPES.has(elements.privacyRequestType.value)) {
+      return {
+        field: elements.privacyRequestType,
+        message: localized.privacyRequestInvalidType,
+      };
+    }
+    const text = elements.privacyRequestText.value.trim();
+    if (text.length < 5 || text.length > 2000) {
+      return {
+        field: elements.privacyRequestText,
+        message: localized.privacyRequestInvalidText,
+      };
+    }
+    const email = elements.privacyRequestEmail.value.trim();
+    if (email && !elements.privacyRequestEmail.validity.valid) {
+      return {
+        field: elements.privacyRequestEmail,
+        message: localized.privacyRequestInvalidEmail,
+      };
+    }
+    return null;
+  }
+
+  async function submitPrivacyRequest(event) {
+    event.preventDefault();
+    const localized = currentCopy();
+    const formFields = [
+      elements.privacyRequestType,
+      elements.privacyRequestText,
+      elements.privacyRequestEmail,
+    ];
+    formFields.forEach((field) => field.removeAttribute('aria-invalid'));
+    const validationIssue = privacyRequestValidationIssue();
+    if (validationIssue) {
+      validationIssue.field.setAttribute('aria-invalid', 'true');
+      validationIssue.field.focus();
+      setStatus(elements.privacyRequestStatus, validationIssue.message, 'error');
+      return;
+    }
+
+    const saveWithAccount = elements.privacyRequestSaveWithAccount.checked;
+    elements.privacyRequestSubmit.disabled = true;
+    elements.privacyRequestSubmit.setAttribute('aria-busy', 'true');
+    setStatus(elements.privacyRequestStatus, localized.privacyRequestSending);
+    try {
+      const response = await apiRequest('/privacy/requests', {
+        method: 'POST',
+        body: JSON.stringify({
+          type: elements.privacyRequestType.value,
+          text: elements.privacyRequestText.value.trim(),
+          email: elements.privacyRequestEmail.value.trim() || null,
+          saveWithAccount,
+        }),
+      });
+      if (response?.privacyRequest?.accepted !== true) throw new Error('Request not accepted');
+      elements.privacyRequestForm.reset();
+      updateAccountPresentation();
+      setStatus(elements.privacyRequestStatus, localized.privacyRequestDone, 'success');
+    } catch (error) {
+      if (error?.status === 401 && saveWithAccount) {
+        state.user = null;
+        state.privacy = null;
+        state.accountMode = 'signed-out';
+        updateAccountPresentation();
+        setStatus(elements.privacyRequestStatus, localized.privacyRequestAuthFailed, 'error');
+      } else if (error?.status === 429) {
+        setStatus(elements.privacyRequestStatus, localized.privacyRequestRateLimited, 'error');
+      } else {
+        setStatus(elements.privacyRequestStatus, localized.privacyRequestFailed, 'error');
+      }
+    } finally {
+      elements.privacyRequestSubmit.disabled = false;
+      elements.privacyRequestSubmit.removeAttribute('aria-busy');
+    }
+  }
+
   function cacheElements() {
     elements.language = document.getElementById('privacyLanguage');
     elements.deviceConsentStatus = document.getElementById('deviceConsentStatus');
@@ -377,6 +572,14 @@
     elements.deleteConfirmation = document.getElementById('deleteConfirmation');
     elements.deleteAccount = document.getElementById('deleteAccount');
     elements.deleteStatus = document.getElementById('deleteStatus');
+    elements.privacyRequestForm = document.getElementById('privacyRequestForm');
+    elements.privacyRequestType = document.getElementById('privacyRequestType');
+    elements.privacyRequestText = document.getElementById('privacyRequestText');
+    elements.privacyRequestEmail = document.getElementById('privacyRequestEmail');
+    elements.privacyRequestSaveWithAccount = document.getElementById('privacyRequestSaveWithAccount');
+    elements.privacyRequestLinkStatus = document.getElementById('privacyRequestLinkStatus');
+    elements.privacyRequestSubmit = document.getElementById('privacyRequestSubmit');
+    elements.privacyRequestStatus = document.getElementById('privacyRequestStatus');
   }
 
   function bindEvents() {
@@ -388,12 +591,22 @@
     elements.denyAccountAnalytics.addEventListener('click', () => updateAccountAnalytics(false));
     elements.exportAccount.addEventListener('click', exportAccountData);
     elements.deleteAccountForm.addEventListener('submit', deleteAccount);
-    document.addEventListener('jakh:consentchange', updateDeviceStatus);
+    elements.privacyRequestForm.addEventListener('submit', submitPrivacyRequest);
+    document.addEventListener('jakh:consentchange', handleConsentChange);
   }
 
   function initialLanguage() {
-    const requested = new URL(location.href).searchParams.get('lang');
-    if (requested === 'ar' || requested === 'en') return requested;
+    const url = new URL(location.href);
+    const requested = url.searchParams.get('lang');
+    if (requested === 'ar' || requested === 'en') {
+      url.searchParams.delete('lang');
+      const target = `${PRIVACY_ROUTES[requested]}${url.search}${url.hash}`;
+      if (privacyRouteLanguage(url.pathname) !== requested) location.replace(target);
+      else history.replaceState(null, '', target);
+      return requested;
+    }
+    const routeLanguage = privacyRouteLanguage();
+    if (routeLanguage) return routeLanguage;
     try {
       const stored = localStorage.getItem(LANGUAGE_KEY);
       if (stored === 'ar' || stored === 'en') return stored;

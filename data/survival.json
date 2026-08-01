@@ -13,6 +13,11 @@
     "subcategory": {
       "en": "Water & Hydration",
       "ar": "المياه والترطيب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -29,6 +34,11 @@
     "subcategory": {
       "en": "Firecraft",
       "ar": "مهارات إشعال النار"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -45,6 +55,11 @@
     "subcategory": {
       "en": "Navigation & Signaling",
       "ar": "الملاحة وإشارات الاستغاثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -61,6 +76,11 @@
     "subcategory": {
       "en": "Navigation & Signaling",
       "ar": "الملاحة وإشارات الاستغاثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -77,6 +97,11 @@
     "subcategory": {
       "en": "Shelter & Fieldcraft",
       "ar": "المأوى والمهارات الميدانية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -93,6 +118,11 @@
     "subcategory": {
       "en": "Water & Hydration",
       "ar": "المياه والترطيب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -109,6 +139,11 @@
     "subcategory": {
       "en": "Firecraft",
       "ar": "مهارات إشعال النار"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -125,6 +160,11 @@
     "subcategory": {
       "en": "Water & Hydration",
       "ar": "المياه والترطيب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -141,6 +181,11 @@
     "subcategory": {
       "en": "Core Survival & Planning",
       "ar": "أساسيات البقاء والتخطيط"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -157,6 +202,11 @@
     "subcategory": {
       "en": "Wildlife & Plant Hazards",
       "ar": "مخاطر الحيوانات والنباتات"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -173,6 +223,11 @@
     "subcategory": {
       "en": "Core Survival & Planning",
       "ar": "أساسيات البقاء والتخطيط"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -189,6 +244,11 @@
     "subcategory": {
       "en": "Shelter & Fieldcraft",
       "ar": "المأوى والمهارات الميدانية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -205,6 +265,11 @@
     "subcategory": {
       "en": "Navigation & Signaling",
       "ar": "الملاحة وإشارات الاستغاثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -221,6 +286,11 @@
     "subcategory": {
       "en": "Food & Foraging",
       "ar": "الغذاء وجمع الطعام"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -237,6 +307,11 @@
     "subcategory": {
       "en": "Shelter & Fieldcraft",
       "ar": "المأوى والمهارات الميدانية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -253,6 +328,11 @@
     "subcategory": {
       "en": "Food & Foraging",
       "ar": "الغذاء وجمع الطعام"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -269,6 +349,11 @@
     "subcategory": {
       "en": "Shelter & Fieldcraft",
       "ar": "المأوى والمهارات الميدانية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -285,6 +370,11 @@
     "subcategory": {
       "en": "First Aid & Field Medicine",
       "ar": "الإسعافات الأولية والطب الميداني"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -301,6 +391,11 @@
     "subcategory": {
       "en": "First Aid & Field Medicine",
       "ar": "الإسعافات الأولية والطب الميداني"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -317,6 +412,11 @@
     "subcategory": {
       "en": "Wildlife & Plant Hazards",
       "ar": "مخاطر الحيوانات والنباتات"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -333,6 +433,11 @@
     "subcategory": {
       "en": "Food & Foraging",
       "ar": "الغذاء وجمع الطعام"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -349,6 +454,11 @@
     "subcategory": {
       "en": "Wildlife & Plant Hazards",
       "ar": "مخاطر الحيوانات والنباتات"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -365,6 +475,11 @@
     "subcategory": {
       "en": "Firecraft",
       "ar": "مهارات إشعال النار"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -381,6 +496,11 @@
     "subcategory": {
       "en": "Water & Hydration",
       "ar": "المياه والترطيب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -397,6 +517,11 @@
     "subcategory": {
       "en": "Navigation & Signaling",
       "ar": "الملاحة وإشارات الاستغاثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -413,6 +538,11 @@
     "subcategory": {
       "en": "First Aid & Field Medicine",
       "ar": "الإسعافات الأولية والطب الميداني"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -429,6 +559,11 @@
     "subcategory": {
       "en": "Firecraft",
       "ar": "مهارات إشعال النار"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -445,6 +580,11 @@
     "subcategory": {
       "en": "First Aid & Field Medicine",
       "ar": "الإسعافات الأولية والطب الميداني"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -461,6 +601,11 @@
     "subcategory": {
       "en": "Firecraft",
       "ar": "مهارات إشعال النار"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -477,6 +622,11 @@
     "subcategory": {
       "en": "Navigation & Signaling",
       "ar": "الملاحة وإشارات الاستغاثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -493,6 +643,11 @@
     "subcategory": {
       "en": "Water & Hydration",
       "ar": "المياه والترطيب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -509,6 +664,11 @@
     "subcategory": {
       "en": "Food & Foraging",
       "ar": "الغذاء وجمع الطعام"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -525,6 +685,11 @@
     "subcategory": {
       "en": "First Aid & Field Medicine",
       "ar": "الإسعافات الأولية والطب الميداني"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -541,6 +706,11 @@
     "subcategory": {
       "en": "Navigation & Signaling",
       "ar": "الملاحة وإشارات الاستغاثة"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -557,6 +727,11 @@
     "subcategory": {
       "en": "Firecraft",
       "ar": "مهارات إشعال النار"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -573,6 +748,11 @@
     "subcategory": {
       "en": "First Aid & Field Medicine",
       "ar": "الإسعافات الأولية والطب الميداني"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -589,6 +769,11 @@
     "subcategory": {
       "en": "Core Survival & Planning",
       "ar": "أساسيات البقاء والتخطيط"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -605,6 +790,11 @@
     "subcategory": {
       "en": "Shelter & Fieldcraft",
       "ar": "المأوى والمهارات الميدانية"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -621,6 +811,11 @@
     "subcategory": {
       "en": "Water & Hydration",
       "ar": "المياه والترطيب"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   },
   {
@@ -637,6 +832,11 @@
     "subcategory": {
       "en": "Wildlife & Plant Hazards",
       "ar": "مخاطر الحيوانات والنباتات"
+    },
+    "review": {
+      "status": "pending",
+      "safetySensitive": true,
+      "priority": "high"
     }
   }
 ]

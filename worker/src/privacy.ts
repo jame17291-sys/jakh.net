@@ -1,4 +1,9 @@
-import { enforceRateLimit, requireUser } from "./db.js";
+import {
+  enforceRateLimit,
+  RETENTION_CLEANUP_BATCH_SIZE,
+  requireUser,
+  runBoundedRetentionCleanup,
+} from "./db.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
 import {
@@ -8,8 +13,12 @@ import {
   validatePassword,
 } from "./security.js";
 import type { Env, SessionUser } from "./types.js";
+import {
+  SERVER_CHECKED_AUTOMATION_DISCLAIMER,
+  SERVER_CHECKED_SCORE_TYPE,
+} from "./verified-scoring.js";
 
-export const PRIVACY_NOTICE_VERSION = "2026-07-31";
+export const PRIVACY_NOTICE_VERSION = "2026-08-01";
 const ACCOUNT_ANALYTICS_RETENTION_MONTHS = 13;
 const SUGGESTION_IP_RETENTION_DAYS = 30;
 const SUGGESTION_RETENTION_MONTHS = 12;
@@ -31,6 +40,21 @@ interface PrivacyPreferenceRow {
   usage_analytics_enabled: number;
   notice_version: string;
   consent_updated_at: string;
+}
+
+interface ServerCheckedScoreExportRow {
+  id: string;
+  categoryId: string;
+  questionCount: number;
+  startedAt: number;
+  expiresAt: number;
+  status: string;
+  correctCount: number | null;
+  score: number | null;
+  elapsedMs: number | null;
+  completedAt: string | null;
+  serverChecked: number;
+  createdAt: string;
 }
 
 function now(): string {
@@ -179,8 +203,10 @@ export async function exportAccountData(
     progressResult,
     favoritesResult,
     analyticsResult,
-    verifiedScoresResult,
+    serverCheckedScoresResult,
     suggestionsResult,
+    administrativeActionsResult,
+    accountModerationResult,
     preference,
   ] = await Promise.all([
     env.DB.prepare(
@@ -213,16 +239,31 @@ export async function exportAccountData(
     env.DB.prepare(
       `SELECT id, category_id AS categoryId, question_count AS questionCount,
               started_at AS startedAt, expires_at AS expiresAt, status,
-              correct_count AS correctCount, score, elapsed_ms AS elapsedMs,
-              completed_at AS completedAt, verified, created_at AS createdAt
+              correct_count AS correctCount,
+              CASE WHEN correct_count IS NULL THEN NULL ELSE correct_count * 1000 END AS score,
+              elapsed_ms AS elapsedMs, completed_at AS completedAt,
+              CASE WHEN status = 'completed' AND verified = 1 THEN 1 ELSE 0 END AS serverChecked,
+              created_at AS createdAt
          FROM verified_score_sessions
         WHERE user_id = ?
         ORDER BY created_at, id`,
-    ).bind(user.id).all(),
+    ).bind(user.id).all<ServerCheckedScoreExportRow>(),
     env.DB.prepare(
       `SELECT id, text, email, status, created_at AS createdAt
          FROM suggestions
         WHERE user_id = ?
+        ORDER BY created_at, id`,
+    ).bind(user.id).all(),
+    env.DB.prepare(
+      `SELECT id, action, target_type AS targetType, created_at AS createdAt
+         FROM admin_audit_log
+        WHERE actor_user_id = ?
+        ORDER BY created_at, id`,
+    ).bind(user.id).all(),
+    env.DB.prepare(
+      `SELECT id, action, created_at AS createdAt
+         FROM admin_audit_log
+        WHERE target_type = 'user' AND target_id = ?
         ORDER BY created_at, id`,
     ).bind(user.id).all(),
     privacyPreference(env, user.id),
@@ -234,7 +275,7 @@ export async function exportAccountData(
 
   const generatedAt = now();
   return json({
-    exportVersion: 1,
+    exportVersion: 2,
     generatedAt,
     account: {
       id: account.id,
@@ -254,12 +295,28 @@ export async function exportAccountData(
     progress: progressResult.results,
     favorites: favoritesResult.results,
     usageAnalytics: analyticsResult.results,
-    verifiedScores: verifiedScoresResult.results,
+    serverCheckedScores: serverCheckedScoresResult.results.map((score) => ({
+      ...score,
+      serverChecked: score.serverChecked === 1,
+      scoreType: SERVER_CHECKED_SCORE_TYPE,
+      proctored: false,
+      automationDisclaimer: SERVER_CHECKED_AUTOMATION_DISCLAIMER,
+    })),
     suggestions: suggestionsResult.results,
+    administrativeActivity: {
+      actionsPerformed: administrativeActionsResult.results,
+      actionsAboutAccount: accountModerationResult.results,
+      omittedThirdPartyFields: [
+        "other account and suggestion identifiers",
+        "other administrators' account identifiers",
+        "free-text audit details that may identify another person",
+      ],
+    },
     excludedForSecurity: [
       "password hashes and salts",
+      "account recovery code hashes (plaintext recovery codes are never stored)",
       "session tokens and token hashes",
-      "verified challenge tokens and expected-answer hashes",
+      "server-checked challenge tokens and expected-answer hashes",
       "rate-limit and abuse-prevention identifiers",
     ],
   }, 200, {
@@ -332,7 +389,13 @@ export async function deleteAccount(
     env.DB.prepare("DELETE FROM suggestions WHERE user_id = ?").bind(session.id),
     env.DB.prepare("DELETE FROM favorites WHERE user_id = ?").bind(session.id),
     env.DB.prepare("DELETE FROM progress WHERE user_id = ?").bind(session.id),
+    env.DB.prepare("DELETE FROM account_recovery_codes WHERE user_id = ?").bind(session.id),
     env.DB.prepare("DELETE FROM sessions WHERE user_id = ?").bind(session.id),
+    env.DB.prepare(
+      `UPDATE admin_audit_log
+          SET target_id = 'deleted-user'
+        WHERE target_type = 'user' AND target_id = ?`,
+    ).bind(session.id),
     env.DB.prepare("DELETE FROM users WHERE id = ?").bind(session.id),
   ]);
 
@@ -365,31 +428,55 @@ export async function cleanupPrivacyRetentionState(env: Env): Promise<void> {
   const analyticsCutoff = monthsAgoIso(ACCOUNT_ANALYTICS_RETENTION_MONTHS).slice(0, 10);
   const suggestionIpCutoff = daysAgoIso(SUGGESTION_IP_RETENTION_DAYS);
   const suggestionCutoff = monthsAgoIso(SUGGESTION_RETENTION_MONTHS);
-  await env.DB.batch([
-    env.DB.prepare(
-      `DELETE FROM analytics_daily
-        WHERE rowid IN (
-          SELECT rowid FROM analytics_daily
-           WHERE activity_date < ?
-           LIMIT 500
-        )`,
-    ).bind(analyticsCutoff),
-    env.DB.prepare(
-      `UPDATE suggestions
-          SET ip_hash = NULL
-        WHERE id IN (
-          SELECT id FROM suggestions
-           WHERE ip_hash IS NOT NULL AND created_at < ?
-           LIMIT 500
-        )`,
-    ).bind(suggestionIpCutoff),
-    env.DB.prepare(
-      `DELETE FROM suggestions
-        WHERE id IN (
-          SELECT id FROM suggestions
-           WHERE created_at < ?
-           LIMIT 500
-        )`,
-    ).bind(suggestionCutoff),
+  await runBoundedRetentionCleanup(env.DB, "privacy-retention", [
+    {
+      name: "expired-analytics",
+      prepare: () => env.DB.prepare(
+        `DELETE FROM analytics_daily
+          WHERE rowid IN (
+            SELECT rowid FROM analytics_daily
+             WHERE activity_date < ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(analyticsCutoff),
+      probe: () => env.DB.prepare(
+        `SELECT rowid FROM analytics_daily
+          WHERE activity_date < ?
+          LIMIT 1`,
+      ).bind(analyticsCutoff),
+    },
+    {
+      name: "expired-suggestion-ip-hashes",
+      prepare: () => env.DB.prepare(
+        `UPDATE suggestions
+            SET ip_hash = NULL
+          WHERE id IN (
+            SELECT id FROM suggestions
+             WHERE ip_hash IS NOT NULL AND created_at < ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(suggestionIpCutoff),
+      probe: () => env.DB.prepare(
+        `SELECT id FROM suggestions
+          WHERE ip_hash IS NOT NULL AND created_at < ?
+          LIMIT 1`,
+      ).bind(suggestionIpCutoff),
+    },
+    {
+      name: "expired-suggestions",
+      prepare: () => env.DB.prepare(
+        `DELETE FROM suggestions
+          WHERE id IN (
+            SELECT id FROM suggestions
+             WHERE created_at < ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(suggestionCutoff),
+      probe: () => env.DB.prepare(
+        `SELECT id FROM suggestions
+          WHERE created_at < ?
+          LIMIT 1`,
+      ).bind(suggestionCutoff),
+    },
   ]);
 }

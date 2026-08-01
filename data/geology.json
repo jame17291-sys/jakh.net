@@ -13,6 +13,9 @@
     "answer": {
       "en": "The crust.",
       "ar": "القشرة الأرضية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -29,6 +32,9 @@
     "answer": {
       "en": "The mantle.",
       "ar": "الوشاح."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "Magma.",
       "ar": "الصهارة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,6 +70,9 @@
     "answer": {
       "en": "Lava.",
       "ar": "الحمم البركانية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -77,6 +89,9 @@
     "answer": {
       "en": "Igneous rock.",
       "ar": "الصخور النارية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Sedimentary rock.",
       "ar": "الصخور الرسوبية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "Metamorphic rock.",
       "ar": "الصخور المتحوّلة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "Diamond, with a hardness of 10.",
       "ar": "الماس، بصلابة 10."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "The epicenter.",
       "ar": "مركز الزلزال السطحي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "Erosion.",
       "ar": "التعرية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Tectonic plates.",
       "ar": "الصفائح التكتونية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,6 +222,9 @@
     "answer": {
       "en": "Quartz.",
       "ar": "الكوارتز."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -205,6 +241,9 @@
     "answer": {
       "en": "A fault.",
       "ar": "الصدع."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,6 +260,9 @@
     "answer": {
       "en": "A fossil.",
       "ar": "الأحفور."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -237,6 +279,9 @@
     "answer": {
       "en": "Basalt.",
       "ar": "البازلت."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -253,6 +298,9 @@
     "answer": {
       "en": "Subduction.",
       "ar": "الاندساس."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -269,6 +317,9 @@
     "answer": {
       "en": "Granite.",
       "ar": "الجرانيت."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,6 +336,9 @@
     "answer": {
       "en": "The Richter scale.",
       "ar": "مقياس ريختر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -301,6 +355,9 @@
     "answer": {
       "en": "Pangaea.",
       "ar": "بانجيا."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -317,6 +374,9 @@
     "answer": {
       "en": "The Mohs hardness scale.",
       "ar": "مقياس موس للصلابة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -333,6 +393,9 @@
     "answer": {
       "en": "A divergent boundary (also called a constructive margin).",
       "ar": "الحدود المتباعدة (وتُسمى أيضًا الهوامش البنّاءة)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -349,6 +412,9 @@
     "answer": {
       "en": "A mid-ocean ridge.",
       "ar": "السلسلة الجبلية الوسط-محيطية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -365,6 +431,9 @@
     "answer": {
       "en": "Intrusive (plutonic) rocks, which solidify underground, and extrusive (volcanic) rocks, which solidify at the surface.",
       "ar": "الصخور الاندساسية (النطاقية) التي تتصلب تحت الأرض، والصخور الانبثاقية (البركانية) التي تتصلب على السطح."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,6 +450,9 @@
     "answer": {
       "en": "P-waves (primary/compressional waves) and S-waves (secondary/shear waves).",
       "ar": "الأمواج P (الأولية/الانضغاطية) والأمواج S (الثانوية/القصية)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,6 +469,9 @@
     "answer": {
       "en": "Radiometric (radioactive) dating.",
       "ar": "التأريخ الراديومتري (الإشعاعي)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -413,6 +488,9 @@
     "answer": {
       "en": "Silicate minerals.",
       "ar": "المعادن السيليكاتية."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -429,6 +507,9 @@
     "answer": {
       "en": "The Ring of Fire.",
       "ar": "حلقة النار."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -445,6 +526,9 @@
     "answer": {
       "en": "Intense heat and pressure deep within the Earth (typically at subduction zones or mountain-building regions).",
       "ar": "الحرارة الشديدة والضغط في أعماق الأرض (عادةً عند مناطق الاندساس أو بناء الجبال)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -461,6 +545,9 @@
     "answer": {
       "en": "Sedimentation (or deposition).",
       "ar": "الترسيب."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -477,6 +564,9 @@
     "answer": {
       "en": "A horst is an elevated block of crust that has been pushed upward between two faults.",
       "ar": "الهورست هو كتلة مرتفعة من القشرة الأرضية دُفعت إلى الأعلى بين صدعَين."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -493,6 +583,9 @@
     "answer": {
       "en": "A shield volcano has gentle slopes and erupts low-viscosity lava over large areas. A stratovolcano (composite volcano) has steep sides and erupts thick lava, ash, and pyroclastic material explosively.",
       "ar": "البركان الدرعي له منحدرات لطيفة ويثور بحمم منخفضة اللزوجة على مساحات كبيرة. البركان الطباقي له جوانب شديدة الانحدار ويثور بحمم سميكة ورماد ومواد بيروكلاستية بشكل انفجاري."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -509,6 +602,9 @@
     "answer": {
       "en": "A transform fault boundary (strike-slip fault), where two plates slide horizontally past each other.",
       "ar": "حدود صدع انتقالي (صدع إزاحي جانبي)، تنزلق فيه الصفيحتان أفقيًا إحداهما فوق الأخرى."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -525,6 +621,9 @@
     "answer": {
       "en": "The Mesozoic Era (comprising the Triassic, Jurassic, and Cretaceous periods).",
       "ar": "حقبة الميزوزويك (التي تضم فترات الترياسي والجوراسي والطباشيري)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -541,6 +640,9 @@
     "answer": {
       "en": "An underground layer of water-bearing permeable rock, sediment, or soil from which groundwater can be extracted.",
       "ar": "طبقة تحت الأرض من الصخر أو الرواسب أو التربة المسامية التي تحتوي على المياه ويمكن استخراج المياه الجوفية منها."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -557,6 +659,9 @@
     "answer": {
       "en": "Cleavage.",
       "ar": "الانفصام (أو الشق)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -573,6 +678,9 @@
     "answer": {
       "en": "A large volcanic crater formed when the magma chamber beneath a volcano empties and the summit collapses inward.",
       "ar": "فوهة بركانية ضخمة تتشكّل عندما يفرغ حجرة الصهارة تحت البركان وينهار القمة إلى الداخل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -589,6 +697,9 @@
     "answer": {
       "en": "Mechanical (physical) weathering.",
       "ar": "التجوية الميكانيكية (الفيزيائية)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -605,6 +716,9 @@
     "answer": {
       "en": "A mesa (if large) or a butte (if smaller and narrower).",
       "ar": "الميسا (إذا كانت كبيرة) أو البيوت (إذا كانت أصغر وأضيق)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -621,6 +735,9 @@
     "answer": {
       "en": "The state of gravitational equilibrium between the Earth's crust (lithosphere) and the underlying mantle. Lighter crust 'floats' higher on the denser mantle, similar to how ice floats on water.",
       "ar": "حالة التوازن الجاذبي بين القشرة الأرضية (الغلاف الصخري) والوشاح الذي يقع تحتها. تطفو القشرة الأخف وزنًا في طبقة أعلى فوق الوشاح الأكثر كثافة، شبيهةً بطفو الجليد على الماء."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -637,6 +754,9 @@
     "answer": {
       "en": "The Richter scale measures seismograph amplitude and was calibrated for local earthquakes. The Moment Magnitude Scale (Mw) measures the total energy released and is more accurate for large or distant earthquakes. Modern seismologists use Mw almost exclusively.",
       "ar": "يقيس مقياس ريختر سعة الزلزاليات وقد جُرِّب للزلازل المحلية. يقيس مقياس عزم الزلزال (Mw) إجمالي الطاقة المنطلقة وهو أدق للزلازل الكبيرة أو البعيدة. يستخدم علماء الزلازل الحديثون Mw حصريًا تقريبًا."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -653,6 +773,9 @@
     "answer": {
       "en": "The Wilson Cycle describes the periodic opening and closing of ocean basins over hundreds of millions of years. Continents rift apart, an ocean forms, then subduction closes the ocean and continents collide, forming mountains — after which rifting can begin again.",
       "ar": "تصف دورة ويلسون الفتح والإغلاق الدوريَّين لأحواض المحيط عبر مئات الملايين من السنين. تتشقق القارات، ويتشكّل محيط، ثم يغلق الاندساس المحيط وتتصادم القارات مكوّنةً الجبال — وبعدها يمكن أن يبدأ التشقق من جديد."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -669,6 +792,9 @@
     "answer": {
       "en": "An ophiolite is a section of oceanic crust and upper mantle that has been thrust onto continental crust during subduction. They are significant because they provide geologists with direct access to material from the ocean floor and upper mantle.",
       "ar": "الأوفيوليت هو مقطع من القشرة المحيطية والوشاح العلوي دُفع إلى القشرة القارية أثناء الاندساس. أهميته أنه يوفّر لعلماء الجيولوجيا وصولًا مباشرًا إلى مواد من قاع المحيط والوشاح العلوي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -685,6 +811,9 @@
     "answer": {
       "en": "Uniformitarianism is the principle that the same natural processes operating today (erosion, deposition, volcanism) also operated in the past at roughly the same rates. 'The present is the key to the past.'",
       "ar": "التوحيدية هي المبدأ القائل بأن العمليات الطبيعية نفسها التي تعمل اليوم (التعرية والترسيب والبركانية) كانت تعمل في الماضي أيضًا بمعدلات مماثلة تقريبًا. 'الحاضر هو مفتاح الماضي.'"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -701,6 +830,9 @@
     "answer": {
       "en": "A pyroclastic flow is a fast-moving current of hot gas, ash, and volcanic rock that travels down a volcano's slopes at up to 700 km/h at temperatures exceeding 1000°C. It is deadly because it moves too fast to outrun and incinerates everything in its path.",
       "ar": "التدفق البيروكلاستي تيار سريع الحركة من الغاز الحار والرماد والصخور البركانية ينزل على منحدرات البركان بسرعة تصل إلى 700 كم/ساعة وبدرجات حرارة تتجاوز 1000 درجة مئوية. إنه فتّاك لأنه يتحرك بسرعة تفوق قدرة الإنسان على الفرار ويحرق كل ما يعترضه."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -717,6 +849,9 @@
     "answer": {
       "en": "Mantle convection is the slow circulation of hot solid rock in the mantle driven by heat from the Earth's core. Hot material rises, spreads, cools, and sinks, dragging tectonic plates along with it — causing both seafloor spreading at ridges and subduction at trenches.",
       "ar": "الحمل الحراري في الوشاح هو الدوران البطيء للصخر الصلب الحار في الوشاح مدفوعًا بالحرارة القادمة من لب الأرض. تصعد المواد الحارة وتنتشر وتبرد وتنزل، ساحبةً الصفائح التكتونية معها — مما يُحدث انتشار قاع المحيط عند التلال والاندساس عند الخنادق."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -733,6 +868,9 @@
     "answer": {
       "en": "A combination of a massive asteroid impact (Chicxulub, Yucatán) and prolonged volcanic eruptions (Deccan Traps, India), which caused global cooling and eliminated about 75% of all species including non-avian dinosaurs.",
       "ar": "مزيج من اصطدام كويكب ضخم (شيكشولوب، يوكاتان) وانفجارات بركانية مطوّلة (دكان تراپس، الهند)، أحدثا تبريدًا عالميًا وأدّيا إلى انقراض نحو 75% من جميع الأنواع بما فيها الديناصورات غير الطائرة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -749,6 +887,9 @@
     "answer": {
       "en": "They are surface seismic waves. Love waves cause horizontal shaking perpendicular to the direction of travel. Rayleigh waves cause a rolling elliptical motion at the surface. Both are slower than body waves (P and S) but cause most of the damage during earthquakes.",
       "ar": "إنهما أمواج زلزالية سطحية. تُحدث أمواج لاف اهتزازًا أفقيًا عموديًا على اتجاه الانتشار. تُحدث أمواج رالي حركة بيضاوية متدحرجة عند السطح. كلتاهما أبطأ من الأمواج الجسمية (P وS) لكنهما تُسبّبان معظم الأضرار خلال الزلازل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -765,6 +906,9 @@
     "answer": {
       "en": "Partial melting occurs when rock in the mantle or crust melts partially, with different minerals melting at different temperatures — producing magma of a different composition from the source rock. Fractional crystallization occurs as magma cools, with minerals crystallizing out in sequence, progressively changing the composition of the remaining melt.",
       "ar": "ينشأ الانصهار الجزئي عندما تنصهر صخور الوشاح أو القشرة جزئيًا، إذ تنصهر معادن مختلفة عند درجات حرارة مختلفة — مُنتجةً صهارة مختلفة التركيب عن الصخرة الأصلية. يحدث التبلور الجزئي أثناء برودة الصهارة، إذ تتبلور المعادن بالتسلسل مما يغيّر تدريجيًا تركيب الصهير المتبقي."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -781,6 +925,9 @@
     "answer": {
       "en": "A geomagnetic reversal is when Earth's magnetic north and south poles swap positions. It is recorded in igneous rocks: as magma cools, magnetic minerals align with the current field direction and are locked in place. Alternating stripes of normal and reversed polarity on the ocean floor were key evidence for seafloor spreading.",
       "ar": "الانعكاس الجيومغناطيسي هو تبادل موضع القطبَين المغناطيسيَّين الشمالي والجنوبي للأرض. يُسجَّل في الصخور النارية: عند برودة الصهارة، تتوافق المعادن المغناطيسية مع اتجاه المجال الحالي وتُقفل في مكانها. الأشرطة المتناوبة من القطبية الطبيعية والمعكوسة في قاع المحيط كانت دليلًا رئيسيًا على انتشار قاع المحيط."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -797,6 +944,9 @@
     "answer": {
       "en": "In an undisturbed sequence of sedimentary rock layers, the oldest layers are at the bottom and the youngest are at the top. This principle, formulated by Nicolas Steno in the 17th century, is the foundation of relative dating in geology.",
       "ar": "في تسلسل غير مضطرب من طبقات الصخور الرسوبية، تكون الطبقات الأقدم في الأسفل والأحدث في الأعلى. هذا المبدأ الذي صاغه نيكولاس ستينو في القرن السابع عشر هو أساس التأريخ النسبي في الجيولوجيا."
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

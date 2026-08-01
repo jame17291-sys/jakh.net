@@ -13,14 +13,17 @@
     "answer": {
       "en": "47 days. On day 47 it covered half — then doubled on day 48 to cover it all.",
       "ar": "47 يوماً. في اليوم 47 غطّت النصف، ثم تضاعفت في اليوم 48 لتغطي البركة كاملة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-002",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A girl has as many brothers as sisters. Each brother has half as many brothers as sisters. How many children are there in total?",
@@ -29,6 +32,9 @@
     "answer": {
       "en": "7 children: 4 girls and 3 boys. Each girl has 3 brothers and 3 sisters. Each boy has 2 brothers and 4 sisters.",
       "ar": "7 أطفال: 4 بنات و3 أولاد. كل بنت لها 3 إخوة و3 أخوات. كل ولد له أخان و4 أخوات."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -45,6 +51,9 @@
     "answer": {
       "en": "2nd place. You took their position — you did not overtake 1st place.",
       "ar": "المركز الثاني. أخذت مركزهم — لم تتجاوز الشخص الأول."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -61,14 +70,17 @@
     "answer": {
       "en": "5 minutes. All eggs boil simultaneously in the same pot.",
       "ar": "5 دقائق. جميع البيضات تُسلق في آنٍ واحد في نفس القدر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-005",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Lina, Sami, and Noor each chose a different drink: tea, coffee, or juice. Sami chose coffee, Noor did not choose juice, and Lina did not choose tea. Who chose each drink?",
@@ -77,14 +89,17 @@
     "answer": {
       "en": "Noor chose tea, Sami chose coffee, and Lina chose juice. Once coffee is assigned to Sami, Noor's only allowed drink is tea, leaving juice for Lina.",
       "ar": "اختارت نور الشاي، واختار سامي القهوة، واختارت لينا العصير. بعد تخصيص القهوة لسامي، لا يبقى لنور إلا الشاي، فيتبقى العصير للينا."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-006",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Constraints & Ordering",
-        "ar": "القيود والترتيب"
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
     },
     "question": {
       "en": "Three books—red, green, and blue—stand in a row. The red book is to the left of the green book, and the blue book is to the right of the green book. What is their order from left to right?",
@@ -93,6 +108,9 @@
     "answer": {
       "en": "Red, green, blue.",
       "ar": "الأحمر، ثم الأخضر، ثم الأزرق."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -109,6 +127,9 @@
     "answer": {
       "en": "An umbrella.",
       "ar": "الشمسية (المظلة)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -125,6 +146,9 @@
     "answer": {
       "en": "A towel.",
       "ar": "المنشفة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -141,6 +165,9 @@
     "answer": {
       "en": "An egg.",
       "ar": "البيضة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -157,6 +184,9 @@
     "answer": {
       "en": "A library — it has thousands of stories (books).",
       "ar": "المكتبة — تحتوي على آلاف القصص (الكتب)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -173,6 +203,9 @@
     "answer": {
       "en": "Your name.",
       "ar": "اسمك."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -189,14 +222,17 @@
     "answer": {
       "en": "Silence.",
       "ar": "الصمت."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-013",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "When I was 6 my sister was half my age. Now I am 70. How old is my sister?",
@@ -205,6 +241,9 @@
     "answer": {
       "en": "67. She was 3 when I was 6 — so she is always 3 years younger than me.",
       "ar": "67. كانت في الثالثة حين كنت في السادسة — إذن هي أصغر مني بثلاث سنوات دائماً."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -221,14 +260,17 @@
     "answer": {
       "en": "Roosters don't lay eggs.",
       "ar": "الديوك لا تبيض."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-015",
     "difficulty": "easy",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "A farmer has 17 sheep and all but 9 die. How many sheep are left?",
@@ -237,14 +279,17 @@
     "answer": {
       "en": "9 sheep.",
       "ar": "9 خراف."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-016",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "A two-digit number has digits that add to 11. Reversing its digits makes the number 27 greater. What is the original number?",
@@ -253,14 +298,17 @@
     "answer": {
       "en": "47. If the tens digit is a and the ones digit is b, then a+b=11 and 9(b−a)=27, so b−a=3. Thus a=4 and b=7.",
       "ar": "47. إذا كان رقم العشرات a ورقم الآحاد b، فإن a+b=11 و9(b−a)=27، أي b−a=3. ومن ثم a=4 وb=7."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-017",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Constraints & Ordering",
-        "ar": "القيود والترتيب"
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
     },
     "question": {
       "en": "A three-digit vault code has distinct digits. The first digit is twice the third, the middle digit is one greater than the third, and all three digits add to 13. What is the code?",
@@ -269,6 +317,9 @@
     "answer": {
       "en": "643. Let the third digit be t. The digits are 2t, t+1, and t, so 4t+1=13 and t=3.",
       "ar": "643. لنفرض أن الرقم الثالث هو t. تكون الأرقام 2t وt+1 وt، لذا 4t+1=13 ومنه t=3."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -285,14 +336,17 @@
     "answer": {
       "en": "Yes, both equal 4. In general, x% of y always equals y% of x.",
       "ar": "نعم، كلاهما يساوي 4. بشكل عام، x% من y تساوي دائماً y% من x."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-019",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What is the sum of all integers from 1 to 100?",
@@ -301,14 +355,17 @@
     "answer": {
       "en": "5,050. Gauss's formula: n(n+1)/2 = 100 × 101 / 2 = 5,050.",
       "ar": "5,050. صيغة غاوس: n(n+1)/2 = 100 × 101 / 2 = 5,050."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-020",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "A mix contains 3 parts water and 1 part juice. How much juice is in a 12-litre mix?",
@@ -317,14 +374,17 @@
     "answer": {
       "en": "3 litres. Juice is 1/4 of total: 12 × 1/4 = 3.",
       "ar": "3 لتر. العصير هو 1/4 من الإجمالي: 12 × 1/4 = 3."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-021",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "You drive to a shop at 20 mph and return at 60 mph. What is your average speed for the whole trip?",
@@ -333,14 +393,17 @@
     "answer": {
       "en": "30 mph. Use the harmonic mean for equal distances: 2 × 20 × 60 / (20 + 60) = 2400 / 80 = 30.",
       "ar": "30 ميل/ساعة. نستخدم المتوسط التوافقي للمسافات المتساوية: 2 × 20 × 60 / (20 + 60) = 2400 / 80 = 30."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-022",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What is the smallest perfect number (a number equal to the sum of its proper divisors)?",
@@ -349,14 +412,17 @@
     "answer": {
       "en": "6. Its proper divisors are 1, 2, and 3, and 1 + 2 + 3 = 6.",
       "ar": "6. قواسمه الصحيحة هي 1 و2 و3، ومجموعها 1 + 2 + 3 = 6."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-023",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "If a man's only son is my son's father, who am I to the man?",
@@ -365,14 +431,17 @@
     "answer": {
       "en": "His son. The man's only son is my son's father — meaning I am that son.",
       "ar": "ابنه. ابن الرجل الوحيد هو والد ابني — أي أنني أنا ذلك الابن."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-024",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A treasure is in exactly one of three boxes. Box 1 says, “The treasure is in Box 2.” Box 2 says, “The treasure is not in Box 2.” Box 3 says, “The treasure is not in Box 1.” Exactly one note is true. Which box holds the treasure?",
@@ -381,6 +450,9 @@
     "answer": {
       "en": "Box 1. If the treasure is there, only Box 2's note is true. Putting it in Box 2 or Box 3 makes two notes true.",
       "ar": "الصندوق 1. إذا كان الكنز فيه، تكون ورقة الصندوق 2 وحدها صادقة. أما وضعه في الصندوق 2 أو 3 فيجعل ورقتين صادقتين."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -397,14 +469,17 @@
     "answer": {
       "en": "All the people on board are married — there are no 'single' persons.",
       "ar": "جميع الأشخاص على متنه متزوجون — لا يوجد 'أعزب' (single) على ظهره."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-026",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "On a 24-hour digital clock, 12:21 is palindromic. What is the next palindromic time, and how many minutes later is it?",
@@ -413,14 +488,17 @@
     "answer": {
       "en": "13:31, which is 70 minutes later.",
       "ar": "13:31، ويأتي بعد 70 دقيقة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-027",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What three numbers give the same result whether you multiply or add them together?",
@@ -429,14 +507,17 @@
     "answer": {
       "en": "1, 2, and 3. (1 × 2 × 3 = 6; 1 + 2 + 3 = 6)",
       "ar": "1 و2 و3. (1 × 2 × 3 = 6؛ 1 + 2 + 3 = 6)"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-028",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Mystery & Detection",
-        "ar": "الغموض والتحري"
+      "en": "Mystery & Detection",
+      "ar": "الغموض والتحري"
     },
     "question": {
       "en": "A cowboy rides into town on Friday, stays for three days, and leaves on Friday. How is this possible?",
@@ -445,14 +526,17 @@
     "answer": {
       "en": "His horse is named Friday.",
       "ar": "اسم حصانه الجمعة (Friday)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-029",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Four cards show A, D, 4, and 7. Each card has a letter on one side and a number on the other. To test the rule “If a card has a vowel on one side, then it has an even number on the other,” which cards must you turn over?",
@@ -461,14 +545,17 @@
     "answer": {
       "en": "A and 7. Turn A to check for an even number, and 7 to make sure there is not a vowel on its other side. D and 4 cannot disprove the rule.",
       "ar": "البطاقتان A و7. نقلب A للتحقق من وجود عدد زوجي، ونقلب 7 للتأكد من عدم وجود حرف علة على وجهها الآخر. لا يمكن للبطاقتين D و4 نقض القاعدة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-030",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Mystery & Detection",
-        "ar": "الغموض والتحري"
+      "en": "Mystery & Detection",
+      "ar": "الغموض والتحري"
     },
     "question": {
       "en": "An archaeologist discovers a coin marked '44 BC' and knows immediately it is a forgery. How?",
@@ -477,14 +564,17 @@
     "answer": {
       "en": "Nobody living in 44 BC would know they were living 'before Christ' — that dating system was invented centuries later.",
       "ar": "لم يكن أحد في عام 44 ق.م يعلم أنه يعيش 'قبل الميلاد' — هذا النظام في التأريخ اخترع بعد قرون."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-031",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Constraints & Ordering",
-        "ar": "القيود والترتيب"
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
     },
     "question": {
       "en": "Three talks—AI, Design, and History—must fill slots 1, 2, and 3. AI is before Design, Design is not in slot 3, and History is not in slot 1. What is the schedule?",
@@ -493,14 +583,17 @@
     "answer": {
       "en": "Slot 1: AI; slot 2: Design; slot 3: History. No other ordering satisfies all three constraints.",
       "ar": "الفترة 1: الذكاء الاصطناعي؛ الفترة 2: التصميم؛ الفترة 3: التاريخ. لا يحقق أي ترتيب آخر القيود الثلاثة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-032",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Constraints & Ordering",
-        "ar": "القيود والترتيب"
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
     },
     "question": {
       "en": "A cube is painted on all six faces and cut into 27 equal smaller cubes. How many small cubes have exactly two painted faces?",
@@ -509,14 +602,17 @@
     "answer": {
       "en": "12. Each of the cube's 12 edges has one non-corner small cube, and each such cube has exactly two painted faces.",
       "ar": "12. على كل واحد من أحرف المكعب الاثني عشر مكعب صغير واحد غير ركني، ولكل منها وجهان مطليان بالضبط."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-033",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "In a class of 30 students, 18 study Arabic, 14 study English, and 5 study neither language. How many study both Arabic and English?",
@@ -525,14 +621,17 @@
     "answer": {
       "en": "7. Twenty-five students study at least one language, so the overlap is 18 + 14 − 25 = 7.",
       "ar": "7. عدد من يدرسون لغة واحدة على الأقل هو 25، لذا عدد التقاطع هو 18 + 14 − 25 = 7."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-034",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What is the only even prime number?",
@@ -541,14 +640,17 @@
     "answer": {
       "en": "2. It is divisible only by 1 and itself. Every other even number is divisible by 2 and therefore not prime.",
       "ar": "2. يقبل القسمة على 1 وعلى نفسه فقط. كل عدد زوجي آخر يقبل القسمة على 2 فلا يكون أولياً."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-035",
     "difficulty": "medium",
     "subcategory": {
-        "en": "Constraints & Ordering",
-        "ar": "القيود والترتيب"
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
     },
     "question": {
       "en": "Exactly two of four lamps A, B, C, and D are lit. A and B are in opposite states, C is in the same state as A, and D is off. Which lamps are lit?",
@@ -557,14 +659,17 @@
     "answer": {
       "en": "A and C. If A were off, only B would be lit, contradicting the condition that exactly two lamps are lit. Therefore A and C are on, while B and D are off.",
       "ar": "A وC. لو كان A مطفأ لكان B وحده مضاءً، وهذا يخالف شرط إضاءة مصباحين بالضبط. إذن A وC مضاءان، وB وD مطفآن."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-036",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "The Monty Hall Problem: You pick 1 of 3 doors. A car is behind one. The host opens a different door showing a goat and offers you a switch. Should you switch?",
@@ -573,14 +678,17 @@
     "answer": {
       "en": "Yes — switch! Switching wins 2/3 of the time. Your original pick is wrong 2/3 of the time, and the host's reveal concentrates that probability onto the remaining door.",
       "ar": "نعم — غيّر! التغيير يُربح في 2/3 من الحالات. اختيارك الأول خاطئ في 2/3 من الأوقات، وكشف المضيف يركّز هذا الاحتمال على الباب الآخر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-037",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "100 lockers are all closed. Person 1 opens all; person 2 toggles every 2nd; person 3 toggles every 3rd... Which lockers remain open after all 100 people?",
@@ -589,14 +697,17 @@
     "answer": {
       "en": "The perfect squares: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. Only perfect squares have an odd number of divisors, so they end up open.",
       "ar": "الأرقام المربعة الكاملة: 1، 4، 9، 16، 25، 36، 49، 64، 81، 100. فقط الأرقام المربعة لها عدد فردي من القواسم فتظل مفتوحة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-038",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "You have two children and at least one is a boy. What is the probability that both are boys?",
@@ -605,14 +716,17 @@
     "answer": {
       "en": "1/3. Possible pairs with at least one boy: BB, BG, GB — only 1 of 3 outcomes is BB.",
       "ar": "1/3. الاحتمالات مع ولد واحد على الأقل: BB، BG، GB — فقط 1 من 3 هو BB."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-039",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What does the infinite series 1 + 1/2 + 1/4 + 1/8 + ... converge to?",
@@ -621,14 +735,17 @@
     "answer": {
       "en": "2. It is a geometric series with first term 1 and ratio 1/2: sum = 1 / (1 − 1/2) = 2.",
       "ar": "2. متسلسلة هندسية حدّها الأول 1 ونسبتها 1/2: المجموع = 1 / (1 − 1/2) = 2."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-040",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "An ant sits on one corner of a 1×1×1 cube. What is the shortest path along the surface to the opposite corner?",
@@ -637,14 +754,17 @@
     "answer": {
       "en": "√5 ≈ 2.236. Unfold two faces into a flat 1×2 rectangle — the straight line across is √(1² + 2²) = √5.",
       "ar": "√5 ≈ 2.236. افرد وجهين في مستطيل مسطح 1×2 — الخط المستقيم عبره هو √(1² + 2²) = √5."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-041",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Two guards: one always lies, one always tells the truth. You may ask one guard one question to find the safe path. What do you ask?",
@@ -653,14 +773,17 @@
     "answer": {
       "en": "Ask either guard: 'What would the other guard say is the safe path?' Then take the opposite. Both guards' answers point to the wrong path by this method.",
       "ar": "اسأل أي حارس: 'ماذا سيقول الحارس الآخر عن الطريق الآمن؟' ثم خذ الاتجاه المعاكس. كلا الجوابَين يشيران إلى الطريق الخاطئ بهذه الطريقة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-042",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "Two fathers and two sons go fishing. They each catch exactly one fish, yet only three fish are caught in total. How?",
@@ -669,6 +792,9 @@
     "answer": {
       "en": "There are only three people: a grandfather, a father, and a son. The father counts as both a father and a son.",
       "ar": "هناك ثلاثة أشخاص فقط: جدّ، وأب، وابن. الأب يُعدّ أباً وابناً في آنٍ واحد."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -685,14 +811,17 @@
     "answer": {
       "en": "You don't bury survivors.",
       "ar": "الناجون لا يُدفنون."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-044",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "Using only addition, how do you add eight 8s to get exactly 1000?",
@@ -701,6 +830,9 @@
     "answer": {
       "en": "888 + 88 + 8 + 8 + 8 = 1000.",
       "ar": "888 + 88 + 8 + 8 + 8 = 1000."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -717,14 +849,17 @@
     "answer": {
       "en": "Mount Everest — it was the highest mountain whether discovered or not.",
       "ar": "جبل إيفرست — كان أعلى جبل في العالم سواء اكتُشف أم لا."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-046",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "A man lives on the 30th floor. Every morning he takes the elevator all the way down. On rainy evenings or when someone else is in the elevator, he rides to the 30th floor. Otherwise he stops at the 15th floor and walks up. Why?",
@@ -733,14 +868,17 @@
     "answer": {
       "en": "He is short and can only reach the button for floor 15. On rainy days he uses his umbrella to press button 30, or asks someone else to press it.",
       "ar": "إنه قصير القامة ويستطيع الضغط على زر الطابق الخامس عشر فقط. في الأيام الممطرة يستخدم مظلته للضغط على زر 30، أو يطلب من شخص آخر الضغط عليه."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-047",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Paradoxes & Philosophy",
-        "ar": "المفارقات والفلسفة"
+      "en": "Paradoxes & Philosophy",
+      "ar": "المفارقات والفلسفة"
     },
     "question": {
       "en": "If every plank of a ship is gradually replaced, is it still the same ship? What if the original planks are then reassembled into a ship elsewhere?",
@@ -749,14 +887,17 @@
     "answer": {
       "en": "This is the Ship of Theseus paradox. It challenges our concept of identity through change — with implications for personal identity: if all our cells are replaced over time, are we the same person?",
       "ar": "هذه مفارقة سفينة ثيسيوس. تطعن في مفهوم الهوية عبر التغيير — وتنطوي على تداعيات تخص الهوية الشخصية: إذا استُبدلت جميع خلايانا بمرور الوقت، هل نحن نفس الشخص؟"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-048",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Paradoxes & Philosophy",
-        "ar": "المفارقات والفلسفة"
+      "en": "Paradoxes & Philosophy",
+      "ar": "المفارقات والفلسفة"
     },
     "question": {
       "en": "A runaway trolley will kill five people on the tracks. You can pull a lever to divert it to a side track where it will kill only one. Do you pull the lever?",
@@ -765,14 +906,17 @@
     "answer": {
       "en": "This is the Trolley Problem in ethics. Pulling the lever saves five lives but makes you directly responsible for one death. It tests consequentialism (outcomes matter) against deontology (rules matter regardless of outcomes).",
       "ar": "هذه مسألة العربة في الأخلاق. سحب الرافعة ينقذ خمسة أرواح لكن يجعلك مسؤولاً مباشرة عن وفاة. تختبر النفعية (النتائج تهم) في مقابل الواجبية (القواعد تهم بغض النظر عن النتائج)."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-049",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "A snail is at the bottom of a 10-metre well. Each day it climbs 3 metres and each night slips back 2 metres. How many days does it take to escape?",
@@ -781,14 +925,17 @@
     "answer": {
       "en": "8 days. After 7 days the snail is at 7 m. On day 8 it climbs 3 m to reach 10 m and escapes before slipping back.",
       "ar": "8 أيام. بعد 7 أيام يكون الحلزون عند 7 م. في اليوم الثامن يتسلق 3 م ليصل 10 م ويهرب قبل الانزلاق."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-050",
     "difficulty": "hard",
     "subcategory": {
-        "en": "Mystery & Detection",
-        "ar": "الغموض والتحري"
+      "en": "Mystery & Detection",
+      "ar": "الغموض والتحري"
     },
     "question": {
       "en": "A woman shoots her husband. Thirty minutes later they go out for dinner together. How?",
@@ -797,14 +944,17 @@
     "answer": {
       "en": "She is a photographer — she 'shot' his photograph.",
       "ar": "هي مصوّرة فوتوغرافية — التقطت له صورة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-051",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "You are in a room with three switches, each controlling one of three bulbs in another room. You can enter the other room only once. How do you determine which switch controls which bulb?",
@@ -813,14 +963,17 @@
     "answer": {
       "en": "Turn on switch 1 for 10 minutes, then off. Turn on switch 2. Enter: the lit bulb is switch 2; the warm unlit bulb is switch 1; the cold unlit bulb is switch 3.",
       "ar": "شغّل المفتاح الأول لمدة 10 دقائق ثم أوقفه. شغّل المفتاح الثاني. ادخل: المضيء هو 2؛ المطفأ الدافئ هو 1؛ المطفأ البارد هو 3."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-052",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "100 prisoners are each in solitary cells. A warden picks prisoners one at a time at random to enter a room with a lamp that can be on or off; a prisoner may toggle it. At any point, a prisoner may declare that all 100 have visited. How can they guarantee success?",
@@ -829,14 +982,17 @@
     "answer": {
       "en": "Appoint one 'counter' prisoner. Only the counter turns the lamp OFF (once per non-counter visit it was ON). When the counter has turned it off 99 times, all 100 have visited.",
       "ar": "يُعيَّن سجين واحد 'عدّاد'. فقط العدّاد يطفئ المصباح (مرة لكل زيارة غير عدّاد يجد فيها المصباح مضاءً). حين يطفئه 99 مرة، يكون الجميع قد دخل."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-053",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What is the next number in this sequence: 1, 11, 21, 1211, 111221?",
@@ -845,14 +1001,17 @@
     "answer": {
       "en": "312211. It is the 'Look and Say' sequence — each term describes the previous: one 3, one 1, two 2s, two 1s.",
       "ar": "312211. هي متتالية 'انظر وقل' — كل حد يصف الحد السابق: واحد 3، واحد 1، اثنان 2، اثنان 1."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-054",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "You have 12 identical-looking balls. One is either heavier or lighter than the rest. Using a balance scale exactly 3 times, find the odd ball and whether it is heavier or lighter.",
@@ -861,14 +1020,17 @@
     "answer": {
       "en": "Divide into three groups of 4. Weigh group A vs B: if balanced, the odd ball is in C and you use 2 more weighings to isolate it and determine its weight. If unbalanced, a systematic elimination across 2 more weighings reveals the odd ball.",
       "ar": "قسّمها إلى ثلاث مجموعات من 4. زِن A مقابل B: إذا تساوتا، الكرة الشاذة في C وتستخدم وزنتَين للعثور عليها. وإذا اختلتا، تُصفّيها بوزنتَين منهجيتَين."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-055",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "You have two ropes, each taking exactly 1 hour to burn, but with non-uniform burning rates. How do you measure exactly 45 minutes?",
@@ -877,14 +1039,17 @@
     "answer": {
       "en": "Light rope 1 at both ends and rope 2 at one end simultaneously. When rope 1 finishes (30 min), light rope 2's other end. When rope 2 finishes = 45 minutes total.",
       "ar": "أشعل الحبل الأول من طرفَيه والحبل الثاني من طرف واحد في نفس الوقت. حين ينتهي الحبل الأول (30 دق)، أشعل الطرف الآخر للحبل الثاني. حين ينتهي = 45 دقيقة."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-056",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Logic & Deduction",
-        "ar": "المنطق والاستنتاج"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
       "en": "On an island, every person is either a knight (always tells truth) or a knave (always lies). You meet two people, A and B. A says: 'At least one of us is a knave.' What are A and B?",
@@ -893,14 +1058,17 @@
     "answer": {
       "en": "A is a knight and B is a knave. If A were a knave, his statement ('at least one is a knave') would be true — a contradiction. So A is a knight telling the truth, which means B must be the knave.",
       "ar": "A فارس وB لئيم. لو كان A لئيماً لكانت عبارته صحيحة — وهو تناقض. إذن A فارس يصدق: أحدهما لئيم، فـB هو اللئيم."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-057",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What is the last digit of 7¹⁰⁰?",
@@ -909,14 +1077,17 @@
     "answer": {
       "en": "1. The last digits of powers of 7 cycle in groups of 4: 7, 9, 3, 1. Since 100 ÷ 4 = 25 exactly, the last digit is 1.",
       "ar": "1. الرقم الأخير لقوى 7 يتكرر في دورات من 4: 7، 9، 3، 1. بما أن 100 ÷ 4 = 25 تماماً، الرقم الأخير هو 1."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-058",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Numbers & Patterns",
-        "ar": "الأرقام والأنماط"
+      "en": "Numbers & Patterns",
+      "ar": "الأرقام والأنماط"
     },
     "question": {
       "en": "What is the formula for the number of diagonals in an n-sided polygon?",
@@ -925,14 +1096,17 @@
     "answer": {
       "en": "n(n−3)/2. Each vertex connects to n−3 others (excluding itself and its two adjacent vertices), divided by 2 to avoid double-counting.",
       "ar": "n(n−3)/2. كل رأس يتصل بـ n−3 رؤوس أخرى (باستثناء نفسه والرأسَين المجاورَين)، مقسومة على 2 لتجنب الحساب المكرر."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-059",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Paradoxes & Philosophy",
-        "ar": "المفارقات والفلسفة"
+      "en": "Paradoxes & Philosophy",
+      "ar": "المفارقات والفلسفة"
     },
     "question": {
       "en": "Gödel proved that in any consistent formal system powerful enough to express arithmetic, there are true statements that cannot be proved within that system. What is the name of this result and what does it imply?",
@@ -941,14 +1115,17 @@
     "answer": {
       "en": "Gödel's Incompleteness Theorem (1931). It implies mathematics cannot be both complete and consistent — no formal system can prove all truths about arithmetic, demolishing Hilbert's program to found all math on a complete, consistent axiomatic basis.",
       "ar": "مبرهنة غودل عن عدم الاكتمال (1931). تعني أن الرياضيات لا تستطيع أن تكون كاملة ومتسقة في آنٍ واحد — ودمّرت برنامج هيلبرت لتأسيس الرياضيات كلها على نظام بديهيات كامل ومتسق."
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
     "id": "logic-puzzles-060",
     "difficulty": "very-advanced",
     "subcategory": {
-        "en": "Constraints & Ordering",
-        "ar": "القيود والترتيب"
+      "en": "Constraints & Ordering",
+      "ar": "القيود والترتيب"
     },
     "question": {
       "en": "Crack the three-digit code. Each clue is exact: 682—one digit is correct and well placed; 614—one digit is correct but wrongly placed; 206—two digits are correct but wrongly placed; 738—no digit is correct; 780—one digit is correct but wrongly placed. What is the code?",
@@ -957,6 +1134,9 @@
     "answer": {
       "en": "042. Clue 738 removes 7, 3, and 8. Clue 780 then places 0 in the code but not third. Clues 682 and 614 eliminate 6 and put 2 third. Clue 206 puts 0 first, leaving 4 in the middle.",
       "ar": "042. تستبعد القرينة 738 الأرقام 7 و3 و8. ثم تثبت 780 وجود 0 لكن ليس في الخانة الثالثة. تستبعد القرينتان 682 و614 الرقم 6 وتضعان 2 في الخانة الثالثة. وتضع 206 الرقم 0 أولاً، فيتبقى 4 في الوسط."
+    },
+    "review": {
+      "status": "pending"
     }
   }
 ]

@@ -5,19 +5,108 @@ incidents. Production recovery is a deliberate destructive operation: record
 the UTC incident time and obtain explicit owner approval before restoring D1,
 rolling back a Worker, deleting sessions, or rotating password material.
 
+Recovery readiness is evidenced by `.github/workflows/recovery-verification.yml`:
+
+- Every Monday it performs read-only Time Travel lookups for the current
+  production bookmark and a point 24 hours earlier. Its JSON receipt binds both
+  bookmarks to the Git commit, Wrangler version, database UUID, and a SHA-256
+  manifest of every migration.
+- On January, April, July, and October 1 it replays every migration into a local
+  D1 database, hashes the reconstructed SQLite schema, and emits a readiness
+  receipt. The same quarterly schedule opens a protected-environment restore
+  drill that waits for an authorized reviewer before it can touch the dedicated
+  non-production database; neither job contacts the production database.
+- The protected restore drill writes synthetic canary values to the dedicated
+  `jakh-recovery-drill` D1 database, restores the baseline bookmark, verifies the
+  baseline, restores the post-mutation bookmark, verifies the undo, and removes
+  the canary. It cannot target the checked-in production UUID or database name.
+
+Receipts are JSON GitHub artifacts retained for 90 days. They contain no table
+rows, query results, credentials, password material, or database exports. A
+failed check also emits a failed receipt when possible. Workflow logs and
+artifacts are evidence, not backups; deleting a workflow run also deletes its
+artifacts.
+
+The API deployment workflow uses two explicit runs. The `compatibility` run
+deploys schema-tolerant code without a bookmark or any D1 migration command and
+proves the database state stayed unchanged. The later `migrate-final` run first
+requires the active Worker health contract to name the actual schema, target
+schema, compatible schema range, source version, and honest feature readiness.
+Only after that machine-verifiable evidence passes does it resolve both the
+current production Time Travel bookmark and a point 24 hours earlier. The
+`pre-migration-recovery-bookmark.json` receipt is uploaded with the release
+receipt, binding the recovery point to the exact release commit and migration
+manifest. It proves Cloudflare recovery availability inside the plan's Time
+Travel window; it does not replace a separately controlled, long-retention
+encrypted backup.
+
+The monitor triggered by a successful `compatibility` run accepts only a schema
+inside that Worker's declared range and checks feature readiness against the
+actual schema. Scheduled, manual, Pages-triggered, and `migrate-final` monitors
+remain strict: production must report target schema 8 with every feature ready.
+
+## Required one-time configuration
+
+1. Create a Cloudflare API token with account-level **D1 Read** only. Save it as
+   the repository secret `CLOUDFLARE_RECOVERY_READ_TOKEN`. The weekly job uses
+   this token only for `d1 time-travel info`; it never executes SQL or restores.
+2. Keep the Cloudflare account ID in the repository secret
+   `CLOUDFLARE_ACCOUNT_ID`.
+3. Create a separate, empty D1 database named exactly `jakh-recovery-drill`.
+   Never bind an application Worker to it and never seed it with production
+   exports or user data.
+4. Create the GitHub environment `recovery-drill`, enable required reviewers,
+   prevent self-review where available, restrict deployment branches to
+   `main`, and store `CLOUDFLARE_RECOVERY_DRILL_TOKEN` and
+   `CLOUDFLARE_RECOVERY_DRILL_DATABASE_ID` in that environment. The first secret
+   is a token that needs **D1 Edit**; the second is the UUID of the dedicated
+   `jakh-recovery-drill` database. The token should be a separate credential
+   from deployment and read-only recovery tokens and should be limited to the
+   JAKH Cloudflare account with the shortest practical lifetime.
+5. Run **Verify recovery readiness** from `main`, choose `restore-drill`, enter
+   `jakh-recovery-drill`, enter its UUID, and type the exact confirmation
+   `RESTORE jakh-recovery-drill`. The protected environment approval is a second
+   deliberate control. The workflow refuses a non-`main` ref, the production
+   UUID, a different database name, or an inexact confirmation.
+6. Approve the protected quarterly restore-drill job after confirming the target
+   shown by GitHub is the dedicated non-production database. If approval is not
+   granted, the quarterly drill is visibly overdue rather than silently skipped.
+
+The workflow never creates or uploads a plaintext production export. If a
+longer-than-Time-Travel backup is required, send an encrypted export directly
+to separately controlled private storage and record only its checksum, storage
+object version, encryption-key reference, retention date, and restore-test
+receipt in the release record.
+
 ## Before every production migration
 
-1. Record the current Git commit, Worker deployment/version, D1 schema version,
-   and a current D1 Time Travel bookmark.
-2. Create an encrypted D1 export in private storage controlled separately from
+1. Run **Deploy API** with phase `compatibility`. Confirm its receipt says
+   `compatibility-worker-verified`, that `databaseMutationAllowed` is `false`,
+   and that the pre- and post-deployment D1 schema and migration state match.
+   This phase cannot apply D1 migrations.
+2. In a separate workflow run, select `migrate-final`. Before approving any
+   further action, confirm preflight recorded the exact one active Worker as
+   both `provenCompatibilityWorker` and `workerRollbackTarget`. The workflow
+   derives compatibility from the live health contract; a typed or manual
+   compatibility attestation is not accepted as evidence. It also requires the
+   active compatibility deployment message to match the exact current commit
+   and target schema, so a changed `main` must repeat the compatibility phase.
+3. Confirm the final-phase run produced
+   `pre-migration-recovery-bookmark.json`. It provides the Git commit, migration
+   manifest, database identity, current bookmark, and a 24-hour historical
+   bookmark. The workflow blocks before migrations if this evidence is absent.
+4. Create an encrypted D1 export in private storage controlled separately from
    the public GitHub repository. Never upload a raw database export as a public
    repository artifact.
-3. Apply migrations, deploy the Worker, and verify health, registration/login,
-   profile sync, leaderboard, suggestions, and battle-room creation.
-4. Keep the pre-change bookmark and export until the release has been stable
+5. Let the workflow apply migrations. It must prove the same active
+   compatibility Worker stays healthy on the target schema before the final
+   Worker deployment can begin. Verify health, registration/login, recovery,
+   account deletion, profile sync, leaderboard, suggestions, and battle-room
+   creation as applicable to the reported feature readiness.
+6. Keep the pre-change bookmark and export until the release has been stable
    through the recovery window.
 
-Useful discovery commands:
+Useful discovery commands (read-only unless an export is explicitly requested):
 
 ```sh
 npx wrangler deployments list
@@ -45,16 +134,41 @@ production database into the repository tree.
 5. Re-run the production health and authenticated smoke tests. Document every
    lost or replayed operation and notify affected users when appropriate.
 
-Cloudflare D1 Time Travel is automatic, but the Free-plan recovery window is
-limited. Maintain a weekly encrypted export outside the production account and
-perform a quarterly restore drill against a non-production database.
+Cloudflare D1 Time Travel is automatic, but the recovery window is plan-limited.
+The weekly bookmark receipt proves the current API can resolve both current and
+24-hour historical bookmarks; it does not extend Cloudflare retention. Maintain
+an encrypted export outside the production account when longer retention is
+required and complete the protected non-production restore drill at least
+quarterly.
+
+## Running and interpreting verification
+
+Local validation never contacts Cloudflare:
+
+```sh
+cd worker
+npm ci --no-audit --no-fund
+npm run recovery:validate
+node --test tests/recovery-evidence.test.mjs
+npm run recovery:readiness -- --output /tmp/jakh-recovery-readiness.json
+```
+
+For GitHub evidence, use the **Verify recovery readiness** workflow. A valid
+receipt has `formatVersion: 1`, `status: "passed"`,
+`plaintextDatabaseExportCreated: false`, the expected commit SHA, and matching
+migration and schema hashes for the release. Treat missing, expired, failed, or
+wrong-commit evidence as no evidence. Do not copy a successful receipt forward
+to a different release.
 
 ## Worker rollback
 
 Use `npx wrangler deployments list` to identify the last known-good version and
-follow the current Wrangler rollback prompt. A Worker rollback does not undo a
-D1 migration; evaluate Worker and database compatibility separately. Verify the
-API and WebSocket smoke tests immediately after rollback.
+follow the current Wrangler rollback prompt. The automated release path records
+and rolls back an exact version: the prior Worker in `compatibility`, or the
+proven compatibility Worker in `migrate-final`. A Worker rollback does not undo
+a D1 migration; evaluate Worker and database compatibility separately. Verify
+the reported actual schema, compatibility contract, feature readiness, API, and
+WebSocket smoke tests immediately after rollback.
 
 ## Credential or account compromise
 

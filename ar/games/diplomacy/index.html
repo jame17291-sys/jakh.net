@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
+  <meta name="theme-color" content="#fffaf2"/>
+  <meta name="description" content="أصدر الأوامر بالتزامن وسيطر على المناطق وتفوّق على خصمك في دبلوماسية لايت. العب فورًا بلا تنزيل أو تسجيل." />
+  <title>دبلوماسية لايت أونلاين — لعبة متصفح مجانية | JAKH</title>
+  <link rel="preload" href="/styles.css?v=2026080101" as="style"/>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="canonical" href="https://jakh.net/ar/games/diplomacy/"/>
+    <link rel="alternate" hreflang="en" href="https://jakh.net/diplomacy" />
+    <link rel="alternate" hreflang="ar" href="https://jakh.net/ar/games/diplomacy/" />
+    <link rel="alternate" hreflang="x-default" href="https://jakh.net/diplomacy" />
+  <meta name="robots" content="index,follow"/>
+  <meta property="og:title" content="دبلوماسية لايت أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta property="og:description" content="أصدر الأوامر بالتزامن وسيطر على المناطق وتفوّق على خصمك في دبلوماسية لايت. العب فورًا بلا تنزيل أو تسجيل." />
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://jakh.net/ar/games/diplomacy/"/>
+  <meta property="og:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <meta property="og:site_name" content="JAKH Riddles"/>
+    <meta property="og:locale" content="ar_AE" />
+    <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="دبلوماسية لايت أونلاين — لعبة متصفح مجانية | JAKH" />
+  <meta name="twitter:description" content="أصدر الأوامر بالتزامن وسيطر على المناطق وتفوّق على خصمك في دبلوماسية لايت. العب فورًا بلا تنزيل أو تسجيل." />
+  <meta name="twitter:image" content="https://jakh.net/assets/og-image.jpg"/>
+    <meta name="twitter:image:alt" content="JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب" />
+  <link rel="stylesheet" href="/styles.css?v=2026080101"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+  <script src="/game-i18n.js?v=2026080101"></script>
+  <style>
+    /* scoped diplomacy styles */
+    :root {
+      --accent: #256aa9;
+      --gilt: #976006;
+      --easy: #1d7051;
+      --danger: #b73545;
+      --p2-color: #7757bd;
+    }
+
+    #diplomacySection {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Status */
+    #dip-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      flex-wrap: wrap;
+    }
+
+    #dip-turn-label {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    #dip-phase-label {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--gilt);
+    }
+
+    /* Score */
+    #dip-score-bar {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.25rem;
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      direction: ltr;
+    }
+
+    .score-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .score-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .score-dot.p1 { background: var(--accent); }
+    .score-dot.p2 { background: var(--p2-color); }
+
+    .score-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .score-count.p1 { color: var(--accent); }
+    .score-count.p2 { color: var(--p2-color); }
+
+    .score-target {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    #dip-win-banner {
+      display: none;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #f7d98a, #f1bf56);
+      border: 1px solid rgba(151, 96, 6, 0.24);
+      border-radius: var(--radius);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--ink);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* Map grid */
+    #dip-map {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      direction: ltr;
+    }
+
+    .dip-territory {
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      border: 2px solid var(--line-strong);
+      position: relative;
+      cursor: default;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      min-height: 80px;
+      background: var(--panel);
+      user-select: none;
+    }
+
+    .dip-territory.neutral { background: var(--panel); }
+    .dip-territory.owner-p1 { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 11%, var(--panel)); }
+    .dip-territory.owner-p2 { border-color: var(--p2-color); background: color-mix(in srgb, var(--p2-color) 11%, var(--panel)); }
+
+    .dip-territory.selected-unit {
+      box-shadow: 0 0 0 2px var(--gilt), 0 7px 18px rgba(32, 50, 71, 0.12);
+      border-color: var(--gilt) !important;
+    }
+
+    .dip-territory.valid-target {
+      cursor: pointer;
+      border-color: var(--easy) !important;
+      background: rgba(72,213,151,0.10) !important;
+    }
+    .dip-territory.valid-target:hover { transform: translateY(-2px); }
+
+    .dip-territory.has-clickable-unit { cursor: pointer; }
+    .dip-territory.has-clickable-unit:hover { transform: translateY(-1px); }
+
+    .terr-name {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      color: var(--text);
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .terr-units {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      min-height: 1.2rem;
+    }
+
+    .unit-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+
+    .unit-dot.p1 { background: var(--accent); }
+    .unit-dot.p2 { background: var(--p2-color); }
+    .unit-dot.ordered { opacity: 0.55; }
+
+    .terr-order-badge {
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      font-size: 0.8125rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1px 4px;
+      max-width: 80px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .terr-capital {
+      position: absolute;
+      bottom: 4px;
+      right: 6px;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(22, 38, 56, 0.55);
+    }
+
+    .terr-capital.p1 { background: var(--accent); }
+    .terr-capital.p2 { background: var(--p2-color); }
+
+    /* Order panel */
+    #dip-order-panel {
+      background: var(--panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    #dip-order-panel h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    #dip-order-hint {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--muted);
+      min-height: 1.2rem;
+    }
+
+    #dip-p1-orders {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .order-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-sm);
+      background: var(--bg-soft);
+      border: 1px solid var(--line-strong);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text);
+      direction: ltr;
+    }
+    .order-chip .order-icon { font-size: 0.85rem; }
+    .order-chip button {
+      margin-inline-start: auto;
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 0 0.2rem;
+    }
+
+    /* Actions */
+    #dip-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .dip-btn {
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .dip-btn:active { transform: scale(0.97); }
+    .dip-btn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--bg-soft); color: var(--text); border: 1px solid var(--line-strong); }
+    .btn-gold { background: #f1bf56; color: var(--ink); }
+    .btn-easy { background: var(--easy); color: #fff; }
+    .btn-danger { background: rgba(255,122,138,0.2); color: var(--danger); border: 1px solid var(--danger); }
+
+    /* Resolution animation */
+    .dip-territory.resolving {
+      animation: pulse-resolve 0.5s ease;
+    }
+
+    @keyframes pulse-resolve {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Log */
+    #dip-log {
+      background: var(--bg-soft);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      max-height: 140px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0.2rem;
+    }
+
+    .log-entry {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .log-entry.log-action { color: var(--easy); }
+    .log-entry.log-ai { color: var(--p2-color); }
+    .log-entry.log-resolve { color: var(--gilt); }
+    .log-entry.log-win { color: var(--gilt); font-weight: 700; }
+    .log-entry.log-bounce { color: var(--danger); }
+
+    @media (max-width: 680px) {
+      #dip-map { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .dip-territory { padding: 0.55rem; min-height: 68px; }
+      .terr-name { font-size: 0.8125rem; }
+    }
+
+    @media (max-width: 440px) {
+      #dip-map { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+    }
+  </style>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Diplomacy Lite",
+  "description": "Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite.",
+  "url": "https://jakh.net/diplomacy",
+  "gamePlatform": "Web browser",
+  "operatingSystem": "Any",
+  "applicationCategory": "GameApplication",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JAKH Riddles",
+    "url": "https://jakh.net/"
+  }
+}
+    </script>
+
+      <script defer src="/privacy-consent.js?v=2026080101"></script>
+  </head>
+<body data-page="game" data-game="diplomacy" data-route-lang="ar">
+  <a href="#top" class="skip-link" data-i18n="skipMain">انتقل إلى المحتوى الرئيسي</a>
+
+  <header class="site-header shell">
+    <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لألغاز JAKH" data-i18n-aria-label="brandHomeLabel">
+      <picture>
+        <source srcset="/assets/logo.webp" type="image/webp"/>
+        <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+    <nav class="header-actions" aria-label="روابط سريعة" data-i18n-aria-label="quickActionsLabel">
+      <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
+      <a class="ghost-btn" href="/ar/play/" data-i18n="navGamesBack">الألعاب ←</a>
+    </nav>
+    <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
+      <label>
+        <span data-i18n="language">اللغة</span>
+        <select id="langSelect">
+          <option value="en" lang="en" dir="ltr">English</option>
+          <option value="ar" lang="ar" dir="rtl">العربية</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">استراتيجية · سيطرة على المناطق</p>
+        <h1 data-i18n="heroTitle">⚔️ دبلوماسية لايت</h1>
+        <p class="hero-text" data-i18n="heroText">قد الجيوش وأصدر الأوامر بالتزامن واحسم النزاعات. سيطر على 7 من أصل 12 منطقة للفوز.</p>
+      </div>
+    </section>
+
+    <section class="shell section-block" id="diplomacySection">
+      <!-- Status -->
+      <div id="dip-status-bar">
+        <span id="dip-turn-label"></span>
+        <span id="dip-phase-label"></span>
+      </div>
+
+      <!-- Score -->
+      <div id="dip-score-bar">
+        <div class="score-item">
+          <div class="score-dot p1"></div>
+          <span dir="auto" data-i18n="player1">اللاعب 1</span>
+          <span class="score-count p1" id="score-p1"></span>
+        </div>
+        <span class="score-target" dir="auto" data-i18n="scoreTarget">أول من يسيطر على 7 يفوز</span>
+        <div class="score-item">
+          <div class="score-dot p2"></div>
+          <span dir="auto" data-i18n="aiPlayer">الذكاء الاصطناعي (ل2)</span>
+          <span class="score-count p2" id="score-p2"></span>
+        </div>
+      </div>
+
+      <div id="dip-win-banner"></div>
+
+      <!-- Map -->
+      <div id="dip-map" role="group" aria-label="خريطة دبلوماسية" data-i18n-aria-label="mapLabel" dir="ltr"></div>
+
+      <!-- Order panel -->
+      <div id="dip-order-panel">
+        <h2 data-i18n="ordersTitle">📄 أوامرك (اللاعب 1)</h2>
+        <div id="dip-order-hint"></div>
+        <div id="dip-p1-orders"></div>
+      </div>
+
+      <!-- Actions -->
+      <div id="dip-actions">
+        <button class="dip-btn btn-secondary" id="btn-hold" disabled data-i18n="holdSelected">🛡️ ثبّت المحدد</button>
+        <button class="dip-btn btn-secondary" id="btn-support" disabled data-i18n="supportHold">⚔️ دعم (ثبات)</button>
+        <button class="dip-btn btn-secondary" id="btn-cancel-select" disabled data-i18n="deselect">✕ إلغاء التحديد</button>
+        <button class="dip-btn btn-easy" id="btn-resolve" disabled data-i18n="resolveOrders">▶ حسم الأوامر</button>
+        <button class="dip-btn btn-danger" id="btn-restart" style="margin-inline-start:auto;" data-i18n="restart">↺ إعادة البدء</button>
+      </div>
+
+      <!-- Log -->
+      <div id="dip-log" aria-live="polite" aria-label="سجل اللعبة" data-i18n-aria-label="gameLogLabel"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div class="footer-inner">
+      <p class="footer-copy" data-i18n="footerNote">جميع الحقوق محفوظة لـ JAKH 2026</p>
+      <nav class="footer-site-links" aria-label="معلومات JAKH" data-i18n-aria-label="footerInfoLabel"><a href="/ar/collections/" data-i18n="footerCollections">المجموعات</a><a href="/ar/about/" data-i18n="footerAbout">عن JAKH ومعايير المحتوى</a><a href="/ar/privacy/" data-i18n="footerPrivacy">مركز الخصوصية</a></nav>
+        <div class="footer-socials">
+        <a href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على إنستغرام" data-i18n-aria-label="instagramLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span data-i18n="instagramName">إنستغرام</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" class="social-link" aria-label="ألغاز JAKH على فيسبوك" data-i18n-aria-label="facebookLabel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span data-i18n="facebookName">فيسبوك</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script id="diplomacy-i18n">
+  JakhGameI18n.register('diplomacy', {
+    en: {
+      metaTitle: 'Diplomacy Lite Online — Free Browser Game | JAKH',
+      metaDescription: 'Issue simultaneous orders, control territories, and outthink your opponent in Diplomacy Lite. Play instantly with no download or sign-up.',
+      metaImageAlt: 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games',
+      heroEyebrow: 'Strategy · Area Control',
+      heroTitle: '⚔️ Diplomacy Lite',
+      heroText: 'Command armies, issue simultaneous orders, resolve conflicts. Control 7 of 12 territories to win.',
+      player1: 'Player 1',
+      aiPlayer: 'AI (P2)',
+      player1Name: 'Player 1',
+      aiName: 'AI',
+      scoreTarget: 'First to 7 wins',
+      mapLabel: 'Diplomacy map',
+      ordersTitle: '📄 Your Orders (Player 1)',
+      holdSelected: '🛡️ Hold Selected',
+      supportHold: '⚔️ Support (hold)',
+      deselect: '✕ Deselect',
+      resolveOrders: '▶ Resolve Orders',
+      restart: '↺ Restart',
+      gameLogLabel: 'Game log',
+      turnLabel: 'Turn {turn}',
+      phaseOrders: 'Orders Phase — Issue your commands',
+      phaseResolving: 'Resolving orders…',
+      statusP1Wins: '🏆 Player 1 Wins!',
+      statusAIWins: '🏆 AI Wins!',
+      winP1Banner: '🏆 Player 1 controls 7 territories — Victory!',
+      winAIBanner: '🏆 AI (Player 2) controls 7 territories — Defeat!',
+      hintSelected: 'Selected: {territory}. Click a highlighted territory to move, or use Hold/Support buttons.',
+      hintGameOver: 'Game over.',
+      hintSelect: 'Click one of your armies (🔴) to select it, then click a target to move.',
+      ownerP1: 'controlled by Player 1',
+      ownerP2: 'controlled by the AI',
+      ownerNeutral: 'neutral',
+      territoryAria: '{territory}, {owner}',
+      p1Army: 'Player 1 army',
+      p2Army: 'AI army',
+      badgeMove: '→ {territory}',
+      badgeHold: 'HOLD',
+      badgeSupport: 'SUP',
+      orderNone: 'No orders yet. All unordered units will hold.',
+      orderMove: '{from} → {to}',
+      orderHold: '{from}: HOLD',
+      orderSupport: '{from}: SUPPORT at {target}',
+      removeOrder: 'Remove order for {territory}',
+      eventPlayerMoveOrder: 'P1: {from} → {to}',
+      eventPlayerHoldOrder: 'P1: {territory} HOLD',
+      eventPlayerSupportOrder: 'P1: {territory} SUPPORT (hold)',
+      eventAIMoveOrder: 'AI: {from} → {to}',
+      eventAIHoldOrder: 'AI: {territory} HOLD',
+      eventBounceDefender: '{player} army from {from} bounced off {to} (defender held).',
+      eventStandoffAll: 'Standoff at {territory} — all attackers bounce.',
+      eventStandoffDefender: 'Standoff at {territory} — defender held.',
+      eventContestWin: '{player} army wins the contest at {territory} (strength {strength}).',
+      eventDislodged: '{player} army was dislodged from {territory}!',
+      eventMove: '{player} moves from {from} → {to}.',
+      eventP1Win: '🏆 Player 1 wins!',
+      eventAIWin: '🏆 AI wins!',
+      eventNewGame: 'New game started. Issue orders, then resolve.',
+      eventWelcome: 'Welcome to Diplomacy Lite! Click your armies to give orders.',
+      territoryNORTH: 'North',
+      territoryCOAST: 'Coast',
+      territoryVALLEY: 'Valley',
+      territoryMOUNTAINS: 'Mountains',
+      territoryPLAINS: 'Plains',
+      territoryRIVER: 'River',
+      territoryFOREST: 'Forest',
+      territoryDESERT: 'Desert',
+      territoryHARBOR: 'Harbor',
+      territoryCAPITAL_A: 'Capital A',
+      territoryCAPITAL_B: 'Capital B',
+      territoryCROSSROADS: 'Crossroads'
+    },
+    ar: {
+      metaTitle: 'دبلوماسية لايت أونلاين — لعبة متصفح مجانية | JAKH',
+      metaDescription: 'أصدر الأوامر بالتزامن وسيطر على المناطق وتفوّق على خصمك في دبلوماسية لايت. العب فورًا بلا تنزيل أو تسجيل.',
+      metaImageAlt: 'JAKH — 3,553 لغزًا ثنائي اللغة في 56 موضوعًا و10 ألعاب',
+      heroEyebrow: 'استراتيجية · سيطرة على المناطق',
+      heroTitle: '⚔️ دبلوماسية لايت',
+      heroText: 'قد الجيوش وأصدر الأوامر بالتزامن واحسم النزاعات. سيطر على 7 من أصل 12 منطقة للفوز.',
+      player1: 'اللاعب 1',
+      aiPlayer: 'الذكاء الاصطناعي (ل2)',
+      player1Name: 'اللاعب 1',
+      aiName: 'الذكاء الاصطناعي',
+      scoreTarget: 'أول من يسيطر على 7 يفوز',
+      mapLabel: 'خريطة دبلوماسية',
+      ordersTitle: '📄 أوامرك (اللاعب 1)',
+      holdSelected: '🛡️ ثبّت المحدد',
+      supportHold: '⚔️ دعم (ثبات)',
+      deselect: '✕ إلغاء التحديد',
+      resolveOrders: '▶ حسم الأوامر',
+      restart: '↺ إعادة البدء',
+      gameLogLabel: 'سجل اللعبة',
+      turnLabel: 'الدور {turn}',
+      phaseOrders: 'مرحلة الأوامر — أصدر تعليماتك',
+      phaseResolving: 'جارٍ حسم الأوامر…',
+      statusP1Wins: '🏆 فاز اللاعب 1!',
+      statusAIWins: '🏆 فاز الذكاء الاصطناعي!',
+      winP1Banner: '🏆 يسيطر اللاعب 1 على 7 مناطق — انتصار!',
+      winAIBanner: '🏆 يسيطر الذكاء الاصطناعي (اللاعب 2) على 7 مناطق — هزيمة!',
+      hintSelected: 'المحدد: {territory}. اضغط منطقة مميزة للتحرك، أو استخدم زري الثبات أو الدعم.',
+      hintGameOver: 'انتهت اللعبة.',
+      hintSelect: 'اضغط أحد جيوشك (🔴) لتحديده، ثم اضغط المنطقة التي تريد التحرك إليها.',
+      ownerP1: 'تحت سيطرة اللاعب 1',
+      ownerP2: 'تحت سيطرة الذكاء الاصطناعي',
+      ownerNeutral: 'محايدة',
+      territoryAria: '{territory}، {owner}',
+      p1Army: 'جيش اللاعب 1',
+      p2Army: 'جيش الذكاء الاصطناعي',
+      badgeMove: 'إلى {territory}',
+      badgeHold: 'ثبات',
+      badgeSupport: 'دعم',
+      orderNone: 'لا توجد أوامر بعد. ستثبت جميع الوحدات التي لم تُصدر لها أوامر.',
+      orderMove: 'من {from} إلى {to}',
+      orderHold: '{from}: ثبات',
+      orderSupport: '{from}: دعم في {target}',
+      removeOrder: 'إزالة أمر {territory}',
+      eventPlayerMoveOrder: 'اللاعب 1: من {from} إلى {to}',
+      eventPlayerHoldOrder: 'اللاعب 1: ثبات في {territory}',
+      eventPlayerSupportOrder: 'اللاعب 1: دعم الثبات في {territory}',
+      eventAIMoveOrder: 'الذكاء الاصطناعي: من {from} إلى {to}',
+      eventAIHoldOrder: 'الذكاء الاصطناعي: ثبات في {territory}',
+      eventBounceDefender: 'ارتد جيش {player} القادم من {from} عن {to} (صمد المدافع).',
+      eventStandoffAll: 'تعادل في {territory} — تراجعت جميع القوات المهاجمة.',
+      eventStandoffDefender: 'تعادل في {territory} — صمد المدافع.',
+      eventContestWin: 'فاز جيش {player} بالمواجهة في {territory} (القوة {strength}).',
+      eventDislodged: 'أُجبر جيش {player} على الانسحاب من {territory}!',
+      eventMove: 'تحرك {player} من {from} إلى {to}.',
+      eventP1Win: '🏆 فاز اللاعب 1!',
+      eventAIWin: '🏆 فاز الذكاء الاصطناعي!',
+      eventNewGame: 'بدأت لعبة جديدة. أصدر الأوامر ثم احسمها.',
+      eventWelcome: 'مرحبًا بك في دبلوماسية لايت! اضغط جيوشك لإصدار الأوامر.',
+      territoryNORTH: 'الشمال',
+      territoryCOAST: 'الساحل',
+      territoryVALLEY: 'الوادي',
+      territoryMOUNTAINS: 'الجبال',
+      territoryPLAINS: 'السهول',
+      territoryRIVER: 'النهر',
+      territoryFOREST: 'الغابة',
+      territoryDESERT: 'الصحراء',
+      territoryHARBOR: 'الميناء',
+      territoryCAPITAL_A: 'العاصمة أ',
+      territoryCAPITAL_B: 'العاصمة ب',
+      territoryCROSSROADS: 'ملتقى الطرق'
+    }
+  });
+  </script>
+
+  <!-- Engine -->
+  <script id="diplomacy-engine">
+  const DiplomacyEngine = (() => {
+
+    // Territory definitions
+    const TERRITORY_DEFS = [
+      { id: 'NORTH',      adj: ['COAST','VALLEY','MOUNTAINS'] },
+      { id: 'COAST',      adj: ['NORTH','HARBOR','PLAINS'] },
+      { id: 'VALLEY',     adj: ['NORTH','PLAINS','FOREST'] },
+      { id: 'MOUNTAINS',  adj: ['NORTH','DESERT','CROSSROADS'] },
+      { id: 'PLAINS',     adj: ['COAST','VALLEY','RIVER','CROSSROADS'] },
+      { id: 'RIVER',      adj: ['PLAINS','HARBOR','CAPITAL-A'] },
+      { id: 'FOREST',     adj: ['VALLEY','CAPITAL-B','CROSSROADS'] },
+      { id: 'DESERT',     adj: ['MOUNTAINS','CAPITAL-B'] },
+      { id: 'HARBOR',     adj: ['COAST','RIVER'] },
+      { id: 'CAPITAL-A',  adj: ['RIVER'], capital: 'p1' },
+      { id: 'CAPITAL-B',  adj: ['FOREST','DESERT'], capital: 'p2' },
+      { id: 'CROSSROADS', adj: ['MOUNTAINS','PLAINS','FOREST'] },
+    ];
+
+    // Setup
+    const INITIAL_OWNERSHIP = {
+      'CAPITAL-A': 'p1', 'COAST': 'p1', 'HARBOR': 'p1',
+      'CAPITAL-B': 'p2', 'MOUNTAINS': 'p2', 'DESERT': 'p2',
+    };
+
+    const INITIAL_UNITS = [
+      { territory: 'CAPITAL-A', owner: 'p1' },
+      { territory: 'CAPITAL-A', owner: 'p1' },
+      { territory: 'COAST',     owner: 'p1' },
+      { territory: 'CAPITAL-B', owner: 'p2' },
+      { territory: 'CAPITAL-B', owner: 'p2' },
+      { territory: 'MOUNTAINS', owner: 'p2' },
+    ];
+
+    function initState() {
+      const territories = TERRITORY_DEFS.map(td => ({
+        id: td.id,
+        adj: [...td.adj],
+        capital: td.capital || null,
+        owner: INITIAL_OWNERSHIP[td.id] || null,
+        units: [],
+      }));
+
+      // Place units
+      for (const u of INITIAL_UNITS) {
+        const t = territories.find(t => t.id === u.territory);
+        t.units.push({ owner: u.owner, type: 'army', id: genId() });
+      }
+
+      return {
+        territories,
+        turn: 1,
+        phase: 'orders',
+        orders: { p1: [], p2: [] },
+        score: { p1: 3, p2: 3 },
+        status: 'playing',
+        log: [],
+      };
+    }
+
+    let _idCounter = 1;
+    function genId() { return 'u' + (_idCounter++); }
+    function event(code, params = {}, tone = 'resolve') {
+      return { code, params, tone };
+    }
+
+    // ---- Order validation ----
+
+    function getTerritory(state, id) {
+      return state.territories.find(t => t.id === id);
+    }
+
+    function areAdjacent(state, idA, idB) {
+      const t = getTerritory(state, idA);
+      return t && t.adj.includes(idB);
+    }
+
+    function issueOrder(state, player, order) {
+      // order: { unitId, unitTerritory, type: 'move'|'hold'|'support', target: terrId|null, supportOf: unitId|null }
+      const newState = deepClone(state);
+      // Remove existing order for this unit
+      newState.orders[player] = newState.orders[player].filter(o => o.unitId !== order.unitId);
+      newState.orders[player].push(order);
+      return newState;
+    }
+
+    // ---- Resolution ----
+
+    function resolveOrders(state) {
+      const newState = deepClone(state);
+      const events = [];
+
+      // Build move map: from -> {unitId, owner, to}
+      const moves = [];
+      const supports = {};
+
+      for (const player of ['p1','p2']) {
+        for (const order of newState.orders[player]) {
+          if (order.type === 'move') {
+            moves.push({ unitId: order.unitId, owner: player, from: order.unitTerritory, to: order.target });
+          } else if (order.type === 'support') {
+            // support a move or hold at a territory
+            const key = order.target;
+            if (!supports[key]) supports[key] = { p1: 0, p2: 0 };
+            supports[key][player] = (supports[key][player] || 0) + 1;
+          }
+        }
+      }
+
+      // Resolve moves
+      // Group moves by destination
+      const byDest = {};
+      for (const mv of moves) {
+        if (!byDest[mv.to]) byDest[mv.to] = [];
+        byDest[mv.to].push(mv);
+      }
+
+      const successful = new Set();
+
+      for (const dest of Object.keys(byDest)) {
+        const contenders = byDest[dest];
+        const destTerr = getTerritory(newState, dest);
+
+        // Compute strength: base 1 + support toward this dest
+        const strengths = contenders.map(mv => {
+          const sup = (supports[dest] && supports[dest][mv.owner]) || 0;
+          return { ...mv, strength: 1 + sup };
+        });
+
+        // Also check defender strength (hold/no-order unit in dest)
+        const defenderUnits = destTerr.units;
+        let defenderStrength = 0;
+        for (const du of defenderUnits) {
+          // Only count as defender if not trying to move out
+          const isMovingOut = moves.some(m => m.unitId === du.id && m.from === dest);
+          if (!isMovingOut) {
+            const sup = (supports[dest] && supports[dest][du.owner]) || 0;
+            defenderStrength = Math.max(defenderStrength, 1 + sup);
+          }
+        }
+
+        if (contenders.length === 1) {
+          const mv = strengths[0];
+          // Check defender
+          if (defenderUnits.length > 0 && defenderStrength >= mv.strength) {
+            events.push(event('bounceDefender', {
+              owner: mv.owner,
+              from: mv.from,
+              to: dest,
+            }, 'bounce'));
+          } else {
+            successful.add(mv.unitId);
+          }
+        } else {
+          // Multiple contenders — highest strength wins, tie = all bounce
+          const maxStr = Math.max(...strengths.map(s => s.strength));
+          const winners = strengths.filter(s => s.strength === maxStr);
+          if (winners.length > 1) {
+            events.push(event('standoffAll', { territory: dest }, 'bounce'));
+          } else {
+            const winner = winners[0];
+            // Winner must beat defender too
+            if (defenderStrength >= winner.strength) {
+              events.push(event('standoffDefender', { territory: dest }, 'bounce'));
+            } else {
+              successful.add(winner.unitId);
+              events.push(event('contestWin', {
+                owner: winner.owner,
+                territory: dest,
+                strength: winner.strength,
+              }));
+            }
+          }
+        }
+      }
+
+      // Apply successful moves
+      for (const mv of moves) {
+        if (!successful.has(mv.unitId)) continue;
+        // Find unit in from territory
+        const fromTerr = getTerritory(newState, mv.from);
+        const toTerr = getTerritory(newState, mv.to);
+        const unitIdx = fromTerr.units.findIndex(u => u.id === mv.unitId);
+        if (unitIdx === -1) continue;
+        const unit = fromTerr.units.splice(unitIdx, 1)[0];
+        // Dislodge enemy units (move them back — simplified: remove dislodged unit if only one)
+        const enemyInDest = toTerr.units.filter(u => u.owner !== unit.owner);
+        if (enemyInDest.length > 0) {
+          // Dislodge: remove enemy unit (simplified — in full Diplomacy they retreat)
+          for (const eu of enemyInDest) {
+            const ei = toTerr.units.findIndex(u => u.id === eu.id);
+            if (ei !== -1) toTerr.units.splice(ei, 1);
+            events.push(event('dislodged', {
+              owner: eu.owner,
+              territory: mv.to,
+            }, 'bounce'));
+          }
+        }
+        toTerr.units.push(unit);
+        // Change ownership
+        toTerr.owner = unit.owner;
+        events.push(event('move', {
+          owner: unit.owner,
+          from: mv.from,
+          to: mv.to,
+        }));
+      }
+
+      // Update ownership for territories where units end up
+      for (const terr of newState.territories) {
+        if (terr.units.length > 0) {
+          // If all units are same owner, set ownership
+          const owners = [...new Set(terr.units.map(u => u.owner))];
+          if (owners.length === 1) terr.owner = owners[0];
+        }
+        // If territory has no units and was neutral, stays owner (last controller)
+      }
+
+      // Score: count territories each player owns
+      newState.score.p1 = newState.territories.filter(t => t.owner === 'p1').length;
+      newState.score.p2 = newState.territories.filter(t => t.owner === 'p2').length;
+
+      // Status
+      newState.status = getStatus(newState);
+
+      // Next turn
+      newState.turn += 1;
+      newState.phase = 'orders';
+      newState.orders = { p1: [], p2: [] };
+      newState.log = [...events, ...newState.log];
+
+      return { state: newState, events };
+    }
+
+    function getStatus(state) {
+      if (state.score.p1 >= 7) return 'p1-wins';
+      if (state.score.p2 >= 7) return 'p2-wins';
+      return 'playing';
+    }
+
+    function getAIOrders(state) {
+      // Simple AI for p2: move armies toward unowned/p1 territories; fall back to hold
+      const orders = [];
+      const p2Units = [];
+
+      for (const terr of state.territories) {
+        for (const unit of terr.units) {
+          if (unit.owner === 'p2') {
+            p2Units.push({ unit, terr });
+          }
+        }
+      }
+
+      for (const { unit, terr } of p2Units) {
+        // Find best adjacent territory to move to
+        let bestTarget = null;
+        let bestScore = -999;
+
+        for (const adjId of terr.adj) {
+          const adjTerr = getTerritory(state, adjId);
+          // Score: prefer unowned > p1-owned, avoid p2-owned unless it's empty
+          let score = 0;
+          if (adjTerr.owner === 'p1') score = 10;
+          else if (adjTerr.owner === null) score = 5;
+          else score = -1; // p2 territory, no point
+
+          // Check if another p2 unit is already trying to move there (avoid collision)
+          const alreadyTargeted = orders.some(o => o.type === 'move' && o.target === adjId);
+          if (alreadyTargeted) score -= 8;
+
+          if (score > bestScore) {
+            bestScore = score;
+            bestTarget = adjId;
+          }
+        }
+
+        if (bestTarget && bestScore > 0) {
+          orders.push({
+            unitId: unit.id,
+            unitTerritory: terr.id,
+            type: 'move',
+            target: bestTarget,
+          });
+        } else {
+          orders.push({
+            unitId: unit.id,
+            unitTerritory: terr.id,
+            type: 'hold',
+            target: null,
+          });
+        }
+      }
+
+      return orders;
+    }
+
+    function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
+
+    return {
+      initState,
+      issueOrder,
+      resolveOrders,
+      getStatus,
+      getAIOrders,
+      getTerritory,
+      areAdjacent,
+      TERRITORY_DEFS,
+    };
+  })();
+  </script>
+
+  <!-- UI -->
+  <script id="diplomacy-ui">
+  (() => {
+    const E = DiplomacyEngine;
+    const i18n = JakhGameI18n;
+    let state = E.initState();
+    let selectedUnit = null; // { unitId, terrId }
+    let resolving = false;
+    let logEntries = [{
+      code: 'welcome',
+      params: {},
+      tone: 'action',
+    }];
+
+    function $(id) { return document.getElementById(id); }
+    function t(key, values) { return i18n.t(key, values); }
+    function territoryName(id) {
+      return id ? t(`territory${id.replaceAll('-', '_')}`) : '?';
+    }
+    function playerName(owner) {
+      return t(owner === 'p1' ? 'player1Name' : 'aiName');
+    }
+    function ownerName(owner) {
+      if (owner === 'p1') return t('ownerP1');
+      if (owner === 'p2') return t('ownerP2');
+      return t('ownerNeutral');
+    }
+
+    function formatEvent(entry) {
+      const p = entry.params || {};
+      const values = {
+        player: playerName(p.owner),
+        from: territoryName(p.from),
+        to: territoryName(p.to),
+        territory: territoryName(p.territory),
+        strength: p.strength === undefined ? '' : i18n.number(p.strength),
+      };
+      const keys = {
+        playerMoveOrder: 'eventPlayerMoveOrder',
+        playerHoldOrder: 'eventPlayerHoldOrder',
+        playerSupportOrder: 'eventPlayerSupportOrder',
+        aiMoveOrder: 'eventAIMoveOrder',
+        aiHoldOrder: 'eventAIHoldOrder',
+        bounceDefender: 'eventBounceDefender',
+        standoffAll: 'eventStandoffAll',
+        standoffDefender: 'eventStandoffDefender',
+        contestWin: 'eventContestWin',
+        dislodged: 'eventDislodged',
+        move: 'eventMove',
+        p1Win: 'eventP1Win',
+        aiWin: 'eventAIWin',
+        newGame: 'eventNewGame',
+        welcome: 'eventWelcome',
+      };
+      return t(keys[entry.code] || entry.code, values);
+    }
+
+    function addLog(code, params = {}, tone = 'action') {
+      logEntries.unshift({ code, params, tone });
+      renderLog();
+    }
+
+    function addLogs(entries) {
+      for (const entry of entries) logEntries.unshift(entry);
+      renderLog();
+    }
+
+    function renderLog() {
+      const logEl = $('dip-log');
+      logEl.innerHTML = '';
+      for (const entry of logEntries) {
+        const el = document.createElement('div');
+        el.className = `log-entry log-${entry.tone || 'resolve'}`;
+        el.dir = 'auto';
+        el.textContent = formatEvent(entry);
+        logEl.appendChild(el);
+      }
+    }
+
+    function render() {
+      const s = state;
+
+      // Status bar
+      $('dip-turn-label').textContent = t('turnLabel', { turn: i18n.number(s.turn) });
+      $('dip-phase-label').textContent = s.status === 'playing'
+        ? t(resolving ? 'phaseResolving' : 'phaseOrders')
+        : t(s.status === 'p1-wins' ? 'statusP1Wins' : 'statusAIWins');
+
+      // Score
+      $('score-p1').textContent = i18n.number(s.score.p1);
+      $('score-p2').textContent = i18n.number(s.score.p2);
+
+      // Win banner
+      const wb = $('dip-win-banner');
+      if (s.status !== 'playing') {
+        wb.style.display = 'block';
+        wb.textContent = t(s.status === 'p1-wins' ? 'winP1Banner' : 'winAIBanner');
+      } else {
+        wb.style.display = 'none';
+      }
+
+      // Map
+      renderMap(s);
+
+      // Orders list
+      renderOrderList(s);
+
+      // Buttons
+      $('btn-hold').disabled = !selectedUnit || s.status !== 'playing';
+      $('btn-support').disabled = !selectedUnit || s.status !== 'playing';
+      $('btn-cancel-select').disabled = !selectedUnit;
+      $('btn-resolve').disabled = s.status !== 'playing' || resolving;
+
+      // Hint
+      const hint = $('dip-order-hint');
+      if (selectedUnit) {
+        hint.textContent = t('hintSelected', {
+          territory: territoryName(selectedUnit.terrId),
+        });
+      } else if (s.status !== 'playing') {
+        hint.textContent = t('hintGameOver');
+      } else {
+        hint.textContent = t('hintSelect');
+      }
+      hint.dir = 'auto';
+    }
+
+    function renderMap(s) {
+      const mapEl = $('dip-map');
+      mapEl.innerHTML = '';
+
+      for (const terr of s.territories) {
+        const card = document.createElement('div');
+        card.className = 'dip-territory';
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', t('territoryAria', {
+          territory: territoryName(terr.id),
+          owner: ownerName(terr.owner),
+        }));
+        card.dataset.terrId = terr.id;
+        card.setAttribute('aria-pressed', String(Boolean(
+          selectedUnit && selectedUnit.terrId === terr.id
+        )));
+
+        // Owner class
+        if (terr.owner === 'p1') card.classList.add('owner-p1');
+        else if (terr.owner === 'p2') card.classList.add('owner-p2');
+        else card.classList.add('neutral');
+
+        // Selected unit highlight
+        if (selectedUnit && selectedUnit.terrId === terr.id) {
+          card.classList.add('selected-unit');
+        }
+
+        // Valid move target
+        if (selectedUnit && selectedUnit.terrId !== terr.id) {
+          if (E.areAdjacent(s, selectedUnit.terrId, terr.id)) {
+            card.classList.add('valid-target');
+          }
+        }
+
+        // Clickable if has p1 unit and no selected unit, or is a valid target
+        const hasP1Unit = terr.units.some(u => u.owner === 'p1');
+        if (!selectedUnit && hasP1Unit && s.status === 'playing') {
+          card.classList.add('has-clickable-unit');
+        }
+
+        const canInteract = s.status === 'playing' && (
+          (!selectedUnit && hasP1Unit) ||
+          (selectedUnit && (
+            selectedUnit.terrId === terr.id ||
+            E.areAdjacent(s, selectedUnit.terrId, terr.id) ||
+            hasP1Unit
+          ))
+        );
+        card.setAttribute('aria-disabled', String(!canInteract));
+        if (canInteract) card.tabIndex = 0;
+        card.addEventListener('click', () => onTerrClick(terr.id));
+        card.addEventListener('keydown', event => {
+          if (!canInteract || (event.key !== 'Enter' && event.key !== ' ')) return;
+          event.preventDefault();
+          onTerrClick(terr.id);
+        });
+
+        // Name
+        const nameEl = document.createElement('div');
+        nameEl.className = 'terr-name';
+        nameEl.dir = 'auto';
+        nameEl.textContent = territoryName(terr.id);
+        card.appendChild(nameEl);
+
+        // Units
+        const unitsEl = document.createElement('div');
+        unitsEl.className = 'terr-units';
+        for (const unit of terr.units) {
+          const dot = document.createElement('div');
+          dot.className = `unit-dot ${unit.owner}`;
+          dot.title = t(unit.owner === 'p1' ? 'p1Army' : 'p2Army');
+          dot.setAttribute('role', 'img');
+          dot.setAttribute('aria-label', dot.title);
+          dot.textContent = unit.owner === 'p1' ? '🔴' : '🔵';
+          dot.style.background = 'none';
+          dot.style.fontSize = '14px';
+          dot.style.width = 'auto';
+          dot.style.height = 'auto';
+          dot.style.border = 'none';
+          // Dim if ordered
+          const ordered = [...s.orders.p1, ...s.orders.p2].some(o => o.unitId === unit.id);
+          if (ordered) dot.style.opacity = '0.5';
+          unitsEl.appendChild(dot);
+        }
+        card.appendChild(unitsEl);
+
+        // Order badge
+        const unitIds = terr.units.map(u => u.id);
+        const relatedOrder = [...s.orders.p1, ...s.orders.p2].find(o => unitIds.includes(o.unitId));
+        if (relatedOrder) {
+          const badge = document.createElement('div');
+          badge.className = 'terr-order-badge';
+          if (relatedOrder.type === 'move') {
+            badge.textContent = t('badgeMove', {
+              territory: territoryName(relatedOrder.target),
+            });
+          } else if (relatedOrder.type === 'hold') {
+            badge.textContent = t('badgeHold');
+          } else if (relatedOrder.type === 'support') {
+            badge.textContent = t('badgeSupport');
+          }
+          badge.dir = 'auto';
+          card.appendChild(badge);
+        }
+
+        // Capital marker
+        if (terr.capital) {
+          const cap = document.createElement('div');
+          cap.className = `terr-capital ${terr.capital}`;
+          cap.setAttribute('aria-hidden', 'true');
+          card.appendChild(cap);
+        }
+
+        mapEl.appendChild(card);
+      }
+    }
+
+    function renderOrderList(s) {
+      const listEl = $('dip-p1-orders');
+      listEl.innerHTML = '';
+      if (s.orders.p1.length === 0) {
+        const empty = document.createElement('div');
+        empty.style.cssText = 'font-size:0.8125rem;color:var(--muted);font-family:var(--font);';
+        empty.dir = 'auto';
+        empty.textContent = t('orderNone');
+        listEl.appendChild(empty);
+        return;
+      }
+      for (const order of s.orders.p1) {
+        const chip = document.createElement('div');
+        chip.className = 'order-chip';
+        const fromName = territoryName(order.unitTerritory);
+
+        let text = '';
+        let icon = '🛡️';
+        if (order.type === 'move') {
+          text = t('orderMove', {
+            from: fromName,
+            to: territoryName(order.target),
+          });
+          icon = '⚔️';
+        } else if (order.type === 'hold') {
+          text = t('orderHold', { from: fromName });
+          icon = '🛡️';
+        } else if (order.type === 'support') {
+          text = t('orderSupport', {
+            from: fromName,
+            target: territoryName(order.target),
+          });
+          icon = '🤝';
+        }
+
+        const iconEl = document.createElement('span');
+        iconEl.className = 'order-icon';
+        iconEl.setAttribute('aria-hidden', 'true');
+        iconEl.textContent = icon;
+        const textEl = document.createElement('span');
+        textEl.dir = 'auto';
+        textEl.textContent = text;
+        chip.append(iconEl, textEl);
+
+        const del = document.createElement('button');
+        del.textContent = '✕';
+        del.title = t('removeOrder', { territory: fromName });
+        del.setAttribute('aria-label', del.title);
+        del.addEventListener('click', () => {
+          state = { ...state, orders: { ...state.orders, p1: state.orders.p1.filter(o => o.unitId !== order.unitId) } };
+          render();
+        });
+        chip.appendChild(del);
+        listEl.appendChild(chip);
+      }
+    }
+
+    function onTerrClick(terrId) {
+      if (state.status !== 'playing') return;
+
+      const terr = E.getTerritory(state, terrId);
+
+      // No unit selected — try to select a p1 unit
+      if (!selectedUnit) {
+        const p1Unit = terr.units.find(u => u.owner === 'p1');
+        if (p1Unit) {
+          selectedUnit = { unitId: p1Unit.id, terrId };
+          render();
+        }
+        return;
+      }
+
+      // Unit selected — if clicking same territory, deselect
+      if (selectedUnit.terrId === terrId) {
+        selectedUnit = null;
+        render();
+        return;
+      }
+
+      // Check if valid move target
+      if (E.areAdjacent(state, selectedUnit.terrId, terrId)) {
+        const from = selectedUnit.terrId;
+        state = E.issueOrder(state, 'p1', {
+          unitId: selectedUnit.unitId,
+          unitTerritory: from,
+          type: 'move',
+          target: terrId,
+        });
+        addLog('playerMoveOrder', { from, to: terrId }, 'action');
+        selectedUnit = null;
+        render();
+        return;
+      }
+
+      // Clicked non-adjacent — try to select a different p1 unit there
+      const p1Unit = terr.units.find(u => u.owner === 'p1');
+      if (p1Unit) {
+        selectedUnit = { unitId: p1Unit.id, terrId };
+        render();
+      } else {
+        selectedUnit = null;
+        render();
+      }
+    }
+
+    function holdSelected() {
+      if (!selectedUnit) return;
+      state = E.issueOrder(state, 'p1', {
+        unitId: selectedUnit.unitId,
+        unitTerritory: selectedUnit.terrId,
+        type: 'hold',
+        target: null,
+      });
+      addLog('playerHoldOrder', { territory: selectedUnit.terrId }, 'action');
+      selectedUnit = null;
+      render();
+    }
+
+    function supportSelected() {
+      if (!selectedUnit) return;
+      // Support = hold with support order for the territory (simplified: support own position)
+      state = E.issueOrder(state, 'p1', {
+        unitId: selectedUnit.unitId,
+        unitTerritory: selectedUnit.terrId,
+        type: 'support',
+        target: selectedUnit.terrId,
+      });
+      addLog('playerSupportOrder', { territory: selectedUnit.terrId }, 'action');
+      selectedUnit = null;
+      render();
+    }
+
+    function cancelSelect() {
+      selectedUnit = null;
+      render();
+    }
+
+    function resolve() {
+      if (resolving || state.status !== 'playing') return;
+      resolving = true;
+      selectedUnit = null;
+      render();
+
+      // Generate AI orders
+      const aiOrders = E.getAIOrders(state);
+      let s = { ...state };
+      for (const order of aiOrders) {
+        s = E.issueOrder(s, 'p2', order);
+      }
+      state = s;
+
+      // Log AI orders
+      for (const order of aiOrders) {
+        if (order.type === 'move') {
+          addLog('aiMoveOrder', {
+            from: order.unitTerritory,
+            to: order.target,
+          }, 'ai');
+        } else {
+          addLog('aiHoldOrder', {
+            territory: order.unitTerritory,
+          }, 'ai');
+        }
+      }
+
+      const result = E.resolveOrders(state);
+      state = result.state;
+      addLogs(result.events);
+
+      resolving = false;
+      render();
+
+      if (state.status !== 'playing') {
+        addLog(state.status === 'p1-wins' ? 'p1Win' : 'aiWin', {}, 'win');
+      }
+    }
+
+    function restart() {
+      state = E.initState();
+      selectedUnit = null;
+      resolving = false;
+      logEntries = [];
+      addLog('newGame', {}, 'action');
+      render();
+    }
+
+    [
+      ['btn-hold', holdSelected],
+      ['btn-support', supportSelected],
+      ['btn-cancel-select', cancelSelect],
+      ['btn-resolve', resolve],
+      ['btn-restart', restart],
+    ].forEach(([id, handler]) => $(id).addEventListener('click', handler));
+
+    i18n.onChange(() => {
+      render();
+      renderLog();
+      document
+        .querySelectorAll('meta[property="og:image:alt"],meta[name="twitter:image:alt"]')
+        .forEach(meta => meta.setAttribute('content', t('metaImageAlt')));
+    });
+
+    render();
+    renderLog();
+
+  })();
+  </script>
+</body>
+</html>

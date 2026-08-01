@@ -1,5 +1,7 @@
 import { ApiError, json, parseJson } from "./http.js";
 import { enforceRateLimit } from "./db.js";
+import { isPublicCard } from "./catalog.js";
+import { requirePublicCategory } from "./content-safety.js";
 import { clientIp, randomToken, sha256 } from "./security.js";
 import type { BattleQuestion, Env } from "./types.js";
 
@@ -40,7 +42,9 @@ function shuffled<T>(values: T[]): T[] {
   return result;
 }
 
-function validCard(card: Card): card is ValidCard {
+function validCard(value: unknown): value is ValidCard {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const card = value as Card;
   return typeof card.id === "string"
     && typeof card.difficulty === "string"
     && typeof card.question?.en === "string"
@@ -55,7 +59,7 @@ export function buildBattleQuestions(
   requestedCount: number,
 ): BattleQuestion[] {
   const rawCards = Array.isArray(source) ? source : [];
-  const allCards = rawCards.filter((card): card is ValidCard => validCard(card as Card));
+  const allCards = rawCards.filter((card): card is ValidCard => validCard(card));
   const pool = difficulty === "all"
     ? allCards
     : allCards.filter((card) => card.difficulty === difficulty);
@@ -119,12 +123,33 @@ export async function createBattle(request: Request, env: Env): Promise<Response
 
   if (!/^[a-z0-9-]{2,64}$/u.test(category)) throw new ApiError(400, "Invalid category");
   if (!DIFFICULTIES.has(difficulty)) throw new ApiError(400, "Invalid difficulty");
+  requirePublicCategory(category);
 
   const sourceUrl = new URL(`/data/${category}.json`, env.STATIC_ORIGIN);
   const sourceResponse = await fetch(sourceUrl, { headers: { accept: "application/json" } });
   if (!sourceResponse.ok) throw new ApiError(400, "Category is unavailable");
-  const questions = buildBattleQuestions(await sourceResponse.json(), difficulty, questionCount);
+  let source: unknown;
+  try {
+    source = await sourceResponse.json();
+  } catch {
+    throw new ApiError(503, "Canonical question source is invalid", undefined, "QUESTION_SOURCE_INVALID");
+  }
+  if (
+    !Array.isArray(source)
+    || source.some((card) => !validCard(card) || !isPublicCard(card.id, category))
+  ) {
+    throw new ApiError(503, "Canonical question source is invalid", undefined, "QUESTION_SOURCE_INVALID");
+  }
+  const questions = buildBattleQuestions(source, difficulty, questionCount);
   if (!questions.length) throw new ApiError(400, "No questions are available for this selection");
+  if (questions.some((question) => !isPublicCard(question.id, category))) {
+    throw new ApiError(
+      503,
+      "Canonical question source is invalid",
+      undefined,
+      "QUESTION_SOURCE_INVALID",
+    );
+  }
 
   for (let attempt = 0; attempt < 5; attempt += 1) {
     const code = generateCode(category);
@@ -158,6 +183,9 @@ export async function connectBattle(request: Request, env: Env): Promise<Respons
 
   const stub = env.BATTLE_ROOMS.get(env.BATTLE_ROOMS.idFromName(code));
   const internalRequest = new Request("https://battle.internal/connect", request);
+  internalRequest.headers.delete("x-jakh-worker-version");
+  const workerVersionId = env.CF_VERSION_METADATA?.id;
+  if (workerVersionId) internalRequest.headers.set("x-jakh-worker-version", workerVersionId);
   internalRequest.headers.set(
     "x-jakh-client-key",
     await sha256(`${env.IP_HASH_SALT}:battle-participant:${clientIp(request)}`),

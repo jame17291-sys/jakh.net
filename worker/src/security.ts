@@ -1,11 +1,11 @@
 import { ApiError } from "./http.js";
 
 const encoder = new TextEncoder();
-// Phase A keeps new hashes on the currently deployed cost while teaching the
-// runtime to read the stronger format. Phase B flips the default only after
-// this dual-reader release is live, preserving a safe rollback target.
-export const PASSWORD_ITERATIONS = 100_000;
-export const FUTURE_PASSWORD_ITERATIONS = 600_000;
+// New credentials use the stronger work factor. The legacy value remains an
+// explicit supported read format so existing accounts continue to verify and
+// can upgrade naturally on their next credential change.
+export const LEGACY_PASSWORD_ITERATIONS = 100_000;
+export const PASSWORD_ITERATIONS = 600_000;
 const SESSION_MAX_AGE_SECONDS = 14 * 24 * 60 * 60;
 const SESSION_TOKEN_PATTERN = /^[A-Za-z0-9_-]{43}$/u;
 

@@ -1,27 +1,40 @@
-import { enforceRateLimit, requireUser } from "./db.js";
-import { getCardIndex } from "./catalog.js";
+import {
+  enforceRateLimit,
+  RETENTION_CLEANUP_BATCH_SIZE,
+  requireUser,
+  runBoundedRetentionCleanup,
+} from "./db.js";
+import { getCardIndex, isPublicCard } from "./catalog.js";
+import {
+  QUARANTINED_CATEGORY_IDS,
+  isQuarantinedCategory,
+  requirePublicCategory,
+} from "./content-safety.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { randomToken, sha256 } from "./security.js";
 import type { Env } from "./types.js";
 
 /**
- * Verification boundary
- * ---------------------
+ * Server-checking boundary
+ * ------------------------
  * The Worker chooses the questions, fetches the canonical source itself, and
  * commits peppered answer digests to D1 before returning a challenge. The
  * browser receives question text, but never the answer field or an answer key.
  * Completion is a single conditional UPDATE, so a challenge can be scored once.
  *
- * This proves that a submitted score matches an issued challenge; it is not
- * remote proctoring. The public learning library necessarily publishes its
- * answers, so a determined player can still automate or look up responses.
+ * This checks that a submission matches an issued challenge. It does not prove
+ * who supplied the answers and is not remote proctoring. The public learning
+ * library necessarily publishes its answers, so lookups and automation remain
+ * possible.
  */
 
 export const VERIFIED_QUESTION_COUNT = 10;
 export const VERIFIED_CHALLENGE_TTL_MS = 15 * 60 * 1_000;
 export const VERIFIED_MINIMUM_MS = VERIFIED_QUESTION_COUNT * 2_000;
+export const SERVER_CHECKED_SCORE_TYPE = "server-checked";
+export const SERVER_CHECKED_AUTOMATION_DISCLAIMER =
+  "The server checks submitted answers, but does not verify who answered or prevent lookups or automation.";
 
-const SPEED_BONUS_WINDOW_MS = 5 * 60 * 1_000;
 const CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 const CARD_ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CHALLENGE_ID_PATTERN = /^[A-Za-z0-9_-]{24}$/u;
@@ -79,8 +92,22 @@ interface LeaderboardRow {
   categoryId: string;
   correctCount: number;
   questionCount: number;
-  elapsedMs: number;
-  completedAt: string;
+}
+
+function publicScoreContract(): {
+  scoreType: typeof SERVER_CHECKED_SCORE_TYPE;
+  serverChecked: true;
+  proctored: false;
+  scoring: "accuracy-only";
+  automationDisclaimer: typeof SERVER_CHECKED_AUTOMATION_DISCLAIMER;
+} {
+  return {
+    scoreType: SERVER_CHECKED_SCORE_TYPE,
+    serverChecked: true,
+    proctored: false,
+    scoring: "accuracy-only",
+    automationDisclaimer: SERVER_CHECKED_AUTOMATION_DISCLAIMER,
+  };
 }
 
 function normalizeCategory(value: unknown): string {
@@ -254,12 +281,18 @@ function canonicalCategoryCards(
     && submittableAnswerAliases(card).length > 0
   ));
   if (eligibleCards.length < VERIFIED_QUESTION_COUNT) {
-    throw new ApiError(400, "Not enough questions for verified scoring", undefined, "VERIFIED_CATEGORY_UNAVAILABLE");
+    throw new ApiError(
+      400,
+      "Not enough questions for server-checked scoring",
+      undefined,
+      "SERVER_CHECKED_CATEGORY_UNAVAILABLE",
+    );
   }
   return eligibleCards;
 }
 
 async function loadCategoryCards(env: Env, categoryId: string): Promise<CanonicalCard[]> {
+  requirePublicCategory(categoryId);
   const cardIndex = getCardIndex(env);
   if (!Object.values(cardIndex).some((entry) => entry[0] === categoryId)) {
     throw new ApiError(400, "Invalid category", undefined, "INVALID_CATEGORY");
@@ -316,6 +349,7 @@ export async function createVerifiedChallenge(request: Request, env: Env): Promi
   await enforceRateLimit(env, await rateKey(env, user.id, "create"), 30, 60 * 60);
   const body = await parseJson<{ categoryId?: unknown }>(request);
   const categoryId = normalizeCategory(body.categoryId);
+  requirePublicCategory(categoryId);
   const cards = selectChallengeCards(await loadCategoryCards(env, categoryId));
 
   const challengeId = randomToken(18);
@@ -332,39 +366,71 @@ export async function createVerifiedChallenge(request: Request, env: Env): Promi
   const notBeforeAt = startedAt + VERIFIED_MINIMUM_MS;
   const expiresAt = startedAt + VERIFIED_CHALLENGE_TTL_MS;
   const createdAt = new Date(startedAt).toISOString();
-  await env.DB.batch([
-    env.DB.prepare(
-      `UPDATE verified_score_sessions
-          SET status = 'expired'
-        WHERE status = 'pending' AND expires_at <= ?`,
-    ).bind(startedAt),
-    env.DB.prepare(
-      `UPDATE verified_score_sessions
-          SET status = 'expired'
-        WHERE user_id = ? AND category_id = ? AND status = 'pending'`,
-    ).bind(user.id, categoryId),
-    env.DB.prepare(
-      `INSERT INTO verified_score_sessions (
-        id, user_id, category_id, challenge_token_hash, card_ids_json,
-        answer_hashes_json, question_count, started_at, not_before_at,
-        expires_at, status, verified, created_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', 0, ?)`,
-    ).bind(
-      challengeId,
-      user.id,
-      categoryId,
-      tokenHash,
-      JSON.stringify(cards.map((card) => card.id)),
-      JSON.stringify(commitments),
-      VERIFIED_QUESTION_COUNT,
-      startedAt,
-      notBeforeAt,
-      expiresAt,
-      createdAt,
-    ),
-  ]);
+  let results: D1Result[];
+  try {
+    results = await env.DB.batch([
+      env.DB.prepare(
+        `UPDATE verified_score_sessions
+            SET status = 'expired'
+          WHERE user_id = ? AND category_id = ?
+            AND status = 'pending' AND expires_at <= ?`,
+      ).bind(user.id, categoryId, startedAt),
+      env.DB.prepare(
+        `INSERT INTO verified_score_sessions (
+          id, user_id, category_id, challenge_token_hash, card_ids_json,
+          answer_hashes_json, question_count, started_at, not_before_at,
+          expires_at, status, verified, created_at
+        )
+        SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', 0, ?
+         WHERE NOT EXISTS (
+           SELECT 1 FROM verified_score_sessions
+            WHERE user_id = ? AND category_id = ? AND status = 'pending'
+         )
+        RETURNING id`,
+      ).bind(
+        challengeId,
+        user.id,
+        categoryId,
+        tokenHash,
+        JSON.stringify(cards.map((card) => card.id)),
+        JSON.stringify(commitments),
+        VERIFIED_QUESTION_COUNT,
+        startedAt,
+        notBeforeAt,
+        expiresAt,
+        createdAt,
+        user.id,
+        categoryId,
+      ),
+    ]);
+  } catch (error) {
+    if (
+      /UNIQUE constraint failed:[^\n]*verified_score_sessions\.user_id[^\n]*category_id/iu
+        .test(String(error))
+    ) {
+      throw new ApiError(
+        409,
+        "A current server-checked challenge already exists for this category",
+        undefined,
+        "SERVER_CHECKED_CHALLENGE_ACTIVE",
+      );
+    }
+    throw error;
+  }
+  const inserted = results[1]?.results?.some((row) => (
+    typeof row === "object" && row !== null && "id" in row && row.id === challengeId
+  ));
+  if (!inserted) {
+    throw new ApiError(
+      409,
+      "A current server-checked challenge already exists for this category",
+      undefined,
+      "SERVER_CHECKED_CHALLENGE_ACTIVE",
+    );
+  }
 
   return json({
+    ...publicScoreContract(),
     challengeId,
     submissionToken: challengeToken,
     categoryId,
@@ -378,6 +444,62 @@ export async function createVerifiedChallenge(request: Request, env: Env): Promi
       question: card.question,
     })),
   }, 201);
+}
+
+export async function discardServerCheckedChallenge(
+  request: Request,
+  env: Env,
+): Promise<Response> {
+  const user = await requireUser(request, env);
+  await enforceRateLimit(env, await rateKey(env, user.id, "discard"), 60, 60 * 60);
+  const body = await parseJson<{
+    categoryId?: unknown;
+    challengeId?: unknown;
+    submissionToken?: unknown;
+  }>(request, 2_048);
+  const categoryId = normalizeCategory(body.categoryId);
+  const hasChallengeId = body.challengeId !== undefined;
+  const hasSubmissionToken = body.submissionToken !== undefined;
+  if (
+    hasChallengeId !== hasSubmissionToken
+    || (
+      hasChallengeId
+      && (
+        typeof body.challengeId !== "string"
+        || !CHALLENGE_ID_PATTERN.test(body.challengeId)
+        || typeof body.submissionToken !== "string"
+        || !CHALLENGE_TOKEN_PATTERN.test(body.submissionToken)
+      )
+    )
+  ) {
+    throw new ApiError(
+      400,
+      "Invalid challenge",
+      undefined,
+      "INVALID_SERVER_CHECKED_CHALLENGE",
+    );
+  }
+
+  let discarded: { id: string } | null;
+  if (hasChallengeId) {
+    const tokenHash = await sha256(body.submissionToken as string);
+    discarded = await env.DB.prepare(
+      `UPDATE verified_score_sessions
+          SET status = 'expired'
+        WHERE user_id = ? AND category_id = ? AND id = ?
+          AND challenge_token_hash = ? AND status = 'pending'
+      RETURNING id`,
+    ).bind(user.id, categoryId, body.challengeId, tokenHash).first<{ id: string }>();
+  } else {
+    discarded = await env.DB.prepare(
+      `UPDATE verified_score_sessions
+          SET status = 'expired'
+        WHERE user_id = ? AND category_id = ? AND status = 'pending'
+      RETURNING id`,
+    ).bind(user.id, categoryId).first<{ id: string }>();
+  }
+
+  return json({ discarded: Boolean(discarded?.id) });
 }
 
 function parseStringArray(value: string, code: string): string[] {
@@ -424,20 +546,33 @@ function parseCommitments(value: string): AnswerCommitment[] {
 
 function normalizeSubmittedAnswer(value: unknown): string {
   if (typeof value !== "string" || value.length > MAX_ANSWER_LENGTH) {
-    throw new ApiError(400, "Invalid verified answer", undefined, "INVALID_VERIFIED_ANSWER");
+    throw new ApiError(
+      400,
+      "Invalid server-checked answer",
+      undefined,
+      "INVALID_SERVER_CHECKED_ANSWER",
+    );
   }
   const normalized = normalizeAnswer(value);
   if (!normalized) {
-    throw new ApiError(400, "Invalid verified answer", undefined, "INVALID_VERIFIED_ANSWER");
+    throw new ApiError(
+      400,
+      "Invalid server-checked answer",
+      undefined,
+      "INVALID_SERVER_CHECKED_ANSWER",
+    );
   }
   return normalized;
 }
 
-function scoreFor(correctCount: number, elapsedMs: number): number {
-  const accuracyPoints = correctCount * 1_000;
-  if (correctCount !== VERIFIED_QUESTION_COUNT) return accuracyPoints;
-  const speedBonus = Math.max(0, Math.floor((SPEED_BONUS_WINDOW_MS - elapsedMs) / 1_000));
-  return accuracyPoints + speedBonus;
+function scoreFor(correctCount: number): number {
+  return correctCount * 1_000;
+}
+
+async function expirePendingChallenge(env: Env, challengeId: string): Promise<void> {
+  await env.DB.prepare(
+    "UPDATE verified_score_sessions SET status = 'expired' WHERE id = ? AND status = 'pending'",
+  ).bind(challengeId).run();
 }
 
 export async function submitVerifiedChallenge(request: Request, env: Env): Promise<Response> {
@@ -449,13 +584,18 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
     answers?: unknown;
   }>(request, 16_384);
   if (typeof body.challengeId !== "string" || !CHALLENGE_ID_PATTERN.test(body.challengeId)) {
-    throw new ApiError(400, "Invalid challenge", undefined, "INVALID_VERIFIED_CHALLENGE");
+    throw new ApiError(400, "Invalid challenge", undefined, "INVALID_SERVER_CHECKED_CHALLENGE");
   }
   if (typeof body.submissionToken !== "string" || !CHALLENGE_TOKEN_PATTERN.test(body.submissionToken)) {
-    throw new ApiError(400, "Invalid challenge", undefined, "INVALID_VERIFIED_CHALLENGE");
+    throw new ApiError(400, "Invalid challenge", undefined, "INVALID_SERVER_CHECKED_CHALLENGE");
   }
   if (!Array.isArray(body.answers) || body.answers.length !== VERIFIED_QUESTION_COUNT) {
-    throw new ApiError(400, "Invalid verified answer set", undefined, "INVALID_VERIFIED_ANSWER_SET");
+    throw new ApiError(
+      400,
+      "Invalid server-checked answer set",
+      undefined,
+      "INVALID_SERVER_CHECKED_ANSWER_SET",
+    );
   }
 
   const tokenHash = await sha256(body.submissionToken);
@@ -465,9 +605,20 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
        FROM verified_score_sessions
       WHERE id = ? AND user_id = ? AND challenge_token_hash = ?`,
   ).bind(body.challengeId, user.id, tokenHash).first<ChallengeRow>();
-  if (!row) throw new ApiError(404, "Challenge not found", undefined, "VERIFIED_CHALLENGE_NOT_FOUND");
+  if (!row) {
+    throw new ApiError(404, "Challenge not found", undefined, "SERVER_CHECKED_CHALLENGE_NOT_FOUND");
+  }
+  if (isQuarantinedCategory(row.category_id)) {
+    await expirePendingChallenge(env, row.id);
+    requirePublicCategory(row.category_id);
+  }
   if (row.status !== "pending") {
-    throw new ApiError(409, "Challenge has already been used", undefined, "VERIFIED_CHALLENGE_REPLAYED");
+    throw new ApiError(
+      409,
+      "Challenge has already been used",
+      undefined,
+      "SERVER_CHECKED_CHALLENGE_REPLAYED",
+    );
   }
   if (
     !CATEGORY_PATTERN.test(row.category_id)
@@ -483,13 +634,16 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
 
   const currentTime = Date.now();
   if (currentTime > row.expires_at) {
-    await env.DB.prepare(
-      "UPDATE verified_score_sessions SET status = 'expired' WHERE id = ? AND status = 'pending'",
-    ).bind(row.id).run();
-    throw new ApiError(410, "Challenge has expired", undefined, "VERIFIED_CHALLENGE_EXPIRED");
+    await expirePendingChallenge(env, row.id);
+    throw new ApiError(410, "Challenge has expired", undefined, "SERVER_CHECKED_CHALLENGE_EXPIRED");
   }
   if (currentTime < row.not_before_at) {
-    throw new ApiError(409, "Challenge was completed too quickly", undefined, "VERIFIED_CHALLENGE_TOO_FAST");
+    throw new ApiError(
+      409,
+      "Challenge was completed too quickly",
+      undefined,
+      "SERVER_CHECKED_CHALLENGE_TOO_FAST",
+    );
   }
   if (row.question_count !== VERIFIED_QUESTION_COUNT) {
     throw new ApiError(503, "Stored challenge is invalid", undefined, "STORED_CHALLENGE_INVALID");
@@ -500,7 +654,9 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
   if (
     expectedCardIds.length !== VERIFIED_QUESTION_COUNT
     || commitments.length !== VERIFIED_QUESTION_COUNT
+    || expectedCardIds.some((cardId) => !isPublicCard(cardId, row.category_id))
   ) {
+    await expirePendingChallenge(env, row.id);
     throw new ApiError(503, "Stored challenge is invalid", undefined, "STORED_CHALLENGE_INVALID");
   }
 
@@ -518,7 +674,12 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
       || answer.cardId !== expectedCardId
       || commitment.cardId !== expectedCardId
     ) {
-      throw new ApiError(400, "Challenge questions were changed", undefined, "VERIFIED_CHALLENGE_TAMPERED");
+      throw new ApiError(
+        400,
+        "Challenge questions were changed",
+        undefined,
+        "SERVER_CHECKED_CHALLENGE_TAMPERED",
+      );
     }
     const normalized = normalizeSubmittedAnswer(answer.answer);
     const digest = await answerDigest(env, row.id, expectedCardId, normalized);
@@ -526,7 +687,7 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
   }
 
   const elapsedMs = currentTime - row.started_at;
-  const score = scoreFor(correctCount, elapsedMs);
+  const score = scoreFor(correctCount);
   const completedAt = new Date(currentTime).toISOString();
   const claimed = await env.DB.prepare(
     `UPDATE verified_score_sessions
@@ -547,11 +708,16 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
     currentTime,
   ).first<{ id: string }>();
   if (claimed?.id !== row.id) {
-    throw new ApiError(409, "Challenge has already been used", undefined, "VERIFIED_CHALLENGE_REPLAYED");
+    throw new ApiError(
+      409,
+      "Challenge has already been used",
+      undefined,
+      "SERVER_CHECKED_CHALLENGE_REPLAYED",
+    );
   }
 
   return json({
-    verified: true,
+    ...publicScoreContract(),
     challengeId: row.id,
     categoryId: row.category_id,
     correctCount,
@@ -564,6 +730,7 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
 export async function verifiedLeaderboard(request: Request, env: Env): Promise<Response> {
   const categoryParam = new URL(request.url).searchParams.get("category");
   const categoryId = categoryParam === null ? null : normalizeCategory(categoryParam);
+  if (categoryId) requirePublicCategory(categoryId);
   if (
     categoryId
     && !Object.values(getCardIndex(env)).some((entry) => entry[0] === categoryId)
@@ -571,36 +738,38 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
     throw new ApiError(400, "Invalid category", undefined, "INVALID_CATEGORY");
   }
 
+  const quarantinePlaceholders = QUARANTINED_CATEGORY_IDS.map(() => "?").join(", ");
   const categoryClause = categoryId ? "AND s.category_id = ?" : "";
   const query = `
     WITH eligible AS (
       SELECT u.username, u.avatar, s.user_id, s.category_id AS categoryId,
-             s.score, s.correct_count AS correctCount,
-             s.question_count AS questionCount, s.elapsed_ms AS elapsedMs,
-             s.completed_at AS completedAt,
+             (s.correct_count * 1000) AS score, s.correct_count AS correctCount,
+             s.question_count AS questionCount,
              ROW_NUMBER() OVER (
                PARTITION BY s.user_id
-               ORDER BY s.score DESC, s.elapsed_ms ASC, s.completed_at ASC
+               ORDER BY s.correct_count DESC, s.completed_at ASC, s.id ASC
              ) AS userBest
         FROM verified_score_sessions s
         JOIN users u ON u.id = s.user_id
        WHERE s.status = 'completed' AND s.verified = 1 AND u.is_banned = 0
+         AND s.category_id NOT IN (${quarantinePlaceholders})
          ${categoryClause}
     )
-    SELECT username, avatar, score, categoryId, correctCount,
-           questionCount, elapsedMs, completedAt
-      FROM eligible
+    SELECT username, avatar, score, categoryId, correctCount, questionCount
+     FROM eligible
      WHERE userBest = 1
-     ORDER BY score DESC, elapsedMs ASC, completedAt ASC
+     ORDER BY score DESC, username COLLATE NOCASE ASC, categoryId ASC
      LIMIT 50`;
   const statement = env.DB.prepare(query);
-  const result = categoryId
-    ? await statement.bind(categoryId).all<LeaderboardRow>()
-    : await statement.all<LeaderboardRow>();
+  const bindings = [
+    ...QUARANTINED_CATEGORY_IDS,
+    ...(categoryId ? [categoryId] : []),
+  ];
+  const result = await statement.bind(...bindings).all<LeaderboardRow>();
 
   return json({
     status: "active",
-    scoreType: "server-verified",
+    ...publicScoreContract(),
     categoryId,
     leaderboard: result.results.map((row, index) => ({
       rank: index + 1,
@@ -616,20 +785,40 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
 
 export async function cleanupExpiredVerifiedChallenges(env: Env): Promise<void> {
   const currentTime = Date.now();
-  await env.DB.batch([
-    env.DB.prepare(
-      `UPDATE verified_score_sessions
-          SET status = 'expired'
-        WHERE status = 'pending' AND expires_at <= ?`,
-    ).bind(currentTime),
-    env.DB.prepare(
-      `DELETE FROM verified_score_sessions
-        WHERE id IN (
-          SELECT id
-            FROM verified_score_sessions
-           WHERE status = 'expired' AND expires_at <= ?
-           LIMIT 500
-        )`,
-    ).bind(currentTime - 24 * 60 * 60 * 1_000),
+  await runBoundedRetentionCleanup(env.DB, "server-checked-challenges", [
+    {
+      name: "expired-pending-challenges",
+      prepare: () => env.DB.prepare(
+        `UPDATE verified_score_sessions
+            SET status = 'expired'
+          WHERE id IN (
+            SELECT id FROM verified_score_sessions
+             WHERE status = 'pending' AND expires_at <= ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(currentTime),
+      probe: () => env.DB.prepare(
+        `SELECT id FROM verified_score_sessions
+          WHERE status = 'pending' AND expires_at <= ?
+          LIMIT 1`,
+      ).bind(currentTime),
+    },
+    {
+      name: "old-expired-challenges",
+      prepare: () => env.DB.prepare(
+        `DELETE FROM verified_score_sessions
+          WHERE id IN (
+            SELECT id
+              FROM verified_score_sessions
+             WHERE status = 'expired' AND expires_at <= ?
+             LIMIT ${RETENTION_CLEANUP_BATCH_SIZE}
+          )`,
+      ).bind(currentTime - 24 * 60 * 60 * 1_000),
+      probe: () => env.DB.prepare(
+        `SELECT id FROM verified_score_sessions
+          WHERE status = 'expired' AND expires_at <= ?
+          LIMIT 1`,
+      ).bind(currentTime - 24 * 60 * 60 * 1_000),
+    },
   ]);
 }

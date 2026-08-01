@@ -13,7 +13,10 @@
       "en": "Pong",
       "ar": "بونغ"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-2",
@@ -29,7 +32,10 @@
       "en": "Intel",
       "ar": "إنتل"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-3",
@@ -45,7 +51,10 @@
       "en": "PlayStation 2",
       "ar": "بلاي ستيشن 2"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-4",
@@ -61,7 +70,10 @@
       "en": "Uniform Resource Locator",
       "ar": "محدد موقع الموارد المُوحّد"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-5",
@@ -77,7 +89,10 @@
       "en": "Alan Turing",
       "ar": "آلان تورنغ"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-6",
@@ -93,7 +108,10 @@
       "en": "Sharp J-SH04",
       "ar": "شارب J-SH04"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-7",
@@ -109,7 +127,10 @@
       "en": "Pac-Man",
       "ar": "باك مان"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-8",
@@ -125,7 +146,10 @@
       "en": "Apple I",
       "ar": "أبل 1"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-9",
@@ -141,7 +165,10 @@
       "en": "1989",
       "ar": "1989"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-10",
@@ -157,7 +184,10 @@
       "en": "Game Boy",
       "ar": "جيم بوي"
     },
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-11",
@@ -173,7 +203,10 @@
       "en": "Nokia",
       "ar": "نوكيا"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-12",
@@ -189,7 +222,10 @@
       "en": "Mario",
       "ar": "ماريو"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-13",
@@ -205,7 +241,10 @@
       "en": "CPU (Central Processing Unit)",
       "ar": "وحدة المعالجة المركزية"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-14",
@@ -221,7 +260,10 @@
       "en": "Windows 1.0",
       "ar": "ويندوز 1.0"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-15",
@@ -237,7 +279,10 @@
       "en": "PlayStation 1",
       "ar": "بلاي ستيشن 1"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-16",
@@ -253,7 +298,10 @@
       "en": "Floppy Disk",
       "ar": "القرص المرن"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-17",
@@ -269,7 +317,10 @@
       "en": "Google",
       "ar": "جوجل"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-18",
@@ -285,7 +336,10 @@
       "en": "Tamagotchi",
       "ar": "تاماغوتشي"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-19",
@@ -301,7 +355,10 @@
       "en": "Yahoo!",
       "ar": "ياهو!"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-20",
@@ -317,7 +374,10 @@
       "en": "DOOM",
       "ar": "دووم"
     },
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-21",
@@ -333,7 +393,10 @@
       "en": "symbolics.com",
       "ar": "symbolics.com"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-22",
@@ -349,7 +412,10 @@
       "en": "Java",
       "ar": "جافا"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-23",
@@ -365,6 +431,9 @@
     "subcategory": {
       "en": "Early Internet",
       "ar": "الإنترنت المبكر"
+    },
+    "review": {
+      "status": "pending"
     }
   },
   {
@@ -381,7 +450,10 @@
       "en": "Dreamcast",
       "ar": "دريم كاست"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-25",
@@ -397,7 +469,10 @@
       "en": "Chicago",
       "ar": "شيكاغو"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-26",
@@ -413,7 +488,10 @@
       "en": "E.T. the Extra-Terrestrial",
       "ar": "إي تي الكائن الفضائي"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-27",
@@ -429,7 +507,10 @@
       "en": "Netscape Navigator",
       "ar": "نتسكيب نافيجيتور"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-28",
@@ -445,7 +526,10 @@
       "en": "USB (Universal Serial Bus)",
       "ar": "ناقل تسلسلي عام"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-29",
@@ -461,7 +545,10 @@
       "en": "Random Access Memory",
       "ar": "ذاكرة الوصول العشوائي"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-30",
@@ -477,7 +564,10 @@
       "en": "Paul Allen",
       "ar": "بول ألين"
     },
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-31",
@@ -493,7 +583,10 @@
       "en": "Creeper",
       "ar": "كريبر"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-32",
@@ -509,7 +602,10 @@
       "en": "Commodore 64",
       "ar": "كومودور 64"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-33",
@@ -525,7 +621,10 @@
       "en": "3,333,360",
       "ar": "3,333,360"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-34",
@@ -541,7 +640,10 @@
       "en": "Harald",
       "ar": "هارالد"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-35",
@@ -557,7 +659,10 @@
       "en": "Signatures of the development team molded inside the case",
       "ar": "توقيعات فريق التطوير محفورة داخل الغطاء"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-36",
@@ -573,7 +678,10 @@
       "en": "HTTP traffic",
       "ar": "حركة مرور HTTP"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-37",
@@ -589,7 +697,10 @@
       "en": "Elite",
       "ar": "إيليت"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-38",
@@ -605,7 +716,10 @@
       "en": "ABC",
       "ar": "إيه بي سي (ABC)"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-39",
@@ -621,7 +735,10 @@
       "en": "Amiga CD32",
       "ar": "أميجا سي دي 32"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   },
   {
     "id": "tech-retro-40",
@@ -637,6 +754,9 @@
       "en": "LO (intended to be LOGIN)",
       "ar": "LO (كان المقصود منها LOGIN)"
     },
-    "difficulty": "very-advanced"
+    "difficulty": "very-advanced",
+    "review": {
+      "status": "pending"
+    }
   }
 ]

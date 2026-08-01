@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
+import { QUARANTINED_CATEGORY_IDS } from "../dist/content-safety.js";
 import {
   cleanupExpiredVerifiedChallenges,
   createVerifiedChallenge,
+  discardServerCheckedChallenge,
   submitVerifiedChallenge,
   verifiedLeaderboard,
   VERIFIED_CHALLENGE_TTL_MS,
@@ -23,8 +26,6 @@ const USER = {
 };
 const DIFFICULTIES = ["easy", "medium", "hard", "very-advanced"];
 const CURATED_CATEGORY_IDS = [
-  "law-middle-east",
-  "pharmacy",
   "philosophy",
   "relationship-questions",
   "social-sciences",
@@ -39,8 +40,8 @@ const SOURCE_CARDS = Array.from({ length: 40 }, (_, index) => {
     id: `currencies-${number}`,
     difficulty,
     question: {
-      en: `Verified question ${number}?`,
-      ar: `سؤال موثّق ${number}؟`,
+      en: `Server-checked question ${number}?`,
+      ar: `سؤال يفحصه الخادم ${number}؟`,
     },
     answer: {
       en: `Answer ${number}`,
@@ -92,6 +93,8 @@ class FakeDatabase {
     this.statements = [];
     this.batches = [];
     this.leaderboardRows = [];
+    this.sessionUser = { ...USER };
+    this.rateCount = 1;
   }
 
   prepare(sql) {
@@ -108,8 +111,8 @@ class FakeDatabase {
   }
 
   async first(sql, values) {
-    if (sql.includes("JOIN users")) return USER;
-    if (sql.includes("INSERT INTO rate_limits")) return { count: 1 };
+    if (sql.includes("JOIN users")) return this.sessionUser;
+    if (sql.includes("INSERT INTO rate_limits")) return { count: this.rateCount };
 
     if (sql.includes("FROM verified_score_sessions") && sql.includes("challenge_token_hash = ?")) {
       const [id, userId, tokenHash] = values;
@@ -117,6 +120,31 @@ class FakeDatabase {
       return row && row.user_id === userId && row.challenge_token_hash === tokenHash
         ? { ...row }
         : null;
+    }
+
+    if (
+      sql.includes("UPDATE verified_score_sessions")
+      && sql.includes("SET status = 'expired'")
+      && sql.includes("RETURNING id")
+    ) {
+      const exactChallenge = sql.includes("challenge_token_hash = ?");
+      const [userId, categoryId, challengeId, tokenHash] = values;
+      const row = exactChallenge
+        ? this.challenges.get(challengeId)
+        : [...this.challenges.values()].find((candidate) => (
+          candidate.user_id === userId
+          && candidate.category_id === categoryId
+          && candidate.status === "pending"
+        ));
+      if (
+        !row
+        || row.user_id !== userId
+        || row.category_id !== categoryId
+        || row.status !== "pending"
+        || (exactChallenge && row.challenge_token_hash !== tokenHash)
+      ) return null;
+      row.status = "expired";
+      return { id: row.id };
     }
 
     if (sql.includes("UPDATE verified_score_sessions") && sql.includes("RETURNING id")) {
@@ -170,7 +198,17 @@ class FakeDatabase {
         notBeforeAt,
         expiresAt,
         createdAt,
+        pendingUserId,
+        pendingCategoryId,
       ] = values;
+      const hasPending = [...this.challenges.values()].some((row) => (
+        row.user_id === pendingUserId
+        && row.category_id === pendingCategoryId
+        && row.status === "pending"
+      ));
+      if (hasPending) {
+        return { success: true, results: [], meta: { changes: 0 } };
+      }
       this.challenges.set(id, {
         id,
         user_id: userId,
@@ -190,29 +228,48 @@ class FakeDatabase {
         verified: 0,
         created_at: createdAt,
       });
-      return { success: true };
+      return { success: true, results: [{ id }], meta: { changes: 1 } };
     }
 
     if (sql.includes("WHERE id = ? AND status = 'pending'")) {
       const row = this.challenges.get(values[0]);
-      if (row?.status === "pending") row.status = "expired";
-      return { success: true };
+      const changed = row?.status === "pending" ? 1 : 0;
+      if (changed) row.status = "expired";
+      return { success: true, meta: { changes: changed } };
     }
 
-    if (sql.includes("WHERE user_id = ? AND category_id = ? AND status = 'pending'")) {
+    if (
+      sql.includes("SET status = 'expired'")
+      && sql.includes("WHERE user_id = ? AND category_id = ?")
+    ) {
+      let changed = 0;
       for (const row of this.challenges.values()) {
-        if (row.user_id === values[0] && row.category_id === values[1] && row.status === "pending") {
+        if (
+          row.user_id === values[0]
+          && row.category_id === values[1]
+          && row.status === "pending"
+          && row.expires_at <= values[2]
+        ) {
           row.status = "expired";
+          changed += 1;
         }
       }
-      return { success: true };
+      return { success: true, meta: { changes: changed } };
     }
 
     if (sql.includes("WHERE status = 'pending' AND expires_at <= ?")) {
+      let changed = 0;
       for (const row of this.challenges.values()) {
-        if (row.status === "pending" && row.expires_at <= values[0]) row.status = "expired";
+        if (
+          changed < 500
+          && row.status === "pending"
+          && row.expires_at <= values[0]
+        ) {
+          row.status = "expired";
+          changed += 1;
+        }
       }
-      return { success: true };
+      return { success: true, meta: { changes: changed } };
     }
 
     if (sql.includes("DELETE FROM verified_score_sessions")) {
@@ -228,11 +285,20 @@ class FakeDatabase {
       return { success: true, meta: { changes: deleted } };
     }
 
-    return { success: true };
+    return { success: true, meta: { changes: 0 } };
   }
 
-  async all(sql) {
-    if (sql.includes("WITH eligible")) return { results: this.leaderboardRows };
+  async all(sql, values = []) {
+    if (sql.includes("WITH eligible")) {
+      const heldCategories = new Set(values.slice(0, QUARANTINED_CATEGORY_IDS.length));
+      const categoryId = /\n\s*AND s\.category_id = \?/u.test(sql) ? values.at(-1) : null;
+      return {
+        results: this.leaderboardRows.filter((row) => (
+          !heldCategories.has(row.categoryId)
+          && (!categoryId || row.categoryId === categoryId)
+        )),
+      };
+    }
     return { results: [] };
   }
 }
@@ -279,6 +345,20 @@ function submitRequest(challenge, answers) {
   });
 }
 
+function discardRequest(body) {
+  return apiRequest("/api/scores/server-checked/challenge", body, "DELETE");
+}
+
+function assertServerCheckedBoundary(payload) {
+  assert.equal(payload.scoreType, "server-checked");
+  assert.equal(payload.serverChecked, true);
+  assert.equal(payload.proctored, false);
+  assert.equal(payload.scoring, "accuracy-only");
+  assert.match(payload.automationDisclaimer, /does not verify who answered/u);
+  assert.match(payload.automationDisclaimer, /automation/u);
+  assert.equal("verified" in payload, false);
+}
+
 test("challenge creation commits answers server-side and exposes only ten questions", async (t) => {
   const { challenge, database, response } = await issueChallenge(t);
   const stored = database.challenges.get(challenge.challengeId);
@@ -292,6 +372,7 @@ test("challenge creation commits answers server-side and exposes only ten questi
   assert.equal(challenge.challengeId.length, 24);
   assert.equal(challenge.notBeforeAt - challenge.startedAt, VERIFIED_MINIMUM_MS);
   assert.equal(challenge.expiresAt - challenge.startedAt, VERIFIED_CHALLENGE_TTL_MS);
+  assertServerCheckedBoundary(challenge);
   assert.doesNotMatch(JSON.stringify(challenge), /"answer"\s*:/u);
   assert.doesNotMatch(stored.answer_hashes_json, /Answer \d+|إجابة/u);
   assert.equal(JSON.parse(stored.answer_hashes_json).length, VERIFIED_QUESTION_COUNT);
@@ -302,6 +383,286 @@ test("challenge creation commits answers server-side and exposes only ten questi
     }), {}),
     { easy: 3, medium: 3, hard: 2, "very-advanced": 2 },
   );
+});
+
+test("concurrent challenge creation returns one fresh token and one stable conflict", async (t) => {
+  const database = new FakeDatabase();
+  const env = scoringEnv(database);
+  t.mock.method(globalThis, "fetch", async () => new Response(JSON.stringify(SOURCE_CARDS), {
+    headers: { "content-type": "application/json" },
+  }));
+
+  const outcomes = await Promise.allSettled([
+    createVerifiedChallenge(
+      apiRequest("/api/scores/verified/challenge", { categoryId: "currencies" }),
+      env,
+    ),
+    createVerifiedChallenge(
+      apiRequest("/api/scores/verified/challenge", { categoryId: "currencies" }),
+      env,
+    ),
+  ]);
+  const successes = outcomes.filter(({ status }) => status === "fulfilled");
+  const failures = outcomes.filter(({ status }) => status === "rejected");
+
+  assert.equal(successes.length, 1);
+  assert.equal(failures.length, 1);
+  assert.equal(failures[0].reason?.status, 409);
+  assert.equal(failures[0].reason?.code, "SERVER_CHECKED_CHALLENGE_ACTIVE");
+  assert.doesNotMatch(JSON.stringify(failures[0].reason), /submissionToken/u);
+  const winner = await successes[0].value.json();
+  assert.equal(winner.submissionToken.length, 43);
+  assert.equal(
+    [...database.challenges.values()].filter(({ status }) => status === "pending").length,
+    1,
+  );
+  assert.equal(database.batches.length, 2);
+  for (const batch of database.batches) {
+    assert.equal(batch.length, 2);
+    assert.match(batch[1].sql, /WHERE NOT EXISTS/u);
+    assert.match(batch[1].sql, /RETURNING id/u);
+  }
+});
+
+test("the exact conditional challenge insert executes atomically in SQLite", async (t) => {
+  const { challenge, database, env } = await issueChallenge(t);
+  const conditionalInsert = database.batches[0][1];
+  const discardResponse = await discardServerCheckedChallenge(discardRequest({
+    categoryId: challenge.categoryId,
+    challengeId: challenge.challengeId,
+    submissionToken: challenge.submissionToken,
+  }), env);
+  assert.deepEqual(await discardResponse.json(), { discarded: true });
+  const conditionalDiscard = database.statements.find(({ sql }) => (
+    sql.includes("SET status = 'expired'")
+    && sql.includes("challenge_token_hash = ?")
+    && sql.includes("RETURNING id")
+  ));
+  const sqlite = new DatabaseSync(":memory:");
+  try {
+    sqlite.exec(`
+      PRAGMA foreign_keys = ON;
+      CREATE TABLE users (id TEXT PRIMARY KEY);
+      CREATE TABLE schema_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+    `);
+    sqlite.prepare("INSERT INTO users (id) VALUES (?)").run(USER.id);
+    sqlite.exec(await readFile(
+      new URL("../migrations/0003_verified_scoring.sql", import.meta.url),
+      "utf8",
+    ));
+
+    const first = sqlite.prepare(conditionalInsert.sql).all(...conditionalInsert.values);
+    assert.equal(first.length, 1);
+    assert.equal(first[0].id, challenge.challengeId);
+
+    const rivalValues = [...conditionalInsert.values];
+    rivalValues[0] = "Z".repeat(24);
+    rivalValues[3] = "Y".repeat(43);
+    const rival = sqlite.prepare(conditionalInsert.sql).all(...rivalValues);
+    assert.deepEqual(rival, []);
+    assert.equal(
+      sqlite.prepare(
+        "SELECT COUNT(*) AS count FROM verified_score_sessions WHERE status = 'pending'",
+      ).get().count,
+      1,
+    );
+    assert.equal(
+      sqlite.prepare(conditionalDiscard.sql).get(...conditionalDiscard.values).id,
+      challenge.challengeId,
+    );
+    assert.equal(
+      sqlite.prepare(conditionalDiscard.sql).get(...conditionalDiscard.values),
+      undefined,
+    );
+    assert.equal(
+      sqlite.prepare(
+        "SELECT status FROM verified_score_sessions WHERE id = ?",
+      ).get(challenge.challengeId).status,
+      "expired",
+    );
+  } finally {
+    sqlite.close();
+  }
+});
+
+test("an expired pending challenge is atomically retired before replacement", async (t) => {
+  const now = Date.UTC(2026, 7, 1, 12, 0, 0);
+  t.mock.method(Date, "now", () => now);
+  t.mock.method(globalThis, "fetch", async () => new Response(JSON.stringify(SOURCE_CARDS), {
+    headers: { "content-type": "application/json" },
+  }));
+  const database = new FakeDatabase();
+  database.challenges.set("expired-pending", {
+    id: "expired-pending",
+    user_id: USER.id,
+    category_id: "currencies",
+    status: "pending",
+    expires_at: now - 1,
+  });
+
+  const response = await createVerifiedChallenge(
+    apiRequest("/api/scores/verified/challenge", { categoryId: "currencies" }),
+    scoringEnv(database),
+  );
+  const payload = await response.json();
+
+  assert.equal(response.status, 201);
+  assert.equal(database.challenges.get("expired-pending").status, "expired");
+  assert.equal(database.challenges.get(payload.challengeId).status, "pending");
+});
+
+test("exact discard requires a valid challenge id and token pair", async (t) => {
+  const { challenge, env } = await issueChallenge(t);
+  await assert.rejects(
+    discardServerCheckedChallenge(discardRequest({ categoryId: "Currencies" }), env),
+    (error) => error?.status === 400 && error?.code === "INVALID_CATEGORY",
+  );
+  for (const body of [
+    { categoryId: "currencies", challengeId: challenge.challengeId },
+    { categoryId: "currencies", submissionToken: challenge.submissionToken },
+    { categoryId: "currencies", challengeId: "invalid", submissionToken: challenge.submissionToken },
+    { categoryId: "currencies", challengeId: challenge.challengeId, submissionToken: "invalid" },
+  ]) {
+    await assert.rejects(
+      discardServerCheckedChallenge(discardRequest(body), env),
+      (error) => error?.status === 400 && error?.code === "INVALID_SERVER_CHECKED_CHALLENGE",
+    );
+  }
+});
+
+test("exact discard consumes only the matching pending challenge", async (t) => {
+  const { challenge, database, env } = await issueChallenge(t);
+  const requestBody = {
+    categoryId: challenge.categoryId,
+    challengeId: challenge.challengeId,
+    submissionToken: challenge.submissionToken,
+  };
+
+  const first = await discardServerCheckedChallenge(discardRequest(requestBody), env);
+  const second = await discardServerCheckedChallenge(discardRequest(requestBody), env);
+
+  assert.deepEqual(await first.json(), { discarded: true });
+  assert.deepEqual(await second.json(), { discarded: false });
+  assert.equal(database.challenges.get(challenge.challengeId).status, "expired");
+  const statement = database.statements.find(({ sql }) => (
+    sql.includes("SET status = 'expired'") && sql.includes("challenge_token_hash = ?")
+  ));
+  assert.match(statement.sql, /user_id = \? AND category_id = \? AND id = \?/u);
+  assert.match(statement.sql, /challenge_token_hash = \? AND status = 'pending'/u);
+  assert.match(statement.sql, /RETURNING id/u);
+});
+
+test("a stale exact discard cannot cancel a newer issuance", async (t) => {
+  const { challenge: stale, database, env } = await issueChallenge(t);
+  await discardServerCheckedChallenge(discardRequest({
+    categoryId: stale.categoryId,
+    challengeId: stale.challengeId,
+    submissionToken: stale.submissionToken,
+  }), env);
+  const freshResponse = await createVerifiedChallenge(
+    apiRequest("/api/scores/server-checked/challenge", { categoryId: "currencies" }),
+    env,
+  );
+  const fresh = await freshResponse.json();
+
+  const staleResponse = await discardServerCheckedChallenge(discardRequest({
+    categoryId: stale.categoryId,
+    challengeId: stale.challengeId,
+    submissionToken: stale.submissionToken,
+  }), env);
+
+  assert.deepEqual(await staleResponse.json(), { discarded: false });
+  assert.equal(database.challenges.get(fresh.challengeId).status, "pending");
+});
+
+test("wrong user and wrong token cannot discard a pending challenge", async (t) => {
+  const { challenge, database, env } = await issueChallenge(t);
+  const wrongToken = await discardServerCheckedChallenge(discardRequest({
+    categoryId: challenge.categoryId,
+    challengeId: challenge.challengeId,
+    submissionToken: "B".repeat(43),
+  }), env);
+  database.sessionUser = { ...USER, id: "different-user" };
+  const wrongUser = await discardServerCheckedChallenge(discardRequest({
+    categoryId: challenge.categoryId,
+    challengeId: challenge.challengeId,
+    submissionToken: challenge.submissionToken,
+  }), env);
+
+  assert.deepEqual(await wrongToken.json(), { discarded: false });
+  assert.deepEqual(await wrongUser.json(), { discarded: false });
+  assert.equal(database.challenges.get(challenge.challengeId).status, "pending");
+});
+
+test("challenge discard is rate-limited before any state update", async (t) => {
+  const { challenge, database, env } = await issueChallenge(t);
+  database.rateCount = 61;
+
+  await assert.rejects(
+    discardServerCheckedChallenge(discardRequest({
+      categoryId: challenge.categoryId,
+      challengeId: challenge.challengeId,
+      submissionToken: challenge.submissionToken,
+    }), env),
+    (error) => error?.status === 429 && error?.code === "RATE_LIMITED",
+  );
+  assert.equal(database.challenges.get(challenge.challengeId).status, "pending");
+});
+
+test("category-only reload recovery discards only the caller's current category", async (t) => {
+  const { challenge, database, env } = await issueChallenge(t);
+  const unrelated = {
+    ...database.challenges.get(challenge.challengeId),
+    id: "unrelated-challenge-id-1",
+    category_id: "history",
+    challenge_token_hash: "C".repeat(43),
+  };
+  database.challenges.set(unrelated.id, unrelated);
+
+  const first = await discardServerCheckedChallenge(discardRequest({
+    categoryId: challenge.categoryId,
+  }), env);
+  const second = await discardServerCheckedChallenge(discardRequest({
+    categoryId: challenge.categoryId,
+  }), env);
+
+  assert.deepEqual(await first.json(), { discarded: true });
+  assert.deepEqual(await second.json(), { discarded: false });
+  assert.equal(database.challenges.get(challenge.challengeId).status, "expired");
+  assert.equal(database.challenges.get(unrelated.id).status, "pending");
+});
+
+test("submit and discard conditionally claim the same pending state", async (t) => {
+  const { answers, challenge, clock, database, env } = await issueChallenge(t);
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+  const [submission, cancellation] = await Promise.allSettled([
+    submitVerifiedChallenge(submitRequest(challenge, answers), env),
+    discardServerCheckedChallenge(discardRequest({
+      categoryId: challenge.categoryId,
+      challengeId: challenge.challengeId,
+      submissionToken: challenge.submissionToken,
+    }), env),
+  ]);
+  assert.equal(cancellation.status, "fulfilled");
+  const discardPayload = await cancellation.value.json();
+  const submissionWon = submission.status === "fulfilled";
+  if (submissionWon) {
+    assertServerCheckedBoundary(await submission.value.json());
+  } else {
+    assert.equal(submission.reason?.code, "SERVER_CHECKED_CHALLENGE_REPLAYED");
+  }
+
+  assert.notEqual(submissionWon, discardPayload.discarded);
+  assert.equal(
+    database.challenges.get(challenge.challengeId).status,
+    submissionWon ? "completed" : "expired",
+  );
+  const stateClaims = database.statements.filter(({ sql }) => (
+    sql.includes("UPDATE verified_score_sessions") && sql.includes("RETURNING id")
+  ));
+  assert.ok(stateClaims.length >= 2);
+  assert.ok(stateClaims.every(({ sql }) => /status = 'pending'/u.test(sql)));
 });
 
 test("ordinary published answer alternatives and Arabic orthographic variants are accepted", async (t) => {
@@ -330,7 +691,7 @@ test("ordinary published answer alternatives and Arabic orthographic variants ar
   const payload = await response.json();
 
   assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
-  assert.equal(payload.verified, true);
+  assertServerCheckedBoundary(payload);
 });
 
 test("challenge selection excludes long explanatory answers", async (t) => {
@@ -352,7 +713,7 @@ test("challenge selection excludes long explanatory answers", async (t) => {
   );
 });
 
-test("curated bilingual accepted answers make explanatory cards verifiable", async (t) => {
+test("curated bilingual accepted answers make explanatory cards server-checkable", async (t) => {
   const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card, index) => ({
     ...card,
     question: { ...card.question },
@@ -376,7 +737,7 @@ test("curated bilingual accepted answers make explanatory cards verifiable", asy
   const payload = await response.json();
 
   assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
-  assert.equal(payload.verified, true);
+  assertServerCheckedBoundary(payload);
 });
 
 test("acceptedAnswers rejects arrays in place of the bilingual object", async (t) => {
@@ -504,12 +865,39 @@ test("a category with fewer than ten concise bilingual answers is unavailable", 
       apiRequest("/api/scores/verified/challenge", { categoryId: "currencies" }),
       env,
     ),
-    (error) => error?.status === 400 && error?.code === "VERIFIED_CATEGORY_UNAVAILABLE",
+    (error) => error?.status === 400 && error?.code === "SERVER_CHECKED_CATEGORY_UNAVAILABLE",
   );
   assert.equal(database.challenges.size, 0);
 });
 
-test("every curated explanation-heavy category can issue a verified challenge", async (t) => {
+test("all quarantined categories deny challenge creation before content fetch or state creation", async (t) => {
+  const database = new FakeDatabase();
+  const env = scoringEnv(database);
+  let fetchCalls = 0;
+  t.mock.method(globalThis, "fetch", async () => {
+    fetchCalls += 1;
+    throw new Error("Held categories must not reach the canonical content source");
+  });
+
+  for (const categoryId of QUARANTINED_CATEGORY_IDS) {
+    await assert.rejects(
+      createVerifiedChallenge(
+        apiRequest("/api/scores/verified/challenge", { categoryId }),
+        env,
+      ),
+      (error) => error?.status === 503
+        && error?.code === "CATEGORY_QUARANTINED"
+        && error?.headers?.["retry-after"] === "86400",
+      categoryId,
+    );
+  }
+
+  assert.equal(fetchCalls, 0);
+  assert.equal(database.challenges.size, 0);
+  assert.equal(database.batches.length, 0);
+});
+
+test("every curated explanation-heavy category can issue a server-checked challenge", async (t) => {
   const sources = new Map(await Promise.all(CURATED_CATEGORY_IDS.map(async (categoryId) => [
     categoryId,
     JSON.parse(await readFile(
@@ -540,7 +928,7 @@ test("every curated explanation-heavy category can issue a verified challenge", 
   }
 });
 
-test("a fully correct answer set earns a server-verified score and consumes the challenge", async (t) => {
+test("a fully correct answer set earns an accuracy-only server-checked score", async (t) => {
   const { answers, challenge, clock, database, env } = await issueChallenge(t);
   clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
 
@@ -548,13 +936,43 @@ test("a fully correct answer set earns a server-verified score and consumes the 
   const payload = await response.json();
 
   assert.equal(response.status, 200);
-  assert.equal(payload.verified, true);
+  assertServerCheckedBoundary(payload);
   assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
   assert.equal(payload.questionCount, VERIFIED_QUESTION_COUNT);
   assert.equal(payload.elapsedMs, VERIFIED_MINIMUM_MS + 1_000);
-  assert.equal(payload.score, 10_279);
+  assert.equal(payload.score, 10_000);
   assert.equal(database.challenges.get(challenge.challengeId).status, "completed");
   assert.equal(database.challenges.get(challenge.challengeId).verified, 1);
+});
+
+test("pre-deployment challenges for held categories are expired before they can be scored", async (t) => {
+  const { answers, challenge, clock, database, env } = await issueChallenge(t);
+  const stored = database.challenges.get(challenge.challengeId);
+  stored.category_id = "medical-questions";
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+  await assert.rejects(
+    submitVerifiedChallenge(submitRequest(challenge, answers), env),
+    (error) => error?.status === 503 && error?.code === "CATEGORY_QUARANTINED",
+  );
+  assert.equal(stored.status, "expired");
+  assert.equal(stored.verified, 0);
+});
+
+test("stored challenges containing a held or category-mismatched card are invalidated", async (t) => {
+  const { answers, challenge, clock, database, env } = await issueChallenge(t);
+  const stored = database.challenges.get(challenge.challengeId);
+  const cardIds = JSON.parse(stored.card_ids_json);
+  cardIds[0] = "medical-questions-001";
+  stored.card_ids_json = JSON.stringify(cardIds);
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+  await assert.rejects(
+    submitVerifiedChallenge(submitRequest(challenge, answers), env),
+    (error) => error?.status === 503 && error?.code === "STORED_CHALLENGE_INVALID",
+  );
+  assert.equal(stored.status, "expired");
+  assert.equal(stored.verified, 0);
 });
 
 test("incorrect answers are scored by the Worker without trusting a claimed client score", async (t) => {
@@ -565,10 +983,22 @@ test("incorrect answers are scored by the Worker without trusting a claimed clie
   const response = await submitVerifiedChallenge(submitRequest(challenge, answers), env);
   const payload = await response.json();
 
-  assert.equal(payload.verified, true);
+  assertServerCheckedBoundary(payload);
   assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT - 1);
   assert.equal(payload.score, 9_000);
   assert.equal("claimedScore" in payload, false);
+});
+
+test("elapsed time does not change a fully correct accuracy score", async (t) => {
+  const { answers, challenge, clock, env } = await issueChallenge(t);
+  clock.now = challenge.expiresAt - 1_000;
+
+  const response = await submitVerifiedChallenge(submitRequest(challenge, answers), env);
+  const payload = await response.json();
+
+  assert.equal(payload.elapsedMs, VERIFIED_CHALLENGE_TTL_MS - 1_000);
+  assert.equal(payload.score, 10_000);
+  assertServerCheckedBoundary(payload);
 });
 
 test("a completed challenge cannot be replayed", async (t) => {
@@ -578,7 +1008,7 @@ test("a completed challenge cannot be replayed", async (t) => {
 
   await assert.rejects(
     submitVerifiedChallenge(submitRequest(challenge, answers), env),
-    (error) => error?.status === 409 && error?.code === "VERIFIED_CHALLENGE_REPLAYED",
+    (error) => error?.status === 409 && error?.code === "SERVER_CHECKED_CHALLENGE_REPLAYED",
   );
 });
 
@@ -589,7 +1019,7 @@ test("changing a challenge card is rejected as tampering and does not consume it
 
   await assert.rejects(
     submitVerifiedChallenge(submitRequest(challenge, answers), env),
-    (error) => error?.status === 400 && error?.code === "VERIFIED_CHALLENGE_TAMPERED",
+    (error) => error?.status === 400 && error?.code === "SERVER_CHECKED_CHALLENGE_TAMPERED",
   );
   assert.equal(database.challenges.get(challenge.challengeId).status, "pending");
 });
@@ -600,7 +1030,7 @@ test("an expired challenge is marked expired and cannot be scored", async (t) =>
 
   await assert.rejects(
     submitVerifiedChallenge(submitRequest(challenge, answers), env),
-    (error) => error?.status === 410 && error?.code === "VERIFIED_CHALLENGE_EXPIRED",
+    (error) => error?.status === 410 && error?.code === "SERVER_CHECKED_CHALLENGE_EXPIRED",
   );
   assert.equal(database.challenges.get(challenge.challengeId).status, "expired");
 });
@@ -611,17 +1041,17 @@ test("an implausibly fast submission is rejected without consuming the challenge
 
   await assert.rejects(
     submitVerifiedChallenge(submitRequest(challenge, answers), env),
-    (error) => error?.status === 409 && error?.code === "VERIFIED_CHALLENGE_TOO_FAST",
+    (error) => error?.status === 409 && error?.code === "SERVER_CHECKED_CHALLENGE_TOO_FAST",
   );
   assert.equal(database.challenges.get(challenge.challengeId).status, "pending");
 });
 
-test("leaderboard SQL admits only completed verified sessions and one best result per user", async () => {
+test("leaderboard SQL admits only completed server-checked rows and avoids speed tiebreaks", async () => {
   const database = new FakeDatabase();
   database.leaderboardRows = [{
     username: "verified_player",
     avatar: "🧠",
-    score: 10_250,
+    score: 10_000,
     categoryId: "currencies",
     correctCount: 10,
     questionCount: 10,
@@ -638,15 +1068,20 @@ test("leaderboard SQL admits only completed verified sessions and one best resul
   assert.match(statement.sql, /s\.status = 'completed' AND s\.verified = 1/u);
   assert.match(statement.sql, /PARTITION BY s\.user_id/u);
   assert.match(statement.sql, /WHERE userBest = 1/u);
+  assert.match(statement.sql, /\(s\.correct_count \* 1000\) AS score/u);
+  assert.doesNotMatch(statement.sql, /s\.elapsed_ms|elapsedMs/u);
+  assert.doesNotMatch(statement.sql, /ORDER BY[^\n]*s\.score/u);
+  assert.match(statement.sql, /ORDER BY score DESC, username COLLATE NOCASE ASC/u);
   assert.match(statement.sql, /LIMIT 50/u);
-  assert.deepEqual(statement.values, ["currencies"]);
+  assert.match(statement.sql, /s\.category_id NOT IN \(\?, \?, \?, \?, \?\)/u);
+  assert.deepEqual(statement.values, [...QUARANTINED_CATEGORY_IDS, "currencies"]);
   assert.equal(payload.status, "active");
-  assert.equal(payload.scoreType, "server-verified");
+  assertServerCheckedBoundary(payload);
   assert.deepEqual(payload.leaderboard[0], {
     rank: 1,
     username: "verified_player",
     avatar: "🧠",
-    score: 10_250,
+    score: 10_000,
     categoryId: "currencies",
     correctCount: 10,
     questionCount: 10,
@@ -654,6 +1089,70 @@ test("leaderboard SQL admits only completed verified sessions and one best resul
   assert.equal("elapsedMs" in payload.leaderboard[0], false);
   assert.equal("completedAt" in payload.leaderboard[0], false);
   assert.equal(response.headers.get("cache-control"), "public, max-age=30");
+
+  const sqlite = new DatabaseSync(":memory:");
+  try {
+    sqlite.exec(`
+      CREATE TABLE users (
+        id TEXT PRIMARY KEY,
+        username TEXT NOT NULL,
+        avatar TEXT NOT NULL DEFAULT '👤',
+        is_banned INTEGER NOT NULL DEFAULT 0
+      );
+      CREATE TABLE schema_meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+    `);
+    sqlite.exec(await readFile(
+      new URL("../migrations/0003_verified_scoring.sql", import.meta.url),
+      "utf8",
+    ));
+    assert.deepEqual(sqlite.prepare(statement.sql).all(...statement.values), []);
+  } finally {
+    sqlite.close();
+  }
+});
+
+test("global leaderboard filters legacy held scores and held category queries fail closed", async () => {
+  const database = new FakeDatabase();
+  database.leaderboardRows = [
+    {
+      username: "public_player",
+      avatar: "🧠",
+      score: 9_000,
+      categoryId: "currencies",
+      correctCount: 9,
+      questionCount: 10,
+    },
+    {
+      username: "held_player",
+      avatar: "⚕️",
+      score: 10_000,
+      categoryId: "medical-questions",
+      correctCount: 10,
+      questionCount: 10,
+    },
+  ];
+
+  const response = await verifiedLeaderboard(
+    new Request("https://api.jakh.net/api/scores/verified/leaderboard"),
+    scoringEnv(database),
+  );
+  const payload = await response.json();
+  const statement = database.statements.find(({ sql }) => sql.includes("WITH eligible"));
+
+  assert.deepEqual(payload.leaderboard.map(({ categoryId }) => categoryId), ["currencies"]);
+  assert.doesNotMatch(JSON.stringify(payload), /held_player|medical-questions/u);
+  assert.deepEqual(statement.values, [...QUARANTINED_CATEGORY_IDS]);
+
+  for (const categoryId of QUARANTINED_CATEGORY_IDS) {
+    await assert.rejects(
+      verifiedLeaderboard(
+        new Request(`https://api.jakh.net/api/scores/verified/leaderboard?category=${categoryId}`),
+        scoringEnv(new FakeDatabase()),
+      ),
+      (error) => error?.status === 503 && error?.code === "CATEGORY_QUARANTINED",
+      categoryId,
+    );
+  }
 });
 
 test("cleanup expires pending challenges and deletes only expired rows older than 24 hours", async (t) => {

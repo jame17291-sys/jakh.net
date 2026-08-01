@@ -75,7 +75,7 @@ jobs:
         run: |
           for attempt in 1 2 3 4 5 6; do
             if curl --fail --silent --show-error https://api.jakh.net/api/health \
-              | grep -q '"ok":true,"service":"jakh-api","version":"1.4.0","schema":"5"'; then
+              | grep -q '"ok":true,"service":"jakh-api","version":"1.4.0","schema":"6"'; then
               exit 0
             fi
             sleep 10

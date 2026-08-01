@@ -374,9 +374,12 @@ for (const page of pages) {
       return false;
     }
   });
-  if (consentScripts.length !== 1) {
+  const isPrivacySensitiveConsole = page.route === "/admin";
+  if (isPrivacySensitiveConsole && consentScripts.length !== 0) {
+    fail(page.relative, "admin console must not load privacy-consent.js or third-party analytics");
+  } else if (!isPrivacySensitiveConsole && consentScripts.length !== 1) {
     fail(page.relative, `expected exactly one privacy-consent.js loader, found ${consentScripts.length}`);
-  } else if (!/[?&]v=\d+/u.test(attr(consentScripts[0], "src") || "")) {
+  } else if (!isPrivacySensitiveConsole && !/[?&]v=\d+/u.test(attr(consentScripts[0], "src") || "")) {
     fail(page.relative, "privacy-consent.js loader must be versioned");
   }
 

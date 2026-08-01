@@ -14,6 +14,18 @@
     "answer": {
       "en": "The man had hiccups. The bartender scared him to cure them, and it worked — that's why the man thanked him.",
       "ar": "كان الرجل يعاني من الفواق. أراد النادل إخافته لعلاجه، فنجح الأمر — لذلك شكره الرجل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "His hiccups stopped when the bartender scared him.",
+        "The bartender scared him to cure his hiccups.",
+        "The gun scare cured his hiccups."
+      ],
+      "ar": [
+        "توقف فواقه عندما أخافه النادل.",
+        "أخافه النادل ليعالج فواقه.",
+        "أخافه النادل بالمسدس فزال فواقه."
+      ]
     }
   },
   {
@@ -31,6 +43,18 @@
     "answer": {
       "en": "Lina. If Lina took it, Lina's statement is false, Omar's is true, and Sami's is false—exactly one true statement. Either other culprit would make two statements true.",
       "ar": "لينا. إذا كانت لينا قد أخذتها، فقول لينا كاذب وقول عمر صادق وقول سامي كاذب، أي توجد عبارة صادقة واحدة فقط. أما اختيار أي شخص آخر فيجعل عبارتين صادقتين."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Lina.",
+        "Lina took it.",
+        "Lina took the cupcake."
+      ],
+      "ar": [
+        "لينا.",
+        "لينا أخذتها.",
+        "لينا أخذت الحلوى."
+      ]
     }
   },
   {
@@ -65,6 +89,18 @@
     "answer": {
       "en": "The man jumped from an airplane. The unopened package was his parachute that failed to open.",
       "ar": "قفز الرجل من طائرة. الحقيبة غير المفتوحة هي مظلته التي لم تنفتح."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "His parachute failed to open.",
+        "His parachute did not open.",
+        "He died because his parachute never opened."
+      ],
+      "ar": [
+        "لم تنفتح مظلته.",
+        "فشلت مظلته في الانفتاح.",
+        "مات لأن مظلته لم تنفتح."
+      ]
     }
   },
   {
@@ -82,6 +118,18 @@
     "answer": {
       "en": "Romeo and Juliet are fish. The cat knocked their fishbowl off the shelf and they died.",
       "ar": "روميو وجولييت سمكتان. دفعت القطة وعاءهما الزجاجي عن الرف فماتتا."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Romeo and Juliet were fish.",
+        "They were fish whose bowl the cat broke.",
+        "The cat knocked over the fishbowl, killing the fish."
+      ],
+      "ar": [
+        "كان روميو وجولييت سمكتين.",
+        "كانا سمكتين أسقطت القطة وعاءهما.",
+        "أسقطت القطة حوض السمك فماتت السمكتان."
+      ]
     }
   },
   {
@@ -133,6 +181,18 @@
     "answer": {
       "en": "He is playing Monopoly and landed on a hotel he couldn't afford.",
       "ar": "كان يلعب لعبة المونوبولي ووصل إلى فندق لم يستطع دفع تكلفته."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He was playing Monopoly.",
+        "It was a Monopoly game.",
+        "He landed on a hotel in Monopoly."
+      ],
+      "ar": [
+        "كان يلعب المونوبولي.",
+        "كانت لعبة مونوبولي.",
+        "وصل إلى فندق في لعبة المونوبولي."
+      ]
     }
   },
   {
@@ -150,6 +210,18 @@
     "answer": {
       "en": "She stood on a large block of ice. It melted, leaving only the puddle.",
       "ar": "وقفت على قالب جليد كبير. ذاب الجليد ولم يبق إلا بركة الماء."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "She stood on a block of ice.",
+        "The ice block melted beneath her.",
+        "A melting block of ice left the puddle."
+      ],
+      "ar": [
+        "وقفت على قالب من الجليد.",
+        "ذاب قالب الجليد تحتها.",
+        "ترك قالب جليد ذائب بركة الماء."
+      ]
     }
   },
   {
@@ -167,6 +239,18 @@
     "answer": {
       "en": "The audience is deaf. It is a concert for hearing-impaired people.",
       "ar": "الجمهور من الصمّ. إنها حفلة موسيقية لضعاف السمع."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The audience was deaf.",
+        "It was a concert for deaf people.",
+        "Nobody in the audience could hear."
+      ],
+      "ar": [
+        "كان الجمهور من الصم.",
+        "كانت حفلة موسيقية للصم.",
+        "لم يكن أحد في الجمهور قادرًا على السمع."
+      ]
     }
   },
   {
@@ -184,6 +268,18 @@
     "answer": {
       "en": "The cabin is an airplane cabin. The plane crashed into the forest.",
       "ar": "الكابينة هي مقصورة طائرة. تحطمت الطائرة في الغابة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The cabin was part of a crashed airplane.",
+        "It was an airplane cabin after a crash.",
+        "The people died when their plane crashed in the forest."
+      ],
+      "ar": [
+        "كانت الكابينة مقصورة طائرة محطمة.",
+        "كانت مقصورة طائرة بعد تحطمها.",
+        "مات الناس عندما تحطمت طائرتهم في الغابة."
+      ]
     }
   },
   {
@@ -235,6 +331,18 @@
     "answer": {
       "en": "The man is very short and cannot reach the button for floor 30. On rainy days he uses his umbrella to press it. On sunny days he has no umbrella.",
       "ar": "الرجل قصير القامة ولا يستطيع الوصول إلى زر الطابق الثلاثين. في الأيام الممطرة يستخدم مظلته للضغط عليه. في الأيام المشمسة لا يحمل مظلة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He was too short to reach button 30 without his umbrella.",
+        "His umbrella let him reach the thirtieth-floor button.",
+        "He could reach button 30 only with his umbrella."
+      ],
+      "ar": [
+        "كان أقصر من أن يصل إلى زر الثلاثين دون مظلته.",
+        "مكّنته مظلته من بلوغ زر الطابق الثلاثين.",
+        "لم يصل إلى زر الثلاثين إلا بمظلته."
+      ]
     }
   },
   {
@@ -252,6 +360,18 @@
     "answer": {
       "en": "The photo shows her living room, but it was taken from inside a closet — meaning someone had been hiding in her home watching her.",
       "ar": "تُظهر الصورة غرفة معيشتها، لكنها التُقطت من داخل خزانة ملابس — أي أن شخصًا ما كان مختبئًا في منزلها يراقبها."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The photo was taken from inside her closet.",
+        "It showed someone had been hiding in her closet.",
+        "A hidden intruder photographed her living room from the closet."
+      ],
+      "ar": [
+        "التُقطت الصورة من داخل خزانتها.",
+        "كشفت أن شخصًا كان مختبئًا في خزانتها.",
+        "صوّر متسلل مختبئ غرفة معيشتها من داخل الخزانة."
+      ]
     }
   },
   {
@@ -269,6 +389,18 @@
     "answer": {
       "en": "The stamps have a picture of her missing husband on them — she had been searching for him for years.",
       "ar": "الطوابع تحمل صورة زوجها المفقود — كانت تبحث عنه منذ سنوات."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Her missing husband was pictured on the stamps.",
+        "The stamps showed her missing husband.",
+        "She recognized her missing husband's photograph on the stamps."
+      ],
+      "ar": [
+        "ظهرت صورة زوجها المفقود على الطوابع.",
+        "أظهرت الطوابع زوجها المفقود.",
+        "تعرّفت على صورة زوجها المفقود على الطوابع."
+      ]
     }
   },
   {
@@ -303,6 +435,18 @@
     "answer": {
       "en": "The book is titled 'How to Be Assertive.' The borrower is too passive to return it.",
       "ar": "عنوان الكتاب هو 'كيف تكون حازمًا'. المستعير شخصية سلبية جدًا لإعادته."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He was too passive to return it.",
+        "The borrower lacked the assertiveness to return it.",
+        "He kept a book called How to Be Assertive."
+      ],
+      "ar": [
+        "كان سلبيًا جدًا لإعادته.",
+        "افتقر المستعير إلى الحزم اللازم لإعادته.",
+        "احتفظ بكتاب عنوانه «كيف تكون حازمًا»."
+      ]
     }
   },
   {
@@ -320,6 +464,18 @@
     "answer": {
       "en": "They are two of a set of triplets (or quadruplets, etc.).",
       "ar": "هما اثنان من ثلاثة توائم أو أكثر."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "They were triplets.",
+        "They were two of a set of triplets.",
+        "They were triplets or quadruplets."
+      ],
+      "ar": [
+        "كانا من ثلاثة توائم.",
+        "كانا اثنين من مجموعة توائم ثلاثية.",
+        "كانا من ثلاثة توائم أو أكثر."
+      ]
     }
   },
   {
@@ -456,6 +612,18 @@
     "answer": {
       "en": "He was a mercenary hired specifically to lose the battle — winning violated his contract and exposed a deliberate plan to surrender territory.",
       "ar": "كان مرتزقًا مُستأجرًا خصيصًا لخسارة المعركة. فوزه خالف عقده وكشف عن خطة متعمدة للتنازل عن الأرض."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He was a mercenary hired to lose.",
+        "He had been paid to lose the battle.",
+        "Winning violated his contract to lose."
+      ],
+      "ar": [
+        "كان مرتزقًا مأجورًا ليخسر.",
+        "دُفع له كي يخسر المعركة.",
+        "خالف فوزه عقده الذي ألزمه بالخسارة."
+      ]
     }
   },
   {
@@ -473,6 +641,18 @@
     "answer": {
       "en": "He confesses to a different crime — one that gives him an alibi for the time of the murder. He was somewhere else committing that other offense.",
       "ar": "يعترف بجريمة مختلفة توفّر له حجة الغياب وقت الجريمة. كان في مكان آخر يرتكب تلك الجريمة الأخرى."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The other crime gave him an alibi.",
+        "He was elsewhere committing a different crime.",
+        "His confession proved he was elsewhere during the murder."
+      ],
+      "ar": [
+        "منحته الجريمة الأخرى حجة غياب.",
+        "كان في مكان آخر يرتكب جريمة مختلفة.",
+        "أثبت اعترافه أنه كان بعيدًا وقت القتل."
+      ]
     }
   },
   {
@@ -490,6 +670,18 @@
     "answer": {
       "en": "The destroyed painting was a high-quality forgery placed over an original masterpiece. Removing it revealed the real, far more valuable work underneath.",
       "ar": "اللوحة المدمّرة كانت تقليدًا عالي الجودة موضوعًا فوق لوحة أصلية. إزالتها كشفت عن العمل الأصلي الأكثر قيمة تحتها."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The destroyed painting was a forgery covering the original.",
+        "He removed a forgery and revealed the priceless original.",
+        "The apparent masterpiece was a forgery hiding the real one."
+      ],
+      "ar": [
+        "كانت اللوحة المدمرة نسخة مزورة تغطي الأصلية.",
+        "أزال نسخة مزورة وكشف اللوحة الأصلية النفيسة.",
+        "كان العمل الظاهر مزورًا ويخفي اللوحة الحقيقية."
+      ]
     }
   },
   {
@@ -507,6 +699,18 @@
     "answer": {
       "en": "He got trapped inside the vault when the time-lock engaged. Police found him innocent of theft but convicted of breaking and entering. The manager was grateful because the thief had unknowingly exposed a critical flaw in the vault's time-lock system.",
       "ar": "انقلب القفل الزمني عليه وحاصره. أُفرج عنه من تهمة السرقة لكن سُجن بسبب التسلل. المدير شكره لأنه كشف عن خلل خطير في نظام القفل الزمني."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He was jailed for breaking in but exposed the faulty time-lock.",
+        "Jailed for breaking in, he was thanked for revealing the faulty time-lock.",
+        "Breaking in sent him to prison but exposed the defective time-lock."
+      ],
+      "ar": [
+        "سُجن للاقتحام لكنه كشف عطل القفل الزمني.",
+        "سُجن بسبب التسلل وشُكر لكشف خلل القفل الزمني.",
+        "أدخله الاقتحام السجن لكنه فضح عيب القفل الزمني."
+      ]
     }
   },
   {
@@ -524,6 +728,18 @@
     "answer": {
       "en": "He distributed land to loyal nobles who each owed him military service. Without the burden of direct administration, he commanded a larger army than he ever could have maintained alone.",
       "ar": "وزّع الأرض على النبلاء الموالين الذين التزموا له بالخدمة العسكرية. دون عبء الإدارة المباشرة، أصبح يقود جيشًا أكبر مما كان يستطيع وحده."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He exchanged land for the nobles' military service.",
+        "The nobles received land and owed him troops.",
+        "Delegating land gave him a larger army with less administration."
+      ],
+      "ar": [
+        "بادل الأرض بخدمة النبلاء العسكرية.",
+        "أخذ النبلاء الأرض وأصبحوا مدينين له بالجنود.",
+        "منحه تفويض الأرض جيشًا أكبر وإدارة أقل."
+      ]
     }
   },
   {
@@ -660,6 +876,18 @@
     "answer": {
       "en": "The lifeboat had one empty seat. The mother told her daughter to take it. The daughter refused to leave without her mother. In the argument, the lifeboat tipped and both drowned.",
       "ar": "كان في القارب مقعد واحد فارغ. قالت الأم لابنتها أن تأخذه. رفضت الابنة المغادرة بدون أمها. خلال الجدال، انقلب القارب وغرقتا معًا."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Take the last seat.",
+        "She told her daughter to take the final seat.",
+        "She advised her daughter to board without her."
+      ],
+      "ar": [
+        "خذي المقعد الأخير.",
+        "طلبت من ابنتها أخذ المقعد الأخير.",
+        "نصحت ابنتها بالصعود من دونها."
+      ]
     }
   },
   {
@@ -677,6 +905,18 @@
     "answer": {
       "en": "Every secret he gave to the enemy was deliberately false — he was a double agent feeding disinformation. The bigger and more believable the lie, the more loyal he appeared to his real handlers.",
       "ar": "كل سر سرّبه للعدو كان كاذبًا عمدًا — كان عميلًا مزدوجًا يغذّي المعلومات المضللة. كلما كانت الكذبة أكبر وأكثر تصديقًا، بدا أكثر ولاءً لمشغّليه الحقيقيين."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "He was a double agent feeding the enemy false information.",
+        "The secrets were deliberate disinformation.",
+        "He served his real side by misleading the enemy."
+      ],
+      "ar": [
+        "كان عميلاً مزدوجًا يزوّد العدو بمعلومات كاذبة.",
+        "كانت الأسرار معلومات مضللة متعمدة.",
+        "خدم جانبه الحقيقي بتضليل العدو."
+      ]
     }
   },
   {
@@ -728,6 +968,18 @@
     "answer": {
       "en": "It stopped accepting patients it could not effectively treat and redirected them to specialist centers. By focusing only on cases within its expertise, its outcomes improved dramatically — matching patients to the right facility saves more lives overall.",
       "ar": "توقف عن قبول مرضى لا يستطيع علاجهم بفعالية وحوّلهم إلى مراكز متخصصة. بالتركيز فقط على الحالات ضمن تخصصه، تحسنت نتائجه بشكل كبير — توجيه المرضى إلى المنشأة الصحيحة ينقذ أرواحًا أكثر."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "It redirected cases outside its expertise to specialist centers.",
+        "It referred unsuitable cases to specialists and treated only appropriate patients.",
+        "Specialists took cases the hospital could not treat effectively."
+      ],
+      "ar": [
+        "حوّل الحالات خارج اختصاصه إلى مراكز متخصصة.",
+        "أحال الحالات غير المناسبة إلى متخصصين وعالج المرضى الملائمين فقط.",
+        "تولى المتخصصون الحالات التي لم يستطع المستشفى علاجها بفعالية."
+      ]
     }
   },
   {
@@ -762,6 +1014,18 @@
     "answer": {
       "en": "The early opening exposed a timing defect in the vault mechanism. By discovering it in a routine check before anyone was harmed, the bank could fix a flaw that criminals might have exploited.",
       "ar": "الفتح المبكر كشف عن خلل في توقيت آلية الخزينة. باكتشافه في فحص روتيني قبل أن يتضرر أحد، تمكّن البنك من إصلاح ثغرة كان المجرمون يستطيعون استغلالها."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The early opening exposed a fault in the vault timer.",
+        "A routine check revealed the time-lock defect before criminals could exploit it.",
+        "The mistimed opening let the bank fix the vault safely."
+      ],
+      "ar": [
+        "كشف الفتح المبكر خللًا في مؤقت الخزنة.",
+        "كشف فحص روتيني عيب القفل الزمني قبل استغلاله.",
+        "أتاح الفتح في غير موعده إصلاح الخزنة بأمان."
+      ]
     }
   },
   {
@@ -779,6 +1043,18 @@
     "answer": {
       "en": "A night watchman should not be sleeping on the job. The fact that he had a dream proves he was asleep during his shift.",
       "ar": "يجب ألا ينام الحارس الليلي أثناء عمله. حقيقة أنه كان يحلم تثبت أنه كان نائمًا أثناء وردته."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "His dream proved he had slept on duty.",
+        "A night watchman should not sleep during his shift.",
+        "He was fired because dreaming revealed he was asleep."
+      ],
+      "ar": [
+        "أثبت حلمه أنه نام أثناء العمل.",
+        "يجب ألا ينام الحارس الليلي خلال نوبته.",
+        "فُصل لأن حلمه كشف أنه كان نائمًا."
+      ]
     }
   },
   {

@@ -13,6 +13,18 @@
     "answer": {
       "en": "Greater respect or formality — a shallow bow (15°) is casual, a 30° bow shows respect, and a 45° bow indicates deep apology or reverence.",
       "ar": "احترام أو رسمية أكبر — الانحناء الخفيف (15°) غير رسمي، وانحناء 30° يُظهر الاحترام، وانحناء 45° يُشير إلى اعتذار عميق أو تبجيل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Greater respect.",
+        "More respect or formality.",
+        "A deeper bow shows greater respect or apology."
+      ],
+      "ar": [
+        "احترام أكبر.",
+        "مزيد من الاحترام أو الرسمية.",
+        "يدل الانحناء الأعمق على احترام أكبر أو اعتذار."
+      ]
     }
   },
   {
@@ -29,6 +41,18 @@
     "answer": {
       "en": "It is a sign of thanks to the person pouring tea — originating from a story about an emperor who bowed anonymously; his companions tapped fingers to symbolise bowing without revealing his identity.",
       "ar": "هو إشارة شكر لمن يُسكب الشاي — يعود أصله إلى قصة إمبراطور انحنى دون الكشف عن هويته؛ رافقه نقر بالأصابع رمزاً للانحناء دون إفشاء شخصيته."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Thanks.",
+        "It means thank you.",
+        "It thanks the person pouring the tea."
+      ],
+      "ar": [
+        "الشكر.",
+        "تعني شكرًا.",
+        "هي شكر لمن يسكب الشاي."
+      ]
     }
   },
   {
@@ -61,6 +85,18 @@
     "answer": {
       "en": "It was long considered an insult to the chef — implying the portions were too large (over-served) or that the diner did not appreciate the food enough to eat it there. In recent years, France passed laws encouraging restaurants to offer take-home boxes to reduce food waste.",
       "ar": "اعتُبر طويلاً إهانة للطاهي — مما يُوحي بأن الحصص كانت كبيرة جداً أو أن الزبون لم يُقدّر الطعام بما يكفي لأكله هناك. في السنوات الأخيرة، سنّت فرنسا قوانين تُشجع المطاعم على تقديم صناديق يأخذها الزبون معه للحد من هدر الطعام."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "It traditionally insulted the chef.",
+        "It implied the diner did not appreciate the meal.",
+        "It suggested the chef had served too much food."
+      ],
+      "ar": [
+        "كان يُعد إهانة للطاهي تقليديًا.",
+        "كان يوحي بأن الزبون لم يقدر الوجبة.",
+        "كان يعني أن الطاهي قدم طعامًا أكثر من اللازم."
+      ]
     }
   },
   {
@@ -77,6 +113,18 @@
     "answer": {
       "en": "The hongi — it symbolises the sharing of the breath of life (ha) between two people.",
       "ar": "الهونغي — يُرمز به إلى تبادل نفس الحياة (ها) بين شخصين."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Hongi.",
+        "The hongi.",
+        "It is called hongi."
+      ],
+      "ar": [
+        "الهونغي.",
+        "تحية الهونغي.",
+        "تسمى الهونغي."
+      ]
     }
   },
   {
@@ -189,6 +237,18 @@
     "answer": {
       "en": "Holi — the festival of colours, celebrated at the end of winter (usually March).",
       "ar": "هولي — عيد الألوان، يُحتفل به في نهاية الشتاء (عادةً في مارس)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Holi.",
+        "The Holi festival.",
+        "Holi, the festival of colors."
+      ],
+      "ar": [
+        "هولي.",
+        "مهرجان هولي.",
+        "هولي، عيد الألوان."
+      ]
     }
   },
   {
@@ -237,6 +297,18 @@
     "answer": {
       "en": "Tatemae is the public face — what one presents to maintain group harmony and social expectations. Honne is the true inner feelings. Japanese social interaction often requires suppressing honne in favour of tatemae, avoiding direct confrontation or negative responses.",
       "ar": "تاتيمايي هو الواجهة العامة — ما يُقدّمه المرء للحفاظ على انسجام المجموعة والتوقعات الاجتماعية. هونيه هو المشاعر الداخلية الحقيقية. غالباً ما يستلزم التفاعل الاجتماعي الياباني قمع الهونيه لصالح التاتيمايي، وتجنب المواجهة المباشرة والردود السلبية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Tatemae is the public face; honne is true feeling, often suppressed to preserve harmony.",
+        "Tatemae preserves social harmony while honne names private inner feelings.",
+        "Public tatemae can hide honne to avoid direct confrontation."
+      ],
+      "ar": [
+        "التاتيمايي واجهة عامة؛ والهونيه شعور حقيقي يُخفى غالبًا لحفظ الانسجام.",
+        "يحفظ التاتيمايي الانسجام الاجتماعي بينما يمثل الهونيه المشاعر الداخلية.",
+        "قد يخفي التاتيمايي العام الهونيه لتجنب المواجهة المباشرة."
+      ]
     }
   },
   {
@@ -253,6 +325,18 @@
     "answer": {
       "en": "You should never pour your own drink — others at the table pour for you, and you pour for them. It reflects Confucian respect for hierarchy and communal care. The eldest or most senior person is typically served first.",
       "ar": "لا يجب أن تسكب لنفسك أبداً — يسكب لك الآخرون على الطاولة وتسكب لهم أنت. يعكس ذلك الاحترام الكونفوشيوسي للتسلسل الهرمي والرعاية المجتمعية. يُخدم عادةً الأكبر سناً أو الأعلى مرتبةً أولاً."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Others should pour your drink, and you should pour theirs.",
+        "Do not pour for yourself; pour for others.",
+        "Diners pour for one another, serving the eldest first."
+      ],
+      "ar": [
+        "يسكب لك الآخرون وتسكب لهم.",
+        "لا تسكب لنفسك؛ اسكب للآخرين.",
+        "يسكب الجالسون لبعضهم ويخدمون الأكبر أولًا."
+      ]
     }
   },
   {
@@ -269,6 +353,18 @@
     "answer": {
       "en": "Celebrated November 1–2, it honours deceased loved ones with altars (ofrendas), marigolds, sugar skulls, and their favourite food and objects. Unlike solemn mourning, it is joyful — the belief is that the dead return to visit the living during this window.",
       "ar": "يُحتفل به في 1-2 نوفمبر لتكريم المتوفين من الأحباء بالمذابح (أوفرينداس) والزهور البرتقالية وجماجم السكر وطعامهم وأشياءهم المفضلة. خلافاً للحداد الرسمي، إنه فرحٌ — الإيمان أن الموتى يعودون لزيارة الأحياء خلال هذه الفترة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A joyful remembrance welcoming deceased loved ones with ofrendas.",
+        "It joyfully honors deceased loved ones rather than mourning solemnly.",
+        "Families welcome returning loved ones with altars, food, and celebration."
+      ],
+      "ar": [
+        "ذكرى مبهجة تستقبل أرواح الأحبة المتوفين بالقرابين.",
+        "يكرم الأحبة المتوفين بفرح بدل الحداد الحزين.",
+        "تستقبل العائلات أرواح أحبتها بالمذابح والطعام والاحتفال."
+      ]
     }
   },
   {
@@ -285,6 +381,18 @@
     "answer": {
       "en": "Bulgaria (and parts of Greece). A head toss upward means 'no', and a side-to-side shake can mean 'yes' — the opposite of most Western conventions.",
       "ar": "بلغاريا (وأجزاء من اليونان). قذف الرأس للأعلى يعني 'لا'، والهز من جانب لآخر قد يعني 'نعم' — عكس معظم الأعراف الغربية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Bulgaria.",
+        "Bulgaria, and also parts of Greece.",
+        "In Bulgaria, nodding can mean no."
+      ],
+      "ar": [
+        "بلغاريا.",
+        "بلغاريا وأجزاء من اليونان.",
+        "في بلغاريا قد يعني الإيماء لا."
+      ]
     }
   },
   {
@@ -301,6 +409,18 @@
     "answer": {
       "en": "Talkoot is the tradition of communal work — neighbours and community members gathering to help each other with large tasks (harvesting, building). It reflects Finland's deeply communal, egalitarian values and practical mutual-aid ethic.",
       "ar": "التالكوت تقليد العمل الجماعي — تجمّع الجيران وأفراد المجتمع لمساعدة بعضهم في المهام الكبيرة (الحصاد، البناء). يعكس القيم المجتمعية والمساواتية العميقة في فنلندا وأخلاقيات المساعدة المتبادلة العملية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Voluntary communal work based on equality and mutual aid.",
+        "Talkoot is neighbors working together on large shared tasks.",
+        "It expresses Finnish cooperation, egalitarianism, and practical mutual help."
+      ],
+      "ar": [
+        "عمل مجتمعي تطوعي قائم على المساواة والمساعدة المتبادلة.",
+        "التالكوت تعاون الجيران في إنجاز المهام الكبيرة.",
+        "يجسد التعاون الفنلندي والمساواة والمساعدة العملية المتبادلة."
+      ]
     }
   },
   {
@@ -413,6 +533,18 @@
     "answer": {
       "en": "Janteloven (coined by Aksel Sandemose) is a social code that discourages standing out, boasting, or considering yourself better than others. Its core: 'You are not to think you are anything special.' It promotes egalitarianism and collective modesty but can also suppress individual achievement and open ambition.",
       "ar": "يانتيلوفين (ابتكره أكسل سانديموس) قانون اجتماعي يُثبّط التميز أو التفاخر أو اعتبار النفس أفضل من الآخرين. جوهره: 'لا تظن أنك شيء مميز.' يُعزز المساواة والتواضع الجماعي لكن يمكنه أيضاً قمع التميز الفردي والطموح الصريح."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A norm against boasting or seeing yourself as superior.",
+        "Janteloven discourages standing out and promotes collective modesty.",
+        "It favors equality and modesty over individual self-importance."
+      ],
+      "ar": [
+        "قاعدة ترفض التفاخر واعتبار النفس أفضل من الآخرين.",
+        "يثبط يانتيلوفين البروز ويعزز التواضع الجماعي.",
+        "يفضل المساواة والتواضع على الشعور الفردي بالتفوق."
+      ]
     }
   },
   {
@@ -429,6 +561,18 @@
     "answer": {
       "en": "In parts of Iran, Iraq, Nigeria, and other countries, the thumbs-up gesture is equivalent to raising the middle finger in Western cultures — a deeply offensive obscene insult. Western travellers who use it as a sign of approval can inadvertently cause serious offence.",
       "ar": "في أجزاء من إيران والعراق ونيجيريا ودول أخرى، تعادل إيماءة الإبهام لأعلى رفع الإصبع الأوسط في الثقافات الغربية — إهانة فاحشة شديدة. يمكن للمسافرين الغربيين الذين يستخدمونها علامةً للموافقة أن يُحدثوا إساءة خطيرة دون قصد."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "It can be an obscene insult.",
+        "It may equal the Western middle-finger gesture.",
+        "In those contexts it signals offense rather than approval."
+      ],
+      "ar": [
+        "قد تكون إهانة فاحشة.",
+        "قد تعادل إشارة الإصبع الأوسط الغربية.",
+        "في تلك السياقات تعني الإساءة لا الموافقة."
+      ]
     }
   },
   {
@@ -477,6 +621,18 @@
     "answer": {
       "en": "Shoes are considered bearers of outside dirt, impurity, and negative energy — physically and spiritually contaminating the home. In Muslim homes it also relates to ritual cleanliness (tahara). The home is a sacred space; removing shoes signals respect and a transition from the public to the private sphere.",
       "ar": "تُعدّ الأحذية حاملة لوساخ الخارج ونجاسته وطاقته السلبية — مُلوِّثة للمنزل مادياً وروحياً. في المنازل الإسلامية يرتبط الأمر أيضاً بالطهارة الشعائرية (الطهارة). المنزل فضاء مقدس؛ خلع الأحذية يُشير إلى الاحترام والانتقال من المجال العام إلى الخاص."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Removing shoes keeps outside dirt from entering the home.",
+        "It protects household cleanliness and shows respect.",
+        "It marks the transition from public space into the private home."
+      ],
+      "ar": [
+        "يمنع خلع الأحذية دخول أوساخ الخارج إلى المنزل.",
+        "يحافظ على نظافة البيت ويظهر الاحترام.",
+        "يمثل الانتقال من الفضاء العام إلى المنزل الخاص."
+      ]
     }
   },
   {
@@ -525,6 +681,18 @@
     "answer": {
       "en": "Moroccan mint tea (atay) is served in three glasses: the first is gentle as life, the second is strong as love, and the third is bitter as death. Refusing tea is considered impolite — accepting it is a sign of accepting the host's hospitality.",
       "ar": "يُقدَّم شاي النعناع المغربي (أتاي) في ثلاثة كؤوس: الأول خفيف كالحياة، والثاني قوي كالحب، والثالث مرّ كالموت. رفض الشاي يُعدّ غير لائق — قبوله علامة على قبول كرم المضيف."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "The glasses are gentle as life, strong as love, and bitter as death.",
+        "First is life, second love, and third death.",
+        "The three glasses symbolize life, love, and death."
+      ],
+      "ar": [
+        "الكؤوس خفيفة كالحياة وقوية كالحب ومرة كالموت.",
+        "الأول للحياة والثاني للحب والثالث للموت.",
+        "ترمز الكؤوس الثلاثة إلى الحياة والحب والموت."
+      ]
     }
   },
   {
@@ -541,6 +709,18 @@
     "answer": {
       "en": "Libation is the ritual pouring of liquid (water, palm wine, alcohol) onto the ground to honour ancestors and spiritual forces. It opens ceremonies and gatherings by inviting ancestral spirits to attend and bless the event. The act maintains the link between the living and the dead.",
       "ar": "السكب الطقسي هو سكب سائل (ماء، نبيذ النخيل، كحول) على الأرض بشكل طقسي لتكريم الأجداد والقوى الروحية. يُفتح به الاحتفالات والتجمعات بدعوة أرواح الأجداد للحضور وتبريك الحدث. يُحافظ هذا الفعل على الرابط بين الأحياء والأموات."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A ritual pouring of liquid to honor ancestors and seek blessings.",
+        "Libation invites ancestral spirits to attend and bless a gathering.",
+        "It pours liquid on the ground to connect living people with ancestors."
+      ],
+      "ar": [
+        "سكب سائل طقسي لتكريم الأجداد وطلب البركة.",
+        "يدعو السكب أرواح الأجداد لحضور التجمع ومباركته.",
+        "هو سكب سائل على الأرض لربط الأحياء بالأجداد."
+      ]
     }
   },
   {
@@ -621,6 +801,18 @@
     "answer": {
       "en": "Amae (coined by psychologist Takeo Doi) describes a dependent presumption upon another's benevolence — a comfortable reliance on another's goodwill, presuming they will accommodate your needs without being asked. It underpins Japanese group harmony: members expect to be 'read' and accommodated rather than having to articulate every need explicitly.",
       "ar": "الأماي (ابتكره عالم النفس تاكيو دوي) يصف الافتراض المعتمِد على خير الآخر — الاعتماد المريح على حسن نية شخص آخر بافتراض أنه سيُلبّي احتياجاتك دون طلب. يدعم انسجام المجموعة اليابانية: يتوقع الأعضاء أن يُقرأوا ويُستوعبوا بدلاً من أن يصرّحوا بكل احتياج صراحةً."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Comfortable dependence on another person's presumed goodwill.",
+        "Amae expects others to understand and meet unspoken needs.",
+        "It supports group harmony through reliance on benevolent accommodation."
+      ],
+      "ar": [
+        "اعتماد مريح على حسن نية شخص آخر.",
+        "يتوقع الأماي أن يفهم الآخرون الاحتياجات الضمنية ويلبوها.",
+        "يدعم انسجام الجماعة بالاعتماد على استيعاب الآخرين."
+      ]
     }
   },
   {
@@ -637,6 +829,18 @@
     "answer": {
       "en": "Tri Hita Karana ('three causes of well-being') is the Balinese Hindu philosophy of harmonious relationships between humans and God (Parahyangan), humans and other humans (Pawongan), and humans and nature (Palemahan). It manifests in daily offerings (canang sari), community temple worship, environmental conservation, and the integration of ritual into agricultural cycles.",
       "ar": "تري هيتا كارانا ('الأسباب الثلاثة للرفاهية') هي فلسفة هندوسية بالية للعلاقات المتناسقة بين الإنسان والإله (باراهيانغان)، والإنسان والإنسان (باوونغان)، والإنسان والطبيعة (باليماهان). تتجلى في التقدمات اليومية (كاناغ ساري) وعبادة معبد المجتمع والحفاظ على البيئة ودمج الطقوس في الدورات الزراعية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Harmony among people, God, and nature, practiced through offerings and community care.",
+        "Tri Hita Karana balances divine, human, and natural relationships in daily ritual.",
+        "Offerings, communal worship, and conservation express harmony with God, people, and nature."
+      ],
+      "ar": [
+        "تناغم بين الناس والإله والطبيعة يتجسد في القرابين والعناية المجتمعية.",
+        "يوازن تري هيتا كارانا العلاقات الإلهية والإنسانية والطبيعية في الطقوس اليومية.",
+        "تعبر القرابين والعبادة الجماعية وحماية البيئة عن تناغم الإله والناس والطبيعة."
+      ]
     }
   },
   {
@@ -653,6 +857,18 @@
     "answer": {
       "en": "Proxemics (1966) categorises space into intimate (0–45 cm), personal (45–120 cm), social (1.2–3.6 m), and public zones. Cultures differ significantly: Arab, Latin American, and southern European cultures are 'contact cultures' comfortable with closer proximity; northern Europeans, Japanese, and North Americans are 'non-contact cultures' requiring more personal space.",
       "ar": "القربيات (1966) تُصنّف الفضاء إلى: حميم (0-45 سم)، وشخصي (45-120 سم)، واجتماعي (1.2-3.6 م)، وعام. تتباين الثقافات بشكل ملحوظ: الثقافات العربية وأمريكا اللاتينية وجنوب أوروبا 'ثقافات تماس' مرتاحة للقرب الشديد؛ بينما شمال أوروبا واليابان وأمريكا الشمالية 'ثقافات بلا تماس' تستلزم مزيداً من المساحة الشخصية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Cultures maintain different distances for personal space.",
+        "Contact cultures generally stand closer than non-contact cultures.",
+        "Proxemics maps cultural differences in intimate, personal, social, and public distance."
+      ],
+      "ar": [
+        "تحافظ الثقافات على مسافات مختلفة للمساحة الشخصية.",
+        "تقف ثقافات التماس أقرب عمومًا من الثقافات غير التلامسية.",
+        "يرصد علم القربيات الفروق الثقافية في المسافات الحميمية والشخصية والاجتماعية والعامة."
+      ]
     }
   },
   {
@@ -685,6 +901,18 @@
     "answer": {
       "en": "Wasta is the use of personal connections and intermediaries to gain advantages in employment, bureaucracy, legal situations, or services. It operates through a network of obligations where helping someone creates a reciprocal debt. While parallel to Bourdieu's social capital, wasta is more formalised — embedded in extended family and tribal networks — and is debated for both facilitating social cohesion and undermining meritocracy.",
       "ar": "الواسطة هي استخدام الصلات الشخصية والوسطاء لاكتساب مزايا في التوظيف والبيروقراطية والمواقف القانونية أو الخدمات. تعمل عبر شبكة من الالتزامات حيث يُنشئ مساعدة شخص ما دَيناً متبادلاً. بالتوازي مع رأس المال الاجتماعي لبورديو، الواسطة أكثر رسمية — متجذّرة في شبكات الأسرة الممتدة والقبيلة — ويُتناقش حولها لكونها تُيسّر التماسك الاجتماعي وتُقوّض الجدارة في الوقت ذاته."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Using personal connections and intermediaries to gain advantages.",
+        "Wasta turns social ties into reciprocal help and access.",
+        "It operates through networks of favors and obligations."
+      ],
+      "ar": [
+        "استخدام الصلات الشخصية والوسطاء للحصول على مزايا.",
+        "تحول الواسطة العلاقات الاجتماعية إلى مساعدة ونفوذ متبادلين.",
+        "تعمل عبر شبكات من الخدمات والالتزامات المتبادلة."
+      ]
     }
   },
   {
@@ -701,6 +929,18 @@
     "answer": {
       "en": "Slametan is a communal feast-prayer meal held to mark life transitions (births, deaths, marriages, moving house) and to invoke spiritual safety (slamet = safe/well). Neighbours and community gather, a religious leader recites prayers, and food is shared. Anthropologist Clifford Geertz analysed it as the core ritual of Javanese social and spiritual life in 'The Religion of Java' (1960).",
       "ar": "السلاماتان وليمة-صلاة مجتمعية تُقام لإحياء انتقالات الحياة (الولادات، الوفيات، الزيجات، الانتقال للمنزل) ولاستدعاء الأمان الروحي (سلاميت = آمن/بخير). يجتمع الجيران والمجتمع ويتلو زعيم ديني الصلوات ويُتشارك الطعام. حلّل عالم الأنثروبولوجيا كليفورد غيرتز السلاماتان باعتبارها الطقس الجوهري للحياة الاجتماعية والروحية الجاوية في 'دين جاوة' (1960)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A communal feast and prayer for life transitions and spiritual safety.",
+        "Slametan gathers neighbors to share food, pray, and seek protection.",
+        "It marks events like births, marriages, and deaths through communal prayer."
+      ],
+      "ar": [
+        "وليمة وصلاة جماعية لانتقالات الحياة وطلب الأمان الروحي.",
+        "يجمع السلاماتان الجيران للطعام والصلاة وطلب الحماية.",
+        "يحيي الولادات والزيجات والوفيات بالصلاة الجماعية."
+      ]
     }
   },
   {

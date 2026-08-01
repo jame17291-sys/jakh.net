@@ -109,7 +109,7 @@ function shuffled<T>(values: readonly T[]): T[] {
 
 function acceptedAnswersAreValid(value: SourceCard["acceptedAnswers"]): boolean {
   if (value === undefined) return true;
-  if (!value || typeof value !== "object") return false;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   for (const language of ["en", "ar"] as const) {
     const answers = value[language];
     if (answers === undefined) continue;
@@ -120,6 +120,8 @@ function acceptedAnswersAreValid(value: SourceCard["acceptedAnswers"]): boolean 
         typeof answer !== "string" || !conciseCanonicalAnswer(answer)
       ))
     ) return false;
+    const normalized = answers.map(normalizeAnswer);
+    if (new Set(normalized).size !== normalized.length) return false;
   }
   return true;
 }
@@ -167,14 +169,21 @@ function canonicalAnswerVariants(value: string): string[] {
   return [...variants];
 }
 
+function answerVariants(card: CanonicalCard, language: "en" | "ar"): string[] {
+  const canonical = card.answer[language];
+  return [
+    ...(conciseCanonicalAnswer(canonical) ? canonicalAnswerVariants(canonical) : []),
+    ...(card.acceptedAnswers?.[language] || []),
+  ];
+}
+
+function hasVerifiableAnswer(card: CanonicalCard, language: "en" | "ar"): boolean {
+  return answerVariants(card, language).some(conciseCanonicalAnswer);
+}
+
 function answerAliases(card: CanonicalCard): string[] {
   const aliases = new Set<string>();
-  const englishVariants = conciseCanonicalAnswer(card.answer.en)
-    ? [
-      ...canonicalAnswerVariants(card.answer.en),
-      ...(card.acceptedAnswers?.en || []),
-    ]
-    : [];
+  const englishVariants = answerVariants(card, "en");
   for (const variant of englishVariants) {
     const normalized = normalizeAnswer(variant);
     if (!normalized) continue;
@@ -182,12 +191,7 @@ function answerAliases(card: CanonicalCard): string[] {
     const withoutArticle = normalized.replace(/^(?:a|an|the)\s+/u, "");
     if (withoutArticle) aliases.add(withoutArticle);
   }
-  const arabicVariants = conciseCanonicalAnswer(card.answer.ar)
-    ? [
-      ...canonicalAnswerVariants(card.answer.ar),
-      ...(card.acceptedAnswers?.ar || []),
-    ]
-    : [];
+  const arabicVariants = answerVariants(card, "ar");
   for (const variant of arabicVariants) {
     const normalized = normalizeAnswer(variant);
     if (normalized) aliases.add(normalized);
@@ -245,8 +249,8 @@ function canonicalCategoryCards(
   }
 
   const eligibleCards = cards.filter((card) => (
-    conciseCanonicalAnswer(card.answer.en)
-    && conciseCanonicalAnswer(card.answer.ar)
+    hasVerifiableAnswer(card, "en")
+    && hasVerifiableAnswer(card, "ar")
     && submittableAnswerAliases(card).length > 0
   ));
   if (eligibleCards.length < VERIFIED_QUESTION_COUNT) {

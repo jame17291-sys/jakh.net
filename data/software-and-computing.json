@@ -29,6 +29,16 @@
     "answer": {
       "en": "RAM (Random Access Memory) is volatile — it stores data temporarily while the computer is running. ROM (Read-Only Memory) is non-volatile — it stores permanent instructions (like firmware) that persist even when powered off.",
       "ar": "RAM (ذاكرة الوصول العشوائي) متطايرة — تُخزّن البيانات مؤقتاً أثناء تشغيل الحاسب. ROM (ذاكرة القراءة فقط) غير متطايرة — تُخزّن التعليمات الدائمة (كالبرامج الثابتة) التي تبقى حتى بعد إيقاف التشغيل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "RAM is volatile temporary memory; ROM is nonvolatile persistent instruction storage.",
+        "RAM loses working data without power; ROM retains stored instructions."
+      ],
+      "ar": [
+        "RAM ذاكرة مؤقتة متطايرة؛ ROM تخزين دائم غير متطاير للتعليمات.",
+        "تفقد RAM بيانات العمل بانقطاع الطاقة؛ وتحتفظ ROM بالتعليمات المخزنة."
+      ]
     }
   },
   {
@@ -45,6 +55,16 @@
     "answer": {
       "en": "Binary is a base-2 number system using only 0 and 1. Computers use it because transistors have two states — on (1) and off (0) — making binary natural for digital circuits.",
       "ar": "النظام الثنائي هو نظام أساسه 2 يستخدم 0 و1 فقط. تستخدمه الحاسبات لأن الترانزستورات لها حالتان — مفتوح (1) ومغلق (0) — مما يجعل النظام الثنائي طبيعياً للدوائر الرقمية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Binary uses 0 and 1 because transistors have two electrical states.",
+        "Base-2 digits match transistors' on/off states, so computers use zeros and ones."
+      ],
+      "ar": [
+        "النظام الثنائي يستخدم 0 و1 لأن للترانزستورات حالتين كهربائيتين.",
+        "أرقام الأساس اثنين توافق حالتي تشغيل الترانزستور وإيقافه؛ لذا تستخدم الحواسيب صفراً وواحداً."
+      ]
     }
   },
   {
@@ -61,6 +81,16 @@
     "answer": {
       "en": "A data structure that stores elements of the same type in contiguous memory locations, accessible by an index starting from 0.",
       "ar": "هيكل بيانات يُخزّن عناصر من نفس النوع في مواضع ذاكرة متجاورة، يمكن الوصول إليها بفهرس يبدأ من 0."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Indexed, contiguous storage for same-type elements, usually starting at index zero.",
+        "Same-type elements stored contiguously and accessed by zero-based indexes."
+      ],
+      "ar": [
+        "تخزين متجاور مفهرس لعناصر من النوع نفسه، يبدأ عادة بالفهرس صفر.",
+        "عناصر من نوع واحد تُخزن متجاورة وتُوصل بفهارس تبدأ من الصفر."
+      ]
     }
   },
   {
@@ -93,6 +123,16 @@
     "answer": {
       "en": "A compiler translates the entire source code into machine code before execution. An interpreter translates and executes code line by line at runtime.",
       "ar": "المُجمِّع يُترجم كامل الكود المصدري إلى كود آلة قبل التنفيذ. المُفسِّر يُترجم الكود وينفّذه سطراً سطراً أثناء التشغيل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Compiler translates source first; interpreter translates and executes incrementally at runtime.",
+        "Compilers translate entire programs ahead of execution; interpreters translate while running."
+      ],
+      "ar": [
+        "المجمّع يترجم المصدر كاملاً قبل التنفيذ؛ المفسّر يترجم وينفذ تدريجياً أثناء التشغيل.",
+        "المجمّعات تترجم البرامج كاملة قبل التنفيذ؛ والمفسرات تترجم أثناء التشغيل."
+      ]
     }
   },
   {
@@ -221,6 +261,16 @@
     "answer": {
       "en": "A stack is a LIFO (Last In, First Out) data structure — the most recently added element is the first removed. Operations: push (add to top), pop (remove from top).",
       "ar": "المكدس هيكل بيانات LIFO (آخر داخل أول خارج) — العنصر المضاف مؤخراً هو الأول في الإزالة. العمليات: push (إضافة للقمة)، وpop (إزالة من القمة)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A LIFO structure: push adds to top; pop removes the newest item first.",
+        "Last in, first out—items are pushed and popped at the top."
+      ],
+      "ar": [
+        "هيكل آخر داخل أول خارج؛ push يضيف للقمة وpop يزيل الأحدث أولاً.",
+        "مكدس LIFO تُضاف عناصره وتُزال من القمة، والأحدث يخرج أولاً."
+      ]
     }
   },
   {
@@ -253,6 +303,16 @@
     "answer": {
       "en": "The Open Systems Interconnection model is a 7-layer conceptual framework for network communication: Physical, Data Link, Network, Transport, Session, Presentation, Application. Each layer handles specific functions and communicates with adjacent layers.",
       "ar": "نموذج ربط الأنظمة المفتوحة إطار مفاهيمي من 7 طبقات لاتصالات الشبكة: المادية، وربط البيانات، والشبكة، والنقل، والجلسة، والتقديم، والتطبيق. تتولى كل طبقة وظائف محددة وتتواصل مع الطبقات المجاورة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Seven OSI layers: Physical, Data Link, Network, Transport, Session, Presentation, Application.",
+        "OSI has seven layers: Application, Presentation, Session, Transport, Network, Data Link, Physical."
+      ],
+      "ar": [
+        "إطار شبكي بسبع طبقات: المادية، ربط البيانات، الشبكة، النقل، الجلسة، التقديم، التطبيق.",
+        "طبقات OSI السبع: التطبيق، التقديم، الجلسة، النقل، الشبكة، ربط البيانات، المادية."
+      ]
     }
   },
   {
@@ -285,6 +345,16 @@
     "answer": {
       "en": "A hash table stores key-value pairs by computing a hash of the key to determine storage location. Average O(1) for insertions, lookups, and deletions. Worst-case O(n) with many collisions.",
       "ar": "جدول التجزئة يُخزّن أزواج مفتاح-قيمة بحساب تجزئة المفتاح لتحديد موضع التخزين. متوسط O(1) للإدراج والبحث والحذف. وO(n) في الحالة الأسوأ مع التصادمات الكثيرة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Key-value storage indexed by hashed keys; average lookup complexity is O(1).",
+        "Hashed keys locate values; lookups average constant time, O(1)."
+      ],
+      "ar": [
+        "تخزين مفتاح-قيمة مفهرس بتجزئة المفتاح؛ متوسط البحث O(1).",
+        "تحدد تجزئة المفتاح موقع القيمة؛ والبحث في المتوسط O(1)."
+      ]
     }
   },
   {
@@ -301,6 +371,16 @@
     "answer": {
       "en": "The Domain Name System translates human-readable domain names (e.g., example.com) into IP addresses. When you request a URL, a DNS resolver queries a hierarchy of servers (root → TLD → authoritative) to find the corresponding IP.",
       "ar": "نظام اسم النطاق يُترجم أسماء النطاقات القابلة للقراءة (مثلاً example.com) إلى عناوين IP. عند طلب عنوان URL، يستعلم محلّل DNS تسلسلاً هرمياً من الخوادم (الجذر ← TLD ← الموثوق) للعثور على IP المقابل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "DNS resolves domains to IP addresses through root, TLD, then authoritative servers.",
+        "A resolver queries root, TLD, and authoritative servers to map domains to IPs."
+      ],
+      "ar": [
+        "يحوّل DNS النطاقات إلى عناوين IP عبر خوادم الجذر ثم TLD ثم الموثوقة.",
+        "يستعلم المحلل خوادم الجذر وTLD والموثوقة لربط النطاق بعنوان IP."
+      ]
     }
   },
   {
@@ -317,6 +397,16 @@
     "answer": {
       "en": "Five design principles: Single Responsibility (one reason to change), Open/Closed (open for extension, closed for modification), Liskov Substitution (subclasses substitutable for parent), Interface Segregation (specific interfaces), Dependency Inversion (depend on abstractions, not concretions).",
       "ar": "خمسة مبادئ تصميم: المسؤولية الفردية (سبب واحد للتغيير)، المفتوح/المغلق (مفتوح للتوسيع مغلق للتعديل)، استبدال ليسكوف (الأصناف الفرعية قابلة للتبديل بالأصل)، فصل الواجهات (واجهات محددة)، انعكاس الاعتمادية (اعتمد على التجريدات لا التطبيقات)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Single Responsibility, Open-Closed, Liskov, Interface Segregation, Dependency Inversion.",
+        "SRP, OCP, LSP, ISP, DIP—the five SOLID object-design principles."
+      ],
+      "ar": [
+        "المسؤولية الفردية، المفتوح-المغلق، ليسكوف، فصل الواجهات، انعكاس الاعتمادية.",
+        "SRP وOCP وLSP وISP وDIP؛ مبادئ SOLID الخمسة لتصميم الكائنات."
+      ]
     }
   },
   {
@@ -333,6 +423,16 @@
     "answer": {
       "en": "Recursion is when a function calls itself to solve a smaller instance of the same problem. A base case is the condition that terminates the recursion — without it, the function would call itself infinitely and cause a stack overflow.",
       "ar": "العودية هي عندما تُستدعي دالة ذاتها لحل نسخة أصغر من المشكلة ذاتها. الحالة الأساسية هي الشرط الذي ينهي العودية — بدونها ستستدعي الدالة نفسها بلا حدود مما يُسبب فيضان المكدس."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A function calls itself on smaller inputs; a base case stops the calls.",
+        "Self-calling problem reduction terminated by a base condition."
+      ],
+      "ar": [
+        "تستدعي الدالة نفسها على مدخل أصغر؛ وتوقفها الحالة الأساسية.",
+        "حل عودي باستدعاء الذات ينتهي عند شرط أساسي."
+      ]
     }
   },
   {
@@ -349,6 +449,16 @@
     "answer": {
       "en": "Dijkstra's algorithm finds the shortest path from a source node to all others in a weighted graph with non-negative edges. It greedily picks the unvisited node with the smallest known distance, relaxes its neighbours, and repeats. With a binary heap: O((V + E) log V), where V = vertices and E = edges.",
       "ar": "خوارزمية ديكسترا تجد أقصر مسار من عقدة مصدر إلى جميع العقد الأخرى في رسم بياني موزون بحواف غير سلبية. تختار بجشع العقدة غير المزارة ذات أصغر مسافة معروفة، تُريح جيرانها، وتُكرر. مع كومة ثنائية: O((V + E) log V)، حيث V = الرؤوس وE = الحواف."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Greedy relaxation finds shortest paths on nonnegative edges; heap: O((V+E) log V).",
+        "Greedily relax nearest vertices for nonnegative shortest paths; heap costs O((V+E)log V)."
+      ],
+      "ar": [
+        "ترخية جشعة تجد أقصر المسارات بحواف غير سالبة؛ بالكومة O((V+E) log V).",
+        "رخِّ أقرب الرؤوس بجشع لأقصر مسارات غير سالبة؛ تكلفة الكومة O((V+E)log V)."
+      ]
     }
   },
   {
@@ -365,6 +475,16 @@
     "answer": {
       "en": "A race condition occurs when the behaviour of a program depends on the relative timing of threads accessing shared data — leading to unpredictable results. Prevention: synchronisation primitives (mutexes, semaphores, monitors), atomic operations, or lock-free data structures.",
       "ar": "تحدث حالة السباق عندما يعتمد سلوك البرنامج على التوقيت النسبي للخيوط التي تصل إلى البيانات المشتركة — مما يؤدي إلى نتائج غير متوقعة. الوقاية: بدائل المزامنة (mutex، semaphore، monitor)، والعمليات الذرية، وهياكل البيانات خالية القفل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Shared-data results depend on thread timing; prevent with synchronisation or atomic operations.",
+        "Thread timing changes shared-state outcomes; use locks or atomics to make access safe."
+      ],
+      "ar": [
+        "سلوك البيانات المشتركة يعتمد بلا توقع على توقيت الخيوط؛ تمنعه المزامنة أو العمليات الذرية.",
+        "يغير توقيت الخيوط نتائج الحالة المشتركة؛ استخدم الأقفال أو العمليات الذرية."
+      ]
     }
   },
   {
@@ -429,6 +549,16 @@
     "answer": {
       "en": "TDD is a development approach where tests are written before production code. Cycle: Red (write a failing test), Green (write minimal code to pass the test), Refactor (clean up code while keeping tests green). Benefits: better design, coverage, and fewer regressions.",
       "ar": "TDD نهج تطويري تُكتب فيه الاختبارات قبل كود الإنتاج. الدورة: أحمر (اكتب اختباراً فاشلاً)، أخضر (اكتب أدنى كود لاجتياز الاختبار)، إعادة الهيكلة (نظّف الكود مع إبقاء الاختبارات خضراء). الفوائد: تصميم أفضل وتغطية أوسع وتراجعات أقل."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Tests first; Red: fail; Green: minimal pass; Refactor: clean while tests pass.",
+        "Write a failing test, make it pass minimally, then refactor without breaking tests."
+      ],
+      "ar": [
+        "الاختبارات أولاً؛ أحمر: فشل؛ أخضر: أدنى نجاح؛ إعادة الهيكلة مع بقاء النجاح.",
+        "اكتب اختباراً فاشلاً، مرره بأقل كود، ثم أعد الهيكلة دون كسر الاختبارات."
+      ]
     }
   },
   {
@@ -445,6 +575,16 @@
     "answer": {
       "en": "The halting problem asks whether a general algorithm can determine if any given program will eventually halt or run forever. Turing proved (1936) this is undecidable — no such general algorithm can exist — by demonstrating a contradiction (if it could, you could construct a program that halts iff it doesn't).",
       "ar": "مشكلة التوقف تسأل هل يمكن لخوارزمية عامة تحديد ما إذا كان أي برنامج سيتوقف في نهاية المطاف أم يواصل التشغيل إلى الأبد. أثبت تورينغ (1936) أنها غير قابلة للبت — لا يمكن وجود مثل هذه الخوارزمية العامة — بإظهار تناقض (لو أمكن، يمكنك بناء برنامج يتوقف إذا وفقط إذا لم يتوقف)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "No algorithm decides whether every program halts or runs forever; Turing proved it undecidable.",
+        "Turing proved universal termination testing impossible; the halting problem is undecidable."
+      ],
+      "ar": [
+        "لا خوارزمية تحدد توقف كل برنامج أو استمراره؛ أثبت تورينغ أنها غير قابلة للبت.",
+        "أثبت تورينغ استحالة تقرير توقف أي برنامج عموماً؛ فتلك مشكلة غير قابلة للبت."
+      ]
     }
   },
   {
@@ -541,6 +681,16 @@
     "answer": {
       "en": "A deadlock is a state where two or more processes are permanently blocked, each waiting for a resource held by another. Coffman conditions (all four must hold): (1) Mutual Exclusion, (2) Hold and Wait, (3) No Preemption, (4) Circular Wait.",
       "ar": "الإغلاق التام حالة تُحجب فيها عمليتان أو أكثر بشكل دائم، كل منها تنتظر مورداً يحتفظ به الآخر. شروط كوفمان (يجب أن تتوفر الأربعة): (1) الاستبعاد المتبادل، (2) الاحتفاظ والانتظار، (3) عدم الاستئصال، (4) الانتظار الدائري."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Permanent mutual waiting; conditions: mutual exclusion, hold-and-wait, no preemption, circular wait.",
+        "Deadlock blocks processes under exclusion, hold-and-wait, no preemption, and circular wait."
+      ],
+      "ar": [
+        "انتظار متبادل دائم؛ شروطه الاستبعاد المتبادل والاحتفاظ والانتظار وعدم الاستباق والانتظار الدائري.",
+        "تتعطل العمليات دائماً مع الاستبعاد والاحتفاظ والانتظار ومنع الاستباق ودائرة الانتظار."
+      ]
     }
   },
   {
@@ -637,6 +787,16 @@
     "answer": {
       "en": "Raft (Ongaro & Ousterhout, 2014) is a consensus algorithm for distributed systems that ensures multiple nodes agree on a sequence of values even in the presence of failures. It decomposes consensus into leader election, log replication, and safety. Designed as a more understandable alternative to Paxos — used in etcd, CockroachDB.",
       "ar": "Raft (أونغارو وأوسترهاوت، 2014) خوارزمية إجماع للأنظمة الموزعة تضمن اتفاق عقد متعددة على تسلسل القيم حتى في حالة الأعطال. تُقسّم الإجماع إلى انتخاب القائد وتكرار السجل والسلامة. صُمِّمت كبديل أكثر قابلية للفهم من Paxos — مُستخدمة في etcd وCockroachDB."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Raft reaches fault-tolerant consensus through leader election, log replication, and safety.",
+        "Leader election, log replication, and safety let failing nodes agree on one value sequence."
+      ],
+      "ar": [
+        "يحقق Raft إجماعاً متحملاً للأعطال عبر انتخاب القائد وتكرار السجل والسلامة.",
+        "انتخاب القائد وتكرار السجل والسلامة تجعل العقد تتفق رغم الأعطال."
+      ]
     }
   },
   {
@@ -653,6 +813,16 @@
     "answer": {
       "en": "In multi-core CPUs, each core has its own cache. Cache coherence protocols (e.g., MESI — Modified, Exclusive, Shared, Invalid) ensure all caches present a consistent view of memory. Without coherence, one core might read a stale value written by another. The protocol uses bus snooping or directory-based mechanisms to track cache line states.",
       "ar": "في المعالجات متعددة النوى، لكل نواة ذاكرتها المخبئية الخاصة. بروتوكولات تماسك الذاكرة (مثلاً MESI — معدَّل، حصري، مشترك، غير صالح) تضمن تقديم جميع الذاكرات المخبئية رؤية متناسقة للذاكرة. بدون التماسك، قد تقرأ إحدى النوى قيمة قديمة كتبتها أخرى. يستخدم البروتوكول رصد الناقل أو آليات قائمة على الدليل لتتبع حالات خطوط الذاكرة المخبئية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Keeps multicore caches' memory views consistent, preventing stale reads; MESI is one protocol.",
+        "Coherence aligns core caches, preventing stale reads of another core's writes."
+      ],
+      "ar": [
+        "يوحد رؤية مخابئ الأنوية للذاكرة ويمنع القراءات القديمة؛ MESI مثال.",
+        "يحافظ التماسك على اتساق مخبأ كل نواة ويمنع قراءة كتابة قديمة من أخرى."
+      ]
     }
   },
   {
@@ -669,6 +839,16 @@
     "answer": {
       "en": "A finite automaton has a fixed number of states and no external memory — recognises regular languages (the lowest class in the Chomsky hierarchy). A Turing machine has a potentially infinite tape, can read/write/move in both directions — recognises Turing-recognisable (recursively enumerable) languages. Between them: pushdown automata (context-free languages) and linear-bounded automata (context-sensitive).",
       "ar": "الأوتوماتون المحدود لديه عدد ثابت من الحالات وبلا ذاكرة خارجية — يتعرف على اللغات المنتظمة (أدنى فئة في تسلسل تشومسكي). آلة تورينغ لديها شريط لا نهائي محتمل يمكن قراءته/كتابته/التحرك فيه في كلا الاتجاهين — تتعرف على اللغات القابلة للتعرف عبر تورينغ (المعددة بشكل حسابي). بينهما: أوتوماتون الدفع للأسفل (اللغات السياقية الحرة) والأوتوماتون المقيد خطياً (اللغات السياقية)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Finite automata: regular languages; tape-based Turing machines: recursively enumerable languages.",
+        "Finite automata accept regular languages; taped Turing machines accept recognizable languages."
+      ],
+      "ar": [
+        "الأوتوماتون المحدود للغات المنتظمة؛ آلة تورينغ ذات الشريط للغات المعددة حسابياً.",
+        "المحدود بلا شريط ويقبل المنتظمة؛ تورينغ ذات شريط وتقبل القابلة للتعرف."
+      ]
     }
   },
   {
@@ -685,6 +865,16 @@
     "answer": {
       "en": "In traditional CRUD, the database stores current state. In event sourcing, only immutable events (facts about what happened) are stored; current state is derived by replaying the event log. Benefits: full audit trail, temporal queries, easy projection rebuilding. Tradeoffs: increased storage, more complex querying, event schema evolution challenges.",
       "ar": "في CRUD التقليدي، تُخزّن قاعدة البيانات الحالة الراهنة. في تحديد الأحداث، تُخزّن فقط الأحداث الثابتة (حقائق عما حدث)؛ والحالة الراهنة تُشتقّ بإعادة تشغيل سجل الأحداث. الفوائد: سجل تدقيق كامل وعمليات بحث زمنية وإعادة بناء الإسقاطات بسهولة. المقايضات: تخزين أكبر واستعلامات أكثر تعقيداً وتحديات تطور مخطط الأحداث."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "CRUD stores current state; event sourcing stores immutable events and derives state by replay.",
+        "Event sourcing replays immutable history into state; CRUD directly persists current state."
+      ],
+      "ar": [
+        "في CRUD تُخزّن الحالة الحالية؛ في Event Sourcing تُخزّن الأحداث وتُشتق الحالة بإعادتها.",
+        "مصادر الأحداث تعيد التاريخ الثابت لبناء الحالة؛ وCRUD يحفظ الحالة الحالية مباشرة."
+      ]
     }
   },
   {
@@ -701,6 +891,16 @@
     "answer": {
       "en": "A skip list is a probabilistic data structure with multiple linked layers, each a subset of the layer below, allowing O(log n) expected search, insertion, and deletion. It achieves the same performance as balanced BSTs without complex rotations. Used in Redis sorted sets and LevelDB.",
       "ar": "قائمة التخطي هيكل بيانات احتمالي بطبقات مترابطة متعددة، كل منها مجموعة فرعية من الطبقة التي تليها، مما يُتيح O(log n) متوقعاً للبحث والإدراج والحذف. تحقق أداءً مماثلاً لـ BST المتوازنة دون دورانات معقدة. مُستخدمة في المجموعات المرتبة بـ Redis وLevelDB."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A probabilistic layered list with expected O(log n) search, insertion, and deletion.",
+        "Linked probabilistic levels provide expected logarithmic lookup, insert, and delete."
+      ],
+      "ar": [
+        "قائمة احتمالية متعددة الطبقات ببحث وإدراج وحذف متوقع O(log n).",
+        "طبقات مترابطة احتمالية تتيح البحث والإضافة والحذف بوقت لوغاريتمي متوقع."
+      ]
     }
   },
   {

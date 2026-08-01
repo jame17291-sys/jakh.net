@@ -61,6 +61,10 @@
     "answer": {
       "en": "A drug that increases urine production, commonly used to treat hypertension (high blood pressure) and edema (fluid retention).",
       "ar": "دواء يزيد إنتاج البول، يُستخدم عادةً لعلاج ارتفاع ضغط الدم والوذمة (احتباس السوائل)."
+    },
+    "acceptedAnswers": {
+      "en": ["A urine-increasing drug used for hypertension and edema.", "Diuretics increase urine output and commonly treat high blood pressure and fluid retention."],
+      "ar": ["دواء يزيد إدرار البول ويعالج عادةً ارتفاع الضغط والوذمة.", "مدر البول يزيد إنتاج البول ويستخدم لارتفاع ضغط الدم واحتباس السوائل."]
     }
   },
   {
@@ -93,6 +97,10 @@
     "answer": {
       "en": "The time it takes for the concentration of a drug in the body to decrease by half. It determines how frequently a drug must be dosed.",
       "ar": "الزمن اللازم لانخفاض تركيز الدواء في الجسم إلى النصف. يحدد مدى تكرار جرعات الدواء."
+    },
+    "acceptedAnswers": {
+      "en": ["Time required for a drug's body concentration to fall by half.", "Time for a drug concentration to decrease by 50%."],
+      "ar": ["الزمن اللازم لانخفاض تركيز الدواء في الجسم إلى النصف.", "مدة هبوط تركيز الدواء في الجسم إلى نصف قيمته."]
     }
   },
   {
@@ -109,6 +117,10 @@
     "answer": {
       "en": "A side effect is any secondary, usually unintended effect of a drug at therapeutic doses. An adverse drug reaction (ADR) is a harmful, unintended response at normal doses — a subset of side effects that causes harm.",
       "ar": "الأثر الجانبي أي تأثير ثانوي غير مقصود عادةً عند الجرعات العلاجية. التفاعل الدوائي الضار استجابة ضارة وغير مقصودة عند الجرعات الطبيعية — فئة فرعية من الآثار الجانبية المُسبِّبة للضرر."
+    },
+    "acceptedAnswers": {
+      "en": ["Side effects are secondary effects; ADRs are harmful unintended responses at normal doses.", "Side effects are secondary; ADRs are unintended harmful effects at usual doses."],
+      "ar": ["الأثر الجانبي تأثير ثانوي؛ والتفاعل الضار استجابة مؤذية غير مقصودة بجرعات عادية.", "الأثر الجانبي ثانوي؛ والتفاعل الضار استجابة مؤذية غير مقصودة بالجرعة المعتادة."]
     }
   },
   {
@@ -125,6 +137,10 @@
     "answer": {
       "en": "NSAIDs inhibit the enzyme cyclooxygenase (COX), which reduces prostaglandin synthesis — thereby decreasing inflammation, pain, and fever.",
       "ar": "تثبّط NSAIDs إنزيم سيكلوأوكسيجيناز (COX)، مما يُقلّل تخليق البروستاغلاندين — وبالتالي يُخفّف الالتهاب والألم والحمى."
+    },
+    "acceptedAnswers": {
+      "en": ["NSAIDs inhibit COX, reducing prostaglandin synthesis, inflammation, pain, and fever.", "COX inhibition lowers prostaglandins, thereby reducing pain, fever, and inflammation."],
+      "ar": ["تثبط إنزيم COX فتقلل تصنيع البروستاغلاندين والالتهاب والألم والحمى.", "تمنع مضادات الالتهاب COX فتخفض البروستاغلاندينات ومن ثم الألم والحمى والالتهاب."]
     }
   },
   {
@@ -157,6 +173,10 @@
     "answer": {
       "en": "Statins (e.g. atorvastatin, simvastatin) are drugs that inhibit HMG-CoA reductase, reducing cholesterol synthesis in the liver. They treat hypercholesterolemia (high cholesterol) and reduce cardiovascular risk.",
       "ar": "الستاتينات (مثل أتورفاستاتين وسيمفاستاتين) أدوية تثبّط إنزيم HMG-CoA ريداكتاز مما يُقلّل تخليق الكوليسترول في الكبد. تعالج فرط كوليسترول الدم وتُقلّل خطر الأمراض القلبية الوعائية."
+    },
+    "acceptedAnswers": {
+      "en": ["Statins inhibit HMG-CoA reductase and treat hypercholesterolemia.", "Statins are HMG-CoA reductase inhibitors for high cholesterol."],
+      "ar": ["تثبط الستاتينات إنزيم HMG-CoA ريداكتاز وتعالج فرط كوليسترول الدم.", "الستاتينات مثبطات HMG-CoA ريداكتاز لعلاج ارتفاع الكوليسترول."]
     }
   },
   {
@@ -221,6 +241,10 @@
     "answer": {
       "en": "Absorption (drug enters circulation), Distribution (drug spreads to tissues), Metabolism (drug is chemically altered, mainly by liver), and Excretion (drug is eliminated, mainly by kidneys).",
       "ar": "الامتصاص (يدخل الدواء إلى الدورة الدموية)، التوزيع (ينتشر الدواء إلى الأنسجة)، التمثيل الغذائي (يتحوّل الدواء كيميائيًا في الغالب بالكبد)، والإطراح (يُطرح الدواء في الغالب بالكلى)."
+    },
+    "acceptedAnswers": {
+      "en": ["Absorption, distribution, metabolism, and excretion.", "ADME: absorption, distribution, metabolism, excretion."],
+      "ar": ["الامتصاص والتوزيع والاستقلاب والإطراح.", "ADME: الامتصاص والتوزيع والأيض والإخراج."]
     }
   },
   {
@@ -285,6 +309,10 @@
     "answer": {
       "en": "An agonist binds to a receptor and activates it, producing a biological response. An antagonist binds to the receptor but does NOT activate it — it blocks agonists from binding, reducing a response.",
       "ar": "الناهض يرتبط بمستقبل ويُنشّطه مُنتجًا استجابةً بيولوجية. المضاد يرتبط بالمستقبل لكنه لا يُنشّطه — يحجب ارتباط النواهض ويُقلّل الاستجابة."
+    },
+    "acceptedAnswers": {
+      "en": ["An agonist activates its receptor; an antagonist binds without activation and blocks agonists.", "Receptor activation defines agonists; blockade without activation defines antagonists."],
+      "ar": ["الناهض ينشط المستقبل؛ والمضاد يرتبط دون تنشيطه ويحجب النواهض.", "الناهض يفعل المستقبل؛ والمناهض يرتبط بلا تفعيل ويمنع عمل النواهض."]
     }
   },
   {
@@ -301,6 +329,10 @@
     "answer": {
       "en": "The ratio between the toxic dose and the effective dose (TD50/ED50). A wide therapeutic index means a drug is relatively safe; a narrow therapeutic index (e.g. warfarin, lithium, digoxin) means small dose changes can cause toxicity or loss of effect.",
       "ar": "نسبة الجرعة السامة إلى الجرعة الفعّالة (TD50/ED50). المؤشر العلاجي الواسع يعني أن الدواء آمن نسبيًا؛ المؤشر الضيق (مثل الوارفارين والليثيوم والديجوكسين) يعني أن تغييرات صغيرة في الجرعة يمكن أن تسبب سُمية أو فقدان التأثير."
+    },
+    "acceptedAnswers": {
+      "en": ["The toxic-dose to effective-dose ratio, commonly TD50/ED50.", "TD50 divided by ED50: the ratio of toxic to effective dose."],
+      "ar": ["نسبة الجرعة السامة إلى الجرعة الفعالة، وعادةً TD50/ED50.", "TD50 مقسومًا على ED50: نسبة الجرعة السامة إلى الفعالة."]
     }
   },
   {
@@ -317,6 +349,10 @@
     "answer": {
       "en": "PPIs irreversibly block the H⁺/K⁺-ATPase (proton pump) in gastric parietal cells, stopping acid secretion. They treat peptic ulcers, GERD, and H. pylori infections.",
       "ar": "تثبّط PPIs بصورة لا رجعية مضخة البروتون H⁺/K⁺-ATPase في الخلايا الجدارية للمعدة، مما يوقف إفراز الحمض. تعالج قرحة المعدة والارتداد الحمضي (GERD) وعدوى H. pylori."
+    },
+    "acceptedAnswers": {
+      "en": ["PPIs irreversibly inhibit gastric H⁺/K⁺-ATPase, suppressing acid secretion.", "PPIs permanently block parietal-cell proton pumps, stopping gastric acid secretion."],
+      "ar": ["تثبط PPIs مضخة H⁺/K⁺-ATPase المعدية بلا رجعة فتوقف إفراز الحمض.", "تغلق مثبطات المضخة بلا رجعة مضخة البروتون بالخلايا الجدارية فتوقف حمض المعدة."]
     }
   },
   {
@@ -397,6 +433,10 @@
     "answer": {
       "en": "Heparin is an injectable anticoagulant that activates antithrombin III, which then rapidly inactivates thrombin and factor Xa — key enzymes in the clotting cascade. Used to prevent and treat blood clots (DVT, pulmonary embolism).",
       "ar": "الهيبارين مضاد للتخثر يُعطى حقنًا ينشّط مضاد الثرومبين III، الذي يُثبّط سريعًا الثرومبين والعامل Xa — وهما إنزيمان رئيسيان في سلسلة التخثر. يُستخدم للوقاية من الجلطات الدموية وعلاجها (DVT والانسداد الرئوي)."
+    },
+    "acceptedAnswers": {
+      "en": ["Injectable heparin activates antithrombin III, inhibiting thrombin and factor Xa.", "Heparin is injectable anticoagulant activating antithrombin to block thrombin and factor Xa."],
+      "ar": ["الهيبارين مضاد تخثر حقني ينشط مضاد الثرومبين III فيثبط الثرومبين والعامل Xa.", "الهيبارين حقني ينشط مضاد الثرومبين فيعطل الثرومبين والعامل Xa."]
     }
   },
   {
@@ -429,6 +469,10 @@
     "answer": {
       "en": "Vd is a theoretical volume relating the total amount of drug in the body to its plasma concentration (Vd = total drug / plasma concentration). A high Vd means the drug distributes extensively into tissues and is not confined to plasma — making it harder to remove by dialysis. Lipophilic drugs (e.g. chloroquine, amiodarone) have very high Vd values.",
       "ar": "حجم التوزيع هو حجم افتراضي يربط الكمية الإجمالية للدواء في الجسم بتركيزه في البلازما (Vd = الدواء الكلي / تركيز البلازما). القيمة المرتفعة تعني أن الدواء يتوزع على نطاق واسع في الأنسجة وليس محصورًا في البلازما — مما يُصعّب إزالته بالغسيل الكلوي. الأدوية المحبة للدهون (مثل الكلوروكين والأميودارون) لها قيم Vd مرتفعة جدًا."
+    },
+    "acceptedAnswers": {
+      "en": ["Vd relates body drug amount to plasma level; high Vd means wide tissue distribution.", "Vd equals body drug amount over plasma level; high values mean wide tissue distribution."],
+      "ar": ["يربط Vd كمية الدواء بتركيزه البلازمي؛ وارتفاعه يدل على توزيع نسيجي واسع.", "حجم التوزيع يساوي كمية الدواء بالجسم على تركيزه بالبلازما؛ وارتفاعه يعني انتشارًا نسيجيًا."]
     }
   },
   {
@@ -461,6 +505,10 @@
     "answer": {
       "en": "A rare but life-threatening hypersensitivity reaction causing blistering and peeling of skin and mucous membranes. Commonly triggered by drugs including carbamazepine, allopurinol, lamotrigine, sulfonamides, and NSAIDs. It requires immediate discontinuation of the offending drug and intensive supportive care.",
       "ar": "تفاعل فرط حساسية نادر لكن يهدد الحياة يُسبّب تقرّح وتقشّر الجلد والأغشية المخاطية. تُحرّضه عادةً أدوية منها كاربامازيبين وألوبورينول ولاموتريجين والسلفوناميدات وNSAIDs. يستلزم وقف الدواء المسبّب فورًا والرعاية الداعمة المكثفة."
+    },
+    "acceptedAnswers": {
+      "en": ["A life-threatening drug hypersensitivity causing skin and mucosal blistering and peeling.", "Severe drug reaction causing skin detachment and mucosal lesions; stop the drug immediately."],
+      "ar": ["تفاعل دوائي تحسسي مهدد للحياة يسبب تقرح الجلد والأغشية المخاطية وتقشرها.", "متلازمة جلدية مخاطية شديدة بالتقرح والتقشر تستلزم إيقاف الدواء فورًا."]
     }
   },
   {
@@ -493,6 +541,10 @@
     "answer": {
       "en": "Phase I reactions (mainly by CYP450 enzymes in liver) introduce or unmask functional groups (oxidation, reduction, hydrolysis) — often activating prodrugs or making drugs more polar. Phase II reactions conjugate the drug or Phase I metabolite with endogenous molecules (glucuronidation, sulfation, acetylation) to make them more water-soluble for excretion.",
       "ar": "تفاعلات الطور الأول (بصورة أساسية بإنزيمات CYP450 في الكبد) تُدخل مجموعات وظيفية أو تكشفها (أكسدة وإرجاع وتحلل مائي) — غالبًا تُنشّط الأدوية الأولية أو تجعل الأدوية أكثر قطبية. تقترن تفاعلات الطور الثاني بالدواء أو مستقلبات الطور الأول مع جزيئات داخلية (غلوكورنيدات وكبريتات وأسيتيل) لجعلها أكثر قابلية للذوبان في الماء للإطراح."
+    },
+    "acceptedAnswers": {
+      "en": ["Phase I modifies functional groups; Phase II conjugates drugs for water-soluble excretion.", "Phase I exposes functional groups; Phase II adds conjugates to promote water-soluble elimination."],
+      "ar": ["يعدل الطور الأول المجموعات الوظيفية؛ ويقترن الطور الثاني بالدواء لتسهيل إطراحه المائي.", "يكشف الطور الأول مجموعات وظيفية؛ ويضيف الثاني اقترانات تسهل الإطراح المائي."]
     }
   },
   {
@@ -509,6 +561,10 @@
     "answer": {
       "en": "Warfarin inhibits vitamin K epoxide reductase, preventing regeneration of vitamin K — essential for producing clotting factors II, VII, IX, and X. Its effect is measured by INR. It has a narrow therapeutic index, is affected by diet (vitamin K foods) and many drug interactions (especially CYP2C9 inhibitors/inducers), requiring regular dose adjustment.",
       "ar": "يثبّط الوارفارين إنزيم فيتامين K إيبوكسيد ريداكتاز، مانعًا تجديد فيتامين K — الضروري لإنتاج عوامل التخثر II وVII وIX وX. يُقاس تأثيره بالـ INR. له مؤشر علاجي ضيق ويتأثر بالنظام الغذائي (أطعمة فيتامين K) والعديد من التفاعلات الدوائية (خاصةً مثبّطات ومُحرّضات CYP2C9)، مما يستلزم تعديل الجرعة بانتظام."
+    },
+    "acceptedAnswers": {
+      "en": ["Warfarin inhibits vitamin K recycling; narrow index and interactions require INR monitoring.", "Warfarin blocks vitamin K regeneration; interactions and narrow range demand INR checks."],
+      "ar": ["يثبط الوارفارين إعادة تدوير فيتامين K؛ وضيق مؤشره وتفاعلاته يستلزمان مراقبة INR.", "يمنع الوارفارين تجدد فيتامين K؛ وتفرض تفاعلاته ومجاله الضيق فحوص INR."]
     }
   },
   {
@@ -557,6 +613,10 @@
     "answer": {
       "en": "Aminoglycosides (gentamicin, amikacin) irreversibly bind the 30S ribosomal subunit, causing misreading of mRNA and production of faulty proteins — killing bacteria. Their main toxicities are nephrotoxicity (kidney damage) and ototoxicity (hearing/balance damage), which are dose-related and cumulative.",
       "ar": "ترتبط الأمينوغليكوسيدات (جنتاميسين، أميكاسين) بصورة لا رجعية بالوحدة الريبوسومية 30S مُسبِّبةً خطأ في قراءة mRNA وإنتاج بروتينات معيبة — قاتلةً البكتيريا. سُميتها الرئيسية هي السُمية الكلوية (تلف الكلى) والسُمية الأذنية (تلف السمع/التوازن)، وهما تعتمدان على الجرعة وتراكميتان."
+    },
+    "acceptedAnswers": {
+      "en": ["Aminoglycosides bind 30S, causing mistranslation; main toxicities are kidney and ear damage.", "30S binding causes mRNA misreading; aminoglycosides chiefly damage kidneys and hearing."],
+      "ar": ["ترتبط الأمينوغليكوسيدات بالوحدة 30S فتسبب أخطاء الترجمة؛ وأبرز سميتها كلوية وأذنية.", "الارتباط بالوحدة 30S يخطئ قراءة mRNA؛ وتضر الأمينوغليكوسيدات الكلى والسمع أساسًا."]
     }
   },
   {
@@ -589,6 +649,10 @@
     "answer": {
       "en": "Pharmacogenomics studies how genetic variation affects drug response. CYP2D6 metabolizes ~25% of drugs (codeine, tamoxifen, many antidepressants). Poor metabolizers accumulate drug, risking toxicity; ultra-rapid metabolizers clear it too fast, losing efficacy. Codeine in ultra-rapid CYP2D6 metabolizers converts to dangerous morphine levels — an FDA-labeled risk.",
       "ar": "علم صيدلة الجينوم يدرس كيف يؤثر التباين الجيني على الاستجابة للدواء. يستقلب CYP2D6 نحو 25% من الأدوية (كوديين وتاموكسيفين وكثير من مضادات الاكتئاب). ضعيفو الأيض يتراكم الدواء عندهم مع خطر السُمية؛ فائقو سرعة الأيض يستقلبونه بسرعة مفرطة فيفقدون الفعالية. الكوديين في فائقي سرعة الأيض يتحول إلى مستويات خطرة من المورفين — خطر مُصنَّف من قِبَل FDA."
+    },
+    "acceptedAnswers": {
+      "en": ["Study of how genes affect drug response; CYP2D6 variants alter metabolism, efficacy, and toxicity.", "Genetic study of drug response; CYP2D6 variants change metabolism, efficacy, and toxicity."],
+      "ar": ["يربط علم صيدلة الجينوم الجينات بالاستجابة؛ وتغيرات CYP2D6 تبدل الأيض والفعالية والسمية.", "دراسة أثر الجينات في الاستجابة الدوائية؛ فتغيرات CYP2D6 تبدل الأيض والفعالية والسمية."]
     }
   },
   {
@@ -605,6 +669,10 @@
     "answer": {
       "en": "First-order kinetics: a constant fraction of drug is eliminated per unit time (most drugs) — concentration-time curve is exponential. Zero-order kinetics: a constant amount is eliminated per unit time regardless of concentration (e.g. ethanol, phenytoin at high doses) — because eliminating enzymes are saturated. Zero-order kinetics causes disproportionate toxicity with dose escalation.",
       "ar": "حركية الرتبة الأولى: تُطرح نسبة ثابتة من الدواء لكل وحدة زمنية (معظم الأدوية) — منحنى التركيز-الزمن أسي. حركية الرتبة الصفرية: تُطرح كمية ثابتة لكل وحدة زمنية بغض النظر عن التركيز (مثل الإيثانول والفينيتوين بجرعات عالية) — لأن إنزيمات الإطراح مشبعة. تُسبّب حركية الرتبة الصفرية سُمية غير متناسبة مع رفع الجرعة."
+    },
+    "acceptedAnswers": {
+      "en": ["First-order removes a constant fraction; zero-order removes a constant amount over time.", "First-order clears a fixed fraction per time; zero-order clears a fixed amount."],
+      "ar": ["تطرح الرتبة الأولى نسبة ثابتة؛ وتطرح الرتبة الصفرية كمية ثابتة لكل وحدة زمن.", "تزيل الرتبة الأولى نسبة ثابتة زمنيًا؛ والصفرية كمية ثابتة زمنيًا."]
     }
   },
   {
@@ -621,6 +689,10 @@
     "answer": {
       "en": "Phase I: safety, tolerability, PK/PD in small healthy volunteers. Phase II: efficacy and safety in small patient populations, dose-finding. Phase III: large randomized controlled trials confirming efficacy and safety vs. placebo/standard care — required for regulatory approval. Phase IV: post-marketing surveillance for long-term or rare adverse effects.",
       "ar": "المرحلة الأولى: الأمان والتحمّل وحركية/ديناميكية الدواء في عدد صغير من المتطوعين الأصحاء. المرحلة الثانية: الفعالية والسلامة في مجموعات مرضى صغيرة لإيجاد الجرعة. المرحلة الثالثة: تجارب عشوائية محكومة كبيرة تُؤكد الفعالية والسلامة مقابل الدواء الوهمي/الرعاية القياسية — مطلوبة للموافقة التنظيمية. المرحلة الرابعة: مراقبة ما بعد التسويق للآثار الضارة طويلة المدى أو النادرة."
+    },
+    "acceptedAnswers": {
+      "en": ["Phase I: safety; II: efficacy and dose; III: large confirmatory trials; IV: postmarketing surveillance.", "Phase 1 safety; 2 efficacy and dosing; 3 confirmatory trials; 4 post-approval monitoring."],
+      "ar": ["الأولى: الأمان؛ الثانية: الفعالية والجرعة؛ الثالثة: تجارب تأكيدية واسعة؛ الرابعة: مراقبة ما بعد التسويق.", "المرحلة 1 للأمان؛ 2 للفعالية والجرعة؛ 3 للتأكيد؛ 4 لمراقبة ما بعد الاعتماد."]
     }
   },
   {
@@ -653,6 +725,10 @@
     "answer": {
       "en": "1. Enzymatic inactivation (e.g. beta-lactamases destroying penicillins). 2. Target modification (altered penicillin-binding proteins in MRSA). 3. Efflux pumps (actively expelling antibiotic from cell). 4. Reduced permeability (decreased outer membrane porins). 5. Target bypass (alternative metabolic pathways). Resistance genes can transfer between bacteria via plasmids (horizontal gene transfer).",
       "ar": "1. التعطيل الإنزيمي (مثل بيتا-لاكتاماز يُدمّر البنسيلينات). 2. تعديل الهدف (بروتينات رابطة البنسيلين المُعدَّلة في MRSA). 3. مضخات الطرد (طرد المضاد الحيوي فعليًا من الخلية). 4. انخفاض النفاذية (انخفاض مسامات الغشاء الخارجي). 5. تجاوز الهدف (مسارات استقلابية بديلة). يمكن أن تنتقل جينات المقاومة بين البكتيريا عبر البلازميدات (النقل الجيني الأفقي)."
+    },
+    "acceptedAnswers": {
+      "en": ["Enzyme inactivation, target changes, efflux, low permeability, bypass, and horizontal gene transfer.", "Drug-inactivating enzymes, target changes, efflux, poor entry, bypass, and horizontal gene transfer."],
+      "ar": ["التعطيل الإنزيمي، وتعديل الهدف، والطرد، وخفض النفاذية، وتجاوز الهدف، والنقل الجيني الأفقي.", "إنزيمات التعطيل، وتغيير الأهداف، والطرد، ومنع الدخول، والتجاوز، والنقل الجيني الأفقي."]
     }
   },
   {
@@ -685,6 +761,10 @@
     "answer": {
       "en": "A prodrug is an inactive compound that is converted in the body to its active form. Prodrug design improves bioavailability, stability, or reduces toxicity. Example: Enalapril is an ester prodrug of enalaprilat — the active ACE inhibitor — because enalaprilat is poorly absorbed orally but enalapril's ester is absorbed well and hydrolyzed to enalaprilat after absorption.",
       "ar": "الدواء الأولي مركّب غير نشط يتحوّل في الجسم إلى صورته الفعّالة. تحسّن تصميم الدواء الأولي التوافر البيولوجي أو الاستقرار أو يُقلّل السُمية. مثال: الإيناﻻبريل إستر دواء أولي للإيناﻻبريلات — مثبّط ACE الفعّال — لأن الإيناﻻبريلات يُمتصّ فمويًا بشكل سيئ لكن إستر الإيناﻻبريل يُمتصّ جيدًا ويُميأ إلى الإيناﻻبريلات بعد الامتصاص."
+    },
+    "acceptedAnswers": {
+      "en": ["An inactive precursor converted into active drug; enalapril becomes enalaprilat.", "A prodrug is inactive until converted in vivo; enalapril becomes active enalaprilat."],
+      "ar": ["مركب غير نشط يتحول إلى دواء فعال؛ مثل تحول الإينالابريل إلى إينالابريلات.", "الدواء الأولي غير نشط حتى يتحول داخل الجسم؛ فالإينالابريل يصير إينالابريلات فعالًا."]
     }
   },
   {

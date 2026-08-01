@@ -45,6 +45,16 @@
     "answer": {
       "en": "In a democracy, power is held by the people (directly or through elected representatives). In an autocracy, power is concentrated in a single ruler with little or no accountability.",
       "ar": "في الديمقراطية، تمتلك السلطة الشعب (مباشرة أو عبر ممثلين منتخبين). في الأوتوقراطية، تتمركز السلطة في يد حاكم واحد دون مساءلة تذكر."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Democracy vests power in people; autocracy concentrates it in one unaccountable ruler.",
+        "People govern directly or electorally in democracy; one unaccountable ruler governs autocracy."
+      ],
+      "ar": [
+        "الديمقراطية تمنح السلطة للشعب؛ الأوتوقراطية تركزها في حاكم واحد بلا مساءلة.",
+        "في الديمقراطية يحكم الشعب مباشرة أو بالانتخاب؛ وفي الأوتوقراطية يحكم فرد بلا مساءلة."
+      ]
     }
   },
   {
@@ -61,6 +71,16 @@
     "answer": {
       "en": "The shared beliefs, values, norms, practices, symbols, and knowledge transmitted across generations within a human group.",
       "ar": "المعتقدات والقيم والأعراف والممارسات والرموز والمعرفة المشتركة التي تنتقل عبر الأجيال داخل مجموعة بشرية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Shared beliefs, values, norms, practices, symbols, and knowledge transmitted across generations.",
+        "A group's inherited system of beliefs, norms, symbols, practices, values, and knowledge."
+      ],
+      "ar": [
+        "معتقدات وقيم وأعراف وممارسات ورموز ومعرفة مشتركة تنتقل عبر الأجيال.",
+        "منظومة الجماعة الموروثة من المعتقدات والقيم والأعراف والممارسات والرموز والمعرفة."
+      ]
     }
   },
   {
@@ -77,6 +97,16 @@
     "answer": {
       "en": "The hierarchical arrangement of individuals or groups in society based on wealth, power, prestige, or other criteria.",
       "ar": "الترتيب الهرمي للأفراد أو المجموعات في المجتمع بناءً على الثروة أو السلطة أو المكانة أو معايير أخرى."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Society's hierarchy by wealth, power, prestige, or other criteria.",
+        "Hierarchical ranking of people and groups by resources, power, and status."
+      ],
+      "ar": [
+        "الترتيب الهرمي للمجتمع حسب الثروة والسلطة والمكانة أو معايير أخرى.",
+        "ترتيب الأفراد والجماعات هرمياً وفق الموارد والسلطة والمكانة."
+      ]
     }
   },
   {
@@ -93,6 +123,16 @@
     "answer": {
       "en": "The rate at which the general level of prices for goods and services rises, reducing the purchasing power of money.",
       "ar": "المعدل الذي يرتفع به المستوى العام لأسعار السلع والخدمات، مما يُقلل من القوة الشرائية للنقود."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Rising general prices that reduce money's purchasing power.",
+        "A sustained general price increase that erodes purchasing power."
+      ],
+      "ar": [
+        "ارتفاع المستوى العام للأسعار بما يخفض القوة الشرائية للنقود.",
+        "ارتفاع عام ومستمر للأسعار يضعف القدرة الشرائية."
+      ]
     }
   },
   {
@@ -205,6 +245,16 @@
     "answer": {
       "en": "The principle of understanding a culture on its own terms rather than judging it by the standards of another culture.",
       "ar": "مبدأ فهم الثقافة بمصطلحاتها الخاصة بدلاً من الحكم عليها وفق معايير ثقافة أخرى."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Understanding each culture by its own standards, not another culture's.",
+        "Judging cultural practices within their own context rather than external norms."
+      ],
+      "ar": [
+        "فهم كل ثقافة وفق معاييرها لا معايير ثقافة أخرى.",
+        "تقييم الممارسات الثقافية ضمن سياقها الخاص لا بأعراف خارجية."
+      ]
     }
   },
   {
@@ -221,6 +271,16 @@
     "answer": {
       "en": "An ideal type is an analytical construct that exaggerates or emphasises certain characteristics of a social phenomenon to create a benchmark for comparison — e.g., 'bureaucracy' as a pure rational-legal form. It doesn't describe reality but helps identify deviations from it.",
       "ar": "النمط المثالي هو بناء تحليلي يُبالغ في أو يُبرز خصائص معينة لظاهرة اجتماعية لإنشاء معيار مرجعي للمقارنة — مثلاً 'البيروقراطية' كشكل قانوني-عقلاني نقي. لا يصف الواقع لكنه يُساعد في تحديد الانحرافات عنه."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Analytical constructs emphasising traits as benchmarks for comparing reality's deviations.",
+        "Conceptual benchmarks highlighting selected traits to reveal how reality differs."
+      ],
+      "ar": [
+        "بنى تحليلية تُبرز الخصائص لتكون معايير مقارنة تكشف انحرافات الواقع.",
+        "معايير مفاهيمية تبرز سمات مختارة لكشف اختلاف الواقع عنها."
+      ]
     }
   },
   {
@@ -237,6 +297,16 @@
     "answer": {
       "en": "Microeconomics studies individual economic agents (firms, households) and their decisions. Macroeconomics studies the economy as a whole — national output, unemployment, inflation, monetary policy.",
       "ar": "الاقتصاد الجزئي يدرس الوحدات الاقتصادية الفردية (الشركات، الأسر) وقراراتها. الاقتصاد الكلي يدرس الاقتصاد بأكمله — الناتج الوطني، والبطالة، والتضخم، والسياسة النقدية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Microeconomics studies individual agents; macroeconomics studies the whole economy and aggregates.",
+        "Micro examines households and firms; macro examines economy-wide output, jobs, prices, and policy."
+      ],
+      "ar": [
+        "الاقتصاد الجزئي يدرس الوحدات الفردية؛ والكلي يدرس الاقتصاد ومجاميعه.",
+        "الجزئي يدرس الأسر والشركات؛ والكلي يدرس الناتج والوظائف والأسعار والسياسة على مستوى الاقتصاد."
+      ]
     }
   },
   {
@@ -253,6 +323,16 @@
     "answer": {
       "en": "Social contract theory holds that political authority derives from agreement among people. Hobbes: without authority, life is 'nasty, brutish, short' — people surrender rights to a sovereign. Locke: government's legitimacy requires protecting natural rights (life, liberty, property); people can revolt if it fails. Rousseau: the general will of the community is the true sovereign.",
       "ar": "تقول نظرية العقد الاجتماعي إن السلطة السياسية تنبع من اتفاق بين الناس. هوبز: بدون سلطة، الحياة 'قذرة وقاسية وقصيرة' — يتخلى الناس عن حقوقهم لسيادة. لوك: تتطلب شرعية الحكومة حماية الحقوق الطبيعية (الحياة، والحرية، والملكية)؛ ويحق للناس الثورة عند الفشل. روسو: الإرادة العامة للمجتمع هي السيادة الحقيقية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Hobbes: surrender rights; Locke: protect rights/revolt; Rousseau: general will; authority by consent.",
+        "Agreement grounds rule: Hobbes yields rights; Locke guards rights/revolt; Rousseau general will."
+      ],
+      "ar": [
+        "هوبز: تنازل الحقوق؛ لوك: حمايتها والثورة؛ روسو: سيادة الإرادة العامة؛ والمصدر اتفاق الناس.",
+        "السلطة من الاتفاق: هوبز يتنازل؛ لوك يحمي الحقوق والثورة؛ روسو يحكم بالإرادة العامة."
+      ]
     }
   },
   {
@@ -285,6 +365,16 @@
     "answer": {
       "en": "The idea that the language one speaks influences or determines how they perceive and think about the world. The strong version claims language determines thought; the weak version claims language influences thought. Experimental evidence supports the weak version.",
       "ar": "فكرة أن اللغة التي يتحدثها المرء تؤثر في أو تُحدد كيفية إدراكه وتفكيره في العالم. النسخة القوية تدّعي أن اللغة تُحدد الفكر؛ النسخة الضعيفة تدّعي أن اللغة تؤثر في الفكر. الأدلة التجريبية تدعم النسخة الضعيفة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Language determines thought strongly or influences it weakly; evidence supports the weak version.",
+        "Strong relativity says language fixes thought; weak says it shapes thought and has support."
+      ],
+      "ar": [
+        "اللغة تحدد الفكر في القوية وتؤثر فيه في الضعيفة؛ والأدلة تؤيد الضعيفة.",
+        "القوية تقول إن اللغة تحدد الفكر؛ الضعيفة تقول إنها تشكله وتؤيدها الأدلة."
+      ]
     }
   },
   {
@@ -317,6 +407,16 @@
     "answer": {
       "en": "In a federal state, power is divided between a central government and regional/state governments (e.g., USA, Germany). In a unitary state, the central government holds supreme authority and sub-national governments operate under its delegation (e.g., France, UK).",
       "ar": "في الدولة الفيدرالية، تتقاسم السلطة حكومة مركزية وحكومات إقليمية/ولائية (مثل الولايات المتحدة وألمانيا). في الدولة الموحدة، تمتلك الحكومة المركزية السلطة العليا وتعمل الحكومات دون الوطنية بموجب تفويض منها (مثل فرنسا والمملكة المتحدة)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Federal states divide power centrally and regionally; unitary states place supremacy centrally.",
+        "Federalism shares authority with regions; a unitary state delegates from one supreme centre."
+      ],
+      "ar": [
+        "الفيدرالية تقسم السلطة بين المركز والأقاليم؛ والموحدة تجعل السلطة العليا للمركز.",
+        "الدولة الفيدرالية تشارك الأقاليم السلطة؛ والموحدة تفوضها من حكومة مركزية عليا."
+      ]
     }
   },
   {
@@ -429,6 +529,16 @@
     "answer": {
       "en": "Developed by Kimberlé Crenshaw (1989), intersectionality is the framework for understanding how different aspects of a person's social and political identities (race, gender, class, sexuality, disability) combine to create overlapping systems of discrimination or privilege.",
       "ar": "طوّرتها كيمبرلي كرينشو (1989)، التقاطعية هي الإطار لفهم كيف تتحد جوانب مختلفة من الهويات الاجتماعية والسياسية للشخص (العرق، والجنس، والطبقة، والجنسانية، والإعاقة) لخلق أنظمة متداخلة من التمييز أو الامتياز."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Crenshaw's framework for intersecting identities and overlapping discrimination or privilege.",
+        "Crenshaw: intersecting identities create overlapping privilege and discrimination."
+      ],
+      "ar": [
+        "إطار كيمبرلي كرينشو لتداخل أنظمة التمييز أو الامتياز القائمة على الهويات.",
+        "مفهوم كرينشو لتقاطع الهويات وإنتاج امتيازات وأشكال تمييز متداخلة."
+      ]
     }
   },
   {
@@ -477,6 +587,16 @@
     "answer": {
       "en": "Goffman argued life is like a theatrical performance: in front-stage behaviour we manage impressions for audiences; in backstage behaviour we relax our performance. Key concepts: impression management, face-saving, stigma, and the presentation of self as a performed identity.",
       "ar": "جادل غوفمان بأن الحياة تشبه عرضاً مسرحياً: في السلوك أمام الكواليس ندير الانطباعات للجمهور؛ وخلف الكواليس نرتاح من أدواتنا. المفاهيم الرئيسية: إدارة الانطباع، والحفاظ على ماء الوجه، والوصمة، وتقديم الذات كهوية مؤدَّاة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Social life as performance: frontstage impression management and relaxed backstage behaviour.",
+        "Goffman: interaction is theatre—manage impressions frontstage, relax backstage."
+      ],
+      "ar": [
+        "التفاعل الاجتماعي كعرض: إدارة الانطباع أمام الجمهور والاسترخاء خلف الكواليس.",
+        "يصوّر غوفمان التفاعل مسرحياً: إدارة الانطباع في الواجهة والاسترخاء خلف الكواليس."
+      ]
     }
   },
   {
@@ -493,6 +613,16 @@
     "answer": {
       "en": "Market failure occurs when free markets fail to allocate resources efficiently. Main causes: externalities (spillover costs/benefits not priced, e.g., pollution), public goods (non-rival, non-excludable), information asymmetry, and monopoly power.",
       "ar": "يحدث فشل السوق عندما لا تُوزّع الأسواق الحرة الموارد بكفاءة. الأسباب الرئيسية: الخارجيات (تكاليف/فوائد جانبية غير مُسعَّرة، كالتلوث)، والسلع العامة (غير التنافسية وغير القابلة للإقصاء)، وعدم تماثل المعلومات، وسلطة الاحتكار."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Inefficient allocation caused by externalities, public goods, information asymmetry, or monopoly.",
+        "Misallocation from externalities, public goods, information asymmetry, and monopoly power."
+      ],
+      "ar": [
+        "تخصيص سوقي غير كفؤ بسبب الخارجيات والسلع العامة وعدم تماثل المعلومات والاحتكار.",
+        "تفشل الأسواق في تخصيص الموارد بسبب الخارجيات والسلع العامة وتفاوت المعلومات وقوة الاحتكار."
+      ]
     }
   },
   {
@@ -525,6 +655,16 @@
     "answer": {
       "en": "The democratic peace theory holds that liberal democracies rarely (if ever) go to war with each other. The empirical finding is one of the most robust in international relations: dyads of mature democracies have an exceptionally low probability of militarised conflict.",
       "ar": "تقول نظرية السلام الديمقراطي إن الديمقراطيات الليبرالية نادراً ما تشن حروباً ضد بعضها (إن وقع ذلك أصلاً). الاستنتاج التجريبي أحد أكثر نتائج العلاقات الدولية ثباتاً: للديمقراطيات الناضجة معاً احتمالية منخفضة للغاية للصراع المسلح."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Liberal democracies rarely wage war against each other.",
+        "Mature liberal democracies have exceptionally low odds of armed conflict with one another."
+      ],
+      "ar": [
+        "نادراً ما تخوض الديمقراطيات الليبرالية حرباً ضد بعضها.",
+        "احتمال النزاع المسلح بين الديمقراطيات الليبرالية الناضجة منخفض للغاية."
+      ]
     }
   },
   {
@@ -589,6 +729,16 @@
     "answer": {
       "en": "Gramsci used hegemony to describe how dominant classes maintain power not just through coercion but through ideological consent — shaping culture, education, and media so that subordinate groups accept the dominant worldview as 'common sense', making overt force unnecessary.",
       "ar": "استخدم غرامشي الهيمنة لوصف كيف تحافظ الطبقات المهيمنة على السلطة ليس عبر الإكراه فحسب بل عبر الموافقة الأيديولوجية — تشكيل الثقافة والتعليم والإعلام كي تقبل المجموعات الخاضعة الرؤية العالمية المهيمنة بوصفها 'المنطق السليم'، مما يجعل القوة الصريحة غير ضرورية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Dominant classes maintain power through ideological consent, making their worldview common sense.",
+        "Rule sustained by cultural and ideological agreement, not merely force."
+      ],
+      "ar": [
+        "تحافظ الطبقات المهيمنة على السلطة بالقبول الأيديولوجي وجعل رؤيتها بديهية.",
+        "سلطة تستمر بالموافقة الثقافية والأيديولوجية لا بالقوة وحدها."
+      ]
     }
   },
   {
@@ -637,6 +787,16 @@
     "answer": {
       "en": "Giddens argued that structure and agency are mutually constitutive, not opposed — he called this the 'duality of structure'. Social structures (rules and resources) are both the medium of action and its outcome: agents draw on structures to act, and in doing so reproduce or transform those structures. Neither pure structuralism nor pure voluntarism is sufficient.",
       "ar": "جادل غيدنز بأن البنية والفاعلية متكوّنتان بشكل متبادل لا متعارضتان — وأسمى ذلك 'ازدواجية البنية'. البنى الاجتماعية (القواعد والموارد) هي وسيلة الفعل ونتيجته في آنٍ: يستمد الفاعلون من البنى للتصرف، ومن ثمّ يُعيدون إنتاج تلك البنى أو تحويلها. لا البنيوية المحضة ولا الإرادوية المحضة كافيتان."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Structure and agency co-create: action uses, reproduces, or transforms structure.",
+        "Agents draw on structures while reproducing or changing them; each constitutes the other."
+      ],
+      "ar": [
+        "البنية والفاعلية تكوّنان بعضهما؛ يستخدم الفعل البنية ويعيد إنتاجها أو يحولها.",
+        "يستخدم الفاعلون البنى ويعيدون إنتاجها أو تغييرها؛ وكل منهما يشكل الآخر."
+      ]
     }
   },
   {
@@ -669,6 +829,16 @@
     "answer": {
       "en": "Geertz (1973) contrasted thin description (merely stating an observable fact — 'he winked') with thick description (explaining the cultural context that gives the act meaning — a conspiracy? a parody? a tic?). Interpretive anthropology treats culture as a text to be 'read' for layers of meaning, not just catalogued.",
       "ar": "ميّز غيرتز (1973) بين الوصف الرفيع (مجرد إثبات حقيقة قابلة للرصد — 'غمز') والوصف الكثيف (شرح السياق الثقافي الذي يمنح الفعل معنى — مؤامرة؟ محاكاة ساخرة؟ تشنج؟). تتعامل الأنثروبولوجيا التفسيرية مع الثقافة كنص يجب 'قراءته' بطبقاته المعنوية لا مجرد فهرسته."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Context-rich description revealing cultural meaning, treating culture as an interpretable text.",
+        "Interpreting observable acts through the layered cultural context that gives them meaning."
+      ],
+      "ar": [
+        "وصف غني بالسياق يكشف المعنى الثقافي ويتيح قراءة الثقافة كنص.",
+        "تفسير الأفعال المرصودة عبر طبقات السياق الثقافي التي تمنحها معناها."
+      ]
     }
   },
   {
@@ -701,6 +871,16 @@
     "answer": {
       "en": "Absolute advantage: producing more of a good using the same resources. Comparative advantage: producing a good at a lower opportunity cost — even if a country is worse at everything in absolute terms, it gains by specialising in what it does relatively best and trading. This underpins the economic case for free trade.",
       "ar": "الميزة المطلقة: إنتاج سلعة أكثر باستخدام الموارد ذاتها. الميزة النسبية: إنتاج سلعة بتكلفة فرصة أقل — حتى لو كان بلد ما أسوأ في كل شيء من الناحية المطلقة، يكسب بالتخصص فيما يُتقنه نسبياً والتجارة. هذا يُشكّل الحجة الاقتصادية للتجارة الحرة."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Absolute: more output; comparative: lower opportunity cost, enabling specialisation and trade.",
+        "Absolute advantage uses fewer resources; comparative advantage has lower opportunity cost."
+      ],
+      "ar": [
+        "المطلقة إنتاج أكبر؛ النسبية تكلفة فرصة أقل تتيح التخصص والتجارة.",
+        "المطلقة تنتج أكثر بالموارد نفسها؛ النسبية تتحمل تكلفة فرصة أقل."
+      ]
     }
   },
   {
@@ -717,6 +897,16 @@
     "answer": {
       "en": "Path dependence means that early choices or contingent historical events constrain future options, making certain outcomes 'sticky' even when alternatives would be more efficient. Classic example: QWERTY keyboard layout persists despite potentially superior alternatives because switching costs are too high once a standard is locked in.",
       "ar": "الاعتماد على المسار يعني أن الاختيارات المبكرة أو الأحداث التاريخية العارضة تُقيّد الخيارات المستقبلية، مما يجعل نتائج معينة 'لزجة' حتى لو كانت البدائل أكثر كفاءة. المثال الكلاسيكي: تخطيط لوحة مفاتيح QWERTY يستمر رغم البدائل الأفضل المحتملة لأن تكاليف التحويل عالية جداً بعد ترسّخ المعيار."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Early choices constrain future options; QWERTY persists through lock-in and switching costs.",
+        "Historical choices lock in later outcomes; QWERTY persists because switching is costly."
+      ],
+      "ar": [
+        "الخيارات المبكرة تقيد المستقبل؛ تستمر QWERTY بفعل الانغلاق وتكاليف التحول.",
+        "الاختيارات التاريخية تقفل نتائج لاحقة؛ استمر QWERTY لأن التحول مكلف."
+      ]
     }
   },
   {
@@ -781,6 +971,16 @@
     "answer": {
       "en": "Aggregative democracy collects and tallies pre-formed preferences (voting). Deliberative democracy (Habermas, Rawls) holds that legitimate political decisions emerge from reasoned public debate among free and equal citizens, allowing preferences to be transformed through rational discourse — not just counted.",
       "ar": "الديمقراطية التجميعية تجمع التفضيلات المُشكَّلة مسبقاً وتحصيها (التصويت). الديمقراطية التداولية (هابرماس، رولز) تقول إن القرارات السياسية المشروعة تنبع من نقاش عام معلل بين مواطنين أحرار ومتساوين، مما يُتيح تحوّل التفضيلات عبر الخطاب العقلاني — لا مجرد إحصائها."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Aggregative counts fixed preferences; deliberative shapes them through reasoned public debate.",
+        "Majoritarian tallies prior choices; deliberative transforms them through rational debate."
+      ],
+      "ar": [
+        "الديمقراطية التجميعية تعد التفضيلات؛ التداولية تشكلها عبر نقاش عام عقلاني ومتساو.",
+        "الأغلبية تحصي خيارات مسبقة؛ التداولية تحولها بالنقاش العقلاني بين مواطنين متساوين."
+      ]
     }
   },
   {

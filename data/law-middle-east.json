@@ -29,6 +29,10 @@
     "answer": {
       "en": "Fiqh is Islamic jurisprudence — the practical rulings derived by scholars from the sources of Sharia.",
       "ar": "الفقه هو علم الأحكام الإسلامية العملية التي يستنبطها العلماء من مصادر الشريعة."
+    },
+    "acceptedAnswers": {
+      "en": ["Islamic jurisprudence: practical Sharia rulings derived by scholars.", "Islamic jurisprudence."],
+      "ar": ["علم الأحكام الشرعية العملية التي يستنبطها العلماء.", "الفقه الإسلامي."]
     }
   },
   {
@@ -45,6 +49,10 @@
     "answer": {
       "en": "The Quran, the Sunnah (Hadith), Ijma (scholarly consensus), and Qiyas (analogical reasoning).",
       "ar": "القرآن الكريم، والسنة النبوية (الحديث)، والإجماع، والقياس."
+    },
+    "acceptedAnswers": {
+      "en": ["The Quran, Sunnah, ijma, and qiyas.", "Quran, Sunnah, scholarly consensus, and analogical reasoning."],
+      "ar": ["القرآن والسنة والإجماع والقياس.", "القرآن الكريم والسنة النبوية والإجماع والقياس."]
     }
   },
   {
@@ -61,6 +69,10 @@
     "answer": {
       "en": "A formal legal opinion or ruling issued by a qualified Islamic scholar (mufti) on a religious or legal question.",
       "ar": "رأي قانوني أو حكم رسمي يُصدره عالم إسلامي مؤهل (مفتٍ) في مسألة دينية أو قانونية."
+    },
+    "acceptedAnswers": {
+      "en": ["A qualified mufti's formal legal opinion on a religious or legal question.", "A qualified mufti's formal religious or legal ruling."],
+      "ar": ["رأي شرعي رسمي يصدره مفتٍ مؤهل في مسألة دينية أو قانونية.", "رأي قانوني شرعي يصدره مفتٍ مؤهل."]
     }
   },
   {
@@ -109,6 +121,10 @@
     "answer": {
       "en": "Qisas is the principle of proportional retaliation ('an eye for an eye') in cases of murder or bodily harm, where the victim's family may choose retaliation, blood money, or forgiveness.",
       "ar": "القصاص هو مبدأ المعاملة بالمثل في حالات القتل أو الأذى الجسدي، حيث يحق لأسرة الضحية اختيار القصاص أو الدية أو العفو."
+    },
+    "acceptedAnswers": {
+      "en": ["Proportional retaliation for murder or bodily harm, with diya or forgiveness alternatives.", "Proportional retaliation in murder or bodily injury cases."],
+      "ar": ["المعاملة بالمثل في القتل أو الأذى، مع إمكان الدية أو العفو.", "قصاص متناسب في القتل أو الأذى مع بديلَي الدية والعفو."]
     }
   },
   {
@@ -237,6 +253,10 @@
     "answer": {
       "en": "Egypt — the Egyptian Civil Code (1949), drafted by Abd El-Razzak El-Sanhuri, was adopted as the basis for civil law in Iraq, Syria, Libya, Kuwait, and others.",
       "ar": "مصر — القانون المدني المصري (1949)، الذي صاغه عبد الرزاق السنهوري، اعتُمد أساسًا للقانون المدني في العراق وسوريا وليبيا والكويت وغيرها."
+    },
+    "acceptedAnswers": {
+      "en": ["Egypt.", "The Arab Republic of Egypt."],
+      "ar": ["مصر.", "جمهورية مصر العربية."]
     }
   },
   {
@@ -269,6 +289,10 @@
     "answer": {
       "en": "The Hanafi, Maliki, Shafi'i, and Hanbali schools, each named after its founding scholar.",
       "ar": "المذهب الحنفي والمالكي والشافعي والحنبلي، كل منها منسوب إلى مؤسسه."
+    },
+    "acceptedAnswers": {
+      "en": ["The Hanafi, Maliki, Shafi'i, and Hanbali schools.", "Hanafi, Maliki, Shafii, and Hanbali."],
+      "ar": ["المذاهب الحنفي والمالكي والشافعي والحنبلي.", "الحنفية والمالكية والشافعية والحنبلية."]
     }
   },
   {
@@ -285,6 +309,10 @@
     "answer": {
       "en": "Offer and acceptance (meeting of minds), legal capacity of the parties, a lawful object, and a lawful cause (consideration).",
       "ar": "الإيجاب والقبول (التراضي)، وأهلية الطرفَين القانونية، ومحل مشروع، وسبب مشروع."
+    },
+    "acceptedAnswers": {
+      "en": ["Offer, acceptance, legal capacity, lawful object, and lawful cause.", "Mutual consent, legal capacity, lawful subject matter, and lawful cause."],
+      "ar": ["الإيجاب والقبول والأهلية القانونية والمحل المشروع والسبب المشروع.", "التراضي والأهلية والمحل المشروع والسبب المشروع."]
     }
   },
   {
@@ -301,6 +329,10 @@
     "answer": {
       "en": "Founded in 1945, the Arab League is a regional organization of Arab states that promotes cooperation and coordinates policy. It adopts resolutions and conventions, though its legal instruments are generally non-binding on member states without domestic ratification.",
       "ar": "تأسست جامعة الدول العربية عام 1945، وهي منظمة إقليمية تضم الدول العربية تعزّز التعاون وتنسّق السياسات. تتبنى قرارات واتفاقيات، غير أن صكوكها القانونية غير مُلزِمة للدول الأعضاء عمومًا دون التصديق الداخلي."
+    },
+    "acceptedAnswers": {
+      "en": ["Regional Arab body coordinating policy; legal instruments generally need domestic ratification.", "The Arab League coordinates states; its acts generally bind only after domestic ratification."],
+      "ar": ["منظمة عربية إقليمية تنسق السياسات، وتتطلب صكوكها عمومًا تصديقًا داخليًا.", "جامعة الدول العربية تنسق التعاون؛ وصكوكها غير ملزمة بلا تصديق محلي."]
     }
   },
   {
@@ -317,6 +349,10 @@
     "answer": {
       "en": "All three designate Islamic Sharia as a (or the) principal source of legislation in their constitutional documents.",
       "ar": "تُقرّ الدول الثلاث بأن الشريعة الإسلامية هي المصدر الرئيسي (أو أحد المصادر الرئيسية) للتشريع في وثائقها الدستورية."
+    },
+    "acceptedAnswers": {
+      "en": ["Islamic Sharia is a principal source of legislation in all three.", "All three make Sharia a principal source of legislation."],
+      "ar": ["الشريعة الإسلامية مصدر رئيسي للتشريع في الدول الثلاث.", "تعد الشريعة مصدرًا رئيسيًا للتشريع في السعودية وقطر والإمارات."]
     }
   },
   {
@@ -333,6 +369,10 @@
     "answer": {
       "en": "Discretionary punishments imposed by a judge for offenses not covered by hudud or qisas, where the punishment type and severity is left to judicial discretion.",
       "ar": "العقوبات التقديرية التي يفرضها القاضي على الجرائم غير المشمولة بالحدود أو القصاص، وتُترك نوعية العقوبة وشدتها للسلطة التقديرية للقضاء."
+    },
+    "acceptedAnswers": {
+      "en": ["Judge-determined discretionary punishment for offenses outside hudud and qisas.", "Discretionary judicial punishment for crimes beyond hudud and qisas."],
+      "ar": ["عقوبة تقديرية يحددها القاضي لجرائم لا تشملها الحدود أو القصاص.", "تعزير قضائي تقديري للجرائم الخارجة عن الحدود والقصاص."]
     }
   },
   {
@@ -365,6 +405,10 @@
     "answer": {
       "en": "Talaq is divorce initiated by the husband by pronouncing the divorce formula. Khul' is divorce initiated by the wife, who typically returns the mahr (dowry) to the husband in exchange for release from the marriage.",
       "ar": "الطلاق هو الطلاق الذي يُبادر به الزوج بنطق صيغة الطلاق. الخلع هو الطلاق الذي تُبادر به الزوجة، عادةً بردّ المهر للزوج مقابل الإفراج عنها من الزواج."
+    },
+    "acceptedAnswers": {
+      "en": ["Talaq is husband-initiated; khul' is wife-initiated, typically in return for the mahr.", "Talaq comes from the husband; khul comes from the wife, usually returning mahr."],
+      "ar": ["الطلاق يبادر به الزوج، والخلع تبادر به الزوجة عادةً مقابل رد المهر.", "الطلاق من الزوج؛ والخلع من الزوجة غالبًا برد المهر."]
     }
   },
   {
@@ -381,6 +425,10 @@
     "answer": {
       "en": "Sukuk are Islamic financial certificates representing ownership stakes in assets or projects — the Islamic equivalent of bonds. They generate returns through profit-sharing or rent from the underlying asset rather than interest payments.",
       "ar": "الصكوك شهادات مالية إسلامية تمثّل حصص ملكية في أصول أو مشاريع — وهي المكافئ الإسلامي للسندات. تدرّ عوائد من خلال تقاسم الأرباح أو الإيجار من الأصل الأساسي بدلًا من مدفوعات الفائدة."
+    },
+    "acceptedAnswers": {
+      "en": ["Sharia-compliant asset-ownership certificates yielding profit or rent rather than interest.", "Islamic ownership certificates paying profit or rent instead of interest."],
+      "ar": ["شهادات ملكية متوافقة مع الشريعة تدر ربحًا أو إيجارًا بدل الفائدة.", "صكوك ملكية إسلامية تحقق عائدًا بالربح أو الإيجار لا بالفائدة."]
     }
   },
   {
@@ -461,6 +509,10 @@
     "answer": {
       "en": "Murabaha is a cost-plus financing arrangement: the bank buys an asset outright and resells it to the customer at a disclosed markup, payable in installments. This avoids interest while achieving similar financing outcomes.",
       "ar": "المرابحة هي ترتيب تمويل بالتكلفة زائد ربح: يشتري البنك أصلًا بشكل مباشر ثم يبيعه للعميل بهامش ربح محدد مسبقًا، يدفعه على أقساط. هذا يتجنب الفائدة مع تحقيق نتائج تمويلية مماثلة."
+    },
+    "acceptedAnswers": {
+      "en": ["Bank buys an asset and resells it at disclosed markup, usually in installments.", "Cost-plus sale: bank purchases the home or car, then resells it for installments."],
+      "ar": ["يشتري البنك الأصل ثم يبيعه للعميل بربح معلوم وأقساط.", "بيع بالتكلفة وربح معلوم: يشتري المصرف المنزل أو السيارة ويعيد بيعها بالتقسيط."]
     }
   },
   {
@@ -493,6 +545,10 @@
     "answer": {
       "en": "Peremptory norms of international law from which no derogation is permitted — such as the prohibitions on genocide, slavery, and torture. They cannot be overridden by treaty.",
       "ar": "قواعد آمرة في القانون الدولي لا يجوز الانحراف عنها — كحظر الإبادة الجماعية والرق والتعذيب. لا يمكن لأي معاهدة تجاوزها."
+    },
+    "acceptedAnswers": {
+      "en": ["Non-derogable peremptory international-law norms that no treaty may override.", "Peremptory international norms permitting no derogation, even by treaty."],
+      "ar": ["قواعد دولية آمرة لا يجوز الانتقاص منها ولا تتجاوزها معاهدة.", "قواعد آمرة لا تقبل المخالفة ولا يمكن للمعاهدات تجاوزها."]
     }
   },
   {
@@ -685,6 +741,10 @@
     "answer": {
       "en": "These countries apply civil law codes (French-derived) for commercial and criminal matters while applying Sharia in personal status law (marriage, divorce, inheritance, guardianship). Separate courts (personal status or sharia courts) handle family matters, while civil and criminal courts handle the rest. Integration is complex — Sharia principles often inform constitutional interpretation even in the civil domain.",
       "ar": "تطبّق هذه الدول قوانين مدنية (مستمدة من الفرنسية) للشؤون التجارية والجنائية، بينما تطبّق الشريعة في قانون الأحوال الشخصية (الزواج والطلاق والميراث والولاية). محاكم منفصلة (الأحوال الشخصية أو الشريعة) تتولى الشؤون الأسرية، بينما تتولى المحاكم المدنية والجنائية الباقي. التكامل معقّد — غالبًا ما تُلهم مبادئ الشريعة التفسير الدستوري حتى في المجال المدني."
+    },
+    "acceptedAnswers": {
+      "en": ["Civil codes govern commercial and criminal matters; Sharia governs Muslim personal status.", "Civil law covers commerce and crime; Sharia covers Muslim family and inheritance."],
+      "ar": ["تحكم القوانين المدنية الشؤون التجارية والجنائية، وتحكم الشريعة الأحوال الشخصية للمسلمين.", "القانون المدني للتجارة والجنايات؛ والشريعة للأحوال الشخصية للمسلمين."]
     }
   },
   {
@@ -701,6 +761,10 @@
     "answer": {
       "en": "Maslaha holds that rulings may be derived or reformed to serve the public good, even if not explicitly derived from Quran or Sunnah texts, provided they do not contradict established principles. Reformist scholars use it to argue for updating Islamic law on issues like women's rights, banking, and criminal penalties to fit modern contexts.",
       "ar": "المصلحة مبدأ يجيز استنباط الأحكام أو إصلاحها لخدمة الصالح العام، حتى لو لم تُستمد مباشرةً من نصوص القرآن أو السنة، بشرط ألا تتعارض مع المبادئ الراسخة. يستخدمه العلماء الإصلاحيون للمطالبة بتحديث الشريعة في مسائل كحقوق المرأة والمصارف والعقوبات الجنائية لتتوافق مع السياق المعاصر."
+    },
+    "acceptedAnswers": {
+      "en": ["Public interest allows Sharia-consistent rulings and reforms without explicit scripture.", "Maslaha permits public-interest legal reform consistent with Sharia principles."],
+      "ar": ["تجيز المصلحة أحكامًا وإصلاحات للصالح العام بلا نص صريح إذا وافقت مبادئ الشريعة.", "المصلحة تجيز إصلاح الأحكام لخدمة العامة بشرط موافقة أصول الشريعة."]
     }
   },
   {
@@ -717,6 +781,10 @@
     "answer": {
       "en": "R2P holds that states have a primary responsibility to protect their populations from genocide, war crimes, ethnic cleansing, and crimes against humanity. When a state fails, the international community may intervene. It was controversially invoked for the 2011 NATO intervention in Libya (UNSC Resolution 1973), raising debates about its limits and potential for misuse.",
       "ar": "يقضي مبدأ مسؤولية الحماية بأن للدول مسؤولية أولية لحماية مواطنيها من الإبادة الجماعية وجرائم الحرب والتطهير العرقي والجرائم ضد الإنسانية. عند فشل الدولة، يجوز للمجتمع الدولي التدخل. استُدعي المبدأ في التدخل العسكري لحلف الناتو في ليبيا عام 2011 (قرار مجلس الأمن 1973) بصورة خلافية، مثيرًا نقاشات حول حدوده وإمكانية إساءة استخدامه."
+    },
+    "acceptedAnswers": {
+      "en": ["States prevent atrocity crimes; international action may follow failure, as in Libya.", "R2P requires state protection; international intervention may follow failure, as in Libya."],
+      "ar": ["تحمي الدولة سكانها من الفظائع؛ وقد يتدخل المجتمع الدولي عند فشلها كما في ليبيا.", "مسؤولية الدولة منع الفظائع؛ وعند فشلها يجوز تدخل دولي كما في ليبيا."]
     }
   },
   {
@@ -733,6 +801,10 @@
     "answer": {
       "en": "Shura is the principle of consultation — rulers should consult with advisors or representatives before making decisions. Gulf states incorporate it through consultative councils (like Saudi Arabia's Majlis al-Shura or Qatar's Majlis) that advise the ruler but lack full legislative power, representing a partial institutionalization of shura principles.",
       "ar": "الشورى مبدأ التشاور — يجب على الحكام التشاور مع المستشارين أو الممثلين قبل اتخاذ القرارات. تُدمجه دول الخليج عبر المجالس الاستشارية (كمجلس الشورى السعودي أو مجلس قطر) التي تستشير الحاكم لكن تفتقر إلى سلطة تشريعية كاملة، مما يمثّل أسلوبًا في تأسيس مبادئ الشورى."
+    },
+    "acceptedAnswers": {
+      "en": ["Consultation in governance through Gulf advisory councils with limited legislative power.", "Shura means consultation, embodied in Gulf advisory councils with limited lawmaking powers."],
+      "ar": ["الشورى هي التشاور في الحكم عبر مجالس خليجية استشارية محدودة السلطة التشريعية.", "تشاور الحاكم عبر مجالس الشورى الخليجية ذات الصلاحيات التشريعية المحدودة."]
     }
   },
   {
@@ -749,6 +821,10 @@
     "answer": {
       "en": "A Sharia Supervisory Board is a panel of qualified Islamic scholars who review and certify that a bank's financial products, contracts, and operations comply with Sharia principles. They issue fatwas on products and audit transactions. Their independence and consistency across institutions remains a subject of debate in Islamic finance governance.",
       "ar": "هيئة الرقابة الشرعية لجنة من العلماء المسلمين المؤهلين تراجع وتُشهد على مطابقة المنتجات المالية والعقود وعمليات البنك لمبادئ الشريعة. تُصدر فتاوى بشأن المنتجات وتراجع المعاملات. استقلاليتها واتساقها عبر المؤسسات لا يزال موضع نقاش في حوكمة التمويل الإسلامي."
+    },
+    "acceptedAnswers": {
+      "en": ["It reviews, certifies, and audits financial products and operations for Sharia compliance.", "Scholars certify and audit bank products, contracts, and operations for Sharia compliance."],
+      "ar": ["تراجع الهيئة المنتجات والعقود والعمليات وتجيزها وتدققها لضمان امتثالها للشريعة.", "تضمن الهيئة شرعية منتجات المصرف وعقوده وعملياته بالفتوى والتدقيق."]
     }
   },
   {
@@ -765,6 +841,10 @@
     "answer": {
       "en": "The Rome Statute (1998) established the ICC, the first permanent international criminal court with jurisdiction over genocide, crimes against humanity, and war crimes. Many Arab states have not ratified it due to concerns about sovereignty, potential politically motivated prosecutions, and the ICC's previous focus on African and Middle Eastern situations. Sudan's President al-Bashir faced ICC indictments for Darfur war crimes — highlighting tensions between accountability and sovereignty.",
       "ar": "أسّس نظام روما (1998) المحكمة الجنائية الدولية، أول محكمة جنائية دولية دائمة تختص بالإبادة الجماعية والجرائم ضد الإنسانية وجرائم الحرب. لم تُصادق كثير من الدول العربية عليه بسبب مخاوف تتعلق بالسيادة وإمكانية الملاحقة القضائية ذات الدوافع السياسية وتركيز المحكمة السابق على الأوضاع الأفريقية والشرق أوسطية. واجه الرئيس السوداني البشير مذكرات اعتقال من المحكمة بشأن جرائم حرب دارفور — مما يُسلّط الضوء على التوترات بين المساءلة والسيادة."
+    },
+    "acceptedAnswers": {
+      "en": ["Rome Statute created the ICC for atrocity crimes; sovereignty concerns deter Arab ratification.", "Rome Statute founded the ICC for atrocities; sovereignty and politicization deter ratification."],
+      "ar": ["أنشأ نظام روما المحكمة الجنائية الدولية لجرائم الفظائع؛ وتعوق مخاوف السيادة التصديق العربي.", "نظام روما أسس محكمة جرائم الفظائع؛ ومخاوف السيادة والتسييس تعطل التصديق."]
     }
   }
 ]

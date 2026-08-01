@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
+const maxExplicitAnswersPerLanguage = 8;
 const ignoredHtmlDirectories = new Set([
   ".git",
   ".wrangler",
@@ -45,19 +46,32 @@ function stableObjectJson(value) {
   );
 }
 
-function conciseVerifiedAnswer(value) {
-  if (typeof value !== "string") return false;
-  const normalized = value
+function normalizeVerifiedAnswer(value) {
+  if (typeof value !== "string") return "";
+  return value
     .normalize("NFKC")
+    .toLocaleLowerCase("en-US")
     .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
     .replace(/[أإآٱ]/gu, "ا")
     .replace(/ى/gu, "ي")
     .replace(/\p{P}+/gu, " ")
     .replace(/\s+/gu, " ")
     .trim();
+}
+
+function conciseVerifiedAnswer(value) {
+  const normalized = normalizeVerifiedAnswer(value);
   return normalized.length > 0
     && normalized.length <= 96
     && normalized.split(" ").length <= 14;
+}
+
+function hasConciseVerifiedAnswer(card, language) {
+  return conciseVerifiedAnswer(card?.answer?.[language])
+    || (
+      Array.isArray(card?.acceptedAnswers?.[language])
+      && card.acceptedAnswers[language].some(conciseVerifiedAnswer)
+    );
 }
 
 function decodeUrlCodePoint(digits, radix) {
@@ -297,9 +311,35 @@ for (const file of dataFiles) {
     for (const field of ["question", "answer"]) {
       if (!card?.[field]?.en?.trim() || !card?.[field]?.ar?.trim()) fail(`${label}: incomplete bilingual ${field}`);
     }
+    if (card?.acceptedAnswers !== undefined) {
+      if (
+        !card.acceptedAnswers
+        || typeof card.acceptedAnswers !== "object"
+        || Array.isArray(card.acceptedAnswers)
+      ) {
+        fail(`${label}: acceptedAnswers must be a bilingual object`);
+      } else {
+        for (const language of ["en", "ar"]) {
+          const answers = card.acceptedAnswers[language];
+          if (answers === undefined) continue;
+          if (!Array.isArray(answers)) {
+            fail(`${label}: acceptedAnswers.${language} must be an array`);
+          } else if (answers.length > maxExplicitAnswersPerLanguage) {
+            fail(`${label}: acceptedAnswers.${language} exceeds ${maxExplicitAnswersPerLanguage} entries`);
+          } else if (answers.some((answer) => !conciseVerifiedAnswer(answer))) {
+            fail(`${label}: acceptedAnswers.${language} entries must be at most 96 characters and 14 words`);
+          } else {
+            const normalized = answers.map(normalizeVerifiedAnswer);
+            if (new Set(normalized).size !== normalized.length) {
+              fail(`${label}: acceptedAnswers.${language} contains duplicate normalized answers`);
+            }
+          }
+        }
+      }
+    }
     if (
-      conciseVerifiedAnswer(card?.answer?.en)
-      && conciseVerifiedAnswer(card?.answer?.ar)
+      hasConciseVerifiedAnswer(card, "en")
+      && hasConciseVerifiedAnswer(card, "ar")
     ) verifiedQuestionCount += 1;
     const topicEn = card?.subcategory?.en?.trim();
     const topicAr = card?.subcategory?.ar?.trim();

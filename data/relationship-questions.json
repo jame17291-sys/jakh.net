@@ -45,6 +45,16 @@
     "answer": {
       "en": "Fully concentrating on what the other person is saying, understanding their message, responding thoughtfully, and remembering what was said — rather than passively hearing words.",
       "ar": "التركيز الكامل على ما يقوله الشخص الآخر، وفهم رسالته، والرد بتأمل، وتذكر ما قيل — بدلاً من مجرد سماع الكلمات سلبياً."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Concentrating, understanding, responding thoughtfully, and remembering—not merely hearing.",
+        "Attentive listening that understands, responds to, and remembers the speaker's message."
+      ],
+      "ar": [
+        "التركيز الكامل والفهم والرد المتأني والتذكر بدلاً من مجرد السماع.",
+        "إنصات منتبه يفهم رسالة المتحدث ويستجيب لها ويتذكرها."
+      ]
     }
   },
   {
@@ -61,6 +71,16 @@
     "answer": {
       "en": "Deliberately ignoring or refusing to communicate with a partner as a form of punishment. It is harmful because it blocks resolution, creates emotional distance, and is a form of emotional manipulation.",
       "ar": "تجاهل الشريك عمداً أو رفض التواصل معه كشكل من أشكال العقاب. وهو ضار لأنه يعيق الحل ويخلق مسافة عاطفية وهو شكل من أشكال التلاعب العاطفي."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Punitive communication refusal; it blocks resolution, creates distance, and emotionally manipulates.",
+        "Ignoring a partner as punishment blocks resolution, creates distance, and manipulates emotionally."
+      ],
+      "ar": [
+        "رفض التواصل عقاباً؛ يعيق الحل ويخلق مسافة عاطفية ويتلاعب بالمشاعر.",
+        "تجاهل الشريك لمعاقبته، مما يمنع الحل ويصنع بعداً عاطفياً تلاعبياً."
+      ]
     }
   },
   {
@@ -93,6 +113,16 @@
     "answer": {
       "en": "Empathy is feeling with someone — stepping into their emotional experience. Sympathy is feeling for someone from a distance, acknowledging their feelings without sharing them.",
       "ar": "التعاطف هو الشعور مع شخص ما — الدخول في تجربته العاطفية. المشاركة الوجدانية هي الشعور تجاه شخص ما من مسافة، مع الإقرار بمشاعره دون مشاركتها."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Empathy shares another's feelings; sympathy acknowledges them without sharing them.",
+        "Empathy enters another's experience; sympathy cares from outside without sharing it."
+      ],
+      "ar": [
+        "التعاطف مشاركة تجربة الآخر؛ المشاركة الوجدانية إقرار بمشاعره دون مشاركتها.",
+        "التعاطف يدخل تجربة الآخر؛ المشاركة الوجدانية تهتم من الخارج دون مشاركتها."
+      ]
     }
   },
   {
@@ -109,6 +139,16 @@
     "answer": {
       "en": "Expressing feelings from your own perspective ('I feel hurt when...') rather than blaming the other person ('You always...'). It reduces defensiveness and opens dialogue.",
       "ar": "التعبير عن المشاعر من منظورك الخاص ('أشعر بالأذى عندما...') بدلاً من إلقاء اللوم على الآخر ('أنت دائماً...'). يُقلل هذا من الدفاعية ويفتح الحوار."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Express your own feelings and perspective without blaming the other person.",
+        "State how you feel from your perspective instead of accusing your partner."
+      ],
+      "ar": [
+        "التعبير عن مشاعرك ومنظورك دون لوم الشخص الآخر.",
+        "اذكر شعورك من منظورك بدلاً من اتهام شريكك."
+      ]
     }
   },
   {
@@ -141,6 +181,16 @@
     "answer": {
       "en": "A form of psychological manipulation where one person causes another to question their own memory, perception, or sanity — e.g., denying events that occurred or telling the victim they are 'overreacting'.",
       "ar": "شكل من أشكال التلاعب النفسي حيث يجعل أحد الشخصين الآخرَ يشكك في ذاكرته أو إدراكه أو عقله — كإنكار أحداث وقعت أو إخبار الضحية بأنها 'مبالغة في ردة فعلها'."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Manipulation that makes someone doubt their memory, perception, or sanity.",
+        "Denying reality to make a partner question their memory, perception, or sanity."
+      ],
+      "ar": [
+        "تلاعب يجعل الشخص يشك في ذاكرته أو إدراكه أو عقله.",
+        "إنكار الواقع لدفع الشريك إلى الشك في ذاكرته وإدراكه وعقله."
+      ]
     }
   },
   {
@@ -253,6 +303,16 @@
     "answer": {
       "en": "Flooding is physiological overwhelm during conflict (heart rate spikes above 100 bpm) that impairs rational thinking. Gottman recommends calling a time-out of at least 20 minutes to allow the nervous system to calm before continuing the discussion.",
       "ar": "الفيضان هو الإرهاق الفسيولوجي أثناء النزاع (ارتفاع معدل ضربات القلب فوق 100 نبضة/دقيقة) مما يُضعف التفكير المنطقي. يوصي غوتمان بأخذ استراحة لا تقل عن 20 دقيقة للسماح للجهاز العصبي بالهدوء قبل الاستمرار في النقاش."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Flooding is physiological overwhelm during conflict; take at least a 20-minute calming break.",
+        "Conflict-induced physiological overwhelm requiring a calming break of at least 20 minutes."
+      ],
+      "ar": [
+        "الفيضان إرهاق فسيولوجي أثناء النزاع؛ خذ استراحة تهدئة لا تقل عن 20 دقيقة.",
+        "إرهاق فسيولوجي يسببه النزاع ويستلزم استراحة هادئة لمدة 20 دقيقة على الأقل."
+      ]
     }
   },
   {
@@ -269,6 +329,16 @@
     "answer": {
       "en": "Limerence (coined by Dorothy Tennov) is an intense, involuntary state of infatuation with intrusive thoughts and a desperate need for reciprocation. It's driven by neurochemicals (dopamine, norepinephrine) and typically peaks in 18–36 months. Mature love involves deeper commitment, care, and acceptance beyond the obsessive phase.",
       "ar": "اللايميرنس (ابتكرت المصطلح دوروثي تينوف) هو حالة شغف مكثف وقسري مصحوب بأفكار تسلطية وحاجة يائسة للتبادل. تحرّكه المواد العصبية الكيميائية (الدوبامين، النورإبينفرين) وعادة ما يبلغ ذروته في 18-36 شهراً. أما الحب الناضج فينطوي على التزام أعمق ورعاية وقبول يتجاوز مرحلة الهوس."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Limerence is obsessive involuntary infatuation; mature love is commitment, care, and acceptance.",
+        "Limerence seeks obsessive reciprocation; mature love rests on commitment, care, and acceptance."
+      ],
+      "ar": [
+        "الهيام الانتيابي شغف قسري هوسي يطلب التبادل؛ الحب الناضج التزام ورعاية وقبول.",
+        "الهيام يطلب تبادلاً هوسياً؛ الحب الناضج يقوم على الالتزام والرعاية والقبول."
+      ]
     }
   },
   {
@@ -285,6 +355,16 @@
     "answer": {
       "en": "One partner pushes for discussion while the other withdraws; this creates a cycle of escalating pursuit and avoidance. Research links it to lower relationship satisfaction and higher rates of separation, because core issues never get resolved.",
       "ar": "يضغط أحد الشريكين للمناقشة بينما ينسحب الآخر؛ ما يخلق دورة من التصعيد والتجنب. تربطه الأبحاث بانخفاض الرضا عن العلاقة وارتفاع معدلات الانفصال لأن المشكلات الجوهرية لا تُحل أبداً."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "One partner pursues while the other withdraws, escalating avoidance and leaving issues unresolved.",
+        "Pursuit meets withdrawal, intensifying conflict and preventing core problems from being resolved."
+      ],
+      "ar": [
+        "يطالب شريك بالنقاش وينسحب الآخر، فيتصاعد التجنب وتبقى المشكلات بلا حل.",
+        "يقابل الإلحاح انسحاب، فيشتد الصراع ولا تُحل المشكلات الأساسية."
+      ]
     }
   },
   {
@@ -301,6 +381,16 @@
     "answer": {
       "en": "A communication framework with four components: Observations (stating facts without evaluation), Feelings (naming emotions), Needs (identifying underlying needs), and Requests (making clear, doable requests). It aims to foster empathy and resolve conflict without blame.",
       "ar": "إطار تواصلي بأربعة مكونات: الملاحظات (ذكر الوقائع دون تقييم)، والمشاعر (تسمية العواطف)، والاحتياجات (تحديد الاحتياجات الكامنة)، والطلبات (تقديم طلبات واضحة قابلة للتنفيذ). يهدف إلى تعزيز التعاطف وحل النزاع دون لوم."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Communication without blame through observations, feelings, needs, and clear doable requests.",
+        "Observation, feeling, need, and actionable request—a four-part framework for blame-free conflict."
+      ],
+      "ar": [
+        "تواصل بلا لوم عبر الملاحظات والمشاعر والاحتياجات والطلبات الواضحة القابلة للتنفيذ.",
+        "الملاحظة والشعور والحاجة والطلب القابل للتنفيذ؛ إطار لحل النزاع بلا لوم."
+      ]
     }
   },
   {
@@ -333,6 +423,16 @@
     "answer": {
       "en": "A repair attempt is any action or statement during conflict that de-escalates tension — a joke, an apology, or touching the partner's hand. Couples who successfully use and accept repair attempts are far more likely to have stable, satisfying relationships.",
       "ar": "محاولة الإصلاح هي أي فعل أو قول خلال النزاع يُخفف التوتر — نكتة، أو اعتذار، أو لمس يد الشريك. الأزواج الذين يستخدمون محاولات الإصلاح ويتقبلونها بنجاح أكثر عرضة بكثير للحفاظ على علاقات مستقرة ومُرضية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A gesture lowering conflict tension; using and accepting it supports stable relationships.",
+        "Any de-escalating act or statement during conflict that helps preserve relationship stability."
+      ],
+      "ar": [
+        "فعل أو قول يخفض توتر النزاع؛ استخدامه وقبوله يدعمان استقرار العلاقة.",
+        "أي محاولة لتهدئة النزاع تساعد عند قبولها على حفظ علاقة مستقرة."
+      ]
     }
   },
   {
@@ -365,6 +465,16 @@
     "answer": {
       "en": "The process by which close partners 'sculpt' each other toward their ideal selves through behavioural confirmation. Partners who affirm each other's ideal self-perceptions promote greater well-being and relationship satisfaction over time.",
       "ar": "العملية التي 'ينحت' فيها الشركاء المقربون بعضهم نحو ذواتهم المثالية من خلال التأكيد السلوكي. الشركاء الذين يُعززون تصورات الذات المثالية لدى بعضهم يُعززون الرفاهية والرضا عن العلاقة مع مرور الوقت."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Partners sculpt each other toward ideal selves through behavioural confirmation.",
+        "Partners' affirmations help each other become their ideal selves."
+      ],
+      "ar": [
+        "ينحت الشركاء بعضهم نحو ذواتهم المثالية عبر التأكيد السلوكي.",
+        "تأكيد الشريكين يساعد كلاً منهما على بلوغ ذاته المثالية."
+      ]
     }
   },
   {
@@ -381,6 +491,16 @@
     "answer": {
       "en": "Early romantic love activates dopamine (reward/craving), norepinephrine (excitement), and serotonin drops (obsessive thinking). Long-term attachment shifts to oxytocin (bonding) and vasopressin (pair-bonding), producing calm, stable connection rather than intense craving.",
       "ar": "يُنشّط الحب الرومانسي المبكر الدوبامين (المكافأة/الشوق)، والنورإبينفرين (الإثارة)، وينخفض السيروتونين (التفكير الهوسي). يتحوّل التعلق طويل الأمد نحو الأوكسيتوسين (التواصل) والفازوبريسين (الارتباط بالزوج)، مما يُنتج ارتباطاً هادئاً ومستقراً بدلاً من الشوق المكثف."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Early: dopamine/norepinephrine rise, serotonin falls; later: oxytocin/vasopressin dominate.",
+        "Early love: dopamine/norepinephrine up, serotonin down; attachment: oxytocin/vasopressin."
+      ],
+      "ar": [
+        "مبكراً يرتفع الدوبامين والنورإبينفرين وينخفض السيروتونين؛ لاحقاً يسود الأوكسيتوسين والفازوبريسين.",
+        "المبكر: دوبامين ونورإبينفرين أعلى وسيروتونين أقل؛ الطويل: أوكسيتوسين وفازوبريسين."
+      ]
     }
   },
   {
@@ -397,6 +517,16 @@
     "answer": {
       "en": "Solvable problems have a clear resolution (logistics, chores). Perpetual problems (69% of all relationship conflicts) stem from fundamental personality differences or needs and never fully resolve — the goal is not to solve them but to manage them with humour, acceptance, and ongoing dialogue.",
       "ar": "المشكلات القابلة للحل لها حل واضح (الخدمات اللوجستية، المهام المنزلية). المشكلات الدائمة (69٪ من جميع نزاعات العلاقات) تنبع من اختلافات أساسية في الشخصية أو الاحتياجات ولا تُحل كلياً أبداً — الهدف ليس حلها بل إدارتها بالفكاهة والقبول والحوار المستمر."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Solvable problems resolve; perpetual differences persist and need acceptance, humour, and dialogue.",
+        "Solvable conflicts end; perpetual differences need humour, acceptance, and ongoing dialogue."
+      ],
+      "ar": [
+        "القابلة للحل لها حلول؛ الدائمة تستمر وتحتاج القبول والفكاهة والحوار.",
+        "نزاعات تُحل؛ والاختلافات الجوهرية الدائمة تُدار بالقبول والفكاهة والحوار المستمر."
+      ]
     }
   },
   {
@@ -461,6 +591,16 @@
     "answer": {
       "en": "Arthur Aron's theory that people are motivated to expand the self by including others' perspectives, resources, and identities. Romantic partners who continue to offer novel, challenging experiences maintain higher satisfaction because the self-expansion drive continues to be met.",
       "ar": "نظرية آرثر آرون بأن الناس يميلون لتوسيع الذات بتضمين وجهات نظر الآخرين ومواردهم وهوياتهم. الشركاء الرومانسيون الذين يواصلون تقديم تجارب جديدة وتحديات يحافظون على رضا أعلى لأن دافع التوسع الذاتي يستمر في الإشباع."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "People expand self by including partners' perspectives, resources, identities, and novel experiences.",
+        "Partners broaden self through each other's views, resources, identities, and novel experiences."
+      ],
+      "ar": [
+        "يوسع الناس ذواتهم بضم وجهات نظر الشريك وموارده وهويته وتجرباته الجديدة.",
+        "يوسع الشركاء ذواتهم بمنظور بعضهم ومواردهم وهوياتهم وتجاربهم الجديدة."
+      ]
     }
   },
   {
@@ -477,6 +617,16 @@
     "answer": {
       "en": "DARVO (Deny, Attack, Reverse Victim and Offender) is a manipulation tactic: the person accused of harmful behaviour denies it, attacks the person raising the concern, and then claims to be the real victim. It is typical in abusive or narcissistically structured relationships.",
       "ar": "DARVO (إنكار، هجوم، عكس الضحية والمذنب) هو أسلوب تلاعب: يُنكر الشخص المتهم بسلوك ضار الاتهام، ويهاجم من يُثير القلق، ثم يدّعي أنه الضحية الحقيقية. شائع في العلاقات الإساءية أو ذات البنية النرجسية."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Deny, Attack, Reverse Victim and Offender; typical of abusive or narcissistic relationships.",
+        "In abusive dynamics: deny wrongdoing, attack the accuser, reverse victim and offender."
+      ],
+      "ar": [
+        "الإنكار والهجوم وعكس الضحية والمذنب؛ شائع في العلاقات المسيئة أو النرجسية.",
+        "في علاقات الإساءة: إنكار الخطأ، مهاجمة المُشتكي، ثم عكس الضحية والمذنب."
+      ]
     }
   },
   {
@@ -637,6 +787,16 @@
     "answer": {
       "en": "Rusbult's Investment Model predicts commitment through: (1) Satisfaction — rewards minus costs; (2) Investment size — resources poured into the relationship (time, shared friends, memories); (3) Quality of alternatives — the attractiveness of leaving. High satisfaction + high investment + poor alternatives = strong commitment and accommodation of partner transgressions.",
       "ar": "يتنبأ نموذج استثمار راسبولت بالالتزام من خلال: (1) الرضا — المكافآت ناقص التكاليف؛ (2) حجم الاستثمار — الموارد المُضخّة في العلاقة (الوقت، الأصدقاء المشتركون، الذكريات)؛ (3) جودة البدائل — جاذبية الانسحاب. رضا عالٍ + استثمار عالٍ + بدائل ضعيفة = التزام قوي وتسامح مع تجاوزات الشريك."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Commitment depends on satisfaction, investment size, and quality of alternatives.",
+        "High satisfaction, large investment, and poor alternatives predict stronger commitment."
+      ],
+      "ar": [
+        "يعتمد الالتزام على الرضا وحجم الاستثمار وجودة البدائل.",
+        "الرضا العالي والاستثمار الكبير والبدائل الضعيفة تتنبأ بالتزام أقوى."
+      ]
     }
   },
   {
@@ -669,6 +829,16 @@
     "answer": {
       "en": "Mentalization is the ability to understand one's own and others' behaviour in terms of underlying mental states (intentions, feelings, desires). High reflective functioning (Fonagy) allows parents who had insecure childhoods to break the cycle by understanding their child's inner world, producing secure attachment in their children despite their own history.",
       "ar": "المنتلة هي القدرة على فهم سلوك الذات والآخرين من حيث الحالات الذهنية الكامنة (النوايا، المشاعر، الرغبات). الوظيفة الانعكاسية العالية (فوناغي) تُتيح للآباء الذين عاشوا طفولة غير آمنة كسر الحلقة بفهم العالم الداخلي لأطفالهم، مما ينتج تعلقاً آمناً لدى أطفالهم رغم تاريخهم الخاص."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Understanding mental states helps insecure-history parents foster secure attachment in children.",
+        "Reading inner states helps parents break inherited insecurity and build secure child attachment."
+      ],
+      "ar": [
+        "فهم الحالات الذهنية يمكّن ذوي التاريخ غير الآمن من تعزيز تعلق أطفالهم الآمن.",
+        "فهم العالم الداخلي يكسر توارث انعدام الأمان ويبني تعلقاً آمناً للطفل."
+      ]
     }
   },
   {
@@ -685,6 +855,16 @@
     "answer": {
       "en": "Affective forecasting error (Wilson & Gilbert) is the tendency to misjudge the intensity and duration of future emotional states. In relationships, people overestimate how happy they'll be after a positive event (e.g., marriage) and overestimate how devastated they'll be after a negative one (e.g., break-up), influencing commitment and exit decisions.",
       "ar": "خطأ التنبؤ العاطفي (ويلسون وغيلبرت) هو الميل إلى سوء تقدير شدة الحالات العاطفية المستقبلية ومدتها. في العلاقات، يبالغ الناس في تقدير سعادتهم بعد حدث إيجابي (كالزواج) وفي تقدير مدى دمارهم بعد حدث سلبي (كالانفصال)، مما يؤثر على قرارات الالتزام والخروج."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Misjudging future emotions' intensity and duration distorts commitment and breakup decisions.",
+        "Errors about future emotional strength and length bias staying-versus-leaving choices."
+      ],
+      "ar": [
+        "سوء تقدير شدة المشاعر المستقبلية ومدتها يشوه قرارات الالتزام والانفصال.",
+        "أخطاء توقع قوة المشاعر ومدتها تحيز قرارات البقاء أو الانفصال."
+      ]
     }
   },
   {
@@ -717,6 +897,16 @@
     "answer": {
       "en": "The principle that interpersonal behaviours pull for reciprocal responses: dominance pulls for submission, submission pulls for dominance (complementarity on control); affiliation pulls for affiliation (correspondence on warmth). These automatic pulls shape interaction patterns and can trap couples in rigid cycles (e.g., controlling partner + increasingly dependent partner).",
       "ar": "المبدأ القائل بأن السلوكيات بين الأشخاص تستدعي استجابات متبادلة: الهيمنة تستدعي الخضوع، والخضوع يستدعي الهيمنة (تكامل في السيطرة)؛ والتودد يستدعي التودد (توافق في الدفء). هذه الاستدعاءات التلقائية تُشكّل أنماط التفاعل وقد تحبس الأزواج في دورات جامدة (مثلاً شريك مسيطر + شريك متصاعد الاعتمادية)."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Dominance draws submission and vice versa; warmth draws warmth, forming rigid cycles.",
+        "Dominance elicits submission and reverse; affiliation reciprocates, shaping relationship cycles."
+      ],
+      "ar": [
+        "الهيمنة تستدعي الخضوع والعكس؛ التودد يستدعي التودد ويصنع دورات تفاعل جامدة.",
+        "تتكامل السيطرة بالهيمنة والخضوع، ويتوافق الدفء بالتودد، فتتشكل أنماط العلاقة."
+      ]
     }
   },
   {
@@ -765,6 +955,16 @@
     "answer": {
       "en": "Perceived partner responsiveness (Reis & Shaver) is the perception that a partner understands, validates, and cares for the self — comprising understanding, validation, and caring. It is considered the core ingredient of intimacy and predicts relationship satisfaction, trust, commitment, and personal well-being across cultures.",
       "ar": "الاستجابة المتصوَّرة للشريك (ريس وشيفر) هي الإدراك بأن الشريك يفهم الذات ويُصادق عليها ويهتم بها — وتشمل الفهم والمصادقة والاهتمام. تُعتبر المكوّن الجوهري للحميمية وتتنبأ بالرضا عن العلاقة والثقة والالتزام والرفاهية الشخصية عبر الثقافات."
+    },
+    "acceptedAnswers": {
+      "en": [
+        "Perceiving a partner as understanding, validating, and caring; the foundation of intimacy.",
+        "Feeling understood, validated, and cared for by one's partner—the core of intimacy."
+      ],
+      "ar": [
+        "إدراك الشريك بوصفه فاهماً ومصادقاً ومهتماً؛ وهو أساس الحميمية.",
+        "الشعور بأن الشريك يفهمك ويصدقك ويهتم بك؛ جوهر الحميمية."
+      ]
     }
   },
   {

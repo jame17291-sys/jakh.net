@@ -13,6 +13,10 @@
     "answer": {
       "en": "Socrates (470–399 BC), the Athenian philosopher who developed the Socratic method of questioning. He wrote nothing himself — his ideas are known through his student Plato.",
       "ar": "سقراط (470–399 ق.م)، الفيلسوف الأثيني الذي طوّر المنهج السقراطي في التساؤل. لم يكتب شيئًا بنفسه — تُعرف أفكاره من خلال تلميذه أفلاطون."
+    },
+    "acceptedAnswers": {
+      "en": ["Socrates.", "The Athenian philosopher Socrates."],
+      "ar": ["سقراط.", "الفيلسوف الأثيني سقراط."]
     }
   },
   {
@@ -29,6 +33,10 @@
     "answer": {
       "en": "Plato argued that the physical world is an imperfect copy of a higher realm of perfect, eternal abstract entities called Forms or Ideas. For example, all beautiful things participate in the Form of Beauty itself, which exists independently of any physical example.",
       "ar": "جادل أفلاطون بأن العالم المادي نسخة ناقصة من عالم أرقى من الكيانات المجردة الكاملة الأزلية تُسمى المُثُل أو الأفكار. على سبيل المثال، كل الأشياء الجميلة تشارك في مثال الجمال ذاته الموجود باستقلال عن أي مثال مادي."
+    },
+    "acceptedAnswers": {
+      "en": ["Perfect eternal Forms exist independently; physical things are their imperfect copies.", "Physical reality imperfectly copies an independent realm of perfect, eternal Forms."],
+      "ar": ["المثل كيانات كاملة أزلية مستقلة، والأشياء المادية نسخ ناقصة منها.", "العالم المحسوس نسخة ناقصة من عالم مستقل للمثل الكاملة الأزلية."]
     }
   },
   {
@@ -45,6 +53,10 @@
     "answer": {
       "en": "The ethical principle that virtue lies between two extremes (excess and deficiency). For example, courage is the mean between cowardice (deficiency) and recklessness (excess). This is part of his virtue ethics framework.",
       "ar": "المبدأ الأخلاقي القاضي بأن الفضيلة تقع بين طرفَين متطرفَين (الزيادة والنقص). على سبيل المثال، الشجاعة هي الوسط بين الجبن (النقص) والتهور (الزيادة). هذا جزء من إطاره في أخلاق الفضيلة."
+    },
+    "acceptedAnswers": {
+      "en": ["Virtue is the mean between extremes of excess and deficiency.", "The Golden Mean places virtue between deficient and excessive extremes."],
+      "ar": ["الفضيلة وسط بين طرفي الإفراط والتفريط.", "الوسط الذهبي يجعل الفضيلة بين الإفراط والنقص."]
     }
   },
   {
@@ -61,6 +73,10 @@
     "answer": {
       "en": "'Cogito, ergo sum' — 'I think, therefore I am.' It was his foundational certainty: even if everything else could be doubted, the very act of doubting proves the existence of a thinking subject.",
       "ar": "'أنا أفكر، إذن أنا موجود' (Cogito, ergo sum). كانت يقينه الأساسي: حتى لو أمكن الشك في كل شيء آخر، فإن فعل الشك ذاته يُثبت وجود ذات مفكّرة."
+    },
+    "acceptedAnswers": {
+      "en": ["I think, therefore I am.", "Cogito, ergo sum."],
+      "ar": ["أنا أفكر، إذن أنا موجود.", "أفكر إذن أنا موجود."]
     }
   },
   {
@@ -77,6 +93,10 @@
     "answer": {
       "en": "The ethical theory that the right action is the one that maximizes overall happiness or utility for the greatest number of people. Associated with Jeremy Bentham and John Stuart Mill.",
       "ar": "النظرية الأخلاقية القائلة بأن الفعل الصحيح هو ما يُعظّم السعادة الإجمالية أو المنفعة لأكبر عدد من الناس. ترتبط بجيريمي بنثام وجون ستيوارت مل."
+    },
+    "acceptedAnswers": {
+      "en": ["Right actions maximize overall happiness or utility for the greatest number.", "Utilitarianism chooses acts producing the greatest total happiness or utility."],
+      "ar": ["الفعل الصحيح يعظم السعادة أو المنفعة الإجمالية لأكبر عدد من الناس.", "النفعية تختار الأفعال التي تحقق أعظم منفعة أو سعادة إجمالية."]
     }
   },
   {
@@ -237,6 +257,10 @@
     "answer": {
       "en": "Edmund Gettier (1963) challenged the classical definition of knowledge as 'justified true belief' with counterexamples where someone has a justified true belief that is true by accident — suggesting they don't really 'know' it. This sparked decades of debate about what conditions are sufficient for knowledge.",
       "ar": "ألدموند غيتيه (1963) طعن في التعريف الكلاسيكي للمعرفة بأنها 'اعتقاد صادق مُبرَّر' بأمثلة مضادة يملك فيها شخص اعتقادًا صادقًا مُبرَّرًا لكنه صادق بالمصادفة — مما يُشير إلى أنه لا 'يعلم' فعلًا. أثار هذا جدلًا امتد عقودًا حول الشروط الكافية للمعرفة."
+    },
+    "acceptedAnswers": {
+      "en": ["Justified true belief can be accidentally true yet fail to constitute knowledge.", "Gettier cases show accidentally true justified belief may not be knowledge."],
+      "ar": ["قد يكون الاعتقاد الصادق المبرر صحيحًا مصادفةً فلا يشكل معرفة.", "تكشف حالات غيتيه أن الاعتقاد الصادق المبرر عرضًا قد لا يكون معرفة."]
     }
   },
   {
@@ -253,6 +277,10 @@
     "answer": {
       "en": "Deontological ethics (Kant) judges actions as right or wrong based on whether they follow moral rules or duties — regardless of consequences. Consequentialist ethics (utilitarianism) judges actions by their outcomes — an action is right if it produces good consequences.",
       "ar": "الأخلاق الواجبية (كانط) تحكم على الأفعال بالصواب أو الخطأ بناءً على مدى اتباعها للقواعد أو الواجبات الأخلاقية — بغض النظر عن العواقب. الأخلاق العواقبية (النفعية) تحكم على الأفعال بنتائجها — الفعل صواب إذا أنتج عواقب جيدة."
+    },
+    "acceptedAnswers": {
+      "en": ["Deontology judges duties and rules; consequentialism judges outcomes.", "Duties determine deontological rightness; results determine consequentialist rightness."],
+      "ar": ["الواجبية تحكم بالقواعد والواجبات؛ والعواقبية تحكم بنتائج الأفعال.", "الواجبية تقيم الفعل بالواجب؛ والعواقبية تقيمه بالنتائج."]
     }
   },
   {
@@ -269,6 +297,10 @@
     "answer": {
       "en": "Rawls asked: what principles of justice would rational people choose if they didn't know their own position in society (their wealth, class, race, talents)? Behind this 'veil of ignorance,' he argued, people would choose equal basic liberties and arrange inequalities to benefit the least advantaged — his 'difference principle.'",
       "ar": "تساءل رولز: أي مبادئ عدالة سيختارها الناس العقلانيون لو لم يعلموا موضعهم في المجتمع (ثروتهم وطبقتهم وعرقهم ومواهبهم)؟ خلف هذا 'حجاب الجهل'، جادل بأن الناس سيختارون حريات أساسية متساوية وترتيب التفاوتات لصالح الأقل حظًا — وهو 'مبدأ الاختلاف' عنده."
+    },
+    "acceptedAnswers": {
+      "en": ["Choose justice principles unaware of social position, protecting liberty and the least advantaged.", "Behind ignorance of one's position, choose equal liberties and protect the least advantaged."],
+      "ar": ["اختيار مبادئ العدالة دون معرفة المكانة الاجتماعية، بما يحمي الحريات والأقل حظًا.", "خلف حجاب الجهل نختار حريات متساوية ونحمي الأقل حظًا دون معرفة مكانتنا."]
     }
   },
   {
@@ -317,6 +349,10 @@
     "answer": {
       "en": "Popper argued that a scientific theory must be falsifiable — it must make predictions that could, in principle, be proven wrong by observation or experiment. Theories that can explain any outcome (unfalsifiable) are not scientific. This demarcated science from pseudoscience.",
       "ar": "جادل بوبر بأن النظرية العلمية يجب أن تكون قابلة للدحض — يجب أن تقدم تنبؤات يمكن من حيث المبدأ إثبات خطئها بالملاحظة أو التجربة. النظريات التي تستطيع تفسير أي نتيجة (غير قابلة للدحض) ليست علمية. وهذا فصل العلم عن شبه العلم."
+    },
+    "acceptedAnswers": {
+      "en": ["A scientific theory must make predictions that could in principle be proven false.", "Scientific claims must be testable by observations capable of showing them false."],
+      "ar": ["يجب أن تقدم النظرية العلمية تنبؤات يمكن إثبات خطئها من حيث المبدأ.", "الادعاء العلمي يجب أن تقبل الملاحظة أو التجربة إثبات خطئه."]
     }
   },
   {
@@ -333,6 +369,10 @@
     "answer": {
       "en": "Virtue ethics (Aristotle) focuses on what kind of person one should be — asking 'what is a good person?' rather than 'what is the right action?' It emphasizes character traits (virtues like courage, honesty, justice) developed through habit. Kantian ethics focuses on duty and following universal moral rules regardless of character.",
       "ar": "أخلاق الفضيلة (أرسطو) تركّز على نوع الشخص الذي ينبغي أن يكون المرء — تتساءل 'ما الشخص الجيد؟' بدلًا من 'ما الفعل الصحيح؟'. تُشدد على سمات الشخصية (فضائل كالشجاعة والصدق والعدل) المطوَّرة بالعادة. الأخلاق الكانطية تركّز على الواجب واتباع القواعد الأخلاقية الكونية بغض النظر عن الشخصية."
+    },
+    "acceptedAnswers": {
+      "en": ["Virtue ethics centers character; Kantian ethics centers universal duties and rules.", "Virtue ethics asks who to be; Kantian ethics asks which universal duty applies."],
+      "ar": ["أخلاق الفضيلة تركز على الشخصية المكتسبة؛ والكانطية على الواجبات والقواعد الكونية.", "أخلاق الفضيلة تسأل من نكون؛ والكانطية تسأل أي واجب كوني نتبع."]
     }
   },
   {
@@ -349,6 +389,10 @@
     "answer": {
       "en": "Hume argued that inductive reasoning (inferring general laws from observed cases — e.g. 'the sun has always risen, therefore it will rise tomorrow') cannot be logically justified. We have no rational basis to assume the future will resemble the past — we rely on habit and custom, not reason. This challenges the foundations of science and causation.",
       "ar": "جادل هيوم بأن الاستدلال الاستقرائي (استنتاج قوانين عامة من الحالات المرصودة — مثل 'الشمس شرقت دائمًا، إذن ستشرق غدًا') لا يمكن تبريره منطقيًا. لا أساس عقلاني لنا لافتراض أن المستقبل سيُشابه الماضي — نعتمد على العادة والتقليد لا على العقل. هذا يطعن في أسس العلم والسببية."
+    },
+    "acceptedAnswers": {
+      "en": ["Induction cannot rationally justify assuming the future will resemble the observed past.", "Past observations provide no logical warrant that future patterns will continue."],
+      "ar": ["لا يبرر الاستقراء عقلانيًا افتراض أن المستقبل سيشبه الماضي المرصود.", "لا تمنح ملاحظات الماضي مبررًا منطقيًا لاستمرار النمط مستقبلًا."]
     }
   },
   {
@@ -365,6 +409,10 @@
     "answer": {
       "en": "The hard problem asks why physical brain processes give rise to subjective, first-person experience (qualia) — the 'what it is like' to see red, feel pain, or hear music. The 'easy problems' (explaining cognitive functions) seem tractable in principle; the hard problem — why any physical process produces inner experience at all — may be fundamentally beyond materialist explanation.",
       "ar": "تتساءل المشكلة الصعبة لماذا تُفضي العمليات الدماغية المادية إلى تجربة ذاتية من منظور الشخص الأول (الكيفيات النوعية) — 'كيف يبدو' رؤية الأحمر أو الشعور بالألم أو سماع الموسيقى. 'المشكلات السهلة' (تفسير الوظائف المعرفية) تبدو قابلة للحل من حيث المبدأ؛ المشكلة الصعبة — لماذا تُنتج أي عملية مادية تجربة داخلية أصلًا — قد تكون خارج حدود التفسير المادي جوهريًا."
+    },
+    "acceptedAnswers": {
+      "en": ["Why and how physical brain processes produce subjective conscious experience or qualia.", "Why does objective neural activity create first-person experience and qualia?"],
+      "ar": ["لماذا وكيف تنتج عمليات الدماغ المادية تجربة واعية ذاتية أو كيفيات نوعية.", "لماذا ينشئ النشاط العصبي الموضوعي خبرة ذاتية وكيفيات نوعية؟"]
     }
   },
   {
@@ -397,6 +445,10 @@
     "answer": {
       "en": "If every plank of a ship is gradually replaced, is it still the same ship? And if the original planks are reassembled elsewhere, which is the 'real' ship? The paradox questions the nature of identity and persistence through change — with implications for personal identity (if all our cells replace themselves, are we the same person?).",
       "ar": "إذا استُبدلت كل لوح في سفينة تدريجيًا، هل ستظل نفس السفينة؟ وإذا جُمعت الألواح الأصلية في مكان آخر، أيٌّ منهما السفينة 'الحقيقية'؟ تتساءل المفارقة عن طبيعة الهوية والاستمرار عبر التغيير — مع تداعيات على الهوية الشخصية (إذا كانت جميع خلايانا تجدّد نفسها، هل نحن نفس الشخص؟)."
+    },
+    "acceptedAnswers": {
+      "en": ["After replacing every plank, is it still the same ship—or is the reconstruction?", "Replacing all planks challenges whether the repaired or rebuilt ship preserves identity."],
+      "ar": ["إذا استبدلت كل الألواح، فأي سفينة تحتفظ بهويتها: المجددة أم المعاد تجميعها؟", "استبدال الألواح كلها يثير سؤال هوية السفينة المصلحة أو المعاد بناؤها."]
     }
   },
   {
@@ -477,6 +529,10 @@
     "answer": {
       "en": "Moore argued that 'good' cannot be defined by any natural property (like pleasure, evolution, or God's will). Defining 'good' as something natural commits a fallacy because you can always meaningfully ask 'but is that thing actually good?' This is the 'open question argument'. It implies that ethical facts are distinct from natural facts.",
       "ar": "جادل مور بأن 'الخير' لا يمكن تعريفه بأي خاصية طبيعية (كاللذة أو التطور أو إرادة الله). تعريف 'الخير' بشيء طبيعي يرتكب مغالطة لأنه يمكن دائمًا التساؤل بمعنى: 'لكن هل ذلك الشيء جيد فعلًا؟'. هذا هو 'حجة السؤال المفتوح'. يُشير إلى أن الحقائق الأخلاقية متميزة عن الحقائق الطبيعية."
+    },
+    "acceptedAnswers": {
+      "en": ["Defining moral goodness as any natural property commits the naturalistic fallacy.", "Good cannot be reduced to a natural property without committing Moore's fallacy."],
+      "ar": ["تعريف الخير الأخلاقي بأي خاصية طبيعية يرتكب المغالطة الطبيعانية.", "لا يمكن اختزال الخير في خاصية طبيعية دون الوقوع في مغالطة مور."]
     }
   },
   {
@@ -573,6 +629,10 @@
     "answer": {
       "en": "Hume observed that many moral arguments make an unjustified jump from descriptive facts ('is') to normative conclusions ('ought'). From 'humans evolved to be social' you cannot derive 'humans ought to behave socially' without additional premises. This gap — the is-ought gap — is a foundational challenge in metaethics.",
       "ar": "لاحظ هيوم أن كثيرًا من الحجج الأخلاقية تنتقل انتقالًا غير مُبرَّر من الحقائق الوصفية ('هو') إلى الاستنتاجات المعيارية ('ينبغي'). من 'البشر تطوّروا ليكونوا اجتماعيين' لا يمكن استنتاج 'ينبغي للبشر أن يتصرفوا اجتماعيًا' دون مقدمات إضافية. هذه الفجوة — فجوة الواقع والواجب — تحدٍّ أساسي في الفلسفة الأخلاقية التأسيسية."
+    },
+    "acceptedAnswers": {
+      "en": ["Descriptive facts cannot yield normative conclusions without another normative premise.", "No ought follows from is alone; a normative premise is required."],
+      "ar": ["لا تنتج الحقائق الوصفية وحدها استنتاجات معيارية دون مقدمة معيارية إضافية.", "لا يترتب الواجب على الواقع وحده؛ فلا بد من مقدمة معيارية."]
     }
   },
   {
@@ -653,6 +713,10 @@
     "answer": {
       "en": "Epistemic injustice is a wrong done to someone specifically in their capacity as a knower. Miranda Fricker identifies: (1) Testimonial injustice — giving a speaker deflated credibility due to identity prejudice (e.g. disbelieving someone because of their gender or race); (2) Hermeneutical injustice — having inadequate conceptual resources to understand one's own experience (e.g. having no concept for 'sexual harassment' before it was named).",
       "ar": "الظلم المعرفي خطأ يُلحق بشخص ما تحديدًا بوصفه عارفًا. تُحدّد ميراندا فريكر: (1) الظلم الشهادي — منح المتحدث مصداقية منقوصة بسبب تحيّز هوياتي (مثل عدم التصديق لأسباب جنسية أو عرقية)؛ (2) الظلم التأويلي — امتلاك موارد مفاهيمية قاصرة لفهم تجربة الفرد (مثل غياب مفهوم 'التحرش الجنسي' قبل تسميته)."
+    },
+    "acceptedAnswers": {
+      "en": ["Wronging knowers via testimonial credibility prejudice or hermeneutical concept gaps.", "Epistemic injustice wrongs knowers through testimonial prejudice or hermeneutical resource gaps."],
+      "ar": ["ظلم معرفي: تحيز المصداقية شهادي؛ ونقص مفاهيم تفسير التجربة ظلم تأويلي.", "الظلم المعرفي يضر العارف بتحيز شهادي أو نقص تأويلي في المفاهيم."]
     }
   },
   {
@@ -669,6 +733,10 @@
     "answer": {
       "en": "De dicto modality applies to propositions: 'Necessarily, the number of planets is greater than 7' means the proposition is necessarily true. De re modality applies to objects: 'The number of planets necessarily has this property' makes a claim about the object itself. The distinction matters because: 'Necessarily, the Morning Star is the Evening Star' (de dicto) is false (it's a contingent astronomical fact), while 'Hesperus is necessarily Hesperus' (de re) is true.",
       "ar": "الوجهية القولية (de dicto) تنطبق على القضايا: 'بالضرورة، عدد الكواكب أكبر من 7' تعني أن القضية صحيحة بالضرورة. الوجهية الذاتية (de re) تنطبق على الكيانات: 'عدد الكواكب يمتلك بالضرورة هذه الخاصية' يدّعي شيئًا عن الكيان ذاته. يهم الفرق لأن: 'بالضرورة، نجم الصباح هو نجم المساء' (de dicto) خاطئ (حقيقة فلكية ظرفية)، بينما 'هسبريوس هو بالضرورة هسبريوس' (de re) صحيح."
+    },
+    "acceptedAnswers": {
+      "en": ["De re concerns necessary object-properties; de dicto concerns proposition-necessity.", "De re necessity belongs to things; de dicto necessity belongs to statements."],
+      "ar": ["الضرورة الذاتية تخص خصائص الشيء؛ والضرورة القولية تخص ضرورة القضية.", "الضرورة الذاتية للشيء وخصائصه؛ والقولية للقضية أو العبارة."]
     }
   },
   {
@@ -701,6 +769,10 @@
     "answer": {
       "en": "Negative liberty: freedom from external constraints and interference (the absence of obstacles). Positive liberty: freedom to actually pursue one's goals and realize one's potential — which may require resources and conditions. Berlin warned that positive liberty can be co-opted by authoritarian regimes to justify imposing a 'true' freedom on citizens.",
       "ar": "الحرية السلبية: الحرية من القيود والتدخل الخارجي (غياب العوائق). الحرية الإيجابية: الحرية في سعي الأهداف فعلًا وتحقيق إمكانات الفرد — وقد تستلزم موارد وشروطًا. حذّر برلين من أن الحرية الإيجابية يمكن أن تختطفها الأنظمة الاستبدادية لتبرير فرض حرية 'حقيقية' على المواطنين."
+    },
+    "acceptedAnswers": {
+      "en": ["Negative liberty is freedom from interference; positive liberty is capacity for self-mastery.", "Negative liberty removes interference; positive liberty enables self-direction and goal pursuit."],
+      "ar": ["الحرية السلبية غياب التدخل؛ والإيجابية قدرة الفرد على تقرير ذاته وتحقيقها.", "السلبية تحرر من التدخل؛ والإيجابية تمكّن تقرير الذات وتحقيق الأهداف."]
     }
   },
   {
@@ -749,6 +821,10 @@
     "answer": {
       "en": "Rawls and Nozick argued that utilitarianism fails to take seriously the fact that people are distinct individuals. Maximizing aggregate welfare can justify sacrificing one person for the benefit of many — treating people as mere vessels of utility rather than ends in themselves. This fails to respect the separateness of persons — you cannot compensate my suffering with someone else's happiness, because they are not the same person.",
       "ar": "جادل رولز ونوزيك بأن النفعية تفشل في أخذ حقيقة أن الناس أفراد متميزون بجدية. تعظيم الرفاهية الإجمالية قد يُبرر التضحية بشخص واحد لمصلحة كثيرين — معاملة الناس كأوعية للمنفعة لا كغايات في ذاتها. هذا يُخفق في احترام انفصالية الأشخاص — لا تستطيع تعويض معاناتي بسعادة شخص آخر لأنهما ليسا نفس الشخص."
+    },
+    "acceptedAnswers": {
+      "en": ["Aggregating welfare may sacrifice individuals; gains to one cannot offset losses to another.", "Utilitarian totals may sacrifice one person, claiming others' benefits offset that harm."],
+      "ar": ["تجميع الرفاه قد يضحي بأفراد، ولا يعوض مكسب شخص خسارة شخص آخر.", "تسمح حصيلة النفعية بالتضحية بفرد لأن منفعة غيره تعوض ضرره زعمًا."]
     }
   },
   {
@@ -797,6 +873,10 @@
     "answer": {
       "en": "Agent-neutral values are equally important to everyone regardless of who the agent is (e.g. reducing total suffering is equally important to all). Agent-relative values are indexed to particular agents — I have special reasons to promote my own projects, relationships, or commitments that others don't share equally. Consequentialism tends to endorse only agent-neutral values; deontology and virtue ethics accommodate agent-relative permissions and requirements (e.g. special duties to family).",
       "ar": "القيم المحايدة للفاعل مهمة للجميع بالتساوي بغض النظر عن هوية الفاعل (مثل الحدّ من المعاناة الإجمالية مهم بالتساوي للجميع). القيم النسبية للفاعل مُفهرسة لفاعلين بعينهم — لديّ أسباب خاصة لتعزيز مشاريعي وعلاقاتي والتزاماتي الخاصة لا يشاركني فيها الآخرون بالتساوي. النفعية تؤيد القيم المحايدة للفاعل فحسب؛ الواجبية وأخلاق الفضيلة تستوعبان الإذن بالقيم النسبية ومتطلباتها (مثل واجبات خاصة تجاه العائلة)."
+    },
+    "acceptedAnswers": {
+      "en": ["Agent-relative values depend on the agent; agent-neutral values apply equally to everyone.", "Agent-relative reasons vary by person; agent-neutral reasons hold equally for all agents."],
+      "ar": ["القيم النسبية تعتمد على هوية الفاعل؛ والمحايدة تنطبق بالتساوي على الجميع.", "النسبية تختلف باختلاف الفاعل؛ والمحايدة متساوية لكل الفاعلين."]
     }
   }
 ]

@@ -5,20 +5,51 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogPath = path.join(root, "data", "catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+const maxExplicitAnswersPerLanguage = 8;
 
-function conciseVerifiedAnswer(value) {
-  if (typeof value !== "string") return false;
-  const normalized = value
+function normalizeVerifiedAnswer(value) {
+  if (typeof value !== "string") return "";
+  return value
     .normalize("NFKC")
+    .toLocaleLowerCase("en-US")
     .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
     .replace(/[أإآٱ]/gu, "ا")
     .replace(/ى/gu, "ي")
     .replace(/\p{P}+/gu, " ")
     .replace(/\s+/gu, " ")
     .trim();
+}
+
+function conciseVerifiedAnswer(value) {
+  const normalized = normalizeVerifiedAnswer(value);
   return normalized.length > 0
     && normalized.length <= 96
     && normalized.split(" ").length <= 14;
+}
+
+function acceptedAnswersAreValid(value) {
+  if (value === undefined) return true;
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  for (const language of ["en", "ar"]) {
+    const answers = value[language];
+    if (answers === undefined) continue;
+    if (
+      !Array.isArray(answers)
+      || answers.length > maxExplicitAnswersPerLanguage
+      || answers.some((answer) => !conciseVerifiedAnswer(answer))
+    ) return false;
+    const normalized = answers.map(normalizeVerifiedAnswer);
+    if (new Set(normalized).size !== normalized.length) return false;
+  }
+  return true;
+}
+
+function hasConciseVerifiedAnswer(card, language) {
+  return conciseVerifiedAnswer(card?.answer?.[language])
+    || (
+      Array.isArray(card?.acceptedAnswers?.[language])
+      && card.acceptedAnswers[language].some(conciseVerifiedAnswer)
+    );
 }
 
 const categoriesBySlug = new Map(
@@ -53,6 +84,12 @@ for (const category of catalog.categories || []) {
   if (!Array.isArray(source)) throw new Error(`Invalid card data for ${category.slug}`);
   const cards = source;
 
+  for (const card of cards) {
+    if (!acceptedAnswersAreValid(card?.acceptedAnswers)) {
+      throw new Error(`Invalid acceptedAnswers in ${category.slug}:${card?.id || "unknown"}`);
+    }
+  }
+
   const difficultyCounts = {};
   const topicCounts = new Map();
   for (const card of cards) {
@@ -75,8 +112,8 @@ for (const category of catalog.categories || []) {
   category.href = `/${category.slug}`;
   category.count = cards.length;
   category.verifiedQuestionCount = cards.filter((card) => (
-    conciseVerifiedAnswer(card.answer?.en)
-    && conciseVerifiedAnswer(card.answer?.ar)
+    hasConciseVerifiedAnswer(card, "en")
+    && hasConciseVerifiedAnswer(card, "ar")
   )).length;
   category.difficultyCounts = Object.fromEntries(
     ["easy", "medium", "hard", "very-advanced"]

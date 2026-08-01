@@ -22,6 +22,16 @@ const USER = {
   token_hash: "stored-session-token-hash",
 };
 const DIFFICULTIES = ["easy", "medium", "hard", "very-advanced"];
+const CURATED_CATEGORY_IDS = [
+  "law-middle-east",
+  "pharmacy",
+  "philosophy",
+  "relationship-questions",
+  "social-sciences",
+  "software-and-computing",
+  "story-mysteries",
+  "world-habits-and-etiquette",
+];
 const SOURCE_CARDS = Array.from({ length: 40 }, (_, index) => {
   const number = index + 1;
   const difficulty = DIFFICULTIES[Math.floor(index / 10)];
@@ -342,6 +352,75 @@ test("challenge selection excludes long explanatory answers", async (t) => {
   );
 });
 
+test("curated bilingual accepted answers make explanatory cards verifiable", async (t) => {
+  const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card, index) => ({
+    ...card,
+    question: { ...card.question },
+    answer: {
+      en: `${"Long explanatory context ".repeat(6)}for term ${index + 1}.`,
+      ar: `${"سياق تفسيري طويل ".repeat(8)}للمصطلح ${index + 1}.`,
+    },
+    acceptedAnswers: {
+      en: [`Term ${index + 1}`],
+      ar: [`المصطلح ${index + 1}`],
+    },
+  }));
+  const { answers, challenge, clock, env } = await issueChallenge(t, cards);
+  for (const submitted of answers) {
+    const index = cards.findIndex((card) => card.id === submitted.cardId);
+    submitted.answer = cards[index].acceptedAnswers.en[0];
+  }
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+  const response = await submitVerifiedChallenge(submitRequest(challenge, answers), env);
+  const payload = await response.json();
+
+  assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
+  assert.equal(payload.verified, true);
+});
+
+test("acceptedAnswers rejects arrays in place of the bilingual object", async (t) => {
+  const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card) => ({
+    ...card,
+    question: { ...card.question },
+    answer: { ...card.answer },
+  }));
+  cards[0].acceptedAnswers = [];
+  const database = new FakeDatabase();
+  const env = scoringEnv(database);
+  t.mock.method(globalThis, "fetch", async () => new Response(JSON.stringify(cards)));
+
+  await assert.rejects(
+    createVerifiedChallenge(
+      apiRequest("/api/scores/verified/challenge", { categoryId: "currencies" }),
+      env,
+    ),
+    (error) => error?.status === 503 && error?.code === "QUESTION_SOURCE_INVALID",
+  );
+  assert.equal(database.challenges.size, 0);
+});
+
+test("acceptedAnswers rejects normalized duplicates", async (t) => {
+  const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card) => ({
+    ...card,
+    question: { ...card.question },
+    answer: { ...card.answer },
+  }));
+  cards[0].acceptedAnswers = { en: ["Same term", "same-term"] };
+  const database = new FakeDatabase();
+  const env = scoringEnv(database);
+  t.mock.method(globalThis, "fetch", async () => new Response(JSON.stringify(cards)));
+
+  await assert.rejects(
+    createVerifiedChallenge(
+      apiRequest("/api/scores/verified/challenge", { categoryId: "currencies" }),
+      env,
+    ),
+    (error) => error?.status === 503 && error?.code === "QUESTION_SOURCE_INVALID",
+  );
+  assert.equal(database.challenges.size, 0);
+});
+
 test("natural-language or is not split into a false answer alias", async (t) => {
   const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card) => ({
     ...card,
@@ -428,6 +507,37 @@ test("a category with fewer than ten concise bilingual answers is unavailable", 
     (error) => error?.status === 400 && error?.code === "VERIFIED_CATEGORY_UNAVAILABLE",
   );
   assert.equal(database.challenges.size, 0);
+});
+
+test("every curated explanation-heavy category can issue a verified challenge", async (t) => {
+  const sources = new Map(await Promise.all(CURATED_CATEGORY_IDS.map(async (categoryId) => [
+    categoryId,
+    JSON.parse(await readFile(
+      new URL(`../../data/${categoryId}.json`, import.meta.url),
+      "utf8",
+    )),
+  ])));
+  const database = new FakeDatabase();
+  const env = scoringEnv(database);
+  t.mock.method(globalThis, "fetch", async (request) => {
+    const categoryId = new URL(String(request)).pathname.match(/^\/data\/(.+)\.json$/u)?.[1];
+    const source = sources.get(categoryId);
+    return source
+      ? new Response(JSON.stringify(source), { headers: { "content-type": "application/json" } })
+      : new Response("Not found", { status: 404 });
+  });
+
+  for (const categoryId of CURATED_CATEGORY_IDS) {
+    const response = await createVerifiedChallenge(
+      apiRequest("/api/scores/verified/challenge", { categoryId }),
+      env,
+    );
+    const payload = await response.json();
+    assert.equal(response.status, 201, categoryId);
+    assert.equal(payload.categoryId, categoryId);
+    assert.equal(payload.questionCount, VERIFIED_QUESTION_COUNT);
+    assert.equal(payload.questions.length, VERIFIED_QUESTION_COUNT);
+  }
 });
 
 test("a fully correct answer set earns a server-verified score and consumes the challenge", async (t) => {

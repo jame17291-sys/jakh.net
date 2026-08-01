@@ -23,8 +23,9 @@ custom domain so cookies remain first-party to JAKH.
 Password derivation runs inside a SQLite Durable Object so the strong PBKDF2
 work factor does not exceed the Free Worker HTTP CPU limit. Card scores and
 sync payloads are validated against the generated `src/card-index.json`.
-Verified challenges use only concise bilingual answers, keep answer commitments
-server-side, expire after 15 minutes, and can be submitted once. This prevents
+Verified challenges use only concise bilingual canonical answers or explicitly
+curated short-answer aliases, keep answer commitments server-side, expire after
+15 minutes, and can be submitted once. This prevents
 forged, changed, replayed, and implausibly fast scores; it is not remote
 proctoring and cannot prevent a player from looking up a public answer.
 

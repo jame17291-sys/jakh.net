@@ -6,6 +6,7 @@ This directory is the editorial workbench for the 3,553-card corpus. It is inten
 
 - `evidence.json` is the human-maintained evidence and approval record. It starts empty because the existing four legacy reviews do not yet have claim-level evidence, precise locators, rostered approvals, and the other proof required by the closure gate.
 - `work-queue.json` is generated. It divides the corpus into exactly 382 category/subcategory discovery packets and shows each card's current blockers.
+- `production-quarantine.json` is the generated, exact production-publication hold. It currently names 278 card IDs in five complete safety-sensitive categories. The static build validates this file against the editorial sources and emits a 51-category/3,275-card public projection; it does not delete or rewrite the 3,553-card editorial corpus.
 - `proof/` is the declared root for reproducible proof artifacts referenced by accepted `proof` evidence. Store the repository-relative artifact path, SHA-256 digest, and reproduction method in `evidence.json`. The validator rejects traversal, symbolic links, directories, missing/unreadable artifacts, and digests that do not match the file's actual bytes.
 
 Regenerate or verify the queue with:
@@ -13,7 +14,23 @@ Regenerate or verify the queue with:
 ```sh
 node scripts/generate-content-review-work-queue.mjs
 node scripts/generate-content-review-work-queue.mjs --check
+node scripts/generate-production-quarantine.mjs --check
 ```
+
+Do not edit the quarantine manifest by hand. Removing a card or category from
+the production hold requires the qualified evidence and independent review
+described below, followed by an intentional generator/policy change and the
+full release gates. Until then, public HTML, data, search, card-index, API, edge,
+and offline surfaces must all treat the manifest as authoritative.
+
+This is a runtime-publication boundary for `jakh.net`, `api.jakh.net`, and their
+generated deployment artifacts; it is not a claim that the source corpus is
+globally private or retracted. This repository is currently public, so the full
+corpus remains exposed through the GitHub repository, raw-content URLs, commit
+history, and any existing forks, caches, or copies. A runtime release cannot
+recall those copies. Reducing that separate exposure requires an owner-approved
+GitHub history and repository-governance response with its own preservation and
+rollback plan.
 
 ## Evidence workflow
 

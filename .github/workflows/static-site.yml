@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: static-site-production
+  group: jakh-production-release
   cancel-in-progress: false
 
 jobs:
@@ -145,6 +145,7 @@ jobs:
           node scripts/generate-seo-pages.mjs --check
           node scripts/generate-arabic-routes.mjs --check
           node scripts/generate-search-index.mjs --check
+          node scripts/generate-production-quarantine.mjs --check
           node scripts/content-review-report.mjs --check
           node scripts/audit-question-bank.mjs --strict
           node scripts/validate-seo.mjs
@@ -156,6 +157,7 @@ jobs:
           npm run test:contracts
           node --test \
             scripts/monitor-production.test.mjs \
+            scripts/runtime-monitor-proof.test.mjs \
             scripts/route-production-alert.test.mjs \
             scripts/static-api-release-gate.test.mjs
 
@@ -272,6 +274,35 @@ jobs:
             --receipt "$RECEIPT_DIR/release-receipt.json" \
             --github-output "$GITHUB_OUTPUT"
 
+      - name: Prove exact static predecessor before authorizing deployment
+        id: rollback_proof
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          JAKH_MONITOR_SCOPE: site
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/rollback-target-monitor.json
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-preflight.log
+        run: |
+          set -euo pipefail
+          set +e
+          node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-before-reread.json"
+          )
+          node scripts/site-release-receipt.mjs runtime-proof \
+            --stage rollback-target \
+            --deployment-before "$RECEIPT_DIR/deployment-before.json" \
+            --deployment-after "$RECEIPT_DIR/deployment-before-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-target-monitor.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json" \
+            --github-output "$GITHUB_OUTPUT"
+          if [ "$monitor_status" -ne 0 ]; then exit "$monitor_status"; fi
+
       - name: Prove live API exact source before static deployment
         id: api_before
         env:
@@ -312,6 +343,24 @@ jobs:
           ./node_modules/.bin/wrangler deploy --strict \
             --message "JAKH site $GITHUB_SHA build ${{ steps.preflight.outputs.candidate-build-id }} run $GITHUB_RUN_ID"
 
+      - name: Capture exact candidate Worker identity before smoke
+        id: candidate_identity
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
+        run: |
+          set -euo pipefail
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-initial.json"
+          )
+          worker_version="$(node scripts/site-release-receipt.mjs active-version \
+            --deployment "$RECEIPT_DIR/deployment-after-initial.json")"
+          echo "worker-version=$worker_version" >> "$GITHUB_OUTPUT"
+
       - name: Smoke exact candidate
         id: smoke
         env:
@@ -319,6 +368,7 @@ jobs:
         run: |
           node scripts/site-release-receipt.mjs smoke \
             --expected-build-id "${{ steps.preflight.outputs.candidate-build-id }}" \
+            --expected-worker-version "${{ steps.candidate_identity.outputs.worker-version }}" \
             --output "$RECEIPT_DIR/smoke-after.json" \
             --attempts 8 \
             --delay-ms 10000
@@ -369,16 +419,52 @@ jobs:
             --expected-schema 8 \
             --receipt "$RECEIPT_DIR/api-gate-after-static.json" \
             --github-output "$GITHUB_OUTPUT"
+          node scripts/static-api-release-gate.mjs compare \
+            --before "$RECEIPT_DIR/api-gate-before-static.json" \
+            --after "$RECEIPT_DIR/api-gate-after-static.json" \
+            --receipt "$RECEIPT_DIR/api-identity-continuity.json"
+
+      - name: Verify complete live quarantine contract
+        id: runtime_monitor
+        env:
+          JAKH_MONITOR_SCOPE: site
+          JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/runtime-monitor.json
+        run: node scripts/monitor-production.mjs
+
+      - name: Bind live static quarantine proof to the exact candidate Worker
+        id: candidate_runtime_proof
+        if: ${{ always() && steps.verification.outcome == 'success' && steps.runtime_monitor.outcome != 'skipped' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-verify.log
+        run: |
+          set -euo pipefail
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-runtime-monitor.json"
+          )
+          node scripts/site-release-receipt.mjs runtime-proof \
+            --stage candidate \
+            --deployment-before "$RECEIPT_DIR/deployment-after.json" \
+            --deployment-after "$RECEIPT_DIR/deployment-after-runtime-monitor.json" \
+            --monitor "$RECEIPT_DIR/runtime-monitor.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
 
       - name: Roll back any unverified release
         id: rollback
         if: >-
           ${{ always() && steps.preflight.outcome == 'success' &&
+              steps.rollback_proof.outputs.rollback-safe == 'true' &&
               steps.deploy.outcome != 'skipped' &&
               (steps.deploy.outcome != 'success' ||
                steps.smoke.outcome != 'success' ||
                steps.verification.outcome != 'success' ||
-               steps.api_after.outcome != 'success') }}
+               steps.api_after.outcome != 'success' ||
+               steps.runtime_monitor.outcome != 'success' ||
+               steps.candidate_runtime_proof.outcome != 'success') }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -407,6 +493,7 @@ jobs:
           )
           node scripts/site-release-receipt.mjs smoke \
             --expected-build-id "${{ steps.preflight.outputs.rollback-build-id }}" \
+            --expected-worker-version "${{ steps.preflight.outputs.rollback-version }}" \
             --output "$RECEIPT_DIR/smoke-after-rollback.json" \
             --attempts 8 \
             --delay-ms 10000
@@ -414,6 +501,24 @@ jobs:
             --receipt "$RECEIPT_DIR/release-receipt.json" \
             --deployment "$RECEIPT_DIR/deployment-after-rollback.json" \
             --smoke "$RECEIPT_DIR/smoke-after-rollback.json"
+          set +e
+          JAKH_MONITOR_SCOPE=site \
+          JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
+            node scripts/monitor-production.mjs
+          monitor_status=$?
+          set -e
+          (
+            cd site-worker
+            ./node_modules/.bin/wrangler deployments status --json \
+              > "$RECEIPT_DIR/deployment-after-rollback-reread.json"
+          )
+          node scripts/site-release-receipt.mjs runtime-proof \
+            --stage rollback \
+            --deployment-before "$RECEIPT_DIR/deployment-after-rollback.json" \
+            --deployment-after "$RECEIPT_DIR/deployment-after-rollback-reread.json" \
+            --monitor "$RECEIPT_DIR/rollback-monitor.json" \
+            --receipt "$RECEIPT_DIR/release-receipt.json"
+          if [ "$monitor_status" -ne 0 ]; then exit "$monitor_status"; fi
 
       - name: Finalize release receipt
         if: ${{ always() }}
@@ -423,9 +528,12 @@ jobs:
           if [ -f "$RECEIPT_DIR/release-receipt.json" ]; then
             verification_outcome="${{ steps.verification.outcome }}"
             if [ "${{ steps.deploy.outcome }}" = "success" ] && \
-               [ "$verification_outcome" = "success" ] && \
-               [ "${{ steps.api_after.outcome }}" != "success" ]; then
-              verification_outcome="failure"
+               [ "$verification_outcome" = "success" ]; then
+              if [ "${{ steps.api_after.outcome }}" != "success" ] || \
+                 [ "${{ steps.runtime_monitor.outcome }}" != "success" ] || \
+                 [ "${{ steps.candidate_runtime_proof.outcome }}" != "success" ]; then
+                verification_outcome="failure"
+              fi
             fi
             node scripts/site-release-receipt.mjs finalize \
               --receipt "$RECEIPT_DIR/release-receipt.json" \
@@ -434,7 +542,8 @@ jobs:
               --smoke-outcome "${{ steps.smoke.outcome }}" \
               --verification-outcome "$verification_outcome" \
               --rollback-outcome "${{ steps.rollback.outcome }}" \
-              --rollback-verification-outcome "${{ steps.rollback_verification.outcome }}"
+              --rollback-verification-outcome "${{ steps.rollback_verification.outcome }}" \
+              --rollback-proof-outcome "${{ steps.rollback_proof.outcome }}"
             node scripts/site-release-receipt.mjs summary \
               --receipt "$RECEIPT_DIR/release-receipt.json" \
               --github-summary "$GITHUB_STEP_SUMMARY"
@@ -455,6 +564,10 @@ jobs:
           if [ -f "$RECEIPT_DIR/api-gate-after-static.json" ]; then
             api_after_result="$(node -e 'const r=require(process.argv[1]); process.stdout.write(r.result)' "$RECEIPT_DIR/api-gate-after-static.json")"
             echo "- Live API post-deploy gate: \`$api_after_result\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f "$RECEIPT_DIR/runtime-monitor.json" ]; then
+            runtime_result="$(node -e 'const r=require(process.argv[1]); process.stdout.write(r.status)' "$RECEIPT_DIR/runtime-monitor.json")"
+            echo "- Live quarantine monitor: \`$runtime_result\`" >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Retain release and rollback evidence

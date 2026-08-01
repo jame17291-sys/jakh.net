@@ -29,6 +29,31 @@ function functionBlock(name, nextName, source = app) {
   return source.slice(start, end);
 }
 
+test('client quarantine path guard rejects data suffix aliases before startup', () => {
+  const quarantineSet = app.match(/const QUARANTINED_CATEGORY_SLUGS = new Set\([^\n]+\);/u)?.[0];
+  assert.ok(quarantineSet, 'missing client quarantine category set');
+  const context = vm.createContext({ Set, decodeURIComponent });
+  vm.runInContext([
+    quarantineSet,
+    topLevelFunction('requestPathIsQuarantined'),
+    'this.isHeld = requestPathIsQuarantined;',
+  ].join('\n'), context);
+  for (const pathname of [
+    '/data/survival.json/',
+    '/data/survival.json/archive',
+    '/data/survival.json%2farchive',
+    '/survival%3Fx=1',
+    '/survival%23fragment',
+    '/data/survival.json%3Fx=1',
+    '/data/survival.json%23fragment',
+    '/science%00/safe',
+    '/ar/topics/survival.html',
+    '/ar/topics/survival.html/archive',
+    '/ar/topics/survival%2ehtml',
+  ]) assert.equal(context.isHeld(pathname), true, pathname);
+  assert.equal(context.isHeld('/data/survival.json-safe'), false);
+});
+
 test('storage SecurityError and quota failures preserve an in-memory current view', () => {
   const context = vm.createContext({
     state: { storageDurable: true },
@@ -109,10 +134,16 @@ test('cloud queue remains current-user scoped and capped at 100', () => {
     cloudQueueBackoffMs: () => 5_000,
     CLOUD_QUEUE_MAX: 100,
     CLOUD_QUEUE_MAX_ATTEMPTS: 5,
+    publicCardIds: new Set(['public-1']),
     Date,
   });
-  vm.runInContext(`${topLevelFunction('queueCloudMutation')}\nthis.enqueue = queueCloudMutation;`, context);
-  assert.equal(context.enqueue('current', 'new', '/endpoint', 'POST', { ok: true }), true);
+  vm.runInContext([
+    topLevelFunction('cloudMutationIsDeletionOnly'),
+    topLevelFunction('cloudMutationMayPublish'),
+    topLevelFunction('queueCloudMutation'),
+    'this.enqueue = queueCloudMutation;',
+  ].join('\n'), context);
+  assert.equal(context.enqueue('current', 'new', '/endpoint', 'POST', { cardId: 'public-1' }), true);
   assert.ok(saved.length <= 100);
   assert.ok(saved.every(item => item.userId === 'current'));
   assert.equal(saved.at(-1).key, 'new');
@@ -150,10 +181,12 @@ test('cloud mutations serialize latest intent and never enqueue across an accoun
     clearCloudMutation() {},
     isRetryableCloudError: () => true,
     queueCloudMutation: () => { queued += 1; return true; },
+    cloudMutationMayPublish: mutation => mutation.body?.cardId === 'public-1',
+    publicCardIds: new Set(['public-1']),
     JSON,
   });
   vm.runInContext(`${topLevelFunction('dispatchCloudMutation')}\nthis.dispatch = dispatchCloudMutation;`, switchContext);
-  const pending = switchContext.dispatch('user-a', 'progress:1', '/progress', 'POST', { status: 'correct' });
+  const pending = switchContext.dispatch('user-a', 'progress:1', '/progress', 'POST', { cardId: 'public-1', status: 'correct' });
   switchContext.state.dbUser = { id: 'user-b' };
   rejectRequest(new TypeError('network'));
   const result = await pending;

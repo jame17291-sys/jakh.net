@@ -15,6 +15,18 @@ const MAX_ASSET_CACHE_ENTRIES = 96;
 const MAX_DATA_CACHE_ENTRIES = 64;
 const OFFLINE_FALLBACK_PATH = '/offline';
 
+// These complete categories are unavailable on every production surface until
+// qualified safety review is complete. Keep this list aligned with
+// docs/content-review/production-quarantine.json and the release manifest.
+const QUARANTINED_CATEGORY_SLUGS = [
+  'survival',
+  'law-middle-east',
+  'medical-questions',
+  'pharmacy',
+  'economics-and-finance',
+];
+const MAX_QUARANTINE_PATH_DECODE_PASSES = 3;
+
 const GAME_DOCUMENTS = [
   '/backgammon',
   '/catan',
@@ -46,7 +58,6 @@ const DAILY_CATEGORY_SLUGS = [
   'linguistics',
   'tech-retro',
   'automotive',
-  'survival',
   'fictional-worlds',
   'superheroes',
   'pop-culture',
@@ -69,12 +80,9 @@ const DAILY_CATEGORY_SLUGS = [
   'history',
   'infrastructure-systems',
   'kids-riddles',
-  'law-middle-east',
   'math',
   'mechanical-engineering',
-  'medical-questions',
   'middle-east-history',
-  'pharmacy',
   'philosophy',
   'physical-and-life-sciences',
   'psychology',
@@ -89,7 +97,6 @@ const DAILY_CATEGORY_SLUGS = [
   'ancient-civilizations',
   'inventions-and-minds',
   'animal-kingdom',
-  'economics-and-finance',
   'architecture-and-landmarks',
   'music-and-performing-arts',
   'food-and-cuisines',
@@ -176,6 +183,59 @@ function normalizeNavigationPath(pathname) {
     normalized = normalized.replace(/\/+$/u, '');
   }
   return normalized || '/';
+}
+
+function isQuarantinedPath(pathname) {
+  let normalized = String(pathname || '/').split(/[?#]/u, 1)[0];
+  for (let pass = 0; pass < MAX_QUARANTINE_PATH_DECODE_PASSES; pass += 1) {
+    let decoded;
+    try {
+      decoded = decodeURIComponent(normalized);
+    } catch (_) {
+      return true;
+    }
+    if (decoded === normalized) break;
+    normalized = decoded;
+  }
+  if (/%[0-9a-f]{2}/iu.test(normalized)) return true;
+  if (/[?#\u0000-\u001f\u007f]/u.test(normalized)) return true;
+  const segments = [];
+  for (const segment of normalized.replaceAll('\\', '/').split('/')) {
+    if (!segment || segment === '.') continue;
+    if (segment === '..') segments.pop();
+    else segments.push(segment);
+  }
+  normalized = `/${segments.join('/')}`.toLowerCase();
+  return QUARANTINED_CATEGORY_SLUGS.some((slug) => (
+    normalized === `/data/${slug}.json`
+    || normalized.startsWith(`/data/${slug}.json/`)
+    || normalized === `/${slug}`
+    || normalized === `/${slug}.html`
+    || normalized.startsWith(`/${slug}/`)
+    || normalized.startsWith(`/${slug}.html/`)
+    || normalized === `/ar/topics/${slug}`
+    || normalized === `/ar/topics/${slug}.html`
+    || normalized.startsWith(`/ar/topics/${slug}/`)
+    || normalized.startsWith(`/ar/topics/${slug}.html/`)
+  ));
+}
+
+function quarantinedResponse(request) {
+  return new Response(
+    request.method === 'HEAD'
+      ? null
+      : 'This content is temporarily unavailable while qualified safety review is completed.\n',
+    {
+      status: 410,
+      headers: {
+        'cache-control': 'no-store',
+        'content-type': 'text/plain; charset=utf-8',
+        'clear-site-data': '"cache"',
+        'x-jakh-content-quarantine': 'active',
+        'x-robots-tag': 'noindex, nofollow, noarchive, nosnippet',
+      },
+    },
+  );
 }
 
 function navigationCacheRequest(request) {
@@ -299,6 +359,18 @@ async function matchCore(request) {
   return core.match(request);
 }
 
+async function purgeQuarantinedCacheEntries() {
+  for (const cacheName of CURRENT_CACHES) {
+    const cache = await caches.open(cacheName);
+    const keys = await cache.keys();
+    await Promise.all(keys.map((request) => (
+      isQuarantinedPath(new URL(request.url).pathname)
+        ? cache.delete(request)
+        : Promise.resolve(false)
+    )));
+  }
+}
+
 self.addEventListener('install', (event) => {
   event.waitUntil(installOfflineShell());
 });
@@ -311,6 +383,7 @@ self.addEventListener('activate', (event) => {
           .filter((key) => key.startsWith('jakh-') && !CURRENT_CACHES.has(key))
           .map((key) => caches.delete(key)),
       ))
+      .then(() => purgeQuarantinedCacheEntries())
       .then(() => self.clients.claim()),
   );
 });
@@ -326,6 +399,14 @@ self.addEventListener('fetch', (event) => {
     || url.origin !== self.location.origin
     || url.pathname.startsWith('/api/')
   ) return;
+
+  // This guard deliberately runs before navigation and JSON cache lookups so
+  // neither a prior offline entry nor a stale-while-refresh path can disclose
+  // quarantined content after this worker activates.
+  if (isQuarantinedPath(url.pathname)) {
+    event.respondWith(Promise.resolve(quarantinedResponse(request)));
+    return;
+  }
 
   if (request.mode === 'navigate') {
     const cacheKey = navigationCacheRequest(request);

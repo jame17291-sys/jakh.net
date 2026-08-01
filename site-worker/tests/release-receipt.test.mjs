@@ -32,7 +32,7 @@ function deployment(versionId, message, percentage = 100) {
   };
 }
 
-function securityHeaders(buildId) {
+function securityHeaders(buildId, workerVersionId = OLD_VERSION) {
   return {
     "strict-transport-security": "max-age=31536000; includeSubDomains",
     "content-security-policy": "default-src 'self'; frame-ancestors 'none'",
@@ -41,14 +41,16 @@ function securityHeaders(buildId) {
     "permissions-policy": "camera=()",
     "x-frame-options": "DENY",
     "x-jakh-site-version": buildId,
+    "x-jakh-worker-version": workerVersionId,
   };
 }
 
-function smoke(buildId) {
+function smoke(buildId, workerVersionId = OLD_VERSION) {
   return {
     ok: true,
     observedBuildId: buildId,
-    probes: [{ name: "apex", status: 200, headers: securityHeaders(buildId) }],
+    observedWorkerVersionId: workerVersionId,
+    probes: [{ name: "apex", status: 200, headers: securityHeaders(buildId, workerVersionId) }],
     errors: [],
   };
 }
@@ -81,7 +83,7 @@ test("post-deploy binds exact version, build, commit, and smoke", () => {
   const result = buildPostDeploy({
     receipt,
     deployment: deployment(NEW_VERSION, message),
-    smoke: smoke(manifest.buildId),
+    smoke: smoke(manifest.buildId, NEW_VERSION),
   });
   assert.deepEqual(result.errors, []);
   assert.equal(result.receipt.result, "deployed-and-verified");
@@ -89,7 +91,7 @@ test("post-deploy binds exact version, build, commit, and smoke", () => {
   const wrongMessage = buildPostDeploy({
     receipt: preflight(),
     deployment: deployment(NEW_VERSION, "unbound deployment"),
-    smoke: smoke(manifest.buildId),
+    smoke: smoke(manifest.buildId, NEW_VERSION),
   });
   assert.match(wrongMessage.errors.join("\n"), /exact release/u);
 });
@@ -115,6 +117,7 @@ test("failed candidate can verify exact version and build rollback", () => {
 
 test("final receipt cannot hide an absent or unverified rollback", () => {
   const receipt = preflight();
+  receipt.safety.automaticRollback = true;
   finalizeReceipt(receipt, {
     preflight: "success",
     deploy: "success",
@@ -122,6 +125,7 @@ test("final receipt cannot hide an absent or unverified rollback", () => {
     verification: "failure",
     rollback: "failure",
     rollbackVerification: "skipped",
+    rollbackProof: "success",
   });
   assert.equal(receipt.result, "post-deploy-failure-without-rollback");
   finalizeReceipt(receipt, {
@@ -131,6 +135,7 @@ test("final receipt cannot hide an absent or unverified rollback", () => {
     verification: "failure",
     rollback: "success",
     rollbackVerification: "success",
+    rollbackProof: "success",
   });
   assert.equal(receipt.result, "post-deploy-failure-rolled-back");
 });
@@ -191,14 +196,29 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /rollback \$\{\{ steps\.preflight\.outputs\.rollback-version \}\}/u);
   assert.match(workflow, /site-release-receipt\.mjs post-rollback/u);
   assert.doesNotMatch(workflow, /\bpush:/u);
-  assert.match(workflow, /group: static-site-production/u);
+  assert.match(workflow, /group: jakh-production-release/u);
+  assert.match(workflow, /--stage rollback-target/u);
+  assert.match(workflow, /--stage candidate/u);
+  assert.match(workflow, /--stage rollback/u);
+  assert.match(workflow, /--expected-worker-version/u);
+  assert.match(workflow, /steps\.rollback_proof\.outputs\.rollback-safe == 'true'/u);
+  assert.match(workflow, /static-api-release-gate\.mjs compare/u);
 
   assert.match(legacyWorkflow, /workflow_dispatch:/u);
   assert.match(legacyWorkflow, /DEPLOY LEGACY GITHUB PAGES/u);
   assert.match(legacyWorkflow, /incident_reference/u);
   assert.match(legacyWorkflow, /github\.ref_protected/u);
+  assert.match(legacyWorkflow, /environment: production/u);
+  assert.match(legacyWorkflow, /required_reviewers/u);
+  assert.match(legacyWorkflow, /protected_branches/u);
   assert.match(legacyWorkflow, /x-jakh-site-version/u);
-  assert.match(legacyWorkflow, /group: static-site-production/u);
+  assert.match(legacyWorkflow, /group: jakh-production-release/u);
+  assert.match(legacyWorkflow, /JAKH_MONITOR_SCOPE: pages/u);
+  assert.match(legacyWorkflow, /legacy-pages-monitor-apex\.json/u);
+  assert.match(legacyWorkflow, /legacy-pages-monitor-www\.json/u);
+  assert.match(legacyWorkflow, /--predeploy-hosts/u);
+  assert.match(legacyWorkflow, /--monitor-apex/u);
+  assert.match(legacyWorkflow, /--monitor-www/u);
   const legacyBuildPosition = legacyWorkflow.indexOf("Prepare exact artifact once");
   const legacyBrowserPosition = legacyWorkflow.indexOf("npm run test:browser:matrix");
   const legacyAccessibilityPosition = legacyWorkflow.indexOf("npm run test:a11y");

@@ -2,12 +2,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import { verifyStaticApiRelease } from "./static-api-release-gate.mjs";
+import { compareStaticApiEvidence, verifyStaticApiRelease } from "./static-api-release-gate.mjs";
+import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 
 const EXPECTED_COMMIT = "0123456789abcdef0123456789abcdef01234567";
 const OTHER_COMMIT = "89abcdef0123456789abcdef0123456789abcdef";
 const VERSION_A = "11111111-1111-4111-8111-111111111111";
 const VERSION_B = "22222222-2222-4222-8222-222222222222";
+const quarantine = loadProductionQuarantine();
 
 function deployment({
   commit = EXPECTED_COMMIT,
@@ -28,6 +30,7 @@ function health(overrides = {}) {
     ok: true,
     service: "jakh-api",
     version: "1.4.0",
+    workerVersionId: VERSION_A,
     schema: "8",
     targetSchema: "8",
     compatibleSchemas: ["6", "7", "8"],
@@ -35,6 +38,13 @@ function health(overrides = {}) {
       registration: true,
       accountRecovery: true,
       accountDeletion: true,
+    },
+    contentPublication: {
+      state: "safety-quarantine-active",
+      quarantinedCategories: [...quarantine.categorySlugs],
+      quarantinedQuestions: quarantine.manifest.totalCards,
+      publicQuestions: 3_275,
+      manifestSha256: quarantine.policySha256,
     },
     ...overrides,
   };
@@ -83,6 +93,32 @@ test("rejects split traffic even when the release message and health are otherwi
   assert.match(result.errors.join("\n"), /exactly one active Worker version serving 100%/u);
 });
 
+test("binds health to Wrangler and rejects API identity drift across a static release", () => {
+  assert.match(
+    verify({ health: health({ workerVersionId: VERSION_B }) }).errors.join("\n"),
+    /health Worker version/u,
+  );
+  const before = {
+    result: "verified",
+    checkedAt: "before",
+    expectedCommit: EXPECTED_COMMIT,
+    expectedSchema: "8",
+    activeVersion: VERSION_A,
+    deploymentId: "deployment-verified",
+    deploymentMessage: `JAKH final ${EXPECTED_COMMIT} schema 8 run 987654321`,
+    apiReleaseRunId: "987654321",
+    health: health(),
+  };
+  assert.deepEqual(compareStaticApiEvidence(before, { ...before, checkedAt: "after" }).errors, []);
+  const changed = compareStaticApiEvidence(before, {
+    ...before,
+    checkedAt: "after",
+    activeVersion: VERSION_B,
+    health: health({ workerVersionId: VERSION_B }),
+  });
+  assert.match(changed.errors.join("\n"), /activeVersion changed/u);
+});
+
 test("rejects malformed or inexact deployment messages", () => {
   const malformedMessages = [
     `JAKH final ${EXPECTED_COMMIT} schema 8`,
@@ -107,6 +143,10 @@ test("rejects unhealthy or partially ready schema-8 responses", () => {
       .errors.join("\n"),
     /accountDeletion was not ready/u,
   );
+  assert.match(
+    verify({ health: health({ contentPublication: { state: "inactive" } }) }).errors.join("\n"),
+    /content publication state|question total|manifest SHA-256|quarantined categories/u,
+  );
 });
 
 test("static workflow builds once, tests that artifact, and gates deployment on live API evidence", async () => {
@@ -117,6 +157,7 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   const apiGatePosition = workflow.indexOf("id: api_before");
   const deployPosition = workflow.indexOf("id: deploy");
   const postGatePosition = workflow.indexOf("id: api_after");
+  const runtimeMonitorPosition = workflow.indexOf("id: runtime_monitor");
 
   assert.ok(buildPosition > 0 && buildPosition < browserPosition);
   assert.ok(buildPosition < accessibilityPosition);
@@ -126,9 +167,12 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   assert.match(workflow, /CLOUDFLARE_API_RELEASE_READ_TOKEN/u);
   assert.ok(apiGatePosition > accessibilityPosition && apiGatePosition < deployPosition);
   assert.ok(postGatePosition > deployPosition);
+  assert.ok(runtimeMonitorPosition > postGatePosition);
   assert.match(workflow, /static-api-release-gate\.mjs verify/gu);
   assert.match(workflow, /--expected-commit "\$GITHUB_SHA" \\\n\s+--expected-schema 8/gu);
   assert.match(workflow, /candidate-artifact-inventory\.json/u);
+  assert.match(workflow, /JAKH_MONITOR_RESULT_PATH:.*runtime-monitor\.json/u);
+  assert.match(workflow, /steps\.runtime_monitor\.outcome != 'success'/u);
   assert.match(workflow, /API dry-run artifact: inventoried only; it is not evidence of a live API release/u);
   assert.doesNotMatch(workflow, /Cross-artifact release SHA/u);
 });

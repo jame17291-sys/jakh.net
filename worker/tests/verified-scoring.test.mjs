@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
+import { QUARANTINED_CATEGORY_IDS } from "../dist/content-safety.js";
 import {
   cleanupExpiredVerifiedChallenges,
   createVerifiedChallenge,
@@ -25,8 +26,6 @@ const USER = {
 };
 const DIFFICULTIES = ["easy", "medium", "hard", "very-advanced"];
 const CURATED_CATEGORY_IDS = [
-  "law-middle-east",
-  "pharmacy",
   "philosophy",
   "relationship-questions",
   "social-sciences",
@@ -289,8 +288,17 @@ class FakeDatabase {
     return { success: true, meta: { changes: 0 } };
   }
 
-  async all(sql) {
-    if (sql.includes("WITH eligible")) return { results: this.leaderboardRows };
+  async all(sql, values = []) {
+    if (sql.includes("WITH eligible")) {
+      const heldCategories = new Set(values.slice(0, QUARANTINED_CATEGORY_IDS.length));
+      const categoryId = /\n\s*AND s\.category_id = \?/u.test(sql) ? values.at(-1) : null;
+      return {
+        results: this.leaderboardRows.filter((row) => (
+          !heldCategories.has(row.categoryId)
+          && (!categoryId || row.categoryId === categoryId)
+        )),
+      };
+    }
     return { results: [] };
   }
 }
@@ -862,6 +870,33 @@ test("a category with fewer than ten concise bilingual answers is unavailable", 
   assert.equal(database.challenges.size, 0);
 });
 
+test("all quarantined categories deny challenge creation before content fetch or state creation", async (t) => {
+  const database = new FakeDatabase();
+  const env = scoringEnv(database);
+  let fetchCalls = 0;
+  t.mock.method(globalThis, "fetch", async () => {
+    fetchCalls += 1;
+    throw new Error("Held categories must not reach the canonical content source");
+  });
+
+  for (const categoryId of QUARANTINED_CATEGORY_IDS) {
+    await assert.rejects(
+      createVerifiedChallenge(
+        apiRequest("/api/scores/verified/challenge", { categoryId }),
+        env,
+      ),
+      (error) => error?.status === 503
+        && error?.code === "CATEGORY_QUARANTINED"
+        && error?.headers?.["retry-after"] === "86400",
+      categoryId,
+    );
+  }
+
+  assert.equal(fetchCalls, 0);
+  assert.equal(database.challenges.size, 0);
+  assert.equal(database.batches.length, 0);
+});
+
 test("every curated explanation-heavy category can issue a server-checked challenge", async (t) => {
   const sources = new Map(await Promise.all(CURATED_CATEGORY_IDS.map(async (categoryId) => [
     categoryId,
@@ -908,6 +943,36 @@ test("a fully correct answer set earns an accuracy-only server-checked score", a
   assert.equal(payload.score, 10_000);
   assert.equal(database.challenges.get(challenge.challengeId).status, "completed");
   assert.equal(database.challenges.get(challenge.challengeId).verified, 1);
+});
+
+test("pre-deployment challenges for held categories are expired before they can be scored", async (t) => {
+  const { answers, challenge, clock, database, env } = await issueChallenge(t);
+  const stored = database.challenges.get(challenge.challengeId);
+  stored.category_id = "medical-questions";
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+  await assert.rejects(
+    submitVerifiedChallenge(submitRequest(challenge, answers), env),
+    (error) => error?.status === 503 && error?.code === "CATEGORY_QUARANTINED",
+  );
+  assert.equal(stored.status, "expired");
+  assert.equal(stored.verified, 0);
+});
+
+test("stored challenges containing a held or category-mismatched card are invalidated", async (t) => {
+  const { answers, challenge, clock, database, env } = await issueChallenge(t);
+  const stored = database.challenges.get(challenge.challengeId);
+  const cardIds = JSON.parse(stored.card_ids_json);
+  cardIds[0] = "medical-questions-001";
+  stored.card_ids_json = JSON.stringify(cardIds);
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+  await assert.rejects(
+    submitVerifiedChallenge(submitRequest(challenge, answers), env),
+    (error) => error?.status === 503 && error?.code === "STORED_CHALLENGE_INVALID",
+  );
+  assert.equal(stored.status, "expired");
+  assert.equal(stored.verified, 0);
 });
 
 test("incorrect answers are scored by the Worker without trusting a claimed client score", async (t) => {
@@ -1008,7 +1073,8 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
   assert.doesNotMatch(statement.sql, /ORDER BY[^\n]*s\.score/u);
   assert.match(statement.sql, /ORDER BY score DESC, username COLLATE NOCASE ASC/u);
   assert.match(statement.sql, /LIMIT 50/u);
-  assert.deepEqual(statement.values, ["currencies"]);
+  assert.match(statement.sql, /s\.category_id NOT IN \(\?, \?, \?, \?, \?\)/u);
+  assert.deepEqual(statement.values, [...QUARANTINED_CATEGORY_IDS, "currencies"]);
   assert.equal(payload.status, "active");
   assertServerCheckedBoundary(payload);
   assert.deepEqual(payload.leaderboard[0], {
@@ -1039,9 +1105,53 @@ test("leaderboard SQL admits only completed server-checked rows and avoids speed
       new URL("../migrations/0003_verified_scoring.sql", import.meta.url),
       "utf8",
     ));
-    assert.deepEqual(sqlite.prepare(statement.sql).all("currencies"), []);
+    assert.deepEqual(sqlite.prepare(statement.sql).all(...statement.values), []);
   } finally {
     sqlite.close();
+  }
+});
+
+test("global leaderboard filters legacy held scores and held category queries fail closed", async () => {
+  const database = new FakeDatabase();
+  database.leaderboardRows = [
+    {
+      username: "public_player",
+      avatar: "🧠",
+      score: 9_000,
+      categoryId: "currencies",
+      correctCount: 9,
+      questionCount: 10,
+    },
+    {
+      username: "held_player",
+      avatar: "⚕️",
+      score: 10_000,
+      categoryId: "medical-questions",
+      correctCount: 10,
+      questionCount: 10,
+    },
+  ];
+
+  const response = await verifiedLeaderboard(
+    new Request("https://api.jakh.net/api/scores/verified/leaderboard"),
+    scoringEnv(database),
+  );
+  const payload = await response.json();
+  const statement = database.statements.find(({ sql }) => sql.includes("WITH eligible"));
+
+  assert.deepEqual(payload.leaderboard.map(({ categoryId }) => categoryId), ["currencies"]);
+  assert.doesNotMatch(JSON.stringify(payload), /held_player|medical-questions/u);
+  assert.deepEqual(statement.values, [...QUARANTINED_CATEGORY_IDS]);
+
+  for (const categoryId of QUARANTINED_CATEGORY_IDS) {
+    await assert.rejects(
+      verifiedLeaderboard(
+        new Request(`https://api.jakh.net/api/scores/verified/leaderboard?category=${categoryId}`),
+        scoringEnv(new FakeDatabase()),
+      ),
+      (error) => error?.status === 503 && error?.code === "CATEGORY_QUARANTINED",
+      categoryId,
+    );
   }
 });
 

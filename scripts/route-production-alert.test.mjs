@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   ALERT_MARKER,
+  alertMarker,
   routeProductionAlert,
 } from "./route-production-alert.mjs";
 
@@ -77,7 +78,7 @@ function githubFixture() {
   return { calls, comments, fetchImpl, issues };
 }
 
-function alertEnv(runId) {
+function alertEnv(runId, scope = "all") {
   return {
     GITHUB_TOKEN: "test-token",
     GITHUB_API_URL: "https://api.github.test",
@@ -86,6 +87,7 @@ function alertEnv(runId) {
     GITHUB_RUN_ID: String(runId),
     GITHUB_RUN_ATTEMPT: "1",
     GITHUB_EVENT_NAME: "workflow_run",
+    JAKH_MONITOR_SCOPE: scope,
     JAKH_ALERT_SOURCE_WORKFLOW: "Deploy API",
     JAKH_ALERT_SOURCE_CONCLUSION: "failure",
   };
@@ -94,6 +96,7 @@ function alertEnv(runId) {
 const failedReport = {
   schemaVersion: 1,
   status: "failure",
+  monitor: { scope: "all" },
   passedChecks: 38,
   failedChecks: 1,
   failures: [{
@@ -106,10 +109,15 @@ const failedReport = {
 const recoveredReport = {
   schemaVersion: 1,
   status: "success",
+  monitor: { scope: "all" },
   passedChecks: 39,
   failedChecks: 0,
   failures: [],
 };
+
+function reportFor(report, scope) {
+  return { ...report, monitor: { ...report.monitor, scope } };
+}
 
 test("alert router creates one issue and deduplicates a repeated failed run", async () => {
   const github = githubFixture();
@@ -128,7 +136,8 @@ test("alert router creates one issue and deduplicates a repeated failed run", as
   assert.equal(duplicate.action, "deduplicated");
   assert.equal(github.issues.length, 1);
   assert.equal(github.comments.get(1).length, 0);
-  assert.match(github.issues[0].body, new RegExp(ALERT_MARKER, "u"));
+  assert.equal(github.issues[0].body.split("\n", 1)[0], alertMarker("all"));
+  assert.doesNotMatch(github.issues[0].body, new RegExp(ALERT_MARKER, "u"));
   assert.match(github.issues[0].body, /received 503/u);
   assert.match(github.issues[0].body, /actions\/runs\/101/u);
 });
@@ -202,6 +211,259 @@ test("alert router resumes an interrupted recovery without duplicating its comme
   assert.equal(resumed.action, "closed");
   assert.equal(github.comments.get(1).length, 1);
   assert.equal(github.issues[0].state, "closed");
+});
+
+test("failures create and update only their scope-specific incident", async () => {
+  const github = githubFixture();
+  const api = await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(401, "api"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(failedReport, "api"),
+  });
+  const pages = await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(402, "pages"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(failedReport, "pages"),
+  });
+  const continuedApi = await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(403, "api"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(failedReport, "api"),
+  });
+
+  assert.equal(api.action, "created");
+  assert.equal(pages.action, "created");
+  assert.equal(continuedApi.action, "commented");
+  assert.equal(github.issues.length, 2);
+  assert.equal(github.issues[0].title, "[Production alert] jakh.net monitor failure [api]");
+  assert.equal(github.issues[1].title, "[Production alert] jakh.net monitor failure [pages]");
+  assert.equal(github.issues[0].body.split("\n", 1)[0], alertMarker("api"));
+  assert.equal(github.issues[1].body.split("\n", 1)[0], alertMarker("pages"));
+  assert.equal(github.comments.get(api.issueNumber).length, 1);
+  assert.equal(github.comments.get(pages.issueNumber).length, 0);
+  assert.match(github.comments.get(api.issueNumber)[0].body, /monitor-run:api:403:1:failure/u);
+});
+
+test("scope matching uses the exact leading marker and ignores injected cross-scope markers", async () => {
+  const github = githubFixture();
+  await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(451, "api"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(failedReport, "api"),
+  });
+  github.issues[0].body += `\n\nUntrusted detail: ${alertMarker("pages")}`;
+
+  const pages = await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(452, "pages"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(failedReport, "pages"),
+  });
+
+  assert.equal(pages.action, "created");
+  assert.equal(github.issues.length, 2);
+  assert.equal(github.comments.get(1).length, 0);
+  assert.equal(github.issues[1].body.split("\n", 1)[0], alertMarker("pages"));
+});
+
+test("api and pages recovery never close the global incident", async () => {
+  const github = githubFixture();
+  for (const [runId, scope] of [[501, "all"], [502, "api"], [503, "pages"]]) {
+    await routeProductionAlert({
+      state: "failure",
+      env: alertEnv(runId, scope),
+      fetchImpl: github.fetchImpl,
+      report: reportFor(failedReport, scope),
+    });
+  }
+
+  const apiRecovery = await routeProductionAlert({
+    state: "recovery",
+    env: alertEnv(504, "api"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(recoveredReport, "api"),
+  });
+  assert.equal(apiRecovery.closedCount, 1);
+  assert.equal(github.issues.find((issue) => issue.body.startsWith(alertMarker("api"))).state, "closed");
+  assert.equal(github.issues.find((issue) => issue.body.startsWith(alertMarker("all"))).state, "open");
+  assert.equal(github.issues.find((issue) => issue.body.startsWith(alertMarker("pages"))).state, "open");
+
+  const pagesRecovery = await routeProductionAlert({
+    state: "recovery",
+    env: alertEnv(505, "pages"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(recoveredReport, "pages"),
+  });
+  assert.equal(pagesRecovery.closedCount, 1);
+  assert.equal(github.issues.find((issue) => issue.body.startsWith(alertMarker("pages"))).state, "closed");
+  assert.equal(github.issues.find((issue) => issue.body.startsWith(alertMarker("all"))).state, "open");
+
+  const allRecovery = await routeProductionAlert({
+    state: "recovery",
+    env: alertEnv(506, "all"),
+    fetchImpl: github.fetchImpl,
+    report: recoveredReport,
+  });
+  assert.equal(allRecovery.closedCount, 1);
+  assert.equal(github.issues.find((issue) => issue.body.startsWith(alertMarker("all"))).state, "closed");
+});
+
+test("all recovery closes every open scoped monitor incident", async () => {
+  const github = githubFixture();
+  for (const [runId, scope] of [[551, "all"], [552, "api"], [553, "pages"]]) {
+    await routeProductionAlert({
+      state: "failure",
+      env: alertEnv(runId, scope),
+      fetchImpl: github.fetchImpl,
+      report: reportFor(failedReport, scope),
+    });
+  }
+
+  const recovery = await routeProductionAlert({
+    state: "recovery",
+    env: alertEnv(554, "all"),
+    fetchImpl: github.fetchImpl,
+    report: recoveredReport,
+  });
+
+  assert.equal(recovery.action, "commented-and-closed");
+  assert.equal(recovery.closedCount, 3);
+  assert.deepEqual(new Set(recovery.issueNumbers), new Set([1, 2, 3]));
+  assert.ok(github.issues.every((issue) => issue.state === "closed"));
+  assert.ok([...github.comments.values()].every((issueComments) => issueComments.length === 1));
+});
+
+test("all recovery resumes across several incidents without duplicate comments", async () => {
+  const github = githubFixture();
+  for (const [runId, scope] of [[561, "all"], [562, "api"], [563, "pages"]]) {
+    await routeProductionAlert({
+      state: "failure",
+      env: alertEnv(runId, scope),
+      fetchImpl: github.fetchImpl,
+      report: reportFor(failedReport, scope),
+    });
+  }
+
+  let rejectIssueTwo = true;
+  const flakyFetch = async (input, options = {}) => {
+    if (rejectIssueTwo && options.method === "PATCH" && new URL(input).pathname.endsWith("/2")) {
+      rejectIssueTwo = false;
+      return jsonResponse({ message: "simulated scoped close failure" }, 500);
+    }
+    return github.fetchImpl(input, options);
+  };
+  const recovery = {
+    state: "recovery",
+    env: alertEnv(564, "all"),
+    fetchImpl: flakyFetch,
+    report: recoveredReport,
+  };
+
+  await assert.rejects(routeProductionAlert(recovery), /simulated scoped close failure/u);
+  assert.equal(github.issues[0].state, "closed");
+  assert.equal(github.issues[1].state, "open");
+  assert.equal(github.comments.get(1).length, 1);
+  assert.equal(github.comments.get(2).length, 1);
+  assert.equal(github.comments.get(3).length, 0);
+
+  const resumed = await routeProductionAlert(recovery);
+  assert.equal(resumed.closedCount, 2);
+  assert.ok(github.issues.every((issue) => issue.state === "closed"));
+  assert.ok([...github.comments.values()].every((issueComments) => issueComments.length === 1));
+});
+
+test("legacy global incidents remain global and can only be closed by all recovery", async () => {
+  const github = githubFixture();
+  github.issues.push({
+    number: 91,
+    title: "Legacy production alert",
+    body: `${ALERT_MARKER}\nlegacy incident`,
+    state: "open",
+    comments: 0,
+    html_url: "https://github.test/example/jakh/issues/91",
+  });
+  github.comments.set(91, []);
+
+  const apiRecovery = await routeProductionAlert({
+    state: "recovery",
+    env: alertEnv(571, "api"),
+    fetchImpl: github.fetchImpl,
+    report: reportFor(recoveredReport, "api"),
+  });
+  assert.equal(apiRecovery.action, "noop");
+  assert.equal(github.issues[0].state, "open");
+
+  const continued = await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(572, "all"),
+    fetchImpl: github.fetchImpl,
+    report: failedReport,
+  });
+  assert.equal(continued.action, "commented");
+  assert.equal(continued.issueNumber, 91);
+
+  const allRecovery = await routeProductionAlert({
+    state: "recovery",
+    env: alertEnv(573, "all"),
+    fetchImpl: github.fetchImpl,
+    report: recoveredReport,
+  });
+  assert.equal(allRecovery.closedCount, 1);
+  assert.equal(github.issues[0].state, "closed");
+});
+
+test("scope is validated across the structured report and environment", async () => {
+  const github = githubFixture();
+  await assert.rejects(
+    routeProductionAlert({
+      state: "failure",
+      env: alertEnv(601, "pages"),
+      fetchImpl: github.fetchImpl,
+      report: reportFor(failedReport, "api"),
+    }),
+    /does not match JAKH_MONITOR_SCOPE/u,
+  );
+  await assert.rejects(
+    routeProductionAlert({
+      state: "failure",
+      env: alertEnv(602, "site"),
+      fetchImpl: github.fetchImpl,
+      report: null,
+    }),
+    /JAKH_MONITOR_SCOPE must be all, api, or pages/u,
+  );
+  const missingScopeEnv = alertEnv(603);
+  delete missingScopeEnv.JAKH_MONITOR_SCOPE;
+  await assert.rejects(
+    routeProductionAlert({
+      state: "failure",
+      env: missingScopeEnv,
+      fetchImpl: github.fetchImpl,
+      report: { ...failedReport, monitor: {} },
+    }),
+    /Monitor scope is required/u,
+  );
+
+  const reportOnlyEnv = alertEnv(604, "api");
+  delete reportOnlyEnv.JAKH_MONITOR_SCOPE;
+  const reportOnly = await routeProductionAlert({
+    state: "failure",
+    env: reportOnlyEnv,
+    fetchImpl: github.fetchImpl,
+    report: reportFor(failedReport, "api"),
+  });
+  const envFallback = await routeProductionAlert({
+    state: "failure",
+    env: alertEnv(605, "pages"),
+    fetchImpl: github.fetchImpl,
+    report: { reportError: "monitor report missing" },
+  });
+  assert.equal(reportOnly.scope, "api");
+  assert.equal(envFallback.scope, "pages");
 });
 
 test("alert router refuses to run without an explicit repository-scoped token", async () => {

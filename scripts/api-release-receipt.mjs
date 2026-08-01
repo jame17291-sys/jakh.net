@@ -4,10 +4,12 @@ import { appendFile, readFile, readdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { buildVersionBoundMonitorProof } from "./runtime-monitor-proof.mjs";
+
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPOSITORY_ROOT = resolve(SCRIPT_DIR, "..");
 const SERVICE_NAME = "jakh-api";
-const RECEIPT_FORMAT_VERSION = 2;
+const RECEIPT_FORMAT_VERSION = 3;
 const RELEASE_PHASES = new Set(["compatibility", "migrate-final"]);
 const FEATURE_SCHEMA = Object.freeze({
   registration: 7,
@@ -186,6 +188,7 @@ export function validateHealthContract(health, {
   version,
   schema,
   targetSchema,
+  workerVersionId,
   httpStatus = "200",
   requireCompatibility = false,
 }) {
@@ -194,6 +197,9 @@ export function validateHealthContract(health, {
   if (!health || typeof health !== "object") errors.push("health response was not a JSON object");
   if (health?.ok !== true) errors.push("health response did not contain ok=true");
   if (health?.service !== SERVICE_NAME) errors.push(`health service was ${health?.service ?? "missing"}`);
+  if (workerVersionId !== undefined && health?.workerVersionId !== workerVersionId) {
+    errors.push(`health Worker version was ${health?.workerVersionId ?? "missing"}, expected ${workerVersionId}`);
+  }
   if (version !== undefined && health?.version !== version) errors.push(`health version was ${health?.version ?? "missing"}, expected ${version}`);
   if (schema !== undefined && health?.schema !== schema) errors.push(`health schema was ${health?.schema ?? "missing"}, expected actual schema ${schema}`);
 
@@ -270,6 +276,10 @@ export function buildPreflight({
     version: phase === "migrate-final" ? source.version : undefined,
     schema: databaseSchema,
     targetSchema: source.schema,
+    // A first compatibility rollout may replace a legacy Worker that predates
+    // version_metadata. The separate predecessor proof keeps automatic
+    // rollback disabled unless that exact old version proves quarantine-safe.
+    workerVersionId: phase === "migrate-final" ? activeVersion : undefined,
     requireCompatibility: phase === "migrate-final",
   });
 
@@ -306,6 +316,8 @@ export function buildPreflight({
     source,
     safety: {
       workerRollbackTarget: activeVersion,
+      automaticWorkerRollback: false,
+      rollbackProof: null,
       provenCompatibilityWorker: phase === "migrate-final" ? activeVersion : null,
       schemaChanged,
       databaseMutationAllowed: phase === "migrate-final",
@@ -344,6 +356,7 @@ export function buildPostCompatibility({ receipt, deployment, health, httpStatus
     version: receipt.source.version,
     schema: receipt.preDeployment.databaseSchema,
     targetSchema: receipt.source.schema,
+    workerVersionId: activeVersion,
     httpStatus,
     requireCompatibility: true,
   }));
@@ -374,6 +387,7 @@ export function buildPostMigration({ receipt, deployment, health, httpStatus, da
     version: receipt.source.version,
     schema: receipt.source.schema,
     targetSchema: receipt.source.schema,
+    workerVersionId: activeVersion,
     httpStatus,
     requireCompatibility: true,
   }));
@@ -406,6 +420,7 @@ export function buildPostDeploy({ receipt, deployment, health, httpStatus, datab
     version: receipt.source.version,
     schema: receipt.source.schema,
     targetSchema: receipt.source.schema,
+    workerVersionId: activeVersion,
     httpStatus,
     requireCompatibility: true,
   }));
@@ -440,6 +455,7 @@ export function buildPostRollback({ receipt, deployment, health, httpStatus, dat
     version: receipt.phase === "compatibility" ? receipt.preDeployment.health.version : receipt.source.version,
     schema: expectedSchema,
     targetSchema: receipt.source.schema,
+    workerVersionId: activeVersion,
     httpStatus,
     requireCompatibility: receipt.phase === "migrate-final",
   }));
@@ -457,20 +473,89 @@ export function buildPostRollback({ receipt, deployment, health, httpStatus, dat
   return { receipt, errors };
 }
 
+export function applyRuntimeProof({
+  receipt,
+  stage,
+  deploymentBefore,
+  deploymentAfter,
+  monitorReport,
+  allowCompatibleSchema,
+  generatedAt,
+}) {
+  invariant(
+    ["rollback-target", "post-migration", "candidate", "rollback"].includes(stage),
+    "runtime proof stage must be rollback-target, post-migration, candidate, or rollback",
+  );
+  if (stage === "post-migration") {
+    invariant(receipt.phase === "migrate-final", "post-migration runtime proof requires migrate-final");
+    invariant(receipt.afterMigrations, "post-migration state must be verified before its runtime proof");
+  }
+  if (stage === "rollback") invariant(receipt.rollback, "rollback state must be verified before its runtime proof");
+  if (stage === "candidate") {
+    const candidate = receipt.phase === "compatibility" ? receipt.compatibilityDeployment : receipt.postDeployment;
+    invariant(candidate, "candidate state must be verified before its runtime proof");
+  }
+  const targetVersion = stage === "rollback-target"
+    ? receipt.safety.workerRollbackTarget
+    : stage === "post-migration"
+      ? receipt.safety.provenCompatibilityWorker
+      : stage === "candidate"
+        ? (receipt.phase === "compatibility"
+            ? receipt.compatibilityDeployment.activeWorkerVersion
+            : receipt.postDeployment.activeWorkerVersion)
+      : receipt.safety.workerRollbackTarget;
+  const proof = buildVersionBoundMonitorProof({
+    targetVersion,
+    deploymentBefore,
+    deploymentAfter,
+    monitorReport,
+    scope: "api",
+    allowCompatibleSchema,
+    generatedAt,
+  });
+  if (stage === "rollback-target") {
+    receipt.safety.rollbackProof = proof;
+    receipt.safety.automaticWorkerRollback = proof.safe;
+  } else if (stage === "post-migration") {
+    receipt.afterMigrations.runtimeProof = proof;
+    receipt.safety.rollbackProof = proof;
+    receipt.safety.automaticWorkerRollback = proof.safe;
+    if (!proof.safe) receipt.result = "migration-quarantine-proof-failed";
+  } else if (stage === "candidate") {
+    const candidate = receipt.phase === "compatibility" ? receipt.compatibilityDeployment : receipt.postDeployment;
+    candidate.runtimeProof = proof;
+    if (!proof.safe) receipt.result = "post-deploy-verification-failed";
+  } else {
+    receipt.rollback.runtimeProof = proof;
+    if (!proof.safe) receipt.result = "worker-rollback-verification-failed";
+  }
+  return { receipt, proof };
+}
+
 export function finalizeReceipt(receipt, outcomes) {
   receipt.finalizedAt = timestamp();
   receipt.workflowSteps = outcomes;
   if (outcomes.preflight === "failure") receipt.result = "preflight-failed";
+  else if (outcomes.rollbackProof === "failure") receipt.result = "rollback-target-proof-failed";
   else if (receipt.phase === "compatibility") {
     if (outcomes.compatibilityDeploy === "failure") receipt.result = "compatibility-worker-deploy-failed";
+    else if (outcomes.productionVerification === "failure" && receipt.safety.automaticWorkerRollback !== true) receipt.result = "automatic-worker-rollback-withheld-unsafe-predecessor";
     else if (outcomes.productionVerification === "failure" && outcomes.workerRollback === "failure") receipt.result = "automatic-worker-rollback-failed";
     else if (outcomes.productionVerification === "failure" && outcomes.workerRollback === "success" && outcomes.rollbackVerification === "failure") receipt.result = "worker-rollback-verification-failed";
-  } else if (outcomes.migrations === "failure") receipt.result = "migration-apply-failed";
+  } else if (outcomes.migrationAuthorization !== "success") receipt.result = "migration-authorization-blocked";
+  else if (outcomes.migrations === "failure") receipt.result = "migration-apply-failed";
   else if (outcomes.migrationCompatibility === "failure") receipt.result = "migration-compatibility-failed";
+  else if (outcomes.migrationQuarantineProof === "failure") receipt.result = "migration-quarantine-proof-failed";
   else if (outcomes.finalDeploy === "failure") receipt.result = "worker-deploy-failed";
+  else if (outcomes.productionVerification === "failure" && receipt.safety.automaticWorkerRollback !== true) receipt.result = "automatic-worker-rollback-withheld-unsafe-predecessor";
   else if (outcomes.productionVerification === "failure" && outcomes.workerRollback === "failure") receipt.result = "automatic-worker-rollback-failed";
   else if (outcomes.productionVerification === "failure" && outcomes.workerRollback === "success" && outcomes.rollbackVerification === "failure") receipt.result = "worker-rollback-verification-failed";
-  if (outcomes.productionVerification === "failure" && outcomes.workerRollback !== "success" && !receipt.rollback) {
+  if (
+    outcomes.productionVerification === "failure"
+    && receipt.safety.automaticWorkerRollback === true
+    && outcomes.workerRollback !== "success"
+    && !receipt.rollback
+  ) {
     receipt.result = "post-deploy-verification-failed-without-confirmed-rollback";
   }
   return receipt;
@@ -530,6 +615,35 @@ async function commandStateTransition(options, builder) {
   failOnErrors(result.errors);
 }
 
+function booleanOption(options, name, fallback = false) {
+  const value = options[name];
+  if (value === undefined) return fallback;
+  invariant(value === "true" || value === "false", `--${name} must be true or false`);
+  return value === "true";
+}
+
+async function commandRuntimeProof(options) {
+  const receiptPath = requireOption(options, "receipt");
+  const receipt = await readJson(receiptPath);
+  const stage = requireOption(options, "stage");
+  const result = applyRuntimeProof({
+    receipt,
+    stage,
+    deploymentBefore: await readJson(requireOption(options, "deployment-before")),
+    deploymentAfter: await readJson(requireOption(options, "deployment-after")),
+    monitorReport: await readJson(requireOption(options, "monitor")),
+    allowCompatibleSchema: booleanOption(options, "allow-compatible-schema"),
+  });
+  await writeJson(receiptPath, result.receipt);
+  await appendOutputs(options["github-output"], { "rollback-safe": result.proof.safe });
+  const requireSafe = booleanOption(options, "require-safe");
+  const errors = [
+    ...result.proof.bindingErrors,
+    ...(requireSafe ? result.proof.monitorErrors : []),
+  ];
+  failOnErrors(errors);
+}
+
 async function commandProbe(options) {
   const stage = requireOption(options, "stage");
   const receipt = await readJson(requireOption(options, "receipt"));
@@ -545,6 +659,7 @@ async function commandProbe(options) {
     version,
     schema,
     targetSchema: receipt.source.schema,
+    workerVersionId: requireOption(options, "expected-worker-version"),
     httpStatus: requireOption(options, "http-status"),
     requireCompatibility: !phaseARollback,
   });
@@ -563,6 +678,9 @@ async function commandFinalize(options) {
     productionVerification: requireOption(options, "production-verification-outcome"),
     workerRollback: requireOption(options, "worker-rollback-outcome"),
     rollbackVerification: requireOption(options, "rollback-verification-outcome"),
+    rollbackProof: requireOption(options, "rollback-proof-outcome"),
+    migrationQuarantineProof: requireOption(options, "migration-quarantine-proof-outcome"),
+    migrationAuthorization: requireOption(options, "migration-authorization-outcome"),
   });
   await writeJson(receiptPath, receipt);
 }
@@ -578,9 +696,16 @@ async function commandSummary(options) {
     `- Target API: \`${receipt.source.version}\`, schema \`${receipt.source.schema}\``,
     `- Preflight D1 schema: \`${receipt.preDeployment.databaseSchema}\``,
     `- Worker rollback target: \`${receipt.safety.workerRollbackTarget}\``,
+    `- Automatic Worker rollback eligible: \`${receipt.safety.automaticWorkerRollback === true}\``,
     `- Database mutation allowed in this phase: \`${receipt.safety.databaseMutationAllowed}\``,
     "- D1 automatic rollback: `false`",
   ];
+  if (receipt.safety.rollbackProof) {
+    summary.push(`- Rollback quarantine proof: \`${receipt.safety.rollbackProof.safe ? "safe" : "unsafe"}\``);
+    if (receipt.safety.rollbackProof.monitorErrors?.length) {
+      summary.push(`- Rollback withheld reason: ${receipt.safety.rollbackProof.monitorErrors.join("; ")}`);
+    }
+  }
   if (receipt.compatibilityDeployment?.activeWorkerVersion) summary.push(`- Compatibility Worker: \`${receipt.compatibilityDeployment.activeWorkerVersion}\``);
   if (receipt.postDeployment?.activeWorkerVersion) summary.push(`- Final Worker: \`${receipt.postDeployment.activeWorkerVersion}\``);
   if (receipt.rollback?.activeWorkerVersion) {
@@ -603,6 +728,11 @@ async function main() {
     case "post-migration": await commandStateTransition(options, buildPostMigration); break;
     case "post-deploy": await commandStateTransition(options, buildPostDeploy); break;
     case "post-rollback": await commandStateTransition(options, buildPostRollback); break;
+    case "runtime-proof": await commandRuntimeProof(options); break;
+    case "active-version": {
+      process.stdout.write(extractActiveVersion(await readJson(requireOption(options, "deployment"))));
+      break;
+    }
     case "probe": await commandProbe(options); break;
     case "finalize": await commandFinalize(options); break;
     case "summary": await commandSummary(options); break;

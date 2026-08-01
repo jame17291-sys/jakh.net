@@ -8,6 +8,15 @@ const MEDIA_CACHE = "public, max-age=86400, stale-while-revalidate=604800";
 const REDIRECT_CACHE = "public, max-age=86400";
 const RELEASE_METADATA_CACHE = "public, max-age=300, must-revalidate";
 const NO_STORE = "no-store";
+const QUARANTINE_ROBOTS_POLICY = "noindex, nofollow, noarchive, nosnippet";
+const EXPECTED_QUARANTINED_CATEGORIES = Object.freeze([
+  "survival",
+  "law-middle-east",
+  "medical-questions",
+  "pharmacy",
+  "economics-and-finance",
+]);
+const MAX_QUARANTINE_PATH_DECODE_PASSES = 3;
 
 const RELEASE_METADATA_PATHS = new Set([
   "/manifest.webmanifest",
@@ -23,6 +32,46 @@ function invariant(condition, message) {
 
 function isProductionHost(hostname) {
   return hostname === APEX_HOST || hostname === WWW_HOST;
+}
+
+export function isQuarantinedPath(siteManifest, pathname) {
+  const categories = siteManifest.publication?.quarantinedCategories || [];
+  let normalized = String(pathname || "/").split(/[?#]/u, 1)[0];
+  for (let pass = 0; pass < MAX_QUARANTINE_PATH_DECODE_PASSES; pass += 1) {
+    let decoded;
+    try {
+      decoded = decodeURIComponent(normalized);
+    } catch {
+      return true;
+    }
+    if (decoded === normalized) break;
+    normalized = decoded;
+  }
+  if (/%[0-9a-f]{2}/iu.test(normalized)) return true;
+  if (/[?#\u0000-\u001f\u007f]/u.test(normalized)) return true;
+  const segments = [];
+  for (const segment of normalized.replaceAll("\\", "/").split("/")) {
+    if (!segment || segment === ".") continue;
+    if (segment === "..") segments.pop();
+    else segments.push(segment);
+  }
+  normalized = `/${segments.join("/")}`.toLowerCase();
+  for (const slug of categories) {
+    if (normalized === `/data/${slug}.json` || normalized.startsWith(`/data/${slug}.json/`)) return true;
+    if (
+      normalized === `/${slug}`
+      || normalized === `/${slug}.html`
+      || normalized.startsWith(`/${slug}/`)
+      || normalized.startsWith(`/${slug}.html/`)
+    ) return true;
+    if (
+      normalized === `/ar/topics/${slug}`
+      || normalized === `/ar/topics/${slug}.html`
+      || normalized.startsWith(`/ar/topics/${slug}/`)
+      || normalized.startsWith(`/ar/topics/${slug}.html/`)
+    ) return true;
+  }
+  return false;
 }
 
 function fileExtension(pathname) {
@@ -160,6 +209,20 @@ function errorResponse(siteManifest, pathname, status, message) {
   }), { siteManifest, pathname, cacheControl: NO_STORE });
 }
 
+function quarantineResponse(siteManifest, pathname, method) {
+  const response = applySiteHeaders(new Response(
+    method === "HEAD" ? null : "This content is temporarily unavailable while qualified safety review is completed.\n",
+    {
+      status: 410,
+      headers: { "content-type": "text/plain; charset=utf-8" },
+    },
+  ), { siteManifest, pathname, cacheControl: NO_STORE });
+  response.headers.set("x-robots-tag", QUARANTINE_ROBOTS_POLICY);
+  response.headers.set("x-jakh-content-quarantine", "active");
+  response.headers.set("clear-site-data", '"cache"');
+  return response;
+}
+
 function redirectResponse(siteManifest, target) {
   return applySiteHeaders(new Response(null, {
     status: 301,
@@ -233,6 +296,30 @@ function validateManifest(siteManifest) {
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.sourceGraphId), "Invalid site manifest source graph ID");
   invariant(siteManifest.offlineCacheIdentity === `sg-${siteManifest.sourceGraphId}`, "Invalid offline cache identity");
   invariant(siteManifest.aliases && siteManifest.routes && siteManifest.files && siteManifest.fingerprints, "Incomplete site manifest");
+  invariant(siteManifest.publication?.state === "safety-quarantine-active", "Production publication quarantine is not active");
+  invariant(/^[a-f0-9]{64}$/u.test(siteManifest.publication.policySha256 || ""), "Invalid publication policy digest");
+  invariant(siteManifest.publication.fullQuestions === 3_553, "Invalid full publication corpus total");
+  invariant(siteManifest.publication.publicQuestions === 3_275, "Invalid public publication corpus total");
+  invariant(siteManifest.publication.quarantinedQuestions === 278, "Invalid quarantined publication total");
+  invariant(siteManifest.publication.publicCategories === 51, "Invalid public category total");
+  invariant(
+    Array.isArray(siteManifest.publication.quarantinedCategories)
+      && siteManifest.publication.quarantinedCategories.length === 5
+      && new Set(siteManifest.publication.quarantinedCategories).size === 5
+      && siteManifest.publication.quarantinedCategories.every((slug) => /^[a-z0-9-]{2,64}$/u.test(slug)),
+    "Invalid quarantined category manifest",
+  );
+  invariant(
+    [...siteManifest.publication.quarantinedCategories].sort().join("\0")
+      === [...EXPECTED_QUARANTINED_CATEGORIES].sort().join("\0"),
+    "Quarantined category manifest does not match the reviewed production policy",
+  );
+  for (const path of Object.keys(siteManifest.files)) {
+    invariant(!isQuarantinedPath(siteManifest, path), `Quarantined path is present in site files: ${path}`);
+  }
+  for (const path of [...Object.keys(siteManifest.routes), ...Object.keys(siteManifest.aliases)]) {
+    invariant(!isQuarantinedPath(siteManifest, path), `Quarantined path is present in site routes: ${path}`);
+  }
   for (const [stable, fingerprinted] of Object.entries(siteManifest.fingerprints)) {
     invariant(Boolean(siteManifest.files[stable]), `Missing stable fingerprint source: ${stable}`);
     const record = siteManifest.files[fingerprinted];
@@ -247,11 +334,15 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
   return {
     async fetch(request, env) {
       const url = new URL(request.url);
-      if (!new Set(["GET", "HEAD"]).has(request.method.toUpperCase())) {
+      const method = request.method.toUpperCase();
+      if (!new Set(["GET", "HEAD"]).has(method)) {
         return errorResponse(siteManifest, url.pathname, 405, "Method not allowed");
       }
       if (url.hostname === MTA_STS_HOST) {
         return mtaStsResponse(siteManifest, env, url.pathname, mtaStsPolicy);
+      }
+      if (isQuarantinedPath(siteManifest, url.pathname)) {
+        return quarantineResponse(siteManifest, url.pathname, method);
       }
       const redirect = canonicalRedirect(siteManifest, url);
       if (redirect) return redirectResponse(siteManifest, redirect);
@@ -272,6 +363,17 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       const served = compatibilitySource
         ? manifestFile(siteManifest, compatibilitySource)
         : resolved;
+      if (!served.record) {
+        try {
+          const asset = await env.ASSETS.fetch(new Request(new URL("/404.html", url), request));
+          return applySiteHeaders(new Response(asset.body, {
+            status: 404,
+            headers: asset.headers,
+          }), { siteManifest, pathname: url.pathname, record: siteManifest.files["/404.html"] });
+        } catch {
+          return errorResponse(siteManifest, url.pathname, 503, "Static site temporarily unavailable");
+        }
+      }
       const etag = weakEtag(served.record);
       if (requestMatchesEtag(request, etag)) {
         const contentType = served.path.endsWith(".html")
@@ -293,11 +395,12 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       }
 
       try {
-        const assetRequest = compatibilitySource
-          ? new Request(new URL(compatibilitySource, url), request)
-          : request;
+        // Always ask the asset binding for the exact manifest file. This keeps
+        // its HTML/path normalization from turning an unreviewed request alias
+        // into a deployed file after the quarantine check has already run.
+        const assetRequest = new Request(new URL(served.path, url), request);
         const asset = await env.ASSETS.fetch(assetRequest);
-        const response = request.method.toUpperCase() === "HEAD"
+        const response = method === "HEAD"
           ? new Response(null, { status: asset.status, statusText: asset.statusText, headers: asset.headers })
           : asset;
         const withPolicy = applySiteHeaders(response, {

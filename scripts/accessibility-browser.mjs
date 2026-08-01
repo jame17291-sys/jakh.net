@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import AxeBuilder from "@axe-core/playwright";
@@ -12,6 +12,9 @@ const SITE_ROOT = resolve(process.env.JAKH_SITE_ROOT || REPOSITORY_ROOT);
 const SITE_MANIFEST_PATH = process.env.JAKH_SITE_MANIFEST
   ? resolve(process.env.JAKH_SITE_MANIFEST)
   : null;
+const ACCESSIBILITY_DAILY_CARD = JSON.parse(
+  readFileSync(resolve(REPOSITORY_ROOT, "data/science.json"), "utf8"),
+)[0];
 const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"];
 const ROUTES = [
   ["English home", "/"],
@@ -37,7 +40,7 @@ const ROUTES = [
 ];
 
 async function configureContext(context, { completedDaily = false, ownerAdmin = false } = {}) {
-  await context.addInitScript(({ seedCompletedDaily }) => {
+  await context.addInitScript(({ seedCompletedDaily, dailyCard }) => {
     localStorage.setItem("jakh-consent-v1", JSON.stringify({
       version: 2,
       noticeVersion: "2026-08-01",
@@ -48,13 +51,11 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
     if (seedCompletedDaily) {
       const today = new Date().toISOString().split("T")[0];
       const card = {
-        id: "accessibility-daily-card",
+        ...dailyCard,
+        cardId: dailyCard.id,
         categorySlug: "science",
         categoryTitle: { en: "Science", ar: "العلوم" },
         categoryEmoji: "🔬",
-        difficulty: "easy",
-        question: { en: "Which planet is closest to the Sun?", ar: "ما الكوكب الأقرب إلى الشمس؟" },
-        answer: { en: "Mercury", ar: "عطارد" },
       };
       sessionStorage.setItem(`jakh-daily-${today}`, JSON.stringify(card));
       localStorage.setItem(`jakh-daily-outcome-${today}`, JSON.stringify({
@@ -64,7 +65,7 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
         recordedAt: new Date(0).toISOString(),
       }));
     }
-  }, { seedCompletedDaily: completedDaily });
+  }, { seedCompletedDaily: completedDaily, dailyCard: ACCESSIBILITY_DAILY_CARD });
   await context.route("https://api.jakh.net/**", async (route) => {
     const path = new URL(route.request().url()).pathname;
     const fulfillJson = (body, status = 200) => route.fulfill({

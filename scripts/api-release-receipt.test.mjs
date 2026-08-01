@@ -37,8 +37,8 @@ function database(schema) {
   return [{ results: [{ value: schema }], success: true }];
 }
 
-function basicHealth(version, schema) {
-  return { ok: true, service: "jakh-api", version, schema };
+function basicHealth(version, schema, workerVersionId = OLD_VERSION_ID) {
+  return { ok: true, service: "jakh-api", version, schema, workerVersionId };
 }
 
 function compatibilityHealth(schema, overrides = {}) {
@@ -47,6 +47,7 @@ function compatibilityHealth(schema, overrides = {}) {
     ok: true,
     service: "jakh-api",
     version: "1.4.0",
+    workerVersionId: overrides.workerVersionId ?? COMPATIBILITY_VERSION_ID,
     schema,
     targetSchema: "8",
     compatibleSchemas: ["6", "7", "8"],
@@ -222,7 +223,7 @@ test("post-migration requires the same compatibility Worker healthy on target sc
   const success = buildPostMigration({
     receipt: finalPreflight(),
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("8", { workerVersionId: COMPATIBILITY_VERSION_ID }),
     httpStatus: "200",
     databaseResult: database("8"),
     migrationList: "✅ No migrations to apply!",
@@ -253,7 +254,7 @@ test("final deployment is verified and can roll back to the proven compatible Wo
   const deployed = buildPostDeploy({
     receipt: migrated,
     deployment: deployment(FINAL_VERSION_ID, 100, "JAKH final abc123 schema 8 run 98765"),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("8", { workerVersionId: FINAL_VERSION_ID }),
     httpStatus: "200",
     databaseResult: database("8"),
     migrationList: "✅ No migrations to apply!",
@@ -264,7 +265,7 @@ test("final deployment is verified and can roll back to the proven compatible Wo
   const rollback = buildPostRollback({
     receipt: deployed.receipt,
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("8", { workerVersionId: COMPATIBILITY_VERSION_ID }),
     httpStatus: "200",
     databaseResult: database("8"),
     migrationList: "✅ No migrations to apply!",
@@ -318,6 +319,7 @@ test("split traffic and ambiguous D1 state remain hard failures", () => {
 test("final receipt cannot hide a failed exact Worker rollback", () => {
   const receipt = finalPreflight();
   receipt.result = "post-deploy-verification-failed";
+  receipt.safety.automaticWorkerRollback = true;
   finalizeReceipt(receipt, {
     preflight: "success",
     compatibilityDeploy: "skipped",
@@ -327,6 +329,9 @@ test("final receipt cannot hide a failed exact Worker rollback", () => {
     productionVerification: "failure",
     workerRollback: "failure",
     rollbackVerification: "skipped",
+    rollbackProof: "success",
+    migrationQuarantineProof: "success",
+    migrationAuthorization: "success",
   });
   assert.equal(receipt.result, "post-deploy-verification-failed-without-confirmed-rollback");
 });
@@ -338,17 +343,22 @@ test("workflow statically separates no-migration compatibility from gated migrat
     "utf8",
   );
   assert.match(workflow, /run-name: API \$\{\{ inputs\.release_phase \}\}/u);
+  assert.match(workflow, /group: jakh-production-release/u);
+  assert.match(workflow, /environment: production/u);
+  assert.match(workflow, /github\.ref_protected/u);
+  assert.match(workflow, /required_reviewers/u);
+  assert.match(workflow, /protected_branches/u);
   assert.match(workflow, /release_phase:/u);
   assert.match(workflow, /compatibility:/u);
   assert.match(workflow, /migrate-final:/u);
   assert.match(workflow, /preflight[\s\S]+--phase migrate-final/u);
   assert.match(workflow, /recovery-evidence\.mjs bookmark/u);
   assert.match(workflow, /d1 migrations apply DB --remote/u);
-  assert.ok(
-    workflow.indexOf("--phase migrate-final") < workflow.indexOf("recovery-evidence.mjs bookmark")
-      && workflow.indexOf("recovery-evidence.mjs bookmark") < workflow.indexOf("d1 migrations apply DB --remote"),
-    "active compatibility evidence and a recovery bookmark must precede D1 mutation",
-  );
+  assert.ok(workflow.indexOf("--phase migrate-final") < workflow.indexOf("id: migration_authorization"));
+  assert.ok(workflow.indexOf("id: migration_authorization") < workflow.indexOf("d1 migrations apply DB --remote"));
+  assert.match(workflow, /Fail closed until compatibility receipt and encrypted off-account D1 backup are enforced/u);
+  assert.match(workflow, /migration_authorization[\s\S]+exit 1/u);
+  assert.match(workflow, /steps\.migration_authorization\.outcome == 'success'/u);
   const compatibilityJob = workflow.slice(
     workflow.indexOf("  compatibility:"),
     workflow.indexOf("  migrate-final:"),
@@ -356,9 +366,19 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.doesNotMatch(compatibilityJob, /d1 migrations apply|recovery-evidence\.mjs bookmark/u);
   assert.match(workflow, /rollback \$\{\{ steps\.preflight\.outputs\.rollback-version \}\}/u);
   assert.doesNotMatch(workflow, /rollback[^\n]*--yes|--yes[^\n]*rollback/u);
+  assert.equal(workflow.match(/id: runtime_monitor/gu)?.length, 2);
+  assert.match(workflow, /--stage rollback-target/u);
+  assert.match(workflow, /--stage post-migration/u);
+  assert.match(workflow, /--stage candidate/u);
+  assert.match(workflow, /--stage rollback/u);
+  assert.match(workflow, /--expected-worker-version/u);
+  assert.match(workflow, /steps\.rollback_proof\.outputs\.rollback-safe == 'true'/u);
+  assert.match(workflow, /JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"/u);
+  assert.match(workflow, /--migration-authorization-outcome/u);
   assert.match(
     monitorWorkflow,
     /workflow_run\.name == 'Deploy API'[\s\S]+startsWith\(github\.event\.workflow_run\.display_title, 'API compatibility ·'\)/u,
   );
+  assert.match(monitorWorkflow, /JAKH_MONITOR_SCOPE:[\s\S]+workflow_run\.name == 'Deploy API'[\s\S]+&& 'api'/u);
   assert.doesNotMatch(monitorWorkflow, /API migrate-final[^\n]+ALLOW_COMPATIBLE/u);
 });

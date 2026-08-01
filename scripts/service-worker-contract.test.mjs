@@ -7,6 +7,11 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const workerSource = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
+const quarantineManifest = JSON.parse(fs.readFileSync(
+  path.join(root, 'docs/content-review/production-quarantine.json'),
+  'utf8',
+));
+const quarantinedCategories = new Set(quarantineManifest.categories.map(({ slug }) => slug));
 const origin = 'https://jakh.net';
 const fixedNow = '2026-08-01T12:00:00.000Z';
 
@@ -184,7 +189,11 @@ function cacheName(harness, expression) {
 }
 
 function expectedDailyPath(date, catalog) {
-  const eligible = catalog.categories.filter((category) => category.count >= 15 && category.mode !== 'story');
+  const eligible = catalog.categories.filter((category) => (
+    category.count >= 15
+    && category.mode !== 'story'
+    && !quarantinedCategories.has(category.slug)
+  ));
   const isoDate = date.toISOString().split('T')[0];
   const hash = isoDate
     .split('')
@@ -345,14 +354,95 @@ test('runtime caches are capped and same-origin version queries share one key', 
   }), false, 'online-only API request was intercepted');
 });
 
+test('quarantined routes and data fail closed before every online or offline cache lookup', async () => {
+  const harness = createHarness();
+  await harness.dispatchWithLifetime('install');
+  const fetchCount = harness.fetches.length;
+  for (const pathname of [
+    '/survival',
+    '/SURVIVAL.html?card=survival-1',
+    '/survival/page/2/',
+    '/ar/topics/survival/',
+    '/ar/topics/survival.html',
+    '/ar/topics/survival.html/archive',
+    '/ar/topics/survival%2ehtml',
+    '/ar/topics/medical-questions/page/5/',
+    '/data/pharmacy.json?v=old',
+    '/data/pharmacy.json/',
+    '/data/pharmacy.json/archive',
+    '/data/pharmacy.json%2farchive',
+    '/survival%3Fx=1',
+    '/survival%23fragment',
+    '/data/survival.json%3Fx=1',
+    '/data/survival.json%23fragment',
+    '/science%00/safe',
+    '/%73urvival',
+    '/survival%2ehtml',
+    '/ar//topics//%73urvival/',
+    '/data/%73urvival.json',
+    '/data/survival%2ejson',
+    '/safe/%252e%252e/law-middle-east',
+    '/%25252573urvival',
+    '/data/%ZZ.json',
+  ]) {
+    const response = await harness.dispatchFetch(
+      pathname,
+      pathname.includes('/data/') ? 'same-origin' : 'navigate',
+    );
+    assert.equal(response.status, 410, pathname);
+    assert.equal(response.headers.get('cache-control'), 'no-store', pathname);
+    assert.equal(response.headers.get('clear-site-data'), '"cache"', pathname);
+    assert.equal(response.headers.get('x-jakh-content-quarantine'), 'active', pathname);
+    assert.match(response.headers.get('x-robots-tag'), /noindex/u, pathname);
+  }
+  assert.equal(harness.fetches.length, fetchCount, 'quarantine guard reached the network');
+
+  harness.setOnline(false);
+  const offline = await harness.dispatchFetch('/data/economics-and-finance.json');
+  assert.equal(offline.status, 410);
+
+  const safePrefix = await harness.dispatchFetch('/survival-guide', 'navigate');
+  assert.notEqual(safePrefix.status, 410);
+});
+
+test('activation removes quarantined entries even if a prior cache populated them', async () => {
+  const harness = createHarness();
+  await harness.dispatchWithLifetime('install');
+  await harness.dispatchFetch('/science', 'navigate');
+  for (const cache of harness.stores.values()) {
+    await cache.put(
+      new Request(`${origin}/data/medical-questions.json`),
+      new Response('held-data', { headers: { 'content-type': 'application/json' } }),
+    );
+    await cache.put(
+      new Request(`${origin}/ar/topics/law-middle-east/`),
+      new Response('held-page', { headers: { 'content-type': 'text/html' } }),
+    );
+  }
+  await harness.dispatchWithLifetime('activate');
+  for (const cache of harness.stores.values()) {
+    const paths = (await cache.keys()).map((request) => new URL(request.url).pathname);
+    assert.equal(paths.includes('/data/medical-questions.json'), false);
+    assert.equal(paths.includes('/ar/topics/law-middle-east/'), false);
+  }
+});
+
 test('daily dependency routing mirrors the catalog for representative dates', () => {
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog.json'), 'utf8'));
   const expectedSlugs = catalog.categories
-    .filter((category) => category.count >= 15 && category.mode !== 'story')
+    .filter((category) => (
+      category.count >= 15
+      && category.mode !== 'story'
+      && !quarantinedCategories.has(category.slug)
+    ))
     .map((category) => category.slug);
   const harness = createHarness();
   const workerSlugs = JSON.parse(harness.evaluate('JSON.stringify(DAILY_CATEGORY_SLUGS)'));
   assert.deepEqual(workerSlugs, expectedSlugs);
+  assert.deepEqual(
+    new Set(JSON.parse(harness.evaluate('JSON.stringify(QUARANTINED_CATEGORY_SLUGS)'))),
+    quarantinedCategories,
+  );
 
   for (const isoDate of [
     '2026-08-01T12:00:00.000Z',

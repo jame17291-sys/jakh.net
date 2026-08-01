@@ -12,6 +12,15 @@ import { dirname, extname, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import {
+  isQuarantinedArtifactPath,
+  isQuarantinedRequestPath,
+  loadProductionQuarantine,
+  publicCardIndexProjection,
+  publicCatalogProjection,
+  publicSearchArtifacts,
+} from "./publication-quarantine.mjs";
+
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
 export const DEFAULT_OUTPUT_DIRECTORY = resolve(REPOSITORY_ROOT, "site-worker/dist");
@@ -171,6 +180,330 @@ function rewriteHtmlAssetReferences(html, relativePath, fingerprints) {
   );
 }
 
+function hrefPathFromAnchor(anchor) {
+  const href = anchor.match(/\bhref\s*=\s*["']([^"']+)["']/iu)?.[1];
+  if (!href) return null;
+  try {
+    return new URL(href, "https://jakh.net").pathname;
+  } catch {
+    return null;
+  }
+}
+
+function removeQuarantinedAnchors(html, categorySlugs) {
+  return html.replace(/<a\b[^>]*>[\s\S]*?<\/a\s*>/giu, (anchor) => {
+    const pathname = hrefPathFromAnchor(anchor);
+    return pathname && isQuarantinedRequestPath(pathname, categorySlugs) ? "" : anchor;
+  });
+}
+
+function removeQuarantinedSitemapEntries(xml, categorySlugs) {
+  return xml.replace(/\s*<url>[\s\S]*?<\/url>/gu, (entry) => {
+    const location = entry.match(/<loc>([^<]+)<\/loc>/u)?.[1];
+    if (!location) return entry;
+    try {
+      return isQuarantinedRequestPath(new URL(location).pathname, categorySlugs) ? "" : entry;
+    } catch {
+      return entry;
+    }
+  });
+}
+
+function rewritePublishedClaimValue(source, {
+  fullCategories,
+  fullQuestions,
+  publicCategories,
+  publicQuestions,
+}) {
+  const fullQuestionsFormatted = Number(fullQuestions).toLocaleString("en-US");
+  const publicQuestionsFormatted = Number(publicQuestions).toLocaleString("en-US");
+  let rewritten = String(source)
+    .replaceAll(fullQuestionsFormatted, publicQuestionsFormatted)
+    .replace(new RegExp(`\\b${fullQuestions}\\b`, "gu"), String(publicQuestions))
+    .replace(
+      new RegExp(`\\b${fullCategories}(?=\\s+(?:(?:clear|quiz)\\s+)?(?:topics|categories)\\b|(?=-topic\\b))`, "giu"),
+      String(publicCategories),
+    )
+    .replace(
+      new RegExp(`${fullCategories}(?=\\s+(?:موضوع(?:اً|ًا)?|فئة)(?![\\p{L}\\p{M}\\p{N}]))`, "gu"),
+      String(publicCategories),
+    )
+    .replaceAll("3,500+", "3,200+");
+  rewritten = rewritten.replace(
+    /(<[^>]+\bid=["']badgeCategories2?["'][^>]*>)\s*\d[\d,]*\s*(<\/[^>]+>)/giu,
+    `$1${publicCategories}$2`,
+  );
+  return rewritten;
+}
+
+const PUBLIC_CLAIM_KEYS = Object.freeze([
+  "aboutIntro",
+  "collectionsIntro",
+  "description",
+  "globalSearchPlaceholder",
+  "metaDescription",
+  "metaImageAlt",
+  "mindHeroEyebrow",
+  "name",
+  "portalMindDesc",
+  "portalMindStat",
+  "socialImageAlt",
+]);
+const PUBLIC_TEXT_I18N_KEYS = new Set([
+  "aboutIntro",
+  "collectionsIntro",
+  "mindHeroEyebrow",
+  "portalMindDesc",
+  "portalMindStat",
+]);
+const PUBLIC_TEXT_IDS = new Set([
+  "badgeCategories",
+  "badgeCategories2",
+  "badgeQuestions",
+  "directoryResultsLabel",
+]);
+
+function rewriteKnownScriptClaims(source, claimContext) {
+  const keys = PUBLIC_CLAIM_KEYS.join("|");
+  return String(source).replace(
+    new RegExp(`((?:["']?)(?:${keys})(?:["']?)\\s*:\\s*)(["'])([^\\r\\n]*?)\\2`, "gu"),
+    (match, prefix, quote, value) => `${prefix}${quote}${rewritePublishedClaimValue(value, claimContext)}${quote}`,
+  );
+}
+
+function removeQuarantinedApplicationArt(source, categorySlugs) {
+  let removed = 0;
+  const rewritten = String(source).replace(
+    /^\s*(?:["']?)([a-z0-9-]+)(?:["']?)\s*:\s*["']assets\/backgrounds\/[a-z0-9./_-]+["'],?\s*$/gmu,
+    (line, slug) => {
+      if (!categorySlugs.has(String(slug).toLowerCase())) return line;
+      removed += 1;
+      return "";
+    },
+  );
+  invariant(removed > 0, "app.js must contain at least one quarantined legacy background mapping to strip");
+  return rewritten;
+}
+
+export function rewriteKnownHtmlClaims(html, claimContext) {
+  let rewritten = String(html)
+    .replace(/<meta\b[^>]*>/giu, (tag) => (
+      /\b(?:name|property)=["'](?:description|og:(?:description|image:alt|title)|twitter:(?:description|image:alt|title))["']/iu.test(tag)
+        ? rewritePublishedClaimValue(tag, claimContext)
+        : tag
+    ))
+    .replace(/(<title\b[^>]*>)([^<]*)(<\/title>)/giu, (_match, open, value, close) => (
+      `${open}${rewritePublishedClaimValue(value, claimContext)}${close}`
+    ))
+    .replace(/<([a-z][a-z0-9-]*)\b([^>]*)>([^<]*)<\/\1>/giu, (match, tag, attributes, value) => {
+      const i18nKey = attributes.match(/\bdata-i18n=["']([^"']+)["']/iu)?.[1];
+      const id = attributes.match(/\bid=["']([^"']+)["']/iu)?.[1];
+      if (!PUBLIC_TEXT_I18N_KEYS.has(i18nKey) && !PUBLIC_TEXT_IDS.has(id)) return match;
+      let publishedValue = rewritePublishedClaimValue(value, claimContext);
+      if (id === "badgeCategories") {
+        publishedValue = String(claimContext.publicCategories);
+      } else if (id === "badgeQuestions") {
+        publishedValue = Number(claimContext.publicQuestions).toLocaleString("en-US");
+      }
+      return `<${tag}${attributes}>${publishedValue}</${tag}>`;
+    });
+  rewritten = rewriteKnownScriptClaims(rewritten, claimContext);
+  return rewritten;
+}
+
+function rewriteWebManifestClaims(source, claimContext) {
+  const manifest = JSON.parse(String(source));
+  for (const key of ["name", "short_name", "description"]) {
+    if (typeof manifest[key] === "string") manifest[key] = rewritePublishedClaimValue(manifest[key], claimContext);
+  }
+  return `${JSON.stringify(manifest, null, 2)}\n`;
+}
+
+function escapeProjectedHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function rewritePublishedSectionTotals(html, publicCatalog) {
+  const isArabic = /<html\b[^>]*\blang=["']ar["']/iu.test(html);
+  const language = isArabic ? "ar" : "en";
+  const categoriesBySlug = new Map(
+    (publicCatalog.categories || []).map((category) => [category.slug, category]),
+  );
+  const totalCategories = (publicCatalog.categories || []).length;
+  let rewritten = html;
+  const tabCount = (count) => isArabic ? `${count} موضوعًا` : `${count} topics`;
+  const sectionCount = (count, questions) => isArabic
+    ? `${count} موضوعًا · ${questions.toLocaleString("en-US")} سؤال`
+    : `${count} topics · ${questions.toLocaleString("en-US")} questions`;
+
+  const replaceTab = (key, count) => {
+    const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+    const pattern = new RegExp(
+      `(<button\\b[^>]*\\bdata-cluster=["']${escapedKey}["'][^>]*>[\\s\\S]*?<span\\b[^>]*\\bclass=["'][^"']*\\bml-cluster-tab-count\\b[^"']*["'][^>]*>)[^<]*(<\\/span>)`,
+      "iu",
+    );
+    rewritten = rewritten.replace(pattern, `$1${tabCount(count)}$2`);
+  };
+  replaceTab("all", totalCategories);
+
+  for (const section of publicCatalog.sections || []) {
+    const members = (section.members || []).map((slug) => categoriesBySlug.get(slug)).filter(Boolean);
+    const questions = members.reduce((total, category) => total + Number(category.count || 0), 0);
+    replaceTab(section.key, members.length);
+    const escapedKey = section.key.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+    const sectionPattern = new RegExp(
+      `(<section\\b[^>]*\\bid=["']section-${escapedKey}["'][^>]*>[\\s\\S]*?<div><h3>)[\\s\\S]*?(<\\/h3><p>)[\\s\\S]*?(<\\/p><\\/div>[\\s\\S]*?<p\\b[^>]*\\bclass=["'][^"']*\\bdirectory-section-count\\b[^"']*["'][^>]*>)[^<]*(<\\/p>)`,
+      "iu",
+    );
+    rewritten = rewritten.replace(
+      sectionPattern,
+      `$1${escapeProjectedHtml(section.title?.[language] || section.title?.en || section.key)}`
+      + `$2${escapeProjectedHtml(section.description?.[language] || section.description?.en || "")}`
+      + `$3${sectionCount(members.length, questions)}$4`,
+    );
+  }
+  return rewritten;
+}
+
+function applyPublicProjection(sourceBytes, { catalog, quarantine, sourceRoot }) {
+  const publicCatalog = publicCatalogProjection(catalog, quarantine);
+  const fullQuestions = Number(catalog.site?.totalQuestions || 0);
+  const fullCategories = (catalog.categories || []).length;
+  const publicQuestions = Number(publicCatalog.site?.totalQuestions || 0);
+  const publicCategories = (publicCatalog.categories || []).length;
+
+  invariant(fullQuestions > publicQuestions, "production quarantine did not reduce the public corpus");
+  invariant(fullCategories > publicCategories, "production quarantine did not reduce public categories");
+  invariant(fullQuestions - publicQuestions === quarantine.manifest.totalCards, "public corpus total does not match quarantine");
+  sourceBytes.set("data/catalog.json", Buffer.from(`${JSON.stringify(publicCatalog, null, 2)}\n`, "utf8"));
+
+  const cardIndexBytes = sourceBytes.get("data/card-index.json");
+  invariant(cardIndexBytes, "public card index is missing");
+  const cardIndex = JSON.parse(cardIndexBytes.toString("utf8"));
+  const publicCardIndex = publicCardIndexProjection(cardIndex, quarantine);
+  invariant(
+    Object.keys(cardIndex).length - Object.keys(publicCardIndex).length === quarantine.manifest.totalCards,
+    "public card-index quarantine total is inconsistent",
+  );
+  sourceBytes.set("data/card-index.json", Buffer.from(`${JSON.stringify(publicCardIndex)}\n`, "utf8"));
+
+  for (const [relativePath, serialized] of publicSearchArtifacts({
+    catalog,
+    root: sourceRoot,
+    quarantine,
+  })) {
+    invariant(sourceBytes.has(relativePath), `public search artifact source is missing: ${relativePath}`);
+    sourceBytes.set(relativePath, Buffer.from(serialized, "utf8"));
+  }
+
+  const claimContext = { fullCategories, fullQuestions, publicCategories, publicQuestions };
+  for (const [relativePath, bytes] of sourceBytes) {
+    if (relativePath.endsWith(".html")) {
+      let html = removeQuarantinedAnchors(bytes.toString("utf8"), quarantine.categorySlugs);
+      html = rewriteKnownHtmlClaims(html, claimContext);
+      html = rewritePublishedSectionTotals(html, publicCatalog);
+      sourceBytes.set(relativePath, Buffer.from(html, "utf8"));
+    } else if (relativePath.endsWith(".js")) {
+      const script = relativePath === "app.js"
+        ? removeQuarantinedApplicationArt(bytes.toString("utf8"), quarantine.categorySlugs)
+        : bytes.toString("utf8");
+      sourceBytes.set(
+        relativePath,
+        Buffer.from(rewriteKnownScriptClaims(script, claimContext), "utf8"),
+      );
+    } else if (relativePath.endsWith(".webmanifest")) {
+      sourceBytes.set(relativePath, Buffer.from(rewriteWebManifestClaims(bytes.toString("utf8"), claimContext), "utf8"));
+    } else if (relativePath === "sitemap.xml") {
+      const sitemap = removeQuarantinedSitemapEntries(bytes.toString("utf8"), quarantine.categorySlugs);
+      sourceBytes.set(relativePath, Buffer.from(sitemap, "utf8"));
+    }
+  }
+  return { publicCatalog, publicCategories, publicQuestions };
+}
+
+export function assertPublicProjection(artifactBytes, { publication, quarantine }) {
+  const forbiddenIds = [...quarantine.cardIds];
+  const textExtensions = new Set([".css", ".html", ".js", ".json", ".map", ".mjs", ".svg", ".txt", ".webmanifest", ".xml"]);
+  const htmlEscape = (value) => value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+  const forbiddenTextVariants = new Set();
+  for (const fragment of quarantine.sensitiveTextFragments) {
+    const normalized = fragment.normalize("NFC");
+    forbiddenTextVariants.add(normalized);
+    forbiddenTextVariants.add(JSON.stringify(normalized).slice(1, -1));
+    forbiddenTextVariants.add(htmlEscape(normalized));
+    forbiddenTextVariants.add(encodeURIComponent(normalized));
+  }
+  const forbiddenTextPattern = new RegExp(
+    [...forbiddenTextVariants]
+      .sort((left, right) => right.length - left.length)
+      .map((value) => value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"))
+      .join("|"),
+    "u",
+  );
+  for (const [relativePath, bytes] of artifactBytes) {
+    invariant(!isQuarantinedArtifactPath(relativePath, quarantine), `quarantined artifact path was emitted: ${relativePath}`);
+    const extension = extname(relativePath).toLowerCase();
+    if (!textExtensions.has(extension)) continue;
+    const source = bytes.toString("utf8").normalize("NFC");
+    invariant(
+      !forbiddenTextPattern.test(source),
+      `held question, answer, or advice text leaked into ${relativePath}`,
+    );
+    for (const match of source.matchAll(/\/?assets\/[A-Za-z0-9._/-]+/gu)) {
+      const assetPath = match[0].replace(/^\//u, "");
+      invariant(
+        !isQuarantinedArtifactPath(assetPath, quarantine),
+        `quarantined asset ${assetPath} leaked into ${relativePath}`,
+      );
+    }
+    for (const cardId of forbiddenIds) {
+      invariant(!source.includes(cardId), `quarantined card ${cardId} leaked into ${relativePath}`);
+    }
+    if (relativePath.endsWith(".html") || relativePath === "sitemap.xml") {
+      for (const slug of quarantine.categorySlugs) {
+        invariant(
+          !new RegExp(`(?:href|content|item|loc)=["']?(?:https://jakh\\.net)?/(?:ar/topics/)?${slug}(?:[/?#."'<]|$)`, "iu").test(source),
+          `quarantined route ${slug} leaked into ${relativePath}`,
+        );
+      }
+    }
+    if (relativePath === "sitemap.xml") {
+      for (const match of source.matchAll(/<loc>([^<]+)<\/loc>/gu)) {
+        const location = new URL(match[1]);
+        invariant(
+          !isQuarantinedRequestPath(location.pathname, quarantine.categorySlugs),
+          `quarantined sitemap URL leaked into ${relativePath}: ${location.href}`,
+        );
+      }
+    }
+    if ([".html", ".js", ".webmanifest"].includes(extension)) {
+      invariant(!source.includes("3,553"), `retired public count 3,553 leaked into ${relativePath}`);
+      invariant(!/\b3553\b/u.test(source), `retired public count 3553 leaked into ${relativePath}`);
+      invariant(!source.includes("3,500+"), `retired public approximation 3,500+ leaked into ${relativePath}`);
+      invariant(
+        !/\b56\s+(?:(?:clear|quiz)\s+)?(?:topics|categories)\b|\b56-topic\b|56\s+(?:موضوع(?:اً|ًا)?|فئة)(?![\p{L}\p{M}\p{N}])/iu.test(source),
+        `retired public category count 56 leaked into ${relativePath}`,
+      );
+    }
+    if (relativePath.endsWith("privacy.html") || relativePath.endsWith("privacy/index.html")) {
+      invariant(!/GitHub Pages serves the public website|تعرض GitHub Pages الموقع العام/iu.test(source), `retired hosting claim leaked into ${relativePath}`);
+    }
+  }
+  invariant(publication.publicCategories === 51, `public category contract changed from 51 to ${publication.publicCategories}`);
+  invariant(publication.publicQuestions === 3_275, `public question contract changed from 3275 to ${publication.publicQuestions}`);
+  invariant(quarantine.manifest.totalCards === 278, "production quarantine contract changed from 278 cards");
+}
+
 const CACHE_IDENTITY_PLACEHOLDER = "__JAKH_SOURCE_GRAPH_ID__";
 
 function rewriteServiceWorkerTemplate(source, fingerprints) {
@@ -291,7 +624,7 @@ export async function buildStaticSite({
   assertSafeGeneratedPath(source, manifestTarget, "Manifest path");
   assertSafeGeneratedPath(source, moduleTarget, "Manifest module path");
 
-  const selectedFiles = (fileList || trackedDeployableFiles(source))
+  let selectedFiles = (fileList || trackedDeployableFiles(source))
     .map(normalizeRelativePath)
     .filter(isDeployableFile)
     .sort((left, right) => left.localeCompare(right, "en"));
@@ -299,6 +632,14 @@ export async function buildStaticSite({
   invariant(new Set(selectedFiles).size === selectedFiles.length, "Deployable file list contains duplicates");
   invariant(selectedFiles.includes("index.html"), "The static artifact must include index.html");
   invariant(selectedFiles.includes("404.html"), "The static artifact must include 404.html");
+
+  let quarantine = null;
+  if (selectedFiles.includes("data/catalog.json")) {
+    quarantine = loadProductionQuarantine(source);
+    selectedFiles = selectedFiles.filter((relativePath) => (
+      !isQuarantinedArtifactPath(relativePath, quarantine)
+    ));
+  }
 
   await rm(output, { recursive: true, force: true });
   await mkdir(output, { recursive: true });
@@ -312,6 +653,14 @@ export async function buildStaticSite({
     invariant(metadata.isFile() && !metadata.isSymbolicLink(), `Deployable source must be a regular file: ${relativePath}`);
     sourceBytes.set(relativePath, await readFile(sourcePath));
   }
+
+  const publication = quarantine
+    ? applyPublicProjection(sourceBytes, {
+      catalog: JSON.parse((await readFile(resolve(source, "data/catalog.json"))).toString("utf8")),
+      quarantine,
+      sourceRoot: source,
+    })
+    : null;
 
   // Stable source URLs remain available as revalidated compatibility assets.
   // Fingerprinted copies are constructed leaves-first so a changed dependency
@@ -373,6 +722,10 @@ export async function buildStaticSite({
     artifactBytes.set("sw.js", Buffer.from(serviceWorker, "utf8"));
   }
 
+  if (quarantine && publication) {
+    assertPublicProjection(artifactBytes, { publication, quarantine });
+  }
+
   const files = {};
   const routes = {};
   const aliases = {};
@@ -400,12 +753,25 @@ export async function buildStaticSite({
     }
   }
 
+  // Arabic pages use directory canonicals, but older links may use the
+  // equivalent `.html` spelling. Declare those spellings explicitly so the
+  // Worker can normalize them before the static-assets binding sees them.
+  for (const route of Object.keys(routes)) {
+    if (!route.startsWith("/ar/") || route === "/ar/" || !route.endsWith("/")) continue;
+    const alias = `${route.slice(0, -1)}.html`;
+    invariant(!files[alias] && !routes[alias] && !aliases[alias], `Arabic HTML alias collides with the release graph: ${alias}`);
+    aliases[alias] = route;
+  }
+
   for (const [alias, target] of Object.entries(aliases)) {
     invariant(!aliases[target], `Alias ${alias} points to another alias ${target}`);
     invariant(Boolean(routes[target]), `Alias ${alias} points to an unknown route ${target}`);
   }
 
   const buildHasher = createHash("sha256");
+  if (quarantine) {
+    buildHasher.update("production-publication-policy\0").update(quarantine.policySha256).update("\0");
+  }
   for (const [path, record] of Object.entries(files).sort(([left], [right]) => left.localeCompare(right, "en"))) {
     buildHasher.update(path).update("\0").update(record.sha256).update("\0");
   }
@@ -425,6 +791,17 @@ export async function buildStaticSite({
     routes,
     aliases,
     inlineScripts,
+    ...(quarantine && publication ? {
+      publication: {
+        state: "safety-quarantine-active",
+        policySha256: quarantine.policySha256,
+        fullQuestions: publication.publicQuestions + quarantine.manifest.totalCards,
+        publicQuestions: publication.publicQuestions,
+        quarantinedQuestions: quarantine.manifest.totalCards,
+        publicCategories: publication.publicCategories,
+        quarantinedCategories: [...quarantine.categorySlugs],
+      },
+    } : {}),
   };
   validateFingerprintManifest(manifest);
 

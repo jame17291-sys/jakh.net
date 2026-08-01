@@ -5,9 +5,13 @@ import {
   API_RELEASE_CONTRACT,
   buildMonitorReport,
   HTML_ROUTES,
+  QUARANTINED_CATEGORY_SLUGS,
+  QUARANTINED_SITE_ROUTES,
   runProductionMonitor,
   UNAUTHENTICATED_API_GET_ROUTES,
 } from "./monitor-production.mjs";
+
+const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 
 function quietLogger() {
   return { log() {}, error() {} };
@@ -18,6 +22,7 @@ function apiHeaders(origin, cacheControl = "no-store") {
     "content-type": "application/json; charset=utf-8",
     "cache-control": cacheControl,
     "x-content-type-options": "nosniff",
+    "x-jakh-worker-version": FIXTURE_WORKER_VERSION,
     "referrer-policy": "no-referrer",
   };
   if (origin === "https://jakh.net") {
@@ -38,7 +43,32 @@ function staticBody(pathname) {
   }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
-      categories: Array.from({ length: 56 }, (_, index) => ({ slug: `category-${index}` })),
+      site: {
+        totalQuestions: 3_275,
+        publication: {
+          state: "safety-quarantine-active",
+          publicCategories: 51,
+          publicQuestions: 3_275,
+          quarantinedQuestions: 278,
+          policySha256: API_RELEASE_CONTRACT.contentPublication.manifestSha256,
+        },
+      },
+      categories: Array.from({ length: 51 }, (_, index) => ({ slug: `category-${index}` })),
+    });
+  }
+  if (pathname === "/data/card-index.json") {
+    return JSON.stringify(Object.fromEntries(
+      Array.from({ length: 3_275 }, (_, index) => [`public-card-${index}`, ["category-0", "easy"]]),
+    ));
+  }
+  if (pathname === "/data/search-index.en.json" || pathname === "/data/search-index.ar.json") {
+    const language = pathname.includes(".ar.") ? "ar" : "en";
+    return JSON.stringify({
+      version: 2,
+      language,
+      total: 3_275,
+      categories: Array.from({ length: 51 }, (_, index) => `category-${index}`),
+      cards: Array.from({ length: 3_275 }, (_, index) => [0, `public-card-${index}`, `q-${index}`, `a-${index}`]),
     });
   }
   if (pathname === "/manifest.webmanifest") {
@@ -77,7 +107,7 @@ function staticBody(pathname) {
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "8" } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "8", pagesMode = false } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -108,6 +138,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
       response.writeHead(200, apiHeaders(brokenCors ? undefined : requestOrigin));
       response.end(JSON.stringify({
         ok: true,
+        workerVersionId: FIXTURE_WORKER_VERSION,
         ...API_RELEASE_CONTRACT,
         schema: apiSchema,
         features: {
@@ -115,6 +146,21 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
           accountRecovery: Number(apiSchema) >= 7,
           accountDeletion: Number(apiSchema) >= 8,
         },
+      }));
+      return;
+    }
+
+    if (
+      url.pathname === "/api/leaderboard"
+      && QUARANTINED_CATEGORY_SLUGS.includes(url.searchParams.get("category"))
+    ) {
+      response.writeHead(503, {
+        ...apiHeaders(brokenCors ? undefined : requestOrigin),
+        "retry-after": "86400",
+      });
+      response.end(JSON.stringify({
+        error: "Category is temporarily unavailable pending safety review",
+        code: "CATEGORY_QUARANTINED",
       }));
       return;
     }
@@ -135,9 +181,39 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
       return;
     }
 
+    if (request.method === "POST" && url.pathname === "/api/battle/create") {
+      response.writeHead(503, {
+        ...apiHeaders(brokenCors ? undefined : requestOrigin),
+        "retry-after": "86400",
+      });
+      response.end(JSON.stringify({
+        error: "Category is temporarily unavailable pending safety review",
+        code: "CATEGORY_QUARANTINED",
+      }));
+      return;
+    }
+
     if (UNAUTHENTICATED_API_GET_ROUTES.some(({ path }) => path === url.pathname)) {
       response.writeHead(401, apiHeaders(brokenCors ? undefined : requestOrigin));
       response.end(JSON.stringify({ error: "Unauthorized" }));
+      return;
+    }
+
+    if (QUARANTINED_SITE_ROUTES.some(({ path }) => path === url.pathname)) {
+      if (pagesMode) {
+        response.writeHead(404, { "content-type": "text/html; charset=utf-8" });
+        response.end("<!doctype html><title>Page Not Found | JAKH Riddles</title>");
+        return;
+      }
+      response.writeHead(410, {
+        "cache-control": "no-store",
+        "clear-site-data": '"cache"',
+        "content-type": "text/plain; charset=utf-8",
+        "x-jakh-content-quarantine": "active",
+        "x-jakh-worker-version": FIXTURE_WORKER_VERSION,
+        "x-robots-tag": "noindex, nofollow, noarchive, nosnippet",
+      });
+      response.end("Content temporarily unavailable.\n");
       return;
     }
 
@@ -164,12 +240,18 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
             : url.pathname.endsWith(".webmanifest")
               ? "application/manifest+json; charset=utf-8"
               : "text/html; charset=utf-8";
-      response.writeHead(200, { "content-type": contentType });
+      response.writeHead(200, {
+        "content-type": contentType,
+        ...(pagesMode ? {} : { "x-jakh-worker-version": FIXTURE_WORKER_VERSION }),
+      });
       response.end(body);
       return;
     }
 
-    response.writeHead(404, { "content-type": "text/html; charset=utf-8" });
+    response.writeHead(404, {
+      "content-type": "text/html; charset=utf-8",
+      ...(pagesMode ? {} : { "x-jakh-worker-version": FIXTURE_WORKER_VERSION }),
+    });
     response.end("<!doctype html><title>Page Not Found | JAKH Riddles</title>");
   });
 
@@ -208,7 +290,59 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, 40);
+    assert.equal(summary.results.length, 45 + QUARANTINED_SITE_ROUTES.length);
+  });
+});
+
+test("production monitor scopes API and site release checks without cross-surface requests", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    const api = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      scope: "api",
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+    assert.ok(api.results.length > 0);
+    assert.ok(api.results.every(({ name }) => name.startsWith("API")));
+    assert.ok(api.results.some(({ name }) => name === "API quarantine: held Battle category"));
+
+    const site = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      scope: "site",
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+    assert.ok(site.results.length > 0);
+    assert.ok(site.results.every(({ name }) => name.startsWith("Site")));
+    assert.ok(site.results.some(({ name }) => name === "Site quarantine: recursively encoded canonical page"));
+  });
+});
+
+test("legacy Pages mode proves the exact projection while accepting content-safe 404 holds", async () => {
+  await withFixture({ pagesMode: true }, async (fixtureOrigin) => {
+    const pages = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      scope: "pages",
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+    assert.equal(pages.failures.length, 0);
+    assert.ok(pages.results.length > QUARANTINED_SITE_ROUTES.length);
+    assert.ok(pages.results.every(({ name }) => name.startsWith("Site")));
+    assert.ok(pages.results.some(({ name, status }) => (
+      name === "Site quarantine: medical-questions question data" && status === 404
+    )));
+    assert.ok(pages.results.some(({ name }) => name === "Site: public card index"));
+    assert.ok(pages.results.some(({ name }) => name === "Site: ar public search index"));
   });
 });
 
@@ -240,7 +374,20 @@ test("only a compatibility-triggered monitor accepts a supported pre-migration s
 
 test("production monitor emits a stable structured report for alert routing", () => {
   const summary = {
-    results: [{ name: "Site: Home", status: 200, elapsedMs: 42, bytes: 100, attempts: 1 }],
+    config: {
+      scope: "all",
+      siteOrigin: "https://jakh.net",
+      apiOrigin: "https://api.jakh.net",
+      allowCompatibleSchema: false,
+    },
+    results: [{
+      name: "Site: Home",
+      status: 200,
+      elapsedMs: 42,
+      bytes: 100,
+      attempts: 1,
+      workerVersionId: FIXTURE_WORKER_VERSION,
+    }],
     failures: [{ name: "API: health", message: "expected HTTP 200, received 503", attempts: 2 }],
   };
   const report = buildMonitorReport(summary, new Date("2026-08-01T08:00:00.000Z"));
@@ -249,9 +396,16 @@ test("production monitor emits a stable structured report for alert routing", ()
     schemaVersion: 1,
     generatedAt: "2026-08-01T08:00:00.000Z",
     status: "failure",
+    monitor: {
+      scope: "all",
+      siteOrigin: "https://jakh.net",
+      apiOrigin: "https://api.jakh.net",
+      allowCompatibleSchema: false,
+    },
     totalChecks: 2,
     passedChecks: 1,
     failedChecks: 1,
+    contentPublicationContract: API_RELEASE_CONTRACT.contentPublication,
     apiReleaseContract: API_RELEASE_CONTRACT,
     results: summary.results,
     failures: summary.failures,

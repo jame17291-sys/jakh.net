@@ -4,7 +4,6 @@ if (location.protocol === 'http:' && !/^(localhost|127\.0\.0\.1)$/i.test(locatio
 }
 
 
-// ── Micro-animations ──────────────────────────────────────────────────────────
 function spawnConfetti(originEl) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const rect = originEl.getBoundingClientRect();
@@ -37,7 +36,7 @@ function flashCard(id) {
   const el = document.querySelector(`.riddle-card[data-id="${CSS.escape(id)}"]`);
   if (!el) return;
   el.classList.remove('flash-success');
-  void el.offsetWidth; // reflow to restart animation
+  void el.offsetWidth;
   el.classList.add('flash-success');
   el.addEventListener('animationend', () => el.classList.remove('flash-success'), { once: true });
 }
@@ -57,62 +56,99 @@ const DIFFICULTY_POINTS = {
 
 const PAGE_SIZE = 20;
 
+const QUARANTINED_CATEGORY_SLUGS = new Set(['survival', 'law-middle-east', 'medical-questions', 'pharmacy', 'economics-and-finance']);
+function categoryIsQuarantined(slug) { return QUARANTINED_CATEGORY_SLUGS.has(String(slug || '').trim().toLowerCase()); }
+function requestPathIsQuarantined(input) {
+  let path = String(input || '/').split(/[?#]/)[0];
+  for (let i = 0; i < 3; i += 1) {
+    let next;
+    try { next = decodeURIComponent(path); } catch (_) { return true; }
+    if (next === path) break;
+    path = next;
+  }
+  if (/%[0-9a-f]{2}/i.test(path) || /[?#\u0000-\u001f\u007f]/.test(path)) return true;
+  const parts = [];
+  for (const part of path.replaceAll('\\', '/').split('/')) {
+    if (!part || part === '.') continue;
+    if (part === '..') parts.pop(); else parts.push(part);
+  }
+  path = `/${parts.join('/')}`.toLowerCase();
+  return [...QUARANTINED_CATEGORY_SLUGS].some(s => {
+    const roots = [`/data/${s}.json`, `/${s}`, `/${s}.html`, `/ar/topics/${s}`, `/ar/topics/${s}.html`];
+    return roots.includes(path) || roots.some(r => path.startsWith(`${r}/`));
+  });
+}
+function publicCatalogView(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Catalog is invalid');
+  const cats = (data.categories || [])
+    .filter(c => !categoryIsQuarantined(c?.slug))
+    .map(c => ({ ...c, related: (c.related || []).filter(slug => !categoryIsQuarantined(slug)) }));
+  const slugs = new Set(cats.map(c => c.slug));
+  return { ...data, site: { ...(data.site || {}), totalQuestions: cats.reduce((sum, c) => sum + Number(c.count || 0), 0) }, sections: (data.sections || []).map(s => ({ ...s, members: (s.members || []).filter(slug => slugs.has(slug)) })), categories: cats };
+}
+function renderClientQuarantine() {
+  const doc = document;
+  const ar = document.body.dataset.routeLang === 'ar' || location.pathname.startsWith('/ar/');
+  doc.querySelectorAll('script[type="application/ld+json"]').forEach(node => node.remove());
+  let meta = doc.querySelector('meta[name="robots"]');
+  if (!meta) { meta = doc.createElement('meta'); meta.name = 'robots'; doc.head.appendChild(meta); }
+  meta.content = 'noindex,nofollow,noarchive,nosnippet';
+  doc.title = ar ? 'غير متاح | JAKH' : 'Unavailable | JAKH';
+  const main = doc.querySelector('main');
+  if (main) main.innerHTML = `<section class="shell section-block" role="status"><h1>${ar ? 'المحتوى غير متاح' : 'Content unavailable'}</h1><p>${ar ? 'بانتظار مراجعة السلامة.' : 'Pending safety review.'}</p><a class="primary-btn" href="${ar ? '/ar/mind-lab/' : '/mind-lab'}">${ar ? 'المواضيع' : 'Topics'}</a></section>`;
+}
+
 const CATEGORY_COLORS = {
-  'art-and-painters':           '#FF6B6B',
-  'biology':                    '#2DD4BF',
-  'books-and-quotes':           '#D4A455',
-  'business-and-management':    '#60A5FA',
-  'chemistry':                  '#C084FC',
-  'civil-engineering':          '#94A3B8',
-  'classic-riddles':            '#A78BFA',
-  'coding-and-design':          '#38BDF8',
-  'electrical-engineering':     '#FBBF24',
-  'flag-questions':             '#F87171',
-  'football':                   '#4ADE80',
-  'geography':                  '#38BDF8',
-  'geology':                    '#B8956A',
-  'history':                    '#FB7185',
-  'infrastructure-systems':     '#94A3B8',
-  'kids-riddles':                '#FBBF24',
-  'law-middle-east':            '#C9A227',
-  'math':                       '#818CF8',
-  'mechanical-engineering':     '#94A3B8',
-  'medical-questions':          '#F472B6',
-  'middle-east-history':        '#F9A825',
-  'philosophy':                 '#C084FC',
+  'art-and-painters': '#FF6B6B',
+  'biology': '#2DD4BF',
+  'books-and-quotes': '#D4A455',
+  'business-and-management': '#60A5FA',
+  'chemistry': '#C084FC',
+  'civil-engineering': '#94A3B8',
+  'classic-riddles': '#A78BFA',
+  'coding-and-design': '#38BDF8',
+  'electrical-engineering': '#FBBF24',
+  'flag-questions': '#F87171',
+  'football': '#4ADE80',
+  'geography': '#38BDF8',
+  'geology': '#B8956A',
+  'history': '#FB7185',
+  'infrastructure-systems': '#94A3B8',
+  'kids-riddles': '#FBBF24',
+  'math': '#818CF8',
+  'mechanical-engineering': '#94A3B8',
+  'middle-east-history': '#F9A825',
+  'philosophy': '#C084FC',
   'physical-and-life-sciences': '#22D3EE',
-  'pharmacy':                   '#4ADE80',
-  'psychology':                 '#A78BFA',
-  'relationship-questions':     '#FB7185',
-  'science':                    '#22D3EE',
-  'social-sciences':            '#34D399',
-  'software-and-computing':     '#818CF8',
-  'space-and-astrology':        '#6366F1',
-  'story-mysteries':            '#818CF8',
-  'tv-shows-trivia':            '#E879F9',
+  'psychology': '#A78BFA',
+  'relationship-questions': '#FB7185',
+  'science': '#22D3EE',
+  'social-sciences': '#34D399',
+  'software-and-computing': '#818CF8',
+  'space-and-astrology': '#6366F1',
+  'story-mysteries': '#818CF8',
+  'tv-shows-trivia': '#E879F9',
   'world-habits-and-etiquette': '#FB923C',
-  'environment-and-ecology':    '#4ADE80',
-  'ancient-civilizations':      '#FCD34D',
-  'inventions-and-minds':       '#FB923C',
-  'animal-kingdom':             '#86EFAC',
-  'economics-and-finance':      '#FCD34D',
+  'environment-and-ecology': '#4ADE80',
+  'ancient-civilizations': '#FCD34D',
+  'inventions-and-minds': '#FB923C',
+  'animal-kingdom': '#86EFAC',
   'architecture-and-landmarks': '#FDA4AF',
-  'music-and-performing-arts':  '#F472B6',
-  'food-and-cuisines':          '#FDBA74',
-  'cinema-and-film-history':    '#F87171',
-  'future-tech-and-energy':     '#67E8F9',
-  'anime':                      '#FB7185',
-  'ayam-tayebeen':              '#C084FC',
-  'mythology-legends':          '#D4AF37',
-  'true-crime':                 '#8B0000',
-  'pop-culture':                '#FF69B4',
-  'superheroes':                '#EF4444',
-  'fictional-worlds':           '#10B981',
-  'survival':                   '#228B22',
-  'automotive':                 '#F97316',
-  'linguistics':                '#8B5CF6',
-  'currencies':                 '#059669',
-  'tech-retro':                 '#84CC16',
+  'music-and-performing-arts': '#F472B6',
+  'food-and-cuisines': '#FDBA74',
+  'cinema-and-film-history': '#F87171',
+  'future-tech-and-energy': '#67E8F9',
+  'anime': '#FB7185',
+  'ayam-tayebeen': '#C084FC',
+  'mythology-legends': '#D4AF37',
+  'true-crime': '#8B0000',
+  'pop-culture': '#FF69B4',
+  'superheroes': '#EF4444',
+  'fictional-worlds': '#10B981',
+  'automotive': '#F97316',
+  'linguistics': '#8B5CF6',
+  'currencies': '#059669',
+  'tech-retro': '#84CC16',
 };
 
 function categoryGradient(slug) {
@@ -215,7 +251,7 @@ const UI = {
     statCategories: 'Topics',
     statQuestions: 'Questions',
     statLanguages: 'Languages',
-    mindHeroEyebrow: '3,553 questions · 56 clear topics',
+    mindHeroEyebrow: '3,275 questions · 51 clear topics',
     mindHeroTitle: 'The Mind Lab',
     mindHeroSubtitle: 'Follow your curiosity. Every topic opens into a quick, satisfying challenge.',
     playHeroTitle: 'The Game Room',
@@ -282,8 +318,8 @@ const UI = {
     gameTagAreaControl: 'Area Control',
     portalMindTag: 'Mind Lab',
     portalMindTitle: 'The Mind Lab',
-    portalMindDesc: 'Explore 3,553 English and Arabic questions, organized into 56 clear topics. Flip each card, reveal the answer, and keep score as you go.',
-    portalMindStat: '56 topics',
+    portalMindDesc: 'Explore 3,275 English and Arabic questions, organized into 51 clear topics. Flip each card, reveal the answer, and keep score as you go.',
+    portalMindStat: '51 topics',
     portalBilingualStat: 'English & Arabic',
     portalMindCta: 'Explore Riddles →',
     portalGamesTag: 'Game Hub',
@@ -501,14 +537,11 @@ const UI = {
     reportCategory: 'Category',
     reportCorrect: 'Correct',
     reportWrong: 'Wrong',
-    // Achievements
     achievementsTitle: 'Achievements',
     achNoAchievements: 'No achievements yet — start answering!',
-    // Report
     reportBtn: 'Report',
     reportThanks: 'Reported — thanks for the feedback!',
     reportError: 'Could not submit report.',
-    // Share
     shareCopied: 'Result copied to clipboard!',
     shareChallengeTitle: 'JAKH Challenge',
     shareRiddleTitle: 'JAKH Riddles',
@@ -563,7 +596,6 @@ const UI = {
     installPrompt: '📲 Add JAKH to your home screen for quick access',
     install: 'Install',
     secondsShort: 's',
-    // Streak freeze
     streakFreezeLabel: '🧊 Freeze',
   },
   ar: {
@@ -580,7 +612,7 @@ const UI = {
     statCategories: 'المواضيع',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
-    mindHeroEyebrow: '3,553 سؤالًا · 56 موضوعًا واضحًا',
+    mindHeroEyebrow: '3,275 سؤالًا · 51 موضوعًا واضحًا',
     mindHeroTitle: 'مختبر العقول',
     mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
     playHeroTitle: 'غرفة الألعاب',
@@ -647,8 +679,8 @@ const UI = {
     gameTagAreaControl: 'سيطرة على المناطق',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: 'استكشف 3,553 سؤالًا بالعربية والإنجليزية، مرتبة في 56 موضوعًا واضحًا. اقلب البطاقة، واكشف الإجابة، وتابع نتيجتك بسهولة.',
-    portalMindStat: '56 موضوعًا',
+    portalMindDesc: 'استكشف 3,275 سؤالًا بالعربية والإنجليزية، مرتبة في 51 موضوعًا واضحًا. اقلب البطاقة، واكشف الإجابة، وتابع نتيجتك بسهولة.',
+    portalMindStat: '51 موضوعًا',
     portalBilingualStat: 'العربية والإنجليزية',
     portalMindCta: 'استكشف الألغاز ←',
     portalGamesTag: 'مركز الألعاب',
@@ -961,60 +993,62 @@ const timedQuizState = {
   timer: null, advanceTimeout: null, session: 0, timeLeft: 20,
 };
 
-const GUEST_KEYS = {
-  solved: 'jakh-guest-solved',
-  favorites: 'jakh-guest-favorites',
-};
-
-function getGuestSolvedMap() {
-  return loadJson(GUEST_KEYS.solved, {});
+const GUEST_KEYS = { solved: 'jakh-guest-solved', favorites: 'jakh-guest-favorites' };
+let publicCardIds = new Set();
+let publicCardIndexReady = false;
+// BEGIN PUBLIC HISTORY POLICY
+function projectPublicSolvedMap(raw, ids) {
+  return !raw || typeof raw !== 'object' || Array.isArray(raw) ? {} : Object.fromEntries(Object.entries(raw).filter(([id]) => ids.has(id)));
 }
-
-function getGuestFavorites() {
-  return loadJson(GUEST_KEYS.favorites, []);
+function projectPublicFavoriteIds(raw, ids) { return Array.isArray(raw) ? [...new Set(raw.filter(id => typeof id === 'string' && ids.has(id)))] : []; }
+function cloudMutationIsDeletionOnly(item) {
+  return String(item?.method || '').toUpperCase() === 'DELETE'
+    || (item?.endpoint === '/user/favorite' && item?.body?.action === 'remove');
 }
-
+function cloudMutationMayPublish(item, ids) {
+  const id = item?.body?.cardId;
+  return typeof id === 'string' && !!id && (ids.has(id) || cloudMutationIsDeletionOnly(item));
+}
+function dailyRecordIsUnavailableForPublication(r, ids, held, ready) {
+  if (!r || typeof r !== 'object' || Array.isArray(r)) return true;
+  const id = r.cardId ?? r.id;
+  const norm = v => typeof v === 'string' ? v.trim().toLowerCase() : '';
+  const cat = norm(r.categorySlug ?? r.categoryId);
+  const valid = v => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(v);
+  return (r.cardId !== undefined && r.id !== undefined && r.cardId !== r.id)
+    || (r.categorySlug !== undefined && r.categoryId !== undefined && norm(r.categorySlug) !== norm(r.categoryId))
+    || typeof id !== 'string' || !valid(id) || !valid(cat) || held.has(cat) || (ready && !ids.has(id));
+}
+// END PUBLIC HISTORY POLICY
+function getRawGuestSolvedMap() {
+  const raw = loadJson(GUEST_KEYS.solved, {});
+  return raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+}
+function getGuestSolvedMap() { return projectPublicSolvedMap(getRawGuestSolvedMap(), publicCardIds); }
+function getRawGuestFavorites() {
+  const raw = loadJson(GUEST_KEYS.favorites, []);
+  return Array.isArray(raw) ? raw : [];
+}
+function getGuestFavorites() { return projectPublicFavoriteIds(getRawGuestFavorites(), publicCardIds); }
+function publicAccountProgress() { return (state.dbUser?.progress || []).filter(item => publicCardIds.has(item?.cardId)); }
+function publicAccountFavorites() { return (state.dbUser?.favorites || []).filter(item => publicCardIds.has(item?.cardId)); }
 function _guestStatus(v) {
   return typeof v === 'object' && v !== null ? v.status : v;
 }
 
 const ACHIEVEMENTS = [
-  { id: 'first-solve',      icon: '⭐', en: 'First Steps',      ar: 'الخطوة الأولى',
-    descEn: 'Answer your first question correctly', descAr: 'أجب على سؤالك الأول بشكل صحيح',
-    check: () => getTotalCorrectCount() >= 1 },
-  { id: 'scholar',          icon: '🎓', en: 'Scholar',           ar: 'العالم',
-    descEn: 'Answer 100 questions correctly',       descAr: 'أجب على 100 سؤال بشكل صحيح',
-    check: () => getTotalCorrectCount() >= 100 },
-  { id: 'streak-7',         icon: '🔥', en: '7-Day Streak',      ar: '٧ أيام متتالية',
-    descEn: '7 consecutive active days',            descAr: '٧ أيام نشاط متتالية',
-    check: () => state.streak >= 7 },
-  { id: 'category-master',  icon: '👑', en: 'Category Master',   ar: 'سيد الفئة',
-    descEn: 'Complete any category 100%',           descAr: 'أكمل أي فئة بنسبة 100%',
-    check: () => getCategoryMasterCount() >= 1 },
-  { id: 'completionist',    icon: '💎', en: 'Completionist',     ar: 'المكتمل',
-    descEn: 'Complete 5 categories 100%',           descAr: 'أكمل 5 فئات بنسبة 100%',
-    check: () => getCategoryMasterCount() >= 5 },
-  { id: 'speed-demon',      icon: '⚡', en: 'Speed Demon',       ar: 'الرعد',
-    descEn: 'Score 8/10+ in Quick Fire',            descAr: 'احصل على 8/10 أو أعلى في الاختبار السريع',
-    check: () => loadJson('jakh-speed-demon', 0) >= 1 },
-  { id: 'bookworm',         icon: '📚', en: 'Bookworm',          ar: 'نهم القراءة',
-    descEn: 'Add 20 questions to favorites',        descAr: 'أضف 20 سؤالاً إلى المفضلة',
-    check: () => getFavoriteSet().size >= 20 },
-  { id: 'bilingual',        icon: '🌐', en: 'Bilingual',         ar: 'ثنائي اللغة',
-    descEn: 'Use both Arabic and English modes',    descAr: 'استخدم العربية والإنجليزية',
-    check: () => !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0) },
-  { id: 'night-owl',        icon: '🦉', en: 'Night Owl',         ar: 'بومة الليل',
-    descEn: 'Answer a question after midnight',     descAr: 'أجب على سؤال بعد منتصف الليل',
-    check: () => !!loadJson('jakh-night-owl', 0) },
-  { id: 'streak-30',        icon: '🏆', en: '30-Day Streak',     ar: '٣٠ يوماً متتالياً',
-    descEn: '30 consecutive active days',           descAr: '٣٠ يوم نشاط متتالي',
-    check: () => state.streak >= 30 },
-  { id: 'hard-solver',      icon: '💪', en: 'Hard Hitter',       ar: 'مواجه الصعاب',
-    descEn: 'Answer 25 hard or difficult questions correctly', descAr: 'أجب بشكل صحيح على 25 سؤالاً صعباً',
-    check: () => getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced') >= 25 },
-  { id: 'sharer',           icon: '🔗', en: 'Sharer',            ar: 'المشارك',
-    descEn: 'Share your first question',            descAr: 'شارك سؤالك الأول',
-    check: () => !!loadJson('jakh-shared', 0) },
+  { id: 'first-solve', icon: '⭐', en: 'First Steps', ar: 'الخطوة الأولى', descEn: 'Answer your first question correctly', descAr: 'أجب على سؤالك الأول بشكل صحيح', check: () => getTotalCorrectCount() >= 1 },
+  { id: 'scholar', icon: '🎓', en: 'Scholar', ar: 'العالم', descEn: 'Answer 100 questions correctly', descAr: 'أجب على 100 سؤال بشكل صحيح', check: () => getTotalCorrectCount() >= 100 },
+  { id: 'streak-7', icon: '🔥', en: '7-Day Streak', ar: '٧ أيام متتالية', descEn: '7 consecutive active days', descAr: '٧ أيام نشاط متتالية', check: () => state.streak >= 7 },
+  { id: 'category-master', icon: '👑', en: 'Category Master', ar: 'سيد الفئة', descEn: 'Complete any category 100%', descAr: 'أكمل أي فئة بنسبة 100%', check: () => getCategoryMasterCount() >= 1 },
+  { id: 'completionist', icon: '💎', en: 'Completionist', ar: 'المكتمل', descEn: 'Complete 5 categories 100%', descAr: 'أكمل 5 فئات بنسبة 100%', check: () => getCategoryMasterCount() >= 5 },
+  { id: 'speed-demon', icon: '⚡', en: 'Speed Demon', ar: 'الرعد', descEn: 'Score 8/10+ in Quick Fire', descAr: 'احصل على 8/10 أو أعلى في الاختبار السريع', check: () => loadJson('jakh-speed-demon', 0) >= 1 },
+  { id: 'bookworm', icon: '📚', en: 'Bookworm', ar: 'نهم القراءة', descEn: 'Add 20 questions to favorites', descAr: 'أضف 20 سؤالاً إلى المفضلة', check: () => getFavoriteSet().size >= 20 },
+  { id: 'bilingual', icon: '🌐', en: 'Bilingual', ar: 'ثنائي اللغة', descEn: 'Use both Arabic and English modes', descAr: 'استخدم العربية والإنجليزية', check: () => !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0) },
+  { id: 'night-owl', icon: '🦉', en: 'Night Owl', ar: 'بومة الليل', descEn: 'Answer a question after midnight', descAr: 'أجب على سؤال بعد منتصف الليل', check: () => !!loadJson('jakh-night-owl', 0) },
+  { id: 'streak-30', icon: '🏆', en: '30-Day Streak', ar: '٣٠ يوماً متتالياً', descEn: '30 consecutive active days', descAr: '٣٠ يوم نشاط متتالي', check: () => state.streak >= 30 },
+  { id: 'hard-solver', icon: '💪', en: 'Hard Hitter', ar: 'مواجه الصعاب', descEn: 'Answer 25 hard or difficult questions correctly', descAr: 'أجب بشكل صحيح على 25 سؤالاً صعباً', check: () => getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced') >= 25 },
+  { id: 'sharer', icon: '🔗', en: 'Sharer', ar: 'المشارك', descEn: 'Share your first question', descAr: 'شارك سؤالك الأول', check: () => !!loadJson('jakh-shared', 0) },
 ];
 
 const completedCategoriesShown = new Set();
@@ -1125,7 +1159,6 @@ function escapeHtml(value) {
 
 
 
-// ================= API WRAPPER =================
 const IS_LOCAL_PREVIEW = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 const API_ORIGIN = IS_LOCAL_PREVIEW
   ? `${location.protocol}//${location.hostname}:8787`
@@ -1201,9 +1234,6 @@ async function checkCloudSession() {
       clearAllCloudMutations();
       return;
     }
-    // A transient profile/session failure must not visually sign out an
-    // identity that was already established. The next bounded recheck can
-    // refresh it without destroying the current account view.
     state.dbUser = previousUser;
     state.accountAnalyticsAllowed = previousAnalyticsAllowed;
   }
@@ -1225,12 +1255,12 @@ function postAuthDestination() {
 function getActiveUser() {
   if (!state.dbUser) return null;
   const solvedMap = {};
-  (state.dbUser.progress || []).forEach(p => { solvedMap[p.cardId] = p.status; });
+  publicAccountProgress().forEach(p => { solvedMap[p.cardId] = p.status; });
   return {
     id: state.dbUser.id,
     username: state.dbUser.username,
     avatar: state.dbUser.avatar || '👤',
-    favorites: (state.dbUser.favorites || []).map(f => f.cardId),
+    favorites: publicAccountFavorites().map(f => f.cardId),
     solved: solvedMap,
   };
 }
@@ -1268,7 +1298,6 @@ async function detectApiAvailability(attempts = 2) {
         if (payload?.ok === true) return true;
       }
     } catch (_) {
-      // A health probe is advisory. Individual controls still make their own request.
     } finally {
       clearTimeout(timeout);
     }
@@ -1376,9 +1405,18 @@ async function loadCardIndex() {
       if (!index || typeof index !== 'object' || Array.isArray(index)) {
         throw new Error('Card index is invalid');
       }
-      return index;
+      const projected = Object.fromEntries(
+        Object.entries(index).filter(([, entry]) => (
+          Array.isArray(entry) && !categoryIsQuarantined(entry[0])
+        )),
+      );
+      publicCardIds = new Set(Object.keys(projected));
+      publicCardIndexReady = true;
+      return projected;
     }).catch(error => {
       cardIndexPromise = null;
+      publicCardIds = new Set();
+      publicCardIndexReady = false;
       throw error;
     });
   }
@@ -1387,8 +1425,8 @@ async function loadCardIndex() {
 
 async function syncGuestProgress() {
   if (!state.dbUser) return;
-  const guestSolved = getGuestSolvedMap();
-  const guestFavs = getGuestFavorites();
+  const guestSolved = getRawGuestSolvedMap();
+  const guestFavs = getRawGuestFavorites();
   if (!Object.keys(guestSolved).length && !guestFavs.length) return;
 
   const cardIndex = await loadCardIndex();
@@ -1399,7 +1437,6 @@ async function syncGuestProgress() {
     const card = cardIndex[cardId];
     const status = _guestStatus(val);
     if (!card || !status) {
-      delete remainingSolved[cardId];
       continue;
     }
     const categoryId = card[0];
@@ -1408,7 +1445,6 @@ async function syncGuestProgress() {
   for (const cardId of guestFavs) {
     const card = cardIndex[cardId];
     if (!card) {
-      remainingFavs.delete(cardId);
       continue;
     }
     items.push({
@@ -1436,8 +1472,10 @@ async function syncGuestProgress() {
     if (remainingFavs.size) saveJson(GUEST_KEYS.favorites, [...remainingFavs]);
     else safeStorageRemove('local', GUEST_KEYS.favorites);
   }
-  safeStorageRemove('local', GUEST_KEYS.solved);
-  safeStorageRemove('local', GUEST_KEYS.favorites);
+  if (Object.keys(remainingSolved).length) saveJson(GUEST_KEYS.solved, remainingSolved);
+  else safeStorageRemove('local', GUEST_KEYS.solved);
+  if (remainingFavs.size) saveJson(GUEST_KEYS.favorites, [...remainingFavs]);
+  else safeStorageRemove('local', GUEST_KEYS.favorites);
   return true;
 }
 
@@ -1475,6 +1513,7 @@ function saveCloudQueue(items) {
 
 function queueCloudMutation(userId, key, endpoint, method, body, previous = null) {
   if (!userId) return false;
+  if (!cloudMutationMayPublish({ endpoint, method, body }, publicCardIds)) return false;
   const now = Date.now();
   const queue = loadCloudQueue().filter(item => item.userId === userId && item.key !== key);
   const attempts = Math.min(CLOUD_QUEUE_MAX_ATTEMPTS, Number(previous?.attempts || 0) + 1);
@@ -1498,6 +1537,9 @@ const cloudMutationChains = new Map();
 async function dispatchCloudMutation(userId, key, endpoint, method, body) {
   if (!userId || state.dbUser?.id !== userId) {
     return { synced: false, retryQueued: false, staleUser: true };
+  }
+  if (!cloudMutationMayPublish({ endpoint, method, body }, publicCardIds)) {
+    return { synced: false, retryQueued: false, publicationBlocked: true };
   }
   try {
     await apiFetch(endpoint, { method, body: JSON.stringify(body) });
@@ -1528,12 +1570,17 @@ function sendCloudMutation(key, endpoint, method, body) {
 
 async function flushCloudQueue() {
   if (!state.dbUser || !navigator.onLine) return;
+  try { await loadCardIndex(); } catch (_) {}
   const pending = loadCloudQueue();
   if (!pending.length) return;
   const now = Date.now();
   const remaining = [];
   for (const item of pending) {
     if (item.userId !== state.dbUser.id) continue;
+    if (!cloudMutationMayPublish(item, publicCardIds)) {
+      remaining.push(item);
+      continue;
+    }
     if (!Number.isFinite(item.createdAt) || now - item.createdAt > CLOUD_QUEUE_MAX_AGE_MS) continue;
     if (Number(item.attempts || 0) >= CLOUD_QUEUE_MAX_ATTEMPTS) continue;
     if (Number(item.nextAttemptAt || 0) > now) { remaining.push(item); continue; }
@@ -1614,7 +1661,7 @@ function getCategoryProgress(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   const total = meta?.count || 1;
   if (state.dbUser) {
-    const solved = (state.dbUser.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+    const solved = publicAccountProgress().filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
     return { solved, pct: Math.min(100, Math.round((solved / total) * 100)) };
   }
   const raw = getGuestSolvedMap();
@@ -1627,7 +1674,7 @@ function getCategoryProgress(slug) {
 
 function getCorrectCountByDifficulty(diff, categoryId = null) {
   if (state.dbUser) {
-    return (state.dbUser.progress || []).filter(p =>
+    return publicAccountProgress().filter(p =>
       p.status === diff && (!categoryId || p.categoryId === categoryId)
     ).length;
   }
@@ -1644,7 +1691,7 @@ function getCorrectCountByDifficulty(diff, categoryId = null) {
 }
 
 function getTotalCorrectCount() {
-  if (state.dbUser) return (state.dbUser.progress || []).filter(p => !p.status.startsWith('wrong-')).length;
+  if (state.dbUser) return publicAccountProgress().filter(p => !p.status.startsWith('wrong-')).length;
   return Object.values(getGuestSolvedMap()).filter(v => !_guestStatus(v).startsWith('wrong-')).length;
 }
 
@@ -1663,11 +1710,16 @@ function isLevelUnlocked(difficulty) {
 function isPremiumDifficulty(difficulty) {
   return difficulty === 'hard' || difficulty === 'very-advanced';
 }
-function getTrialUsedSet() {
+function getRawTrialUsedSet() {
   try { return new Set(JSON.parse(safeStorageGet('local', STORAGE_KEYS.trial)) || []); } catch { return new Set(); }
 }
+function getTrialUsedSet() {
+  return new Set([...getRawTrialUsedSet()].filter(cardId => publicCardIds.has(cardId)));
+}
 function saveTrialUsedSet(s) {
-  return safeStorageSet('local', STORAGE_KEYS.trial, JSON.stringify([...s]));
+  const raw = getRawTrialUsedSet();
+  for (const cardId of s) raw.add(cardId);
+  return safeStorageSet('local', STORAGE_KEYS.trial, JSON.stringify([...raw]));
 }
 function isTrialUnlocked(cardId, difficulty) {
   if (state.dbUser || !isPremiumDifficulty(difficulty)) return false;
@@ -1861,18 +1913,18 @@ function updateDocumentTitle() {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {
       title = state.lang === 'ar'
-        ? 'مختبر العقل: 56 موضوع ألغاز وأسئلة | JAKH'
-        : 'Mind Lab: 56 Riddle & Quiz Topics | JAKH';
+        ? 'مختبر العقل: 51 موضوع ألغاز وأسئلة | JAKH'
+        : 'Mind Lab: 51 Riddle & Quiz Topics | JAKH';
       description = state.lang === 'ar'
-        ? 'استكشف 3,553 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 56 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.'
-        : 'Explore 3,553 bilingual riddles and quizzes mapped directly to 56 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
+        ? 'استكشف 3,275 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 51 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.'
+        : 'Explore 3,275 bilingual riddles and quizzes mapped directly to 51 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
     } else {
       title = state.lang === 'ar'
         ? 'JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية'
         : 'JAKH Riddles: Free Arabic & English Quizzes';
       description = state.lang === 'ar'
-        ? 'العب 3,553 لغزاً واختباراً مجانياً بالعربية والإنجليزية ضمن 56 موضوعاً، إضافة إلى 10 ألعاب متصفح. اكشف الإجابات وتابع نتيجتك.'
-        : 'Play 3,553 free bilingual riddles and quizzes in English and Arabic across 56 topics, plus 10 browser games. Reveal answers and track your score.';
+        ? 'العب 3,275 لغزاً واختباراً مجانياً بالعربية والإنجليزية ضمن 51 موضوعاً، إضافة إلى 10 ألعاب متصفح. اكشف الإجابات وتابع نتيجتك.'
+        : 'Play 3,275 free bilingual riddles and quizzes in English and Arabic across 51 topics, plus 10 browser games. Reveal answers and track your score.';
     }
   } else if (state.categoryData) {
     const category = state.categoryData;
@@ -1889,8 +1941,8 @@ function updateDocumentTitle() {
   document.title = title;
 
   const socialImageAlt = state.lang === 'ar'
-    ? 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب'
-    : 'JAKH — 3,553 bilingual riddles across 56 topics and 10 games';
+    ? 'JAKH — 3,275 لغزاً ثنائي اللغة ضمن 51 موضوعاً و10 ألعاب'
+    : 'JAKH — 3,275 bilingual riddles across 51 topics and 10 games';
   [
     ['meta[name="description"]', description],
     ['meta[property="og:title"]', title],
@@ -1928,6 +1980,11 @@ function updateSelectLabels() {
 }
 
 async function fetchJson(path, retries = 2) {
+  let pathname = '';
+  try { pathname = new URL(path, location.origin).pathname; } catch (_) {}
+  if (requestPathIsQuarantined(pathname)) {
+    throw new Error('Content is quarantined');
+  }
   try {
     const response = await fetch(path);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -2036,7 +2093,6 @@ function initializeFromStorage() {
     );
   }
 
-  // Persist explicit entry-language links and purge the retired theme preference.
   if (explicitLang) {
     saveSettings();
   } else if (settings.theme || settings.lang !== state.lang) {
@@ -2059,8 +2115,6 @@ function installPromptIsSuppressed(now = Date.now()) {
       return true;
     }
   } catch {
-    // Retired boolean values had no reset date, so they must not suppress the
-    // prompt forever after this policy ships.
   }
   safeStorageRemove('local', INSTALL_PROMPT_DISMISSAL_KEY);
   return false;
@@ -2223,7 +2277,6 @@ function bindCommonEvents() {
   if (els.openAuthBtn) els.openAuthBtn.addEventListener('click', openAuthModal);
   if (els.heroAuthBtn) els.heroAuthBtn.addEventListener('click', openAuthModal);
 
-  // Inject leaderboard button into nav if missing
   if (!document.getElementById('leaderboardBtn')) {
     const nav = document.querySelector('.header-actions');
     if (nav) {
@@ -2238,7 +2291,6 @@ function bindCommonEvents() {
   const lbBtn = document.getElementById('leaderboardBtn');
   if (lbBtn) lbBtn.addEventListener('click', openLeaderboard);
 
-  // Inject battle button into nav
   if (!document.getElementById('battleNavBtn')) {
     const nav = document.querySelector('.header-actions');
     if (nav) {
@@ -2253,7 +2305,6 @@ function bindCommonEvents() {
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug, 'create'));
 
 
-  // Handle #battle/CODE deep-link
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
   if (hashMatch) {
     const code = normalizeBattleCode(hashMatch[1]);
@@ -2262,7 +2313,6 @@ function bindCommonEvents() {
     }
   }
 
-  // Inject global search button into nav
   if (!document.getElementById('globalSearchBtn')) {
     const nav = document.querySelector('.header-actions');
     if (nav) {
@@ -2276,7 +2326,6 @@ function bindCommonEvents() {
   }
   document.getElementById('globalSearchBtn')?.addEventListener('click', openGlobalSearch);
 
-  // Inject hamburger button for mobile nav
   if (!document.getElementById('hamburgerBtn')) {
     const header = document.querySelector('.site-header');
     const nav = document.querySelector('.header-actions');
@@ -2454,7 +2503,6 @@ function bindCommonEvents() {
       if (!id) return;
       handleFlip(id, card);
     });
-    // ── Enhanced swipe: visual tilt + swipe-to-mark on flipped cards ──
     let _sw = null;
 
     function _resetSwipeCard() {
@@ -2834,6 +2882,11 @@ function getDashInsight(totalSolved, totalQ, catProgress, lang) {
 function renderAccountSummary(mount) {
   if (!mount) return;
   const account = getActiveUser();
+  const historyNotice = publicCardIndexReady
+    ? ''
+    : `<p class="muted" role="status">${escapeHtml(state.lang === 'ar'
+      ? 'سجل الأسئلة غير متاح؛ الأرقام مخفية.'
+      : 'History unavailable; totals hidden.')}</p>`;
   if (!account) {
     const guestSolvedCount = getTotalCorrectCount();
     const guestFavCount = getGuestFavorites().length;
@@ -2841,6 +2894,7 @@ function renderAccountSummary(mount) {
     mount.innerHTML = `
       <section class="account-card">
         <strong>${escapeHtml(state.apiAvailable ? t('guestTitle') : (state.lang === 'ar' ? 'التقدم على الجهاز' : 'Progress on this device'))}</strong>
+        ${historyNotice}
         ${hasProgress ? `
           <div class="stats-grid">
             <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${guestSolvedCount}</strong></div>
@@ -2861,7 +2915,6 @@ function renderAccountSummary(mount) {
     if (button) button.addEventListener('click', openAuthModal);
     return;
   }
-  // ── Category page sidebar (unchanged) ──────────────────
   if (state.page === 'category') {
     const earned = computeAchievements();
     const achHtml = earned.length
@@ -2890,6 +2943,7 @@ function renderAccountSummary(mount) {
           <strong>${escapeHtml(account.username)}</strong>
           <span class="badge">${escapeHtml(t('savedProgress'))}</span>
         </div>
+        ${historyNotice}
         <div class="stats-grid">
           <div class="stat-box"><span>${escapeHtml(t('score'))}</span><strong>${getScore()}</strong></div>
           <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${getTotalCorrectCount()}</strong></div>
@@ -2905,7 +2959,6 @@ function renderAccountSummary(mount) {
     return;
   }
 
-  // ── Home page: dynamic dashboard ───────────────────────
   const isAr = state.lang === 'ar';
   const totalSolved = getTotalCorrectCount();
   const totalQ = state.catalog?.site?.totalQuestions || 1;
@@ -2937,6 +2990,7 @@ function renderAccountSummary(mount) {
 
   mount.innerHTML = `
     <div class="dash-card">
+      ${historyNotice}
       <div class="dash-head">
         <span class="dash-greeting">${escapeHtml(getGreeting(account.username, state.lang))}</span>
         <div class="dash-score-display">
@@ -3014,9 +3068,6 @@ function renderCategoryPage() {
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
   if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
   if (els.categoryImage) {
-    // Generated category pages already contain the first valid local asset
-    // selected at build time. Preserve it instead of fetching, rendering, and
-    // then discarding it for a runtime fallback.
     if (!els.categoryImage.getAttribute('src')) els.categoryImage.src = categoryArtUrl(category);
   }
   if (els.categoryDiffBadge) els.categoryDiffBadge.textContent = buildDiffBadge(category);
@@ -3159,7 +3210,6 @@ function restoreFilterParams() {
   if (params.has('sort')) state.sort = params.get('sort');
   if (params.has('sub')) state.subcategory = params.get('sub');
   if (params.has('q')) state.search = params.get('q').toLowerCase();
-  // Sync select UI elements
   if (els.difficultySelect && state.difficulty) els.difficultySelect.value = state.difficulty;
   if (els.viewSelect && state.view) els.viewSelect.value = state.view;
   if (els.sortSelect && state.sort) els.sortSelect.value = state.sort;
@@ -3282,7 +3332,7 @@ function createCardMarkup(card) {
   if (!isLevelUnlocked(card.difficulty)) {
     if (!state.dbUser) {
       if (isTrialUnlocked(card.id, card.difficulty)) {
-        trialCard = true; // fall through to normal render with data-trial marker
+        trialCard = true;
       } else {
         const unlockLabel = state.lang === 'ar' ? '🔓 فتح الإجابة' : '🔓 Unlock answer';
         return `
@@ -3423,7 +3473,6 @@ function updateCardEl(id, preferredActions = []) {
   restoreCardFocus(focusRequest);
 }
 
-// When marking or favoriting, visibility may change if a filter is active
 function updateCardElOrRefresh(id, preferredActions = []) {
   const focusRequest = captureCardFocus(id, preferredActions);
   if (state.view !== 'all') {
@@ -3436,7 +3485,6 @@ function updateCardElOrRefresh(id, preferredActions = []) {
 function renderCards(focusRequest = null) {
   if (!els.cardGrid || !state.categoryData) return;
 
-  // Remove any previous load-more button
   document.getElementById('loadMoreBtn')?.remove();
 
   const filtered = getFilteredCards();
@@ -3445,7 +3493,6 @@ function renderCards(focusRequest = null) {
 
   els.cardGrid.innerHTML = visible.map(createCardMarkup).join('');
 
-  // Append Load More button when more cards remain
   if (filtered.length > pageEnd) {
     const remaining = filtered.length - pageEnd;
     const btn = document.createElement('button');
@@ -3480,8 +3527,6 @@ function renderRelatedCategories() {
   if (!els.relatedCategories || !state.catalog || !state.categoryData) return;
   const currentSlug = state.categoryData.slug;
 
-  // Deterministic per-page shuffle: each source page picks a stable but unique set
-  // of related pages, ensuring all categories receive inbound links (no orphans).
   function slugHash(str) {
     let h = 0;
     for (let i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
@@ -3518,7 +3563,7 @@ async function toggleFavorite(id) {
   const isFav = isFavorite(id);
 
   if (!state.dbUser) {
-    const favs = getGuestFavorites();
+    const favs = getRawGuestFavorites();
     if (isFav) {
       saveJson(GUEST_KEYS.favorites, favs.filter(f => f !== id));
       showToast(t('favoriteRemoved'));
@@ -3569,7 +3614,7 @@ async function markCard(id, result) {
   }
 
   if (!state.dbUser) {
-    const guestSolved = getGuestSolvedMap();
+    const guestSolved = getRawGuestSolvedMap();
     guestSolved[id] = { status, categoryId: state.categoryData?.slug || 'unknown' };
     saveJson(GUEST_KEYS.solved, guestSolved);
     if (result === 'correct') checkNewAchievements();
@@ -3598,7 +3643,7 @@ async function markCard(id, result) {
 
 async function unmarkCard(id) {
   if (!state.dbUser) {
-    const guestSolved = getGuestSolvedMap();
+    const guestSolved = getRawGuestSolvedMap();
     delete guestSolved[id];
     saveJson(GUEST_KEYS.solved, guestSolved);
     showToast(t('solvedRemoved'));
@@ -3947,7 +3992,7 @@ function renderAuthModal(mode = 'signin') {
     ].filter(Boolean).join(' ') || '<span class="muted">—</span>';
 
     const byCategory = {};
-    (state.dbUser.progress || []).forEach(p => {
+    publicAccountProgress().forEach(p => {
       const cat = p.categoryId && p.categoryId !== 'unknown' ? p.categoryId : null;
       if (!cat) return;
       if (!byCategory[cat]) byCategory[cat] = { correct: 0, wrong: 0 };
@@ -3991,7 +4036,7 @@ function renderAuthModal(mode = 'signin') {
         </div>
         <div class="stats-grid">
           <div class="stat-box"><span>${escapeHtml(t('score'))}</span><strong>${getScore()}</strong></div>
-          <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${(state.dbUser?.progress || []).filter(p => !p.status.startsWith('wrong-')).length}</strong></div>
+          <div class="stat-box"><span>${escapeHtml(t('solved'))}</span><strong>${getTotalCorrectCount()}</strong></div>
           <div class="stat-box"><span>${escapeHtml(t('favorites'))}</span><strong>${account.favorites.length}</strong></div>
         </div>
 
@@ -4329,8 +4374,8 @@ async function loadCatalog() {
   if (!catalogPromise) {
     catalogPromise = fetchJson('/data/catalog.json')
       .then(catalog => {
-        state.catalog = catalog;
-        return catalog;
+        state.catalog = publicCatalogView(catalog);
+        return state.catalog;
       })
       .catch(error => {
         catalogPromise = null;
@@ -4342,6 +4387,7 @@ async function loadCatalog() {
 
 async function loadCategoryIfNeeded() {
   if (state.page !== 'category' || !state.categorySlug) return;
+  if (categoryIsQuarantined(state.categorySlug)) throw new Error('Content is quarantined');
   const [raw] = await Promise.all([
     fetchJson(`/data/${state.categorySlug}.json`),
     loadCatalog(),
@@ -4352,10 +4398,8 @@ async function loadCategoryIfNeeded() {
 }
 
 
-// ================= ANALYTICS TRACKING =================
 let _analyticsInterval = null;
 
-// ── Audio narration ───────────────────────────────────────────────────────────
 
 let _currentAudio = null;
 let _pendingVoicesHandler = null;
@@ -4463,7 +4507,6 @@ function handleAudioBtn(btn) {
   speakText(card.question[state.lang], state.lang);
 }
 
-// ── Suggestion box ────────────────────────────────────────────────────────────
 
 function initSuggestionBox() {
   if (!els.suggestionSubmit || els.suggestionSubmit.dataset.suggestionBound === 'true') return;
@@ -4492,7 +4535,6 @@ function initSuggestionBox() {
   });
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
 
 function trackEvent(name, params = {}) {
   if (window.JakhPrivacy?.analyticsAllowed?.() !== true) return;
@@ -4532,68 +4574,83 @@ function stopAnalyticsHeartbeat() {
   _analyticsInterval = null;
 }
 
-// ======================================================
 
 
-// ================= DAILY CHALLENGE =================
+function dailyRecordIsUnavailable(record) { return dailyRecordIsUnavailableForPublication(record, publicCardIds, QUARANTINED_CATEGORY_SLUGS, publicCardIndexReady); }
+function storedDailyRecord(area, key) { try { return JSON.parse(safeStorageGet(area, key) || 'null'); } catch (_) { return {}; } }
+function purgeUnavailableDailyState(today) {
+  const cacheKey = `jakh-daily-${today}`, outcomeKey = `jakh-daily-outcome-${today}`;
+  const cached = storedDailyRecord('session', cacheKey);
+  if (cached && dailyRecordIsUnavailable(cached)) {
+    safeStorageRemove('session', cacheKey);
+    safeStorageRemove('local', outcomeKey);
+  }
+  const outcome = storedDailyRecord('local', outcomeKey);
+  if (outcome && dailyRecordIsUnavailable(outcome)) safeStorageRemove('local', outcomeKey);
+  if (state.dailyCard && dailyRecordIsUnavailable(state.dailyCard)) state.dailyCard = null;
+}
+
 async function loadDailyChallenge() {
   if (state.dailyCard) return;
-  const today = new Date().toISOString().split('T')[0];
-  const cacheKey = `jakh-daily-${today}`;
+  const today = new Date().toISOString().split('T')[0], key = `jakh-daily-${today}`;
+  purgeUnavailableDailyState(today);
   try {
-    const cached = safeStorageGet('session', cacheKey);
-    if (cached) { state.dailyCard = JSON.parse(cached); return; }
+    const cached = safeStorageGet('session', key);
+    if (cached) {
+      const card = JSON.parse(cached);
+      if (!dailyRecordIsUnavailable(card)) {
+        state.dailyCard = card;
+        return;
+      }
+      safeStorageRemove('session', key);
+      safeStorageRemove('local', `jakh-daily-outcome-${today}`);
+    }
     if (!state.catalog) return;
-    const hash = today.split('').reduce((h, c) => ((h * 31) + c.charCodeAt(0)) | 0, 0);
-    const abs = Math.abs(hash);
+    const hash = Math.abs(today.split('').reduce((h, c) => ((h * 31) + c.charCodeAt(0)) | 0, 0));
     const cats = state.catalog.categories.filter(c => c.count >= 15 && c.mode !== 'story');
-    const cat = cats[abs % cats.length];
+    const cat = cats[hash % cats.length];
     const raw = await fetchJson(`/data/${cat.slug}.json`);
     if (!Array.isArray(raw)) return;
     const cards = raw.filter(c => c.difficulty === 'easy' || c.difficulty === 'medium');
     if (!cards.length) return;
-    const card = cards[(abs >> 4) % cards.length];
+    const card = cards[(hash >> 4) % cards.length];
     state.dailyCard = { ...card, categorySlug: cat.slug, categoryTitle: cat.title, categoryEmoji: cat.emoji || '🎯' };
-    safeStorageSet('session', cacheKey, JSON.stringify(state.dailyCard));
+    safeStorageSet('session', key, JSON.stringify(state.dailyCard));
   } catch (e) { state.dailyCard = null; }
 }
 
 function renderDailyChallenge() {
   const mount = document.getElementById('dailyChallengeMount');
   if (!mount) return;
-  if (!state.dailyCard) { mount.innerHTML = ''; return; }
-  const card = state.dailyCard;
-  const lang = state.lang;
   const today = new Date().toISOString().split('T')[0];
-  const outcomeKey = `jakh-daily-outcome-${today}`;
-  const outcome = loadJson(outcomeKey, null);
-  const isDone = outcome?.cardId === card.id && ['correct', 'review'].includes(outcome?.result);
-  const isFlipped = state.flipped.has('__daily__');
-  const categoryHref = categoryRouteForLanguage(card.categorySlug, lang);
-  const reviewMarkup = createReviewMarkup(card);
-  mount.innerHTML = `
-    <section class="shell daily-challenge-section">
-      <div class="daily-challenge-card ${isDone ? 'daily-done' : ''}">
-        <div>
-          <p class="daily-challenge-eyebrow">🎯 ${lang === 'ar' ? 'تحدي اليوم' : "Today's Challenge"}${isDone ? ` <span class="daily-done-badge">${lang === 'ar' ? '✓ مكتمل' : '✓ Done'}</span>` : ''}</p>
-          <p class="daily-challenge-meta">${escapeHtml(card.categoryEmoji)} ${escapeHtml(card.categoryTitle[lang])} &nbsp;·&nbsp; ${escapeHtml(t(card.difficulty === 'very-advanced' ? 'veryAdvanced' : card.difficulty))}</p>
-          <p class="daily-challenge-q">${escapeHtml(card.question[lang])}</p>
-          ${reviewMarkup}
-          ${isFlipped ? `<div class="daily-challenge-answer" role="status">💡 ${escapeHtml(card.answer[lang])}</div>` : ''}
-          ${isFlipped && !isDone ? `<div class="daily-outcome-actions" aria-label="${lang === 'ar' ? 'سجّل نتيجة إجابتك' : 'Record your answer outcome'}">
-            <button class="primary-btn mini-btn" id="dailyKnewBtn">✓ ${lang === 'ar' ? 'كنت أعرفها' : 'I knew it'}</button>
-            <button class="ghost-btn mini-btn" id="dailyReviewBtn">↻ ${lang === 'ar' ? 'راجعها مرة أخرى' : 'Review again'}</button>
-          </div>` : ''}
-          ${isDone ? `<p class="daily-outcome-note">${outcome.result === 'correct'
-            ? (lang === 'ar' ? 'سُجلت كإجابة عرفتها.' : 'Recorded as an answer you knew.')
-            : (lang === 'ar' ? 'سُجلت للمراجعة مرة أخرى.' : 'Recorded to review again.')}</p>` : ''}
-        </div>
-        <div class="daily-challenge-btns">
-          <button class="primary-btn mini-btn" id="flipDailyBtn">${isFlipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
-          <a class="ghost-btn mini-btn" href="${escapeHtml(categoryHref)}">${lang === 'ar' ? 'المزيد ←' : 'Full category →'}</a>
-        </div>
-      </div>
-    </section>`;
+  purgeUnavailableDailyState(today);
+  if (!state.dailyCard) { mount.innerHTML = ''; return; }
+  const card = state.dailyCard, lang = state.lang, ar = lang === 'ar';
+  const outcomeKey = `jakh-daily-outcome-${today}`, outcome = loadJson(outcomeKey, null);
+  const done = outcome?.cardId === card.id && ['correct', 'review'].includes(outcome?.result), flipped = state.flipped.has('__daily__');
+  const href = categoryRouteForLanguage(card.categorySlug, lang), review = createReviewMarkup(card);
+  mount.innerHTML = `<section class="shell daily-challenge-section">
+  <div class="daily-challenge-card ${done ? 'daily-done' : ''}">
+    <div>
+      <p class="daily-challenge-eyebrow">🎯 ${ar ? 'تحدي اليوم' : "Today's Challenge"}${done ? ` <span class="daily-done-badge">${ar ? '✓ مكتمل' : '✓ Done'}</span>` : ''}</p>
+      <p class="daily-challenge-meta">${escapeHtml(card.categoryEmoji)} ${escapeHtml(card.categoryTitle[lang])} &nbsp;·&nbsp; ${escapeHtml(t(card.difficulty === 'very-advanced' ? 'veryAdvanced' : card.difficulty))}</p>
+      <p class="daily-challenge-q">${escapeHtml(card.question[lang])}</p>
+      ${review}
+      ${flipped ? `<div class="daily-challenge-answer" role="status">💡 ${escapeHtml(card.answer[lang])}</div>` : ''}
+      ${flipped && !done ? `<div class="daily-outcome-actions" aria-label="${ar ? 'سجّل نتيجة إجابتك' : 'Record your answer outcome'}">
+        <button class="primary-btn mini-btn" id="dailyKnewBtn">✓ ${ar ? 'كنت أعرفها' : 'I knew it'}</button>
+        <button class="ghost-btn mini-btn" id="dailyReviewBtn">↻ ${ar ? 'راجعها مرة أخرى' : 'Review again'}</button>
+      </div>` : ''}
+      ${done ? `<p class="daily-outcome-note">${outcome.result === 'correct'
+        ? (ar ? 'سُجلت كإجابة عرفتها.' : 'Recorded as an answer you knew.')
+        : (ar ? 'سُجلت للمراجعة مرة أخرى.' : 'Recorded to review again.')}</p>` : ''}
+    </div>
+    <div class="daily-challenge-btns">
+      <button class="primary-btn mini-btn" id="flipDailyBtn">${flipped ? escapeHtml(t('backToQuestion')) : escapeHtml(t('flipForAnswer'))}</button>
+      <a class="ghost-btn mini-btn" href="${escapeHtml(href)}">${ar ? 'المزيد ←' : 'Full category →'}</a>
+    </div>
+  </div>
+</section>`;
   document.getElementById('flipDailyBtn')?.addEventListener('click', () => {
     if (state.flipped.has('__daily__')) state.flipped.delete('__daily__'); else state.flipped.add('__daily__');
     renderDailyChallenge();
@@ -4607,13 +4664,10 @@ function renderDailyChallenge() {
 }
 
 function scrollToDailyChallenge() {
-  requestAnimationFrame(() => {
-    const target = document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount');
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  requestAnimationFrame(() => (document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount'))
+    ?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
-// ================= STREAKS =================
 async function loadStreak() {
   if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
   try {
@@ -4623,7 +4677,6 @@ async function loadStreak() {
   } catch (e) { state.streak = 0; state.freezeCount = 0; }
 }
 
-// ================= TIMED QUIZ (Quiz Master Mode) =================
 function clearTimedQuizTimers() {
   clearInterval(timedQuizState.timer);
   clearTimeout(timedQuizState.advanceTimeout);
@@ -4868,7 +4921,6 @@ function endTimedQuiz() {
     shareBtn.addEventListener('click', () => shareResult(score, total, state.categoryData?.title?.[lang] || 'JAKH Quick Fire'));
     actionsEl.insertBefore(shareBtn, actionsEl.lastElementChild);
   }
-  // Solo → Team conversion CTA
   if (resultEl && !resultEl.querySelector('.tq-challenge-cta')) {
     const catTitle = state.categoryData?.title?.[lang] || 'JAKH';
     const challengeUrl = `${location.origin}${categoryRouteForLanguage(state.categorySlug, lang)}`;
@@ -4906,7 +4958,6 @@ function endTimedQuiz() {
   checkNewAchievements();
 }
 
-// ================= LAZY SEARCH + LEADERBOARD =================
 
 const SEARCH_LEADERBOARD_MODULE_PATH = '/search-leaderboard.js';
 const SEARCH_LEADERBOARD_STYLES_PATH = '/search-leaderboard.css';
@@ -4990,19 +5041,17 @@ async function openLeaderboard() {
   }
 }
 
-// ================= RANDOM CATEGORY =================
 function randomCategory() {
   if (!state.catalog) return;
   const cats = state.catalog.categories;
   location.assign(cats[Math.floor(Math.random() * cats.length)].href);
 }
 
-// ================= ACHIEVEMENTS =================
 function getCategoryMasterCount() {
   if (!state.catalog || !state.dbUser) return 0;
   return (state.catalog.categories || []).filter(cat => {
     const meta = state.catalog.categories.find(c => c.slug === cat.slug);
-    const solved = (state.dbUser.progress || []).filter(p => p.categoryId === cat.slug && !p.status.startsWith('wrong-')).length;
+    const solved = publicAccountProgress().filter(p => p.categoryId === cat.slug && !p.status.startsWith('wrong-')).length;
     return solved >= (meta?.count || 1);
   }).length;
 }
@@ -5026,12 +5075,11 @@ function checkNewAchievements() {
   }, i * 2400));
 }
 
-// ================= CATEGORY COMPLETION =================
 function isCategoryComplete(slug) {
   if (!state.dbUser || !state.catalog) return false;
   const meta = state.catalog.categories.find(c => c.slug === slug);
   if (!meta) return false;
-  const solved = (state.dbUser.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
+  const solved = publicAccountProgress().filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
   return solved >= meta.count;
 }
 
@@ -5047,9 +5095,10 @@ function showCategoryCompleteModal(slug) {
   const meta = state.catalog?.categories.find(c => c.slug === slug);
   if (!meta) return;
   const lang = state.lang;
-  const solved = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).length;
-  const wrong = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && p.status.startsWith('wrong-')).length;
-  const points = (state.dbUser?.progress || []).filter(p => p.categoryId === slug && !p.status.startsWith('wrong-')).reduce((sum, p) => sum + (DIFFICULTY_POINTS[p.status] || 0), 0);
+  const categoryProgress = publicAccountProgress().filter(p => p.categoryId === slug);
+  const solved = categoryProgress.filter(p => !p.status.startsWith('wrong-')).length;
+  const wrong = categoryProgress.filter(p => p.status.startsWith('wrong-')).length;
+  const points = categoryProgress.filter(p => !p.status.startsWith('wrong-')).reduce((sum, p) => sum + (DIFFICULTY_POINTS[p.status] || 0), 0);
   const related = state.catalog.categories.find(c => c.slug !== slug && c.cluster_key === meta.cluster_key) || state.catalog.categories.find(c => c.slug !== slug);
   let el = document.getElementById('categoryCompleteModal');
   if (!el) {
@@ -5122,7 +5171,6 @@ function showCategoryCompleteModal(slug) {
   checkNewAchievements();
 }
 
-// ================= SHARE =================
 function showSelectableShareFallback(payload) {
   let modal = document.getElementById('shareFallbackModal');
   if (!modal) {
@@ -5203,7 +5251,6 @@ function shareCard(cardId) {
   checkNewAchievements();
 }
 
-// ================= REPORT =================
 async function reportCard(cardId, categoryId, questionText) {
   const text = `[REPORT] ${categoryId}/${cardId}: ${questionText.substring(0, 150)}`;
   try {
@@ -5215,7 +5262,6 @@ async function reportCard(cardId, categoryId, questionText) {
   } catch { showToast(t('reportError')); }
 }
 
-// ================= SHARE =================
 function shareResult(score, total, categoryTitle) {
   const isAr = state.lang === 'ar';
   const bar = '─────────────────';
@@ -5237,9 +5283,6 @@ function shareResult(score, total, categoryTitle) {
 
 let sessionInitialized = false;
 
-// ── Step 5: Haptic Feedback ───────────────────────────────────────────────────
-// Requires @capacitor/haptics + npx cap sync for native iOS/Android haptics.
-// Falls back to navigator.vibrate on Android WebView (silent on iOS without plugin).
 const Haptics = window.Capacitor?.Plugins?.Haptics;
 const ImpactStyle = { Light: 'LIGHT', Medium: 'MEDIUM', Heavy: 'HEAVY' };
 
@@ -5262,7 +5305,6 @@ function hapticSuccess() { haptic('medium'); }
 function hapticError()   { haptic('heavy'); }
 function hapticTap()     { haptic('light'); }
 
-// ── Bottom Navigation Bar ─────────────────────────────────────────────────────
 function injectBottomNav() {
   if (document.getElementById('bottomNav')) { updateBottomNavActive(); return; }
   const isAr = state.lang === 'ar';
@@ -5382,8 +5424,6 @@ function hydrateCloudFeatureUi() {
   } else {
     stopAnalyticsHeartbeat();
   }
-  // A health probe is advisory; each feature owns its request and retry state.
-  // Search and leaderboard UI stays unloaded until its first invocation.
   createBattleModal();
   initSuggestionBox();
   renderCategoryPlayModes();
@@ -5395,11 +5435,23 @@ function hydrateCloudFeatureUi() {
 async function init() {
   cacheEls();
   if (!initializeFromStorage()) return;
+  if (
+    requestPathIsQuarantined(location.pathname)
+    || (state.page === 'category' && categoryIsQuarantined(state.categorySlug))
+  ) {
+    renderClientQuarantine();
+    navigator.serviceWorker?.register('/sw.js', { scope: '/' }).catch(() => {});
+    return;
+  }
   applyDocumentLanguage();
   bindCommonEvents();
   applyCapabilityVisibility();
   createTimedQuizModal();
-  await Promise.all([loadCatalog(), loadCategoryIfNeeded()]);
+  await Promise.all([
+    loadCatalog(),
+    loadCategoryIfNeeded(),
+    loadCardIndex().catch(() => null),
+  ]);
   applyStaticCopy();
   rerender();
   injectBottomNav();
@@ -5411,8 +5463,6 @@ async function init() {
       .then(() => renderDailyChallenge())
       .catch(() => {});
   }
-  // Cloud account and multiplayer checks hydrate after local content is
-  // already usable, so a slow API never leaves the page blank.
   hydrateCloudCapabilities().catch(() => {
     state.apiAvailable = false;
     state.apiChecked = true;
@@ -5433,7 +5483,6 @@ async function init() {
   }
 }
 
-// ================= CATEGORY PLAY MODES =========
 
 function renderCategoryPlayModes() {
   if (state.page !== 'category') return;
@@ -5489,7 +5538,6 @@ function renderCategoryPlayModes() {
   });
 }
 
-// ================= LAZY BATTLE MODE =================
 
 const BATTLE_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/;
 const BATTLE_MODULE_PATH = '/battle-mode.js';
@@ -5507,8 +5555,6 @@ function createBattleModal() {
   if (document.getElementById('battleOverlay')) return;
   const overlay = document.createElement('div');
   overlay.id = 'battleOverlay';
-  // The shared modal shell gives immediate loading/error feedback without
-  // pulling either feature stylesheet into the initial route.
   overlay.className = 'modal hidden';
   overlay.setAttribute('role', 'dialog');
   overlay.setAttribute('aria-modal', 'true');
@@ -5658,8 +5704,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
       .then(reg => {
-        // Force an immediate update check so stale SWs are replaced without
-        // waiting for the browser's 24-hour throttle window.
         reg.update().catch(() => {});
       })
       .catch(() => {});

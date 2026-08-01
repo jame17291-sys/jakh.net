@@ -2,6 +2,8 @@ import { writeFile } from "node:fs/promises";
 import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
 
+import { loadProductionQuarantine } from "./publication-quarantine.mjs";
+
 const DEFAULT_SITE_ORIGIN = "https://jakh.net";
 const DEFAULT_API_ORIGIN = "https://api.jakh.net";
 const DEFAULT_TIMEOUT_MS = 10_000;
@@ -10,6 +12,17 @@ const DEFAULT_API_MAX_MS = 5_000;
 const ALLOWED_ORIGIN = "https://jakh.net";
 const DISALLOWED_ORIGIN = "https://example.invalid";
 const MAX_CHECK_ATTEMPTS = 2;
+const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
+
+const checkedPublicationQuarantine = loadProductionQuarantine();
+
+export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
+  state: "safety-quarantine-active",
+  quarantinedCategories: Object.freeze([...checkedPublicationQuarantine.categorySlugs]),
+  quarantinedQuestions: checkedPublicationQuarantine.manifest.totalCards,
+  publicQuestions: 3_275,
+  manifestSha256: checkedPublicationQuarantine.policySha256,
+});
 
 export const API_RELEASE_CONTRACT = Object.freeze({
   service: "jakh-api",
@@ -22,6 +35,7 @@ export const API_RELEASE_CONTRACT = Object.freeze({
     accountRecovery: true,
     accountDeletion: true,
   },
+  contentPublication: CONTENT_PUBLICATION_CONTRACT,
 });
 
 class RetryableCheckError extends Error {
@@ -59,6 +73,29 @@ export const UNAUTHENTICATED_API_GET_ROUTES = [
   { name: "account export", path: "/api/user/export" },
   { name: "admin overview", path: "/api/admin/overview" },
 ];
+
+export const QUARANTINED_CATEGORY_SLUGS = CONTENT_PUBLICATION_CONTRACT.quarantinedCategories;
+
+export const QUARANTINED_SITE_ROUTES = Object.freeze(
+  [
+    ...QUARANTINED_CATEGORY_SLUGS.flatMap((slug) => [
+      { name: `${slug} canonical page`, path: `/${slug}` },
+      { name: `${slug} legacy HTML page`, path: `/${slug}.html` },
+      { name: `${slug} question data`, path: `/data/${slug}.json` },
+      { name: `${slug} Arabic page`, path: `/ar/topics/${slug}/` },
+      { name: `${slug} Arabic HTML alias`, path: `/ar/topics/${slug}.html` },
+    ]),
+    { name: "percent-encoded canonical page", path: "/%73urvival" },
+    { name: "percent-encoded legacy extension", path: "/survival%2ehtml" },
+    { name: "percent-encoded Arabic page", path: "/ar/topics/%73urvival/" },
+    { name: "percent-encoded Arabic HTML alias", path: "/ar/topics/survival%2ehtml" },
+    { name: "percent-encoded data slug", path: "/data/%73urvival.json" },
+    { name: "percent-encoded data extension", path: "/data/survival%2ejson" },
+    { name: "data path suffix", path: "/data/survival.json/archive" },
+    { name: "encoded data path suffix", path: "/data/survival.json%2farchive" },
+    { name: "recursively encoded canonical page", path: "/%2573urvival" },
+  ],
+);
 
 function positiveInteger(value, fallback, label) {
   if (value === undefined || value === "") return fallback;
@@ -126,6 +163,18 @@ function expectApiSecurityHeaders(response) {
   );
 }
 
+function expectApiQuarantine(resource) {
+  expectStatus(resource.response, 503);
+  expectContentType(resource.response, /application\/json/iu);
+  expectCors(resource.response, ALLOWED_ORIGIN);
+  expectApiSecurityHeaders(resource.response);
+  expect(resource.response.headers.get("cache-control") === "no-store", "API quarantine response is cacheable");
+  expect(resource.response.headers.get("retry-after") === "86400", "API quarantine Retry-After is missing");
+  const payload = parseJson(resource);
+  expect(payload.code === "CATEGORY_QUARANTINED", "API quarantine code is missing");
+  expect(payload.code !== "BATTLE_CREATE_FAILED", "held Battle request reached room allocation");
+}
+
 function decodeBody(buffer) {
   return new TextDecoder().decode(buffer);
 }
@@ -191,6 +240,10 @@ function formatBytes(bytes) {
 
 function loadConfig(options) {
   const env = options.env || process.env;
+  const scope = options.scope || env.JAKH_MONITOR_SCOPE || "all";
+  if (!new Set(["all", "api", "site", "pages"]).has(scope)) {
+    throw new Error("monitor scope must be all, api, site, or pages");
+  }
   return {
     siteOrigin: origin(options.siteOrigin || env.JAKH_SITE_ORIGIN || DEFAULT_SITE_ORIGIN, "site origin"),
     apiOrigin: origin(options.apiOrigin || env.JAKH_API_ORIGIN || DEFAULT_API_ORIGIN, "API origin"),
@@ -212,6 +265,7 @@ function loadConfig(options) {
     allowCompatibleSchema:
       options.allowCompatibleSchema === true
       || env.JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA === "true",
+    scope,
   };
 }
 
@@ -223,15 +277,40 @@ export async function runProductionMonitor(options = {}) {
   const failures = [];
 
   async function check(name, run) {
+    const checkScope = name.startsWith("API") ? "api" : "site";
+    const selectedScope = config.scope === "pages" ? "site" : config.scope;
+    if (selectedScope !== "all" && selectedScope !== checkScope) return;
     for (let attempt = 1; attempt <= MAX_CHECK_ATTEMPTS; attempt += 1) {
       try {
         const resource = await run();
+        if (config.scope === "pages" && checkScope === "site") {
+          expect(
+            resource.response.headers.get("x-jakh-site-version") === null,
+            "legacy Pages probe unexpectedly reached the jakh-site Worker",
+          );
+          expect(
+            resource.response.headers.get("x-jakh-worker-version") === null,
+            "legacy Pages probe unexpectedly received a Worker runtime identity",
+          );
+        }
+        const headerWorkerVersionId = resource.response.headers.get("x-jakh-worker-version");
+        if (checkScope === "api") {
+          expect(WORKER_VERSION_ID.test(headerWorkerVersionId || ""), "API response lacks a valid Worker version ID");
+          if (resource.workerVersionId) {
+            expect(resource.workerVersionId === headerWorkerVersionId, "API response body and header Worker versions differ");
+          }
+        }
+        const workerVersionId = resource.workerVersionId || headerWorkerVersionId || null;
+        if (checkScope === "site" && config.scope !== "pages") {
+          expect(WORKER_VERSION_ID.test(workerVersionId || ""), "site response lacks a valid Worker version ID");
+        }
         results.push({
           name,
           status: resource.response.status,
           elapsedMs: resource.elapsedMs,
           bytes: resource.body.byteLength,
           attempts: attempt,
+          workerVersionId,
         });
         return;
       } catch (error) {
@@ -280,14 +359,113 @@ export async function runProductionMonitor(options = {}) {
     expectContentType(resource.response, /application\/json/iu);
     const catalog = parseJson(resource);
     expect(Array.isArray(catalog.categories), "catalog categories is not an array");
-    expect(catalog.categories.length >= 50, `catalog contains only ${catalog.categories.length} categories`);
+    expect(catalog.categories.length === 51, `catalog contains ${catalog.categories.length} categories instead of 51`);
     expect(
       catalog.categories.every((category) => typeof category?.slug === "string" && category.slug),
       "catalog contains a category without a slug",
     );
+    const categorySlugs = new Set(catalog.categories.map((category) => category.slug));
+    expect(
+      QUARANTINED_CATEGORY_SLUGS.every((slug) => !categorySlugs.has(slug)),
+      "catalog exposes a quarantined category",
+    );
+    expect(catalog.site?.totalQuestions === 3_275, "catalog public question total is not 3275");
+    expect(
+      catalog.site?.publication?.state === "safety-quarantine-active"
+        && catalog.site.publication.publicCategories === 51
+        && catalog.site.publication.publicQuestions === 3_275
+        && catalog.site.publication.quarantinedQuestions === 278
+        && catalog.site.publication.policySha256 === CONTENT_PUBLICATION_CONTRACT.manifestSha256,
+      "catalog publication quarantine contract is missing or invalid",
+    );
     assertBudget(resource, config.siteMaxMs, 150_000);
     return resource;
   });
+
+  await Promise.all(QUARANTINED_SITE_ROUTES.map((route) =>
+    check(`Site quarantine: ${route.name}`, async () => {
+      const resource = await fetchResource(
+        fetchImpl,
+        new URL(route.path, config.siteOrigin),
+        config.timeoutMs,
+      );
+      if (config.scope === "pages") {
+        expectStatus(resource.response, 404);
+        expectContentType(resource.response, /^text\/html\b/iu);
+        expect(
+          [...checkedPublicationQuarantine.cardIds].every((cardId) => !resource.text.includes(cardId)),
+          "Pages 404 body exposes a quarantined card",
+        );
+        expect(
+          [...checkedPublicationQuarantine.categorySlugs].every((slug) => (
+            !new RegExp(`(?:href|src)=["'][^"']*(?:/|%2f)${slug}(?:[/.?%#"']|$)`, "iu").test(resource.text)
+          )),
+          "Pages 404 body links to a quarantined category",
+        );
+      } else {
+        expectStatus(resource.response, 410);
+        expectContentType(resource.response, /^text\/plain\b/iu);
+        expect(resource.response.headers.get("cache-control") === "no-store", "quarantine response is cacheable");
+        expect(
+          resource.response.headers.get("x-jakh-content-quarantine") === "active",
+          "quarantine marker header is missing",
+        );
+        const robots = (resource.response.headers.get("x-robots-tag") || "").toLowerCase();
+        for (const directive of ["noindex", "nofollow", "noarchive", "nosnippet"]) {
+          expect(robots.includes(directive), `quarantine robots policy is missing ${directive}`);
+        }
+        expect(
+          resource.response.headers.get("clear-site-data") === '"cache"',
+          "quarantine response does not clear browser caches",
+        );
+      }
+      assertBudget(resource, config.siteMaxMs, 10_000);
+      return resource;
+    }),
+  ));
+
+  await check("Site: public card index", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/data/card-index.json", config.siteOrigin),
+      config.timeoutMs,
+    );
+    expectStatus(resource.response, 200);
+    expectContentType(resource.response, /application\/json/iu);
+    const index = parseJson(resource);
+    expect(index && typeof index === "object" && !Array.isArray(index), "card index is not an object");
+    expect(Object.keys(index).length === 3_275, `card index contains ${Object.keys(index).length} cards instead of 3275`);
+    expect(
+      checkedPublicationQuarantine.cardIds.size > 0
+        && [...checkedPublicationQuarantine.cardIds].every((cardId) => !Object.hasOwn(index, cardId)),
+      "card index exposes a quarantined card",
+    );
+    assertBudget(resource, config.siteMaxMs, 300_000);
+    return resource;
+  });
+
+  for (const language of ["en", "ar"]) {
+    await check(`Site: ${language} public search index`, async () => {
+      const resource = await fetchResource(
+        fetchImpl,
+        new URL(`/data/search-index.${language}.json`, config.siteOrigin),
+        config.timeoutMs,
+      );
+      expectStatus(resource.response, 200);
+      expectContentType(resource.response, /application\/json/iu);
+      const shard = parseJson(resource);
+      expect(shard.language === language, `${language} search language marker is invalid`);
+      expect(shard.total === 3_275, `${language} search total is not 3275`);
+      expect(Array.isArray(shard.categories) && shard.categories.length === 51, `${language} search categories are not 51`);
+      expect(Array.isArray(shard.cards) && shard.cards.length === 3_275, `${language} search cards are not 3275`);
+      expect(
+        shard.cards.every((row) => Array.isArray(row) && !checkedPublicationQuarantine.cardIds.has(row[1])),
+        `${language} search exposes a quarantined card`,
+      );
+      assertBudget(resource, config.siteMaxMs, 800_000);
+      return resource;
+    });
+  }
 
   await check("Site: web manifest", async () => {
     const resource = await fetchResource(
@@ -320,6 +498,19 @@ export async function runProductionMonitor(options = {}) {
     expect(urls.includes("https://jakh.net/ar/alghaz-ma-alhal/"), "sitemap is missing Arabic riddles");
     expect(urls.includes("https://jakh.net/ar/topics/science/"), "sitemap is missing Arabic science");
     expect(urls.includes("https://jakh.net/privacy"), "sitemap is missing the Privacy Centre");
+    expect(
+      QUARANTINED_CATEGORY_SLUGS.every((slug) => (
+        !urls.some((url) => {
+          const pathname = new URL(url).pathname.toLowerCase();
+          return pathname === `/${slug}`
+            || pathname === `/${slug}.html`
+            || pathname.startsWith(`/${slug}/`)
+            || pathname === `/ar/topics/${slug}`
+            || pathname.startsWith(`/ar/topics/${slug}/`);
+        })
+      )),
+      "sitemap exposes a quarantined route",
+    );
     assertBudget(resource, config.siteMaxMs, 300_000);
     return resource;
   });
@@ -450,6 +641,12 @@ export async function runProductionMonitor(options = {}) {
     expect(resource.response.headers.get("cache-control") === "no-store", "health response is cacheable");
     const health = parseJson(resource);
     expect(health.ok === true, "health response is not ok");
+    expect(WORKER_VERSION_ID.test(health.workerVersionId || ""), "API health lacks a valid Worker version ID");
+    expect(
+      resource.response.headers.get("x-jakh-worker-version") === health.workerVersionId,
+      "API health body and response header identify different Worker versions",
+    );
+    resource.workerVersionId = health.workerVersionId;
     expect(
       health.service === API_RELEASE_CONTRACT.service,
       `unexpected API service "${health.service || "missing"}"`,
@@ -491,6 +688,25 @@ export async function runProductionMonitor(options = {}) {
         ? "API feature readiness is inconsistent with its actual schema"
         : "one or more final-schema API features are not ready",
     );
+    const publication = health.contentPublication;
+    expect(publication?.state === CONTENT_PUBLICATION_CONTRACT.state, "API content quarantine is not active");
+    expect(
+      publication.quarantinedQuestions === CONTENT_PUBLICATION_CONTRACT.quarantinedQuestions
+        && publication.publicQuestions === CONTENT_PUBLICATION_CONTRACT.publicQuestions
+        && publication.manifestSha256 === CONTENT_PUBLICATION_CONTRACT.manifestSha256,
+      "API content quarantine totals or policy digest differ from the release source",
+    );
+    const actualQuarantinedCategories = Array.isArray(publication.quarantinedCategories)
+      ? [...publication.quarantinedCategories].sort()
+      : [];
+    const expectedQuarantinedCategories = [...CONTENT_PUBLICATION_CONTRACT.quarantinedCategories].sort();
+    expect(
+      actualQuarantinedCategories.length === expectedQuarantinedCategories.length
+        && actualQuarantinedCategories.every(
+          (slug, index) => slug === expectedQuarantinedCategories[index],
+        ),
+      "API quarantined categories differ from the release source",
+    );
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });
@@ -521,6 +737,44 @@ export async function runProductionMonitor(options = {}) {
       "leaderboard contains an invalid ranked entry",
     );
     assertBudget(resource, config.apiMaxMs, 50_000);
+    return resource;
+  });
+
+  await check("API quarantine: held leaderboard category", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/api/leaderboard?category=medical-questions", config.apiOrigin),
+      config.timeoutMs,
+      { headers: { origin: ALLOWED_ORIGIN } },
+    );
+    expectApiQuarantine(resource);
+    assertBudget(resource, config.apiMaxMs, 20_000);
+    return resource;
+  });
+
+  await check("API quarantine: held Battle category", async () => {
+    const resource = await fetchResource(
+      fetchImpl,
+      new URL("/api/battle/create", config.apiOrigin),
+      config.timeoutMs,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          origin: ALLOWED_ORIGIN,
+        },
+        body: JSON.stringify({
+          category: "medical-questions",
+          difficulty: "all",
+          questionCount: 5,
+        }),
+      },
+    );
+    expectApiQuarantine(resource);
+    const payload = parseJson(resource);
+    expect(payload.code === "CATEGORY_QUARANTINED", "held Battle request was not denied by policy");
+    expect(payload.hostId === undefined && payload.roomCode === undefined, "held Battle request allocated a room");
+    assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });
 
@@ -633,9 +887,16 @@ export function buildMonitorReport(summary, generatedAt = new Date()) {
     schemaVersion: 1,
     generatedAt: generatedAt.toISOString(),
     status: summary.failures.length ? "failure" : "success",
+    monitor: {
+      scope: summary.config?.scope ?? null,
+      siteOrigin: summary.config?.siteOrigin ?? null,
+      apiOrigin: summary.config?.apiOrigin ?? null,
+      allowCompatibleSchema: summary.config?.allowCompatibleSchema === true,
+    },
     totalChecks: summary.results.length + summary.failures.length,
     passedChecks: summary.results.length,
     failedChecks: summary.failures.length,
+    contentPublicationContract: CONTENT_PUBLICATION_CONTRACT,
     apiReleaseContract: API_RELEASE_CONTRACT,
     results: summary.results,
     failures: summary.failures,

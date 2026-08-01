@@ -11,7 +11,7 @@ function roomState(overrides = {}) {
     hostToken: "host-token",
     players: [],
     questions: [{
-      id: "science-1",
+      id: "science-001",
       question: { en: "Question", ar: "سؤال" },
       answer: { en: "Answer", ar: "جواب" },
       options: {
@@ -102,6 +102,106 @@ test("unknown rooms are rejected before accepting a WebSocket", async () => {
   assert.equal(response.status, 404);
   assert.equal(context.accepted.length, 0);
   assert.deepEqual(staleSocket.closed, [{ code: 1008, reason: "Room not found" }]);
+});
+
+test("pre-deployment held rooms are purged and indistinguishable from unknown room codes", async () => {
+  const unknownContext = fakeContext(undefined);
+  const unknownResponse = await new BattleRoom(unknownContext).fetch(connectRequest());
+  const heldSocket = fakeSocket({ connectedAt: Date.now() });
+  const heldContext = fakeContext(roomState({
+    category: "medical-questions",
+    questions: [{
+      ...roomState().questions[0],
+      id: "medical-questions-001",
+    }],
+  }), [heldSocket]);
+
+  const heldResponse = await new BattleRoom(heldContext).fetch(connectRequest());
+
+  assert.equal(heldResponse.status, unknownResponse.status);
+  assert.equal(await heldResponse.text(), await unknownResponse.text());
+  assert.equal(
+    heldResponse.headers.get("cache-control"),
+    unknownResponse.headers.get("cache-control"),
+  );
+  assert.equal(heldContext.storage.room, undefined);
+  assert.equal(heldContext.accepted.length, 0);
+  assert.deepEqual(heldSocket.closed, [{ code: 1008, reason: "Room not found" }]);
+});
+
+test("room initialization rejects held and category-mismatched question state", async (t) => {
+  for (const payload of [
+    {
+      code: "MED23456",
+      category: "medical-questions",
+      difficulty: "all",
+      hostToken: "host-token",
+      questions: [{ ...roomState().questions[0], id: "medical-questions-001" }],
+    },
+    {
+      code: "SCI23456",
+      category: "science",
+      difficulty: "all",
+      hostToken: "host-token",
+      questions: [{ ...roomState().questions[0], id: "medical-questions-001" }],
+    },
+  ]) {
+    await t.test(payload.category === "science" ? "mismatched card" : "held category", async () => {
+      const context = fakeContext(undefined);
+      const response = await new BattleRoom(context).fetch(new Request("https://battle.internal/init", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      }));
+
+      assert.equal(response.status, 503);
+      assert.equal(response.headers.get("cache-control"), "no-store");
+      assert.equal(context.storage.room, undefined);
+      assert.equal(context.storage.alarm, null);
+    });
+  }
+});
+
+test("all hibernated room entrypoints purge held state before sending questions or state", async (t) => {
+  const heldRoom = () => roomState({
+    category: "medical-questions",
+    questions: [{ ...roomState().questions[0], id: "medical-questions-001" }],
+  });
+
+  await t.test("message", async () => {
+    const player = { id: "p-1", name: "Player", score: 0, streak: 0, isHost: true };
+    const socket = fakeSocket({ playerId: player.id });
+    const context = fakeContext(heldRoom(), [socket]);
+    context.storage.room.players = [player];
+
+    await new BattleRoom(context).webSocketMessage(socket, JSON.stringify({ type: "start-game" }));
+
+    assert.equal(context.storage.room, undefined);
+    assert.deepEqual(socket.sent, []);
+    assert.deepEqual(socket.closed, [{ code: 1008, reason: "Room not found" }]);
+  });
+
+  await t.test("close before join", async () => {
+    const socket = fakeSocket({ connectedAt: Date.now() });
+    const context = fakeContext(heldRoom(), [socket]);
+
+    await new BattleRoom(context).webSocketClose(socket);
+
+    assert.equal(context.storage.room, undefined);
+    assert.deepEqual(socket.sent, []);
+    assert.deepEqual(socket.closed, [{ code: 1008, reason: "Room not found" }]);
+  });
+
+  await t.test("alarm", async () => {
+    const socket = fakeSocket({ playerId: "p-1" });
+    const context = fakeContext(heldRoom(), [socket]);
+
+    await new BattleRoom(context).alarm();
+
+    assert.equal(context.storage.room, undefined);
+    assert.deepEqual(socket.sent, []);
+    assert.deepEqual(socket.closed, [{ code: 1008, reason: "Room not found" }]);
+  });
 });
 
 test("room socket and pending-join caps are enforced before acceptance", async (t) => {

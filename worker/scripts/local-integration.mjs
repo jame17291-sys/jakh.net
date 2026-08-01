@@ -178,6 +178,9 @@ function openWebSocket(url, origin) {
       socket.removeListener("error", onError);
       resolveOpen(socket);
     };
+    socket.once("upgrade", (response) => {
+      socket.jakhWorkerVersionId = response.headers["x-jakh-worker-version"] || null;
+    });
     socket.once("error", onError);
     socket.once("open", onOpen);
     socket.once("unexpected-response", (_request, response) => {
@@ -257,6 +260,7 @@ async function run() {
       name: "jakh-api-local-integration",
       main: join(WORKER_ROOT, "src", "index.ts"),
       compatibility_date: "2026-07-29",
+      version_metadata: { binding: "CF_VERSION_METADATA" },
       vars: {
         ALLOWED_ORIGINS: baseUrl,
         STATIC_ORIGIN: staticOrigin,
@@ -403,6 +407,16 @@ async function run() {
       battleSocket = await openWebSocket(
         `${baseUrl.replace(/^http/u, "ws")}/ws/battle?code=${battle.payload.code}`,
         baseUrl,
+      );
+      assert.match(
+        battleSocket.jakhWorkerVersionId || "",
+        /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u,
+        "WebSocket upgrade lacked a valid Worker runtime identity",
+      );
+      assert.equal(
+        battleSocket.jakhWorkerVersionId,
+        health.workerVersionId,
+        "WebSocket upgrade did not preserve the exact Worker runtime identity",
       );
       const joinedMessage = waitForWebSocketMessage(
         battleSocket,

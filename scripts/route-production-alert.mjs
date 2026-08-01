@@ -3,6 +3,12 @@ import { fileURLToPath } from "node:url";
 
 export const ALERT_MARKER = "<!-- jakh-production-monitor-alert -->";
 export const ALERT_TITLE = "[Production alert] jakh.net monitor failure";
+export const ALERT_SCOPES = Object.freeze(["all", "api", "pages"]);
+
+export function alertMarker(scope) {
+  if (!ALERT_SCOPES.includes(scope)) throw new Error("Alert scope must be all, api, or pages");
+  return `<!-- jakh-production-monitor-alert:${scope} -->`;
+}
 
 function required(value, label) {
   if (typeof value !== "string" || !value.trim()) throw new Error(`${label} is required`);
@@ -76,28 +82,44 @@ function createGitHubClient({ token, apiUrl, fetchImpl }) {
   };
 }
 
-async function findOpenAlertIssue(request, context) {
-  const repositoryPath = `/repos/${encodeURIComponent(context.owner)}/${encodeURIComponent(context.repo)}`;
-  for (let page = 1; page <= 10; page += 1) {
-    const issues = await request(`${repositoryPath}/issues?state=open&per_page=100&page=${page}`);
-    const match = issues.find((issue) => !issue.pull_request && issue.body?.includes(ALERT_MARKER));
-    if (match) return match;
-    if (issues.length < 100) return null;
-  }
-  throw new Error("Could not safely identify the production alert issue among more than 1,000 open issues");
+function issueAlertScope(issue) {
+  const marker = typeof issue?.body === "string" ? issue.body.split(/\r?\n/u, 1)[0].trim() : "";
+  const scopes = ALERT_SCOPES.filter((scope) => marker === alertMarker(scope));
+  if (marker === ALERT_MARKER) scopes.push("all");
+  return scopes.length === 1 ? scopes[0] : null;
 }
 
-function runMarker(context, state) {
-  return `<!-- jakh-production-monitor-run:${context.runId}:${context.runAttempt}:${state} -->`;
+async function findOpenAlertIssues(request, context) {
+  const repositoryPath = `/repos/${encodeURIComponent(context.owner)}/${encodeURIComponent(context.repo)}`;
+  const alerts = [];
+  for (let page = 1; page <= 10; page += 1) {
+    const issues = await request(`${repositoryPath}/issues?state=open&per_page=100&page=${page}`);
+    for (const issue of issues) {
+      const scope = issue.pull_request ? null : issueAlertScope(issue);
+      if (scope) alerts.push({ issue, scope });
+    }
+    if (issues.length < 100) return alerts;
+  }
+  throw new Error("Could not safely identify all production alert issues among more than 1,000 open issues");
+}
+
+function runMarker(context, state, scope) {
+  return `<!-- jakh-production-monitor-run:${scope}:${context.runId}:${context.runAttempt}:${state} -->`;
+}
+
+function bodyHasMarker(body, marker) {
+  return typeof body === "string" && body.split(/\r?\n/u).some((line) => line.trim() === marker);
 }
 
 async function issueContainsMarker(request, context, issue, marker) {
-  if (issue.body?.includes(marker)) return true;
+  if (bodyHasMarker(issue.body, marker)) return true;
   if (!issue.comments) return false;
   const repositoryPath = `/repos/${encodeURIComponent(context.owner)}/${encodeURIComponent(context.repo)}`;
-  const page = Math.ceil(issue.comments / 100);
-  const comments = await request(`${repositoryPath}/issues/${issue.number}/comments?per_page=100&page=${page}`);
-  return comments.some((comment) => comment.body?.includes(marker));
+  for (let page = Math.ceil(issue.comments / 100); page >= 1; page -= 1) {
+    const comments = await request(`${repositoryPath}/issues/${issue.number}/comments?per_page=100&page=${page}`);
+    if (comments.some((comment) => bodyHasMarker(comment.body, marker))) return true;
+  }
+  return false;
 }
 
 async function readReport(path) {
@@ -108,6 +130,30 @@ async function readReport(path) {
     const message = error instanceof Error ? error.message : String(error);
     return { reportError: `Structured monitor report unavailable: ${message}` };
   }
+}
+
+function parseAlertScope(value, label) {
+  if (typeof value !== "string" || !ALERT_SCOPES.includes(value.trim())) {
+    throw new Error(`${label} must be all, api, or pages`);
+  }
+  return value.trim();
+}
+
+function resolveAlertScope(report, env) {
+  const monitor = report && typeof report === "object" && !Array.isArray(report) ? report.monitor : null;
+  const hasReportScope = monitor && typeof monitor === "object"
+    && Object.prototype.hasOwnProperty.call(monitor, "scope");
+  const hasEnvScope = Object.prototype.hasOwnProperty.call(env, "JAKH_MONITOR_SCOPE")
+    && env.JAKH_MONITOR_SCOPE !== undefined;
+  const reportScope = hasReportScope ? parseAlertScope(monitor.scope, "Structured monitor report scope") : null;
+  const envScope = hasEnvScope ? parseAlertScope(env.JAKH_MONITOR_SCOPE, "JAKH_MONITOR_SCOPE") : null;
+  if (reportScope && envScope && reportScope !== envScope) {
+    throw new Error(`Structured monitor report scope ${reportScope} does not match JAKH_MONITOR_SCOPE ${envScope}`);
+  }
+  if (!reportScope && !envScope) {
+    throw new Error("Monitor scope is required in the structured report or JAKH_MONITOR_SCOPE");
+  }
+  return reportScope || envScope;
 }
 
 function sourceDescription(context) {
@@ -140,17 +186,19 @@ function reportSummary(report, state) {
   return lines.join("\n");
 }
 
-function alertBody({ context, marker, report, state, now }) {
+function alertBody({ context, marker, report, scope, state, now }) {
+  const monitor = scope === "all" ? "full" : scope === "api" ? "API" : "Pages";
   const heading = state === "failure"
-    ? "The full production monitor detected a failure."
-    : "The full production monitor passed and this incident has recovered.";
+    ? `The ${monitor} production monitor detected a failure.`
+    : `The ${monitor} production monitor passed and this incident has recovered.`;
   return [
-    ALERT_MARKER,
+    alertMarker(scope),
     marker,
     "",
     heading,
     "",
     `- **Observed:** ${now.toISOString()}`,
+    `- **Scope:** ${scope}`,
     `- **Trigger:** ${sourceDescription(context)}`,
     `- **Workflow:** [run ${context.runId}, attempt ${context.runAttempt}](${context.runUrl})`,
     "",
@@ -175,48 +223,65 @@ export async function routeProductionAlert(options = {}) {
   const report = options.report !== undefined
     ? options.report
     : await readReport(env.JAKH_MONITOR_RESULT_PATH);
+  const scope = resolveAlertScope(report, env);
   const now = options.now || new Date();
-  const marker = runMarker(context, state);
+  const marker = runMarker(context, state, scope);
   const repositoryPath = `/repos/${encodeURIComponent(context.owner)}/${encodeURIComponent(context.repo)}`;
-  const issue = await findOpenAlertIssue(request, context);
+  const alerts = await findOpenAlertIssues(request, context);
 
-  if (state === "failure" && !issue) {
-    const created = await request(`${repositoryPath}/issues`, {
-      method: "POST",
-      body: {
-        title: ALERT_TITLE,
-        body: alertBody({ context, marker, report, state, now }),
-      },
-    });
-    return { action: "created", issueNumber: created.number, issueUrl: created.html_url };
-  }
-
-  if (!issue) return { action: "noop", reason: "no open production incident" };
-
-  const alreadyRecorded = await issueContainsMarker(request, context, issue, marker);
-  if (!alreadyRecorded) {
-    await request(`${repositoryPath}/issues/${issue.number}/comments`, {
-      method: "POST",
-      body: { body: alertBody({ context, marker, report, state, now }) },
-    });
-  }
-
-  if (state === "recovery") {
-    await request(`${repositoryPath}/issues/${issue.number}`, {
-      method: "PATCH",
-      body: { state: "closed", state_reason: "completed" },
-    });
+  if (state === "failure") {
+    const issue = alerts.find((alert) => alert.scope === scope)?.issue;
+    if (!issue) {
+      const created = await request(`${repositoryPath}/issues`, {
+        method: "POST",
+        body: {
+          title: `${ALERT_TITLE} [${scope}]`,
+          body: alertBody({ context, marker, report, scope, state, now }),
+        },
+      });
+      return { action: "created", scope, issueNumber: created.number, issueUrl: created.html_url };
+    }
+    const alreadyRecorded = await issueContainsMarker(request, context, issue, marker);
+    if (!alreadyRecorded) {
+      await request(`${repositoryPath}/issues/${issue.number}/comments`, {
+        method: "POST",
+        body: { body: alertBody({ context, marker, report, scope, state, now }) },
+      });
+    }
     return {
-      action: alreadyRecorded ? "closed" : "commented-and-closed",
+      action: alreadyRecorded ? "deduplicated" : "commented",
+      scope,
       issueNumber: issue.number,
       issueUrl: issue.html_url,
     };
   }
 
+  const targets = scope === "all" ? alerts : alerts.filter((alert) => alert.scope === scope);
+  if (!targets.length) return { action: "noop", scope, reason: `no open ${scope} production incident` };
+
+  let commented = false;
+  for (const { issue } of targets) {
+    const alreadyRecorded = await issueContainsMarker(request, context, issue, marker);
+    if (!alreadyRecorded) {
+      await request(`${repositoryPath}/issues/${issue.number}/comments`, {
+        method: "POST",
+        body: { body: alertBody({ context, marker, report, scope, state, now }) },
+      });
+      commented = true;
+    }
+    await request(`${repositoryPath}/issues/${issue.number}`, {
+      method: "PATCH",
+      body: { state: "closed", state_reason: "completed" },
+    });
+  }
+
   return {
-    action: alreadyRecorded ? "deduplicated" : "commented",
-    issueNumber: issue.number,
-    issueUrl: issue.html_url,
+    action: commented ? "commented-and-closed" : "closed",
+    scope,
+    closedCount: targets.length,
+    issueNumber: targets[0].issue.number,
+    issueUrl: targets[0].issue.html_url,
+    issueNumbers: targets.map(({ issue }) => issue.number),
   };
 }
 

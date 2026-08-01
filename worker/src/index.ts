@@ -62,6 +62,18 @@ import type { Env } from "./types.js";
 
 export { BattleRoom, PasswordHasher };
 
+function withWorkerVersion(response: Response, env: Env): Response {
+  // A Cloudflare 101 carries the accepted WebSocket. Reconstructing it would
+  // reject the status or detach the socket; BattleRoom stamps that response
+  // at creation time using trusted metadata forwarded by connectBattle.
+  if (response.status === 101) return response;
+  const versionId = env.CF_VERSION_METADATA?.id;
+  if (!versionId) return response;
+  const wrapped = new Response(response.body, response);
+  wrapped.headers.set("x-jakh-worker-version", versionId);
+  return wrapped;
+}
+
 const MAINTENANCE_JOBS = Object.freeze([
   { name: "security-state", run: cleanupExpiredSecurityState },
   { name: "privacy-retention", run: cleanupPrivacyRetentionState },
@@ -178,34 +190,46 @@ async function route(request: Request, env: Env): Promise<Response> {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const redirect = redirectToHttps(request, env.STATIC_ORIGIN);
-    if (redirect) return redirect;
+    if (redirect) return withWorkerVersion(redirect, env);
     if (request.method === "OPTIONS") {
-      return withCors(preflight(request, env.ALLOWED_ORIGINS), request, env.ALLOWED_ORIGINS);
+      return withWorkerVersion(
+        withCors(preflight(request, env.ALLOWED_ORIGINS), request, env.ALLOWED_ORIGINS),
+        env,
+      );
     }
     if (!originIsAllowed(request, env.ALLOWED_ORIGINS)) {
-      return withCors(
-        json({ error: "Origin is not allowed", code: "ORIGIN_NOT_ALLOWED" }, 403),
-        request,
-        env.ALLOWED_ORIGINS,
+      return withWorkerVersion(
+        withCors(
+          json({ error: "Origin is not allowed", code: "ORIGIN_NOT_ALLOWED" }, 403),
+          request,
+          env.ALLOWED_ORIGINS,
+        ),
+        env,
       );
     }
 
     try {
       const response = await route(request, env);
-      return withCors(response, request, env.ALLOWED_ORIGINS);
+      return withWorkerVersion(withCors(response, request, env.ALLOWED_ORIGINS), env);
     } catch (error) {
       if (error instanceof ApiError) {
-        return withCors(
-          json({ error: error.message, code: error.code }, error.status, error.headers),
-          request,
-          env.ALLOWED_ORIGINS,
+        return withWorkerVersion(
+          withCors(
+            json({ error: error.message, code: error.code }, error.status, error.headers),
+            request,
+            env.ALLOWED_ORIGINS,
+          ),
+          env,
         );
       }
       console.error("Unhandled API error", error);
-      return withCors(
-        json({ error: "Internal server error", code: "INTERNAL_SERVER_ERROR" }, 500),
-        request,
-        env.ALLOWED_ORIGINS,
+      return withWorkerVersion(
+        withCors(
+          json({ error: "Internal server error", code: "INTERNAL_SERVER_ERROR" }, 500),
+          request,
+          env.ALLOWED_ORIGINS,
+        ),
+        env,
       );
     }
   },

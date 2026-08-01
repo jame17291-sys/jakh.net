@@ -3,10 +3,20 @@
 import { appendFile, readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 
+import { loadProductionQuarantine } from "./publication-quarantine.mjs";
+
 const FINAL_SCHEMA = "8";
 const SERVICE_NAME = "jakh-api";
 const FINAL_MESSAGE = /^JAKH final ([0-9a-f]{40}) schema ([1-9][0-9]*) run ([1-9][0-9]*)$/u;
 const VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
+const publicationQuarantine = loadProductionQuarantine();
+const EXPECTED_PUBLICATION = Object.freeze({
+  state: "safety-quarantine-active",
+  categories: Object.freeze([...publicationQuarantine.categorySlugs].sort()),
+  quarantinedQuestions: publicationQuarantine.manifest.totalCards,
+  publicQuestions: 3_275,
+  manifestSha256: publicationQuarantine.policySha256,
+});
 
 function isRecord(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -105,6 +115,11 @@ export function verifyStaticApiRelease({
     if (health.service !== SERVICE_NAME) {
       errors.push(`API health service was ${String(health.service ?? "missing")}, expected ${SERVICE_NAME}`);
     }
+    if (health.workerVersionId !== activeVersion) {
+      errors.push(
+        `API health Worker version was ${String(health.workerVersionId ?? "missing")}, expected active version ${String(activeVersion ?? "missing")}`,
+      );
+    }
     if (health.schema !== expectedSchema) {
       errors.push(`API health schema was ${String(health.schema ?? "missing")}, expected ${expectedSchema}`);
     }
@@ -117,6 +132,32 @@ export function verifyStaticApiRelease({
     for (const feature of ["registration", "accountRecovery", "accountDeletion"]) {
       if (health.features?.[feature] !== true) {
         errors.push(`API health feature ${feature} was not ready on schema ${expectedSchema}`);
+      }
+    }
+    const publication = health.contentPublication;
+    if (!isRecord(publication)) {
+      errors.push("API health contentPublication was missing or invalid");
+    } else {
+      if (publication.state !== EXPECTED_PUBLICATION.state) {
+        errors.push(`API health content publication state was ${String(publication.state ?? "missing")}`);
+      }
+      if (publication.quarantinedQuestions !== EXPECTED_PUBLICATION.quarantinedQuestions) {
+        errors.push(`API health quarantined question total was ${String(publication.quarantinedQuestions ?? "missing")}`);
+      }
+      if (publication.publicQuestions !== EXPECTED_PUBLICATION.publicQuestions) {
+        errors.push(`API health public question total was ${String(publication.publicQuestions ?? "missing")}`);
+      }
+      if (publication.manifestSha256 !== EXPECTED_PUBLICATION.manifestSha256) {
+        errors.push("API health quarantine manifest SHA-256 differed from the release source");
+      }
+      const categories = Array.isArray(publication.quarantinedCategories)
+        ? [...publication.quarantinedCategories].sort()
+        : [];
+      if (
+        categories.length !== EXPECTED_PUBLICATION.categories.length
+        || categories.some((slug, index) => slug !== EXPECTED_PUBLICATION.categories[index])
+      ) {
+        errors.push("API health quarantined categories differed from the release source");
       }
     }
   }
@@ -132,6 +173,43 @@ export function verifyStaticApiRelease({
       apiReleaseRunId,
       healthHttpStatus: String(httpStatus),
       health,
+    },
+  };
+}
+
+export function compareStaticApiEvidence(before, after) {
+  const errors = [];
+  if (before?.result !== "verified" || after?.result !== "verified") {
+    errors.push("both static/API gate receipts must be verified before comparison");
+  }
+  for (const field of [
+    "expectedCommit",
+    "expectedSchema",
+    "activeVersion",
+    "deploymentId",
+    "deploymentMessage",
+    "apiReleaseRunId",
+  ]) {
+    if (before?.[field] !== after?.[field]) {
+      errors.push(`live API ${field} changed during the static release`);
+    }
+  }
+  if (before?.health?.workerVersionId !== before?.activeVersion) {
+    errors.push("pre-static API health was not bound to its active Worker version");
+  }
+  if (after?.health?.workerVersionId !== after?.activeVersion) {
+    errors.push("post-static API health was not bound to its active Worker version");
+  }
+  return {
+    errors,
+    evidence: {
+      activeVersion: before?.activeVersion ?? null,
+      deploymentId: before?.deploymentId ?? null,
+      apiReleaseRunId: before?.apiReleaseRunId ?? null,
+      expectedCommit: before?.expectedCommit ?? null,
+      expectedSchema: before?.expectedSchema ?? null,
+      beforeCheckedAt: before?.checkedAt ?? null,
+      afterCheckedAt: after?.checkedAt ?? null,
     },
   };
 }
@@ -176,10 +254,30 @@ async function verifyCommand(options) {
   );
 }
 
+async function compareCommand(options) {
+  const result = compareStaticApiEvidence(
+    await readJson(requireOption(options, "before")),
+    await readJson(requireOption(options, "after")),
+  );
+  const receipt = {
+    formatVersion: 1,
+    checkedAt: new Date().toISOString(),
+    result: result.errors.length === 0 ? "unchanged" : "blocked",
+    ...result.evidence,
+    errors: result.errors,
+  };
+  await writeFile(requireOption(options, "receipt"), `${JSON.stringify(receipt, null, 2)}\n`, "utf8");
+  if (result.errors.length) {
+    for (const error of result.errors) process.stderr.write(`::error title=Static/API release gate::${error}\n`);
+    throw new Error(`${result.errors.length} static/API identity comparison gate(s) failed`);
+  }
+}
+
 async function main() {
   const { command, options } = parseArguments(process.argv.slice(2));
-  if (command !== "verify") throw new Error(`Unknown command: ${command ?? "missing"}`);
-  await verifyCommand(options);
+  if (command === "verify") await verifyCommand(options);
+  else if (command === "compare") await compareCommand(options);
+  else throw new Error(`Unknown command: ${command ?? "missing"}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

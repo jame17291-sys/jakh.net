@@ -5,7 +5,7 @@ on:
     - cron: "17,47 * * * *"
   workflow_dispatch:
   workflow_run:
-    workflows: ["Deploy GitHub Pages", "Deploy API"]
+    workflows: ["Deploy static site to Cloudflare Workers", "Legacy GitHub Pages (break-glass only)", "Deploy API"]
     types: [completed]
 
 permissions:
@@ -46,6 +46,7 @@ jobs:
           JAKH_MONITOR_TIMEOUT_MS: "10000"
           JAKH_SITE_MAX_MS: "5000"
           JAKH_API_MAX_MS: "5000"
+          JAKH_MONITOR_SCOPE: ${{ github.event_name != 'workflow_run' && 'all' || github.event.workflow_run.name == 'Legacy GitHub Pages (break-glass only)' && 'pages' || github.event.workflow_run.name == 'Deploy API' && 'api' || 'all' }}
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.name == 'Deploy API' && startsWith(github.event.workflow_run.display_title, 'API compatibility ·') && 'true' || 'false' }}
           JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
         run: node scripts/monitor-production.mjs
@@ -58,5 +59,6 @@ jobs:
           JAKH_ALERT_EVENT: ${{ github.event_name }}
           JAKH_ALERT_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
           JAKH_ALERT_SOURCE_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          JAKH_MONITOR_SCOPE: ${{ github.event_name != 'workflow_run' && 'all' || github.event.workflow_run.name == 'Legacy GitHub Pages (break-glass only)' && 'pages' || github.event.workflow_run.name == 'Deploy API' && 'api' || 'all' }}
           JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
         run: node scripts/route-production-alert.mjs

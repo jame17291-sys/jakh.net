@@ -1,4 +1,6 @@
 import type { BattlePlayer, BattleQuestion, BattleRoomState } from "./types.js";
+import { isPublicCard } from "./catalog.js";
+import { isQuarantinedCategory } from "./content-safety.js";
 
 const QUESTION_TIME_MS = 15_000;
 const REVEAL_TIME_MS = 4_000;
@@ -42,6 +44,13 @@ interface SocketAttachment {
   messageCount?: number;
 }
 
+function isPublicRoom(room: BattleRoomState): boolean {
+  return !isQuarantinedCategory(room.category)
+    && Array.isArray(room.questions)
+    && room.questions.length > 0
+    && room.questions.every((question) => isPublicCard(question.id, room.category));
+}
+
 export class BattleRoom implements DurableObject {
   constructor(private readonly ctx: DurableObjectState) {}
 
@@ -52,6 +61,15 @@ export class BattleRoom implements DurableObject {
       const room = await this.ctx.storage.get<BattleRoomState>("room");
       if (!room) {
         this.closeSockets(1008, "Room not found");
+        return new Response("Room not found", {
+          status: 404,
+          headers: { "cache-control": "no-store" },
+        });
+      }
+      if (!isPublicRoom(room)) {
+        // Match the unknown-room response so a room code cannot be used to
+        // enumerate held or invalid pre-deployment state.
+        await this.expireRoom(1008, "Room not found");
         return new Response("Room not found", {
           status: 404,
           headers: { "cache-control": "no-store" },
@@ -123,16 +141,35 @@ export class BattleRoom implements DurableObject {
       this.ctx.acceptWebSocket(server);
       server.serializeAttachment({ connectedAt: now, clientKey } satisfies SocketAttachment);
       await this.scheduleAlarm(room, now);
-      return new Response(null, { status: 101, webSocket: client });
+      const workerVersionId = request.headers.get("x-jakh-worker-version");
+      return new Response(null, {
+        status: 101,
+        headers: workerVersionId ? { "x-jakh-worker-version": workerVersionId } : undefined,
+        webSocket: client,
+      });
     }
     return new Response("Not found", { status: 404 });
   }
 
   private async initialize(request: Request): Promise<Response> {
     const existing = await this.ctx.storage.get<BattleRoomState>("room");
-    if (existing) return new Response("Room already exists", { status: 409 });
+    if (existing) {
+      if (!isPublicRoom(existing)) await this.expireRoom(1008, "Room not found");
+      return new Response("Room already exists", { status: 409 });
+    }
 
     const payload = await request.json() as InitPayload;
+    if (
+      isQuarantinedCategory(payload.category)
+      || !Array.isArray(payload.questions)
+      || payload.questions.length === 0
+      || payload.questions.some((question) => !isPublicCard(question.id, payload.category))
+    ) {
+      return new Response("Category is unavailable", {
+        status: 503,
+        headers: { "cache-control": "no-store" },
+      });
+    }
     const now = Date.now();
     const room: BattleRoomState = {
       code: payload.code,
@@ -183,6 +220,10 @@ export class BattleRoom implements DurableObject {
       await this.expireRoom(1008, "Room not found");
       return;
     }
+    if (!isPublicRoom(room)) {
+      await this.expireRoom(1008, "Room not found");
+      return;
+    }
 
     if (payload.type === "join-room") {
       await this.join(socket, room, payload);
@@ -208,10 +249,14 @@ export class BattleRoom implements DurableObject {
   }
 
   async webSocketClose(socket: WebSocket): Promise<void> {
-    const attachment = this.socketAttachment(socket);
-    if (!attachment.playerId) return;
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) return;
+    if (!isPublicRoom(room)) {
+      await this.expireRoom(1008, "Room not found");
+      return;
+    }
+    const attachment = this.socketAttachment(socket);
+    if (!attachment.playerId) return;
 
     const departed = room.players.find((player) => player.id === attachment.playerId);
     room.players = room.players.filter((player) => player.id !== attachment.playerId);
@@ -245,6 +290,10 @@ export class BattleRoom implements DurableObject {
   async alarm(): Promise<void> {
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) return;
+    if (!isPublicRoom(room)) {
+      await this.expireRoom(1008, "Room not found");
+      return;
+    }
     const now = Date.now();
     this.closeExpiredPreJoinSockets(now);
     if (room.deadline > now + 50) {

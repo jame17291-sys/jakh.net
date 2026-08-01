@@ -4,11 +4,14 @@ import { appendFile, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { buildVersionBoundMonitorProof } from "./runtime-monitor-proof.mjs";
+
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
 const SERVICE_NAME = "jakh-site";
-const RECEIPT_FORMAT_VERSION = 1;
+const RECEIPT_FORMAT_VERSION = 2;
 const BUILD_ID_PATTERN = /^[a-f0-9]{64}$/u;
+const WORKER_VERSION_PATTERN = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -105,6 +108,7 @@ function headerSnapshot(response) {
     "x-content-type-options",
     "x-frame-options",
     "x-jakh-site-version",
+    "x-jakh-worker-version",
   ].map((name) => [name, response.headers.get(name)]));
 }
 
@@ -120,13 +124,21 @@ function requiredSecurityErrors(probe) {
   return errors;
 }
 
-export function validateSmokeReport(report, expectedBuildId) {
+export function validateSmokeReport(report, expectedBuildId, expectedWorkerVersionId) {
   const errors = [];
   if (!report || typeof report !== "object" || !Array.isArray(report.probes)) return ["smoke report is malformed"];
   if (report.ok !== true) errors.push(...(report.errors?.length ? report.errors : ["smoke report did not pass"]));
   if (!BUILD_ID_PATTERN.test(report.observedBuildId || "")) errors.push("smoke report lacks a valid observed build ID");
   if (expectedBuildId && report.observedBuildId !== expectedBuildId) {
     errors.push(`live build ${report.observedBuildId || "missing"} does not match ${expectedBuildId}`);
+  }
+  if (!WORKER_VERSION_PATTERN.test(report.observedWorkerVersionId || "")) {
+    errors.push("smoke report lacks a valid observed Worker version ID");
+  }
+  if (expectedWorkerVersionId && report.observedWorkerVersionId !== expectedWorkerVersionId) {
+    errors.push(
+      `live Worker version ${report.observedWorkerVersionId || "missing"} does not match ${expectedWorkerVersionId}`,
+    );
   }
   for (const probe of report.probes) {
     for (const error of requiredSecurityErrors(probe)) errors.push(`${probe.name}: ${error}`);
@@ -171,7 +183,7 @@ function smokeDefinitions(token) {
   ];
 }
 
-async function oneSmokeAttempt({ fetchImpl, expectedBuildId, timeoutMs }) {
+async function oneSmokeAttempt({ fetchImpl, expectedBuildId, expectedWorkerVersionId, timeoutMs }) {
   const token = (expectedBuildId || Date.now().toString(16)).slice(0, 16);
   const probes = [];
   const errors = [];
@@ -207,18 +219,29 @@ async function oneSmokeAttempt({ fetchImpl, expectedBuildId, timeoutMs }) {
   }
   const rootProbe = probes.find((probe) => probe.name === "apex");
   const observedBuildId = rootProbe?.headers?.["x-jakh-site-version"] || null;
+  const observedWorkerVersionId = rootProbe?.headers?.["x-jakh-worker-version"] || null;
   if (!BUILD_ID_PATTERN.test(observedBuildId || "")) errors.push("apex: missing valid X-JAKH-Site-Version");
   if (expectedBuildId && observedBuildId !== expectedBuildId) {
     errors.push(`apex: live build ${observedBuildId || "missing"}, expected ${expectedBuildId}`);
+  }
+  if (!WORKER_VERSION_PATTERN.test(observedWorkerVersionId || "")) {
+    errors.push("apex: missing valid X-JAKH-Worker-Version");
+  }
+  if (expectedWorkerVersionId && observedWorkerVersionId !== expectedWorkerVersionId) {
+    errors.push(`apex: live Worker ${observedWorkerVersionId || "missing"}, expected ${expectedWorkerVersionId}`);
   }
   for (const probe of probes) {
     if (probe.headers["x-jakh-site-version"] !== observedBuildId) {
       errors.push(`${probe.name}: inconsistent X-JAKH-Site-Version`);
     }
+    if (probe.headers["x-jakh-worker-version"] !== observedWorkerVersionId) {
+      errors.push(`${probe.name}: inconsistent X-JAKH-Worker-Version`);
+    }
   }
   return {
     checkedAt: timestamp(),
     observedBuildId,
+    observedWorkerVersionId,
     ok: errors.length === 0,
     probes,
     errors,
@@ -227,6 +250,7 @@ async function oneSmokeAttempt({ fetchImpl, expectedBuildId, timeoutMs }) {
 
 export async function runSmoke({
   expectedBuildId,
+  expectedWorkerVersionId,
   attempts = 1,
   delayMs = 0,
   timeoutMs = 10_000,
@@ -237,7 +261,7 @@ export async function runSmoke({
   invariant(Number.isInteger(delayMs) && delayMs >= 0 && delayMs <= 30_000, "Smoke delay must be between 0 and 30000 ms");
   let report;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    report = await oneSmokeAttempt({ fetchImpl, expectedBuildId, timeoutMs });
+    report = await oneSmokeAttempt({ fetchImpl, expectedBuildId, expectedWorkerVersionId, timeoutMs });
     report.attempt = attempt;
     report.maxAttempts = attempts;
     if (report.ok || attempt === attempts) break;
@@ -263,6 +287,9 @@ export function buildPreflight({ manifest, deployment, baselineSmoke, environmen
     errors.push(error.message);
   }
   if (baselineSmoke?.observedBuildId === manifest?.buildId) errors.push("candidate build is already live");
+  if (activeVersion && baselineSmoke?.observedWorkerVersionId !== activeVersion) {
+    errors.push("baseline HTTP Worker version does not match the captured rollback version");
+  }
   const receipt = {
     formatVersion: RECEIPT_FORMAT_VERSION,
     service: SERVICE_NAME,
@@ -276,7 +303,8 @@ export function buildPreflight({ manifest, deployment, baselineSmoke, environmen
     safety: {
       workerRollbackTarget: activeVersion,
       rollbackBuildId: baselineSmoke?.observedBuildId || null,
-      automaticRollback: true,
+      automaticRollback: false,
+      rollbackProof: null,
     },
     preDeployment: {
       capturedAt: timestamp(),
@@ -298,6 +326,9 @@ export function buildPostDeploy({ receipt, deployment, smoke }) {
     errors.push(error.message);
   }
   if (activeVersion === receipt.safety.workerRollbackTarget) errors.push("site deployment did not produce a new active version");
+  if (activeVersion && smoke?.observedWorkerVersionId !== activeVersion) {
+    errors.push("candidate HTTP Worker version does not match the active deployment version");
+  }
   const expectedMessage = expectedDeploymentMessage(receipt);
   if (expectedMessage && deployment?.annotations?.["workers/message"] !== expectedMessage) {
     errors.push("active Site Worker deployment message does not identify this exact release");
@@ -323,6 +354,9 @@ export function buildPostRollback({ receipt, deployment, smoke }) {
   if (activeVersion !== receipt.safety.workerRollbackTarget) {
     errors.push(`rollback activated ${activeVersion || "unknown"}, expected ${receipt.safety.workerRollbackTarget}`);
   }
+  if (activeVersion && smoke?.observedWorkerVersionId !== activeVersion) {
+    errors.push("rollback HTTP Worker version does not match the active deployment version");
+  }
   receipt.rollback = {
     capturedAt: timestamp(),
     activeWorkerVersion: activeVersion,
@@ -333,12 +367,50 @@ export function buildPostRollback({ receipt, deployment, smoke }) {
   return { receipt, errors };
 }
 
+export function applyRuntimeProof({
+  receipt,
+  stage,
+  deploymentBefore,
+  deploymentAfter,
+  monitorReport,
+  generatedAt,
+}) {
+  invariant(["rollback-target", "candidate", "rollback"].includes(stage), "runtime proof stage must be rollback-target, candidate, or rollback");
+  if (stage === "candidate") invariant(receipt.postDeployment, "candidate state must be verified before its runtime proof");
+  if (stage === "rollback") invariant(receipt.rollback, "rollback state must be verified before its runtime proof");
+  const targetVersion = stage === "candidate"
+    ? receipt.postDeployment.activeWorkerVersion
+    : receipt.safety.workerRollbackTarget;
+  const proof = buildVersionBoundMonitorProof({
+    targetVersion,
+    deploymentBefore,
+    deploymentAfter,
+    monitorReport,
+    scope: "site",
+    allowCompatibleSchema: false,
+    generatedAt,
+  });
+  if (stage === "rollback-target") {
+    receipt.safety.rollbackProof = proof;
+    receipt.safety.automaticRollback = proof.safe;
+  } else if (stage === "candidate") {
+    receipt.postDeployment.runtimeProof = proof;
+    if (!proof.safe) receipt.result = "post-deploy-verification-failed";
+  } else {
+    receipt.rollback.runtimeProof = proof;
+    if (!proof.safe) receipt.result = "rollback-verification-failed";
+  }
+  return { receipt, proof };
+}
+
 export function finalizeReceipt(receipt, outcomes) {
   receipt.finalizedAt = timestamp();
   receipt.workflowSteps = outcomes;
   if (outcomes.preflight !== "success") receipt.result = "preflight-failed";
+  else if (outcomes.rollbackProof !== "success") receipt.result = "rollback-target-proof-failed";
   else if (outcomes.deploy !== "success") receipt.result = "site-deploy-failed";
   else if (outcomes.smoke === "success" && outcomes.verification === "success") receipt.result = "deployed-and-verified";
+  else if (receipt.safety.automaticRollback !== true) receipt.result = "automatic-rollback-withheld-unsafe-predecessor";
   else if (outcomes.rollback !== "success") receipt.result = "post-deploy-failure-without-rollback";
   else if (outcomes.rollbackVerification !== "success") receipt.result = "rollback-verification-failed";
   else receipt.result = "post-deploy-failure-rolled-back";
@@ -381,9 +453,24 @@ async function commandTransition(options, transition) {
   failOnErrors(result.errors);
 }
 
+async function commandRuntimeProof(options) {
+  const receiptPath = requireOption(options, "receipt");
+  const result = applyRuntimeProof({
+    receipt: await readJson(receiptPath),
+    stage: requireOption(options, "stage"),
+    deploymentBefore: await readJson(requireOption(options, "deployment-before")),
+    deploymentAfter: await readJson(requireOption(options, "deployment-after")),
+    monitorReport: await readJson(requireOption(options, "monitor")),
+  });
+  await writeJson(receiptPath, result.receipt);
+  await appendOutputs(options["github-output"], { "rollback-safe": result.proof.safe });
+  failOnErrors([...result.proof.bindingErrors, ...result.proof.monitorErrors]);
+}
+
 async function commandSmoke(options) {
   const report = await runSmoke({
     expectedBuildId: options["expected-build-id"],
+    expectedWorkerVersionId: options["expected-worker-version"],
     attempts: Number(options.attempts || "1"),
     delayMs: Number(options["delay-ms"] || "0"),
     timeoutMs: Number(options["timeout-ms"] || "10000"),
@@ -402,6 +489,7 @@ async function commandFinalize(options) {
     verification: requireOption(options, "verification-outcome"),
     rollback: requireOption(options, "rollback-outcome"),
     rollbackVerification: requireOption(options, "rollback-verification-outcome"),
+    rollbackProof: requireOption(options, "rollback-proof-outcome"),
   });
   await writeJson(receiptPath, receipt);
 }
@@ -415,9 +503,13 @@ async function commandSummary(options) {
     `- Candidate build: \`${receipt.candidate?.buildId || "unknown"}\``,
     `- Rollback version: \`${receipt.safety?.workerRollbackTarget || "unknown"}\``,
     `- Rollback build: \`${receipt.safety?.rollbackBuildId || "unknown"}\``,
+    `- Automatic rollback eligible: \`${receipt.safety?.automaticRollback === true}\``,
     `- Active version after deploy: \`${receipt.postDeployment?.activeWorkerVersion || "not verified"}\``,
     `- Active version after rollback: \`${receipt.rollback?.activeWorkerVersion || "not used"}\``,
   ];
+  if (receipt.safety?.rollbackProof?.monitorErrors?.length) {
+    lines.push(`- Rollback withheld reason: ${receipt.safety.rollbackProof.monitorErrors.join("; ")}`);
+  }
   await appendFile(requireOption(options, "github-summary"), `${lines.join("\n")}\n`, "utf8");
 }
 
@@ -434,6 +526,11 @@ async function main() {
     case "preflight": await commandPreflight(options); break;
     case "post-deploy": await commandTransition(options, buildPostDeploy); break;
     case "post-rollback": await commandTransition(options, buildPostRollback); break;
+    case "runtime-proof": await commandRuntimeProof(options); break;
+    case "active-version": {
+      process.stdout.write(extractActiveVersion(await readJson(requireOption(options, "deployment"))));
+      break;
+    }
     case "finalize": await commandFinalize(options); break;
     case "summary": await commandSummary(options); break;
     default: throw new Error(`Unknown command: ${command || "missing"}`);

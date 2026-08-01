@@ -4,6 +4,11 @@ import handler from "../dist/index.js";
 
 function env(schema = "8") {
   return {
+    CF_VERSION_METADATA: {
+      id: "11111111-1111-4111-8111-111111111111",
+      tag: "",
+      timestamp: "2026-08-01T00:00:00.000Z",
+    },
     PASSWORD_PEPPER: "password-pepper-longer-than-24-characters",
     IP_HASH_SALT: "ip-hash-salt-longer-than-24-characters",
     ALLOWED_ORIGINS: "https://jakh.net,https://www.jakh.net",
@@ -60,6 +65,7 @@ test("schema 6 gates table-dependent account features without breaking core rout
     {},
   );
   assert.equal(profile.status, 401);
+  assert.equal(profile.headers.get("x-jakh-worker-version"), "11111111-1111-4111-8111-111111111111");
   assert.equal((await profile.json()).code, "UNAUTHORIZED");
 });
 

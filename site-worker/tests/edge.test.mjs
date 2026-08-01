@@ -9,6 +9,7 @@ import {
   contentSecurityPolicy,
   createSiteHandler,
   fingerprintCompatibilitySource,
+  isQuarantinedPath,
   validateMtaStsPolicy,
 } from "../src/site-edge.js";
 
@@ -55,6 +56,7 @@ test("physical aliases and www normalize in one query-preserving 301", async () 
   const cases = [
     ["https://jakh.net/science.html?x=1", "https://jakh.net/science?x=1"],
     ["https://jakh.net/ar/topics/science/index.html?x=1", "https://jakh.net/ar/topics/science/?x=1"],
+    ["https://jakh.net/ar/topics/science.html?x=1", "https://jakh.net/ar/topics/science/?x=1"],
     ["https://www.jakh.net/science.html?x=1", "https://jakh.net/science?x=1"],
     ["http://www.jakh.net/index.html?x=1", "https://jakh.net/?x=1"],
   ];
@@ -66,6 +68,85 @@ test("physical aliases and www normalize in one query-preserving 301", async () 
   }
   const direct = canonicalRedirect(siteManifest, new URL("https://jakh.net/science"));
   assert.equal(direct, null);
+});
+
+test("quarantined paths return policy-complete 410 responses before asset access", async () => {
+  let assetFetches = 0;
+  const blockedEnvironment = environment({
+    ASSETS: {
+      async fetch() {
+        assetFetches += 1;
+        throw new Error("quarantine reached ASSETS");
+      },
+    },
+  });
+  const paths = [
+    "/survival",
+    "/SURVIVAL.html?card=1",
+    "/survival/page/2/index.html",
+    "/ar/topics/law-middle-east/",
+    "/ar/topics/law-middle-east.html",
+    "/ar/topics/law-middle-east.html/archive",
+    "/ar/topics/law-middle-east%2ehtml",
+    "/ar//topics//medical-questions//page/2/",
+    "/data/pharmacy.json?old=1",
+    "/data/pharmacy.json/",
+    "/data/pharmacy.json/archive",
+    "/data/pharmacy.json%2farchive",
+    "/survival%3Fx=1",
+    "/survival%23fragment",
+    "/data/survival.json%3Fx=1",
+    "/data/survival.json%23fragment",
+    "/science%00/safe",
+    "/%73urvival",
+    "/survival%2ehtml",
+    "/ar/topics/%73urvival/",
+    "/data/%73urvival.json",
+    "/data/survival%2ejson",
+    "/safe/%252e%252e/economics-and-finance",
+    "/%25252573urvival",
+    "/data/%ZZ.json",
+  ];
+  for (const pathname of paths) {
+    const response = await handler.fetch(new Request(`https://jakh.net${pathname}`), blockedEnvironment);
+    assert.equal(response.status, 410, pathname);
+    assert.equal(response.headers.get("cache-control"), "no-store", pathname);
+    assert.equal(response.headers.get("x-jakh-content-quarantine"), "active", pathname);
+    assert.equal(response.headers.get("clear-site-data"), '"cache"', pathname);
+    assert.match(response.headers.get("x-robots-tag"), /noindex.*nofollow.*noarchive.*nosnippet/u, pathname);
+    assertSecurityHeaders(response);
+  }
+  const head = await handler.fetch(new Request("https://jakh.net/data/%73urvival.json", { method: "HEAD" }), blockedEnvironment);
+  assert.equal(head.status, 410);
+  assert.equal(await head.text(), "");
+  assert.equal(assetFetches, 0);
+
+  assert.equal(isQuarantinedPath(siteManifest, "/survival-guide"), false);
+  assert.equal(isQuarantinedPath(siteManifest, "/science?next=/survival"), false);
+});
+
+test("unlisted paths cannot rely on static-asset URL normalization", async () => {
+  const requestedPaths = [];
+  const normalizingEnvironment = environment({
+    ASSETS: {
+      async fetch(request) {
+        const pathname = new URL(request.url).pathname;
+        requestedPaths.push(pathname);
+        return new Response(pathname === "/404.html" ? "custom missing" : "normalized content", {
+          status: 200,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        });
+      },
+    },
+  });
+  const response = await handler.fetch(
+    new Request("https://jakh.net/ar/topics/science%2ehtml%2farchive"),
+    normalizingEnvironment,
+  );
+  assert.equal(response.status, 404);
+  assert.equal(await response.text(), "custom missing");
+  assert.deepEqual(requestedPaths, ["/404.html"]);
+  assertSecurityHeaders(response);
 });
 
 test("success, 404, method errors, and conditional responses all carry policy", async () => {
@@ -147,6 +228,29 @@ test("handler rejects a fingerprint mapping whose filename does not match its by
   malformed.fingerprints["/app.js"] = target.replace(/\.[a-f0-9]{16}\.js$/u, ".0000000000000000.js");
   malformed.files[malformed.fingerprints["/app.js"]] = malformed.files[target];
   assert.throws(() => createSiteHandler({ siteManifest: malformed, mtaStsPolicy }), /Fingerprint does not match asset bytes/u);
+});
+
+test("handler rejects quarantine policy drift or held paths in the release graph", () => {
+  const categoryDrift = structuredClone(siteManifest);
+  categoryDrift.publication.quarantinedCategories[0] = "survival-guide";
+  assert.throws(
+    () => createSiteHandler({ siteManifest: categoryDrift, mtaStsPolicy }),
+    /does not match the reviewed production policy/u,
+  );
+
+  const heldFile = structuredClone(siteManifest);
+  heldFile.files["/data/%73urvival.json"] = { sha256: "0".repeat(64), bytes: 1 };
+  assert.throws(
+    () => createSiteHandler({ siteManifest: heldFile, mtaStsPolicy }),
+    /Quarantined path is present in site files/u,
+  );
+
+  const heldRoute = structuredClone(siteManifest);
+  heldRoute.routes["/safe/%252e%252e/survival"] = "/index.html";
+  assert.throws(
+    () => createSiteHandler({ siteManifest: heldRoute, mtaStsPolicy }),
+    /Quarantined path is present in site routes/u,
+  );
 });
 
 test("CSP includes only the current page's generated inline hashes", () => {

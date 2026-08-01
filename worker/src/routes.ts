@@ -1,5 +1,11 @@
 import { createSession, enforceRateLimit, requireUser, sessionUser } from "./db.js";
-import { canonicalStatus, getCardIndex, validateCard } from "./catalog.js";
+import { canonicalStatus, getCardIndex, isPublicCard, validateCard } from "./catalog.js";
+import {
+  PRODUCTION_QUARANTINE_MANIFEST_SHA256,
+  QUARANTINED_CATEGORY_IDS,
+  isQuarantinedCategory,
+  requirePublicCategory,
+} from "./content-safety.js";
 import { ApiError, json, parseJson } from "./http.js";
 import {
   hashPasswordInHasher,
@@ -146,6 +152,20 @@ async function databaseSchema(env: Env): Promise<string | null> {
   return typeof row?.value === "string" ? row.value : null;
 }
 
+function contentPublication(env: Env) {
+  const entries = Object.values(getCardIndex(env));
+  const quarantinedQuestions = entries.filter(([categoryId]) => (
+    isQuarantinedCategory(categoryId)
+  )).length;
+  return {
+    state: "safety-quarantine-active",
+    quarantinedCategories: [...QUARANTINED_CATEGORY_IDS],
+    quarantinedQuestions,
+    publicQuestions: entries.length - quarantinedQuestions,
+    manifestSha256: PRODUCTION_QUARANTINE_MANIFEST_SHA256,
+  };
+}
+
 export async function requireSchemaFeature(
   env: Env,
   feature: SchemaGatedFeature,
@@ -166,11 +186,19 @@ export async function requireSchemaFeature(
 }
 
 export async function health(env: Env): Promise<Response> {
+  const workerVersionId = env.CF_VERSION_METADATA?.id ?? null;
   const configured = env.PASSWORD_PEPPER?.length >= 24
     && env.IP_HASH_SALT?.length >= 24
     && Boolean(env.BATTLE_ROOMS)
     && Boolean(env.PASSWORD_HASHERS);
-  if (!configured) return json({ ok: false, service: "jakh-api" }, 503);
+  if (!configured) {
+    return json({
+      ok: false,
+      service: "jakh-api",
+      workerVersionId,
+      contentPublication: contentPublication(env),
+    }, 503);
+  }
   try {
     const [schema, cardIndex] = await Promise.all([databaseSchema(env), getCardIndex(env)]);
     const compatible = schema !== null && COMPATIBLE_SCHEMAS.includes(
@@ -181,20 +209,24 @@ export async function health(env: Env): Promise<Response> {
       ok: ready,
       service: "jakh-api",
       version: API_VERSION,
+      workerVersionId,
       schema,
       targetSchema: SCHEMA_VERSION,
       compatibleSchemas: [...COMPATIBLE_SCHEMAS],
       features: schema ? readinessForSchema(schema) : readinessForSchema("0"),
+      contentPublication: contentPublication(env),
     }, ready ? 200 : 503);
   } catch {
     return json({
       ok: false,
       service: "jakh-api",
       version: API_VERSION,
+      workerVersionId,
       schema: null,
       targetSchema: SCHEMA_VERSION,
       compatibleSchemas: [...COMPATIBLE_SCHEMAS],
       features: readinessForSchema("0"),
+      contentPublication: contentPublication(env),
     }, 503);
   }
 }
@@ -475,8 +507,14 @@ export async function profile(request: Request, env: Env): Promise<Response> {
          FROM favorites WHERE user_id = ? ORDER BY created_at`,
     ).bind(user.id).all(),
   ]);
-  const progress = progressResult.results;
-  const favorites = favoritesResult.results;
+  // Preserve held rows in D1 for account export/deletion, but do not return
+  // them to the interactive public profile while their content is quarantined.
+  const progress = progressResult.results.filter(
+    (item) => isPublicCard(item.cardId, item.categoryId),
+  );
+  const favorites = favoritesResult.results.filter(
+    (item) => isPublicCard(item.cardId, item.categoryId),
+  );
   return json({
     id: user.id,
     username: user.username,
@@ -817,13 +855,15 @@ function previousDate(date: string): string {
 
 export async function streak(request: Request, env: Env): Promise<Response> {
   const user = await requireUser(request, env);
+  const quarantinePlaceholders = QUARANTINED_CATEGORY_IDS.map(() => "?").join(", ");
   const [datesResult, record] = await Promise.all([
     env.DB.prepare(
       `SELECT DISTINCT substr(first_correct_at, 1, 10) AS activityDate
          FROM progress
         WHERE user_id = ? AND first_correct_at IS NOT NULL
+          AND category_id NOT IN (${quarantinePlaceholders})
         ORDER BY activityDate DESC`,
-    ).bind(user.id).all<{ activityDate: string }>(),
+    ).bind(user.id, ...QUARANTINED_CATEGORY_IDS).all<{ activityDate: string }>(),
     env.DB.prepare(
       "SELECT streak_freeze_count, streak_freeze_highest FROM users WHERE id = ?",
     ).bind(user.id).first<{ streak_freeze_count: number; streak_freeze_highest: number }>(),
@@ -831,6 +871,9 @@ export async function streak(request: Request, env: Env): Promise<Response> {
   const dates = datesResult.results.map((item) => item.activityDate);
   const today = new Date().toISOString().slice(0, 10);
   const yesterday = previousDate(today);
+  // Existing freeze inventory and the highest-award checkpoint are retained:
+  // quarantine never claws back an earned account benefit, and retaining the
+  // checkpoint prevents the filtered history from granting duplicate freezes.
   let freezeCount = record?.streak_freeze_count || 0;
   if (!dates.length || (dates[0] !== today && dates[0] !== yesterday)) {
     return json({ streak: 0, freezeCount });
@@ -875,6 +918,7 @@ export async function analytics(request: Request, env: Env): Promise<Response> {
   );
   const body = await parseJson<{ pageSlug?: unknown; timeSpent?: unknown }>(request);
   const pageSlug = normalizeCategory(body.pageSlug);
+  requirePublicCategory(pageSlug);
   const timeSpent = Number(body.timeSpent);
   if (!Number.isInteger(timeSpent) || timeSpent < 1 || timeSpent > 300) {
     throw new ApiError(400, "Invalid timeSpent");

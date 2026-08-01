@@ -1,5 +1,6 @@
 import { ApiError } from "./http.js";
 import cardIndexData from "./card-index.json" with { type: "json" };
+import { isQuarantinedCategory, requirePublicCategory } from "./content-safety.js";
 import type { Env } from "./types.js";
 
 type CardIndexEntry = [categoryId: string, difficulty: string];
@@ -13,11 +14,22 @@ export function getCardIndex(_env: Env): CardIndex {
   return cardIndex;
 }
 
+export function isPublicCard(
+  cardId: unknown,
+  categoryId: unknown,
+): boolean {
+  if (typeof cardId !== "string" || typeof categoryId !== "string") return false;
+  const entry = cardIndex[cardId];
+  return !isQuarantinedCategory(categoryId)
+    && Boolean(entry && entry[0] === categoryId);
+}
+
 export async function validateCard(
   env: Env,
   cardId: string,
   categoryId: string,
 ): Promise<{ categoryId: string; difficulty: string }> {
+  requirePublicCategory(categoryId);
   const entry = getCardIndex(env)[cardId];
   if (!entry || entry[0] !== categoryId) throw new ApiError(400, "Card does not match the category");
   return { categoryId: entry[0], difficulty: entry[1] };

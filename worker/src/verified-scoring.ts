@@ -4,7 +4,12 @@ import {
   requireUser,
   runBoundedRetentionCleanup,
 } from "./db.js";
-import { getCardIndex } from "./catalog.js";
+import { getCardIndex, isPublicCard } from "./catalog.js";
+import {
+  QUARANTINED_CATEGORY_IDS,
+  isQuarantinedCategory,
+  requirePublicCategory,
+} from "./content-safety.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { randomToken, sha256 } from "./security.js";
 import type { Env } from "./types.js";
@@ -287,6 +292,7 @@ function canonicalCategoryCards(
 }
 
 async function loadCategoryCards(env: Env, categoryId: string): Promise<CanonicalCard[]> {
+  requirePublicCategory(categoryId);
   const cardIndex = getCardIndex(env);
   if (!Object.values(cardIndex).some((entry) => entry[0] === categoryId)) {
     throw new ApiError(400, "Invalid category", undefined, "INVALID_CATEGORY");
@@ -343,6 +349,7 @@ export async function createVerifiedChallenge(request: Request, env: Env): Promi
   await enforceRateLimit(env, await rateKey(env, user.id, "create"), 30, 60 * 60);
   const body = await parseJson<{ categoryId?: unknown }>(request);
   const categoryId = normalizeCategory(body.categoryId);
+  requirePublicCategory(categoryId);
   const cards = selectChallengeCards(await loadCategoryCards(env, categoryId));
 
   const challengeId = randomToken(18);
@@ -562,6 +569,12 @@ function scoreFor(correctCount: number): number {
   return correctCount * 1_000;
 }
 
+async function expirePendingChallenge(env: Env, challengeId: string): Promise<void> {
+  await env.DB.prepare(
+    "UPDATE verified_score_sessions SET status = 'expired' WHERE id = ? AND status = 'pending'",
+  ).bind(challengeId).run();
+}
+
 export async function submitVerifiedChallenge(request: Request, env: Env): Promise<Response> {
   const user = await requireUser(request, env);
   await enforceRateLimit(env, await rateKey(env, user.id, "submit"), 60, 60 * 60);
@@ -595,6 +608,10 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
   if (!row) {
     throw new ApiError(404, "Challenge not found", undefined, "SERVER_CHECKED_CHALLENGE_NOT_FOUND");
   }
+  if (isQuarantinedCategory(row.category_id)) {
+    await expirePendingChallenge(env, row.id);
+    requirePublicCategory(row.category_id);
+  }
   if (row.status !== "pending") {
     throw new ApiError(
       409,
@@ -617,9 +634,7 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
 
   const currentTime = Date.now();
   if (currentTime > row.expires_at) {
-    await env.DB.prepare(
-      "UPDATE verified_score_sessions SET status = 'expired' WHERE id = ? AND status = 'pending'",
-    ).bind(row.id).run();
+    await expirePendingChallenge(env, row.id);
     throw new ApiError(410, "Challenge has expired", undefined, "SERVER_CHECKED_CHALLENGE_EXPIRED");
   }
   if (currentTime < row.not_before_at) {
@@ -639,7 +654,9 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
   if (
     expectedCardIds.length !== VERIFIED_QUESTION_COUNT
     || commitments.length !== VERIFIED_QUESTION_COUNT
+    || expectedCardIds.some((cardId) => !isPublicCard(cardId, row.category_id))
   ) {
+    await expirePendingChallenge(env, row.id);
     throw new ApiError(503, "Stored challenge is invalid", undefined, "STORED_CHALLENGE_INVALID");
   }
 
@@ -713,6 +730,7 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
 export async function verifiedLeaderboard(request: Request, env: Env): Promise<Response> {
   const categoryParam = new URL(request.url).searchParams.get("category");
   const categoryId = categoryParam === null ? null : normalizeCategory(categoryParam);
+  if (categoryId) requirePublicCategory(categoryId);
   if (
     categoryId
     && !Object.values(getCardIndex(env)).some((entry) => entry[0] === categoryId)
@@ -720,6 +738,7 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
     throw new ApiError(400, "Invalid category", undefined, "INVALID_CATEGORY");
   }
 
+  const quarantinePlaceholders = QUARANTINED_CATEGORY_IDS.map(() => "?").join(", ");
   const categoryClause = categoryId ? "AND s.category_id = ?" : "";
   const query = `
     WITH eligible AS (
@@ -733,6 +752,7 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
         FROM verified_score_sessions s
         JOIN users u ON u.id = s.user_id
        WHERE s.status = 'completed' AND s.verified = 1 AND u.is_banned = 0
+         AND s.category_id NOT IN (${quarantinePlaceholders})
          ${categoryClause}
     )
     SELECT username, avatar, score, categoryId, correctCount, questionCount
@@ -741,9 +761,11 @@ export async function verifiedLeaderboard(request: Request, env: Env): Promise<R
      ORDER BY score DESC, username COLLATE NOCASE ASC, categoryId ASC
      LIMIT 50`;
   const statement = env.DB.prepare(query);
-  const result = categoryId
-    ? await statement.bind(categoryId).all<LeaderboardRow>()
-    : await statement.all<LeaderboardRow>();
+  const bindings = [
+    ...QUARANTINED_CATEGORY_IDS,
+    ...(categoryId ? [categoryId] : []),
+  ];
+  const result = await statement.bind(...bindings).all<LeaderboardRow>();
 
   return json({
     status: "active",

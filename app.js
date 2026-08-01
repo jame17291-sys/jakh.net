@@ -125,6 +125,27 @@ function categoryRouteForLanguage(slug, lang) {
   return lang === 'ar' ? `/ar/topics/${safeSlug}/` : `/${safeSlug}`;
 }
 
+const LEGACY_CATEGORY_ART = Object.freeze({
+  currencies: 'assets/backgrounds/currencies.svg',
+  linguistics: 'assets/backgrounds/linguistics.png',
+  'tech-retro': 'assets/backgrounds/tech-retro.png',
+  automotive: 'assets/backgrounds/automotive.svg',
+  survival: 'assets/backgrounds/survival.png',
+  'fictional-worlds': 'assets/backgrounds/fictional-worlds.png',
+  superheroes: 'assets/backgrounds/superheroes.png',
+  'pop-culture': 'assets/backgrounds/pop-culture.svg',
+  'true-crime': 'assets/backgrounds/true-crime.png',
+  'mythology-legends': 'assets/backgrounds/mythology-legends.png',
+  'logic-puzzles': 'assets/backgrounds/logic-puzzles.svg',
+});
+
+function categoryArtUrl(meta) {
+  const image = String(meta?.image || '').trim();
+  if (image) return `/${image.replace(/^\/+/, '')}`;
+  const slug = String(meta?.slug || '').trim();
+  return `/${LEGACY_CATEGORY_ART[slug] || `assets/${slug}.svg`}`;
+}
+
 const UI = {
   en: {
     brandSubtitle: 'bilingual categories, teams, and saved progress',
@@ -840,6 +861,7 @@ const state = {
   sort: 'featured',
   subcategory: 'all',
   apiAvailable: false,
+  apiChecked: false,
   dbUser: null,
   accountAnalyticsAllowed: false,
   flipped: new Set(),
@@ -1099,12 +1121,13 @@ async function detectApiAvailability() {
 }
 
 function applyCapabilityVisibility() {
-  document.body.classList.toggle('api-unavailable', !state.apiAvailable);
+  const apiUnavailable = state.apiChecked && !state.apiAvailable;
+  document.body.classList.toggle('api-unavailable', apiUnavailable);
   [els.openAuthBtn, els.heroAuthBtn, document.getElementById('leaderboardBtn'), document.getElementById('battleNavBtn'), document.getElementById('bnProfileBtn')]
     .filter(Boolean)
-    .forEach(element => { element.hidden = !state.apiAvailable; });
+    .forEach(element => { element.hidden = apiUnavailable; });
   const suggestionBox = document.getElementById('suggestionBox');
-  if (suggestionBox) suggestionBox.hidden = !state.apiAvailable;
+  if (suggestionBox) suggestionBox.hidden = apiUnavailable;
 }
 
 function saveJson(key, value) {
@@ -1616,6 +1639,7 @@ async function handleOfflineStatus(event) {
     showToast(state.lang === 'ar' ? 'أنت تعمل حالياً بدون اتصال — قد لا تتوفر بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
   } else if (sessionInitialized && event?.type === 'online') {
     state.apiAvailable = await detectApiAvailability();
+    state.apiChecked = true;
     if (state.apiAvailable) {
       await checkCloudSession();
       if (state.dbUser) {
@@ -2189,31 +2213,11 @@ function setDirectoryResultsLabel(text) {
   if (els.directoryResultsLabel) els.directoryResultsLabel.textContent = text;
 }
 
-let categoryArtObserver = null;
-
-function hydrateCategoryArt(root) {
-  categoryArtObserver?.disconnect();
-  categoryArtObserver = null;
-  const cards = [...root.querySelectorAll('.category-card.has-art:not(.is-art-ready)')];
-  if (!cards.length) return;
-  if (!('IntersectionObserver' in window)) {
-    cards.forEach(card => card.classList.add('is-art-ready'));
-    return;
-  }
-  categoryArtObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-art-ready');
-      observer.unobserve(entry.target);
-    });
-  }, { rootMargin: '480px 0px' });
-  cards.forEach(card => categoryArtObserver.observe(card));
-}
-
 function createCategoryCardMarkup(meta) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
   const isAr = state.lang === 'ar';
   const title = escapeHtml(meta.title[state.lang]);
+  const image = categoryArtUrl(meta);
   const topicLabels = (meta.topics || [])
     .slice(0, 3)
     .map(topic => escapeHtml(topic[state.lang] || topic.en))
@@ -2231,6 +2235,7 @@ function createCategoryCardMarkup(meta) {
   return `
     <a class="category-card has-art" href="${escapeHtml(categoryRouteForLanguage(meta.slug, state.lang))}" aria-label="${title}">
       <div class="category-card-bg" aria-hidden="true">
+        <img class="category-card-image" src="${escapeHtml(image)}" alt="" width="640" height="420" loading="lazy" decoding="async" />
         <span class="category-card-count-badge">${cardCountLabel}</span>
       </div>
       <div class="category-card-overlay">
@@ -2319,7 +2324,6 @@ function renderCategoryDirectory() {
       <p>${isAr ? 'جرّب قسمًا آخر أو امسح البحث الحالي.' : 'Try another section or clear the current search.'}</p>
     </div>
   `;
-  hydrateCategoryArt(els.categoryDirectoryGrid);
 }
 
 function renderClusterTabBar() {
@@ -2588,13 +2592,7 @@ function renderCategoryPage() {
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
   if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
   if (els.categoryImage) {
-    const gradient = categoryGradient(category.slug);
-    const heroDiv = document.createElement('div');
-    heroDiv.className = 'category-hero-bg';
-    heroDiv.style.background = gradient;
-    heroDiv.innerHTML = `<span class="category-hero-emoji" aria-hidden="true">${escapeHtml(category.emoji)}</span>`;
-    els.categoryImage.replaceWith(heroDiv);
-    els.categoryImage = null;
+    els.categoryImage.src = categoryArtUrl(category);
   }
   if (els.categoryDiffBadge) els.categoryDiffBadge.textContent = buildDiffBadge(category);
   restoreFilterParams();
@@ -3396,7 +3394,10 @@ async function loadCatalog() {
 
 async function loadCategoryIfNeeded() {
   if (state.page !== 'category' || !state.categorySlug) return;
-  const raw = await fetchJson(`/data/${state.categorySlug}.json`);
+  const [raw] = await Promise.all([
+    fetchJson(`/data/${state.categorySlug}.json`),
+    loadCatalog(),
+  ]);
   if (!Array.isArray(raw)) throw new Error(`Invalid category data: ${state.categorySlug}`);
   const meta = (state.catalog?.categories || []).find(c => c.slug === state.categorySlug) || {};
   state.categoryData = { ...meta, cards: raw };
@@ -4562,6 +4563,7 @@ async function hydrateCloudCapabilities() {
       }
     }
     sessionInitialized = true;
+    state.apiChecked = true;
   }
   hydrateCloudFeatureUi();
 }
@@ -4586,26 +4588,28 @@ function hydrateCloudFeatureUi() {
 
 async function init() {
   cacheEls();
-  [els.openAuthBtn, els.heroAuthBtn].filter(Boolean).forEach(element => {
-    element.hidden = true;
-  });
   if (!initializeFromStorage()) return;
   applyDocumentLanguage();
   bindCommonEvents();
   applyCapabilityVisibility();
   createTimedQuizModal();
-  await loadCatalog();
-  await Promise.all([loadDailyChallenge(), loadCategoryIfNeeded()]);
+  await Promise.all([loadCatalog(), loadCategoryIfNeeded()]);
   applyStaticCopy();
   rerender();
   injectBottomNav();
   injectBackToTop();
   applyCapabilityVisibility();
   checkNewAchievements();
+  if (state.page === 'home') {
+    loadDailyChallenge()
+      .then(() => renderDailyChallenge())
+      .catch(() => {});
+  }
   // Cloud account and multiplayer checks hydrate after local content is
   // already usable, so a slow API never leaves the page blank.
   hydrateCloudCapabilities().catch(() => {
     state.apiAvailable = false;
+    state.apiChecked = true;
     sessionInitialized = true;
     applyCapabilityVisibility();
   });

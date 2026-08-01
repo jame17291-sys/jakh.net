@@ -6,10 +6,10 @@ import { QA_HOLD_IDS, SEO_COLLECTIONS } from "./seo-collections.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = "https://jakh.net";
-const ASSET_VERSION = "2026073106";
-const APP_ASSET_VERSION = "2026073106";
-const PRIVACY_ASSET_VERSION = "2026073106";
-const LAST_MODIFIED = "2026-07-31";
+const ASSET_VERSION = "2026080101";
+const APP_ASSET_VERSION = "2026080101";
+const PRIVACY_ASSET_VERSION = "2026080101";
+const LAST_MODIFIED = "2026-08-01";
 const PREVIEW_CARD_COUNT = 20;
 const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
 const QA_HOLD_SET = new Set(QA_HOLD_IDS);
@@ -109,6 +109,35 @@ function writeOutputs() {
 
 function jsonLd(value) {
   return JSON.stringify(value, null, 2).replaceAll("</", "<\\/");
+}
+
+function quizStructuredData({ canonical, name, description, lang, subjectNames, cards }) {
+  const subjects = [...new Set(subjectNames.map(cleanText).filter(Boolean))];
+  if (!subjects.length) throw new Error(`Quiz ${canonical} needs at least one educational subject`);
+  const concepts = subjects.map((subject) => ({ "@type": "Thing", name: subject }));
+  return {
+    "@type": "Quiz",
+    "@id": `${canonical}#quiz`,
+    name,
+    description,
+    url: canonical,
+    inLanguage: lang,
+    isAccessibleForFree: true,
+    about: concepts.length === 1 ? concepts[0] : concepts,
+    educationalAlignment: subjects.map((subject) => ({
+      "@type": "AlignmentObject",
+      alignmentType: "educationalSubject",
+      targetName: subject,
+    })),
+    provider: { "@type": "Organization", name: "JAKH Riddles", url: `${SITE_ORIGIN}/` },
+    hasPart: cards.map((card) => ({
+      "@type": "Question",
+      "@id": `${canonical}#${card.id}`,
+      eduQuestionType: "Flashcard",
+      text: card.question[lang],
+      acceptedAnswer: { "@type": "Answer", text: card.answer[lang] },
+    })),
+  };
 }
 
 function socialMeta({ title, description, url, type = "website", lang = "en" }) {
@@ -289,6 +318,7 @@ function categoryImagePath(category) {
     `assets/backgrounds_new/${category.slug}.jpg`,
     `assets/backgrounds/${category.slug}.png`,
     `assets/backgrounds/${category.slug}.svg`,
+    `assets/backgrounds/${category.slug}.webp`,
     "assets/logo.png",
   ].filter(Boolean);
   const match = candidates.find((candidate) => fs.existsSync(path.join(root, candidate)));
@@ -297,9 +327,11 @@ function categoryImagePath(category) {
 
 function simpleCategoryCard(category, lang = "en") {
   const isAr = lang === "ar";
+  const image = categoryImagePath(category);
   const topics = (category.topics || []).slice(0, 3).map((topic) => topic[lang] || topic.en).join(" · ");
   return `<a class="category-card has-art" href="${escapeHtml(categoryRoute(category, lang))}" aria-label="${escapeHtml(category.title[lang])}">
           <div class="category-card-bg" aria-hidden="true">
+            <img class="category-card-image" src="${escapeHtml(image)}" alt="" width="640" height="420" loading="lazy" decoding="async" />
             <span class="category-card-count-badge">${category.count} ${isAr ? "س" : "Q"}</span>
           </div>
           <div class="category-card-overlay">
@@ -330,25 +362,14 @@ function renderCategoryPage(category, cards, lang = "en") {
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Quiz",
-        "@id": `${canonical}#quiz`,
+      quizStructuredData({
+        canonical,
         name: isAr ? `اختبار وأسئلة ${category.title.ar}` : `${category.title.en} Quiz & Questions`,
         description,
-        url: canonical,
-        inLanguage: lang,
-        isAccessibleForFree: true,
-        educationalLevel: isAr ? "من المبتدئ إلى المتقدم" : "beginner to advanced",
-        about: { "@type": "Thing", name: category.title[lang] },
-        provider: { "@type": "Organization", name: "JAKH Riddles", url: `${SITE_ORIGIN}/` },
-        hasPart: previewCards.map((card) => ({
-          "@type": "Question",
-          "@id": `${canonical}#${card.id}`,
-          eduQuestionType: "Flashcard",
-          text: card.question[lang],
-          acceptedAnswer: { "@type": "Answer", text: card.answer[lang] },
-        })),
-      },
+        lang,
+        subjectNames: [category.title[lang]],
+        cards: previewCards,
+      }),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -517,7 +538,7 @@ function directoryMarkup() {
             <div><h3>${escapeHtml(section.title.en)}</h3><p>${escapeHtml(section.description.en)}</p></div>
             <p class="directory-section-count">${categories.length} topics · ${total.toLocaleString("en-US")} questions</p>
           </section>
-          ${categories.map(simpleCategoryCard).join("\n          ")}`;
+          ${categories.map((category) => simpleCategoryCard(category, "en")).join("\n          ")}`;
   }).join("\n          ");
 }
 
@@ -824,6 +845,14 @@ function collectionSourceLabel(collection, lang) {
     .join(lang === "ar" ? "، " : ", ");
 }
 
+function collectionSubjectNames(collection, lang) {
+  const subjects = (collection.sourceCategories || [])
+    .map((source) => source.label?.[lang] || source.slug)
+    .map(cleanText)
+    .filter(Boolean);
+  return subjects.length ? [...new Set(subjects)] : [collectionHeading(collection, lang)];
+}
+
 function collectionDisclaimer(collection, lang) {
   return collection.disclaimer?.[lang] || collection.visibleDisclaimer?.[lang] || "";
 }
@@ -845,23 +874,14 @@ function renderCollectionPage(collection, lang, cards) {
   const structured = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Quiz",
-        "@id": `${canonical}#quiz`,
+      quizStructuredData({
+        canonical,
         name: title.replace(/\s*\|\s*JAKH\s*$/u, ""),
         description,
-        url: canonical,
-        inLanguage: lang,
-        isAccessibleForFree: true,
-        provider: { "@type": "Organization", name: "JAKH Riddles", url: `${SITE_ORIGIN}/` },
-        hasPart: cards.map((card) => ({
-          "@type": "Question",
-          "@id": `${canonical}#${card.id}`,
-          eduQuestionType: "Flashcard",
-          text: card.question[lang],
-          acceptedAnswer: { "@type": "Answer", text: card.answer[lang] },
-        })),
-      },
+        lang,
+        subjectNames: collectionSubjectNames(collection, lang),
+        cards,
+      }),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -985,10 +1005,26 @@ function renderCollectionsHub(collectionsWithCards) {
     description,
     url: `${SITE_ORIGIN}/collections`,
     inLanguage: ["en", "ar"],
-    hasPart: collectionsWithCards.flatMap(({ collection }) => ([
-      { "@type": "Quiz", name: collectionHeading(collection, "en"), url: collectionUrl(collection, "en") },
-      { "@type": "Quiz", name: collectionHeading(collection, "ar"), url: collectionUrl(collection, "ar"), inLanguage: "ar" },
-    ])),
+    mainEntity: {
+      "@type": "ItemList",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: collectionsWithCards.length * 2,
+      itemListElement: collectionsWithCards.flatMap(({ collection }, collectionIndex) =>
+        ["en", "ar"].map((lang, languageIndex) => {
+          const url = collectionUrl(collection, lang);
+          return {
+            "@type": "ListItem",
+            position: collectionIndex * 2 + languageIndex + 1,
+            item: {
+              "@type": "WebPage",
+              "@id": url,
+              name: collectionHeading(collection, lang),
+              url,
+              inLanguage: lang,
+            },
+          };
+        })),
+    },
   };
   return `<!DOCTYPE html>
 <html lang="en">

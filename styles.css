@@ -2512,86 +2512,6 @@ body.install-banner-visible #backToTopBtn {
 }
 
 
-.category-card .category-card-bg {
-  position: relative;
-  overflow: hidden;
-  background-color: transparent !important;
-}
-.category-card .category-card-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  transition: transform 0.4s ease-out;
-}
-.category-card:hover .category-card-bg::before {
-  transform: scale(1.05);
-}
-.category-card .category-card-bg[style] {
-  background: transparent !important;
-}
-
-.category-card.has-art.is-art-ready[href="/art-and-painters"] .category-card-bg::before { background-image: url('assets/backgrounds/art-and-painters.png'); }
-.category-card.has-art.is-art-ready[href="/books-and-quotes"] .category-card-bg::before { background-image: url('assets/backgrounds/books-and-quotes.png'); }
-.category-card.has-art.is-art-ready[href="/coding-and-design"] .category-card-bg::before { background-image: url('assets/backgrounds/coding-and-design.png'); }
-.category-card.has-art.is-art-ready[href="/electrical-engineering"] .category-card-bg::before { background-image: url('assets/backgrounds/electrical-engineering.png'); }
-.category-card.has-art.is-art-ready[href="/flag-questions"] .category-card-bg::before { background-image: url('assets/backgrounds/flag-questions.png'); }
-.category-card.has-art.is-art-ready[href="/mechanical-engineering"] .category-card-bg::before { background-image: url('assets/backgrounds/mechanical-engineering.png'); }
-.category-card.has-art.is-art-ready[href="/medical-questions"] .category-card-bg::before { background-image: url('assets/backgrounds/medical-questions.png'); }
-.category-card.has-art.is-art-ready[href="/middle-east-history"] .category-card-bg::before { background-image: url('assets/backgrounds/middle-east-history.png'); }
-.category-card.has-art.is-art-ready[href="/pharmacy"] .category-card-bg::before { background-image: url('assets/backgrounds/pharmacy.png'); }
-.category-card.has-art.is-art-ready[href="/physical-and-life-sciences"] .category-card-bg::before { background-image: url('assets/backgrounds/physical-and-life-sciences.png'); }
-.category-card.has-art.is-art-ready[href="/relationship-questions"] .category-card-bg::before { background-image: url('assets/backgrounds/relationship-questions.png'); }
-.category-card.has-art.is-art-ready[href="/social-sciences"] .category-card-bg::before { background-image: url('assets/backgrounds/social-sciences.png'); }
-.category-card.has-art.is-art-ready[href="/story-mysteries"] .category-card-bg::before { background-image: url('assets/backgrounds/story-mysteries.png'); }
-.category-card.has-art.is-art-ready[href="/tv-shows-trivia"] .category-card-bg::before { background-image: url('assets/backgrounds/tv-shows-trivia.png'); }
-.category-card.has-art.is-art-ready[href="/world-habits-and-etiquette"] .category-card-bg::before { background-image: url('assets/backgrounds/world-habits-and-etiquette.png'); }
-.category-card.has-art.is-art-ready[href="/environment-and-ecology"] .category-card-bg::before { background-image: url('assets/backgrounds/environment-and-ecology.png'); }
-.category-card.has-art.is-art-ready[href="/inventions-and-minds"] .category-card-bg::before { background-image: url('assets/backgrounds/inventions-and-minds.png'); }
-.category-card.has-art.is-art-ready[href="/economics-and-finance"] .category-card-bg::before { background-image: url('assets/backgrounds/economics-and-finance.png'); }
-.category-card.has-art.is-art-ready[href="/architecture-and-landmarks"] .category-card-bg::before { background-image: url('assets/backgrounds/architecture-and-landmarks.png'); }
-.category-card.has-art.is-art-ready[href="/anime"] .category-card-bg::before { background-image: url('assets/backgrounds/anime.png'); }
-.category-card.has-art.is-art-ready[href="/ayam-tayebeen"] .category-card-bg::before { background-image: url('assets/backgrounds/ayam-tayebeen.png'); }
-.category-card.has-art.is-art-ready[href="/mythology-legends"] .category-card-bg::before { background-image: url('assets/backgrounds/mythology-legends.png'); }
-.category-card.has-art.is-art-ready[href="/true-crime"] .category-card-bg::before { background-image: url('assets/backgrounds/true-crime.png'); }
-.category-card.has-art.is-art-ready[href="/superheroes"] .category-card-bg::before { background-image: url('assets/backgrounds/superheroes.png'); }
-.category-card.has-art.is-art-ready[href="/fictional-worlds"] .category-card-bg::before { background-image: url('assets/backgrounds/fictional-worlds.png'); }
-.category-card.has-art.is-art-ready[href="/survival"] .category-card-bg::before { background-image: url('assets/backgrounds/survival.png'); }
-.category-card.has-art.is-art-ready[href="/linguistics"] .category-card-bg::before { background-image: url('assets/backgrounds/linguistics.png'); }
-.category-card.has-art.is-art-ready[href="/tech-retro"] .category-card-bg::before { background-image: url('assets/backgrounds/tech-retro.png'); }
-.category-card.has-art.is-art-ready[href="/logic-puzzles"] .category-card-bg::before { background-image: url('assets/backgrounds/logic-puzzles.svg'); }
-/* Richer SVG covers for weaker legacy categories */
-.category-card.has-art.is-art-ready[href="/business-and-management"] .category-card-bg::before { background-image: url('assets/backgrounds/business-and-management.svg'); }
-.category-card.has-art.is-art-ready[href="/civil-engineering"] .category-card-bg::before { background-image: url('assets/backgrounds/civil-engineering.svg'); }
-.category-card.has-art.is-art-ready[href="/software-and-computing"] .category-card-bg::before { background-image: url('assets/backgrounds/software-and-computing.svg'); }
-.category-card.has-art.is-art-ready[href="/infrastructure-systems"] .category-card-bg::before { background-image: url('assets/backgrounds/infrastructure-systems.svg'); }
-.category-card.has-art.is-art-ready[href="/law-middle-east"] .category-card-bg::before { background-image: url('assets/backgrounds/law-middle-east.svg'); }
-.category-card.has-art.is-art-ready[href="/currencies"] .category-card-bg::before { background-image: url('assets/backgrounds/currencies.svg'); }
-.category-card.has-art.is-art-ready[href="/geology"] .category-card-bg::before { background-image: url('assets/backgrounds/geology.svg'); }
-.category-card.has-art.is-art-ready[href="/future-tech-and-energy"] .category-card-bg::before { background-image: url('assets/backgrounds/future-tech-and-energy.svg'); }
-.category-card.has-art.is-art-ready[href="/automotive"] .category-card-bg::before { background-image: url('assets/backgrounds/automotive.svg'); }
-.category-card.has-art.is-art-ready[href="/pop-culture"] .category-card-bg::before { background-image: url('assets/backgrounds/pop-culture.svg'); }
-/* Optimized Premium Backgrounds Batch 1 */
-.category-card.has-art.is-art-ready[href="/math"] .category-card-bg::before { background-image: url('assets/backgrounds_new/math.jpg'); }
-.category-card.has-art.is-art-ready[href="/science"] .category-card-bg::before { background-image: url('assets/backgrounds_new/science.jpg'); }
-.category-card.has-art.is-art-ready[href="/history"] .category-card-bg::before { background-image: url('assets/backgrounds_new/history.jpg'); }
-.category-card.has-art.is-art-ready[href="/geography"] .category-card-bg::before { background-image: url('assets/backgrounds_new/geography.jpg'); }
-.category-card.has-art.is-art-ready[href="/classic-riddles"] .category-card-bg::before { background-image: url('assets/backgrounds_new/classic-riddles.jpg'); }
-.category-card.has-art.is-art-ready[href="/kids-riddles"] .category-card-bg::before { background-image: url('assets/backgrounds_new/kids-riddles.jpg'); }
-.category-card.has-art.is-art-ready[href="/football"] .category-card-bg::before { background-image: url('assets/backgrounds_new/football.jpg'); }
-.category-card.has-art.is-art-ready[href="/biology"] .category-card-bg::before { background-image: url('assets/backgrounds_new/biology.jpg'); }
-.category-card.has-art.is-art-ready[href="/chemistry"] .category-card-bg::before { background-image: url('assets/backgrounds_new/chemistry.jpg'); }
-.category-card.has-art.is-art-ready[href="/philosophy"] .category-card-bg::before { background-image: url('assets/backgrounds_new/philosophy.jpg'); }
-.category-card.has-art.is-art-ready[href="/space-and-astrology"] .category-card-bg::before { background-image: url('assets/backgrounds_new/space-and-astrology.jpg'); }
-.category-card.has-art.is-art-ready[href="/ancient-civilizations"] .category-card-bg::before { background-image: url('assets/backgrounds_new/ancient-civilizations.jpg'); }
-.category-card.has-art.is-art-ready[href="/animal-kingdom"] .category-card-bg::before { background-image: url('assets/backgrounds_new/animal-kingdom.jpg'); }
-.category-card.has-art.is-art-ready[href="/food-and-cuisines"] .category-card-bg::before { background-image: url('assets/backgrounds_new/food-and-cuisines.jpg'); }
-.category-card.has-art.is-art-ready[href="/cinema-and-film-history"] .category-card-bg::before { background-image: url('assets/backgrounds_new/cinema-and-film-history.jpg'); }
-.category-card.has-art.is-art-ready[href="/music-and-performing-arts"] .category-card-bg::before { background-image: url('assets/backgrounds_new/music-and-performing-arts.jpg'); }
-.category-card.has-art.is-art-ready[href="/psychology"] .category-card-bg::before { background-image: url('assets/backgrounds_new/psychology.jpg'); }
-
 /* Offline state indicators */
 body.is-offline::before {
   content: '⚠️ Offline Mode';
@@ -3424,6 +3344,7 @@ body[data-page="play"] .kv-lab-section .game-lobby-grid {
 .category-card-bg {
   position: relative;
   display: flex;
+  height: 156px;
   min-height: 156px;
   align-items: flex-start;
   justify-content: flex-end;
@@ -3434,12 +3355,18 @@ body[data-page="play"] .kv-lab-section .game-lobby-grid {
   border-radius: 0 !important;
 }
 
-.category-card .category-card-bg::before {
+.category-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   filter: saturate(0.82) contrast(0.94) brightness(1.05);
   transition: transform 180ms ease;
 }
 
-.category-card:hover .category-card-bg::before {
+.category-card:hover .category-card-image {
   transform: scale(1.025);
 }
 

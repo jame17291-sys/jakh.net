@@ -159,14 +159,17 @@ function jsonLdDocuments(page) {
 
 function jsonLdNodes(documents) {
   const nodes = [];
-  function visit(value, isGraphItem = false) {
+  const visited = new Set();
+  function visit(value) {
     if (Array.isArray(value)) {
-      for (const item of value) visit(item, isGraphItem);
+      for (const item of value) visit(item);
       return;
     }
     if (!value || typeof value !== "object") return;
-    if (isGraphItem || value["@type"]) nodes.push(value);
-    if (Array.isArray(value["@graph"])) visit(value["@graph"], true);
+    if (visited.has(value)) return;
+    visited.add(value);
+    if (value["@type"]) nodes.push(value);
+    for (const nested of Object.values(value)) visit(nested);
   }
   for (const document of documents) visit(document);
   return nodes;
@@ -564,6 +567,141 @@ function acceptedAnswerText(part) {
   };
 }
 
+function valueList(value) {
+  if (Array.isArray(value)) return value;
+  return value === undefined || value === null ? [] : [value];
+}
+
+function uniqueNames(values) {
+  return [...new Set(values.map(normalizeSpace).filter(Boolean))].sort((left, right) =>
+    left.localeCompare(right),
+  );
+}
+
+function quizAboutNames(quiz) {
+  return uniqueNames(valueList(quiz?.about).map((concept) => concept?.name));
+}
+
+function quizSubjectNames(quiz) {
+  return uniqueNames(
+    valueList(quiz?.educationalAlignment)
+      .filter((alignment) => alignment?.alignmentType === "educationalSubject")
+      .map((alignment) => alignment?.targetName),
+  );
+}
+
+function assertQuizSubjects(scope, quiz, expectedNames) {
+  const expected = uniqueNames(expectedNames);
+  const actualAbout = quizAboutNames(quiz);
+  const actualSubjects = quizSubjectNames(quiz);
+  if (JSON.stringify(actualAbout) !== JSON.stringify(expected)) {
+    fail(
+      scope,
+      `Quiz about concepts must be [${expected.join(", ")}], found [${actualAbout.join(", ")}]`,
+    );
+  }
+  if (JSON.stringify(actualSubjects) !== JSON.stringify(expected)) {
+    fail(
+      scope,
+      `Quiz educational subjects must be [${expected.join(", ")}], found [${actualSubjects.join(", ")}]`,
+    );
+  }
+}
+
+function validateEducationQuiz(scope, page, quiz) {
+  if (quiz.url !== page.canonical) {
+    fail(scope, `Quiz URL must equal page canonical "${page.canonical}", found "${quiz.url}"`);
+  }
+  if (quiz["@id"] !== `${page.canonical}#quiz`) {
+    fail(scope, `Quiz @id must be "${page.canonical}#quiz", found "${quiz["@id"]}"`);
+  }
+  if (quiz.inLanguage !== page.htmlLanguage) {
+    fail(scope, `Quiz inLanguage must be "${page.htmlLanguage}", found "${quiz.inLanguage}"`);
+  }
+  if (!normalizeSpace(quiz.name)) fail(scope, "Quiz needs a nonempty name");
+  if (!normalizeSpace(quiz.description)) fail(scope, "Quiz needs a nonempty description");
+
+  const concepts = valueList(quiz.about);
+  if (!concepts.length) {
+    fail(scope, 'Quiz needs the recommended "about" property');
+  }
+  for (const [index, concept] of concepts.entries()) {
+    if (!hasType(concept, "Thing")) {
+      fail(scope, `Quiz about ${index + 1} must have @type "Thing"`);
+    }
+    if (!normalizeSpace(concept?.name)) {
+      fail(scope, `Quiz about ${index + 1} needs a nonempty name`);
+    }
+  }
+
+  if (!Array.isArray(quiz.educationalAlignment) || !quiz.educationalAlignment.length) {
+    fail(scope, 'Quiz needs a nonempty "educationalAlignment" array');
+  }
+  let educationalSubjectCount = 0;
+  for (const [index, alignment] of valueList(quiz.educationalAlignment).entries()) {
+    if (!hasType(alignment, "AlignmentObject")) {
+      fail(scope, `Quiz educationalAlignment ${index + 1} must have @type "AlignmentObject"`);
+    }
+    if (!["educationalSubject", "educationalLevel"].includes(alignment?.alignmentType)) {
+      fail(
+        scope,
+        `Quiz educationalAlignment ${index + 1} has unsupported alignmentType "${alignment?.alignmentType}"`,
+      );
+    }
+    if (alignment?.alignmentType === "educationalSubject") educationalSubjectCount += 1;
+    if (!normalizeSpace(alignment?.targetName)) {
+      fail(scope, `Quiz educationalAlignment ${index + 1} needs a nonempty targetName`);
+    }
+  }
+  if (!educationalSubjectCount) {
+    fail(scope, 'Quiz needs at least one educationalAlignment with alignmentType "educationalSubject"');
+  }
+
+  if (!Array.isArray(quiz.hasPart) || !quiz.hasPart.length) {
+    fail(scope, 'Quiz needs a nonempty "hasPart" question array');
+    return;
+  }
+  for (const [index, part] of quiz.hasPart.entries()) {
+    if (!hasType(part, "Question")) {
+      fail(scope, `Quiz hasPart ${index + 1} must have @type "Question"`);
+    }
+    if (part?.eduQuestionType !== "Flashcard") {
+      fail(scope, `Quiz hasPart ${index + 1} eduQuestionType must be "Flashcard"`);
+    }
+    if (!normalizeSpace(part?.text)) {
+      fail(scope, `Quiz hasPart ${index + 1} needs nonempty question text`);
+    }
+    if (Array.isArray(part?.acceptedAnswer)) {
+      fail(scope, `Quiz hasPart ${index + 1} acceptedAnswer must be one Answer object, not an array`);
+      continue;
+    }
+    const answers = valueList(part?.acceptedAnswer);
+    if (answers.length !== 1 || !hasType(answers[0], "Answer")) {
+      fail(scope, `Quiz hasPart ${index + 1} needs exactly one acceptedAnswer of @type "Answer"`);
+      continue;
+    }
+    if (!normalizeSpace(answers[0]?.text)) {
+      fail(scope, `Quiz hasPart ${index + 1} acceptedAnswer needs nonempty text`);
+    }
+  }
+}
+
+let educationQuizCount = 0;
+for (const page of pages) {
+  const quizzes = page.nodes.filter((node) => hasType(node, "Quiz"));
+  educationQuizCount += quizzes.length;
+  for (const [index, quiz] of quizzes.entries()) {
+    validateEducationQuiz(`${page.relative} Quiz ${index + 1}`, page, quiz);
+  }
+}
+const expectedEducationQuizCount = categories.length * 2 + SEO_COLLECTIONS.length * 2;
+if (educationQuizCount !== expectedEducationQuizCount) {
+  fail(
+    "Education Q&A",
+    `expected exactly ${expectedEducationQuizCount} leaf Quiz nodes, found ${educationQuizCount}`,
+  );
+}
+
 function breadcrumbItemUrl(item) {
   if (typeof item?.item === "string") return item.item;
   if (item?.item && typeof item.item === "object") return item.item["@id"] || item.item.url;
@@ -655,6 +793,7 @@ for (const category of categories) {
       fail(scope, `expected exactly one Quiz JSON-LD node, found ${quizzes.length}`);
     } else {
       const quiz = quizzes[0];
+      assertQuizSubjects(scope, quiz, [category.title?.[language]]);
       if (quiz.url !== page.canonical) {
         fail(scope, `Quiz URL must equal canonical "${page.canonical}", found "${quiz.url}"`);
       }
@@ -839,6 +978,42 @@ for (const [relative, expected] of expectedCategoryLocalePages) {
   }
 }
 
+function collectionHeading(collection, language) {
+  const title = collection?.title?.[language] || collection?.titles?.[language] || "";
+  return collection?.heading?.[language] || title.replace(/\s*\|\s*JAKH\s*$/u, "");
+}
+
+function collectionSubjectNames(collection, language) {
+  const subjects = (collection?.sourceCategories || [])
+    .map((source) => source?.label?.[language] || source?.slug);
+  return uniqueNames(subjects.length ? subjects : [collectionHeading(collection, language)]);
+}
+
+const collectionCardCache = new Map();
+function collectionCards(collection, scope) {
+  const results = [];
+  for (const reference of collection?.cards || []) {
+    const slug = String(reference?.slug || "");
+    const id = String(reference?.id || "");
+    if (!slug || !id) {
+      fail(scope, "SEO collection has an incomplete card reference");
+      continue;
+    }
+    if (!collectionCardCache.has(slug)) {
+      const dataPath = path.join(root, "data", `${slug}.json`);
+      collectionCardCache.set(slug, fs.existsSync(dataPath) ? readJson(dataPath, `data/${slug}.json`) : null);
+    }
+    const cards = collectionCardCache.get(slug);
+    const card = Array.isArray(cards) ? cards.find((candidate) => candidate?.id === id) : null;
+    if (!card) {
+      fail(scope, `SEO collection references missing card ${slug}/${id}`);
+      continue;
+    }
+    results.push(card);
+  }
+  return results;
+}
+
 const expectedLocalePages = new Map();
 for (const collection of SEO_COLLECTIONS) {
   const enSlug = collection?.slug?.en || collection?.slugs?.en;
@@ -895,6 +1070,49 @@ for (const [relative, expected] of expectedLocalePages) {
   if (page.htmlLanguage !== expected.language) {
     fail(relative, `html lang must be "${expected.language}", found "${page.htmlLanguage}"`);
   }
+  const quizzes = page.nodes.filter((node) => hasType(node, "Quiz"));
+  if (quizzes.length !== 1) {
+    fail(relative, `expected exactly one Quiz JSON-LD node, found ${quizzes.length}`);
+  } else {
+    const quiz = quizzes[0];
+    const expectedCards = collectionCards(expected.collection, relative);
+    const expectedIds = expectedCards.map((card) => String(card?.id || ""));
+    assertQuizSubjects(
+      relative,
+      quiz,
+      collectionSubjectNames(expected.collection, expected.language),
+    );
+    if (!Array.isArray(quiz.hasPart) || quiz.hasPart.length !== expectedIds.length) {
+      fail(
+        relative,
+        `Quiz hasPart must contain exactly ${expectedIds.length} questions, found ${quiz.hasPart?.length ?? 0}`,
+      );
+    } else {
+      const partIds = quiz.hasPart.map(questionPartId);
+      if (JSON.stringify(partIds) !== JSON.stringify(expectedIds)) {
+        fail(
+          relative,
+          `Quiz hasPart IDs must be [${expectedIds.join(", ")}], found [${partIds.join(", ")}]`,
+        );
+      }
+    }
+    const questionSection = page.source.match(
+      /<section\b[^>]*class=["'][^"']*\bseo-question-list\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/iu,
+    );
+    if (!questionSection) {
+      fail(relative, "could not find the visible .seo-question-list section");
+    } else {
+      const visibleText = decodeHtml(questionSection[1]);
+      for (const [index, card] of expectedCards.entries()) {
+        if (!visibleText.includes(String(card?.question?.[expected.language] || ""))) {
+          fail(relative, `visible collection card ${index + 1} is missing question.${expected.language}`);
+        }
+        if (!visibleText.includes(String(card?.answer?.[expected.language] || ""))) {
+          fail(relative, `visible collection card ${index + 1} is missing answer.${expected.language}`);
+        }
+      }
+    }
+  }
   const map = alternateMaps.get(page);
   assertLanguageCluster(relative, map, expected.cluster, "HTML head");
   assertLanguageCluster(relative, sitemapAlternateMaps.get(page.canonical), expected.cluster, "sitemap entry");
@@ -912,6 +1130,95 @@ for (const [relative, expected] of expectedLocalePages) {
           `${targetPage.relative} does not reciprocate hreflang="${reciprocalLanguage}" to "${reciprocalTarget}"`,
         );
       }
+    }
+  }
+}
+
+const collectionsHub = pages.find((page) => page.relative === "collections.html");
+if (!collectionsHub) {
+  fail("collections.html", "collections hub is missing");
+} else {
+  const hubQuizzes = collectionsHub.nodes.filter((node) => hasType(node, "Quiz"));
+  if (hubQuizzes.length) {
+    fail("collections.html", `collections hub must not contain Quiz nodes; found ${hubQuizzes.length}`);
+  }
+  const collectionPages = collectionsHub.nodes.filter((node) => hasType(node, "CollectionPage"));
+  if (collectionPages.length !== 1) {
+    fail("collections.html", `expected exactly one CollectionPage node, found ${collectionPages.length}`);
+  } else if (collectionPages[0].url !== collectionsHub.canonical) {
+    fail(
+      "collections.html",
+      `CollectionPage URL must equal canonical "${collectionsHub.canonical}", found "${collectionPages[0].url}"`,
+    );
+  }
+  const itemLists = collectionsHub.nodes.filter((node) => hasType(node, "ItemList"));
+  if (itemLists.length !== 1) {
+    fail("collections.html", `expected exactly one ItemList node, found ${itemLists.length}`);
+  } else {
+    const itemList = itemLists[0];
+    if (collectionPages.length === 1 && collectionPages[0].mainEntity !== itemList) {
+      fail("collections.html", "CollectionPage mainEntity must be the collection ItemList");
+    }
+    if (itemList.itemListOrder !== "https://schema.org/ItemListOrderAscending") {
+      fail("collections.html", "ItemList must declare ascending itemListOrder");
+    }
+    const expectedEntries = SEO_COLLECTIONS.flatMap((collection) =>
+      ["en", "ar"].map((language) => ({
+        language,
+        name: collectionHeading(collection, language),
+        url: expectedLocalePages.get(
+          `${language}/${collection?.slug?.[language] || collection?.slugs?.[language]}/index.html`,
+        )?.canonical,
+      })),
+    );
+    const items = Array.isArray(itemList.itemListElement) ? itemList.itemListElement : [];
+    if (itemList.numberOfItems !== expectedEntries.length) {
+      fail(
+        "collections.html",
+        `ItemList numberOfItems must be ${expectedEntries.length}, found ${itemList.numberOfItems}`,
+      );
+    }
+    if (items.length !== expectedEntries.length) {
+      fail(
+        "collections.html",
+        `ItemList must contain ${expectedEntries.length} items, found ${items.length}`,
+      );
+    }
+    const actualUrls = [];
+    for (const [index, item] of items.entries()) {
+      const expected = expectedEntries[index];
+      const target = item?.item;
+      if (!hasType(item, "ListItem")) {
+        fail("collections.html", `ItemList entry ${index + 1} must have @type "ListItem"`);
+      }
+      if (item?.position !== index + 1) {
+        fail("collections.html", `ItemList entry ${index + 1} has incorrect position "${item?.position}"`);
+      }
+      if (!hasType(target, "WebPage")) {
+        fail("collections.html", `ItemList entry ${index + 1} item must have @type "WebPage"`);
+      }
+      actualUrls.push(target?.url);
+      if (target?.url !== expected?.url || target?.["@id"] !== expected?.url) {
+        fail(
+          "collections.html",
+          `ItemList entry ${index + 1} must identify "${expected?.url}", found "${target?.url}"`,
+        );
+      }
+      if (target?.inLanguage !== expected?.language) {
+        fail(
+          "collections.html",
+          `ItemList entry ${index + 1} inLanguage must be "${expected?.language}"`,
+        );
+      }
+      if (normalizeSpace(target?.name) !== normalizeSpace(expected?.name)) {
+        fail(
+          "collections.html",
+          `ItemList entry ${index + 1} name must be "${expected?.name}", found "${target?.name}"`,
+        );
+      }
+    }
+    if (new Set(actualUrls).size !== actualUrls.length) {
+      fail("collections.html", "ItemList contains duplicate collection URLs");
     }
   }
 }
@@ -945,6 +1252,7 @@ if (uniqueFailures.length) {
   console.log(
     `SEO validation passed: ${pages.length} HTML pages, `
     + `${indexableCanonicalSet.size} canonical pages, `
-    + `${categories.length} categories, and ${uniqueSitemapUrls.size} sitemap URLs.`,
+    + `${categories.length} categories, ${educationQuizCount} valid leaf quizzes, `
+    + `and ${uniqueSitemapUrls.size} sitemap URLs.`,
   );
 }

@@ -5,6 +5,7 @@ import {
   json,
   originIsAllowed,
   parseJson,
+  preflight,
   redirectToHttps,
   withCors,
 } from "../dist/http.js";
@@ -143,6 +144,15 @@ test("unsafe requests require an explicitly allowed Origin", () => {
     new Request("https://api.jakh.net/api/health"),
     allowed,
   ), true);
+});
+
+test("admin mutation preflight explicitly allows PATCH from jakh.net", () => {
+  const response = preflight(new Request("https://api.jakh.net/api/admin/users/test/role", {
+    method: "OPTIONS",
+    headers: { origin: "https://jakh.net" },
+  }), "https://jakh.net");
+  assert.equal(response.status, 204);
+  assert.match(response.headers.get("access-control-allow-methods"), /\bPATCH\b/u);
 });
 
 test("JSON API responses carry browser isolation headers", () => {

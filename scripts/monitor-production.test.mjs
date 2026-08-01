@@ -97,7 +97,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0 } = {}) {
         ok: true,
         service: "jakh-api",
         version: "1.4.0",
-        schema: "3",
+        schema: "5",
       }));
       return;
     }

@@ -22,6 +22,7 @@ const ERROR_CODE_BY_MESSAGE: Readonly<Record<string, string>> = Object.freeze({
   "Card does not match the category": "CARD_CATEGORY_MISMATCH",
   "Status does not match the card": "CARD_STATUS_MISMATCH",
   "Username is required": "USERNAME_REQUIRED",
+  "Username or email is required": "LOGIN_IDENTIFIER_REQUIRED",
   "Username must be 3–20 characters using letters, numbers, or underscores": "USERNAME_INVALID",
   "Invalid email": "INVALID_EMAIL",
   "API security configuration is incomplete": "API_CONFIGURATION_INCOMPLETE",
@@ -203,7 +204,7 @@ export function preflight(request: Request, csv: string): Response {
     headers: {
       "access-control-allow-origin": origin,
       "access-control-allow-credentials": "true",
-      "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+      "access-control-allow-methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
       "access-control-allow-headers": "Content-Type",
       "access-control-max-age": "86400",
       vary: "Origin",

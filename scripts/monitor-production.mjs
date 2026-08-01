@@ -406,7 +406,7 @@ export async function runProductionMonitor(options = {}) {
     expect(health.ok === true, "health response is not ok");
     expect(health.service === "jakh-api", "health response has the wrong service");
     expect(health.version === "1.4.0", `unexpected API version "${health.version || "missing"}"`);
-    expect(health.schema === "3", `unexpected API schema "${health.schema || "missing"}"`);
+    expect(health.schema === "5", `unexpected API schema "${health.schema || "missing"}"`);
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });

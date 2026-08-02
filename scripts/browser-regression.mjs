@@ -125,7 +125,10 @@ async function main() {
 
   try {
     await runTest("search and modal focus behavior", async () => {
-      const context = await createContext(browser, { viewport: { width: 1280, height: 800 } });
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      });
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
@@ -204,7 +207,10 @@ async function main() {
     });
 
     await runTest("blocked storage, filters, cards, and Quick Fire race guard", async () => {
-      const context = await createContext(browser, { viewport: { width: 1280, height: 800 } });
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      });
       await context.addInitScript(() => {
         for (const name of ["getItem", "setItem", "removeItem", "clear", "key"]) {
           Object.defineProperty(Storage.prototype, name, {
@@ -280,7 +286,12 @@ async function main() {
 
     await runTest("mobile fixed UI and install sequencing", async () => {
       const viewport = { width: 320, height: 568 };
-      const context = await createContext(browser, { viewport, isMobile: true, hasTouch: true });
+      const context = await createContext(browser, {
+        viewport,
+        isMobile: true,
+        hasTouch: true,
+        serviceWorkers: "block",
+      });
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
@@ -321,30 +332,51 @@ async function main() {
     });
 
     await runTest("service worker cold-offline shell and direct game entry", async () => {
-      const context = await createContext(browser, { viewport: { width: 1024, height: 720 } });
+      const context = await createContext(browser, {
+        viewport: { width: 1024, height: 720 },
+        serviceWorkers: "allow",
+      });
       await setCurrentDeniedConsent(context);
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
         await page.goto(`${baseUrl}/chess`, { waitUntil: NAVIGATION_READY_EVENT });
-        await page.waitForFunction(async () => {
-          if (!("serviceWorker" in navigator)) return false;
-          const registration = await navigator.serviceWorker.ready;
-          return Boolean(registration.active);
+        const activeWorkerScriptUrl = await page.evaluate(async () => {
+          if (!("serviceWorker" in navigator)) return null;
+          return Promise.race([
+            navigator.serviceWorker.ready.then((registration) => (
+              registration.active?.scriptURL ?? null
+            )),
+            new Promise((_, reject) => {
+              setTimeout(() => reject(new Error("service worker activation timed out")), 60_000);
+            }),
+          ]);
+        });
+        assert.match(activeWorkerScriptUrl, /\/sw\.js$/u);
+        const controllerScriptUrlHandle = await page.waitForFunction(() => {
+          const controller = navigator.serviceWorker.controller;
+          return controller?.state === "activated" && controller.scriptURL;
         }, undefined, { timeout: 60_000 });
-        await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
-        assert.equal(await page.evaluate(() => Boolean(navigator.serviceWorker.controller)), true);
-        await page.waitForFunction(async () => (
-          Boolean(await caches.match('/science'))
-          && Boolean(await caches.match('/ar/privacy/'))
-          && Boolean(await caches.match('/offline'))
-        ));
+        const claimedControllerScriptUrl = await controllerScriptUrlHandle.jsonValue();
+        await controllerScriptUrlHandle.dispose();
+        assert.match(claimedControllerScriptUrl, /\/sw\.js$/u);
+        assert.deepEqual(await page.evaluate(async (paths) => (
+          Promise.all(paths.map(async (path) => Boolean(await caches.match(path))))
+        ), ['/chess', '/science', '/ar/privacy/', '/offline']), [true, true, true, true]);
 
         // Playwright's Firefox offline toggle rejects top-level navigation
         // before an active service worker can answer it. Dropping the local
         // origin connection instead creates the same network failure inside
         // the service-worker fetch path consistently in all three engines.
         server.setSimulatedNetworkFailure(true);
+        const chessNavigation = await page.goto(`${baseUrl}/chess?offline_probe=1`, {
+          waitUntil: "commit",
+          timeout: 60_000,
+        });
+        assert(chessNavigation, "offline Chess navigation returned no response");
+        assert.equal(chessNavigation.fromServiceWorker(), true);
+        await page.locator('h1[data-i18n="chessTitle"]').waitFor();
+        assert.match(await page.locator('h1[data-i18n="chessTitle"]').innerText(), /Chess/u);
         await page.goto(`${baseUrl}/science?offline_probe=1`, {
           waitUntil: "commit",
           timeout: 60_000,

@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const workerSource = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
+const browserRegressionSource = fs.readFileSync(path.join(root, 'scripts/browser-regression.mjs'), 'utf8');
 const quarantineManifest = JSON.parse(fs.readFileSync(
   path.join(root, 'docs/content-review/production-quarantine.json'),
   'utf8',
@@ -487,4 +488,21 @@ test('all direct game entries use the shared registration path', () => {
     assert.doesNotMatch(source, /getRegistration\(/u, `${file} retains a getRegistration-only bootstrap`);
     assert.doesNotMatch(source, /serviceWorker\.register\(/u, `${file} duplicates shared registration`);
   }
+});
+
+test('browser release gate waits for claimed service-worker control without a navigation reload', () => {
+  const suiteStart = browserRegressionSource.indexOf(
+    'await runTest("service worker cold-offline shell and direct game entry"',
+  );
+  const suiteEnd = browserRegressionSource.indexOf('\n    console.log(', suiteStart);
+  assert.ok(suiteStart >= 0 && suiteEnd > suiteStart, 'cold-offline browser suite is missing');
+  const coldOfflineSuite = browserRegressionSource.slice(suiteStart, suiteEnd);
+  assert.match(
+    coldOfflineSuite,
+    /navigator\.serviceWorker\.ready[\s\S]+controller\?\.state === "activated"/u,
+  );
+  assert.match(coldOfflineSuite, /\/chess\?offline_probe=1/u);
+  assert.match(coldOfflineSuite, /chessNavigation\.fromServiceWorker\(\), true/u);
+  assert.doesNotMatch(coldOfflineSuite, /waitForFunction\(async/u);
+  assert.doesNotMatch(coldOfflineSuite, /\bpage\.reload\(/u);
 });

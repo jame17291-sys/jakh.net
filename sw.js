@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v81';
+const CACHE_VERSION = 'v82';
 const CORE_CACHE = `jakh-core-${CACHE_VERSION}`;
 const NAVIGATION_CACHE = `jakh-navigation-${CACHE_VERSION}`;
 const ASSET_CACHE = `jakh-assets-${CACHE_VERSION}`;

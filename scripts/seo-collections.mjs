@@ -56,15 +56,15 @@ export const SEO_COLLECTIONS = [
     ],
     titles: {
       en: "16 Riddles With Answers in English & Arabic | JAKH",
-      ar: "16 لغزاً مع الحل بالعربية والإنجليزية | JAKH",
+      ar: "16 لغزًا مع الحل بالعربية والإنجليزية | JAKH",
     },
     metaDescriptions: {
       en: "Solve 16 classic riddles with clear answers in English and Arabic. Start easy, reveal each answer, and compare your score with friends.",
-      ar: "حلّ 16 لغزاً كلاسيكياً بالعربية والإنجليزية، من السهل إلى الأصعب، ثم اكشف الحل وقارن نتيجتك مع أصدقائك.",
+      ar: "حلّ 16 لغزًا كلاسيكيًا بالعربية والإنجليزية، وابدأ بالسهل قبل الانتقال إلى الأصعب. اكشف الحل، ثم قارن نتيجتك بنتائج أصدقائك.",
     },
     intro: {
       en: "Start with approachable clues, then work up to trickier classics. Reveal each answer only after you have made your best guess.",
-      ar: "ابدأ بألغاز سهلة ثم انتقل إلى ألغاز كلاسيكية أكثر تحدياً. لا تكشف الحل إلا بعد أن تمنح نفسك فرصة كاملة للإجابة.",
+      ar: "ابدأ بألغاز بسيطة، ثم انتقل تدريجيًا إلى الأصعب. امنح نفسك فرصة كاملة للتفكير قبل كشف الحل.",
     },
   },
   {
@@ -102,15 +102,15 @@ export const SEO_COLLECTIONS = [
     ],
     titles: {
       en: "16 Kids’ Riddles With Answers | English & Arabic | JAKH",
-      ar: "16 لغزاً للأطفال مع الحل | عربي وإنجليزي | JAKH",
+      ar: "16 لغزًا للأطفال مع الحل | عربي وإنجليزي | JAKH",
     },
     metaDescriptions: {
       en: "Enjoy 16 friendly kids’ riddles with answers in English and Arabic, featuring familiar objects, simple logic, and family-safe clues.",
-      ar: "استمتع بـ16 لغزاً آمناً ولطيفاً للأطفال مع الحل بالعربية والإنجليزية، عن أشياء مألوفة ومنطق بسيط.",
+      ar: "استمتع بـ16 لغزًا مرحًا ومناسبًا للأطفال، مع الحل بالعربية والإنجليزية. ألغاز عن أشياء مألوفة، وتعتمد على منطق بسيط.",
     },
     intro: {
       en: "These friendly riddles use familiar objects, simple numbers, and clear clues. Guess first, then reveal the answer together.",
-      ar: "تستخدم هذه الألغاز اللطيفة أشياء مألوفة وأرقاماً بسيطة وأدلة واضحة. خَمِّن أولاً ثم اكشف الحل مع العائلة.",
+      ar: "ألغاز مرحة عن أشياء مألوفة، بأرقام بسيطة وتلميحات واضحة. خمّنوا الإجابة أولًا، ثم اكشفوها معًا.",
     },
   },
   {
@@ -148,15 +148,15 @@ export const SEO_COLLECTIONS = [
     ],
     titles: {
       en: "16 Logic Puzzles With Answers and Explanations | JAKH",
-      ar: "16 لغزاً منطقياً مع الحل والشرح | JAKH",
+      ar: "16 لغزًا منطقيًا مع الحل والشرح | JAKH",
     },
     metaDescriptions: {
       en: "Challenge yourself with 16 logic puzzles in English and Arabic, from quick deductions to harder problems, with clear answers and explanations.",
-      ar: "اختبر تفكيرك مع 16 لغزاً منطقياً بالعربية والإنجليزية، من الاستنتاجات السريعة إلى المسائل الأصعب، مع الحل والشرح.",
+      ar: "اختبر تفكيرك مع 16 لغزًا منطقيًا بالعربية والإنجليزية، من الاستنتاجات السريعة إلى المسائل الأصعب، مع حل وشرح واضحين.",
     },
     intro: {
       en: "Work through 16 logic puzzles that reward careful reading, deduction, and a little arithmetic. Each answer includes the key reasoning.",
-      ar: "حلّ 16 لغزاً منطقياً يعتمد على دقة القراءة والاستنتاج وقليل من الحساب. يوضّح كل حل الفكرة الأساسية وراء الإجابة.",
+      ar: "تحتاج هذه المجموعة، المكوّنة من 16 لغزًا، إلى قراءة متأنية، واستنتاج، وقليل من الحساب. وستجد مع كل إجابة شرحًا مختصرًا لفكرة الحل.",
     },
   },
   {
@@ -198,7 +198,7 @@ export const SEO_COLLECTIONS = [
         slug: "art-and-painters",
         label: {
           en: "Art & Painters",
-          ar: "الفن والرسامون",
+          ar: "الفن والرسّامون",
         },
       },
       {
@@ -219,7 +219,7 @@ export const SEO_COLLECTIONS = [
         slug: "currencies",
         label: {
           en: "World Currencies",
-          ar: "عملات وتجارة",
+          ar: "العملات العالمية",
         },
       },
     ],
@@ -243,15 +243,15 @@ export const SEO_COLLECTIONS = [
     ],
     titles: {
       en: "16 General Knowledge Quiz Questions & Answers | JAKH",
-      ar: "16 سؤالاً عاماً مع الأجوبة للمسابقات | JAKH",
+      ar: "16 سؤالًا في المعلومات العامة مع الإجابات | JAKH",
     },
     metaDescriptions: {
       en: "Try 16 evergreen general knowledge questions across geography, history, science, animals, arts, food, music, and currencies.",
-      ar: "اختبر معلوماتك عبر 16 سؤالاً عاماً مع الأجوبة في الجغرافيا والتاريخ والعلوم والحيوانات والفنون والطعام والموسيقى والعملات.",
+      ar: "اختبر معلوماتك من خلال 16 سؤالًا في الجغرافيا، والتاريخ، والعلوم، وعالم الحيوان، والفنون، والطعام، والموسيقى، والعملات.",
     },
     intro: {
       en: "Test what you know across geography, history, science, animals, arts, food, music, and money with one balanced 16-question quiz.",
-      ar: "اختبر معلوماتك في الجغرافيا والتاريخ والعلوم والحيوانات والفنون والطعام والموسيقى والعملات عبر 16 سؤالاً متوازناً.",
+      ar: "اختبر معلوماتك في الجغرافيا، والتاريخ، والعلوم، وعالم الحيوان، والفنون، والطعام، والموسيقى، والعملات، من خلال 16 سؤالًا متنوعًا.",
     },
   },
   {
@@ -289,11 +289,11 @@ export const SEO_COLLECTIONS = [
     ],
     titles: {
       en: "Spacetoon Classics Quiz: 16 Nostalgia Questions | JAKH",
-      ar: "اختبار سبيستون: 16 سؤالاً من ذكريات الطفولة | JAKH",
+      ar: "اختبار سبيستون: 16 سؤالًا من ذكريات الطفولة | JAKH",
     },
     metaDescriptions: {
       en: "Take an unofficial 16-question nostalgia quiz about classic Arabic-dubbed cartoons, with bilingual answers and familiar childhood favorites.",
-      ar: "اختبار غير رسمي من 16 سؤالاً عن مسلسلات الطفولة المدبلجة، مع أسئلة وأجوبة بالعربية والإنجليزية.",
+      ar: "اختبار غير رسمي مكوّن من 16 سؤالًا عن مسلسلات الطفولة المدبلجة، مع أسئلة وإجابات بالعربية والإنجليزية.",
     },
     intro: {
       en: "How much do you remember from classic Arabic-dubbed cartoons? Test your memory across Treasure Island, Sally, Maruko, Remi, and Tom and Jerry.",
@@ -339,15 +339,15 @@ export const SEO_COLLECTIONS = [
     ],
     titles: {
       en: "Football Rules & Tactics Quiz: 16 Questions | JAKH",
-      ar: "اختبار قوانين وخطط كرة القدم: 16 سؤالاً | JAKH",
+      ar: "اختبار قوانين وخطط كرة القدم: 16 سؤالًا | JAKH",
     },
     metaDescriptions: {
       en: "Test your knowledge of football rules, restarts, VAR, transfer terms, and tactics with 16 bilingual questions and clear answers.",
-      ar: "اختبر معرفتك بقوانين كرة القدم واستئناف اللعب وحكم الفيديو ومصطلحات الانتقالات والخطط عبر 16 سؤالاً مع الإجابات.",
+      ar: "اختبر معرفتك بقوانين كرة القدم، وطرق استئناف اللعب، وحكم الفيديو، ومصطلحات الانتقالات، والخطط، من خلال 16 سؤالًا مع الإجابات.",
     },
     intro: {
       en: "Check your understanding of football laws, restarts, match terms, transfers, and tactics in one practical 16-question challenge.",
-      ar: "اختبر فهمك لقوانين كرة القدم واستئناف اللعب والمصطلحات والانتقالات والخطط عبر 16 سؤالاً عملياً.",
+      ar: "اختبر معرفتك بقوانين كرة القدم، وطرق استئناف اللعب، ومصطلحات المباريات، والانتقالات، والخطط، من خلال 16 سؤالًا عمليًا.",
     },
     visibleDisclaimer: {
       en: "Independent educational quiz. Not affiliated with IFAB, FIFA, any league, club, or player. Rules should be checked against the current Laws of the Game.",

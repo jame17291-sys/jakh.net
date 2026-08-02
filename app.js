@@ -599,28 +599,28 @@ const UI = {
     streakFreezeLabel: '🧊 Freeze',
   },
   ar: {
-    brandSubtitle: 'مواضيع ثنائية اللغة وتقدّم محفوظ وغرف معركة مباشرة',
+    brandSubtitle: 'أسئلة بالعربية والإنجليزية، وتقدّم محفوظ، وغرف لعب مباشرة',
     navHome: 'الرئيسية',
-    navCategories: 'الفئات',
+    navCategories: 'الموضوعات',
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    homeEyebrow: 'مساحة ثنائية اللغة للعقول الفضولية',
-    homeTitle: 'اختر ما يثير فضولك، وتعلّم والعب واكتشف شيئًا جديدًا.',
-    homeText: 'اختر فئة، اضغط على البطاقة لتظهر الإجابة، ثم حدّد إجابتك صحيحة أم خاطئة. مجاني تمامًا وبدون تطبيق.',
+    homeEyebrow: 'مساحة ثنائية اللغة لكل عقل فضولي',
+    homeTitle: 'اختر ما يثير فضولك، وتعلّم والعب، واكتشف شيئًا جديدًا.',
+    homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
     browseCategories: 'استكشف المواضيع',
     heroGameHub: 'مركز الألعاب',
     statCategories: 'المواضيع',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
-    mindHeroEyebrow: '3,275 سؤالًا · 51 موضوعًا واضحًا',
+    mindHeroEyebrow: '3,275 سؤالًا · 51 موضوعًا',
     mindHeroTitle: 'مختبر العقول',
     mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
     playHeroTitle: 'غرفة الألعاب',
-    playHeroSubtitle: 'عشر نسخ متصفح وألعاب مبسطة جاهزة بلا تنزيل وبلا حاجة إلى التسجيل.',
+    playHeroSubtitle: 'عشر ألعاب ونسخ مبسطة للمتصفح، جاهزة من دون تنزيل أو تسجيل.',
     playHeroGames: 'ألعاب',
     playAvailable: 'جاهز للعب؟',
     playPick: 'اختر لعبة وابدأ',
-    playBrowserOnly: 'كل عنوان نسخة متصفح، وتختلف القواعد وعمق الخصم الآلي بين الألعاب، من دون تثبيت.',
+    playBrowserOnly: 'تعمل جميع الألعاب مباشرة في المتصفح، وقد تختلف بعض القواعد ومستوى الخصم بين لعبة وأخرى.',
     playChessAria: 'العب الشطرنج',
     playChessTitle: 'الشطرنج',
     playChessDesc: 'نسخة متصفح من الشطرنج مع إظهار النقلات القانونية والأخذ بالتجاوز والتبييت والترقية. العب ضد الخصم المدمج أو تناوب محليًا مع صديق.',
@@ -631,7 +631,7 @@ const UI = {
     playMastermindCta: 'العب ماستر مايند ←',
     playGoAria: 'العب غو',
     playGoTitle: 'غو (9×9)',
-    playGoDesc: 'لعبة استراتيجية عريقة: حاصر الأحجار وسيطر على المساحات في لوحة 9×9. ينتهي اللعب بعد تمريرتين متتاليتين، ويُحسم الفوز بالمساحات والأسر.',
+    playGoDesc: 'لعبة استراتيجية عريقة: حاصر أحجار خصمك، وسيطر على أكبر مساحة في لوحة 9×9. تنتهي اللعبة بعد تمريرتين متتاليتين، ويُحسم الفوز بحساب المساحات والأحجار المأسورة.',
     playGoCta: 'العب غو ←',
     playReversiAria: 'العب ريفيرسي',
     playReversiTitle: 'ريفيرسي',
@@ -657,8 +657,8 @@ const UI = {
     playHanabiTitle: 'هانابي',
     playHanabiDesc: 'لا يمكنك رؤية بطاقاتك. تبادل التلميحات مع شريكك الآلي لتشغيل الألعاب النارية بالترتيب الصحيح، وحقق 25 نقطة للعرض المثالي.',
     playHanabiCta: 'العب هانابي ←',
-    playDiplomacyAria: 'العب دبلوماسي',
-    playDiplomacyTitle: 'دبلوماسي',
+    playDiplomacyAria: 'العب دبلوماسية',
+    playDiplomacyTitle: 'دبلوماسية',
     playDiplomacyDesc: 'سيطر على 12 إقليمًا عبر تنفيذ الأوامر المتزامنة. لا نرد هنا، بل استراتيجية خالصة للتفوق على الخصم الآلي والسيطرة على الخريطة.',
     playDiplomacyCta: 'العب دبلوماسي ←',
     gameTagTwoPlayers: 'لاعبان',
@@ -679,7 +679,7 @@ const UI = {
     gameTagAreaControl: 'سيطرة على المناطق',
     portalMindTag: 'مختبر العقول',
     portalMindTitle: 'مختبر العقول',
-    portalMindDesc: 'استكشف 3,275 سؤالًا بالعربية والإنجليزية، مرتبة في 51 موضوعًا واضحًا. اقلب البطاقة، واكشف الإجابة، وتابع نتيجتك بسهولة.',
+    portalMindDesc: 'استكشف 3,275 سؤالًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا. اكشف إجابة كل سؤال، وتابع نتيجتك أولًا بأول.',
     portalMindStat: '51 موضوعًا',
     portalBilingualStat: 'العربية والإنجليزية',
     portalMindCta: 'استكشف الألغاز ←',
@@ -694,15 +694,15 @@ const UI = {
     homeCollectionsText: 'جرّب مجموعة قصيرة من الألغاز، أو الأسئلة العائلية، أو تحديات المنطق، أو أسئلة كرة القدم. كل إجابة على بُعد لمسة.',
     homeCollectionsCta: 'شاهد كل المجموعات',
     homeCollectionArabicTitle: 'ألغاز مع الحل',
-    homeCollectionArabicMeta: '16 لغزاً ثنائي اللغة',
+    homeCollectionArabicMeta: '16 لغزًا بالعربية والإنجليزية',
     homeCollectionKidsTitle: 'ألغاز للأطفال مع الحل',
-    homeCollectionKidsMeta: 'ألغاز ودية وآمنة للعائلة',
-    homeCollectionLogicTitle: 'ألغاز منطق مع الشرح',
+    homeCollectionKidsMeta: 'ألغاز مرحة ومناسبة للعائلة',
+    homeCollectionLogicTitle: 'ألغاز منطقية مع الشرح',
     homeCollectionLogicMeta: 'استنتاج وأرقام وقراءة متأنية',
     homeCollectionFootballTitle: 'قوانين وتكتيكات كرة القدم',
-    homeCollectionFootballMeta: '16 سؤالاً عملياً ثنائي اللغة',
+    homeCollectionFootballMeta: '16 سؤالًا عمليًا بالعربية والإنجليزية',
     homeSocialEyebrow: 'ابقَ فضوليًا',
-    homeSocialTitle: 'تحديات جديدة من JAKH',
+    homeSocialTitle: 'اكتشف تحديات JAKH الجديدة',
     homeSocialText: 'تابعنا لألغاز جديدة، واختبارات سريعة، وتحديثات الألعاب.',
     homeSocialLabel: 'صفحات JAKH الاجتماعية',
     footerCollections: 'المجموعات',
@@ -713,18 +713,18 @@ const UI = {
     socialFacebookLabel: 'ألغاز JAKH على فيسبوك',
     skipMain: 'انتقل إلى المحتوى الرئيسي',
     brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
-    quickActionsLabel: 'إجراءات سريعة',
+    quickActionsLabel: 'خيارات سريعة',
     languageControlsLabel: 'خيارات اللغة',
     breadcrumbLabel: 'مسار التنقل',
     breadcrumbHome: 'الرئيسية',
     breadcrumbMindLab: 'مختبر العقول',
-    questionFiltersLabel: 'فلاتر الأسئلة',
-    categoryFiltersLabel: 'فلاتر الفئات',
-    categorySectionsLabel: 'أقسام الفئات',
+    questionFiltersLabel: 'خيارات تصفية الأسئلة',
+    categoryFiltersLabel: 'خيارات تصفية الموضوعات',
+    categorySectionsLabel: 'أقسام الموضوعات',
     close: 'إغلاق',
     exit: 'خروج',
     locked: 'مغلق',
-    host: 'المضيف',
+    host: 'المنظّم',
     search: 'بحث',
     menu: 'القائمة',
     teamBattle: 'غرفة المعركة',
@@ -732,11 +732,11 @@ const UI = {
     searchPlaceholder: 'ابحث في المواضيع والمواضيع الفرعية...',
     cardSearchPlaceholder: 'ابحث بكلمة أو إجابة أو مفهوم...',
     homeSrTitle: 'ألغاز واختبارات بالعربية والإنجليزية',
-    standardsDefaultText: 'تُراجع الأسئلة لأغراض التعلم والترفيه.',
-    standardsDefaultLink: 'تعرّف على طريقة مراجعة JAKH للمحتوى وتحسينه.',
+    standardsDefaultText: 'نراجع الأسئلة لتكون مفيدة وممتعة.',
+    standardsDefaultLink: 'تعرّف إلى طريقة مراجعتنا لمحتوى JAKH وتحسينه.',
     standardsEducationLabel: 'للاستخدام التعليمي:',
     standardsEducationText: 'هذا الاختبار للتعلم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو متعلقة بالصحة النفسية.',
-    standardsEducationLink: 'اقرأ معايير المحتوى لدينا.',
+    standardsEducationLink: 'اطّلع على معايير المحتوى.',
     reviewStatusReviewed: 'تمت مراجعته تحريريًا',
     reviewStatusPending: 'بانتظار المراجعة التحريرية',
     reviewSafetyPending: 'بانتظار المراجعة التحريرية · محتوى تعليمي حساس للسلامة',
@@ -745,8 +745,8 @@ const UI = {
     reviewSources: 'المصادر',
     reviewSourceLabel: 'المصدر {number}: {title}، {publisher}',
     mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
-    mindCalloutTitle: 'جرّب مجموعة ثنائية اللغة ومركزة',
-    mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا أو أسئلة للأطفال أو ألغاز منطق أو معلومات عامة أو كرة قدم أو أسئلة من زمن الطيبين.',
+    mindCalloutTitle: 'جرّب مجموعة قصيرة بالعربية والإنجليزية',
+    mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا، أو جرّب أسئلة الأطفال، وألغاز المنطق، والمعلومات العامة، وكرة القدم، وذكريات زمن الطيبين.',
     mindCalloutCta: 'تصفح المجموعات',
     createAccount: 'احفظ تقدمي',
     todayMomentum: 'ملخصك',
@@ -756,31 +756,31 @@ const UI = {
     categoryText: 'اختر قسمًا واضحًا، أو ابحث حسب اهتمامك، أو دع JAKH يفاجئك.',
     searchCategoriesLabel: 'ابحث في المواضيع والمواضيع الفرعية',
     tracksLabel: 'الأقسام',
-    randomCategory: 'اختيار عشوائي',
-    resetDirectoryFilters: 'إعادة الضبط',
+    randomCategory: 'فاجئني',
+    resetDirectoryFilters: 'مسح خيارات التصفية',
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
     footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
 
-    pageProgress: 'تقدم الصفحة',
+    pageProgress: 'تقدّمك في هذا الموضوع',
     insidePageEyebrow: 'داخل هذه الصفحة',
-    insidePageTitle: 'اقلب المجموعة الكاملة',
-    insidePageText: 'استخدم البحث والصعوبة والمفضلة والحالة وفلاتر المسلسلات عند توفرها.',
+    insidePageTitle: 'اكتشف بطاقات الموضوع كلها',
+    insidePageText: 'استخدم البحث، أو صفِّ البطاقات حسب الصعوبة، أو حالة الحل، أو المفضلة.',
     searchThisPageLabel: 'ابحث داخل الصفحة',
     difficultyLabel: 'الصعوبة',
     showLabel: 'العرض',
     sortLabel: 'الترتيب',
-    subcategoriesLabel: 'الفئات الفرعية',
-    resetFilters: 'إعادة ضبط الفلاتر',
-    emptyTitle: 'لا توجد بطاقات تطابق هذا الجمع.',
-    emptyText: 'جرّب إزالة أحد الفلاتر أو توسيع البحث.',
+    subcategoriesLabel: 'الموضوعات الفرعية',
+    resetFilters: 'مسح خيارات التصفية',
+    emptyTitle: 'لا توجد بطاقات تطابق اختياراتك.',
+    emptyText: 'جرّب مسح أحد خيارات التصفية، أو استخدم كلمات بحث أعم.',
     relatedEyebrow: 'واصل الاستكشاف',
-    relatedTitle: 'صفحات فئات قريبة',
-    relatedText: 'انتقل إلى مواضيع قريبة من دون الرجوع إلى الصفحة الرئيسية.',
+    relatedTitle: 'موضوعات قد تعجبك',
+    relatedText: 'واصل الاستكشاف وانتقل مباشرة إلى موضوع قريب.',
     easy: 'سهل',
     medium: 'متوسط',
     hard: 'صعب',
-    veryAdvanced: 'صعب جداً',
+    veryAdvanced: 'صعب جدًا',
     allLevels: 'كل المستويات',
     everything: 'الكل',
     onlyUnsolved: 'غير المحلول فقط',
@@ -791,18 +791,18 @@ const UI = {
     aToZ: 'أ–ي',
     shuffleNow: 'خلط',
     pageQuestions: '{count} سؤال',
-    categoryCountLabel: '{count} فئة',
+    categoryCountLabel: '{count} موضوع',
     totalQuestionLabel: '{count} سؤال',
-    showingAllPages: 'يتم عرض كل صفحات الفئات وعددها {count}.',
-    showingFilteredPages: 'يتم عرض {count} صفحة فئة وفق الفلاتر الحالية.',
-    showingAllCards: 'يتم عرض كل بطاقات الصفحة وعددها {count}.',
-    showingFilteredCards: 'يتم عرض {count} بطاقة وفق الفلاتر الحالية.',
-    openPage: 'افتح الصفحة',
+    showingAllPages: 'نعرض جميع الموضوعات ({count}).',
+    showingFilteredPages: 'ظهر {count} موضوعًا يطابق اختياراتك.',
+    showingAllCards: 'نعرض جميع بطاقات الموضوع ({count}).',
+    showingFilteredCards: 'ظهرت {count} بطاقة تطابق اختياراتك.',
+    openPage: 'استكشف الموضوع',
     savedProgress: 'تقدم محفوظ',
     guestTitle: 'أنشئ حسابًا',
-    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدمك ومفضلتك ونقاط التدريب على جميع أجهزتك.',
+    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدّمك، وأسئلتك المفضلة، ونقاطك على جميع أجهزتك.',
     createLocalProfile: 'أنشئ حسابًا',
-    signedInAs: 'مسجل باسم',
+    signedInAs: 'مسجّل الدخول باسم',
     score: 'نقاط التدريب',
     solved: 'المحلول',
     favorites: 'المفضلة',
@@ -844,7 +844,7 @@ const UI = {
     logout: 'تسجيل الخروج',
     logoutFailed: 'تعذر تسجيل الخروج. ما زال الحساب ظاهراً كمسجّل؛ تحقق من الاتصال وحاول مرة أخرى.',
     accountReady: 'تقدمك محفوظ في حسابك السحابي.',
-    flipForAnswer: 'اقلب للإجابة',
+    flipForAnswer: 'اكشف الإجابة',
     backToQuestion: 'العودة للسؤال',
     addFavorite: 'أضف للمفضلة',
     removeFavorite: 'أزل من المفضلة',
@@ -859,43 +859,43 @@ const UI = {
     badLogin: 'اسم المستخدم أو كلمة المرور غير صحيحين.',
     userExists: 'اسم المستخدم هذا مأخوذ بالفعل.',
     languageSet: 'تم تحديث اللغة.',
-    directoryResetDone: 'تمت إعادة ضبط فلاتر الفئات.',
-    pageResetDone: 'تمت إعادة ضبط فلاتر الصفحة.',
+    directoryResetDone: 'مُسحت خيارات تصفية الموضوعات.',
+    pageResetDone: 'مُسحت خيارات تصفية الصفحة.',
     favoriteAdded: 'تمت الإضافة إلى المفضلة.',
     favoriteRemoved: 'تمت الإزالة من المفضلة.',
     solvedAdded: 'صحيح! تم تحديث النقاط.',
-    markedWrong: 'تم وضعه كخاطئ.',
-    solvedRemoved: 'تمت إزالة الإجابة.',
+    markedWrong: 'سُجّلت الإجابة كإجابة خاطئة.',
+    solvedRemoved: 'أُزيلت حالة الإجابة.',
     memberName: 'اسم العضو',
     resetScore: 'تصفير النقاط',
-    noRelated: 'لا توجد صفحات قريبة متاحة.',
+    noRelated: 'لا توجد موضوعات مرتبطة متاحة.',
     audioPlay: 'اقرأ بصوت عالٍ',
     audioStop: 'إيقاف',
     audioOn: 'الصوت مفعّل',
     audioOff: 'الصوت معطّل',
     suggestTitle: 'هل لديك فكرة لموضوع جديد؟',
-    suggestSub: 'اقترح فئة أو موضوعًا جديدًا وسنأخذه بعين الاعتبار.',
-    suggestPrivacy: 'إذا اخترت ربطه أثناء تسجيل الدخول فسيظهر ضمن التصدير والحذف. وإلا يبقى غير مرتبط، ويستمر الاحتفاظ حتى 12 شهرًا.',
+    suggestSub: 'اقترح موضوعًا جديدًا، وسنأخذ فكرتك بعين الاعتبار.',
+    suggestPrivacy: 'إذا ربطت الاقتراح بحسابك، فسيظهر عند تصدير بياناتك أو حذفها. وإلا فسيبقى غير مرتبط بك، وقد نحتفظ به لمدة تصل إلى 12 شهرًا.',
     suggestLinkAccount: 'اربط هذا الاقتراح بحسابي المسجّل',
     suggestPlaceholder: 'فكرتك…',
     suggestEmailPlaceholder: 'البريد الإلكتروني (اختياري)',
     suggestSubmit: 'أرسل الفكرة',
     suggestThanks: 'شكرًا لك! سنراجع اقتراحك.',
     suggestError: 'الرجاء كتابة 5 أحرف على الأقل.',
-    lockHard: 'أجب على أي 10 أسئلة بشكل صحيح لفتح مستوى الصعب.',
-    lockDifficult: 'أجب على 10 أسئلة صعبة بشكل صحيح لفتح مستوى صعب جداً.',
+    lockHard: 'أجب إجابة صحيحة عن 10 أسئلة لفتح المستوى الصعب.',
+    lockDifficult: 'أجب إجابة صحيحة عن 10 أسئلة صعبة لفتح المستوى الأصعب.',
     lockSignIn: 'سجّل الدخول لفتح هذا المستوى.',
     badgesTitle: 'الشارات',
-    badgeBronze: 'برونزية — 10 أسئلة سهلة صحيحة',
-    badgeSilver: 'فضية — 10 أسئلة متوسطة صحيحة',
-    badgeGold: 'ذهبية — 10 أسئلة صعبة صحيحة',
-    badgeDiamond: 'ماسية — 10 أسئلة صعب جداً صحيحة',
+    badgeBronze: 'البرونزية — 10 إجابات صحيحة في المستوى السهل',
+    badgeSilver: 'الفضية — 10 إجابات صحيحة في المستوى المتوسط',
+    badgeGold: 'الذهبية — 10 إجابات صحيحة في المستوى الصعب',
+    badgeDiamond: 'الماسية — 10 إجابات صحيحة في المستوى الأصعب',
     badgeBronzeName: 'برونزية',
     badgeSilverName: 'فضية',
     badgeGoldName: 'ذهبية',
     badgeDiamondName: 'ماسية',
     reportTitle: 'تقرير النتائج',
-    reportCategory: 'الفئة',
+    reportCategory: 'الموضوع',
     reportCorrect: 'صحيح',
     reportWrong: 'خاطئ',
     achievementsTitle: 'الإنجازات',
@@ -935,11 +935,11 @@ const UI = {
     errorRoomFull: 'غرفة المعركة ممتلئة.',
     errorPlayerNameRequired: 'أدخل اسمك.',
     errorBattleCreate: 'تعذّر إنشاء غرفة المعركة.',
-    errorInvalidCategory: 'اختر فئة صالحة.',
-    errorInvalidDifficulty: 'اختر مستوى صعوبة صالحًا.',
-    errorCategoryUnavailable: 'هذه الفئة غير متاحة.',
+    errorInvalidCategory: 'اختر موضوعًا متاحًا.',
+    errorInvalidDifficulty: 'اختر مستوى صعوبة متاحًا.',
+    errorCategoryUnavailable: 'هذا الموضوع غير متاح.',
     errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
-    errorInvalidRoomCode: 'أدخل رمز غرفة صالحًا.',
+    errorInvalidRoomCode: 'أدخل رمز غرفة صحيحًا.',
     leaderboardTitle: 'لوحة نتائج يتحقق منها الخادم',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
     verifiedAnswerAll: 'أجب عن الأسئلة العشرة قبل الإرسال.',
@@ -1037,17 +1037,17 @@ function _guestStatus(v) {
 }
 
 const ACHIEVEMENTS = [
-  { id: 'first-solve', icon: '⭐', en: 'First Steps', ar: 'الخطوة الأولى', descEn: 'Answer your first question correctly', descAr: 'أجب على سؤالك الأول بشكل صحيح', check: () => getTotalCorrectCount() >= 1 },
-  { id: 'scholar', icon: '🎓', en: 'Scholar', ar: 'العالم', descEn: 'Answer 100 questions correctly', descAr: 'أجب على 100 سؤال بشكل صحيح', check: () => getTotalCorrectCount() >= 100 },
+  { id: 'first-solve', icon: '⭐', en: 'First Steps', ar: 'الخطوة الأولى', descEn: 'Answer your first question correctly', descAr: 'أجب إجابة صحيحة عن سؤالك الأول', check: () => getTotalCorrectCount() >= 1 },
+  { id: 'scholar', icon: '🎓', en: 'Scholar', ar: 'المثقف', descEn: 'Answer 100 questions correctly', descAr: 'أجب إجابة صحيحة عن 100 سؤال', check: () => getTotalCorrectCount() >= 100 },
   { id: 'streak-7', icon: '🔥', en: '7-Day Streak', ar: '٧ أيام متتالية', descEn: '7 consecutive active days', descAr: '٧ أيام نشاط متتالية', check: () => state.streak >= 7 },
-  { id: 'category-master', icon: '👑', en: 'Category Master', ar: 'سيد الفئة', descEn: 'Complete any category 100%', descAr: 'أكمل أي فئة بنسبة 100%', check: () => getCategoryMasterCount() >= 1 },
-  { id: 'completionist', icon: '💎', en: 'Completionist', ar: 'المكتمل', descEn: 'Complete 5 categories 100%', descAr: 'أكمل 5 فئات بنسبة 100%', check: () => getCategoryMasterCount() >= 5 },
+  { id: 'category-master', icon: '👑', en: 'Category Master', ar: 'خبير الموضوع', descEn: 'Complete any category 100%', descAr: 'أكمل أي موضوع بنسبة 100%', check: () => getCategoryMasterCount() >= 1 },
+  { id: 'completionist', icon: '💎', en: 'Completionist', ar: 'المُنجز', descEn: 'Complete 5 categories 100%', descAr: 'أكمل 5 موضوعات بنسبة 100%', check: () => getCategoryMasterCount() >= 5 },
   { id: 'speed-demon', icon: '⚡', en: 'Speed Demon', ar: 'الرعد', descEn: 'Score 8/10+ in Quick Fire', descAr: 'احصل على 8/10 أو أعلى في الاختبار السريع', check: () => loadJson('jakh-speed-demon', 0) >= 1 },
-  { id: 'bookworm', icon: '📚', en: 'Bookworm', ar: 'نهم القراءة', descEn: 'Add 20 questions to favorites', descAr: 'أضف 20 سؤالاً إلى المفضلة', check: () => getFavoriteSet().size >= 20 },
+  { id: 'bookworm', icon: '📚', en: 'Bookworm', ar: 'نهم القراءة', descEn: 'Add 20 questions to favorites', descAr: 'أضف 20 سؤالًا إلى المفضلة', check: () => getFavoriteSet().size >= 20 },
   { id: 'bilingual', icon: '🌐', en: 'Bilingual', ar: 'ثنائي اللغة', descEn: 'Use both Arabic and English modes', descAr: 'استخدم العربية والإنجليزية', check: () => !!loadJson('jakh-used-ar', 0) && !!loadJson('jakh-used-en', 0) },
   { id: 'night-owl', icon: '🦉', en: 'Night Owl', ar: 'بومة الليل', descEn: 'Answer a question after midnight', descAr: 'أجب على سؤال بعد منتصف الليل', check: () => !!loadJson('jakh-night-owl', 0) },
-  { id: 'streak-30', icon: '🏆', en: '30-Day Streak', ar: '٣٠ يوماً متتالياً', descEn: '30 consecutive active days', descAr: '٣٠ يوم نشاط متتالي', check: () => state.streak >= 30 },
-  { id: 'hard-solver', icon: '💪', en: 'Hard Hitter', ar: 'مواجه الصعاب', descEn: 'Answer 25 hard or difficult questions correctly', descAr: 'أجب بشكل صحيح على 25 سؤالاً صعباً', check: () => getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced') >= 25 },
+  { id: 'streak-30', icon: '🏆', en: '30-Day Streak', ar: '٣٠ يومًا متتاليًا', descEn: '30 consecutive active days', descAr: '٣٠ يومًا من النشاط المتواصل', check: () => state.streak >= 30 },
+  { id: 'hard-solver', icon: '💪', en: 'Hard Hitter', ar: 'مواجه الصعاب', descEn: 'Answer 25 hard or difficult questions correctly', descAr: 'أجب إجابة صحيحة عن 25 سؤالًا صعبًا', check: () => getCorrectCountByDifficulty('hard') + getCorrectCountByDifficulty('very-advanced') >= 25 },
   { id: 'sharer', icon: '🔗', en: 'Sharer', ar: 'المشارك', descEn: 'Share your first question', descAr: 'شارك سؤالك الأول', check: () => !!loadJson('jakh-shared', 0) },
 ];
 
@@ -1907,23 +1907,23 @@ function updateDocumentTitle() {
       ? '10 ألعاب مجانية على المتصفح | JAKH'
       : '10 Free Browser Games | JAKH';
     description = state.lang === 'ar'
-      ? 'العب 10 ألعاب متصفح مجانية على JAKH: الشطرنج وغو وريفيرسي وماسترمايند وكاتان لايت وطاولة الزهر وسِت وهانابي وكودنيمز ودبلوماسي.'
+      ? 'العب 10 ألعاب مجانية مباشرة في المتصفح، منها الشطرنج، وغو، وريفيرسي، وماسترمايند، وكاتان، وطاولة الزهر.'
       : 'Play 10 free browser games on JAKH: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy.';
   } else if (state.page === 'home') {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {
       title = state.lang === 'ar'
-        ? 'مختبر العقل: 51 موضوع ألغاز وأسئلة | JAKH'
+        ? 'مختبر العقول: 51 موضوعًا من الألغاز والأسئلة | JAKH'
         : 'Mind Lab: 51 Riddle & Quiz Topics | JAKH';
       description = state.lang === 'ar'
-        ? 'استكشف 3,275 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 51 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.'
+        ? 'استكشف 3,275 لغزًا وسؤالًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا ضمن 5 أقسام. اختر موضوعًا، واكشف الإجابات، وتابع نتيجتك.'
         : 'Explore 3,275 bilingual riddles and quizzes mapped directly to 51 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
     } else {
       title = state.lang === 'ar'
         ? 'JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية'
         : 'JAKH Riddles: Free Arabic & English Quizzes';
       description = state.lang === 'ar'
-        ? 'العب 3,275 لغزاً واختباراً مجانياً بالعربية والإنجليزية ضمن 51 موضوعاً، إضافة إلى 10 ألعاب متصفح. اكشف الإجابات وتابع نتيجتك.'
+        ? 'استمتع بـ3,275 لغزًا وسؤالًا مجانيًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا، إلى جانب 10 ألعاب تعمل مباشرة في المتصفح.'
         : 'Play 3,275 free bilingual riddles and quizzes in English and Arabic across 51 topics, plus 10 browser games. Reveal answers and track your score.';
     }
   } else if (state.categoryData) {
@@ -1933,7 +1933,7 @@ function updateDocumentTitle() {
       : `${state.categoryData.title.en} Quiz & Questions | JAKH`;
     const localizedCount = Number(category.count || 0).toLocaleString(state.lang === 'ar' ? 'ar' : 'en-US');
     description = state.lang === 'ar'
-      ? `جرّب ${localizedCount} سؤالاً واختباراً في ${category.title.ar} مع الإجابات بالعربية والإنجليزية. ${category.description.ar} العب مجاناً وتابع نتيجتك.`
+      ? `${localizedCount} سؤالًا في موضوع «${category.title.ar}»، مع إجابات بالعربية والإنجليزية. ${category.description.ar}`
       : `Try ${localizedCount} ${category.title.en} quiz questions with answers in English and Arabic. ${category.description.en} Play free and track your score.`;
   }
 
@@ -1941,7 +1941,7 @@ function updateDocumentTitle() {
   document.title = title;
 
   const socialImageAlt = state.lang === 'ar'
-    ? 'JAKH — 3,275 لغزاً ثنائي اللغة ضمن 51 موضوعاً و10 ألعاب'
+    ? 'JAKH — 3,275 لغزًا بالعربية والإنجليزية، ضمن 51 موضوعًا و10 ألعاب'
     : 'JAKH — 3,275 bilingual riddles across 51 topics and 10 games';
   [
     ['meta[name="description"]', description],
@@ -2003,7 +2003,7 @@ async function handleOfflineStatus(event) {
   document.body.classList.toggle('is-offline', isOff);
   if (isOff) {
     stopAnalyticsHeartbeat();
-    showToast(state.lang === 'ar' ? 'أنت تعمل حالياً بدون اتصال — قد لا تتوفر بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
+    showToast(state.lang === 'ar' ? 'أنت غير متصل بالإنترنت حاليًا، لذلك قد لا تعمل بعض الميزات' : 'You are currently offline — some features may be limited', 'warning');
   } else if (sessionInitialized && event?.type === 'online') {
     state.apiAvailable = await detectApiAvailability(2);
     state.apiChecked = true;
@@ -2925,7 +2925,7 @@ function renderAccountSummary(mount) {
       { key: 'easy',          labelEn: 'Easy',      labelAr: 'سهل',      color: '#22c55e' },
       { key: 'medium',        labelEn: 'Medium',    labelAr: 'متوسط',    color: '#f59e0b' },
       { key: 'hard',          labelEn: 'Hard',      labelAr: 'صعب',      color: '#ef4444' },
-      { key: 'very-advanced', labelEn: 'Difficult', labelAr: 'صعب جداً', color: '#a855f7' },
+      { key: 'very-advanced', labelEn: 'Difficult', labelAr: 'صعب جدًا', color: '#a855f7' },
     ].filter(d => dc[d.key] > 0);
     const bars = diffs.map(d => {
       const total = dc[d.key];
@@ -2972,7 +2972,7 @@ function renderAccountSummary(mount) {
 
   const topCatHtml = catProgress.length > 0 ? `
     <div class="dash-section">
-      <p class="dash-section-label">${isAr ? 'تقدّمك بالفئات' : 'Leading in'}</p>
+      <p class="dash-section-label">${isAr ? 'تقدّمك في الموضوعات' : 'Leading in'}</p>
       ${catProgress.map(c => `
         <div class="dash-cat-row">
           <span class="dash-cat-emoji">${escapeHtml(c.emoji || '📚')}</span>
@@ -3002,11 +3002,11 @@ function renderAccountSummary(mount) {
       <div class="dash-stats">
         <div class="dash-stat">
           <strong>${totalSolved}</strong>
-          <span>${isAr ? 'محلول' : 'solved'}</span>
+          <span>${isAr ? 'إجابات صحيحة' : 'solved'}</span>
         </div>
         <div class="dash-stat">
           <strong>${account.favorites.length}</strong>
-          <span>${isAr ? 'مفضلة' : 'saved'}</span>
+          <span>${isAr ? 'في المفضلة' : 'saved'}</span>
         </div>
         <div class="dash-stat${state.streak > 0 ? ' dash-stat-streak' : ''}">
           <strong>${state.streak > 0 ? `🔥 ${state.streak}` : '—'}</strong>
@@ -3124,7 +3124,7 @@ function buildDiffBadge(category) {
   const total = category.count || (category.cards || []).length;
   const order = ['easy', 'medium', 'hard', 'very-advanced'];
   const labels = state.lang === 'ar'
-    ? { easy: 'سهل', medium: 'متوسط', hard: 'صعب', 'very-advanced': 'صعب جداً' }
+    ? { easy: 'سهل', medium: 'متوسط', hard: 'صعب', 'very-advanced': 'صعب جدًا' }
     : { easy: 'Piece of Cake', medium: 'Brain Tickler', hard: 'Head Scratcher', 'very-advanced': 'Brick Wall' };
   const parts = order.filter(d => dc[d] > 0).map(d => `${dc[d]} ${labels[d]}`);
   const totalLabel = state.lang === 'ar' ? `${total} سؤال` : `${total} questions`;
@@ -4929,7 +4929,7 @@ function endTimedQuiz() {
     ctaEl.innerHTML = `
       <p>💡 ${lang === 'ar' ? 'هل تريد تحدي شخص ما؟' : 'Want to challenge someone?'}</p>
       <div class="tq-challenge-cta-btns">
-        <button class="mini-btn" id="tqChallengeFriendBtn">🏆 ${lang === 'ar' ? 'تحدٍ صديق' : 'Challenge a Friend'}</button>
+        <button class="mini-btn" id="tqChallengeFriendBtn">🏆 ${lang === 'ar' ? 'تحدَّ صديقًا' : 'Challenge a Friend'}</button>
         <button class="mini-btn" id="tqBattleBtn">⚡ ${lang === 'ar' ? 'غرفة معركة مباشرة' : 'Live Battle Room'}</button>
       </div>`;
     resultEl.appendChild(ctaEl);
@@ -5116,7 +5116,7 @@ function showCategoryCompleteModal(slug) {
         <span class="category-complete-emoji">${escapeHtml(meta.emoji)}</span>
       </div>
       <div class="category-complete-body">
-        <h2 id="categoryCompleteTitle" style="margin:0 0 0.25rem;">${lang === 'ar' ? '🎉 أكملت الفئة!' : '🎉 Category Complete!'}</h2>
+        <h2 id="categoryCompleteTitle" style="margin:0 0 0.25rem;">${lang === 'ar' ? '🎉 أكملت الموضوع!' : '🎉 Category Complete!'}</h2>
         <p style="margin:0 0 1rem;color:var(--muted);font-size:0.9rem;">${escapeHtml(meta.title[lang])}</p>
         <div class="stats-grid" style="margin-bottom:1.2rem;">
           <div class="stat-box"><span>${lang === 'ar' ? 'صحيح' : 'Correct'}</span><strong style="color:var(--easy)">${solved}</strong></div>
@@ -5126,13 +5126,13 @@ function showCategoryCompleteModal(slug) {
         <div class="hero-actions" style="justify-content:center;flex-wrap:wrap;gap:0.75rem;">
           <button class="secondary-btn" id="catCompleteShare">🔗 ${lang === 'ar' ? 'شارك النتيجة' : 'Share result'}</button>
           <button class="ghost-btn" id="catCompleteBattle">⚡ ${lang === 'ar' ? 'غرفة معركة مباشرة' : 'Live Battle Room'}</button>
-          ${related ? `<a class="primary-btn" href="${escapeHtml(categoryRouteForLanguage(related.slug, lang))}" style="text-decoration:none;">${lang === 'ar' ? 'الفئة التالية ←' : 'Next category →'}</a>` : ''}
+          ${related ? `<a class="primary-btn" href="${escapeHtml(categoryRouteForLanguage(related.slug, lang))}" style="text-decoration:none;">${lang === 'ar' ? 'الموضوع التالي ←' : 'Next category →'}</a>` : ''}
           <button class="ghost-btn" id="catCompleteClose">${lang === 'ar' ? 'إغلاق' : 'Close'}</button>
         </div>
         <div class="tq-challenge-cta" style="margin-top:1rem;">
-          <p>💡 ${lang === 'ar' ? 'تحدّ أصدقاءك في هذه الفئة' : 'Challenge your friends in this category'}</p>
+          <p>💡 ${lang === 'ar' ? 'تحدَّ أصدقاءك في هذا الموضوع' : 'Challenge your friends in this category'}</p>
           <div class="tq-challenge-cta-btns">
-            <button class="mini-btn" id="catCompleteChallengeBtn">🏆 ${lang === 'ar' ? 'تحدٍ صديق' : 'Challenge a Friend'}</button>
+            <button class="mini-btn" id="catCompleteChallengeBtn">🏆 ${lang === 'ar' ? 'تحدَّ صديقًا' : 'Challenge a Friend'}</button>
           </div>
         </div>
       </div>

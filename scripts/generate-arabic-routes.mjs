@@ -431,7 +431,7 @@ function localizeMindLabDirectory(html) {
       if (topics) localized = replaceInnerByClass(localized, "category-card-topics", topics);
       localized = replaceInnerByClass(localized, "category-card-count-badge", `${category.count} سؤال`);
       localized = replaceInnerByClass(localized, "category-card-label", `${category.count} سؤال`);
-      localized = replaceInnerByClass(localized, "category-card-enter", "افتح");
+      localized = replaceInnerByClass(localized, "category-card-enter", "استكشف");
       return localized;
     });
   }

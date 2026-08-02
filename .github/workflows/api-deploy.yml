@@ -6,8 +6,9 @@ on:
     inputs:
       release_phase:
         description: >-
-          Compatibility deploys schema-tolerant code without touching D1. Migrate-final is a
-          separate run that requires the active compatibility Worker before applying migrations.
+          Compatibility deploys schema-tolerant code without touching D1 and records a final
+          release when D1 is already at the target schema. Migrate-final is a separate run that
+          requires the active compatibility Worker before applying migrations.
         required: true
         default: compatibility
         type: choice
@@ -228,7 +229,22 @@ jobs:
             --receipt "$RECEIPT_DIR/release-receipt.json" \
             --github-output "$GITHUB_OUTPUT"
           echo "monitor-exit=$monitor_status" >> "$GITHUB_OUTPUT"
-      - name: Deploy compatibility Worker
+      - name: Resolve compatibility or code-only final message
+        id: deployment_message
+        env:
+          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_RUN_ID: ${{ github.run_id }}
+          SCHEMA_CHANGED: ${{ steps.preflight.outputs.schema-changed }}
+          TARGET_SCHEMA: ${{ steps.preflight.outputs.target-schema }}
+        run: |
+          set -euo pipefail
+          if [ "$SCHEMA_CHANGED" = "true" ]; then
+            value="JAKH compatibility $RELEASE_COMMIT target schema $TARGET_SCHEMA run $RELEASE_RUN_ID"
+          else
+            value="JAKH final $RELEASE_COMMIT schema $TARGET_SCHEMA run $RELEASE_RUN_ID"
+          fi
+          echo "value=$value" >> "$GITHUB_OUTPUT"
+      - name: Deploy compatibility or code-only final Worker
         id: deploy_compatibility
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
@@ -236,7 +252,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           wranglerVersion: "4.116.0"
-          command: deploy --strict --message "JAKH compatibility ${{ github.sha }} target schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}"
+          command: deploy --strict --message "${{ steps.deployment_message.outputs.value }}"
       - name: Verify compatibility Worker and unchanged D1
         id: verify_production
         env:

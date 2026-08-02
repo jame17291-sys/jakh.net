@@ -284,6 +284,80 @@ async function main() {
       }
     });
 
+    await runTest("natural Arabic read-aloud voice and controls", async () => {
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      });
+      await context.addInitScript(() => {
+        const voices = [
+          { name: "Arabic", voiceURI: "basic-ar-sa", lang: "ar-SA", localService: true },
+          {
+            name: "Microsoft Salma Online (Natural)",
+            voiceURI: "natural-ar-eg",
+            lang: "ar-EG",
+            localService: false,
+          },
+        ];
+        class TestUtterance {
+          constructor(text) { this.text = text; }
+        }
+        const synthesis = {
+          getVoices: () => voices,
+          addEventListener() {},
+          removeEventListener() {},
+          cancel() { window.__speechCancelled = true; },
+          speak(utterance) {
+            window.__spokenArabic = {
+              text: utterance.text,
+              voice: utterance.voice?.name,
+              lang: utterance.lang,
+              rate: utterance.rate,
+              pitch: utterance.pitch,
+            };
+          },
+        };
+        Object.defineProperty(window, "SpeechSynthesisUtterance", {
+          configurable: true,
+          value: TestUtterance,
+        });
+        Object.defineProperty(window, "speechSynthesis", {
+          configurable: true,
+          value: synthesis,
+        });
+      });
+      const page = await context.newPage();
+      const assertNoPageErrors = trackPageErrors(page);
+      try {
+        await page.goto(`${baseUrl}/ar/topics/science/`, { waitUntil: NAVIGATION_READY_EVENT });
+        const audioButton = page.locator('.card-audio-btn').first();
+        await audioButton.waitFor();
+        await audioButton.click();
+        await page.waitForFunction(() => Boolean(window.__spokenArabic));
+        assert.deepEqual(await page.evaluate(() => window.__spokenArabic), {
+          text: "من يُشتهر بقانون الجاذبية الكونية بعد مشاهدة سقوط تفاحة؟",
+          voice: "Microsoft Salma Online (Natural)",
+          lang: "ar-EG",
+          rate: 0.96,
+          pitch: 1,
+        });
+        assert.equal(await audioButton.getAttribute('aria-label'), 'إيقاف');
+        assert.equal(await page.evaluate(() => (
+          performance.getEntriesByType('resource')
+            .some(entry => new URL(entry.name).pathname === '/speech-quality.js')
+        )), true);
+        await audioButton.evaluate(button => button.click());
+        await page.waitForFunction(() => (
+          document.querySelector('.card-audio-btn')?.getAttribute('aria-label') === 'اقرأ بصوت عالٍ'
+        ));
+        assert.equal(await audioButton.getAttribute('aria-label'), 'اقرأ بصوت عالٍ');
+        assert.equal(await page.evaluate(() => window.__speechCancelled), true);
+        assertNoPageErrors();
+      } finally {
+        await context.close();
+      }
+    });
+
     await runTest("mobile fixed UI and install sequencing", async () => {
       const viewport = { width: 320, height: 568 };
       const context = await createContext(browser, {
@@ -408,7 +482,7 @@ async function main() {
       }
     });
 
-    console.log(`Browser regression passed: 4 suites on ${BROWSER_ENGINE}.`);
+    console.log(`Browser regression passed: 5 suites on ${BROWSER_ENGINE}.`);
   } finally {
     await browser.close();
     await server.close();

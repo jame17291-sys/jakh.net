@@ -88,6 +88,21 @@ function compatibilityPreflight(overrides = {}) {
   return result.receipt;
 }
 
+function codeOnlyPreflight(overrides = {}) {
+  const result = buildPreflight({
+    phase: "compatibility",
+    source: source(),
+    deployment: deployment(OLD_VERSION_ID),
+    health: compatibilityHealth("8", { workerVersionId: OLD_VERSION_ID }),
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+    environment: RELEASE_ENV,
+    ...overrides,
+  });
+  assert.deepEqual(result.errors, []);
+  return result.receipt;
+}
+
 function finalPreflight(overrides = {}) {
   const result = buildPreflight({
     phase: "migrate-final",
@@ -158,6 +173,38 @@ test("compatibility deployment must leave D1 untouched and prove the live contra
     migrationList: "Migrations to be applied:\n0008_audit_log_retention.sql",
   });
   assert.match(mutated.errors.join("\n"), /D1 schema changed/u);
+});
+
+test("code-only compatibility phase records exact final evidence without mutating D1", () => {
+  const successful = buildPostCompatibility({
+    receipt: codeOnlyPreflight(),
+    deployment: deployment(
+      COMPATIBILITY_VERSION_ID,
+      100,
+      "JAKH final abc123 schema 8 run 98765",
+    ),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.deepEqual(successful.errors, []);
+  assert.equal(successful.receipt.safety.databaseMutationAllowed, false);
+  assert.equal(successful.receipt.result, "code-only-final-worker-verified");
+
+  const mislabeled = buildPostCompatibility({
+    receipt: codeOnlyPreflight(),
+    deployment: deployment(
+      COMPATIBILITY_VERSION_ID,
+      100,
+      "JAKH compatibility abc123 target schema 8 run 98765",
+    ),
+    health: compatibilityHealth("8"),
+    httpStatus: "200",
+    databaseResult: database("8"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.match(mislabeled.errors.join("\n"), /does not identify this release run/u);
 });
 
 test("migrate-final refuses before mutation without active compatibility evidence", () => {
@@ -364,6 +411,8 @@ test("workflow statically separates no-migration compatibility from gated migrat
     workflow.indexOf("  migrate-final:"),
   );
   assert.doesNotMatch(compatibilityJob, /d1 migrations apply|recovery-evidence\.mjs bookmark/u);
+  assert.match(compatibilityJob, /SCHEMA_CHANGED:[\s\S]+JAKH compatibility[\s\S]+JAKH final/u);
+  assert.match(compatibilityJob, /steps\.deployment_message\.outputs\.value/u);
   assert.match(workflow, /rollback \$\{\{ steps\.preflight\.outputs\.rollback-version \}\}/u);
   assert.doesNotMatch(workflow, /rollback[^\n]*--yes|--yes[^\n]*rollback/u);
   assert.equal(workflow.match(/id: runtime_monitor/gu)?.length, 2);

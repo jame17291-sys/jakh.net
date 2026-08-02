@@ -252,7 +252,7 @@ function releaseContext(environment = process.env) {
 
 function expectedDeploymentMessage(receipt, phase) {
   if (!receipt.release.commit || !receipt.release.runId) return null;
-  if (phase === "compatibility") {
+  if (phase === "compatibility" && receipt.safety.schemaChanged) {
     return `JAKH compatibility ${receipt.release.commit} target schema ${receipt.source.schema} run ${receipt.release.runId}`;
   }
   return `JAKH final ${receipt.release.commit} schema ${receipt.source.schema} run ${receipt.release.runId}`;
@@ -346,7 +346,7 @@ export function buildPostCompatibility({ receipt, deployment, health, httpStatus
   if (activeVersion === receipt.preDeployment.activeWorkerVersion) errors.push("compatibility deployment did not produce a new active Worker version");
   const expectedMessage = expectedDeploymentMessage(receipt, "compatibility");
   if (expectedMessage && deployment.annotations?.["workers/message"] !== expectedMessage) {
-    errors.push("active Worker deployment message does not identify this compatibility run");
+    errors.push("active Worker deployment message does not identify this release run");
   }
   if (databaseSchema !== receipt.preDeployment.databaseSchema) errors.push("D1 schema changed during the code-only compatibility phase");
   if (migrationsAreComplete(migrationList) !== receipt.preDeployment.migrationsComplete) {
@@ -369,7 +369,9 @@ export function buildPostCompatibility({ receipt, deployment, health, httpStatus
     databaseSchema,
     migrationsComplete: migrationsAreComplete(migrationList),
   };
-  receipt.result = errors.length === 0 ? "compatibility-worker-verified" : "compatibility-verification-failed";
+  receipt.result = errors.length === 0
+    ? (receipt.safety.schemaChanged ? "compatibility-worker-verified" : "code-only-final-worker-verified")
+    : "compatibility-verification-failed";
   return { receipt, errors };
 }
 

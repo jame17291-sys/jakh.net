@@ -607,7 +607,7 @@ const UI = {
     homeEyebrow: 'مساحة ثنائية اللغة لكل عقل فضولي',
     homeTitle: 'اختر ما يثير فضولك، وتعلّم والعب، واكتشف شيئًا جديدًا.',
     homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
-    browseCategories: 'استكشف المواضيع',
+    browseCategories: 'تصفّح الموضوعات',
     heroGameHub: 'مركز الألعاب',
     statCategories: 'المواضيع',
     statQuestions: 'الأسئلة',
@@ -659,8 +659,8 @@ const UI = {
     playHanabiCta: 'العب هانابي ←',
     playDiplomacyAria: 'العب دبلوماسية',
     playDiplomacyTitle: 'دبلوماسية',
-    playDiplomacyDesc: 'سيطر على 12 إقليمًا عبر تنفيذ الأوامر المتزامنة. لا نرد هنا، بل استراتيجية خالصة للتفوق على الخصم الآلي والسيطرة على الخريطة.',
-    playDiplomacyCta: 'العب دبلوماسي ←',
+    playDiplomacyDesc: 'سيطر على 12 إقليمًا عبر تنفيذ الأوامر المتزامنة. لا مكان للنرد هنا؛ إنها استراتيجية خالصة للتفوق على الخصم الآلي والسيطرة على الخريطة.',
+    playDiplomacyCta: 'العب دبلوماسية ←',
     gameTagTwoPlayers: 'لاعبان',
     gameTagComputer: 'ضد الحاسوب',
     gameTagStrategy: 'استراتيجية',
@@ -692,7 +692,7 @@ const UI = {
     homeCollectionsEyebrow: 'بداية سريعة',
     homeCollectionsTitle: 'ابدأ بمجموعة تناسب مزاجك',
     homeCollectionsText: 'جرّب مجموعة قصيرة من الألغاز، أو الأسئلة العائلية، أو تحديات المنطق، أو أسئلة كرة القدم. كل إجابة على بُعد لمسة.',
-    homeCollectionsCta: 'شاهد كل المجموعات',
+    homeCollectionsCta: 'تصفّح كل المجموعات',
     homeCollectionArabicTitle: 'ألغاز مع الحل',
     homeCollectionArabicMeta: '16 لغزًا بالعربية والإنجليزية',
     homeCollectionKidsTitle: 'ألغاز للأطفال مع الحل',
@@ -747,8 +747,8 @@ const UI = {
     mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
     mindCalloutTitle: 'جرّب مجموعة قصيرة بالعربية والإنجليزية',
     mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا، أو جرّب أسئلة الأطفال، وألغاز المنطق، والمعلومات العامة، وكرة القدم، وذكريات زمن الطيبين.',
-    mindCalloutCta: 'تصفح المجموعات',
-    createAccount: 'احفظ تقدمي',
+    mindCalloutCta: 'تصفّح المجموعات',
+    createAccount: 'احفظ تقدّمي',
     todayMomentum: 'ملخصك',
     localBrowserOnly: 'محفوظ في حسابك',
     categoryEyebrow: 'اختر قسمًا',
@@ -757,7 +757,7 @@ const UI = {
     searchCategoriesLabel: 'ابحث في المواضيع والمواضيع الفرعية',
     tracksLabel: 'الأقسام',
     randomCategory: 'فاجئني',
-    resetDirectoryFilters: 'مسح خيارات التصفية',
+    resetDirectoryFilters: 'مسح الفلاتر',
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
     footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
@@ -771,7 +771,7 @@ const UI = {
     showLabel: 'العرض',
     sortLabel: 'الترتيب',
     subcategoriesLabel: 'الموضوعات الفرعية',
-    resetFilters: 'مسح خيارات التصفية',
+    resetFilters: 'مسح الفلاتر',
     emptyTitle: 'لا توجد بطاقات تطابق اختياراتك.',
     emptyText: 'جرّب مسح أحد خيارات التصفية، أو استخدم كلمات بحث أعم.',
     relatedEyebrow: 'واصل الاستكشاف',
@@ -786,10 +786,10 @@ const UI = {
     onlyUnsolved: 'غير المحلول فقط',
     onlySolved: 'المحلول فقط',
     onlyFavorites: 'المفضلة فقط',
-    featuredOrder: 'الترتيب الأساسي',
+    featuredOrder: 'الترتيب المقترح',
     byDifficulty: 'حسب الصعوبة',
     aToZ: 'أ–ي',
-    shuffleNow: 'خلط',
+    shuffleNow: 'ترتيب عشوائي',
     pageQuestions: '{count} سؤال',
     categoryCountLabel: '{count} موضوع',
     totalQuestionLabel: '{count} سؤال',
@@ -798,7 +798,7 @@ const UI = {
     showingAllCards: 'نعرض جميع بطاقات الموضوع ({count}).',
     showingFilteredCards: 'ظهرت {count} بطاقة تطابق اختياراتك.',
     openPage: 'استكشف الموضوع',
-    savedProgress: 'تقدم محفوظ',
+    savedProgress: 'تقدّم محفوظ',
     guestTitle: 'أنشئ حسابًا',
     guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدّمك، وأسئلتك المفضلة، ونقاطك على جميع أجهزتك.',
     createLocalProfile: 'أنشئ حسابًا',
@@ -818,7 +818,7 @@ const UI = {
     passwordHint: 'تُخزن بأمان في حسابك السحابي.',
     confirmPassword: 'تأكيد كلمة المرور',
     passwordsDoNotMatch: 'تأكيد كلمة المرور غير مطابق.',
-    signIn: 'دخول',
+    signIn: 'تسجيل الدخول',
     register: 'إنشاء حساب',
     recoveryCode: 'رمز الاسترداد',
     recoveryFormTitle: 'استرداد حسابك',
@@ -843,11 +843,11 @@ const UI = {
     recoverySyncWarning: 'صدر رمز الاسترداد الجديد، لكن بعض بيانات الحساب لم يكتمل تحميلها. احفظ الرمز أدناه ثم حاول مجدداً بعد التحقق من الاتصال.',
     logout: 'تسجيل الخروج',
     logoutFailed: 'تعذر تسجيل الخروج. ما زال الحساب ظاهراً كمسجّل؛ تحقق من الاتصال وحاول مرة أخرى.',
-    accountReady: 'تقدمك محفوظ في حسابك السحابي.',
-    flipForAnswer: 'اكشف الإجابة',
-    backToQuestion: 'العودة للسؤال',
-    addFavorite: 'أضف للمفضلة',
-    removeFavorite: 'أزل من المفضلة',
+    accountReady: 'تقدّمك محفوظ في حسابك.',
+    flipForAnswer: 'عرض الإجابة',
+    backToQuestion: 'عرض السؤال',
+    addFavorite: 'أضف إلى المفضلة',
+    removeFavorite: 'إزالة من المفضلة',
     markSolved: 'صحيح',
     markWrong: 'خاطئ',
     markUnsolved: 'إزالة',
@@ -909,7 +909,7 @@ const UI = {
     shareBattleTitle: 'معركة JAKH',
     avatarUpdated: 'تم تحديث الصورة الرمزية!',
     avatarSaveError: 'تعذّر حفظ الصورة الرمزية.',
-    chooseAvatarAria: 'اختر {avatar} صورة رمزية',
+    chooseAvatarAria: 'اختر {avatar} صورةً رمزيةً',
     passwordFieldsRequired: 'املأ حقلي كلمة المرور.',
     passwordUpdated: 'تم تحديث كلمة المرور!',
     suggestionSubmitError: 'تعذّر إرسال الاقتراح. حاول مرة أخرى.',
@@ -2659,7 +2659,7 @@ function createCategoryCardMarkup(meta) {
     ? `<div class="card-progress-bar" style="width:${prog.pct}%;background:${color}" aria-hidden="true"></div>`
     : '';
   const doneLabel = prog.pct > 0 ? ` · ${prog.pct}% ${isAr ? 'مكتمل' : 'done'}` : '';
-  const enterLabel = isAr ? 'افتح' : 'Enter';
+  const enterLabel = isAr ? 'استكشف' : 'Enter';
   const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
     <a class="category-card has-art" href="${escapeHtml(categoryRouteForLanguage(meta.slug, state.lang))}" aria-label="${title}">
@@ -4402,71 +4402,22 @@ let _analyticsInterval = null;
 
 
 let _currentAudio = null;
-let _pendingVoicesHandler = null;
+let _speechLoadId = 0;
+let _speechQualityPromise = null;
 
-function _getBestVoice(lang) {
-  const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) return null;
-  const isArabic = lang === 'ar';
-  const targets = isArabic
-    ? ['ar-SA', 'ar-EG', 'ar-AE', 'ar']
-    : ['en-US', 'en-GB', 'en-AU', 'en'];
-
-  function score(v) {
-    const n = v.name.toLowerCase();
-    let s = 0;
-    if (n.includes('enhanced'))       s += 100;
-    else if (n.includes('premium'))   s += 90;
-    else if (n.includes('neural'))    s += 80;
-    else if (n.includes('google'))    s += 70;
-    else if (n.includes('natural'))   s += 60;
-    else if (n.includes('samantha') || n.includes('daniel')) s += 55;
-    if (v.localService) s += 10;
-    return s;
-  }
-
-  for (const tl of targets) {
-    const matches = voices.filter(v => v.lang === tl || v.lang.startsWith(tl + '-'));
-    if (matches.length) return matches.sort((a, b) => score(b) - score(a))[0];
-  }
-  const prefix = isArabic ? 'ar' : 'en';
-  const any = voices.filter(v => v.lang.startsWith(prefix));
-  return any.length ? any.sort((a, b) => score(b) - score(a))[0] : null;
-}
-
-function speakText(text, lang) {
+async function speakText(text, lang) {
   stopSpeech();
-
-  if (window.speechSynthesis) {
-    const doSpeak = () => {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang  = lang === 'ar' ? 'ar-SA' : 'en-US';
-      utterance.rate  = lang === 'ar' ? 0.82 : 0.92;
-      utterance.pitch = 1.05;
-      const voice = _getBestVoice(lang);
-      if (voice) utterance.voice = voice;
-      utterance.onend  = _clearAudioBtns;
-      utterance.onerror = _clearAudioBtns;
-      _currentAudio = { pause: () => window.speechSynthesis.cancel() };
-      window.speechSynthesis.speak(utterance);
-    };
-
-    if (window.speechSynthesis.getVoices().length > 0) {
-      doSpeak();
-    } else {
-      const onVoicesChanged = () => {
-        if (_pendingVoicesHandler !== onVoicesChanged) return;
-        _pendingVoicesHandler = null;
-        doSpeak();
-      };
-      _pendingVoicesHandler = onVoicesChanged;
-      window.speechSynthesis.addEventListener('voiceschanged', onVoicesChanged, { once: true });
-    }
-    return;
+  const loadId = _speechLoadId;
+  try {
+    _speechQualityPromise ||= import('/speech-quality.js');
+    const { speakNaturally } = await _speechQualityPromise;
+    if (loadId !== _speechLoadId) return;
+    _currentAudio = speakNaturally({ text, lang, onEnd: _clearAudioBtns });
+    if (!_currentAudio) _clearAudioBtns();
+  } catch {
+    _speechQualityPromise = null;
+    if (loadId === _speechLoadId) _clearAudioBtns();
   }
-
-  _clearAudioBtns();
 }
 
 function _clearAudioBtns() {
@@ -4474,15 +4425,13 @@ function _clearAudioBtns() {
   document.querySelectorAll('.card-audio-btn.playing').forEach(b => {
     b.classList.remove('playing');
     b.title = t('audioPlay');
+    b.setAttribute('aria-label', t('audioPlay'));
   });
 }
 
 function stopSpeech() {
-  if (_pendingVoicesHandler && window.speechSynthesis) {
-    window.speechSynthesis.removeEventListener('voiceschanged', _pendingVoicesHandler);
-    _pendingVoicesHandler = null;
-  }
-  if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
+  _speechLoadId += 1;
+  if (_currentAudio) { _currentAudio.cancel(); _currentAudio = null; }
 }
 
 function handleAudioBtn(btn) {
@@ -4494,16 +4443,19 @@ function handleAudioBtn(btn) {
     stopSpeech();
     btn.classList.remove('playing');
     btn.title = t('audioPlay');
+    btn.setAttribute('aria-label', t('audioPlay'));
     return;
   }
 
   document.querySelectorAll('.card-audio-btn.playing').forEach(b => {
     b.classList.remove('playing');
     b.title = t('audioPlay');
+    b.setAttribute('aria-label', t('audioPlay'));
   });
 
   btn.classList.add('playing');
   btn.title = t('audioStop');
+  btn.setAttribute('aria-label', t('audioStop'));
   speakText(card.question[state.lang], state.lang);
 }
 
@@ -4728,7 +4680,7 @@ function createTimedQuizModal() {
         <div class="timed-quiz-score-big" id="tqScoreBig"></div>
         <p class="timed-quiz-score-sub" id="tqScoreSub"></p>
         <div class="hero-actions" style="margin-top:1.5rem;justify-content:center;flex-wrap:wrap;gap:0.75rem;">
-          <button class="primary-btn" id="tqPlayAgain">${lang === 'ar' ? 'العب مجدداً' : 'Play Again'}</button>
+          <button class="primary-btn" id="tqPlayAgain">${lang === 'ar' ? 'العب مرة أخرى' : 'Play Again'}</button>
           <button class="secondary-btn" id="tqClose">${lang === 'ar' ? 'إغلاق' : 'Close'}</button>
         </div>
       </div>
@@ -4930,7 +4882,7 @@ function endTimedQuiz() {
       <p>💡 ${lang === 'ar' ? 'هل تريد تحدي شخص ما؟' : 'Want to challenge someone?'}</p>
       <div class="tq-challenge-cta-btns">
         <button class="mini-btn" id="tqChallengeFriendBtn">🏆 ${lang === 'ar' ? 'تحدَّ صديقًا' : 'Challenge a Friend'}</button>
-        <button class="mini-btn" id="tqBattleBtn">⚡ ${lang === 'ar' ? 'غرفة معركة مباشرة' : 'Live Battle Room'}</button>
+        <button class="mini-btn" id="tqBattleBtn">⚡ ${lang === 'ar' ? 'ابدأ معركة مباشرة' : 'Live Battle Room'}</button>
       </div>`;
     resultEl.appendChild(ctaEl);
     document.getElementById('tqChallengeFriendBtn')?.addEventListener('click', () => {
@@ -5125,7 +5077,7 @@ function showCategoryCompleteModal(slug) {
         </div>
         <div class="hero-actions" style="justify-content:center;flex-wrap:wrap;gap:0.75rem;">
           <button class="secondary-btn" id="catCompleteShare">🔗 ${lang === 'ar' ? 'شارك النتيجة' : 'Share result'}</button>
-          <button class="ghost-btn" id="catCompleteBattle">⚡ ${lang === 'ar' ? 'غرفة معركة مباشرة' : 'Live Battle Room'}</button>
+          <button class="ghost-btn" id="catCompleteBattle">⚡ ${lang === 'ar' ? 'ابدأ معركة مباشرة' : 'Live Battle Room'}</button>
           ${related ? `<a class="primary-btn" href="${escapeHtml(categoryRouteForLanguage(related.slug, lang))}" style="text-decoration:none;">${lang === 'ar' ? 'الموضوع التالي ←' : 'Next category →'}</a>` : ''}
           <button class="ghost-btn" id="catCompleteClose">${lang === 'ar' ? 'إغلاق' : 'Close'}</button>
         </div>
@@ -5502,7 +5454,7 @@ function renderCategoryPlayModes() {
           </div>
         </div>
         <button class="primary-btn play-mode-btn" id="playModeQuickFireBtn">
-          🎯 ${isAr ? 'ابدأ منفردًا' : 'Start Solo'}
+          🎯 ${isAr ? 'ابدأ تحديًا فرديًا' : 'Start Solo'}
         </button>
       </div>
       <div class="play-mode-card play-mode-team">
@@ -5516,10 +5468,10 @@ function renderCategoryPlayModes() {
         </div>
         <div class="play-mode-battle-btns">
           <button class="primary-btn play-mode-btn" id="playModeCreateRoomBtn">
-            🎮 ${isAr ? 'إنشاء غرفة' : 'Create Room'}
+            🎮 ${isAr ? 'أنشئ غرفة' : 'Create Room'}
           </button>
           <button class="ghost-btn play-mode-btn" id="playModeJoinBtn">
-            🔗 ${isAr ? 'الانضمام بكود' : 'Join with Code'}
+            🔗 ${isAr ? 'انضم برمز' : 'Join with Code'}
           </button>
         </div>
       </div>

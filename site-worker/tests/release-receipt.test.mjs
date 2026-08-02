@@ -227,6 +227,10 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.equal(legacyWorkflow.match(/build-static-site\.mjs/gu)?.length, 1);
   assert.match(legacyWorkflow, /JAKH_SITE_ROOT: \$\{\{ github\.workspace \}\}\/_site/u);
   assert.match(legacyWorkflow, /JAKH_SITE_MANIFEST: \$\{\{ runner\.temp \}\}\/legacy-pages-manifest\.json/u);
+  assert.match(
+    legacyWorkflow,
+    /uses: actions\/upload-pages-artifact@[^\n]+\n\s+with:\n\s+path: _site\n\s+include-hidden-files: true/u,
+  );
   assert.doesNotMatch(legacyWorkflow, /\bpush:/u);
 
   assert.match(runbook, /BOOTSTRAP jakh-site AND PRESERVE LEGACY DNS ROLLBACK/u);

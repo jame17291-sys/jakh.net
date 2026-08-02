@@ -949,7 +949,7 @@ function assertTopicBreadcrumb(page, category, language, pageNumber) {
   const sectionUrl = `${mindLab}#section-${section.key}`;
   const mainCategory = topicPageCanonical(category.slug, language, 1);
   const expectedNames = isArabic
-    ? ["الرئيسية", "مختبر العقل", section.title?.ar, category.title?.ar]
+    ? ["الرئيسية", "مختبر العقول", section.title?.ar, category.title?.ar]
     : ["Home", "Mind Lab", section.title?.en, category.title?.en];
   const expectedUrls = pageNumber === 1
     ? [home, mindLab, sectionUrl, page.canonical]

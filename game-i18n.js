@@ -26,10 +26,10 @@
     ar: {
       language: 'اللغة',
       languageControlsLabel: 'خيارات اللغة',
-      quickActionsLabel: 'روابط سريعة',
+      quickActionsLabel: 'خيارات سريعة',
       brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
       navHome: 'الرئيسية',
-      navCategories: 'الفئات',
+      navCategories: 'الموضوعات',
       navGamesBack: 'الألعاب ←',
       skipMain: 'انتقل إلى المحتوى الرئيسي',
       footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
@@ -41,7 +41,7 @@
       facebookName: 'فيسبوك',
       instagramLabel: 'ألغاز JAKH على إنستغرام',
       facebookLabel: 'ألغاز JAKH على فيسبوك',
-      socialImageAlt: 'JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب'
+      socialImageAlt: 'JAKH — 3,553 لغزًا بالعربية والإنجليزية، ضمن 56 موضوعًا و10 ألعاب'
     }
   };
 

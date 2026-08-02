@@ -20,7 +20,7 @@
       },
       "description": {
         "en": "Riddles, logic, psychology, philosophy, relationships, and mysteries.",
-        "ar": "ألغاز ومنطق وعلم نفس وفلسفة وعلاقات وغموض."
+        "ar": "ألغاز، ومنطق، وعلم نفس، وفلسفة، وعلاقات، وقصص غامضة."
       },
       "gradient": "linear-gradient(135deg,#f5edff,#e7f2ff)",
       "accent": "#6d49a7",
@@ -44,7 +44,7 @@
       },
       "description": {
         "en": "Math, physical and life sciences, nature, space, medicine, and pharmacy.",
-        "ar": "رياضيات وعلوم فيزيائية وحياتية وطبيعة وفضاء وطب وصيدلة."
+        "ar": "رياضيات، وعلوم فيزيائية وحياتية، وطبيعة، وفضاء، وطب، وصيدلة."
       },
       "gradient": "linear-gradient(135deg,#e8f7ef,#e8f4ff)",
       "accent": "#1d7051",
@@ -72,7 +72,7 @@
       },
       "description": {
         "en": "Software, design, machines, infrastructure, energy, architecture, and invention.",
-        "ar": "برمجيات وتصميم وآلات وبنية تحتية وطاقة وعمارة واختراعات."
+        "ar": "برمجيات، وتصميم، وآلات، وبنية تحتية، وطاقة، وعمارة، واختراعات."
       },
       "gradient": "linear-gradient(135deg,#eef4ff,#e8fbfb)",
       "accent": "#256aa9",
@@ -99,7 +99,7 @@
       },
       "description": {
         "en": "Places, peoples, history, law, language, business, money, customs, and food.",
-        "ar": "أماكن وشعوب وتاريخ وقانون ولغات وأعمال ومال وعادات وطعام."
+        "ar": "أماكن، وشعوب، وتاريخ، وقانون، ولغات، وأعمال، واقتصاد، وعادات، وطعام."
       },
       "gradient": "linear-gradient(135deg,#fff4dc,#fff0e7)",
       "accent": "#976006",
@@ -128,7 +128,7 @@
       },
       "description": {
         "en": "Art, books, music, screens, fandoms, anime, classic cartoons, and football.",
-        "ar": "فن وكتب وموسيقى وشاشات وعوالم جماهيرية وأنمي ورسوم كلاسيكية وكرة قدم."
+        "ar": "فن، وكتب، وموسيقى، وسينما، وثقافة شعبية، وأنمي، ورسوم متحركة كلاسيكية، وكرة قدم."
       },
       "gradient": "linear-gradient(135deg,#fff0f4,#f8edff)",
       "accent": "#a13f69",
@@ -153,7 +153,7 @@
       "slug": "currencies",
       "title": {
         "en": "World Currencies",
-        "ar": "عملات وتجارة"
+        "ar": "العملات العالمية"
       },
       "emoji": "💰",
       "cluster_key": "world",
@@ -166,7 +166,7 @@
       "href": "/currencies",
       "description": {
         "en": "40 bilingual World Currencies questions covering National Currencies, Foreign Exchange, Monetary History, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في عملات وتجارة تشمل العملات الوطنية، الصرف الأجنبي، تاريخ النقود. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «العملات العالمية» 40 سؤالًا بالعربية والإنجليزية، ويتناول العملات الوطنية، الصرف الأجنبي، وتاريخ النقود. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "economics-and-finance",
@@ -229,7 +229,7 @@
       "slug": "linguistics",
       "title": {
         "en": "Linguistics",
-        "ar": "لغويات"
+        "ar": "علم اللغة"
       },
       "emoji": "✍️",
       "cluster_key": "world",
@@ -242,7 +242,7 @@
       "href": "/linguistics",
       "description": {
         "en": "40 bilingual Linguistics questions covering Language Use & Diversity, Grammar & Structure, Writing Systems, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في لغويات تشمل استخدام اللغة وتنوعها، القواعد والبنية، أنظمة الكتابة. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «علم اللغة» 40 سؤالًا بالعربية والإنجليزية، ويتناول استخدام اللغة وتنوعها، القواعد والبنية، وأنظمة الكتابة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "books-and-quotes",
@@ -295,7 +295,7 @@
       "slug": "tech-retro",
       "title": {
         "en": "Tech & Retro Gaming",
-        "ar": "تكنولوجيا ريترو"
+        "ar": "تقنيات الماضي"
       },
       "emoji": "🕹️",
       "cluster_key": "tech",
@@ -308,7 +308,7 @@
       "href": "/tech-retro",
       "description": {
         "en": "40 bilingual Tech & Retro Gaming questions covering Retro Gaming, Early Internet, Hardware & Storage, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في تكنولوجيا ريترو تشمل ألعاب الفيديو الكلاسيكية، الإنترنت المبكر، العتاد والتخزين. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «تقنيات الماضي» 40 سؤالًا بالعربية والإنجليزية، ويتناول ألعاب الفيديو الكلاسيكية، الإنترنت المبكر، والعتاد والتخزين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "software-and-computing",
@@ -366,7 +366,7 @@
       "slug": "automotive",
       "title": {
         "en": "Automotive & Racing",
-        "ar": "سيارات ومحركات"
+        "ar": "عالم السيارات"
       },
       "emoji": "🏎️",
       "cluster_key": "tech",
@@ -379,7 +379,7 @@
       "href": "/automotive",
       "description": {
         "en": "40 bilingual Automotive & Racing questions covering Brands & Models, Engines & Drivetrains, Motorsport, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في سيارات ومحركات تشمل العلامات والطرازات، المحركات وأنظمة الدفع، رياضة المحركات. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «عالم السيارات» 40 سؤالًا بالعربية والإنجليزية، ويتناول العلامات والطرازات، المحركات وأنظمة الدفع، ورياضة المحركات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "mechanical-engineering",
@@ -437,7 +437,7 @@
       "slug": "survival",
       "title": {
         "en": "Survival & Wilderness",
-        "ar": "بقاء وطبيعة"
+        "ar": "مهارات البقاء"
       },
       "emoji": "🏕️",
       "cluster_key": "science",
@@ -450,7 +450,7 @@
       "href": "/survival",
       "description": {
         "en": "40 bilingual Survival & Wilderness questions covering Firecraft, First Aid & Field Medicine, Navigation & Signaling, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في بقاء وطبيعة تشمل مهارات إشعال النار، الإسعافات الأولية والطب الميداني، الملاحة وإشارات الاستغاثة. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «مهارات البقاء» 40 سؤالًا بالعربية والإنجليزية، ويتناول مهارات إشعال النار، الإسعافات الأولية والطب الميداني، والملاحة وإشارات الاستغاثة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "biology",
@@ -513,7 +513,7 @@
       "slug": "fictional-worlds",
       "title": {
         "en": "Fictional Worlds",
-        "ar": "عوالم خيالية"
+        "ar": "العوالم الخيالية"
       },
       "emoji": "🧙‍♂️",
       "cluster_key": "culture",
@@ -526,7 +526,7 @@
       "href": "/fictional-worlds",
       "description": {
         "en": "40 bilingual Fictional Worlds questions covering Fantasy & Magic, Science Fiction & Space, Anime & Animation, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في عوالم خيالية تشمل الفانتازيا والسحر، الخيال العلمي والفضاء، الأنمي والرسوم المتحركة. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «العوالم الخيالية» 40 سؤالًا بالعربية والإنجليزية، ويتناول الفانتازيا والسحر، الخيال العلمي والفضاء، والأنمي والرسوم المتحركة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "books-and-quotes",
@@ -592,7 +592,7 @@
       "href": "/superheroes",
       "description": {
         "en": "40 bilingual Superhero Universe questions covering Villains & Rivalries, Origins & Identities, Powers, Materials & Artifacts, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في الأبطال الخارقين تشمل الأشرار والخصومات، الأصول والهويات، القوى والمواد والتحف. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الأبطال الخارقين» 40 سؤالًا بالعربية والإنجليزية، ويتناول الأشرار والخصومات، الأصول والهويات، والقوى والمواد والتحف. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "cinema-and-film-history",
@@ -655,7 +655,7 @@
       "slug": "pop-culture",
       "title": {
         "en": "Pop Culture & Web",
-        "ar": "ثقافة البوب"
+        "ar": "الثقافة الشعبية"
       },
       "emoji": "📱",
       "cluster_key": "culture",
@@ -668,7 +668,7 @@
       "href": "/pop-culture",
       "description": {
         "en": "40 bilingual Pop Culture & Web questions covering Film & TV, Internet Culture, Fan Culture, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في ثقافة البوب تشمل الأفلام والتلفزيون، ثقافة الإنترنت، ثقافة المعجبين. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الثقافة الشعبية» 40 سؤالًا بالعربية والإنجليزية، ويتناول الأفلام والتلفزيون، ثقافة الإنترنت، وثقافة المعجبين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "tv-shows-trivia",
@@ -726,7 +726,7 @@
       "slug": "true-crime",
       "title": {
         "en": "True Crime & Mysteries",
-        "ar": "جرائم حقيقية"
+        "ar": "الجرائم الحقيقية"
       },
       "emoji": "🕵️‍♂️",
       "cluster_key": "mind",
@@ -739,7 +739,7 @@
       "href": "/true-crime",
       "description": {
         "en": "40 bilingual True Crime & Mysteries questions covering Forensic Science, Organized Crime & Outlaws, Serial Killers & Unsolved Cases, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في جرائم حقيقية تشمل علوم الأدلة الجنائية، الجريمة المنظمة والخارجون عن القانون، القتلة المتسلسلون والقضايا الغامضة. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الجرائم الحقيقية» 40 سؤالًا بالعربية والإنجليزية، ويتناول علوم الأدلة الجنائية، الجريمة المنظمة والخارجون عن القانون، والقتلة المتسلسلون والقضايا الغامضة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "story-mysteries",
@@ -792,7 +792,7 @@
       "slug": "mythology-legends",
       "title": {
         "en": "Mythology & Legends",
-        "ar": "أساطير وخرافات"
+        "ar": "الأساطير والملاحم"
       },
       "emoji": "🐉",
       "cluster_key": "culture",
@@ -805,7 +805,7 @@
       "href": "/mythology-legends",
       "description": {
         "en": "40 bilingual Mythology & Legends questions covering Greek & Roman, Heroes & Creatures, Norse, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "40 سؤالاً ثنائي اللغة في أساطير وخرافات تشمل الأساطير اليونانية والرومانية، الأبطال والمخلوقات، الأساطير الإسكندنافية. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «الأساطير والملاحم» 40 سؤالًا بالعربية والإنجليزية، ويتناول الأساطير اليونانية والرومانية، الأبطال والمخلوقات، والأساطير الإسكندنافية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "related": [
         "history",
@@ -868,11 +868,11 @@
       "slug": "art-and-painters",
       "title": {
         "en": "Art & Painters",
-        "ar": "الفن والرسامون"
+        "ar": "الفن والرسّامون"
       },
       "description": {
         "en": "Painters, famous works, styles, and art clues designed for friendly play.",
-        "ar": "رسامون وأعمال مشهورة وأساليب فنية وأدلة ممتعة للعب الودي."
+        "ar": "يضم موضوع «الفن والرسّامون» 30 سؤالًا بالعربية والإنجليزية، ويتناول الفنانون والروائع، الحركات والأساليب الفنية، وتاريخ الفن. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -933,7 +933,7 @@
       },
       "description": {
         "en": "Biology for adult learners, spanning cells, genetics, physiology, ecology, evolution, immunity, and modern molecular tools.",
-        "ar": "أحياء للمتعلمين الكبار تشمل الخلايا والوراثة ووظائف الأعضاء والبيئة والتطور والمناعة وأدوات الجزيئات الحديثة."
+        "ar": "يضم موضوع «علم الأحياء» 100 سؤالًا بالعربية والإنجليزية، ويتناول الخلايا والأيض، الوراثة والأحياء الجزيئية، وتشريح ووظائف جسم الإنسان. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -1010,7 +1010,7 @@
       },
       "description": {
         "en": "Authors, novels, famous lines, and literary clues in one category page.",
-        "ar": "كتّاب وروايات واقتباسات مشهورة وأدلة أدبية في صفحة واحدة."
+        "ar": "يضم موضوع «الكتب والاقتباسات» 30 سؤالًا بالعربية والإنجليزية، ويتناول المؤلفون وهوياتهم، الاقتباسات والمطالع، والأعمال والشخصيات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -1066,7 +1066,7 @@
       },
       "description": {
         "en": "Business Management for adult learners, with strategy, finance, operations, leadership, and Gulf-region commercial context.",
-        "ar": "إدارة أعمال للمتعلمين الكبار تشمل الاستراتيجية والمالية والعمليات والقيادة وسياق الأعمال في الخليج."
+        "ar": "يضم موضوع «إدارة الأعمال» 30 سؤالًا بالعربية والإنجليزية، ويتناول المالية والمحاسبة، الإدارة والتنظيم، والاستراتيجية والمنافسة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1132,7 +1132,7 @@
       },
       "description": {
         "en": "Chemistry vocabulary and lab ideas from easy recognition to very advanced recall.",
-        "ar": "مفردات الكيمياء وأفكار المختبر من التعرف السهل إلى الاستدعاء المتقدم جدًا."
+        "ar": "يضم موضوع «الكيمياء» 100 سؤالًا بالعربية والإنجليزية، ويتناول الذرات والعناصر والجدول الدوري، الديناميكا الحرارية والكيمياء الفيزيائية، والكيمياء العضوية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -1204,7 +1204,7 @@
       },
       "description": {
         "en": "Structures, materials, loads, and site systems for civil-engineering practice.",
-        "ar": "منشآت ومواد وأحمال وأنظمة مواقع لمجال الهندسة المدنية."
+        "ar": "يضم موضوع «الهندسة المدنية» 30 سؤالًا بالعربية والإنجليزية، ويتناول المنشآت والجسور، المواد والخرسانة، والمياه والهيدروليكا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1270,7 +1270,7 @@
       },
       "description": {
         "en": "Classic flip-card riddles with everyday objects, clever clues, and a balanced path from easy to very advanced.",
-        "ar": "ألغاز كلاسيكية ببطاقات قابلة للقلب مع أشياء يومية وأدلة ذكية ومسار متوازن من السهل إلى المتقدم جدًا."
+        "ar": "يضم موضوع «ألغاز كلاسيكية» 100 سؤالًا بالعربية والإنجليزية، ويتناول المنطق والاستنتاج، الأرقام والرموز، والتلاعب بالكلمات واللغة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -1337,7 +1337,7 @@
       },
       "description": {
         "en": "Sharpen your mind with lateral thinking, number puzzles, deduction challenges, and classic paradoxes.",
-        "ar": "اشحذ عقلك بالتفكير الجانبي وألغاز الأرقام وتحديات الاستنتاج والمفارقات الكلاسيكية."
+        "ar": "يضم موضوع «ألغاز منطقية» 60 سؤالًا بالعربية والإنجليزية، ويتناول الأرقام والأنماط، المنطق والاستنتاج، والتفكير الجانبي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -1404,7 +1404,7 @@
       },
       "description": {
         "en": "A mixed page for programming, software concepts, interface structure, and practical design language.",
-        "ar": "صفحة تجمع بين البرمجة ومفاهيم البرمجيات وبنية الواجهات ولغة التصميم العملية."
+        "ar": "يضم موضوع «البرمجة والتصميم» 30 سؤالًا بالعربية والإنجليزية، ويتناول أساسيات البرمجة، تطوير الويب، وواجهات وتجربة المستخدم والتصميم البصري. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1470,7 +1470,7 @@
       },
       "description": {
         "en": "Circuits, power, components, and protection systems in a friendly layout.",
-        "ar": "دوائر وقدرة ومكونات وأنظمة حماية في تصميم سهل وواضح."
+        "ar": "يضم موضوع «الهندسة الكهربائية» 30 سؤالًا بالعربية والإنجليزية، ويتناول المكونات والإلكترونيات، أساسيات الكهرباء، وأنظمة القدرة المتناوبة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1536,7 +1536,7 @@
       },
       "description": {
         "en": "Flag and symbol knowledge with geography, design, and recognition prompts.",
-        "ar": "معرفة بالأعلام والرموز مع أسئلة عن الجغرافيا والتصميم والتعرّف عليها."
+        "ar": "يضم موضوع «أعلام العالم» 30 سؤالًا بالعربية والإنجليزية، ويتناول تصميم الأعلام وعلم الأعلام، الأمريكتان، وآسيا وأوقيانوسيا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1602,7 +1602,7 @@
       },
       "description": {
         "en": "Structured football questions covering rules, positions, match terms, tactics, and competition basics.",
-        "ar": "أسئلة منظمة في كرة القدم تغطي القوانين والمراكز ومصطلحات المباراة والخطط وأساسيات البطولات."
+        "ar": "يضم موضوع «كرة القدم» 175 سؤالًا بالعربية والإنجليزية، ويتناول كرة القدم الدولية وكأس العالم، تاريخ كرة القدم والأرقام القياسية، وبطولات الأندية والدوريات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -1679,7 +1679,7 @@
       },
       "description": {
         "en": "Landforms, climates, regions, and map terms built into a fun geography page.",
-        "ar": "تضاريس ومناخات وأقاليم ومصطلحات خرائط في صفحة جغرافيا ممتعة."
+        "ar": "يضم موضوع «الجغرافيا» 100 سؤالًا بالعربية والإنجليزية، ويتناول الدول والعواصم والحدود، المحيطات والبحار والمضائق، والأنهار والبحيرات والدلتا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1751,7 +1751,7 @@
       },
       "description": {
         "en": "Rocks, layers, heat, pressure, and the moving Earth turned into approachable cards.",
-        "ar": "صخور وطبقات وحرارة وضغط وأرض متحركة في بطاقات سهلة الفهم."
+        "ar": "يضم موضوع «الجيولوجيا» 50 سؤالًا بالعربية والإنجليزية، ويتناول تكتونيات الصفائح وبنية الأرض، الصخور وعلم الصخور ودورتها، والمعادن والجيوكيمياء. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -1823,7 +1823,7 @@
       },
       "description": {
         "en": "Big moments, old empires, inventions, and turning points turned into balanced quiz cards.",
-        "ar": "لحظات كبيرة وإمبراطوريات قديمة واختراعات ونقاط تحول في بطاقات متوازنة."
+        "ar": "يضم موضوع «التاريخ» 100 سؤالًا بالعربية والإنجليزية، ويتناول الإمبراطوريات والدول والشخصيات التاريخية، الحروب والمعاهدات والدبلوماسية، والحضارات القديمة وعلم الآثار. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -1900,7 +1900,7 @@
       },
       "description": {
         "en": "Utilities, transport, networks, and city-scale systems in a quiz-driven page.",
-        "ar": "مرافق ونقل وشبكات وأنظمة على مستوى المدن في صفحة أسئلة سريعة."
+        "ar": "يضم موضوع «أنظمة البنية التحتية» 50 سؤالًا بالعربية والإنجليزية، ويتناول الجسور والهندسة الإنشائية، أنظمة الطاقة والكهرباء، وأنظمة المياه والصرف الصحي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -1972,7 +1972,7 @@
       },
       "description": {
         "en": "30 bilingual Kids Riddles questions covering Objects, Clothing & Technology, Art, Paper & School Tools, Logic, Codes & Patterns, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "30 سؤالاً ثنائي اللغة في ألغاز للأطفال تشمل الأشياء والملابس والتقنية، الفن والورق والأدوات المدرسية، المنطق والشفرات والأنماط. بدّل بين العربية والإنجليزية، واكشف الإجابات، وتابع نتيجتك."
+        "ar": "يضم موضوع «ألغاز للأطفال» 30 سؤالًا بالعربية والإنجليزية، ويتناول الأشياء والملابس والتقنية، الفن والورق والأدوات المدرسية، والمنطق والشفرات والأنماط. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2038,7 +2038,7 @@
       },
       "description": {
         "en": "Middle East-flavored legal literacy with contracts, evidence, procedure, commercial practice, and professional judgment.",
-        "ar": "معرفة قانونية بطابع الشرق الأوسط تشمل العقود والإثبات والإجراءات والممارسات التجارية والحكم المهني."
+        "ar": "يضم موضوع «القانون في الشرق الأوسط» 48 سؤالًا بالعربية والإنجليزية، ويتناول القانون الدولي وحقوق الإنسان، الفقه الإسلامي ومصادره، والقانون الدستوري والأنظمة القانونية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -2110,7 +2110,7 @@
       },
       "description": {
         "en": "Math for adults with a stronger mix of riddles, patterns, logic, geometry, probability, and only a smaller share of direct equation work.",
-        "ar": "رياضيات للكبار بمزيج أقوى من الألغاز والأنماط والمنطق والهندسة والاحتمالات، مع حصة أصغر من الأسئلة المعتمدة على المعادلات المباشرة."
+        "ar": "يضم موضوع «الرياضيات» 150 سؤالًا بالعربية والإنجليزية، ويتناول نظرية الأعداد وألغازها، الهندسة وعلم المثلثات، والجبر والدوال. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2187,7 +2187,7 @@
       },
       "description": {
         "en": "Motion, machines, and power transfer in card form.",
-        "ar": "الحركة والآلات ونقل القدرة في بطاقات سهلة التصفح."
+        "ar": "يضم موضوع «الهندسة الميكانيكية» 30 سؤالًا بالعربية والإنجليزية، ويتناول الآلات والتروس والآليات، الديناميكا الحرارية والحرارة والطاقة، والمواد والفشل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -2253,7 +2253,7 @@
       },
       "description": {
         "en": "Adult-level medical knowledge focused on general practice, core clinical reasoning, and topics any well-trained doctor should recognize.",
-        "ar": "معرفة طبية بمستوى الكبار تركّز على الطب العام والاستدلال السريري الأساسي والموضوعات التي يفترض بأي طبيب متمكن أن يعرفها."
+        "ar": "يضم موضوع «العلوم الطبية» 100 سؤالًا بالعربية والإنجليزية، ويتناول التشريح ووظائف الأعضاء، الأمراض والوراثة وعلم الأمراض، وعلم الأدوية والسموم. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2330,7 +2330,7 @@
       },
       "description": {
         "en": "Civilizations, scholars, cities, and turning points from the Middle East.",
-        "ar": "حضارات وعلماء ومدن ونقاط تحول من تاريخ الشرق الأوسط."
+        "ar": "يضم موضوع «تاريخ الشرق الأوسط» 50 سؤالًا بالعربية والإنجليزية، ويتناول التاريخ الحديث، التاريخ الإسلامي، وعصور قديمة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -2387,7 +2387,7 @@
       },
       "description": {
         "en": "Adult pharmacy learning with dosage forms, safety, counseling, kinetics, legal handling, and clinical-use concepts broadened far beyond the old repeated answer pool.",
-        "ar": "تعلم صيدلي للكبار يشمل الأشكال الدوائية والسلامة والإرشاد والحركية الدوائية والتداول القانوني ومفاهيم الاستعمال السريري، مع توسعة واضحة تتجاوز حوض الإجابات المكرر السابق."
+        "ar": "يضم موضوع «الصيدلة» 50 سؤالًا بالعربية والإنجليزية، ويتناول فئات الأدوية والعلاج، ديناميكية الدواء والمستقبلات، وحركية الدواء والصيدلانيات الحيوية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2459,7 +2459,7 @@
       },
       "description": {
         "en": "Ideas about ethics, truth, knowledge, and meaning in a quiz-friendly format.",
-        "ar": "أفكار حول الأخلاق والحقيقة والمعرفة والمعنى بصيغة مناسبة للعب والسؤال."
+        "ar": "يضم موضوع «الفلسفة» 50 سؤالًا بالعربية والإنجليزية، ويتناول الأخلاق، الميتافيزيقا وفلسفة العقل، والمدارس الفلسفية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2526,7 +2526,7 @@
       },
       "description": {
         "en": "A broad science page covering biology, chemistry, and earth science in one place.",
-        "ar": "صفحة علمية واسعة تغطي الأحياء والكيمياء وعلوم الأرض في مكان واحد."
+        "ar": "يضم موضوع «العلوم الفيزيائية والحياتية» 50 سؤالًا بالعربية والإنجليزية، ويتناول الخلية والوراثة والأحياء الدقيقة، الكيمياء العامة، والميكانيكا والطاقة والنسبية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2598,7 +2598,7 @@
       },
       "description": {
         "en": "Psychology cards about behavior, memory, emotion, and human patterns.",
-        "ar": "بطاقات علم نفس عن السلوك والذاكرة والعاطفة والأنماط الإنسانية."
+        "ar": "يضم موضوع «علم النفس» 100 سؤالًا بالعربية والإنجليزية، ويتناول الإدراك والذاكرة والإحساس، الأسس والتعلم والدافعية، وعلم النفس الاجتماعي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2675,7 +2675,7 @@
       },
       "description": {
         "en": "Relationship scenarios, communication choices, and boundary-setting prompts designed for thoughtful adult play.",
-        "ar": "مواقف في العلاقات وخيارات تواصل وأسئلة عن الحدود بأسلوب ممتع ومفيد للكبار."
+        "ar": "يضم موضوع «العلاقات» 50 سؤالًا بالعربية والإنجليزية، ويتناول علم النفس، الحب والتعلق، والتواصل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2732,7 +2732,7 @@
       },
       "description": {
         "en": "Core science concepts from living systems to physics and space, all in card form.",
-        "ar": "مفاهيم علمية أساسية من الأنظمة الحية إلى الفيزياء والفضاء في بطاقات سهلة اللعب."
+        "ar": "يضم موضوع «العلوم» 100 سؤالًا بالعربية والإنجليزية، ويتناول الكيمياء والمواد، الأحياء وعلوم الحياة، والكم والنسبية وعلم الكون. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2799,7 +2799,7 @@
       },
       "description": {
         "en": "A broader social-science page built from psychology, interpersonal behavior, and cultural etiquette concepts.",
-        "ar": "صفحة أوسع للعلوم الاجتماعية مبنية على مفاهيم علم النفس والسلوك بين الأشخاص والثقافة والإتيكيت."
+        "ar": "يضم موضوع «العلوم الاجتماعية» 50 سؤالًا بالعربية والإنجليزية، ويتناول علم الاجتماع، الاقتصاد، والعلوم السياسية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -2856,7 +2856,7 @@
       },
       "description": {
         "en": "Core computing terms, systems, and development ideas for playful study.",
-        "ar": "مصطلحات حوسبة أساسية وأنظمة وأفكار تطوير للدراسة الممتعة."
+        "ar": "يضم موضوع «البرمجيات والحوسبة» 50 سؤالًا بالعربية والإنجليزية، ويتناول علوم الحاسب، الأنظمة والشبكات، وهندسة البرمجيات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Technology & Engineering",
@@ -2913,7 +2913,7 @@
       },
       "description": {
         "en": "Planets, constellations, lunar events, and zodiac-themed prompts for curious players.",
-        "ar": "كواكب وكوكبات وأحداث قمرية وأسئلة مرتبطة بالأبراج للاعبين الفضوليين."
+        "ar": "يضم موضوع «الفضاء وعلم الفلك» 100 سؤالًا بالعربية والإنجليزية، ويتناول النظام الشمسي والكواكب، المجرات وعلم الكون، والنجوم وتطورها. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Science, Nature & Health",
@@ -2985,7 +2985,7 @@
       },
       "description": {
         "en": "Long-form yes/no story mysteries for a game master, with cleaner prompts, clearer solutions, and better reveal flow.",
-        "ar": "ألغاز قصصية طويلة بأسئلة نعم/لا للراوي، مع مقدمات أوضح وحلول أنظف وطريقة كشف أفضل."
+        "ar": "يضم موضوع «ألغاز القصص» 50 سؤالًا بالعربية والإنجليزية، ويتناول الفنون واللغة والعروض، الحياة اليومية والعائلة، والجريمة والتحقيق. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -3062,7 +3062,7 @@
       },
       "description": {
         "en": "250 bilingual questions across 10 top-rated TV shows — 5 English (Breaking Bad, Game of Thrones, Friends, The Wire, Stranger Things) and 5 Arabic (Bab Al-Hara, Maraya, Tash Ma Tash, Ertuğrul, Al-Hasaseen).",
-        "ar": "250 سؤالاً ثنائي اللغة عبر 10 مسلسلات من الأعلى تقييماً — 5 إنجليزية (برايكينج باد، صراع العروش، فريندز، ذا واير، أشياء غريبة) و5 عربية (باب الحارة، مرايا، طاش ما طاش، قيامة أرطغرل، الحساسين)."
+        "ar": "يضم موضوع «المسلسلات» 250 سؤالًا بالعربية والإنجليزية، ويتناول الحساسين، باب الحارة، وبرايكينج باد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -3149,7 +3149,7 @@
       },
       "description": {
         "en": "Customs, greetings, hospitality, and social habits from around the world.",
-        "ar": "عادات وتحيات وضيافة وسلوكيات اجتماعية من أنحاء العالم."
+        "ar": "يضم موضوع «عادات البلدان والإتيكيت» 50 سؤالًا بالعربية والإنجليزية، ويتناول العادات الاجتماعية، آداب المائدة، والديني والاحتفالي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "World, History & Society",
@@ -3202,11 +3202,11 @@
       "slug": "environment-and-ecology",
       "title": {
         "en": "Environment & Ecology",
-        "ar": "البيئة والإيكولوجيا"
+        "ar": "البيئة وعلم البيئة"
       },
       "description": {
         "en": "Explore ecosystems, conservation, and the science of our planet.",
-        "ar": "استكشف النظم البيئية والحفاظ عليها وعلم كوكبنا."
+        "ar": "يضم موضوع «البيئة وعلم البيئة» 40 سؤالًا بالعربية والإنجليزية، ويتناول النظم البيئية والتنوع الحيوي، التلوث والنفايات، وتغير المناخ. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🌿",
       "cluster": {
@@ -3278,7 +3278,7 @@
       },
       "description": {
         "en": "Uncover the secrets of the Aztecs, Maya, and ancient empires.",
-        "ar": "اكشف أسرار الأزتيك والمايا والإمبراطوريات القديمة."
+        "ar": "يضم موضوع «الحضارات القديمة» 40 سؤالًا بالعربية والإنجليزية، ويتناول مصر القديمة، اليونان وروما، وبلاد الرافدين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🏛️",
       "cluster": {
@@ -3345,7 +3345,7 @@
       },
       "description": {
         "en": "The history of breakthroughs and the minds that changed the world.",
-        "ar": "تاريخ الاختراقات والعقول التي غيرت العالم."
+        "ar": "يضم موضوع «الاختراعات والأفكار» 40 سؤالًا بالعربية والإنجليزية، ويتناول تاريخ الحوسبة، العلوم والطب، والاتصالات. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "💡",
       "cluster": {
@@ -3422,7 +3422,7 @@
       },
       "description": {
         "en": "Amazing facts about the diverse creatures sharing our planet.",
-        "ar": "حقائق مذهلة عن المخلوقات المتنوعة التي تشاركنا كوكبنا."
+        "ar": "يضم موضوع «عالم الحيوان» 40 سؤالًا بالعربية والإنجليزية، ويتناول الطيور والطيران، السلوك والبيئة والتكيف، والحشرات ومفصليات الأرجل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🐾",
       "cluster": {
@@ -3499,7 +3499,7 @@
       },
       "description": {
         "en": "Master the concepts of markets, money, and global trade.",
-        "ar": "أتقن مفاهيم الأسواق والمال والتجارة العالمية."
+        "ar": "يضم موضوع «الاقتصاد والمال» 40 سؤالًا بالعربية والإنجليزية، ويتناول الاقتصاد الكلي، الأسواق والتجارة، والفكر الاقتصادي. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "📈",
       "cluster": {
@@ -3576,7 +3576,7 @@
       },
       "description": {
         "en": "The art and science of famous landmarks and structures.",
-        "ar": "فن وعلم المعالم والهياكل الشهيرة."
+        "ar": "يضم موضوع «العمارة والمعالم» 40 سؤالًا بالعربية والإنجليزية، ويتناول المعماريون والمصممون، معالم العالم، والعناصر المعمارية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🏙️",
       "cluster": {
@@ -3648,7 +3648,7 @@
       },
       "description": {
         "en": "Composers, instruments, and the magic of performing arts.",
-        "ar": "الملحنون والآلات وسحر الفنون المسرحية."
+        "ar": "يضم موضوع «الموسيقى والفنون الأدائية» 40 سؤالًا بالعربية والإنجليزية، ويتناول نظرية الموسيقى والتدوين، المؤلفون والأعمال الموسيقية، والآلات والفرق الموسيقية. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🎻",
       "cluster": {
@@ -3720,7 +3720,7 @@
       },
       "description": {
         "en": "A journey through tastes, ingredients, and global traditions.",
-        "ar": "رحلة عبر الأذواق والمكونات والتقاليد العالمية."
+        "ar": "يضم موضوع «الطعام والمأكولات» 40 سؤالًا بالعربية والإنجليزية، ويتناول المكونات، تقنيات الطهي، وعلوم الغذاء. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🍽️",
       "cluster": {
@@ -3792,7 +3792,7 @@
       },
       "description": {
         "en": "Behind the scenes of movie history and cinematic magic.",
-        "ar": "خلف كواليس تاريخ السينما والسحر السينمائي."
+        "ar": "يضم موضوع «السينما والأفلام» 40 سؤالًا بالعربية والإنجليزية، ويتناول صنّاع الأفلام والممثلون، تاريخ السينما ومحطاتها، والتصوير السينمائي والكاميرا. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🎬",
       "cluster": {
@@ -3869,7 +3869,7 @@
       },
       "description": {
         "en": "AI, robotics, and the renewable energy of the future.",
-        "ar": "الذكاء الاصطناعي والروبوتات والطاقة المتجددة في المستقبل."
+        "ar": "يضم موضوع «تقنية المستقبل والطاقة» 40 سؤالًا بالعربية والإنجليزية، ويتناول الحوسبة والأمن، الذكاء الاصطناعي وتعلم الآلة، والتقنيات المتصلة والغامرة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "emoji": "🚀",
       "cluster": {
@@ -3946,7 +3946,7 @@
       },
       "description": {
         "en": "Test your knowledge across 10 iconic anime series — from Naruto and Dragon Ball Z to Attack on Titan and Demon Slayer.",
-        "ar": "اختبر معرفتك عبر 10 سلاسل أنمي أيقونية — من ناروتو ودراغون بول زي إلى هجوم العمالقة وقاتل الشياطين."
+        "ar": "يضم موضوع «الأنمي» 150 سؤالًا بالعربية والإنجليزية، ويتناول هجوم العمالقة، دفتر الموت، وقاتل الشياطين. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -4033,7 +4033,7 @@
       },
       "description": {
         "en": "Relive the golden era of Spacetoon with 200 bilingual questions across 10 beloved classic series — Adnan and Lina, Captain Majed, Grendizer, and more.",
-        "ar": "عِش ذكريات الزمن الجميل مع سبيستون عبر 200 سؤال ثنائي اللغة في 10 مسلسلات كلاسيكية محبوبة — عدنان ولينا، الكابتن ماجد، غرندايزر، وأكثر."
+        "ar": "يضم موضوع «أيام الطيبين - سبيستون» 200 سؤالًا بالعربية والإنجليزية، ويتناول عدنان ولينا، الكابتن ماجد، وماروكو الصغيرة. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",

@@ -469,13 +469,13 @@ function staticCardMarkup(category, card, lang = "en") {
               <p class="card-question">${escapeHtml(card.question[lang])}</p>
               ${staticReviewMarkup(card, lang)}
               <div class="card-actions">
-                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${isAr ? "اكشف الإجابة" : "Flip for the answer"}</button>
+                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${isAr ? "عرض الإجابة" : "Flip for the answer"}</button>
               </div>
             </section>
             <section class="card-face card-back" aria-hidden="true" inert>
               <p class="card-answer"><strong>${escapeHtml(card.answer[lang])}</strong></p>
               <div class="card-actions">
-                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" tabindex="-1">${isAr ? "العودة إلى السؤال" : "Back to the question"}</button>
+                <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" tabindex="-1">${isAr ? "عرض السؤال" : "Back to the question"}</button>
               </div>
             </section>
           </div>
@@ -536,7 +536,7 @@ function simpleCategoryCard(category, lang = "en") {
           </div>
           <div class="category-card-footer">
             <span class="category-card-label">${category.count} ${isAr ? "سؤالًا" : "questions"}</span>
-            <span class="category-card-enter">${isAr ? "افتح" : "Enter"}</span>
+            <span class="category-card-enter">${isAr ? "استكشف" : "Enter"}</span>
           </div>
         </a>`;
 }
@@ -701,7 +701,7 @@ ${analyticsHead()}
           <div class="select-grid">
             <label><span data-i18n="difficultyLabel">${isAr ? "الصعوبة" : "Difficulty"}</span><select id="difficultySelect"><option value="all">${isAr ? "كل المستويات" : "All levels"}</option><option value="easy">${isAr ? "سهل" : "Easy"}</option><option value="medium">${isAr ? "متوسط" : "Medium"}</option><option value="hard">${isAr ? "صعب" : "Hard"}</option><option value="very-advanced">${isAr ? "صعب جدًا" : "Difficult"}</option></select></label>
             <label><span data-i18n="showLabel">${isAr ? "إظهار" : "Show"}</span><select id="viewSelect"><option value="all">${isAr ? "كل شيء" : "Everything"}</option><option value="unsolved">${isAr ? "غير المحلول فقط" : "Only unsolved"}</option><option value="solved">${isAr ? "المحلول فقط" : "Only solved"}</option><option value="favorites">${isAr ? "المفضلة فقط" : "Only favorites"}</option></select></label>
-            <label><span data-i18n="sortLabel">${isAr ? "الترتيب" : "Sort"}</span><select id="sortSelect"><option value="featured">${isAr ? "الترتيب المختار" : "Featured order"}</option><option value="difficulty">${isAr ? "حسب الصعوبة" : "By difficulty"}</option><option value="az">${isAr ? "أ ← ي" : "A → Z"}</option><option value="random">${isAr ? "اخلط الآن" : "Shuffle now"}</option></select></label>
+            <label><span data-i18n="sortLabel">${isAr ? "الترتيب" : "Sort"}</span><select id="sortSelect"><option value="featured">${isAr ? "الترتيب المقترح" : "Featured order"}</option><option value="difficulty">${isAr ? "حسب الصعوبة" : "By difficulty"}</option><option value="az">${isAr ? "أ ← ي" : "A → Z"}</option><option value="random">${isAr ? "ترتيب عشوائي" : "Shuffle now"}</option></select></label>
           </div>
           <div id="subcategoryWrap" class="subcategory-wrap">
             <p class="mini-label" data-i18n="subcategoriesLabel">${isAr ? "الموضوعات الفرعية" : "Subcategories"}</p>
@@ -713,7 +713,7 @@ ${analyticsHead()}
         </section>
         <div class="library-toolbar">
           <p id="resultsLabel">${isAr ? `عرض جميع البطاقات وعددها ${category.count}.` : `Showing all ${category.count} cards.`}</p>
-          <button class="text-btn" id="resetPageBtn" data-i18n="resetFilters">${isAr ? "مسح خيارات التصفية" : "Reset filters"}</button>
+          <button class="text-btn" id="resetPageBtn" data-i18n="resetFilters">${isAr ? "مسح الفلاتر" : "Reset filters"}</button>
         </div>
         <div id="emptyState" class="empty-state hidden">
           <strong data-i18n="emptyTitle">${isAr ? "لا توجد بطاقات تطابق هذا الاختيار." : "No cards match that combination."}</strong>
@@ -748,7 +748,7 @@ ${analyticsHead()}
 function staticTopicCardMarkup(category, card, lang, position) {
   const isAr = lang === "ar";
   const label = isAr ? "الإجابة" : "Answer";
-  const interactiveLabel = isAr ? "افتح البطاقة في الاختبار التفاعلي" : "Open this card in the interactive quiz";
+  const interactiveLabel = isAr ? "اعرض البطاقة في الاختبار التفاعلي" : "Open this card in the interactive quiz";
   return `<article class="seo-qa-card" id="${escapeHtml(card.id)}" data-id="${escapeHtml(card.id)}">
           <details>
             <summary><span class="seo-question-number">${String(position).padStart(2, "0")}</span><span>${escapeHtml(card.question[lang])}</span></summary>
@@ -879,7 +879,7 @@ ${analyticsHead()}
         <h1>${escapeHtml(pageHeading)}</h1>
         <p>${isAr ? `الأسئلة من ${startIndex + 1} إلى ${endPosition} من أصل ${cards.length}.` : `Questions ${startIndex + 1}–${endPosition} of ${cards.length}.`}</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="${categoryRoute(category, lang)}">${isAr ? "افتح الاختبار التفاعلي الكامل" : "Open the full interactive quiz"}</a>
+          <a class="primary-btn" href="${categoryRoute(category, lang)}">${isAr ? "ابدأ الاختبار الكامل" : "Open the full interactive quiz"}</a>
         </div>
       </section>
       <section class="seo-question-list shell" aria-label="${isAr ? "الأسئلة والأجوبة" : "Questions and answers"}">
@@ -1275,7 +1275,7 @@ function renderCollectionPage(collection, lang, cards) {
   const title = collectionTitle(collection, lang);
   const description = collectionDescription(collection, lang);
   const label = isAr ? "الإجابة" : "Answer";
-  const sourceLabel = isAr ? "افتح البطاقة التفاعلية" : "Open the interactive card";
+  const sourceLabel = isAr ? "اعرض البطاقة التفاعلية" : "Open the interactive card";
   const structured = {
     "@context": "https://schema.org",
     "@graph": [
@@ -1370,7 +1370,7 @@ ${disclaimer ? `        ${disclaimer}\n` : ""}
         <h2>${isAr ? "واصل اللعب" : "Keep playing"}</h2>
         <p>${isAr ? "استكشف المجموعة الكاملة، وبدّل اللغة، وتابع نتيجتك في مختبر العقول." : "Explore the full library, switch languages, and track your score in the Mind Lab."}</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="${localizedMindLabRoute}">${isAr ? "افتح مختبر العقول" : "Open the Mind Lab"}</a>
+          <a class="primary-btn" href="${localizedMindLabRoute}">${isAr ? "استكشف مختبر العقول" : "Open the Mind Lab"}</a>
           <a class="ghost-btn" href="${localizedCollectionsRoute}">${isAr ? "كل المجموعات" : "All collections"}</a>
         </div>
       </section>

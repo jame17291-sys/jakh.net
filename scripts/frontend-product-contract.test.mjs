@@ -5,6 +5,8 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
+import { getBestVoice, prepareSpeechText } from '../speech-quality.js';
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
 const styles = fs.readFileSync(path.join(root, 'styles.css'), 'utf8');
@@ -12,6 +14,12 @@ const searchLeaderboard = fs.readFileSync(path.join(root, 'search-leaderboard.js
 const indexHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const playHtml = fs.readFileSync(path.join(root, 'play.html'), 'utf8');
 const mindLabHtml = fs.readFileSync(path.join(root, 'mind-lab.html'), 'utf8');
+const battleMode = fs.readFileSync(path.join(root, 'battle-mode.js'), 'utf8');
+const seoGenerator = fs.readFileSync(path.join(root, 'scripts/generate-seo-pages.mjs'), 'utf8');
+const arabicRouteGenerator = fs.readFileSync(path.join(root, 'scripts/generate-arabic-routes.mjs'), 'utf8');
+const gameCopy = ['codenames.html', 'go.html', 'hanabi.html']
+  .map(file => fs.readFileSync(path.join(root, file), 'utf8'))
+  .join('\n');
 
 function topLevelFunction(name, source = app) {
   const asyncStart = source.indexOf(`async function ${name}(`);
@@ -342,6 +350,58 @@ test('truthful product and server-checking wording is enforced', () => {
   assert.match(searchLeaderboard, /serverCheckedAutomationDisclaimer/u);
   assert.match(searchLeaderboard, /\/scores\/server-checked\/challenge/u);
   assert.match(searchLeaderboard, /\/scores\/server-checked\/submit/u);
+});
+
+test('public Arabic actions use concise human wording and reject known literal translations', () => {
+  const publicActions = [app, battleMode, seoGenerator, arabicRouteGenerator, gameCopy].join('\n');
+  for (const roboticOrIncorrect of [
+    /العب دبلوماسي(?!ة)/u,
+    /العب مجدداً/u,
+    /العودة للسؤال/u,
+    /اكشف الإجابة/u,
+    /أضف للمفضلة/u,
+    /غرفة معركة مباشرة/u,
+    /الانضمام بكود/u,
+    /'الانضمام'/u,
+    /'انضمام'/u,
+    /مسح خيارات التصفية/u,
+    /الترتيب الأساسي/u,
+  ]) assert.doesNotMatch(publicActions, roboticOrIncorrect);
+
+  for (const naturalAction of [
+    'العب دبلوماسية',
+    'العب مرة أخرى',
+    'عرض الإجابة',
+    'عرض السؤال',
+    'أضف إلى المفضلة',
+    'ابدأ معركة مباشرة',
+    'انضم برمز',
+    'انضم إلى الغرفة',
+    'مسح الفلاتر',
+    'الترتيب المقترح',
+  ]) assert.match(publicActions, new RegExp(naturalAction, 'u'), naturalAction);
+});
+
+test('read-aloud prefers a natural Arabic voice and uses human prosody', () => {
+  const basicSaudi = { name: 'Arabic', voiceURI: 'basic-ar-sa', lang: 'ar-SA', localService: true };
+  const naturalEgyptian = {
+    name: 'Microsoft Salma Online (Natural)',
+    voiceURI: 'natural-ar-eg',
+    lang: 'ar-EG',
+    localService: false,
+  };
+  assert.equal(getBestVoice([basicSaudi, naturalEgyptian], 'ar').name, naturalEgyptian.name);
+  assert.equal(prepareSpeechText('كم يساوي 5×4؟20', 'ar'), 'كم يساوي 5 في 4؟ 20');
+
+  const speech = functionBlock('speakText', '_clearAudioBtns');
+  assert.match(speech, /import\('\/speech-quality\.js'\)/u);
+  assert.match(speech, /speakNaturally\(\{ text, lang, onEnd: _clearAudioBtns \}\)/u);
+  assert.doesNotMatch(speech, /ar-SA|0\.82|1\.05/u);
+
+  const qualityModule = fs.readFileSync(path.join(root, 'speech-quality.js'), 'utf8');
+  assert.match(qualityModule, /utterance\.lang = voice\.lang/u);
+  assert.match(qualityModule, /utterance\.rate = lang === 'ar' \? 0\.96 : 0\.98/u);
+  assert.match(qualityModule, /utterance\.pitch = 1/u);
 });
 
 test('anonymous session, transient identity, review disclosure, and signed-out markup contracts remain honest', () => {

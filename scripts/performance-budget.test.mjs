@@ -22,6 +22,17 @@ test('current initial and lazy feature assets stay inside deterministic budgets'
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'data/search-index.ar.json'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'search-leaderboard.js'));
   assert.ok(Object.hasOwn(ASSET_BUDGETS, 'search-leaderboard.css'));
+  assert.ok(Object.hasOwn(ASSET_BUDGETS, 'speech-quality.js'));
+});
+
+test('natural speech implementation stays outside the initial bundle', () => {
+  const app = read('app.js');
+  const speechQuality = read('speech-quality.js');
+  assert.match(app, /import\('\/speech-quality\.js'\)/u);
+  assert.doesNotMatch(app, /function getBestVoice\b|function prepareSpeechText\b/u);
+  assert.match(speechQuality, /export function getBestVoice\b/u);
+  assert.match(speechQuality, /export function prepareSpeechText\b/u);
+  assert.match(speechQuality, /export function speakNaturally\b/u);
 });
 
 test('budget comparison reports every exceeded encoding', () => {

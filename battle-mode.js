@@ -138,10 +138,10 @@ function renderBattleSetup(body) {
     <div class="battle-setup">
       <div class="battle-setup-tabs">
         <button class="battle-tab${battleState.tab === 'create' ? ' active' : ''}" id="battleTabCreate">
-          + ${isAr ? 'إنشاء غرفة' : 'Create Room'}
+          + ${isAr ? 'أنشئ غرفة' : 'Create Room'}
         </button>
         <button class="battle-tab${battleState.tab === 'join' ? ' active' : ''}" id="battleTabJoin">
-          ← ${isAr ? 'الانضمام' : 'Join Room'}
+          ← ${isAr ? 'انضم إلى غرفة' : 'Join Room'}
         </button>
       </div>
       <div class="battle-form">
@@ -153,7 +153,7 @@ function renderBattleSetup(body) {
         </label>
         ${battleState.tab === 'create' ? `
           <label>
-            ${isAr ? 'الفئة' : 'Category'}
+            ${isAr ? 'الموضوع' : 'Category'}
             <select id="battleCatSelect">${catOptions}</select>
           </label>
           <label>
@@ -174,17 +174,17 @@ function renderBattleSetup(body) {
               <option value="30">30</option>
             </select>
           </label>
-          <button class="primary-btn" id="battleCreateBtn">⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}</button>
+          <button class="primary-btn" id="battleCreateBtn">⚡ ${isAr ? 'أنشئ الغرفة' : 'Create Battle Room'}</button>
         ` : `
           <label>
-            ${isAr ? 'كود الغرفة' : 'Room code'}
+            ${isAr ? 'رمز الغرفة' : 'Room code'}
             <input type="text" id="battleCodeInput" maxlength="16"
               placeholder="${isAr ? 'مثال: SCI7X2KQ' : 'e.g. SCI7X2KQ'}"
               dir="ltr"
               style="text-transform:uppercase;font-family:var(--font-mono);letter-spacing:0.08em;"
               autocomplete="off" />
           </label>
-          <button class="primary-btn" id="battleJoinBtn">⚡ ${isAr ? 'انضمام' : 'Join Room'}</button>
+          <button class="primary-btn" id="battleJoinBtn">⚡ ${isAr ? 'انضم إلى الغرفة' : 'Join Room'}</button>
         `}
         <p class="battle-error hidden" id="battleSetupError"></p>
       </div>
@@ -207,7 +207,7 @@ async function handleBattleCreate() {
   const count = parseInt(document.getElementById('battleCountSelect')?.value || '10', 10);
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
-  if (!category) { showBattleError(isAr ? 'اختر فئة' : 'Choose a category'); return; }
+  if (!category) { showBattleError(isAr ? 'اختر موضوعًا' : 'Choose a category'); return; }
   const btn = document.getElementById('battleCreateBtn');
   if (btn) { btn.disabled = true; btn.textContent = isAr ? 'جارٍ الإنشاء...' : 'Creating...'; }
   try {
@@ -220,7 +220,7 @@ async function handleBattleCreate() {
     connectToBattle(data.code, name, data.hostId);
   } catch (err) {
     showBattleError(localizedErrorMessage(err, 'errorBattleCreate'));
-    if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'إنشاء الغرفة' : 'Create Battle Room'}`; }
+    if (btn) { btn.disabled = false; btn.textContent = `⚡ ${isAr ? 'أنشئ الغرفة' : 'Create Battle Room'}`; }
   }
 }
 
@@ -230,7 +230,7 @@ function handleBattleJoin() {
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
   if (!BATTLE_CODE_PATTERN.test(code)) {
-    showBattleError(isAr ? 'أدخل كود غرفة صالحاً من 8 رموز' : 'Enter a valid 8-character room code');
+    showBattleError(isAr ? 'أدخل رمز غرفة صحيحًا من 8 خانات' : 'Enter a valid 8-character room code');
     return;
   }
   connectToBattle(code, name, null);

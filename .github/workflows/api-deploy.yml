@@ -278,7 +278,8 @@ jobs:
           echo "expected-worker-version=$expected_worker_version" >> "$GITHUB_OUTPUT"
           set +e
           health_status=000
-          for attempt in 1 2 3 4 5 6; do
+          # Custom-domain routing can lag the deployment API during global propagation.
+          for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-compatibility.json" \
               --write-out '%{http_code}' https://api.jakh.net/api/health)" \
@@ -290,7 +291,7 @@ jobs:
                 --receipt "$RECEIPT_DIR/release-receipt.json"; then
               break
             fi
-            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+            if [ "$attempt" -lt 18 ]; then sleep 10; fi
           done
           set -e
           echo "$health_status" > "$RECEIPT_DIR/health-after-compatibility.http"
@@ -386,7 +387,8 @@ jobs:
           fi
           set +e
           health_status=000
-          for attempt in 1 2 3 4 5 6; do
+          # Rollback verification uses the same bounded custom-domain propagation window.
+          for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-rollback.json" \
               --write-out '%{http_code}' https://api.jakh.net/api/health)" \
@@ -398,7 +400,7 @@ jobs:
                 --receipt "$RECEIPT_DIR/release-receipt.json"; then
               break
             fi
-            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+            if [ "$attempt" -lt 18 ]; then sleep 10; fi
           done
           set -e
           (
@@ -672,7 +674,8 @@ jobs:
           fi
           set +e
           health_status=000
-          for attempt in 1 2 3 4 5 6; do
+          # Custom-domain routing can lag the deployment API during global propagation.
+          for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-migrations.json" \
               --write-out '%{http_code}' https://api.jakh.net/api/health)" \
@@ -684,7 +687,7 @@ jobs:
                 --receipt "$RECEIPT_DIR/release-receipt.json"; then
               break
             fi
-            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+            if [ "$attempt" -lt 18 ]; then sleep 10; fi
           done
           set -e
           (
@@ -764,7 +767,8 @@ jobs:
           echo "expected-worker-version=$expected_worker_version" >> "$GITHUB_OUTPUT"
           set +e
           health_status=000
-          for attempt in 1 2 3 4 5 6; do
+          # Custom-domain routing can lag the deployment API during global propagation.
+          for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-worker.json" \
               --write-out '%{http_code}' https://api.jakh.net/api/health)" \
@@ -776,7 +780,7 @@ jobs:
                 --receipt "$RECEIPT_DIR/release-receipt.json"; then
               break
             fi
-            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+            if [ "$attempt" -lt 18 ]; then sleep 10; fi
           done
           set -e
           (
@@ -868,7 +872,8 @@ jobs:
           fi
           set +e
           health_status=000
-          for attempt in 1 2 3 4 5 6; do
+          # Rollback verification uses the same bounded custom-domain propagation window.
+          for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-rollback.json" \
               --write-out '%{http_code}' https://api.jakh.net/api/health)" \
@@ -880,7 +885,7 @@ jobs:
                 --receipt "$RECEIPT_DIR/release-receipt.json"; then
               break
             fi
-            if [ "$attempt" -lt 6 ]; then sleep 10; fi
+            if [ "$attempt" -lt 18 ]; then sleep 10; fi
           done
           set -e
           (

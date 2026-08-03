@@ -26,7 +26,7 @@ const EXPECTED_CONTENT_PUBLICATION = Object.freeze({
   manifestSha256: PRODUCTION_QUARANTINE_MANIFEST_SHA256,
 });
 
-function healthEnv(schemaVersion = "8") {
+function healthEnv(schemaVersion = "9") {
   return {
     CF_VERSION_METADATA: {
       id: "11111111-1111-4111-8111-111111111111",
@@ -55,46 +55,41 @@ test("health reports ready only when secrets, bindings, schema, and catalog exis
   assert.deepEqual(await response.json(), {
     ok: true,
     service: "jakh-api",
-    version: "1.4.0",
+    version: "1.5.0",
     workerVersionId: "11111111-1111-4111-8111-111111111111",
-    schema: "8",
-    targetSchema: "8",
-    compatibleSchemas: ["6", "7", "8"],
+    schema: "9",
+    targetSchema: "9",
+    compatibleSchemas: ["8", "9"],
     features: {
       registration: true,
       accountRecovery: true,
       accountDeletion: true,
+      contentStudio: true,
     },
     contentPublication: EXPECTED_CONTENT_PUBLICATION,
   });
 });
 
 test("health honestly reports compatibility and feature readiness during phased migrations", async () => {
-  const schema6 = await health(healthEnv("6"));
-  assert.equal(schema6.status, 200);
-  assert.deepEqual(await schema6.json(), {
+  const schema8 = await health(healthEnv("8"));
+  assert.equal(schema8.status, 200);
+  assert.deepEqual(await schema8.json(), {
     ok: true,
     service: "jakh-api",
-    version: "1.4.0",
+    version: "1.5.0",
     workerVersionId: "11111111-1111-4111-8111-111111111111",
-    schema: "6",
-    targetSchema: "8",
-    compatibleSchemas: ["6", "7", "8"],
+    schema: "8",
+    targetSchema: "9",
+    compatibleSchemas: ["8", "9"],
     features: {
-      registration: false,
-      accountRecovery: false,
-      accountDeletion: false,
+      registration: true,
+      accountRecovery: true,
+      accountDeletion: true,
+      contentStudio: false,
     },
     contentPublication: EXPECTED_CONTENT_PUBLICATION,
   });
 
-  const schema7 = await health(healthEnv("7"));
-  assert.equal(schema7.status, 200);
-  assert.deepEqual((await schema7.json()).features, {
-    registration: true,
-    accountRecovery: true,
-    accountDeletion: false,
-  });
 });
 
 test("health rejects unsupported schemas and incomplete security configuration", async () => {
@@ -102,12 +97,13 @@ test("health rejects unsupported schemas and incomplete security configuration",
   assert.equal(stale.status, 503);
   const stalePayload = await stale.json();
   assert.equal(stalePayload.schema, "0");
-  assert.equal(stalePayload.targetSchema, "8");
-  assert.deepEqual(stalePayload.compatibleSchemas, ["6", "7", "8"]);
+  assert.equal(stalePayload.targetSchema, "9");
+  assert.deepEqual(stalePayload.compatibleSchemas, ["8", "9"]);
   assert.deepEqual(stalePayload.features, {
     registration: false,
     accountRecovery: false,
     accountDeletion: false,
+    contentStudio: false,
   });
   assert.deepEqual(stalePayload.contentPublication, EXPECTED_CONTENT_PUBLICATION);
 

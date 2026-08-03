@@ -211,7 +211,7 @@ jobs:
           )
           node scripts/release-manifest.mjs create \
             --source-commit "$GITHUB_SHA" \
-            --expected-schema 8 \
+            --expected-schema 9 \
             --pages-name "jakh-static-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
             --pages-dir site-worker/dist \
             --worker-name "jakh-api-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
@@ -221,7 +221,7 @@ jobs:
           node scripts/release-manifest.mjs verify \
             --manifest "$RECEIPT_DIR/candidate-artifact-inventory.json" \
             --source-commit "$GITHUB_SHA" \
-            --expected-schema 8 \
+            --expected-schema 9 \
             --pages-name "jakh-static-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
             --pages-dir site-worker/dist \
             --worker-name "jakh-api-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
@@ -329,7 +329,7 @@ jobs:
             --health "$RECEIPT_DIR/api-health-before-static.json" \
             --http-status "$health_status" \
             --expected-commit "$GITHUB_SHA" \
-            --expected-schema 8 \
+            --expected-schema 9 \
             --receipt "$RECEIPT_DIR/api-gate-before-static.json" \
             --github-output "$GITHUB_OUTPUT"
 
@@ -418,7 +418,7 @@ jobs:
             --health "$RECEIPT_DIR/api-health-after-static.json" \
             --http-status "$health_status" \
             --expected-commit "$GITHUB_SHA" \
-            --expected-schema 8 \
+            --expected-schema 9 \
             --receipt "$RECEIPT_DIR/api-gate-after-static.json" \
             --github-output "$GITHUB_OUTPUT"
           node scripts/static-api-release-gate.mjs compare \

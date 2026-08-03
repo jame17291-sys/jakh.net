@@ -25,7 +25,7 @@ for immediate operator investigation. Never suppress or retry such a failure
 without first resolving whether that account still exists.
 
 Run only after explicit production owner approval and only after the final API
-receipt proves schema 8:
+receipt proves schema 9 and Content Studio readiness:
 
 ```sh
 JAKH_SYNTHETIC_ACCOUNT_CONFIRM=CREATE_AND_DELETE_JAKH_SYNTHETIC_ACCOUNT \

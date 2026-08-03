@@ -448,7 +448,7 @@ function localizeMindLabDirectory(html) {
     });
   }
 
-  const tabTitles = new Map([["all", "كل المواضيع"], ...[...sectionsByKey].map(([key, section]) => [key, section.title?.ar || section.title?.en || key])]);
+  const tabTitles = new Map([["all", "كل الموضوعات"], ...[...sectionsByKey].map(([key, section]) => [key, section.title?.ar || section.title?.en || key])]);
   for (const [key, title] of tabTitles) {
     const tabMatcher = new RegExp(`<button\\b(?=[^>]*\\bdata-cluster=["']${key}["'])[^>]*>[\\s\\S]*?<\\/button>`, "iu");
     html = html.replace(tabMatcher, (block) => {

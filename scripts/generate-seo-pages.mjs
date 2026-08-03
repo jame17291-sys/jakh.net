@@ -609,7 +609,7 @@ ${analyticsHead()}
       ${brandMarkup(lang, true, localizedHomeRoute)}
       <nav class="header-actions" aria-label="${isAr ? "إجراءات سريعة" : "Quick actions"}">
         <a class="ghost-btn" href="${localizedHomeRoute}" data-i18n="navHome">${isAr ? "الرئيسية" : "Home"}</a>
-        <a class="ghost-btn" href="${localizedMindLabRoute}" data-i18n="navCategories">${isAr ? "المواضيع" : "Categories"}</a>
+        <a class="ghost-btn" href="${localizedMindLabRoute}" data-i18n="navCategories">${isAr ? "الموضوعات" : "Categories"}</a>
         <a class="ghost-btn language-route-link" href="${alternate}" hreflang="${otherLang}" lang="${otherLang}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
         <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">${isAr ? "تسجيل الدخول" : "Sign in"}</button>
       </nav>

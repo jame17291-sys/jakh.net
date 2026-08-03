@@ -10,10 +10,10 @@ a read-only Cloudflare token to capture `wrangler deployments status --json`
 for `jakh-api`, and fetches the public `/api/health` contract. The gate requires:
 
 - exactly one active Worker version serving 100% of traffic;
-- an exact deployment message of `JAKH final <exact SHA> schema 8 run <id>`;
+- an exact deployment message of `JAKH final <exact SHA> schema 9 run <id>`;
 - the same full 40-character commit as the static workflow checkout;
 - HTTP 200 health with `ok=true`, service `jakh-api`, actual and target schema
-  `8`, schema-8 compatibility, and every schema-gated account feature ready.
+  `9`, schema-9 compatibility, and every schema-gated feature, including Content Studio, ready.
 
 The workflow repeats the same proof after the static deployment. If that second
 proof fails, the release is unverified and the existing exact-version static
@@ -29,7 +29,7 @@ Worker edit/deploy, D1, DNS, zone, or account-administration access. The existin
 `CLOUDFLARE_STATIC_SITE_API_TOKEN` remains the static deployment credential.
 
 Until that read token exists and the live API has an exact final-release
-message for the candidate commit on schema 8, the static workflow fails closed.
+message for the candidate commit on schema 9, the static workflow fails closed.
 
 Run the deterministic gate contract locally without contacting Cloudflare:
 

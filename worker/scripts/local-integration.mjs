@@ -318,8 +318,9 @@ async function run() {
       registration: true,
       accountRecovery: true,
       accountDeletion: true,
+      contentStudio: true,
     });
-    assert.equal(health.schema, "8");
+    assert.equal(health.schema, "9");
 
     const saturatedScheduled = await fetch(`${baseUrl}/cdn-cgi/handler/scheduled`);
     assert.equal(

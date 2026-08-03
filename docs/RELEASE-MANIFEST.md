@@ -22,7 +22,7 @@ actual upload directories from the candidate run.
 ```sh
 node scripts/release-manifest.mjs create \
   --source-commit "$GITHUB_SHA" \
-  --expected-schema 8 \
+  --expected-schema 9 \
   --pages-name "github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
   --pages-dir "$RUNNER_TEMP/jakh-pages-artifact" \
   --worker-name "jakh-api-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
@@ -43,7 +43,7 @@ Download the retained artifacts rather than rebuilding them, then run:
 node scripts/release-manifest.mjs verify \
   --manifest "$RUNNER_TEMP/jakh-release/release-manifest.json" \
   --source-commit "$GITHUB_SHA" \
-  --expected-schema 8 \
+  --expected-schema 9 \
   --pages-name "github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
   --pages-dir "$RUNNER_TEMP/jakh-pages-artifact" \
   --worker-name "jakh-api-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \

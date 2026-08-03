@@ -46,15 +46,16 @@ function compatibilityHealth(schema, overrides = {}) {
   return {
     ok: true,
     service: "jakh-api",
-    version: "1.4.0",
+    version: "1.5.0",
     workerVersionId: overrides.workerVersionId ?? COMPATIBILITY_VERSION_ID,
     schema,
-    targetSchema: "8",
-    compatibleSchemas: ["6", "7", "8"],
+    targetSchema: "9",
+    compatibleSchemas: ["8", "9"],
     features: {
       registration: value >= 7,
       accountRecovery: value >= 7,
       accountDeletion: value >= 8,
+      contentStudio: value >= 9,
     },
     ...overrides,
   };
@@ -63,10 +64,10 @@ function compatibilityHealth(schema, overrides = {}) {
 function source() {
   return {
     service: "jakh-api",
-    version: "1.4.0",
-    schema: "8",
-    compatibleSchemas: ["6", "7", "8"],
-    migrations: Array.from({ length: 8 }, (_, index) => ({
+    version: "1.5.0",
+    schema: "9",
+    compatibleSchemas: ["8", "9"],
+    migrations: Array.from({ length: 9 }, (_, index) => ({
       name: `${String(index + 1).padStart(4, "0")}_migration.sql`,
       schema: String(index + 1),
     })),
@@ -78,9 +79,9 @@ function compatibilityPreflight(overrides = {}) {
     phase: "compatibility",
     source: source(),
     deployment: deployment(OLD_VERSION_ID),
-    health: basicHealth("1.3.0", "6"),
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    health: basicHealth("1.4.0", "8"),
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
     environment: RELEASE_ENV,
     ...overrides,
   });
@@ -93,8 +94,8 @@ function codeOnlyPreflight(overrides = {}) {
     phase: "compatibility",
     source: source(),
     deployment: deployment(OLD_VERSION_ID),
-    health: compatibilityHealth("8", { workerVersionId: OLD_VERSION_ID }),
-    databaseResult: database("8"),
+    health: compatibilityHealth("9", { workerVersionId: OLD_VERSION_ID }),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
     environment: RELEASE_ENV,
     ...overrides,
@@ -110,11 +111,11 @@ function finalPreflight(overrides = {}) {
     deployment: deployment(
       COMPATIBILITY_VERSION_ID,
       100,
-      "JAKH compatibility abc123 target schema 8 run 12345",
+      "JAKH compatibility abc123 target schema 9 run 12345",
     ),
-    health: compatibilityHealth("6"),
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    health: compatibilityHealth("8"),
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
     environment: RELEASE_ENV,
     ...overrides,
   });
@@ -125,8 +126,8 @@ function finalPreflight(overrides = {}) {
 test("repository Worker, compatibility range, and migrations are internally consistent", async () => {
   const releaseSource = await inspectSource();
   assert.equal(releaseSource.service, "jakh-api");
-  assert.equal(releaseSource.schema, "8");
-  assert.deepEqual(releaseSource.compatibleSchemas, ["6", "7", "8"]);
+  assert.equal(releaseSource.schema, "9");
+  assert.deepEqual(releaseSource.compatibleSchemas, ["8", "9"]);
   assert.equal(releaseSource.schema, releaseSource.migrations.at(-1).schema);
   assert.deepEqual(
     releaseSource.migrations.map((migration) => migration.schema),
@@ -140,7 +141,7 @@ test("compatibility preflight records a no-mutation phase and exact rollback tar
   assert.equal(receipt.safety.workerRollbackTarget, OLD_VERSION_ID);
   assert.equal(receipt.safety.databaseMutationAllowed, false);
   assert.equal(receipt.safety.provenCompatibilityWorker, null);
-  assert.equal(receipt.preDeployment.databaseSchema, "6");
+  assert.equal(receipt.preDeployment.databaseSchema, "8");
 });
 
 test("compatibility deployment must leave D1 untouched and prove the live contract", () => {
@@ -150,12 +151,12 @@ test("compatibility deployment must leave D1 untouched and prove the live contra
     deployment: deployment(
       COMPATIBILITY_VERSION_ID,
       100,
-      "JAKH compatibility abc123 target schema 8 run 98765",
+      "JAKH compatibility abc123 target schema 9 run 98765",
     ),
-    health: compatibilityHealth("6"),
+    health: compatibilityHealth("8"),
     httpStatus: "200",
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
   });
   assert.deepEqual(successful.errors, []);
   assert.equal(successful.receipt.result, "compatibility-worker-verified");
@@ -165,12 +166,12 @@ test("compatibility deployment must leave D1 untouched and prove the live contra
     deployment: deployment(
       COMPATIBILITY_VERSION_ID,
       100,
-      "JAKH compatibility abc123 target schema 8 run 98765",
+      "JAKH compatibility abc123 target schema 9 run 98765",
     ),
-    health: compatibilityHealth("7"),
+    health: compatibilityHealth("9"),
     httpStatus: "200",
-    databaseResult: database("7"),
-    migrationList: "Migrations to be applied:\n0008_audit_log_retention.sql",
+    databaseResult: database("9"),
+    migrationList: "✅ No migrations to apply!",
   });
   assert.match(mutated.errors.join("\n"), /D1 schema changed/u);
 });
@@ -181,11 +182,11 @@ test("code-only compatibility phase records exact final evidence without mutatin
     deployment: deployment(
       COMPATIBILITY_VERSION_ID,
       100,
-      "JAKH final abc123 schema 8 run 98765",
+      "JAKH final abc123 schema 9 run 98765",
     ),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("9"),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   });
   assert.deepEqual(successful.errors, []);
@@ -197,11 +198,11 @@ test("code-only compatibility phase records exact final evidence without mutatin
     deployment: deployment(
       COMPATIBILITY_VERSION_ID,
       100,
-      "JAKH compatibility abc123 target schema 8 run 98765",
+      "JAKH compatibility abc123 target schema 9 run 98765",
     ),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("9"),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   });
   assert.match(mislabeled.errors.join("\n"), /does not identify this release run/u);
@@ -212,9 +213,9 @@ test("migrate-final refuses before mutation without active compatibility evidenc
     phase: "migrate-final",
     source: source(),
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: basicHealth("1.4.0", "6"),
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    health: basicHealth("1.5.0", "8"),
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
   });
   assert.match(legacy.errors.join("\n"), /targetSchema|compatibleSchemas|feature readiness/u);
 
@@ -222,23 +223,23 @@ test("migrate-final refuses before mutation without active compatibility evidenc
     phase: "migrate-final",
     source: source(),
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("6", { compatibleSchemas: ["6", "7"] }),
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    health: compatibilityHealth("8", { compatibleSchemas: ["8"] }),
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
   });
-  assert.match(missingTarget.errors.join("\n"), /does not include target schema 8/u);
+  assert.match(missingTarget.errors.join("\n"), /does not include target schema 9/u);
 
   const falseReadiness = buildPreflight({
     phase: "migrate-final",
     source: source(),
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("6", {
-      features: { registration: true, accountRecovery: true, accountDeletion: true },
+    health: compatibilityHealth("8", {
+      features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true },
     }),
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
   });
-  assert.match(falseReadiness.errors.join("\n"), /registration readiness was true, expected false/u);
+  assert.match(falseReadiness.errors.join("\n"), /contentStudio readiness was true, expected false/u);
 });
 
 test("migrate-final requires the active compatibility Worker from the exact source commit", () => {
@@ -248,11 +249,11 @@ test("migrate-final requires the active compatibility Worker from the exact sour
     deployment: deployment(
       COMPATIBILITY_VERSION_ID,
       100,
-      "JAKH compatibility older-commit target schema 8 run 12345",
+      "JAKH compatibility older-commit target schema 9 run 12345",
     ),
-    health: compatibilityHealth("6"),
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    health: compatibilityHealth("8"),
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
     environment: RELEASE_ENV,
   });
   assert.match(wrongCommit.errors.join("\n"), /exact source commit and target schema/u);
@@ -270,9 +271,9 @@ test("post-migration requires the same compatibility Worker healthy on target sc
   const success = buildPostMigration({
     receipt: finalPreflight(),
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("8", { workerVersionId: COMPATIBILITY_VERSION_ID }),
+    health: compatibilityHealth("9", { workerVersionId: COMPATIBILITY_VERSION_ID }),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   });
   assert.deepEqual(success.errors, []);
@@ -281,9 +282,9 @@ test("post-migration requires the same compatibility Worker healthy on target sc
   const changedWorker = buildPostMigration({
     receipt: finalPreflight(),
     deployment: deployment(OLD_VERSION_ID),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("9"),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   });
   assert.match(changedWorker.errors.join("\n"), /active compatibility Worker changed/u);
@@ -293,17 +294,17 @@ test("final deployment is verified and can roll back to the proven compatible Wo
   const migrated = buildPostMigration({
     receipt: finalPreflight(),
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("8"),
+    health: compatibilityHealth("9"),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   }).receipt;
   const deployed = buildPostDeploy({
     receipt: migrated,
-    deployment: deployment(FINAL_VERSION_ID, 100, "JAKH final abc123 schema 8 run 98765"),
-    health: compatibilityHealth("8", { workerVersionId: FINAL_VERSION_ID }),
+    deployment: deployment(FINAL_VERSION_ID, 100, "JAKH final abc123 schema 9 run 98765"),
+    health: compatibilityHealth("9", { workerVersionId: FINAL_VERSION_ID }),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   });
   assert.deepEqual(deployed.errors, []);
@@ -312,9 +313,9 @@ test("final deployment is verified and can roll back to the proven compatible Wo
   const rollback = buildPostRollback({
     receipt: deployed.receipt,
     deployment: deployment(COMPATIBILITY_VERSION_ID),
-    health: compatibilityHealth("8", { workerVersionId: COMPATIBILITY_VERSION_ID }),
+    health: compatibilityHealth("9", { workerVersionId: COMPATIBILITY_VERSION_ID }),
     httpStatus: "200",
-    databaseResult: database("8"),
+    databaseResult: database("9"),
     migrationList: "✅ No migrations to apply!",
   });
   assert.deepEqual(rollback.errors, []);
@@ -327,22 +328,22 @@ test("compatibility-phase rollback expects the original Worker and untouched sch
   const rollback = buildPostRollback({
     receipt,
     deployment: deployment(OLD_VERSION_ID),
-    health: basicHealth("1.3.0", "6"),
+    health: basicHealth("1.4.0", "8"),
     httpStatus: "200",
-    databaseResult: database("6"),
-    migrationList: "Migrations to be applied:\n0007_account_recovery.sql\n0008_audit_log_retention.sql",
+    databaseResult: database("8"),
+    migrationList: "Migrations to be applied:\n0009_content_studio.sql",
   });
   assert.deepEqual(rollback.errors, []);
   assert.equal(rollback.receipt.result, "worker-rolled-back-and-verified");
 });
 
 test("health validation rejects unsupported claims and malformed compatibility arrays", () => {
-  const errors = validateHealthContract(compatibilityHealth("6", {
-    compatibleSchemas: ["6", "6", "8"],
+  const errors = validateHealthContract(compatibilityHealth("8", {
+    compatibleSchemas: ["8", "8", "9"],
   }), {
-    version: "1.4.0",
-    schema: "6",
-    targetSchema: "8",
+    version: "1.5.0",
+    schema: "8",
+    targetSchema: "9",
     requireCompatibility: true,
   });
   assert.match(errors.join("\n"), /unique positive-integer strings/u);

@@ -38,13 +38,13 @@ function auditRows(database) {
   ).all().map((row) => ({ ...row }));
 }
 
-test("migrations 0001-0008 retain every audit event and anonymize a deleted actor", async () => {
+test("migrations 0001-0009 retain audit history and create protected editorial revisions", async () => {
   const files = (await migrationFiles())
-    .filter((name) => Number(name.slice(0, 4)) <= 8);
+    .filter((name) => Number(name.slice(0, 4)) <= 9);
   assert.deepEqual(
     files.map((name) => name.slice(0, 4)),
-    ["0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008"],
-    "D1 migrations must remain contiguous through schema 8",
+    ["0001", "0002", "0003", "0004", "0005", "0006", "0007", "0008", "0009"],
+    "D1 migrations must remain contiguous through schema 9",
   );
 
   const database = new DatabaseSync(":memory:");
@@ -98,7 +98,7 @@ test("migrations 0001-0008 retain every audit event and anonymize a deleted acto
 
     assert.equal(
       database.prepare("SELECT value FROM schema_meta WHERE key = 'schema_version'").get().value,
-      "8",
+      "9",
     );
     assert.deepEqual(auditRows(database), expectedRows, "migration must preserve all audit columns and rows");
 
@@ -147,6 +147,23 @@ test("migrations 0001-0008 retain every audit event and anonymize a deleted acto
       expectedRows[1],
     ]);
     assert.deepEqual(database.prepare("PRAGMA foreign_key_check").all(), []);
+    assert.ok(
+      database.prepare("SELECT 1 FROM sqlite_schema WHERE type = 'table' AND name = 'content_question_edits'").get(),
+      "schema 9 must include the editorial draft table",
+    );
+    assert.ok(
+      database.prepare("SELECT 1 FROM sqlite_schema WHERE type = 'table' AND name = 'content_question_revisions'").get(),
+      "schema 9 must include immutable editorial revisions",
+    );
+    assert.throws(
+      () => database.prepare(
+        `INSERT INTO content_question_edits
+          (question_id, category_slug, draft_json, workflow_status, created_at, updated_at)
+         VALUES ('science-003', 'science', '{}', 'PUBLISHED', '2026-08-03T00:00:00.000Z', '2026-08-03T00:00:00.000Z')`,
+      ).run(),
+      /CHECK constraint failed/u,
+      "published status must never exist without an approved production snapshot",
+    );
     const analyticsTrigger = database.prepare(
       "SELECT sql FROM sqlite_schema WHERE type = 'trigger' AND name = 'analytics_daily_requires_current_consent'",
     ).get();

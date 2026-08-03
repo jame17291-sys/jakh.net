@@ -74,7 +74,7 @@
           <div class="kv-hero-stats">
             <div class="kv-stat">
               <span class="kv-stat-number" id="badgeCategories">56</span>
-              <span class="kv-stat-label" data-i18n="statCategories">المواضيع</span>
+              <span class="kv-stat-label" data-i18n="statCategories">الموضوعات</span>
             </div>
             <div class="kv-stat-divider" aria-hidden="true"></div>
             <div class="kv-stat">
@@ -94,9 +94,9 @@
 
         <!-- Five sections that filter direct topic links -->
         <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="أقسام الموضوعات" data-i18n-aria-label="categorySectionsLabel">
-          <button class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-label="كل المواضيع">
+          <button class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-label="كل الموضوعات">
             <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff8eb,#edf5ff);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">ALL</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">كل المواضيع</span><span class="ml-cluster-tab-count">56 موضوعًا</span></div></div>
+            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">ALL</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">كل الموضوعات</span><span class="ml-cluster-tab-count">56 موضوعًا</span></div></div>
           </button>
           <button class="ml-cluster-tab" data-cluster="mind" role="tab" aria-selected="false" aria-label="العقل والألغاز">
             <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#f5edff,#e7f2ff);" aria-hidden="true"></div>
@@ -124,7 +124,7 @@
         <section class="control-panel directory-search-panel" aria-label="خيارات تصفية الموضوعات" data-i18n-aria-label="categoryFiltersLabel">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="ابحث في المواضيع والمواضيع الفرعية" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث في المواضيع والمواضيع الفرعية..." />
+            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="ابحث في الموضوعات والموضوعات الفرعية" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث في الموضوعات والموضوعات الفرعية..." />
           </label>
         </section>
 
@@ -948,6 +948,9 @@
           </div>
         </a>
           <!-- SEO:DIRECTORY:END -->
+        </div>
+        <div class="directory-expand-wrap">
+          <button id="directoryExpandBtn" class="ghost-btn" type="button" data-i18n="showAllTopics">عرض كل الموضوعات</button>
         </div>
 
         <aside class="directory-collection-callout">

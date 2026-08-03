@@ -59,6 +59,10 @@ test("physical aliases and www normalize in one query-preserving 301", async () 
     ["https://jakh.net/ar/topics/science.html?x=1", "https://jakh.net/ar/topics/science/?x=1"],
     ["https://www.jakh.net/science.html?x=1", "https://jakh.net/science?x=1"],
     ["http://www.jakh.net/index.html?x=1", "https://jakh.net/?x=1"],
+    ["https://jakh.net/collections/?x=1", "https://jakh.net/collections?x=1"],
+    ["https://jakh.net/play/?x=1", "https://jakh.net/play?x=1"],
+    ["https://jakh.net/about/?x=1", "https://jakh.net/about?x=1"],
+    ["https://jakh.net/privacy/?x=1", "https://jakh.net/privacy?x=1"],
   ];
   for (const [source, destination] of cases) {
     const response = await handler.fetch(new Request(source), environment());

@@ -11,6 +11,7 @@ import {
   requirePublicCategory,
 } from "./content-safety.js";
 import { ApiError, json, parseJson } from "./http.js";
+import { applyPublishedContentOverrides } from "./content.js";
 import { randomToken, sha256 } from "./security.js";
 import type { Env } from "./types.js";
 
@@ -316,7 +317,8 @@ async function loadCategoryCards(env: Env, categoryId: string): Promise<Canonica
   } catch {
     throw new ApiError(503, "Canonical question source is invalid", undefined, "QUESTION_SOURCE_INVALID");
   }
-  return canonicalCategoryCards(env, categoryId, source);
+  const overridden = await applyPublishedContentOverrides(env, categoryId, source as SourceCard[]);
+  return canonicalCategoryCards(env, categoryId, overridden);
 }
 
 function selectChallengeCards(cards: readonly CanonicalCard[]): CanonicalCard[] {

@@ -38,9 +38,9 @@ function mockApi({ failPath = null, cleanupFails = false } = {}) {
     if (path === "/api/health") {
       return json({
         ok: true,
-        schema: "8",
-        targetSchema: "8",
-        features: { registration: true, accountRecovery: true, accountDeletion: true },
+        schema: "9",
+        targetSchema: "9",
+        features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true },
       });
     }
     if (path === "/api/auth/register") {

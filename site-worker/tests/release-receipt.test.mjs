@@ -202,7 +202,7 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /check:performance/u);
   assert.match(workflow, /release-manifest\.mjs create/u);
   assert.match(workflow, /release-manifest\.mjs verify/u);
-  assert.match(workflow, /--expected-schema 8/u);
+  assert.match(workflow, /--expected-schema 9/u);
   assert.match(workflow, /worker\/migrations/u);
   assert.match(workflow, /test:browser:matrix/u);
   assert.match(workflow, /test:a11y/u);

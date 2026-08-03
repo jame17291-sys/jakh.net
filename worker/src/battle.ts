@@ -1,4 +1,5 @@
 import { ApiError, json, parseJson } from "./http.js";
+import { applyPublishedContentOverrides } from "./content.js";
 import { enforceRateLimit } from "./db.js";
 import { isPublicCard } from "./catalog.js";
 import { requirePublicCategory } from "./content-safety.js";
@@ -140,7 +141,8 @@ export async function createBattle(request: Request, env: Env): Promise<Response
   ) {
     throw new ApiError(503, "Canonical question source is invalid", undefined, "QUESTION_SOURCE_INVALID");
   }
-  const questions = buildBattleQuestions(source, difficulty, questionCount);
+  const overriddenSource = await applyPublishedContentOverrides(env, category, source as ValidCard[]);
+  const questions = buildBattleQuestions(overriddenSource, difficulty, questionCount);
   if (!questions.length) throw new ApiError(400, "No questions are available for this selection");
   if (questions.some((question) => !isPublicCard(question.id, category))) {
     throw new ApiError(

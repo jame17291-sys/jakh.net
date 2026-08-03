@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 
 import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 
-const FINAL_SCHEMA = "8";
+const FINAL_SCHEMA = "9";
 const SERVICE_NAME = "jakh-api";
 const FINAL_MESSAGE = /^JAKH final ([0-9a-f]{40}) schema ([1-9][0-9]*) run ([1-9][0-9]*)$/u;
 const VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
@@ -129,7 +129,7 @@ export function verifyStaticApiRelease({
     if (!Array.isArray(health.compatibleSchemas) || !health.compatibleSchemas.includes(expectedSchema)) {
       errors.push(`API health compatibleSchemas did not include ${expectedSchema}`);
     }
-    for (const feature of ["registration", "accountRecovery", "accountDeletion"]) {
+    for (const feature of ["registration", "accountRecovery", "accountDeletion", "contentStudio"]) {
       if (health.features?.[feature] !== true) {
         errors.push(`API health feature ${feature} was not ready on schema ${expectedSchema}`);
       }

@@ -41,14 +41,15 @@ const PRIVACY_REQUEST_TYPES = new Set([
 ]);
 const PRIVACY_REQUEST_PREFIX = "JAKH_PRIVACY_REQUEST_V1";
 const MAX_SYNC_ITEMS = 100;
-export const API_VERSION = "1.4.0";
-const SCHEMA_VERSION = "8";
-export const COMPATIBLE_SCHEMAS = Object.freeze(["6", "7", "8"] as const);
+export const API_VERSION = "1.5.0";
+const SCHEMA_VERSION = "9";
+export const COMPATIBLE_SCHEMAS = Object.freeze(["8", "9"] as const);
 
 export interface FeatureReadiness {
   registration: boolean;
   accountRecovery: boolean;
   accountDeletion: boolean;
+  contentStudio: boolean;
 }
 
 type SchemaGatedFeature = keyof FeatureReadiness;
@@ -142,6 +143,7 @@ function readinessForSchema(schema: string): FeatureReadiness {
     registration: supported && schemaNumber >= 7,
     accountRecovery: supported && schemaNumber >= 7,
     accountDeletion: supported && schemaNumber >= 8,
+    contentStudio: supported && schemaNumber >= 9,
   };
 }
 

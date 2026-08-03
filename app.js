@@ -95,7 +95,7 @@ function renderClientQuarantine() {
   meta.content = 'noindex,nofollow,noarchive,nosnippet';
   doc.title = ar ? 'غير متاح | JAKH' : 'Unavailable | JAKH';
   const main = doc.querySelector('main');
-  if (main) main.innerHTML = `<section class="shell section-block" role="status"><h1>${ar ? 'المحتوى غير متاح' : 'Content unavailable'}</h1><p>${ar ? 'بانتظار مراجعة السلامة.' : 'Pending safety review.'}</p><a class="primary-btn" href="${ar ? '/ar/mind-lab/' : '/mind-lab'}">${ar ? 'المواضيع' : 'Topics'}</a></section>`;
+  if (main) main.innerHTML = `<section class="shell section-block" role="status"><h1>${ar ? 'المحتوى غير متاح' : 'Content unavailable'}</h1><p>${ar ? 'بانتظار مراجعة السلامة.' : 'Pending safety review.'}</p><a class="primary-btn" href="${ar ? '/ar/mind-lab/' : '/mind-lab'}">${ar ? 'الموضوعات' : 'Topics'}</a></section>`;
 }
 
 const CATEGORY_COLORS = {
@@ -238,7 +238,7 @@ const UI = {
     mindHeroEyebrow: '3,275 questions · 51 clear topics',
     mindHeroTitle: 'The Mind Lab',
     mindHeroSubtitle: 'Follow your curiosity. Every topic opens into a quick, satisfying challenge.',
-    playHeroTitle: 'The Game Room',
+    playHeroTitle: 'The Game Hub',
     playHeroSubtitle: 'Ten browser adaptations and simplified games, ready with no download or sign-up.',
     playHeroGames: 'Games',
     playAvailable: 'Ready to play',
@@ -366,6 +366,7 @@ const UI = {
     reviewDate: 'Reviewed {date}',
     reviewReviewer: 'Reviewer: {reviewer}',
     reviewSources: 'Sources',
+    answerExplanation: 'Why this is the answer',
     reviewSourceLabel: 'Source {number}: {title}, {publisher}',
     mindCalloutEyebrow: 'Prefer a shorter challenge?',
     mindCalloutTitle: 'Try a focused bilingual collection',
@@ -381,6 +382,8 @@ const UI = {
     tracksLabel: 'Sections',
     randomCategory: 'Surprise me',
     resetDirectoryFilters: 'Reset filters',
+    showAllTopics: 'Show all topics',
+    showFewerTopics: 'Show featured topics',
     authEyebrow: 'Profile',
     authTitle: 'Create account or sign in',
     footerNote: 'All rights reserved to JAKH 2026',
@@ -424,7 +427,7 @@ const UI = {
     savedProgress: 'Saved progress',
     guestTitle: 'Create an account',
     guestText: 'Create a free account to save your progress, favorites, and practice score across all your devices.',
-    createLocalProfile: 'Create account',
+    createLocalProfile: 'Save my progress',
     signedInAs: 'Signed in as',
     score: 'Practice points',
     solved: 'Solved',
@@ -438,11 +441,15 @@ const UI = {
     adminConsoleAria: 'Open the JAKH administration console',
     password: 'Password',
     newPassword: 'New password',
-    passwordHint: 'Securely stored in your cloud account.',
+    passwordHint: 'Your progress syncs securely across your devices.',
+    passwordRules: 'Use 8–128 characters. A long, unique passphrase works best.',
+    showPassword: 'Show password',
+    hidePassword: 'Hide password',
+    capsLockOn: 'Caps Lock is on.',
     confirmPassword: 'Confirm password',
     passwordsDoNotMatch: 'The password confirmation does not match.',
     signIn: 'Sign in',
-    register: 'Create account',
+    register: 'Save my progress',
     recoveryCode: 'Recovery code',
     recoveryFormTitle: 'Recover your account',
     recoveryFormLead: 'Enter the one-time recovery code you saved and choose a new password. A successful reset signs you in, ends every older session, and replaces the recovery code.',
@@ -564,6 +571,8 @@ const UI = {
     errorNoQuestions: 'No questions are available for this selection.',
     errorInvalidRoomCode: 'Enter a valid room code.',
     leaderboardTitle: 'Server-checked leaderboard',
+    leaderboardNav: 'Leaderboard',
+    battleNav: 'Battle',
     leaderboardLoadError: 'Could not load the leaderboard.',
     verifiedAnswerAll: 'Answer all 10 questions before submitting.',
     verifiedActive: 'A server-checked challenge for this topic is already active. Return to the original tab or wait up to 15 minutes for it to expire.',
@@ -593,13 +602,13 @@ const UI = {
     homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
     browseCategories: 'تصفّح الموضوعات',
     heroGameHub: 'مركز الألعاب',
-    statCategories: 'المواضيع',
+    statCategories: 'الموضوعات',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
     mindHeroEyebrow: '3,275 سؤالًا · 51 موضوعًا',
     mindHeroTitle: 'مختبر العقول',
     mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
-    playHeroTitle: 'غرفة الألعاب',
+    playHeroTitle: 'مركز الألعاب',
     playHeroSubtitle: 'عشر ألعاب ونسخ مبسطة للمتصفح، جاهزة من دون تنزيل أو تسجيل.',
     playHeroGames: 'ألعاب',
     playAvailable: 'جاهز للعب؟',
@@ -713,7 +722,7 @@ const UI = {
     menu: 'القائمة',
     teamBattle: 'غرفة المعركة',
     backToTop: 'العودة للأعلى',
-    searchPlaceholder: 'ابحث في المواضيع والمواضيع الفرعية...',
+    searchPlaceholder: 'ابحث في الموضوعات والموضوعات الفرعية...',
     cardSearchPlaceholder: 'ابحث بكلمة أو إجابة أو مفهوم...',
     homeSrTitle: 'ألغاز واختبارات بالعربية والإنجليزية',
     standardsDefaultText: 'نراجع الأسئلة لتكون مفيدة وممتعة.',
@@ -727,6 +736,7 @@ const UI = {
     reviewDate: 'تاريخ المراجعة: {date}',
     reviewReviewer: 'المراجع: {reviewer}',
     reviewSources: 'المصادر',
+    answerExplanation: 'لماذا هذه هي الإجابة؟',
     reviewSourceLabel: 'المصدر {number}: {title}، {publisher}',
     mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
     mindCalloutTitle: 'جرّب مجموعة قصيرة بالعربية والإنجليزية',
@@ -738,10 +748,12 @@ const UI = {
     categoryEyebrow: 'اختر قسمًا',
     categoryTitle: 'ما الذي يثير فضولك اليوم؟',
     categoryText: 'اختر قسمًا واضحًا، أو ابحث حسب اهتمامك، أو دع JAKH يفاجئك.',
-    searchCategoriesLabel: 'ابحث في المواضيع والمواضيع الفرعية',
+    searchCategoriesLabel: 'ابحث في الموضوعات والموضوعات الفرعية',
     tracksLabel: 'الأقسام',
     randomCategory: 'فاجئني',
     resetDirectoryFilters: 'مسح الفلاتر',
+    showAllTopics: 'عرض كل الموضوعات',
+    showFewerTopics: 'عرض الموضوعات المقترحة',
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
     footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
@@ -785,7 +797,7 @@ const UI = {
     savedProgress: 'تقدّم محفوظ',
     guestTitle: 'أنشئ حسابًا',
     guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدّمك، وأسئلتك المفضلة، ونقاطك على جميع أجهزتك.',
-    createLocalProfile: 'أنشئ حسابًا',
+    createLocalProfile: 'احفظ تقدّمي',
     signedInAs: 'مسجّل الدخول باسم',
     score: 'نقاط التدريب',
     solved: 'المحلول',
@@ -799,11 +811,15 @@ const UI = {
     adminConsoleAria: 'فتح لوحة إدارة JAKH',
     password: 'كلمة المرور',
     newPassword: 'كلمة المرور الجديدة',
-    passwordHint: 'تُخزن بأمان في حسابك السحابي.',
+    passwordHint: 'يتزامن تقدّمك بأمان على جميع أجهزتك.',
+    passwordRules: 'استخدم من 8 إلى 128 حرفًا. ويفضّل اختيار عبارة طويلة وفريدة.',
+    showPassword: 'إظهار كلمة المرور',
+    hidePassword: 'إخفاء كلمة المرور',
+    capsLockOn: 'مفتاح الأحرف الكبيرة مفعّل.',
     confirmPassword: 'تأكيد كلمة المرور',
     passwordsDoNotMatch: 'تأكيد كلمة المرور غير مطابق.',
     signIn: 'تسجيل الدخول',
-    register: 'إنشاء حساب',
+    register: 'احفظ تقدّمي',
     recoveryCode: 'رمز الاسترداد',
     recoveryFormTitle: 'استرداد حسابك',
     recoveryFormLead: 'أدخل رمز الاسترداد الذي حفظته واختر كلمة مرور جديدة. عند النجاح تُسجّل دخولك وتنتهي كل الجلسات القديمة ويُستبدل رمز الاسترداد.',
@@ -924,7 +940,9 @@ const UI = {
     errorCategoryUnavailable: 'هذا الموضوع غير متاح.',
     errorNoQuestions: 'لا توجد أسئلة متاحة لهذا الاختيار.',
     errorInvalidRoomCode: 'أدخل رمز غرفة صحيحًا.',
-    leaderboardTitle: 'لوحة نتائج يتحقق منها الخادم',
+    leaderboardTitle: 'لوحة الصدارة بنتائج يتحقق منها الخادم',
+    leaderboardNav: 'المتصدرون',
+    battleNav: 'تحدٍ جماعي',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
     verifiedAnswerAll: 'أجب عن الأسئلة العشرة قبل الإرسال.',
     verifiedActive: 'يوجد تحدٍ نشط يتحقق منه الخادم لهذا الموضوع. عد إلى علامة التبويب الأصلية أو انتظر حتى 15 دقيقة لانتهاء صلاحيته.',
@@ -953,6 +971,7 @@ const state = {
   categoryData: null,
   directorySearch: '',
   cluster: 'all',
+  directoryExpanded: false,
   search: '',
   difficulty: 'all',
   view: 'all',
@@ -1041,6 +1060,12 @@ const els = {};
 
 function t(key) {
   return (UI[state.lang] && UI[state.lang][key]) || (UI.en && UI.en[key]) || key;
+}
+
+let authEnhancementsPromise;
+function loadAuthEnhancements() {
+  authEnhancementsPromise ||= import('/auth-enhancements.js');
+  return authEnhancementsPromise;
 }
 
 function fmt(key, vars = {}) {
@@ -1816,6 +1841,16 @@ function applyRuntimeAccessibilityCopy() {
   document.querySelector('.kv-hero-title .sr-only')?.replaceChildren(document.createTextNode(` ${t('homeSrTitle')}`));
   document.getElementById('leaderboardBtn')?.setAttribute('aria-label', t('leaderboardTitle'));
   document.getElementById('battleNavBtn')?.setAttribute('aria-label', t('teamBattle'));
+  const leaderboardBtn = document.getElementById('leaderboardBtn');
+  if (leaderboardBtn) {
+    leaderboardBtn.title = t('leaderboardTitle');
+    leaderboardBtn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
+  }
+  const battleNavBtn = document.getElementById('battleNavBtn');
+  if (battleNavBtn) {
+    battleNavBtn.title = t('teamBattle');
+    battleNavBtn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
+  }
   document.getElementById('globalSearchBtn')?.setAttribute('aria-label', t('search'));
   document.getElementById('hamburgerBtn')?.setAttribute('aria-label', t('menu'));
   document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
@@ -1982,6 +2017,12 @@ async function fetchJson(path, retries = 2) {
   }
 }
 
+let contentOverridesPromise;
+function loadContentOverridesModule() {
+  contentOverridesPromise ||= import('/content-overrides.js');
+  return contentOverridesPromise;
+}
+
 async function handleOfflineStatus(event) {
   const isOff = !navigator.onLine;
   document.body.classList.toggle('is-offline', isOff);
@@ -2019,7 +2060,7 @@ async function recheckCloudCapabilities() {
 function cacheEls() {
   [
     'toast', 'langSelect', 'openAuthBtn',
-    'heroAuthBtn', 'categorySearchInput', 'resetDirectoryBtn', 'directoryResultsLabel',
+    'heroAuthBtn', 'categorySearchInput', 'resetDirectoryBtn', 'directoryResultsLabel', 'directoryExpandBtn',
     'categoryDirectoryGrid', 'badgeCategories', 'badgeQuestions', 'accountSummaryMount',
     'authModal', 'authModalBody',
     'categoryKicker', 'categoryTitle', 'categoryDescription', 'categoryCountPill', 'categoryImage',
@@ -2267,8 +2308,9 @@ function bindCommonEvents() {
       const btn = document.createElement('button');
       btn.id = 'leaderboardBtn';
       btn.className = 'ghost-btn';
-      btn.textContent = '🏆';
+      btn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
       btn.setAttribute('aria-label', t('leaderboardTitle'));
+      btn.title = t('leaderboardTitle');
       nav.insertBefore(btn, nav.children[2]);
     }
   }
@@ -2281,8 +2323,9 @@ function bindCommonEvents() {
       const btn = document.createElement('button');
       btn.id = 'battleNavBtn';
       btn.className = 'ghost-btn';
-      btn.textContent = '⚡';
+      btn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
       btn.setAttribute('aria-label', t('teamBattle'));
+      btn.title = t('teamBattle');
       nav.insertBefore(btn, nav.children[2]);
     }
   }
@@ -2368,27 +2411,6 @@ function bindCommonEvents() {
     handleOfflineStatus();
 
     globalEventsBound = true;
-  }
-
-  if (els.resetDirectoryBtn) {
-    els.resetDirectoryBtn.addEventListener('click', () => {
-      state.directorySearch = '';
-      state.cluster = 'all';
-      if (els.categorySearchInput) els.categorySearchInput.value = '';
-      renderClusterTabBar();
-      renderCategoryDirectory();
-      showToast(t('directoryResetDone'));
-    });
-  }
-  if (els.categorySearchInput) {
-    els.categorySearchInput.addEventListener('input', debounce(() => {
-      state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
-      renderClusterTabBar();
-      renderCategoryDirectory();
-      if (state.directorySearch) {
-        trackEvent('search', { search_term: state.directorySearch, search_scope: 'directory' });
-      }
-    }, 200));
   }
 
   if (els.resetPageBtn) {
@@ -2582,9 +2604,31 @@ function renderHome() {
   if (els.badgeQuestions) els.badgeQuestions.textContent = state.catalog.site.totalQuestions.toLocaleString();
   renderAccountSummary(els.accountSummaryMount);
   renderDailyChallenge();
-  renderClusterTabBar();
-  renderCategoryDirectory();
-  markCachedCategories();
+  if (els.categoryDirectoryGrid) {
+    void loadDirectoryUi().then((directoryUi) => {
+      directoryUi.bind();
+      directoryUi.renderTabs();
+      directoryUi.renderDirectory();
+      void markCachedCategories();
+    });
+  }
+}
+
+let directoryUiPromise;
+function loadDirectoryUi() {
+  if (!directoryUiPromise) {
+    directoryUiPromise = import('/directory-ui.js').then(({ createDirectoryUi }) => createDirectoryUi({
+      state,
+      els,
+      t,
+      escapeHtml,
+      getDirectorySections,
+      createCategoryCardMarkup,
+      showToast,
+      trackEvent,
+    }));
+  }
+  return directoryUiPromise;
 }
 
 function getCategoryMap() {
@@ -2602,28 +2646,6 @@ function getDirectorySections() {
       count: categories.reduce((total, category) => total + Number(category.count || 0), 0),
     };
   }).filter(section => section.categoryCount > 0);
-}
-
-function createDirectorySectionMarkup(section) {
-  const isAr = state.lang === 'ar';
-  const title = escapeHtml(section.title[state.lang] || section.title.en);
-  const description = escapeHtml(section.description[state.lang] || section.description.en);
-  const categoryLabel = isAr ? `${section.categoryCount} موضوعًا` : `${section.categoryCount} topics`;
-  const questionLabel = isAr ? `${section.count} سؤال` : `${section.count} questions`;
-  return `
-    <section class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
-      <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
-      <div>
-        <h3>${title}</h3>
-        <p>${description}</p>
-      </div>
-      <p class="directory-section-count">${categoryLabel} · ${questionLabel}</p>
-    </section>
-  `;
-}
-
-function setDirectoryResultsLabel(text) {
-  if (els.directoryResultsLabel) els.directoryResultsLabel.textContent = text;
 }
 
 function createCategoryCardMarkup(meta) {
@@ -2699,127 +2721,6 @@ async function markCachedCategories() {
       }
     });
   } catch (_) {}
-}
-
-function renderCategoryDirectory() {
-  if (!els.categoryDirectoryGrid || !state.catalog) return;
-  const sections = getDirectorySections();
-  const searchTerm = state.directorySearch;
-  const isAr = state.lang === 'ar';
-  const visibleSections = state.cluster === 'all'
-    ? sections
-    : sections.filter(section => section.key === state.cluster);
-  let visibleCategoryCount = 0;
-
-  const markup = visibleSections.map((section) => {
-    const categories = section.categories.filter((meta) => {
-      if (!searchTerm) return true;
-      const topicText = (meta.topics || [])
-        .flatMap(topic => [topic.en, topic.ar])
-        .filter(Boolean);
-      const haystack = [
-        meta.title.en, meta.title.ar, meta.description.en, meta.description.ar,
-        ...topicText,
-      ].filter(Boolean).join(' ').toLowerCase();
-      return haystack.includes(searchTerm);
-    });
-    if (!categories.length) return '';
-    visibleCategoryCount += categories.length;
-    return createDirectorySectionMarkup({
-      ...section,
-      categoryCount: categories.length,
-      count: categories.reduce((total, category) => total + Number(category.count || 0), 0),
-    }) + categories.map(createCategoryCardMarkup).join('');
-  }).join('');
-
-  setDirectoryResultsLabel(searchTerm
-    ? (isAr
-        ? `تم العثور على ${visibleCategoryCount} موضوع مطابق.`
-        : `${visibleCategoryCount} matching topics found.`)
-    : (isAr
-        ? `اختر مباشرة من ${visibleCategoryCount} موضوع ضمن ${visibleSections.length} أقسام واضحة.`
-        : `Choose directly from ${visibleCategoryCount} topics in ${visibleSections.length} clear sections.`));
-
-  els.categoryDirectoryGrid.innerHTML = markup || `
-    <div class="empty-state directory-empty-state">
-      <h3>${isAr ? 'لا توجد نتائج مطابقة.' : 'No matching topics.'}</h3>
-      <p>${isAr ? 'جرّب قسمًا آخر أو امسح البحث الحالي.' : 'Try another section or clear the current search.'}</p>
-    </div>
-  `;
-}
-
-function renderClusterTabBar() {
-  const focusCluster = typeof arguments[0] === 'string' ? arguments[0] : '';
-  const tabBar = document.getElementById('clusterTabBar');
-  if (!tabBar || !state.catalog) return;
-  const activeCluster = tabBar.contains(document.activeElement)
-    ? document.activeElement.closest('[data-cluster]')?.dataset.cluster || ''
-    : '';
-  const focusKey = focusCluster || activeCluster;
-  const isAr = state.lang === 'ar';
-  const sections = getDirectorySections();
-  const countWord = isAr ? 'موضوعًا' : 'topics';
-
-  const allTab = {
-    key: 'all',
-    title: { en: 'All topics', ar: 'كل المواضيع' },
-    categoryCount: state.catalog.categories.length,
-    mark: 'ALL',
-    gradient: 'linear-gradient(135deg,#fff8eb,#edf5ff)',
-  };
-
-  const tabs = [allTab, ...sections];
-
-  tabBar.innerHTML = tabs.map(c => {
-    const name = c.title[state.lang] || c.title.en;
-    const isActive = state.cluster === c.key;
-    return `
-      <button type="button" class="ml-cluster-tab${isActive ? ' is-active' : ''}" data-cluster="${escapeHtml(c.key)}" role="tab" aria-selected="${isActive}" aria-controls="categoryDirectoryGrid" tabindex="${isActive ? '0' : '-1'}" aria-label="${escapeHtml(name)}">
-        <div class="ml-cluster-tab-bg" style="background:${escapeHtml(c.gradient)};" aria-hidden="true"></div>
-        <div class="ml-cluster-tab-content">
-          <span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${escapeHtml(c.mark)}</span>
-          <div class="ml-cluster-tab-text">
-            <span class="ml-cluster-tab-name">${escapeHtml(name)}</span>
-            <span class="ml-cluster-tab-count">${c.categoryCount} ${countWord}</span>
-          </div>
-        </div>
-      </button>`;
-  }).join('');
-
-  tabBar.querySelectorAll('.ml-cluster-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const newCluster = btn.dataset.cluster;
-      if (state.cluster === newCluster) return;
-      state.cluster = newCluster;
-      renderClusterTabBar(newCluster);
-      renderCategoryDirectory();
-    });
-  });
-  const renderedTabs = [...tabBar.querySelectorAll('[role="tab"][data-cluster]')];
-  if (tabBar._clusterKeyHandler) tabBar.removeEventListener('keydown', tabBar._clusterKeyHandler);
-  tabBar._clusterKeyHandler = (event) => {
-    const currentIndex = renderedTabs.indexOf(event.target.closest('[role="tab"]'));
-    if (currentIndex < 0) return;
-    const forwardKey = state.lang === 'ar' ? 'ArrowLeft' : 'ArrowRight';
-    const backwardKey = state.lang === 'ar' ? 'ArrowRight' : 'ArrowLeft';
-    let nextIndex = currentIndex;
-    if (event.key === forwardKey) nextIndex = (currentIndex + 1) % renderedTabs.length;
-    else if (event.key === backwardKey) nextIndex = (currentIndex - 1 + renderedTabs.length) % renderedTabs.length;
-    else if (event.key === 'Home') nextIndex = 0;
-    else if (event.key === 'End') nextIndex = renderedTabs.length - 1;
-    else return;
-    event.preventDefault();
-    renderedTabs[nextIndex].click();
-  };
-  tabBar.addEventListener('keydown', tabBar._clusterKeyHandler);
-  if (focusKey) {
-    requestAnimationFrame(() => {
-      const correspondingTab = [...tabBar.querySelectorAll('[data-cluster]')]
-        .find(tab => tab.dataset.cluster === focusKey)
-        || tabBar.querySelector('[aria-selected="true"]');
-      correspondingTab?.focus();
-    });
-  }
 }
 
 function getGreeting(name, lang) {
@@ -3311,6 +3212,10 @@ function createCardMarkup(card) {
   const categoryBadge = `<span class="badge badge-category">${escapeHtml(card.mode === 'story' ? '🕯️' : state.categoryData.emoji || '❔')} ${escapeHtml(state.categoryData.title[state.lang])}</span>`;
   const difficultyBadge = `<span class="badge badge-difficulty" data-difficulty="${escapeHtml(card.difficulty)}">${escapeHtml(difficultyLabel)}</span>`;
   const cardReviewMarkup = createReviewMarkup(card);
+  const explanationText = card.explanation?.[state.lang] || card.explanation?.en || '';
+  const explanationMarkup = explanationText
+    ? `<aside class="card-explanation"><strong>${escapeHtml(t('answerExplanation'))}</strong><p>${escapeHtml(explanationText)}</p></aside>`
+    : '';
 
   let trialCard = false;
   if (!isLevelUnlocked(card.difficulty)) {
@@ -3388,6 +3293,7 @@ function createCardMarkup(card) {
         </section>
         <section class="card-face card-back" aria-hidden="${flipped ? 'false' : 'true'}" ${flipped ? '' : 'inert'}>
           <p class="card-answer"><strong>${escapeHtml(card.answer[state.lang])}</strong></p>
+          ${explanationMarkup}
           ${backReviewMarkup}
           <div class="card-actions">
             <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${backFocus}>${escapeHtml(t('backToQuestion'))}</button>
@@ -4224,6 +4130,7 @@ function renderAuthModal(mode = 'signin') {
           <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
         </label>
       </div>
+      <p class="password-rules">${escapeHtml(t('passwordRules'))}</p>
       <p class="muted">${escapeHtml(t('registrationRecoveryNotice'))} <a href="${sharedRouteForLanguage('/privacy', state.lang)}" target="_blank" rel="noopener">${state.lang === 'ar' ? 'اقرأ إشعار الخصوصية وبيانات الحساب.' : 'Read the privacy and account-data notice.'}</a></p>` : ''}
       ${isRecovery ? `
       <div class="form-row">
@@ -4236,6 +4143,8 @@ function renderAuthModal(mode = 'signin') {
           <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
         </label>
       </div>` : ''}
+      ${isRecovery ? `<p class="password-rules">${escapeHtml(t('passwordRules'))}</p>` : ''}
+      <p id="authCapsLockStatus" class="auth-inline-status" role="status" aria-live="polite"></p>
       <p class="muted">${escapeHtml(t('passwordHint'))}</p>
       <p id="authFormStatus" class="auth-inline-status" role="status" aria-live="polite"></p>
       <div class="hero-actions">
@@ -4243,6 +4152,9 @@ function renderAuthModal(mode = 'signin') {
       </div>
     </form>
   `;
+  void loadAuthEnhancements().then(({ enhancePasswordInputs }) => {
+    enhancePasswordInputs({ root: els.authModalBody, language: state.lang, translate: t });
+  });
   const authTabs = [...els.authModalBody.querySelectorAll('[role="tab"][data-auth-mode]')];
   const activateAuthTab = (tab) => {
     if (!tab || tab.getAttribute('aria-selected') === 'true') return;
@@ -4372,13 +4284,16 @@ async function loadCatalog() {
 async function loadCategoryIfNeeded() {
   if (state.page !== 'category' || !state.categorySlug) return;
   if (categoryIsQuarantined(state.categorySlug)) throw new Error('Content is quarantined');
-  const [raw] = await Promise.all([
+  const overrideModulePromise = loadContentOverridesModule();
+  const [raw, , overrideModule] = await Promise.all([
     fetchJson(`/data/${state.categorySlug}.json`),
     loadCatalog(),
+    overrideModulePromise,
   ]);
+  const overrides = await overrideModule.loadPublishedContentOverrides(apiFetch, state.categorySlug);
   if (!Array.isArray(raw)) throw new Error(`Invalid category data: ${state.categorySlug}`);
   const meta = (state.catalog?.categories || []).find(c => c.slug === state.categorySlug) || {};
-  state.categoryData = { ...meta, cards: raw };
+  state.categoryData = { ...meta, cards: overrideModule.mergePublishedContentOverrides(raw, overrides) };
 }
 
 
@@ -4545,9 +4460,17 @@ async function loadDailyChallenge() {
     const hash = Math.abs(today.split('').reduce((h, c) => ((h * 31) + c.charCodeAt(0)) | 0, 0));
     const cats = state.catalog.categories.filter(c => c.count >= 15 && c.mode !== 'story');
     const cat = cats[hash % cats.length];
-    const raw = await fetchJson(`/data/${cat.slug}.json`);
+    const overrideModulePromise = loadContentOverridesModule();
+    const [raw, overrideModule] = await Promise.all([
+      fetchJson(`/data/${cat.slug}.json`),
+      overrideModulePromise,
+    ]);
     if (!Array.isArray(raw)) return;
-    const cards = raw.filter(c => c.difficulty === 'easy' || c.difficulty === 'medium');
+    const overrides = await overrideModule.loadPublishedContentOverrides(apiFetch, cat.slug);
+    const cards = overrideModule.mergePublishedContentOverrides(raw, overrides).filter(c =>
+      (c.difficulty === 'easy' || c.difficulty === 'medium')
+      && c.review?.status === 'reviewed'
+    );
     if (!cards.length) return;
     const card = cards[(hash >> 4) % cards.length];
     state.dailyCard = { ...card, categorySlug: cat.slug, categoryTitle: cat.title, categoryEmoji: cat.emoji || '🎯' };
@@ -5369,6 +5292,8 @@ function hydrateCloudFeatureUi() {
 }
 
 async function init() {
+  const { ensureAuthModalShell } = await loadAuthEnhancements();
+  ensureAuthModalShell();
   cacheEls();
   if (!initializeFromStorage()) return;
   if (

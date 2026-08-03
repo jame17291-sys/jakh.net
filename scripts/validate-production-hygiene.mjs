@@ -37,6 +37,18 @@ export function auditProductionHygiene() {
   if (/upload-artifact[\s\S]{0,500}path:[^\n]*\.sql(?:\s|$)/u.test(workflows)) failures.push("a workflow can upload a plaintext SQL export");
   if (!/retention-days:\s*35/u.test(workflows)) failures.push("bounded 35-day encrypted backup retention is missing");
 
+  const workerPackage = JSON.parse(fs.readFileSync(path.join(root, "worker", "package.json"), "utf8"));
+  const sitePackage = JSON.parse(fs.readFileSync(path.join(root, "site-worker", "package.json"), "utf8"));
+  const wranglerVersion = workerPackage.devDependencies?.wrangler;
+  const siteWranglerVersion = sitePackage.devDependencies?.wrangler;
+  const releaseWranglerVersions = [...workflows.matchAll(/wranglerVersion:\s*"([^"]+)"/gu)].map((match) => match[1]);
+  if (!wranglerVersion || siteWranglerVersion !== wranglerVersion) {
+    failures.push(`Worker packages do not share one pinned Wrangler version (${wranglerVersion || "missing"} vs ${siteWranglerVersion || "missing"})`);
+  }
+  if (releaseWranglerVersions.some((version) => version !== wranglerVersion)) {
+    failures.push(`release workflows drift from pinned Wrangler ${wranglerVersion}: ${[...new Set(releaseWranglerVersions)].join(", ")}`);
+  }
+
   const workerConfig = fs.readFileSync(path.join(root, "worker", "wrangler.jsonc"), "utf8");
   const siteConfig = fs.readFileSync(path.join(root, "site-worker", "wrangler.jsonc"), "utf8");
   for (const [label, config] of [["API", workerConfig], ["site", siteConfig]]) {
@@ -73,6 +85,7 @@ export function auditProductionHygiene() {
       categoryIllustrations: (catalog.categories || []).length,
       workerCronTriggers: cronCount,
       largerRunners: false,
+      wranglerVersion,
     },
   };
 }
@@ -84,5 +97,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     for (const failure of report.failures) console.error(`- ${failure}`);
     process.exit(1);
   }
-  console.log(`Production hygiene valid: ${report.summary.trackedFiles} tracked files, ${report.summary.deployableFiles} deployable files, ${report.summary.categoryIllustrations} unified illustrations, ${report.summary.workerCronTriggers}/5 Worker crons, standard runners only.`);
+  console.log(`Production hygiene valid: ${report.summary.trackedFiles} tracked files, ${report.summary.deployableFiles} deployable files, ${report.summary.categoryIllustrations} unified illustrations, ${report.summary.workerCronTriggers}/5 Worker crons, Wrangler ${report.summary.wranglerVersion}, standard runners only.`);
 }

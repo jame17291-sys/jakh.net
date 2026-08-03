@@ -6,7 +6,7 @@ Production recovery is deliberate. Record the incident time and obtain owner app
 
 `.github/workflows/recovery-verification.yml` runs every Sunday at 01:17 UTC:
 
-1. Export `jakh-db` with a dedicated account-scoped **D1 Read** token.
+1. Export `jakh-db` with a dedicated account-scoped **D1 Write** token. Cloudflare exposes D1 export as a `POST` operation and rejects a D1 Read token even though exporting does not mutate the database. This credential is reserved exclusively for the encrypted backup workflow and has no unrelated permissions.
 2. Encrypt the export immediately with AES-256-GCM and a 256-bit GitHub Actions secret. The authenticated header binds the database UUID, Git commit, run, checksum, size, and retention.
 3. Remove the first plaintext copy.
 4. Authenticate and decrypt into the runner's isolated workspace, import it into ephemeral local D1, verify the supported schema and table inventory, and remove every remaining `.sql` file.
@@ -22,7 +22,7 @@ Quarterly, the same workflow reconstructs the complete schema from migrations an
 ## Required configuration
 
 - Repository variable `CLOUDFLARE_ACCOUNT_ID`: the JAKH Cloudflare account ID.
-- Repository secret `CLOUDFLARE_D1_BACKUP_READ_TOKEN`: account-owned Cloudflare token with only D1 Read, limited to the JAKH account.
+- Repository secret `CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN`: account-owned Cloudflare token with only D1 Write, limited to the JAKH account and used exclusively for encrypted exports and their recovery evidence.
 - Repository secret `D1_BACKUP_ENCRYPTION_KEY`: 32 random bytes encoded as base64.
 - Production environment secret `CLOUDFLARE_API_TOKEN`: deployment credential used only by protected production jobs.
 - Recovery-drill environment secrets `CLOUDFLARE_RECOVERY_DRILL_TOKEN`, `CLOUDFLARE_RECOVERY_DRILL_DATABASE_ID`, and `CLOUDFLARE_ACCOUNT_ID`: protected quarterly drill configuration. The token has D1 Write access and must never be moved to an unprotected repository secret.

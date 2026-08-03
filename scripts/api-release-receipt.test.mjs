@@ -442,6 +442,9 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.equal(workflow.match(/JAKH_MONITOR_MAX_ATTEMPTS/gu)?.length, 7);
   assert.equal(workflow.match(/JAKH_MONITOR_RETRY_DELAY_MS/gu)?.length, 7);
   assert.equal(workflow.match(/expected-worker-version=\$expected_worker_version/gu)?.length, 2);
+  assert.equal(workflow.match(/for attempt in \{1\.\.18\}/gu)?.length, 5);
+  assert.equal(workflow.match(/\[ "\$attempt" -lt 18 \]/gu)?.length, 5);
+  assert.doesNotMatch(workflow, /for attempt in 1 2 3 4 5 6/u);
   assert.match(workflow, /--migration-authorization-outcome/u);
   assert.match(
     monitorWorkflow,

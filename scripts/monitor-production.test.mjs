@@ -379,6 +379,7 @@ test("production monitor emits a stable structured report for alert routing", ()
       siteOrigin: "https://jakh.net",
       apiOrigin: "https://api.jakh.net",
       allowCompatibleSchema: false,
+      expectedWorkerVersion: null,
     },
     results: [{
       name: "Site: Home",
@@ -401,6 +402,7 @@ test("production monitor emits a stable structured report for alert routing", ()
       siteOrigin: "https://jakh.net",
       apiOrigin: "https://api.jakh.net",
       allowCompatibleSchema: false,
+      expectedWorkerVersion: null,
     },
     totalChecks: 2,
     passedChecks: 1,
@@ -468,6 +470,45 @@ test("production monitor recovers once from transient network, status, and laten
     assert.equal(summary.results.find(({ name }) => name === "Site: Home")?.attempts, 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: catalog data")?.attempts, 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: social preview image")?.attempts, 2);
+  });
+});
+
+test("production monitor waits for every API route to converge on the expected Worker version", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    const attempts = new Map();
+    const staleWorkerVersion = "22222222-2222-4222-8222-222222222222";
+    const fetchImpl = async (input, options = {}) => {
+      const url = new URL(input);
+      const method = options.method || "GET";
+      const key = `${method} ${url.pathname}${url.search}`;
+      const attempt = (attempts.get(key) || 0) + 1;
+      attempts.set(key, attempt);
+      const response = await fetch(input, options);
+      if (!url.pathname.startsWith("/api/") || url.pathname === "/api/health" || attempt > 1) {
+        return response;
+      }
+      const headers = new Headers(response.headers);
+      headers.set("x-jakh-worker-version", staleWorkerVersion);
+      const body = response.status === 204 ? null : await response.arrayBuffer();
+      return new Response(body, { status: response.status, headers });
+    };
+
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      scope: "api",
+      expectedWorkerVersion: FIXTURE_WORKER_VERSION,
+      maxCheckAttempts: 3,
+      retryDelayMs: 1,
+      fetchImpl,
+      timeoutMs: 2_000,
+      apiMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+
+    assert.equal(summary.failures.length, 0);
+    assert.ok(summary.results.some(({ attempts: resultAttempts }) => resultAttempts === 2));
+    assert.ok(summary.results.every(({ workerVersionId }) => workerVersionId === FIXTURE_WORKER_VERSION));
   });
 });
 

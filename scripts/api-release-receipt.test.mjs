@@ -423,6 +423,10 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.match(workflow, /--expected-worker-version/u);
   assert.match(workflow, /steps\.rollback_proof\.outputs\.rollback-safe == 'true'/u);
   assert.match(workflow, /JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"/u);
+  assert.equal(workflow.match(/JAKH_MONITOR_EXPECTED_WORKER_VERSION/gu)?.length, 7);
+  assert.equal(workflow.match(/JAKH_MONITOR_MAX_ATTEMPTS/gu)?.length, 7);
+  assert.equal(workflow.match(/JAKH_MONITOR_RETRY_DELAY_MS/gu)?.length, 7);
+  assert.equal(workflow.match(/expected-worker-version=\$expected_worker_version/gu)?.length, 2);
   assert.match(workflow, /--migration-authorization-outcome/u);
   assert.match(
     monitorWorkflow,

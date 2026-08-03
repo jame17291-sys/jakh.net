@@ -59,7 +59,10 @@ jobs:
         run: node --test scripts/d1-backup.test.mjs worker/tests/recovery-evidence.test.mjs
       - name: Export and immediately encrypt production D1
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_BACKUP_READ_TOKEN }}
+          # Cloudflare's D1 export API is a POST operation, so the dedicated
+          # export credential requires D1 Write even though this step does not
+          # mutate the database.
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           D1_BACKUP_ENCRYPTION_KEY: ${{ secrets.D1_BACKUP_ENCRYPTION_KEY }}
           D1_BACKUP_DATABASE_NAME: jakh-db
@@ -111,7 +114,7 @@ jobs:
       - name: Verify Cloudflare Time Travel and live API recovery
         working-directory: worker
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_BACKUP_READ_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_BACKUP_EXPORT_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           BACKUP_DIR: ${{ runner.temp }}/jakh-d1-backup
         run: |

@@ -2,3 +2,7 @@
 _site/
 *.log
 node_modules/
+worker/.wrangler/
+worker/dist-worker/
+site-worker/.wrangler/
+site-worker/dist-worker/

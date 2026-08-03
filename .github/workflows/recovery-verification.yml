@@ -2,18 +2,20 @@ name: Verify recovery readiness
 
 on:
   schedule:
-    - cron: "23 4 * * 1"
+    # Sunday 01:17 UTC (05:17 Dubai): weekly encrypted off-account backup.
+    - cron: "17 1 * * 0"
+    # Quarterly deterministic schema reconstruction.
     - cron: "53 4 1 1,4,7,10 *"
   workflow_dispatch:
     inputs:
       mode:
-        description: "Evidence operation"
+        description: "Recovery operation"
         required: true
-        default: "readiness"
+        default: "weekly-backup"
         type: choice
         options:
+          - weekly-backup
           - readiness
-          - bookmark
           - restore-drill
       drill_database_name:
         description: "For restore-drill only: must be jakh-recovery-drill"
@@ -36,6 +38,104 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  weekly-backup:
+    name: Encrypt production D1 and prove an isolated restore
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '17 1 * * 0') ||
+      (github.event_name == 'workflow_dispatch' && inputs.mode == 'weekly-backup')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install pinned Wrangler
+        working-directory: worker
+        run: npm ci --no-audit --no-fund
+      - name: Test backup encryption and restore contracts
+        run: node --test scripts/d1-backup.test.mjs worker/tests/recovery-evidence.test.mjs
+      - name: Export and immediately encrypt production D1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_BACKUP_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          D1_BACKUP_ENCRYPTION_KEY: ${{ secrets.D1_BACKUP_ENCRYPTION_KEY }}
+          D1_BACKUP_DATABASE_NAME: jakh-db
+          D1_BACKUP_DATABASE_ID: 7fa30e72-85e4-4254-be85-40a9dfd8295c
+          BACKUP_DIR: ${{ runner.temp }}/jakh-d1-backup
+        run: |
+          set -euo pipefail
+          mkdir -p "$BACKUP_DIR"
+          chmod 700 "$BACKUP_DIR"
+          (
+            cd worker
+            ./node_modules/.bin/wrangler d1 export DB --remote --skip-confirmation \
+              --output="$BACKUP_DIR/production.sql"
+          )
+          node scripts/d1-backup.mjs encrypt \
+            --input "$BACKUP_DIR/production.sql" \
+            --output "$BACKUP_DIR/jakh-db.sql.jakh" \
+            --receipt "$BACKUP_DIR/backup-receipt.json"
+          rm -f "$BACKUP_DIR/production.sql"
+      - name: Authenticate, restore locally, and verify the database
+        env:
+          D1_BACKUP_ENCRYPTION_KEY: ${{ secrets.D1_BACKUP_ENCRYPTION_KEY }}
+          BACKUP_DIR: ${{ runner.temp }}/jakh-d1-backup
+        run: |
+          set -euo pipefail
+          node scripts/d1-backup.mjs verify \
+            --input "$BACKUP_DIR/jakh-db.sql.jakh" \
+            --receipt "$BACKUP_DIR/backup-receipt.json" \
+            --output "$BACKUP_DIR/restore.sql"
+          (
+            cd worker
+            ./node_modules/.bin/wrangler d1 execute DB --local \
+              --persist-to "$BACKUP_DIR/local-d1" \
+              --file "$BACKUP_DIR/restore.sql" >/dev/null
+            ./node_modules/.bin/wrangler d1 execute DB --local --json \
+              --persist-to "$BACKUP_DIR/local-d1" \
+              --command "SELECT value AS schema_version, (SELECT COUNT(*) FROM sqlite_master WHERE type = 'table') AS table_count FROM schema_meta WHERE key = 'schema_version'" \
+              > "$BACKUP_DIR/restore-query.json"
+          )
+          rm -f "$BACKUP_DIR/restore.sql"
+          node scripts/d1-backup.mjs attest \
+            --receipt "$BACKUP_DIR/backup-receipt.json" \
+            --query "$BACKUP_DIR/restore-query.json"
+          rm -f "$BACKUP_DIR/restore-query.json"
+          if find "$BACKUP_DIR" -type f -name '*.sql' -print -quit | grep -q .; then
+            echo "::error title=Plaintext backup retained::A SQL export remained after the isolated restore proof."
+            exit 1
+          fi
+      - name: Verify Cloudflare Time Travel and live API recovery
+        working-directory: worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_BACKUP_READ_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          BACKUP_DIR: ${{ runner.temp }}/jakh-d1-backup
+        run: |
+          set -euo pipefail
+          node scripts/recovery-evidence.mjs bookmark \
+            --required-ref refs/heads/main \
+            --lookback-hours 24 \
+            --output "$BACKUP_DIR/time-travel-receipt.json"
+          curl --fail --silent --show-error --retry 5 --retry-all-errors \
+            https://api.jakh.net/api/health > "$BACKUP_DIR/health-after-backup.json"
+      - name: Retain encrypted weekly backup and recovery receipts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: encrypted-d1-backup-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/jakh-d1-backup/jakh-db.sql.jakh
+            ${{ runner.temp }}/jakh-d1-backup/backup-receipt.json
+            ${{ runner.temp }}/jakh-d1-backup/time-travel-receipt.json
+            ${{ runner.temp }}/jakh-d1-backup/health-after-backup.json
+          if-no-files-found: warn
+          retention-days: 35
+          compression-level: 0
+
   readiness:
     name: Rebuild schema and verify recovery policy
     if: >-
@@ -71,47 +171,8 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-  bookmark:
-    name: Verify production Time Travel (read-only)
-    if: >-
-      (github.event_name == 'schedule' && github.event.schedule == '23 4 * * 1') ||
-      (github.event_name == 'workflow_dispatch' && inputs.mode == 'bookmark')
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: "24"
-      - name: Install pinned Wrangler
-        working-directory: worker
-        run: npm ci --no-audit --no-fund
-      - name: Test recovery safeguards
-        working-directory: worker
-        run: node --test tests/recovery-evidence.test.mjs
-      - name: Capture bookmark and release receipt
-        working-directory: worker
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_RECOVERY_READ_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: >-
-          node scripts/recovery-evidence.mjs bookmark
-          --required-ref refs/heads/main
-          --lookback-hours 24
-          --output "$RUNNER_TEMP/recovery-evidence/bookmark.json"
-      - name: Retain bookmark evidence
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: recovery-bookmark-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/recovery-evidence/bookmark.json
-          if-no-files-found: error
-          retention-days: 90
-
   restore-drill:
-    name: Restore dedicated non-production D1
+    name: Restore and undo on the dedicated non-production D1
     if: >-
       (github.event_name == 'schedule' && github.event.schedule == '53 4 1 1,4,7,10 *') ||
       (github.event_name == 'workflow_dispatch' && inputs.mode == 'restore-drill')

@@ -142,6 +142,7 @@ jobs:
       - name: Validate source contracts
         run: |
           node scripts/sync-catalog.mjs --check
+          node scripts/generate-category-art.mjs --check
           node scripts/generate-seo-pages.mjs --check
           node scripts/generate-arabic-routes.mjs --check
           node scripts/generate-search-index.mjs --check
@@ -152,6 +153,7 @@ jobs:
           node scripts/validate-static.mjs
           node scripts/validate-bilingual.mjs
           node scripts/validate-responsive-images.mjs
+          node scripts/validate-production-hygiene.mjs
           node scripts/validate-game-focus.mjs
           npm run check:performance
           npm run test:contracts

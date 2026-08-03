@@ -30,6 +30,13 @@ test('fixed mobile layers share measured offsets and reserve reachable content s
   assert.match(css, /padding-bottom:[\s\S]*var\(--jakh-fixed-content-inset\)/u);
 });
 
+test('question and answer cards grow to their content without nested scrolling', () => {
+  assert.match(css, /\.card-inner\s*\{[^}]*display:\s*grid;[^}]*min-height:\s*inherit;/su);
+  assert.match(css, /\.card-face\s*\{[^}]*grid-area:\s*1\s*\/\s*1;[^}]*min-height:\s*inherit;/su);
+  assert.match(css, /\.card-face\s*\{[^}]*overflow:\s*hidden;/su);
+  assert.doesNotMatch(css, /\.card-face\s*\{[^}]*overflow(?:-y)?:\s*(?:auto|scroll)/su);
+});
+
 test('consent and install prompts cannot form an unbounded overlapping wall', () => {
   assert.match(app, /document\.getElementById\('privacyConsentBanner'\)/u);
   assert.match(app, /document\.addEventListener\('jakh:consentchange'/u);

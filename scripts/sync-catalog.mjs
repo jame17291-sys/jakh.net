@@ -95,6 +95,7 @@ for (const category of catalog.categories || []) {
   category.cluster_key = section.key;
   category.cluster = structuredClone(section.title);
   category.href = `/${category.slug}`;
+  category.image = `assets/${category.slug}.svg`;
   category.count = cards.length;
   delete category.verifiedQuestionCount;
   category.scorableQuestionCount = cards.filter((card) => (

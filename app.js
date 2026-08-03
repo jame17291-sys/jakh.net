@@ -215,25 +215,9 @@ function localizeSharedRuntimeLinks(root = document) {
   });
 }
 
-const LEGACY_CATEGORY_ART = Object.freeze({
-  currencies: 'assets/backgrounds/currencies.svg',
-  linguistics: 'assets/backgrounds/linguistics.webp',
-  'tech-retro': 'assets/backgrounds/tech-retro.webp',
-  automotive: 'assets/backgrounds/automotive.svg',
-  survival: 'assets/backgrounds/survival.webp',
-  'fictional-worlds': 'assets/backgrounds/fictional-worlds.webp',
-  superheroes: 'assets/backgrounds/superheroes.webp',
-  'pop-culture': 'assets/backgrounds/pop-culture.svg',
-  'true-crime': 'assets/backgrounds/true-crime.webp',
-  'mythology-legends': 'assets/backgrounds/mythology-legends.webp',
-  'logic-puzzles': 'assets/backgrounds/logic-puzzles.svg',
-});
-
 function categoryArtUrl(meta) {
-  const image = String(meta?.image || '').trim();
-  if (image) return `/${image.replace(/^\/+/, '')}`;
   const slug = String(meta?.slug || '').trim();
-  return `/${LEGACY_CATEGORY_ART[slug] || `assets/${slug}.svg`}`;
+  return `/assets/${slug}.svg`;
 }
 
 const UI = {

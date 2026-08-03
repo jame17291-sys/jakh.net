@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: "24"
       - name: Verify generated catalog metadata
-        run: node scripts/sync-catalog.mjs --check
+        run: |
+          node scripts/sync-catalog.mjs --check
+          node scripts/generate-category-art.mjs --check
       - name: Verify generated SEO pages and sitemap
         run: node scripts/generate-seo-pages.mjs --check
       - name: Verify generated physical Arabic routes
@@ -43,7 +45,9 @@ jobs:
       - name: Validate complete English and Arabic coverage
         run: node scripts/validate-bilingual.mjs
       - name: Validate responsive image derivatives
-        run: node scripts/validate-responsive-images.mjs
+        run: |
+          node scripts/validate-responsive-images.mjs
+          node scripts/validate-production-hygiene.mjs
       - name: Validate game focus contracts
         run: node scripts/validate-game-focus.mjs
       - name: Test source quality contracts

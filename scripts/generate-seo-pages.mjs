@@ -387,22 +387,6 @@ function categoryMetaDescription(category, lang = "en") {
 }
 
 function categorySocialImage(category, lang = "en") {
-  const alt = lang === "ar"
-    ? `اختبار ${category.title.ar} على JAKH`
-    : `${category.title.en} quiz on JAKH`;
-  for (const relativePath of [
-    `assets/backgrounds_new/${category.slug}.jpg`,
-    `assets/backgrounds/${category.slug}.webp`,
-    `assets/backgrounds/${category.slug}.png`,
-  ]) {
-    const image = rasterSocialImage(relativePath, alt);
-    if (
-      image
-      && image.width >= 300
-      && image.height >= 157
-      && image.width / image.height <= 2.1
-    ) return image;
-  }
   return DEFAULT_SOCIAL_IMAGE;
 }
 
@@ -495,31 +479,11 @@ function relatedCategories(category, section) {
 }
 
 function categoryImagePath(category) {
-  const candidates = [
-    category.image,
-    `assets/${category.slug}.svg`,
-    `assets/backgrounds_new/${category.slug}.jpg`,
-    `assets/backgrounds/${category.slug}.webp`,
-    `assets/backgrounds/${category.slug}.png`,
-    `assets/backgrounds/${category.slug}.svg`,
-    "assets/logo.png",
-  ].filter(Boolean);
-  const match = candidates.find((candidate) => fs.existsSync(path.join(root, candidate)));
-  return `/${match || "assets/logo.png"}`;
+  return `/assets/${category.slug}.svg`;
 }
 
-const CATEGORY_CARD_IMAGE_SIZES = "(min-width: 1120px) 280px, (min-width: 800px) calc(33.333vw - 2rem), (min-width: 520px) calc(50vw - 1.5rem), calc(100vw - 2rem)";
-
 function categoryCardImageAttributes(category) {
-  const source = `assets/backgrounds_new/${category.slug}.jpg`;
-  const derivative = `assets/backgrounds_new/${category.slug}-320.jpg`;
-  if (fs.existsSync(path.join(root, source)) && fs.existsSync(path.join(root, derivative))) {
-    return `src="/${escapeHtml(source)}" srcset="/${escapeHtml(derivative)} 320w, /${escapeHtml(source)} 640w" sizes="${CATEGORY_CARD_IMAGE_SIZES}" width="640" height="640"`;
-  }
-
-  const image = categoryImagePath(category);
-  const isSquareWebp = /^\/assets\/backgrounds\/(?:fictional-worlds|linguistics|mythology-legends|superheroes|survival|tech-retro|true-crime)\.webp$/u.test(image);
-  return `src="${escapeHtml(image)}" width="${isSquareWebp ? "800" : "640"}" height="${isSquareWebp ? "800" : "420"}"`;
+  return `src="${escapeHtml(categoryImagePath(category))}" width="640" height="420"`;
 }
 
 function simpleCategoryCard(category, lang = "en") {

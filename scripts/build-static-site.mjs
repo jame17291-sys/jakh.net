@@ -271,20 +271,6 @@ function rewriteKnownScriptClaims(source, claimContext) {
   );
 }
 
-function removeQuarantinedApplicationArt(source, categorySlugs) {
-  let removed = 0;
-  const rewritten = String(source).replace(
-    /^\s*(?:["']?)([a-z0-9-]+)(?:["']?)\s*:\s*["']assets\/backgrounds\/[a-z0-9./_-]+["'],?\s*$/gmu,
-    (line, slug) => {
-      if (!categorySlugs.has(String(slug).toLowerCase())) return line;
-      removed += 1;
-      return "";
-    },
-  );
-  invariant(removed > 0, "app.js must contain at least one quarantined legacy background mapping to strip");
-  return rewritten;
-}
-
 export function rewriteKnownHtmlClaims(html, claimContext) {
   let rewritten = String(html)
     .replace(/<meta\b[^>]*>/giu, (tag) => (
@@ -409,9 +395,7 @@ function applyPublicProjection(sourceBytes, { catalog, quarantine, sourceRoot })
       html = rewritePublishedSectionTotals(html, publicCatalog);
       sourceBytes.set(relativePath, Buffer.from(html, "utf8"));
     } else if (relativePath.endsWith(".js")) {
-      const script = relativePath === "app.js"
-        ? removeQuarantinedApplicationArt(bytes.toString("utf8"), quarantine.categorySlugs)
-        : bytes.toString("utf8");
+      const script = bytes.toString("utf8");
       sourceBytes.set(
         relativePath,
         Buffer.from(rewriteKnownScriptClaims(script, claimContext), "utf8"),

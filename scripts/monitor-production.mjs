@@ -11,7 +11,8 @@ const DEFAULT_SITE_MAX_MS = 5_000;
 const DEFAULT_API_MAX_MS = 5_000;
 const ALLOWED_ORIGIN = "https://jakh.net";
 const DISALLOWED_ORIGIN = "https://example.invalid";
-const MAX_CHECK_ATTEMPTS = 2;
+const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
+const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 
 const checkedPublicationQuarantine = loadProductionQuarantine();
@@ -104,6 +105,29 @@ function positiveInteger(value, fallback, label) {
     throw new Error(`${label} must be a positive integer`);
   }
   return parsed;
+}
+
+function nonNegativeInteger(value, fallback, label) {
+  if (value === undefined || value === "") return fallback;
+  const parsed = Number(value);
+  if (!Number.isSafeInteger(parsed) || parsed < 0) {
+    throw new Error(`${label} must be a non-negative integer`);
+  }
+  return parsed;
+}
+
+function optionalWorkerVersion(value) {
+  if (value === undefined || value === "") return null;
+  if (!WORKER_VERSION_ID.test(value)) {
+    throw new Error("expected Worker version must be a valid version ID");
+  }
+  return value;
+}
+
+function delay(milliseconds) {
+  return milliseconds > 0
+    ? new Promise((resolve) => setTimeout(resolve, milliseconds))
+    : Promise.resolve();
 }
 
 function origin(value, label) {
@@ -265,6 +289,19 @@ function loadConfig(options) {
     allowCompatibleSchema:
       options.allowCompatibleSchema === true
       || env.JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA === "true",
+    expectedWorkerVersion: optionalWorkerVersion(
+      options.expectedWorkerVersion || env.JAKH_MONITOR_EXPECTED_WORKER_VERSION,
+    ),
+    maxCheckAttempts: positiveInteger(
+      options.maxCheckAttempts ?? env.JAKH_MONITOR_MAX_ATTEMPTS,
+      DEFAULT_MAX_CHECK_ATTEMPTS,
+      "maximum check attempts",
+    ),
+    retryDelayMs: nonNegativeInteger(
+      options.retryDelayMs ?? env.JAKH_MONITOR_RETRY_DELAY_MS,
+      DEFAULT_RETRY_DELAY_MS,
+      "retry delay",
+    ),
     scope,
   };
 }
@@ -280,7 +317,7 @@ export async function runProductionMonitor(options = {}) {
     const checkScope = name.startsWith("API") ? "api" : "site";
     const selectedScope = config.scope === "pages" ? "site" : config.scope;
     if (selectedScope !== "all" && selectedScope !== checkScope) return;
-    for (let attempt = 1; attempt <= MAX_CHECK_ATTEMPTS; attempt += 1) {
+    for (let attempt = 1; attempt <= config.maxCheckAttempts; attempt += 1) {
       try {
         const resource = await run();
         if (config.scope === "pages" && checkScope === "site") {
@@ -304,6 +341,15 @@ export async function runProductionMonitor(options = {}) {
         if (checkScope === "site" && config.scope !== "pages") {
           expect(WORKER_VERSION_ID.test(workerVersionId || ""), "site response lacks a valid Worker version ID");
         }
+        if (
+          checkScope === "api"
+          && config.expectedWorkerVersion
+          && workerVersionId !== config.expectedWorkerVersion
+        ) {
+          throw new RetryableCheckError(
+            `served Worker ${workerVersionId || "missing"}, expected ${config.expectedWorkerVersion}`,
+          );
+        }
         results.push({
           name,
           status: resource.response.status,
@@ -314,7 +360,10 @@ export async function runProductionMonitor(options = {}) {
         });
         return;
       } catch (error) {
-        if (error instanceof RetryableCheckError && attempt < MAX_CHECK_ATTEMPTS) continue;
+        if (error instanceof RetryableCheckError && attempt < config.maxCheckAttempts) {
+          await delay(config.retryDelayMs);
+          continue;
+        }
         failures.push({
           name,
           message: error instanceof Error ? error.message : String(error),
@@ -892,6 +941,7 @@ export function buildMonitorReport(summary, generatedAt = new Date()) {
       siteOrigin: summary.config?.siteOrigin ?? null,
       apiOrigin: summary.config?.apiOrigin ?? null,
       allowCompatibleSchema: summary.config?.allowCompatibleSchema === true,
+      expectedWorkerVersion: summary.config?.expectedWorkerVersion ?? null,
     },
     totalChecks: summary.results.length + summary.failures.length,
     passedChecks: summary.results.length,

@@ -206,6 +206,9 @@ jobs:
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
           JAKH_MONITOR_SCOPE: api
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: "12"
+          JAKH_MONITOR_RETRY_DELAY_MS: "5000"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/rollback-target-monitor.json
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
@@ -269,6 +272,7 @@ jobs:
           )
           expected_worker_version="$(node scripts/api-release-receipt.mjs active-version \
             --deployment "$RECEIPT_DIR/worker-after-compatibility-initial.json")"
+          echo "expected-worker-version=$expected_worker_version" >> "$GITHUB_OUTPUT"
           set +e
           health_status=000
           for attempt in 1 2 3 4 5 6; do
@@ -315,6 +319,9 @@ jobs:
         env:
           JAKH_MONITOR_SCOPE: api
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.verify_production.outputs.expected-worker-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: "12"
+          JAKH_MONITOR_RETRY_DELAY_MS: "5000"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/runtime-monitor.json
         run: node scripts/monitor-production.mjs
       - name: Bind compatibility quarantine proof to one exact Worker version
@@ -415,6 +422,9 @@ jobs:
           set +e
           JAKH_MONITOR_SCOPE=api \
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA=true \
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION="$expected_worker_version" \
+          JAKH_MONITOR_MAX_ATTEMPTS=12 \
+          JAKH_MONITOR_RETRY_DELAY_MS=5000 \
           JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
             node scripts/monitor-production.mjs
           monitor_status=$?
@@ -523,6 +533,9 @@ jobs:
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
           JAKH_MONITOR_SCOPE: api
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: "12"
+          JAKH_MONITOR_RETRY_DELAY_MS: "5000"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/rollback-target-monitor.json
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
@@ -634,6 +647,9 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
           JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: "12"
+          JAKH_MONITOR_RETRY_DELAY_MS: "5000"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/post-migration-monitor.json
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
@@ -677,6 +693,7 @@ jobs:
           )
           expected_worker_version="$(node scripts/api-release-receipt.mjs active-version \
             --deployment "$RECEIPT_DIR/worker-after-worker-initial.json")"
+          echo "expected-worker-version=$expected_worker_version" >> "$GITHUB_OUTPUT"
           set +e
           health_status=000
           for attempt in 1 2 3 4 5 6; do
@@ -719,6 +736,9 @@ jobs:
         id: runtime_monitor
         env:
           JAKH_MONITOR_SCOPE: api
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.verify_production.outputs.expected-worker-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: "12"
+          JAKH_MONITOR_RETRY_DELAY_MS: "5000"
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-api-release/runtime-monitor.json
         run: node scripts/monitor-production.mjs
       - name: Bind final quarantine proof to one exact Worker version
@@ -818,6 +838,9 @@ jobs:
             --receipt "$RECEIPT_DIR/release-receipt.json"
           set +e
           JAKH_MONITOR_SCOPE=api \
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION="$expected_worker_version" \
+          JAKH_MONITOR_MAX_ATTEMPTS=12 \
+          JAKH_MONITOR_RETRY_DELAY_MS=5000 \
           JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
             node scripts/monitor-production.mjs
           monitor_status=$?

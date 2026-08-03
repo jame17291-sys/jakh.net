@@ -257,7 +257,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.116.0"
+          wranglerVersion: "4.118.0"
           command: deploy --strict --message "${{ steps.deployment_message.outputs.value }}"
       - name: Verify compatibility Worker and unchanged D1
         id: verify_production
@@ -358,7 +358,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.116.0"
+          wranglerVersion: "4.118.0"
           command: >-
             rollback ${{ steps.preflight.outputs.rollback-version }}
             --message "Automatic compatibility rollback after GitHub Actions run ${{ github.run_id }}"
@@ -647,7 +647,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.116.0"
+          wranglerVersion: "4.118.0"
           command: d1 migrations apply DB --remote
       - name: Verify the same compatibility Worker after migration
         id: verify_migration_compatibility
@@ -743,7 +743,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.116.0"
+          wranglerVersion: "4.118.0"
           command: deploy --strict --message "JAKH final ${{ github.sha }} schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}"
       - name: Verify final production health
         id: verify_production
@@ -840,7 +840,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
-          wranglerVersion: "4.116.0"
+          wranglerVersion: "4.118.0"
           command: >-
             rollback ${{ steps.preflight.outputs.rollback-version }}
             --message "Automatic final rollback after GitHub Actions run ${{ github.run_id }}"

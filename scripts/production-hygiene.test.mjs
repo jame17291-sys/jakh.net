@@ -9,4 +9,5 @@ test("production remains free-tier compatible, clean, and media-consistent", () 
   assert.equal(report.summary.categoryIllustrations, 56);
   assert.ok(report.summary.deployableFiles < 20_000);
   assert.ok(report.summary.workerCronTriggers <= 5);
+  assert.equal(report.summary.wranglerVersion, "4.118.0");
 });

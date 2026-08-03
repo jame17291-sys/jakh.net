@@ -343,7 +343,7 @@ export async function runProductionMonitor(options = {}) {
           expect(WORKER_VERSION_ID.test(workerVersionId || ""), "site response lacks a valid Worker version ID");
         }
         if (
-          checkScope === "api"
+          config.scope !== "pages"
           && config.expectedWorkerVersion
           && workerVersionId !== config.expectedWorkerVersion
         ) {

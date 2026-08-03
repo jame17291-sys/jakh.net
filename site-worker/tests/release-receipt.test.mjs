@@ -73,8 +73,22 @@ test("source manifest and single-version preflight are fail-closed", () => {
   assert.equal(receipt.safety.rollbackBuildId, OLD_BUILD);
   assert.equal(receipt.candidate.buildId, manifest.buildId);
   assert.throws(() => extractActiveVersion(deployment(OLD_VERSION, null, 99)), /exactly one Worker version/u);
-  const noOp = buildPreflight({ manifest, deployment: deployment(OLD_VERSION), baselineSmoke: smoke(manifest.buildId) });
-  assert.match(noOp.errors.join("\n"), /already live/u);
+  const configOnly = buildPreflight({
+    manifest,
+    deployment: deployment(OLD_VERSION, "JAKH routing remediation from an earlier commit"),
+    baselineSmoke: smoke(manifest.buildId),
+    environment: RELEASE_ENV,
+  });
+  assert.deepEqual(configOnly.errors, []);
+  assert.equal(configOnly.receipt.candidate.staticAssetsChanged, false);
+
+  const exactNoOp = buildPreflight({
+    manifest,
+    deployment: deployment(OLD_VERSION, `JAKH site ${RELEASE_ENV.GITHUB_SHA} build ${manifest.buildId} run 12345`),
+    baselineSmoke: smoke(manifest.buildId),
+    environment: RELEASE_ENV,
+  });
+  assert.match(exactNoOp.errors.join("\n"), /commit and static build are already live/u);
 });
 
 test("post-deploy binds exact version, build, commit, and smoke", () => {

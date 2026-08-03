@@ -286,7 +286,14 @@ export function buildPreflight({ manifest, deployment, baselineSmoke, environmen
   } catch (error) {
     errors.push(error.message);
   }
-  if (baselineSmoke?.observedBuildId === manifest?.buildId) errors.push("candidate build is already live");
+  const staticAssetsChanged = baselineSmoke?.observedBuildId !== manifest?.buildId;
+  const baselineMessage = deployment?.annotations?.["workers/message"] || "";
+  const exactReleasePrefix = environment.GITHUB_SHA && manifest?.buildId
+    ? `JAKH site ${environment.GITHUB_SHA} build ${manifest.buildId} run `
+    : null;
+  if (!staticAssetsChanged && exactReleasePrefix && baselineMessage.startsWith(exactReleasePrefix)) {
+    errors.push("candidate commit and static build are already live");
+  }
   if (activeVersion && baselineSmoke?.observedWorkerVersionId !== activeVersion) {
     errors.push("baseline HTTP Worker version does not match the captured rollback version");
   }
@@ -299,6 +306,7 @@ export function buildPreflight({ manifest, deployment, baselineSmoke, environmen
       buildId: manifest?.buildId || null,
       fileCount: manifest?.fileCount || null,
       totalBytes: manifest?.totalBytes || null,
+      staticAssetsChanged,
     },
     safety: {
       workerRollbackTarget: activeVersion,

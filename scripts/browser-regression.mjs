@@ -26,12 +26,30 @@ const SITE_MANIFEST_PATH = process.env.JAKH_SITE_MANIFEST
   : null;
 
 async function mockApi(context) {
-  await context.route("https://api.jakh.net/**", async (route) => {
-    const path = new URL(route.request().url()).pathname;
+  await context.route("**/api/**", async (route) => {
+    const request = route.request();
+    const path = new URL(request.url()).pathname;
+    const origin = request.headers().origin || "https://jakh.net";
+    const headers = {
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers": "Accept, Content-Type",
+      "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS, POST, PATCH, DELETE",
+      "Access-Control-Allow-Origin": origin,
+      "Access-Control-Allow-Private-Network": "true",
+      Vary: "Origin",
+    };
+    if (request.method() === "OPTIONS") {
+      await route.fulfill({
+        status: 204,
+        headers,
+      });
+      return;
+    }
     if (path === "/api/health") {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
+        headers,
         body: JSON.stringify({
           ok: true,
           schema: "8",
@@ -45,6 +63,7 @@ async function mockApi(context) {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
+        headers,
         body: JSON.stringify({ authenticated: false }),
       });
       return;
@@ -52,6 +71,7 @@ async function mockApi(context) {
     await route.fulfill({
       status: 404,
       contentType: "application/json",
+      headers,
       body: JSON.stringify({ error: "Not found", code: "NOT_FOUND" }),
     });
   });
@@ -352,6 +372,43 @@ async function main() {
         ));
         assert.equal(await audioButton.getAttribute('aria-label'), 'اقرأ بصوت عالٍ');
         assert.equal(await page.evaluate(() => window.__speechCancelled), true);
+        assertNoPageErrors();
+      } finally {
+        await context.close();
+      }
+    });
+
+    await runTest("long English and Arabic cards expand without inner scrolling", async () => {
+      const context = await createContext(browser, {
+        viewport: { width: 360, height: 640 },
+        isMobile: true,
+        hasTouch: true,
+        serviceWorkers: "block",
+      });
+      await setCurrentDeniedConsent(context);
+      const page = await context.newPage();
+      const assertNoPageErrors = trackPageErrors(page);
+      try {
+        for (const route of ["/story-mysteries", "/ar/topics/story-mysteries/"]) {
+          await page.goto(`${baseUrl}${route}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length === 20);
+          await page.waitForLoadState("networkidle");
+          const problems = await page.locator("#cardGrid .card-face").evaluateAll((faces) => faces.flatMap((face) => {
+            const style = getComputedStyle(face);
+            const overflow = `${style.overflow} ${style.overflowY}`;
+            const clipped = face.scrollHeight > face.clientHeight + 1;
+            return /\b(?:auto|scroll)\b/u.test(overflow) || clipped
+              ? [{
+                  card: face.closest(".riddle-card")?.id,
+                  side: face.className,
+                  overflow,
+                  clientHeight: face.clientHeight,
+                  scrollHeight: face.scrollHeight,
+                }]
+              : [];
+          }));
+          assert.deepEqual(problems, [], `${route} contains an internally scrolling or clipped card:\n${JSON.stringify(problems, null, 2)}`);
+        }
         assertNoPageErrors();
       } finally {
         await context.close();

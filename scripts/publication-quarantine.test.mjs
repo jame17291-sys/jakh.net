@@ -91,11 +91,11 @@ test("artifact quarantine derives held asset names and directories from the mani
   const future = { categorySlugs: new Set(["future-held"]) };
   for (const relativePath of [
     "assets/future-held.svg",
-    "assets/backgrounds/future-held.webp",
     "assets/future-held/card.png",
+    "assets/future-held/deep/card.webp",
   ]) assert.equal(isQuarantinedArtifactPath(relativePath, future), true, relativePath);
   assert.equal(isQuarantinedArtifactPath("assets/future-held-guide.svg", future), false);
-  assert.equal(isQuarantinedArtifactPath("assets/backgrounds/science.webp", future), false);
+  assert.equal(isQuarantinedArtifactPath("assets/science/card.webp", future), false);
   assert.equal(isQuarantinedArtifactPath("ar/topics/future-held.html", future), true);
 });
 

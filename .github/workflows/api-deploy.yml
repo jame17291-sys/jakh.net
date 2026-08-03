@@ -111,6 +111,7 @@ jobs:
           node scripts/api-release-receipt.mjs validate-source
           node --test scripts/api-release-receipt.test.mjs
           node scripts/sync-catalog.mjs --check
+          node scripts/generate-category-art.mjs --check
           node scripts/generate-seo-pages.mjs --check
           node scripts/generate-arabic-routes.mjs --check
           node scripts/generate-search-index.mjs --check
@@ -121,6 +122,8 @@ jobs:
           node scripts/validate-static.mjs
           node scripts/validate-bilingual.mjs
           node scripts/validate-responsive-images.mjs
+          node scripts/validate-production-hygiene.mjs
+          node --test scripts/d1-backup.test.mjs scripts/production-hygiene.test.mjs
           node scripts/validate-game-focus.mjs
           node --test \
             scripts/accessibility-contracts.test.mjs \
@@ -555,11 +558,76 @@ jobs:
             --require-safe true \
             --receipt "$RECEIPT_DIR/release-receipt.json" \
             --github-output "$GITHUB_OUTPUT"
-      - name: Fail closed until compatibility receipt and encrypted off-account D1 backup are enforced
-        id: migration_authorization
+      - name: Export and immediately encrypt the pre-migration D1 backup
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_BACKUP_ENCRYPTION_KEY: ${{ secrets.D1_BACKUP_ENCRYPTION_KEY }}
+          D1_BACKUP_DATABASE_NAME: jakh-db
+          D1_BACKUP_DATABASE_ID: 7fa30e72-85e4-4254-be85-40a9dfd8295c
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
         run: |
-          echo "::error title=D1 mutation blocked::migrate-final is intentionally disabled until this workflow verifies a successful same-commit compatibility receipt and uploads a tested encrypted off-account D1 backup receipt before mutation. Time Travel alone is not an off-account backup."
-          exit 1
+          set -euo pipefail
+          (
+            cd worker
+            ./node_modules/.bin/wrangler d1 export DB --remote --skip-confirmation \
+              --output="$RECEIPT_DIR/pre-migration.sql"
+          )
+          node scripts/d1-backup.mjs encrypt \
+            --input "$RECEIPT_DIR/pre-migration.sql" \
+            --output "$RECEIPT_DIR/pre-migration.sql.jakh" \
+            --receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json"
+          rm -f "$RECEIPT_DIR/pre-migration.sql"
+      - name: Restore and verify the encrypted backup in ephemeral local D1
+        env:
+          D1_BACKUP_ENCRYPTION_KEY: ${{ secrets.D1_BACKUP_ENCRYPTION_KEY }}
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+        run: |
+          set -euo pipefail
+          node scripts/d1-backup.mjs verify \
+            --input "$RECEIPT_DIR/pre-migration.sql.jakh" \
+            --receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json" \
+            --output "$RECEIPT_DIR/restore.sql"
+          (
+            cd worker
+            ./node_modules/.bin/wrangler d1 execute DB --local \
+              --persist-to "$RECEIPT_DIR/local-d1" \
+              --file "$RECEIPT_DIR/restore.sql" >/dev/null
+            ./node_modules/.bin/wrangler d1 execute DB --local --json \
+              --persist-to "$RECEIPT_DIR/local-d1" \
+              --command "SELECT value AS schema_version, (SELECT COUNT(*) FROM sqlite_master WHERE type = 'table') AS table_count FROM schema_meta WHERE key = 'schema_version'" \
+              > "$RECEIPT_DIR/restore-query.json"
+          )
+          rm -f "$RECEIPT_DIR/restore.sql"
+          node scripts/d1-backup.mjs attest \
+            --receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json" \
+            --query "$RECEIPT_DIR/restore-query.json"
+          rm -f "$RECEIPT_DIR/restore-query.json"
+      - name: Store the tested encrypted backup off-account before mutation
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: pre-migration-d1-backup-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/jakh-api-release/pre-migration.sql.jakh
+            ${{ runner.temp }}/jakh-api-release/pre-migration-backup-receipt.json
+          if-no-files-found: error
+          retention-days: 35
+          compression-level: 0
+      - name: Authorize mutation from exact compatibility and backup proofs
+        id: migration_authorization
+        env:
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+        run: |
+          set -euo pipefail
+          node scripts/d1-backup.mjs authorize \
+            --release-receipt "$RECEIPT_DIR/release-receipt.json" \
+            --backup-receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json" \
+            --encrypted "$RECEIPT_DIR/pre-migration.sql.jakh" \
+            --output "$RECEIPT_DIR/migration-authorization.json"
+          if find "$RECEIPT_DIR" -maxdepth 1 -type f -name '*.sql' -print -quit | grep -q .; then
+            echo "::error title=Plaintext backup retained::D1 mutation is blocked because a plaintext SQL export remains."
+            exit 1
+          fi
       - name: Capture pre-migration Time Travel evidence
         if: ${{ steps.migration_authorization.outcome == 'success' }}
         env:

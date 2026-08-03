@@ -1,13 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title desc" data-jakh-category-art="v1">
+  <title id="title">Coding &amp; Design — البرمجة والتصميم</title>
+  <desc id="desc">JAKH category artwork in the unified midnight-and-gold visual system.</desc>
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="hsl(104 75% 58%)"/>
-      <stop offset="100%" stop-color="hsl(158 80% 62%)"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111d"/>
+      <stop offset="0.52" stop-color="#182d4b"/>
+      <stop offset="1" stop-color="#090e17"/>
     </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#5f78a5" stop-opacity=".54"/>
+      <stop offset="1" stop-color="#5f78a5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#9f7338"/>
+      <stop offset=".5" stop-color="#f0d49b"/>
+      <stop offset="1" stop-color="#a77738"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity=".34"/>
+    </filter>
   </defs>
-  <rect width="800" height="520" rx="36" fill="#0d1326"/>
-  <circle cx="120" cy="92" r="64" fill="url(#g)" opacity="0.85"/>
-  <circle cx="720" cy="430" r="92" fill="url(#g)" opacity="0.18"/>
-  <path d="M120 410 C220 280 340 470 440 330 S640 170 710 270" fill="none" stroke="url(#g)" stroke-width="24" stroke-linecap="round" opacity="0.65"/>
-  <rect x="220" y="140" width="360" height="220" rx="28" fill="none" stroke="url(#g)" stroke-width="18"/><path d="M310 260l-40-30 40-30M490 200l40 30-40 30M380 180l-26 100" fill="none" stroke="url(#g)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="640" height="420" rx="30" fill="url(#bg)"/>
+  <circle cx="484" cy="133" r="172" fill="url(#glow)"/>
+  <g fill="none" stroke="#f5dfaf" stroke-opacity=".16">
+    <circle cx="484" cy="133" r="102"/>
+    <circle cx="484" cy="133" r="136"/>
+    <path d="M355 0 640 285M425 0 640 215"/>
+  </g>
+  <path d="M0 360 C160 305 338 412 640 316 V420 H0Z" fill="#040912" fill-opacity=".42"/>
+  <rect x="38" y="36" width="564" height="348" rx="24" fill="#fff" fill-opacity=".045" stroke="#fff" stroke-opacity=".12"/>
+  <rect x="64" y="70" width="4" height="160" rx="2" fill="url(#gold)"/>
+  <g filter="url(#shadow)">
+    <circle cx="494" cy="144" r="70" fill="#06111e" fill-opacity=".7" stroke="url(#gold)" stroke-width="2"/>
+    <text x="494" y="164" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif" font-size="58">💻</text>
+  </g>
+  <text x="90" y="112" fill="#d7b979" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">JAKH · CURATED KNOWLEDGE</text>
+  <text x="90" y="174" fill="#fffaf0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Coding &amp; Design</text>
+  <text x="90" y="222" fill="#eadfc9" font-family="Noto Sans Arabic, Arial, sans-serif" font-size="24" font-weight="600" direction="rtl" unicode-bidi="plaintext">البرمجة والتصميم</text>
+  <rect x="90" y="278" width="170" height="1" fill="url(#gold)"/>
+  <text x="90" y="322" fill="#d8dee8" font-family="Inter, Arial, sans-serif" font-size="14" letter-spacing="1.2">BILINGUAL · THOUGHTFUL · FREE</text>
+  <circle cx="567" cy="346" r="4" fill="#e4c27c"/>
+  <circle cx="550" cy="346" r="2" fill="#e4c27c" fill-opacity=".65"/>
 </svg>

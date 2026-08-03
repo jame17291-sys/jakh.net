@@ -25,11 +25,6 @@ const expectedHeldAssets = [
   "assets/law-middle-east.svg",
   "assets/economics-and-finance.svg",
   "assets/pharmacy.svg",
-  "assets/backgrounds/law-middle-east.svg",
-  "assets/backgrounds/pharmacy.png",
-  "assets/backgrounds/survival.webp",
-  "assets/backgrounds/medical-questions.png",
-  "assets/backgrounds/economics-and-finance.png",
 ];
 
 function digest(bytes) {

@@ -223,7 +223,8 @@
         }
       ],
       "scorableQuestionCount": 33,
-      "reviewedQuestionCount": 1
+      "reviewedQuestionCount": 1,
+      "image": "assets/currencies.svg"
     },
     {
       "slug": "linguistics",
@@ -289,7 +290,8 @@
         }
       ],
       "scorableQuestionCount": 38,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/linguistics.svg"
     },
     {
       "slug": "tech-retro",
@@ -360,7 +362,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/tech-retro.svg"
     },
     {
       "slug": "automotive",
@@ -431,7 +434,8 @@
         }
       ],
       "scorableQuestionCount": 39,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/automotive.svg"
     },
     {
       "slug": "survival",
@@ -507,7 +511,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/survival.svg"
     },
     {
       "slug": "fictional-worlds",
@@ -573,7 +578,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/fictional-worlds.svg"
     },
     {
       "slug": "superheroes",
@@ -649,7 +655,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/superheroes.svg"
     },
     {
       "slug": "pop-culture",
@@ -720,7 +727,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/pop-culture.svg"
     },
     {
       "slug": "true-crime",
@@ -786,7 +794,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/true-crime.svg"
     },
     {
       "slug": "mythology-legends",
@@ -862,7 +871,8 @@
         }
       ],
       "scorableQuestionCount": 40,
-      "reviewedQuestionCount": 0
+      "reviewedQuestionCount": 0,
+      "image": "assets/mythology-legends.svg"
     },
     {
       "slug": "art-and-painters",
@@ -1354,7 +1364,7 @@
         "very-advanced": 10
       },
       "href": "/logic-puzzles",
-      "image": "assets/backgrounds/logic-puzzles.svg",
+      "image": "assets/logic-puzzles.svg",
       "topics": [
         {
           "en": "Numbers & Patterns",

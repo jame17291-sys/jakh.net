@@ -120,6 +120,14 @@ html[lang="ar"] :where(.badge, .eyebrow, .game-card-tag, .category-card-count-ba
   flex-wrap: wrap;
 }
 .header-actions { justify-content: center; }
+
+.header-actions .nav-action-label {
+  margin-inline-start: 0.28rem;
+}
+
+@media (max-width: 1080px) {
+  .header-actions .nav-action-label { display: none; }
+}
 .header-selects { display: flex; gap: 0.65rem; justify-content: flex-end; align-items: center; flex-wrap: wrap; }
 .header-selects label, .select-grid label, .search-field {
   display: grid;
@@ -368,6 +376,50 @@ textarea { min-height: 6.5rem; resize: vertical; }
 .badge[data-difficulty='very-advanced'] { border-color: color-mix(in srgb, var(--advanced) 50%, white); }
 .riddle-card.is-solved { outline: 2px solid color-mix(in srgb, var(--easy) 38%, transparent); }
 .riddle-card.is-solved::after { content: "✓"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 8rem; font-weight: 900; color: var(--easy); opacity: 0.06; pointer-events: none; z-index: 0; line-height: 1; }
+
+.card-explanation {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line));
+  border-radius: 14px;
+  text-align: start;
+}
+
+.card-explanation strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+  font-size: 0.82rem;
+}
+
+.card-explanation p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.password-toggle {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.password-rules {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
 .empty-state { padding: 1rem; }
 .empty-state strong { display: block; margin-bottom: 0.35rem; }
 
@@ -2911,6 +2963,16 @@ body[data-page="play"] .kv-lab-section .game-lobby-grid {
   .category-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
+@supports (content-visibility: auto) {
+  .category-card,
+  .riddle-card,
+  .game-card,
+  .seo-hub-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 420px;
+  }
+}
+
 .category-card {
   display: flex !important;
   flex-direction: column;
@@ -3037,6 +3099,16 @@ body[data-page="play"] .kv-lab-section .game-lobby-grid {
 }
 
 .category-card:hover .category-card-enter { color: var(--accent) !important; }
+
+.directory-expand-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 1.35rem 0 0;
+}
+
+.directory-expand-wrap .ghost-btn {
+  min-width: min(100%, 220px);
+}
 
 .category-card-footer {
   display: flex;

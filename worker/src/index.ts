@@ -11,6 +11,8 @@ import {
 import { PasswordHasher } from "./password-hasher.js";
 import {
   adminOverview,
+  adminContent,
+  adminContentRevisions,
   adminAudit,
   adminSecurity,
   adminSuggestions,
@@ -20,7 +22,12 @@ import {
   updateSuggestion,
   updateUserBan,
   updateUserRole,
+  publishAdminContent,
+  restoreAdminContentRevision,
+  saveAdminContent,
+  unpublishAdminContent,
 } from "./admin.js";
+import { publishedContent } from "./content.js";
 import { cleanupExpiredSecurityState } from "./db.js";
 import {
   cleanupPrivacyRetentionState,
@@ -147,6 +154,7 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/user/streak" && method === "POST") return streak(request, env);
   if (path === "/api/analytics/time" && method === "POST") return analytics(request, env);
   if (path === "/api/leaderboard" && method === "GET") return verifiedLeaderboard(request, env);
+  if (path === "/api/content/questions" && method === "GET") return publishedContent(request, env);
   if (path === "/api/scores/server-checked/challenge" && method === "DELETE") {
     return discardServerCheckedChallenge(request, env);
   }
@@ -167,6 +175,7 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
   if (path === "/api/privacy/requests" && method === "POST") return privacyRequest(request, env);
   if (path === "/api/admin/overview" && method === "GET") return adminOverview(request, env);
+  if (path === "/api/admin/content" && method === "GET") return adminContent(request, env);
   if (path === "/api/admin/users" && method === "GET") return adminUsers(request, env);
   if (path === "/api/admin/suggestions" && method === "GET") return adminSuggestions(request, env);
   if (path === "/api/admin/audit" && method === "GET") return adminAudit(request, env);
@@ -183,6 +192,24 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (banMatch && method === "PATCH") return updateUserBan(request, env, banMatch[1] || "");
   const suggestionMatch = /^\/api\/admin\/suggestions\/([A-Za-z0-9-]{36})$/u.exec(path);
   if (suggestionMatch && method === "PATCH") return updateSuggestion(request, env, suggestionMatch[1] || "");
+  const contentRevisionsMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})\/revisions$/u.exec(path);
+  if (contentRevisionsMatch && method === "GET") {
+    return adminContentRevisions(request, env, contentRevisionsMatch[1] || "");
+  }
+  const contentPublishMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})\/publish$/u.exec(path);
+  if (contentPublishMatch && method === "POST") {
+    return publishAdminContent(request, env, contentPublishMatch[1] || "");
+  }
+  const contentUnpublishMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})\/unpublish$/u.exec(path);
+  if (contentUnpublishMatch && method === "POST") {
+    return unpublishAdminContent(request, env, contentUnpublishMatch[1] || "");
+  }
+  const contentRestoreMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})\/restore$/u.exec(path);
+  if (contentRestoreMatch && method === "POST") {
+    return restoreAdminContentRevision(request, env, contentRestoreMatch[1] || "");
+  }
+  const contentMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})$/u.exec(path);
+  if (contentMatch && method === "PUT") return saveAdminContent(request, env, contentMatch[1] || "");
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
   return json({ error: "Not found", code: "NOT_FOUND" }, 404);
 }

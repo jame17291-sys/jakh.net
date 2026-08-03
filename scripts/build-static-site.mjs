@@ -747,6 +747,16 @@ export async function buildStaticSite({
     aliases[alias] = route;
   }
 
+  // Normalize the common directory-style spelling of flat canonical routes.
+  // This is intentionally manifest-driven: removed or quarantined routes are
+  // never added here and therefore retain their 404/410 behavior.
+  for (const route of Object.keys(routes)) {
+    if (route === "/" || route.endsWith("/") || route.split("/").at(-1)?.includes(".")) continue;
+    const alias = `${route}/`;
+    invariant(!files[alias] && !routes[alias] && !aliases[alias], `Trailing-slash alias collides with the release graph: ${alias}`);
+    aliases[alias] = route;
+  }
+
   for (const [alias, target] of Object.entries(aliases)) {
     invariant(!aliases[target], `Alias ${alias} points to another alias ${target}`);
     invariant(Boolean(routes[target]), `Alias ${alias} points to an unknown route ${target}`);

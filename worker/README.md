@@ -78,14 +78,12 @@ Every returned recovery code is a high-entropy bearer secret shown once. The
 client must ask the user to save the replacement; it must not persist the code
 in browser storage or send it to analytics/logging.
 
-During a phased schema 6 → 8 release, the compatibility Worker keeps existing
-login, profile, progress, leaderboard, suggestion, and game APIs available.
-Registration and recovery return `503 FEATURE_UNAVAILABLE` on schema 6, because
-their table does not exist until schema 7. Account deletion returns the same
-retryable response until schema 8, where audit-log retention is safe. The health
-response reports the actual D1 schema, target schema, compatible schema range,
-and these feature-readiness flags; it never reports a missing-table feature as
-ready.
+During the schema 8 → 9 release, the compatibility Worker keeps login, profile,
+progress, leaderboard, suggestion, game, scoring, and the static question corpus
+available. Content Studio returns `503 CONTENT_STUDIO_UNAVAILABLE` until schema 9
+creates its draft and immutable revision tables. The health response reports the
+actual D1 schema, target schema, compatible schema range, and feature-readiness
+flags; it never reports a missing-table feature as ready.
 
 ## Validation
 

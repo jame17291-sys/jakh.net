@@ -38,12 +38,15 @@ export function prepareSpeechText(text, lang) {
   if (lang !== 'ar') return prepared;
   return prepared
     .replace(/&/gu, ' و')
+    .replace(/\//gu, ' أو ')
     .replace(/×/gu, ' في ')
     .replace(/÷/gu, ' مقسوم على ')
     .replace(/=/gu, ' يساوي ')
     .replace(/\+/gu, ' زائد ')
     .replace(/−/gu, ' ناقص ')
     .replace(/%/gu, ' بالمئة')
+    .replace(/[:;]/gu, '،')
+    .replace(/[“”«»]/gu, '')
     .replace(/([،؛؟!.])(?=\S)/gu, '$1 ')
     .replace(/\s+/gu, ' ')
     .trim();
@@ -93,7 +96,9 @@ export function speakNaturally({ text, lang, onEnd = () => {} }) {
     } else {
       utterance.lang = lang === 'ar' ? 'ar-AE' : 'en-US';
     }
-    utterance.rate = lang === 'ar' ? 0.96 : 0.98;
+    // Arabic benefits from a little more breathing room than the browser
+    // default, especially around interrogative phrasing and longer answers.
+    utterance.rate = lang === 'ar' ? 0.92 : 0.98;
     utterance.pitch = 1;
     utterance.onend = finish;
     utterance.onerror = finish;

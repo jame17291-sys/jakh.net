@@ -8,6 +8,7 @@ This directory is the editorial workbench for the 3,553-card corpus. It is inten
 - `work-queue.json` is generated. It divides the corpus into exactly 382 category/subcategory discovery packets and shows each card's current blockers.
 - `production-quarantine.json` is the generated, exact production-publication hold. It currently names 278 card IDs in five complete safety-sensitive categories. The static build validates this file against the editorial sources and emits a 51-category/3,275-card public projection; it does not delete or rewrite the 3,553-card editorial corpus.
 - `proof/` is the declared root for reproducible proof artifacts referenced by accepted `proof` evidence. Store the repository-relative artifact path, SHA-256 digest, and reproduction method in `evidence.json`. The validator rejects traversal, symbolic links, directories, missing/unreadable artifacts, and digests that do not match the file's actual bytes.
+- [`ARABIC-STYLE-GUIDE.md`](ARABIC-STYLE-GUIDE.md) defines the natural Modern Standard Arabic voice, terminology, read-aloud check, and bilingual approval checklist used by Content Studio reviewers.
 
 Regenerate or verify the queue with:
 

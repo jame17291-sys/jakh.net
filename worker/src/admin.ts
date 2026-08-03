@@ -1,4 +1,5 @@
 import { enforceRateLimit, requireUser, touchPrivilegedSession } from "./db.js";
+import { validateCard } from "./catalog.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
 import { clientIp, sha256, validatePassword } from "./security.js";
@@ -7,6 +8,46 @@ import type { Env, SessionUser } from "./types.js";
 type AssignableRole = "ADMIN" | "USER";
 type AdminUserRole = AssignableRole | "OWNER";
 type SuggestionStatus = "new" | "reviewed" | "implemented" | "rejected";
+type ContentWorkflowStatus = "DRAFT" | "IN_REVIEW" | "PUBLISHED";
+
+interface ContentSource {
+  title: string;
+  publisher: string;
+  url: string;
+}
+
+interface ContentSnapshot {
+  question: { en: string; ar: string };
+  answer: { en: string; ar: string };
+  explanation: { en: string; ar: string };
+  sources: ContentSource[];
+}
+
+interface ContentEditRow {
+  questionId: string;
+  categorySlug: string;
+  draftJson: string;
+  workflowStatus: ContentWorkflowStatus;
+  version: number;
+  publishedVersion: number | null;
+  publishedSnapshotJson: string | null;
+  editorUsername: string | null;
+  reviewerUsername: string | null;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string | null;
+}
+
+interface ContentRevisionRow {
+  id: string;
+  questionId: string;
+  categorySlug: string;
+  version: number;
+  action: string;
+  snapshotJson: string;
+  actorUsername: string | null;
+  createdAt: string;
+}
 
 interface AdminUserRow {
   id: string;
@@ -47,6 +88,11 @@ const STEP_UP_MAX_AGE_MS = 10 * 60 * 1_000;
 const AUDIT_REASON_MAX_LENGTH = 280;
 const ASSIGNABLE_ROLES = new Set<AssignableRole>(["USER", "ADMIN"]);
 const SUGGESTION_STATUSES = new Set<SuggestionStatus>(["new", "reviewed", "implemented", "rejected"]);
+const CONTENT_WORKFLOW_STATUSES = new Set<ContentWorkflowStatus>(["DRAFT", "IN_REVIEW", "PUBLISHED"]);
+const CONTENT_ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
+const CONTENT_CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
+const CONTENT_TEXT_MAX_LENGTH = 4_000;
+const CONTENT_SOURCE_LIMIT = 8;
 
 function timestamp(): string {
   return new Date().toISOString();
@@ -146,6 +192,115 @@ function optionalAuditReason(value: unknown): string | undefined {
 
 function detailWithReason<T extends Record<string, unknown>>(detail: T, reason: string | undefined): T & { reason?: string } {
   return reason === undefined ? detail : { ...detail, reason };
+}
+
+function contentText(value: unknown, label: string, { required = true } = {}): string {
+  if (typeof value !== "string") {
+    throw new ApiError(400, `${label} must be text`, undefined, "CONTENT_TEXT_INVALID");
+  }
+  const normalized = value.trim().replace(/\r\n?/gu, "\n");
+  if ((required && !normalized) || normalized.length > CONTENT_TEXT_MAX_LENGTH) {
+    throw new ApiError(
+      400,
+      `${label} must be ${required ? "1" : "0"}–${CONTENT_TEXT_MAX_LENGTH} characters`,
+      undefined,
+      "CONTENT_TEXT_INVALID",
+    );
+  }
+  return normalized;
+}
+
+function contentLanguagePair(value: unknown, label: string, { required = true } = {}): { en: string; ar: string } {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new ApiError(400, `${label} must include English and Arabic text`, undefined, "CONTENT_LANGUAGE_PAIR_INVALID");
+  }
+  const pair = value as Record<string, unknown>;
+  return {
+    en: contentText(pair.en, `${label}.en`, { required }),
+    ar: contentText(pair.ar, `${label}.ar`, { required }),
+  };
+}
+
+function contentSources(value: unknown): ContentSource[] {
+  if (value === undefined) return [];
+  if (!Array.isArray(value) || value.length > CONTENT_SOURCE_LIMIT) {
+    throw new ApiError(400, `Sources must contain at most ${CONTENT_SOURCE_LIMIT} entries`, undefined, "CONTENT_SOURCES_INVALID");
+  }
+  const seenUrls = new Set<string>();
+  return value.map((candidate, index) => {
+    if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) {
+      throw new ApiError(400, `Source ${index + 1} is invalid`, undefined, "CONTENT_SOURCE_INVALID");
+    }
+    const source = candidate as Record<string, unknown>;
+    const title = contentText(source.title, `sources[${index}].title`);
+    const publisher = contentText(source.publisher, `sources[${index}].publisher`);
+    let url: URL;
+    try {
+      url = new URL(String(source.url || ""));
+    } catch {
+      throw new ApiError(400, `Source ${index + 1} URL is invalid`, undefined, "CONTENT_SOURCE_URL_INVALID");
+    }
+    if (url.protocol !== "https:" || seenUrls.has(url.href)) {
+      throw new ApiError(400, `Source ${index + 1} must use a unique HTTPS URL`, undefined, "CONTENT_SOURCE_URL_INVALID");
+    }
+    seenUrls.add(url.href);
+    return { title, publisher, url: url.href };
+  });
+}
+
+function contentSnapshot(value: unknown): ContentSnapshot {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new ApiError(400, "Content payload is invalid", undefined, "CONTENT_PAYLOAD_INVALID");
+  }
+  const body = value as Record<string, unknown>;
+  return {
+    question: contentLanguagePair(body.question, "question"),
+    answer: contentLanguagePair(body.answer, "answer"),
+    explanation: body.explanation === undefined
+      ? { en: "", ar: "" }
+      : contentLanguagePair(body.explanation, "explanation", { required: false }),
+    sources: contentSources(body.sources),
+  };
+}
+
+function parseStoredSnapshot(value: string | null): ContentSnapshot | null {
+  if (!value) return null;
+  try {
+    return JSON.parse(value) as ContentSnapshot;
+  } catch {
+    return null;
+  }
+}
+
+function contentEditResponse(row: ContentEditRow) {
+  return {
+    questionId: row.questionId,
+    categorySlug: row.categorySlug,
+    draft: parseStoredSnapshot(row.draftJson),
+    workflowStatus: row.workflowStatus,
+    version: row.version,
+    publishedVersion: row.publishedVersion,
+    hasPublishedVersion: Boolean(row.publishedSnapshotJson),
+    editorUsername: row.editorUsername,
+    reviewerUsername: row.reviewerUsername,
+    createdAt: row.createdAt,
+    updatedAt: row.updatedAt,
+    publishedAt: row.publishedAt,
+  };
+}
+
+async function requireContentStudioSchema(env: Env): Promise<void> {
+  const schema = await env.DB.prepare(
+    "SELECT value FROM schema_meta WHERE key = 'schema_version'",
+  ).first<{ value: string }>();
+  if (Number(schema?.value || 0) < 9) {
+    throw new ApiError(
+      503,
+      "Content Studio is temporarily unavailable during a database upgrade",
+      { "retry-after": "300" },
+      "CONTENT_STUDIO_UNAVAILABLE",
+    );
+  }
 }
 
 async function optionalReasonFromRequest(request: Request): Promise<string | undefined> {
@@ -371,6 +526,308 @@ export async function updateSuggestion(request: Request, env: Env, suggestionId:
     }, reason)),
   ]);
   return json({ success: true, changed: true });
+}
+
+export async function adminContent(request: Request, env: Env): Promise<Response> {
+  await requireAdmin(request, env);
+  await requireContentStudioSchema(env);
+  const url = new URL(request.url);
+  const category = (url.searchParams.get("category") || "").trim();
+  const status = (url.searchParams.get("status") || "").trim().toUpperCase();
+  const search = (url.searchParams.get("search") || "").trim().slice(0, 96);
+  if (category && !CONTENT_CATEGORY_PATTERN.test(category)) {
+    throw new ApiError(400, "Invalid content category", undefined, "CONTENT_CATEGORY_INVALID");
+  }
+  if (status && !CONTENT_WORKFLOW_STATUSES.has(status as ContentWorkflowStatus)) {
+    throw new ApiError(400, "Invalid content status", undefined, "CONTENT_STATUS_INVALID");
+  }
+  const filters: string[] = [];
+  const values: (string | number)[] = [];
+  if (category) {
+    filters.push("e.category_slug = ?");
+    values.push(category);
+  }
+  if (status) {
+    filters.push("e.workflow_status = ?");
+    values.push(status);
+  }
+  if (search) {
+    filters.push("(e.question_id LIKE ? ESCAPE '\\' OR e.draft_json LIKE ? ESCAPE '\\')");
+    const query = `%${search.replaceAll("%", "\\%").replaceAll("_", "\\_")}%`;
+    values.push(query, query);
+  }
+  const limit = boundedLimit(request, 50);
+  const offset = boundedOffset(request);
+  const where = filters.length ? `WHERE ${filters.join(" AND ")}` : "";
+  const rows = await env.DB.prepare(
+    `SELECT e.question_id AS questionId, e.category_slug AS categorySlug,
+            e.draft_json AS draftJson, e.workflow_status AS workflowStatus,
+            e.version, e.published_version AS publishedVersion,
+            e.published_snapshot_json AS publishedSnapshotJson,
+            editor.username AS editorUsername, reviewer.username AS reviewerUsername,
+            e.created_at AS createdAt, e.updated_at AS updatedAt, e.published_at AS publishedAt
+       FROM content_question_edits e
+       LEFT JOIN users editor ON editor.id = e.editor_user_id
+       LEFT JOIN users reviewer ON reviewer.id = e.reviewer_user_id
+       ${where}
+      ORDER BY e.updated_at DESC, e.question_id ASC
+      LIMIT ? OFFSET ?`,
+  ).bind(...values, limit + 1, offset).all<ContentEditRow>();
+  const hasMore = rows.results.length > limit;
+  return json({
+    edits: rows.results.slice(0, limit).map(contentEditResponse),
+    nextOffset: hasMore ? offset + limit : null,
+  });
+}
+
+export async function adminContentRevisions(
+  request: Request,
+  env: Env,
+  questionId: string,
+): Promise<Response> {
+  await requireAdmin(request, env);
+  await requireContentStudioSchema(env);
+  if (!CONTENT_ID_PATTERN.test(questionId)) {
+    throw new ApiError(400, "Invalid question ID", undefined, "CONTENT_QUESTION_ID_INVALID");
+  }
+  const rows = await env.DB.prepare(
+    `SELECT r.id, r.question_id AS questionId, r.category_slug AS categorySlug,
+            r.version, r.action, r.snapshot_json AS snapshotJson,
+            u.username AS actorUsername, r.created_at AS createdAt
+       FROM content_question_revisions r
+       LEFT JOIN users u ON u.id = r.actor_user_id
+      WHERE r.question_id = ?
+      ORDER BY r.created_at DESC, r.rowid DESC
+      LIMIT ?`,
+  ).bind(questionId, boundedLimit(request, 50)).all<ContentRevisionRow>();
+  return json({
+    revisions: rows.results.map((row) => ({
+      id: row.id,
+      questionId: row.questionId,
+      categorySlug: row.categorySlug,
+      version: row.version,
+      action: row.action,
+      snapshot: parseStoredSnapshot(row.snapshotJson),
+      actorUsername: row.actorUsername,
+      createdAt: row.createdAt,
+    })),
+  });
+}
+
+export async function saveAdminContent(
+  request: Request,
+  env: Env,
+  questionId: string,
+): Promise<Response> {
+  const admin = await requireAdmin(request, env);
+  await requireContentStudioSchema(env);
+  await rateLimitAdmin(request, env, admin, "content-save");
+  if (!CONTENT_ID_PATTERN.test(questionId)) {
+    throw new ApiError(400, "Invalid question ID", undefined, "CONTENT_QUESTION_ID_INVALID");
+  }
+  const body = await parseJson<{
+    categorySlug?: unknown;
+    content?: unknown;
+    workflowStatus?: unknown;
+  }>(request, 32_768);
+  const categorySlug = typeof body.categorySlug === "string" ? body.categorySlug.trim() : "";
+  if (!CONTENT_CATEGORY_PATTERN.test(categorySlug)) {
+    throw new ApiError(400, "Invalid content category", undefined, "CONTENT_CATEGORY_INVALID");
+  }
+  await validateCard(env, questionId, categorySlug);
+  const workflowStatus = String(body.workflowStatus || "DRAFT").toUpperCase();
+  if (workflowStatus !== "DRAFT" && workflowStatus !== "IN_REVIEW") {
+    throw new ApiError(400, "Drafts may only be saved or submitted for review", undefined, "CONTENT_STATUS_INVALID");
+  }
+  const snapshot = contentSnapshot(body.content);
+  const snapshotJson = JSON.stringify(snapshot);
+  const existing = await env.DB.prepare(
+    `SELECT question_id AS questionId, category_slug AS categorySlug, version
+       FROM content_question_edits WHERE question_id = ?`,
+  ).bind(questionId).first<Pick<ContentEditRow, "questionId" | "categorySlug" | "version">>();
+  const version = (existing?.version || 0) + 1;
+  const now = timestamp();
+  const action = existing
+    ? (workflowStatus === "IN_REVIEW" ? "SUBMITTED" : "UPDATED")
+    : (workflowStatus === "IN_REVIEW" ? "SUBMITTED" : "CREATED");
+  const revisionId = crypto.randomUUID();
+  await env.DB.batch([
+    env.DB.prepare(
+      `INSERT INTO content_question_edits (
+         question_id, category_slug, draft_json, workflow_status, version,
+         editor_user_id, created_at, updated_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+       ON CONFLICT(question_id) DO UPDATE SET
+         category_slug = excluded.category_slug,
+         draft_json = excluded.draft_json,
+         workflow_status = excluded.workflow_status,
+         version = excluded.version,
+         editor_user_id = excluded.editor_user_id,
+         updated_at = excluded.updated_at`,
+    ).bind(questionId, categorySlug, snapshotJson, workflowStatus, version, admin.id, now, now),
+    env.DB.prepare(
+      `INSERT INTO content_question_revisions (
+         id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).bind(revisionId, questionId, categorySlug, version, action, snapshotJson, admin.id, now),
+    auditStatement(env, admin, `content.${action.toLowerCase()}`, "question", questionId, {
+      categorySlug,
+      version,
+      workflowStatus,
+    }),
+  ]);
+  return json({ success: true, questionId, categorySlug, version, workflowStatus, revisionId });
+}
+
+export async function publishAdminContent(
+  request: Request,
+  env: Env,
+  questionId: string,
+): Promise<Response> {
+  const admin = await requireAdmin(request, env);
+  await requireContentStudioSchema(env);
+  await rateLimitAdmin(request, env, admin, "content-publish");
+  await requireRecentStepUp(env, admin);
+  if (!CONTENT_ID_PATTERN.test(questionId)) {
+    throw new ApiError(400, "Invalid question ID", undefined, "CONTENT_QUESTION_ID_INVALID");
+  }
+  const edit = await env.DB.prepare(
+    `SELECT question_id AS questionId, category_slug AS categorySlug, draft_json AS draftJson,
+            workflow_status AS workflowStatus, version, published_version AS publishedVersion
+       FROM content_question_edits WHERE question_id = ?`,
+  ).bind(questionId).first<Pick<ContentEditRow,
+    "questionId" | "categorySlug" | "draftJson" | "workflowStatus" | "version" | "publishedVersion"
+  >>();
+  if (!edit) throw new ApiError(404, "Content draft not found", undefined, "CONTENT_NOT_FOUND");
+  if (edit.workflowStatus === "PUBLISHED" && edit.publishedVersion === edit.version) {
+    return json({ success: true, changed: false, version: edit.version });
+  }
+  if (edit.workflowStatus !== "IN_REVIEW") {
+    throw new ApiError(
+      409,
+      "Content must be submitted for review before publication",
+      undefined,
+      "CONTENT_REVIEW_REQUIRED",
+    );
+  }
+  const reviewedSnapshot = parseStoredSnapshot(edit.draftJson);
+  if (!reviewedSnapshot?.sources.length) {
+    throw new ApiError(
+      409,
+      "At least one authoritative HTTPS source is required before publication",
+      undefined,
+      "CONTENT_SOURCES_REQUIRED",
+    );
+  }
+  await validateCard(env, questionId, edit.categorySlug);
+  const now = timestamp();
+  const revisionId = crypto.randomUUID();
+  await env.DB.batch([
+    env.DB.prepare(
+      `UPDATE content_question_edits
+          SET workflow_status = 'PUBLISHED', published_version = version,
+              published_snapshot_json = draft_json, reviewer_user_id = ?,
+              published_at = ?, updated_at = ?
+        WHERE question_id = ?`,
+    ).bind(admin.id, now, now, questionId),
+    env.DB.prepare(
+      `INSERT INTO content_question_revisions (
+         id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
+       ) VALUES (?, ?, ?, ?, 'PUBLISHED', ?, ?, ?)`,
+    ).bind(revisionId, questionId, edit.categorySlug, edit.version, edit.draftJson, admin.id, now),
+    auditStatement(env, admin, "content.published", "question", questionId, {
+      categorySlug: edit.categorySlug,
+      version: edit.version,
+    }),
+  ]);
+  return json({ success: true, changed: true, version: edit.version, publishedAt: now });
+}
+
+export async function unpublishAdminContent(
+  request: Request,
+  env: Env,
+  questionId: string,
+): Promise<Response> {
+  const admin = await requireAdmin(request, env);
+  await requireContentStudioSchema(env);
+  await rateLimitAdmin(request, env, admin, "content-unpublish");
+  await requireRecentStepUp(env, admin);
+  const edit = await env.DB.prepare(
+    `SELECT question_id AS questionId, category_slug AS categorySlug, draft_json AS draftJson,
+            version, published_snapshot_json AS publishedSnapshotJson
+       FROM content_question_edits WHERE question_id = ?`,
+  ).bind(questionId).first<Pick<ContentEditRow,
+    "questionId" | "categorySlug" | "draftJson" | "version" | "publishedSnapshotJson"
+  >>();
+  if (!edit) throw new ApiError(404, "Content draft not found", undefined, "CONTENT_NOT_FOUND");
+  if (!edit.publishedSnapshotJson) return json({ success: true, changed: false, version: edit.version });
+  const version = edit.version + 1;
+  const now = timestamp();
+  await env.DB.batch([
+    env.DB.prepare(
+      `UPDATE content_question_edits
+          SET workflow_status = 'DRAFT', version = ?, published_version = NULL,
+              published_snapshot_json = NULL, reviewer_user_id = NULL,
+              published_at = NULL, editor_user_id = ?, updated_at = ?
+        WHERE question_id = ?`,
+    ).bind(version, admin.id, now, questionId),
+    env.DB.prepare(
+      `INSERT INTO content_question_revisions (
+         id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
+       ) VALUES (?, ?, ?, ?, 'UNPUBLISHED', ?, ?, ?)`,
+    ).bind(crypto.randomUUID(), questionId, edit.categorySlug, version, edit.draftJson, admin.id, now),
+    auditStatement(env, admin, "content.unpublished", "question", questionId, {
+      categorySlug: edit.categorySlug,
+      version,
+    }),
+  ]);
+  return json({ success: true, changed: true, version });
+}
+
+export async function restoreAdminContentRevision(
+  request: Request,
+  env: Env,
+  questionId: string,
+): Promise<Response> {
+  const admin = await requireAdmin(request, env);
+  await requireContentStudioSchema(env);
+  await rateLimitAdmin(request, env, admin, "content-restore");
+  const body = await parseJson<{ revisionId?: unknown }>(request, 1_024);
+  const revisionId = typeof body.revisionId === "string" ? body.revisionId : "";
+  if (!/^[A-Za-z0-9-]{36}$/u.test(revisionId)) {
+    throw new ApiError(400, "Invalid revision ID", undefined, "CONTENT_REVISION_ID_INVALID");
+  }
+  const [edit, revision] = await Promise.all([
+    env.DB.prepare(
+      "SELECT category_slug AS categorySlug, version FROM content_question_edits WHERE question_id = ?",
+    ).bind(questionId).first<Pick<ContentEditRow, "categorySlug" | "version">>(),
+    env.DB.prepare(
+      `SELECT category_slug AS categorySlug, snapshot_json AS snapshotJson
+         FROM content_question_revisions WHERE id = ? AND question_id = ?`,
+    ).bind(revisionId, questionId).first<Pick<ContentRevisionRow, "categorySlug" | "snapshotJson">>(),
+  ]);
+  if (!edit || !revision) throw new ApiError(404, "Content revision not found", undefined, "CONTENT_REVISION_NOT_FOUND");
+  const version = edit.version + 1;
+  const now = timestamp();
+  const restoredRevisionId = crypto.randomUUID();
+  await env.DB.batch([
+    env.DB.prepare(
+      `UPDATE content_question_edits
+          SET category_slug = ?, draft_json = ?, workflow_status = 'DRAFT',
+              version = ?, editor_user_id = ?, updated_at = ?
+        WHERE question_id = ?`,
+    ).bind(revision.categorySlug, revision.snapshotJson, version, admin.id, now, questionId),
+    env.DB.prepare(
+      `INSERT INTO content_question_revisions (
+         id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
+       ) VALUES (?, ?, ?, ?, 'RESTORED', ?, ?, ?)`,
+    ).bind(restoredRevisionId, questionId, revision.categorySlug, version, revision.snapshotJson, admin.id, now),
+    auditStatement(env, admin, "content.restored", "question", questionId, {
+      fromRevisionId: revisionId,
+      version,
+    }),
+  ]);
+  return json({ success: true, questionId, version, revisionId: restoredRevisionId });
 }
 
 export async function adminAudit(request: Request, env: Env): Promise<Response> {

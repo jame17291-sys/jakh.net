@@ -52,9 +52,9 @@ async function mockApi(context) {
         headers,
         body: JSON.stringify({
           ok: true,
-          schema: "8",
-          targetSchema: "8",
-          features: { registration: true, accountRecovery: true, accountDeletion: true },
+          schema: "9",
+          targetSchema: "9",
+          features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true },
         }),
       });
       return;
@@ -358,7 +358,7 @@ async function main() {
           text: "من يُشتهر بقانون الجاذبية الكونية بعد مشاهدة سقوط تفاحة؟",
           voice: "Microsoft Salma Online (Natural)",
           lang: "ar-EG",
-          rate: 0.96,
+          rate: 0.92,
           pitch: 1,
         });
         assert.equal(await audioButton.getAttribute('aria-label'), 'إيقاف');

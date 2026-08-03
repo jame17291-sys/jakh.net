@@ -31,7 +31,7 @@ async function fixture() {
     root,
     options: {
       sourceCommit: COMMIT,
-      expectedSchema: "8",
+      expectedSchema: "9",
       pagesName: "pages-123-1",
       pagesDir,
       workerName: "worker-123-1",
@@ -50,7 +50,7 @@ test("release manifest deterministically binds both artifacts, migrations, schem
 
   assert.deepEqual(first, second);
   assert.equal(first.sourceCommit, COMMIT);
-  assert.equal(first.expectedSchema, "8");
+  assert.equal(first.expectedSchema, "9");
   assert.equal(first.artifacts.pages.name, "pages-123-1");
   assert.equal(first.artifacts.pages.fileCount, 2);
   assert.equal(first.artifacts.worker.name, "worker-123-1");

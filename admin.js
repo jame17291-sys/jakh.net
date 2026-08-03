@@ -23,6 +23,44 @@
       tryAgain: "Try again",
       adminScope: "Administration applies only to JAKH accounts and jakh.net operations.",
       overview: "Overview",
+      contentStudio: "Content Studio",
+      editorialWorkspace: "Editorial workspace",
+      contentHeading: "Edit, review, and publish with confidence.",
+      contentLead: "Work in bilingual drafts, preview every change, and publish only after a protected approval. The previous live version remains available for rollback.",
+      contentCategory: "Category",
+      chooseCategory: "Choose a category",
+      searchQuestions: "Search questions",
+      contentSearchPlaceholder: "Question text or ID",
+      allContentStates: "All states",
+      unedited: "Unedited",
+      draft: "Draft",
+      inReview: "In review",
+      published: "Published",
+      loadQuestions: "Load questions",
+      questionLibrary: "Question library",
+      chooseCategoryFirst: "Choose a category to begin.",
+      chooseQuestion: "Choose a question to open the bilingual editor.",
+      history: "History",
+      question: "Question",
+      answer: "Answer",
+      explanation: "Explanation",
+      sourcesFormat: "Sources — one per line: Title | Publisher | https://…",
+      livePreview: "Live preview",
+      saveDraft: "Save draft",
+      submitForReview: "Submit for review",
+      publish: "Publish",
+      unpublish: "Unpublish",
+      revisionHistory: "Revision history",
+      contentLoaded: "Loaded {count} questions.",
+      noMatchingQuestions: "No questions match these filters.",
+      contentSaved: "Draft saved.",
+      contentSubmitted: "Draft submitted for review.",
+      contentPublished: "The approved version is live.",
+      contentUnpublished: "The published override was removed; the static version is live again.",
+      contentRestored: "Revision restored as a new draft.",
+      restoreRevision: "Restore",
+      invalidSources: "Write each source as Title | Publisher | https://…",
+      contentRequired: "English and Arabic questions and answers are required.",
       people: "People",
       feedback: "Feedback",
       auditLog: "Audit log",
@@ -178,6 +216,7 @@
       auditFeedback: "updated feedback review state",
       auditReauth: "reconfirmed their password",
       auditSessions: "signed out non-owner sessions",
+      auditContent: "changed editorial content",
       auditGeneric: "performed a privileged action",
       actionTarget: "Target: {target}",
       switchLanguage: "Switch language",
@@ -198,6 +237,44 @@
       tryAgain: "حاول مجدداً",
       adminScope: "تنطبق الإدارة على حسابات JAKH وعمليات jakh.net فقط.",
       overview: "نظرة عامة",
+      contentStudio: "استوديو المحتوى",
+      editorialWorkspace: "مساحة التحرير",
+      contentHeading: "حرّر وراجع وانشر بثقة.",
+      contentLead: "اكتب المسودة بالعربية والإنجليزية، وعاين كل تغيير، ولا تنشر إلا بعد موافقة محمية. تبقى النسخة السابقة متاحة للرجوع إليها.",
+      contentCategory: "الموضوع",
+      chooseCategory: "اختر موضوعًا",
+      searchQuestions: "البحث في الأسئلة",
+      contentSearchPlaceholder: "نص السؤال أو معرّفه",
+      allContentStates: "كل الحالات",
+      unedited: "من دون تعديل",
+      draft: "مسودة",
+      inReview: "قيد المراجعة",
+      published: "منشور",
+      loadQuestions: "تحميل الأسئلة",
+      questionLibrary: "مكتبة الأسئلة",
+      chooseCategoryFirst: "اختر موضوعًا للبدء.",
+      chooseQuestion: "اختر سؤالًا لفتح محرر العربية والإنجليزية.",
+      history: "السجل",
+      question: "السؤال",
+      answer: "الإجابة",
+      explanation: "الشرح",
+      sourcesFormat: "المصادر — مصدر في كل سطر: العنوان | الناشر | https://…",
+      livePreview: "معاينة مباشرة",
+      saveDraft: "حفظ المسودة",
+      submitForReview: "إرسال للمراجعة",
+      publish: "نشر",
+      unpublish: "إلغاء النشر",
+      revisionHistory: "سجل النسخ",
+      contentLoaded: "تم تحميل {count} سؤالًا.",
+      noMatchingQuestions: "لا توجد أسئلة تطابق هذه المرشحات.",
+      contentSaved: "حُفظت المسودة.",
+      contentSubmitted: "أُرسلت المسودة للمراجعة.",
+      contentPublished: "أصبحت النسخة المعتمدة منشورة.",
+      contentUnpublished: "أُلغي التعديل المنشور، وعادت النسخة الأساسية للعرض.",
+      contentRestored: "أُعيدت النسخة السابقة في مسودة جديدة.",
+      restoreRevision: "استعادة",
+      invalidSources: "اكتب كل مصدر بهذه الصيغة: العنوان | الناشر | https://…",
+      contentRequired: "يلزم إدخال السؤال والإجابة بالعربية والإنجليزية.",
       people: "الأشخاص",
       feedback: "الملاحظات",
       auditLog: "سجل التدقيق",
@@ -353,6 +430,7 @@
       auditFeedback: "حدّث حالة مراجعة ملاحظة",
       auditReauth: "أعاد تأكيد كلمة مروره",
       auditSessions: "سجّل خروج جلسات غير المالك",
+      auditContent: "غيّر محتوى تحريريًا",
       auditGeneric: "نفّذ إجراء ذا صلاحية عالية",
       actionTarget: "الهدف: {target}",
       switchLanguage: "تغيير اللغة",
@@ -372,6 +450,14 @@
     gateMode: "checking",
     people: { items: [], nextOffset: null, canViewEmail: false },
     feedback: { items: [], nextOffset: null, canViewEmail: false },
+    content: {
+      catalog: null,
+      cards: [],
+      edits: new Map(),
+      selectedId: null,
+      category: "",
+      revisions: [],
+    },
     stepUpResolver: null,
     actionReview: null,
     actionReviewResolver: null,
@@ -503,6 +589,14 @@
     if (state.feedback.items.length) renderFeedback();
     if (state.audit) renderAudit();
     if (state.security) renderSecurity();
+    if (state.content.catalog) renderContentCategoryOptions();
+    if (state.content.cards.length) {
+      renderContentQuestionList();
+      if (state.content.selectedId) {
+        renderContentEditorChrome();
+        renderContentPreview();
+      }
+    }
     if (state.actionReview) renderActionReview();
   }
 
@@ -707,7 +801,7 @@
       "security.password_reconfirmed": "auditReauth",
       "security.non_owner_sessions_revoked": "auditSessions",
     };
-    return t(labels[event.action] || "auditGeneric");
+    return t(labels[event.action] || (String(event.action || "").startsWith("content.") ? "auditContent" : "auditGeneric"));
   }
 
   function detailText(detail) {
@@ -737,6 +831,300 @@
       ? t("confirmationValidUntil", { time: dateFormat(stepUp.expiresAt, true) })
       : t("confirmationNeeded");
     els.reauthenticateButton.textContent = t(confirmed ? "confirmIdentity" : "confirmPassword");
+  }
+
+  function contentStatusLabel(status) {
+    return t({
+      UNEDITED: "unedited",
+      DRAFT: "draft",
+      IN_REVIEW: "inReview",
+      PUBLISHED: "published",
+    }[status] || "unedited");
+  }
+
+  async function staticJson(path) {
+    const response = await fetch(path, { credentials: "same-origin", cache: "no-store" });
+    if (!response.ok) throw new AdminApiError(t("requestFailed"), response.status, "STATIC_CONTENT_UNAVAILABLE");
+    return response.json();
+  }
+
+  function renderContentCategoryOptions() {
+    if (!state.content.catalog || !els.contentCategory) return;
+    const selected = state.content.category || els.contentCategory.value;
+    const categories = [...(state.content.catalog.categories || [])].sort((left, right) => (
+      String(left.title?.[state.lang] || left.title?.en || left.slug)
+        .localeCompare(String(right.title?.[state.lang] || right.title?.en || right.slug), state.lang)
+    ));
+    els.contentCategory.innerHTML = `<option value="">${escapeHtml(t("chooseCategory"))}</option>${categories.map((category) => (
+      `<option value="${escapeHtml(category.slug)}" ${category.slug === selected ? "selected" : ""}>${escapeHtml(category.title?.[state.lang] || category.title?.en || category.slug)} · ${escapeHtml(numberFormat(category.count))}</option>`
+    )).join("")}`;
+  }
+
+  async function loadContentCatalog() {
+    if (!state.content.catalog) state.content.catalog = await staticJson("/data/catalog.json");
+    renderContentCategoryOptions();
+  }
+
+  async function loadAllContentEdits(category) {
+    const edits = [];
+    let offset = 0;
+    do {
+      const data = await api(`/admin/content?category=${encodeURIComponent(category)}&limit=100&offset=${offset}`);
+      edits.push(...(data.edits || []));
+      offset = Number.isInteger(data.nextOffset) ? data.nextOffset : -1;
+    } while (offset >= 0 && edits.length < 10_000);
+    return edits;
+  }
+
+  function activeContentSnapshot(card) {
+    const edit = state.content.edits.get(card.id);
+    return edit?.draft || {
+      question: card.question || { en: "", ar: "" },
+      answer: card.answer || { en: "", ar: "" },
+      explanation: card.explanation || { en: "", ar: "" },
+      sources: card.review?.sources || [],
+    };
+  }
+
+  function filteredContentCards() {
+    const search = els.contentSearch.value.trim().toLocaleLowerCase(state.lang === "ar" ? "ar" : "en");
+    const status = els.contentStatus.value;
+    return state.content.cards.filter((card) => {
+      const edit = state.content.edits.get(card.id);
+      const workflow = edit?.workflowStatus || "UNEDITED";
+      if (status && workflow !== status) return false;
+      if (!search) return true;
+      const snapshot = activeContentSnapshot(card);
+      return [card.id, snapshot.question?.en, snapshot.question?.ar, snapshot.answer?.en, snapshot.answer?.ar]
+        .filter(Boolean)
+        .join(" ")
+        .toLocaleLowerCase(state.lang === "ar" ? "ar" : "en")
+        .includes(search);
+    });
+  }
+
+  function renderContentQuestionList() {
+    if (!state.content.cards.length) {
+      els.contentQuestionList.innerHTML = `<div class="empty-state">${escapeHtml(t("chooseCategoryFirst"))}</div>`;
+      els.contentResultsSummary.textContent = t("chooseCategoryFirst");
+      return;
+    }
+    const cards = filteredContentCards();
+    els.contentResultsSummary.textContent = cards.length
+      ? t("contentLoaded", { count: numberFormat(cards.length) })
+      : t("noMatchingQuestions");
+    els.contentQuestionList.innerHTML = cards.length ? cards.map((card) => {
+      const edit = state.content.edits.get(card.id);
+      const workflow = edit?.workflowStatus || "UNEDITED";
+      const snapshot = activeContentSnapshot(card);
+      const active = state.content.selectedId === card.id;
+      return `<button class="content-question-item${active ? " is-active" : ""}" type="button" data-content-question="${escapeHtml(card.id)}" aria-pressed="${active}">
+        <strong>${escapeHtml(card.id)}</strong>
+        <p>${escapeHtml(snapshot.question?.[state.lang] || snapshot.question?.en || "—")}</p>
+        <span class="content-question-meta"><span>${escapeHtml(contentStatusLabel(workflow))}</span><span>v${escapeHtml(edit?.version || 0)}</span></span>
+      </button>`;
+    }).join("") : `<div class="empty-state">${escapeHtml(t("noMatchingQuestions"))}</div>`;
+  }
+
+  function serializeContentSources(sources) {
+    return (Array.isArray(sources) ? sources : [])
+      .map((source) => `${source.title || ""} | ${source.publisher || ""} | ${source.url || ""}`)
+      .join("\n");
+  }
+
+  function parseContentSources() {
+    const lines = els.contentSources.value.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
+    return lines.map((line) => {
+      const parts = line.split("|").map((part) => part.trim());
+      if (parts.length !== 3 || !parts[0] || !parts[1]) throw new Error(t("invalidSources"));
+      let url;
+      try { url = new URL(parts[2]); } catch { throw new Error(t("invalidSources")); }
+      if (url.protocol !== "https:") throw new Error(t("invalidSources"));
+      return { title: parts[0], publisher: parts[1], url: url.href };
+    });
+  }
+
+  function contentEditorSnapshot() {
+    const snapshot = {
+      question: { en: els.contentQuestionEn.value.trim(), ar: els.contentQuestionAr.value.trim() },
+      answer: { en: els.contentAnswerEn.value.trim(), ar: els.contentAnswerAr.value.trim() },
+      explanation: { en: els.contentExplanationEn.value.trim(), ar: els.contentExplanationAr.value.trim() },
+      sources: parseContentSources(),
+    };
+    if (!snapshot.question.en || !snapshot.question.ar || !snapshot.answer.en || !snapshot.answer.ar) {
+      throw new Error(t("contentRequired"));
+    }
+    return snapshot;
+  }
+
+  function renderContentPreview() {
+    if (!state.content.selectedId) return;
+    const enQuestion = els.contentQuestionEn.value.trim() || "—";
+    const arQuestion = els.contentQuestionAr.value.trim() || "—";
+    const enAnswer = els.contentAnswerEn.value.trim() || "—";
+    const arAnswer = els.contentAnswerAr.value.trim() || "—";
+    const explanation = state.lang === "ar"
+      ? els.contentExplanationAr.value.trim()
+      : els.contentExplanationEn.value.trim();
+    els.contentPreviewCard.innerHTML = `<article class="content-preview-card" ${state.lang === "ar" ? "dir=\"rtl\"" : ""}>
+      <p class="preview-question">${escapeHtml(state.lang === "ar" ? arQuestion : enQuestion)}</p>
+      <p class="preview-answer"><strong>${escapeHtml(t("answer"))}:</strong> ${escapeHtml(state.lang === "ar" ? arAnswer : enAnswer)}</p>
+      ${explanation ? `<p class="preview-explanation"><strong>${escapeHtml(t("explanation"))}:</strong> ${escapeHtml(explanation)}</p>` : ""}
+    </article>`;
+  }
+
+  function renderContentEditorChrome() {
+    const id = state.content.selectedId;
+    if (!id) return;
+    const edit = state.content.edits.get(id);
+    const status = edit?.workflowStatus || "UNEDITED";
+    els.contentEditorStatus.className = `status-pill ${status === "PUBLISHED" ? "is-good" : "is-pending"}`;
+    els.contentEditorStatus.textContent = contentStatusLabel(status);
+    els.contentEditorTitle.textContent = `${id}${edit ? ` · v${edit.version}` : ""}`;
+    els.contentPublish.hidden = status !== "IN_REVIEW";
+    els.contentUnpublish.hidden = !edit?.hasPublishedVersion;
+    els.contentHistoryButton.hidden = !edit;
+  }
+
+  function selectContentQuestion(questionId) {
+    const card = state.content.cards.find((candidate) => candidate.id === questionId);
+    if (!card) return;
+    state.content.selectedId = questionId;
+    const snapshot = activeContentSnapshot(card);
+    els.contentEditorEmpty.hidden = true;
+    els.contentEditorForm.hidden = false;
+    els.contentQuestionEn.value = snapshot.question?.en || "";
+    els.contentQuestionAr.value = snapshot.question?.ar || "";
+    els.contentAnswerEn.value = snapshot.answer?.en || "";
+    els.contentAnswerAr.value = snapshot.answer?.ar || "";
+    els.contentExplanationEn.value = snapshot.explanation?.en || "";
+    els.contentExplanationAr.value = snapshot.explanation?.ar || "";
+    els.contentSources.value = serializeContentSources(snapshot.sources);
+    els.contentEditorMessage.hidden = true;
+    els.contentHistory.hidden = true;
+    renderContentEditorChrome();
+    renderContentQuestionList();
+    renderContentPreview();
+  }
+
+  async function loadContentCategory({ preserveSelection = false } = {}) {
+    await loadContentCatalog();
+    const category = els.contentCategory.value;
+    if (!category) {
+      state.content.category = "";
+      state.content.cards = [];
+      state.content.edits = new Map();
+      renderContentQuestionList();
+      return;
+    }
+    state.content.category = category;
+    els.contentQuestionList.innerHTML = `<div class="loading-state">${escapeHtml(t("loading"))}</div>`;
+    const [cards, edits] = await Promise.all([
+      staticJson(`/data/${encodeURIComponent(category)}.json`),
+      loadAllContentEdits(category),
+    ]);
+    if (!Array.isArray(cards)) throw new AdminApiError(t("requestFailed"));
+    state.content.cards = cards;
+    state.content.edits = new Map(edits.map((edit) => [edit.questionId, edit]));
+    const selected = preserveSelection ? state.content.selectedId : null;
+    if (!selected || !cards.some((card) => card.id === selected)) {
+      state.content.selectedId = null;
+      els.contentEditorForm.hidden = true;
+      els.contentEditorEmpty.hidden = false;
+    }
+    renderContentQuestionList();
+    if (state.content.selectedId) selectContentQuestion(state.content.selectedId);
+  }
+
+  function showContentEditorError(error) {
+    els.contentEditorMessage.textContent = error instanceof Error ? error.message : t("requestFailed");
+    els.contentEditorMessage.hidden = false;
+  }
+
+  async function saveContent(workflowStatus, button) {
+    const questionId = state.content.selectedId;
+    if (!questionId || !state.content.category) return;
+    let content;
+    try { content = contentEditorSnapshot(); } catch (error) { showContentEditorError(error); return; }
+    setButtonBusy(button, true);
+    els.contentEditorMessage.hidden = true;
+    try {
+      await api(`/admin/content/${encodeURIComponent(questionId)}`, {
+        method: "PUT",
+        body: JSON.stringify({ categorySlug: state.content.category, content, workflowStatus }),
+      });
+      showToast(t(workflowStatus === "IN_REVIEW" ? "contentSubmitted" : "contentSaved"));
+      await loadContentCategory({ preserveSelection: true });
+      if (state.audit) await loadAudit();
+    } catch (error) {
+      handleActionError(error);
+      showContentEditorError(error);
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
+  async function publishContent(button) {
+    const questionId = state.content.selectedId;
+    if (!questionId || !await requestStepUp()) return;
+    setButtonBusy(button, true);
+    try {
+      await api(`/admin/content/${encodeURIComponent(questionId)}/publish`, { method: "POST", body: "{}" });
+      showToast(t("contentPublished"));
+      await Promise.all([loadContentCategory({ preserveSelection: true }), loadSecurity()]);
+      if (state.audit) await loadAudit();
+    } catch (error) {
+      handleActionError(error);
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
+  async function unpublishContent(button) {
+    const questionId = state.content.selectedId;
+    if (!questionId || !await requestStepUp()) return;
+    setButtonBusy(button, true);
+    try {
+      await api(`/admin/content/${encodeURIComponent(questionId)}/unpublish`, { method: "POST", body: "{}" });
+      showToast(t("contentUnpublished"));
+      await Promise.all([loadContentCategory({ preserveSelection: true }), loadSecurity()]);
+      if (state.audit) await loadAudit();
+    } catch (error) {
+      handleActionError(error);
+    } finally {
+      setButtonBusy(button, false);
+    }
+  }
+
+  async function loadContentHistory() {
+    const questionId = state.content.selectedId;
+    if (!questionId) return;
+    const data = await api(`/admin/content/${encodeURIComponent(questionId)}/revisions?limit=50`);
+    state.content.revisions = data.revisions || [];
+    els.contentHistory.hidden = false;
+    els.contentHistoryList.innerHTML = state.content.revisions.length
+      ? state.content.revisions.map((revision) => `<article class="content-revision"><div><strong>v${escapeHtml(revision.version)} · ${escapeHtml(revision.action)}</strong><p>${escapeHtml(revision.actorUsername || "—")} · ${escapeHtml(dateFormat(revision.createdAt, true))}</p></div><button class="quiet-button" type="button" data-content-restore="${escapeHtml(revision.id)}">${escapeHtml(t("restoreRevision"))}</button></article>`).join("")
+      : `<div class="empty-state">${escapeHtml(t("noAuditEvents"))}</div>`;
+  }
+
+  async function restoreContentRevision(revisionId, button) {
+    const questionId = state.content.selectedId;
+    if (!questionId) return;
+    setButtonBusy(button, true);
+    try {
+      await api(`/admin/content/${encodeURIComponent(questionId)}/restore`, {
+        method: "POST",
+        body: JSON.stringify({ revisionId }),
+      });
+      showToast(t("contentRestored"));
+      await loadContentCategory({ preserveSelection: true });
+      await loadContentHistory();
+      if (state.audit) await loadAudit();
+    } catch (error) {
+      handleActionError(error);
+    } finally {
+      setButtonBusy(button, false);
+    }
   }
 
   async function loadOverview() {
@@ -816,6 +1204,7 @@
     const tasks = [loadOverview(), loadHealth(), loadSecurity()];
     if (state.activeTab === "people") tasks.push(loadPeople(true));
     if (state.activeTab === "feedback") tasks.push(loadFeedback(true));
+    if (state.activeTab === "content") tasks.push(loadContentCategory({ preserveSelection: true }));
     if (state.activeTab === "audit" && state.me?.role === "OWNER") tasks.push(loadAudit());
     const results = await Promise.allSettled(tasks);
     const sessionFailure = results.find((result) => (
@@ -872,6 +1261,7 @@
     $$("[data-panel]").forEach((panel) => { panel.hidden = panel.dataset.panel !== tab; });
     if (tab === "people" && !state.people.items.length) void loadPeople(true).catch(handleActionError);
     if (tab === "feedback" && !state.feedback.items.length) void loadFeedback(true).catch(handleActionError);
+    if (tab === "content" && !state.content.catalog) void loadContentCatalog().catch(handleActionError);
     if (tab === "audit" && !state.audit) void loadAudit().catch(handleActionError);
   }
 
@@ -1177,6 +1567,10 @@
       if (open) selectTab(open.dataset.openTab);
       const ban = event.target.closest("[data-user-ban]");
       if (ban) void changeUserBan(ban);
+      const question = event.target.closest("[data-content-question]");
+      if (question) selectContentQuestion(question.dataset.contentQuestion);
+      const restoreRevision = event.target.closest("[data-content-restore]");
+      if (restoreRevision) void restoreContentRevision(restoreRevision.dataset.contentRestore, restoreRevision);
     });
     document.addEventListener("change", (event) => {
       const target = event.target;
@@ -1191,6 +1585,16 @@
     els.feedbackFilterButton.addEventListener("click", () => void loadFeedback(true).catch(handleActionError));
     els.loadMoreFeedback.addEventListener("click", () => void loadFeedback(false).catch(handleActionError));
     els.reloadAudit.addEventListener("click", () => void loadAudit().catch(handleActionError));
+    els.contentLoadButton.addEventListener("click", () => void loadContentCategory().catch(handleActionError));
+    els.contentCategory.addEventListener("change", () => void loadContentCategory().catch(handleActionError));
+    els.contentSearch.addEventListener("input", renderContentQuestionList);
+    els.contentStatus.addEventListener("change", renderContentQuestionList);
+    els.contentEditorForm.addEventListener("input", renderContentPreview);
+    els.contentSaveDraft.addEventListener("click", () => void saveContent("DRAFT", els.contentSaveDraft));
+    els.contentSubmitReview.addEventListener("click", () => void saveContent("IN_REVIEW", els.contentSubmitReview));
+    els.contentPublish.addEventListener("click", () => void publishContent(els.contentPublish));
+    els.contentUnpublish.addEventListener("click", () => void unpublishContent(els.contentUnpublish));
+    els.contentHistoryButton.addEventListener("click", () => void loadContentHistory().catch(handleActionError));
     els.reauthenticateButton.addEventListener("click", () => void requestStepUp(true));
     els.revokeSessionsButton.addEventListener("click", () => void revokeSessions(els.revokeSessionsButton));
     els.reauthForm.addEventListener("submit", reauthenticate);
@@ -1218,6 +1622,11 @@
       "actionReviewDialog", "actionReviewForm", "actionReviewAction", "actionReviewTarget", "actionReviewImpact", "actionReviewReason",
       "actionReviewTypedConfirmationWrap", "actionReviewTypedLead", "actionReviewTypedConfirmation", "actionReviewTypedError",
       "actionReviewConfirm", "actionReviewCancel",
+      "contentCategory", "contentSearch", "contentStatus", "contentLoadButton", "contentResultsSummary", "contentQuestionList",
+      "contentEditorEmpty", "contentEditorForm", "contentEditorStatus", "contentEditorTitle", "contentHistoryButton",
+      "contentQuestionEn", "contentQuestionAr", "contentAnswerEn", "contentAnswerAr", "contentExplanationEn", "contentExplanationAr",
+      "contentSources", "contentPreviewCard", "contentEditorMessage", "contentSaveDraft", "contentSubmitReview", "contentPublish",
+      "contentUnpublish", "contentHistory", "contentHistoryList",
     ].forEach((id) => { els[id] = document.getElementById(id); });
   }
 

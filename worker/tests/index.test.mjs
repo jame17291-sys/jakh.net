@@ -69,8 +69,7 @@ test("schema 6 gates table-dependent account features without breaking core rout
   assert.equal((await profile.json()).code, "UNAUTHORIZED");
 });
 
-test("schema 7 keeps deletion gated while recovery routes reach normal authentication", async () => {
-  await featureUnavailable("/api/user/account", "DELETE", "7");
+test("schema 8 keeps account routes available during the Content Studio migration", async () => {
   const recoveryRotation = await handler.fetch(
     new Request("https://api.jakh.net/api/auth/recovery/rotate", {
       method: "POST",
@@ -80,7 +79,7 @@ test("schema 7 keeps deletion gated while recovery routes reach normal authentic
       },
       body: JSON.stringify({ password: "current-password-123" }),
     }),
-    env("7"),
+    env("8"),
     {},
   );
   assert.equal(recoveryRotation.status, 401);

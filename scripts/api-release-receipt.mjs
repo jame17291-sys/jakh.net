@@ -15,6 +15,7 @@ const FEATURE_SCHEMA = Object.freeze({
   registration: 7,
   accountRecovery: 7,
   accountDeletion: 8,
+  contentStudio: 9,
 });
 
 function invariant(condition, message) {

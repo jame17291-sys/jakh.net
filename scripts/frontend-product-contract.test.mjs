@@ -400,7 +400,7 @@ test('read-aloud prefers a natural Arabic voice and uses human prosody', () => {
 
   const qualityModule = fs.readFileSync(path.join(root, 'speech-quality.js'), 'utf8');
   assert.match(qualityModule, /utterance\.lang = voice\.lang/u);
-  assert.match(qualityModule, /utterance\.rate = lang === 'ar' \? 0\.96 : 0\.98/u);
+  assert.match(qualityModule, /utterance\.rate = lang === 'ar' \? 0\.92 : 0\.98/u);
   assert.match(qualityModule, /utterance\.pitch = 1/u);
 });
 

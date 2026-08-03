@@ -2,8 +2,14 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   adminAudit,
+  adminContent,
+  adminContentRevisions,
   adminUsers,
+  publishAdminContent,
   revokeNonOwnerSessions,
+  restoreAdminContentRevision,
+  saveAdminContent,
+  unpublishAdminContent,
   updateSuggestion,
   updateUserBan,
   updateUserRole,
@@ -29,6 +35,10 @@ function adminEnv({
   stepUp = null,
   suggestionStatus = "new",
   nonOwnerSessionCount = 3,
+  contentEdit = null,
+  contentRevision = null,
+  contentRows = [],
+  revisionRows = [],
 } = {}) {
   const prepared = [];
   const batches = [];
@@ -61,7 +71,10 @@ function adminEnv({
               };
             }
             if (sql.includes("INSERT INTO rate_limits")) return { count: 1 };
+            if (sql.includes("FROM schema_meta")) return { value: "9" };
             if (sql.includes("FROM admin_step_ups")) return stepUp;
+            if (sql.includes("FROM content_question_edits WHERE question_id")) return contentEdit;
+            if (sql.includes("FROM content_question_revisions WHERE id")) return contentRevision;
             if (sql.includes("SELECT id, role, is_banned")) {
               return { id: "target-1", role: targetRole, isBanned: 0 };
             }
@@ -84,6 +97,8 @@ function adminEnv({
                 }],
               };
             }
+            if (sql.includes("FROM content_question_edits e")) return { results: contentRows };
+            if (sql.includes("FROM content_question_revisions r")) return { results: revisionRows };
             return { results: [] };
           },
           async run() { return { success: true }; },
@@ -224,4 +239,257 @@ test("audit reasons are optional and bounded", async () => {
     ),
     (error) => error?.status === 400 && error?.code === "AUDIT_REASON_INVALID",
   );
+});
+
+const contentSnapshot = {
+  question: {
+    en: "What change turns a gas into a liquid?",
+    ar: "ما اسم تحوّل الغاز إلى سائل؟",
+  },
+  answer: { en: "Condensation", ar: "التكاثف" },
+  explanation: {
+    en: "Cooling a gas can turn it into a liquid.",
+    ar: "عندما يبرد الغاز قد يتكاثف ويتحوّل إلى سائل.",
+  },
+  sources: [{
+    title: "Water cycle",
+    publisher: "Science institution",
+    url: "https://example.edu/water-cycle",
+  }],
+};
+
+test("Content Studio saves a private bilingual draft with an immutable revision", async () => {
+  const env = adminEnv();
+  const response = await saveAdminContent(
+    request("/api/admin/content/science-003", "PUT", {
+      categorySlug: "science",
+      workflowStatus: "IN_REVIEW",
+      content: contentSnapshot,
+    }),
+    env,
+    "science-003",
+  );
+  assert.equal(response.status, 200);
+  assert.deepEqual(await response.json(), {
+    success: true,
+    questionId: "science-003",
+    categorySlug: "science",
+    version: 1,
+    workflowStatus: "IN_REVIEW",
+    revisionId: env.batches[0][1].values[0],
+  });
+  const editInsert = env.batches[0][0];
+  assert.doesNotMatch(editInsert.sql, /published_snapshot_json/u, "saving a draft must not write the public snapshot");
+  assert.deepEqual(JSON.parse(editInsert.values[2]), contentSnapshot);
+  assert.match(env.batches[0][1].sql, /content_question_revisions/u);
+  assert.equal(env.batches[0][1].values[4], "SUBMITTED");
+});
+
+test("Content Studio rejects non-catalog cards and unsafe source URLs", async () => {
+  await assert.rejects(
+    saveAdminContent(
+      request("/api/admin/content/unknown-card", "PUT", {
+        categorySlug: "science",
+        content: contentSnapshot,
+      }),
+      adminEnv(),
+      "unknown-card",
+    ),
+    (error) => error?.status === 400 && error?.code === "CARD_CATEGORY_MISMATCH",
+  );
+  await assert.rejects(
+    saveAdminContent(
+      request("/api/admin/content/science-003", "PUT", {
+        categorySlug: "science",
+        content: {
+          ...contentSnapshot,
+          sources: [{ ...contentSnapshot.sources[0], url: "http://example.edu/water-cycle" }],
+        },
+      }),
+      adminEnv(),
+      "science-003",
+    ),
+    (error) => error?.status === 400 && error?.code === "CONTENT_SOURCE_URL_INVALID",
+  );
+});
+
+test("publishing requires review and creates the explicit approved snapshot", async () => {
+  const draftJson = JSON.stringify(contentSnapshot);
+  const env = adminEnv({
+    stepUp: { verifiedAt: new Date().toISOString() },
+    contentEdit: {
+      questionId: "science-003",
+      categorySlug: "science",
+      draftJson,
+      workflowStatus: "IN_REVIEW",
+      version: 2,
+      publishedVersion: null,
+    },
+  });
+  const response = await publishAdminContent(
+    request("/api/admin/content/science-003/publish", "POST"),
+    env,
+    "science-003",
+  );
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).changed, true);
+  assert.match(env.batches[0][0].sql, /published_snapshot_json = draft_json/u);
+  assert.match(env.batches[0][1].sql, /'PUBLISHED'/u);
+
+  await assert.rejects(
+    publishAdminContent(
+      request("/api/admin/content/science-003/publish", "POST"),
+      adminEnv({
+        stepUp: { verifiedAt: new Date().toISOString() },
+        contentEdit: { questionId: "science-003", categorySlug: "science", draftJson, workflowStatus: "DRAFT", version: 3, publishedVersion: null },
+      }),
+      "science-003",
+    ),
+    (error) => error?.status === 409 && error?.code === "CONTENT_REVIEW_REQUIRED",
+  );
+
+  await assert.rejects(
+    publishAdminContent(
+      request("/api/admin/content/science-003/publish", "POST"),
+      adminEnv({
+        stepUp: { verifiedAt: new Date().toISOString() },
+        contentEdit: {
+          questionId: "science-003",
+          categorySlug: "science",
+          draftJson: JSON.stringify({ ...contentSnapshot, sources: [] }),
+          workflowStatus: "IN_REVIEW",
+          version: 4,
+          publishedVersion: null,
+        },
+      }),
+      "science-003",
+    ),
+    (error) => error?.status === 409 && error?.code === "CONTENT_SOURCES_REQUIRED",
+  );
+});
+
+test("unpublish and restore preserve history while returning edits to draft", async () => {
+  const draftJson = JSON.stringify(contentSnapshot);
+  const unpublishEnv = adminEnv({
+    stepUp: { verifiedAt: new Date().toISOString() },
+    contentEdit: {
+      questionId: "science-003",
+      categorySlug: "science",
+      draftJson,
+      version: 2,
+      publishedSnapshotJson: draftJson,
+    },
+  });
+  const unpublished = await unpublishAdminContent(
+    request("/api/admin/content/science-003/unpublish", "POST"),
+    unpublishEnv,
+    "science-003",
+  );
+  assert.equal((await unpublished.json()).version, 3);
+  assert.match(unpublishEnv.batches[0][0].sql, /published_snapshot_json = NULL/u);
+  assert.match(unpublishEnv.batches[0][1].sql, /'UNPUBLISHED'/u);
+
+  const revisionId = "11111111-1111-4111-8111-111111111111";
+  const restoreEnv = adminEnv({
+    contentEdit: { categorySlug: "science", version: 3 },
+    contentRevision: { categorySlug: "science", snapshotJson: draftJson },
+  });
+  const restored = await restoreAdminContentRevision(
+    request("/api/admin/content/science-003/restore", "POST", { revisionId }),
+    restoreEnv,
+    "science-003",
+  );
+  assert.equal((await restored.json()).version, 4);
+  assert.match(restoreEnv.batches[0][0].sql, /workflow_status = 'DRAFT'/u);
+  assert.match(restoreEnv.batches[0][1].sql, /'RESTORED'/u);
+});
+
+test("Content Studio list and revision history expose parsed, non-secret records", async () => {
+  const now = "2026-08-03T00:00:00.000Z";
+  const env = adminEnv({
+    contentRows: [{
+      questionId: "science-003",
+      categorySlug: "science",
+      draftJson: JSON.stringify(contentSnapshot),
+      workflowStatus: "IN_REVIEW",
+      version: 2,
+      publishedVersion: null,
+      publishedSnapshotJson: null,
+      editorUsername: "editor",
+      reviewerUsername: null,
+      createdAt: now,
+      updatedAt: now,
+      publishedAt: null,
+    }],
+    revisionRows: [{
+      id: "11111111-1111-4111-8111-111111111111",
+      questionId: "science-003",
+      categorySlug: "science",
+      version: 2,
+      action: "SUBMITTED",
+      snapshotJson: JSON.stringify(contentSnapshot),
+      actorUsername: "editor",
+      createdAt: now,
+    }],
+  });
+  const list = await adminContent(request("/api/admin/content?category=science&status=IN_REVIEW"), env);
+  assert.equal((await list.json()).edits[0].draft.question.ar, contentSnapshot.question.ar);
+  const history = await adminContentRevisions(
+    request("/api/admin/content/science-003/revisions"),
+    env,
+    "science-003",
+  );
+  assert.equal((await history.json()).revisions[0].snapshot.answer.ar, "التكاثف");
+});
+
+test("Content Studio handles updated drafts and idempotent publication actions", async () => {
+  const updatedEnv = adminEnv({
+    contentEdit: { questionId: "science-003", categorySlug: "science", version: 4 },
+  });
+  const updated = await saveAdminContent(
+    request("/api/admin/content/science-003", "PUT", {
+      categorySlug: "science",
+      workflowStatus: "DRAFT",
+      content: { ...contentSnapshot, sources: undefined },
+    }),
+    updatedEnv,
+    "science-003",
+  );
+  assert.equal((await updated.json()).version, 5);
+  assert.equal(updatedEnv.batches[0][1].values[4], "UPDATED");
+
+  const publishedEnv = adminEnv({
+    stepUp: { verifiedAt: new Date().toISOString() },
+    contentEdit: {
+      questionId: "science-003",
+      categorySlug: "science",
+      draftJson: JSON.stringify(contentSnapshot),
+      workflowStatus: "PUBLISHED",
+      version: 5,
+      publishedVersion: 5,
+    },
+  });
+  assert.deepEqual(await (await publishAdminContent(
+    request("/api/admin/content/science-003/publish", "POST"),
+    publishedEnv,
+    "science-003",
+  )).json(), { success: true, changed: false, version: 5 });
+  assert.equal(publishedEnv.batches.length, 0);
+
+  const unpublishedEnv = adminEnv({
+    stepUp: { verifiedAt: new Date().toISOString() },
+    contentEdit: {
+      questionId: "science-003",
+      categorySlug: "science",
+      draftJson: JSON.stringify(contentSnapshot),
+      version: 5,
+      publishedSnapshotJson: null,
+    },
+  });
+  assert.deepEqual(await (await unpublishAdminContent(
+    request("/api/admin/content/science-003/unpublish", "POST"),
+    unpublishedEnv,
+    "science-003",
+  )).json(), { success: true, changed: false, version: 5 });
+  assert.equal(unpublishedEnv.batches.length, 0);
 });

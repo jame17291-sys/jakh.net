@@ -41,6 +41,7 @@ test('server scoring uses the scorable count and never masquerades as fact revie
   assert.match(searchLeaderboard, /Number\(category\.scorableQuestionCount\) >= 10/u);
   assert.doesNotMatch(productSource, /verifiedQuestionCount/u);
   assert.match(app, /leaderboardTitle: 'Server-checked leaderboard'/u);
+  assert.match(app, /leaderboardNav: 'Leaderboard'/u);
   assert.match(searchLeaderboard, /Server checking applies to submitted answers and scoring, not editorial fact review\./u);
   assert.match(searchLeaderboard, /وهذا منفصل عن المراجعة التحريرية للمعلومات/u);
   assert.match(searchLeaderboard, /'Server checked'/u);

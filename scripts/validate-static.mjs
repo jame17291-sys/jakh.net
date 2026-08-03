@@ -411,12 +411,13 @@ for (const file of ["app.js", "sw.js"]) {
 const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 if (!appSource.includes("https://api.jakh.net")) fail("app.js: production API origin is not configured");
 if (/fetch\(\s*["']\/api\//u.test(appSource)) fail("app.js: stale same-origin API fetch remains");
-const directorySearchStart = appSource.indexOf("function renderCategoryDirectory()");
-const directorySearchEnd = appSource.indexOf("\nfunction renderClusterTabBar()", directorySearchStart);
-if (directorySearchStart < 0 || directorySearchEnd < 0) {
-  fail("app.js: category directory search renderer is missing");
+const directorySource = fs.readFileSync(path.join(root, "directory-ui.js"), "utf8");
+const directorySearchStart = directorySource.indexOf("const matchingCategories");
+const directorySearchEnd = directorySource.indexOf("totalMatchingCount", directorySearchStart);
+if (!appSource.includes("import('/directory-ui.js')") || directorySearchStart < 0 || directorySearchEnd < 0) {
+  fail("directory-ui.js: category directory search renderer is missing or not lazy-loaded");
 } else {
-  const directorySearchSource = appSource.slice(directorySearchStart, directorySearchEnd);
+  const directorySearchSource = directorySource.slice(directorySearchStart, directorySearchEnd);
   if (/\b(?:section\.(?:title|description)|meta\.cluster)\b/u.test(directorySearchSource)) {
     fail("app.js: category search must not match shared section metadata");
   }

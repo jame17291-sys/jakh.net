@@ -58,6 +58,9 @@
           <button class="admin-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="overviewPanel" id="overviewTab" data-tab="overview">
             <span aria-hidden="true">◈</span><span data-i18n="overview">Overview</span>
           </button>
+          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="contentPanel" id="contentTab" data-tab="content">
+            <span aria-hidden="true">✎</span><span data-i18n="contentStudio">Content Studio</span>
+          </button>
           <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="peoplePanel" id="peopleTab" data-tab="people">
             <span aria-hidden="true">♙</span><span data-i18n="people">People</span>
           </button>
@@ -132,6 +135,61 @@
                 <button class="text-button" type="button" data-open-tab="feedback" data-i18n="reviewFeedback">Review feedback</button>
               </div>
               <div id="recentSuggestions" class="activity-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="contentPanel" class="tab-panel" role="tabpanel" aria-labelledby="contentTab" data-panel="content" hidden>
+          <div class="page-heading">
+            <div>
+              <span class="eyebrow" data-i18n="editorialWorkspace">Editorial workspace</span>
+              <h1 data-i18n="contentHeading">Edit, review, and publish with confidence.</h1>
+              <p data-i18n="contentLead">Work in bilingual drafts, preview every change, and publish only after a protected approval. The previous live version remains available for rollback.</p>
+            </div>
+          </div>
+          <article class="panel content-toolbar">
+            <div class="filter-grid content-filter-grid">
+              <label class="input-label"><span data-i18n="contentCategory">Category</span><select id="contentCategory"><option value="" data-i18n="chooseCategory">Choose a category</option></select></label>
+              <label class="input-label"><span data-i18n="searchQuestions">Search questions</span><input id="contentSearch" type="search" maxlength="96" data-i18n-placeholder="contentSearchPlaceholder" placeholder="Question text or ID"></label>
+              <label class="input-label"><span data-i18n="reviewState">Review state</span><select id="contentStatus"><option value="" data-i18n="allContentStates">All states</option><option value="UNEDITED" data-i18n="unedited">Unedited</option><option value="DRAFT" data-i18n="draft">Draft</option><option value="IN_REVIEW" data-i18n="inReview">In review</option><option value="PUBLISHED" data-i18n="published">Published</option></select></label>
+              <button id="contentLoadButton" class="secondary-button filter-submit" type="button" data-i18n="loadQuestions">Load questions</button>
+            </div>
+          </article>
+          <div class="content-studio-grid">
+            <article class="panel content-browser-panel">
+              <div class="panel-heading compact-heading"><div><h2 data-i18n="questionLibrary">Question library</h2><p id="contentResultsSummary" data-i18n="chooseCategoryFirst">Choose a category to begin.</p></div></div>
+              <div id="contentQuestionList" class="content-question-list" aria-live="polite"></div>
+            </article>
+            <article class="panel content-editor-panel">
+              <div id="contentEditorEmpty" class="empty-state" data-i18n="chooseQuestion">Choose a question to open the bilingual editor.</div>
+              <form id="contentEditorForm" hidden novalidate>
+                <div class="content-editor-heading">
+                  <div><span id="contentEditorStatus" class="status-pill is-pending">—</span><h2 id="contentEditorTitle">—</h2></div>
+                  <button id="contentHistoryButton" class="quiet-button" type="button" data-i18n="history">History</button>
+                </div>
+                <div class="content-language-grid">
+                  <fieldset><legend>English</legend>
+                    <label class="input-label"><span data-i18n="question">Question</span><textarea id="contentQuestionEn" rows="4" maxlength="4000" required></textarea></label>
+                    <label class="input-label"><span data-i18n="answer">Answer</span><textarea id="contentAnswerEn" rows="2" maxlength="4000" required></textarea></label>
+                    <label class="input-label"><span data-i18n="explanation">Explanation</span><textarea id="contentExplanationEn" rows="4" maxlength="4000"></textarea></label>
+                  </fieldset>
+                  <fieldset dir="rtl"><legend>العربية</legend>
+                    <label class="input-label"><span data-i18n="question">السؤال</span><textarea id="contentQuestionAr" rows="4" maxlength="4000" lang="ar" dir="rtl" required></textarea></label>
+                    <label class="input-label"><span data-i18n="answer">الإجابة</span><textarea id="contentAnswerAr" rows="2" maxlength="4000" lang="ar" dir="rtl" required></textarea></label>
+                    <label class="input-label"><span data-i18n="explanation">الشرح</span><textarea id="contentExplanationAr" rows="4" maxlength="4000" lang="ar" dir="rtl"></textarea></label>
+                  </fieldset>
+                </div>
+                <label class="input-label"><span data-i18n="sourcesFormat">Sources — one per line: Title | Publisher | https://…</span><textarea id="contentSources" rows="4" maxlength="8000" dir="ltr" placeholder="Title | Publisher | https://example.com/source"></textarea></label>
+                <section class="content-preview" aria-labelledby="contentPreviewTitle"><h3 id="contentPreviewTitle" data-i18n="livePreview">Live preview</h3><div id="contentPreviewCard"></div></section>
+                <p id="contentEditorMessage" class="form-error" role="alert" hidden></p>
+                <div class="button-row content-editor-actions">
+                  <button id="contentSaveDraft" class="secondary-button" type="button" data-i18n="saveDraft">Save draft</button>
+                  <button id="contentSubmitReview" class="primary-button" type="button" data-i18n="submitForReview">Submit for review</button>
+                  <button id="contentPublish" class="primary-button" type="button" data-i18n="publish">Publish</button>
+                  <button id="contentUnpublish" class="danger-button" type="button" data-i18n="unpublish">Unpublish</button>
+                </div>
+                <section id="contentHistory" class="content-history" hidden><h3 data-i18n="revisionHistory">Revision history</h3><div id="contentHistoryList"></div></section>
+              </form>
             </article>
           </div>
         </section>

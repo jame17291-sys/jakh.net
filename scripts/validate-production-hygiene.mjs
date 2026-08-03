@@ -56,6 +56,9 @@ export function auditProductionHygiene() {
       failures.push(`${label} Worker config enables a service outside the approved free hosting architecture`);
     }
   }
+  if (!/"html_handling"\s*:\s*"none"/u.test(siteConfig)) {
+    failures.push("site Worker must disable platform HTML normalization because canonical routing is enforced in Worker code");
+  }
   const cronMatch = workerConfig.match(/"crons"\s*:\s*\[([^\]]*)\]/u);
   const cronCount = cronMatch ? (cronMatch[1].match(/"[^"]+"/gu) || []).length : 0;
   if (cronCount > 5) failures.push(`Worker config uses ${cronCount} cron triggers; Free allows 5`);

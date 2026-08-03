@@ -215,6 +215,10 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /--stage candidate/u);
   assert.match(workflow, /--stage rollback/u);
   assert.match(workflow, /--expected-worker-version/u);
+  assert.match(workflow, /JAKH_MONITOR_EXPECTED_WORKER_VERSION: \$\{\{ steps\.candidate_identity\.outputs\.worker-version \}\}/u);
+  assert.match(workflow, /JAKH_MONITOR_EXPECTED_WORKER_VERSION="\$\{\{ steps\.preflight\.outputs\.rollback-version \}\}"/u);
+  assert.match(workflow, /JAKH_MONITOR_MAX_ATTEMPTS: 12/u);
+  assert.match(workflow, /JAKH_MONITOR_RETRY_DELAY_MS: 10000/u);
   assert.match(workflow, /steps\.rollback_proof\.outputs\.rollback-safe == 'true'/u);
   assert.match(workflow, /static-api-release-gate\.mjs compare/u);
 

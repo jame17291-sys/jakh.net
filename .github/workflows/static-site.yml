@@ -284,6 +284,9 @@ jobs:
           RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
           JAKH_MONITOR_SCOPE: site
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/rollback-target-monitor.json
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: 12
+          JAKH_MONITOR_RETRY_DELAY_MS: 10000
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-preflight.log
         run: |
           set -euo pipefail
@@ -431,6 +434,9 @@ jobs:
         env:
           JAKH_MONITOR_SCOPE: site
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/runtime-monitor.json
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.candidate_identity.outputs.worker-version }}
+          JAKH_MONITOR_MAX_ATTEMPTS: 12
+          JAKH_MONITOR_RETRY_DELAY_MS: 10000
         run: node scripts/monitor-production.mjs
 
       - name: Bind live static quarantine proof to the exact candidate Worker
@@ -506,6 +512,9 @@ jobs:
           set +e
           JAKH_MONITOR_SCOPE=site \
           JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
+          JAKH_MONITOR_EXPECTED_WORKER_VERSION="${{ steps.preflight.outputs.rollback-version }}" \
+          JAKH_MONITOR_MAX_ATTEMPTS=12 \
+          JAKH_MONITOR_RETRY_DELAY_MS=10000 \
             node scripts/monitor-production.mjs
           monitor_status=$?
           set -e

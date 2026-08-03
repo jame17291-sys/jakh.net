@@ -8,9 +8,9 @@ function manifest() {
   return {
     service: "jakh-site",
     buildId: "a".repeat(64),
-    fileCount: 596,
+    fileCount: 539,
     totalBytes: 26_831_311,
-    files: Object.fromEntries(Array.from({ length: 596 }, (_, index) => [`/file-${index}`, {}])),
+    files: Object.fromEntries(Array.from({ length: 539 }, (_, index) => [`/file-${index}`, {}])),
     routes: { "/": "/index.html", "/__404__": "/404.html" },
     aliases: {},
     publication: {
@@ -86,7 +86,7 @@ test("Pages receipt binds the exact manifest and successful 404 quarantine proof
   });
   assert.equal(receipt.result, "deployed-and-quarantine-verified");
   assert.equal(receipt.artifact.buildId, "a".repeat(64));
-  assert.equal(receipt.artifact.fileCount, 596);
+  assert.equal(receipt.artifact.fileCount, 539);
   assert.equal(receipt.verification.hosts.apex.monitorStatus, "success");
   assert.equal(receipt.verification.hosts.www.monitorStatus, "success");
   assert.match(receipt.artifact.manifestSha256, /^[a-f0-9]{64}$/u);

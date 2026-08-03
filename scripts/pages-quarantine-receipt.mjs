@@ -58,7 +58,7 @@ export function buildPagesQuarantineReceipt({
     ...validateScopedMonitorReport(apexMonitor, { scope: "pages" }).map((error) => `apex: ${error}`),
     ...validateScopedMonitorReport(wwwMonitor, { scope: "pages" }).map((error) => `www: ${error}`),
   ];
-  if (manifest.fileCount !== 596) errors.push(`Pages artifact contains ${String(manifest.fileCount)} files instead of 596`);
+  if (manifest.fileCount !== 539) errors.push(`Pages artifact contains ${String(manifest.fileCount)} files instead of 539`);
   const publication = manifest.publication;
   if (publication?.state !== CONTENT_PUBLICATION_CONTRACT.state) errors.push("artifact publication state is invalid");
   if (publication?.policySha256 !== CONTENT_PUBLICATION_CONTRACT.manifestSha256) errors.push("artifact quarantine digest is invalid");

@@ -403,7 +403,22 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.match(workflow, /d1 migrations apply DB --remote/u);
   assert.ok(workflow.indexOf("--phase migrate-final") < workflow.indexOf("id: migration_authorization"));
   assert.ok(workflow.indexOf("id: migration_authorization") < workflow.indexOf("d1 migrations apply DB --remote"));
-  assert.match(workflow, /Fail closed until compatibility receipt and encrypted off-account D1 backup are enforced/u);
+  const encryptBackup = workflow.indexOf("node scripts/d1-backup.mjs encrypt");
+  const restoreBackup = workflow.indexOf("node scripts/d1-backup.mjs verify");
+  const attestBackup = workflow.indexOf("node scripts/d1-backup.mjs attest");
+  const uploadBackup = workflow.indexOf("Store the tested encrypted backup off-account before mutation");
+  const authorizeMutation = workflow.indexOf("node scripts/d1-backup.mjs authorize");
+  const applyMigrations = workflow.indexOf("d1 migrations apply DB --remote");
+  assert.ok(encryptBackup > 0);
+  assert.ok(encryptBackup < restoreBackup);
+  assert.ok(restoreBackup < attestBackup);
+  assert.ok(attestBackup < uploadBackup);
+  assert.ok(uploadBackup < authorizeMutation);
+  assert.ok(authorizeMutation < applyMigrations);
+  assert.match(workflow, /pre-migration\.sql\.jakh/u);
+  assert.match(workflow, /retention-days: 35/u);
+  assert.match(workflow, /Plaintext backup retained/u);
+  assert.doesNotMatch(workflow, /D1 mutation blocked::migrate-final is intentionally disabled/u);
   assert.match(workflow, /migration_authorization[\s\S]+exit 1/u);
   assert.match(workflow, /steps\.migration_authorization\.outcome == 'success'/u);
   const compatibilityJob = workflow.slice(

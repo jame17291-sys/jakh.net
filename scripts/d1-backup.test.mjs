@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { randomBytes } from "node:crypto";
+import { readdirSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -8,6 +9,7 @@ import {
   decryptBackup,
   encryptBackup,
   encryptionKey,
+  SUPPORTED_RESTORE_SCHEMA_VERSIONS,
 } from "./d1-backup.mjs";
 
 const sample = Buffer.from("PRAGMA defer_foreign_keys=TRUE;\nCREATE TABLE sample(id INTEGER PRIMARY KEY);\nINSERT INTO sample VALUES(1);\n", "utf8");
@@ -38,12 +40,27 @@ test("tampering and the wrong key fail authenticated decryption", () => {
 
 test("restore attestation requires one supported schema with a real table inventory", () => {
   const receipt = encryptBackup({ plaintext: sample, key }).receipt;
-  const attested = attestRestore(receipt, [{ success: true, results: [{ schema_version: "8", table_count: 17 }] }]);
+  const attested = attestRestore(receipt, [{ success: true, results: [{ schema_version: "9", table_count: 20 }] }]);
   assert.equal(attested.status, "passed");
+  assert.equal(attested.restoreProof.schemaVersion, "9");
   assert.equal(attested.restoreProof.target, "ephemeral-local-d1");
   assert.equal(attested.restoreProof.destructiveProductionOperation, false);
   assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "8", table_count: 2 }] }]), /too few tables/u);
   assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "5", table_count: 17 }] }]), /unsupported/u);
+  assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "10", table_count: 20 }] }]), /unsupported/u);
+});
+
+test("restore attestation supports the latest checked-in D1 migration", () => {
+  const latestMigration = readdirSync(new URL("../worker/migrations/", import.meta.url))
+    .map((name) => name.match(/^(\d{4})_.*\.sql$/u)?.[1])
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+  assert.ok(latestMigration, "expected at least one numbered D1 migration");
+  assert.ok(
+    SUPPORTED_RESTORE_SCHEMA_VERSIONS.includes(String(Number(latestMigration))),
+    `restore attestation must support latest D1 schema ${Number(latestMigration)}`,
+  );
 });
 
 test("backup key parser accepts exactly 256 bits", () => {

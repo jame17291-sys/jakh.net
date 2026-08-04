@@ -15,6 +15,7 @@ export const ALGORITHM = "aes-256-gcm";
 export const AUTH_TAG_BYTES = 16;
 export const MAX_PLAINTEXT_BYTES = 50 * 1024 * 1024;
 export const DEFAULT_RETENTION_DAYS = 35;
+export const SUPPORTED_RESTORE_SCHEMA_VERSIONS = Object.freeze(["6", "7", "8", "9"]);
 const SOURCE_PATH = fileURLToPath(import.meta.url);
 
 function invariant(condition, message) {
@@ -163,7 +164,7 @@ export function attestRestore(receipt, queryPayload, now = new Date()) {
   invariant(rows.length === 1, "Restore verification must return exactly one schema row");
   const schemaVersion = String(rows[0].schema_version ?? "");
   const tableCount = Number(rows[0].table_count);
-  invariant(["6", "7", "8"].includes(schemaVersion), `Restored schema version is unsupported: ${schemaVersion || "missing"}`);
+  invariant(SUPPORTED_RESTORE_SCHEMA_VERSIONS.includes(schemaVersion), `Restored schema version is unsupported: ${schemaVersion || "missing"}`);
   invariant(Number.isInteger(tableCount) && tableCount >= 10, `Restored database has too few tables: ${rows[0].table_count ?? "missing"}`);
   return {
     ...receipt,

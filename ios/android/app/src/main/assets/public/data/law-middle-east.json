@@ -1,0 +1,796 @@
+{
+  "slug": "law-middle-east",
+  "title": {
+    "en": "Middle East Law",
+    "ar": "القانون في الشرق الأوسط"
+  },
+  "description": {
+    "en": "Islamic jurisprudence, Arab legal systems, and international law concepts.",
+    "ar": "الفقه الإسلامي والأنظمة القانونية العربية ومفاهيم القانون الدولي."
+  },
+  "cluster": {
+    "en": "Social Sciences",
+    "ar": "العلوم الاجتماعية"
+  },
+  "cluster_key": "social",
+  "emoji": "⚖️",
+  "mode": "quiz",
+  "count": 48,
+  "difficultyCounts": {
+    "easy": 16,
+    "medium": 3,
+    "hard": 23,
+    "very-advanced": 6
+  },
+  "subcategories": [],
+  "cards": [
+    {
+      "id": "law-001",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic Law",
+        "ar": "الشريعة الإسلامية"
+      },
+      "question": {
+        "en": "What is the Arabic term for Islamic law derived from the Quran and Sunnah?",
+        "ar": "ما المصطلح العربي للشريعة الإسلامية المستمدة من القرآن والسنة؟"
+      },
+      "answer": {
+        "en": "Sharia (الشريعة).",
+        "ar": "الشريعة الإسلامية."
+      }
+    },
+    {
+      "id": "law-002",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic Law",
+        "ar": "الشريعة الإسلامية"
+      },
+      "question": {
+        "en": "What is fiqh in Islamic legal terminology?",
+        "ar": "ما الفقه في المصطلح القانوني الإسلامي؟"
+      },
+      "answer": {
+        "en": "Fiqh is Islamic jurisprudence — the practical rulings derived by scholars from the sources of Sharia.",
+        "ar": "الفقه هو علم الأحكام الإسلامية العملية التي يستنبطها العلماء من مصادر الشريعة."
+      }
+    },
+    {
+      "id": "law-003",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Sources of Law",
+        "ar": "مصادر القانون"
+      },
+      "question": {
+        "en": "What are the four main sources of Islamic law (usul al-fiqh)?",
+        "ar": "ما المصادر الأربعة الرئيسية للشريعة الإسلامية (أصول الفقه)؟"
+      },
+      "answer": {
+        "en": "The Quran, the Sunnah (Hadith), Ijma (scholarly consensus), and Qiyas (analogical reasoning).",
+        "ar": "القرآن الكريم، والسنة النبوية (الحديث)، والإجماع، والقياس."
+      }
+    },
+    {
+      "id": "law-004",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic Law",
+        "ar": "الشريعة الإسلامية"
+      },
+      "question": {
+        "en": "What is a fatwa in Islamic law?",
+        "ar": "ما الفتوى في الشريعة الإسلامية؟"
+      },
+      "answer": {
+        "en": "A formal legal opinion or ruling issued by a qualified Islamic scholar (mufti) on a religious or legal question.",
+        "ar": "رأي قانوني أو حكم رسمي يُصدره عالم إسلامي مؤهل (مفتٍ) في مسألة دينية أو قانونية."
+      }
+    },
+    {
+      "id": "law-005",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Legal Systems",
+        "ar": "الأنظمة القانونية"
+      },
+      "question": {
+        "en": "What legal system is based on the Napoleonic Code and is used in many Arab countries?",
+        "ar": "ما النظام القانوني المستند إلى القانون النابليوني والمستخدم في كثير من الدول العربية؟"
+      },
+      "answer": {
+        "en": "Civil law (code law) system, as inherited from French or Egyptian civil codes.",
+        "ar": "نظام القانون المدني (قانون التقنين)، الموروث من القانون الفرنسي أو المصري المدني."
+      }
+    },
+    {
+      "id": "law-006",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Criminal Law",
+        "ar": "القانون الجنائي"
+      },
+      "question": {
+        "en": "What is the Arabic term for the fixed punishments prescribed by Islamic law for specific offenses?",
+        "ar": "ما المصطلح العربي للعقوبات الثابتة التي يحددها القانون الإسلامي لجرائم بعينها؟"
+      },
+      "answer": {
+        "en": "Hudud (حدود) — the set of specific punishments for crimes like theft, slander, and highway robbery.",
+        "ar": "الحدود — العقوبات المحددة لجرائم كالسرقة والقذف والحرابة."
+      }
+    },
+    {
+      "id": "law-007",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Criminal Law",
+        "ar": "القانون الجنائي"
+      },
+      "question": {
+        "en": "What is the Islamic legal principle of qisas?",
+        "ar": "ما مبدأ القصاص في الشريعة الإسلامية؟"
+      },
+      "answer": {
+        "en": "Qisas is the principle of proportional retaliation ('an eye for an eye') in cases of murder or bodily harm, where the victim's family may choose retaliation, blood money, or forgiveness.",
+        "ar": "القصاص هو مبدأ المعاملة بالمثل في حالات القتل أو الأذى الجسدي، حيث يحق لأسرة الضحية اختيار القصاص أو الدية أو العفو."
+      }
+    },
+    {
+      "id": "law-008",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Family Law",
+        "ar": "قانون الأسرة"
+      },
+      "question": {
+        "en": "What is the Arabic legal term for a Muslim marriage contract?",
+        "ar": "ما المصطلح القانوني العربي لعقد الزواج الإسلامي؟"
+      },
+      "answer": {
+        "en": "Aqd al-nikah (عقد النكاح) — the marriage contract requiring offer, acceptance, two witnesses, and a dowry (mahr).",
+        "ar": "عقد النكاح — يستلزم الإيجاب والقبول وشاهدَين والمهر."
+      }
+    },
+    {
+      "id": "law-009",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Family Law",
+        "ar": "قانون الأسرة"
+      },
+      "question": {
+        "en": "What is the mahr in Islamic marriage law?",
+        "ar": "ما المهر في قانون الزواج الإسلامي؟"
+      },
+      "answer": {
+        "en": "A mandatory gift or payment made by the groom to the bride, which becomes her exclusive property.",
+        "ar": "هدية أو مبلغ إلزامي يقدمه العريس للعروس ويصبح ملكًا خالصًا لها."
+      }
+    },
+    {
+      "id": "law-010",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Family Law",
+        "ar": "قانون الأسرة"
+      },
+      "question": {
+        "en": "What is the Arabic term for the waiting period a woman must observe after divorce or a husband's death before remarrying?",
+        "ar": "ما المصطلح العربي لفترة الانتظار التي يجب أن تلتزمها المرأة بعد الطلاق أو وفاة زوجها قبل إعادة الزواج؟"
+      },
+      "answer": {
+        "en": "Iddah (عدة) — typically three menstrual cycles after divorce, or four months and ten days after a husband's death.",
+        "ar": "العدة — عادةً ثلاثة قروء بعد الطلاق، أو أربعة أشهر وعشرة أيام بعد وفاة الزوج."
+      }
+    },
+    {
+      "id": "law-011",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Property Law",
+        "ar": "قانون الملكية"
+      },
+      "question": {
+        "en": "What is a waqf in Islamic law?",
+        "ar": "ما الوقف في الشريعة الإسلامية؟"
+      },
+      "answer": {
+        "en": "A waqf is a religious endowment — property donated for charitable, religious, or educational purposes, which cannot be sold or transferred.",
+        "ar": "الوقف هو تبرع ديني — ملكية تُوقف لأغراض خيرية أو دينية أو تعليمية، لا يمكن بيعها أو التصرف فيها."
+      }
+    },
+    {
+      "id": "law-012",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Inheritance",
+        "ar": "الميراث"
+      },
+      "question": {
+        "en": "What is the science of Islamic inheritance law called?",
+        "ar": "ما اسم علم قانون الميراث الإسلامي؟"
+      },
+      "answer": {
+        "en": "Ilm al-faraidh (علم الفرائض) — the science of prescribed inheritance shares defined in the Quran.",
+        "ar": "علم الفرائض — علم حصص الميراث المحددة في القرآن الكريم."
+      }
+    },
+    {
+      "id": "law-013",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What does the term 'sovereignty' mean in international law?",
+        "ar": "ما معنى مصطلح 'السيادة' في القانون الدولي؟"
+      },
+      "answer": {
+        "en": "The exclusive authority of a state to govern itself, make laws, and conduct affairs within its territory without interference from other states.",
+        "ar": "السلطة الحصرية للدولة لحكم نفسها وسنّ القوانين وإدارة شؤونها داخل أراضيها دون تدخل من دول أخرى."
+      }
+    },
+    {
+      "id": "law-014",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Legal Principles",
+        "ar": "مبادئ قانونية"
+      },
+      "question": {
+        "en": "What does the Latin phrase 'presumption of innocence' mean in criminal law?",
+        "ar": "ما معنى مبدأ 'قرينة البراءة' في القانون الجنائي؟"
+      },
+      "answer": {
+        "en": "A defendant is considered innocent until proven guilty beyond reasonable doubt — the prosecution bears the burden of proof.",
+        "ar": "يُعدّ المتهم بريئًا حتى تثبت إدانته خارج نطاق الشك المعقول — ويقع عبء الإثبات على الادعاء."
+      }
+    },
+    {
+      "id": "law-015",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Legal Systems",
+        "ar": "الأنظمة القانونية"
+      },
+      "question": {
+        "en": "What country has the largest and most influential civil code in the Arab world, widely adopted by other nations?",
+        "ar": "ما الدولة التي تمتلك أكبر وأكثر القوانين المدنية تأثيرًا في العالم العربي، والتي اعتمدتها دول أخرى كثيرة؟"
+      },
+      "answer": {
+        "en": "Egypt — the Egyptian Civil Code (1949), drafted by Abd El-Razzak El-Sanhuri, was adopted as the basis for civil law in Iraq, Syria, Libya, Kuwait, and others.",
+        "ar": "مصر — القانون المدني المصري (1949)، الذي صاغه عبد الرزاق السنهوري، اعتُمد أساسًا للقانون المدني في العراق وسوريا وليبيا والكويت وغيرها."
+      }
+    },
+    {
+      "id": "law-016",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Islamic Law",
+        "ar": "الشريعة الإسلامية"
+      },
+      "question": {
+        "en": "What are the five categories of acts in Islamic law (ahkam al-khamsa)?",
+        "ar": "ما الأحكام الخمسة في الشريعة الإسلامية؟"
+      },
+      "answer": {
+        "en": "Wajib (obligatory), Mandub (recommended), Mubah (permissible), Makruh (discouraged), and Haram (forbidden).",
+        "ar": "الواجب، والمندوب، والمباح، والمكروه، والحرام."
+      }
+    },
+    {
+      "id": "law-017",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Legal Schools",
+        "ar": "المذاهب القانونية"
+      },
+      "question": {
+        "en": "What are the four major Sunni schools of Islamic jurisprudence (madhabs)?",
+        "ar": "ما المذاهب الفقهية السنية الأربعة الكبرى؟"
+      },
+      "answer": {
+        "en": "The Hanafi, Maliki, Shafi'i, and Hanbali schools, each named after its founding scholar.",
+        "ar": "المذهب الحنفي والمالكي والشافعي والحنبلي، كل منها منسوب إلى مؤسسه."
+      }
+    },
+    {
+      "id": "law-018",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Contract Law",
+        "ar": "قانون العقود"
+      },
+      "question": {
+        "en": "What are the essential elements of a valid contract in most Arab civil law systems?",
+        "ar": "ما الأركان الأساسية للعقد الصحيح في معظم أنظمة القانون المدني العربي؟"
+      },
+      "answer": {
+        "en": "Offer and acceptance (meeting of minds), legal capacity of the parties, a lawful object, and a lawful cause (consideration).",
+        "ar": "الإيجاب والقبول (التراضي)، وأهلية الطرفَين القانونية، ومحل مشروع، وسبب مشروع."
+      }
+    },
+    {
+      "id": "law-019",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What is the Arab League and what legal role does it play in the region?",
+        "ar": "ما جامعة الدول العربية وما دورها القانوني في المنطقة؟"
+      },
+      "answer": {
+        "en": "Founded in 1945, the Arab League is a regional organization of Arab states that promotes cooperation and coordinates policy. It adopts resolutions and conventions, though its legal instruments are generally non-binding on member states without domestic ratification.",
+        "ar": "تأسست جامعة الدول العربية عام 1945، وهي منظمة إقليمية تضم الدول العربية تعزّز التعاون وتنسّق السياسات. تتبنى قرارات واتفاقيات، غير أن صكوكها القانونية غير مُلزِمة للدول الأعضاء عمومًا دون التصديق الداخلي."
+      }
+    },
+    {
+      "id": "law-020",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Constitutional Law",
+        "ar": "القانون الدستوري"
+      },
+      "question": {
+        "en": "What constitutional provision is common to Saudi Arabia, Qatar, and the UAE regarding the basis of their legal systems?",
+        "ar": "ما الحكم الدستوري المشترك بين المملكة العربية السعودية وقطر والإمارات فيما يتعلق بأساس أنظمتها القانونية؟"
+      },
+      "answer": {
+        "en": "All three designate Islamic Sharia as a (or the) principal source of legislation in their constitutional documents.",
+        "ar": "تُقرّ الدول الثلاث بأن الشريعة الإسلامية هي المصدر الرئيسي (أو أحد المصادر الرئيسية) للتشريع في وثائقها الدستورية."
+      }
+    },
+    {
+      "id": "law-021",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Criminal Law",
+        "ar": "القانون الجنائي"
+      },
+      "question": {
+        "en": "What is ta'zir in Islamic criminal law?",
+        "ar": "ما التعزير في القانون الجنائي الإسلامي؟"
+      },
+      "answer": {
+        "en": "Discretionary punishments imposed by a judge for offenses not covered by hudud or qisas, where the punishment type and severity is left to judicial discretion.",
+        "ar": "العقوبات التقديرية التي يفرضها القاضي على الجرائم غير المشمولة بالحدود أو القصاص، وتُترك نوعية العقوبة وشدتها للسلطة التقديرية للقضاء."
+      }
+    },
+    {
+      "id": "law-022",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Islamic Finance",
+        "ar": "التمويل الإسلامي"
+      },
+      "question": {
+        "en": "What is riba in Islamic law and how is it defined?",
+        "ar": "ما الربا في الشريعة الإسلامية وكيف يُعرَّف؟"
+      },
+      "answer": {
+        "en": "Riba (ربا) means any increase or excess charged over a loan principal — broadly interpreted as interest. It is prohibited in Islam. Islamic finance uses profit-sharing instruments (mudarabah, musharakah) to achieve similar economic outcomes without charging fixed interest.",
+        "ar": "الربا هو أي زيادة أو فضل يُفرض على أصل القرض — يُفسَّر على نطاق واسع بالفائدة. وهو محرَّم في الإسلام. يستخدم التمويل الإسلامي أدوات تقاسم الأرباح (المضاربة والمشاركة) لتحقيق نتائج اقتصادية مماثلة دون فرض فائدة ثابتة."
+      }
+    },
+    {
+      "id": "law-023",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Family Law",
+        "ar": "قانون الأسرة"
+      },
+      "question": {
+        "en": "What is the difference between talaq and khul' in Islamic divorce law?",
+        "ar": "ما الفرق بين الطلاق والخلع في قانون الطلاق الإسلامي؟"
+      },
+      "answer": {
+        "en": "Talaq is divorce initiated by the husband by pronouncing the divorce formula. Khul' is divorce initiated by the wife, who typically returns the mahr (dowry) to the husband in exchange for release from the marriage.",
+        "ar": "الطلاق هو الطلاق الذي يُبادر به الزوج بنطق صيغة الطلاق. الخلع هو الطلاق الذي تُبادر به الزوجة، عادةً بردّ المهر للزوج مقابل الإفراج عنها من الزواج."
+      }
+    },
+    {
+      "id": "law-024",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Islamic Finance",
+        "ar": "التمويل الإسلامي"
+      },
+      "question": {
+        "en": "What is a sukuk in Islamic finance?",
+        "ar": "ما الصكوك في التمويل الإسلامي؟"
+      },
+      "answer": {
+        "en": "Sukuk are Islamic financial certificates representing ownership stakes in assets or projects — the Islamic equivalent of bonds. They generate returns through profit-sharing or rent from the underlying asset rather than interest payments.",
+        "ar": "الصكوك شهادات مالية إسلامية تمثّل حصص ملكية في أصول أو مشاريع — وهي المكافئ الإسلامي للسندات. تدرّ عوائد من خلال تقاسم الأرباح أو الإيجار من الأصل الأساسي بدلًا من مدفوعات الفائدة."
+      }
+    },
+    {
+      "id": "law-025",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Labor Law",
+        "ar": "قانون العمل"
+      },
+      "question": {
+        "en": "What is the kafala (sponsorship) system common in Gulf states and how does it affect migrant workers?",
+        "ar": "ما نظام الكفالة الشائع في دول الخليج وكيف يؤثر على العمال المهاجرين؟"
+      },
+      "answer": {
+        "en": "The kafala system ties a migrant worker's legal residency and employment to a specific local sponsor (kafeel). Workers cannot change employers or leave the country without sponsor permission, creating dependency and vulnerability to exploitation. Several Gulf states have begun reforming or dismantling the system.",
+        "ar": "نظام الكفالة يربط إقامة العامل المهاجر القانونية وعمله بكفيل محلي بعينه. لا يستطيع العمال تغيير أصحاب العمل أو مغادرة البلاد دون إذن الكفيل، مما يخلق تبعية وهشاشة أمام الاستغلال. بدأت عدة دول خليجية في إصلاح النظام أو تفكيكه."
+      }
+    },
+    {
+      "id": "law-026",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What is the principle of non-intervention in international law?",
+        "ar": "ما مبدأ عدم التدخل في القانون الدولي؟"
+      },
+      "answer": {
+        "en": "The principle that states are forbidden from intervening in the internal affairs of other sovereign states — enshrined in Article 2(1) of the UN Charter. It prohibits coercive interference in political, economic, or social matters.",
+        "ar": "المبدأ القاضي بمنع الدول من التدخل في الشؤون الداخلية للدول ذات السيادة الأخرى — المكرَّس في المادة 2(1) من ميثاق الأمم المتحدة. يحظر التدخل القسري في الشؤون السياسية والاقتصادية والاجتماعية."
+      }
+    },
+    {
+      "id": "law-027",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Human Rights",
+        "ar": "حقوق الإنسان"
+      },
+      "question": {
+        "en": "What is the Cairo Declaration on Human Rights in Islam (1990)?",
+        "ar": "ما إعلان القاهرة لحقوق الإنسان في الإسلام (1990)؟"
+      },
+      "answer": {
+        "en": "Adopted by the Organisation of Islamic Cooperation (OIC), it affirms human rights but subordinates them to Islamic Sharia, offering an alternative framework to the Universal Declaration of Human Rights. It is criticized for limiting rights to what Sharia permits.",
+        "ar": "اعتمدته منظمة التعاون الإسلامي، ويؤكد حقوق الإنسان لكن يُخضعها للشريعة الإسلامية، مقدّمًا إطارًا بديلًا للإعلان العالمي لحقوق الإنسان. يُنتقد لتقييده الحقوق بما تجيزه الشريعة."
+      }
+    },
+    {
+      "id": "law-028",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Criminal Law",
+        "ar": "القانون الجنائي"
+      },
+      "question": {
+        "en": "What is the burden of proof for hudud crimes in classical Islamic jurisprudence?",
+        "ar": "ما عبء الإثبات في جرائم الحدود في الفقه الإسلامي الكلاسيكي؟"
+      },
+      "answer": {
+        "en": "Extremely high — for example, zina (adultery/fornication) requires four male witnesses to the act itself. This effectively made enforcement rare in classical fiqh, with scholars arguing the strict standard was intended to limit actual punishment.",
+        "ar": "مرتفع جدًا — على سبيل المثال، تستلزم جريمة الزنا أربعة شهود ذكور على الفعل ذاته. هذا جعل التطبيق نادرًا في الفقه الكلاسيكي، إذ يرى العلماء أن المعيار الصارم كان مقصودًا للحدّ من العقوبة الفعلية."
+      }
+    },
+    {
+      "id": "law-029",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Commercial Law",
+        "ar": "القانون التجاري"
+      },
+      "question": {
+        "en": "What is murabaha in Islamic finance and how is it used for home or car purchases?",
+        "ar": "ما المرابحة في التمويل الإسلامي وكيف تُستخدم لشراء المنازل أو السيارات؟"
+      },
+      "answer": {
+        "en": "Murabaha is a cost-plus financing arrangement: the bank buys an asset outright and resells it to the customer at a disclosed markup, payable in installments. This avoids interest while achieving similar financing outcomes.",
+        "ar": "المرابحة هي ترتيب تمويل بالتكلفة زائد ربح: يشتري البنك أصلًا بشكل مباشر ثم يبيعه للعميل بهامش ربح محدد مسبقًا، يدفعه على أقساط. هذا يتجنب الفائدة مع تحقيق نتائج تمويلية مماثلة."
+      }
+    },
+    {
+      "id": "law-030",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Constitutional Law",
+        "ar": "القانون الدستوري"
+      },
+      "question": {
+        "en": "What is the difference between a presidential and a parliamentary system of government?",
+        "ar": "ما الفرق بين النظام الرئاسي والنظام البرلماني في الحكم؟"
+      },
+      "answer": {
+        "en": "In a presidential system (e.g. USA, Egypt), the executive is separate from the legislature and directly elected. In a parliamentary system (e.g. UK, Jordan), the executive (prime minister) is drawn from and accountable to the legislature.",
+        "ar": "في النظام الرئاسي (مثل الولايات المتحدة ومصر)، السلطة التنفيذية منفصلة عن التشريعية ومنتخبة مباشرةً. في النظام البرلماني (مثل المملكة المتحدة والأردن)، ينبثق رئيس الوزراء من البرلمان ويكون مسؤولًا أمامه."
+      }
+    },
+    {
+      "id": "law-031",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What is the principle of jus cogens in international law?",
+        "ar": "ما مبدأ القانون الآمر (jus cogens) في القانون الدولي؟"
+      },
+      "answer": {
+        "en": "Peremptory norms of international law from which no derogation is permitted — such as the prohibitions on genocide, slavery, and torture. They cannot be overridden by treaty.",
+        "ar": "قواعد آمرة في القانون الدولي لا يجوز الانحراف عنها — كحظر الإبادة الجماعية والرق والتعذيب. لا يمكن لأي معاهدة تجاوزها."
+      }
+    },
+    {
+      "id": "law-032",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Family Law",
+        "ar": "قانون الأسرة"
+      },
+      "question": {
+        "en": "What is the Islamic concept of wilaya in family law?",
+        "ar": "ما مفهوم الولاية في قانون الأسرة الإسلامي؟"
+      },
+      "answer": {
+        "en": "Wilaya is guardianship or protective authority — most commonly the male guardian's (wali) role in a woman's marriage, which classical fiqh requires for the marriage contract's validity. Contemporary Muslim-majority states vary widely in how strictly they apply this requirement.",
+        "ar": "الولاية هي الحضانة أو السلطة الوقائية — وأكثر ما تُعرف بها دور الولي الذكر في زواج المرأة، الذي يشترطه الفقه الكلاسيكي لصحة عقد الزواج. تتفاوت دول ذات الأغلبية المسلمة تفاوتًا كبيرًا في مدى تطبيق هذا الشرط."
+      }
+    },
+    {
+      "id": "law-033",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Commercial Law",
+        "ar": "القانون التجاري"
+      },
+      "question": {
+        "en": "What is ijara in Islamic finance?",
+        "ar": "ما الإجارة في التمويل الإسلامي؟"
+      },
+      "answer": {
+        "en": "Ijara is an Islamic leasing contract where a bank or financier buys an asset and leases it to the customer for an agreed rental, with ownership optionally transferring at the end. It is used for vehicle and equipment financing as an interest-free alternative.",
+        "ar": "الإجارة عقد تأجير إسلامي يشتري فيه البنك أصلًا ويؤجّره للعميل بإيجار متفق عليه، مع إمكانية نقل الملكية في النهاية. تُستخدم لتمويل السيارات والمعدات كبديل خالٍ من الفائدة."
+      }
+    },
+    {
+      "id": "law-034",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Criminal Law",
+        "ar": "القانون الجنائي"
+      },
+      "question": {
+        "en": "What is the diya (blood money) system in Islamic law?",
+        "ar": "ما نظام الدية في الشريعة الإسلامية؟"
+      },
+      "answer": {
+        "en": "Diya is financial compensation paid to the victim or victim's family in cases of unintentional killing or bodily harm, as an alternative to qisas retaliation. Amounts vary by injury type and are still applied in several Muslim-majority legal systems.",
+        "ar": "الدية تعويض مالي يُدفع للضحية أو أسرتها في حالات القتل الخطأ أو الأذى الجسدي، كبديل للقصاص. تتفاوت المبالغ بحسب نوع الإصابة ولا تزال مطبّقة في عدة أنظمة قانونية ذات أغلبية مسلمة."
+      }
+    },
+    {
+      "id": "law-035",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What is the International Court of Justice (ICJ) and what types of cases does it hear?",
+        "ar": "ما محكمة العدل الدولية وما أنواع القضايا التي تنظر فيها؟"
+      },
+      "answer": {
+        "en": "The principal judicial organ of the UN, based in The Hague. It settles legal disputes between states (contentious cases) and gives advisory opinions on legal questions referred by UN organs. Only states — not individuals — can be parties to contentious cases.",
+        "ar": "الجهاز القضائي الرئيسي للأمم المتحدة، مقرّه لاهاي. يفصل في النزاعات القانونية بين الدول (القضايا الخلافية) ويُصدر آراء استشارية بشأن المسائل القانونية التي تحيل بها هيئات الأمم المتحدة. الدول وحدها — لا الأفراد — يمكنها أن تكون طرفًا في القضايا الخلافية."
+      }
+    },
+    {
+      "id": "law-036",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Human Rights",
+        "ar": "حقوق الإنسان"
+      },
+      "question": {
+        "en": "What is the Arab Charter on Human Rights?",
+        "ar": "ما الميثاق العربي لحقوق الإنسان؟"
+      },
+      "answer": {
+        "en": "A human rights instrument adopted by the Arab League in 2004, entering into force in 2008. It guarantees civil, political, economic, social, and cultural rights, but is criticized for allowing derogation on national security grounds and for not fully aligning with international standards.",
+        "ar": "صك لحقوق الإنسان اعتمدته جامعة الدول العربية عام 2004، دخل حيز التنفيذ عام 2008. يكفل الحقوق المدنية والسياسية والاقتصادية والاجتماعية والثقافية، لكن يُنتقد بسبب إجازة الانحراف عنه لأسباب أمنية وعدم تماشيه الكامل مع المعايير الدولية."
+      }
+    },
+    {
+      "id": "law-037",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Constitutional Law",
+        "ar": "القانون الدستوري"
+      },
+      "question": {
+        "en": "What is the role of the Constitutional Court in Egypt's legal system?",
+        "ar": "ما دور المحكمة الدستورية العليا في النظام القانوني المصري؟"
+      },
+      "answer": {
+        "en": "Egypt's Supreme Constitutional Court has exclusive jurisdiction over the constitutionality of legislation, interprets legislative texts referred to it, and settles jurisdictional conflicts between courts. Its rulings are final and binding on all state organs.",
+        "ar": "تختص المحكمة الدستورية العليا المصرية حصريًا بالرقابة على دستورية التشريعات وتفسير النصوص التشريعية المحالة إليها والفصل في تنازع الاختصاص بين المحاكم. أحكامها نهائية ومُلزِمة لجميع هيئات الدولة."
+      }
+    },
+    {
+      "id": "law-038",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Labor Law",
+        "ar": "قانون العمل"
+      },
+      "question": {
+        "en": "What is the Wage Protection System (WPS) used in UAE and Saudi Arabia?",
+        "ar": "ما نظام حماية الأجور (WPS) المستخدم في الإمارات والمملكة العربية السعودية؟"
+      },
+      "answer": {
+        "en": "An electronic salary monitoring system that requires employers to pay workers' wages through approved financial channels on time. Compliance is tracked by authorities, and non-paying employers face fines, work permit bans, or criminal prosecution.",
+        "ar": "نظام إلكتروني لمراقبة الرواتب يُلزم أصحاب العمل بدفع أجور العمال عبر قنوات مالية معتمدة في الوقت المحدد. تتابع السلطات الامتثال، ويواجه أصحاب العمل المخالفون غرامات وحظر تأشيرات عمل أو ملاحقة جنائية."
+      }
+    },
+    {
+      "id": "law-039",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Islamic Law",
+        "ar": "الشريعة الإسلامية"
+      },
+      "question": {
+        "en": "What is ijtihad in Islamic law and why was it historically controversial?",
+        "ar": "ما الاجتهاد في الشريعة الإسلامية ولماذا كان خلافيًا تاريخيًا؟"
+      },
+      "answer": {
+        "en": "Ijtihad is independent legal reasoning to derive new rulings on matters not explicitly addressed in the Quran or Sunnah. It became controversial after classical scholars declared 'the closing of the gate of ijtihad' — suggesting most major legal questions had been settled — though this view is contested and modern reformists strongly advocate reopening ijtihad.",
+        "ar": "الاجتهاد هو الاستنباط القانوني المستقل للأحكام في المسائل التي لم يرد فيها نص صريح في القرآن أو السنة. أصبح خلافيًا بعد أن أعلن العلماء الكلاسيكيون 'إغلاق باب الاجتهاد' — بمعنى أن أغلب المسائل القانونية الكبرى قد حُسمت — رغم أن هذا الرأي محلّ جدل وأن المصلحين المعاصرين يدعون بقوة إلى إعادة فتح باب الاجتهاد."
+      }
+    },
+    {
+      "id": "law-040",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Commercial Law",
+        "ar": "القانون التجاري"
+      },
+      "question": {
+        "en": "What is arbitration and why is it commonly used in international commercial contracts in the Middle East?",
+        "ar": "ما التحكيم ولماذا يُستخدم كثيرًا في العقود التجارية الدولية في الشرق الأوسط؟"
+      },
+      "answer": {
+        "en": "Arbitration is a private dispute resolution process where parties agree to submit disputes to one or more arbitrators whose decision (award) is binding. In international trade, it is preferred over national courts because it is neutral, confidential, and awards are enforceable internationally under the New York Convention (1958).",
+        "ar": "التحكيم عملية خاصة لتسوية النزاعات يتفق فيها الطرفان على إحالة خلافاتهما إلى محكّم أو أكثر يصدر قرارًا (حكمًا) مُلزِمًا. في التجارة الدولية، يُفضَّل على المحاكم الوطنية لكونه محايدًا وسريًا وأحكامه قابلة للتنفيذ دوليًا بموجب اتفاقية نيويورك (1958)."
+      }
+    },
+    {
+      "id": "law-041",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Criminal Law",
+        "ar": "القانون الجنائي"
+      },
+      "question": {
+        "en": "What is the difference between a crime and a tort in most Arab civil law systems?",
+        "ar": "ما الفرق بين الجريمة والضرر المدني (الفعل الضار) في معظم أنظمة القانون المدني العربي؟"
+      },
+      "answer": {
+        "en": "A crime is a wrong against society prosecuted by the state, resulting in criminal penalties (imprisonment, fines). A tort (civil wrong) is a wrong against an individual that gives rise to a private civil action for compensation. The same act can constitute both a crime and a tort simultaneously.",
+        "ar": "الجريمة هي خطأ بحق المجتمع تلاحقه الدولة ويترتب عليه عقوبات جنائية (سجن وغرامات). الفعل الضار (الضرر المدني) هو خطأ بحق فرد يُخوّله حق رفع دعوى مدنية خاصة للتعويض. يمكن أن يُشكّل الفعل الواحد جريمة وفعلًا ضارًا في آنٍ واحد."
+      }
+    },
+    {
+      "id": "law-042",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Property Law",
+        "ar": "قانون الملكية"
+      },
+      "question": {
+        "en": "What is the difference between ownership and possession in Arab civil law?",
+        "ar": "ما الفرق بين الملكية والحيازة في القانون المدني العربي؟"
+      },
+      "answer": {
+        "en": "Ownership (milkiyya) is the full legal right to use, enjoy, and dispose of property. Possession (hiyaza) is the physical control of property, which may exist without ownership (e.g. a tenant possesses but doesn't own). Possession can give rise to certain legal protections even without full title.",
+        "ar": "الملكية هي الحق القانوني الكامل في استخدام الشيء والانتفاع به والتصرف فيه. الحيازة هي السيطرة المادية على الشيء، وقد توجد بدون ملكية (كالمستأجر الذي يحوز لكن لا يملك). قد تُنشئ الحيازة حمايات قانونية معينة حتى دون سند ملكية كامل."
+      }
+    },
+    {
+      "id": "law-043",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Comparative Law",
+        "ar": "القانون المقارن"
+      },
+      "question": {
+        "en": "How do dual legal systems (mixed sharia-civil law) function in countries like Egypt, Jordan, and Kuwait?",
+        "ar": "كيف تعمل الأنظمة القانونية المزدوجة (الشريعة والقانون المدني المختلطَين) في دول كمصر والأردن والكويت؟"
+      },
+      "answer": {
+        "en": "These countries apply civil law codes (French-derived) for commercial and criminal matters while applying Sharia in personal status law (marriage, divorce, inheritance, guardianship). Separate courts (personal status or sharia courts) handle family matters, while civil and criminal courts handle the rest. Integration is complex — Sharia principles often inform constitutional interpretation even in the civil domain.",
+        "ar": "تطبّق هذه الدول قوانين مدنية (مستمدة من الفرنسية) للشؤون التجارية والجنائية، بينما تطبّق الشريعة في قانون الأحوال الشخصية (الزواج والطلاق والميراث والولاية). محاكم منفصلة (الأحوال الشخصية أو الشريعة) تتولى الشؤون الأسرية، بينما تتولى المحاكم المدنية والجنائية الباقي. التكامل معقّد — غالبًا ما تُلهم مبادئ الشريعة التفسير الدستوري حتى في المجال المدني."
+      }
+    },
+    {
+      "id": "law-044",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Islamic Law",
+        "ar": "الشريعة الإسلامية"
+      },
+      "question": {
+        "en": "What is the doctrine of maslaha (public interest) in Islamic jurisprudence and how has it been used in legal reform?",
+        "ar": "ما مبدأ المصلحة (المصلحة العامة) في الفقه الإسلامي وكيف استُخدم في الإصلاح القانوني؟"
+      },
+      "answer": {
+        "en": "Maslaha holds that rulings may be derived or reformed to serve the public good, even if not explicitly derived from Quran or Sunnah texts, provided they do not contradict established principles. Reformist scholars use it to argue for updating Islamic law on issues like women's rights, banking, and criminal penalties to fit modern contexts.",
+        "ar": "المصلحة مبدأ يجيز استنباط الأحكام أو إصلاحها لخدمة الصالح العام، حتى لو لم تُستمد مباشرةً من نصوص القرآن أو السنة، بشرط ألا تتعارض مع المبادئ الراسخة. يستخدمه العلماء الإصلاحيون للمطالبة بتحديث الشريعة في مسائل كحقوق المرأة والمصارف والعقوبات الجنائية لتتوافق مع السياق المعاصر."
+      }
+    },
+    {
+      "id": "law-045",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What is the Responsibility to Protect (R2P) doctrine and how has it been applied in the Arab world?",
+        "ar": "ما مبدأ مسؤولية الحماية (R2P) وكيف طُبِّق في العالم العربي؟"
+      },
+      "answer": {
+        "en": "R2P holds that states have a primary responsibility to protect their populations from genocide, war crimes, ethnic cleansing, and crimes against humanity. When a state fails, the international community may intervene. It was controversially invoked for the 2011 NATO intervention in Libya (UNSC Resolution 1973), raising debates about its limits and potential for misuse.",
+        "ar": "يقضي مبدأ مسؤولية الحماية بأن للدول مسؤولية أولية لحماية مواطنيها من الإبادة الجماعية وجرائم الحرب والتطهير العرقي والجرائم ضد الإنسانية. عند فشل الدولة، يجوز للمجتمع الدولي التدخل. استُدعي المبدأ في التدخل العسكري لحلف الناتو في ليبيا عام 2011 (قرار مجلس الأمن 1973) بصورة خلافية، مثيرًا نقاشات حول حدوده وإمكانية إساءة استخدامه."
+      }
+    },
+    {
+      "id": "law-046",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Constitutional Law",
+        "ar": "القانون الدستوري"
+      },
+      "question": {
+        "en": "What is the concept of shura in Islamic political theory and how do Gulf states incorporate it into governance?",
+        "ar": "ما مفهوم الشورى في النظرية السياسية الإسلامية وكيف تدمجها دول الخليج في الحوكمة؟"
+      },
+      "answer": {
+        "en": "Shura is the principle of consultation — rulers should consult with advisors or representatives before making decisions. Gulf states incorporate it through consultative councils (like Saudi Arabia's Majlis al-Shura or Qatar's Majlis) that advise the ruler but lack full legislative power, representing a partial institutionalization of shura principles.",
+        "ar": "الشورى مبدأ التشاور — يجب على الحكام التشاور مع المستشارين أو الممثلين قبل اتخاذ القرارات. تُدمجه دول الخليج عبر المجالس الاستشارية (كمجلس الشورى السعودي أو مجلس قطر) التي تستشير الحاكم لكن تفتقر إلى سلطة تشريعية كاملة، مما يمثّل أسلوبًا في تأسيس مبادئ الشورى."
+      }
+    },
+    {
+      "id": "law-047",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Islamic Finance",
+        "ar": "التمويل الإسلامي"
+      },
+      "question": {
+        "en": "What is the role of a Sharia Supervisory Board in Islamic banking?",
+        "ar": "ما دور هيئة الرقابة الشرعية في المصارف الإسلامية؟"
+      },
+      "answer": {
+        "en": "A Sharia Supervisory Board is a panel of qualified Islamic scholars who review and certify that a bank's financial products, contracts, and operations comply with Sharia principles. They issue fatwas on products and audit transactions. Their independence and consistency across institutions remains a subject of debate in Islamic finance governance.",
+        "ar": "هيئة الرقابة الشرعية لجنة من العلماء المسلمين المؤهلين تراجع وتُشهد على مطابقة المنتجات المالية والعقود وعمليات البنك لمبادئ الشريعة. تُصدر فتاوى بشأن المنتجات وتراجع المعاملات. استقلاليتها واتساقها عبر المؤسسات لا يزال موضع نقاش في حوكمة التمويل الإسلامي."
+      }
+    },
+    {
+      "id": "law-048",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "International Law",
+        "ar": "القانون الدولي"
+      },
+      "question": {
+        "en": "What are the Rome Statute and the International Criminal Court (ICC), and why have some Arab states not ratified them?",
+        "ar": "ما نظام روما والمحكمة الجنائية الدولية (ICC) ولماذا لم تُصادق عليهما بعض الدول العربية؟"
+      },
+      "answer": {
+        "en": "The Rome Statute (1998) established the ICC, the first permanent international criminal court with jurisdiction over genocide, crimes against humanity, and war crimes. Many Arab states have not ratified it due to concerns about sovereignty, potential politically motivated prosecutions, and the ICC's previous focus on African and Middle Eastern situations. Sudan's President al-Bashir faced ICC indictments for Darfur war crimes — highlighting tensions between accountability and sovereignty.",
+        "ar": "أسّس نظام روما (1998) المحكمة الجنائية الدولية، أول محكمة جنائية دولية دائمة تختص بالإبادة الجماعية والجرائم ضد الإنسانية وجرائم الحرب. لم تُصادق كثير من الدول العربية عليه بسبب مخاوف تتعلق بالسيادة وإمكانية الملاحقة القضائية ذات الدوافع السياسية وتركيز المحكمة السابق على الأوضاع الأفريقية والشرق أوسطية. واجه الرئيس السوداني البشير مذكرات اعتقال من المحكمة بشأن جرائم حرب دارفور — مما يُسلّط الضوء على التوترات بين المساءلة والسيادة."
+      }
+    }
+  ]
+}

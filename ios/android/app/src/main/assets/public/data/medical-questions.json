@@ -1,0 +1,1628 @@
+{
+  "slug": "medical-questions",
+  "title": {
+    "en": "Medical Science",
+    "ar": "العلوم الطبية"
+  },
+  "description": {
+    "en": "Human anatomy, diseases, treatments, and medical breakthroughs.",
+    "ar": "تشريح بشري وأمراض وعلاجات واكتشافات طبية."
+  },
+  "cluster": {
+    "en": "Science & Nature",
+    "ar": "العلوم والطبيعة"
+  },
+  "cluster_key": "science",
+  "emoji": "🏥",
+  "mode": "quiz",
+  "count": 100,
+  "difficultyCounts": {
+    "easy": 25,
+    "medium": 25,
+    "hard": 25,
+    "very-advanced": 25
+  },
+  "subcategories": [],
+  "cards": [
+    {
+      "id": "medical-questions-001",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the longest bone in the human body?",
+        "ar": "ما أطول عظمة في جسم الإنسان؟"
+      },
+      "answer": {
+        "en": "Femur",
+        "ar": "عظمة الفخذ"
+      }
+    },
+    {
+      "id": "medical-questions-002",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Vitamins",
+        "ar": "الفيتامينات"
+      },
+      "question": {
+        "en": "Which vitamin is primarily obtained from sunlight?",
+        "ar": "أي فيتامين يُستمدّ بصورة رئيسية من ضوء الشمس؟"
+      },
+      "answer": {
+        "en": "Vitamin D",
+        "ar": "فيتامين D"
+      }
+    },
+    {
+      "id": "medical-questions-003",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Blood",
+        "ar": "الدم"
+      },
+      "question": {
+        "en": "Which type of blood cells are responsible for carrying oxygen?",
+        "ar": "أي نوع من خلايا الدم مسؤول عن نقل الأكسجين؟"
+      },
+      "answer": {
+        "en": "Red blood cells",
+        "ar": "خلايا الدم الحمراء"
+      }
+    },
+    {
+      "id": "medical-questions-004",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "Where is the most common place on the wrist to check a pulse?",
+        "ar": "ما الموضع الأكثر شيوعاً في الرسغ للتحسس على النبض؟"
+      },
+      "answer": {
+        "en": "Radial artery",
+        "ar": "الشريان الكعبري"
+      }
+    },
+    {
+      "id": "medical-questions-005",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Organs",
+        "ar": "الأعضاء"
+      },
+      "question": {
+        "en": "Which organ filters waste from the blood to produce urine?",
+        "ar": "أي عضو يُصفّي الفضلات من الدم لإنتاج البول؟"
+      },
+      "answer": {
+        "en": "Kidneys",
+        "ar": "الكلى"
+      }
+    },
+    {
+      "id": "medical-questions-006",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "الصيدلة"
+      },
+      "question": {
+        "en": "What type of medicine is used to treat bacterial infections?",
+        "ar": "ما نوع الدواء المستخدم لعلاج الالتهابات البكتيرية؟"
+      },
+      "answer": {
+        "en": "Antibiotics",
+        "ar": "المضادات الحيوية"
+      }
+    },
+    {
+      "id": "medical-questions-007",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Skin",
+        "ar": "الجلد"
+      },
+      "question": {
+        "en": "What is the most common pigment that gives skin its color?",
+        "ar": "ما أكثر الأصباغ شيوعاً التي تمنح الجلد لونه؟"
+      },
+      "answer": {
+        "en": "Melanin",
+        "ar": "الميلانين"
+      }
+    },
+    {
+      "id": "medical-questions-008",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Musculoskeletal",
+        "ar": "العضلي الهيكلي"
+      },
+      "question": {
+        "en": "What tissue connects bone to bone?",
+        "ar": "ما النسيج الذي يربط العظام بعضها ببعض؟"
+      },
+      "answer": {
+        "en": "Ligament",
+        "ar": "الرباط"
+      }
+    },
+    {
+      "id": "medical-questions-009",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Endocrinology",
+        "ar": "الغدد الصماء"
+      },
+      "question": {
+        "en": "Which hormone produced in the pancreas regulates blood sugar?",
+        "ar": "أي هرمون يُنتجه البنكرياس وينظم مستوى السكر في الدم؟"
+      },
+      "answer": {
+        "en": "Insulin",
+        "ar": "الأنسولين"
+      }
+    },
+    {
+      "id": "medical-questions-010",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Vital Signs",
+        "ar": "العلامات الحيوية"
+      },
+      "question": {
+        "en": "What is the normal average human body temperature in Celsius?",
+        "ar": "ما درجة الحرارة الطبيعية لجسم الإنسان بالدرجة المئوية؟"
+      },
+      "answer": {
+        "en": "37°C",
+        "ar": "37 درجة مئوية"
+      }
+    },
+    {
+      "id": "medical-questions-011",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Vaccines",
+        "ar": "اللقاحات"
+      },
+      "question": {
+        "en": "Who developed the first successful polio vaccine?",
+        "ar": "من طوّر أول لقاح ناجح للشلل؟"
+      },
+      "answer": {
+        "en": "Jonas Salk",
+        "ar": "جوناس سالك"
+      }
+    },
+    {
+      "id": "medical-questions-012",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Cardiology",
+        "ar": "القلبية"
+      },
+      "question": {
+        "en": "What does the 'systolic' number in a blood pressure reading represent?",
+        "ar": "ماذا يمثل رقم الانقباض في قراءة ضغط الدم؟"
+      },
+      "answer": {
+        "en": "Pressure when the heart beats/contracts",
+        "ar": "الضغط عند انقباض القلب"
+      }
+    },
+    {
+      "id": "medical-questions-013",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Neurology",
+        "ar": "الأعصاب"
+      },
+      "question": {
+        "en": "Which part of the brain is responsible for reasoning and speech?",
+        "ar": "أي جزء من الدماغ مسؤول عن التفكير والكلام؟"
+      },
+      "answer": {
+        "en": "Cerebrum / Cerebral Cortex",
+        "ar": "المخ / القشرة المخية"
+      }
+    },
+    {
+      "id": "medical-questions-014",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Infectious Disease",
+        "ar": "الأمراض المعدية"
+      },
+      "question": {
+        "en": "What does the acronym 'HIV' stand for?",
+        "ar": "ماذا تعني اختصار HIV؟"
+      },
+      "answer": {
+        "en": "Human Immunodeficiency Virus",
+        "ar": "فيروس نقص المناعة البشرية"
+      }
+    },
+    {
+      "id": "medical-questions-015",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Ophthalmology",
+        "ar": "طب العيون"
+      },
+      "question": {
+        "en": "What is the light-sensitive layer at the back of the eye called?",
+        "ar": "ما اسم الطبقة الحساسة للضوء في مؤخرة العين؟"
+      },
+      "answer": {
+        "en": "Retina",
+        "ar": "الشبكية"
+      }
+    },
+    {
+      "id": "medical-questions-016",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Cardiology",
+        "ar": "القلبية"
+      },
+      "question": {
+        "en": "How many chambers are in the human heart?",
+        "ar": "كم حجرة في القلب البشري؟"
+      },
+      "answer": {
+        "en": "Four",
+        "ar": "أربع حجرات"
+      }
+    },
+    {
+      "id": "medical-questions-017",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Gastroenterology",
+        "ar": "الجهاز الهضمي"
+      },
+      "question": {
+        "en": "What is the primary acid found in the human stomach?",
+        "ar": "ما الحمض الرئيسي الموجود في المعدة البشرية؟"
+      },
+      "answer": {
+        "en": "Hydrochloric acid",
+        "ar": "حمض الهيدروكلوريك"
+      }
+    },
+    {
+      "id": "medical-questions-018",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Genetics",
+        "ar": "علم الوراثة"
+      },
+      "question": {
+        "en": "How many chromosomes are found in a human sperm or egg cell?",
+        "ar": "كم كروموسوماً يحمل الحيوان المنوي أو البويضة البشرية؟"
+      },
+      "answer": {
+        "en": "23",
+        "ar": "23"
+      }
+    },
+    {
+      "id": "medical-questions-019",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Hepatology",
+        "ar": "طب الكبد"
+      },
+      "question": {
+        "en": "What is the medical term for inflammation of the liver?",
+        "ar": "ما المصطلح الطبي لالتهاب الكبد؟"
+      },
+      "answer": {
+        "en": "Hepatitis",
+        "ar": "التهاب الكبد"
+      }
+    },
+    {
+      "id": "medical-questions-020",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pulmonology",
+        "ar": "طب الرئتين"
+      },
+      "question": {
+        "en": "What are the tiny air sacs in the lungs where gas exchange occurs?",
+        "ar": "ما الحويصلات الهوائية الصغيرة في الرئتين حيث يتم تبادل الغازات؟"
+      },
+      "answer": {
+        "en": "Alveoli",
+        "ar": "الحويصلات الهوائية"
+      }
+    },
+    {
+      "id": "medical-questions-021",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Neurology",
+        "ar": "الأعصاب"
+      },
+      "question": {
+        "en": "Which cranial nerve is responsible for the sense of smell?",
+        "ar": "أي عصب قحفي مسؤول عن حاسة الشم؟"
+      },
+      "answer": {
+        "en": "Olfactory nerve (Cranial Nerve I)",
+        "ar": "العصب الشمي (العصب القحفي الأول)"
+      }
+    },
+    {
+      "id": "medical-questions-022",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "History of Medicine",
+        "ar": "تاريخ الطب"
+      },
+      "question": {
+        "en": "Who is credited with the discovery of penicillin in 1928?",
+        "ar": "من يُنسب إليه اكتشاف البنسلين عام 1928؟"
+      },
+      "answer": {
+        "en": "Alexander Fleming",
+        "ar": "ألكسندر فليمنغ"
+      }
+    },
+    {
+      "id": "medical-questions-023",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Endocrinology",
+        "ar": "الغدد الصماء"
+      },
+      "question": {
+        "en": "Which gland is referred to as the 'master gland' of the endocrine system?",
+        "ar": "أي غدة يُشار إليها بـ'الغدة الرئيسية' في الجهاز الصماوي؟"
+      },
+      "answer": {
+        "en": "Pituitary gland",
+        "ar": "الغدة النخامية"
+      }
+    },
+    {
+      "id": "medical-questions-024",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "الصيدلة"
+      },
+      "question": {
+        "en": "What is the difference between an agonist and an antagonist drug?",
+        "ar": "ما الفرق بين الدواء الناهض (agonist) والدواء الخصيم (antagonist)؟"
+      },
+      "answer": {
+        "en": "Agonist activates a receptor; antagonist blocks it",
+        "ar": "الناهض ينشّط المستقبل؛ الخصيم يحجبه"
+      }
+    },
+    {
+      "id": "medical-questions-025",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Psychiatry",
+        "ar": "الطب النفسي"
+      },
+      "question": {
+        "en": "What is 'Munchausen syndrome by proxy'?",
+        "ar": "ما 'متلازمة مونشاوزن بالوكالة'؟"
+      },
+      "answer": {
+        "en": "A caregiver creates or fakes symptoms in someone under their care",
+        "ar": "مقدّم الرعاية يختلق أو يُزيّف أعراضاً في شخص يرعاه"
+      }
+    },
+    {
+      "id": "medical-questions-026",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Neuroscience",
+        "ar": "علم الأعصاب"
+      },
+      "question": {
+        "en": "Which neurotransmitter is primarily involved in the brain's 'reward' pathway?",
+        "ar": "أي ناقل عصبي متورط بصورة رئيسية في مسار 'المكافأة' في الدماغ؟"
+      },
+      "answer": {
+        "en": "Dopamine",
+        "ar": "الدوبامين"
+      }
+    },
+    {
+      "id": "medical-questions-027",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Immunology",
+        "ar": "علم المناعة"
+      },
+      "question": {
+        "en": "What are T-cells and B-cells types of?",
+        "ar": "ما نوع الخلايا الذي تنتمي إليه خلايا T وخلايا B؟"
+      },
+      "answer": {
+        "en": "Lymphocytes (White blood cells)",
+        "ar": "الخلايا اللمفاوية (خلايا الدم البيضاء)"
+      }
+    },
+    {
+      "id": "medical-questions-028",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Cardiology",
+        "ar": "القلبية"
+      },
+      "question": {
+        "en": "What is the medical term for a heart attack?",
+        "ar": "ما المصطلح الطبي للنوبة القلبية؟"
+      },
+      "answer": {
+        "en": "Myocardial infarction",
+        "ar": "احتشاء عضلة القلب"
+      }
+    },
+    {
+      "id": "medical-questions-029",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "Which part of the brain acts as the body's thermostat?",
+        "ar": "أي جزء من الدماغ يعمل كـ'ترموستات' الجسم؟"
+      },
+      "answer": {
+        "en": "Hypothalamus",
+        "ar": "منطقة ما تحت المهاد (الهيبوثالاموس)"
+      }
+    },
+    {
+      "id": "medical-questions-030",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Gastroenterology",
+        "ar": "الجهاز الهضمي"
+      },
+      "question": {
+        "en": "What is the specific enzyme that breaks down fats in the digestive system?",
+        "ar": "ما الإنزيم المحدد الذي يحلّل الدهون في الجهاز الهضمي؟"
+      },
+      "answer": {
+        "en": "Lipase",
+        "ar": "الليباز"
+      }
+    },
+    {
+      "id": "medical-031",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the medical term for the kneecap?",
+        "ar": "ما المصطلح الطبي للرضفة (عظمة الركبة)؟"
+      },
+      "answer": {
+        "en": "Patella",
+        "ar": "الرضفة"
+      }
+    },
+    {
+      "id": "medical-032",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "How many vertebrae are in the human spine?",
+        "ar": "كم فقرة في العمود الفقري البشري؟"
+      },
+      "answer": {
+        "en": "33 (26 in adults after fusion)",
+        "ar": "33 (26 عند البالغين بعد الاندماج)"
+      }
+    },
+    {
+      "id": "medical-033",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What causes diabetes mellitus Type 1?",
+        "ar": "ما سبب داء السكري من النوع الأول؟"
+      },
+      "answer": {
+        "en": "Autoimmune destruction of insulin-producing beta cells in the pancreas",
+        "ar": "التدمير المناعي الذاتي لخلايا بيتا المنتجة للإنسولين في البنكرياس"
+      }
+    },
+    {
+      "id": "medical-034",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Nutrition",
+        "ar": "التغذية"
+      },
+      "question": {
+        "en": "What vitamin is found in citrus fruits and prevents scurvy?",
+        "ar": "أي فيتامين يوجد في الحمضيات ويمنع داء الاسقربوط؟"
+      },
+      "answer": {
+        "en": "Vitamin C (ascorbic acid)",
+        "ar": "فيتامين C (حمض الأسكوربيك)"
+      }
+    },
+    {
+      "id": "medical-035",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What does HIV stand for?",
+        "ar": "ماذا يرمز الاختصار HIV؟"
+      },
+      "answer": {
+        "en": "Human Immunodeficiency Virus",
+        "ar": "فيروس نقص المناعة البشري"
+      }
+    },
+    {
+      "id": "medical-036",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "Which organ produces bile?",
+        "ar": "أي عضو ينتج الصفراء؟"
+      },
+      "answer": {
+        "en": "The liver",
+        "ar": "الكبد"
+      }
+    },
+    {
+      "id": "medical-037",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is normal resting blood pressure?",
+        "ar": "ما ضغط الدم الطبيعي في حالة الراحة؟"
+      },
+      "answer": {
+        "en": "Around 120/80 mmHg",
+        "ar": "حوالي 120/80 ملم زئبق"
+      }
+    },
+    {
+      "id": "medical-038",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is asthma?",
+        "ar": "ما الربو؟"
+      },
+      "answer": {
+        "en": "A chronic condition causing airway inflammation, narrowing, and difficulty breathing",
+        "ar": "حالة مزمنة تسبّب التهاب مجاري الهواء وتضيّقها وصعوبة التنفس"
+      }
+    },
+    {
+      "id": "medical-039",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the largest organ inside the body?",
+        "ar": "ما أكبر عضو داخل الجسم؟"
+      },
+      "answer": {
+        "en": "The liver",
+        "ar": "الكبد"
+      }
+    },
+    {
+      "id": "medical-040",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Nutrition",
+        "ar": "التغذية"
+      },
+      "question": {
+        "en": "What mineral is essential for strong bones and teeth?",
+        "ar": "ما المعدن الضروري لقوة العظام والأسنان؟"
+      },
+      "answer": {
+        "en": "Calcium",
+        "ar": "الكالسيوم"
+      }
+    },
+    {
+      "id": "medical-041",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the normal human body temperature?",
+        "ar": "ما درجة حرارة جسم الإنسان الطبيعية؟"
+      },
+      "answer": {
+        "en": "37°C (98.6°F)",
+        "ar": "37°م"
+      }
+    },
+    {
+      "id": "medical-042",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is hypertension?",
+        "ar": "ما ارتفاع ضغط الدم؟"
+      },
+      "answer": {
+        "en": "Persistently elevated blood pressure above 140/90 mmHg",
+        "ar": "ارتفاع مستمر في ضغط الدم فوق 140/90 ملم زئبق"
+      }
+    },
+    {
+      "id": "medical-043",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the function of the pancreas?",
+        "ar": "ما وظيفة البنكرياس؟"
+      },
+      "answer": {
+        "en": "Produces digestive enzymes and hormones like insulin and glucagon to regulate blood sugar",
+        "ar": "ينتج إنزيمات هضمية وهرمونات كالإنسولين والغلوكاغون لتنظيم سكر الدم"
+      }
+    },
+    {
+      "id": "medical-044",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the function of haemoglobin?",
+        "ar": "ما وظيفة الهيموغلوبين؟"
+      },
+      "answer": {
+        "en": "Carries oxygen in red blood cells from the lungs to the body's tissues",
+        "ar": "يحمل الأكسجين في خلايا الدم الحمراء من الرئتين إلى أنسجة الجسم"
+      }
+    },
+    {
+      "id": "medical-045",
+      "difficulty": "easy",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is the most common type of cancer in men worldwide?",
+        "ar": "ما أكثر أنواع السرطان شيوعاً لدى الرجال في جميع أنحاء العالم؟"
+      },
+      "answer": {
+        "en": "Lung cancer (or prostate cancer depending on region)",
+        "ar": "سرطان الرئة (أو سرطان البروستاتا حسب المنطقة)"
+      }
+    },
+    {
+      "id": "medical-046",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of aspirin?",
+        "ar": "ما آلية عمل الأسبرين؟"
+      },
+      "answer": {
+        "en": "Irreversibly inhibits COX-1 and COX-2 enzymes, reducing prostaglandin synthesis (anti-inflammatory, analgesic, antipyretic, antiplatelet)",
+        "ar": "يثبّط إنزيمات COX-1 وCOX-2 بشكل لا رجعة فيه، مما يقلّل تركيب البروستاغلاندين (مضاد للالتهاب والألم والحمى وتخثّر الصفائح)"
+      }
+    },
+    {
+      "id": "medical-047",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the role of the lymphatic system?",
+        "ar": "ما دور الجهاز اللمفاوي؟"
+      },
+      "answer": {
+        "en": "Draining excess tissue fluid back to the bloodstream, transporting dietary fats, and supporting immune function",
+        "ar": "تصريف السوائل الزائدة في الأنسجة إلى مجرى الدم، ونقل الدهون الغذائية، ودعم وظيفة المناعة"
+      }
+    },
+    {
+      "id": "medical-048",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What are the classic warning signs of a stroke (FAST)?",
+        "ar": "ما العلامات التحذيرية الكلاسيكية للسكتة الدماغية (FAST)؟"
+      },
+      "answer": {
+        "en": "Face drooping, Arm weakness, Speech difficulty, Time to call emergency services",
+        "ar": "تدلّي الوجه (Face)، ضعف الذراع (Arm)، صعوبة الكلام (Speech)، الوقت للاتصال بالطوارئ (Time)"
+      }
+    },
+    {
+      "id": "medical-049",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the difference between systolic and diastolic blood pressure?",
+        "ar": "ما الفرق بين الضغط الانقباضي والانبساطي؟"
+      },
+      "answer": {
+        "en": "Systolic: pressure when the heart beats; Diastolic: pressure when the heart rests between beats",
+        "ar": "الانقباضي: الضغط عند انقباض القلب؛ الانبساطي: الضغط عند ارتخاء القلب بين الضربات"
+      }
+    },
+    {
+      "id": "medical-050",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is the difference between Type 1 and Type 2 diabetes?",
+        "ar": "ما الفرق بين داء السكري من النوع الأول والثاني؟"
+      },
+      "answer": {
+        "en": "Type 1: autoimmune insulin absence (onset in youth); Type 2: insulin resistance (usually adult-onset, linked to lifestyle)",
+        "ar": "النوع 1: غياب الإنسولين ذاتي المناعة (يبدأ في الشباب)؛ النوع 2: مقاومة الإنسولين (عادةً في البلوغ، مرتبط بنمط الحياة)"
+      }
+    },
+    {
+      "id": "medical-051",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the difference between bacteriostatic and bactericidal antibiotics?",
+        "ar": "ما الفرق بين المضادات الحيوية الموقفة للبكتيريا والقاتلة لها؟"
+      },
+      "answer": {
+        "en": "Bacteriostatic inhibit bacterial growth; bactericidal kill bacteria directly",
+        "ar": "الموقفة تثبّط نمو البكتيريا؛ القاتلة تقتل البكتيريا مباشرةً"
+      }
+    },
+    {
+      "id": "medical-052",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the brachial plexus?",
+        "ar": "ما الضفيرة العضدية؟"
+      },
+      "answer": {
+        "en": "A network of nerves from C5-T1 that supply the shoulder, arm, and hand",
+        "ar": "شبكة من الأعصاب من C5 إلى T1 تعصّب الكتف والذراع واليد"
+      }
+    },
+    {
+      "id": "medical-053",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the GFR (glomerular filtration rate)?",
+        "ar": "ما معدل الترشيح الكبيبي (GFR)؟"
+      },
+      "answer": {
+        "en": "A measure of kidney function — the rate at which blood is filtered by the glomeruli; normal is ~90–120 mL/min",
+        "ar": "مقياس لوظيفة الكلى — معدل ترشيح الدم بواسطة الكبيبات؛ الطبيعي حوالي 90–120 مل/دقيقة"
+      }
+    },
+    {
+      "id": "medical-054",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is atherosclerosis?",
+        "ar": "ما تصلّب الشرايين؟"
+      },
+      "answer": {
+        "en": "The buildup of fatty plaques inside artery walls, narrowing them and increasing risk of heart attack and stroke",
+        "ar": "تراكم اللويحات الدهنية داخل جدران الشرايين، مما يضيّقها ويزيد خطر النوبات القلبية والسكتة الدماغية"
+      }
+    },
+    {
+      "id": "medical-055",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is a prodrug?",
+        "ar": "ما العقار الأولي (البرودراغ)؟"
+      },
+      "answer": {
+        "en": "An inactive compound that is converted into an active drug in the body by metabolic processes",
+        "ar": "مركّب غير نشط يتحوّل إلى دواء فعّال في الجسم عبر العمليات الأيضية"
+      }
+    },
+    {
+      "id": "medical-056",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What are the four chambers of the heart and their functions?",
+        "ar": "ما الحجرات الأربع للقلب ووظائفها؟"
+      },
+      "answer": {
+        "en": "Right atrium and ventricle (pump deoxygenated blood to lungs); Left atrium and ventricle (pump oxygenated blood to body)",
+        "ar": "الأذين والبطين الأيمن (يضخّان الدم غير المؤكسج إلى الرئتين)؛ الأذين والبطين الأيسر (يضخّان الدم المؤكسج إلى الجسم)"
+      }
+    },
+    {
+      "id": "medical-057",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the renin-angiotensin-aldosterone system (RAAS)?",
+        "ar": "ما نظام الرينين-أنجيوتنسين-ألدوستيرون (RAAS)؟"
+      },
+      "answer": {
+        "en": "A hormonal cascade regulating blood pressure and fluid balance by controlling kidney sodium retention and vasoconstriction",
+        "ar": "شلّال هرموني ينظّم ضغط الدم وتوازن السوائل عن طريق التحكّم في احتجاز الصوديوم الكلوي وتضيّق الأوعية"
+      }
+    },
+    {
+      "id": "medical-058",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is sepsis?",
+        "ar": "ما الإنتان؟"
+      },
+      "answer": {
+        "en": "A life-threatening dysregulation of the body's response to infection, leading to organ dysfunction",
+        "ar": "استجابة مهدّدة للحياة تتعطّل فيها ردّة فعل الجسم تجاه العدوى، مما يؤدي إلى خلل وظيفي في الأعضاء"
+      }
+    },
+    {
+      "id": "medical-059",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the half-life of a drug?",
+        "ar": "ما عمر النصف للدواء؟"
+      },
+      "answer": {
+        "en": "The time it takes for the plasma concentration of a drug to reduce by 50%",
+        "ar": "الوقت اللازم لانخفاض تركيز الدواء في بلازما الدم بنسبة 50%"
+      }
+    },
+    {
+      "id": "medical-060",
+      "difficulty": "medium",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the blood-brain barrier and why is it clinically important?",
+        "ar": "ما الحاجز الدموي الدماغي ولماذا يكون مهماً سريرياً؟"
+      },
+      "answer": {
+        "en": "A selective barrier protecting the brain from pathogens and toxins — important because many drugs cannot cross it to treat CNS conditions",
+        "ar": "حاجز انتقائي يحمي الدماغ من مسبّبات الأمراض والسموم — مهم لأن كثيراً من الأدوية لا تستطيع عبوره لعلاج أمراض الجهاز العصبي المركزي"
+      }
+    },
+    {
+      "id": "medical-061",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the difference between benign and malignant tumours?",
+        "ar": "ما الفرق بين الأورام الحميدة والخبيثة؟"
+      },
+      "answer": {
+        "en": "Benign tumours grow locally without invading or metastasising; malignant tumours invade surrounding tissue and can spread to distant sites",
+        "ar": "الأورام الحميدة تنمو محلياً دون غزو أو انبثاث؛ الخبيثة تغزو الأنسجة المحيطة ويمكنها الانتشار إلى مواضع بعيدة"
+      }
+    },
+    {
+      "id": "medical-062",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of statins?",
+        "ar": "ما آلية عمل الستاتينات؟"
+      },
+      "answer": {
+        "en": "They inhibit HMG-CoA reductase — the rate-limiting enzyme of cholesterol synthesis — reducing LDL cholesterol",
+        "ar": "تثبّط إنزيم HMG-CoA ريداكتاز — الإنزيم المحدّد للمعدل في تركيب الكوليسترول — مما يخفّض كوليسترول LDL"
+      }
+    },
+    {
+      "id": "medical-063",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the Fick principle in cardiac physiology?",
+        "ar": "ما مبدأ فيك في فيزيولوجيا القلب؟"
+      },
+      "answer": {
+        "en": "Cardiac output = oxygen consumption ÷ (arteriovenous oxygen difference) — used to calculate heart output",
+        "ar": "الناتج القلبي = استهلاك الأكسجين ÷ (فرق الأكسجين الوريدي الشرياني) — يُستخدم لحساب ناتج القلب"
+      }
+    },
+    {
+      "id": "medical-064",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What nerve is at risk in a mid-shaft humerus fracture?",
+        "ar": "أي عصب يكون في خطر عند كسر منتصف عظمة العضد؟"
+      },
+      "answer": {
+        "en": "The radial nerve (runs in the spiral groove of the humerus)",
+        "ar": "العصب الكعبري (يسير في الأخدود الحلزوني لعظمة العضد)"
+      }
+    },
+    {
+      "id": "medical-065",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is disseminated intravascular coagulation (DIC)?",
+        "ar": "ما التخثّر المنتشر داخل الأوعية (DIC)؟"
+      },
+      "answer": {
+        "en": "A condition where widespread clot formation throughout the body simultaneously depletes clotting factors, causing both clotting and bleeding",
+        "ar": "حالة تتشكّل فيها جلطات واسعة الانتشار في الجسم مع استنزاف عوامل التخثّر في آن واحد، مما يسبّب تخثّراً ونزيفاً معاً"
+      }
+    },
+    {
+      "id": "medical-066",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What are ACE inhibitors used for and how do they work?",
+        "ar": "لماذا تُستخدم مثبطات الإنزيم المحوّل للأنجيوتنسين وكيف تعمل؟"
+      },
+      "answer": {
+        "en": "They block ACE, reducing angiotensin II formation, lowering blood pressure and protecting kidneys — used for hypertension, heart failure, and diabetic nephropathy",
+        "ar": "تمنع إنزيم ACE مما يقلّل تكوين أنجيوتنسين II، خافضةً ضغط الدم وحامية للكلى — تُستخدم لارتفاع ضغط الدم وفشل القلب واعتلال الكلية السكري"
+      }
+    },
+    {
+      "id": "medical-067",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the Frank-Starling mechanism?",
+        "ar": "ما آلية فرانك-ستارلينغ؟"
+      },
+      "answer": {
+        "en": "Cardiac output increases as venous return (preload) increases, because greater stretch of cardiac muscle produces stronger contraction",
+        "ar": "يزيد الناتج القلبي مع زيادة العائد الوريدي (ما قبل الحمل)، لأن التمدد الأكبر لعضلة القلب يُنتج تقلصاً أقوى"
+      }
+    },
+    {
+      "id": "medical-068",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is amyloidosis?",
+        "ar": "ما الداء النشواني؟"
+      },
+      "answer": {
+        "en": "A group of diseases in which abnormal amyloid protein accumulates in organs, impairing their function",
+        "ar": "مجموعة من الأمراض تتراكم فيها بروتينات الأميلويد غير الطبيعية في الأعضاء مما يضرّ بوظائفها"
+      }
+    },
+    {
+      "id": "medical-069",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of warfarin and why does it require INR monitoring?",
+        "ar": "ما آلية عمل الوارفارين ولماذا يستلزم مراقبة INR؟"
+      },
+      "answer": {
+        "en": "Warfarin inhibits vitamin K epoxide reductase, impairing synthesis of clotting factors II, VII, IX, X — narrow therapeutic window requires INR to prevent bleeding or clotting",
+        "ar": "يثبّط الوارفارين إنزيم فيتامين K إيبوكسيد ريداكتاز، مما يعيق تركيب عوامل التخثّر II وVII وIX وX — النافذة العلاجية الضيقة تستلزم مراقبة INR لمنع النزيف أو الجلطة"
+      }
+    },
+    {
+      "id": "medical-070",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the Goldman equation used for?",
+        "ar": "لماذا تُستخدم معادلة غولدمان؟"
+      },
+      "answer": {
+        "en": "Calculating the resting membrane potential of a cell based on ion concentrations and permeabilities across the membrane",
+        "ar": "حساب جهد الغشاء في حالة الراحة بناءً على تركيزات الأيونات ونفاذية الغشاء لها"
+      }
+    },
+    {
+      "id": "medical-071",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Anatomy",
+        "ar": "التشريح"
+      },
+      "question": {
+        "en": "What is the circle of Willis?",
+        "ar": "ما حلقة ويليس؟"
+      },
+      "answer": {
+        "en": "An anastomotic ring of arteries at the base of the brain providing collateral circulation to protect against ischaemia",
+        "ar": "حلقة من الشرايين المتفاغرة عند قاعدة الدماغ تُوفّر الدورة الدموية الجانبية للحماية من نقص التروية"
+      }
+    },
+    {
+      "id": "medical-072",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Diseases",
+        "ar": "الأمراض"
+      },
+      "question": {
+        "en": "What is the pathophysiology of myocardial infarction?",
+        "ar": "ما الفيزيولوجيا المرضية للاحتشاء الحاد للعضلة القلبية؟"
+      },
+      "answer": {
+        "en": "Plaque rupture → platelet aggregation → thrombus occluding a coronary artery → ischaemia → cell death → infarction",
+        "ar": "تمزّق اللويحة → تجمّع الصفائح الدموية → جلطة تسدّ شريان تاجي → نقص تروية → موت الخلايا → احتشاء"
+      }
+    },
+    {
+      "id": "medical-073",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the difference between Crohn's disease and ulcerative colitis?",
+        "ar": "ما الفرق بين داء كرون والتهاب القولون التقرحي؟"
+      },
+      "answer": {
+        "en": "Crohn's: any part of the GI tract, transmural, skip lesions, granulomas; UC: limited to colon, mucosal only, continuous lesions, no granulomas",
+        "ar": "كرون: أي جزء من الجهاز الهضمي، عبر الجدار، آفات متقطعة، أورام حبيبية؛ التقرحي: مقتصر على القولون، مخاطي فقط، آفات مستمرة، بلا أورام حبيبية"
+      }
+    },
+    {
+      "id": "medical-074",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of action of opioids?",
+        "ar": "ما آلية عمل الأفيونات؟"
+      },
+      "answer": {
+        "en": "Bind to mu, delta, and kappa opioid receptors (GPCRs), inhibiting adenylyl cyclase and reducing neuronal excitability — producing analgesia, euphoria, and respiratory depression",
+        "ar": "ترتبط بمستقبلات الأفيون mu وdelta وkappa (GPCRs)، مثبّطةً الأدينيليل سيكلاز ومقلّلةً من استثارة الخلايا العصبية — مُنتجةً تخديراً وبهجةً واكتئاباً تنفسياً"
+      }
+    },
+    {
+      "id": "medical-075",
+      "difficulty": "hard",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the oxygen-haemoglobin dissociation curve and what shifts it?",
+        "ar": "ما منحنى تفكّك الأكسجين-الهيموغلوبين وما الذي يزحزحه؟"
+      },
+      "answer": {
+        "en": "An S-shaped curve describing oxygen binding affinity; right shift (Bohr effect): low pH, high CO₂, high temperature, high 2,3-DPG — all promoting O₂ release to tissues",
+        "ar": "منحنى على شكل حرف S يصف ميل الهيموغلوبين لارتباط الأكسجين؛ الانزياح لليمين (تأثير بور): pH منخفض، CO₂ مرتفع، حرارة مرتفعة، 2,3-DPG مرتفع — وكلها تعزّز إطلاق الأكسجين للأنسجة"
+      }
+    },
+    {
+      "id": "medical-076",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is pharmacokinetics vs pharmacodynamics?",
+        "ar": "ما الفرق بين الحرائك الدوائية والديناميكا الدوائية؟"
+      },
+      "answer": {
+        "en": "Pharmacokinetics: what the body does to the drug (ADME — absorption, distribution, metabolism, excretion); Pharmacodynamics: what the drug does to the body",
+        "ar": "الحرائك الدوائية: ما يفعله الجسم بالدواء (ADME — الامتصاص والتوزيع والاستقلاب والإخراج)؛ الديناميكا الدوائية: ما يفعله الدواء بالجسم"
+      }
+    },
+    {
+      "id": "medical-077",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the Warburg effect?",
+        "ar": "ما تأثير واربرغ؟"
+      },
+      "answer": {
+        "en": "Cancer cells preferentially use aerobic glycolysis (rather than oxidative phosphorylation) even in the presence of oxygen — generates rapid ATP and biosynthetic precursors",
+        "ar": "تُفضّل خلايا السرطان استخدام التحلّل السكري الهوائي (بدلاً من الفسفرة التأكسدية) حتى في وجود الأكسجين — يولّد ATP سريعاً وسلائف تخليقية حيوية"
+      }
+    },
+    {
+      "id": "medical-078",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the complement cascade and its three activation pathways?",
+        "ar": "ما الشلّال التكميلي ومساراته الثلاثة للتفعيل؟"
+      },
+      "answer": {
+        "en": "Classical pathway (antibody-antigen), lectin pathway (mannose on pathogens), alternative pathway (spontaneous C3 hydrolysis) — all converge to form MAC (membrane attack complex)",
+        "ar": "المسار الكلاسيكي (مستضد-جسم مضاد)، مسار اللكتين (المانوز على مسبّبات الأمراض)، المسار البديل (تحلّل C3 عفوي) — تتقارب كلها لتكوين مركّب هجوم الغشاء (MAC)"
+      }
+    },
+    {
+      "id": "medical-079",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the concept of therapeutic index (TI)?",
+        "ar": "ما مفهوم المؤشر العلاجي (TI)؟"
+      },
+      "answer": {
+        "en": "TI = TD50/ED50 — the ratio of toxic dose to effective dose; a narrow TI means a drug requires careful monitoring (e.g. digoxin, lithium, warfarin)",
+        "ar": "TI = TD50/ED50 — نسبة الجرعة السامة إلى الجرعة الفعّالة؛ النافذة الضيقة تعني حاجة الدواء لمراقبة دقيقة (مثل الديجوكسين والليثيوم والوارفارين)"
+      }
+    },
+    {
+      "id": "medical-080",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What are the hallmarks of cancer (Hanahan & Weinberg)?",
+        "ar": "ما السمات المميّزة للسرطان (هاناهان وواينبرغ)؟"
+      },
+      "answer": {
+        "en": "Sustained proliferative signalling, evading growth suppressors, resisting cell death, enabling replicative immortality, inducing angiogenesis, activating invasion and metastasis, and others",
+        "ar": "الإشارات التكاثرية المستدامة، التهرّب من كابحات النمو، مقاومة موت الخلايا، الخلود التكاثري، تحريض تكوّن الأوعية، تفعيل الغزو والانبثاث، وغيرها"
+      }
+    },
+    {
+      "id": "medical-081",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the mechanism behind long-QT syndrome?",
+        "ar": "ما الآلية الكامنة وراء متلازمة QT الطويل؟"
+      },
+      "answer": {
+        "en": "Prolonged cardiac repolarisation (due to potassium channel mutations or drugs) delays the cardiac action potential, increasing risk of torsades de pointes arrhythmia",
+        "ar": "إطالة إعادة الاستقطاب القلبي (بسبب طفرات قنوات البوتاسيوم أو الأدوية) تُؤخّر جهد الفعل القلبي، مما يزيد خطر اضطراب نظم القلب torsades de pointes"
+      }
+    },
+    {
+      "id": "medical-082",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is checkpoint immunotherapy?",
+        "ar": "ما العلاج المناعي بنقاط التفتيش؟"
+      },
+      "answer": {
+        "en": "Drugs targeting immune checkpoint proteins (PD-1, PD-L1, CTLA-4) to 'release the brakes' on T cells, allowing them to attack cancer cells",
+        "ar": "أدوية تستهدف بروتينات نقاط التفتيش المناعية (PD-1، PD-L1، CTLA-4) لـ'رفع الفرامل' عن خلايا T مما يتيح لها مهاجمة خلايا السرطان"
+      }
+    },
+    {
+      "id": "medical-083",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the mechanism of multiple sclerosis (MS)?",
+        "ar": "ما آلية مرض التصلّب المتعدد (MS)؟"
+      },
+      "answer": {
+        "en": "Autoimmune demyelination of CNS axons — T cells attack myelin sheaths, disrupting nerve signal conduction",
+        "ar": "إزالة المايلين المناعي الذاتي من محاور الجهاز العصبي المركزي — تهاجم خلايا T غمد المايلين، مما يعطّل توصيل الإشارات العصبية"
+      }
+    },
+    {
+      "id": "medical-084",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is Henderson-Hasselbalch equation and its clinical use?",
+        "ar": "ما معادلة هندرسون-هاسلباك واستخدامها السريري؟"
+      },
+      "answer": {
+        "en": "pH = pKa + log([A⁻]/[HA]) — used to calculate blood pH from bicarbonate and CO₂, guiding acid-base disorder management",
+        "ar": "pH = pKa + log([A⁻]/[HA]) — تُستخدم لحساب pH الدم من البيكربونات وCO₂، توجيهاً لإدارة اضطرابات الحمض القاعدي"
+      }
+    },
+    {
+      "id": "medical-085",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of mRNA vaccines?",
+        "ar": "ما آلية عمل لقاحات mRNA؟"
+      },
+      "answer": {
+        "en": "Lipid nanoparticles deliver synthetic mRNA encoding a pathogen protein into cells; ribosomes translate it; immune system recognises the protein and builds memory",
+        "ar": "جسيمات دهنية نانوية تُوصّل mRNA تركيبياً يُرمّز بروتين مسبّب المرض إلى الخلايا؛ ريبوسومات تترجمه؛ الجهاز المناعي يتعرّف على البروتين ويبني ذاكرة مناعية"
+      }
+    },
+    {
+      "id": "medical-086",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the unfolded protein response (UPR) in disease?",
+        "ar": "ما دور استجابة البروتين غير المطوي (UPR) في الأمراض؟"
+      },
+      "answer": {
+        "en": "ER stress triggers UPR — if unresolved, it promotes apoptosis; linked to neurodegeneration, diabetes, and cancer",
+        "ar": "يُطلق إجهاد الشبكة الإندوبلازمية استجابة UPR — إن لم تُحلّ تعزّز الاستماتة؛ مرتبطة بالتنكّس العصبي والسكري والسرطان"
+      }
+    },
+    {
+      "id": "medical-087",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the concept of metabolic syndrome?",
+        "ar": "ما مفهوم المتلازمة الأيضية؟"
+      },
+      "answer": {
+        "en": "A cluster of conditions (central obesity, hypertension, dyslipidaemia, hyperglycaemia) increasing risk of cardiovascular disease and diabetes",
+        "ar": "مجموعة من الحالات (السمنة المركزية، ارتفاع ضغط الدم، اضطراب الدهون، ارتفاع سكر الدم) تزيد خطر أمراض القلب والأوعية والسكري"
+      }
+    },
+    {
+      "id": "medical-088",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of antifungal azoles?",
+        "ar": "ما آلية عمل مضادات الفطريات من فئة الأزولات؟"
+      },
+      "answer": {
+        "en": "Inhibit lanosterol 14α-demethylase (CYP51), blocking ergosterol synthesis — depleting the fungal cell membrane and causing cell death",
+        "ar": "تثبّط إنزيم لانوستيرول 14ألفا-ديميثيلاز (CYP51)، مما يمنع تركيب إرغوستيرول — يستنزف غشاء الخلية الفطرية مما يسبّب موتها"
+      }
+    },
+    {
+      "id": "medical-089",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is clonal haematopoiesis of indeterminate potential (CHIP)?",
+        "ar": "ما تكوين الدم المستنسخ ذو الإمكانية غير المحدودة (CHIP)؟"
+      },
+      "answer": {
+        "en": "Age-related somatic mutations in haematopoietic stem cells conferring a growth advantage, associated with increased risk of blood cancers and cardiovascular disease",
+        "ar": "طفرات جسدية مرتبطة بالتقدّم في السن في الخلايا الجذعية المكوّنة للدم تمنحها ميزة نمو، مرتبطة بزيادة خطر سرطانات الدم وأمراض القلب والأوعية"
+      }
+    },
+    {
+      "id": "medical-090",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the concept of immunological tolerance?",
+        "ar": "ما مفهوم التسامح المناعي؟"
+      },
+      "answer": {
+        "en": "The ability of the immune system not to attack self-antigens — central tolerance (thymus/bone marrow) and peripheral tolerance mechanisms prevent autoimmunity",
+        "ar": "قدرة الجهاز المناعي على عدم مهاجمة المستضدات الذاتية — التسامح المركزي (الغدة الصعترية / نخاع العظم) والآليات المحيطية تمنع المناعة الذاتية"
+      }
+    },
+    {
+      "id": "medical-091",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of SGLT2 inhibitors?",
+        "ar": "ما آلية عمل مثبطات SGLT2؟"
+      },
+      "answer": {
+        "en": "Block sodium-glucose co-transporter 2 in the kidney proximal tubule, preventing glucose reabsorption and causing glycosuria — used in type 2 diabetes and heart failure",
+        "ar": "تمنع ناقل الصوديوم-الجلوكوز المشترك 2 في الأنبوب الكلوي القريب، مما يمنع إعادة امتصاص الجلوكوز ويسبّب السكر في البول — تُستخدم في النوع 2 من السكري وفشل القلب"
+      }
+    },
+    {
+      "id": "medical-092",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is liquid biopsy?",
+        "ar": "ما الخزعة السائلة؟"
+      },
+      "answer": {
+        "en": "Detection of circulating tumour DNA (ctDNA), cells, or exosomes in blood, enabling non-invasive cancer diagnosis, monitoring, and treatment response assessment",
+        "ar": "الكشف عن الحمض النووي الورمي المتداول (ctDNA) أو الخلايا أو الإكسوسومات في الدم، مما يتيح تشخيص السرطان وإدارته وتقييم الاستجابة للعلاج دون تدخّل جراحي"
+      }
+    },
+    {
+      "id": "medical-093",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is the concept of epigenetic regulation of gene expression in disease?",
+        "ar": "ما مفهوم التنظيم التخلّقي للتعبير الجيني في الأمراض؟"
+      },
+      "answer": {
+        "en": "DNA methylation and histone modification alter gene expression without DNA sequence changes — aberrant epigenetics drives cancer, metabolic disease, and neurodegeneration",
+        "ar": "تُغيّر مثيلة الحمض النووي وتعديل الهيستون التعبير الجيني دون تغيّر التسلسل — الإبيجينتيك المضطرب يقود السرطان والأمراض الأيضية والتنكّس العصبي"
+      }
+    },
+    {
+      "id": "medical-094",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the concept of pharmacogenomics?",
+        "ar": "ما مفهوم الصيدلة الجينومية؟"
+      },
+      "answer": {
+        "en": "The study of how genetic variation affects drug response — enabling personalised medicine by predicting efficacy and toxicity based on an individual's genome",
+        "ar": "دراسة كيفية تأثير التباين الجيني على استجابة الدواء — تُمكّن من الطب المخصّص بالتنبّؤ بالفاعلية والسمية بناءً على الجينوم الفردي"
+      }
+    },
+    {
+      "id": "medical-095",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the difference between innate and adaptive immunity?",
+        "ar": "ما الفرق بين المناعة الفطرية والتكيّفية؟"
+      },
+      "answer": {
+        "en": "Innate: fast, non-specific, first line (neutrophils, macrophages, NK cells, complement); Adaptive: slow, specific, memory-forming (T cells, B cells, antibodies)",
+        "ar": "الفطرية: سريعة وغير نوعية وخط دفاع أول (العدلات والبالعات وخلايا NK والمتمّم)؛ التكيّفية: بطيئة ونوعية وتُشكّل ذاكرة (خلايا T وB والأجسام المضادة)"
+      }
+    },
+    {
+      "id": "medical-096",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is mitochondrial disease?",
+        "ar": "ما أمراض الميتوكوندريا؟"
+      },
+      "answer": {
+        "en": "Diseases caused by dysfunction of the mitochondria, impairing ATP production — affecting high-energy tissues like muscles, brain, and heart; can be inherited maternally",
+        "ar": "أمراض ناجمة عن خلل في الميتوكوندريا يُعيق إنتاج ATP — تؤثر على الأنسجة عالية الطاقة كالعضلات والدماغ والقلب؛ يمكن توارثها أموياً"
+      }
+    },
+    {
+      "id": "medical-097",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the mechanism of targeted therapy in CML (e.g. imatinib)?",
+        "ar": "ما آلية العلاج الموجّه في ابيضاض الدم النقوي المزمن (مثل إيماتينيب)؟"
+      },
+      "answer": {
+        "en": "Imatinib inhibits BCR-ABL tyrosine kinase — the product of the Philadelphia chromosome translocation — blocking proliferation of malignant cells",
+        "ar": "يثبّط إيماتينيب إنزيم BCR-ABL تيروزين كيناز — ناتج إزاحة كروموسوم فيلادلفيا — مانعاً تكاثر الخلايا الخبيثة"
+      }
+    },
+    {
+      "id": "medical-098",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pathology",
+        "ar": "علم الأمراض"
+      },
+      "question": {
+        "en": "What is the pathophysiology of ARDS (Acute Respiratory Distress Syndrome)?",
+        "ar": "ما الفيزيولوجيا المرضية لمتلازمة الضائقة التنفسية الحادة (ARDS)؟"
+      },
+      "answer": {
+        "en": "Widespread lung inflammation → increased capillary permeability → non-cardiogenic pulmonary oedema → impaired gas exchange → hypoxaemia",
+        "ar": "التهاب رئوي واسع النطاق → زيادة نفاذية الشعيرات الدموية → وذمة رئوية غير قلبية → ضعف تبادل الغازات → نقص أكسجين الدم"
+      }
+    },
+    {
+      "id": "medical-099",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Physiology",
+        "ar": "علم وظائف الأعضاء"
+      },
+      "question": {
+        "en": "What is haematopoiesis and where does it occur in adults?",
+        "ar": "ما تكوين الدم وأين يحدث عند البالغين؟"
+      },
+      "answer": {
+        "en": "The production of blood cells from haematopoietic stem cells — primarily in red bone marrow of flat bones (sternum, iliac crest, vertebrae, ribs) in adults",
+        "ar": "إنتاج خلايا الدم من الخلايا الجذعية المكوّنة للدم — أساساً في نخاع العظم الأحمر للعظام المسطّحة (القص، قمة الحرقفة، الفقرات، الأضلاع) عند البالغين"
+      }
+    },
+    {
+      "id": "medical-100",
+      "difficulty": "very-advanced",
+      "subcategory": {
+        "en": "Pharmacology",
+        "ar": "علم الأدوية"
+      },
+      "question": {
+        "en": "What is the concept of drug resistance in cancer chemotherapy?",
+        "ar": "ما مفهوم مقاومة الأدوية في العلاج الكيميائي للسرطان؟"
+      },
+      "answer": {
+        "en": "Tumours acquire resistance through: drug efflux pumps, DNA repair upregulation, target mutations, anti-apoptotic signalling, and clonal selection of resistant cells",
+        "ar": "تكتسب الأورام المقاومة عبر: مضخّات طرد الدواء، وتنظيم صعودي لإصلاح الحمض النووي، وطفرات الهدف، وإشارات مضادة للاستماتة، والانتقاء المستنسخ للخلايا المقاومة"
+      }
+    }
+  ]
+}

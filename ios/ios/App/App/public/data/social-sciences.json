@@ -1,0 +1,364 @@
+{
+  "slug": "social-sciences",
+  "title": { "en": "Social Sciences", "ar": "العلوم الاجتماعية" },
+  "description": { "en": "Explore sociology, anthropology, economics, and political science — the sciences that study human society and behaviour.", "ar": "استكشف علم الاجتماع والأنثروبولوجيا والاقتصاد والعلوم السياسية — العلوم التي تدرس المجتمع البشري وسلوكه." },
+  "cluster": { "en": "Social & Behavioral", "ar": "الاجتماعي والسلوكي" },
+  "cluster_key": "social",
+  "emoji": "🌍",
+  "mode": "trivia",
+  "count": 50,
+  "difficultyCounts": { "easy": 13, "medium": 13, "hard": 12, "very-advanced": 12 },
+  "subcategories": ["Sociology", "Anthropology", "Economics", "Political Science"],
+  "cards": [
+    {
+      "id": "social-sciences-001",
+      "difficulty": "easy",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "Who is considered the founder of sociology?", "ar": "من يُعدّ مؤسس علم الاجتماع؟" },
+      "answer": { "en": "Auguste Comte, who coined the term 'sociology' in the 19th century.", "ar": "أوغست كونت، الذي صاغ مصطلح 'علم الاجتماع' في القرن التاسع عشر." }
+    },
+    {
+      "id": "social-sciences-002",
+      "difficulty": "easy",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is GDP (Gross Domestic Product)?", "ar": "ما الناتج المحلي الإجمالي (GDP)؟" },
+      "answer": { "en": "The total monetary value of all goods and services produced within a country's borders in a specific time period.", "ar": "القيمة النقدية الإجمالية لجميع السلع والخدمات المنتجة داخل حدود دولة ما خلال فترة زمنية محددة." }
+    },
+    {
+      "id": "social-sciences-003",
+      "difficulty": "easy",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is the difference between a democracy and an autocracy?", "ar": "ما الفرق بين الديمقراطية والأوتوقراطية؟" },
+      "answer": { "en": "In a democracy, power is held by the people (directly or through elected representatives). In an autocracy, power is concentrated in a single ruler with little or no accountability.", "ar": "في الديمقراطية، تمتلك السلطة الشعب (مباشرة أو عبر ممثلين منتخبين). في الأوتوقراطية، تتمركز السلطة في يد حاكم واحد دون مساءلة تذكر." }
+    },
+    {
+      "id": "social-sciences-004",
+      "difficulty": "easy",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is culture in anthropological terms?", "ar": "ما المقصود بالثقافة في المصطلح الأنثروبولوجي؟" },
+      "answer": { "en": "The shared beliefs, values, norms, practices, symbols, and knowledge transmitted across generations within a human group.", "ar": "المعتقدات والقيم والأعراف والممارسات والرموز والمعرفة المشتركة التي تنتقل عبر الأجيال داخل مجموعة بشرية." }
+    },
+    {
+      "id": "social-sciences-005",
+      "difficulty": "easy",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is social stratification?", "ar": "ما التطبق الاجتماعي؟" },
+      "answer": { "en": "The hierarchical arrangement of individuals or groups in society based on wealth, power, prestige, or other criteria.", "ar": "الترتيب الهرمي للأفراد أو المجموعات في المجتمع بناءً على الثروة أو السلطة أو المكانة أو معايير أخرى." }
+    },
+    {
+      "id": "social-sciences-006",
+      "difficulty": "easy",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is inflation?", "ar": "ما التضخم؟" },
+      "answer": { "en": "The rate at which the general level of prices for goods and services rises, reducing the purchasing power of money.", "ar": "المعدل الذي يرتفع به المستوى العام لأسعار السلع والخدمات، مما يُقلل من القوة الشرائية للنقود." }
+    },
+    {
+      "id": "social-sciences-007",
+      "difficulty": "easy",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is the separation of powers in government?", "ar": "ما مبدأ الفصل بين السلطات في الحكم؟" },
+      "answer": { "en": "The division of government authority into three branches — legislative (makes laws), executive (enforces laws), and judicial (interprets laws) — to prevent any one branch from becoming too powerful.", "ar": "تقسيم سلطة الحكومة إلى ثلاثة فروع — التشريعية (تسنّ القوانين)، والتنفيذية (تُنفّذ القوانين)، والقضائية (تُفسّر القوانين) — لمنع أي فرع من الحصول على سلطة مفرطة." }
+    },
+    {
+      "id": "social-sciences-008",
+      "difficulty": "easy",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is ethnography?", "ar": "ما الإثنوغرافيا؟" },
+      "answer": { "en": "A qualitative research method in which an anthropologist immerses themselves in a community over an extended period to observe and document its way of life.", "ar": "منهج بحثي نوعي يندمج فيه الأنثروبولوجي مع مجتمع ما لفترة ممتدة لمراقبة نمط حياته وتوثيقه." }
+    },
+    {
+      "id": "social-sciences-009",
+      "difficulty": "easy",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What does the term 'social norms' mean?", "ar": "ماذا يعني مصطلح 'المعايير الاجتماعية'؟" },
+      "answer": { "en": "Shared rules and expectations within a group or society that guide behaviour — e.g., shaking hands when greeting, queuing in line.", "ar": "القواعد والتوقعات المشتركة داخل مجموعة أو مجتمع توجّه السلوك — مثلاً: المصافحة عند التحية، والوقوف في طابور." }
+    },
+    {
+      "id": "social-sciences-010",
+      "difficulty": "easy",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is supply and demand?", "ar": "ما العرض والطلب؟" },
+      "answer": { "en": "Supply is the amount of a product producers are willing to sell at a given price; demand is the amount consumers want to buy. Where they meet determines the market price.", "ar": "العرض هو الكمية التي ينتجها المنتجون ويرغبون في بيعها بسعر معين؛ والطلب هو الكمية التي يرغب المستهلكون في شرائها. حيث يتقاطعان يتحدد سعر السوق." }
+    },
+    {
+      "id": "social-sciences-011",
+      "difficulty": "easy",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is the United Nations and when was it founded?", "ar": "ما الأمم المتحدة ومتى تأسست؟" },
+      "answer": { "en": "An international organisation founded in 1945 after World War II to promote peace, security, and international cooperation among its member states.", "ar": "منظمة دولية تأسست عام 1945 عقب الحرب العالمية الثانية لتعزيز السلام والأمن والتعاون الدولي بين الدول الأعضاء." }
+    },
+    {
+      "id": "social-sciences-012",
+      "difficulty": "easy",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is socialisation in sociology?", "ar": "ما التنشئة الاجتماعية في علم الاجتماع؟" },
+      "answer": { "en": "The lifelong process by which individuals learn and internalise the values, norms, and behaviours appropriate to their culture and social positions.", "ar": "العملية مدى الحياة التي يتعلم من خلالها الأفراد ويستوعبون القيم والمعايير والسلوكيات المناسبة لثقافتهم ومواقعهم الاجتماعية." }
+    },
+    {
+      "id": "social-sciences-013",
+      "difficulty": "easy",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is cultural relativism?", "ar": "ما النسبية الثقافية؟" },
+      "answer": { "en": "The principle of understanding a culture on its own terms rather than judging it by the standards of another culture.", "ar": "مبدأ فهم الثقافة بمصطلحاتها الخاصة بدلاً من الحكم عليها وفق معايير ثقافة أخرى." }
+    },
+    {
+      "id": "social-sciences-014",
+      "difficulty": "medium",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is Max Weber's concept of 'ideal types' and how is it used in sociological analysis?", "ar": "ما مفهوم 'الأنماط المثالية' عند ماكس فيبر وكيف يُستخدم في التحليل الاجتماعي؟" },
+      "answer": { "en": "An ideal type is an analytical construct that exaggerates or emphasises certain characteristics of a social phenomenon to create a benchmark for comparison — e.g., 'bureaucracy' as a pure rational-legal form. It doesn't describe reality but helps identify deviations from it.", "ar": "النمط المثالي هو بناء تحليلي يُبالغ في أو يُبرز خصائص معينة لظاهرة اجتماعية لإنشاء معيار مرجعي للمقارنة — مثلاً 'البيروقراطية' كشكل قانوني-عقلاني نقي. لا يصف الواقع لكنه يُساعد في تحديد الانحرافات عنه." }
+    },
+    {
+      "id": "social-sciences-015",
+      "difficulty": "medium",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is the difference between microeconomics and macroeconomics?", "ar": "ما الفرق بين الاقتصاد الجزئي والاقتصاد الكلي؟" },
+      "answer": { "en": "Microeconomics studies individual economic agents (firms, households) and their decisions. Macroeconomics studies the economy as a whole — national output, unemployment, inflation, monetary policy.", "ar": "الاقتصاد الجزئي يدرس الوحدات الاقتصادية الفردية (الشركات، الأسر) وقراراتها. الاقتصاد الكلي يدرس الاقتصاد بأكمله — الناتج الوطني، والبطالة، والتضخم، والسياسة النقدية." }
+    },
+    {
+      "id": "social-sciences-016",
+      "difficulty": "medium",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is the social contract theory, and how do Hobbes, Locke, and Rousseau differ on it?", "ar": "ما نظرية العقد الاجتماعي، وكيف يختلف هوبز ولوك وروسو في شأنها؟" },
+      "answer": { "en": "Social contract theory holds that political authority derives from agreement among people. Hobbes: without authority, life is 'nasty, brutish, short' — people surrender rights to a sovereign. Locke: government's legitimacy requires protecting natural rights (life, liberty, property); people can revolt if it fails. Rousseau: the general will of the community is the true sovereign.", "ar": "تقول نظرية العقد الاجتماعي إن السلطة السياسية تنبع من اتفاق بين الناس. هوبز: بدون سلطة، الحياة 'قذرة وقاسية وقصيرة' — يتخلى الناس عن حقوقهم لسيادة. لوك: تتطلب شرعية الحكومة حماية الحقوق الطبيعية (الحياة، والحرية، والملكية)؛ ويحق للناس الثورة عند الفشل. روسو: الإرادة العامة للمجتمع هي السيادة الحقيقية." }
+    },
+    {
+      "id": "social-sciences-017",
+      "difficulty": "medium",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is Émile Durkheim's concept of 'anomie'?", "ar": "ما مفهوم إميل دوركهايم عن 'الشذوذ الاجتماعي' (anomie)؟" },
+      "answer": { "en": "A state of normlessness or breakdown in social norms, caused by rapid social change, where individuals feel disconnected from their society's values. Durkheim linked anomie to higher suicide rates in his 1897 study.", "ar": "حالة من انعدام المعايير أو انهيار الأعراف الاجتماعية تسببها التغيرات الاجتماعية السريعة، حيث يشعر الأفراد بانفصال عن قيم مجتمعهم. ربط دوركهايم الشذوذ الاجتماعي بارتفاع معدلات الانتحار في دراسته عام 1897." }
+    },
+    {
+      "id": "social-sciences-018",
+      "difficulty": "medium",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is the 'Sapir-Whorf hypothesis' (linguistic relativity)?", "ar": "ما 'فرضية سابير-وورف' (النسبية اللغوية)؟" },
+      "answer": { "en": "The idea that the language one speaks influences or determines how they perceive and think about the world. The strong version claims language determines thought; the weak version claims language influences thought. Experimental evidence supports the weak version.", "ar": "فكرة أن اللغة التي يتحدثها المرء تؤثر في أو تُحدد كيفية إدراكه وتفكيره في العالم. النسخة القوية تدّعي أن اللغة تُحدد الفكر؛ النسخة الضعيفة تدّعي أن اللغة تؤثر في الفكر. الأدلة التجريبية تدعم النسخة الضعيفة." }
+    },
+    {
+      "id": "social-sciences-019",
+      "difficulty": "medium",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is the 'invisible hand' concept in Adam Smith's economics?", "ar": "ما مفهوم 'اليد الخفية' في اقتصاديات آدم سميث؟" },
+      "answer": { "en": "The idea that individuals pursuing their own self-interest in a free market unintentionally promote the overall economic welfare of society — as if guided by an invisible hand. It is a key argument for market economies over central planning.", "ar": "فكرة أن الأفراد الذين يسعون لمصالحهم الذاتية في سوق حرة يُعززون رفاهية المجتمع الاقتصادية الإجمالية دون قصد — كأنهم يُوجَّهون بيد خفية. وهو حجة رئيسية للاقتصادات السوقية في مقابل التخطيط المركزي." }
+    },
+    {
+      "id": "social-sciences-020",
+      "difficulty": "medium",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is the difference between a federal and a unitary state?", "ar": "ما الفرق بين الدولة الفيدرالية والدولة الموحدة؟" },
+      "answer": { "en": "In a federal state, power is divided between a central government and regional/state governments (e.g., USA, Germany). In a unitary state, the central government holds supreme authority and sub-national governments operate under its delegation (e.g., France, UK).", "ar": "في الدولة الفيدرالية، تتقاسم السلطة حكومة مركزية وحكومات إقليمية/ولائية (مثل الولايات المتحدة وألمانيا). في الدولة الموحدة، تمتلك الحكومة المركزية السلطة العليا وتعمل الحكومات دون الوطنية بموجب تفويض منها (مثل فرنسا والمملكة المتحدة)." }
+    },
+    {
+      "id": "social-sciences-021",
+      "difficulty": "medium",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is Pierre Bourdieu's concept of 'cultural capital'?", "ar": "ما مفهوم 'رأس المال الثقافي' عند بيير بورديو؟" },
+      "answer": { "en": "Non-financial social assets — knowledge, skills, education, and cultural tastes — that confer social advantage. It exists in three forms: embodied (dispositions), objectified (cultural goods), and institutionalised (educational credentials).", "ar": "الأصول الاجتماعية غير المالية — المعرفة والمهارات والتعليم والأذواق الثقافية — التي تمنح مزايا اجتماعية. يوجد في ثلاثة أشكال: متجسّد (الاستعدادات)، وموضّعي (السلع الثقافية)، ومؤسسي (المؤهلات التعليمية)." }
+    },
+    {
+      "id": "social-sciences-022",
+      "difficulty": "medium",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is the 'nature vs. nurture' debate in the context of human behaviour?", "ar": "ما جدل 'الطبيعة مقابل التنشئة' في سياق السلوك البشري؟" },
+      "answer": { "en": "Whether human characteristics, abilities, and behaviours are primarily determined by genetics ('nature') or by environment, upbringing, and experience ('nurture'). Modern consensus: both interact — genes set potentials, environment shapes expression.", "ar": "ما إذا كانت خصائص الإنسان وقدراته وسلوكياته تتحدد أساساً بالجينات ('الطبيعة') أو بالبيئة والتربية والتجربة ('التنشئة'). الإجماع الحديث: كلاهما يتفاعلان — الجينات تُحدد الإمكانيات والبيئة تُشكّل التعبير." }
+    },
+    {
+      "id": "social-sciences-023",
+      "difficulty": "medium",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is the difference between monetary policy and fiscal policy?", "ar": "ما الفرق بين السياسة النقدية والسياسة المالية؟" },
+      "answer": { "en": "Monetary policy is managed by central banks (interest rates, money supply) to control inflation and growth. Fiscal policy is managed by governments (taxation and spending) to influence the economy.", "ar": "السياسة النقدية تديرها البنوك المركزية (أسعار الفائدة، عرض النقود) للسيطرة على التضخم والنمو. السياسة المالية تديرها الحكومات (الضرائب والإنفاق) للتأثير على الاقتصاد." }
+    },
+    {
+      "id": "social-sciences-024",
+      "difficulty": "medium",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is 'soft power' in international relations, as defined by Joseph Nye?", "ar": "ما 'القوة الناعمة' في العلاقات الدولية كما عرّفها جوزيف ناي؟" },
+      "answer": { "en": "The ability to shape the preferences of others through appeal and attraction rather than coercion or payment ('hard power'). It relies on culture, political values, and foreign policy legitimacy. E.g., the global appeal of American pop culture.", "ar": "القدرة على تشكيل تفضيلات الآخرين من خلال الجاذبية والاستقطاب بدلاً من الإكراه أو الدفع ('القوة الصلبة'). تعتمد على الثقافة والقيم السياسية وشرعية السياسة الخارجية. مثلاً: الجاذبية العالمية للثقافة الشعبية الأمريكية." }
+    },
+    {
+      "id": "social-sciences-025",
+      "difficulty": "medium",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is 'labelling theory' in criminology and sociology?", "ar": "ما 'نظرية الوصم' في علم الجريمة وعلم الاجتماع؟" },
+      "answer": { "en": "The theory (associated with Howard Becker) that deviance is not inherent in an act but is constructed when society labels a person as deviant. Being labelled criminal can become a self-fulfilling prophecy, pushing individuals into further deviance.", "ar": "النظرية (المرتبطة بهاورد بيكر) التي تقول إن الانحراف ليس متأصلاً في الفعل بل يُبنى حين يصف المجتمع شخصاً ما بالانحراف. قد يصبح وسم الفرد بالإجرام نبوءة تتحقق ذاتياً تدفعه نحو مزيد من الانحراف." }
+    },
+    {
+      "id": "social-sciences-026",
+      "difficulty": "medium",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is the concept of 'rites of passage' and give two examples from different cultures?", "ar": "ما مفهوم 'طقوس العبور' وأعطِ مثالين من ثقافات مختلفة؟" },
+      "answer": { "en": "Rituals marking a transition from one social status to another (Arnold van Gennep). Three stages: separation, liminality (transition), and incorporation. Examples: bar mitzvah in Judaism (adulthood), Satere-Mawe bullet ant glove ritual in Brazil (warriorhood), marriage ceremonies, funerals.", "ar": "طقوس تُعلم الانتقال من وضع اجتماعي إلى آخر (أرنولد فان جينيب). ثلاث مراحل: الفصل، والعتبة (الانتقال)، والاندماج. أمثلة: البار ميتزفة في اليهودية (البلوغ)، وطقوس قفاز النمل الرصاصة لدى قبيلة ساتيريه-ماوي في البرازيل (الفروسية)، وحفلات الزواج والجنازات." }
+    },
+    {
+      "id": "social-sciences-027",
+      "difficulty": "hard",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is intersectionality and who developed the concept?", "ar": "ما التقاطعية ومن طوّر المفهوم؟" },
+      "answer": { "en": "Developed by Kimberlé Crenshaw (1989), intersectionality is the framework for understanding how different aspects of a person's social and political identities (race, gender, class, sexuality, disability) combine to create overlapping systems of discrimination or privilege.", "ar": "طوّرتها كيمبرلي كرينشو (1989)، التقاطعية هي الإطار لفهم كيف تتحد جوانب مختلفة من الهويات الاجتماعية والسياسية للشخص (العرق، والجنس، والطبقة، والجنسانية، والإعاقة) لخلق أنظمة متداخلة من التمييز أو الامتياز." }
+    },
+    {
+      "id": "social-sciences-028",
+      "difficulty": "hard",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is the 'tragedy of the commons' and what solutions have been proposed?", "ar": "ما 'مأساة المشاع' وما الحلول المقترحة؟" },
+      "answer": { "en": "Garrett Hardin's (1968) concept: when a shared resource (commons) is freely available to all, individual self-interest leads to overuse and depletion. Solutions: privatisation, government regulation, or Elinor Ostrom's third way — communities self-govern commons through negotiated rules (her 2009 Nobel Prize work).", "ar": "مفهوم غاريت هاردن (1968): عندما يكون مورد مشترك متاحاً للجميع مجاناً، تؤدي المصلحة الذاتية الفردية إلى الاستنزاف. الحلول: الخصخصة، أو التنظيم الحكومي، أو الطريق الثالث لإيلينور أوستروم — المجتمعات تُدير المشاعات ذاتياً عبر قواعد تفاوضية (عمل جائزة نوبل 2009)." }
+    },
+    {
+      "id": "social-sciences-029",
+      "difficulty": "hard",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is Huntington's 'Clash of Civilizations' thesis and what are its main criticisms?", "ar": "ما أطروحة هنتنغتون 'صراع الحضارات' وما أبرز انتقاداتها؟" },
+      "answer": { "en": "Huntington (1993) argued that post-Cold War conflicts would be driven by cultural and religious differences between civilisational blocs rather than ideology. Critics argue it essentialises culture, ignores intra-civilisational conflicts, oversimplifies diversity within blocs, and can become a self-fulfilling prophecy that justifies conflict.", "ar": "جادل هنتنغتون (1993) بأن النزاعات بعد الحرب الباردة ستتحرك بالاختلافات الثقافية والدينية بين الكتل الحضارية لا بالأيديولوجيا. ينتقد المنتقدون أنه يُجوهر الثقافة، ويتجاهل النزاعات داخل الحضارات، ويُبسّط التنوع داخل الكتل، وقد يصبح نبوءة تحقق ذاتياً تُبرر الصراع." }
+    },
+    {
+      "id": "social-sciences-030",
+      "difficulty": "hard",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is Erving Goffman's 'dramaturgical model' of social interaction?", "ar": "ما 'النموذج الدرامي' لإيرفينغ غوفمان في التفاعل الاجتماعي؟" },
+      "answer": { "en": "Goffman argued life is like a theatrical performance: in front-stage behaviour we manage impressions for audiences; in backstage behaviour we relax our performance. Key concepts: impression management, face-saving, stigma, and the presentation of self as a performed identity.", "ar": "جادل غوفمان بأن الحياة تشبه عرضاً مسرحياً: في السلوك أمام الكواليس ندير الانطباعات للجمهور؛ وخلف الكواليس نرتاح من أدواتنا. المفاهيم الرئيسية: إدارة الانطباع، والحفاظ على ماء الوجه، والوصمة، وتقديم الذات كهوية مؤدَّاة." }
+    },
+    {
+      "id": "social-sciences-031",
+      "difficulty": "hard",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is 'market failure' and what are its main causes?", "ar": "ما 'فشل السوق' وما أسبابه الرئيسية؟" },
+      "answer": { "en": "Market failure occurs when free markets fail to allocate resources efficiently. Main causes: externalities (spillover costs/benefits not priced, e.g., pollution), public goods (non-rival, non-excludable), information asymmetry, and monopoly power.", "ar": "يحدث فشل السوق عندما لا تُوزّع الأسواق الحرة الموارد بكفاءة. الأسباب الرئيسية: الخارجيات (تكاليف/فوائد جانبية غير مُسعَّرة، كالتلوث)، والسلع العامة (غير التنافسية وغير القابلة للإقصاء)، وعدم تماثل المعلومات، وسلطة الاحتكار." }
+    },
+    {
+      "id": "social-sciences-032",
+      "difficulty": "hard",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is Marcel Mauss's concept of 'the gift' and how does it challenge economic rationality?", "ar": "ما مفهوم مارسيل موس عن 'الهدية' وكيف يتحدى العقلانية الاقتصادية؟" },
+      "answer": { "en": "In 'The Gift' (1925), Mauss argued that gift exchange in many societies is not voluntary or free — it creates binding obligations to receive, reciprocate, and give again (the 'spirit of the gift'). This challenges rational self-interest models by showing social bonds are built through obligated generosity, not market transactions.", "ar": "في 'الهدية' (1925)، جادل موس بأن تبادل الهدايا في كثير من المجتمعات ليس طوعياً أو مجانياً — بل يخلق التزامات ملزمة بالاستقبال والمعاملة بالمثل والعطاء مجدداً ('روح الهدية'). يتحدى هذا نماذج المصلحة الذاتية العقلانية بإظهار أن الروابط الاجتماعية تُبنى بالكرم الملزم لا بالمعاملات السوقية." }
+    },
+    {
+      "id": "social-sciences-033",
+      "difficulty": "hard",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is the 'democratic peace theory' and what is its main empirical finding?", "ar": "ما 'نظرية السلام الديمقراطي' وما الاستنتاج التجريبي الرئيسي لها؟" },
+      "answer": { "en": "The democratic peace theory holds that liberal democracies rarely (if ever) go to war with each other. The empirical finding is one of the most robust in international relations: dyads of mature democracies have an exceptionally low probability of militarised conflict.", "ar": "تقول نظرية السلام الديمقراطي إن الديمقراطيات الليبرالية نادراً ما تشن حروباً ضد بعضها (إن وقع ذلك أصلاً). الاستنتاج التجريبي أحد أكثر نتائج العلاقات الدولية ثباتاً: للديمقراطيات الناضجة معاً احتمالية منخفضة للغاية للصراع المسلح." }
+    },
+    {
+      "id": "social-sciences-034",
+      "difficulty": "hard",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is 'moral panic' (Stanley Cohen) and give a historical example?", "ar": "ما 'الذعر الأخلاقي' (ستانلي كوهين) وأعطِ مثالاً تاريخياً؟" },
+      "answer": { "en": "A disproportionate, media-amplified social reaction to a group or behaviour deemed a threat to societal values. Cohen identified folk devils (the perceived threat), moral entrepreneurs (those stoking fear), and disproportionate response. Example: 1960s British media reaction to Mods and Rockers; or 1980s–90s 'Satanic panic' over heavy metal music.", "ar": "رد فعل اجتماعي مبالغ فيه تُضخّمه وسائل الإعلام تجاه مجموعة أو سلوك يُعدّ تهديداً للقيم المجتمعية. حدّد كوهين 'شياطين الشعب' (التهديد المتصوَّر) و'رواد الأخلاق' (المحرّضون على الخوف) والاستجابة المبالغ فيها. مثال: رد فعل وسائل الإعلام البريطانية في الستينيات على 'الموكرز' و'الروكرز'؛ أو 'ذعر الشيطان' في الثمانينيات والتسعينيات من موسيقى الهيفي ميتال." }
+    },
+    {
+      "id": "social-sciences-035",
+      "difficulty": "hard",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is behavioural economics and how does it challenge classical economic theory?", "ar": "ما الاقتصاد السلوكي وكيف يتحدى النظرية الاقتصادية الكلاسيكية؟" },
+      "answer": { "en": "Behavioural economics incorporates psychological insights to model real human decision-making. It challenges the 'rational economic man' assumption by demonstrating systematic biases: loss aversion (losses hurt more than equivalent gains), anchoring, present bias, and framing effects (Kahneman & Tversky).", "ar": "الاقتصاد السلوكي يدمج رؤى علم النفس لنمذجة صنع القرار البشري الحقيقي. يتحدى افتراض 'الإنسان الاقتصادي العقلاني' بإثبات انحيازات منهجية: النفور من الخسارة (الخسائر تؤلم أكثر من المكاسب المعادلة)، والإرساء، والتحيز للحاضر، وتأثيرات الإطار (كانيمان وتفيرسكي)." }
+    },
+    {
+      "id": "social-sciences-036",
+      "difficulty": "hard",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is the 'out-of-Africa' theory of human origins and what is the main competing hypothesis?", "ar": "ما نظرية 'خروج من أفريقيا' في أصول الإنسان وما الفرضية المنافسة الرئيسية؟" },
+      "answer": { "en": "Out-of-Africa (Recent African Origin) holds that all modern humans descend from a population that migrated from Africa roughly 60,000–70,000 years ago, replacing earlier archaic populations. The competing multi-regional hypothesis proposed parallel evolution in different regions. Genetic evidence overwhelmingly supports Out-of-Africa, though interbreeding with Neanderthals and Denisovans shows some regional gene flow.", "ar": "نظرية 'خروج من أفريقيا' (الأصل الأفريقي الحديث) تقول إن جميع البشر المعاصرين ينحدرون من مجموعة هاجرت من أفريقيا قبل نحو 60,000-70,000 عام، واستبدلت السكان القدماء السابقين. الفرضية متعددة الأقاليم المنافسة اقترحت تطوراً متوازياً في مناطق مختلفة. الأدلة الجينية تدعم نظرية الخروج من أفريقيا بشكل ساحق، وإن كان التزاوج مع إنسان نياندرتال والدينيسوفا يُظهر بعض تدفق الجينات الإقليمي." }
+    },
+    {
+      "id": "social-sciences-037",
+      "difficulty": "hard",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is Antonio Gramsci's concept of 'hegemony'?", "ar": "ما مفهوم 'الهيمنة' عند أنطونيو غرامشي؟" },
+      "answer": { "en": "Gramsci used hegemony to describe how dominant classes maintain power not just through coercion but through ideological consent — shaping culture, education, and media so that subordinate groups accept the dominant worldview as 'common sense', making overt force unnecessary.", "ar": "استخدم غرامشي الهيمنة لوصف كيف تحافظ الطبقات المهيمنة على السلطة ليس عبر الإكراه فحسب بل عبر الموافقة الأيديولوجية — تشكيل الثقافة والتعليم والإعلام كي تقبل المجموعات الخاضعة الرؤية العالمية المهيمنة بوصفها 'المنطق السليم'، مما يجعل القوة الصريحة غير ضرورية." }
+    },
+    {
+      "id": "social-sciences-038",
+      "difficulty": "hard",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is Michel Foucault's concept of 'biopower'?", "ar": "ما مفهوم 'السلطة الحيوية' عند ميشيل فوكو؟" },
+      "answer": { "en": "Biopower is Foucault's term for the way modern states regulate populations by controlling biological life — through medicine, public health, demographics, sexuality, and reproduction. It operates at two levels: disciplining individual bodies (anatomo-politics) and managing the population as a whole (biopolitics).", "ar": "السلطة الحيوية هو مصطلح فوكو للطريقة التي تُنظّم بها الدول الحديثة السكان عبر التحكم في الحياة البيولوجية — من خلال الطب والصحة العامة والديموغرافيا والجنسانية والتكاثر. تعمل على مستويين: ضبط الأجساد الفردية (التشريح السياسي) وإدارة السكان ككل (السياسة الحيوية)." }
+    },
+    {
+      "id": "social-sciences-039",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is the 'Lucas critique' in macroeconomics and why did it revolutionise economic modelling?", "ar": "ما 'انتقاد لوكاس' في الاقتصاد الكلي ولماذا أحدث ثورة في النمذجة الاقتصادية؟" },
+      "answer": { "en": "Robert Lucas (1976) argued that traditional macroeconomic models were invalid for policy evaluation because they assumed people's expectations remained fixed. When policy changes, rational agents update their behaviour, rendering historical statistical relationships unreliable. This forced economists to build 'microfounded' models with explicit optimising agents (DSGE models).", "ar": "جادل روبرت لوكاس (1976) بأن النماذج الاقتصادية الكلية التقليدية غير صالحة لتقييم السياسات لأنها افترضت توقعات الناس ثابتة. عند تغيير السياسة، يُحدّث العقلاء سلوكهم، مما يجعل العلاقات الإحصائية التاريخية غير موثوقة. أجبر هذا الاقتصاديين على بناء نماذج مؤسسة ميكروياً بعوامل تُحسَّن صراحةً (نماذج DSGE)." }
+    },
+    {
+      "id": "social-sciences-040",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is 'structuration theory' (Anthony Giddens) and how does it resolve the agency-structure debate?", "ar": "ما 'نظرية التهيكل' (أنتوني غيدنز) وكيف تحل جدل الفاعلية والبنية؟" },
+      "answer": { "en": "Giddens argued that structure and agency are mutually constitutive, not opposed — he called this the 'duality of structure'. Social structures (rules and resources) are both the medium of action and its outcome: agents draw on structures to act, and in doing so reproduce or transform those structures. Neither pure structuralism nor pure voluntarism is sufficient.", "ar": "جادل غيدنز بأن البنية والفاعلية متكوّنتان بشكل متبادل لا متعارضتان — وأسمى ذلك 'ازدواجية البنية'. البنى الاجتماعية (القواعد والموارد) هي وسيلة الفعل ونتيجته في آنٍ: يستمد الفاعلون من البنى للتصرف، ومن ثمّ يُعيدون إنتاج تلك البنى أو تحويلها. لا البنيوية المحضة ولا الإرادوية المحضة كافيتان." }
+    },
+    {
+      "id": "social-sciences-041",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is 'principal-agent theory' and how does it explain problems of democratic governance?", "ar": "ما 'نظرية الموكّل والوكيل' وكيف تُفسّر مشكلات الحوكمة الديمقراطية؟" },
+      "answer": { "en": "Principal-agent theory analyses situations where one party (principal, e.g., voters) delegates work to another (agent, e.g., elected officials) but faces information asymmetry and misaligned incentives. In democratic governance, agents may act in self-interest rather than the principal's interest (moral hazard). Solutions: monitoring, transparency, electoral accountability, and institutional design.", "ar": "تحلل نظرية الموكّل والوكيل الحالات التي تُفوّض فيها جهة (الموكّل، مثلاً الناخبون) عملاً إلى جهة أخرى (الوكيل، مثلاً المنتخبون) لكنها تواجه عدم تماثل المعلومات وحوافز غير متوافقة. في الحوكمة الديمقراطية، قد يتصرف الوكلاء لصالح أنفسهم لا الموكّل (الخطر الأخلاقي). الحلول: الرقابة والشفافية والمساءلة الانتخابية والتصميم المؤسسي." }
+    },
+    {
+      "id": "social-sciences-042",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is 'thick description' (Clifford Geertz) and why is it important in interpretive anthropology?", "ar": "ما 'الوصف الكثيف' (كليفورد غيرتز) ولماذا يهم في الأنثروبولوجيا التفسيرية؟" },
+      "answer": { "en": "Geertz (1973) contrasted thin description (merely stating an observable fact — 'he winked') with thick description (explaining the cultural context that gives the act meaning — a conspiracy? a parody? a tic?). Interpretive anthropology treats culture as a text to be 'read' for layers of meaning, not just catalogued.", "ar": "ميّز غيرتز (1973) بين الوصف الرفيع (مجرد إثبات حقيقة قابلة للرصد — 'غمز') والوصف الكثيف (شرح السياق الثقافي الذي يمنح الفعل معنى — مؤامرة؟ محاكاة ساخرة؟ تشنج؟). تتعامل الأنثروبولوجيا التفسيرية مع الثقافة كنص يجب 'قراءته' بطبقاته المعنوية لا مجرد فهرسته." }
+    },
+    {
+      "id": "social-sciences-043",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is 'world-systems theory' (Immanuel Wallerstein) and how does it critique modernisation theory?", "ar": "ما 'نظرية النظم العالمية' (إيمانويل والرشتاين) وكيف تنتقد نظرية التحديث؟" },
+      "answer": { "en": "Wallerstein argued that the capitalist world-economy is structured around core (wealthy, industrialised) and periphery (poor, raw-material exporting) nations linked by unequal exchange — with a semi-periphery in between. Contra modernisation theory, peripheral nations are not 'behind' on a developmental ladder; they are structurally underdeveloped by their role in the system.", "ar": "جادل والرشتاين بأن الاقتصاد العالمي الرأسمالي مهيكل حول دول المركز (الغنية المصنّعة) ودول الهامش (الفقيرة المُصدِّرة للمواد الخام) المرتبطة بتبادل غير متكافئ — مع شبه هامش بينهما. خلافاً لنظرية التحديث، دول الهامش ليست 'متأخرة' على سلم تنموي؛ بل هي تنمية ناقصة بشكل هيكلي بسبب دورها في النظام." }
+    },
+    {
+      "id": "social-sciences-044",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is 'comparative advantage' (Ricardo) and how does it differ from absolute advantage?", "ar": "ما 'الميزة النسبية' (ريكاردو) وكيف تختلف عن الميزة المطلقة؟" },
+      "answer": { "en": "Absolute advantage: producing more of a good using the same resources. Comparative advantage: producing a good at a lower opportunity cost — even if a country is worse at everything in absolute terms, it gains by specialising in what it does relatively best and trading. This underpins the economic case for free trade.", "ar": "الميزة المطلقة: إنتاج سلعة أكثر باستخدام الموارد ذاتها. الميزة النسبية: إنتاج سلعة بتكلفة فرصة أقل — حتى لو كان بلد ما أسوأ في كل شيء من الناحية المطلقة، يكسب بالتخصص فيما يُتقنه نسبياً والتجارة. هذا يُشكّل الحجة الاقتصادية للتجارة الحرة." }
+    },
+    {
+      "id": "social-sciences-045",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is 'path dependence' in political science and give a well-known example?", "ar": "ما 'الاعتماد على المسار' في العلوم السياسية وأعطِ مثالاً معروفاً؟" },
+      "answer": { "en": "Path dependence means that early choices or contingent historical events constrain future options, making certain outcomes 'sticky' even when alternatives would be more efficient. Classic example: QWERTY keyboard layout persists despite potentially superior alternatives because switching costs are too high once a standard is locked in.", "ar": "الاعتماد على المسار يعني أن الاختيارات المبكرة أو الأحداث التاريخية العارضة تُقيّد الخيارات المستقبلية، مما يجعل نتائج معينة 'لزجة' حتى لو كانت البدائل أكثر كفاءة. المثال الكلاسيكي: تخطيط لوحة مفاتيح QWERTY يستمر رغم البدائل الأفضل المحتملة لأن تكاليف التحويل عالية جداً بعد ترسّخ المعيار." }
+    },
+    {
+      "id": "social-sciences-046",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is 'post-colonialism' as a theoretical framework and who are its key thinkers?", "ar": "ما 'ما بعد الاستعمارية' كإطار نظري ومن أبرز مفكريها؟" },
+      "answer": { "en": "Post-colonialism examines how colonial power shapes culture, identity, knowledge, and politics — and how its legacies persist after formal independence. Key thinkers: Frantz Fanon (The Wretched of the Earth — psychology of colonised peoples), Edward Said (Orientalism — Western discursive construction of 'the East'), Homi Bhabha (hybridity, ambivalence, mimicry), Gayatri Spivak ('Can the Subaltern Speak?').", "ar": "ما بعد الاستعمارية تدرس كيف تُشكّل السلطة الاستعمارية الثقافة والهوية والمعرفة والسياسة — وكيف تستمر إرثها بعد الاستقلال الرسمي. أبرز المفكرين: فرانز فانون (المعذّبون في الأرض — سيكولوجية الشعوب المستعمَرة)، وإدوارد سعيد (الاستشراق — البناء الخطابي الغربي لـ'الشرق')، وهومي بابا (الهجنة والتردد والمحاكاة)، وغياتري سبيفاك ('هل يستطيع التابع الكلام؟')." }
+    },
+    {
+      "id": "social-sciences-047",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Economics", "ar": "الاقتصاد" },
+      "question": { "en": "What is 'Keynesian economics' and how did it respond to the Great Depression?", "ar": "ما 'الاقتصاد الكينيزي' وكيف استجاب للكساد العظيم؟" },
+      "answer": { "en": "John Maynard Keynes (1936) argued that aggregate demand — not supply — drives output and employment. During a depression, private demand collapses; the government should step in with deficit spending to stimulate demand. This justified New Deal-style interventions and contradicted classical 'Say's Law' that supply creates its own demand.", "ar": "جادل جون مينارد كينز (1936) بأن الطلب الكلي — لا العرض — يُحرّك الإنتاج والتوظيف. خلال الكساد، ينهار الطلب الخاص؛ يجب على الحكومة التدخل بالإنفاق العجزي لتحفيز الطلب. هذا برّر التدخلات على غرار الصفقة الجديدة وتناقض 'قانون ساي' الكلاسيكي القائل بأن العرض يخلق طلبه الخاص." }
+    },
+    {
+      "id": "social-sciences-048",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Anthropology", "ar": "الأنثروبولوجيا" },
+      "question": { "en": "What is 'structural functionalism' (Radcliffe-Brown, Parsons) and what are its main criticisms?", "ar": "ما 'البنيوية الوظيفية' (رادكليف-براون، بارسونز) وما أبرز انتقاداتها؟" },
+      "answer": { "en": "Structural functionalism views society as a system of interrelated parts (institutions) each fulfilling functions that maintain social stability. Criticisms: (1) it is teleological (explaining institutions by their effects, not causes); (2) it overstates consensus and ignores conflict; (3) it has a conservative bias, treating change as disruptive; (4) it cannot explain social change well (Merton's critique).", "ar": "البنيوية الوظيفية ترى المجتمع كنظام من الأجزاء المترابطة (المؤسسات) كل منها يُؤدي وظائف تُحافظ على الاستقرار الاجتماعي. الانتقادات: (1) غائية (تُفسّر المؤسسات بآثارها لا أسبابها)؛ (2) تُبالغ في التوافق وتتجاهل الصراع؛ (3) لها تحيز محافظ يعدّ التغيير تدميرياً؛ (4) لا تستطيع تفسير التغيير الاجتماعي جيداً (انتقاد ميرتون)." }
+    },
+    {
+      "id": "social-sciences-049",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Political Science", "ar": "العلوم السياسية" },
+      "question": { "en": "What is 'deliberative democracy' and how does it differ from aggregative (majoritarian) democracy?", "ar": "ما 'الديمقراطية التداولية' وكيف تختلف عن الديمقراطية التجميعية (الأغلبية)؟" },
+      "answer": { "en": "Aggregative democracy collects and tallies pre-formed preferences (voting). Deliberative democracy (Habermas, Rawls) holds that legitimate political decisions emerge from reasoned public debate among free and equal citizens, allowing preferences to be transformed through rational discourse — not just counted.", "ar": "الديمقراطية التجميعية تجمع التفضيلات المُشكَّلة مسبقاً وتحصيها (التصويت). الديمقراطية التداولية (هابرماس، رولز) تقول إن القرارات السياسية المشروعة تنبع من نقاش عام معلل بين مواطنين أحرار ومتساوين، مما يُتيح تحوّل التفضيلات عبر الخطاب العقلاني — لا مجرد إحصائها." }
+    },
+    {
+      "id": "social-sciences-050",
+      "difficulty": "very-advanced",
+      "subcategory": { "en": "Sociology", "ar": "علم الاجتماع" },
+      "question": { "en": "What is 'risk society' (Ulrich Beck) and how does it describe modern social conditions?", "ar": "ما 'مجتمع المخاطرة' (أولريش بيك) وكيف يصف الأوضاع الاجتماعية الحديثة؟" },
+      "answer": { "en": "Beck (1986) argued that industrial modernity replaced natural hazards with manufactured risks (nuclear accidents, environmental pollution, climate change) created by scientific-technical progress itself. In risk society, risks are global, invisible, not compensable, and cut across class lines — requiring new forms of reflexive governance and creating a 'sub-politics' beyond traditional institutions.", "ar": "جادل بيك (1986) بأن الحداثة الصناعية استبدلت المخاطر الطبيعية بمخاطر مصنوعة (حوادث نووية، تلوث بيئي، تغير مناخي) أوجدها التقدم العلمي-التقني ذاته. في مجتمع المخاطرة، المخاطر عالمية وغير مرئية وغير قابلة للتعويض وتتجاوز الخطوط الطبقية — مما يستلزم أشكالاً جديدة من الحوكمة التأملية ويخلق 'سياسة فرعية' تتجاوز المؤسسات التقليدية." }
+    }
+  ]
+}

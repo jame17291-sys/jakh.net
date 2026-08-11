@@ -404,11 +404,12 @@ function staticReviewMarkup(card, lang = "en") {
   const review = card?.review || { status: "pending" };
   const safetySensitive = review.safetySensitive === true || review.priority === "high";
   if (review.status !== "reviewed") {
-    const label = safetySensitive
-      ? (isAr ? "محتوى حساس — المراجعة التحريرية معلّقة" : "Safety-sensitive content — editorial review pending")
-      : (isAr ? "المراجعة التحريرية للحقائق معلّقة" : "Editorial fact review pending");
-    return `<div class="card-review card-review--pending${safetySensitive ? " card-review--safety" : ""}" role="note" aria-label="${escapeHtml(label)}">
-              <p class="card-review-label"><span aria-hidden="true">${safetySensitive ? "⚠" : "◷"}</span> ${escapeHtml(label)}</p>
+    // Only show a pending badge for safety-sensitive or high-priority content.
+    // Regular pending cards show nothing — the reviewed badge appears once reviewed.
+    if (!safetySensitive) return "";
+    const label = isAr ? "محتوى حساس — المراجعة التحريرية معلّقة" : "Safety-sensitive content — editorial review pending";
+    return `<div class="card-review card-review--pending card-review--safety" role="note" aria-label="${escapeHtml(label)}">
+              <p class="card-review-label"><span aria-hidden="true">⚠</span> ${escapeHtml(label)}</p>
             </div>`;
   }
 

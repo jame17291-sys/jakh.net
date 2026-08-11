@@ -123,7 +123,18 @@ test("every bilingual topic card appears exactly once across crawlable source pa
           const articleStart = source.indexOf(`<article class="${pageNumber === 1 ? "riddle-card" : "seo-qa-card"}" id="${id}"`);
           assert.notEqual(articleStart, -1, `${relative} ${id} has a stable HTML id`);
         }
-        assert.match(source, /class="card-review card-review--(?:pending|reviewed)/u, `${relative} review provenance`);
+        // Pending badges are only shown for safety-sensitive content; reviewed badges
+        // are shown when a card on this page has been reviewed. Pages with only
+        // regular-pending cards now render no review badge, which is intentional.
+        const pageCards = cards.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+        const pageHasReviewed = pageCards.some((c) => c?.review?.status === "reviewed");
+        const pageHasSafetySensitive = pageCards.some((c) => c?.review?.safetySensitive === true || c?.review?.priority === "high");
+        if (pageHasReviewed) {
+          assert.match(source, /class="card-review card-review--reviewed"/u, `${relative} review provenance (reviewed card)`);
+        }
+        if (pageHasSafetySensitive) {
+          assert.match(source, /class="card-review card-review--pending card-review--safety"/u, `${relative} review provenance (safety)`);
+        }
         assert.ok(!/\bhref="[^"]*\?lang=/iu.test(source), `${relative} must use physical locale routes`);
         if (pageNumber > 1) {
           assert.ok(!source.includes("/app.js"), `${relative} must remain static-only`);

@@ -22,7 +22,7 @@
   "devDependencies": {
     "typescript": "5.9.3",
     "wrangler": "4.118.0",
-    "ws": "8.21.1"
+    "ws": "8.21.3"
   },
   "overrides": {
     "undici": "7.29.0"

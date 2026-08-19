@@ -101,7 +101,10 @@ jobs:
     name: Browser regression
     needs: validate
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # A cold Playwright Chromium download can consume most of the former
+    # 20-minute budget before the regression suite starts. Leave enough time
+    # for the actual browser verification instead of cancelling a healthy job.
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -115,7 +118,10 @@ jobs:
       - name: Audit browser test dependencies
         run: npm audit --audit-level=high
       - name: Install Playwright Chromium
-        run: ./node_modules/.bin/playwright install --with-deps chromium
+        # GitHub's Ubuntu runner already provides the system libraries. Avoid
+        # apt-based --with-deps here: it can exhaust the job budget before the
+        # browser download and regression suite get a chance to run.
+        run: ./node_modules/.bin/playwright install chromium
       - name: Validate responsive game controls in Chromium
         run: |
           python3 -m http.server 8791 --bind 127.0.0.1 > "$RUNNER_TEMP/jakh-static.log" 2>&1 &

@@ -127,7 +127,7 @@ jobs:
             https://api.jakh.net/api/health > "$BACKUP_DIR/health-after-backup.json"
       - name: Retain encrypted weekly backup and recovery receipts
         if: ${{ always() }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: encrypted-d1-backup-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
@@ -167,7 +167,7 @@ jobs:
           --output "$RUNNER_TEMP/recovery-evidence/readiness.json"
       - name: Retain recovery-readiness evidence
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: recovery-readiness-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/recovery-evidence/readiness.json
@@ -209,7 +209,7 @@ jobs:
           --output "$RUNNER_TEMP/recovery-evidence/restore-drill.json"
       - name: Retain restore-drill evidence
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: recovery-restore-drill-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/recovery-evidence/restore-drill.json

@@ -456,7 +456,9 @@ textarea { min-height: 6.5rem; resize: vertical; }
 .modal {
   position: fixed;
   inset: 0;
-  z-index: 90;
+  /* Modals must sit above the mobile navigation and its install/consent layers.
+     Otherwise the sign-in submit control can be covered on a phone. */
+  z-index: 1100;
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -2260,11 +2262,16 @@ body.is-offline .category-card-bg {
   body[data-page="category"],
   body[data-page="play"] {
     padding-bottom: calc(
-      max(
-        calc(62px + env(safe-area-inset-bottom, 0px)),
-        var(--jakh-fixed-content-inset)
-      ) + 0.75rem
+      62px + env(safe-area-inset-bottom, 0px) + 0.75rem
     ) !important;
+  }
+
+  /* Keep footer links reachable above transient fixed prompts without adding
+     an empty scrollable area after the document. */
+  .site-footer {
+    padding-bottom: calc(
+      2.5rem + max(0px, calc(var(--jakh-fixed-content-inset) - 62px))
+    );
   }
 
   /* Raise back-to-top above the nav bar */
@@ -3651,6 +3658,7 @@ html[lang="ar"] :where(.kv-hero-title, .kv-portal-title, .kv-lab-header h2, .seo
     border: 1px solid var(--line);
     border-radius: 16px;
     box-shadow: var(--shadow);
+    z-index: 200;
   }
 
   body:not([data-page="game"]) .header-actions.nav-open {

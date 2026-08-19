@@ -11,7 +11,7 @@ const css = read('styles.css');
 const privacyConsent = read('privacy-consent.js');
 const collections = read('collections.html');
 
-test('fixed mobile layers share measured offsets and reserve reachable content space', () => {
+test('fixed mobile layers share measured offsets and keep footer content reachable', () => {
   for (const token of [
     '--jakh-bottom-nav-height',
     '--jakh-install-banner-height',
@@ -27,7 +27,9 @@ test('fixed mobile layers share measured offsets and reserve reachable content s
   assert.match(privacyConsent, /visibleHeight\(privacyBanner\)/u);
   assert.match(css, /bottom:\s*var\(--jakh-bottom-nav-height\)/u);
   assert.match(css, /var\(--jakh-bottom-nav-height\)[\s\S]*var\(--jakh-install-stack-height\)/u);
-  assert.match(css, /padding-bottom:[\s\S]*var\(--jakh-fixed-content-inset\)/u);
+  assert.match(css, /\.site-footer\s*\{[\s\S]*padding-bottom:[\s\S]*var\(--jakh-fixed-content-inset\)/u);
+  assert.match(css, /\.modal\s*\{[^}]*z-index:\s*1100/su);
+  assert.match(css, /\.header-actions\s*\{[\s\S]*z-index:\s*200/su);
 });
 
 test('question and answer cards grow to their content without nested scrolling', () => {

@@ -3257,8 +3257,10 @@ function createCardMarkup(card) {
   }
 
   const flipLabel = flipped ? t('backToQuestion') : t('flipForAnswer');
+  const isAudioPlaying = _activeAudioCardId === card.id;
+  const audioLabel = isAudioPlaying ? t('audioStop') : t('audioPlay');
   const audioBtn = state.audioEnabled
-    ? `<button class="mini-btn card-audio-btn" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('audioPlay'))}" title="${escapeHtml(t('audioPlay'))}" ${frontFocus}>🔊</button>`
+    ? `<button class="mini-btn card-audio-btn${isAudioPlaying ? ' playing' : ''}" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(audioLabel)}" title="${escapeHtml(audioLabel)}" ${frontFocus}>🔊</button>`
     : '';
   const frontReviewMarkup = createReviewMarkup(card, frontFocus);
   const backReviewMarkup = createReviewMarkup(card, backFocus);
@@ -4301,6 +4303,7 @@ let _analyticsInterval = null;
 
 
 let _currentAudio = null;
+let _activeAudioCardId = null;
 let _speechLoadId = 0;
 let _speechQualityPromise = null;
 
@@ -4321,6 +4324,7 @@ async function speakText(text, lang) {
 
 function _clearAudioBtns() {
   _currentAudio = null;
+  _activeAudioCardId = null;
   document.querySelectorAll('.card-audio-btn.playing').forEach(b => {
     b.classList.remove('playing');
     b.title = t('audioPlay');
@@ -4340,6 +4344,7 @@ function handleAudioBtn(btn) {
 
   if (btn.classList.contains('playing')) {
     stopSpeech();
+    _activeAudioCardId = null;
     btn.classList.remove('playing');
     btn.title = t('audioPlay');
     btn.setAttribute('aria-label', t('audioPlay'));
@@ -4353,6 +4358,7 @@ function handleAudioBtn(btn) {
   });
 
   btn.classList.add('playing');
+  _activeAudioCardId = cardId;
   btn.title = t('audioStop');
   btn.setAttribute('aria-label', t('audioStop'));
   speakText(card.question[state.lang], state.lang);

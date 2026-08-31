@@ -28,6 +28,8 @@ test('fixed mobile layers share measured offsets and keep footer content reachab
   assert.match(css, /bottom:\s*var\(--jakh-bottom-nav-height\)/u);
   assert.match(css, /var\(--jakh-bottom-nav-height\)[\s\S]*var\(--jakh-install-stack-height\)/u);
   assert.match(css, /\.site-footer\s*\{[\s\S]*padding-bottom:[\s\S]*var\(--jakh-fixed-content-inset\)/u);
+  assert.match(css, /body\[data-page="home"\],[\s\S]*padding-bottom:\s*0\s*!important/u, "mobile pages must not create trailing document space after the footer");
+  assert.match(css, /\.site-footer\s*\{[\s\S]*margin-bottom:\s*0;[\s\S]*max\(62px,\s*var\(--jakh-fixed-content-inset\)\)/u, "fixed-control clearance must remain inside the footer");
   assert.match(css, /\.modal\s*\{[^}]*z-index:\s*1100/su);
   assert.match(css, /\.header-actions\s*\{[\s\S]*z-index:\s*200/su);
 });

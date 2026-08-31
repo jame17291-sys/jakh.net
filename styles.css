@@ -2261,13 +2261,9 @@ body.is-offline .category-card-bg {
   body[data-page="home"],
   body[data-page="category"],
   body[data-page="play"] {
-    /* Do not add trailing document space after the footer. The fixed controls
-       are accounted for by the footer itself below. */
     padding-bottom: 0 !important;
   }
 
-  /* Keep footer links reachable above the fixed controls without leaving a
-     blank, scrollable strip below the footer. */
   .site-footer {
     margin-bottom: 0;
     padding-bottom: calc(

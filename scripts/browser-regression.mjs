@@ -451,6 +451,18 @@ async function main() {
         assertInsideViewport(installRect, viewport, "Install banner");
         assert(installRect.y + installRect.height <= navRect.y + 0.5, "Install banner overlaps bottom navigation");
 
+        await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+        const footerMetrics = await page.locator(".site-footer").evaluate((footer) => {
+          const rect = footer.getBoundingClientRect();
+          return {
+            footerBottom: rect.bottom,
+            viewportBottom: window.innerHeight,
+            trailingDocumentSpace: document.documentElement.scrollHeight - (window.scrollY + window.innerHeight),
+          };
+        });
+        assert(Math.abs(footerMetrics.trailingDocumentSpace) <= 1, `mobile page has blank scroll space after the footer: ${JSON.stringify(footerMetrics)}`);
+        assert(Math.abs(footerMetrics.footerBottom - footerMetrics.viewportBottom) <= 1, `mobile footer does not end at the document boundary: ${JSON.stringify(footerMetrics)}`);
+
         await page.locator("#hamburgerBtn").click();
         assert.equal(await page.locator("#hamburgerBtn").getAttribute("aria-expanded"), "true");
         assert.equal(await page.locator(".header-actions").evaluate((node) => node.classList.contains("nav-open")), true);

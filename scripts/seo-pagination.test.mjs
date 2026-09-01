@@ -97,7 +97,8 @@ test("every bilingual topic card appears exactly once across crawlable source pa
         const source = read(relative);
         const canonical = topicUrl(category.slug, lang, pageNumber);
         const alternateLang = lang === "ar" ? "en" : "ar";
-        const slice = expectedIds.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+        const sliceCards = cards.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+        const slice = sliceCards.map((card) => card.id);
         const ids = articleIds(source, pageNumber === 1 ? "riddle-card" : "seo-qa-card");
 
         assert.deepEqual(ids, slice, `${relative} card slice`);
@@ -123,7 +124,15 @@ test("every bilingual topic card appears exactly once across crawlable source pa
           const articleStart = source.indexOf(`<article class="${pageNumber === 1 ? "riddle-card" : "seo-qa-card"}" id="${id}"`);
           assert.notEqual(articleStart, -1, `${relative} ${id} has a stable HTML id`);
         }
-        assert.match(source, /class="card-review card-review--(?:pending|reviewed)/u, `${relative} review provenance`);
+        const hasPublicReviewInfo = sliceCards.some((card) => (
+          card.review?.status === "reviewed"
+          || card.review?.safetySensitive === true
+          || card.review?.priority === "high"
+        ));
+        if (hasPublicReviewInfo) {
+          assert.match(source, /class="card-review card-review--(?:pending|reviewed)/u, `${relative} review provenance`);
+        }
+        assert.doesNotMatch(source, /Editorial fact review pending|المراجعة التحريرية للحقائق معلّقة/u, `${relative} hides internal review workflow`);
         assert.ok(!/\bhref="[^"]*\?lang=/iu.test(source), `${relative} must use physical locale routes`);
         if (pageNumber > 1) {
           assert.ok(!source.includes("/app.js"), `${relative} must remain static-only`);

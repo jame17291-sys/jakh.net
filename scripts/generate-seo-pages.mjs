@@ -404,9 +404,13 @@ function staticReviewMarkup(card, lang = "en") {
   const review = card?.review || { status: "pending" };
   const safetySensitive = review.safetySensitive === true || review.priority === "high";
   if (review.status !== "reviewed") {
-    const label = safetySensitive
-      ? (isAr ? "محتوى حساس — المراجعة التحريرية معلّقة" : "Safety-sensitive content — editorial review pending")
-      : (isAr ? "المراجعة التحريرية للحقائق معلّقة" : "Editorial fact review pending");
+    // A pending state is internal workflow information, not helpful quiz content.
+    // Keep only the safety notice, where it materially affects how a visitor should
+    // interpret the educational content.
+    if (!safetySensitive) return "";
+    const label = isAr
+      ? "محتوى حساس — للاستخدام التعليمي فقط"
+      : "Safety-sensitive content — for educational use only";
     return `<div class="card-review card-review--pending${safetySensitive ? " card-review--safety" : ""}" role="note" aria-label="${escapeHtml(label)}">
               <p class="card-review-label"><span aria-hidden="true">${safetySensitive ? "⚠" : "◷"}</span> ${escapeHtml(label)}</p>
             </div>`;
@@ -442,6 +446,8 @@ function staticCardMarkup(category, card, lang = "en") {
   const subcategory = card.subcategory?.[lang]
     ? `<span class="badge badge-subcategory">${escapeHtml(card.subcategory[lang])}</span>`
     : "";
+  const reviewMarkup = staticReviewMarkup(card, lang);
+  const reviewLine = reviewMarkup ? `              ${reviewMarkup}\n` : "";
   return `<article class="riddle-card" id="${escapeHtml(card.id)}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || category.mode || "quiz")}" aria-label="${escapeHtml(card.question[lang])}">
           <div class="card-inner">
             <section class="card-face card-front" aria-hidden="false">
@@ -451,8 +457,7 @@ function staticCardMarkup(category, card, lang = "en") {
                 ${subcategory}
               </div>
               <p class="card-question">${escapeHtml(card.question[lang])}</p>
-              ${staticReviewMarkup(card, lang)}
-              <div class="card-actions">
+${reviewLine}              <div class="card-actions">
                 <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}">${isAr ? "عرض الإجابة" : "Flip for the answer"}</button>
               </div>
             </section>
@@ -713,14 +718,15 @@ function staticTopicCardMarkup(category, card, lang, position) {
   const isAr = lang === "ar";
   const label = isAr ? "الإجابة" : "Answer";
   const interactiveLabel = isAr ? "اعرض البطاقة في الاختبار التفاعلي" : "Open this card in the interactive quiz";
+  const reviewMarkup = staticReviewMarkup(card, lang);
+  const reviewLine = reviewMarkup ? `              ${reviewMarkup}\n` : "";
   return `<article class="seo-qa-card" id="${escapeHtml(card.id)}" data-id="${escapeHtml(card.id)}">
           <details>
             <summary><span class="seo-question-number">${String(position).padStart(2, "0")}</span><span>${escapeHtml(card.question[lang])}</span></summary>
             <div class="seo-answer">
               <p class="seo-answer-label">${label}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
-              ${staticReviewMarkup(card, lang)}
-              <a href="${escapeHtml(categoryRoute(category, lang))}?card=${encodeURIComponent(card.id)}">${interactiveLabel} ${isAr ? "←" : "→"}</a>
+${reviewLine}              <a href="${escapeHtml(categoryRoute(category, lang))}?card=${encodeURIComponent(card.id)}">${interactiveLabel} ${isAr ? "←" : "→"}</a>
             </div>
           </details>
         </article>`;
@@ -748,8 +754,8 @@ function renderCategoryPaginationPage(category, cards, lang, pageNumber) {
     ? `${category.title.ar}: الصفحة ${pageNumber} من ${totalPages} | JAKH`
     : `${category.title.en} Questions: Page ${pageNumber} of ${totalPages} | JAKH`;
   const description = isAr
-    ? truncate(`الصفحة ${pageNumber} من أسئلة ${category.title.ar}: الأسئلة من ${startIndex + 1} إلى ${endPosition} مع الإجابات وحالة المراجعة التحريرية وروابط المصادر المتاحة.`, 158)
-    : truncate(`Page ${pageNumber} of ${category.title.en} questions: items ${startIndex + 1}–${endPosition}, with answers, editorial review status, and available source links.`, 158);
+    ? truncate(`الصفحة ${pageNumber} من أسئلة ${category.title.ar}: الأسئلة من ${startIndex + 1} إلى ${endPosition} مع الإجابات وروابط المصادر المتاحة.`, 158)
+    : truncate(`Page ${pageNumber} of ${category.title.en} questions: items ${startIndex + 1}–${endPosition}, with answers and available source links.`, 158);
   const pageHeading = isAr
     ? `${category.title.ar} — الصفحة ${pageNumber} من ${totalPages}`
     : `${category.title.en} — Page ${pageNumber} of ${totalPages}`;
@@ -1261,17 +1267,20 @@ function renderCollectionPage(collection, lang, cards) {
       },
     ],
   };
-  const qaMarkup = cards.map((card, index) => `<article class="seo-qa-card" id="${escapeHtml(card.id)}">
+  const qaMarkup = cards.map((card, index) => {
+    const reviewMarkup = staticReviewMarkup(card, lang);
+    const reviewLine = reviewMarkup ? `              ${reviewMarkup}\n` : "";
+    return `<article class="seo-qa-card" id="${escapeHtml(card.id)}">
           <details>
             <summary><span class="seo-question-number">${String(index + 1).padStart(2, "0")}</span><span>${escapeHtml(card.question[lang])}</span></summary>
             <div class="seo-answer">
               <p class="seo-answer-label">${label}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
-              ${staticReviewMarkup(card, lang)}
-              <a href="${escapeHtml(categoryRoute(card.sourceCategory, lang))}?card=${encodeURIComponent(card.id)}">${sourceLabel} ${isAr ? "←" : "→"}</a>
+${reviewLine}              <a href="${escapeHtml(categoryRoute(card.sourceCategory, lang))}?card=${encodeURIComponent(card.id)}">${sourceLabel} ${isAr ? "←" : "→"}</a>
             </div>
           </details>
-        </article>`).join("\n        ");
+        </article>`;
+  }).join("\n        ");
   const disclaimerText = collectionDisclaimer(collection, lang);
   const disclaimer = disclaimerText
     ? `<aside class="collection-disclaimer">${escapeHtml(disclaimerText)}</aside>`

@@ -1334,6 +1334,7 @@ ${analyticsHead()}
           <span>${isAr ? "العربية والإنجليزية" : "English and Arabic"}</span>
           <span>${isAr ? "مجاني" : "Free"}</span>
         </div>
+        <button class="ghost-btn collection-share-btn" type="button" data-collection-share>${isAr ? "شارك التحدي ↗" : "Share this challenge ↗"}</button>
 ${disclaimer ? `        ${disclaimer}\n` : ""}
       </section>
       <section class="seo-question-list shell" aria-label="${isAr ? "الأسئلة والأجوبة" : "Questions and answers"}">
@@ -1348,7 +1349,8 @@ ${disclaimer ? `        ${disclaimer}\n` : ""}
         </div>
       </section>
     </main>
-    ${globalFooter(lang, false, "", "site", true)}
+${globalFooter(lang, false, "", "site", true)}
+    <script defer src="/collection-share.js?v=2026091101"></script>
   </body>
 </html>`;
 }

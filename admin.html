@@ -1,17 +1,18 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-admin-api-origin="https://api.riddlearabia.com/api" data-admin-environment="production">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="cache-control" content="no-store, max-age=0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'self' https://api.riddlearabia.com; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'; form-action 'self'; frame-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'self' https://api.riddlearabia.com http://127.0.0.1:8787 http://localhost:8787; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'; form-action 'self'; frame-src 'none'">
   <link rel="canonical" href="https://riddlearabia.com/admin">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="/admin.css?v=2026080102">
+  <link rel="stylesheet" href="/admin.css">
   <title>Riddle Arabia · Administration</title>
-  <script defer src="/admin.js?v=2026080102"></script>
+  <script defer src="/admin-config.js"></script>
+  <script defer src="/admin.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skipToMain">Skip to main content</a>
@@ -20,16 +21,16 @@
       <a class="brand" href="/" aria-label="Riddle Arabia home">
         <span class="brand-mark" aria-hidden="true">R</span>
         <span>
-          <strong>JAKH</strong>
-          <small data-i18n="brandEyebrow">JAKH.NET · CONTROL ROOM</small>
+          <strong>Riddle Arabia</strong>
+          <small data-i18n="brandEyebrow">RIDDLE ARABIA · CONTROL ROOM</small>
         </span>
       </a>
       <div class="topbar-actions">
         <span id="connectionState" class="connection-state is-pending" role="status" aria-live="polite" data-i18n="checkingAccess">Checking access…</span>
         <button id="languageToggle" class="icon-button" type="button" aria-label="Switch language">العربية</button>
         <a id="viewSite" class="quiet-button" href="/" data-i18n="viewSite">View site</a>
-        <button id="refreshButton" class="quiet-button" type="button" data-i18n="refresh">Refresh</button>
-        <button id="logoutButton" class="quiet-button" type="button" data-i18n="signOut">Sign out</button>
+        <button id="refreshButton" class="quiet-button" type="button" data-i18n="refresh" hidden>Refresh</button>
+        <button id="logoutButton" class="quiet-button" type="button" data-i18n="signOut" hidden>Sign out</button>
       </div>
     </header>
 
@@ -38,7 +39,7 @@
       <div class="gate-card">
         <span class="eyebrow" data-i18n="secureAdmin">Secure administration</span>
         <h1 id="gateTitle" data-i18n="checkingAccessTitle">Checking your access</h1>
-        <p id="gateMessage" data-i18n="checkingAccessMessage">We are verifying your signed-in JAKH account and role.</p>
+        <p id="gateMessage" data-i18n="checkingAccessMessage">We are verifying your signed-in Riddle Arabia account and role.</p>
         <div id="gateActions" class="button-row">
           <button id="retryAccess" class="primary-button" type="button" data-i18n="tryAgain">Try again</button>
         </div>
@@ -55,29 +56,29 @@
           </div>
         </div>
         <nav id="adminTabs" class="admin-tabs" role="tablist" aria-label="Administration sections">
-          <button class="admin-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="overviewPanel" id="overviewTab" data-tab="overview">
+          <button class="admin-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="overviewPanel" id="overviewTab" data-tab="overview" tabindex="0">
             <span aria-hidden="true">◈</span><span data-i18n="overview">Overview</span>
           </button>
-          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="contentPanel" id="contentTab" data-tab="content">
+          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="contentPanel" id="contentTab" data-tab="content" tabindex="-1">
             <span aria-hidden="true">✎</span><span data-i18n="contentStudio">Content Studio</span>
           </button>
-          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="peoplePanel" id="peopleTab" data-tab="people">
+          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="peoplePanel" id="peopleTab" data-tab="people" tabindex="-1">
             <span aria-hidden="true">♙</span><span data-i18n="people">People</span>
           </button>
-          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="feedbackPanel" id="feedbackTab" data-tab="feedback">
+          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="feedbackPanel" id="feedbackTab" data-tab="feedback" tabindex="-1">
             <span aria-hidden="true">✦</span><span data-i18n="feedback">Feedback</span>
             <span id="feedbackCount" class="nav-count" hidden>0</span>
           </button>
-          <button id="auditTab" class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="auditPanel" data-tab="audit">
+          <button id="auditTab" class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="auditPanel" data-tab="audit" tabindex="-1">
             <span aria-hidden="true">◷</span><span data-i18n="auditLog">Audit log</span>
           </button>
-          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="securityPanel" id="securityTab" data-tab="security">
+          <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="securityPanel" id="securityTab" data-tab="security" tabindex="-1">
             <span aria-hidden="true">◉</span><span data-i18n="security">Security</span>
           </button>
         </nav>
         <div class="sidebar-footer">
           <span class="shield-mark" aria-hidden="true">🛡</span>
-          <p data-i18n="adminScope">Administration applies only to JAKH accounts and jakh.net operations.</p>
+          <p data-i18n="adminScope">Administration applies only to Riddle Arabia accounts and riddlearabia.com operations.</p>
         </div>
       </aside>
 
@@ -86,13 +87,13 @@
           <div class="page-heading">
             <div>
               <span class="eyebrow" data-i18n="operations">Operations</span>
-              <h1 data-i18n="overviewHeading">A clear view of JAKH.</h1>
+              <h1 data-i18n="overviewHeading">A clear view of Riddle Arabia.</h1>
               <p data-i18n="overviewLead">Monitor members, moderation work, service readiness, and account safety from one place.</p>
             </div>
             <div class="updated"><span data-i18n="updated">Updated</span> <time id="lastUpdated">—</time></div>
           </div>
 
-          <section id="metricGrid" class="metric-grid" aria-label="JAKH metrics"></section>
+          <section id="metricGrid" class="metric-grid" aria-label="Riddle Arabia metrics"></section>
 
           <div class="dashboard-grid">
             <article class="panel health-panel">
@@ -103,9 +104,9 @@
                 </div>
                 <span id="healthPill" class="status-pill is-pending" data-i18n="checking">Checking</span>
               </div>
-              <p id="healthMessage" class="muted" data-i18n="healthChecking">Checking the JAKH API and database schema.</p>
+              <p id="healthMessage" class="muted" data-i18n="healthChecking">Checking the Riddle Arabia API and database schema.</p>
               <div class="guardrail-list">
-                <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailRoles">Server-enforced JAKH roles</span></span>
+                <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailRoles">Server-enforced Riddle Arabia roles</span></span>
                 <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailAudit">Privileged changes are recorded</span></span>
                 <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailStepUp">High-impact actions need password confirmation</span></span>
               </div>
@@ -248,7 +249,7 @@
             <div>
               <span class="eyebrow" data-i18n="security">Security</span>
               <h1 data-i18n="securityHeading">Make sensitive changes deliberately.</h1>
-              <p data-i18n="securityLead">Your active JAKH session is protected; password confirmation is required before high-impact administrative changes.</p>
+              <p data-i18n="securityLead">Your active Riddle Arabia session is protected; password confirmation is required before high-impact administrative changes.</p>
             </div>
           </div>
           <div class="security-grid">
@@ -260,7 +261,7 @@
             <article class="panel">
               <div class="panel-heading"><div><span class="eyebrow" data-i18n="builtInSafeguards">Built-in safeguards</span><h2 data-i18n="securityControls">Security controls</h2></div></div>
               <ul class="safeguard-list">
-                <li data-i18n="safeguardOne">JAKH roles are checked by the API, not the browser.</li>
+                <li data-i18n="safeguardOne">Riddle Arabia roles are checked by the API, not the browser.</li>
                 <li data-i18n="safeguardTwo">Owner role changes and administrator suspension are owner-restricted.</li>
                 <li data-i18n="safeguardThree">Access changes end affected sessions and create an audit event.</li>
               </ul>
@@ -279,7 +280,7 @@
   <dialog id="reauthDialog" class="admin-dialog reauth-dialog" aria-labelledby="reauthTitle">
     <form id="reauthForm" novalidate>
       <div class="dialog-heading"><span class="shield-mark" aria-hidden="true">🛡</span><div><span class="eyebrow" data-i18n="security">Security</span><h2 id="reauthTitle" data-i18n="reauthTitle">Confirm it is you</h2></div></div>
-      <p data-i18n="reauthLead">Enter your current JAKH password. It is used only to confirm this session and is never stored by the console.</p>
+      <p data-i18n="reauthLead">Enter your current Riddle Arabia password. It is used only to confirm this session and is never stored by the console.</p>
       <label class="input-label"><span data-i18n="currentPassword">Current password</span><input id="reauthPassword" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label>
       <p id="reauthError" class="form-error" role="alert" hidden></p>
       <div class="button-row dialog-actions"><button id="reauthCancel" class="quiet-button" type="button" data-i18n="cancel">Cancel</button><button id="reauthSubmit" class="primary-button" type="submit" data-i18n="confirmPassword">Confirm password</button></div>
@@ -294,8 +295,9 @@
         <div><dt data-i18n="target">Target</dt><dd id="actionReviewTarget">—</dd></div>
         <div><dt data-i18n="impact">Impact</dt><dd id="actionReviewImpact">—</dd></div>
       </dl>
-      <label class="input-label action-review-reason"><span data-i18n="reasonOptional">Reason (optional)</span><textarea id="actionReviewReason" rows="3" maxlength="280" data-i18n-placeholder="reasonPlaceholder" placeholder="Add a short operational reason"></textarea></label>
-      <p class="field-hint" data-i18n="reasonHint">If supplied, this reason is recorded in the audit log.</p>
+      <label class="input-label action-review-reason"><span id="actionReviewReasonLabel" data-i18n="reasonOptional">Reason (optional)</span><textarea id="actionReviewReason" rows="3" maxlength="280" data-i18n-placeholder="reasonPlaceholder" placeholder="Add a short operational reason" aria-describedby="actionReviewReasonHint actionReviewReasonError"></textarea></label>
+      <p id="actionReviewReasonHint" class="field-hint" data-i18n="reasonHint">If supplied, this reason is recorded in the audit log.</p>
+      <p id="actionReviewReasonError" class="form-error" role="alert" hidden></p>
       <section id="actionReviewTypedConfirmationWrap" class="typed-confirmation" hidden aria-labelledby="actionReviewTypedTitle">
         <h3 id="actionReviewTypedTitle" class="typed-confirmation-title" data-i18n="typedConfirmation">Confirmation required</h3>
         <p id="actionReviewTypedLead"></p>

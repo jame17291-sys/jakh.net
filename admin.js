@@ -1,7 +1,11 @@
 (() => {
   "use strict";
 
-  const API = "https://api.riddlearabia.com/api";
+  const ADMIN_CONFIG = globalThis.RIDDLE_ARABIA_ADMIN_CONFIG || Object.freeze({
+    apiOrigin: "https://api.riddlearabia.com/api",
+    environment: "production",
+  });
+  const API = ADMIN_CONFIG.apiOrigin;
   const ADMIN_ROLES = new Set(["ADMIN", "OWNER"]);
   const ROLE_KEYS = Object.freeze({ USER: "member", ADMIN: "administrator", OWNER: "owner" });
   const FEEDBACK_STATES = ["new", "reviewed", "implemented", "rejected"];
@@ -11,7 +15,7 @@
   const COPY = {
     en: {
       skipToMain: "Skip to main content",
-      brandEyebrow: "JAKH.NET · CONTROL ROOM",
+      brandEyebrow: "RIDDLE ARABIA · CONTROL ROOM",
       checkingAccess: "Checking access…",
       viewSite: "View site",
       refresh: "Refresh",
@@ -19,9 +23,9 @@
       signOutFailed: "Could not sign out. This admin session is still active; check your connection and try again.",
       secureAdmin: "Secure administration",
       checkingAccessTitle: "Checking your access",
-      checkingAccessMessage: "We are verifying your signed-in JAKH account and role.",
+      checkingAccessMessage: "We are verifying your signed-in Riddle Arabia account and role.",
       tryAgain: "Try again",
-      adminScope: "Administration applies only to JAKH accounts and jakh.net operations.",
+      adminScope: "Administration applies only to Riddle Arabia accounts and riddlearabia.com operations.",
       overview: "Overview",
       contentStudio: "Content Studio",
       editorialWorkspace: "Editorial workspace",
@@ -58,6 +62,8 @@
       contentPublished: "The approved version is live.",
       contentUnpublished: "The published override was removed; the static version is live again.",
       contentRestored: "Revision restored as a new draft.",
+      independentReviewRequired: "Another administrator must publish content you authored.",
+      ownerOverrideReview: "Owner override: add an audit reason before publishing your own content.",
       restoreRevision: "Restore",
       invalidSources: "Write each source as Title | Publisher | https://…",
       contentRequired: "English and Arabic questions and answers are required.",
@@ -66,14 +72,14 @@
       auditLog: "Audit log",
       security: "Security",
       operations: "Operations",
-      overviewHeading: "A clear view of JAKH.",
+      overviewHeading: "A clear view of Riddle Arabia.",
       overviewLead: "Monitor members, moderation work, service readiness, and account safety from one place.",
       updated: "Updated",
       serviceReadiness: "Service readiness",
       productionStatus: "Production status",
       checking: "Checking",
-      healthChecking: "Checking the JAKH API and database schema.",
-      guardrailRoles: "Server-enforced JAKH roles",
+      healthChecking: "Checking the Riddle Arabia API and database schema.",
+      guardrailRoles: "Server-enforced Riddle Arabia roles",
       guardrailAudit: "Privileged changes are recorded",
       guardrailStepUp: "High-impact actions need password confirmation",
       priorityQueue: "Priority queue",
@@ -115,7 +121,7 @@
       auditLead: "Review the latest role, access, moderation, and session-security changes.",
       refreshLog: "Refresh log",
       securityHeading: "Make sensitive changes deliberately.",
-      securityLead: "Your active JAKH session is protected; password confirmation is required before high-impact administrative changes.",
+      securityLead: "Your active Riddle Arabia session is protected; password confirmation is required before high-impact administrative changes.",
       stepUp: "Step-up confirmation",
       confirmIdentity: "Confirm your identity",
       confirmationRequired: "Confirmation required",
@@ -123,14 +129,14 @@
       confirmPassword: "Confirm password",
       builtInSafeguards: "Built-in safeguards",
       securityControls: "Security controls",
-      safeguardOne: "JAKH roles are checked by the API, not the browser.",
+      safeguardOne: "Riddle Arabia roles are checked by the API, not the browser.",
       safeguardTwo: "Owner role changes and administrator suspension are owner-restricted.",
       safeguardThree: "Access changes end affected sessions and create an audit event.",
       sessionControl: "Session control",
       sessionControlLead: "End every active session held by non-owner accounts. Your owner session stays signed in.",
       revokeSessions: "Sign out non-owner sessions",
       reauthTitle: "Confirm it is you",
-      reauthLead: "Enter your current JAKH password. It is used only to confirm this session and is never stored by the console.",
+      reauthLead: "Enter your current Riddle Arabia password. It is used only to confirm this session and is never stored by the console.",
       currentPassword: "Current password",
       cancel: "Cancel",
       members: "Members",
@@ -147,7 +153,7 @@
       accessRestricted: "access restricted",
       apiHealthy: "Operational",
       apiUnhealthy: "Needs attention",
-      healthReady: "JAKH API is responding and schema {schema} is ready.",
+      healthReady: "Riddle Arabia API is responding and schema {schema} is ready.",
       healthUnavailable: "The production health check could not be completed. Try refreshing before taking action.",
       feedbackAwaiting: "new feedback items",
       accountsSuspended: "accounts currently suspended",
@@ -175,6 +181,9 @@
       reasonOptional: "Reason (optional)",
       reasonPlaceholder: "Add a short operational reason",
       reasonHint: "If supplied, this reason is recorded in the audit log.",
+      reasonRequired: "Reason (required)",
+      reasonRequiredHint: "A short operational reason is required and will be recorded in the audit log.",
+      reasonRequiredMessage: "Add a short operational reason before continuing.",
       typedConfirmation: "Confirmation required",
       typedConfirmationLead: "Type {token} to sign out every non-owner session.",
       typedConfirmationInput: "Type the confirmation phrase",
@@ -184,10 +193,18 @@
       suspendAction: "Suspend account",
       restoreAction: "Restore access",
       revokeSessionsAction: "Sign out non-owner sessions",
+      publishAction: "Publish content",
+      unpublishAction: "Unpublish content",
+      restoreContentAction: "Restore revision",
+      feedbackStateAction: "Update feedback state",
       roleChangeImpact: "The role will change to {role}, and active sessions will end.",
       suspendImpact: "The account will be suspended and active sessions will end immediately.",
       restoreImpact: "The account will regain access. Ended sessions remain ended.",
       revokeSessionsImpact: "Every active non-owner session will end. This cannot be undone; your owner session stays signed in.",
+      publishImpact: "Version {version} will become the live content for all visitors immediately.",
+      unpublishImpact: "The published version will be removed and the static version will return.",
+      restoreContentImpact: "Revision {version} will replace this draft. It will not go live until it is independently reviewed and published.",
+      feedbackStateImpact: "This feedback item will be marked {status}.",
       allNonOwnerAccounts: "All non-owner accounts",
       roleUpdated: "Role updated and affected sessions ended.",
       accessSuspended: "Account suspended and active sessions ended.",
@@ -198,14 +215,14 @@
       confirmationValidUntil: "Confirmed until {time}.",
       confirmationNeeded: "Confirm your password before high-impact actions.",
       accessConnected: "Admin connected",
-      signedOutTitle: "Sign in to manage JAKH",
-      signedOutMessage: "Use your JAKH owner or administrator account. We will bring you back to this console after sign-in.",
-      signInToJakh: "Sign in to JAKH",
+      signedOutTitle: "Sign in to manage Riddle Arabia",
+      signedOutMessage: "Use your Riddle Arabia owner or administrator account. We will bring you back to this console after sign-in.",
+      signInToJakh: "Sign in to Riddle Arabia",
       unauthorizedTitle: "This account does not have admin access",
-      unauthorizedMessage: "You are signed in, but this JAKH account is not an administrator or owner. Ask an owner to review your role.",
-      returnToSite: "Return to JAKH",
+      unauthorizedMessage: "You are signed in, but this Riddle Arabia account is not an administrator or owner. Ask an owner to review your role.",
+      returnToSite: "Return to Riddle Arabia",
       offlineTitle: "The admin service is unavailable",
-      offlineMessage: "We could not reach the JAKH administration API. Check your connection and try again.",
+      offlineMessage: "We could not reach the Riddle Arabia administration API. Check your connection and try again.",
       requestFailed: "That request could not be completed. Please try again.",
       sessionExpired: "Your session has expired. Sign in again to continue.",
       passwordConfirmationFailed: "Password confirmation failed. Please try again.",
@@ -225,7 +242,7 @@
     },
     ar: {
       skipToMain: "انتقل إلى المحتوى الرئيسي",
-      brandEyebrow: "JAKH.NET · مركز التحكم",
+      brandEyebrow: "RIDDLE ARABIA · مركز التحكم",
       checkingAccess: "جارٍ التحقق من الوصول…",
       viewSite: "عرض الموقع",
       refresh: "تحديث",
@@ -233,9 +250,9 @@
       signOutFailed: "تعذر تسجيل الخروج. ما زالت جلسة الإدارة نشطة؛ تحقق من الاتصال وحاول مرة أخرى.",
       secureAdmin: "إدارة آمنة",
       checkingAccessTitle: "جارٍ التحقق من صلاحياتك",
-      checkingAccessMessage: "نتحقق من حساب JAKH المسجل ودوره.",
+      checkingAccessMessage: "نتحقق من حساب Riddle Arabia المسجل ودوره.",
       tryAgain: "حاول مجدداً",
-      adminScope: "تنطبق الإدارة على حسابات JAKH وعمليات jakh.net فقط.",
+      adminScope: "تنطبق الإدارة على حسابات Riddle Arabia وعمليات riddlearabia.com فقط.",
       overview: "نظرة عامة",
       contentStudio: "استوديو المحتوى",
       editorialWorkspace: "مساحة التحرير",
@@ -272,6 +289,8 @@
       contentPublished: "أصبحت النسخة المعتمدة منشورة.",
       contentUnpublished: "أُلغي التعديل المنشور، وعادت النسخة الأساسية للعرض.",
       contentRestored: "أُعيدت النسخة السابقة في مسودة جديدة.",
+      independentReviewRequired: "يلزم أن ينشر مسؤول آخر المحتوى الذي أنشأته.",
+      ownerOverrideReview: "تجاوز المالك: أضف سبباً للتدقيق قبل نشر المحتوى الذي أنشأته.",
       restoreRevision: "استعادة",
       invalidSources: "اكتب كل مصدر بهذه الصيغة: العنوان | الناشر | https://…",
       contentRequired: "يلزم إدخال السؤال والإجابة بالعربية والإنجليزية.",
@@ -280,14 +299,14 @@
       auditLog: "سجل التدقيق",
       security: "الأمان",
       operations: "العمليات",
-      overviewHeading: "رؤية واضحة لـ JAKH.",
+      overviewHeading: "رؤية واضحة لـ Riddle Arabia.",
       overviewLead: "تابع الأعضاء وأعمال المراجعة وجاهزية الخدمة وأمان الحسابات من مكان واحد.",
       updated: "تم التحديث",
       serviceReadiness: "جاهزية الخدمة",
       productionStatus: "حالة الإنتاج",
       checking: "جارٍ التحقق",
-      healthChecking: "جارٍ فحص واجهة JAKH وقاعدة البيانات.",
-      guardrailRoles: "أدوار JAKH مفروضة من الخادم",
+      healthChecking: "جارٍ فحص واجهة Riddle Arabia وقاعدة البيانات.",
+      guardrailRoles: "أدوار Riddle Arabia مفروضة من الخادم",
       guardrailAudit: "التغييرات الحساسة تُسجل",
       guardrailStepUp: "الإجراءات المؤثرة تحتاج تأكيد كلمة المرور",
       priorityQueue: "قائمة الأولويات",
@@ -329,7 +348,7 @@
       auditLead: "راجع أحدث تغييرات الأدوار والوصول والمراجعة وأمان الجلسات.",
       refreshLog: "تحديث السجل",
       securityHeading: "نفّذ التغييرات الحساسة بعناية.",
-      securityLead: "جلسة JAKH الحالية محمية؛ يلزم تأكيد كلمة المرور قبل الإجراءات الإدارية المؤثرة.",
+      securityLead: "جلسة Riddle Arabia الحالية محمية؛ يلزم تأكيد كلمة المرور قبل الإجراءات الإدارية المؤثرة.",
       stepUp: "تأكيد إضافي",
       confirmIdentity: "أكد هويتك",
       confirmationRequired: "يلزم التأكيد",
@@ -337,14 +356,14 @@
       confirmPassword: "تأكيد كلمة المرور",
       builtInSafeguards: "ضوابط مدمجة",
       securityControls: "ضوابط الأمان",
-      safeguardOne: "يتحقق الخادم من أدوار JAKH وليس المتصفح.",
+      safeguardOne: "يتحقق الخادم من أدوار Riddle Arabia وليس المتصفح.",
       safeguardTwo: "تغييرات دور المالك وإيقاف المسؤولين مقيدة بالمالك.",
       safeguardThree: "تغييرات الوصول تنهي الجلسات المتأثرة وتنشئ حدث تدقيق.",
       sessionControl: "التحكم بالجلسات",
       sessionControlLead: "إنهاء كل الجلسات النشطة للحسابات غير المالكة. تبقى جلسة المالك مسجلة.",
       revokeSessions: "تسجيل خروج جلسات غير المالك",
       reauthTitle: "أكد أنك أنت",
-      reauthLead: "أدخل كلمة مرور JAKH الحالية. تُستخدم فقط لتأكيد هذه الجلسة ولا تخزنها اللوحة.",
+      reauthLead: "أدخل كلمة مرور Riddle Arabia الحالية. تُستخدم فقط لتأكيد هذه الجلسة ولا تخزنها اللوحة.",
       currentPassword: "كلمة المرور الحالية",
       cancel: "إلغاء",
       members: "الأعضاء",
@@ -361,7 +380,7 @@
       accessRestricted: "وصول مقيّد",
       apiHealthy: "تعمل",
       apiUnhealthy: "تحتاج انتباهاً",
-      healthReady: "واجهة JAKH تعمل وإصدار المخطط {schema} جاهز.",
+      healthReady: "واجهة Riddle Arabia تعمل وإصدار المخطط {schema} جاهز.",
       healthUnavailable: "تعذر إكمال فحص الإنتاج. حدّث الصفحة قبل تنفيذ أي إجراء.",
       feedbackAwaiting: "ملاحظات جديدة",
       accountsSuspended: "حسابات معلقة حالياً",
@@ -389,6 +408,9 @@
       reasonOptional: "السبب (اختياري)",
       reasonPlaceholder: "أضف سبباً تشغيلياً مختصراً",
       reasonHint: "إذا أضفته، يُسجل هذا السبب في سجل التدقيق.",
+      reasonRequired: "السبب (مطلوب)",
+      reasonRequiredHint: "يلزم سبب تشغيلي مختصر وسيُسجل في سجل التدقيق.",
+      reasonRequiredMessage: "أضف سبباً تشغيلياً مختصراً قبل المتابعة.",
       typedConfirmation: "يلزم تأكيد إضافي",
       typedConfirmationLead: "اكتب {token} لتسجيل خروج كل جلسات غير المالك.",
       typedConfirmationInput: "اكتب عبارة التأكيد",
@@ -398,10 +420,18 @@
       suspendAction: "تعليق الحساب",
       restoreAction: "استعادة الوصول",
       revokeSessionsAction: "تسجيل خروج جلسات غير المالك",
+      publishAction: "نشر المحتوى",
+      unpublishAction: "إلغاء نشر المحتوى",
+      restoreContentAction: "استعادة نسخة",
+      feedbackStateAction: "تحديث حالة الملاحظة",
       roleChangeImpact: "سيتغير الدور إلى {role} وستنتهي الجلسات النشطة.",
       suspendImpact: "سيُعلّق الحساب وتنتهي جلساته النشطة فوراً.",
       restoreImpact: "سيستعيد الحساب الوصول. تبقى الجلسات المنتهية منتهية.",
       revokeSessionsImpact: "ستنتهي كل جلسات غير المالك النشطة. لا يمكن التراجع عن ذلك؛ تبقى جلسة المالك مسجلة.",
+      publishImpact: "ستصبح النسخة {version} المحتوى الظاهر لجميع الزوار فوراً.",
+      unpublishImpact: "ستُزال النسخة المنشورة وتعود النسخة الأساسية للعرض.",
+      restoreContentImpact: "ستستبدل النسخة {version} هذه المسودة، ولن تظهر للزوار حتى تُراجع بصورة مستقلة وتُنشر.",
+      feedbackStateImpact: "ستُحدد حالة هذه الملاحظة بأنها {status}.",
       allNonOwnerAccounts: "كل حسابات غير المالك",
       roleUpdated: "تم تحديث الدور وإنهاء الجلسات المتأثرة.",
       accessSuspended: "تم تعليق الحساب وإنهاء الجلسات النشطة.",
@@ -412,14 +442,14 @@
       confirmationValidUntil: "التأكيد صالح حتى {time}.",
       confirmationNeeded: "أكد كلمة مرورك قبل الإجراءات المؤثرة.",
       accessConnected: "تم ربط الإدارة",
-      signedOutTitle: "سجل الدخول لإدارة JAKH",
-      signedOutMessage: "استخدم حساب مالك أو مسؤول JAKH. سنعيدك إلى هذه اللوحة بعد تسجيل الدخول.",
-      signInToJakh: "تسجيل الدخول إلى JAKH",
+      signedOutTitle: "سجل الدخول لإدارة Riddle Arabia",
+      signedOutMessage: "استخدم حساب مالك أو مسؤول Riddle Arabia. سنعيدك إلى هذه اللوحة بعد تسجيل الدخول.",
+      signInToJakh: "تسجيل الدخول إلى Riddle Arabia",
       unauthorizedTitle: "هذا الحساب لا يملك صلاحية الإدارة",
-      unauthorizedMessage: "أنت مسجل الدخول، لكن حساب JAKH هذا ليس مسؤولاً أو مالكاً. اطلب من مالك مراجعة دورك.",
-      returnToSite: "العودة إلى JAKH",
+      unauthorizedMessage: "أنت مسجل الدخول، لكن حساب Riddle Arabia هذا ليس مسؤولاً أو مالكاً. اطلب من مالك مراجعة دورك.",
+      returnToSite: "العودة إلى Riddle Arabia",
       offlineTitle: "خدمة الإدارة غير متاحة",
-      offlineMessage: "تعذر الوصول إلى واجهة إدارة JAKH. تحقق من الاتصال وحاول مجدداً.",
+      offlineMessage: "تعذر الوصول إلى واجهة إدارة Riddle Arabia. تحقق من الاتصال وحاول مجدداً.",
       requestFailed: "تعذر إتمام الطلب. حاول مجدداً.",
       sessionExpired: "انتهت جلستك. سجل الدخول مجدداً للمتابعة.",
       passwordConfirmationFailed: "فشل تأكيد كلمة المرور. حاول مجدداً.",
@@ -577,7 +607,7 @@
   function applyLanguage() {
     document.documentElement.lang = state.lang;
     document.documentElement.dir = state.lang === "ar" ? "rtl" : "ltr";
-    document.title = state.lang === "ar" ? "JAKH · الإدارة" : "JAKH · Administration";
+    document.title = state.lang === "ar" ? "Riddle Arabia · الإدارة" : "Riddle Arabia · Administration";
     $$('[data-i18n]').forEach((node) => { node.textContent = t(node.dataset.i18n); });
     $$('[data-i18n-placeholder]').forEach((node) => { node.setAttribute("placeholder", t(node.dataset.i18nPlaceholder)); });
     updateSiteLinks();
@@ -662,12 +692,17 @@
       button.textContent = t("checkingAccess");
       els.gateActions.append(button);
     }
-    gate.hidden = Boolean(state.me && ADMIN_ROLES.has(state.me.role));
+    const hasAccess = Boolean(state.me && ADMIN_ROLES.has(state.me.role));
+    gate.hidden = hasAccess;
+    els.refreshButton.hidden = !hasAccess;
+    els.logoutButton.hidden = !hasAccess;
   }
 
   function showApp() {
     els.gate.hidden = true;
     els.adminApp.hidden = false;
+    els.refreshButton.hidden = false;
+    els.logoutButton.hidden = false;
   }
 
   function renderIdentity() {
@@ -778,7 +813,7 @@
     const options = FEEDBACK_STATES.map((status) => (
       `<option value="${status}" ${suggestion.status === status ? "selected" : ""}>${escapeHtml(statusLabel(status))}</option>`
     )).join("");
-    return `<div class="feedback-action"><label>${escapeHtml(t("reviewState"))}<select class="compact-select" data-feedback-status="${escapeHtml(suggestion.id)}">${options}</select></label></div>`;
+    return `<div class="feedback-action"><label>${escapeHtml(t("reviewState"))}<select class="compact-select" data-feedback-status="${escapeHtml(suggestion.id)}" data-feedback-current="${escapeHtml(suggestion.status)}">${options}</select></label></div>`;
   }
 
   function renderFeedback() {
@@ -978,12 +1013,19 @@
     if (!id) return;
     const edit = state.content.edits.get(id);
     const status = edit?.workflowStatus || "UNEDITED";
+    const selfAuthored = Boolean(edit?.editorUserId && edit.editorUserId === state.me?.id);
+    const publishBlocked = selfAuthored && state.me?.role !== "OWNER";
     els.contentEditorStatus.className = `status-pill ${status === "PUBLISHED" ? "is-good" : "is-pending"}`;
     els.contentEditorStatus.textContent = contentStatusLabel(status);
     els.contentEditorTitle.textContent = `${id}${edit ? ` · v${edit.version}` : ""}`;
     els.contentPublish.hidden = status !== "IN_REVIEW";
+    els.contentPublish.disabled = publishBlocked;
     els.contentUnpublish.hidden = !edit?.hasPublishedVersion;
     els.contentHistoryButton.hidden = !edit;
+    if (status === "IN_REVIEW" && selfAuthored) {
+      els.contentEditorMessage.textContent = t(publishBlocked ? "independentReviewRequired" : "ownerOverrideReview");
+      els.contentEditorMessage.hidden = false;
+    }
   }
 
   function selectContentQuestion(questionId) {
@@ -1067,9 +1109,21 @@
   async function publishContent(button) {
     const questionId = state.content.selectedId;
     if (!questionId || !await requestStepUp()) return;
+    const edit = state.content.edits.get(questionId);
+    const review = await requestActionReview({
+      actionKey: "publishAction",
+      target: questionId,
+      impactKey: "publishImpact",
+      impactValues: { version: edit?.version || "—" },
+      requiresReason: true,
+    });
+    if (!review) return;
     setButtonBusy(button, true);
     try {
-      await api(`/admin/content/${encodeURIComponent(questionId)}/publish`, { method: "POST", body: "{}" });
+      await api(`/admin/content/${encodeURIComponent(questionId)}/publish`, {
+        method: "POST",
+        body: mutationPayload({}, review.reason),
+      });
       showToast(t("contentPublished"));
       await Promise.all([loadContentCategory({ preserveSelection: true }), loadSecurity()]);
       if (state.audit) await loadAudit();
@@ -1083,9 +1137,21 @@
   async function unpublishContent(button) {
     const questionId = state.content.selectedId;
     if (!questionId || !await requestStepUp()) return;
+    const edit = state.content.edits.get(questionId);
+    const review = await requestActionReview({
+      actionKey: "unpublishAction",
+      target: questionId,
+      impactKey: "unpublishImpact",
+      impactValues: { version: edit?.publishedVersion || edit?.version || "—" },
+      requiresReason: true,
+    });
+    if (!review) return;
     setButtonBusy(button, true);
     try {
-      await api(`/admin/content/${encodeURIComponent(questionId)}/unpublish`, { method: "POST", body: "{}" });
+      await api(`/admin/content/${encodeURIComponent(questionId)}/unpublish`, {
+        method: "POST",
+        body: mutationPayload({}, review.reason),
+      });
       showToast(t("contentUnpublished"));
       await Promise.all([loadContentCategory({ preserveSelection: true }), loadSecurity()]);
       if (state.audit) await loadAudit();
@@ -1110,11 +1176,20 @@
   async function restoreContentRevision(revisionId, button) {
     const questionId = state.content.selectedId;
     if (!questionId) return;
+    const revision = state.content.revisions.find((candidate) => candidate.id === revisionId);
+    const review = await requestActionReview({
+      actionKey: "restoreContentAction",
+      target: questionId,
+      impactKey: "restoreContentImpact",
+      impactValues: { version: revision?.version || "—" },
+      requiresReason: true,
+    });
+    if (!review) return;
     setButtonBusy(button, true);
     try {
       await api(`/admin/content/${encodeURIComponent(questionId)}/restore`, {
         method: "POST",
-        body: JSON.stringify({ revisionId }),
+        body: mutationPayload({ revisionId }, review.reason),
       });
       showToast(t("contentRestored"));
       await loadContentCategory({ preserveSelection: true });
@@ -1256,6 +1331,7 @@
       const active = button.dataset.tab === tab;
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-selected", String(active));
+      button.tabIndex = active ? 0 : -1;
       if (active && moveFocus) button.focus();
     });
     $$("[data-panel]").forEach((panel) => { panel.hidden = panel.dataset.panel !== tab; });
@@ -1273,6 +1349,7 @@
         return;
       }
       if (error.status === 401) {
+        state.me = null;
         state.gateMode = "signedOut";
         renderGate();
         els.adminApp.hidden = true;
@@ -1332,6 +1409,13 @@
 
   function resetActionReview() {
     els.actionReviewForm.reset();
+    els.actionReviewReasonLabel.textContent = t("reasonOptional");
+    els.actionReviewReasonHint.textContent = t("reasonHint");
+    els.actionReviewReason.required = false;
+    els.actionReviewReason.removeAttribute("aria-required");
+    els.actionReviewReason.removeAttribute("aria-invalid");
+    els.actionReviewReasonError.textContent = "";
+    els.actionReviewReasonError.hidden = true;
     els.actionReviewTypedConfirmationWrap.hidden = true;
     els.actionReviewTypedConfirmation.required = false;
     els.actionReviewTypedConfirmation.removeAttribute("aria-required");
@@ -1343,10 +1427,16 @@
   function renderActionReview() {
     const review = state.actionReview;
     if (!review) return;
+    const requiresReason = Boolean(review.requiresReason);
     const requiresTypedConfirmation = Boolean(review.requiresTypedConfirmation);
     els.actionReviewAction.textContent = t(review.actionKey);
     els.actionReviewTarget.textContent = review.target;
     els.actionReviewImpact.textContent = t(review.impactKey, review.impactValues);
+    els.actionReviewReasonLabel.textContent = t(requiresReason ? "reasonRequired" : "reasonOptional");
+    els.actionReviewReasonHint.textContent = t(requiresReason ? "reasonRequiredHint" : "reasonHint");
+    els.actionReviewReason.required = requiresReason;
+    if (requiresReason) els.actionReviewReason.setAttribute("aria-required", "true");
+    else els.actionReviewReason.removeAttribute("aria-required");
     els.actionReviewTypedConfirmationWrap.hidden = !requiresTypedConfirmation;
     els.actionReviewTypedLead.textContent = requiresTypedConfirmation
       ? t("typedConfirmationLead", { token: ACTION_CONFIRMATION_TOKEN })
@@ -1393,6 +1483,13 @@
     event.preventDefault();
     const review = state.actionReview;
     if (!review) return;
+    if (review.requiresReason && !actionReviewReason()) {
+      els.actionReviewReasonError.textContent = t("reasonRequiredMessage");
+      els.actionReviewReasonError.hidden = false;
+      els.actionReviewReason.setAttribute("aria-invalid", "true");
+      els.actionReviewReason.focus();
+      return;
+    }
     if (review.requiresTypedConfirmation && els.actionReviewTypedConfirmation.value.trim() !== ACTION_CONFIRMATION_TOKEN) {
       els.actionReviewTypedError.textContent = t("typedConfirmationMismatch", { token: ACTION_CONFIRMATION_TOKEN });
       els.actionReviewTypedError.hidden = false;
@@ -1406,6 +1503,11 @@
   function clearTypedConfirmationError() {
     els.actionReviewTypedError.hidden = true;
     els.actionReviewTypedConfirmation.removeAttribute("aria-invalid");
+  }
+
+  function clearActionReviewReasonError() {
+    els.actionReviewReasonError.hidden = true;
+    els.actionReviewReason.removeAttribute("aria-invalid");
   }
 
   async function changeUserRole(select) {
@@ -1465,9 +1567,25 @@
     const suggestionId = select.dataset.feedbackStatus;
     if (!suggestionId) return;
     const status = select.value;
+    const previousStatus = select.dataset.feedbackCurrent || "";
+    if (status === previousStatus) return;
+    const review = await requestActionReview({
+      actionKey: "feedbackStateAction",
+      target: suggestionId,
+      impactKey: "feedbackStateImpact",
+      impactValues: { status: statusLabel(status) },
+      requiresReason: status === "implemented" || status === "rejected",
+    });
+    if (!review) {
+      select.value = previousStatus;
+      return;
+    }
     setButtonBusy(select, true);
     try {
-      await api(`/admin/suggestions/${encodeURIComponent(suggestionId)}`, { method: "PATCH", body: JSON.stringify({ status }) });
+      await api(`/admin/suggestions/${encodeURIComponent(suggestionId)}`, {
+        method: "PATCH",
+        body: mutationPayload({ status }, review.reason),
+      });
       showToast(t("feedbackUpdated"));
       await Promise.all([loadFeedback(true), loadOverview()]);
       if (state.audit) await loadAudit();
@@ -1606,6 +1724,7 @@
     });
     els.actionReviewForm.addEventListener("submit", submitActionReview);
     els.actionReviewCancel.addEventListener("click", () => els.actionReviewDialog.close("cancelled"));
+    els.actionReviewReason.addEventListener("input", clearActionReviewReasonError);
     els.actionReviewTypedConfirmation.addEventListener("input", clearTypedConfirmationError);
     els.actionReviewDialog.addEventListener("close", resolveActionReview);
   }
@@ -1620,6 +1739,7 @@
       "reloadAudit", "auditResults", "stepUpPill", "stepUpMessage", "reauthenticateButton", "revokeSessionsButton",
       "reauthDialog", "reauthForm", "reauthPassword", "reauthError", "reauthSubmit", "reauthCancel", "toastRegion",
       "actionReviewDialog", "actionReviewForm", "actionReviewAction", "actionReviewTarget", "actionReviewImpact", "actionReviewReason",
+      "actionReviewReasonLabel", "actionReviewReasonHint", "actionReviewReasonError",
       "actionReviewTypedConfirmationWrap", "actionReviewTypedLead", "actionReviewTypedConfirmation", "actionReviewTypedError",
       "actionReviewConfirm", "actionReviewCancel",
       "contentCategory", "contentSearch", "contentStatus", "contentLoadButton", "contentResultsSummary", "contentQuestionList",

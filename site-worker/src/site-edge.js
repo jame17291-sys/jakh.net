@@ -32,6 +32,9 @@ const RELEASE_METADATA_PATHS = new Set([
   "/sw.js",
   "/.well-known/security.txt",
 ]);
+const ADMIN_DOCUMENT_PATHS = new Set(["/admin", "/admin.html"]);
+const ADMIN_RUNTIME_ENVIRONMENT_PATTERN = /^[a-z][a-z0-9-]{0,31}$/u;
+const LOOPBACK_ADMIN_API_HOSTS = new Set(["localhost", "127.0.0.1", "::1", "[::1]"]);
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -128,9 +131,31 @@ function hasBuildIdentityInName(pathname, record) {
   return Boolean(embedded && record.sha256.toLowerCase().startsWith(embedded));
 }
 
+function adminRuntimeApiOrigin(siteManifest) {
+  const runtime = siteManifest?.adminRuntime;
+  if (!runtime || typeof runtime.apiOrigin !== "string") return null;
+  try {
+    const apiUrl = new URL(runtime.apiOrigin);
+    const pathname = apiUrl.pathname.replace(/\/+$/u, "");
+    const isLoopback = LOOPBACK_ADMIN_API_HOSTS.has(apiUrl.hostname.toLowerCase());
+    if (
+      (apiUrl.protocol !== "https:" && !(apiUrl.protocol === "http:" && isLoopback))
+      || apiUrl.username
+      || apiUrl.password
+      || apiUrl.search
+      || apiUrl.hash
+      || pathname !== "/api"
+    ) return null;
+    return apiUrl.origin;
+  } catch {
+    return null;
+  }
+}
+
 export function cachePolicy({ pathname, status, contentType, record }) {
   if (status >= 400) return NO_STORE;
   if (status >= 300 && status !== 304) return REDIRECT_CACHE;
+  if (ADMIN_DOCUMENT_PATHS.has(pathname)) return NO_STORE;
   if (RELEASE_METADATA_PATHS.has(pathname)) return pathname === "/sw.js" ? HTML_CACHE : RELEASE_METADATA_CACHE;
   if (/^text\/html(?:;|$)/iu.test(contentType || "")) return HTML_CACHE;
   if (hasBuildIdentityInName(pathname, record)) return "public, max-age=31536000, immutable";
@@ -154,6 +179,20 @@ export function contentSecurityPolicy(siteManifest, pathname, status) {
   const scriptSources = ["'self'", inlineHashes, "https://www.googletagmanager.com"]
     .filter(Boolean)
     .join(" ");
+  const connectSources = [
+    "'self'",
+    "https://api.riddlearabia.com",
+    "wss://api.riddlearabia.com",
+    "https://www.google-analytics.com",
+    "https://analytics.google.com",
+    "https://region1.google-analytics.com",
+  ];
+  const configuredAdminApiOrigin = ADMIN_DOCUMENT_PATHS.has(pathname)
+    ? adminRuntimeApiOrigin(siteManifest)
+    : null;
+  if (configuredAdminApiOrigin && !connectSources.includes(configuredAdminApiOrigin)) {
+    connectSources.push(configuredAdminApiOrigin);
+  }
   return [
     "default-src 'self'",
     "base-uri 'none'",
@@ -166,7 +205,7 @@ export function contentSecurityPolicy(siteManifest, pathname, status) {
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
     "font-src 'self' data:",
-    "connect-src 'self' https://api.riddlearabia.com wss://api.riddlearabia.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
+    `connect-src ${connectSources.join(" ")}`,
     "manifest-src 'self'",
     "media-src 'self' blob:",
     "worker-src 'self' blob:",
@@ -332,6 +371,11 @@ function validateManifest(siteManifest) {
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.sourceGraphId), "Invalid site manifest source graph ID");
   invariant(siteManifest.offlineCacheIdentity === `sg-${siteManifest.sourceGraphId}`, "Invalid offline cache identity");
   invariant(siteManifest.aliases && siteManifest.routes && siteManifest.files && siteManifest.fingerprints, "Incomplete site manifest");
+  invariant(adminRuntimeApiOrigin(siteManifest), "Invalid admin API runtime origin");
+  invariant(
+    ADMIN_RUNTIME_ENVIRONMENT_PATTERN.test(siteManifest.adminRuntime?.environment || ""),
+    "Invalid admin runtime environment",
+  );
   invariant(siteManifest.publication?.state === "safety-quarantine-active", "Production publication quarantine is not active");
   invariant(/^[a-f0-9]{64}$/u.test(siteManifest.publication.policySha256 || ""), "Invalid publication policy digest");
   invariant(siteManifest.publication.fullQuestions === 3_553, "Invalid full publication corpus total");

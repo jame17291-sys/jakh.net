@@ -16,6 +16,115 @@ const ACCESSIBILITY_DAILY_CARD = JSON.parse(
   readFileSync(resolve(REPOSITORY_ROOT, "data/science.json"), "utf8"),
 )[0];
 const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"];
+const CONTENT_STUDIO_CATALOG = Object.freeze({
+  categories: [{
+    slug: "science",
+    title: { en: "Science", ar: "العلوم" },
+    count: 2,
+  }],
+});
+const CONTENT_STUDIO_CARDS = Object.freeze([
+  {
+    id: "science-a11y-001",
+    difficulty: "medium",
+    subcategory: { en: "Atmosphere", ar: "الغلاف الجوي" },
+    question: {
+      en: "Which gas makes up most of Earth's atmosphere?",
+      ar: "أي غاز يشكل معظم الغلاف الجوي للأرض؟",
+    },
+    answer: { en: "Nitrogen", ar: "النيتروجين" },
+    explanation: {
+      en: "Nitrogen accounts for roughly 78% of Earth's atmosphere.",
+      ar: "يشكل النيتروجين نحو 78٪ من الغلاف الجوي للأرض.",
+    },
+  },
+  {
+    id: "science-a11y-002",
+    difficulty: "easy",
+    subcategory: { en: "Energy", ar: "الطاقة" },
+    question: {
+      en: "What type of energy is stored in a charged battery?",
+      ar: "ما نوع الطاقة المخزنة في بطارية مشحونة؟",
+    },
+    answer: { en: "Chemical energy", ar: "الطاقة الكيميائية" },
+    explanation: {
+      en: "A battery stores energy chemically and converts it to electricity when used.",
+      ar: "تخزن البطارية الطاقة كيميائيًا وتحولها إلى كهرباء عند الاستخدام.",
+    },
+  },
+]);
+const CONTENT_STUDIO_EDITS = Object.freeze([
+  {
+    questionId: "science-a11y-001",
+    categorySlug: "science",
+    draft: {
+      question: {
+        en: "Which gas makes up most of Earth's atmosphere?",
+        ar: "أي غاز يشكل معظم الغلاف الجوي للأرض؟",
+      },
+      answer: { en: "Nitrogen", ar: "النيتروجين" },
+      explanation: {
+        en: "Nitrogen accounts for roughly 78% of Earth's atmosphere.",
+        ar: "يشكل النيتروجين نحو 78٪ من الغلاف الجوي للأرض.",
+      },
+      sources: [{
+        title: "Earth's atmosphere",
+        publisher: "NASA",
+        url: "https://science.nasa.gov/earth/facts/",
+      }],
+    },
+    workflowStatus: "PUBLISHED",
+    version: 3,
+    publishedVersion: 3,
+    hasPublishedVersion: true,
+    editorUsername: "AccessibilityOwner",
+    reviewerUsername: "AccessibilityOwner",
+    createdAt: "2026-08-01T08:00:00.000Z",
+    updatedAt: "2026-08-03T08:00:00.000Z",
+    publishedAt: "2026-08-03T08:00:00.000Z",
+  },
+  {
+    questionId: "science-a11y-002",
+    categorySlug: "science",
+    draft: {
+      question: {
+        en: "What type of energy is stored in a charged battery?",
+        ar: "ما نوع الطاقة المخزنة في بطارية مشحونة؟",
+      },
+      answer: { en: "Chemical energy", ar: "الطاقة الكيميائية" },
+      explanation: {
+        en: "A battery stores energy chemically and converts it to electricity when used.",
+        ar: "تخزن البطارية الطاقة كيميائيًا وتحولها إلى كهرباء عند الاستخدام.",
+      },
+      sources: [{
+        title: "Energy storage",
+        publisher: "U.S. Department of Energy",
+        url: "https://www.energy.gov/energystorage",
+      }],
+    },
+    workflowStatus: "IN_REVIEW",
+    version: 2,
+    publishedVersion: null,
+    hasPublishedVersion: false,
+    editorUsername: "AccessibilityOwner",
+    reviewerUsername: null,
+    createdAt: "2026-08-01T08:00:00.000Z",
+    updatedAt: "2026-08-02T08:00:00.000Z",
+    publishedAt: null,
+  },
+]);
+const CONTENT_STUDIO_REVISIONS = Object.freeze([
+  {
+    id: "a11y-revision-001",
+    questionId: "science-a11y-001",
+    categorySlug: "science",
+    version: 3,
+    action: "PUBLISHED",
+    snapshot: CONTENT_STUDIO_EDITS[0].draft,
+    actorUsername: "AccessibilityOwner",
+    createdAt: "2026-08-03T08:00:00.000Z",
+  },
+]);
 const ROUTES = [
   ["English home", "/"],
   ["Arabic home", "/ar/"],
@@ -66,6 +175,22 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
       }));
     }
   }, { seedCompletedDaily: completedDaily, dailyCard: ACCESSIBILITY_DAILY_CARD });
+  if (ownerAdmin) {
+    await context.route("**/data/catalog.json", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(CONTENT_STUDIO_CATALOG),
+      });
+    });
+    await context.route("**/data/science.json", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(CONTENT_STUDIO_CARDS),
+      });
+    });
+  }
   await context.route("**/api/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
@@ -137,6 +262,14 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
     }
     if (ownerAdmin && path === "/api/admin/security") {
       await fulfillJson({ stepUp: { expiresAt: null } });
+      return;
+    }
+    if (ownerAdmin && path === "/api/admin/content") {
+      await fulfillJson({ edits: CONTENT_STUDIO_EDITS, nextOffset: null });
+      return;
+    }
+    if (ownerAdmin && path === "/api/admin/content/science-a11y-001/revisions") {
+      await fulfillJson({ revisions: CONTENT_STUDIO_REVISIONS });
       return;
     }
     if (ownerAdmin && path === "/api/admin/users") {
@@ -241,6 +374,7 @@ async function auditOwnerAdmin(context, baseUrl, lang) {
   page.on("pageerror", (error) => pageErrors.push(error.message));
   const tabFixtures = [
     ["overview", "#metricGrid .metric-card"],
+    ["content", "#contentEditorForm"],
     ["people", "#peopleResults .person-card"],
     ["feedback", "#feedbackResults .feedback-card"],
     ["audit", "#auditResults .audit-item"],
@@ -254,6 +388,15 @@ async function auditOwnerAdmin(context, baseUrl, lang) {
     for (const [tab, readySelector] of tabFixtures) {
       await page.locator(`#${tab}Tab`).click();
       await page.locator(`[data-panel="${tab}"]`).waitFor({ state: "visible" });
+      if (tab === "content") {
+        await page.locator('#contentCategory option[value="science"]').waitFor({ state: "attached" });
+        await page.locator("#contentCategory").selectOption("science");
+        await page.locator('[data-content-question="science-a11y-001"]').waitFor({ state: "visible" });
+        await page.locator('[data-content-question="science-a11y-001"]').click();
+        await page.locator("#contentPreviewCard .content-preview-card").waitFor({ state: "visible" });
+        await page.locator("#contentHistoryButton").click();
+        await page.locator("#contentHistoryList .content-revision").waitFor({ state: "visible" });
+      }
       await page.locator(readySelector).first().waitFor({ state: "visible" });
       await page.waitForTimeout(75);
       const label = `OWNER admin ${lang.toUpperCase()} ${tab}`;

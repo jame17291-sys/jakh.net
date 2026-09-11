@@ -31,6 +31,7 @@ interface ContentEditRow {
   version: number;
   publishedVersion: number | null;
   publishedSnapshotJson: string | null;
+  editorUserId: string | null;
   editorUsername: string | null;
   reviewerUsername: string | null;
   createdAt: string;
@@ -281,6 +282,7 @@ function contentEditResponse(row: ContentEditRow) {
     version: row.version,
     publishedVersion: row.publishedVersion,
     hasPublishedVersion: Boolean(row.publishedSnapshotJson),
+    editorUserId: row.editorUserId,
     editorUsername: row.editorUsername,
     reviewerUsername: row.reviewerUsername,
     createdAt: row.createdAt,
@@ -309,6 +311,16 @@ async function optionalReasonFromRequest(request: Request): Promise<string | und
   if (request.headers.get("content-length") === "0") return undefined;
   const body = await parseJson<{ reason?: unknown }>(request, 1_024);
   return optionalAuditReason(body.reason);
+}
+
+async function requiredAuditReasonFromRequest(
+  request: Request,
+  message: string,
+  code: string,
+): Promise<string> {
+  const reason = await optionalReasonFromRequest(request);
+  if (reason) return reason;
+  throw new ApiError(400, message, undefined, code);
 }
 
 async function currentStepUp(env: Env, user: SessionUser): Promise<{ verifiedAt: string | null; expiresAt: string | null }> {
@@ -564,6 +576,7 @@ export async function adminContent(request: Request, env: Env): Promise<Response
             e.draft_json AS draftJson, e.workflow_status AS workflowStatus,
             e.version, e.published_version AS publishedVersion,
             e.published_snapshot_json AS publishedSnapshotJson,
+            e.editor_user_id AS editorUserId,
             editor.username AS editorUsername, reviewer.username AS reviewerUsername,
             e.created_at AS createdAt, e.updated_at AS updatedAt, e.published_at AS publishedAt
        FROM content_question_edits e
@@ -693,10 +706,11 @@ export async function publishAdminContent(
   }
   const edit = await env.DB.prepare(
     `SELECT question_id AS questionId, category_slug AS categorySlug, draft_json AS draftJson,
-            workflow_status AS workflowStatus, version, published_version AS publishedVersion
+            workflow_status AS workflowStatus, version, published_version AS publishedVersion,
+            editor_user_id AS editorUserId
        FROM content_question_edits WHERE question_id = ?`,
   ).bind(questionId).first<Pick<ContentEditRow,
-    "questionId" | "categorySlug" | "draftJson" | "workflowStatus" | "version" | "publishedVersion"
+    "questionId" | "categorySlug" | "draftJson" | "workflowStatus" | "version" | "publishedVersion" | "editorUserId"
   >>();
   if (!edit) throw new ApiError(404, "Content draft not found", undefined, "CONTENT_NOT_FOUND");
   if (edit.workflowStatus === "PUBLISHED" && edit.publishedVersion === edit.version) {
@@ -710,6 +724,22 @@ export async function publishAdminContent(
       "CONTENT_REVIEW_REQUIRED",
     );
   }
+  const isSelfAuthored = edit.editorUserId === admin.id;
+  if (isSelfAuthored && admin.role !== "OWNER") {
+    throw new ApiError(
+      403,
+      "An independent administrator must publish content you authored",
+      undefined,
+      "CONTENT_SELF_PUBLISH_FORBIDDEN",
+    );
+  }
+  const publishReason = isSelfAuthored
+    ? await requiredAuditReasonFromRequest(
+      request,
+      "Owners must record a reason when overriding independent review",
+      "CONTENT_OWNER_OVERRIDE_REASON_REQUIRED",
+    )
+    : await optionalReasonFromRequest(request);
   const reviewedSnapshot = parseStoredSnapshot(edit.draftJson);
   if (!reviewedSnapshot?.sources.length) {
     throw new ApiError(
@@ -735,10 +765,11 @@ export async function publishAdminContent(
          id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
        ) VALUES (?, ?, ?, ?, 'PUBLISHED', ?, ?, ?)`,
     ).bind(revisionId, questionId, edit.categorySlug, edit.version, edit.draftJson, admin.id, now),
-    auditStatement(env, admin, "content.published", "question", questionId, {
+    auditStatement(env, admin, "content.published", "question", questionId, detailWithReason({
       categorySlug: edit.categorySlug,
       version: edit.version,
-    }),
+      reviewMode: isSelfAuthored ? "owner_override" : "independent",
+    }, publishReason)),
   ]);
   return json({ success: true, changed: true, version: edit.version, publishedAt: now });
 }
@@ -761,6 +792,11 @@ export async function unpublishAdminContent(
   >>();
   if (!edit) throw new ApiError(404, "Content draft not found", undefined, "CONTENT_NOT_FOUND");
   if (!edit.publishedSnapshotJson) return json({ success: true, changed: false, version: edit.version });
+  const reason = await requiredAuditReasonFromRequest(
+    request,
+    "A reason is required before unpublishing content",
+    "CONTENT_UNPUBLISH_REASON_REQUIRED",
+  );
   const version = edit.version + 1;
   const now = timestamp();
   await env.DB.batch([
@@ -776,10 +812,10 @@ export async function unpublishAdminContent(
          id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
        ) VALUES (?, ?, ?, ?, 'UNPUBLISHED', ?, ?, ?)`,
     ).bind(crypto.randomUUID(), questionId, edit.categorySlug, version, edit.draftJson, admin.id, now),
-    auditStatement(env, admin, "content.unpublished", "question", questionId, {
+    auditStatement(env, admin, "content.unpublished", "question", questionId, detailWithReason({
       categorySlug: edit.categorySlug,
       version,
-    }),
+    }, reason)),
   ]);
   return json({ success: true, changed: true, version });
 }
@@ -792,10 +828,19 @@ export async function restoreAdminContentRevision(
   const admin = await requireAdmin(request, env);
   await requireContentStudioSchema(env);
   await rateLimitAdmin(request, env, admin, "content-restore");
-  const body = await parseJson<{ revisionId?: unknown }>(request, 1_024);
+  const body = await parseJson<{ revisionId?: unknown; reason?: unknown }>(request, 1_024);
   const revisionId = typeof body.revisionId === "string" ? body.revisionId : "";
   if (!/^[A-Za-z0-9-]{36}$/u.test(revisionId)) {
     throw new ApiError(400, "Invalid revision ID", undefined, "CONTENT_REVISION_ID_INVALID");
+  }
+  const reason = optionalAuditReason(body.reason);
+  if (!reason) {
+    throw new ApiError(
+      400,
+      "A reason is required before restoring a content revision",
+      undefined,
+      "CONTENT_RESTORE_REASON_REQUIRED",
+    );
   }
   const [edit, revision] = await Promise.all([
     env.DB.prepare(
@@ -822,10 +867,10 @@ export async function restoreAdminContentRevision(
          id, question_id, category_slug, version, action, snapshot_json, actor_user_id, created_at
        ) VALUES (?, ?, ?, ?, 'RESTORED', ?, ?, ?)`,
     ).bind(restoredRevisionId, questionId, revision.categorySlug, version, revision.snapshotJson, admin.id, now),
-    auditStatement(env, admin, "content.restored", "question", questionId, {
+    auditStatement(env, admin, "content.restored", "question", questionId, detailWithReason({
       fromRevisionId: revisionId,
       version,
-    }),
+    }, reason)),
   ]);
   return json({ success: true, questionId, version, revisionId: restoredRevisionId });
 }

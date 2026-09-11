@@ -29,7 +29,7 @@ async function mockApi(context) {
   await context.route("**/api/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
-    const origin = request.headers().origin || "https://jakh.net";
+    const origin = request.headers().origin || "https://riddlearabia.com";
     const headers = {
       "Access-Control-Allow-Credentials": "true",
       "Access-Control-Allow-Headers": "Accept, Content-Type",
@@ -536,7 +536,7 @@ async function main() {
           waitUntil: "commit",
           timeout: 60_000,
         });
-        assert.match(await page.title(), /^Offline \| JAKH$/u);
+        assert.match(await page.title(), /^Offline \| Riddle Arabia$/u);
         assert.match(await page.locator("h1").innerText(), /offline/u);
         // WebKit surfaces the intentionally dropped origin connections as
         // page errors even though the service worker returned the asserted

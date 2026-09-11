@@ -3,7 +3,7 @@
 
   const API_ORIGIN = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? `${location.protocol}//${location.hostname}:8787`
-    : 'https://api.jakh.net';
+    : 'https://api.riddlearabia.com';
   const API_URL = `${API_ORIGIN}/api`;
   const LANGUAGE_KEY = 'jakh-privacy-language';
   const PRIVACY_ROUTES = Object.freeze({ en: '/privacy', ar: '/ar/privacy/' });
@@ -415,7 +415,7 @@
       const downloadUrl = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = downloadUrl;
-      anchor.download = `jakh-account-export-${new Date().toISOString().slice(0, 10)}.json`;
+      anchor.download = `riddlearabia-account-export-${new Date().toISOString().slice(0, 10)}.json`;
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();

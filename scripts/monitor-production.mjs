@@ -4,12 +4,17 @@ import { fileURLToPath } from "node:url";
 
 import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 
-const DEFAULT_SITE_ORIGIN = "https://jakh.net";
-const DEFAULT_API_ORIGIN = "https://api.jakh.net";
+export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
+export const PRIMARY_API_ORIGIN = "https://api.riddlearabia.com";
+export const LEGACY_SITE_ORIGINS = Object.freeze([
+  "https://jakh.net",
+  "https://www.jakh.net",
+]);
+const DEFAULT_SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
+const DEFAULT_API_ORIGIN = PRIMARY_API_ORIGIN;
 const DEFAULT_TIMEOUT_MS = 10_000;
 const DEFAULT_SITE_MAX_MS = 5_000;
 const DEFAULT_API_MAX_MS = 5_000;
-const ALLOWED_ORIGIN = "https://jakh.net";
 const DISALLOWED_ORIGIN = "https://example.invalid";
 const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
 const DEFAULT_RETRY_DELAY_MS = 0;
@@ -48,12 +53,12 @@ class RetryableCheckError extends Error {
 }
 
 export const HTML_ROUTES = [
-  { name: "Home", path: "/", marker: "<title>JAKH Riddles", bilingualMarker: 'id="langSelect"' },
+  { name: "Home", path: "/", marker: "<title>Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
   { name: "Collections", path: "/collections", marker: "<title>Riddles &amp; Quiz Collections", bilingualMarker: "site-i18n.js" },
   { name: "Arabic riddles collection", path: "/ar/alghaz-ma-alhal/", marker: '<html lang="ar"', bilingualMarker: 'hreflang="en"' },
   { name: "Arabic science topic", path: "/ar/topics/science/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
-  { name: "About", path: "/about", marker: "<title>About JAKH", bilingualMarker: "site-i18n.js" },
+  { name: "About", path: "/about", marker: "<title>About Riddle Arabia", bilingualMarker: "site-i18n.js" },
   { name: "Privacy Centre", path: "/privacy", marker: "<title>Privacy Centre", bilingualMarker: "privacy-consent.js" },
   { name: "Game Hub", path: "/play", marker: "<title>10 Free Browser Games", bilingualMarker: 'id="langSelect"' },
   { name: "Science category", path: "/science", marker: "<title>Science Quiz", bilingualMarker: 'id="langSelect"' },
@@ -144,6 +149,20 @@ function origin(value, label) {
   return parsed.origin;
 }
 
+function legacyOrigins(value, fallback) {
+  if (typeof value === "string" && value.trim().toLowerCase() === "none") return [];
+  const rawOrigins = value === undefined
+    ? fallback
+    : Array.isArray(value)
+      ? value
+      : String(value).split(",");
+  const normalized = rawOrigins
+    .map((candidate) => String(candidate).trim())
+    .filter(Boolean)
+    .map((candidate) => origin(candidate, "legacy site origin"));
+  return [...new Set(normalized)];
+}
+
 function expect(condition, message) {
   if (!condition) throw new Error(message);
 }
@@ -188,10 +207,10 @@ function expectApiSecurityHeaders(response) {
   );
 }
 
-function expectApiQuarantine(resource) {
+function expectApiQuarantine(resource, allowedOrigin) {
   expectStatus(resource.response, 503);
   expectContentType(resource.response, /application\/json/iu);
-  expectCors(resource.response, ALLOWED_ORIGIN);
+  expectCors(resource.response, allowedOrigin);
   expectApiSecurityHeaders(resource.response);
   expect(resource.response.headers.get("cache-control") === "no-store", "API quarantine response is cacheable");
   expect(resource.response.headers.get("retry-after") === "86400", "API quarantine Retry-After is missing");
@@ -269,9 +288,15 @@ function loadConfig(options) {
   if (!new Set(["all", "api", "site", "pages"]).has(scope)) {
     throw new Error("monitor scope must be all, api, site, or pages");
   }
+  const siteOrigin = origin(options.siteOrigin || env.JAKH_SITE_ORIGIN || DEFAULT_SITE_ORIGIN, "site origin");
+  const defaultLegacyOrigins = siteOrigin === PRIMARY_SITE_ORIGIN ? LEGACY_SITE_ORIGINS : [];
   return {
-    siteOrigin: origin(options.siteOrigin || env.JAKH_SITE_ORIGIN || DEFAULT_SITE_ORIGIN, "site origin"),
+    siteOrigin,
     apiOrigin: origin(options.apiOrigin || env.JAKH_API_ORIGIN || DEFAULT_API_ORIGIN, "API origin"),
+    legacySiteOrigins: legacyOrigins(
+      options.legacySiteOrigins ?? env.JAKH_MONITOR_LEGACY_SITE_ORIGINS,
+      defaultLegacyOrigins,
+    ),
     timeoutMs: positiveInteger(
       options.timeoutMs ?? env.JAKH_MONITOR_TIMEOUT_MS,
       DEFAULT_TIMEOUT_MS,
@@ -395,6 +420,26 @@ export async function runProductionMonitor(options = {}) {
         expect(resource.text.includes('"hasPart"'), "science Quiz schema has no hasPart questions");
       }
       assertBudget(resource, config.siteMaxMs, 150_000);
+      return resource;
+    }),
+  ));
+
+  const legacyRedirectQuery = "legacy_redirect_probe=riddlearabia";
+  await Promise.all(config.legacySiteOrigins.map((legacyOrigin) =>
+    check(`Site: legacy ${new URL(legacyOrigin).hostname} direct redirect`, async () => {
+      const expectedTarget = new URL(`/science?${legacyRedirectQuery}`, config.siteOrigin).href;
+      const resource = await fetchResource(
+        fetchImpl,
+        new URL(`/science?${legacyRedirectQuery}`, legacyOrigin),
+        config.timeoutMs,
+        { redirect: "manual" },
+      );
+      expectStatus(resource.response, 301);
+      expect(
+        resource.response.headers.get("location") === expectedTarget,
+        `legacy redirect target is ${resource.response.headers.get("location") || "missing"}, expected ${expectedTarget}`,
+      );
+      assertBudget(resource, config.siteMaxMs, 10_000);
       return resource;
     }),
   ));
@@ -526,7 +571,7 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application\/manifest\+json|application\/json)/iu);
     const manifest = parseJson(resource);
-    expect(manifest.name === "JAKH Riddles", "manifest name is not JAKH Riddles");
+    expect(manifest.name === "Riddle Arabia", "manifest name is not Riddle Arabia");
     expect(manifest.start_url === "/", "manifest start_url is not /");
     expect(Array.isArray(manifest.icons) && manifest.icons.length >= 2, "manifest icons are incomplete");
     assertBudget(resource, config.siteMaxMs, 20_000);
@@ -544,10 +589,10 @@ export async function runProductionMonitor(options = {}) {
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
     expect(urls.length >= 140, `sitemap contains only ${urls.length} URLs`);
     expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
-    expect(urls.includes("https://jakh.net/collections"), "sitemap is missing collections");
-    expect(urls.includes("https://jakh.net/ar/alghaz-ma-alhal/"), "sitemap is missing Arabic riddles");
-    expect(urls.includes("https://jakh.net/ar/topics/science/"), "sitemap is missing Arabic science");
-    expect(urls.includes("https://jakh.net/privacy"), "sitemap is missing the Privacy Centre");
+    expect(urls.includes(`${config.siteOrigin}/collections`), "sitemap is missing collections");
+    expect(urls.includes(`${config.siteOrigin}/ar/alghaz-ma-alhal/`), "sitemap is missing Arabic riddles");
+    expect(urls.includes(`${config.siteOrigin}/ar/topics/science/`), "sitemap is missing Arabic science");
+    expect(urls.includes(`${config.siteOrigin}/privacy`), "sitemap is missing the Privacy Centre");
     expect(
       QUARANTINED_CATEGORY_SLUGS.every((slug) => (
         !urls.some((url) => {
@@ -578,7 +623,7 @@ export async function runProductionMonitor(options = {}) {
       "security.txt is missing the vulnerability-reporting contact",
     );
     expect(
-      resource.text.includes("Canonical: https://jakh.net/.well-known/security.txt"),
+      resource.text.includes(`Canonical: ${config.siteOrigin}/.well-known/security.txt`),
       "security.txt is missing its canonical URL",
     );
     expect(/^Expires: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/mu.test(resource.text),
@@ -590,15 +635,16 @@ export async function runProductionMonitor(options = {}) {
   await check("Site: social preview image", async () => {
     const resource = await fetchResource(
       fetchImpl,
-      new URL("/assets/og-image.jpg", config.siteOrigin),
+        new URL("/assets/riddlearabia-og-image.png", config.siteOrigin),
       config.timeoutMs,
     );
     expectStatus(resource.response, 200);
-    expectContentType(resource.response, /^image\/jpeg\b/iu);
-    const signature = new Uint8Array(resource.body.slice(0, 3));
+    expectContentType(resource.response, /^image\/png\b/iu);
+    const signature = new Uint8Array(resource.body.slice(0, 8));
     expect(
-      signature[0] === 0xff && signature[1] === 0xd8 && signature[2] === 0xff,
-      "social preview image does not have a JPEG signature",
+      signature[0] === 0x89 && signature[1] === 0x50 && signature[2] === 0x4e && signature[3] === 0x47
+        && signature[4] === 0x0d && signature[5] === 0x0a && signature[6] === 0x1a && signature[7] === 0x0a,
+      "social preview image does not have a PNG signature",
     );
     assertBudget(resource, config.siteMaxMs, 400_000);
     return resource;
@@ -609,7 +655,7 @@ export async function runProductionMonitor(options = {}) {
       name: "JavaScript",
       path: "/app.js",
       type: /(?:text|application)\/javascript/iu,
-      marker: "https://api.jakh.net",
+      marker: config.apiOrigin,
       maxBytes: 350_000,
     },
     {
@@ -682,11 +728,11 @@ export async function runProductionMonitor(options = {}) {
       fetchImpl,
       new URL("/api/health", config.apiOrigin),
       config.timeoutMs,
-      { headers: { origin: ALLOWED_ORIGIN } },
+      { headers: { origin: config.siteOrigin } },
     );
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /application\/json/iu);
-    expectCors(resource.response, ALLOWED_ORIGIN);
+    expectCors(resource.response, config.siteOrigin);
     expectApiSecurityHeaders(resource.response);
     expect(resource.response.headers.get("cache-control") === "no-store", "health response is cacheable");
     const health = parseJson(resource);
@@ -767,11 +813,11 @@ export async function runProductionMonitor(options = {}) {
       fetchImpl,
       new URL("/api/leaderboard", config.apiOrigin),
       config.timeoutMs,
-      { headers: { origin: ALLOWED_ORIGIN } },
+      { headers: { origin: config.siteOrigin } },
     );
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /application\/json/iu);
-    expectCors(resource.response, ALLOWED_ORIGIN);
+    expectCors(resource.response, config.siteOrigin);
     expectApiSecurityHeaders(resource.response);
     const payload = parseJson(resource);
     expect(payload.status === "active", "server-checked public rankings are not active");
@@ -796,9 +842,9 @@ export async function runProductionMonitor(options = {}) {
       fetchImpl,
       new URL("/api/leaderboard?category=medical-questions", config.apiOrigin),
       config.timeoutMs,
-      { headers: { origin: ALLOWED_ORIGIN } },
+      { headers: { origin: config.siteOrigin } },
     );
-    expectApiQuarantine(resource);
+    expectApiQuarantine(resource, config.siteOrigin);
     assertBudget(resource, config.apiMaxMs, 20_000);
     return resource;
   });
@@ -812,7 +858,7 @@ export async function runProductionMonitor(options = {}) {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          origin: ALLOWED_ORIGIN,
+          origin: config.siteOrigin,
         },
         body: JSON.stringify({
           category: "medical-questions",
@@ -821,7 +867,7 @@ export async function runProductionMonitor(options = {}) {
         }),
       },
     );
-    expectApiQuarantine(resource);
+    expectApiQuarantine(resource, config.siteOrigin);
     const payload = parseJson(resource);
     expect(payload.code === "CATEGORY_QUARANTINED", "held Battle request was not denied by policy");
     expect(payload.hostId === undefined && payload.roomCode === undefined, "held Battle request allocated a room");
@@ -835,11 +881,11 @@ export async function runProductionMonitor(options = {}) {
         fetchImpl,
         new URL(route.path, config.apiOrigin),
         config.timeoutMs,
-        { headers: { origin: ALLOWED_ORIGIN } },
+        { headers: { origin: config.siteOrigin } },
       );
       expectStatus(resource.response, 401);
       expectContentType(resource.response, /application\/json/iu);
-      expectCors(resource.response, ALLOWED_ORIGIN);
+      expectCors(resource.response, config.siteOrigin);
       expectApiSecurityHeaders(resource.response);
       expect(resource.response.headers.get("cache-control") === "no-store", "authentication error is cacheable");
       expect(resource.response.headers.get("set-cookie") === null, "unauthenticated request set a cookie");
@@ -857,13 +903,13 @@ export async function runProductionMonitor(options = {}) {
       {
         method: "OPTIONS",
         headers: {
-          origin: ALLOWED_ORIGIN,
+          origin: config.siteOrigin,
           "access-control-request-method": "GET",
         },
       },
     );
     expectStatus(resource.response, 204);
-    expectCors(resource.response, ALLOWED_ORIGIN);
+    expectCors(resource.response, config.siteOrigin);
     const methods = (resource.response.headers.get("access-control-allow-methods") || "")
       .split(",")
       .map((method) => method.trim());
@@ -942,6 +988,7 @@ export function buildMonitorReport(summary, generatedAt = new Date()) {
       scope: summary.config?.scope ?? null,
       siteOrigin: summary.config?.siteOrigin ?? null,
       apiOrigin: summary.config?.apiOrigin ?? null,
+      legacySiteOrigins: summary.config?.legacySiteOrigins ?? [],
       allowCompatibleSchema: summary.config?.allowCompatibleSchema === true,
       expectedWorkerVersion: summary.config?.expectedWorkerVersion ?? null,
     },

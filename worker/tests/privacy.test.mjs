@@ -191,7 +191,7 @@ test("account export contains useful account data but no credentials or sessions
   assert.equal(payload.exportVersion, 2);
   assert.match(
     response.headers.get("content-disposition"),
-    /^attachment; filename="jakh-account-export-\d{4}-\d{2}-\d{2}\.json"$/u,
+    /^attachment; filename="riddlearabia-account-export-\d{4}-\d{2}-\d{2}\.json"$/u,
   );
   assert.equal(payload.account.username, "tester");
   assert.equal(payload.privacy.analytics, "allowed");

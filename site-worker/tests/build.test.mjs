@@ -267,7 +267,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   const source = join(temporary, "source");
   await mkdir(join(source, "data"), { recursive: true });
   await mkdir(join(source, "docs"), { recursive: true });
-  const index = '<!doctype html><link rel="canonical" href="https://jakh.net/"><link rel="stylesheet" href="styles.css?v=old"><link rel="stylesheet" href="/privacy.css?v=old"><script>window.test=1;</script><script src="app.js?v=old"></script>';
+  const index = '<!doctype html><link rel="canonical" href="https://riddlearabia.com/"><link rel="stylesheet" href="styles.css?v=old"><link rel="stylesheet" href="/privacy.css?v=old"><script>window.test=1;</script><script src="app.js?v=old"></script>';
   await mkdir(source, { recursive: true });
   await writeFile(join(source, "index.html"), index, "utf8");
   await writeFile(join(source, "404.html"), "<!doctype html><title>Missing</title>", "utf8");
@@ -353,7 +353,9 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
 });
 
 test("deploy allow-list is explicit", () => {
-  assert.equal(isDeployableFile("assets/logo.webp"), true);
+  assert.equal(isDeployableFile("assets/riddlearabia-mark.svg"), true);
+  assert.equal(isDeployableFile("assets/logo.webp"), false);
+  assert.equal(isDeployableFile("assets/og-image.jpg"), false);
   assert.equal(isDeployableFile(".well-known/security.txt"), true);
   assert.equal(isDeployableFile("scripts/private.json"), false);
   assert.equal(isDeployableFile("worker/package.json"), false);

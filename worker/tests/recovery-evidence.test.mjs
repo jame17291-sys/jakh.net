@@ -56,6 +56,11 @@ test("quarterly workflow requires a protected real restore drill", async () => {
   assert.match(workflow, /environment: recovery-drill/u);
   assert.match(workflow, /secrets\.CLOUDFLARE_RECOVERY_DRILL_DATABASE_ID/u);
   assert.match(workflow, /'RESTORE jakh-recovery-drill'/u);
+  assert.match(workflow, /PRIMARY_API_ORIGIN: https:\/\/api\.riddlearabia\.com/u);
+  assert.match(workflow, /PRIMARY_SITE_ORIGIN: https:\/\/riddlearabia\.com/u);
+  assert.match(workflow, /"\$PRIMARY_API_ORIGIN\/api\/health"/u);
+  assert.match(workflow, /for legacy_host in jakh\.net www\.jakh\.net/u);
+  assert.match(workflow, /Legacy redirect drift/u);
 });
 
 test("restore guard requires the dedicated name, a different UUID, and typed confirmation", () => {

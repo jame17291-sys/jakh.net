@@ -2,16 +2,17 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { QA_HOLD_IDS, SEO_COLLECTIONS } from "./seo-collections.mjs";
+import { PRIMARY_SITE_ORIGIN, rewritePublicSiteIdentity } from "./public-site-identity.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
-const SITE_ORIGIN = "https://jakh.net";
+const SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
 const ASSET_VERSION = "2026080201";
 const APP_ASSET_VERSION = "2026080201";
 const PRIVACY_ASSET_VERSION = "2026080101";
 const LAST_MODIFIED = "2026-08-01";
 const TOPIC_PAGE_SIZE = 20;
-const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/og-image.jpg`;
+const OG_IMAGE_URL = `${SITE_ORIGIN}/assets/riddlearabia-og-image.png`;
 const QA_HOLD_SET = new Set(QA_HOLD_IDS);
 const GAME_SLUGS = [
   "chess",
@@ -110,7 +111,7 @@ function truncate(value, max) {
 }
 
 function emit(relativePath, content) {
-  const normalized = content.endsWith("\n") ? content : `${content}\n`;
+  const normalized = rewritePublicSiteIdentity(content.endsWith("\n") ? content : `${content}\n`);
   outputs.set(relativePath, normalized);
 }
 
@@ -205,10 +206,10 @@ function rasterSocialImage(relativePath, alt) {
 }
 
 const DEFAULT_SOCIAL_IMAGE = rasterSocialImage(
-  "assets/og-image.jpg",
+  "assets/riddlearabia-og-image.png",
   "JAKH — 3,553 bilingual riddles across 56 topics and 10 games",
 );
-if (!DEFAULT_SOCIAL_IMAGE) throw new Error("Missing or unreadable assets/og-image.jpg");
+if (!DEFAULT_SOCIAL_IMAGE) throw new Error("Missing or unreadable Riddle Arabia social image");
 
 function quizStructuredData({ canonical, name, description, lang, subjectNames, cards }) {
   const subjects = [...new Set(subjectNames.map(cleanText).filter(Boolean))];
@@ -275,8 +276,7 @@ function brandMarkup(lang = "en", dynamic = false, href = "/") {
   const i18nAttribute = dynamic ? ' data-i18n-aria-label="brandHomeLabel"' : "";
   return `<a href="${escapeHtml(href)}" class="brand" aria-label="${isAr ? "الصفحة الرئيسية لألغاز JAKH" : "JAKH Riddles home"}"${i18nAttribute}>
         <picture>
-          <source srcset="/assets/logo.webp" type="image/webp" />
-          <img src="/assets/logo.png" alt="JAKH Riddles" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
+          <img src="/assets/riddlearabia-mark.svg" alt="Riddle Arabia" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
         </picture>
       </a>`;
 }
@@ -914,7 +914,12 @@ function normalizeInternalLinks(source) {
 
 function normalizeSocialMeta(source) {
   let next = source.replaceAll("https://jakh.net/assets/og-image.webp", OG_IMAGE_URL);
-  next = next.replaceAll("assets/og-image.webp", "/assets/og-image.jpg");
+  next = next.replaceAll("assets/og-image.webp", "/assets/riddlearabia-og-image.png");
+  next = replaceMetaContent(next, "property", "og:image", DEFAULT_SOCIAL_IMAGE.url);
+  next = replaceMetaContent(next, "property", "og:image:type", DEFAULT_SOCIAL_IMAGE.type);
+  next = replaceMetaContent(next, "property", "og:image:width", String(DEFAULT_SOCIAL_IMAGE.width));
+  next = replaceMetaContent(next, "property", "og:image:height", String(DEFAULT_SOCIAL_IMAGE.height));
+  next = replaceMetaContent(next, "name", "twitter:image", DEFAULT_SOCIAL_IMAGE.url);
   next = next.replace(/styles\.css\?v=\d+/gu, `styles.css?v=${ASSET_VERSION}`);
   next = next.replace(/app\.js\?v=\d+/gu, `app.js?v=${APP_ASSET_VERSION}`);
   next = next.replace(/site-i18n\.js\?v=\d+/gu, `site-i18n.js?v=${ASSET_VERSION}`);
@@ -925,7 +930,7 @@ function normalizeSocialMeta(source) {
   if (next.includes('property="og:image"') && !next.includes('property="og:image:type"')) {
     next = next.replace(
       /(<meta property="og:image"[^>]*\/?>)/iu,
-      `$1\n    <meta property="og:image:type" content="image/jpeg" />`,
+      `$1\n    <meta property="og:image:type" content="${DEFAULT_SOCIAL_IMAGE.type}" />`,
     );
   }
   if (next.includes('property="og:image"') && !next.includes('property="og:image:alt"')) {
@@ -1079,7 +1084,7 @@ ${jsonLd({
       "@id": `${SITE_ORIGIN}/#organization`,
       name: "JAKH Riddles",
       url: `${SITE_ORIGIN}/`,
-      logo: `${SITE_ORIGIN}/assets/logo.png`,
+      logo: `${SITE_ORIGIN}/assets/riddlearabia-mark.svg`,
       sameAs: [
         "https://www.instagram.com/jakhriddles/",
         "https://www.facebook.com/profile.php?id=61588921894305",
@@ -1589,7 +1594,7 @@ for (const category of catalog.categories || []) {
   }
 }
 
-for (const file of ["index.html", "mind-lab.html", "play.html", "404.html", ...GAME_SLUGS.map((slug) => `${slug}.html`)]) {
+for (const file of ["index.html", "mind-lab.html", "play.html", "privacy.html", "404.html", ...GAME_SLUGS.map((slug) => `${slug}.html`)]) {
   const source = fs.readFileSync(path.join(root, file), "utf8");
   emit(file, normalizeExistingPage(source, file));
 }

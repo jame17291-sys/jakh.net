@@ -123,7 +123,7 @@ async function nodeResponse(response, request, edgeResponse, localOrigin) {
   const location = edgeResponse.headers.get("location");
   if (location) {
     const target = new URL(location);
-    if (target.hostname === "jakh.net" || target.hostname === "www.jakh.net") {
+    if (["riddlearabia.com", "www.riddlearabia.com", "jakh.net", "www.jakh.net"].includes(target.hostname)) {
       headers.location = `${localOrigin}${target.pathname}${target.search}${target.hash}`;
     }
   }
@@ -167,7 +167,7 @@ export async function startBrowserSite({
         return;
       }
 
-      const edgeRequestUrl = new URL(`${incoming.pathname}${incoming.search}`, "https://jakh.net");
+      const edgeRequestUrl = new URL(`${incoming.pathname}${incoming.search}`, "https://riddlearabia.com");
       const edgeRequest = new Request(edgeRequestUrl, {
         method: request.method,
         headers: request.headers,

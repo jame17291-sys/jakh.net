@@ -249,8 +249,8 @@ if (!appSource.includes("const SEARCH_LEADERBOARD_MODULE_PATH = '/search-leaderb
 
 for (const pair of categoryPagePairs) {
   const expected = {
-    en: { file: pair.en, dir: "ltr", canonical: `https://jakh.net/${pair.slug}`, alternate: `https://jakh.net/ar/topics/${pair.slug}/` },
-    ar: { file: pair.ar, dir: "rtl", canonical: `https://jakh.net/ar/topics/${pair.slug}/`, alternate: `https://jakh.net/${pair.slug}` },
+    en: { file: pair.en, dir: "ltr", canonical: `https://riddlearabia.com/${pair.slug}`, alternate: `https://riddlearabia.com/ar/topics/${pair.slug}/` },
+    ar: { file: pair.ar, dir: "rtl", canonical: `https://riddlearabia.com/ar/topics/${pair.slug}/`, alternate: `https://riddlearabia.com/${pair.slug}` },
   };
   for (const lang of ["en", "ar"]) {
     const { file, dir, canonical, alternate } = expected[lang];

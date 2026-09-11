@@ -9,6 +9,14 @@
   },
   "routes": [
     {
+      "pattern": "riddlearabia.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.riddlearabia.com",
+      "custom_domain": true
+    },
+    {
       "pattern": "jakh.net",
       "custom_domain": true
     },
@@ -16,7 +24,7 @@
       "pattern": "www.jakh.net",
       "custom_domain": true
     }
-    // Mail-owner approval is required before adding mta-sts.jakh.net here.
+    // Mail-owner approval is required before adding mta-sts.riddlearabia.com here.
   ],
   "assets": {
     "directory": "./dist",

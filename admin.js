@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const API = "https://api.jakh.net/api";
+  const API = "https://api.riddlearabia.com/api";
   const ADMIN_ROLES = new Set(["ADMIN", "OWNER"]);
   const ROLE_KEYS = Object.freeze({ USER: "member", ADMIN: "administrator", OWNER: "owner" });
   const FEEDBACK_STATES = ["new", "reviewed", "implemented", "rejected"];

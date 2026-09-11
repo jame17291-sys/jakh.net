@@ -397,6 +397,9 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.match(workflow, /required_reviewers/u);
   assert.match(workflow, /protected_branches/u);
   assert.match(workflow, /release_phase:/u);
+  assert.match(workflow, /domain_cutover:/u);
+  assert.match(workflow, /BASELINE_API_ORIGIN/u);
+  assert.match(workflow, /https:\/\/api\.riddlearabia\.com\/api\/health/u);
   assert.match(workflow, /compatibility:/u);
   assert.match(workflow, /migrate-final:/u);
   assert.match(workflow, /preflight[\s\S]+--phase migrate-final/u);
@@ -438,6 +441,7 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.match(workflow, /--stage rollback/u);
   assert.match(workflow, /--expected-worker-version/u);
   assert.match(workflow, /steps\.rollback_proof\.outputs\.rollback-safe == 'true'/u);
+  assert.match(workflow, /inputs\.domain_cutover != true/u);
   assert.match(workflow, /JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"/u);
   assert.equal(workflow.match(/JAKH_MONITOR_EXPECTED_WORKER_VERSION/gu)?.length, 7);
   assert.equal(workflow.match(/JAKH_MONITOR_MAX_ATTEMPTS/gu)?.length, 7);

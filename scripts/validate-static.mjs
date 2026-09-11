@@ -409,7 +409,7 @@ for (const file of ["app.js", "sw.js"]) {
 }
 
 const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
-if (!appSource.includes("https://api.jakh.net")) fail("app.js: production API origin is not configured");
+if (!appSource.includes("https://api.riddlearabia.com")) fail("app.js: production API origin is not configured");
 if (/fetch\(\s*["']\/api\//u.test(appSource)) fail("app.js: stale same-origin API fetch remains");
 const directorySource = fs.readFileSync(path.join(root, "directory-ui.js"), "utf8");
 const directorySearchStart = directorySource.indexOf("const matchingCategories");
@@ -486,7 +486,7 @@ if (!fs.existsSync(faviconPath)) {
 async function validateServiceWorkerOfflineShell() {
   const source = fs.readFileSync(path.join(root, "sw.js"), "utf8");
   const listeners = new Map();
-  const origin = "https://jakh.net";
+  const origin = "https://riddlearabia.com";
   const stores = new Map();
   let online = true;
   let fetchLabel = "precache";

@@ -5,7 +5,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const siteOrigin = "https://jakh.net";
+const siteOrigin = "https://riddlearabia.com";
 const pageSize = 20;
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "data", "catalog.json"), "utf8"));
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");

@@ -28,7 +28,7 @@ const routes = [
   ...GAME_SLUGS.map((slug) => [`ar/games/${slug}/index.html`, `/${slug}`, `/ar/games/${slug}/`]),
 ];
 const ENGLISH_COMMON_ARIA_LABELS = new Set([
-  "JAKH Riddles home",
+  "Riddle Arabia home",
   "Quick actions",
   "Language controls",
   "Language",
@@ -36,9 +36,9 @@ const ENGLISH_COMMON_ARIA_LABELS = new Set([
   "Category filters",
   "Search topics and subtopics",
   "Privacy Centre sections",
-  "JAKH information",
-  "JAKH Riddles on Instagram",
-  "JAKH Riddles on Facebook",
+  "Riddle Arabia information",
+  "Riddle Arabia on Instagram",
+  "Riddle Arabia on Facebook",
   "Close",
 ]);
 
@@ -62,8 +62,8 @@ test("Arabic route generator is deterministic and current", () => {
 test("all 16 physical Arabic routes have self canonicals and reciprocal alternates", () => {
   for (const [file, englishPath, arabicPath] of routes) {
     const html = read(file);
-    const englishUrl = `https://jakh.net${englishPath}`;
-    const arabicUrl = `https://jakh.net${arabicPath}`;
+    const englishUrl = `https://riddlearabia.com${englishPath}`;
+    const arabicUrl = `https://riddlearabia.com${arabicPath}`;
     assert.match(html, /<html\b[^>]*\blang="ar"[^>]*\bdir="rtl"/iu, file);
     assert.match(html, /<body\b[^>]*\bdata-route-lang="ar"/iu, file);
     assert.equal((html.match(new RegExp(`<link rel="canonical" href="${escapeRegex(arabicUrl)}"`, "gu")) || []).length, 1, file);

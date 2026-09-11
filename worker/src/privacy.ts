@@ -321,7 +321,7 @@ export async function exportAccountData(
     ],
   }, 200, {
     "content-disposition":
-      `attachment; filename="jakh-account-export-${generatedAt.slice(0, 10)}.json"`,
+      `attachment; filename="riddlearabia-account-export-${generatedAt.slice(0, 10)}.json"`,
     "x-robots-tag": "noindex, nofollow",
   });
 }

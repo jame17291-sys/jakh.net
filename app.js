@@ -1173,7 +1173,7 @@ function escapeHtml(value) {
 const IS_LOCAL_PREVIEW = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 const API_ORIGIN = IS_LOCAL_PREVIEW
   ? `${location.protocol}//${location.hostname}:8787`
-  : 'https://api.jakh.net';
+  : 'https://api.riddlearabia.com';
 const API_URL = `${API_ORIGIN}/api`;
 
 async function apiFetch(endpoint, options = {}) {
@@ -2334,9 +2334,11 @@ function bindCommonEvents() {
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug, 'create'));
 
 
+  const queryCode = new URLSearchParams(location.search).get('battle');
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
-  if (hashMatch) {
-    const code = normalizeBattleCode(hashMatch[1]);
+  const inviteCode = queryCode || hashMatch?.[1] || '';
+  if (inviteCode) {
+    const code = normalizeBattleCode(inviteCode);
     if (BATTLE_CODE_PATTERN.test(code)) {
       openBattleModal('', 'join', code);
     }

@@ -43,7 +43,7 @@ function render(category) {
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title desc" data-jakh-category-art="v1">
   <title id="title">${titleEn} — ${titleAr}</title>
-  <desc id="desc">JAKH category artwork in the unified midnight-and-gold visual system.</desc>
+  <desc id="desc">Riddle Arabia category artwork in the unified midnight-and-gold visual system.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#07111d"/>
@@ -77,7 +77,7 @@ function render(category) {
     <circle cx="494" cy="144" r="70" fill="#06111e" fill-opacity=".7" stroke="url(#gold)" stroke-width="2"/>
     <text x="494" y="164" text-anchor="middle" font-family="Apple Color Emoji, Segoe UI Emoji, sans-serif" font-size="58">${emoji}</text>
   </g>
-  <text x="90" y="112" fill="#d7b979" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">JAKH · CURATED KNOWLEDGE</text>
+  <text x="90" y="112" fill="#d7b979" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">RIDDLE ARABIA · CURATED KNOWLEDGE</text>
   <text x="90" y="174" fill="#fffaf0" font-family="Inter, Arial, sans-serif" font-size="${enSize}" font-weight="700">${titleEn}</text>
   <text x="90" y="222" fill="#eadfc9" font-family="Noto Sans Arabic, Arial, sans-serif" font-size="${arSize}" font-weight="600" direction="rtl" unicode-bidi="plaintext">${titleAr}</text>
   <rect x="90" y="278" width="170" height="1" fill="url(#gold)"/>

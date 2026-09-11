@@ -20,6 +20,11 @@ import {
   publicCatalogProjection,
   publicSearchArtifacts,
 } from "./publication-quarantine.mjs";
+import {
+  isPublicSiteIdentityTextFile,
+  PRIMARY_SITE_ORIGIN,
+  rewritePublicSiteIdentity,
+} from "./public-site-identity.mjs";
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
@@ -73,6 +78,11 @@ const EXCLUDED_TOP_LEVEL = new Set([
   "worker",
   "_site",
 ]);
+const RETIRED_PUBLIC_BRAND_ASSETS = new Set([
+  "assets/logo.png",
+  "assets/logo.webp",
+  "assets/og-image.jpg",
+]);
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -85,6 +95,7 @@ function normalizeRelativePath(value) {
 export function isDeployableFile(relativePath) {
   const normalized = normalizeRelativePath(relativePath);
   if (!normalized || normalized.startsWith("/") || normalized.includes("../")) return false;
+  if (RETIRED_PUBLIC_BRAND_ASSETS.has(normalized)) return false;
   const [topLevel] = normalized.split("/");
   if (EXCLUDED_TOP_LEVEL.has(topLevel)) return false;
   if (normalized === "package.json" || normalized === "package-lock.json") return false;
@@ -163,7 +174,7 @@ function rewriteApplication(source, fingerprints) {
 }
 
 function rewriteHtmlAssetReferences(html, relativePath, fingerprints) {
-  const base = new URL(normalizeRelativePath(relativePath), "https://jakh.net/");
+  const base = new URL(normalizeRelativePath(relativePath), `${PRIMARY_SITE_ORIGIN}/`);
   return html.replace(
     /(<(?:link|script)\b[^>]*?\b(?:href|src)\s*=\s*)(["'])([^"']+)(\2)/giu,
     (match, prefix, quote, reference, closingQuote) => {
@@ -184,9 +195,16 @@ function hrefPathFromAnchor(anchor) {
   const href = anchor.match(/\bhref\s*=\s*["']([^"']+)["']/iu)?.[1];
   if (!href) return null;
   try {
-    return new URL(href, "https://jakh.net").pathname;
+    return new URL(href, PRIMARY_SITE_ORIGIN).pathname;
   } catch {
     return null;
+  }
+}
+
+function rewritePublishedIdentity(sourceBytes) {
+  for (const [relativePath, bytes] of sourceBytes) {
+    if (!isPublicSiteIdentityTextFile(relativePath)) continue;
+    sourceBytes.set(relativePath, Buffer.from(rewritePublicSiteIdentity(bytes.toString("utf8")), "utf8"));
   }
 }
 
@@ -557,8 +575,8 @@ function htmlCanonicalPath(relativePath, html) {
     if (!/\brel\s*=\s*["']canonical["']/iu.test(tag)) continue;
     const href = tag.match(/\bhref\s*=\s*["']([^"']+)["']/iu)?.[1];
     if (!href) continue;
-    const parsed = new URL(href, "https://jakh.net");
-    invariant(parsed.protocol === "https:" && ["jakh.net", "www.jakh.net"].includes(parsed.hostname), `${relativePath} has an invalid canonical origin`);
+    const parsed = new URL(href, PRIMARY_SITE_ORIGIN);
+    invariant(parsed.protocol === "https:" && ["riddlearabia.com", "www.riddlearabia.com"].includes(parsed.hostname), `${relativePath} has an invalid canonical origin`);
     return parsed.pathname;
   }
 
@@ -645,6 +663,7 @@ export async function buildStaticSite({
       sourceRoot: source,
     })
     : null;
+  rewritePublishedIdentity(sourceBytes);
 
   // Stable source URLs remain available as revalidated compatibility assets.
   // Fingerprinted copies are constructed leaves-first so a changed dependency

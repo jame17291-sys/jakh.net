@@ -9,7 +9,7 @@ const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "
 const root = process.env.JAKH_SEO_VALIDATION_ROOT
   ? path.resolve(process.env.JAKH_SEO_VALIDATION_ROOT)
   : defaultRoot;
-const siteOrigin = "https://jakh.net";
+const siteOrigin = "https://riddlearabia.com";
 const TOPIC_PAGE_SIZE = 20;
 const EXPECTED_CARD_TOTAL = 3553;
 const GAME_SLUGS = [

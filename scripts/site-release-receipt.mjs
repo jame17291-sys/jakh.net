@@ -12,9 +12,37 @@ const SERVICE_NAME = "jakh-site";
 const RECEIPT_FORMAT_VERSION = 2;
 const BUILD_ID_PATTERN = /^[a-f0-9]{64}$/u;
 const WORKER_VERSION_PATTERN = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
+export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
+export const LEGACY_SITE_ORIGINS = Object.freeze([
+  "https://jakh.net",
+  "https://www.jakh.net",
+]);
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+function siteOrigin(value, label = "site origin") {
+  let parsed;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new Error(`${label} must be an absolute origin`);
+  }
+  invariant(parsed.pathname === "/" && !parsed.search && !parsed.hash, `${label} must not include a path, query, or fragment`);
+  return parsed.origin;
+}
+
+function normalizedLegacyOrigins(value) {
+  const candidates = value === undefined
+    ? LEGACY_SITE_ORIGINS
+    : Array.isArray(value)
+      ? value
+      : String(value).split(",");
+  return [...new Set(candidates
+    .map((candidate) => String(candidate).trim())
+    .filter(Boolean)
+    .map((candidate) => siteOrigin(candidate, "legacy site origin")))];
 }
 
 function parseArguments(argv) {
@@ -146,48 +174,75 @@ export function validateSmokeReport(report, expectedBuildId, expectedWorkerVersi
   return [...new Set(errors)];
 }
 
-function smokeDefinitions(token) {
+export function smokeDefinitions(token, {
+  siteOrigin: primaryOrigin = PRIMARY_SITE_ORIGIN,
+  legacySiteOrigins = LEGACY_SITE_ORIGINS,
+} = {}) {
+  const normalizedPrimaryOrigin = siteOrigin(primaryOrigin);
+  const normalizedLegacy = normalizedLegacyOrigins(legacySiteOrigins);
+  const primaryUrl = new URL(normalizedPrimaryOrigin);
+  const wwwOrigin = new URL(normalizedPrimaryOrigin);
+  wwwOrigin.hostname = primaryUrl.hostname.startsWith("www.")
+    ? primaryUrl.hostname
+    : `www.${primaryUrl.hostname}`;
   const query = `site_probe=${token}`;
-  return [
-    { name: "apex", url: "https://jakh.net/", status: 200, cache: /max-age=0.+must-revalidate/iu },
+  const definitions = [
+    { name: "apex", url: `${normalizedPrimaryOrigin}/`, status: 200, cache: /max-age=0.+must-revalidate/iu },
     {
       name: "flat-html-alias",
-      url: `https://jakh.net/science.html?${query}`,
+      url: `${normalizedPrimaryOrigin}/science.html?${query}`,
       status: 301,
-      location: `https://jakh.net/science?${query}`,
+      location: `${normalizedPrimaryOrigin}/science?${query}`,
     },
     {
       name: "nested-index-alias",
-      url: `https://jakh.net/ar/topics/science/index.html?${query}`,
+      url: `${normalizedPrimaryOrigin}/ar/topics/science/index.html?${query}`,
       status: 301,
-      location: `https://jakh.net/ar/topics/science/?${query}`,
+      location: `${normalizedPrimaryOrigin}/ar/topics/science/?${query}`,
     },
     {
       name: "www-one-hop-alias",
-      url: `https://www.jakh.net/science.html?${query}`,
+      url: `${wwwOrigin.origin}/science.html?${query}`,
       status: 301,
-      location: `https://jakh.net/science?${query}`,
+      location: `${normalizedPrimaryOrigin}/science?${query}`,
     },
     {
       name: "not-found",
-      url: `https://jakh.net/__site_probe_missing_${token}`,
+      url: `${normalizedPrimaryOrigin}/__site_probe_missing_${token}`,
       status: 404,
       cache: /^no-store$/iu,
     },
     {
       name: "service-worker",
-      url: "https://jakh.net/sw.js",
+      url: `${normalizedPrimaryOrigin}/sw.js`,
       status: 200,
       cache: /max-age=0.+must-revalidate/iu,
     },
   ];
+  for (const legacyOrigin of normalizedLegacy) {
+    definitions.push({
+      name: `legacy-${new URL(legacyOrigin).hostname}-direct-redirect`,
+      url: `${legacyOrigin}/science?${query}`,
+      status: 301,
+      location: `${normalizedPrimaryOrigin}/science?${query}`,
+      cache: /max-age=86400/iu,
+    });
+  }
+  return definitions;
 }
 
-async function oneSmokeAttempt({ fetchImpl, expectedBuildId, expectedWorkerVersionId, timeoutMs }) {
+async function oneSmokeAttempt({
+  fetchImpl,
+  expectedBuildId,
+  expectedWorkerVersionId,
+  timeoutMs,
+  siteOrigin: primaryOrigin,
+  legacySiteOrigins,
+}) {
   const token = (expectedBuildId || Date.now().toString(16)).slice(0, 16);
   const probes = [];
   const errors = [];
-  for (const definition of smokeDefinitions(token)) {
+  for (const definition of smokeDefinitions(token, { siteOrigin: primaryOrigin, legacySiteOrigins })) {
     let response;
     try {
       response = await fetchImpl(definition.url, {
@@ -255,15 +310,29 @@ export async function runSmoke({
   delayMs = 0,
   timeoutMs = 10_000,
   fetchImpl = fetch,
+  siteOrigin: primaryOrigin = PRIMARY_SITE_ORIGIN,
+  legacySiteOrigins = LEGACY_SITE_ORIGINS,
 } = {}) {
   if (expectedBuildId) invariant(BUILD_ID_PATTERN.test(expectedBuildId), "Expected build ID must be SHA-256 hex");
   invariant(Number.isInteger(attempts) && attempts >= 1 && attempts <= 12, "Smoke attempts must be between 1 and 12");
   invariant(Number.isInteger(delayMs) && delayMs >= 0 && delayMs <= 30_000, "Smoke delay must be between 0 and 30000 ms");
+  const normalizedPrimaryOrigin = siteOrigin(primaryOrigin);
+  const normalizedLegacy = normalizedLegacyOrigins(legacySiteOrigins);
+  invariant(!normalizedLegacy.includes(normalizedPrimaryOrigin), "legacy site origins must not include the primary site origin");
   let report;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    report = await oneSmokeAttempt({ fetchImpl, expectedBuildId, expectedWorkerVersionId, timeoutMs });
+    report = await oneSmokeAttempt({
+      fetchImpl,
+      expectedBuildId,
+      expectedWorkerVersionId,
+      timeoutMs,
+      siteOrigin: normalizedPrimaryOrigin,
+      legacySiteOrigins: normalizedLegacy,
+    });
     report.attempt = attempt;
     report.maxAttempts = attempts;
+    report.siteOrigin = normalizedPrimaryOrigin;
+    report.legacySiteOrigins = normalizedLegacy;
     if (report.ok || attempt === attempts) break;
     await new Promise((resolveDelay) => setTimeout(resolveDelay, delayMs));
   }
@@ -276,6 +345,7 @@ function expectedDeploymentMessage(receipt) {
 }
 
 export function buildPreflight({ manifest, deployment, baselineSmoke, environment = process.env }) {
+  const domainCutover = environment.JAKH_DOMAIN_CUTOVER === "true";
   const errors = [
     ...validateManifest(manifest),
     ...validateSmokeReport(baselineSmoke),
@@ -311,6 +381,7 @@ export function buildPreflight({ manifest, deployment, baselineSmoke, environmen
     safety: {
       workerRollbackTarget: activeVersion,
       rollbackBuildId: baselineSmoke?.observedBuildId || null,
+      domainCutover,
       automaticRollback: false,
       rollbackProof: null,
     },
@@ -400,7 +471,7 @@ export function applyRuntimeProof({
   });
   if (stage === "rollback-target") {
     receipt.safety.rollbackProof = proof;
-    receipt.safety.automaticRollback = proof.safe;
+    receipt.safety.automaticRollback = receipt.safety.domainCutover !== true && proof.safe;
   } else if (stage === "candidate") {
     receipt.postDeployment.runtimeProof = proof;
     if (!proof.safe) receipt.result = "post-deploy-verification-failed";
@@ -471,17 +542,26 @@ async function commandRuntimeProof(options) {
     monitorReport: await readJson(requireOption(options, "monitor")),
   });
   await writeJson(receiptPath, result.receipt);
-  await appendOutputs(options["github-output"], { "rollback-safe": result.proof.safe });
+  await appendOutputs(options["github-output"], {
+    "rollback-safe": stage === "rollback-target"
+      ? result.receipt.safety.automaticRollback === true
+      : result.proof.safe,
+  });
   failOnErrors([...result.proof.bindingErrors, ...result.proof.monitorErrors]);
 }
 
 async function commandSmoke(options) {
+  const legacySiteOrigins = options["legacy-site-origins"] === "none"
+    ? []
+    : options["legacy-site-origins"];
   const report = await runSmoke({
     expectedBuildId: options["expected-build-id"],
     expectedWorkerVersionId: options["expected-worker-version"],
     attempts: Number(options.attempts || "1"),
     delayMs: Number(options["delay-ms"] || "0"),
     timeoutMs: Number(options["timeout-ms"] || "10000"),
+    siteOrigin: options["site-origin"],
+    legacySiteOrigins,
   });
   await writeJson(requireOption(options, "output"), report);
   failOnErrors(report.errors);
@@ -511,6 +591,7 @@ async function commandSummary(options) {
     `- Candidate build: \`${receipt.candidate?.buildId || "unknown"}\``,
     `- Rollback version: \`${receipt.safety?.workerRollbackTarget || "unknown"}\``,
     `- Rollback build: \`${receipt.safety?.rollbackBuildId || "unknown"}\``,
+    `- Domain cutover: \`${receipt.safety?.domainCutover === true}\``,
     `- Automatic rollback eligible: \`${receipt.safety?.automaticRollback === true}\``,
     `- Active version after deploy: \`${receipt.postDeployment?.activeWorkerVersion || "not verified"}\``,
     `- Active version after rollback: \`${receipt.rollback?.activeWorkerVersion || "not used"}\``,

@@ -124,7 +124,7 @@ test("environment gate refuses every incomplete or redirected production invocat
     JAKH_SYNTHETIC_RELEASE_COMMIT: COMMIT,
     JAKH_SYNTHETIC_RESULT_PATH: "/tmp/result.json",
     JAKH_API_ORIGIN: "https://other.example",
-  }), /pinned to jakh\.net/u);
+  }), /pinned to riddlearabia\.com/u);
 });
 
 test("synthetic monitor exercises account contracts and permanently deletes only its prefixed identity", async () => {

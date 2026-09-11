@@ -1,6 +1,7 @@
-const APEX_HOST = "jakh.net";
-const WWW_HOST = "www.jakh.net";
-const MTA_STS_HOST = "mta-sts.jakh.net";
+const APEX_HOST = "riddlearabia.com";
+const WWW_HOST = "www.riddlearabia.com";
+const LEGACY_HOSTS = new Set(["jakh.net", "www.jakh.net"]);
+const MTA_STS_HOSTS = new Set(["mta-sts.riddlearabia.com", "mta-sts.jakh.net"]);
 const MTA_STS_PATH = "/.well-known/mta-sts.txt";
 const HTML_CACHE = "public, max-age=0, must-revalidate";
 const MUTABLE_ASSET_CACHE = "public, max-age=3600, must-revalidate";
@@ -30,7 +31,7 @@ function invariant(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-function isProductionHost(hostname) {
+function isPrimaryHost(hostname) {
   return hostname === APEX_HOST || hostname === WWW_HOST;
 }
 
@@ -159,7 +160,7 @@ export function contentSecurityPolicy(siteManifest, pathname, status) {
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
     "font-src 'self' data:",
-    "connect-src 'self' https://api.jakh.net wss://api.jakh.net https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
+    "connect-src 'self' https://api.riddlearabia.com wss://api.riddlearabia.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
     "manifest-src 'self'",
     "media-src 'self' blob:",
     "worker-src 'self' blob:",
@@ -233,12 +234,17 @@ function redirectResponse(siteManifest, target) {
 export function canonicalRedirect(siteManifest, requestUrl) {
   const target = new URL(requestUrl.href);
   let changed = false;
-  if (target.hostname === WWW_HOST) {
+  if (LEGACY_HOSTS.has(target.hostname)) {
+    target.hostname = APEX_HOST;
+    target.protocol = "https:";
+    target.port = "";
+    changed = true;
+  } else if (target.hostname === WWW_HOST) {
     target.hostname = APEX_HOST;
     target.port = "";
     changed = true;
   }
-  if (isProductionHost(target.hostname) && target.protocol !== "https:") {
+  if (isPrimaryHost(target.hostname) && target.protocol !== "https:") {
     target.protocol = "https:";
     target.port = "";
     changed = true;
@@ -338,7 +344,7 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
       if (!new Set(["GET", "HEAD"]).has(method)) {
         return errorResponse(siteManifest, url.pathname, 405, "Method not allowed");
       }
-      if (url.hostname === MTA_STS_HOST) {
+      if (MTA_STS_HOSTS.has(url.hostname)) {
         return mtaStsResponse(siteManifest, env, url.pathname, mtaStsPolicy);
       }
       if (isQuarantinedPath(siteManifest, url.pathname)) {

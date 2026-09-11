@@ -25,7 +25,7 @@ function apiHeaders(origin, cacheControl = "no-store") {
     "x-jakh-worker-version": FIXTURE_WORKER_VERSION,
     "referrer-policy": "no-referrer",
   };
-  if (origin === "https://jakh.net") {
+  if (origin && origin !== "https://example.invalid") {
     headers["access-control-allow-origin"] = origin;
     headers["access-control-allow-credentials"] = "true";
     headers.vary = "Origin";
@@ -33,7 +33,7 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-function staticBody(pathname) {
+function staticBody(pathname, { siteOrigin, apiOrigin }) {
   const route = HTML_ROUTES.find((candidate) => candidate.path === pathname);
   if (route) {
     const seoCards = pathname === "/science"
@@ -73,18 +73,18 @@ function staticBody(pathname) {
   }
   if (pathname === "/manifest.webmanifest") {
     return JSON.stringify({
-      name: "JAKH Riddles",
+      name: "Riddle Arabia",
       start_url: "/",
       icons: [{ src: "one.png" }, { src: "two.png" }],
     });
   }
   if (pathname === "/sitemap.xml") {
     const urls = [
-      "https://jakh.net/collections",
-      "https://jakh.net/ar/alghaz-ma-alhal/",
-      "https://jakh.net/ar/topics/science/",
-      "https://jakh.net/privacy",
-      ...Array.from({ length: 136 }, (_, index) => `https://jakh.net/test-${index}`),
+      `${siteOrigin}/collections`,
+      `${siteOrigin}/ar/alghaz-ma-alhal/`,
+      `${siteOrigin}/ar/topics/science/`,
+      `${siteOrigin}/privacy`,
+      ...Array.from({ length: 136 }, (_, index) => `${siteOrigin}/test-${index}`),
     ];
     return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
   }
@@ -92,13 +92,13 @@ function staticBody(pathname) {
     return [
       "Contact: https://github.com/jame17291-sys/jakh.net/security/advisories/new",
       "Expires: 2027-07-30T23:59:59Z",
-      "Canonical: https://jakh.net/.well-known/security.txt",
+      `Canonical: ${siteOrigin}/.well-known/security.txt`,
     ].join("\n");
   }
-  if (pathname === "/assets/og-image.jpg") {
-    return Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0x4a, 0x46, 0x49, 0x46]);
+  if (pathname === "/assets/riddlearabia-og-image.png") {
+    return Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
   }
-  if (pathname === "/app.js") return "const endpoint = 'https://api.jakh.net';";
+  if (pathname === "/app.js") return `const endpoint = '${apiOrigin}';`;
   if (pathname === "/site-i18n.js") return "window.JakhI18n = {};";
   if (pathname === "/game-i18n.js") return "window.JakhGameI18n = {};";
   if (pathname === "/privacy-consent.js") return "window.JakhPrivacy = {};";
@@ -224,14 +224,18 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
       return;
     }
 
-    const body = staticBody(url.pathname);
+    const fixtureOrigin = `http://${request.headers.host}`;
+    const body = staticBody(url.pathname, {
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+    });
     if (body !== null) {
       const contentType = url.pathname.endsWith(".css")
         ? "text/css; charset=utf-8"
         : url.pathname.endsWith(".js")
           ? "text/javascript; charset=utf-8"
-          : url.pathname.endsWith(".jpg")
-            ? "image/jpeg"
+          : url.pathname.endsWith(".png")
+            ? "image/png"
             : url.pathname.endsWith(".xml")
               ? "application/xml; charset=utf-8"
               : url.pathname.endsWith(".txt")
@@ -325,6 +329,77 @@ test("production monitor scopes API and site release checks without cross-surfac
   });
 });
 
+test("production monitor requires one-hop legacy redirects to the new primary site", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    const legacyOrigins = ["https://jakh.net", "https://www.jakh.net"];
+    const fetchImpl = async (input, options) => {
+      const url = new URL(input);
+      if (legacyOrigins.includes(url.origin)) {
+        return new Response(null, {
+          status: 301,
+          headers: {
+            "cache-control": "public, max-age=86400",
+            "location": `${fixtureOrigin}${url.pathname}${url.search}`,
+            "x-jakh-worker-version": FIXTURE_WORKER_VERSION,
+          },
+        });
+      }
+      return fetch(input, options);
+    };
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      legacySiteOrigins: legacyOrigins,
+      scope: "site",
+      fetchImpl,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      logger: quietLogger(),
+    });
+
+    assert.equal(summary.failures.length, 0);
+    assert.equal(
+      summary.results.filter(({ name }) => name.includes("direct redirect")).length,
+      legacyOrigins.length,
+    );
+  });
+});
+
+test("production monitor reports a legacy redirect that does not target the primary site", async () => {
+  await withFixture({}, async (fixtureOrigin) => {
+    const fetchImpl = async (input, options) => {
+      const url = new URL(input);
+      if (url.origin === "https://jakh.net") {
+        return new Response(null, {
+          status: 301,
+          headers: {
+            "cache-control": "public, max-age=86400",
+            "location": "https://www.jakh.net/science",
+            "x-jakh-worker-version": FIXTURE_WORKER_VERSION,
+          },
+        });
+      }
+      return fetch(input, options);
+    };
+    const summary = await runProductionMonitor({
+      siteOrigin: fixtureOrigin,
+      apiOrigin: fixtureOrigin,
+      legacySiteOrigins: ["https://jakh.net"],
+      scope: "site",
+      fetchImpl,
+      timeoutMs: 2_000,
+      siteMaxMs: 1_000,
+      logger: quietLogger(),
+      throwOnFailure: false,
+    });
+
+    assert.match(
+      summary.failures.find(({ name }) => name.includes("legacy jakh.net direct redirect"))?.message || "",
+      /legacy redirect target/u,
+    );
+  });
+});
+
 test("legacy Pages mode proves the exact projection while accepting content-safe 404 holds", async () => {
   await withFixture({ pagesMode: true }, async (fixtureOrigin) => {
     const pages = await runProductionMonitor({
@@ -377,8 +452,9 @@ test("production monitor emits a stable structured report for alert routing", ()
   const summary = {
     config: {
       scope: "all",
-      siteOrigin: "https://jakh.net",
-      apiOrigin: "https://api.jakh.net",
+      siteOrigin: "https://riddlearabia.com",
+      apiOrigin: "https://api.riddlearabia.com",
+      legacySiteOrigins: ["https://jakh.net", "https://www.jakh.net"],
       allowCompatibleSchema: false,
       expectedWorkerVersion: null,
     },
@@ -400,8 +476,9 @@ test("production monitor emits a stable structured report for alert routing", ()
     status: "failure",
     monitor: {
       scope: "all",
-      siteOrigin: "https://jakh.net",
-      apiOrigin: "https://api.jakh.net",
+      siteOrigin: "https://riddlearabia.com",
+      apiOrigin: "https://api.riddlearabia.com",
+      legacySiteOrigins: ["https://jakh.net", "https://www.jakh.net"],
       allowCompatibleSchema: false,
       expectedWorkerVersion: null,
     },
@@ -445,7 +522,7 @@ test("production monitor recovers once from transient network, status, and laten
       if (pathname === "/data/catalog.json" && attempt === 1) {
         throw new TypeError("simulated connection reset");
       }
-      if (pathname === "/assets/og-image.jpg" && attempt === 1) {
+      if (pathname === "/assets/riddlearabia-og-image.png" && attempt === 1) {
         return new Response("temporarily unavailable", { status: 503 });
       }
       if (pathname === "/" && attempt === 1) {
@@ -467,7 +544,7 @@ test("production monitor recovers once from transient network, status, and laten
     assert.equal(summary.failures.length, 0);
     assert.equal(attempts.get("/"), 2);
     assert.equal(attempts.get("/data/catalog.json"), 2);
-    assert.equal(attempts.get("/assets/og-image.jpg"), 2);
+    assert.equal(attempts.get("/assets/riddlearabia-og-image.png"), 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: Home")?.attempts, 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: catalog data")?.attempts, 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: social preview image")?.attempts, 2);
@@ -553,7 +630,7 @@ test("production monitor fails after one retry when a transient status persists"
   await withFixture({}, async (fixtureOrigin) => {
     let socialPreviewAttempts = 0;
     const fetchImpl = async (input, options) => {
-      if (new URL(input).pathname === "/assets/og-image.jpg") {
+      if (new URL(input).pathname === "/assets/riddlearabia-og-image.png") {
         socialPreviewAttempts += 1;
         return new Response("temporarily unavailable", { status: 503 });
       }
@@ -587,7 +664,7 @@ test("production monitor does not retry a contract failure", async () => {
   await withFixture({}, async (fixtureOrigin) => {
     let socialPreviewAttempts = 0;
     const fetchImpl = async (input, options) => {
-      if (new URL(input).pathname === "/assets/og-image.jpg") {
+      if (new URL(input).pathname === "/assets/riddlearabia-og-image.png") {
         socialPreviewAttempts += 1;
         return new Response("not a jpeg", {
           status: 200,

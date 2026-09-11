@@ -106,7 +106,7 @@ test("the quality gate rejects a /page/1/ pagination alias", () => {
   const result = mutateThenValidate(relative, (source) =>
     source.replace(
       /(<link\s+rel="prev"\s+href=")[^"]+("\s*\/?>)/u,
-      `$1https://jakh.net/${category.slug}/page/1/$2`,
+      `$1https://riddlearabia.com/${category.slug}/page/1/$2`,
     ));
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /page-1 variant|rel="prev" must target/u);
@@ -116,7 +116,7 @@ test("the quality gate rejects sitemap alternates without a physical route", () 
   const result = mutateThenValidate("sitemap.xml", (source) =>
     source.replace(
       /(<xhtml:link\s+rel="alternate"\s+hreflang="ar"\s+href=")[^"]+("\s*\/>)/u,
-      "$1https://jakh.net/ar/route-that-does-not-exist/$2",
+      "$1https://riddlearabia.com/ar/route-that-does-not-exist/$2",
     ));
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /has no physical self-canonical HTML route/u);

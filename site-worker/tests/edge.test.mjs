@@ -16,6 +16,7 @@ import {
 const repositoryRoot = resolve(import.meta.dirname, "../..");
 const siteManifest = JSON.parse(await readFile(resolve(repositoryRoot, "site-worker/generated/site-manifest.json"), "utf8"));
 const mtaStsPolicy = await readFile(resolve(repositoryRoot, "site-worker/assets/mta-sts.txt"), "utf8");
+const PRIMARY_ORIGIN = "https://riddlearabia.com";
 
 function contentType(pathname) {
   if (pathname.endsWith(".html")) return "text/html; charset=utf-8";
@@ -52,17 +53,17 @@ function assertSecurityHeaders(response) {
   assert.equal(response.headers.get("x-jakh-site-version"), siteManifest.buildId);
 }
 
-test("physical aliases and www normalize in one query-preserving 301", async () => {
+test("primary physical aliases and www normalize in one query-preserving 301", async () => {
   const cases = [
-    ["https://jakh.net/science.html?x=1", "https://jakh.net/science?x=1"],
-    ["https://jakh.net/ar/topics/science/index.html?x=1", "https://jakh.net/ar/topics/science/?x=1"],
-    ["https://jakh.net/ar/topics/science.html?x=1", "https://jakh.net/ar/topics/science/?x=1"],
-    ["https://www.jakh.net/science.html?x=1", "https://jakh.net/science?x=1"],
-    ["http://www.jakh.net/index.html?x=1", "https://jakh.net/?x=1"],
-    ["https://jakh.net/collections/?x=1", "https://jakh.net/collections?x=1"],
-    ["https://jakh.net/play/?x=1", "https://jakh.net/play?x=1"],
-    ["https://jakh.net/about/?x=1", "https://jakh.net/about?x=1"],
-    ["https://jakh.net/privacy/?x=1", "https://jakh.net/privacy?x=1"],
+    [`${PRIMARY_ORIGIN}/science.html?x=1`, `${PRIMARY_ORIGIN}/science?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/topics/science/index.html?x=1`, `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/topics/science.html?x=1`, `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
+    ["https://www.riddlearabia.com/science.html?x=1", `${PRIMARY_ORIGIN}/science?x=1`],
+    ["http://www.riddlearabia.com/index.html?x=1", `${PRIMARY_ORIGIN}/?x=1`],
+    [`${PRIMARY_ORIGIN}/collections/?x=1`, `${PRIMARY_ORIGIN}/collections?x=1`],
+    [`${PRIMARY_ORIGIN}/play/?x=1`, `${PRIMARY_ORIGIN}/play?x=1`],
+    [`${PRIMARY_ORIGIN}/about/?x=1`, `${PRIMARY_ORIGIN}/about?x=1`],
+    [`${PRIMARY_ORIGIN}/privacy/?x=1`, `${PRIMARY_ORIGIN}/privacy?x=1`],
   ];
   for (const [source, destination] of cases) {
     const response = await handler.fetch(new Request(source), environment());
@@ -70,8 +71,22 @@ test("physical aliases and www normalize in one query-preserving 301", async () 
     assert.equal(response.headers.get("location"), destination);
     assertSecurityHeaders(response);
   }
-  const direct = canonicalRedirect(siteManifest, new URL("https://jakh.net/science"));
+  const direct = canonicalRedirect(siteManifest, new URL(`${PRIMARY_ORIGIN}/science`));
   assert.equal(direct, null);
+});
+
+test("legacy hosts redirect directly to the new canonical route and preserve query strings", async () => {
+  const cases = [
+    ["https://jakh.net/science.html?battle=ABCD1234", `${PRIMARY_ORIGIN}/science?battle=ABCD1234`],
+    ["https://www.jakh.net/ar/topics/science/index.html?x=1", `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
+    ["http://jakh.net/collections/?ref=legacy", `${PRIMARY_ORIGIN}/collections?ref=legacy`],
+  ];
+  for (const [source, destination] of cases) {
+    const response = await handler.fetch(new Request(source), environment());
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get("location"), destination);
+    assertSecurityHeaders(response);
+  }
 });
 
 test("quarantined paths return policy-complete 410 responses before asset access", async () => {
@@ -112,7 +127,7 @@ test("quarantined paths return policy-complete 410 responses before asset access
     "/data/%ZZ.json",
   ];
   for (const pathname of paths) {
-    const response = await handler.fetch(new Request(`https://jakh.net${pathname}`), blockedEnvironment);
+    const response = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`), blockedEnvironment);
     assert.equal(response.status, 410, pathname);
     assert.equal(response.headers.get("cache-control"), "no-store", pathname);
     assert.equal(response.headers.get("x-jakh-content-quarantine"), "active", pathname);
@@ -120,7 +135,7 @@ test("quarantined paths return policy-complete 410 responses before asset access
     assert.match(response.headers.get("x-robots-tag"), /noindex.*nofollow.*noarchive.*nosnippet/u, pathname);
     assertSecurityHeaders(response);
   }
-  const head = await handler.fetch(new Request("https://jakh.net/data/%73urvival.json", { method: "HEAD" }), blockedEnvironment);
+  const head = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/data/%73urvival.json`, { method: "HEAD" }), blockedEnvironment);
   assert.equal(head.status, 410);
   assert.equal(await head.text(), "");
   assert.equal(assetFetches, 0);
@@ -144,7 +159,7 @@ test("unlisted paths cannot rely on static-asset URL normalization", async () =>
     },
   });
   const response = await handler.fetch(
-    new Request("https://jakh.net/ar/topics/science%2ehtml%2farchive"),
+    new Request(`${PRIMARY_ORIGIN}/ar/topics/science%2ehtml%2farchive`),
     normalizingEnvironment,
   );
   assert.equal(response.status, 404);
@@ -154,30 +169,30 @@ test("unlisted paths cannot rely on static-asset URL normalization", async () =>
 });
 
 test("success, 404, method errors, and conditional responses all carry policy", async () => {
-  const success = await handler.fetch(new Request("https://jakh.net/"), environment());
+  const success = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/`), environment());
   assert.equal(success.status, 200);
   assert.match(success.headers.get("cache-control"), /max-age=0, must-revalidate/u);
   assert.match(success.headers.get("etag"), /^W\/["'][a-f0-9]{64}["']$/u);
   assertSecurityHeaders(success);
   assert.doesNotMatch(success.headers.get("content-security-policy"), /script-src[^;]*unsafe-inline/u);
 
-  const conditional = await handler.fetch(new Request("https://jakh.net/", {
+  const conditional = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/`, {
     headers: { "if-none-match": success.headers.get("etag") },
   }), environment());
   assert.equal(conditional.status, 304);
   assert.equal(conditional.headers.get("cache-control"), success.headers.get("cache-control"));
   assertSecurityHeaders(conditional);
 
-  const missing = await handler.fetch(new Request("https://jakh.net/definitely-missing"), environment());
+  const missing = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/definitely-missing`), environment());
   assert.equal(missing.status, 404);
   assert.equal(missing.headers.get("cache-control"), "no-store");
   assertSecurityHeaders(missing);
 
-  const explicit404 = await handler.fetch(new Request("https://jakh.net/404.html"), environment());
+  const explicit404 = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/404.html`), environment());
   assert.equal(explicit404.status, 404);
   assertSecurityHeaders(explicit404);
 
-  const method = await handler.fetch(new Request("https://jakh.net/", { method: "POST" }), environment());
+  const method = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/`, { method: "POST" }), environment());
   assert.equal(method.status, 405);
   assert.equal(method.headers.get("cache-control"), "no-store");
   assertSecurityHeaders(method);
@@ -199,13 +214,13 @@ test("prior fingerprint requests fall back safely to stable compatibility assets
     const extensionAt = stable.lastIndexOf(".");
     const prior = `${stable.slice(0, extensionAt)}.0000000000000000${stable.slice(extensionAt)}`;
     assert.equal(fingerprintCompatibilitySource(siteManifest, prior), stable);
-    const response = await handler.fetch(new Request(`https://jakh.net${prior}`), environment());
+    const response = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${prior}`), environment());
     assert.equal(response.status, 200, prior);
     assert.equal(response.headers.get("cache-control"), "no-store", prior);
     assert.equal(response.headers.get("x-jakh-compatibility-fallback"), stable, prior);
     assert.equal(await response.text(), `asset:${stable}`, prior);
 
-    const conditional = await handler.fetch(new Request(`https://jakh.net${prior}`, {
+    const conditional = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${prior}`, {
       headers: { "if-none-match": response.headers.get("etag") },
     }), environment());
     assert.equal(conditional.status, 304, prior);
@@ -215,12 +230,12 @@ test("prior fingerprint requests fall back safely to stable compatibility assets
 
   const current = siteManifest.fingerprints["/search-leaderboard.js"];
   assert.equal(fingerprintCompatibilitySource(siteManifest, current), null);
-  const currentResponse = await handler.fetch(new Request(`https://jakh.net${current}`), environment());
+  const currentResponse = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${current}`), environment());
   assert.match(currentResponse.headers.get("cache-control"), /immutable/u);
   assert.equal(currentResponse.headers.has("x-jakh-compatibility-fallback"), false);
 
   const unknown = await handler.fetch(
-    new Request("https://jakh.net/unknown.0000000000000000.js"),
+    new Request(`${PRIMARY_ORIGIN}/unknown.0000000000000000.js`),
     environment(),
   );
   assert.equal(unknown.status, 404);
@@ -261,22 +276,29 @@ test("CSP includes only the current page's generated inline hashes", () => {
   const policy = contentSecurityPolicy(siteManifest, "/", 200);
   for (const hash of siteManifest.inlineScripts["/"]) assert.match(policy, new RegExp(hash.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   assert.match(policy, /script-src-attr 'none'/u);
-  assert.match(policy, /connect-src[^;]+api\.jakh\.net/u);
+  assert.match(policy, /connect-src[^;]+api\.riddlearabia\.com/u);
 });
 
 test("MTA-STS handler is valid but fail-closed until mail-owner activation", async () => {
   assert.equal(validateMtaStsPolicy(mtaStsPolicy), true);
   assert.equal(validateMtaStsPolicy("version: STSv1\nmode: enforce\nmax_age: 86400\n"), false);
-  const disabled = await handler.fetch(new Request("https://mta-sts.jakh.net/.well-known/mta-sts.txt"), environment());
+  const disabled = await handler.fetch(new Request("https://mta-sts.riddlearabia.com/.well-known/mta-sts.txt"), environment());
   assert.equal(disabled.status, 404);
   assertSecurityHeaders(disabled);
 
   const enabled = await handler.fetch(
-    new Request("https://mta-sts.jakh.net/.well-known/mta-sts.txt"),
+    new Request("https://mta-sts.riddlearabia.com/.well-known/mta-sts.txt"),
     environment({ MTA_STS_ENABLED: "true" }),
   );
   assert.equal(enabled.status, 200);
   assert.equal(await enabled.text(), mtaStsPolicy);
   assert.match(enabled.headers.get("content-type"), /^text\/plain/u);
   assertSecurityHeaders(enabled);
+
+  const legacyEnabled = await handler.fetch(
+    new Request("https://mta-sts.jakh.net/.well-known/mta-sts.txt"),
+    environment({ MTA_STS_ENABLED: "true" }),
+  );
+  assert.equal(legacyEnabled.status, 200);
+  assert.equal(await legacyEnabled.text(), mtaStsPolicy);
 });

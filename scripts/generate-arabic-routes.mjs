@@ -2,10 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { PRIMARY_SITE_ORIGIN, rewritePublicSiteIdentity } from "./public-site-identity.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
-const SITE_ORIGIN = "https://jakh.net";
+const SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
 const GAME_SLUGS = [
   "chess",
   "mastermind",
@@ -479,7 +480,7 @@ function renderRoute(route) {
   html = annotateLanguageOptions(html);
   html = normalizeResourcePaths(html);
   html = localizeInternalLinks(html);
-  return html.endsWith("\n") ? html : `${html}\n`;
+  return rewritePublicSiteIdentity(html.endsWith("\n") ? html : `${html}\n`);
 }
 
 const stale = [];

@@ -66,13 +66,28 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
       }));
     }
   }, { seedCompletedDaily: completedDaily, dailyCard: ACCESSIBILITY_DAILY_CARD });
-  await context.route("https://api.jakh.net/**", async (route) => {
-    const path = new URL(route.request().url()).pathname;
+  await context.route("**/api/**", async (route) => {
+    const request = route.request();
+    const path = new URL(request.url()).pathname;
+    const origin = request.headers().origin || "https://riddlearabia.com";
+    const headers = {
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers": "Accept, Content-Type",
+      "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS, POST, PATCH, DELETE",
+      "Access-Control-Allow-Origin": origin,
+      "Access-Control-Allow-Private-Network": "true",
+      Vary: "Origin",
+    };
     const fulfillJson = (body, status = 200) => route.fulfill({
       status,
       contentType: "application/json",
+      headers,
       body: JSON.stringify(body),
     });
+    if (request.method() === "OPTIONS") {
+      await route.fulfill({ status: 204, headers });
+      return;
+    }
     if (path === "/api/health") {
       await fulfillJson({
         ok: true,

@@ -269,6 +269,7 @@ export function buildPreflight({
   environment = process.env,
 }) {
   releasePhase(phase);
+  const domainCutover = environment.JAKH_DOMAIN_CUTOVER === "true";
   const activeVersion = extractActiveVersion(deployment);
   const databaseSchema = extractDatabaseSchema(databaseResult);
   const schemaChanged = databaseSchema !== source.schema;
@@ -317,6 +318,7 @@ export function buildPreflight({
     source,
     safety: {
       workerRollbackTarget: activeVersion,
+      domainCutover,
       automaticWorkerRollback: false,
       rollbackProof: null,
       provenCompatibilityWorker: phase === "migrate-final" ? activeVersion : null,
@@ -518,11 +520,11 @@ export function applyRuntimeProof({
   });
   if (stage === "rollback-target") {
     receipt.safety.rollbackProof = proof;
-    receipt.safety.automaticWorkerRollback = proof.safe;
+    receipt.safety.automaticWorkerRollback = receipt.safety.domainCutover !== true && proof.safe;
   } else if (stage === "post-migration") {
     receipt.afterMigrations.runtimeProof = proof;
     receipt.safety.rollbackProof = proof;
-    receipt.safety.automaticWorkerRollback = proof.safe;
+    receipt.safety.automaticWorkerRollback = receipt.safety.domainCutover !== true && proof.safe;
     if (!proof.safe) receipt.result = "migration-quarantine-proof-failed";
   } else if (stage === "candidate") {
     const candidate = receipt.phase === "compatibility" ? receipt.compatibilityDeployment : receipt.postDeployment;
@@ -638,7 +640,11 @@ async function commandRuntimeProof(options) {
     allowCompatibleSchema: booleanOption(options, "allow-compatible-schema"),
   });
   await writeJson(receiptPath, result.receipt);
-  await appendOutputs(options["github-output"], { "rollback-safe": result.proof.safe });
+  await appendOutputs(options["github-output"], {
+    "rollback-safe": stage === "rollback-target" || stage === "post-migration"
+      ? result.receipt.safety.automaticWorkerRollback === true
+      : result.proof.safe,
+  });
   const requireSafe = booleanOption(options, "require-safe");
   const errors = [
     ...result.proof.bindingErrors,
@@ -699,6 +705,7 @@ async function commandSummary(options) {
     `- Target API: \`${receipt.source.version}\`, schema \`${receipt.source.schema}\``,
     `- Preflight D1 schema: \`${receipt.preDeployment.databaseSchema}\``,
     `- Worker rollback target: \`${receipt.safety.workerRollbackTarget}\``,
+    `- Domain cutover: \`${receipt.safety.domainCutover === true}\``,
     `- Automatic Worker rollback eligible: \`${receipt.safety.automaticWorkerRollback === true}\``,
     `- Database mutation allowed in this phase: \`${receipt.safety.databaseMutationAllowed}\``,
     "- D1 automatic rollback: `false`",

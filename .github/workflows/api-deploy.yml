@@ -15,6 +15,11 @@ on:
         options:
           - compatibility
           - migrate-final
+      domain_cutover:
+        description: "Set true only for the one-time jakh.net → riddlearabia.com cutover; automatic Worker rollback will be withheld."
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -132,6 +137,7 @@ jobs:
             scripts/frontend-product-contract.test.mjs \
             scripts/provenance-ui-contract.test.mjs \
             scripts/public-history-policy.test.mjs \
+            scripts/public-seo-release-contract.test.mjs \
             scripts/publication-quarantine.test.mjs \
             scripts/responsive-layout-contract.test.mjs \
             scripts/seo-pagination.test.mjs \
@@ -177,12 +183,14 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          JAKH_DOMAIN_CUTOVER: ${{ inputs.domain_cutover }}
+          BASELINE_API_ORIGIN: ${{ inputs.domain_cutover && 'https://api.jakh.net' || 'https://api.riddlearabia.com' }}
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
           set -euo pipefail
           mkdir -p "$RECEIPT_DIR"
           curl --fail --silent --show-error --retry 5 --retry-all-errors \
-            https://api.jakh.net/api/health > "$RECEIPT_DIR/health-before.json"
+            "$BASELINE_API_ORIGIN/api/health" > "$RECEIPT_DIR/health-before.json"
           (
             cd worker
             ./node_modules/.bin/wrangler deployments status --json \
@@ -208,6 +216,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
           JAKH_MONITOR_SCOPE: api
+          JAKH_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
+          JAKH_API_ORIGIN: ${{ inputs.domain_cutover && 'https://api.jakh.net' || 'https://api.riddlearabia.com' }}
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: "12"
@@ -282,7 +292,7 @@ jobs:
           for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-compatibility.json" \
-              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              --write-out '%{http_code}' https://api.riddlearabia.com/api/health)" \
               && node scripts/api-release-receipt.mjs probe \
                 --stage compatibility \
                 --health "$RECEIPT_DIR/health-after-compatibility.json" \
@@ -322,6 +332,8 @@ jobs:
         id: runtime_monitor
         env:
           JAKH_MONITOR_SCOPE: api
+          JAKH_SITE_ORIGIN: https://riddlearabia.com
+          JAKH_API_ORIGIN: https://api.riddlearabia.com
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.verify_production.outputs.expected-worker-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: "12"
@@ -353,7 +365,7 @@ jobs:
             --receipt "$RECEIPT_DIR/release-receipt.json"
       - name: Roll back failed compatibility deployment
         id: rollback_worker
-        if: ${{ always() && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.deploy_compatibility.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
+        if: ${{ always() && inputs.domain_cutover != true && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.deploy_compatibility.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -391,7 +403,7 @@ jobs:
           for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-rollback.json" \
-              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              --write-out '%{http_code}' https://api.riddlearabia.com/api/health)" \
               && node scripts/api-release-receipt.mjs probe \
                 --stage rollback \
                 --health "$RECEIPT_DIR/health-after-rollback.json" \
@@ -508,12 +520,14 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          JAKH_DOMAIN_CUTOVER: ${{ inputs.domain_cutover }}
+          BASELINE_API_ORIGIN: ${{ inputs.domain_cutover && 'https://api.jakh.net' || 'https://api.riddlearabia.com' }}
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-wrangler.log
         run: |
           set -euo pipefail
           mkdir -p "$RECEIPT_DIR"
           curl --fail --silent --show-error --retry 5 --retry-all-errors \
-            https://api.jakh.net/api/health > "$RECEIPT_DIR/health-before.json"
+            "$BASELINE_API_ORIGIN/api/health" > "$RECEIPT_DIR/health-before.json"
           (
             cd worker
             ./node_modules/.bin/wrangler deployments status --json > "$RECEIPT_DIR/worker-before.json"
@@ -537,6 +551,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
           JAKH_MONITOR_SCOPE: api
+          JAKH_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
+          JAKH_API_ORIGIN: ${{ inputs.domain_cutover && 'https://api.jakh.net' || 'https://api.riddlearabia.com' }}
           JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: "true"
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: "12"
@@ -678,7 +694,7 @@ jobs:
           for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-migrations.json" \
-              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              --write-out '%{http_code}' https://api.riddlearabia.com/api/health)" \
               && node scripts/api-release-receipt.mjs probe \
                 --stage migration \
                 --health "$RECEIPT_DIR/health-after-migrations.json" \
@@ -718,6 +734,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
           JAKH_MONITOR_SCOPE: api
+          JAKH_SITE_ORIGIN: https://riddlearabia.com
+          JAKH_API_ORIGIN: https://api.riddlearabia.com
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: "12"
           JAKH_MONITOR_RETRY_DELAY_MS: "5000"
@@ -771,7 +789,7 @@ jobs:
           for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-worker.json" \
-              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              --write-out '%{http_code}' https://api.riddlearabia.com/api/health)" \
               && node scripts/api-release-receipt.mjs probe \
                 --stage final \
                 --health "$RECEIPT_DIR/health-after-worker.json" \
@@ -808,6 +826,8 @@ jobs:
         id: runtime_monitor
         env:
           JAKH_MONITOR_SCOPE: api
+          JAKH_SITE_ORIGIN: https://riddlearabia.com
+          JAKH_API_ORIGIN: https://api.riddlearabia.com
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.verify_production.outputs.expected-worker-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: "12"
           JAKH_MONITOR_RETRY_DELAY_MS: "5000"
@@ -838,7 +858,7 @@ jobs:
             --receipt "$RECEIPT_DIR/release-receipt.json"
       - name: Roll back final Worker to proven compatibility version
         id: rollback_worker
-        if: ${{ always() && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.post_migration_runtime_proof.outcome == 'success' && steps.deploy_final.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
+        if: ${{ always() && inputs.domain_cutover != true && steps.preflight.outcome == 'success' && steps.rollback_proof.outputs.rollback-safe == 'true' && steps.post_migration_runtime_proof.outcome == 'success' && steps.deploy_final.outcome != 'skipped' && (steps.verify_production.outcome != 'success' || steps.runtime_monitor.outcome != 'success' || steps.candidate_runtime_proof.outcome != 'success') }}
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -876,7 +896,7 @@ jobs:
           for attempt in {1..18}; do
             if health_status="$(curl --silent --show-error \
               --output "$RECEIPT_DIR/health-after-rollback.json" \
-              --write-out '%{http_code}' https://api.jakh.net/api/health)" \
+              --write-out '%{http_code}' https://api.riddlearabia.com/api/health)" \
               && node scripts/api-release-receipt.mjs probe \
                 --stage rollback \
                 --health "$RECEIPT_DIR/health-after-rollback.json" \

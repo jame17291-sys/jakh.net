@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Riddle Arabia">
+  <defs>
+    <linearGradient id="teal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#19c7b4"/>
+      <stop offset="1" stop-color="#087f8b"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff9b73"/>
+      <stop offset="1" stop-color="#e75e45"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd36e"/>
+      <stop offset="1" stop-color="#d79b24"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#0b2136"/>
+  <circle cx="128" cy="128" r="97" fill="none" stroke="#2f5871" stroke-width="4"/>
+  <path d="M41 77c0-19 15-34 34-34h63c19 0 34 15 34 34v43c0 19-15 34-34 34H97l-37 30 11-30H75c-19 0-34-15-34-34z" fill="url(#teal)"/>
+  <path d="M84 113c0-19 15-34 34-34h63c19 0 34 15 34 34v43c0 19-15 34-34 34h-4l11 30-37-30h-33c-19 0-34-15-34-34z" fill="url(#coral)" opacity=".96"/>
+  <path d="M109 74c16-9 39-2 39 17 0 15-13 18-18 26-2 3-3 7-3 12" fill="none" stroke="#fff8e8" stroke-linecap="round" stroke-width="10"/>
+  <circle cx="127" cy="150" r="6" fill="#fff8e8"/>
+  <path d="M177 112c15 0 25 9 25 22 0 11-8 16-14 21-4 3-6 7-6 12" fill="none" stroke="#fff8e8" stroke-linecap="round" stroke-width="9"/>
+  <circle cx="182" cy="170" r="5" fill="#fff8e8"/>
+  <path d="M205 45l5 11 12 5-12 5-5 12-5-12-12-5 12-5z" fill="url(#gold)"/>
+</svg>

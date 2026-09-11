@@ -12,6 +12,7 @@ import {
   runSmoke,
   validateManifest,
 } from "../../scripts/site-release-receipt.mjs";
+import { directRetiredSeoRouteTarget } from "../src/seo-route-migrations.js";
 
 const repositoryRoot = resolve(import.meta.dirname, "../..");
 const manifest = JSON.parse(await readFile(resolve(repositoryRoot, "site-worker/generated/site-manifest.json"), "utf8"));
@@ -161,17 +162,25 @@ test("smoke probe enforces one-hop redirects and a single build identity", async
     let status = 200;
     let location = null;
     let cacheControl = "public, max-age=0, must-revalidate";
-    if (url.hostname === "www.jakh.net") {
+    if (url.hostname === "jakh.net" || url.hostname === "www.jakh.net") {
       status = 301;
-      location = `https://jakh.net/science?${url.searchParams}`;
+      location = `https://riddlearabia.com/science?${url.searchParams}`;
+      cacheControl = "public, max-age=86400";
+    } else if (url.hostname === "www.riddlearabia.com") {
+      status = 301;
+      location = `https://riddlearabia.com/science?${url.searchParams}`;
       cacheControl = "public, max-age=86400";
     } else if (url.pathname === "/science.html") {
       status = 301;
-      location = `https://jakh.net/science?${url.searchParams}`;
+      location = `https://riddlearabia.com/science?${url.searchParams}`;
+      cacheControl = "public, max-age=86400";
+    } else if (directRetiredSeoRouteTarget(url.pathname)) {
+      status = 301;
+      location = `https://riddlearabia.com${directRetiredSeoRouteTarget(url.pathname)}${url.search}`;
       cacheControl = "public, max-age=86400";
     } else if (url.pathname.endsWith("/index.html")) {
       status = 301;
-      location = `https://jakh.net/ar/topics/science/?${url.searchParams}`;
+      location = `https://riddlearabia.com/ar/topics/science/?${url.searchParams}`;
       cacheControl = "public, max-age=86400";
     } else if (url.pathname.startsWith("/__site_probe_missing_")) {
       status = 404;
@@ -184,7 +193,7 @@ test("smoke probe enforces one-hop redirects and a single build identity", async
   };
   const report = await runSmoke({ expectedBuildId: buildId, fetchImpl: fakeFetch });
   assert.equal(report.ok, true, report.errors.join("\n"));
-  assert.equal(report.probes.length, 6);
+  assert.equal(report.probes.length, 20);
 });
 
 test("workflow contains exact rollback and required browser gates", async () => {
@@ -192,7 +201,9 @@ test("workflow contains exact rollback and required browser gates", async () => 
   const legacyWorkflow = await readFile(resolve(repositoryRoot, ".github/workflows/pages.yml"), "utf8");
   const runbook = await readFile(resolve(repositoryRoot, "site-worker/README.md"), "utf8");
   assert.match(workflow, /workflow_dispatch:/u);
-  assert.match(workflow, /DEPLOY jakh-site FROM protected main/u);
+  assert.match(workflow, /DEPLOY riddlearabia\.com FROM protected main/u);
+  assert.match(workflow, /domain_cutover:/u);
+  assert.match(workflow, /--legacy-site-origins https:\/\/jakh\.net,https:\/\/www\.jakh\.net/u);
   assert.match(workflow, /github\.ref_protected/u);
   assert.match(workflow, /name: production/u);
   assert.match(workflow, /environments\/production/u);
@@ -223,32 +234,13 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /static-api-release-gate\.mjs compare/u);
 
   assert.match(legacyWorkflow, /workflow_dispatch:/u);
-  assert.match(legacyWorkflow, /DEPLOY LEGACY GITHUB PAGES/u);
-  assert.match(legacyWorkflow, /incident_reference/u);
-  assert.match(legacyWorkflow, /github\.ref_protected/u);
-  assert.match(legacyWorkflow, /environment: production/u);
-  assert.match(legacyWorkflow, /required_reviewers/u);
-  assert.match(legacyWorkflow, /protected_branches/u);
-  assert.match(legacyWorkflow, /x-jakh-site-version/u);
-  assert.match(legacyWorkflow, /group: jakh-production-release/u);
-  assert.match(legacyWorkflow, /JAKH_MONITOR_SCOPE: pages/u);
-  assert.match(legacyWorkflow, /legacy-pages-monitor-apex\.json/u);
-  assert.match(legacyWorkflow, /legacy-pages-monitor-www\.json/u);
-  assert.match(legacyWorkflow, /--predeploy-hosts/u);
-  assert.match(legacyWorkflow, /--monitor-apex/u);
-  assert.match(legacyWorkflow, /--monitor-www/u);
-  const legacyBuildPosition = legacyWorkflow.indexOf("Prepare exact artifact once");
-  const legacyBrowserPosition = legacyWorkflow.indexOf("npm run test:browser:matrix");
-  const legacyAccessibilityPosition = legacyWorkflow.indexOf("npm run test:a11y");
-  assert.ok(legacyBuildPosition > 0 && legacyBuildPosition < legacyBrowserPosition);
-  assert.ok(legacyBuildPosition < legacyAccessibilityPosition);
-  assert.equal(legacyWorkflow.match(/build-static-site\.mjs/gu)?.length, 1);
-  assert.match(legacyWorkflow, /JAKH_SITE_ROOT: \$\{\{ github\.workspace \}\}\/_site/u);
-  assert.match(legacyWorkflow, /JAKH_SITE_MANIFEST: \$\{\{ runner\.temp \}\}\/legacy-pages-manifest\.json/u);
-  assert.match(
-    legacyWorkflow,
-    /uses: actions\/upload-pages-artifact@[^\n]+\n\s+with:\n\s+path: _site\n\s+include-hidden-files: true/u,
-  );
+  assert.match(legacyWorkflow, /Legacy Pages retired after Riddle Arabia cutover/u);
+  assert.match(legacyWorkflow, /This workflow cannot publish a site/u);
+  assert.match(legacyWorkflow, /riddlearabia\.com or jakh\.net/u);
+  assert.doesNotMatch(legacyWorkflow, /pages: write/u);
+  assert.doesNotMatch(legacyWorkflow, /actions\/deploy-pages/u);
+  assert.doesNotMatch(legacyWorkflow, /upload-pages-artifact/u);
+  assert.doesNotMatch(legacyWorkflow, /build-static-site\.mjs/u);
   assert.doesNotMatch(legacyWorkflow, /\bpush:/u);
 
   assert.match(runbook, /BOOTSTRAP jakh-site AND PRESERVE LEGACY DNS ROLLBACK/u);

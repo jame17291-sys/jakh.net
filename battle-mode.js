@@ -333,7 +333,9 @@ function renderBattleLobby(body) {
   const room = battleState.roomData;
   const players = room?.players || [];
   const code = battleState.roomCode || '';
-  const shareUrl = `${location.origin}/#battle/${code}`;
+  const inviteUrl = new URL(state.lang === 'ar' ? '/ar/' : '/', location.origin);
+  inviteUrl.searchParams.set('battle', code);
+  const shareUrl = inviteUrl.href;
 
   body.innerHTML = `
     <div class="battle-lobby">
@@ -367,7 +369,7 @@ function renderBattleLobby(body) {
   document.getElementById('battleShareBtn')?.addEventListener('click', () => {
     void shareOrCopy({
       title: t('shareBattleTitle'),
-      text: isAr ? 'انضم إلى غرفة معركة JAKH المباشرة' : 'Join this live JAKH Battle Room',
+      text: isAr ? 'انضم إلى غرفة معركة ريدل أرابيا المباشرة' : 'Join this live Riddle Arabia Battle Room',
       url: shareUrl,
       copiedMessage: isAr ? 'تم نسخ الرابط!' : 'Link copied!',
     });
@@ -574,8 +576,8 @@ function renderBattlePodium(body) {
     const winner = players[0];
     const myPos = players.findIndex(p => p.id === battleState.playerId) + 1;
     const text = isAr
-      ? `⚡ انتهت معركة JAKH!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} نقطة\n🏅 مركزي: #${myPos}\njakh.net`
-      : `⚡ JAKH Battle done!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} pts\n🏅 My rank: #${myPos}\njakh.net`;
+      ? `⚡ انتهت معركة ريدل أرابيا!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} نقطة\n🏅 مركزي: #${myPos}\nriddlearabia.com`
+      : `⚡ Riddle Arabia Battle done!\n🥇 ${winner?.name || ''}: ${winner?.score || 0} pts\n🏅 My rank: #${myPos}\nriddlearabia.com`;
     void shareOrCopy({
       title: t('shareBattleTitle'), text, url: location.origin,
       copiedMessage: isAr ? 'تم النسخ!' : 'Copied!',

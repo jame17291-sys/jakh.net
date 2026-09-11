@@ -5,9 +5,14 @@ on:
   workflow_dispatch:
     inputs:
       confirmation:
-        description: "Type DEPLOY jakh-site FROM protected main"
+        description: "Type DEPLOY riddlearabia.com FROM protected main"
         required: true
         type: string
+      domain_cutover:
+        description: "Set true only for the one-time jakh.net → riddlearabia.com cutover; automatic rollback will be withheld."
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   actions: read
@@ -33,8 +38,8 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          if [ "$CONFIRMATION" != "DEPLOY jakh-site FROM protected main" ]; then
-            echo "::error title=Static release blocked::Confirmation must exactly match DEPLOY jakh-site FROM protected main."
+          if [ "$CONFIRMATION" != "DEPLOY riddlearabia.com FROM protected main" ]; then
+            echo "::error title=Static release blocked::Confirmation must exactly match DEPLOY riddlearabia.com FROM protected main."
             exit 1
           fi
           if [ "$RELEASE_REF" != "refs/heads/main" ]; then
@@ -101,7 +106,7 @@ jobs:
     timeout-minutes: 60
     environment:
       name: production
-      url: https://jakh.net
+      url: https://riddlearabia.com
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -161,6 +166,7 @@ jobs:
             scripts/monitor-production.test.mjs \
             scripts/runtime-monitor-proof.test.mjs \
             scripts/route-production-alert.test.mjs \
+            scripts/site-release-receipt.test.mjs \
             scripts/static-api-release-gate.test.mjs
 
       - name: Build exact static candidate once
@@ -256,6 +262,9 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+          JAKH_DOMAIN_CUTOVER: ${{ inputs.domain_cutover }}
+          BASELINE_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
+          BASELINE_LEGACY_SITE_ORIGINS: ${{ inputs.domain_cutover && 'none' || 'https://jakh.net,https://www.jakh.net' }}
           WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-site-wrangler-preflight.log
         run: |
           set -euo pipefail
@@ -267,6 +276,8 @@ jobs:
           )
           node scripts/site-release-receipt.mjs smoke \
             --output "$RECEIPT_DIR/smoke-before.json" \
+            --site-origin "$BASELINE_SITE_ORIGIN" \
+            --legacy-site-origins "$BASELINE_LEGACY_SITE_ORIGINS" \
             --attempts 3 \
             --delay-ms 5000
           node scripts/site-release-receipt.mjs preflight \
@@ -283,6 +294,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
           JAKH_MONITOR_SCOPE: site
+          JAKH_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
+          JAKH_MONITOR_LEGACY_SITE_ORIGINS: ${{ inputs.domain_cutover && 'none' || 'https://jakh.net,https://www.jakh.net' }}
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/rollback-target-monitor.json
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: 12
@@ -326,7 +339,7 @@ jobs:
             --retry 3 --retry-all-errors --connect-timeout 10 --max-time 30 \
             --output "$RECEIPT_DIR/api-health-before-static.json" \
             --write-out '%{http_code}' \
-            https://api.jakh.net/api/health)"
+            https://api.riddlearabia.com/api/health)"
           node scripts/static-api-release-gate.mjs verify \
             --deployment "$RECEIPT_DIR/api-deployment-before-static.json" \
             --health "$RECEIPT_DIR/api-health-before-static.json" \
@@ -375,6 +388,8 @@ jobs:
             --expected-build-id "${{ steps.preflight.outputs.candidate-build-id }}" \
             --expected-worker-version "${{ steps.candidate_identity.outputs.worker-version }}" \
             --output "$RECEIPT_DIR/smoke-after.json" \
+            --site-origin https://riddlearabia.com \
+            --legacy-site-origins https://jakh.net,https://www.jakh.net \
             --attempts 8 \
             --delay-ms 10000
 
@@ -415,7 +430,7 @@ jobs:
             --retry 3 --retry-all-errors --connect-timeout 10 --max-time 30 \
             --output "$RECEIPT_DIR/api-health-after-static.json" \
             --write-out '%{http_code}' \
-            https://api.jakh.net/api/health)"
+            https://api.riddlearabia.com/api/health)"
           node scripts/static-api-release-gate.mjs verify \
             --deployment "$RECEIPT_DIR/api-deployment-after-static.json" \
             --health "$RECEIPT_DIR/api-health-after-static.json" \
@@ -433,6 +448,9 @@ jobs:
         id: runtime_monitor
         env:
           JAKH_MONITOR_SCOPE: site
+          JAKH_SITE_ORIGIN: https://riddlearabia.com
+          JAKH_API_ORIGIN: https://api.riddlearabia.com
+          JAKH_MONITOR_LEGACY_SITE_ORIGINS: https://jakh.net,https://www.jakh.net
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/runtime-monitor.json
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.candidate_identity.outputs.worker-version }}
           JAKH_MONITOR_MAX_ATTEMPTS: 12
@@ -464,7 +482,7 @@ jobs:
       - name: Roll back any unverified release
         id: rollback
         if: >-
-          ${{ always() && steps.preflight.outcome == 'success' &&
+          ${{ always() && inputs.domain_cutover != true && steps.preflight.outcome == 'success' &&
               steps.rollback_proof.outputs.rollback-safe == 'true' &&
               steps.deploy.outcome != 'skipped' &&
               (steps.deploy.outcome != 'success' ||

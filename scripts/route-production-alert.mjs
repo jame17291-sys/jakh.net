@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
 export const ALERT_MARKER = "<!-- jakh-production-monitor-alert -->";
-export const ALERT_TITLE = "[Production alert] jakh.net monitor failure";
+export const ALERT_TITLE = "[Production alert] riddlearabia.com monitor failure";
 export const ALERT_SCOPES = Object.freeze(["all", "api", "pages"]);
 
 export function alertMarker(scope) {

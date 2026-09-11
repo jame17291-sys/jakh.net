@@ -213,6 +213,55 @@ test("unsafe full-handler requests require an allowed Origin", async () => {
   assert.equal((await response.json()).code, "ORIGIN_NOT_ALLOWED");
 });
 
+test("Riddle Arabia can open a Battle WebSocket through the full dispatcher", async () => {
+  const upgradeResponse = { status: 101, webSocket: {} };
+  let forwardedRequest;
+  const battleEnv = {
+    ...env(),
+    ALLOWED_ORIGINS: "https://riddlearabia.com,https://www.riddlearabia.com,https://jakh.net,https://www.jakh.net",
+    STATIC_ORIGIN: "https://riddlearabia.com",
+    DB: {
+      prepare() {
+        return {
+          bind() { return this; },
+          async first() { return { count: 1 }; },
+        };
+      },
+    },
+    BATTLE_ROOMS: {
+      idFromName(code) {
+        assert.equal(code, "SCI7X2KQ");
+        return code;
+      },
+      get(id) {
+        assert.equal(id, "SCI7X2KQ");
+        return {
+          async fetch(request) {
+            forwardedRequest = request;
+            return upgradeResponse;
+          },
+        };
+      },
+    },
+  };
+
+  const response = await handler.fetch(
+    new Request("https://api.riddlearabia.com/ws/battle?code=SCI7X2KQ", {
+      headers: {
+        upgrade: "websocket",
+        origin: "https://riddlearabia.com",
+        "cf-connecting-ip": "203.0.113.10",
+      },
+    }),
+    battleEnv,
+    {},
+  );
+
+  assert.equal(response, upgradeResponse);
+  assert.equal(forwardedRequest.headers.get("origin"), "https://riddlearabia.com");
+  assert.equal(forwardedRequest.headers.get("x-jakh-worker-version"), "11111111-1111-4111-8111-111111111111");
+});
+
 test("authenticated recovery rotation is exposed only at the canonical auth route", async () => {
   const canonical = await handler.fetch(
     new Request("https://api.jakh.net/api/auth/recovery/rotate", {

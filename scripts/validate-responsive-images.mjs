@@ -36,12 +36,29 @@ for (const relative of generatedFiles) {
   if (!fs.existsSync(target)) continue;
   const html = fs.readFileSync(target, "utf8");
   if (/assets\/backgrounds(?:_new)?\//u.test(html)) failures.push(`${relative}: references obsolete category media`);
-  for (const category of catalog.categories || []) {
-    const expected = `/assets/${category.slug}.svg`;
-    const isCategoryPage = relative === `${category.slug}.html`
-      || relative === `ar/topics/${category.slug}/index.html`;
-    if (relative === "mind-lab.html" || isCategoryPage) {
+  if (relative === "mind-lab.html") {
+    for (const category of catalog.categories || []) {
+      const expected = `/assets/${category.slug}.svg`;
       if (!html.includes(expected)) failures.push(`${relative}: missing ${expected}`);
+    }
+    continue;
+  }
+
+  // Topic pages are deliberately noindex application shells in the fresh SEO
+  // architecture. Their illustration is attached by app.js from data-category,
+  // rather than copied into 112 otherwise-identical HTML documents.
+  const category = (catalog.categories || []).find(({ slug }) => (
+    relative === `${slug}.html` || relative === `ar/topics/${slug}/index.html`
+  ));
+  if (category) {
+    if (!new RegExp(`<body\\b[^>]*\\bdata-category="${category.slug}"`, "u").test(html)) {
+      failures.push(`${relative}: missing category binding for dynamic illustration`);
+    }
+    if (!/<img\b[^>]*\bid="categoryImage"/u.test(html)) {
+      failures.push(`${relative}: missing dynamic category illustration mount`);
+    }
+    if (!/<script\b[^>]*\bsrc="\/app\.js\?v=/u.test(html)) {
+      failures.push(`${relative}: missing application runtime for dynamic illustration`);
     }
   }
 }

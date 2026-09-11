@@ -310,6 +310,39 @@ test("serialized socket attachments preserve identity across hibernation", async
   assert.ok(socket.sent.some((message) => message.type === "question"));
 });
 
+test("an invited second player shares the host room and receives its first question", async () => {
+  const host = fakeSocket({ connectedAt: Date.now(), clientKey: "A".repeat(43) });
+  const guest = fakeSocket({ connectedAt: Date.now(), clientKey: "B".repeat(43) });
+  const context = fakeContext(roomState(), [host, guest]);
+  const durableObject = new BattleRoom(context);
+
+  await durableObject.webSocketMessage(host, JSON.stringify({
+    type: "join-room",
+    code: "SCI23456",
+    name: "Host",
+    hostId: "host-token",
+  }));
+  await durableObject.webSocketMessage(guest, JSON.stringify({
+    type: "join-room",
+    code: "SCI23456",
+    name: "Guest",
+  }));
+
+  assert.equal(context.storage.room.players.length, 2);
+  assert.equal(context.storage.room.players[0].isHost, true);
+  assert.equal(context.storage.room.players[1].isHost, false);
+  assert.ok(guest.sent.some((message) => message.type === "joined" && message.isHost === false));
+
+  await durableObject.webSocketMessage(host, JSON.stringify({ type: "start-game" }));
+
+  assert.equal(context.storage.room.phase, "question");
+  for (const socket of [host, guest]) {
+    assert.ok(socket.sent.some((message) => (
+      message.type === "question" && message.roomState.totalPlayers === 2
+    )));
+  }
+});
+
 test("one network cannot occupy an entire room", async () => {
   const clientKey = "A".repeat(43);
   const existingPlayers = Array.from({ length: 4 }, (_, index) => ({

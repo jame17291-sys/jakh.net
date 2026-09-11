@@ -8,6 +8,8 @@ import { CONTENT_PUBLICATION_CONTRACT } from "./monitor-production.mjs";
 import { validateScopedMonitorReport } from "./runtime-monitor-proof.mjs";
 import { validateManifest } from "./site-release-receipt.mjs";
 
+export const LEGACY_PAGES_EXPECTED_FILE_COUNT = 298;
+
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
 }
@@ -58,7 +60,11 @@ export function buildPagesQuarantineReceipt({
     ...validateScopedMonitorReport(apexMonitor, { scope: "pages" }).map((error) => `apex: ${error}`),
     ...validateScopedMonitorReport(wwwMonitor, { scope: "pages" }).map((error) => `www: ${error}`),
   ];
-  if (manifest.fileCount !== 539) errors.push(`Pages artifact contains ${String(manifest.fileCount)} files instead of 539`);
+  if (manifest.fileCount !== LEGACY_PAGES_EXPECTED_FILE_COUNT) {
+    errors.push(
+      `Pages artifact contains ${String(manifest.fileCount)} files instead of ${LEGACY_PAGES_EXPECTED_FILE_COUNT}`,
+    );
+  }
   const publication = manifest.publication;
   if (publication?.state !== CONTENT_PUBLICATION_CONTRACT.state) errors.push("artifact publication state is invalid");
   if (publication?.policySha256 !== CONTENT_PUBLICATION_CONTRACT.manifestSha256) errors.push("artifact quarantine digest is invalid");

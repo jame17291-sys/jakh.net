@@ -238,8 +238,8 @@ test("failures create and update only their scope-specific incident", async () =
   assert.equal(pages.action, "created");
   assert.equal(continuedApi.action, "commented");
   assert.equal(github.issues.length, 2);
-  assert.equal(github.issues[0].title, "[Production alert] jakh.net monitor failure [api]");
-  assert.equal(github.issues[1].title, "[Production alert] jakh.net monitor failure [pages]");
+  assert.equal(github.issues[0].title, "[Production alert] riddlearabia.com monitor failure [api]");
+  assert.equal(github.issues[1].title, "[Production alert] riddlearabia.com monitor failure [pages]");
   assert.equal(github.issues[0].body.split("\n", 1)[0], alertMarker("api"));
   assert.equal(github.issues[1].body.split("\n", 1)[0], alertMarker("pages"));
   assert.equal(github.comments.get(api.issueNumber).length, 1);

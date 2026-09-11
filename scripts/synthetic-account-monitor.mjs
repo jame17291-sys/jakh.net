@@ -5,8 +5,8 @@ import { fileURLToPath } from "node:url";
 
 export const SYNTHETIC_ACCOUNT_PREFIX = "jakh_synth_";
 export const SYNTHETIC_CONFIRMATION = "CREATE_AND_DELETE_JAKH_SYNTHETIC_ACCOUNT";
-const PRODUCTION_API_ORIGIN = "https://api.jakh.net";
-const PRODUCTION_SITE_ORIGIN = "https://jakh.net";
+const PRODUCTION_API_ORIGIN = "https://api.riddlearabia.com";
+const PRODUCTION_SITE_ORIGIN = "https://riddlearabia.com";
 const USERNAME_PATTERN = /^jakh_synth_[0-9a-f]{9}$/u;
 const COMMIT_PATTERN = /^[0-9a-f]{40}$/u;
 const DEFAULT_TIMEOUT_MS = 10_000;
@@ -83,7 +83,7 @@ export function syntheticConfigFromEnv(env = process.env) {
   const apiOrigin = normalizeOrigin(env.JAKH_API_ORIGIN || PRODUCTION_API_ORIGIN, "API origin");
   const siteOrigin = normalizeOrigin(env.JAKH_SITE_ORIGIN || PRODUCTION_SITE_ORIGIN, "site origin");
   if (apiOrigin !== PRODUCTION_API_ORIGIN || siteOrigin !== PRODUCTION_SITE_ORIGIN) {
-    throw new Error("the production synthetic runner is pinned to jakh.net and api.jakh.net");
+    throw new Error("the production synthetic runner is pinned to riddlearabia.com and api.riddlearabia.com");
   }
   return {
     apiOrigin,

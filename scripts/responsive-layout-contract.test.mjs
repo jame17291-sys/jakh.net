@@ -61,13 +61,14 @@ test('Game Hub has a truthful Games destination and only links expose aria-curre
   assert.doesNotMatch(app, /data-tab="(?:daily|profile)"[^>]*aria-current/u);
 });
 
-test('mobile brand, shared actions, and text-only social links retain usable targets', () => {
+test('mobile brand, shared actions, and fresh collection links retain usable targets', () => {
   assert.match(css, /\.brand\s*\{[^}]*min-width:\s*44px;[^}]*min-height:\s*44px/su);
   assert.match(css, /:where\([\s\S]*\.primary-btn[\s\S]*\.social-link[\s\S]*\)\s*\{\s*min-height:\s*44px/su);
   assert.doesNotMatch(css, /\.social-link span\s*\{\s*display:\s*none/u);
   assert.match(css, /\.social-link span\s*\{\s*display:\s*inline/u);
-  assert.match(collections, /class="social-link"[^>]*><span>Instagram<\/span>/u);
-  assert.match(collections, /class="social-link"[^>]*><span>Facebook<\/span>/u);
+  assert.match(collections, /href="\/brain-games"/u);
+  assert.match(collections, /href="\/privacy"/u);
+  assert.doesNotMatch(collections, /@jakh|jakh\.net|JAKH Riddles/iu);
 });
 
 test('short landscape removes sticky header competition and keeps compact 44px actions', () => {

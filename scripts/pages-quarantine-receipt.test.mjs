@@ -2,16 +2,27 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { API_RELEASE_CONTRACT, QUARANTINED_SITE_ROUTES } from "./monitor-production.mjs";
-import { buildPagesQuarantineReceipt } from "./pages-quarantine-receipt.mjs";
+import {
+  buildPagesQuarantineReceipt,
+  LEGACY_PAGES_EXPECTED_FILE_COUNT,
+} from "./pages-quarantine-receipt.mjs";
+import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
 
 function manifest() {
   return {
     service: "jakh-site",
     buildId: "a".repeat(64),
-    fileCount: 539,
+    fileCount: LEGACY_PAGES_EXPECTED_FILE_COUNT,
     totalBytes: 26_831_311,
-    files: Object.fromEntries(Array.from({ length: 539 }, (_, index) => [`/file-${index}`, {}])),
-    routes: { "/": "/index.html", "/__404__": "/404.html" },
+    files: Object.fromEntries(Array.from(
+      { length: LEGACY_PAGES_EXPECTED_FILE_COUNT },
+      (_, index) => [`/file-${index}`, {}],
+    )),
+    routes: {
+      "/": "/index.html",
+      "/__404__": "/404.html",
+      ...Object.fromEntries(RETIRED_SEO_ROUTE_REDIRECTS.map(({ to }, index) => [to, `/route-${index}.html`])),
+    },
     aliases: {},
     publication: {
       state: "safety-quarantine-active",
@@ -86,7 +97,7 @@ test("Pages receipt binds the exact manifest and successful 404 quarantine proof
   });
   assert.equal(receipt.result, "deployed-and-quarantine-verified");
   assert.equal(receipt.artifact.buildId, "a".repeat(64));
-  assert.equal(receipt.artifact.fileCount, 539);
+  assert.equal(receipt.artifact.fileCount, LEGACY_PAGES_EXPECTED_FILE_COUNT);
   assert.equal(receipt.verification.hosts.apex.monitorStatus, "success");
   assert.equal(receipt.verification.hosts.www.monitorStatus, "success");
   assert.match(receipt.artifact.manifestSha256, /^[a-f0-9]{64}$/u);

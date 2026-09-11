@@ -174,6 +174,10 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   assert.match(workflow, /candidate-artifact-inventory\.json/u);
   assert.match(workflow, /JAKH_MONITOR_RESULT_PATH:.*runtime-monitor\.json/u);
   assert.match(workflow, /steps\.runtime_monitor\.outcome != 'success'/u);
+  assert.match(workflow, /domain_cutover:/u);
+  assert.match(workflow, /inputs\.domain_cutover != true/u);
+  assert.match(workflow, /https:\/\/api\.riddlearabia\.com\/api\/health/u);
+  assert.match(workflow, /--legacy-site-origins https:\/\/jakh\.net,https:\/\/www\.jakh\.net/u);
   assert.match(workflow, /API dry-run artifact: inventoried only; it is not evidence of a live API release/u);
   assert.doesNotMatch(workflow, /Cross-artifact release SHA/u);
 });

@@ -2,10 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { PRIMARY_SITE_ORIGIN, rewritePublicSiteIdentity } from "./public-site-identity.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
-const SITE_ORIGIN = "https://jakh.net";
+const SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
 const GAME_SLUGS = [
   "chess",
   "mastermind",
@@ -39,16 +40,6 @@ const PAGE_ROUTES = [
     description: "استكشف 3,553 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 56 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.",
   },
   {
-    source: "collections.html",
-    output: "ar/collections/index.html",
-    englishPath: "/collections",
-    arabicPath: "/ar/collections/",
-    runtime: "site",
-    page: "collections",
-    title: "مجموعات ألغاز واختبارات بالعربية والإنجليزية | JAKH",
-    description: "استكشف مجموعات JAKH المختارة من الألغاز وأسئلة الأطفال والمنطق والمعلومات العامة وكرة القدم وذكريات سبيستون بالعربية والإنجليزية.",
-  },
-  {
     source: "play.html",
     output: "ar/play/index.html",
     englishPath: "/play",
@@ -56,16 +47,6 @@ const PAGE_ROUTES = [
     runtime: "app",
     title: "10 ألعاب متصفح مجانية | JAKH",
     description: "العب 10 ألعاب متصفح مجانية على JAKH: الشطرنج وغو وريفيرسي وماسترمايند وكاتان لايت وطاولة الزهر وسِت وهانابي وكودنيمز ودبلوماسي.",
-  },
-  {
-    source: "about.html",
-    output: "ar/about/index.html",
-    englishPath: "/about",
-    arabicPath: "/ar/about/",
-    runtime: "site",
-    page: "about",
-    title: "عن JAKH ومعايير المحتوى",
-    description: "تعرّف إلى طريقة تنظيم JAKH ومراجعة وترجمة وتحسين 3,553 سؤالاً ثنائي اللغة، وكيفية الإبلاغ عن تصحيح.",
   },
   {
     source: "privacy.html",
@@ -354,6 +335,13 @@ function normalizeResourcePaths(html) {
 
 const sharedArabicRoutes = new Map(PAGE_ROUTES.map((route) => [route.englishPath, route.arabicPath]));
 sharedArabicRoutes.set("/index.html", "/ar/");
+// Collections and About are authored by the dedicated Riddle Arabia SEO
+// generator. Keep them in the navigation map without letting this legacy
+// shared-route transform overwrite their original Arabic editorial pages.
+sharedArabicRoutes.set("/collections", "/ar/collections/");
+sharedArabicRoutes.set("/collections.html", "/ar/collections/");
+sharedArabicRoutes.set("/about", "/ar/about/");
+sharedArabicRoutes.set("/about.html", "/ar/about/");
 for (const route of PAGE_ROUTES) {
   if (route.englishPath !== "/") sharedArabicRoutes.set(`${route.englishPath}.html`, route.arabicPath);
 }
@@ -479,7 +467,7 @@ function renderRoute(route) {
   html = annotateLanguageOptions(html);
   html = normalizeResourcePaths(html);
   html = localizeInternalLinks(html);
-  return html.endsWith("\n") ? html : `${html}\n`;
+  return rewritePublicSiteIdentity(html.endsWith("\n") ? html : `${html}\n`);
 }
 
 const stale = [];

@@ -42,6 +42,9 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/app.js",
   "/styles.css",
   "/privacy.css",
+  "/admin-config.js",
+  "/admin.js",
+  "/admin.css",
   "/battle-mode.js",
   "/battle-mode.css",
   "/search-leaderboard.js",
@@ -49,6 +52,23 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/data/search-index.en.json",
   "/data/search-index.ar.json",
 ]);
+
+const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
+  "/app.js",
+  "/styles.css",
+  "/privacy.css",
+  "/admin-config.js",
+  "/admin.js",
+  "/admin.css",
+]);
+
+export const DEFAULT_ADMIN_RUNTIME_CONFIG = Object.freeze({
+  apiOrigin: "https://api.riddlearabia.com/api",
+  environment: "production",
+});
+
+const ADMIN_RUNTIME_ENVIRONMENT_PATTERN = /^[a-z][a-z0-9-]{0,31}$/u;
+const LOOPBACK_ADMIN_API_HOSTS = new Set(["localhost", "127.0.0.1", "::1", "[::1]"]);
 
 const DEPLOYABLE_EXTENSIONS = new Set([
   ".css",
@@ -179,6 +199,76 @@ function rewriteApplication(source, fingerprints) {
   return rewritten;
 }
 
+function escapeHtmlAttribute(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+export function normalizeAdminRuntimeConfig({
+  apiOrigin = DEFAULT_ADMIN_RUNTIME_CONFIG.apiOrigin,
+  environment = DEFAULT_ADMIN_RUNTIME_CONFIG.environment,
+} = {}) {
+  let apiUrl;
+  try {
+    apiUrl = new URL(String(apiOrigin));
+  } catch {
+    throw new Error("Admin API origin must be an absolute URL");
+  }
+
+  const hostname = apiUrl.hostname.toLowerCase();
+  const isLoopback = LOOPBACK_ADMIN_API_HOSTS.has(hostname);
+  invariant(
+    apiUrl.protocol === "https:" || (apiUrl.protocol === "http:" && isLoopback),
+    "Admin API origin must use HTTPS, except for an explicit loopback development endpoint",
+  );
+  invariant(!apiUrl.username && !apiUrl.password, "Admin API origin must not contain credentials");
+  invariant(!apiUrl.search && !apiUrl.hash, "Admin API origin must not contain a query string or fragment");
+  const pathname = apiUrl.pathname.replace(/\/+$/u, "");
+  invariant(pathname === "/api", "Admin API origin must end with /api");
+  apiUrl.pathname = pathname;
+
+  const normalizedEnvironment = String(environment).trim().toLowerCase();
+  invariant(
+    ADMIN_RUNTIME_ENVIRONMENT_PATTERN.test(normalizedEnvironment),
+    "Admin environment must be a lowercase identifier such as production or staging",
+  );
+  return Object.freeze({
+    apiOrigin: apiUrl.href.replace(/\/$/u, ""),
+    environment: normalizedEnvironment,
+  });
+}
+
+function rewriteAdminRuntimeConfig(html, runtimeConfig) {
+  const replaceAttribute = (source, attribute, value) => {
+    const expression = new RegExp(`\\b${attribute}\\s*=\\s*(["'])[^"']*\\1`, "iu");
+    invariant(expression.test(source), `admin.html must declare ${attribute}`);
+    return source.replace(expression, `${attribute}="${escapeHtmlAttribute(value)}"`);
+  };
+  let rewritten = replaceAttribute(html, "data-admin-api-origin", runtimeConfig.apiOrigin);
+  rewritten = replaceAttribute(rewritten, "data-admin-environment", runtimeConfig.environment);
+
+  const cspMetaPattern = /<meta\b[^>]*\bhttp-equiv\s*=\s*(["'])Content-Security-Policy\1[^>]*>/iu;
+  const cspMeta = rewritten.match(cspMetaPattern)?.[0];
+  invariant(cspMeta, "admin.html must declare a Content-Security-Policy meta tag");
+  const contentAttribute = /\bcontent\s*=\s*(["'])(.*?)\1/iu;
+  const csp = cspMeta.match(contentAttribute)?.[2];
+  invariant(csp, "admin.html CSP meta tag must declare content");
+  const apiSource = new URL(runtimeConfig.apiOrigin).origin;
+  const connectSourceDirective = /(^|;)(\s*connect-src\s+)([^;]*)/iu;
+  invariant(connectSourceDirective.test(csp), "admin.html CSP must declare connect-src");
+  const updatedCsp = csp.replace(connectSourceDirective, (_match, separator, name, sources) => {
+    const configuredSources = sources.trim().split(/\s+/u).filter(Boolean);
+    if (!configuredSources.includes(apiSource)) configuredSources.push(apiSource);
+    return `${separator}${name}${configuredSources.join(" ")}`;
+  });
+  const updatedMeta = cspMeta.replace(contentAttribute, `content="${escapeHtmlAttribute(updatedCsp)}"`);
+  rewritten = rewritten.replace(cspMeta, updatedMeta);
+  return rewritten;
+}
+
 function rewriteHtmlAssetReferences(html, relativePath, fingerprints) {
   const base = new URL(normalizeRelativePath(relativePath), `${PRIMARY_SITE_ORIGIN}/`);
   return html.replace(
@@ -191,7 +281,7 @@ function rewriteHtmlAssetReferences(html, relativePath, fingerprints) {
         return match;
       }
       const fingerprinted = fingerprints[pathname];
-      if (!["/app.js", "/styles.css", "/privacy.css"].includes(pathname) || !fingerprinted) return match;
+      if (!HTML_FINGERPRINT_SOURCE_PATHS.has(pathname) || !fingerprinted) return match;
       return `${prefix}${quote}${fingerprinted}${closingQuote}`;
     },
   );
@@ -447,7 +537,7 @@ function applyPublicProjection(sourceBytes, { catalog, quarantine, sourceRoot })
   return { publicCatalog, publicCategories, publicQuestions };
 }
 
-const INTERNAL_GOVERNANCE_ARTIFACTS = new Set(["admin.html", "admin.js", "admin.css"]);
+const INTERNAL_GOVERNANCE_ARTIFACTS = new Set(["admin.html", "admin-config.js", "admin.js", "admin.css"]);
 const PUBLIC_REVIEW_STATUS_COPY = /(?:editorial(?:ly)?\s+(?:fact\s+)?review|editorial\s+review\s+status|pending\s+safety\s+review|qualified\s+safety\s+review|Editorially\s+reviewed|Editorial\s+review\s+pending|المراجعة\s+التحريرية|مراجعة\s+السلامة|بانتظار\s+المراجعة)/iu;
 const PUBLIC_REVIEW_METADATA_KEYS = new Set([
   "publication",
@@ -455,6 +545,11 @@ const PUBLIC_REVIEW_METADATA_KEYS = new Set([
   "reviewedQuestionCount",
   "reviewStatus",
 ]);
+
+function isInternalGovernanceArtifact(relativePath) {
+  return INTERNAL_GOVERNANCE_ARTIFACTS.has(relativePath)
+    || /^admin(?:-config)?\.[a-f0-9]{16}\.(?:js|css)$/u.test(relativePath);
+}
 
 function assertNoPublicReviewMetadata(value, label) {
   if (Array.isArray(value)) {
@@ -497,8 +592,7 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
     const extension = extname(relativePath).toLowerCase();
     if (!textExtensions.has(extension)) continue;
     const source = bytes.toString("utf8").normalize("NFC");
-    const isInternalGovernanceArtifact = INTERNAL_GOVERNANCE_ARTIFACTS.has(relativePath);
-    if (!isInternalGovernanceArtifact) {
+    if (!isInternalGovernanceArtifact(relativePath)) {
       invariant(
         !PUBLIC_REVIEW_STATUS_COPY.test(source),
         `public review status copy leaked into ${relativePath}`,
@@ -673,6 +767,8 @@ export async function buildStaticSite({
   manifestPath = DEFAULT_MANIFEST_PATH,
   manifestModulePath = DEFAULT_MANIFEST_MODULE_PATH,
   fileList,
+  adminApiOrigin,
+  adminEnvironment,
 } = {}) {
   const source = resolve(sourceRoot);
   const output = resolve(outputDirectory);
@@ -725,6 +821,17 @@ export async function buildStaticSite({
     })
     : null;
   rewritePublishedIdentity(sourceBytes);
+  let adminRuntime = null;
+  if (sourceBytes.has("admin.html")) {
+    adminRuntime = normalizeAdminRuntimeConfig({
+      apiOrigin: adminApiOrigin,
+      environment: adminEnvironment,
+    });
+    sourceBytes.set(
+      "admin.html",
+      Buffer.from(rewriteAdminRuntimeConfig(sourceBytes.get("admin.html").toString("utf8"), adminRuntime), "utf8"),
+    );
+  }
   // Stable source URLs remain available as revalidated compatibility assets.
   // Fingerprinted copies are constructed leaves-first so a changed dependency
   // deterministically changes every parent that embeds its URL.
@@ -742,6 +849,8 @@ export async function buildStaticSite({
   for (const stableUrlPath of [
     "/styles.css",
     "/privacy.css",
+    "/admin-config.js",
+    "/admin.css",
     "/battle-mode.js",
     "/battle-mode.css",
     "/search-leaderboard.css",
@@ -763,6 +872,9 @@ export async function buildStaticSite({
     const rewritten = rewriteApplication(applicationSource.toString("utf8"), fingerprints);
     addFingerprint("/app.js", Buffer.from(rewritten, "utf8"));
   }
+
+  const adminSource = sourceBytes.get("admin.js");
+  if (adminSource) addFingerprint("/admin.js", adminSource);
 
   for (const relativePath of selectedFiles.filter((value) => value.endsWith(".html"))) {
     const rewritten = rewriteHtmlAssetReferences(
@@ -870,6 +982,7 @@ export async function buildStaticSite({
     routes,
     aliases,
     inlineScripts,
+    ...(adminRuntime ? { adminRuntime } : {}),
     ...(quarantine && publication ? {
       publication: {
         state: "safety-quarantine-active",
@@ -898,7 +1011,14 @@ async function main() {
   const outputDirectory = options.output ? resolve(options.output) : DEFAULT_OUTPUT_DIRECTORY;
   const manifestPath = options.manifest ? resolve(options.manifest) : DEFAULT_MANIFEST_PATH;
   const manifestModulePath = options.module ? resolve(options.module) : DEFAULT_MANIFEST_MODULE_PATH;
-  const manifest = await buildStaticSite({ sourceRoot, outputDirectory, manifestPath, manifestModulePath });
+  const manifest = await buildStaticSite({
+    sourceRoot,
+    outputDirectory,
+    manifestPath,
+    manifestModulePath,
+    adminApiOrigin: options["admin-api-origin"],
+    adminEnvironment: options["admin-environment"],
+  });
   process.stdout.write(
     `Built ${manifest.fileCount} static files (${manifest.totalBytes} bytes) as ${manifest.buildId}.\n`,
   );

@@ -237,8 +237,33 @@ test("cache policy is immutable only when the filename carries its own digest", 
   assert.equal(cachePolicy({ pathname: "/app-abcdef123456.js", status: 200, contentType: "text/javascript", record }), "public, max-age=3600, must-revalidate");
   assert.equal(cachePolicy({ pathname: "/app.abcdef123456.extra.js", status: 200, contentType: "text/javascript", record }), "public, max-age=3600, must-revalidate");
   assert.equal(cachePolicy({ pathname: "/app.000000000000.js", status: 200, contentType: "text/javascript", record }), "public, max-age=3600, must-revalidate");
+  assert.equal(cachePolicy({ pathname: "/admin", status: 200, contentType: "text/html", record }), "no-store");
+  assert.equal(cachePolicy({ pathname: "/admin.html", status: 304, contentType: "text/html", record }), "no-store");
+  assert.equal(cachePolicy({ pathname: "/admin.abcdef123456.js", status: 200, contentType: "text/javascript", record }), "public, max-age=31536000, immutable");
   assert.equal(cachePolicy({ pathname: "/page", status: 200, contentType: "text/html", record }), "public, max-age=0, must-revalidate");
   assert.equal(cachePolicy({ pathname: "/missing", status: 404, contentType: "text/html", record: null }), "no-store");
+});
+
+test("admin documents are never cached while fingerprinted admin assets stay immutable", async () => {
+  const admin = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/admin`), environment());
+  assert.equal(admin.status, 200);
+  assert.equal(admin.headers.get("cache-control"), "no-store");
+  assert.match(admin.headers.get("etag"), /^W\/['"][a-f0-9]{64}['"]$/u);
+  assertSecurityHeaders(admin);
+
+  const conditional = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/admin`, {
+    headers: { "if-none-match": admin.headers.get("etag") },
+  }), environment());
+  assert.equal(conditional.status, 304);
+  assert.equal(conditional.headers.get("cache-control"), "no-store");
+  assertSecurityHeaders(conditional);
+
+  const fingerprintedAdmin = siteManifest.fingerprints["/admin.js"];
+  assert.match(fingerprintedAdmin || "", /^\/admin\.[a-f0-9]{16}\.js$/u);
+  const asset = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${fingerprintedAdmin}`), environment());
+  assert.equal(asset.status, 200);
+  assert.equal(asset.headers.get("cache-control"), "public, max-age=31536000, immutable");
+  assertSecurityHeaders(asset);
 });
 
 test("prior fingerprint requests fall back safely to stable compatibility assets", async () => {
@@ -318,6 +343,16 @@ test("CSP includes only the current page's generated inline hashes", () => {
   for (const hash of siteManifest.inlineScripts["/"]) assert.match(policy, new RegExp(hash.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   assert.match(policy, /script-src-attr 'none'/u);
   assert.match(policy, /connect-src[^;]+api\.riddlearabia\.com/u);
+
+  const stagingManifest = structuredClone(siteManifest);
+  stagingManifest.adminRuntime = {
+    apiOrigin: "https://api.staging.riddlearabia.com/api",
+    environment: "staging",
+  };
+  const stagingAdminPolicy = contentSecurityPolicy(stagingManifest, "/admin", 200);
+  assert.match(stagingAdminPolicy, /connect-src[^;]+https:\/\/api\.staging\.riddlearabia\.com/u);
+  const stagingPublicPolicy = contentSecurityPolicy(stagingManifest, "/", 200);
+  assert.doesNotMatch(stagingPublicPolicy, /api\.staging\.riddlearabia\.com/u);
 });
 
 test("MTA-STS handler is valid but fail-closed until mail-owner activation", async () => {

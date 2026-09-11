@@ -12,6 +12,7 @@ import {
   FINGERPRINT_SOURCE_PATHS,
   inlineScriptHashes,
   isDeployableFile,
+  normalizeAdminRuntimeConfig,
   rewriteKnownHtmlClaims,
 } from "../../scripts/build-static-site.mjs";
 import {
@@ -77,6 +78,10 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.match(manifest.sourceGraphId, /^[a-f0-9]{64}$/u);
   assert.equal(manifest.offlineCacheIdentity, `sg-${manifest.sourceGraphId}`);
   assert.equal(manifest.service, "jakh-site");
+  assert.deepEqual(manifest.adminRuntime, {
+    apiOrigin: "https://api.riddlearabia.com/api",
+    environment: "production",
+  });
   assert.deepEqual(manifest.publication, {
     state: "safety-quarantine-active",
     policySha256: digest(quarantineBytes),
@@ -141,6 +146,12 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   const rootHtml = await readFile(join(repositoryRoot, "site-worker/dist/index.html"), "utf8");
   assert.match(rootHtml, new RegExp(manifest.fingerprints["/app.js"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   assert.match(rootHtml, new RegExp(manifest.fingerprints["/styles.css"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  const adminHtml = await readFile(join(repositoryRoot, "site-worker/dist/admin.html"), "utf8");
+  for (const stable of ["/admin-config.js", "/admin.js", "/admin.css"]) {
+    assert.match(adminHtml, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  }
+  assert.match(adminHtml, /data-admin-api-origin="https:\/\/api\.riddlearabia\.com\/api"/u);
+  assert.match(adminHtml, /data-admin-environment="production"/u);
   const application = await readFile(join(repositoryRoot, "site-worker/dist", manifest.fingerprints["/app.js"].slice(1)), "utf8");
   for (const relativePath of expectedHeldAssets) {
     assert.equal(application.includes(relativePath), false, relativePath);
@@ -292,6 +303,32 @@ test("published-count rewrites are scoped away from card question and answer cop
   assert.deepEqual(cardTextFragments(rewritten), cardTextFragments(source));
 });
 
+test("admin runtime configuration accepts only safe API origins and environment identifiers", () => {
+  assert.deepEqual(normalizeAdminRuntimeConfig(), {
+    apiOrigin: "https://api.riddlearabia.com/api",
+    environment: "production",
+  });
+  assert.deepEqual(normalizeAdminRuntimeConfig({
+    apiOrigin: "http://127.0.0.1:8787/api/",
+    environment: "Staging",
+  }), {
+    apiOrigin: "http://127.0.0.1:8787/api",
+    environment: "staging",
+  });
+  assert.throws(
+    () => normalizeAdminRuntimeConfig({ apiOrigin: "http://api.riddlearabia.com/api" }),
+    /must use HTTPS/u,
+  );
+  assert.throws(
+    () => normalizeAdminRuntimeConfig({ apiOrigin: "https://api.riddlearabia.com/not-api" }),
+    /must end with \/api/u,
+  );
+  assert.throws(
+    () => normalizeAdminRuntimeConfig({ environment: "production<script>" }),
+    /lowercase identifier/u,
+  );
+});
+
 test("fixture fingerprints are deterministic and leaf changes propagate through dependents", async (context) => {
   const temporary = await mkdtemp(join(tmpdir(), "jakh-site-build-"));
   context.after(() => rm(temporary, { recursive: true, force: true }));
@@ -299,10 +336,15 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await mkdir(join(source, "data"), { recursive: true });
   await mkdir(join(source, "docs"), { recursive: true });
   const index = '<!doctype html><link rel="canonical" href="https://riddlearabia.com/"><link rel="stylesheet" href="styles.css?v=old"><link rel="stylesheet" href="/privacy.css?v=old"><script>window.test=1;</script><script src="app.js?v=old"></script>';
+  const admin = '<!doctype html><html data-admin-api-origin="https://api.riddlearabia.com/api" data-admin-environment="production"><head><meta http-equiv="Content-Security-Policy" content="default-src \'self\'; connect-src \'self\' https://api.riddlearabia.com"><link rel="canonical" href="https://riddlearabia.com/admin"><link rel="stylesheet" href="/admin.css?v=old"><script src="/admin-config.js?v=old"></script><script src="/admin.js?v=old"></script></head></html>';
   await mkdir(source, { recursive: true });
   await writeFile(join(source, "index.html"), index, "utf8");
   await writeFile(join(source, "404.html"), "<!doctype html><title>Missing</title>", "utf8");
+  await writeFile(join(source, "admin.html"), admin, "utf8");
   await writeFile(join(source, "app.js"), "const paths=['/battle-mode.js','/battle-mode.css','/search-leaderboard.js','/search-leaderboard.css'];\n", "utf8");
+  await writeFile(join(source, "admin-config.js"), "globalThis.RIDDLE_ARABIA_ADMIN_CONFIG = {};\n", "utf8");
+  await writeFile(join(source, "admin.js"), "globalThis.adminLoaded = true;\n", "utf8");
+  await writeFile(join(source, "admin.css"), ".admin{display:block}\n", "utf8");
   await writeFile(join(source, "styles.css"), "body{color:#123}\n", "utf8");
   await writeFile(join(source, "privacy.css"), ".privacy{display:block}\n", "utf8");
   await writeFile(join(source, "battle-mode.js"), "export const battle=1;\n", "utf8");
@@ -317,7 +359,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await writeFile(join(source, "docs/secret.json"), '{"token":"never"}\n', "utf8");
 
   const fileList = [
-    "index.html", "404.html", "app.js", "styles.css", "privacy.css",
+    "index.html", "404.html", "admin.html", "app.js", "admin-config.js", "admin.js", "admin.css", "styles.css", "privacy.css",
     "battle-mode.js", "battle-mode.css", "search-leaderboard.js", "search-leaderboard.css",
     "data/search-index.en.json", "data/search-index.ar.json", "sw.js", "robots.txt",
     "package.json", "docs/secret.json",
@@ -329,6 +371,8 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     manifestPath: join(temporary, "first.json"),
     manifestModulePath: join(temporary, "first.js"),
     fileList,
+    adminApiOrigin: "https://api.staging.riddlearabia.com/api",
+    adminEnvironment: "staging",
   });
   const repeated = await buildStaticSite({
     sourceRoot: source,
@@ -336,9 +380,11 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     manifestPath: join(temporary, "repeat.json"),
     manifestModulePath: join(temporary, "repeat.js"),
     fileList,
+    adminApiOrigin: "https://api.staging.riddlearabia.com/api",
+    adminEnvironment: "staging",
   });
   assert.deepEqual(repeated, first, "same source graph must produce the same build and cache identities");
-  assert.equal(first.fileCount, 22);
+  assert.equal(first.fileCount, 29);
   assert.deepEqual(first.inlineScripts["/"], inlineScriptHashes('<script>window.test=1;</script>'));
   assert.equal(first.files["/package.json"], undefined);
   assert.equal(first.files["/docs/secret.json"], undefined);
@@ -349,6 +395,18 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   const builtHtml = await readFile(join(temporary, "first-dist/index.html"), "utf8");
   assert.match(builtHtml, new RegExp(first.fingerprints["/app.js"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   assert.doesNotMatch(builtHtml, /(?:app\.js|styles\.css|privacy\.css)\?v=/u);
+  const builtAdmin = await readFile(join(temporary, "first-dist/admin.html"), "utf8");
+  for (const stable of ["/admin-config.js", "/admin.js", "/admin.css"]) {
+    assert.match(builtAdmin, new RegExp(first.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  }
+  assert.doesNotMatch(builtAdmin, /(?:admin-config|admin)\.js\?v=|admin\.css\?v=/u);
+  assert.match(builtAdmin, /data-admin-api-origin="https:\/\/api\.staging\.riddlearabia\.com\/api"/u);
+  assert.match(builtAdmin, /data-admin-environment="staging"/u);
+  assert.match(builtAdmin, /connect-src 'self' https:\/\/api\.riddlearabia\.com https:\/\/api\.staging\.riddlearabia\.com/u);
+  assert.deepEqual(first.adminRuntime, {
+    apiOrigin: "https://api.staging.riddlearabia.com/api",
+    environment: "staging",
+  });
   const builtSw = await readFile(join(temporary, "first-dist/sw.js"), "utf8");
   assert.match(builtSw, new RegExp(first.offlineCacheIdentity, "u"));
   assert.doesNotMatch(builtSw, /CACHE_VERSION = 'v80'/u);
@@ -361,6 +419,8 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     manifestPath: join(temporary, "second.json"),
     manifestModulePath: join(temporary, "second.js"),
     fileList,
+    adminApiOrigin: "https://api.staging.riddlearabia.com/api",
+    adminEnvironment: "staging",
   });
   assert.notEqual(second.buildId, first.buildId);
   assert.notEqual(second.offlineCacheIdentity, first.offlineCacheIdentity);
@@ -378,6 +438,8 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     manifestPath: join(temporary, "third.json"),
     manifestModulePath: join(temporary, "third.js"),
     fileList,
+    adminApiOrigin: "https://api.staging.riddlearabia.com/api",
+    adminEnvironment: "staging",
   });
   assert.deepEqual(third.fingerprints, second.fingerprints, "unrelated leaves must not perturb asset fingerprints");
   assert.notEqual(third.offlineCacheIdentity, second.offlineCacheIdentity, "every deployable graph change must rotate offline caches");

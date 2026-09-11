@@ -324,6 +324,7 @@ test("publishing requires review and creates the explicit approved snapshot", as
       workflowStatus: "IN_REVIEW",
       version: 2,
       publishedVersion: null,
+      editorUserId: "another-admin",
     },
   });
   const response = await publishAdminContent(
@@ -335,6 +336,7 @@ test("publishing requires review and creates the explicit approved snapshot", as
   assert.equal((await response.json()).changed, true);
   assert.match(env.batches[0][0].sql, /published_snapshot_json = draft_json/u);
   assert.match(env.batches[0][1].sql, /'PUBLISHED'/u);
+  assert.equal(auditDetail(env).reviewMode, "independent");
 
   await assert.rejects(
     publishAdminContent(
@@ -368,40 +370,137 @@ test("publishing requires review and creates the explicit approved snapshot", as
   );
 });
 
+test("Content Studio enforces independent approval and records owner overrides", async () => {
+  const draftJson = JSON.stringify(contentSnapshot);
+  const selfAuthoredDraft = {
+    questionId: "science-003",
+    categorySlug: "science",
+    draftJson,
+    workflowStatus: "IN_REVIEW",
+    version: 2,
+    publishedVersion: null,
+    editorUserId: "actor-1",
+  };
+
+  const selfPublishEnv = adminEnv({
+    stepUp: { verifiedAt: new Date().toISOString() },
+    contentEdit: selfAuthoredDraft,
+  });
+  await assert.rejects(
+    publishAdminContent(
+      request("/api/admin/content/science-003/publish", "POST", { reason: "I reviewed my own work." }),
+      selfPublishEnv,
+      "science-003",
+    ),
+    (error) => error?.status === 403 && error?.code === "CONTENT_SELF_PUBLISH_FORBIDDEN",
+  );
+  assert.equal(selfPublishEnv.batches.length, 0);
+
+  await assert.rejects(
+    publishAdminContent(
+      request("/api/admin/content/science-003/publish", "POST"),
+      adminEnv({
+        actorRole: "OWNER",
+        stepUp: { verifiedAt: new Date().toISOString() },
+        contentEdit: selfAuthoredDraft,
+      }),
+      "science-003",
+    ),
+    (error) => error?.status === 400 && error?.code === "CONTENT_OWNER_OVERRIDE_REASON_REQUIRED",
+  );
+
+  await assert.rejects(
+    publishAdminContent(
+      request("/api/admin/content/science-003/publish", "POST", { reason: "   " }),
+      adminEnv({
+        actorRole: "OWNER",
+        stepUp: { verifiedAt: new Date().toISOString() },
+        contentEdit: selfAuthoredDraft,
+      }),
+      "science-003",
+    ),
+    (error) => error?.status === 400 && error?.code === "AUDIT_REASON_INVALID",
+  );
+
+  const ownerOverrideEnv = adminEnv({
+    actorRole: "OWNER",
+    stepUp: { verifiedAt: new Date().toISOString() },
+    contentEdit: selfAuthoredDraft,
+  });
+  const reason = "Emergency correction after verifying the Arabic and English sources.";
+  const response = await publishAdminContent(
+    request("/api/admin/content/science-003/publish", "POST", { reason }),
+    ownerOverrideEnv,
+    "science-003",
+  );
+  assert.equal((await response.json()).changed, true);
+  assert.deepEqual(auditDetail(ownerOverrideEnv), {
+    categorySlug: "science",
+    version: 2,
+    reviewMode: "owner_override",
+    reason,
+  });
+});
+
 test("unpublish and restore preserve history while returning edits to draft", async () => {
   const draftJson = JSON.stringify(contentSnapshot);
+  const publishedDraft = {
+    questionId: "science-003",
+    categorySlug: "science",
+    draftJson,
+    version: 2,
+    publishedSnapshotJson: draftJson,
+  };
+  await assert.rejects(
+    unpublishAdminContent(
+      request("/api/admin/content/science-003/unpublish", "POST"),
+      adminEnv({
+        stepUp: { verifiedAt: new Date().toISOString() },
+        contentEdit: publishedDraft,
+      }),
+      "science-003",
+    ),
+    (error) => error?.status === 400 && error?.code === "CONTENT_UNPUBLISH_REASON_REQUIRED",
+  );
+
   const unpublishEnv = adminEnv({
     stepUp: { verifiedAt: new Date().toISOString() },
-    contentEdit: {
-      questionId: "science-003",
-      categorySlug: "science",
-      draftJson,
-      version: 2,
-      publishedSnapshotJson: draftJson,
-    },
+    contentEdit: publishedDraft,
   });
+  const unpublishReason = "The answer needs correction before it remains live.";
   const unpublished = await unpublishAdminContent(
-    request("/api/admin/content/science-003/unpublish", "POST"),
+    request("/api/admin/content/science-003/unpublish", "POST", { reason: unpublishReason }),
     unpublishEnv,
     "science-003",
   );
   assert.equal((await unpublished.json()).version, 3);
   assert.match(unpublishEnv.batches[0][0].sql, /published_snapshot_json = NULL/u);
   assert.match(unpublishEnv.batches[0][1].sql, /'UNPUBLISHED'/u);
+  assert.equal(auditDetail(unpublishEnv).reason, unpublishReason);
 
   const revisionId = "11111111-1111-4111-8111-111111111111";
   const restoreEnv = adminEnv({
     contentEdit: { categorySlug: "science", version: 3 },
     contentRevision: { categorySlug: "science", snapshotJson: draftJson },
   });
+  await assert.rejects(
+    restoreAdminContentRevision(
+      request("/api/admin/content/science-003/restore", "POST", { revisionId }),
+      restoreEnv,
+      "science-003",
+    ),
+    (error) => error?.status === 400 && error?.code === "CONTENT_RESTORE_REASON_REQUIRED",
+  );
+  const restoreReason = "Restore the previously reviewed bilingual version after checking its sources.";
   const restored = await restoreAdminContentRevision(
-    request("/api/admin/content/science-003/restore", "POST", { revisionId }),
+    request("/api/admin/content/science-003/restore", "POST", { revisionId, reason: restoreReason }),
     restoreEnv,
     "science-003",
   );
   assert.equal((await restored.json()).version, 4);
   assert.match(restoreEnv.batches[0][0].sql, /workflow_status = 'DRAFT'/u);
   assert.match(restoreEnv.batches[0][1].sql, /'RESTORED'/u);
+  assert.equal(auditDetail(restoreEnv).reason, restoreReason);
 });
 
 test("Content Studio list and revision history expose parsed, non-secret records", async () => {

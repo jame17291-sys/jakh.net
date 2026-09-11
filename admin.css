@@ -346,7 +346,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
   .console-shell { width: min(100% - 20px, 1520px); }
   .topbar { align-items: flex-start; padding: 0.8rem 0; }
   .topbar-actions { gap: 0.35rem; }
-  .connection-state { display: none; }
+  .connection-state { max-width: 8.75rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .topbar-actions .quiet-button { padding: 0.5rem 0.55rem; font-size: 0.78rem; }
   .page-heading { display: block; }
   .updated { margin-top: 0.65rem; }

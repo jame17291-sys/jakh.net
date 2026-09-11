@@ -218,7 +218,7 @@ function errorResponse(siteManifest, pathname, status, message) {
 
 function quarantineResponse(siteManifest, pathname, method) {
   const response = applySiteHeaders(new Response(
-    method === "HEAD" ? null : "This content is temporarily unavailable while qualified safety review is completed.\n",
+    method === "HEAD" ? null : "This content is temporarily unavailable.\n",
     {
       status: 410,
       headers: { "content-type": "text/plain; charset=utf-8" },

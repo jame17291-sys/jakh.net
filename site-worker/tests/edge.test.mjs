@@ -164,6 +164,9 @@ test("quarantined paths return policy-complete 410 responses before asset access
     assert.match(response.headers.get("x-robots-tag"), /noindex.*nofollow.*noarchive.*nosnippet/u, pathname);
     assertSecurityHeaders(response);
   }
+  const heldCopy = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/survival`), blockedEnvironment);
+  assert.equal(await heldCopy.text(), "This content is temporarily unavailable.\n");
+  assert.doesNotMatch(await handler.fetch(new Request(`${PRIMARY_ORIGIN}/survival`), blockedEnvironment).then((response) => response.text()), /review/iu);
   const head = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/data/%73urvival.json`, { method: "HEAD" }), blockedEnvironment);
   assert.equal(head.status, 410);
   assert.equal(await head.text(), "");

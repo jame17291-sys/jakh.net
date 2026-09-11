@@ -218,7 +218,7 @@ test('Quick Fire never fills the canonical answer panel before a response', () =
   assert.match(modal, /id="tqAnswer"[^>]*><\/p>/u);
   assert.match(show, /tqA\.textContent = ''/u);
   assert.doesNotMatch(show, /tqA\.textContent = card\.answer/u);
-  assert.match(show, /createReviewMarkup\(card\)/u);
+  assert.doesNotMatch(show, /createReviewMarkup|tqReview/u);
 });
 
 test('Quick Fire answer/timeout races record exactly one completed response', () => {
@@ -267,7 +267,7 @@ test('daily reveal is not completion; only explicit outcome buttons persist', ()
   assert.match(daily, /id="dailyKnewBtn"/u);
   assert.match(daily, /id="dailyReviewBtn"/u);
   assert.match(daily, /saveJson\(outcomeKey, \{ cardId: card\.id, categoryId: card\.categorySlug, result/u);
-  assert.match(daily, /createReviewMarkup\(card\)/u);
+  assert.doesNotMatch(daily, /createReviewMarkup|card-review/u);
 });
 
 test('global search evaluates every hit, ranks deterministically, and reports total/top N', () => {
@@ -414,7 +414,7 @@ test('read-aloud prefers a natural Arabic voice and uses human prosody', () => {
   assert.match(qualityModule, /utterance\.pitch = 1/u);
 });
 
-test('anonymous session, transient identity, review disclosure, and signed-out markup contracts remain honest', () => {
+test('anonymous session, transient identity, and signed-out markup contracts remain honest', () => {
   const session = functionBlock('checkCloudSession', 'postAuthDestination');
   assert.ok(session.indexOf("apiFetch('/auth/session')") < session.indexOf("apiFetch('/user/profile')"));
   assert.match(session, /state\.dbUser = previousUser/u);
@@ -423,8 +423,7 @@ test('anonymous session, transient identity, review disclosure, and signed-out m
   assert.doesNotMatch(starter, /mount\.innerHTML = `\s*mount\.innerHTML/u);
   assert.match(starter, /verified-signin-prompt/u);
   const challenge = functionBlock('renderVerifiedChallenge', 'submitVerifiedChallenge', searchLeaderboard);
-  assert.match(challenge, /verifiedReviewUnavailable/u);
-  assert.match(challenge, /createReviewMarkup\(\{ review: item\.review \}\)/u);
+  assert.doesNotMatch(challenge, /verifiedReviewUnavailable|createReviewMarkup|card-review/u);
 });
 
 test('server-checked cancellation keeps the token locally on failure and validates discard responses', () => {

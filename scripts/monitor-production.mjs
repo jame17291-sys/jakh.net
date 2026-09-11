@@ -539,12 +539,12 @@ export async function runProductionMonitor(options = {}) {
     );
     expect(catalog.site?.totalQuestions === 3_275, "catalog public question total is not 3275");
     expect(
-      catalog.site?.publication?.state === "safety-quarantine-active"
-        && catalog.site.publication.publicCategories === 51
-        && catalog.site.publication.publicQuestions === 3_275
-        && catalog.site.publication.quarantinedQuestions === 278
-        && catalog.site.publication.policySha256 === CONTENT_PUBLICATION_CONTRACT.manifestSha256,
-      "catalog publication quarantine contract is missing or invalid",
+      catalog.site?.publication === undefined,
+      "catalog exposes internal publication governance metadata",
+    );
+    expect(
+      catalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")),
+      "catalog exposes reviewer metrics",
     );
     assertBudget(resource, config.siteMaxMs, 150_000);
     return resource;

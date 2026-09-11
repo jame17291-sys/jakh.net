@@ -103,6 +103,7 @@ test("held categories and cards fail closed at the canonical API boundary", asyn
       validateCard({}, cardId, categoryId),
       (error) => error?.status === 503
         && error?.code === "CATEGORY_QUARANTINED"
+        && error?.message === "Category is temporarily unavailable"
         && error?.headers?.["retry-after"] === "86400",
       categoryId,
     );

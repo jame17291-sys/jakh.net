@@ -15,9 +15,8 @@ const MAX_ASSET_CACHE_ENTRIES = 96;
 const MAX_DATA_CACHE_ENTRIES = 64;
 const OFFLINE_FALLBACK_PATH = '/offline';
 
-// These complete categories are unavailable on every production surface until
-// qualified safety review is complete. Keep this list aligned with
-// docs/content-review/production-quarantine.json and the release manifest.
+// These complete categories are unavailable on every production surface.
+// Keep this list aligned with the release manifest.
 const QUARANTINED_CATEGORY_SLUGS = [
   'survival',
   'law-middle-east',
@@ -223,7 +222,7 @@ function quarantinedResponse(request) {
   return new Response(
     request.method === 'HEAD'
       ? null
-      : 'This content is temporarily unavailable while qualified safety review is completed.\n',
+      : 'This content is temporarily unavailable.\n',
     {
       status: 410,
       headers: {

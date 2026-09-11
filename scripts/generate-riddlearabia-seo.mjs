@@ -571,13 +571,13 @@ function renderAboutPage(lang) {
       ["ما نصنعه", "ريـدل أرابيا مساحة ثنائية اللغة للألغاز والاختبارات وألعاب الدماغ الخفيفة. نفضّل مسارات واضحة وممتعة على مئات الصفحات التي لا تقدم سبباً حقيقياً للزيارة."],
       ["كيف نختار المحتوى", "نسعى إلى تلميحات مفهومة، وأجوبة محددة، وسياق واضح. تبقى موضوعات الصحة والقانون والمال للتعلّم والترفيه فقط، وليست بديلاً عن مختص."],
       ["اللغتان", "لا نتعامل مع العربية والإنجليزية كزر ترجمة فقط. نبني التجربة بحيث يستطيع القارئ استخدام اللغة التي يفكر بها، أو المقارنة بين اللغتين عند الحاجة."],
-      ["التصحيح والتحسين", "إذا صادفت سؤالاً يحتاج تصحيحاً أو توضيحاً، استخدم أدوات الاقتراح داخل مختبر العقل. نراجع الملاحظات قبل نشر التحديثات."],
+      ["التصحيح والتحسين", "إذا صادفت سؤالاً يحتاج تصحيحاً أو توضيحاً، استخدم أدوات الاقتراح داخل مختبر العقل. تساعدنا ملاحظاتك على تحسين التحديثات القادمة."],
     ]
     : [
       ["What we make", "Riddle Arabia is a bilingual home for riddles, quizzes, and light brain games. We prefer clear, enjoyable paths to hundreds of pages with no distinct reason to exist."],
       ["How we choose content", "We aim for understandable clues, specific answers, and useful context. Health, law, and money topics are for learning and entertainment only—not professional advice."],
       ["Two languages by design", "Arabic and English are not treated as a simple translation switch. The experience is built so readers can think in the language that suits them, or compare both when it helps."],
-      ["Corrections and improvement", "If you find a question that needs correction or context, use the suggestion tools in the Mind Lab. Feedback is reviewed before updates are published."],
+      ["Corrections and improvement", "If you find a question that needs correction or context, use the suggestion tools in the Mind Lab. Feedback helps improve future updates."],
     ];
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">

@@ -15,20 +15,11 @@ export function mergePublishedContentOverrides(cards, overrides) {
   return cards.map((card) => {
     const override = byId.get(card.id);
     if (!override) return card;
-    const reviewedAt = typeof override.publishedAt === 'string'
-      ? override.publishedAt.slice(0, 10)
-      : new Date().toISOString().slice(0, 10);
     return {
       ...card,
       question: override.question || card.question,
       answer: override.answer || card.answer,
       explanation: override.explanation || card.explanation,
-      review: {
-        status: 'reviewed',
-        reviewedAt,
-        reviewer: 'JAKH editorial team',
-        sources: Array.isArray(override.sources) ? override.sources : [],
-      },
     };
   });
 }

@@ -9,6 +9,7 @@ import {
   isQuarantinedArtifactPath,
   isQuarantinedRequestPath,
   loadProductionQuarantine,
+  publicCategoryCardsProjection,
   normalizeQuarantineRequestPath,
   publicCardIndexProjection,
   publicCatalogProjection,
@@ -107,7 +108,8 @@ test("public catalog, card index, and search projections expose exactly 51 categ
   assert.equal(fullCatalog.site.totalQuestions, 3_553, "editorial card source changed");
   assert.equal(publicCatalog.categories.length, 51);
   assert.equal(publicCatalog.site.totalQuestions, 3_275);
-  assert.equal(publicCatalog.site.publication.quarantinedQuestions, 278);
+  assert.equal(publicCatalog.site.publication, undefined);
+  assert.ok(publicCatalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")));
   for (const category of publicCatalog.categories) {
     assert.equal(quarantine.categorySlugs.has(category.slug), false);
     assert.equal((category.related || []).some((slug) => quarantine.categorySlugs.has(slug)), false);
@@ -135,6 +137,12 @@ test("public catalog, card index, and search projections expose exactly 51 categ
   ]));
   assert.doesNotMatch(publicCatalog.sections.find(({ key }) => key === "science").description.en, /medicine|pharmacy/iu);
   assert.doesNotMatch(publicCatalog.sections.find(({ key }) => key === "world").description.en, /\blaw\b/iu);
+
+  const sourceCards = readJson("data/science.json");
+  const publicCards = publicCategoryCardsProjection(sourceCards);
+  assert.equal(publicCards.length, sourceCards.length);
+  assert.ok(sourceCards.some((card) => Object.hasOwn(card, "review")), "source review governance is retained");
+  assert.ok(publicCards.every((card) => !Object.hasOwn(card, "review")), "public cards omit review metadata");
 
   const publicIndex = publicCardIndexProjection(readJson("data/card-index.json"), quarantine);
   assert.equal(Object.keys(publicIndex).length, 3_275);

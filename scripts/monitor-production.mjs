@@ -3,6 +3,11 @@ import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
 
 import { loadProductionQuarantine } from "./publication-quarantine.mjs";
+import {
+  RIDDLE_ARABIA_GAME_CATALOG,
+  RIDDLE_ARABIA_SEO_PAGES,
+} from "./riddlearabia-seo.mjs";
+import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
 
 export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
 export const PRIMARY_API_ORIGIN = "https://api.riddlearabia.com";
@@ -19,6 +24,7 @@ const DISALLOWED_ORIGIN = "https://example.invalid";
 const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
 const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
+const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
 
 const checkedPublicationQuarantine = loadProductionQuarantine();
 
@@ -55,13 +61,15 @@ class RetryableCheckError extends Error {
 export const HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
-  { name: "Collections", path: "/collections", marker: "<title>Riddles &amp; Quiz Collections", bilingualMarker: "site-i18n.js" },
-  { name: "Arabic riddles collection", path: "/ar/alghaz-ma-alhal/", marker: '<html lang="ar"', bilingualMarker: 'hreflang="en"' },
+  { name: "Collections", path: "/collections", marker: "<title>Discover Riddles &amp; Brain Games", bilingualMarker: 'hreflang="ar"' },
+  { name: "Riddles", path: "/riddles", marker: "<title>Riddles With Answers", bilingualMarker: 'hreflang="ar"' },
+  { name: "Arabic riddles", path: "/ar/alghaz/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
+  { name: "Brain Games", path: "/brain-games", marker: "<title>Free Brain Games Online", bilingualMarker: 'hreflang="ar"' },
   { name: "Arabic science topic", path: "/ar/topics/science/", marker: '<html lang="ar" dir="rtl">', bilingualMarker: 'hreflang="en"' },
-  { name: "About", path: "/about", marker: "<title>About Riddle Arabia", bilingualMarker: "site-i18n.js" },
+  { name: "About", path: "/about", marker: "<title>About Riddle Arabia", bilingualMarker: 'hreflang="ar"' },
   { name: "Privacy Centre", path: "/privacy", marker: "<title>Privacy Centre", bilingualMarker: "privacy-consent.js" },
   { name: "Game Hub", path: "/play", marker: "<title>10 Free Browser Games", bilingualMarker: 'id="langSelect"' },
-  { name: "Science category", path: "/science", marker: "<title>Science Quiz", bilingualMarker: 'id="langSelect"' },
+  { name: "Science category", path: "/science", marker: "<title>Science | Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Chess", path: "/chess", marker: "<title>Chess Online", bilingualMarker: "game-i18n.js" },
   { name: "Mastermind", path: "/mastermind", marker: "<title>Mastermind Online", bilingualMarker: "game-i18n.js" },
   { name: "Go", path: "/go", marker: "<title>Go Online", bilingualMarker: "game-i18n.js" },
@@ -73,6 +81,30 @@ export const HTML_ROUTES = [
   { name: "Hanabi", path: "/hanabi", marker: "<title>Hanabi Online", bilingualMarker: "game-i18n.js" },
   { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
 ];
+
+// The sitemap is intentionally a curated surface rather than a generated
+// inventory of every runtime category. Keep production monitoring tied to the
+// same source-of-truth as the static generator, so an old mass-indexing URL
+// cannot quietly return after the cutover.
+export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+  "/",
+  "/ar/",
+  "/mind-lab",
+  "/ar/mind-lab/",
+  "/collections",
+  "/ar/collections/",
+  "/play",
+  "/ar/play/",
+  "/about",
+  "/ar/about/",
+  "/privacy",
+  "/ar/privacy/",
+  ...RIDDLE_ARABIA_SEO_PAGES.flatMap((page) => [page.paths.en, page.paths.ar]),
+  ...RIDDLE_ARABIA_GAME_CATALOG.flatMap((game) => [
+    `/${game.slug}`,
+    `/ar/games/${game.slug}/`,
+  ]),
+]);
 
 export const UNAUTHENTICATED_API_GET_ROUTES = [
   { name: "profile", path: "/api/user/profile" },
@@ -103,6 +135,15 @@ export const QUARANTINED_SITE_ROUTES = Object.freeze(
     { name: "recursively encoded canonical page", path: "/%2573urvival" },
   ],
 );
+
+export function retiredSeoRedirectProbeDefinitions(siteOrigin) {
+  if (siteOrigin !== PRIMARY_SITE_ORIGIN) return [];
+  return RETIRED_SEO_ROUTE_REDIRECTS.map(({ from, to }) => ({
+    name: `Site: retired SEO ${from} direct redirect`,
+    url: new URL(`${from}?${RETIRED_SEO_REDIRECT_QUERY}`, siteOrigin).href,
+    location: new URL(`${to}?${RETIRED_SEO_REDIRECT_QUERY}`, siteOrigin).href,
+  }));
+}
 
 function positiveInteger(value, fallback, label) {
   if (value === undefined || value === "") return fallback;
@@ -415,9 +456,19 @@ export async function runProductionMonitor(options = {}) {
         `missing bilingual marker "${route.bilingualMarker}"`,
       );
       if (route.path === "/science") {
-        const cardCount = (resource.text.match(/class="riddle-card"/gu) || []).length;
-        expect(cardCount === 20, `science source contains ${cardCount} static cards instead of 20`);
-        expect(resource.text.includes('"hasPart"'), "science Quiz schema has no hasPart questions");
+        expect(
+          /<body\b[^>]*\bdata-page="category"/iu.test(resource.text),
+          "science must retain the functional category application shell",
+        );
+        expect(
+          /<body\b[^>]*\bdata-category="science"/iu.test(resource.text),
+          "science category shell is not bound to the science dataset",
+        );
+        expect(resource.text.includes('id="cardGrid"'), "science category shell is missing its runtime card mount");
+        expect(
+          !/<article\b[^>]*class="[^"]*(?:riddle-card|seo-qa-card)/iu.test(resource.text),
+          "science retains legacy static SEO card markup instead of the functional shell",
+        );
       }
       assertBudget(resource, config.siteMaxMs, 150_000);
       return resource;
@@ -438,6 +489,28 @@ export async function runProductionMonitor(options = {}) {
       expect(
         resource.response.headers.get("location") === expectedTarget,
         `legacy redirect target is ${resource.response.headers.get("location") || "missing"}, expected ${expectedTarget}`,
+      );
+      assertBudget(resource, config.siteMaxMs, 10_000);
+      return resource;
+    }),
+  ));
+
+  await Promise.all(retiredSeoRedirectProbeDefinitions(config.siteOrigin).map((definition) =>
+    check(definition.name, async () => {
+      const resource = await fetchResource(
+        fetchImpl,
+        definition.url,
+        config.timeoutMs,
+        { redirect: "manual" },
+      );
+      expectStatus(resource.response, 301);
+      expect(
+        resource.response.headers.get("location") === definition.location,
+        `retired SEO redirect target is ${resource.response.headers.get("location") || "missing"}, expected ${definition.location}`,
+      );
+      expect(
+        /max-age=86400/iu.test(resource.response.headers.get("cache-control") || ""),
+        "retired SEO redirect must be cacheable as a permanent redirect",
       );
       assertBudget(resource, config.siteMaxMs, 10_000);
       return resource;
@@ -587,12 +660,18 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-    expect(urls.length >= 140, `sitemap contains only ${urls.length} URLs`);
+    const expectedUrls = INDEXABLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    expect(urls.length === expectedUrls.length, `sitemap contains ${urls.length} URLs instead of ${expectedUrls.length}`);
+    expect(new Set(urls).size === urls.length, "sitemap repeats a URL");
+    expect(
+      urls.every((url) => new URL(url).origin === config.siteOrigin),
+      "sitemap contains a URL outside the monitored primary site origin",
+    );
     expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
-    expect(urls.includes(`${config.siteOrigin}/collections`), "sitemap is missing collections");
-    expect(urls.includes(`${config.siteOrigin}/ar/alghaz-ma-alhal/`), "sitemap is missing Arabic riddles");
-    expect(urls.includes(`${config.siteOrigin}/ar/topics/science/`), "sitemap is missing Arabic science");
-    expect(urls.includes(`${config.siteOrigin}/privacy`), "sitemap is missing the Privacy Centre");
+    expect(
+      expectedUrls.every((url) => urls.includes(url)),
+      "sitemap is missing one or more focused Riddle Arabia routes",
+    );
     expect(
       QUARANTINED_CATEGORY_SLUGS.every((slug) => (
         !urls.some((url) => {

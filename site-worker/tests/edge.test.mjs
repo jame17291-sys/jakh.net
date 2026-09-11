@@ -10,6 +10,7 @@ import {
   createSiteHandler,
   fingerprintCompatibilitySource,
   isQuarantinedPath,
+  retiredSeoRedirectTarget,
   validateMtaStsPolicy,
 } from "../src/site-edge.js";
 
@@ -87,6 +88,34 @@ test("legacy hosts redirect directly to the new canonical route and preserve que
     assert.equal(response.headers.get("location"), destination);
     assertSecurityHeaders(response);
   }
+});
+
+test("retired SEO entry points and pagination redirect once to their retained Riddle Arabia routes", async () => {
+  const cases = [
+    ["https://jakh.net/en/riddles-with-answers/?ref=google", `${PRIMARY_ORIGIN}/riddles?ref=google`],
+    [`${PRIMARY_ORIGIN}/en/kids-riddles-with-answers/index.html?x=1`, `${PRIMARY_ORIGIN}/family-riddles?x=1`],
+    [`${PRIMARY_ORIGIN}/en/logic-puzzles-with-answers/?x=1`, `${PRIMARY_ORIGIN}/logic-challenges?x=1`],
+    [`${PRIMARY_ORIGIN}/en/general-knowledge-quiz-questions/?x=1`, `${PRIMARY_ORIGIN}/general-knowledge?x=1`],
+    [`${PRIMARY_ORIGIN}/en/spacetoon-quiz/?x=1`, `${PRIMARY_ORIGIN}/spacetoon-nostalgia?x=1`],
+    [`${PRIMARY_ORIGIN}/en/football-rules-quiz/?x=1`, `${PRIMARY_ORIGIN}/football?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/alghaz-ma-alhal/?x=1`, `${PRIMARY_ORIGIN}/ar/alghaz/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/alghaz-lil-atfal-ma-alhal/?x=1`, `${PRIMARY_ORIGIN}/ar/alghaz-atfal/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/alghaz-mantiqiyya-ma-alhal/?x=1`, `${PRIMARY_ORIGIN}/ar/alghaz-mantiq/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/asila-amma-wa-ajwiba/?x=1`, `${PRIMARY_ORIGIN}/ar/malumat-amma/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/ikhtibar-spacetoon/?x=1`, `${PRIMARY_ORIGIN}/ar/hanin-spacetoon/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/ikhtibar-qawanin-korat-alqadam/?x=1`, `${PRIMARY_ORIGIN}/ar/topics/football/?x=1`],
+    [`${PRIMARY_ORIGIN}/science/page/2/index.html?x=1`, `${PRIMARY_ORIGIN}/science?x=1`],
+    [`${PRIMARY_ORIGIN}/ar/topics/science/page/2/index.html?x=1`, `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
+  ];
+  for (const [source, destination] of cases) {
+    const response = await handler.fetch(new Request(source), environment());
+    assert.equal(response.status, 301, source);
+    assert.equal(response.headers.get("location"), destination, source);
+    assert.equal(response.headers.get("cache-control"), "public, max-age=86400", source);
+    assertSecurityHeaders(response);
+  }
+  assert.equal(retiredSeoRedirectTarget(siteManifest, "/missing/page/2/"), null);
+  assert.equal(retiredSeoRedirectTarget(siteManifest, "/science/page/0/"), null);
 });
 
 test("quarantined paths return policy-complete 410 responses before asset access", async () => {
@@ -247,6 +276,15 @@ test("handler rejects a fingerprint mapping whose filename does not match its by
   malformed.fingerprints["/app.js"] = target.replace(/\.[a-f0-9]{16}\.js$/u, ".0000000000000000.js");
   malformed.files[malformed.fingerprints["/app.js"]] = malformed.files[target];
   assert.throws(() => createSiteHandler({ siteManifest: malformed, mtaStsPolicy }), /Fingerprint does not match asset bytes/u);
+});
+
+test("handler rejects a retired SEO redirect whose curated destination is absent", () => {
+  const missingDestination = structuredClone(siteManifest);
+  delete missingDestination.routes["/riddles"];
+  assert.throws(
+    () => createSiteHandler({ siteManifest: missingDestination, mtaStsPolicy }),
+    /Retired SEO redirect target is absent from release routes: \/en\/riddles-with-answers -> \/riddles/u,
+  );
 });
 
 test("handler rejects quarantine policy drift or held paths in the release graph", () => {

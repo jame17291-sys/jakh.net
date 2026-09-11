@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
-import { SEO_COLLECTIONS } from "./seo-collections.mjs";
+import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
@@ -19,10 +19,6 @@ const games = [
   "diplomacy",
 ];
 const sitePages = {
-  "collections.html": "collections",
-  "about.html": "about",
-  "ar/collections/index.html": "collections",
-  "ar/about/index.html": "about",
   "404.html": "notFound",
 };
 const mojibake = /(?:Ã.|Â.|â€|â€™|ï¿½|\uFFFD)/u;
@@ -249,8 +245,20 @@ if (!appSource.includes("const SEARCH_LEADERBOARD_MODULE_PATH = '/search-leaderb
 
 for (const pair of categoryPagePairs) {
   const expected = {
-    en: { file: pair.en, dir: "ltr", canonical: `https://riddlearabia.com/${pair.slug}`, alternate: `https://riddlearabia.com/ar/topics/${pair.slug}/` },
-    ar: { file: pair.ar, dir: "rtl", canonical: `https://riddlearabia.com/ar/topics/${pair.slug}/`, alternate: `https://riddlearabia.com/${pair.slug}` },
+    en: {
+      file: pair.en,
+      dir: "ltr",
+      canonical: `https://riddlearabia.com/${pair.slug}`,
+      alternate: `https://riddlearabia.com/ar/topics/${pair.slug}/`,
+      alternatePath: `/ar/topics/${pair.slug}/`,
+    },
+    ar: {
+      file: pair.ar,
+      dir: "rtl",
+      canonical: `https://riddlearabia.com/ar/topics/${pair.slug}/`,
+      alternate: `https://riddlearabia.com/${pair.slug}`,
+      alternatePath: `/${pair.slug}`,
+    },
   };
   for (const lang of ["en", "ar"]) {
     const { file, dir, canonical, alternate } = expected[lang];
@@ -268,8 +276,8 @@ for (const pair of categoryPagePairs) {
     if (!source.includes(`hreflang="${other}" href="${alternate}"`)) {
       fail(`${file}: missing reciprocal ${other} hreflang`);
     }
-    if (!source.includes(`class="ghost-btn language-route-link" href="${alternate}"`)) {
-      fail(`${file}: visible language switch does not target ${alternate}`);
+    if (!source.includes(`class="ghost-btn language-route-link" href="${expected[lang].alternatePath}"`)) {
+      fail(`${file}: visible language switch does not target ${expected[lang].alternatePath}`);
     }
   }
 }
@@ -330,22 +338,34 @@ for (const game of games) {
   }
 }
 
+const localizedExperiencePairs = [
+  ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({
+    key: page.key,
+    en: `${page.paths.en.slice(1)}.html`,
+    ar: `${page.paths.ar.slice(1)}index.html`,
+    enPath: page.paths.en,
+    arPath: page.paths.ar,
+  })),
+  { key: "collections", en: "collections.html", ar: "ar/collections/index.html", enPath: "/collections", arPath: "/ar/collections/" },
+  { key: "about", en: "about.html", ar: "ar/about/index.html", enPath: "/about", arPath: "/ar/about/" },
+];
 const localizedPages = {
-  en: SEO_COLLECTIONS.map((collection) => `en/${collection.slugs.en}/index.html`).sort(),
-  ar: SEO_COLLECTIONS.map((collection) => `ar/${collection.slugs.ar}/index.html`).sort(),
+  en: localizedExperiencePairs.map((pair) => pair.en).sort(),
+  ar: localizedExperiencePairs.map((pair) => pair.ar).sort(),
 };
-if (localizedPages.en.length !== localizedPages.ar.length || localizedPages.en.length !== 6) {
-  fail(`localized collections: expected 6 English and 6 Arabic pages, found ${localizedPages.en.length} and ${localizedPages.ar.length}`);
-}
-for (const [lang, files] of Object.entries(localizedPages)) {
-  for (const file of files) {
+for (const pair of localizedExperiencePairs) {
+  for (const lang of ["en", "ar"]) {
+    const file = pair[lang];
     const source = read(file);
     const dir = lang === "ar" ? "rtl" : "ltr";
     const other = lang === "ar" ? "en" : "ar";
+    const canonical = `https://riddlearabia.com${pair[lang === "ar" ? "arPath" : "enPath"]}`;
+    const alternate = `https://riddlearabia.com${pair[other === "ar" ? "arPath" : "enPath"]}`;
     if (!new RegExp(`<html[^>]+lang=["']${lang}["'][^>]+dir=["']${dir}["']`, "iu").test(source)) {
       fail(`${file}: expected lang="${lang}" and dir="${dir}"`);
     }
-    if (!new RegExp(`hreflang=["']${other}["']`, "iu").test(source)) fail(`${file}: missing reciprocal ${other} hreflang`);
+    if (!source.includes(`<link rel="canonical" href="${canonical}"`)) fail(`${file}: canonical does not match its localized route`);
+    if (!source.includes(`hreflang="${other}" href="${alternate}"`)) fail(`${file}: missing reciprocal ${other} hreflang`);
     if (!new RegExp(`lang=["']${other}["'][^>]+dir=["']${other === "ar" ? "rtl" : "ltr"}["']`, "iu").test(source)) {
       fail(`${file}: language switch must declare ${other} direction`);
     }
@@ -353,7 +373,11 @@ for (const [lang, files] of Object.entries(localizedPages)) {
       if (/[?&](?:amp;)?lang=(?:ar|en)(?:[&#"'])/u.test(source)) {
         fail(`${file}: uses a retired ?lang URL instead of a physical language route`);
       }
-      if (/href=["']\/(?:mind-lab|collections|play|about|privacy)(?:[/?#"'])/u.test(source)) {
+      const leakedSharedAnchor = [...source.matchAll(/<a\b[^>]*>/giu)].find((match) => (
+        !/\blanguage-route-link\b/iu.test(match[0])
+        && /\bhref=["']\/(?:mind-lab|collections|play|about|privacy)(?:[/?#"'])/iu.test(match[0])
+      ));
+      if (leakedSharedAnchor) {
         fail(`${file}: Arabic internal shared-page links must stay on /ar/ routes`);
       }
     }
@@ -406,5 +430,5 @@ if (failures.length) {
 
 console.log(
   `Bilingual validation passed: ${appPages.length} app pages (${categoryPagePairs.length * 2} localized topics), ${Object.keys(sitePages).length} static pages, `
-  + `${games.length} games, ${localizedPages.en.length + localizedPages.ar.length} localized collections, and ${cardCount} cards.`,
+  + `${games.length} games, ${localizedExperiencePairs.length * 2} localized experience pages, and ${cardCount} cards.`,
 );

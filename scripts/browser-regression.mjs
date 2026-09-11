@@ -24,8 +24,20 @@ const SITE_ROOT = resolve(process.env.JAKH_SITE_ROOT || REPOSITORY_ROOT);
 const SITE_MANIFEST_PATH = process.env.JAKH_SITE_MANIFEST
   ? resolve(process.env.JAKH_SITE_MANIFEST)
   : null;
+const GAME_SMOKE_FIXTURES = Object.freeze([
+  { name: "Chess", route: "/chess", root: "#chessBoard", action: "#btn2Players" },
+  { name: "Mastermind", route: "/mastermind", root: "#mmBoard", action: "#hintBtn" },
+  { name: "Go", route: "/go", root: "#goBoard", action: "#goPassBtn" },
+  { name: "Reversi", route: "/reversi", root: "#rvBoard", action: "#rvMode2P" },
+  { name: "Codenames", route: "/codenames", root: "#cnGrid", action: "#cnPassBtn" },
+  { name: "Catan", route: "/catan", root: "#catan-board", action: "#btn-restart" },
+  { name: "Backgammon", route: "/backgammon", root: "#bgBoard", action: '#bgOuter button:has-text("New Game")' },
+  { name: "SET", route: "/set", root: "#setGrid", action: "#setBtnHint" },
+  { name: "Hanabi", route: "/hanabi", root: "#hbHumanCards", action: "#hbClueSuitBtn" },
+  { name: "Diplomacy", route: "/diplomacy", root: "#dip-map", action: "#btn-resolve" },
+]);
 
-async function mockApi(context) {
+async function mockApi(context, { battle = null } = {}) {
   await context.route("**/api/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
@@ -68,6 +80,20 @@ async function mockApi(context) {
       });
       return;
     }
+    if (battle && path === "/api/battle/create" && request.method() === "POST") {
+      try {
+        battle.creates.push(JSON.parse(request.postData() || "{}"));
+      } catch {
+        battle.creates.push({});
+      }
+      await route.fulfill({
+        status: 201,
+        contentType: "application/json",
+        headers,
+        body: JSON.stringify({ code: battle.code, hostId: battle.hostId }),
+      });
+      return;
+    }
     await route.fulfill({
       status: 404,
       contentType: "application/json",
@@ -88,14 +114,196 @@ function trackPageErrors(page) {
   };
 }
 
-async function createContext(browser, options = {}) {
+async function createContext(browser, options = {}, mockOptions = {}) {
   const compatibleOptions = { ...options };
   if (BROWSER_ENGINE === "firefox") delete compatibleOptions.isMobile;
   const context = await browser.newContext(compatibleOptions);
   context.setDefaultNavigationTimeout(60_000);
   context.setDefaultTimeout(60_000);
-  await mockApi(context);
+  await mockApi(context, mockOptions);
   return context;
+}
+
+async function installBattleSocketMock(context, { code, hostId }) {
+  await context.addInitScript(({ roomCode, roomHostId }) => {
+    const storageKey = `__riddlearabia_battle_browser_${roomCode}`;
+    const question = {
+      index: 0,
+      total: 5,
+      text: { en: "Which planet is known as the Red Planet?", ar: "أي كوكب يُعرف بالكوكب الأحمر؟" },
+      options: {
+        en: ["Mars", "Venus", "Jupiter", "Mercury"],
+        ar: ["المريخ", "الزهرة", "المشتري", "عطارد"],
+      },
+    };
+
+    const initialRoom = () => ({
+      code: roomCode,
+      category: "science",
+      difficulty: "all",
+      phase: "lobby",
+      currentQ: 0,
+      totalQ: question.total,
+      players: [],
+      answers: {},
+      event: "room-update",
+    });
+    const readRoom = () => {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(storageKey) || "");
+        if (parsed?.code === roomCode && Array.isArray(parsed.players)) return parsed;
+      } catch {
+        // A malformed test value behaves like an empty room.
+      }
+      return initialRoom();
+    };
+    const writeRoom = (room, event) => {
+      const next = { ...room, event };
+      localStorage.setItem(storageKey, JSON.stringify(next));
+      return next;
+    };
+    const snapshot = (room) => {
+      const players = room.players.map(({ id, name, score, streak }) => ({ id, name, score, streak }));
+      return {
+        code: room.code,
+        category: room.category,
+        difficulty: room.difficulty,
+        phase: room.phase,
+        currentQ: room.currentQ,
+        totalQ: room.totalQ,
+        hostId: room.players.find((player) => player.isHost)?.id || null,
+        players,
+        answeredCount: Object.keys(room.answers || {}).length,
+        totalPlayers: players.length,
+      };
+    };
+    const messageFor = (room) => {
+      if (room.event === "question") {
+        return { type: "question", roomState: snapshot(room), question, timeMs: 15_000 };
+      }
+      return { type: "room-update", roomState: snapshot(room) };
+    };
+
+    class BattleSocket {
+      constructor(url) {
+        this.url = String(url);
+        this.readyState = BattleSocket.CONNECTING;
+        this.onopen = null;
+        this.onmessage = null;
+        this.onerror = null;
+        this.onclose = null;
+        this.playerId = null;
+        this.listeners = new Map();
+        this.onStorage = (event) => {
+          if (event.key !== storageKey || !event.newValue || this.readyState !== BattleSocket.OPEN) return;
+          try {
+            this.emit(messageFor(JSON.parse(event.newValue)));
+          } catch {
+            // Test transport ignores malformed broadcasts just like a failed socket frame.
+          }
+        };
+        window.addEventListener("storage", this.onStorage);
+        window.__battleSocketUrls = [...(window.__battleSocketUrls || []), this.url];
+        queueMicrotask(() => {
+          if (this.readyState !== BattleSocket.CONNECTING) return;
+          this.readyState = BattleSocket.OPEN;
+          this.dispatch("open", { target: this });
+        });
+      }
+
+      addEventListener(type, listener) {
+        if (!this.listeners.has(type)) this.listeners.set(type, new Set());
+        this.listeners.get(type).add(listener);
+      }
+
+      removeEventListener(type, listener) {
+        this.listeners.get(type)?.delete(listener);
+      }
+
+      dispatch(type, event) {
+        const handler = this[`on${type}`];
+        if (typeof handler === "function") handler.call(this, event);
+        for (const listener of this.listeners.get(type) || []) listener.call(this, event);
+      }
+
+      emit(payload) {
+        queueMicrotask(() => {
+          if (this.readyState === BattleSocket.OPEN) {
+            this.dispatch("message", { data: JSON.stringify(payload), target: this });
+          }
+        });
+      }
+
+      send(raw) {
+        if (this.readyState !== BattleSocket.OPEN) throw new Error("Battle socket is not open");
+        let payload;
+        try {
+          payload = JSON.parse(String(raw));
+        } catch {
+          return;
+        }
+        if (payload?.type === "join-room") {
+          const room = readRoom();
+          const isHost = payload.hostId === roomHostId && !room.players.some((player) => player.isHost);
+          const playerId = isHost ? "host-player" : "guest-player";
+          if (!room.players.some((player) => player.id === playerId)) {
+            room.players.push({
+              id: playerId,
+              name: String(payload.name || "Player"),
+              score: 0,
+              streak: 0,
+              isHost,
+            });
+          }
+          this.playerId = playerId;
+          const saved = writeRoom(room, "room-update");
+          this.emit({ type: "joined", playerId, isHost });
+          this.emit(messageFor(saved));
+          return;
+        }
+        if (payload?.type === "start-game") {
+          const room = readRoom();
+          const player = room.players.find((candidate) => candidate.id === this.playerId);
+          if (!player?.isHost || room.phase !== "lobby") return;
+          room.phase = "question";
+          room.currentQ = 0;
+          room.answers = {};
+          this.emit(messageFor(writeRoom(room, "question")));
+        }
+      }
+
+      close() {
+        if (this.readyState === BattleSocket.CLOSED) return;
+        this.readyState = BattleSocket.CLOSED;
+        window.removeEventListener("storage", this.onStorage);
+        queueMicrotask(() => this.dispatch("close", { target: this }));
+      }
+    }
+
+    Object.assign(BattleSocket, {
+      CONNECTING: 0,
+      OPEN: 1,
+      CLOSING: 2,
+      CLOSED: 3,
+    });
+    Object.defineProperty(window, "WebSocket", {
+      configurable: true,
+      writable: true,
+      value: BattleSocket,
+    });
+    Object.defineProperty(navigator, "share", {
+      configurable: true,
+      value: undefined,
+    });
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText: async (text) => {
+          window.__battleCopiedText = String(text);
+        },
+      },
+    });
+  }, { roomCode: code, roomHostId: hostId });
 }
 
 async function setCurrentDeniedConsent(context) {
@@ -474,6 +682,101 @@ async function main() {
       }
     });
 
+    await runTest("every game loads a playable surface and responds to an action", async () => {
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      });
+      await setCurrentDeniedConsent(context);
+      try {
+        for (const fixture of GAME_SMOKE_FIXTURES) {
+          const page = await context.newPage();
+          const assertNoPageErrors = trackPageErrors(page);
+          try {
+            const response = await page.goto(`${baseUrl}${fixture.route}`, {
+              waitUntil: NAVIGATION_READY_EVENT,
+            });
+            assert.equal(response?.status(), 200, `${fixture.name} returned ${response?.status()}`);
+            const root = page.locator(fixture.root);
+            await root.waitFor({ state: "visible" });
+            const action = page.locator(fixture.action).first();
+            await action.waitFor({ state: "visible" });
+            assert.equal(await action.isDisabled(), false, `${fixture.name} action is unexpectedly disabled`);
+            await action.click();
+            await page.waitForTimeout(50);
+            await root.waitFor({ state: "visible" });
+            assertNoPageErrors();
+          } finally {
+            await page.close();
+          }
+        }
+      } finally {
+        await context.close();
+      }
+    });
+
+    await runTest("Battle query invite joins a second player and starts the same question", async () => {
+      const battle = {
+        code: "SCI7X2KQ",
+        hostId: "host-token",
+        creates: [],
+      };
+      const context = await createContext(browser, {
+        viewport: { width: 1280, height: 800 },
+        serviceWorkers: "block",
+      }, { battle });
+      await installBattleSocketMock(context, battle);
+      const host = await context.newPage();
+      const guest = await context.newPage();
+      const assertHostErrors = trackPageErrors(host);
+      const assertGuestErrors = trackPageErrors(guest);
+      try {
+        await host.goto(`${baseUrl}/`, { waitUntil: NAVIGATION_READY_EVENT });
+        await host.locator("#battleNavBtn").click();
+        await host.locator("#battleNameInput").waitFor({ state: "visible" });
+        await host.locator("#battleNameInput").fill("Host");
+        await host.locator("#battleCatSelect").selectOption("science");
+        await host.locator("#battleCreateBtn").click();
+        await host.locator("#battleShareBtn").waitFor({ state: "visible" });
+        assert.deepEqual(battle.creates, [{ category: "science", difficulty: "all", questionCount: 10 }]);
+
+        await host.locator("#battleShareBtn").click();
+        await host.waitForFunction(() => typeof window.__battleCopiedText === "string");
+        const copiedText = await host.evaluate(() => window.__battleCopiedText);
+        const inviteText = copiedText.split("\n").find((value) => value.startsWith("http"));
+        assert(inviteText, `Battle invite clipboard payload did not contain a URL: ${copiedText}`);
+        const inviteUrl = new URL(inviteText);
+        assert.equal(inviteUrl.origin, new URL(baseUrl).origin);
+        assert.equal(inviteUrl.pathname, "/");
+        assert.equal(inviteUrl.searchParams.get("battle"), battle.code);
+        assert.equal(inviteUrl.hash, "");
+
+        await guest.goto(inviteUrl.href, { waitUntil: NAVIGATION_READY_EVENT });
+        await guest.locator("#battleCodeInput").waitFor({ state: "visible" });
+        assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code);
+        await guest.locator("#battleNameInput").fill("Guest");
+        await guest.locator("#battleJoinBtn").click();
+        await guest.locator("#battleShareBtn").waitFor({ state: "visible" });
+        await host.locator(".battle-player-row").filter({ hasText: "Guest" }).waitFor({ state: "visible" });
+        await host.locator("#battleStartBtn").click();
+
+        for (const page of [host, guest]) {
+          await page.locator("#battleOptions").waitFor({ state: "visible" });
+          assert.equal(await page.locator("#battleOptions .battle-option-btn").count(), 4);
+          assert.match(await page.locator(".battle-player-count").innerText(), /2 players/u);
+          const socketUrl = await page.evaluate(() => window.__battleSocketUrls?.[0]);
+          assert(socketUrl, "Battle did not open a WebSocket");
+          const socket = new URL(socketUrl);
+          assert.equal(socket.pathname, "/ws/battle");
+          assert.equal(socket.searchParams.get("code"), battle.code);
+        }
+        assertHostErrors();
+        assertGuestErrors();
+      } finally {
+        await context.close();
+      }
+    });
+
     await runTest("service worker cold-offline shell and direct game entry", async () => {
       const context = await createContext(browser, {
         viewport: { width: 1024, height: 720 },
@@ -551,7 +854,7 @@ async function main() {
       }
     });
 
-    console.log(`Browser regression passed: 5 suites on ${BROWSER_ENGINE}.`);
+    console.log(`Browser regression passed: 8 suites on ${BROWSER_ENGINE}.`);
   } finally {
     await browser.close();
     await server.close();

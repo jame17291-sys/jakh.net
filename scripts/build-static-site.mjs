@@ -25,6 +25,10 @@ import {
   PRIMARY_SITE_ORIGIN,
   rewritePublicSiteIdentity,
 } from "./public-site-identity.mjs";
+import {
+  assertPublicSeoReleaseSafety,
+  isRetiredPublicSeoArtifactPath,
+} from "./public-seo-release-contract.mjs";
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
@@ -82,6 +86,7 @@ const RETIRED_PUBLIC_BRAND_ASSETS = new Set([
   "assets/logo.png",
   "assets/logo.webp",
   "assets/og-image.jpg",
+  "assets/riddlearabia-mark.svg",
 ]);
 
 function invariant(condition, message) {
@@ -630,6 +635,11 @@ export async function buildStaticSite({
     .map(normalizeRelativePath)
     .filter(isDeployableFile)
     .sort((left, right) => left.localeCompare(right, "en"));
+  const retiredSeoArtifacts = selectedFiles.filter(isRetiredPublicSeoArtifactPath);
+  invariant(
+    retiredSeoArtifacts.length === 0,
+    `Retired SEO artifact(s) remain in the static release selection: ${retiredSeoArtifacts.join(", ")}. Delete them from the repository.`,
+  );
   invariant(selectedFiles.length > 0, "No deployable tracked files were found");
   invariant(new Set(selectedFiles).size === selectedFiles.length, "Deployable file list contains duplicates");
   invariant(selectedFiles.includes("index.html"), "The static artifact must include index.html");
@@ -728,6 +738,12 @@ export async function buildStaticSite({
   if (quarantine && publication) {
     assertPublicProjection(artifactBytes, { publication, quarantine });
   }
+  assertPublicSeoReleaseSafety(artifactBytes, {
+    // Unit fixtures use a deliberately minimal file graph. The deployed
+    // repository build must always prove robots, sitemap, canonical coverage,
+    // current branding, and the absence of retired SEO output together.
+    requireMetadata: source === REPOSITORY_ROOT,
+  });
 
   const files = {};
   const routes = {};

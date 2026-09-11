@@ -5,6 +5,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import { buildVersionBoundMonitorProof } from "./runtime-monitor-proof.mjs";
+import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, "..");
@@ -102,6 +103,9 @@ export function validateManifest(manifest) {
   if (!Number.isInteger(manifest?.totalBytes) || manifest.totalBytes < 1) errors.push("manifest totalBytes is invalid");
   if (Object.keys(manifest?.files || {}).length !== manifest?.fileCount) errors.push("manifest fileCount does not match files");
   if (!manifest?.routes?.["/"] || !manifest?.routes?.["/__404__"]) errors.push("manifest lacks root or 404 routes");
+  for (const { from, to } of RETIRED_SEO_ROUTE_REDIRECTS) {
+    if (!manifest?.routes?.[to]) errors.push(`retired SEO redirect ${from} has no deployed target ${to}`);
+  }
   for (const [alias, target] of Object.entries(manifest?.aliases || {})) {
     if (manifest.aliases[target]) errors.push(`alias ${alias} points to alias ${target}`);
     if (!manifest.routes[target]) errors.push(`alias ${alias} points to unknown route ${target}`);
@@ -219,6 +223,17 @@ export function smokeDefinitions(token, {
       cache: /max-age=0.+must-revalidate/iu,
     },
   ];
+  if (normalizedPrimaryOrigin === PRIMARY_SITE_ORIGIN) {
+    for (const { from, to } of RETIRED_SEO_ROUTE_REDIRECTS) {
+      definitions.push({
+        name: `retired-seo${from}`,
+        url: new URL(`${from}?${query}`, normalizedPrimaryOrigin).href,
+        status: 301,
+        location: new URL(`${to}?${query}`, normalizedPrimaryOrigin).href,
+        cache: /max-age=86400/iu,
+      });
+    }
+  }
   for (const legacyOrigin of normalizedLegacy) {
     definitions.push({
       name: `legacy-${new URL(legacyOrigin).hostname}-direct-redirect`,

@@ -353,9 +353,11 @@ test('truthful product and server-checking wording is enforced', () => {
 });
 
 test('Battle invitations use shareable query URLs while accepting legacy hash links', () => {
+  assert.match(app, /: 'https:\/\/api\.riddlearabia\.com';/u);
   assert.match(app, /new URLSearchParams\(location\.search\)\.get\('battle'\)/u);
   assert.ok(app.includes("location.hash.match(/^#battle\\/([A-Z0-9-]+)$/i)"));
   assert.match(app, /const inviteCode = queryCode \|\| hashMatch\?\.\[1\] \|\| ''/u);
+  assert.match(battleMode, /api\.protocol === 'https:' \? 'wss:' : 'ws:'/u);
   assert.match(battleMode, /new URL\(state\.lang === 'ar' \? '\/ar\/' : '\/', location\.origin\)/u);
   assert.match(battleMode, /inviteUrl\.searchParams\.set\('battle', code\)/u);
 });

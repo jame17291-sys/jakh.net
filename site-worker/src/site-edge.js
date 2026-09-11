@@ -1,3 +1,9 @@
+import {
+  directRetiredSeoRouteTarget,
+  normalizeRetiredSeoRoute,
+  RETIRED_SEO_ROUTE_REDIRECTS,
+} from "./seo-route-migrations.js";
+
 const APEX_HOST = "riddlearabia.com";
 const WWW_HOST = "www.riddlearabia.com";
 const LEGACY_HOSTS = new Set(["jakh.net", "www.jakh.net"]);
@@ -231,6 +237,25 @@ function redirectResponse(siteManifest, target) {
   }), { siteManifest, pathname: target.pathname, cacheControl: REDIRECT_CACHE });
 }
 
+function retiredSeoPaginationTarget(siteManifest, pathname) {
+  const english = pathname.match(/^\/([a-z0-9-]+)\/page\/[1-9]\d*(?:\/index\.html)?\/?$/iu);
+  if (english) {
+    const target = `/${english[1]}`;
+    return siteManifest.routes[target] ? target : null;
+  }
+  const arabic = pathname.match(/^\/ar\/topics\/([a-z0-9-]+)\/page\/[1-9]\d*(?:\/index\.html)?\/?$/iu);
+  if (arabic) {
+    const target = `/ar/topics/${arabic[1]}/`;
+    return siteManifest.routes[target] ? target : null;
+  }
+  return null;
+}
+
+export function retiredSeoRedirectTarget(siteManifest, pathname) {
+  const normalized = normalizeRetiredSeoRoute(pathname);
+  return directRetiredSeoRouteTarget(normalized) || retiredSeoPaginationTarget(siteManifest, normalized);
+}
+
 export function canonicalRedirect(siteManifest, requestUrl) {
   const target = new URL(requestUrl.href);
   let changed = false;
@@ -247,6 +272,11 @@ export function canonicalRedirect(siteManifest, requestUrl) {
   if (isPrimaryHost(target.hostname) && target.protocol !== "https:") {
     target.protocol = "https:";
     target.port = "";
+    changed = true;
+  }
+  const retiredSeoTarget = retiredSeoRedirectTarget(siteManifest, target.pathname);
+  if (retiredSeoTarget) {
+    target.pathname = retiredSeoTarget;
     changed = true;
   }
   const aliasTarget = siteManifest.aliases[target.pathname];
@@ -320,6 +350,12 @@ function validateManifest(siteManifest) {
       === [...EXPECTED_QUARANTINED_CATEGORIES].sort().join("\0"),
     "Quarantined category manifest does not match the reviewed production policy",
   );
+  for (const { from, to } of RETIRED_SEO_ROUTE_REDIRECTS) {
+    invariant(
+      Boolean(siteManifest.routes[to]),
+      `Retired SEO redirect target is absent from release routes: ${from} -> ${to}`,
+    );
+  }
   for (const path of Object.keys(siteManifest.files)) {
     invariant(!isQuarantinedPath(siteManifest, path), `Quarantined path is present in site files: ${path}`);
   }

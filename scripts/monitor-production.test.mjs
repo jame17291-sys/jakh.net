@@ -5,8 +5,11 @@ import {
   API_RELEASE_CONTRACT,
   buildMonitorReport,
   HTML_ROUTES,
+  INDEXABLE_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
+  PRIMARY_SITE_ORIGIN,
+  retiredSeoRedirectProbeDefinitions,
   runProductionMonitor,
   UNAUTHENTICATED_API_GET_ROUTES,
 } from "./monitor-production.mjs";
@@ -36,10 +39,9 @@ function apiHeaders(origin, cacheControl = "no-store") {
 function staticBody(pathname, { siteOrigin, apiOrigin }) {
   const route = HTML_ROUTES.find((candidate) => candidate.path === pathname);
   if (route) {
-    const seoCards = pathname === "/science"
-      ? `${'<article class="riddle-card"></article>'.repeat(20)}<script type="application/ld+json">{"hasPart":[]}</script>`
-      : "";
-    return `<!doctype html><html><head>${route.marker}</title></head><body>${route.bilingualMarker}${seoCards}ok</body></html>`;
+    const categoryAttributes = pathname === "/science" ? ' data-page="category" data-category="science"' : "";
+    const categoryMount = pathname === "/science" ? '<div id="cardGrid"></div>' : "";
+    return `<!doctype html><html><head>${route.marker}</title></head><body${categoryAttributes}>${route.bilingualMarker}${categoryMount}ok</body></html>`;
   }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
@@ -79,13 +81,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin }) {
     });
   }
   if (pathname === "/sitemap.xml") {
-    const urls = [
-      `${siteOrigin}/collections`,
-      `${siteOrigin}/ar/alghaz-ma-alhal/`,
-      `${siteOrigin}/ar/topics/science/`,
-      `${siteOrigin}/privacy`,
-      ...Array.from({ length: 136 }, (_, index) => `${siteOrigin}/test-${index}`),
-    ];
+    const urls = INDEXABLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, siteOrigin).href);
     return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
   }
   if (pathname === "/.well-known/security.txt") {
@@ -295,7 +291,7 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, 45 + QUARANTINED_SITE_ROUTES.length);
+    assert.equal(summary.results.length, HTML_ROUTES.length + 26 + QUARANTINED_SITE_ROUTES.length);
   });
 });
 
@@ -363,6 +359,32 @@ test("production monitor requires one-hop legacy redirects to the new primary si
       legacyOrigins.length,
     );
   });
+});
+
+test("production monitor reserves route-migration probes for the production Riddle Arabia host", () => {
+  assert.deepEqual(retiredSeoRedirectProbeDefinitions("http://127.0.0.1:8787"), []);
+  const definitions = retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN);
+  assert.equal(definitions.length, 12);
+  assert.deepEqual(definitions[0], {
+    name: "Site: retired SEO /en/riddles-with-answers direct redirect",
+    url: "https://riddlearabia.com/en/riddles-with-answers?retired_seo_redirect_probe=riddlearabia",
+    location: "https://riddlearabia.com/riddles?retired_seo_redirect_probe=riddlearabia",
+  });
+  assert.deepEqual(definitions.at(-1), {
+    name: "Site: retired SEO /ar/ikhtibar-qawanin-korat-alqadam direct redirect",
+    url: "https://riddlearabia.com/ar/ikhtibar-qawanin-korat-alqadam?retired_seo_redirect_probe=riddlearabia",
+    location: "https://riddlearabia.com/ar/topics/football/?retired_seo_redirect_probe=riddlearabia",
+  });
+});
+
+test("production monitor follows the focused sitemap inventory", () => {
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 48);
+  assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
+  assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/riddles"));
+  assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/ar/alghaz/"));
+  assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/brain-games"));
+  assert.equal(INDEXABLE_SITEMAP_PATHS.some((path) => path.startsWith("/en/")), false);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.some((path) => /\/page\/\d+\//u.test(path)), false);
 });
 
 test("production monitor reports a legacy redirect that does not target the primary site", async () => {

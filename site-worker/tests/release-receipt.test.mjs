@@ -12,6 +12,7 @@ import {
   runSmoke,
   validateManifest,
 } from "../../scripts/site-release-receipt.mjs";
+import { directRetiredSeoRouteTarget } from "../src/seo-route-migrations.js";
 
 const repositoryRoot = resolve(import.meta.dirname, "../..");
 const manifest = JSON.parse(await readFile(resolve(repositoryRoot, "site-worker/generated/site-manifest.json"), "utf8"));
@@ -173,6 +174,10 @@ test("smoke probe enforces one-hop redirects and a single build identity", async
       status = 301;
       location = `https://riddlearabia.com/science?${url.searchParams}`;
       cacheControl = "public, max-age=86400";
+    } else if (directRetiredSeoRouteTarget(url.pathname)) {
+      status = 301;
+      location = `https://riddlearabia.com${directRetiredSeoRouteTarget(url.pathname)}${url.search}`;
+      cacheControl = "public, max-age=86400";
     } else if (url.pathname.endsWith("/index.html")) {
       status = 301;
       location = `https://riddlearabia.com/ar/topics/science/?${url.searchParams}`;
@@ -188,7 +193,7 @@ test("smoke probe enforces one-hop redirects and a single build identity", async
   };
   const report = await runSmoke({ expectedBuildId: buildId, fetchImpl: fakeFetch });
   assert.equal(report.ok, true, report.errors.join("\n"));
-  assert.equal(report.probes.length, 8);
+  assert.equal(report.probes.length, 20);
 });
 
 test("workflow contains exact rollback and required browser gates", async () => {

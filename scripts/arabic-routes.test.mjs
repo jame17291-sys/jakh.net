@@ -5,6 +5,8 @@ import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
+import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const GAME_SLUGS = [
   "chess",
@@ -21,11 +23,18 @@ const GAME_SLUGS = [
 const routes = [
   ["ar/index.html", "/", "/ar/"],
   ["ar/mind-lab/index.html", "/mind-lab", "/ar/mind-lab/"],
-  ["ar/collections/index.html", "/collections", "/ar/collections/"],
   ["ar/play/index.html", "/play", "/ar/play/"],
-  ["ar/about/index.html", "/about", "/ar/about/"],
   ["ar/privacy/index.html", "/privacy", "/ar/privacy/"],
   ...GAME_SLUGS.map((slug) => [`ar/games/${slug}/index.html`, `/${slug}`, `/ar/games/${slug}/`]),
+];
+const FRESH_SEO_ROUTES = [
+  ["ar/collections/index.html", "/collections", "/ar/collections/"],
+  ["ar/about/index.html", "/about", "/ar/about/"],
+  ...RIDDLE_ARABIA_SEO_PAGES.map((page) => [
+    `${page.paths.ar.slice(1)}index.html`,
+    page.paths.en,
+    page.paths.ar,
+  ]),
 ];
 const ENGLISH_COMMON_ARIA_LABELS = new Set([
   "Riddle Arabia home",
@@ -56,10 +65,10 @@ test("Arabic route generator is deterministic and current", () => {
     encoding: "utf8",
   });
   assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
-  assert.match(result.stdout, /current \(16 pages\)/u);
+  assert.match(result.stdout, /current \(14 pages\)/u);
 });
 
-test("all 16 physical Arabic routes have self canonicals and reciprocal alternates", () => {
+test("all 14 generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
   for (const [file, englishPath, arabicPath] of routes) {
     const html = read(file);
     const englishUrl = `https://riddlearabia.com${englishPath}`;
@@ -77,6 +86,21 @@ test("all 16 physical Arabic routes have self canonicals and reciprocal alternat
     assert.doesNotMatch(html, /(?:href|src|srcset)="(?:assets\/|styles\.css|app\.js|game-i18n\.js|manifest\.webmanifest)/iu, `${file}: root-relative resources`);
     assert.doesNotMatch(html, /href="[^"]*[?&]lang=(?:ar|en)(?:[&#"])/iu, `${file}: retired language query`);
     assert.doesNotMatch(html, /\/\s+(?:aria-|data-|class=|id=|placeholder=|title=)/iu, `${file}: malformed self-closing tag`);
+  }
+});
+
+test("freshly authored Arabic SEO routes retain their own reciprocal route contracts", () => {
+  for (const [file, englishPath, arabicPath] of FRESH_SEO_ROUTES) {
+    const html = read(file);
+    const englishUrl = `https://riddlearabia.com${englishPath}`;
+    const arabicUrl = `https://riddlearabia.com${arabicPath}`;
+    assert.match(html, /<html\b[^>]*\blang="ar"[^>]*\bdir="rtl"/iu, file);
+    assert.equal((html.match(new RegExp(`<link rel="canonical" href="${escapeRegex(arabicUrl)}"`, "gu")) || []).length, 1, file);
+    assert.equal((html.match(new RegExp(`hreflang="en" href="${escapeRegex(englishUrl)}"`, "gu")) || []).length, 1, file);
+    assert.equal((html.match(new RegExp(`hreflang="ar" href="${escapeRegex(arabicUrl)}"`, "gu")) || []).length, 1, file);
+    assert.match(html.match(/<title>([\s\S]*?)<\/title>/iu)?.[1] || "", /[\u0600-\u06ff]/u, `${file}: Arabic title`);
+    assert.match(html, /\/assets\/riddlearabia-logo\.webp/u, `${file}: supplied logo`);
+    assert.doesNotMatch(html, /\bJAKH(?:\s+Riddles)?\b|(?:https?:\/\/)?(?:www\.)?jakh\.net/iu, `${file}: retired public identity`);
   }
 });
 

@@ -18,6 +18,8 @@ import {
   isQuarantinedArtifactPath,
   loadProductionQuarantine,
 } from "../../scripts/publication-quarantine.mjs";
+import { isRetiredPublicSeoArtifactPath } from "../../scripts/public-seo-release-contract.mjs";
+import { RETIRED_SEO_ROUTE_REDIRECTS } from "../src/seo-route-migrations.js";
 
 const repositoryRoot = resolve(import.meta.dirname, "../..");
 const expectedHeldAssets = [
@@ -96,7 +98,17 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.equal(manifest.aliases["/science.html"], "/science");
   assert.equal(manifest.aliases["/ar/topics/science/index.html"], "/ar/topics/science/");
   assert.equal(manifest.aliases["/ar/topics/science.html"], "/ar/topics/science/");
-  assert.ok(Object.keys(manifest.aliases).length > 350);
+  for (const route of ["/riddles", "/ar/alghaz/", "/logic-challenges", "/brain-games", "/ar/alab-al-dimagh/"]) {
+    assert.ok(manifest.routes[route], `curated SEO route is missing: ${route}`);
+  }
+  for (const { from, to } of RETIRED_SEO_ROUTE_REDIRECTS) {
+    assert.equal(manifest.routes[from], undefined, `retired SEO route must not be deployed: ${from}`);
+    assert.equal(manifest.aliases[from], undefined, `retired SEO route must not be a static alias: ${from}`);
+    assert.ok(manifest.routes[to], `retired SEO redirect target must be deployed: ${from} -> ${to}`);
+  }
+  // The compact Riddle Arabia architecture removes generated /page/N/ aliases
+  // while retaining clean-path, .html, and localized route compatibility.
+  assert.ok(Object.keys(manifest.aliases).length >= 300);
   for (const [alias, target] of Object.entries(manifest.aliases)) {
     assert.equal(manifest.aliases[target], undefined, `${alias} must not redirect through ${target}`);
     assert.ok(manifest.routes[target], `${alias} target ${target} must resolve to an HTML artifact`);
@@ -107,6 +119,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   for (const relativePath of expectedHeldAssets) {
     assert.equal(manifest.files[`/${relativePath}`], undefined, relativePath);
   }
+  assert.ok(manifest.files["/assets/riddlearabia-logo.webp"], "supplied Riddle Arabia logo is missing");
+  assert.equal(manifest.files["/assets/riddlearabia-mark.svg"], undefined, "retired public logo asset is deployable");
   assert.equal(Object.keys(manifest.files).some((path) => /\/(?:scripts|worker|site-worker|docs)\//u.test(path)), false);
   for (const artifactPath of [
     ...Object.keys(manifest.files),
@@ -114,6 +128,9 @@ test("generated production manifest is complete, one-hop, and excludes repositor
     ...Object.keys(manifest.aliases),
   ]) {
     assert.equal(isQuarantinedArtifactPath(artifactPath, quarantine), false, artifactPath);
+  }
+  for (const artifactPath of Object.keys(manifest.files)) {
+    assert.equal(isRetiredPublicSeoArtifactPath(artifactPath), false, `retired SEO artifact was deployed: ${artifactPath}`);
   }
   assert.ok(manifest.inlineScripts["/"].length > 0, "root JSON-LD must receive a CSP hash");
   assert.deepEqual(Object.keys(manifest.fingerprints).sort(), [...FINGERPRINT_SOURCE_PATHS].sort());
@@ -207,8 +224,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.doesNotMatch(builtApplication, /portalMindStat: '56 موضوعًا'/u);
 
   const webManifest = await readFile(join(repositoryRoot, "site-worker/dist/manifest.webmanifest"), "utf8");
-  assert.match(webManifest, /3,200\+ bilingual trivia questions across 51 categories/u);
-  assert.doesNotMatch(webManifest, /3,500\+|56 categories/u);
+  assert.match(webManifest, /Arabic riddles, shared challenges, and browser brain games in English and Arabic/u);
+  assert.doesNotMatch(webManifest, /3,500\+|3,200\+|56 categories|51 categories/u);
   const sitemap = await readFile(join(repositoryRoot, "site-worker/dist/sitemap.xml"), "utf8");
   for (const slug of quarantine.categorySlugs) {
     assert.doesNotMatch(sitemap, new RegExp(`/(?:ar/topics/)?${slug}(?:[</]|$)`, "u"));
@@ -353,7 +370,8 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
 });
 
 test("deploy allow-list is explicit", () => {
-  assert.equal(isDeployableFile("assets/riddlearabia-mark.svg"), true);
+  assert.equal(isDeployableFile("assets/riddlearabia-logo.webp"), true);
+  assert.equal(isDeployableFile("assets/riddlearabia-mark.svg"), false);
   assert.equal(isDeployableFile("assets/logo.webp"), false);
   assert.equal(isDeployableFile("assets/og-image.jpg"), false);
   assert.equal(isDeployableFile(".well-known/security.txt"), true);

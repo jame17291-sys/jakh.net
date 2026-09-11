@@ -93,7 +93,7 @@ function renderClientQuarantine() {
   let meta = doc.querySelector('meta[name="robots"]');
   if (!meta) { meta = doc.createElement('meta'); meta.name = 'robots'; doc.head.appendChild(meta); }
   meta.content = 'noindex,nofollow,noarchive,nosnippet';
-  doc.title = ar ? 'غير متاح | JAKH' : 'Unavailable | JAKH';
+  doc.title = ar ? 'غير متاح | ريدل أرابيا' : 'Unavailable | Riddle Arabia';
   const main = doc.querySelector('main');
   if (main) main.innerHTML = `<section class="shell section-block" role="status"><h1>${ar ? 'المحتوى غير متاح' : 'Content unavailable'}</h1><p>${ar ? 'بانتظار مراجعة السلامة.' : 'Pending safety review.'}</p><a class="primary-btn" href="${ar ? '/ar/mind-lab/' : '/mind-lab'}">${ar ? 'الموضوعات' : 'Topics'}</a></section>`;
 }
@@ -227,11 +227,11 @@ const UI = {
     navCategories: 'Categories',
     authOpen: 'Sign in',
     language: 'Language',
-    homeEyebrow: 'Arabic riddles and nostalgia quizzes, made to share',
-    homeTitle: 'Start with a short Arabic riddle challenge, then test how much Spacetoon you remember.',
+    homeEyebrow: 'A home for curious minds across Arabia',
+    homeTitle: 'Turn a quiet moment into a good question. Discover Arabic riddles, shared challenges, and brain games in English and Arabic.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
-    browseCategories: 'Try Arabic riddles',
-    homeSpacetoonCta: 'Take the Spacetoon quiz',
+    browseCategories: 'Start a riddle',
+    homeSpacetoonCta: 'Explore brain games',
     heroGameHub: 'Game Hub',
     statCategories: 'Topics',
     statQuestions: 'Questions',
@@ -301,42 +301,42 @@ const UI = {
     gameTagAiPartner: 'AI Partner',
     gameTagMemory: 'Memory',
     gameTagAreaControl: 'Area Control',
-    portalMindTag: 'Mind Lab',
-    portalMindTitle: 'The Mind Lab',
-    portalMindDesc: 'Explore 3,275 English and Arabic questions, organized into 51 clear topics. Flip each card, reveal the answer, and keep score as you go.',
+    portalMindTag: 'Riddle Library',
+    portalMindTitle: 'The Riddle Library',
+    portalMindDesc: 'Explore questions made for a pause, a smile, and a little friendly debate. Reveal an answer, track your score, and keep discovering.',
     portalMindStat: '51 topics',
     portalBilingualStat: 'English & Arabic',
-    portalMindCta: 'Explore Riddles →',
-    portalGamesTag: 'Game Hub',
-    portalGamesTitle: 'The Game Hub',
-    portalGamesDesc: 'Play 10 browser adaptations and simplified games, from Chess and Go to Codenames and Catan. Nothing to install, and no sign-up needed.',
+    portalMindCta: 'Open the library →',
+    portalGamesTag: 'Games & challenges',
+    portalGamesTitle: 'The Challenge Room',
+    portalGamesDesc: 'Choose a browser game, invite a friend, or take on a quick challenge. Nothing to install and no sign-up required.',
     portalGamesStat1: '10 browser games',
     portalGamesStat2: 'All in browser',
-    portalGamesCta: 'Play Now →',
+    portalGamesCta: 'Choose a game →',
     homeCollectionsEyebrow: 'Quick ways to begin',
     homeCollectionsTitle: 'Start with a collection that fits your mood',
-    homeCollectionsText: 'Begin with a shareable Arabic riddle or a Spacetoon nostalgia challenge, then explore more focused quizzes.',
-    homeCollectionsCta: 'See all collections',
-    homeCollectionArabicTitle: 'Arabic riddles with answers',
-    homeCollectionArabicMeta: '16 bilingual riddles',
+    homeCollectionsText: 'Begin with an Arabic riddle, a nostalgia challenge, or a question that gives you a new lens on the region.',
+    homeCollectionsCta: 'Explore all paths',
+    homeCollectionArabicTitle: 'Arabic riddles in two languages',
+    homeCollectionArabicMeta: 'Read one clue in Arabic and English',
     homeCollectionKidsTitle: 'Spacetoon nostalgia quiz',
-    homeCollectionKidsMeta: '16 questions for classic-cartoon fans',
-    homeCollectionLogicTitle: 'Logic puzzles with explanations',
-    homeCollectionLogicMeta: 'Deduction, numbers, and careful reading',
-    homeCollectionFootballTitle: 'Football rules & tactics',
-    homeCollectionFootballMeta: '16 practical bilingual questions',
+    homeCollectionKidsMeta: 'A light, independent fan-made quiz',
+    homeCollectionLogicTitle: 'Logic challenges',
+    homeCollectionLogicMeta: 'Slow down, notice, and deduce',
+    homeCollectionFootballTitle: 'Arabia & Middle East history',
+    homeCollectionFootballMeta: 'Questions with regional context',
     homeSocialEyebrow: 'Stay curious',
-    homeSocialTitle: 'Get fresh challenges from JAKH',
+    homeSocialTitle: 'Get fresh challenges from Riddle Arabia',
     homeSocialText: 'Follow along for new riddles, quick quizzes, and game updates.',
-    homeSocialLabel: 'JAKH social pages',
+    homeSocialLabel: 'Riddle Arabia social pages',
     footerCollections: 'Collections',
     footerAbout: 'About & content standards',
     footerPrivacy: 'Privacy Centre',
-    footerInfoLabel: 'JAKH information',
-    socialInstagramLabel: 'JAKH Riddles on Instagram',
-    socialFacebookLabel: 'JAKH Riddles on Facebook',
+    footerInfoLabel: 'Riddle Arabia information',
+    socialInstagramLabel: 'Riddle Arabia on Instagram',
+    socialFacebookLabel: 'Riddle Arabia on Facebook',
     skipMain: 'Skip to main content',
-    brandHomeLabel: 'JAKH Riddles home',
+    brandHomeLabel: 'Riddle Arabia home',
     quickActionsLabel: 'Quick actions',
     languageControlsLabel: 'Language controls',
     breadcrumbLabel: 'Breadcrumb',
@@ -357,7 +357,7 @@ const UI = {
     cardSearchPlaceholder: 'Search by keyword, answer, or concept...',
     homeSrTitle: 'Riddles and quizzes in English and Arabic',
     standardsDefaultText: 'Questions are curated for learning and entertainment.',
-    standardsDefaultLink: 'See how JAKH reviews and improves content.',
+    standardsDefaultLink: 'See how Riddle Arabia reviews and improves content.',
     standardsEducationLabel: 'Educational use:',
     standardsEducationText: 'This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice.',
     standardsEducationLink: 'Read our content standards.',
@@ -378,7 +378,7 @@ const UI = {
     localBrowserOnly: 'Saved to your account',
     categoryEyebrow: 'Choose a section',
     categoryTitle: 'What are you curious about today?',
-    categoryText: 'Choose a clear section, search by interest, or let JAKH surprise you.',
+    categoryText: 'Choose a clear section, search by interest, or let Riddle Arabia surprise you.',
     searchCategoriesLabel: 'Search topics and subtopics',
     tracksLabel: 'Sections',
     randomCategory: 'Surprise me',
@@ -387,7 +387,7 @@ const UI = {
     showFewerTopics: 'Show featured topics',
     authEyebrow: 'Profile',
     authTitle: 'Create account or sign in',
-    footerNote: 'All rights reserved to JAKH 2026',
+    footerNote: 'All rights reserved to Riddle Arabia 2026',
 
     pageProgress: 'Page progress',
     insidePageEyebrow: 'Inside this page',
@@ -439,7 +439,7 @@ const UI = {
     username: 'Username',
     usernameOrEmail: 'Username or email',
     adminConsole: 'Admin console',
-    adminConsoleAria: 'Open the JAKH administration console',
+    adminConsoleAria: 'Open the Riddle Arabia administration console',
     password: 'Password',
     newPassword: 'New password',
     passwordHint: 'Your progress syncs securely across your devices.',
@@ -454,13 +454,13 @@ const UI = {
     recoveryCode: 'Recovery code',
     recoveryFormTitle: 'Recover your account',
     recoveryFormLead: 'Enter the one-time recovery code you saved and choose a new password. A successful reset signs you in, ends every older session, and replaces the recovery code.',
-    registrationRecoveryNotice: 'After account creation, JAKH shows a recovery code once. Save it securely; it is the only self-service way to recover an account without your password.',
+    registrationRecoveryNotice: 'After account creation, Riddle Arabia shows a recovery code once. Save it securely; it is the only self-service way to recover an account without your password.',
     recoveryReset: 'Reset password and sign in',
     recoveryResetting: 'Resetting password…',
     recoveryFailed: 'The account could not be recovered. Check the username, code, and new password, then try again.',
     recoveryReceiptTitle: 'Save your new recovery code now',
     recoveryReceiptLead: 'This code is shown only once. Store it in a password manager or another secure place. Anyone with this code can reset your password.',
-    recoveryReceiptReplacement: 'Generating another recovery code immediately invalidates this one. JAKH does not store a readable copy and cannot show it again.',
+    recoveryReceiptReplacement: 'Generating another recovery code immediately invalidates this one. Riddle Arabia does not store a readable copy and cannot show it again.',
     recoveryCopy: 'Copy recovery code',
     recoveryCopied: 'Recovery code copied. Save it somewhere secure.',
     recoveryCopyFailed: 'Automatic copy is unavailable. Select the code and copy it manually.',
@@ -535,16 +535,16 @@ const UI = {
     reportThanks: 'Reported — thanks for the feedback!',
     reportError: 'Could not submit report.',
     shareCopied: 'Result copied to clipboard!',
-    shareChallengeTitle: 'JAKH Challenge',
-    shareRiddleTitle: 'JAKH Riddles',
-    shareBattleTitle: 'JAKH Battle',
+    shareChallengeTitle: 'Riddle Arabia Challenge',
+    shareRiddleTitle: 'Riddle Arabia Riddles',
+    shareBattleTitle: 'Riddle Arabia Battle',
     avatarUpdated: 'Avatar updated!',
     avatarSaveError: 'Could not save the avatar.',
     chooseAvatarAria: 'Choose {avatar} as your avatar',
     passwordFieldsRequired: 'Fill both password fields.',
     passwordUpdated: 'Password updated!',
     suggestionSubmitError: 'Could not submit. Please try again.',
-    initializationError: 'JAKH could not finish loading. Please refresh and try again.',
+    initializationError: 'Riddle Arabia could not finish loading. Please refresh and try again.',
     genericError: 'Something went wrong. Please try again.',
     errorInvalidCredentials: 'Username or password is incorrect.',
     errorUserExists: 'That username or email is already in use.',
@@ -587,7 +587,7 @@ const UI = {
     verifiedTampered: 'The challenge changed and cannot be checked by the server. Start again.',
     verifiedUnavailable: 'This topic is not available for server scoring yet.',
     globalSearchUnavailable: 'Search is unavailable right now.',
-    installPrompt: '📲 Add JAKH to your home screen for quick access',
+    installPrompt: '📲 Add Riddle Arabia to your home screen for quick access',
     install: 'Install',
     secondsShort: 's',
     streakFreezeLabel: '🧊 Freeze',
@@ -598,11 +598,11 @@ const UI = {
     navCategories: 'الموضوعات',
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    homeEyebrow: 'ألغاز عربية واختبارات حنين قابلة للمشاركة',
-    homeTitle: 'ابدأ بتحدٍ قصير من الألغاز العربية، ثم اختبر كم تتذكر من سبيستون.',
+    homeEyebrow: 'مساحة للفضول والتحدي في العالم العربي',
+    homeTitle: 'حوّل لحظة هادئة إلى سؤال جميل. اكتشف ألغازًا عربية وتحديات مشتركة وألعاب تفكير بالعربية والإنجليزية.',
     homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
-    browseCategories: 'جرّب ألغازًا عربية',
-    homeSpacetoonCta: 'ابدأ اختبار سبيستون',
+    browseCategories: 'ابدأ لغزًا',
+    homeSpacetoonCta: 'استكشف ألعاب التفكير',
     heroGameHub: 'مركز الألعاب',
     statCategories: 'الموضوعات',
     statQuestions: 'الأسئلة',
@@ -672,42 +672,42 @@ const UI = {
     gameTagAiPartner: 'شريك آلي',
     gameTagMemory: 'ذاكرة',
     gameTagAreaControl: 'سيطرة على المناطق',
-    portalMindTag: 'مختبر العقول',
-    portalMindTitle: 'مختبر العقول',
-    portalMindDesc: 'استكشف 3,275 سؤالًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا. اكشف إجابة كل سؤال، وتابع نتيجتك أولًا بأول.',
+    portalMindTag: 'مكتبة الألغاز',
+    portalMindTitle: 'مكتبة الألغاز',
+    portalMindDesc: 'استكشف أسئلة صُممت للتأمل والابتسام والنقاش الودّي. شاهد الإجابة وتابع نتيجتك واستمر في الاكتشاف.',
     portalMindStat: '51 موضوعًا',
     portalBilingualStat: 'العربية والإنجليزية',
-    portalMindCta: 'استكشف الألغاز ←',
-    portalGamesTag: 'مركز الألعاب',
-    portalGamesTitle: 'مركز الألعاب',
-    portalGamesDesc: 'العب 10 نسخ متصفح وألعاب مبسطة، من الشطرنج وغو إلى كودنيمز وكاتان. بلا تنزيل وبلا حاجة إلى التسجيل.',
+    portalMindCta: 'افتح المكتبة ←',
+    portalGamesTag: 'ألعاب وتحديات',
+    portalGamesTitle: 'غرفة التحدي',
+    portalGamesDesc: 'اختر لعبة للمتصفح أو ادعُ صديقًا أو جرّب تحديًا سريعًا. لا تحتاج إلى تنزيل أو تسجيل.',
     portalGamesStat1: '10 ألعاب متصفح',
     portalGamesStat2: 'كلها في المتصفح',
-    portalGamesCta: 'العب الآن ←',
+    portalGamesCta: 'اختر لعبة ←',
     homeCollectionsEyebrow: 'بداية سريعة',
     homeCollectionsTitle: 'ابدأ بمجموعة تناسب مزاجك',
-    homeCollectionsText: 'ابدأ بلغز عربي قابل للمشاركة أو بتحدي حنين إلى سبيستون، ثم استكشف اختبارات أكثر تركيزًا.',
-    homeCollectionsCta: 'تصفّح كل المجموعات',
-    homeCollectionArabicTitle: 'ألغاز مع الحل',
-    homeCollectionArabicMeta: '16 لغزًا بالعربية والإنجليزية',
+    homeCollectionsText: 'ابدأ بلغز عربي أو تحدي حنين أو سؤال يفتح لك زاوية جديدة على المنطقة.',
+    homeCollectionsCta: 'استكشف كل المسارات',
+    homeCollectionArabicTitle: 'ألغاز عربية بلغتين',
+    homeCollectionArabicMeta: 'اقرأ التلميح بالعربية والإنجليزية',
     homeCollectionKidsTitle: 'اختبار حنين إلى سبيستون',
-    homeCollectionKidsMeta: '16 سؤالًا لمحبي الرسوم الكلاسيكية',
-    homeCollectionLogicTitle: 'ألغاز منطقية مع الشرح',
-    homeCollectionLogicMeta: 'استنتاج وأرقام وقراءة متأنية',
-    homeCollectionFootballTitle: 'قوانين وتكتيكات كرة القدم',
-    homeCollectionFootballMeta: '16 سؤالًا عمليًا بالعربية والإنجليزية',
+    homeCollectionKidsMeta: 'اختبار خفيف ومستقل من إعداد المعجبين',
+    homeCollectionLogicTitle: 'تحديات منطقية',
+    homeCollectionLogicMeta: 'تمهّل ولاحظ واستنتج',
+    homeCollectionFootballTitle: 'تاريخ العرب والشرق الأوسط',
+    homeCollectionFootballMeta: 'أسئلة ضمن سياق المنطقة',
     homeSocialEyebrow: 'ابقَ فضوليًا',
-    homeSocialTitle: 'اكتشف تحديات JAKH الجديدة',
+    homeSocialTitle: 'اكتشف تحديات ريدل أرابيا الجديدة',
     homeSocialText: 'تابعنا لألغاز جديدة، واختبارات سريعة، وتحديثات الألعاب.',
-    homeSocialLabel: 'صفحات JAKH الاجتماعية',
+    homeSocialLabel: 'صفحات ريدل أرابيا الاجتماعية',
     footerCollections: 'المجموعات',
-    footerAbout: 'عن JAKH ومعايير المحتوى',
+    footerAbout: 'عن ريدل أرابيا ومعايير المحتوى',
     footerPrivacy: 'مركز الخصوصية',
-    footerInfoLabel: 'معلومات JAKH',
-    socialInstagramLabel: 'ألغاز JAKH على إنستغرام',
-    socialFacebookLabel: 'ألغاز JAKH على فيسبوك',
+    footerInfoLabel: 'معلومات ريدل أرابيا',
+    socialInstagramLabel: 'ريدل أرابيا على إنستغرام',
+    socialFacebookLabel: 'ريدل أرابيا على فيسبوك',
     skipMain: 'انتقل إلى المحتوى الرئيسي',
-    brandHomeLabel: 'الصفحة الرئيسية لألغاز JAKH',
+    brandHomeLabel: 'الصفحة الرئيسية لريدل أرابيا',
     quickActionsLabel: 'خيارات سريعة',
     languageControlsLabel: 'خيارات اللغة',
     breadcrumbLabel: 'مسار التنقل',
@@ -728,7 +728,7 @@ const UI = {
     cardSearchPlaceholder: 'ابحث بكلمة أو إجابة أو مفهوم...',
     homeSrTitle: 'ألغاز واختبارات بالعربية والإنجليزية',
     standardsDefaultText: 'نراجع الأسئلة لتكون مفيدة وممتعة.',
-    standardsDefaultLink: 'تعرّف إلى طريقة مراجعتنا لمحتوى JAKH وتحسينه.',
+    standardsDefaultLink: 'تعرّف إلى طريقة مراجعتنا لمحتوى ريدل أرابيا وتحسينه.',
     standardsEducationLabel: 'للاستخدام التعليمي:',
     standardsEducationText: 'هذا الاختبار للتعلم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو متعلقة بالصحة النفسية.',
     standardsEducationLink: 'اطّلع على معايير المحتوى.',
@@ -749,7 +749,7 @@ const UI = {
     localBrowserOnly: 'محفوظ في حسابك',
     categoryEyebrow: 'اختر قسمًا',
     categoryTitle: 'ما الذي يثير فضولك اليوم؟',
-    categoryText: 'اختر قسمًا واضحًا، أو ابحث حسب اهتمامك، أو دع JAKH يفاجئك.',
+    categoryText: 'اختر قسمًا واضحًا، أو ابحث حسب اهتمامك، أو دع ريدل أرابيا يفاجئك.',
     searchCategoriesLabel: 'ابحث في الموضوعات والموضوعات الفرعية',
     tracksLabel: 'الأقسام',
     randomCategory: 'فاجئني',
@@ -758,7 +758,7 @@ const UI = {
     showFewerTopics: 'عرض الموضوعات المقترحة',
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
-    footerNote: 'جميع الحقوق محفوظة لـ JAKH 2026',
+    footerNote: 'جميع الحقوق محفوظة لريـدل أرابيا 2026',
 
     pageProgress: 'تقدّمك في هذا الموضوع',
     insidePageEyebrow: 'داخل هذه الصفحة',
@@ -810,7 +810,7 @@ const UI = {
     username: 'اسم المستخدم',
     usernameOrEmail: 'اسم المستخدم أو البريد الإلكتروني',
     adminConsole: 'لوحة الإدارة',
-    adminConsoleAria: 'فتح لوحة إدارة JAKH',
+    adminConsoleAria: 'فتح لوحة إدارة ريدل أرابيا',
     password: 'كلمة المرور',
     newPassword: 'كلمة المرور الجديدة',
     passwordHint: 'يتزامن تقدّمك بأمان على جميع أجهزتك.',
@@ -825,13 +825,13 @@ const UI = {
     recoveryCode: 'رمز الاسترداد',
     recoveryFormTitle: 'استرداد حسابك',
     recoveryFormLead: 'أدخل رمز الاسترداد الذي حفظته واختر كلمة مرور جديدة. عند النجاح تُسجّل دخولك وتنتهي كل الجلسات القديمة ويُستبدل رمز الاسترداد.',
-    registrationRecoveryNotice: 'بعد إنشاء الحساب، يعرض JAKH رمز استرداد مرة واحدة. احفظه بأمان؛ فهو الطريقة الذاتية الوحيدة لاسترداد الحساب من دون كلمة المرور.',
+    registrationRecoveryNotice: 'بعد إنشاء الحساب، تعرض ريدل أرابيا رمز استرداد مرة واحدة. احفظه بأمان؛ فهو الطريقة الذاتية الوحيدة لاسترداد الحساب من دون كلمة المرور.',
     recoveryReset: 'إعادة التعيين وتسجيل الدخول',
     recoveryResetting: 'جارٍ إعادة تعيين كلمة المرور…',
     recoveryFailed: 'تعذر استرداد الحساب. تحقق من اسم المستخدم والرمز وكلمة المرور الجديدة ثم حاول مرة أخرى.',
     recoveryReceiptTitle: 'احفظ رمز الاسترداد الجديد الآن',
     recoveryReceiptLead: 'يظهر هذا الرمز مرة واحدة فقط. احفظه في مدير كلمات مرور أو مكان آمن آخر. يستطيع أي شخص يملكه إعادة تعيين كلمة مرورك.',
-    recoveryReceiptReplacement: 'يؤدي إنشاء رمز استرداد آخر إلى إبطال هذا الرمز فوراً. لا يحتفظ JAKH بنسخة قابلة للقراءة ولا يستطيع عرضه مجدداً.',
+    recoveryReceiptReplacement: 'يؤدي إنشاء رمز استرداد آخر إلى إبطال هذا الرمز فوراً. لا تحتفظ ريدل أرابيا بنسخة قابلة للقراءة ولا تستطيع عرضه مجدداً.',
     recoveryCopy: 'نسخ رمز الاسترداد',
     recoveryCopied: 'تم نسخ رمز الاسترداد. احفظه في مكان آمن.',
     recoveryCopyFailed: 'النسخ التلقائي غير متاح. حدّد الرمز وانسخه يدوياً.',
@@ -906,16 +906,16 @@ const UI = {
     reportThanks: 'تم الإبلاغ — شكرًا على ملاحظتك!',
     reportError: 'تعذّر إرسال البلاغ.',
     shareCopied: 'تم نسخ النتيجة!',
-    shareChallengeTitle: 'تحدي JAKH',
-    shareRiddleTitle: 'ألغاز JAKH',
-    shareBattleTitle: 'معركة JAKH',
+    shareChallengeTitle: 'تحدي ريدل أرابيا',
+    shareRiddleTitle: 'ألغاز ريدل أرابيا',
+    shareBattleTitle: 'تحدي ريدل أرابيا',
     avatarUpdated: 'تم تحديث الصورة الرمزية!',
     avatarSaveError: 'تعذّر حفظ الصورة الرمزية.',
     chooseAvatarAria: 'اختر {avatar} صورةً رمزيةً',
     passwordFieldsRequired: 'املأ حقلي كلمة المرور.',
     passwordUpdated: 'تم تحديث كلمة المرور!',
     suggestionSubmitError: 'تعذّر إرسال الاقتراح. حاول مرة أخرى.',
-    initializationError: 'تعذّر إكمال تحميل JAKH. حدّث الصفحة وحاول مرة أخرى.',
+    initializationError: 'تعذّر إكمال تحميل ريدل أرابيا. حدّث الصفحة وحاول مرة أخرى.',
     genericError: 'حدث خطأ ما. حاول مرة أخرى.',
     errorInvalidCredentials: 'اسم المستخدم أو كلمة المرور غير صحيحين.',
     errorUserExists: 'اسم المستخدم أو البريد الإلكتروني مستخدم بالفعل.',
@@ -958,7 +958,7 @@ const UI = {
     verifiedTampered: 'تغيّر التحدي ولا يمكن للخادم التحقق منه. ابدأ من جديد.',
     verifiedUnavailable: 'هذا الموضوع غير متاح حاليًا لحساب النتائج على الخادم.',
     globalSearchUnavailable: 'البحث غير متاح حاليًا.',
-    installPrompt: '📲 أضف JAKH إلى شاشتك الرئيسية للوصول السريع',
+    installPrompt: '📲 أضف ريدل أرابيا إلى شاشتك الرئيسية للوصول السريع',
     install: 'تثبيت',
     secondsShort: 'ث',
     streakFreezeLabel: '🧊 تجميد',
@@ -1925,24 +1925,24 @@ function updateDocumentTitle() {
 
   if (state.page === 'play') {
     title = state.lang === 'ar'
-      ? '10 ألعاب مجانية على المتصفح | JAKH'
-      : '10 Free Browser Games | JAKH';
+      ? '10 ألعاب مجانية على المتصفح | ريدل أرابيا'
+      : '10 Free Browser Games | Riddle Arabia';
     description = state.lang === 'ar'
       ? 'العب 10 ألعاب مجانية مباشرة في المتصفح، منها الشطرنج، وغو، وريفيرسي، وماسترمايند، وكاتان، وطاولة الزهر.'
-      : 'Play 10 free browser games on JAKH: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy.';
+      : 'Play 10 free browser games on Riddle Arabia: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy.';
   } else if (state.page === 'home') {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {
       title = state.lang === 'ar'
-        ? 'مختبر العقول: 51 موضوعًا من الألغاز والأسئلة | JAKH'
-        : 'Mind Lab: 51 Riddle & Quiz Topics | JAKH';
+        ? 'مختبر العقول: 51 موضوعًا من الألغاز والأسئلة | ريدل أرابيا'
+        : 'Mind Lab: 51 Riddle & Quiz Topics | Riddle Arabia';
       description = state.lang === 'ar'
         ? 'استكشف 3,275 لغزًا وسؤالًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا ضمن 5 أقسام. اختر موضوعًا، واكشف الإجابات، وتابع نتيجتك.'
         : 'Explore 3,275 bilingual riddles and quizzes mapped directly to 51 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
     } else {
       title = state.lang === 'ar'
-        ? 'JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية'
-        : 'JAKH Riddles: Free Arabic & English Quizzes';
+        ? 'ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية'
+        : 'Riddle Arabia: Free Arabic & English Quizzes';
       description = state.lang === 'ar'
         ? 'استمتع بـ3,275 لغزًا وسؤالًا مجانيًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا، إلى جانب 10 ألعاب تعمل مباشرة في المتصفح.'
         : 'Play 3,275 free bilingual riddles and quizzes in English and Arabic across 51 topics, plus 10 browser games. Reveal answers and track your score.';
@@ -1950,8 +1950,8 @@ function updateDocumentTitle() {
   } else if (state.categoryData) {
     const category = state.categoryData;
     title = state.lang === 'ar'
-      ? `${state.categoryData.title.ar}: اختبار وأسئلة | JAKH`
-      : `${state.categoryData.title.en} Quiz & Questions | JAKH`;
+      ? `${state.categoryData.title.ar}: اختبار وأسئلة | ريدل أرابيا`
+      : `${state.categoryData.title.en} Quiz & Questions | Riddle Arabia`;
     const localizedCount = Number(category.count || 0).toLocaleString(state.lang === 'ar' ? 'ar' : 'en-US');
     description = state.lang === 'ar'
       ? `${localizedCount} سؤالًا في موضوع «${category.title.ar}»، مع إجابات بالعربية والإنجليزية. ${category.description.ar}`
@@ -1962,8 +1962,8 @@ function updateDocumentTitle() {
   document.title = title;
 
   const socialImageAlt = state.lang === 'ar'
-    ? 'JAKH — 3,275 لغزًا بالعربية والإنجليزية، ضمن 51 موضوعًا و10 ألعاب'
-    : 'JAKH — 3,275 bilingual riddles across 51 topics and 10 games';
+    ? 'ريدل أرابيا — ألغاز واختبارات وألعاب دماغ بالعربية والإنجليزية'
+    : 'Riddle Arabia — bilingual riddles, quizzes, and brain games';
   [
     ['meta[name="description"]', description],
     ['meta[property="og:title"]', title],
@@ -2765,7 +2765,7 @@ function getDashInsight(totalSolved, totalQ, catProgress, lang) {
     return isAr ? `💪 ${left} إجابة صحيحة تفتح لك مستوى الصعب!` : `💪 ${left} more correct answer${left === 1 ? '' : 's'} to unlock Head Scratcher!`;
   }
   const pct = totalQ > 0 ? ((totalSolved / totalQ) * 100).toFixed(1) : '0.0';
-  return isAr ? `🧠 أجبت على ${pct}% من جميع ألغاز JAKH` : `🧠 You've tackled ${pct}% of all JAKH riddles`;
+  return isAr ? `🧠 أجبت على ${pct}% من جميع ألغاز ريدل أرابيا` : `🧠 You've tackled ${pct}% of all Riddle Arabia riddles`;
 }
 
 function renderAccountSummary(mount) {
@@ -4787,11 +4787,11 @@ function endTimedQuiz() {
     const shareBtn = document.createElement('button');
     shareBtn.className = 'secondary-btn tq-share-btn';
     shareBtn.textContent = lang === 'ar' ? '🔗 شارك النتيجة' : '🔗 Share result';
-    shareBtn.addEventListener('click', () => shareResult(score, total, state.categoryData?.title?.[lang] || 'JAKH Quick Fire'));
+    shareBtn.addEventListener('click', () => shareResult(score, total, state.categoryData?.title?.[lang] || 'Riddle Arabia Quick Fire'));
     actionsEl.insertBefore(shareBtn, actionsEl.lastElementChild);
   }
   if (resultEl && !resultEl.querySelector('.tq-challenge-cta')) {
-    const catTitle = state.categoryData?.title?.[lang] || 'JAKH';
+    const catTitle = state.categoryData?.title?.[lang] || 'Riddle Arabia';
     const challengeUrl = `${location.origin}${categoryRouteForLanguage(state.categorySlug, lang)}`;
     const ctaEl = document.createElement('div');
     ctaEl.className = 'tq-challenge-cta';
@@ -4805,8 +4805,8 @@ function endTimedQuiz() {
     document.getElementById('tqChallengeFriendBtn')?.addEventListener('click', () => {
       const isAr = lang === 'ar';
       const text = isAr
-        ? `🏆 حصلت على ${score}/${total} في "${catTitle}" على JAKH!\nهل تستطيع التفوق عليّ؟ ← ${challengeUrl}`
-        : `🏆 I scored ${score}/${total} in "${catTitle}" on JAKH!\nCan you beat me? → ${challengeUrl}`;
+        ? `🏆 حصلت على ${score}/${total} في "${catTitle}" على ريدل أرابيا!\nهل تستطيع التفوق عليّ؟ ← ${challengeUrl}`
+        : `🏆 I scored ${score}/${total} in "${catTitle}" on Riddle Arabia!\nCan you beat me? → ${challengeUrl}`;
       void shareOrCopy({
         title: t('shareChallengeTitle'), text, url: challengeUrl,
         copiedMessage: isAr ? 'تم نسخ التحدي!' : 'Challenge copied!',
@@ -5024,8 +5024,8 @@ function showCategoryCompleteModal(slug) {
     const isAr = lang === 'ar';
     const url = `${location.origin}${categoryRouteForLanguage(slug, lang)}`;
     const text = isAr
-      ? `🏆 أنهيت "${meta.title.ar}" على JAKH بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
-      : `🏆 I finished "${meta.title.en}" on JAKH with ${points} pts!\nCan you beat me? → ${url}`;
+      ? `🏆 أنهيت "${meta.title.ar}" على ريدل أرابيا بـ ${points} نقطة!\nهل تستطيع التفوق عليّ؟ ← ${url}`
+      : `🏆 I finished "${meta.title.en}" on Riddle Arabia with ${points} pts!\nCan you beat me? → ${url}`;
     void shareOrCopy({
       title: t('shareChallengeTitle'), text, url,
       copiedMessage: isAr ? 'تم نسخ التحدي!' : 'Challenge copied!',
@@ -5100,13 +5100,13 @@ function shareCard(cardId) {
   const card = state.categoryData?.cards.find(c => c.id === cardId);
   if (!card) return;
   const question = card.question[state.lang];
-  const catTitle = state.categoryData?.title?.[state.lang] || 'JAKH';
+  const catTitle = state.categoryData?.title?.[state.lang] || 'Riddle Arabia';
   const url = `${location.origin}${location.pathname}?card=${encodeURIComponent(cardId)}`;
   const isAr = state.lang === 'ar';
   const bar = '─────────────────';
   const text = isAr
-    ? `🧠 لغز من JAKH — ${catTitle}\n${bar}\n${question}\n${bar}\nهل تستطيع الإجابة؟ ← jakh.net`
-    : `🧠 JAKH Riddle — ${catTitle}\n${bar}\n${question}\n${bar}\nCan you solve this? → jakh.net`;
+    ? `🧠 لغز من ريدل أرابيا — ${catTitle}\n${bar}\n${question}\n${bar}\nهل تستطيع الإجابة؟ ← riddlearabia.com`
+    : `🧠 Riddle Arabia Riddle — ${catTitle}\n${bar}\n${question}\n${bar}\nCan you solve this? → riddlearabia.com`;
   saveJson('jakh-shared', 1);
   trackEvent('share_card', {
     category: state.categorySlug,
@@ -5136,10 +5136,10 @@ function shareResult(score, total, categoryTitle) {
   const bar = '─────────────────';
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
   const medal = pct >= 90 ? '🥇' : pct >= 70 ? '🥈' : pct >= 50 ? '🥉' : '🎯';
-  const url = `https://jakh.net`;
+  const url = 'https://riddlearabia.com';
   const text = isAr
-    ? `${medal} أنهيت "${categoryTitle}" على JAKH!\n${bar}\n✓ ${score} صحيح من ${total}\n${bar}\nهل تستطيع التفوق عليّ؟ ← jakh.net`
-    : `${medal} I finished "${categoryTitle}" on JAKH!\n${bar}\n✓ ${score} / ${total} correct (${pct}%)\n${bar}\nCan you beat my score? → jakh.net`;
+    ? `${medal} أنهيت "${categoryTitle}" على ريدل أرابيا!\n${bar}\n✓ ${score} صحيح من ${total}\n${bar}\nهل تستطيع التفوق عليّ؟ ← riddlearabia.com`
+    : `${medal} I finished "${categoryTitle}" on Riddle Arabia!\n${bar}\n✓ ${score} / ${total} correct (${pct}%)\n${bar}\nCan you beat my score? → riddlearabia.com`;
   trackEvent('share_result', {
     category: state.categorySlug,
     score,

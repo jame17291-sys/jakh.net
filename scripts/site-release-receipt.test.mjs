@@ -9,12 +9,13 @@ import {
 const BUILD_ID = "a".repeat(64);
 const WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 
-function headersFor(definition, { wrongLegacyTarget = false } = {}) {
+function headersFor(definition, { wrongLegacyTarget = false, wrongRetiredSeoTarget = false } = {}) {
   const isLegacyRedirect = definition.name.includes("legacy-") && definition.name.endsWith("-direct-redirect");
+  const isRetiredSeoRedirect = definition.name.startsWith("retired-seo/");
   const headers = {
     "cache-control": definition.name === "not-found"
       ? "no-store"
-      : definition.name.includes("legacy-")
+      : definition.name.includes("legacy-") || isRetiredSeoRedirect
         ? "public, max-age=86400"
         : "public, max-age=0, must-revalidate",
     "content-security-policy": "default-src 'self'; frame-ancestors 'none'",
@@ -27,14 +28,14 @@ function headersFor(definition, { wrongLegacyTarget = false } = {}) {
     "x-jakh-worker-version": WORKER_VERSION,
   };
   if (definition.location) {
-    headers.location = wrongLegacyTarget && isLegacyRedirect
+    headers.location = (wrongLegacyTarget && isLegacyRedirect) || (wrongRetiredSeoTarget && isRetiredSeoRedirect)
       ? "https://riddlearabia.com/wrong-target"
       : definition.location;
   }
   return headers;
 }
 
-function smokeFetch({ wrongLegacyTarget = false } = {}) {
+function smokeFetch({ wrongLegacyTarget = false, wrongRetiredSeoTarget = false } = {}) {
   const definitions = new Map(
     smokeDefinitions("aaaaaaaaaaaaaaaa").map((definition) => [definition.url, definition]),
   );
@@ -44,7 +45,7 @@ function smokeFetch({ wrongLegacyTarget = false } = {}) {
     assert.ok(definition, `unexpected smoke URL ${url}`);
     return new Response(null, {
       status: definition.status,
-      headers: headersFor(definition, { wrongLegacyTarget }),
+      headers: headersFor(definition, { wrongLegacyTarget, wrongRetiredSeoTarget }),
     });
   };
 }
@@ -78,6 +79,41 @@ test("post-cutover smoke rejects a legacy redirect that is not direct to riddlea
   });
   assert.equal(report.ok, false);
   assert.match(report.errors.join("\n"), /legacy-jakh\.net-direct-redirect: Location/u);
+});
+
+test("post-cutover smoke verifies all retired SEO routes reach their curated replacements in one hop", async () => {
+  const definitions = smokeDefinitions("aaaaaaaaaaaaaaaa")
+    .filter(({ name }) => name.startsWith("retired-seo/"));
+  assert.equal(definitions.length, 12);
+  assert.deepEqual(definitions[0], {
+    name: "retired-seo/en/riddles-with-answers",
+    url: "https://riddlearabia.com/en/riddles-with-answers?site_probe=aaaaaaaaaaaaaaaa",
+    status: 301,
+    location: "https://riddlearabia.com/riddles?site_probe=aaaaaaaaaaaaaaaa",
+    cache: /max-age=86400/iu,
+  });
+  assert.deepEqual(definitions.at(-1), {
+    name: "retired-seo/ar/ikhtibar-qawanin-korat-alqadam",
+    url: "https://riddlearabia.com/ar/ikhtibar-qawanin-korat-alqadam?site_probe=aaaaaaaaaaaaaaaa",
+    status: 301,
+    location: "https://riddlearabia.com/ar/topics/football/?site_probe=aaaaaaaaaaaaaaaa",
+    cache: /max-age=86400/iu,
+  });
+
+  const report = await runSmoke({
+    expectedBuildId: BUILD_ID,
+    expectedWorkerVersionId: WORKER_VERSION,
+    fetchImpl: smokeFetch(),
+  });
+  assert.equal(report.ok, true);
+
+  const failed = await runSmoke({
+    expectedBuildId: BUILD_ID,
+    expectedWorkerVersionId: WORKER_VERSION,
+    fetchImpl: smokeFetch({ wrongRetiredSeoTarget: true }),
+  });
+  assert.equal(failed.ok, false);
+  assert.match(failed.errors.join("\n"), /retired-seo\/en\/riddles-with-answers: Location/u);
 });
 
 test("pre-cutover baseline smoke can explicitly avoid requiring legacy redirects", () => {

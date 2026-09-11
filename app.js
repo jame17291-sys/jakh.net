@@ -95,7 +95,7 @@ function renderClientQuarantine() {
   meta.content = 'noindex,nofollow,noarchive,nosnippet';
   doc.title = ar ? 'غير متاح | ريدل أرابيا' : 'Unavailable | Riddle Arabia';
   const main = doc.querySelector('main');
-  if (main) main.innerHTML = `<section class="shell section-block" role="status"><h1>${ar ? 'المحتوى غير متاح' : 'Content unavailable'}</h1><p>${ar ? 'بانتظار مراجعة السلامة.' : 'Pending safety review.'}</p><a class="primary-btn" href="${ar ? '/ar/mind-lab/' : '/mind-lab'}">${ar ? 'الموضوعات' : 'Topics'}</a></section>`;
+  if (main) main.innerHTML = `<section class="shell section-block" role="status"><h1>${ar ? 'المحتوى غير متاح' : 'Content unavailable'}</h1><p>${ar ? 'المحتوى غير متاح مؤقتًا.' : 'Temporarily unavailable.'}</p><a class="primary-btn" href="${ar ? '/ar/mind-lab/' : '/mind-lab'}">${ar ? 'الموضوعات' : 'Topics'}</a></section>`;
 }
 
 const CATEGORY_COLORS = {
@@ -361,14 +361,7 @@ const UI = {
     standardsEducationLabel: 'Educational use:',
     standardsEducationText: 'This quiz is for learning and entertainment, not medical, legal, financial, or mental-health advice.',
     standardsEducationLink: 'Read our content standards.',
-    reviewStatusReviewed: 'Editorially reviewed',
-    reviewStatusPending: 'Editorial review pending',
-    reviewSafetyPending: 'Editorial review pending · Safety-sensitive educational content',
-    reviewDate: 'Reviewed {date}',
-    reviewReviewer: 'Reviewer: {reviewer}',
-    reviewSources: 'Sources',
     answerExplanation: 'Why this is the answer',
-    reviewSourceLabel: 'Source {number}: {title}, {publisher}',
     mindCalloutEyebrow: 'Prefer a shorter challenge?',
     mindCalloutTitle: 'Try a focused bilingual collection',
     mindCalloutText: 'Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.',
@@ -732,14 +725,7 @@ const UI = {
     standardsEducationLabel: 'للاستخدام التعليمي:',
     standardsEducationText: 'هذا الاختبار للتعلم والترفيه، وليس نصيحة طبية أو قانونية أو مالية أو متعلقة بالصحة النفسية.',
     standardsEducationLink: 'اطّلع على معايير المحتوى.',
-    reviewStatusReviewed: 'تمت مراجعته تحريريًا',
-    reviewStatusPending: 'بانتظار المراجعة التحريرية',
-    reviewSafetyPending: 'بانتظار المراجعة التحريرية · محتوى تعليمي حساس للسلامة',
-    reviewDate: 'تاريخ المراجعة: {date}',
-    reviewReviewer: 'المراجع: {reviewer}',
-    reviewSources: 'المصادر',
     answerExplanation: 'لماذا هذه هي الإجابة؟',
-    reviewSourceLabel: 'المصدر {number}: {title}، {publisher}',
     mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
     mindCalloutTitle: 'جرّب مجموعة قصيرة بالعربية والإنجليزية',
     mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا، أو جرّب أسئلة الأطفال، وألغاز المنطق، والمعلومات العامة، وكرة القدم، وذكريات زمن الطيبين.',
@@ -2506,7 +2492,6 @@ function bindCommonEvents() {
         }
         return;
       }
-      if (event.target.closest('.card-review-sources a')) return;
       const card = event.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
       if (!card) return;
       const id = card.dataset.id;
@@ -3133,77 +3118,6 @@ function getFilteredCards() {
   return cards;
 }
 
-function safeHttpsSourceUrl(value) {
-  try {
-    const parsed = new URL(String(value));
-    return parsed.protocol === 'https:' && parsed.hostname ? parsed.href : '';
-  } catch (_) {
-    return '';
-  }
-}
-
-function formatReviewDate(value) {
-  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return String(value || '');
-  const date = new Date(`${value}T00:00:00Z`);
-  if (Number.isNaN(date.getTime())) return value;
-  return new Intl.DateTimeFormat(state.lang === 'ar' ? 'ar-AE' : 'en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(date);
-}
-
-function createReviewMarkup(card, sourceLinkFocus = '') {
-  const review = card?.review || { status: 'pending' };
-  const reviewed = review.status === 'reviewed';
-  if (!reviewed) {
-    const safetySensitive = review.safetySensitive === true || review.priority === 'high';
-    const label = t(safetySensitive ? 'reviewSafetyPending' : 'reviewStatusPending');
-    return `
-      <div class="card-review card-review--pending${safetySensitive ? ' card-review--safety' : ''}" role="note" aria-label="${escapeHtml(label)}">
-        <p class="card-review-label"><span aria-hidden="true">${safetySensitive ? '⚠' : '◷'}</span> ${escapeHtml(label)}</p>
-      </div>`;
-  }
-
-  const reviewedAt = String(review.reviewedAt || '');
-  const reviewer = String(review.reviewer || '');
-  const sources = (Array.isArray(review.sources) ? review.sources : [])
-    .map(source => ({ ...source, safeUrl: safeHttpsSourceUrl(source?.url) }))
-    .filter(source => source.safeUrl);
-  const statusLabel = t('reviewStatusReviewed');
-  const sourceLinks = sources.map((source, index) => {
-    const title = String(source.title || source.publisher || source.safeUrl);
-    const publisher = String(source.publisher || title);
-    const ariaLabel = fmt('reviewSourceLabel', {
-      number: index + 1,
-      title,
-      publisher,
-    });
-    return `
-      <li>
-        <a href="${escapeHtml(source.safeUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(ariaLabel)}" ${sourceLinkFocus}>
-          <span>${escapeHtml(title)} — ${escapeHtml(publisher)}</span>
-          <span class="card-review-external" aria-hidden="true">↗</span>
-        </a>
-      </li>`;
-  }).join('');
-
-  return `
-    <div class="card-review card-review--reviewed" role="note" aria-label="${escapeHtml(statusLabel)}">
-      <p class="card-review-label"><span aria-hidden="true">✓</span> ${escapeHtml(statusLabel)}</p>
-      <p class="card-review-meta">
-        <time datetime="${escapeHtml(reviewedAt)}">${escapeHtml(fmt('reviewDate', { date: formatReviewDate(reviewedAt) }))}</time>
-        <span>${escapeHtml(fmt('reviewReviewer', { reviewer }))}</span>
-      </p>
-      ${sourceLinks ? `
-        <div class="card-review-sources">
-          <span class="card-review-sources-title">${escapeHtml(t('reviewSources'))}</span>
-          <ul>${sourceLinks}</ul>
-        </div>` : ''}
-    </div>`;
-}
-
 function createCardMarkup(card) {
   const flipped = state.flipped.has(card.id);
   const favorite = isFavorite(card.id);
@@ -3215,7 +3129,6 @@ function createCardMarkup(card) {
   const subcat = subcatText ? `<span class="badge badge-subcategory">${escapeHtml(subcatText)}</span>` : '';
   const categoryBadge = `<span class="badge badge-category">${escapeHtml(card.mode === 'story' ? '🕯️' : state.categoryData.emoji || '❔')} ${escapeHtml(state.categoryData.title[state.lang])}</span>`;
   const difficultyBadge = `<span class="badge badge-difficulty" data-difficulty="${escapeHtml(card.difficulty)}">${escapeHtml(difficultyLabel)}</span>`;
-  const cardReviewMarkup = createReviewMarkup(card);
   const explanationText = card.explanation?.[state.lang] || card.explanation?.en || '';
   const explanationMarkup = explanationText
     ? `<aside class="card-explanation"><strong>${escapeHtml(t('answerExplanation'))}</strong><p>${escapeHtml(explanationText)}</p></aside>`
@@ -3234,7 +3147,6 @@ function createCardMarkup(card) {
               <section class="card-face card-front">
                 <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
                 <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
-                ${cardReviewMarkup}
                 <div class="card-actions">
                   <button class="primary-btn mini-btn" data-action="paywall" data-id="${escapeHtml(card.id)}">${escapeHtml(unlockLabel)}</button>
                 </div>
@@ -3251,7 +3163,6 @@ function createCardMarkup(card) {
             <section class="card-face card-front">
               <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
               <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
-              ${cardReviewMarkup}
               <p class="lock-msg">🔒 ${escapeHtml(lockMsg)}</p>
             </section>
           </div>
@@ -3266,8 +3177,6 @@ function createCardMarkup(card) {
   const audioBtn = state.audioEnabled
     ? `<button class="mini-btn card-audio-btn${isAudioPlaying ? ' playing' : ''}" data-action="audio" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(audioLabel)}" title="${escapeHtml(audioLabel)}" ${frontFocus}>🔊</button>`
     : '';
-  const frontReviewMarkup = createReviewMarkup(card, frontFocus);
-  const backReviewMarkup = createReviewMarkup(card, backFocus);
   let markBtns;
   if (result === 'correct') {
     markBtns = `<button class="card-mark-btn is-correct" data-action="unmark" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(t('markUnsolved'))}" title="${escapeHtml(t('markUnsolved'))}" ${backFocus}>✓</button>`;
@@ -3290,7 +3199,6 @@ function createCardMarkup(card) {
             ${subcat}
           </div>
           <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
-          ${frontReviewMarkup}
           <div class="card-actions">
             <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${frontFocus}>${escapeHtml(flipLabel)}</button>
             <button class="mini-btn action-fav${favorite ? ' is-fav' : ''}" data-action="favorite" data-id="${escapeHtml(card.id)}" aria-label="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" title="${escapeHtml(favorite ? t('removeFavorite') : t('addFavorite'))}" ${frontFocus}>${favorite ? '♥' : '♡'}</button>
@@ -3300,7 +3208,6 @@ function createCardMarkup(card) {
         <section class="card-face card-back" aria-hidden="${flipped ? 'false' : 'true'}" ${flipped ? '' : 'inert'}>
           <p class="card-answer"><strong>${escapeHtml(card.answer[state.lang])}</strong></p>
           ${explanationMarkup}
-          ${backReviewMarkup}
           <div class="card-actions">
             <button class="primary-btn mini-btn action-flip" data-action="flip" data-id="${escapeHtml(card.id)}" ${backFocus}>${escapeHtml(t('backToQuestion'))}</button>
             <div class="card-icon-row">
@@ -4478,8 +4385,7 @@ async function loadDailyChallenge() {
     if (!Array.isArray(raw)) return;
     const overrides = await overrideModule.loadPublishedContentOverrides(apiFetch, cat.slug);
     const cards = overrideModule.mergePublishedContentOverrides(raw, overrides).filter(c =>
-      (c.difficulty === 'easy' || c.difficulty === 'medium')
-      && c.review?.status === 'reviewed'
+      c.difficulty === 'easy' || c.difficulty === 'medium'
     );
     if (!cards.length) return;
     const card = cards[(hash >> 4) % cards.length];
@@ -4497,14 +4403,13 @@ function renderDailyChallenge() {
   const card = state.dailyCard, lang = state.lang, ar = lang === 'ar';
   const outcomeKey = `jakh-daily-outcome-${today}`, outcome = loadJson(outcomeKey, null);
   const done = outcome?.cardId === card.id && ['correct', 'review'].includes(outcome?.result), flipped = state.flipped.has('__daily__');
-  const href = categoryRouteForLanguage(card.categorySlug, lang), review = createReviewMarkup(card);
+  const href = categoryRouteForLanguage(card.categorySlug, lang);
   mount.innerHTML = `<section class="shell daily-challenge-section">
   <div class="daily-challenge-card ${done ? 'daily-done' : ''}">
     <div>
       <p class="daily-challenge-eyebrow">🎯 ${ar ? 'تحدي اليوم' : "Today's Challenge"}${done ? ` <span class="daily-done-badge">${ar ? '✓ مكتمل' : '✓ Done'}</span>` : ''}</p>
       <p class="daily-challenge-meta">${escapeHtml(card.categoryEmoji)} ${escapeHtml(card.categoryTitle[lang])} &nbsp;·&nbsp; ${escapeHtml(t(card.difficulty === 'very-advanced' ? 'veryAdvanced' : card.difficulty))}</p>
       <p class="daily-challenge-q">${escapeHtml(card.question[lang])}</p>
-      ${review}
       ${flipped ? `<div class="daily-challenge-answer" role="status">💡 ${escapeHtml(card.answer[lang])}</div>` : ''}
       ${flipped && !done ? `<div class="daily-outcome-actions" aria-label="${ar ? 'سجّل نتيجة إجابتك' : 'Record your answer outcome'}">
         <button class="primary-btn mini-btn" id="dailyKnewBtn">✓ ${ar ? 'كنت أعرفها' : 'I knew it'}</button>
@@ -4581,7 +4486,6 @@ function createTimedQuizModal() {
         <div class="tq-q-wrap">
           <span class="tq-block-label">${lang === 'ar' ? 'السؤال' : 'Question'}</span>
           <p id="tqQuestion" class="timed-quiz-question"></p>
-          <div id="tqReview"></div>
         </div>
         <div id="tqAnswerWrap" class="tq-a-wrap hidden">
           <span class="tq-block-label tq-answer-label">${lang === 'ar' ? 'الإجابة' : 'Answer'}</span>
@@ -4667,7 +4571,6 @@ function showTimedCard() {
   const tqAnswerWrap = document.getElementById('tqAnswerWrap');
   const tqOptions = document.getElementById('tqOptions');
   const tqFeedback = document.getElementById('tqFeedback');
-  const tqReview = document.getElementById('tqReview');
   const tqPT = document.getElementById('tqProgressText');
   const tqCountdown = document.getElementById('tqCountdown');
   const tqFill = document.getElementById('tqTrackFill');
@@ -4675,7 +4578,6 @@ function showTimedCard() {
   if (tqA) { tqA.textContent = ''; tqA.classList.remove('hidden'); }
   tqAnswerWrap?.classList.add('hidden');
   if (tqFeedback) { tqFeedback.textContent = ''; tqFeedback.className = 'timed-quiz-feedback'; }
-  if (tqReview) tqReview.innerHTML = createReviewMarkup(card);
   if (tqPT) tqPT.textContent = `${timedQuizState.index + 1} / ${timedQuizState.cards.length}`;
   const canonical = String(card.answer?.[lang] || '');
   const canonicalKey = canonical.trim().toLocaleLowerCase(lang);
@@ -4869,7 +4771,6 @@ function loadSearchLeaderboard() {
         apiFetch,
         categoryRouteForLanguage,
         closeModal,
-        createReviewMarkup,
         debounce,
         escapeHtml,
         fetchJson,

@@ -173,7 +173,7 @@ export function publicCatalogProjection(catalog, quarantine) {
   const projected = structuredClone(catalog);
   projected.categories = (projected.categories || [])
     .filter((category) => !quarantine.categorySlugs.has(category.slug))
-    .map((category) => ({
+    .map(({ reviewedQuestionCount: _reviewedQuestionCount, ...category }) => ({
       ...category,
       related: (category.related || []).filter((slug) => !quarantine.categorySlugs.has(slug)),
     }));
@@ -185,18 +185,26 @@ export function publicCatalogProjection(catalog, quarantine) {
       : {}),
   }));
   const publicCards = projected.categories.reduce((total, category) => total + Number(category.count || 0), 0);
-  projected.site = {
-    ...(projected.site || {}),
-    totalQuestions: publicCards,
-    publication: {
-      state: "safety-quarantine-active",
-      publicCategories: projected.categories.length,
-      publicQuestions: publicCards,
-      quarantinedQuestions: quarantine.manifest.totalCards,
-      policySha256: quarantine.policySha256,
-    },
-  };
+  // Publication status and reviewer metrics are release-governance data, not
+  // visitor-facing catalog data. The signed worker manifest keeps the
+  // quarantine contract, while the browser receives only playable content.
+  const { publication: _publication, ...site } = projected.site || {};
+  projected.site = { ...site, totalQuestions: publicCards };
   return projected;
+}
+
+export function publicCardProjection(card) {
+  invariant(card && typeof card === "object" && !Array.isArray(card), "public card must be an object");
+  // Keep editorial provenance in the source corpus and internal evidence
+  // store. A public card is deliberately content-only, so its payload cannot
+  // disclose a pending/reviewed state, reviewer, date, priority, or sources.
+  const { review: _review, ...publicCard } = card;
+  return structuredClone(publicCard);
+}
+
+export function publicCategoryCardsProjection(cards) {
+  invariant(Array.isArray(cards), "public category cards must be an array");
+  return cards.map(publicCardProjection);
 }
 
 export function publicCardIndexProjection(index, quarantine) {

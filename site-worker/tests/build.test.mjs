@@ -17,6 +17,7 @@ import {
 import {
   isQuarantinedArtifactPath,
   loadProductionQuarantine,
+  publicCategoryCardsProjection,
 } from "../../scripts/publication-quarantine.mjs";
 import { isRetiredPublicSeoArtifactPath } from "../../scripts/public-seo-release-contract.mjs";
 import { RETIRED_SEO_ROUTE_REDIRECTS } from "../src/seo-route-migrations.js";
@@ -160,14 +161,25 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   const publicCardIndex = JSON.parse(await readFile(join(repositoryRoot, "site-worker/dist/data/card-index.json"), "utf8"));
   assert.equal(publicCatalog.categories.length, 51);
   assert.equal(publicCatalog.site.totalQuestions, 3_275);
+  assert.equal(publicCatalog.site.publication, undefined, "public catalog must not expose release governance metadata");
+  assert.ok(
+    publicCatalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")),
+    "public catalog must not expose reviewer metrics",
+  );
   assert.equal(Object.keys(publicCardIndex).length, 3_275);
   const publicCardsById = new Map();
   for (const category of publicCatalog.categories) {
     const sourcePath = join(repositoryRoot, `data/${category.slug}.json`);
     const deployedPath = join(repositoryRoot, `site-worker/dist/data/${category.slug}.json`);
-    const sourceBytes = await readFile(sourcePath);
-    assert.deepEqual(await readFile(deployedPath), sourceBytes, `${category.slug} card data must remain byte-exact`);
-    for (const card of JSON.parse(sourceBytes.toString("utf8"))) publicCardsById.set(card.id, card);
+    const sourceCards = JSON.parse(await readFile(sourcePath, "utf8"));
+    const deployedCards = JSON.parse(await readFile(deployedPath, "utf8"));
+    assert.deepEqual(
+      deployedCards,
+      publicCategoryCardsProjection(sourceCards),
+      `${category.slug} card data must match the sanitized public projection`,
+    );
+    assert.ok(deployedCards.every((card) => !Object.hasOwn(card, "review")), `${category.slug} card data leaks review metadata`);
+    for (const card of deployedCards) publicCardsById.set(card.id, card);
   }
   for (const language of ["en", "ar"]) {
     const shard = JSON.parse(await readFile(join(repositoryRoot, `site-worker/dist/data/search-index.${language}.json`), "utf8"));
@@ -222,6 +234,8 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   const builtApplication = await readFile(join(repositoryRoot, "site-worker/dist/app.js"), "utf8");
   assert.match(builtApplication, /portalMindStat: '51 موضوعًا'/u);
   assert.doesNotMatch(builtApplication, /portalMindStat: '56 موضوعًا'/u);
+  assert.doesNotMatch(builtApplication, /Pending safety review|مراجعة السلامة/u);
+  assert.doesNotMatch(builtApplication, /c\.review\?\.status === 'reviewed'/u);
 
   const webManifest = await readFile(join(repositoryRoot, "site-worker/dist/manifest.webmanifest"), "utf8");
   assert.match(webManifest, /Arabic riddles, shared challenges, and browser brain games in English and Arabic/u);

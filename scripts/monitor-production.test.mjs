@@ -47,13 +47,6 @@ function staticBody(pathname, { siteOrigin, apiOrigin }) {
     return JSON.stringify({
       site: {
         totalQuestions: 3_275,
-        publication: {
-          state: "safety-quarantine-active",
-          publicCategories: 51,
-          publicQuestions: 3_275,
-          quarantinedQuestions: 278,
-          policySha256: API_RELEASE_CONTRACT.contentPublication.manifestSha256,
-        },
       },
       categories: Array.from({ length: 51 }, (_, index) => ({ slug: `category-${index}` })),
     });
@@ -156,7 +149,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
         "retry-after": "86400",
       });
       response.end(JSON.stringify({
-        error: "Category is temporarily unavailable pending safety review",
+        error: "Category is temporarily unavailable",
         code: "CATEGORY_QUARANTINED",
       }));
       return;
@@ -184,7 +177,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
         "retry-after": "86400",
       });
       response.end(JSON.stringify({
-        error: "Category is temporarily unavailable pending safety review",
+        error: "Category is temporarily unavailable",
         code: "CATEGORY_QUARANTINED",
       }));
       return;

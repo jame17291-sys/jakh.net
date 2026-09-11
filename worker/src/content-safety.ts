@@ -32,7 +32,7 @@ export function requirePublicCategory(categoryId: string): void {
   if (!isQuarantinedCategory(categoryId)) return;
   throw new ApiError(
     503,
-    "Category is temporarily unavailable pending safety review",
+    "Category is temporarily unavailable",
     { "retry-after": "86400" },
     "CATEGORY_QUARANTINED",
   );

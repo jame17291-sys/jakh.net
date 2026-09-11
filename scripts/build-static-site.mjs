@@ -16,6 +16,7 @@ import {
   isQuarantinedArtifactPath,
   isQuarantinedRequestPath,
   loadProductionQuarantine,
+  publicCategoryCardsProjection,
   publicCardIndexProjection,
   publicCatalogProjection,
   publicSearchArtifacts,
@@ -401,6 +402,19 @@ function applyPublicProjection(sourceBytes, { catalog, quarantine, sourceRoot })
   );
   sourceBytes.set("data/card-index.json", Buffer.from(`${JSON.stringify(publicCardIndex)}\n`, "utf8"));
 
+  for (const category of publicCatalog.categories || []) {
+    const relativePath = `data/${category.slug}.json`;
+    const cardBytes = sourceBytes.get(relativePath);
+    invariant(cardBytes, `public category card source is missing: ${relativePath}`);
+    const cards = JSON.parse(cardBytes.toString("utf8"));
+    const publicCards = publicCategoryCardsProjection(cards);
+    invariant(
+      publicCards.every((card) => !Object.hasOwn(card, "review")),
+      `public category card review metadata leaked into ${relativePath}`,
+    );
+    sourceBytes.set(relativePath, Buffer.from(`${JSON.stringify(publicCards, null, 2)}\n`, "utf8"));
+  }
+
   for (const [relativePath, serialized] of publicSearchArtifacts({
     catalog,
     root: sourceRoot,
@@ -433,6 +447,27 @@ function applyPublicProjection(sourceBytes, { catalog, quarantine, sourceRoot })
   return { publicCatalog, publicCategories, publicQuestions };
 }
 
+const INTERNAL_GOVERNANCE_ARTIFACTS = new Set(["admin.html", "admin.js", "admin.css"]);
+const PUBLIC_REVIEW_STATUS_COPY = /(?:editorial(?:ly)?\s+(?:fact\s+)?review|editorial\s+review\s+status|pending\s+safety\s+review|qualified\s+safety\s+review|Editorially\s+reviewed|Editorial\s+review\s+pending|المراجعة\s+التحريرية|مراجعة\s+السلامة|بانتظار\s+المراجعة)/iu;
+const PUBLIC_REVIEW_METADATA_KEYS = new Set([
+  "publication",
+  "review",
+  "reviewedQuestionCount",
+  "reviewStatus",
+]);
+
+function assertNoPublicReviewMetadata(value, label) {
+  if (Array.isArray(value)) {
+    for (const [index, item] of value.entries()) assertNoPublicReviewMetadata(item, `${label}[${index}]`);
+    return;
+  }
+  if (!value || typeof value !== "object") return;
+  for (const [key, item] of Object.entries(value)) {
+    invariant(!PUBLIC_REVIEW_METADATA_KEYS.has(key), `${label} exposes public review metadata field ${key}`);
+    assertNoPublicReviewMetadata(item, `${label}.${key}`);
+  }
+}
+
 export function assertPublicProjection(artifactBytes, { publication, quarantine }) {
   const forbiddenIds = [...quarantine.cardIds];
   const textExtensions = new Set([".css", ".html", ".js", ".json", ".map", ".mjs", ".svg", ".txt", ".webmanifest", ".xml"]);
@@ -462,6 +497,22 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
     const extension = extname(relativePath).toLowerCase();
     if (!textExtensions.has(extension)) continue;
     const source = bytes.toString("utf8").normalize("NFC");
+    const isInternalGovernanceArtifact = INTERNAL_GOVERNANCE_ARTIFACTS.has(relativePath);
+    if (!isInternalGovernanceArtifact) {
+      invariant(
+        !PUBLIC_REVIEW_STATUS_COPY.test(source),
+        `public review status copy leaked into ${relativePath}`,
+      );
+    }
+    if (relativePath.startsWith("data/") && relativePath.endsWith(".json")) {
+      let data;
+      try {
+        data = JSON.parse(source);
+      } catch (error) {
+        throw new Error(`public data artifact is invalid JSON: ${relativePath}: ${error.message}`);
+      }
+      assertNoPublicReviewMetadata(data, relativePath);
+    }
     invariant(
       !forbiddenTextPattern.test(source),
       `held question, answer, or advice text leaked into ${relativePath}`,
@@ -674,7 +725,6 @@ export async function buildStaticSite({
     })
     : null;
   rewritePublishedIdentity(sourceBytes);
-
   // Stable source URLs remain available as revalidated compatibility assets.
   // Fingerprinted copies are constructed leaves-first so a changed dependency
   // deterministically changes every parent that embeds its URL.

@@ -5,10 +5,10 @@
 const FEATURE_COPY = Object.freeze({
   en: Object.freeze({
     leaderboardTop: 'Accuracy-only submitted-answer rankings',
-    leaderboardDisclaimer: 'Only one-time challenges issued and scored by JAKH enter this board. Server checking applies to submitted answers and scoring, not editorial fact review. Your practice points stay private.',
+    leaderboardDisclaimer: 'Only one-time challenges issued and scored by Riddle Arabia enter this board. Server checking applies to submitted answers and scoring. Your practice points stay private.',
     leaderboardEmpty: 'No server-checked scores yet. Start a challenge and submit the first accuracy-only score.',
     verifiedStartTitle: 'Take a server-checked challenge',
-    verifiedStartText: 'Choose a topic and answer 10 questions in one sitting. You have 15 minutes; submitted answers are checked automatically by the server. This is separate from editorial fact review.',
+    verifiedStartText: 'Choose a topic and answer 10 questions in one sitting. You have 15 minutes; submitted answers are checked automatically by the server.',
     verifiedCategory: 'Challenge topic',
     verifiedStart: 'Start server-checked challenge',
     verifiedSignIn: 'Sign in to enter the server-checked leaderboard.',
@@ -22,9 +22,8 @@ const FEATURE_COPY = Object.freeze({
     verifiedAnswerPlaceholder: 'Type your answer',
     verifiedResultTitle: 'Server-checked result',
     verifiedResult: '{correct}/{total} correct · {score} points',
-    verifiedResultNote: 'The server checked this score, so it is eligible for the public leaderboard. This does not indicate human editorial review of the card content.',
-    serverCheckedAutomationDisclaimer: 'This is accuracy-only server checking, not proctoring. JAKH does not verify who answered or prevent lookups or automated tools.',
-    verifiedReviewUnavailable: 'Editorial review status was not supplied for these server-checked questions. Do not treat server scoring as factual or safety review.',
+    verifiedResultNote: 'The server checked this score, so it is eligible for the public leaderboard.',
+    serverCheckedAutomationDisclaimer: 'This is accuracy-only server checking, not proctoring. Riddle Arabia does not verify who answered or prevent lookups or automated tools.',
     verifiedTryAgain: 'Try another challenge',
     verifiedStarting: 'Starting…',
     verifiedSubmitting: 'Checking answers…',
@@ -38,10 +37,10 @@ const FEATURE_COPY = Object.freeze({
   }),
   ar: Object.freeze({
     leaderboardTop: 'ترتيب الإجابات المرسلة بحسب الدقة فقط',
-    leaderboardDisclaimer: 'لا تظهر هنا إلا تحديات JAKH المؤقتة التي يصدرها الخادم ويصححها. يشير تحقق الخادم إلى الإجابات المرسلة وحساب النتيجة، وليس إلى مراجعة تحريرية بشرية للمعلومات. تبقى نقاط التدريب خاصة بك.',
+    leaderboardDisclaimer: 'لا تظهر هنا إلا تحديات ريدل أرابيا المؤقتة التي يصدرها الخادم ويصححها. يتحقق الخادم من الإجابات المرسلة ويحسب النتيجة. تبقى نقاط التدريب خاصة بك.',
     leaderboardEmpty: 'لا توجد نتائج تحقّق منها الخادم بعد. ابدأ تحديًا وأرسل أول نتيجة محسوبة بحسب الدقة فقط.',
     verifiedStartTitle: 'ابدأ تحديًا يتحقق منه الخادم',
-    verifiedStartText: 'اختر موضوعًا وأجب عن 10 أسئلة في جلسة واحدة. لديك 15 دقيقة، ويتحقق الخادم آليًا من الإجابات المرسلة. وهذا منفصل عن المراجعة التحريرية للمعلومات.',
+    verifiedStartText: 'اختر موضوعًا وأجب عن 10 أسئلة في جلسة واحدة. لديك 15 دقيقة، ويتحقق الخادم آليًا من الإجابات المرسلة.',
     verifiedCategory: 'موضوع التحدي',
     verifiedStart: 'ابدأ تحديًا يتحقق منه الخادم',
     verifiedSignIn: 'سجّل الدخول للمشاركة في لوحة النتائج التي يتحقق منها الخادم.',
@@ -55,9 +54,8 @@ const FEATURE_COPY = Object.freeze({
     verifiedAnswerPlaceholder: 'اكتب إجابتك',
     verifiedResultTitle: 'نتيجة تحقّق منها الخادم',
     verifiedResult: '{correct}/{total} صحيحة · {score} نقطة',
-    verifiedResultNote: 'تحقّق الخادم من هذه النتيجة، لذا فهي مؤهلة للظهور في لوحة المتصدرين. ولا يعني ذلك أن محتوى البطاقات خضع لمراجعة تحريرية بشرية.',
-    serverCheckedAutomationDisclaimer: 'هذا تحقق خادمي من الدقة فقط وليس مراقبة للاختبار. لا يتحقق JAKH من هوية المجيب ولا يمنع البحث أو الأدوات الآلية.',
-    verifiedReviewUnavailable: 'لم يرسل الخادم حالة المراجعة التحريرية لهذه الأسئلة. لا تعتبر حساب النتيجة مراجعة للمعلومة أو السلامة.',
+    verifiedResultNote: 'تحقّق الخادم من هذه النتيجة، لذا فهي مؤهلة للظهور في لوحة المتصدرين.',
+    serverCheckedAutomationDisclaimer: 'هذا تحقق خادمي من الدقة فقط وليس مراقبة للاختبار. لا تتحقق ريدل أرابيا من هوية المجيب ولا تمنع البحث أو الأدوات الآلية.',
     verifiedTryAgain: 'جرّب تحديًا آخر',
     verifiedStarting: 'جارٍ البدء…',
     verifiedSubmitting: 'جارٍ التحقق…',
@@ -129,7 +127,6 @@ export function createSearchLeaderboard(dependencies) {
     apiFetch,
     categoryRouteForLanguage,
     closeModal,
-    createReviewMarkup,
     debounce,
     escapeHtml,
     fetchJson,
@@ -478,8 +475,6 @@ export function createSearchLeaderboard(dependencies) {
       : new Intl.DateTimeFormat(state.lang === 'ar' ? 'ar-AE' : 'en', {
         hour: 'numeric', minute: '2-digit',
       }).format(expiresAt);
-    const allReviewMetadataSupplied = questions.every(item => item?.review
-      && ['pending', 'reviewed'].includes(item.review.status));
     mount.innerHTML = `
       <section class="verified-challenge" aria-labelledby="verifiedChallengeTitle">
         <div class="verified-section-head">
@@ -489,7 +484,6 @@ export function createSearchLeaderboard(dependencies) {
               ? `أجب مرة واحدة قبل ${expiryLabel || 'انتهاء المهلة'}. لا تغلق هذه الصفحة قبل الإرسال.`
               : `Submit once before ${expiryLabel || 'the deadline'}. Keep this page open until you finish.`)}</p>
             <p class="server-check-disclosure">${escapeHtml(t('serverCheckedAutomationDisclaimer'))}</p>
-            ${allReviewMetadataSupplied ? '' : `<p class="card-review card-review--safety" role="note">⚠ ${escapeHtml(t('verifiedReviewUnavailable'))}</p>`}
           </div>
           <button type="button" class="text-btn mini-btn" id="verifiedCancelBtn">${escapeHtml(t('verifiedCancel'))}</button>
         </div>
@@ -502,7 +496,6 @@ export function createSearchLeaderboard(dependencies) {
                 <input id="verifiedAnswer${index}" name="verifiedAnswer${index}" type="text" dir="auto"
                   autocomplete="off" maxlength="256" required placeholder="${escapeHtml(t('verifiedAnswerPlaceholder'))}" />
               </label>
-              ${item?.review && ['pending', 'reviewed'].includes(item.review.status) ? createReviewMarkup({ review: item.review }) : ''}
             </div>`).join('')}
           <p class="verified-form-error hidden" id="verifiedFormError" role="alert"></p>
           <button type="submit" class="primary-btn" id="verifiedSubmitBtn">${escapeHtml(t('verifiedSubmit'))}</button>

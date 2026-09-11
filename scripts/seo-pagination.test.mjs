@@ -225,6 +225,7 @@ test("all topic routes remain functional noindex application shells without stat
       assert.equal(link(source, "alternate", "ar"), `${siteOrigin}/ar/topics/${category.slug}/`, `${relative}: Arabic alternate`);
       assert.match(meta(source, "name", "robots"), /\bnoindex\b/iu, `${relative}: excluded from the search sitemap`);
       assert.match(source, new RegExp(`<body\\b[^>]*data-page="category"[^>]*data-category="${escapeRegex(category.slug)}"`, "u"), `${relative}: app category binding`);
+      assert.match(source, /<img\b[^>]*\bid="categoryImage"/u, `${relative}: dynamic category illustration mount`);
       assert.match(source, /<script src="\/app\.js\?v=/u, `${relative}: application runtime`);
       assert.doesNotMatch(source, /<article\b[^>]*(?:riddle-card|seo-qa-card)/iu, `${relative}: no static SEO card copy`);
       assert.doesNotMatch(source, /<link\b[^>]*\brel="(?:prev|next)"|\/page\//iu, `${relative}: no pagination graph`);

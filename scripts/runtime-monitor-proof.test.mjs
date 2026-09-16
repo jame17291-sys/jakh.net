@@ -122,3 +122,14 @@ test("proof rejects a missing required quarantine probe or policy digest drift",
     /policy digest|required check/u,
   );
 });
+
+test("legacy-cutover evidence cannot satisfy a current-site proof", () => {
+  const legacy = report("site");
+  legacy.monitor.siteContract = "legacy-cutover";
+  assert.match(validateScopedMonitorReport(legacy, { scope: "site" }).join("\n"), /site contract/u);
+  assert.deepEqual(validateScopedMonitorReport(legacy, { scope: "site", siteContract: "legacy-cutover" }), []);
+  legacy.monitor.siteOrigin = "https://riddlearabia.com";
+  assert.match(validateScopedMonitorReport(legacy, {
+    scope: "site", siteContract: "legacy-cutover",
+  }).join("\n"), /legacy site and API origins/u);
+});

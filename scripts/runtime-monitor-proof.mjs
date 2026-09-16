@@ -68,6 +68,7 @@ function requiredCheckNames(scope) {
 export function validateScopedMonitorReport(report, {
   scope,
   allowCompatibleSchema = false,
+  siteContract = "current",
 } = {}) {
   const errors = [];
   if (!new Set(["api", "site", "pages"]).has(scope)) errors.push("expected monitor scope is invalid");
@@ -77,6 +78,13 @@ export function validateScopedMonitorReport(report, {
     errors.push("scoped runtime monitor did not pass");
   }
   if (report.monitor?.scope !== scope) errors.push(`monitor scope was ${report.monitor?.scope ?? "missing"}, expected ${scope}`);
+  if ((report.monitor?.siteContract || "current") !== siteContract) {
+    errors.push("monitor site contract does not match the requested proof");
+  }
+  if (siteContract === "legacy-cutover" && (
+    scope !== "site" || report.monitor?.siteOrigin !== "https://jakh.net"
+    || report.monitor?.apiOrigin !== "https://api.jakh.net"
+  )) errors.push("legacy-cutover proof must monitor the legacy site and API origins in site scope");
   if (report.monitor?.allowCompatibleSchema !== allowCompatibleSchema) {
     errors.push("monitor schema-compatibility mode does not match the requested proof");
   }
@@ -105,6 +113,7 @@ export function buildVersionBoundMonitorProof({
   monitorReport,
   scope,
   allowCompatibleSchema = false,
+  siteContract = "current",
   generatedAt = new Date(),
 }) {
   const bindingErrors = [];
@@ -129,7 +138,7 @@ export function buildVersionBoundMonitorProof({
   if (versionBefore && versionAfter && versionBefore !== versionAfter) {
     bindingErrors.push(`active Worker changed during monitor proof (${versionBefore} to ${versionAfter})`);
   }
-  const monitorErrors = validateScopedMonitorReport(monitorReport, { scope, allowCompatibleSchema });
+  const monitorErrors = validateScopedMonitorReport(monitorReport, { scope, allowCompatibleSchema, siteContract });
   if (scope !== "pages") {
     const prefix = scope === "api" ? "API" : "Site";
     for (const result of Array.isArray(monitorReport?.results) ? monitorReport.results : []) {
@@ -146,6 +155,7 @@ export function buildVersionBoundMonitorProof({
     capturedAt: generatedAt.toISOString(),
     scope,
     allowCompatibleSchema,
+    siteContract,
     targetVersion,
     versionBefore,
     versionAfter,

@@ -247,14 +247,49 @@ function connectToBattle(code, name, hostId) {
   const ws = new WebSocket(getBattleWsUrl(code));
   battleState.ws = ws;
   battleState.roomCode = code;
-  ws.onopen = () => ws.send(JSON.stringify({ type: 'join-room', code, name, hostId: hostId || '' }));
-  ws.onmessage = (e) => { try { handleBattleMessage(JSON.parse(e.data)); } catch (_) {} };
-  ws.onerror = () => showBattleError(state.lang === 'ar' ? 'تعذر الاتصال بالغرفة' : 'Connection failed');
-  ws.onclose = () => {
-    if (battleState.phase !== 'closed' && battleState.phase !== 'finished') {
-      showToast(state.lang === 'ar' ? 'انقطع الاتصال بالغرفة' : 'Disconnected from battle room');
+  let serverError = '';
+  const recover = () => {
+    // A late callback from a replaced socket must not reset the new room.
+    if (battleState.ws !== ws) return;
+    battleState.ws = null;
+    ws.onopen = ws.onmessage = ws.onerror = ws.onclose = null;
+    try { ws.close(); } catch (_) {}
+    clearInterval(battleState.timerInterval);
+    if (battleState.phase === 'closed' || battleState.phase === 'finished') return;
+
+    const wasSetup = battleState.phase === 'setup';
+    battleState.playerId = null;
+    battleState.isHost = false;
+    battleState.hostId = null;
+    battleState.roomData = null;
+    if (!wasSetup) {
+      battleState.phase = 'setup';
+      renderBattleUI();
+      const nameInput = document.getElementById('battleNameInput');
+      if (nameInput) nameInput.value = name;
     }
+    const button = document.getElementById('battleCreateBtn');
+    if (button) {
+      button.disabled = false;
+      button.textContent = `⚡ ${state.lang === 'ar' ? 'أنشئ الغرفة' : 'Create Battle Room'}`;
+    }
+    showBattleError(serverError || (wasSetup
+      ? (state.lang === 'ar' ? 'تعذر الاتصال بالغرفة. حاول مرة أخرى.' : 'Connection failed. Please try again.')
+      : (state.lang === 'ar' ? 'انقطع الاتصال بالغرفة. أنشئ غرفة جديدة أو انضم إلى غرفة أخرى.' : 'Disconnected from battle room. Create or join another room.')));
   };
+  ws.onopen = () => {
+    if (battleState.ws === ws) ws.send(JSON.stringify({ type: 'join-room', code, name, hostId: hostId || '' }));
+  };
+  ws.onmessage = (e) => {
+    if (battleState.ws !== ws) return;
+    try {
+      const message = JSON.parse(e.data);
+      if (message.type === 'error') serverError = localizedErrorMessage({ code: message.code, message: message.message });
+      handleBattleMessage(message);
+    } catch (_) {}
+  };
+  ws.onerror = recover;
+  ws.onclose = recover;
 }
 
 function handleBattleMessage(msg) {

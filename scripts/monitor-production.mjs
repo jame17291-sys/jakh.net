@@ -82,6 +82,13 @@ export const HTML_ROUTES = [
   { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
 ];
 
+// A domain cutover proves the predecessor before the new brand and curated
+// routes exist. Keep the stable entry points and all publication/version checks;
+// the candidate must still pass the complete current-site contract after deploy.
+const LEGACY_BASELINE_HTML_ROUTES = HTML_ROUTES.filter(({ path }) => (
+  !["/riddles", "/ar/alghaz/", "/brain-games"].includes(path)
+));
+
 // The sitemap is intentionally a curated surface rather than a generated
 // inventory of every runtime category. Keep production monitoring tied to the
 // same source-of-truth as the static generator, so an old mass-indexing URL
@@ -330,10 +337,25 @@ function loadConfig(options) {
     throw new Error("monitor scope must be all, api, site, or pages");
   }
   const siteOrigin = origin(options.siteOrigin || env.JAKH_SITE_ORIGIN || DEFAULT_SITE_ORIGIN, "site origin");
+  const apiOrigin = origin(options.apiOrigin || env.JAKH_API_ORIGIN || DEFAULT_API_ORIGIN, "API origin");
+  const expectedWorkerVersion = optionalWorkerVersion(
+    options.expectedWorkerVersion || env.JAKH_MONITOR_EXPECTED_WORKER_VERSION,
+  );
+  const siteContract = options.siteContract || env.JAKH_MONITOR_SITE_CONTRACT || "current";
+  if (!new Set(["current", "legacy-cutover"]).has(siteContract)) {
+    throw new Error("site contract must be current or legacy-cutover");
+  }
+  if (siteContract === "legacy-cutover" && (
+    scope !== "site" || siteOrigin !== "https://jakh.net"
+    || apiOrigin !== "https://api.jakh.net" || !expectedWorkerVersion
+  )) {
+    throw new Error("legacy-cutover requires site scope, the legacy site/API origins, and an exact predecessor Worker version");
+  }
   const defaultLegacyOrigins = siteOrigin === PRIMARY_SITE_ORIGIN ? LEGACY_SITE_ORIGINS : [];
   return {
     siteOrigin,
-    apiOrigin: origin(options.apiOrigin || env.JAKH_API_ORIGIN || DEFAULT_API_ORIGIN, "API origin"),
+    apiOrigin,
+    siteContract,
     legacySiteOrigins: legacyOrigins(
       options.legacySiteOrigins ?? env.JAKH_MONITOR_LEGACY_SITE_ORIGINS,
       defaultLegacyOrigins,
@@ -356,9 +378,7 @@ function loadConfig(options) {
     allowCompatibleSchema:
       options.allowCompatibleSchema === true
       || env.JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA === "true",
-    expectedWorkerVersion: optionalWorkerVersion(
-      options.expectedWorkerVersion || env.JAKH_MONITOR_EXPECTED_WORKER_VERSION,
-    ),
+    expectedWorkerVersion,
     maxCheckAttempts: positiveInteger(
       options.maxCheckAttempts ?? env.JAKH_MONITOR_MAX_ATTEMPTS,
       DEFAULT_MAX_CHECK_ATTEMPTS,
@@ -375,6 +395,7 @@ function loadConfig(options) {
 
 export async function runProductionMonitor(options = {}) {
   const config = loadConfig(options);
+  const legacyBaseline = config.siteContract === "legacy-cutover";
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   const logger = options.logger || console;
   const results = [];
@@ -441,7 +462,7 @@ export async function runProductionMonitor(options = {}) {
     }
   }
 
-  await Promise.all(HTML_ROUTES.map((route) =>
+  await Promise.all((legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES : HTML_ROUTES).map((route) =>
     check(`Site: ${route.name}`, async () => {
       const resource = await fetchResource(
         fetchImpl,
@@ -450,12 +471,16 @@ export async function runProductionMonitor(options = {}) {
       );
       expectStatus(resource.response, 200);
       expectContentType(resource.response, /^text\/html\b/iu);
-      expect(resource.text.includes(route.marker), `missing page marker "${route.marker}"`);
+      if (legacyBaseline) {
+        expect(/<title>[^<\r\n]+<\/title>/iu.test(resource.text), "baseline HTML lacks a nonempty page title");
+      } else {
+        expect(resource.text.includes(route.marker), `missing page marker "${route.marker}"`);
+      }
       expect(
         resource.text.includes(route.bilingualMarker),
         `missing bilingual marker "${route.bilingualMarker}"`,
       );
-      if (route.path === "/science") {
+      if (route.path === "/science" && !legacyBaseline) {
         expect(
           /<body\b[^>]*\bdata-page="category"/iu.test(resource.text),
           "science must retain the functional category application shell",
@@ -644,7 +669,11 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application\/manifest\+json|application\/json)/iu);
     const manifest = parseJson(resource);
-    expect(manifest.name === "Riddle Arabia", "manifest name is not Riddle Arabia");
+    if (legacyBaseline) {
+      expect(typeof manifest.name === "string" && manifest.name.trim().length > 0, "baseline manifest name is empty");
+    } else {
+      expect(manifest.name === "Riddle Arabia", "manifest name is not Riddle Arabia");
+    }
     expect(manifest.start_url === "/", "manifest start_url is not /");
     expect(Array.isArray(manifest.icons) && manifest.icons.length >= 2, "manifest icons are incomplete");
     assertBudget(resource, config.siteMaxMs, 20_000);
@@ -661,17 +690,24 @@ export async function runProductionMonitor(options = {}) {
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
     const expectedUrls = INDEXABLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
-    expect(urls.length === expectedUrls.length, `sitemap contains ${urls.length} URLs instead of ${expectedUrls.length}`);
+    if (legacyBaseline) {
+      expect(urls.length > 0, "baseline sitemap is empty");
+      expect(urls.includes(`${config.siteOrigin}/`), "baseline sitemap is missing the homepage");
+    } else {
+      expect(urls.length === expectedUrls.length, `sitemap contains ${urls.length} URLs instead of ${expectedUrls.length}`);
+    }
     expect(new Set(urls).size === urls.length, "sitemap repeats a URL");
     expect(
       urls.every((url) => new URL(url).origin === config.siteOrigin),
       "sitemap contains a URL outside the monitored primary site origin",
     );
     expect(!urls.some((url) => /\.html(?:$|[?#])/u.test(url)), "sitemap contains a .html URL");
-    expect(
-      expectedUrls.every((url) => urls.includes(url)),
-      "sitemap is missing one or more focused Riddle Arabia routes",
-    );
+    if (!legacyBaseline) {
+      expect(
+        expectedUrls.every((url) => urls.includes(url)),
+        "sitemap is missing one or more focused Riddle Arabia routes",
+      );
+    }
     expect(
       QUARANTINED_CATEGORY_SLUGS.every((slug) => (
         !urls.some((url) => {
@@ -714,17 +750,22 @@ export async function runProductionMonitor(options = {}) {
   await check("Site: social preview image", async () => {
     const resource = await fetchResource(
       fetchImpl,
-        new URL("/assets/riddlearabia-og-image.png", config.siteOrigin),
+      new URL(legacyBaseline ? "/assets/og-image.jpg" : "/assets/riddlearabia-og-image.png", config.siteOrigin),
       config.timeoutMs,
     );
     expectStatus(resource.response, 200);
-    expectContentType(resource.response, /^image\/png\b/iu);
+    expectContentType(resource.response, legacyBaseline ? /^image\/jpeg\b/iu : /^image\/png\b/iu);
     const signature = new Uint8Array(resource.body.slice(0, 8));
-    expect(
-      signature[0] === 0x89 && signature[1] === 0x50 && signature[2] === 0x4e && signature[3] === 0x47
-        && signature[4] === 0x0d && signature[5] === 0x0a && signature[6] === 0x1a && signature[7] === 0x0a,
-      "social preview image does not have a PNG signature",
-    );
+    if (legacyBaseline) {
+      expect(signature[0] === 0xff && signature[1] === 0xd8 && signature[2] === 0xff,
+        "baseline social preview image does not have a JPEG signature");
+    } else {
+      expect(
+        signature[0] === 0x89 && signature[1] === 0x50 && signature[2] === 0x4e && signature[3] === 0x47
+          && signature[4] === 0x0d && signature[5] === 0x0a && signature[6] === 0x1a && signature[7] === 0x0a,
+        "social preview image does not have a PNG signature",
+      );
+    }
     assertBudget(resource, config.siteMaxMs, 400_000);
     return resource;
   });
@@ -1065,6 +1106,7 @@ export function buildMonitorReport(summary, generatedAt = new Date()) {
     status: summary.failures.length ? "failure" : "success",
     monitor: {
       scope: summary.config?.scope ?? null,
+      siteContract: summary.config?.siteContract || "current",
       siteOrigin: summary.config?.siteOrigin ?? null,
       apiOrigin: summary.config?.apiOrigin ?? null,
       legacySiteOrigins: summary.config?.legacySiteOrigins ?? [],

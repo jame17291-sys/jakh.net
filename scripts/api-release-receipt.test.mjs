@@ -384,6 +384,33 @@ test("final receipt cannot hide a failed exact Worker rollback", () => {
   assert.equal(receipt.result, "post-deploy-verification-failed-without-confirmed-rollback");
 });
 
+test("both API phases retain working legacy content during cutover and use the new host normally", async () => {
+  const [workflow, config] = await Promise.all([
+    readFile(new URL("../.github/workflows/api-deploy.yml", import.meta.url), "utf8"),
+    readFile(new URL("../worker/wrangler.jsonc", import.meta.url), "utf8"),
+  ]);
+  const defaultOrigin = config.match(/"STATIC_ORIGIN"\s*:\s*"([^"]+)"/u)?.[1];
+  const deploySteps = [...workflow.matchAll(
+    /id: (deploy_compatibility|deploy_final)\n[\s\S]*?command: ([^\n]+)/gu,
+  )];
+  assert.deepEqual(deploySteps.map(match => match[1]), ["deploy_compatibility", "deploy_final"]);
+  for (const [, phase, command] of deploySteps) {
+    assert.match(command, /^deploy --strict --message /u, phase);
+    for (const domainCutover of [true, false]) {
+      // Resolve the boolean branches passed to wrangler-action, then inspect
+      // the effective CLI override rather than merely checking a host string.
+      const resolvedCommand = command.replace(
+        /\$\{\{\s*inputs\.domain_cutover\s*&&\s*'([^']*)'\s*\|\|\s*'([^']*)'\s*\}\}/gu,
+        (_expression, enabled, disabled) => domainCutover ? enabled : disabled,
+      );
+      const overrides = [...resolvedCommand.matchAll(/--var\s+STATIC_ORIGIN:([^\s]+)/gu)];
+      assert.equal(overrides.length, domainCutover ? 1 : 0, `${phase}: cutover=${domainCutover}`);
+      const effectiveOrigin = overrides.at(-1)?.[1] || defaultOrigin;
+      assert.equal(effectiveOrigin, domainCutover ? "https://jakh.net" : "https://riddlearabia.com");
+    }
+  }
+});
+
 test("workflow statically separates no-migration compatibility from gated migration-final", async () => {
   const workflow = await readFile(new URL("../.github/workflows/api-deploy.yml", import.meta.url), "utf8");
   const monitorWorkflow = await readFile(

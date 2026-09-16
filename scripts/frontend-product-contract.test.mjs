@@ -362,6 +362,90 @@ test('Battle invitations use shareable query URLs while accepting legacy hash li
   assert.match(battleMode, /inviteUrl\.searchParams\.set\('battle', code\)/u);
 });
 
+function battleConnectionHarness() {
+  const elements = new Map([
+    ['battleNameInput', { value: 'Player' }],
+    ['battleCatSelect', { value: 'science' }],
+    ['battleDiffSelect', { value: 'all' }],
+    ['battleCountSelect', { value: '10' }],
+    ['battleCreateBtn', { disabled: false, textContent: 'Create Battle Room' }],
+    ['battleSetupError', { textContent: '', classList: { remove() {} } }],
+  ]);
+  const sockets = [];
+  const clearedTimers = [];
+  let renders = 0;
+  const context = vm.createContext({
+    URL,
+    API_ORIGIN: 'https://api.riddlearabia.com',
+    state: { lang: 'en' },
+    battleState: { ws: null, phase: 'setup', timerInterval: 7 },
+    document: { getElementById: id => elements.get(id) },
+    apiFetch: async () => ({ code: 'SCI7X2KQ', hostId: 'test-host' }),
+    localizedErrorMessage: error => error.message,
+    renderBattleUI: () => { renders += 1; },
+    clearInterval: timer => clearedTimers.push(timer),
+    handleBattleMessage() {},
+    WebSocket: class {
+      constructor(url) { this.url = url; this.sent = []; sockets.push(this); }
+      send(message) { this.sent.push(JSON.parse(message)); }
+      close() { this.closed = true; }
+    },
+  });
+  vm.runInContext([
+    ...['normalizeBattleCode', 'getBattleWsUrl', 'showBattleError', 'handleBattleCreate', 'connectToBattle']
+      .map(name => topLevelFunction(name, battleMode)),
+    'this.create = handleBattleCreate; this.connect = connectToBattle;',
+  ].join('\n'), context);
+  return { context, elements, sockets, clearedTimers, get renders() { return renders; } };
+}
+
+test('Battle creation can retry after its API succeeds but the WebSocket handshake fails', async () => {
+  const { context, elements, sockets } = battleConnectionHarness();
+  await context.create();
+  assert.equal(elements.get('battleCreateBtn').disabled, true);
+  sockets[0].onerror();
+  assert.equal(elements.get('battleCreateBtn').disabled, false);
+  assert.match(elements.get('battleCreateBtn').textContent, /Create Battle Room/u);
+  assert.match(elements.get('battleSetupError').textContent, /Connection failed/u);
+  assert.equal(elements.get('battleNameInput').value, 'Player');
+  assert.equal(context.battleState.ws, null);
+  assert.equal(context.battleState.isHost, false);
+  assert.equal(sockets[0].closed, true);
+
+  await context.create();
+  sockets[1].onopen();
+  assert.equal(sockets[1].sent[0].type, 'join-room');
+  assert.equal(sockets[1].sent[0].name, 'Player');
+});
+
+test('Battle disconnect clears active play and ignores callbacks from a replaced socket', () => {
+  const harness = battleConnectionHarness();
+  const { context, elements, sockets, clearedTimers } = harness;
+  context.connect('SCI7X2KQ', 'Player', 'test-host');
+  const staleError = sockets[0].onerror;
+  context.connect('SCI7X2KQ', 'Player', 'test-host');
+  staleError();
+  assert.equal(context.battleState.ws, sockets[1]);
+  assert.equal(elements.get('battleSetupError').textContent, '');
+
+  Object.assign(context.battleState, { phase: 'question', playerId: 'old-player', isHost: true });
+  sockets[1].onclose();
+  assert.equal(context.battleState.phase, 'setup');
+  assert.equal(context.battleState.playerId, null);
+  assert.equal(context.battleState.ws, null);
+  assert.equal(harness.renders, 1);
+  assert.deepEqual(clearedTimers, [7]);
+  assert.match(elements.get('battleSetupError').textContent, /Create or join another room/u);
+});
+
+test('Battle preserves a server rejection when the server closes its socket', () => {
+  const { context, elements, sockets } = battleConnectionHarness();
+  context.connect('SCI7X2KQ', 'Player', null);
+  sockets[0].onmessage({ data: JSON.stringify({ type: 'error', message: 'Room is full', code: 'ROOM_FULL' }) });
+  sockets[0].onclose();
+  assert.equal(elements.get('battleSetupError').textContent, 'Room is full');
+});
+
 test('public Arabic actions use concise human wording and reject known literal translations', () => {
   const publicActions = [app, battleMode, seoGenerator, arabicRouteGenerator, gameCopy].join('\n');
   for (const roboticOrIncorrect of [

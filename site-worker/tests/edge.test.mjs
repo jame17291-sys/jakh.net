@@ -59,6 +59,9 @@ test("primary physical aliases and www normalize in one query-preserving 301", a
     [`${PRIMARY_ORIGIN}/science.html?x=1`, `${PRIMARY_ORIGIN}/science?x=1`],
     [`${PRIMARY_ORIGIN}/ar/topics/science/index.html?x=1`, `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
     [`${PRIMARY_ORIGIN}/ar/topics/science.html?x=1`, `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
+    [`${PRIMARY_ORIGIN}/ar?battle=ABCD1234`, `${PRIMARY_ORIGIN}/ar/?battle=ABCD1234`],
+    [`${PRIMARY_ORIGIN}/ar/topics/classic-riddles?card=classic-riddles-001`, `${PRIMARY_ORIGIN}/ar/topics/classic-riddles/?card=classic-riddles-001`],
+    [`${PRIMARY_ORIGIN}/ar/games/chess?ref=launch`, `${PRIMARY_ORIGIN}/ar/games/chess/?ref=launch`],
     ["https://www.riddlearabia.com/science.html?x=1", `${PRIMARY_ORIGIN}/science?x=1`],
     ["http://www.riddlearabia.com/index.html?x=1", `${PRIMARY_ORIGIN}/?x=1`],
     [`${PRIMARY_ORIGIN}/collections/?x=1`, `${PRIMARY_ORIGIN}/collections?x=1`],
@@ -80,6 +83,7 @@ test("legacy hosts redirect directly to the new canonical route and preserve que
   const cases = [
     ["https://jakh.net/science.html?battle=ABCD1234", `${PRIMARY_ORIGIN}/science?battle=ABCD1234`],
     ["https://www.jakh.net/ar/topics/science/index.html?x=1", `${PRIMARY_ORIGIN}/ar/topics/science/?x=1`],
+    ["https://jakh.net/ar/topics/classic-riddles?card=classic-riddles-001", `${PRIMARY_ORIGIN}/ar/topics/classic-riddles/?card=classic-riddles-001`],
     ["http://jakh.net/collections/?ref=legacy", `${PRIMARY_ORIGIN}/collections?ref=legacy`],
   ];
   for (const [source, destination] of cases) {

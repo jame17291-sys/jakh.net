@@ -482,6 +482,8 @@ export function applyRuntimeProof({
     monitorReport,
     scope: "site",
     allowCompatibleSchema: false,
+    siteContract: stage === "rollback-target" && receipt.safety.domainCutover === true
+      ? "legacy-cutover" : "current",
     generatedAt,
   });
   if (stage === "rollback-target") {

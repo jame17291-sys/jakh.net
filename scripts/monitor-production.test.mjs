@@ -36,12 +36,13 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-function staticBody(pathname, { siteOrigin, apiOrigin }) {
+function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false }) {
+  if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
   const route = HTML_ROUTES.find((candidate) => candidate.path === pathname);
   if (route) {
     const categoryAttributes = pathname === "/science" ? ' data-page="category" data-category="science"' : "";
     const categoryMount = pathname === "/science" ? '<div id="cardGrid"></div>' : "";
-    return `<!doctype html><html><head>${route.marker}</title></head><body${categoryAttributes}>${route.bilingualMarker}${categoryMount}ok</body></html>`;
+    return `<!doctype html><html><head>${legacySite ? "<title>JAKH Riddles" : route.marker}</title></head><body${categoryAttributes}>${route.bilingualMarker}${categoryMount}ok</body></html>`;
   }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
@@ -68,13 +69,14 @@ function staticBody(pathname, { siteOrigin, apiOrigin }) {
   }
   if (pathname === "/manifest.webmanifest") {
     return JSON.stringify({
-      name: "Riddle Arabia",
+      name: legacySite ? "JAKH Riddles" : "Riddle Arabia",
       start_url: "/",
       icons: [{ src: "one.png" }, { src: "two.png" }],
     });
   }
   if (pathname === "/sitemap.xml") {
-    const urls = INDEXABLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, siteOrigin).href);
+    const paths = legacySite ? ["/", "/science", "/en/riddles-with-answers"] : INDEXABLE_SITEMAP_PATHS;
+    const urls = paths.map((pathname) => new URL(pathname, siteOrigin).href);
     return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
   }
   if (pathname === "/.well-known/security.txt") {
@@ -85,8 +87,10 @@ function staticBody(pathname, { siteOrigin, apiOrigin }) {
     ].join("\n");
   }
   if (pathname === "/assets/riddlearabia-og-image.png") {
+    if (legacySite) return null;
     return Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
   }
+  if (legacySite && pathname === "/assets/og-image.jpg") return Buffer.from([0xff, 0xd8, 0xff, 0xe0]);
   if (pathname === "/app.js") return `const endpoint = '${apiOrigin}';`;
   if (pathname === "/site-i18n.js") return "window.JakhI18n = {};";
   if (pathname === "/game-i18n.js") return "window.JakhGameI18n = {};";
@@ -96,7 +100,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin }) {
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false, legacySite = false } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -215,8 +219,9 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
 
     const fixtureOrigin = `http://${request.headers.host}`;
     const body = staticBody(url.pathname, {
-      siteOrigin: fixtureOrigin,
-      apiOrigin: fixtureOrigin,
+      siteOrigin: legacySite ? "https://jakh.net" : fixtureOrigin,
+      apiOrigin: legacySite ? "https://api.jakh.net" : fixtureOrigin,
+      legacySite,
     });
     if (body !== null) {
       const contentType = url.pathname.endsWith(".css")
@@ -225,6 +230,8 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
           ? "text/javascript; charset=utf-8"
           : url.pathname.endsWith(".png")
             ? "image/png"
+            : url.pathname.endsWith(".jpg")
+              ? "image/jpeg"
             : url.pathname.endsWith(".xml")
               ? "application/xml; charset=utf-8"
               : url.pathname.endsWith(".txt")
@@ -271,6 +278,67 @@ async function withFixture(options, run) {
     await fixture.close();
   }
 }
+
+test("cutover baseline accepts the old brand and sitemap while retaining version and quarantine checks", async () => {
+  await withFixture({ legacySite: true }, async (fixtureOrigin) => {
+    const baselineOptions = {
+      env: {},
+      scope: "site",
+      siteContract: "legacy-cutover",
+      siteOrigin: "https://jakh.net",
+      apiOrigin: "https://api.jakh.net",
+      expectedWorkerVersion: FIXTURE_WORKER_VERSION,
+      maxCheckAttempts: 1,
+      logger: quietLogger(),
+      throwOnFailure: false,
+      fetchImpl: (input, init) => {
+        const url = new URL(input);
+        assert.equal(url.origin, "https://jakh.net");
+        return fetch(new URL(`${url.pathname}${url.search}`, fixtureOrigin), init);
+      },
+    };
+    const baseline = await runProductionMonitor(baselineOptions);
+    assert.deepEqual(baseline.failures, []);
+    assert.equal(buildMonitorReport(baseline).monitor.siteContract, "legacy-cutover");
+    assert.equal(baseline.results.filter(({ name }) => name.startsWith("Site quarantine:")).length, QUARANTINED_SITE_ROUTES.length);
+    assert.ok(baseline.results.every(({ workerVersionId }) => workerVersionId === FIXTURE_WORKER_VERSION));
+
+    const candidate = await runProductionMonitor({ ...baselineOptions, siteContract: "current" });
+    assert.ok(candidate.failures.some(({ name }) => name === "Site: Home"));
+    assert.ok(candidate.failures.some(({ name }) => name === "Site: sitemap"));
+    assert.ok(candidate.failures.some(({ name }) => name === "Site: social preview image"));
+
+    const wrongVersion = await runProductionMonitor({
+      ...baselineOptions,
+      expectedWorkerVersion: "22222222-2222-4222-8222-222222222222",
+    });
+    assert.ok(wrongVersion.failures.some(({ message }) => message.includes("expected 22222222")));
+
+    const leaked = await runProductionMonitor({
+      ...baselineOptions,
+      fetchImpl: (input, init) => new URL(input).pathname === "/survival"
+        ? new Response("held content", { headers: { "x-jakh-worker-version": FIXTURE_WORKER_VERSION } })
+        : baselineOptions.fetchImpl(input, init),
+    });
+    assert.ok(leaked.failures.some(({ name }) => name.startsWith("Site quarantine:")));
+  });
+});
+
+test("legacy baseline mode refuses candidate hosts, mixed scopes and unbound versions", async () => {
+  const baselineOptions = {
+    env: {}, scope: "site", siteContract: "legacy-cutover", siteOrigin: "https://jakh.net",
+    apiOrigin: "https://api.jakh.net", expectedWorkerVersion: FIXTURE_WORKER_VERSION,
+  };
+  for (const change of [
+    { siteOrigin: "https://riddlearabia.com" },
+    { apiOrigin: "https://api.riddlearabia.com" },
+    { scope: "all" },
+    { scope: "pages" },
+    { expectedWorkerVersion: "" },
+  ]) {
+    await assert.rejects(runProductionMonitor({ ...baselineOptions, ...change }), /legacy-cutover requires/u);
+  }
+});
 
 test("production monitor passes all deterministic checks", async () => {
   await withFixture({}, async (fixtureOrigin) => {
@@ -491,6 +559,7 @@ test("production monitor emits a stable structured report for alert routing", ()
     status: "failure",
     monitor: {
       scope: "all",
+      siteContract: "current",
       siteOrigin: "https://riddlearabia.com",
       apiOrigin: "https://api.riddlearabia.com",
       legacySiteOrigins: ["https://jakh.net", "https://www.jakh.net"],

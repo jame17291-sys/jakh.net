@@ -2,9 +2,11 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  applyRuntimeProof,
   runSmoke,
   smokeDefinitions,
 } from "./site-release-receipt.mjs";
+import { CONTENT_PUBLICATION_CONTRACT, QUARANTINED_SITE_ROUTES } from "./monitor-production.mjs";
 
 const BUILD_ID = "a".repeat(64);
 const WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
@@ -126,4 +128,35 @@ test("pre-cutover baseline smoke can explicitly avoid requiring legacy redirects
     definitions.find(({ name }) => name === "www-one-hop-alias")?.url,
     "https://www.jakh.net/science.html?site_probe=baseline",
   );
+});
+
+test("only the cutover predecessor accepts the legacy monitor contract", () => {
+  const names = [
+    "Site: catalog data", "Site: public card index", "Site: en public search index", "Site: ar public search index",
+    ...QUARANTINED_SITE_ROUTES.map(({ name }) => `Site quarantine: ${name}`),
+  ];
+  const monitorReport = {
+    schemaVersion: 1, status: "success", failedChecks: 0, failures: [],
+    monitor: {
+      scope: "site", siteContract: "legacy-cutover", allowCompatibleSchema: false,
+      siteOrigin: "https://jakh.net", apiOrigin: "https://api.jakh.net",
+    },
+    contentPublicationContract: CONTENT_PUBLICATION_CONTRACT,
+    results: names.map((name) => ({
+      name, status: name.startsWith("Site quarantine:") ? 410 : 200, workerVersionId: WORKER_VERSION,
+    })),
+  };
+  const deployment = { versions: [{ version_id: WORKER_VERSION, percentage: 100 }] };
+  const run = (stage, domainCutover) => applyRuntimeProof({
+    receipt: {
+      safety: { domainCutover, workerRollbackTarget: WORKER_VERSION },
+      postDeployment: { activeWorkerVersion: WORKER_VERSION },
+    },
+    stage, deploymentBefore: deployment, deploymentAfter: deployment, monitorReport,
+  });
+  const baseline = run("rollback-target", true);
+  assert.equal(baseline.proof.safe, true);
+  assert.equal(baseline.receipt.safety.automaticRollback, false);
+  assert.equal(run("rollback-target", false).proof.safe, false);
+  assert.equal(run("candidate", true).proof.safe, false);
 });

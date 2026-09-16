@@ -128,7 +128,7 @@ jobs:
           node scripts/validate-bilingual.mjs
           node scripts/validate-responsive-images.mjs
           node scripts/validate-production-hygiene.mjs
-          node --test scripts/d1-backup.test.mjs scripts/production-hygiene.test.mjs
+          node --test scripts/d1-backup.test.mjs scripts/api-artifact-confidentiality.test.mjs scripts/production-hygiene.test.mjs
           node scripts/validate-game-focus.mjs
           node --test \
             scripts/accessibility-contracts.test.mjs \
@@ -268,7 +268,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           wranglerVersion: "4.131.0"
-          command: deploy --strict --message "${{ steps.deployment_message.outputs.value }}"
+          command: deploy --strict --message "${{ steps.deployment_message.outputs.value }}" ${{ inputs.domain_cutover && '--var STATIC_ORIGIN:https://jakh.net' || '' }}
       - name: Verify compatibility Worker and unchanged D1
         id: verify_production
         env:
@@ -494,7 +494,30 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: api-compatibility-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/jakh-api-release
+          # Exact evidence allowlist: never upload a directory or backup database.
+          path: |
+            ${{ runner.temp }}/jakh-api-release/database-after-compatibility.json
+            ${{ runner.temp }}/jakh-api-release/database-after-rollback.json
+            ${{ runner.temp }}/jakh-api-release/database-before.json
+            ${{ runner.temp }}/jakh-api-release/health-after-compatibility.http
+            ${{ runner.temp }}/jakh-api-release/health-after-compatibility.json
+            ${{ runner.temp }}/jakh-api-release/health-after-rollback.json
+            ${{ runner.temp }}/jakh-api-release/health-before.json
+            ${{ runner.temp }}/jakh-api-release/migrations-after-compatibility.txt
+            ${{ runner.temp }}/jakh-api-release/migrations-after-rollback.txt
+            ${{ runner.temp }}/jakh-api-release/migrations-before.txt
+            ${{ runner.temp }}/jakh-api-release/release-receipt.json
+            ${{ runner.temp }}/jakh-api-release/rollback-monitor.json
+            ${{ runner.temp }}/jakh-api-release/rollback-target-monitor.json
+            ${{ runner.temp }}/jakh-api-release/runtime-monitor.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-compatibility-initial.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-compatibility.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-rollback-initial.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-rollback-reread.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-rollback.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-runtime-monitor.json
+            ${{ runner.temp }}/jakh-api-release/worker-before-reread.json
+            ${{ runner.temp }}/jakh-api-release/worker-before.json
           if-no-files-found: warn
           retention-days: 90
 
@@ -584,43 +607,59 @@ jobs:
           D1_BACKUP_DATABASE_NAME: jakh-db
           D1_BACKUP_DATABASE_ID: 7fa30e72-85e4-4254-be85-40a9dfd8295c
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          PRIVATE_BACKUP_DIR: ${{ runner.temp }}/jakh-api-backup-plaintext
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-backup-plaintext/wrangler.log
         run: |
           set -euo pipefail
+          umask 077
+          trap 'rm -rf -- "$PRIVATE_BACKUP_DIR"' EXIT
+          trap 'exit 130' INT
+          trap 'exit 143' TERM HUP
+          mkdir -p "$PRIVATE_BACKUP_DIR"
           (
             cd worker
             ./node_modules/.bin/wrangler d1 export DB --remote --skip-confirmation \
-              --output="$RECEIPT_DIR/pre-migration.sql"
+              --output="$PRIVATE_BACKUP_DIR/pre-migration.sql"
           )
           node scripts/d1-backup.mjs encrypt \
-            --input "$RECEIPT_DIR/pre-migration.sql" \
+            --input "$PRIVATE_BACKUP_DIR/pre-migration.sql" \
             --output "$RECEIPT_DIR/pre-migration.sql.jakh" \
             --receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json"
-          rm -f "$RECEIPT_DIR/pre-migration.sql"
       - name: Restore and verify the encrypted backup in ephemeral local D1
         env:
           D1_BACKUP_ENCRYPTION_KEY: ${{ secrets.D1_BACKUP_ENCRYPTION_KEY }}
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          PRIVATE_BACKUP_DIR: ${{ runner.temp }}/jakh-api-backup-plaintext
+          WRANGLER_LOG_PATH: ${{ runner.temp }}/jakh-api-backup-plaintext/wrangler.log
         run: |
           set -euo pipefail
+          umask 077
+          trap 'rm -rf -- "$PRIVATE_BACKUP_DIR"' EXIT
+          trap 'exit 130' INT
+          trap 'exit 143' TERM HUP
+          mkdir -p "$PRIVATE_BACKUP_DIR"
           node scripts/d1-backup.mjs verify \
             --input "$RECEIPT_DIR/pre-migration.sql.jakh" \
             --receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json" \
-            --output "$RECEIPT_DIR/restore.sql"
+            --output "$PRIVATE_BACKUP_DIR/restore.sql"
           (
             cd worker
             ./node_modules/.bin/wrangler d1 execute DB --local \
-              --persist-to "$RECEIPT_DIR/local-d1" \
-              --file "$RECEIPT_DIR/restore.sql" >/dev/null
+              --persist-to "$PRIVATE_BACKUP_DIR/local-d1" \
+              --file "$PRIVATE_BACKUP_DIR/restore.sql" >/dev/null
             ./node_modules/.bin/wrangler d1 execute DB --local --json \
-              --persist-to "$RECEIPT_DIR/local-d1" \
+              --persist-to "$PRIVATE_BACKUP_DIR/local-d1" \
               --command "SELECT value AS schema_version, (SELECT COUNT(*) FROM sqlite_master WHERE type = 'table') AS table_count FROM schema_meta WHERE key = 'schema_version'" \
-              > "$RECEIPT_DIR/restore-query.json"
+              > "$PRIVATE_BACKUP_DIR/restore-query.json"
           )
-          rm -f "$RECEIPT_DIR/restore.sql"
           node scripts/d1-backup.mjs attest \
             --receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json" \
-            --query "$RECEIPT_DIR/restore-query.json"
-          rm -f "$RECEIPT_DIR/restore-query.json"
+            --query "$PRIVATE_BACKUP_DIR/restore-query.json"
+      - name: Remove ephemeral plaintext backup workspace
+        if: ${{ always() }}
+        env:
+          PRIVATE_BACKUP_DIR: ${{ runner.temp }}/jakh-api-backup-plaintext
+        run: rm -rf -- "$PRIVATE_BACKUP_DIR"
       - name: Store the tested encrypted backup off-account before mutation
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -635,17 +674,19 @@ jobs:
         id: migration_authorization
         env:
           RECEIPT_DIR: ${{ runner.temp }}/jakh-api-release
+          PRIVATE_BACKUP_DIR: ${{ runner.temp }}/jakh-api-backup-plaintext
         run: |
           set -euo pipefail
+          if [ -e "$PRIVATE_BACKUP_DIR" ] || \
+             find "$RECEIPT_DIR" -type f \( -name '*.sql' -o -name '*.sqlite*' -o -name '*.db*' \) -print -quit | grep -q .; then
+            echo "::error title=Plaintext backup retained::D1 mutation is blocked because a plaintext backup or restore workspace remains."
+            exit 1
+          fi
           node scripts/d1-backup.mjs authorize \
             --release-receipt "$RECEIPT_DIR/release-receipt.json" \
             --backup-receipt "$RECEIPT_DIR/pre-migration-backup-receipt.json" \
             --encrypted "$RECEIPT_DIR/pre-migration.sql.jakh" \
             --output "$RECEIPT_DIR/migration-authorization.json"
-          if find "$RECEIPT_DIR" -maxdepth 1 -type f -name '*.sql' -print -quit | grep -q .; then
-            echo "::error title=Plaintext backup retained::D1 mutation is blocked because a plaintext SQL export remains."
-            exit 1
-          fi
       - name: Capture pre-migration Time Travel evidence
         if: ${{ steps.migration_authorization.outcome == 'success' }}
         env:
@@ -765,7 +806,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           wranglerVersion: "4.131.0"
-          command: deploy --strict --message "JAKH final ${{ github.sha }} schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}"
+          command: deploy --strict --message "JAKH final ${{ github.sha }} schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}" ${{ inputs.domain_cutover && '--var STATIC_ORIGIN:https://jakh.net' || '' }}
       - name: Verify final production health
         id: verify_production
         env:
@@ -986,6 +1027,38 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: api-final-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/jakh-api-release
+          # Exact evidence allowlist: never upload a directory or backup database.
+          path: |
+            ${{ runner.temp }}/jakh-api-release/database-after-migrations.json
+            ${{ runner.temp }}/jakh-api-release/database-after-rollback.json
+            ${{ runner.temp }}/jakh-api-release/database-after-worker.json
+            ${{ runner.temp }}/jakh-api-release/database-before.json
+            ${{ runner.temp }}/jakh-api-release/health-after-migrations.json
+            ${{ runner.temp }}/jakh-api-release/health-after-rollback.json
+            ${{ runner.temp }}/jakh-api-release/health-after-worker.json
+            ${{ runner.temp }}/jakh-api-release/health-before.json
+            ${{ runner.temp }}/jakh-api-release/migration-authorization.json
+            ${{ runner.temp }}/jakh-api-release/migrations-after-migrations.txt
+            ${{ runner.temp }}/jakh-api-release/migrations-after-rollback.txt
+            ${{ runner.temp }}/jakh-api-release/migrations-after-worker.txt
+            ${{ runner.temp }}/jakh-api-release/migrations-before.txt
+            ${{ runner.temp }}/jakh-api-release/post-migration-monitor.json
+            ${{ runner.temp }}/jakh-api-release/pre-migration-backup-receipt.json
+            ${{ runner.temp }}/jakh-api-release/pre-migration-recovery-bookmark.json
+            ${{ runner.temp }}/jakh-api-release/release-receipt.json
+            ${{ runner.temp }}/jakh-api-release/rollback-monitor.json
+            ${{ runner.temp }}/jakh-api-release/rollback-target-monitor.json
+            ${{ runner.temp }}/jakh-api-release/runtime-monitor.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-migrations-initial.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-migrations-reread.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-migrations.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-rollback-initial.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-rollback-reread.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-rollback.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-runtime-monitor.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-worker-initial.json
+            ${{ runner.temp }}/jakh-api-release/worker-after-worker.json
+            ${{ runner.temp }}/jakh-api-release/worker-before-reread.json
+            ${{ runner.temp }}/jakh-api-release/worker-before.json
           if-no-files-found: warn
           retention-days: 90

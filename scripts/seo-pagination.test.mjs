@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 import {
   RETIRED_LEGACY_SEO_DIRECTORIES,
+  PRESERVED_GAME_SLUGS,
   RIDDLE_ARABIA_GAME_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
@@ -247,6 +248,7 @@ test("the sitemap is exactly the compact indexable architecture", () => {
     ["/privacy", "/ar/privacy/"],
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => [page.paths.en, page.paths.ar]),
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => [`/${game.slug}`, `/ar/games/${game.slug}/`]),
+    ...PRESERVED_GAME_SLUGS.map((slug) => [`/${slug}`, `/ar/games/${slug}/`]),
   ];
   const entries = sitemapEntries();
   const urls = entries.map((entry) => entry.loc);

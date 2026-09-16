@@ -1113,10 +1113,6 @@ textarea { min-height: 6.5rem; resize: vertical; }
   font-weight: 600;
 }
 
-.collection-share-btn {
-  margin-top: 1rem;
-}
-
 .collection-disclaimer {
   max-width: 72ch;
   margin: 1.5rem auto 0;

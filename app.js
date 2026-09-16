@@ -44,7 +44,6 @@ function flashCard(id) {
 const STORAGE_KEYS = {
   settings: 'jakh-riddles-settings',
   audio: 'jakh-audio-enabled',
-  trial: 'jakh-trial-used',
 };
 
 const DIFFICULTY_POINTS = {
@@ -168,7 +167,7 @@ const SHARED_LANGUAGE_ROUTES = Object.freeze([
   { en: '/play', ar: '/ar/play/' },
   { en: '/about', ar: '/ar/about/' },
   { en: '/privacy', ar: '/ar/privacy/' },
-  ...['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
+  ...['akshifha', 'chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
     .map(slug => ({ en: `/${slug}`, ar: `/ar/games/${slug}/` })),
 ]);
 
@@ -231,7 +230,8 @@ const UI = {
     homeTitle: 'Turn a quiet moment into a good question. Discover Arabic riddles, shared challenges, and brain games in English and Arabic.',
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Start a riddle',
-    homeSpacetoonCta: 'Explore brain games',
+    homeSpacetoonCta: 'Browse riddles',
+    homeAkshifhaCta: 'Play today’s case',
     heroGameHub: 'Game Hub',
     statCategories: 'Topics',
     statQuestions: 'Questions',
@@ -239,15 +239,21 @@ const UI = {
     mindHeroEyebrow: '3,275 questions · 51 clear topics',
     mindHeroTitle: 'The Mind Lab',
     mindHeroSubtitle: 'Follow your curiosity. Every topic opens into a quick, satisfying challenge.',
-    playHeroTitle: 'The Game Hub',
-    playHeroSubtitle: 'Ten browser adaptations and simplified games, ready with no download or sign-up.',
-    playHeroGames: 'Games',
-    playAvailable: 'Ready to play',
-    playPick: 'Pick a game and start playing',
-    playBrowserOnly: 'Every title is a browser adaptation; rules and AI depth vary by game, with nothing to install.',
+    playHeroTitle: 'Something doesn’t add up.',
+    playHeroSubtitle: 'Meet Akshifha: small mysteries, curious details, and the moment the evidence clicks. Free, in Arabic and English.',
+    playHeroGames: 'Pilot cases',
+    playAvailable: 'Start here · Free pilot',
+    playPick: 'Akshifha — spot the contradiction',
+    playBrowserOnly: 'Inspect the evidence. Choose two clues and the conclusion they support. No timer, download, or sign-up.',
+    playAkshifhaAria: 'Play Akshifha, spot the contradiction',
+    playAkshifhaCta: 'Open today’s case →',
+    playAkshifhaPilot: 'Five original cases. Today’s pick rotates through this pilot; it is not a newly published case every day.',
+    playClassicsEyebrow: 'A quieter change of pace',
+    playClassicsTitle: 'Classics',
+    playClassicsText: 'Two familiar browser adaptations, if you feel like settling in with a board.',
     playChessAria: 'Play Chess',
     playChessTitle: 'Chess',
-    playChessDesc: 'A browser chess adaptation with legal-move highlighting, en passant, castling, and promotion. Play the built-in AI or take turns locally.',
+    playChessDesc: 'Plan your next move on a familiar board. Play the computer or take turns with a friend on one device.',
     playChessCta: 'Play Chess →',
     playMastermindAria: 'Play Mastermind',
     playMastermindTitle: 'Mastermind',
@@ -271,7 +277,7 @@ const UI = {
     playCatanCta: 'Play Catan →',
     playBackgammonAria: 'Play Backgammon',
     playBackgammonTitle: 'Backgammon',
-    playBackgammonDesc: 'A simplified browser adaptation: race 15 checkers around 24 points, with virtual dice, enforced moves, and a greedy AI.',
+    playBackgammonDesc: 'A simplified browser adaptation. Roll the dice and race your checkers home against the computer.',
     playBackgammonCta: 'Play Backgammon →',
     playSetAria: 'Play Set',
     playSetTitle: 'Set',
@@ -307,12 +313,12 @@ const UI = {
     portalMindStat: '51 topics',
     portalBilingualStat: 'English & Arabic',
     portalMindCta: 'Open the library →',
-    portalGamesTag: 'Games & challenges',
-    portalGamesTitle: 'The Challenge Room',
-    portalGamesDesc: 'Choose a browser game, invite a friend, or take on a quick challenge. Nothing to install and no sign-up required.',
-    portalGamesStat1: '10 browser games',
-    portalGamesStat2: 'All in browser',
-    portalGamesCta: 'Choose a game →',
+    portalGamesTag: 'New · Free pilot',
+    portalGamesTitle: 'Akshifha — اكشفها',
+    portalGamesDesc: 'Something in the story doesn’t add up. Inspect the evidence, connect two clues, and uncover the contradiction.',
+    portalGamesStat1: '5 original cases',
+    portalGamesStat2: 'Arabic & English',
+    portalGamesCta: 'Open today’s case →',
     homeCollectionsEyebrow: 'Quick ways to begin',
     homeCollectionsTitle: 'Start with a collection that fits your mood',
     homeCollectionsText: 'Begin with an Arabic riddle, a nostalgia challenge, or a question that gives you a new lens on the region.',
@@ -419,9 +425,9 @@ const UI = {
     showingFilteredCards: 'Showing {count} cards with your current filters.',
     openPage: 'Open page',
     savedProgress: 'Saved progress',
-    guestTitle: 'Create an account',
-    guestText: 'Create a free account to save your progress, favorites, and practice score across all your devices.',
-    createLocalProfile: 'Save my progress',
+    guestTitle: 'Play free, with or without an account',
+    guestText: 'All practice levels are free. Progress and favorites stay in this browser; an optional free account syncs them across your devices.',
+    createLocalProfile: 'Sync across devices',
     signedInAs: 'Signed in as',
     score: 'Practice points',
     solved: 'Solved',
@@ -476,7 +482,7 @@ const UI = {
     markWrong: 'Wrong',
     markUnsolved: 'Remove',
     answerReveal: 'Answer',
-    loginNeeded: 'Please sign in first to save favorites and scores.',
+    loginNeeded: 'Sign in to sync your favorites and practice progress across devices.',
     accountCreated: 'Account created and signed in.',
     signedIn: 'Signed in successfully.',
     signedOut: 'Signed out.',
@@ -506,9 +512,6 @@ const UI = {
     suggestSubmit: 'Submit Idea',
     suggestThanks: 'Thank you! We\'ll take a look.',
     suggestError: 'Please write at least 5 characters.',
-    lockHard: 'Answer any 10 questions correctly to unlock Head Scratcher.',
-    lockDifficult: 'Answer 10 Head Scratcher questions correctly to unlock Brick Wall.',
-    lockSignIn: 'Sign in to unlock this level.',
     badgesTitle: 'Badges',
     badgeBronze: 'Bronze — 10 Piece of Cake answered correctly',
     badgeSilver: 'Silver — 10 Brain Tickler answered correctly',
@@ -531,6 +534,8 @@ const UI = {
     shareChallengeTitle: 'Riddle Arabia Challenge',
     shareRiddleTitle: 'Riddle Arabia Riddles',
     shareBattleTitle: 'Riddle Arabia Battle',
+    battleJoining: 'Joining…',
+    battleInviteRequired: 'Invite one friend with the link to start.',
     avatarUpdated: 'Avatar updated!',
     avatarSaveError: 'Could not save the avatar.',
     chooseAvatarAria: 'Choose {avatar} as your avatar',
@@ -556,9 +561,11 @@ const UI = {
     errorInvalidMessage: 'The battle room received an invalid message.',
     errorJoinFirst: 'Join the battle room first.',
     errorBattleStarted: 'This battle has already started.',
+    errorBattleNeedPlayer: 'Invite one friend before starting the battle.',
     errorRoomFull: 'This battle room is full.',
     errorPlayerNameRequired: 'Enter your name.',
     errorBattleCreate: 'Could not create the battle room.',
+    errorBattleContentNotReady: 'This selection needs more prepared questions. Try All difficulties, Classic Riddles, Math or Logic Puzzles. Free practice is still available.',
     errorInvalidCategory: 'Choose a valid category.',
     errorInvalidDifficulty: 'Choose a valid difficulty.',
     errorCategoryUnavailable: 'That category is unavailable.',
@@ -595,7 +602,8 @@ const UI = {
     homeTitle: 'حوّل لحظة هادئة إلى سؤال جميل. اكتشف ألغازًا عربية وتحديات مشتركة وألعاب تفكير بالعربية والإنجليزية.',
     homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
     browseCategories: 'ابدأ لغزًا',
-    homeSpacetoonCta: 'استكشف ألعاب التفكير',
+    homeSpacetoonCta: 'تصفّح الألغاز',
+    homeAkshifhaCta: 'العب قضية اليوم',
     heroGameHub: 'مركز الألعاب',
     statCategories: 'الموضوعات',
     statQuestions: 'الأسئلة',
@@ -603,15 +611,21 @@ const UI = {
     mindHeroEyebrow: '3,275 سؤالًا · 51 موضوعًا',
     mindHeroTitle: 'مختبر العقول',
     mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
-    playHeroTitle: 'مركز الألعاب',
-    playHeroSubtitle: 'عشر ألعاب ونسخ مبسطة للمتصفح، جاهزة من دون تنزيل أو تسجيل.',
-    playHeroGames: 'ألعاب',
-    playAvailable: 'جاهز للعب؟',
-    playPick: 'اختر لعبة وابدأ',
-    playBrowserOnly: 'تعمل جميع الألعاب مباشرة في المتصفح، وقد تختلف بعض القواعد ومستوى الخصم بين لعبة وأخرى.',
+    playHeroTitle: 'في القصة شيء لا يستقيم.',
+    playHeroSubtitle: 'جرّب اكشفها: قضايا قصيرة وتفاصيل تستحق الانتباه ولحظة تتضح فيها الصورة. مجانًا بالعربية والإنجليزية.',
+    playHeroGames: 'قضايا تجريبية',
+    playAvailable: 'ابدأ هنا · نسخة تجريبية مجانية',
+    playPick: 'اكشفها — اكتشف التناقض',
+    playBrowserOnly: 'تفحّص الأدلة، واختر دليلين والاستنتاج الذي يدعمانه. بلا مؤقّت أو تنزيل أو تسجيل.',
+    playAkshifhaAria: 'العب اكشفها واكتشف التناقض',
+    playAkshifhaCta: 'افتح قضية اليوم ←',
+    playAkshifhaPilot: 'خمس قضايا مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ لا تُنشر قضية جديدة كل يوم في هذه النسخة التجريبية.',
+    playClassicsEyebrow: 'لوقت أهدأ',
+    playClassicsTitle: 'الكلاسيكيات',
+    playClassicsText: 'نسختان مألوفتان للمتصفح، إن رغبت في جولة على لوحة.',
     playChessAria: 'العب الشطرنج',
     playChessTitle: 'الشطرنج',
-    playChessDesc: 'نسخة متصفح من الشطرنج مع إظهار النقلات القانونية والأخذ بالتجاوز والتبييت والترقية. العب ضد الخصم المدمج أو تناوب محليًا مع صديق.',
+    playChessDesc: 'خطّط لنقلتك التالية على لوحة مألوفة. العب ضد الكمبيوتر أو تناوب مع صديق على جهاز واحد.',
     playChessCta: 'العب الشطرنج ←',
     playMastermindAria: 'العب ماستر مايند',
     playMastermindTitle: 'ماستر مايند',
@@ -635,7 +649,7 @@ const UI = {
     playCatanCta: 'العب كاتان ←',
     playBackgammonAria: 'العب طاولة الزهر',
     playBackgammonTitle: 'طاولة الزهر',
-    playBackgammonDesc: 'نسخة متصفح مبسطة: حرّك 15 حجرًا حول 24 خانة، مع نرد افتراضي ونقلات مفروضة وخصم آلي بسيط.',
+    playBackgammonDesc: 'نسخة متصفح مبسطة. ارمِ النرد وسابق الكمبيوتر لإخراج أحجارك من اللوحة.',
     playBackgammonCta: 'العب طاولة الزهر ←',
     playSetAria: 'العب سِت',
     playSetTitle: 'سِت',
@@ -671,12 +685,12 @@ const UI = {
     portalMindStat: '51 موضوعًا',
     portalBilingualStat: 'العربية والإنجليزية',
     portalMindCta: 'افتح المكتبة ←',
-    portalGamesTag: 'ألعاب وتحديات',
-    portalGamesTitle: 'غرفة التحدي',
-    portalGamesDesc: 'اختر لعبة للمتصفح أو ادعُ صديقًا أو جرّب تحديًا سريعًا. لا تحتاج إلى تنزيل أو تسجيل.',
-    portalGamesStat1: '10 ألعاب متصفح',
-    portalGamesStat2: 'كلها في المتصفح',
-    portalGamesCta: 'اختر لعبة ←',
+    portalGamesTag: 'جديد · نسخة تجريبية مجانية',
+    portalGamesTitle: 'اكشفها',
+    portalGamesDesc: 'في القصة شيء لا يستقيم. تفحّص الأدلة واربط دليلين واكتشف التناقض.',
+    portalGamesStat1: '5 قضايا أصلية',
+    portalGamesStat2: 'بالعربية والإنجليزية',
+    portalGamesCta: 'افتح قضية اليوم ←',
     homeCollectionsEyebrow: 'بداية سريعة',
     homeCollectionsTitle: 'ابدأ بمجموعة تناسب مزاجك',
     homeCollectionsText: 'ابدأ بلغز عربي أو تحدي حنين أو سؤال يفتح لك زاوية جديدة على المنطقة.',
@@ -783,9 +797,9 @@ const UI = {
     showingFilteredCards: 'ظهرت {count} بطاقة تطابق اختياراتك.',
     openPage: 'استكشف الموضوع',
     savedProgress: 'تقدّم محفوظ',
-    guestTitle: 'أنشئ حسابًا',
-    guestText: 'أنشئ حسابًا مجانيًا لحفظ تقدّمك، وأسئلتك المفضلة، ونقاطك على جميع أجهزتك.',
-    createLocalProfile: 'احفظ تقدّمي',
+    guestTitle: 'العب مجانًا، بحساب أو بدونه',
+    guestText: 'كل مستويات التدريب مجانية. يبقى تقدمك ومفضلتك في هذا المتصفح، ويمكنك إنشاء حساب مجاني اختياري لمزامنتهما عبر أجهزتك.',
+    createLocalProfile: 'مزامنة عبر الأجهزة',
     signedInAs: 'مسجّل الدخول باسم',
     score: 'نقاط التدريب',
     solved: 'المحلول',
@@ -840,7 +854,7 @@ const UI = {
     markWrong: 'خاطئ',
     markUnsolved: 'إزالة',
     answerReveal: 'الإجابة',
-    loginNeeded: 'الرجاء تسجيل الدخول أولًا لحفظ المفضلة والنقاط.',
+    loginNeeded: 'سجّل الدخول لمزامنة مفضلتك وتقدمك في التدريب عبر أجهزتك.',
     accountCreated: 'تم إنشاء الحساب وتسجيل الدخول.',
     signedIn: 'تم تسجيل الدخول بنجاح.',
     signedOut: 'تم تسجيل الخروج.',
@@ -870,9 +884,6 @@ const UI = {
     suggestSubmit: 'أرسل الفكرة',
     suggestThanks: 'شكرًا لك! سنراجع اقتراحك.',
     suggestError: 'الرجاء كتابة 5 أحرف على الأقل.',
-    lockHard: 'أجب إجابة صحيحة عن 10 أسئلة لفتح المستوى الصعب.',
-    lockDifficult: 'أجب إجابة صحيحة عن 10 أسئلة صعبة لفتح المستوى الأصعب.',
-    lockSignIn: 'سجّل الدخول لفتح هذا المستوى.',
     badgesTitle: 'الشارات',
     badgeBronze: 'البرونزية — 10 إجابات صحيحة في المستوى السهل',
     badgeSilver: 'الفضية — 10 إجابات صحيحة في المستوى المتوسط',
@@ -895,6 +906,8 @@ const UI = {
     shareChallengeTitle: 'تحدي ريدل أرابيا',
     shareRiddleTitle: 'ألغاز ريدل أرابيا',
     shareBattleTitle: 'تحدي ريدل أرابيا',
+    battleJoining: 'جارٍ الانضمام…',
+    battleInviteRequired: 'ادعُ صديقًا واحدًا بالرابط لبدء المعركة.',
     avatarUpdated: 'تم تحديث الصورة الرمزية!',
     avatarSaveError: 'تعذّر حفظ الصورة الرمزية.',
     chooseAvatarAria: 'اختر {avatar} صورةً رمزيةً',
@@ -920,9 +933,11 @@ const UI = {
     errorInvalidMessage: 'استقبلت غرفة المعركة رسالة غير صالحة.',
     errorJoinFirst: 'انضم إلى غرفة المعركة أولًا.',
     errorBattleStarted: 'بدأت هذه المعركة بالفعل.',
+    errorBattleNeedPlayer: 'ادعُ صديقًا واحدًا قبل بدء المعركة.',
     errorRoomFull: 'غرفة المعركة ممتلئة.',
     errorPlayerNameRequired: 'أدخل اسمك.',
     errorBattleCreate: 'تعذّر إنشاء غرفة المعركة.',
+    errorBattleContentNotReady: 'هذا الاختيار يحتاج إلى مزيد من الأسئلة ذات الخيارات المُعدّة. جرّب جميع المستويات أو الألغاز الكلاسيكية أو الرياضيات أو ألغاز المنطق. التدريب المجاني متاح دائمًا.',
     errorInvalidCategory: 'اختر موضوعًا متاحًا.',
     errorInvalidDifficulty: 'اختر مستوى صعوبة متاحًا.',
     errorCategoryUnavailable: 'هذا الموضوع غير متاح.',
@@ -1100,10 +1115,12 @@ const API_ERROR_UI_KEYS = Object.freeze({
   INVALID_MESSAGE: 'errorInvalidMessage',
   JOIN_ROOM_FIRST: 'errorJoinFirst',
   BATTLE_ALREADY_STARTED: 'errorBattleStarted',
+  NEED_ANOTHER_PLAYER: 'errorBattleNeedPlayer',
   ROOM_FULL: 'errorRoomFull',
   PLAYER_NAME_REQUIRED: 'errorPlayerNameRequired',
   BATTLE_ERROR: 'genericError',
   BATTLE_CREATE_FAILED: 'errorBattleCreate',
+  BATTLE_CONTENT_NOT_READY: 'errorBattleContentNotReady',
   BATTLE_ROOM_ALLOCATION_FAILED: 'errorBattleCreate',
   INVALID_CATEGORY: 'errorInvalidCategory',
   INVALID_VERIFIED_CHALLENGE: 'verifiedSubmitError',
@@ -1692,58 +1709,8 @@ function getTotalCorrectCount() {
   return Object.values(getGuestSolvedMap()).filter(v => !_guestStatus(v).startsWith('wrong-')).length;
 }
 
-function isLevelUnlocked(difficulty) {
-  if (difficulty === 'easy' || difficulty === 'medium') return true;
-  if (!state.dbUser) return false;
-  if (difficulty === 'hard') {
-    return getTotalCorrectCount() >= 10;
-  }
-  if (difficulty === 'very-advanced') {
-    return getCorrectCountByDifficulty('hard') >= 10;
-  }
-  return true;
-}
-
-function isPremiumDifficulty(difficulty) {
-  return difficulty === 'hard' || difficulty === 'very-advanced';
-}
-function getRawTrialUsedSet() {
-  try { return new Set(JSON.parse(safeStorageGet('local', STORAGE_KEYS.trial)) || []); } catch { return new Set(); }
-}
-function getTrialUsedSet() {
-  return new Set([...getRawTrialUsedSet()].filter(cardId => publicCardIds.has(cardId)));
-}
-function saveTrialUsedSet(s) {
-  const raw = getRawTrialUsedSet();
-  for (const cardId of s) raw.add(cardId);
-  return safeStorageSet('local', STORAGE_KEYS.trial, JSON.stringify([...raw]));
-}
-function isTrialUnlocked(cardId, difficulty) {
-  if (state.dbUser || !isPremiumDifficulty(difficulty)) return false;
-  const s = getTrialUsedSet();
-  return s.has(cardId) || s.size < 10;
-}
-
-function handleFlip(id, cardEl) {
+function handleFlip(id) {
   hapticTap();
-  if (cardEl && cardEl.dataset.trial === '1') {
-    const s = getTrialUsedSet();
-    if (!s.has(id)) {
-      if (s.size >= 10) { openPaywallModal(); return; }
-      s.add(id);
-      saveTrialUsedSet(s);
-      const wasFlipped = state.flipped.has(id);
-      if (wasFlipped) state.flipped.delete(id); else state.flipped.add(id);
-      if (!wasFlipped) trackEvent('card_flip', { category: state.categorySlug, card_id: id });
-      if (s.size >= 10) {
-        const focusRequest = captureCardFocus(id, ['flip']);
-        renderCards(focusRequest);
-      } else {
-        updateCardEl(id, ['flip']);
-      }
-      return;
-    }
-  }
   const wasFlipped = state.flipped.has(id);
   if (wasFlipped) state.flipped.delete(id); else state.flipped.add(id);
   if (!wasFlipped) trackEvent('card_flip', { category: state.categorySlug, card_id: id });
@@ -1911,11 +1878,11 @@ function updateDocumentTitle() {
 
   if (state.page === 'play') {
     title = state.lang === 'ar'
-      ? '10 ألعاب مجانية على المتصفح | ريدل أرابيا'
-      : '10 Free Browser Games | Riddle Arabia';
+      ? 'اكشفها وألعاب متصفح مجانية | ريدل أرابيا'
+      : 'Akshifha & Free Browser Games | Riddle Arabia';
     description = state.lang === 'ar'
-      ? 'العب 10 ألعاب مجانية مباشرة في المتصفح، منها الشطرنج، وغو، وريفيرسي، وماسترمايند، وكاتان، وطاولة الزهر.'
-      : 'Play 10 free browser games on Riddle Arabia: Chess, Go, Reversi, Mastermind, Catan Lite, Backgammon, SET, Hanabi, Codenames, and Diplomacy.';
+      ? 'العب اكشفها: اربط دليلين واكتشف التناقض في خمس قضايا مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.'
+      : 'Play Akshifha: connect two clues and spot the contradiction in five free Arabic and English mysteries. Explore Chess and Backgammon in Classics.';
   } else if (state.page === 'home') {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {
@@ -1930,8 +1897,8 @@ function updateDocumentTitle() {
         ? 'ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية'
         : 'Riddle Arabia: Free Arabic & English Quizzes';
       description = state.lang === 'ar'
-        ? 'استمتع بـ3,275 لغزًا وسؤالًا مجانيًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا، إلى جانب 10 ألعاب تعمل مباشرة في المتصفح.'
-        : 'Play 3,275 free bilingual riddles and quizzes in English and Arabic across 51 topics, plus 10 browser games. Reveal answers and track your score.';
+        ? 'اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية.'
+        : 'Discover Akshifha: short cases where you connect evidence and spot the contradiction. Explore free riddles and quizzes in Arabic and English.';
     }
   } else if (state.categoryData) {
     const category = state.categoryData;
@@ -2240,8 +2207,6 @@ function refreshLocalizedTransientUi() {
   ) {
     renderAuthModal(authModalMode);
   }
-  const paywall = document.getElementById('paywallModal');
-  if (paywall && !paywall.classList.contains('hidden')) openPaywallModal();
   const categoryComplete = document.getElementById('categoryCompleteModal');
   if (categoryComplete && !categoryComplete.classList.contains('hidden') && categoryComplete.dataset.categorySlug) {
     showCategoryCompleteModal(categoryComplete.dataset.categorySlug);
@@ -2472,8 +2437,6 @@ function bindCommonEvents() {
         event.stopPropagation();
         if (action === 'flip') {
           handleFlip(id, event.target.closest('.riddle-card'));
-        } else if (action === 'paywall') {
-          openPaywallModal();
         } else if (action === 'audio') {
           handleAudioBtn(btn);
         } else if (action === 'favorite') {
@@ -2492,7 +2455,7 @@ function bindCommonEvents() {
         }
         return;
       }
-      const card = event.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
+      const card = event.target.closest('.riddle-card[data-id]');
       if (!card) return;
       const id = card.dataset.id;
       if (!id) return;
@@ -2522,7 +2485,7 @@ function bindCommonEvents() {
     }
 
     els.cardGrid.addEventListener('touchstart', (e) => {
-      const card = e.target.closest('.riddle-card[data-id]:not(.is-locked):not(.is-paywall)');
+      const card = e.target.closest('.riddle-card[data-id]');
       if (!card) return;
       const t = e.touches[0];
       card.style.willChange = 'transform';
@@ -2725,17 +2688,6 @@ function getDashInsight(totalSolved, totalQ, catProgress, lang) {
   const isAr = lang === 'ar';
   if (state.streak >= 7) return isAr ? `🔥 ${state.streak} أيام متتالية — لا يُوقفك شيء!` : `🔥 ${state.streak}-day streak — unstoppable!`;
   if (state.streak >= 3) return isAr ? `🔥 ${state.streak} أيام رائعة — واصل!` : `🔥 ${state.streak}-day streak — keep the momentum!`;
-  if (!isLevelUnlocked('hard') && totalSolved >= 7) {
-    const left = 10 - totalSolved;
-    return isAr ? `💪 ${left} إجابة صحيحة تفتح لك مستوى الصعب!` : `💪 ${left} more correct answer${left === 1 ? '' : 's'} to unlock Head Scratcher!`;
-  }
-  if (isLevelUnlocked('hard') && !isLevelUnlocked('very-advanced')) {
-    const hardSolved = getCorrectCountByDifficulty('hard');
-    if (hardSolved >= 7) {
-      const left = 10 - hardSolved;
-      return isAr ? `💎 ${left} إجابة صعبة تفتح لك مستوى الجدار!` : `💎 ${left} more hard answer${left === 1 ? '' : 's'} to unlock Brick Wall!`;
-    }
-  }
   const almostDone = catProgress.find(c => c.pct >= 80 && c.pct < 100);
   if (almostDone) {
     const left = almostDone.count - almostDone.solved;
@@ -2744,10 +2696,6 @@ function getDashInsight(totalSolved, totalQ, catProgress, lang) {
   if (catProgress.length > 0 && catProgress[0].pct > 0) {
     const best = catProgress[0];
     return isAr ? `✨ أقوى مجال لديك: ${best.title.ar || best.title.en} بنسبة ${best.pct}%` : `✨ Top category: ${best.title.en} at ${best.pct}% complete`;
-  }
-  if (!isLevelUnlocked('hard') && totalSolved > 0) {
-    const left = 10 - totalSolved;
-    return isAr ? `💪 ${left} إجابة صحيحة تفتح لك مستوى الصعب!` : `💪 ${left} more correct answer${left === 1 ? '' : 's'} to unlock Head Scratcher!`;
   }
   const pct = totalQ > 0 ? ((totalSolved / totalQ) * 100).toFixed(1) : '0.0';
   return isAr ? `🧠 أجبت على ${pct}% من جميع ألغاز ريدل أرابيا` : `🧠 You've tackled ${pct}% of all Riddle Arabia riddles`;
@@ -3134,43 +3082,6 @@ function createCardMarkup(card) {
     ? `<aside class="card-explanation"><strong>${escapeHtml(t('answerExplanation'))}</strong><p>${escapeHtml(explanationText)}</p></aside>`
     : '';
 
-  let trialCard = false;
-  if (!isLevelUnlocked(card.difficulty)) {
-    if (!state.dbUser) {
-      if (isTrialUnlocked(card.id, card.difficulty)) {
-        trialCard = true;
-      } else {
-        const unlockLabel = state.lang === 'ar' ? '🔓 فتح الإجابة' : '🔓 Unlock answer';
-        return `
-          <article class="riddle-card is-paywall" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" aria-label="${escapeHtml(card.question[state.lang])}">
-            <div class="card-inner">
-              <section class="card-face card-front">
-                <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
-                <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
-                <div class="card-actions">
-                  <button class="primary-btn mini-btn" data-action="paywall" data-id="${escapeHtml(card.id)}">${escapeHtml(unlockLabel)}</button>
-                </div>
-              </section>
-            </div>
-          </article>
-        `;
-      }
-    } else {
-      const lockMsg = card.difficulty === 'hard' ? t('lockHard') : t('lockDifficult');
-      return `
-        <article class="riddle-card is-locked" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" tabindex="0" aria-label="${escapeHtml(t('locked'))}">
-          <div class="card-inner">
-            <section class="card-face card-front">
-              <div class="card-badges">${categoryBadge}${difficultyBadge}${subcat}</div>
-              <p class="card-question">${escapeHtml(card.question[state.lang])}</p>
-              <p class="lock-msg">🔒 ${escapeHtml(lockMsg)}</p>
-            </section>
-          </div>
-        </article>
-      `;
-    }
-  }
-
   const flipLabel = flipped ? t('backToQuestion') : t('flipForAnswer');
   const isAudioPlaying = _activeAudioCardId === card.id;
   const audioLabel = isAudioPlaying ? t('audioStop') : t('audioPlay');
@@ -3190,7 +3101,7 @@ function createCardMarkup(card) {
   }
 
   return `
-    <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" ${trialCard ? 'data-trial="1"' : ''} aria-label="${escapeHtml(card.question[state.lang])}">
+    <article class="riddle-card ${flipped ? 'is-flipped' : ''} ${result === 'correct' ? 'is-solved' : ''} ${result === 'wrong' ? 'is-wrong-card' : ''}" data-id="${escapeHtml(card.id)}" data-mode="${escapeHtml(card.mode || 'quiz')}" aria-label="${escapeHtml(card.question[state.lang])}">
       <div class="card-inner">
         <section class="card-face card-front" aria-hidden="${flipped ? 'true' : 'false'}" ${flipped ? 'inert' : ''}>
           <div class="card-badges">
@@ -3630,74 +3541,6 @@ function closeModal(name) {
 function openAuthModal() {
   renderAuthModal('signin');
   openModal('auth');
-}
-
-function openPaywallModal() {
-  const isAr = state.lang === 'ar';
-  const trialUsed = getTrialUsedSet().size;
-  let modal = document.getElementById('paywallModal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'paywallModal';
-    modal.className = 'modal hidden';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-labelledby', 'paywallTitle');
-    document.body.appendChild(modal);
-  }
-  modal.innerHTML = `
-    <div class="modal-backdrop" id="paywallBackdrop"></div>
-    <div class="modal-card paywall-card">
-      <button class="paywall-close" aria-label="${escapeHtml(t('close'))}">✕</button>
-      <div class="paywall-icon">🔓</div>
-      <h2 class="paywall-title" id="paywallTitle">${isAr
-        ? `جربت ${trialUsed} ألغاز مجانية!`
-        : `You've previewed ${trialUsed} premium riddles free!`}</h2>
-      <p class="paywall-body">${isAr
-        ? 'الحساب المجاني يتيح مسار الفتح ومزامنة التقدم ولوحة النتائج. يُفتح مستوى الصعب بعد 10 إجابات صحيحة، ثم الصعب جدًا بعد 10 إجابات صحيحة في مستوى الصعب.'
-        : 'A free account enables the unlock path, progress sync, and leaderboard. Head Scratcher unlocks after 10 correct answers; Brick Wall then requires 10 correct Head Scratcher answers.'}</p>
-      <div class="paywall-actions">
-        <button class="primary-btn paywall-signup-btn">${isAr ? 'إنشاء حساب مجاني' : 'Create free account'}</button>
-        <button class="ghost-btn paywall-signin-btn">${isAr ? 'تسجيل الدخول' : 'Sign in'}</button>
-      </div>
-      <p class="paywall-note">${isAr
-        ? 'لديك حساب؟ تُفتح المستويات تلقائيًا بعد 10 إجابات صحيحة.'
-        : 'Already have an account? Levels unlock automatically after 10 correct answers.'}</p>
-    </div>
-  `;
-  modal.querySelector('#paywallBackdrop').addEventListener('click', closePaywallModal);
-  modal.querySelector('.paywall-close').addEventListener('click', closePaywallModal);
-  modal.querySelector('.paywall-signup-btn').addEventListener('click', () => {
-    const returnState = overlayFocusReturns.get('paywall');
-    closePaywallModal({ restoreFocus: false });
-    if (returnState) overlayFocusReturns.set('auth', returnState);
-    renderAuthModal('register');
-    openModal('auth');
-  });
-  modal.querySelector('.paywall-signin-btn').addEventListener('click', () => {
-    const returnState = overlayFocusReturns.get('paywall');
-    closePaywallModal({ restoreFocus: false });
-    if (returnState) overlayFocusReturns.set('auth', returnState);
-    renderAuthModal('signin');
-    openModal('auth');
-  });
-  modal.classList.remove('hidden');
-  modal.setAttribute('aria-hidden', 'false');
-  trapFocus(modal, {
-    key: 'paywall',
-    initialFocus: '.paywall-close',
-    onEscape: closePaywallModal,
-    returnFallback: '#cardGrid [data-action="paywall"], #openAuthBtn',
-  });
-}
-
-function closePaywallModal(options = {}) {
-  const modal = document.getElementById('paywallModal');
-  if (!modal) return;
-  const restore = options.restoreFocus !== false;
-  modal.classList.add('hidden');
-  modal.setAttribute('aria-hidden', 'true');
-  releaseFocus(modal, { restore, discard: !restore });
 }
 
 function focusAuthControl(id) {
@@ -4451,6 +4294,63 @@ async function loadStreak() {
   } catch (e) { state.streak = 0; state.freezeCount = 0; }
 }
 
+// Choice text is authored per question. These checks reject stale or ambiguous
+// metadata; they never invent choices from unrelated questions in the catalog.
+function quickFireChoiceKey(value, lang) {
+  let key = String(value || '').normalize('NFKC').toLocaleLowerCase('en-US')
+    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, '')
+    .replace(/[أإآٱ]/gu, 'ا').replace(/ى/gu, 'ي')
+    .replace(/[٠-٩]/gu, digit => String(digit.charCodeAt(0) - 0x660))
+    .replace(/[۰-۹]/gu, digit => String(digit.charCodeAt(0) - 0x6f0))
+    .replace(/−/gu, '-').replace(/[⁄∕]/gu, '/').replace(/٫/gu, '.')
+    .replace(/\p{P}/gu, (character, index, text) => {
+      if (character === '-' || character === '/' || character === '%') return character;
+      if (character === '.' && /[0-9]/u.test(text[index + 1] || '')) return character;
+      return ' ';
+    }).replace(/\s+/gu, ' ').trim();
+  if (lang === 'en') key = key.replace(/^(?:a|an|the)\s+/u, '');
+  return key;
+}
+
+function quickFireCorrectKeys(card, lang) {
+  const canonical = card.answer?.[lang];
+  const aliases = card.acceptedAnswers?.[lang];
+  if (typeof canonical !== 'string' || !canonical.trim()
+    || (aliases !== undefined && (!Array.isArray(aliases) || aliases.some(value => typeof value !== 'string' || !value.trim())))) return null;
+  const primary = /^(.+?)\s*\([^()]*\)\s*$/u.exec(canonical.trim())?.[1];
+  return new Set([canonical, ...(primary ? [primary] : []), ...(aliases || [])]
+    .map(value => quickFireChoiceKey(value, lang)).filter(Boolean));
+}
+
+function preparedQuickFire(card) {
+  const prepared = card?.quickFire;
+  if (!prepared || typeof prepared !== 'object' || Array.isArray(prepared)) return null;
+  const correctKeys = {};
+  for (const lang of ['en', 'ar']) {
+    correctKeys[lang] = quickFireCorrectKeys(card, lang);
+    if (!correctKeys[lang]?.size) return null;
+  }
+  const allCorrectKeys = new Set([...correctKeys.en, ...correctKeys.ar]);
+  const result = {};
+  for (const lang of ['en', 'ar']) {
+    const question = card.question?.[lang];
+    const answer = prepared.answer?.[lang];
+    const distractors = prepared.distractors?.[lang];
+    const explanation = prepared.explanation?.[lang];
+    if (typeof question !== 'string' || !question.trim()
+      || typeof explanation !== 'string' || !explanation.trim() || explanation.length > 1200
+      || !Array.isArray(distractors) || distractors.length !== 3) return null;
+    const choices = [answer, ...distractors];
+    if (choices.some(value => typeof value !== 'string' || !value.trim() || value.length > 120
+      || value.trim().split(/\s+/u).length > 20)) return null;
+    const keys = choices.map(value => quickFireChoiceKey(value, lang));
+    if (keys.some(key => !key) || new Set(keys).size !== 4 || !correctKeys[lang].has(keys[0])
+      || keys.slice(1).some(key => allCorrectKeys.has(key))) return null;
+    result[lang] = { answer: answer.trim(), distractors: distractors.map(value => value.trim()), explanation: explanation.trim() };
+  }
+  return result;
+}
+
 function clearTimedQuizTimers() {
   clearInterval(timedQuizState.timer);
   clearTimeout(timedQuizState.advanceTimeout);
@@ -4508,6 +4408,10 @@ function createTimedQuizModal() {
     </div>`;
   document.body.appendChild(el);
   const exitQuiz = () => {
+    if (!timedQuizState.ended && isTimedQuizVisible()) {
+      trackEvent('timed_quiz_exit', { category: timedQuizState.categorySlug, completed: timedQuizState.completed, total: timedQuizState.cards.length });
+    }
+    timedQuizState.ended = true;
     timedQuizState.session += 1;
     clearTimedQuizTimers();
     const overlay = document.getElementById('timedQuizOverlay');
@@ -4521,6 +4425,9 @@ function createTimedQuizModal() {
     const option = event.target.closest('[data-tq-option]');
     if (option) answerTimedCard(Number(option.dataset.tqOption));
   });
+  document.getElementById('tqActions')?.addEventListener('click', (event) => {
+    if (event.target.closest('#tqNextBtn')) advanceTimedQuiz();
+  });
   document.getElementById('tqPlayAgain')?.addEventListener('click', startTimedQuiz);
   document.getElementById('tqExitBtn')?.addEventListener('click', exitQuiz);
   document.getElementById('tqClose')?.addEventListener('click', exitQuiz);
@@ -4528,10 +4435,16 @@ function createTimedQuizModal() {
 
 function startTimedQuiz() {
   if (!state.categoryData?.cards?.length) return;
-  const eligible = state.categoryData.cards.filter(c => isLevelUnlocked(c.difficulty));
-  const distinctAnswers = new Set(eligible.map(card => String(card.answer?.[state.lang] || '').trim().toLocaleLowerCase(state.lang)));
-  if (distinctAnswers.size < 4) {
-    showToast(state.lang === 'ar' ? 'لا تتوفر إجابات متنوعة كافية لهذا الاختبار.' : 'This topic does not have enough distinct answers for Quick Fire.', true);
+  const seen = new Set();
+  const eligible = state.categoryData.cards.filter(card => {
+    if (!card.id || seen.has(card.id) || !preparedQuickFire(card)) return false;
+    seen.add(card.id);
+    return true;
+  });
+  if (eligible.length < 5) {
+    showToast(state.lang === 'ar'
+      ? 'نُعدّ خيارات خاصة بأسئلة هذا الموضوع. جرّب الألغاز الكلاسيكية أو الرياضيات أو ألغاز المنطق للسباق السريع؛ ويمكنك متابعة التدريب المجاني هنا.'
+      : 'We are preparing question-specific choices for this topic. Try Classic Riddles, Math or Logic Puzzles for Quick Fire; free card practice is still available here.', true);
     return;
   }
   const pool = shuffleArray(eligible).slice(0, Math.min(10, eligible.length));
@@ -4545,6 +4458,10 @@ function startTimedQuiz() {
   timedQuizState.score = 0;
   timedQuizState.completed = 0;
   timedQuizState.answered = false;
+  timedQuizState.ended = false;
+  timedQuizState.lang = state.lang;
+  timedQuizState.categorySlug = state.categorySlug;
+  timedQuizState.categoryTitle = state.categoryData.title?.[state.lang] || 'Riddle Arabia Quick Fire';
   trackEvent('timed_quiz_start', { category: state.categorySlug, total: pool.length });
   overlay.classList.remove('hidden');
   overlay.setAttribute('aria-hidden', 'false');
@@ -4565,7 +4482,9 @@ function showTimedCard() {
   if (!isTimedQuizVisible()) return;
   const card = timedQuizState.cards[timedQuizState.index];
   if (!card) { endTimedQuiz(); return; }
-  const lang = state.lang;
+  const lang = timedQuizState.lang;
+  const prepared = preparedQuickFire(card)?.[lang];
+  if (!prepared) { endTimedQuiz(); return; }
   const tqQ = document.getElementById('tqQuestion');
   const tqA = document.getElementById('tqAnswer');
   const tqAnswerWrap = document.getElementById('tqAnswerWrap');
@@ -4579,16 +4498,11 @@ function showTimedCard() {
   tqAnswerWrap?.classList.add('hidden');
   if (tqFeedback) { tqFeedback.textContent = ''; tqFeedback.className = 'timed-quiz-feedback'; }
   if (tqPT) tqPT.textContent = `${timedQuizState.index + 1} / ${timedQuizState.cards.length}`;
-  const canonical = String(card.answer?.[lang] || '');
-  const canonicalKey = canonical.trim().toLocaleLowerCase(lang);
-  const distractors = shuffleArray(state.categoryData.cards)
-    .map(item => String(item.answer?.[lang] || '').trim())
-    .filter((answer, index, list) => answer && answer.toLocaleLowerCase(lang) !== canonicalKey
-      && list.findIndex(value => value.toLocaleLowerCase(lang) === answer.toLocaleLowerCase(lang)) === index)
-    .slice(0, 3);
-  timedQuizState.currentOptions = shuffleArray([canonical, ...distractors]);
-  timedQuizState.correctOption = timedQuizState.currentOptions.findIndex(answer => answer.trim().toLocaleLowerCase(lang) === canonicalKey);
+  timedQuizState.currentOptions = shuffleArray([prepared.answer, ...prepared.distractors]);
+  timedQuizState.correctOption = timedQuizState.currentOptions.indexOf(prepared.answer);
   timedQuizState.answered = false;
+  const actions = document.getElementById('tqActions');
+  if (actions) actions.innerHTML = '';
   if (tqOptions) {
     tqOptions.innerHTML = timedQuizState.currentOptions.map((answer, index) => `
       <button type="button" class="tq-option" data-tq-option="${index}"><span aria-hidden="true">${String.fromCharCode(65 + index)}</span><span dir="auto">${escapeHtml(answer)}</span></button>`).join('');
@@ -4598,10 +4512,16 @@ function showTimedCard() {
   timedQuizState.timer = null;
   timedQuizState.timeLeft = 15;
   if (tqCountdown) { tqCountdown.textContent = '15'; tqCountdown.classList.remove('urgent'); }
-  if (tqFill) { tqFill.style.transition = 'none'; tqFill.style.width = '100%'; setTimeout(() => { if (tqFill) tqFill.style.transition = 'width 1s linear'; }, 50); }
   const session = timedQuizState.session;
+  const index = timedQuizState.index;
+  if (tqFill) {
+    tqFill.style.transition = 'none'; tqFill.style.width = '100%';
+    setTimeout(() => {
+      if (timedQuizState.session === session && timedQuizState.index === index && isTimedQuizVisible()) tqFill.style.transition = 'width 1s linear';
+    }, 50);
+  }
   const timer = setInterval(() => {
-    if (timedQuizState.session !== session || !isTimedQuizVisible()) {
+    if (timedQuizState.session !== session || timedQuizState.index !== index || timedQuizState.answered || !isTimedQuizVisible()) {
       clearInterval(timer);
       if (timedQuizState.timer === timer) timedQuizState.timer = null;
       return;
@@ -4621,24 +4541,31 @@ function showTimedCard() {
 function revealAndAdvance() {
   document.querySelectorAll('#tqOptions [data-tq-option]').forEach(button => { button.disabled = true; });
   clearTimeout(timedQuizState.advanceTimeout);
-  const session = timedQuizState.session;
-  const advanceTimeout = setTimeout(() => {
-    if (timedQuizState.advanceTimeout !== advanceTimeout) return;
-    timedQuizState.advanceTimeout = null;
-    if (timedQuizState.session !== session || !isTimedQuizVisible()) return;
-    timedQuizState.index++;
-    timedQuizState.index >= timedQuizState.cards.length ? endTimedQuiz() : showTimedCard();
-  }, 1400);
-  timedQuizState.advanceTimeout = advanceTimeout;
+  timedQuizState.advanceTimeout = null;
+  const actions = document.getElementById('tqActions');
+  const last = timedQuizState.index + 1 >= timedQuizState.cards.length;
+  const label = timedQuizState.lang === 'ar' ? (last ? 'اعرض النتيجة' : 'السؤال التالي') : (last ? 'See result' : 'Next question');
+  if (actions) actions.innerHTML = `<button type="button" class="primary-btn" id="tqNextBtn">${escapeHtml(label)}</button>`;
+  document.getElementById('tqNextBtn')?.focus();
+}
+
+function advanceTimedQuiz() {
+  if (!isTimedQuizVisible() || timedQuizState.ended || !timedQuizState.answered) return;
+  timedQuizState.answered = false;
+  timedQuizState.index += 1;
+  timedQuizState.index >= timedQuizState.cards.length ? endTimedQuiz() : showTimedCard();
 }
 
 function answerTimedCard(optionIndex, reason = 'answer') {
-  if (!isTimedQuizVisible() || timedQuizState.answered) return false;
+  if (!isTimedQuizVisible() || timedQuizState.ended || timedQuizState.answered) return false;
+  const card = timedQuizState.cards[timedQuizState.index];
+  const lang = timedQuizState.lang;
+  const prepared = preparedQuickFire(card)?.[lang];
+  if (!prepared) return false;
+  if (reason !== 'timeout' && (!Number.isInteger(optionIndex) || optionIndex < 0 || optionIndex >= timedQuizState.currentOptions.length)) return false;
   timedQuizState.answered = true;
   clearInterval(timedQuizState.timer);
   timedQuizState.timer = null;
-  const card = timedQuizState.cards[timedQuizState.index];
-  if (!card) return false;
   const correct = Number.isInteger(optionIndex) && optionIndex === timedQuizState.correctOption;
   timedQuizState.completed += 1;
   if (correct) timedQuizState.score += 1;
@@ -4650,14 +4577,14 @@ function answerTimedCard(optionIndex, reason = 'answer') {
   const answer = document.getElementById('tqAnswer');
   const answerWrap = document.getElementById('tqAnswerWrap');
   const feedback = document.getElementById('tqFeedback');
-  if (answer) answer.textContent = card.answer[state.lang];
+  if (answer) answer.textContent = `${prepared.answer} — ${prepared.explanation}`;
   answerWrap?.classList.remove('hidden');
   if (feedback) {
     feedback.textContent = reason === 'timeout'
-      ? (state.lang === 'ar' ? 'انتهى الوقت — سُجلت إجابة واحدة خاطئة.' : 'Time expired — recorded once as incorrect.')
+      ? (lang === 'ar' ? 'انتهى الوقت — سُجلت إجابة واحدة خاطئة.' : 'Time expired — recorded once as incorrect.')
       : correct
-        ? (state.lang === 'ar' ? 'إجابة صحيحة.' : 'Correct.')
-        : (state.lang === 'ar' ? 'إجابة غير صحيحة.' : 'Not correct.');
+        ? (lang === 'ar' ? 'إجابة صحيحة.' : 'Correct.')
+        : (lang === 'ar' ? 'إجابة غير صحيحة.' : 'Not correct.');
     feedback.classList.add(correct ? 'is-correct' : 'is-wrong');
   }
   void markCard(card.id, correct ? 'correct' : 'wrong');
@@ -4666,6 +4593,8 @@ function answerTimedCard(optionIndex, reason = 'answer') {
 }
 
 function endTimedQuiz() {
+  if (timedQuizState.ended) return;
+  timedQuizState.ended = true;
   timedQuizState.session += 1;
   clearTimedQuizTimers();
   const score = timedQuizState.score;
@@ -4679,22 +4608,26 @@ function endTimedQuiz() {
   const scoreBig = document.getElementById('tqScoreBig');
   const scoreSub = document.getElementById('tqScoreSub');
   if (scoreBig) scoreBig.textContent = `${score} / ${total}`;
-  const lang = state.lang;
+  const lang = timedQuizState.lang;
   if (scoreSub) scoreSub.textContent = pct >= 80 ? (lang === 'ar' ? '🏆 ممتاز!' : '🏆 Excellent!') : pct >= 60 ? (lang === 'ar' ? '👍 عمل جيد!' : '👍 Good job!') : (lang === 'ar' ? '💪 استمر في التدريب!' : '💪 Keep practicing!');
-  trackEvent('timed_quiz_end', { category: state.categorySlug, score, total, pct });
+  trackEvent('timed_quiz_end', { category: timedQuizState.categorySlug, score, total, pct });
   if (total === timedQuizState.cards.length && total >= 10 && pct >= 80) saveJson('jakh-speed-demon', 1);
   const resultEl = document.getElementById('tqResult');
   const actionsEl = resultEl?.querySelector('.hero-actions');
-  if (actionsEl && !actionsEl.querySelector('.tq-share-btn')) {
-    const shareBtn = document.createElement('button');
-    shareBtn.className = 'secondary-btn tq-share-btn';
+  if (actionsEl) {
+    let shareBtn = actionsEl.querySelector('.tq-share-btn');
+    if (!shareBtn) {
+      shareBtn = document.createElement('button');
+      shareBtn.className = 'secondary-btn tq-share-btn';
+      actionsEl.insertBefore(shareBtn, actionsEl.lastElementChild);
+    }
     shareBtn.textContent = lang === 'ar' ? '🔗 شارك النتيجة' : '🔗 Share result';
-    shareBtn.addEventListener('click', () => shareResult(score, total, state.categoryData?.title?.[lang] || 'Riddle Arabia Quick Fire'));
-    actionsEl.insertBefore(shareBtn, actionsEl.lastElementChild);
+    shareBtn.onclick = () => shareResult(score, total, timedQuizState.categoryTitle);
   }
-  if (resultEl && !resultEl.querySelector('.tq-challenge-cta')) {
-    const catTitle = state.categoryData?.title?.[lang] || 'Riddle Arabia';
-    const challengeUrl = `${location.origin}${categoryRouteForLanguage(state.categorySlug, lang)}`;
+  resultEl?.querySelector('.tq-challenge-cta')?.remove();
+  if (resultEl) {
+    const catTitle = timedQuizState.categoryTitle;
+    const challengeUrl = `${location.origin}${categoryRouteForLanguage(timedQuizState.categorySlug, lang)}`;
     const ctaEl = document.createElement('div');
     ctaEl.className = 'tq-challenge-cta';
     ctaEl.innerHTML = `
@@ -4726,6 +4659,7 @@ function endTimedQuiz() {
       openBattleModal(state.categorySlug);
     });
   }
+  document.getElementById('tqPlayAgain')?.focus();
   checkNewAchievements();
 }
 
@@ -5260,6 +5194,10 @@ function renderCategoryPlayModes() {
   if (state.page !== 'category') return;
   document.getElementById('categoryPlayModes')?.remove();
   const isAr = state.lang === 'ar';
+  const preparedCount = new Set((state.categoryData?.cards || []).filter(card => preparedQuickFire(card)).map(card => card.id)).size;
+  const quickFireDescription = preparedCount >= 5
+    ? (isAr ? `تحدٍ فردي مجاني مع توقيت — ${Math.min(10, preparedCount)} أسئلة` : `Free solo timed challenge — ${Math.min(10, preparedCount)} questions`)
+    : (isAr ? 'نعمل على إعداد خيارات الأسئلة؛ التدريب المجاني متاح الآن' : 'Question choices are being prepared; free card practice is available now');
   const el = document.createElement('div');
   el.id = 'categoryPlayModes';
   el.className = 'shell section-block category-play-modes';
@@ -5270,7 +5208,7 @@ function renderCategoryPlayModes() {
           <span class="play-mode-icon">⚡</span>
           <div>
             <strong class="play-mode-title">${isAr ? 'السباق السريع' : 'Quick Fire'}</strong>
-            <p class="play-mode-sub">${isAr ? 'تحدٍ فردي مع توقيت — 10 أسئلة' : 'Solo timed challenge — 10 questions'}</p>
+            <p class="play-mode-sub">${escapeHtml(quickFireDescription)}</p>
           </div>
         </div>
         <button class="primary-btn play-mode-btn" id="playModeQuickFireBtn">
@@ -5388,7 +5326,6 @@ function loadBattleMode() {
         escapeHtml,
         localizedErrorMessage,
         shareOrCopy,
-        showToast,
         state,
         t,
         activateFocus: activateBattleFocus,

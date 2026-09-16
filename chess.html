@@ -5,8 +5,8 @@
     <script src="game-i18n.js?v=2026080201"></script>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
-    <meta name="description" content="Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up." />
-    <title>Chess Online — Free Browser Game | Riddle Arabia</title>
+    <meta name="description" content="Play Chess in your browser against the computer or locally with a friend on the same device. No download or sign-up required." />
+    <title>Chess — Free Browser Game | Riddle Arabia</title>
     <link rel="preload" href="styles.css?v=2026091102" as="style" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://riddlearabia.com/chess" />
@@ -14,20 +14,20 @@
     <link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/chess/" />
     <link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/chess" />
     <meta name="robots" content="index,follow" />
-    <meta property="og:title" content="Chess Online — Free Browser Game | Riddle Arabia" />
-    <meta property="og:description" content="Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up." />
+    <meta property="og:title" content="Chess — Free Browser Game | Riddle Arabia" />
+    <meta property="og:description" content="Play Chess in your browser against the computer or locally with a friend on the same device. No download or sign-up required." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://riddlearabia.com/chess" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Chess Online — Free Browser Game | Riddle Arabia" />
-    <meta name="twitter:description" content="Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up." />
+    <meta name="twitter:title" content="Chess — Free Browser Game | Riddle Arabia" />
+    <meta name="twitter:description" content="Play Chess in your browser against the computer or locally with a friend on the same device. No download or sign-up required." />
     <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
-    <meta name="twitter:image:alt" content="Riddle Arabia — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta name="twitter:image:alt" content="Riddle Arabia — bilingual riddles, Akshifha, Chess and Backgammon" />
     <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1734" />
     <meta property="og:image:height" content="907" />
-    <meta property="og:image:alt" content="Riddle Arabia — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta property="og:image:alt" content="Riddle Arabia — bilingual riddles, Akshifha, Chess and Backgammon" />
     <meta property="og:site_name" content="Riddle Arabia" />
     <link rel="stylesheet" href="styles.css?v=2026091102" />
     <link rel="manifest" href="manifest.webmanifest" />
@@ -671,11 +671,11 @@
     <script id="chess-i18n">
     JakhGameI18n.register('chess', {
       en: {
-        metaTitle: 'Chess Online — Free Browser Game | Riddle Arabia',
-        metaDescription: 'Play chess online against the computer or a friend in a fast, free browser game with no download required. Play instantly with no download or sign-up.',
+        metaTitle: 'Chess — Free Browser Game | Riddle Arabia',
+        metaDescription: 'Play Chess in your browser against the computer or locally with a friend on the same device. No download or sign-up required.',
         chessEyebrow: 'Games & Fun',
         chessTitle: '♙ Chess',
-        chessIntro: 'Two-player chess or play against the computer.',
+        chessIntro: 'Play locally with a friend on this device or against the computer.',
         chessWhiteTurn: "White's turn",
         chessMode: 'Mode',
         chessVsComputer: 'vs Computer',
@@ -718,11 +718,11 @@
         chessPawn: 'pawn'
       },
       ar: {
-        metaTitle: 'الشطرنج أونلاين — لعبة متصفح مجانية | Riddle Arabia',
-        metaDescription: 'العب الشطرنج مجاناً عبر المتصفح ضد الكمبيوتر أو مع صديق، من دون تنزيل أو تسجيل.',
+        metaTitle: 'الشطرنج — لعبة متصفح مجانية | Riddle Arabia',
+        metaDescription: 'العب الشطرنج في المتصفح ضد الكمبيوتر أو محلياً مع صديق على الجهاز نفسه، من دون تنزيل أو تسجيل.',
         chessEyebrow: 'ألعاب ومرح',
         chessTitle: '♙ الشطرنج',
-        chessIntro: 'العب الشطرنج مع لاعب آخر أو ضد الكمبيوتر.',
+        chessIntro: 'العب محلياً مع صديق على الجهاز نفسه أو ضد الكمبيوتر.',
         chessWhiteTurn: 'دور الأبيض',
         chessMode: 'نمط اللعب',
         chessVsComputer: 'ضد الكمبيوتر',
@@ -1635,32 +1635,15 @@
 
       // ── Execute a move ─────────────────────────────────
       function executeMove(move, promoChoice) {
-        var movingColor = gameState.turn;
         gameState = ChessEngine.applyMove(gameState, move, promoChoice);
         selectedSquare = null;
         legalMovesCache = [];
         render();
-        // Dispatch for room relay (ignored if no room active)
-        document.dispatchEvent(new CustomEvent('chess-local-move', {
-          detail: { move: move, promoChoice: promoChoice || null, movingColor: movingColor }
-        }));
         // Trigger computer move if needed
         if (vsComputer && gameState.turn === 'b') {
           scheduleComputerMove();
         }
       }
-
-      // ── Apply a remote (opponent) move ─────────────────
-      window._chessApplyRemote = function(moveData) {
-        if (!moveData || isThinking) return;
-        var move = moveData.move;
-        var promoChoice = moveData.promoChoice || undefined;
-        if (!move) return;
-        // Only apply if it's the remote player's turn
-        executeMove(move, promoChoice);
-      };
-      window._chessGetTurn = function() { return gameState ? gameState.turn : null; };
-      window._chessGetStatus = function() { return ChessEngine.getStatus(gameState); };
 
       // ── Promotion modal ────────────────────────────────
       function renderPromotionOptions(clr) {
@@ -1737,8 +1720,7 @@
         if (isThinking) return;
         if (gameState.history.length === 0) return;
 
-        // Rebuild state from scratch for undo (replay all but last)
-        const history = gameState.history.slice(0, -1);
+        // Rebuild state from scratch for undo.
         // If vs computer, undo 2 moves (one for computer, one for player)
         const undoCount = (vsComputer && gameState.history.length >= 2) ? 2 : 1;
         const replayHistory = gameState.history.slice(0, -undoCount);

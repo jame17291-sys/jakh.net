@@ -15,11 +15,24 @@ export function mergePublishedContentOverrides(cards, overrides) {
   return cards.map((card) => {
     const override = byId.get(card.id);
     if (!override) return card;
-    return {
+    const merged = {
       ...card,
       question: override.question || card.question,
       answer: override.answer || card.answer,
-      explanation: override.explanation || card.explanation,
+      // Published revisions are complete snapshots, not partial patches.
+      explanation: override.explanation,
     };
+    // Authored choices and their rationale belong to the exact source wording.
+    // Content Studio does not publish replacement choice sets yet, so a changed
+    // question, answer, or explanation must fall back to ordinary practice.
+    if (['question', 'answer', 'explanation'].some((field) =>
+      ['en', 'ar'].some((language) => merged[field]?.[language] !== card[field]?.[language]))) {
+      delete merged.quickFire;
+    }
+    if (['question', 'answer'].some((field) =>
+      ['en', 'ar'].some((language) => merged[field]?.[language] !== card[field]?.[language]))) {
+      delete merged.acceptedAnswers;
+    }
+    return merged;
   });
 }

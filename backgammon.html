@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="viewport-fit=cover,width=device-width,initial-scale=1.0"/>
   <meta name="theme-color" content="#fffaf2"/>
-  <meta name="description" content="Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up." />
-  <title>Backgammon Online — Free Browser Game | Riddle Arabia</title>
+  <meta name="description" content="Roll the dice, move your checkers, and bear them off first in this free browser Backgammon game. Play against the computer or take turns locally on one device." />
+  <title>Backgammon — Free Browser Game | Riddle Arabia</title>
   <link rel="preload" href="styles.css?v=2026091102" as="style"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
   <link rel="canonical" href="https://riddlearabia.com/backgammon"/>
@@ -12,21 +12,21 @@
     <link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/backgammon/" />
     <link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/backgammon" />
   <meta name="robots" content="index,follow"/>
-  <meta property="og:title" content="Backgammon Online — Free Browser Game | Riddle Arabia" />
-  <meta property="og:description" content="Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up." />
+  <meta property="og:title" content="Backgammon — Free Browser Game | Riddle Arabia" />
+  <meta property="og:description" content="Roll the dice, move your checkers, and bear them off first in this free browser Backgammon game. Play against the computer or take turns locally on one device." />
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://riddlearabia.com/backgammon"/>
   <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1734" />
   <meta property="og:image:height" content="907" />
-    <meta property="og:image:alt" content="Riddle Arabia — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta property="og:image:alt" content="Riddle Arabia — bilingual riddles, Akshifha, Chess and Backgammon" />
   <meta property="og:site_name" content="Riddle Arabia"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Backgammon Online — Free Browser Game | Riddle Arabia" />
-  <meta name="twitter:description" content="Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up." />
+  <meta name="twitter:title" content="Backgammon — Free Browser Game | Riddle Arabia" />
+  <meta name="twitter:description" content="Roll the dice, move your checkers, and bear them off first in this free browser Backgammon game. Play against the computer or take turns locally on one device." />
   <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
-    <meta name="twitter:image:alt" content="Riddle Arabia — 3,553 bilingual riddles across 56 topics and 10 games" />
+    <meta name="twitter:image:alt" content="Riddle Arabia — bilingual riddles, Akshifha, Chess and Backgammon" />
   <link rel="stylesheet" href="styles.css?v=2026091102"/>
   <script src="/game-i18n.js?v=2026080201"></script>
   <link rel="manifest" href="manifest.webmanifest"/>
@@ -453,11 +453,11 @@
   <script>
   JakhGameI18n.register('backgammon', {
     en: {
-      metaTitle: 'Backgammon Online — Free Browser Game | Riddle Arabia',
-      metaDescription: 'Roll the dice, move your checkers, and bear them off first in this free online Backgammon game. Play instantly with no download or sign-up.',
+      metaTitle: 'Backgammon — Free Browser Game | Riddle Arabia',
+      metaDescription: 'Roll the dice, move your checkers, and bear them off first in this free browser Backgammon game. Play against the computer or take turns locally on one device.',
       heroEyebrow: 'Strategy · Classic',
       heroTitle: '🎲 Backgammon',
-      heroText: 'Roll dice, move your checkers, and bear them all off before your opponent. Hit blots and build blocks.',
+      heroText: 'Roll dice, move your checkers, and bear them all off before your opponent. Play against the computer or take turns locally on one device.',
       boardLabel: 'Backgammon board',
       gameOverTitle: 'Game Over',
       playAgain: 'Play Again',
@@ -494,11 +494,11 @@
       gameOver: 'Game over.'
     },
     ar: {
-      metaTitle: 'طاولة الزهر أونلاين — لعبة متصفح مجانية | Riddle Arabia',
-      metaDescription: 'ارمِ النرد وحرّك أحجارك وأخرجها قبل خصمك في لعبة طاولة زهر مجانية، من دون تنزيل أو تسجيل.',
+      metaTitle: 'طاولة الزهر — لعبة متصفح مجانية | Riddle Arabia',
+      metaDescription: 'ارمِ النرد وحرّك أحجارك وأخرجها قبل خصمك في لعبة طاولة زهر مجانية عبر المتصفح. العب ضد الكمبيوتر أو تناوب محلياً على الجهاز نفسه.',
       heroEyebrow: 'استراتيجية · كلاسيكية',
       heroTitle: '🎲 طاولة الزهر',
-      heroText: 'ارمِ النرد وحرّك أحجارك وأخرجها كلها قبل خصمك. اضرب الأحجار المنفردة وابنِ الحواجز.',
+      heroText: 'ارمِ النرد وحرّك أحجارك وأخرجها كلها قبل خصمك. العب ضد الكمبيوتر أو تناوب محلياً على الجهاز نفسه.',
       boardLabel: 'رقعة طاولة الزهر',
       gameOverTitle: 'انتهت اللعبة',
       playAgain: 'العب مرة أخرى',
@@ -1374,7 +1374,6 @@
       validMoves.sort(function(a, b) { return b.die - a.die; });
       var move = validMoves[0];
 
-      var prevTurn = state.turn;
       state = BackgammonEngine.applyMove(state, move);
       selectedFrom = null;
 

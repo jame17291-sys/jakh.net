@@ -439,11 +439,16 @@ test("production monitor reserves route-migration probes for the production Ridd
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 48);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 34);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/riddles"));
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/ar/alghaz/"));
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/brain-games"));
+  assert.deepEqual(
+    INDEXABLE_SITEMAP_PATHS.filter((path) => ["/akshifha", "/chess", "/backgammon"].includes(path)),
+    ["/akshifha", "/chess", "/backgammon"],
+  );
+  assert.equal(INDEXABLE_SITEMAP_PATHS.some((path) => path === "/mastermind"), false);
   assert.equal(INDEXABLE_SITEMAP_PATHS.some((path) => path.startsWith("/en/")), false);
   assert.equal(INDEXABLE_SITEMAP_PATHS.some((path) => /\/page\/\d+\//u.test(path)), false);
 });

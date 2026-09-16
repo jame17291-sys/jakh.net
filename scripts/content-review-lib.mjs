@@ -66,7 +66,17 @@ export function normalizeScorableAnswer(value) {
     .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
     .replace(/[أإآٱ]/gu, "ا")
     .replace(/ى/gu, "ي")
-    .replace(/\p{P}+/gu, " ")
+    .replace(/[٠-٩]/gu, (digit) => String(digit.charCodeAt(0) - 0x0660))
+    .replace(/[۰-۹]/gu, (digit) => String(digit.charCodeAt(0) - 0x06f0))
+    .replace(/−/gu, "-")
+    .replace(/[⁄∕]/gu, "/")
+    .replace(/٫/gu, ".")
+    .replace(/(\p{L}{2,})-(?=\p{L}{2,}(?:[^\p{L}]|$))/gu, "$1 ")
+    .replace(/\p{P}/gu, (character, index, text) => {
+      if (character === "-" || character === "/" || character === "%") return character;
+      if (character === "." && /[0-9]/u.test(text[index + 1] || "")) return character;
+      return " ";
+    })
     .replace(/\s+/gu, " ")
     .trim();
 }

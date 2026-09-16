@@ -35,6 +35,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A question mark",
+        "ar": "علامة الاستفهام"
+      },
+      "distractors": {
+        "en": [
+          "An exclamation mark",
+          "A comma",
+          "A full stop"
+        ],
+        "ar": [
+          "علامة التعجب",
+          "الفاصلة",
+          "النقطة"
+        ]
+      },
+      "explanation": {
+        "en": "A question mark is curved with a dot below and marks a direct question.",
+        "ar": "علامة الاستفهام منحنية وتحتها نقطة، وتوضع في نهاية السؤال المباشر."
+      }
     }
   },
   {
@@ -54,6 +76,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A backpack",
+        "ar": "حقيبة ظهر"
+      },
+      "distractors": {
+        "en": [
+          "A suitcase",
+          "A pencil case",
+          "A briefcase"
+        ],
+        "ar": [
+          "حقيبة سفر",
+          "مقلمة",
+          "حقيبة مستندات"
+        ]
+      },
+      "explanation": {
+        "en": "A backpack has a zipped compartment for books and straps for carrying it on your back.",
+        "ar": "لحقيبة الظهر حجرة بسحّاب تحمل الكتب، وحمالتان لحملها على الظهر."
+      }
     }
   },
   {
@@ -73,6 +117,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Tomorrow",
+        "ar": "الغد"
+      },
+      "distractors": {
+        "en": [
+          "Today",
+          "Yesterday",
+          "Last week"
+        ],
+        "ar": [
+          "اليوم",
+          "الأمس",
+          "الأسبوع الماضي"
+        ]
+      },
+      "explanation": {
+        "en": "When tomorrow arrives, we call it today; there is always another tomorrow ahead.",
+        "ar": "حين يأتي الغد نسميه اليوم، ويبقى الغد اسمًا لليوم الذي لم يأت بعد."
+      }
     }
   },
   {
@@ -83,8 +149,8 @@
       "ar": "الأشياء والحياة اليومية"
     },
     "question": {
-      "en": "What begins with T, finishes with T, and has T in it?",
-      "ar": "ما الذي يبدأ بحرف T وينتهي بـ T وبداخله T؟"
+      "en": "I have a lid, a handle and a spout. I am made for steeping tea leaves and pouring tea into cups. What am I?",
+      "ar": "لي غطاء ومقبض وفوهة، وأنا مخصص لنقع أوراق الشاي وسكبه في الأكواب. ما أنا؟"
     },
     "answer": {
       "en": "A teapot",
@@ -92,6 +158,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A teapot",
+        "ar": "إبريق الشاي"
+      },
+      "distractors": {
+        "en": [
+          "A watering can",
+          "A flower vase",
+          "A mixing bowl"
+        ],
+        "ar": [
+          "إبريق ري",
+          "مزهرية",
+          "وعاء خلط"
+        ]
+      },
+      "explanation": {
+        "en": "A teapot is made for steeping tea leaves and pouring tea; its handle, lid and spout fit all the clues.",
+        "ar": "إبريق الشاي مخصص لنقع أوراق الشاي وسكبه، وله مقبض وغطاء وفوهة، فتجتمع فيه القرائن كلها."
+      }
     }
   },
   {
@@ -130,6 +218,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Your account balance",
+        "ar": "رصيد حسابك"
+      },
+      "distractors": {
+        "en": [
+          "Your account number",
+          "Your card number",
+          "Your PIN"
+        ],
+        "ar": [
+          "رقم حسابك",
+          "رقم بطاقتك",
+          "رقمك السري"
+        ]
+      },
+      "explanation": {
+        "en": "The balance records the amount of money in the account. Deposits increase it and purchases decrease it; account identifiers do not change with each transaction.",
+        "ar": "يمثل الرصيد مقدار المال في الحساب؛ تزيده الإيداعات وتقلله المشتريات، أما أرقام الحساب والبطاقة والرقم السري فلا تتغير مع كل عملية."
+      }
     }
   },
   {
@@ -206,6 +316,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "He is her son",
+        "ar": "هو ابنها"
+      },
+      "distractors": {
+        "en": [
+          "He is her brother",
+          "He is her father",
+          "He is her grandfather"
+        ],
+        "ar": [
+          "هو أخوها",
+          "هو أبوها",
+          "هو جدها"
+        ]
+      },
+      "explanation": {
+        "en": "Layla is her mother's only daughter, so the boy's mother is Layla. He is therefore her son.",
+        "ar": "ليلى هي الابنة الوحيدة لأمها، إذن أم الصبي هي ليلى نفسها، والصبي ابنها."
+      }
     }
   },
   {
@@ -339,6 +471,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "23, 24, and 25",
+        "ar": "23 و24 و25"
+      },
+      "distractors": {
+        "en": [
+          "22, 23, and 24",
+          "24, 25, and 26",
+          "22, 24, and 26"
+        ],
+        "ar": [
+          "22 و23 و24",
+          "24 و25 و26",
+          "22 و24 و26"
+        ]
+      },
+      "explanation": {
+        "en": "The middle number is 72 ÷ 3 = 24, so its consecutive neighbors are 23 and 25. The trio 22, 24, 26 also totals 72 but is not consecutive.",
+        "ar": "العدد الأوسط هو 72 ÷ 3 = 24، فيكون العددان المجاوران له 23 و25. أما 22 و24 و26 فمجموعها 72 لكنها ليست متتالية."
+      }
     }
   },
   {
@@ -358,6 +512,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A glove",
+        "ar": "القفاز"
+      },
+      "distractors": {
+        "en": [
+          "A sock",
+          "A scarf",
+          "A hat"
+        ],
+        "ar": [
+          "جورب",
+          "وشاح",
+          "قبعة"
+        ]
+      },
+      "explanation": {
+        "en": "A glove has separate spaces shaped for the thumb and four fingers, but the glove itself contains no flesh or bones.",
+        "ar": "في القفاز مواضع للإبهام والأصابع الأربعة، لكن القفاز نفسه لا يحتوي على لحم أو عظم."
+      }
     }
   },
   {
@@ -434,6 +610,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "Silence",
+        "ar": "الصمت"
+      },
+      "distractors": {
+        "en": [
+          "Darkness",
+          "Time",
+          "Distance"
+        ],
+        "ar": [
+          "الظلام",
+          "الزمن",
+          "المسافة"
+        ]
+      },
+      "explanation": {
+        "en": "Saying any word aloud makes a sound, which breaks silence, including the word 'silence' itself.",
+        "ar": "نطق أي كلمة بصوت مسموع يُحدث صوتًا يقطع الصمت، حتى لو كانت الكلمة هي «الصمت»."
+      }
     }
   },
   {
@@ -605,6 +803,28 @@
     },
     "review": {
       "status": "pending"
+    },
+    "quickFire": {
+      "answer": {
+        "en": "A sponge",
+        "ar": "الإسفنجة"
+      },
+      "distractors": {
+        "en": [
+          "A metal sieve",
+          "A fishing net",
+          "A colander"
+        ],
+        "ar": [
+          "غربال معدني",
+          "شبكة صيد",
+          "مصفاة"
+        ]
+      },
+      "explanation": {
+        "en": "A sponge absorbs and retains water in its connected pores. The open holes of a sieve, net or colander let water drain through.",
+        "ar": "تمتص الإسفنجة الماء وتحتفظ به في مسامها المتصلة، بينما تسمح فتحات الغربال والشبكة والمصفاة بمروره."
+      }
     }
   },
   {

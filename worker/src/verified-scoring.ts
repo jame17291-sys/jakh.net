@@ -32,6 +32,9 @@ import type { Env } from "./types.js";
 export const VERIFIED_QUESTION_COUNT = 10;
 export const VERIFIED_CHALLENGE_TTL_MS = 15 * 60 * 1_000;
 export const VERIFIED_MINIMUM_MS = VERIFIED_QUESTION_COUNT * 2_000;
+// Rollout stage A uses 1 (legacy writer + dual reader); stage B uses 2.
+// Never roll stage B back to a release that cannot read version 2 commitments.
+export const ISSUED_ANSWER_NORMALIZATION_VERSION: 1 | 2 = 2;
 export const SERVER_CHECKED_SCORE_TYPE = "server-checked";
 export const SERVER_CHECKED_AUTOMATION_DISCLAIMER =
   "The server checks submitted answers, but does not verify who answered or prevent lookups or automation.";
@@ -67,6 +70,7 @@ interface CanonicalCard {
 interface AnswerCommitment {
   cardId: string;
   digests: string[];
+  normalizationVersion?: 2;
 }
 
 interface ChallengeRow {
@@ -170,7 +174,9 @@ function isCanonicalCard(value: SourceCard): value is CanonicalCard {
     && acceptedAnswersAreValid(value.acceptedAnswers);
 }
 
-function normalizeAnswer(value: string): string {
+// Missing commitment versions were issued with this exact normalization.
+// Keep it only for those in-flight challenges, which expire after 15 minutes.
+function legacyNormalizeAnswer(value: string): string {
   return value
     .normalize("NFKC")
     .toLocaleLowerCase("en-US")
@@ -178,6 +184,28 @@ function normalizeAnswer(value: string): string {
     .replace(/[أإآٱ]/gu, "ا")
     .replace(/ى/gu, "ي")
     .replace(/\p{P}+/gu, " ")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
+function normalizeAnswer(value: string): string {
+  return value
+    .normalize("NFKC")
+    .toLocaleLowerCase("en-US")
+    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
+    .replace(/[أإآٱ]/gu, "ا")
+    .replace(/ى/gu, "ي")
+    .replace(/[٠-٩]/gu, (digit) => String(digit.charCodeAt(0) - 0x0660))
+    .replace(/[۰-۹]/gu, (digit) => String(digit.charCodeAt(0) - 0x06f0))
+    .replace(/−/gu, "-").replace(/[⁄∕]/gu, "/").replace(/٫/gu, ".")
+    // Preserve ordinary hyphenated prose without erasing numeric signs or
+    // single-letter algebraic subtraction (for example, x-y).
+    .replace(/(\p{L}{2,})-(?=\p{L}{2,}(?:[^\p{L}]|$))/gu, "$1 ")
+    .replace(/\p{P}/gu, (character, index: number, text: string) => {
+      if (character === "-" || character === "/" || character === "%") return character;
+      if (character === "." && /[0-9]/u.test(text[index + 1] || "")) return character;
+      return " ";
+    })
     .replace(/\s+/gu, " ")
     .trim();
 }
@@ -209,11 +237,12 @@ function hasVerifiableAnswer(card: CanonicalCard, language: "en" | "ar"): boolea
   return answerVariants(card, language).some(conciseCanonicalAnswer);
 }
 
-function answerAliases(card: CanonicalCard): string[] {
+function answerAliases(card: CanonicalCard, normalizationVersion: 1 | 2 = 2): string[] {
   const aliases = new Set<string>();
+  const normalize = normalizationVersion === 1 ? legacyNormalizeAnswer : normalizeAnswer;
   const englishVariants = answerVariants(card, "en");
   for (const variant of englishVariants) {
-    const normalized = normalizeAnswer(variant);
+    const normalized = normalize(variant);
     if (!normalized) continue;
     aliases.add(normalized);
     const withoutArticle = normalized.replace(/^(?:a|an|the)\s+/u, "");
@@ -221,14 +250,14 @@ function answerAliases(card: CanonicalCard): string[] {
   }
   const arabicVariants = answerVariants(card, "ar");
   for (const variant of arabicVariants) {
-    const normalized = normalizeAnswer(variant);
+    const normalized = normalize(variant);
     if (normalized) aliases.add(normalized);
   }
   return [...aliases];
 }
 
-function submittableAnswerAliases(card: CanonicalCard): string[] {
-  return answerAliases(card).filter((alias) => alias.length <= MAX_ANSWER_LENGTH);
+function submittableAnswerAliases(card: CanonicalCard, normalizationVersion: 1 | 2 = 2): string[] {
+  return answerAliases(card, normalizationVersion).filter((alias) => alias.length <= MAX_ANSWER_LENGTH);
 }
 
 async function answerDigest(
@@ -240,6 +269,28 @@ async function answerDigest(
   return sha256(
     `${env.PASSWORD_PEPPER}\u0000verified-score-v1\u0000${challengeId}\u0000${cardId}\u0000${answer}`,
   );
+}
+
+export async function buildAnswerCommitments(
+  env: Env,
+  challengeId: string,
+  cards: readonly CanonicalCard[],
+  normalizationVersion: 1 | 2 = ISSUED_ANSWER_NORMALIZATION_VERSION,
+): Promise<AnswerCommitment[]> {
+  if (normalizationVersion !== 1 && normalizationVersion !== 2) throw new Error("Unsupported answer normalization version");
+  return Promise.all(cards.map(async (card): Promise<AnswerCommitment> => {
+    // Always normalize original canonical variants and explicit aliases with
+    // the selected writer. V2 -> legacy is lossy and cannot reproduce v1.
+    const aliases = submittableAnswerAliases(card, normalizationVersion);
+    if (!aliases.length) {
+      throw new ApiError(400, "Not enough questions for server-checked scoring", undefined, "SERVER_CHECKED_CATEGORY_UNAVAILABLE");
+    }
+    return {
+      cardId: card.id,
+      ...(normalizationVersion === 2 ? { normalizationVersion: 2 as const } : {}),
+      digests: await Promise.all(aliases.map((answer) => answerDigest(env, challengeId, card.id, answer))),
+    };
+  }));
 }
 
 async function rateKey(env: Env, userId: string, operation: string): Promise<string> {
@@ -357,12 +408,7 @@ export async function createVerifiedChallenge(request: Request, env: Env): Promi
   const challengeId = randomToken(18);
   const challengeToken = randomToken(32);
   const tokenHash = await sha256(challengeToken);
-  const commitments = await Promise.all(cards.map(async (card): Promise<AnswerCommitment> => ({
-    cardId: card.id,
-    digests: await Promise.all(
-      submittableAnswerAliases(card).map((answer) => answerDigest(env, challengeId, card.id, answer)),
-    ),
-  })));
+  const commitments = await buildAnswerCommitments(env, challengeId, cards);
 
   const startedAt = Date.now();
   const notBeforeAt = startedAt + VERIFIED_MINIMUM_MS;
@@ -530,6 +576,8 @@ function parseCommitments(value: string): AnswerCommitment[] {
         || typeof item !== "object"
         || typeof (item as AnswerCommitment).cardId !== "string"
         || !CARD_ID_PATTERN.test((item as AnswerCommitment).cardId)
+        || ((item as AnswerCommitment).normalizationVersion !== undefined
+          && (item as AnswerCommitment).normalizationVersion !== 2)
         || !Array.isArray((item as AnswerCommitment).digests)
         || (item as AnswerCommitment).digests.length < 1
         || (item as AnswerCommitment).digests.some(
@@ -546,7 +594,7 @@ function parseCommitments(value: string): AnswerCommitment[] {
   }
 }
 
-function normalizeSubmittedAnswer(value: unknown): string {
+function normalizeSubmittedAnswer(value: unknown, normalizationVersion: 2 | undefined): string {
   if (typeof value !== "string" || value.length > MAX_ANSWER_LENGTH) {
     throw new ApiError(
       400,
@@ -555,7 +603,7 @@ function normalizeSubmittedAnswer(value: unknown): string {
       "INVALID_SERVER_CHECKED_ANSWER",
     );
   }
-  const normalized = normalizeAnswer(value);
+  const normalized = normalizationVersion === 2 ? normalizeAnswer(value) : legacyNormalizeAnswer(value);
   if (!normalized) {
     throw new ApiError(
       400,
@@ -683,7 +731,7 @@ export async function submitVerifiedChallenge(request: Request, env: Env): Promi
         "SERVER_CHECKED_CHALLENGE_TAMPERED",
       );
     }
-    const normalized = normalizeSubmittedAnswer(answer.answer);
+    const normalized = normalizeSubmittedAnswer(answer.answer, commitment.normalizationVersion);
     const digest = await answerDigest(env, row.id, expectedCardId, normalized);
     if (commitment.digests.includes(digest)) correctCount += 1;
   }

@@ -134,7 +134,10 @@ jobs:
             scripts/accessibility-contracts.test.mjs \
             scripts/arabic-routes.test.mjs \
             scripts/content-review.test.mjs \
+            scripts/content-overrides.test.mjs \
+            scripts/quick-fire-content.test.mjs \
             scripts/frontend-product-contract.test.mjs \
+            scripts/free-first-gameplay.test.mjs \
             scripts/provenance-ui-contract.test.mjs \
             scripts/public-history-policy.test.mjs \
             scripts/public-seo-release-contract.test.mjs \

@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 import { chromium, firefox, webkit } from "playwright";
 
 import { startBrowserSite } from "./local-browser-site.mjs";
+import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
+import { AKSHIFHA_UI } from "../akshifha-copy.js";
 
 const BROWSER_ENGINES = Object.freeze({ chromium, firefox, webkit });
 const BROWSER_ENGINE = String(process.env.JAKH_BROWSER_ENGINE || "chromium").toLowerCase();
@@ -25,6 +27,7 @@ const SITE_MANIFEST_PATH = process.env.JAKH_SITE_MANIFEST
   ? resolve(process.env.JAKH_SITE_MANIFEST)
   : null;
 const GAME_SMOKE_FIXTURES = Object.freeze([
+  { name: "Akshifha", route: "/akshifha?case=the-first-van&mode=practice", root: "#ak-case", action: "#ak-hint" },
   { name: "Chess", route: "/chess", root: "#chessBoard", action: "#btn2Players" },
   { name: "Mastermind", route: "/mastermind", root: "#mmBoard", action: "#hintBtn" },
   { name: "Go", route: "/go", root: "#goBoard", action: "#goPassBtn" },
@@ -226,12 +229,14 @@ async function installBattleSocketMock(context, { code, hostId }) {
         for (const listener of this.listeners.get(type) || []) listener.call(this, event);
       }
 
-      emit(payload) {
-        queueMicrotask(() => {
+      emit(payload, delayMs = 0) {
+        const dispatch = () => {
           if (this.readyState === BattleSocket.OPEN) {
             this.dispatch("message", { data: JSON.stringify(payload), target: this });
           }
-        });
+        };
+        if (delayMs > 0) setTimeout(dispatch, delayMs);
+        else queueMicrotask(dispatch);
       }
 
       send(raw) {
@@ -257,7 +262,10 @@ async function installBattleSocketMock(context, { code, hostId }) {
           }
           this.playerId = playerId;
           const saved = writeRoom(room, "room-update");
-          this.emit({ type: "joined", playerId, isHost });
+          // A real guest's join acknowledgement crosses the network. Keep it
+          // asynchronous so this regression proves the UI cannot double-join
+          // while that acknowledgement is still in flight.
+          this.emit({ type: "joined", playerId, isHost }, isHost ? 0 : 50);
           this.emit(messageFor(saved));
           return;
         }
@@ -265,6 +273,14 @@ async function installBattleSocketMock(context, { code, hostId }) {
           const room = readRoom();
           const player = room.players.find((candidate) => candidate.id === this.playerId);
           if (!player?.isHost || room.phase !== "lobby") return;
+          if (room.players.length < 2) {
+            this.emit({
+              type: "error",
+              code: "NEED_ANOTHER_PLAYER",
+              message: "Invite another player to start",
+            });
+            return;
+          }
           room.phase = "question";
           room.currentQ = 0;
           room.answers = {};
@@ -489,6 +505,13 @@ async function main() {
         assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("data-id")), cardId);
         assert.equal(await page.evaluate(() => document.activeElement?.closest(".card-front") !== null), true);
 
+        // Science remains freely browsable but has no authored choice set yet.
+        // Never synthesize wrong answers from unrelated questions to fill it.
+        await page.locator("#playModeQuickFireBtn").click();
+        await page.waitForFunction(() => document.querySelector('.toast')?.textContent?.includes('Quick Fire'));
+        assert.equal(await page.locator('#timedQuizOverlay:not(.hidden)').count(), 0);
+        await page.goto(`${baseUrl}/math`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator("#playModeQuickFireBtn").waitFor();
         await page.locator("#playModeQuickFireBtn").click();
         await page.locator('#tqOptions [data-tq-option="0"]').waitFor();
         assert.equal(await page.locator("#tqAnswerWrap").evaluate((node) => node.classList.contains("hidden")), true);
@@ -501,6 +524,9 @@ async function main() {
         assert.equal(await page.locator("#tqAnswerWrap").evaluate((node) => node.classList.contains("hidden")), false);
         assert.equal(await page.locator("#tqOptions [data-tq-option]:disabled").count(), 4);
         await page.waitForTimeout(1_650);
+        assert.equal((await page.locator("#tqProgressText").innerText()).trim(), "1 / 10");
+        assert.ok((await page.locator("#tqAnswer").innerText()).length > 0);
+        await page.locator("#tqNextBtn").click();
         assert.equal((await page.locator("#tqProgressText").innerText()).trim(), "2 / 10");
         await page.keyboard.press("Escape");
         await page.locator("#timedQuizOverlay").waitFor({ state: "hidden" });
@@ -715,6 +741,159 @@ async function main() {
       }
     });
 
+    await runTest("Akshifha bilingual deduction, selection limits, progress, and responsive layout", async () => {
+      const cake = AKSHIFHA_CASES.find((item) => item.id === "the-first-van");
+      const revealCase = AKSHIFHA_CASES.find((item) => item.id === "one-table-please");
+      assert(cake && revealCase, "Akshifha browser fixtures require the authored cake and booking cases");
+      const wrongOption = cake.options.find((option) => option.id !== cake.solution.optionId);
+      assert(wrongOption, "The cake case needs a distractor to exercise incorrect submissions");
+      const progressKey = "riddlearabia-akshifha-v1";
+      const paths = { en: "/akshifha", ar: "/ar/games/akshifha/" };
+
+      // Real browser checks, deliberately not replaced by source or mock-DOM
+      // assertions. Each locale/viewport starts with a fresh guest casebook.
+      for (const width of [320, 1280]) {
+        for (const language of ["en", "ar"]) {
+          const context = await createContext(browser, {
+            viewport: { width, height: 900 },
+            serviceWorkers: "block",
+          });
+          await setCurrentDeniedConsent(context);
+          const page = await context.newPage();
+          const assertNoPageErrors = trackPageErrors(page);
+          const consoleErrors = [];
+          page.on("console", (message) => {
+            if (message.type() === "error") consoleErrors.push(message.text());
+          });
+          const label = `Akshifha ${language} at ${width}px`;
+          const readProgress = () => page.evaluate((key) => JSON.parse(localStorage.getItem(key) || "null"), progressKey);
+          const casebookStatus = (id) => page.locator(`#ak-case-list [data-case-id="${id}"] .ak-case-entry-status`);
+          const assertNoHorizontalOverflow = async (stage) => {
+            const metrics = await page.evaluate(() => {
+              const viewportWidth = document.documentElement.clientWidth;
+              const surfaces = [...document.querySelectorAll(".ak-header, .ak-main, .ak-evidence-grid, .ak-options, .ak-casebook, .ak-footer")]
+                .filter((node) => node.getClientRects().length)
+                .map((node) => {
+                  const rect = node.getBoundingClientRect();
+                  return { name: node.className, left: rect.left, right: rect.right };
+                });
+              return {
+                viewportWidth,
+                documentWidth: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth),
+                surfaces,
+              };
+            });
+            assert(metrics.documentWidth <= metrics.viewportWidth + 1,
+              `${label}, ${stage}: horizontal document overflow ${JSON.stringify(metrics)}`);
+            for (const surface of metrics.surfaces) {
+              assert(surface.left >= -1 && surface.right <= metrics.viewportWidth + 1,
+                `${label}, ${stage}: surface outside viewport ${JSON.stringify(surface)}`);
+            }
+          };
+
+          try {
+            const response = await page.goto(`${baseUrl}${paths[language]}?case=${cake.id}&mode=practice`, {
+              waitUntil: NAVIGATION_READY_EVENT,
+            });
+            assert.equal(response?.status(), 200, `${label}: route response`);
+            await page.locator("#ak-game").waitFor({ state: "visible" });
+            assert.equal(await page.locator("html").getAttribute("lang"), language);
+            assert.equal(await page.locator("html").getAttribute("dir"), language === "ar" ? "rtl" : "ltr");
+            assert.equal(await page.locator("#ak-case-title").innerText(), cake.title[language]);
+            assert.equal(await page.locator("#akLanguage").inputValue(), language);
+            assert.equal(await page.locator("#ak-case-list [data-case-id]").count(), 5);
+            assert.equal(await page.locator("#ak-check").isDisabled(), true);
+            assert.equal(await page.locator('#ak-evidence input[type="checkbox"]:checked').count(), 0);
+            assert.equal(await page.locator('#ak-evidence [data-proof="true"]').count(), 0,
+              `${label}: the evidence must not disclose the solution before completion`);
+            await assertNoHorizontalOverflow("initial case");
+
+            const firstClue = page.locator(`#ak-evidence input[value="${cake.solution.evidenceIds[0]}"]`);
+            const secondClue = page.locator(`#ak-evidence input[value="${cake.solution.evidenceIds[1]}"]`);
+            await firstClue.check();
+            assert.equal(await page.locator("#ak-check").isDisabled(), true, `${label}: one clue is incomplete`);
+            await secondClue.check();
+            assert.equal(await page.locator('#ak-evidence input[type="checkbox"]:checked').count(), 2);
+            assert.equal(await page.locator('#ak-evidence input[type="checkbox"]:not(:checked):disabled').count(), cake.evidence.length - 2,
+              `${label}: a third clue cannot be selected`);
+            assert.equal(await firstClue.isDisabled(), false, `${label}: selected clues remain available for swapping`);
+            await firstClue.uncheck();
+            assert.equal(await page.locator('#ak-evidence input[type="checkbox"]:disabled').count(), 0,
+              `${label}: unselecting a clue unlocks the alternatives`);
+            await firstClue.check();
+            await page.locator(`#ak-options input[value="${wrongOption.id}"]`).check();
+            await page.locator("#ak-check").click();
+            assert.equal(await page.locator("#ak-feedback").getAttribute("data-wrong"), "true");
+            assert.equal(await page.locator("#ak-feedback").innerText(), AKSHIFHA_UI[language].akWrong);
+            assert.equal(await page.locator("#ak-result").isVisible(), false);
+            assert.equal(await casebookStatus(cake.id).innerText(), AKSHIFHA_UI[language].akUnplayed);
+            assert.equal(await readProgress(), null, `${label}: an incorrect check is not a completion`);
+
+            await page.locator(`#ak-options input[value="${cake.solution.optionId}"]`).check();
+            await page.locator("#ak-check").click();
+            await page.locator("#ak-result").waitFor({ state: "visible" });
+            assert.equal(await page.locator("#ak-result-title").innerText(), AKSHIFHA_UI[language].akSolved);
+            assert.equal(await page.locator("#ak-explanation").innerText(), cake.explanation[language]);
+            assert.equal(await page.locator("#ak-proof li").count(), 2);
+            assert.equal(await page.locator("#ak-check").isDisabled(), true);
+            assert.equal(await casebookStatus(cake.id).innerText(), AKSHIFHA_UI[language].akStatusSolved);
+            assert.deepEqual((await readProgress()).cases[cake.id], {
+              completed: true, attempts: 2, hintsUsed: 0, revealed: false,
+            }, `${label}: only the completed personal result is stored`);
+            await assertNoHorizontalOverflow("solved explanation");
+
+            await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+            await page.locator("#ak-game").waitFor({ state: "visible" });
+            assert.equal(await casebookStatus(cake.id).innerText(), AKSHIFHA_UI[language].akStatusSolved,
+              `${label}: the casebook persists across reload`);
+            const otherLanguage = language === "en" ? "ar" : "en";
+            await page.locator("#akLanguage").selectOption(otherLanguage);
+            await page.waitForURL((url) => url.pathname === paths[otherLanguage]
+              && url.searchParams.get("case") === cake.id && url.searchParams.get("mode") === "practice");
+            await page.locator("#ak-game").waitFor({ state: "visible" });
+            assert.equal(await page.locator("html").getAttribute("lang"), otherLanguage);
+            assert.equal(await page.locator("html").getAttribute("dir"), otherLanguage === "ar" ? "rtl" : "ltr");
+            assert.equal(await page.locator("#ak-case-title").innerText(), cake.title[otherLanguage],
+              `${label}: changing language preserves the exact case`);
+            assert.equal(await casebookStatus(cake.id).innerText(), AKSHIFHA_UI[otherLanguage].akStatusSolved);
+            assert.equal(await page.locator('header a[data-i18n="akGames"]').getAttribute("href"),
+              otherLanguage === "ar" ? "/ar/play/" : "/play");
+            assert.equal(await page.locator('a[data-i18n="akPrivacy"]').getAttribute("href"),
+              otherLanguage === "ar" ? "/ar/privacy/" : "/privacy");
+            await assertNoHorizontalOverflow("language switch");
+
+            await page.locator(`#ak-case-list [data-case-id="${revealCase.id}"]`).click();
+            assert.equal(await page.locator("#ak-case-title").innerText(), revealCase.title[otherLanguage]);
+            await page.locator("#ak-reveal").click();
+            await page.locator("#ak-reveal-confirm").waitFor({ state: "visible" });
+            await page.locator("#ak-reveal-no").click();
+            assert.equal(await page.locator("#ak-reveal-confirm").isVisible(), false);
+            assert.equal(await page.locator("#ak-result").isVisible(), false, `${label}: cancel does not reveal`);
+            await page.locator("#ak-reveal").click();
+            await page.locator("#ak-reveal-yes").click();
+            await page.locator("#ak-result").waitFor({ state: "visible" });
+            assert.equal(await page.locator("#ak-result-title").innerText(), AKSHIFHA_UI[otherLanguage].akRevealed);
+            assert.equal(await page.locator("#ak-explanation").innerText(), revealCase.explanation[otherLanguage]);
+            const progress = await readProgress();
+            assert.deepEqual(progress.cases[revealCase.id], {
+              completed: true, attempts: 0, hintsUsed: 0, revealed: true,
+            }, `${label}: revealing is stored separately from solving`);
+            assert.equal(progress.cases[cake.id].revealed, false, `${label}: another case cannot overwrite the solved result`);
+            assert.equal(Object.keys(progress.cases).length, 2);
+            await assertNoHorizontalOverflow("revealed explanation");
+            await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+            await page.locator("#ak-game").waitFor({ state: "visible" });
+            assert.equal(await casebookStatus(revealCase.id).innerText(), AKSHIFHA_UI[otherLanguage].akStatusRevealed,
+              `${label}: revealed status also persists across reload`);
+            assertNoPageErrors();
+            assert.deepEqual(consoleErrors, [], `${label}: unexpected console errors:\n${consoleErrors.join("\n")}`);
+          } finally {
+            await context.close();
+          }
+        }
+      }
+    });
+
     await runTest("Battle query invite joins a second player and starts the same question", async () => {
       const battle = {
         code: "SCI7X2KQ",
@@ -735,10 +914,13 @@ async function main() {
         await host.locator("#battleNavBtn").click();
         await host.locator("#battleNameInput").waitFor({ state: "visible" });
         await host.locator("#battleNameInput").fill("Host");
-        await host.locator("#battleCatSelect").selectOption("science");
+        await host.locator("#battleCatSelect").selectOption("math");
         await host.locator("#battleCreateBtn").click();
         await host.locator("#battleShareBtn").waitFor({ state: "visible" });
-        assert.deepEqual(battle.creates, [{ category: "science", difficulty: "all", questionCount: 10 }]);
+        assert.deepEqual(battle.creates, [{ category: "math", difficulty: "all", questionCount: 10 }]);
+        await host.locator("#battleStartBtn").waitFor({ state: "visible" });
+        assert.equal(await host.locator("#battleStartBtn").isDisabled(), true);
+        assert.match(await host.locator(".battle-waiting-msg").innerText(), /Invite one friend/u);
 
         await host.locator("#battleShareBtn").click();
         await host.waitForFunction(() => typeof window.__battleCopiedText === "string");
@@ -756,8 +938,10 @@ async function main() {
         assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code);
         await guest.locator("#battleNameInput").fill("Guest");
         await guest.locator("#battleJoinBtn").click();
+        assert.equal(await guest.locator("#battleJoinBtn").isDisabled(), true);
         await guest.locator("#battleShareBtn").waitFor({ state: "visible" });
         await host.locator(".battle-player-row").filter({ hasText: "Guest" }).waitFor({ state: "visible" });
+        assert.equal(await host.locator("#battleStartBtn").isDisabled(), false);
         await host.locator("#battleStartBtn").click();
 
         for (const page of [host, guest]) {
@@ -854,7 +1038,7 @@ async function main() {
       }
     });
 
-    console.log(`Browser regression passed: 8 suites on ${BROWSER_ENGINE}.`);
+    console.log(`Browser regression passed: 9 suites on ${BROWSER_ENGINE}.`);
   } finally {
     await browser.close();
     await server.close();

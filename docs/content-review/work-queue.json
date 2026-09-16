@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-08-01",
+  "asOf": "2026-09-16",
   "sourcePolicy": {
     "discoveryBatch": "One packet may share source-discovery work only within this exact category/subcategory group.",
     "claimMapping": "Every atomic claim must map reciprocally to accepted evidence with a precise locator.",
@@ -30,7 +30,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -131,7 +131,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -205,7 +205,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -414,7 +414,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -596,7 +596,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -697,7 +697,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -771,7 +771,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -926,7 +926,7 @@
         "slug": "currencies",
         "title": {
           "en": "World Currencies",
-          "ar": "عملات وتجارة"
+          "ar": "العملات العالمية"
         }
       },
       "subcategory": {
@@ -1280,7 +1280,7 @@
         "slug": "linguistics",
         "title": {
           "en": "Linguistics",
-          "ar": "لغويات"
+          "ar": "علم اللغة"
         }
       },
       "subcategory": {
@@ -1516,7 +1516,7 @@
         "slug": "linguistics",
         "title": {
           "en": "Linguistics",
-          "ar": "لغويات"
+          "ar": "علم اللغة"
         }
       },
       "subcategory": {
@@ -1671,7 +1671,7 @@
         "slug": "linguistics",
         "title": {
           "en": "Linguistics",
-          "ar": "لغويات"
+          "ar": "علم اللغة"
         }
       },
       "subcategory": {
@@ -1963,7 +1963,7 @@
         "slug": "linguistics",
         "title": {
           "en": "Linguistics",
-          "ar": "لغويات"
+          "ar": "علم اللغة"
         }
       },
       "subcategory": {
@@ -2091,7 +2091,7 @@
         "slug": "linguistics",
         "title": {
           "en": "Linguistics",
-          "ar": "لغويات"
+          "ar": "علم اللغة"
         }
       },
       "subcategory": {
@@ -2273,7 +2273,7 @@
         "slug": "linguistics",
         "title": {
           "en": "Linguistics",
-          "ar": "لغويات"
+          "ar": "علم اللغة"
         }
       },
       "subcategory": {
@@ -2482,7 +2482,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -2556,7 +2556,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -2819,7 +2819,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -2974,7 +2974,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -3102,7 +3102,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -3206,7 +3206,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -3552,7 +3552,7 @@
         "slug": "tech-retro",
         "title": {
           "en": "Tech & Retro Gaming",
-          "ar": "تكنولوجيا ريترو"
+          "ar": "تقنيات الماضي"
         }
       },
       "subcategory": {
@@ -3707,7 +3707,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -3808,7 +3808,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -4154,7 +4154,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -4309,7 +4309,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -4383,7 +4383,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -4619,7 +4619,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -4801,7 +4801,7 @@
         "slug": "automotive",
         "title": {
           "en": "Automotive & Racing",
-          "ar": "سيارات ومحركات"
+          "ar": "عالم السيارات"
         }
       },
       "subcategory": {
@@ -4929,7 +4929,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -5030,7 +5030,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -5212,7 +5212,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -5394,7 +5394,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -5522,7 +5522,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -5704,7 +5704,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -5859,7 +5859,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -6041,7 +6041,7 @@
         "slug": "survival",
         "title": {
           "en": "Survival & Wilderness",
-          "ar": "بقاء وطبيعة"
+          "ar": "مهارات البقاء"
         }
       },
       "subcategory": {
@@ -6169,7 +6169,7 @@
         "slug": "fictional-worlds",
         "title": {
           "en": "Fictional Worlds",
-          "ar": "عوالم خيالية"
+          "ar": "العوالم الخيالية"
         }
       },
       "subcategory": {
@@ -6297,7 +6297,7 @@
         "slug": "fictional-worlds",
         "title": {
           "en": "Fictional Worlds",
-          "ar": "عوالم خيالية"
+          "ar": "العوالم الخيالية"
         }
       },
       "subcategory": {
@@ -6722,7 +6722,7 @@
         "slug": "fictional-worlds",
         "title": {
           "en": "Fictional Worlds",
-          "ar": "عوالم خيالية"
+          "ar": "العوالم الخيالية"
         }
       },
       "subcategory": {
@@ -6796,7 +6796,7 @@
         "slug": "fictional-worlds",
         "title": {
           "en": "Fictional Worlds",
-          "ar": "عوالم خيالية"
+          "ar": "العوالم الخيالية"
         }
       },
       "subcategory": {
@@ -7140,7 +7140,7 @@
         "slug": "fictional-worlds",
         "title": {
           "en": "Fictional Worlds",
-          "ar": "عوالم خيالية"
+          "ar": "العوالم الخيالية"
         }
       },
       "subcategory": {
@@ -7268,7 +7268,7 @@
         "slug": "fictional-worlds",
         "title": {
           "en": "Fictional Worlds",
-          "ar": "عوالم خيالية"
+          "ar": "العوالم الخيالية"
         }
       },
       "subcategory": {
@@ -8611,7 +8611,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -8820,7 +8820,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -9114,7 +9114,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -9242,7 +9242,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -9505,7 +9505,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -9687,7 +9687,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -9761,7 +9761,7 @@
         "slug": "pop-culture",
         "title": {
           "en": "Pop Culture & Web",
-          "ar": "ثقافة البوب"
+          "ar": "الثقافة الشعبية"
         }
       },
       "subcategory": {
@@ -9835,7 +9835,7 @@
         "slug": "true-crime",
         "title": {
           "en": "True Crime & Mysteries",
-          "ar": "جرائم حقيقية"
+          "ar": "الجرائم الحقيقية"
         }
       },
       "subcategory": {
@@ -9990,7 +9990,7 @@
         "slug": "true-crime",
         "title": {
           "en": "True Crime & Mysteries",
-          "ar": "جرائم حقيقية"
+          "ar": "الجرائم الحقيقية"
         }
       },
       "subcategory": {
@@ -10091,7 +10091,7 @@
         "slug": "true-crime",
         "title": {
           "en": "True Crime & Mysteries",
-          "ar": "جرائم حقيقية"
+          "ar": "الجرائم الحقيقية"
         }
       },
       "subcategory": {
@@ -10381,7 +10381,7 @@
         "slug": "true-crime",
         "title": {
           "en": "True Crime & Mysteries",
-          "ar": "جرائم حقيقية"
+          "ar": "الجرائم الحقيقية"
         }
       },
       "subcategory": {
@@ -10563,7 +10563,7 @@
         "slug": "true-crime",
         "title": {
           "en": "True Crime & Mysteries",
-          "ar": "جرائم حقيقية"
+          "ar": "الجرائم الحقيقية"
         }
       },
       "subcategory": {
@@ -10801,7 +10801,7 @@
         "slug": "true-crime",
         "title": {
           "en": "True Crime & Mysteries",
-          "ar": "جرائم حقيقية"
+          "ar": "الجرائم الحقيقية"
         }
       },
       "subcategory": {
@@ -11037,7 +11037,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -11138,7 +11138,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -11239,7 +11239,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -11340,7 +11340,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -11711,7 +11711,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -11893,7 +11893,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -12021,7 +12021,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -12095,7 +12095,7 @@
         "slug": "mythology-legends",
         "title": {
           "en": "Mythology & Legends",
-          "ar": "أساطير وخرافات"
+          "ar": "الأساطير والملاحم"
         }
       },
       "subcategory": {
@@ -12277,7 +12277,7 @@
         "slug": "art-and-painters",
         "title": {
           "en": "Art & Painters",
-          "ar": "الفن والرسامون"
+          "ar": "الفن والرسّامون"
         }
       },
       "subcategory": {
@@ -12405,7 +12405,7 @@
         "slug": "art-and-painters",
         "title": {
           "en": "Art & Painters",
-          "ar": "الفن والرسامون"
+          "ar": "الفن والرسّامون"
         }
       },
       "subcategory": {
@@ -12695,7 +12695,7 @@
         "slug": "art-and-painters",
         "title": {
           "en": "Art & Painters",
-          "ar": "الفن والرسامون"
+          "ar": "الفن والرسّامون"
         }
       },
       "subcategory": {
@@ -12958,7 +12958,7 @@
         "slug": "art-and-painters",
         "title": {
           "en": "Art & Painters",
-          "ar": "الفن والرسامون"
+          "ar": "الفن والرسّامون"
         }
       },
       "subcategory": {
@@ -13086,7 +13086,7 @@
         "slug": "art-and-painters",
         "title": {
           "en": "Art & Painters",
-          "ar": "الفن والرسامون"
+          "ar": "الفن والرسّامون"
         }
       },
       "subcategory": {
@@ -72433,8 +72433,8 @@
           "mutableSignals": [],
           "contentSignals": {
             "answerWords": {
-              "en": 26,
-              "ar": 19
+              "en": 14,
+              "ar": 12
             },
             "containsNumber": true,
             "containsYear": false,
@@ -81610,7 +81610,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {
@@ -81738,7 +81738,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {
@@ -81839,7 +81839,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {
@@ -82021,7 +82021,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {
@@ -82176,7 +82176,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {
@@ -82466,7 +82466,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {
@@ -82621,7 +82621,7 @@
         "slug": "environment-and-ecology",
         "title": {
           "en": "Environment & Ecology",
-          "ar": "البيئة والإيكولوجيا"
+          "ar": "البيئة وعلم البيئة"
         }
       },
       "subcategory": {

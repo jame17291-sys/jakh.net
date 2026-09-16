@@ -102,6 +102,9 @@ for (const category of catalog.categories || []) {
     hasScorableAnswer(card, "en")
     && hasScorableAnswer(card, "ar")
   )).length;
+  // Structural/semantic choice validation is enforced by the content tests;
+  // this count is discovery metadata, never a server authorization decision.
+  category.quickFireQuestionCount = cards.filter((card) => card.quickFire).length;
   category.reviewedQuestionCount = cards.filter((card) => (
     card?.review?.status === "reviewed"
   )).length;

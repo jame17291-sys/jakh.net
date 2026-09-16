@@ -254,6 +254,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/brain-games"/>
   </url>
   <url>
+    <loc>https://riddlearabia.com/akshifha</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/akshifha"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/akshifha/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/akshifha"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/akshifha/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/akshifha"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/akshifha/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/akshifha"/>
+  </url>
+  <url>
     <loc>https://riddlearabia.com/chess</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -270,96 +288,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/chess"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/chess/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/chess"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/mastermind</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mastermind"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mastermind/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mastermind"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/ar/games/mastermind/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mastermind"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mastermind/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mastermind"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/go</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/go"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/go/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/go"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/ar/games/go/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/go"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/go/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/go"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/reversi</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/reversi"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/reversi/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/reversi"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/ar/games/reversi/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/reversi"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/reversi/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/reversi"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/codenames</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/codenames"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/codenames/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/codenames"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/ar/games/codenames/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/codenames"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/codenames/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/codenames"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/catan</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/catan"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/catan/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/catan"/>
-  </url>
-  <url>
-    <loc>https://riddlearabia.com/ar/games/catan/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/catan"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/catan/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/catan"/>
   </url>
   <url>
     <loc>https://riddlearabia.com/backgammon</loc>
@@ -380,10 +308,100 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/backgammon"/>
   </url>
   <url>
+    <loc>https://riddlearabia.com/mastermind</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mastermind"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mastermind/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mastermind"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/mastermind/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mastermind"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mastermind/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mastermind"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/go</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/go"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/go/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/go"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/go/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/go"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/go/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/go"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/reversi</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/reversi"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/reversi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/reversi"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/reversi/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/reversi"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/reversi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/reversi"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/codenames</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/codenames"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/codenames/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/codenames"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/codenames/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/codenames"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/codenames/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/codenames"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/catan</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/catan"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/catan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/catan"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/catan/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/catan"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/catan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/catan"/>
+  </url>
+  <url>
     <loc>https://riddlearabia.com/set</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/set"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/set/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/set"/>
@@ -392,7 +410,7 @@
     <loc>https://riddlearabia.com/ar/games/set/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/set"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/set/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/set"/>
@@ -401,7 +419,7 @@
     <loc>https://riddlearabia.com/hanabi</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/hanabi"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/hanabi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/hanabi"/>
@@ -410,7 +428,7 @@
     <loc>https://riddlearabia.com/ar/games/hanabi/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/hanabi"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/hanabi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/hanabi"/>
@@ -419,7 +437,7 @@
     <loc>https://riddlearabia.com/diplomacy</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/diplomacy"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/diplomacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/diplomacy"/>
@@ -428,7 +446,7 @@
     <loc>https://riddlearabia.com/ar/games/diplomacy/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/diplomacy"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/diplomacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/diplomacy"/>

@@ -206,6 +206,9 @@ test('required install fails closed and does not request activation', async () =
   for (const options of [
     { failedPaths: ['/styles.css'] },
     { failedPaths: ['/privacy.css'] },
+    { failedPaths: ['/akshifha-engine.js'] },
+    { failedPaths: ['/akshifha-cases.js'] },
+    { failedPaths: ['/akshifha-copy.js'] },
     { rejectedPaths: ['/manifest.webmanifest'] },
     { failedCachePutPaths: ['/styles.css'] },
   ]) {
@@ -217,7 +220,7 @@ test('required install fails closed and does not request activation', async () =
   }
 });
 
-test('complete install guarantees the bilingual core shell, ten games, and current daily data', async () => {
+test('complete install guarantees the bilingual core shell, Akshifha modules, legacy games, and current daily data', async () => {
   const harness = createHarness();
   await harness.dispatchWithLifetime('install');
   assert.equal(harness.skipWaitingCount, 1);
@@ -230,6 +233,12 @@ test('complete install guarantees the bilingual core shell, ten games, and curre
     '/',
     '/offline',
     '/app.js',
+    '/akshifha',
+    '/akshifha.js',
+    '/akshifha-engine.js',
+    '/akshifha-cases.js',
+    '/akshifha-copy.js',
+    '/akshifha.css',
     '/privacy.css',
     '/styles.css',
     '/manifest.webmanifest',
@@ -255,6 +264,7 @@ test('complete install guarantees the bilingual core shell, ten games, and curre
     '/ar/about/',
     '/ar/privacy/',
     '/ar/games/backgammon/',
+    '/ar/games/akshifha/',
     '/ar/games/catan/',
     '/ar/games/chess/',
     '/ar/games/codenames/',
@@ -292,6 +302,14 @@ test('offline navigation returns compatible cached documents or the dedicated fa
   harness.setOnline(false);
 
   assert.equal(await (await harness.dispatchFetch('/?daily=1', 'navigate')).text(), 'network:/');
+  assert.equal(await (await harness.dispatchFetch('/akshifha?case=delivery', 'navigate')).text(), 'network:/akshifha');
+  assert.equal(
+    await (await harness.dispatchFetch('/ar/games/akshifha/?case=delivery', 'navigate')).text(),
+    'network:/ar/games/akshifha/',
+  );
+  for (const asset of ['/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha.css']) {
+    assert.equal(await (await harness.dispatchFetch(asset)).text(), `network:${asset}`);
+  }
   assert.equal(await (await harness.dispatchFetch('/catan.html?lang=ar', 'navigate')).text(), 'network:/catan');
   assert.equal(
     await (await harness.dispatchFetch('/ar/games/catan/?source=offline', 'navigate')).text(),
@@ -457,7 +475,7 @@ test('daily dependency routing mirrors the catalog for representative dates', ()
   }
 });
 
-test('all direct game entries use the shared registration path', () => {
+test('all direct game entries use a same-origin service-worker registration path', () => {
   const runtime = fs.readFileSync(path.join(root, 'game-i18n.js'), 'utf8');
   assert.match(runtime, /serviceWorker\.register\('\/sw\.js', \{ scope: '\/' \}\)/u);
   assert.doesNotMatch(runtime, /getRegistration\(/u);
@@ -466,7 +484,7 @@ test('all direct game entries use the shared registration path', () => {
 
   const games = JSON.parse(createHarness().evaluate('JSON.stringify(GAME_DOCUMENTS)'));
   const arabicShared = JSON.parse(createHarness().evaluate('JSON.stringify(ARABIC_SHARED_DOCUMENTS)'));
-  assert.equal(games.length, 10);
+  assert.equal(games.length, 11);
   assert.deepEqual(arabicShared, [
     '/ar/',
     '/ar/mind-lab/',
@@ -476,7 +494,7 @@ test('all direct game entries use the shared registration path', () => {
     '/ar/privacy/',
     ...games.map((route) => `/ar/games${route}/`),
   ]);
-  assert.equal(new Set(arabicShared).size, 16);
+  assert.equal(new Set(arabicShared).size, 17);
   for (const route of arabicShared) {
     const directory = route === '/ar/' ? path.join(root, 'ar') : path.join(root, route.slice(1));
     assert.equal(fs.existsSync(path.join(directory, 'index.html')), true, `${route} has no physical page`);
@@ -484,6 +502,19 @@ test('all direct game entries use the shared registration path', () => {
   for (const route of games) {
     const file = `${route.slice(1)}.html`;
     const source = fs.readFileSync(path.join(root, file), 'utf8');
+    if (route === '/akshifha') {
+      // The new ESM game owns its bilingual UI; the legacy game translation
+      // bootstrap must not race it or rewrite its document language.
+      assert.match(source, /<script[^>]+src=["'][^"']*akshifha\.js(?:\?[^"']*)?["']/iu);
+      assert.doesNotMatch(source, /<script[^>]+src=["'][^"']*game-i18n\.js/iu);
+      const standalone = fs.readFileSync(path.join(root, 'akshifha.js'), 'utf8');
+      assert.match(standalone, /\bwindow\.isSecureContext\b/u);
+      assert.match(standalone, /['"]serviceWorker['"]\s+in\s+navigator/u);
+      assert.match(standalone, /navigator\.serviceWorker\.register\(['"]\/sw\.js['"]/u);
+      assert.doesNotMatch(standalone, /getRegistration\(/u);
+      assert.doesNotMatch(source, /serviceWorker\.register\(/u, `${file} duplicates module registration`);
+      continue;
+    }
     assert.match(source, /<script[^>]+src=["'][^"']*game-i18n\.js(?:\?[^"']*)?["']/iu, `${file} lacks game-i18n.js`);
     assert.doesNotMatch(source, /getRegistration\(/u, `${file} retains a getRegistration-only bootstrap`);
     assert.doesNotMatch(source, /serviceWorker\.register\(/u, `${file} duplicates shared registration`);

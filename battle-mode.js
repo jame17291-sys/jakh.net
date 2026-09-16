@@ -1,6 +1,4 @@
-// Loaded on demand by app.js when a user opens a live Battle Room.
-// Keeping this API/WebSocket-only feature out of the initial bundle protects
-// startup cost while preserving the existing bilingual behavior.
+// Lazy API/WebSocket feature: keep Battle out of the startup bundle.
 
 export function createBattleMode(dependencies) {
   const {
@@ -130,7 +128,10 @@ function renderBattleSetup(body) {
   const lang = state.lang;
   const isAr = lang === 'ar';
   const slug = battleState.pendingSlug;
-  const catOptions = (state.catalog?.categories || [])
+  const availableCategories = (state.catalog?.categories || [])
+    .filter(c => Number(c.quickFireQuestionCount) >= 5);
+  const selectedIsAvailable = availableCategories.some(c => c.slug === slug);
+  const catOptions = `<option value="" disabled${selectedIsAvailable ? '' : ' selected'}>${isAr ? 'اختر موضوعًا متاحًا' : 'Choose an available topic'}</option>` + availableCategories
     .map(c => `<option value="${escapeHtml(c.slug)}"${c.slug === slug ? ' selected' : ''}>${escapeHtml(c.title[lang])}</option>`)
     .join('');
 
@@ -154,8 +155,11 @@ function renderBattleSetup(body) {
         ${battleState.tab === 'create' ? `
           <label>
             ${isAr ? 'الموضوع' : 'Category'}
-            <select id="battleCatSelect">${catOptions}</select>
+            <select id="battleCatSelect" aria-describedby="battleChoiceHint">${catOptions}</select>
           </label>
+          <p id="battleChoiceHint">${isAr
+            ? 'موضوعات بخيارات مُعدّة؛ بقية الأسئلة مجانية في المكتبة. قد يقل عدد أسئلة الجولة عن اختيارك.'
+            : 'Prepared choices only. Other topics stay free in practice. Rounds use up to your chosen question count.'}</p>
           <label>
             ${isAr ? 'المستوى' : 'Difficulty'}
             <select id="battleDiffSelect">

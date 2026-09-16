@@ -104,7 +104,7 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.equal(manifest.aliases["/science.html"], "/science");
   assert.equal(manifest.aliases["/ar/topics/science/index.html"], "/ar/topics/science/");
   assert.equal(manifest.aliases["/ar/topics/science.html"], "/ar/topics/science/");
-  for (const route of ["/riddles", "/ar/alghaz/", "/logic-challenges", "/brain-games", "/ar/alab-al-dimagh/"]) {
+  for (const route of ["/riddles", "/ar/alghaz/", "/logic-challenges", "/brain-games", "/ar/alab-al-dimagh/", "/akshifha", "/ar/games/akshifha/"]) {
     assert.ok(manifest.routes[route], `curated SEO route is missing: ${route}`);
   }
   for (const { from, to } of RETIRED_SEO_ROUTE_REDIRECTS) {
@@ -164,8 +164,20 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.match(search, new RegExp(manifest.fingerprints["/data/search-index.ar.json"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   const serviceWorker = await readFile(join(repositoryRoot, "site-worker/dist/sw.js"), "utf8");
   assert.match(serviceWorker, new RegExp(`const CACHE_VERSION = '${manifest.offlineCacheIdentity}';`, "u"));
-  for (const stable of ["/app.js", "/styles.css", "/privacy.css"]) {
+  for (const stable of ["/app.js", "/styles.css", "/privacy.css", "/akshifha.js", "/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha.css"]) {
     assert.match(serviceWorker, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  }
+  const akshifha = await readFile(join(repositoryRoot, "site-worker/dist", manifest.fingerprints["/akshifha.js"].slice(1)), "utf8");
+  for (const dependency of ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js"]) {
+    assert.ok(akshifha.includes(manifest.fingerprints[dependency]), `Akshifha entry must pin ${dependency}`);
+    assert.equal(akshifha.includes(`'${dependency}'`) || akshifha.includes(`"${dependency}"`), false);
+    assert.equal(akshifha.includes(`'.${dependency}'`) || akshifha.includes(`".${dependency}"`), false);
+  }
+  for (const document of ["akshifha.html", "ar/games/akshifha/index.html"]) {
+    const html = await readFile(join(repositoryRoot, "site-worker/dist", document), "utf8");
+    for (const stable of ["/akshifha.js", "/akshifha.css", "/styles.css"]) {
+      assert.ok(html.includes(manifest.fingerprints[stable]), `${document} must pin ${stable}`);
+    }
   }
 
   const publicCatalog = JSON.parse(await readFile(join(repositoryRoot, "site-worker/dist/data/catalog.json"), "utf8"));
@@ -455,4 +467,82 @@ test("deploy allow-list is explicit", () => {
   assert.equal(isDeployableFile("worker/package.json"), false);
   assert.equal(isDeployableFile("local-secret.json"), true, "tracked public JSON is allowed; untracked files never enter the list");
   assert.equal(isDeployableFile("../escape.html"), false);
+});
+
+test("Akshifha module leaves propagate through the published entry and offline graph", async (context) => {
+  const temporary = await mkdtemp(join(tmpdir(), "akshifha-build-"));
+  context.after(() => rm(temporary, { recursive: true, force: true }));
+  const source = join(temporary, "source");
+  await mkdir(join(source, "ar/games/akshifha"), { recursive: true });
+  const leaves = ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js"];
+  const assets = ["/akshifha.js", "/akshifha.css", ...leaves];
+  const sourceHtml = '<link rel="stylesheet" href="/akshifha.css"><script type="module" src="/akshifha.js"></script>';
+  const sources = {
+    "index.html": '<link rel="canonical" href="https://riddlearabia.com/">',
+    "404.html": '<title>Not found</title>',
+    "akshifha.html": `<link rel="canonical" href="https://riddlearabia.com/akshifha">${sourceHtml}`,
+    "ar/games/akshifha/index.html": `<link rel="canonical" href="https://riddlearabia.com/ar/games/akshifha/">${sourceHtml}`,
+    "akshifha.js": 'import { solve } from "./akshifha-engine.js";\nimport { cases } from "/akshifha-cases.js";\nimport { copy } from \'./akshifha-copy.js\';\nexport const game = { solve, cases, copy };\n',
+    "akshifha-engine.js": 'export const solve = () => true;\n',
+    "akshifha-cases.js": 'export const cases = ["delivery"];\n',
+    "akshifha-copy.js": 'export const copy = { next: "Next" };\n',
+    "akshifha.css": '.game { color: navy; }\n',
+    "sw.js": `const CACHE_VERSION = 'fixture';\nconst REQUIRED_CORE_ASSETS = ${JSON.stringify(assets)};\n`,
+  };
+  for (const [path, contents] of Object.entries(sources)) {
+    await writeFile(join(source, path), contents, "utf8");
+  }
+  let buildNumber = 0;
+  const build = async (fileList = Object.keys(sources)) => {
+    buildNumber += 1;
+    const outputDirectory = join(temporary, `dist-${buildNumber}`);
+    const manifest = await buildStaticSite({
+      sourceRoot: source,
+      outputDirectory,
+      manifestPath: join(temporary, `manifest-${buildNumber}.json`),
+      manifestModulePath: join(temporary, `manifest-${buildNumber}.js`),
+      fileList,
+    });
+    return { manifest, outputDirectory };
+  };
+  const verifyGraph = async ({ manifest, outputDirectory }) => {
+    await assertFingerprintBytes(manifest, outputDirectory);
+    await assertCompleteInventory(manifest, outputDirectory);
+    const entry = await readFile(join(outputDirectory, manifest.fingerprints["/akshifha.js"].slice(1)), "utf8");
+    const imports = [...entry.matchAll(/\bfrom\s*(['"])([^'"]+)\1/gu)].map((match) => match[2]);
+    assert.deepEqual(imports, leaves.map((path) => manifest.fingerprints[path]));
+    for (const specifier of imports) {
+      assert.ok(manifest.files[specifier], `${specifier} resolves to an emitted module`);
+    }
+    const sw = await readFile(join(outputDirectory, "sw.js"), "utf8");
+    for (const asset of assets) assert.ok(sw.includes(manifest.fingerprints[asset]), `offline cache pins ${asset}`);
+    for (const page of ["akshifha.html", "ar/games/akshifha/index.html"]) {
+      const html = await readFile(join(outputDirectory, page), "utf8");
+      assert.ok(html.includes(manifest.fingerprints["/akshifha.js"]));
+      assert.ok(html.includes(manifest.fingerprints["/akshifha.css"]));
+    }
+    assert.equal(manifest.routes["/akshifha"], "/akshifha.html");
+    assert.equal(manifest.aliases["/akshifha.html"], "/akshifha");
+    assert.equal(manifest.routes["/ar/games/akshifha/"], "/ar/games/akshifha/index.html");
+    assert.equal(manifest.aliases["/ar/games/akshifha.html"], "/ar/games/akshifha/");
+  };
+  let previous = await build();
+  await verifyGraph(previous);
+  assert.deepEqual((await build()).manifest, previous.manifest, "unchanged modules produce identical artifacts");
+  for (const leaf of leaves) {
+    await writeFile(join(source, leaf.slice(1)), `${sources[leaf.slice(1)]}// revision two\n`, "utf8");
+    const next = await build();
+    await verifyGraph(next);
+    assert.notEqual(next.manifest.fingerprints[leaf], previous.manifest.fingerprints[leaf]);
+    assert.notEqual(next.manifest.fingerprints["/akshifha.js"], previous.manifest.fingerprints["/akshifha.js"], `${leaf} changes the entry URL`);
+    assert.notEqual(next.manifest.offlineCacheIdentity, previous.manifest.offlineCacheIdentity);
+    for (const sibling of assets.filter((path) => path !== leaf && path !== "/akshifha.js")) {
+      assert.equal(next.manifest.fingerprints[sibling], previous.manifest.fingerprints[sibling]);
+    }
+    previous = next;
+  }
+  await assert.rejects(
+    build(Object.keys(sources).filter((path) => path !== "akshifha-cases.js")),
+    /requires fingerprinted dependency \/akshifha-cases\.js/u,
+  );
 });

@@ -81,6 +81,78 @@ test("server scoring and battles receive the same published answer override", as
   assert.equal(overridden[0].explanation.ar, "عندما يبرد الغاز قد يتكاثف ويتحوّل إلى سائل.");
 });
 
+test("published wording, answer, or explanation changes invalidate authored choices", async () => {
+  const snapshot = JSON.parse(publishedRow.snapshotJson);
+  for (const field of ["question", "answer", "explanation"]) {
+    for (const language of ["en", "ar"]) {
+      const card = {
+        id: "science-003",
+        ...structuredClone(snapshot),
+        quickFire: { answer: snapshot.answer, marker: "static authored set" },
+      };
+      card[field][language] = "Previously authored wording";
+      const original = structuredClone(card);
+      const [overridden] = await applyPublishedContentOverrides(contentEnv("9", [publishedRow]), "science", [card]);
+      assert.equal(Object.hasOwn(overridden, "quickFire"), false, `${field}.${language}`);
+      assert.deepEqual(overridden[field], snapshot[field]);
+      assert.deepEqual(card, original, "Source cards must not be mutated");
+    }
+  }
+});
+
+test("identical published content preserves authored choices and unedited cards", async () => {
+  const snapshot = JSON.parse(publishedRow.snapshotJson);
+  const card = {
+    id: "science-003",
+    ...snapshot,
+    quickFire: { answer: snapshot.answer, marker: "static authored set" },
+  };
+  const untouched = { ...card, id: "science-004" };
+  const [overridden, unedited] = await applyPublishedContentOverrides(contentEnv("9", [publishedRow]), "science", [card, untouched]);
+  assert.deepEqual(overridden.quickFire, card.quickFire);
+  assert.equal(unedited, untouched);
+  assert.equal((await applyPublishedContentOverrides(contentEnv("8"), "science", [card]))[0], card);
+});
+
+test("published prompt or answer changes invalidate old accepted aliases in either language", async () => {
+  const snapshot = JSON.parse(publishedRow.snapshotJson);
+  for (const field of ["question", "answer"]) {
+    for (const language of ["en", "ar"]) {
+      const card = {
+        id: "science-003",
+        ...structuredClone(snapshot),
+        acceptedAnswers: { en: ["Old concise answer"], ar: ["إجابة قديمة مختصرة"] },
+      };
+      card[field][language] = "Old wording";
+      const [overridden] = await applyPublishedContentOverrides(contentEnv("9", [publishedRow]), "science", [card]);
+      assert.equal(Object.hasOwn(overridden, "acceptedAnswers"), false, `${field}.${language}`);
+      assert.ok(card.acceptedAnswers.en, "Source aliases must not be mutated");
+    }
+  }
+});
+
+test("explanation-only publication preserves accepted answer aliases", async () => {
+  const snapshot = JSON.parse(publishedRow.snapshotJson);
+  const card = {
+    id: "science-003",
+    ...snapshot,
+    explanation: { en: "Old explanation", ar: "شرح قديم" },
+    acceptedAnswers: { en: ["Condensing"], ar: ["تكاثف"] },
+  };
+  const [overridden] = await applyPublishedContentOverrides(contentEnv("9", [publishedRow]), "science", [card]);
+  assert.deepEqual(overridden.acceptedAnswers, card.acceptedAnswers);
+  assert.deepEqual(overridden.explanation, snapshot.explanation);
+});
+
+test("omitting a previous explanation invalidates its authored choices", async () => {
+  const snapshot = JSON.parse(publishedRow.snapshotJson);
+  const card = { id: "science-003", ...snapshot, quickFire: { answer: snapshot.answer } };
+  const { explanation: _explanation, ...withoutExplanation } = snapshot;
+  const row = { ...publishedRow, snapshotJson: JSON.stringify(withoutExplanation) };
+  const [overridden] = await applyPublishedContentOverrides(contentEnv("9", [row]), "science", [card]);
+  assert.equal(overridden.quickFire, undefined);
+});
+
 test("public content overrides reject invalid and quarantined categories", async () => {
   await assert.rejects(
     () => publishedContent(new Request("https://api.jakh.net/api/content/questions?category=../science"), contentEnv("9")),

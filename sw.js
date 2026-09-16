@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v82';
+const CACHE_VERSION = 'v83';
 const CORE_CACHE = `jakh-core-${CACHE_VERSION}`;
 const NAVIGATION_CACHE = `jakh-navigation-${CACHE_VERSION}`;
 const ASSET_CACHE = `jakh-assets-${CACHE_VERSION}`;
@@ -27,6 +27,7 @@ const QUARANTINED_CATEGORY_SLUGS = [
 const MAX_QUARANTINE_PATH_DECODE_PASSES = 3;
 
 const GAME_DOCUMENTS = [
+  '/akshifha',
   '/backgammon',
   '/catan',
   '/chess',
@@ -115,6 +116,11 @@ const REQUIRED_CORE_ASSETS = [
   '/science',
   OFFLINE_FALLBACK_PATH,
   '/app.js',
+  '/akshifha.js',
+  '/akshifha-engine.js',
+  '/akshifha-cases.js',
+  '/akshifha-copy.js',
+  '/akshifha.css',
   '/site-i18n.js',
   '/game-i18n.js',
   '/privacy-consent.js',

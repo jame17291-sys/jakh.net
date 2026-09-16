@@ -72,15 +72,19 @@
       "ar": "الألعاب والمنافسة"
     },
     "question": {
-      "en": "A man is found dead in a locked room containing 53 bicycles. What happened?",
-      "ar": "وُجد رجل ميتًا في غرفة مقفلة تحتوي على 53 دراجة. ماذا حدث؟"
+      "en": "A card game should use one deck with 52 different rank-and-suit combinations and no jokers. After the round, 53 cards are collected from the players and table. Every card has one of those 52 combinations. What must be wrong with the deck?",
+      "ar": "يُفترض أن تستخدم لعبة الورق رزمة فيها 52 تركيبة مختلفة للرتبة والرمز، من دون جوكر. بعد الجولة، جُمعت 53 ورقة من اللاعبين والطاولة، وكل ورقة تحمل إحدى تلك التركيبات الـ52. ما الخلل الذي لا بد أن يكون في الرزمة؟"
     },
     "answer": {
-      "en": "They are not real bicycles — they are playing cards. A standard deck has 52 cards plus one joker. The man was caught cheating at cards.",
-      "ar": "لا تُقصد بها دراجات حقيقية، بل أوراق لعب. الورقة الزائدة هي الجوكر. اكتُشف أن الرجل كان يغش في اللعبة."
+      "en": "At least one rank-and-suit combination appears more than once: there is a duplicate card.",
+      "ar": "توجد ورقتان على الأقل لهما الرتبة والرمز نفسيهما؛ أي توجد ورقة مكررة."
     },
     "review": {
       "status": "pending"
+    },
+    "explanation": {
+      "en": "There are 53 cards but only 52 possible rank-and-suit combinations, so at least one combination is repeated. That proves the deck contains a duplicate, not who added it or whether anyone cheated deliberately.",
+      "ar": "لدينا 53 ورقة و52 تركيبة ممكنة فقط للرتبة والرمز، فلا بد أن تتكرر تركيبة واحدة على الأقل. يثبت ذلك وجود ورقة مكررة، لكنه لا يثبت مَن أضافها أو أن أحدًا تعمّد الغش."
     }
   },
   {

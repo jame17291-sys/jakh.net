@@ -239,6 +239,8 @@ test('Quick Fire answer/timeout races record exactly one completed response', ()
       score: 0,
       completed: 0,
       correctOption: 2,
+      currentOptions: ['Other', 'Different', 'Answer', 'Last'],
+      lang: 'en',
       cards: [{ id: 'card-1', answer: { en: 'Answer', ar: 'جواب' } }],
     },
     state: { lang: 'en' },
@@ -249,6 +251,7 @@ test('Quick Fire answer/timeout races record exactly one completed response', ()
     isTimedQuizVisible: () => true,
     clearInterval() {},
     markCard: () => { marks += 1; },
+    preparedQuickFire: () => ({ en: { answer: 'Answer', explanation: 'Why this answer is correct.' } }),
     revealAndAdvance: () => { advances += 1; },
   });
   vm.runInContext(`${topLevelFunction('answerTimedCard')}\nthis.answer = answerTimedCard;`, context);
@@ -344,7 +347,9 @@ test('truthful product and server-checking wording is enforced', () => {
     assert.doesNotMatch(ownedCopy, claim);
   }
   assert.match(app, /Battle Room/u);
-  assert.match(app, /browser adaptations and simplified games/u);
+  assert.match(app, /Five original cases/u);
+  assert.match(app, /not a newly published case every day/u);
+  assert.doesNotMatch(playHtml, /10 Free Browser Games|10 browser games/u);
   assert.match(searchLeaderboard, /scoreType === 'server-checked'/u);
   assert.match(searchLeaderboard, /proctored === false/u);
   assert.match(searchLeaderboard, /serverCheckedAutomationDisclaimer/u);

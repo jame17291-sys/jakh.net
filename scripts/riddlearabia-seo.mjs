@@ -250,73 +250,57 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "ألعاب دماغ مجانية أونلاين | ريدل أرابيا",
     },
     descriptions: {
-      en: "Play free browser brain games from chess and Go to pattern, strategy, and cooperative games. No download required—choose a game and start thinking.",
-      ar: "العب ألعاب دماغ مجانية في المتصفح، من الشطرنج وغو إلى ألعاب الأنماط والاستراتيجية والتعاون. لا تنزيل مطلوب—اختر لعبة وابدأ التفكير.",
+      en: "Play Akshifha: connect two clues and spot the contradiction in five free Arabic and English mysteries. Explore Chess and Backgammon in Classics.",
+      ar: "العب اكشفها: اربط دليلين واكتشف التناقض في خمس قضايا مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
     },
-    eyebrow: { en: "Play with purpose", ar: "العب بهدف" },
-    headings: { en: "Choose the kind of challenge you want", ar: "اختر نوع التحدي الذي تريده" },
+    eyebrow: { en: "Small mysteries. Satisfying discoveries.", ar: "قضايا قصيرة ولحظات اكتشاف" },
+    headings: { en: "Something doesn’t add up. Can you spot it?", ar: "في القصة شيء لا يستقيم. هل تكتشفه؟" },
     introductions: {
-      en: "Some days call for a quiet board, some for a quick pattern match, and some for a live challenge with a friend. These browser games are organised by the kind of thinking they invite.",
-      ar: "بعض الأيام تناسب لوحة هادئة، وبعضها يحتاج مطابقة أنماط سريعة، وبعضها تحدياً مباشراً مع صديق. رتّبنا ألعاب المتصفح بحسب نوع التفكير الذي تدعوك إليه.",
+      en: "Start with Akshifha, our new evidence game. Read a short case, inspect the details, and connect the clues that reveal the contradiction. Take your time: no countdown, account, or download.",
+      ar: "ابدأ باكشفها، لعبتنا الجديدة لربط الأدلة. اقرأ قضية قصيرة وتفحّص التفاصيل واربط الدليلين اللذين يكشفان التناقض. خذ وقتك: بلا عدّ تنازلي أو حساب أو تنزيل.",
     },
     guidance: {
-      en: "Open any game instantly. For a shared challenge, create a Battle Room from a quiz category and send its invitation link to a friend.",
-      ar: "افتح أي لعبة فوراً. ولتحدٍ مشترك، أنشئ غرفة معركة من أحد موضوعات الاختبار وأرسل رابط الدعوة إلى صديق.",
+      en: "The free pilot includes five original cases. Today’s pick rotates through these cases; it is not a newly published case every day. Chess and Backgammon remain below for a quieter change of pace.",
+      ar: "تضم النسخة التجريبية المجانية خمس قضايا مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ لا تُنشر قضية جديدة كل يوم. ولوقت أهدأ، تجد الشطرنج وطاولة الزهر أدناه.",
     },
   },
 ]);
 
+// This is the promoted portfolio, not a registry of every preserved game URL.
 export const RIDDLE_ARABIA_GAME_CATALOG = Object.freeze([
   {
+    slug: "akshifha",
+    kind: "featured",
+    names: { en: "Akshifha — spot the contradiction", ar: "اكشفها — اكتشف التناقض" },
+    descriptions: {
+      en: "Inspect the evidence, connect two clues, and choose the conclusion they support. Five free cases in Arabic and English, with no timer or sign-up.",
+      ar: "تفحّص الأدلة واربط دليلين واختر الاستنتاج الذي يدعمانه. خمس قضايا مجانية بالعربية والإنجليزية بلا مؤقّت أو تسجيل.",
+    },
+  },
+  {
     slug: "chess",
+    kind: "classic",
     names: { en: "Chess", ar: "الشطرنج" },
-    descriptions: { en: "A classic head-to-head strategy board.", ar: "لعبة استراتيجية كلاسيكية للاعبين." },
-  },
-  {
-    slug: "mastermind",
-    names: { en: "Mastermind", ar: "ماسترمايند" },
-    descriptions: { en: "Crack the hidden colour code in limited turns.", ar: "اكتشف رمز الألوان المخفي في عدد محدود من المحاولات." },
-  },
-  {
-    slug: "go",
-    names: { en: "Go", ar: "غو" },
-    descriptions: { en: "Claim territory on a focused 9×9 board.", ar: "سيطر على المساحات في لوحة مركزة بحجم 9×9." },
-  },
-  {
-    slug: "reversi",
-    names: { en: "Reversi", ar: "ريفيرسي" },
-    descriptions: { en: "Flip discs and plan several moves ahead.", ar: "اقلب الأقراص وخطّط لعدة نقلات قادمة." },
-  },
-  {
-    slug: "codenames",
-    names: { en: "Codenames", ar: "كودنيمز" },
-    descriptions: { en: "Read clues carefully and make the right connections.", ar: "اقرأ التلميحات بدقة واربط الكلمات الصحيحة." },
-  },
-  {
-    slug: "catan",
-    names: { en: "Catan Lite", ar: "كاتان لايت" },
-    descriptions: { en: "Build, trade, and make the most of each turn.", ar: "ابنِ وتبادل واستفد من كل دور." },
+    descriptions: {
+      en: "Plan your next move. Play the computer or take turns with a friend on one device.",
+      ar: "خطّط لنقلتك التالية. العب ضد الكمبيوتر أو تناوب مع صديق على جهاز واحد.",
+    },
   },
   {
     slug: "backgammon",
+    kind: "classic",
     names: { en: "Backgammon", ar: "طاولة الزهر" },
-    descriptions: { en: "Balance chance and timing on a classic board.", ar: "وازن بين الحظ والتوقيت في لوحة كلاسيكية." },
+    descriptions: {
+      en: "A simplified browser adaptation. Roll the dice and race your checkers home against the computer.",
+      ar: "نسخة متصفح مبسطة. ارمِ النرد وسابق الكمبيوتر لإخراج أحجارك من اللوحة.",
+    },
   },
-  {
-    slug: "set",
-    names: { en: "SET", ar: "سِت" },
-    descriptions: { en: "Spot patterns before the board changes.", ar: "اكتشف الأنماط قبل أن تتغير البطاقات." },
-  },
-  {
-    slug: "hanabi",
-    names: { en: "Hanabi", ar: "هانابي" },
-    descriptions: { en: "Cooperate to build a beautiful fireworks display.", ar: "تعاون لبناء عرض ألعاب نارية جميل." },
-  },
-  {
-    slug: "diplomacy",
-    names: { en: "Diplomacy Lite", ar: "دبلوماسي لايت" },
-    descriptions: { en: "Plan simultaneous moves and control territory.", ar: "خطّط للحركات المتزامنة وسيطر على المناطق." },
-  },
+]);
+
+// Preserve known, indexable URLs during the portfolio transition. Removing a
+// game from discovery must not silently delete it or redirect its visitors.
+export const PRESERVED_GAME_SLUGS = Object.freeze([
+  "mastermind", "go", "reversi", "codenames", "catan", "set", "hanabi", "diplomacy",
 ]);
 
 export const RETIRED_LEGACY_SEO_DIRECTORIES = Object.freeze([

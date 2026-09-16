@@ -10,6 +10,7 @@ import {
 } from "./public-site-identity.mjs";
 import {
   RETIRED_LEGACY_SEO_DIRECTORIES,
+  PRESERVED_GAME_SLUGS,
   RIDDLE_ARABIA_GAME_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
@@ -450,13 +451,20 @@ function renderGamesExperience(page, lang) {
         <p>${escapeHtml(page.introductions[lang])}</p>
         <p class="section-note">${escapeHtml(page.guidance[lang])}</p>
       </section>
-      <section class="seo-hub-grid shell" aria-label="${isAr ? "ألعاب دماغ" : "Brain games"}">
-        ${RIDDLE_ARABIA_GAME_CATALOG.map((game) => `<article class="seo-hub-card">
-          <p class="eyebrow">${isAr ? "لعبة متصفح" : "Browser game"}</p>
+      <section class="shell" aria-label="${isAr ? "ابدأ باكشفها" : "Start with Akshifha"}">
+        ${RIDDLE_ARABIA_GAME_CATALOG.filter((game) => game.kind === "featured").map((game) => `<article class="seo-hub-card">
+          <p class="eyebrow">${isAr ? "ابدأ هنا · نسخة تجريبية مجانية" : "Start here · Free pilot"}</p>
           <h2>${escapeHtml(game.names[lang])}</h2>
           <p>${escapeHtml(game.descriptions[lang])}</p>
-          <a class="primary-btn" href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}">${isAr ? "العب الآن" : "Play now"}</a>
+          <a class="primary-btn" href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}">${isAr ? "افتح قضية اليوم" : "Open today’s case"}</a>
         </article>`).join("\n        ")}
+      </section>
+      <section class="seo-collection-hero shell" aria-labelledby="classics-title">
+        <p class="eyebrow">${isAr ? "لوقت أهدأ" : "A quieter change of pace"}</p>
+        <h2 id="classics-title">${isAr ? "الكلاسيكيات" : "Classics"}</h2>
+        <div class="home-discovery-links">
+          ${RIDDLE_ARABIA_GAME_CATALOG.filter((game) => game.kind === "classic").map((game) => `<a href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}"><span>${escapeHtml(game.names[lang])}</span><small>${escapeHtml(game.descriptions[lang])}</small></a>`).join("\n          ")}
+        </div>
       </section>
     </main>
     ${globalFooter(lang)}
@@ -726,6 +734,7 @@ function renderSitemap() {
     { en: "/privacy", ar: "/ar/privacy/", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, priority: page.kind === "games" ? "0.85" : "0.80" })),
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, priority: "0.65" })),
+    ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, priority: "0.35" })),
   ];
   const entries = pairs.flatMap((pair) => {
     const alternates = { en: `${SITE_ORIGIN}${pair.en}`, ar: `${SITE_ORIGIN}${pair.ar}` };

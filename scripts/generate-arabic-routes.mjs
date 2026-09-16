@@ -28,7 +28,7 @@ const PAGE_ROUTES = [
     arabicPath: "/ar/",
     runtime: "app",
     title: "JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية",
-    description: "العب 3,553 لغزاً واختباراً مجانياً بالعربية والإنجليزية ضمن 56 موضوعاً، إضافة إلى 10 ألعاب متصفح. اكشف الإجابات وتابع نتيجتك.",
+    description: "اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا.",
   },
   {
     source: "mind-lab.html",
@@ -45,8 +45,15 @@ const PAGE_ROUTES = [
     englishPath: "/play",
     arabicPath: "/ar/play/",
     runtime: "app",
-    title: "10 ألعاب متصفح مجانية | JAKH",
-    description: "العب 10 ألعاب متصفح مجانية على JAKH: الشطرنج وغو وريفيرسي وماسترمايند وكاتان لايت وطاولة الزهر وسِت وهانابي وكودنيمز ودبلوماسي.",
+    title: "اكشفها وألعاب متصفح مجانية | JAKH",
+    description: "العب اكشفها: اربط دليلين واكتشف التناقض في خمس قضايا مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
+  },
+  {
+    source: "akshifha.html",
+    output: "ar/games/akshifha/index.html",
+    englishPath: "/akshifha",
+    arabicPath: "/ar/games/akshifha/",
+    runtime: "akshifha",
   },
   {
     source: "privacy.html",
@@ -168,6 +175,7 @@ const siteCommon = extractObject(siteI18n, "const COMMON =", "site-i18n.js COMMO
 const sitePages = extractObject(siteI18n, "const PAGES =", "site-i18n.js PAGES");
 const gameCommon = extractObject(read("game-i18n.js"), "var COMMON =", "game-i18n.js COMMON").ar;
 const privacyMessages = extractObject(read("privacy-page.js"), "const copy =", "privacy-page.js copy").ar;
+const akshifhaMessages = extractObject(read("akshifha-copy.js"), "const AKSHIFHA_UI =", "akshifha-copy.js").ar;
 const catalog = JSON.parse(read("data/catalog.json"));
 const categoriesBySlug = new Map((catalog.categories || []).map((category) => [category.slug, category]));
 const sectionsByKey = new Map((catalog.sections || []).map((section) => [section.key, section]));
@@ -177,6 +185,7 @@ function messagesFor(route, source) {
   if (route.runtime === "site") return { ...siteCommon, ...(sitePages[route.page]?.ar || {}) };
   if (route.runtime === "game") return { ...gameCommon, ...extractGameTranslations(source, route.game).ar };
   if (route.runtime === "privacy") return privacyMessages;
+  if (route.runtime === "akshifha") return akshifhaMessages;
   return {};
 }
 
@@ -249,10 +258,10 @@ function setMetadata(html, route, title, description) {
   html = replaceMetaContent(html, "og:url", canonical);
   html = replaceMetaContent(html, "og:locale", "ar_AE");
   html = replaceMetaContent(html, "og:locale:alternate", "en_US");
-  html = replaceMetaContent(html, "og:image:alt", "JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب");
+  html = replaceMetaContent(html, "og:image:alt", "JAKH — ألغاز ثنائية اللغة وألعاب متصفح مجانية");
   html = replaceMetaContent(html, "twitter:title", title);
   html = replaceMetaContent(html, "twitter:description", description);
-  html = replaceMetaContent(html, "twitter:image:alt", "JAKH — 3,553 لغزاً ثنائي اللغة ضمن 56 موضوعاً و10 ألعاب");
+  html = replaceMetaContent(html, "twitter:image:alt", "JAKH — ألغاز ثنائية اللغة وألعاب متصفح مجانية");
 
   if (!/<meta\b(?=[^>]*\bproperty=["']og:locale["'])[^>]*>/iu.test(html)) {
     html = html.replace(
@@ -292,7 +301,8 @@ function localizeStructuredData(html, route, title, description) {
       const updatePage = (node) => {
         if (!node || typeof node !== "object" || Array.isArray(node)) return;
         const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
-        if (types.some((type) => ["WebPage", "CollectionPage", "AboutPage"].includes(type))) {
+        if (types.some((type) => ["WebPage", "CollectionPage", "AboutPage"].includes(type))
+          || (route.runtime === "akshifha" && types.includes("VideoGame"))) {
           node.url = canonical;
           if (typeof node["@id"] === "string" && /#webpage$/u.test(node["@id"])) node["@id"] = `${canonical}#webpage`;
           node.name = title;
@@ -301,6 +311,11 @@ function localizeStructuredData(html, route, title, description) {
         }
         if (types.includes("ItemList") && route.runtime === "app" && route.arabicPath === "/ar/play/") {
           node.name = "ألعاب متصفح مجانية من JAKH";
+          const gameNames = {
+            "/akshifha": "اكشفها — اكتشف التناقض",
+            "/chess": appMessages.playChessTitle,
+            "/backgammon": appMessages.playBackgammonTitle,
+          };
           for (const entry of node.itemListElement || []) {
             const englishUrl = entry?.url || entry?.item?.url;
             if (typeof englishUrl !== "string") continue;
@@ -308,6 +323,8 @@ function localizeStructuredData(html, route, title, description) {
             const arabicPath = sharedArabicRoutes.get(pathname);
             if (arabicPath && entry.url) entry.url = `${SITE_ORIGIN}${arabicPath}`;
             if (arabicPath && entry.item?.url) entry.item.url = `${SITE_ORIGIN}${arabicPath}`;
+            if (gameNames[pathname] && entry.name) entry.name = gameNames[pathname];
+            if (gameNames[pathname] && entry.item?.name) entry.item.name = gameNames[pathname];
           }
         }
       };
@@ -323,9 +340,11 @@ function normalizeResourcePaths(html) {
     [/(\b(?:src|href|srcset)=["'])assets\//giu, "$1/assets/"],
     [/(\bsrc=["'])game-i18n\.js/giu, "$1/game-i18n.js"],
     [/(\bsrc=["'])app\.js/giu, "$1/app.js"],
+    [/(\bsrc=["'])akshifha\.js/giu, "$1/akshifha.js"],
     [/(\bsrc=["'])site-i18n\.js/giu, "$1/site-i18n.js"],
     [/(\bsrc=["'])privacy-(?:consent|page)\.js/giu, (match) => match.replace('="', '="/').replace("='", "='/")],
     [/(\bhref=["'])styles\.css/giu, "$1/styles.css"],
+    [/(\bhref=["'])akshifha\.css/giu, "$1/akshifha.css"],
     [/(\bhref=["'])privacy\.css/giu, "$1/privacy.css"],
     [/(\bhref=["'])manifest\.webmanifest/giu, "$1/manifest.webmanifest"],
   ];

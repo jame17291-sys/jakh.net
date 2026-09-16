@@ -72,7 +72,7 @@ test('shared overlays trap focus, close with Escape, and restore their opener', 
   assert.match(app, /const overlayFocusReturns = new Map\(\)/u);
   assert.match(app, /function describeFocusTarget\(node\)/u);
   assert.match(app, /if \(e\.key === 'Escape' && typeof onEscape === 'function'\)/u);
-  for (const key of ['auth', 'leaderboard', 'global-search', 'paywall']) {
+  for (const key of ['auth', 'leaderboard', 'global-search', 'quick-fire']) {
     assert.match(interactiveSource, new RegExp(`key: '${key}'`, 'u'));
   }
   assert.match(interactiveSource, /releaseFocus\(modal, \{ restore: true \}\)/u);

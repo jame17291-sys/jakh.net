@@ -40,6 +40,11 @@ export const FINGERPRINT_PREFIX_LENGTH = 16;
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/app.js",
+  "/akshifha.js",
+  "/akshifha-engine.js",
+  "/akshifha-cases.js",
+  "/akshifha-copy.js",
+  "/akshifha.css",
   "/styles.css",
   "/privacy.css",
   "/admin-config.js",
@@ -55,6 +60,8 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/app.js",
+  "/akshifha.js",
+  "/akshifha.css",
   "/styles.css",
   "/privacy.css",
   "/admin-config.js",
@@ -195,6 +202,31 @@ function rewriteApplication(source, fingerprints) {
     const target = fingerprints[dependency];
     if (!target) continue;
     rewritten = replaceQuotedUrl(rewritten, dependency, target).value;
+  }
+  return rewritten;
+}
+
+const AKSHIFHA_MODULE_DEPENDENCIES = Object.freeze([
+  "/akshifha-engine.js",
+  "/akshifha-cases.js",
+  "/akshifha-copy.js",
+]);
+
+function rewriteAkshifhaApplication(source, fingerprints) {
+  let rewritten = source;
+  for (const dependency of AKSHIFHA_MODULE_DEPENDENCIES) {
+    const target = fingerprints[dependency];
+    invariant(target, `akshifha.js requires fingerprinted dependency ${dependency}`);
+    // Resolve both source spellings to a root-absolute, content-addressed URL.
+    // Hash this rewritten entry, not the stable source: changing a puzzle,
+    // translation, or rule must also change the entry referenced by the HTML.
+    const absolute = replaceQuotedUrl(rewritten, dependency, target);
+    const relative = replaceQuotedUrl(absolute.value, `.${dependency}`, target);
+    invariant(
+      absolute.replacements + relative.replacements > 0,
+      `akshifha.js does not reference its declared dependency ${dependency}`,
+    );
+    rewritten = relative.value;
   }
   return rewritten;
 }
@@ -664,7 +696,10 @@ function rewriteServiceWorkerTemplate(source, fingerprints) {
   invariant(declaration.test(rewritten), "sw.js must declare CACHE_VERSION");
   rewritten = rewritten.replace(declaration, `const CACHE_VERSION = '${CACHE_IDENTITY_PLACEHOLDER}';`);
 
-  for (const stable of ["/app.js", "/styles.css", "/privacy.css"]) {
+  for (const stable of [
+    "/app.js", "/styles.css", "/privacy.css",
+    "/akshifha.js", "/akshifha.css", ...AKSHIFHA_MODULE_DEPENDENCIES,
+  ]) {
     const target = fingerprints[stable];
     if (!target) continue;
     const result = replaceQuotedUrl(rewritten, stable, target);
@@ -848,6 +883,8 @@ export async function buildStaticSite({
 
   for (const stableUrlPath of [
     "/styles.css",
+    "/akshifha.css",
+    ...AKSHIFHA_MODULE_DEPENDENCIES,
     "/privacy.css",
     "/admin-config.js",
     "/admin.css",
@@ -871,6 +908,12 @@ export async function buildStaticSite({
   if (applicationSource) {
     const rewritten = rewriteApplication(applicationSource.toString("utf8"), fingerprints);
     addFingerprint("/app.js", Buffer.from(rewritten, "utf8"));
+  }
+
+  const akshifhaSource = sourceBytes.get("akshifha.js");
+  if (akshifhaSource) {
+    const rewritten = rewriteAkshifhaApplication(akshifhaSource.toString("utf8"), fingerprints);
+    addFingerprint("/akshifha.js", Buffer.from(rewritten, "utf8"));
   }
 
   const adminSource = sourceBytes.get("admin.js");

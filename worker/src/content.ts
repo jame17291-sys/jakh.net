@@ -11,6 +11,14 @@ interface PublishedContentRow {
   publishedAt: string;
 }
 
+function sameBilingualText(left: unknown, right: unknown): boolean {
+  if (left === right) return true;
+  if (!left || !right || typeof left !== "object" || typeof right !== "object") return false;
+  const previous = left as { en?: unknown; ar?: unknown };
+  const next = right as { en?: unknown; ar?: unknown };
+  return previous.en === next.en && previous.ar === next.ar;
+}
+
 async function contentStudioIsReady(env: Env): Promise<boolean> {
   try {
     const schema = await env.DB.prepare(
@@ -26,6 +34,9 @@ export async function applyPublishedContentOverrides<T extends {
   id?: unknown;
   question?: unknown;
   answer?: unknown;
+  explanation?: unknown;
+  quickFire?: unknown;
+  acceptedAnswers?: unknown;
 }>(env: Env, category: string, cards: T[]): Promise<T[]> {
   if (!await contentStudioIsReady(env)) return cards;
   const rows = await env.DB.prepare(
@@ -46,12 +57,26 @@ export async function applyPublishedContentOverrides<T extends {
     if (typeof card.id !== "string") return card;
     const override = overrides.get(card.id);
     if (!override) return card;
-    return {
+    const effective = {
       ...card,
       question: override.question ?? card.question,
       answer: override.answer ?? card.answer,
       explanation: override.explanation,
     } as T;
+    const promptOrAnswerChanged = !sameBilingualText(card.question, effective.question)
+      || !sameBilingualText(card.answer, effective.answer);
+    // Static answer aliases are also tied to their original prompt and answer.
+    // Studio snapshots cannot approve replacement aliases yet; keep scoring
+    // bound to the newly published canonical answer instead of stale aliases.
+    if (promptOrAnswerChanged) delete effective.acceptedAnswers;
+    // Choices were authored for the static wording. Content Studio does not yet
+    // publish a reviewed choice set, so never reuse it with a changed prompt,
+    // answer, or explanation (even when the old answer still happens to match).
+    if (
+      promptOrAnswerChanged
+      || !sameBilingualText(card.explanation, effective.explanation)
+    ) delete effective.quickFire;
+    return effective;
   });
 }
 

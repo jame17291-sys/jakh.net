@@ -11,6 +11,8 @@ interface Card {
   difficulty?: unknown;
   question?: { en?: unknown; ar?: unknown };
   answer?: { en?: unknown; ar?: unknown };
+  acceptedAnswers?: { en?: unknown; ar?: unknown };
+  quickFire?: unknown;
 }
 
 interface ValidCard {
@@ -18,6 +20,14 @@ interface ValidCard {
   difficulty: string;
   question: { en: string; ar: string };
   answer: { en: string; ar: string };
+  acceptedAnswers?: { en?: unknown; ar?: unknown };
+  quickFire?: unknown;
+}
+
+interface AuthoredChoices {
+  answer: { en: string; ar: string };
+  distractors: { en: string[]; ar: string[] };
+  explanation: { en: string; ar: string };
 }
 
 const DIFFICULTIES = new Set(["all", "easy", "medium", "hard", "very-advanced"]);
@@ -25,6 +35,89 @@ const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 const ROOM_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/u;
 const CONNECT_RATE_LIMIT = 30;
 const CONNECT_RATE_WINDOW_SECONDS = 60;
+const MINIMUM_BATTLE_QUESTIONS = 5;
+
+function choiceKey(value: string, language: "en" | "ar"): string {
+  const normalized = value
+    .normalize("NFKC")
+    .toLocaleLowerCase("en-US")
+    .replace(/[\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/gu, "")
+    .replace(/[أإآٱ]/gu, "ا")
+    .replace(/ى/gu, "ي")
+    .replace(/[٠-٩]/gu, (digit) => String(digit.charCodeAt(0) - 0x0660))
+    .replace(/[۰-۹]/gu, (digit) => String(digit.charCodeAt(0) - 0x06f0))
+    .replace(/−/gu, "-").replace(/[⁄∕]/gu, "/").replace(/٫/gu, ".")
+    .replace(/\p{P}/gu, (character, index: number, text: string) => {
+      if (character === "-" || character === "/" || character === "%") return character;
+      if (character === "." && /[0-9]/u.test(text[index + 1] || "")) return character;
+      return " ";
+    })
+    .replace(/\s+/gu, " ")
+    .trim();
+  return language === "en" ? normalized.replace(/^(?:a|an|the)\s+/u, "") : normalized;
+}
+
+function correctKeys(card: ValidCard, language: "en" | "ar"): Set<string> | null {
+  const canonical = card.answer[language];
+  const accepted = card.acceptedAnswers?.[language];
+  if (
+    !canonical.trim()
+    || (accepted !== undefined && (
+      !Array.isArray(accepted)
+      || accepted.some((answer) => typeof answer !== "string" || !answer.trim())
+    ))
+  ) return null;
+  const primaryAnswer = /^(.+?)\s*\([^()]*\)\s*$/u.exec(canonical.trim())?.[1]?.trim();
+  return new Set([
+    canonical,
+    ...(primaryAnswer ? [primaryAnswer] : []),
+    ...(Array.isArray(accepted) ? accepted as string[] : []),
+  ].map((answer) => choiceKey(answer, language)).filter(Boolean));
+}
+
+function conciseChoice(value: unknown): value is string {
+  return typeof value === "string"
+    && value.trim().length > 0
+    && value.length <= 120
+    && value.trim().split(/\s+/u).length <= 20;
+}
+
+function authoredChoices(card: ValidCard): AuthoredChoices | null {
+  if (!card.quickFire || typeof card.quickFire !== "object" || Array.isArray(card.quickFire)) return null;
+  const choices = card.quickFire as Partial<AuthoredChoices>;
+  const correct = { en: correctKeys(card, "en"), ar: correctKeys(card, "ar") };
+  if (!correct.en?.size || !correct.ar?.size) return null;
+  const allCorrect = new Set([...correct.en, ...correct.ar]);
+  for (const language of ["en", "ar"] as const) {
+    const answer = choices.answer?.[language];
+    const distractors = choices.distractors?.[language];
+    const explanation = choices.explanation?.[language];
+    if (
+      !card.question[language].trim()
+      || !card.answer[language].trim()
+      || !conciseChoice(answer)
+      || !correct[language]?.has(choiceKey(answer, language))
+      || !Array.isArray(distractors)
+      || distractors.length !== 3
+      || !distractors.every(conciseChoice)
+      || typeof explanation !== "string"
+      || !explanation.trim()
+      || explanation.length > 1200
+    ) return null;
+    const keys = [answer, ...distractors].map((value) => choiceKey(value, language));
+    if (keys.some((key) => !key) || new Set(keys).size !== 4) return null;
+    if (keys.slice(1).some((key) => allCorrect.has(key))) return null;
+  }
+  const valid = choices as AuthoredChoices;
+  return {
+    answer: { en: valid.answer.en.trim(), ar: valid.answer.ar.trim() },
+    distractors: {
+      en: valid.distractors.en.map((choice) => choice.trim()),
+      ar: valid.distractors.ar.map((choice) => choice.trim()),
+    },
+    explanation: { en: valid.explanation.en.trim(), ar: valid.explanation.ar.trim() },
+  };
+}
 
 function randomInt(max: number): number {
   if (!Number.isSafeInteger(max) || max <= 0) throw new Error("Invalid random range");
@@ -60,42 +153,21 @@ export function buildBattleQuestions(
   requestedCount: number,
 ): BattleQuestion[] {
   const rawCards = Array.isArray(source) ? source : [];
-  const allCards = rawCards.filter((card): card is ValidCard => validCard(card));
-  const pool = difficulty === "all"
-    ? allCards
-    : allCards.filter((card) => card.difficulty === difficulty);
+  const pool = rawCards.flatMap((card) => {
+    if (!validCard(card) || (difficulty !== "all" && card.difficulty !== difficulty)) return [];
+    const choices = authoredChoices(card);
+    return choices ? [{ card, choices }] : [];
+  });
 
-  return shuffled(pool).slice(0, requestedCount).map((card) => {
-    const seen = new Set([
-      card.answer.en.trim().toLowerCase(),
-      card.answer.ar.trim().toLowerCase(),
-    ]);
-    const distractors = shuffled(allCards.filter((candidate) => candidate.id !== card.id)).filter((candidate) => {
-      const en = candidate.answer.en.trim().toLowerCase();
-      const ar = candidate.answer.ar.trim().toLowerCase();
-      if (seen.has(en) || seen.has(ar)) return false;
-      seen.add(en);
-      seen.add(ar);
-      return true;
-    }).slice(0, 3);
-
-    const fallbacks = [
-      { answer: { en: "None of the above", ar: "لا شيء مما سبق" } },
-      { answer: { en: "All of the above", ar: "كل ما سبق" } },
-      { answer: { en: "Not enough information", ar: "المعلومات غير كافية" } },
-    ];
-    while (distractors.length < 3) {
-      distractors.push(fallbacks[distractors.length] as (typeof distractors)[number]);
-    }
-
-    const en = [card.answer.en, ...distractors.map((item) => item.answer.en)];
-    const ar = [card.answer.ar, ...distractors.map((item) => item.answer.ar)];
+  return shuffled(pool).slice(0, requestedCount).map(({ card, choices }) => {
+    const en = [choices.answer.en, ...choices.distractors.en];
+    const ar = [choices.answer.ar, ...choices.distractors.ar];
     const order = shuffled([0, 1, 2, 3]);
 
     return {
       id: card.id,
       question: card.question,
-      answer: card.answer,
+      answer: choices.answer,
       options: {
         en: order.map((index) => en[index] || ""),
         ar: order.map((index) => ar[index] || ""),
@@ -143,7 +215,14 @@ export async function createBattle(request: Request, env: Env): Promise<Response
   }
   const overriddenSource = await applyPublishedContentOverrides(env, category, source as ValidCard[]);
   const questions = buildBattleQuestions(overriddenSource, difficulty, questionCount);
-  if (!questions.length) throw new ApiError(400, "No questions are available for this selection");
+  if (questions.length < MINIMUM_BATTLE_QUESTIONS) {
+    throw new ApiError(
+      400,
+      "This selection does not yet have five questions with complete authored choices. Try All difficulties or another category, or play the free practice library.",
+      undefined,
+      "BATTLE_CONTENT_NOT_READY",
+    );
+  }
   if (questions.some((question) => !isPublicCard(question.id, category))) {
     throw new ApiError(
       503,

@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
 import { QUARANTINED_CATEGORY_IDS } from "../dist/content-safety.js";
 import {
+  buildAnswerCommitments,
   cleanupExpiredVerifiedChallenges,
   createVerifiedChallenge,
   discardServerCheckedChallenge,
@@ -12,6 +14,7 @@ import {
   VERIFIED_CHALLENGE_TTL_MS,
   VERIFIED_MINIMUM_MS,
   VERIFIED_QUESTION_COUNT,
+  ISSUED_ANSWER_NORMALIZATION_VERSION,
 } from "../dist/verified-scoring.js";
 
 const SESSION_TOKEN = "A".repeat(43);
@@ -312,8 +315,7 @@ function scoringEnv(database = new FakeDatabase()) {
   };
 }
 
-async function issueChallenge(t, sourceCards = SOURCE_CARDS) {
-  const database = new FakeDatabase();
+async function issueChallenge(t, sourceCards = SOURCE_CARDS, database = new FakeDatabase(), writerVersion) {
   const env = scoringEnv(database);
   const clock = { now: Date.UTC(2026, 6, 31, 10, 0, 0) };
   t.mock.method(Date, "now", () => clock.now);
@@ -329,6 +331,14 @@ async function issueChallenge(t, sourceCards = SOURCE_CARDS) {
     env,
   );
   const challenge = await response.json();
+  if (writerVersion !== undefined) {
+    // Exercise the same writer used by production for each release stage,
+    // independently of the source-level rollout switch under test.
+    const issuedCards = challenge.questions.map(({ cardId }) => sourceCards.find((card) => card.id === cardId));
+    database.challenges.get(challenge.challengeId).answer_hashes_json = JSON.stringify(
+      await buildAnswerCommitments(env, challenge.challengeId, issuedCards, writerVersion),
+    );
+  }
   const sourceAnswers = new Map(sourceCards.map((card) => [card.id, card.answer]));
   const answers = challenge.questions.map(({ cardId }) => ({
     cardId,
@@ -376,6 +386,9 @@ test("challenge creation commits answers server-side and exposes only ten questi
   assert.doesNotMatch(JSON.stringify(challenge), /"answer"\s*:/u);
   assert.doesNotMatch(stored.answer_hashes_json, /Answer \d+|إجابة/u);
   assert.equal(JSON.parse(stored.answer_hashes_json).length, VERIFIED_QUESTION_COUNT);
+  assert.ok(JSON.parse(stored.answer_hashes_json).every((item) => (
+    ISSUED_ANSWER_NORMALIZATION_VERSION === 2 ? item.normalizationVersion === 2 : !Object.hasOwn(item, "normalizationVersion")
+  )));
   assert.deepEqual(
     challenge.questions.reduce((counts, question) => ({
       ...counts,
@@ -694,6 +707,133 @@ test("ordinary published answer alternatives and Arabic orthographic variants ar
   assertServerCheckedBoundary(payload);
 });
 
+test("new scoring commitments distinguish signs, fractions, decimals, and meaningful operators", async (t) => {
+  const cases = [
+    ["-1", "1"], ["1", "-1"], ["1/2", "1 2"], ["3.5", "3 5"], ["50%", "50"],
+    ["+2", "2"], ["x-y", "x y"], ["-0.5", "0.5"], ["1/2", "1"], [".5", "5"],
+  ];
+  const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card, index) => ({
+    ...card, answer: { en: cases[index][0], ar: cases[index][0] },
+  }));
+  const { answers, challenge, clock, env } = await issueChallenge(t, cards, undefined, 2);
+  for (const submitted of answers) {
+    submitted.answer = cases[cards.findIndex((card) => card.id === submitted.cardId)][1];
+  }
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+  const payload = await (await submitVerifiedChallenge(submitRequest(challenge, answers), env)).json();
+  assert.equal(payload.correctCount, 0);
+});
+
+test("new scoring accepts equivalent Arabic digits, Unicode notation, and safe prose hyphens", async (t) => {
+  const cases = [
+    ["-1", "−١"], ["1/2", "١⁄٢"], ["3.5", "٣٫٥"], ["25", "۲۵"], ["1/2", "½"],
+    ["50%", "５０%"], ["multi-word", "multi word"], ["1", "１"], ["-0.5", "−۰٫۵"], ["+2", "+٢"],
+  ];
+  const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card, index) => ({
+    ...card, answer: { en: cases[index][0], ar: cases[index][0] },
+  }));
+  const { answers, challenge, clock, env } = await issueChallenge(t, cards, undefined, 2);
+  for (const submitted of answers) {
+    submitted.answer = cases[cards.findIndex((card) => card.id === submitted.cardId)][1];
+  }
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+  const payload = await (await submitVerifiedChallenge(submitRequest(challenge, answers), env)).json();
+  assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
+});
+
+test("stage A writes exact legacy aliases from original text while stage B tags v2 digests", async () => {
+  const env = scoringEnv();
+  const challengeId = "writer-normalization-test";
+  const card = {
+    ...SOURCE_CARDS[0],
+    answer: { en: "-1", ar: "−١" },
+    acceptedAnswers: { en: ["The old-term"] },
+  };
+  const digest = (normalized) => createHash("sha256")
+    .update(`${env.PASSWORD_PEPPER}\u0000verified-score-v1\u0000${challengeId}\u0000${card.id}\u0000${normalized}`)
+    .digest("base64url");
+  const [legacy] = await buildAnswerCommitments(env, challengeId, [card], 1);
+  assert.equal(Object.hasOwn(legacy, "normalizationVersion"), false);
+  // In particular, legacy Unicode '−١' must not pass through v2's '-1' first.
+  assert.deepEqual(new Set(legacy.digests), new Set(["1", "the old term", "old term", "−١"].map(digest)));
+  const [current] = await buildAnswerCommitments(env, challengeId, [card], 2);
+  assert.equal(current.normalizationVersion, 2);
+  assert.deepEqual(new Set(current.digests), new Set(["-1", "the old term", "old term"].map(digest)));
+  await assert.rejects(buildAnswerCommitments(env, challengeId, [card], 99), /Unsupported answer normalization version/u);
+  await assert.rejects(
+    buildAnswerCommitments(env, challengeId, [{ ...card, acceptedAnswers: undefined, answer: { en: "---", ar: "---" } }], 1),
+    (error) => error?.code === "SERVER_CHECKED_CATEGORY_UNAVAILABLE",
+  );
+});
+
+test("the dual reader scores commitments produced by either rollout writer", async (t) => {
+  for (const writerVersion of [1, 2]) {
+    await t.test(`writer ${writerVersion}`, async (subtest) => {
+      const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card) => ({
+        ...card, answer: { en: "-1", ar: "−١" },
+      }));
+      const { answers, challenge, clock, database, env } = await issueChallenge(subtest, cards, undefined, writerVersion);
+      const commitments = JSON.parse(database.challenges.get(challenge.challengeId).answer_hashes_json);
+      assert.ok(commitments.every((item) => writerVersion === 1
+        ? !Object.hasOwn(item, "normalizationVersion")
+        : item.normalizationVersion === 2));
+      answers.forEach((answer) => { answer.answer = "−١"; });
+      clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+      const payload = await (await submitVerifiedChallenge(submitRequest(challenge, answers), env)).json();
+      assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
+    });
+  }
+});
+
+test("unversioned in-flight commitments retain their original normalization only until expiry", async (t) => {
+  for (const expired of [false, true]) {
+    await t.test(expired ? "expired legacy challenge is denied" : "legacy digests remain answerable", async (subtest) => {
+      const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card) => ({
+        ...card, answer: { en: "-1", ar: "-١" },
+      }));
+      const { answers, challenge, clock, database, env } = await issueChallenge(subtest, cards);
+      const stored = database.challenges.get(challenge.challengeId);
+      // Before normalization v2, '-1' committed as '1'. Recreate the actual
+      // legacy representation and digest instead of merely deleting its tag.
+      stored.answer_hashes_json = JSON.stringify(challenge.questions.map(({ cardId }) => ({
+        cardId,
+        digests: [createHash("sha256")
+          .update(`${env.PASSWORD_PEPPER}\u0000verified-score-v1\u0000${challenge.challengeId}\u0000${cardId}\u00001`)
+          .digest("base64url")],
+      })));
+      clock.now = expired ? challenge.expiresAt + 1 : challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+      if (expired) {
+        await assert.rejects(
+          submitVerifiedChallenge(submitRequest(challenge, answers), env),
+          (error) => error?.status === 410 && error?.code === "SERVER_CHECKED_CHALLENGE_EXPIRED",
+        );
+        assert.equal(stored.status, "expired");
+      } else {
+        const payload = await (await submitVerifiedChallenge(submitRequest(challenge, answers), env)).json();
+        assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
+      }
+    });
+  }
+});
+
+test("unknown or malformed commitment normalization versions fail closed without scoring", async (t) => {
+  const { answers, challenge, clock, database, env } = await issueChallenge(t);
+  const stored = database.challenges.get(challenge.challengeId);
+  const commitments = JSON.parse(stored.answer_hashes_json);
+  clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+  for (const version of [0, 1, 3, "2", null]) {
+    commitments[0].normalizationVersion = version;
+    stored.answer_hashes_json = JSON.stringify(commitments);
+    await assert.rejects(
+      submitVerifiedChallenge(submitRequest(challenge, answers), env),
+      (error) => error?.status === 503 && error?.code === "STORED_CHALLENGE_INVALID",
+    );
+    assert.equal(stored.status, "pending");
+    assert.equal(stored.correct_count, null);
+    assert.equal(stored.verified, 0);
+  }
+});
+
 test("challenge selection excludes long explanatory answers", async (t) => {
   const impossibleCard = {
     ...SOURCE_CARDS[10],
@@ -738,6 +878,69 @@ test("curated bilingual accepted answers make explanatory cards server-checkable
 
   assert.equal(payload.correctCount, VERIFIED_QUESTION_COUNT);
   assertServerCheckedBoundary(payload);
+});
+
+class PublishedContentDatabase extends FakeDatabase {
+  constructor(rows) {
+    super();
+    this.publishedRows = rows;
+  }
+
+  async first(sql, values) {
+    if (sql.includes("schema_meta")) return { value: "9" };
+    return super.first(sql, values);
+  }
+
+  async all(sql, values) {
+    if (sql.includes("content_question_edits")) return { results: this.publishedRows };
+    return super.all(sql, values);
+  }
+}
+
+test("published answer replacements score the new answer but never stale short aliases", async (t) => {
+  for (const useStaleAlias of [true, false]) {
+    await t.test(useStaleAlias ? "stale aliases score zero" : "published canonical answers score correctly", async (subtest) => {
+      const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card, index) => ({
+        ...card,
+        acceptedAnswers: { en: [`Old term ${index}`], ar: [`مصطلح قديم ${index}`] },
+      }));
+      const rows = cards.map((card, index) => ({
+        questionId: card.id,
+        snapshotJson: JSON.stringify({
+          question: card.question,
+          answer: { en: `New term ${index}`, ar: `مصطلح جديد ${index}` },
+        }),
+      }));
+      const database = new PublishedContentDatabase(rows);
+      const { answers, challenge, clock, env } = await issueChallenge(subtest, cards, database);
+      for (const submitted of answers) {
+        const index = cards.findIndex((card) => card.id === submitted.cardId);
+        submitted.answer = useStaleAlias ? cards[index].acceptedAnswers.en[0] : `New term ${index}`;
+      }
+      clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+      const payload = await (await submitVerifiedChallenge(submitRequest(challenge, answers), env)).json();
+      assert.equal(payload.correctCount, useStaleAlias ? 0 : VERIFIED_QUESTION_COUNT);
+      assertServerCheckedBoundary(payload);
+    });
+  }
+});
+
+test("a newly published long answer cannot stay scoreable through its old short aliases", async (t) => {
+  const cards = SOURCE_CARDS.slice(0, VERIFIED_QUESTION_COUNT).map((card, index) => ({
+    ...card,
+    acceptedAnswers: { en: [`Old term ${index}`], ar: [`مصطلح قديم ${index}`] },
+  }));
+  const rows = cards.map((card) => ({
+    questionId: card.id,
+    snapshotJson: JSON.stringify({
+      question: card.question,
+      answer: { en: "New explanatory answer ".repeat(10), ar: "إجابة تفسيرية جديدة ".repeat(10) },
+    }),
+  }));
+  await assert.rejects(
+    issueChallenge(t, cards, new PublishedContentDatabase(rows)),
+    (error) => error?.status === 400 && error?.code === "SERVER_CHECKED_CATEGORY_UNAVAILABLE",
+  );
 });
 
 test("acceptedAnswers rejects arrays in place of the bilingual object", async (t) => {

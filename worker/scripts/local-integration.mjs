@@ -399,9 +399,9 @@ async function run() {
 
     const battle = await requestJson(baseUrl, "/api/battle/create", {
       expected: 201,
-      body: { category: "science", difficulty: "all", questionCount: 5 },
+      body: { category: "math", difficulty: "all", questionCount: 5 },
     });
-    assert.match(battle.payload.code, /^SCI[A-HJ-NP-Z2-9]{5}$/u);
+    assert.match(battle.payload.code, /^MAT[A-HJ-NP-Z2-9]{5}$/u);
     assert.match(battle.payload.hostId, /^[A-Za-z0-9_-]{32}$/u);
     let battleSocket;
     try {

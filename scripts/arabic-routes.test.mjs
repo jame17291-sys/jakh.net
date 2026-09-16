@@ -9,6 +9,7 @@ import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const GAME_SLUGS = [
+  "akshifha",
   "chess",
   "mastermind",
   "go",
@@ -65,10 +66,10 @@ test("Arabic route generator is deterministic and current", () => {
     encoding: "utf8",
   });
   assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
-  assert.match(result.stdout, /current \(14 pages\)/u);
+  assert.match(result.stdout, /current \(15 pages\)/u);
 });
 
-test("all 14 generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
+test("all 15 generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
   for (const [file, englishPath, arabicPath] of routes) {
     const html = read(file);
     const englishUrl = `https://riddlearabia.com${englishPath}`;
@@ -111,7 +112,12 @@ test("Arabic hubs keep shared, game, and topic navigation on clean Arabic paths"
   for (const route of ["/ar/", "/ar/mind-lab/", "/ar/collections/", "/ar/play/", "/ar/about/", "/ar/privacy/"]) {
     assert.match(`${home}\n${play}\n${mindLab}`, new RegExp(`href="${escapeRegex(route)}`, "u"), route);
   }
-  for (const slug of GAME_SLUGS) assert.match(play, new RegExp(`href="/ar/games/${slug}/"`, "u"), slug);
+  for (const slug of ["akshifha", "chess", "backgammon"]) {
+    assert.match(play, new RegExp(`href="/ar/games/${slug}/"`, "u"), slug);
+  }
+  for (const slug of GAME_SLUGS.filter((slug) => !["akshifha", "chess", "backgammon"].includes(slug))) {
+    assert.doesNotMatch(play, new RegExp(`href="/ar/games/${slug}/"`, "u"), `${slug}: preserved but no longer promoted`);
+  }
   const topicLinks = [...mindLab.matchAll(/class="category-card[^>]*href="(\/ar\/topics\/[^"/]+\/)"/gu)];
   assert.equal(topicLinks.length, 56);
   assert.equal(new Set(topicLinks.map((match) => match[1])).size, 56);

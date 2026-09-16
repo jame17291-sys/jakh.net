@@ -1,4 +1,4 @@
-// Lazy API/WebSocket feature: keep Battle out of the startup bundle.
+// Lazy-load Battle outside the startup bundle.
 
 export function createBattleMode(dependencies) {
   const {
@@ -9,7 +9,6 @@ export function createBattleMode(dependencies) {
     escapeHtml,
     localizedErrorMessage,
     shareOrCopy,
-    showToast,
     state,
     t,
   } = dependencies;
@@ -31,9 +30,8 @@ const battleState = {
   timerInterval: null,
   timeLeft: 15,
   pendingSlug: '',
+  joinPending: false,
 };
-
-const BATTLE_CODE_PATTERN = /^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/;
 
 function normalizeBattleCode(value) {
   return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
@@ -45,24 +43,13 @@ function getBattleWsUrl(code) {
   return `${proto}//${api.host}/ws/battle?code=${encodeURIComponent(code)}`;
 }
 
-function createBattleModal() {
-  if (document.getElementById('battleOverlay')) return;
-  const el = document.createElement('div');
-  el.id = 'battleOverlay';
-  el.className = 'battle-overlay hidden';
-  el.setAttribute('role', 'dialog');
-  el.setAttribute('aria-modal', 'true');
-  el.setAttribute('aria-hidden', 'true');
-  el.setAttribute('aria-labelledby', 'battleTitle');
-  document.body.appendChild(el);
-}
-
 function openBattleModal(slug, tab = 'create', initialCode = '') {
-  if (!document.getElementById('battleOverlay')) createBattleModal();
+  const overlay = document.getElementById('battleOverlay');
+  if (!overlay) return;
   battleState.pendingSlug = slug || state.categorySlug || '';
   battleState.phase = 'setup';
   battleState.tab = tab === 'join' ? 'join' : 'create';
-  const overlay = document.getElementById('battleOverlay');
+  battleState.joinPending = false;
   overlay?.classList.remove('hidden');
   overlay?.setAttribute('aria-hidden', 'false');
   renderBattleUI();
@@ -81,6 +68,7 @@ function closeBattleModal() {
   overlay?.classList.add('hidden');
   overlay?.setAttribute('aria-hidden', 'true');
   battleState.phase = 'closed';
+  battleState.joinPending = false;
   deactivateFocus();
 }
 
@@ -131,6 +119,7 @@ function renderBattleSetup(body) {
   const availableCategories = (state.catalog?.categories || [])
     .filter(c => Number(c.quickFireQuestionCount) >= 5);
   const selectedIsAvailable = availableCategories.some(c => c.slug === slug);
+  const joinPending = battleState.tab === 'join' && battleState.joinPending;
   const catOptions = `<option value="" disabled${selectedIsAvailable ? '' : ' selected'}>${isAr ? 'اختر موضوعًا متاحًا' : 'Choose an available topic'}</option>` + availableCategories
     .map(c => `<option value="${escapeHtml(c.slug)}"${c.slug === slug ? ' selected' : ''}>${escapeHtml(c.title[lang])}</option>`)
     .join('');
@@ -188,7 +177,9 @@ function renderBattleSetup(body) {
               style="text-transform:uppercase;font-family:var(--font-mono);letter-spacing:0.08em;"
               autocomplete="off" />
           </label>
-          <button class="primary-btn" id="battleJoinBtn">⚡ ${isAr ? 'انضم إلى الغرفة' : 'Join Room'}</button>
+          <button class="primary-btn" id="battleJoinBtn"${joinPending ? ' disabled aria-busy="true"' : ''}>
+            ⚡ ${joinPending ? t('battleJoining') : (isAr ? 'انضم إلى الغرفة' : 'Join Room')}
+          </button>
         `}
         <p class="battle-error hidden" id="battleSetupError"></p>
       </div>
@@ -229,13 +220,21 @@ async function handleBattleCreate() {
 }
 
 function handleBattleJoin() {
+  if (battleState.joinPending) return;
   const name = document.getElementById('battleNameInput')?.value.trim() || '';
   const code = normalizeBattleCode(document.getElementById('battleCodeInput')?.value);
   const isAr = state.lang === 'ar';
   if (!name) { showBattleError(isAr ? 'أدخل اسمك' : 'Enter your name'); return; }
-  if (!BATTLE_CODE_PATTERN.test(code)) {
+  if (!/^[A-Z]{3}[A-HJ-NP-Z2-9]{5}$/.test(code)) {
     showBattleError(isAr ? 'أدخل رمز غرفة صحيحًا من 8 خانات' : 'Enter a valid 8-character room code');
     return;
+  }
+  battleState.joinPending = true;
+  const button = document.getElementById('battleJoinBtn');
+  if (button) {
+    button.disabled = true;
+    button.setAttribute('aria-busy', 'true');
+    button.textContent = `⚡ ${t('battleJoining')}`;
   }
   connectToBattle(code, name, null);
 }
@@ -262,6 +261,7 @@ function connectToBattle(code, name, hostId) {
     if (battleState.phase === 'closed' || battleState.phase === 'finished') return;
 
     const wasSetup = battleState.phase === 'setup';
+    battleState.joinPending = false;
     battleState.playerId = null;
     battleState.isHost = false;
     battleState.hostId = null;
@@ -276,6 +276,12 @@ function connectToBattle(code, name, hostId) {
     if (button) {
       button.disabled = false;
       button.textContent = `⚡ ${state.lang === 'ar' ? 'أنشئ الغرفة' : 'Create Battle Room'}`;
+    }
+    const joinButton = document.getElementById('battleJoinBtn');
+    if (joinButton) {
+      joinButton.disabled = false;
+      joinButton.removeAttribute('aria-busy');
+      joinButton.textContent = `⚡ ${state.lang === 'ar' ? 'انضم إلى الغرفة' : 'Join Room'}`;
     }
     showBattleError(serverError || (wasSetup
       ? (state.lang === 'ar' ? 'تعذر الاتصال بالغرفة. حاول مرة أخرى.' : 'Connection failed. Please try again.')
@@ -302,6 +308,7 @@ function handleBattleMessage(msg) {
     return;
   }
   if (msg.type === 'joined') {
+    battleState.joinPending = false;
     battleState.playerId = msg.playerId;
     battleState.isHost = msg.isHost;
     battleState.phase = 'lobby';
@@ -382,7 +389,7 @@ function renderBattleLobby(body) {
         <div class="battle-code-value bidi-isolate" dir="ltr">${escapeHtml(code)}</div>
         <p class="battle-code-hint">${isAr ? 'شارك هذا الكود لدعوة الآخرين' : 'Share this code to invite players'}</p>
         <button class="ghost-btn" id="battleShareBtn" style="margin-top:0.6rem;font-size:0.82rem;">
-          🔗 ${isAr ? 'نسخ الرابط' : 'Copy invite link'}
+          🔗 ${isAr ? 'شارك رابط الدعوة' : 'Share invite link'}
         </button>
       </div>
       <div>
@@ -398,10 +405,10 @@ function renderBattleLobby(body) {
         </div>
       </div>
       ${battleState.isHost
-        ? `<button class="primary-btn" id="battleStartBtn"${players.length < 1 ? ' disabled' : ''}>
+        ? `<button class="primary-btn" id="battleStartBtn"${players.length < 2 ? ' disabled' : ''}>
              ⚡ ${isAr ? 'ابدأ المعركة' : 'Start Battle'} (${players.length} ${isAr ? 'لاعب' : players.length === 1 ? 'player' : 'players'})
            </button>
-           <p class="battle-waiting-msg" style="margin-top:-0.25rem">${isAr ? 'يمكنك البدء بلاعب واحد أو أكثر' : 'You can start with 1 or more players'}</p>`
+           <p class="battle-waiting-msg" style="margin-top:-0.25rem">${t('battleInviteRequired')}</p>`
         : `<p class="battle-waiting-msg">⏳ ${isAr ? 'في انتظار المضيف لبدء المعركة...' : 'Waiting for host to start the battle...'}</p>`}
     </div>`;
 
@@ -657,7 +664,6 @@ function spawnBattleConfetti() {
 
   return Object.freeze({
     closeBattleModal,
-    createBattleModal,
     openBattleModal,
     renderBattleUI,
   });

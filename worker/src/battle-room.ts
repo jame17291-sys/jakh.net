@@ -22,6 +22,7 @@ const BATTLE_ERROR_CODES: Readonly<Record<string, string>> = Object.freeze({
   "Join the room first": "JOIN_ROOM_FIRST",
   "Battle already started": "BATTLE_ALREADY_STARTED",
   "Room is full": "ROOM_FULL",
+  "Invite another player to start": "NEED_ANOTHER_PLAYER",
   "Invalid room code": "INVALID_ROOM_CODE",
   "Player name is required": "PLAYER_NAME_REQUIRED",
   "Too many players from this network": "NETWORK_PLAYER_LIMITED",
@@ -238,7 +239,15 @@ export class BattleRoom implements DurableObject {
     }
 
     if (payload.type === "start-game") {
-      if (room.phase !== "lobby" || !player.isHost || room.players.length < 1) return;
+      if (room.phase !== "lobby" || !player.isHost) return;
+      if (room.players.length < 2) {
+        this.send(socket, {
+          type: "error",
+          code: "NEED_ANOTHER_PLAYER",
+          message: "Invite another player to start",
+        });
+        return;
+      }
       await this.startQuestion(room);
       return;
     }

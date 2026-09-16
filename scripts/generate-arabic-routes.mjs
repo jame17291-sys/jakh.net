@@ -27,7 +27,7 @@ const PAGE_ROUTES = [
     englishPath: "/",
     arabicPath: "/ar/",
     runtime: "app",
-    title: "JAKH: ألغاز واختبارات مجانية بالعربية والإنجليزية",
+    title: "ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية",
     description: "اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا.",
   },
   {
@@ -36,7 +36,7 @@ const PAGE_ROUTES = [
     englishPath: "/mind-lab",
     arabicPath: "/ar/mind-lab/",
     runtime: "app",
-    title: "مختبر العقل: 56 موضوع ألغاز وأسئلة | JAKH",
+    title: "مختبر العقل: 56 موضوع ألغاز وأسئلة | ريدل أرابيا",
     description: "استكشف 3,553 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 56 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.",
   },
   {
@@ -45,7 +45,7 @@ const PAGE_ROUTES = [
     englishPath: "/play",
     arabicPath: "/ar/play/",
     runtime: "app",
-    title: "اكشفها وألعاب متصفح مجانية | JAKH",
+    title: "اكشفها وألعاب متصفح مجانية | ريدل أرابيا",
     description: "العب اكشفها: اربط دليلين واكتشف التناقض في خمس قضايا مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
   },
   {
@@ -61,8 +61,8 @@ const PAGE_ROUTES = [
     englishPath: "/privacy",
     arabicPath: "/ar/privacy/",
     runtime: "privacy",
-    title: "مركز الخصوصية | JAKH",
-    description: "تحكّم في القياس، ونزّل بيانات حساب JAKH، واحذف حسابك نهائياً، واقرأ إشعار الخصوصية ثنائي اللغة.",
+    title: "مركز الخصوصية | ريدل أرابيا",
+    description: "تحكّم في القياس، ونزّل بيانات حساب ريدل أرابيا، واحذف حسابك نهائياً، واقرأ إشعار الخصوصية ثنائي اللغة.",
   },
   ...GAME_SLUGS.map((slug) => ({
     source: `${slug}.html`,
@@ -258,10 +258,10 @@ function setMetadata(html, route, title, description) {
   html = replaceMetaContent(html, "og:url", canonical);
   html = replaceMetaContent(html, "og:locale", "ar_AE");
   html = replaceMetaContent(html, "og:locale:alternate", "en_US");
-  html = replaceMetaContent(html, "og:image:alt", "JAKH — ألغاز ثنائية اللغة وألعاب متصفح مجانية");
+  html = replaceMetaContent(html, "og:image:alt", "ريدل أرابيا — ألغاز واختبارات وألعاب ذهنية بالعربية والإنجليزية");
   html = replaceMetaContent(html, "twitter:title", title);
   html = replaceMetaContent(html, "twitter:description", description);
-  html = replaceMetaContent(html, "twitter:image:alt", "JAKH — ألغاز ثنائية اللغة وألعاب متصفح مجانية");
+  html = replaceMetaContent(html, "twitter:image:alt", "ريدل أرابيا — ألغاز واختبارات وألعاب ذهنية بالعربية والإنجليزية");
 
   if (!/<meta\b(?=[^>]*\bproperty=["']og:locale["'])[^>]*>/iu.test(html)) {
     html = html.replace(
@@ -310,7 +310,7 @@ function localizeStructuredData(html, route, title, description) {
           node.inLanguage = "ar";
         }
         if (types.includes("ItemList") && route.runtime === "app" && route.arabicPath === "/ar/play/") {
-          node.name = "ألعاب متصفح مجانية من JAKH";
+          node.name = "ألعاب متصفح مجانية من ريدل أرابيا";
           const gameNames = {
             "/akshifha": "اكشفها — اكتشف التناقض",
             "/chess": appMessages.playChessTitle,

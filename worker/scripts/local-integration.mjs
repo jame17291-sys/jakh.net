@@ -403,28 +403,29 @@ async function run() {
     });
     assert.match(battle.payload.code, /^MAT[A-HJ-NP-Z2-9]{5}$/u);
     assert.match(battle.payload.hostId, /^[A-Za-z0-9_-]{32}$/u);
-    let battleSocket;
+    let hostBattleSocket;
+    let guestBattleSocket;
     try {
-      battleSocket = await openWebSocket(
+      hostBattleSocket = await openWebSocket(
         `${baseUrl.replace(/^http/u, "ws")}/ws/battle?code=${battle.payload.code}`,
         baseUrl,
       );
       assert.match(
-        battleSocket.jakhWorkerVersionId || "",
+        hostBattleSocket.jakhWorkerVersionId || "",
         /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u,
         "WebSocket upgrade lacked a valid Worker runtime identity",
       );
       assert.equal(
-        battleSocket.jakhWorkerVersionId,
+        hostBattleSocket.jakhWorkerVersionId,
         health.workerVersionId,
         "WebSocket upgrade did not preserve the exact Worker runtime identity",
       );
       const joinedMessage = waitForWebSocketMessage(
-        battleSocket,
+        hostBattleSocket,
         (message) => message?.type === "joined",
         "host join",
       );
-      battleSocket.send(JSON.stringify({
+      hostBattleSocket.send(JSON.stringify({
         type: "join-room",
         code: battle.payload.code,
         name: "Integration Host",
@@ -434,30 +435,77 @@ async function run() {
       assert.equal(joined.isHost, true);
       assert.match(joined.playerId, /^[0-9a-f-]{36}$/u);
 
-      const questionMessage = waitForWebSocketMessage(
-        battleSocket,
-        (message) => message?.type === "question",
-        "first battle question",
+      const waitingForGuest = waitForWebSocketMessage(
+        hostBattleSocket,
+        (message) => message?.type === "error" && message?.code === "NEED_ANOTHER_PLAYER",
+        "two-player battle requirement",
       );
-      battleSocket.send(JSON.stringify({ type: "start-game" }));
-      const question = await questionMessage;
+      hostBattleSocket.send(JSON.stringify({ type: "start-game" }));
+      await waitingForGuest;
+
+      guestBattleSocket = await openWebSocket(
+        `${baseUrl.replace(/^http/u, "ws")}/ws/battle?code=${battle.payload.code}`,
+        baseUrl,
+      );
+      assert.equal(
+        guestBattleSocket.jakhWorkerVersionId,
+        health.workerVersionId,
+        "Guest WebSocket upgrade did not preserve the exact Worker runtime identity",
+      );
+      const guestJoinedMessage = waitForWebSocketMessage(
+        guestBattleSocket,
+        (message) => message?.type === "joined",
+        "guest join",
+      );
+      guestBattleSocket.send(JSON.stringify({
+        type: "join-room",
+        code: battle.payload.code,
+        name: "Integration Guest",
+      }));
+      const guestJoined = await guestJoinedMessage;
+      assert.equal(guestJoined.isHost, false);
+      assert.match(guestJoined.playerId, /^[0-9a-f-]{36}$/u);
+
+      const hostQuestionMessage = waitForWebSocketMessage(
+        hostBattleSocket,
+        (message) => message?.type === "question",
+        "host first battle question",
+      );
+      const guestQuestionMessage = waitForWebSocketMessage(
+        guestBattleSocket,
+        (message) => message?.type === "question",
+        "guest first battle question",
+      );
+      hostBattleSocket.send(JSON.stringify({ type: "start-game" }));
+      const [question, guestQuestion] = await Promise.all([hostQuestionMessage, guestQuestionMessage]);
       assert.equal(question.question.index, 0);
       assert.equal(question.question.total, 5);
       assert.equal(question.question.options.en.length, 4);
       assert.equal(question.question.options.ar.length, 4);
+      assert.equal(guestQuestion.question.index, question.question.index);
+      assert.equal(guestQuestion.roomState.totalPlayers, 2);
 
-      const revealMessage = waitForWebSocketMessage(
-        battleSocket,
+      const hostRevealMessage = waitForWebSocketMessage(
+        hostBattleSocket,
         (message) => message?.type === "reveal",
-        "battle answer reveal",
+        "host battle answer reveal",
       );
-      battleSocket.send(JSON.stringify({ type: "submit-answer", answerIndex: 0 }));
-      const reveal = await revealMessage;
+      const guestRevealMessage = waitForWebSocketMessage(
+        guestBattleSocket,
+        (message) => message?.type === "reveal",
+        "guest battle answer reveal",
+      );
+      hostBattleSocket.send(JSON.stringify({ type: "submit-answer", answerIndex: 0 }));
+      guestBattleSocket.send(JSON.stringify({ type: "submit-answer", answerIndex: 0 }));
+      const [reveal, guestReveal] = await Promise.all([hostRevealMessage, guestRevealMessage]);
       assert.ok(Number.isInteger(reveal.correctIndex));
       assert.ok(reveal.correctIndex >= 0 && reveal.correctIndex <= 3);
       assert.equal(reveal.roomState.phase, "reveal");
+      assert.equal(guestReveal.correctIndex, reveal.correctIndex);
+      assert.equal(guestReveal.roomState.totalPlayers, 2);
     } finally {
-      await closeWebSocket(battleSocket);
+      await closeWebSocket(guestBattleSocket);
+      await closeWebSocket(hostBattleSocket);
     }
 
     const challenge = await requestJson(baseUrl, "/api/scores/server-checked/challenge", {

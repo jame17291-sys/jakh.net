@@ -273,7 +273,7 @@
     const isAr = document.documentElement.lang === 'ar';
     return isAr ? {
       title: 'خصوصيتك أولاً',
-      text: 'تعمل الميزات الأساسية من دون قياس. يمكنك السماح بقياس إجمالي اختياري يساعدنا على تحسين JAKH، أو الاكتفاء بالميزات الأساسية.',
+      text: 'تعمل الميزات الأساسية من دون قياس. يمكنك السماح بقياس إجمالي اختياري يساعدنا على تحسين ريدل أرابيا، أو الاكتفاء بالميزات الأساسية.',
       allow: 'السماح بالقياس',
       essential: 'الأساسي فقط',
       choices: 'خيارات الخصوصية',
@@ -281,7 +281,7 @@
       dismiss: 'إغلاق والاكتفاء بالميزات الأساسية',
     } : {
       title: 'Your privacy comes first',
-      text: 'Essential features work without analytics. You can allow optional aggregate website measurement to help improve JAKH, or keep only essential features.',
+      text: 'Essential features work without analytics. You can allow optional aggregate website measurement to help improve Riddle Arabia, or keep only essential features.',
       allow: 'Allow analytics',
       essential: 'Essential only',
       choices: 'Privacy choices',

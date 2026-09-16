@@ -229,12 +229,14 @@ async function installBattleSocketMock(context, { code, hostId }) {
         for (const listener of this.listeners.get(type) || []) listener.call(this, event);
       }
 
-      emit(payload) {
-        queueMicrotask(() => {
+      emit(payload, delayMs = 0) {
+        const dispatch = () => {
           if (this.readyState === BattleSocket.OPEN) {
             this.dispatch("message", { data: JSON.stringify(payload), target: this });
           }
-        });
+        };
+        if (delayMs > 0) setTimeout(dispatch, delayMs);
+        else queueMicrotask(dispatch);
       }
 
       send(raw) {
@@ -260,7 +262,10 @@ async function installBattleSocketMock(context, { code, hostId }) {
           }
           this.playerId = playerId;
           const saved = writeRoom(room, "room-update");
-          this.emit({ type: "joined", playerId, isHost });
+          // A real guest's join acknowledgement crosses the network. Keep it
+          // asynchronous so this regression proves the UI cannot double-join
+          // while that acknowledgement is still in flight.
+          this.emit({ type: "joined", playerId, isHost }, isHost ? 0 : 50);
           this.emit(messageFor(saved));
           return;
         }
@@ -268,6 +273,14 @@ async function installBattleSocketMock(context, { code, hostId }) {
           const room = readRoom();
           const player = room.players.find((candidate) => candidate.id === this.playerId);
           if (!player?.isHost || room.phase !== "lobby") return;
+          if (room.players.length < 2) {
+            this.emit({
+              type: "error",
+              code: "NEED_ANOTHER_PLAYER",
+              message: "Invite another player to start",
+            });
+            return;
+          }
           room.phase = "question";
           room.currentQ = 0;
           room.answers = {};
@@ -905,6 +918,9 @@ async function main() {
         await host.locator("#battleCreateBtn").click();
         await host.locator("#battleShareBtn").waitFor({ state: "visible" });
         assert.deepEqual(battle.creates, [{ category: "math", difficulty: "all", questionCount: 10 }]);
+        await host.locator("#battleStartBtn").waitFor({ state: "visible" });
+        assert.equal(await host.locator("#battleStartBtn").isDisabled(), true);
+        assert.match(await host.locator(".battle-waiting-msg").innerText(), /Invite one friend/u);
 
         await host.locator("#battleShareBtn").click();
         await host.waitForFunction(() => typeof window.__battleCopiedText === "string");
@@ -922,8 +938,10 @@ async function main() {
         assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code);
         await guest.locator("#battleNameInput").fill("Guest");
         await guest.locator("#battleJoinBtn").click();
+        assert.equal(await guest.locator("#battleJoinBtn").isDisabled(), true);
         await guest.locator("#battleShareBtn").waitFor({ state: "visible" });
         await host.locator(".battle-player-row").filter({ hasText: "Guest" }).waitFor({ state: "visible" });
+        assert.equal(await host.locator("#battleStartBtn").isDisabled(), false);
         await host.locator("#battleStartBtn").click();
 
         for (const page of [host, guest]) {

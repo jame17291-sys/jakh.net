@@ -287,7 +287,8 @@ test("silent pre-join sockets expire through the hibernation-safe alarm", async 
 
 test("serialized socket attachments preserve identity across hibernation", async () => {
   const socket = fakeSocket({ connectedAt: Date.now(), clientKey: "A".repeat(43) });
-  const context = fakeContext(roomState(), [socket]);
+  const guest = fakeSocket({ connectedAt: Date.now(), clientKey: "B".repeat(43) });
+  const context = fakeContext(roomState(), [socket, guest]);
 
   await new BattleRoom(context).webSocketMessage(socket, JSON.stringify({
     type: "join-room",
@@ -300,6 +301,12 @@ test("serialized socket attachments preserve identity across hibernation", async
   assert.equal(typeof playerId, "string");
   assert.equal(context.storage.room.players[0].id, playerId);
 
+  await new BattleRoom(context).webSocketMessage(guest, JSON.stringify({
+    type: "join-room",
+    code: "SCI23456",
+    name: "Guest",
+  }));
+
   // A new class instance represents a Durable Object restored after hibernation.
   await new BattleRoom(context).webSocketMessage(socket, JSON.stringify({
     type: "start-game",
@@ -307,7 +314,9 @@ test("serialized socket attachments preserve identity across hibernation", async
 
   assert.equal(context.storage.room.phase, "question");
   assert.equal(context.storage.room.players[0].id, playerId);
-  assert.ok(socket.sent.some((message) => message.type === "question"));
+  for (const playerSocket of [socket, guest]) {
+    assert.ok(playerSocket.sent.some((message) => message.type === "question"));
+  }
 });
 
 test("an invited second player shares the host room and receives its first question", async () => {
@@ -322,6 +331,12 @@ test("an invited second player shares the host room and receives its first quest
     name: "Host",
     hostId: "host-token",
   }));
+
+  await durableObject.webSocketMessage(host, JSON.stringify({ type: "start-game" }));
+  assert.equal(context.storage.room.phase, "lobby");
+  assert.ok(host.sent.some((message) => message.type === "error"
+    && message.code === "NEED_ANOTHER_PLAYER"));
+
   await durableObject.webSocketMessage(guest, JSON.stringify({
     type: "join-room",
     code: "SCI23456",

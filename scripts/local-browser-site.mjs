@@ -118,6 +118,17 @@ async function nodeResponse(response, request, edgeResponse, localOrigin) {
     headers["content-security-policy"] = headers["content-security-policy"]
       .replace(/;\s*upgrade-insecure-requests\s*(?=;|$)/iu, "")
       .replace(/;\s*$/u, "");
+    // app.js deliberately targets the local Worker preview at port 8787.
+    // The artifact test server itself uses an ephemeral port, so `'self'`
+    // alone would cause the browser to reject the mocked API before routing
+    // can intercept it. Keep this exception local to the test adapter.
+    const localApiOrigin = `http://${new URL(localOrigin).hostname}:8787`;
+    headers["content-security-policy"] = headers["content-security-policy"].replace(
+      /connect-src\s+([^;]+)/iu,
+      (match, sources) => sources.includes(localApiOrigin)
+        ? match
+        : `connect-src ${sources} ${localApiOrigin}`,
+    );
     headers["x-jakh-local-csp-adjustment"] = "upgrade-insecure-requests-disabled-on-http-loopback";
   }
   const location = edgeResponse.headers.get("location");

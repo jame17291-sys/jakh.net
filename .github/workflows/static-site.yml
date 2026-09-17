@@ -190,6 +190,18 @@ jobs:
           JAKH_BROWSER_MATRIX_DIAGNOSTICS: ${{ runner.temp }}/jakh-site-release/browser-matrix-diagnostics.json
         run: npm run test:browser:matrix
 
+      - name: Print browser matrix diagnostics
+        if: ${{ always() }}
+        env:
+          DIAGNOSTICS: ${{ runner.temp }}/jakh-site-release/browser-matrix-diagnostics.json
+        run: |
+          if [ -f "$DIAGNOSTICS" ]; then
+            echo "===== Browser matrix diagnostics ====="
+            cat "$DIAGNOSTICS"
+          else
+            echo "::warning::Browser matrix diagnostics were not generated"
+          fi
+
       - name: Validate WCAG browser contracts
         env:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist

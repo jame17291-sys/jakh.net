@@ -1045,4 +1045,18 @@ async function main() {
   }
 }
 
-await main();
+try {
+  await main();
+} catch (error) {
+  console.error("\nBrowser regression failed");
+  console.error(error?.stack || error);
+  for (const [label, value] of [["Actual", error?.actual], ["Expected", error?.expected]]) {
+    if (value === undefined) continue;
+    try {
+      console.error(`${label}:\n${JSON.stringify(value, null, 2)}`);
+    } catch {
+      console.error(`${label}:\n${String(value)}`);
+    }
+  }
+  process.exitCode = 1;
+}

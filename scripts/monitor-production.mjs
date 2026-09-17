@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 import {
+  PRESERVED_GAME_SLUGS,
   RIDDLE_ARABIA_GAME_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
@@ -110,6 +111,10 @@ export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
   ...RIDDLE_ARABIA_GAME_CATALOG.flatMap((game) => [
     `/${game.slug}`,
     `/ar/games/${game.slug}/`,
+  ]),
+  ...PRESERVED_GAME_SLUGS.flatMap((slug) => [
+    `/${slug}`,
+    `/ar/games/${slug}/`,
   ]),
 ]);
 

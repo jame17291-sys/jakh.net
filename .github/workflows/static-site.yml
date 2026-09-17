@@ -187,6 +187,7 @@ jobs:
         env:
           JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
           JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+          JAKH_BROWSER_MATRIX_DIAGNOSTICS: ${{ runner.temp }}/jakh-site-release/browser-matrix-diagnostics.json
         run: npm run test:browser:matrix
 
       - name: Validate WCAG browser contracts
@@ -608,6 +609,7 @@ jobs:
           name: static-site-release-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             ${{ runner.temp }}/jakh-site-release
+            ${{ runner.temp }}/jakh-site-release/browser-matrix-diagnostics.json
             ${{ runner.temp }}/jakh-api-artifact
             site-worker/dist
             worker/migrations

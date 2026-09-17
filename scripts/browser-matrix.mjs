@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { spawn } from "node:child_process";
+import { writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -11,6 +12,17 @@ import {
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const engines = ["chromium", "firefox", "webkit"];
+const diagnosticsPath = process.env.JAKH_BROWSER_MATRIX_DIAGNOSTICS || null;
+const diagnostics = [];
+
+async function writeDiagnostics() {
+  if (!diagnosticsPath) return;
+  await writeFile(diagnosticsPath, `${JSON.stringify({
+    node: process.version,
+    platform: process.platform,
+    engines: diagnostics,
+  }, null, 2)}\n`);
+}
 
 async function runEngine(engine) {
   return new Promise((resolveExit, reject) => {
@@ -38,17 +50,25 @@ async function runEngine(engine) {
   });
 }
 
-for (const engine of engines) {
+let failedExitCode = 0;
+engineLoop: for (const engine of engines) {
   const attemptLimit = engine === "webkit" ? MAX_WEBKIT_TRANSPORT_ATTEMPTS : 1;
   for (let attempt = 1; attempt <= attemptLimit; attempt += 1) {
     const attemptLabel = attemptLimit > 1 ? ` (attempt ${attempt}/${attemptLimit})` : "";
     process.stdout.write(`\nRunning browser regression suite with ${engine}${attemptLabel}...\n`);
     const { exitCode, output } = await runEngine(engine);
+    diagnostics.push({ engine, attempt, exitCode, output });
     if (exitCode === 0) break;
     const retryable = isRetryableWebKitTransportFailure(engine, output);
-    if (!retryable || attempt === attemptLimit) process.exit(exitCode);
+    if (!retryable || attempt === attemptLimit) {
+      failedExitCode = exitCode;
+      break engineLoop;
+    }
     process.stderr.write(
       `WebKit disconnected during page navigation; restarting the isolated WebKit suite (${attempt + 1}/${attemptLimit}).\n`,
     );
   }
 }
+
+await writeDiagnostics();
+if (failedExitCode !== 0) process.exitCode = failedExitCode;

@@ -560,7 +560,7 @@ async function commandRuntimeProof(options) {
   });
   await writeJson(receiptPath, result.receipt);
   await appendOutputs(options["github-output"], {
-    "rollback-safe": stage === "rollback-target"
+    "rollback-safe": options.stage === "rollback-target"
       ? result.receipt.safety.automaticRollback === true
       : result.proof.safe,
   });

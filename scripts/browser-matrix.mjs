@@ -43,11 +43,19 @@ async function runEngine(engine) {
       process.stderr.write(text);
     });
     child.once("error", reject);
-    child.once("exit", (code, signal) => {
-      if (signal) reject(new Error(`${engine} browser suite ended with signal ${signal}`));
-      else resolveExit({ exitCode: code ?? 1, output });
+    // `close` fires after the child has exited and both output pipes have
+    // closed. Resolving on `exit` can let the parent finish before the final
+    // assertion stack has been drained from stderr on a busy CI runner.
+    child.once("close", (code, signal) => {
+      resolveExit({ exitCode: signal ? 1 : code ?? 1, signal, output });
     });
   });
+}
+
+function reportFailure({ engine, attempt, exitCode, signal, output }) {
+  process.stderr.write(`\nFAILED browser engine: ${engine} (attempt ${attempt})\n`);
+  process.stderr.write(`Exit code: ${exitCode}${signal ? `; signal: ${signal}` : ""}\n`);
+  process.stderr.write(`Full browser output:\n${output || "(no child output captured)"}\n`);
 }
 
 let failedExitCode = 0;
@@ -56,9 +64,12 @@ engineLoop: for (const engine of engines) {
   for (let attempt = 1; attempt <= attemptLimit; attempt += 1) {
     const attemptLabel = attemptLimit > 1 ? ` (attempt ${attempt}/${attemptLimit})` : "";
     process.stdout.write(`\nRunning browser regression suite with ${engine}${attemptLabel}...\n`);
-    const { exitCode, output } = await runEngine(engine);
-    diagnostics.push({ engine, attempt, exitCode, output });
+    const result = { engine, attempt, ...await runEngine(engine) };
+    diagnostics.push(result);
+    await writeDiagnostics();
+    const { exitCode, output } = result;
     if (exitCode === 0) break;
+    reportFailure(result);
     const retryable = isRetryableWebKitTransportFailure(engine, output);
     if (!retryable || attempt === attemptLimit) {
       failedExitCode = exitCode;

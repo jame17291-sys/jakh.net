@@ -938,9 +938,11 @@ async function main() {
         assert.equal(await guest.locator("#battleCodeInput").inputValue(), battle.code);
         await guest.locator("#battleNameInput").fill("Guest");
         await guest.locator("#battleJoinBtn").click();
+        await guest.waitForFunction(() => document.querySelector("#battleJoinBtn")?.disabled === true);
         assert.equal(await guest.locator("#battleJoinBtn").isDisabled(), true);
         await guest.locator("#battleShareBtn").waitFor({ state: "visible" });
         await host.locator(".battle-player-row").filter({ hasText: "Guest" }).waitFor({ state: "visible" });
+        await host.waitForFunction(() => document.querySelector("#battleStartBtn")?.disabled === false);
         assert.equal(await host.locator("#battleStartBtn").isDisabled(), false);
         await host.locator("#battleStartBtn").click();
 

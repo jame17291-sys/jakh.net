@@ -1,8 +1,9 @@
 import { CASES } from './akshifha-cases.js';
 import { AKSHIFHA_UI } from './akshifha-copy.js';
+import { createAkshifhaStudy } from './akshifha-study.js';
 import {
   resolveCase, evaluateAnswer, resultRank, buildChallengeUrl, buildShareText,
-  sanitizeProgress, recordCompletion, selectNextCase, utcDay,
+  sanitizeProgress, recordCompletion, selectNextCase, selectContinuationCase, utcDay,
 } from './akshifha-engine.js';
 
 export const PROGRESS_KEY = 'riddlearabia-akshifha-v1';
@@ -35,6 +36,7 @@ export function mountAkshifha(document, window) {
     ? { game: '/ar/games/akshifha/', home: '/ar/', play: '/ar/play/', privacy: '/ar/privacy/' }
     : { game: '/akshifha', home: '/', play: '/play', privacy: '/privacy' };
   const initial = resolveCase(CASES, window.location.search);
+  const initialFragment = window.location.hash;
   let caseItem = initial.caseItem;
   let mode = initial.mode;
   let day = initial.day;
@@ -48,29 +50,33 @@ export function mountAkshifha(document, window) {
   let evidenceInputs = [];
   let optionInputs = [];
   let progress = sanitizeProgress(null, CASES);
+  let progressAvailable = true;
   const showStorageFailure = () => {
+    progressAvailable = false;
     byId('ak-storage-notice').hidden = false;
     byId('ak-storage-notice').textContent = text('akStorageUnavailable');
   };
   try { progress = sanitizeProgress(window.localStorage.getItem(PROGRESS_KEY), CASES); }
   catch { showStorageFailure(); }
 
-  function track(event, extra = {}) {
-    try {
-      if (window.JakhPrivacy?.analyticsAllowed?.() !== true || typeof window.gtag !== 'function') return;
-      window.gtag('event', `akshifha_${event}`, { case_id: caseItem.id, game_mode: mode, language, ...extra });
-    }
-    catch { /* Measurement must never interrupt a round. */ }
+  const study = createAkshifhaStudy({
+    allowed: () => window.JakhPrivacy?.analyticsAllowed?.() === true,
+    send: (name, parameters) => window.gtag?.('event', name, parameters),
+  });
+  if (typeof document.addEventListener === 'function') {
+    document.addEventListener('jakh:consentchange', () => study.reset());
   }
-  function updateUrl() {
+  const track = (event, extra = {}) => study.track(event, extra);
+  function updateUrl(preserveFragment = false) {
     const url = new URL(paths.game, window.location.origin);
+    if (preserveFragment) url.hash = window.location.hash;
     if (mode === 'daily') url.searchParams.set('day', day);
     else {
       url.searchParams.set('case', caseItem.id);
       if (mode === 'practice') url.searchParams.set('mode', 'practice');
       else url.searchParams.set('day', day);
     }
-    try { window.history.replaceState(null, '', `${url.pathname}${url.search}`); }
+    try { window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`); }
     catch { /* A blocked History API does not block local play. */ }
   }
   function setFeedback(key, wrong = false) {
@@ -103,13 +109,21 @@ export function mountAkshifha(document, window) {
       button.append(element('span', 'ak-case-entry-status', text(labels[rank])));
       button.addEventListener('click', () => {
         track('case_open', { destination_case_id: item.id });
-        openCase(item, 'practice', utcDay(), true);
+        openCase(item, 'practice', utcDay(), true, 'casebook');
       });
       list.append(button);
     }
-    byId('ak-progress-count').textContent = text('akCompleted', { count: number(Object.keys(progress.cases).length) });
+    byId('ak-progress-count').textContent = text('akCompleted', { count: number(Object.keys(progress.cases).length), total: number(CASES.length) });
+    byId('ak-next').textContent = text(CASES.every(item => progress.cases[item.id]) ? 'akRevisit' : 'akNext');
+    const continuation = progressAvailable ? selectContinuationCase(CASES, caseItem.id, progress) : null;
+    byId('ak-continue').hidden = !continuation;
+    if (continuation) {
+      const title = text('akContinueTitle', { title: localized(continuation.title) });
+      byId('ak-continue').title = title;
+      byId('ak-continue').setAttribute('aria-label', title);
+    }
   }
-  function openCase(item, nextMode, nextDay, focus = false) {
+  function openCase(item, nextMode, nextDay, focus = false, entry = 'initial') {
     if (!item) return;
     generation += 1;
     caseItem = item; mode = nextMode; day = nextDay;
@@ -164,9 +178,13 @@ export function mountAkshifha(document, window) {
       byId('ak-options').append(label);
     }
     setFeedback('akReady');
-    updateSelection(); renderCasebook(); updateUrl();
+    updateSelection(); renderCasebook(); updateUrl(!focus);
     if (focus) byId('ak-case-title').focus();
-    track('start');
+    study.open({
+      caseId: item.id, gameMode: mode, language, entry,
+      completedBefore: Boolean(progress.cases[item.id]),
+      priorCompletions: Object.keys(progress.cases).length, progressAvailable,
+    });
   }
   function finish(showAnswer = false) {
     if (finished) return;
@@ -226,12 +244,18 @@ export function mountAkshifha(document, window) {
     if (!finished) return;
     const next = selectNextCase(CASES, caseItem.id, progress);
     track('next_case', { destination_case_id: next?.id });
-    openCase(next, 'practice', utcDay(), true);
+    openCase(next, 'practice', utcDay(), true, 'next');
   });
-  byId('ak-replay').addEventListener('click', () => openCase(caseItem, 'practice', utcDay(), true));
+  byId('ak-replay').addEventListener('click', () => openCase(caseItem, 'practice', utcDay(), true, 'replay'));
+  byId('ak-continue').addEventListener('click', () => {
+    const next = progressAvailable ? selectContinuationCase(CASES, caseItem.id, progress) : null;
+    if (!next) return;
+    track('case_open', { destination_case_id: next.id });
+    openCase(next, 'practice', utcDay(), true, 'continue');
+  });
   byId('ak-daily').addEventListener('click', () => {
     const daily = resolveCase(CASES);
-    openCase(daily.caseItem, 'daily', daily.day, true);
+    openCase(daily.caseItem, 'daily', daily.day, true, 'daily');
   });
   byId('akLanguage').addEventListener('change', event => {
     const targetLanguage = event.target.value === 'ar' ? 'ar' : 'en';
@@ -278,6 +302,7 @@ export function mountAkshifha(document, window) {
   });
   byId('ak-reset-yes').addEventListener('click', () => {
     progress = sanitizeProgress(null, CASES);
+    study.reset();
     byId('ak-reset-confirm').hidden = true;
     try {
       window.localStorage.removeItem(PROGRESS_KEY);
@@ -293,6 +318,14 @@ export function mountAkshifha(document, window) {
   }
   byId('ak-loading').hidden = true;
   byId('ak-game').hidden = false;
+  if (initialFragment === '#ak-casebook') {
+    // The destination was hidden while modules loaded, so restore the entry
+    // point after layout. Opening a case later clears this fragment normally.
+    window.requestAnimationFrame(() => {
+      byId('ak-casebook-title').focus({ preventScroll: true });
+      byId('ak-casebook').scrollIntoView({ block: 'start' });
+    });
+  }
   return { getState: () => ({ caseId: caseItem.id, mode, day, attempts, hintsUsed, finished, revealed, selected: [...selected], choice }) };
 }
 

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "scope": "Riddle Arabia featured collection structure, bilingual completeness, topic coverage, and known editorial holds. This is not factual approval or evidence closure.",
+  "collections": {
+    "riddles": { "cardCount": 8, "sourceCategories": ["classic-riddles"], "minSubcategories": 3 },
+    "arabic-riddles": { "cardCount": 8, "sourceCategories": ["classic-riddles"], "minSubcategories": 3 },
+    "logic-puzzles": { "cardCount": 8, "sourceCategories": ["logic-puzzles"], "minSubcategories": 2 },
+    "kids-riddles": { "cardCount": 8, "sourceCategories": ["kids-riddles"], "minSubcategories": 2 },
+    "general-knowledge": { "cardCount": 8, "minSourceCategories": 6 },
+    "arabia-quiz": { "cardCount": 8, "sourceCategories": ["middle-east-history"], "minSubcategories": 1 },
+    "spacetoon-nostalgia": { "cardCount": 8, "sourceCategories": ["ayam-tayebeen"], "minSubcategories": 1 }
+  },
+  "holds": [
+    {
+      "id": "ayt-007",
+      "reason": "The question asks what the character was doing while the answer supplies an occupation and alias. Resolve the exact adaptation and bilingual wording before featuring it."
+    },
+    {
+      "id": "ayt-019",
+      "reason": "The question mixes being alone with a survivor count. Resolve the scene and bilingual wording before featuring it."
+    },
+    {
+      "id": "ayt-052",
+      "reason": "The premise and bilingual answer disagree about the captain's role. Resolve the record before featuring it."
+    },
+    {
+      "id": "football-024",
+      "reason": "This is an unbounded sporting record claim without an as-of date or claim-level evidence. It must not enter a curated selection."
+    }
+  ]
+}

@@ -164,11 +164,11 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.match(search, new RegExp(manifest.fingerprints["/data/search-index.ar.json"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   const serviceWorker = await readFile(join(repositoryRoot, "site-worker/dist/sw.js"), "utf8");
   assert.match(serviceWorker, new RegExp(`const CACHE_VERSION = '${manifest.offlineCacheIdentity}';`, "u"));
-  for (const stable of ["/app.js", "/styles.css", "/privacy.css", "/akshifha.js", "/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha.css"]) {
+  for (const stable of ["/app.js", "/styles.css", "/privacy.css", "/akshifha.js", "/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha-study.js", "/akshifha.css"]) {
     assert.match(serviceWorker, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   }
   const akshifha = await readFile(join(repositoryRoot, "site-worker/dist", manifest.fingerprints["/akshifha.js"].slice(1)), "utf8");
-  for (const dependency of ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js"]) {
+  for (const dependency of ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha-study.js"]) {
     assert.ok(akshifha.includes(manifest.fingerprints[dependency]), `Akshifha entry must pin ${dependency}`);
     assert.equal(akshifha.includes(`'${dependency}'`) || akshifha.includes(`"${dependency}"`), false);
     assert.equal(akshifha.includes(`'.${dependency}'`) || akshifha.includes(`".${dependency}"`), false);
@@ -252,7 +252,6 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
 
   const arabicHome = await readFile(join(repositoryRoot, "site-worker/dist/ar/index.html"), "utf8");
-  assert.match(arabicHome, /id="badgeCategories">51<\/span>/u);
   assert.match(arabicHome, /data-i18n="portalMindStat">51 موضوعًا<\/span>/u);
   const builtApplication = await readFile(join(repositoryRoot, "site-worker/dist/app.js"), "utf8");
   assert.match(builtApplication, /portalMindStat: '51 موضوعًا'/u);
@@ -474,7 +473,7 @@ test("Akshifha module leaves propagate through the published entry and offline g
   context.after(() => rm(temporary, { recursive: true, force: true }));
   const source = join(temporary, "source");
   await mkdir(join(source, "ar/games/akshifha"), { recursive: true });
-  const leaves = ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js"];
+  const leaves = ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha-study.js"];
   const assets = ["/akshifha.js", "/akshifha.css", ...leaves];
   const sourceHtml = '<link rel="stylesheet" href="/akshifha.css"><script type="module" src="/akshifha.js"></script>';
   const sources = {
@@ -482,10 +481,11 @@ test("Akshifha module leaves propagate through the published entry and offline g
     "404.html": '<title>Not found</title>',
     "akshifha.html": `<link rel="canonical" href="https://riddlearabia.com/akshifha">${sourceHtml}`,
     "ar/games/akshifha/index.html": `<link rel="canonical" href="https://riddlearabia.com/ar/games/akshifha/">${sourceHtml}`,
-    "akshifha.js": 'import { solve } from "./akshifha-engine.js";\nimport { cases } from "/akshifha-cases.js";\nimport { copy } from \'./akshifha-copy.js\';\nexport const game = { solve, cases, copy };\n',
+    "akshifha.js": 'import { solve } from "./akshifha-engine.js";\nimport { cases } from "/akshifha-cases.js";\nimport { copy } from \'./akshifha-copy.js\';\nimport { study } from "./akshifha-study.js";\nexport const game = { solve, cases, copy, study };\n',
     "akshifha-engine.js": 'export const solve = () => true;\n',
     "akshifha-cases.js": 'export const cases = ["delivery"];\n',
     "akshifha-copy.js": 'export const copy = { next: "Next" };\n',
+    "akshifha-study.js": 'export const study = { enabled: false };\n',
     "akshifha.css": '.game { color: navy; }\n',
     "sw.js": `const CACHE_VERSION = 'fixture';\nconst REQUIRED_CORE_ASSETS = ${JSON.stringify(assets)};\n`,
   };

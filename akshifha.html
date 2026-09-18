@@ -5,14 +5,14 @@
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
     <title>Akshifha: Connect the Clues | Riddle Arabia</title>
-    <meta name="description" content="Connect two clues and uncover the contradiction. Play five free, original Arabic and English deduction cases in the Akshifha pilot. No account or timer." />
+    <meta name="description" content="Connect two clues and discover what follows. Eleven free deduction cases, including six new mysteries, in Arabic and English. No account or timer." />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://riddlearabia.com/akshifha" />
     <link rel="alternate" hreflang="en" href="https://riddlearabia.com/akshifha" />
     <link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/akshifha/" />
     <link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/akshifha" />
     <meta property="og:title" content="Akshifha: Connect the Clues | Riddle Arabia" />
-    <meta property="og:description" content="Two clues. One contradiction. Five free deduction cases in Arabic and English." />
+    <meta property="og:description" content="Two clues. A discovery. Eleven free deduction cases in Arabic and English." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://riddlearabia.com/akshifha" />
     <meta property="og:site_name" content="Riddle Arabia" />
@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Riddle Arabia — Akshifha deduction game" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Akshifha: Connect the Clues | Riddle Arabia" />
-    <meta name="twitter:description" content="Connect two clues and uncover the contradiction. Five free cases, no account needed." />
+    <meta name="twitter:description" content="Connect two clues and discover what follows. Eleven free cases, no account needed." />
     <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
@@ -32,7 +32,7 @@
     <script defer src="/privacy-consent.js?v=2026080101"></script>
     <script type="module" src="/akshifha.js"></script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"Akshifha: Connect the Clues","description":"Five free original bilingual deduction cases. Select two pieces of evidence and the conclusion they prove.","url":"https://riddlearabia.com/akshifha","inLanguage":"en","isAccessibleForFree":true}
+    {"@context":"https://schema.org","@type":"WebPage","name":"Akshifha: Connect the Clues","description":"Eleven free bilingual deduction cases. Select two pieces of evidence and the conclusion they prove.","url":"https://riddlearabia.com/akshifha","inLanguage":"en","isAccessibleForFree":true}
     </script>
   </head>
   <body class="page-akshifha" data-page="akshifha">
@@ -52,17 +52,18 @@
       <section class="ak-intro" aria-labelledby="ak-title">
         <p class="eyebrow" data-i18n="akEyebrow">A little evidence. A real aha moment.</p>
         <h1 id="ak-title" data-i18n="akTitle">Akshifha</h1>
-        <p class="ak-subtitle" data-i18n="akSubtitle">Two clues. One contradiction. Can you connect them?</p>
-        <p class="ak-pilot" data-i18n="akPilot">Five-case pilot · Free · No account or timer</p>
+        <p class="ak-subtitle" data-i18n="akSubtitle">Two clues. A discovery. What can you prove?</p>
+        <p class="ak-pilot" data-i18n="akPilot">Six new cases + five originals · Free · No account or timer</p>
       </section>
       <noscript><p class="ak-notice" data-i18n="akNoScript">Akshifha needs JavaScript to check your clues. You can still browse our riddle collections.</p><a class="secondary-btn" href="/collections" data-i18n="akCollections">Browse riddles</a></noscript>
       <div id="ak-loading"><p data-i18n="akLoading">Opening the evidence…</p><p data-i18n="akLoadHelp">If the case does not open, reload this page. No account is needed.</p></div>
       <div id="ak-game" hidden>
         <nav class="ak-mode-nav" aria-label="Game navigation" data-i18n-aria-label="akNavigation">
           <button type="button" class="secondary-btn" id="ak-daily" data-i18n="akDaily">Daily pick</button>
-          <a class="ghost-btn" href="#ak-casebook" data-i18n="akPractice">All five cases</a>
+          <button type="button" class="secondary-btn" id="ak-continue" data-i18n="akContinue" hidden>Continue an unplayed case</button>
+          <a class="ghost-btn" href="#ak-casebook" data-i18n="akPractice">All eleven cases</a>
         </nav>
-        <p class="ak-small" data-i18n="akRotation">The daily pick rotates through these five cases at midnight UTC. Cases repeat while we test the pilot.</p>
+        <p class="ak-small" data-i18n="akRotation">The daily pick rotates through these eleven cases at midnight UTC. This is a finite collection; the daily pick does not promise a newly published case.</p>
         <p id="ak-link-notice" class="ak-notice" role="status" hidden></p>
         <details class="ak-how"><summary data-i18n="akHow">How to play</summary><ol>
           <li data-i18n="akStepOne">Read the case and its rules.</li>
@@ -98,7 +99,7 @@
             <div id="ak-share-manual" hidden><label for="ak-share-text" data-i18n="akShareManual">Copy this spoiler-free challenge:</label><textarea id="ak-share-text" rows="5" readonly dir="auto"></textarea></div>
           </section>
         </article>
-        <section id="ak-casebook" class="ak-casebook" aria-labelledby="ak-casebook-title"><h2 id="ak-casebook-title" data-i18n="akProgress">Your casebook</h2><p id="ak-progress-count" class="ak-small"></p><div id="ak-case-list" class="ak-case-list"></div>
+        <section id="ak-casebook" class="ak-casebook" aria-labelledby="ak-casebook-title"><h2 id="ak-casebook-title" tabindex="-1" data-i18n="akProgress">Your casebook</h2><p id="ak-progress-count" class="ak-small"></p><div id="ak-case-list" class="ak-case-list"></div>
           <p class="ak-small" data-i18n="akPersonal">Progress stays on this device. Results are personal practice, not verified leaderboard scores.</p>
           <p id="ak-storage-notice" class="ak-notice" role="status" hidden></p>
           <button class="ghost-btn" type="button" id="ak-reset" data-i18n="akReset">Clear my progress</button>

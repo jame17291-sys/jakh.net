@@ -120,7 +120,7 @@ function deferred() {
   return { promise, resolve, reject };
 }
 
-test('actual exported UI mounts the authored HTML and completes all five cases in both languages', async () => {
+test('actual exported UI mounts the authored HTML and completes all eleven cases in both languages', async () => {
   for (const language of ['en', 'ar']) {
     const game = harness({ language });
     assert.equal(game.node('ak-loading').hidden, true);
@@ -147,8 +147,8 @@ test('actual exported UI mounts the authored HTML and completes all five cases i
       assert.ok(game.options().every(input => input.disabled));
       assert.equal(game.document.activeElement, game.node('ak-result-title'));
     }
-    assert.equal(Object.keys(JSON.parse(game.storage.get(PROGRESS_KEY)).cases).length, 5);
-    assert.equal(game.storageWrites.length, 5);
+    assert.equal(Object.keys(JSON.parse(game.storage.get(PROGRESS_KEY)).cases).length, 11);
+    assert.equal(game.storageWrites.length, 11);
   }
 });
 
@@ -247,7 +247,7 @@ test('reset confirmation removes only the game key and leaves unrelated settings
   assert.deepEqual(game.storageRemovals, [PROGRESS_KEY]);
   assert.equal(game.storage.has(PROGRESS_KEY), false);
   assert.equal(game.storage.get('unrelated-user-setting'), 'keep-me');
-  assert.equal(game.node('ak-progress-count').textContent, '0 of 5 cases explored');
+  assert.equal(game.node('ak-progress-count').textContent, '0 of 11 cases explored');
   assert.equal(game.node('ak-reset-confirm').hidden, true);
 });
 

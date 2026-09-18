@@ -1,11 +1,11 @@
 /**
- * Pure helpers for the five-case Akshifha pilot.
+ * Pure helpers for the Akshifha case collection.
  * Progress is deliberately local and unverified: it is never a leaderboard,
  * competitive score, streak, or proof that somebody solved a case.
  */
 export const PUBLIC_ORIGIN = 'https://riddlearabia.com';
 export const PROGRESS_VERSION = 1;
-export const MAX_PROGRESS_CASES = 5;
+export const MAX_PROGRESS_CASES = 11;
 const DAY_MS = 86_400_000;
 const MAX_ATTEMPTS = 999;
 const RESERVED_IDS = new Set(['constructor', 'prototype', '__proto__']);
@@ -45,7 +45,7 @@ export function utcDay(now = new Date()) {
   return isValidDay(day) ? day : new Date().toISOString().slice(0, 10);
 }
 
-/** The small pilot repeats openly; this is not a claim of fresh daily content. */
+/** The finite casebook repeats openly; this is not a claim of fresh daily content. */
 export function chooseDailyCase(cases, now = new Date()) {
   const available = usableCases(cases);
   if (!available.length) return null;
@@ -173,7 +173,7 @@ function emptyProgress() {
 
 /**
  * Tolerates damaged localStorage. Pass the authored CASES array (or IDs) to
- * discard unknown content. At most five personal completion records survive.
+ * discard unknown content. At most eleven personal completion records survive.
  * No imported score, streak, rank, timestamp, or extra property is trusted.
  */
 export function sanitizeProgress(input, caseIds) {
@@ -218,7 +218,7 @@ export function recordCompletion(previous, caseId, result, caseIds) {
   return clean;
 }
 
-/** Prefer the next uncompleted case; after all five, offer an honest replay. */
+/** Prefer the next uncompleted case; after all cases, offer an honest replay. */
 export function selectNextCase(cases, currentCaseId, progress) {
   const available = usableCases(cases);
   if (!available.length) return null;
@@ -229,4 +229,13 @@ export function selectNextCase(cases, currentCaseId, progress) {
     if (!completed[candidate.id]) return candidate;
   }
   return available[(index + 1) % available.length];
+}
+
+/** A returning player can explicitly continue a partially explored casebook. */
+export function selectContinuationCase(cases, currentCaseId, progress) {
+  const available = usableCases(cases);
+  const clean = sanitizeProgress(progress, available);
+  const completedCount = Object.keys(clean.cases).length;
+  if (completedCount === 0 || completedCount === available.length) return null;
+  return selectNextCase(available, currentCaseId, clean);
 }

@@ -347,7 +347,7 @@ test('truthful product and server-checking wording is enforced', () => {
     assert.doesNotMatch(ownedCopy, claim);
   }
   assert.match(app, /Battle Room/u);
-  assert.match(app, /Five original cases/u);
+  assert.match(app, /Eleven original cases/u);
   assert.match(app, /not a newly published case every day/u);
   assert.doesNotMatch(playHtml, /10 Free Browser Games|10 browser games/u);
   assert.match(searchLeaderboard, /scoreType === 'server-checked'/u);

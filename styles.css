@@ -1608,7 +1608,10 @@ html[dir="rtl"] .suggestion-title::after { content: ' ←'; }
 .daily-challenge-meta { font-size: var(--text-xs); color: var(--muted); }
 .daily-challenge-answer { margin-top: 0.75rem; padding: 0.6rem 0.85rem; background: color-mix(in srgb, var(--accent-3) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent-3) 30%, transparent); border-radius: 10px; font-weight: 600; font-size: 0.92rem; }
 .daily-challenge-btns { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; min-width: max-content; }
-@media (max-width: 600px) { .daily-challenge-card { grid-template-columns: 1fr; } .daily-challenge-btns { flex-direction: row; flex-wrap: wrap; } }
+@media (max-width: 600px) {
+  .daily-challenge-card { grid-template-columns: minmax(0, 1fr); }
+  .daily-challenge-btns { flex-direction: row; flex-wrap: wrap; min-width: 0; }
+}
 
 .timed-quiz-overlay { position: fixed; inset: 0; background: rgba(32,50,71,0.28); backdrop-filter: blur(10px); z-index: 1500; display: flex; align-items: center; justify-content: center; padding: 1rem; }
 .timed-quiz-card { background: var(--panel); border: 1px solid var(--line-strong); border-radius: 24px; padding: 1.1rem 1.25rem 1.25rem; max-width: 560px; width: 100%; max-height: calc(100svh - 2rem); overflow-y: auto; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 0.85rem; }
@@ -2604,6 +2607,93 @@ h1, h2, h3, h4, h5, h6 {
 
 .kv-hero-compact .kv-hero-stats {
   margin-top: 0.5rem;
+}
+
+/* A playable case is the home page's first destination. */
+.home-case-hero {
+  min-height: auto;
+}
+
+.home-case-hero .home-case-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  width: min(1120px, calc(100% - 2rem));
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  text-align: start;
+}
+
+.home-case-story {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.home-case-hero .kv-hero-title {
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
+  line-height: 1.06;
+}
+
+.home-case-hero .kv-hero-cta {
+  justify-content: flex-start;
+}
+
+.home-case-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.home-first-clue {
+  min-width: 0;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  border: 1px solid var(--line-strong);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.home-first-clue h2 {
+  margin-block: 0.75rem 1rem;
+  font-size: 1.25rem;
+}
+
+.home-first-clue p {
+  line-height: 1.65;
+}
+
+.home-first-clue .home-clue-time {
+  margin-block: 1rem;
+  color: var(--ink);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home-first-clue .text-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 760px) {
+  .home-case-hero .home-case-content {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 0.5rem;
+  }
+  .home-case-hero .kv-hero-title {
+    max-width: 16ch;
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+  .home-case-hero .home-first-clue {
+    width: 100%;
+  }
 }
 
 .kv-portals {

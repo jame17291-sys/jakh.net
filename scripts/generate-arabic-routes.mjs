@@ -46,7 +46,7 @@ const PAGE_ROUTES = [
     arabicPath: "/ar/play/",
     runtime: "app",
     title: "اكشفها وألعاب متصفح مجانية | ريدل أرابيا",
-    description: "العب اكشفها: اربط دليلين واكتشف التناقض في خمس قضايا مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
+    description: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
   },
   {
     source: "akshifha.html",
@@ -89,6 +89,13 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value).replaceAll("`", "&#96;");
+}
+
+function decodeHtmlAttribute(value) {
+  return String(value ?? "")
+    .replaceAll("&amp;", "&")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#39;", "'");
 }
 
 function extractObject(source, marker, label) {
@@ -386,7 +393,7 @@ function stripRetiredLanguage(search) {
 function localizeInternalLinks(html) {
   html = html.replace(/<a\b(?=[^>]*\bdata-href-ar=(?:"[^"]+"|'[^']+'))[^>]*>/giu, (tag) => {
     const value = tag.match(/\bdata-href-ar=(?:"([^"]+)"|'([^']+)')/iu);
-    return value ? replaceAttribute(tag, "href", value[1] || value[2]) : tag;
+    return value ? replaceAttribute(tag, "href", decodeHtmlAttribute(value[1] || value[2])) : tag;
   });
   return html.replace(/\bhref=(['"])([^'"]+)\1/giu, (attribute, quote, value) => {
     if (!value.startsWith("/") || value.startsWith("//")) return attribute;

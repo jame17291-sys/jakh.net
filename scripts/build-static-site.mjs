@@ -44,6 +44,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/akshifha-engine.js",
   "/akshifha-cases.js",
   "/akshifha-copy.js",
+  "/akshifha-study.js",
   "/akshifha.css",
   "/styles.css",
   "/privacy.css",
@@ -210,6 +211,7 @@ const AKSHIFHA_MODULE_DEPENDENCIES = Object.freeze([
   "/akshifha-engine.js",
   "/akshifha-cases.js",
   "/akshifha-copy.js",
+  "/akshifha-study.js",
 ]);
 
 function rewriteAkshifhaApplication(source, fingerprints) {

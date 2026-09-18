@@ -117,44 +117,27 @@
 <main id="top">
 
   <!-- ═══════════════════ HERO ═══════════════════ -->
-  <section class="kv-hero" id="kv-hero">
+  <section class="kv-hero home-case-hero" id="kv-hero" aria-labelledby="home-case-title">
     <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
-
-    <div class="kv-hero-content">
-      <p class="kv-eyebrow" data-i18n="homeEyebrow">A home for curious minds across Arabia</p>
-
-      <h1 class="kv-hero-title">
-        <img src="assets/riddlearabia-logo.webp" alt="" aria-hidden="true" class="kv-hero-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-        <span class="sr-only">Riddle Arabia — Riddles, quizzes, and brain games in English and Arabic</span>
-      </h1>
-
-      <p class="kv-hero-subtitle" data-i18n="homeTitle">
-        Turn a quiet moment into a good question. Discover Arabic riddles, shared challenges, and brain games in English and Arabic.
-      </p>
-
-      <div class="kv-hero-cta">
-        <a href="/akshifha" data-href-en="/akshifha" data-href-ar="/ar/games/akshifha/" class="kv-btn-primary" data-i18n="homeAkshifhaCta">Play today’s case</a>
-        <a href="/riddles" data-href-en="/riddles" data-href-ar="/ar/alghaz/" class="kv-btn-outline" data-i18n="homeSpacetoonCta">Browse riddles</a>
+    <div class="kv-hero-content home-case-content">
+      <div class="home-case-story">
+        <p class="kv-eyebrow" data-i18n="homeEyebrow">Akshifha · A mystery to begin with</p>
+        <h1 class="kv-hero-title" id="home-case-title" data-i18n="homeCaseTitle">Two stages. One host.</h1>
+        <p class="kv-hero-subtitle" data-i18n="homeTitle">Hana has two events to host. The organizer says the times work. The clocks tell a different story. Can you spot the problem?</p>
+        <div class="kv-hero-cta">
+          <a href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" class="kv-btn-primary" data-i18n="homeAkshifhaCta">Connect the clues</a>
+          <a href="/riddles" data-href-en="/riddles" data-href-ar="/ar/alghaz/" class="kv-btn-outline" data-i18n="homeSpacetoonCta">Browse riddles</a>
+        </div>
+        <p class="home-case-meta" data-i18n="homeCaseMeta">Free · Arabic &amp; English · No account or timer</p>
       </div>
-
-      <div class="kv-hero-stats">
-        <div class="kv-stat">
-          <span class="kv-stat-number" id="badgeCategories">56</span>
-          <span class="kv-stat-label" data-i18n="statCategories">Topics</span>
-        </div>
-        <div class="kv-stat-divider" aria-hidden="true"></div>
-        <div class="kv-stat">
-          <span class="kv-stat-number" id="badgeQuestions">3,553</span>
-          <span class="kv-stat-label" data-i18n="statQuestions">Questions</span>
-        </div>
-        <div class="kv-stat-divider" aria-hidden="true"></div>
-        <div class="kv-stat">
-          <span class="kv-stat-number">2</span>
-          <span class="kv-stat-label" data-i18n="statLanguages">Languages</span>
-        </div>
-      </div>
+      <aside class="home-first-clue" aria-labelledby="home-clue-title">
+        <p class="eyebrow" data-i18n="homeClueEyebrow">Your first piece of evidence</p>
+        <h2 id="home-clue-title" data-i18n="homeClueTitle">The rehearsal log</h2>
+        <p class="home-clue-time" dir="ltr" data-i18n="homeClueTime">18:12–18:27</p>
+        <p data-i18n="homeClueText">The puppet room clock is five minutes ahead of the foyer clock.</p>
+        <a class="text-btn" href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="homeClueCta">Open the second clue →</a>
+      </aside>
     </div>
-
   </section>
 
   <!-- ═══════════════════ PORTALS ═══════════════════ -->
@@ -168,7 +151,7 @@
         <h2 class="kv-portal-title" data-i18n="portalMindTitle">The Riddle Library</h2>
         <p class="kv-portal-desc" data-i18n="portalMindDesc">Explore questions made for a pause, a smile, and a little friendly debate. Reveal an answer, track your score, and keep discovering.</p>
         <div class="kv-portal-stats">
-          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">56 topics</span>
+          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">51 topics</span>
           <span class="kv-portal-stat" data-i18n="portalBilingualStat">English &amp; Arabic</span>
         </div>
         <span class="kv-portal-cta" data-i18n="portalMindCta">Open the library →</span>
@@ -176,15 +159,15 @@
 
       <!-- Featured game -->
       <a class="kv-portal-card kv-portal-games" href="/akshifha" data-href-en="/akshifha" data-href-ar="/ar/games/akshifha/" aria-label="Akshifha — spot the contradiction" data-i18n-aria-label="playAkshifhaAria">
-        <p class="kv-portal-tag" data-i18n="portalGamesTag">New · Free pilot</p>
+        <p class="kv-portal-tag" data-i18n="portalGamesTag">Featured game</p>
         <span class="kv-portal-icon" aria-hidden="true">✦</span>
         <h2 class="kv-portal-title" data-i18n="portalGamesTitle">Akshifha — اكشفها</h2>
-        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Something in the story doesn’t add up. Inspect the evidence, connect two clues, and uncover the contradiction.</p>
+        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Trace a route, untangle a timeline, and test an explanation. Eleven short cases, each with two clues that work together.</p>
         <div class="kv-portal-stats">
-          <span class="kv-portal-stat" data-i18n="portalGamesStat1">5 original cases</span>
-          <span class="kv-portal-stat" data-i18n="portalGamesStat2">Arabic &amp; English</span>
+          <span class="kv-portal-stat" data-i18n="portalGamesStat1">11 original cases</span>
+          <span class="kv-portal-stat" data-i18n="portalGamesStat2">Hints when you need them</span>
         </div>
-        <span class="kv-portal-cta" data-i18n="portalGamesCta">Open today’s case →</span>
+        <span class="kv-portal-cta" data-i18n="portalGamesCta">Explore the casebook →</span>
       </a>
 
     </div>

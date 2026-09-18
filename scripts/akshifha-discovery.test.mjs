@@ -35,14 +35,17 @@ test("legacy games are not promoted or deleted in the portfolio transition", () 
   assert.match(read("scripts/generate-riddlearabia-seo.mjs"), /PRESERVED_GAME_SLUGS\.map/u, "sitemap retains existing indexable URLs");
 });
 
-test("discovery tells the truth about the five-case pilot and promotes a playable URL", () => {
+test("discovery promotes the actual opening clue and tells the truth about the finite casebook", () => {
   const play = read("play.html");
   const app = read("app.js");
   const home = read("index.html");
-  assert.match(play, /Five original cases/u);
+  assert.match(play, /Eleven original cases/u);
   assert.match(play, /not a newly published case every day/u);
-  assert.match(home, /href="\/akshifha"[^>]*data-href-ar="\/ar\/games\/akshifha\/"[^>]*class="kv-btn-primary"/u);
-  assert.match(app, /خمس قضايا مؤلّفة بعناية/u);
+  assert.match(home, /href="\/akshifha\?case=two-stages-one-host&amp;mode=practice"[^>]*data-href-ar="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"[^>]*class="kv-btn-primary"/u);
+  assert.match(read("ar/index.html"), /href="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"/u);
+  assert.doesNotMatch(read("ar/index.html"), /two-stages-one-host&amp;amp;mode=practice/u);
+  assert.match(home, /The puppet room clock is five minutes ahead of the foyer clock./u);
+  assert.match(app, /إحدى عشرة قضية مؤلّفة بعناية/u);
   assert.doesNotMatch(`${play}\n${home}`, /10 browser games|10 Free Browser Games|Ten browser adaptations/u);
   assert.match(read("scripts/generate-arabic-routes.mjs"), /source: "akshifha\.html"[\s\S]*?runtime: "akshifha"/u);
 });

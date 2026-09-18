@@ -209,6 +209,7 @@ test('required install fails closed and does not request activation', async () =
     { failedPaths: ['/akshifha-engine.js'] },
     { failedPaths: ['/akshifha-cases.js'] },
     { failedPaths: ['/akshifha-copy.js'] },
+    { failedPaths: ['/akshifha-study.js'] },
     { rejectedPaths: ['/manifest.webmanifest'] },
     { failedCachePutPaths: ['/styles.css'] },
   ]) {
@@ -238,6 +239,7 @@ test('complete install guarantees the bilingual core shell, Akshifha modules, le
     '/akshifha-engine.js',
     '/akshifha-cases.js',
     '/akshifha-copy.js',
+    '/akshifha-study.js',
     '/akshifha.css',
     '/privacy.css',
     '/styles.css',
@@ -307,7 +309,7 @@ test('offline navigation returns compatible cached documents or the dedicated fa
     await (await harness.dispatchFetch('/ar/games/akshifha/?case=delivery', 'navigate')).text(),
     'network:/ar/games/akshifha/',
   );
-  for (const asset of ['/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha.css']) {
+  for (const asset of ['/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha-study.js', '/akshifha.css']) {
     assert.equal(await (await harness.dispatchFetch(asset)).text(), `network:${asset}`);
   }
   assert.equal(await (await harness.dispatchFetch('/catan.html?lang=ar', 'navigate')).text(), 'network:/catan');

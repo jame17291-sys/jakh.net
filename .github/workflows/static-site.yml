@@ -153,6 +153,7 @@ jobs:
           node scripts/generate-search-index.mjs --check
           node scripts/generate-production-quarantine.mjs --check
           node scripts/content-review-report.mjs --check
+          node scripts/generate-learning-audit-ledger.mjs --check
           node scripts/audit-question-bank.mjs --strict
           node scripts/validate-seo.mjs
           node scripts/validate-static.mjs

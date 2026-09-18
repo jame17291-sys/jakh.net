@@ -73,11 +73,20 @@ retention until the corresponding qualified people and research are real and
 recorded. These dependencies block those claims and the release decisions that
 depend on them, not the integrity tooling and other safe implementation work.
 
-## Deployment blocker for the already-merged Akshifha release
+## Deployment status for the already-merged Akshifha release
 
 Commit `47cfb8d81b714c7a81f3827689c0b26c82bf0df6` is on protected `main`.
-Its required API compatibility workflow is waiting at
-<https://github.com/jame17291-sys/jakh.net/actions/runs/35323245094/job/105530314141>
-for a production-environment reviewer. It must be approved there before the
-same-commit API/static release sequence can continue. `domain_cutover` remains
-`false`.
+Its API compatibility release completed successfully. The static release
+([run 35324786965](https://github.com/jame17291-sys/jakh.net/actions/runs/35324786965))
+passed source, browser, accessibility, artifact, rollback-target, and same-commit
+API gates, then failed during Worker-route deployment. Cloudflare accepted the
+upload but returned authentication error `10000` for the production zone's
+`workers/routes` endpoint. The workflow executed its rollback/receipt path;
+this is not a live deployment.
+
+The owner must replace the protected `production` environment secret
+`CLOUDFLARE_STATIC_SITE_API_TOKEN` with a token scoped to the configured
+Cloudflare account and production zones, including **Account → Workers Scripts:
+Edit** and **Zone → Workers Routes: Edit**. After that secret is corrected,
+rerun the failed static release from the same protected-main commit.
+`domain_cutover` remains `false`.

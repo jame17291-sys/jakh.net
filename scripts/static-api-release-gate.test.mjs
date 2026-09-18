@@ -155,6 +155,7 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   const buildPosition = workflow.indexOf("npm run build:site");
   const browserPosition = workflow.indexOf("npm run test:browser:matrix");
   const accessibilityPosition = workflow.indexOf("npm run test:a11y");
+  const routeAuthorityPosition = workflow.indexOf("Verify Cloudflare static-route authority");
   const apiGatePosition = workflow.indexOf("id: api_before");
   const deployPosition = workflow.indexOf("id: deploy");
   const postGatePosition = workflow.indexOf("id: api_after");
@@ -166,7 +167,10 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   assert.match(workflow, /JAKH_SITE_ROOT: \$\{\{ github\.workspace \}\}\/site-worker\/dist/u);
   assert.match(workflow, /JAKH_SITE_MANIFEST: \$\{\{ github\.workspace \}\}\/site-worker\/generated\/site-manifest\.json/u);
   assert.match(workflow, /CLOUDFLARE_API_RELEASE_READ_TOKEN/u);
+  assert.match(workflow, /zones\/\$CLOUDFLARE_ROUTE_ZONE_ID\/workers\/routes/u);
+  assert.match(workflow, /Grant Zone > Workers Routes: Edit/u);
   assert.ok(apiGatePosition > accessibilityPosition && apiGatePosition < deployPosition);
+  assert.ok(routeAuthorityPosition > 0 && routeAuthorityPosition < deployPosition);
   assert.ok(postGatePosition > deployPosition);
   assert.ok(runtimeMonitorPosition > postGatePosition);
   assert.match(workflow, /static-api-release-gate\.mjs verify/gu);

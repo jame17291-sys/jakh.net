@@ -197,8 +197,8 @@
       "ar": "الأعداد والعد"
     },
     "question": {
-      "en": "Four red blocks remain after two are removed from a set of six. One blue block is placed on each remaining red block. How many blocks are now in the four stacks?",
-      "ar": "بقيت أربع مكعبات حمراء بعد إزالة اثنين من مجموعة من ستة. وُضع مكعب أزرق فوق كل مكعب أحمر متبقٍ. كم مكعباً أصبح في الأكوام الأربعة؟"
+      "en": "You have six red blocks. You take away two, then put one blue block on each red block that remains. How many blocks are in the four stacks?",
+      "ar": "لديك ستة مكعبات حمراء. تُبعد مكعبين، ثم تضع مكعباً أزرق فوق كل مكعب أحمر متبقٍّ. كم مكعباً يوجد في الأكوام الأربعة؟"
     },
     "answer": {
       "en": "8 blocks — four red and four blue",

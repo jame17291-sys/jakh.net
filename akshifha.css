@@ -66,6 +66,12 @@
 .ak-case-entry-status { color: var(--muted); font-size: .875rem; }
 .ak-footer { max-width: 980px; line-height: 1.8; }
 .ak-footer a { text-decoration: underline; text-underline-offset: .2em; min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 768px) {
+  body.page-akshifha .ak-header .header-actions {
+    display: flex; position: static; inset: auto; width: auto;
+    padding: 0; background: none; border: 0; box-shadow: none;
+  }
+}
 @media (max-width: 600px) {
   .ak-evidence-grid { grid-template-columns: minmax(0, 1fr); }
   .ak-header { gap: .4rem; padding-inline: 1rem; }

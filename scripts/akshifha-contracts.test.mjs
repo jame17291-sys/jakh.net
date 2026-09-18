@@ -48,9 +48,9 @@ test('game controls have stable IDs and native keyboard semantics', () => {
 test('standalone game keeps guest play isolated and its payload bounded', () => {
   assert.doesNotMatch(english, /src="\/?(?:app|battle-mode|game-i18n)\.js/u);
   assert.doesNotMatch(runtime, /innerHTML|insertAdjacentHTML|\beval\s*\(|fetch\s*\(|new WebSocket/u);
-  const assets = ['akshifha.js', 'akshifha-engine.js', 'akshifha-cases.js', 'akshifha-copy.js', 'akshifha.css'];
+  const assets = ['akshifha.js', 'akshifha-engine.js', 'akshifha-cases.js', 'akshifha-copy.js', 'akshifha-study.js', 'akshifha.css'];
   const gzipBytes = assets.reduce((sum, file) => sum + gzipSync(read(file), { level: 9 }).length, 0);
-  assert.ok(gzipBytes < 30_000, `Akshifha-only scripts and CSS exceed 30 KB gzip: ${gzipBytes}`);
-  assert.match(runtime, /JakhPrivacy\?\.analyticsAllowed\?\.\(\) !== true/u);
+  assert.ok(gzipBytes < 36_000, `Akshifha-only scripts and CSS exceed 36 KB gzip: ${gzipBytes}`);
+  assert.match(runtime, /allowed: \(\) => window\.JakhPrivacy\?\.analyticsAllowed\?\.\(\) === true/u);
   assert.doesNotMatch(runtime, /localStorage\.clear\(/u);
 });

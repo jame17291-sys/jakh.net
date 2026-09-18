@@ -6,7 +6,7 @@ import {
   resultRank, sanitizeProgress, selectNextCase, utcDay,
 } from '../akshifha-engine.js';
 
-const cases = Array.from({ length: 5 }, (_, index) => ({
+const cases = Array.from({ length: 11 }, (_, index) => ({
   id: `case-${index + 1}`,
   title: { ar: 'عنوان لا يُشارك', en: 'A title that must not be shared' },
   evidence: [{ id: 'receipt' }, { id: 'clock' }, { id: 'note' }],
@@ -26,14 +26,14 @@ test('UTC date validation rejects overflow, ambiguous formats, and impossible le
   assert.equal(utcDay(new Date('2026-09-15T23:00:00-03:00')), '2026-09-16');
 });
 
-test('daily rotation is deterministic, UTC-based, and openly repeats the five pilots', () => {
+test('daily rotation is deterministic, UTC-based, and openly repeats the finite casebook', () => {
   const first = chooseDailyCase(cases, date);
   assert.equal(first, chooseDailyCase(cases, new Date('2026-09-16T23:59:59.999Z')));
   assert.equal(first, chooseDailyCase(cases, new Date('2026-09-16T00:00:00.000Z')));
   assert.notEqual(first, chooseDailyCase(cases, new Date('2026-09-17T00:00:00.000Z')));
-  assert.equal(first, chooseDailyCase(cases, new Date('2026-09-21T12:00:00.000Z')));
-  const week = Array.from({ length: 5 }, (_, day) => chooseDailyCase(cases, new Date(Date.UTC(2026, 8, 16 + day))).id);
-  assert.equal(new Set(week).size, 5);
+  assert.equal(first, chooseDailyCase(cases, new Date('2026-09-27T12:00:00.000Z')));
+  const cycle = Array.from({ length: 11 }, (_, day) => chooseDailyCase(cases, new Date(Date.UTC(2026, 8, 16 + day))).id);
+  assert.equal(new Set(cycle).size, 11);
   for (let offset = -100; offset <= 100; offset += 1) {
     assert.ok(cases.includes(chooseDailyCase(cases, new Date(offset * 86_400_000))));
   }
@@ -184,7 +184,7 @@ test('solving after a reveal records the better result but never claims a verifi
 
 test('practice selection prefers uncompleted cases, wraps safely, and permits honest replays', () => {
   assert.equal(selectNextCase(cases, 'case-1'), cases[1]);
-  assert.equal(selectNextCase(cases, 'case-5'), cases[0]);
+  assert.equal(selectNextCase(cases, 'case-11'), cases[0]);
   assert.equal(selectNextCase(cases, 'missing'), cases[0]);
   const progress = recordCompletion(null, 'case-2', solved, cases);
   assert.equal(selectNextCase(cases, 'case-1', progress), cases[2]);

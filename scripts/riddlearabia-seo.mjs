@@ -237,8 +237,8 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ["ayam-tayebeen", "ayt-004"],
       ["ayam-tayebeen", "ayt-005"],
       ["ayam-tayebeen", "ayt-006"],
-      ["ayam-tayebeen", "ayt-007"],
       ["ayam-tayebeen", "ayt-008"],
+      ["ayam-tayebeen", "ayt-009"],
     ],
   },
   {
@@ -250,18 +250,18 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "ألعاب دماغ مجانية أونلاين | ريدل أرابيا",
     },
     descriptions: {
-      en: "Play Akshifha: connect two clues and spot the contradiction in five free Arabic and English mysteries. Explore Chess and Backgammon in Classics.",
-      ar: "العب اكشفها: اربط دليلين واكتشف التناقض في خمس قضايا مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
+      en: "Play Akshifha: connect two clues and discover what follows in eleven free Arabic and English mysteries. Explore Chess and Backgammon in Classics.",
+      ar: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
     },
     eyebrow: { en: "Small mysteries. Satisfying discoveries.", ar: "قضايا قصيرة ولحظات اكتشاف" },
     headings: { en: "Something doesn’t add up. Can you spot it?", ar: "في القصة شيء لا يستقيم. هل تكتشفه؟" },
     introductions: {
-      en: "Start with Akshifha, our new evidence game. Read a short case, inspect the details, and connect the clues that reveal the contradiction. Take your time: no countdown, account, or download.",
-      ar: "ابدأ باكشفها، لعبتنا الجديدة لربط الأدلة. اقرأ قضية قصيرة وتفحّص التفاصيل واربط الدليلين اللذين يكشفان التناقض. خذ وقتك: بلا عدّ تنازلي أو حساب أو تنزيل.",
+      en: "Start with Akshifha, our evidence game. Read a short case, inspect the details, and connect the clues that support a conclusion. Take your time: no countdown, account, or download.",
+      ar: "ابدأ باكشفها، لعبتنا لربط الأدلة. اقرأ قضية قصيرة وتفحّص التفاصيل واربط الدليلين اللذين يدعمان استنتاجًا. خذ وقتك: بلا عدّ تنازلي أو حساب أو تنزيل.",
     },
     guidance: {
-      en: "The free pilot includes five original cases. Today’s pick rotates through these cases; it is not a newly published case every day. Chess and Backgammon remain below for a quieter change of pace.",
-      ar: "تضم النسخة التجريبية المجانية خمس قضايا مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ لا تُنشر قضية جديدة كل يوم. ولوقت أهدأ، تجد الشطرنج وطاولة الزهر أدناه.",
+      en: "The free casebook includes eleven original cases. Today’s pick rotates through this finite collection; it is not a newly published case every day. Chess and Backgammon remain below for a quieter change of pace.",
+      ar: "يضم دفتر القضايا المجاني إحدى عشرة قضية مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ إنها مجموعة محدودة ولا تعني نشر قضية جديدة كل يوم. ولوقت أهدأ، تجد الشطرنج وطاولة الزهر أدناه.",
     },
   },
 ]);
@@ -273,8 +273,8 @@ export const RIDDLE_ARABIA_GAME_CATALOG = Object.freeze([
     kind: "featured",
     names: { en: "Akshifha — spot the contradiction", ar: "اكشفها — اكتشف التناقض" },
     descriptions: {
-      en: "Inspect the evidence, connect two clues, and choose the conclusion they support. Five free cases in Arabic and English, with no timer or sign-up.",
-      ar: "تفحّص الأدلة واربط دليلين واختر الاستنتاج الذي يدعمانه. خمس قضايا مجانية بالعربية والإنجليزية بلا مؤقّت أو تسجيل.",
+      en: "Inspect the evidence, connect two clues, and choose the conclusion they support. Eleven free cases in Arabic and English, with no timer or sign-up.",
+      ar: "تفحّص الأدلة واربط دليلين واختر الاستنتاج الذي يدعمانه. إحدى عشرة قضية مجانية بالعربية والإنجليزية بلا مؤقّت أو تسجيل.",
     },
   },
   {

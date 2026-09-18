@@ -120,6 +120,7 @@ const REQUIRED_CORE_ASSETS = [
   '/akshifha-engine.js',
   '/akshifha-cases.js',
   '/akshifha-copy.js',
+  '/akshifha-study.js',
   '/akshifha.css',
   '/site-i18n.js',
   '/game-i18n.js',

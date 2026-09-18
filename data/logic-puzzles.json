@@ -1215,8 +1215,8 @@
       "ar": "حلزون في قاع بئر عمقها 10 أمتار. كل نهار يتسلق 3 أمتار وكل ليلة ينزلق متران. كم يوماً يحتاج للخروج؟"
     },
     "answer": {
-      "en": "8 days. After 7 days the snail is at 7 m. On day 8 it climbs 3 m to reach 10 m and escapes before slipping back.",
-      "ar": "8 أيام. بعد 7 أيام يكون الحلزون عند 7 م. في اليوم الثامن يتسلق 3 م ليصل 10 م ويهرب قبل الانزلاق."
+      "en": "8 days. After seven full days and nights, the snail is at 7 m. On day 8 it climbs to 10 m and escapes, so it does not slide back that night.",
+      "ar": "8 أيام. بعد سبعة أيام ولياليها، يكون الحلزون على ارتفاع 7 أمتار. وفي اليوم الثامن يصل إلى ارتفاع 10 أمتار ويخرج، فلا ينزلق في تلك الليلة."
     },
     "review": {
       "status": "pending"

@@ -801,7 +801,7 @@ async function main() {
             assert.equal(await page.locator("html").getAttribute("dir"), language === "ar" ? "rtl" : "ltr");
             assert.equal(await page.locator("#ak-case-title").innerText(), cake.title[language]);
             assert.equal(await page.locator("#akLanguage").inputValue(), language);
-            assert.equal(await page.locator("#ak-case-list [data-case-id]").count(), 5);
+            assert.equal(await page.locator("#ak-case-list [data-case-id]").count(), 11);
             assert.equal(await page.locator("#ak-check").isDisabled(), true);
             assert.equal(await page.locator('#ak-evidence input[type="checkbox"]:checked').count(), 0);
             assert.equal(await page.locator('#ak-evidence [data-proof="true"]').count(), 0,

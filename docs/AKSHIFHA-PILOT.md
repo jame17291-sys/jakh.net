@@ -1,7 +1,11 @@
-# Akshifha: five-case free pilot
+# Akshifha: historical five-case pilot baseline
 
-Implemented 2026-09-16. This is a local implementation, not a production release,
-native-editor approval, visual-audit sign-off, or evidence that players find it fun.
+Implemented 2026-09-16. This record describes the initial five-case baseline;
+it is superseded for current product behavior by the eleven-case
+[casebook](AKSHIFHA-CASEBOOK.md) and the consent-gated
+[two-week playtest protocol](AKSHIFHA-PLAYTEST.md). It is not a production
+release, native-editor approval, visual-audit sign-off, or evidence that players
+find the game fun.
 
 ## Product decision
 
@@ -24,9 +28,11 @@ The two proposed social games are not implemented or advertised as playable.
 - Two explanatory hints are available, without a timer or paywall.
 - Answer reveal requires confirmation and is recorded as revealed, not solved.
 - Completed cases show the connecting evidence and full reasoning.
-- Five complete original cases exist in Arabic and English. Their UTC daily
-  rotation explicitly repeats. Each case also remains freely available in the
-  casebook; there is no artificial daily lockout.
+- At the initial pilot date, five original cases existed in Arabic and English.
+  The current eleven-case collection keeps those IDs and their saved progress.
+  Its UTC daily selection explicitly repeats and never represents a newly
+  published case. Each case remains freely available in the casebook; there is
+  no artificial daily lockout.
 - Case IDs in challenge links pin the same puzzle across midnight. URLs contain
   no answer, personal identifier, claimed score, or preview hostname.
 - Native sharing, clipboard copying, and a selectable-text fallback are supported.
@@ -72,10 +78,10 @@ therefore describe consenting sessions, not the whole audience or unique people.
 
 ## Build and QA
 
-The entry module, three module dependencies and CSS receive content hashes.
+The entry module, four module dependencies and CSS receive content hashes.
 Dependency URLs are rewritten before hashing the entry, so changed content
 changes the module graph consistently. The service worker includes both routes
-and their dependencies. The Akshifha scripts/CSS have a 30 KB combined gzip
+and their dependencies. The expanded Akshifha scripts/CSS have a 36 KB combined gzip
 budget; shared site styles and images are additional bytes.
 
 Run from the repository root:

@@ -153,6 +153,7 @@ jobs:
           node scripts/generate-search-index.mjs --check
           node scripts/generate-production-quarantine.mjs --check
           node scripts/content-review-report.mjs --check
+          node scripts/generate-learning-audit-ledger.mjs --check
           node scripts/audit-question-bank.mjs --strict
           node scripts/validate-seo.mjs
           node scripts/validate-static.mjs
@@ -268,6 +269,41 @@ jobs:
             echo "::error title=Static release blocked::Configure the production environment secret CLOUDFLARE_ACCOUNT_ID."
             exit 1
           fi
+
+      - name: Verify Cloudflare static-route authority
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_STATIC_SITE_API_TOKEN }}
+          CLOUDFLARE_ROUTE_ZONE_ID: 6e49c9d80ce06c3afd166ca3e85eac23
+          RECEIPT_DIR: ${{ runner.temp }}/jakh-site-release
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          response="$RECEIPT_DIR/static-route-authority.json"
+          http_status="$(curl --silent --show-error --retry 2 --retry-all-errors \
+            --connect-timeout 10 --max-time 30 \
+            --output "$response" --write-out '%{http_code}' \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ROUTE_ZONE_ID/workers/routes")"
+          node --input-type=module - "$response" "$http_status" <<'NODE'
+          import { readFileSync } from "node:fs";
+          const [responsePath, status] = process.argv.slice(2);
+          let payload;
+          try {
+            payload = JSON.parse(readFileSync(responsePath, "utf8"));
+          } catch {
+            throw new Error(`Cloudflare Worker Routes preflight returned HTTP ${status} with no valid JSON response`);
+          }
+          if (status !== "200" || payload.success !== true) {
+            const codes = Array.isArray(payload.errors)
+              ? payload.errors.map((error) => error.code).filter(Boolean).join(", ")
+              : "none";
+            throw new Error(
+              `Cloudflare deployment token cannot read Worker Routes for the configured production zone (HTTP ${status}; error codes: ${codes}). `
+              + "Grant Zone > Workers Routes: Edit to CLOUDFLARE_STATIC_SITE_API_TOKEN and verify its zone scope.",
+            );
+          }
+          NODE
 
       - name: Capture exact rollback target and baseline
         id: preflight

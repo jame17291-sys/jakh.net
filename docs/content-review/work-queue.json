@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-09-16",
+  "asOf": "2026-09-18",
   "sourcePolicy": {
     "discoveryBatch": "One packet may share source-discovery work only within this exact category/subcategory group.",
     "claimMapping": "Every atomic claim must map reciprocally to accepted evidence with a precise locator.",
@@ -25993,12 +25993,12 @@
           ],
           "contentSignals": {
             "answerWords": {
-              "en": 27,
-              "ar": 22
+              "en": 32,
+              "ar": 26
             },
             "containsNumber": true,
             "containsYear": false,
-            "needsClaimDecomposition": false
+            "needsClaimDecomposition": true
           },
           "legacyReviewSources": [],
           "evidenceState": {

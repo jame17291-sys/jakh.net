@@ -365,6 +365,8 @@ test('Battle invitations use shareable query URLs while accepting legacy hash li
   assert.match(battleMode, /api\.protocol === 'https:' \? 'wss:' : 'ws:'/u);
   assert.match(battleMode, /new URL\(state\.lang === 'ar' \? '\/ar\/' : '\/', location\.origin\)/u);
   assert.match(battleMode, /inviteUrl\.searchParams\.set\('battle', code\)/u);
+  assert.match(battleMode, /battleState\.joinPending = true;\s*\/\/ Render the pending state before opening the socket[\s\S]*?renderBattleUI\(\);\s*connectToBattle\(code, name, null\);/u);
+  assert.match(battleMode, /const wasJoinPending = battleState\.joinPending;\s*battleState\.joinPending = false;\s*if \(wasJoinPending && battleState\.phase === 'setup'\) renderBattleUI\(\);/u);
 });
 
 function battleConnectionHarness() {

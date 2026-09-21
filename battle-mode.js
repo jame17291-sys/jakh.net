@@ -230,12 +230,10 @@ function handleBattleJoin() {
     return;
   }
   battleState.joinPending = true;
-  const button = document.getElementById('battleJoinBtn');
-  if (button) {
-    button.disabled = true;
-    button.setAttribute('aria-busy', 'true');
-    button.textContent = `⚡ ${t('battleJoining')}`;
-  }
+  // Render the pending state before opening the socket. A guest join takes a
+  // network round trip, and re-rendering from state prevents any intermediate
+  // UI update from re-enabling the action and allowing a duplicate join.
+  renderBattleUI();
   connectToBattle(code, name, null);
 }
 
@@ -304,6 +302,9 @@ function connectToBattle(code, name, hostId) {
 
 function handleBattleMessage(msg) {
   if (msg.type === 'error') {
+    const wasJoinPending = battleState.joinPending;
+    battleState.joinPending = false;
+    if (wasJoinPending && battleState.phase === 'setup') renderBattleUI();
     showBattleError(localizedErrorMessage({ code: msg.code, message: msg.message }));
     return;
   }

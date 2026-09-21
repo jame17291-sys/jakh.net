@@ -15,6 +15,7 @@
     "test:a11y": "node scripts/accessibility-browser.mjs",
     "test:browser": "node scripts/browser-regression.mjs",
     "test:browser:matrix": "node scripts/browser-matrix.mjs",
+    "test:learning:browser": "node scripts/learning-browser.mjs",
     "test:site": "node scripts/build-static-site.mjs && npm --prefix site-worker test",
     "test:akshifha": "node --test scripts/akshifha-content.test.mjs scripts/akshifha-engine.test.mjs scripts/akshifha-expanded.test.mjs scripts/akshifha-study.test.mjs scripts/akshifha-discovery.test.mjs scripts/akshifha-ui.test.mjs scripts/akshifha-contracts.test.mjs",
     "test:akshifha:browser": "node scripts/akshifha-browser.mjs",

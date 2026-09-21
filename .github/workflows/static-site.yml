@@ -191,6 +191,15 @@ jobs:
           JAKH_BROWSER_MATRIX_DIAGNOSTICS: ${{ runner.temp }}/jakh-site-release/browser-matrix-diagnostics.json
         run: npm run test:browser:matrix
 
+      - name: Validate learning journeys
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+        run: |
+          for engine in chromium firefox webkit; do
+            JAKH_BROWSER_ENGINE="$engine" npm run test:learning:browser
+          done
+
       - name: Print browser matrix diagnostics
         if: ${{ always() }}
         env:

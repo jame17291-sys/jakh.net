@@ -5,6 +5,14 @@ import { LEARNING_PROGRAM_VERSION, LEARNING_UNITS, eligibleLearningUnits } from 
 test('learning release has stable authored eligibility and bilingual activity closure', () => {
   assert.match(LEARNING_PROGRAM_VERSION, /^\d{4}-\d{2}-\d{2}\.\d+$/u);
   assert.deepEqual(eligibleLearningUnits(), LEARNING_UNITS);
+  assert.equal(LEARNING_UNITS.length, 21, 'the bounded release contains 21 units');
+  assert.equal(LEARNING_UNITS.filter((unit) => unit.audience === 'university').length, 12);
+  for (const pathway of ['quantitative', 'evidence', 'digital-ai', 'study']) {
+    assert.equal(LEARNING_UNITS.filter((unit) => unit.pathway === pathway).length, 3, pathway);
+  }
+  for (const band of ['children-6-8', 'children-9-11', 'children-12-14']) {
+    assert.equal(LEARNING_UNITS.filter((unit) => unit.audience === band).length, 3, band);
+  }
   for (const unit of LEARNING_UNITS) {
     assert.equal(unit.publication.status, 'eligible-authored-learning-release', unit.id);
     assert.equal(unit.provenance.humanApproval, false, unit.id);

@@ -74,6 +74,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/play"/>
   </url>
   <url>
+    <loc>https://riddlearabia.com/learning</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/learning"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/learning"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/learn/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/learning"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/learning"/>
+  </url>
+  <url>
     <loc>https://riddlearabia.com/about</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>

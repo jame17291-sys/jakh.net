@@ -221,7 +221,7 @@ test('required install fails closed and does not request activation', async () =
   }
 });
 
-test('complete install guarantees the bilingual core shell, Akshifha modules, legacy games, and current daily data', async () => {
+test('complete install guarantees the bilingual core shell, learning and Akshifha modules, legacy games, and current daily data', async () => {
   const harness = createHarness();
   await harness.dispatchWithLifetime('install');
   assert.equal(harness.skipWaitingCount, 1);
@@ -241,6 +241,10 @@ test('complete install guarantees the bilingual core shell, Akshifha modules, le
     '/akshifha-copy.js',
     '/akshifha-study.js',
     '/akshifha.css',
+    '/learning',
+    '/learning.js',
+    '/learning-data.js',
+    '/learning.css',
     '/privacy.css',
     '/styles.css',
     '/manifest.webmanifest',
@@ -265,6 +269,7 @@ test('complete install guarantees the bilingual core shell, Akshifha modules, le
     '/ar/play/',
     '/ar/about/',
     '/ar/privacy/',
+    '/ar/learn/',
     '/ar/games/backgammon/',
     '/ar/games/akshifha/',
     '/ar/games/catan/',
@@ -310,6 +315,9 @@ test('offline navigation returns compatible cached documents or the dedicated fa
     'network:/ar/games/akshifha/',
   );
   for (const asset of ['/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha-study.js', '/akshifha.css']) {
+    assert.equal(await (await harness.dispatchFetch(asset)).text(), `network:${asset}`);
+  }
+  for (const asset of ['/learning.js', '/learning-data.js', '/learning.css']) {
     assert.equal(await (await harness.dispatchFetch(asset)).text(), `network:${asset}`);
   }
   assert.equal(await (await harness.dispatchFetch('/catan.html?lang=ar', 'navigate')).text(), 'network:/catan');
@@ -494,9 +502,10 @@ test('all direct game entries use a same-origin service-worker registration path
     '/ar/play/',
     '/ar/about/',
     '/ar/privacy/',
+    '/ar/learn/',
     ...games.map((route) => `/ar/games${route}/`),
   ]);
-  assert.equal(new Set(arabicShared).size, 17);
+  assert.equal(new Set(arabicShared).size, 18);
   for (const route of arabicShared) {
     const directory = route === '/ar/' ? path.join(root, 'ar') : path.join(root, route.slice(1));
     assert.equal(fs.existsSync(path.join(directory, 'index.html')), true, `${route} has no physical page`);

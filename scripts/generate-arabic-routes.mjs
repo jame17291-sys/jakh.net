@@ -49,6 +49,15 @@ const PAGE_ROUTES = [
     description: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
   },
   {
+    source: "learning.html",
+    output: "ar/learn/index.html",
+    englishPath: "/learning",
+    arabicPath: "/ar/learn/",
+    runtime: "learning",
+    title: "مسارات التعلّم | ريدل أرابيا",
+    description: "مسارات قصيرة ثنائية اللغة للتفكير الكمي وفحص الأدلة واتخاذ قرارات رقمية والاستكشاف المناسب للعمر.",
+  },
+  {
     source: "akshifha.html",
     output: "ar/games/akshifha/index.html",
     englishPath: "/akshifha",
@@ -183,6 +192,19 @@ const sitePages = extractObject(siteI18n, "const PAGES =", "site-i18n.js PAGES")
 const gameCommon = extractObject(read("game-i18n.js"), "var COMMON =", "game-i18n.js COMMON").ar;
 const privacyMessages = extractObject(read("privacy-page.js"), "const copy =", "privacy-page.js copy").ar;
 const akshifhaMessages = extractObject(read("akshifha-copy.js"), "const AKSHIFHA_UI =", "akshifha-copy.js").ar;
+const learningMessages = {
+  learningSkip: "انتقل إلى المحتوى الرئيسي",
+  learningBrand: "الصفحة الرئيسية لريدل أرابيا",
+  learningNav: "التنقل الرئيسي",
+  learningHome: "الرئيسية",
+  learningExplore: "استكشف",
+  learningGames: "الألعاب",
+  learningNoScriptTitle: "تحتاج مسارات التعلّم إلى جافاسكربت",
+  learningNoScriptText: "فعّل جافاسكربت لتشغيل التدريب التفاعلي وجدول المراجعة.",
+  learningInfo: "معلومات ريدل أرابيا",
+  learningPrivacy: "الخصوصية",
+  learningAbout: "عن الموقع",
+};
 const catalog = JSON.parse(read("data/catalog.json"));
 const categoriesBySlug = new Map((catalog.categories || []).map((category) => [category.slug, category]));
 const sectionsByKey = new Map((catalog.sections || []).map((section) => [section.key, section]));
@@ -193,6 +215,7 @@ function messagesFor(route, source) {
   if (route.runtime === "game") return { ...gameCommon, ...extractGameTranslations(source, route.game).ar };
   if (route.runtime === "privacy") return privacyMessages;
   if (route.runtime === "akshifha") return akshifhaMessages;
+  if (route.runtime === "learning") return learningMessages;
   return {};
 }
 

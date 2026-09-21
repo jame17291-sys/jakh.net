@@ -730,6 +730,7 @@ function renderSitemap() {
     { en: "/mind-lab", ar: "/ar/mind-lab/", priority: "0.85" },
     { en: "/collections", ar: "/ar/collections/", priority: "0.90" },
     { en: "/play", ar: "/ar/play/", priority: "0.75" },
+    { en: "/learning", ar: "/ar/learn/", priority: "0.80" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
     { en: "/privacy", ar: "/ar/privacy/", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, priority: page.kind === "games" ? "0.85" : "0.80" })),

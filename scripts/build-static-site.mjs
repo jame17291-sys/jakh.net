@@ -46,6 +46,9 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/akshifha-copy.js",
   "/akshifha-study.js",
   "/akshifha.css",
+  "/learning.js",
+  "/learning-data.js",
+  "/learning.css",
   "/styles.css",
   "/privacy.css",
   "/admin-config.js",
@@ -63,6 +66,8 @@ const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/app.js",
   "/akshifha.js",
   "/akshifha.css",
+  "/learning.js",
+  "/learning.css",
   "/styles.css",
   "/privacy.css",
   "/admin-config.js",
@@ -214,6 +219,8 @@ const AKSHIFHA_MODULE_DEPENDENCIES = Object.freeze([
   "/akshifha-study.js",
 ]);
 
+const LEARNING_MODULE_DEPENDENCIES = Object.freeze(["/learning-data.js"]);
+
 function rewriteAkshifhaApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of AKSHIFHA_MODULE_DEPENDENCIES) {
@@ -227,6 +234,22 @@ function rewriteAkshifhaApplication(source, fingerprints) {
     invariant(
       absolute.replacements + relative.replacements > 0,
       `akshifha.js does not reference its declared dependency ${dependency}`,
+    );
+    rewritten = relative.value;
+  }
+  return rewritten;
+}
+
+function rewriteLearningApplication(source, fingerprints) {
+  let rewritten = source;
+  for (const dependency of LEARNING_MODULE_DEPENDENCIES) {
+    const target = fingerprints[dependency];
+    invariant(target, `learning.js requires fingerprinted dependency ${dependency}`);
+    const absolute = replaceQuotedUrl(rewritten, dependency, target);
+    const relative = replaceQuotedUrl(absolute.value, `.${dependency}`, target);
+    invariant(
+      absolute.replacements + relative.replacements > 0,
+      `learning.js does not reference its declared dependency ${dependency}`,
     );
     rewritten = relative.value;
   }
@@ -701,6 +724,7 @@ function rewriteServiceWorkerTemplate(source, fingerprints) {
   for (const stable of [
     "/app.js", "/styles.css", "/privacy.css",
     "/akshifha.js", "/akshifha.css", ...AKSHIFHA_MODULE_DEPENDENCIES,
+    "/learning.js", "/learning.css", ...LEARNING_MODULE_DEPENDENCIES,
   ]) {
     const target = fingerprints[stable];
     if (!target) continue;
@@ -887,6 +911,8 @@ export async function buildStaticSite({
     "/styles.css",
     "/akshifha.css",
     ...AKSHIFHA_MODULE_DEPENDENCIES,
+    "/learning.css",
+    ...LEARNING_MODULE_DEPENDENCIES,
     "/privacy.css",
     "/admin-config.js",
     "/admin.css",
@@ -916,6 +942,12 @@ export async function buildStaticSite({
   if (akshifhaSource) {
     const rewritten = rewriteAkshifhaApplication(akshifhaSource.toString("utf8"), fingerprints);
     addFingerprint("/akshifha.js", Buffer.from(rewritten, "utf8"));
+  }
+
+  const learningSource = sourceBytes.get("learning.js");
+  if (learningSource) {
+    const rewritten = rewriteLearningApplication(learningSource.toString("utf8"), fingerprints);
+    addFingerprint("/learning.js", Buffer.from(rewritten, "utf8"));
   }
 
   const adminSource = sourceBytes.get("admin.js");

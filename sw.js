@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v83';
+const CACHE_VERSION = 'v84';
 const CORE_CACHE = `jakh-core-${CACHE_VERSION}`;
 const NAVIGATION_CACHE = `jakh-navigation-${CACHE_VERSION}`;
 const ASSET_CACHE = `jakh-assets-${CACHE_VERSION}`;
@@ -47,6 +47,7 @@ const ARABIC_SHARED_DOCUMENTS = [
   '/ar/play/',
   '/ar/about/',
   '/ar/privacy/',
+  '/ar/learn/',
   ...GAME_DOCUMENTS.map((route) => `/ar/games${route}/`),
 ];
 
@@ -113,6 +114,7 @@ const REQUIRED_CORE_ASSETS = [
   '/collections',
   '/about',
   '/privacy',
+  '/learning',
   '/science',
   OFFLINE_FALLBACK_PATH,
   '/app.js',
@@ -122,6 +124,9 @@ const REQUIRED_CORE_ASSETS = [
   '/akshifha-copy.js',
   '/akshifha-study.js',
   '/akshifha.css',
+  '/learning.js',
+  '/learning-data.js',
+  '/learning.css',
   '/site-i18n.js',
   '/game-i18n.js',
   '/privacy-consent.js',

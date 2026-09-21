@@ -244,6 +244,7 @@ test("the sitemap is exactly the compact indexable architecture", () => {
     ["/mind-lab", "/ar/mind-lab/"],
     ["/collections", "/ar/collections/"],
     ["/play", "/ar/play/"],
+    ["/learning", "/ar/learn/"],
     ["/about", "/ar/about/"],
     ["/privacy", "/ar/privacy/"],
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => [page.paths.en, page.paths.ar]),

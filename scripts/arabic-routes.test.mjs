@@ -25,6 +25,7 @@ const routes = [
   ["ar/index.html", "/", "/ar/"],
   ["ar/mind-lab/index.html", "/mind-lab", "/ar/mind-lab/"],
   ["ar/play/index.html", "/play", "/ar/play/"],
+  ["ar/learn/index.html", "/learning", "/ar/learn/"],
   ["ar/privacy/index.html", "/privacy", "/ar/privacy/"],
   ...GAME_SLUGS.map((slug) => [`ar/games/${slug}/index.html`, `/${slug}`, `/ar/games/${slug}/`]),
 ];
@@ -66,10 +67,10 @@ test("Arabic route generator is deterministic and current", () => {
     encoding: "utf8",
   });
   assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
-  assert.match(result.stdout, /current \(15 pages\)/u);
+  assert.match(result.stdout, /current \(16 pages\)/u);
 });
 
-test("all 15 generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
+test("all generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
   for (const [file, englishPath, arabicPath] of routes) {
     const html = read(file);
     const englishUrl = `https://riddlearabia.com${englishPath}`;

@@ -755,7 +755,7 @@ export async function runProductionMonitor(options = {}) {
   await check("Site: social preview image", async () => {
     const resource = await fetchResource(
       fetchImpl,
-      new URL(legacyBaseline ? "/assets/og-image.jpg" : "/assets/riddlearabia-og-image.png", config.siteOrigin),
+      new URL(legacyBaseline ? "/assets/og-image.jpg" : "/assets/riddlearabia-og-image-v2.png", config.siteOrigin),
       config.timeoutMs,
     );
     expectStatus(resource.response, 200);

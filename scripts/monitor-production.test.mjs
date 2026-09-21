@@ -86,7 +86,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false }) {
       `Canonical: ${siteOrigin}/.well-known/security.txt`,
     ].join("\n");
   }
-  if (pathname === "/assets/riddlearabia-og-image.png") {
+  if (pathname === "/assets/riddlearabia-og-image-v2.png") {
     if (legacySite) return null;
     return Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
   }
@@ -611,7 +611,7 @@ test("production monitor recovers once from transient network, status, and laten
       if (pathname === "/data/catalog.json" && attempt === 1) {
         throw new TypeError("simulated connection reset");
       }
-      if (pathname === "/assets/riddlearabia-og-image.png" && attempt === 1) {
+      if (pathname === "/assets/riddlearabia-og-image-v2.png" && attempt === 1) {
         return new Response("temporarily unavailable", { status: 503 });
       }
       if (pathname === "/" && attempt === 1) {
@@ -633,7 +633,7 @@ test("production monitor recovers once from transient network, status, and laten
     assert.equal(summary.failures.length, 0);
     assert.equal(attempts.get("/"), 2);
     assert.equal(attempts.get("/data/catalog.json"), 2);
-    assert.equal(attempts.get("/assets/riddlearabia-og-image.png"), 2);
+    assert.equal(attempts.get("/assets/riddlearabia-og-image-v2.png"), 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: Home")?.attempts, 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: catalog data")?.attempts, 2);
     assert.equal(summary.results.find(({ name }) => name === "Site: social preview image")?.attempts, 2);
@@ -719,7 +719,7 @@ test("production monitor fails after one retry when a transient status persists"
   await withFixture({}, async (fixtureOrigin) => {
     let socialPreviewAttempts = 0;
     const fetchImpl = async (input, options) => {
-      if (new URL(input).pathname === "/assets/riddlearabia-og-image.png") {
+      if (new URL(input).pathname === "/assets/riddlearabia-og-image-v2.png") {
         socialPreviewAttempts += 1;
         return new Response("temporarily unavailable", { status: 503 });
       }
@@ -753,7 +753,7 @@ test("production monitor does not retry a contract failure", async () => {
   await withFixture({}, async (fixtureOrigin) => {
     let socialPreviewAttempts = 0;
     const fetchImpl = async (input, options) => {
-      if (new URL(input).pathname === "/assets/riddlearabia-og-image.png") {
+      if (new URL(input).pathname === "/assets/riddlearabia-og-image-v2.png") {
         socialPreviewAttempts += 1;
         return new Response("not a jpeg", {
           status: 200,

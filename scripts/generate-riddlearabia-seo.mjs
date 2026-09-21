@@ -18,11 +18,23 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
 const SITE_ORIGIN = PRIMARY_SITE_ORIGIN;
-const LAST_MODIFIED = "2026-09-11";
-const ASSET_VERSION = "2026091102";
+const DEFAULT_LAST_MODIFIED = "2026-09-11";
+const SITEMAP_LAST_MODIFIED = Object.freeze({
+  "/": "2026-09-21",
+  "/ar/": "2026-09-21",
+  "/learning": "2026-09-21",
+  "/ar/learn/": "2026-09-21",
+  "/akshifha": "2026-09-18",
+  "/ar/games/akshifha/": "2026-09-18",
+  "/play": "2026-09-18",
+  "/ar/play/": "2026-09-18",
+  "/brain-games": "2026-09-18",
+  "/ar/games/brain-games/": "2026-09-18",
+});
+const ASSET_VERSION = "2026092101";
 const APP_ASSET_VERSION = "2026080201";
 const PRIVACY_ASSET_VERSION = "2026080101";
-const SOCIAL_IMAGE_PATH = "assets/riddlearabia-og-image.png";
+const SOCIAL_IMAGE_PATH = "assets/riddlearabia-og-image-v2.png";
 const LOGO_PATH = "assets/riddlearabia-logo.webp";
 const outputs = new Map();
 const stale = [];
@@ -712,10 +724,10 @@ function renderFunctionalCategoryShell(category, lang) {
 </html>`;
 }
 
-function sitemapUrl(url, priority, alternates) {
+function sitemapUrl(url, priority, alternates, lastModified) {
   return `  <url>
     <loc>${url}</loc>
-    <lastmod>${LAST_MODIFIED}</lastmod>
+    <lastmod>${lastModified}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${priority}</priority>
     <xhtml:link rel="alternate" hreflang="en" href="${alternates.en}"/>
@@ -739,9 +751,11 @@ function renderSitemap() {
   ];
   const entries = pairs.flatMap((pair) => {
     const alternates = { en: `${SITE_ORIGIN}${pair.en}`, ar: `${SITE_ORIGIN}${pair.ar}` };
+    const englishLastModified = SITEMAP_LAST_MODIFIED[pair.en] || DEFAULT_LAST_MODIFIED;
+    const arabicLastModified = SITEMAP_LAST_MODIFIED[pair.ar] || DEFAULT_LAST_MODIFIED;
     return [
-      sitemapUrl(alternates.en, pair.priority, alternates),
-      sitemapUrl(alternates.ar, pair.priority, alternates),
+      sitemapUrl(alternates.en, pair.priority, alternates, englishLastModified),
+      sitemapUrl(alternates.ar, pair.priority, alternates, arabicLastModified),
     ];
   });
   return `<?xml version="1.0" encoding="UTF-8"?>

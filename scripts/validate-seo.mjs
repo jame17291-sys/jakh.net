@@ -174,9 +174,9 @@ function rasterInfo(file) {
   return null;
 }
 
-const socialImagePath = path.join(root, "assets/riddlearabia-og-image.png");
+const socialImagePath = path.join(root, "assets/riddlearabia-og-image-v2.png");
 const socialImage = fs.existsSync(socialImagePath) ? rasterInfo(socialImagePath) : null;
-if (!socialImage) fail("assets/riddlearabia-og-image.png", "missing or unsupported social image");
+if (!socialImage) fail("assets/riddlearabia-og-image-v2.png", "missing or unsupported social image");
 
 const pages = listHtmlFiles().map((file) => {
   const relative = path.relative(root, file).split(path.sep).join("/");
@@ -226,7 +226,7 @@ for (const page of pages) {
       if (values(attribute, name).length !== 1) fail(page.relative, `expected exactly one ${name}`);
     }
     if (values("property", "og:url")[0] !== page.canonical) fail(page.relative, "og:url must equal canonical");
-    const expectedImage = `${siteOrigin}/assets/riddlearabia-og-image.png`;
+    const expectedImage = `${siteOrigin}/assets/riddlearabia-og-image-v2.png`;
     if (values("property", "og:image")[0] !== expectedImage) fail(page.relative, "og:image must use the Riddle Arabia social image");
     if (socialImage) {
       if (values("property", "og:image:type")[0] !== socialImage.mime) fail(page.relative, "og:image:type does not match the raster");

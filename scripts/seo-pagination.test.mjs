@@ -133,7 +133,7 @@ test("the public SEO surface is eight original bilingual Riddle Arabia experienc
       assert.match(source, new RegExp(`data-seo-experience="${escapeRegex(experience.key)}"`, "u"), `${relative}: explicit experience marker`);
       assert.match(source, /\/assets\/riddlearabia-logo\.webp/u, `${relative}: supplied logo`);
       assert.equal(meta(source, "property", "og:url"), canonical, `${relative}: social canonical`);
-      assert.equal(meta(source, "property", "og:image"), `${siteOrigin}/assets/riddlearabia-og-image.png`, `${relative}: social image`);
+      assert.equal(meta(source, "property", "og:image"), `${siteOrigin}/assets/riddlearabia-og-image-v2.png`, `${relative}: social image`);
       assert.equal(meta(source, "name", "twitter:card"), "summary_large_image", `${relative}: social card`);
       assert.doesNotMatch(source, /\bJAKH(?:\s+Riddles)?\b|(?:https?:\/\/)?(?:www\.)?jakh\.net/iu, `${relative}: retired public identity`);
       assert.doesNotMatch(source, /\/page\/|[?&]lang=(?:en|ar)(?:[&#"]|$)/iu, `${relative}: no legacy pagination or locale query`);
@@ -266,6 +266,18 @@ test("the sitemap is exactly the compact indexable architecture", () => {
       assert.match(entry.block, new RegExp(`hreflang="ar" href="${escapeRegex(ar)}"`, "u"), `${canonical}: Arabic alternate`);
       assert.match(entry.block, new RegExp(`hreflang="x-default" href="${escapeRegex(en)}"`, "u"), `${canonical}: default alternate`);
     }
+  }
+  const expectedLastModified = new Map([
+    [`${siteOrigin}/`, "2026-09-21"],
+    [`${siteOrigin}/ar/`, "2026-09-21"],
+    [`${siteOrigin}/learning`, "2026-09-21"],
+    [`${siteOrigin}/ar/learn/`, "2026-09-21"],
+    [`${siteOrigin}/akshifha`, "2026-09-18"],
+    [`${siteOrigin}/ar/games/akshifha/`, "2026-09-18"],
+  ]);
+  for (const [canonical, lastModified] of expectedLastModified) {
+    const entry = entries.find((candidate) => candidate.loc === canonical);
+    assert.match(entry.block, new RegExp(`<lastmod>${lastModified}<\\/lastmod>`, "u"), `${canonical}: truthful last-modified date`);
   }
   assert.equal(urls.some((url) => /\/ar\/topics\/|\/(?:science|logic-puzzles|kids-riddles)(?:\/|$)/u.test(new URL(url).pathname)), false, "functional category shells are intentionally noindex");
 });

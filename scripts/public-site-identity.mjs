@@ -18,7 +18,7 @@ export function rewritePublicSiteIdentity(source) {
     .replaceAll("assets/logo.webp", "assets/riddlearabia-logo.webp")
     .replaceAll("assets/logo.png", "assets/riddlearabia-logo.webp")
     .replaceAll("assets/riddlearabia-mark.svg", "assets/riddlearabia-logo.webp")
-    .replaceAll("assets/og-image.jpg", "assets/riddlearabia-og-image.png")
+    .replaceAll("assets/og-image.jpg", "assets/riddlearabia-og-image-v2.png")
     .replaceAll("wss://api.jakh.net", "wss://api.riddlearabia.com")
     .replaceAll("https://api.jakh.net", PRIMARY_API_ORIGIN)
     .replaceAll("https://www.jakh.net", PRIMARY_WWW_SITE_ORIGIN)

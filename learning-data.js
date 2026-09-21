@@ -12,6 +12,24 @@ function activity(id, stage, prompt, choices, correct, explanation) {
   return { id, stage, prompt, choices, correct, explanation };
 }
 
+function sharedPublication(audience) {
+  return {
+    status: 'eligible-authored-learning-release',
+    contentVersion: LEARNING_PROGRAM_VERSION,
+    languages: ['en', 'ar'],
+    ageBands: audience.startsWith('children-') ? [audience.slice('children-'.length)] : ['adult'],
+    restrictions: audience.startsWith('children-') ? ['no-open-chat', 'no-stranger-matching'] : [],
+  };
+}
+
+function sharedProvenance() {
+  return {
+    authoring: 'Riddle Arabia self-contained learning release',
+    review: 'automated solution and bilingual consistency review; human editorial, educator, and participant validation pending',
+    humanApproval: false,
+  };
+}
+
 function unit({ id, audience, pathway, title, objective, prerequisites, instruction, example, activities, summary }) {
   return {
     id,
@@ -24,18 +42,8 @@ function unit({ id, audience, pathway, title, objective, prerequisites, instruct
     example,
     activities,
     summary,
-    publication: {
-      status: 'eligible-authored-learning-release',
-      contentVersion: LEARNING_PROGRAM_VERSION,
-      languages: ['en', 'ar'],
-      ageBands: audience.startsWith('children-') ? [audience.slice('children-'.length)] : ['adult'],
-      restrictions: audience.startsWith('children-') ? ['no-open-chat', 'no-stranger-matching'] : [],
-    },
-    provenance: {
-      authoring: 'Riddle Arabia self-contained learning release',
-      review: 'automated solution and bilingual consistency review; human editorial, educator, and participant validation pending',
-      humanApproval: false,
-    },
+    publication: sharedPublication(audience),
+    provenance: sharedProvenance(),
   };
 }
 
@@ -225,12 +233,86 @@ export const LEARNING_UNITS = [
   }),
 ];
 
-// The first six university units above establish the executable engine. The
-// remaining units are declared in the next authoring batch, kept separate so
-// every addition receives its own content and bilingual review checkpoint.
+export const SOCIAL_COLLECTIONS = [
+  {
+    id: 'social-logic-sprints',
+    title: b('Logic sprints', 'جولات منطقية قصيرة'),
+    objective: b('Compare reasons before choosing an answer.', 'قارنوا الأسباب قبل اختيار إجابة.'),
+    format: b('Private link, two to four players, untimed by default.', 'رابط خاص، من لاعبين إلى أربعة، ومن دون مؤقّت افتراضياً.'),
+    replay: b('Replay changes the order and asks for a written reason before showing the group result.', 'تغيّر الإعادة الترتيب وتطلب سبباً مكتوباً قبل عرض نتيجة المجموعة.'),
+    prompt: b('Two friends give different answers. What should the group compare first?', 'يعطي صديقان إجابتين مختلفتين. ما أول شيء ينبغي أن تقارنه المجموعة؟'),
+    choices: [choice('The reasons behind each answer', 'الأسباب خلف كل إجابة'), choice('Who answered fastest', 'من أجاب أسرع'), choice('Whose phone is newer', 'هاتف من أحدث'), choice('Who speaks louder', 'من يتكلم بصوت أعلى')],
+    correct: 0,
+    explanation: b('A social reasoning round should reward evidence and explanation, not speed or status.', 'ينبغي أن تكافئ جولة التفكير الجماعي الدليل والتفسير لا السرعة أو المكانة.'),
+  },
+  {
+    id: 'social-data-talk',
+    title: b('Data talk', 'حوار البيانات'),
+    objective: b('Use a small table to agree on the safest claim.', 'استخدموا جدولاً صغيراً للاتفاق على الادعاء الأكثر حذراً.'),
+    format: b('Co-operative answer, then optional individual replay.', 'إجابة تعاونية ثم إعادة فردية اختيارية.'),
+    replay: b('Replay swaps the numbers while keeping the same reasoning pattern.', 'تبدّل الإعادة الأرقام مع إبقاء نمط التفكير نفسه.'),
+    prompt: b('A table shows 18 votes for A and 20 for B. Which group claim is best?', 'يعرض جدول 18 صوتاً لـ أ و20 صوتاً لـ ب. أي ادعاء جماعي أفضل؟'),
+    choices: [choice('B has two more votes in this table', 'لدى ب صوتان أكثر في هذا الجدول'), choice('Everyone prefers B', 'الجميع يفضل ب'), choice('A has no support', 'لا دعم لـ أ'), choice('The table proves tomorrow will match today', 'يثبت الجدول أن الغد سيطابق اليوم')],
+    correct: 0,
+    explanation: b('The table supports the exact difference, not a broad claim about everyone or the future.', 'يدعم الجدول الفرق المحدد، لا ادعاء واسعاً عن الجميع أو المستقبل.'),
+  },
+  {
+    id: 'social-word-clues',
+    title: b('Word clues', 'تلميحات الكلمات'),
+    objective: b('Solve a clue together while preserving bilingual meaning.', 'حلوا تلميحاً معاً مع الحفاظ على المعنى ثنائي اللغة.'),
+    format: b('One player proposes a clue; others test whether both languages still fit.', 'يقترح لاعب تلميحاً ويختبر الآخرون هل ما زال يناسب اللغتين.'),
+    replay: b('Replay asks for a cleaner clue, not a faster response.', 'تطلب الإعادة تلميحاً أوضح لا استجابة أسرع.'),
+    prompt: b('A clue works in English but not Arabic. What should the group do?', 'يعمل تلميح بالإنجليزية ولا يعمل بالعربية. ماذا تفعل المجموعة؟'),
+    choices: [choice('Rewrite it so both language versions point to the same idea', 'أعد صياغته بحيث تشير النسختان إلى الفكرة نفسها'), choice('Keep only English', 'أبقِ الإنجليزية فقط'), choice('Mark Arabic players wrong', 'اعتبر لاعبي العربية مخطئين'), choice('Hide the clue', 'أخفِ التلميح')],
+    correct: 0,
+    explanation: b('Bilingual play needs equivalent clues, not one language treated as secondary.', 'اللعب ثنائي اللغة يحتاج تلميحات متكافئة، لا لغة تعامل كأنها ثانوية.'),
+  },
+  {
+    id: 'social-memory-chain',
+    title: b('Memory chain', 'سلسلة الذاكرة'),
+    objective: b('Build a shared pattern and recall it later.', 'ابنوا نمطاً مشتركاً واسترجعوه لاحقاً.'),
+    format: b('Co-operative chain, no public leaderboard.', 'سلسلة تعاونية بلا لوحة ترتيب عامة.'),
+    replay: b('Replay starts from the missed link and records whether help was used.', 'تبدأ الإعادة من الحلقة التي فاتت وتسجل هل استُخدمت مساعدة.'),
+    prompt: b('The group misses the third item in a chain. What is the fairest outcome?', 'تفوت المجموعة العنصر الثالث في سلسلة. ما النتيجة الأعدل؟'),
+    choices: [choice('Record assisted recall and try a related chain', 'سجل استرجاعاً بمساعدة وجرب سلسلة مرتبطة'), choice('Call it mastery', 'سمّه إتقاناً'), choice('Erase the attempt', 'امسح المحاولة'), choice('Blame one player', 'لُم لاعباً واحداً')],
+    correct: 0,
+    explanation: b('Honest assisted outcomes make practice useful without pretending the recall was independent.', 'تجعل النتائج الصادقة بمساعدة التدريب مفيداً دون ادعاء أن الاسترجاع كان مستقلاً.'),
+  },
+  {
+    id: 'social-fair-choice',
+    title: b('Fair choice', 'اختيار عادل'),
+    objective: b('Choose a rule before comparing preferences.', 'اختاروا قاعدة قبل مقارنة التفضيلات.'),
+    format: b('Group decision prompt with an explicit fairness rule.', 'سؤال قرار جماعي مع قاعدة عدالة واضحة.'),
+    replay: b('Replay changes the preference mix and keeps the rule visible.', 'تغيّر الإعادة مزيج التفضيلات وتُبقي القاعدة ظاهرة.'),
+    prompt: b('Four players pick between two games. Two choose each game. What should happen before deciding?', 'يختار أربعة لاعبين بين لعبتين. يختار اثنان كل لعبة. ماذا يحدث قبل القرار؟'),
+    choices: [choice('Use the agreed tie rule', 'استخدم قاعدة التعادل المتفق عليها'), choice('Let the loudest choose', 'دع الأعلى صوتاً يختار'), choice('Ignore two players', 'تجاهل لاعبين'), choice('Pretend there was no tie', 'تظاهر أنه لا يوجد تعادل')],
+    correct: 0,
+    explanation: b('A rule chosen before the result is fairer than changing rules after seeing preferences.', 'القاعدة المختارة قبل النتيجة أعدل من تغيير القواعد بعد رؤية التفضيلات.'),
+  },
+  {
+    id: 'social-calm-debate',
+    title: b('Calm debate', 'نقاش هادئ'),
+    objective: b('Disagree with a claim by asking for a checkable reason.', 'اختلفوا مع ادعاء عبر طلب سبب قابل للتحقق.'),
+    format: b('Untimed discussion with reveal/cancel before the final answer.', 'نقاش بلا مؤقّت مع كشف/إلغاء قبل الإجابة النهائية.'),
+    replay: b('Replay separates changed minds from corrected facts.', 'تفصل الإعادة بين تغيّر الرأي وتصحيح المعلومة.'),
+    prompt: b('A teammate says “this must be true because many people shared it.” What is the best reply?', 'يقول زميل: «لا بد أن هذا صحيح لأن كثيرين شاركوه». ما أفضل رد؟'),
+    choices: [choice('What source can we check?', 'ما المصدر الذي يمكننا التحقق منه؟'), choice('Shares are proof', 'المشاركات دليل'), choice('Stop discussing', 'أوقف النقاش'), choice('Choose the funniest answer', 'اختر الإجابة الأظرف')],
+    correct: 0,
+    explanation: b('Popularity can point to interest, but a checkable source is needed for truth claims.', 'قد تشير الشعبية إلى الاهتمام، لكن ادعاءات الحقيقة تحتاج مصدراً قابلاً للتحقق.'),
+  },
+].map((collection) => ({
+  ...collection,
+  audience: 'friends',
+  publication: sharedPublication('adult'),
+  provenance: sharedProvenance(),
+}));
 
 export function learningUnitById(id) {
   return LEARNING_UNITS.find((entry) => entry.id === id) || null;
+}
+
+export function socialCollectionById(id) {
+  return SOCIAL_COLLECTIONS.find((entry) => entry.id === id) || null;
 }
 
 export function eligibleLearningUnits({ audience = null } = {}) {
@@ -238,4 +320,8 @@ export function eligibleLearningUnits({ audience = null } = {}) {
     entry.publication.status === 'eligible-authored-learning-release'
     && (!audience || entry.audience === audience)
   ));
+}
+
+export function eligibleSocialCollections() {
+  return SOCIAL_COLLECTIONS.filter((entry) => entry.publication.status === 'eligible-authored-learning-release');
 }

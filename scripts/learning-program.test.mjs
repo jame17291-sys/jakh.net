@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { LEARNING_PROGRAM_VERSION, LEARNING_UNITS, eligibleLearningUnits } from '../learning-data.js';
+import { LEARNING_PROGRAM_VERSION, LEARNING_UNITS, SOCIAL_COLLECTIONS, eligibleLearningUnits, eligibleSocialCollections } from '../learning-data.js';
 
 test('learning release has stable authored eligibility and bilingual activity closure', () => {
   assert.match(LEARNING_PROGRAM_VERSION, /^\d{4}-\d{2}-\d{2}\.\d+$/u);
@@ -27,10 +27,29 @@ test('learning release has stable authored eligibility and bilingual activity cl
   }
 });
 
+test('social challenge collections are first-class bilingual authored content', () => {
+  assert.equal(SOCIAL_COLLECTIONS.length, 6);
+  assert.deepEqual(eligibleSocialCollections(), SOCIAL_COLLECTIONS);
+  for (const collection of SOCIAL_COLLECTIONS) {
+    assert.equal(collection.audience, 'friends', collection.id);
+    assert.equal(collection.publication.status, 'eligible-authored-learning-release', collection.id);
+    assert.equal(collection.provenance.humanApproval, false, collection.id);
+    assert.ok(collection.title.en && collection.title.ar, collection.id);
+    assert.ok(collection.objective.en && collection.objective.ar, collection.id);
+    assert.ok(collection.format.en && collection.format.ar, collection.id);
+    assert.ok(collection.replay.en && collection.replay.ar, collection.id);
+    assert.equal(collection.choices.length, 4, collection.id);
+    assert.ok(Number.isInteger(collection.correct) && collection.correct >= 0 && collection.correct < collection.choices.length, collection.id);
+    for (const option of collection.choices) assert.ok(option.en && option.ar, collection.id);
+  }
+});
+
 test('learning runtime keeps the four-stage ordering and stores a real due date', async () => {
   const runtime = await import('node:fs/promises').then(({ readFile }) => readFile(new URL('../learning.js', import.meta.url), 'utf8'));
   assert.match(runtime, /slice\(0, index\).*progress\.completed/u);
   assert.match(runtime, /next\.dueAt = now \+ DAY/u);
   assert.match(runtime, /Date\.now\(\) >= progress\.dueAt/u);
   assert.match(runtime, /riddlearabia-learning-progress:/u);
+  assert.match(runtime, /renderSocialHome/u);
+  assert.match(runtime, /socialCollectionById/u);
 });

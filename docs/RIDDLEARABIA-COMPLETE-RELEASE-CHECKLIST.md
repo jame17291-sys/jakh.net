@@ -31,8 +31,8 @@ recorded here as a substantive editorial approval.
 | Whole-bank inventory and stable audit ledger | Implemented as a starting inventory, not a review | `scripts/generate-learning-audit-ledger.mjs`, `docs/content-review/learning-audit-ledger.json`, `scripts/audit-question-bank.mjs` | Reconcile on every content revision and attach item-specific findings. |
 | Substantive bilingual review of all 3,553 cards | Not complete | `docs/content-review/evidence.json` is intentionally empty; work queue has 382 packets | Claim-level sources/proofs; bilingual, editorial, and high-stakes reviewer provenance; second review of revisions. |
 | Publication eligibility on legacy, API, offline and shared routes | Partially implemented for the five safety-held categories; programme eligibility is recorded but not yet a complete new delivery mechanism | `scripts/publication-quarantine.mjs`, `worker/src/content-safety.ts`, `sw.js`, generated ledger | Central versioned eligibility for each new programme item and integration tests for all publication surfaces. |
-| Three audience starts | Implemented on the programme branch; not deployed | `index.html`, `ar/index.html`, `learning.html`, `ar/learn/index.html`, `learning.js` | Complete the adult social route rather than using the university list as a temporary Challenge Friends destination; deploy only after remaining release work. |
-| Six adult social collections | Not implemented | No programme collection data or routes | Publish only bounded, reviewed/self-contained activities with session and replay design. |
+| Three audience starts | Implemented on the programme branch; not deployed | `index.html`, `ar/index.html`, `learning.html`, `ar/learn/index.html`, `learning.js` | Deploy only after the remaining release gates and evidence requirements are satisfied. |
+| Six adult social collections | Implemented on the programme branch as authored challenge collections; not live multi-user rooms | `learning-data.js`, `learning.js`, `scripts/learning-program.test.mjs`, `scripts/learning-browser.mjs` | Add server-authoritative invitations/co-operation/reconnect where required; do not claim human review or measured social outcomes. |
 | Twelve university units | Implemented on the programme branch; automated-authored only | `learning-data.js`: 3 quantitative, 3 evidence/research, 3 digital/AI, and 3 study-strategy units; `scripts/learning-program.test.mjs` | Qualified bilingual editorial review before representing this as human-reviewed material. |
 | Nine children’s units | Implemented on the programme branch; human child/educator validation pending | `learning-data.js`: 3 each for 6–8, 9–11, and 12–14; route restrictions prohibit open chat and stranger matching | Real safeguarding, age-suitability, and educator validation before publication claims. |
 | Attempt → explanation → application → later retrieval | Implemented for guest device progress on the programme branch | `learning.js`, `scripts/learning-browser.mjs`: sequence gate, persisted attempts/outcomes, application-first due date, and elapsed-time retrieval | Add supported account merge/sync; do not claim guest-device progress has been merged into an account. |
@@ -61,6 +61,14 @@ programme branch:
 This checkpoint is **not a production-release claim**. Its adult social
 collections, collaboration work, whole-bank editorial closure, account merge,
 and human validation rows above are still incomplete.
+
+Commit `8e4b654` is followed by a programme-branch update that implements the
+previously missing Challenge Friends destination as six bilingual authored
+collections. Each collection records a purpose, format, replay rule, prompt,
+answer, explanation, publication status, and explicit pending human-review
+provenance. This closes the placeholder routing gap, but it is still not a
+server-authoritative social room, not account-synced progress, and not evidence
+of real participant or reviewer validation.
 
 ## Resumption rules
 

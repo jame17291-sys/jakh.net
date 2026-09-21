@@ -19,9 +19,19 @@ try {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto(`${server.baseUrl}/learning`, { waitUntil: engineName === 'webkit' ? 'commit' : 'domcontentloaded' });
-  await page.waitForSelector('.learning-unit-card');
-  assert.equal(await page.locator('.learning-unit-card').count(), 21);
+  await page.waitForSelector('.learning-audience-grid .learning-card');
+  assert.equal(await page.locator('.learning-audience-grid .learning-card').count(), 3);
   assert.match(await page.locator('#learningApp').innerText(), /University Essentials/u);
+
+  await page.goto(`${server.baseUrl}/learning?audience=friends`, { waitUntil: engineName === 'webkit' ? 'commit' : 'domcontentloaded' });
+  await page.waitForSelector('.learning-unit-card');
+  assert.equal(await page.locator('.learning-unit-card').count(), 6);
+  assert.match(await page.locator('#learningApp').innerText(), /Challenge collections/u);
+
+  await page.goto(`${server.baseUrl}/learning?collection=social-logic-sprints`, { waitUntil: engineName === 'webkit' ? 'commit' : 'domcontentloaded' });
+  await page.waitForSelector('[data-social-option]');
+  await page.locator('[data-social-option="0"]').click();
+  assert.match(await page.locator('.learning-feedback').innerText(), /evidence and explanation/u);
 
   await page.goto(`${server.baseUrl}/learning?unit=uni-quant-ratios`, { waitUntil: engineName === 'webkit' ? 'commit' : 'domcontentloaded' });
   const pick = async (activity, option) => {

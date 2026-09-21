@@ -1,8 +1,8 @@
 # Riddle Arabia learning programme state
 
-**Programme branch:** `codex/riddlearabia-learning-program`  
-**Baseline protected-main commit:** `47cfb8d81b714c7a81f3827689c0b26c82bf0df6`  
-**Baseline reconciled:** 2026-09-18
+**Programme branch:** `codex/riddlearabia-complete-program`  
+**Baseline protected-main commit:** `62922c2cfbebdd67c121a4d57164e028c1579d0d`  
+**Baseline reconciled:** 2026-09-21
 
 This is the durable execution record for the adult social, university, and
 children's learning programme. It is deliberately separate from the public
@@ -37,10 +37,10 @@ and the stricter evidence store; it does not manufacture approvals.
 |---|---|---|
 | Per-card substantive bilingual review | Not started | Complete claim-level source/proof mapping and qualified review packet by packet. |
 | Publication eligibility | Blocked by review evidence | Keep all programme placements held until a card is evidence-complete. |
-| Adult social collections | Not yet implemented | Design only from eligible, age-appropriate cards after review. |
-| University pathways | Not yet implemented | Map three-plus-unit pathways from eligible material, with diagnostics and retrieval. |
-| Young Explorers 6–8, 9–11, 12–14 | Blocked by content and child-safety validation | Obtain safeguarding, age suitability, and educator validation before publication. |
-| Learning/review scheduling | Not yet implemented | Define only after units and eligible content exist. |
+| Adult social collections | Implemented as six authored bilingual challenge collections; not live multi-user rooms | Add server-authoritative invitations, co-operation, reconnect and rematch evidence before social-product claims. |
+| University pathways | Implemented as 12 authored bilingual units; automated-authored only | Qualified bilingual editorial review remains required before human-reviewed claims. |
+| Young Explorers 6–8, 9–11, 12–14 | Implemented as nine authored bilingual units; child/educator validation pending | Obtain safeguarding, age suitability, and educator validation before publication claims. |
+| Learning/review scheduling | Implemented for guest-device progress | Add supported account merge/sync before account-level progress claims. |
 | Private challenges/rematches/co-operation | Not yet implemented | Threat-model exposure/fairness and preserve current account controls. |
 | Consent-gated measurement | Akshifha-only baseline exists | Extend only with approved event taxonomy; no retention or learning-gain claims. |
 | Human evaluation | Not started | Recruit only after bilingual, parental/guardian, and educator consent materials are approved. |
@@ -64,6 +64,19 @@ No automated test, source heuristic, or AI pass changes that status.
 - Inspected the protected API/static workflow requirements. The prior
   Riddle Arabia release remains separately waiting for GitHub production
   approval; see the deployment blocker below.
+
+## Programme branch implementation checkpoint
+
+- Added `/learning` and `/ar/learn/` with three entry points: Challenge Friends,
+  University Essentials, and Young Explorers.
+- Added six adult Challenge Friends collections, 12 university units, and nine
+  children units. These are self-contained authored activities and do not depend
+  on the unreviewed 3,553-card legacy source bank.
+- Added guest-device progress, honest correct/assisted outcomes, application
+  before later retrieval, and a real elapsed-time due date before retrieval.
+- Added contract and browser coverage for the learning journeys. Production
+  deployment still requires fresh release evidence after the remaining blockers
+  are intentionally accepted or completed.
 
 ## External dependencies and truthful limits
 

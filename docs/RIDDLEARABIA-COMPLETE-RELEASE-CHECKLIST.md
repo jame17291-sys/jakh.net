@@ -31,16 +31,36 @@ recorded here as a substantive editorial approval.
 | Whole-bank inventory and stable audit ledger | Implemented as a starting inventory, not a review | `scripts/generate-learning-audit-ledger.mjs`, `docs/content-review/learning-audit-ledger.json`, `scripts/audit-question-bank.mjs` | Reconcile on every content revision and attach item-specific findings. |
 | Substantive bilingual review of all 3,553 cards | Not complete | `docs/content-review/evidence.json` is intentionally empty; work queue has 382 packets | Claim-level sources/proofs; bilingual, editorial, and high-stakes reviewer provenance; second review of revisions. |
 | Publication eligibility on legacy, API, offline and shared routes | Partially implemented for the five safety-held categories; programme eligibility is recorded but not yet a complete new delivery mechanism | `scripts/publication-quarantine.mjs`, `worker/src/content-safety.ts`, `sw.js`, generated ledger | Central versioned eligibility for each new programme item and integration tests for all publication surfaces. |
-| Three audience starts | Not implemented | Production homepage has Akshifha and discovery starts only | Implement Challenge Friends, University Essentials, and Young Explorers in both languages with non-decorative routes. |
+| Three audience starts | Implemented on the programme branch; not deployed | `index.html`, `ar/index.html`, `learning.html`, `ar/learn/index.html`, `learning.js` | Complete the adult social route rather than using the university list as a temporary Challenge Friends destination; deploy only after remaining release work. |
 | Six adult social collections | Not implemented | No programme collection data or routes | Publish only bounded, reviewed/self-contained activities with session and replay design. |
-| Twelve university units | Not implemented | No learning unit engine/content | Implement three units for each of the four pathways with objectives, practice, application, retrieval and completion. |
-| Nine children’s units | Not implemented | No band-specific learning unit engine/content | Implement age-specific content and gate every route, including no unsuitable fallback. Child/educator validation remains pending. |
-| Attempt → explanation → application → later retrieval | Not implemented outside the existing Akshifha study state | `akshifha-study.js` is separate and case-focused | Add versioned guest progress, due dates, controlled-time tests, and safe account merge where supported. |
+| Twelve university units | Implemented on the programme branch; automated-authored only | `learning-data.js`: 3 quantitative, 3 evidence/research, 3 digital/AI, and 3 study-strategy units; `scripts/learning-program.test.mjs` | Qualified bilingual editorial review before representing this as human-reviewed material. |
+| Nine children’s units | Implemented on the programme branch; human child/educator validation pending | `learning-data.js`: 3 each for 6–8, 9–11, and 12–14; route restrictions prohibit open chat and stranger matching | Real safeguarding, age-suitability, and educator validation before publication claims. |
+| Attempt → explanation → application → later retrieval | Implemented for guest device progress on the programme branch | `learning.js`, `scripts/learning-browser.mjs`: sequence gate, persisted attempts/outcomes, application-first due date, and elapsed-time retrieval | Add supported account merge/sync; do not claim guest-device progress has been merged into an account. |
 | Social invitations, rematches, co-operation, untimed play | Partial: server-authoritative Battle rooms exist | `battle-mode.js`, `worker/src/battle-room.ts`, tests | Verify two-browser flow; add missing co-operative, untimed, reconnect/rematch behaviour without presenting private links as identity. |
 | Child safety and age eligibility | Partial: high-stakes quarantine and privacy controls exist | quarantine tooling, `privacy-consent.js` | Programme age policy applied to browsing, search, direct links, cached sessions and empty pools. No claims of legal compliance. |
 | Consent-gated measurement | Partial: Akshifha playtest measurement exists | `akshifha.js`, `docs/AKSHIFHA-PLAYTEST.md` | Extend an opt-in event taxonomy that separates quality, enjoyment and learning; no fabricated participant/retention results. |
 | User-testing protocol | Partial: Akshifha-only protocol | `docs/AKSHIFHA-PLAYTEST.md` | Bilingual adult, student, 6–8, 9–11, and 12–14 scenarios, materials and real-consent record. |
 | Build, accessibility, browser and release proof | Existing release gates, rerun required after changes | `.github/workflows/api-deploy.yml`, `.github/workflows/static-site.yml` | Commit-specific automated results, production workflow receipts and live verification. |
+
+## Programme checkpoint: 21 September 2026
+
+Commit `5b859c7` completes the bounded learning-unit implementation on the
+programme branch:
+
+- 12 university units: quantitative/data reasoning, evidence/research
+  literacy, digital/AI literacy, and effective learning/study strategies.
+- 9 children’s units: three for each of ages 6–8, 9–11, and 12–14.
+- Each unit has bilingual objective, prerequisites, instruction/example, two
+  practices, a separate application, and a retrieval stage locked to a stored
+  real-time due date. Completion records an answer outcome without labelling it
+  mastery.
+- Browser proof completed in Chromium, Firefox, and WebKit against the built
+  artifact for English completion/reload/due-date retrieval and Arabic RTL
+  rendering. The static workflow now runs this regression in all three engines.
+
+This checkpoint is **not a production-release claim**. Its adult social
+collections, collaboration work, whole-bank editorial closure, account merge,
+and human validation rows above are still incomplete.
 
 ## Resumption rules
 

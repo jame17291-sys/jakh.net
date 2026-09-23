@@ -79,6 +79,8 @@ jobs:
           scripts/pages-quarantine-receipt.test.mjs
           scripts/route-production-alert.test.mjs
           scripts/runtime-monitor-proof.test.mjs
+      - name: Validate bounded maintenance and automatic release policy
+        run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs
       - name: Install API dependencies
         working-directory: worker
         run: npm ci --no-audit --no-fund
@@ -148,3 +150,4 @@ jobs:
         run: |
           npm run test:admin:fixtures
           npm run test:admin:browser
+          npm run test:autopilot:browser

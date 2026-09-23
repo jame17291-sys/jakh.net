@@ -75,6 +75,9 @@
           <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="securityPanel" id="securityTab" data-tab="security" tabindex="-1">
             <span aria-hidden="true">◉</span><span data-i18n="security">Security</span>
           </button>
+          <button id="autopilotTab" class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="autopilotPanel" data-tab="autopilot" tabindex="-1" hidden>
+            <span aria-hidden="true">↻</span><span data-i18n="autopilot">Autopilot</span>
+          </button>
         </nav>
         <div class="sidebar-footer">
           <span class="shield-mark" aria-hidden="true">🛡</span>
@@ -280,6 +283,24 @@
               <button id="revokeSessionsButton" class="danger-button" type="button" data-i18n="revokeSessions">Sign out non-owner sessions</button>
             </article>
           </div>
+        </section>
+        <section id="autopilotPanel" class="tab-panel" role="tabpanel" aria-labelledby="autopilotTab" data-panel="autopilot" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow" data-i18n="ownerOnly">Owner-only</span><h1 data-i18n="autopilot">Autopilot</h1><p data-i18n="autopilotLead">Scheduled maintenance for generated search indexes and site pages.</p></div>
+            <button id="autopilotRefresh" class="secondary-button" type="button" data-i18n="refresh">Refresh</button>
+          </div>
+          <article class="panel autopilot-control" aria-labelledby="autopilotStatusTitle">
+            <div class="panel-heading"><h2 id="autopilotStatusTitle" data-i18n="autopilotStatus">Schedule status</h2><span id="autopilotStatus" class="status-pill is-pending" role="status" aria-live="polite" data-i18n="loading">Loading…</span></div>
+            <p id="autopilotStatusMessage" class="muted"></p>
+            <p id="autopilotError" class="form-error" role="alert" hidden></p>
+            <button id="autopilotToggle" class="primary-button" type="button" disabled hidden></button>
+          </article>
+          <div class="autopilot-grid">
+            <article class="panel" aria-labelledby="autopilotPolicyTitle"><h2 id="autopilotPolicyTitle" data-i18n="autopilotPolicy">Schedule and limits</h2><dl id="autopilotPolicy" class="autopilot-facts"></dl><p id="autopilotBudgetMessage" class="muted"></p></article>
+            <article class="panel" aria-labelledby="autopilotScopeTitle"><h2 id="autopilotScopeTitle" data-i18n="autopilotScope">Automatic repair scope</h2><p data-i18n="autopilotScopeDescription">Checks for routine problems and repairs generated search indexes and site pages. A release must pass its checks before deployment.</p><p class="muted" data-i18n="autopilotScopeLimits">Question wording, accounts, and security settings require a separate review. Other findings appear in the run activity.</p></article>
+          </div>
+          <article class="panel autopilot-last" aria-labelledby="autopilotLastRunTitle"><h2 id="autopilotLastRunTitle" data-i18n="autopilotLastRun">Last run</h2><div id="autopilotLastRun"></div></article>
+          <article class="panel" aria-labelledby="autopilotActivityTitle"><div class="panel-heading compact-heading"><h2 id="autopilotActivityTitle" data-i18n="autopilotActivity">Run activity</h2></div><div id="autopilotRuns" class="autopilot-runs"></div></article>
         </section>
       </main>
     </div>

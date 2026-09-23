@@ -21,7 +21,9 @@
     "test:akshifha:browser": "node scripts/akshifha-browser.mjs",
     "test:contracts": "node --test scripts/accessibility-contracts.test.mjs scripts/api-artifact-confidentiality.test.mjs scripts/arabic-routes.test.mjs scripts/browser-matrix-policy.test.mjs scripts/content-review.test.mjs scripts/content-review-featured.test.mjs scripts/content-overrides.test.mjs scripts/quick-fire-content.test.mjs scripts/d1-backup.test.mjs scripts/directory-ui.test.mjs scripts/frontend-product-contract.test.mjs scripts/free-first-gameplay.test.mjs scripts/learning-audit-ledger.test.mjs scripts/pages-quarantine-receipt.test.mjs scripts/performance-budget.test.mjs scripts/production-hygiene.test.mjs scripts/provenance-ui-contract.test.mjs scripts/public-history-policy.test.mjs scripts/public-seo-release-contract.test.mjs scripts/publication-quarantine.test.mjs scripts/release-manifest.test.mjs scripts/responsive-layout-contract.test.mjs scripts/runtime-monitor-proof.test.mjs scripts/search-index.test.mjs scripts/seo-pagination.test.mjs scripts/seo-validation-contract.test.mjs scripts/service-worker-contract.test.mjs scripts/site-organization.test.mjs scripts/site-runtime-navigation.test.mjs scripts/static-api-release-gate.test.mjs scripts/synthetic-account-monitor.test.mjs scripts/verify-domain-controls.test.mjs && npm run check:featured && npm run check:learning-audit && npm run test:mindlab && npm run test:akshifha",
     "test:admin:browser": "node scripts/admin-workspace-browser.mjs",
-    "test:admin:fixtures": "node --test scripts/admin-workspace-fixture.test.mjs"
+    "test:admin:fixtures": "node --test scripts/admin-workspace-fixture.test.mjs",
+    "test:autopilot": "node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs",
+    "test:autopilot:browser": "node scripts/autopilot-ui-browser.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

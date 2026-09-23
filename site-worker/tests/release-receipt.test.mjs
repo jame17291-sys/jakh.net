@@ -205,10 +205,28 @@ test("workflow contains exact rollback and required browser gates", async () => 
   assert.match(workflow, /domain_cutover:/u);
   assert.match(workflow, /--legacy-site-origins https:\/\/jakh\.net,https:\/\/www\.jakh\.net/u);
   assert.match(workflow, /github\.ref_protected/u);
-  assert.match(workflow, /name: production/u);
-  assert.match(workflow, /environments\/production/u);
-  assert.match(workflow, /required_reviewers/u);
-  assert.match(workflow, /protected_branches/u);
+  // Manual releases retain the reviewer-protected production environment.
+  // Only a nonempty, independently authorized reservation selects Autopilot.
+  const releaseEnvironment = /inputs\.autopilot_run_id != '' && 'autopilot-production' \|\| 'production'/u;
+  const authorization = workflow.split("\n  authorize:\n")[1]?.split("\n  release:\n")[0] || "";
+  const release = workflow.split("\n  release:\n")[1] || "";
+  assert.match(release, /environment:\n      name: \$\{\{ inputs\.autopilot_run_id != '' && 'autopilot-production' \|\| 'production' \}\}/u);
+  assert.match(authorization, releaseEnvironment);
+  assert.match(authorization, /environments\/\$RELEASE_ENVIRONMENT/u);
+  assert.match(authorization, /process\.env\.RELEASE_ENVIRONMENT === "production" && !rules\.some\(\(rule\) => rule\.type === "required_reviewers"\)/u);
+  assert.match(authorization, /!\["production", "autopilot-production"\]\.includes\(process\.env\.RELEASE_ENVIRONMENT\)/u);
+  assert.match(authorization, /environment\.deployment_branch_policy\?\.protected_branches !== true/u);
+  assert.match(authorization, /if: \$\{\{ inputs\.autopilot_run_id != '' \}\}[\s\S]*node scripts\/autopilot-client\.mjs authorize-release/u);
+  assert.match(workflow, /AUTOPILOT_RELEASE_ENABLED: \$\{\{ vars\.AUTOPILOT_RELEASE_ENABLED \}\}/u);
+  assert.match(workflow, /AUTOPILOT_RUN_ID: \$\{\{ inputs\.autopilot_run_id \}\}/u);
+  assert.match(workflow, /AUTOPILOT_DAY: \$\{\{ inputs\.autopilot_day \}\}/u);
+  assert.match(release, /needs: authorize/u);
+  const recheck = release.indexOf("Recheck automatic release permission immediately before deployment");
+  const deploy = release.indexOf("id: deploy\n");
+  assert.ok(recheck >= 0 && deploy > recheck, "The owner reservation must be rechecked before deploying");
+  assert.match(release.slice(recheck, deploy), /if: \$\{\{ inputs\.autopilot_run_id != '' \}\}[\s\S]*node scripts\/autopilot-client\.mjs authorize-release/u);
+  assert.doesNotMatch(authorization, /continue-on-error:\s*true/u);
+  assert.doesNotMatch(release.slice(recheck, deploy), /continue-on-error:\s*true/u);
   assert.match(workflow, /CLOUDFLARE_STATIC_SITE_API_TOKEN/u);
   assert.match(workflow, /check:performance/u);
   assert.match(workflow, /release-manifest\.mjs create/u);

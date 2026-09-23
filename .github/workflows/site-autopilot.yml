@@ -1,0 +1,72 @@
+name: Daily website maintenance
+run-name: Daily maintenance · ${{ github.sha }}
+
+on:
+  schedule:
+    # 07:23 Dubai. Off the hour to reduce scheduler contention.
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: riddle-arabia-autopilot
+  cancel-in-progress: false
+
+jobs:
+  maintain:
+    name: Inspect, repair, test and verify
+    if: >-
+      vars.AUTOPILOT_RELEASE_ENABLED == 'true' &&
+      github.repository == 'jame17291-sys/jakh.net' &&
+      github.ref == 'refs/heads/main' && github.ref_protected &&
+      github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    environment: autopilot-production
+    # The website verifies this workflow's short-lived OIDC identity. A separate,
+    # repository-scoped App creates repair PRs so their required CI runs normally.
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            worker/package-lock.json
+            site-worker/package-lock.json
+      - name: Install pinned validation dependencies
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --prefix worker --no-audit --no-fund
+          npm ci --prefix site-worker --no-audit --no-fund
+          ./node_modules/.bin/playwright install chromium
+      - name: Validate the immutable repair and release policy
+        run: node --test scripts/autopilot-policy.test.mjs scripts/autopilot-repairs.test.mjs scripts/autopilot-orchestration.test.mjs scripts/autopilot-github-app.test.mjs
+      - name: Run one bounded daily maintenance cycle
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          AUTOPILOT_RELEASE_ENABLED: ${{ vars.AUTOPILOT_RELEASE_ENABLED }}
+          AUTOPILOT_GITHUB_APP_ID: ${{ vars.AUTOPILOT_GITHUB_APP_ID }}
+          AUTOPILOT_GITHUB_APP_INSTALLATION_ID: ${{ vars.AUTOPILOT_GITHUB_APP_INSTALLATION_ID }}
+          AUTOPILOT_GITHUB_APP_PRIVATE_KEY: ${{ secrets.AUTOPILOT_GITHUB_APP_PRIVATE_KEY }}
+        run: node scripts/site-autopilot.mjs
+      - name: Keep the small maintenance receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: autopilot-${{ github.run_id }}
+          path: ${{ runner.temp }}/autopilot-${{ github.run_id }}/*.json
+          if-no-files-found: ignore
+          retention-days: 1

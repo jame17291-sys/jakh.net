@@ -330,6 +330,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
 .platform-source-main { min-width: 0; }
 .platform-source-headline { margin: 0; color: var(--ink); font-size: 0.91rem; font-weight: 740; overflow-wrap: anywhere; }
 .platform-source-detail { margin: 0.33rem 0 0; color: var(--muted); font-size: 0.8rem; overflow-wrap: anywhere; }
+.platform-source-diagnostic { margin: 0.45rem 0 0; color: var(--accent); font-size: 0.74rem; font-weight: 650; overflow-wrap: anywhere; }
 .platform-source-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.52rem; margin-top: 0.85rem; }
 .platform-source-metric { min-width: 0; padding: 0.55rem 0.62rem; border: 1px solid rgba(166, 202, 235, 0.14); border-radius: 8px; background: rgba(3, 12, 21, 0.23); }
 .platform-source-metric span { display: block; color: var(--subtle); font-size: 0.65rem; font-weight: 760; letter-spacing: 0.045em; text-transform: uppercase; overflow-wrap: anywhere; }

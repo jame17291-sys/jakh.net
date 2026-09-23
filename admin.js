@@ -568,7 +568,7 @@
     platformCloudflareLiveHeadline: "Cloudflare analytics is current", platformCloudflareLiveDetail: "Rolling 24-hour edge and Worker aggregates are available through the secure server-side connection.",
     platformCloudflarePartialHeadline: "Cloudflare analytics is partially available", platformCloudflarePartialDetail: "Current aggregates are shown, but one or more requested data sets had no results. Shown values remain valid.",
     platformCloudflareStaleHeadline: "Cloudflare analytics needs a refresh", platformCloudflareStaleDetail: "The last successful Cloudflare aggregate snapshot is displayed while the provider refreshes.", platformCloudflareStalePartialDetail: "The last successful partial Cloudflare snapshot is displayed while the provider refreshes.",
-    platformCloudflareUnavailableHeadline: "Cloudflare analytics is temporarily unavailable", platformCloudflareUnavailableDetail: "No usable Cloudflare aggregate snapshot was returned. The website itself may still be operating normally.",
+    platformCloudflareUnavailableHeadline: "Cloudflare analytics is temporarily unavailable", platformCloudflareUnavailableDetail: "No usable Cloudflare aggregate snapshot was returned. The website itself may still be operating normally.", platformCloudflareDiagnostics: "Safe diagnostic: {details}",
     platformGithubManual: "GitHub Actions and production monitoring remain a provider-console check.",
     platformGoogleAnalyticsUnconfigured: "Consent-gated collection is present, but the Analytics reporting API is not connected.",
     platformGodaddyUnconfigured: "Registrar records are not connected to this private status page.",
@@ -640,7 +640,7 @@
     platformCloudflareLiveHeadline: "تحليلات Cloudflare حديثة", platformCloudflareLiveDetail: "تتوفر مجاميع الحافة والعمال لآخر 24 ساعة عبر الاتصال الآمن من الخادم.",
     platformCloudflarePartialHeadline: "تحليلات Cloudflare متاحة جزئيًا", platformCloudflarePartialDetail: "تظهر المجاميع الحالية، لكن مجموعة بيانات مطلوبة واحدة أو أكثر لم تُرجع نتائج. تظل القيم المعروضة صالحة.",
     platformCloudflareStaleHeadline: "تحتاج تحليلات Cloudflare إلى تحديث", platformCloudflareStaleDetail: "تُعرض آخر لقطة مجمعة ناجحة من Cloudflare أثناء تحديث المزود.", platformCloudflareStalePartialDetail: "تُعرض آخر لقطة جزئية ناجحة من Cloudflare أثناء تحديث المزود.",
-    platformCloudflareUnavailableHeadline: "تحليلات Cloudflare غير متاحة مؤقتًا", platformCloudflareUnavailableDetail: "لم تُرجع Cloudflare لقطة مجمعة قابلة للاستخدام. قد يظل الموقع نفسه يعمل بصورة طبيعية.",
+    platformCloudflareUnavailableHeadline: "تحليلات Cloudflare غير متاحة مؤقتًا", platformCloudflareUnavailableDetail: "لم تُرجع Cloudflare لقطة مجمعة قابلة للاستخدام. قد يظل الموقع نفسه يعمل بصورة طبيعية.", platformCloudflareDiagnostics: "تشخيص آمن: {details}",
     platformGithubManual: "تظل إجراءات GitHub ومراقبة الإنتاج فحصًا في لوحة المزود.",
     platformGoogleAnalyticsUnconfigured: "تجميع البيانات بعد الموافقة موجود، لكن واجهة تقارير Analytics غير متصلة.",
     platformGodaddyUnconfigured: "سجلات المسجّل غير متصلة بصفحة الحالة الخاصة هذه.",
@@ -1144,6 +1144,21 @@
     return t("platformObserved", { date: dateFormat(value, true) });
   }
 
+  const CLOUDFLARE_DIAGNOSTIC_CATEGORIES = new Set([
+    "configuration_invalid", "authentication_failed", "permission_denied", "rate_limited", "query_limit", "provider_failure", "malformed_response", "timeout", "query_rejected", "no_data",
+  ]);
+
+  function platformCloudflareDiagnostics(value) {
+    if (!value || typeof value !== "object" || Array.isArray(value)) return "";
+    const details = ["zone", "workers"].flatMap((scope) => {
+      const category = value[scope];
+      return typeof category === "string" && CLOUDFLARE_DIAGNOSTIC_CATEGORIES.has(category)
+        ? [`${scope}: ${category}`]
+        : [];
+    });
+    return details.length ? t("platformCloudflareDiagnostics", { details: details.join("; ") }) : "";
+  }
+
   function platformSourceView(source) {
     const id = String(source?.id || "").trim().toLowerCase();
     const known = PLATFORM_SOURCE_COPY[id];
@@ -1194,6 +1209,7 @@
   function renderPlatformSourceCard(source) {
     const view = platformSourceView(source);
     const metrics = platformEntries(source?.metrics);
+    const diagnostics = view.id === "cloudflare" ? platformCloudflareDiagnostics(source?.diagnostics) : "";
     const sourceMetrics = metrics.length ? `<div class="platform-source-metrics">${metrics.map((metric) => {
       const copy = platformMetricCopy(metric);
       return `<div class="platform-source-metric"><span>${escapeHtml(copy.label)}</span><strong>${escapeHtml(platformMetricValue(metric))}</strong>${copy.detail ? `<small>${escapeHtml(copy.detail)}</small>` : ""}</div>`;
@@ -1206,7 +1222,7 @@
         <div><span class="platform-source-category">${escapeHtml(view.category)}</span><h3>${escapeHtml(view.label)}</h3></div>
         <span class="platform-status is-${view.meta.className}">${escapeHtml(t(view.meta.key))}</span>
       </div>
-      <div class="platform-source-main"><p class="platform-source-headline" dir="auto">${escapeHtml(view.headline)}</p>${view.detail ? `<p class="platform-source-detail" dir="auto">${escapeHtml(view.detail)}</p>` : ""}${sourceMetrics}</div>
+      <div class="platform-source-main"><p class="platform-source-headline" dir="auto">${escapeHtml(view.headline)}</p>${view.detail ? `<p class="platform-source-detail" dir="auto">${escapeHtml(view.detail)}</p>` : ""}${diagnostics ? `<p class="platform-source-diagnostic" dir="ltr">${escapeHtml(diagnostics)}</p>` : ""}${sourceMetrics}</div>
       <div class="platform-source-footer"><span class="platform-observed">${escapeHtml(freshness)}</span>${link}</div>
     </article>`;
   }

@@ -67,9 +67,16 @@ class AnalyticsFailure extends Error {
  * ensuring that provider-controlled text and credentials are never logged.
  */
 function transportFailureKind(error: unknown): TransportFailureKind {
-  if (!(error instanceof Error)) return "unknown";
-  if (error.name === "AbortError") return "aborted";
-  const message = error.message.toLowerCase();
+  // Workers can wrap the useful transport signal in Error.cause. Inspect at
+  // most two error objects, classify their text locally, and discard it.
+  const messages: string[] = [];
+  let candidate: unknown = error;
+  for (let depth = 0; depth < 2 && candidate instanceof Error; depth += 1) {
+    if (candidate.name === "AbortError") return "aborted";
+    messages.push(candidate.message.toLowerCase());
+    candidate = (candidate as Error & { cause?: unknown }).cause;
+  }
+  const message = messages.join("\n");
   if (/cloudflare-owned|error 1024|subrequest to cloudflare/u.test(message)) return "cloudflare_target";
   if (/dns|resolve (?:the )?(?:requested )?host|getaddrinfo/u.test(message)) return "dns";
   if (/network|connect(?:ion)?|socket|tls|certificate|fetch failed/u.test(message)) return "network";

@@ -67,68 +67,49 @@
       <script defer src="/privacy-consent.js?v=2026080101"></script>
   </head>
   <body class="page-play" data-page="play" data-route-lang="ar">
-    <a href="#top" class="skip-link">Skip to main content</a>
+    <a href="#top" class="skip-link">انتقل إلى المحتوى الرئيسي</a>
 
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا" data-i18n-aria-label="brandHomeLabel">
-        <picture>
-
-          <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
-        </picture>
-      </a>
-      <nav class="header-actions" aria-label="خيارات سريعة" data-i18n-aria-label="quickActionsLabel">
-        <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/mind-lab/" data-i18n="navCategories">الموضوعات</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">تسجيل الدخول</button>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games" aria-current="page">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
-      <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
-        <label>
-          <span data-i18n="language">اللغة</span>
-          <select id="langSelect">
-            <option value="en" lang="en" dir="ltr">English</option>
-            <option value="ar" lang="ar" dir="rtl">العربية</option>
-          </select>
-        </label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/play" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
       </div>
     </header>
 
     <main id="top">
-      <section class="kv-hero kv-hero-compact play-hero">
-        <div class="kv-hero-fallback-bg play-hero-bg" aria-hidden="true"></div>
-        <div class="kv-hero-content">
-          <h1 class="kv-hero-title" data-i18n="playHeroTitle">في القصة شيء لا يستقيم.</h1>
-          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">جرّب اكشفها: قضايا قصيرة وتفاصيل تستحق الانتباه ولحظة تتضح فيها الصورة. مجانًا بالعربية والإنجليزية.</p>
-          <div class="kv-hero-cta">
-            <a class="kv-btn-primary" href="/ar/games/akshifha/" data-i18n="playAkshifhaCta">افتح قضية «فقرتان ومقدّمة واحدة» ←</a>
-          </div>
-        </div>
+      <section class="page-intro shell">
+        <h1 data-i18n="playHeroTitle">الألعاب</h1>
+        <p class="intro-description" data-i18n="playHeroSubtitle">اختر قضية غامضة أو لعبة لوحية أو تحديًا مع الأصدقاء. جميع الألعاب مجانية.</p>
       </section>
-
-      <section class="kv-lab-section shell" aria-labelledby="featuredGameTitle">
-        <div class="kv-lab-header">
-          <p class="kv-eyebrow play-available" data-i18n="playAvailable">ابدأ هنا · نسخة تجريبية مجانية</p>
+      <section class="shell game-directory" aria-labelledby="featuredGameTitle">
+        <article class="feature-panel featured-game">
+          <p class="eyebrow" data-i18n="playAvailable">قضايا واستنتاج</p>
           <h2 id="featuredGameTitle" data-i18n="playPick">اكشفها — اكتشف التناقض</h2>
           <p data-i18n="playBrowserOnly">تفحّص الأدلة، واختر دليلين والاستنتاج الذي يدعمانه. بلا مؤقّت أو تنزيل أو تسجيل.</p>
-          <p data-i18n="playAkshifhaPilot">إحدى عشرة قضية مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ إنها مجموعة محدودة ولا تعني نشر قضية جديدة كل يوم.</p>
-          <a class="primary-btn" href="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="playAkshifhaCta">افتح قضية «فقرتان ومقدّمة واحدة» ←</a>
+          <p class="muted" data-i18n="playAkshifhaPilot">إحدى عشرة قضية مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ إنها مجموعة محدودة ولا تعني نشر قضية جديدة كل يوم.</p>
+          <a class="primary-btn" href="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="playAkshifhaCta">العب اكشفها</a>
+        </article>
+        <div class="home-discovery-links">
+          <a href="/ar/games/chess/"><span data-i18n="playChessTitle">الشطرنج</span><small data-i18n="playChessDesc">خطّط لنقلتك التالية على لوحة مألوفة. العب ضد الكمبيوتر أو تناوب مع صديق على جهاز واحد.</small></a>
+          <a href="/ar/games/backgammon/"><span data-i18n="playBackgammonTitle">طاولة الزهر</span><small data-i18n="playBackgammonDesc">نسخة متصفح مبسطة. ارمِ النرد وسابق الكمبيوتر لإخراج أحجارك من اللوحة.</small></a>
         </div>
       </section>
-
-      <section class="kv-lab-section shell" aria-labelledby="classicsTitle">
-        <div class="kv-lab-header">
-          <p class="kv-eyebrow" data-i18n="playClassicsEyebrow">لوقت أهدأ</p>
-          <h2 id="classicsTitle" data-i18n="playClassicsTitle">الكلاسيكيات</h2>
-          <p data-i18n="playClassicsText">نسختان مألوفتان للمتصفح، إن رغبت في جولة على لوحة.</p>
-        </div>
-        <div class="home-discovery-links">
-          <a href="/ar/games/chess/" aria-label="العب الشطرنج" data-i18n-aria-label="playChessAria">
-            <span data-i18n="playChessTitle">الشطرنج</span>
-            <small data-i18n="playChessDesc">خطّط لنقلتك التالية على لوحة مألوفة. العب ضد الكمبيوتر أو تناوب مع صديق على جهاز واحد.</small>
-          </a>
-          <a href="/ar/games/backgammon/" aria-label="العب طاولة الزهر" data-i18n-aria-label="playBackgammonAria">
-            <span data-i18n="playBackgammonTitle">طاولة الزهر</span>
-            <small data-i18n="playBackgammonDesc">نسخة متصفح مبسطة. ارمِ النرد وسابق الكمبيوتر لإخراج أحجارك من اللوحة.</small>
-          </a>
+      <section class="shell section-block" aria-labelledby="topicGamesTitle">
+        <div class="feature-panel">
+          <h2 id="topicGamesTitle" data-i18n="playTopicModesTitle">حوّل موضوعًا إلى لعبة</h2>
+          <p data-i18n="playTopicModesText">السباق السريع اختبار فردي مؤقّت. وفي غرفة المعركة تتنافس مع أصدقائك في الموضوع نفسه. اختر موضوعك أولًا.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="/ar/mind-lab/?mode=quick-fire" data-i18n="playQuickFire">اختر موضوعًا للسباق السريع</a>
+            <a class="ghost-btn" href="/ar/mind-lab/?mode=battle" data-i18n="playBattle">اختر موضوعًا لغرفة المعركة</a>
+            <a class="text-btn" href="/ar/mind-lab/?join=1" data-i18n="playJoin">انضم برمز الغرفة</a>
+          </div>
         </div>
       </section>
     </main>
@@ -149,6 +130,6 @@
         </div>
       </div>
     </footer>
-    <script defer src="/app.js?v=2026080201"></script>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

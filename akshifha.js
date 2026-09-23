@@ -31,7 +31,6 @@ export function mountAkshifha(document, window) {
   for (const node of document.querySelectorAll('[data-i18n-aria-label]')) {
     if (copy[node.dataset.i18nAriaLabel]) node.setAttribute('aria-label', copy[node.dataset.i18nAriaLabel]);
   }
-  byId('akLanguage').value = language;
   const paths = language === 'ar'
     ? { game: '/ar/games/akshifha/', home: '/ar/', play: '/ar/play/', privacy: '/ar/privacy/' }
     : { game: '/akshifha', home: '/', play: '/play', privacy: '/privacy' };
@@ -256,15 +255,6 @@ export function mountAkshifha(document, window) {
   byId('ak-daily').addEventListener('click', () => {
     const daily = resolveCase(CASES);
     openCase(daily.caseItem, 'daily', daily.day, true, 'daily');
-  });
-  byId('akLanguage').addEventListener('change', event => {
-    const targetLanguage = event.target.value === 'ar' ? 'ar' : 'en';
-    if (targetLanguage === language) return;
-    const url = new URL(targetLanguage === 'ar' ? '/ar/games/akshifha/' : '/akshifha', window.location.origin);
-    url.searchParams.set('case', caseItem.id);
-    if (mode === 'practice') url.searchParams.set('mode', 'practice');
-    else url.searchParams.set('day', day);
-    window.location.assign(`${url.pathname}${url.search}`);
   });
   byId('ak-share').addEventListener('click', async () => {
     if (!finished || byId('ak-share').disabled) return;

@@ -6,10 +6,51 @@ import {
   runSmoke,
   smokeDefinitions,
 } from "./site-release-receipt.mjs";
-import { CONTENT_PUBLICATION_CONTRACT, QUARANTINED_SITE_ROUTES } from "./monitor-production.mjs";
+import {
+  CONTENT_PUBLICATION_CONTRACT,
+  PRIMARY_API_ORIGIN,
+  PRIMARY_SITE_ORIGIN,
+  QUARANTINED_SITE_ROUTES,
+} from "./monitor-production.mjs";
 
 const BUILD_ID = "a".repeat(64);
 const WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
+const CANDIDATE_VERSION = "22222222-2222-4222-8222-222222222222";
+
+function siteMonitor({ siteContract = "release-baseline", layout = "pre-navigation", version = WORKER_VERSION } = {}) {
+  const names = [
+    "Site: catalog data", "Site: public card index", "Site: en public search index", "Site: ar public search index",
+    ...QUARANTINED_SITE_ROUTES.map(({ name }) => `Site quarantine: ${name}`),
+    ...(siteContract === "release-baseline" ? ["Site: version-bound navigation baseline"] : []),
+  ];
+  return {
+    schemaVersion: 1, status: "success", failedChecks: 0, failures: [],
+    monitor: {
+      scope: "site", siteContract, allowCompatibleSchema: false,
+      siteOrigin: PRIMARY_SITE_ORIGIN, apiOrigin: PRIMARY_API_ORIGIN,
+      navigationLayout: layout, expectedWorkerVersion: version,
+    },
+    contentPublicationContract: CONTENT_PUBLICATION_CONTRACT,
+    results: names.map((name) => ({
+      name, status: name.startsWith("Site quarantine:") ? 410 : 200, workerVersionId: version,
+    })),
+  };
+}
+
+function proveStage(stage, monitorReport, { domainCutover = false, afterVersion } = {}) {
+  const version = stage === "candidate" ? CANDIDATE_VERSION : WORKER_VERSION;
+  return applyRuntimeProof({
+    receipt: {
+      safety: { domainCutover, workerRollbackTarget: WORKER_VERSION, automaticRollback: false },
+      postDeployment: { activeWorkerVersion: CANDIDATE_VERSION },
+      rollback: { activeWorkerVersion: WORKER_VERSION },
+    },
+    stage,
+    deploymentBefore: { versions: [{ version_id: version, percentage: 100 }] },
+    deploymentAfter: { versions: [{ version_id: afterVersion || version, percentage: 100 }] },
+    monitorReport,
+  });
+}
 
 function headersFor(definition, { wrongLegacyTarget = false, wrongRetiredSeoTarget = false } = {}) {
   const isLegacyRedirect = definition.name.includes("legacy-") && definition.name.endsWith("-direct-redirect");
@@ -151,6 +192,7 @@ test("only the cutover predecessor accepts the legacy monitor contract", () => {
     receipt: {
       safety: { domainCutover, workerRollbackTarget: WORKER_VERSION },
       postDeployment: { activeWorkerVersion: WORKER_VERSION },
+      rollback: { activeWorkerVersion: WORKER_VERSION },
     },
     stage, deploymentBefore: deployment, deploymentAfter: deployment, monitorReport,
   });
@@ -159,4 +201,64 @@ test("only the cutover predecessor accepts the legacy monitor contract", () => {
   assert.equal(baseline.receipt.safety.automaticRollback, false);
   assert.equal(run("rollback-target", false).proof.safe, false);
   assert.equal(run("candidate", true).proof.safe, false);
+  assert.equal(run("rollback", true).proof.safe, false);
+});
+
+test("ordinary rollback-target and rollback proofs require explicit version-bound release-baseline evidence", () => {
+  for (const layout of ["pre-navigation", "current"]) {
+    for (const stage of ["rollback-target", "rollback"]) {
+      const { receipt, proof } = proveStage(stage, siteMonitor({ layout }));
+      assert.equal(proof.safe, true, `${stage}: ${layout}`);
+      assert.equal(proof.siteContract, "release-baseline");
+      assert.equal(proof.targetVersion, WORKER_VERSION);
+      if (stage === "rollback-target") {
+        assert.equal(receipt.safety.automaticRollback, true);
+        assert.equal(receipt.safety.rollbackProof, proof);
+      } else {
+        assert.equal(receipt.rollback.runtimeProof, proof);
+      }
+      const implicitCurrent = proveStage(stage, siteMonitor({ siteContract: "current", layout: "current" }));
+      assert.equal(implicitCurrent.proof.safe, false, "predecessor proof cannot silently use another contract");
+      assert.match(implicitCurrent.proof.monitorErrors.join("\n"), /site contract/u);
+    }
+  }
+});
+
+test("candidate proofs stay strict current-site checks regardless of layout or cutover metadata", () => {
+  for (const domainCutover of [false, true]) {
+    for (const layout of ["pre-navigation", "current"]) {
+      const result = proveStage("candidate", siteMonitor({ layout, version: CANDIDATE_VERSION }), { domainCutover });
+      assert.equal(result.proof.safe, false, `${layout}, cutover=${domainCutover}`);
+      assert.equal(result.proof.siteContract, "current");
+      assert.match(result.proof.monitorErrors.join("\n"), /site contract/u);
+      assert.equal(result.receipt.result, "post-deploy-verification-failed");
+    }
+    const valid = proveStage("candidate", siteMonitor({
+      siteContract: "current", layout: "current", version: CANDIDATE_VERSION,
+    }), { domainCutover });
+    assert.equal(valid.proof.safe, true);
+    assert.equal(valid.proof.targetVersion, CANDIDATE_VERSION);
+    assert.equal(valid.receipt.postDeployment.runtimeProof, valid.proof);
+  }
+  const renamedBaseline = proveStage("candidate", siteMonitor({
+    siteContract: "current", layout: "pre-navigation", version: CANDIDATE_VERSION,
+  }));
+  assert.equal(renamedBaseline.proof.safe, false);
+  assert.match(renamedBaseline.proof.monitorErrors.join("\n"), /predecessor navigation layout/u);
+});
+
+test("missing baseline checks and Worker drift withhold rollback eligibility or fail rollback verification", () => {
+  for (const stage of ["rollback-target", "rollback"]) {
+    const incomplete = siteMonitor();
+    incomplete.results = incomplete.results.filter(({ name }) => name !== "Site: version-bound navigation baseline");
+    for (const result of [
+      proveStage(stage, incomplete),
+      proveStage(stage, siteMonitor({ version: CANDIDATE_VERSION })),
+      proveStage(stage, siteMonitor(), { afterVersion: CANDIDATE_VERSION }),
+    ]) {
+      assert.equal(result.proof.safe, false, stage);
+      if (stage === "rollback-target") assert.equal(result.receipt.safety.automaticRollback, false);
+      else assert.equal(result.receipt.result, "rollback-verification-failed");
+    }
+  }
 });

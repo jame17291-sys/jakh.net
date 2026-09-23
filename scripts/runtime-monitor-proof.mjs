@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 
 import {
   CONTENT_PUBLICATION_CONTRACT,
+  PRIMARY_API_ORIGIN,
+  PRIMARY_SITE_ORIGIN,
   QUARANTINED_SITE_ROUTES,
 } from "./monitor-production.mjs";
 
@@ -44,6 +46,7 @@ function activeVersion(deployment, label) {
 }
 
 function expectedResultStatus(scope, name) {
+  if (name === "Site: version-bound navigation baseline") return 200;
   if (!name.startsWith("Site quarantine:")) return null;
   return scope === "pages" ? 404 : 410;
 }
@@ -72,6 +75,9 @@ export function validateScopedMonitorReport(report, {
 } = {}) {
   const errors = [];
   if (!new Set(["api", "site", "pages"]).has(scope)) errors.push("expected monitor scope is invalid");
+  if (!new Set(["current", "legacy-cutover", "release-baseline"]).has(siteContract)) {
+    errors.push("expected monitor site contract is invalid");
+  }
   if (!report || typeof report !== "object" || Array.isArray(report)) return ["monitor report is malformed"];
   if (report.schemaVersion !== 1) errors.push("monitor report schema version is invalid");
   if (report.status !== "success" || report.failedChecks !== 0 || !Array.isArray(report.failures) || report.failures.length !== 0) {
@@ -85,6 +91,22 @@ export function validateScopedMonitorReport(report, {
     scope !== "site" || report.monitor?.siteOrigin !== "https://jakh.net"
     || report.monitor?.apiOrigin !== "https://api.jakh.net"
   )) errors.push("legacy-cutover proof must monitor the legacy site and API origins in site scope");
+  if (siteContract === "release-baseline") {
+    if (scope !== "site" || report.monitor?.siteOrigin !== PRIMARY_SITE_ORIGIN
+      || report.monitor?.apiOrigin !== PRIMARY_API_ORIGIN) {
+      errors.push("release-baseline proof must monitor the production site and API origins in site scope");
+    }
+    if (!/^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u.test(report.monitor?.expectedWorkerVersion || "")) {
+      errors.push("release-baseline proof requires an exact predecessor Worker version");
+    }
+    if (!["current", "pre-navigation"].includes(report.monitor?.navigationLayout)) {
+      errors.push("release-baseline proof requires a recognized navigation layout");
+    }
+  }
+  if (siteContract === "current" && report.monitor?.navigationLayout
+    && report.monitor.navigationLayout !== "current") {
+    errors.push("current-site proof cannot accept a predecessor navigation layout");
+  }
   if (report.monitor?.allowCompatibleSchema !== allowCompatibleSchema) {
     errors.push("monitor schema-compatibility mode does not match the requested proof");
   }
@@ -92,7 +114,9 @@ export function validateScopedMonitorReport(report, {
   const resultByName = new Map(
     (Array.isArray(report.results) ? report.results : []).map((result) => [result?.name, result]),
   );
-  for (const name of requiredCheckNames(scope)) {
+  const requiredNames = requiredCheckNames(scope);
+  if (siteContract === "release-baseline") requiredNames.push("Site: version-bound navigation baseline");
+  for (const name of requiredNames) {
     const result = resultByName.get(name);
     if (!result) {
       errors.push(`monitor report is missing required check: ${name}`);
@@ -139,6 +163,9 @@ export function buildVersionBoundMonitorProof({
     bindingErrors.push(`active Worker changed during monitor proof (${versionBefore} to ${versionAfter})`);
   }
   const monitorErrors = validateScopedMonitorReport(monitorReport, { scope, allowCompatibleSchema, siteContract });
+  if (siteContract === "release-baseline" && monitorReport?.monitor?.expectedWorkerVersion !== targetVersion) {
+    monitorErrors.push("release-baseline expected Worker version differs from the exact rollback target");
+  }
   if (scope !== "pages") {
     const prefix = scope === "api" ? "API" : "Site";
     for (const result of Array.isArray(monitorReport?.results) ? monitorReport.results : []) {

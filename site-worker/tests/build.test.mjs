@@ -144,8 +144,10 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   await assertCompleteInventory(manifest, join(repositoryRoot, "site-worker/dist"));
 
   const rootHtml = await readFile(join(repositoryRoot, "site-worker/dist/index.html"), "utf8");
-  assert.match(rootHtml, new RegExp(manifest.fingerprints["/app.js"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  assert.doesNotMatch(rootHtml, /<script[^>]+src=["'][^"']*\/app(?:\.[a-f0-9]+)?\.js/u);
   assert.match(rootHtml, new RegExp(manifest.fingerprints["/styles.css"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  const libraryHtml = await readFile(join(repositoryRoot, "site-worker/dist/mind-lab.html"), "utf8");
+  assert.match(libraryHtml, new RegExp(manifest.fingerprints["/app.js"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   const adminHtml = await readFile(join(repositoryRoot, "site-worker/dist/admin.html"), "utf8");
   for (const stable of ["/admin-config.js", "/admin.js", "/admin.css"]) {
     assert.match(adminHtml, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
@@ -164,8 +166,9 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   assert.match(search, new RegExp(manifest.fingerprints["/data/search-index.ar.json"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   const serviceWorker = await readFile(join(repositoryRoot, "site-worker/dist/sw.js"), "utf8");
   assert.match(serviceWorker, new RegExp(`const CACHE_VERSION = '${manifest.offlineCacheIdentity}';`, "u"));
-  for (const stable of ["/app.js", "/styles.css", "/privacy.css", "/akshifha.js", "/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha-study.js", "/akshifha.css"]) {
-    assert.match(serviceWorker, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
+  assert.ok(serviceWorker.includes(manifest.fingerprints["/styles.css"]), "offline fallback stylesheet must be fingerprinted");
+  for (const stable of ["/app.js", "/privacy.css", "/akshifha.js", "/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha-study.js", "/akshifha.css"]) {
+    assert.equal(serviceWorker.includes(manifest.fingerprints[stable]), false, `unrelated ${stable} must not enter the install cache`);
   }
   const akshifha = await readFile(join(repositoryRoot, "site-worker/dist", manifest.fingerprints["/akshifha.js"].slice(1)), "utf8");
   for (const dependency of ["/akshifha-engine.js", "/akshifha-cases.js", "/akshifha-copy.js", "/akshifha-study.js"]) {
@@ -252,7 +255,7 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
 
   const arabicHome = await readFile(join(repositoryRoot, "site-worker/dist/ar/index.html"), "utf8");
-  assert.match(arabicHome, /data-i18n="portalMindStat">51 موضوعًا<\/span>/u);
+  assert.match(arabicHome, /data-i18n="homeQuizText">تصفّح 51 موضوعًا،/u);
   const builtApplication = await readFile(join(repositoryRoot, "site-worker/dist/app.js"), "utf8");
   assert.match(builtApplication, /portalMindStat: '51 موضوعًا'/u);
   assert.doesNotMatch(builtApplication, /portalMindStat: '56 موضوعًا'/u);
@@ -364,7 +367,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await writeFile(join(source, "search-leaderboard.css"), ".search{display:block}\n", "utf8");
   await writeFile(join(source, "data/search-index.en.json"), '{"language":"en","items":[1]}\n', "utf8");
   await writeFile(join(source, "data/search-index.ar.json"), '{"language":"ar","items":[2]}\n', "utf8");
-  await writeFile(join(source, "sw.js"), "const CACHE_VERSION = 'v80';\nconst REQUIRED_CORE_ASSETS = [\n  '/app.js',\n  '/styles.css',\n];\n", "utf8");
+  await writeFile(join(source, "sw.js"), "const CACHE_VERSION = 'v80';\nconst REQUIRED_CORE_ASSETS = [\n  '/styles.css',\n];\n", "utf8");
   await writeFile(join(source, "robots.txt"), "User-agent: *\n", "utf8");
   await writeFile(join(source, "package.json"), "{}\n", "utf8");
   await writeFile(join(source, "docs/secret.json"), '{"token":"never"}\n', "utf8");
@@ -422,6 +425,9 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   assert.match(builtSw, new RegExp(first.offlineCacheIdentity, "u"));
   assert.doesNotMatch(builtSw, /CACHE_VERSION = 'v80'/u);
   assert.doesNotMatch(builtSw, /['"]\/(?:app\.js|styles\.css|privacy\.css)['"]/u);
+  assert.ok(builtSw.includes(first.fingerprints["/styles.css"]));
+  assert.equal(builtSw.includes(first.fingerprints["/app.js"]), false, "build must not add undeclared app dependencies");
+  assert.equal(builtSw.includes(first.fingerprints["/privacy.css"]), false, "build must not inject unrelated styles");
 
   await writeFile(join(source, "data/search-index.en.json"), '{"language":"en","items":[1,3]}\n', "utf8");
   const second = await buildStaticSite({

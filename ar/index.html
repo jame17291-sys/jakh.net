@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fff9ed" />
-    <meta name="description" content="اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا." />
+    <meta name="description" content="اختر نشاطك: ألغاز واختبارات مجانية، ألعاب متصفح، أو تحدٍ يومي. كل ذلك بالعربية والإنجليزية ومن دون تنزيل." />
     <title>ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://riddlearabia.com/ar/" />
@@ -15,7 +15,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية" />
-    <meta property="og:description" content="اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا." />
+    <meta property="og:description" content="اختر نشاطك: ألغاز واختبارات مجانية، ألعاب متصفح، أو تحدٍ يومي. كل ذلك بالعربية والإنجليزية ومن دون تنزيل." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://riddlearabia.com/ar/" />
     <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
@@ -30,7 +30,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية" />
-    <meta name="twitter:description" content="اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا." />
+    <meta name="twitter:description" content="اختر نشاطك: ألغاز واختبارات مجانية، ألعاب متصفح، أو تحدٍ يومي. كل ذلك بالعربية والإنجليزية ومن دون تنزيل." />
     <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <meta name="twitter:image:alt" content="ريدل أرابيا — ألغاز واختبارات وألعاب ذهنية بالعربية والإنجليزية" />
 
@@ -58,7 +58,7 @@
       "isPartOf": {
         "@id": "https://riddlearabia.com/#website"
       },
-      "description": "اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا.",
+      "description": "اختر نشاطك: ألغاز واختبارات مجانية، ألعاب متصفح، أو تحدٍ يومي. كل ذلك بالعربية والإنجليزية ومن دون تنزيل.",
       "inLanguage": "ar"
     },
     {
@@ -84,98 +84,58 @@
       <script defer src="/privacy-consent.js?v=2026080101"></script>
   </head>
   <body class="page-home" data-page="home" data-route-lang="ar">
-<a href="#top" class="skip-link">Skip to main content</a>
+<a href="#top" class="skip-link">انتقل إلى المحتوى الرئيسي</a>
 
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا" data-i18n-aria-label="brandHomeLabel">
-        <picture><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" /></picture>
-      </a>
-
-      <nav class="header-actions" aria-label="خيارات سريعة" data-i18n-aria-label="quickActionsLabel">
-        <a class="ghost-btn" href="/ar/" data-i18n="navHome">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/mind-lab/" data-i18n="navCategories">الموضوعات</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">تسجيل الدخول</button>
-
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home" aria-current="page">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
-
-      <div class="header-selects" aria-label="خيارات اللغة" data-i18n-aria-label="languageControlsLabel">
-        <label>
-          <span data-i18n="language">اللغة</span>
-          <select id="langSelect">
-            <option value="en" lang="en" dir="ltr">English</option>
-            <option value="ar" lang="ar" dir="rtl">العربية</option>
-          </select>
-        </label>
-
+      <div class="site-utilities">
+        <a class="language-route-link" href="/" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
       </div>
     </header>
 
 
 <main id="top">
-
-  <!-- ═══════════════════ HERO ═══════════════════ -->
-  <section class="kv-hero home-case-hero" id="kv-hero" aria-labelledby="home-case-title">
-    <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
-    <div class="kv-hero-content home-case-content">
-      <div class="home-case-story">
-        <p class="kv-eyebrow" data-i18n="homeEyebrow">اكشفها · ابدأ بهذا اللغز</p>
-        <h1 class="kv-hero-title" id="home-case-title" data-i18n="homeCaseTitle">فقرتان. ومقدّمة واحدة.</h1>
-        <p class="kv-hero-subtitle" data-i18n="homeTitle">لدى هناء فقرتان لتقديمهما. يقول المنظّم إن المواعيد مناسبة، لكن الساعتين تحكيان قصة مختلفة. هل تكتشف المشكلة؟</p>
-        <div class="kv-hero-cta">
-          <a href="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" class="kv-btn-primary" data-i18n="homeAkshifhaCta">اربط الأدلة</a>
-          <a href="/ar/alghaz/" data-href-en="/riddles" data-href-ar="/ar/alghaz/" class="kv-btn-outline" data-i18n="homeSpacetoonCta">تصفّح الألغاز</a>
-        </div>
-        <p class="home-case-meta" data-i18n="homeCaseMeta">مجانية · بالعربية والإنجليزية · بلا حساب أو مؤقّت</p>
-      </div>
-      <aside class="home-first-clue" aria-labelledby="home-clue-title">
-        <p class="eyebrow" data-i18n="homeClueEyebrow">دليلك الأول</p>
-        <h2 id="home-clue-title" data-i18n="homeClueTitle">سجل البروفة</h2>
-        <p class="home-clue-time" dir="ltr" data-i18n="homeClueTime">18:12–18:27</p>
-        <p data-i18n="homeClueText">ساعة غرفة الدمى متقدّمة بخمس دقائق على ساعة البهو.</p>
-        <a class="text-btn" href="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="homeClueCta">افتح الدليل الثاني ←</a>
-      </aside>
+  <section class="home-intro shell" aria-labelledby="home-case-title">
+    <p class="eyebrow" data-i18n="homeEyebrow">بالعربية والإنجليزية · استكشاف مجاني</p>
+    <h1 id="home-case-title" data-i18n="homeCaseTitle">ألغاز واختبارات وألعاب.</h1>
+    <p class="intro-description" data-i18n="homeTitle">اكتشف سؤالك القادم. فكّر بمفردك، أو شارك تحديًا، أو استمتع بلعبة.</p>
+    <p class="muted" data-i18n="homeCaseMeta">لا تحتاج إلى حساب لتبدأ. العب بالوتيرة التي تناسبك.</p>
+    <div class="activity-grid">
+      <a class="activity-card" href="/ar/alghaz/" data-href-en="/riddles" data-href-ar="/ar/alghaz/">
+        <h2 data-i18n="homeSolveTitle">حلّ لغزًا</h2><p data-i18n="homeSolveText">ابدأ بثمانية ألغاز قصيرة، واعرض الإجابة عندما تكون مستعدًا.</p>
+      </a>
+      <a class="activity-card" href="/ar/mind-lab/">
+        <h2 data-i18n="homeQuizTitle">استكشف موضوعًا</h2><p data-i18n="homeQuizText">تصفّح 51 موضوعًا، من العلوم والتاريخ إلى الثقافة والمنطق.</p>
+      </a>
+      <a class="activity-card" href="/ar/play/">
+        <h2 data-i18n="homeGameTitle">العب لعبة</h2><p data-i18n="homeGameText">اربط الأدلة في اكشفها، أو العب لعبة كلاسيكية، أو تحدَّ الأصدقاء.</p>
+      </a>
     </div>
   </section>
-
-  <!-- ═══════════════════ PORTALS ═══════════════════ -->
-  <section class="kv-portals shell">
-    <div class="kv-portals-grid">
-
-      <!-- Mind Lab -->
-      <a class="kv-portal-card kv-portal-mind" href="/ar/mind-lab/" aria-label="مكتبة الألغاز" data-i18n-aria-label="portalMindTitle">
-        <p class="kv-portal-tag" data-i18n="portalMindTag">مكتبة الألغاز</p>
-        <span class="kv-portal-icon" aria-hidden="true">⌛</span>
-        <h2 class="kv-portal-title" data-i18n="portalMindTitle">مكتبة الألغاز</h2>
-        <p class="kv-portal-desc" data-i18n="portalMindDesc">استكشف أسئلة صُممت للتأمل والابتسام والنقاش الودّي. شاهد الإجابة وتابع نتيجتك واستمر في الاكتشاف.</p>
-        <div class="kv-portal-stats">
-          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">51 موضوعًا</span>
-          <span class="kv-portal-stat" data-i18n="portalBilingualStat">العربية والإنجليزية</span>
-        </div>
-        <span class="kv-portal-cta" data-i18n="portalMindCta">افتح المكتبة ←</span>
-      </a>
-
-      <!-- Featured game -->
-      <a class="kv-portal-card kv-portal-games" href="/ar/games/akshifha/" data-href-en="/akshifha" data-href-ar="/ar/games/akshifha/" aria-label="العب اكشفها واكتشف التناقض" data-i18n-aria-label="playAkshifhaAria">
-        <p class="kv-portal-tag" data-i18n="portalGamesTag">اللعبة المميّزة</p>
-        <span class="kv-portal-icon" aria-hidden="true">✦</span>
-        <h2 class="kv-portal-title" data-i18n="portalGamesTitle">اكشفها</h2>
-        <p class="kv-portal-desc" data-i18n="portalGamesDesc">تتبّع مسارًا، أو رتّب أحداثًا، أو اختبر تفسيرًا. إحدى عشرة قضية قصيرة، في كل منها دليلان يتكاملان.</p>
-        <div class="kv-portal-stats">
-          <span class="kv-portal-stat" data-i18n="portalGamesStat1">١١ قضية أصلية</span>
-          <span class="kv-portal-stat" data-i18n="portalGamesStat2">تلميحات عند الحاجة</span>
-        </div>
-        <span class="kv-portal-cta" data-i18n="portalGamesCta">استكشف دفتر القضايا ←</span>
-      </a>
-
-    </div>
+  <section class="home-next-grid shell">
+    <article class="feature-panel">
+      <h2 data-i18n="homeDailyTitle">تحدٍ صغير كل يوم</h2>
+      <p data-i18n="homeDailyText">سؤال من المكتبة يُختار يوميًا. حاول أولًا ثم تحقّق من إجابتك.</p>
+      <a class="primary-btn" href="/ar/daily/" data-i18n="homeDailyCta">افتح التحدي اليومي</a>
+    </article>
+    <article class="feature-panel">
+      <h2 data-i18n="homeFeatureTitle">اللعبة المميّزة: اكشفها</h2>
+      <p data-i18n="homeFeatureText">فقرتان ومقدّمة واحدة. استكشف إحدى عشرة قضية قصيرة، واربط دليلين لتصل إلى النتيجة.</p>
+      <a class="ghost-btn" href="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="homeFeatureCta">استكشف دفتر القضايا</a>
+    </article>
   </section>
-
   <section class="home-discovery shell" aria-labelledby="popularCollectionsTitle">
     <div class="home-discovery-copy">
-      <p class="eyebrow" data-i18n="homeCollectionsEyebrow">بداية سريعة</p>
       <h2 id="popularCollectionsTitle" data-i18n="homeCollectionsTitle">ابدأ بمجموعة تناسب مزاجك</h2>
       <p data-i18n="homeCollectionsText">ابدأ بلغز عربي أو تحدي حنين أو سؤال يفتح لك زاوية جديدة على المنطقة.</p>
-      <a class="primary-btn" href="/ar/collections/" data-i18n="homeCollectionsCta">استكشف كل المسارات</a>
+      <a class="ghost-btn" href="/ar/collections/" data-i18n="mindCalloutCta">مجموعات قصيرة</a>
     </div>
     <div class="home-discovery-links">
       <a href="/ar/alghaz-arabiya/" data-href-en="/arabic-riddles" data-href-ar="/ar/alghaz-arabiya/"><span data-i18n="homeCollectionArabicTitle">ألغاز عربية بلغتين</span><small data-i18n="homeCollectionArabicMeta">اقرأ التلميح بالعربية والإنجليزية</small></a>
@@ -184,27 +144,6 @@
       <a href="/ar/tarikh-al-arab/" data-href-en="/arabia-quiz" data-href-ar="/ar/tarikh-al-arab/"><span data-i18n="homeCollectionFootballTitle">تاريخ العرب والشرق الأوسط</span><small data-i18n="homeCollectionFootballMeta">أسئلة ضمن سياق المنطقة</small></a>
     </div>
   </section>
-
-  <div id="dailyChallengeMount"></div>
-
-  <section class="home-social shell" aria-label="صفحات ريدل أرابيا الاجتماعية" data-i18n-aria-label="homeSocialLabel">
-    <div>
-      <p class="eyebrow" data-i18n="homeSocialEyebrow">ابقَ فضوليًا</p>
-      <h2 data-i18n="homeSocialTitle">اكتشف تحديات ريدل أرابيا الجديدة</h2>
-      <p data-i18n="homeSocialText">تابعنا لألغاز جديدة، واختبارات سريعة، وتحديثات الألعاب.</p>
-    </div>
-    <div class="home-social-actions">
-      <a class="ghost-btn social-link" href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" aria-label="ريدل أرابيا على إنستغرام" data-i18n-aria-label="socialInstagramLabel">Instagram</a>
-      <a class="ghost-btn social-link" href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" aria-label="ريدل أرابيا على فيسبوك" data-i18n-aria-label="socialFacebookLabel">Facebook</a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ WIDGETS ═══════════════════ -->
-  <div class="kv-widgets-row shell">
-    <div id="accountSummaryMount"></div>
-  </div>
-
-
 </main>
 
     <footer class="site-footer shell">
@@ -230,23 +169,9 @@
       </div>
     </footer>
 
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-    <div id="authModal" class="modal hidden" aria-hidden="true">
-      <div class="modal-backdrop" data-close-modal="auth"></div>
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
-        <div class="modal-head">
-          <div>
-            <p class="eyebrow" data-i18n="authEyebrow">الملف الشخصي</p>
-            <h2 id="authModalTitle" data-i18n="authTitle">أنشئ حسابًا أو سجّل الدخول</h2>
-          </div>
-          <button class="icon-btn" data-close-modal="auth" aria-label="إغلاق" data-i18n-aria-label="close">×</button>
-        </div>
-        <div id="authModalBody"></div>
-      </div>
-    </div>
 
 
-    <script defer src="/app.js?v=2026080201"></script>
+
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

@@ -264,13 +264,136 @@ test('Quick Fire answer/timeout races record exactly one completed response', ()
 });
 
 test('daily reveal is not completion; only explicit outcome buttons persist', () => {
-  const daily = functionBlock('renderDailyChallenge', 'scrollToDailyChallenge');
+  const daily = topLevelFunction('renderDailyChallenge');
   const flipHandler = daily.slice(daily.indexOf("getElementById('flipDailyBtn')"), daily.indexOf('const recordOutcome'));
   assert.doesNotMatch(flipHandler, /saveJson|safeStorageSet/u);
   assert.match(daily, /id="dailyKnewBtn"/u);
   assert.match(daily, /id="dailyReviewBtn"/u);
   assert.match(daily, /saveJson\(outcomeKey, \{ cardId: card\.id, categoryId: card\.categorySlug, result/u);
   assert.doesNotMatch(daily, /createReviewMarkup|card-review/u);
+});
+
+test('daily content is loaded only when its dedicated page mounts the challenge', async () => {
+  for (const hasDailyMount of [false, true]) {
+    let dailyLoads = 0;
+    const context = vm.createContext({
+      state: { page: hasDailyMount ? 'daily' : 'home' },
+      location: { pathname: hasDailyMount ? '/daily' : '/mind-lab', search: '' },
+      document: { getElementById: (id) => id === 'dailyChallengeMount' && hasDailyMount ? {} : null },
+      URLSearchParams,
+      cacheEls() {}, initializeFromStorage: () => true, requestPathIsQuarantined: () => false,
+      categoryIsQuarantined: () => false, applyDocumentLanguage() {}, bindCommonEvents() {},
+      applyCapabilityVisibility() {}, loadCatalog: async () => {}, loadCategoryIfNeeded: async () => {},
+      loadCardIndex: async () => {}, applyStaticCopy() {}, rerender() {}, injectBackToTop() {},
+      checkNewAchievements() {}, renderDailyChallenge() {}, renderCategoryPlayModes() {},
+      loadDailyChallenge: async () => { dailyLoads += 1; },
+      hydrateCloudCapabilities: async () => {},
+    });
+    vm.runInContext(`${topLevelFunction('init')}\nthis.initialize = init;`, context);
+    await context.initialize();
+    assert.equal(dailyLoads, hasDailyMount ? 1 : 0);
+  }
+});
+
+test('Profile localizes its lazy shell and waits for account identity without reopening a dismissed dialog', async () => {
+  for (const dismissWhileLoading of [false, true]) {
+    const calls = [];
+    const attributes = new Map();
+    let releaseSession;
+    let hidden = true;
+    const session = new Promise((resolve) => { releaseSession = resolve; });
+    const context = vm.createContext({
+      sessionInitialized: false,
+      els: {
+        authModalBody: {
+          innerHTML: '',
+          setAttribute: (name, value) => attributes.set(name, value),
+          removeAttribute: (name) => attributes.delete(name),
+        },
+        authModal: { classList: { contains: () => hidden } },
+      },
+      loadAuthEnhancements: async () => ({ ensureAuthModalShell: () => calls.push('shell') }),
+      cacheEls: () => calls.push('cache'),
+      applyStaticCopy: () => calls.push('localize'),
+      escapeHtml: (value) => value,
+      t: (key) => key,
+      hydrateCloudCapabilities: () => session,
+      renderAuthModal: () => calls.push('render-account'),
+      openModal: () => { calls.push('open'); hidden = false; },
+    });
+    vm.runInContext(`${topLevelFunction('openAuthModal')}\nthis.openProfile = openAuthModal;`, context);
+    const pending = context.openProfile({ preventDefault: () => calls.push('prevent-navigation') });
+    await new Promise((resolve) => setImmediate(resolve));
+    assert.deepEqual(calls, ['prevent-navigation', 'shell', 'cache', 'localize', 'open']);
+    assert.equal(attributes.get('aria-busy'), 'true');
+    assert.match(context.els.authModalBody.innerHTML, /role="status"/u);
+    if (dismissWhileLoading) hidden = true;
+    releaseSession();
+    await pending;
+    assert.equal(attributes.has('aria-busy'), false);
+    assert.equal(calls.includes('render-account'), !dismissWhileLoading);
+    assert.equal(calls.filter((call) => call === 'open').length, dismissWhileLoading ? 1 : 2);
+  }
+});
+
+test('concurrent startup and Profile session requests share one account lookup', async () => {
+  const calls = [];
+  let releaseHealth;
+  const health = new Promise((resolve) => { releaseHealth = resolve; });
+  const context = vm.createContext({
+    cloudCapabilitiesPromise: null, sessionInitialized: false,
+    state: { dbUser: { id: 'existing-user' } },
+    detectApiAvailability: () => { calls.push('health'); return health; },
+    checkCloudSession: async () => calls.push('session'),
+    flushCloudQueue: async () => calls.push('flush'),
+    mergeGuestProgress: async () => calls.push('merge'),
+    loadStreak: async () => calls.push('streak'),
+    hydrateCloudFeatureUi: () => calls.push('ui'),
+  });
+  vm.runInContext(`${topLevelFunction('hydrateCloudCapabilities')}\nthis.hydrate = hydrateCloudCapabilities;`, context);
+  const startup = context.hydrate();
+  const profile = context.hydrate();
+  assert.deepEqual(calls, ['health']);
+  releaseHealth(true);
+  await Promise.all([startup, profile]);
+  assert.deepEqual(calls, ['health', 'session', 'flush', 'merge', 'session', 'streak', 'ui']);
+  assert.equal(context.sessionInitialized, true);
+  assert.equal(context.state.apiChecked, true);
+  assert.equal(context.cloudCapabilitiesPromise, null);
+});
+
+test('topic modes start after topic data and local game controls do not wait for account services', async () => {
+  for (const [page, search, expected] of [
+    ['category', '?mode=quick-fire', ['quick-fire']],
+    ['category', '?mode=battle', ['battle:science:create']],
+    ['home', '?mode=quick-fire', []],
+    ['home', '?join=1', ['battle::join']],
+    ['home', '?profile=1', ['profile']],
+  ]) {
+    const calls = [];
+    let categoryLoaded = false;
+    const context = vm.createContext({
+      state: { page, categorySlug: page === 'category' ? 'science' : '' },
+      location: { pathname: page === 'category' ? '/science' : '/mind-lab', search },
+      document: { getElementById: () => null }, URLSearchParams,
+      cacheEls() {}, initializeFromStorage: () => true, requestPathIsQuarantined: () => false,
+      categoryIsQuarantined: () => false, applyDocumentLanguage() {}, bindCommonEvents() {},
+      applyCapabilityVisibility() {}, loadCatalog: async () => {},
+      loadCategoryIfNeeded: async () => { categoryLoaded = true; }, loadCardIndex: async () => {},
+      applyStaticCopy() {}, rerender() {}, injectBackToTop() {}, checkNewAchievements() {},
+      createTimedQuizModal: () => calls.push('quiz-shell'),
+      renderCategoryPlayModes: () => calls.push('local-controls'),
+      hydrateCloudCapabilities: () => { calls.push('cloud'); return new Promise(() => {}); },
+      startTimedQuiz: () => { assert.equal(categoryLoaded, true); calls.push('quick-fire'); },
+      openBattleModal: async (slug, tab) => { assert.equal(categoryLoaded, true); calls.push(`battle:${slug}:${tab}`); },
+      openAuthModal: async () => calls.push('profile'),
+    });
+    vm.runInContext(`${topLevelFunction('init')}\nthis.initialize = init;`, context);
+    await context.initialize();
+    assert.equal(calls.includes('quiz-shell'), page === 'category');
+    assert.ok(calls.indexOf('local-controls') < calls.indexOf('cloud'));
+    assert.deepEqual(calls.filter((call) => ['quick-fire', 'profile'].includes(call) || call.startsWith('battle:')), expected);
+  }
 });
 
 test('global search evaluates every hit, ranks deterministically, and reports total/top N', () => {
@@ -363,7 +486,7 @@ test('Battle invitations use shareable query URLs while accepting legacy hash li
   assert.ok(app.includes("location.hash.match(/^#battle\\/([A-Z0-9-]+)$/i)"));
   assert.match(app, /const inviteCode = queryCode \|\| hashMatch\?\.\[1\] \|\| ''/u);
   assert.match(battleMode, /api\.protocol === 'https:' \? 'wss:' : 'ws:'/u);
-  assert.match(battleMode, /new URL\(state\.lang === 'ar' \? '\/ar\/' : '\/', location\.origin\)/u);
+  assert.match(battleMode, /new URL\((?:isAr|state\.lang === 'ar') \? '\/ar\/mind-lab\/' : '\/mind-lab', location\.origin\)/u);
   assert.match(battleMode, /inviteUrl\.searchParams\.set\('battle', code\)/u);
 });
 
@@ -552,10 +675,11 @@ test('ACTIVE conflict warns before category-only discard and retries only after 
     'replacement challenge must start only after a validated discard response');
 });
 
-test('catalog, hero, offline badge, focus lifecycle, and centralized SW registration stay bounded', () => {
+test('catalog, question-first layout, offline badge, focus lifecycle, and centralized SW registration stay bounded', () => {
   assert.match(app, /let catalogPromise = null/u);
   assert.match(app, /if \(!catalogPromise\)/u);
-  assert.match(app, /if \(!els\.categoryImage\.getAttribute\('src'\)\)/u);
+  assert.doesNotMatch(app, /els\.categoryImage|['"]categoryImage['"]/u,
+    'question pages must not restore the removed decorative hero image');
   assert.match(app, /\^jakh-data-v\\d\+\$/u);
   assert.match(app, /\^jakh-navigation-v\\d\+\$/u);
   assert.match(app, /cachedDataPaths\.has\(`\/data\/\$\{slug\}\.json`\) && cachedNavigationPaths\.has\(pathname\)/u);

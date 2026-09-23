@@ -89,96 +89,56 @@
   <body class="page-home" data-page="home">
 <a href="#top" class="skip-link">Skip to main content</a>
 
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home" data-i18n-aria-label="brandHomeLabel">
-        <picture><img src="assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" /></picture>
-      </a>
-
-      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
-        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="/mind-lab" data-i18n="navCategories">Categories</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
-
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home" aria-current="page">Home</a>
+        <a href="/mind-lab" data-nav="library">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
-
-      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
-        <label>
-          <span data-i18n="language">Language</span>
-          <select id="langSelect">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-          </select>
-        </label>
-
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
       </div>
     </header>
 
 
 <main id="top">
-
-  <!-- ═══════════════════ HERO ═══════════════════ -->
-  <section class="kv-hero home-case-hero" id="kv-hero" aria-labelledby="home-case-title">
-    <div class="kv-hero-fallback-bg" aria-hidden="true"></div>
-    <div class="kv-hero-content home-case-content">
-      <div class="home-case-story">
-        <p class="kv-eyebrow" data-i18n="homeEyebrow">Akshifha · A mystery to begin with</p>
-        <h1 class="kv-hero-title" id="home-case-title" data-i18n="homeCaseTitle">Two stages. One host.</h1>
-        <p class="kv-hero-subtitle" data-i18n="homeTitle">Hana has two events to host. The organizer says the times work. The clocks tell a different story. Can you spot the problem?</p>
-        <div class="kv-hero-cta">
-          <a href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" class="kv-btn-primary" data-i18n="homeAkshifhaCta">Connect the clues</a>
-          <a href="/riddles" data-href-en="/riddles" data-href-ar="/ar/alghaz/" class="kv-btn-outline" data-i18n="homeSpacetoonCta">Browse riddles</a>
-        </div>
-        <p class="home-case-meta" data-i18n="homeCaseMeta">Free · Arabic &amp; English · No account or timer</p>
-      </div>
-      <aside class="home-first-clue" aria-labelledby="home-clue-title">
-        <p class="eyebrow" data-i18n="homeClueEyebrow">Your first piece of evidence</p>
-        <h2 id="home-clue-title" data-i18n="homeClueTitle">The rehearsal log</h2>
-        <p class="home-clue-time" dir="ltr" data-i18n="homeClueTime">18:12–18:27</p>
-        <p data-i18n="homeClueText">The puppet room clock is five minutes ahead of the foyer clock.</p>
-        <a class="text-btn" href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="homeClueCta">Open the second clue →</a>
-      </aside>
+  <section class="home-intro shell" aria-labelledby="home-case-title">
+    <p class="eyebrow" data-i18n="homeEyebrow">ARABIC &amp; ENGLISH · FREE TO EXPLORE</p>
+    <h1 id="home-case-title" data-i18n="homeCaseTitle">Riddles, quizzes &amp; games.</h1>
+    <p class="intro-description" data-i18n="homeTitle">Find your next good question. Think on your own, share a challenge, or settle in for a game.</p>
+    <p class="muted" data-i18n="homeCaseMeta">No account needed to begin. Choose your own pace.</p>
+    <div class="activity-grid">
+      <a class="activity-card" href="/riddles" data-href-en="/riddles" data-href-ar="/ar/alghaz/">
+        <h2 data-i18n="homeSolveTitle">Solve a riddle</h2><p data-i18n="homeSolveText">Start with eight short clues. Reveal each answer when you’re ready.</p>
+      </a>
+      <a class="activity-card" href="/mind-lab">
+        <h2 data-i18n="homeQuizTitle">Explore a topic</h2><p data-i18n="homeQuizText">Browse 51 topics, from science and history to culture and logic.</p>
+      </a>
+      <a class="activity-card" href="/play">
+        <h2 data-i18n="homeGameTitle">Play a game</h2><p data-i18n="homeGameText">Connect clues in Akshifha, play a classic, or challenge friends.</p>
+      </a>
     </div>
   </section>
-
-  <!-- ═══════════════════ PORTALS ═══════════════════ -->
-  <section class="kv-portals shell">
-    <div class="kv-portals-grid">
-
-      <!-- Mind Lab -->
-      <a class="kv-portal-card kv-portal-mind" href="/mind-lab" aria-label="The Mind Lab" data-i18n-aria-label="portalMindTitle">
-        <p class="kv-portal-tag" data-i18n="portalMindTag">Riddle Library</p>
-        <span class="kv-portal-icon" aria-hidden="true">⌛</span>
-        <h2 class="kv-portal-title" data-i18n="portalMindTitle">The Riddle Library</h2>
-        <p class="kv-portal-desc" data-i18n="portalMindDesc">Explore questions made for a pause, a smile, and a little friendly debate. Reveal an answer, track your score, and keep discovering.</p>
-        <div class="kv-portal-stats">
-          <span class="kv-portal-stat" id="badgeCategories2" data-i18n="portalMindStat">51 topics</span>
-          <span class="kv-portal-stat" data-i18n="portalBilingualStat">English &amp; Arabic</span>
-        </div>
-        <span class="kv-portal-cta" data-i18n="portalMindCta">Open the library →</span>
-      </a>
-
-      <!-- Featured game -->
-      <a class="kv-portal-card kv-portal-games" href="/akshifha" data-href-en="/akshifha" data-href-ar="/ar/games/akshifha/" aria-label="Akshifha — spot the contradiction" data-i18n-aria-label="playAkshifhaAria">
-        <p class="kv-portal-tag" data-i18n="portalGamesTag">Featured game</p>
-        <span class="kv-portal-icon" aria-hidden="true">✦</span>
-        <h2 class="kv-portal-title" data-i18n="portalGamesTitle">Akshifha — اكشفها</h2>
-        <p class="kv-portal-desc" data-i18n="portalGamesDesc">Trace a route, untangle a timeline, and test an explanation. Eleven short cases, each with two clues that work together.</p>
-        <div class="kv-portal-stats">
-          <span class="kv-portal-stat" data-i18n="portalGamesStat1">11 original cases</span>
-          <span class="kv-portal-stat" data-i18n="portalGamesStat2">Hints when you need them</span>
-        </div>
-        <span class="kv-portal-cta" data-i18n="portalGamesCta">Explore the casebook →</span>
-      </a>
-
-    </div>
+  <section class="home-next-grid shell">
+    <article class="feature-panel">
+      <h2 data-i18n="homeDailyTitle">A little challenge, every day</h2>
+      <p data-i18n="homeDailyText">One question from the library, selected daily. Guess first, then check your answer.</p>
+      <a class="primary-btn" href="/daily" data-i18n="homeDailyCta">Open Daily Challenge</a>
+    </article>
+    <article class="feature-panel">
+      <h2 data-i18n="homeFeatureTitle">Featured: Akshifha</h2>
+      <p data-i18n="homeFeatureText">Two stages. One host. Eleven small mysteries to explore—connect two clues and see what follows.</p>
+      <a class="ghost-btn" href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="homeFeatureCta">Explore the casebook</a>
+    </article>
   </section>
-
   <section class="home-discovery shell" aria-labelledby="popularCollectionsTitle">
     <div class="home-discovery-copy">
-      <p class="eyebrow" data-i18n="homeCollectionsEyebrow">Quick ways to begin</p>
       <h2 id="popularCollectionsTitle" data-i18n="homeCollectionsTitle">Start with a collection that fits your mood</h2>
-      <p data-i18n="homeCollectionsText">Begin with a shareable Arabic riddle or a Spacetoon nostalgia challenge, then explore more focused quizzes.</p>
-      <a class="primary-btn" href="/collections" data-i18n="homeCollectionsCta">See all collections</a>
+      <p data-i18n="homeCollectionsText">Begin with an Arabic riddle, a nostalgia challenge, or a question that gives you a new lens on the region.</p>
+      <a class="ghost-btn" href="/collections" data-i18n="mindCalloutCta">Short collections</a>
     </div>
     <div class="home-discovery-links">
       <a href="/arabic-riddles" data-href-en="/arabic-riddles" data-href-ar="/ar/alghaz-arabiya/"><span data-i18n="homeCollectionArabicTitle">Arabic riddles in two languages</span><small data-i18n="homeCollectionArabicMeta">Read one clue in Arabic and English</small></a>
@@ -187,27 +147,6 @@
       <a href="/arabia-quiz" data-href-en="/arabia-quiz" data-href-ar="/ar/tarikh-al-arab/"><span data-i18n="homeCollectionFootballTitle">Arabia &amp; Middle East history</span><small data-i18n="homeCollectionFootballMeta">Questions with regional context</small></a>
     </div>
   </section>
-
-  <div id="dailyChallengeMount"></div>
-
-  <section class="home-social shell" aria-label="Riddle Arabia social pages" data-i18n-aria-label="homeSocialLabel">
-    <div>
-      <p class="eyebrow" data-i18n="homeSocialEyebrow">Stay curious</p>
-      <h2 data-i18n="homeSocialTitle">Get fresh challenges from Riddle Arabia</h2>
-      <p data-i18n="homeSocialText">Follow along for new riddles, quick quizzes, and game updates.</p>
-    </div>
-    <div class="home-social-actions">
-      <a class="ghost-btn social-link" href="https://www.instagram.com/jakhriddles/" target="_blank" rel="me noopener noreferrer" aria-label="Riddle Arabia on Instagram" data-i18n-aria-label="socialInstagramLabel">Instagram</a>
-      <a class="ghost-btn social-link" href="https://www.facebook.com/profile.php?id=61588921894305" target="_blank" rel="me noopener noreferrer" aria-label="Riddle Arabia on Facebook" data-i18n-aria-label="socialFacebookLabel">Facebook</a>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ WIDGETS ═══════════════════ -->
-  <div class="kv-widgets-row shell">
-    <div id="accountSummaryMount"></div>
-  </div>
-
-
 </main>
 
     <footer class="site-footer shell">
@@ -233,23 +172,9 @@
       </div>
     </footer>
 
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-    <div id="authModal" class="modal hidden" aria-hidden="true">
-      <div class="modal-backdrop" data-close-modal="auth"></div>
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
-        <div class="modal-head">
-          <div>
-            <p class="eyebrow" data-i18n="authEyebrow">Profile</p>
-            <h2 id="authModalTitle" data-i18n="authTitle">Create account or sign in</h2>
-          </div>
-          <button class="icon-btn" data-close-modal="auth" aria-label="Close" data-i18n-aria-label="close">×</button>
-        </div>
-        <div id="authModalBody"></div>
-      </div>
-    </div>
 
 
-    <script defer src="app.js?v=2026080201"></script>
+
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

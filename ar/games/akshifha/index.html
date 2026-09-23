@@ -47,16 +47,18 @@
   </head>
   <body class="page-akshifha" data-page="akshifha" data-route-lang="ar">
     <a class="skip-link" href="#ak-case" data-i18n="akSkip">انتقل إلى القضية</a>
-    <header class="site-header shell ak-header">
-      <a class="brand" href="/ar/" aria-label="الصفحة الرئيسية لرِدل أرابيا" data-i18n-aria-label="akHome">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" width="160" height="90" class="ak-logo" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل بين الألعاب" data-i18n-aria-label="akNavigation">
-        <a class="ghost-btn" href="/ar/play/" data-i18n="akGames">الألعاب</a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games" aria-current="page">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
-      <label class="ak-language"><span data-i18n="akLanguage">اللغة</span>
-        <select id="akLanguage"><option value="en" lang="en" dir="ltr">English</option><option value="ar" lang="ar" dir="rtl">العربية</option></select>
-      </label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/akshifha" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
+      </div>
     </header>
     <main class="shell ak-main" id="ak-main">
       <section class="ak-intro" aria-labelledby="ak-title">
@@ -118,5 +120,6 @@
       </div>
     </main>
     <footer class="site-footer shell ak-footer"><p data-i18n="akFooter">للتفكير، لا للسباق. العب بالعربية أو الإنجليزية.</p><nav class="ak-actions" aria-label="التنقل بين الألعاب" data-i18n-aria-label="akNavigation"><a href="/ar/play/" data-i18n="akGames">الألعاب</a><a href="/ar/privacy/" data-i18n="akPrivacy">الخصوصية</a></nav></footer>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

@@ -45,27 +45,27 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body data-page="category" data-category="tv-shows-trivia" data-route-lang="en">
     <a href="#top" class="skip-link">Skip to main content</a>
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="Quick actions">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/mind-lab">Mind Lab</a>
-        <a class="ghost-btn language-route-link" href="/ar/topics/tv-shows-trivia/" hreflang="ar" lang="ar" dir="rtl">العربية</a>
-        <button class="ghost-btn" id="openAuthBtn">Sign in</button>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library" aria-current="page">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
-      <div class="header-selects" aria-label="Language controls">
-        <label><span>Language</span><select id="langSelect"><option value="en" selected>English</option><option value="ar">العربية</option></select></label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/topics/tv-shows-trivia/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
       </div>
     </header>
     <main id="top">
       <nav class="page-breadcrumb shell" aria-label="Breadcrumb">
         <a href="/">Home</a><span aria-hidden="true">›</span>
-        <a href="/mind-lab">Mind Lab</a><span aria-hidden="true">›</span>
+        <a href="/mind-lab">Riddles &amp; Quizzes</a><span aria-hidden="true">›</span>
         <span id="breadcrumbCategoryName" aria-current="page">TV Shows</span>
       </nav>
       <section class="hero shell hero-category">
@@ -74,12 +74,13 @@
           <h1 id="categoryTitle">📺 TV Shows</h1>
           <p class="hero-text" id="categoryDescription">250 bilingual questions across 10 top-rated TV shows — 5 English (Breaking Bad, Game of Thrones, Friends, The Wire, Stranger Things) and 5 Arabic (Bab Al-Hara, Maraya, Tash Ma Tash, Ertuğrul, Al-Hasaseen).</p>
           <div class="hero-badges"><span id="categoryCountPill">250 questions</span><span id="categoryDiffBadge"></span></div>
+          <a class="primary-btn" href="#cardGrid">Start practice</a>
         </div>
-        <aside class="hero-panel hero-panel-rich"><img class="hero-illustration" id="categoryImage" alt="" /><div id="categorySummaryMount"></div></aside>
       </section>
       <section class="shell section-block" id="questionSection">
-        <div class="section-heading library-head"><div><p class="eyebrow">Play your way</p><h2>Explore this topic</h2></div><p class="section-note">Search, filter cards, and keep track of your progress as you play.</p></div>
-        <section class="control-panel" aria-label="Question controls">
+        <details class="question-filters">
+          <summary>Search and filter questions</summary>
+          <section class="control-panel" aria-label="Question controls">
           <label class="search-field"><span>Search this topic</span><input id="cardSearchInput" type="search" autocomplete="off" placeholder="Search by word or answer" /></label>
           <div class="select-grid">
             <label><span>Difficulty</span><select id="difficultySelect"><option value="all">All levels</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option><option value="very-advanced">Very advanced</option></select></label>
@@ -96,10 +97,12 @@
               <button class="category-chip" data-subcategory="Stranger Things">Stranger Things · 25</button>
               <button class="category-chip" data-subcategory="Tash Ma Tash">Tash Ma Tash · 25</button>
               <button class="category-chip" data-subcategory="The Wire">The Wire · 25</button></div></div>
-        </section>
+          </section>
+        </details>
         <div class="library-toolbar"><p id="resultsLabel">Showing 250 cards.</p><button class="text-btn" id="resetPageBtn">Reset filters</button></div>
         <div id="emptyState" class="empty-state hidden"><strong>No cards match that choice.</strong></div>
-        <div id="cardGrid" class="riddle-grid" aria-live="polite"></div>
+        <div id="cardGrid" class="riddle-grid" aria-live="polite" tabindex="-1"></div>
+        <div id="categorySummaryMount" class="category-progress-summary"></div>
       </section>
       <section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">Keep going</p><h2>Related topics</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
     </main>
@@ -107,8 +110,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 Riddle Arabia</p>
         <nav class="footer-site-links" aria-label="Riddle Arabia information">
-          <a href="/collections">Collections</a>
-          <a href="/brain-games">Brain games</a>
+          <a href="/collections">Short collections</a>
+          <a href="/play">Games</a>
           <a href="/about">About</a>
           <a href="/privacy">Privacy</a>
         </nav>

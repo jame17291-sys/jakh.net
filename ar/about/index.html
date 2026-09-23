@@ -48,19 +48,22 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page standards-page" data-seo-experience="about">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريـدل أرابيا">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل الرئيسي">
-        <a class="ghost-btn" href="/ar/">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/collections/">استكشف</a>
-        <a class="ghost-btn" href="/ar/alab-al-dimagh/">الألعاب</a>
-        <a class="ghost-btn language-route-link" href="/about" hreflang="en" lang="en" dir="ltr">English</a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/about" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
+      </div>
     </header>
     <main id="content" class="shell">
       <section class="seo-collection-hero">
@@ -79,8 +82,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 ريـدل أرابيا</p>
         <nav class="footer-site-links" aria-label="معلومات ريـدل أرابيا">
-          <a href="/ar/collections/">المسارات</a>
-          <a href="/ar/alab-al-dimagh/">ألعاب الدماغ</a>
+          <a href="/ar/collections/">مجموعات قصيرة</a>
+          <a href="/ar/play/">الألعاب</a>
           <a href="/ar/about/">عن الموقع</a>
           <a href="/ar/privacy/">الخصوصية</a>
         </nav>

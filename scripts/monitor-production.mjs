@@ -59,7 +59,7 @@ class RetryableCheckError extends Error {
   }
 }
 
-export const HTML_ROUTES = [
+export const PRE_NAVIGATION_HTML_ROUTES = [
   { name: "Home", path: "/", marker: "<title>Riddle Arabia", bilingualMarker: 'id="langSelect"' },
   { name: "Mind Lab", path: "/mind-lab", marker: "<title>Mind Lab", bilingualMarker: 'id="langSelect"' },
   { name: "Collections", path: "/collections", marker: "<title>Discover Riddles &amp; Brain Games", bilingualMarker: 'hreflang="ar"' },
@@ -83,10 +83,24 @@ export const HTML_ROUTES = [
   { name: "Diplomacy", path: "/diplomacy", marker: "<title>Diplomacy Lite Online", bilingualMarker: "game-i18n.js" },
 ];
 
+const NAVIGATION_ROUTE_UPDATES = {
+  "/": { bilingualMarker: 'class="language-route-link"' },
+  "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
+  "/collections": { marker: "<title>Short Riddle &amp; Quiz Collections" },
+  "/play": { name: "Games", bilingualMarker: 'class="language-route-link"' },
+  "/science": { bilingualMarker: 'class="language-route-link"' },
+};
+
+export const HTML_ROUTES = [
+  ...PRE_NAVIGATION_HTML_ROUTES.map((route) => ({ ...route, ...NAVIGATION_ROUTE_UPDATES[route.path] })),
+  { name: "Daily Challenge", path: "/daily", marker: "<title>Daily Challenge", bilingualMarker: 'hreflang="ar"' },
+  { name: "Arabic Daily Challenge", path: "/ar/daily/", marker: "<title>التحدي اليومي", bilingualMarker: 'hreflang="en"' },
+];
+
 // A domain cutover proves the predecessor before the new brand and curated
 // routes exist. Keep the stable entry points and all publication/version checks;
 // the candidate must still pass the complete current-site contract after deploy.
-const LEGACY_BASELINE_HTML_ROUTES = HTML_ROUTES.filter(({ path }) => (
+const LEGACY_BASELINE_HTML_ROUTES = PRE_NAVIGATION_HTML_ROUTES.filter(({ path }) => (
   !["/riddles", "/ar/alghaz/", "/brain-games"].includes(path)
 ));
 
@@ -103,6 +117,8 @@ export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
   "/ar/collections/",
   "/play",
   "/ar/play/",
+  "/daily",
+  "/ar/daily/",
   "/about",
   "/ar/about/",
   "/privacy",
@@ -117,6 +133,37 @@ export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
     `/ar/games/${slug}/`,
   ]),
 ]);
+
+export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
+  INDEXABLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
+);
+
+function expectSharedNavigation(html, pathname) {
+  const isAr = pathname.startsWith("/ar/");
+  const navs = [...html.matchAll(/<nav\b[^>]*class="[^"]*\bprimary-navigation\b[^"]*"[^>]*>([\s\S]*?)<\/nav>/giu)];
+  expect(navs.length === 1, "page must expose exactly one shared primary navigation landmark");
+  const links = [...navs[0][1].matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/giu)].map(([, attributes, label]) => ({
+    ...Object.fromEntries([...attributes.matchAll(/([\w-]+)="([^"]*)"/gu)].map(([, key, value]) => [key, value])),
+    label: label.trim(),
+  }));
+  const expected = [
+    ["home", isAr ? "/ar/" : "/", isAr ? "الرئيسية" : "Home"],
+    ["library", isAr ? "/ar/mind-lab/" : "/mind-lab", isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"],
+    ["games", isAr ? "/ar/play/" : "/play", isAr ? "الألعاب" : "Games"],
+    ["daily", isAr ? "/ar/daily/" : "/daily", isAr ? "التحدي اليومي" : "Daily Challenge"],
+  ];
+  expect(links.length === expected.length, "primary navigation must contain four destination links");
+  expected.forEach(([key, href, label], index) => {
+    expect(links[index]?.["data-nav"] === key && links[index]?.href === href && links[index]?.label === label,
+      `primary navigation ${key} destination or label is incorrect`);
+  });
+  expect(/<a\b[^>]*class="[^"]*\blanguage-route-link\b[^"]*"[^>]*href="[^"]+"[^>]*hreflang="(?:en|ar)"/iu.test(html),
+    "page lacks the explicit equivalent-language link");
+  expect(/<a\b[^>]*data-site-profile[^>]*href="(?:\/mind-lab|\/ar\/mind-lab\/)\?profile=1"/iu.test(html),
+    "page lacks the usable Profile fallback link");
+  expect(/<script\b[^>]*src="\/site-navigation(?:\.[a-f0-9]{16})?\.js"/iu.test(html),
+    "page lacks the shared navigation runtime");
+}
 
 export const UNAUTHENTICATED_API_GET_ROUTES = [
   { name: "profile", path: "/api/user/profile" },
@@ -347,14 +394,20 @@ function loadConfig(options) {
     options.expectedWorkerVersion || env.JAKH_MONITOR_EXPECTED_WORKER_VERSION,
   );
   const siteContract = options.siteContract || env.JAKH_MONITOR_SITE_CONTRACT || "current";
-  if (!new Set(["current", "legacy-cutover"]).has(siteContract)) {
-    throw new Error("site contract must be current or legacy-cutover");
+  if (!new Set(["current", "legacy-cutover", "release-baseline"]).has(siteContract)) {
+    throw new Error("site contract must be current, legacy-cutover, or release-baseline");
   }
   if (siteContract === "legacy-cutover" && (
     scope !== "site" || siteOrigin !== "https://jakh.net"
     || apiOrigin !== "https://api.jakh.net" || !expectedWorkerVersion
   )) {
     throw new Error("legacy-cutover requires site scope, the legacy site/API origins, and an exact predecessor Worker version");
+  }
+  if (siteContract === "release-baseline" && (
+    scope !== "site" || siteOrigin !== PRIMARY_SITE_ORIGIN
+    || apiOrigin !== PRIMARY_API_ORIGIN || !expectedWorkerVersion
+  )) {
+    throw new Error("release-baseline requires site scope, the production site/API origins, and an exact predecessor Worker version");
   }
   const defaultLegacyOrigins = siteOrigin === PRIMARY_SITE_ORIGIN ? LEGACY_SITE_ORIGINS : [];
   return {
@@ -401,6 +454,7 @@ function loadConfig(options) {
 export async function runProductionMonitor(options = {}) {
   const config = loadConfig(options);
   const legacyBaseline = config.siteContract === "legacy-cutover";
+  let navigationLayout = legacyBaseline ? "legacy-cutover" : "current";
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   const logger = options.logger || console;
   const results = [];
@@ -467,7 +521,26 @@ export async function runProductionMonitor(options = {}) {
     }
   }
 
-  await Promise.all((legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES : HTML_ROUTES).map((route) =>
+  if (config.siteContract === "release-baseline") {
+    await check("Site: version-bound navigation baseline", async () => {
+      const resource = await fetchResource(fetchImpl, new URL("/", config.siteOrigin), config.timeoutMs);
+      expectStatus(resource.response, 200);
+      expectContentType(resource.response, /^text\/html\b/iu);
+      expect(resource.text.includes("<title>Riddle Arabia"), "baseline homepage is not Riddle Arabia");
+      if (resource.text.includes('class="primary-navigation"')) {
+        expectSharedNavigation(resource.text, "/");
+        navigationLayout = "current";
+      } else {
+        expect(resource.text.includes('id="langSelect"'), "unrecognized predecessor navigation");
+        navigationLayout = "pre-navigation";
+      }
+      assertBudget(resource, config.siteMaxMs, 150_000);
+      return resource;
+    });
+  }
+  const htmlRoutes = legacyBaseline ? LEGACY_BASELINE_HTML_ROUTES
+    : navigationLayout === "pre-navigation" ? PRE_NAVIGATION_HTML_ROUTES : HTML_ROUTES;
+  await Promise.all(htmlRoutes.map((route) =>
     check(`Site: ${route.name}`, async () => {
       const resource = await fetchResource(
         fetchImpl,
@@ -485,6 +558,11 @@ export async function runProductionMonitor(options = {}) {
         resource.text.includes(route.bilingualMarker),
         `missing bilingual marker "${route.bilingualMarker}"`,
       );
+      if (navigationLayout === "current") expectSharedNavigation(resource.text, route.path);
+      if (navigationLayout === "pre-navigation") {
+        expect(!/class="[^"]*\bprimary-navigation\b/iu.test(resource.text),
+          "predecessor pages must use one coherent pre-navigation contract");
+      }
       if (route.path === "/science" && !legacyBaseline) {
         expect(
           /<body\b[^>]*\bdata-page="category"/iu.test(resource.text),
@@ -694,7 +772,8 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-    const expectedUrls = INDEXABLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+    const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");
       expect(urls.includes(`${config.siteOrigin}/`), "baseline sitemap is missing the homepage");
@@ -776,6 +855,10 @@ export async function runProductionMonitor(options = {}) {
   });
 
   const assetChecks = [
+    ...(navigationLayout === "current" ? [{
+      name: "Shared navigation", path: "/site-navigation.js",
+      type: /(?:text|application)\/javascript/iu, marker: "primary-navigation", maxBytes: 10_000,
+    }] : []),
     {
       name: "JavaScript",
       path: "/app.js",
@@ -1092,7 +1175,7 @@ export async function runProductionMonitor(options = {}) {
     logger.error(`FAIL  ${failure.name}${attempts}: ${failure.message}`);
   }
 
-  const summary = { config, results, failures };
+  const summary = { config, navigationLayout, results, failures };
   if (failures.length && options.throwOnFailure !== false) {
     throw new Error(`Production monitor failed: ${failures.length} of ${results.length + failures.length} checks failed`);
   }
@@ -1112,6 +1195,7 @@ export function buildMonitorReport(summary, generatedAt = new Date()) {
     monitor: {
       scope: summary.config?.scope ?? null,
       siteContract: summary.config?.siteContract || "current",
+      navigationLayout: summary.navigationLayout || "current",
       siteOrigin: summary.config?.siteOrigin ?? null,
       apiOrigin: summary.config?.apiOrigin ?? null,
       legacySiteOrigins: summary.config?.legacySiteOrigins ?? [],

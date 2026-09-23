@@ -35,7 +35,7 @@
     {
       "@type": "CollectionPage",
       "@id": "https://riddlearabia.com/ar/alab-al-dimagh/#webpage",
-      "name": "في القصة شيء لا يستقيم. هل تكتشفه؟",
+      "name": "ألعاب ذهنية في مكان واحد",
       "description": "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
       "url": "https://riddlearabia.com/ar/alab-al-dimagh/",
       "inLanguage": "ar",
@@ -103,13 +103,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "استكشف",
-          "item": "https://riddlearabia.com/ar/collections/"
+          "name": "الألعاب",
+          "item": "https://riddlearabia.com/ar/play/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "في القصة شيء لا يستقيم. هل تكتشفه؟",
+          "name": "ألعاب ذهنية في مكان واحد",
           "item": "https://riddlearabia.com/ar/alab-al-dimagh/"
         }
       ]
@@ -120,50 +120,43 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="brain-games">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريـدل أرابيا">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل الرئيسي">
-        <a class="ghost-btn" href="/ar/">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/collections/">استكشف</a>
-        <a class="ghost-btn" href="/ar/alab-al-dimagh/">الألعاب</a>
-        <a class="ghost-btn language-route-link" href="/brain-games" hreflang="en" lang="en" dir="ltr">English</a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games" aria-current="page">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/brain-games" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
+      </div>
     </header>
     <main id="content">
       <section class="seo-collection-hero shell">
-        <p class="eyebrow">قضايا قصيرة ولحظات اكتشاف</p>
-        <h1>في القصة شيء لا يستقيم. هل تكتشفه؟</h1>
-        <p>ابدأ باكشفها، لعبتنا لربط الأدلة. اقرأ قضية قصيرة وتفحّص التفاصيل واربط الدليلين اللذين يدعمان استنتاجًا. خذ وقتك: بلا عدّ تنازلي أو حساب أو تنزيل.</p>
-        <p class="section-note">يضم دفتر القضايا المجاني إحدى عشرة قضية مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ إنها مجموعة محدودة ولا تعني نشر قضية جديدة كل يوم. ولوقت أهدأ، تجد الشطرنج وطاولة الزهر أدناه.</p>
-      </section>
-      <section class="shell" aria-label="ابدأ باكشفها">
-        <article class="seo-hub-card">
-          <p class="eyebrow">ابدأ هنا · نسخة تجريبية مجانية</p>
-          <h2>اكشفها — اكتشف التناقض</h2>
-          <p>تفحّص الأدلة واربط دليلين واختر الاستنتاج الذي يدعمانه. إحدى عشرة قضية مجانية بالعربية والإنجليزية بلا مؤقّت أو تسجيل.</p>
-          <a class="primary-btn" href="/ar/games/akshifha/">افتح قضية اليوم</a>
-        </article>
-      </section>
-      <section class="seo-collection-hero shell" aria-labelledby="classics-title">
-        <p class="eyebrow">لوقت أهدأ</p>
-        <h2 id="classics-title">الكلاسيكيات</h2>
-        <div class="home-discovery-links">
-          <a href="/ar/games/chess/"><span>الشطرنج</span><small>خطّط لنقلتك التالية. العب ضد الكمبيوتر أو تناوب مع صديق على جهاز واحد.</small></a>
-          <a href="/ar/games/backgammon/"><span>طاولة الزهر</span><small>نسخة متصفح مبسطة. ارمِ النرد وسابق الكمبيوتر لإخراج أحجارك من اللوحة.</small></a>
-        </div>
+        <p class="eyebrow">الألعاب</p>
+        <h1>ألعاب ذهنية في مكان واحد</h1>
+        <p>صفحة الألعاب هي المكان الرئيسي لاكشفها والشطرنج وطاولة الزهر وأنماط اللعب بالأسئلة. اختر لعبة هناك، أو استخدم رابطاً مباشراً أدناه.</p>
+        <a class="primary-btn" href="/ar/play/">انتقل إلى جميع الألعاب</a>
+        <p class="section-note">يتناوب اختيار اليوم في اكشفها بين إحدى عشرة قضية موجودة؛ وهو منفصل عن سؤال التحدي اليومي. انتقل إلى الألعاب لمعرفة وصف كل نمط وطرق اللعب.</p>
+        <ul class="game-shortcuts">
+          <li><a href="/ar/games/akshifha/">اكشفها — اكتشف التناقض</a></li>
+          <li><a href="/ar/games/chess/">الشطرنج</a></li>
+          <li><a href="/ar/games/backgammon/">طاولة الزهر</a></li>
+        </ul>
       </section>
     </main>
     <footer class="site-footer shell">
       <div class="footer-inner">
         <p class="footer-copy">© 2026 ريـدل أرابيا</p>
         <nav class="footer-site-links" aria-label="معلومات ريـدل أرابيا">
-          <a href="/ar/collections/">المسارات</a>
-          <a href="/ar/alab-al-dimagh/">ألعاب الدماغ</a>
+          <a href="/ar/collections/">مجموعات قصيرة</a>
+          <a href="/ar/play/">الألعاب</a>
           <a href="/ar/about/">عن الموقع</a>
           <a href="/ar/privacy/">الخصوصية</a>
         </nav>

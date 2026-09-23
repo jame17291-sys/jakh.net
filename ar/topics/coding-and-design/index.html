@@ -45,27 +45,27 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body data-page="category" data-category="coding-and-design" data-route-lang="ar">
     <a href="#top" class="skip-link">انتقل إلى المحتوى</a>
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريـدل أرابيا">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل">
-        <a class="ghost-btn" href="/ar/">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/mind-lab/">مختبر العقل</a>
-        <a class="ghost-btn language-route-link" href="/coding-and-design" hreflang="en" lang="en" dir="ltr">English</a>
-        <button class="ghost-btn" id="openAuthBtn">تسجيل الدخول</button>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library" aria-current="page">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
-      <div class="header-selects" aria-label="إعدادات اللغة">
-        <label><span>اللغة</span><select id="langSelect"><option value="en">English</option><option value="ar" selected>العربية</option></select></label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/coding-and-design" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
       </div>
     </header>
     <main id="top">
       <nav class="page-breadcrumb shell" aria-label="مسار التنقل">
         <a href="/ar/">الرئيسية</a><span aria-hidden="true">‹</span>
-        <a href="/ar/mind-lab/">مختبر العقل</a><span aria-hidden="true">‹</span>
+        <a href="/ar/mind-lab/">ألغاز واختبارات</a><span aria-hidden="true">‹</span>
         <span id="breadcrumbCategoryName" aria-current="page">البرمجة والتصميم</span>
       </nav>
       <section class="hero shell hero-category">
@@ -74,12 +74,13 @@
           <h1 id="categoryTitle">💻 البرمجة والتصميم</h1>
           <p class="hero-text" id="categoryDescription">يضم موضوع «البرمجة والتصميم» 30 سؤالًا بالعربية والإنجليزية، ويتناول أساسيات البرمجة، تطوير الويب، وواجهات وتجربة المستخدم والتصميم البصري. اختر لغتك، واكشف الإجابات، وتابع نتيجتك.</p>
           <div class="hero-badges"><span id="categoryCountPill">30 سؤالاً</span><span id="categoryDiffBadge"></span></div>
+          <a class="primary-btn" href="#cardGrid">ابدأ الأسئلة</a>
         </div>
-        <aside class="hero-panel hero-panel-rich"><img class="hero-illustration" id="categoryImage" alt="" /><div id="categorySummaryMount"></div></aside>
       </section>
       <section class="shell section-block" id="questionSection">
-        <div class="section-heading library-head"><div><p class="eyebrow">العب بطريقتك</p><h2>استكشف الموضوع</h2></div><p class="section-note">ابحث وصفِّ البطاقات وتابع تقدّمك أثناء اللعب.</p></div>
-        <section class="control-panel" aria-label="خيارات الأسئلة">
+        <details class="question-filters">
+          <summary>البحث وتصفية الأسئلة</summary>
+          <section class="control-panel" aria-label="خيارات الأسئلة">
           <label class="search-field"><span>ابحث في هذا الموضوع</span><input id="cardSearchInput" type="search" autocomplete="off" placeholder="ابحث بكلمة أو إجابة" /></label>
           <div class="select-grid">
             <label><span>الصعوبة</span><select id="difficultySelect"><option value="all">كل المستويات</option><option value="easy">سهل</option><option value="medium">متوسط</option><option value="hard">صعب</option><option value="very-advanced">صعب جداً</option></select></label>
@@ -92,10 +93,12 @@
               <button class="category-chip" data-subcategory="Data, APIs &amp; Tools">البيانات والواجهات والأدوات · 4</button>
               <button class="category-chip" data-subcategory="Algorithms &amp; Data Structures">الخوارزميات وهياكل البيانات · 3</button>
               <button class="category-chip" data-subcategory="Computer Systems &amp; Theory">أنظمة الحاسوب والنظرية · 3</button></div></div>
-        </section>
+          </section>
+        </details>
         <div class="library-toolbar"><p id="resultsLabel">عرض 30 بطاقة.</p><button class="text-btn" id="resetPageBtn">إعادة الضبط</button></div>
         <div id="emptyState" class="empty-state hidden"><strong>لا توجد بطاقات مطابقة.</strong></div>
-        <div id="cardGrid" class="riddle-grid" aria-live="polite"></div>
+        <div id="cardGrid" class="riddle-grid" aria-live="polite" tabindex="-1"></div>
+        <div id="categorySummaryMount" class="category-progress-summary"></div>
       </section>
       <section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">واصل</p><h2>موضوعات قريبة</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
     </main>
@@ -103,8 +106,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 ريـدل أرابيا</p>
         <nav class="footer-site-links" aria-label="معلومات ريـدل أرابيا">
-          <a href="/ar/collections/">المسارات</a>
-          <a href="/ar/alab-al-dimagh/">ألعاب الدماغ</a>
+          <a href="/ar/collections/">مجموعات قصيرة</a>
+          <a href="/ar/play/">الألعاب</a>
           <a href="/ar/about/">عن الموقع</a>
           <a href="/ar/privacy/">الخصوصية</a>
         </nav>

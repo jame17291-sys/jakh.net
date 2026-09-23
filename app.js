@@ -165,6 +165,7 @@ const SHARED_LANGUAGE_ROUTES = Object.freeze([
   { en: '/mind-lab', ar: '/ar/mind-lab/' },
   { en: '/collections', ar: '/ar/collections/' },
   { en: '/play', ar: '/ar/play/' },
+  { en: '/daily', ar: '/ar/daily/' },
   { en: '/about', ar: '/ar/about/' },
   { en: '/privacy', ar: '/ar/privacy/' },
   ...['akshifha', 'chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
@@ -207,6 +208,7 @@ function localizedSharedHref(href, lang = state.lang) {
 
 function localizeSharedRuntimeLinks(root = document) {
   root.querySelectorAll('a[href]').forEach((link) => {
+    if (link.matches('.language-route-link')) return;
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#')) return;
     const localized = localizedSharedHref(href, state.lang);
@@ -214,26 +216,46 @@ function localizeSharedRuntimeLinks(root = document) {
   });
 }
 
-function categoryArtUrl(meta) {
-  const slug = String(meta?.slug || '').trim();
-  return `/assets/${slug}.svg`;
-}
+
 
 const UI = {
   en: {
+    dailyNote: "The selection changes at midnight UTC and may revisit existing questions.",
+    dailyIntro: "One question selected from our library each day. Take your time, make a guess, then reveal the answer.",
+    dailyTitle: "Daily Challenge",
+    dailyLoading: "Loading today’s question…",
+    directoryInitialSummary: "51 topics in 5 sections.",
+    dailyNoScript: 'Turn on JavaScript for the daily selection, or <a href="/riddles">try the short riddles collection</a>.',
+    playJoin: "Join with a room code",
+    playBattle: "Choose a topic for Battle Room",
+    playQuickFire: "Choose a topic for Quick Fire",
+    playTopicModesText: "Quick Fire is a solo timed quiz. Battle Room lets you play the same topic with friends. Choose your topic first.",
+    playTopicModesTitle: "Turn a topic into a game",
+    homeFeatureCta: "Explore the casebook",
+    homeFeatureText: "Two stages. One host. Eleven small mysteries to explore—connect two clues and see what follows.",
+    homeFeatureTitle: "Featured: Akshifha",
+    homeDailyCta: "Open Daily Challenge",
+    homeDailyText: "One question from the library, selected daily. Guess first, then check your answer.",
+    homeDailyTitle: "A little challenge, every day",
+    homeGameText: "Connect clues in Akshifha, play a classic, or challenge friends.",
+    homeGameTitle: "Play a game",
+    homeQuizText: "Browse 51 topics, from science and history to culture and logic.",
+    homeQuizTitle: "Explore a topic",
+    homeSolveText: "Start with eight short clues. Reveal each answer when you’re ready.",
+    homeSolveTitle: "Solve a riddle",
     brandSubtitle: 'bilingual topics, saved progress, and live Battle Rooms',
     navHome: 'Home',
-    navCategories: 'Categories',
+    navCategories: "Riddles & Quizzes",
     authOpen: 'Sign in',
     language: 'Language',
-    homeEyebrow: 'Akshifha · A mystery to begin with',
-    homeTitle: 'Hana has two events to host. The organizer says the times work. The clocks tell a different story. Can you spot the problem?',
+    homeEyebrow: "ARABIC & ENGLISH · FREE TO EXPLORE",
+    homeTitle: "Find your next good question. Think on your own, share a challenge, or settle in for a game.",
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Start a riddle',
     homeSpacetoonCta: 'Browse riddles',
     homeAkshifhaCta: 'Connect the clues',
-    homeCaseTitle: 'Two stages. One host.',
-    homeCaseMeta: 'Free · Arabic & English · No account or timer',
+    homeCaseTitle: "Riddles, quizzes & games.",
+    homeCaseMeta: "No account needed to begin. Choose your own pace.",
     homeClueEyebrow: 'Your first piece of evidence',
     homeClueTitle: 'The rehearsal log',
     homeClueTime: '18:12–18:27',
@@ -243,17 +265,17 @@ const UI = {
     statCategories: 'Topics',
     statQuestions: 'Questions',
     statLanguages: 'Languages',
-    mindHeroEyebrow: '3,275 questions · 51 clear topics',
-    mindHeroTitle: 'The Mind Lab',
-    mindHeroSubtitle: 'Follow your curiosity. Every topic opens into a quick, satisfying challenge.',
-    playHeroTitle: 'Something doesn’t add up.',
-    playHeroSubtitle: 'Meet Akshifha: small mysteries, curious details, and the moment the evidence clicks. Free, in Arabic and English.',
+    mindHeroEyebrow: "Choose a topic or a short collection",
+    mindHeroTitle: "Riddles & Quizzes",
+    mindHeroSubtitle: "Find a topic, choose a question, and reveal the answer at your own pace.",
+    playHeroTitle: "Games",
+    playHeroSubtitle: "Choose a mystery, a board game, or a challenge with friends. Every game is free.",
     playHeroGames: 'Pilot cases',
-    playAvailable: 'Start here · Free pilot',
+    playAvailable: "Mysteries & deduction",
     playPick: 'Akshifha — spot the contradiction',
     playBrowserOnly: 'Inspect the evidence. Choose two clues and the conclusion they support. No timer, download, or sign-up.',
     playAkshifhaAria: 'Play Akshifha, spot the contradiction',
-    playAkshifhaCta: 'Open Two stages, one host →',
+    playAkshifhaCta: "Play Akshifha",
     playAkshifhaPilot: 'Eleven original cases. The daily pick rotates through this finite collection; it is not a newly published case every day.',
     playClassicsEyebrow: 'A quieter change of pace',
     playClassicsTitle: 'Classics',
@@ -354,7 +376,7 @@ const UI = {
     languageControlsLabel: 'Language controls',
     breadcrumbLabel: 'Breadcrumb',
     breadcrumbHome: 'Home',
-    breadcrumbMindLab: 'Mind Lab',
+    breadcrumbMindLab: "Riddles & Quizzes",
     questionFiltersLabel: 'Question filters',
     categoryFiltersLabel: 'Category filters',
     categorySectionsLabel: 'Category sections',
@@ -376,15 +398,15 @@ const UI = {
     standardsEducationLink: 'Read our content standards.',
     answerExplanation: 'Why this is the answer',
     mindCalloutEyebrow: 'Prefer a shorter challenge?',
-    mindCalloutTitle: 'Try a focused bilingual collection',
-    mindCalloutText: 'Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.',
-    mindCalloutCta: 'Browse collections',
+    mindCalloutTitle: "Prefer a short start?",
+    mindCalloutText: "Try a focused collection, then continue into its full topic.",
+    mindCalloutCta: "Short collections",
     createAccount: 'Save my progress',
     todayMomentum: 'Your snapshot',
     localBrowserOnly: 'Saved to your account',
     categoryEyebrow: 'Choose a section',
-    categoryTitle: 'What are you curious about today?',
-    categoryText: 'Choose a clear section, search by interest, or let Riddle Arabia surprise you.',
+    categoryTitle: "Browse topics",
+    categoryText: "Search all topics or filter by subject.",
     searchCategoriesLabel: 'Search topics and subtopics',
     tracksLabel: 'Sections',
     randomCategory: 'Surprise me',
@@ -393,6 +415,7 @@ const UI = {
     showFewerTopics: 'Show featured topics',
     authEyebrow: 'Profile',
     authTitle: 'Create account or sign in',
+    authSessionLoading: 'Checking your account…',
     footerNote: 'All rights reserved to Riddle Arabia 2026',
 
     pageProgress: 'Page progress',
@@ -580,7 +603,7 @@ const UI = {
     errorInvalidRoomCode: 'Enter a valid room code.',
     leaderboardTitle: 'Server-checked leaderboard',
     leaderboardNav: 'Leaderboard',
-    battleNav: 'Battle',
+    battleNav: 'Join or host',
     leaderboardLoadError: 'Could not load the leaderboard.',
     verifiedAnswerAll: 'Answer all 10 questions before submitting.',
     verifiedActive: 'A server-checked challenge for this topic is already active. Return to the original tab or wait up to 15 minutes for it to expire.',
@@ -600,19 +623,42 @@ const UI = {
     streakFreezeLabel: '🧊 Freeze',
   },
   ar: {
+    dailyNote: "يتغيّر السؤال عند منتصف الليل بالتوقيت العالمي، وقد يتكرر سؤال من المكتبة.",
+    dailyIntro: "سؤال يُختار من مكتبتنا كل يوم. خذ وقتك وحاول الإجابة ثم اكشف الحل.",
+    dailyTitle: "التحدي اليومي",
+    dailyLoading: "جارٍ تحميل سؤال اليوم…",
+    directoryInitialSummary: "51 موضوعًا في 5 أقسام.",
+    dailyNoScript: 'فعّل JavaScript لعرض سؤال اليوم، أو <a href="/ar/alghaz/">جرّب مجموعة الألغاز القصيرة</a>.',
+    playJoin: "انضم برمز الغرفة",
+    playBattle: "اختر موضوعًا لغرفة المعركة",
+    playQuickFire: "اختر موضوعًا للسباق السريع",
+    playTopicModesText: "السباق السريع اختبار فردي مؤقّت. وفي غرفة المعركة تتنافس مع أصدقائك في الموضوع نفسه. اختر موضوعك أولًا.",
+    playTopicModesTitle: "حوّل موضوعًا إلى لعبة",
+    homeFeatureCta: "استكشف دفتر القضايا",
+    homeFeatureText: "فقرتان ومقدّمة واحدة. استكشف إحدى عشرة قضية قصيرة، واربط دليلين لتصل إلى النتيجة.",
+    homeFeatureTitle: "اللعبة المميّزة: اكشفها",
+    homeDailyCta: "افتح التحدي اليومي",
+    homeDailyText: "سؤال من المكتبة يُختار يوميًا. حاول أولًا ثم تحقّق من إجابتك.",
+    homeDailyTitle: "تحدٍ صغير كل يوم",
+    homeGameText: "اربط الأدلة في اكشفها، أو العب لعبة كلاسيكية، أو تحدَّ الأصدقاء.",
+    homeGameTitle: "العب لعبة",
+    homeQuizText: "تصفّح 51 موضوعًا، من العلوم والتاريخ إلى الثقافة والمنطق.",
+    homeQuizTitle: "استكشف موضوعًا",
+    homeSolveText: "ابدأ بثمانية ألغاز قصيرة، واعرض الإجابة عندما تكون مستعدًا.",
+    homeSolveTitle: "حلّ لغزًا",
     brandSubtitle: 'أسئلة بالعربية والإنجليزية، وتقدّم محفوظ، وغرف لعب مباشرة',
     navHome: 'الرئيسية',
-    navCategories: 'الموضوعات',
+    navCategories: "ألغاز واختبارات",
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
-    homeEyebrow: 'اكشفها · ابدأ بهذا اللغز',
-    homeTitle: 'لدى هناء فقرتان لتقديمهما. يقول المنظّم إن المواعيد مناسبة، لكن الساعتين تحكيان قصة مختلفة. هل تكتشف المشكلة؟',
+    homeEyebrow: "بالعربية والإنجليزية · استكشاف مجاني",
+    homeTitle: "اكتشف سؤالك القادم. فكّر بمفردك، أو شارك تحديًا، أو استمتع بلعبة.",
     homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
     browseCategories: 'ابدأ لغزًا',
     homeSpacetoonCta: 'تصفّح الألغاز',
     homeAkshifhaCta: 'اربط الأدلة',
-    homeCaseTitle: 'فقرتان. ومقدّمة واحدة.',
-    homeCaseMeta: 'مجانية · بالعربية والإنجليزية · بلا حساب أو مؤقّت',
+    homeCaseTitle: "ألغاز واختبارات وألعاب.",
+    homeCaseMeta: "لا تحتاج إلى حساب لتبدأ. العب بالوتيرة التي تناسبك.",
     homeClueEyebrow: 'دليلك الأول',
     homeClueTitle: 'سجل البروفة',
     homeClueTime: '18:12–18:27',
@@ -622,17 +668,17 @@ const UI = {
     statCategories: 'الموضوعات',
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
-    mindHeroEyebrow: '3,275 سؤالًا · 51 موضوعًا',
-    mindHeroTitle: 'مختبر العقول',
-    mindHeroSubtitle: 'اتبع فضولك؛ كل موضوع يفتح لك تحديًا سريعًا وممتعًا.',
-    playHeroTitle: 'في القصة شيء لا يستقيم.',
-    playHeroSubtitle: 'جرّب اكشفها: قضايا قصيرة وتفاصيل تستحق الانتباه ولحظة تتضح فيها الصورة. مجانًا بالعربية والإنجليزية.',
+    mindHeroEyebrow: "اختر موضوعًا أو مجموعة قصيرة",
+    mindHeroTitle: "ألغاز واختبارات",
+    mindHeroSubtitle: "اختر موضوعًا وسؤالًا، واعرض الإجابة عندما تكون مستعدًا.",
+    playHeroTitle: "الألعاب",
+    playHeroSubtitle: "اختر قضية غامضة أو لعبة لوحية أو تحديًا مع الأصدقاء. جميع الألعاب مجانية.",
     playHeroGames: 'قضايا تجريبية',
-    playAvailable: 'ابدأ هنا · نسخة تجريبية مجانية',
+    playAvailable: "قضايا واستنتاج",
     playPick: 'اكشفها — اكتشف التناقض',
     playBrowserOnly: 'تفحّص الأدلة، واختر دليلين والاستنتاج الذي يدعمانه. بلا مؤقّت أو تنزيل أو تسجيل.',
     playAkshifhaAria: 'العب اكشفها واكتشف التناقض',
-    playAkshifhaCta: 'افتح قضية «فقرتان ومقدّمة واحدة» ←',
+    playAkshifhaCta: "العب اكشفها",
     playAkshifhaPilot: 'إحدى عشرة قضية مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ إنها مجموعة محدودة ولا تعني نشر قضية جديدة كل يوم.',
     playClassicsEyebrow: 'لوقت أهدأ',
     playClassicsTitle: 'الكلاسيكيات',
@@ -733,7 +779,7 @@ const UI = {
     languageControlsLabel: 'خيارات اللغة',
     breadcrumbLabel: 'مسار التنقل',
     breadcrumbHome: 'الرئيسية',
-    breadcrumbMindLab: 'مختبر العقول',
+    breadcrumbMindLab: "ألغاز واختبارات",
     questionFiltersLabel: 'خيارات تصفية الأسئلة',
     categoryFiltersLabel: 'خيارات تصفية الموضوعات',
     categorySectionsLabel: 'أقسام الموضوعات',
@@ -755,15 +801,15 @@ const UI = {
     standardsEducationLink: 'اطّلع على معايير المحتوى.',
     answerExplanation: 'لماذا هذه هي الإجابة؟',
     mindCalloutEyebrow: 'هل تفضّل تحديًا أقصر؟',
-    mindCalloutTitle: 'جرّب مجموعة قصيرة بالعربية والإنجليزية',
-    mindCalloutText: 'ابدأ بـ16 لغزًا مختارًا، أو جرّب أسئلة الأطفال، وألغاز المنطق، والمعلومات العامة، وكرة القدم، وذكريات زمن الطيبين.',
-    mindCalloutCta: 'تصفّح المجموعات',
+    mindCalloutTitle: "تفضّل بداية قصيرة؟",
+    mindCalloutText: "جرّب مجموعة مختارة، ثم تابع إلى موضوعها الكامل.",
+    mindCalloutCta: "مجموعات قصيرة",
     createAccount: 'احفظ تقدّمي',
     todayMomentum: 'ملخصك',
     localBrowserOnly: 'محفوظ في حسابك',
     categoryEyebrow: 'اختر قسمًا',
-    categoryTitle: 'ما الذي يثير فضولك اليوم؟',
-    categoryText: 'اختر قسمًا واضحًا، أو ابحث حسب اهتمامك، أو دع ريدل أرابيا يفاجئك.',
+    categoryTitle: "تصفّح الموضوعات",
+    categoryText: "ابحث في جميع الموضوعات أو اختر قسمًا.",
     searchCategoriesLabel: 'ابحث في الموضوعات والموضوعات الفرعية',
     tracksLabel: 'الأقسام',
     randomCategory: 'فاجئني',
@@ -772,6 +818,7 @@ const UI = {
     showFewerTopics: 'عرض الموضوعات المقترحة',
     authEyebrow: 'الملف الشخصي',
     authTitle: 'أنشئ حسابًا أو سجّل الدخول',
+    authSessionLoading: 'جارٍ التحقق من حسابك…',
     footerNote: 'جميع الحقوق محفوظة لريـدل أرابيا 2026',
 
     pageProgress: 'تقدّمك في هذا الموضوع',
@@ -959,7 +1006,7 @@ const UI = {
     errorInvalidRoomCode: 'أدخل رمز غرفة صحيحًا.',
     leaderboardTitle: 'لوحة الصدارة بنتائج يتحقق منها الخادم',
     leaderboardNav: 'المتصدرون',
-    battleNav: 'تحدٍ جماعي',
+    battleNav: 'انضم أو أنشئ تحديًا',
     leaderboardLoadError: 'تعذّر تحميل لوحة المتصدرين.',
     verifiedAnswerAll: 'أجب عن الأسئلة العشرة قبل الإرسال.',
     verifiedActive: 'يوجد تحدٍ نشط يتحقق منه الخادم لهذا الموضوع. عد إلى علامة التبويب الأصلية أو انتظر حتى 15 دقيقة لانتهاء صلاحيته.',
@@ -988,7 +1035,6 @@ const state = {
   categoryData: null,
   directorySearch: '',
   cluster: 'all',
-  directoryExpanded: false,
   search: '',
   difficulty: 'all',
   view: 'all',
@@ -1820,8 +1866,8 @@ function applyRuntimeAccessibilityCopy() {
     battleNavBtn.title = t('teamBattle');
     battleNavBtn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
   }
-  document.getElementById('globalSearchBtn')?.setAttribute('aria-label', t('search'));
-  document.getElementById('hamburgerBtn')?.setAttribute('aria-label', t('menu'));
+  const searchBtn = document.getElementById('globalSearchBtn');
+  if (searchBtn) searchBtn.textContent = state.lang === 'ar' ? 'ابحث في الأسئلة' : 'Search questions';
   document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
     link.setAttribute('aria-label', t('socialInstagramLabel'));
   });
@@ -1857,18 +1903,18 @@ function applyStaticCopy() {
   }
   if (els.openAuthBtn) {
     const account = getActiveUser();
-    els.openAuthBtn.textContent = account ? account.username : t('authOpen');
+    els.openAuthBtn.textContent = state.lang === 'ar' ? 'حسابي' : 'Profile';
+    els.openAuthBtn.title = account ? account.username : t('authOpen');
   }
   syncAdminEntry();
   applyCategoryShellCopy();
   applyRuntimeAccessibilityCopy();
   updateSelectLabels();
   updateDocumentTitle();
-  updateBottomNavActive();
 }
 
 function syncAdminEntry() {
-  const nav = document.querySelector('.header-actions');
+  const nav = document.querySelector('.site-utilities');
   if (!nav) return;
   const isAdmin = state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER';
   const existing = document.getElementById('adminNavBtn');
@@ -1901,8 +1947,8 @@ function updateDocumentTitle() {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {
       title = state.lang === 'ar'
-        ? 'مختبر العقول: 51 موضوعًا من الألغاز والأسئلة | ريدل أرابيا'
-        : 'Mind Lab: 51 Riddle & Quiz Topics | Riddle Arabia';
+        ? 'ألغاز واختبارات: تصفّح جميع الموضوعات | ريدل أرابيا'
+        : 'Riddles & Quizzes: Browse All Topics | Riddle Arabia';
       description = state.lang === 'ar'
         ? 'استكشف 3,275 لغزًا وسؤالًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا ضمن 5 أقسام. اختر موضوعًا، واكشف الإجابات، وتابع نتيجتك.'
         : 'Explore 3,275 bilingual riddles and quizzes mapped directly to 51 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
@@ -2029,10 +2075,10 @@ async function recheckCloudCapabilities() {
 function cacheEls() {
   [
     'toast', 'langSelect', 'openAuthBtn',
-    'heroAuthBtn', 'categorySearchInput', 'resetDirectoryBtn', 'directoryResultsLabel', 'directoryExpandBtn',
+    'heroAuthBtn', 'categorySearchInput', 'resetDirectoryBtn', 'directoryResultsLabel',
     'categoryDirectoryGrid', 'badgeCategories', 'badgeQuestions', 'accountSummaryMount',
     'authModal', 'authModalBody',
-    'categoryKicker', 'categoryTitle', 'categoryDescription', 'categoryCountPill', 'categoryImage',
+    'categoryKicker', 'categoryTitle', 'categoryDescription', 'categoryCountPill',
     'categorySummaryMount', 'cardSearchInput', 'difficultySelect', 'viewSelect', 'sortSelect',
     'subcategoryWrap', 'subcategoryFilters', 'resultsLabel', 'resetPageBtn', 'cardGrid', 'emptyState',
     'relatedCategories', 'categoryDiffBadge',
@@ -2269,36 +2315,9 @@ function bindCommonEvents() {
   if (els.openAuthBtn) els.openAuthBtn.addEventListener('click', openAuthModal);
   if (els.heroAuthBtn) els.heroAuthBtn.addEventListener('click', openAuthModal);
 
-  if (!document.getElementById('leaderboardBtn')) {
-    const nav = document.querySelector('.header-actions');
-    if (nav) {
-      const btn = document.createElement('button');
-      btn.id = 'leaderboardBtn';
-      btn.className = 'ghost-btn';
-      btn.innerHTML = `<span aria-hidden="true">🏆</span><span class="nav-action-label">${escapeHtml(t('leaderboardNav'))}</span>`;
-      btn.setAttribute('aria-label', t('leaderboardTitle'));
-      btn.title = t('leaderboardTitle');
-      nav.insertBefore(btn, nav.children[2]);
-    }
-  }
-  const lbBtn = document.getElementById('leaderboardBtn');
-  if (lbBtn) lbBtn.addEventListener('click', openLeaderboard);
-
-  if (!document.getElementById('battleNavBtn')) {
-    const nav = document.querySelector('.header-actions');
-    if (nav) {
-      const btn = document.createElement('button');
-      btn.id = 'battleNavBtn';
-      btn.className = 'ghost-btn';
-      btn.innerHTML = `<span aria-hidden="true">⚡</span><span class="nav-action-label">${escapeHtml(t('battleNav'))}</span>`;
-      btn.setAttribute('aria-label', t('teamBattle'));
-      btn.title = t('teamBattle');
-      nav.insertBefore(btn, nav.children[2]);
-    }
-  }
+  document.getElementById('leaderboardBtn')?.addEventListener('click', openLeaderboard);
   document.getElementById('battleNavBtn')?.addEventListener('click', () => openBattleModal(state.categorySlug, 'create'));
-
-
+  document.getElementById('globalSearchBtn')?.addEventListener('click', openGlobalSearch);
   const queryCode = new URLSearchParams(location.search).get('battle');
   const hashMatch = location.hash.match(/^#battle\/([A-Z0-9-]+)$/i);
   const inviteCode = queryCode || hashMatch?.[1] || '';
@@ -2309,56 +2328,10 @@ function bindCommonEvents() {
     }
   }
 
-  if (!document.getElementById('globalSearchBtn')) {
-    const nav = document.querySelector('.header-actions');
-    if (nav) {
-      const btn = document.createElement('button');
-      btn.id = 'globalSearchBtn';
-      btn.className = 'ghost-btn';
-      btn.setAttribute('aria-label', t('search'));
-      btn.textContent = '🔍';
-      nav.insertBefore(btn, nav.firstElementChild);
-    }
-  }
-  document.getElementById('globalSearchBtn')?.addEventListener('click', openGlobalSearch);
-
-  if (!document.getElementById('hamburgerBtn')) {
-    const header = document.querySelector('.site-header');
-    const nav = document.querySelector('.header-actions');
-    if (header && nav) {
-      const hbtn = document.createElement('button');
-      hbtn.id = 'hamburgerBtn';
-      hbtn.className = 'hamburger-btn';
-      hbtn.setAttribute('aria-label', t('menu'));
-      hbtn.setAttribute('aria-expanded', 'false');
-      hbtn.textContent = '☰';
-      header.insertBefore(hbtn, nav);
-      const _toggleNav = (e) => {
-        if (e.type === 'touchstart') e.preventDefault();
-        const open = nav.classList.toggle('nav-open');
-        hbtn.setAttribute('aria-expanded', String(open));
-      };
-      hbtn.addEventListener('click', _toggleNav);
-      hbtn.addEventListener('touchstart', _toggleNav, { passive: false });
-    }
-  }
-
   const randomBtn = document.getElementById('randomCategoryBtn');
   if (randomBtn) randomBtn.addEventListener('click', randomCategory);
 
   if (!globalEventsBound) {
-    const closeOpenMobileNav = (event) => {
-      const nav = document.querySelector('.header-actions');
-      const button = document.getElementById('hamburgerBtn');
-      if (!nav?.classList.contains('nav-open') || !button) return;
-      if (!nav.contains(event.target) && !button.contains(event.target)) {
-        nav.classList.remove('nav-open');
-        button.setAttribute('aria-expanded', 'false');
-      }
-    };
-    document.addEventListener('click', closeOpenMobileNav);
-    document.addEventListener('touchstart', closeOpenMobileNav, { passive: true });
-
     document.addEventListener('click', (event) => {
       const closeTarget = event.target.closest('[data-close-modal]');
       if (closeTarget) {
@@ -2556,12 +2529,13 @@ function bindCommonEvents() {
 }
 
 function rerender() {
-  if (state.page === 'home') {
+  if (state.page === 'daily') {
+    renderDailyChallenge();
+  } else if (state.page === 'home') {
     renderHome();
   } else {
     renderCategoryPage();
   }
-  updateBottomNavActive();
 }
 
 function renderHome() {
@@ -2618,7 +2592,8 @@ function createCategoryCardMarkup(meta) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
   const isAr = state.lang === 'ar';
   const title = escapeHtml(meta.title[state.lang]);
-  const image = categoryArtUrl(meta);
+  const mode = new URLSearchParams(location.search).get('mode');
+  const modeQuery = ['quick-fire', 'battle'].includes(mode) ? `?mode=${mode}` : '';
   const topicLabels = (meta.topics || [])
     .slice(0, 3)
     .map(topic => escapeHtml(topic[state.lang] || topic.en))
@@ -2632,13 +2607,8 @@ function createCategoryCardMarkup(meta) {
     : '';
   const doneLabel = prog.pct > 0 ? ` · ${prog.pct}% ${isAr ? 'مكتمل' : 'done'}` : '';
   const enterLabel = isAr ? 'استكشف' : 'Enter';
-  const cardCountLabel = isAr ? `${meta.count} سؤال` : `${meta.count} Q`;
   return `
-    <a class="category-card has-art" href="${escapeHtml(categoryRouteForLanguage(meta.slug, state.lang))}" aria-label="${title}">
-      <div class="category-card-bg" aria-hidden="true">
-        <img class="category-card-image" src="${escapeHtml(image)}" alt="" width="640" height="420" loading="lazy" decoding="async" />
-        <span class="category-card-count-badge">${cardCountLabel}</span>
-      </div>
+    <a class="category-card compact-topic-card" href="${escapeHtml(categoryRouteForLanguage(meta.slug, state.lang))}${modeQuery}" aria-label="${title}">
       <div class="category-card-overlay">
         <h3 class="category-title">${title}</h3>
         ${topicMarkup}
@@ -2903,9 +2873,6 @@ function renderCategoryPage() {
   if (breadcrumbEl) breadcrumbEl.textContent = category.title[state.lang];
   if (els.categoryDescription) els.categoryDescription.textContent = category.description[state.lang];
   if (els.categoryCountPill) els.categoryCountPill.textContent = fmt('pageQuestions', { count: category.count });
-  if (els.categoryImage) {
-    if (!els.categoryImage.getAttribute('src')) els.categoryImage.src = categoryArtUrl(category);
-  }
   if (els.categoryDiffBadge) els.categoryDiffBadge.textContent = buildDiffBadge(category);
   restoreFilterParams();
   prepareSharedCard();
@@ -3552,7 +3519,24 @@ function closeModal(name) {
   releaseFocus(modal, { restore: true });
 }
 
-function openAuthModal() {
+async function openAuthModal(event) {
+  event?.preventDefault();
+  const { ensureAuthModalShell } = await loadAuthEnhancements();
+  ensureAuthModalShell();
+  cacheEls();
+  applyStaticCopy();
+  if (!sessionInitialized) {
+    els.authModalBody.innerHTML = `<p role="status">${escapeHtml(t('authSessionLoading'))}</p>`;
+    els.authModalBody.setAttribute('aria-busy', 'true');
+    openModal('auth');
+    try {
+      await hydrateCloudCapabilities();
+    } finally {
+      els.authModalBody.removeAttribute('aria-busy');
+    }
+    // A slow session lookup must not reopen a dialog the visitor dismissed.
+    if (els.authModal.classList.contains('hidden')) return;
+  }
   renderAuthModal('signin');
   openModal('auth');
 }
@@ -4294,10 +4278,7 @@ function renderDailyChallenge() {
   document.getElementById('dailyReviewBtn')?.addEventListener('click', () => recordOutcome('review'));
 }
 
-function scrollToDailyChallenge() {
-  requestAnimationFrame(() => (document.querySelector('.daily-challenge-section') || document.getElementById('dailyChallengeMount'))
-    ?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-}
+
 
 async function loadStreak() {
   if (!state.dbUser) { state.streak = 0; state.freezeCount = 0; return; }
@@ -5000,6 +4981,7 @@ function shareResult(score, total, categoryTitle) {
 }
 
 let sessionInitialized = false;
+let cloudCapabilitiesPromise = null;
 
 const Haptics = window.Capacitor?.Plugins?.Haptics;
 const ImpactStyle = { Light: 'LIGHT', Medium: 'MEDIUM', Heavy: 'HEAVY' };
@@ -5023,114 +5005,37 @@ function hapticSuccess() { haptic('medium'); }
 function hapticError()   { haptic('heavy'); }
 function hapticTap()     { haptic('light'); }
 
-function injectBottomNav() {
-  if (document.getElementById('bottomNav')) { updateBottomNavActive(); return; }
-  const isAr = state.lang === 'ar';
-  const nav = document.createElement('nav');
-  nav.id = 'bottomNav';
-  nav.className = 'bottom-nav';
-  nav.setAttribute('aria-label', isAr ? 'التنقل الرئيسي' : 'Main navigation');
-  nav.innerHTML = `
-    <div class="bottom-nav-inner">
-      <a href="/" class="bottom-nav-tab" data-tab="home" aria-label="${isAr ? 'الرئيسية' : 'Home'}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
-        <span>${isAr ? 'الرئيسية' : 'Home'}</span>
-      </a>
-      <a href="/mind-lab" class="bottom-nav-tab" data-tab="explore" aria-label="${isAr ? 'استكشف' : 'Explore'}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-        <span>${isAr ? 'استكشف' : 'Explore'}</span>
-      </a>
-      <a href="/play" class="bottom-nav-tab" data-tab="games" aria-label="${isAr ? 'الألعاب' : 'Games'}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8h8a5 5 0 0 1 4.8 6.4l-1 3.3a2 2 0 0 1-3.3.9L14 16h-4l-2.5 2.6a2 2 0 0 1-3.3-.9l-1-3.3A5 5 0 0 1 8 8z"/><path d="M7 12v4M5 14h4M16.5 12.5h.01M18.5 14.5h.01"/></svg>
-        <span>${isAr ? 'الألعاب' : 'Games'}</span>
-      </a>
-      <button class="bottom-nav-tab" id="bnDailyBtn" data-tab="daily" aria-label="${isAr ? 'التحدي اليومي' : 'Daily'}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <span>${isAr ? 'يومي' : 'Daily'}</span>
-      </button>
-      <button class="bottom-nav-tab" id="bnProfileBtn" data-tab="profile" aria-label="${isAr ? 'حسابي' : 'Profile'}">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
-        <span>${isAr ? 'حسابي' : 'Profile'}</span>
-      </button>
-    </div>
-    <div class="bottom-nav-safe" aria-hidden="true"></div>`;
-  document.body.appendChild(nav);
-  localizeSharedRuntimeLinks(nav);
 
-  document.getElementById('bnDailyBtn')?.addEventListener('click', () => {
-    if (document.getElementById('dailyChallengeMount')) {
-      scrollToDailyChallenge();
-    } else {
-      safeStorageSet('session', 'jakh-scroll-to', 'daily');
-      location.href = sharedRouteForLanguage('/', state.lang);
-    }
-  });
-  document.getElementById('bnProfileBtn')?.addEventListener('click', () => {
-    document.getElementById('openAuthBtn')?.click();
-  });
 
-  updateBottomNavActive();
-  refreshFixedUiLayout();
-}
 
-function updateBottomNavActive() {
-  const nav = document.getElementById('bottomNav');
-  if (!nav) return;
-  const normalizedPath = normalizeSharedRoutePath(location.pathname);
-  const sharedRoute = sharedLanguageRoute();
-  const isMindLab = normalizedPath === '/mind-lab' || sharedRoute?.en === '/mind-lab';
-  const isGameHub = state.page === 'play' || normalizedPath === '/play' || sharedRoute?.en === '/play';
-  const activeTab = isGameHub
-    ? 'games'
-    : state.page === 'home' && !isMindLab
-      ? 'home'
-      : 'explore';
-  nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
-    const isActive = tab.dataset.tab === activeTab;
-    tab.classList.toggle('is-active', isActive);
-    if (isActive && tab.matches('a')) tab.setAttribute('aria-current', 'page');
-    else tab.removeAttribute('aria-current');
-  });
-  const isAr = state.lang === 'ar';
-  const labels = {
-    home:    isAr ? 'الرئيسية' : 'Home',
-    explore: isAr ? 'استكشف'  : 'Explore',
-    games:   isAr ? 'الألعاب'  : 'Games',
-    daily:   isAr ? 'يومي'    : 'Daily',
-    profile: isAr ? 'حسابي'   : 'Profile',
-  };
-  nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
-    const span = tab.querySelector('span');
-    if (span && labels[tab.dataset.tab]) span.textContent = labels[tab.dataset.tab];
-  });
-  const ariaLabels = {
-    home:    isAr ? 'الرئيسية' : 'Home',
-    explore: isAr ? 'استكشف'  : 'Explore',
-    games:   isAr ? 'الألعاب'  : 'Games',
-    daily:   isAr ? 'التحدي اليومي' : 'Daily',
-    profile: isAr ? 'حسابي'   : 'Profile',
-  };
-  nav.querySelectorAll('.bottom-nav-tab').forEach(tab => {
-    if (ariaLabels[tab.dataset.tab]) tab.setAttribute('aria-label', ariaLabels[tab.dataset.tab]);
-  });
-}
 
 async function hydrateCloudCapabilities() {
-  if (!sessionInitialized) {
-    state.apiAvailable = await detectApiAvailability(2);
-    if (state.apiAvailable) {
-      await checkCloudSession();
-      if (state.dbUser) {
-        await flushCloudQueue();
-        await mergeGuestProgress();
-        await checkCloudSession();
-        await loadStreak();
+  if (cloudCapabilitiesPromise) return cloudCapabilitiesPromise;
+  cloudCapabilitiesPromise = (async () => {
+    if (!sessionInitialized) {
+      try {
+        state.apiAvailable = await detectApiAvailability(2);
+        if (state.apiAvailable) {
+          await checkCloudSession();
+          if (state.dbUser) {
+            await flushCloudQueue();
+            await mergeGuestProgress();
+            await checkCloudSession();
+            await loadStreak();
+          }
+        }
+      } catch (_) {
+        state.apiAvailable = false;
+      } finally {
+        sessionInitialized = true;
+        state.apiChecked = true;
       }
     }
-    sessionInitialized = true;
-    state.apiChecked = true;
-  }
-  hydrateCloudFeatureUi();
+    hydrateCloudFeatureUi();
+  })().finally(() => {
+    cloudCapabilitiesPromise = null;
+  });
+  return cloudCapabilitiesPromise;
 }
 
 function hydrateCloudFeatureUi() {
@@ -5142,7 +5047,6 @@ function hydrateCloudFeatureUi() {
   } else {
     stopAnalyticsHeartbeat();
   }
-  createBattleModal();
   initSuggestionBox();
   renderCategoryPlayModes();
   applyStaticCopy();
@@ -5151,8 +5055,6 @@ function hydrateCloudFeatureUi() {
 }
 
 async function init() {
-  const { ensureAuthModalShell } = await loadAuthEnhancements();
-  ensureAuthModalShell();
   cacheEls();
   if (!initializeFromStorage()) return;
   if (
@@ -5166,7 +5068,7 @@ async function init() {
   applyDocumentLanguage();
   bindCommonEvents();
   applyCapabilityVisibility();
-  createTimedQuizModal();
+  if (state.page === 'category') createTimedQuizModal();
   await Promise.all([
     loadCatalog(),
     loadCategoryIfNeeded(),
@@ -5174,11 +5076,11 @@ async function init() {
   ]);
   applyStaticCopy();
   rerender();
-  injectBottomNav();
+  renderCategoryPlayModes();
   injectBackToTop();
   applyCapabilityVisibility();
   checkNewAchievements();
-  if (state.page === 'home') {
+  if (document.getElementById('dailyChallengeMount')) {
     loadDailyChallenge()
       .then(() => renderDailyChallenge())
       .catch(() => {});
@@ -5189,24 +5091,22 @@ async function init() {
     sessionInitialized = true;
     applyCapabilityVisibility();
   });
-  const dailyParams = new URLSearchParams(location.search);
-  const dailySessionRequested = safeStorageGet('session', 'jakh-scroll-to') === 'daily';
-  const dailyShortcutRequested = dailyParams.get('daily') === '1';
-  if (state.page === 'home' && (dailySessionRequested || dailyShortcutRequested)) {
-    safeStorageRemove('session', 'jakh-scroll-to');
-    if (dailyShortcutRequested) {
-      const cleanUrl = new URL(location.href);
-      cleanUrl.searchParams.delete('daily');
-      history.replaceState(null, '', `${cleanUrl.pathname}${cleanUrl.search}${cleanUrl.hash}`);
-    }
-    scrollToDailyChallenge();
+  const params = new URLSearchParams(location.search);
+  if (params.get('profile') === '1') void openAuthModal();
+  if (params.get('join') === '1') void openBattleModal('', 'join');
+  if (state.page === 'category') {
+    if (params.get('mode') === 'quick-fire') startTimedQuiz();
+    if (params.get('mode') === 'battle') void openBattleModal(state.categorySlug, 'create');
   }
 }
 
 
 function renderCategoryPlayModes() {
   if (state.page !== 'category') return;
-  document.getElementById('categoryPlayModes')?.remove();
+  const previousModes = document.getElementById('categoryPlayModes');
+  const wasExpanded = previousModes?.querySelector('details')?.open || false;
+  const focusedId = previousModes?.contains(document.activeElement) ? document.activeElement.id : '';
+  previousModes?.remove();
   const isAr = state.lang === 'ar';
   const preparedCount = new Set((state.categoryData?.cards || []).filter(card => preparedQuickFire(card)).map(card => card.id)).size;
   const quickFireDescription = preparedCount >= 5
@@ -5214,9 +5114,9 @@ function renderCategoryPlayModes() {
     : (isAr ? 'نعمل على إعداد خيارات الأسئلة؛ التدريب المجاني متاح الآن' : 'Question choices are being prepared; free card practice is available now');
   const el = document.createElement('div');
   el.id = 'categoryPlayModes';
-  el.className = 'shell section-block category-play-modes';
+  el.className = 'shell category-play-modes';
   el.innerHTML = `
-    <div class="play-modes-grid">
+    <details class="more-play-modes"><summary>${isAr ? 'طرق أخرى للعب: تحدٍ مؤقّت أو مع الأصدقاء' : 'Other ways to play: timed or with friends'}</summary><div class="play-modes-grid">
       <div class="play-mode-card play-mode-solo">
         <div class="play-mode-head">
           <span class="play-mode-icon">⚡</span>
@@ -5247,12 +5147,13 @@ function renderCategoryPlayModes() {
           </button>
         </div>
       </div>
-    </div>`;
+    </div></details>`;
 
   const questionSection = document.getElementById('questionSection');
   if (questionSection) {
     questionSection.parentNode.insertBefore(el, questionSection);
   }
+  if (wasExpanded) el.querySelector('details').open = true;
   document.getElementById('playModeQuickFireBtn')?.addEventListener('click', startTimedQuiz);
   document.getElementById('playModeCreateRoomBtn')?.addEventListener('click', () => {
     openBattleModal(state.categorySlug, 'create');
@@ -5260,6 +5161,7 @@ function renderCategoryPlayModes() {
   document.getElementById('playModeJoinBtn')?.addEventListener('click', () => {
     openBattleModal(state.categorySlug, 'join');
   });
+  if (focusedId) document.getElementById(focusedId)?.focus({ preventScroll: true });
 }
 
 

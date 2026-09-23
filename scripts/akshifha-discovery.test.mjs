@@ -13,11 +13,12 @@ test("the promoted game portfolio has one flagship and two secondary classics", 
     ["akshifha", "featured"], ["chess", "classic"], ["backgammon", "classic"],
   ]);
   const play = read("play.html");
-  assert.match(play, /href="\/akshifha"/u);
-  assert.match(play, /id="classicsTitle"/u);
+  assert.match(play, /href="\/akshifha(?:\?[^"]*)?"/u);
+  assert.match(play, /id="featuredGameTitle"/u);
   assert.match(play, /href="\/chess"/u);
   assert.match(play, /href="\/backgammon"/u);
-  assert.ok(play.indexOf('href="/akshifha"') < play.indexOf('id="classicsTitle"'));
+  assert.ok(play.indexOf('href="/akshifha') < play.indexOf('href="/chess"'));
+  assert.equal((play.match(/href="\/akshifha(?:\?[^"]*)?"/gu) || []).length, 1, 'one featured game entry, not duplicate promotion');
   const list = JSON.parse(play.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/u)[1]);
   assert.equal(list.numberOfItems, 3);
   assert.deepEqual(list.itemListElement.map((item) => new URL(item.url).pathname), ["/akshifha", "/chess", "/backgammon"]);
@@ -35,16 +36,22 @@ test("legacy games are not promoted or deleted in the portfolio transition", () 
   assert.match(read("scripts/generate-riddlearabia-seo.mjs"), /PRESERVED_GAME_SLUGS\.map/u, "sitemap retains existing indexable URLs");
 });
 
-test("discovery promotes the actual opening clue and tells the truth about the finite casebook", () => {
+test("discovery explains the site before the featured case and describes the finite casebook honestly", () => {
   const play = read("play.html");
   const app = read("app.js");
   const home = read("index.html");
   assert.match(play, /Eleven original cases/u);
   assert.match(play, /not a newly published case every day/u);
-  assert.match(home, /href="\/akshifha\?case=two-stages-one-host&amp;mode=practice"[^>]*data-href-ar="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"[^>]*class="kv-btn-primary"/u);
+  assert.match(home, /href="\/akshifha\?case=two-stages-one-host&amp;mode=practice"[^>]*data-href-ar="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"/u);
   assert.match(read("ar/index.html"), /href="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"/u);
   assert.doesNotMatch(read("ar/index.html"), /two-stages-one-host&amp;amp;mode=practice/u);
-  assert.match(home, /The puppet room clock is five minutes ahead of the foyer clock./u);
+  assert.match(home, /<h1\b[^>]*>Riddles, quizzes &amp; games\.<\/h1>/u);
+  assert.match(home, /Featured: Akshifha/u);
+  assert.match(home, /Two stages\. One host\./u);
+  assert.ok(home.indexOf('class="activity-grid"') < home.indexOf('data-i18n="homeFeatureTitle"'), 'activity choices precede the optional featured case');
+  assert.match(home, /href="\/daily"/u);
+  assert.match(play, /href="\/mind-lab\?mode=quick-fire"/u);
+  assert.match(play, /href="\/mind-lab\?mode=battle"/u);
   assert.match(app, /إحدى عشرة قضية مؤلّفة بعناية/u);
   assert.doesNotMatch(`${play}\n${home}`, /10 browser games|10 Free Browser Games|Ten browser adaptations/u);
   assert.match(read("scripts/generate-arabic-routes.mjs"), /source: "akshifha\.html"[\s\S]*?runtime: "akshifha"/u);

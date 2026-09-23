@@ -130,10 +130,17 @@ const ROUTES = [
   ["Arabic home", "/ar/"],
   ["English topic index", "/mind-lab"],
   ["Arabic topic index", "/ar/mind-lab/"],
+  ["English collections", "/collections"],
+  ["Arabic collections", "/ar/collections/"],
+  ["English short riddles", "/riddles"],
+  ["Arabic short riddles", "/ar/alghaz/"],
+  ["English daily challenge", "/daily"],
+  ["Arabic daily challenge", "/ar/daily/"],
   ["English quiz", "/science"],
   ["Arabic quiz", "/ar/topics/science/"],
   ["game hub", "/play"],
   ["privacy center", "/privacy"],
+  ["Arabic privacy center", "/ar/privacy/"],
   ["admin", "/admin"],
   ["Go game", "/go"],
   ["SET game", "/set"],
@@ -354,6 +361,7 @@ async function auditRoute(context, baseUrl, label, route, { readySelector = "" }
     assert.equal(response?.status(), 200, `${label} returned ${response?.status()}`);
     await page.locator("body").waitFor({ state: "visible" });
     if (readySelector) await page.locator(readySelector).waitFor({ state: "visible" });
+    else if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
     await page.waitForTimeout(250);
     const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
     assert.equal(
@@ -439,6 +447,7 @@ async function verifyReflow(context, baseUrl, label, route) {
   try {
     await page.goto(`${baseUrl}${route}`, { waitUntil: "domcontentloaded" });
     await page.locator("body").waitFor({ state: "visible" });
+    if (/\/(?:ar\/)?daily\/?$/u.test(route)) await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
     await page.waitForTimeout(100);
     const overflow = await page.evaluate(() => {
       const viewportWidth = document.documentElement.clientWidth;
@@ -536,7 +545,7 @@ async function main() {
       completedDailyContext,
       baseUrl,
       "completed daily challenge",
-      "/",
+      "/daily",
       { readySelector: ".daily-challenge-card.daily-done .daily-done-badge" },
     );
     console.log("PASS axe state: completed daily challenge");

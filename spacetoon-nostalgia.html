@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/spacetoon-nostalgia#quiz",
-      "name": "How much do you remember?",
+      "name": "Spacetoon nostalgia",
       "description": "Take an independent bilingual nostalgia quiz for fans of classic Arabic-dubbed animation. Share a memory, make a guess, and compare your score.",
       "url": "https://riddlearabia.com/spacetoon-nostalgia",
       "inLanguage": "en",
@@ -163,13 +163,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Explore",
-          "item": "https://riddlearabia.com/collections"
+          "name": "Riddles & Quizzes",
+          "item": "https://riddlearabia.com/mind-lab"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "How much do you remember?",
+          "name": "Spacetoon nostalgia",
           "item": "https://riddlearabia.com/spacetoon-nostalgia"
         }
       ]
@@ -180,37 +180,38 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="spacetoon-nostalgia">
     <a href="#content" class="skip-link">Skip to main content</a>
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="Primary navigation">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Explore</a>
-        <a class="ghost-btn" href="/brain-games">Games</a>
-        <a class="ghost-btn language-route-link" href="/ar/hanin-spacetoon/" hreflang="ar" lang="ar" dir="rtl">العربية</a>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library" aria-current="page">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/hanin-spacetoon/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="Breadcrumb"><a href="/mind-lab">Riddles &amp; Quizzes</a><span aria-hidden="true">/</span><a href="/collections">Short collections</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">A shared memory</p>
-        <h1>How much do you remember?</h1>
+        <h1>Spacetoon nostalgia</h1>
         <p>Some shows become part of a generation’s shared language. This lighthearted quiz is a place to trade memories and test the details you still remember from Arabic-dubbed animation.</p>
         <div class="seo-collection-meta">
-          <span>8 riddles</span>
+          <span>8 questions</span>
           <span>Arabic & English</span>
           <span>Free</span>
         </div>
+        <p class="collection-subset-note">A short selection from the question library, not the full topic.</p>
+        <nav class="collection-source-links" aria-label="Full source topics"><a class="text-btn" href="/ayam-tayebeen">Spacetoon Classics · 200 questions</a></nav>
+        <p class="section-note">Play for fun, compare memories with friends, and keep in mind that this is an independent fan-made quiz, not an official or affiliated publication.</p>
         <aside class="collection-disclaimer" role="note">Independent fan-made quiz. Names and programmes mentioned belong to their respective owners; no affiliation or endorsement is implied.</aside>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">How to play</p><h2 id="how-title">Give each clue a moment</h2></div>
-          <p class="section-note">Play for fun, compare memories with friends, and keep in mind that this is an independent fan-made quiz, not an official or affiliated publication.</p>
-        </div>
       </section>
       <section class="seo-question-list shell" aria-label="Riddles and answers">
         <article class="seo-qa-card" id="ayt-001" data-card-id="ayt-001">
@@ -219,9 +220,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Issa</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-001">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-001">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-002" data-card-id="ayt-002">
           <details>
@@ -229,9 +230,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Lina</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-002">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-002">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-003" data-card-id="ayt-003">
           <details>
@@ -239,9 +240,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>The Lost Island</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-003">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-003">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-004" data-card-id="ayt-004">
           <details>
@@ -249,9 +250,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Namiq</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-004">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-004">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-005" data-card-id="ayt-005">
           <details>
@@ -259,9 +260,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Allam</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-005">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-005">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-006" data-card-id="ayt-006">
           <details>
@@ -269,9 +270,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>High Harbor</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-006">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-006">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-008" data-card-id="ayt-008">
           <details>
@@ -279,9 +280,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Gigant</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-008">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-008">Full topic: Spacetoon Classics</a>
         </article>
         <article class="seo-qa-card" id="ayt-009" data-card-id="ayt-009">
           <details>
@@ -289,33 +290,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A small pig</p>
-              <a class="text-btn" href="/ayam-tayebeen?card=ayt-009">Explore Spacetoon Classics →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ayam-tayebeen?card=ayt-009">Full topic: Spacetoon Classics</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">Keep exploring</p>
-            <h2 id="next-title">More ways to challenge yourself</h2>
+            <h2 id="next-title">More short collections</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>Riddles worth a second look</h3>
+            <h3>Classic riddles</h3>
             <p>Try a thoughtful set of bilingual riddles. Make your guess first, open the answer when you are ready, then keep the challenge moving.</p>
-            <a class="ghost-btn" href="/riddles">Start</a>
+            <a class="ghost-btn" href="/riddles">Try Classic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>One clue, two ways to read it</h3>
+            <h3>Arabic riddles</h3>
             <p>Solve bilingual Arabic riddles with a friend or on your own. Every clue is available in Arabic and English, with the answer one tap away.</p>
-            <a class="ghost-btn" href="/arabic-riddles">Start</a>
+            <a class="ghost-btn" href="/arabic-riddles">Try Arabic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>Small clues, satisfying deductions</h3>
+            <h3>Logic puzzles</h3>
             <p>Work through bilingual logic puzzles that reward careful reading, simple deduction, and a second thought before you reveal the answer.</p>
-            <a class="ghost-btn" href="/logic-challenges">Start</a>
+            <a class="ghost-btn" href="/logic-challenges">Try Logic puzzles</a>
           </article>
         </div>
       </section>
@@ -324,8 +325,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 Riddle Arabia</p>
         <nav class="footer-site-links" aria-label="Riddle Arabia information">
-          <a href="/collections">Collections</a>
-          <a href="/brain-games">Brain games</a>
+          <a href="/collections">Short collections</a>
+          <a href="/play">Games</a>
           <a href="/about">About</a>
           <a href="/privacy">Privacy</a>
         </nav>

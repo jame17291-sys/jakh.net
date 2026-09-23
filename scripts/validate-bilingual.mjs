@@ -171,6 +171,45 @@ function assertKnownKeys(label, usedKeys, availableKeys) {
   }
 }
 
+function attribute(source, name) {
+  return source.match(new RegExp(`(?:^|\\s)${name}\\s*=\\s*["']([^"']*)["']`, "iu"))?.[1] || "";
+}
+
+function hasRuntime(source, file) {
+  return [...source.matchAll(/<script\b[^>]*>/giu)].some(([tag]) => {
+    const scriptPath = attribute(tag, "src").split(/[?#]/u)[0];
+    return scriptPath === file || scriptPath === `/${file}`;
+  });
+}
+
+function assertLanguageRoute(file, source, lang, alternatePath) {
+  const other = lang === "ar" ? "en" : "ar";
+  const links = [...source.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/giu)]
+    .map(([link]) => link)
+    .filter((link) => attribute(link, "class").split(/\s+/u).includes("language-route-link"));
+  if (links.length !== 1) {
+    fail(`${file}: expected exactly one shared visible language-route link`);
+  } else {
+    const link = links[0];
+    const tag = link.slice(0, link.indexOf(">") + 1);
+    if (attribute(tag, "href") !== alternatePath) {
+      fail(`${file}: visible language switch does not target ${alternatePath}`);
+    }
+    if (attribute(tag, "hreflang") !== other || attribute(tag, "lang") !== other
+      || attribute(tag, "dir") !== (other === "ar" ? "rtl" : "ltr")) {
+      fail(`${file}: language switch must declare ${other} language and direction`);
+    }
+    if (/\s(?:hidden|aria-hidden\s*=\s*["']true["'])/iu.test(tag)
+      || !link.replace(/<[^>]*>/gu, "").trim()) {
+      fail(`${file}: shared language-route link must remain visible and labelled`);
+    }
+  }
+  if (/<select[^>]+id=["']langSelect["']/iu.test(source)) {
+    fail(`${file}: obsolete language selector duplicates the shared language-route link`);
+  }
+  if (!hasRuntime(source, "site-navigation.js")) fail(`${file}: missing shared navigation runtime`);
+}
+
 const appSource = read("app.js");
 const searchLeaderboardSource = read("search-leaderboard.js");
 const appUi = extractObject(appSource, "const UI =", "app.js UI");
@@ -208,20 +247,37 @@ const categoryPagePairs = (catalog.categories || []).map((category) => ({
   ar: `ar/topics/${category.slug}/index.html`,
 }));
 const appPages = [
-  "index.html",
   "mind-lab.html",
-  "play.html",
-  "ar/index.html",
   "ar/mind-lab/index.html",
-  "ar/play/index.html",
+  "daily.html",
+  "ar/daily/index.html",
   ...categoryPagePairs.flatMap((pair) => [pair.en, pair.ar]),
+];
+const sharedPagePairs = [
+  { en: "index.html", ar: "ar/index.html", enPath: "/", arPath: "/ar/", runtime: null },
+  { en: "play.html", ar: "ar/play/index.html", enPath: "/play", arPath: "/ar/play/", runtime: null },
+  { en: "mind-lab.html", ar: "ar/mind-lab/index.html", enPath: "/mind-lab", arPath: "/ar/mind-lab/", runtime: "app.js" },
+  { en: "daily.html", ar: "ar/daily/index.html", enPath: "/daily", arPath: "/ar/daily/", runtime: "app.js" },
+  { en: "privacy.html", ar: "ar/privacy/index.html", enPath: "/privacy", arPath: "/ar/privacy/", runtime: "privacy-page.js" },
+  { en: "akshifha.html", ar: "ar/games/akshifha/index.html", enPath: "/akshifha", arPath: "/ar/games/akshifha/", runtime: "akshifha.js" },
 ];
 
 for (const file of appPages) {
   const source = read(file);
-  if (!/<select[^>]+id=["']langSelect["']/iu.test(source)) fail(`${file}: missing visible language selector`);
-  if (!/<script[^>]+src=["'][^"']*app\.js(?:\?[^"']*)?["']/iu.test(source)) fail(`${file}: missing app.js`);
+  if (!hasRuntime(source, "app.js")) fail(`${file}: missing app.js`);
   assertKnownKeys(file, attributeKeys(source), appKeys);
+}
+for (const pair of sharedPagePairs) {
+  for (const lang of ["en", "ar"]) {
+    const file = pair[lang];
+    const source = read(file);
+    assertLanguageRoute(file, source, lang, pair[lang === "ar" ? "enPath" : "arPath"]);
+    if (pair.runtime && !hasRuntime(source, pair.runtime)) fail(`${file}: missing ${pair.runtime}`);
+    if (pair.runtime !== "app.js" && hasRuntime(source, "app.js")) {
+      fail(`${file}: unrelated question application runtime is loaded`);
+    }
+    if (!pair.runtime) assertKnownKeys(file, attributeKeys(source), appKeys);
+  }
 }
 
 if (!appSource.includes("return lang === 'ar' ? `/ar/topics/${safeSlug}/` : `/${safeSlug}`")) {
@@ -276,9 +332,7 @@ for (const pair of categoryPagePairs) {
     if (!source.includes(`hreflang="${other}" href="${alternate}"`)) {
       fail(`${file}: missing reciprocal ${other} hreflang`);
     }
-    if (!source.includes(`class="ghost-btn language-route-link" href="${expected[lang].alternatePath}"`)) {
-      fail(`${file}: visible language switch does not target ${expected[lang].alternatePath}`);
-    }
+    assertLanguageRoute(file, source, lang, expected[lang].alternatePath);
   }
 }
 
@@ -317,7 +371,9 @@ for (const game of games) {
     const pageKeys = assertParity(`${file} translations`, translations);
     const available = new Set([...gameCommonKeys, ...pageKeys]);
     if (!source.includes(`data-game="${game}"`)) fail(`${file}: missing data-game="${game}"`);
-    if (!/<select[^>]+id=["']langSelect["']/iu.test(source)) fail(`${file}: missing visible language selector`);
+    const lang = file.startsWith("ar/") ? "ar" : "en";
+    assertLanguageRoute(file, source, lang, lang === "ar" ? `/${game}` : `/ar/games/${game}/`);
+    if (hasRuntime(source, "app.js")) fail(`${file}: unrelated question application runtime is loaded`);
     if (!/<script[^>]+src=["'][^"']*game-i18n\.js(?:\?[^"']*)?["']/iu.test(source)) fail(`${file}: missing game-i18n.js`);
     if (!/\b[A-Za-z_$][\w$]*\.onChange\(/u.test(source)) {
       fail(`${file}: language changes do not rerender live game state`);
@@ -366,9 +422,8 @@ for (const pair of localizedExperiencePairs) {
     }
     if (!source.includes(`<link rel="canonical" href="${canonical}"`)) fail(`${file}: canonical does not match its localized route`);
     if (!source.includes(`hreflang="${other}" href="${alternate}"`)) fail(`${file}: missing reciprocal ${other} hreflang`);
-    if (!new RegExp(`lang=["']${other}["'][^>]+dir=["']${other === "ar" ? "rtl" : "ltr"}["']`, "iu").test(source)) {
-      fail(`${file}: language switch must declare ${other} direction`);
-    }
+    assertLanguageRoute(file, source, lang, pair[other === "ar" ? "arPath" : "enPath"]);
+    if (hasRuntime(source, "app.js")) fail(`${file}: static experience loads the unrelated question application runtime`);
     if (lang === "ar") {
       if (/[?&](?:amp;)?lang=(?:ar|en)(?:[&#"'])/u.test(source)) {
         fail(`${file}: uses a retired ?lang URL instead of a physical language route`);
@@ -386,6 +441,7 @@ for (const pair of localizedExperiencePairs) {
 
 const footerPages = new Set([
   ...appPages,
+  ...sharedPagePairs.flatMap((pair) => [pair.en, pair.ar]),
   ...Object.keys(sitePages),
   ...games.flatMap((game) => [`${game}.html`, `ar/games/${game}/index.html`]),
   ...localizedPages.en,
@@ -429,6 +485,6 @@ if (failures.length) {
 }
 
 console.log(
-  `Bilingual validation passed: ${appPages.length} app pages (${categoryPagePairs.length * 2} localized topics), ${Object.keys(sitePages).length} static pages, `
-  + `${games.length} games, ${localizedExperiencePairs.length * 2} localized experience pages, and ${cardCount} cards.`,
+  `Bilingual validation passed: ${appPages.length} app pages (${categoryPagePairs.length * 2} localized topics), ${sharedPagePairs.length * 2} shared hub/service pages, `
+  + `${Object.keys(sitePages).length} legacy static page, ${games.length} bilingual games, ${localizedExperiencePairs.length * 2} localized experience pages, and ${cardCount} cards.`,
 );

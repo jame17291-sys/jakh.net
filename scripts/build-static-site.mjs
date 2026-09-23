@@ -40,6 +40,7 @@ export const FINGERPRINT_PREFIX_LENGTH = 16;
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
   "/app.js",
+  "/site-navigation.js",
   "/akshifha.js",
   "/akshifha-engine.js",
   "/akshifha-cases.js",
@@ -61,6 +62,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
   "/app.js",
+  "/site-navigation.js",
   "/akshifha.js",
   "/akshifha.css",
   "/styles.css",
@@ -698,25 +700,10 @@ function rewriteServiceWorkerTemplate(source, fingerprints) {
   invariant(declaration.test(rewritten), "sw.js must declare CACHE_VERSION");
   rewritten = rewritten.replace(declaration, `const CACHE_VERSION = '${CACHE_IDENTITY_PLACEHOLDER}';`);
 
-  for (const stable of [
-    "/app.js", "/styles.css", "/privacy.css",
-    "/akshifha.js", "/akshifha.css", ...AKSHIFHA_MODULE_DEPENDENCIES,
-  ]) {
-    const target = fingerprints[stable];
-    if (!target) continue;
-    const result = replaceQuotedUrl(rewritten, stable, target);
-    rewritten = result.value;
-    if (stable !== "/privacy.css") {
-      invariant(result.replacements > 0, `sw.js REQUIRED_CORE_ASSETS does not reference ${stable}`);
-    }
-  }
-
-  const privacyTarget = fingerprints["/privacy.css"];
-  if (privacyTarget && !rewritten.includes(`'${privacyTarget}'`) && !rewritten.includes(`"${privacyTarget}"`)) {
-    const stylesTarget = fingerprints["/styles.css"];
-    const stylesLine = `  '${stylesTarget}',`;
-    invariant(rewritten.includes(stylesLine), "Cannot add privacy.css after the required styles.css asset");
-    rewritten = rewritten.replace(stylesLine, `${stylesLine}\n  '${privacyTarget}',`);
+  // Only rewrite assets deliberately selected for the minimal offline shell.
+  // Never turn a visited-page cache into an unrelated game/content prefetch.
+  for (const [stable, target] of Object.entries(fingerprints)) {
+    rewritten = replaceQuotedUrl(rewritten, stable, target).value;
   }
   return rewritten;
 }
@@ -885,6 +872,7 @@ export async function buildStaticSite({
 
   for (const stableUrlPath of [
     "/styles.css",
+    "/site-navigation.js",
     "/akshifha.css",
     ...AKSHIFHA_MODULE_DEPENDENCIES,
     "/privacy.css",

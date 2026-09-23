@@ -412,8 +412,8 @@ const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
 if (!appSource.includes("https://api.riddlearabia.com")) fail("app.js: production API origin is not configured");
 if (/fetch\(\s*["']\/api\//u.test(appSource)) fail("app.js: stale same-origin API fetch remains");
 const directorySource = fs.readFileSync(path.join(root, "directory-ui.js"), "utf8");
-const directorySearchStart = directorySource.indexOf("const matchingCategories");
-const directorySearchEnd = directorySource.indexOf("totalMatchingCount", directorySearchStart);
+const directorySearchStart = directorySource.indexOf("const categories = section.categories.filter((meta) => {");
+const directorySearchEnd = directorySource.indexOf("\n      });", directorySearchStart);
 if (!appSource.includes("import('/directory-ui.js')") || directorySearchStart < 0 || directorySearchEnd < 0) {
   fail("directory-ui.js: category directory search renderer is missing or not lazy-loaded");
 } else {
@@ -488,6 +488,7 @@ async function validateServiceWorkerOfflineShell() {
   const listeners = new Map();
   const origin = "https://riddlearabia.com";
   const stores = new Map();
+  const requestedPaths = [];
   let online = true;
   let fetchLabel = "precache";
 
@@ -597,6 +598,7 @@ async function validateServiceWorkerOfflineShell() {
     fetch: async (request) => {
       if (!online) throw new Error("offline");
       const url = new URL(typeof request === "string" ? request : request.url, origin);
+      requestedPaths.push(url.pathname);
       return createFetchResponse(url);
     },
     self: fakeSelf,
@@ -631,19 +633,26 @@ async function validateServiceWorkerOfflineShell() {
 
   try {
     await dispatchWithLifetime("install");
+    const expectedInstallPaths = [
+      '/offline', '/privacy-consent.js', '/styles.css', '/manifest.webmanifest',
+      '/assets/riddlearabia-mark.svg', '/assets/favicon.svg', '/assets/icon-192.png',
+      '/assets/icon-512.png', '/favicon.ico',
+    ];
+    if (JSON.stringify(requestedPaths) !== JSON.stringify(expectedInstallPaths)) {
+      fail(`sw.js: install must request only the offline fallback dependencies, found ${JSON.stringify(requestedPaths)}`);
+    }
     online = false;
     const firstVersionSet = assetVersions.values().next().value;
     const version = firstVersionSet?.values().next().value || "missing";
     const cases = [
-      ["/?daily=1", "navigate", "precache:/"],
-      ["/mind-lab?offline=1", "navigate", "precache:/mind-lab"],
-      ["/play", "navigate", "precache:/play"],
-      ["/collections?offline=1", "navigate", "precache:/collections"],
-      ["/about", "navigate", "precache:/about"],
-      [`/app.js?v=${version}`, "same-origin", "precache:/app.js"],
+      ["/", "navigate", "precache:/offline"],
+      ["/daily", "navigate", "precache:/offline"],
+      ["/mind-lab?offline=1", "navigate", "precache:/offline"],
+      ["/play", "navigate", "precache:/offline"],
+      ["/collections?offline=1", "navigate", "precache:/offline"],
+      ["/about", "navigate", "precache:/offline"],
       [`/styles.css?v=${version}`, "same-origin", "precache:/styles.css"],
       [`/privacy-consent.js?v=${version}`, "same-origin", "precache:/privacy-consent.js"],
-      [`/privacy-page.js?v=${version}`, "same-origin", "precache:/privacy-page.js"],
     ];
     for (const [url, mode, expected] of cases) {
       const response = await dispatchFetch(url, mode);
@@ -652,6 +661,19 @@ async function validateServiceWorkerOfflineShell() {
     }
 
     fetchLabel = "network";
+    online = true;
+    const visitedPaths = [
+      ['/', 'navigate'], ['/daily', 'navigate'], ['/mind-lab', 'navigate'],
+      ['/play', 'navigate'], ['/collections', 'navigate'], ['/about', 'navigate'],
+      ['/app.js', 'same-origin'], ['/privacy-page.js', 'same-origin'],
+      ['/data/science.json', 'same-origin'],
+    ];
+    for (const [url, mode] of visitedPaths) await dispatchFetch(url, mode);
+    online = false;
+    for (const [url, mode] of visitedPaths) {
+      const body = await (await dispatchFetch(`${url}?offline=1`, mode)).text();
+      if (body !== `network:${url}`) fail(`sw.js: previously visited ${url} was not available offline`);
+    }
     online = true;
     await dispatchFetch("/science?seed=1", "navigate");
     online = false;
@@ -667,7 +689,7 @@ async function validateServiceWorkerOfflineShell() {
       online = false;
       const response = await dispatchFetch(`/privacy?retry=${marker}`, "navigate");
       const body = await response.text();
-      if (body !== "precache:/privacy") {
+      if (body !== "precache:/offline") {
         fail(`sw.js: cached a ${marker} navigation response`);
       }
     }
@@ -676,11 +698,10 @@ async function validateServiceWorkerOfflineShell() {
     for (let index = 0; index < 70; index += 1) {
       await dispatchFetch(`/cache-limit-check-${index}`, "navigate");
     }
-    const navigationStore = [...stores.entries()]
-      .find(([name]) => name.startsWith("jakh-v") && !name.startsWith("jakh-assets"))?.[1];
+    const navigationStore = stores.get(vm.runInContext('NAVIGATION_CACHE', context));
     const navigationEntryCount = navigationStore ? (await navigationStore.keys()).length : 0;
-    if (navigationEntryCount > 64) {
-      fail(`sw.js: navigation cache grew to ${navigationEntryCount} entries`);
+    if (!navigationStore || navigationEntryCount !== 64) {
+      fail(`sw.js: expected 64 demand-cached navigation entries, found ${navigationEntryCount}`);
     }
 
     let handledCrossOrigin = false;

@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/general-knowledge#quiz",
-      "name": "Questions for the naturally curious",
+      "name": "General knowledge",
       "description": "A balanced bilingual general knowledge quiz spanning geography, history, nature, science, and culture. Guess first, then check each answer.",
       "url": "https://riddlearabia.com/general-knowledge",
       "inLanguage": "en",
@@ -181,13 +181,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Explore",
-          "item": "https://riddlearabia.com/collections"
+          "name": "Riddles & Quizzes",
+          "item": "https://riddlearabia.com/mind-lab"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Questions for the naturally curious",
+          "name": "General knowledge",
           "item": "https://riddlearabia.com/general-knowledge"
         }
       ]
@@ -198,36 +198,37 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="general-knowledge">
     <a href="#content" class="skip-link">Skip to main content</a>
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="Primary navigation">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Explore</a>
-        <a class="ghost-btn" href="/brain-games">Games</a>
-        <a class="ghost-btn language-route-link" href="/ar/malumat-amma/" hreflang="ar" lang="ar" dir="rtl">العربية</a>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library" aria-current="page">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/malumat-amma/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="Breadcrumb"><a href="/mind-lab">Riddles &amp; Quizzes</a><span aria-hidden="true">/</span><a href="/collections">Short collections</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">A little of everything</p>
-        <h1>Questions for the naturally curious</h1>
+        <h1>General knowledge</h1>
         <p>General knowledge is a map, not a score. This set crosses subjects on purpose, giving you a quick way to discover what you remember and what you want to learn next.</p>
         <div class="seo-collection-meta">
-          <span>8 riddles</span>
+          <span>8 questions</span>
           <span>Arabic & English</span>
           <span>Free</span>
         </div>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">How to play</p><h2 id="how-title">Give each clue a moment</h2></div>
-          <p class="section-note">Treat every answer as a starting point. If a question surprises you, follow the category link to continue exploring that subject.</p>
-        </div>
+        <p class="collection-subset-note">A short selection from the question library, not the full topic.</p>
+        <nav class="collection-source-links" aria-label="Full source topics"><a class="text-btn" href="/geography">Geography · 100 questions</a> <a class="text-btn" href="/history">History · 100 questions</a> <a class="text-btn" href="/science">Science · 100 questions</a> <a class="text-btn" href="/animal-kingdom">Animal Kingdom · 40 questions</a> <a class="text-btn" href="/food-and-cuisines">Food &amp; Cuisines · 40 questions</a> <a class="text-btn" href="/music-and-performing-arts">Music &amp; Performing Arts · 40 questions</a></nav>
+        <p class="section-note">Treat every answer as a starting point. If a question surprises you, follow the category link to continue exploring that subject.</p>
       </section>
       <section class="seo-question-list shell" aria-label="Riddles and answers">
         <article class="seo-qa-card" id="geography-001" data-card-id="geography-001">
@@ -236,9 +237,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Asia</p>
-              <a class="text-btn" href="/geography?card=geography-001">Explore Geography →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/geography?card=geography-001">Full topic: Geography</a>
         </article>
         <article class="seo-qa-card" id="geography-007" data-card-id="geography-007">
           <details>
@@ -246,9 +247,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Africa and Asia</p>
-              <a class="text-btn" href="/geography?card=geography-007">Explore Geography →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/geography?card=geography-007">Full topic: Geography</a>
         </article>
         <article class="seo-qa-card" id="history-001" data-card-id="history-001">
           <details>
@@ -256,9 +257,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>The Bastille.</p>
-              <a class="text-btn" href="/history?card=history-001">Explore History →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/history?card=history-001">Full topic: History</a>
         </article>
         <article class="seo-qa-card" id="history-006" data-card-id="history-006">
           <details>
@@ -266,9 +267,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Italy, which was then divided into several states.</p>
-              <a class="text-btn" href="/history?card=history-006">Explore History →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/history?card=history-006">Full topic: History</a>
         </article>
         <article class="seo-qa-card" id="science-001" data-card-id="science-001">
           <details>
@@ -276,9 +277,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Isaac Newton</p>
-              <a class="text-btn" href="/science?card=science-001">Explore Science →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/science?card=science-001">Full topic: Science</a>
         </article>
         <article class="seo-qa-card" id="ani-2" data-card-id="ani-2">
           <details>
@@ -286,9 +287,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Bats.</p>
-              <a class="text-btn" href="/animal-kingdom?card=ani-2">Explore Animal Kingdom →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/animal-kingdom?card=ani-2">Full topic: Animal Kingdom</a>
         </article>
         <article class="seo-qa-card" id="foo-13" data-card-id="foo-13">
           <details>
@@ -296,9 +297,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Firm to the bite</p>
-              <a class="text-btn" href="/food-and-cuisines?card=foo-13">Explore Food &amp; Cuisines →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/food-and-cuisines?card=foo-13">Full topic: Food &amp; Cuisines</a>
         </article>
         <article class="seo-qa-card" id="mus-3" data-card-id="mus-3">
           <details>
@@ -306,33 +307,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Violin</p>
-              <a class="text-btn" href="/music-and-performing-arts?card=mus-3">Explore Music &amp; Performing Arts →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/music-and-performing-arts?card=mus-3">Full topic: Music &amp; Performing Arts</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">Keep exploring</p>
-            <h2 id="next-title">More ways to challenge yourself</h2>
+            <h2 id="next-title">More short collections</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>Riddles worth a second look</h3>
+            <h3>Classic riddles</h3>
             <p>Try a thoughtful set of bilingual riddles. Make your guess first, open the answer when you are ready, then keep the challenge moving.</p>
-            <a class="ghost-btn" href="/riddles">Start</a>
+            <a class="ghost-btn" href="/riddles">Try Classic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>One clue, two ways to read it</h3>
+            <h3>Arabic riddles</h3>
             <p>Solve bilingual Arabic riddles with a friend or on your own. Every clue is available in Arabic and English, with the answer one tap away.</p>
-            <a class="ghost-btn" href="/arabic-riddles">Start</a>
+            <a class="ghost-btn" href="/arabic-riddles">Try Arabic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>Small clues, satisfying deductions</h3>
+            <h3>Logic puzzles</h3>
             <p>Work through bilingual logic puzzles that reward careful reading, simple deduction, and a second thought before you reveal the answer.</p>
-            <a class="ghost-btn" href="/logic-challenges">Start</a>
+            <a class="ghost-btn" href="/logic-challenges">Try Logic puzzles</a>
           </article>
         </div>
       </section>
@@ -341,8 +342,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 Riddle Arabia</p>
         <nav class="footer-site-links" aria-label="Riddle Arabia information">
-          <a href="/collections">Collections</a>
-          <a href="/brain-games">Brain games</a>
+          <a href="/collections">Short collections</a>
+          <a href="/play">Games</a>
           <a href="/about">About</a>
           <a href="/privacy">Privacy</a>
         </nav>

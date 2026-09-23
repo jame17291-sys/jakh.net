@@ -40,7 +40,7 @@ const GAME_SMOKE_FIXTURES = Object.freeze([
   { name: "Diplomacy", route: "/diplomacy", root: "#dip-map", action: "#btn-resolve" },
 ]);
 
-async function mockApi(context, { battle = null } = {}) {
+async function mockApi(context, { battle = null, profile = null } = {}) {
   await context.route("**/api/**", async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
@@ -79,7 +79,18 @@ async function mockApi(context, { battle = null } = {}) {
         status: 200,
         contentType: "application/json",
         headers,
-        body: JSON.stringify({ authenticated: false }),
+        body: JSON.stringify({ authenticated: Boolean(profile) }),
+      });
+      return;
+    }
+    if (profile && ['/api/user/profile', '/api/user/privacy', '/api/user/streak'].includes(path)) {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        headers,
+        body: JSON.stringify(path === '/api/user/profile' ? profile
+          : path === '/api/user/privacy' ? { privacy: { usageAnalyticsEnabled: false } }
+          : { streak: 0, freezeCount: 0 }),
       });
       return;
     }
@@ -262,10 +273,15 @@ async function installBattleSocketMock(context, { code, hostId }) {
           }
           this.playerId = playerId;
           const saved = writeRoom(room, "room-update");
-          // A real guest's join acknowledgement crosses the network. Keep it
-          // asynchronous so this regression proves the UI cannot double-join
-          // while that acknowledgement is still in flight.
-          this.emit({ type: "joined", playerId, isHost }, isHost ? 0 : 50);
+          // Hold the guest acknowledgement until the assertion has observed
+          // the pending UI. A fixed 50ms mock response can win the browser
+          // automation round trip and hide this state on a fast machine.
+          const acknowledge = () => this.emit({ type: "joined", playerId, isHost });
+          if (isHost) acknowledge();
+          else window.__releaseBattleJoinAck = () => {
+            delete window.__releaseBattleJoinAck;
+            acknowledge();
+          };
           this.emit(messageFor(saved));
           return;
         }
@@ -368,6 +384,68 @@ async function main() {
   const browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
 
   try {
+    await runTest("lightweight hubs share responsive navigation without unrelated downloads", async () => {
+      for (const width of [320, 768, 1280]) {
+        const context = await createContext(browser, {
+          viewport: { width, height: 900 },
+          serviceWorkers: "block",
+        });
+        await setCurrentDeniedConsent(context);
+        const page = await context.newPage();
+        const assertNoPageErrors = trackPageErrors(page);
+        const requests = [];
+        page.on('request', (request) => requests.push(new URL(request.url())));
+        try {
+          for (const [route, active, language] of [
+            ['/', 'home', 'en'], ['/ar/', 'home', 'ar'],
+            ['/play', 'games', 'en'], ['/ar/play/', 'games', 'ar'],
+            ['/collections', 'library', 'en'], ['/ar/collections/', 'library', 'ar'],
+            ['/riddles', 'library', 'en'], ['/ar/alghaz/', 'library', 'ar'],
+          ]) {
+            requests.length = 0;
+            await page.goto(`${baseUrl}${route}`, { waitUntil: NAVIGATION_READY_EVENT });
+            await page.locator('.primary-navigation').waitFor();
+            await page.waitForLoadState('networkidle');
+            assert.equal(await page.locator('html').getAttribute('lang'), language, `${route} language`);
+            assert.equal(await page.locator('html').getAttribute('dir'), language === 'ar' ? 'rtl' : 'ltr');
+            assert.equal(await page.locator('.primary-navigation').count(), 1);
+            assert.deepEqual(await page.locator('.primary-navigation a').evaluateAll((links) => links.map((link) => link.dataset.nav)),
+              ['home', 'library', 'games', 'daily']);
+            assert.equal(await page.locator('.primary-navigation [aria-current="page"]').getAttribute('data-nav'), active);
+            assert.equal(await page.locator('#hamburgerBtn, #bottomNav').count(), 0);
+            assert.equal(await page.locator('[data-site-profile]').getAttribute('href'),
+              language === 'ar' ? '/ar/mind-lab/?profile=1' : '/mind-lab?profile=1');
+            assert.equal(await page.locator('.language-route-link').getAttribute('hreflang'), language === 'ar' ? 'en' : 'ar');
+            const geometry = await page.evaluate(() => ({
+              viewport: window.innerWidth,
+              document: document.documentElement.scrollWidth,
+              body: document.body.scrollWidth,
+              outside: [...document.querySelectorAll('main *, header *, footer *')].flatMap((node) => {
+                const rect = node.getBoundingClientRect();
+                return rect.width > 0 && (rect.left < -1 || rect.right > window.innerWidth + 1)
+                  ? [{ tag: node.tagName, id: node.id, class: node.className, left: rect.left, right: rect.right }]
+                  : [];
+              }).slice(0, 8),
+            }));
+            assert(Math.max(geometry.document, geometry.body) <= geometry.viewport + 1,
+              `${route} overflows at ${width}px: ${JSON.stringify(geometry)}`);
+            for (const link of await page.locator('.primary-navigation a, .site-utilities a').all()) {
+              const rect = await link.boundingBox();
+              assertInsideViewport(rect, { width, height: 900 }, `${route} navigation link`);
+              assert(rect.height >= 44, `${route} navigation target is shorter than 44px at ${width}px`);
+            }
+            const unrelated = requests.filter((url) => url.origin !== new URL(baseUrl).origin
+              || url.pathname.startsWith('/api/') || url.pathname.startsWith('/data/')
+              || /^\/(?:app|auth-enhancements|battle-mode|search-leaderboard|speech-quality|akshifha(?:-engine|-cases|-copy|-study)?)\b.*\.(?:js|css)$/u.test(url.pathname));
+            assert.deepEqual(unrelated.map((url) => url.href), [], `${route} downloaded a feature unrelated to its page`);
+          }
+          assertNoPageErrors();
+        } finally {
+          await context.close();
+        }
+      }
+    });
+
     await runTest("search and modal focus behavior", async () => {
       const context = await createContext(browser, {
         viewport: { width: 1280, height: 800 },
@@ -376,7 +454,7 @@ async function main() {
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
-        const navigation = await page.goto(`${baseUrl}/`, { waitUntil: NAVIGATION_READY_EVENT });
+        const navigation = await page.goto(`${baseUrl}/mind-lab`, { waitUntil: NAVIGATION_READY_EVENT });
         if (artifactManifest) {
           const headers = await navigation.allHeaders();
           assert.equal(headers["x-jakh-site-version"], artifactManifest.buildId);
@@ -437,16 +515,51 @@ async function main() {
         await page.waitForFunction(() => document.activeElement?.id === "openAuthBtn");
         assert.equal(await page.evaluate(() => document.activeElement?.id), "openAuthBtn");
 
-        await page.locator("#langSelect").selectOption("ar");
-        await page.waitForURL(`${baseUrl}/ar/`);
+        await page.locator(".language-route-link").click();
+        await page.waitForURL(`${baseUrl}/ar/mind-lab/`);
         assert.equal(await page.locator("html").getAttribute("lang"), "ar");
         assert.equal(await page.locator("html").getAttribute("dir"), "rtl");
-        await page.locator("#langSelect").selectOption("en");
-        await page.waitForURL(`${baseUrl}/`);
+        await page.locator(".language-route-link").click();
+        await page.waitForURL(`${baseUrl}/mind-lab`);
         assert.equal(await page.locator("html").getAttribute("lang"), "en");
         assertNoPageErrors();
       } finally {
         await context.close();
+      }
+    });
+
+    await runTest("signed-in owner utilities remain usable with a long username on narrow screens", async () => {
+      const username = 'OwnerWithAnExtremelyLongDisplayNameForLayoutChecks';
+      for (const language of ['en', 'ar']) {
+        const viewport = { width: 320, height: 800 };
+        const context = await createContext(browser, { viewport, serviceWorkers: 'block' }, {
+          profile: { id: 'layout-owner', username, role: 'OWNER', avatar: '🛡️', progress: [], favorites: [] },
+        });
+        await setCurrentDeniedConsent(context);
+        const page = await context.newPage();
+        const assertNoPageErrors = trackPageErrors(page);
+        try {
+          await page.goto(`${baseUrl}${language === 'ar' ? '/ar/mind-lab/' : '/mind-lab'}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.locator('#adminNavBtn').waitFor({ state: 'visible' });
+          assert.equal(await page.locator('#openAuthBtn').innerText(), language === 'ar' ? 'حسابي' : 'Profile');
+          assert.equal(await page.locator('#openAuthBtn').getAttribute('title'), username);
+          assert.equal(await page.locator('#adminNavBtn').getAttribute('href'), language === 'ar' ? '/admin?lang=ar' : '/admin');
+          assert.equal(await page.evaluate(() => Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) <= window.innerWidth + 1), true);
+          for (const link of await page.locator('.primary-navigation a, .site-utilities a').all()) {
+            const rect = await link.boundingBox();
+            assertInsideViewport(rect, viewport, 'signed-in owner navigation');
+            assert(rect.height >= 44, 'signed-in owner navigation target must remain at least 44px tall');
+          }
+          await page.locator('#openAuthBtn').click();
+          await page.locator('#signedInAccountPanel').waitFor({ state: 'visible' });
+          assert((await page.locator('#authModal').innerText()).includes(username), 'account details still identify the signed-in user');
+          await page.keyboard.press('Escape');
+          await page.locator('#authModal').waitFor({ state: 'hidden' });
+          await page.waitForFunction(() => document.activeElement?.id === 'openAuthBtn');
+          assertNoPageErrors();
+        } finally {
+          await context.close();
+        }
       }
     });
 
@@ -473,7 +586,7 @@ async function main() {
         await page.goto(`${baseUrl}/science?utm_source=browser&q=atom&difficulty=hard`, {
           waitUntil: NAVIGATION_READY_EVENT,
         });
-        await page.locator("#playModeQuickFireBtn").waitFor();
+        await page.locator("#playModeQuickFireBtn").waitFor({ state: 'attached' });
         await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length > 0);
         await page.locator("#resetPageBtn").click();
         await page.waitForFunction(() => document.querySelectorAll("#cardGrid .riddle-card").length === 20);
@@ -507,11 +620,14 @@ async function main() {
 
         // Science remains freely browsable but has no authored choice set yet.
         // Never synthesize wrong answers from unrelated questions to fill it.
+        await page.locator('.more-play-modes > summary').click();
         await page.locator("#playModeQuickFireBtn").click();
         await page.waitForFunction(() => document.querySelector('.toast')?.textContent?.includes('Quick Fire'));
         assert.equal(await page.locator('#timedQuizOverlay:not(.hidden)').count(), 0);
         await page.goto(`${baseUrl}/math`, { waitUntil: NAVIGATION_READY_EVENT });
-        await page.locator("#playModeQuickFireBtn").waitFor();
+        await page.locator("#playModeQuickFireBtn").waitFor({ state: 'attached' });
+        await page.waitForLoadState('networkidle');
+        await page.locator('.more-play-modes > summary').click();
         await page.locator("#playModeQuickFireBtn").click();
         await page.locator('#tqOptions [data-tq-option="0"]').waitFor();
         assert.equal(await page.locator("#tqAnswerWrap").evaluate((node) => node.classList.contains("hidden")), true);
@@ -660,8 +776,9 @@ async function main() {
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
       try {
-        await page.goto(`${baseUrl}/`, { waitUntil: NAVIGATION_READY_EVENT });
-        await page.locator("#bottomNav").waitFor();
+        await page.goto(`${baseUrl}/mind-lab`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator(".primary-navigation").waitFor();
+        await page.waitForFunction(() => document.querySelectorAll('#categoryDirectoryGrid .category-card').length > 0);
         await page.evaluate(() => {
           const promptEvent = new Event("beforeinstallprompt", { cancelable: true });
           Object.defineProperties(promptEvent, {
@@ -673,38 +790,71 @@ async function main() {
         assert.equal(await page.locator("#installBanner").count(), 0);
 
         const consentRect = await page.locator("#privacyConsentBanner").boundingBox();
-        const navRect = await page.locator("#bottomNav").boundingBox();
+        const navRect = await page.locator(".primary-navigation").boundingBox();
         assertInsideViewport(consentRect, viewport, "Privacy banner");
-        assertInsideViewport(navRect, viewport, "Bottom navigation");
-        assert(consentRect.y + consentRect.height <= navRect.y + 0.5, "Privacy banner overlaps bottom navigation");
+        assertInsideViewport(navRect, viewport, "Primary navigation");
+        assert(navRect.y + navRect.height <= consentRect.y + 0.5, "Privacy banner overlaps primary navigation");
+        assert.equal(await page.locator("#bottomNav, #hamburgerBtn").count(), 0, "duplicate navigation must not return");
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
 
         await page.locator('[data-consent-action="essential"]').click();
         await page.locator("#installBanner").waitFor();
         const installRect = await page.locator("#installBanner").boundingBox();
         assertInsideViewport(installRect, viewport, "Install banner");
-        assert(installRect.y + installRect.height <= navRect.y + 0.5, "Install banner overlaps bottom navigation");
+        assert(navRect.y + navRect.height <= installRect.y + 0.5, "Install banner overlaps primary navigation");
 
         await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
         const footerMetrics = await page.locator(".site-footer").evaluate((footer) => {
-          const rect = footer.getBoundingClientRect();
+          const links = [...footer.querySelectorAll('a')].map((link) => link.getBoundingClientRect());
+          const install = document.getElementById('installBanner').getBoundingClientRect();
           return {
-            footerBottom: rect.bottom,
+            lastLinkBottom: Math.max(...links.map((rect) => rect.bottom)),
+            installTop: install.top,
             viewportBottom: window.innerHeight,
             trailingDocumentSpace: document.documentElement.scrollHeight - (window.scrollY + window.innerHeight),
           };
         });
         assert(Math.abs(footerMetrics.trailingDocumentSpace) <= 1, `mobile page has blank scroll space after the footer: ${JSON.stringify(footerMetrics)}`);
-        assert(Math.abs(footerMetrics.footerBottom - footerMetrics.viewportBottom) <= 1, `mobile footer does not end at the document boundary: ${JSON.stringify(footerMetrics)}`);
-
-        await page.locator("#hamburgerBtn").click();
-        assert.equal(await page.locator("#hamburgerBtn").getAttribute("aria-expanded"), "true");
-        assert.equal(await page.locator(".header-actions").evaluate((node) => node.classList.contains("nav-open")), true);
-        await page.locator("main").click({ position: { x: 5, y: 5 } });
-        assert.equal(await page.locator("#hamburgerBtn").getAttribute("aria-expanded"), "false");
+        assert(footerMetrics.lastLinkBottom <= footerMetrics.installTop + 1, `install banner obscures footer links: ${JSON.stringify(footerMetrics)}`);
+        await page.evaluate(() => window.scrollTo(0, 0));
+        for (const link of await page.locator('.primary-navigation a').all()) {
+          assert.equal(await link.isVisible(), true, "main navigation must remain visible without a hamburger menu");
+        }
         assertNoPageErrors();
       } finally {
         await context.close();
+      }
+    });
+
+    await runTest("Daily Challenge is one bilingual destination with persistent local outcomes", async () => {
+      for (const language of ['en', 'ar']) {
+        const context = await createContext(browser, { viewport: { width: 360, height: 800 }, serviceWorkers: 'block' });
+        await setCurrentDeniedConsent(context);
+        const page = await context.newPage();
+        const assertNoPageErrors = trackPageErrors(page);
+        const dailyRoute = language === 'ar' ? '/ar/daily/' : '/daily';
+        try {
+          await page.goto(`${baseUrl}${language === 'ar' ? '/ar/' : '/'}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.locator('.primary-navigation [data-nav="daily"]').click();
+          await page.waitForURL(`${baseUrl}${dailyRoute}`);
+          await page.locator('.daily-challenge-q').waitFor({ state: 'visible' });
+          const question = await page.locator('.daily-challenge-q').innerText();
+          assert(question.trim().length > 0);
+          assert.equal(await page.locator('.primary-navigation [aria-current="page"]').getAttribute('data-nav'), 'daily');
+          assert.equal(await page.locator('html').getAttribute('lang'), language);
+          await page.locator('#flipDailyBtn').click();
+          await page.locator('.daily-challenge-answer').waitFor({ state: 'visible' });
+          assert((await page.locator('.daily-challenge-answer').innerText()).trim().length > 0);
+          await page.locator('#dailyKnewBtn').click();
+          await page.locator('.daily-done').waitFor({ state: 'visible' });
+          await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+          await page.locator('.daily-done').waitFor({ state: 'visible' });
+          assert.equal(await page.locator('.daily-challenge-q').innerText(), question);
+          assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true);
+          assertNoPageErrors();
+        } finally {
+          await context.close();
+        }
       }
     });
 
@@ -771,7 +921,7 @@ async function main() {
           const assertNoHorizontalOverflow = async (stage) => {
             const metrics = await page.evaluate(() => {
               const viewportWidth = document.documentElement.clientWidth;
-              const surfaces = [...document.querySelectorAll(".ak-header, .ak-main, .ak-evidence-grid, .ak-options, .ak-casebook, .ak-footer")]
+              const surfaces = [...document.querySelectorAll(".unified-header, .ak-main, .ak-evidence-grid, .ak-options, .ak-casebook, .ak-footer")]
                 .filter((node) => node.getClientRects().length)
                 .map((node) => {
                   const rect = node.getBoundingClientRect();
@@ -800,7 +950,7 @@ async function main() {
             assert.equal(await page.locator("html").getAttribute("lang"), language);
             assert.equal(await page.locator("html").getAttribute("dir"), language === "ar" ? "rtl" : "ltr");
             assert.equal(await page.locator("#ak-case-title").innerText(), cake.title[language]);
-            assert.equal(await page.locator("#akLanguage").inputValue(), language);
+            assert.equal(await page.locator('.language-route-link').getAttribute('hreflang'), language === 'ar' ? 'en' : 'ar');
             assert.equal(await page.locator("#ak-case-list [data-case-id]").count(), 11);
             assert.equal(await page.locator("#ak-check").isDisabled(), true);
             assert.equal(await page.locator('#ak-evidence input[type="checkbox"]:checked').count(), 0);
@@ -847,7 +997,7 @@ async function main() {
             assert.equal(await casebookStatus(cake.id).innerText(), AKSHIFHA_UI[language].akStatusSolved,
               `${label}: the casebook persists across reload`);
             const otherLanguage = language === "en" ? "ar" : "en";
-            await page.locator("#akLanguage").selectOption(otherLanguage);
+            await page.locator('.language-route-link').click();
             await page.waitForURL((url) => url.pathname === paths[otherLanguage]
               && url.searchParams.get("case") === cake.id && url.searchParams.get("mode") === "practice");
             await page.locator("#ak-game").waitFor({ state: "visible" });
@@ -856,7 +1006,7 @@ async function main() {
             assert.equal(await page.locator("#ak-case-title").innerText(), cake.title[otherLanguage],
               `${label}: changing language preserves the exact case`);
             assert.equal(await casebookStatus(cake.id).innerText(), AKSHIFHA_UI[otherLanguage].akStatusSolved);
-            assert.equal(await page.locator('header a[data-i18n="akGames"]').getAttribute("href"),
+            assert.equal(await page.locator('.primary-navigation [data-nav="games"]').getAttribute("href"),
               otherLanguage === "ar" ? "/ar/play/" : "/play");
             assert.equal(await page.locator('a[data-i18n="akPrivacy"]').getAttribute("href"),
               otherLanguage === "ar" ? "/ar/privacy/" : "/privacy");
@@ -910,7 +1060,7 @@ async function main() {
       const assertHostErrors = trackPageErrors(host);
       const assertGuestErrors = trackPageErrors(guest);
       try {
-        await host.goto(`${baseUrl}/`, { waitUntil: NAVIGATION_READY_EVENT });
+        await host.goto(`${baseUrl}/mind-lab`, { waitUntil: NAVIGATION_READY_EVENT });
         await host.locator("#battleNavBtn").click();
         await host.locator("#battleNameInput").waitFor({ state: "visible" });
         await host.locator("#battleNameInput").fill("Host");
@@ -929,7 +1079,7 @@ async function main() {
         assert(inviteText, `Battle invite clipboard payload did not contain a URL: ${copiedText}`);
         const inviteUrl = new URL(inviteText);
         assert.equal(inviteUrl.origin, new URL(baseUrl).origin);
-        assert.equal(inviteUrl.pathname, "/");
+        assert.equal(inviteUrl.pathname, "/mind-lab");
         assert.equal(inviteUrl.searchParams.get("battle"), battle.code);
         assert.equal(inviteUrl.hash, "");
 
@@ -940,6 +1090,8 @@ async function main() {
         await guest.locator("#battleJoinBtn").click();
         await guest.waitForFunction(() => document.querySelector("#battleJoinBtn")?.disabled === true);
         assert.equal(await guest.locator("#battleJoinBtn").isDisabled(), true);
+        assert.equal(await guest.locator("#battleJoinBtn").getAttribute('aria-busy'), 'true');
+        await guest.evaluate(() => window.__releaseBattleJoinAck());
         await guest.locator("#battleShareBtn").waitFor({ state: "visible" });
         await host.locator(".battle-player-row").filter({ hasText: "Guest" }).waitFor({ state: "visible" });
         await host.waitForFunction(() => document.querySelector("#battleStartBtn")?.disabled === false);
@@ -971,6 +1123,8 @@ async function main() {
       await setCurrentDeniedConsent(context);
       const page = await context.newPage();
       const assertNoPageErrors = trackPageErrors(page);
+      const coldRequests = [];
+      context.on('request', (request) => coldRequests.push(new URL(request.url()).pathname));
       try {
         await page.goto(`${baseUrl}/chess`, { waitUntil: NAVIGATION_READY_EVENT });
         const activeWorkerScriptUrl = await page.evaluate(async () => {
@@ -994,7 +1148,26 @@ async function main() {
         assert.match(claimedControllerScriptUrl, /\/sw\.js$/u);
         assert.deepEqual(await page.evaluate(async (paths) => (
           Promise.all(paths.map(async (path) => Boolean(await caches.match(path))))
-        ), ['/chess', '/science', '/ar/privacy/', '/offline']), [true, true, true, true]);
+        ), ['/science', '/ar/privacy/', '/akshifha', '/offline']), [false, false, false, true]);
+        assert.deepEqual(coldRequests.filter((pathname) => (
+          pathname.startsWith('/data/') || /^\/akshifha(?:[./]|$)/u.test(pathname)
+        )), [], 'opening Chess must not prefetch unrelated games or question data');
+
+        // The first document arrives before service-worker control. Visit the
+        // selected routes after activation so the demand cache can save their
+        // document, runtime, and data. Never warm unrelated routes at install.
+        await page.goto(`${baseUrl}/chess?cache_visit=1`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator('#chessBoard').waitFor({ state: 'visible' });
+        await page.waitForLoadState('networkidle');
+        await page.goto(`${baseUrl}/science`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.waitForFunction(() => document.querySelectorAll('#cardGrid .riddle-card').length === 20);
+        await page.waitForLoadState('networkidle');
+        await page.goto(`${baseUrl}/ar/privacy/`, { waitUntil: NAVIGATION_READY_EVENT });
+        await page.locator('h1').waitFor();
+        await page.waitForLoadState('networkidle');
+        assert.deepEqual(await page.evaluate(async (paths) => (
+          Promise.all(paths.map(async (path) => Boolean(await caches.match(path))))
+        ), ['/chess', '/science', '/data/science.json', '/ar/privacy/', '/offline']), [true, true, true, true, true]);
 
         // Playwright's Firefox offline toggle rejects top-level navigation
         // before an active service worker can answer it. Dropping the local
@@ -1040,7 +1213,7 @@ async function main() {
       }
     });
 
-    console.log(`Browser regression passed: 9 suites on ${BROWSER_ENGINE}.`);
+    console.log(`Browser regression passed: 12 suites on ${BROWSER_ENGINE}.`);
   } finally {
     await browser.close();
     await server.close();

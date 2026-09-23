@@ -89,8 +89,8 @@ async function runJourney(browser, server, { language, width, height }) {
   try {
     const home = language === 'ar' ? '/ar/' : '/';
     await page.goto(`${server.baseUrl}${home}`, { waitUntil: 'domcontentloaded' });
-    await page.locator('#langSelect').waitFor();
-    const start = page.locator(`.kv-hero a[href*="case=${firstCase.id}"]`).first();
+    await page.locator('.site-utilities .language-route-link').waitFor();
+    const start = page.locator(`a[data-i18n="homeFeatureCta"][href*="case=${firstCase.id}"]`);
     await start.waitFor();
     assert.equal(await page.locator('html').getAttribute('lang'), language);
     assert.equal(await page.locator('html').getAttribute('dir'), language === 'ar' ? 'rtl' : 'ltr');
@@ -153,7 +153,7 @@ async function runJourney(browser, server, { language, width, height }) {
     await visibleText(page, `[data-case-id="${secondId}"] .ak-case-entry-status`, AKSHIFHA_UI[language].akStatusRevealed);
     assert.equal(new URL(page.url()).searchParams.get('case'), secondId);
     const otherLanguage = language === 'en' ? 'ar' : 'en';
-    await page.locator('#akLanguage').selectOption(otherLanguage);
+    await page.locator(`.site-utilities .language-route-link[hreflang="${otherLanguage}"]`).click();
     await page.waitForURL(url => url.pathname === (otherLanguage === 'ar' ? '/ar/games/akshifha/' : '/akshifha'));
     await visibleText(page, '#ak-case-title', secondCase.title[otherLanguage]);
     assert.equal(new URL(page.url()).searchParams.get('case'), secondId, 'Changing language retains the case');
@@ -197,7 +197,7 @@ async function runJourney(browser, server, { language, width, height }) {
     assert.equal(new URL(page.url()).hash, '#ak-casebook', 'Casebook entry retains its fragment through mount');
     const casebookTop = await page.locator('#ak-casebook').evaluate(element => element.getBoundingClientRect().top);
     assert(casebookTop >= 0 && casebookTop < height, 'Casebook is scrolled into the viewport after it becomes visible');
-    assert.equal(await page.locator('.ak-header .header-actions a').isVisible(), true, 'Standalone game navigation remains available on mobile');
+    assert.equal(await page.locator('.primary-navigation a[data-nav="games"]').isVisible(), true, 'Shared Games navigation remains available on mobile');
     await page.locator(`[data-case-id="${firstCase.id}"]`).click();
     assert.equal(new URL(page.url()).hash, '', 'Choosing a case clears the old casebook destination');
     await visibleText(page, '#ak-case-title', firstCase.title[otherLanguage]);

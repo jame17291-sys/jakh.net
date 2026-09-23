@@ -1,18 +1,27 @@
 import assert from "node:assert/strict";
 import http from "node:http";
+import { readFileSync } from "node:fs";
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
 import test from "node:test";
 import {
   API_RELEASE_CONTRACT,
   buildMonitorReport,
   HTML_ROUTES,
   INDEXABLE_SITEMAP_PATHS,
+  PRE_NAVIGATION_HTML_ROUTES,
+  PRE_NAVIGATION_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
+  PRIMARY_API_ORIGIN,
   retiredSeoRedirectProbeDefinitions,
   runProductionMonitor,
   UNAUTHENTICATED_API_GET_ROUTES,
 } from "./monitor-production.mjs";
+import { navigationScript, siteHeader } from "./site-navigation-markup.mjs";
+import { buildStaticSite } from "./build-static-site.mjs";
 
 const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 
@@ -36,13 +45,23 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false }) {
+function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false }) {
   if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
-  const route = HTML_ROUTES.find((candidate) => candidate.path === pathname);
+  const route = (legacySite || preNavigation ? PRE_NAVIGATION_HTML_ROUTES : HTML_ROUTES)
+    .find((candidate) => candidate.path === pathname);
   if (route) {
+    if (builtHtml) {
+      const relativePath = pathname === "/" ? "index.html"
+        : pathname.endsWith("/") ? `${pathname.slice(1)}index.html` : `${pathname.slice(1)}.html`;
+      return readFileSync(resolve(builtHtml, relativePath), "utf8");
+    }
     const categoryAttributes = pathname === "/science" ? ' data-page="category" data-category="science"' : "";
     const categoryMount = pathname === "/science" ? '<div id="cardGrid"></div>' : "";
-    return `<!doctype html><html><head>${legacySite ? "<title>JAKH Riddles" : route.marker}</title></head><body${categoryAttributes}>${route.bilingualMarker}${categoryMount}ok</body></html>`;
+    const navigation = legacySite || preNavigation ? "" : siteHeader({
+      lang: pathname.startsWith("/ar/") ? "ar" : "en",
+      alternate: pathname.startsWith("/ar/") ? "/" : "/ar/",
+    }) + navigationScript;
+    return `<!doctype html><html><head>${legacySite ? "<title>JAKH Riddles" : route.marker}</title></head><body${categoryAttributes}>${route.bilingualMarker}${navigation}${categoryMount}ok</body></html>`;
   }
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
@@ -75,7 +94,8 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false }) {
     });
   }
   if (pathname === "/sitemap.xml") {
-    const paths = legacySite ? ["/", "/science", "/en/riddles-with-answers"] : INDEXABLE_SITEMAP_PATHS;
+    const paths = legacySite ? ["/", "/science", "/en/riddles-with-answers"]
+      : preNavigation ? PRE_NAVIGATION_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const urls = paths.map((pathname) => new URL(pathname, siteOrigin).href);
     return `<urlset>${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
   }
@@ -92,6 +112,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false }) {
   }
   if (legacySite && pathname === "/assets/og-image.jpg") return Buffer.from([0xff, 0xd8, 0xff, 0xe0]);
   if (pathname === "/app.js") return `const endpoint = '${apiOrigin}';`;
+  if (pathname === "/site-navigation.js" && !legacySite && !preNavigation) return "document.querySelector('.primary-navigation');";
   if (pathname === "/site-i18n.js") return "window.JakhI18n = {};";
   if (pathname === "/game-i18n.js") return "window.JakhGameI18n = {};";
   if (pathname === "/privacy-consent.js") return "window.JakhPrivacy = {};";
@@ -100,7 +121,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false }) {
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false, legacySite = false } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -219,9 +240,11 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
 
     const fixtureOrigin = `http://${request.headers.host}`;
     const body = staticBody(url.pathname, {
-      siteOrigin: legacySite ? "https://jakh.net" : fixtureOrigin,
-      apiOrigin: legacySite ? "https://api.jakh.net" : fixtureOrigin,
+      siteOrigin: legacySite ? "https://jakh.net" : productionSite ? PRIMARY_SITE_ORIGIN : fixtureOrigin,
+      apiOrigin: legacySite ? "https://api.jakh.net" : productionSite ? PRIMARY_API_ORIGIN : fixtureOrigin,
       legacySite,
+      preNavigation,
+      builtHtml,
     });
     if (body !== null) {
       const contentType = url.pathname.endsWith(".css")
@@ -278,6 +301,112 @@ async function withFixture(options, run) {
     await fixture.close();
   }
 }
+
+function productionFixtureOptions(fixtureOrigin, overrides = {}) {
+  const redirects = new Map(retiredSeoRedirectProbeDefinitions(PRIMARY_SITE_ORIGIN)
+    .map((definition) => [definition.url, definition.location]));
+  return {
+    env: {}, scope: "site", siteOrigin: PRIMARY_SITE_ORIGIN, apiOrigin: PRIMARY_API_ORIGIN,
+    siteContract: "release-baseline", expectedWorkerVersion: FIXTURE_WORKER_VERSION,
+    legacySiteOrigins: [], maxCheckAttempts: 1, logger: quietLogger(), throwOnFailure: false,
+    fetchImpl: (input, init) => {
+      const url = new URL(input);
+      assert.equal(url.origin, PRIMARY_SITE_ORIGIN);
+      if (redirects.has(url.href)) return Promise.resolve(new Response(null, {
+        status: 301, headers: {
+          location: redirects.get(url.href), "cache-control": "public, max-age=86400",
+          "x-jakh-worker-version": FIXTURE_WORKER_VERSION,
+        },
+      }));
+      return fetch(new URL(`${url.pathname}${url.search}`, fixtureOrigin), init);
+    },
+    ...overrides,
+  };
+}
+
+test("release baseline is restricted to the exact production predecessor in site scope", async () => {
+  const baseline = productionFixtureOptions("http://127.0.0.1");
+  for (const change of [
+    { siteOrigin: "https://jakh.net" }, { apiOrigin: "https://api.jakh.net" },
+    { scope: "all" }, { scope: "pages" }, { expectedWorkerVersion: "" },
+  ]) {
+    await assert.rejects(runProductionMonitor({ ...baseline, ...change }), /release-baseline requires/u);
+  }
+});
+
+test("only an explicit version-bound baseline accepts the complete predecessor layout", async () => {
+  await withFixture({ preNavigation: true, productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const baseline = await runProductionMonitor(options);
+    assert.deepEqual(baseline.failures, []);
+    assert.equal(buildMonitorReport(baseline).monitor.navigationLayout, "pre-navigation");
+    assert.equal(baseline.results.filter(({ name }) => name.startsWith("Site quarantine:")).length, QUARANTINED_SITE_ROUTES.length);
+    assert.ok(baseline.results.every(({ workerVersionId }) => workerVersionId === FIXTURE_WORKER_VERSION));
+
+    const candidate = await runProductionMonitor({ ...options, siteContract: "current" });
+    for (const name of ["Site: Home", "Site: Riddles & Quizzes", "Site: Daily Challenge", "Site: sitemap", "Site: Shared navigation"]) {
+      assert.ok(candidate.failures.some((failure) => failure.name === name), `${name} must reject the predecessor`);
+    }
+
+    const wrongVersion = await runProductionMonitor({ ...options, expectedWorkerVersion: "22222222-2222-4222-8222-222222222222" });
+    assert.ok(wrongVersion.failures.some(({ name }) => name === "Site: version-bound navigation baseline"));
+    const mixed = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
+      const response = await options.fetchImpl(input, init);
+      if (new URL(input).pathname !== "/science") return response;
+      return new Response((await response.text()) + siteHeader(), { status: response.status, headers: response.headers });
+    } });
+    assert.ok(mixed.failures.some(({ name, message }) => name === "Site: Science category" && /coherent/u.test(message)));
+
+    const leaked = await runProductionMonitor({ ...options, fetchImpl: (input, init) => new URL(input).pathname === "/survival"
+      ? Promise.resolve(new Response("held content", { headers: { "x-jakh-worker-version": FIXTURE_WORKER_VERSION } }))
+      : options.fetchImpl(input, init) });
+    assert.ok(leaked.failures.some(({ name }) => name.startsWith("Site quarantine:")));
+  });
+});
+
+test("a current predecessor still requires the complete current navigation contract", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const baseline = await runProductionMonitor(options);
+    assert.deepEqual(baseline.failures, []);
+    assert.equal(baseline.navigationLayout, "current");
+    assert.ok(baseline.results.some(({ name }) => name === "Site: Daily Challenge"));
+    const broken = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
+      const response = await options.fetchImpl(input, init);
+      if (new URL(input).pathname !== "/daily") return response;
+      return new Response((await response.text()).replace('data-nav="games"', 'data-nav="broken"'), {
+        status: response.status, headers: response.headers,
+      });
+    } });
+    assert.ok(broken.failures.some(({ name, message }) => name === "Site: Daily Challenge" && /games destination/u.test(message)));
+  });
+});
+
+test("strict navigation probes pass every HTML route from a fresh real production build", async () => {
+  const temporary = await mkdtemp(join(tmpdir(), "riddlearabia-monitor-artifact-"));
+  try {
+    const outputDirectory = join(temporary, "dist");
+    const manifest = await buildStaticSite({
+      sourceRoot: resolve(import.meta.dirname, ".."), outputDirectory,
+      manifestPath: join(temporary, "manifest.json"), manifestModulePath: join(temporary, "manifest.mjs"),
+      adminApiOrigin: "https://api.riddlearabia.com/api", adminEnvironment: "production",
+    });
+    assert.match(manifest.fingerprints["/site-navigation.js"], /^\/site-navigation\.[a-f0-9]{16}\.js$/u);
+    await withFixture({ builtHtml: outputDirectory }, async (fixtureOrigin) => {
+      const summary = await runProductionMonitor({
+        env: {}, scope: "site", siteOrigin: fixtureOrigin, apiOrigin: fixtureOrigin,
+        expectedWorkerVersion: FIXTURE_WORKER_VERSION, maxCheckAttempts: 1,
+        logger: quietLogger(), throwOnFailure: false,
+      });
+      assert.deepEqual(summary.failures, []);
+      for (const route of HTML_ROUTES) {
+        assert.ok(summary.results.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must be tested`);
+      }
+    });
+  } finally {
+    await rm(temporary, { recursive: true, force: true });
+  }
+});
 
 test("cutover baseline accepts the old brand and sitemap while retaining version and quarantine checks", async () => {
   await withFixture({ legacySite: true }, async (fixtureOrigin) => {
@@ -352,7 +481,7 @@ test("production monitor passes all deterministic checks", async () => {
     });
 
     assert.equal(summary.failures.length, 0);
-    assert.equal(summary.results.length, HTML_ROUTES.length + 26 + QUARANTINED_SITE_ROUTES.length);
+    assert.equal(summary.results.length, HTML_ROUTES.length + 27 + QUARANTINED_SITE_ROUTES.length);
   });
 });
 
@@ -439,7 +568,7 @@ test("production monitor reserves route-migration probes for the production Ridd
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 50);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 52);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/riddles"));
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/ar/alghaz/"));
@@ -565,6 +694,7 @@ test("production monitor emits a stable structured report for alert routing", ()
     monitor: {
       scope: "all",
       siteContract: "current",
+      navigationLayout: "current",
       siteOrigin: "https://riddlearabia.com",
       apiOrigin: "https://api.riddlearabia.com",
       legacySiteOrigins: ["https://jakh.net", "https://www.jakh.net"],

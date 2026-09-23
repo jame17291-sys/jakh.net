@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/ar/alghaz-mantiq/#quiz",
-      "name": "تلميحات صغيرة واستنتاجات مُرضية",
+      "name": "ألغاز منطقية",
       "description": "تدرّب على ألغاز منطقية ثنائية اللغة تكافئ القراءة الدقيقة والاستنتاج البسيط والتفكير مرة أخرى قبل كشف الحل.",
       "url": "https://riddlearabia.com/ar/alghaz-mantiq/",
       "inLanguage": "ar",
@@ -163,13 +163,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "استكشف",
-          "item": "https://riddlearabia.com/ar/collections/"
+          "name": "ألغاز واختبارات",
+          "item": "https://riddlearabia.com/ar/mind-lab/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "تلميحات صغيرة واستنتاجات مُرضية",
+          "name": "ألغاز منطقية",
           "item": "https://riddlearabia.com/ar/alghaz-mantiq/"
         }
       ]
@@ -180,36 +180,37 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="logic-puzzles">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريـدل أرابيا">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل الرئيسي">
-        <a class="ghost-btn" href="/ar/">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/collections/">استكشف</a>
-        <a class="ghost-btn" href="/ar/alab-al-dimagh/">الألعاب</a>
-        <a class="ghost-btn language-route-link" href="/logic-challenges" hreflang="en" lang="en" dir="ltr">English</a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library" aria-current="page">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/logic-challenges" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="مسار التنقل"><a href="/ar/mind-lab/">ألغاز واختبارات</a><span aria-hidden="true">/</span><a href="/ar/collections/">مجموعات قصيرة</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">تمهّل ثم حل</p>
-        <h1>تلميحات صغيرة واستنتاجات مُرضية</h1>
+        <h1>ألغاز منطقية</h1>
         <p>الألغاز المنطقية لا تعتمد على سرعة المعلومة بقدر اعتمادها على ملاحظة ما يقوله التلميح فعلاً. هذه التحديات القصيرة مناسبة لوقفة مع ورقة وقلم، أو نقاش، أو استراحة ذهنية سريعة.</p>
         <div class="seo-collection-meta">
-          <span>8 ألغاز</span>
+          <span>8 أسئلة</span>
           <span>العربية والإنجليزية</span>
           <span>مجاني</span>
         </div>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">طريقة اللعب</p><h2 id="how-title">خذ وقتك مع كل تلميح</h2></div>
-          <p class="section-note">حدّد الحقائق الثابتة، وتجنّب الافتراضات، واختبر أبسط تفسير قبل النظر إلى الإجابة.</p>
-        </div>
+        <p class="collection-subset-note">هذه مجموعة مختارة من مكتبة الأسئلة، وليست الموضوع الكامل.</p>
+        <nav class="collection-source-links" aria-label="الموضوعات الكاملة"><a class="text-btn" href="/ar/topics/logic-puzzles/">ألغاز منطقية · 60 سؤالاً</a></nav>
+        <p class="section-note">حدّد الحقائق الثابتة، وتجنّب الافتراضات، واختبر أبسط تفسير قبل النظر إلى الإجابة.</p>
       </section>
       <section class="seo-question-list shell" aria-label="ألغاز وحلول">
         <article class="seo-qa-card" id="logic-puzzles-001" data-card-id="logic-puzzles-001">
@@ -218,9 +219,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>47 يوماً. في اليوم 47 غطّت النصف، ثم تضاعفت في اليوم 48 لتغطي البركة كاملة.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-001">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-001">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-002" data-card-id="logic-puzzles-002">
           <details>
@@ -228,9 +229,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>7 أطفال: 4 بنات و3 أولاد. كل بنت لها 3 إخوة و3 أخوات. كل ولد له أخان و4 أخوات.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-002">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-002">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-003" data-card-id="logic-puzzles-003">
           <details>
@@ -238,9 +239,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>المركز الثاني. أخذت مركزهم — لم تتجاوز الشخص الأول.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-003">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-003">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-004" data-card-id="logic-puzzles-004">
           <details>
@@ -248,9 +249,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>بعد خمس دقائق؛ فالبيض يُطهى في الوقت نفسه.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-004">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-004">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-005" data-card-id="logic-puzzles-005">
           <details>
@@ -258,9 +259,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>اختارت نور الشاي، واختار سامي القهوة، واختارت لينا العصير. بعد تخصيص القهوة لسامي، لا يبقى لنور إلا الشاي، فيتبقى العصير للينا.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-005">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-005">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-006" data-card-id="logic-puzzles-006">
           <details>
@@ -268,9 +269,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>الأحمر، ثم الأخضر، ثم الأزرق.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-006">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-006">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-017" data-card-id="logic-puzzles-017">
           <details>
@@ -278,9 +279,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>643. لنفرض أن الرقم الثالث هو t. تكون الأرقام 2t وt+1 وt، لذا 4t+1=13 ومنه t=3.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-017">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-017">الموضوع الكامل: ألغاز منطقية</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-019" data-card-id="logic-puzzles-019">
           <details>
@@ -288,33 +289,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>5,050. صيغة غاوس: n(n+1)/2 = 100 × 101 / 2 = 5,050.</p>
-              <a class="text-btn" href="/ar/topics/logic-puzzles/?card=logic-puzzles-019">استكشف موضوع ألغاز منطقية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/logic-puzzles/?card=logic-puzzles-019">الموضوع الكامل: ألغاز منطقية</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">واصل الاستكشاف</p>
-            <h2 id="next-title">تحديات أخرى قد تعجبك</h2>
+            <h2 id="next-title">مجموعات قصيرة أخرى</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>ألغاز تستحق نظرة ثانية</h3>
+            <h3>ألغاز كلاسيكية</h3>
             <p>جرّب مجموعة منتقاة من الألغاز بالعربية والإنجليزية. خمّن أولاً، ثم افتح الحل عندما تكون مستعداً، وواصل التحدي.</p>
-            <a class="ghost-btn" href="/ar/alghaz/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz/">جرّب ألغاز كلاسيكية</a>
           </article>
           <article class="seo-hub-card">
-            <h3>تلميح واحد، وقراءتان</h3>
+            <h3>ألغاز عربية</h3>
             <p>حلّ ألغازاً عربية ثنائية اللغة بمفردك أو مع صديق. كل تلميح متاح بالعربية والإنجليزية، والحل على بُعد نقرة واحدة.</p>
-            <a class="ghost-btn" href="/ar/alghaz-arabiya/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz-arabiya/">جرّب ألغاز عربية</a>
           </article>
           <article class="seo-hub-card">
-            <h3>ألغاز لطيفة لعقول فضولية</h3>
+            <h3>ألغاز للعائلة</h3>
             <p>استمتع بمجموعة لطيفة من ألغاز الأطفال بالعربية والإنجليزية عن أشياء مألوفة وملاحظات يومية واستدلال بسيط، مناسبة للعائلة والصف.</p>
-            <a class="ghost-btn" href="/ar/alghaz-atfal/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz-atfal/">جرّب ألغاز للعائلة</a>
           </article>
         </div>
       </section>
@@ -323,8 +324,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 ريـدل أرابيا</p>
         <nav class="footer-site-links" aria-label="معلومات ريـدل أرابيا">
-          <a href="/ar/collections/">المسارات</a>
-          <a href="/ar/alab-al-dimagh/">ألعاب الدماغ</a>
+          <a href="/ar/collections/">مجموعات قصيرة</a>
+          <a href="/ar/play/">الألعاب</a>
           <a href="/ar/about/">عن الموقع</a>
           <a href="/ar/privacy/">الخصوصية</a>
         </nav>

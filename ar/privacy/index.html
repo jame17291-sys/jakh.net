@@ -51,37 +51,19 @@
       <script defer src="/privacy-consent.js?v=2026080101"></script>
   </head>
   <body class="privacy-page seo-page" data-page="privacy" data-route-lang="ar">
-    <a href="#content" class="skip-link">
-      <span class="copy-en">Skip to main content</span>
-      <span class="copy-ar" lang="ar">انتقل إلى المحتوى الرئيسي</span>
-    </a>
+    <a href="#content" class="skip-link">انتقل إلى المحتوى الرئيسي</a>
 
-    <header class="site-header shell privacy-header">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا" data-i18n-aria-label="brandHomeLabel">
-        <picture>
-
-          <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
-        </picture>
-      </a>
-      <nav class="header-actions" aria-label="إجراءات سريعة" data-i18n-aria-label="quickActionsLabel">
-        <a class="ghost-btn" href="/ar/">
-          <span class="copy-en">Home</span><span class="copy-ar" lang="ar">الرئيسية</span>
-        </a>
-        <a class="ghost-btn" href="/ar/mind-lab/">
-          <span class="copy-en">Mind Lab</span><span class="copy-ar" lang="ar">مختبر العقل</span>
-        </a>
-        <a class="ghost-btn" href="/ar/about/">
-          <span class="copy-en">About</span><span class="copy-ar" lang="ar">عن Riddle Arabia</span>
-        </a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
-      <div class="header-selects">
-        <label for="privacyLanguage">
-          <span class="copy-en">Language</span><span class="copy-ar" lang="ar">اللغة</span>
-        </label>
-        <select id="privacyLanguage" aria-label="اللغة" data-i18n-aria-label="languageLabel">
-          <option value="en" lang="en" dir="ltr">English</option>
-          <option value="ar" lang="ar" dir="rtl">العربية</option>
-        </select>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/privacy" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
       </div>
     </header>
 
@@ -385,5 +367,6 @@
     </footer>
 
     <script defer src="/privacy-page.js?v=2026080102"></script>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

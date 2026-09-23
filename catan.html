@@ -392,27 +392,19 @@
 <body data-page="game" data-game="catan">
   <a href="#top" class="skip-link" data-i18n="skipMain">Skip to main content</a>
 
-  <header class="site-header shell">
-    <a href="/" class="brand" aria-label="Riddle Arabia home" data-i18n-aria-label="brandHomeLabel">
-      <picture>
-
-        <img src="assets/riddlearabia-mark.svg" alt="Riddle Arabia" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high"/>
-      </picture>
-    </a>
-    <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
-      <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
-      <a class="ghost-btn" href="/play" data-i18n="navGamesBack">&#8592; Games</a>
-    </nav>
-    <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
-      <label>
-        <span data-i18n="language">Language</span>
-        <select id="langSelect">
-          <option value="en">English</option>
-          <option value="ar">العربية</option>
-        </select>
-      </label>
-    </div>
-  </header>
+  <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games" aria-current="page">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
+      </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/games/catan/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
+      </div>
+    </header>
 
   <main id="top">
     <section class="hero shell">
@@ -1580,5 +1572,6 @@
         </div>
       </div>
     </footer>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

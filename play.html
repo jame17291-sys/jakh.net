@@ -67,66 +67,47 @@
   <body class="page-play" data-page="play">
     <a href="#top" class="skip-link">Skip to main content</a>
 
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home" data-i18n-aria-label="brandHomeLabel">
-        <picture>
-
-          <img src="assets/riddlearabia-mark.svg" alt="Riddle Arabia" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
-        </picture>
-      </a>
-      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
-        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="/mind-lab" data-i18n="navCategories">Categories</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games" aria-current="page">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
-      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
-        <label>
-          <span data-i18n="language">Language</span>
-          <select id="langSelect">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-          </select>
-        </label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/play/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
       </div>
     </header>
 
     <main id="top">
-      <section class="kv-hero kv-hero-compact play-hero">
-        <div class="kv-hero-fallback-bg play-hero-bg" aria-hidden="true"></div>
-        <div class="kv-hero-content">
-          <h1 class="kv-hero-title" data-i18n="playHeroTitle">Something doesn’t add up.</h1>
-          <p class="kv-hero-subtitle" data-i18n="playHeroSubtitle">Meet Akshifha: small mysteries, curious details, and the moment the evidence clicks. Free, in Arabic and English.</p>
-          <div class="kv-hero-cta">
-            <a class="kv-btn-primary" href="/akshifha" data-i18n="playAkshifhaCta">Open today’s case →</a>
-          </div>
-        </div>
+      <section class="page-intro shell">
+        <h1 data-i18n="playHeroTitle">Games</h1>
+        <p class="intro-description" data-i18n="playHeroSubtitle">Choose a mystery, a board game, or a challenge with friends. Every game is free.</p>
       </section>
-
-      <section class="kv-lab-section shell" aria-labelledby="featuredGameTitle">
-        <div class="kv-lab-header">
-          <p class="kv-eyebrow play-available" data-i18n="playAvailable">Start here · Free pilot</p>
+      <section class="shell game-directory" aria-labelledby="featuredGameTitle">
+        <article class="feature-panel featured-game">
+          <p class="eyebrow" data-i18n="playAvailable">Mysteries &amp; deduction</p>
           <h2 id="featuredGameTitle" data-i18n="playPick">Akshifha — spot the contradiction</h2>
           <p data-i18n="playBrowserOnly">Inspect the evidence. Choose two clues and the conclusion they support. No timer, download, or sign-up.</p>
-          <p data-i18n="playAkshifhaPilot">Eleven original cases. The daily pick rotates through this finite collection; it is not a newly published case every day.</p>
-          <a class="primary-btn" href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="playAkshifhaCta">Open Two stages, one host →</a>
+          <p class="muted" data-i18n="playAkshifhaPilot">Eleven original cases. The daily pick rotates through this finite collection; it is not a newly published case every day.</p>
+          <a class="primary-btn" href="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-en="/akshifha?case=two-stages-one-host&amp;mode=practice" data-href-ar="/ar/games/akshifha/?case=two-stages-one-host&amp;mode=practice" data-i18n="playAkshifhaCta">Play Akshifha</a>
+        </article>
+        <div class="home-discovery-links">
+          <a href="/chess"><span data-i18n="playChessTitle">Chess</span><small data-i18n="playChessDesc">Plan your next move on a familiar board. Play the computer or take turns with a friend on one device.</small></a>
+          <a href="/backgammon"><span data-i18n="playBackgammonTitle">Backgammon</span><small data-i18n="playBackgammonDesc">A simplified browser adaptation. Roll the dice and race your checkers home against the computer.</small></a>
         </div>
       </section>
-
-      <section class="kv-lab-section shell" aria-labelledby="classicsTitle">
-        <div class="kv-lab-header">
-          <p class="kv-eyebrow" data-i18n="playClassicsEyebrow">A quieter change of pace</p>
-          <h2 id="classicsTitle" data-i18n="playClassicsTitle">Classics</h2>
-          <p data-i18n="playClassicsText">Two familiar browser adaptations, if you feel like settling in with a board.</p>
-        </div>
-        <div class="home-discovery-links">
-          <a href="/chess" aria-label="Play Chess" data-i18n-aria-label="playChessAria">
-            <span data-i18n="playChessTitle">Chess</span>
-            <small data-i18n="playChessDesc">Plan your next move on a familiar board. Play the computer or take turns with a friend on one device.</small>
-          </a>
-          <a href="/backgammon" aria-label="Play Backgammon" data-i18n-aria-label="playBackgammonAria">
-            <span data-i18n="playBackgammonTitle">Backgammon</span>
-            <small data-i18n="playBackgammonDesc">A simplified browser adaptation. Roll the dice and race your checkers home against the computer.</small>
-          </a>
+      <section class="shell section-block" aria-labelledby="topicGamesTitle">
+        <div class="feature-panel">
+          <h2 id="topicGamesTitle" data-i18n="playTopicModesTitle">Turn a topic into a game</h2>
+          <p data-i18n="playTopicModesText">Quick Fire is a solo timed quiz. Battle Room lets you play the same topic with friends. Choose your topic first.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="/mind-lab?mode=quick-fire" data-i18n="playQuickFire">Choose a topic for Quick Fire</a>
+            <a class="ghost-btn" href="/mind-lab?mode=battle" data-i18n="playBattle">Choose a topic for Battle Room</a>
+            <a class="text-btn" href="/mind-lab?join=1" data-i18n="playJoin">Join with a room code</a>
+          </div>
         </div>
       </section>
     </main>
@@ -147,6 +128,6 @@
         </div>
       </div>
     </footer>
-    <script defer src="app.js?v=2026080201"></script>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

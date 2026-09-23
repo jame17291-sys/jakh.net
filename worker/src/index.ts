@@ -15,7 +15,6 @@ import {
   adminContent,
   adminContentRevisions,
   adminAudit,
-  adminPlatformStatus,
   adminSecurity,
   adminSuggestions,
   adminUsers,
@@ -183,7 +182,6 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (path === "/api/internal/autopilot/release" && method === "POST") return reserveAutopilotRelease(request, env);
   if (path === "/api/internal/autopilot/authorize-release" && method === "POST") return authorizeAutopilotRelease(request, env);
   if (path === "/api/admin/overview" && method === "GET") return adminOverview(request, env);
-  if (path === "/api/admin/platform-status" && method === "GET") return adminPlatformStatus(request, env);
   if (path === "/api/admin/content" && method === "GET") return adminContent(request, env);
   if (path === "/api/admin/users" && method === "GET") return adminUsers(request, env);
   if (path === "/api/admin/suggestions" && method === "GET") return adminSuggestions(request, env);

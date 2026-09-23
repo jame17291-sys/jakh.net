@@ -72,9 +72,6 @@
           <button id="auditTab" class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="auditPanel" data-tab="audit" tabindex="-1">
             <span aria-hidden="true">◷</span><span data-i18n="auditLog">Audit log</span>
           </button>
-          <button id="platformStatusTab" class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="platformStatusPanel" data-tab="platform-status" tabindex="-1" hidden>
-            <span aria-hidden="true">◌</span><span data-i18n="platformStatus">Platform status</span>
-          </button>
           <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="securityPanel" id="securityTab" data-tab="security" tabindex="-1">
             <span aria-hidden="true">◉</span><span data-i18n="security">Security</span>
           </button>
@@ -256,62 +253,6 @@
             <button id="reloadAudit" class="secondary-button" type="button" data-i18n="refreshLog">Refresh log</button>
           </div>
           <article class="panel"><div id="auditResults" class="audit-list" aria-live="polite"></div></article>
-        </section>
-
-        <section id="platformStatusPanel" class="tab-panel" role="tabpanel" aria-labelledby="platformStatusTab" data-panel="platform-status" hidden>
-          <div class="page-heading">
-            <div>
-              <span class="eyebrow" data-i18n="ownerOnly">Owner-only</span>
-              <h1 data-i18n="platformStatusHeading">Platform status</h1>
-              <p data-i18n="platformStatusLead">A single, private view of Riddle Arabia’s first-party activity and connected provider checks.</p>
-            </div>
-            <button id="platformRefreshButton" class="secondary-button" type="button" data-i18n="platformRefresh">Refresh status</button>
-          </div>
-
-          <article class="panel platform-overview-card" aria-labelledby="platformOverviewTitle">
-            <div class="platform-overview-copy">
-              <div class="platform-overview-heading">
-                <div>
-                  <span class="eyebrow" data-i18n="platformSnapshot">Status snapshot</span>
-                  <h2 id="platformOverviewTitle" data-i18n="platformChecking">Checking platform connections…</h2>
-                </div>
-                <span id="platformOverallPill" class="status-pill is-pending" data-i18n="checking">Checking</span>
-              </div>
-              <p id="platformOverallDetail" class="muted" data-i18n="platformStatusWaiting">Status details will appear when the secure snapshot is ready.</p>
-            </div>
-            <dl class="platform-freshness">
-              <div>
-                <dt data-i18n="platformSnapshotUpdated">Snapshot updated</dt>
-                <dd><time id="platformUpdatedAt">—</time></dd>
-              </div>
-              <div>
-                <dt data-i18n="platformDataScope">Data scope</dt>
-                <dd data-i18n="platformDataScopeValue">Server-side, read-only</dd>
-              </div>
-            </dl>
-          </article>
-
-          <section class="platform-section" aria-labelledby="platformMetricsHeading">
-            <div class="section-heading">
-              <div>
-                <h2 id="platformMetricsHeading" data-i18n="platformMetricsHeading">Riddle Arabia usage</h2>
-                <p data-i18n="platformMetricsLead">First-party account and game activity; consent-limited where applicable.</p>
-              </div>
-            </div>
-            <div id="platformMetricGrid" class="metric-grid platform-metric-grid" aria-live="polite"></div>
-          </section>
-
-          <section class="platform-section" aria-labelledby="platformSourcesHeading">
-            <div class="section-heading">
-              <div>
-                <h2 id="platformSourcesHeading" data-i18n="platformSourcesHeading">Platform sources</h2>
-                <p data-i18n="platformSourcesLead">Open a provider console only when a card needs a closer look.</p>
-              </div>
-            </div>
-            <div id="platformSourceGrid" class="platform-source-grid" aria-live="polite"></div>
-          </section>
-
-          <p class="platform-privacy-note" data-i18n="platformPrivacyNote">Provider credentials never reach this browser. Statuses are read from a server-side, read-only snapshot.</p>
         </section>
 
         <section id="securityPanel" class="tab-panel" role="tabpanel" aria-labelledby="securityTab" data-panel="security" hidden>

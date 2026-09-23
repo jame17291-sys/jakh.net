@@ -293,56 +293,6 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
 .safeguard-list li { position: relative; padding-inline-start: 1.18rem; }
 .safeguard-list li::before { content: ""; position: absolute; top: 0.48rem; inset-inline-start: 0; width: 0.44rem; height: 0.44rem; border-radius: 50%; background: var(--mint); }
 
-/* Owner-only platform status */
-.platform-overview-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(210px, 0.34fr); gap: 1.15rem; margin-bottom: 1.15rem; border-color: rgba(124, 206, 255, 0.28); background: linear-gradient(135deg, rgba(20, 43, 65, 0.98), rgba(13, 28, 44, 0.92)); }
-.platform-overview-copy { min-width: 0; }
-.platform-overview-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; }
-.platform-overview-heading h2 { margin: 0.22rem 0 0; font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; }
-.platform-overview-copy > p { max-width: 68ch; margin: 0.7rem 0 0; overflow-wrap: anywhere; }
-.platform-freshness { display: grid; align-content: start; gap: 0.62rem; margin: 0; }
-.platform-freshness > div { padding: 0.72rem 0.78rem; border: 1px solid var(--line); border-radius: 10px; background: rgba(3, 12, 21, 0.24); }
-.platform-freshness dt { color: var(--subtle); font-size: 0.68rem; font-weight: 820; letter-spacing: 0.07em; text-transform: uppercase; }
-.platform-freshness dd { margin: 0.19rem 0 0; color: var(--ink); font-size: 0.84rem; font-weight: 710; overflow-wrap: anywhere; }
-.platform-section { margin-top: 1.25rem; }
-.section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 0.9rem; margin: 0 0 0.72rem; }
-.section-heading h2 { margin: 0; font-size: 1.1rem; letter-spacing: -0.02em; }
-.section-heading p { margin: 0.27rem 0 0; color: var(--subtle); font-size: 0.8rem; }
-.platform-metric-grid { grid-template-columns: repeat(4, minmax(150px, 1fr)); margin-bottom: 0; }
-.platform-metric-grid .metric-card { min-height: 118px; background: linear-gradient(145deg, rgba(21, 42, 63, 0.98), rgba(14, 29, 45, 0.94)); }
-.platform-source-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
-.platform-source-card { display: grid; min-width: 0; min-height: 214px; grid-template-rows: auto 1fr auto; gap: 0.9rem; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius-sm); background: rgba(12, 25, 40, 0.68); }
-.platform-source-card[data-state="good"] { border-color: rgba(113, 227, 186, 0.32); }
-.platform-source-card[data-state="attention"] { border-color: rgba(255, 155, 173, 0.42); }
-.platform-source-card[data-state="manual"], .platform-source-card[data-state="stale"] { border-color: rgba(255, 213, 128, 0.36); }
-.platform-source-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.7rem; }
-.platform-source-category { display: block; color: var(--subtle); font-size: 0.68rem; font-weight: 790; letter-spacing: 0.07em; text-transform: uppercase; }
-.platform-source-top h3 { margin: 0.2rem 0 0; font-size: 1rem; line-height: 1.25; overflow-wrap: anywhere; }
-.platform-status { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 0.34rem; max-width: 11rem; padding: 0.28rem 0.48rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(3, 12, 21, 0.3); font-size: 0.66rem; font-weight: 820; letter-spacing: 0.045em; line-height: 1.2; }
-.platform-status::before { content: ""; width: 0.43rem; height: 0.43rem; flex: 0 0 auto; border-radius: 50%; background: var(--muted); }
-.platform-status.is-good { color: #c9ffe9; border-color: rgba(113, 227, 186, 0.38); }
-.platform-status.is-good::before { background: var(--mint); box-shadow: 0 0 0 3px rgba(113, 227, 186, 0.13); }
-.platform-status.is-attention { color: #ffe0e7; border-color: rgba(255, 155, 173, 0.42); }
-.platform-status.is-attention::before { background: var(--danger); }
-.platform-status.is-manual, .platform-status.is-stale { color: #fff0c7; border-color: rgba(255, 213, 128, 0.36); }
-.platform-status.is-manual::before, .platform-status.is-stale::before { background: var(--amber); }
-.platform-status.is-unconfigured { color: var(--muted); }
-.platform-status.is-unconfigured::before { background: var(--subtle); }
-.platform-source-main { min-width: 0; }
-.platform-source-headline { margin: 0; color: var(--ink); font-size: 0.91rem; font-weight: 740; overflow-wrap: anywhere; }
-.platform-source-detail { margin: 0.33rem 0 0; color: var(--muted); font-size: 0.8rem; overflow-wrap: anywhere; }
-.platform-source-diagnostic { margin: 0.45rem 0 0; color: var(--accent); font-size: 0.74rem; font-weight: 650; overflow-wrap: anywhere; }
-.platform-source-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 0.52rem; margin-top: 0.85rem; }
-.platform-source-metric { min-width: 0; padding: 0.55rem 0.62rem; border: 1px solid rgba(166, 202, 235, 0.14); border-radius: 8px; background: rgba(3, 12, 21, 0.23); }
-.platform-source-metric span { display: block; color: var(--subtle); font-size: 0.65rem; font-weight: 760; letter-spacing: 0.045em; text-transform: uppercase; overflow-wrap: anywhere; }
-.platform-source-metric strong { display: block; margin-top: 0.16rem; color: var(--ink); font-size: 1rem; line-height: 1.2; overflow-wrap: anywhere; }
-.platform-source-metric small { display: block; margin-top: 0.18rem; color: var(--subtle); font-size: 0.68rem; line-height: 1.35; overflow-wrap: anywhere; }
-.platform-source-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; padding-top: 0.72rem; border-top: 1px solid var(--line); }
-.platform-observed { min-width: 0; color: var(--subtle); font-size: 0.71rem; line-height: 1.35; overflow-wrap: anywhere; }
-.platform-source-link { flex: 0 0 auto; color: var(--accent-strong); font-size: 0.76rem; font-weight: 800; text-decoration: none; }
-.platform-source-link:hover { color: var(--mint); text-decoration: underline; }
-.platform-privacy-note { margin: 1rem 0 0; color: var(--subtle); font-size: 0.75rem; }
-.platform-metric-grid > .empty-state, .platform-source-grid > .empty-state, .platform-metric-grid > .loading-state, .platform-source-grid > .loading-state { grid-column: 1 / -1; }
-
 .admin-dialog { width: min(450px, calc(100% - 2rem)); max-height: min(760px, calc(100dvh - 2rem)); padding: 0; overflow: auto; border: 1px solid var(--line-strong); border-radius: 18px; color: var(--ink); background: linear-gradient(145deg, #19334e, #0a1524); box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55); }
 .admin-dialog::backdrop { background: rgba(1, 7, 14, 0.76); backdrop-filter: blur(5px); }
 .admin-dialog form { padding: 1.35rem; }
@@ -387,7 +337,6 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
   .admin-tab { width: 100%; min-width: 0; white-space: normal; }
   .sidebar-footer { display: none; }
   .dashboard-grid, .security-grid { grid-template-columns: 1fr; }
-  .platform-overview-card, .platform-source-grid { grid-template-columns: 1fr; }
   .content-language-grid { grid-template-columns: 1fr; }
   .person-card { grid-template-columns: minmax(0, 1fr) minmax(120px, 0.52fr) minmax(110px, 0.48fr); }
   .person-actions { grid-column: 1 / -1; justify-content: flex-start; }
@@ -403,9 +352,6 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
   .updated { margin-top: 0.65rem; }
   .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metric-card { min-height: 104px; padding: 0.82rem; }
-  .platform-metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .platform-overview-heading, .platform-source-top, .platform-source-footer { flex-wrap: wrap; }
-  .platform-status { max-width: none; }
   .filter-grid, .feedback-toolbar { display: grid; grid-template-columns: 1fr; }
   .filter-submit { grid-column: auto; width: 100%; }
   .feedback-toolbar .input-label { min-width: 0; }
@@ -439,10 +385,6 @@ html[lang="ar"] :where(
   .metric-card strong,
   .mini-role,
   .status-label,
-  .platform-status,
-  .platform-source-category,
-  .platform-source-metric span,
-  .platform-freshness dt,
   .action-review-details dt
 ) {
   letter-spacing: normal;

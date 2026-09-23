@@ -158,6 +158,7 @@ function platformSources(cloudflare: CloudflareAnalyticsStatus): PlatformStatusS
       headline: cloudflare.headline,
       detail: cloudflare.detail,
       ...(cloudflare.coverage ? { coverage: cloudflare.coverage } : {}),
+      ...(cloudflare.diagnostics ? { diagnostics: cloudflare.diagnostics } : {}),
       observedAt: cloudflare.observedAt,
       link: PLATFORM_DASHBOARDS.cloudflare,
       metrics: cloudflare.metrics,

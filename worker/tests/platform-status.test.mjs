@@ -224,8 +224,8 @@ test("owner platform status exposes only the normalized Cloudflare aggregate whe
   const { env } = await platformEnv(t);
   Object.assign(env, {
     CLOUDFLARE_ANALYTICS_API_TOKEN: "read-only-test-token",
-    CLOUDFLARE_ANALYTICS_ACCOUNT_ID: "account-test-id",
-    CLOUDFLARE_ANALYTICS_ZONE_ID: "zone-test-id",
+    CLOUDFLARE_ANALYTICS_ACCOUNT_ID: "a".repeat(32),
+    CLOUDFLARE_ANALYTICS_ZONE_ID: "b".repeat(32),
   });
   const originalFetch = globalThis.fetch;
   const outgoing = [];
@@ -249,12 +249,14 @@ test("owner platform status exposes only the normalized Cloudflare aggregate whe
   const response = await adminPlatformStatus(request(), env);
   const requestFinishedAt = Date.now();
   assert.equal(response.status, 200);
-  assert.equal(outgoing.length, 1);
+  assert.equal(outgoing.length, 2);
   assert.equal(outgoing[0].input, "https://api.cloudflare.com/client/v4/graphql");
   assert.equal(outgoing[0].init.headers.authorization, "Bearer read-only-test-token");
   const payload = await response.json();
   const cloudflare = payload.sources.find((source) => source.id === "cloudflare");
   assert.equal(cloudflare.state, "healthy");
+  assert.equal(cloudflare.metrics.length, 7);
+  assert.equal(cloudflare.diagnostics, undefined);
   // The dashboard snapshot starts before the provider query; separate reads
   // need not occur in the same millisecond. The provider timestamp must match
   // its requested aggregation window and both must belong to this request.
@@ -266,6 +268,29 @@ test("owner platform status exposes only the normalized Cloudflare aggregate whe
   assert.equal(cloudflare.metrics.find((metric) => metric.id === "cloudflare-edge-requests-24h").value, 42);
   assert.equal(cloudflare.metrics.find((metric) => metric.id === "cloudflare-edge-data-transfer-24h").format, "bytes");
   assert.doesNotMatch(JSON.stringify(payload), /read-only-test-token/u);
+});
+
+test("owner platform status projects safe per-scope Cloudflare diagnostics", async (t) => {
+  const { env } = await platformEnv(t);
+  Object.assign(env, {
+    CLOUDFLARE_ANALYTICS_API_TOKEN: "read-only-test-token",
+    CLOUDFLARE_ANALYTICS_ACCOUNT_ID: "a".repeat(32),
+    CLOUDFLARE_ANALYTICS_ZONE_ID: "b".repeat(32),
+  });
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (_input, init) => {
+    const zone = "zoneTag" in JSON.parse(init.body).variables;
+    return new Response(JSON.stringify({ errors: [{ message: "private-provider-detail" }] }), { status: zone ? 401 : 429 });
+  };
+  t.after(() => { globalThis.fetch = originalFetch; });
+  const response = await adminPlatformStatus(request(), env);
+  assert.equal(response.status, 200);
+  const payload = await response.json();
+  const cloudflare = payload.sources.find((source) => source.id === "cloudflare");
+  assert.equal(cloudflare.state, "unavailable");
+  assert.deepEqual(cloudflare.metrics, []);
+  assert.deepEqual(cloudflare.diagnostics, { zone: "authentication_failed", workers: "rate_limited" });
+  assert.doesNotMatch(JSON.stringify(payload), /private-provider-detail|read-only-test-token/u);
 });
 
 test("platform status is owner-only through the public dispatcher", async (t) => {

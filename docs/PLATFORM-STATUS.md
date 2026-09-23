@@ -50,11 +50,15 @@ different questions and have different coverage.
 
 ## Cloudflare activation
 
-The Cloudflare adapter uses one fixed GraphQL query, a five-minute fresh cache
+The Cloudflare adapter uses separate fixed GraphQL queries for zone traffic
+and account Worker usage, requested concurrently, with a five-minute fresh cache
 per Cloudflare location, a 24-hour aggregation window, and a 24-hour
 stale-snapshot ceiling. GraphQL failures, malformed results, and timeouts
 return a clear unavailable/stale state; they never expose provider messages or
-credentials in the owner console.
+credentials in the owner console. A failed dataset cannot suppress valid
+aggregates from the other scope. The owner-protected API may include only
+allowlisted diagnostic categories for the failing scope, never provider error
+text, resource identifiers, or credentials.
 
 If Cloudflare returns an empty aggregate for an idle or undeployed Worker, the
 card is marked **Partial data** and omits that metric rather than presenting a

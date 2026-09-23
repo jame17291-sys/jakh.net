@@ -83,6 +83,9 @@ export interface PlatformStatusMetric {
 
 export type PlatformStatusSourceState = "healthy" | "partial" | "stale" | "unavailable" | "manual" | "not_configured";
 
+export type CloudflareAnalyticsFailureCategory = "configuration_invalid" | "authentication_failed" | "permission_denied" | "rate_limited" | "query_limit" | "provider_failure" | "malformed_response" | "timeout" | "query_rejected" | "no_data";
+export type CloudflareAnalyticsDiagnostics = Partial<Record<"zone" | "workers", CloudflareAnalyticsFailureCategory>>;
+
 export interface PlatformStatusSourceCard {
   id: "cloudflare" | "github" | "google-analytics" | "godaddy" | "search-console";
   label: string;
@@ -92,6 +95,8 @@ export interface PlatformStatusSourceCard {
   detail: string;
   /** Whether a live provider snapshot included every requested aggregate. */
   coverage?: "complete" | "partial";
+  /** Allowlisted failure categories only; never raw provider errors or identifiers. */
+  diagnostics?: CloudflareAnalyticsDiagnostics;
   /** Null means this endpoint has not read a live provider data source. */
   observedAt: string | null;
   link: { label: string; url: string };

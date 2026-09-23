@@ -245,7 +245,9 @@ test("owner platform status exposes only the normalized Cloudflare aggregate whe
   };
   t.after(() => { globalThis.fetch = originalFetch; });
 
+  const requestStartedAt = Date.now();
   const response = await adminPlatformStatus(request(), env);
+  const requestFinishedAt = Date.now();
   assert.equal(response.status, 200);
   assert.equal(outgoing.length, 1);
   assert.equal(outgoing[0].input, "https://api.cloudflare.com/client/v4/graphql");
@@ -253,7 +255,14 @@ test("owner platform status exposes only the normalized Cloudflare aggregate whe
   const payload = await response.json();
   const cloudflare = payload.sources.find((source) => source.id === "cloudflare");
   assert.equal(cloudflare.state, "healthy");
-  assert.equal(cloudflare.observedAt, payload.updatedAt);
+  // The dashboard snapshot starts before the provider query; separate reads
+  // need not occur in the same millisecond. The provider timestamp must match
+  // its requested aggregation window and both must belong to this request.
+  const providerWindow = JSON.parse(outgoing[0].init.body).variables;
+  assert.equal(cloudflare.observedAt, providerWindow.end);
+  assert.ok(Date.parse(payload.updatedAt) >= requestStartedAt);
+  assert.ok(Date.parse(payload.updatedAt) <= Date.parse(cloudflare.observedAt));
+  assert.ok(Date.parse(cloudflare.observedAt) <= requestFinishedAt);
   assert.equal(cloudflare.metrics.find((metric) => metric.id === "cloudflare-edge-requests-24h").value, 42);
   assert.equal(cloudflare.metrics.find((metric) => metric.id === "cloudflare-edge-data-transfer-24h").format, "bytes");
   assert.doesNotMatch(JSON.stringify(payload), /read-only-test-token/u);

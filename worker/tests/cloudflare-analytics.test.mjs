@@ -286,6 +286,50 @@ test("Cloudflare returns only allowlisted failure categories when both scopes fa
   }
 });
 
+test("Cloudflare transport logs use a fixed safe vocabulary", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  const originalWarn = console.warn;
+  const warnings = [];
+  globalThis.fetch = async () => { throw new Error("Network connection lost: private transport detail"); };
+  console.warn = (...args) => { warnings.push(args); };
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    console.warn = originalWarn;
+  });
+
+  const status = await cloudflareAnalyticsStatus(CONFIG, NOW);
+  assert.deepEqual(status.diagnostics, { zone: "provider_failure", workers: "provider_failure" });
+  assert.equal(warnings.length, 4, "each scope logs its two bounded transport attempts");
+  for (const warning of warnings) {
+    assert.equal(warning[0], "cloudflare_analytics_transport_failure");
+    assert.equal(warning[1].kind, "network");
+    assert.ok(["zone", "workers"].includes(warning[1].scope));
+    assert.doesNotMatch(JSON.stringify(warning), /private transport detail|read-only-test-token/u);
+  }
+});
+
+test("Cloudflare logs an allowlisted category for an unavailable provider response", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  const originalWarn = console.warn;
+  const warnings = [];
+  globalThis.fetch = async () => new Response("private provider failure", { status: 503 });
+  console.warn = (...args) => { warnings.push(args); };
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    console.warn = originalWarn;
+  });
+
+  const status = await cloudflareAnalyticsStatus(CONFIG, NOW);
+  assert.deepEqual(status.diagnostics, { zone: "provider_failure", workers: "provider_failure" });
+  assert.equal(warnings.length, 4, "each scope retries the bounded transient provider failure once");
+  for (const warning of warnings) {
+    assert.deepEqual(warning, ["cloudflare_analytics_transport_failure", { scope: warning[1].scope, kind: "provider_http" }]);
+    assert.doesNotMatch(JSON.stringify(warning), /private provider failure|read-only-test-token/u);
+  }
+});
+
 test("Cloudflare requests both scopes concurrently and bounds a stalled response body", async (t) => {
   installEdgeCache(t);
   t.mock.timers.enable({ apis: ["setTimeout"] });

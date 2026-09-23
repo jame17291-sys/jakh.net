@@ -48,6 +48,7 @@ interface CacheEntry {
 }
 
 type AnalyticsScope = "zone" | "workers";
+type TransportFailureKind = "cloudflare_target" | "dns" | "network" | "provider_http" | "aborted" | "unknown";
 
 interface ScopeSnapshot {
   metrics: PlatformStatusMetric[];
@@ -58,6 +59,33 @@ class AnalyticsFailure extends Error {
   constructor(readonly category: CloudflareAnalyticsFailureCategory) {
     super(category);
   }
+}
+
+/**
+ * The live status endpoint intentionally does not surface transport details.
+ * This small, fixed vocabulary lets the owner inspect Worker tail logs while
+ * ensuring that provider-controlled text and credentials are never logged.
+ */
+function transportFailureKind(error: unknown): TransportFailureKind {
+  if (!(error instanceof Error)) return "unknown";
+  if (error.name === "AbortError") return "aborted";
+  const message = error.message.toLowerCase();
+  if (/cloudflare-owned|error 1024|subrequest to cloudflare/u.test(message)) return "cloudflare_target";
+  if (/dns|resolve (?:the )?(?:requested )?host|getaddrinfo/u.test(message)) return "dns";
+  if (/network|connect(?:ion)?|socket|tls|certificate|fetch failed/u.test(message)) return "network";
+  return "unknown";
+}
+
+function logTransportFailure(scope: AnalyticsScope, error: unknown): void {
+  // Do not include error.message, error.cause, request headers, or config.
+  console.warn("cloudflare_analytics_transport_failure", {
+    scope,
+    kind: transportFailureKind(error),
+  });
+}
+
+function logProviderHttpFailure(scope: AnalyticsScope): void {
+  console.warn("cloudflare_analytics_transport_failure", { scope, kind: "provider_http" satisfies TransportFailureKind });
 }
 
 const GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql";
@@ -414,7 +442,11 @@ async function fetchScopeAttempt(config: CloudflareAnalyticsConfig, scope: Analy
           try { payload = plainObject(await jsonBody(response)); } catch { /* Use the generic rejection category. */ }
           throw new AnalyticsFailure(payload ? graphqlFailure(payload) || "query_rejected" : "query_rejected");
         }
-        throw new AnalyticsFailure(response.status >= 500 ? "provider_failure" : "query_rejected");
+        if (response.status >= 500) {
+          logProviderHttpFailure(scope);
+          throw new AnalyticsFailure("provider_failure");
+        }
+        throw new AnalyticsFailure("query_rejected");
       }
       return metricsFromPayload(await jsonBody(response), scope);
     })();
@@ -424,6 +456,7 @@ async function fetchScopeAttempt(config: CloudflareAnalyticsConfig, scope: Analy
     // stream error is a transient provider transport failure and is eligible
     // for the single safe retry in fetchScope.
     if (error instanceof AnalyticsFailure) throw error;
+    logTransportFailure(scope, error);
     throw new AnalyticsFailure("provider_failure");
   } finally {
     clearTimeout(timeout);

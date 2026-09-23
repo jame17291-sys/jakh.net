@@ -47,25 +47,30 @@ concurrency:
 jobs:
   autopilot-authorization:
     name: Verify reserved automatic API release
-    if: ${{ inputs.autopilot_run_id != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: ${{ inputs.autopilot_run_id != '' }}
         with:
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: ${{ inputs.autopilot_run_id != '' }}
         with:
           node-version: "24"
       - name: Verify daily reservation and code-only release scope
+        if: ${{ inputs.autopilot_run_id != '' }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/autopilot-client.mjs authorize-release
+      - name: Continue manual release through production approval
+        if: ${{ inputs.autopilot_run_id == '' }}
+        run: echo "Manual release requires the protected production environment."
 
   production-branch:
     name: Authorize protected-main production release
     needs: autopilot-authorization
-    if: ${{ always() && (inputs.autopilot_run_id == '' || needs.autopilot-authorization.result == 'success') }}
+    if: ${{ always() && needs.autopilot-authorization.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     environment: ${{ inputs.autopilot_run_id != '' && 'autopilot-production' || 'production' }}

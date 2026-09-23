@@ -176,6 +176,18 @@ try {
     assert.equal(await page.locator("#platformSourceGrid .platform-source-metric").count(), 5, "Missing aggregates must be omitted rather than shown as zero");
   });
 
+  await scenario("owner platform status exposes only allowlisted Cloudflare diagnostics", async (page) => {
+    const platformStatus = fixture.getState().platformStatus;
+    const cloudflare = platformStatus.sources.find((source) => source.id === "cloudflare");
+    cloudflare.state = "unavailable";
+    cloudflare.metrics = [];
+    cloudflare.diagnostics = { zone: "permission_denied", workers: "query_rejected", unexpected: "do-not-render" };
+    fixture.control({ platformStatus });
+    await page.locator("#platformStatusTab").click();
+    await textContains(page, "#platformSourceGrid", "zone: permission_denied; workers: query_rejected");
+    assert.doesNotMatch(await page.locator("#platformSourceGrid").innerText(), /do-not-render/u);
+  });
+
   await scenario("administrator never sees or fetches the owner-only platform status tab", async (page) => {
     assert.equal(await page.locator("#platformStatusTab").isHidden(), true);
     assert.equal(await page.locator("#platformStatusPanel").isHidden(), true);

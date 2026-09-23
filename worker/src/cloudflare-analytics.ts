@@ -176,8 +176,9 @@ function metricsFromPayload(value: unknown): AnalyticsSnapshot | null {
   // A missing scope means the token/configuration cannot read the requested
   // resource. Empty aggregate groups are valid for an idle or undeployed
   // Worker, so retain every aggregate that did arrive instead of hiding the
-  // entire provider card or manufacturing zeros.
-  if (!zone || !account) return null;
+  // entire provider card or manufacturing zeros. A provider response that
+  // contains neither scope remains unusable.
+  if (!zone && !account) return null;
   const metrics = [
     traffic && metric("cloudflare-edge-requests-24h", "Cloudflare edge requests (24h)", traffic.count, "End-user requests at the Cloudflare edge over the last 24 hours."),
     trafficSum && metric("cloudflare-visits-24h", "Cloudflare visits (24h)", trafficSum.visits, "A visit is a direct or referral page view, not a unique visitor count."),
@@ -188,7 +189,10 @@ function metricsFromPayload(value: unknown): AnalyticsSnapshot | null {
     siteSum && metric("cloudflare-site-worker-errors-24h", "Site Worker errors (24h)", siteSum.errors, "Cloudflare Worker invocation errors, not site HTTP status codes."),
   ].filter((candidate): candidate is PlatformStatusMetric => candidate !== null);
   if (!metrics.length) return null;
-  return { metrics, coverage: metrics.length === EXPECTED_METRIC_COUNT ? "complete" : "partial" };
+  return {
+    metrics,
+    coverage: zone && account && metrics.length === EXPECTED_METRIC_COUNT ? "complete" : "partial",
+  };
 }
 
 function cache(): EdgeCache | null {
@@ -318,12 +322,19 @@ async function fetchLiveSnapshot(config: CloudflareAnalyticsConfig, now: Date): 
     });
     if (!response.ok) throw new Error("Cloudflare analytics request failed");
     const payload = plainObject(await jsonBody(response));
-    if (!payload || (Array.isArray(payload.errors) && payload.errors.length)) {
-      throw new Error("Cloudflare analytics query did not return a usable result");
-    }
+    if (!payload) throw new Error("Cloudflare analytics query did not return a usable result");
     const snapshot = metricsFromPayload(payload);
     if (!snapshot) throw new Error("Cloudflare analytics query returned an unexpected shape");
-    return { cachedAt: end, observedAt: end, ...snapshot };
+    // GraphQL can return usable data alongside errors from a separate
+    // zone/account dataset. Keep that normalized data but never expose the
+    // provider errors or present a complete snapshot when one was reported.
+    const hasGraphqlErrors = Array.isArray(payload.errors) && payload.errors.length > 0;
+    return {
+      cachedAt: end,
+      observedAt: end,
+      ...snapshot,
+      coverage: hasGraphqlErrors ? "partial" : snapshot.coverage,
+    };
   } finally {
     clearTimeout(timeout);
   }

@@ -153,6 +153,26 @@ test("Cloudflare analytics retains valid partial aggregates without manufacturin
   assert.equal(metricValues(stale).has("cloudflare-site-worker-requests-24h"), false);
 });
 
+test("Cloudflare preserves returned zone data when another GraphQL scope reports an error", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  const payload = graphqlResponse();
+  payload.data.viewer.accounts = [];
+  payload.errors = [{ message: "account metrics denied: test-private-detail" }];
+  globalThis.fetch = async () => new Response(JSON.stringify(payload), {
+    headers: { "content-type": "application/json" },
+  });
+  t.after(() => { globalThis.fetch = originalFetch; });
+
+  const status = await cloudflareAnalyticsStatus(CONFIG, NOW);
+  const metrics = metricValues(status);
+  assert.equal(status.state, "partial");
+  assert.equal(status.coverage, "partial");
+  assert.equal(metrics.get("cloudflare-edge-requests-24h").value, 1_240);
+  assert.equal(metrics.has("cloudflare-api-worker-requests-24h"), false);
+  assert.doesNotMatch(JSON.stringify(status), /test-private-detail/u);
+});
+
 test("Cloudflare GraphQL errors keep the admin endpoint safe and show no raw provider error", async (t) => {
   installEdgeCache(t);
   const originalFetch = globalThis.fetch;

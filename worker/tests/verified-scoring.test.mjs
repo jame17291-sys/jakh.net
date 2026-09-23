@@ -27,7 +27,7 @@ const USER = {
   is_banned: 0,
   token_hash: "stored-session-token-hash",
 };
-const DIFFICULTIES = ["easy", "medium", "hard", "very-advanced"];
+const CARD_INDEX = JSON.parse(await readFile(new URL("../src/card-index.json", import.meta.url), "utf8"));
 const CURATED_CATEGORY_IDS = [
   "philosophy",
   "relationship-questions",
@@ -38,7 +38,9 @@ const CURATED_CATEGORY_IDS = [
 ];
 const SOURCE_CARDS = Array.from({ length: 40 }, (_, index) => {
   const number = index + 1;
-  const difficulty = DIFFICULTIES[Math.floor(index / 10)];
+  // Synthetic answers exercise scoring without freezing editorial difficulty
+  // labels. The production validator must still reject index/source drift.
+  const difficulty = CARD_INDEX[`currencies-${number}`][1];
   return {
     id: `currencies-${number}`,
     difficulty,

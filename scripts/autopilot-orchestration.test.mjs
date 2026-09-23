@@ -248,6 +248,16 @@ test('automatic deployments use a reserved environment while manual approvals an
   }
   assert.match(api, /needs: autopilot-authorization/u);
   assert.match(api, /needs\.autopilot-authorization\.result == 'success'/u);
+  const authorization = api.split('\n  autopilot-authorization:\n')[1]?.split('\n  production-branch:\n')[0] || '';
+  assert.doesNotMatch(authorization, /\n {4}if:/u,
+    'Manual releases must complete authorization successfully instead of introducing a skipped ancestor');
+  assert.equal((authorization.match(/if: \$\{\{ inputs\.autopilot_run_id != '' \}\}/gu) || []).length, 3);
+  assert.match(authorization, /name: Verify daily reservation and code-only release scope\n {8}if: \$\{\{ inputs\.autopilot_run_id != '' \}\}[\s\S]*run: node scripts\/autopilot-client\.mjs authorize-release/u);
+  assert.match(authorization, /name: Continue manual release through production approval\n {8}if: \$\{\{ inputs\.autopilot_run_id == '' \}\}\n {8}run: echo /u);
+  assert.doesNotMatch(authorization, /continue-on-error:\s*true/u);
+  const productionBranch = api.split('\n  production-branch:\n')[1]?.split('\n  validate:\n')[0] || '';
+  assert.match(productionBranch, /if: \$\{\{ always\(\) && needs\.autopilot-authorization\.result == 'success' \}\}/u,
+    'Both manual and automatic releases must fail closed if authorization does not succeed');
   const migration = api.slice(api.indexOf('\n  migrate-final:'));
   assert.match(migration, /environment: production/u);
   assert.doesNotMatch(migration, /environment:.*autopilot-production/u);

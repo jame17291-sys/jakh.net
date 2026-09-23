@@ -553,6 +553,7 @@ async function main() {
           await page.locator('#openAuthBtn').click();
           await page.locator('#signedInAccountPanel').waitFor({ state: 'visible' });
           assert((await page.locator('#authModal').innerText()).includes(username), 'account details still identify the signed-in user');
+          await page.waitForFunction(() => document.activeElement?.id === 'signedInAccountPanel');
           await page.keyboard.press('Escape');
           await page.locator('#authModal').waitFor({ state: 'hidden' });
           await page.waitForFunction(() => document.activeElement?.id === 'openAuthBtn');

@@ -75,6 +75,17 @@ interface SuggestionRow {
   createdAt: string;
 }
 
+interface SuggestionNoteRow {
+  suggestionId: string;
+  reason: string;
+  authorUsername: string | null;
+  createdAt: string;
+}
+
+type RecentContentEditRow = Pick<ContentEditRow,
+  "questionId" | "categorySlug" | "workflowStatus" | "version" | "publishedVersion" | "editorUsername" | "updatedAt"
+>;
+
 interface StepUpRow {
   verifiedAt: string;
 }
@@ -193,6 +204,43 @@ function optionalAuditReason(value: unknown): string | undefined {
 
 function detailWithReason<T extends Record<string, unknown>>(detail: T, reason: string | undefined): T & { reason?: string } {
   return reason === undefined ? detail : { ...detail, reason };
+}
+
+async function suggestionResponses(env: Env, rows: SuggestionRow[], canViewEmail: boolean) {
+  if (!rows.length) return [];
+  // Reuse the durable audit reason, exposing only the latest suggestion note.
+  // The JSON guard also supports older audit entries with an empty detail value.
+  const notes = await env.DB.prepare(
+    `WITH candidate_notes AS (
+       SELECT rowid AS auditSequence, target_id AS suggestionId, actor_user_id, created_at AS createdAt,
+              CASE WHEN json_valid(detail) THEN json_extract(detail, '$.reason') END AS reason
+         FROM admin_audit_log
+        WHERE target_type = 'suggestion'
+          AND action IN ('suggestion.status_changed', 'suggestion.note_added')
+          AND target_id IN (${rows.map(() => "?").join(", ")})
+     ), ranked_notes AS (
+       SELECT *, ROW_NUMBER() OVER (PARTITION BY suggestionId ORDER BY createdAt DESC, auditSequence DESC) AS noteRank
+         FROM candidate_notes
+        WHERE typeof(reason) = 'text'
+          AND length(trim(reason)) BETWEEN 1 AND ${AUDIT_REASON_MAX_LENGTH}
+          AND instr(reason, char(0)) = 0
+          AND reason NOT GLOB '*[' || char(1) || '-' || char(31) || char(127) || '-' || char(159) || ']*'
+     )
+     SELECT n.suggestionId, n.reason, author.username AS authorUsername, n.createdAt
+       FROM ranked_notes n
+       LEFT JOIN users author ON author.id = n.actor_user_id
+      WHERE n.noteRank = 1`,
+  ).bind(...rows.map((row) => row.id)).all<SuggestionNoteRow>();
+  const bySuggestion = new Map<string, { text: string; authorUsername: string | null; createdAt: string }>();
+  for (const note of notes.results) {
+    try {
+      const text = optionalAuditReason(note.reason);
+      if (text) bySuggestion.set(note.suggestionId, { text, authorUsername: note.authorUsername, createdAt: note.createdAt });
+    } catch {
+      // A malformed legacy reason is not a resolution note.
+    }
+  }
+  return rows.map((row) => ({ ...redactEmail(row, canViewEmail), resolutionNote: bySuggestion.get(row.id) || null }));
 }
 
 function contentText(value: unknown, label: string, { required = true } = {}): string {
@@ -377,7 +425,10 @@ function optionalSuggestionStatus(request: Request): SuggestionStatus | null {
 
 export async function adminOverview(request: Request, env: Env): Promise<Response> {
   const admin = await requireAdmin(request, env);
-  const [users, admins, solves, pendingSuggestions, activeSessions, suspendedUsers, recentUsers, suggestions] = await Promise.all([
+  const schema = await env.DB.prepare("SELECT value FROM schema_meta WHERE key = 'schema_version'")
+    .first<{ value: string }>();
+  const editorialAvailable = Number(schema?.value || 0) >= 9;
+  const [users, admins, solves, pendingSuggestions, activeSessions, suspendedUsers, recentUsers, suggestions, editorial, recentEdits] = await Promise.all([
     env.DB.prepare("SELECT COUNT(*) AS count FROM users").first<{ count: number }>(),
     env.DB.prepare("SELECT COUNT(*) AS count FROM users WHERE role IN ('ADMIN', 'OWNER')").first<{ count: number }>(),
     env.DB.prepare("SELECT COUNT(*) AS count FROM progress WHERE status NOT LIKE 'wrong-%'").first<{ count: number }>(),
@@ -386,6 +437,20 @@ export async function adminOverview(request: Request, env: Env): Promise<Respons
     env.DB.prepare("SELECT COUNT(*) AS count FROM users WHERE is_banned = 1").first<{ count: number }>(),
     env.DB.prepare("SELECT username, email, role, created_at AS createdAt FROM users ORDER BY created_at DESC LIMIT 8").all<RecentUserRow>(),
     env.DB.prepare("SELECT id, text, email, status, created_at AS createdAt FROM suggestions ORDER BY created_at DESC LIMIT 8").all<SuggestionRow>(),
+    editorialAvailable ? env.DB.prepare(
+      `SELECT COUNT(CASE WHEN workflow_status = 'DRAFT' THEN 1 END) AS drafts,
+              COUNT(CASE WHEN workflow_status = 'IN_REVIEW' THEN 1 END) AS inReview,
+              COUNT(published_snapshot_json) AS publishedOverrides
+         FROM content_question_edits`,
+    ).first<{ drafts: number; inReview: number; publishedOverrides: number }>() : null,
+    editorialAvailable ? env.DB.prepare(
+      `SELECT e.question_id AS questionId, e.category_slug AS categorySlug,
+              e.workflow_status AS workflowStatus, e.version, e.published_version AS publishedVersion,
+              editor.username AS editorUsername, e.updated_at AS updatedAt
+         FROM content_question_edits e
+         LEFT JOIN users editor ON editor.id = e.editor_user_id
+        ORDER BY e.updated_at DESC, e.question_id ASC LIMIT 8`,
+    ).all<RecentContentEditRow>() : { results: [] },
   ]);
   const canViewEmail = admin.role === "OWNER";
   return json({
@@ -397,6 +462,9 @@ export async function adminOverview(request: Request, env: Env): Promise<Respons
       activeSessions: activeSessions?.count || 0,
       suspendedUsers: suspendedUsers?.count || 0,
     },
+    editorialAvailable,
+    editorial: editorialAvailable ? editorial || { drafts: 0, inReview: 0, publishedOverrides: 0 } : null,
+    recentEdits: recentEdits.results,
     recentUsers: recentUsers.results.map((row) => redactEmail(row, canViewEmail)),
     recentSuggestions: suggestions.results.map((row) => redactEmail(row, canViewEmail)),
     permissions: { canViewEmail },
@@ -511,7 +579,7 @@ export async function adminSuggestions(request: Request, env: Env): Promise<Resp
     ).bind(limit + 1, offset).all<SuggestionRow>();
   const hasMore = rows.results.length > limit;
   return json({
-    suggestions: rows.results.slice(0, limit).map((row) => redactEmail(row, admin.role === "OWNER")),
+    suggestions: await suggestionResponses(env, rows.results.slice(0, limit), admin.role === "OWNER"),
     nextOffset: hasMore ? offset + limit : null,
     permissions: { canViewEmail: admin.role === "OWNER" },
   });
@@ -529,7 +597,13 @@ export async function updateSuggestion(request: Request, env: Env, suggestionId:
     .bind(suggestionId).first<Pick<SuggestionRow, "id" | "status">>();
   if (!suggestion) throw new ApiError(404, "Suggestion not found", undefined, "SUGGESTION_NOT_FOUND");
   const status = body.status as SuggestionStatus;
-  if (suggestion.status === status) return json({ success: true, changed: false });
+  if (suggestion.status === status) {
+    if (!reason) return json({ success: true, changed: false });
+    await env.DB.batch([
+      auditStatement(env, admin, "suggestion.note_added", "suggestion", suggestionId, { status, reason }),
+    ]);
+    return json({ success: true, changed: true, noteSaved: true });
+  }
   await env.DB.batch([
     env.DB.prepare("UPDATE suggestions SET status = ? WHERE id = ?").bind(status, suggestionId),
     auditStatement(env, admin, "suggestion.status_changed", "suggestion", suggestionId, detailWithReason({
@@ -537,7 +611,7 @@ export async function updateSuggestion(request: Request, env: Env, suggestionId:
       to: status,
     }, reason)),
   ]);
-  return json({ success: true, changed: true });
+  return json({ success: true, changed: true, noteSaved: Boolean(reason) });
 }
 
 export async function adminContent(request: Request, env: Env): Promise<Response> {

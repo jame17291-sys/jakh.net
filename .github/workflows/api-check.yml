@@ -144,3 +144,7 @@ jobs:
           node scripts/validate-game-responsive.mjs
       - name: Run browser regression suite
         run: npm run test:browser
+      - name: Validate the bilingual admin workspace with isolated test data
+        run: |
+          npm run test:admin:fixtures
+          npm run test:admin:browser

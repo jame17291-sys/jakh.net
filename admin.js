@@ -15,7 +15,7 @@
   const COPY = {
     en: {
       skipToMain: "Skip to main content",
-      brandEyebrow: "RIDDLE ARABIA · CONTROL ROOM",
+      brandEyebrow: "RIDDLE ARABIA · ADMINISTRATION",
       checkingAccess: "Checking access…",
       viewSite: "View site",
       refresh: "Refresh",
@@ -27,20 +27,20 @@
       tryAgain: "Try again",
       adminScope: "Administration applies only to Riddle Arabia accounts and riddlearabia.com operations.",
       overview: "Overview",
-      contentStudio: "Content Studio",
+      contentStudio: "Content",
       editorialWorkspace: "Editorial workspace",
-      contentHeading: "Edit, review, and publish with confidence.",
-      contentLead: "Work in bilingual drafts, preview every change, and publish only after a protected approval. The previous live version remains available for rollback.",
+      contentHeading: "Content",
+      contentLead: "Find a question, edit both languages, and send it for review.",
       contentCategory: "Category",
       chooseCategory: "Choose a category",
       searchQuestions: "Search questions",
-      contentSearchPlaceholder: "Question text or ID",
+      contentSearchPlaceholder: "Question ID, English or Arabic text",
       allContentStates: "All states",
       unedited: "Unedited",
       draft: "Draft",
       inReview: "In review",
       published: "Published",
-      loadQuestions: "Load questions",
+      loadQuestions: "Refresh results",
       questionLibrary: "Question library",
       chooseCategoryFirst: "Choose a category to begin.",
       chooseQuestion: "Choose a question to open the bilingual editor.",
@@ -49,7 +49,7 @@
       answer: "Answer",
       explanation: "Explanation",
       sourcesFormat: "Sources — one per line: Title | Publisher | https://…",
-      livePreview: "Live preview",
+      livePreview: "Preview",
       saveDraft: "Save draft",
       submitForReview: "Submit for review",
       publish: "Publish",
@@ -69,11 +69,11 @@
       contentRequired: "English and Arabic questions and answers are required.",
       people: "People",
       feedback: "Feedback",
-      auditLog: "Audit log",
+      auditLog: "Activity",
       security: "Security",
       operations: "Operations",
-      overviewHeading: "A clear view of Riddle Arabia.",
-      overviewLead: "Monitor members, moderation work, service readiness, and account safety from one place.",
+      overviewHeading: "Overview",
+      overviewLead: "Review feedback and drafts, then continue recent edits.",
       updated: "Updated",
       serviceReadiness: "Service readiness",
       productionStatus: "Production status",
@@ -91,7 +91,7 @@
       recentFeedbackHint: "Newest visitor suggestions",
       reviewFeedback: "Review feedback",
       accessManagement: "Access management",
-      peopleHeading: "People and permissions.",
+      peopleHeading: "People and permissions",
       peopleLead: "Search accounts, account status, and make deliberate access decisions. Owner accounts remain protected.",
       searchPeople: "Search people",
       searchPeoplePlaceholder: "Username or email",
@@ -108,7 +108,7 @@
       emailOwnerOnly: "Contact details are visible to owners only.",
       loadMore: "Load more",
       moderation: "Moderation",
-      feedbackHeading: "Close the feedback loop.",
+      feedbackHeading: "Feedback",
       feedbackLead: "Triage incoming ideas with a visible, auditable review state.",
       reviewState: "Review state",
       allFeedback: "All feedback",
@@ -117,10 +117,10 @@
       implemented: "Implemented",
       rejected: "Rejected",
       ownerOnly: "Owner-only",
-      auditHeading: "A record of privileged work.",
+      auditHeading: "Activity",
       auditLead: "Review the latest role, access, moderation, and session-security changes.",
       refreshLog: "Refresh log",
-      securityHeading: "Make sensitive changes deliberately.",
+      securityHeading: "Security",
       securityLead: "Your active Riddle Arabia session is protected; password confirmation is required before high-impact administrative changes.",
       stepUp: "Step-up confirmation",
       confirmIdentity: "Confirm your identity",
@@ -242,7 +242,7 @@
     },
     ar: {
       skipToMain: "انتقل إلى المحتوى الرئيسي",
-      brandEyebrow: "RIDDLE ARABIA · مركز التحكم",
+      brandEyebrow: "RIDDLE ARABIA · الإدارة",
       checkingAccess: "جارٍ التحقق من الوصول…",
       viewSite: "عرض الموقع",
       refresh: "تحديث",
@@ -254,20 +254,20 @@
       tryAgain: "حاول مجدداً",
       adminScope: "تنطبق الإدارة على حسابات Riddle Arabia وعمليات riddlearabia.com فقط.",
       overview: "نظرة عامة",
-      contentStudio: "استوديو المحتوى",
+      contentStudio: "المحتوى",
       editorialWorkspace: "مساحة التحرير",
-      contentHeading: "حرّر وراجع وانشر بثقة.",
-      contentLead: "اكتب المسودة بالعربية والإنجليزية، وعاين كل تغيير، ولا تنشر إلا بعد موافقة محمية. تبقى النسخة السابقة متاحة للرجوع إليها.",
+      contentHeading: "المحتوى",
+      contentLead: "ابحث عن سؤال، وحرره باللغتين، ثم أرسله للمراجعة.",
       contentCategory: "الموضوع",
       chooseCategory: "اختر موضوعًا",
       searchQuestions: "البحث في الأسئلة",
-      contentSearchPlaceholder: "نص السؤال أو معرّفه",
+      contentSearchPlaceholder: "معرّف السؤال أو نص بالعربية أو الإنجليزية",
       allContentStates: "كل الحالات",
       unedited: "من دون تعديل",
       draft: "مسودة",
       inReview: "قيد المراجعة",
       published: "منشور",
-      loadQuestions: "تحميل الأسئلة",
+      loadQuestions: "تحديث النتائج",
       questionLibrary: "مكتبة الأسئلة",
       chooseCategoryFirst: "اختر موضوعًا للبدء.",
       chooseQuestion: "اختر سؤالًا لفتح محرر العربية والإنجليزية.",
@@ -276,7 +276,7 @@
       answer: "الإجابة",
       explanation: "الشرح",
       sourcesFormat: "المصادر — مصدر في كل سطر: العنوان | الناشر | https://…",
-      livePreview: "معاينة مباشرة",
+      livePreview: "المعاينة",
       saveDraft: "حفظ المسودة",
       submitForReview: "إرسال للمراجعة",
       publish: "نشر",
@@ -296,11 +296,11 @@
       contentRequired: "يلزم إدخال السؤال والإجابة بالعربية والإنجليزية.",
       people: "الأشخاص",
       feedback: "الملاحظات",
-      auditLog: "سجل التدقيق",
+      auditLog: "النشاط",
       security: "الأمان",
       operations: "العمليات",
-      overviewHeading: "رؤية واضحة لـ Riddle Arabia.",
-      overviewLead: "تابع الأعضاء وأعمال المراجعة وجاهزية الخدمة وأمان الحسابات من مكان واحد.",
+      overviewHeading: "نظرة عامة",
+      overviewLead: "راجع الملاحظات والمسودات، وتابع التعديلات الأخيرة.",
       updated: "تم التحديث",
       serviceReadiness: "جاهزية الخدمة",
       productionStatus: "حالة الإنتاج",
@@ -318,7 +318,7 @@
       recentFeedbackHint: "أحدث اقتراحات الزوار",
       reviewFeedback: "مراجعة الملاحظات",
       accessManagement: "إدارة الوصول",
-      peopleHeading: "الأشخاص والصلاحيات.",
+      peopleHeading: "الأشخاص والصلاحيات",
       peopleLead: "ابحث في الحسابات وراجع الحالة واتخذ قرارات وصول مدروسة. حسابات المالك محمية دائماً.",
       searchPeople: "البحث عن أشخاص",
       searchPeoplePlaceholder: "اسم المستخدم أو البريد الإلكتروني",
@@ -335,7 +335,7 @@
       emailOwnerOnly: "بيانات التواصل مرئية للمالكين فقط.",
       loadMore: "تحميل المزيد",
       moderation: "المراجعة",
-      feedbackHeading: "أغلق دائرة الملاحظات.",
+      feedbackHeading: "الملاحظات",
       feedbackLead: "فرز الأفكار الواردة مع حالة مراجعة مرئية وقابلة للتدقيق.",
       reviewState: "حالة المراجعة",
       allFeedback: "كل الملاحظات",
@@ -344,10 +344,10 @@
       implemented: "تم التنفيذ",
       rejected: "مرفوض",
       ownerOnly: "للمالك فقط",
-      auditHeading: "سجل العمل ذي الصلاحيات العالية.",
+      auditHeading: "النشاط",
       auditLead: "راجع أحدث تغييرات الأدوار والوصول والمراجعة وأمان الجلسات.",
       refreshLog: "تحديث السجل",
-      securityHeading: "نفّذ التغييرات الحساسة بعناية.",
+      securityHeading: "الأمان",
       securityLead: "جلسة Riddle Arabia الحالية محمية؛ يلزم تأكيد كلمة المرور قبل الإجراءات الإدارية المؤثرة.",
       stepUp: "تأكيد إضافي",
       confirmIdentity: "أكد هويتك",
@@ -469,6 +469,65 @@
     },
   };
 
+  Object.assign(COPY.en, {
+    adminNavigation: "Administration navigation", adminSections: "Administration sections", siteHome: "Riddle Arabia home", editorialWork: "Editorial work", accountMetrics: "Account metrics",
+    editorialUnavailable: "Editorial data is temporarily unavailable. Refresh to try again.", liveOverrides: "Live overrides", browseContent: "Browse content", categorySearch: "Find a category", categorySearchPlaceholder: "Category name",
+    allCategories: "All categories", clearFilters: "Clear filters", pageSize: "Per page",
+    previousPage: "Previous", nextPage: "Next", backToResults: "Back to results",
+    editorLanguage: "Editing language", english: "English", arabic: "العربية", compareLanguages: "Compare",
+    previewLanguage: "Preview language", sources: "Sources", sourcesHint: "Add up to 8 sources. Each needs a title, publisher, and unique HTTPS address.",
+    addSource: "Add source", removeSource: "Remove source {number}", sourceTitle: "Title", sourcePublisher: "Publisher", sourceUrl: "HTTPS address",
+    saveState: "Saved", unsavedChanges: "Unsaved changes", savingDraft: "Saving…", savedWithChanges: "Saved version; newer changes are unsaved.",
+    discardChanges: "You have unsaved changes. Discard them and continue?",
+    keepChanges: "You have unsaved changes. Continue with these changes kept in the editor?",
+    saveBeforePublish: "Save or discard your changes before publishing the saved version.",
+    publishedOverride: "Live: published override v{version}", staticLive: "Live: original question",
+    contentPublishedState: "Live version", draftStatus: "Editorial: {status}",
+    pageSummary: "{from}–{to} of {count} questions", pageNumber: "Page {page} of {pages}",
+    noCategories: "No matching categories", invalidSources: "Each source needs a title, publisher, and a unique HTTPS address (maximum 8).",
+    recentEdits: "Recent edits", recentEditsHint: "Continue where you left off", noRecentEdits: "No editorial changes yet.",
+    accountActivity: "Account activity", draftCount: "Drafts", pendingReview: "Pending review", publishedOverrides: "Published overrides",
+    reviewDrafts: "Review drafts", feedbackQueue: "Reported questions and feedback", editorialQueue: "Ready for review",
+    openQuestion: "Open question", returnToFeedback: "Return to feedback", resolutionNote: "Resolution note", saveNote: "Save note",
+    notePlaceholder: "Describe the correction or explain the decision", noteRequired: "Add a resolution note before saving.", noteSaved: "Resolution note saved.",
+    reportContext: "Question report", reportedWording: "Reported wording", currentWording: "Current wording",
+    reportMismatch: "The reported wording differs from the current question. Verify the question ID before making a correction.",
+    reportMatches: "The report matches the current question (reports may be shortened).",
+    reportMissing: "This question could not be found in the reported category. The report is retained for investigation.",
+    reportInvalid: "This report does not contain a valid category and question ID.",
+    contentSearchFailed: "Could not load the complete question library. Refresh results to try again.",
+    allCaughtUp: "No feedback or drafts awaiting review.",
+  });
+  Object.assign(COPY.ar, {
+    adminNavigation: "التنقل في الإدارة", adminSections: "أقسام الإدارة", siteHome: "الصفحة الرئيسية لـ Riddle Arabia", editorialWork: "العمل التحريري", accountMetrics: "إحصاءات الحسابات",
+    editorialUnavailable: "البيانات التحريرية غير متاحة مؤقتًا. حدّث الصفحة للمحاولة مجددًا.", liveOverrides: "التعديلات المعروضة", browseContent: "تصفح المحتوى", categorySearch: "ابحث عن موضوع", categorySearchPlaceholder: "اسم الموضوع",
+    allCategories: "كل المواضيع", clearFilters: "مسح المرشحات", pageSize: "في الصفحة",
+    previousPage: "السابق", nextPage: "التالي", backToResults: "العودة إلى النتائج",
+    editorLanguage: "لغة التحرير", english: "English", arabic: "العربية", compareLanguages: "مقارنة",
+    previewLanguage: "لغة المعاينة", sources: "المصادر", sourcesHint: "أضف حتى ٨ مصادر. يحتاج كل مصدر إلى عنوان وناشر ورابط HTTPS فريد.",
+    addSource: "إضافة مصدر", removeSource: "حذف المصدر {number}", sourceTitle: "العنوان", sourcePublisher: "الناشر", sourceUrl: "رابط HTTPS",
+    saveState: "محفوظ", unsavedChanges: "تغييرات غير محفوظة", savingDraft: "جارٍ الحفظ…", savedWithChanges: "حُفظت النسخة؛ توجد تغييرات أحدث غير محفوظة.",
+    discardChanges: "لديك تغييرات غير محفوظة. هل تريد تجاهلها والمتابعة؟",
+    keepChanges: "لديك تغييرات غير محفوظة. هل تريد المتابعة مع الاحتفاظ بها في المحرر؟",
+    saveBeforePublish: "احفظ تغييراتك أو تجاهلها قبل نشر النسخة المحفوظة.",
+    publishedOverride: "المعروض: النسخة المنشورة {version}", staticLive: "المعروض: السؤال الأصلي",
+    contentPublishedState: "النسخة المعروضة", draftStatus: "التحرير: {status}",
+    pageSummary: "{from}–{to} من {count} سؤال", pageNumber: "الصفحة {page} من {pages}",
+    noCategories: "لا توجد مواضيع مطابقة", invalidSources: "يحتاج كل مصدر إلى عنوان وناشر ورابط HTTPS فريد (بحد أقصى ٨).",
+    recentEdits: "التعديلات الأخيرة", recentEditsHint: "تابع من حيث توقفت", noRecentEdits: "لا توجد تعديلات تحريرية بعد.",
+    accountActivity: "نشاط الحسابات", draftCount: "المسودات", pendingReview: "بانتظار المراجعة", publishedOverrides: "التعديلات المنشورة",
+    reviewDrafts: "مراجعة المسودات", feedbackQueue: "الأسئلة المبلغ عنها والملاحظات", editorialQueue: "جاهز للمراجعة",
+    openQuestion: "فتح السؤال", returnToFeedback: "العودة إلى الملاحظات", resolutionNote: "ملاحظة المعالجة", saveNote: "حفظ الملاحظة",
+    notePlaceholder: "اشرح التصحيح أو سبب القرار", noteRequired: "أضف ملاحظة معالجة قبل الحفظ.", noteSaved: "حُفظت ملاحظة المعالجة.",
+    reportContext: "بلاغ عن سؤال", reportedWording: "النص المبلغ عنه", currentWording: "النص الحالي",
+    reportMismatch: "يختلف النص المبلغ عنه عن السؤال الحالي. تحقق من معرّف السؤال قبل التصحيح.",
+    reportMatches: "يطابق البلاغ السؤال الحالي (قد يكون نص البلاغ مختصرًا).",
+    reportMissing: "لم يُعثر على هذا السؤال في الموضوع المبلغ عنه. يبقى البلاغ متاحًا للتحقق.",
+    reportInvalid: "لا يتضمن البلاغ موضوعًا ومعرّف سؤال صالحين.",
+    contentSearchFailed: "تعذر تحميل مكتبة الأسئلة كاملة. حدّث النتائج للمحاولة مجددًا.",
+    allCaughtUp: "لا توجد ملاحظات أو مسودات بانتظار المراجعة.",
+  });
+
   const state = {
     lang: "en",
     me: null,
@@ -479,7 +538,7 @@
     activeTab: "overview",
     gateMode: "checking",
     people: { items: [], nextOffset: null, canViewEmail: false },
-    feedback: { items: [], nextOffset: null, canViewEmail: false },
+    feedback: { items: [], nextOffset: null, canViewEmail: false, drafts: new Map(), pending: new Set(), loadVersion: 0, mutationRevision: 0 },
     content: {
       catalog: null,
       cards: [],
@@ -487,6 +546,21 @@
       selectedId: null,
       category: "",
       revisions: [],
+      cache: new Map(),
+      loadVersion: 0,
+      page: 0,
+      loaded: false,
+      loading: false,
+      dirty: false,
+      baseline: "",
+      saving: false,
+      editorLanguage: "en",
+      previewLanguage: "en",
+      report: null,
+      lastQuestionButton: null,
+      messageError: false,
+      editorRevision: 0,
+      lastSnapshot: "",
     },
     stepUpResolver: null,
     actionReview: null,
@@ -585,9 +659,10 @@
     return body;
   }
 
-  function setConnection(kind, text) {
+  function setConnection(kind, key) {
     els.connectionState.className = `connection-state ${kind}`;
-    els.connectionState.textContent = text;
+    els.connectionState.dataset.i18n = key;
+    els.connectionState.textContent = t(key);
   }
 
   function signInHref() {
@@ -620,13 +695,22 @@
     if (state.audit) renderAudit();
     if (state.security) renderSecurity();
     if (state.content.catalog) renderContentCategoryOptions();
-    if (state.content.cards.length) {
+    if (state.content.loaded) {
       renderContentQuestionList();
       if (state.content.selectedId) {
+        renderContentSources(sourceValues());
         renderContentEditorChrome();
         renderContentPreview();
+        updateContentDirty();
+        renderContentReport();
       }
     }
+    $(".editor-language-tabs")?.setAttribute("aria-label", t("editorLanguage"));
+    $(".sidebar")?.setAttribute("aria-label", t("adminNavigation"));
+    $(".brand")?.setAttribute("aria-label", t("siteHome"));
+    els.adminTabs.setAttribute("aria-label", t("adminSections"));
+    els.metricGrid.setAttribute("aria-label", t("editorialWork"));
+    els.accountMetricGrid.setAttribute("aria-label", t("accountMetrics"));
     if (state.actionReview) renderActionReview();
   }
 
@@ -714,8 +798,9 @@
     els.sessionControlCard.hidden = user.role !== "OWNER";
   }
 
-  function metric(label, value, note) {
-    return `<article class="metric-card"><span>${escapeHtml(label)}</span><strong>${escapeHtml(numberFormat(value))}</strong><span class="metric-note">${escapeHtml(note)}</span></article>`;
+  function metric(label, value, note, action = "") {
+    const tag = action ? "button" : "article";
+    return `<${tag} class="metric-card" ${action ? `type="button" ${action}` : ""}><span>${escapeHtml(label)}</span><strong>${escapeHtml(numberFormat(value))}</strong><span class="metric-note">${escapeHtml(note)}</span></${tag}>`;
   }
 
   function activityItem(title, meta, badge = "") {
@@ -724,7 +809,7 @@
 
   function renderOverview(data) {
     const metrics = data.metrics || {};
-    els.metricGrid.innerHTML = [
+    els.accountMetricGrid.innerHTML = [
       metric(t("members"), metrics.users, t("allTime")),
       metric(t("privileged"), metrics.administrators, t("ownerAndAdmin")),
       metric(t("activeSessions"), metrics.activeSessions, t("liveNow")),
@@ -732,6 +817,18 @@
       metric(t("newFeedback"), metrics.pendingSuggestions, t("awaitingReview")),
       metric(t("suspendedAccounts"), metrics.suspendedUsers, t("accessRestricted")),
     ].join("");
+    const editorial = data.editorial || {};
+    els.metricGrid.innerHTML = [
+      metric(t("newFeedback"), metrics.pendingSuggestions, t("awaitingReview"), 'data-feedback-queue="new"'),
+      metric(t("pendingReview"), editorial.inReview, t("editorialQueue"), 'data-content-queue="IN_REVIEW"'),
+      metric(t("draftCount"), editorial.drafts, t("contentStudio"), 'data-content-queue="DRAFT"'),
+      metric(t("publishedOverrides"), editorial.publishedOverrides, t("liveNow"), 'data-content-queue="LIVE"'),
+    ].join("");
+    els.recentEdits.innerHTML = data.recentEdits?.length ? data.recentEdits.map((edit) => `<article class="activity-item"><div class="activity-main"><strong dir="ltr">${escapeHtml(edit.questionId)}</strong><div class="activity-meta">${escapeHtml(contentStatusLabel(edit.workflowStatus))} · v${escapeHtml(edit.version)} · ${escapeHtml(edit.editorUsername || "—")} · ${escapeHtml(dateFormat(edit.updatedAt, true))}</div></div><button class="text-button" type="button" data-open-content-id="${escapeHtml(edit.questionId)}" data-open-content-category="${escapeHtml(edit.categorySlug)}">${escapeHtml(t("openQuestion"))}</button></article>`).join("") : `<div class="empty-state">${escapeHtml(t("noRecentEdits"))}</div>`;
+    if (data.editorialAvailable === false) {
+      els.metricGrid.innerHTML = `<div class="empty-state" role="status">${escapeHtml(t("editorialUnavailable"))}</div>`;
+      els.recentEdits.innerHTML = `<div class="empty-state">${escapeHtml(t("editorialUnavailable"))}</div>`;
+    }
     els.feedbackCount.hidden = !(metrics.pendingSuggestions > 0);
     els.feedbackCount.textContent = numberFormat(metrics.pendingSuggestions);
     els.lastUpdated.textContent = dateFormat(new Date().toISOString(), true);
@@ -740,8 +837,8 @@
     if (metrics.pendingSuggestions > 0) {
       queue.push(`<div class="queue-item"><div><strong>${escapeHtml(numberFormat(metrics.pendingSuggestions))}</strong><span>${escapeHtml(t("feedbackAwaiting"))}</span></div><button class="text-button" type="button" data-open-tab="feedback">${escapeHtml(t("reviewFeedback"))}</button></div>`);
     }
-    if (metrics.suspendedUsers > 0) {
-      queue.push(`<div class="queue-item"><div><strong>${escapeHtml(numberFormat(metrics.suspendedUsers))}</strong><span>${escapeHtml(t("accountsSuspended"))}</span></div><button class="text-button" type="button" data-open-tab="people">${escapeHtml(t("people"))}</button></div>`);
+    if (editorial.inReview > 0) {
+      queue.push(`<div class="queue-item"><div><strong>${escapeHtml(numberFormat(editorial.inReview))}</strong><span>${escapeHtml(t("pendingReview"))}</span></div><button class="text-button" type="button" data-content-queue="IN_REVIEW">${escapeHtml(t("reviewDrafts"))}</button></div>`);
     }
     if (!queue.length) queue.push(`<div class="empty-state">${escapeHtml(t("allCaughtUp"))}</div>`);
     els.actionQueue.innerHTML = queue.join("");
@@ -755,11 +852,14 @@
       )).join("")
       : `<div class="empty-state">${escapeHtml(t("noMembers"))}</div>`;
     els.recentSuggestions.innerHTML = data.recentSuggestions?.length
-      ? data.recentSuggestions.map((suggestion) => activityItem(
-        suggestion.text,
-        `${canViewEmail ? (suggestion.email || t("noEmail")) : t("contactHidden")} · ${dateFormat(suggestion.createdAt)}`,
-        `<span class="status-label">${escapeHtml(statusLabel(suggestion.status))}</span>`,
-      )).join("")
+      ? data.recentSuggestions.map((suggestion) => {
+        const report = parseQuestionReport(suggestion.text);
+        return activityItem(
+          report ? report.wording : suggestion.text,
+          `${report ? `${report.questionId} · ` : ""}${dateFormat(suggestion.createdAt)}`,
+          `<div class="activity-actions"><span class="status-label">${escapeHtml(statusLabel(suggestion.status))}</span>${report ? `<button class="text-button" type="button" data-feedback-open-question="${escapeHtml(suggestion.id)}">${escapeHtml(t("openQuestion"))}</button>` : ""}</div>`,
+        );
+      }).join("")
       : `<div class="empty-state">${escapeHtml(t("noFeedback"))}</div>`;
   }
 
@@ -809,11 +909,17 @@
     els.loadMorePeople.hidden = state.people.nextOffset === null;
   }
 
+  function parseQuestionReport(text) {
+    const match = /^\[REPORT\]\s+([a-z0-9][a-z0-9-]*)\/([A-Za-z0-9][A-Za-z0-9_-]*):\s*([\s\S]*)$/u.exec(String(text || ""));
+    return match ? { categorySlug: match[1], questionId: match[2], wording: match[3] } : null;
+  }
+
   function feedbackActionMarkup(suggestion) {
     const options = FEEDBACK_STATES.map((status) => (
       `<option value="${status}" ${suggestion.status === status ? "selected" : ""}>${escapeHtml(statusLabel(status))}</option>`
     )).join("");
-    return `<div class="feedback-action"><label>${escapeHtml(t("reviewState"))}<select class="compact-select" data-feedback-status="${escapeHtml(suggestion.id)}" data-feedback-current="${escapeHtml(suggestion.status)}">${options}</select></label></div>`;
+    const report = parseQuestionReport(suggestion.text);
+    return `<div class="feedback-action">${report ? `<button class="secondary-button" type="button" data-feedback-open-question="${escapeHtml(suggestion.id)}">${escapeHtml(t("openQuestion"))}</button>` : ""}<label>${escapeHtml(t("reviewState"))}<select class="compact-select" data-feedback-status="${escapeHtml(suggestion.id)}" data-feedback-current="${escapeHtml(suggestion.status)}" ${state.feedback.pending.has(suggestion.id) ? 'disabled aria-busy="true"' : ""}>${options}</select></label></div>`;
   }
 
   function renderFeedback() {
@@ -821,10 +927,112 @@
     els.feedbackResults.innerHTML = suggestions.length
       ? suggestions.map((suggestion) => {
         const contact = state.feedback.canViewEmail ? (suggestion.email || t("noEmail")) : t("contactHidden");
-        return `<article class="feedback-card"><div class="feedback-copy"><p>${escapeHtml(suggestion.text)}</p><div class="feedback-meta">${escapeHtml(contact)} · ${escapeHtml(dateFormat(suggestion.createdAt))}</div></div>${feedbackActionMarkup(suggestion)}</article>`;
+        const note = suggestion.resolutionNote;
+        return `<article class="feedback-card" data-feedback-id="${escapeHtml(suggestion.id)}"><div class="feedback-copy"><p dir="auto">${escapeHtml(suggestion.text)}</p><div class="feedback-meta">${escapeHtml(contact)} · ${escapeHtml(dateFormat(suggestion.createdAt))}</div>
+          ${note ? `<div class="resolution-note"><strong>${escapeHtml(t("resolutionNote"))}</strong><p dir="auto">${escapeHtml(note.text)}</p><span>${escapeHtml(note.authorUsername || "—")} · ${escapeHtml(dateFormat(note.createdAt, true))}</span></div>` : ""}
+          <div class="feedback-resolution"><label class="input-label"><span>${escapeHtml(t("resolutionNote"))}</span><textarea rows="2" maxlength="280" dir="auto" data-feedback-resolution="${escapeHtml(suggestion.id)}" placeholder="${escapeHtml(t("notePlaceholder"))}">${escapeHtml(state.feedback.drafts.get(suggestion.id) || "")}</textarea></label><button class="quiet-button" type="button" data-feedback-save-note="${escapeHtml(suggestion.id)}" ${state.feedback.pending.has(suggestion.id) ? 'disabled aria-busy="true"' : ""}>${escapeHtml(t("saveNote"))}</button></div>
+        </div>${feedbackActionMarkup(suggestion)}</article>`;
       }).join("")
       : `<div class="empty-state">${escapeHtml(t("noMatchingFeedback"))}</div>`;
     els.loadMoreFeedback.hidden = state.feedback.nextOffset === null;
+  }
+
+  function feedbackDraftValue(id) {
+    return state.feedback.drafts.get(id) || "";
+  }
+
+  function normalizeFeedbackNote(value) {
+    return value.replace(/[\r\n]+/gu, " ").replace(/\s{2,}/gu, " ").trim().slice(0, ACTION_REASON_MAX_LENGTH);
+  }
+
+  function feedbackNoteValue(id) {
+    return normalizeFeedbackNote(feedbackDraftValue(id));
+  }
+
+  function setFeedbackPending(id, pending) {
+    if (pending) state.feedback.pending.add(id);
+    else state.feedback.pending.delete(id);
+    els.feedbackResults.querySelectorAll("[data-feedback-status], [data-feedback-save-note]").forEach((control) => {
+      if ((control.dataset.feedbackStatus || control.dataset.feedbackSaveNote) !== id) return;
+      control.disabled = pending;
+      if (pending) control.setAttribute("aria-busy", "true");
+      else control.removeAttribute("aria-busy");
+    });
+  }
+
+  function clearSubmittedFeedbackDraft(id, submittedDraft, submittedReason) {
+    if (feedbackDraftValue(id) === submittedDraft && normalizeFeedbackNote(submittedDraft) === submittedReason) {
+      state.feedback.drafts.delete(id);
+    }
+  }
+
+  async function refreshFeedbackAfterMutation() {
+    const requests = [loadFeedback(true), loadOverview()];
+    if (state.audit) requests.push(loadAudit());
+    const results = await Promise.allSettled(requests);
+    results.forEach((result) => { if (result.status === "rejected") handleActionError(result.reason); });
+    renderFeedback();
+  }
+
+  async function saveFeedbackNote(button) {
+    const id = button.dataset.feedbackSaveNote;
+    const suggestion = state.feedback.items.find((item) => item.id === id);
+    const submittedDraft = feedbackDraftValue(id);
+    const reason = normalizeFeedbackNote(submittedDraft);
+    if (!suggestion || state.feedback.pending.has(id)) return;
+    if (!reason) { showToast(t("noteRequired"), true); return; }
+    setFeedbackPending(id, true);
+    try {
+      await api(`/admin/suggestions/${encodeURIComponent(id)}`, { method: "PATCH", body: mutationPayload({ status: suggestion.status }, reason) });
+      state.feedback.mutationRevision += 1;
+      clearSubmittedFeedbackDraft(id, submittedDraft, reason);
+      await refreshFeedbackAfterMutation();
+      showToast(t("noteSaved"));
+    } catch (error) { handleActionError(error); }
+    finally { setFeedbackPending(id, false); }
+  }
+
+  function renderContentReport() {
+    const report = state.content.report;
+    els.contentReportContext.hidden = !report;
+    if (!report) return;
+    const card = state.content.cards.find((item) => item.id === report.questionId && item.categorySlug === report.categorySlug);
+    const snapshot = card ? activeContentSnapshot(card) : null;
+    const question = snapshot?.question || {};
+    const wording = report.wording.trim();
+    const matches = wording && [question.en, question.ar].some((text) => String(text || "").trim().startsWith(wording));
+    els.contentReportContext.innerHTML = `<div class="panel-heading compact-heading"><strong>${escapeHtml(t("reportContext"))}</strong><button class="text-button" type="button" data-return-feedback>${escapeHtml(t("returnToFeedback"))}</button></div>
+      <p><bdi>${escapeHtml(report.categorySlug)}/${escapeHtml(report.questionId)}</bdi></p>
+      <p class="report-status" role="status">${escapeHtml(t(!card ? "reportMissing" : matches ? "reportMatches" : "reportMismatch"))}</p>
+      <div class="report-comparison"><div><strong>${escapeHtml(t("reportedWording"))}</strong><p dir="auto">${escapeHtml(report.wording || "—")}</p></div>${card ? `<div><strong>${escapeHtml(t("currentWording"))}</strong><p lang="en" dir="ltr">${escapeHtml(question.en || "—")}</p><p lang="ar" dir="rtl">${escapeHtml(question.ar || "—")}</p></div>` : ""}</div>`;
+  }
+
+  async function openContentReference(categorySlug, questionId, report = null) {
+    if (!confirmContentLeave()) return;
+    if (!selectTab("content", false, true)) return;
+    if (!state.content.loaded) await loadContentCategory({ authorized: true });
+    const card = state.content.cards.find((item) => item.id === questionId && item.categorySlug === categorySlug);
+    state.content.report = report;
+    if (!card) {
+      state.content.editorRevision += 1;
+      state.content.selectedId = null;
+      state.content.dirty = false;
+      els.contentEditorForm.hidden = true;
+      els.contentEditorEmpty.hidden = true;
+      els.contentWorkspace.classList.add("is-editing");
+      renderContentReport();
+      if (!report) showToast(t("reportMissing"), true);
+      els.contentReportContext.querySelector("[data-return-feedback]")?.focus();
+      return;
+    }
+    selectContentQuestion(questionId, { force: true });
+  }
+
+  async function openFeedbackQuestion(id) {
+    const suggestion = state.feedback.items.find((item) => item.id === id) || state.overview?.recentSuggestions?.find((item) => item.id === id);
+    const report = parseQuestionReport(suggestion?.text);
+    if (!report) { showToast(t("reportInvalid"), true); return; }
+    await openContentReference(report.categorySlug, report.questionId, { ...report, suggestionId: id });
   }
 
   function auditDescription(event) {
@@ -874,6 +1082,7 @@
       DRAFT: "draft",
       IN_REVIEW: "inReview",
       PUBLISHED: "published",
+      LIVE: "liveOverrides",
     }[status] || "unedited");
   }
 
@@ -883,16 +1092,22 @@
     return response.json();
   }
 
+  function categoryTitle(slug) {
+    const category = state.content.catalog?.categories?.find((item) => item.slug === slug);
+    return category?.title?.[state.lang] || category?.title?.en || slug;
+  }
+
   function renderContentCategoryOptions() {
-    if (!state.content.catalog || !els.contentCategory) return;
-    const selected = state.content.category || els.contentCategory.value;
-    const categories = [...(state.content.catalog.categories || [])].sort((left, right) => (
-      String(left.title?.[state.lang] || left.title?.en || left.slug)
-        .localeCompare(String(right.title?.[state.lang] || right.title?.en || right.slug), state.lang)
-    ));
-    els.contentCategory.innerHTML = `<option value="">${escapeHtml(t("chooseCategory"))}</option>${categories.map((category) => (
-      `<option value="${escapeHtml(category.slug)}" ${category.slug === selected ? "selected" : ""}>${escapeHtml(category.title?.[state.lang] || category.title?.en || category.slug)} · ${escapeHtml(numberFormat(category.count))}</option>`
+    if (!state.content.catalog) return;
+    const selected = state.content.category;
+    const search = (els.contentCategorySearch?.value || "").trim().toLocaleLowerCase();
+    const categories = [...(state.content.catalog.categories || [])]
+      .filter((category) => category.slug === selected || !search || [category.slug, category.title?.en, category.title?.ar].join(" ").toLocaleLowerCase().includes(search))
+      .sort((a, b) => categoryTitle(a.slug).localeCompare(categoryTitle(b.slug), state.lang));
+    els.contentCategory.innerHTML = `<option value="">${escapeHtml(t("allCategories"))}</option>${categories.map((category) => (
+      `<option value="${escapeHtml(category.slug)}" ${category.slug === selected ? "selected" : ""}>${escapeHtml(categoryTitle(category.slug))} · ${escapeHtml(numberFormat(category.count))}</option>`
     )).join("")}`;
+    els.contentCategory.value = selected;
   }
 
   async function loadContentCatalog() {
@@ -900,15 +1115,41 @@
     renderContentCategoryOptions();
   }
 
-  async function loadAllContentEdits(category) {
+  async function loadAllContentEdits(category = "") {
     const edits = [];
     let offset = 0;
     do {
-      const data = await api(`/admin/content?category=${encodeURIComponent(category)}&limit=100&offset=${offset}`);
+      const params = new URLSearchParams({ limit: "100", offset: String(offset) });
+      if (category) params.set("category", category);
+      const data = await api(`/admin/content?${params}`);
       edits.push(...(data.edits || []));
-      offset = Number.isInteger(data.nextOffset) ? data.nextOffset : -1;
-    } while (offset >= 0 && edits.length < 10_000);
+      const next = Number.isInteger(data.nextOffset) ? data.nextOffset : -1;
+      if (next >= 0 && next <= offset) throw new AdminApiError(t("contentSearchFailed"));
+      offset = next;
+    } while (offset >= 0);
     return edits;
+  }
+
+  async function loadStaticCategories(categories, refresh = false) {
+    // Four workers bound network concurrency; cached categories are reused by filters and search.
+    const results = new Array(categories.length);
+    let index = 0;
+    await Promise.all(Array.from({ length: Math.min(4, categories.length) }, async () => {
+      while (index < categories.length) {
+        const position = index++;
+        const slug = categories[position].slug;
+        if (refresh) state.content.cache.delete(slug);
+        let cards = state.content.cache.get(slug);
+        if (!cards) {
+          cards = await staticJson(`/data/${encodeURIComponent(slug)}.json`);
+          if (!Array.isArray(cards)) throw new AdminApiError(t("contentSearchFailed"));
+          cards = cards.map((card) => ({ ...card, categorySlug: slug }));
+          state.content.cache.set(slug, cards);
+        }
+        results[position] = cards;
+      }
+    }));
+    return results.flat();
   }
 
   function activeContentSnapshot(card) {
@@ -922,89 +1163,161 @@
   }
 
   function filteredContentCards() {
-    const search = els.contentSearch.value.trim().toLocaleLowerCase(state.lang === "ar" ? "ar" : "en");
+    const search = els.contentSearch.value.trim().toLocaleLowerCase();
     const status = els.contentStatus.value;
     return state.content.cards.filter((card) => {
       const edit = state.content.edits.get(card.id);
-      const workflow = edit?.workflowStatus || "UNEDITED";
-      if (status && workflow !== status) return false;
+      if (state.content.category && card.categorySlug !== state.content.category) return false;
+      if (status === "LIVE" ? !edit?.hasPublishedVersion : status && (edit?.workflowStatus || "UNEDITED") !== status) return false;
       if (!search) return true;
       const snapshot = activeContentSnapshot(card);
-      return [card.id, snapshot.question?.en, snapshot.question?.ar, snapshot.answer?.en, snapshot.answer?.ar]
-        .filter(Boolean)
-        .join(" ")
-        .toLocaleLowerCase(state.lang === "ar" ? "ar" : "en")
-        .includes(search);
+      return [card.id, snapshot.question?.en, snapshot.question?.ar, snapshot.answer?.en, snapshot.answer?.ar,
+        card.question?.en, card.question?.ar, card.answer?.en, card.answer?.ar]
+        .filter(Boolean).join(" ").toLocaleLowerCase().includes(search);
     });
   }
 
-  function renderContentQuestionList() {
-    if (!state.content.cards.length) {
-      els.contentQuestionList.innerHTML = `<div class="empty-state">${escapeHtml(t("chooseCategoryFirst"))}</div>`;
-      els.contentResultsSummary.textContent = t("chooseCategoryFirst");
-      return;
-    }
-    const cards = filteredContentCards();
-    els.contentResultsSummary.textContent = cards.length
-      ? t("contentLoaded", { count: numberFormat(cards.length) })
-      : t("noMatchingQuestions");
-    els.contentQuestionList.innerHTML = cards.length ? cards.map((card) => {
-      const edit = state.content.edits.get(card.id);
-      const workflow = edit?.workflowStatus || "UNEDITED";
-      const snapshot = activeContentSnapshot(card);
-      const active = state.content.selectedId === card.id;
-      return `<button class="content-question-item${active ? " is-active" : ""}" type="button" data-content-question="${escapeHtml(card.id)}" aria-pressed="${active}">
-        <strong>${escapeHtml(card.id)}</strong>
-        <p>${escapeHtml(snapshot.question?.[state.lang] || snapshot.question?.en || "—")}</p>
-        <span class="content-question-meta"><span>${escapeHtml(contentStatusLabel(workflow))}</span><span>v${escapeHtml(edit?.version || 0)}</span></span>
-      </button>`;
-    }).join("") : `<div class="empty-state">${escapeHtml(t("noMatchingQuestions"))}</div>`;
+  function renderContentFilters() {
+    const filters = [];
+    if (state.content.category) filters.push(categoryTitle(state.content.category));
+    if (els.contentSearch.value.trim()) filters.push(els.contentSearch.value.trim());
+    if (els.contentStatus.value) filters.push(contentStatusLabel(els.contentStatus.value));
+    els.contentActiveFilters.innerHTML = filters.map((label) => `<span class="filter-chip">${escapeHtml(label)}</span>`).join("");
+    els.contentClearFilters.hidden = !filters.length && !els.contentCategorySearch.value;
   }
 
-  function serializeContentSources(sources) {
-    return (Array.isArray(sources) ? sources : [])
-      .map((source) => `${source.title || ""} | ${source.publisher || ""} | ${source.url || ""}`)
-      .join("\n");
+  function renderContentQuestionList() {
+    renderContentFilters();
+    const cards = filteredContentCards();
+    const pageSize = Number(els.contentPageSize.value) === 50 ? 50 : 30;
+    const pages = Math.max(1, Math.ceil(cards.length / pageSize));
+    state.content.page = Math.min(state.content.page, pages - 1);
+    const start = state.content.page * pageSize;
+    els.contentResultsSummary.textContent = state.content.loading ? t("loading") : cards.length
+      ? t("pageSummary", { from: numberFormat(start + 1), to: numberFormat(Math.min(start + pageSize, cards.length)), count: numberFormat(cards.length) })
+      : t("noMatchingQuestions");
+    els.contentPageInfo.textContent = t("pageNumber", { page: numberFormat(state.content.page + 1), pages: numberFormat(pages) });
+    els.contentPreviousPage.disabled = state.content.page === 0;
+    els.contentNextPage.disabled = state.content.page >= pages - 1;
+    els.contentQuestionList.setAttribute("aria-busy", String(state.content.loading));
+    els.contentQuestionList.innerHTML = cards.length ? cards.slice(start, start + pageSize).map((card) => {
+      const edit = state.content.edits.get(card.id);
+      const snapshot = activeContentSnapshot(card);
+      const active = state.content.selectedId === card.id;
+      return `<button class="content-question-item${active ? " is-active" : ""}" type="button" data-content-question="${escapeHtml(card.id)}" ${active ? 'aria-current="true"' : ""}>
+        <strong>${escapeHtml(card.id)}</strong><span class="content-question-category">${escapeHtml(categoryTitle(card.categorySlug))}</span>
+        <p dir="auto">${escapeHtml(snapshot.question?.[state.lang] || snapshot.question?.en || "—")}</p>
+        <span class="content-question-meta"><span>${escapeHtml(contentStatusLabel(edit?.workflowStatus || "UNEDITED"))}</span><span>v${escapeHtml(edit?.version || 0)}</span></span>
+      </button>`;
+    }).join("") : `<div class="${state.content.loading ? "loading-state" : "empty-state"}">${escapeHtml(t(state.content.loading ? "loading" : "noMatchingQuestions"))}</div>`;
+  }
+
+  function sourceValues() {
+    return [...els.contentSourceList.querySelectorAll(".content-source-row")].map((row) => Object.fromEntries(
+      ["title", "publisher", "url"].map((field) => [field, row.querySelector(`[data-source-field="${field}"]`).value]),
+    ));
+  }
+
+  function renderContentSources(sources = []) {
+    els.contentSourceList.innerHTML = sources.map((source, index) => `<div class="content-source-row">
+      <div class="source-fields">${["title", "publisher", "url"].map((field) => `<label class="input-label"><span>${escapeHtml(t({ title: "sourceTitle", publisher: "sourcePublisher", url: "sourceUrl" }[field]))}</span><input type="${field === "url" ? "url" : "text"}" data-source-field="${field}" value="${escapeHtml(source[field] || "")}" maxlength="4000" ${field === "url" ? 'dir="ltr" placeholder="https://…"' : 'dir="auto"'}></label>`).join("")}</div>
+      <button class="quiet-button" type="button" data-source-remove="${index}" aria-label="${escapeHtml(t("removeSource", { number: numberFormat(index + 1) }))}">${escapeHtml(t("removeSource", { number: numberFormat(index + 1) }))}</button>
+    </div>`).join("");
+    els.contentAddSource.disabled = sources.length >= 8;
   }
 
   function parseContentSources() {
-    const lines = els.contentSources.value.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
-    return lines.map((line) => {
-      const parts = line.split("|").map((part) => part.trim());
-      if (parts.length !== 3 || !parts[0] || !parts[1]) throw new Error(t("invalidSources"));
+    const sources = sourceValues();
+    const rows = [...els.contentSourceList.querySelectorAll(".content-source-row")];
+    rows.forEach((row) => row.querySelectorAll("input").forEach((input) => input.removeAttribute("aria-invalid")));
+    if (sources.length > 8) throw new Error(t("invalidSources"));
+    const seen = new Set();
+    return sources.map((source, index) => {
+      const title = source.title.trim();
+      const publisher = source.publisher.trim();
       let url;
-      try { url = new URL(parts[2]); } catch { throw new Error(t("invalidSources")); }
-      if (url.protocol !== "https:") throw new Error(t("invalidSources"));
-      return { title: parts[0], publisher: parts[1], url: url.href };
+      try { url = new URL(source.url.trim()); } catch { /* Validated with the other fields below. */ }
+      const invalid = !title ? "title" : !publisher ? "publisher" : !url || url.protocol !== "https:" || seen.has(url.href) ? "url" : "";
+      if (invalid) {
+        const input = rows[index].querySelector(`[data-source-field="${invalid}"]`);
+        input.setAttribute("aria-invalid", "true");
+        input.setAttribute("aria-describedby", "contentEditorMessage");
+        input.focus();
+        throw new Error(t("invalidSources"));
+      }
+      seen.add(url.href);
+      return { title, publisher, url: url.href };
+    });
+  }
+
+  function rawEditorSnapshot() {
+    return JSON.stringify({
+      question: { en: els.contentQuestionEn.value, ar: els.contentQuestionAr.value },
+      answer: { en: els.contentAnswerEn.value, ar: els.contentAnswerAr.value },
+      explanation: { en: els.contentExplanationEn.value, ar: els.contentExplanationAr.value },
+      sources: sourceValues(),
     });
   }
 
   function contentEditorSnapshot() {
-    const snapshot = {
-      question: { en: els.contentQuestionEn.value.trim(), ar: els.contentQuestionAr.value.trim() },
-      answer: { en: els.contentAnswerEn.value.trim(), ar: els.contentAnswerAr.value.trim() },
-      explanation: { en: els.contentExplanationEn.value.trim(), ar: els.contentExplanationAr.value.trim() },
-      sources: parseContentSources(),
-    };
-    if (!snapshot.question.en || !snapshot.question.ar || !snapshot.answer.en || !snapshot.answer.ar) {
-      throw new Error(t("contentRequired"));
-    }
+    const snapshot = JSON.parse(rawEditorSnapshot());
+    ["question", "answer", "explanation"].forEach((field) => {
+      ["en", "ar"].forEach((lang) => { snapshot[field][lang] = snapshot[field][lang].trim(); });
+    });
+    snapshot.sources = parseContentSources();
+    if (!snapshot.question.en || !snapshot.question.ar || !snapshot.answer.en || !snapshot.answer.ar) throw new Error(t("contentRequired"));
     return snapshot;
+  }
+
+  function updateContentDirty() {
+    const snapshot = rawEditorSnapshot();
+    if (snapshot !== state.content.lastSnapshot) {
+      state.content.editorRevision += 1;
+      state.content.lastSnapshot = snapshot;
+    }
+    state.content.dirty = Boolean(state.content.selectedId && snapshot !== state.content.baseline);
+    els.contentSaveState.textContent = t(state.content.saving ? "savingDraft" : state.content.dirty ? "unsavedChanges" : "saveState");
+    els.contentSaveState.classList.toggle("is-unsaved", state.content.dirty);
+    renderContentEditorChrome();
+  }
+
+  function hasUnsavedWork() {
+    return state.content.dirty || state.feedback.drafts.size > 0;
+  }
+
+  function confirmWorkspaceLeave() {
+    return !hasUnsavedWork() || window.confirm(t("discardChanges"));
+  }
+
+  function confirmContentLeave(discard = true) {
+    return !state.content.dirty || window.confirm(t(discard ? "discardChanges" : "keepChanges"));
+  }
+
+  function setEditorLanguage(language, moveFocus = false) {
+    if (!["en", "ar", "compare"].includes(language)) return;
+    state.content.editorLanguage = language;
+    $$('[data-editor-language]').forEach((button) => {
+      const active = button.dataset.editorLanguage === language;
+      button.setAttribute("aria-pressed", String(active));
+      button.tabIndex = 0;
+      if (active && moveFocus) button.focus();
+    });
+    $$('[data-editor-panel]').forEach((panel) => { panel.hidden = language !== "compare" && panel.dataset.editorPanel !== language; });
+    els.contentEditorForm.classList.toggle("is-comparing", language === "compare");
+    $(".content-language-grid").dataset.mode = language;
   }
 
   function renderContentPreview() {
     if (!state.content.selectedId) return;
-    const enQuestion = els.contentQuestionEn.value.trim() || "—";
-    const arQuestion = els.contentQuestionAr.value.trim() || "—";
-    const enAnswer = els.contentAnswerEn.value.trim() || "—";
-    const arAnswer = els.contentAnswerAr.value.trim() || "—";
-    const explanation = state.lang === "ar"
-      ? els.contentExplanationAr.value.trim()
-      : els.contentExplanationEn.value.trim();
-    els.contentPreviewCard.innerHTML = `<article class="content-preview-card" ${state.lang === "ar" ? "dir=\"rtl\"" : ""}>
-      <p class="preview-question">${escapeHtml(state.lang === "ar" ? arQuestion : enQuestion)}</p>
-      <p class="preview-answer"><strong>${escapeHtml(t("answer"))}:</strong> ${escapeHtml(state.lang === "ar" ? arAnswer : enAnswer)}</p>
-      ${explanation ? `<p class="preview-explanation"><strong>${escapeHtml(t("explanation"))}:</strong> ${escapeHtml(explanation)}</p>` : ""}
+    const lang = state.content.previewLanguage;
+    const suffix = lang === "ar" ? "Ar" : "En";
+    const question = els[`contentQuestion${suffix}`].value.trim() || "—";
+    const answer = els[`contentAnswer${suffix}`].value.trim() || "—";
+    const explanation = els[`contentExplanation${suffix}`].value.trim();
+    els.contentPreviewCard.innerHTML = `<article class="content-preview-card" lang="${lang}" dir="${lang === "ar" ? "rtl" : "ltr"}">
+      <p class="preview-question">${escapeHtml(question)}</p>
+      <p class="preview-answer"><strong>${escapeHtml(COPY[lang].answer)}:</strong> ${escapeHtml(answer)}</p>
+      ${explanation ? `<p class="preview-explanation"><strong>${escapeHtml(COPY[lang].explanation)}:</strong> ${escapeHtml(explanation)}</p>` : ""}
     </article>`;
   }
 
@@ -1016,99 +1329,193 @@
     const selfAuthored = Boolean(edit?.editorUserId && edit.editorUserId === state.me?.id);
     const publishBlocked = selfAuthored && state.me?.role !== "OWNER";
     els.contentEditorStatus.className = `status-pill ${status === "PUBLISHED" ? "is-good" : "is-pending"}`;
-    els.contentEditorStatus.textContent = contentStatusLabel(status);
+    els.contentEditorStatus.textContent = t("draftStatus", { status: contentStatusLabel(status) });
+    els.contentPublishedState.textContent = edit?.hasPublishedVersion
+      ? t("publishedOverride", { version: edit.publishedVersion || "—" }) : t("staticLive");
     els.contentEditorTitle.textContent = `${id}${edit ? ` · v${edit.version}` : ""}`;
     els.contentPublish.hidden = status !== "IN_REVIEW";
-    els.contentPublish.disabled = publishBlocked;
+    els.contentPublish.disabled = publishBlocked || state.content.dirty || state.content.saving;
     els.contentUnpublish.hidden = !edit?.hasPublishedVersion;
+    els.contentUnpublish.disabled = state.content.dirty || state.content.saving;
+    els.contentSaveDraft.disabled = state.content.saving;
+    els.contentSubmitReview.disabled = state.content.saving;
     els.contentHistoryButton.hidden = !edit;
-    if (status === "IN_REVIEW" && selfAuthored) {
+    if (status === "IN_REVIEW" && selfAuthored && !state.content.messageError) {
       els.contentEditorMessage.textContent = t(publishBlocked ? "independentReviewRequired" : "ownerOverrideReview");
       els.contentEditorMessage.hidden = false;
     }
   }
 
-  function selectContentQuestion(questionId) {
-    const card = state.content.cards.find((candidate) => candidate.id === questionId);
-    if (!card) return;
-    state.content.selectedId = questionId;
+  function fillContentEditor(card) {
     const snapshot = activeContentSnapshot(card);
-    els.contentEditorEmpty.hidden = true;
-    els.contentEditorForm.hidden = false;
-    els.contentQuestionEn.value = snapshot.question?.en || "";
-    els.contentQuestionAr.value = snapshot.question?.ar || "";
-    els.contentAnswerEn.value = snapshot.answer?.en || "";
-    els.contentAnswerAr.value = snapshot.answer?.ar || "";
-    els.contentExplanationEn.value = snapshot.explanation?.en || "";
-    els.contentExplanationAr.value = snapshot.explanation?.ar || "";
-    els.contentSources.value = serializeContentSources(snapshot.sources);
+    ["Question", "Answer", "Explanation"].forEach((field) => {
+      ["En", "Ar"].forEach((lang) => { els[`content${field}${lang}`].value = snapshot[field.toLowerCase()]?.[lang.toLowerCase()] || ""; });
+    });
+    renderContentSources(snapshot.sources || []);
+    state.content.baseline = rawEditorSnapshot();
+    state.content.dirty = false;
+    state.content.messageError = false;
     els.contentEditorMessage.hidden = true;
     els.contentHistory.hidden = true;
-    renderContentEditorChrome();
-    renderContentQuestionList();
+    setEditorLanguage(state.content.editorLanguage);
+    updateContentDirty();
     renderContentPreview();
   }
 
-  async function loadContentCategory({ preserveSelection = false } = {}) {
-    await loadContentCatalog();
-    const category = els.contentCategory.value;
-    if (!category) {
-      state.content.category = "";
-      state.content.cards = [];
-      state.content.edits = new Map();
-      renderContentQuestionList();
-      return;
-    }
-    state.content.category = category;
-    els.contentQuestionList.innerHTML = `<div class="loading-state">${escapeHtml(t("loading"))}</div>`;
-    const [cards, edits] = await Promise.all([
-      staticJson(`/data/${encodeURIComponent(category)}.json`),
-      loadAllContentEdits(category),
-    ]);
-    if (!Array.isArray(cards)) throw new AdminApiError(t("requestFailed"));
-    state.content.cards = cards;
-    state.content.edits = new Map(edits.map((edit) => [edit.questionId, edit]));
-    const selected = preserveSelection ? state.content.selectedId : null;
-    if (!selected || !cards.some((card) => card.id === selected)) {
-      state.content.selectedId = null;
-      els.contentEditorForm.hidden = true;
-      els.contentEditorEmpty.hidden = false;
-    }
+  function selectContentQuestion(questionId, { force = false, focus = true } = {}) {
+    const card = state.content.cards.find((candidate) => candidate.id === questionId);
+    if (!card) return false;
+    if (!force && questionId !== state.content.selectedId && !confirmContentLeave()) return false;
+    const changed = questionId !== state.content.selectedId;
+    if (changed) state.content.editorRevision += 1;
+    state.content.selectedId = questionId;
+    els.contentEditorEmpty.hidden = true;
+    els.contentEditorForm.hidden = false;
+    els.contentWorkspace.classList.add("is-editing");
+    if (changed || force) fillContentEditor(card);
+    if (changed && state.content.report?.questionId !== questionId) state.content.report = null;
+    renderContentReport();
     renderContentQuestionList();
-    if (state.content.selectedId) selectContentQuestion(state.content.selectedId);
+    if (focus) {
+      els.contentEditorTitle.tabIndex = -1;
+      els.contentEditorTitle.focus({ preventScroll: true });
+      if (window.matchMedia("(max-width: 1180px)").matches) els.contentWorkspace.scrollIntoView({ block: "start" });
+    }
+    return true;
+  }
+
+  function backToContentResults() {
+    // Going back keeps the draft and the exact filters/page available.
+    if (els.contentWorkspace.classList.contains("is-editing")) state.content.editorRevision += 1;
+    els.contentWorkspace.classList.remove("is-editing");
+    const button = [...els.contentQuestionList.querySelectorAll("[data-content-question]")].find((item) => item.dataset.contentQuestion === state.content.selectedId);
+    (button || els.contentSearch).focus();
+  }
+
+  async function loadContentCategory({ preserveSelection = false, refresh = false, authorized = false } = {}) {
+    if (!authorized && !confirmContentLeave()) { els.contentCategory.value = state.content.category; return; }
+    const selected = preserveSelection ? state.content.selectedId : null;
+    const category = els.contentCategory.value;
+    const version = ++state.content.loadVersion;
+    const editorRevision = state.content.editorRevision;
+    state.content.loading = true;
+    renderContentQuestionList();
+    try {
+      await loadContentCatalog();
+      const categories = state.content.catalog.categories || [];
+      const [cards, edits] = await Promise.all([loadStaticCategories(categories, refresh), loadAllContentEdits()]);
+      // Any selection, input, or completed save supersedes this refresh, including A → B → A.
+      // Discard the whole response so stale metadata cannot replace a newer successful save.
+      if (version !== state.content.loadVersion || editorRevision !== state.content.editorRevision) return;
+      state.content.cards = cards;
+      state.content.edits = new Map(edits.map((edit) => [edit.questionId, edit]));
+      state.content.category = category;
+      state.content.loaded = true;
+      state.content.dirty = false;
+      state.content.page = preserveSelection ? state.content.page : 0;
+      if (selected && cards.some((card) => card.id === selected)) selectContentQuestion(selected, { force: true, focus: false });
+      else {
+        state.content.selectedId = null;
+        state.content.report = null;
+        els.contentEditorForm.hidden = true;
+        els.contentEditorEmpty.hidden = false;
+        els.contentWorkspace.classList.remove("is-editing");
+        renderContentReport();
+      }
+      renderContentCategoryOptions();
+    } catch (error) {
+      if (version === state.content.loadVersion) {
+        els.contentCategory.value = state.content.category;
+        showToast(t("contentSearchFailed"), true);
+      }
+      throw error;
+    } finally {
+      if (version === state.content.loadVersion) { state.content.loading = false; renderContentQuestionList(); }
+    }
+  }
+
+  function changeContentFilters() {
+    state.content.page = 0;
+    renderContentQuestionList();
+  }
+
+  function changeContentCategory() {
+    if (!confirmContentLeave()) { els.contentCategory.value = state.content.category; return; }
+    state.content.category = els.contentCategory.value;
+    if (state.content.dirty && state.content.selectedId) {
+      const card = state.content.cards.find((item) => item.id === state.content.selectedId);
+      if (card) fillContentEditor(card);
+    }
+    backToContentResults();
+    changeContentFilters();
   }
 
   function showContentEditorError(error) {
+    state.content.messageError = true;
     els.contentEditorMessage.textContent = error instanceof Error ? error.message : t("requestFailed");
     els.contentEditorMessage.hidden = false;
   }
 
   async function saveContent(workflowStatus, button) {
     const questionId = state.content.selectedId;
-    if (!questionId || !state.content.category) return;
+    const card = state.content.cards.find((item) => item.id === questionId);
+    if (!card || state.content.saving) return;
     let content;
     try { content = contentEditorSnapshot(); } catch (error) { showContentEditorError(error); return; }
+    const submittedRaw = rawEditorSnapshot();
+    state.content.saving = true;
     setButtonBusy(button, true);
+    updateContentDirty();
+    state.content.messageError = false;
     els.contentEditorMessage.hidden = true;
     try {
-      await api(`/admin/content/${encodeURIComponent(questionId)}`, {
+      const result = await api(`/admin/content/${encodeURIComponent(questionId)}`, {
         method: "PUT",
-        body: JSON.stringify({ categorySlug: state.content.category, content, workflowStatus }),
+        body: JSON.stringify({ categorySlug: card.categorySlug, content, workflowStatus }),
       });
-      showToast(t(workflowStatus === "IN_REVIEW" ? "contentSubmitted" : "contentSaved"));
-      await loadContentCategory({ preserveSelection: true });
+      state.content.editorRevision += 1;
+      const previous = state.content.edits.get(questionId);
+      state.content.edits.set(questionId, { ...previous, questionId, categorySlug: card.categorySlug, draft: content,
+        workflowStatus, version: result.version || (previous?.version || 0) + 1, editorUserId: state.me.id });
+      if (state.content.selectedId === questionId) {
+        // A slow save must never replace newer input typed while the request was running.
+        state.content.baseline = submittedRaw;
+        updateContentDirty();
+        renderContentReport();
+      }
+      renderContentQuestionList();
+      showToast(t(state.content.selectedId === questionId && state.content.dirty ? "savedWithChanges" : workflowStatus === "IN_REVIEW" ? "contentSubmitted" : "contentSaved"));
+      await loadOverview();
       if (state.audit) await loadAudit();
     } catch (error) {
       handleActionError(error);
-      showContentEditorError(error);
+      if (state.content.selectedId === questionId) showContentEditorError(error);
     } finally {
+      state.content.saving = false;
       setButtonBusy(button, false);
+      updateContentDirty();
     }
+  }
+
+  async function refreshContentMetadata(questionId, { replaceDraft = false, expectedRaw = "" } = {}) {
+    state.content.editorRevision += 1;
+    const edits = await loadAllContentEdits();
+    state.content.edits = new Map(edits.map((edit) => [edit.questionId, edit]));
+    if (state.content.selectedId === questionId) {
+      const card = state.content.cards.find((item) => item.id === questionId);
+      if (replaceDraft && card && rawEditorSnapshot() === expectedRaw) fillContentEditor(card);
+      renderContentEditorChrome();
+      renderContentReport();
+    }
+    renderContentQuestionList();
+    await loadOverview();
   }
 
   async function publishContent(button) {
     const questionId = state.content.selectedId;
-    if (!questionId || !await requestStepUp()) return;
+    if (!questionId || state.content.saving) return;
+    if (state.content.dirty) { showContentEditorError(new Error(t("saveBeforePublish"))); return; }
+    if (!await requestStepUp()) return;
     const edit = state.content.edits.get(questionId);
     const review = await requestActionReview({
       actionKey: "publishAction",
@@ -1118,25 +1525,32 @@
       requiresReason: true,
     });
     if (!review) return;
+    if (state.content.dirty || state.content.selectedId !== questionId) { showContentEditorError(new Error(t("saveBeforePublish"))); return; }
+    state.content.saving = true;
     setButtonBusy(button, true);
+    updateContentDirty();
     try {
       await api(`/admin/content/${encodeURIComponent(questionId)}/publish`, {
         method: "POST",
         body: mutationPayload({}, review.reason),
       });
       showToast(t("contentPublished"));
-      await Promise.all([loadContentCategory({ preserveSelection: true }), loadSecurity()]);
+      await Promise.all([refreshContentMetadata(questionId), loadSecurity()]);
       if (state.audit) await loadAudit();
     } catch (error) {
       handleActionError(error);
     } finally {
+      state.content.saving = false;
       setButtonBusy(button, false);
+      updateContentDirty();
     }
   }
 
   async function unpublishContent(button) {
     const questionId = state.content.selectedId;
-    if (!questionId || !await requestStepUp()) return;
+    if (!questionId || state.content.saving) return;
+    if (state.content.dirty) { showContentEditorError(new Error(t("saveBeforePublish"))); return; }
+    if (!await requestStepUp()) return;
     const edit = state.content.edits.get(questionId);
     const review = await requestActionReview({
       actionKey: "unpublishAction",
@@ -1146,19 +1560,24 @@
       requiresReason: true,
     });
     if (!review) return;
+    if (state.content.dirty || state.content.selectedId !== questionId) { showContentEditorError(new Error(t("saveBeforePublish"))); return; }
+    state.content.saving = true;
     setButtonBusy(button, true);
+    updateContentDirty();
     try {
       await api(`/admin/content/${encodeURIComponent(questionId)}/unpublish`, {
         method: "POST",
         body: mutationPayload({}, review.reason),
       });
       showToast(t("contentUnpublished"));
-      await Promise.all([loadContentCategory({ preserveSelection: true }), loadSecurity()]);
+      await Promise.all([refreshContentMetadata(questionId), loadSecurity()]);
       if (state.audit) await loadAudit();
     } catch (error) {
       handleActionError(error);
     } finally {
+      state.content.saving = false;
       setButtonBusy(button, false);
+      updateContentDirty();
     }
   }
 
@@ -1166,6 +1585,7 @@
     const questionId = state.content.selectedId;
     if (!questionId) return;
     const data = await api(`/admin/content/${encodeURIComponent(questionId)}/revisions?limit=50`);
+    if (state.content.selectedId !== questionId) return;
     state.content.revisions = data.revisions || [];
     els.contentHistory.hidden = false;
     els.contentHistoryList.innerHTML = state.content.revisions.length
@@ -1175,7 +1595,8 @@
 
   async function restoreContentRevision(revisionId, button) {
     const questionId = state.content.selectedId;
-    if (!questionId) return;
+    if (!questionId || state.content.saving || !confirmContentLeave()) return;
+    const expectedRaw = rawEditorSnapshot();
     const revision = state.content.revisions.find((candidate) => candidate.id === revisionId);
     const review = await requestActionReview({
       actionKey: "restoreContentAction",
@@ -1184,21 +1605,25 @@
       impactValues: { version: revision?.version || "—" },
       requiresReason: true,
     });
-    if (!review) return;
+    if (!review || state.content.selectedId !== questionId) return;
+    state.content.saving = true;
     setButtonBusy(button, true);
+    updateContentDirty();
     try {
       await api(`/admin/content/${encodeURIComponent(questionId)}/restore`, {
         method: "POST",
         body: mutationPayload({ revisionId }, review.reason),
       });
       showToast(t("contentRestored"));
-      await loadContentCategory({ preserveSelection: true });
-      await loadContentHistory();
+      await refreshContentMetadata(questionId, { replaceDraft: true, expectedRaw });
+      if (state.content.selectedId === questionId) await loadContentHistory();
       if (state.audit) await loadAudit();
     } catch (error) {
       handleActionError(error);
     } finally {
+      state.content.saving = false;
       setButtonBusy(button, false);
+      updateContentDirty();
     }
   }
 
@@ -1250,9 +1675,13 @@
   async function loadFeedback(reset = true) {
     const offset = reset ? 0 : state.feedback.nextOffset;
     if (offset === null) return;
+    const loadVersion = ++state.feedback.loadVersion;
+    const mutationRevision = state.feedback.mutationRevision;
     if (reset) els.feedbackResults.innerHTML = `<div class="loading-state">${escapeHtml(t("loading"))}</div>`;
     const data = await api(feedbackQuery(offset));
+    if (loadVersion !== state.feedback.loadVersion || mutationRevision !== state.feedback.mutationRevision) return;
     state.feedback = {
+      ...state.feedback,
       items: reset ? data.suggestions : [...state.feedback.items, ...data.suggestions],
       nextOffset: data.nextOffset,
       canViewEmail: Boolean(data.permissions?.canViewEmail),
@@ -1276,10 +1705,11 @@
   }
 
   async function refreshVisible(showMessage = false) {
+    if (showMessage && state.activeTab === "content" && !confirmContentLeave()) return;
     const tasks = [loadOverview(), loadHealth(), loadSecurity()];
     if (state.activeTab === "people") tasks.push(loadPeople(true));
     if (state.activeTab === "feedback") tasks.push(loadFeedback(true));
-    if (state.activeTab === "content") tasks.push(loadContentCategory({ preserveSelection: true }));
+    if (state.activeTab === "content") tasks.push(loadContentCategory({ preserveSelection: true, refresh: showMessage, authorized: true }));
     if (state.activeTab === "audit" && state.me?.role === "OWNER") tasks.push(loadAudit());
     const results = await Promise.allSettled(tasks);
     const sessionFailure = results.find((result) => (
@@ -1299,7 +1729,7 @@
   async function establishAccess() {
     state.gateMode = "checking";
     renderGate();
-    setConnection("is-pending", t("checkingAccess"));
+    setConnection("is-pending", "checkingAccess");
     try {
       const profile = await api("/user/profile");
       if (!ADMIN_ROLES.has(profile.role)) {
@@ -1307,25 +1737,25 @@
         state.gateMode = "unauthorized";
         els.adminApp.hidden = true;
         renderGate();
-        setConnection("is-error", t("unauthorizedTitle"));
+        setConnection("is-error", "unauthorizedTitle");
         return;
       }
       state.me = profile;
       renderIdentity();
       showApp();
-      setConnection("is-online", t("accessConnected"));
+      setConnection("is-online", "accessConnected");
       await refreshVisible(false);
     } catch (error) {
       state.me = null;
       state.gateMode = error instanceof AdminApiError && error.status === 401 ? "signedOut" : "offline";
       els.adminApp.hidden = true;
       renderGate();
-      setConnection("is-error", state.gateMode === "signedOut" ? t("sessionExpired") : t("offlineTitle"));
+      setConnection("is-error", state.gateMode === "signedOut" ? "sessionExpired" : "offlineTitle");
     }
   }
 
-  function selectTab(tab, moveFocus = false) {
-    if (tab === "audit" && state.me?.role !== "OWNER") return;
+  function selectTab(tab, moveFocus = false, authorized = false) {
+    if (tab === "audit" && state.me?.role !== "OWNER") return false;
     state.activeTab = tab;
     $$("[data-tab]").forEach((button) => {
       const active = button.dataset.tab === tab;
@@ -1337,8 +1767,9 @@
     $$("[data-panel]").forEach((panel) => { panel.hidden = panel.dataset.panel !== tab; });
     if (tab === "people" && !state.people.items.length) void loadPeople(true).catch(handleActionError);
     if (tab === "feedback" && !state.feedback.items.length) void loadFeedback(true).catch(handleActionError);
-    if (tab === "content" && !state.content.catalog) void loadContentCatalog().catch(handleActionError);
+    if (tab === "content" && !state.content.loaded && !state.content.loading && !authorized) void loadContentCategory({ authorized: true }).catch(handleActionError);
     if (tab === "audit" && !state.audit) void loadAudit().catch(handleActionError);
+    return true;
   }
 
   function handleActionError(error) {
@@ -1454,6 +1885,7 @@
     }
     state.actionReview = review;
     resetActionReview();
+    if (review.initialReason) els.actionReviewReason.value = review.initialReason;
     renderActionReview();
     dialog.returnValue = "";
     try {
@@ -1565,35 +1997,40 @@
 
   async function changeFeedbackStatus(select) {
     const suggestionId = select.dataset.feedbackStatus;
-    if (!suggestionId) return;
+    const suggestion = state.feedback.items.find((item) => item.id === suggestionId);
+    if (!suggestionId || !suggestion) return;
     const status = select.value;
-    const previousStatus = select.dataset.feedbackCurrent || "";
+    const previousStatus = suggestion.status;
+    if (state.feedback.pending.has(suggestionId)) { select.value = previousStatus; return; }
     if (status === previousStatus) return;
-    const review = await requestActionReview({
-      actionKey: "feedbackStateAction",
-      target: suggestionId,
-      impactKey: "feedbackStateImpact",
-      impactValues: { status: statusLabel(status) },
-      requiresReason: status === "implemented" || status === "rejected",
-    });
-    if (!review) {
-      select.value = previousStatus;
-      return;
-    }
-    setButtonBusy(select, true);
+    const submittedDraft = feedbackDraftValue(suggestionId);
+    setFeedbackPending(suggestionId, true);
     try {
-      await api(`/admin/suggestions/${encodeURIComponent(suggestionId)}`, {
-        method: "PATCH",
-        body: mutationPayload({ status }, review.reason),
+      const review = await requestActionReview({
+        actionKey: "feedbackStateAction",
+        target: suggestionId,
+        impactKey: "feedbackStateImpact",
+        impactValues: { status: statusLabel(status) },
+        requiresReason: status === "implemented" || status === "rejected",
+        initialReason: normalizeFeedbackNote(submittedDraft),
       });
+      if (!review) { select.value = previousStatus; return; }
+      await api(`/admin/suggestions/${encodeURIComponent(suggestionId)}`, {
+        method: "PATCH", body: mutationPayload({ status }, review.reason),
+      });
+      state.feedback.mutationRevision += 1;
+      // Keep local status current even if the following list refresh fails.
+      const current = state.feedback.items.find((item) => item.id === suggestionId);
+      if (current) current.status = status;
+      select.dataset.feedbackCurrent = status;
+      if (review.reason) clearSubmittedFeedbackDraft(suggestionId, submittedDraft, review.reason);
+      await refreshFeedbackAfterMutation();
       showToast(t("feedbackUpdated"));
-      await Promise.all([loadFeedback(true), loadOverview()]);
-      if (state.audit) await loadAudit();
     } catch (error) {
       handleActionError(error);
-      await loadFeedback(true).catch(() => undefined);
+      select.value = previousStatus;
     } finally {
-      setButtonBusy(select, false);
+      setFeedbackPending(suggestionId, false);
     }
   }
 
@@ -1645,6 +2082,19 @@
     }
   }
 
+  function keepEditorFocusVisible(event) {
+    const target = event.target;
+    const actions = $(".content-editor-actions");
+    if (!target.matches("input, textarea, select, button") || actions.contains(target)) return;
+    requestAnimationFrame(() => {
+      const bounds = target.getBoundingClientRect();
+      const footer = actions.getBoundingClientRect();
+      const visibleBottom = Math.min(window.innerHeight, footer.top);
+      if (bounds.bottom > visibleBottom - 12) window.scrollBy({ top: bounds.bottom - visibleBottom + 20, behavior: "instant" });
+      else if (bounds.top < 12) window.scrollBy({ top: bounds.top - 20, behavior: "instant" });
+    });
+  }
+
   function bindEvents() {
     els.languageToggle.addEventListener("click", () => {
       state.lang = state.lang === "ar" ? "en" : "ar";
@@ -1653,9 +2103,12 @@
     });
     els.refreshButton.addEventListener("click", () => void refreshVisible(true));
     els.logoutButton.addEventListener("click", async () => {
+      if (!confirmWorkspaceLeave()) return;
       setButtonBusy(els.logoutButton, true);
       try {
         await api("/auth/logout", { method: "POST", body: "{}" });
+        state.content.dirty = false;
+        state.feedback.drafts.clear();
         location.assign(state.lang === "ar" ? "/?lang=ar" : "/");
       } catch {
         showToast(t("signOutFailed"), true);
@@ -1683,12 +2136,62 @@
     document.addEventListener("click", (event) => {
       const open = event.target.closest("[data-open-tab]");
       if (open) selectTab(open.dataset.openTab);
+      const report = event.target.closest("[data-feedback-open-question]");
+      if (report) void openFeedbackQuestion(report.dataset.feedbackOpenQuestion).catch(handleActionError);
+      const note = event.target.closest("[data-feedback-save-note]");
+      if (note) void saveFeedbackNote(note);
+      const reference = event.target.closest("[data-open-content-id]");
+      if (reference) void openContentReference(reference.dataset.openContentCategory, reference.dataset.openContentId).catch(handleActionError);
+      const returnFeedback = event.target.closest("[data-return-feedback]");
+      if (returnFeedback && selectTab("feedback")) {
+        const id = state.content.report?.suggestionId;
+        const button = [...els.feedbackResults.querySelectorAll("[data-feedback-open-question]")].find((item) => item.dataset.feedbackOpenQuestion === id);
+        button?.focus();
+      }
+      const queue = event.target.closest("[data-content-queue]");
+      if (queue && selectTab("content")) {
+        state.content.category = "";
+        els.contentSearch.value = "";
+        els.contentCategorySearch.value = "";
+        els.contentStatus.value = queue.dataset.contentQueue;
+        renderContentCategoryOptions();
+        backToContentResults();
+        changeContentFilters();
+      }
+      const feedbackQueue = event.target.closest("[data-feedback-queue]");
+      if (feedbackQueue) {
+        els.feedbackStatus.value = feedbackQueue.dataset.feedbackQueue;
+        if (selectTab("feedback", false, true)) void loadFeedback(true).catch(handleActionError);
+      }
+      const sourceRemove = event.target.closest("[data-source-remove]");
+      if (sourceRemove) {
+        const sources = sourceValues();
+        sources.splice(Number(sourceRemove.dataset.sourceRemove), 1);
+        renderContentSources(sources);
+        updateContentDirty();
+        els.contentAddSource.focus();
+      }
+      const editorLanguage = event.target.closest("[data-editor-language]");
+      if (editorLanguage) setEditorLanguage(editorLanguage.dataset.editorLanguage);
+      const link = event.target.closest("a[href]");
+      const sameDocumentFragment = link && link.href.includes("#")
+        && link.origin === location.origin && link.pathname === location.pathname && link.search === location.search;
+      if (link && !sameDocumentFragment && hasUnsavedWork() && link.target !== "_blank" && !event.metaKey && !event.ctrlKey) {
+        if (!confirmWorkspaceLeave()) event.preventDefault();
+        else { state.content.dirty = false; state.feedback.drafts.clear(); }
+      }
       const ban = event.target.closest("[data-user-ban]");
       if (ban) void changeUserBan(ban);
       const question = event.target.closest("[data-content-question]");
       if (question) selectContentQuestion(question.dataset.contentQuestion);
       const restoreRevision = event.target.closest("[data-content-restore]");
       if (restoreRevision) void restoreContentRevision(restoreRevision.dataset.contentRestore, restoreRevision);
+    });
+    document.addEventListener("input", (event) => {
+      const input = event.target;
+      if (!input.matches("[data-feedback-resolution]")) return;
+      if (input.value) state.feedback.drafts.set(input.dataset.feedbackResolution, input.value);
+      else state.feedback.drafts.delete(input.dataset.feedbackResolution);
     });
     document.addEventListener("change", (event) => {
       const target = event.target;
@@ -1703,11 +2206,58 @@
     els.feedbackFilterButton.addEventListener("click", () => void loadFeedback(true).catch(handleActionError));
     els.loadMoreFeedback.addEventListener("click", () => void loadFeedback(false).catch(handleActionError));
     els.reloadAudit.addEventListener("click", () => void loadAudit().catch(handleActionError));
-    els.contentLoadButton.addEventListener("click", () => void loadContentCategory().catch(handleActionError));
-    els.contentCategory.addEventListener("change", () => void loadContentCategory().catch(handleActionError));
-    els.contentSearch.addEventListener("input", renderContentQuestionList);
-    els.contentStatus.addEventListener("change", renderContentQuestionList);
-    els.contentEditorForm.addEventListener("input", renderContentPreview);
+    els.contentLoadButton.addEventListener("click", () => void loadContentCategory({ preserveSelection: true, refresh: true }).catch(handleActionError));
+    els.contentCategory.addEventListener("change", changeContentCategory);
+    els.contentCategorySearch.addEventListener("input", () => { renderContentCategoryOptions(); renderContentFilters(); });
+    els.contentSearch.addEventListener("input", changeContentFilters);
+    els.contentStatus.addEventListener("change", changeContentFilters);
+    els.contentPageSize.addEventListener("change", changeContentFilters);
+    els.contentPreviousPage.addEventListener("click", () => { state.content.page = Math.max(0, state.content.page - 1); renderContentQuestionList(); });
+    els.contentNextPage.addEventListener("click", () => { state.content.page += 1; renderContentQuestionList(); });
+    els.contentClearFilters.addEventListener("click", () => {
+      els.contentSearch.value = "";
+      els.contentStatus.value = "";
+      els.contentCategorySearch.value = "";
+      state.content.category = "";
+      renderContentCategoryOptions();
+      changeContentFilters();
+    });
+    els.contentEditorForm.addEventListener("submit", (event) => event.preventDefault());
+    els.contentEditorForm.addEventListener("focusin", keepEditorFocusVisible);
+    const actionBar = $(".content-editor-actions");
+    const measureActionBar = () => document.documentElement.style.setProperty("--content-action-height", `${Math.ceil(actionBar.getBoundingClientRect().height)}px`);
+    if (typeof ResizeObserver === "function") new ResizeObserver(measureActionBar).observe(actionBar);
+    else window.addEventListener("resize", measureActionBar);
+    measureActionBar();
+    els.contentEditorForm.addEventListener("input", (event) => {
+      event.target.removeAttribute("aria-invalid");
+      updateContentDirty();
+      renderContentPreview();
+    });
+    els.contentBackButton.addEventListener("click", backToContentResults);
+    els.contentAddSource.addEventListener("click", () => {
+      const sources = sourceValues();
+      if (sources.length >= 8) return;
+      renderContentSources([...sources, { title: "", publisher: "", url: "" }]);
+      updateContentDirty();
+      els.contentSourceList.lastElementChild.querySelector("input").focus();
+    });
+    els.contentPreviewLanguage.addEventListener("change", () => { state.content.previewLanguage = els.contentPreviewLanguage.value; renderContentPreview(); });
+    $(".editor-language-tabs").addEventListener("keydown", (event) => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+      const tabs = $$('[data-editor-language]');
+      const index = tabs.indexOf(document.activeElement);
+      if (index < 0) return;
+      event.preventDefault();
+      const direction = (event.key === "ArrowRight" ? 1 : -1) * (state.lang === "ar" ? -1 : 1);
+      const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + direction + tabs.length) % tabs.length;
+      setEditorLanguage(tabs[next].dataset.editorLanguage, true);
+    });
+    window.addEventListener("beforeunload", (event) => {
+      if (!hasUnsavedWork()) return;
+      event.preventDefault();
+      event.returnValue = "";
+    });
     els.contentSaveDraft.addEventListener("click", () => void saveContent("DRAFT", els.contentSaveDraft));
     els.contentSubmitReview.addEventListener("click", () => void saveContent("IN_REVIEW", els.contentSubmitReview));
     els.contentPublish.addEventListener("click", () => void publishContent(els.contentPublish));
@@ -1745,8 +2295,11 @@
       "contentCategory", "contentSearch", "contentStatus", "contentLoadButton", "contentResultsSummary", "contentQuestionList",
       "contentEditorEmpty", "contentEditorForm", "contentEditorStatus", "contentEditorTitle", "contentHistoryButton",
       "contentQuestionEn", "contentQuestionAr", "contentAnswerEn", "contentAnswerAr", "contentExplanationEn", "contentExplanationAr",
-      "contentSources", "contentPreviewCard", "contentEditorMessage", "contentSaveDraft", "contentSubmitReview", "contentPublish",
+      "contentSourceList", "contentPreviewCard", "contentEditorMessage", "contentSaveDraft", "contentSubmitReview", "contentPublish",
       "contentUnpublish", "contentHistory", "contentHistoryList",
+      "contentCategorySearch", "contentActiveFilters", "contentClearFilters", "contentPageSize", "contentPageInfo", "contentPreviousPage", "contentNextPage",
+      "contentWorkspace", "contentBackButton", "contentPreviewLanguage", "contentAddSource", "contentSaveState", "contentReportContext", "contentPublishedState",
+      "recentEdits", "accountMetricGrid",
     ].forEach((id) => { els[id] = document.getElementById(id); });
   }
 

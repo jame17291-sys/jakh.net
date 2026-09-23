@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { context, githubClient, oidcToken, autopilotRequest, assertMain, releaseInputs, authorizeRelease,
   REPOSITORY, REPOSITORY_ID, API_ORIGIN, AUDIENCE } from './autopilot-client.mjs';
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
-  FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks } from './site-autopilot.mjs';
+  FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild } from './site-autopilot.mjs';
 
 import { loadProductionQuarantine } from './publication-quarantine.mjs';
 
@@ -618,4 +618,48 @@ test('authoritative PR identity must agree both before polling and after success
 test('the immutable CI workflow binds its run title to the triggering PR number and source commits', async () => {
   const workflow = await fs.readFile(path.join(ROOT, '.github/workflows/api-check.yml'), 'utf8');
   assert.ok(workflow.includes("run-name: Validate API · PR ${{ github.event.pull_request.number || 'none' }} · base ${{ github.event.pull_request.base.sha || 'none' }} · head ${{ github.event.pull_request.head.sha || github.sha }}"));
+});
+
+const EXPECTED_PUBLISHED_BUILD = 'a'.repeat(64);
+const PUBLISHED_WORKER_VERSION = '07003da4-69e2-43c1-8c41-e8b8ea71f80a';
+function publishedResponse({ status = 200, buildId = EXPECTED_PUBLISHED_BUILD, workerVersion = PUBLISHED_WORKER_VERSION } = {}) {
+  const headers = {};
+  if (buildId !== null) headers['x-jakh-site-version'] = buildId;
+  if (workerVersion !== null) headers['x-jakh-worker-version'] = workerVersion;
+  return new Response(null, { status, headers });
+}
+
+test('final publication proof returns only an HTTP 200 exact candidate build and valid Worker UUID', () => {
+  assert.deepEqual(verifyPublishedBuild(publishedResponse(), { expectedBuildId: EXPECTED_PUBLISHED_BUILD }),
+    { buildId: EXPECTED_PUBLISHED_BUILD, workerVersion: PUBLISHED_WORKER_VERSION });
+});
+
+test('a concurrent different deployment cannot be recorded as the verified candidate', () => {
+  assert.throws(() => verifyPublishedBuild(publishedResponse({ buildId: 'b'.repeat(64) }),
+    { expectedBuildId: EXPECTED_PUBLISHED_BUILD }), /does not match the verified candidate build/);
+});
+
+test('final publication proof rejects errors, redirects and other successful HTTP statuses', () => {
+  for (const status of [201, 202, 204, 301, 404, 500]) {
+    assert.throws(() => verifyPublishedBuild(publishedResponse({ status }),
+      { expectedBuildId: EXPECTED_PUBLISHED_BUILD }), /HTTP 200 check/);
+  }
+});
+
+test('missing or malformed published build and Worker identities fail closed', () => {
+  for (const buildId of [null, '', 'a'.repeat(63), 'g'.repeat(64)]) {
+    assert.throws(() => verifyPublishedBuild(publishedResponse({ buildId }),
+      { expectedBuildId: EXPECTED_PUBLISHED_BUILD }), /verified candidate build/);
+  }
+  for (const workerVersion of [null, '', '-'.repeat(36), '0'.repeat(36), '00000000-0000-0000-0000-000000000000',
+    '07003da4-69e2-43c1-0c41-e8b8ea71f80a']) {
+    assert.throws(() => verifyPublishedBuild(publishedResponse({ workerVersion }),
+      { expectedBuildId: EXPECTED_PUBLISHED_BUILD }), /Worker version identity/);
+  }
+});
+
+test('final publication proof requires a valid local verified build identity', () => {
+  for (const expectedBuildId of [undefined, null, '', 'a'.repeat(63), 'g'.repeat(64)]) {
+    assert.throws(() => verifyPublishedBuild(publishedResponse(), { expectedBuildId }), /candidate build identity is missing or invalid/);
+  }
 });

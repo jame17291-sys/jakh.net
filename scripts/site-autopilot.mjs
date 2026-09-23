@@ -8,6 +8,7 @@ import { mintAutopilotAppToken } from "./autopilot-github-app.mjs";
 export const FINDINGS_MARKER = "<!-- riddle-arabia-autopilot-findings:v1 -->";
 export const BOT_ID = 41898282;
 const PREFIX = `/repos/${REPOSITORY}`;
+const BASELINE_IDENTITY_FINDING = "Current source is not the verified live build; release needs attention";
 const sleep = ms => new Promise(resolveSleep => setTimeout(resolveSleep, ms));
 
 export function safeChildEnv(env = process.env) {
@@ -202,6 +203,20 @@ export async function publishVerifiedRepair(gh, { base, candidate, branch, prNum
   return { sha: merged.sha, released };
 }
 
+export function verifyPublishedBuild(response, { expectedBuildId } = {}) {
+  if (typeof expectedBuildId !== "string" || !/^[a-f0-9]{64}$/u.test(expectedBuildId)) {
+    throw new Error("The verified candidate build identity is missing or invalid.");
+  }
+  if (response?.status !== 200) throw new Error("Published admin page failed the final HTTP 200 check.");
+  const buildId = response.headers?.get?.("x-jakh-site-version");
+  const workerVersion = response.headers?.get?.("x-jakh-worker-version");
+  if (buildId !== expectedBuildId) throw new Error("Published site does not match the verified candidate build.");
+  if (typeof workerVersion !== "string" || !/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/u.test(workerVersion)) {
+    throw new Error("Published Worker version identity is missing or invalid.");
+  }
+  return { buildId, workerVersion };
+}
+
 export function findingCounts(failedChecks) {
   return { total: failedChecks.length,
     accessibility: failedChecks.filter(name => name === "Accessibility").length,
@@ -272,7 +287,7 @@ export async function runAutopilot(env = process.env) {
     const baselineManifest = JSON.parse(await readFile(join(root,"site-worker/generated/site-manifest.json"),"utf8"));
     const baselineResponse = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
     if (!baselineResponse.ok || baselineResponse.headers.get("x-jakh-site-version") !== baselineManifest.buildId) {
-      report.failedChecks.push("Current source is not the verified live build; release needs attention");
+      if (!report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) report.failedChecks.push(BASELINE_IDENTITY_FINDING);
       report.checksFailed = report.failedChecks.length;
     }
     const repairPath = join(outputDir, "repair-plan.json");
@@ -301,7 +316,7 @@ export async function runAutopilot(env = process.env) {
       const manifest = JSON.parse(await readFile(join(root,"site-worker/generated/site-manifest.json"),"utf8"));
       const live = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
       if (!live.ok || live.headers.get("x-jakh-site-version") !== manifest.buildId) {
-        report.failedChecks.push("Current source is not the verified live build; release needs attention");
+        if (!report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) report.failedChecks.push(BASELINE_IDENTITY_FINDING);
         report.checksFailed = report.failedChecks.length;
       }
     }
@@ -366,11 +381,9 @@ export async function runAutopilot(env = process.env) {
         await writeReport(reportPath, report, env);
       },
     });
+    const candidateManifest = JSON.parse(await readFile(join(root, "site-worker/generated/site-manifest.json"), "utf8"));
     const response = await fetch("https://riddlearabia.com/admin", { redirect: "error", signal: AbortSignal.timeout(20_000) });
-    if (!response.ok) throw new Error("Published admin page failed the final HTTP check.");
-    const buildId = response.headers.get("x-jakh-site-version");
-    const workerVersion = response.headers.get("x-jakh-worker-version");
-    if (!/^[a-f0-9]{64}$/u.test(buildId || "") || !/^[a-f0-9-]{36}$/u.test(workerVersion || "")) throw new Error("Published build identity is missing.");
+    const { buildId, workerVersion } = verifyPublishedBuild(response, { expectedBuildId: candidateManifest.buildId });
     report.deploymentRunId = String(released.id);
     await send("deployed", { candidateSha: mergedSha, buildId, workerVersion, deploymentRunId: String(released.id) });
     return report;

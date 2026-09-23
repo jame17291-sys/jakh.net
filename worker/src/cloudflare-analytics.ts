@@ -1,4 +1,4 @@
-import type { PlatformStatusMetric, PlatformStatusSourceState } from "./types.js";
+import type { CloudflareAnalyticsDiagnostics, CloudflareAnalyticsFailureCategory, PlatformStatusMetric, PlatformStatusSourceState } from "./types.js";
 
 /**
  * This module is intentionally a small, one-way projection of Cloudflare's
@@ -21,6 +21,7 @@ export interface CloudflareAnalyticsStatus {
   coverage: CloudflareAnalyticsCoverage | null;
   observedAt: string | null;
   metrics: PlatformStatusMetric[];
+  diagnostics?: CloudflareAnalyticsDiagnostics;
 }
 
 interface CloudflareAnalyticsConfig {
@@ -43,11 +44,20 @@ interface CacheEntry {
   observedAt: string;
   coverage: CloudflareAnalyticsCoverage;
   metrics: PlatformStatusMetric[];
+  diagnostics?: CloudflareAnalyticsDiagnostics;
 }
 
-interface AnalyticsSnapshot {
-  coverage: CloudflareAnalyticsCoverage;
+type AnalyticsScope = "zone" | "workers";
+
+interface ScopeSnapshot {
   metrics: PlatformStatusMetric[];
+  failure?: CloudflareAnalyticsFailureCategory;
+}
+
+class AnalyticsFailure extends Error {
+  constructor(readonly category: CloudflareAnalyticsFailureCategory) {
+    super(category);
+  }
 }
 
 const GRAPHQL_URL = "https://api.cloudflare.com/client/v4/graphql";
@@ -62,12 +72,9 @@ const MAX_RESPONSE_BYTES = 64 * 1_024;
 const WINDOW_MS = 24 * 60 * 60 * 1_000;
 const EXPECTED_METRIC_COUNT = 7;
 
-const CLOUDFLARE_ANALYTICS_QUERY = `
-  query RiddleArabiaPlatformStatus(
+const CLOUDFLARE_ZONE_QUERY = `
+  query RiddleArabiaZoneTraffic(
     $zoneTag: string
-    $accountTag: string
-    $apiWorkerName: string
-    $siteWorkerName: string
     $start: Time
     $end: Time
   ) {
@@ -88,6 +95,19 @@ const CLOUDFLARE_ANALYTICS_QUERY = `
           }
         }
       }
+    }
+  }
+`;
+
+const CLOUDFLARE_WORKERS_QUERY = `
+  query RiddleArabiaWorkerUsage(
+    $accountTag: string
+    $apiWorkerName: string
+    $siteWorkerName: string
+    $start: Time
+    $end: Time
+  ) {
+    viewer {
       accounts(filter: { accountTag: $accountTag }) {
         apiWorker: workersInvocationsAdaptive(
           limit: 1
@@ -161,10 +181,41 @@ function firstGroup(value: unknown): Record<string, unknown> | null {
   return Array.isArray(value) && value.length ? plainObject(value[0]) : null;
 }
 
-function metricsFromPayload(value: unknown): AnalyticsSnapshot | null {
+function graphqlFailure(payload: Record<string, unknown>): CloudflareAnalyticsFailureCategory | undefined {
+  if (!Array.isArray(payload.errors) || !payload.errors.length) return undefined;
+  // Classify only explicit authentication/rate-limit signals. Unknown errors
+  // stay generic, and no provider-controlled text enters the status or cache.
+  for (const candidate of payload.errors) {
+    const error = plainObject(candidate);
+    const extensions = plainObject(error?.extensions);
+    const code = typeof extensions?.code === "string" ? extensions.code.toUpperCase() : "";
+    const message = typeof error?.message === "string" ? error.message : "";
+    if (["UNAUTHENTICATED", "UNAUTHORIZED"].includes(code)
+      || /\b(authentication (?:error|failed)|invalid (?:api |access )?token|unauthorized)\b/iu.test(message)) {
+      return "authentication_failed";
+    }
+    if (code === "FORBIDDEN" || /\b(permission denied|does not have access|not authorized|forbidden)\b/iu.test(message)) {
+      return "permission_denied";
+    }
+    if (["RATE_LIMITED", "RATE_LIMIT_EXCEEDED", "TOO_MANY_REQUESTS"].includes(code)
+      || /\b(rate limit(?:ed| exceeded)?|too many requests)\b/iu.test(message)) {
+      return "rate_limited";
+    }
+    if (/\b(time range.{0,40}(?:too (?:large|long)|exceeds|limit)|max(?:imum)? duration|query (?:complexity|cost).{0,40}(?:exceeds|limit)|cannot request data older than|number of fields can(?:not|'t) be more than|limit must be positive number and not greater than)\b/iu.test(message)) {
+      return "query_limit";
+    }
+  }
+  return "query_rejected";
+}
+
+function metricsFromPayload(value: unknown, scope: AnalyticsScope): ScopeSnapshot {
   const payload = plainObject(value);
   const viewer = plainObject(payload?.data);
   const viewerData = plainObject(viewer?.viewer);
+  const failure = payload ? graphqlFailure(payload) : undefined;
+  const groups = scope === "zone" ? viewerData?.zones : viewerData?.accounts;
+  if (!Array.isArray(groups)) return { metrics: [], failure: failure || "malformed_response" };
+  if (!groups.length) return { metrics: [], failure: failure || "no_data" };
   const zone = firstGroup(viewerData?.zones);
   const account = firstGroup(viewerData?.accounts);
   const traffic = firstGroup(zone?.traffic);
@@ -173,25 +224,27 @@ function metricsFromPayload(value: unknown): AnalyticsSnapshot | null {
   const apiSum = plainObject(apiWorker?.sum);
   const siteWorker = firstGroup(account?.siteWorker);
   const siteSum = plainObject(siteWorker?.sum);
-  // A missing scope means the token/configuration cannot read the requested
-  // resource. Empty aggregate groups are valid for an idle or undeployed
-  // Worker, so retain every aggregate that did arrive instead of hiding the
-  // entire provider card or manufacturing zeros. A provider response that
-  // contains neither scope remains unusable.
-  if (!zone && !account) return null;
-  const metrics = [
+  // Only project the requested scope, even if an unexpected response includes
+  // extra data. Empty groups never manufacture zero usage.
+  const candidates = scope === "zone" ? [
     traffic && metric("cloudflare-edge-requests-24h", "Cloudflare edge requests (24h)", traffic.count, "End-user requests at the Cloudflare edge over the last 24 hours."),
     trafficSum && metric("cloudflare-visits-24h", "Cloudflare visits (24h)", trafficSum.visits, "A visit is a direct or referral page view, not a unique visitor count."),
     trafficSum && metric("cloudflare-edge-data-transfer-24h", "Cloudflare data transfer (24h)", trafficSum.edgeResponseBytes, "Edge response bytes served to end users in the last 24 hours.", "bytes"),
+  ] : [
     apiSum && metric("cloudflare-api-worker-requests-24h", "API Worker requests (24h)", apiSum.requests, "Invocations of jakh-api in the last 24 hours."),
     apiSum && metric("cloudflare-api-worker-errors-24h", "API Worker errors (24h)", apiSum.errors, "Cloudflare Worker invocation errors, not site HTTP status codes."),
     siteSum && metric("cloudflare-site-worker-requests-24h", "Site Worker requests (24h)", siteSum.requests, "Invocations of jakh-site in the last 24 hours."),
     siteSum && metric("cloudflare-site-worker-errors-24h", "Site Worker errors (24h)", siteSum.errors, "Cloudflare Worker invocation errors, not site HTTP status codes."),
-  ].filter((candidate): candidate is PlatformStatusMetric => candidate !== null);
-  if (!metrics.length) return null;
+  ];
+  const metrics = candidates.filter((candidate): candidate is PlatformStatusMetric => candidate !== null);
+  const expectedCount = scope === "zone" ? 3 : 4;
+  const aggregateGroups = scope === "zone" ? [zone?.traffic] : [account?.apiWorker, account?.siteWorker];
+  const missingAggregate = aggregateGroups.some((group) => Array.isArray(group) && !group.length);
   return {
     metrics,
-    coverage: zone && account && metrics.length === EXPECTED_METRIC_COUNT ? "complete" : "partial",
+    ...(failure ? { failure } : metrics.length < expectedCount
+      ? { failure: missingAggregate ? "no_data" : "malformed_response" }
+      : {}),
   };
 }
 
@@ -212,7 +265,7 @@ function cacheKey(config: CloudflareAnalyticsConfig): Request {
 async function limitedText(response: Response): Promise<string> {
   const declaredSize = Number(response.headers.get("content-length") || "0");
   if (Number.isFinite(declaredSize) && declaredSize > MAX_RESPONSE_BYTES) {
-    throw new Error("Cloudflare analytics response exceeds the safe limit");
+    throw new AnalyticsFailure("malformed_response");
   }
   if (!response.body) return "";
   const reader = response.body.getReader();
@@ -224,7 +277,7 @@ async function limitedText(response: Response): Promise<string> {
       if (done) break;
       if (!value) continue;
       size += value.byteLength;
-      if (size > MAX_RESPONSE_BYTES) throw new Error("Cloudflare analytics response exceeds the safe limit");
+      if (size > MAX_RESPONSE_BYTES) throw new AnalyticsFailure("malformed_response");
       chunks.push(value);
     }
   } finally {
@@ -244,8 +297,24 @@ async function jsonBody(response: Response): Promise<unknown> {
   try {
     return JSON.parse(text) as unknown;
   } catch {
-    throw new Error("Cloudflare analytics response is not valid JSON");
+    throw new AnalyticsFailure("malformed_response");
   }
+}
+
+function safeDiagnostics(value: unknown): CloudflareAnalyticsDiagnostics | undefined {
+  const input = plainObject(value);
+  if (!input) return undefined;
+  const diagnostics: CloudflareAnalyticsDiagnostics = {};
+  const categories: CloudflareAnalyticsFailureCategory[] = [
+    "configuration_invalid", "authentication_failed", "permission_denied", "rate_limited", "query_limit", "provider_failure", "malformed_response", "timeout", "query_rejected", "no_data",
+  ];
+  for (const scope of ["zone", "workers"] as const) {
+    const category = input[scope];
+    if (typeof category === "string" && categories.includes(category as CloudflareAnalyticsFailureCategory)) {
+      diagnostics[scope] = category as CloudflareAnalyticsFailureCategory;
+    }
+  }
+  return Object.keys(diagnostics).length ? diagnostics : undefined;
 }
 
 function cacheEntry(value: unknown): CacheEntry | null {
@@ -265,7 +334,8 @@ function cacheEntry(value: unknown): CacheEntry | null {
   });
   if (metrics.length !== entry.metrics.length) return null;
   const coverage: CloudflareAnalyticsCoverage = entry.coverage === "partial" ? "partial" : "complete";
-  return { cachedAt: entry.cachedAt, observedAt: entry.observedAt, coverage, metrics };
+  const diagnostics = safeDiagnostics(entry.diagnostics);
+  return { cachedAt: entry.cachedAt, observedAt: entry.observedAt, coverage, metrics, ...(diagnostics ? { diagnostics } : {}) };
 }
 
 async function readCache(config: CloudflareAnalyticsConfig): Promise<CacheEntry | null> {
@@ -293,51 +363,93 @@ async function writeCache(config: CloudflareAnalyticsConfig, entry: CacheEntry):
   }
 }
 
-async function fetchLiveSnapshot(config: CloudflareAnalyticsConfig, now: Date): Promise<CacheEntry> {
+async function fetchScope(config: CloudflareAnalyticsConfig, scope: AnalyticsScope, start: string, end: string): Promise<ScopeSnapshot> {
+  const resourceId = scope === "zone" ? config.zoneId : config.accountId;
+  if (!/^[a-f0-9]{32}$/iu.test(resourceId) || /[\s\u0000-\u001f\u007f]/u.test(config.token)) {
+    throw new AnalyticsFailure("configuration_invalid");
+  }
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  // Race the whole request, including body consumption, against a deadline.
+  // Aborting fetch alone does not bound a stalled or non-cooperative stream.
+  const deadline = new Promise<never>((_, reject) => {
+    timeout = setTimeout(() => {
+      reject(new AnalyticsFailure("timeout"));
+      controller.abort();
+    }, REQUEST_TIMEOUT_MS);
+  });
   try {
-    const end = now.toISOString();
-    const start = new Date(now.getTime() - WINDOW_MS).toISOString();
-    const response = await fetch(GRAPHQL_URL, {
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${config.token}`,
-        accept: "application/json",
-        "content-type": "application/json",
-      },
-      redirect: "error",
-      signal: controller.signal,
-      body: JSON.stringify({
-        query: CLOUDFLARE_ANALYTICS_QUERY,
-        variables: {
-          zoneTag: config.zoneId,
-          accountTag: config.accountId,
-          apiWorkerName: config.apiWorkerName,
-          siteWorkerName: config.siteWorkerName,
-          start,
-          end,
+    const request = (async () => {
+      const response = await fetch(GRAPHQL_URL, {
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${config.token}`,
+          accept: "application/json",
+          "content-type": "application/json",
         },
-      }),
-    });
-    if (!response.ok) throw new Error("Cloudflare analytics request failed");
-    const payload = plainObject(await jsonBody(response));
-    if (!payload) throw new Error("Cloudflare analytics query did not return a usable result");
-    const snapshot = metricsFromPayload(payload);
-    if (!snapshot) throw new Error("Cloudflare analytics query returned an unexpected shape");
-    // GraphQL can return usable data alongside errors from a separate
-    // zone/account dataset. Keep that normalized data but never expose the
-    // provider errors or present a complete snapshot when one was reported.
-    const hasGraphqlErrors = Array.isArray(payload.errors) && payload.errors.length > 0;
-    return {
-      cachedAt: end,
-      observedAt: end,
-      ...snapshot,
-      coverage: hasGraphqlErrors ? "partial" : snapshot.coverage,
-    };
+        redirect: "error",
+        signal: controller.signal,
+        body: JSON.stringify({
+          query: scope === "zone" ? CLOUDFLARE_ZONE_QUERY : CLOUDFLARE_WORKERS_QUERY,
+          variables: {
+            ...(scope === "zone" ? { zoneTag: config.zoneId } : {
+              accountTag: config.accountId,
+              apiWorkerName: config.apiWorkerName,
+              siteWorkerName: config.siteWorkerName,
+            }),
+            start,
+            end,
+          },
+        }),
+      });
+      if (!response.ok) {
+        if (response.status === 401) throw new AnalyticsFailure("authentication_failed");
+        if (response.status === 403) throw new AnalyticsFailure("permission_denied");
+        if (response.status === 429) throw new AnalyticsFailure("rate_limited");
+        if (response.status === 400) {
+          // Cloudflare returns GraphQL validation/query-limit errors with
+          // either HTTP 200 or 400. Inspect only the bounded JSON error shape.
+          let payload: Record<string, unknown> | null = null;
+          try { payload = plainObject(await jsonBody(response)); } catch { /* Use the generic rejection category. */ }
+          throw new AnalyticsFailure(payload ? graphqlFailure(payload) || "query_rejected" : "query_rejected");
+        }
+        throw new AnalyticsFailure(response.status >= 500 ? "provider_failure" : "query_rejected");
+      }
+      return metricsFromPayload(await jsonBody(response), scope);
+    })();
+    return await Promise.race([request, deadline]);
   } finally {
     clearTimeout(timeout);
   }
+}
+
+async function fetchLiveSnapshot(config: CloudflareAnalyticsConfig, now: Date): Promise<{ entry: CacheEntry | null; diagnostics?: CloudflareAnalyticsDiagnostics }> {
+  const end = now.toISOString();
+  const start = new Date(now.getTime() - WINDOW_MS).toISOString();
+  const scopes = ["zone", "workers"] as const;
+  const results = await Promise.allSettled(scopes.map((scope) => fetchScope(config, scope, start, end)));
+  const metrics: PlatformStatusMetric[] = [];
+  const failures: CloudflareAnalyticsDiagnostics = {};
+  results.forEach((result, index) => {
+    const scope = scopes[index]!;
+    if (result.status === "fulfilled") {
+      metrics.push(...result.value.metrics);
+      if (result.value.failure) failures[scope] = result.value.failure;
+    } else {
+      failures[scope] = result.reason instanceof AnalyticsFailure ? result.reason.category : "provider_failure";
+    }
+  });
+  const diagnostics = safeDiagnostics(failures);
+  return {
+    entry: metrics.length ? {
+      cachedAt: end,
+      observedAt: end,
+      metrics,
+      coverage: metrics.length === EXPECTED_METRIC_COUNT && !diagnostics ? "complete" : "partial",
+      ...(diagnostics ? { diagnostics } : {}),
+    } : null,
+    ...(diagnostics ? { diagnostics } : {}),
+  };
 }
 
 function liveStatus(entry: CacheEntry): CloudflareAnalyticsStatus {
@@ -351,10 +463,11 @@ function liveStatus(entry: CacheEntry): CloudflareAnalyticsStatus {
     coverage: entry.coverage,
     observedAt: entry.observedAt,
     metrics: entry.metrics,
+    ...(entry.diagnostics ? { diagnostics: entry.diagnostics } : {}),
   };
 }
 
-function staleStatus(entry: CacheEntry): CloudflareAnalyticsStatus {
+function staleStatus(entry: CacheEntry, diagnostics?: CloudflareAnalyticsDiagnostics): CloudflareAnalyticsStatus {
   return {
     state: "stale",
     headline: "Cloudflare analytics needs a refresh",
@@ -364,6 +477,7 @@ function staleStatus(entry: CacheEntry): CloudflareAnalyticsStatus {
     coverage: entry.coverage,
     observedAt: entry.observedAt,
     metrics: entry.metrics,
+    ...(diagnostics ? { diagnostics } : {}),
   };
 }
 
@@ -388,21 +502,21 @@ export async function cloudflareAnalyticsStatus(
   if (cached && Number.isFinite(cachedAt) && now.getTime() - cachedAt <= CACHE_TTL_MS) {
     return liveStatus(cached);
   }
-  try {
-    const fresh = await fetchLiveSnapshot(config, now);
-    await writeCache(config, fresh);
-    return liveStatus(fresh);
-  } catch {
-    if (cached && Number.isFinite(cachedAt) && now.getTime() - cachedAt <= MAX_STALE_MS) {
-      return staleStatus(cached);
-    }
-    return {
-      state: "unavailable",
-      headline: "Cloudflare analytics is temporarily unavailable",
-      detail: "The secure analytics connection did not return a usable aggregate snapshot. Cloudflare traffic and the website itself may still be operating normally.",
-      coverage: null,
-      observedAt: null,
-      metrics: [],
-    };
+  const fresh = await fetchLiveSnapshot(config, now);
+  if (fresh.entry) {
+    await writeCache(config, fresh.entry);
+    return liveStatus(fresh.entry);
   }
+  if (cached && Number.isFinite(cachedAt) && now.getTime() - cachedAt <= MAX_STALE_MS) {
+    return staleStatus(cached, fresh.diagnostics);
+  }
+  return {
+    state: "unavailable",
+    headline: "Cloudflare analytics is temporarily unavailable",
+    detail: "The secure analytics connection did not return a usable aggregate snapshot. Cloudflare traffic and the website itself may still be operating normally.",
+    coverage: null,
+    observedAt: null,
+    metrics: [],
+    ...(fresh.diagnostics ? { diagnostics: fresh.diagnostics } : {}),
+  };
 }

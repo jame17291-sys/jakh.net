@@ -5,8 +5,8 @@ import { cloudflareAnalyticsStatus } from "../dist/cloudflare-analytics.js";
 const NOW = new Date("2026-09-23T12:00:00.000Z");
 const CONFIG = {
   CLOUDFLARE_ANALYTICS_API_TOKEN: "read-only-test-token",
-  CLOUDFLARE_ANALYTICS_ACCOUNT_ID: "account-test-id",
-  CLOUDFLARE_ANALYTICS_ZONE_ID: "zone-test-id",
+  CLOUDFLARE_ANALYTICS_ACCOUNT_ID: "a".repeat(32),
+  CLOUDFLARE_ANALYTICS_ZONE_ID: "b".repeat(32),
   CLOUDFLARE_ANALYTICS_API_WORKER_NAME: "jakh-api",
   CLOUDFLARE_ANALYTICS_SITE_WORKER_NAME: "jakh-site",
 };
@@ -75,15 +75,24 @@ test("Cloudflare analytics returns a normalized, cached aggregate without leakin
 
   const first = await cloudflareAnalyticsStatus(CONFIG, NOW);
   assert.equal(first.state, "healthy");
-  assert.equal(requests.length, 1);
+  assert.equal(requests.length, 2);
   assert.equal(requests[0].input, "https://api.cloudflare.com/client/v4/graphql");
   assert.equal(requests[0].init.method, "POST");
   assert.equal(requests[0].init.headers.authorization, "Bearer read-only-test-token");
-  const query = JSON.parse(requests[0].init.body);
-  assert.match(query.query, /httpRequestsAdaptiveGroups/u);
-  assert.match(query.query, /workersInvocationsAdaptive/u);
-  assert.equal(query.variables.zoneTag, CONFIG.CLOUDFLARE_ANALYTICS_ZONE_ID);
-  assert.equal(query.variables.accountTag, CONFIG.CLOUDFLARE_ANALYTICS_ACCOUNT_ID);
+  const zoneQuery = JSON.parse(requests[0].init.body);
+  const workersQuery = JSON.parse(requests[1].init.body);
+  assert.match(zoneQuery.query, /httpRequestsAdaptiveGroups/u);
+  assert.doesNotMatch(zoneQuery.query, /workersInvocationsAdaptive/u);
+  assert.match(workersQuery.query, /workersInvocationsAdaptive/u);
+  assert.doesNotMatch(workersQuery.query, /httpRequestsAdaptiveGroups/u);
+  assert.equal(zoneQuery.variables.zoneTag, CONFIG.CLOUDFLARE_ANALYTICS_ZONE_ID);
+  assert.equal(workersQuery.variables.accountTag, CONFIG.CLOUDFLARE_ANALYTICS_ACCOUNT_ID);
+  assert.equal(zoneQuery.variables.accountTag, undefined);
+  assert.equal(workersQuery.variables.zoneTag, undefined);
+  assert.equal(zoneQuery.variables.start, workersQuery.variables.start);
+  assert.equal(zoneQuery.variables.end, workersQuery.variables.end);
+  assert.equal(first.metrics.length, 7);
+  assert.equal(first.diagnostics, undefined);
 
   const metrics = metricValues(first);
   assert.equal(metrics.get("cloudflare-edge-requests-24h").value, 1_240);
@@ -96,7 +105,7 @@ test("Cloudflare analytics returns a normalized, cached aggregate without leakin
 
   const cached = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + 60_000));
   assert.equal(cached.state, "healthy");
-  assert.equal(requests.length, 1, "a five-minute cache window must avoid another provider query");
+  assert.equal(requests.length, 2, "a five-minute cache window must avoid more provider queries");
   assert.deepEqual(cached.metrics, first.metrics);
 });
 
@@ -106,7 +115,7 @@ test("Cloudflare analytics keeps a configuration-scoped stale snapshot when a re
   let calls = 0;
   globalThis.fetch = async () => {
     calls += 1;
-    if (calls === 1) {
+    if (calls <= 2) {
       return new Response(JSON.stringify(graphqlResponse()), { headers: { "content-type": "application/json" } });
     }
     throw new Error("provider temporarily unavailable");
@@ -117,12 +126,13 @@ test("Cloudflare analytics keeps a configuration-scoped stale snapshot when a re
   const stale = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + (5 * 60 * 1_000) + 1));
   assert.equal(first.state, "healthy");
   assert.equal(stale.state, "stale");
-  assert.equal(calls, 2, "a refresh is attempted after the five-minute fresh window");
+  assert.equal(calls, 4, "both scopes refresh after the five-minute fresh window");
   assert.deepEqual(stale.metrics, first.metrics);
+  assert.deepEqual(stale.diagnostics, { zone: "provider_failure", workers: "provider_failure" });
 
-  const otherZone = await cloudflareAnalyticsStatus({ ...CONFIG, CLOUDFLARE_ANALYTICS_ZONE_ID: "other-zone" }, NOW);
+  const otherZone = await cloudflareAnalyticsStatus({ ...CONFIG, CLOUDFLARE_ANALYTICS_ZONE_ID: "c".repeat(32) }, NOW);
   assert.equal(otherZone.state, "unavailable");
-  assert.equal(calls, 3, "a different zone must not reuse this zone's cached snapshot");
+  assert.equal(calls, 6, "a different zone must not reuse this zone's cached snapshot");
 });
 
 test("Cloudflare analytics retains valid partial aggregates without manufacturing Worker zeros", async (t) => {
@@ -145,6 +155,11 @@ test("Cloudflare analytics retains valid partial aggregates without manufacturin
   assert.equal(metrics.get("cloudflare-api-worker-errors-24h").value, 2);
   assert.equal(metrics.has("cloudflare-site-worker-requests-24h"), false);
   assert.equal(metrics.has("cloudflare-site-worker-errors-24h"), false);
+  assert.deepEqual(partial.diagnostics, { workers: "no_data" });
+
+  const cached = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + 60_000));
+  assert.equal(cached.state, "partial");
+  assert.deepEqual(cached.diagnostics, partial.diagnostics);
 
   failRefresh = true;
   const stale = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + (5 * 60 * 1_000) + 1));
@@ -186,4 +201,134 @@ test("Cloudflare GraphQL errors keep the admin endpoint safe and show no raw pro
   assert.equal(status.observedAt, null);
   assert.deepEqual(status.metrics, []);
   assert.doesNotMatch(JSON.stringify(status), /test-private-detail/u);
+});
+
+test("Cloudflare isolates a rejected scope and caches the successful scope in either direction", async (t) => {
+  const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
+  for (const failedScope of ["zone", "workers"]) {
+    await t.test(failedScope, async (t) => {
+      installEdgeCache(t);
+      let calls = 0;
+      globalThis.fetch = async (_input, init) => {
+        calls += 1;
+        const isZone = "zoneTag" in JSON.parse(init.body).variables;
+        if (isZone === (failedScope === "zone")) {
+          return new Response(JSON.stringify({ errors: [{ message: "does not have access: private-account-id" }] }));
+        }
+        return new Response(JSON.stringify(graphqlResponse()));
+      };
+      const status = await cloudflareAnalyticsStatus(CONFIG, NOW);
+      assert.equal(status.state, "partial");
+      assert.equal(status.metrics.length, failedScope === "zone" ? 4 : 3);
+      assert.deepEqual(status.diagnostics, { [failedScope]: "permission_denied" });
+      assert.doesNotMatch(JSON.stringify(status), /private-account-id|read-only-test-token/u);
+      const cached = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + 60_000));
+      assert.equal(calls, 2);
+      assert.deepEqual(cached, status);
+    });
+  }
+});
+
+test("Cloudflare returns only allowlisted failure categories when both scopes fail", async (t) => {
+  const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
+  const cases = [
+    ["authentication_failed", () => new Response("private body", { status: 401 })],
+    ["permission_denied", () => new Response("private body", { status: 403 })],
+    ["rate_limited", () => new Response("private body", { status: 429 })],
+    ["provider_failure", () => new Response("private body", { status: 503 })],
+    ["query_rejected", () => new Response("private body", { status: 400 })],
+    ["malformed_response", () => new Response("not JSON: private body")],
+    ["malformed_response", () => new Response(JSON.stringify({ unexpected: "private body" }))],
+    ["malformed_response", () => new Response("private body", { headers: { "content-length": "65537" } })],
+    ["no_data", () => new Response(JSON.stringify({ data: { viewer: { zones: [], accounts: [] } } }))],
+    ["authentication_failed", () => new Response(JSON.stringify({ errors: [{ message: "Authentication error: private body" }] }))],
+    ["permission_denied", () => new Response(JSON.stringify({ errors: [{ message: "not authorized: private body" }] }))],
+    ["rate_limited", () => new Response(JSON.stringify({ errors: [{ message: "rate limit exceeded: private body" }] }))],
+    ["query_limit", () => new Response(JSON.stringify({ errors: [{ message: "time range is too large: private body" }] }))],
+    ["query_limit", () => new Response(JSON.stringify({ errors: [{ message: "cannot request data older than private body" }] }), { status: 400 })],
+    ["query_limit", () => new Response(JSON.stringify({ errors: [{ message: "number of fields can't be more than private body" }] }), { status: 400 })],
+    ["query_limit", () => new Response(JSON.stringify({ errors: [{ message: "limit must be positive number and not greater than private body" }] }), { status: 400 })],
+    ["query_rejected", () => new Response(JSON.stringify({ errors: [{ message: "unknown error: private body" }] }))],
+    ["provider_failure", () => { throw new Error("network failure: private body"); }],
+  ];
+  for (const [category, response] of cases) {
+    await t.test(category, async (t) => {
+      installEdgeCache(t);
+      globalThis.fetch = async () => response();
+      const status = await cloudflareAnalyticsStatus(CONFIG, NOW);
+      assert.equal(status.state, "unavailable");
+      assert.equal(status.observedAt, null);
+      assert.deepEqual(status.metrics, []);
+      assert.deepEqual(status.diagnostics, { zone: category, workers: category });
+      assert.doesNotMatch(JSON.stringify(status), /private body|read-only-test-token/u);
+    });
+  }
+});
+
+test("Cloudflare requests both scopes concurrently and bounds a stalled response body", async (t) => {
+  installEdgeCache(t);
+  t.mock.timers.enable({ apis: ["setTimeout"] });
+  const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
+  let calls = 0;
+  let markStarted;
+  const started = new Promise((resolve) => { markStarted = resolve; });
+  let stalledSignal;
+  globalThis.fetch = async (_input, init) => {
+    calls += 1;
+    if (calls === 2) markStarted();
+    if ("zoneTag" in JSON.parse(init.body).variables) return new Response(JSON.stringify(graphqlResponse()));
+    stalledSignal = init.signal;
+    return new Response(new ReadableStream({ start() {} }));
+  };
+  const pending = cloudflareAnalyticsStatus(CONFIG, NOW);
+  await started;
+  // Let the immediately available zone body settle before advancing time.
+  for (let tick = 0; tick < 10; tick += 1) await Promise.resolve();
+  assert.equal(calls, 2, "the second scope starts while the first is still in flight");
+  t.mock.timers.tick(5_000);
+  const status = await pending;
+  assert.equal(status.state, "partial");
+  assert.equal(status.metrics.length, 3);
+  assert.deepEqual(status.diagnostics, { workers: "timeout" });
+  assert.equal(stalledSignal.aborted, true);
+});
+
+test("Cloudflare rejects malformed configuration per scope without returning its contents", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
+  let calls = 0;
+  globalThis.fetch = async () => {
+    calls += 1;
+    return new Response(JSON.stringify(graphqlResponse()));
+  };
+  const partial = await cloudflareAnalyticsStatus({ ...CONFIG, CLOUDFLARE_ANALYTICS_ZONE_ID: "private-invalid-zone" }, NOW);
+  assert.equal(calls, 1);
+  assert.equal(partial.metrics.length, 4);
+  assert.deepEqual(partial.diagnostics, { zone: "configuration_invalid" });
+  assert.doesNotMatch(JSON.stringify(partial), /private-invalid-zone/u);
+  const invalidToken = await cloudflareAnalyticsStatus({
+    ...CONFIG, CLOUDFLARE_ANALYTICS_API_TOKEN: "private invalid token",
+  }, NOW);
+  assert.equal(calls, 1);
+  assert.equal(invalidToken.state, "unavailable");
+  assert.deepEqual(invalidToken.diagnostics, { zone: "configuration_invalid", workers: "configuration_invalid" });
+  assert.doesNotMatch(JSON.stringify(invalidToken), /private invalid token/u);
+});
+
+test("Cloudflare does not keep a failed snapshot beyond the 24-hour stale window", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  t.after(() => { globalThis.fetch = originalFetch; });
+  globalThis.fetch = async () => new Response(JSON.stringify(graphqlResponse()));
+  assert.equal((await cloudflareAnalyticsStatus(CONFIG, NOW)).state, "healthy");
+  globalThis.fetch = async () => new Response("private body", { status: 429 });
+  const expired = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + 24 * 60 * 60 * 1_000 + 1));
+  assert.equal(expired.state, "unavailable");
+  assert.equal(expired.observedAt, null);
+  assert.deepEqual(expired.metrics, []);
+  assert.deepEqual(expired.diagnostics, { zone: "rate_limited", workers: "rate_limited" });
 });

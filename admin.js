@@ -528,6 +528,53 @@
     allCaughtUp: "لا توجد ملاحظات أو مسودات بانتظار المراجعة.",
   });
 
+  Object.assign(COPY.en, {
+    autopilot: "Autopilot", autopilotLead: "Scheduled maintenance for generated search indexes and site pages.",
+    autopilotStatus: "Schedule status", autopilotActive: "Active", autopilotPaused: "Paused", autopilotNotConnected: "Not connected", autopilotStatusError: "Status unavailable",
+    autopilotActiveMessage: "Scheduled runs are enabled, subject to the schedule and daily limits below.",
+    autopilotPausedMessage: "Scheduled runs are paused. A run already in progress may finish.",
+    autopilotNotConnectedMessage: "The Autopilot service is not connected yet. Refresh after it becomes available.",
+    autopilotLoadError: "Could not confirm Autopilot status. Refresh to try again.", autopilotUpdateError: "Could not confirm the change. Refresh the status before trying again.",
+    autopilotResume: "Resume Autopilot", autopilotPause: "Pause Autopilot", autopilotUpdating: "Updating…",
+    autopilotResumed: "Autopilot is active.", autopilotPausedToast: "Autopilot is paused.",
+    autopilotPolicy: "Schedule and limits", autopilotSchedule: "Scheduled check", autopilotDailySchedule: "Daily at 07:23 Dubai time",
+    autopilotRunLimit: "Runs per day", autopilotReleaseLimit: "Releases per day", autopilotAiBudget: "AI budget (USD)",
+    autopilotNoAi: "No paid AI calls are allowed by this policy.", autopilotPolicyUnavailable: "Schedule and limits are unavailable until the service responds.",
+    autopilotScope: "Automatic repair scope", autopilotScopeDescription: "Checks for routine problems and repairs generated search indexes and site pages. A release must pass its checks before deployment.",
+    autopilotScopeLimits: "Question wording, accounts, and security settings require a separate review. Other findings appear in the run activity.",
+    autopilotLastRun: "Last run", autopilotActivity: "Run activity", autopilotNoRuns: "No runs have been recorded yet.",
+    autopilotActivityUnavailable: "Run activity is unavailable until the service responds.", autopilotRunLabel: "Run {id}", autopilotRunUnknown: "Recorded run",
+    autopilotInspecting: "Checking", autopilotNoChanges: "No changes needed", autopilotFixing: "Applying repairs", autopilotTesting: "Running checks",
+    autopilotReleaseReserved: "Release reserved", autopilotDeployed: "Deployed", autopilotFailed: "Failed", autopilotRolledBack: "Rolled back", autopilotNeedsAttention: "Needs attention",
+    autopilotViewRun: "View GitHub run", autopilotViewDeployment: "View deployment run", autopilotFindings: "Findings", autopilotRepairs: "Repairs applied",
+    autopilotChecksPassed: "Checks passed", autopilotChecksFailed: "Checks failed", autopilotFindingDetail: "Finding details",
+    autopilotBrokenLinks: "Broken links", autopilotAccessibility: "Accessibility", autopilotPerformance: "Performance", autopilotDependencies: "Dependencies", autopilotContent: "Content",
+    autopilotSourceCommit: "Source commit", autopilotCandidateCommit: "Candidate commit", autopilotBuild: "Deployed build", autopilotWorkerVersion: "Worker version",
+  });
+  Object.assign(COPY.ar, {
+    autopilot: "التشغيل التلقائي", autopilotLead: "صيانة مجدولة لفهارس البحث وصفحات الموقع المولّدة.",
+    autopilotStatus: "حالة الجدولة", autopilotActive: "نشط", autopilotPaused: "متوقف مؤقتًا", autopilotNotConnected: "غير متصل", autopilotStatusError: "الحالة غير متاحة",
+    autopilotActiveMessage: "التشغيل المجدول مفعّل وفق المواعيد والحدود اليومية أدناه.",
+    autopilotPausedMessage: "التشغيل المجدول متوقف مؤقتًا. قد تكتمل عملية بدأت بالفعل.",
+    autopilotNotConnectedMessage: "خدمة التشغيل التلقائي غير متصلة بعد. حدّث الحالة عندما تصبح متاحة.",
+    autopilotLoadError: "تعذر التحقق من حالة التشغيل التلقائي. حدّث الحالة للمحاولة مجددًا.", autopilotUpdateError: "تعذر تأكيد التغيير. حدّث الحالة قبل المحاولة مجددًا.",
+    autopilotResume: "استئناف التشغيل التلقائي", autopilotPause: "إيقاف التشغيل التلقائي مؤقتًا", autopilotUpdating: "جارٍ التحديث…",
+    autopilotResumed: "التشغيل التلقائي نشط الآن.", autopilotPausedToast: "توقف التشغيل التلقائي مؤقتًا.",
+    autopilotPolicy: "المواعيد والحدود", autopilotSchedule: "موعد الفحص", autopilotDailySchedule: "يوميًا الساعة 07:23 بتوقيت دبي",
+    autopilotRunLimit: "عمليات التشغيل يوميًا", autopilotReleaseLimit: "الإصدارات يوميًا", autopilotAiBudget: "ميزانية الذكاء الاصطناعي (دولار)",
+    autopilotNoAi: "لا تسمح هذه السياسة بأي استدعاءات مدفوعة لخدمات الذكاء الاصطناعي.", autopilotPolicyUnavailable: "تتوفر المواعيد والحدود بعد استجابة الخدمة.",
+    autopilotScope: "نطاق الإصلاح التلقائي", autopilotScopeDescription: "يفحص المشكلات المعتادة ويصلح فهارس البحث وصفحات الموقع المولّدة. يجب أن يجتاز الإصدار فحوصه قبل النشر.",
+    autopilotScopeLimits: "تتطلب صياغة الأسئلة والحسابات وإعدادات الأمان مراجعة منفصلة. تظهر الملاحظات الأخرى في سجل التشغيل.",
+    autopilotLastRun: "آخر تشغيل", autopilotActivity: "سجل التشغيل", autopilotNoRuns: "لم تُسجّل أي عمليات تشغيل بعد.",
+    autopilotActivityUnavailable: "يتوفر سجل التشغيل بعد استجابة الخدمة.", autopilotRunLabel: "عملية التشغيل {id}", autopilotRunUnknown: "عملية تشغيل مسجّلة",
+    autopilotInspecting: "جارٍ الفحص", autopilotNoChanges: "لا حاجة لتغييرات", autopilotFixing: "جارٍ الإصلاح", autopilotTesting: "جارٍ تنفيذ الفحوص",
+    autopilotReleaseReserved: "حُجز الإصدار", autopilotDeployed: "نُشر", autopilotFailed: "فشل", autopilotRolledBack: "أُعيد الإصدار السابق", autopilotNeedsAttention: "يحتاج إلى متابعة",
+    autopilotViewRun: "عرض التشغيل في GitHub", autopilotViewDeployment: "عرض عملية النشر", autopilotFindings: "الملاحظات", autopilotRepairs: "الإصلاحات المطبّقة",
+    autopilotChecksPassed: "الفحوص الناجحة", autopilotChecksFailed: "الفحوص الفاشلة", autopilotFindingDetail: "تفاصيل الملاحظات",
+    autopilotBrokenLinks: "روابط معطّلة", autopilotAccessibility: "إمكانية الوصول", autopilotPerformance: "الأداء", autopilotDependencies: "الاعتماديات", autopilotContent: "المحتوى",
+    autopilotSourceCommit: "نسخة المصدر", autopilotCandidateCommit: "النسخة المرشحة", autopilotBuild: "البناء المنشور", autopilotWorkerVersion: "نسخة الخدمة",
+  });
+
   const state = {
     lang: "en",
     me: null,
@@ -535,6 +582,7 @@
     health: null,
     security: null,
     audit: null,
+    autopilot: { data: null, phase: "idle", pending: false, errorKey: "", requestVersion: 0 },
     activeTab: "overview",
     gateMode: "checking",
     people: { items: [], nextOffset: null, canViewEmail: false },
@@ -694,6 +742,7 @@
     if (state.feedback.items.length) renderFeedback();
     if (state.audit) renderAudit();
     if (state.security) renderSecurity();
+    renderAutopilot();
     if (state.content.catalog) renderContentCategoryOptions();
     if (state.content.loaded) {
       renderContentQuestionList();
@@ -795,6 +844,7 @@
     els.identityRole.textContent = roleLabel(user.role).toUpperCase();
     els.identityAvatar.textContent = user.avatar || "👤";
     els.auditTab.hidden = user.role !== "OWNER";
+    els.autopilotTab.hidden = user.role !== "OWNER";
     els.sessionControlCard.hidden = user.role !== "OWNER";
   }
 
@@ -1704,6 +1754,125 @@
     return data;
   }
 
+  function autopilotRunStatus(status) {
+    const keys = { inspecting: "autopilotInspecting", no_changes: "autopilotNoChanges", fixing: "autopilotFixing", testing: "autopilotTesting", release_reserved: "autopilotReleaseReserved", deployed: "autopilotDeployed", failed: "autopilotFailed", rolled_back: "autopilotRolledBack", paused: "autopilotPaused", needs_attention: "autopilotNeedsAttention" };
+    return t(keys[status] || "autopilotStatusError");
+  }
+
+  function autopilotStatusClass(status) {
+    if (["failed", "rolled_back", "needs_attention"].includes(status)) return "is-danger";
+    return ["deployed", "no_changes"].includes(status) ? "is-good" : "is-pending";
+  }
+
+  function autopilotCount(value) {
+    return Number.isFinite(value) && value >= 0 ? numberFormat(value) : "—";
+  }
+
+  function autopilotRunLink(value, label) {
+    try {
+      const url = new URL(value);
+      // Receipts are links to GitHub runs, never arbitrary HTML or executable URLs.
+      if (url.protocol !== "https:" || url.hostname !== "github.com" || url.username || url.password || !/^\/[^/]+\/[^/]+\/actions\/runs\/\d+(?:\/|$)/u.test(url.pathname)) return "";
+      return `<a href="${escapeHtml(url.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t(label))}</a>`;
+    } catch { return ""; }
+  }
+
+  function autopilotRunMarkup(run) {
+    const facts = [
+      ["autopilotFindings", autopilotCount(run.findings?.total)], ["autopilotRepairs", autopilotCount(run.fixesApplied)],
+      ["autopilotChecksPassed", autopilotCount(run.checksPassed)], ["autopilotChecksFailed", autopilotCount(run.checksFailed)],
+    ];
+    const machineFacts = [["autopilotSourceCommit", run.sourceSha], ["autopilotCandidateCommit", run.candidateSha], ["autopilotBuild", run.buildId], ["autopilotWorkerVersion", run.workerVersion]];
+    const findingKeys = { brokenLinks: "autopilotBrokenLinks", accessibility: "autopilotAccessibility", performance: "autopilotPerformance", dependencies: "autopilotDependencies", content: "autopilotContent" };
+    const findingDetails = run.findings && typeof run.findings === "object" ? `<details><summary>${escapeHtml(t("autopilotFindingDetail"))}</summary><ul class="autopilot-findings">${Object.entries(findingKeys).map(([key, label]) => `<li>${escapeHtml(t(label))}: ${escapeHtml(autopilotCount(run.findings[key]))}</li>`).join("")}</ul></details>` : "";
+    return `<article class="autopilot-run"><div class="autopilot-run-heading"><div><h3>${escapeHtml(run.runId ? t("autopilotRunLabel", { id: run.runId }) : t("autopilotRunUnknown"))}</h3><p><time datetime="${escapeHtml(run.startedAt || "")}">${escapeHtml(dateFormat(run.startedAt, true))}</time></p></div><span class="status-pill ${autopilotStatusClass(run.status)}">${escapeHtml(autopilotRunStatus(run.status))}</span></div>
+      <dl class="autopilot-run-facts">${facts.map(([label, value]) => `<div><dt>${escapeHtml(t(label))}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}${machineFacts.filter(([, value]) => typeof value === "string" && value).map(([label, value]) => `<div><dt>${escapeHtml(t(label))}</dt><dd><bdi class="autopilot-machine" dir="ltr">${escapeHtml(value)}</bdi></dd></div>`).join("")}</dl>
+      ${findingDetails}<div class="autopilot-run-links">${autopilotRunLink(run.url, "autopilotViewRun")}${autopilotRunLink(run.deploymentUrl, "autopilotViewDeployment")}</div></article>`;
+  }
+
+  function renderAutopilot() {
+    if (!els.autopilotStatus) return;
+    const { data, phase, pending, errorKey } = state.autopilot;
+    const loading = phase === "idle" || phase === "loading";
+    const ready = phase === "ready" && Boolean(data);
+    const statusKey = pending ? "autopilotUpdating" : loading ? "loading" : phase === "unavailable" ? "autopilotNotConnected" : !ready ? "autopilotStatusError" : data.enabled ? "autopilotActive" : "autopilotPaused";
+    els.autopilotStatus.textContent = t(statusKey);
+    els.autopilotStatus.className = `status-pill ${phase === "error" ? "is-danger" : ready && data.enabled ? "is-good" : "is-pending"}`;
+    els.autopilotStatusMessage.textContent = t(loading ? "loading" : phase === "unavailable" ? "autopilotNotConnectedMessage" : !ready ? "autopilotLoadError" : data.enabled ? "autopilotActiveMessage" : "autopilotPausedMessage");
+    els.autopilotError.hidden = !errorKey;
+    els.autopilotError.textContent = errorKey ? t(errorKey) : "";
+    els.autopilotToggle.hidden = !data;
+    els.autopilotToggle.disabled = !ready || pending;
+    els.autopilotToggle.textContent = t(pending ? "autopilotUpdating" : data?.enabled ? "autopilotPause" : "autopilotResume");
+    els.autopilotToggle.className = data?.enabled ? "secondary-button" : "primary-button";
+    els.autopilotRefresh.disabled = loading || pending;
+    els.autopilotPanel.setAttribute("aria-busy", String(loading || pending));
+
+    const policy = data?.policy;
+    els.autopilotPolicy.innerHTML = policy ? [
+      ["autopilotSchedule", policy.schedule === "Daily at 07:23 Dubai" ? t("autopilotDailySchedule") : String(policy.schedule || "—")],
+      ["autopilotRunLimit", autopilotCount(policy.maxRunsPerDay)], ["autopilotReleaseLimit", autopilotCount(policy.maxReleasesPerDay)], ["autopilotAiBudget", autopilotCount(policy.aiBudgetUsd)],
+    ].map(([label, value]) => `<div><dt>${escapeHtml(t(label))}</dt><dd dir="auto">${escapeHtml(value)}</dd></div>`).join("") : `<div><dt class="sr-only">${escapeHtml(t("autopilotPolicy"))}</dt><dd>${escapeHtml(t("autopilotPolicyUnavailable"))}</dd></div>`;
+    els.autopilotBudgetMessage.hidden = policy?.aiBudgetUsd !== 0;
+    els.autopilotBudgetMessage.textContent = t("autopilotNoAi");
+
+    const runs = Array.isArray(data?.runs) ? data.runs.filter((run) => run && typeof run === "object").slice(0, 30) : [];
+    const last = data?.lastRun;
+    const emptyKey = data ? "autopilotNoRuns" : "autopilotActivityUnavailable";
+    els.autopilotLastRun.innerHTML = last && typeof last === "object"
+      ? `<p><span class="status-pill ${autopilotStatusClass(last.status)}">${escapeHtml(autopilotRunStatus(last.status))}</span></p><p><time datetime="${escapeHtml(last.startedAt || "")}">${escapeHtml(dateFormat(last.startedAt, true))}</time></p>${autopilotRunLink(last.url, "autopilotViewRun")}`
+      : `<p class="muted">${escapeHtml(t(emptyKey))}</p>`;
+    els.autopilotRuns.innerHTML = runs.length ? runs.map(autopilotRunMarkup).join("") : `<p class="muted">${escapeHtml(t(emptyKey))}</p>`;
+  }
+
+  function acceptAutopilotData(data) {
+    if (!data || typeof data.enabled !== "boolean" || !data.policy || !Array.isArray(data.runs)) throw new Error("Invalid Autopilot response");
+    state.autopilot.data = data;
+    state.autopilot.phase = "ready";
+    state.autopilot.errorKey = "";
+  }
+
+  async function loadAutopilot() {
+    if (state.me?.role !== "OWNER" || state.autopilot.pending) return;
+    const version = ++state.autopilot.requestVersion;
+    state.autopilot.phase = "loading";
+    state.autopilot.errorKey = "";
+    renderAutopilot();
+    try {
+      const data = await api("/admin/autopilot");
+      if (version !== state.autopilot.requestVersion) return;
+      acceptAutopilotData(data);
+    } catch (error) {
+      if (version !== state.autopilot.requestVersion) return;
+      state.autopilot.phase = error instanceof AdminApiError && error.status === 404 ? "unavailable" : "error";
+      state.autopilot.errorKey = state.autopilot.phase === "error" ? "autopilotLoadError" : "";
+      if (error instanceof AdminApiError && [401, 403].includes(error.status)) handleActionError(error);
+    } finally {
+      if (version === state.autopilot.requestVersion) renderAutopilot();
+    }
+  }
+
+  async function toggleAutopilot() {
+    if (state.me?.role !== "OWNER" || state.autopilot.pending || state.autopilot.phase !== "ready") return;
+    const enabled = !state.autopilot.data.enabled;
+    state.autopilot.pending = true;
+    state.autopilot.errorKey = "";
+    ++state.autopilot.requestVersion;
+    renderAutopilot();
+    try {
+      const data = await api("/admin/autopilot", { method: "POST", body: JSON.stringify({ enabled }) });
+      acceptAutopilotData(data);
+      showToast(t(data.enabled ? "autopilotResumed" : "autopilotPausedToast"));
+    } catch (error) {
+      state.autopilot.phase = "error";
+      state.autopilot.errorKey = "autopilotUpdateError";
+      if (error instanceof AdminApiError && [401, 403].includes(error.status)) handleActionError(error);
+    } finally {
+      state.autopilot.pending = false;
+      renderAutopilot();
+    }
+  }
+
   async function refreshVisible(showMessage = false) {
     if (showMessage && state.activeTab === "content" && !confirmContentLeave()) return;
     const tasks = [loadOverview(), loadHealth(), loadSecurity()];
@@ -1711,6 +1880,7 @@
     if (state.activeTab === "feedback") tasks.push(loadFeedback(true));
     if (state.activeTab === "content") tasks.push(loadContentCategory({ preserveSelection: true, refresh: showMessage, authorized: true }));
     if (state.activeTab === "audit" && state.me?.role === "OWNER") tasks.push(loadAudit());
+    if (state.activeTab === "autopilot" && state.me?.role === "OWNER") tasks.push(loadAutopilot());
     const results = await Promise.allSettled(tasks);
     const sessionFailure = results.find((result) => (
       result.status === "rejected"
@@ -1755,7 +1925,7 @@
   }
 
   function selectTab(tab, moveFocus = false, authorized = false) {
-    if (tab === "audit" && state.me?.role !== "OWNER") return false;
+    if (["audit", "autopilot"].includes(tab) && state.me?.role !== "OWNER") return false;
     state.activeTab = tab;
     $$("[data-tab]").forEach((button) => {
       const active = button.dataset.tab === tab;
@@ -1769,6 +1939,7 @@
     if (tab === "feedback" && !state.feedback.items.length) void loadFeedback(true).catch(handleActionError);
     if (tab === "content" && !state.content.loaded && !state.content.loading && !authorized) void loadContentCategory({ authorized: true }).catch(handleActionError);
     if (tab === "audit" && !state.audit) void loadAudit().catch(handleActionError);
+    if (tab === "autopilot" && ["idle", "error", "unavailable"].includes(state.autopilot.phase)) void loadAutopilot();
     return true;
   }
 
@@ -2206,6 +2377,8 @@
     els.feedbackFilterButton.addEventListener("click", () => void loadFeedback(true).catch(handleActionError));
     els.loadMoreFeedback.addEventListener("click", () => void loadFeedback(false).catch(handleActionError));
     els.reloadAudit.addEventListener("click", () => void loadAudit().catch(handleActionError));
+    els.autopilotRefresh.addEventListener("click", () => void loadAutopilot());
+    els.autopilotToggle.addEventListener("click", () => void toggleAutopilot());
     els.contentLoadButton.addEventListener("click", () => void loadContentCategory({ preserveSelection: true, refresh: true }).catch(handleActionError));
     els.contentCategory.addEventListener("change", changeContentCategory);
     els.contentCategorySearch.addEventListener("input", () => { renderContentCategoryOptions(); renderContentFilters(); });
@@ -2300,6 +2473,8 @@
       "contentCategorySearch", "contentActiveFilters", "contentClearFilters", "contentPageSize", "contentPageInfo", "contentPreviousPage", "contentNextPage",
       "contentWorkspace", "contentBackButton", "contentPreviewLanguage", "contentAddSource", "contentSaveState", "contentReportContext", "contentPublishedState",
       "recentEdits", "accountMetricGrid",
+      "autopilotTab", "autopilotPanel", "autopilotStatus", "autopilotStatusMessage", "autopilotError", "autopilotRefresh", "autopilotToggle",
+      "autopilotPolicy", "autopilotBudgetMessage", "autopilotLastRun", "autopilotRuns",
     ].forEach((id) => { els[id] = document.getElementById(id); });
   }
 

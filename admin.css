@@ -494,3 +494,37 @@ textarea, input, button, select { scroll-margin-block: 6rem; }
 
 html:has(#contentWorkspace.is-editing) { scroll-padding-block-end: calc(var(--content-action-height, 10rem) + 1rem); }
 #contentEditorForm :is(input, textarea, select, button) { scroll-margin-block-end: calc(var(--content-action-height, 10rem) + 1rem); }
+
+.autopilot-control, .autopilot-grid, .autopilot-last { margin-bottom: 1rem; }
+.autopilot-control > .panel-heading h2 { margin: 0; }
+.autopilot-control > button { margin-top: 0.5rem; }
+.autopilot-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.autopilot-grid h2, .autopilot-last h2 { margin-top: 0; }
+.autopilot-facts, .autopilot-run-facts { display: grid; gap: 0.65rem; margin: 0.85rem 0; }
+.autopilot-facts > div, .autopilot-run-facts > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.65rem; }
+.autopilot-facts dt, .autopilot-run-facts dt { color: var(--muted); }
+.autopilot-facts dd, .autopilot-run-facts dd { margin: 0; overflow-wrap: anywhere; }
+.autopilot-run { padding: 1rem 0; border-top: 1px solid var(--line); min-width: 0; }
+.autopilot-run:first-child { border-top: 0; padding-top: 0; }
+.autopilot-run h3 { margin: 0; font-size: 1rem; }
+.autopilot-run-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: start; gap: 0.75rem; }
+.autopilot-run-heading p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.85rem; }
+.autopilot-run a, #autopilotLastRun a { color: var(--accent); overflow-wrap: anywhere; }
+.autopilot-run-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); font-size: 0.86rem; }
+.autopilot-run-facts > div { display: block; }
+.autopilot-run-facts dd { margin-top: 0.2rem; }
+.autopilot-findings { padding-inline-start: 1.25rem; color: var(--muted); font-size: 0.85rem; }
+.autopilot-findings li { margin-block: 0.25rem; }
+.autopilot-run details > summary { cursor: pointer; padding-block: 0.4rem; }
+.autopilot-run-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin-top: 0.65rem; }
+.autopilot-machine { direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; }
+@media (max-width: 680px) {
+  .autopilot-grid { grid-template-columns: 1fr; }
+  .autopilot-facts > div { grid-template-columns: 1fr; gap: 0.2rem; }
+  .autopilot-control .panel-heading { flex-wrap: wrap; }
+  .admin-tab { overflow-wrap: anywhere; min-width: 0; }
+  #autopilotTab { grid-column: 1 / -1; }
+}
+@media (forced-colors: active) {
+  .autopilot-run a, #autopilotLastRun a { color: LinkText; }
+}

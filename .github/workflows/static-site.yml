@@ -4,6 +4,14 @@ run-name: Static site production release · ${{ github.sha }}
 on:
   workflow_dispatch:
     inputs:
+      autopilot_run_id:
+        description: "Reserved daily maintenance run (leave empty for a manual release)"
+        required: false
+        type: string
+      autopilot_day:
+        description: "Reserved maintenance UTC day (leave empty for a manual release)"
+        required: false
+        type: string
       confirmation:
         description: "Type DEPLOY riddlearabia.com FROM protected main"
         required: true
@@ -17,6 +25,13 @@ on:
 permissions:
   actions: read
   contents: read
+  id-token: write
+
+env:
+  AUTOPILOT_RUN_ID: ${{ inputs.autopilot_run_id }}
+  AUTOPILOT_DAY: ${{ inputs.autopilot_day }}
+  AUTOPILOT_RELEASE_ENABLED: ${{ vars.AUTOPILOT_RELEASE_ENABLED }}
+  AUTOPILOT_DOMAIN_CUTOVER: ${{ inputs.domain_cutover }}
 
 concurrency:
   group: jakh-production-release
@@ -28,6 +43,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: ${{ inputs.autopilot_run_id != '' }}
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: ${{ inputs.autopilot_run_id != '' }}
+        with:
+          node-version: "24"
+      - name: Verify the reserved automatic release
+        if: ${{ inputs.autopilot_run_id != '' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/autopilot-client.mjs authorize-release
       - name: Require exact confirmation and protected main
         env:
           CONFIRMATION: ${{ inputs.confirmation }}
@@ -36,6 +64,7 @@ jobs:
           RELEASE_SHA: ${{ github.sha }}
           GITHUB_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
+          RELEASE_ENVIRONMENT: ${{ inputs.autopilot_run_id != '' && 'autopilot-production' || 'production' }}
         run: |
           set -euo pipefail
           if [ "$CONFIRMATION" != "DEPLOY riddlearabia.com FROM protected main" ]; then
@@ -82,7 +111,7 @@ jobs:
             --header "Authorization: Bearer $GITHUB_TOKEN" \
             --header "Accept: application/vnd.github+json" \
             --header "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/$REPOSITORY/environments/production")"
+            "https://api.github.com/repos/$REPOSITORY/environments/$RELEASE_ENVIRONMENT")"
           if [ "$environment_status" != "200" ]; then
             echo "::error title=Static release blocked::Could not verify the production environment (GitHub HTTP $environment_status)."
             exit 1
@@ -91,8 +120,11 @@ jobs:
           import { readFileSync } from "node:fs";
           const environment = JSON.parse(readFileSync(process.argv[2], "utf8"));
           const rules = Array.isArray(environment.protection_rules) ? environment.protection_rules : [];
-          if (!rules.some((rule) => rule.type === "required_reviewers")) {
+          if (process.env.RELEASE_ENVIRONMENT === "production" && !rules.some((rule) => rule.type === "required_reviewers")) {
             throw new Error("The production environment must require an approving reviewer");
+          }
+          if (!["production", "autopilot-production"].includes(process.env.RELEASE_ENVIRONMENT)) {
+            throw new Error("Unexpected release environment");
           }
           if (environment.deployment_branch_policy?.protected_branches !== true) {
             throw new Error("The production environment must allow only protected branches");
@@ -105,7 +137,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     environment:
-      name: production
+      name: ${{ inputs.autopilot_run_id != '' && 'autopilot-production' || 'production' }}
       url: https://riddlearabia.com
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -399,6 +431,12 @@ jobs:
             --expected-schema 9 \
             --receipt "$RECEIPT_DIR/api-gate-before-static.json" \
             --github-output "$GITHUB_OUTPUT"
+
+      - name: Recheck automatic release permission immediately before deployment
+        if: ${{ inputs.autopilot_run_id != '' }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/autopilot-client.mjs authorize-release
 
       - name: Deploy exact candidate
         id: deploy

@@ -1,3 +1,4 @@
+import { adminAutopilot, updateAdminAutopilot, claimAutopilot, reportAutopilot, reserveAutopilotRelease, authorizeAutopilotRelease } from "./autopilot.js";
 import { connectBattle, createBattle } from "./battle.js";
 import { BattleRoom } from "./battle-room.js";
 import {
@@ -174,6 +175,12 @@ async function route(request: Request, env: Env): Promise<Response> {
   }
   if (path === "/api/suggestions" && method === "POST") return suggestion(request, env);
   if (path === "/api/privacy/requests" && method === "POST") return privacyRequest(request, env);
+  if (path === "/api/admin/autopilot" && method === "GET") return adminAutopilot(request, env);
+  if (path === "/api/admin/autopilot" && method === "POST") return updateAdminAutopilot(request, env);
+  if (path === "/api/internal/autopilot/claim" && method === "POST") return claimAutopilot(request, env);
+  if (path === "/api/internal/autopilot/report" && method === "POST") return reportAutopilot(request, env);
+  if (path === "/api/internal/autopilot/release" && method === "POST") return reserveAutopilotRelease(request, env);
+  if (path === "/api/internal/autopilot/authorize-release" && method === "POST") return authorizeAutopilotRelease(request, env);
   if (path === "/api/admin/overview" && method === "GET") return adminOverview(request, env);
   if (path === "/api/admin/content" && method === "GET") return adminContent(request, env);
   if (path === "/api/admin/users" && method === "GET") return adminUsers(request, env);
@@ -225,7 +232,9 @@ export default {
         env,
       );
     }
-    if (!originIsAllowed(request, env.ALLOWED_ORIGINS)) {
+    const machineRequest = request.method === "POST" && !request.headers.has("origin")
+      && /^\/api\/internal\/autopilot\/(claim|report|release|authorize-release)$/u.test(new URL(request.url).pathname);
+    if (!machineRequest && !originIsAllowed(request, env.ALLOWED_ORIGINS)) {
       return withWorkerVersion(
         withCors(
           json({ error: "Origin is not allowed", code: "ORIGIN_NOT_ALLOWED" }, 403),

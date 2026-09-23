@@ -2173,7 +2173,9 @@
       const editorLanguage = event.target.closest("[data-editor-language]");
       if (editorLanguage) setEditorLanguage(editorLanguage.dataset.editorLanguage);
       const link = event.target.closest("a[href]");
-      if (link && hasUnsavedWork() && link.target !== "_blank" && !event.metaKey && !event.ctrlKey) {
+      const sameDocumentFragment = link && link.href.includes("#")
+        && link.origin === location.origin && link.pathname === location.pathname && link.search === location.search;
+      if (link && !sameDocumentFragment && hasUnsavedWork() && link.target !== "_blank" && !event.metaKey && !event.ctrlKey) {
         if (!confirmWorkspaceLeave()) event.preventDefault();
         else { state.content.dirty = false; state.feedback.drafts.clear(); }
       }

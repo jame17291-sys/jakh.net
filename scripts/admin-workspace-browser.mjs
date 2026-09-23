@@ -386,6 +386,25 @@ try {
     assert.equal(fixture.getState().suggestions.find((item) => item.id === REPORT_ID).resolutionNote, null, "Preserved text should remain an unsaved draft");
   });
 
+  await scenario("skip-to-content keyboard navigation preserves dirty feedback without asking to discard", async (page) => {
+    await page.locator("#feedbackTab").click();
+    const note = page.locator(`[data-feedback-resolution="${REPORT_ID}"]`);
+    await visible(page, `[data-feedback-resolution="${REPORT_ID}"]`);
+    const draft = "Keyboard navigation within this page must retain the investigation draft.";
+    await note.fill(draft);
+    const prompts = [];
+    page.on("dialog", async (dialog) => { prompts.push(dialog.message()); await dialog.dismiss(); });
+    await page.locator(".skip-link").focus();
+    await page.locator(".skip-link").press("Enter");
+    await eventually(() => new URL(page.url()).hash, (hash) => hash === "#main", "Skip link should navigate to the content fragment");
+    assert.deepEqual(prompts, [], "Same-page navigation must not trigger a discard prompt");
+    assert.equal(await page.locator("#main").evaluate((main) => document.activeElement === main), true);
+    assert.equal(await note.inputValue(), draft);
+    await page.locator("#languageToggle").click();
+    assert.equal(await note.inputValue(), draft, "Skip link must not clear the persistent draft map");
+    assert.equal(mutations().length, 0);
+  });
+
   await scenario("slow resolution note save preserves newer typing and prevents a competing status mutation", async (page) => {
     await page.locator("#feedbackTab").click();
     const note = page.locator(`[data-feedback-resolution="${REPORT_ID}"]`);

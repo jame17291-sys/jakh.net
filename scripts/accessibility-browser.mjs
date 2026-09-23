@@ -250,6 +250,9 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
           suspendedUsers: 1,
         },
         permissions: { canViewEmail: true },
+        editorialAvailable: true,
+        editorial: { drafts: 0, inReview: 1, publishedOverrides: 1 },
+        recentEdits: CONTENT_STUDIO_EDITS,
         recentUsers: [{
           id: "member-a11y",
           username: "MemberOne",
@@ -401,7 +404,14 @@ async function auditOwnerAdmin(context, baseUrl, lang) {
         await page.locator("#contentCategory").selectOption("science");
         await page.locator('[data-content-question="science-a11y-001"]').waitFor({ state: "visible" });
         await page.locator('[data-content-question="science-a11y-001"]').click();
+        await page.locator(`[data-editor-language="${lang}"]`).click();
+        await page.locator("#contentPreviewLanguage").selectOption(lang);
+        assert.equal(await page.locator(`[data-editor-language="${lang}"]`).getAttribute("aria-pressed"), "true");
+        await page.locator(`#contentQuestion${lang === "ar" ? "Ar" : "En"}`).waitFor({ state: "visible" });
         await page.locator("#contentPreviewCard .content-preview-card").waitFor({ state: "visible" });
+        assert.equal(await page.locator("#contentPreviewCard .content-preview-card").getAttribute("lang"), lang);
+        assert.equal(await page.locator("#contentPreviewCard .content-preview-card").getAttribute("dir"), lang === "ar" ? "rtl" : "ltr");
+        assert.equal(await page.locator('[data-source-field="publisher"]').first().inputValue(), "NASA");
         await page.locator("#contentHistoryButton").click();
         await page.locator("#contentHistoryList .content-revision").waitFor({ state: "visible" });
       }

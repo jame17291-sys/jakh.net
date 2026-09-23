@@ -56,6 +56,62 @@ export function createAdminFixtureState() {
     updatedAt: NOW,
     publishedAt: workflowStatus === "PUBLISHED" ? NOW : null,
   });
+  const platformStatus = {
+    updatedAt: NOW,
+    overall: {
+      state: "healthy",
+      headline: "Internal services are operational",
+      detail: "Synthetic owner-only aggregate snapshot completed successfully.",
+    },
+    metrics: [
+      { id: "registered-users", label: "Registered users", value: 12 },
+      { id: "administrators", label: "Administrators", value: 2 },
+      { id: "active-sessions", label: "Active sessions", value: 4 },
+      { id: "completed-progress", label: "Recorded solved cards", value: 350 },
+      { id: "pending-suggestions", label: "Pending suggestions", value: 2 },
+      { id: "suspended-users", label: "Suspended users", value: 1 },
+      { id: "consented-usage-minutes", label: "Recorded consented learning minutes", value: 90 },
+      { id: "content-drafts", label: "Content drafts", value: 2 },
+      { id: "content-in-review", label: "Content in review", value: 2 },
+      { id: "published-content-overrides", label: "Published content overrides", value: 2 },
+    ],
+    sources: [
+      {
+        id: "cloudflare", label: "Cloudflare", category: "Hosting, edge, and database", state: "healthy",
+        headline: "Cloudflare analytics is current", detail: "Synthetic rolling 24-hour aggregate snapshot.", observedAt: NOW,
+        link: { label: "Open Cloudflare", url: "https://dash.cloudflare.com/" },
+        metrics: [
+          { id: "cloudflare-edge-requests-24h", label: "Cloudflare edge requests (24h)", value: 1240, detail: "Synthetic fixture only" },
+          { id: "cloudflare-visits-24h", label: "Cloudflare visits (24h)", value: 860, detail: "Synthetic fixture only" },
+          { id: "cloudflare-edge-data-transfer-24h", label: "Cloudflare data transfer (24h)", value: 4_096_000, detail: "Synthetic fixture only", format: "bytes" },
+          { id: "cloudflare-api-worker-requests-24h", label: "API Worker requests (24h)", value: 530, detail: "Synthetic fixture only" },
+          { id: "cloudflare-api-worker-errors-24h", label: "API Worker errors (24h)", value: 2, detail: "Synthetic fixture only" },
+          { id: "cloudflare-site-worker-requests-24h", label: "Site Worker requests (24h)", value: 1240, detail: "Synthetic fixture only" },
+          { id: "cloudflare-site-worker-errors-24h", label: "Site Worker errors (24h)", value: 0, detail: "Synthetic fixture only" },
+        ],
+      },
+      {
+        id: "github", label: "GitHub", category: "Source control and delivery", state: "not_configured",
+        headline: "GitHub delivery data is not connected", detail: "Workflow data remains a dashboard check.", observedAt: null,
+        link: { label: "Open GitHub", url: "https://github.com/jame17291-sys/jakh.net/actions" }, metrics: [],
+      },
+      {
+        id: "google-analytics", label: "Google Analytics", category: "Consented visitor analytics", state: "not_configured",
+        headline: "GA4 reporting data is not connected", detail: "Reporting data is not queried.", observedAt: null,
+        link: { label: "Open Google Analytics", url: "https://analytics.google.com/" }, metrics: [],
+      },
+      {
+        id: "godaddy", label: "GoDaddy", category: "Domain registration", state: "not_configured",
+        headline: "Registrar status is not connected", detail: "Registrar data is not queried.", observedAt: null,
+        link: { label: "Open GoDaddy", url: "https://account.godaddy.com/" }, metrics: [],
+      },
+      {
+        id: "search-console", label: "Google Search Console", category: "Organic search", state: "not_configured",
+        headline: "Search Console data is not connected", detail: "Search reporting data is not queried.", observedAt: null,
+        link: { label: "Open Search Console", url: "https://search.google.com/search-console" }, metrics: [],
+      },
+    ],
+  };
   return {
     categories: [
       { slug: "science", title: { en: "Science", ar: "العلوم" }, count: science.length },
@@ -74,10 +130,12 @@ export function createAdminFixtureState() {
       { id: MISSING_REPORT_ID, text: "[REPORT] tv-shows/tv-shows-removed-999: A question removed from the current catalog?", email: null, status: "new", createdAt: NOW, resolutionNote: null },
       { id: "suggestion-normal", text: "Please add more geography questions.", email: null, status: "reviewed", createdAt: NOW, resolutionNote: { text: "Queued for editorial planning.", authorUsername: "FixtureOwner", createdAt: NOW } },
     ],
+    platformStatus,
     events: [],
     requests: [],
     failNextSave: false,
     failNextNote: false,
+    failNextPlatformStatus: false,
     saveDelayMs: 0,
     feedbackPageSize: null,
     stepUp: false,
@@ -121,7 +179,7 @@ export async function startAdminWorkspaceFixture({ port = 0, siteRoot = ROOT } =
         return json({ ok: true });
       }
       if (url.pathname === "/__fixture/control" && request.method === "POST") {
-        for (const key of ["failNextSave", "failNextNote", "stepUp"]) if (typeof body[key] === "boolean") state[key] = body[key];
+        for (const key of ["failNextSave", "failNextNote", "failNextPlatformStatus", "stepUp"]) if (typeof body[key] === "boolean") state[key] = body[key];
         return json({ ok: true });
       }
       if (url.pathname === "/__fixture/state") return json(state);
@@ -138,6 +196,14 @@ export async function startAdminWorkspaceFixture({ port = 0, siteRoot = ROOT } =
         if (path === "/admin/security/reauthenticate" && request.method === "POST") {
           state.stepUp = true;
           return json({ success: true, stepUp: { expiresAt: new Date(Date.now() + 600_000).toISOString() } });
+        }
+        if (path === "/admin/platform-status" && request.method === "GET") {
+          if (role !== "OWNER") return json({ error: "Owner access is required", code: "OWNER_REQUIRED" }, 403);
+          if (state.failNextPlatformStatus) {
+            state.failNextPlatformStatus = false;
+            return json({ error: "Fixture platform status could not be loaded", code: "FIXTURE_PLATFORM_FAILED" }, 503);
+          }
+          return json(structuredClone(state.platformStatus));
         }
         if (path === "/admin/overview") return json({
           metrics: { users: 12, administrators: 2, activeSessions: 4, solved: 350, pendingSuggestions: state.suggestions.filter((item) => item.status === "new").length, suspendedUsers: 1 },

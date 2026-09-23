@@ -126,6 +126,62 @@ try {
     await eventually(() => page.locator("[data-content-question]").count(), (count) => count === 30, "Previous page should restore first result set");
   });
 
+  await scenario("owner platform status renders the private normalized snapshot and refreshes it safely", async (page) => {
+    await visible(page, "#platformStatusTab");
+    assert.equal(await page.locator("#platformStatusTab").isHidden(), false);
+    await page.locator("#platformStatusTab").click();
+    await visible(page, "#platformStatusPanel");
+    await textContains(page, "#platformOverviewTitle", "Riddle Arabia is operating normally");
+    await eventually(() => page.locator("#platformMetricGrid .metric-card").count(), (count) => count === 10, "Platform metrics should render the normalized first-party summary");
+    await eventually(() => page.locator("#platformSourceGrid .platform-source-card").count(), (count) => count === 5, "Platform source cards should render every configured provider pointer");
+    const cloudflare = page.locator('#platformSourceGrid .platform-source-card[data-state="good"]');
+    await textContains(page, "#platformSourceGrid", "Cloudflare");
+    await textContains(page, "#platformSourceGrid", "Operational");
+    await textContains(page, "#platformSourceGrid", "1,240");
+    await textContains(page, "#platformSourceGrid", "3.91 MB");
+    const dashboardLink = cloudflare.locator("a.platform-source-link");
+    assert.equal(await dashboardLink.getAttribute("target"), "_blank");
+    assert.equal(await dashboardLink.getAttribute("rel"), "noopener noreferrer");
+    assert.equal(await dashboardLink.getAttribute("referrerpolicy"), "no-referrer");
+    assert.match(await dashboardLink.getAttribute("href"), /^https:\/\//u);
+    assert.equal(fixture.getState().requests.filter((entry) => entry.path === "/api/admin/platform-status").length, 1);
+    await page.locator("#platformRefreshButton").click();
+    await eventually(
+      () => fixture.getState().requests.filter((entry) => entry.path === "/api/admin/platform-status").length,
+      (count) => count === 2,
+      "Refresh should request one new owner-only snapshot",
+    );
+  });
+
+  await scenario("owner platform status marks retained data when a refresh fails", async (page) => {
+    await page.locator("#platformStatusTab").click();
+    await textContains(page, "#platformOverviewTitle", "Riddle Arabia is operating normally");
+    fixture.control({ failNextPlatformStatus: true });
+    await page.locator("#platformRefreshButton").click();
+    await textContains(page, "#platformOverviewTitle", "Latest refresh failed");
+    await textContains(page, "#platformOverallDetail", "last successful status snapshot");
+    assert.equal(await page.locator("#platformMetricGrid .metric-card").count(), 10, "The prior snapshot should remain available for comparison");
+  });
+
+  await scenario("owner platform status labels a valid partial Cloudflare aggregate", async (page) => {
+    const platformStatus = fixture.getState().platformStatus;
+    const cloudflare = platformStatus.sources.find((source) => source.id === "cloudflare");
+    cloudflare.state = "partial";
+    cloudflare.coverage = "partial";
+    cloudflare.metrics = cloudflare.metrics.filter((metric) => !metric.id.includes("site-worker"));
+    fixture.control({ platformStatus });
+    await page.locator("#platformStatusTab").click();
+    await textContains(page, "#platformSourceGrid", "Partial data");
+    await textContains(page, "#platformSourceGrid", "Cloudflare analytics is partially available");
+    assert.equal(await page.locator("#platformSourceGrid .platform-source-metric").count(), 5, "Missing aggregates must be omitted rather than shown as zero");
+  });
+
+  await scenario("administrator never sees or fetches the owner-only platform status tab", async (page) => {
+    assert.equal(await page.locator("#platformStatusTab").isHidden(), true);
+    assert.equal(await page.locator("#platformStatusPanel").isHidden(), true);
+    assert.equal(fixture.getState().requests.some((entry) => entry.path === "/api/admin/platform-status"), false);
+  }, { role: "ADMIN" });
+
   await scenario("overview counts open their matching work queues and clear unrelated library filters", async (page) => {
     await openContent(page);
     await page.locator("#contentCategory").selectOption("science");
@@ -516,6 +572,11 @@ try {
         await visible(page, ".feedback-card");
         await assertNoOverflow(page);
         await audit(page, `${lang} feedback at ${width}`);
+        await page.locator("#platformStatusTab").click();
+        await visible(page, "#platformSourceGrid .platform-source-card");
+        assert.equal(await page.locator("#adminTabs [data-tab]:visible").count(), 8, "Owner navigation should retain both Platform Status and Autopilot");
+        await assertNoOverflow(page);
+        await audit(page, `${lang} platform status at ${width}`);
         assert.equal(await page.locator("html").getAttribute("dir"), lang === "ar" ? "rtl" : "ltr");
       }, { lang, viewport: { width, height: width === 640 ? 400 : 900 } });
     }

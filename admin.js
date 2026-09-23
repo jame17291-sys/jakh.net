@@ -11,6 +11,39 @@
   const FEEDBACK_STATES = ["new", "reviewed", "implemented", "rejected"];
   const ACTION_CONFIRMATION_TOKEN = "REVOKE";
   const ACTION_REASON_MAX_LENGTH = 280;
+  const PLATFORM_SOURCE_FALLBACKS = Object.freeze([
+    { id: "cloudflare", state: "manual", link: { url: "https://dash.cloudflare.com/" }, metrics: [] },
+    { id: "github", state: "manual", link: { url: "https://github.com/jame17291-sys/jakh.net/actions" }, metrics: [] },
+    { id: "google-analytics", state: "not_configured", link: { url: "https://analytics.google.com/analytics/web/" }, metrics: [] },
+    { id: "godaddy", state: "not_configured", link: { url: "https://dcc.godaddy.com/domains" }, metrics: [] },
+    { id: "search-console", state: "not_configured", link: { url: "https://search.google.com/search-console" }, metrics: [] },
+  ]);
+  const PLATFORM_SOURCE_COPY = Object.freeze({
+    cloudflare: { label: "Cloudflare", category: "platformCloudflareCategory", manualDetail: "platformCloudflareManual", unconfiguredDetail: "platformCloudflareUnconfigured", url: "https://dash.cloudflare.com/" },
+    github: { label: "GitHub", category: "platformGithubCategory", manualDetail: "platformGithubManual", url: "https://github.com/jame17291-sys/jakh.net/actions" },
+    "google-analytics": { label: "Google Analytics 4", category: "platformGoogleAnalyticsCategory", unconfiguredDetail: "platformGoogleAnalyticsUnconfigured", url: "https://analytics.google.com/analytics/web/" },
+    godaddy: { label: "GoDaddy", category: "platformGodaddyCategory", unconfiguredDetail: "platformGodaddyUnconfigured", url: "https://dcc.godaddy.com/domains" },
+    "search-console": { label: "Google Search Console", category: "platformSearchConsoleCategory", unconfiguredDetail: "platformSearchConsoleUnconfigured", url: "https://search.google.com/search-console" },
+  });
+  const PLATFORM_METRIC_COPY = Object.freeze({
+    "registered-users": ["platformRegisteredUsers", "platformRegisteredUsersDetail"],
+    administrators: ["platformAdministrators", "platformAdministratorsDetail"],
+    "active-sessions": ["platformActiveSessions", "platformActiveSessionsDetail"],
+    "completed-progress": ["platformCompletedProgress", "platformCompletedProgressDetail"],
+    "pending-suggestions": ["platformPendingSuggestions", "platformPendingSuggestionsDetail"],
+    "suspended-users": ["platformSuspendedUsers", "platformSuspendedUsersDetail"],
+    "consented-usage-minutes": ["platformConsentedUsage", "platformConsentedUsageDetail"],
+    "content-drafts": ["platformContentDrafts", "platformContentDraftsDetail"],
+    "content-in-review": ["platformContentReview", "platformContentReviewDetail"],
+    "published-content-overrides": ["platformPublishedOverrides", "platformPublishedOverridesDetail"],
+    "cloudflare-edge-requests-24h": ["platformCloudflareEdgeRequests", "platformCloudflareEdgeRequestsDetail"],
+    "cloudflare-visits-24h": ["platformCloudflareVisits", "platformCloudflareVisitsDetail"],
+    "cloudflare-edge-data-transfer-24h": ["platformCloudflareDataTransfer", "platformCloudflareDataTransferDetail"],
+    "cloudflare-api-worker-requests-24h": ["platformCloudflareApiRequests", "platformCloudflareApiRequestsDetail"],
+    "cloudflare-api-worker-errors-24h": ["platformCloudflareApiErrors", "platformCloudflareApiErrorsDetail"],
+    "cloudflare-site-worker-requests-24h": ["platformCloudflareSiteRequests", "platformCloudflareSiteRequestsDetail"],
+    "cloudflare-site-worker-errors-24h": ["platformCloudflareSiteErrors", "platformCloudflareSiteErrorsDetail"],
+  });
 
   const COPY = {
     en: {
@@ -497,6 +530,49 @@
     reportInvalid: "This report does not contain a valid category and question ID.",
     contentSearchFailed: "Could not load the complete question library. Refresh results to try again.",
     allCaughtUp: "No feedback or drafts awaiting review.",
+    platformStatus: "Platform status", platformStatusHeading: "Platform status",
+    platformStatusLead: "A single, private view of Riddle Arabia’s first-party activity and connected provider checks.",
+    platformRefresh: "Refresh status", platformSnapshot: "Status snapshot", platformChecking: "Checking platform connections…",
+    platformStatusWaiting: "Status details will appear when the secure snapshot is ready.",
+    platformSnapshotUpdated: "Snapshot updated", platformDataScope: "Data scope", platformDataScopeValue: "Server-side, read-only",
+    platformMetricsHeading: "Riddle Arabia usage", platformMetricsLead: "First-party account and game activity; consent-limited where applicable.",
+    platformSourcesHeading: "Platform sources", platformSourcesLead: "Open a provider console only when a card needs a closer look.",
+    platformPrivacyNote: "Provider credentials never reach this browser. Statuses are read from a server-side, read-only snapshot.",
+    platformOverallHealthy: "Riddle Arabia is operating normally", platformOverallHealthyDetail: "The owner-only API and first-party aggregate snapshot completed successfully.", platformOverallAttention: "A platform needs attention", platformOverallAttentionDetail: "The aggregate snapshot completed, but the service schema needs attention.", platformOverallUnavailable: "Platform status is unavailable", platformRefreshRetainedHeadline: "Latest refresh failed", platformRefreshRetainedDetail: "Showing the last successful status snapshot. Try refreshing again.",
+    platformStateHealthy: "Operational", platformStatePartial: "Partial data", platformStateAttention: "Needs attention", platformStateManual: "Manual check", platformStateUnconfigured: "Not connected", platformStateStale: "Stale", platformStateUnknown: "Unknown", platformStateChecking: "Checking",
+    platformUnavailable: "Platform status could not be loaded. Try again.", platformNoMetrics: "No first-party usage metrics are available yet.",
+    platformNoSources: "No provider source cards are available yet.", platformNoFreshness: "No snapshot time", platformObserved: "Observed {date}",
+    platformManualHeadline: "Open the provider console to verify this source", platformManualDetail: "This connection is intentionally checked in the provider console; the admin page does not receive provider credentials.",
+    platformNotConfiguredHeadline: "Reporting is not connected", platformNotConfiguredDetail: "A read-only reporting connection can be added later. Until then, use the provider console directly.",
+    platformOpenDashboard: "Open dashboard", platformMetricUnavailable: "—",
+    platformRegisteredUsers: "Registered users", platformRegisteredUsersDetail: "All account records",
+    platformAdministrators: "Administrators", platformAdministratorsDetail: "Owner and administrator accounts",
+    platformActiveSessions: "Active sessions", platformActiveSessionsDetail: "Currently signed in",
+    platformCompletedProgress: "Completed rounds", platformCompletedProgressDetail: "First-party game progress",
+    platformPendingSuggestions: "New feedback", platformPendingSuggestionsDetail: "Awaiting review",
+    platformSuspendedUsers: "Restricted accounts", platformSuspendedUsersDetail: "Access restricted",
+    platformConsentedUsage: "Consented usage", platformConsentedUsageDetail: "Signed-in, consented minutes",
+    platformContentDrafts: "Content drafts", platformContentDraftsDetail: "Editorial workspace",
+    platformContentReview: "Content in review", platformContentReviewDetail: "Editorial workspace",
+    platformPublishedOverrides: "Live overrides", platformPublishedOverridesDetail: "Published content changes",
+    platformCloudflareEdgeRequests: "Edge requests", platformCloudflareEdgeRequestsDetail: "End users · last 24 hours",
+    platformCloudflareVisits: "Cloudflare visits", platformCloudflareVisitsDetail: "Direct or referral visits · last 24 hours",
+    platformCloudflareDataTransfer: "Data transfer", platformCloudflareDataTransferDetail: "Edge responses · last 24 hours",
+    platformCloudflareApiRequests: "API Worker requests", platformCloudflareApiRequestsDetail: "jakh-api · last 24 hours",
+    platformCloudflareApiErrors: "API Worker errors", platformCloudflareApiErrorsDetail: "Worker invocation errors · last 24 hours",
+    platformCloudflareSiteRequests: "Site Worker requests", platformCloudflareSiteRequestsDetail: "jakh-site · last 24 hours",
+    platformCloudflareSiteErrors: "Site Worker errors", platformCloudflareSiteErrorsDetail: "Worker invocation errors · last 24 hours",
+    platformCloudflareCategory: "Traffic and infrastructure", platformGithubCategory: "Delivery and monitoring", platformGoogleAnalyticsCategory: "Audience and engagement", platformGodaddyCategory: "Domain and registrar", platformSearchConsoleCategory: "Search visibility",
+    platformCloudflareManual: "The Cloudflare API runtime is available here; traffic and edge analytics remain a provider-console check.",
+    platformCloudflareUnconfigured: "The dedicated read-only Cloudflare analytics connection has not been configured yet.",
+    platformCloudflareLiveHeadline: "Cloudflare analytics is current", platformCloudflareLiveDetail: "Rolling 24-hour edge and Worker aggregates are available through the secure server-side connection.",
+    platformCloudflarePartialHeadline: "Cloudflare analytics is partially available", platformCloudflarePartialDetail: "Current aggregates are shown, but one or more requested data sets had no results. Shown values remain valid.",
+    platformCloudflareStaleHeadline: "Cloudflare analytics needs a refresh", platformCloudflareStaleDetail: "The last successful Cloudflare aggregate snapshot is displayed while the provider refreshes.", platformCloudflareStalePartialDetail: "The last successful partial Cloudflare snapshot is displayed while the provider refreshes.",
+    platformCloudflareUnavailableHeadline: "Cloudflare analytics is temporarily unavailable", platformCloudflareUnavailableDetail: "No usable Cloudflare aggregate snapshot was returned. The website itself may still be operating normally.",
+    platformGithubManual: "GitHub Actions and production monitoring remain a provider-console check.",
+    platformGoogleAnalyticsUnconfigured: "Consent-gated collection is present, but the Analytics reporting API is not connected.",
+    platformGodaddyUnconfigured: "Registrar records are not connected to this private status page.",
+    platformSearchConsoleUnconfigured: "Search Console reporting access is not connected to this private status page.",
   });
   Object.assign(COPY.ar, {
     adminNavigation: "التنقل في الإدارة", adminSections: "أقسام الإدارة", siteHome: "الصفحة الرئيسية لـ Riddle Arabia", editorialWork: "العمل التحريري", accountMetrics: "إحصاءات الحسابات",
@@ -526,6 +602,49 @@
     reportInvalid: "لا يتضمن البلاغ موضوعًا ومعرّف سؤال صالحين.",
     contentSearchFailed: "تعذر تحميل مكتبة الأسئلة كاملة. حدّث النتائج للمحاولة مجددًا.",
     allCaughtUp: "لا توجد ملاحظات أو مسودات بانتظار المراجعة.",
+    platformStatus: "حالة المنصات", platformStatusHeading: "حالة المنصات",
+    platformStatusLead: "عرض خاص موحّد لنشاط Riddle Arabia من المصدر الأول وفحوصات مزودي الخدمة المتصلين.",
+    platformRefresh: "تحديث الحالة", platformSnapshot: "لقطة الحالة", platformChecking: "جارٍ فحص اتصالات المنصات…",
+    platformStatusWaiting: "ستظهر تفاصيل الحالة عند جاهزية اللقطة الآمنة.",
+    platformSnapshotUpdated: "تحديث اللقطة", platformDataScope: "نطاق البيانات", platformDataScopeValue: "قراءة فقط من الخادم",
+    platformMetricsHeading: "استخدام Riddle Arabia", platformMetricsLead: "نشاط الحسابات واللعبة من المصدر الأول؛ وتقتصر بعض البيانات على ما تمت الموافقة عليه.",
+    platformSourcesHeading: "مصادر المنصات", platformSourcesLead: "افتح لوحة المزود فقط عندما تحتاج البطاقة إلى تدقيق أقرب.",
+    platformPrivacyNote: "لا تصل بيانات اعتماد المزود إلى هذا المتصفح. تُقرأ الحالات من لقطة للقراءة فقط على الخادم.",
+    platformOverallHealthy: "تعمل Riddle Arabia بصورة طبيعية", platformOverallHealthyDetail: "اكتملت واجهة المالك ولقطة التجميع من المصدر الأول بنجاح.", platformOverallAttention: "تحتاج إحدى المنصات إلى انتباه", platformOverallAttentionDetail: "اكتملت لقطة التجميع، لكن مخطط الخدمة يحتاج إلى انتباه.", platformOverallUnavailable: "حالة المنصات غير متاحة", platformRefreshRetainedHeadline: "تعذر آخر تحديث", platformRefreshRetainedDetail: "تظهر آخر لقطة حالة ناجحة. حاول التحديث مرة أخرى.",
+    platformStateHealthy: "تعمل", platformStatePartial: "بيانات جزئية", platformStateAttention: "تحتاج انتباهًا", platformStateManual: "فحص يدوي", platformStateUnconfigured: "غير متصلة", platformStateStale: "قديمة", platformStateUnknown: "غير معروفة", platformStateChecking: "جارٍ الفحص",
+    platformUnavailable: "تعذر تحميل حالة المنصات. حاول مجددًا.", platformNoMetrics: "لا توجد مقاييس استخدام من المصدر الأول بعد.",
+    platformNoSources: "لا تتوفر بطاقات مصادر للمزودين بعد.", platformNoFreshness: "لا يوجد وقت للقطة", platformObserved: "رُصدت في {date}",
+    platformManualHeadline: "افتح لوحة المزود للتحقق من هذا المصدر", platformManualDetail: "يُفحص هذا الاتصال عمدًا في لوحة المزود؛ ولا تتلقى لوحة الإدارة بيانات اعتماد المزود.",
+    platformNotConfiguredHeadline: "لم يتم ربط التقارير", platformNotConfiguredDetail: "يمكن إضافة اتصال تقارير للقراءة فقط لاحقًا. استخدم لوحة المزود مباشرةً حتى ذلك الحين.",
+    platformOpenDashboard: "فتح اللوحة", platformMetricUnavailable: "—",
+    platformRegisteredUsers: "المستخدمون المسجلون", platformRegisteredUsersDetail: "كل سجلات الحسابات",
+    platformAdministrators: "المسؤولون", platformAdministratorsDetail: "حسابات المالك والمسؤول",
+    platformActiveSessions: "الجلسات النشطة", platformActiveSessionsDetail: "مسجلون حاليًا",
+    platformCompletedProgress: "الجولات المكتملة", platformCompletedProgressDetail: "تقدم اللعبة من المصدر الأول",
+    platformPendingSuggestions: "ملاحظات جديدة", platformPendingSuggestionsDetail: "بانتظار المراجعة",
+    platformSuspendedUsers: "حسابات مقيّدة", platformSuspendedUsersDetail: "وصول مقيّد",
+    platformConsentedUsage: "استخدام بموافقة", platformConsentedUsageDetail: "دقائق لحسابات مسجلة وبموافقة",
+    platformContentDrafts: "مسودات المحتوى", platformContentDraftsDetail: "مساحة التحرير",
+    platformContentReview: "محتوى قيد المراجعة", platformContentReviewDetail: "مساحة التحرير",
+    platformPublishedOverrides: "تعديلات معروضة", platformPublishedOverridesDetail: "تغييرات محتوى منشورة",
+    platformCloudflareEdgeRequests: "طلبات الحافة", platformCloudflareEdgeRequestsDetail: "مستخدمون نهائيون · آخر 24 ساعة",
+    platformCloudflareVisits: "زيارات Cloudflare", platformCloudflareVisitsDetail: "مباشرة أو إحالة · آخر 24 ساعة",
+    platformCloudflareDataTransfer: "نقل البيانات", platformCloudflareDataTransferDetail: "استجابات الحافة · آخر 24 ساعة",
+    platformCloudflareApiRequests: "طلبات عامل API", platformCloudflareApiRequestsDetail: "jakh-api · آخر 24 ساعة",
+    platformCloudflareApiErrors: "أخطاء عامل API", platformCloudflareApiErrorsDetail: "أخطاء استدعاء العامل · آخر 24 ساعة",
+    platformCloudflareSiteRequests: "طلبات عامل الموقع", platformCloudflareSiteRequestsDetail: "jakh-site · آخر 24 ساعة",
+    platformCloudflareSiteErrors: "أخطاء عامل الموقع", platformCloudflareSiteErrorsDetail: "أخطاء استدعاء العامل · آخر 24 ساعة",
+    platformCloudflareCategory: "الزيارات والبنية التحتية", platformGithubCategory: "النشر والمراقبة", platformGoogleAnalyticsCategory: "الجمهور والتفاعل", platformGodaddyCategory: "النطاق والمسجّل", platformSearchConsoleCategory: "ظهور البحث",
+    platformCloudflareManual: "تتوفر هنا بيئة تشغيل واجهة Cloudflare API؛ وتظل تحليلات الزيارات والحافة فحصًا في لوحة المزود.",
+    platformCloudflareUnconfigured: "لم يتم إعداد اتصال تحليلات Cloudflare المخصص للقراءة فقط بعد.",
+    platformCloudflareLiveHeadline: "تحليلات Cloudflare حديثة", platformCloudflareLiveDetail: "تتوفر مجاميع الحافة والعمال لآخر 24 ساعة عبر الاتصال الآمن من الخادم.",
+    platformCloudflarePartialHeadline: "تحليلات Cloudflare متاحة جزئيًا", platformCloudflarePartialDetail: "تظهر المجاميع الحالية، لكن مجموعة بيانات مطلوبة واحدة أو أكثر لم تُرجع نتائج. تظل القيم المعروضة صالحة.",
+    platformCloudflareStaleHeadline: "تحتاج تحليلات Cloudflare إلى تحديث", platformCloudflareStaleDetail: "تُعرض آخر لقطة مجمعة ناجحة من Cloudflare أثناء تحديث المزود.", platformCloudflareStalePartialDetail: "تُعرض آخر لقطة جزئية ناجحة من Cloudflare أثناء تحديث المزود.",
+    platformCloudflareUnavailableHeadline: "تحليلات Cloudflare غير متاحة مؤقتًا", platformCloudflareUnavailableDetail: "لم تُرجع Cloudflare لقطة مجمعة قابلة للاستخدام. قد يظل الموقع نفسه يعمل بصورة طبيعية.",
+    platformGithubManual: "تظل إجراءات GitHub ومراقبة الإنتاج فحصًا في لوحة المزود.",
+    platformGoogleAnalyticsUnconfigured: "تجميع البيانات بعد الموافقة موجود، لكن واجهة تقارير Analytics غير متصلة.",
+    platformGodaddyUnconfigured: "سجلات المسجّل غير متصلة بصفحة الحالة الخاصة هذه.",
+    platformSearchConsoleUnconfigured: "وصول تقارير Search Console غير متصل بصفحة الحالة الخاصة هذه.",
   });
 
   Object.assign(COPY.en, {
@@ -583,6 +702,7 @@
     security: null,
     audit: null,
     autopilot: { data: null, phase: "idle", pending: false, errorKey: "", requestVersion: 0 },
+    platform: { data: null, loading: false, error: null, loaded: false },
     activeTab: "overview",
     gateMode: "checking",
     people: { items: [], nextOffset: null, canViewEmail: false },
@@ -743,6 +863,7 @@
     if (state.audit) renderAudit();
     if (state.security) renderSecurity();
     renderAutopilot();
+    if (state.platform.data || state.platform.loading || state.platform.error) renderPlatformStatus();
     if (state.content.catalog) renderContentCategoryOptions();
     if (state.content.loaded) {
       renderContentQuestionList();
@@ -760,6 +881,8 @@
     els.adminTabs.setAttribute("aria-label", t("adminSections"));
     els.metricGrid.setAttribute("aria-label", t("editorialWork"));
     els.accountMetricGrid.setAttribute("aria-label", t("accountMetrics"));
+    els.platformMetricGrid.setAttribute("aria-label", t("platformMetricsHeading"));
+    els.platformSourceGrid.setAttribute("aria-label", t("platformSourcesHeading"));
     if (state.actionReview) renderActionReview();
   }
 
@@ -845,7 +968,9 @@
     els.identityAvatar.textContent = user.avatar || "👤";
     els.auditTab.hidden = user.role !== "OWNER";
     els.autopilotTab.hidden = user.role !== "OWNER";
+    els.platformStatusTab.hidden = user.role !== "OWNER";
     els.sessionControlCard.hidden = user.role !== "OWNER";
+    if (user.role !== "OWNER") els.platformStatusPanel.hidden = true;
   }
 
   function metric(label, value, note, action = "") {
@@ -920,6 +1045,231 @@
     els.healthMessage.textContent = isHealthy
       ? t("healthReady", { schema: health.schema || "—" })
       : t("healthUnavailable");
+  }
+
+  function platformEntries(value) {
+    if (Array.isArray(value)) return value.filter((item) => item && typeof item === "object");
+    if (!value || typeof value !== "object") return [];
+    return Object.entries(value).map(([id, item]) => (
+      item && typeof item === "object" && !Array.isArray(item) ? { ...item, id: item.id || id } : { id, value: item }
+    ));
+  }
+
+  function platformText(value, fallback = "") {
+    if (typeof value === "string" && value.trim()) return value.trim();
+    if (!value || typeof value !== "object" || Array.isArray(value)) return fallback;
+    const localized = value[state.lang] ?? value.en ?? value.ar;
+    return typeof localized === "string" && localized.trim() ? localized.trim() : fallback;
+  }
+
+  function platformReadableId(value) {
+    const text = String(value || "").replace(/[-_]+/gu, " ").trim();
+    return text ? text.replace(/\b[a-z]/gu, (letter) => letter.toUpperCase()) : "—";
+  }
+
+  function platformState(value) {
+    const raw = String(
+      value && typeof value === "object" ? (value.state ?? value.status ?? "") : (value ?? ""),
+    ).trim().toLowerCase().replace(/[\s-]+/gu, "_");
+    if (raw.includes("not_configured") || raw.includes("not_connected") || raw === "disabled") return "unconfigured";
+    if (raw.includes("manual")) return "manual";
+    if (raw.includes("partial")) return "partial";
+    if (raw.includes("stale")) return "stale";
+    if (["healthy", "operational", "ok", "online", "ready", "active", "good"].includes(raw)) return "good";
+    if (["degraded", "attention", "error", "failed", "failure", "down", "incident", "unhealthy", "critical", "unavailable"].includes(raw)) return "attention";
+    if (["checking", "pending", "loading", "refreshing"].includes(raw)) return "checking";
+    return "unknown";
+  }
+
+  function platformStateMeta(value) {
+    return {
+      good: { key: "platformStateHealthy", className: "good", pillClass: "is-good" },
+      partial: { key: "platformStatePartial", className: "stale", pillClass: "is-pending" },
+      attention: { key: "platformStateAttention", className: "attention", pillClass: "is-danger" },
+      manual: { key: "platformStateManual", className: "manual", pillClass: "is-pending" },
+      unconfigured: { key: "platformStateUnconfigured", className: "unconfigured", pillClass: "is-pending" },
+      stale: { key: "platformStateStale", className: "stale", pillClass: "is-pending" },
+      checking: { key: "platformStateChecking", className: "manual", pillClass: "is-pending" },
+      unknown: { key: "platformStateUnknown", className: "unconfigured", pillClass: "is-pending" },
+    }[value] || { key: "platformStateUnknown", className: "unconfigured", pillClass: "is-pending" };
+  }
+
+  function platformByteValue(value) {
+    const units = ["B", "KB", "MB", "GB", "TB"];
+    let amount = Math.max(0, value);
+    let index = 0;
+    while (amount >= 1024 && index < units.length - 1) {
+      amount /= 1024;
+      index += 1;
+    }
+    const digits = amount >= 100 || Number.isInteger(amount) ? 0 : amount >= 10 ? 1 : 2;
+    return `${new Intl.NumberFormat(state.lang === "ar" ? "ar" : undefined, { maximumFractionDigits: digits }).format(amount)} ${units[index]}`;
+  }
+
+  function platformMetricValue(metric) {
+    const value = metric?.value;
+    if (value === null || value === undefined || value === "") return t("platformMetricUnavailable");
+    if (typeof value !== "number" || !Number.isFinite(value)) return String(value);
+    const unit = typeof metric.unit === "string" ? metric.unit.trim() : "";
+    if (metric.format === "bytes") return platformByteValue(value);
+    if (unit === "%" || metric.format === "percent") {
+      const percentage = Math.abs(value) <= 1 ? value * 100 : value;
+      const digits = Number.isInteger(percentage) ? 0 : 1;
+      return `${new Intl.NumberFormat(state.lang === "ar" ? "ar" : undefined, { maximumFractionDigits: digits }).format(percentage)}%`;
+    }
+    return `${numberFormat(value)}${unit ? ` ${unit}` : ""}`;
+  }
+
+  function platformMetricCopy(metric) {
+    const known = PLATFORM_METRIC_COPY[String(metric?.id || "")];
+    return {
+      label: known ? t(known[0]) : platformText(metric?.label, platformReadableId(metric?.id)),
+      detail: platformText(metric?.detail, known ? t(known[1]) : ""),
+    };
+  }
+
+  function safePlatformLink(value) {
+    const raw = typeof value === "string" ? value : (value?.url || value?.href || "");
+    if (!raw) return "";
+    try {
+      const url = new URL(raw);
+      return url.protocol === "https:" ? url.href : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function platformFreshness(value) {
+    if (!value || Number.isNaN(Date.parse(value))) return t("platformNoFreshness");
+    return t("platformObserved", { date: dateFormat(value, true) });
+  }
+
+  function platformSourceView(source) {
+    const id = String(source?.id || "").trim().toLowerCase();
+    const known = PLATFORM_SOURCE_COPY[id];
+    const stateName = platformState(source);
+    const partialCoverage = source?.coverage === "partial";
+    const meta = platformStateMeta(stateName);
+    const label = known?.label || platformText(source?.label, platformReadableId(id));
+    const category = known?.category ? t(known.category) : platformText(source?.category, t("platformSourcesHeading"));
+    let headline = platformText(source?.headline, t(meta.key));
+    let detail = platformText(source?.detail, "");
+    if (stateName === "manual") {
+      headline = t("platformManualHeadline");
+      detail = known?.manualDetail ? t(known.manualDetail) : t("platformManualDetail");
+    } else if (stateName === "unconfigured") {
+      headline = t("platformNotConfiguredHeadline");
+      detail = known?.unconfiguredDetail ? t(known.unconfiguredDetail) : t("platformNotConfiguredDetail");
+    } else if (id === "cloudflare" && stateName === "good") {
+      headline = t("platformCloudflareLiveHeadline");
+      detail = t("platformCloudflareLiveDetail");
+    } else if (id === "cloudflare" && stateName === "partial") {
+      headline = t("platformCloudflarePartialHeadline");
+      detail = t("platformCloudflarePartialDetail");
+    } else if (id === "cloudflare" && stateName === "stale") {
+      headline = t("platformCloudflareStaleHeadline");
+      detail = t(partialCoverage ? "platformCloudflareStalePartialDetail" : "platformCloudflareStaleDetail");
+    } else if (id === "cloudflare" && stateName === "attention") {
+      headline = t("platformCloudflareUnavailableHeadline");
+      detail = t("platformCloudflareUnavailableDetail");
+    }
+    const href = safePlatformLink(source?.link) || known?.url || "";
+    const actionLabel = (stateName === "manual" || stateName === "unconfigured")
+      ? t("platformOpenDashboard")
+      : platformText(source?.actionLabel, platformText(source?.link?.label, t("platformOpenDashboard")));
+    return { id, stateName, meta, label, category, headline, detail, href, actionLabel };
+  }
+
+  function renderPlatformMetricCards(metrics) {
+    if (!metrics.length) {
+      els.platformMetricGrid.innerHTML = `<div class="empty-state">${escapeHtml(t("platformNoMetrics"))}</div>`;
+      return;
+    }
+    els.platformMetricGrid.innerHTML = metrics.map((metric) => {
+      const copy = platformMetricCopy(metric);
+      return `<article class="metric-card"><span>${escapeHtml(copy.label)}</span><strong>${escapeHtml(platformMetricValue(metric))}</strong>${copy.detail ? `<span class="metric-note">${escapeHtml(copy.detail)}</span>` : ""}</article>`;
+    }).join("");
+  }
+
+  function renderPlatformSourceCard(source) {
+    const view = platformSourceView(source);
+    const metrics = platformEntries(source?.metrics);
+    const sourceMetrics = metrics.length ? `<div class="platform-source-metrics">${metrics.map((metric) => {
+      const copy = platformMetricCopy(metric);
+      return `<div class="platform-source-metric"><span>${escapeHtml(copy.label)}</span><strong>${escapeHtml(platformMetricValue(metric))}</strong>${copy.detail ? `<small>${escapeHtml(copy.detail)}</small>` : ""}</div>`;
+    }).join("")}</div>` : "";
+    const observedAt = source?.observedAt;
+    const freshness = platformFreshness(observedAt);
+    const link = view.href ? `<a class="platform-source-link" href="${escapeHtml(view.href)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">${escapeHtml(view.actionLabel)} <span aria-hidden="true">↗</span></a>` : "";
+    return `<article class="platform-source-card" data-state="${view.meta.className}">
+      <div class="platform-source-top">
+        <div><span class="platform-source-category">${escapeHtml(view.category)}</span><h3>${escapeHtml(view.label)}</h3></div>
+        <span class="platform-status is-${view.meta.className}">${escapeHtml(t(view.meta.key))}</span>
+      </div>
+      <div class="platform-source-main"><p class="platform-source-headline" dir="auto">${escapeHtml(view.headline)}</p>${view.detail ? `<p class="platform-source-detail" dir="auto">${escapeHtml(view.detail)}</p>` : ""}${sourceMetrics}</div>
+      <div class="platform-source-footer"><span class="platform-observed">${escapeHtml(freshness)}</span>${link}</div>
+    </article>`;
+  }
+
+  function setPlatformSnapshotTime(value) {
+    if (!value || Number.isNaN(Date.parse(value))) {
+      els.platformUpdatedAt.textContent = t("platformNoFreshness");
+      els.platformUpdatedAt.removeAttribute("datetime");
+      return;
+    }
+    els.platformUpdatedAt.textContent = dateFormat(value, true);
+    els.platformUpdatedAt.setAttribute("datetime", value);
+  }
+
+  function setPlatformRefreshBusy(busy) {
+    els.platformRefreshButton.disabled = busy;
+    if (busy) els.platformRefreshButton.setAttribute("aria-busy", "true");
+    else els.platformRefreshButton.removeAttribute("aria-busy");
+  }
+
+  function renderPlatformStatus() {
+    const platform = state.platform;
+    setPlatformRefreshBusy(platform.loading);
+    if (platform.loading) {
+      els.platformOverallPill.className = "status-pill is-pending";
+      els.platformOverallPill.textContent = t("platformStateChecking");
+      els.platformOverviewTitle.textContent = t("platformChecking");
+      els.platformOverallDetail.textContent = t("platformStatusWaiting");
+      setPlatformSnapshotTime(null);
+      els.platformMetricGrid.innerHTML = `<div class="loading-state">${escapeHtml(t("loading"))}</div>`;
+      els.platformSourceGrid.innerHTML = `<div class="loading-state">${escapeHtml(t("loading"))}</div>`;
+      return;
+    }
+    if (!platform.data) {
+      els.platformOverallPill.className = "status-pill is-danger";
+      els.platformOverallPill.textContent = t("platformStateAttention");
+      els.platformOverviewTitle.textContent = t("platformOverallUnavailable");
+      els.platformOverallDetail.textContent = platform.error ? t("platformUnavailable") : t("platformStatusWaiting");
+      setPlatformSnapshotTime(null);
+      const message = platform.error ? t("platformUnavailable") : t("platformNoMetrics");
+      els.platformMetricGrid.innerHTML = `<div class="empty-state">${escapeHtml(message)}</div>`;
+      els.platformSourceGrid.innerHTML = `<div class="empty-state">${escapeHtml(platform.error ? t("platformUnavailable") : t("platformNoSources"))}</div>`;
+      return;
+    }
+
+    const overall = platform.data.overall && typeof platform.data.overall === "object" ? platform.data.overall : {};
+    // Preserve the last good snapshot after a failed manual refresh, but make
+    // that condition explicit instead of leaving an old success presentation.
+    const refreshFailed = Boolean(platform.error);
+    const stateName = refreshFailed ? "attention" : platformState(overall);
+    const meta = platformStateMeta(stateName);
+    const fallbackHeadline = stateName === "good" ? t("platformOverallHealthy") : stateName === "attention" ? t("platformOverallAttention") : t(meta.key);
+    els.platformOverallPill.className = `status-pill ${meta.pillClass}`;
+    els.platformOverallPill.textContent = t(meta.key);
+    els.platformOverviewTitle.textContent = refreshFailed ? t("platformRefreshRetainedHeadline") : stateName === "good" ? t("platformOverallHealthy") : stateName === "attention" ? t("platformOverallAttention") : platformText(overall.headline, fallbackHeadline);
+    els.platformOverallDetail.textContent = refreshFailed ? t("platformRefreshRetainedDetail") : stateName === "good"
+      ? t("platformOverallHealthyDetail")
+      : stateName === "attention" ? t("platformOverallAttentionDetail") : platformText(overall.detail, "");
+    setPlatformSnapshotTime(platform.data.updatedAt);
+
+    renderPlatformMetricCards(platformEntries(platform.data.metrics));
+    const sources = platformEntries(platform.data.sources);
+    els.platformSourceGrid.innerHTML = (sources.length ? sources : PLATFORM_SOURCE_FALLBACKS).map(renderPlatformSourceCard).join("");
   }
 
   function personActionMarkup(user) {
@@ -1747,6 +2097,23 @@
     renderAudit();
   }
 
+  async function loadPlatformStatus() {
+    if (state.me?.role !== "OWNER") return;
+    state.platform.loading = true;
+    state.platform.error = null;
+    renderPlatformStatus();
+    try {
+      const data = await api("/admin/platform-status");
+      state.platform = { data, loading: false, error: null, loaded: true };
+      renderPlatformStatus();
+      return data;
+    } catch (error) {
+      state.platform = { ...state.platform, loading: false, error, loaded: true };
+      renderPlatformStatus();
+      throw error;
+    }
+  }
+
   async function loadSecurity() {
     const data = await api("/admin/security");
     state.security = data;
@@ -1881,6 +2248,7 @@
     if (state.activeTab === "content") tasks.push(loadContentCategory({ preserveSelection: true, refresh: showMessage, authorized: true }));
     if (state.activeTab === "audit" && state.me?.role === "OWNER") tasks.push(loadAudit());
     if (state.activeTab === "autopilot" && state.me?.role === "OWNER") tasks.push(loadAutopilot());
+    if (state.activeTab === "platform-status" && state.me?.role === "OWNER") tasks.push(loadPlatformStatus());
     const results = await Promise.allSettled(tasks);
     const sessionFailure = results.find((result) => (
       result.status === "rejected"
@@ -1925,7 +2293,7 @@
   }
 
   function selectTab(tab, moveFocus = false, authorized = false) {
-    if (["audit", "autopilot"].includes(tab) && state.me?.role !== "OWNER") return false;
+    if (["audit", "autopilot", "platform-status"].includes(tab) && state.me?.role !== "OWNER") return false;
     state.activeTab = tab;
     $$("[data-tab]").forEach((button) => {
       const active = button.dataset.tab === tab;
@@ -1940,6 +2308,7 @@
     if (tab === "content" && !state.content.loaded && !state.content.loading && !authorized) void loadContentCategory({ authorized: true }).catch(handleActionError);
     if (tab === "audit" && !state.audit) void loadAudit().catch(handleActionError);
     if (tab === "autopilot" && ["idle", "error", "unavailable"].includes(state.autopilot.phase)) void loadAutopilot();
+    if (tab === "platform-status" && !state.platform.loaded && !state.platform.loading) void loadPlatformStatus().catch(handleActionError);
     return true;
   }
 
@@ -2379,6 +2748,7 @@
     els.reloadAudit.addEventListener("click", () => void loadAudit().catch(handleActionError));
     els.autopilotRefresh.addEventListener("click", () => void loadAutopilot());
     els.autopilotToggle.addEventListener("click", () => void toggleAutopilot());
+    els.platformRefreshButton.addEventListener("click", () => void loadPlatformStatus().catch(handleActionError));
     els.contentLoadButton.addEventListener("click", () => void loadContentCategory({ preserveSelection: true, refresh: true }).catch(handleActionError));
     els.contentCategory.addEventListener("change", changeContentCategory);
     els.contentCategorySearch.addEventListener("input", () => { renderContentCategoryOptions(); renderContentFilters(); });
@@ -2456,10 +2826,10 @@
     [
       "connectionState", "languageToggle", "viewSite", "refreshButton", "logoutButton",
       "gate", "gateTitle", "gateMessage", "gateActions", "adminApp", "identityAvatar", "identityName", "identityRole",
-      "auditTab", "sessionControlCard", "adminTabs", "metricGrid", "feedbackCount", "lastUpdated", "healthPill", "healthMessage",
+      "auditTab", "platformStatusTab", "platformStatusPanel", "sessionControlCard", "adminTabs", "metricGrid", "feedbackCount", "lastUpdated", "healthPill", "healthMessage",
       "actionQueue", "recentUsers", "recentSuggestions", "peopleSearch", "peopleRole", "peopleStatus", "peopleSearchButton",
       "peoplePrivacyNotice", "peopleResults", "loadMorePeople", "feedbackStatus", "feedbackFilterButton", "feedbackResults", "loadMoreFeedback",
-      "reloadAudit", "auditResults", "stepUpPill", "stepUpMessage", "reauthenticateButton", "revokeSessionsButton",
+      "reloadAudit", "auditResults", "platformRefreshButton", "platformOverallPill", "platformOverviewTitle", "platformOverallDetail", "platformUpdatedAt", "platformMetricGrid", "platformSourceGrid", "stepUpPill", "stepUpMessage", "reauthenticateButton", "revokeSessionsButton",
       "reauthDialog", "reauthForm", "reauthPassword", "reauthError", "reauthSubmit", "reauthCancel", "toastRegion",
       "actionReviewDialog", "actionReviewForm", "actionReviewAction", "actionReviewTarget", "actionReviewImpact", "actionReviewReason",
       "actionReviewReasonLabel", "actionReviewReasonHint", "actionReviewReasonError",

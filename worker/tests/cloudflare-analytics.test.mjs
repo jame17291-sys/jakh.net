@@ -309,6 +309,30 @@ test("Cloudflare transport logs use a fixed safe vocabulary", async (t) => {
   }
 });
 
+test("Cloudflare classifies a nested transport cause without logging it", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  const originalWarn = console.warn;
+  const warnings = [];
+  globalThis.fetch = async () => {
+    const outer = new Error("generic outer runtime error");
+    outer.cause = new Error("TLS certificate error: private nested detail");
+    throw outer;
+  };
+  console.warn = (...args) => { warnings.push(args); };
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    console.warn = originalWarn;
+  });
+
+  await cloudflareAnalyticsStatus(CONFIG, NOW);
+  assert.equal(warnings.length, 4);
+  for (const warning of warnings) {
+    assert.equal(warning[1].kind, "network");
+    assert.doesNotMatch(JSON.stringify(warning), /generic outer runtime error|private nested detail|read-only-test-token/u);
+  }
+});
+
 test("Cloudflare logs an allowlisted category for an unavailable provider response", async (t) => {
   installEdgeCache(t);
   const originalFetch = globalThis.fetch;

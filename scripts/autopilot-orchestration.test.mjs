@@ -441,7 +441,7 @@ const REPAIR_REF = 'autopilot/2026-09-23-12345';
 const API_REPOSITORY = { id: Number(REPOSITORY_ID), full_name: REPOSITORY };
 function pullRequestRun(overrides = {}) {
   return { id: 777, run_attempt: 1, event: 'pull_request', head_branch: REPAIR_REF, head_sha: NEXT,
-    path: '.github/workflows/api-check.yml@refs/pull/62/merge', status: 'queued', conclusion: null,
+    path: '.github/workflows/api-check.yml@refs/pull/62/merge', display_title: `Validate API · PR 62 · base ${BASE} · head ${NEXT}`, status: 'queued', conclusion: null,
     repository: API_REPOSITORY, head_repository: API_REPOSITORY,
     pull_requests: [{ number: 62, head: { ref: REPAIR_REF, sha: NEXT, repo: { id: Number(REPOSITORY_ID) } },
       base: { ref: 'main', sha: BASE, repo: { id: Number(REPOSITORY_ID) } } }], ...overrides };
@@ -450,12 +450,18 @@ function successfulPullJobs() {
   return ['validate', 'Browser regression'].map((name, index) => ({ id: 1000 + index, run_id: 777,
     name, status: 'completed', conclusion: 'success' }));
 }
-function pullChecksMock({ runs, refresh = {}, jobs = successfulPullJobs(), totalJobs = jobs.length, totalRuns } = {}) {
+function pullChecksMock({ runs, refresh = {}, jobs = successfulPullJobs(), totalJobs = jobs.length, totalRuns, pullOverride = {}, finalPullOverride = {} } = {}) {
   let clock = START;
   const requests = [];
+  let pullReads = 0;
   const gh = async (url, options = {}) => {
     assert.equal(options.method, undefined, 'Waiting for PR checks must never dispatch or mutate a workflow');
     requests.push(url);
+    if (url === `${PREFIX}/pulls/62`) {
+      pullReads++;
+      return { number: 62, state: 'open', head: { ref: REPAIR_REF, sha: NEXT, repo: API_REPOSITORY },
+        base: { ref: 'main', sha: BASE, repo: API_REPOSITORY }, ...pullOverride, ...(pullReads > 1 ? finalPullOverride : {}) };
+    }
     if (url.includes('/workflows/api-check.yml/runs?')) {
       const listed = runs || [pullRequestRun()];
       return { total_count: totalRuns ?? listed.length, workflow_runs: listed };
@@ -472,12 +478,13 @@ test('PR validation waits for the exact native PR workflow and both required job
   const setup = pullChecksMock();
   const run = await waitForPullRequestChecks(setup.gh, setup.options);
   assert.equal(run.id, 777);
-  const query = new URL(`https://api.github.com${setup.requests[0]}`).searchParams;
+  const query = new URL(`https://api.github.com${setup.requests[1]}`).searchParams;
   assert.equal(query.get('event'), 'pull_request');
   assert.equal(query.get('head_sha'), NEXT);
   assert.equal(query.get('branch'), REPAIR_REF);
   assert.equal(query.get('exclude_pull_requests'), 'false');
-  assert.deepEqual(setup.requests.slice(1), [`${PREFIX}/actions/runs/777?exclude_pull_requests=false`, `${PREFIX}/actions/runs/777/attempts/1/jobs?per_page=100`]);
+  assert.equal(setup.requests[0], `${PREFIX}/pulls/62`);
+  assert.deepEqual(setup.requests.slice(2), [`${PREFIX}/actions/runs/777?exclude_pull_requests=false`, `${PREFIX}/actions/runs/777/attempts/1/jobs?per_page=100`, `${PREFIX}/pulls/62`]);
 });
 
 test('PR checks never substitute push/dispatch, unrelated PR, stale base, wrong head, workflow or fork validation', async () => {
@@ -492,7 +499,7 @@ test('PR checks never substitute push/dispatch, unrelated PR, stale base, wrong 
     pullRequestRun({ pull_requests: wrongPull({ number: 99 }) }),
     pullRequestRun({ pull_requests: wrongPull({ base: { ref: 'main', sha: NEXT, repo: { id: Number(REPOSITORY_ID) } } }) }),
     pullRequestRun({ pull_requests: wrongPull({ head: { ref: REPAIR_REF, sha: NEXT, repo: { id: 1 } } }) }),
-    pullRequestRun({ pull_requests: [] }),
+    pullRequestRun({ display_title: `Validate API · PR 99 · base ${BASE} · head ${NEXT}` }),
   ];
   const setup = pullChecksMock({ runs: invalid });
   await assert.rejects(() => waitForPullRequestChecks(setup.gh, setup.options), /Required pull-request checks did not finish/);
@@ -503,13 +510,13 @@ test('PR run selection rejects ambiguity and an incomplete oversized listing', a
   for (const options of [{ runs: [pullRequestRun(), pullRequestRun({ id: 778 })] }, { totalRuns: 101 }]) {
     const setup = pullChecksMock(options);
     await assert.rejects(() => waitForPullRequestChecks(setup.gh, setup.options), /Ambiguous|bounded, unique/);
-    assert.equal(setup.requests.length, 1);
+    assert.equal(setup.requests.length, 2);
   }
 });
 
 test('PR run identity and attempt cannot change while checks are running', async () => {
   for (const refresh of [{ id: 778 }, { run_attempt: 2 }, { head_sha: BASE }, { event: 'workflow_dispatch' },
-    { pull_requests: [] }, { head_repository: { ...API_REPOSITORY, id: 1 } }]) {
+    { display_title: 'unbound title' }, { head_repository: { ...API_REPOSITORY, id: 1 } }]) {
     const setup = pullChecksMock({ refresh });
     await assert.rejects(() => waitForPullRequestChecks(setup.gh, setup.options), /Pull-request validation identity changed/);
     assert.equal(setup.requests.some(url => url.includes('/jobs?')), false);
@@ -525,7 +532,7 @@ test('failed or approval-blocked PR checks cannot authorize automatic publicatio
   for (const status of ['waiting', 'action_required']) {
     const setup = pullChecksMock({ runs: [pullRequestRun({ status })] });
     await assert.rejects(() => waitForPullRequestChecks(setup.gh, setup.options), /requires human approval/);
-    assert.equal(setup.requests.length, 1);
+    assert.equal(setup.requests.length, 2);
   }
 });
 
@@ -571,4 +578,44 @@ test('the App publisher credential is minted after candidate proof, used only fo
   assert.match(credentialScope, /::add-mask::\$\{publisher\.token\}/u);
   assert.match(credentialScope, /::add-mask::\$\{authorization\}/u);
   assert.equal(safeChildEnv({ AUTOPILOT_GITHUB_APP_PRIVATE_KEY: 'private-key', GITHUB_TOKEN: 'token' }).AUTOPILOT_GITHUB_APP_PRIVATE_KEY, undefined);
+});
+
+test('GitHub empty or absent PR associations are accepted only with the bound run title and authoritative PR proof', async () => {
+  for (const pull_requests of [[], null, undefined]) {
+    const setup = pullChecksMock({ runs: [pullRequestRun({ status: 'completed', conclusion: 'success', pull_requests })] });
+    const result = await waitForPullRequestChecks(setup.gh, setup.options);
+    assert.equal(result.id, 777);
+    assert.equal(setup.requests.filter(url => url === `${PREFIX}/pulls/62`).length, 2);
+  }
+  for (const display_title of ['Unbound PR title', `Validate API · PR 99 · base ${BASE} · head ${NEXT}`,
+    `Validate API · PR 62 · base ${NEXT} · head ${NEXT}`, `Validate API · PR 62 · base ${BASE} · head ${BASE}`]) {
+    const setup = pullChecksMock({ runs: [pullRequestRun({ status: 'completed', conclusion: 'success', pull_requests: [], display_title })] });
+    await assert.rejects(() => waitForPullRequestChecks(setup.gh, setup.options), /Required pull-request checks did not finish/);
+    assert.equal(setup.requests.some(url => url.includes('/jobs?')), false);
+  }
+});
+
+test('authoritative PR identity must agree both before polling and after successful checks', async () => {
+  const changes = [
+    { number: 99 }, { state: 'closed' },
+    { head: { ref: REPAIR_REF, sha: BASE, repo: API_REPOSITORY } },
+    { head: { ref: 'another-branch', sha: NEXT, repo: API_REPOSITORY } },
+    { head: { ref: REPAIR_REF, sha: NEXT, repo: { ...API_REPOSITORY, id: 1 } } },
+    { base: { ref: 'main', sha: NEXT, repo: API_REPOSITORY } },
+    { base: { ref: 'other', sha: BASE, repo: API_REPOSITORY } },
+    { base: { ref: 'main', sha: BASE, repo: { ...API_REPOSITORY, full_name: 'someone/fork' } } },
+  ];
+  for (const pullOverride of changes) {
+    const setup = pullChecksMock({ pullOverride });
+    await assert.rejects(() => waitForPullRequestChecks(setup.gh, setup.options), /Pull-request source identity changed/);
+    assert.deepEqual(setup.requests, [`${PREFIX}/pulls/62`]);
+  }
+  const moved = pullChecksMock({ finalPullOverride: { base: { ref: 'main', sha: NEXT, repo: API_REPOSITORY } } });
+  await assert.rejects(() => waitForPullRequestChecks(moved.gh, moved.options), /Pull-request source identity changed/);
+  assert.ok(moved.requests.some(url => url.includes('/attempts/1/jobs?')));
+});
+
+test('the immutable CI workflow binds its run title to the triggering PR number and source commits', async () => {
+  const workflow = await fs.readFile(path.join(ROOT, '.github/workflows/api-check.yml'), 'utf8');
+  assert.ok(workflow.includes("run-name: Validate API · PR ${{ github.event.pull_request.number || 'none' }} · base ${{ github.event.pull_request.base.sha || 'none' }} · head ${{ github.event.pull_request.head.sha || github.sha }}"));
 });

@@ -1,9 +1,15 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { readFile, readdir } from "node:fs/promises";
+import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
+import handler from "../dist/index.js";
 import {
   adminAudit,
   adminContent,
   adminContentRevisions,
+  adminOverview,
+  adminSuggestions,
   adminUsers,
   publishAdminContent,
   revokeNonOwnerSessions,
@@ -591,4 +597,246 @@ test("Content Studio handles updated drafts and idempotent publication actions",
     "science-003",
   )).json(), { success: true, changed: false, version: 5 });
   assert.equal(unpublishedEnv.batches.length, 0);
+});
+
+async function persistedAdminEnv(t, role = "ADMIN", schemaVersion = 9) {
+  const database = new DatabaseSync(":memory:");
+  t.after(() => database.close());
+  database.exec("PRAGMA foreign_keys = ON");
+  const migrationsDirectory = new URL("../migrations/", import.meta.url);
+  const migrations = (await readdir(migrationsDirectory))
+    .filter((name) => /^\d{4}_.+\.sql$/u.test(name) && Number(name.slice(0, 4)) <= schemaVersion)
+    .sort();
+  for (const name of migrations) database.exec(await readFile(new URL(name, migrationsDirectory), "utf8"));
+  const now = new Date().toISOString();
+  database.prepare(
+    `INSERT INTO users (id, username, username_key, email, password_hash, password_salt,
+                        password_iterations, role, created_at, updated_at)
+     VALUES ('actor-1', 'admin', 'admin', 'admin@example.test', 'private-hash', 'private-salt', 100000, ?, ?, ?)`,
+  ).run(role, now, now);
+  database.prepare(
+    "INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, 'actor-1', ?, ?)",
+  ).run(createHash("sha256").update(SESSION_TOKEN).digest("base64url"), now, new Date(Date.now() + 60_000).toISOString());
+  const queries = [];
+  const env = {
+    IP_HASH_SALT: "ip-hash-salt-longer-than-24-characters",
+    DB: {
+      prepare(sql) {
+        queries.push(sql);
+        const statement = database.prepare(sql);
+        return {
+          values: [],
+          bind(...values) { this.values = values; return this; },
+          async first() { return statement.get(...this.values) || null; },
+          async all() { return { results: statement.all(...this.values), success: true }; },
+          async run() { return { meta: statement.run(...this.values), success: true }; },
+        };
+      },
+      async batch(statements) {
+        database.exec("BEGIN");
+        try {
+          const results = [];
+          for (const statement of statements) results.push(await statement.run());
+          database.exec("COMMIT");
+          return results;
+        } catch (error) {
+          database.exec("ROLLBACK");
+          throw error;
+        }
+      },
+    },
+  };
+  return { database, env, queries };
+}
+
+function insertSuggestion(database, id = "suggestion-1", status = "new", createdAt = "2026-09-23T10:00:00.000Z") {
+  database.prepare(
+    "INSERT INTO suggestions (id, text, email, status, created_at) VALUES (?, 'Question needs review', 'reporter@example.test', ?, ?)",
+  ).run(id, status, createdAt);
+}
+
+test("overview counts editorial work separately from live overrides and returns only the latest eight edits", async (t) => {
+  const { database, env, queries } = await persistedAdminEnv(t);
+  const empty = await (await adminOverview(request("/api/admin/overview"), env)).json();
+  assert.equal(empty.editorialAvailable, true);
+  assert.deepEqual(empty.editorial, { drafts: 0, inReview: 0, publishedOverrides: 0 });
+  assert.deepEqual(empty.recentEdits, []);
+
+  for (let index = 0; index < 12; index += 1) {
+    const workflowStatus = ["DRAFT", "IN_REVIEW", "PUBLISHED"][index % 3];
+    const published = workflowStatus === "PUBLISHED" || index < 2;
+    const updatedAt = `2026-09-${String(index + 1).padStart(2, "0")}T10:00:00.000Z`;
+    database.prepare(
+      `INSERT INTO content_question_edits (question_id, category_slug, draft_json, workflow_status,
+       version, published_version, published_snapshot_json, editor_user_id, created_at, updated_at, published_at)
+       VALUES (?, 'science', ?, ?, 3, ?, ?, 'actor-1', ?, ?, ?)`,
+    ).run(`science-${index}`, JSON.stringify(contentSnapshot), workflowStatus,
+      published ? 2 : null, published ? JSON.stringify(contentSnapshot) : null,
+      updatedAt, updatedAt, published ? updatedAt : null);
+  }
+  insertSuggestion(database);
+  const body = await (await adminOverview(request("/api/admin/overview"), env)).json();
+  assert.deepEqual(body.editorial, { drafts: 4, inReview: 4, publishedOverrides: 6 });
+  assert.equal(body.metrics.pendingSuggestions, 1);
+  assert.deepEqual(body.recentEdits.map((row) => row.questionId), Array.from({ length: 8 }, (_, i) => `science-${11 - i}`));
+  assert.deepEqual(Object.keys(body.recentEdits[0]).sort(), [
+    "questionId", "categorySlug", "workflowStatus", "version", "publishedVersion", "editorUsername", "updatedAt",
+  ].sort());
+  assert.equal(body.recentEdits[0].editorUsername, "admin");
+  assert.equal(body.recentUsers[0].email, null);
+  assert.equal(body.recentSuggestions[0].email, null);
+  assert.equal("resolutionNote" in body.recentSuggestions[0], false);
+  assert.equal(queries.filter((sql) => sql.includes("FROM schema_meta")).length, 2, "read schema once per overview request");
+  assert.equal(queries.some((sql) => sql.includes("admin_audit_log")), false, "overview must not query feedback resolution history");
+  assert.doesNotMatch(JSON.stringify(body), /private-hash|private-salt|draftJson/u);
+});
+
+test("schema 8 overview keeps account and feedback data available without touching editorial tables or audit history", async (t) => {
+  const { database, env, queries } = await persistedAdminEnv(t, "ADMIN", 8);
+  insertSuggestion(database);
+  const response = await adminOverview(request("/api/admin/overview"), env);
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.equal(body.editorialAvailable, false);
+  assert.equal(body.editorial, null);
+  assert.deepEqual(body.recentEdits, []);
+  assert.equal(body.metrics.users, 1);
+  assert.equal(body.metrics.administrators, 1);
+  assert.equal(body.metrics.pendingSuggestions, 1);
+  assert.equal(body.recentUsers[0].username, "admin");
+  assert.equal(body.recentUsers[0].email, null);
+  assert.equal(body.recentSuggestions[0].text, "Question needs review");
+  assert.equal(body.recentSuggestions[0].email, null);
+  assert.equal("resolutionNote" in body.recentSuggestions[0], false);
+  assert.equal(queries.filter((sql) => sql.includes("FROM schema_meta")).length, 1);
+  assert.equal(queries.some((sql) => /content_question_edits|admin_audit_log/u.test(sql)), false);
+});
+
+test("resolution notes survive reload and same-status saves without exposing audit details or contact emails", async (t) => {
+  const { database, env } = await persistedAdminEnv(t);
+  insertSuggestion(database);
+  const changed = await updateSuggestion(request("/api/admin/suggestions/suggestion-1", "PATCH", {
+    status: "reviewed", reason: "  Compared both languages with the source.  ",
+  }), env, "suggestion-1");
+  assert.deepEqual(await changed.json(), { success: true, changed: true, noteSaved: true });
+
+  await updateSuggestion(request("/api/admin/suggestions/suggestion-1", "PATCH", { status: "implemented" }), env, "suggestion-1");
+  let body = await (await adminSuggestions(request("/api/admin/suggestions"), env)).json();
+  assert.equal(body.suggestions[0].resolutionNote.text, "Compared both languages with the source.");
+
+  const noteOnly = await updateSuggestion(request("/api/admin/suggestions/suggestion-1", "PATCH", {
+    status: "implemented", reason: "Published the independently reviewed correction.",
+  }), env, "suggestion-1");
+  assert.deepEqual(await noteOnly.json(), { success: true, changed: true, noteSaved: true });
+  const audit = database.prepare("SELECT action, detail, created_at FROM admin_audit_log ORDER BY rowid DESC LIMIT 1").get();
+  assert.equal(audit.action, "suggestion.note_added");
+  assert.deepEqual(JSON.parse(audit.detail), { status: "implemented", reason: "Published the independently reviewed correction." });
+
+  body = await (await adminSuggestions(request("/api/admin/suggestions?status=implemented"), env)).json();
+  assert.equal(body.suggestions[0].status, "implemented");
+  assert.equal(body.suggestions[0].email, null);
+  assert.deepEqual(body.suggestions[0].resolutionNote, {
+    text: "Published the independently reviewed correction.", authorUsername: "admin", createdAt: audit.created_at,
+  });
+  assert.deepEqual(Object.keys(body.suggestions[0]).sort(), ["id", "text", "email", "status", "createdAt", "resolutionNote"].sort());
+  const overview = await (await adminOverview(request("/api/admin/overview"), env)).json();
+  assert.equal("resolutionNote" in overview.recentSuggestions[0], false);
+
+  database.prepare("UPDATE users SET role = 'OWNER' WHERE id = 'actor-1'").run();
+  body = await (await adminSuggestions(request("/api/admin/suggestions"), env)).json();
+  assert.equal(body.suggestions[0].email, "reporter@example.test");
+  assert.equal(body.permissions.canViewEmail, true);
+});
+
+test("latest valid note ignores empty legacy details, malformed reasons, and unrelated audit events", async (t) => {
+  const { database, env } = await persistedAdminEnv(t);
+  insertSuggestion(database);
+  insertSuggestion(database, "suggestion-2", "reviewed", "2026-09-22T10:00:00.000Z");
+  const insert = database.prepare(
+    `INSERT INTO admin_audit_log (id, actor_user_id, action, target_type, target_id, detail, created_at)
+     VALUES (?, NULL, ?, ?, ?, ?, '2026-09-23T10:00:00.000Z')`,
+  );
+  insert.run("valid", "suggestion.status_changed", "suggestion", "suggestion-1", JSON.stringify({ reason: "Verified the replacement wording.", privateDetail: "never disclose" }));
+  for (const [index, detail] of ["", "invalid-json", JSON.stringify({}), JSON.stringify({ reason: 5 }),
+    JSON.stringify({ reason: "   " }), JSON.stringify({ reason: "bad\nline" }), JSON.stringify({ reason: "nul\u0000char" }),
+    JSON.stringify({ reason: "x".repeat(281) })].entries()) {
+    insert.run(`invalid-${index}`, "suggestion.note_added", "suggestion", "suggestion-1", detail);
+  }
+  insert.run("unrelated-action", "user.role_changed", "suggestion", "suggestion-1", JSON.stringify({ reason: "Do not disclose" }));
+  insert.run("unrelated-type", "suggestion.note_added", "user", "suggestion-1", JSON.stringify({ reason: "Do not disclose" }));
+  insert.run("another-note", "suggestion.note_added", "suggestion", "suggestion-2", JSON.stringify({ reason: "A different report." }));
+  const body = await (await adminSuggestions(request("/api/admin/suggestions?limit=1"), env)).json();
+  assert.equal(body.nextOffset, 1);
+  assert.deepEqual(body.suggestions[0].resolutionNote, {
+    text: "Verified the replacement wording.", authorUsername: null, createdAt: "2026-09-23T10:00:00.000Z",
+  });
+  assert.doesNotMatch(JSON.stringify(body), /never disclose|Do not disclose|A different report/u);
+});
+
+test("unchanged status without a reason is a no-op and invalid notes never write", async (t) => {
+  const { database, env } = await persistedAdminEnv(t);
+  insertSuggestion(database);
+  const unchanged = await updateSuggestion(request("/api/admin/suggestions/suggestion-1", "PATCH", { status: "new" }), env, "suggestion-1");
+  assert.deepEqual(await unchanged.json(), { success: true, changed: false });
+  for (const reason of ["", "   ", "x".repeat(281), "line\nbreak", 42]) {
+    await assert.rejects(updateSuggestion(request("/api/admin/suggestions/suggestion-1", "PATCH", { status: "reviewed", reason }), env, "suggestion-1"),
+      (error) => error?.status === 400 && error?.code === "AUDIT_REASON_INVALID");
+  }
+  assert.equal(database.prepare("SELECT COUNT(*) AS count FROM admin_audit_log").get().count, 0);
+  assert.equal(database.prepare("SELECT status FROM suggestions").get().status, "new");
+});
+
+test("editorial overview and feedback notes remain inaccessible to regular users and signed-out visitors", async (t) => {
+  const { database, env } = await persistedAdminEnv(t, "USER");
+  insertSuggestion(database);
+  const calls = [
+    () => adminOverview(request("/api/admin/overview"), env),
+    () => adminSuggestions(request("/api/admin/suggestions"), env),
+    () => updateSuggestion(request("/api/admin/suggestions/suggestion-1", "PATCH", { status: "new", reason: "Unauthorized note" }), env, "suggestion-1"),
+  ];
+  for (const call of calls) await assert.rejects(call(), (error) => error?.status === 403 && error?.code === "ADMIN_REQUIRED");
+  database.prepare("DELETE FROM sessions").run();
+  for (const call of calls) await assert.rejects(call(), (error) => error?.status === 401);
+  assert.equal(database.prepare("SELECT COUNT(*) AS count FROM admin_audit_log").get().count, 0);
+  assert.equal(database.prepare("SELECT status FROM suggestions").get().status, "new");
+});
+
+test("the dispatcher saves feedback notes for generated token and UUID IDs while enforcing authentication and origin", async (t) => {
+  const { database, env } = await persistedAdminEnv(t);
+  Object.assign(env, {
+    PASSWORD_PEPPER: "password-pepper-longer-than-24-characters",
+    ALLOWED_ORIGINS: "https://riddlearabia.com",
+    STATIC_ORIGIN: "https://riddlearabia.com",
+  });
+  const tokenId = "ab_-CD0123456789efGHijkl";
+  const uuidId = "11111111-1111-4111-8111-111111111111";
+  function updateRequest(id, { origin = "https://riddlearabia.com", authenticated = true } = {}) {
+    return new Request(`https://api.jakh.net/api/admin/suggestions/${id}`, {
+      method: "PATCH",
+      headers: {
+        origin,
+        "content-type": "application/json",
+        ...(authenticated ? { cookie: `__Host-jakh_session=${SESSION_TOKEN}` } : {}),
+      },
+      body: JSON.stringify({ status: "reviewed", reason: "Checked the original report." }),
+    });
+  }
+  for (const id of [tokenId, uuidId]) {
+    insertSuggestion(database, id);
+    const response = await handler.fetch(updateRequest(id), env);
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).noteSaved, true);
+    assert.equal(database.prepare("SELECT status FROM suggestions WHERE id = ?").get(id).status, "reviewed");
+  }
+  for (const id of ["short", "a".repeat(23), "a".repeat(25), "z".repeat(36), "111111111111411181111111111111111111", `${tokenId}/extra`]) {
+    const response = await handler.fetch(updateRequest(id), env);
+    assert.equal(response.status, 404, `reject malformed ID ${id}`);
+  }
+  assert.equal((await handler.fetch(updateRequest(tokenId, { authenticated: false }), env)).status, 401);
+  assert.equal((await handler.fetch(updateRequest(tokenId, { origin: "https://untrusted.example" }), env)).status, 403);
+  database.prepare("UPDATE users SET role = 'USER' WHERE id = 'actor-1'").run();
+  const forbidden = await handler.fetch(updateRequest(tokenId), env);
+  assert.equal(forbidden.status, 403);
+  assert.equal((await forbidden.json()).code, "ADMIN_REQUIRED");
+  assert.equal(database.prepare("SELECT COUNT(*) AS count FROM admin_audit_log").get().count, 2);
 });

@@ -190,7 +190,8 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (roleMatch && method === "PATCH") return updateUserRole(request, env, roleMatch[1] || "");
   const banMatch = /^\/api\/admin\/users\/([A-Za-z0-9-]{36})\/ban$/u.exec(path);
   if (banMatch && method === "PATCH") return updateUserBan(request, env, banMatch[1] || "");
-  const suggestionMatch = /^\/api\/admin\/suggestions\/([A-Za-z0-9-]{36})$/u.exec(path);
+  // General feedback uses an 18-byte base64url token; privacy requests use UUIDs.
+  const suggestionMatch = /^\/api\/admin\/suggestions\/([A-Za-z0-9_-]{24}|[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12})$/u.exec(path);
   if (suggestionMatch && method === "PATCH") return updateSuggestion(request, env, suggestionMatch[1] || "");
   const contentRevisionsMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})\/revisions$/u.exec(path);
   if (contentRevisionsMatch && method === "GET") {

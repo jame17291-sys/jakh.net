@@ -22,7 +22,7 @@
         <span class="brand-mark" aria-hidden="true">R</span>
         <span>
           <strong>Riddle Arabia</strong>
-          <small data-i18n="brandEyebrow">RIDDLE ARABIA · CONTROL ROOM</small>
+          <small data-i18n="brandEyebrow">Administration</small>
         </span>
       </a>
       <div class="topbar-actions">
@@ -60,7 +60,7 @@
             <span aria-hidden="true">◈</span><span data-i18n="overview">Overview</span>
           </button>
           <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="contentPanel" id="contentTab" data-tab="content" tabindex="-1">
-            <span aria-hidden="true">✎</span><span data-i18n="contentStudio">Content Studio</span>
+            <span aria-hidden="true">✎</span><span data-i18n="contentStudio">Content</span>
           </button>
           <button class="admin-tab" type="button" role="tab" aria-selected="false" aria-controls="peoplePanel" id="peopleTab" data-tab="people" tabindex="-1">
             <span aria-hidden="true">♙</span><span data-i18n="people">People</span>
@@ -87,13 +87,33 @@
           <div class="page-heading">
             <div>
               <span class="eyebrow" data-i18n="operations">Operations</span>
-              <h1 data-i18n="overviewHeading">A clear view of Riddle Arabia.</h1>
-              <p data-i18n="overviewLead">Monitor members, moderation work, service readiness, and account safety from one place.</p>
+              <h1 data-i18n="overviewHeading">Overview</h1>
+              <p data-i18n="overviewLead">Review reports, continue drafts, and prepare content for publication.</p>
             </div>
             <div class="updated"><span data-i18n="updated">Updated</span> <time id="lastUpdated">—</time></div>
           </div>
 
-          <section id="metricGrid" class="metric-grid" aria-label="Riddle Arabia metrics"></section>
+          <section id="metricGrid" class="metric-grid editorial-metrics" aria-label="Editorial work"></section>
+
+          <div class="dashboard-grid editorial-dashboard">
+            <article class="panel action-panel">
+              <div class="panel-heading compact-heading"><h2 data-i18n="nextActions">What needs attention</h2><button class="text-button" type="button" data-open-tab="content" data-i18n="browseContent">Browse content</button></div>
+              <div id="actionQueue" class="action-queue"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading compact-heading"><div><h2 data-i18n="recentEdits">Recent edits</h2><p data-i18n="recentEditsHint">Continue where you left off.</p></div></div>
+              <div id="recentEdits" class="activity-list"></div>
+            </article>
+          </div>
+
+          <article class="panel overview-feedback">
+            <div class="panel-heading compact-heading"><div><h2 data-i18n="recentFeedback">Recent feedback</h2><p data-i18n="recentFeedbackHint">Newest visitor reports and suggestions</p></div><button class="text-button" type="button" data-open-tab="feedback" data-i18n="reviewFeedback">Review feedback</button></div>
+            <div id="recentSuggestions" class="activity-list"></div>
+          </article>
+
+          <details class="operations-details">
+            <summary data-i18n="accountActivity">Accounts and service status</summary>
+            <section id="accountMetricGrid" class="metric-grid" aria-label="Account metrics"></section>
 
           <div class="dashboard-grid">
             <article class="panel health-panel">
@@ -111,18 +131,6 @@
                 <span><i class="check-dot" aria-hidden="true"></i><span data-i18n="guardrailStepUp">High-impact actions need password confirmation</span></span>
               </div>
             </article>
-            <article class="panel action-panel">
-              <div class="panel-heading">
-                <div>
-                  <span class="eyebrow" data-i18n="priorityQueue">Priority queue</span>
-                  <h2 data-i18n="nextActions">What needs attention</h2>
-                </div>
-              </div>
-              <div id="actionQueue" class="action-queue"></div>
-            </article>
-          </div>
-
-          <div class="dashboard-grid">
             <article class="panel">
               <div class="panel-heading compact-heading">
                 <div><h2 data-i18n="recentMembers">Recent members</h2><p data-i18n="recentMembersHint">Latest account registrations</p></div>
@@ -130,60 +138,60 @@
               </div>
               <div id="recentUsers" class="activity-list"></div>
             </article>
-            <article class="panel">
-              <div class="panel-heading compact-heading">
-                <div><h2 data-i18n="recentFeedback">Recent feedback</h2><p data-i18n="recentFeedbackHint">Newest visitor suggestions</p></div>
-                <button class="text-button" type="button" data-open-tab="feedback" data-i18n="reviewFeedback">Review feedback</button>
-              </div>
-              <div id="recentSuggestions" class="activity-list"></div>
-            </article>
           </div>
+          </details>
         </section>
 
         <section id="contentPanel" class="tab-panel" role="tabpanel" aria-labelledby="contentTab" data-panel="content" hidden>
           <div class="page-heading">
             <div>
               <span class="eyebrow" data-i18n="editorialWorkspace">Editorial workspace</span>
-              <h1 data-i18n="contentHeading">Edit, review, and publish with confidence.</h1>
-              <p data-i18n="contentLead">Work in bilingual drafts, preview every change, and publish only after a protected approval. The previous live version remains available for rollback.</p>
+              <h1 data-i18n="contentHeading">Content</h1>
+              <p data-i18n="contentLead">Find a question, edit both languages, and preview your changes.</p>
             </div>
           </div>
           <article class="panel content-toolbar">
             <div class="filter-grid content-filter-grid">
-              <label class="input-label"><span data-i18n="contentCategory">Category</span><select id="contentCategory"><option value="" data-i18n="chooseCategory">Choose a category</option></select></label>
-              <label class="input-label"><span data-i18n="searchQuestions">Search questions</span><input id="contentSearch" type="search" maxlength="96" data-i18n-placeholder="contentSearchPlaceholder" placeholder="Question text or ID"></label>
-              <label class="input-label"><span data-i18n="reviewState">Review state</span><select id="contentStatus"><option value="" data-i18n="allContentStates">All states</option><option value="UNEDITED" data-i18n="unedited">Unedited</option><option value="DRAFT" data-i18n="draft">Draft</option><option value="IN_REVIEW" data-i18n="inReview">In review</option><option value="PUBLISHED" data-i18n="published">Published</option></select></label>
-              <button id="contentLoadButton" class="secondary-button filter-submit" type="button" data-i18n="loadQuestions">Load questions</button>
+              <label class="input-label content-search-label"><span data-i18n="searchQuestions">Search questions</span><input id="contentSearch" type="search" maxlength="96" data-i18n-placeholder="contentSearchPlaceholder" placeholder="Search all questions by text or ID"></label>
+              <div class="category-picker"><label class="input-label"><span data-i18n="categorySearch">Find a category</span><input id="contentCategorySearch" type="search" maxlength="96" data-i18n-placeholder="categorySearchPlaceholder" placeholder="Filter category names" aria-controls="contentCategory"></label><label class="input-label"><span class="sr-only" data-i18n="contentCategory">Category</span><select id="contentCategory"><option value="" data-i18n="allCategories">All categories</option></select></label></div>
+              <label class="input-label"><span data-i18n="reviewState">Review state</span><select id="contentStatus"><option value="" data-i18n="allContentStates">All states</option><option value="UNEDITED" data-i18n="unedited">Unedited</option><option value="DRAFT" data-i18n="draft">Draft</option><option value="IN_REVIEW" data-i18n="inReview">In review</option><option value="PUBLISHED" data-i18n="published">Published</option><option value="LIVE" data-i18n="liveOverrides">Live overrides</option></select></label>
+              <button id="contentLoadButton" class="secondary-button filter-submit" type="button" data-i18n="loadQuestions">Refresh results</button>
             </div>
+            <div class="filter-summary"><div id="contentActiveFilters" class="filter-chips" aria-live="polite"></div><button id="contentClearFilters" class="text-button" type="button" data-i18n="clearFilters">Clear filters</button></div>
           </article>
-          <div class="content-studio-grid">
+          <div id="contentWorkspace" class="content-studio-grid">
             <article class="panel content-browser-panel">
               <div class="panel-heading compact-heading"><div><h2 data-i18n="questionLibrary">Question library</h2><p id="contentResultsSummary" data-i18n="chooseCategoryFirst">Choose a category to begin.</p></div></div>
               <div id="contentQuestionList" class="content-question-list" aria-live="polite"></div>
+              <div class="content-pagination"><label class="input-label"><span data-i18n="pageSize">Per page</span><select id="contentPageSize"><option value="30">30</option><option value="50">50</option></select></label><span id="contentPageInfo" role="status"></span><div class="pagination-buttons"><button id="contentPreviousPage" class="quiet-button" type="button" data-i18n="previousPage">Previous</button><button id="contentNextPage" class="quiet-button" type="button" data-i18n="nextPage">Next</button></div></div>
             </article>
             <article class="panel content-editor-panel">
               <div id="contentEditorEmpty" class="empty-state" data-i18n="chooseQuestion">Choose a question to open the bilingual editor.</div>
+              <div id="contentReportContext" class="report-context" hidden></div>
               <form id="contentEditorForm" hidden novalidate>
+                <button id="contentBackButton" class="text-button content-back" type="button" data-i18n="backToResults">Back to results</button>
                 <div class="content-editor-heading">
-                  <div><span id="contentEditorStatus" class="status-pill is-pending">—</span><h2 id="contentEditorTitle">—</h2></div>
+                  <div><div class="editor-statuses"><span id="contentEditorStatus" class="status-pill is-pending">—</span><span id="contentPublishedState" class="publication-state">—</span></div><h2 id="contentEditorTitle" tabindex="-1">—</h2></div>
                   <button id="contentHistoryButton" class="quiet-button" type="button" data-i18n="history">History</button>
                 </div>
+                <div class="editor-language-tabs" role="group" aria-label="Editing language"><button id="editorEnglishTab" type="button" data-editor-language="en" aria-pressed="true" aria-controls="editorEnglishPanel" tabindex="0">English</button><button id="editorArabicTab" type="button" data-editor-language="ar" aria-pressed="false" aria-controls="editorArabicPanel" tabindex="0">العربية</button><button id="editorCompareTab" type="button" data-editor-language="compare" aria-pressed="false" aria-controls="editorEnglishPanel editorArabicPanel" tabindex="0" data-i18n="compareLanguages">Compare both</button></div>
                 <div class="content-language-grid">
-                  <fieldset><legend>English</legend>
-                    <label class="input-label"><span data-i18n="question">Question</span><textarea id="contentQuestionEn" rows="4" maxlength="4000" required></textarea></label>
-                    <label class="input-label"><span data-i18n="answer">Answer</span><textarea id="contentAnswerEn" rows="2" maxlength="4000" required></textarea></label>
-                    <label class="input-label"><span data-i18n="explanation">Explanation</span><textarea id="contentExplanationEn" rows="4" maxlength="4000"></textarea></label>
+                  <fieldset id="editorEnglishPanel" data-editor-panel="en" aria-labelledby="editorEnglishTab"><legend>English</legend>
+                    <label class="input-label"><span data-i18n="question">Question</span><textarea id="contentQuestionEn" lang="en" dir="ltr" rows="3" maxlength="4000" required></textarea></label>
+                    <label class="input-label"><span data-i18n="answer">Answer</span><textarea id="contentAnswerEn" lang="en" dir="ltr" rows="2" maxlength="4000" required></textarea></label>
+                    <label class="input-label"><span data-i18n="explanation">Explanation</span><textarea id="contentExplanationEn" lang="en" dir="ltr" rows="3" maxlength="4000"></textarea></label>
                   </fieldset>
-                  <fieldset dir="rtl"><legend>العربية</legend>
-                    <label class="input-label"><span data-i18n="question">السؤال</span><textarea id="contentQuestionAr" rows="4" maxlength="4000" lang="ar" dir="rtl" required></textarea></label>
+                  <fieldset id="editorArabicPanel" data-editor-panel="ar" aria-labelledby="editorArabicTab" dir="rtl" hidden><legend>العربية</legend>
+                    <label class="input-label"><span data-i18n="question">السؤال</span><textarea id="contentQuestionAr" rows="3" maxlength="4000" lang="ar" dir="rtl" required></textarea></label>
                     <label class="input-label"><span data-i18n="answer">الإجابة</span><textarea id="contentAnswerAr" rows="2" maxlength="4000" lang="ar" dir="rtl" required></textarea></label>
-                    <label class="input-label"><span data-i18n="explanation">الشرح</span><textarea id="contentExplanationAr" rows="4" maxlength="4000" lang="ar" dir="rtl"></textarea></label>
+                    <label class="input-label"><span data-i18n="explanation">الشرح</span><textarea id="contentExplanationAr" rows="3" maxlength="4000" lang="ar" dir="rtl"></textarea></label>
                   </fieldset>
                 </div>
-                <label class="input-label"><span data-i18n="sourcesFormat">Sources — one per line: Title | Publisher | https://…</span><textarea id="contentSources" rows="4" maxlength="8000" dir="ltr" placeholder="Title | Publisher | https://example.com/source"></textarea></label>
-                <section class="content-preview" aria-labelledby="contentPreviewTitle"><h3 id="contentPreviewTitle" data-i18n="livePreview">Live preview</h3><div id="contentPreviewCard"></div></section>
+                <section class="content-sources" aria-labelledby="contentSourcesTitle"><div class="panel-heading compact-heading"><div><h3 id="contentSourcesTitle" data-i18n="sources">Sources</h3><p data-i18n="sourcesHint">Add up to 8 sources to support this answer.</p></div><button id="contentAddSource" class="quiet-button" type="button" data-i18n="addSource">Add source</button></div><div id="contentSourceList"></div></section>
+                <section class="content-preview" aria-labelledby="contentPreviewTitle"><div class="panel-heading compact-heading"><h3 id="contentPreviewTitle" data-i18n="livePreview">Preview</h3><label class="input-label"><span data-i18n="previewLanguage">Preview language</span><select id="contentPreviewLanguage"><option value="en">English</option><option value="ar">العربية</option></select></label></div><div id="contentPreviewCard"></div></section>
                 <p id="contentEditorMessage" class="form-error" role="alert" hidden></p>
                 <div class="button-row content-editor-actions">
+                  <span id="contentSaveState" class="save-state" role="status" aria-live="polite"></span>
                   <button id="contentSaveDraft" class="secondary-button" type="button" data-i18n="saveDraft">Save draft</button>
                   <button id="contentSubmitReview" class="primary-button" type="button" data-i18n="submitForReview">Submit for review</button>
                   <button id="contentPublish" class="primary-button" type="button" data-i18n="publish">Publish</button>

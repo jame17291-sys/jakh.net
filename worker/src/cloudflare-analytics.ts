@@ -68,6 +68,7 @@ const CACHE_KEY_URL = "https://api.riddlearabia.com/__internal/platform-status/c
 const CACHE_TTL_MS = 5 * 60 * 1_000;
 const MAX_STALE_MS = 24 * 60 * 60 * 1_000;
 const REQUEST_TIMEOUT_MS = 5_000;
+const TRANSIENT_ATTEMPTS = 2;
 const MAX_RESPONSE_BYTES = 64 * 1_024;
 const WINDOW_MS = 24 * 60 * 60 * 1_000;
 const EXPECTED_METRIC_COUNT = 7;
@@ -363,7 +364,7 @@ async function writeCache(config: CloudflareAnalyticsConfig, entry: CacheEntry):
   }
 }
 
-async function fetchScope(config: CloudflareAnalyticsConfig, scope: AnalyticsScope, start: string, end: string): Promise<ScopeSnapshot> {
+async function fetchScopeAttempt(config: CloudflareAnalyticsConfig, scope: AnalyticsScope, start: string, end: string): Promise<ScopeSnapshot> {
   const resourceId = scope === "zone" ? config.zoneId : config.accountId;
   if (!/^[a-f0-9]{32}$/iu.test(resourceId) || /[\s\u0000-\u001f\u007f]/u.test(config.token)) {
     throw new AnalyticsFailure("configuration_invalid");
@@ -418,9 +419,30 @@ async function fetchScope(config: CloudflareAnalyticsConfig, scope: AnalyticsSco
       return metricsFromPayload(await jsonBody(response), scope);
     })();
     return await Promise.race([request, deadline]);
+  } catch (error) {
+    // Preserve the explicit, allowlisted outcomes above. Every other fetch or
+    // stream error is a transient provider transport failure and is eligible
+    // for the single safe retry in fetchScope.
+    if (error instanceof AnalyticsFailure) throw error;
+    throw new AnalyticsFailure("provider_failure");
   } finally {
     clearTimeout(timeout);
   }
+}
+
+async function fetchScope(config: CloudflareAnalyticsConfig, scope: AnalyticsScope, start: string, end: string): Promise<ScopeSnapshot> {
+  for (let attempt = 1; attempt <= TRANSIENT_ATTEMPTS; attempt += 1) {
+    try {
+      return await fetchScopeAttempt(config, scope, start, end);
+    } catch (error) {
+      // Analytics queries are read-only. A one-time retry handles a transient
+      // Cloudflare API/edge transport failure without masking an explicit
+      // configuration, authentication, permission, or query problem.
+      if (attempt < TRANSIENT_ATTEMPTS && error instanceof AnalyticsFailure && error.category === "provider_failure") continue;
+      throw error;
+    }
+  }
+  throw new AnalyticsFailure("provider_failure");
 }
 
 async function fetchLiveSnapshot(config: CloudflareAnalyticsConfig, now: Date): Promise<{ entry: CacheEntry | null; diagnostics?: CloudflareAnalyticsDiagnostics }> {

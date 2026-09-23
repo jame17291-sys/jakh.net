@@ -126,13 +126,32 @@ test("Cloudflare analytics keeps a configuration-scoped stale snapshot when a re
   const stale = await cloudflareAnalyticsStatus(CONFIG, new Date(NOW.getTime() + (5 * 60 * 1_000) + 1));
   assert.equal(first.state, "healthy");
   assert.equal(stale.state, "stale");
-  assert.equal(calls, 4, "both scopes refresh after the five-minute fresh window");
+  assert.equal(calls, 6, "each failed scope retries its transient provider failure once");
   assert.deepEqual(stale.metrics, first.metrics);
   assert.deepEqual(stale.diagnostics, { zone: "provider_failure", workers: "provider_failure" });
 
   const otherZone = await cloudflareAnalyticsStatus({ ...CONFIG, CLOUDFLARE_ANALYTICS_ZONE_ID: "c".repeat(32) }, NOW);
   assert.equal(otherZone.state, "unavailable");
-  assert.equal(calls, 6, "a different zone must not reuse this zone's cached snapshot");
+  assert.equal(calls, 10, "a different zone must not reuse this zone's cached snapshot");
+});
+
+test("Cloudflare retries one transient provider failure per scope before returning data", async (t) => {
+  installEdgeCache(t);
+  const originalFetch = globalThis.fetch;
+  const attempts = new Map();
+  globalThis.fetch = async (_input, init) => {
+    const scope = "zoneTag" in JSON.parse(init.body).variables ? "zone" : "workers";
+    const count = (attempts.get(scope) || 0) + 1;
+    attempts.set(scope, count);
+    if (count === 1) throw new Error("temporary upstream transport failure");
+    return new Response(JSON.stringify(graphqlResponse()), { headers: { "content-type": "application/json" } });
+  };
+  t.after(() => { globalThis.fetch = originalFetch; });
+
+  const status = await cloudflareAnalyticsStatus(CONFIG, NOW);
+  assert.equal(status.state, "healthy");
+  assert.equal(status.metrics.length, 7);
+  assert.deepEqual([...attempts.entries()].sort(), [["workers", 2], ["zone", 2]]);
 });
 
 test("Cloudflare analytics retains valid partial aggregates without manufacturing Worker zeros", async (t) => {

@@ -269,6 +269,10 @@
     return preference;
   }
 
+  function privacyChoicesHref() {
+    return document.documentElement.lang === 'ar' ? '/ar/privacy/#choices' : '/privacy#choices';
+  }
+
   function bannerCopy() {
     const isAr = document.documentElement.lang === 'ar';
     return isAr ? {
@@ -307,7 +311,7 @@
       <div class="privacy-consent-actions">
         <button type="button" class="primary-btn mini-btn" data-consent-action="allow">${copy.allow}</button>
         <button type="button" class="secondary-btn mini-btn" data-consent-action="essential">${copy.essential}</button>
-        <a class="text-btn mini-btn" href="/privacy#choices">${copy.choices}</a>
+        <a class="text-btn mini-btn" href="${privacyChoicesHref()}">${copy.choices}</a>
       </div>`;
     banner.querySelector('[data-consent-action="allow"]')?.addEventListener('click', () => {
       setAnalyticsConsent(true, 'consent-banner');
@@ -352,7 +356,7 @@
     getPreference: readPreference,
     setAnalyticsConsent,
     showChoices: () => {
-      location.assign('/privacy#choices');
+      location.assign(privacyChoicesHref());
     },
   });
 

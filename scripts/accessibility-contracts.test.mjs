@@ -17,6 +17,8 @@ const interactiveSource = `${app}\n${featureModule}`;
 const privacy = fs.readFileSync(path.join(root, 'privacy.html'), 'utf8');
 const privacyCss = fs.readFileSync(path.join(root, 'privacy.css'), 'utf8');
 const adminCss = fs.readFileSync(path.join(root, 'admin.css'), 'utf8');
+const directory = fs.readFileSync(path.join(root, 'mind-lab.html'), 'utf8');
+const navigation = fs.readFileSync(path.join(root, 'site-navigation.js'), 'utf8');
 
 function gameSource(name) {
   return fs.readFileSync(path.join(root, `${name}.html`), 'utf8');
@@ -88,6 +90,18 @@ test('authentication modes implement the tabs pattern with roving keyboard focus
   assert.match(app, /event\.key === 'Home'/u);
   assert.match(app, /event\.key === 'End'/u);
   assert.match(app, /role="tabpanel" aria-labelledby="\$\{activeTabId\}"/u);
+});
+
+test('directory contextual tools have visible labels and use the existing accessible overlays', () => {
+  for (const [id, key] of [['globalSearchBtn', 'search'], ['leaderboardBtn', 'leaderboardNav'], ['battleNavBtn', 'battleNav']]) {
+    assert.match(directory, new RegExp(`<button[^>]*type="button"[^>]*id="${id}"[^>]*data-i18n="${key}">[^<]+<\\/button>`, 'u'), id);
+  }
+  assert.match(directory, /id="categorySearchInput"[^>]*aria-controls="categoryDirectoryGrid"[^>]*aria-describedby="directoryResultsLabel"/u);
+  assert.match(directory, /id="directoryResultsLabel"[^>]*role="status"[^>]*aria-atomic="true"/u);
+  assert.doesNotMatch(directory, /id="categoryDirectoryGrid"[^>]*aria-live/u,
+    'search should announce the concise result count, not all 51 topic cards');
+  assert.doesNotMatch(navigation, /setAttribute\(['"]role['"],\s*['"]button['"]\)/u,
+    'ordinary navigation links retain their native link semantics');
 });
 
 test('search focus and purple foregrounds have deterministic contrast-safe styling', () => {

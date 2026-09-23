@@ -37,16 +37,18 @@
   </head>
   <body class="page-akshifha" data-page="akshifha">
     <a class="skip-link" href="#ak-case" data-i18n="akSkip">Skip to the case</a>
-    <header class="site-header shell ak-header">
-      <a class="brand" href="/" aria-label="Riddle Arabia home" data-i18n-aria-label="akHome">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" width="160" height="90" class="ak-logo" />
-      </a>
-      <nav class="header-actions" aria-label="Game navigation" data-i18n-aria-label="akNavigation">
-        <a class="ghost-btn" href="/play" data-i18n="akGames">Games</a>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games" aria-current="page">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
-      <label class="ak-language"><span data-i18n="akLanguage">Language</span>
-        <select id="akLanguage"><option value="en" lang="en" dir="ltr">English</option><option value="ar" lang="ar" dir="rtl">العربية</option></select>
-      </label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/games/akshifha/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
+      </div>
     </header>
     <main class="shell ak-main" id="ak-main">
       <section class="ak-intro" aria-labelledby="ak-title">
@@ -108,5 +110,6 @@
       </div>
     </main>
     <footer class="site-footer shell ak-footer"><p data-i18n="akFooter">Written for reasoning, not speed. Play in Arabic or English.</p><nav class="ak-actions" aria-label="Game navigation" data-i18n-aria-label="akNavigation"><a href="/play" data-i18n="akGames">Games</a><a href="/privacy" data-i18n="akPrivacy">Privacy</a></nav></footer>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

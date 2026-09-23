@@ -345,7 +345,7 @@ jobs:
           JAKH_MONITOR_SCOPE: site
           JAKH_SITE_ORIGIN: ${{ inputs.domain_cutover && 'https://jakh.net' || 'https://riddlearabia.com' }}
           JAKH_API_ORIGIN: ${{ inputs.domain_cutover && 'https://api.jakh.net' || 'https://api.riddlearabia.com' }}
-          JAKH_MONITOR_SITE_CONTRACT: ${{ inputs.domain_cutover && 'legacy-cutover' || 'current' }}
+          JAKH_MONITOR_SITE_CONTRACT: ${{ inputs.domain_cutover && 'legacy-cutover' || 'release-baseline' }}
           JAKH_MONITOR_LEGACY_SITE_ORIGINS: ${{ inputs.domain_cutover && 'none' || 'https://jakh.net,https://www.jakh.net' }}
           JAKH_MONITOR_RESULT_PATH: ${{ runner.temp }}/jakh-site-release/rollback-target-monitor.json
           JAKH_MONITOR_EXPECTED_WORKER_VERSION: ${{ steps.preflight.outputs.rollback-version }}
@@ -580,6 +580,7 @@ jobs:
             --smoke "$RECEIPT_DIR/smoke-after-rollback.json"
           set +e
           JAKH_MONITOR_SCOPE=site \
+          JAKH_MONITOR_SITE_CONTRACT=release-baseline \
           JAKH_MONITOR_RESULT_PATH="$RECEIPT_DIR/rollback-monitor.json" \
           JAKH_MONITOR_EXPECTED_WORKER_VERSION="${{ steps.preflight.outputs.rollback-version }}" \
           JAKH_MONITOR_MAX_ATTEMPTS=12 \

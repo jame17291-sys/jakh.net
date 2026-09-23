@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v84';
+const CACHE_VERSION = 'v85';
 const CORE_CACHE = `jakh-core-${CACHE_VERSION}`;
 const NAVIGATION_CACHE = `jakh-navigation-${CACHE_VERSION}`;
 const ASSET_CACHE = `jakh-assets-${CACHE_VERSION}`;
@@ -26,107 +26,12 @@ const QUARANTINED_CATEGORY_SLUGS = [
 ];
 const MAX_QUARANTINE_PATH_DECODE_PASSES = 3;
 
-const GAME_DOCUMENTS = [
-  '/akshifha',
-  '/backgammon',
-  '/catan',
-  '/chess',
-  '/codenames',
-  '/diplomacy',
-  '/go',
-  '/hanabi',
-  '/mastermind',
-  '/reversi',
-  '/set',
-];
-
-const ARABIC_SHARED_DOCUMENTS = [
-  '/ar/',
-  '/ar/mind-lab/',
-  '/ar/collections/',
-  '/ar/play/',
-  '/ar/about/',
-  '/ar/privacy/',
-  ...GAME_DOCUMENTS.map((route) => `/ar/games${route}/`),
-];
-
-// This order mirrors the catalog categories eligible for the Home daily card.
-// scripts/service-worker-contract.test.mjs prevents this compact install-time
-// dependency list from drifting away from data/catalog.json.
-const DAILY_CATEGORY_SLUGS = [
-  'currencies',
-  'linguistics',
-  'tech-retro',
-  'automotive',
-  'fictional-worlds',
-  'superheroes',
-  'pop-culture',
-  'true-crime',
-  'mythology-legends',
-  'art-and-painters',
-  'biology',
-  'books-and-quotes',
-  'business-and-management',
-  'chemistry',
-  'civil-engineering',
-  'classic-riddles',
-  'logic-puzzles',
-  'coding-and-design',
-  'electrical-engineering',
-  'flag-questions',
-  'football',
-  'geography',
-  'geology',
-  'history',
-  'infrastructure-systems',
-  'kids-riddles',
-  'math',
-  'mechanical-engineering',
-  'middle-east-history',
-  'philosophy',
-  'physical-and-life-sciences',
-  'psychology',
-  'relationship-questions',
-  'science',
-  'social-sciences',
-  'software-and-computing',
-  'space-and-astrology',
-  'tv-shows-trivia',
-  'world-habits-and-etiquette',
-  'environment-and-ecology',
-  'ancient-civilizations',
-  'inventions-and-minds',
-  'animal-kingdom',
-  'architecture-and-landmarks',
-  'music-and-performing-arts',
-  'food-and-cuisines',
-  'cinema-and-film-history',
-  'future-tech-and-energy',
-  'anime',
-  'ayam-tayebeen',
-];
-
+// Install only the bilingual offline fallback and its dependencies. Pages,
+// games, and question data enter the bounded runtime caches when requested;
+// visiting one activity must never download another activity in the background.
 const REQUIRED_CORE_ASSETS = [
-  '/',
-  '/mind-lab',
-  '/play',
-  '/collections',
-  '/about',
-  '/privacy',
-  '/science',
   OFFLINE_FALLBACK_PATH,
-  '/app.js',
-  '/akshifha.js',
-  '/akshifha-engine.js',
-  '/akshifha-cases.js',
-  '/akshifha-copy.js',
-  '/akshifha-study.js',
-  '/akshifha.css',
-  '/site-i18n.js',
-  '/game-i18n.js',
   '/privacy-consent.js',
-  '/privacy-page.js',
-  '/privacy.css',
   '/styles.css',
   '/manifest.webmanifest',
   '/assets/riddlearabia-mark.svg',
@@ -134,10 +39,6 @@ const REQUIRED_CORE_ASSETS = [
   '/assets/icon-192.png',
   '/assets/icon-512.png',
   '/favicon.ico',
-  '/data/catalog.json',
-  '/data/science.json',
-  ...GAME_DOCUMENTS,
-  ...ARABIC_SHARED_DOCUMENTS,
 ];
 
 const CONTENT_TYPES_BY_EXTENSION = {
@@ -276,26 +177,6 @@ function requestForPath(path, options = {}) {
   });
 }
 
-function dailyDataPath(date) {
-  const isoDate = date.toISOString().split('T')[0];
-  const hash = isoDate
-    .split('')
-    .reduce((value, character) => ((value * 31) + character.charCodeAt(0)) | 0, 0);
-  const slug = DAILY_CATEGORY_SLUGS[Math.abs(hash) % DAILY_CATEGORY_SLUGS.length];
-  return `/data/${slug}.json`;
-}
-
-function installDailyPaths(startDate = new Date()) {
-  const paths = [];
-  for (let day = 0; day < 7; day += 1) {
-    const date = new Date(startDate.getTime());
-    date.setUTCDate(date.getUTCDate() + day);
-    const path = dailyDataPath(date);
-    if (!paths.includes(path)) paths.push(path);
-  }
-  return paths;
-}
-
 async function fetchValidatedOfflineAsset(path) {
   const request = requestForPath(path, { cache: 'reload' });
   const response = await fetch(request);
@@ -310,20 +191,8 @@ async function putInstallEntries(cacheName, entries) {
   await Promise.all(entries.map(({ request, response }) => cache.put(request, response.clone())));
 }
 
-async function warmOptionalDailyAssets(paths) {
-  try {
-    const cache = await caches.open(DATA_CACHE);
-    await Promise.allSettled(paths.map(async (path) => {
-      const { request, response } = await fetchValidatedOfflineAsset(path);
-      await cache.put(request, response.clone());
-    }));
-    await trimCache(cache, MAX_DATA_CACHE_ENTRIES);
-  } catch (_) {}
-}
-
 async function installOfflineShell() {
-  const [requiredDailyPath, ...optionalDailyPaths] = installDailyPaths();
-  const requiredPaths = [...new Set([...REQUIRED_CORE_ASSETS, requiredDailyPath])];
+  const requiredPaths = [...new Set(REQUIRED_CORE_ASSETS)];
   try {
     // Fetch and validate the entire required set before writing any response.
     // A failure rejects installation and removes the unusable versioned cache.
@@ -334,9 +203,6 @@ async function installOfflineShell() {
     throw error;
   }
 
-  // Upcoming daily datasets improve short offline stretches, but none is part
-  // of the guaranteed shell and one failed warm request cannot block install.
-  await warmOptionalDailyAssets(optionalDailyPaths);
   await self.skipWaiting();
 }
 

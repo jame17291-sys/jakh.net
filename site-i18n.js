@@ -23,14 +23,14 @@
     en: {
       language: 'Language',
       navHome: 'Home',
-      navMindLab: 'Mind Lab',
-      navCategories: 'Categories',
-      navCollections: 'Collections',
+      navMindLab: 'Riddles & Quizzes',
+      navCategories: 'Riddles & Quizzes',
+      navCollections: 'Short collections',
       navGames: 'Games',
-      navGameHub: 'Game Hub',
+      navGameHub: 'Games',
       skipMain: 'Skip to main content',
       footerNote: 'All rights reserved to Riddle Arabia 2026',
-      footerCollections: 'Collections',
+      footerCollections: 'Short collections',
       footerAbout: 'About & content standards',
       footerPrivacy: 'Privacy Centre',
       footerInfoLabel: 'Riddle Arabia information',
@@ -47,14 +47,14 @@
     ar: {
       language: 'اللغة',
       navHome: 'الرئيسية',
-      navMindLab: 'مختبر العقول',
-      navCategories: 'الموضوعات',
-      navCollections: 'المجموعات',
+      navMindLab: 'ألغاز واختبارات',
+      navCategories: 'ألغاز واختبارات',
+      navCollections: 'مجموعات قصيرة',
       navGames: 'الألعاب',
-      navGameHub: 'مركز الألعاب',
+      navGameHub: 'الألعاب',
       skipMain: 'انتقل إلى المحتوى الرئيسي',
       footerNote: 'جميع الحقوق محفوظة لـ ريدل أرابيا 2026',
-      footerCollections: 'المجموعات',
+      footerCollections: 'مجموعات قصيرة',
       footerAbout: 'عن ريدل أرابيا ومعايير المحتوى',
       footerPrivacy: 'مركز الخصوصية',
       footerInfoLabel: 'معلومات ريدل أرابيا',
@@ -71,58 +71,6 @@
   };
 
   const PAGES = {
-    collections: {
-      en: {
-        metaTitle: 'Riddles & Quiz Collections in English and Arabic | Riddle Arabia',
-        metaDescription: 'Explore focused Riddle Arabia collections of riddles, kids questions, logic puzzles, general knowledge, football, and nostalgia quizzes in English and Arabic.',
-        collectionsEyebrow: 'Focused ways to play',
-        collectionsTitle: 'Riddles and quiz collections',
-        collectionsIntro: 'Start with a focused collection, reveal each answer at your own pace, then continue into the full 3,553-question Mind Lab.',
-        collectionClassicMeta: '16 questions · Classic Riddles',
-        collectionClassicTitle: '16 Riddles With Answers in English & Arabic',
-        collectionClassicText: 'Start with approachable clues, then work up to trickier classics. Reveal each answer only after you have made your best guess.',
-        collectionKidsMeta: '16 questions · Kids Riddles',
-        collectionKidsTitle: '16 Kids’ Riddles With Answers | English & Arabic',
-        collectionKidsText: 'These friendly riddles use familiar objects, simple numbers, and clear clues. Guess first, then reveal the answer together.',
-        collectionLogicMeta: '16 questions · Logic Puzzles',
-        collectionLogicTitle: '16 Logic Puzzles With Answers and Explanations',
-        collectionLogicText: 'Work through 16 logic puzzles that reward careful reading, deduction, and a little arithmetic. Each answer includes the key reasoning.',
-        collectionGeneralMeta: '16 questions · General Knowledge',
-        collectionGeneralTitle: '16 General Knowledge Quiz Questions & Answers',
-        collectionGeneralText: 'Test what you know across geography, history, science, animals, arts, food, music, and money with one balanced 16-question quiz.',
-        collectionSpacetoonMeta: '16 questions · Spacetoon Classics',
-        collectionSpacetoonTitle: 'Spacetoon Classics Quiz: 16 Nostalgia Questions',
-        collectionSpacetoonText: 'How much do you remember from classic Arabic-dubbed cartoons? Test your memory across Treasure Island, Sally, Maruko, Remi, and Tom and Jerry.',
-        collectionFootballMeta: '16 questions · Football',
-        collectionFootballTitle: 'Football Rules & Tactics Quiz: 16 Questions',
-        collectionFootballText: 'Check your understanding of football laws, restarts, match terms, transfers, and tactics in one practical 16-question challenge.',
-      },
-      ar: {
-        metaTitle: 'مجموعات ألغاز واختبارات بالعربية والإنجليزية | ريدل أرابيا',
-        metaDescription: 'استكشف مجموعات ريدل أرابيا المختارة: ألغاز، وأسئلة للأطفال، وتحديات منطقية، ومعلومات عامة، وكرة قدم، وذكريات سبيستون، بالعربية والإنجليزية.',
-        collectionsEyebrow: 'تحديات قصيرة لكل مزاج',
-        collectionsTitle: 'مجموعات الألغاز والاختبارات',
-        collectionsIntro: 'اختر مجموعة قصيرة، وحاول الإجابة عن كل سؤال قبل كشف الحل. وعندما تنتهي، ينتظرك 3,553 سؤالًا آخر في مختبر العقول.',
-        collectionClassicMeta: '16 سؤالًا · ألغاز كلاسيكية',
-        collectionClassicTitle: '16 لغزًا مع الحل بالعربية والإنجليزية',
-        collectionClassicText: 'ابدأ بألغاز بسيطة، ثم انتقل تدريجيًا إلى الأصعب. امنح نفسك فرصة كاملة للتفكير قبل كشف الحل.',
-        collectionKidsMeta: '16 سؤالًا · ألغاز للأطفال',
-        collectionKidsTitle: '16 لغزًا للأطفال مع الحل | عربي وإنجليزي',
-        collectionKidsText: 'ألغاز مرحة عن أشياء مألوفة، بأرقام بسيطة وتلميحات واضحة. خمّنوا الإجابة أولًا، ثم اكشفوها معًا.',
-        collectionLogicMeta: '16 سؤالًا · ألغاز منطقية',
-        collectionLogicTitle: '16 لغزًا منطقيًا مع الحل والشرح',
-        collectionLogicText: 'تحتاج هذه المجموعة، المكوّنة من 16 لغزًا، إلى قراءة متأنية، واستنتاج، وقليل من الحساب. وستجد مع كل إجابة شرحًا مختصرًا لفكرة الحل.',
-        collectionGeneralMeta: '16 سؤالًا · معلومات عامة',
-        collectionGeneralTitle: '16 سؤالًا في المعلومات العامة مع الإجابات',
-        collectionGeneralText: 'اختبر معلوماتك في الجغرافيا، والتاريخ، والعلوم، والحيوانات، والفنون، والطعام، والموسيقى، والعملات، من خلال 16 سؤالًا متنوعًا.',
-        collectionSpacetoonMeta: '16 سؤالًا · كلاسيكيات سبيستون',
-        collectionSpacetoonTitle: 'اختبار سبيستون: 16 سؤالًا من ذكريات الطفولة',
-        collectionSpacetoonText: 'كم تتذكر من الرسوم المتحركة الكلاسيكية المدبلجة للعربية؟ اختبر ذاكرتك مع جزيرة الكنز وسالي وماروكو وريمي وتوم وجيري.',
-        collectionFootballMeta: '16 سؤالًا · كرة القدم',
-        collectionFootballTitle: 'اختبار قوانين وخطط كرة القدم: 16 سؤالًا',
-        collectionFootballText: 'اختبر معرفتك بقوانين كرة القدم، وطرق استئناف اللعب، ومصطلحات المباريات، والانتقالات، والخطط، من خلال 16 سؤالًا عمليًا.',
-      },
-    },
     about: {
       en: {
         metaTitle: 'About Riddle Arabia & Our Content Standards',
@@ -195,6 +143,7 @@
     { en: '/mind-lab', ar: '/ar/mind-lab/' },
     { en: '/collections', ar: '/ar/collections/' },
     { en: '/play', ar: '/ar/play/' },
+    { en: '/daily', ar: '/ar/daily/' },
     { en: '/about', ar: '/ar/about/' },
     { en: '/privacy', ar: '/ar/privacy/' },
     ...['chess', 'mastermind', 'go', 'reversi', 'codenames', 'catan', 'backgammon', 'set', 'hanabi', 'diplomacy']
@@ -308,6 +257,7 @@
       node.setAttribute('placeholder', message(node.dataset.i18nPlaceholder));
     });
     root.querySelectorAll('a[href]').forEach((node) => {
+      if (node.classList.contains('language-route-link')) return;
       const href = node.getAttribute('href');
       if (!href || href.startsWith('#')) return;
       const localized = localizedHref(href, language);
@@ -351,45 +301,6 @@
     apply();
   }
 
-  function ensureMobileMenu() {
-    if (document.getElementById('hamburgerBtn')) return;
-    const header = document.querySelector('.site-header');
-    const nav = header?.querySelector('.header-actions');
-    if (!header || !nav) return;
-
-    const button = document.createElement('button');
-    button.id = 'hamburgerBtn';
-    button.className = 'hamburger-btn';
-    button.type = 'button';
-    button.textContent = '☰';
-    button.dataset.i18nAriaLabel = 'menu';
-    button.setAttribute('aria-label', message('menu'));
-    button.setAttribute('aria-expanded', 'false');
-    button.setAttribute('aria-controls', 'siteHeaderActions');
-    nav.id ||= 'siteHeaderActions';
-    header.insertBefore(button, nav);
-
-    const closeMenu = () => {
-      nav.classList.remove('nav-open');
-      button.setAttribute('aria-expanded', 'false');
-    };
-
-    button.addEventListener('click', () => {
-      const open = nav.classList.toggle('nav-open');
-      button.setAttribute('aria-expanded', String(open));
-    });
-    nav.addEventListener('click', (event) => {
-      if (event.target.closest('a')) closeMenu();
-    });
-    document.addEventListener('click', (event) => {
-      if (!nav.classList.contains('nav-open')) return;
-      if (!header.contains(event.target)) closeMenu();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeMenu();
-    });
-  }
-
   function register(page, translations) {
     extraPages[page] = translations;
     if (!activePage) activePage = page;
@@ -403,7 +314,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     const select = document.getElementById('langSelect');
     select?.addEventListener('change', () => setLanguage(select.value));
-    ensureMobileMenu();
     apply();
   }, { once: true });
 

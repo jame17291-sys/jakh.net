@@ -18,7 +18,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "جرّب مجموعة منتقاة من الألغاز بالعربية والإنجليزية. خمّن أولاً، ثم افتح الحل عندما تكون مستعداً، وواصل التحدي.",
     },
     eyebrow: { en: "A calm start", ar: "بداية هادئة" },
-    headings: { en: "Riddles worth a second look", ar: "ألغاز تستحق نظرة ثانية" },
+    headings: { en: "Classic riddles", ar: "ألغاز كلاسيكية" },
     introductions: {
       en: "A good riddle gives you just enough to begin. This set moves from familiar objects to small twists in language and logic, with answers kept behind a tap so the thinking stays yours.",
       ar: "اللغز الجيد يمنحك ما يكفي لتبدأ. تنتقل هذه المجموعة من أشياء مألوفة إلى لمسات لغوية ومنطقية صغيرة، وتبقى الحلول خلف نقرة كي يبقى التفكير لك.",
@@ -51,7 +51,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "حلّ ألغازاً عربية ثنائية اللغة بمفردك أو مع صديق. كل تلميح متاح بالعربية والإنجليزية، والحل على بُعد نقرة واحدة.",
     },
     eyebrow: { en: "Think across languages", ar: "فكّر بلغتين" },
-    headings: { en: "One clue, two ways to read it", ar: "تلميح واحد، وقراءتان" },
+    headings: { en: "Arabic riddles", ar: "ألغاز عربية" },
     introductions: {
       en: "Riddle Arabia is made for readers who move naturally between Arabic and English. Use either version of a clue—or compare both—to find the wordplay hiding in plain sight.",
       ar: "صُمّمت ريدل أرابيا لمن ينتقلون بسلاسة بين العربية والإنجليزية. استخدم أي نسخة من التلميح، أو قارن بينهما، لتكتشف اللعب اللغوي الظاهر أمامك.",
@@ -84,7 +84,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "تدرّب على ألغاز منطقية ثنائية اللغة تكافئ القراءة الدقيقة والاستنتاج البسيط والتفكير مرة أخرى قبل كشف الحل.",
     },
     eyebrow: { en: "Slow down and solve", ar: "تمهّل ثم حل" },
-    headings: { en: "Small clues, satisfying deductions", ar: "تلميحات صغيرة واستنتاجات مُرضية" },
+    headings: { en: "Logic puzzles", ar: "ألغاز منطقية" },
     introductions: {
       en: "Logic puzzles are less about fast facts and more about noticing what a clue actually says. These short challenges are built for a pencil-and-paper pause, a conversation, or a quick mental reset.",
       ar: "الألغاز المنطقية لا تعتمد على سرعة المعلومة بقدر اعتمادها على ملاحظة ما يقوله التلميح فعلاً. هذه التحديات القصيرة مناسبة لوقفة مع ورقة وقلم، أو نقاش، أو استراحة ذهنية سريعة.",
@@ -117,7 +117,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "استمتع بمجموعة لطيفة من ألغاز الأطفال بالعربية والإنجليزية عن أشياء مألوفة وملاحظات يومية واستدلال بسيط، مناسبة للعائلة والصف.",
     },
     eyebrow: { en: "Share the guess", ar: "شارك التخمين" },
-    headings: { en: "Friendly riddles for curious minds", ar: "ألغاز لطيفة لعقول فضولية" },
+    headings: { en: "Family riddles", ar: "ألغاز للعائلة" },
     introductions: {
       en: "These clues invite children to look closely at the world they already know: a crayon, a lamp, a calendar, or a pair of socks. Adults can read the clue while everyone races to a guess.",
       ar: "تدعو هذه التلميحات الأطفال إلى النظر جيداً في عالمهم المألوف: قلم شمع أو مصباح أو تقويم أو زوج من الجوارب. يمكن للكبار قراءة التلميح بينما يتسابق الجميع إلى التخمين.",
@@ -150,7 +150,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "اختبار معلومات عامة متوازن بالعربية والإنجليزية يشمل الجغرافيا والتاريخ والطبيعة والعلوم والثقافة. خمّن أولاً ثم تحقّق من كل إجابة.",
     },
     eyebrow: { en: "A little of everything", ar: "قليل من كل شيء" },
-    headings: { en: "Questions for the naturally curious", ar: "أسئلة لمحبي الفضول" },
+    headings: { en: "General knowledge", ar: "معلومات عامة" },
     introductions: {
       en: "General knowledge is a map, not a score. This set crosses subjects on purpose, giving you a quick way to discover what you remember and what you want to learn next.",
       ar: "المعلومات العامة خريطة وليست مجرد نتيجة. تنتقل هذه المجموعة بين موضوعات مختلفة عمداً، لتكتشف ما تتذكره وما تريد تعلّمه لاحقاً.",
@@ -183,7 +183,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "استكشف اختباراً ثنائي اللغة عن تاريخ العرب والشرق الأوسط، بأسئلة عن الحضارات والمدن والعلم وصلات المنطقة التاريخية.",
     },
     eyebrow: { en: "History with context", ar: "تاريخ في سياقه" },
-    headings: { en: "A starting point for regional history", ar: "بداية لاكتشاف تاريخ المنطقة" },
+    headings: { en: "Arabia & Middle East history", ar: "تاريخ العرب والشرق الأوسط" },
     introductions: {
       en: "The history of Arabia and the wider Middle East reaches across languages, cities, and centuries. These prompts are an invitation to recall key landmarks and continue learning with reliable historical sources.",
       ar: "يمتد تاريخ العرب والشرق الأوسط عبر اللغات والمدن والقرون. هذه الأسئلة دعوة لتذكّر محطات أساسية ومواصلة التعلّم من مصادر تاريخية موثوقة.",
@@ -216,7 +216,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "استمتع باختبار حنين ثنائي اللغة ومستقل لمحبي الرسوم المدبلجة الكلاسيكية. شارك ذكرى وخمّن الإجابة وقارن نتيجتك.",
     },
     eyebrow: { en: "A shared memory", ar: "ذكرى مشتركة" },
-    headings: { en: "How much do you remember?", ar: "كم تتذكر؟" },
+    headings: { en: "Spacetoon nostalgia", ar: "حنين سبيستون" },
     introductions: {
       en: "Some shows become part of a generation’s shared language. This lighthearted quiz is a place to trade memories and test the details you still remember from Arabic-dubbed animation.",
       ar: "بعض البرامج تصبح جزءاً من اللغة المشتركة لجيل كامل. هذا الاختبار الخفيف مساحة لتبادل الذكريات واختبار التفاصيل التي ما زلت تتذكرها من الرسوم المدبلجة.",
@@ -253,15 +253,15 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       en: "Play Akshifha: connect two clues and discover what follows in eleven free Arabic and English mysteries. Explore Chess and Backgammon in Classics.",
       ar: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
     },
-    eyebrow: { en: "Small mysteries. Satisfying discoveries.", ar: "قضايا قصيرة ولحظات اكتشاف" },
-    headings: { en: "Something doesn’t add up. Can you spot it?", ar: "في القصة شيء لا يستقيم. هل تكتشفه؟" },
+    eyebrow: { en: "Games", ar: "الألعاب" },
+    headings: { en: "Brain games, in one place", ar: "ألعاب ذهنية في مكان واحد" },
     introductions: {
-      en: "Start with Akshifha, our evidence game. Read a short case, inspect the details, and connect the clues that support a conclusion. Take your time: no countdown, account, or download.",
-      ar: "ابدأ باكشفها، لعبتنا لربط الأدلة. اقرأ قضية قصيرة وتفحّص التفاصيل واربط الدليلين اللذين يدعمان استنتاجًا. خذ وقتك: بلا عدّ تنازلي أو حساب أو تنزيل.",
+      en: "The Games page is the home for Akshifha, Chess, Backgammon, and question-based play modes. Choose a game there, or use a direct link below.",
+      ar: "صفحة الألعاب هي المكان الرئيسي لاكشفها والشطرنج وطاولة الزهر وأنماط اللعب بالأسئلة. اختر لعبة هناك، أو استخدم رابطاً مباشراً أدناه.",
     },
     guidance: {
-      en: "The free casebook includes eleven original cases. Today’s pick rotates through this finite collection; it is not a newly published case every day. Chess and Backgammon remain below for a quieter change of pace.",
-      ar: "يضم دفتر القضايا المجاني إحدى عشرة قضية مؤلّفة بعناية. يتناوب اختيار اليوم بينها؛ إنها مجموعة محدودة ولا تعني نشر قضية جديدة كل يوم. ولوقت أهدأ، تجد الشطرنج وطاولة الزهر أدناه.",
+      en: "Akshifha’s daily pick rotates through eleven existing cases; it is separate from the Daily Challenge question. Visit Games for each mode’s description and ways to play.",
+      ar: "يتناوب اختيار اليوم في اكشفها بين إحدى عشرة قضية موجودة؛ وهو منفصل عن سؤال التحدي اليومي. انتقل إلى الألعاب لمعرفة وصف كل نمط وطرق اللعب.",
     },
   },
 ]);

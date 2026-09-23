@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/logic-challenges#quiz",
-      "name": "Small clues, satisfying deductions",
+      "name": "Logic puzzles",
       "description": "Work through bilingual logic puzzles that reward careful reading, simple deduction, and a second thought before you reveal the answer.",
       "url": "https://riddlearabia.com/logic-challenges",
       "inLanguage": "en",
@@ -163,13 +163,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Explore",
-          "item": "https://riddlearabia.com/collections"
+          "name": "Riddles & Quizzes",
+          "item": "https://riddlearabia.com/mind-lab"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Small clues, satisfying deductions",
+          "name": "Logic puzzles",
           "item": "https://riddlearabia.com/logic-challenges"
         }
       ]
@@ -180,36 +180,37 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="logic-puzzles">
     <a href="#content" class="skip-link">Skip to main content</a>
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="Primary navigation">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Explore</a>
-        <a class="ghost-btn" href="/brain-games">Games</a>
-        <a class="ghost-btn language-route-link" href="/ar/alghaz-mantiq/" hreflang="ar" lang="ar" dir="rtl">العربية</a>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library" aria-current="page">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/alghaz-mantiq/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="Breadcrumb"><a href="/mind-lab">Riddles &amp; Quizzes</a><span aria-hidden="true">/</span><a href="/collections">Short collections</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">Slow down and solve</p>
-        <h1>Small clues, satisfying deductions</h1>
+        <h1>Logic puzzles</h1>
         <p>Logic puzzles are less about fast facts and more about noticing what a clue actually says. These short challenges are built for a pencil-and-paper pause, a conversation, or a quick mental reset.</p>
         <div class="seo-collection-meta">
-          <span>8 riddles</span>
+          <span>8 questions</span>
           <span>Arabic & English</span>
           <span>Free</span>
         </div>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">How to play</p><h2 id="how-title">Give each clue a moment</h2></div>
-          <p class="section-note">Underline the fixed facts, ignore assumptions, and test the simplest interpretation before looking at the answer.</p>
-        </div>
+        <p class="collection-subset-note">A short selection from the question library, not the full topic.</p>
+        <nav class="collection-source-links" aria-label="Full source topics"><a class="text-btn" href="/logic-puzzles">Logic Puzzles · 60 questions</a></nav>
+        <p class="section-note">Underline the fixed facts, ignore assumptions, and test the simplest interpretation before looking at the answer.</p>
       </section>
       <section class="seo-question-list shell" aria-label="Riddles and answers">
         <article class="seo-qa-card" id="logic-puzzles-001" data-card-id="logic-puzzles-001">
@@ -218,9 +219,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>47 days. On day 47 it covered half — then doubled on day 48 to cover it all.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-001">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-001">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-002" data-card-id="logic-puzzles-002">
           <details>
@@ -228,9 +229,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>7 children: 4 girls and 3 boys. Each girl has 3 brothers and 3 sisters. Each boy has 2 brothers and 4 sisters.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-002">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-002">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-003" data-card-id="logic-puzzles-003">
           <details>
@@ -238,9 +239,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>2nd place. You took their position — you did not overtake 1st place.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-003">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-003">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-004" data-card-id="logic-puzzles-004">
           <details>
@@ -248,9 +249,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>After five minutes: the cooking happens simultaneously.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-004">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-004">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-005" data-card-id="logic-puzzles-005">
           <details>
@@ -258,9 +259,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Noor chose tea, Sami chose coffee, and Lina chose juice. Once coffee is assigned to Sami, Noor&#39;s only allowed drink is tea, leaving juice for Lina.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-005">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-005">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-006" data-card-id="logic-puzzles-006">
           <details>
@@ -268,9 +269,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Red, green, blue.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-006">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-006">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-017" data-card-id="logic-puzzles-017">
           <details>
@@ -278,9 +279,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>643. Let the third digit be t. The digits are 2t, t+1, and t, so 4t+1=13 and t=3.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-017">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-017">Full topic: Logic Puzzles</a>
         </article>
         <article class="seo-qa-card" id="logic-puzzles-019" data-card-id="logic-puzzles-019">
           <details>
@@ -288,33 +289,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>5,050. Gauss&#39;s formula: n(n+1)/2 = 100 × 101 / 2 = 5,050.</p>
-              <a class="text-btn" href="/logic-puzzles?card=logic-puzzles-019">Explore Logic Puzzles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/logic-puzzles?card=logic-puzzles-019">Full topic: Logic Puzzles</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">Keep exploring</p>
-            <h2 id="next-title">More ways to challenge yourself</h2>
+            <h2 id="next-title">More short collections</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>Riddles worth a second look</h3>
+            <h3>Classic riddles</h3>
             <p>Try a thoughtful set of bilingual riddles. Make your guess first, open the answer when you are ready, then keep the challenge moving.</p>
-            <a class="ghost-btn" href="/riddles">Start</a>
+            <a class="ghost-btn" href="/riddles">Try Classic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>One clue, two ways to read it</h3>
+            <h3>Arabic riddles</h3>
             <p>Solve bilingual Arabic riddles with a friend or on your own. Every clue is available in Arabic and English, with the answer one tap away.</p>
-            <a class="ghost-btn" href="/arabic-riddles">Start</a>
+            <a class="ghost-btn" href="/arabic-riddles">Try Arabic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>Friendly riddles for curious minds</h3>
+            <h3>Family riddles</h3>
             <p>Enjoy a gentle set of bilingual kids’ riddles about familiar objects, everyday observation, and simple reasoning—ideal for families and classrooms.</p>
-            <a class="ghost-btn" href="/family-riddles">Start</a>
+            <a class="ghost-btn" href="/family-riddles">Try Family riddles</a>
           </article>
         </div>
       </section>
@@ -323,8 +324,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 Riddle Arabia</p>
         <nav class="footer-site-links" aria-label="Riddle Arabia information">
-          <a href="/collections">Collections</a>
-          <a href="/brain-games">Brain games</a>
+          <a href="/collections">Short collections</a>
+          <a href="/play">Games</a>
           <a href="/about">About</a>
           <a href="/privacy">Privacy</a>
         </nav>

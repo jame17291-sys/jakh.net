@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/ar/malumat-amma/#quiz",
-      "name": "أسئلة لمحبي الفضول",
+      "name": "معلومات عامة",
       "description": "اختبار معلومات عامة متوازن بالعربية والإنجليزية يشمل الجغرافيا والتاريخ والطبيعة والعلوم والثقافة. خمّن أولاً ثم تحقّق من كل إجابة.",
       "url": "https://riddlearabia.com/ar/malumat-amma/",
       "inLanguage": "ar",
@@ -181,13 +181,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "استكشف",
-          "item": "https://riddlearabia.com/ar/collections/"
+          "name": "ألغاز واختبارات",
+          "item": "https://riddlearabia.com/ar/mind-lab/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "أسئلة لمحبي الفضول",
+          "name": "معلومات عامة",
           "item": "https://riddlearabia.com/ar/malumat-amma/"
         }
       ]
@@ -198,36 +198,37 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="general-knowledge">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريـدل أرابيا">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل الرئيسي">
-        <a class="ghost-btn" href="/ar/">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/collections/">استكشف</a>
-        <a class="ghost-btn" href="/ar/alab-al-dimagh/">الألعاب</a>
-        <a class="ghost-btn language-route-link" href="/general-knowledge" hreflang="en" lang="en" dir="ltr">English</a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library" aria-current="page">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/general-knowledge" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="مسار التنقل"><a href="/ar/mind-lab/">ألغاز واختبارات</a><span aria-hidden="true">/</span><a href="/ar/collections/">مجموعات قصيرة</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">قليل من كل شيء</p>
-        <h1>أسئلة لمحبي الفضول</h1>
+        <h1>معلومات عامة</h1>
         <p>المعلومات العامة خريطة وليست مجرد نتيجة. تنتقل هذه المجموعة بين موضوعات مختلفة عمداً، لتكتشف ما تتذكره وما تريد تعلّمه لاحقاً.</p>
         <div class="seo-collection-meta">
-          <span>8 ألغاز</span>
+          <span>8 أسئلة</span>
           <span>العربية والإنجليزية</span>
           <span>مجاني</span>
         </div>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">طريقة اللعب</p><h2 id="how-title">خذ وقتك مع كل تلميح</h2></div>
-          <p class="section-note">اعتبر كل إجابة نقطة بداية. إذا فاجأك سؤال، فاتبع رابط الموضوع لمواصلة استكشافه.</p>
-        </div>
+        <p class="collection-subset-note">هذه مجموعة مختارة من مكتبة الأسئلة، وليست الموضوع الكامل.</p>
+        <nav class="collection-source-links" aria-label="الموضوعات الكاملة"><a class="text-btn" href="/ar/topics/geography/">الجغرافيا · 100 سؤالاً</a> <a class="text-btn" href="/ar/topics/history/">التاريخ · 100 سؤالاً</a> <a class="text-btn" href="/ar/topics/science/">العلوم · 100 سؤالاً</a> <a class="text-btn" href="/ar/topics/animal-kingdom/">عالم الحيوان · 40 سؤالاً</a> <a class="text-btn" href="/ar/topics/food-and-cuisines/">الطعام والمأكولات · 40 سؤالاً</a> <a class="text-btn" href="/ar/topics/music-and-performing-arts/">الموسيقى والفنون الأدائية · 40 سؤالاً</a></nav>
+        <p class="section-note">اعتبر كل إجابة نقطة بداية. إذا فاجأك سؤال، فاتبع رابط الموضوع لمواصلة استكشافه.</p>
       </section>
       <section class="seo-question-list shell" aria-label="ألغاز وحلول">
         <article class="seo-qa-card" id="geography-001" data-card-id="geography-001">
@@ -236,9 +237,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>آسيا</p>
-              <a class="text-btn" href="/ar/topics/geography/?card=geography-001">استكشف موضوع الجغرافيا ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/geography/?card=geography-001">الموضوع الكامل: الجغرافيا</a>
         </article>
         <article class="seo-qa-card" id="geography-007" data-card-id="geography-007">
           <details>
@@ -246,9 +247,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>أفريقيا وآسيا</p>
-              <a class="text-btn" href="/ar/topics/geography/?card=geography-007">استكشف موضوع الجغرافيا ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/geography/?card=geography-007">الموضوع الكامل: الجغرافيا</a>
         </article>
         <article class="seo-qa-card" id="history-001" data-card-id="history-001">
           <details>
@@ -256,9 +257,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>الباستيل.</p>
-              <a class="text-btn" href="/ar/topics/history/?card=history-001">استكشف موضوع التاريخ ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/history/?card=history-001">الموضوع الكامل: التاريخ</a>
         </article>
         <article class="seo-qa-card" id="history-006" data-card-id="history-006">
           <details>
@@ -266,9 +267,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>إيطاليا، التي كانت آنذاك مقسّمة إلى عدة دول.</p>
-              <a class="text-btn" href="/ar/topics/history/?card=history-006">استكشف موضوع التاريخ ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/history/?card=history-006">الموضوع الكامل: التاريخ</a>
         </article>
         <article class="seo-qa-card" id="science-001" data-card-id="science-001">
           <details>
@@ -276,9 +277,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>إسحاق نيوتن</p>
-              <a class="text-btn" href="/ar/topics/science/?card=science-001">استكشف موضوع العلوم ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/science/?card=science-001">الموضوع الكامل: العلوم</a>
         </article>
         <article class="seo-qa-card" id="ani-2" data-card-id="ani-2">
           <details>
@@ -286,9 +287,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>الخفافيش.</p>
-              <a class="text-btn" href="/ar/topics/animal-kingdom/?card=ani-2">استكشف موضوع عالم الحيوان ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/animal-kingdom/?card=ani-2">الموضوع الكامل: عالم الحيوان</a>
         </article>
         <article class="seo-qa-card" id="foo-13" data-card-id="foo-13">
           <details>
@@ -296,9 +297,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>متماسك عند المضغ</p>
-              <a class="text-btn" href="/ar/topics/food-and-cuisines/?card=foo-13">استكشف موضوع الطعام والمأكولات ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/food-and-cuisines/?card=foo-13">الموضوع الكامل: الطعام والمأكولات</a>
         </article>
         <article class="seo-qa-card" id="mus-3" data-card-id="mus-3">
           <details>
@@ -306,33 +307,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>الكمان</p>
-              <a class="text-btn" href="/ar/topics/music-and-performing-arts/?card=mus-3">استكشف موضوع الموسيقى والفنون الأدائية ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/music-and-performing-arts/?card=mus-3">الموضوع الكامل: الموسيقى والفنون الأدائية</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">واصل الاستكشاف</p>
-            <h2 id="next-title">تحديات أخرى قد تعجبك</h2>
+            <h2 id="next-title">مجموعات قصيرة أخرى</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>ألغاز تستحق نظرة ثانية</h3>
+            <h3>ألغاز كلاسيكية</h3>
             <p>جرّب مجموعة منتقاة من الألغاز بالعربية والإنجليزية. خمّن أولاً، ثم افتح الحل عندما تكون مستعداً، وواصل التحدي.</p>
-            <a class="ghost-btn" href="/ar/alghaz/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz/">جرّب ألغاز كلاسيكية</a>
           </article>
           <article class="seo-hub-card">
-            <h3>تلميح واحد، وقراءتان</h3>
+            <h3>ألغاز عربية</h3>
             <p>حلّ ألغازاً عربية ثنائية اللغة بمفردك أو مع صديق. كل تلميح متاح بالعربية والإنجليزية، والحل على بُعد نقرة واحدة.</p>
-            <a class="ghost-btn" href="/ar/alghaz-arabiya/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz-arabiya/">جرّب ألغاز عربية</a>
           </article>
           <article class="seo-hub-card">
-            <h3>تلميحات صغيرة واستنتاجات مُرضية</h3>
+            <h3>ألغاز منطقية</h3>
             <p>تدرّب على ألغاز منطقية ثنائية اللغة تكافئ القراءة الدقيقة والاستنتاج البسيط والتفكير مرة أخرى قبل كشف الحل.</p>
-            <a class="ghost-btn" href="/ar/alghaz-mantiq/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz-mantiq/">جرّب ألغاز منطقية</a>
           </article>
         </div>
       </section>
@@ -341,8 +342,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 ريـدل أرابيا</p>
         <nav class="footer-site-links" aria-label="معلومات ريـدل أرابيا">
-          <a href="/ar/collections/">المسارات</a>
-          <a href="/ar/alab-al-dimagh/">ألعاب الدماغ</a>
+          <a href="/ar/collections/">مجموعات قصيرة</a>
+          <a href="/ar/play/">الألعاب</a>
           <a href="/ar/about/">عن الموقع</a>
           <a href="/ar/privacy/">الخصوصية</a>
         </nav>

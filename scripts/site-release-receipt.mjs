@@ -475,6 +475,11 @@ export function applyRuntimeProof({
   const targetVersion = stage === "candidate"
     ? receipt.postDeployment.activeWorkerVersion
     : receipt.safety.workerRollbackTarget;
+  // A predecessor layout is evidence only for the captured rollback version.
+  // Neither monitor input nor receipt metadata can opt a candidate out of current checks.
+  const siteContract = stage === "candidate" ? "current"
+    : stage === "rollback-target" && receipt.safety.domainCutover === true
+      ? "legacy-cutover" : "release-baseline";
   const proof = buildVersionBoundMonitorProof({
     targetVersion,
     deploymentBefore,
@@ -482,8 +487,7 @@ export function applyRuntimeProof({
     monitorReport,
     scope: "site",
     allowCompatibleSchema: false,
-    siteContract: stage === "rollback-target" && receipt.safety.domainCutover === true
-      ? "legacy-cutover" : "current",
+    siteContract,
     generatedAt,
   });
   if (stage === "rollback-target") {

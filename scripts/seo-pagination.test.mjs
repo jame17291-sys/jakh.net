@@ -132,6 +132,13 @@ test("the public SEO surface is eight original bilingual Riddle Arabia experienc
       if (lang === "ar") assert.match(source, /<html\b[^>]*\bdir="rtl"/iu, `${relative}: Arabic direction`);
       assert.match(source, new RegExp(`data-seo-experience="${escapeRegex(experience.key)}"`, "u"), `${relative}: explicit experience marker`);
       assert.match(source, /\/assets\/riddlearabia-logo\.webp/u, `${relative}: supplied logo`);
+      assert.match(source, /<nav class="primary-navigation"/u, `${relative}: shared navigation`);
+      assert.match(source, /<script defer src="\/site-navigation\.js"><\/script>/u, `${relative}: lightweight shared navigation`);
+      assert.doesNotMatch(source, /<script\b[^>]*src="\/app\.js/u, `${relative}: static questions must not load the application`);
+      for (const key of ["home", "library", "games", "daily"]) {
+        assert.match(source, new RegExp(`<a\\b[^>]*data-nav="${key}"`, "u"), `${relative}: ${key} is a real navigation link`);
+      }
+      assert.match(source, /<a\b[^>]*data-site-profile[^>]*href="[^"]*\?profile=1"/u, `${relative}: usable Profile fallback`);
       assert.equal(meta(source, "property", "og:url"), canonical, `${relative}: social canonical`);
       assert.equal(meta(source, "property", "og:image"), `${siteOrigin}/assets/riddlearabia-og-image.png`, `${relative}: social image`);
       assert.equal(meta(source, "name", "twitter:card"), "summary_large_image", `${relative}: social card`);
@@ -173,6 +180,13 @@ test("the public SEO surface is eight original bilingual Riddle Arabia experienc
         assert.ok(source.includes(escapeHtml(card.question[lang])), `${relative}: visible question ${card.id}`);
         assert.ok(source.includes(escapeHtml(card.answer[lang])), `${relative}: visible answer ${card.id}`);
       }
+      const articles = [...source.matchAll(/<article\b[^>]*class="seo-qa-card"[^>]*>([\s\S]*?)<\/article>/gu)];
+      assert.equal(articles.length, expectedCards.length);
+      for (const [, article] of articles) {
+        assert.match(article, /<\/details>\s*<a class="text-btn collection-topic-link"/u, `${relative}: full-topic link is visible before revealing an answer`);
+      }
+      assert.match(source, /class="collection-subset-note"/u, `${relative}: states the subset relationship`);
+      assert.match(source, /class="collection-source-links"/u, `${relative}: full source topics are directly available`);
       assert.deepEqual(
         quiz.educationalAlignment
           .filter((item) => item.alignmentType === "educationalSubject")
@@ -207,9 +221,29 @@ test("collections and about are newly authored hubs, not inherited bulk SEO page
   for (const lang of ["en", "ar"]) {
     const relative = lang === "en" ? "collections.html" : "ar/collections/index.html";
     const source = read(relative);
-    const expectedHrefs = RIDDLE_ARABIA_SEO_PAGES.map((page) => page.paths[lang]);
-    assert.equal((source.match(/class="seo-hub-card"/gu) || []).length, RIDDLE_ARABIA_SEO_PAGES.length, `${relative}: one purposeful card per experience`);
+    const collections = RIDDLE_ARABIA_SEO_PAGES.filter((page) => page.kind !== "games");
+    const expectedHrefs = collections.map((page) => page.paths[lang]);
+    assert.equal((source.match(/class="seo-hub-card"/gu) || []).length, collections.length, `${relative}: one card per short question collection, no duplicate Games hub`);
     for (const href of expectedHrefs) assert.match(source, new RegExp(`href="${escapeRegex(href)}"`, "u"), `${relative}: links ${href}`);
+    const listing = jsonLdNodes(source).find((node) => hasType(node, "ItemList"));
+    assert.equal(listing.numberOfItems, collections.length, `${relative}: truthful structured collection count`);
+    assert.equal(listing.itemListElement.length, collections.length, `${relative}: complete collection listing`);
+  }
+});
+
+test("the no-script topic directory uses compact text links from the current catalog", () => {
+  const source = read("mind-lab.html");
+  const directory = source.match(/<!-- SEO:DIRECTORY:START -->([\s\S]*?)<!-- SEO:DIRECTORY:END -->/u)?.[1] || "";
+  assert.ok(directory, "the generated directory fallback must be present");
+  assert.doesNotMatch(directory, /<img\b|category-card-bg|category-card-image|\bhas-art\b/u, "the fallback must not fetch the previous card artwork");
+  const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
+  assert.equal(cards.length, catalog.categories.length, "every source topic has a no-script link before publication quarantine projection");
+  assert.equal(new Set(cards.map(([, href]) => href)).size, cards.length, "no duplicate topic links");
+  for (const category of catalog.categories) {
+    const [, , markup] = cards.find(([, href]) => href === `/${category.slug}`) || [];
+    assert.ok(markup, `${category.slug}: direct topic link`);
+    assert.ok(markup.includes(`<h3 class="category-title">${escapeHtml(category.title.en)}</h3>`), `${category.slug}: current topic title`);
+    assert.ok(markup.includes(`<span class="category-card-label">${category.count} questions</span>`), `${category.slug}: catalog question count`);
   }
 });
 
@@ -226,7 +260,11 @@ test("all topic routes remain functional noindex application shells without stat
       assert.equal(link(source, "alternate", "ar"), `${siteOrigin}/ar/topics/${category.slug}/`, `${relative}: Arabic alternate`);
       assert.match(meta(source, "name", "robots"), /\bnoindex\b/iu, `${relative}: excluded from the search sitemap`);
       assert.match(source, new RegExp(`<body\\b[^>]*data-page="category"[^>]*data-category="${escapeRegex(category.slug)}"`, "u"), `${relative}: app category binding`);
-      assert.match(source, /<img\b[^>]*\bid="categoryImage"/u, `${relative}: dynamic category illustration mount`);
+      assert.doesNotMatch(source, /\bid="categoryImage"/u, `${relative}: no duplicate large category artwork`);
+      assert.match(source, /<a class="primary-btn" href="#cardGrid">/u, `${relative}: direct start-practice action`);
+      assert.match(source, /<details class="question-filters">\s*<summary>/u, `${relative}: optional filters start collapsed`);
+      assert.ok(source.indexOf('id="cardGrid"') < source.indexOf('id="categorySummaryMount"'), `${relative}: questions precede account promotion`);
+      assert.match(source, /data-nav="library" aria-current="page"/u, `${relative}: library remains the parent destination`);
       assert.match(source, /<script src="\/app\.js\?v=/u, `${relative}: application runtime`);
       assert.doesNotMatch(source, /<article\b[^>]*(?:riddle-card|seo-qa-card)/iu, `${relative}: no static SEO card copy`);
       assert.doesNotMatch(source, /<link\b[^>]*\brel="(?:prev|next)"|\/page\//iu, `${relative}: no pagination graph`);
@@ -244,6 +282,7 @@ test("the sitemap is exactly the compact indexable architecture", () => {
     ["/mind-lab", "/ar/mind-lab/"],
     ["/collections", "/ar/collections/"],
     ["/play", "/ar/play/"],
+    ["/daily", "/ar/daily/"],
     ["/about", "/ar/about/"],
     ["/privacy", "/ar/privacy/"],
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => [page.paths.en, page.paths.ar]),

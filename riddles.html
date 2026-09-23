@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/riddles#quiz",
-      "name": "Riddles worth a second look",
+      "name": "Classic riddles",
       "description": "Try a thoughtful set of bilingual riddles. Make your guess first, open the answer when you are ready, then keep the challenge moving.",
       "url": "https://riddlearabia.com/riddles",
       "inLanguage": "en",
@@ -163,13 +163,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Explore",
-          "item": "https://riddlearabia.com/collections"
+          "name": "Riddles & Quizzes",
+          "item": "https://riddlearabia.com/mind-lab"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Riddles worth a second look",
+          "name": "Classic riddles",
           "item": "https://riddlearabia.com/riddles"
         }
       ]
@@ -180,36 +180,37 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="riddles">
     <a href="#content" class="skip-link">Skip to main content</a>
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="Primary navigation">
-        <a class="ghost-btn" href="/">Home</a>
-        <a class="ghost-btn" href="/collections">Explore</a>
-        <a class="ghost-btn" href="/brain-games">Games</a>
-        <a class="ghost-btn language-route-link" href="/ar/alghaz/" hreflang="ar" lang="ar" dir="rtl">العربية</a>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library" aria-current="page">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/alghaz/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="Breadcrumb"><a href="/mind-lab">Riddles &amp; Quizzes</a><span aria-hidden="true">/</span><a href="/collections">Short collections</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">A calm start</p>
-        <h1>Riddles worth a second look</h1>
+        <h1>Classic riddles</h1>
         <p>A good riddle gives you just enough to begin. This set moves from familiar objects to small twists in language and logic, with answers kept behind a tap so the thinking stays yours.</p>
         <div class="seo-collection-meta">
-          <span>8 riddles</span>
+          <span>8 questions</span>
           <span>Arabic & English</span>
           <span>Free</span>
         </div>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">How to play</p><h2 id="how-title">Give each clue a moment</h2></div>
-          <p class="section-note">Read each clue once without rushing. Say your first answer out loud, then reveal the explanation and compare the detail you noticed.</p>
-        </div>
+        <p class="collection-subset-note">A short selection from the question library, not the full topic.</p>
+        <nav class="collection-source-links" aria-label="Full source topics"><a class="text-btn" href="/classic-riddles">Classic Riddles · 100 questions</a></nav>
+        <p class="section-note">Read each clue once without rushing. Say your first answer out loud, then reveal the explanation and compare the detail you noticed.</p>
       </section>
       <section class="seo-question-list shell" aria-label="Riddles and answers">
         <article class="seo-qa-card" id="classic-riddles-001" data-card-id="classic-riddles-001">
@@ -218,9 +219,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Your shadow</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-001">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-001">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-003" data-card-id="classic-riddles-003">
           <details>
@@ -228,9 +229,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A backpack</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-003">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-003">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-004" data-card-id="classic-riddles-004">
           <details>
@@ -238,9 +239,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>Tomorrow</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-004">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-004">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-008" data-card-id="classic-riddles-008">
           <details>
@@ -248,9 +249,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>An echo</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-008">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-008">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-009" data-card-id="classic-riddles-009">
           <details>
@@ -258,9 +259,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A candle</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-009">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-009">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-011" data-card-id="classic-riddles-011">
           <details>
@@ -268,9 +269,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>He is her son</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-011">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-011">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-012" data-card-id="classic-riddles-012">
           <details>
@@ -278,9 +279,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A river</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-012">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-012">Full topic: Classic Riddles</a>
         </article>
         <article class="seo-qa-card" id="classic-riddles-014" data-card-id="classic-riddles-014">
           <details>
@@ -288,33 +289,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">Answer</p>
               <p>A fire</p>
-              <a class="text-btn" href="/classic-riddles?card=classic-riddles-014">Explore Classic Riddles →</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/classic-riddles?card=classic-riddles-014">Full topic: Classic Riddles</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">Keep exploring</p>
-            <h2 id="next-title">More ways to challenge yourself</h2>
+            <h2 id="next-title">More short collections</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>One clue, two ways to read it</h3>
+            <h3>Arabic riddles</h3>
             <p>Solve bilingual Arabic riddles with a friend or on your own. Every clue is available in Arabic and English, with the answer one tap away.</p>
-            <a class="ghost-btn" href="/arabic-riddles">Start</a>
+            <a class="ghost-btn" href="/arabic-riddles">Try Arabic riddles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>Small clues, satisfying deductions</h3>
+            <h3>Logic puzzles</h3>
             <p>Work through bilingual logic puzzles that reward careful reading, simple deduction, and a second thought before you reveal the answer.</p>
-            <a class="ghost-btn" href="/logic-challenges">Start</a>
+            <a class="ghost-btn" href="/logic-challenges">Try Logic puzzles</a>
           </article>
           <article class="seo-hub-card">
-            <h3>Friendly riddles for curious minds</h3>
+            <h3>Family riddles</h3>
             <p>Enjoy a gentle set of bilingual kids’ riddles about familiar objects, everyday observation, and simple reasoning—ideal for families and classrooms.</p>
-            <a class="ghost-btn" href="/family-riddles">Start</a>
+            <a class="ghost-btn" href="/family-riddles">Try Family riddles</a>
           </article>
         </div>
       </section>
@@ -323,8 +324,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 Riddle Arabia</p>
         <nav class="footer-site-links" aria-label="Riddle Arabia information">
-          <a href="/collections">Collections</a>
-          <a href="/brain-games">Brain games</a>
+          <a href="/collections">Short collections</a>
+          <a href="/play">Games</a>
           <a href="/about">About</a>
           <a href="/privacy">Privacy</a>
         </nav>

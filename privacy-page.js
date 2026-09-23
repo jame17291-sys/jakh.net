@@ -159,6 +159,7 @@
       ['/privacy', PRIVACY_ROUTES],
     ]);
     document.querySelectorAll('a[href]').forEach((link) => {
+      if (link.matches('.language-route-link')) return;
       const href = link.getAttribute('href');
       if (!href || href.startsWith('#')) return;
       try {
@@ -279,7 +280,6 @@
     state.lang = nextLanguage;
     document.documentElement.lang = state.lang;
     document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
-    elements.language.value = state.lang;
     try {
       localStorage.setItem(LANGUAGE_KEY, state.lang);
     } catch {
@@ -551,7 +551,6 @@
   }
 
   function cacheElements() {
-    elements.language = document.getElementById('privacyLanguage');
     elements.deviceConsentStatus = document.getElementById('deviceConsentStatus');
     elements.deviceClearStatus = document.getElementById('deviceClearStatus');
     elements.allowDeviceAnalytics = document.getElementById('allowDeviceAnalytics');
@@ -583,7 +582,6 @@
   }
 
   function bindEvents() {
-    elements.language.addEventListener('change', () => setLanguage(elements.language.value));
     elements.allowDeviceAnalytics.addEventListener('click', () => setDeviceAnalytics(true));
     elements.denyDeviceAnalytics.addEventListener('click', () => setDeviceAnalytics(false));
     elements.clearDeviceData.addEventListener('click', clearDeviceData);

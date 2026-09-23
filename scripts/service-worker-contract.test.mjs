@@ -189,27 +189,12 @@ function cacheName(harness, expression) {
   return harness.evaluate(expression);
 }
 
-function expectedDailyPath(date, catalog) {
-  const eligible = catalog.categories.filter((category) => (
-    category.count >= 15
-    && category.mode !== 'story'
-    && !quarantinedCategories.has(category.slug)
-  ));
-  const isoDate = date.toISOString().split('T')[0];
-  const hash = isoDate
-    .split('')
-    .reduce((value, character) => ((value * 31) + character.charCodeAt(0)) | 0, 0);
-  return `/data/${eligible[Math.abs(hash) % eligible.length].slug}.json`;
-}
-
 test('required install fails closed and does not request activation', async () => {
   for (const options of [
     { failedPaths: ['/styles.css'] },
-    { failedPaths: ['/privacy.css'] },
-    { failedPaths: ['/akshifha-engine.js'] },
-    { failedPaths: ['/akshifha-cases.js'] },
-    { failedPaths: ['/akshifha-copy.js'] },
-    { failedPaths: ['/akshifha-study.js'] },
+    { failedPaths: ['/offline'] },
+    { failedPaths: ['/privacy-consent.js'] },
+    { failedPaths: ['/assets/riddlearabia-mark.svg'] },
     { rejectedPaths: ['/manifest.webmanifest'] },
     { failedCachePutPaths: ['/styles.css'] },
   ]) {
@@ -221,7 +206,7 @@ test('required install fails closed and does not request activation', async () =
   }
 });
 
-test('complete install guarantees the bilingual core shell, Akshifha modules, legacy games, and current daily data', async () => {
+test('complete install fetches only the bilingual offline fallback and its dependencies', async () => {
   const harness = createHarness();
   await harness.dispatchWithLifetime('install');
   assert.equal(harness.skipWaitingCount, 1);
@@ -230,77 +215,51 @@ test('complete install guarantees the bilingual core shell, Akshifha modules, le
   const core = harness.stores.get(coreName);
   assert.ok(core, 'core cache was not created');
   const paths = new Set((await core.keys()).map((request) => new URL(request.url).pathname));
-  for (const requiredPath of [
-    '/',
+  const requiredPaths = [
     '/offline',
-    '/app.js',
-    '/akshifha',
-    '/akshifha.js',
-    '/akshifha-engine.js',
-    '/akshifha-cases.js',
-    '/akshifha-copy.js',
-    '/akshifha-study.js',
-    '/akshifha.css',
-    '/privacy.css',
+    '/privacy-consent.js',
     '/styles.css',
     '/manifest.webmanifest',
-    '/data/catalog.json',
-    '/science',
-    '/data/science.json',
+    '/assets/riddlearabia-mark.svg',
+    '/assets/favicon.svg',
     '/assets/icon-192.png',
     '/assets/icon-512.png',
-    '/backgammon',
-    '/catan',
-    '/chess',
-    '/codenames',
-    '/diplomacy',
-    '/go',
-    '/hanabi',
-    '/mastermind',
-    '/reversi',
-    '/set',
-    '/ar/',
-    '/ar/mind-lab/',
-    '/ar/collections/',
-    '/ar/play/',
-    '/ar/about/',
-    '/ar/privacy/',
-    '/ar/games/backgammon/',
-    '/ar/games/akshifha/',
-    '/ar/games/catan/',
-    '/ar/games/chess/',
-    '/ar/games/codenames/',
-    '/ar/games/diplomacy/',
-    '/ar/games/go/',
-    '/ar/games/hanabi/',
-    '/ar/games/mastermind/',
-    '/ar/games/reversi/',
-    '/ar/games/set/',
-  ]) {
-    assert.ok(paths.has(requiredPath), `required core asset missing: ${requiredPath}`);
-  }
+    '/favicon.ico',
+  ];
+  assert.deepEqual(paths, new Set(requiredPaths));
+  assert.deepEqual(harness.fetches.map((request) => new URL(request).pathname), requiredPaths);
+  assert.equal(harness.stores.has(cacheName(harness, 'DATA_CACHE')), false);
+  assert.equal(harness.stores.has(cacheName(harness, 'NAVIGATION_CACHE')), false);
+  assert.doesNotMatch(workerSource, /DAILY_CATEGORY_SLUGS|installDailyPaths|warmOptionalDailyAssets/u);
 });
 
-test('optional upcoming daily warm failures do not weaken the required install', async () => {
-  const probe = createHarness();
-  const optionalPaths = JSON.parse(probe.evaluate('JSON.stringify(installDailyPaths().slice(1))'));
-  assert.ok(optionalPaths.length > 0, 'test date must have at least one distinct upcoming daily dataset');
-
+test('unrelated feature and data failures cannot prevent offline fallback installation', async () => {
   for (const options of [
-    { failedPaths: [optionalPaths[0]] },
-    { failedCacheOpenNames: [cacheName(probe, 'DATA_CACHE')] },
+    { failedPaths: ['/science', '/data/science.json', '/akshifha-engine.js', '/privacy.css', '/app.js'] },
+    { failedCacheOpenNames: [cacheName(createHarness(), 'DATA_CACHE')] },
   ]) {
     const harness = createHarness(options);
     await harness.dispatchWithLifetime('install');
     assert.equal(harness.skipWaitingCount, 1);
     const coreName = cacheName(harness, 'CORE_CACHE');
-    assert.ok(harness.stores.has(coreName), 'optional failure removed the required shell');
+    assert.ok(harness.stores.has(coreName), 'unrelated feature failure removed the required shell');
   }
 });
 
 test('offline navigation returns compatible cached documents or the dedicated fallback', async () => {
   const harness = createHarness();
   await harness.dispatchWithLifetime('install');
+  // Runtime caching follows actual activity visits. No game or language route
+  // is guaranteed offline before the visitor requests it while connected.
+  const visitedDocuments = [
+    '/', '/akshifha', '/ar/games/akshifha/', '/catan', '/ar/games/catan/', '/ar/privacy/',
+  ];
+  const visitedAssets = [
+    '/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha-study.js', '/akshifha.css',
+  ];
+  for (const route of visitedDocuments) await harness.dispatchFetch(route, 'navigate');
+  for (const asset of visitedAssets) await harness.dispatchFetch(asset);
+  await harness.dispatchFetch('/data/science.json');
   harness.setOnline(false);
 
   assert.equal(await (await harness.dispatchFetch('/?daily=1', 'navigate')).text(), 'network:/');
@@ -309,7 +268,7 @@ test('offline navigation returns compatible cached documents or the dedicated fa
     await (await harness.dispatchFetch('/ar/games/akshifha/?case=delivery', 'navigate')).text(),
     'network:/ar/games/akshifha/',
   );
-  for (const asset of ['/akshifha.js', '/akshifha-engine.js', '/akshifha-cases.js', '/akshifha-copy.js', '/akshifha-study.js', '/akshifha.css']) {
+  for (const asset of visitedAssets) {
     assert.equal(await (await harness.dispatchFetch(asset)).text(), `network:${asset}`);
   }
   assert.equal(await (await harness.dispatchFetch('/catan.html?lang=ar', 'navigate')).text(), 'network:/catan');
@@ -325,6 +284,8 @@ test('offline navigation returns compatible cached documents or the dedicated fa
     await (await harness.dispatchFetch('/never-visited-category?filter=hard', 'navigate')).text(),
     'network:/offline',
   );
+  assert.equal(await (await harness.dispatchFetch('/chess', 'navigate')).text(), 'network:/offline');
+  assert.equal(await (await harness.dispatchFetch('/data/science.json')).text(), 'network:/data/science.json');
 });
 
 test('runtime caches are capped and same-origin version queries share one key', async () => {
@@ -448,33 +409,27 @@ test('activation removes quarantined entries even if a prior cache populated the
   }
 });
 
-test('daily dependency routing mirrors the catalog for representative dates', () => {
-  const catalog = JSON.parse(fs.readFileSync(path.join(root, 'data/catalog.json'), 'utf8'));
-  const expectedSlugs = catalog.categories
-    .filter((category) => (
-      category.count >= 15
-      && category.mode !== 'story'
-      && !quarantinedCategories.has(category.slug)
-    ))
-    .map((category) => category.slug);
+test('activation retires old eager caches without touching unrelated application caches', async () => {
   const harness = createHarness();
-  const workerSlugs = JSON.parse(harness.evaluate('JSON.stringify(DAILY_CATEGORY_SLUGS)'));
-  assert.deepEqual(workerSlugs, expectedSlugs);
+  await harness.dispatchWithLifetime('install');
+  const core = harness.stores.get(cacheName(harness, 'CORE_CACHE'));
+  harness.stores.set('jakh-core-v84', core);
+  harness.stores.set('jakh-data-v84', core);
+  harness.stores.set('another-application-cache', core);
+
+  await harness.dispatchWithLifetime('activate');
+  assert.equal(harness.stores.has('jakh-core-v84'), false);
+  assert.equal(harness.stores.has('jakh-data-v84'), false);
+  assert.equal(harness.stores.has('another-application-cache'), true);
+  assert.equal(harness.stores.has(cacheName(harness, 'CORE_CACHE')), true);
+});
+
+test('quarantine coverage remains aligned with the publication manifest', () => {
+  const harness = createHarness();
   assert.deepEqual(
     new Set(JSON.parse(harness.evaluate('JSON.stringify(QUARANTINED_CATEGORY_SLUGS)'))),
     quarantinedCategories,
   );
-
-  for (const isoDate of [
-    '2026-08-01T12:00:00.000Z',
-    '2026-12-31T12:00:00.000Z',
-    '2027-01-01T12:00:00.000Z',
-    '2030-06-15T12:00:00.000Z',
-  ]) {
-    const date = new Date(isoDate);
-    const actual = harness.evaluate(`dailyDataPath(new Date(${JSON.stringify(isoDate)}))`);
-    assert.equal(actual, expectedDailyPath(date, catalog));
-  }
 });
 
 test('all direct game entries use a same-origin service-worker registration path', () => {
@@ -484,10 +439,11 @@ test('all direct game entries use a same-origin service-worker registration path
   assert.doesNotMatch(workerSource, /type\s*===\s*['"]SKIP_WAITING['"]/u);
   assert.doesNotMatch(workerSource, /\bCLEAR_CACHE\b/u);
 
-  const games = JSON.parse(createHarness().evaluate('JSON.stringify(GAME_DOCUMENTS)'));
-  const arabicShared = JSON.parse(createHarness().evaluate('JSON.stringify(ARABIC_SHARED_DOCUMENTS)'));
-  assert.equal(games.length, 11);
-  assert.deepEqual(arabicShared, [
+  const games = [
+    '/akshifha', '/backgammon', '/catan', '/chess', '/codenames', '/diplomacy',
+    '/go', '/hanabi', '/mastermind', '/reversi', '/set',
+  ];
+  const arabicShared = [
     '/ar/',
     '/ar/mind-lab/',
     '/ar/collections/',
@@ -495,7 +451,7 @@ test('all direct game entries use a same-origin service-worker registration path
     '/ar/about/',
     '/ar/privacy/',
     ...games.map((route) => `/ar/games${route}/`),
-  ]);
+  ];
   assert.equal(new Set(arabicShared).size, 17);
   for (const route of arabicShared) {
     const directory = route === '/ar/' ? path.join(root, 'ar') : path.join(root, route.slice(1));

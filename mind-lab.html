@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#fffaf2" />
-    <meta name="description" content="Explore 3,500+ bilingual riddles and quizzes mapped directly to 56 topics in 5 clear sections. Pick a topic, flip cards, and track your score." />
-    <title>Mind Lab — 56 Topics | Riddle Arabia</title>
+    <meta name="description" content="Browse bilingual riddles and quizzes by topic, or start with a short collection. Choose a question and reveal its answer at your own pace." />
+    <title>Riddles &amp; Quizzes | Riddle Arabia</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://riddlearabia.com/mind-lab" />
     <link rel="alternate" hreflang="en" href="https://riddlearabia.com/mind-lab" />
     <link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/mind-lab/" />
     <link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mind-lab" />
     <meta name="robots" content="index,follow" />
-    <meta property="og:title" content="Mind Lab — 56 Topics | Riddle Arabia" />
-    <meta property="og:description" content="3,500+ bilingual riddles mapped directly into 56 topics across Science, Engineering, Culture, Society, and Logic." />
+    <meta property="og:title" content="Riddles &amp; Quizzes | Riddle Arabia" />
+    <meta property="og:description" content="Find riddles and quizzes by topic or choose a short collection, in English and Arabic." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://riddlearabia.com/mind-lab" />
     <meta property="og:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
@@ -23,8 +23,8 @@
     <meta property="og:image:alt" content="Riddle Arabia — bilingual riddles, quizzes, and brain games" />
     <meta property="og:site_name" content="Riddle Arabia" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mind Lab — 56 Topics | Riddle Arabia" />
-    <meta name="twitter:description" content="3,500+ bilingual riddles mapped directly into 56 topics in English and Arabic." />
+    <meta name="twitter:title" content="Riddles &amp; Quizzes | Riddle Arabia" />
+    <meta name="twitter:description" content="Find riddles and quizzes by topic or choose a short collection, in English and Arabic." />
     <meta name="twitter:image" content="https://riddlearabia.com/assets/riddlearabia-og-image.png" />
     <meta name="twitter:image:alt" content="Riddle Arabia — bilingual riddles, quizzes, and brain games" />
     <link rel="stylesheet" href="styles.css?v=2026091102" />
@@ -37,48 +37,47 @@
   <body class="page-mind-lab" data-page="home">
     <a href="#top" class="skip-link">Skip to main content</a>
 
-    <header class="site-header shell">
-      <a href="/" class="brand" aria-label="Riddle Arabia home" data-i18n-aria-label="brandHomeLabel">
-        <picture>
-
-          <img src="assets/riddlearabia-mark.svg" alt="Riddle Arabia" class="brand-logo" width="40" height="40" loading="eager" fetchpriority="high" />
-        </picture>
-      </a>
-      <nav class="header-actions" aria-label="Quick actions" data-i18n-aria-label="quickActionsLabel">
-        <a class="ghost-btn" href="/" data-i18n="navHome">Home</a>
-        <a class="ghost-btn" href="/play" data-i18n="heroGameHub">Game Hub</a>
-        <button class="ghost-btn" id="openAuthBtn" data-i18n="authOpen">Sign in</button>
+    <header class="site-header shell unified-header">
+      <a href="/" class="brand" aria-label="Riddle Arabia home"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="Primary navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="/mind-lab" data-nav="library" aria-current="page">Riddles &amp; Quizzes</a>
+        <a href="/play" data-nav="games">Games</a>
+        <a href="/daily" data-nav="daily">Daily Challenge</a>
       </nav>
-      <div class="header-selects" aria-label="Language controls" data-i18n-aria-label="languageControlsLabel">
-        <label>
-          <span data-i18n="language">Language</span>
-          <select id="langSelect">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-          </select>
-        </label>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/ar/mind-lab/" hreflang="ar" lang="ar" dir="rtl" aria-label="اقرأ هذه الصفحة بالعربية">العربية</a>
+        <a id="openAuthBtn" data-site-profile href="/mind-lab?profile=1">Profile</a>
       </div>
     </header>
 
     <main id="top">
 
       <!-- Page hero -->
-      <section class="kv-hero kv-hero-compact" id="kv-hero">
-        <div class="kv-hero-fallback-bg mind-lab-hero-bg" aria-hidden="true"></div>
+      <section class="kv-hero kv-hero-compact library-intro" id="kv-hero">
         <div class="kv-hero-content">
-          <p class="kv-eyebrow" data-i18n="mindHeroEyebrow">3,553 questions · 56 clear topics</p>
-          <h1 class="kv-hero-title" data-i18n="mindHeroTitle">The Mind Lab</h1>
-          <p class="kv-hero-subtitle" data-i18n="mindHeroSubtitle">Follow your curiosity. Every topic opens into a quick, satisfying challenge.</p>
+          <p class="kv-eyebrow" data-i18n="mindHeroEyebrow">Choose a topic or a short collection</p>
+          <h1 class="kv-hero-title" data-i18n="mindHeroTitle">Riddles &amp; Quizzes</h1>
+          <p class="kv-hero-subtitle" data-i18n="mindHeroSubtitle">Find a topic, choose a question, and reveal the answer at your own pace.</p>
           <div class="kv-hero-stats">
             <div class="kv-stat">
-              <span class="kv-stat-number" id="badgeCategories">56</span>
+              <span class="kv-stat-number" id="badgeCategories">51</span>
               <span class="kv-stat-label" data-i18n="statCategories">Topics</span>
             </div>
             <div class="kv-stat-divider" aria-hidden="true"></div>
             <div class="kv-stat">
-              <span class="kv-stat-number" id="badgeQuestions">3,553</span>
+              <span class="kv-stat-number" id="badgeQuestions">3,275</span>
               <span class="kv-stat-label" data-i18n="statQuestions">Questions</span>
             </div>
+          </div>
+          <nav class="library-subnav" aria-label="Riddles and quizzes" data-i18n-aria-label="mindHeroTitle">
+            <a href="#kv-lab" class="primary-btn" aria-current="page" data-i18n="categoryTitle">Browse topics</a>
+            <a href="/collections" class="ghost-btn" data-i18n="mindCalloutCta">Short collections</a>
+          </nav>
+          <div class="library-tools">
+            <button type="button" class="text-btn" id="globalSearchBtn" data-i18n="search">Search questions</button>
+            <button type="button" class="text-btn" id="leaderboardBtn" data-i18n="leaderboardNav">Leaderboard</button>
+            <button type="button" class="text-btn" id="battleNavBtn" data-i18n="battleNav">Join or host</button>
           </div>
         </div>
       </section>
@@ -86,880 +85,636 @@
       <!-- Category directory — all IDs preserved for app.js -->
       <section class="kv-lab-section shell" id="kv-lab">
         <div class="kv-lab-header">
-          <h2 data-i18n="categoryTitle">What are you curious about today?</h2>
-          <p data-i18n="categoryText">Choose a clear section, search by interest, or let Riddle Arabia surprise you.</p>
+          <h2 data-i18n="categoryTitle">Browse topics</h2>
+          <p data-i18n="categoryText">Search all topics or filter by subject.</p>
         </div>
 
-        <!-- Five sections that filter direct topic links -->
-        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections" data-i18n-aria-label="categorySectionsLabel">
-          <button class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-label="All topics">
-            <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff8eb,#edf5ff);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">ALL</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">All topics</span><span class="ml-cluster-tab-count">56 topics</span></div></div>
-          </button>
-          <button class="ml-cluster-tab" data-cluster="mind" role="tab" aria-selected="false" aria-label="Mind &amp; Puzzles">
-            <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#f5edff,#e7f2ff);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">01</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">Mind &amp; Puzzles</span><span class="ml-cluster-tab-count">8 topics</span></div></div>
-          </button>
-          <button class="ml-cluster-tab" data-cluster="science" role="tab" aria-selected="false" aria-label="Science, Nature &amp; Health">
-            <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#e8f7ef,#e8f4ff);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">02</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">Science, Nature &amp; Health</span><span class="ml-cluster-tab-count">12 topics</span></div></div>
-          </button>
-          <button class="ml-cluster-tab" data-cluster="tech" role="tab" aria-selected="false" aria-label="Technology &amp; Engineering">
-            <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#eef4ff,#e8fbfb);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">03</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">Technology &amp; Engineering</span><span class="ml-cluster-tab-count">11 topics</span></div></div>
-          </button>
-          <button class="ml-cluster-tab" data-cluster="world" role="tab" aria-selected="false" aria-label="World, History &amp; Society">
-            <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff4dc,#fff0e7);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">04</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">World, History &amp; Society</span><span class="ml-cluster-tab-count">13 topics</span></div></div>
-          </button>
-          <button class="ml-cluster-tab" data-cluster="culture" role="tab" aria-selected="false" aria-label="Arts, Culture &amp; Entertainment">
-            <div class="ml-cluster-tab-bg" style="background:linear-gradient(135deg,#fff0f4,#f8edff);" aria-hidden="true"></div>
-            <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">05</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">Arts, Culture &amp; Entertainment</span><span class="ml-cluster-tab-count">12 topics</span></div></div>
-          </button>
-        </div>
-
-        <!-- Search + toolbar -->
         <section class="control-panel directory-search-panel" aria-label="Category filters" data-i18n-aria-label="categoryFiltersLabel">
           <label class="search-field">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="categorySearchInput" type="search" autocomplete="off" aria-label="Search topics and subtopics" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
+            <input id="categorySearchInput" type="search" autocomplete="off" aria-controls="categoryDirectoryGrid" aria-describedby="directoryResultsLabel" aria-label="Search topics and subtopics" data-i18n-aria-label="searchCategoriesLabel" data-i18n-placeholder="searchPlaceholder" placeholder="Search topics and subtopics..." />
           </label>
         </section>
 
+        <!-- Five sections that filter direct topic links -->
+        <div id="clusterTabBar" class="ml-cluster-bar" role="tablist" aria-label="Category sections" data-i18n-aria-label="categorySectionsLabel">
+          <button type="button" id="directory-tab-all" class="ml-cluster-tab is-active" data-cluster="all" role="tab" aria-selected="true" aria-controls="categoryDirectoryGrid" tabindex="0" aria-label="All topics">
+            <span class="ml-cluster-tab-name">All topics</span><span class="ml-cluster-tab-count">51 topics</span>
+          </button>
+          <button type="button" id="directory-tab-mind" class="ml-cluster-tab" data-cluster="mind" role="tab" aria-selected="false" aria-controls="categoryDirectoryGrid" tabindex="-1" aria-label="Mind &amp; Puzzles">
+            <span class="ml-cluster-tab-name">Mind &amp; Puzzles</span><span class="ml-cluster-tab-count">8 topics</span>
+          </button>
+          <button type="button" id="directory-tab-science" class="ml-cluster-tab" data-cluster="science" role="tab" aria-selected="false" aria-controls="categoryDirectoryGrid" tabindex="-1" aria-label="Science, Nature &amp; Health">
+            <span class="ml-cluster-tab-name">Science, Nature &amp; Health</span><span class="ml-cluster-tab-count">9 topics</span>
+          </button>
+          <button type="button" id="directory-tab-tech" class="ml-cluster-tab" data-cluster="tech" role="tab" aria-selected="false" aria-controls="categoryDirectoryGrid" tabindex="-1" aria-label="Technology &amp; Engineering">
+            <span class="ml-cluster-tab-name">Technology &amp; Engineering</span><span class="ml-cluster-tab-count">11 topics</span>
+          </button>
+          <button type="button" id="directory-tab-world" class="ml-cluster-tab" data-cluster="world" role="tab" aria-selected="false" aria-controls="categoryDirectoryGrid" tabindex="-1" aria-label="World, History &amp; Society">
+            <span class="ml-cluster-tab-name">World, History &amp; Society</span><span class="ml-cluster-tab-count">11 topics</span>
+          </button>
+          <button type="button" id="directory-tab-culture" class="ml-cluster-tab" data-cluster="culture" role="tab" aria-selected="false" aria-controls="categoryDirectoryGrid" tabindex="-1" aria-label="Arts, Culture &amp; Entertainment">
+            <span class="ml-cluster-tab-name">Arts, Culture &amp; Entertainment</span><span class="ml-cluster-tab-count">12 topics</span>
+          </button>
+        </div>
+
         <div class="library-toolbar">
-          <p id="directoryResultsLabel">Choose directly from 56 topics in 5 clear sections.</p>
+          <p id="directoryResultsLabel" role="status" aria-live="polite" aria-atomic="true" data-i18n="directoryInitialSummary">51 topics in 5 sections.</p>
           <div class="directory-toolbar-actions">
             <button class="random-btn" id="randomCategoryBtn" data-i18n="randomCategory">Surprise me</button>
             <button class="text-btn" id="resetDirectoryBtn" data-i18n="resetDirectoryFilters">Reset filters</button>
           </div>
         </div>
 
-        <div id="categoryDirectoryGrid" class="category-grid" aria-live="polite">
+        <div id="categoryDirectoryGrid" class="category-grid" role="tabpanel" tabindex="0" aria-labelledby="directory-tab-all">
           <!-- SEO:DIRECTORY:START -->
           <section id="section-mind" class="directory-section-header" style="--section-gradient:linear-gradient(135deg,#f5edff,#e7f2ff);--section-accent:#6d49a7;">
             <span class="directory-section-mark" aria-hidden="true">01</span>
             <div><h3>Mind &amp; Puzzles</h3><p>Riddles, logic, psychology, philosophy, relationships, and mysteries.</p></div>
             <p class="directory-section-count">8 topics · 480 questions</p>
           </section>
-          <a class="category-card has-art" href="/classic-riddles" aria-label="Classic Riddles">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/classic-riddles.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">❓ Classic Riddles</h3>
-            <p class="category-card-topics">Logic &amp; Deduction · Numbers &amp; Codes · Wordplay &amp; Language</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/logic-puzzles" aria-label="Logic Puzzles">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/logic-puzzles.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">60 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🧠 Logic Puzzles</h3>
-            <p class="category-card-topics">Numbers &amp; Patterns · Logic &amp; Deduction · Lateral Thinking</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">60 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/kids-riddles" aria-label="Kids Riddles">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/kids-riddles.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🧩 Kids Riddles</h3>
-            <p class="category-card-topics">Objects, Clothing &amp; Technology · Art, Paper &amp; School Tools · Logic, Codes &amp; Patterns</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/story-mysteries" aria-label="Story Mysteries">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/story-mysteries.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🕯️ Story Mysteries</h3>
-            <p class="category-card-topics">Arts, Language &amp; Performance · Everyday &amp; Family · Crime &amp; Investigation</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/true-crime" aria-label="True Crime &amp; Mysteries">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/true-crime.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🕵️‍♂️ True Crime &amp; Mysteries</h3>
-            <p class="category-card-topics">Forensic Science · Organized Crime &amp; Outlaws · Serial Killers &amp; Unsolved Cases</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/psychology" aria-label="Psychology">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/psychology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🫶 Psychology</h3>
-            <p class="category-card-topics">Cognition, Memory &amp; Perception · Foundations, Learning &amp; Motivation · Social Psychology</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/philosophy" aria-label="Philosophy">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/philosophy.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🧠 Philosophy</h3>
-            <p class="category-card-topics">Ethics · Metaphysics &amp; Mind · Philosophical Traditions</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/relationship-questions" aria-label="Relationships">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/relationship-questions.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">💞 Relationships</h3>
-            <p class="category-card-topics">Psychology · Love &amp; Attachment · Communication</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
+          <a class="category-card compact-topic-card" href="/classic-riddles" aria-label="Classic Riddles">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Classic Riddles</h3>
+              <p class="category-card-topics">Objects &amp; Everyday Life · Numbers &amp; Codes · Logic &amp; Deduction</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/logic-puzzles" aria-label="Logic Puzzles">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Logic Puzzles</h3>
+              <p class="category-card-topics">Logic &amp; Deduction · Numbers &amp; Patterns · Lateral Thinking</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">60 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/kids-riddles" aria-label="Kids Riddles">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Kids Riddles</h3>
+              <p class="category-card-topics">Objects, Clothing &amp; Technology · Art, Paper &amp; School Tools · Logic, Codes &amp; Patterns</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/story-mysteries" aria-label="Story Mysteries">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Story Mysteries</h3>
+              <p class="category-card-topics">Arts, Language &amp; Performance · Everyday &amp; Family · Crime &amp; Investigation</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/true-crime" aria-label="True Crime &amp; Mysteries">
+            <div class="category-card-overlay">
+              <h3 class="category-title">True Crime &amp; Mysteries</h3>
+              <p class="category-card-topics">Forensic Science · Organized Crime &amp; Outlaws · Serial Killers &amp; Unsolved Cases</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/psychology" aria-label="Psychology">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Psychology</h3>
+              <p class="category-card-topics">Cognition, Memory &amp; Perception · Foundations, Learning &amp; Motivation · Social Psychology</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/philosophy" aria-label="Philosophy">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Philosophy</h3>
+              <p class="category-card-topics">Ethics · Metaphysics &amp; Mind · Philosophical Traditions</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/relationship-questions" aria-label="Relationships">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Relationships</h3>
+              <p class="category-card-topics">Boundaries &amp; Permission · Communication &amp; Listening · Conflict &amp; Repair</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
           <section id="section-science" class="directory-section-header" style="--section-gradient:linear-gradient(135deg,#e8f7ef,#e8f4ff);--section-accent:#1d7051;">
             <span class="directory-section-mark" aria-hidden="true">02</span>
             <div><h3>Science, Nature &amp; Health</h3><p>Math, physical and life sciences, nature, space, medicine, and pharmacy.</p></div>
             <p class="directory-section-count">12 topics · 920 questions</p>
           </section>
-          <a class="category-card has-art" href="/math" aria-label="Math">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/math.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">150 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">∑ Math</h3>
-            <p class="category-card-topics">Number Theory &amp; Number Riddles · Geometry &amp; Trigonometry · Algebra &amp; Functions</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">150 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/science" aria-label="Science">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/science.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🔬 Science</h3>
-            <p class="category-card-topics">Chemistry &amp; Materials · Biology &amp; Life Sciences · Quantum, Relativity &amp; Cosmology</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/physical-and-life-sciences" aria-label="Physical &amp; Life Sciences">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/physical-and-life-sciences.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🔬 Physical &amp; Life Sciences</h3>
-            <p class="category-card-topics">Cell, Genetics &amp; Microbiology · General Chemistry · Mechanics, Energy &amp; Relativity</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/biology" aria-label="Biology">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/biology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🧬 Biology</h3>
-            <p class="category-card-topics">Cells &amp; Metabolism · Genetics &amp; Molecular Biology · Human Anatomy &amp; Physiology</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/chemistry" aria-label="Chemistry">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/chemistry.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">⚗️ Chemistry</h3>
-            <p class="category-card-topics">Atoms, Elements &amp; Periodicity · Thermodynamics &amp; Physical Chemistry · Organic Chemistry</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/geology" aria-label="Geology">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/geology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🪨 Geology</h3>
-            <p class="category-card-topics">Plate Tectonics &amp; Earth Structure · Rocks, Petrology &amp; Rock Cycle · Minerals &amp; Geochemistry</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/space-and-astrology" aria-label="Space &amp; Astronomy">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/space-and-astrology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🌌 Space &amp; Astronomy</h3>
-            <p class="category-card-topics">Solar System &amp; Planets · Galaxies &amp; Cosmology · Stars &amp; Stellar Evolution</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/environment-and-ecology" aria-label="Environment &amp; Ecology">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/environment-and-ecology.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🌿 Environment &amp; Ecology</h3>
-            <p class="category-card-topics">Ecosystems &amp; Biodiversity · Pollution &amp; Waste · Climate Change</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/animal-kingdom" aria-label="Animal Kingdom">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/animal-kingdom.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🐾 Animal Kingdom</h3>
-            <p class="category-card-topics">Birds &amp; Flight · Behavior, Ecology &amp; Adaptation · Insects &amp; Arthropods</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/survival" aria-label="Survival &amp; Wilderness">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/survival.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🏕️ Survival &amp; Wilderness</h3>
-            <p class="category-card-topics">Firecraft · First Aid &amp; Field Medicine · Navigation &amp; Signaling</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/medical-questions" aria-label="Medical Science">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/medical-questions.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🩺 Medical Science</h3>
-            <p class="category-card-topics">Anatomy &amp; Physiology · Disease, Genetics &amp; Pathology · Pharmacology &amp; Toxicology</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/pharmacy" aria-label="Pharmacy">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/pharmacy.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">💊 Pharmacy</h3>
-            <p class="category-card-topics">Drug Classes &amp; Therapeutics · Pharmacodynamics &amp; Receptors · Pharmacokinetics &amp; Biopharmaceutics</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
+          <a class="category-card compact-topic-card" href="/math" aria-label="Math">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Math</h3>
+              <p class="category-card-topics">Number Theory &amp; Number Riddles · Geometry &amp; Trigonometry · Algebra &amp; Functions</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">150 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/science" aria-label="Science">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Science</h3>
+              <p class="category-card-topics">Chemistry &amp; Materials · Biology &amp; Life Sciences · Quantum, Relativity &amp; Cosmology</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/physical-and-life-sciences" aria-label="Physical &amp; Life Sciences">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Physical &amp; Life Sciences</h3>
+              <p class="category-card-topics">Cell, Genetics &amp; Microbiology · General Chemistry · Mechanics, Energy &amp; Relativity</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/biology" aria-label="Biology">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Biology</h3>
+              <p class="category-card-topics">Cells &amp; Metabolism · Genetics &amp; Molecular Biology · Human Anatomy &amp; Physiology</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/chemistry" aria-label="Chemistry">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Chemistry</h3>
+              <p class="category-card-topics">Atoms, Elements &amp; Periodicity · Thermodynamics &amp; Physical Chemistry · Organic Chemistry</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/geology" aria-label="Geology">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Geology</h3>
+              <p class="category-card-topics">Plate Tectonics &amp; Earth Structure · Rocks, Petrology &amp; Rock Cycle · Minerals &amp; Geochemistry</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/space-and-astrology" aria-label="Space &amp; Astronomy">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Space &amp; Astronomy</h3>
+              <p class="category-card-topics">Solar System &amp; Planets · Galaxies &amp; Cosmology · Stars &amp; Stellar Evolution</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/environment-and-ecology" aria-label="Environment &amp; Ecology">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Environment &amp; Ecology</h3>
+              <p class="category-card-topics">Ecosystems &amp; Biodiversity · Pollution &amp; Waste · Climate Change</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/animal-kingdom" aria-label="Animal Kingdom">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Animal Kingdom</h3>
+              <p class="category-card-topics">Birds &amp; Flight · Behavior, Ecology &amp; Adaptation · Insects &amp; Arthropods</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/survival" aria-label="Survival &amp; Wilderness">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Survival &amp; Wilderness</h3>
+              <p class="category-card-topics">Firecraft · First Aid &amp; Field Medicine · Navigation &amp; Signaling</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/medical-questions" aria-label="Medical Science">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Medical Science</h3>
+              <p class="category-card-topics">Anatomy &amp; Physiology · Disease, Genetics &amp; Pathology · Pharmacology &amp; Toxicology</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/pharmacy" aria-label="Pharmacy">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Pharmacy</h3>
+              <p class="category-card-topics">Drug Classes &amp; Therapeutics · Pharmacodynamics &amp; Receptors · Pharmacokinetics &amp; Biopharmaceutics</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
           <section id="section-tech" class="directory-section-header" style="--section-gradient:linear-gradient(135deg,#eef4ff,#e8fbfb);--section-accent:#256aa9;">
             <span class="directory-section-mark" aria-hidden="true">03</span>
             <div><h3>Technology &amp; Engineering</h3><p>Software, design, machines, infrastructure, energy, architecture, and invention.</p></div>
             <p class="directory-section-count">11 topics · 420 questions</p>
           </section>
-          <a class="category-card has-art" href="/software-and-computing" aria-label="Software &amp; Computing">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/software-and-computing.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">💻 Software &amp; Computing</h3>
-            <p class="category-card-topics">Computer Science · Systems &amp; Networking · Software Engineering</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/coding-and-design" aria-label="Coding &amp; Design">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/coding-and-design.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">💻 Coding &amp; Design</h3>
-            <p class="category-card-topics">Programming Fundamentals · Web Development · UI/UX &amp; Visual Design</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/tech-retro" aria-label="Tech &amp; Retro Gaming">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/tech-retro.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🕹️ Tech &amp; Retro Gaming</h3>
-            <p class="category-card-topics">Retro Gaming · Early Internet · Hardware &amp; Storage</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/future-tech-and-energy" aria-label="Future Tech &amp; Energy">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/future-tech-and-energy.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🚀 Future Tech &amp; Energy</h3>
-            <p class="category-card-topics">Computing &amp; Security · AI &amp; Machine Learning · Connected &amp; Immersive Tech</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/automotive" aria-label="Automotive &amp; Racing">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/automotive.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🏎️ Automotive &amp; Racing</h3>
-            <p class="category-card-topics">Brands &amp; Models · Engines &amp; Drivetrains · Motorsport</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/civil-engineering" aria-label="Civil Engineering">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/civil-engineering.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🏗️ Civil Engineering</h3>
-            <p class="category-card-topics">Structures &amp; Bridges · Materials &amp; Concrete · Water &amp; Hydraulics</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/electrical-engineering" aria-label="Electrical Engineering">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/electrical-engineering.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🔌 Electrical Engineering</h3>
-            <p class="category-card-topics">Components &amp; Electronics · Electrical Fundamentals · AC Power Systems</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/mechanical-engineering" aria-label="Mechanical Engineering">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/mechanical-engineering.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">⚙️ Mechanical Engineering</h3>
-            <p class="category-card-topics">Machines, Gears &amp; Mechanisms · Thermodynamics, Heat &amp; Power · Materials &amp; Failure</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/infrastructure-systems" aria-label="Infrastructure Systems">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/infrastructure-systems.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🚦 Infrastructure Systems</h3>
-            <p class="category-card-topics">Bridges &amp; Structural Engineering · Power &amp; Energy Systems · Water &amp; Wastewater Systems</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/architecture-and-landmarks" aria-label="Architecture &amp; Landmarks">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/architecture-and-landmarks.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🏙️ Architecture &amp; Landmarks</h3>
-            <p class="category-card-topics">Architects &amp; Designers · World Landmarks · Architectural Elements</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/inventions-and-minds" aria-label="Inventions &amp; Ideas">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/inventions-and-minds.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">💡 Inventions &amp; Ideas</h3>
-            <p class="category-card-topics">Computing History · Science &amp; Medicine · Communications</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
+          <a class="category-card compact-topic-card" href="/software-and-computing" aria-label="Software &amp; Computing">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Software &amp; Computing</h3>
+              <p class="category-card-topics">Computer Science · Systems &amp; Networking · Software Engineering</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/coding-and-design" aria-label="Coding &amp; Design">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Coding &amp; Design</h3>
+              <p class="category-card-topics">Programming Fundamentals · Web Development · UI/UX &amp; Visual Design</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/tech-retro" aria-label="Tech &amp; Retro Gaming">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Tech &amp; Retro Gaming</h3>
+              <p class="category-card-topics">Retro Gaming · Early Internet · Hardware &amp; Storage</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/future-tech-and-energy" aria-label="Future Tech &amp; Energy">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Future Tech &amp; Energy</h3>
+              <p class="category-card-topics">Computing &amp; Security · AI &amp; Machine Learning · Connected &amp; Immersive Tech</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/automotive" aria-label="Automotive &amp; Racing">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Automotive &amp; Racing</h3>
+              <p class="category-card-topics">Brands &amp; Models · Engines &amp; Drivetrains · Motorsport</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/civil-engineering" aria-label="Civil Engineering">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Civil Engineering</h3>
+              <p class="category-card-topics">Structures &amp; Bridges · Materials &amp; Concrete · Water &amp; Hydraulics</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/electrical-engineering" aria-label="Electrical Engineering">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Electrical Engineering</h3>
+              <p class="category-card-topics">Components &amp; Electronics · Electrical Fundamentals · AC Power Systems</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/mechanical-engineering" aria-label="Mechanical Engineering">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Mechanical Engineering</h3>
+              <p class="category-card-topics">Machines, Gears &amp; Mechanisms · Thermodynamics, Heat &amp; Power · Materials &amp; Failure</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/infrastructure-systems" aria-label="Infrastructure Systems">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Infrastructure Systems</h3>
+              <p class="category-card-topics">Bridges &amp; Structural Engineering · Power &amp; Energy Systems · Water &amp; Wastewater Systems</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/architecture-and-landmarks" aria-label="Architecture &amp; Landmarks">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Architecture &amp; Landmarks</h3>
+              <p class="category-card-topics">Architects &amp; Designers · World Landmarks · Architectural Elements</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/inventions-and-minds" aria-label="Inventions &amp; Ideas">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Inventions &amp; Ideas</h3>
+              <p class="category-card-topics">Computing History · Science &amp; Medicine · Communications</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
           <section id="section-world" class="directory-section-header" style="--section-gradient:linear-gradient(135deg,#fff4dc,#fff0e7);--section-accent:#976006;">
             <span class="directory-section-mark" aria-hidden="true">04</span>
             <div><h3>World, History &amp; Society</h3><p>Places, peoples, history, law, language, business, money, customs, and food.</p></div>
             <p class="directory-section-count">13 topics · 658 questions</p>
           </section>
-          <a class="category-card has-art" href="/geography" aria-label="Geography">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/geography.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🧭 Geography</h3>
-            <p class="category-card-topics">Countries, Capitals &amp; Borders · Oceans, Seas &amp; Straits · Rivers, Lakes &amp; Deltas</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/flag-questions" aria-label="World Flags">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/flag-questions.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🚩 World Flags</h3>
-            <p class="category-card-topics">Flag Design &amp; Vexillology · Americas · Asia &amp; Oceania</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/currencies" aria-label="World Currencies">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/currencies.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">💰 World Currencies</h3>
-            <p class="category-card-topics">National Currencies · Foreign Exchange · Monetary History</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/history" aria-label="History">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/history.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">100 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🏺 History</h3>
-            <p class="category-card-topics">Empires, States &amp; Historical Figures · Wars, Treaties &amp; Diplomacy · Ancient Civilizations &amp; Archaeology</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">100 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/middle-east-history" aria-label="Middle East History">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/middle-east-history.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🕌 Middle East History</h3>
-            <p class="category-card-topics">Modern History · Islamic History · Ancient</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/ancient-civilizations" aria-label="Ancient Civilizations">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/ancient-civilizations.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🏛️ Ancient Civilizations</h3>
-            <p class="category-card-topics">Ancient Egypt · Greece &amp; Rome · Mesopotamia</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/law-middle-east" aria-label="Middle East Law">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/law-middle-east.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">48 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">⚖️ Middle East Law</h3>
-            <p class="category-card-topics">International Law &amp; Human Rights · Islamic Jurisprudence &amp; Sources · Constitutional &amp; Legal Systems</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">48 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/world-habits-and-etiquette" aria-label="World Habits &amp; Etiquette">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/world-habits-and-etiquette.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🌍 World Habits &amp; Etiquette</h3>
-            <p class="category-card-topics">Social Customs · Dining Etiquette · Religious &amp; Ceremonial</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/linguistics" aria-label="Linguistics">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/linguistics.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">✍️ Linguistics</h3>
-            <p class="category-card-topics">Language Use &amp; Diversity · Grammar &amp; Structure · Writing Systems</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/business-and-management" aria-label="Business Management">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/business-and-management.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">📊 Business Management</h3>
-            <p class="category-card-topics">Finance &amp; Accounting · Management &amp; Organization · Strategy &amp; Competition</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/economics-and-finance" aria-label="Economics &amp; Finance">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/economics-and-finance.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">📈 Economics &amp; Finance</h3>
-            <p class="category-card-topics">Macroeconomics · Markets &amp; Trade · Economic Thought</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/social-sciences" aria-label="Social Sciences">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/social-sciences.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">50 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">👥 Social Sciences</h3>
-            <p class="category-card-topics">Sociology · Economics · Political Science</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">50 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/food-and-cuisines" aria-label="Food &amp; Cuisines">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/food-and-cuisines.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🍽️ Food &amp; Cuisines</h3>
-            <p class="category-card-topics">Ingredients · Cooking Techniques · Food Science</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
+          <a class="category-card compact-topic-card" href="/geography" aria-label="Geography">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Geography</h3>
+              <p class="category-card-topics">Countries, Capitals &amp; Borders · Oceans, Seas &amp; Straits · Rivers, Lakes &amp; Deltas</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/flag-questions" aria-label="World Flags">
+            <div class="category-card-overlay">
+              <h3 class="category-title">World Flags</h3>
+              <p class="category-card-topics">Flag Design &amp; Vexillology · Americas · Asia &amp; Oceania</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/currencies" aria-label="World Currencies">
+            <div class="category-card-overlay">
+              <h3 class="category-title">World Currencies</h3>
+              <p class="category-card-topics">National Currencies · Foreign Exchange · Monetary History</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/history" aria-label="History">
+            <div class="category-card-overlay">
+              <h3 class="category-title">History</h3>
+              <p class="category-card-topics">Empires, States &amp; Historical Figures · Wars, Treaties &amp; Diplomacy · Ancient Civilizations &amp; Archaeology</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">100 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/middle-east-history" aria-label="Middle East History">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Middle East History</h3>
+              <p class="category-card-topics">Modern History · Islamic History · Ancient</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/ancient-civilizations" aria-label="Ancient Civilizations">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Ancient Civilizations</h3>
+              <p class="category-card-topics">Ancient Egypt · Greece &amp; Rome · Mesopotamia</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/law-middle-east" aria-label="Middle East Law">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Middle East Law</h3>
+              <p class="category-card-topics">International Law &amp; Human Rights · Islamic Jurisprudence &amp; Sources · Constitutional &amp; Legal Systems</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">48 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/world-habits-and-etiquette" aria-label="World Habits &amp; Etiquette">
+            <div class="category-card-overlay">
+              <h3 class="category-title">World Habits &amp; Etiquette</h3>
+              <p class="category-card-topics">Social Customs · Dining Etiquette · Religious &amp; Ceremonial</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/linguistics" aria-label="Linguistics">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Linguistics</h3>
+              <p class="category-card-topics">Language Use &amp; Diversity · Grammar &amp; Structure · Writing Systems</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/business-and-management" aria-label="Business Management">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Business Management</h3>
+              <p class="category-card-topics">Finance &amp; Accounting · Management &amp; Organization · Strategy &amp; Competition</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/economics-and-finance" aria-label="Economics &amp; Finance">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Economics &amp; Finance</h3>
+              <p class="category-card-topics">Macroeconomics · Markets &amp; Trade · Economic Thought</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/social-sciences" aria-label="Social Sciences">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Social Sciences</h3>
+              <p class="category-card-topics">Sociology · Economics · Political Science</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">50 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/food-and-cuisines" aria-label="Food &amp; Cuisines">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Food &amp; Cuisines</h3>
+              <p class="category-card-topics">Ingredients · Cooking Techniques · Food Science</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
           <section id="section-culture" class="directory-section-header" style="--section-gradient:linear-gradient(135deg,#fff0f4,#f8edff);--section-accent:#a13f69;">
             <span class="directory-section-mark" aria-hidden="true">05</span>
             <div><h3>Arts, Culture &amp; Entertainment</h3><p>Art, books, music, screens, fandoms, anime, classic cartoons, and football.</p></div>
-            <p class="directory-section-count">12 topics · 1,075 questions</p>
+            <p class="directory-section-count">12 topics · 1075 questions</p>
           </section>
-          <a class="category-card has-art" href="/fictional-worlds" aria-label="Fictional Worlds">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/fictional-worlds.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🧙‍♂️ Fictional Worlds</h3>
-            <p class="category-card-topics">Fantasy &amp; Magic · Science Fiction &amp; Space · Anime &amp; Animation</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/superheroes" aria-label="Superhero Universe">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/superheroes.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🦸‍♂️ Superhero Universe</h3>
-            <p class="category-card-topics">Villains &amp; Rivalries · Origins &amp; Identities · Powers, Materials &amp; Artifacts</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/pop-culture" aria-label="Pop Culture &amp; Web">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/pop-culture.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">📱 Pop Culture &amp; Web</h3>
-            <p class="category-card-topics">Film &amp; TV · Internet Culture · Fan Culture</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/mythology-legends" aria-label="Mythology &amp; Legends">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/mythology-legends.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🐉 Mythology &amp; Legends</h3>
-            <p class="category-card-topics">Greek &amp; Roman · Heroes &amp; Creatures · Norse</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/art-and-painters" aria-label="Art &amp; Painters">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/art-and-painters.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🎨 Art &amp; Painters</h3>
-            <p class="category-card-topics">Artists &amp; Masterpieces · Movements &amp; Styles · Art History</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/books-and-quotes" aria-label="Books &amp; Quotes">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/books-and-quotes.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">30 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">📚 Books &amp; Quotes</h3>
-            <p class="category-card-topics">Authors &amp; Identities · Quotes &amp; Opening Lines · Works &amp; Characters</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">30 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/tv-shows-trivia" aria-label="TV Shows">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/tv-shows-trivia.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">250 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">📺 TV Shows</h3>
-            <p class="category-card-topics">Al-Hasaseen · Bab Al-Hara · Breaking Bad</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">250 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/music-and-performing-arts" aria-label="Music &amp; Performing Arts">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/music-and-performing-arts.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🎻 Music &amp; Performing Arts</h3>
-            <p class="category-card-topics">Music Theory &amp; Notation · Composers &amp; Works · Instruments &amp; Ensembles</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/cinema-and-film-history" aria-label="Cinema &amp; Film">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/cinema-and-film-history.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">40 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">🎬 Cinema &amp; Film</h3>
-            <p class="category-card-topics">Filmmakers &amp; Performers · Film History &amp; Milestones · Cinematography &amp; Camera</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">40 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/anime" aria-label="Anime">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/anime.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">150 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">⚔️ Anime</h3>
-            <p class="category-card-topics">Attack on Titan · Death Note · Demon Slayer</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">150 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/ayam-tayebeen" aria-label="Spacetoon Classics">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/ayam-tayebeen.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">200 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">📺 Spacetoon Classics</h3>
-            <p class="category-card-topics">Adnan and Lina · Captain Majid · Chibi Maruko-chan</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">200 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
-          <a class="category-card has-art" href="/football" aria-label="Football">
-          <div class="category-card-bg" aria-hidden="true">
-            <img class="category-card-image" src="/assets/football.svg" width="640" height="420" alt="" loading="lazy" decoding="async" />
-            <span class="category-card-count-badge">175 Q</span>
-          </div>
-          <div class="category-card-overlay">
-            <h3 class="category-title">⚽ Football</h3>
-            <p class="category-card-topics">International Football &amp; World Cup · Football History &amp; Records · Club Competitions &amp; Leagues</p>
-          </div>
-          <div class="category-card-footer">
-            <span class="category-card-label">175 questions</span>
-            <span class="category-card-enter">Enter</span>
-          </div>
-        </a>
+          <a class="category-card compact-topic-card" href="/fictional-worlds" aria-label="Fictional Worlds">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Fictional Worlds</h3>
+              <p class="category-card-topics">Fantasy &amp; Magic · Science Fiction &amp; Space · Anime &amp; Animation</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/superheroes" aria-label="Superhero Universe">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Superhero Universe</h3>
+              <p class="category-card-topics">Villains &amp; Rivalries · Origins &amp; Identities · Powers, Materials &amp; Artifacts</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/pop-culture" aria-label="Pop Culture &amp; Web">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Pop Culture &amp; Web</h3>
+              <p class="category-card-topics">Film &amp; TV · Internet Culture · Fan Culture</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/mythology-legends" aria-label="Mythology &amp; Legends">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Mythology &amp; Legends</h3>
+              <p class="category-card-topics">Greek &amp; Roman · Heroes &amp; Creatures · Norse</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/art-and-painters" aria-label="Art &amp; Painters">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Art &amp; Painters</h3>
+              <p class="category-card-topics">Artists &amp; Masterpieces · Movements &amp; Styles · Art History</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/books-and-quotes" aria-label="Books &amp; Quotes">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Books &amp; Quotes</h3>
+              <p class="category-card-topics">Authors &amp; Identities · Quotes &amp; Opening Lines · Works &amp; Characters</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">30 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/tv-shows-trivia" aria-label="TV Shows">
+            <div class="category-card-overlay">
+              <h3 class="category-title">TV Shows</h3>
+              <p class="category-card-topics">Al-Hashasheen · Bab Al-Hara · Breaking Bad</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">250 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/music-and-performing-arts" aria-label="Music &amp; Performing Arts">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Music &amp; Performing Arts</h3>
+              <p class="category-card-topics">Music Theory &amp; Notation · Composers &amp; Works · Instruments &amp; Ensembles</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/cinema-and-film-history" aria-label="Cinema &amp; Film">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Cinema &amp; Film</h3>
+              <p class="category-card-topics">Filmmakers &amp; Performers · Film History &amp; Milestones · Cinematography &amp; Camera</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">40 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/anime" aria-label="Anime">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Anime</h3>
+              <p class="category-card-topics">Attack on Titan · Death Note · Demon Slayer</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">150 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/ayam-tayebeen" aria-label="Spacetoon Classics">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Spacetoon Classics</h3>
+              <p class="category-card-topics">Adnan and Lina · Captain Majid · Chibi Maruko-chan</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">200 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
+          <a class="category-card compact-topic-card" href="/football" aria-label="Football">
+            <div class="category-card-overlay">
+              <h3 class="category-title">Football</h3>
+              <p class="category-card-topics">International Football &amp; World Cup · Football History &amp; Records · Club Competitions &amp; Leagues</p>
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">175 questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>
           <!-- SEO:DIRECTORY:END -->
         </div>
-        <div class="directory-expand-wrap">
-          <button id="directoryExpandBtn" class="ghost-btn" type="button" data-i18n="showAllTopics">Show all topics</button>
-        </div>
-
-        <aside class="directory-collection-callout">
-          <div>
-            <p class="eyebrow" data-i18n="mindCalloutEyebrow">Prefer a shorter challenge?</p>
-            <h3 data-i18n="mindCalloutTitle">Try a focused bilingual collection</h3>
-            <p data-i18n="mindCalloutText">Start with 16 curated riddles, kids’ questions, logic puzzles, general knowledge, football, or nostalgia questions.</p>
-          </div>
-          <a class="primary-btn" href="/collections" data-i18n="mindCalloutCta">Browse collections</a>
-        </aside>
-
         <section class="suggestion-box suggestion-box-directory" id="suggestionBox">
           <h3 class="suggestion-title" data-i18n="suggestTitle">Got a topic idea?</h3>
           <p class="suggestion-sub" data-i18n="suggestSub">Suggest a new riddle category or topic and we'll consider adding it.</p>
@@ -1011,5 +766,6 @@
     </div>
 
     <script defer src="app.js?v=2026080201"></script>
+    <script defer src="/site-navigation.js"></script>
   </body>
 </html>

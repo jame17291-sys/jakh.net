@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
+import vm from 'node:vm';
 import { mountAkshifha, PROGRESS_KEY } from '../akshifha.js';
 import { CASES } from '../akshifha-cases.js';
 import { AKSHIFHA_UI } from '../akshifha-copy.js';
@@ -8,9 +9,11 @@ import { AKSHIFHA_UI } from '../akshifha-copy.js';
 // This is a lightweight interaction/DOM contract harness, not a browser,
 // rendering, accessibility-tree, or native-share integration test.
 const englishHtml = readFileSync(new URL('../akshifha.html', import.meta.url), 'utf8');
+const arabicHtml = readFileSync(new URL('../ar/games/akshifha/index.html', import.meta.url), 'utf8');
+const navigationSource = readFileSync(new URL('../site-navigation.js', import.meta.url), 'utf8');
 
 function harness({ language = 'en', search = '', storageValue, storageBlocked = false,
-  analyticsAllowed = false, navigator = {}, html = englishHtml } = {}) {
+  analyticsAllowed = false, navigator = {}, html = language === 'ar' ? arabicHtml : englishHtml } = {}) {
   const nodes = new Map();
   const allNodes = [];
   const storage = new Map([['unrelated-user-setting', 'keep-me']]);
@@ -38,6 +41,8 @@ function harness({ language = 'en', search = '', storageValue, storageBlocked = 
       else if (['value', 'name', 'type'].includes(name)) this[name] = String(value);
     }
     getAttribute(name) { return this.attributes[name] ?? null; }
+    get href() { return new URL(this.getAttribute('href') || '', currentUrl).href; }
+    set href(value) { this.setAttribute('href', value); }
     removeAttribute(name) { delete this.attributes[name]; }
     addEventListener(type, callback) { (this.listeners[type] ||= []).push(callback); }
     append(...children) { for (const child of children) { child.parentElement = this; this.children.push(child); } }
@@ -55,6 +60,8 @@ function harness({ language = 'en', search = '', storageValue, storageBlocked = 
   document.getElementById = id => nodes.get(id) || null;
   document.createElement = tagName => new Element(tagName);
   document.querySelectorAll = selector => {
+    if (selector === '.primary-navigation [data-nav]') return allNodes.filter(node => node.dataset.nav);
+    if (selector === '.language-route-link') return allNodes.filter(node => node.className.split(/\s+/u).includes('language-route-link'));
     const attribute = selector.match(/^\[([^\]]+)\]$/u)?.[1];
     return attribute ? allNodes.filter(node => node.getAttribute(attribute) !== null) : [];
   };
@@ -63,6 +70,7 @@ function harness({ language = 'en', search = '', storageValue, storageBlocked = 
     location: {
       get origin() { return currentUrl.origin; }, get search() { return currentUrl.search; },
       get pathname() { return currentUrl.pathname; },
+      get hash() { return currentUrl.hash; },
       assign(value) { assignments.push(value); },
     },
     history: { replaceState(_state, _title, value) { replacements.push(value); currentUrl = new URL(value, currentUrl); } },
@@ -77,6 +85,7 @@ function harness({ language = 'en', search = '', storageValue, storageBlocked = 
   };
   const app = mountAkshifha(document, window);
   assert.ok(app, 'actual HTML provides all mount points');
+  vm.runInNewContext(navigationSource, { document, window, location: window.location, navigator, URL, URLSearchParams });
   const node = id => { assert.ok(nodes.has(id), `missing #${id}`); return nodes.get(id); };
   const dispatch = (element, type, extra = {}) => {
     const event = { target: element, defaultPrevented: false, preventDefault() { this.defaultPrevented = true; }, ...extra };
@@ -125,7 +134,8 @@ test('actual exported UI mounts the authored HTML and completes all eleven cases
     const game = harness({ language });
     assert.equal(game.node('ak-loading').hidden, true);
     assert.equal(game.node('ak-game').hidden, false);
-    assert.equal(game.node('akLanguage').value, language);
+    assert.equal(game.document.documentElement.lang, language);
+    assert.equal(game.document.querySelectorAll('.language-route-link').length, 1, 'one shared language anchor replaces the game-only selector');
     for (const item of CASES) {
       await game.chooseCase(item.id);
       assert.equal(game.app.getState().mode, 'practice');
@@ -348,19 +358,28 @@ test('a stale asynchronous share cannot alter a new round or log a share for the
   }
 });
 
-test('language switching navigates to physical language routes and preserves the exact case', async () => {
+test('shared language links preserve the exact case and route through normal anchor navigation', async () => {
   for (const language of ['en', 'ar']) {
     for (const mode of ['practice', 'challenge']) {
-      const search = `?case=${CASES[3].id}${mode === 'practice' ? '&mode=practice' : '&day=2026-09-16'}`;
+      const search = `?case=${CASES[3].id}${mode === 'practice' ? '&mode=practice' : '&day=2026-09-16'}&tracking=discard-me#ak-game`;
       const game = harness({ language, search });
-      const select = game.node('akLanguage'); select.value = language === 'en' ? 'ar' : 'en';
-      await game.dispatch(select, 'change');
-      assert.equal(game.assignments.length, 1);
-      const target = new URL(game.assignments[0], 'https://riddlearabia.com');
+      const [link] = game.document.querySelectorAll('.language-route-link');
+      assert.ok(link, 'the authored language anchor is present');
+      await game.dispatch(link, 'click');
+      const target = new URL(link.href);
       assert.equal(target.pathname, language === 'en' ? '/ar/games/akshifha/' : '/akshifha');
       assert.equal(target.searchParams.get('case'), CASES[3].id);
       if (mode === 'practice') assert.equal(target.searchParams.get('mode'), 'practice');
       else assert.equal(target.searchParams.get('day'), '2026-09-16');
+      assert.equal(target.searchParams.has('tracking'), false);
+      assert.equal(target.hash, '#ak-game');
+      assert.deepEqual(game.assignments, [], 'native anchor handles navigation, not a competing game-only change handler');
+
+      await game.chooseCase(CASES[5].id);
+      await game.dispatch(link, 'click');
+      const refreshed = new URL(link.href);
+      assert.equal(refreshed.searchParams.get('case'), CASES[5].id, 'click reads the current case after in-page play');
+      assert.equal(refreshed.searchParams.get('mode'), 'practice');
     }
   }
 });

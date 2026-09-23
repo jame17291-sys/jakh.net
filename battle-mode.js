@@ -379,7 +379,7 @@ function renderBattleLobby(body) {
   const room = battleState.roomData;
   const players = room?.players || [];
   const code = battleState.roomCode || '';
-  const inviteUrl = new URL(state.lang === 'ar' ? '/ar/' : '/', location.origin);
+  const inviteUrl = new URL(isAr ? '/ar/mind-lab/' : '/mind-lab', location.origin);
   inviteUrl.searchParams.set('battle', code);
   const shareUrl = inviteUrl.href;
 

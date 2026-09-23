@@ -20,26 +20,24 @@ export function createDirectoryUi({
       ? sections
       : sections.filter((section) => section.key === state.cluster);
     let visibleCategoryCount = 0;
-    let totalMatchingCount = 0;
-    const shouldCollapse = state.cluster === 'all' && !searchTerm && !state.directoryExpanded;
+    let visibleSectionCount = 0;
 
     const markup = visibleSections.map((section) => {
-      const matchingCategories = section.categories.filter((meta) => {
+      const categories = section.categories.filter((meta) => {
         if (!searchTerm) return true;
         const topicText = (meta.topics || []).flatMap((topic) => [topic.en, topic.ar]).filter(Boolean);
         return [meta.title.en, meta.title.ar, meta.description.en, meta.description.ar, ...topicText]
           .filter(Boolean).join(' ').toLowerCase().includes(searchTerm);
       });
-      totalMatchingCount += matchingCategories.length;
-      const categories = shouldCollapse ? matchingCategories.slice(0, 3) : matchingCategories;
       if (!categories.length) return '';
       visibleCategoryCount += categories.length;
+      visibleSectionCount += 1;
       const title = escapeHtml(section.title[state.lang] || section.title.en);
       const description = escapeHtml(section.description[state.lang] || section.description.en);
       const questionTotal = categories.reduce((total, category) => total + Number(category.count || 0), 0);
       const categoryLabel = isAr ? `${categories.length} موضوعًا` : `${categories.length} topics`;
       const questionLabel = isAr ? `${questionTotal} سؤال` : `${questionTotal} questions`;
-      return `<section class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
+      return `<section id="section-${escapeHtml(section.key)}" class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
         <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
         <div><h3>${title}</h3><p>${description}</p></div>
         <p class="directory-section-count">${categoryLabel} · ${questionLabel}</p>
@@ -49,17 +47,9 @@ export function createDirectoryUi({
     els.directoryResultsLabel.textContent = searchTerm
       ? (isAr ? `عُثر على ${visibleCategoryCount} موضوعًا مطابقًا.` : `${visibleCategoryCount} matching topics found.`)
       : isAr
-        ? (shouldCollapse
-          ? `نعرض ${visibleCategoryCount} موضوعًا مقترحًا من أصل ${totalMatchingCount} ضمن ${visibleSections.length} أقسام.`
-          : `اختر مباشرة من ${visibleCategoryCount} موضوعًا موزّعًا على ${visibleSections.length} أقسام واضحة.`)
-        : (shouldCollapse
-          ? `Showing ${visibleCategoryCount} featured topics from ${totalMatchingCount} across ${visibleSections.length} sections.`
-          : `Choose directly from ${visibleCategoryCount} topics in ${visibleSections.length} clear sections.`);
-    if (els.directoryExpandBtn) {
-      els.directoryExpandBtn.hidden = state.cluster !== 'all' || Boolean(searchTerm);
-      els.directoryExpandBtn.textContent = t(state.directoryExpanded ? 'showFewerTopics' : 'showAllTopics');
-      els.directoryExpandBtn.setAttribute('aria-expanded', String(state.directoryExpanded));
-    }
+        ? `${visibleCategoryCount} موضوعًا في ${visibleSectionCount} أقسام.`
+        : `${visibleCategoryCount} topics in ${visibleSectionCount} ${visibleSectionCount === 1 ? 'section' : 'sections'}.`;
+    els.categoryDirectoryGrid.setAttribute('aria-labelledby', `directory-tab-${state.cluster}`);
     els.categoryDirectoryGrid.innerHTML = markup || `<div class="empty-state directory-empty-state"><h3>${isAr ? 'لا توجد نتائج مطابقة.' : 'No matching topics.'}</h3><p>${isAr ? 'جرّب قسمًا آخر أو امسح البحث الحالي.' : 'Try another section or clear the current search.'}</p></div>`;
   }
 
@@ -76,15 +66,12 @@ export function createDirectoryUi({
       key: 'all',
       title: { en: 'All topics', ar: 'كل الموضوعات' },
       categoryCount: state.catalog.categories.length,
-      mark: 'ALL',
-      gradient: 'linear-gradient(135deg,#fff8eb,#edf5ff)',
     }, ...sections];
     tabBar.innerHTML = tabs.map((section) => {
       const name = section.title[state.lang] || section.title.en;
       const active = state.cluster === section.key;
-      return `<button type="button" class="ml-cluster-tab${active ? ' is-active' : ''}" data-cluster="${escapeHtml(section.key)}" role="tab" aria-selected="${active}" aria-controls="categoryDirectoryGrid" tabindex="${active ? '0' : '-1'}" aria-label="${escapeHtml(name)}">
-        <div class="ml-cluster-tab-bg" style="background:${escapeHtml(section.gradient)};" aria-hidden="true"></div>
-        <div class="ml-cluster-tab-content"><span class="ml-cluster-tab-emoji directory-parent-mark" aria-hidden="true">${escapeHtml(section.mark)}</span><div class="ml-cluster-tab-text"><span class="ml-cluster-tab-name">${escapeHtml(name)}</span><span class="ml-cluster-tab-count">${section.categoryCount} ${isAr ? 'موضوعًا' : 'topics'}</span></div></div>
+      return `<button type="button" id="directory-tab-${escapeHtml(section.key)}" class="ml-cluster-tab${active ? ' is-active' : ''}" data-cluster="${escapeHtml(section.key)}" role="tab" aria-selected="${active}" aria-controls="categoryDirectoryGrid" tabindex="${active ? '0' : '-1'}" aria-label="${escapeHtml(name)}">
+        <span class="ml-cluster-tab-name">${escapeHtml(name)}</span><span class="ml-cluster-tab-count">${section.categoryCount} ${isAr ? 'موضوعًا' : 'topics'}</span>
       </button>`;
     }).join('');
     const renderedTabs = [...tabBar.querySelectorAll('[role="tab"][data-cluster]')];
@@ -92,7 +79,6 @@ export function createDirectoryUi({
       const next = button.dataset.cluster;
       if (state.cluster === next) return;
       state.cluster = next;
-      state.directoryExpanded = next !== 'all';
       renderTabs(next);
       renderDirectory();
     }));
@@ -120,9 +106,9 @@ export function createDirectoryUi({
     if (bound) return;
     bound = true;
     els.resetDirectoryBtn?.addEventListener('click', () => {
+      clearTimeout(searchTimer);
       state.directorySearch = '';
       state.cluster = 'all';
-      state.directoryExpanded = false;
       if (els.categorySearchInput) els.categorySearchInput.value = '';
       renderTabs();
       renderDirectory();
@@ -132,17 +118,11 @@ export function createDirectoryUi({
       clearTimeout(searchTimer);
       searchTimer = setTimeout(() => {
         state.directorySearch = els.categorySearchInput.value.trim().toLowerCase();
-        renderTabs();
         renderDirectory();
         if (state.directorySearch) {
           trackEvent('search', { search_term: state.directorySearch, search_scope: 'directory' });
         }
       }, 250);
-    });
-    els.directoryExpandBtn?.addEventListener('click', () => {
-      state.directoryExpanded = !state.directoryExpanded;
-      renderDirectory();
-      if (!state.directoryExpanded) els.categoryDirectoryGrid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 

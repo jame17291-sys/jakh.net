@@ -241,6 +241,7 @@
       node.setAttribute('placeholder', t(node.dataset.i18nPlaceholder));
     });
     scope.querySelectorAll('a[href]').forEach(function (node) {
+      if (node.matches('.language-route-link')) return;
       var href = node.getAttribute('href');
       if (!href || href.charAt(0) === '#') return;
       var localized = localizedHref(href, language);

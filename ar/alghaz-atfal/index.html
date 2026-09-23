@@ -35,7 +35,7 @@
     {
       "@type": "Quiz",
       "@id": "https://riddlearabia.com/ar/alghaz-atfal/#quiz",
-      "name": "ألغاز لطيفة لعقول فضولية",
+      "name": "ألغاز للعائلة",
       "description": "استمتع بمجموعة لطيفة من ألغاز الأطفال بالعربية والإنجليزية عن أشياء مألوفة وملاحظات يومية واستدلال بسيط، مناسبة للعائلة والصف.",
       "url": "https://riddlearabia.com/ar/alghaz-atfal/",
       "inLanguage": "ar",
@@ -163,13 +163,13 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "استكشف",
-          "item": "https://riddlearabia.com/ar/collections/"
+          "name": "ألغاز واختبارات",
+          "item": "https://riddlearabia.com/ar/mind-lab/"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "ألغاز لطيفة لعقول فضولية",
+          "name": "ألغاز للعائلة",
           "item": "https://riddlearabia.com/ar/alghaz-atfal/"
         }
       ]
@@ -180,36 +180,37 @@
     <link rel="stylesheet" href="/styles.css?v=2026091102" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <script defer src="/site-navigation.js"></script>
   </head>
   <body class="seo-page riddlearabia-experience" data-seo-experience="kids-riddles">
     <a href="#content" class="skip-link">انتقل إلى المحتوى</a>
-    <header class="site-header shell">
-      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريـدل أرابيا">
-        <img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>
-      <nav class="header-actions" aria-label="التنقل الرئيسي">
-        <a class="ghost-btn" href="/ar/">الرئيسية</a>
-        <a class="ghost-btn" href="/ar/collections/">استكشف</a>
-        <a class="ghost-btn" href="/ar/alab-al-dimagh/">الألعاب</a>
-        <a class="ghost-btn language-route-link" href="/family-riddles" hreflang="en" lang="en" dir="ltr">English</a>
+    <header class="site-header shell unified-header">
+      <a href="/ar/" class="brand" aria-label="الصفحة الرئيسية لريدل أرابيا"><img src="/assets/riddlearabia-logo.webp" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" fetchpriority="high" /></a>
+      <nav class="primary-navigation" aria-label="التنقل الرئيسي">
+        <a href="/ar/" data-nav="home">الرئيسية</a>
+        <a href="/ar/mind-lab/" data-nav="library" aria-current="page">ألغاز واختبارات</a>
+        <a href="/ar/play/" data-nav="games">الألعاب</a>
+        <a href="/ar/daily/" data-nav="daily">التحدي اليومي</a>
       </nav>
+      <div class="site-utilities">
+        <a class="language-route-link" href="/family-riddles" hreflang="en" lang="en" dir="ltr" aria-label="Read this page in English">English</a>
+        <a id="openAuthBtn" data-site-profile href="/ar/mind-lab/?profile=1">حسابي</a>
+      </div>
     </header>
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="مسار التنقل"><a href="/ar/mind-lab/">ألغاز واختبارات</a><span aria-hidden="true">/</span><a href="/ar/collections/">مجموعات قصيرة</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">شارك التخمين</p>
-        <h1>ألغاز لطيفة لعقول فضولية</h1>
+        <h1>ألغاز للعائلة</h1>
         <p>تدعو هذه التلميحات الأطفال إلى النظر جيداً في عالمهم المألوف: قلم شمع أو مصباح أو تقويم أو زوج من الجوارب. يمكن للكبار قراءة التلميح بينما يتسابق الجميع إلى التخمين.</p>
         <div class="seo-collection-meta">
-          <span>8 ألغاز</span>
+          <span>8 أسئلة</span>
           <span>العربية والإنجليزية</span>
           <span>مجاني</span>
         </div>
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">طريقة اللعب</p><h2 id="how-title">خذ وقتك مع كل تلميح</h2></div>
-          <p class="section-note">امنح الجميع وقتاً للإجابة، واحتفِ بالتخمينات غير المعتادة، ثم اكشفوا الحل معاً بدل التعامل معها كاختبار.</p>
-        </div>
+        <p class="collection-subset-note">هذه مجموعة مختارة من مكتبة الأسئلة، وليست الموضوع الكامل.</p>
+        <nav class="collection-source-links" aria-label="الموضوعات الكاملة"><a class="text-btn" href="/ar/topics/kids-riddles/">ألغاز للأطفال · 30 سؤالاً</a></nav>
+        <p class="section-note">امنح الجميع وقتاً للإجابة، واحتفِ بالتخمينات غير المعتادة، ثم اكشفوا الحل معاً بدل التعامل معها كاختبار.</p>
       </section>
       <section class="seo-question-list shell" aria-label="ألغاز وحلول">
         <article class="seo-qa-card" id="kids-riddles-001" data-card-id="kids-riddles-001">
@@ -218,9 +219,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>قلم شمع ملوّن</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-001">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-001">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-003" data-card-id="kids-riddles-003">
           <details>
@@ -228,9 +229,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>الأوريغامي، أو فن طي الورق.</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-003">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-003">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-004" data-card-id="kids-riddles-004">
           <details>
@@ -238,9 +239,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>مصباح جانبي</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-004">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-004">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-005" data-card-id="kids-riddles-005">
           <details>
@@ -248,9 +249,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>زوج من الجوارب</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-005">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-005">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-006" data-card-id="kids-riddles-006">
           <details>
@@ -258,9 +259,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>النظارات</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-006">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-006">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-008" data-card-id="kids-riddles-008">
           <details>
@@ -268,9 +269,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>دفتر رسم</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-008">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-008">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-009" data-card-id="kids-riddles-009">
           <details>
@@ -278,9 +279,9 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>القلم</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-009">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-009">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
         <article class="seo-qa-card" id="kids-riddles-010" data-card-id="kids-riddles-010">
           <details>
@@ -288,33 +289,33 @@
             <div class="seo-answer">
               <p class="seo-answer-label">الحل</p>
               <p>الحذاء</p>
-              <a class="text-btn" href="/ar/topics/kids-riddles/?card=kids-riddles-010">استكشف موضوع ألغاز للأطفال ←</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="/ar/topics/kids-riddles/?card=kids-riddles-010">الموضوع الكامل: ألغاز للأطفال</a>
         </article>
       </section>
       <section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">واصل الاستكشاف</p>
-            <h2 id="next-title">تحديات أخرى قد تعجبك</h2>
+            <h2 id="next-title">مجموعات قصيرة أخرى</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           <article class="seo-hub-card">
-            <h3>ألغاز تستحق نظرة ثانية</h3>
+            <h3>ألغاز كلاسيكية</h3>
             <p>جرّب مجموعة منتقاة من الألغاز بالعربية والإنجليزية. خمّن أولاً، ثم افتح الحل عندما تكون مستعداً، وواصل التحدي.</p>
-            <a class="ghost-btn" href="/ar/alghaz/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz/">جرّب ألغاز كلاسيكية</a>
           </article>
           <article class="seo-hub-card">
-            <h3>تلميح واحد، وقراءتان</h3>
+            <h3>ألغاز عربية</h3>
             <p>حلّ ألغازاً عربية ثنائية اللغة بمفردك أو مع صديق. كل تلميح متاح بالعربية والإنجليزية، والحل على بُعد نقرة واحدة.</p>
-            <a class="ghost-btn" href="/ar/alghaz-arabiya/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz-arabiya/">جرّب ألغاز عربية</a>
           </article>
           <article class="seo-hub-card">
-            <h3>تلميحات صغيرة واستنتاجات مُرضية</h3>
+            <h3>ألغاز منطقية</h3>
             <p>تدرّب على ألغاز منطقية ثنائية اللغة تكافئ القراءة الدقيقة والاستنتاج البسيط والتفكير مرة أخرى قبل كشف الحل.</p>
-            <a class="ghost-btn" href="/ar/alghaz-mantiq/">ابدأ</a>
+            <a class="ghost-btn" href="/ar/alghaz-mantiq/">جرّب ألغاز منطقية</a>
           </article>
         </div>
       </section>
@@ -323,8 +324,8 @@
       <div class="footer-inner">
         <p class="footer-copy">© 2026 ريـدل أرابيا</p>
         <nav class="footer-site-links" aria-label="معلومات ريـدل أرابيا">
-          <a href="/ar/collections/">المسارات</a>
-          <a href="/ar/alab-al-dimagh/">ألعاب الدماغ</a>
+          <a href="/ar/collections/">مجموعات قصيرة</a>
+          <a href="/ar/play/">الألعاب</a>
           <a href="/ar/about/">عن الموقع</a>
           <a href="/ar/privacy/">الخصوصية</a>
         </nav>

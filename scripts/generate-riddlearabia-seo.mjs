@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
 
 import {
   PRIMARY_SITE_ORIGIN,
@@ -24,6 +25,7 @@ const APP_ASSET_VERSION = "2026080201";
 const PRIVACY_ASSET_VERSION = "2026080101";
 const SOCIAL_IMAGE_PATH = "assets/riddlearabia-og-image.png";
 const LOGO_PATH = "assets/riddlearabia-logo.webp";
+const QUESTION_COLLECTIONS = RIDDLE_ARABIA_SEO_PAGES.filter((page) => page.kind !== "games");
 const outputs = new Map();
 const stale = [];
 
@@ -143,27 +145,8 @@ function localizedPath(page, lang) {
   return page.paths[lang];
 }
 
-function logoMarkup(lang, href) {
-  const label = lang === "ar" ? "الصفحة الرئيسية لريـدل أرابيا" : "Riddle Arabia home";
-  return `<a href="${href}" class="brand" aria-label="${label}">
-        <img src="/${LOGO_PATH}" alt="Riddle Arabia" class="brand-logo" width="1536" height="1024" loading="eager" fetchpriority="high" />
-      </a>`;
-}
-
-function globalHeader(lang, alternate) {
-  const isAr = lang === "ar";
-  const home = isAr ? "/ar/" : "/";
-  const collections = isAr ? "/ar/collections/" : "/collections";
-  const games = isAr ? "/ar/alab-al-dimagh/" : "/brain-games";
-  return `<header class="site-header shell">
-      ${logoMarkup(lang, home)}
-      <nav class="header-actions" aria-label="${isAr ? "التنقل الرئيسي" : "Primary navigation"}">
-        <a class="ghost-btn" href="${home}">${isAr ? "الرئيسية" : "Home"}</a>
-        <a class="ghost-btn" href="${collections}">${isAr ? "استكشف" : "Explore"}</a>
-        <a class="ghost-btn" href="${games}">${isAr ? "الألعاب" : "Games"}</a>
-        <a class="ghost-btn language-route-link" href="${alternate}" hreflang="${isAr ? "en" : "ar"}" lang="${isAr ? "en" : "ar"}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
-      </nav>
-    </header>`;
+function globalHeader(lang, alternate, active = "") {
+  return siteHeader({ lang, alternate, active });
 }
 
 function globalFooter(lang) {
@@ -172,8 +155,8 @@ function globalFooter(lang) {
       <div class="footer-inner">
         <p class="footer-copy">${isAr ? "© 2026 ريـدل أرابيا" : "© 2026 Riddle Arabia"}</p>
         <nav class="footer-site-links" aria-label="${isAr ? "معلومات ريـدل أرابيا" : "Riddle Arabia information"}">
-          <a href="${isAr ? "/ar/collections/" : "/collections"}">${isAr ? "المسارات" : "Collections"}</a>
-          <a href="${isAr ? "/ar/alab-al-dimagh/" : "/brain-games"}">${isAr ? "ألعاب الدماغ" : "Brain games"}</a>
+          <a href="${isAr ? "/ar/collections/" : "/collections"}">${isAr ? "مجموعات قصيرة" : "Short collections"}</a>
+          <a href="${isAr ? "/ar/play/" : "/play"}">${isAr ? "الألعاب" : "Games"}</a>
           <a href="${isAr ? "/ar/about/" : "/about"}">${isAr ? "عن الموقع" : "About"}</a>
           <a href="${isAr ? "/ar/privacy/" : "/privacy"}">${isAr ? "الخصوصية" : "Privacy"}</a>
         </nav>
@@ -182,7 +165,8 @@ function globalFooter(lang) {
 }
 
 function analyticsHead() {
-  return `    <script defer src="/privacy-consent.js?v=${PRIVACY_ASSET_VERSION}"></script>`;
+  return `    <script defer src="/privacy-consent.js?v=${PRIVACY_ASSET_VERSION}"></script>
+    ${navigationScript}`;
 }
 
 function head({ title, description, canonical, enPath, arPath, lang, robots = "index,follow,max-image-preview:large", structured }) {
@@ -283,8 +267,8 @@ function breadcrumbStructuredData(page, lang, canonical) {
       {
         "@type": "ListItem",
         position: 2,
-        name: isAr ? "استكشف" : "Explore",
-        item: `${SITE_ORIGIN}${isAr ? "/ar/collections/" : "/collections"}`,
+        name: page.kind === "games" ? (isAr ? "الألعاب" : "Games") : (isAr ? "ألغاز واختبارات" : "Riddles & Quizzes"),
+        item: `${SITE_ORIGIN}${page.kind === "games" ? (isAr ? "/ar/play/" : "/play") : (isAr ? "/ar/mind-lab/" : "/mind-lab")}`,
       },
       {
         "@type": "ListItem",
@@ -306,29 +290,29 @@ function answerCardMarkup(card, index, lang) {
             <div class="seo-answer">
               <p class="seo-answer-label">${isAr ? "الحل" : "Answer"}</p>
               <p>${escapeHtml(card.answer[lang])}</p>
-              <a class="text-btn" href="${cardPath}">${isAr ? `استكشف موضوع ${escapeHtml(categoryName)} ←` : `Explore ${escapeHtml(categoryName)} →`}</a>
             </div>
           </details>
+          <a class="text-btn collection-topic-link" href="${cardPath}">${isAr ? `الموضوع الكامل: ${escapeHtml(categoryName)}` : `Full topic: ${escapeHtml(categoryName)}`}</a>
         </article>`;
 }
 
 function relatedExperienceMarkup(page, lang) {
   const isAr = lang === "ar";
-  const alternatives = RIDDLE_ARABIA_SEO_PAGES
+  const alternatives = QUESTION_COLLECTIONS
     .filter((candidate) => candidate.key !== page.key)
     .slice(0, 3);
   return `<section class="shell section-block" aria-labelledby="next-title">
         <div class="section-heading library-head">
           <div>
             <p class="eyebrow">${isAr ? "واصل الاستكشاف" : "Keep exploring"}</p>
-            <h2 id="next-title">${isAr ? "تحديات أخرى قد تعجبك" : "More ways to challenge yourself"}</h2>
+            <h2 id="next-title">${isAr ? "مجموعات قصيرة أخرى" : "More short collections"}</h2>
           </div>
         </div>
         <div class="seo-hub-grid">
           ${alternatives.map((candidate) => `<article class="seo-hub-card">
             <h3>${escapeHtml(candidate.headings[lang])}</h3>
             <p>${escapeHtml(candidate.descriptions[lang])}</p>
-            <a class="ghost-btn" href="${localizedPath(candidate, lang)}">${isAr ? "ابدأ" : "Start"}</a>
+            <a class="ghost-btn" href="${localizedPath(candidate, lang)}">${isAr ? `جرّب ${escapeHtml(candidate.headings[lang])}` : `Try ${escapeHtml(candidate.headings[lang])}`}</a>
           </article>`).join("\n          ")}
         </div>
       </section>`;
@@ -341,6 +325,7 @@ function renderQuizExperience(page, lang, cards) {
   const canonical = `${SITE_ORIGIN}${localizedPath(page, lang)}`;
   const alternate = localizedPath(page, isAr ? "en" : "ar");
   const structured = quizStructuredData(page, cards, lang, canonical);
+  const sourceTopics = [...new Map(cards.map((card) => [card.sourceCategory.slug, card.sourceCategory])).values()];
   const disclaimer = page.disclaimer
     ? `\n        <aside class="collection-disclaimer" role="note">${escapeHtml(page.disclaimer[lang])}</aside>`
     : "";
@@ -357,23 +342,21 @@ function renderQuizExperience(page, lang, cards) {
   })}
   <body class="seo-page riddlearabia-experience" data-seo-experience="${page.key}">
     <a href="#content" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
-    ${globalHeader(lang, alternate)}
+    ${globalHeader(lang, alternate, "library")}
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}"><a href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"}</a><span aria-hidden="true">/</span><a href="${isAr ? "/ar/collections/" : "/collections"}">${isAr ? "مجموعات قصيرة" : "Short collections"}</a></nav>
       <section class="seo-collection-hero shell">
         <p class="eyebrow">${escapeHtml(page.eyebrow[lang])}</p>
         <h1>${escapeHtml(page.headings[lang])}</h1>
         <p>${escapeHtml(page.introductions[lang])}</p>
         <div class="seo-collection-meta">
-          <span>${cards.length} ${isAr ? "ألغاز" : "riddles"}</span>
+          <span>${cards.length} ${isAr ? "أسئلة" : "questions"}</span>
           <span>${isAr ? "العربية والإنجليزية" : "Arabic & English"}</span>
           <span>${isAr ? "مجاني" : "Free"}</span>
-        </div>${disclaimer}
-      </section>
-      <section class="shell section-block" aria-labelledby="how-title">
-        <div class="section-heading library-head">
-          <div><p class="eyebrow">${isAr ? "طريقة اللعب" : "How to play"}</p><h2 id="how-title">${isAr ? "خذ وقتك مع كل تلميح" : "Give each clue a moment"}</h2></div>
-          <p class="section-note">${escapeHtml(page.guidance[lang])}</p>
         </div>
+        <p class="collection-subset-note">${isAr ? "هذه مجموعة مختارة من مكتبة الأسئلة، وليست الموضوع الكامل." : "A short selection from the question library, not the full topic."}</p>
+        <nav class="collection-source-links" aria-label="${isAr ? "الموضوعات الكاملة" : "Full source topics"}">${sourceTopics.map((category) => `<a class="text-btn" href="${categoryRoute(category, lang)}">${escapeHtml(category.title[lang] || category.title.en)} · ${category.count} ${isAr ? "سؤالاً" : "questions"}</a>`).join(" ")}</nav>
+        <p class="section-note">${escapeHtml(page.guidance[lang])}</p>${disclaimer}
       </section>
       <section class="seo-question-list shell" aria-label="${isAr ? "ألغاز وحلول" : "Riddles and answers"}">
         ${cards.map((card, index) => answerCardMarkup(card, index, lang)).join("\n        ")}
@@ -443,28 +426,17 @@ function renderGamesExperience(page, lang) {
   })}
   <body class="seo-page riddlearabia-experience" data-seo-experience="${page.key}">
     <a href="#content" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
-    ${globalHeader(lang, alternate)}
+    ${globalHeader(lang, alternate, "games")}
     <main id="content">
       <section class="seo-collection-hero shell">
         <p class="eyebrow">${escapeHtml(page.eyebrow[lang])}</p>
         <h1>${escapeHtml(page.headings[lang])}</h1>
         <p>${escapeHtml(page.introductions[lang])}</p>
+        <a class="primary-btn" href="${isAr ? "/ar/play/" : "/play"}">${isAr ? "انتقل إلى جميع الألعاب" : "Browse all games"}</a>
         <p class="section-note">${escapeHtml(page.guidance[lang])}</p>
-      </section>
-      <section class="shell" aria-label="${isAr ? "ابدأ باكشفها" : "Start with Akshifha"}">
-        ${RIDDLE_ARABIA_GAME_CATALOG.filter((game) => game.kind === "featured").map((game) => `<article class="seo-hub-card">
-          <p class="eyebrow">${isAr ? "ابدأ هنا · نسخة تجريبية مجانية" : "Start here · Free pilot"}</p>
-          <h2>${escapeHtml(game.names[lang])}</h2>
-          <p>${escapeHtml(game.descriptions[lang])}</p>
-          <a class="primary-btn" href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}">${isAr ? "افتح قضية اليوم" : "Open today’s case"}</a>
-        </article>`).join("\n        ")}
-      </section>
-      <section class="seo-collection-hero shell" aria-labelledby="classics-title">
-        <p class="eyebrow">${isAr ? "لوقت أهدأ" : "A quieter change of pace"}</p>
-        <h2 id="classics-title">${isAr ? "الكلاسيكيات" : "Classics"}</h2>
-        <div class="home-discovery-links">
-          ${RIDDLE_ARABIA_GAME_CATALOG.filter((game) => game.kind === "classic").map((game) => `<a href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}"><span>${escapeHtml(game.names[lang])}</span><small>${escapeHtml(game.descriptions[lang])}</small></a>`).join("\n          ")}
-        </div>
+        <ul class="game-shortcuts">
+          ${RIDDLE_ARABIA_GAME_CATALOG.map((game) => `<li><a href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}">${escapeHtml(game.names[lang])}</a></li>`).join("\n          ")}
+        </ul>
       </section>
     </main>
     ${globalFooter(lang)}
@@ -479,10 +451,10 @@ function collectionsStructuredData(lang, canonical) {
       {
         "@type": "CollectionPage",
         "@id": `${canonical}#webpage`,
-        name: lang === "ar" ? "مسارات ريدل أرابيا" : "Riddle Arabia experiences",
+        name: lang === "ar" ? "مجموعات قصيرة من ريدل أرابيا" : "Riddle Arabia short collections",
         description: lang === "ar"
-          ? "مسارات مختارة للألغاز والمعلومات العامة والحنين والألعاب."
-          : "Curated paths for riddles, general knowledge, nostalgia, and games.",
+          ? "مجموعات قصيرة مختارة من مكتبة الألغاز والاختبارات، مع روابط إلى الموضوعات الكاملة."
+          : "Short selections from the riddles and quizzes library, with links to every full source topic.",
         url: canonical,
         inLanguage: lang,
         mainEntity: { "@id": `${canonical}#list` },
@@ -491,8 +463,8 @@ function collectionsStructuredData(lang, canonical) {
         "@type": "ItemList",
         "@id": `${canonical}#list`,
         itemListOrder: "https://schema.org/ItemListOrderAscending",
-        numberOfItems: RIDDLE_ARABIA_SEO_PAGES.length,
-        itemListElement: RIDDLE_ARABIA_SEO_PAGES.map((page, index) => ({
+        numberOfItems: QUESTION_COLLECTIONS.length,
+        itemListElement: QUESTION_COLLECTIONS.map((page, index) => ({
           "@type": "ListItem",
           position: index + 1,
           item: {
@@ -516,10 +488,10 @@ function renderCollectionsPage(lang) {
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${isAr ? "rtl" : "ltr"}">
   ${head({
-    title: isAr ? "اكتشف ألغازاً وألعاباً ذهنية | ريدل أرابيا" : "Discover Riddles & Brain Games | Riddle Arabia",
+    title: isAr ? "مجموعات ألغاز واختبارات قصيرة | ريدل أرابيا" : "Short Riddle & Quiz Collections | Riddle Arabia",
     description: isAr
-      ? "اختر مساراً مناسباً لمزاجك: ألغاز، منطق، معلومات عامة، حنين، أو ألعاب دماغ في المتصفح."
-      : "Choose a thoughtful path for your mood: riddles, logic, family play, general knowledge, nostalgia, or browser brain games.",
+      ? "ابدأ بمجموعة أسئلة قصيرة مختارة في الألغاز أو المنطق أو المعلومات العامة، ثم انتقل إلى الموضوع الكامل."
+      : "Start with a short selection of questions in riddles, logic, or general knowledge, then continue to the full topic.",
     canonical,
     enPath,
     arPath,
@@ -528,19 +500,21 @@ function renderCollectionsPage(lang) {
   })}
   <body class="seo-page riddlearabia-collections" data-seo-experience="collections">
     <a href="#content" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
-    ${globalHeader(lang, isAr ? enPath : arPath)}
+    ${globalHeader(lang, isAr ? enPath : arPath, "library")}
     <main id="content">
+      <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}"><a href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"}</a><span aria-hidden="true">/</span><span aria-current="page">${isAr ? "مجموعات قصيرة" : "Short collections"}</span></nav>
       <section class="seo-collection-hero shell">
-        <p class="eyebrow">${isAr ? "اختر مزاجك" : "Choose your mood"}</p>
-        <h1>${isAr ? "مسارات قصيرة لتفكير ممتع" : "Short paths to satisfying thinking"}</h1>
-        <p>${isAr ? "بدلاً من متاهة من الصفحات المتشابهة، تبدأ ريدل أرابيا بمسارات واضحة ومحددة. اختر ما يناسبك الآن، ثم انتقل إلى شيء جديد." : "Instead of a maze of near-identical pages, Riddle Arabia starts with clear, purposeful paths. Choose what fits now, then move to something new."}</p>
+        <p class="eyebrow">${isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"}</p>
+        <h1>${isAr ? "مجموعات قصيرة" : "Short collections"}</h1>
+        <p>${isAr ? "ابدأ بمجموعة أسئلة قصيرة مختارة. إنها عيّنات من مكتبة الأسئلة؛ كل مجموعة تربطك بموضوعاتها الكاملة عندما ترغب في المزيد." : "Start with a short selection of questions. These are small samples of the question library, with a visible link to every full topic when you want more."}</p>
+        <a class="text-btn" href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "تصفّح جميع الموضوعات" : "Browse all topics"}</a>
       </section>
-      <section class="seo-hub-grid shell" aria-label="${isAr ? "مسارات الاستكشاف" : "Explore paths"}">
-        ${RIDDLE_ARABIA_SEO_PAGES.map((page) => `<article class="seo-hub-card">
-          <p class="eyebrow">${escapeHtml(page.eyebrow[lang])}</p>
+      <section class="seo-hub-grid shell" aria-label="${isAr ? "مجموعات الأسئلة القصيرة" : "Short question collections"}">
+        ${QUESTION_COLLECTIONS.map((page) => `<article class="seo-hub-card">
+          <p class="eyebrow">${page.cards.length} ${isAr ? "أسئلة مختارة" : "selected questions"}</p>
           <h2>${escapeHtml(page.headings[lang])}</h2>
           <p>${escapeHtml(page.descriptions[lang])}</p>
-          <a class="primary-btn" href="${page.paths[lang]}">${isAr ? "ابدأ" : "Start"}</a>
+          <a class="primary-btn" href="${page.paths[lang]}">${isAr ? `جرّب ${escapeHtml(page.headings[lang])}` : `Try ${escapeHtml(page.headings[lang])}`}</a>
         </article>`).join("\n        ")}
       </section>
     </main>
@@ -622,6 +596,38 @@ function categoryRoute(category, lang) {
   return lang === "ar" ? `/ar/topics/${category.slug}/` : `/${category.slug}`;
 }
 
+function renderMindLabDirectory() {
+  // Keep the no-script directory in step with the compact runtime cards.
+  // Publication applies its existing quarantine projection to this source list.
+  const markup = (catalog.sections || []).map((section) => {
+    const members = (section.members || []).map((slug) => categoryBySlug.get(slug)).filter(Boolean);
+    const questions = members.reduce((total, category) => total + Number(category.count || 0), 0);
+    const cards = members.map((category) => {
+      const topics = (category.topics || []).slice(0, 3).map((topic) => escapeHtml(topic.en)).filter(Boolean);
+      return `          <a class="category-card compact-topic-card" href="${categoryRoute(category, "en")}" aria-label="${escapeHtml(category.title.en)}">
+            <div class="category-card-overlay">
+              <h3 class="category-title">${escapeHtml(category.title.en)}</h3>
+              ${topics.length ? `<p class="category-card-topics">${topics.join(" · ")}</p>` : ""}
+            </div>
+            <div class="category-card-footer">
+              <span class="category-card-label">${category.count} questions</span>
+              <span class="category-card-enter">Enter</span>
+            </div>
+          </a>`;
+    }).join("\n");
+    return `          <section id="section-${escapeHtml(section.key)}" class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
+            <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
+            <div><h3>${escapeHtml(section.title.en)}</h3><p>${escapeHtml(section.description.en)}</p></div>
+            <p class="directory-section-count">${members.length} topics · ${questions} questions</p>
+          </section>
+${cards}`;
+  }).join("\n");
+  const source = fs.readFileSync(path.join(root, "mind-lab.html"), "utf8");
+  const marker = /<!-- SEO:DIRECTORY:START -->[\s\S]*?<!-- SEO:DIRECTORY:END -->/u;
+  if (!marker.test(source)) throw new Error("mind-lab.html: static directory markers are required");
+  return source.replace(marker, `<!-- SEO:DIRECTORY:START -->\n${markup}\n          <!-- SEO:DIRECTORY:END -->`);
+}
+
 function renderFunctionalCategoryShell(category, lang) {
   const isAr = lang === "ar";
   const enPath = categoryRoute(category, "en");
@@ -660,22 +666,11 @@ function renderFunctionalCategoryShell(category, lang) {
   })}
   <body data-page="category" data-category="${escapeHtml(category.slug)}" data-route-lang="${lang}">
     <a href="#top" class="skip-link">${isAr ? "انتقل إلى المحتوى" : "Skip to main content"}</a>
-    <header class="site-header shell">
-      ${logoMarkup(lang, isAr ? "/ar/" : "/")}
-      <nav class="header-actions" aria-label="${isAr ? "التنقل" : "Quick actions"}">
-        <a class="ghost-btn" href="${isAr ? "/ar/" : "/"}">${isAr ? "الرئيسية" : "Home"}</a>
-        <a class="ghost-btn" href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "مختبر العقل" : "Mind Lab"}</a>
-        <a class="ghost-btn language-route-link" href="${alternate}" hreflang="${isAr ? "en" : "ar"}" lang="${isAr ? "en" : "ar"}" dir="${isAr ? "ltr" : "rtl"}">${isAr ? "English" : "العربية"}</a>
-        <button class="ghost-btn" id="openAuthBtn">${isAr ? "تسجيل الدخول" : "Sign in"}</button>
-      </nav>
-      <div class="header-selects" aria-label="${isAr ? "إعدادات اللغة" : "Language controls"}">
-        <label><span>${isAr ? "اللغة" : "Language"}</span><select id="langSelect"><option value="en"${isAr ? "" : " selected"}>English</option><option value="ar"${isAr ? " selected" : ""}>العربية</option></select></label>
-      </div>
-    </header>
+    ${siteHeader({ lang, alternate, active: "library" })}
     <main id="top">
       <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}">
         <a href="${isAr ? "/ar/" : "/"}">${isAr ? "الرئيسية" : "Home"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
-        <a href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "مختبر العقل" : "Mind Lab"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
+        <a href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"}</a><span aria-hidden="true">${isAr ? "‹" : "›"}</span>
         <span id="breadcrumbCategoryName" aria-current="page">${escapeHtml(category.title[lang])}</span>
       </nav>
       <section class="hero shell hero-category">
@@ -684,12 +679,13 @@ function renderFunctionalCategoryShell(category, lang) {
           <h1 id="categoryTitle">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title[lang])}</h1>
           <p class="hero-text" id="categoryDescription">${escapeHtml(category.description?.[lang] || "")}</p>
           <div class="hero-badges"><span id="categoryCountPill">${category.count} ${isAr ? "سؤالاً" : "questions"}</span><span id="categoryDiffBadge"></span></div>
+          <a class="primary-btn" href="#cardGrid">${isAr ? "ابدأ الأسئلة" : "Start practice"}</a>
         </div>
-        <aside class="hero-panel hero-panel-rich"><img class="hero-illustration" id="categoryImage" alt="" /><div id="categorySummaryMount"></div></aside>
       </section>
       <section class="shell section-block" id="questionSection">
-        <div class="section-heading library-head"><div><p class="eyebrow">${isAr ? "العب بطريقتك" : "Play your way"}</p><h2>${isAr ? "استكشف الموضوع" : "Explore this topic"}</h2></div><p class="section-note">${isAr ? "ابحث وصفِّ البطاقات وتابع تقدّمك أثناء اللعب." : "Search, filter cards, and keep track of your progress as you play."}</p></div>
-        <section class="control-panel" aria-label="${isAr ? "خيارات الأسئلة" : "Question controls"}">
+        <details class="question-filters">
+          <summary>${isAr ? "البحث وتصفية الأسئلة" : "Search and filter questions"}</summary>
+          <section class="control-panel" aria-label="${isAr ? "خيارات الأسئلة" : "Question controls"}">
           <label class="search-field"><span>${isAr ? "ابحث في هذا الموضوع" : "Search this topic"}</span><input id="cardSearchInput" type="search" autocomplete="off" placeholder="${isAr ? "ابحث بكلمة أو إجابة" : "Search by word or answer"}" /></label>
           <div class="select-grid">
             <label><span>${isAr ? "الصعوبة" : "Difficulty"}</span><select id="difficultySelect"><option value="all">${isAr ? "كل المستويات" : "All levels"}</option><option value="easy">${isAr ? "سهل" : "Easy"}</option><option value="medium">${isAr ? "متوسط" : "Medium"}</option><option value="hard">${isAr ? "صعب" : "Hard"}</option><option value="very-advanced">${isAr ? "صعب جداً" : "Very advanced"}</option></select></label>
@@ -697,10 +693,12 @@ function renderFunctionalCategoryShell(category, lang) {
             <label><span>${isAr ? "الترتيب" : "Sort"}</span><select id="sortSelect"><option value="featured">${isAr ? "مقترح" : "Featured"}</option><option value="difficulty">${isAr ? "حسب الصعوبة" : "By difficulty"}</option><option value="az">A → Z</option><option value="random">${isAr ? "عشوائي" : "Shuffle"}</option></select></label>
           </div>
           <div id="subcategoryWrap" class="subcategory-wrap"><p class="mini-label">${isAr ? "الموضوعات الفرعية" : "Subtopics"}</p><div class="chip-row" id="subcategoryFilters"><button class="category-chip is-active" data-subcategory="all">${isAr ? "الكل" : "All"} · ${category.count}</button>${topicOptions}</div></div>
-        </section>
+          </section>
+        </details>
         <div class="library-toolbar"><p id="resultsLabel">${isAr ? `عرض ${category.count} بطاقة.` : `Showing ${category.count} cards.`}</p><button class="text-btn" id="resetPageBtn">${isAr ? "إعادة الضبط" : "Reset filters"}</button></div>
         <div id="emptyState" class="empty-state hidden"><strong>${isAr ? "لا توجد بطاقات مطابقة." : "No cards match that choice."}</strong></div>
-        <div id="cardGrid" class="riddle-grid" aria-live="polite"></div>
+        <div id="cardGrid" class="riddle-grid" aria-live="polite" tabindex="-1"></div>
+        <div id="categorySummaryMount" class="category-progress-summary"></div>
       </section>
       <section class="shell section-block"><div class="section-heading library-head"><div><p class="eyebrow">${isAr ? "واصل" : "Keep going"}</p><h2>${isAr ? "موضوعات قريبة" : "Related topics"}</h2></div></div><div id="relatedCategories" class="category-grid"></div></section>
     </main>
@@ -730,6 +728,7 @@ function renderSitemap() {
     { en: "/mind-lab", ar: "/ar/mind-lab/", priority: "0.85" },
     { en: "/collections", ar: "/ar/collections/", priority: "0.90" },
     { en: "/play", ar: "/ar/play/", priority: "0.75" },
+    { en: "/daily", ar: "/ar/daily/", priority: "0.75" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
     { en: "/privacy", ar: "/ar/privacy/", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, priority: page.kind === "games" ? "0.85" : "0.80" })),
@@ -767,6 +766,7 @@ function desiredOutputs() {
   emit("ar/collections/index.html", renderCollectionsPage("ar"));
   emit("about.html", renderAboutPage("en"));
   emit("ar/about/index.html", renderAboutPage("ar"));
+  emit("mind-lab.html", renderMindLabDirectory());
   for (const category of categories) {
     emit(`${category.slug}.html`, renderFunctionalCategoryShell(category, "en"));
     emit(`ar/topics/${category.slug}/index.html`, renderFunctionalCategoryShell(category, "ar"));

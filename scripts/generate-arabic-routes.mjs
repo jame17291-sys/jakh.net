@@ -3,6 +3,8 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { PRIMARY_SITE_ORIGIN, rewritePublicSiteIdentity } from "./public-site-identity.mjs";
+import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
+import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
@@ -28,7 +30,7 @@ const PAGE_ROUTES = [
     arabicPath: "/ar/",
     runtime: "app",
     title: "ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية",
-    description: "اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية ضمن 56 موضوعًا.",
+    description: "اختر نشاطك: ألغاز واختبارات مجانية، ألعاب متصفح، أو تحدٍ يومي. كل ذلك بالعربية والإنجليزية ومن دون تنزيل.",
   },
   {
     source: "mind-lab.html",
@@ -36,8 +38,8 @@ const PAGE_ROUTES = [
     englishPath: "/mind-lab",
     arabicPath: "/ar/mind-lab/",
     runtime: "app",
-    title: "مختبر العقل: 56 موضوع ألغاز وأسئلة | ريدل أرابيا",
-    description: "استكشف 3,553 لغزاً واختباراً ثنائي اللغة موزعة مباشرة على 56 موضوعاً ضمن 5 أقسام واضحة. اختر موضوعاً واقلب البطاقات وتابع نتيجتك.",
+    title: "ألغاز واختبارات: تصفّح جميع الموضوعات | ريدل أرابيا",
+    description: "تصفّح موضوعات الألغاز والاختبارات بالعربية والإنجليزية، أو ابدأ بمجموعة قصيرة مختارة. اختر موضوعاً وابدأ الأسئلة مباشرة.",
   },
   {
     source: "play.html",
@@ -47,6 +49,15 @@ const PAGE_ROUTES = [
     runtime: "app",
     title: "اكشفها وألعاب متصفح مجانية | ريدل أرابيا",
     description: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
+  },
+  {
+    source: "daily.html",
+    output: "ar/daily/index.html",
+    englishPath: "/daily",
+    arabicPath: "/ar/daily/",
+    runtime: "app",
+    title: "التحدي اليومي | ريدل أرابيا",
+    description: "جرّب سؤال اليوم من مكتبة الألغاز والاختبارات بالعربية والإنجليزية، ثم انتقل إلى الموضوع الكامل لمواصلة التعلّم.",
   },
   {
     source: "akshifha.html",
@@ -349,6 +360,7 @@ function normalizeResourcePaths(html) {
     [/(\bsrc=["'])app\.js/giu, "$1/app.js"],
     [/(\bsrc=["'])akshifha\.js/giu, "$1/akshifha.js"],
     [/(\bsrc=["'])site-i18n\.js/giu, "$1/site-i18n.js"],
+    [/(\bsrc=["'])(site-navigation|daily-challenge)\.js/giu, "$1/$2.js"],
     [/(\bsrc=["'])privacy-(?:consent|page)\.js/giu, (match) => match.replace('="', '="/').replace("='", "='/")],
     [/(\bhref=["'])styles\.css/giu, "$1/styles.css"],
     [/(\bhref=["'])akshifha\.css/giu, "$1/akshifha.css"],
@@ -368,6 +380,10 @@ sharedArabicRoutes.set("/collections", "/ar/collections/");
 sharedArabicRoutes.set("/collections.html", "/ar/collections/");
 sharedArabicRoutes.set("/about", "/ar/about/");
 sharedArabicRoutes.set("/about.html", "/ar/about/");
+for (const page of RIDDLE_ARABIA_SEO_PAGES) {
+  sharedArabicRoutes.set(page.paths.en, page.paths.ar);
+  sharedArabicRoutes.set(`${page.paths.en}.html`, page.paths.ar);
+}
 for (const route of PAGE_ROUTES) {
   if (route.englishPath !== "/") sharedArabicRoutes.set(`${route.englishPath}.html`, route.arabicPath);
 }
@@ -406,6 +422,25 @@ function localizeInternalLinks(html) {
   });
 }
 
+function localizeSharedNavigation(html, route) {
+  const active = route.englishPath === "/" ? "home"
+    : route.englishPath === "/mind-lab" ? "library"
+      : route.englishPath === "/daily" ? "daily"
+        : route.englishPath === "/play" || route.runtime === "game" || route.runtime === "akshifha" ? "games" : "";
+  // Render last: generic internal-link localization must not change the
+  // explicit English equivalent into a link back to the same Arabic page.
+  html = html.replace(/<header\b[^>]*\bclass="[^"]*\bsite-header\b[^"]*"[^>]*>[\s\S]*?<\/header>/iu,
+    siteHeader({ lang: "ar", alternate: route.englishPath, active }));
+  html = html.replace(/(<a\b(?![^>]*\bdata-i18n=)[^>]*\bclass="[^"]*\bskip-link\b[^"]*"[^>]*>)[\s\S]*?(<\/a>)/iu,
+    `$1${escapeHtml(siteCommon.skipMain)}$2`);
+  html = html.replace(/<nav\b[^>]*\bclass="[^"]*\bfooter-site-links\b[^"]*"[^>]*>/giu,
+    (tag) => replaceAttribute(tag, "aria-label", siteCommon.footerInfoLabel));
+  if (!/<script\b[^>]*\bsrc=["']\/site-navigation\.js(?:[?"'])/iu.test(html)) {
+    html = html.replace(/<\/head>/iu, `    ${navigationScript}\n  </head>`);
+  }
+  return html;
+}
+
 function localizePrivacyOptions(html) {
   return html.replace(/<option\b(?=[^>]*\bdata-label-ar=(?:"[^"]+"|'[^']+'))[^>]*>[\s\S]*?<\/option>/giu, (option) => {
     const value = option.match(/\bdata-label-ar=(?:"([^"]+)"|'([^']+)')/iu);
@@ -441,9 +476,8 @@ function localizeMindLabDirectory(html) {
         .join(" · ");
       let localized = card.replace(/\bhref=(['"])[^'"]+\1/iu, `href="/ar/topics/${slug}/"`);
       localized = replaceAttribute(localized, "aria-label", title);
-      localized = replaceInnerByClass(localized, "category-title", `${category.emoji || ""} ${title}`.trim());
+      localized = replaceInnerByClass(localized, "category-title", title);
       if (topics) localized = replaceInnerByClass(localized, "category-card-topics", topics);
-      localized = replaceInnerByClass(localized, "category-card-count-badge", `${category.count} سؤال`);
       localized = replaceInnerByClass(localized, "category-card-label", `${category.count} سؤال`);
       localized = replaceInnerByClass(localized, "category-card-enter", "استكشف");
       return localized;
@@ -493,6 +527,7 @@ function renderRoute(route) {
   html = annotateLanguageOptions(html);
   html = normalizeResourcePaths(html);
   html = localizeInternalLinks(html);
+  html = localizeSharedNavigation(html, route);
   return rewritePublicSiteIdentity(html.endsWith("\n") ? html : `${html}\n`);
 }
 

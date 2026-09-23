@@ -10,6 +10,8 @@ const app = read('app.js');
 const css = read('styles.css');
 const privacyConsent = read('privacy-consent.js');
 const collections = read('collections.html');
+const navigation = read('site-navigation.js');
+const navigationMarkup = read('scripts/site-navigation-markup.mjs');
 
 test('fixed mobile layers share measured offsets and keep footer content reachable', () => {
   for (const token of [
@@ -28,10 +30,10 @@ test('fixed mobile layers share measured offsets and keep footer content reachab
   assert.match(css, /bottom:\s*var\(--jakh-bottom-nav-height\)/u);
   assert.match(css, /var\(--jakh-bottom-nav-height\)[\s\S]*var\(--jakh-install-stack-height\)/u);
   assert.match(css, /\.site-footer\s*\{[\s\S]*padding-bottom:[\s\S]*var\(--jakh-fixed-content-inset\)/u);
-  assert.match(css, /body\[data-page="home"\],[\s\S]*padding-bottom:\s*0\s*!important/u, "mobile pages must not create trailing document space after the footer");
+  assert.match(css, /body\[data-page\]\s*\{[^}]*padding-bottom:\s*0(?:\s*!important)?\s*;/u, "app pages must not create trailing document space after the footer");
   assert.match(css, /\.site-footer\s*\{[\s\S]*margin-bottom:\s*0;[\s\S]*max\(62px,\s*var\(--jakh-fixed-content-inset\)\)/u, "fixed-control clearance must remain inside the footer");
   assert.match(css, /\.modal\s*\{[^}]*z-index:\s*1100/su);
-  assert.match(css, /\.header-actions\s*\{[\s\S]*z-index:\s*200/su);
+  assert.match(css, /\.primary-navigation a, \.site-utilities a\s*\{[^}]*min-height:\s*44px/su);
 });
 
 test('question and answer cards grow to their content without nested scrolling', () => {
@@ -53,12 +55,13 @@ test('consent and install prompts cannot form an unbounded overlapping wall', ()
   assert.match(app, /aria-labelledby', 'installBannerText'/u);
 });
 
-test('Game Hub has a truthful Games destination and only links expose aria-current', () => {
-  assert.match(app, /href="\/play" class="bottom-nav-tab" data-tab="games"/u);
-  assert.match(app, /const isGameHub = state\.page === 'play' \|\| normalizedPath === '\/play'/u);
-  assert.match(app, /isGameHub[\s\S]*\? 'games'/u);
-  assert.match(app, /isActive && tab\.matches\('a'\)[\s\S]*aria-current/u);
-  assert.doesNotMatch(app, /data-tab="(?:daily|profile)"[^>]*aria-current/u);
+test('one navigation exposes real Games and Daily destinations and only current links are selected', () => {
+  assert.match(navigationMarkup, /\['games', ar \? '\/ar\/play\/' : '\/play'/u);
+  assert.match(navigationMarkup, /\['daily', ar \? '\/ar\/daily\/' : '\/daily'/u);
+  assert.match(navigation, /querySelectorAll\('\.primary-navigation \[data-nav\]'\)/u);
+  assert.match(navigation, /link\.dataset\.nav === active[\s\S]*setAttribute\('aria-current', 'page'\)[\s\S]*else link\.removeAttribute\('aria-current'\)/u);
+  assert.doesNotMatch(app, /function injectBottomNav|function injectHeaderHamburger|class="bottom-nav-tab"/u);
+  assert.doesNotMatch(navigationMarkup, /<button[^>]*aria-current|data-site-profile[^>]*aria-current/u);
 });
 
 test('mobile brand, shared actions, and fresh collection links retain usable targets', () => {
@@ -66,7 +69,7 @@ test('mobile brand, shared actions, and fresh collection links retain usable tar
   assert.match(css, /:where\([\s\S]*\.primary-btn[\s\S]*\.social-link[\s\S]*\)\s*\{\s*min-height:\s*44px/su);
   assert.doesNotMatch(css, /\.social-link span\s*\{\s*display:\s*none/u);
   assert.match(css, /\.social-link span\s*\{\s*display:\s*inline/u);
-  assert.match(collections, /href="\/brain-games"/u);
+  assert.match(collections, /href="\/play"/u);
   assert.match(collections, /href="\/privacy"/u);
   assert.doesNotMatch(collections, /@jakh|jakh\.net|JAKH Riddles/iu);
 });
@@ -77,4 +80,15 @@ test('short landscape removes sticky header competition and keeps compact 44px a
   assert.match(css, /\.privacy-consent-banner\s*\{[^}]*max-height:\s*min\(30svh, 6rem\)/su);
   assert.match(css, /\.install-banner-close\s*\{[^}]*width:\s*44px[^}]*height:\s*44px/su);
   assert.match(css, /\.privacy-consent-dismiss\s*\{[^}]*width:\s*44px[^}]*height:\s*44px/su);
+});
+
+test('shared navigation and activity layouts reflow at phone widths with visible focus', () => {
+  assert.match(css, /\.unified-header\s*\{[^}]*grid-template-columns:\s*auto minmax\(0,\s*1fr\) auto/su);
+  assert.match(css, /@media \(max-width: 1024px\)[\s\S]*\.unified-header \.primary-navigation\s*\{[^}]*grid-column:\s*1 \/ -1;[^}]*grid-row:\s*2/su);
+  assert.match(css, /@media \(max-width: 600px\)[\s\S]*\.activity-grid, \.home-next-grid, \.game-directory\s*\{[^}]*grid-template-columns:\s*1fr/su);
+  assert.match(css, /\.library-subnav, \.library-tools\s*\{[^}]*flex-wrap:\s*wrap/su);
+  assert.match(css, /\.ml-cluster-bar\s*\{[^}]*display:\s*flex;[^}]*flex-wrap:\s*wrap/su);
+  assert.match(css, /:where\(a, button, summary, input, select, textarea\):focus-visible\s*\{[^}]*outline:\s*3px solid var\(--accent\)/su);
+  assert.match(css, /\.more-play-modes summary, \.question-filters summary\s*\{[^}]*min-height:\s*44px/su);
+  assert.match(css, /#cardGrid\s*\{[^}]*scroll-margin-top:/su);
 });

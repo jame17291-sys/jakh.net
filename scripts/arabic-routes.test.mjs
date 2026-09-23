@@ -25,6 +25,7 @@ const routes = [
   ["ar/index.html", "/", "/ar/"],
   ["ar/mind-lab/index.html", "/mind-lab", "/ar/mind-lab/"],
   ["ar/play/index.html", "/play", "/ar/play/"],
+  ["ar/daily/index.html", "/daily", "/ar/daily/"],
   ["ar/privacy/index.html", "/privacy", "/ar/privacy/"],
   ...GAME_SLUGS.map((slug) => [`ar/games/${slug}/index.html`, `/${slug}`, `/ar/games/${slug}/`]),
 ];
@@ -66,10 +67,10 @@ test("Arabic route generator is deterministic and current", () => {
     encoding: "utf8",
   });
   assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
-  assert.match(result.stdout, /current \(15 pages\)/u);
+  assert.match(result.stdout, /current \(16 pages\)/u);
 });
 
-test("all 15 generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
+test("all 16 generator-managed Arabic routes have self canonicals and reciprocal alternates", () => {
   for (const [file, englishPath, arabicPath] of routes) {
     const html = read(file);
     const englishUrl = `https://riddlearabia.com${englishPath}`;
@@ -87,6 +88,13 @@ test("all 15 generator-managed Arabic routes have self canonicals and reciprocal
     assert.doesNotMatch(html, /(?:href|src|srcset)="(?:assets\/|styles\.css|app\.js|game-i18n\.js|manifest\.webmanifest)/iu, `${file}: root-relative resources`);
     assert.doesNotMatch(html, /href="[^"]*[?&]lang=(?:ar|en)(?:[&#"])/iu, `${file}: retired language query`);
     assert.doesNotMatch(html, /\/\s+(?:aria-|data-|class=|id=|placeholder=|title=)/iu, `${file}: malformed self-closing tag`);
+    const header = html.match(/<header\b[^>]*\bclass="[^"]*\bsite-header\b[^"]*"[^>]*>[\s\S]*?<\/header>/iu)?.[0] || "";
+    for (const destination of ["/ar/", "/ar/mind-lab/", "/ar/play/", "/ar/daily/"]) {
+      assert.match(header, new RegExp(`href="${escapeRegex(destination)}"`, "u"), `${file}: shared Arabic destination ${destination}`);
+    }
+    assert.match(header, new RegExp(`class="language-route-link" href="${escapeRegex(englishPath)}"`, "u"), `${file}: language link returns to the equivalent English page`);
+    assert.match(header, /<a\b[^>]*data-site-profile[^>]*href="\/ar\/mind-lab\/\?profile=1"/u, `${file}: Arabic Profile fallback`);
+    assert.match(html, /<script defer src="\/site-navigation\.js"><\/script>/u, `${file}: shared navigation runtime`);
   }
 });
 
@@ -113,7 +121,7 @@ test("Arabic hubs keep shared, game, and topic navigation on clean Arabic paths"
     assert.match(`${home}\n${play}\n${mindLab}`, new RegExp(`href="${escapeRegex(route)}`, "u"), route);
   }
   for (const slug of ["akshifha", "chess", "backgammon"]) {
-    assert.match(play, new RegExp(`href="/ar/games/${slug}/"`, "u"), slug);
+    assert.match(play, new RegExp(`href="/ar/games/${slug}/(?:\\?[^\"]*)?"`, "u"), slug);
   }
   for (const slug of GAME_SLUGS.filter((slug) => !["akshifha", "chess", "backgammon"].includes(slug))) {
     assert.doesNotMatch(play, new RegExp(`href="/ar/games/${slug}/"`, "u"), `${slug}: preserved but no longer promoted`);
@@ -131,12 +139,14 @@ test("no-script Arabic routes localize common accessible names", () => {
       .map((match) => match[1] || match[2]);
     const leaked = ariaLabels.filter((label) => ENGLISH_COMMON_ARIA_LABELS.has(label));
     assert.deepEqual(leaked, [], `${file}: English common aria-labels leaked into Arabic output`);
+    const skipLink = html.match(/<a\b[^>]*\bclass="[^"]*\bskip-link\b[^"]*"[^>]*>([\s\S]*?)<\/a>/iu)?.[1] || "";
+    assert.match(skipLink, /[\u0600-\u06ff]/u, `${file}: static skip link is localized`);
   }
 
-  for (const file of ["index.html", "mind-lab.html", "play.html", "privacy.html"]) {
+  for (const file of ["index.html", "mind-lab.html", "play.html", "daily.html", "privacy.html"]) {
     const source = read(file);
-    assert.match(source, /class="brand"[^>]*data-i18n-aria-label="brandHomeLabel"/u, `${file}: brand hook`);
-    assert.match(source, /class="header-actions"[^>]*data-i18n-aria-label="quickActionsLabel"/u, `${file}: quick-actions hook`);
+    assert.match(source, /class="brand"[^>]*aria-label="Riddle Arabia home"/u, `${file}: named brand link`);
+    assert.match(source, /class="primary-navigation"[^>]*aria-label="Primary navigation"/u, `${file}: named primary navigation`);
   }
 });
 

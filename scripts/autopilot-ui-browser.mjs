@@ -157,11 +157,11 @@ try {
     assert.equal(await page.locator(".autopilot-machine").first().getAttribute("dir"), "ltr");
   });
   for (const lang of ["en", "ar"]) for (const width of [320, 390, 1280]) {
-    await scenario(`${lang} accessibility and seven-tab reflow at ${width}px`, async (page, api) => {
+    await scenario(`${lang} accessibility and eight-tab reflow at ${width}px`, async (page, api) => {
       const run = runReceipt("needs_attention");
       api.data = { ...initialData(), lastRun: run, runs: [run] };
       await openAutopilot(page);
-      assert.equal(await page.locator("#adminTabs [data-tab]:visible").count(), 7);
+      assert.equal(await page.locator("#adminTabs [data-tab]:visible").count(), 8);
       const dimensions = await page.evaluate(() => ({ width: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
       assert.ok(dimensions.scroll <= dimensions.width + 1, JSON.stringify(dimensions));
       assert.equal(await page.locator("html").getAttribute("dir"), lang === "ar" ? "rtl" : "ltr");

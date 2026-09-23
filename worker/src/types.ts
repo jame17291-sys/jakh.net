@@ -9,6 +9,12 @@ export interface Env {
   IP_HASH_SALT: string;
   ALLOWED_ORIGINS: string;
   STATIC_ORIGIN: string;
+  /** Dedicated read-only Cloudflare GraphQL Analytics configuration. */
+  CLOUDFLARE_ANALYTICS_API_TOKEN?: string;
+  CLOUDFLARE_ANALYTICS_ACCOUNT_ID?: string;
+  CLOUDFLARE_ANALYTICS_ZONE_ID?: string;
+  CLOUDFLARE_ANALYTICS_API_WORKER_NAME?: string;
+  CLOUDFLARE_ANALYTICS_SITE_WORKER_NAME?: string;
 }
 
 interface WorkerVersionMetadata {
@@ -61,4 +67,44 @@ export interface BattleRoomState {
   questionStartTime: number;
   deadline: number;
   createdAt: number;
+}
+
+/**
+ * Owner-console only status data. Provider cards intentionally contain a
+ * compact, display-safe projection rather than a provider API response.
+ */
+export interface PlatformStatusMetric {
+  id: string;
+  label: string;
+  value: number;
+  detail?: string;
+  format?: "bytes" | "percent";
+}
+
+export type PlatformStatusSourceState = "healthy" | "partial" | "stale" | "unavailable" | "manual" | "not_configured";
+
+export interface PlatformStatusSourceCard {
+  id: "cloudflare" | "github" | "google-analytics" | "godaddy" | "search-console";
+  label: string;
+  category: string;
+  state: PlatformStatusSourceState;
+  headline: string;
+  detail: string;
+  /** Whether a live provider snapshot included every requested aggregate. */
+  coverage?: "complete" | "partial";
+  /** Null means this endpoint has not read a live provider data source. */
+  observedAt: string | null;
+  link: { label: string; url: string };
+  metrics: PlatformStatusMetric[];
+}
+
+export interface PlatformStatusResponse {
+  updatedAt: string;
+  overall: {
+    state: "healthy" | "degraded";
+    headline: string;
+    detail: string;
+  };
+  metrics: PlatformStatusMetric[];
+  sources: PlatformStatusSourceCard[];
 }

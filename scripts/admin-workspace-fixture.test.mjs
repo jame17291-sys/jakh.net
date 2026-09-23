@@ -35,6 +35,24 @@ test("fixture has searchable categories and preserves source punctuation", async
   assert.equal(overview.editorial.publishedOverrides, 2, "A draft with an older published version still has a live override");
 });
 
+test("fixture exposes the normalized platform snapshot only to its synthetic owner", async () => {
+  fixture.reset();
+  const owner = await request("/api/admin/platform-status");
+  assert.equal(owner.response.status, 200);
+  assert.deepEqual(Object.keys(owner.body).sort(), ["metrics", "overall", "sources", "updatedAt"]);
+  assert.equal(owner.body.overall.state, "healthy");
+  assert.equal(owner.body.metrics.find((metric) => metric.id === "consented-usage-minutes").value, 90);
+  assert.deepEqual(owner.body.sources.map((source) => source.id), [
+    "cloudflare", "github", "google-analytics", "godaddy", "search-console",
+  ]);
+  assert.equal(owner.body.sources[0].metrics[0].value, 1240);
+  for (const source of owner.body.sources) assert.match(source.link.url, /^https:\/\//u);
+
+  const admin = await request("/api/admin/platform-status", { headers: { cookie: "admin_fixture_role=ADMIN" } });
+  assert.equal(admin.response.status, 403);
+  assert.equal(admin.body.code, "OWNER_REQUIRED");
+});
+
 test("save failure leaves persisted content intact, then retry saves once", async () => {
   fixture.reset();
   const before = fixture.getState().edits.find((edit) => edit.questionId === SCIENCE_ID);

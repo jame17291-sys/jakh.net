@@ -1,9 +1,17 @@
 import { enforceRateLimit, requireUser, touchPrivilegedSession } from "./db.js";
 import { validateCard } from "./catalog.js";
+import { cloudflareAnalyticsStatus, type CloudflareAnalyticsStatus } from "./cloudflare-analytics.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
+import { PRIVACY_NOTICE_VERSION } from "./privacy.js";
 import { clientIp, sha256, validatePassword } from "./security.js";
-import type { Env, SessionUser } from "./types.js";
+import type {
+  Env,
+  PlatformStatusMetric,
+  PlatformStatusResponse,
+  PlatformStatusSourceCard,
+  SessionUser,
+} from "./types.js";
 
 type AssignableRole = "ADMIN" | "USER";
 type AdminUserRole = AssignableRole | "OWNER";
@@ -96,6 +104,16 @@ interface PasswordRow {
   password_iterations: number;
 }
 
+interface AggregateCountRow {
+  count: number | null;
+}
+
+interface PlatformEditorialRow {
+  drafts: number | null;
+  inReview: number | null;
+  publishedOverrides: number | null;
+}
+
 const STEP_UP_MAX_AGE_MS = 10 * 60 * 1_000;
 const AUDIT_REASON_MAX_LENGTH = 280;
 const ASSIGNABLE_ROLES = new Set<AssignableRole>(["USER", "ADMIN"]);
@@ -105,9 +123,90 @@ const CONTENT_ID_PATTERN = /^[A-Za-z0-9_-]{2,96}$/u;
 const CONTENT_CATEGORY_PATTERN = /^[a-z0-9-]{2,64}$/u;
 const CONTENT_TEXT_MAX_LENGTH = 4_000;
 const CONTENT_SOURCE_LIMIT = 8;
+const PLATFORM_DASHBOARDS = Object.freeze({
+  cloudflare: { label: "Open Cloudflare", url: "https://dash.cloudflare.com/" },
+  github: { label: "Open GitHub Actions", url: "https://github.com/jame17291-sys/jakh.net/actions" },
+  "google-analytics": { label: "Open Google Analytics", url: "https://analytics.google.com/" },
+  godaddy: { label: "Open GoDaddy", url: "https://account.godaddy.com/" },
+  "search-console": { label: "Open Search Console", url: "https://search.google.com/search-console" },
+} as const);
 
 function timestamp(): string {
   return new Date().toISOString();
+}
+
+function aggregateCount(value: unknown): number {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0 ? value : 0;
+}
+
+function platformMetric(
+  id: string,
+  label: string,
+  value: unknown,
+  detail?: string,
+): PlatformStatusMetric {
+  return { id, label, value: aggregateCount(value), ...(detail ? { detail } : {}) };
+}
+
+function platformSources(cloudflare: CloudflareAnalyticsStatus): PlatformStatusSourceCard[] {
+  return [
+    {
+      id: "cloudflare",
+      label: "Cloudflare",
+      category: "Hosting, edge, and database",
+      state: cloudflare.state,
+      headline: cloudflare.headline,
+      detail: cloudflare.detail,
+      ...(cloudflare.coverage ? { coverage: cloudflare.coverage } : {}),
+      observedAt: cloudflare.observedAt,
+      link: PLATFORM_DASHBOARDS.cloudflare,
+      metrics: cloudflare.metrics,
+    },
+    {
+      id: "github",
+      label: "GitHub",
+      category: "Source control and delivery",
+      state: "not_configured",
+      headline: "GitHub delivery data is not connected",
+      detail: "Workflow, deployment, and repository traffic data are not queried by this API.",
+      observedAt: null,
+      link: PLATFORM_DASHBOARDS.github,
+      metrics: [],
+    },
+    {
+      id: "google-analytics",
+      label: "Google Analytics",
+      category: "Consented visitor analytics",
+      state: "not_configured",
+      headline: "GA4 reporting data is not connected",
+      detail: "This API does not query Google Analytics reports, so it cannot show visitor or event totals from GA4.",
+      observedAt: null,
+      link: PLATFORM_DASHBOARDS["google-analytics"],
+      metrics: [],
+    },
+    {
+      id: "godaddy",
+      label: "GoDaddy",
+      category: "Domain registration",
+      state: "not_configured",
+      headline: "Registrar status is not connected",
+      detail: "Domain expiry, renewal, lock, and nameserver status require a manual GoDaddy dashboard review.",
+      observedAt: null,
+      link: PLATFORM_DASHBOARDS.godaddy,
+      metrics: [],
+    },
+    {
+      id: "search-console",
+      label: "Google Search Console",
+      category: "Organic search",
+      state: "not_configured",
+      headline: "Search Console data is not connected",
+      detail: "Organic clicks, impressions, indexing, and search queries are not queried by this API.",
+      observedAt: null,
+      link: PLATFORM_DASHBOARDS["search-console"],
+      metrics: [],
+    },
+  ];
 }
 
 function auditStatement(
@@ -469,6 +568,96 @@ export async function adminOverview(request: Request, env: Env): Promise<Respons
     recentSuggestions: suggestions.results.map((row) => redactEmail(row, canViewEmail)),
     permissions: { canViewEmail },
   });
+}
+
+/**
+ * A deliberately narrow, owner-only operational snapshot. External cards are
+ * dashboard pointers until an explicit read-only provider integration exists;
+ * this endpoint must never turn dashboard credentials or provider payloads
+ * into an admin-page response.
+ */
+export async function adminPlatformStatus(request: Request, env: Env): Promise<Response> {
+  await requireOwner(request, env);
+  const checkedAt = timestamp();
+  const schema = await env.DB.prepare(
+    "SELECT value FROM schema_meta WHERE key = 'schema_version'",
+  ).first<{ value: string }>();
+  const editorialAvailable = Number(schema?.value || 0) >= 9;
+  const [
+    cloudflare,
+    users,
+    administrators,
+    activeSessions,
+    completedProgress,
+    pendingSuggestions,
+    suspendedUsers,
+    consentedUsageMinutes,
+    editorial,
+  ] = await Promise.all([
+    cloudflareAnalyticsStatus(env),
+    env.DB.prepare("SELECT COUNT(*) AS count FROM users").first<AggregateCountRow>(),
+    env.DB.prepare("SELECT COUNT(*) AS count FROM users WHERE role IN ('ADMIN', 'OWNER')")
+      .first<AggregateCountRow>(),
+    env.DB.prepare("SELECT COUNT(*) AS count FROM sessions WHERE expires_at > ?")
+      .bind(checkedAt).first<AggregateCountRow>(),
+    env.DB.prepare("SELECT COUNT(*) AS count FROM progress WHERE status NOT LIKE 'wrong-%'")
+      .first<AggregateCountRow>(),
+    env.DB.prepare("SELECT COUNT(*) AS count FROM suggestions WHERE status = 'new'")
+      .first<AggregateCountRow>(),
+    env.DB.prepare("SELECT COUNT(*) AS count FROM users WHERE is_banned = 1")
+      .first<AggregateCountRow>(),
+    env.DB.prepare(
+      `SELECT CAST(COALESCE(SUM(a.time_spent), 0) / 60 AS INTEGER) AS count
+         FROM analytics_daily a
+         JOIN privacy_preferences p ON p.user_id = a.user_id
+        WHERE p.usage_analytics_enabled = 1
+          AND p.notice_version = ?`,
+    ).bind(PRIVACY_NOTICE_VERSION).first<AggregateCountRow>(),
+    editorialAvailable ? env.DB.prepare(
+      `SELECT COUNT(CASE WHEN workflow_status = 'DRAFT' THEN 1 END) AS drafts,
+              COUNT(CASE WHEN workflow_status = 'IN_REVIEW' THEN 1 END) AS inReview,
+              COUNT(published_snapshot_json) AS publishedOverrides
+         FROM content_question_edits`,
+    ).first<PlatformEditorialRow>() : null,
+  ]);
+  const schemaCompatible = schema?.value === "8" || schema?.value === "9";
+  const metrics: PlatformStatusMetric[] = [
+    platformMetric("registered-users", "Registered users", users?.count),
+    platformMetric("administrators", "Administrators", administrators?.count),
+    platformMetric("active-sessions", "Active sessions", activeSessions?.count),
+    platformMetric("completed-progress", "Recorded solved cards", completedProgress?.count),
+    platformMetric("pending-suggestions", "Pending suggestions", pendingSuggestions?.count),
+    platformMetric("suspended-users", "Suspended users", suspendedUsers?.count),
+    platformMetric(
+      "consented-usage-minutes",
+      "Recorded consented learning minutes",
+      consentedUsageMinutes?.count,
+      "This is account-linked learning time stored after consent, not full visitor traffic.",
+    ),
+  ];
+  if (editorialAvailable) {
+    metrics.push(
+      platformMetric("content-drafts", "Content drafts", editorial?.drafts),
+      platformMetric("content-in-review", "Content in review", editorial?.inReview),
+      platformMetric("published-content-overrides", "Published content overrides", editorial?.publishedOverrides),
+    );
+  }
+
+  const response: PlatformStatusResponse = {
+    updatedAt: checkedAt,
+    overall: schemaCompatible ? {
+      state: "healthy",
+      headline: "Internal services are operational",
+      detail: "The owner-only API and D1 aggregate snapshot completed successfully.",
+    } : {
+      state: "degraded",
+      headline: "Database schema needs attention",
+      detail: "The aggregate snapshot completed, but the deployed schema is not in this API's supported range.",
+    },
+    metrics,
+    sources: platformSources(cloudflare),
+  };
+  return json(response);
 }
 
 export async function adminUsers(request: Request, env: Env): Promise<Response> {

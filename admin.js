@@ -659,9 +659,10 @@
     return body;
   }
 
-  function setConnection(kind, text) {
+  function setConnection(kind, key) {
     els.connectionState.className = `connection-state ${kind}`;
-    els.connectionState.textContent = text;
+    els.connectionState.dataset.i18n = key;
+    els.connectionState.textContent = t(key);
   }
 
   function signInHref() {
@@ -1728,7 +1729,7 @@
   async function establishAccess() {
     state.gateMode = "checking";
     renderGate();
-    setConnection("is-pending", t("checkingAccess"));
+    setConnection("is-pending", "checkingAccess");
     try {
       const profile = await api("/user/profile");
       if (!ADMIN_ROLES.has(profile.role)) {
@@ -1736,20 +1737,20 @@
         state.gateMode = "unauthorized";
         els.adminApp.hidden = true;
         renderGate();
-        setConnection("is-error", t("unauthorizedTitle"));
+        setConnection("is-error", "unauthorizedTitle");
         return;
       }
       state.me = profile;
       renderIdentity();
       showApp();
-      setConnection("is-online", t("accessConnected"));
+      setConnection("is-online", "accessConnected");
       await refreshVisible(false);
     } catch (error) {
       state.me = null;
       state.gateMode = error instanceof AdminApiError && error.status === 401 ? "signedOut" : "offline";
       els.adminApp.hidden = true;
       renderGate();
-      setConnection("is-error", state.gateMode === "signedOut" ? t("sessionExpired") : t("offlineTitle"));
+      setConnection("is-error", state.gateMode === "signedOut" ? "sessionExpired" : "offlineTitle");
     }
   }
 

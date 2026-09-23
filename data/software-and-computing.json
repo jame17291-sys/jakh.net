@@ -55,21 +55,19 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is binary and why do computers use it?",
-      "ar": "ما النظام الثنائي ولماذا تستخدمه الحاسبات؟"
+      "en": "Why do digital computers commonly represent information using binary digits 0 and 1?",
+      "ar": "لماذا تمثل الحواسيب الرقمية المعلومات عادةً بالرقمين الثنائيين 0 و 1؟"
     },
     "answer": {
-      "en": "Binary is a base-2 number system using only 0 and 1. Computers use it because transistors have two states — on (1) and off (0) — making binary natural for digital circuits.",
-      "ar": "النظام الثنائي هو نظام أساسه 2 يستخدم 0 و1 فقط. تستخدمه الحاسبات لأن الترانزستورات لها حالتان — مفتوح (1) ومغلق (0) — مما يجعل النظام الثنائي طبيعياً للدوائر الرقمية."
+      "en": "Digital circuits reliably distinguish two defined signal ranges, which represent 0 and 1. This is an engineering use of transistors, not a claim that transistors have only two possible physical states.",
+      "ar": "تميز الدوائر الرقمية بموثوقية بين نطاقين محددين للإشارة يمثلان 0 و 1. وهذا توظيف هندسي للترانزستورات، لا يعني أن لها حالتين فيزيائيتين ممكنتين فقط."
     },
     "acceptedAnswers": {
       "en": [
-        "Binary uses 0 and 1 because transistors have two electrical states.",
-        "Base-2 digits match transistors' on/off states, so computers use zeros and ones."
+        "Two distinguishable signal ranges represent 0 and 1."
       ],
       "ar": [
-        "النظام الثنائي يستخدم 0 و1 لأن للترانزستورات حالتين كهربائيتين.",
-        "أرقام الأساس اثنين توافق حالتي تشغيل الترانزستور وإيقافه؛ لذا تستخدم الحواسيب صفراً وواحداً."
+        "يمثل نطاقان متميزان للإشارة القيمتين 0 و 1."
       ]
     },
     "review": {
@@ -84,21 +82,19 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "What is an array in programming?",
-      "ar": "ما المصفوفة في البرمجة؟"
+      "en": "What is a one-dimensional array in C?",
+      "ar": "ما المصفوفة أحادية البعد في لغة C؟"
     },
     "answer": {
-      "en": "A data structure that stores elements of the same type in contiguous memory locations, accessible by an index starting from 0.",
-      "ar": "هيكل بيانات يُخزّن عناصر من نفس النوع في مواضع ذاكرة متجاورة، يمكن الوصول إليها بفهرس يبدأ من 0."
+      "en": "A contiguous sequence of elements of one type, accessed by index. The first element has index 0.",
+      "ar": "تتابع متجاور في الذاكرة لعناصر من نوع واحد، يُوصل إليها بفهرس. فهرس العنصر الأول هو 0."
     },
     "acceptedAnswers": {
       "en": [
-        "Indexed, contiguous storage for same-type elements, usually starting at index zero.",
-        "Same-type elements stored contiguously and accessed by zero-based indexes."
+        "Contiguous same-type elements accessed by zero-based indices."
       ],
       "ar": [
-        "تخزين متجاور مفهرس لعناصر من النوع نفسه، يبدأ عادة بالفهرس صفر.",
-        "عناصر من نوع واحد تُخزن متجاورة وتُوصل بفهارس تبدأ من الصفر."
+        "عناصر متجاورة من نوع واحد بفهرسة تبدأ من الصفر."
       ]
     },
     "review": {
@@ -132,21 +128,19 @@
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is the difference between a compiler and an interpreter?",
-      "ar": "ما الفرق بين المُجمِّع والمُفسِّر؟"
+      "en": "What is the basic distinction between compilation and interpretation?",
+      "ar": "ما الفرق الأساسي بين الترجمة البرمجية والتفسير؟"
     },
     "answer": {
-      "en": "A compiler translates the entire source code into machine code before execution. An interpreter translates and executes code line by line at runtime.",
-      "ar": "المُجمِّع يُترجم كامل الكود المصدري إلى كود آلة قبل التنفيذ. المُفسِّر يُترجم الكود وينفّذه سطراً سطراً أثناء التشغيل."
+      "en": "Compilation translates a program into another representation. Interpretation executes a program's semantics directly. Real implementations can combine both, as in bytecode and just-in-time compilation.",
+      "ar": "تحول الترجمة البرنامج إلى تمثيل آخر، بينما ينفذ التفسير دلالات البرنامج مباشرةً. وقد تجمع التطبيقات بينهما، كما في الشفرة الوسيطة والترجمة الآنية."
     },
     "acceptedAnswers": {
       "en": [
-        "Compiler translates source first; interpreter translates and executes incrementally at runtime.",
-        "Compilers translate entire programs ahead of execution; interpreters translate while running."
+        "Compilation translates representation; interpretation executes semantics."
       ],
       "ar": [
-        "المجمّع يترجم المصدر كاملاً قبل التنفيذ؛ المفسّر يترجم وينفذ تدريجياً أثناء التشغيل.",
-        "المجمّعات تترجم البرامج كاملة قبل التنفيذ؛ والمفسرات تترجم أثناء التشغيل."
+        "الترجمة تحول التمثيل؛ والتفسير ينفذ دلالات البرنامج."
       ]
     },
     "review": {
@@ -180,12 +174,12 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "What is a linked list and how does it differ from an array?",
-      "ar": "ما القائمة المترابطة وكيف تختلف عن المصفوفة؟"
+      "en": "Why does a singly linked list normally have O(n) indexed access but O(1) insertion immediately after a known node?",
+      "ar": "لماذا يحتاج الوصول بالفهرس في قائمة مترابطة أحادية عادةً إلى O(n)، بينما يحتاج الإدراج بعد عقدة معلومة مباشرةً إلى O(1)؟"
     },
     "answer": {
-      "en": "A linked list is a data structure where each element (node) stores data and a pointer to the next node. Unlike arrays, nodes are not contiguous in memory, making insertions/deletions fast (O(1) if pointer is known) but random access slow (O(n)).",
-      "ar": "القائمة المترابطة هيكل بيانات يُخزّن فيه كل عنصر (عقدة) بيانات ومؤشراً للعقدة التالية. خلافاً للمصفوفات، العقد ليست متجاورة في الذاكرة، مما يجعل الإدراج/الحذف سريعاً (O(1) إذا كان المؤشر معروفاً) لكن الوصول العشوائي بطيئاً (O(n))."
+      "en": "Indexed access may traverse links from the head. Inserting after a known node only updates a fixed number of links.",
+      "ar": "قد يتطلب الوصول بالفهرس اجتياز الروابط من رأس القائمة. أما الإدراج بعد عقدة معلومة فلا يحدّث إلا عدداً ثابتاً من الروابط."
     },
     "review": {
       "status": "pending"
@@ -323,12 +317,12 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "What is Big O notation and what does O(n log n) mean?",
-      "ar": "ما رمز O الكبير وماذا يعني O(n log n)؟"
+      "en": "What does a running-time bound O(n log n) mean?",
+      "ar": "ماذا يعني الحد الزمني O(n log n)؟"
     },
     "answer": {
-      "en": "Big O describes the worst-case time or space complexity of an algorithm as input size (n) grows. O(n log n) means execution time grows proportionally to n multiplied by the logarithm of n — typical of efficient comparison-based sorting algorithms like merge sort and heapsort.",
-      "ar": "رمز O الكبير يصف تعقيد الوقت أو الفضاء في الحالة الأسوأ للخوارزمية مع نمو حجم المدخل (n). O(n log n) يعني نمو وقت التنفيذ بنسبة n مضروبة في لوغاريتم n — نمط خوارزميات الفرز القائمة على المقارنة الكفوءة كالفرز بالدمج والفرز الكومي."
+      "en": "For sufficiently large n, the analyzed running time is at most a constant multiple of n log n. BigO is an upper bound; the analysis must separately specify worst, average, or another case.",
+      "ar": "عندما تكبر n بما يكفي، لا يتجاوز الزمن المحلل مضاعفاً ثابتاً لـn log n. فرمز O حد علوي، ويجب تحديد ما إذا كان التحليل للحالة الأسوأ أو المتوسطة أو غيرها بصورة منفصلة."
     },
     "review": {
       "status": "pending"
@@ -371,12 +365,12 @@
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is the difference between SQL and NoSQL databases?",
-      "ar": "ما الفرق بين قواعد بيانات SQL وNoSQL؟"
+      "en": "How do relational and nonrelational databases differ in their basic data models?",
+      "ar": "كيف تختلف قواعد البيانات العلائقية وغير العلائقية في نماذج بياناتها الأساسية؟"
     },
     "answer": {
-      "en": "SQL (relational) databases store structured data in tables with fixed schemas and use SQL for queries — strong consistency, ACID transactions (e.g., PostgreSQL, MySQL). NoSQL databases use flexible schemas (document, key-value, graph, column) — better horizontal scalability and performance for unstructured data (e.g., MongoDB, Redis, Cassandra).",
-      "ar": "قواعد بيانات SQL (العلائقية) تُخزّن بيانات منظمة في جداول بمخططات ثابتة وتستخدم SQL للاستعلامات — تناسق قوي ومعاملات ACID (مثل PostgreSQL وMySQL). قواعد NoSQL تستخدم مخططات مرنة (مستند، مفتاح-قيمة، رسم بياني، عمود) — قابلية توسع أفقي أفضل وأداء عالٍ للبيانات غير المنظمة (مثل MongoDB وRedis وCassandra)."
+      "en": "Relational databases organize data in relations, usually tables. Nonrelational systems use models such as documents, key-value pairs, graphs, or wide columns. Performance and consistency depend on the specific system and workload.",
+      "ar": "تنظم العلائقية البيانات في علاقات تُمثل عادةً بجداول. وتستخدم غير العلائقية نماذج كالمستندات وأزواج المفتاح والقيمة والرسوم البيانية والأعمدة العريضة. ويعتمد الأداء والاتساق على النظام وحمل العمل."
     },
     "review": {
       "status": "pending"
@@ -506,21 +500,19 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "Explain Dijkstra's algorithm and its time complexity.",
-      "ar": "اشرح خوارزمية ديكسترا وتعقيدها الزمني."
+      "en": "For a graph with nonnegative edge weights, what time bound does Dijkstra's algorithm achieve with adjacency lists and a binary heap?",
+      "ar": "لرسم بياني ذي أوزان حواف غير سالبة، ما الحد الزمني لخوارزمية ديكسترا باستخدام قوائم التجاور وكومة ثنائية؟"
     },
     "answer": {
-      "en": "Dijkstra's algorithm finds the shortest path from a source node to all others in a weighted graph with non-negative edges. It greedily picks the unvisited node with the smallest known distance, relaxes its neighbours, and repeats. With a binary heap: O((V + E) log V), where V = vertices and E = edges.",
-      "ar": "خوارزمية ديكسترا تجد أقصر مسار من عقدة مصدر إلى جميع العقد الأخرى في رسم بياني موزون بحواف غير سلبية. تختار بجشع العقدة غير المزارة ذات أصغر مسافة معروفة، تُريح جيرانها، وتُكرر. مع كومة ثنائية: O((V + E) log V)، حيث V = الرؤوس وE = الحواف."
+      "en": "O((V+E) log V), where V is the number of vertices and E the number of edges.",
+      "ar": "O((V+E) log V)، حيث V عدد الرؤوس وE عدد الحواف."
     },
     "acceptedAnswers": {
       "en": [
-        "Greedy relaxation finds shortest paths on nonnegative edges; heap: O((V+E) log V).",
-        "Greedily relax nearest vertices for nonnegative shortest paths; heap costs O((V+E)log V)."
+        "O((V+E) log V)"
       ],
       "ar": [
-        "ترخية جشعة تجد أقصر المسارات بحواف غير سالبة؛ بالكومة O((V+E) log V).",
-        "رخِّ أقرب الرؤوس بجشع لأقصر مسارات غير سالبة؛ تكلفة الكومة O((V+E)log V)."
+        "O((V+E) log V)"
       ]
     },
     "review": {
@@ -535,21 +527,19 @@
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is a race condition and how can it be prevented?",
-      "ar": "ما حالة السباق وكيف يمكن منعها؟"
+      "en": "Two threads update a shared counter without synchronization, causing results to depend on execution timing. What problem is this?",
+      "ar": "يحدّث خيطان عداداً مشتركاً دون مزامنة، فتتوقف النتيجة على توقيت التنفيذ. ما اسم هذه المشكلة؟"
     },
     "answer": {
-      "en": "A race condition occurs when the behaviour of a program depends on the relative timing of threads accessing shared data — leading to unpredictable results. Prevention: synchronisation primitives (mutexes, semaphores, monitors), atomic operations, or lock-free data structures.",
-      "ar": "تحدث حالة السباق عندما يعتمد سلوك البرنامج على التوقيت النسبي للخيوط التي تصل إلى البيانات المشتركة — مما يؤدي إلى نتائج غير متوقعة. الوقاية: بدائل المزامنة (mutex، semaphore، monitor)، والعمليات الذرية، وهياكل البيانات خالية القفل."
+      "en": "A race condition. A correctly applied mutex or suitable atomic operation can protect this update.",
+      "ar": "حالة سباق. ويمكن حماية هذا التحديث بقفل استبعاد متبادل مطبق بصورة صحيحة أو بعملية ذرية مناسبة."
     },
     "acceptedAnswers": {
       "en": [
-        "Shared-data results depend on thread timing; prevent with synchronisation or atomic operations.",
-        "Thread timing changes shared-state outcomes; use locks or atomics to make access safe."
+        "Race condition"
       ],
       "ar": [
-        "سلوك البيانات المشتركة يعتمد بلا توقع على توقيت الخيوط؛ تمنعه المزامنة أو العمليات الذرية.",
-        "يغير توقيت الخيوط نتائج الحالة المشتركة؛ استخدم الأقفال أو العمليات الذرية."
+        "حالة سباق"
       ]
     },
     "review": {
@@ -564,12 +554,12 @@
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is the CAP theorem in distributed systems?",
-      "ar": "ما نظرية CAP في الأنظمة الموزعة؟"
+      "en": "During a network partition, which two guarantees cannot both be provided by a distributed data system according to CAP?",
+      "ar": "أثناء انقسام الشبكة، ما الضمانان اللذان لا يستطيع نظام بيانات موزع توفيرهما معاً وفق مبرهنة CAP؟"
     },
     "answer": {
-      "en": "CAP theorem (Brewer) states a distributed system can guarantee at most two of three properties simultaneously: Consistency (every read receives the most recent write), Availability (every request receives a response), and Partition Tolerance (system continues despite network partitions).",
-      "ar": "نظرية CAP (برور) تقول إن النظام الموزع يمكنه ضمان اثنتين فقط من ثلاث خصائص في آنٍ: التناسق (كل قراءة تتلقى آخر كتابة)، والتوافر (كل طلب يتلقى استجابة)، وتحمل التقسيم (النظام يواصل العمل رغم انقسامات الشبكة)."
+      "en": "Linearizable consistency and availability: every operation at a nonfailed node cannot always both complete and behave as part of a single up-to-date order.",
+      "ar": "الاتساق الخطي والتوافر؛ فلا يمكن ضمان أن تكتمل كل عملية لدى عقدة سليمة، وأن تتصرف في الوقت نفسه ضمن ترتيب واحد محدّث للعمليات دائماً."
     },
     "review": {
       "status": "pending"
@@ -583,12 +573,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is the difference between dynamic programming and greedy algorithms?",
-      "ar": "ما الفرق بين البرمجة الديناميكية والخوارزميات الجشعة؟"
+      "en": "What distinguishes dynamic programming from a greedy strategy?",
+      "ar": "ما الذي يميز البرمجة الديناميكية عن الاستراتيجية الجشعة؟"
     },
     "answer": {
-      "en": "Dynamic programming solves problems by breaking them into overlapping subproblems and storing results (memoisation/tabulation) — optimal solution guaranteed. Greedy algorithms make locally optimal choices at each step without reconsidering — faster but not always globally optimal (e.g., Dijkstra is greedy and optimal; fractional knapsack is greedy; 0/1 knapsack requires DP).",
-      "ar": "البرمجة الديناميكية تحل المشكلات بتقسيمها إلى مشاكل فرعية متداخلة وتخزين النتائج (الحفظ/الجدولة) — ضمان الحل الأمثل. الخوارزميات الجشعة تتخذ اختيارات محلية مثلى في كل خطوة دون إعادة النظر — أسرع لكن ليست دائماً مثلى عالمياً (مثلاً ديكسترا جشعة ومثلى؛ المسح الجزئي جشع؛ مسألة الحقيبة 0/1 تحتاج البرمجة الديناميكية)."
+      "en": "Dynamic programming reuses solutions to overlapping subproblems according to a recurrence. A greedy strategy commits to a locally preferred choice. Either yields an optimum only when its correctness conditions are satisfied.",
+      "ar": "تعيد البرمجة الديناميكية استخدام حلول مسائل فرعية متداخلة وفق علاقة عودية. أما الاستراتيجية الجشعة فتلتزم باختيار مفضل محلياً. ولا تضمن أي منهما الحل الأمثل إلا عند تحقق شروط صحتها."
     },
     "review": {
       "status": "pending"
@@ -602,12 +592,12 @@
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is virtual memory and how does paging work?",
-      "ar": "ما الذاكرة الافتراضية وكيف يعمل التصفيح؟"
+      "en": "How does paging map a process's virtual memory to physical memory?",
+      "ar": "كيف يربط تقسيم الذاكرة إلى صفحات ذاكرة العملية الافتراضية بالذاكرة الفعلية؟"
     },
     "answer": {
-      "en": "Virtual memory gives each process the illusion of a large, private address space even if physical RAM is limited. Paging divides virtual addresses into fixed-size pages mapped to physical frames by a page table. When a page is not in RAM (page fault), the OS loads it from disk.",
-      "ar": "الذاكرة الافتراضية تمنح كل عملية وهم فضاء عنوان كبير وخاص حتى لو كانت ذاكرة RAM الفعلية محدودة. التصفيح يُقسّم العناوين الافتراضية إلى صفحات ذات حجم ثابت مُعيَّنة لإطارات فيزيائية بجدول صفحات. عندما لا تكون الصفحة في RAM (خطأ صفحة)، يُحمّلها نظام التشغيل من القرص."
+      "en": "Virtual memory is divided into fixed-size pages mapped to physical frames using page tables. A page fault requires operating-system handling, which may load data from storage, allocate a page, or reject an invalid access.",
+      "ar": "تُقسم الذاكرة الافتراضية إلى صفحات ثابتة الحجم تربطها جداول الصفحات بإطارات فعلية. ويعالج نظام التشغيل خطأ الصفحة، وقد يحمّل بيانات أو يخصص صفحة أو يرفض وصولاً غير صالح."
     },
     "review": {
       "status": "pending"
@@ -698,12 +688,12 @@
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is the difference between TCP and UDP?",
-      "ar": "ما الفرق بين TCP وUDP؟"
+      "en": "How do TCP and UDP differ in their transport service?",
+      "ar": "كيف تختلف خدمة النقل التي يوفرها TCP عن UDP؟"
     },
     "answer": {
-      "en": "TCP (Transmission Control Protocol) is connection-oriented with guaranteed delivery, ordering, and error checking — higher overhead (e.g., web, email). UDP (User Datagram Protocol) is connectionless with no delivery guarantees — lower latency, used for real-time applications (e.g., video streaming, DNS, gaming).",
-      "ar": "TCP (بروتوكول التحكم في الإرسال) موجّه للاتصال مع ضمان التسليم والترتيب وفحص الأخطاء — عبء أعلى (مثلاً الويب والبريد الإلكتروني). UDP (بروتوكول مخطط البيانات للمستخدم) بلا اتصال بدون ضمانات تسليم — كمون أقل، يُستخدم للتطبيقات الفورية (مثلاً بث الفيديو وDNS والألعاب)."
+      "en": "TCP offers a reliable ordered byte stream with retransmission and failure reporting. UDP sends independent datagrams without delivery or ordering guarantees. Neither protocol can guarantee successful communication through every failure.",
+      "ar": "يوفر TCP تدفق بايتات مرتباً وموثوقاً مع إعادة الإرسال والإبلاغ عن الفشل. ويرسل UDP رزم بيانات مستقلة دون ضمان التسليم أو الترتيب. ولا يضمن أيهما نجاح الاتصال أمام كل الأعطال."
     },
     "review": {
       "status": "pending"
@@ -717,12 +707,12 @@
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is microservices architecture and how does it differ from monolithic architecture?",
-      "ar": "ما معمارية الخدمات المصغّرة وكيف تختلف عن المعمارية الأحادية؟"
+      "en": "What deployment distinction separates a monolith from a microservices architecture?",
+      "ar": "ما الفرق في النشر بين المعمارية الأحادية ومعمارية الخدمات المصغرة؟"
     },
     "answer": {
-      "en": "Monolithic: a single deployable unit containing all functionality — simple to develop initially but hard to scale and modify. Microservices: functionality split into small, independently deployable services communicating via APIs — better scalability and team autonomy, but increased operational complexity (networking, distributed tracing, eventual consistency).",
-      "ar": "أحادية: وحدة نشر واحدة تحتوي على جميع الوظائف — بسيطة في التطوير مبدئياً لكن صعبة التوسع والتعديل. الخدمات المصغّرة: الوظائف تُقسَّم إلى خدمات صغيرة مستقلة النشر تتواصل عبر APIs — قابلية توسع أفضل واستقلالية الفريق لكن تعقيد تشغيلي أكبر (الشبكات والتتبع الموزع والتناسق النهائي)."
+      "en": "A monolith deploys its main application as one unit; microservices separate capabilities into independently deployable services. The latter can increase team autonomy but adds distributed-system and operational complexity.",
+      "ar": "تنشر المعمارية الأحادية التطبيق الرئيسي كوحدة واحدة، بينما تفصل الخدمات المصغرة الوظائف إلى خدمات مستقلة النشر. وقد تزيد استقلالية الفرق، لكنها تضيف تعقيداً تشغيلياً وتعقيد الأنظمة الموزعة."
     },
     "review": {
       "status": "pending"
@@ -736,12 +726,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is garbage collection and what are the tradeoffs between manual memory management and GC?",
-      "ar": "ما جمع القمامة وما المقايضات بين إدارة الذاكرة اليدوية وGC؟"
+      "en": "Can a garbage-collected program still leak memory by retaining references to objects it no longer needs?",
+      "ar": "هل يمكن لبرنامج يستخدم جمع الذاكرة التلقائي أن يسرّب الذاكرة بسبب الاحتفاظ بمراجع إلى كائنات لم يعد يحتاجها؟"
     },
     "answer": {
-      "en": "Garbage collection automatically reclaims memory no longer referenced — preventing memory leaks at the cost of runtime pauses and overhead (e.g., Java, Python, Go). Manual management (C, C++) gives precise control and no GC pauses but risks memory leaks, use-after-free, and double-free bugs.",
-      "ar": "جمع القمامة يستعيد تلقائياً الذاكرة التي لم تعد مُشار إليها — يمنع تسرب الذاكرة على حساب توقفات زمنية أثناء التشغيل وعبء إضافي (مثلاً جافا، بايثون، Go). الإدارة اليدوية (C، C++) تمنح تحكماً دقيقاً بدون توقفات GC لكن بخطر تسرب الذاكرة والاستخدام بعد التحرير وأخطاء التحرير المزدوج."
+      "en": "Yes. Reachability-based garbage collectors reclaim unreachable objects, so unnecessarily retained reachable objects can keep consuming memory.",
+      "ar": "نعم. تستعيد مجمّعات الذاكرة القائمة على قابلية الوصول الكائنات غير القابلة للوصول؛ لذلك قد تستمر كائنات محفوظة بلا حاجة في استهلاك الذاكرة."
     },
     "review": {
       "status": "pending"
@@ -774,21 +764,19 @@
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is a deadlock in operating systems and what are the four Coffman conditions?",
-      "ar": "ما الإغلاق التام في أنظمة التشغيل وما شروط كوفمان الأربعة؟"
+      "en": "What four Coffman conditions are necessary for resource deadlock in the classical model?",
+      "ar": "ما شروط كوفمان الأربعة اللازمة لاختناق الموارد في النموذج التقليدي؟"
     },
     "answer": {
-      "en": "A deadlock is a state where two or more processes are permanently blocked, each waiting for a resource held by another. Coffman conditions (all four must hold): (1) Mutual Exclusion, (2) Hold and Wait, (3) No Preemption, (4) Circular Wait.",
-      "ar": "الإغلاق التام حالة تُحجب فيها عمليتان أو أكثر بشكل دائم، كل منها تنتظر مورداً يحتفظ به الآخر. شروط كوفمان (يجب أن تتوفر الأربعة): (1) الاستبعاد المتبادل، (2) الاحتفاظ والانتظار، (3) عدم الاستئصال، (4) الانتظار الدائري."
+      "en": "Mutual exclusion; hold and wait; no forced preemption of resources; circular wait.",
+      "ar": "الاستبعاد المتبادل؛ الاحتفاظ والانتظار؛ عدم نزع الموارد قسراً؛ الانتظار الدائري."
     },
     "acceptedAnswers": {
       "en": [
-        "Permanent mutual waiting; conditions: mutual exclusion, hold-and-wait, no preemption, circular wait.",
-        "Deadlock blocks processes under exclusion, hold-and-wait, no preemption, and circular wait."
+        "Mutual exclusion, hold and wait, no preemption, circular wait."
       ],
       "ar": [
-        "انتظار متبادل دائم؛ شروطه الاستبعاد المتبادل والاحتفاظ والانتظار وعدم الاستباق والانتظار الدائري.",
-        "تتعطل العمليات دائماً مع الاستبعاد والاحتفاظ والانتظار ومنع الاستباق ودائرة الانتظار."
+        "الاستبعاد المتبادل والاحتفاظ والانتظار وعدم نزع الموارد قسراً والانتظار الدائري."
       ]
     },
     "review": {
@@ -807,8 +795,8 @@
       "ar": "ما التناسق النهائي في قواعد البيانات الموزعة؟"
     },
     "answer": {
-      "en": "A consistency model where, given no new updates, all replicas of data will eventually converge to the same value — but temporary inconsistencies are allowed between replicas. Used by highly available systems (Cassandra, DynamoDB). Contrasts with strong consistency (all reads reflect the latest write immediately).",
-      "ar": "نموذج تناسق حيث، في غياب تحديثات جديدة، تتقارب جميع نسخ البيانات في نهاية المطاف إلى القيمة ذاتها — لكن التناسقات المؤقتة مسموح بها بين النسخ. تستخدمه الأنظمة عالية التوافر (Cassandra، DynamoDB). يتناقض مع التناسق القوي (جميع القراءات تعكس آخر كتابة فوراً)."
+      "en": "A consistency model in which replicas eventually converge if updates stop and communication succeeds, while temporary differences between replicas are allowed.",
+      "ar": "نموذج اتساق تتقارب فيه النسخ في النهاية إذا توقفت التحديثات ونجح الاتصال، مع السماح باختلافات مؤقتة بين النسخ."
     },
     "review": {
       "status": "pending"
@@ -854,18 +842,18 @@
   },
   {
     "id": "software-and-computing-038",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Software Engineering",
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is a design pattern? Name and explain three common ones.",
-      "ar": "ما نمط التصميم؟ اذكر ثلاثة أنماط شائعة واشرحها."
+      "en": "Which design pattern lets an object notify registered subscribers when its state changes?",
+      "ar": "ما نمط التصميم الذي يتيح لكائن إخطار المشتركين المسجلين عند تغير حالته؟"
     },
     "answer": {
-      "en": "Reusable solutions to common software design problems (GoF book). Three examples: Singleton (ensure only one instance of a class exists), Observer (subject notifies a list of observers on state change — event-driven systems), Factory Method (delegate object creation to subclasses, hiding instantiation logic).",
-      "ar": "حلول قابلة لإعادة الاستخدام لمشاكل تصميم البرمجيات الشائعة (كتاب GoF). ثلاثة أمثلة: Singleton (ضمان وجود نسخة واحدة فقط من الصنف)، وObserver (الموضوع يُخطر قائمة من المراقبين عند تغيير الحالة — الأنظمة المدفوعة بالأحداث)، وFactory Method (تفويض إنشاء الكائنات للأصناف الفرعية مع إخفاء منطق التهيئة)."
+      "en": "The Observer pattern.",
+      "ar": "نمط المراقب (Observer)."
     },
     "review": {
       "status": "pending"
@@ -879,12 +867,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is Byzantine fault tolerance and why is it important in distributed systems?",
-      "ar": "ما تحمّل الأعطال البيزنطية ولماذا يهم في الأنظمة الموزعة؟"
+      "en": "In the usual PBFT replication model, how many replicas are required to tolerate up to f Byzantine-faulty replicas?",
+      "ar": "في نموذج النسخ المعتاد لخوارزمية PBFT، كم نسخة تلزم لتحمل ما يصل إلى f من النسخ ذات الأعطال البيزنطية؟"
     },
     "answer": {
-      "en": "Byzantine fault tolerance (Lamport, 1982) is the ability of a system to continue operating even if some nodes fail in arbitrary ways — including sending conflicting information. Standard fault tolerance handles crash failures; Byzantine tolerance handles malicious or corrupted nodes. It requires at least 3f+1 nodes to tolerate f faulty ones. Critical for blockchain consensus (PBFT, Tendermint).",
-      "ar": "تحمّل الأعطال البيزنطية (لامبورت، 1982) هو قدرة النظام على الاستمرار في العمل حتى لو فشلت بعض العقد بطرق عشوائية — بما في ذلك إرسال معلومات متضاربة. تحمّل الأعطال القياسي يُعالج أعطال الانهيار؛ تحمّل البيزنطية يُعالج العقد الخبيثة أو الفاسدة. يتطلب على الأقل 3f+1 عقدة لتحمل f عقدة معطوبة. أساسي لإجماع سلسلة الكتل (PBFT، Tendermint)."
+      "en": "At least 3f+1 replicas, under the protocol's assumptions. This is not a universal bound for every fault and timing model.",
+      "ar": "تلزم 3f+1 نسخة على الأقل وفق افتراضات البروتوكول. وليس هذا حداً عاماً لكل نماذج الأعطال والتوقيت."
     },
     "review": {
       "status": "pending"
@@ -956,21 +944,19 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is the difference between a Turing machine and a finite automaton, and what classes of languages do they recognise?",
-      "ar": "ما الفرق بين آلة تورينغ والأوتوماتون المحدود وما فئات اللغات التي يتعرف عليها كل منهما؟"
+      "en": "What classes of languages are recognized by finite automata and by Turing machines?",
+      "ar": "ما فئات اللغات التي تتعرف عليها الآلات محدودة الحالات وآلات تورينغ؟"
     },
     "answer": {
-      "en": "A finite automaton has a fixed number of states and no external memory — recognises regular languages (the lowest class in the Chomsky hierarchy). A Turing machine has a potentially infinite tape, can read/write/move in both directions — recognises Turing-recognisable (recursively enumerable) languages. Between them: pushdown automata (context-free languages) and linear-bounded automata (context-sensitive).",
-      "ar": "الأوتوماتون المحدود لديه عدد ثابت من الحالات وبلا ذاكرة خارجية — يتعرف على اللغات المنتظمة (أدنى فئة في تسلسل تشومسكي). آلة تورينغ لديها شريط لا نهائي محتمل يمكن قراءته/كتابته/التحرك فيه في كلا الاتجاهين — تتعرف على اللغات القابلة للتعرف عبر تورينغ (المعددة بشكل حسابي). بينهما: أوتوماتون الدفع للأسفل (اللغات السياقية الحرة) والأوتوماتون المقيد خطياً (اللغات السياقية)."
+      "en": "Finite automata recognize regular languages. Turing machines recognize recursively enumerable, or Turing-recognizable, languages.",
+      "ar": "تتعرف الآلات محدودة الحالات على اللغات المنتظمة. وتتعرف آلات تورينغ على اللغات القابلة للتعداد العودي، أو القابلة للتعرف بآلة تورينغ."
     },
     "acceptedAnswers": {
       "en": [
-        "Finite automata: regular languages; tape-based Turing machines: recursively enumerable languages.",
-        "Finite automata accept regular languages; taped Turing machines accept recognizable languages."
+        "Regular languages; recursively enumerable languages."
       ],
       "ar": [
-        "الأوتوماتون المحدود للغات المنتظمة؛ آلة تورينغ ذات الشريط للغات المعددة حسابياً.",
-        "المحدود بلا شريط ويقبل المنتظمة؛ تورينغ ذات شريط وتقبل القابلة للتعرف."
+        "اللغات المنتظمة؛ واللغات القابلة للتعداد العودي."
       ]
     },
     "review": {
@@ -985,21 +971,19 @@
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is event sourcing and how does it differ from traditional CRUD?",
-      "ar": "ما تحديد الأحداث (Event Sourcing) وكيف يختلف عن CRUD التقليدي؟"
+      "en": "In event sourcing, what is the authoritative record from which application state can be reconstructed?",
+      "ar": "عند اعتماد الأحداث مصدراً للحقيقة، ما السجل المرجعي الذي يمكن إعادة بناء حالة التطبيق منه؟"
     },
     "answer": {
-      "en": "In traditional CRUD, the database stores current state. In event sourcing, only immutable events (facts about what happened) are stored; current state is derived by replaying the event log. Benefits: full audit trail, temporal queries, easy projection rebuilding. Tradeoffs: increased storage, more complex querying, event schema evolution challenges.",
-      "ar": "في CRUD التقليدي، تُخزّن قاعدة البيانات الحالة الراهنة. في تحديد الأحداث، تُخزّن فقط الأحداث الثابتة (حقائق عما حدث)؛ والحالة الراهنة تُشتقّ بإعادة تشغيل سجل الأحداث. الفوائد: سجل تدقيق كامل وعمليات بحث زمنية وإعادة بناء الإسقاطات بسهولة. المقايضات: تخزين أكبر واستعلامات أكثر تعقيداً وتحديات تطور مخطط الأحداث."
+      "en": "An ordered log of immutable events. Snapshots and projections may also be stored, but can be derived from the event history.",
+      "ar": "سجل مرتب لأحداث غير قابلة للتعديل. وقد تُحفظ لقطات وإسقاطات للحالة أيضاً، لكن يمكن اشتقاقها من تاريخ الأحداث."
     },
     "acceptedAnswers": {
       "en": [
-        "CRUD stores current state; event sourcing stores immutable events and derives state by replay.",
-        "Event sourcing replays immutable history into state; CRUD directly persists current state."
+        "An ordered immutable event log."
       ],
       "ar": [
-        "في CRUD تُخزّن الحالة الحالية؛ في Event Sourcing تُخزّن الأحداث وتُشتق الحالة بإعادتها.",
-        "مصادر الأحداث تعيد التاريخ الثابت لبناء الحالة؛ وCRUD يحفظ الحالة الحالية مباشرة."
+        "سجل مرتب لأحداث غير قابلة للتعديل."
       ]
     },
     "review": {
@@ -1043,12 +1027,12 @@
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is eBPF (extended Berkeley Packet Filter) and what are its modern uses?",
-      "ar": "ما eBPF (فلتر الحزم بيركلي الموسّع) وما استخداماته الحديثة؟"
+      "en": "What capability does eBPF provide for supported Linux-kernel use cases?",
+      "ar": "ما الإمكانية التي يوفرها eBPF للاستخدامات المدعومة داخل نواة لينكس؟"
     },
     "answer": {
-      "en": "eBPF allows sandboxed programs to run in the Linux kernel without modifying kernel source or loading modules. Modern uses: high-performance networking (bypassing kernel stack — XDP), observability (tracing system calls, latency without overhead — Cilium, BPF Compiler Collection), security (runtime threat detection), and load balancing.",
-      "ar": "eBPF يُتيح تشغيل برامج في صندوق رمل داخل نواة Linux دون تعديل كودها المصدري أو تحميل وحدات. الاستخدامات الحديثة: الشبكات عالية الأداء (تجاوز مكدس النواة — XDP)، والرصد (تتبع نداءات النظام والكمون بدون عبء — Cilium، BCC)، والأمن (اكتشاف التهديدات أثناء التشغيل)، وموازنة التحميل."
+      "en": "It runs verified, constrained programs at supported hook points without modifying kernel source. Uses include networking, tracing, and security; their runtime overhead depends on the program and workload.",
+      "ar": "يشغل برامج متحققاً منها ومقيدة عند نقاط ربط مدعومة دون تعديل مصدر النواة. ومن استخداماته الشبكات والتتبع والأمن، ويتوقف عبؤها وقت التشغيل على البرنامج وحمل العمل."
     },
     "review": {
       "status": "pending"
@@ -1062,12 +1046,12 @@
       "ar": "هندسة البرمجيات"
     },
     "question": {
-      "en": "What is the difference between optimistic and pessimistic concurrency control in databases?",
-      "ar": "ما الفرق بين التحكم التفاؤلي والتشاؤمي في التزامن في قواعد البيانات؟"
+      "en": "When does optimistic concurrency control detect conflicts, compared with holding locks throughout a transaction?",
+      "ar": "متى يكتشف التحكم التفاؤلي في التزامن التعارضات، مقارنةً بالاحتفاظ بالأقفال طوال المعاملة؟"
     },
     "answer": {
-      "en": "Pessimistic concurrency: acquires locks before reading/writing, preventing conflicts — safer but reduces throughput (deadlock risk). Optimistic concurrency: no locks; transactions proceed and only check for conflicts at commit time; if a conflict is detected, the transaction is rolled back and retried. Better for low-contention workloads.",
-      "ar": "التزامن التشاؤمي: يُحصّل الأقفال قبل القراءة/الكتابة، مما يمنع التعارضات — أكثر أماناً لكن يُقلل الإنتاجية (خطر الإغلاق التام). التزامن التفاؤلي: بلا أقفال؛ المعاملات تتقدم وتفحص التعارضات فقط عند الإيداع؛ عند اكتشاف تعارض، تُلغى المعاملة وتُعاد المحاولة. أفضل لأعباء العمل ذات الاحتكاك المنخفض."
+      "en": "It lets work proceed and validates for conflicts before committing, retrying or aborting when needed. Implementations may still use short-lived locks during validation or commit.",
+      "ar": "يسمح باستمرار العمل ثم يتحقق من التعارضات قبل تثبيت المعاملة، مع إعادة المحاولة أو الإلغاء عند الحاجة. وقد يستخدم التطبيق أقفالاً قصيرة أثناء التحقق أو التثبيت."
     },
     "review": {
       "status": "pending"
@@ -1100,12 +1084,12 @@
       "ar": "الخوارزميات وهياكل البيانات"
     },
     "question": {
-      "en": "What is amortised analysis and how does it apply to a dynamic array's resize operation?",
-      "ar": "ما التحليل المستهلك وكيف ينطبق على عملية تغيير حجم المصفوفة الديناميكية؟"
+      "en": "Why is append O(1) amortized for a dynamic array whose capacity doubles when full?",
+      "ar": "لماذا تكون كلفة الإضافة في نهاية مصفوفة ديناميكية تضاعف سعتها عند امتلائها O(1) بالتكلفة الموزعة؟"
     },
     "answer": {
-      "en": "Amortised analysis computes the average cost per operation over a sequence, even if some individual operations are expensive. A dynamic array doubles its capacity when full: most appends are O(1), but occasional resize is O(n). Amortised cost per append is still O(1) because each element is moved at most a constant number of times across all doublings.",
-      "ar": "التحليل المستهلك يحسب متوسط تكلفة كل عملية عبر تسلسل، حتى لو كانت بعض العمليات الفردية مكلفة. المصفوفة الديناميكية تضاعف سعتها عند امتلائها: معظم إضافات O(1)، لكن تغيير الحجم العرضي O(n). التكلفة المستهلكة لكل إضافة لا تزال O(1) لأن كل عنصر يُنقل بحد أقصى عدداً ثابتاً من المرات عبر جميع المضاعفات."
+      "en": "Across n appends, resize-copy costs form a geometric sum 1+2+4+...=O(n). Including ordinary appends gives total O(n), hence O(1) amortized per append.",
+      "ar": "عبر n إضافات، تشكل تكاليف النسخ عند التوسيع مجموعاً هندسياً1+2+4+...=O(n). وبإضافة الكلفة المعتادة يبقى المجموع O(n)، أي O(1) موزعة لكل إضافة."
     },
     "review": {
       "status": "pending"
@@ -1113,18 +1097,18 @@
   },
   {
     "id": "software-and-computing-049",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Systems & Networking",
       "ar": "الأنظمة والشبكات"
     },
     "question": {
-      "en": "What is the LMAX Disruptor and what architectural choices make it achieve high throughput?",
-      "ar": "ما LMAX Disruptor وما الاختيارات المعمارية التي تحقق له إنتاجية عالية؟"
+      "en": "In a fixed-capacity ring buffer, what happens to the logical next index after the last array position?",
+      "ar": "في مخزن دائري ثابت السعة، ماذا يحدث للفهرس التالي منطقياً بعد آخر موضع في المصفوفة؟"
     },
     "answer": {
-      "en": "The LMAX Disruptor is a high-performance inter-thread messaging library using a ring buffer with no locks. Key techniques: pre-allocated fixed-size ring buffer (no GC pressure), CPU cache-line padding to avoid false sharing, memory barriers instead of locks, and busy-spin waiting for lowest latency. It achieves millions of events per second within a JVM.",
-      "ar": "LMAX Disruptor مكتبة رسائل بين الخيوط عالية الأداء تستخدم مخزن دائري بلا أقفال. التقنيات الرئيسية: مخزن دائري ذو حجم ثابت مُخصَّص مسبقاً (بلا ضغط GC)، وحشو خط ذاكرة CPU لتجنب المشاركة الزائفة، وحواجز ذاكرة بدلاً من الأقفال، والانتظار بالدوران المكثف لأقل كمون. يحقق ملايين الأحداث في الثانية داخل JVM."
+      "en": "It wraps to index 0, commonly computed as(next index) mod capacity. Full and empty states must be tracked separately.",
+      "ar": "يعود إلى الفهرس 0، ويُحسب عادةً بباقي قسمة الفهرس التالي على السعة. ويجب تتبع حالتي الامتلاء والفراغ بصورة منفصلة."
     },
     "review": {
       "status": "pending"
@@ -1138,12 +1122,12 @@
       "ar": "علوم الحاسب"
     },
     "question": {
-      "en": "What is quantum computing and what types of problems does it solve faster than classical computers?",
-      "ar": "ما الحوسبة الكمية وما أنواع المشكلات التي تحلها أسرع من الحاسبات الكلاسيكية؟"
+      "en": "What integer problem can Shor's quantum algorithm solve in polynomial time on a sufficiently capable quantum computer?",
+      "ar": "ما المسألة المتعلقة بالأعداد الصحيحة التي تحلها خوارزمية شور في زمن كثير حدود على حاسوب كمي ذي قدرة كافية؟"
     },
     "answer": {
-      "en": "Quantum computers use qubits (superposition of 0 and 1) and entanglement to perform massively parallel computations. Proven speedups: Shor's algorithm (factoring large numbers exponentially faster — breaks RSA), Grover's algorithm (unstructured search in O(√n) vs classical O(n)). Practical quantum advantage for broader problems is still being researched.",
-      "ar": "الحاسبات الكمية تستخدم كيوبتات (تراكب 0 و1) والتشابك لإجراء عمليات حسابية متوازية بشكل هائل. تسريعات مثبتة: خوارزمية شور (تحليل الأعداد الكبيرة أسرع أسياً — تكسر RSA)، وخوارزمية غروفر (البحث غير المنظم في O(√n) مقابل O(n) كلاسيكياً). الميزة الكمية العملية للمشكلات الأوسع لا تزال قيد البحث."
+      "en": "Integer factorization. This is faster asymptotically than the best known classical factoring methods, but no proof rules out every possible efficient classical algorithm.",
+      "ar": "تحليل الأعداد الصحيحة إلى عواملها. وهو أسرع تقاربياً من أفضل الطرق الكلاسيكية المعروفة، لكن لا يوجد برهان يستبعد كل خوارزمية كلاسيكية سريعة ممكنة."
     },
     "review": {
       "status": "pending"

@@ -1,12 +1,48 @@
 {
   "reviewedDistinctPairs": [
     {
+      "ids": ["ayt-095", "ayt-132"],
+      "reason": "Reviewed after the September 2026 rewrite: production-studio questions concern two explicitly different series and years, Princess Sara (1985) and Remi (1996). Shared studio is not a repeated series fact."
+    },
+    {
+      "ids": ["ayt-078", "ayt-141"],
+      "reason": "Reviewed after the September 2026 rewrite: Grendizer and Hello! Sandybell are distinct named productions that happen to share a studio."
+    },
+    {
+      "ids": ["psychology-014", "psychology-068"],
+      "reason": "One asks who led the Stanford study; the other explains what it was and explicitly limits the conclusions because of methodological and ethical criticism. Attribution and critical interpretation are distinct learning tasks."
+    },
+    {
+      "ids": ["tv-shows-trivia-241", "tv-shows-trivia-248"],
+      "reason": "One asks which character Nicolas Mouawad portrays; the other identifies the author of the quatrains used in the opening theme. Cast-role and source-text facts are distinct."
+    },
+    {
+      "ids": ["space-and-astrology-013", "space-035"],
+      "reason": "Listing all four outer giant planets and their gas/ice classifications is distinct from identifying the single largest planet."
+    },
+    {
+      "ids": ["tv-shows-trivia-164", "tv-shows-trivia-165"],
+      "reason": "The questions name different Maraya editions (2002 and 2005) and require different titles."
+    },
+    {
+      "ids": ["space-and-astrology-001", "space-034"],
+      "reason": "One tests Mars's conventional nickname; the other locates a named geological feature, Olympus Mons. Same planet, different explicit knowledge."
+    },
+    {
+      "ids": ["tv-shows-trivia-179", "tv-shows-trivia-185"],
+      "reason": "Identifying both lead actors and assigning the specific recurring role Fouad to one actor are distinct tasks; the latter cannot be answered by the unordered lead pair."
+    },
+    {
+      "ids": ["ayt-101", "ayt-104"],
+      "reason": "One asks the protagonist's family name; the other asks the older sister's full name, requiring the distinct given name Sakiko."
+    },
+    {
       "ids": ["geography-004", "geography-037"],
       "reason": "Same answer, but one asks for the deepest ocean and the other for the largest."
     },
     {
       "ids": ["football-026", "football-bw-022"],
-      "reason": "One asks for the club with the most European titles; the other asks who won the first European Cup."
+      "reason": "One asks who won the 2024 Champions League final; the other asks who won the first European Cup in 1956. Different dated competitions."
     },
     {
       "ids": ["football-004", "football-bw-016"],
@@ -50,7 +86,7 @@
     },
     {
       "ids": ["football-026", "football-105"],
-      "reason": "The questions concern separate records in the Champions League and La Liga."
+      "reason": "The questions concern the winners of separate competitions: the 2024 Champions League final and the 2023–24 Spanish La Liga season."
     }
   ]
 }

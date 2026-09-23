@@ -30,8 +30,8 @@
       "ar": "ما المصطلح الذي يشير إلى خطأ أو عيب في برنامج حاسوبي؟"
     },
     "answer": {
-      "en": "A bug",
-      "ar": "الخطأ البرمجي (البق)"
+      "en": "A software bug.",
+      "ar": "خطأ برمجي."
     },
     "review": {
       "status": "pending"
@@ -140,8 +140,8 @@
       "ar": "أساسيات البرمجة"
     },
     "question": {
-      "en": "What is text in code that is not executed called?",
-      "ar": "ما اسم النص في الكود الذي لا يُنفَّذ بواسطة الحاسوب؟"
+      "en": "What are explanatory annotations in source code that the language does not execute called?",
+      "ar": "ما اسم الملاحظات التوضيحية في الكود المصدري التي لا تنفذها اللغة؟"
     },
     "answer": {
       "en": "A comment",
@@ -201,8 +201,8 @@
       "ar": "ما الفرق بين UI وUX؟"
     },
     "answer": {
-      "en": "UI is the look; UX is the feel and overall experience",
-      "ar": "UI هو المظهر؛ UX هو الإحساس وتجربة المستخدم الكاملة"
+      "en": "UI is the interface through which users interact, including controls and presentation. UX is the broader experience of using a product, including usability, accessibility, and whether it meets users' needs.",
+      "ar": "UI هي الواجهة التي يتفاعل المستخدم عبرها، بما فيها عناصر التحكم والعرض. أما UX فهي تجربة استخدام المنتج الأوسع، وتشمل سهولة الاستخدام وإمكانية الوصول ومدى تلبية الاحتياجات."
     },
     "review": {
       "status": "pending"
@@ -273,8 +273,8 @@
       "ar": "البيانات والواجهات والأدوات"
     },
     "question": {
-      "en": "What is the most popular version control system used by developers?",
-      "ar": "ما نظام إدارة الإصدارات الأكثر شيوعاً بين المطورين؟"
+      "en": "Which widely used distributed version-control system was created by Linus Torvalds in 2005?",
+      "ar": "ما نظام التحكم الموزع في الإصدارات واسع الاستخدام الذي أنشأه لينوس تورفالدس عام 2005؟"
     },
     "answer": {
       "en": "Git",
@@ -444,8 +444,8 @@
       "ar": "أنظمة الحاسوب والنظرية"
     },
     "question": {
-      "en": "What is the famous unsolved problem in CS regarding polynomial time?",
-      "ar": "ما المسألة الشهيرة غير المحلولة في علوم الحاسوب المتعلقة بالوقت متعدد الحدود؟"
+      "en": "Which open problem asks whether every decision problem whose proposed solutions can be verified in polynomial time can also be solved in polynomial time?",
+      "ar": "ما المسألة المفتوحة التي تسأل هل كل مسألة قرار يمكن التحقق من حلولها المقترحة في زمن كثير حدود يمكن حلها أيضاً في زمن كثير حدود؟"
     },
     "answer": {
       "en": "P vs NP",
@@ -463,12 +463,12 @@
       "ar": "أساسيات البرمجة"
     },
     "question": {
-      "en": "Is C++ a compiled or an interpreted language?",
-      "ar": "هل C++ لغة مُترجَمة (compiled) أم مُفسَّرة (interpreted)؟"
+      "en": "In a typical ahead-of-time C++ build, is source code compiled before the resulting executable runs?",
+      "ar": "في بناء C++ المعتاد بالترجمة المسبقة، هل يُترجم المصدر قبل تشغيل الملف التنفيذي الناتج؟"
     },
     "answer": {
-      "en": "Compiled",
-      "ar": "مترجمة"
+      "en": "Yes. C++ is typically compiled, although interpreters and other implementation strategies also exist.",
+      "ar": "نعم. تُترجم C++ عادةً مسبقاً، مع وجود مفسرات واستراتيجيات تنفيذ أخرى أيضاً."
     },
     "review": {
       "status": "pending"
@@ -482,8 +482,8 @@
       "ar": "واجهات وتجربة المستخدم والتصميم البصري"
     },
     "question": {
-      "en": "In design, what is the term for adjusting the space between individual characters?",
-      "ar": "في التصميم، ما مصطلح ضبط المسافة بين الأحرف الفردية؟"
+      "en": "In typography, what term means adjusting the spacing between a specific pair of characters?",
+      "ar": "في تنسيق الخطوط، ما المصطلح الذي يعني ضبط المسافة بين زوج محدد من الحروف؟"
     },
     "answer": {
       "en": "Kerning",

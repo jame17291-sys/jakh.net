@@ -7,12 +7,12 @@
       "ar": "الإدارة والتنظيم"
     },
     "question": {
-      "en": "What does the acronym 'CEO' stand for?",
-      "ar": "ماذا تعني اختصار CEO؟"
+      "en": "What does the abbreviation CEO stand for?",
+      "ar": "ماذا يعني اختصار CEO؟"
     },
     "answer": {
-      "en": "Chief Executive Officer",
-      "ar": "الرئيس التنفيذي"
+      "en": "Chief Executive Officer.",
+      "ar": "الرئيس التنفيذي."
     },
     "review": {
       "status": "pending"
@@ -26,12 +26,12 @@
       "ar": "الأسواق والاقتصاد"
     },
     "question": {
-      "en": "If supply goes down but demand stays the same, what happens to price?",
-      "ar": "إذا انخفض العرض وظل الطلب ثابتاً، ماذا يحدث للسعر؟"
+      "en": "In a standard competitive-market model, what happens to the equilibrium price when supply decreases while demand remains unchanged?",
+      "ar": "في نموذج السوق التنافسية المعتاد، ماذا يحدث لسعر التوازن إذا انخفض العرض وبقي الطلب دون تغيير؟"
     },
     "answer": {
-      "en": "It increases",
-      "ar": "يرتفع"
+      "en": "It rises, other things being equal.",
+      "ar": "يرتفع، مع ثبات العوامل الأخرى."
     },
     "review": {
       "status": "pending"
@@ -64,12 +64,12 @@
       "ar": "الأسواق والاقتصاد"
     },
     "question": {
-      "en": "What is it called when a single company dominates an entire market?",
-      "ar": "كيف يُسمى الوضع الذي تهيمن فيه شركة واحدة على السوق بأكمله؟"
+      "en": "What market structure has a single supplier of a product with no close substitutes?",
+      "ar": "ما هيكل السوق الذي يوجد فيه مورّد واحد لمنتج ليس له بديل قريب؟"
     },
     "answer": {
-      "en": "A monopoly",
-      "ar": "الاحتكار"
+      "en": "A monopoly.",
+      "ar": "الاحتكار."
     },
     "review": {
       "status": "pending"
@@ -102,12 +102,12 @@
       "ar": "التسويق وبناء العلامة"
     },
     "question": {
-      "en": "What is the term for the public's perception and emotional connection to a company?",
-      "ar": "ما المصطلح الذي يصف تصور الجمهور وارتباطه العاطفي بالشركة؟"
+      "en": "What term describes the perceptions and associations customers hold about a brand?",
+      "ar": "ما المصطلح الذي يصف تصورات العملاء وانطباعاتهم المرتبطة بعلامة تجارية؟"
     },
     "answer": {
-      "en": "Brand",
-      "ar": "العلامة التجارية"
+      "en": "Brand image.",
+      "ar": "الصورة الذهنية للعلامة التجارية."
     },
     "review": {
       "status": "pending"
@@ -315,8 +315,8 @@
       "ar": "ما الممارسة التي تعني الاستعانة بطرف خارجي لأداء الخدمات؟"
     },
     "answer": {
-      "en": "Outsourcing",
-      "ar": "الاستعانة بمصادر خارجية (الاستعراض)"
+      "en": "Outsourcing.",
+      "ar": "التعهيد، أو الاستعانة بطرف خارجي."
     },
     "review": {
       "status": "pending"
@@ -419,18 +419,18 @@
   },
   {
     "id": "business-and-management-023",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Management & Organization",
       "ar": "الإدارة والتنظيم"
     },
     "question": {
-      "en": "The '80/20 rule' states that 80% of results come from how much of causes?",
-      "ar": "تنص قاعدة 80/20 على أن 80% من النتائج تأتي من كم بالمائة من الأسباب؟"
+      "en": "A manager finds that a small share of products accounts for most sales. Which common business heuristic does this illustrate?",
+      "ar": "وجد مدير أن نسبة صغيرة من المنتجات تحقق معظم المبيعات. أي قاعدة إرشادية شائعة في الأعمال يوضّحها ذلك؟"
     },
     "answer": {
-      "en": "20% of causes",
-      "ar": "20% من الأسباب"
+      "en": "The Pareto principle, or 80/20 rule; the exact proportions need not be 80 and 20.",
+      "ar": "مبدأ باريتو، أو قاعدة 80/20؛ وليس من الضروري أن تكون النسب الفعلية 80 و20."
     },
     "review": {
       "status": "pending"
@@ -438,18 +438,18 @@
   },
   {
     "id": "business-and-management-024",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Operations & Growth",
       "ar": "العمليات والنمو"
     },
     "question": {
-      "en": "Which Japanese automotive company perfected the 'Just-in-Time' (JIT) manufacturing system?",
-      "ar": "أي شركة سيارات يابانية أتقنت نظام التصنيع 'في الوقت المناسب'؟"
+      "en": "Which Japanese carmaker developed a production system associated with Kiichiro Toyoda, Taiichi Ohno and Just-in-Time manufacturing?",
+      "ar": "أي شركة سيارات يابانية طوّرت نظام الإنتاج المرتبط بكيتشيرو تويودا وتاييتشي أونو وبالتصنيع في الوقت المناسب؟"
     },
     "answer": {
-      "en": "Toyota",
-      "ar": "تويوتا"
+      "en": "Toyota.",
+      "ar": "تويوتا."
     },
     "review": {
       "status": "pending"

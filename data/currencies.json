@@ -21,8 +21,8 @@
   {
     "id": "currencies-2",
     "question": {
-      "en": "Which currency is shared by 20 countries in the European Union?",
-      "ar": "ما هي العملة المشتركة بين 20 دولة في الاتحاد الأوروبي؟"
+      "en": "Which currency is represented by the symbol €?",
+      "ar": "ما العملة التي يرمز إليها بالعلامة €؟"
     },
     "answer": {
       "en": "Euro",
@@ -268,12 +268,12 @@
   {
     "id": "currencies-15",
     "question": {
-      "en": "What was the common currency of Europe before the Euro?",
-      "ar": "ما كانت العملات المشتركة لأوروبا قبل اليورو؟"
+      "en": "Which currency did Germany replace with euro banknotes and coins in 2002?",
+      "ar": "أيّ عملة استبدلتها ألمانيا بأوراق اليورو وقطعه النقدية عام 2002؟"
     },
     "answer": {
-      "en": "There wasn't one (each country had its own)",
-      "ar": "لم تكن هناك عملة (كل دولة كان لديها عملتها)"
+      "en": "The Deutsche Mark",
+      "ar": "المارك الألماني"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -325,12 +325,12 @@
   {
     "id": "currencies-18",
     "question": {
-      "en": "What is a 'fiat' currency?",
-      "ar": "ما هي العملة 'الإلزامية' (Fiat)؟"
+      "en": "What does fiat money mean in modern monetary terminology?",
+      "ar": "ما المقصود بمصطلح Fiat money في المصطلحات النقدية الحديثة؟"
     },
     "answer": {
-      "en": "Currency established as money by government regulation, without intrinsic value",
-      "ar": "عملة تعتبر مالاً بموجب تنظيم حكومي، دون قيمة جوهرية"
+      "en": "Money whose value is not defined by redemption for a fixed amount of a commodity such as gold; modern state-issued fiat currencies are supported by their monetary and legal systems.",
+      "ar": "نقود لا تُعرَّف قيمتها بحق استبدالها بكمية ثابتة من سلعة كالذهب؛ وتستند العملات الحكومية الحديثة غير المغطاة بالسلع إلى نظمها النقدية والقانونية."
     },
     "difficulty": "medium",
     "subcategory": {
@@ -401,8 +401,8 @@
   {
     "id": "currencies-22",
     "question": {
-      "en": "Which US President officially completely severed the dollar's link to gold in 1971?",
-      "ar": "أي رئيس أمريكي قطع رسمياً وبشكل كامل ارتباط الدولار بالذهب في عام 1971؟"
+      "en": "Which US president announced the suspension of the dollar’s official convertibility into gold in August 1971?",
+      "ar": "أيّ رئيس أمريكي أعلن تعليق قابلية تحويل الدولار رسميًا إلى الذهب في أغسطس 1971؟"
     },
     "answer": {
       "en": "Richard Nixon",
@@ -420,17 +420,17 @@
   {
     "id": "currencies-23",
     "question": {
-      "en": "What is the specific term used in Islamic finance for money charged or paid on loans (which is prohibited)?",
-      "ar": "ما هو المصطلح المحدد المستخدم في التمويل الإسلامي للمال المفروض أو المدفوع على القروض (وهو محرم)؟"
+      "en": "In a hypothetical exchange with no fees, 1 unit of currency A buys 4 units of currency B. How many B units do you receive for 25 A units?",
+      "ar": "في عملية صرف افتراضية دون رسوم، تشتري وحدة واحدة من العملة A أربع وحدات من B. كم وحدة B تحصل عليها مقابل 25 وحدة A؟"
     },
     "answer": {
-      "en": "Riba (Usury/Interest)",
-      "ar": "الربا (الفائدة)"
+      "en": "100 units of B: 25 × 4 = 100.",
+      "ar": "100 وحدة من B؛ لأن 25 × 4 = 100."
     },
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Money & Banking",
-      "ar": "المال والمصارف"
+      "en": "Foreign Exchange",
+      "ar": "الصرف الأجنبي"
     },
     "review": {
       "status": "pending"
@@ -462,8 +462,8 @@
       "ar": "ما هو 'قانون جريشام'؟"
     },
     "answer": {
-      "en": "Bad money drives out good",
-      "ar": "النقود الرديئة تطرد النقود الجيدة"
+      "en": "When two kinds of money must trade at the same official face value despite differing commodity values, people tend to spend the lower-value money and retain the higher-value money.",
+      "ar": "عندما تُتداول نقود مختلفة بالقيمة الاسمية الرسمية نفسها رغم اختلاف قيمتها السلعية، يميل الناس إلى إنفاق الأقل قيمة والاحتفاظ بالأعلى قيمة."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -484,40 +484,26 @@
       "en": "The Kuwaiti dinar",
       "ar": "الدينار الكويتي"
     },
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
     },
     "review": {
-      "status": "reviewed",
-      "reviewedAt": "2026-08-01",
-      "reviewer": "Riddle Arabia editorial review",
-      "sources": [
-        {
-          "title": "Chapter I: Currency",
-          "publisher": "Central Bank of Kuwait",
-          "url": "https://www.cbk.gov.kw/en/legislation-and-regulation/cbk-law/chapter-one"
-        },
-        {
-          "title": "الباب الأول: النقد",
-          "publisher": "بنك الكويت المركزي",
-          "url": "https://www.cbk.gov.kw/ar/legislation-and-regulation/cbk-law/chapter-one"
-        }
-      ]
+      "status": "pending"
     }
   },
   {
     "id": "currencies-27",
     "question": {
-      "en": "What is the term for a currency that is not backed by a physical commodity but is decentralized?",
-      "ar": "ما هو المصطلح الذي يطلق على العملة غير المدعومة بسلعة مادية ولكنها لامركزية؟"
+      "en": "What broad term includes Bitcoin and other digital assets whose transactions use cryptographic techniques?",
+      "ar": "ما المصطلح العام الذي يشمل البيتكوين وأصولًا رقمية أخرى تستخدم معاملاتها تقنيات التشفير؟"
     },
     "answer": {
-      "en": "Cryptocurrency",
-      "ar": "العملة المشفرة"
+      "en": "Cryptocurrency. Specific systems differ in governance, backing and decentralization.",
+      "ar": "العملات المشفّرة؛ وتختلف نظمها في الحوكمة والغطاء ودرجة اللامركزية."
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Digital Currency",
       "ar": "العملات الرقمية"
@@ -529,14 +515,14 @@
   {
     "id": "currencies-28",
     "question": {
-      "en": "In medieval Europe, what was the 'pieces of eight'?",
-      "ar": "في أوروبا في العصور الوسطى، ما كانت 'قطع الثمانية' (Pieces of eight)؟"
+      "en": "The Spanish-American coin known as a 'piece of eight' was made mainly from which metal?",
+      "ar": "من أي معدن صُنعت أساساً القطعة النقدية الإسبانية الأمريكية المعروفة باسم «قطعة الثمانية»؟"
     },
     "answer": {
-      "en": "The Spanish dollar (peso de ocho)",
-      "ar": "الدولار الإسباني"
+      "en": "Silver.",
+      "ar": "الفضة."
     },
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Monetary History",
       "ar": "تاريخ النقود"
@@ -552,8 +538,8 @@
       "ar": "إلى ماذا يشير 'التيسير الكمي'؟"
     },
     "answer": {
-      "en": "The introduction of new money into the money supply by a central bank",
-      "ar": "إدخال أموال جديدة في المعروض النقدي من قبل البنك المركزي"
+      "en": "A central bank’s large-scale purchase of financial assets, typically bonds, financed by creating central-bank reserves. It is more specific than any increase in the money supply.",
+      "ar": "شراء البنك المركزي أصولًا مالية بكميات كبيرة، عادةً سندات، بتمويل من إنشاء احتياطيات لدى البنك المركزي. وهو أخصّ من مجرد زيادة المعروض النقدي."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -574,7 +560,7 @@
       "en": "AED",
       "ar": "الدرهم الإماراتي (AED)"
     },
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "National Currencies",
       "ar": "العملات الوطنية"
@@ -609,8 +595,8 @@
       "ar": "ما هو 'مجلس النقد' في الاقتصاد الكلي؟"
     },
     "answer": {
-      "en": "A monetary authority which is required to maintain a fixed exchange rate with a foreign currency",
-      "ar": "سلطة نقدية يُطلب منها الحفاظ على سعر صرف ثابت مع عملة أجنبية"
+      "en": "A monetary arrangement that issues domestic money against foreign reserves and commits to conversion at a fixed exchange rate, with reserve-backing rules limiting discretionary issuance.",
+      "ar": "ترتيب نقدي يصدر العملة المحلية مقابل احتياطيات أجنبية ويلتزم بتحويلها بسعر صرف ثابت، مع قواعد غطاء احتياطي تقيّد الإصدار التقديري."
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -650,7 +636,7 @@
       "en": "Sea snail shells",
       "ar": "أصداف الحلزون البحري"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Alternative Money",
       "ar": "أشكال المال البديلة"
@@ -662,14 +648,14 @@
   {
     "id": "currencies-35",
     "question": {
-      "en": "What specific event caused the dramatic plunge of the British Pound on 'Black Wednesday' in 1992?",
-      "ar": "ما هو الحدث المحدد الذي تسبب في الهبوط الدراماتيكي للجنيه الإسترليني يوم 'الأربعاء الأسود' عام 1992؟"
+      "en": "From which European exchange-rate arrangement did the United Kingdom withdraw sterling on Black Wednesday in September 1992?",
+      "ar": "من أيّ ترتيب أوروبي لأسعار الصرف سحبت المملكة المتحدة الجنيه الإسترليني في «الأربعاء الأسود» في سبتمبر 1992؟"
     },
     "answer": {
-      "en": "George Soros short-selling the pound, forcing the UK out of the European Exchange Rate Mechanism (ERM)",
-      "ar": "بيع جورج سوروس للجنيه على المكشوف، مما أجبر المملكة المتحدة على الخروج من آلية سعر الصرف الأوروبية"
+      "en": "The Exchange Rate Mechanism (ERM)",
+      "ar": "آلية سعر الصرف الأوروبية (ERM)"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Foreign Exchange",
       "ar": "الصرف الأجنبي"
@@ -704,13 +690,13 @@
       "ar": "ما هو نظام 'الحوالة'؟"
     },
     "answer": {
-      "en": "An informal value transfer system based on the performance and honor of a huge network of money brokers",
-      "ar": "نظام غير رسمي لتحويل القيمة يعتمد على أداء وشرف شبكة ضخمة من سماسرة الأموال"
+      "en": "An informal value-transfer arrangement in which trusted intermediaries arrange payment to a recipient and settle obligations between themselves separately.",
+      "ar": "ترتيب غير رسمي لنقل القيمة، ينظّم فيه وسطاء موثوقون الدفع للمستلم، ثم يسوّون الالتزامات فيما بينهم بصورة منفصلة."
     },
     "difficulty": "very-advanced",
     "subcategory": {
-      "en": "Money & Banking",
-      "ar": "المال والمصارف"
+      "en": "Money Basics",
+      "ar": "أساسيات المال"
     },
     "review": {
       "status": "pending"
@@ -719,12 +705,12 @@
   {
     "id": "currencies-38",
     "question": {
-      "en": "Which civilization used massive, unmovable circular stones (Rai stones) as currency?",
-      "ar": "أي حضارة استخدمت حجارة دائرية ضخمة غير قابلة للتحريك (أحجار راي) كعملة؟"
+      "en": "The people of which Micronesian island group are associated with rai stone money, whose large stones can change ownership without being physically moved?",
+      "ar": "يرتبط سكان أيّ مجموعة جزر في ميكرونيزيا بنقود أحجار «راي»، التي قد تتغير ملكية أحجارها الكبيرة دون نقلها من مكانها؟"
     },
     "answer": {
-      "en": "The Yapese people of Micronesia",
-      "ar": "شعب ياب في ميكرونيزيا"
+      "en": "Yap",
+      "ar": "ياب"
     },
     "difficulty": "very-advanced",
     "subcategory": {

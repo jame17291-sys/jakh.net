@@ -50,7 +50,7 @@
   },
   {
     "id": "logic-puzzles-002",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -154,12 +154,12 @@
       "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "If it takes 5 minutes to boil one egg, how long does it take to boil 5 eggs together?",
-      "ar": "إذا استغرق سلق بيضة واحدة 5 دقائق، كم يستغرق سلق 5 بيضات في نفس الوقت؟"
+      "en": "In this puzzle, each egg needs exactly five minutes once placed in boiling water. A large pot keeps boiling normally with five eggs in it. If all five go in together, when are they ready?",
+      "ar": "في هذا اللغز تحتاج كل بيضة إلى خمس دقائق بالضبط بعد وضعها في الماء المغلي. يواصل قدر كبير الغليان بالمعدل نفسه مع خمس بيضات. إذا وُضعت معًا، فمتى تجهز؟"
     },
     "answer": {
-      "en": "5 minutes. All eggs boil simultaneously in the same pot.",
-      "ar": "5 دقائق. جميع البيضات تُسلق في آنٍ واحد في نفس القدر."
+      "en": "After five minutes: the cooking happens simultaneously.",
+      "ar": "بعد خمس دقائق؛ فالبيض يُطهى في الوقت نفسه."
     },
     "review": {
       "status": "pending"
@@ -237,16 +237,16 @@
     "id": "logic-puzzles-007",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "What goes up when the rain comes down?",
-      "ar": "ما الذي يرتفع حين ينزل المطر؟"
+      "en": "Three umbrellas are red, blue and green. Amal does not own the red or blue one. Sami owns the blue one. Which color is Amal’s umbrella?",
+      "ar": "ثلاث مظلات: حمراء وزرقاء وخضراء. لا تملك أمل الحمراء ولا الزرقاء، ويملك سامي الزرقاء. ما لون مظلة أمل؟"
     },
     "answer": {
-      "en": "An umbrella.",
-      "ar": "الشمسية (المظلة)."
+      "en": "Green. Red and blue are excluded for Amal.",
+      "ar": "خضراء؛ فقد استُبعد اللونان الأحمر والأزرق لأمل."
     },
     "review": {
       "status": "pending"
@@ -256,57 +256,65 @@
     "id": "logic-puzzles-008",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "What gets wetter the more it dries?",
-      "ar": "ما الذي يزداد بللاً كلما جفّف أكثر؟"
+      "en": "A towel, a comb and a key are on a table. The item Noor used absorbed water from her wet hands. Which item did she use?",
+      "ar": "على طاولة منشفة ومشط ومفتاح. امتصّ الشيء الذي استخدمته نور الماء من يديها المبللتين. أيّ شيء استخدمت؟"
     },
     "answer": {
       "en": "A towel.",
-      "ar": "المنشفة."
+      "ar": "منشفة."
     },
     "review": {
       "status": "pending"
     },
     "quickFire": {
       "answer": {
-        "en": "A towel.",
-        "ar": "المنشفة."
+        "en": "A towel",
+        "ar": "منشفة"
       },
       "distractors": {
         "en": [
-          "A hair dryer",
-          "A clothesline",
-          "A drying rack"
+          "A comb",
+          "A key",
+          "None of these"
         ],
         "ar": [
-          "مجفف شعر",
-          "حبل غسيل",
-          "منشر غسيل"
+          "مشط",
+          "مفتاح",
+          "لا شيء مما سبق"
         ]
       },
       "explanation": {
-        "en": "A towel absorbs water from the thing it dries, so the towel becomes wetter while the other thing becomes drier.",
-        "ar": "تمتص المنشفة الماء من الشيء الذي تجففه، فتزداد بللاً بينما يصبح ذلك الشيء أكثر جفافًا."
+        "en": "Of the three named objects, the towel is the one used to absorb water from hands.",
+        "ar": "من بين الأشياء الثلاثة المذكورة، تُستخدم المنشفة لامتصاص الماء من اليدين."
       }
+    },
+    "acceptedAnswers": {
+      "en": [
+        "A towel"
+      ],
+      "ar": [
+        "منشفة"
+      ]
     }
   },
   {
     "id": "logic-puzzles-009",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "What has to be broken before you can use it?",
-      "ar": "ما الذي يجب أن يُكسر قبل أن تتمكن من استخدامه؟"
+      "en": "A box contains two red balls and one blue ball. Without looking, how many balls must you take to guarantee having a red ball?",
+      "ar": "في صندوق كرتان حمراوان وكرة زرقاء واحدة. كم كرة يجب أن تسحب دون النظر لتضمن الحصول على كرة حمراء؟"
     },
     "answer": {
-      "en": "An egg.",
-      "ar": "البيضة."
+      "en": "Two. At most one drawn ball can be blue.",
+      "ar": "كرتان؛ فلا يمكن أن تكون أكثر من كرة مسحوبة واحدة زرقاء."
     },
     "review": {
       "status": "pending"
@@ -316,16 +324,16 @@
     "id": "logic-puzzles-010",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "What building has the most stories?",
-      "ar": "أي مبنى يملك أكبر عدد من الطوابق (أو القصص)؟"
+      "en": "A library has four floors numbered 1–4. History is above Science, Science is on floor 2, and History is not on floor 4. Which floor holds History?",
+      "ar": "مكتبة من أربعة طوابق مرقمة من 1 إلى 4. قسم التاريخ أعلى من قسم العلوم الموجود في الطابق 2، والتاريخ ليس في الطابق 4. في أي طابق يقع التاريخ؟"
     },
     "answer": {
-      "en": "A library — it has thousands of stories (books).",
-      "ar": "المكتبة — تحتوي على آلاف القصص (الكتب)."
+      "en": "Floor 3. It is the only floor above 2 other than 4.",
+      "ar": "الطابق 3؛ فهو الطابق الوحيد فوق 2 بعد استبعاد 4."
     },
     "review": {
       "status": "pending"
@@ -335,16 +343,16 @@
     "id": "logic-puzzles-011",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "What belongs to you, but other people use it more than you do?",
-      "ar": "ما الذي ينتمي إليك لكن الآخرون يستخدمونه أكثر منك؟"
+      "en": "Ali, Badr and Huda have different pets: a cat, a dog and a bird. Ali has the bird. Badr does not have the dog. Who has the cat?",
+      "ar": "لدى علي وبدر وهدى حيوانات مختلفة: قطة وكلب وطائر. لدى علي الطائر، وليس لدى بدر الكلب. مَن لديه القطة؟"
     },
     "answer": {
-      "en": "Your name.",
-      "ar": "اسمك."
+      "en": "Badr. The bird belongs to Ali, so excluding the dog leaves the cat for Badr.",
+      "ar": "بدر؛ فالطائر لعلي، واستبعاد الكلب يترك القطة لبدر."
     },
     "review": {
       "status": "pending"
@@ -354,16 +362,16 @@
     "id": "logic-puzzles-012",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "If you say my name, you break me. What am I?",
-      "ar": "إذا نطقت باسمي كسرتني. ما أنا؟"
+      "en": "A light starts off. You press a switch five times; each press reverses its state. Is it on or off at the end?",
+      "ar": "مصباح مطفأ في البداية. تضغط مفتاحه خمس مرات، وكل ضغطة تعكس حالته. هل يكون مضاءً أم مطفأً في النهاية؟"
     },
     "answer": {
-      "en": "Silence.",
-      "ar": "الصمت."
+      "en": "On. Odd-numbered presses turn it on; even-numbered presses turn it off.",
+      "ar": "مضاء؛ فالضغطات الفردية تضيئه والزوجية تطفئه."
     },
     "review": {
       "status": "pending"
@@ -649,12 +657,12 @@
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "You drive to a shop at 20 mph and return at 60 mph. What is your average speed for the whole trip?",
-      "ar": "ذهبت لمحل بسرعة 20 ميل/ساعة وعدت بسرعة 60 ميل/ساعة. ما متوسط سرعتك للرحلة كاملة؟"
+      "en": "You drive 60 miles to a shop at a constant 20 mph and return along the same 60-mile route at 60 mph, with no stops. What is your average speed for the whole journey?",
+      "ar": "تقود 60 ميلًا إلى متجر بسرعة ثابتة قدرها 20 ميلًا/ساعة، ثم تعود عبر الطريق نفسه لمسافة 60 ميلًا بسرعة 60 ميلًا/ساعة دون توقف. ما متوسط سرعة الرحلة كاملة؟"
     },
     "answer": {
-      "en": "30 mph. Use the harmonic mean for equal distances: 2 × 20 × 60 / (20 + 60) = 2400 / 80 = 30.",
-      "ar": "30 ميل/ساعة. نستخدم المتوسط التوافقي للمسافات المتساوية: 2 × 20 × 60 / (20 + 60) = 2400 / 80 = 30."
+      "en": "30 mph. The 120 miles take 3 + 1 = 4 hours, so 120 ÷ 4 = 30.",
+      "ar": "30 ميلًا/ساعة؛ تستغرق مسافة 120 ميلًا 3 + 1 = 4 ساعات، لذا 120 ÷ 4 = 30."
     },
     "review": {
       "status": "pending"
@@ -668,12 +676,12 @@
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "What is the smallest perfect number (a number equal to the sum of its proper divisors)?",
-      "ar": "ما أصغر عدد تام (يساوي مجموع قواسمه الصحيحة عدا نفسه)؟"
+      "en": "Among 4, 6 and 8, which number equals the sum of its positive divisors smaller than itself?",
+      "ar": "أيّ عدد من 4 و6 و8 يساوي مجموع قواسمه الموجبة الأصغر منه؟"
     },
     "answer": {
-      "en": "6. Its proper divisors are 1, 2, and 3, and 1 + 2 + 3 = 6.",
-      "ar": "6. قواسمه الصحيحة هي 1 و2 و3، ومجموعها 1 + 2 + 3 = 6."
+      "en": "6: 1 + 2 + 3 = 6. For 4 the sum is 3, and for 8 it is 7.",
+      "ar": "6؛ لأن 1 + 2 + 3 = 6. مجموع قواسم 4 المطلوبة هو 3، ومجموع قواسم 8 المطلوبة هو 7."
     },
     "review": {
       "status": "pending"
@@ -687,8 +695,8 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "If a man's only son is my son's father, who am I to the man?",
-      "ar": "إذا كان الابن الوحيد لرجل هو والد ابني، من أنا بالنسبة لذلك الرجل؟"
+      "en": "I am a father. Another man’s only son is my son’s father. Who am I to that other man?",
+      "ar": "أنا أب. الابن الوحيد لرجل آخر هو والد ابني. ما صلة قرابتي بذلك الرجل؟"
     },
     "answer": {
       "en": "His son. The man's only son is my son's father — meaning I am that son.",
@@ -719,18 +727,18 @@
   },
   {
     "id": "logic-puzzles-025",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Lateral Thinking",
-      "ar": "التفكير الجانبي"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "You see a boat full of people. It has not sunk, but when you look again you don't see a single person on board. Why?",
-      "ar": "ترى قارباً مليئاً بالناس. لم يغرق، لكن حين تنظر مجدداً لا ترى أي شخص على متنه. لماذا؟"
+      "en": "A boat carries 12 passengers. At the only stop, five passengers leave and nobody boards. How many passengers remain?",
+      "ar": "على قارب 12 راكبًا. في المحطة الوحيدة ينزل خمسة ركاب ولا يصعد أحد. كم راكبًا يبقى؟"
     },
     "answer": {
-      "en": "All the people on board are married — there are no 'single' persons.",
-      "ar": "جميع الأشخاص على متنه متزوجون — لا يوجد 'أعزب' (single) على ظهره."
+      "en": "7 passengers: 12 − 5 = 7.",
+      "ar": "7 ركاب؛ لأن 12 − 5 = 7."
     },
     "review": {
       "status": "pending"
@@ -806,18 +814,18 @@
   },
   {
     "id": "logic-puzzles-028",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Mystery & Detection",
-      "ar": "الغموض والتحري"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A cowboy rides into town on Friday, stays for three days, and leaves on Friday. How is this possible?",
-      "ar": "وصل راعي بقر إلى المدينة يوم الجمعة، مكث ثلاثة أيام، ثم غادر يوم الجمعة. كيف يكون ذلك ممكناً؟"
+      "en": "Three deliveries are made on Monday, Tuesday and Wednesday. Food arrives before books; books arrive before clothes. On which day do the books arrive?",
+      "ar": "تصل ثلاث شحنات أيام الاثنين والثلاثاء والأربعاء. يصل الطعام قبل الكتب، وتصل الكتب قبل الملابس. في أي يوم تصل الكتب؟"
     },
     "answer": {
-      "en": "His horse is named Friday.",
-      "ar": "اسم حصانه الجمعة (Friday)."
+      "en": "Tuesday. The order must be food, books, clothes.",
+      "ar": "الثلاثاء؛ إذ يجب أن يكون الترتيب: الطعام ثم الكتب ثم الملابس."
     },
     "review": {
       "status": "pending"
@@ -831,8 +839,8 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "Four cards show A, D, 4, and 7. Each card has a letter on one side and a number on the other. To test the rule “If a card has a vowel on one side, then it has an even number on the other,” which cards must you turn over?",
-      "ar": "تظهر على أربع بطاقات الرموز A وD و4 و7. على أحد وجهي كل بطاقة حرف وعلى الآخر رقم. لاختبار القاعدة «إذا كان على أحد الوجهين حرف علة، فعلى الوجه الآخر عدد زوجي»، أي بطاقات يجب قلبها؟"
+      "en": "Four cards show A, D, 4 and 7. Each has an English letter on one side and a number on the other. To test “If the letter is a vowel (A, E, I, O or U), the number is even,” which cards must you turn over?",
+      "ar": "تُظهر أربع بطاقات A وD و4 و7. لكل بطاقة حرف إنجليزي على وجه ورقم على الآخر. لاختبار قاعدة «إذا كان الحرف من حروف العلة الإنجليزية A أو E أو I أو O أو U، فالرقم زوجي»، أيّ بطاقتين يجب قلبهما؟"
     },
     "answer": {
       "en": "A and 7. Turn A to check for an even number, and 7 to make sure there is not a vowel on its other side. D and 4 cannot disprove the rule.",
@@ -846,16 +854,16 @@
     "id": "logic-puzzles-030",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Mystery & Detection",
-      "ar": "الغموض والتحري"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "An archaeologist discovers a coin marked '44 BC' and knows immediately it is a forgery. How?",
-      "ar": "اكتشف عالم آثار عملة نقدية تحمل تاريخ '44 ق.م' وعرف فوراً أنها مزيّفة. كيف؟"
+      "en": "A seller claims a coin was minted in 44 BCE. Its original inscription, he says, labels the year “44 BC” using the modern BC dating convention. What contradicts his claim?",
+      "ar": "يزعم بائع أن عملة سُكّت سنة 44 قبل الميلاد، وأن نقشها الأصلي يؤرّخها بصيغة «44 BC» وفق اصطلاح التأريخ الحديث قبل الميلاد. ما الذي يناقض زعمه؟"
     },
     "answer": {
-      "en": "Nobody living in 44 BC would know they were living 'before Christ' — that dating system was invented centuries later.",
-      "ar": "لم يكن أحد في عام 44 ق.م يعلم أنه يعيش 'قبل الميلاد' — هذا النظام في التأريخ اخترع بعد قرون."
+      "en": "That dating convention was introduced later. Such an inscription cannot be original to a coin minted in 44 BCE, though a later commemorative coin could use it.",
+      "ar": "اصطلاح التأريخ هذا ظهر لاحقًا، فلا يمكن أن يكون نقشًا أصليًا من سنة 44 قبل الميلاد، وإن أمكن استخدامه على عملة تذكارية أحدث."
     },
     "review": {
       "status": "pending"
@@ -922,16 +930,16 @@
     "id": "logic-puzzles-034",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Numbers & Patterns",
-      "ar": "الأرقام والأنماط"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "What is the only even prime number?",
-      "ar": "ما العدد الزوجي الأولي الوحيد؟"
+      "en": "I am an even positive integer and have exactly two positive divisors. Why must I be 2?",
+      "ar": "أنا عدد صحيح موجب زوجي ولي قاسمان موجبان فقط. لماذا يجب أن أكون 2؟"
     },
     "answer": {
-      "en": "2. It is divisible only by 1 and itself. Every other even number is divisible by 2 and therefore not prime.",
-      "ar": "2. يقبل القسمة على 1 وعلى نفسه فقط. كل عدد زوجي آخر يقبل القسمة على 2 فلا يكون أولياً."
+      "en": "Any even number greater than 2 has the distinct divisors 1, 2 and itself. Only 2 has exactly two: 1 and 2.",
+      "ar": "كل عدد زوجي أكبر من 2 له القواسم المختلفة 1 و2 والعدد نفسه. أمّا 2 فله القاسمان 1 و2 فقط."
     },
     "review": {
       "status": "pending"
@@ -964,12 +972,12 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "The Monty Hall Problem: You pick 1 of 3 doors. A car is behind one. The host opens a different door showing a goat and offers you a switch. Should you switch?",
-      "ar": "معضلة مونتي هول: تختار باباً من 3 أبواب. خلف أحدها سيارة. يفتح المضيف باباً آخر يكشف عن ماعز ويعرض عليك التغيير. هل تغيّر؟"
+      "en": "A car is placed uniformly behind one of three doors. You choose one. The host knows its location, always opens an unchosen goat door, and always offers a switch to the other closed door. Does always switching or always staying win more often?",
+      "ar": "توضع سيارة عشوائيًا باحتمالات متساوية خلف أحد ثلاثة أبواب. تختار بابًا. يعرف المقدّم مكانها، ويفتح دائمًا بابًا آخر خلفه ماعز، ثم يعرض دائمًا التبديل إلى الباب الآخر المغلق. أيهما يفوز أكثر: التبديل دائمًا أم البقاء دائمًا؟"
     },
     "answer": {
-      "en": "Yes — switch! Switching wins 2/3 of the time. Your original pick is wrong 2/3 of the time, and the host's reveal concentrates that probability onto the remaining door.",
-      "ar": "نعم — غيّر! التغيير يُربح في 2/3 من الحالات. اختيارك الأول خاطئ في 2/3 من الأوقات، وكشف المضيف يركّز هذا الاحتمال على الباب الآخر."
+      "en": "Switching wins with probability 2/3; staying wins with probability 1/3. Switching wins exactly when the initial choice was wrong.",
+      "ar": "يفوز التبديل باحتمال 2/3، والبقاء باحتمال 1/3. ينجح التبديل تحديدًا عندما يكون الاختيار الأول خاطئًا."
     },
     "review": {
       "status": "pending"
@@ -1002,12 +1010,12 @@
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "You have two children and at least one is a boy. What is the probability that both are boys?",
-      "ar": "لديك طفلان وأحدهما على الأقل ولد. ما احتمال أن يكون كلاهما ولداً؟"
+      "en": "In an idealized two-child model, each child is independently equally likely to be a boy or girl. A family is selected at random from those with at least one boy, without inspecting a particular child. What is the probability of two boys?",
+      "ar": "في نموذج مبسّط لطفلين، احتمال الذكر والأنثى متساوٍ ومستقل لكل طفل. تُختار عائلة عشوائيًا من العائلات التي لديها ذكر واحد على الأقل، دون اختيار طفل بعينه. ما احتمال أن يكون الطفلان ذكرين؟"
     },
     "answer": {
-      "en": "1/3. Possible pairs with at least one boy: BB, BG, GB — only 1 of 3 outcomes is BB.",
-      "ar": "1/3. الاحتمالات مع ولد واحد على الأقل: BB، BG، GB — فقط 1 من 3 هو BB."
+      "en": "1/3. The equally likely ordered possibilities remaining are boy-boy, boy-girl and girl-boy.",
+      "ar": "1/3؛ فالاحتمالات المرتبة المتساوية المتبقية هي: ذكر-ذكر، وذكر-أنثى، وأنثى-ذكر."
     },
     "review": {
       "status": "pending"
@@ -1021,12 +1029,12 @@
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "What does the infinite series 1 + 1/2 + 1/4 + 1/8 + ... converge to?",
-      "ar": "إلى ماذا تتقارب المتسلسلة اللانهائية 1 + 1/2 + 1/4 + 1/8 + ...؟"
+      "en": "A robot travels 1 metre, then half a metre, then a quarter, and keeps halving each new distance forever. What total distance does the sequence approach?",
+      "ar": "يقطع روبوت مترًا ثم نصف متر ثم ربع متر، ويواصل تنصيف كل مسافة جديدة إلى ما لا نهاية. إلى أي مسافة كلية يقترب المجموع؟"
     },
     "answer": {
-      "en": "2. It is a geometric series with first term 1 and ratio 1/2: sum = 1 / (1 − 1/2) = 2.",
-      "ar": "2. متسلسلة هندسية حدّها الأول 1 ونسبتها 1/2: المجموع = 1 / (1 − 1/2) = 2."
+      "en": "2 metres. If S = 1 + 1/2 + 1/4 + …, then S/2 = 1/2 + 1/4 + …; subtracting gives S/2 = 1.",
+      "ar": "مترين. إذا كان S = 1 + 1/2 + 1/4 + … فإن S/2 = 1/2 + 1/4 + …؛ وبالطرح نحصل على S/2 = 1."
     },
     "review": {
       "status": "pending"
@@ -1059,12 +1067,12 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "Two guards: one always lies, one always tells the truth. You may ask one guard one question to find the safe path. What do you ask?",
-      "ar": "حارسان: أحدهما يكذب دائماً والآخر يصدق. تستطيع أن تسأل حارساً واحداً سؤالاً واحداً لتعرف الطريق الآمن. ماذا تسأل؟"
+      "en": "Exactly one of two paths is safe. Two guards know which one: one always answers truthfully and the other always lies. Both know the other’s rule. What single yes/no question to either guard lets you choose the safe path?",
+      "ar": "أحد طريقين فقط آمن. يعرف حارسان الطريق الآمن؛ أحدهما يصدق دائمًا والآخر يكذب دائمًا، ويعرف كل منهما قاعدة الآخر. ما سؤال نعم/لا واحد الذي يمكنك طرحه على أيّ منهما لتختار الطريق الآمن؟"
     },
     "answer": {
-      "en": "Ask either guard: 'What would the other guard say is the safe path?' Then take the opposite. Both guards' answers point to the wrong path by this method.",
-      "ar": "اسأل أي حارس: 'ماذا سيقول الحارس الآخر عن الطريق الآمن؟' ثم خذ الاتجاه المعاكس. كلا الجوابَين يشيران إلى الطريق الخاطئ بهذه الطريقة."
+      "en": "Ask: “Would the other guard say the left path is safe?” If yes, go right; if no, go left. Either guard gives the opposite of the truth about the left path.",
+      "ar": "اسأل: «هل سيقول الحارس الآخر إن الطريق الأيسر آمن؟» إذا أجاب نعم فاسلك الأيمن، وإلا فالأيسر. في الحالتين تحصل على عكس الحقيقة بشأن الطريق الأيسر."
     },
     "review": {
       "status": "pending"
@@ -1072,7 +1080,7 @@
   },
   {
     "id": "logic-puzzles-042",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -1091,7 +1099,7 @@
   },
   {
     "id": "logic-puzzles-043",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Lateral Thinking",
       "ar": "التفكير الجانبي"
@@ -1116,8 +1124,8 @@
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "Using only addition, how do you add eight 8s to get exactly 1000?",
-      "ar": "باستخدام الجمع فقط، كيف تجمع ثمانية ثمانيات للحصول على 1000؟"
+      "en": "Use exactly eight copies of the digit 8 to make 1000. You may join adjacent 8s into numbers such as 88 or 888, and use addition only. What expression works?",
+      "ar": "استخدم الرقم 8 ثماني مرات بالضبط لتكوين 1000. يمكنك ضمّ الأرقام لتكوين أعداد مثل 88 أو 888، ولا يُسمح إلا بالجمع. ما التعبير المناسب؟"
     },
     "answer": {
       "en": "888 + 88 + 8 + 8 + 8 = 1000.",
@@ -1129,18 +1137,18 @@
   },
   {
     "id": "logic-puzzles-045",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Lateral Thinking",
       "ar": "التفكير الجانبي"
     },
     "question": {
-      "en": "Before Mount Everest was discovered, what was the highest mountain in the world?",
-      "ar": "قبل اكتشاف جبل إيفرست، ما كان أعلى جبل في العالم؟"
+      "en": "Before Everest was identified as Earth’s highest mountain above sea level, which mountain already held that physical distinction?",
+      "ar": "قبل تحديد إيفرست بوصفه أعلى جبل على الأرض فوق مستوى سطح البحر، أيّ جبل كان يحمل هذه الصفة بالفعل؟"
     },
     "answer": {
-      "en": "Mount Everest — it was the highest mountain whether discovered or not.",
-      "ar": "جبل إيفرست — كان أعلى جبل في العالم سواء اكتُشف أم لا."
+      "en": "Everest. Identifying a height does not create that height.",
+      "ar": "إيفرست؛ فتحديد الارتفاع لا يغيّر الارتفاع نفسه."
     },
     "review": {
       "status": "pending"
@@ -1148,18 +1156,18 @@
   },
   {
     "id": "logic-puzzles-046",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A man lives on the 30th floor. Every morning he takes the elevator all the way down. On rainy evenings or when someone else is in the elevator, he rides to the 30th floor. Otherwise he stops at the 15th floor and walks up. Why?",
-      "ar": "يعيش رجل في الطابق الثلاثين. صباحاً ينزل بالمصعد حتى الأرض. في المساء إذا كان الجو ممطراً أو وجد شخص آخر يصعد إلى الطابق الثلاثين مباشرة. وإلا يتوقف في الطابق الخامس عشر ويكمل سيرًا. لماذا؟"
+      "en": "An elevator is on floor 8. It goes down 3 floors, up twice that distance, then down 4 floors. On which floor does it stop?",
+      "ar": "مصعد في الطابق 8. يهبط 3 طوابق، ثم يصعد ضعف هذه المسافة، ثم يهبط 4 طوابق. عند أي طابق يتوقف؟"
     },
     "answer": {
-      "en": "He is short and can only reach the button for floor 15. On rainy days he uses his umbrella to press button 30, or asks someone else to press it.",
-      "ar": "إنه قصير القامة ويستطيع الضغط على زر الطابق الخامس عشر فقط. في الأيام الممطرة يستخدم مظلته للضغط على زر 30، أو يطلب من شخص آخر الضغط عليه."
+      "en": "Floor 7: 8 − 3 + 6 − 4 = 7.",
+      "ar": "الطابق 7؛ لأن 8 − 3 + 6 − 4 = 7."
     },
     "review": {
       "status": "pending"
@@ -1169,16 +1177,16 @@
     "id": "logic-puzzles-047",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Paradoxes & Philosophy",
-      "ar": "المفارقات والفلسفة"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "If every plank of a ship is gradually replaced, is it still the same ship? What if the original planks are then reassembled into a ship elsewhere?",
-      "ar": "إذا استُبدل كل لوح في سفينة تدريجياً، هل تظل نفس السفينة؟ وإذا جُمعت الألواح الأصلية في مكان آخر، أيٌّ منهما السفينة 'الحقيقية'؟"
+      "en": "A statement says, “This statement is false.” In classical two-valued logic, what contradiction follows from assuming it is true?",
+      "ar": "تقول عبارة: «هذه العبارة كاذبة». في المنطق الكلاسيكي ذي القيمتين، ما التناقض الناتج عن افتراض صدقها؟"
     },
     "answer": {
-      "en": "This is the Ship of Theseus paradox. It challenges our concept of identity through change — with implications for personal identity: if all our cells are replaced over time, are we the same person?",
-      "ar": "هذه مفارقة سفينة ثيسيوس. تطعن في مفهوم الهوية عبر التغيير — وتنطوي على تداعيات تخص الهوية الشخصية: إذا استُبدلت جميع خلايانا بمرور الوقت، هل نحن نفس الشخص؟"
+      "en": "If it is true, what it asserts must hold, so it is false. Assuming it false likewise makes its assertion true; no consistent classical truth assignment works.",
+      "ar": "إن صدقت وجب صدق مضمونها، أي إنها كاذبة. وافتراض كذبها يجعل مضمونها صادقًا؛ فلا يمكن إسناد قيمة صدق كلاسيكية متسقة لها."
     },
     "review": {
       "status": "pending"
@@ -1186,18 +1194,18 @@
   },
   {
     "id": "logic-puzzles-048",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Paradoxes & Philosophy",
-      "ar": "المفارقات والفلسفة"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A runaway trolley will kill five people on the tracks. You can pull a lever to divert it to a side track where it will kill only one. Do you pull the lever?",
-      "ar": "عربة جامحة ستقتل خمسة أشخاص على القضبان. تستطيع سحب رافعة لتحويلها إلى مسار جانبي ستقتل فيه شخصاً واحداً. هل تسحب الرافعة؟"
+      "en": "Every red token in a bag is round. Some tokens in the bag are red. Must at least one token in the bag be round?",
+      "ar": "كل قطعة حمراء في كيس مستديرة، وتوجد في الكيس بعض القطع الحمراء. هل يلزم وجود قطعة مستديرة واحدة على الأقل؟"
     },
     "answer": {
-      "en": "This is the Trolley Problem in ethics. Pulling the lever saves five lives but makes you directly responsible for one death. It tests consequentialism (outcomes matter) against deontology (rules matter regardless of outcomes).",
-      "ar": "هذه مسألة العربة في الأخلاق. سحب الرافعة ينقذ خمسة أرواح لكن يجعلك مسؤولاً مباشرة عن وفاة. تختبر النفعية (النتائج تهم) في مقابل الواجبية (القواعد تهم بغض النظر عن النتائج)."
+      "en": "Yes. At least one red token exists, and every red token is round.",
+      "ar": "نعم؛ توجد قطعة حمراء واحدة على الأقل، وكل قطعة حمراء مستديرة."
     },
     "review": {
       "status": "pending"
@@ -1224,18 +1232,18 @@
   },
   {
     "id": "logic-puzzles-050",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Mystery & Detection",
-      "ar": "الغموض والتحري"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "A woman shoots her husband. Thirty minutes later they go out for dinner together. How?",
-      "ar": "تطلق امرأة النار على زوجها. بعد ثلاثين دقيقة يخرجان معاً لتناول العشاء. كيف؟"
+      "en": "A photo session starts at 18:10 and lasts 35 minutes. Dinner starts 20 minutes after the session ends. When does dinner start?",
+      "ar": "تبدأ جلسة تصوير الساعة 18:10 وتستغرق 35 دقيقة. يبدأ العشاء بعد انتهاء الجلسة بعشرين دقيقة. متى يبدأ العشاء؟"
     },
     "answer": {
-      "en": "She is a photographer — she 'shot' his photograph.",
-      "ar": "هي مصوّرة فوتوغرافية — التقطت له صورة."
+      "en": "19:05. The session ends at 18:45; adding 20 minutes gives 19:05.",
+      "ar": "19:05؛ تنتهي الجلسة عند 18:45، وبعد عشرين دقيقة تصبح الساعة 19:05."
     },
     "review": {
       "status": "pending"
@@ -1243,18 +1251,18 @@
   },
   {
     "id": "logic-puzzles-051",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "You are in a room with three switches, each controlling one of three bulbs in another room. You can enter the other room only once. How do you determine which switch controls which bulb?",
-      "ar": "أنت في غرفة بها ثلاثة مفاتيح تتحكم في ثلاثة مصابيح في غرفة أخرى. يمكنك الدخول للغرفة الأخرى مرة واحدة فقط. كيف تعرف أي مفتاح يتحكم في أي مصباح؟"
+      "en": "Three switches outside a room control three initially off incandescent bulbs inside. The bulbs become warm when on and remain detectably warm briefly after switching off. You may safely inspect light and residual warmth, but enter only once. How can you match switches to bulbs?",
+      "ar": "ثلاثة مفاتيح خارج غرفة تتحكم بثلاثة مصابيح متوهجة مطفأة داخلها. تسخن المصابيح عند تشغيلها وتبقى دافئة قليلًا بعد إطفائها. يمكنك فحص الإضاءة والدفء المتبقي بأمان، لكن دخول الغرفة مسموح مرة واحدة. كيف تطابق المفاتيح بالمصابيح؟"
     },
     "answer": {
-      "en": "Turn on switch 1 for 10 minutes, then off. Turn on switch 2. Enter: the lit bulb is switch 2; the warm unlit bulb is switch 1; the cold unlit bulb is switch 3.",
-      "ar": "شغّل المفتاح الأول لمدة 10 دقائق ثم أوقفه. شغّل المفتاح الثاني. ادخل: المضيء هو 2؛ المطفأ الدافئ هو 1؛ المطفأ البارد هو 3."
+      "en": "Leave switch 1 on long enough to warm its bulb, then turn it off. Turn switch 2 on and enter promptly. Lit = 2; unlit but warm = 1; unlit and cool = 3.",
+      "ar": "شغّل المفتاح 1 حتى يسخن مصباحه ثم أطفئه. شغّل 2 وادخل سريعًا. المضاء يتبع 2، والمطفأ الدافئ يتبع 1، والمطفأ البارد يتبع 3."
     },
     "review": {
       "status": "pending"
@@ -1268,12 +1276,12 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "100 prisoners are each in solitary cells. A warden picks prisoners one at a time at random to enter a room with a lamp that can be on or off; a prisoner may toggle it. At any point, a prisoner may declare that all 100 have visited. How can they guarantee success?",
-      "ar": "100 سجين في زنازين انفرادية. يختار الحارس سجيناً واحداً عشوائياً للدخول في غرفة بها مصباح يمكن تبديله. يمكن لأي سجين إعلان أن الجميع دخل. كيف يضمنون ذلك؟"
+      "en": "100 prisoners may agree on a plan before isolation. A lamp starts off. One prisoner visits its room at a time and may change the lamp. Everyone is selected repeatedly without limit. How can one prisoner eventually know with certainty that all have visited?",
+      "ar": "يتفق 100 سجين على خطة قبل عزلهم. يبدأ مصباح مطفأ. يزور الغرفة سجين واحد في كل مرة ويمكنه تغيير حالة المصباح. يتكرر اختيار كل سجين بلا حد. كيف يمكن لسجين أن يعرف يقينًا، في النهاية، أن الجميع زاروا الغرفة؟"
     },
     "answer": {
-      "en": "Appoint one 'counter' prisoner. Only the counter turns the lamp OFF (once per non-counter visit it was ON). When the counter has turned it off 99 times, all 100 have visited.",
-      "ar": "يُعيَّن سجين واحد 'عدّاد'. فقط العدّاد يطفئ المصباح (مرة لكل زيارة غير عدّاد يجد فيها المصباح مضاءً). حين يطفئه 99 مرة، يكون الجميع قد دخل."
+      "en": "Choose one counter. Each other prisoner signals once: on the first visit when they have not yet signalled and find the lamp off, they turn it on. On all other visits they leave it unchanged. Only the counter turns it off, counting each such event. At 99 signals, all have visited. Repeated selection guarantees eventual completion.",
+      "ar": "اختاروا عدّاداً واحداً. يرسل كل سجين آخر إشارة واحدة: في أول زيارة لم يكن قد أرسل فيها إشارته ويجد المصباح مطفأً، يشغّله. وفي سائر الزيارات لا يغيّر حالته. العدّاد وحده يطفئه ويعدّ كل إطفاء. عند 99 إشارة يكون الجميع قد زاروا الغرفة. وتكرار اختيار الجميع يضمن اكتمال الخطة."
     },
     "review": {
       "status": "pending"
@@ -1287,12 +1295,12 @@
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "What is the next number in this sequence: 1, 11, 21, 1211, 111221?",
-      "ar": "ما الرقم التالي في هذه المتتالية: 1، 11، 21، 1211، 111221؟"
+      "en": "Each term describes the runs of identical digits in the preceding term. What follows 1, 11, 21, 1211, 111221?",
+      "ar": "يصف كل حد مجموعات الأرقام المتطابقة المتجاورة في الحد السابق. ما الحد التالي بعد 1، 11، 21، 1211، 111221؟"
     },
     "answer": {
-      "en": "312211. It is the 'Look and Say' sequence — each term describes the previous: one 3, one 1, two 2s, two 1s.",
-      "ar": "312211. هي متتالية 'انظر وقل' — كل حد يصف الحد السابق: واحد 3، واحد 1، اثنان 2، اثنان 1."
+      "en": "312211. Read 111221 as three 1s, two 2s and one 1; writing those counts followed by their digits gives 31 22 11.",
+      "ar": "312211؛ نقرأ 111221: ثلاثة آحاد، ثم اثنان من الرقم 2، ثم واحد من الرقم 1. بكتابة العدد ثم الرقم نحصل على 31 22 11."
     },
     "review": {
       "status": "pending"
@@ -1306,12 +1314,12 @@
       "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "You have 12 identical-looking balls. One is either heavier or lighter than the rest. Using a balance scale exactly 3 times, find the odd ball and whether it is heavier or lighter.",
-      "ar": "لديك 12 كرة متطابقة المظهر. إحداها إما أثقل أو أخف من الباقية. باستخدام ميزان الكفتَين 3 مرات فقط، حدّد الكرة الشاذة وما إذا كانت أثقل أم أخف."
+      "en": "Twelve balls are labelled 1–12. Exactly one has a different mass; the other eleven have the same mass. You do not know whether the odd ball is heavier or lighter. Give three balance-scale weighings and a complete rule to identify the odd ball and its type.",
+      "ar": "اثنتا عشرة كرة مرقمة من 1 إلى 12. تختلف كتلة كرة واحدة فقط، وتتساوى كتل الإحدى عشرة الأخرى. لا تعرف هل المختلفة أثقل أم أخف. أعطِ ثلاث وزنات بميزان كفتين وقاعدة كاملة تحدد الكرة المختلفة ونوع اختلافها."
     },
     "answer": {
-      "en": "Divide into three groups of 4. Weigh group A vs B: if balanced, the odd ball is in C and you use 2 more weighings to isolate it and determine its weight. If unbalanced, a systematic elimination across 2 more weighings reveals the odd ball.",
-      "ar": "قسّمها إلى ثلاث مجموعات من 4. زِن A مقابل B: إذا تساوتا، الكرة الشاذة في C وتستخدم وزنتَين للعثور عليها. وإذا اختلتا، تُصفّيها بوزنتَين منهجيتَين."
+      "en": "Weigh left versus right: (1) 5,7,8,9 vs 6,10,11,12; (2) 2,3,4,6 vs 5,10,11,12; (3) 1,4,9,10 vs 2,6,7,12. Record L if left is heavier, R if right is heavier, and = if balanced. Heavy-ball signatures: 1:==L; 2:=LR; 3:=L=; 4:=LL; 5:LR=; 6:RLR; 7:L=R; 8:L==; 9:L=L; 10:RRL; 11:RR=; 12:RRR. A matching signature identifies a heavy ball. Otherwise swap L and R in your result; the matching signature identifies a light ball. All 24 signatures are different.",
+      "ar": "زِن اليسار مقابل اليمين: (1) 5،7،8،9 مقابل 6،10،11،12؛ (2) 2،3،4،6 مقابل 5،10،11،12؛ (3) 1،4،9،10 مقابل 2،6،7،12. سجّل L إذا ثقلت اليسرى، وR إذا ثقلت اليمنى، و= عند التوازن. رموز الكرة الأثقل: 1:==L؛ 2:=LR؛ 3:=L=؛ 4:=LL؛ 5:LR=؛ 6:RLR؛ 7:L=R؛ 8:L==؛ 9:L=L؛ 10:RRL؛ 11:RR=؛ 12:RRR. التطابق يحدد الكرة الأثقل. وإلا بدّل L وR في النتيجة؛ والتطابق عندئذ يحدد الكرة الأخف. الرموز الأربعة والعشرون كلها مختلفة."
     },
     "review": {
       "status": "pending"
@@ -1338,7 +1346,7 @@
   },
   {
     "id": "logic-puzzles-056",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Logic & Deduction",
       "ar": "المنطق والاستنتاج"
@@ -1376,18 +1384,18 @@
   },
   {
     "id": "logic-puzzles-058",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Numbers & Patterns",
       "ar": "الأرقام والأنماط"
     },
     "question": {
-      "en": "What is the formula for the number of diagonals in an n-sided polygon?",
-      "ar": "ما قانون عدد الأقطار في مضلع له n ضلعاً؟"
+      "en": "A convex polygon has n vertices. From each vertex, exclude that vertex and its two neighbors. Derive the number of diagonals, making sure not to count each diagonal twice.",
+      "ar": "لمضلع محدب n رؤوس. من كل رأس استبعد الرأس نفسه وجاريه. اشتق عدد الأقطار، مع تجنّب عدّ كل قطر مرتين."
     },
     "answer": {
-      "en": "n(n−3)/2. Each vertex connects to n−3 others (excluding itself and its two adjacent vertices), divided by 2 to avoid double-counting.",
-      "ar": "n(n−3)/2. كل رأس يتصل بـ n−3 رؤوس أخرى (باستثناء نفسه والرأسَين المجاورَين)، مقسومة على 2 لتجنب الحساب المكرر."
+      "en": "Each vertex connects diagonally to n−3 vertices, giving n(n−3) endpoint counts. Each diagonal has two endpoints, so the number is n(n−3)/2.",
+      "ar": "يتصل كل رأس قطريًا بـn−3 رؤوس، فنحصل على n(n−3) طرفًا محسوبًا. لكل قطر طرفان، ولذلك عدد الأقطار n(n−3)/2."
     },
     "review": {
       "status": "pending"
@@ -1395,18 +1403,18 @@
   },
   {
     "id": "logic-puzzles-059",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Paradoxes & Philosophy",
-      "ar": "المفارقات والفلسفة"
+      "en": "Logic & Deduction",
+      "ar": "المنطق والاستنتاج"
     },
     "question": {
-      "en": "Gödel proved that in any consistent formal system powerful enough to express arithmetic, there are true statements that cannot be proved within that system. What is the name of this result and what does it imply?",
-      "ar": "أثبت غودل أنه في أي نظام رسمي متسق قوي بما يكفي للتعبير عن الحساب، توجد عبارات صحيحة لا يمكن إثباتها داخل النظام. ما اسم هذه النتيجة وماذا تعني؟"
+      "en": "Every object in a collection has property P. Every object with P has Q. An object lacks Q. Can it belong to that collection?",
+      "ar": "كل عنصر في مجموعة يتصف بـP، وكل ما يتصف بـP يتصف بـQ. عنصر ما لا يتصف بـQ. هل يمكن أن ينتمي إلى المجموعة؟"
     },
     "answer": {
-      "en": "Gödel's Incompleteness Theorem (1931). It implies mathematics cannot be both complete and consistent — no formal system can prove all truths about arithmetic, demolishing Hilbert's program to found all math on a complete, consistent axiomatic basis.",
-      "ar": "مبرهنة غودل عن عدم الاكتمال (1931). تعني أن الرياضيات لا تستطيع أن تكون كاملة ومتسقة في آنٍ واحد — ودمّرت برنامج هيلبرت لتأسيس الرياضيات كلها على نظام بديهيات كامل ومتسق."
+      "en": "No. Membership would imply P and therefore Q, contradicting the stated absence of Q.",
+      "ar": "لا؛ فانتماؤه يقتضي P ثم Q، وهذا يناقض عدم اتصافه بـQ."
     },
     "review": {
       "status": "pending"

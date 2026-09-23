@@ -8,24 +8,12 @@
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "A man walks into a bar and asks for a glass of water. The bartender pulls out a gun and points it at him. The man says 'thank you' and walks out. Why?",
-      "ar": "دخل رجل إلى مطعم وطلب كوب ماء. أخرج النادل مسدسًا وصوّبه نحوه. قال الرجل شكرًا وخرج. لماذا؟"
+      "en": "Fictional yes/no mystery: A man at a café asks for water. The waiter puts a bowl on the floor instead of a glass on the table. The man thanks him, although he never drinks from it. Wet animal pawprints appear beside the bowl. Why?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: طلب رجل ماءً في مقهى، فوضع النادل وعاءً على الأرض بدلاً من كوب على الطاولة. شكره الرجل، مع أنه لم يشرب منه. ظهرت آثار أقدام حيوان مبتلة بجوار الوعاء. لماذا؟"
     },
     "answer": {
-      "en": "The man had hiccups. The bartender scared him to cure them, and it worked — that's why the man thanked him.",
-      "ar": "كان الرجل يعاني من الفواق. أراد النادل إخافته لعلاجه، فنجح الأمر — لذلك شكره الرجل."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "His hiccups stopped when the bartender scared him.",
-        "The bartender scared him to cure his hiccups.",
-        "The gun scare cured his hiccups."
-      ],
-      "ar": [
-        "توقف فواقه عندما أخافه النادل.",
-        "أخافه النادل ليعالج فواقه.",
-        "أخافه النادل بالمسدس فزال فواقه."
-      ]
+      "en": "The water was for the man's dog, which was sitting under the table.",
+      "ar": "كان الماء لكلب الرجل الجالس تحت الطاولة."
     },
     "review": {
       "status": "pending"
@@ -160,12 +148,12 @@
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "A surgeon is about to operate on a patient but refuses and walks out. Why?",
-      "ar": "كان طبيب جراح على وشك إجراء عملية لمريض لكنه رفض وخرج. لماذا؟"
+      "en": "Fictional yes/no mystery: A surgeon looks at a child awaiting an operation and says, “That is my daughter.” The child's father is waiting outside, and the surgeon is not him or a step-parent. What ordinary family relationship explains this?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: نظر جرّاح إلى طفلة تنتظر إجراء عملية وقال: «هذه ابنتي». كان والد الطفلة ينتظر في الخارج، ولم يكن الجرّاح هو الأب ولا زوج الأم ولا زوجة الأب. ما علاقة القرابة العادية التي تفسر ذلك؟"
     },
     "answer": {
-      "en": "The patient is the surgeon's child. The surgeon is the child's other parent who wasn't introduced — they recognized their own child on the operating table.",
-      "ar": "المريض هو ابن الجراح. الجراح هو أحد الوالدين الذي لم يُعرَّف — تعرّف على طفله على طاولة العمليات."
+      "en": "In this story, the surgeon is the child's mother.",
+      "ar": "في هذه القصة، كانت الجرّاحة أم الطفلة."
     },
     "review": {
       "status": "pending"
@@ -180,12 +168,12 @@
       "ar": "النجاة والحوادث"
     },
     "question": {
-      "en": "A girl falls off a 100-meter cliff and survives without any injuries. How?",
-      "ar": "سقطت فتاة من جرف ارتفاعه مئة متر ولم تُصب بأذى. كيف؟"
+      "en": "Fictional yes/no mystery: On a cliff whose face is 100 metres high, a girl trips and falls. She gets up unhurt without a rope, parachute, or rescue. She never reaches the beach below. Where did she land?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: على جرف يبلغ ارتفاع واجهته 100 متر تعثرت فتاة وسقطت. نهضت سليمة بلا حبل أو مظلة أو إنقاذ، ولم تصل إلى الشاطئ أسفله. أين سقطت؟"
     },
     "answer": {
-      "en": "She fell off the bottom of the cliff — she was standing at the base looking up.",
-      "ar": "سقطت من أسفل الجرف — كانت واقفة عند القاع تنظر إلى الأعلى."
+      "en": "She fell onto the broad, level ground at the top, well away from the edge. The cliff's height was not her falling distance.",
+      "ar": "سقطت على الأرض المستوية الواسعة أعلى الجرف بعيداً عن الحافة. ارتفاع الجرف ليس المسافة التي سقطتها."
     },
     "review": {
       "status": "pending"
@@ -232,24 +220,12 @@
       "ar": "النجاة والحوادث"
     },
     "question": {
-      "en": "A woman is found hanging in a barn. There is nothing in the barn except a small puddle of water beneath her feet. How did she do it?",
-      "ar": "وُجدت امرأة مشنوقة في حظيرة. لا يوجد في الحظيرة إلا بركة ماء صغيرة تحت قدميها. كيف فعلت ذلك؟"
+      "en": "Fictional yes/no mystery: A brass key is displayed on a clear pedestal inside a locked glass case. The next morning, the case is still locked and unbroken, but the key is on the bottom beside a puddle. The pedestal has vanished. What was it made of?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: عُرض مفتاح نحاسي فوق قاعدة شفافة داخل صندوق زجاجي مقفل. في الصباح ظل الصندوق مقفلاً وسليماً، لكن المفتاح صار في القاع بجوار بركة صغيرة، واختفت القاعدة. ممّ كانت مصنوعة؟"
     },
     "answer": {
-      "en": "She stood on a large block of ice. It melted, leaving only the puddle.",
-      "ar": "وقفت على قالب جليد كبير. ذاب الجليد ولم يبق إلا بركة الماء."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "She stood on a block of ice.",
-        "The ice block melted beneath her.",
-        "A melting block of ice left the puddle."
-      ],
-      "ar": [
-        "وقفت على قالب من الجليد.",
-        "ذاب قالب الجليد تحتها.",
-        "ترك قالب جليد ذائب بركة الماء."
-      ]
+      "en": "Ice. As the pedestal melted, the key settled onto the bottom of the case.",
+      "ar": "من الجليد. عندما ذابت القاعدة استقر المفتاح في قاع الصندوق."
     },
     "review": {
       "status": "pending"
@@ -264,24 +240,12 @@
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A musician performs a full concert and not a single person in the audience hears any music. Why?",
-      "ar": "أدّى موسيقي حفلة كاملة ولم يسمع أي شخص في الجمهور أي موسيقى. لماذا؟"
+      "en": "Fictional yes/no mystery: A musician performs for a remote audience. Their picture is clear and the musician's sound-level meter moves, but every viewer reports silence. Nothing is wrong with their hearing or speakers. One click fixes it for everyone. What was wrong?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: عزف موسيقي لجمهور يتابعه عن بُعد. كانت الصورة واضحة ومؤشر مستوى الصوت لديه يتحرك، لكن المشاهدين جميعاً أبلغوا عن الصمت. سمعهم ومكبراتهم سليمة. حلت نقرة واحدة المشكلة للجميع. ما الخلل؟"
     },
     "answer": {
-      "en": "The audience is deaf. It is a concert for hearing-impaired people.",
-      "ar": "الجمهور من الصمّ. إنها حفلة موسيقية لضعاف السمع."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "The audience was deaf.",
-        "It was a concert for deaf people.",
-        "Nobody in the audience could hear."
-      ],
-      "ar": [
-        "كان الجمهور من الصم.",
-        "كانت حفلة موسيقية للصم.",
-        "لم يكن أحد في الجمهور قادرًا على السمع."
-      ]
+      "en": "The musician had muted the audio in the broadcast software. The local meter still showed the microphone input.",
+      "ar": "كان الموسيقي قد كتم الصوت في برنامج البث، بينما ظل المؤشر المحلي يعرض إشارة الميكروفون الداخلة."
     },
     "review": {
       "status": "pending"
@@ -296,24 +260,12 @@
       "ar": "النجاة والحوادث"
     },
     "question": {
-      "en": "A hiker finds a cabin deep in the woods. Inside are 20 people, all dead. There are no signs of violence. What happened?",
-      "ar": "وجد متنزه كابينة في عمق الغابة. بداخلها 20 شخصًا، جميعهم أموات. لا آثار عنف. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: A hiker finds a cabin among broken trees. Inside are passengers who died from impact injuries, but there is no evidence of an attack. The cabin has rows of numbered seats and overhead compartments. What kind of cabin is it?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: وجد متنزه مقصورة بين أشجار مكسورة. بداخلها ركاب ماتوا بإصابات اصطدام، دون دليل على اعتداء. تضم المقصورة صفوف مقاعد مرقمة وحجرات علوية. ما نوعها؟"
     },
     "answer": {
-      "en": "The cabin is an airplane cabin. The plane crashed into the forest.",
-      "ar": "الكابينة هي مقصورة طائرة. تحطمت الطائرة في الغابة."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "The cabin was part of a crashed airplane.",
-        "It was an airplane cabin after a crash.",
-        "The people died when their plane crashed in the forest."
-      ],
-      "ar": [
-        "كانت الكابينة مقصورة طائرة محطمة.",
-        "كانت مقصورة طائرة بعد تحطمها.",
-        "مات الناس عندما تحطمت طائرتهم في الغابة."
-      ]
+      "en": "An aircraft passenger cabin from a plane that crashed in the forest.",
+      "ar": "مقصورة ركاب طائرة تحطمت في الغابة."
     },
     "review": {
       "status": "pending"
@@ -328,12 +280,12 @@
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A woman shoots her husband. Then they have a lovely dinner together. How?",
-      "ar": "أطلقت امرأة النار على زوجها. ثم تناولا معًا عشاءً هنيئًا. كيف؟"
+      "en": "Fictional yes/no mystery: While making a family album, a woman removes her husband's head with one quick action. Neither person is hurt, and he asks her to undo it. What did she do?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أثناء إعداد ألبوم عائلي، أزالت امرأة رأس زوجها بحركة سريعة. لم يُصب أيهما بأذى، وطلب منها التراجع عما فعلت. ماذا فعلت؟"
     },
     "answer": {
-      "en": "She is a photographer. She took his photo in the studio, then developed (shot) the image. They had dinner together afterward.",
-      "ar": "هي مصوّرة فوتوغرافية. التقطت صورته في الاستوديو ثم ظهّرتها. بعد ذلك تناولا العشاء معًا."
+      "en": "She cropped his head out of a digital photograph. Undo restored the original framing.",
+      "ar": "اقتصت الصورة الرقمية بحيث خرج رأسه من إطارها. وأعاد أمر التراجع الإطار الأصلي."
     },
     "review": {
       "status": "pending"
@@ -348,12 +300,12 @@
       "ar": "النجاة والحوادث"
     },
     "question": {
-      "en": "A man is traveling on a plane. Halfway through the flight, he dies. The plane lands safely and nobody finds anything unusual. Why?",
-      "ar": "كان رجل يسافر على متن طائرة. في منتصف الرحلة توفي. هبطت الطائرة بأمان ولم يلاحظ أحد شيئًا غريبًا. لماذا؟"
+      "en": "Fictional yes/no mystery: A two-hour flight departs at 10:00 and arrives at 09:00 on the same calendar day. Both airport clocks are correct, and no time travel is involved. How?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أقلعت رحلة مدتها ساعتان عند 10:00 ووصلت عند 09:00 في اليوم التقويمي نفسه. ساعتا المطارين صحيحتان، ولا سفر عبر الزمن. كيف؟"
     },
     "answer": {
-      "en": "The man was a corpse being transported in the cargo hold. He was dead before the flight began.",
-      "ar": "كان الرجل جثة يتم نقلها في عنبر الطائرة. كان ميتًا قبل بدء الرحلة."
+      "en": "The destination's local time is three hours behind the departure airport's. At arrival, it is 12:00 at the departure airport but 09:00 at the destination.",
+      "ar": "التوقيت المحلي للوجهة متأخر ثلاث ساعات عن مطار المغادرة. وعند الوصول تكون الساعة 12:00 في مطار المغادرة و 09:00 في الوجهة."
     },
     "review": {
       "status": "pending"
@@ -368,24 +320,12 @@
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "A man lives on the 30th floor. On rainy days he takes the elevator all the way up. On sunny days he only takes the elevator to the 15th floor and walks the rest. Why?",
-      "ar": "يسكن رجل في الطابق الثلاثين. في الأيام الممطرة يستخدم المصعد حتى الطابق الثلاثين. في الأيام المشمسة يصعد إلى الطابق الخامس عشر فقط ثم يكمل سيرًا. لماذا؟"
+      "en": "Fictional yes/no mystery: A man leaves his fifth-floor office, walks along a level corridor, and steps directly onto a public street. He uses no stairs, lift, ramp, or window. How can the street be at his floor level?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: خرج رجل من مكتبه في الطابق الخامس، وسار في ممر مستوٍ، ثم خطا مباشرةً إلى شارع عام. لم يستخدم درجاً أو مصعداً أو منحدراً أو نافذة. كيف كان الشارع على مستوى طابقه؟"
     },
     "answer": {
-      "en": "The man is very short and cannot reach the button for floor 30. On rainy days he uses his umbrella to press it. On sunny days he has no umbrella.",
-      "ar": "الرجل قصير القامة ولا يستطيع الوصول إلى زر الطابق الثلاثين. في الأيام الممطرة يستخدم مظلته للضغط عليه. في الأيام المشمسة لا يحمل مظلة."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "He was too short to reach button 30 without his umbrella.",
-        "His umbrella let him reach the thirtieth-floor button.",
-        "He could reach button 30 only with his umbrella."
-      ],
-      "ar": [
-        "كان أقصر من أن يصل إلى زر الثلاثين دون مظلته.",
-        "مكّنته مظلته من بلوغ زر الطابق الثلاثين.",
-        "لم يصل إلى زر الثلاثين إلا بمظلته."
-      ]
+      "en": "The building stands on a steep hillside. The fifth floor, counted from the downhill entrance, has a door onto the higher street on the uphill side.",
+      "ar": "يقع المبنى على سفح شديد الانحدار. للطابق الخامس، المحسوب من المدخل السفلي، باب يفتح على الشارع الأعلى في جانب المبنى المواجه لأعلى السفح."
     },
     "review": {
       "status": "pending"
@@ -400,24 +340,12 @@
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A woman receives a photograph in the mail and immediately calls the police. What did she see in the photo?",
-      "ar": "تلقّت امرأة صورة فوتوغرافية بالبريد فاتصلت بالشرطة فورًا. ماذا رأت في الصورة؟"
+      "en": "Fictional yes/no mystery: While away, a woman receives a photograph of her living room showing a parcel delivered that morning. The image appears to have been taken from inside her wardrobe. She asks the building manager to investigate, but does not claim the photograph proves a crime. What worries her?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: تلقت امرأة غائبة عن منزلها صورة لغرفة معيشتها، يظهر فيها طرد وُصّل ذلك الصباح. بدت زاوية التصوير من داخل خزانتها. طلبت من مدير المبنى التحقق، دون أن تزعم أن الصورة تثبت جريمة. ما الذي أقلقها؟"
     },
     "answer": {
-      "en": "The photo shows her living room, but it was taken from inside a closet — meaning someone had been hiding in her home watching her.",
-      "ar": "تُظهر الصورة غرفة معيشتها، لكنها التُقطت من داخل خزانة ملابس — أي أن شخصًا ما كان مختبئًا في منزلها يراقبها."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "The photo was taken from inside her closet.",
-        "It showed someone had been hiding in her closet.",
-        "A hidden intruder photographed her living room from the closet."
-      ],
-      "ar": [
-        "التُقطت الصورة من داخل خزانتها.",
-        "كشفت أن شخصًا كان مختبئًا في خزانتها.",
-        "صوّر متسلل مختبئ غرفة معيشتها من داخل الخزانة."
-      ]
+      "en": "In the intended story, an unauthorized person entered and took the photograph. Its recent contents and unusual viewpoint make her suspect entry; the manager must still verify what happened.",
+      "ar": "في القصة المقصودة دخل شخص دون إذن والتقط الصورة. أثارت محتوياتها الحديثة وزاويتها الغريبة شكها في دخول أحد، لكن على المدير التحقق مما حدث."
     },
     "review": {
       "status": "pending"
@@ -425,31 +353,19 @@
   },
   {
     "id": "story-mysteries-016",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Everyday & Family",
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "A woman buys stamps at the post office. The clerk hands her the stamps and she begins to cry. Why?",
-      "ar": "اشترت امرأة طوابع في مكتب البريد. ناولها الموظف الطوابع فبدأت تبكي. لماذا؟"
+      "en": "Fictional yes/no mystery: A woman buys a sheet of newly issued stamps and cries happily. The tiny drawings all contain the same crooked star she remembers drawing as a child. The clerk says the artwork came from an old school competition. Why is she moved?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: اشترت امرأة ورقة طوابع جديدة وبكت فرحاً. تضمنت الرسوم الصغيرة النجمة المعوجة نفسها التي تتذكر أنها رسمتها طفلة. قال الموظف إن العمل مأخوذ من مسابقة مدرسية قديمة. لماذا تأثرت؟"
     },
     "answer": {
-      "en": "The stamps have a picture of her missing husband on them — she had been searching for him for years.",
-      "ar": "الطوابع تحمل صورة زوجها المفقود — كانت تبحث عنه منذ سنوات."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Her missing husband was pictured on the stamps.",
-        "The stamps showed her missing husband.",
-        "She recognized her missing husband's photograph on the stamps."
-      ],
-      "ar": [
-        "ظهرت صورة زوجها المفقود على الطوابع.",
-        "أظهرت الطوابع زوجها المفقود.",
-        "تعرّفت على صورة زوجها المفقود على الطوابع."
-      ]
+      "en": "Her childhood drawing had been selected for the stamps. The crooked star was her recognizable detail, and she had not yet heard that the design was being issued.",
+      "ar": "اختير رسمها من طفولتها للطوابع. كانت النجمة المعوجة تفصيلاً مميزاً تذكرته، ولم يكن قد بلغها خبر إصدار التصميم."
     },
     "review": {
       "status": "pending"
@@ -457,19 +373,19 @@
   },
   {
     "id": "story-mysteries-017",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Games & Competition",
       "ar": "الألعاب والمنافسة"
     },
     "question": {
-      "en": "A baseball player hits a home run but does not move from home plate. The crowd cheers. What happened?",
-      "ar": "ضرب لاعب بيسبول ضربة هوم ران لكنه لم يتحرك من قاعدة البيت. صفّق الجمهور. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: Sami scores the winning baseball run without leaving his chair. He is not injured, and nobody carries him. The cheers come from speakers, and his hands stay on a controller. How did he score?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: سجل سامي نقطة الفوز في البيسبول دون أن يغادر كرسيه. لم يكن مصاباً ولم يحمله أحد. جاء الهتاف من مكبرات الصوت، وبقيت يداه على جهاز تحكم. كيف سجل؟"
     },
     "answer": {
-      "en": "He is watching the game on television and celebrating his favorite team's home run.",
-      "ar": "كان يشاهد المباراة على التلفاز ويحتفل بضربة الهوم ران لفريقه المفضّل."
+      "en": "He was playing a baseball video game; his on-screen player completed the run.",
+      "ar": "كان يلعب لعبة بيسبول إلكترونية؛ فأكمل لاعبه على الشاشة الجولة."
     },
     "review": {
       "status": "pending"
@@ -477,31 +393,19 @@
   },
   {
     "id": "story-mysteries-018",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Everyday & Family",
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "A librarian stamps a book 'RETURN IMMEDIATELY' and gives it to a borrower. The borrower never returns it. Why?",
-      "ar": "ختمت أمينة المكتبة كتابًا بـ 'أعِد فورًا' وسلّمته للمستعير. لم يُعِده قط. لماذا؟"
+      "en": "Fictional yes/no mystery: A borrowed library book disappears from a woman's reader at midnight, although nobody enters her home. The library confirms it was returned on time. How was it returned without anyone carrying it away?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: اختفى كتاب مستعار من مكتبة من جهاز القراءة الخاص بامرأة عند منتصف الليل، مع أن أحداً لم يدخل منزلها. أكدت المكتبة أنه أُعيد في الموعد. كيف عاد دون أن يحمله أحد؟"
     },
     "answer": {
-      "en": "The book is titled 'How to Be Assertive.' The borrower is too passive to return it.",
-      "ar": "عنوان الكتاب هو 'كيف تكون حازمًا'. المستعير شخصية سلبية جدًا لإعادته."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "He was too passive to return it.",
-        "The borrower lacked the assertiveness to return it.",
-        "He kept a book called How to Be Assertive."
-      ],
-      "ar": [
-        "كان سلبيًا جدًا لإعادته.",
-        "افتقر المستعير إلى الحزم اللازم لإعادته.",
-        "احتفظ بكتاب عنوانه «كيف تكون حازمًا»."
-      ]
+      "en": "It was an e-book loan on an electronic reader. The loan expired automatically, ending access and marking it returned.",
+      "ar": "كان إعارة كتاب إلكتروني على جهاز قراءة. انتهت مدة الإعارة تلقائياً، فتوقف الوصول إليه وسُجلت إعادته."
     },
     "review": {
       "status": "pending"
@@ -568,12 +472,12 @@
       "ar": "الألعاب والمنافسة"
     },
     "question": {
-      "en": "Two cars compete in a race, but neither driver wants to win. Why?",
-      "ar": "تنافست سيارتان في سباق، لكن لا يريد أي سائق الفوز. لماذا؟"
+      "en": "Fictional yes/no mystery: Two owners enter a closed-course car race. The prize goes to the owner whose car finishes last, so both drivers crawl along. An adviser suggests one change, and they immediately race toward the finish. What did they change?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: دخل مالكا سيارتين سباقاً على مضمار مغلق. الجائزة لمالك السيارة التي تصل أخيراً، فسارا ببطء شديد. اقترح مستشار تغييراً واحداً، فانطلقا فوراً نحو النهاية. ماذا غيّرا؟"
     },
     "answer": {
-      "en": "It is a race where the last car to finish wins. Each driver is trying to go as slowly as possible without stopping.",
-      "ar": "إنه سباق تفوز فيه السيارة الأخيرة. يحاول كل سائق السير ببطء أكبر ما يمكن دون توقف."
+      "en": "They swapped cars. Each now wants the other owner's car to finish first, leaving their own car last and winning its owner the prize.",
+      "ar": "تبادلا السيارتين. صار كل منهما يريد إيصال سيارة الآخر أولاً، لتبقى سيارته هو أخيرة ويفوز مالكها بالجائزة."
     },
     "review": {
       "status": "pending"
@@ -588,12 +492,12 @@
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A detective arrests a woman the moment she calls to report a murder. Why?",
-      "ar": "اعتقل المحقق امرأة فور اتصالها للإبلاغ عن جريمة قتل. لماذا؟"
+      "en": "Fictional yes/no mystery: A detective announces only that a sealed envelope is missing. A caller replies, “I never touched the blue envelope.” Its color was not in the announcement, and it had been kept out of public view. Why does the detective ask how the caller knows its color rather than immediately declare guilt?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أعلن محقق فقط فقدان ظرف مقفل. رد متصل: «لم ألمس الظرف الأزرق». لم يذكر الإعلان لونه، وكان محفوظاً بعيداً عن الأنظار. لماذا سأل المحقق عن مصدر معرفة اللون بدلاً من إعلان الإدانة فوراً؟"
     },
     "answer": {
-      "en": "She called to report a body she had not yet reached, revealing she knew where it was before it could have been found innocently.",
-      "ar": "اتصلت للإبلاغ عن جثة لم تصل إليها بعد، مما كشف أنها تعرف مكانها مسبقًا."
+      "en": "The caller revealed information not supplied publicly. That warrants checking their source of knowledge, but they may have an innocent explanation; it is not proof of theft by itself.",
+      "ar": "كشف المتصل معرفة لم تُقدم علناً. يستدعي ذلك التحقق من مصدرها، لكنه قد يملك تفسيراً بريئاً؛ فالمعرفة وحدها لا تثبت السرقة."
     },
     "review": {
       "status": "pending"
@@ -608,12 +512,12 @@
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A student forgets every single line of his speech on stage and still wins first prize. How?",
-      "ar": "نسي طالب كل كلمة من خطابه على المسرح وفاز بالجائزة الأولى. كيف؟"
+      "en": "Fictional yes/no mystery: A student prepares a speech for a contest. On stage, a judge hands him a sealed topic card. He abandons every prepared line, speaks about something entirely different, and wins. Why was discarding his preparation the right choice?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أعد طالب خطاباً لمسابقة. على المسرح ناوله حكم بطاقة موضوع مقفلة. ترك كل جمله المحضرة، وتحدث عن شيء مختلف تماماً، وفاز. لماذا كان ترك ما حضّره الاختيار الصحيح؟"
     },
     "answer": {
-      "en": "The competition was for the best improvised speech. Forgetting his lines forced him to improvise, which impressed the judges most.",
-      "ar": "كانت المسابقة عن أفضل خطاب ارتجالي. نسيانه لخطابه أجبره على الارتجال مما أعجب لجنة التحكيم."
+      "en": "The round tested improvisation on the newly assigned topic, not delivery of a rehearsed speech. His prepared material did not answer that topic.",
+      "ar": "اختبرت الجولة الارتجال في الموضوع الجديد، لا إلقاء خطاب محفوظ. ولم تكن مادته المحضرة تجيب عن ذلك الموضوع."
     },
     "review": {
       "status": "pending"
@@ -621,19 +525,19 @@
   },
   {
     "id": "story-mysteries-024",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Everyday & Family",
       "ar": "الحياة اليومية والعائلة"
     },
     "question": {
-      "en": "A man arrives at a hotel, goes to his room, and immediately calls the front desk to say there is a stranger in his room. The manager checks and finds no one. The man laughs. What happened?",
-      "ar": "وصل رجل إلى الفندق ودخل غرفته واتصل بالاستقبال ليقول إن غريبًا في غرفته. تفقّد المدير ولم يجد أحدًا. ضحك الرجل. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: In a dim hotel room, a guest sees a motionless figure beside the door. When he waves, it does not wave back. He calls reception; the manager switches on the light, and they both laugh. Before the manager arrived, the guest had been alone in the room. What was the figure?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: رأى نزيل في غرفة فندق خافتة الإضاءة هيئة ساكنة بجوار الباب. لوّح لها فلم ترد. اتصل بالاستقبال، فأضاء المدير الغرفة وضحكا معاً. كان النزيل وحده في الغرفة قبل وصول المدير. ما تلك الهيئة؟"
     },
     "answer": {
-      "en": "The man saw his own reflection in the wardrobe mirror and didn't recognize himself at first — he had grown a beard during a long journey.",
-      "ar": "رأى الرجل انعكاسه في مرآة الخزانة ولم يتعرف على نفسه في البداية — كان قد أطال لحيته خلال رحلته الطويلة."
+      "en": "A coat and hat left on a tall coat stand. In the dim light, their outline looked like a person.",
+      "ar": "معطف وقبعة على مشجب طويل. بدت هيئتهما في الإضاءة الخافتة كإنسان."
     },
     "review": {
       "status": "pending"
@@ -668,12 +572,12 @@
       "ar": "العلوم والطب"
     },
     "question": {
-      "en": "A researcher deletes the most important file on the lab computer and gets a promotion the same day. Why?",
-      "ar": "حذف باحث أهم ملف على حاسوب المختبر وحصل على ترقية في نفس اليوم. لماذا؟"
+      "en": "Fictional yes/no mystery: A researcher deletes an item labelled “All experiment data” from the computer desktop. Every experiment file remains available, no recovery is needed, and free disk space barely changes. What did she delete?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: حذفت باحثة عنصراً بعنوان «جميع بيانات التجارب» من سطح مكتب الحاسوب. ظلت ملفات التجارب متاحة، دون استعادة، ولم تتغير المساحة الحرة تقريباً. ماذا حذفت؟"
     },
     "answer": {
-      "en": "The file contained fabricated data. By deleting it before it was published, he prevented a major scientific scandal — saving the lab's reputation.",
-      "ar": "كان الملف يحتوي على بيانات مزوّرة. بحذفه قبل نشره، أنقذ سمعة المختبر من فضيحة علمية كبرى."
+      "en": "A shortcut linking to the data folder, not the folder or its contents.",
+      "ar": "اختصاراً يشير إلى مجلد البيانات، لا المجلد ولا محتوياته."
     },
     "review": {
       "status": "pending"
@@ -681,31 +585,19 @@
   },
   {
     "id": "story-mysteries-027",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Society, Money & Power",
       "ar": "المجتمع والمال والسلطة"
     },
     "question": {
-      "en": "A soldier wins a battle and is immediately arrested by his own side. Why?",
-      "ar": "فاز جندي بمعركة واعتُقل فورًا من قِبَل جانبه. لماذا؟"
+      "en": "Fictional yes/no mystery: A city removes every staffed tollbooth from its bridge. Drivers still pay the same toll, but no longer stop. The next month's records show more crossings and more toll revenue. How are payments collected?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أزالت مدينة كل أكشاك تحصيل الرسوم المأهولة عن جسرها. ظل السائقون يدفعون الرسم نفسه، لكن دون توقف. أظهرت سجلات الشهر التالي عبوراً وإيراداً أكبر. كيف تُحصّل المدفوعات؟"
     },
     "answer": {
-      "en": "He was a mercenary hired specifically to lose the battle — winning violated his contract and exposed a deliberate plan to surrender territory.",
-      "ar": "كان مرتزقًا مُستأجرًا خصيصًا لخسارة المعركة. فوزه خالف عقده وكشف عن خطة متعمدة للتنازل عن الأرض."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "He was a mercenary hired to lose.",
-        "He had been paid to lose the battle.",
-        "Winning violated his contract to lose."
-      ],
-      "ar": [
-        "كان مرتزقًا مأجورًا ليخسر.",
-        "دُفع له كي يخسر المعركة.",
-        "خالف فوزه عقده الذي ألزمه بالخسارة."
-      ]
+      "en": "An electronic toll system records vehicle tags or registration plates and bills their accounts. Removing the booths did not remove the toll.",
+      "ar": "يسجل نظام رسوم إلكتروني وسوم المركبات أو أرقام لوحاتها ويحاسب أصحابها. إزالة الأكشاك لم تعن إلغاء الرسوم."
     },
     "review": {
       "status": "pending"
@@ -713,31 +605,19 @@
   },
   {
     "id": "story-mysteries-028",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Crime & Investigation",
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A man proves he is innocent of murder by confessing to a crime. How does this work?",
-      "ar": "برّأ رجل نفسه من تهمة القتل بالاعتراف بجريمة. كيف يكون ذلك؟"
+      "en": "Fictional yes/no mystery: A gallery cabinet was smashed at exactly 14:00. A suspect admits trespassing in a warehouse 30 minutes away. That admission leads police to continuous, independently verified video showing him there from 13:50 to 14:10. Why does the admission rule him out as the person who physically smashed the cabinet?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: كُسرت خزانة معرض عند 14:00 بالضبط. اعترف مشتبه به بدخول مستودع دون إذن يبعد 30 دقيقة. قاد اعترافه الشرطة إلى تسجيل متصل تحققوا منه بصورة مستقلة، يظهره هناك من 13:50 إلى 14:10. لماذا يستبعده ذلك بوصفه من كسر الخزانة بيده؟"
     },
     "answer": {
-      "en": "He confesses to a different crime — one that gives him an alibi for the time of the murder. He was somewhere else committing that other offense.",
-      "ar": "يعترف بجريمة مختلفة توفّر له حجة الغياب وقت الجريمة. كان في مكان آخر يرتكب تلك الجريمة الأخرى."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "The other crime gave him an alibi.",
-        "He was elsewhere committing a different crime.",
-        "His confession proved he was elsewhere during the murder."
-      ],
-      "ar": [
-        "منحته الجريمة الأخرى حجة غياب.",
-        "كان في مكان آخر يرتكب جريمة مختلفة.",
-        "أثبت اعترافه أنه كان بعيدًا وقت القتل."
-      ]
+      "en": "The verified recording—not the confession alone—places him too far away at the relevant time. It establishes that narrow physical alibi, not innocence of every possible involvement.",
+      "ar": "التسجيل المتحقق منه، لا الاعتراف وحده، يضعه بعيداً وقت الواقعة. يثبت حجة الغياب عن تنفيذ الكسر بيده، لا البراءة من كل مشاركة محتملة."
     },
     "review": {
       "status": "pending"
@@ -745,31 +625,19 @@
   },
   {
     "id": "story-mysteries-029",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Arts, Language & Performance",
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A man destroys a priceless painting in a museum and is thanked warmly by the curator. What happened?",
-      "ar": "دمّر رجل لوحة لا تقدّر بثمن في متحف فشكره مدير المتحف بحرارة. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: With the museum's permission, a conservator removes a layer of paint from a valuable picture. The curator thanks her because the original artist's work becomes more visible, not less. What kind of layer was removed?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أزالت مرممة بإذن المتحف طبقة طلاء من لوحة نفيسة. شكرها المدير لأن عمل الفنان الأصلي صار أوضح، لا أقل ظهوراً. ما نوع الطبقة التي أزيلت؟"
     },
     "answer": {
-      "en": "The destroyed painting was a high-quality forgery placed over an original masterpiece. Removing it revealed the real, far more valuable work underneath.",
-      "ar": "اللوحة المدمّرة كانت تقليدًا عالي الجودة موضوعًا فوق لوحة أصلية. إزالتها كشفت عن العمل الأصلي الأكثر قيمة تحتها."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "The destroyed painting was a forgery covering the original.",
-        "He removed a forgery and revealed the priceless original.",
-        "The apparent masterpiece was a forgery hiding the real one."
-      ],
-      "ar": [
-        "كانت اللوحة المدمرة نسخة مزورة تغطي الأصلية.",
-        "أزال نسخة مزورة وكشف اللوحة الأصلية النفيسة.",
-        "كان العمل الظاهر مزورًا ويخفي اللوحة الحقيقية."
-      ]
+      "en": "A later overpainting, identified beforehand by conservation examination, that covered part of the original painting.",
+      "ar": "طبقة إعادة طلاء لاحقة حجبت جزءاً من الأصل، وكان فحص الترميم قد حددها مسبقاً."
     },
     "review": {
       "status": "pending"
@@ -777,31 +645,19 @@
   },
   {
     "id": "story-mysteries-030",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Crime & Investigation",
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A thief breaks into a bank vault but steals nothing. He is still sent to prison. When released, the bank manager thanks him. Why?",
-      "ar": "اقتحم لص خزينة بنك لكنه لم يسرق شيئًا. سُجن مع ذلك. عند الإفراج عنه، شكره مدير البنك. لماذا؟"
+      "en": "Fictional yes/no mystery: A stranger opens an empty bank vault without triggering its alarm. He takes nothing, hands the manager a written report, and receives an agreed fee. Why does the manager thank him instead of treating him as a burglar?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: فتح غريب خزنة مصرف فارغة دون إطلاق إنذارها. لم يأخذ شيئاً، وسلّم المدير تقريراً مكتوباً وتقاضى أجراً متفقاً عليه. لماذا شكره المدير بدلاً من معاملته كلص؟"
     },
     "answer": {
-      "en": "He got trapped inside the vault when the time-lock engaged. Police found him innocent of theft but convicted of breaking and entering. The manager was grateful because the thief had unknowingly exposed a critical flaw in the vault's time-lock system.",
-      "ar": "انقلب القفل الزمني عليه وحاصره. أُفرج عنه من تهمة السرقة لكن سُجن بسبب التسلل. المدير شكره لأنه كشف عن خلل خطير في نظام القفل الزمني."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "He was jailed for breaking in but exposed the faulty time-lock.",
-        "Jailed for breaking in, he was thanked for revealing the faulty time-lock.",
-        "Breaking in sent him to prison but exposed the defective time-lock."
-      ],
-      "ar": [
-        "سُجن للاقتحام لكنه كشف عطل القفل الزمني.",
-        "سُجن بسبب التسلل وشُكر لكشف خلل القفل الزمني.",
-        "أدخله الاقتحام السجن لكنه فضح عيب القفل الزمني."
-      ]
+      "en": "He was an authorized security tester. The bank had commissioned a controlled test, and his report identified the alarm's failure to detect the opening.",
+      "ar": "كان خبيراً مأذوناً له باختبار الأمن. كلّفه المصرف باختبار مضبوط، وحدد تقريره فشل الإنذار في رصد فتح الخزنة."
     },
     "review": {
       "status": "pending"
@@ -809,31 +665,19 @@
   },
   {
     "id": "story-mysteries-031",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Society, Money & Power",
       "ar": "المجتمع والمال والسلطة"
     },
     "question": {
-      "en": "A king gives away his entire kingdom and becomes more powerful than before. How?",
-      "ar": "تنازل ملك عن مملكته بأكملها وأصبح أكثر قوة من ذي قبل. كيف؟"
+      "en": "Fictional yes/no mystery: A king stops directly managing several estates but keeps the crown. The new stewards sign agreements requiring them to maintain troops for him. His own administrative workload falls while the army he can call upon grows. What did he exchange for military service?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: توقف ملك عن إدارة عدة إقطاعات مباشرةً، لكنه احتفظ بالتاج. وقع المسؤولون الجدد اتفاقات تلزمهم بتجهيز جنود له. قل عبؤه الإداري وكبر الجيش الذي يستطيع استدعاءه. ماذا منح مقابل الخدمة العسكرية؟"
     },
     "answer": {
-      "en": "He distributed land to loyal nobles who each owed him military service. Without the burden of direct administration, he commanded a larger army than he ever could have maintained alone.",
-      "ar": "وزّع الأرض على النبلاء الموالين الذين التزموا له بالخدمة العسكرية. دون عبء الإدارة المباشرة، أصبح يقود جيشًا أكبر مما كان يستطيع وحده."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "He exchanged land for the nobles' military service.",
-        "The nobles received land and owed him troops.",
-        "Delegating land gave him a larger army with less administration."
-      ],
-      "ar": [
-        "بادل الأرض بخدمة النبلاء العسكرية.",
-        "أخذ النبلاء الأرض وأصبحوا مدينين له بالجنود.",
-        "منحه تفويض الأرض جيشًا أكبر وإدارة أقل."
-      ]
+      "en": "Rights to manage and draw income from those estates. In this fictional arrangement he delegated land administration, not sovereignty over the whole kingdom.",
+      "ar": "حقوق إدارة تلك الإقطاعات والانتفاع بإيرادها. في هذا الاتفاق الخيالي فوّض إدارة الأرض، لا السيادة على المملكة كلها."
     },
     "review": {
       "status": "pending"
@@ -841,19 +685,19 @@
   },
   {
     "id": "story-mysteries-032",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Science & Medicine",
       "ar": "العلوم والطب"
     },
     "question": {
-      "en": "A doctor prescribes medicine that kills the patient. He is given a national award. What happened?",
-      "ar": "وصف طبيب دواءً قتل المريض. مُنح جائزة وطنية. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: During a lesson, a doctor's patient stops breathing. The instructor pauses the exercise, changes a setting, and says, “Reset for the next group.” No real person has been harmed. What was the patient?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أثناء درس توقف مريض طبيب عن التنفس. أوقف المدرب التمرين، وغيّر إعداداً وقال: «أعيدوا الضبط للمجموعة التالية». لم يتضرر إنسان حقيقي. ما هذا المريض؟"
     },
     "answer": {
-      "en": "The patient had a fatal parasite. The only drug capable of killing the parasite was also lethal to the patient in their weakened state — but without it death was certain. The drug killed the parasite first, giving the patient a few extra days. The doctor's courageous decision became a landmark in parasite treatment.",
-      "ar": "كان المريض يعاني من طفيلي مميت. الدواء الوحيد القادر على قتل الطفيلي كان مميتًا أيضًا للمريض في حالته الحرجة. لكن بدونه الموت محقق. أسهم الدواء في إطالة عمره أيامًا. قرار الطبيب الجريء أصبح معلمًا في علاج الطفيليات."
+      "en": "A medical training simulator or mannequin. The breathing change was a programmed feature of the exercise.",
+      "ar": "محاكي أو دمية تدريب طبي. كان تغير التنفس جزءاً مبرمجاً من التمرين."
     },
     "review": {
       "status": "pending"
@@ -861,19 +705,19 @@
   },
   {
     "id": "story-mysteries-033",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Science & Medicine",
       "ar": "العلوم والطب"
     },
     "question": {
-      "en": "A scientist destroys all his research notes and wins the Nobel Prize for that work. How?",
-      "ar": "دمّر عالم جميع ملاحظات بحثه وفاز بجائزة نوبل على ذلك العمل. كيف؟"
+      "en": "Fictional yes/no mystery: A scientist shreds a set of duplicate paper notes. Minutes later, a colleague in another city reads the same handwriting and diagrams in full. No paper or shred has left the laboratory. How?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: فرمت عالمة مجموعة نسخ ورقية إضافية لملاحظاتها. بعد دقائق قرأ زميل في مدينة أخرى الكتابة اليدوية والرسوم نفسها كاملةً. لم تغادر المختبر ورقة أو قصاصة. كيف؟"
     },
     "answer": {
-      "en": "He published his findings before burning the notes. He burned them to prevent dangerous knowledge from being replicated by others. The Nobel committee awarded him for the published discovery, not the notes.",
-      "ar": "نشر نتائجه قبل حرق الملاحظات. أحرقها لمنع المعرفة الخطرة من الانتشار. منحته لجنة نوبل الجائزة على الاكتشاف المنشور وليس الملاحظات."
+      "en": "Verified scans were already stored in the laboratory's shared archive. The shredded sheets were surplus copies, not the sole research record.",
+      "ar": "كانت صور ممسوحة ضوئياً ومتحققاً منها محفوظة مسبقاً في أرشيف المختبر المشترك. وكانت الأوراق المفرومة نسخاً زائدة، لا السجل الوحيد للبحث."
     },
     "review": {
       "status": "pending"
@@ -881,19 +725,19 @@
   },
   {
     "id": "story-mysteries-034",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Arts, Language & Performance",
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A pianist performs a concert where he never touches the keys. The audience gives a standing ovation. What is happening?",
-      "ar": "أقام عازف بيانو حفلة لم يلمس فيها المفاتيح مطلقًا. منحه الجمهور تصفيقًا حارًا واقفًا. ما الذي يجري؟"
+      "en": "Fictional yes/no mystery: At a contemporary-music recital, a pianist sits at the instrument for four minutes and 33 seconds without striking a key. The audience listens attentively to the sounds of the room and applauds when the timed performance ends. There is no broken instrument or protest. Why does the audience regard this as the intended performance?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: في أمسية موسيقى معاصرة، جلس عازف أمام البيانو أربع دقائق و 33 ثانية دون ضرب مفتاح. استمع الجمهور بانتباه إلى أصوات القاعة وصفق عند نهاية الأداء الموقّت. لم تكن الآلة معطلة، ولم يكن ذلك احتجاجاً. لماذا عدّ الجمهور هذا الأداء مقصوداً؟"
     },
     "answer": {
-      "en": "The piece being performed is John Cage's '4'33\" — a composition of silence lasting 4 minutes and 33 seconds. The pianist sat without playing as written.",
-      "ar": "المقطوعة المُعزوفة هي '4'33\"' لجون كيج — مؤلفة من الصمت لمدة أربع دقائق وثلاث وثلاثين ثانية. جلس العازف دون عزف كما هو مكتوب."
+      "en": "The programmed work asks performers not to make intentional instrumental sounds, directing attention to the surrounding sounds instead. The intended example is John Cage’s 4′33″; knowing its title is not required to solve the mystery.",
+      "ar": "يطلب العمل المدرج في البرنامج من مؤديه الامتناع عن إصدار أصوات آلية مقصودة، ليتجه الانتباه إلى أصوات المحيط. والمثال المقصود عمل جون كيج «4′33″»؛ ولا يلزم معرفة عنوانه لحل اللغز."
     },
     "review": {
       "status": "pending"
@@ -901,19 +745,19 @@
   },
   {
     "id": "story-mysteries-035",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Arts, Language & Performance",
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A woman answers every question on an exam correctly but still fails. The examiner says it was not her fault. What happened?",
-      "ar": "أجابت امرأة على كل سؤال في الامتحان بشكل صحيح لكنها رسبت. قال الممتحن إنه ليس خطأها. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: A student answers every question correctly, yet her result page says “Failed—absent.” The examiner checks the number printed on her paper and immediately corrects the result. Her answers never change. What went wrong?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أجابت طالبة عن كل سؤال بصورة صحيحة، لكن صفحة نتيجتها قالت «راسبة—غائبة». فحص الممتحن الرقم المطبوع على ورقتها وصحح النتيجة فوراً. لم تتغير إجاباتها. ما الخطأ؟"
     },
     "answer": {
-      "en": "She answered in the wrong language. She was a foreign student who misunderstood which language was required, and the examiners could not mark answers they couldn't read.",
-      "ar": "أجابت بلغة خاطئة. كانت طالبة أجنبية أساءت فهم اللغة المطلوبة، ولم يستطع الممتحنون تصحيح إجابات لم يستطيعوا قراءتها."
+      "en": "Her paper had been linked to the wrong student record. Correcting the identification attached her actual answers to her own result.",
+      "ar": "رُبطت ورقتها بسجل طالبة أخرى. وبعد تصحيح التعريف ارتبطت إجاباتها الفعلية بنتيجتها هي."
     },
     "review": {
       "status": "pending"
@@ -921,19 +765,19 @@
   },
   {
     "id": "story-mysteries-036",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Crime & Investigation",
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A man is found innocent of a crime he definitely committed. The judge agrees with the verdict. What happened?",
-      "ar": "بُرّئ رجل من جريمة ارتكبها بالتأكيد. وافق القاضي على الحكم. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: A witness sees a man take jewels from a shop's display and calls the owner. The man freely admits taking them. The owner says, “I asked him to,” and produces a collection receipt. What ordinary job explains the removal?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: رأى شاهد رجلاً يأخذ مجوهرات من واجهة متجر فاتصل بصاحبه. أقر الرجل بأخذها. قال المالك: «أنا طلبت منه ذلك»، وأبرز إيصال تسلم. ما العمل العادي الذي يفسر نقلها؟"
     },
     "answer": {
-      "en": "The evidence was obtained illegally — through an unlawful search. The judge ruled it inadmissible, and without evidence the verdict had to be not guilty.",
-      "ar": "الدليل حُصل عليه بطريقة غير قانونية — عبر تفتيش مخالف للقانون. رفض القاضي قبوله، وبدون دليل كان الحكم بالبراءة حتميًا."
+      "en": "He was an authorized courier collecting the jewels for a scheduled transfer. Taking an object does not by itself establish theft.",
+      "ar": "كان ناقلاً مأذوناً له يتسلم المجوهرات لنقل مقرر. أخذ الشيء وحده لا يثبت أنه سرقة."
     },
     "review": {
       "status": "pending"
@@ -941,19 +785,19 @@
   },
   {
     "id": "story-mysteries-037",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Society, Money & Power",
       "ar": "المجتمع والمال والسلطة"
     },
     "question": {
-      "en": "A woman burns her entire life savings and becomes richer. What happened?",
-      "ar": "أحرقت امرأة كل مدخراتها وأصبحت أكثر ثراءً. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: A woman gives a bank cashier one hundred genuine banknotes and receives only two genuine banknotes back. There is no purchase, fee, gift, or loss of value. What transaction took place?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أعطت امرأة صرافاً مصرفياً مئة ورقة نقدية حقيقية وتلقت ورقتين حقيقيتين فقط. لم يوجد شراء أو رسم أو هدية أو نقص في القيمة. ما المعاملة التي تمت؟"
     },
     "answer": {
-      "en": "Her savings were counterfeit bills. By burning them before using them, she avoided prosecution for forgery and collected the government's reward for reporting counterfeit currency.",
-      "ar": "مدخراتها كانت أوراقًا نقدية مزوّرة. بإحراقها قبل استخدامها، تفادت الملاحقة القضائية وجمعت مكافأة الحكومة على الإبلاغ عن العملة المزيّفة."
+      "en": "She exchanged smaller denominations for larger ones—for example, one hundred 1-unit notes for two 50-unit notes of the same currency.",
+      "ar": "استبدلت فئات صغيرة بفئات أكبر؛ مثلاً مئة ورقة من فئة وحدة واحدة بورقتين من فئة خمسين وحدة من العملة نفسها."
     },
     "review": {
       "status": "pending"
@@ -961,19 +805,19 @@
   },
   {
     "id": "story-mysteries-038",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Survival & Accidents",
       "ar": "النجاة والحوادث"
     },
     "question": {
-      "en": "A team paints a door shut from the outside and declares the building safer. The fire inspector agrees. Why?",
-      "ar": "طلى فريق بابًا من الخارج وأعلن أن المبنى أصبح أكثر أمانًا. وافق مفتش الحريق. لماذا؟"
+      "en": "Fictional yes/no mystery: An engineer watches a bridge break under a test load and says the experiment succeeded. An identical-looking bridge still carries normal traffic safely, and no traveler was near the broken one. What was being tested?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: شاهد مهندس جسراً ينكسر تحت حمل اختباري وقال إن التجربة نجحت. ظل جسر يشبهه يحمل المرور المعتاد بأمان، ولم يكن أي مسافر قرب الجسر المكسور. ما الذي كان يُختبر؟"
     },
     "answer": {
-      "en": "The door was a hidden emergency exit that opened directly into a narrow shaft — anyone escaping through it would have fallen to their death. Sealing it eliminated a fatal hazard.",
-      "ar": "الباب كان مخرج طوارئ مخفيًا يفتح على فجوة ضيقة — أي شخص يهرب منه كان سيسقط إلى حتفه. إغلاقه أزال خطرًا قاتلًا."
+      "en": "A scale model in a laboratory. It was deliberately loaded to failure to study behavior, not used as a public crossing.",
+      "ar": "نموذج مصغر في مختبر. حُمّل عمداً حتى الانهيار لدراسة سلوكه، ولم يكن معبراً عاماً."
     },
     "review": {
       "status": "pending"
@@ -981,31 +825,19 @@
   },
   {
     "id": "story-mysteries-039",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Survival & Accidents",
       "ar": "النجاة والحوادث"
     },
     "question": {
-      "en": "A mother gives her daughter advice in a lifeboat. They both die. What was the advice?",
-      "ar": "أعطت أم ابنتها نصيحة في قارب نجاة. ماتت كلتاهما. ما النصيحة؟"
+      "en": "Fictional yes/no mystery: A rowboat is firmly tied to a small wooden landing. After its two occupants put down their oars, the boat slowly drifts away from the shore. The rope and knot remain intact, and the landing is undamaged. Why does the rope fail to keep the boat near the shore?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: رُبط قارب تجديف بإحكام بمنصة خشبية صغيرة للرسو. بعد أن وضع راكباه المجدافين جانباً، أخذ القارب ينجرف ببطء بعيداً عن الشاطئ. ظل الحبل والعقدة سليمين، ولم تتضرر المنصة. لماذا لم يُبقِ الحبل القارب قرب الشاطئ؟"
     },
     "answer": {
-      "en": "The lifeboat had one empty seat. The mother told her daughter to take it. The daughter refused to leave without her mother. In the argument, the lifeboat tipped and both drowned.",
-      "ar": "كان في القارب مقعد واحد فارغ. قالت الأم لابنتها أن تأخذه. رفضت الابنة المغادرة بدون أمها. خلال الجدال، انقلب القارب وغرقتا معًا."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Take the last seat.",
-        "She told her daughter to take the final seat.",
-        "She advised her daughter to board without her."
-      ],
-      "ar": [
-        "خذي المقعد الأخير.",
-        "طلبت من ابنتها أخذ المقعد الأخير.",
-        "نصحت ابنتها بالصعود من دونها."
-      ]
+      "en": "The landing is a floating pontoon that was not secured to the shore or anchored. It drifts with the boat; tying the two together does not fix either one in place.",
+      "ar": "المنصة طافية ولم تكن مربوطة بالشاطئ أو مثبتة بمرساة. انجرفت مع القارب؛ فربطهما معاً لا يثبت أياً منهما في مكانه."
     },
     "review": {
       "status": "pending"
@@ -1013,31 +845,19 @@
   },
   {
     "id": "story-mysteries-040",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Crime & Investigation",
       "ar": "الجريمة والتحقيق"
     },
     "question": {
-      "en": "A spy gives away every secret he knows and is considered the most loyal agent in history. How?",
-      "ar": "أفشى جاسوس كل أسرار يعلمها واعتُبر أكثر العملاء ولاءً في التاريخ. كيف؟"
+      "en": "Fictional yes/no mystery: A spy truthfully reports every secret learned on a mission. His agency praises him; no enemy receives the report. The listeners all work in the same secure building as his handler. To whom is he speaking?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أبلغ جاسوس بصدق عن كل سر تعلمه في مهمة. أثنت عليه جهته، ولم يصل التقرير إلى عدو. يعمل المستمعون جميعاً في المبنى الآمن نفسه الذي يعمل فيه مسؤوله. إلى من يتحدث؟"
     },
     "answer": {
-      "en": "Every secret he gave to the enemy was deliberately false — he was a double agent feeding disinformation. The bigger and more believable the lie, the more loyal he appeared to his real handlers.",
-      "ar": "كل سر سرّبه للعدو كان كاذبًا عمدًا — كان عميلًا مزدوجًا يغذّي المعلومات المضللة. كلما كانت الكذبة أكبر وأكثر تصديقًا، بدا أكثر ولاءً لمشغّليه الحقيقيين."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "He was a double agent feeding the enemy false information.",
-        "The secrets were deliberate disinformation.",
-        "He served his real side by misleading the enemy."
-      ],
-      "ar": [
-        "كان عميلاً مزدوجًا يزوّد العدو بمعلومات كاذبة.",
-        "كانت الأسرار معلومات مضللة متعمدة.",
-        "خدم جانبه الحقيقي بتضليل العدو."
-      ]
+      "en": "His own authorized debriefing team. Reporting secrets to the people entitled to receive them is not betrayal.",
+      "ar": "فريق الاستجواب الختامي المخول في جهته هو. إبلاغ الأسرار لمن يحق لهم تلقيها ليس خيانة."
     },
     "review": {
       "status": "pending"
@@ -1045,19 +865,19 @@
   },
   {
     "id": "story-mysteries-041",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Society, Money & Power",
       "ar": "المجتمع والمال والسلطة"
     },
     "question": {
-      "en": "A man is declared legally dead while still alive and is perfectly fine with it. Why?",
-      "ar": "أُعلن رجل ميتًا قانونيًا وهو لا يزال حيًّا وكان بخير مع ذلك. لماذا؟"
+      "en": "Fictional yes/no mystery: A bakery owner puts up a sign saying “This shop is permanently closed” and celebrates her business's growth. Every employee keeps their job, and customers can still buy her bread the next morning. What has changed?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: علقت صاحبة مخبز لافتة «هذا المحل مغلق نهائياً» واحتفلت بنمو مشروعها. احتفظ جميع الموظفين بوظائفهم، وظل الزبائن قادرين على شراء خبزها في الصباح التالي. ما الذي تغير؟"
     },
     "answer": {
-      "en": "He was massively in debt. Being declared legally dead erased all his financial obligations. He then started life over under a new identity with a clean slate.",
-      "ar": "كان مثقلًا بالديون. إعلان وفاته القانونية محا جميع التزاماته المالية. ثم بدأ حياة جديدة بهوية مختلفة من الصفر."
+      "en": "The business moved to larger premises. The old shop closed permanently, not the bakery business.",
+      "ar": "انتقل المشروع إلى مقر أكبر. أُغلق المحل القديم نهائياً، لا نشاط المخبز."
     },
     "review": {
       "status": "pending"
@@ -1065,19 +885,19 @@
   },
   {
     "id": "story-mysteries-042",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Society, Money & Power",
       "ar": "المجتمع والمال والسلطة"
     },
     "question": {
-      "en": "A country loses a war and within twenty years becomes the world's wealthiest nation. What happened?",
-      "ar": "خسرت دولة حربًا وفي غضون عشرين عامًا أصبحت أغنى دولة في العالم. ماذا حدث؟"
+      "en": "Fictional yes/no mystery: A town announces that its municipal savings doubled overnight, without earning, borrowing, receiving a gift, or changing currency. The population in the same report also doubled. What administrative change explains both figures?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: أعلنت بلدة تضاعف مدخرات بلديتها خلال ليلة، دون ربح أو اقتراض أو هبة أو تغيير العملة. تضاعف عدد السكان في التقرير نفسه أيضاً. ما التغيير الإداري الذي يفسر الرقمين؟"
     },
     "answer": {
-      "en": "The victorious nations funded massive reconstruction of the defeated country to prevent its radicalization — as happened with Germany and Japan after World War II. The investment transformed their economies.",
-      "ar": "موّلت الدول المنتصرة إعادة إعمار الدولة المهزومة على نطاق واسع لمنع تطرفها — كما حدث مع ألمانيا واليابان بعد الحرب العالمية الثانية. حوّل هذا الاستثمار اقتصادهما."
+      "en": "It merged with a neighboring town having the same savings and population. The combined totals doubled, but savings per resident did not.",
+      "ar": "اندمجت مع بلدة مجاورة لها المدخرات وعدد السكان نفسيهما. تضاعف المجموع، لكن نصيب الفرد من المدخرات لم يتغير."
     },
     "review": {
       "status": "pending"
@@ -1085,31 +905,19 @@
   },
   {
     "id": "story-mysteries-043",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Science & Medicine",
       "ar": "العلوم والطب"
     },
     "question": {
-      "en": "A hospital saves more lives after it starts refusing to treat certain patients. What is going on?",
-      "ar": "بدأ مستشفى ينقذ أرواحًا أكثر بعد أن بدأ يرفض علاج بعض المرضى. ما الذي يجري؟"
+      "en": "Fictional yes/no mystery: A hospital stops admitting one category of patients to its own wards. A joint review with nearby specialist centers later records better survival across the whole care pathway. The patients were not abandoned or denied assessment. Where did they go?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: توقف مستشفى عن إدخال فئة من المرضى إلى أجنحته. سجلت مراجعة مشتركة مع مراكز تخصصية مجاورة لاحقاً تحسناً في النجاة عبر مسار الرعاية كله. لم يُترك المرضى دون مساعدة أو تقييم. إلى أين ذهبوا؟"
     },
     "answer": {
-      "en": "It stopped accepting patients it could not effectively treat and redirected them to specialist centers. By focusing only on cases within its expertise, its outcomes improved dramatically — matching patients to the right facility saves more lives overall.",
-      "ar": "توقف عن قبول مرضى لا يستطيع علاجهم بفعالية وحوّلهم إلى مراكز متخصصة. بالتركيز فقط على الحالات ضمن تخصصه، تحسنت نتائجه بشكل كبير — توجيه المرضى إلى المنشأة الصحيحة ينقذ أرواحًا أكثر."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "It redirected cases outside its expertise to specialist centers.",
-        "It referred unsuitable cases to specialists and treated only appropriate patients.",
-        "Specialists took cases the hospital could not treat effectively."
-      ],
-      "ar": [
-        "حوّل الحالات خارج اختصاصه إلى مراكز متخصصة.",
-        "أحال الحالات غير المناسبة إلى متخصصين وعالج المرضى الملائمين فقط.",
-        "تولى المتخصصون الحالات التي لم يستطع المستشفى علاجها بفعالية."
-      ]
+      "en": "Under an agreed referral pathway, they were transferred to centers equipped for their needs. The improved outcome is a stated fact of this fictional case, not a rule that refusing patients improves care.",
+      "ar": "نُقلوا وفق مسار إحالة متفق عليه إلى مراكز مجهزة لاحتياجاتهم. تحسن النتيجة معطى في هذه الحالة الخيالية، لا قاعدة تقول إن رفض المرضى يحسن الرعاية."
     },
     "review": {
       "status": "pending"
@@ -1117,19 +925,19 @@
   },
   {
     "id": "story-mysteries-044",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Logic & Paradoxes",
       "ar": "المنطق والمفارقات"
     },
     "question": {
-      "en": "A city celebrates when its only bridge is permanently closed. Why?",
-      "ar": "احتفلت مدينة عندما أُغلق جسرها الوحيد نهائيًا. لماذا؟"
+      "en": "Fictional yes/no mystery: A river city celebrates the permanent closure of its only bridge to traffic. No replacement bridge has opened, yet cars now cross the river faster without using boats. The mayor cuts a ribbon at the mouth of a road descending below river level. What opened?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: احتفلت مدينة نهرية بإغلاق جسرها الوحيد للمرور نهائياً. لم يُفتتح جسر بديل، ومع ذلك صارت السيارات تعبر النهر أسرع دون قوارب. قص العمدة شريطاً عند مدخل طريق يهبط تحت مستوى النهر. ما الذي افتُتح؟"
     },
     "answer": {
-      "en": "The bridge connected the city to a region that was a source of poverty and crime. Closing it allowed the city to develop its own internal economy. Alternatively: the bridge closure proved a new underground tunnel was finally complete.",
-      "ar": "ربط الجسر المدينة بمنطقة كانت مصدر فقر وجريمة. إغلاقه أتاح للمدينة تطوير اقتصادها الداخلي. أو: إغلاق الجسر أثبت اكتمال نفق جديد تحت الأرض أخيرًا."
+      "en": "A road tunnel beneath the river, replacing the bridge's transport function.",
+      "ar": "نفق طريق تحت النهر حل محل الجسر في نقل المرور."
     },
     "review": {
       "status": "pending"
@@ -1169,31 +977,19 @@
   },
   {
     "id": "story-mysteries-046",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Logic & Paradoxes",
       "ar": "المنطق والمفارقات"
     },
     "question": {
-      "en": "A man is hired as a night watchman. On his first night, he tells his boss he dreamed the building would be robbed. The boss fires him. Why?",
-      "ar": "استُؤجر رجل حارسًا ليليًا. في ليلته الأولى، أخبر مديره أنه حلم بأن المبنى سيُسرق. فصله المدير. لماذا؟"
+      "en": "Fictional yes/no mystery: A night watchman says, “During my shift, between one and two, I dreamed that the storeroom would be robbed.” His manager is concerned about something other than the predicted robbery. The guard confirms it was a sleeping dream, not a daydream. What concern did he reveal?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: قال حارس ليلي: «خلال ورديتي، بين الواحدة والثانية، حلمت بأن المخزن سيتعرض للسرقة». قلق مديره من أمر غير توقع السرقة. وأكد الحارس أنه حلم أثناء النوم، لا حلم يقظة. ما الأمر الذي كشفه؟"
     },
     "answer": {
-      "en": "A night watchman should not be sleeping on the job. The fact that he had a dream proves he was asleep during his shift.",
-      "ar": "يجب ألا ينام الحارس الليلي أثناء عمله. حقيقة أنه كان يحلم تثبت أنه كان نائمًا أثناء وردته."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "His dream proved he had slept on duty.",
-        "A night watchman should not sleep during his shift.",
-        "He was fired because dreaming revealed he was asleep."
-      ],
-      "ar": [
-        "أثبت حلمه أنه نام أثناء العمل.",
-        "يجب ألا ينام الحارس الليلي خلال نوبته.",
-        "فُصل لأن حلمه كشف أنه كان نائمًا."
-      ]
+      "en": "He had been asleep during time when he was assigned to keep watch. The concern follows from the stated timing, not from merely having had a dream sometime.",
+      "ar": "كان نائماً في وقت كُلّف فيه بالحراسة. ينبع القلق من توقيت النوم المذكور، لا من مجرد رؤيته حلماً في وقت ما."
     },
     "review": {
       "status": "pending"
@@ -1201,19 +997,19 @@
   },
   {
     "id": "story-mysteries-047",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Arts, Language & Performance",
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A man who cannot speak a single word gives a famous speech that changes history. How?",
-      "ar": "ألقى رجل لا يستطيع النطق بكلمة واحدة خطابًا شهيرًا غيّر مجرى التاريخ. كيف؟"
+      "en": "Fictional yes/no mystery: A writer who cannot speak composes a speech that the audience hears in full. Nobody else reads it aloud. Before each passage, he types, and an electronic voice follows. How is the speech delivered?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: ألّف كاتب لا يستطيع النطق خطاباً سمعه الجمهور كاملاً، ولم يقرأه شخص آخر بصوت عالٍ. قبل كل مقطع كان يكتب، ثم يتبعه صوت إلكتروني. كيف أُلقي الخطاب؟"
     },
     "answer": {
-      "en": "He wrote the speech which was read aloud by another person. Many great historical speeches were authored by people who never delivered them verbally — ghost writers and orators working together.",
-      "ar": "كتب الخطاب وقرأه شخص آخر بصوت عالٍ. كثير من الخطابات التاريخية العظيمة كتبها أشخاص لم يلقوها شفهيًا — كتّاب خطابات ومتحدثون يعملون معًا."
+      "en": "A text-to-speech device vocalizes his typed words. The ideas and words are his, while the device supplies the audible voice.",
+      "ar": "يحوّل جهاز النص إلى كلام الكلمات التي يكتبها إلى صوت. الأفكار والكلمات له، والجهاز يصدر الصوت المسموع."
     },
     "review": {
       "status": "pending"
@@ -1221,19 +1017,19 @@
   },
   {
     "id": "story-mysteries-048",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "story",
     "subcategory": {
       "en": "Logic & Paradoxes",
       "ar": "المنطق والمفارقات"
     },
     "question": {
-      "en": "A man walks into a room full of experts, says one sentence, and every expert immediately resigns. What did he say?",
-      "ar": "دخل رجل إلى غرفة مليئة بخبراء وقال جملة واحدة فاستقال كل خبير فورًا. ماذا قال؟"
+      "en": "Fictional yes/no mystery: Three experts resign from a competition's judging panel and celebrate. A newly announced round is open to professionals, but the rules forbid serving judges from entering. Why does leaving the panel help them?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: استقال ثلاثة خبراء من لجنة تحكيم مسابقة واحتفلوا. أُعلنت جولة جديدة للمحترفين، لكن القواعد تمنع أعضاء لجنة التحكيم الحاليين من المشاركة. كيف يفيدهم ترك اللجنة؟"
     },
     "answer": {
-      "en": "'The company is bankrupt and you will not be paid.' When the experts learned there was no payment, they had no incentive to continue — their expertise was contingent on compensation.",
-      "ar": "'الشركة مفلسة ولن تُدفع رواتبكم'. عندما علم الخبراء بانعدام الأجر، لم يكن لديهم دافع للاستمرار — خبرتهم كانت مشروطة بالتعويض."
+      "en": "They want to enter as competitors. In this fictional competition, resigning before registration removes the stated eligibility restriction.",
+      "ar": "يريدون المشاركة متنافسين. في هذه المسابقة الخيالية تزيل الاستقالة قبل التسجيل قيد الأهلية المذكور."
     },
     "review": {
       "status": "pending"
@@ -1261,19 +1057,19 @@
   },
   {
     "id": "story-mysteries-050",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "story",
     "subcategory": {
       "en": "Arts, Language & Performance",
       "ar": "الفنون واللغة والعروض"
     },
     "question": {
-      "en": "A librarian burns a book and is praised by every author whose work is inside it. Why?",
-      "ar": "أحرق أمين مكتبة كتابًا فأثنى عليه كل مؤلف له عمل بداخله. لماذا؟"
+      "en": "Fictional yes/no mystery: Before an anonymous writing competition, a librarian removes every author's name from the judging copies. Every story remains complete, and the authors thank her. Why is removing their names helpful rather than plagiarism?",
+      "ar": "لغز خيالي بأسئلة نعم/لا: قبل مسابقة كتابة مجهولة الهوية، أزالت أمينة مكتبة أسماء المؤلفين من نسخ التحكيم. ظلت كل قصة كاملة وشكرها المؤلفون. لماذا يفيد حذف الأسماء بدلاً من أن يكون انتحالاً؟"
     },
     "answer": {
-      "en": "The book was an unauthorized pirated anthology that reproduced copyrighted work without permission or payment. Burning it destroyed evidence of infringement and demonstrated solidarity with the authors whose rights had been violated.",
-      "ar": "الكتاب كان مختارات مقرصنة غير مرخصة نسخت أعمالًا محمية بحقوق النشر دون إذن أو دفع. إحراقه دمّر دليلًا على الانتهاك وأظهر تضامنًا مع المؤلفين الذين انتُهكت حقوقهم."
+      "en": "The rules require blind judging. A separate confidential register preserves authorship while coded copies keep judges from knowing who wrote each entry.",
+      "ar": "تشترط القواعد تحكيماً مجهول الهوية. يحفظ سجل سري منفصل نسبة الأعمال لأصحابها، بينما تمنع النسخ المرمزة الحكام من معرفة كاتب كل مشاركة."
     },
     "review": {
       "status": "pending"

@@ -25,12 +25,12 @@
       "ar": "العتاد والتخزين"
     },
     "question": {
-      "en": "Which company developed the first microprocessor, the 4004, in 1971?",
-      "ar": "ما هي الشركة التي طورت أول معالج دقيق، 4004، في عام 1971؟"
+      "en": "Which company released the 4004 microprocessor in 1971?",
+      "ar": "أي شركة أصدرت المعالج الدقيق 4004 عام 1971؟"
     },
     "answer": {
-      "en": "Intel",
-      "ar": "إنتل"
+      "en": "Intel.",
+      "ar": "إنتل."
     },
     "difficulty": "easy",
     "review": {
@@ -44,12 +44,12 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "What is the highest-selling video game console of all time?",
-      "ar": "ما هو جهاز ألعاب الفيديو الأكثر مبيعاً على الإطلاق؟"
+      "en": "Which Sony console succeeded the original PlayStation?",
+      "ar": "أي جهاز من سوني خلف جهاز بلاي ستيشن الأصلي؟"
     },
     "answer": {
-      "en": "PlayStation 2",
-      "ar": "بلاي ستيشن 2"
+      "en": "PlayStation 2.",
+      "ar": "بلاي ستيشن 2."
     },
     "difficulty": "easy",
     "review": {
@@ -82,14 +82,14 @@
       "ar": "رواد الحوسبة"
     },
     "question": {
-      "en": "Who is known as the father of modern computer science and artificial intelligence?",
-      "ar": "من يُعرف بكونه أب علوم الكمبيوتر الحديثة والذكاء الاصطناعي؟"
+      "en": "Who proposed the imitation game in the 1950 paper 'Computing Machinery and Intelligence'?",
+      "ar": "من اقترح لعبة التقليد في بحث «آلات الحوسبة والذكاء» عام 1950؟"
     },
     "answer": {
-      "en": "Alan Turing",
-      "ar": "آلان تورنغ"
+      "en": "Alan Turing.",
+      "ar": "آلان تورنغ."
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -101,12 +101,12 @@
       "ar": "الهواتف والأجهزة"
     },
     "question": {
-      "en": "What was the name of the first mobile phone with a built-in camera, released in 2000?",
-      "ar": "ما هو اسم أول هاتف محمول مزود بكاميرا مدمجة، والذي صدر في عام 2000؟"
+      "en": "What is the common name for a mobile-phone design that folds shut on a hinge?",
+      "ar": "ما الاسم الشائع لتصميم الهاتف المحمول الذي يُطوى ويُغلق بواسطة مفصلة؟"
     },
     "answer": {
-      "en": "Sharp J-SH04",
-      "ar": "شارب J-SH04"
+      "en": "A flip phone, also called a clamshell phone.",
+      "ar": "هاتف قابل للطي يُعرف بتصميم الصدفة."
     },
     "difficulty": "easy",
     "review": {
@@ -196,14 +196,14 @@
       "ar": "الهواتف والأجهزة"
     },
     "question": {
-      "en": "Which company created the famous 'Nokia 3310' mobile phone?",
-      "ar": "ما هي الشركة التي صنعت الهاتف المحمول الشهير 'نوكيا 3310'؟"
+      "en": "Which simple game on classic Nokia phones involves steering a growing line without hitting obstacles or itself?",
+      "ar": "ما اللعبة البسيطة في هواتف نوكيا الكلاسيكية التي تتحكم فيها بخط يطول وتتفادى اصطدامه بالعوائق أو بنفسه؟"
     },
     "answer": {
-      "en": "Nokia",
-      "ar": "نوكيا"
+      "en": "Snake.",
+      "ar": "لعبة الثعبان."
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -222,7 +222,7 @@
       "en": "Mario",
       "ar": "ماريو"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -241,7 +241,7 @@
       "en": "CPU (Central Processing Unit)",
       "ar": "وحدة المعالجة المركزية"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -291,12 +291,12 @@
       "ar": "العتاد والتخزين"
     },
     "question": {
-      "en": "What storage medium, popular in the 80s and 90s, held 1.44 MB of data in its 3.5-inch version?",
-      "ar": "ما هو وسيط التخزين الذي كان شائعًا في الثمانينيات والتسعينيات وكان يتسع لـ 1.44 ميغابايت من البيانات في نسخته بحجم 3.5 بوصة؟"
+      "en": "Which high-density 3.5-inch removable storage medium commonly held 1.44 MB?",
+      "ar": "ما وسيط التخزين القابل للإزالة الذي كانت نسخته عالية الكثافة بقياس 3.5 بوصة تسع عادةً 1.44 ميغابايت؟"
     },
     "answer": {
-      "en": "Floppy Disk",
-      "ar": "القرص المرن"
+      "en": "A floppy disk.",
+      "ar": "القرص المرن."
     },
     "difficulty": "medium",
     "review": {
@@ -367,12 +367,12 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "What iconic 1993 first-person shooter game popularized the genre and featured a space marine fighting demons on Mars?",
-      "ar": "ما هي لعبة إطلاق النار الأيقونية من منظور الشخص الأول لعام 1993 التي روجت لهذا النوع وتضمنت جندي مارينز فضائي يقاتل الشياطين على المريخ؟"
+      "en": "Which 1993 first-person shooter follows a space marine fighting demons, beginning on Mars's moon Phobos?",
+      "ar": "ما لعبة التصويب من منظور الشخص الأول الصادرة عام 1993 التي يقاتل فيها جندي فضائي الشياطين، بدءاً من فوبوس أحد قمري المريخ؟"
     },
     "answer": {
-      "en": "DOOM",
-      "ar": "دووم"
+      "en": "DOOM.",
+      "ar": "دووم."
     },
     "difficulty": "medium",
     "review": {
@@ -386,12 +386,12 @@
       "ar": "الإنترنت المبكر"
     },
     "question": {
-      "en": "What was the first domain name ever registered on the internet?",
-      "ar": "ما هو أول اسم نطاق تم تسجيله على الإطلاق على الإنترنت؟"
+      "en": "What was the first registered .com domain name?",
+      "ar": "ما أول اسم نطاق سُجّل بامتداد ‎.com؟"
     },
     "answer": {
-      "en": "symbolics.com",
-      "ar": "symbolics.com"
+      "en": "symbolics.com.",
+      "ar": "symbolics.com."
     },
     "difficulty": "hard",
     "review": {
@@ -412,7 +412,7 @@
       "en": "Java",
       "ar": "جافا"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -420,12 +420,12 @@
   {
     "id": "tech-retro-23",
     "question": {
-      "en": "Which pre-Web internet protocol, developed at the University of Minnesota, organized documents into hierarchical menus?",
-      "ar": "أي بروتوكول إنترنت سبق الويب وطُوّر في جامعة مينيسوتا ونظّم المستندات في قوائم هرمية؟"
+      "en": "Which early Internet protocol developed at the University of Minnesota organized documents into hierarchical menus?",
+      "ar": "أي بروتوكول إنترنت مبكر طُوّر في جامعة مينيسوتا ونظّم المستندات في قوائم هرمية؟"
     },
     "answer": {
-      "en": "Gopher",
-      "ar": "غوفر (Gopher)"
+      "en": "Gopher.",
+      "ar": "غوفر."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -443,12 +443,12 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "Which iconic SEGA console was released on the mathematically unique date 9/9/99 in North America?",
-      "ar": "أي جهاز سيجا أيقوني تم إصداره في التاريخ المميز رياضياً 9/9/99 في أمريكا الشمالية؟"
+      "en": "Which SEGA console launched in North America on the memorable date 9/9/99?",
+      "ar": "أي جهاز سيجا طُرح في أمريكا الشمالية في التاريخ اللافت 9/9/99؟"
     },
     "answer": {
-      "en": "Dreamcast",
-      "ar": "دريم كاست"
+      "en": "Dreamcast.",
+      "ar": "دريم كاست."
     },
     "difficulty": "hard",
     "review": {
@@ -481,12 +481,12 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "What video game crashed the industry in 1983 due to millions of unsold cartridges being buried in a New Mexico landfill?",
-      "ar": "ما هي لعبة الفيديو التي تسببت في انهيار الصناعة عام 1983 بسبب دفن ملايين النسخ غير المباعة في مكب نفايات بنيو مكسيكو؟"
+      "en": "Which Atari 2600 game based on a 1982 Steven Spielberg film became associated with the Alamogordo landfill story?",
+      "ar": "أي لعبة لجهاز أتاري 2600، مقتبسة من فيلم لستيفن سبيلبرغ صدر عام 1982، ارتبطت بقصة مكب ألاموغوردو؟"
     },
     "answer": {
-      "en": "E.T. the Extra-Terrestrial",
-      "ar": "إي تي الكائن الفضائي"
+      "en": "E.T. the Extra-Terrestrial.",
+      "ar": "إي تي: الكائن الفضائي."
     },
     "difficulty": "hard",
     "review": {
@@ -500,12 +500,12 @@
       "ar": "الإنترنت المبكر"
     },
     "question": {
-      "en": "Which early internet browser was instrumental in popularizing the World Wide Web in the mid-1990s before Internet Explorer?",
-      "ar": "أي متصفح إنترنت مبكر لعب دوراً فعالاً في نشر شبكة الويب العالمية في منتصف التسعينيات قبل إنترنت إكسبلورر؟"
+      "en": "Which web browser was released by Netscape in 1994?",
+      "ar": "ما متصفح الويب الذي أصدرته شركة نتسكيب عام 1994؟"
     },
     "answer": {
-      "en": "Netscape Navigator",
-      "ar": "نتسكيب نافيجيتور"
+      "en": "Netscape Navigator.",
+      "ar": "نتسكيب نافيجيتور."
     },
     "difficulty": "hard",
     "review": {
@@ -519,12 +519,12 @@
       "ar": "العتاد والتخزين"
     },
     "question": {
-      "en": "What hardware interface, developed by Intel and released in 1996, revolutionized connecting peripherals to computers?",
-      "ar": "ما هي واجهة الأجهزة، التي طورتها إنتل وصدرت عام 1996، والتي أحدثت ثورة في ربط الأجهزة الطرفية بأجهزة الكمبيوتر؟"
+      "en": "Which interface standard, developed by a group of companies, introduced version 1.0 in 1996 to simplify connecting computer peripherals?",
+      "ar": "ما معيار التوصيل الذي طوّرته مجموعة شركات وأصدرت نسخته 1.0 عام 1996 لتسهيل توصيل الأجهزة الطرفية بالحاسوب؟"
     },
     "answer": {
-      "en": "USB (Universal Serial Bus)",
-      "ar": "ناقل تسلسلي عام"
+      "en": "USB (Universal Serial Bus).",
+      "ar": "USB، الناقل التسلسلي العام."
     },
     "difficulty": "hard",
     "review": {
@@ -545,7 +545,7 @@
       "en": "Random Access Memory",
       "ar": "ذاكرة الوصول العشوائي"
     },
-    "difficulty": "hard",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -564,7 +564,7 @@
       "en": "Paul Allen",
       "ar": "بول ألين"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -576,14 +576,14 @@
       "ar": "البرمجيات والبرمجة"
     },
     "question": {
-      "en": "What was the name of the first computer virus created in 1971, which displayed the message 'I'm the [name], catch me if you can!'?",
-      "ar": "ما كان اسم أول فيروس كمبيوتر تم إنشاؤه في عام 1971، والذي أظهر رسالة 'أنا الـ [الاسم]، اقبض علي إن استطعت!'؟"
+      "en": "Which experimental self-replicating program, created in 1971, displayed a message ending 'catch me if you can!'?",
+      "ar": "ما البرنامج التجريبي ذاتي النسخ الذي أُنشئ عام 1971 وعرض رسالة تنتهي بعبارة «أمسك بي إن استطعت!»؟"
     },
     "answer": {
-      "en": "Creeper",
-      "ar": "كريبر"
+      "en": "Creeper, an early worm-like program.",
+      "ar": "كريبر، برنامج مبكر شبيه بدودة الحاسوب."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -614,14 +614,14 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "What is the precise maximum score possible in a perfect game of Pac-Man before the split-screen glitch occurs at level 256?",
-      "ar": "ما هو الحد الأقصى الدقيق للنتيجة الممكنة في لعبة مثالية من باك مان قبل حدوث خلل الشاشة المنقسمة في المستوى 256؟"
+      "en": "In the original Pac-Man arcade game, what temporary ability does eating a power pellet give Pac-Man?",
+      "ar": "في لعبة باك مان الأصلية للأركيد، ما القدرة المؤقتة التي تمنحها حبة الطاقة لباك مان؟"
     },
     "answer": {
-      "en": "3,333,360",
-      "ar": "3,333,360"
+      "en": "He can eat the vulnerable ghosts.",
+      "ar": "يمكنه أكل الأشباح عندما تصبح عرضة له."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -633,14 +633,14 @@
       "ar": "الهواتف والأجهزة"
     },
     "question": {
-      "en": "Before it was called 'Bluetooth', what was the internal codename for this wireless technology named after a Viking king?",
-      "ar": "قبل أن يُطلق عليها 'بلوتوث'، ما كان الاسم الرمزي الداخلي لهذه التكنولوجيا اللاسلكية التي سُميت على اسم ملك فايكنغ؟"
+      "en": "Which Danish king inspired the name Bluetooth?",
+      "ar": "أي ملك دنماركي ألهم تسمية بلوتوث؟"
     },
     "answer": {
-      "en": "Harald",
-      "ar": "هارالد"
+      "en": "Harald Bluetooth (Harald Gormsson).",
+      "ar": "هارالد بلوتوث، المعروف أيضاً بهارالد غورمسون."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -652,12 +652,12 @@
       "ar": "الحواسيب الشخصية"
     },
     "question": {
-      "en": "Which hidden Easter Egg was embedded into the software of the original Apple Macintosh by Steve Jobs' engineering team?",
-      "ar": "ما هي بيضة الفصح (السر الخفي) التي تم تضمينها في برمجيات أبل ماكنتوش الأصلي بواسطة فريق هندسة ستيف جوبز؟"
+      "en": "What tribute to its development team was molded inside the original Macintosh's plastic case?",
+      "ar": "ما التكريم لفريق التطوير الذي طُبع بالقالب داخل الغلاف البلاستيكي لماكنتوش الأصلي؟"
     },
     "answer": {
-      "en": "Signatures of the development team molded inside the case",
-      "ar": "توقيعات فريق التطوير محفورة داخل الغطاء"
+      "en": "The team members' signatures.",
+      "ar": "توقيعات أعضاء فريق التطوير."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -678,7 +678,7 @@
       "en": "HTTP traffic",
       "ar": "حركة مرور HTTP"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -690,14 +690,14 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "Which legendary 1985 space trading video game created by David Braben used procedural generation to fit an entire universe onto a floppy disk?",
-      "ar": "ما هي لعبة فيديو تجارة الفضاء الأسطورية لعام 1985 التي أنشأها ديفيد برابين والتي استخدمت التوليد الإجرائي لتناسب كوناً كاملاً على قرص مرن؟"
+      "en": "What technique generates game worlds algorithmically instead of storing every detail as hand-made content?",
+      "ar": "ما التقنية التي تُنشئ عوالم الألعاب بالخوارزميات بدلاً من تخزين كل تفاصيلها كمحتوى مُعدّ يدوياً؟"
     },
     "answer": {
-      "en": "Elite",
-      "ar": "إيليت"
+      "en": "Procedural generation.",
+      "ar": "التوليد الإجرائي."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -709,12 +709,12 @@
       "ar": "البرمجيات والبرمجة"
     },
     "question": {
-      "en": "What was the initial name of the famous programming language Python during its conceptual phase by Guido van Rossum?",
-      "ar": "ما كان الاسم الأولي للغة البرمجة الشهيرة بايثون خلال مرحلتها المفاهيمية بواسطة جويدو فان روسوم؟"
+      "en": "Which earlier language influenced Python's syntax and use of indentation?",
+      "ar": "أي لغة سابقة أثّرت في صياغة بايثون واستخدامها للمسافات البادئة؟"
     },
     "answer": {
-      "en": "ABC",
-      "ar": "إيه بي سي (ABC)"
+      "en": "ABC; it was a separate language, not a former name of Python.",
+      "ar": "ABC؛ كانت لغة مستقلة، لا اسماً سابقاً لبايثون."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -728,14 +728,14 @@
       "ar": "ألعاب الفيديو الكلاسيكية"
     },
     "question": {
-      "en": "Which obscure video game console released in 1993 was the first 32-bit console, created by Commodore but failed commercially?",
-      "ar": "ما هو جهاز ألعاب الفيديو المغمور الذي صدر عام 1993 وكان أول جهاز 32 بت، ابتكرته شركة كومودور ولكنه فشل تجارياً؟"
+      "en": "Which company produced the Amiga CD32 game console?",
+      "ar": "أي شركة أنتجت جهاز الألعاب أميغا CD32؟"
     },
     "answer": {
-      "en": "Amiga CD32",
-      "ar": "أميجا سي دي 32"
+      "en": "Commodore.",
+      "ar": "كومودور."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }

@@ -45,12 +45,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "True or False: Plastic takes hundreds of years to decompose in nature.",
-      "ar": "صح أم خطأ: يستغرق البلاستيك مئات السنين لكي يتحلل في الطبيعة."
+      "en": "True or false: when conventional plastic breaks into tiny fragments, that necessarily means it has fully biodegraded.",
+      "ar": "صح أم خطأ: تفتت البلاستيك التقليدي إلى قطع صغيرة يعني بالضرورة أنه تحلل حيوياً بالكامل."
     },
     "answer": {
-      "en": "True",
-      "ar": "صح"
+      "en": "False. Fragmentation can produce persistent microplastics without complete biodegradation.",
+      "ar": "خطأ. قد ينتج التفتت جسيمات بلاستيكية دقيقة باقية، دون تحلل حيوي كامل."
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is the main cause of the 'Greenhouse Effect' related to human activity?",
-      "ar": "ما هو السبب الرئيسي لـ 'الاحتباس الحراري' المرتبط بالنشاط البشري؟"
+      "en": "Which major human activity increases atmosphericCO₂ by burning coal, oil, and natural gas?",
+      "ar": "ما النشاط البشري الرئيسي الذي يزيد CO₂ في الجو بحرق الفحم والنفط والغاز الطبيعي؟"
     },
     "answer": {
-      "en": "Burning Fossil Fuels",
-      "ar": "حرق الوقود الأحفوري"
+      "en": "Fossil-fuel combustion, which strengthens the natural greenhouse effect.",
+      "ar": "حرق الوقود الأحفوري، الذي يعزز تأثير الدفيئة الطبيعي."
     },
     "review": {
       "status": "pending"
@@ -159,12 +159,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What color bin is universally associated with paper recycling?",
-      "ar": "ما هو لون السلة المرتبط عالمياً بإعادة تدوير الورق؟"
+      "en": "Which waste-management option means using an item again without processing it into a new material?",
+      "ar": "ما خيار إدارة النفايات الذي يعني استعمال الشيء مجدداً دون معالجته وتحويله إلى مادة جديدة؟"
     },
     "answer": {
-      "en": "Blue",
-      "ar": "الأزرق"
+      "en": "Reuse.",
+      "ar": "إعادة الاستخدام."
     },
     "review": {
       "status": "pending"
@@ -220,8 +220,8 @@
       "ar": "ما هي العملية التي تحدث عندما تسبب العناصر الغذائية الزائدة نمواً سريعاً للطحالب في المسطحات المائية؟"
     },
     "answer": {
-      "en": "Eutrophication",
-      "ar": "التحصيب (أو المغذيات الزائدة)"
+      "en": "Eutrophication: nutrient enrichment that can promote excessive algal growth and oxygen depletion.",
+      "ar": "التخثث أو الإثراء الغذائي: زيادة المغذيات التي قد تعزز نمو الطحالب المفرط ونقص الأكسجين."
     },
     "review": {
       "status": "pending"
@@ -349,8 +349,8 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What do we call the point at which an ecosystem can no longer sustain a particular species?",
-      "ar": "ماذا نسمي النقطة التي لا يستطيع عندها النظام البيئي تحمل نوع معين؟"
+      "en": "What term means the largest population of a species that an environment can sustain over time under given conditions?",
+      "ar": "ما المصطلح الذي يعني أكبر عدد من أفراد نوع تستطيع البيئة إعالته مع الزمن تحت ظروف محددة؟"
     },
     "answer": {
       "en": "Carrying Capacity",
@@ -368,12 +368,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "Which ecosystem is often called the 'Lungs of the Planet'?",
-      "ar": "أي نظام بيئي يطلق عليه غالباً 'رئتا الكوكب'؟"
+      "en": "How do trees in a tropical rainforest return water vapor from their leaves to the atmosphere?",
+      "ar": "بأي عملية تعيد أشجار الغابات الاستوائية المطيرة بخار الماء من أوراقها إلى الجو؟"
     },
     "answer": {
-      "en": "Amazon Rainforest",
-      "ar": "غابات الأمازون المطيرة"
+      "en": "Transpiration.",
+      "ar": "النتح."
     },
     "review": {
       "status": "pending"
@@ -444,8 +444,8 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the term for the acidification of oceans caused by the uptake of CO2?",
-      "ar": "ما هو المصطلح الذي يعبر عن تحمض المحيطات الناتج عن امتصاص ثاني أكسيد الكربون؟"
+      "en": "What is the name for the long-term decrease in seawaterpH caused mainly by uptake of atmosphericCO₂?",
+      "ar": "ما اسم الانخفاض طويل الأمد في pH مياه البحر، الناتج أساساً عن امتصاص CO₂ الجوي؟"
     },
     "answer": {
       "en": "Ocean Acidification",
@@ -463,12 +463,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is a 'Carbon Sink'?",
-      "ar": "ما هو 'بالوع الكربون' (أو خزان الكربون)؟"
+      "en": "What distinguishes a carbon sink from a store that merely contains carbon?",
+      "ar": "ما الذي يميز مصرف الكربون عن مخزون يحتوي على الكربون فحسب؟"
     },
     "answer": {
-      "en": "Anything that absorbs more carbon than it releases",
-      "ar": "أي شيء يمتص كربوناً أكثر مما يطلقه (مثل الغابات والمحيطات)"
+      "en": "A sink absorbs more carbon than it releases over a specified period. A carbon store need not have net uptake.",
+      "ar": "يمتص المصرف كربوناً أكثر مما يطلقه خلال مدة محددة، بينما لا يشترط أن يحقق المخزون امتصاصاً صافياً."
     },
     "review": {
       "status": "pending"
@@ -600,8 +600,8 @@
       "ar": "ما هي 'خلية هادلي' في دوران الغلاف الجوي؟"
     },
     "answer": {
-      "en": "A tropical atmospheric circulation involving rising air near the equator",
-      "ar": "دوران جوي استوائي يتضمن صعود الهواء بالقرب من خط الاستواء"
+      "en": "A tropical circulation cell with rising air near the equator, poleward flow aloft, sinking in the subtropics, and an equatorward return near the surface.",
+      "ar": "خلية دوران استوائية يصعد فيها الهواء قرب خط الاستواء، ويتجه نحو القطبين عالياً، ثم يهبط في المناطق شبه الاستوائية ويعود قرب السطح نحو خط الاستواء."
     },
     "review": {
       "status": "pending"
@@ -714,8 +714,8 @@
       "ar": "ما هو مفهوم 'نقطة التحول' (Tipping Point) في علوم المناخ؟"
     },
     "answer": {
-      "en": "The threshold beyond which a system undergoes irreversible change",
-      "ar": "العتبة التي يمر بعدها النظام بتغير لا يمكن الرجوع عنه"
+      "en": "A threshold beyond which a small additional change can trigger a large shift in a climate system. Reversal can be difficult or impossible on relevant human timescales.",
+      "ar": "عتبة قد تؤدي بعدها زيادة صغيرة في التغير إلى تحول كبير في نظام مناخي. وقد يكون الرجوع صعباً أو متعذراً على المقاييس الزمنية المهمة للبشر."
     },
     "review": {
       "status": "pending"

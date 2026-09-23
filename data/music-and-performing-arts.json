@@ -64,12 +64,12 @@
       "ar": "الآلات والفرق الموسيقية"
     },
     "question": {
-      "en": "What is the term for a person who leads an orchestra?",
-      "ar": "ما هو المصطلح الذي يطلق على الشخص الذي يقود الأوركسترا؟"
+      "en": "What do we call the musician who directs an orchestra during a performance?",
+      "ar": "ماذا نسمي الموسيقي الذي يقود الأوركسترا أثناء العزف؟"
     },
     "answer": {
       "en": "Conductor",
-      "ar": "المايسترو (أو الموصل)"
+      "ar": "قائد الأوركسترا"
     },
     "review": {
       "status": "pending"
@@ -273,12 +273,12 @@
       "ar": "الآلات والفرق الموسيقية"
     },
     "question": {
-      "en": "What is a 'Symphony'?",
-      "ar": "ما هي 'السمفونية'؟"
+      "en": "What is the usual term for a large-scale orchestral composition traditionally written in several movements?",
+      "ar": "ما الاسم المعتاد لمؤلَّف أوركسترالي كبير يُكتب تقليدياً في عدة حركات؟"
     },
     "answer": {
-      "en": "An elaborate musical composition for a full orchestra",
-      "ar": "تأليف موسيقي معقد للأوركسترا الكاملة"
+      "en": "Symphony",
+      "ar": "سيمفونية"
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "نظرية الموسيقى والتدوين"
     },
     "question": {
-      "en": "In music theory, what is an 'Interval'?",
-      "ar": "في نظرية الموسيقى، ما هو 'الفاصل الزمني' (Interval)؟"
+      "en": "In music theory, what is an interval?",
+      "ar": "ما المقصود بالمسافة الموسيقية في نظرية الموسيقى؟"
     },
     "answer": {
-      "en": "The distance between two pitches",
-      "ar": "المسافة بين درجتين صوتيتين"
+      "en": "The difference in pitch between two notes",
+      "ar": "الفرق في الحدة بين نغمتين"
     },
     "review": {
       "status": "pending"
@@ -571,18 +571,18 @@
   },
   {
     "id": "mus-31",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Modern & Experimental Music",
       "ar": "الموسيقى الحديثة والتجريبية"
     },
     "question": {
-      "en": "What is 'Serialism' in 20th-century music?",
-      "ar": "ما هي 'التسلسلية' في موسيقى القرن العشرين؟"
+      "en": "In twelve-tone composition, what is the ordered sequence containing all 12 pitch classes called?",
+      "ar": "في التأليف بنظام الاثنتي عشرة نغمة، ماذا يُسمّى التسلسل المرتّب الذي يضم الفئات النغمية الاثنتي عشرة كلها؟"
     },
     "answer": {
-      "en": "A method of composition using a series of all 12 notes of the chromatic scale",
-      "ar": "طريقة للتأليف تستخدم سلسلة من جميع النغمات الـ 12 للسلم اللوني"
+      "en": "A tone row",
+      "ar": "صف نغمي"
     },
     "review": {
       "status": "pending"
@@ -609,18 +609,18 @@
   },
   {
     "id": "mus-33",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sound, Tuning & Acoustics",
       "ar": "الصوت والضبط والصوتيات"
     },
     "question": {
-      "en": "What is the difference between 'Just Intonation' and 'Equal Temperament'?",
-      "ar": "ما هو الفرق بين 'الضبط العادل' و 'المزاج المتساوي'؟"
+      "en": "How does twelve-tone equal temperament divide an octave?",
+      "ar": "كيف يقسم نظام الضبط المتساوي ذي الاثنتي عشرة نغمة المسافة بين صوت وجوابه؟"
     },
     "answer": {
-      "en": "Just Intonation uses simple whole-number ratios; Equal Temperament divides the octave into 12 equal parts",
-      "ar": "الضبط العادل يستخدم نسب أعداد صحيحة بسيطة، بينما يقسم المزاج المتساوي الأوكتاف إلى 12 جزءاً متساوياً"
+      "en": "Into twelve equal semitones",
+      "ar": "إلى اثني عشر نصفَ بُعد متساوياً"
     },
     "review": {
       "status": "pending"
@@ -628,18 +628,18 @@
   },
   {
     "id": "mus-34",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Music Theory & Notation",
       "ar": "نظرية الموسيقى والتدوين"
     },
     "question": {
-      "en": "What is a 'Picardy Third'?",
-      "ar": "ما هو الـ 'Picardy Third'؟"
+      "en": "What is a Picardy third?",
+      "ar": "ما المقصود بالثالثة البيكاردية في الموسيقى؟"
     },
     "answer": {
-      "en": "Ending a musical piece in a minor key with a major chord",
-      "ar": "إنهاء مقطوعة موسيقية بمفتاح صغير بوتر كبير"
+      "en": "Ending a piece in a minor key with a major chord on the tonic",
+      "ar": "إنهاء مقطوعة في مقام صغير بتآلف كبير على الدرجة الأولى"
     },
     "review": {
       "status": "pending"
@@ -704,7 +704,7 @@
   },
   {
     "id": "mus-38",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Composers & Works",
       "ar": "المؤلفون والأعمال الموسيقية"

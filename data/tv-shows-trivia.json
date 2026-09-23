@@ -7,8 +7,8 @@
       "ar": "برايكينج باد"
     },
     "question": {
-      "en": "What is the full name of the main character in Breaking Bad?",
-      "ar": "ما الاسم الكامل للشخصية الرئيسية في برايكينج باد؟"
+      "en": "What is the first and last name of the chemistry teacher played by Bryan Cranston in Breaking Bad?",
+      "ar": "ما الاسم الأول واسم العائلة لمعلّم الكيمياء الذي يجسده برايان كرانستون في «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Walter White",
@@ -229,14 +229,14 @@
   },
   {
     "id": "tv-shows-trivia-013",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
       "ar": "برايكينج باد"
     },
     "question": {
-      "en": "What terminal illness does Walter receive at the start?",
-      "ar": "بأي مرض خطير يُصاب والتر في بداية المسلسل؟"
+      "en": "Which type of cancer is Walter White diagnosed with in Breaking Bad's pilot?",
+      "ar": "بأي نوع من السرطان يُشخَّص والتر وايت في الحلقة الأولى من «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Lung cancer",
@@ -254,8 +254,8 @@
       "ar": "برايكينج باد"
     },
     "question": {
-      "en": "What is the name of Jesse's girlfriend who dies of a heroin overdose?",
-      "ar": "ما اسم صديقة جيسي التي تموت بجرعة هيروين زائدة؟"
+      "en": "Which of Jesse's girlfriends is a tattoo artist and his landlord in Breaking Bad?",
+      "ar": "أيّ صديقات جيسي تعمل فنانة وشم وتؤجّره الشقة في «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Jane Margolis",
@@ -381,18 +381,18 @@
   },
   {
     "id": "tv-shows-trivia-021",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
       "ar": "برايكينج باد"
     },
     "question": {
-      "en": "What two colors does the Hazmat suit Walter wears become associated with?",
-      "ar": "بأي لونين يرتبط بدلة الحماية الكيميائية التي يرتديها والتر؟"
+      "en": "What type of vehicle do Walter and Jesse use as a mobile laboratory early in Breaking Bad?",
+      "ar": "ما نوع المركبة التي يستخدمها والتر وجيسي مختبراً متنقلاً في بداية «بريكينغ باد»؟"
     },
     "answer": {
-      "en": "Yellow and green",
-      "ar": "الأصفر والأخضر"
+      "en": "An RV (motorhome)",
+      "ar": "عربة سكن متنقلة"
     },
     "review": {
       "status": "pending"
@@ -400,18 +400,18 @@
   },
   {
     "id": "tv-shows-trivia-022",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
       "ar": "برايكينج باد"
     },
     "question": {
-      "en": "What company did Walter co-found before becoming a teacher, and why did he leave?",
-      "ar": "ما الشركة التي شارك والتر في تأسيسها قبل أن يصبح معلماً، ولماذا غادرها؟"
+      "en": "Which company did Walter White co-found with Elliott Schwartz before the events of Breaking Bad?",
+      "ar": "ما الشركة التي شارك والتر وايت في تأسيسها مع إليوت شوارتز قبل أحداث «بريكينغ باد»؟"
     },
     "answer": {
-      "en": "Gray Matter Technologies; he sold his share for $5,000 — a decision he deeply regretted",
-      "ar": "شركة غراي ماتر تيكنولوجيز؛ باع حصته بـ5000 دولار، وهو قرار ندم عليه بشدة"
+      "en": "Gray Matter Technologies",
+      "ar": "غراي ماتر تكنولوجيز"
     },
     "review": {
       "status": "pending"
@@ -457,18 +457,18 @@
   },
   {
     "id": "tv-shows-trivia-025",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
       "ar": "برايكينج باد"
     },
     "question": {
-      "en": "What real-world chemistry concept does the show's title 'Breaking Bad' relate to?",
-      "ar": "بماذا يرتبط عنوان المسلسل 'برايكينج باد' من الناحية الكيميائية؟"
+      "en": "Who created the television series Breaking Bad?",
+      "ar": "من ابتكر مسلسل «بريكينغ باد»؟"
     },
     "answer": {
-      "en": "The show uses chemistry as a metaphor for moral transformation — 'breaking bad' means going from good to evil, paralleling chemical reactions that are irreversible",
-      "ar": "يستخدم المسلسل الكيمياء استعارةً للتحول الأخلاقي — 'كسر القيود' تعني التحول من الخير إلى الشر، موازياً للتفاعلات الكيميائية غير القابلة للعكس"
+      "en": "Vince Gilligan",
+      "ar": "فينس غيليغان"
     },
     "review": {
       "status": "pending"
@@ -533,18 +533,18 @@
   },
   {
     "id": "tv-shows-trivia-029",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Game of Thrones",
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "What are the supernatural undead creatures threatening from beyond the Wall?",
-      "ar": "ما المخلوقات الخارقة غير الطبيعية التي تهدد من وراء الجدار؟"
+      "en": "In Game of Thrones, what are the reanimated corpses controlled by the White Walkers called?",
+      "ar": "ماذا تُسمّى الجثث التي يعيد المشاة البيض إحياءها ويسيطرون عليها في «صراع العروش»؟"
     },
     "answer": {
-      "en": "White Walkers",
-      "ar": "المشاة البيض"
+      "en": "Wights",
+      "ar": "الموتى الأحياء (وايتس)"
     },
     "review": {
       "status": "pending"
@@ -786,12 +786,12 @@
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "What poison was used to kill Joffrey at the Purple Wedding?",
-      "ar": "ما السم المستخدم لقتل جوفري في حفل الزفاف الأرجواني؟"
+      "en": "In the Game of Thrones television episode 'The Lion and the Rose', what piece of Sansa's jewelry conceals the poison used against Joffrey?",
+      "ar": "في حلقة «الأسد والوردة» من مسلسل «صراع العروش»، أيّ قطعة من حُليّ سانسا تخفي السم المستخدم ضد جوفري؟"
     },
     "answer": {
-      "en": "The Strangler, hidden in Sansa's hairnet",
-      "ar": "'الخانق'، مخبأ في شبكة شعر سانسا"
+      "en": "Her necklace",
+      "ar": "قلادتها"
     },
     "review": {
       "status": "pending"
@@ -856,18 +856,18 @@
   },
   {
     "id": "tv-shows-trivia-046",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Game of Thrones",
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "Which episode holds the HBO viewership record at the time of its airing?",
-      "ar": "أي حلقة حققت رقماً قياسياً في مشاهدات HBO وقت بثها؟"
+      "en": "What is the title of the final episode of the Game of Thrones television series?",
+      "ar": "ما عنوان الحلقة الأخيرة من مسلسل «صراع العروش»؟"
     },
     "answer": {
-      "en": "The Iron Throne (Season 8, Episode 6)",
-      "ar": "العرش الحديدي (الموسم 8، الحلقة 6)"
+      "en": "The Iron Throne",
+      "ar": "العرش الحديدي"
     },
     "review": {
       "status": "pending"
@@ -875,18 +875,18 @@
   },
   {
     "id": "tv-shows-trivia-047",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Game of Thrones",
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "What is the planned title of the sixth book in A Song of Ice and Fire?",
-      "ar": "ما العنوان المخطط للكتاب السادس في سلسلة أغنية الجليد والنار؟"
+      "en": "Which actor plays Tyrion Lannister in Game of Thrones?",
+      "ar": "من يجسد تيريون لانيستر في مسلسل «صراع العروش»؟"
     },
     "answer": {
-      "en": "The Winds of Winter",
-      "ar": "رياح الشتاء"
+      "en": "Peter Dinklage",
+      "ar": "بيتر دينكلاج"
     },
     "review": {
       "status": "pending"
@@ -894,18 +894,18 @@
   },
   {
     "id": "tv-shows-trivia-048",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Game of Thrones",
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "In the books, what is the fifth published A Song of Ice and Fire novel?",
-      "ar": "في روايات 'أغنية الجليد والنار'، ما الرواية الخامسة المنشورة؟"
+      "en": "In Game of Thrones, which city is the headquarters of the Iron Bank?",
+      "ar": "في «صراع العروش»، في أي مدينة يقع مقرّ البنك الحديدي؟"
     },
     "answer": {
-      "en": "A Dance with Dragons",
-      "ar": "رقصة التنانين"
+      "en": "Braavos",
+      "ar": "برافوس"
     },
     "review": {
       "status": "pending"
@@ -913,18 +913,18 @@
   },
   {
     "id": "tv-shows-trivia-049",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Game of Thrones",
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "What real-world historical event is the Red Wedding based on?",
-      "ar": "ما الحدث التاريخي الواقعي الذي استُلهم منه حفل الزفاف الأحمر؟"
+      "en": "Which family controls the Twins, the castle where the Red Wedding takes place in Game of Thrones?",
+      "ar": "أيّ عائلة تسيطر على قلعة التوأمين التي يُقام فيها الزفاف الأحمر في «صراع العروش»؟"
     },
     "answer": {
-      "en": "The Black Dinner (1440) and the Glencoe Massacre (1692) in Scottish history",
-      "ar": "حفل العشاء الأسود (1440) ومجزرة غلينكو (1692) في التاريخ الاسكتلندي"
+      "en": "House Frey",
+      "ar": "آل فري"
     },
     "review": {
       "status": "pending"
@@ -932,18 +932,18 @@
   },
   {
     "id": "tv-shows-trivia-050",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Game of Thrones",
       "ar": "صراع العروش"
     },
     "question": {
-      "en": "What does the phrase 'Hodor' actually mean when Bran glimpses the past?",
-      "ar": "ماذا تعني كلمة 'هودور' فعلياً عندما يتلصص براني على الماضي؟"
+      "en": "In Game of Thrones, which three-word English command becomes the name 'Hodor'?",
+      "ar": "في «صراع العروش»، ما الأمر الإنجليزي المؤلف من ثلاث كلمات الذي يتحول إلى اسم «هودور»؟"
     },
     "answer": {
-      "en": "'Hold the door' — Wylis heard future Bran's commands and his mind broke, leaving him only able to say 'Hodor'",
-      "ar": "'أمسك الباب' — سمع ويليس أوامر براني القادمة من المستقبل فانهار عقله، فلم يعد قادراً إلا على قول 'هودور'"
+      "en": "Hold the door",
+      "ar": "Hold the door (أمسك الباب)"
     },
     "review": {
       "status": "pending"
@@ -970,18 +970,18 @@
   },
   {
     "id": "tv-shows-trivia-052",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "What is Chandler Bing's notorious job that no one can remember?",
-      "ar": "ما الوظيفة الغامضة لتشاندلر بينغ التي لا يتذكرها أحد؟"
+      "en": "Before changing careers to advertising, what field does Chandler work in on Friends?",
+      "ar": "في أي مجال يعمل تشاندلر في «فريندز» قبل انتقاله إلى الإعلانات؟"
     },
     "answer": {
       "en": "Statistical analysis and data reconfiguration",
-      "ar": "تحليل إحصائي وإعادة تهيئة البيانات"
+      "ar": "التحليل الإحصائي وإعادة تهيئة البيانات"
     },
     "review": {
       "status": "pending"
@@ -1141,18 +1141,18 @@
   },
   {
     "id": "tv-shows-trivia-061",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "What is the name of the unseen neighbor referenced throughout the series?",
-      "ar": "ما اسم الجار الذي يُذكر طوال المسلسل ولا يظهر أبداً؟"
+      "en": "What is the name of Ross's pet monkey in the first season of Friends?",
+      "ar": "ما اسم قرد روس الأليف في الموسم الأول من «فريندز»؟"
     },
     "answer": {
-      "en": "Ugly Naked Guy",
-      "ar": "الرجل القبيح العاري"
+      "en": "Marcel",
+      "ar": "مارسيل"
     },
     "review": {
       "status": "pending"
@@ -1217,18 +1217,18 @@
   },
   {
     "id": "tv-shows-trivia-065",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "Who played Chandler Bing, and what happened to the actor in 2023?",
-      "ar": "من جسّد شخصية تشاندلر بينغ، وماذا حدث له عام 2023؟"
+      "en": "Which actor plays Chandler Bing in Friends?",
+      "ar": "من يجسد تشاندلر بينغ في «فريندز»؟"
     },
     "answer": {
-      "en": "Matthew Perry; he passed away at age 54",
-      "ar": "ماثيو بيري؛ توفي عن عمر 54 عاماً"
+      "en": "Matthew Perry",
+      "ar": "ماثيو بيري"
     },
     "review": {
       "status": "pending"
@@ -1236,18 +1236,18 @@
   },
   {
     "id": "tv-shows-trivia-066",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "What is the running joke about Monica and Rachel's apartment?",
-      "ar": "ما النكتة المتكررة بشأن شقة مونيكا وراشيل؟"
+      "en": "In Friends, whose rent-controlled apartment does Monica sublet?",
+      "ar": "في «فريندز»، ممن تستأجر مونيكا من الباطن شقتها الخاضعة لضبط الإيجار؟"
     },
     "answer": {
-      "en": "It is unrealistically large for NYC — kept through a rent-controlled sublease from Monica's grandmother",
-      "ar": "هي كبيرة بشكل غير واقعي لنيويورك، ويحتفظن بها بموجب عقد إيجار محكوم بالسعر من جدة مونيكا"
+      "en": "Her grandmother",
+      "ar": "جدّتها"
     },
     "review": {
       "status": "pending"
@@ -1318,12 +1318,12 @@
       "ar": "فريندز"
     },
     "question": {
-      "en": "What TV show does Joey audition for (unsuccessfully) within the show?",
-      "ar": "لأي برنامج تلفزيوني يتقدم جوي لأداء اختبار (دون نجاح) داخل المسلسل؟"
+      "en": "What is the name of the television series in which Joey plays a detective partnered with a robot in Friends?",
+      "ar": "ما اسم المسلسل الذي يؤدي فيه جوي دور محقق يعمل مع روبوت ضمن أحداث «فريندز»؟"
     },
     "answer": {
       "en": "Mac and C.H.E.E.S.E.",
-      "ar": "ماك وجهاز الجبن"
+      "ar": "ماك آند تشيز (Mac and C.H.E.E.S.E.)"
     },
     "review": {
       "status": "pending"
@@ -1331,7 +1331,7 @@
   },
   {
     "id": "tv-shows-trivia-071",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
@@ -1350,18 +1350,18 @@
   },
   {
     "id": "tv-shows-trivia-072",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "What real-life off-screen chemistry influenced the writing of Ross and Rachel's storyline?",
-      "ar": "ما الكيمياء الحقيقية خارج الكاميرا التي أثّرت في كتابة قصة روس وراشيل؟"
+      "en": "In Friends, which city hosts Ross and Emily's wedding?",
+      "ar": "في أي مدينة يُقام زفاف روس وإيميلي في «فريندز»؟"
     },
     "answer": {
-      "en": "Jennifer Aniston and David Schwimmer's genuine mutual attraction during filming",
-      "ar": "الجذب المتبادل الحقيقي بين جينيفر أنيستون وديفيد شويمر أثناء التصوير"
+      "en": "London",
+      "ar": "لندن"
     },
     "review": {
       "status": "pending"
@@ -1369,18 +1369,18 @@
   },
   {
     "id": "tv-shows-trivia-073",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "The Central Perk set holds a Guinness record for what?",
-      "ar": "ما الرقم القياسي في موسوعة غينيس الذي تحمله ديكور سنترال بيرك؟"
+      "en": "What is the name of the Central Perk employee played by James Michael Tyler in Friends?",
+      "ar": "ما اسم موظف سنترال بيرك الذي يجسده جيمس مايكل تايلر في «فريندز»؟"
     },
     "answer": {
-      "en": "Being one of the most recognized TV set interiors in history",
-      "ar": "كونه أحد أكثر ديكورات التلفزيون الداخلية شهرة في التاريخ"
+      "en": "Gunther",
+      "ar": "غانثر"
     },
     "review": {
       "status": "pending"
@@ -1388,18 +1388,18 @@
   },
   {
     "id": "tv-shows-trivia-074",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Friends",
       "ar": "فريندز"
     },
     "question": {
-      "en": "What sociological phenomenon did researchers link to the popularity of Friends globally?",
-      "ar": "ما الظاهرة الاجتماعية التي ربطها الباحثون بشعبية فريندز عالمياً؟"
+      "en": "What is Ross Geller's scientific specialty in Friends?",
+      "ar": "ما التخصص العلمي لروس غيلر في «فريندز»؟"
     },
     "answer": {
-      "en": "The show contributed to the spread of informal American English globally and influenced apartment-sharing culture",
-      "ar": "ساهم المسلسل في نشر الإنجليزية الأمريكية غير الرسمية عالمياً وأثّر في ثقافة مشاركة الشقق"
+      "en": "Paleontology",
+      "ar": "علم الأحافير"
     },
     "review": {
       "status": "pending"
@@ -1698,12 +1698,12 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "Who kills Stringer Bell?",
-      "ar": "من يقتل سترينغر بيل؟"
+      "en": "Which two characters kill Stringer Bell in The Wire?",
+      "ar": "ما اسما الشخصيتين اللتين تقتلان سترينغر بيل في «ذا واير»؟"
     },
     "answer": {
       "en": "Omar Little and Brother Mouzone",
-      "ar": "عمر ليتل وأخو موزون"
+      "ar": "عمر ليتل وبراذر موزون"
     },
     "review": {
       "status": "pending"
@@ -1717,12 +1717,12 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "What method does Marlo Stanfield's crew use to communicate covertly?",
-      "ar": "ما الأسلوب الذي تستخدمه عصابة مارلو ستانفيلد للتواصل سراً؟"
+      "en": "In season five of The Wire, what objects appear in the coded cellphone photos used by Marlo's crew?",
+      "ar": "في الموسم الخامس من «ذا واير»، ما الأشياء التي تظهر في صور الهواتف المشفّرة التي تستخدمها عصابة مارلو؟"
     },
     "answer": {
-      "en": "Clock positions on disposable phones to represent times and locations",
-      "ar": "مواضع عقارب الساعة على الهواتف المؤقتة للإشارة إلى الأوقات والمواقع"
+      "en": "Clock faces",
+      "ar": "واجهات ساعات ذات عقارب"
     },
     "review": {
       "status": "pending"
@@ -1774,12 +1774,12 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "What real journalism scandal does the fabricated reporting in Season 5 mirror?",
-      "ar": "ما الفضيحة الصحفية الواقعية التي تعكسها التقارير المزوّرة في الموسم الخامس؟"
+      "en": "What is the name of the Baltimore Sun reporter who fabricates stories in season five of The Wire?",
+      "ar": "ما اسم مراسل بالتيمور صن الذي يختلق الأخبار في الموسم الخامس من «ذا واير»؟"
     },
     "answer": {
-      "en": "The Jayson Blair scandal at The New York Times",
-      "ar": "فضيحة جايسون بلير في صحيفة نيويورك تايمز"
+      "en": "Scott Templeton",
+      "ar": "سكوت تمبلتون"
     },
     "review": {
       "status": "pending"
@@ -1806,14 +1806,14 @@
   },
   {
     "id": "tv-shows-trivia-096",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "The Wire",
       "ar": "ذا واير"
     },
     "question": {
-      "en": "Name the Baltimore senator known for the catchphrase 'I'll give you this...'?",
-      "ar": "ما اسم سيناتور بالتيمور الشهير بعبارته 'سأعطيك هذا...'؟"
+      "en": "Which Maryland state senator is played by Isiah Whitlock Jr. in The Wire?",
+      "ar": "أيّ عضو في مجلس شيوخ ولاية ماريلاند يجسده آيزيا ويتلوك جونيور في «ذا واير»؟"
     },
     "answer": {
       "en": "Clay Davis",
@@ -1825,18 +1825,18 @@
   },
   {
     "id": "tv-shows-trivia-097",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "The Wire",
       "ar": "ذا واير"
     },
     "question": {
-      "en": "David Simon pitched The Wire as an exploration of what grand sociological theme?",
-      "ar": "ما الفكرة الاجتماعية الكبرى التي قدّمها ديفيد سايمون كأساس لمسلسل ذا واير؟"
+      "en": "Which former police officer becomes a middle-school teacher in season four of The Wire?",
+      "ar": "من الشرطي السابق الذي يصبح معلماً في المرحلة المتوسطة في الموسم الرابع من «ذا واير»؟"
     },
     "answer": {
-      "en": "The failure of American institutions — the drug war, schools, politics, and media",
-      "ar": "فشل المؤسسات الأمريكية — حرب المخدرات، المدارس، السياسة، والإعلام"
+      "en": "Roland 'Prez' Pryzbylewski",
+      "ar": "رولاند «بريز» بريزبيلوسكي"
     },
     "review": {
       "status": "pending"
@@ -1844,18 +1844,18 @@
   },
   {
     "id": "tv-shows-trivia-098",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "The Wire",
       "ar": "ذا واير"
     },
     "question": {
-      "en": "What real Baltimore figures partially inspired the characters of Avon Barksdale and Stringer Bell?",
-      "ar": "ما الشخصيات الواقعية في بالتيمور التي ألهمت جزئياً شخصيتَي أفون باركسدال وسترينغر بيل؟"
+      "en": "Which actor plays Stringer Bell in The Wire?",
+      "ar": "من يجسد سترينغر بيل في «ذا واير»؟"
     },
     "answer": {
-      "en": "Nathan 'Bodie' Barksdale and Warren Brown inspired aspects of both characters",
-      "ar": "ناثان 'بودي' باركسدال وآخرون ألهموا جوانب من كلتا الشخصيتين"
+      "en": "Idris Elba",
+      "ar": "إدريس إلبا"
     },
     "review": {
       "status": "pending"
@@ -1863,18 +1863,18 @@
   },
   {
     "id": "tv-shows-trivia-099",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "The Wire",
       "ar": "ذا واير"
     },
     "question": {
-      "en": "The Wire uses a Greek tragedy structure across its five seasons. What term describes this narrative model?",
-      "ar": "يستخدم ذا واير بنية المأساة الإغريقية عبر مواسمه الخمسة. ما المصطلح الذي يصف هذا النموذج؟"
+      "en": "What is the name of the dockworkers' union leader central to season two of The Wire?",
+      "ar": "ما اسم زعيم نقابة عمّال الميناء الذي تتمحور حوله أحداث الموسم الثاني من «ذا واير»؟"
     },
     "answer": {
-      "en": "Epic serialized drama with institutional critique — described by Simon as 'the Greek' applied to modern America",
-      "ar": "دراما ملحمية متسلسلة بنقد مؤسسي — وصفها سايمون بـ'الدراما الإغريقية' مُطبَّقةً على أمريكا الحديثة"
+      "en": "Frank Sobotka",
+      "ar": "فرانك سوبوتكا"
     },
     "review": {
       "status": "pending"
@@ -1882,18 +1882,18 @@
   },
   {
     "id": "tv-shows-trivia-100",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "The Wire",
       "ar": "ذا واير"
     },
     "question": {
-      "en": "Despite critical acclaim, The Wire never won an Emmy Award. What does this say about TV award culture?",
-      "ar": "رغم الإشادة النقدية، لم يفز ذا واير بجائزة إيمي قط. ماذا يقول ذلك عن ثقافة جوائز التلفزيون؟"
+      "en": "Which television network originally aired The Wire in the United States?",
+      "ar": "ما الشبكة التي عرضت «ذا واير» أول مرة في الولايات المتحدة؟"
     },
     "answer": {
-      "en": "Critics argue Emmy voters favored flashier, more commercially successful shows, and The Wire's unflinching portrayal of urban poverty was overlooked",
-      "ar": "يرى المنتقدون أن ناخبي الإيمي فضّلوا البرامج الأكثر بريقاً وتجارية، وأن تصوير ذا واير الصارم للفقر الحضري تُجوهل"
+      "en": "HBO",
+      "ar": "إتش بي أو (HBO)"
     },
     "review": {
       "status": "pending"
@@ -1996,18 +1996,18 @@
   },
   {
     "id": "tv-shows-trivia-106",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "What is Eleven's real birth name?",
-      "ar": "ما الاسم الحقيقي لإيلفن عند ولادتها؟"
+      "en": "What is Eleven's birth name in Stranger Things, before she takes Hopper's surname?",
+      "ar": "ما اسم إيلفن عند الولادة في «سترينجر ثينغز»، قبل أن تحمل اسم عائلة هوبر؟"
     },
     "answer": {
-      "en": "Jane Hopper (formerly Jane Ives)",
-      "ar": "جين هوبر (وسابقاً جين آيفز)"
+      "en": "Jane Ives",
+      "ar": "جين آيفز"
     },
     "review": {
       "status": "pending"
@@ -2059,12 +2059,12 @@
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "What is the nickname of the monster introduced in Season 2?",
-      "ar": "ما اللقب الذي يُطلق على الوحش الجديد في الموسم الثاني؟"
+      "en": "What Dungeons & Dragons-inspired name do the children give the shadow monster in season two of Stranger Things?",
+      "ar": "ما الاسم المستوحى من «دنجنز آند دراغنز» الذي يطلقه الأطفال على وحش الظل في الموسم الثاني من «سترينجر ثينغز»؟"
     },
     "answer": {
-      "en": "The Mind Flayer (Shadow Monster)",
-      "ar": "مسطّح العقل"
+      "en": "The Mind Flayer",
+      "ar": "مايند فلاير (Mind Flayer)"
     },
     "review": {
       "status": "pending"
@@ -2186,18 +2186,18 @@
   },
   {
     "id": "tv-shows-trivia-116",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "Why is 'Running Up That Hill' significant to Max in Season 4?",
-      "ar": "لماذا تحمل أغنية 'رانينغ أب دات هيل' أهمية خاصة لماكس في الموسم الرابع؟"
+      "en": "Who plays Max Mayfield in Stranger Things?",
+      "ar": "من تجسد ماكس مايفيلد في «سترينجر ثينغز»؟"
     },
     "answer": {
-      "en": "It is her happy memory that breaks Vecna's hold over her",
-      "ar": "هي ذكراها السعيدة التي تكسر سيطرة فيكنا عليها"
+      "en": "Sadie Sink",
+      "ar": "سادي سينك"
     },
     "review": {
       "status": "pending"
@@ -2300,18 +2300,18 @@
   },
   {
     "id": "tv-shows-trivia-122",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "What physics concept does the Upside Down parallel in scientific terms?",
-      "ar": "ما المفهوم الفيزيائي الذي يوازيه العالم المقلوب من الناحية العلمية؟"
+      "en": "What tabletop role-playing game are the boys playing near the beginning of Stranger Things' first episode?",
+      "ar": "ما لعبة تقمّص الأدوار اللوحية التي يلعبها الفتيان قرب بداية الحلقة الأولى من «سترينجر ثينغز»؟"
     },
     "answer": {
-      "en": "Parallel dimension / multiverse theory in quantum physics",
-      "ar": "نظرية الأبعاد الموازية / الأكوان المتعددة في فيزياء الكم"
+      "en": "Dungeons & Dragons",
+      "ar": "دنجنز آند دراغنز"
     },
     "review": {
       "status": "pending"
@@ -2319,18 +2319,18 @@
   },
   {
     "id": "tv-shows-trivia-123",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "Stranger Things received 19 Emmy nominations for its first season — what record did this approach?",
-      "ar": "حصل أشياء غريبة على 19 ترشيحاً للإيمي في موسمه الأول — ما الرقم القياسي الذي اقترب منه؟"
+      "en": "In season three of Stranger Things, what is the name of the ice-cream shop where Steve and Robin work?",
+      "ar": "ما اسم متجر المثلجات الذي يعمل فيه ستيف وروبن في الموسم الثالث من «سترينجر ثينغز»؟"
     },
     "answer": {
-      "en": "Most Emmy nominations for a debut drama season at that time",
-      "ar": "أكبر عدد من ترشيحات الإيمي لدراما في موسمها الأول في ذلك الوقت"
+      "en": "Scoops Ahoy",
+      "ar": "سكوبس أهوي"
     },
     "review": {
       "status": "pending"
@@ -2338,18 +2338,18 @@
   },
   {
     "id": "tv-shows-trivia-124",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "What specific 1980s pop culture references are woven into Stranger Things as thematic parallels?",
-      "ar": "ما المراجع الثقافية للثمانينيات المنسوجة في أشياء غريبة كتوازيات موضوعية؟"
+      "en": "What is the name of Eddie Munson's Dungeons & Dragons club in Stranger Things season four?",
+      "ar": "ما اسم نادي «دنجنز آند دراغنز» الذي يقوده إيدي مونسون في الموسم الرابع من «سترينجر ثينغز»؟"
     },
     "answer": {
-      "en": "E.T. (friendship with an outsider), The Goonies (kid adventure), A Nightmare on Elm Street (dark alternate reality), and Dungeons & Dragons (monster naming)",
-      "ar": "E.T. (الصداقة مع كائن غريب)، ذا غونيز (مغامرة الأطفال)، كابوس في شارع إيلم (الواقع الموازي المظلم)، و D&D (تسمية الوحوش)"
+      "en": "The Hellfire Club",
+      "ar": "نادي هيلفاير"
     },
     "review": {
       "status": "pending"
@@ -2357,18 +2357,18 @@
   },
   {
     "id": "tv-shows-trivia-125",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
       "ar": "أشياء غريبة"
     },
     "question": {
-      "en": "How did the show's use of synth music by Kyle Dixon and Michael Stein influence the show's identity?",
-      "ar": "كيف أثّر استخدام المسلسل لموسيقى كايل ديكسون ومايكل شتاين على هويته؟"
+      "en": "Which two musicians composed the main title theme of Stranger Things?",
+      "ar": "ما اسما الموسيقيَّين اللذين ألّفا موسيقى شارة «سترينجر ثينغز»؟"
     },
     "answer": {
-      "en": "It evoked John Carpenter and Tangerine Dream aesthetics, anchoring the show in 80s nostalgia while giving it a unique atmospheric tension",
-      "ar": "استحضر جماليات جون كاربنتر وتانجيرين دريم، مُرسِّخاً المسلسل في حنين الثمانينيات مع منحه توتراً جوياً فريداً"
+      "en": "Kyle Dixon and Michael Stein",
+      "ar": "كايل ديكسون ومايكل شتاين"
     },
     "review": {
       "status": "pending"
@@ -2414,18 +2414,18 @@
   },
   {
     "id": "tv-shows-trivia-128",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What does the title 'باب الحارة' mean in English?",
-      "ar": "ماذا يعني عنوان 'باب الحارة' بالإنجليزية؟"
+      "en": "Which fictional Damascus neighborhood is the main setting of early Bab Al-Hara seasons?",
+      "ar": "ما اسم الحارة الدمشقية الخيالية التي تدور فيها أحداث الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
-      "en": "The Neighborhood Gate",
-      "ar": "بوابة الحارة"
+      "en": "Haret Al-Dabaa",
+      "ar": "حارة الضبع"
     },
     "review": {
       "status": "pending"
@@ -2471,18 +2471,18 @@
   },
   {
     "id": "tv-shows-trivia-131",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "How many seasons does Bab Al-Hara have?",
-      "ar": "كم موسماً يضم مسلسل باب الحارة؟"
+      "en": "Which actor originally played Moataz in Bab Al-Hara, before Mustafa Saad El-Din took over?",
+      "ar": "من جسّد معتز في «باب الحارة» قبل انتقال الدور إلى مصطفى سعد الدين؟"
     },
     "answer": {
-      "en": "Over 13 seasons",
-      "ar": "أكثر من 13 موسماً"
+      "en": "Wael Sharaf",
+      "ar": "وائل شرف"
     },
     "review": {
       "status": "pending"
@@ -2490,18 +2490,18 @@
   },
   {
     "id": "tv-shows-trivia-132",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Who is the wise elder who leads the neighborhood in Bab Al-Hara?",
-      "ar": "من هو الشيخ الحكيم الذي يقود الحارة في باب الحارة؟"
+      "en": "What is Abu Issam's trade in the early seasons of Bab Al-Hara?",
+      "ar": "ما مهنة أبو عصام في الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
-      "en": "Abu Issam (أبو عصام)",
-      "ar": "أبو عصام"
+      "en": "Barber and traditional healer",
+      "ar": "حلّاق ومعالج شعبي"
     },
     "review": {
       "status": "pending"
@@ -2515,12 +2515,12 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Who plays Abu Issam in the early seasons of Bab Al-Hara?",
-      "ar": "من يؤدي دور أبو عصام في المواسم الأولى من باب الحارة؟"
+      "en": "Who plays Abu Issam in Bab Al-Hara?",
+      "ar": "من يجسد أبو عصام في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Bassam Kousa (بسام كوسا)",
-      "ar": "بسام كوسا"
+      "en": "Abbas Al-Nouri",
+      "ar": "عباس النوري"
     },
     "review": {
       "status": "pending"
@@ -2591,12 +2591,12 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "In which Arab countries did Bab Al-Hara become a massive cultural phenomenon?",
-      "ar": "في أي دول عربية أصبح باب الحارة ظاهرة ثقافية كبرى؟"
+      "en": "Which actress plays Umm Issam in Bab Al-Hara?",
+      "ar": "من تجسد أم عصام في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Across the Arab world — Syria, Saudi Arabia, Jordan, Egypt, and Gulf states",
-      "ar": "في جميع أنحاء العالم العربي — سوريا، السعودية، الأردن، مصر، ودول الخليج"
+      "en": "Sabah Al-Jazairi",
+      "ar": "صباح الجزائري"
     },
     "review": {
       "status": "pending"
@@ -2629,12 +2629,12 @@
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Approximately how many viewers watched Bab Al-Hara at its peak?",
-      "ar": "كم مشاهداً تقريباً شاهد باب الحارة في ذروته؟"
+      "en": "Which actor plays Issam, Abu Issam's son, in Bab Al-Hara?",
+      "ar": "من يجسد عصام ابن أبو عصام في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Over 100 million viewers across the Arab world",
-      "ar": "أكثر من 100 مليون مشاهد في العالم العربي"
+      "en": "Milad Youssef",
+      "ar": "ميلاد يوسف"
     },
     "review": {
       "status": "pending"
@@ -2642,18 +2642,18 @@
   },
   {
     "id": "tv-shows-trivia-140",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What sociological concept does the 'hara' (حارة) represent as a social unit in the show?",
-      "ar": "ما المفهوم الاجتماعي الذي تمثله 'الحارة' كوحدة اجتماعية في المسلسل؟"
+      "en": "What is the name of Abu Issam's wife, known as Umm Issam, in Bab Al-Hara?",
+      "ar": "ما اسم زوجة أبو عصام، المعروفة بأم عصام، في «باب الحارة»؟"
     },
     "answer": {
-      "en": "The extended community family — neighbors who function as one collective family unit",
-      "ar": "الأسرة المجتمعية الممتدة — جيران يتعاملون كوحدة أسرية واحدة"
+      "en": "Souad",
+      "ar": "سعاد"
     },
     "review": {
       "status": "pending"
@@ -2661,18 +2661,18 @@
   },
   {
     "id": "tv-shows-trivia-141",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What type of Arabic dialect is used in Bab Al-Hara that made it accessible to all Arabs?",
-      "ar": "ما نوع اللهجة العربية المستخدمة في باب الحارة التي جعلته متاحاً لجميع العرب؟"
+      "en": "Which city's Arabic dialect is predominantly spoken by the characters in Bab Al-Hara?",
+      "ar": "إلى أي مدينة تنتمي اللهجة التي تتحدث بها شخصيات «باب الحارة» أساساً؟"
     },
     "answer": {
-      "en": "Levantine Arabic (اللهجة الشامية) with some classical Arabic influence",
-      "ar": "اللهجة الشامية مع تأثيرات من العربية الفصحى"
+      "en": "Damascus",
+      "ar": "دمشق"
     },
     "review": {
       "status": "pending"
@@ -2680,18 +2680,18 @@
   },
   {
     "id": "tv-shows-trivia-142",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What dispute caused several key cast members to leave after early seasons?",
-      "ar": "ما الخلاف الذي دفع عدة ممثلين رئيسيين إلى المغادرة بعد المواسم الأولى؟"
+      "en": "Which actor plays Abu Shihab in the first seasons of Bab Al-Hara?",
+      "ar": "من يجسد أبو شهاب في الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
-      "en": "Creative and financial disputes between the production company and actors",
-      "ar": "خلافات إبداعية ومالية بين شركة الإنتاج والممثلين"
+      "en": "Samer Al-Masri",
+      "ar": "سامر المصري"
     },
     "review": {
       "status": "pending"
@@ -2699,18 +2699,18 @@
   },
   {
     "id": "tv-shows-trivia-143",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Bab Al-Hara sparked debate about its portrayal of what sociological concept in Syrian society?",
-      "ar": "أثار باب الحارة جدلاً حول تصويره لأي مفهوم اجتماعي في المجتمع السوري؟"
+      "en": "What business does Abu Hatem run in Bab Al-Hara?",
+      "ar": "ما المحل الذي يديره أبو حاتم في «باب الحارة»؟"
     },
     "answer": {
-      "en": "The idealization of traditional community bonds (asabiyya) versus modern individualism",
-      "ar": "تمجيد الروابط المجتمعية التقليدية (العصبية) في مقابل الفردانية الحديثة"
+      "en": "A café",
+      "ar": "مقهى"
     },
     "review": {
       "status": "pending"
@@ -2718,18 +2718,18 @@
   },
   {
     "id": "tv-shows-trivia-144",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "How does Bab Al-Hara address the concept of 'watan' (homeland) through its storylines?",
-      "ar": "كيف يعالج باب الحارة مفهوم 'الوطن' من خلال قصصه؟"
+      "en": "What is Abu Bashir's trade in Bab Al-Hara?",
+      "ar": "ما مهنة أبو بشير في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Through acts of sacrifice, neighborhood solidarity, and collective resistance against foreign occupiers",
-      "ar": "من خلال أعمال التضحية، والتضامن بين الجيران، والمقاومة الجماعية ضد المحتلين الأجانب"
+      "en": "Baker",
+      "ar": "خبّاز"
     },
     "review": {
       "status": "pending"
@@ -2737,18 +2737,18 @@
   },
   {
     "id": "tv-shows-trivia-145",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What is the name of the production company behind Bab Al-Hara?",
-      "ar": "ما اسم شركة الإنتاج المسؤولة عن باب الحارة؟"
+      "en": "Which actor plays Al-Idaashari in the first season of Bab Al-Hara?",
+      "ar": "من يجسد الإدعشري في الجزء الأول من «باب الحارة»؟"
     },
     "answer": {
-      "en": "Clacket Media",
-      "ar": "شركة كلاكيت ميديا"
+      "en": "Bassam Kousa",
+      "ar": "بسام كوسا"
     },
     "review": {
       "status": "pending"
@@ -2756,18 +2756,18 @@
   },
   {
     "id": "tv-shows-trivia-146",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Name one spin-off or directly inspired production from Bab Al-Hara.",
-      "ar": "اذكر إنتاجاً مشتقاً أو مستوحى مباشرة من باب الحارة."
+      "en": "Which actress plays Fawziya, Abu Badr's wife, in Bab Al-Hara?",
+      "ar": "من تجسد فوزية زوجة أبو بدر في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Harat al-Shabaab (حارة الشباب) and other neighborhood drama spin-offs",
-      "ar": "حارة الشباب وغيرها من مسلسلات الدراما المجتمعية المشتقة"
+      "en": "Shukran Murtaja",
+      "ar": "شكران مرتجى"
     },
     "review": {
       "status": "pending"
@@ -2775,18 +2775,18 @@
   },
   {
     "id": "tv-shows-trivia-147",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What academic disciplines have studied Bab Al-Hara as a cultural text?",
-      "ar": "ما التخصصات الأكاديمية التي درست باب الحارة كنص ثقافي؟"
+      "en": "Which actor plays Abu Badr in Bab Al-Hara?",
+      "ar": "من يجسد أبو بدر في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Media studies, postcolonial studies, and Arab sociology — analyzing its construction of collective memory and anti-colonial nostalgia",
-      "ar": "دراسات الإعلام، والدراسات ما بعد الاستعمارية، وعلم الاجتماع العربي — لتحليل بنائه للذاكرة الجماعية والحنين المناهض للاستعمار"
+      "en": "Mohammed Khair Al-Jarrah",
+      "ar": "محمد خير الجراح"
     },
     "review": {
       "status": "pending"
@@ -2794,18 +2794,18 @@
   },
   {
     "id": "tv-shows-trivia-148",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "How did the Syrian civil war after 2011 affect the production and reception of Bab Al-Hara?",
-      "ar": "كيف أثّرت الحرب الأهلية السورية بعد 2011 على إنتاج باب الحارة وتلقّيه؟"
+      "en": "Which actor plays Al-Nims in Bab Al-Hara?",
+      "ar": "من يجسد النمس في «باب الحارة»؟"
     },
     "answer": {
-      "en": "Production moved partly outside Syria; the show took on new emotional resonance as a nostalgic image of a pre-war Syria that no longer exists",
-      "ar": "انتقل الإنتاج جزئياً خارج سوريا؛ واكتسب المسلسل صدىً عاطفياً جديداً كصورة حنينية لسوريا ما قبل الحرب التي لم تعد موجودة"
+      "en": "Mustafa Al-Khani",
+      "ar": "مصطفى الخاني"
     },
     "review": {
       "status": "pending"
@@ -2813,18 +2813,18 @@
   },
   {
     "id": "tv-shows-trivia-149",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "What is the significance of casting real Syrian dialect speakers vs. standard Arabic in Bab Al-Hara?",
-      "ar": "ما أهمية توظيف متحدثين حقيقيين باللهجة الشامية في باب الحارة مقارنة بالعربية الفصحى؟"
+      "en": "Which actress plays Feryal in Bab Al-Hara?",
+      "ar": "من تجسد فريال في «باب الحارة»؟"
     },
     "answer": {
-      "en": "It created authenticity and regional identity pride, while making the show broadly accessible across the Arab world without alienating non-Syrian audiences",
-      "ar": "أضفى أصالةً وفخراً بالهوية الإقليمية، مع إتاحة المسلسل على نطاق واسع في العالم العربي دون إقصاء المشاهدين من غير السوريين"
+      "en": "Wafaa Mousalli",
+      "ar": "وفاء موصللي"
     },
     "review": {
       "status": "pending"
@@ -2832,18 +2832,18 @@
   },
   {
     "id": "tv-shows-trivia-150",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bab Al-Hara",
       "ar": "باب الحارة"
     },
     "question": {
-      "en": "Compare the narrative structure of Bab Al-Hara to a Western ensemble drama like Downton Abbey.",
-      "ar": "قارن البنية السردية لباب الحارة بدراما غربية جماعية كـ'داونتون آبي'."
+      "en": "Which actor plays Abu Hatem in the early seasons of Bab Al-Hara?",
+      "ar": "من يجسد أبو حاتم في الأجزاء الأولى من «باب الحارة»؟"
     },
     "answer": {
-      "en": "Both use a large ensemble cast to explore class, tradition, and historical change; Bab Al-Hara focuses on colonial resistance where Downton focuses on class transition — both use domestic intimacy as a lens for macro-historical forces",
-      "ar": "كلاهما يستخدم طاقماً كبيراً لاستكشاف الطبقة والتقاليد والتغيير التاريخي؛ يركز باب الحارة على مقاومة الاستعمار حيث يركز داونتون على الانتقال الطبقي — وكلاهما يستخدم الحميمية المنزلية عدسةً للقوى التاريخية الكبرى"
+      "en": "Wafik Al-Zaim",
+      "ar": "وفيق الزعيم"
     },
     "review": {
       "status": "pending"
@@ -2876,12 +2876,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What does the word 'مرايا' mean in English?",
-      "ar": "ماذا تعني كلمة 'مرايا' بالإنجليزية؟"
+      "en": "What is the English translation of the Arabic title Maraya?",
+      "ar": "ما الترجمة الإنجليزية لعنوان «مرايا»؟"
     },
     "answer": {
       "en": "Mirrors",
-      "ar": "مرايا"
+      "ar": "Mirrors"
     },
     "review": {
       "status": "pending"
@@ -2965,18 +2965,18 @@
   },
   {
     "id": "tv-shows-trivia-157",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "Maraya is often compared to which type of Western comedy format?",
-      "ar": "كثيراً ما يُشبَّه مرايا بأي نوع من الكوميديا الغربية؟"
+      "en": "Who directed Maraya 2006?",
+      "ar": "من أخرج «مرايا 2006»؟"
     },
     "answer": {
-      "en": "Sketch comedy shows like Saturday Night Live",
-      "ar": "برامج الكوميديا الاستعراضية مثل ساتردي نايت لايف"
+      "en": "Hisham Sharbatji",
+      "ar": "هشام شربتجي"
     },
     "review": {
       "status": "pending"
@@ -2984,18 +2984,18 @@
   },
   {
     "id": "tv-shows-trivia-158",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "How many seasons has Maraya produced across its run?",
-      "ar": "كم موسماً أنتج برنامج مرايا خلال مسيرته؟"
+      "en": "Who composed the score for Maraya 2006?",
+      "ar": "من ألّف الموسيقى التصويرية لـ«مرايا 2006»؟"
     },
     "answer": {
-      "en": "Over 20 seasons spanning multiple decades",
-      "ar": "أكثر من 20 موسماً على مدى عقود متعددة"
+      "en": "Iyad Rimawi",
+      "ar": "إياد الريماوي"
     },
     "review": {
       "status": "pending"
@@ -3022,18 +3022,18 @@
   },
   {
     "id": "tv-shows-trivia-160",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "What technique did Maraya use to make social commentary?",
-      "ar": "ما الأسلوب الذي استخدمه مرايا لتقديم نقد اجتماعي؟"
+      "en": "Who shares the writing credit with Yasser Al-Azmeh on Maraya 2006?",
+      "ar": "من يشارك ياسر العظمة في كتابة «مرايا 2006»؟"
     },
     "answer": {
-      "en": "Allegory and symbolic characters representing social archetypes",
-      "ar": "الاستعارة والشخصيات الرمزية التي تمثل نماذج اجتماعية"
+      "en": "Nour Al-Din Al-Hashimi",
+      "ar": "نور الدين الهاشمي"
     },
     "review": {
       "status": "pending"
@@ -3041,18 +3041,18 @@
   },
   {
     "id": "tv-shows-trivia-161",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "What famous Syrian comedian mentored Yasser Al-Azmeh?",
-      "ar": "من هو الكوميدي السوري الشهير الذي كان معلماً لياسر العظمة؟"
+      "en": "Which director handled Maraya immediately before Mamoun Al-Bunni took over for the 2000 edition?",
+      "ar": "من المخرج الذي تولّى «مرايا» قبل أن يتولى مأمون البني إخراج نسخة عام 2000؟"
     },
     "answer": {
-      "en": "Duraid Lahham (دريد لحام)",
-      "ar": "دريد لحام"
+      "en": "Hatem Ali",
+      "ar": "حاتم علي"
     },
     "review": {
       "status": "pending"
@@ -3060,18 +3060,18 @@
   },
   {
     "id": "tv-shows-trivia-162",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "What is the significance of the title 'Maraya' (Mirrors) for the show?",
-      "ar": "ما دلالة عنوان 'مرايا' بالنسبة للبرنامج؟"
+      "en": "What alternative title was used for Maraya's 2004 edition?",
+      "ar": "ما العنوان الآخر الذي حمله «مرايا» في نسخة عام 2004؟"
     },
     "answer": {
-      "en": "The show acts as a mirror reflecting the contradictions and flaws of Syrian society",
-      "ar": "يعمل البرنامج كمرايا تعكس تناقضات وعيوب المجتمع السوري"
+      "en": "Eshna W Shofna",
+      "ar": "عشنا وشفنا"
     },
     "review": {
       "status": "pending"
@@ -3079,18 +3079,18 @@
   },
   {
     "id": "tv-shows-trivia-163",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "Which era of Maraya is considered its creative peak?",
-      "ar": "أي حقبة من مرايا تُعدّ ذروته الإبداعية؟"
+      "en": "Which Maraya edition carried the title 'Shofo Al-Nas'?",
+      "ar": "في أي عام حمل «مرايا» عنوان «شوفوا الناس»؟"
     },
     "answer": {
-      "en": "The 1990s seasons",
-      "ar": "مواسم التسعينيات"
+      "en": "1991",
+      "ar": "1991"
     },
     "review": {
       "status": "pending"
@@ -3098,18 +3098,18 @@
   },
   {
     "id": "tv-shows-trivia-164",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "How did Maraya address the concept of 'wasta' (nepotism) in Arab society?",
-      "ar": "كيف تناول مرايا مفهوم 'الواسطة' في المجتمع العربي؟"
+      "en": "What title was used for the 2002 edition of Maraya?",
+      "ar": "ما العنوان الذي حملته نسخة عام 2002 من «مرايا»؟"
     },
     "answer": {
-      "en": "Through recurring sketches showing how personal connections override merit in government and business",
-      "ar": "من خلال مقاطع متكررة تُظهر كيف تتغلب العلاقات الشخصية على الكفاءة في الحكومة والأعمال"
+      "en": "Hadith Al-Maraya",
+      "ar": "حديث المرايا"
     },
     "review": {
       "status": "pending"
@@ -3123,12 +3123,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What societal phenomenon unique to Ba'athist Syria did Maraya famously satirize?",
-      "ar": "ما الظاهرة المجتمعية الفريدة في سوريا البعثية التي اشتهر مرايا بسخريتها؟"
+      "en": "What is the Arabic title of the 2005 edition of Maraya?",
+      "ar": "ما عنوان نسخة عام 2005 من «مرايا»؟"
     },
     "answer": {
-      "en": "Government bureaucracy and the absurdity of state institutions",
-      "ar": "البيروقراطية الحكومية وسخافة مؤسسات الدولة"
+      "en": "Ahla Al-Maraya",
+      "ar": "أحلى المرايا"
     },
     "review": {
       "status": "pending"
@@ -3142,12 +3142,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What political limits constrained Maraya's satirical range?",
-      "ar": "ما الحدود السياسية التي قيّدت نطاق سخرية مرايا؟"
+      "en": "Who directed the 2000 edition of Maraya?",
+      "ar": "من أخرج نسخة عام 2000 من «مرايا»؟"
     },
     "answer": {
-      "en": "Direct criticism of the Assad regime was off-limits; only social and bureaucratic issues were permitted",
-      "ar": "كان النقد المباشر لنظام الأسد محظوراً؛ وكانت القضايا الاجتماعية والبيروقراطية فقط مسموحاً بها"
+      "en": "Mamoun Al-Bunni",
+      "ar": "مأمون البني"
     },
     "review": {
       "status": "pending"
@@ -3161,12 +3161,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "How did Maraya tackle the Arab-Israeli conflict in some episodes?",
-      "ar": "كيف تناول مرايا الصراع العربي الإسرائيلي في بعض الحلقات؟"
+      "en": "In which country outside Syria was Maraya 2013 filmed?",
+      "ar": "في أي بلد خارج سوريا صُوّر «مرايا 2013»؟"
     },
     "answer": {
-      "en": "Through satirical criticism of Arab governments' inaction and hypocrisy regarding the Palestinian cause",
-      "ar": "من خلال نقد ساخر لتقاعس الحكومات العربية ونفاقها تجاه القضية الفلسطينية"
+      "en": "Algeria",
+      "ar": "الجزائر"
     },
     "review": {
       "status": "pending"
@@ -3180,12 +3180,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "How does Maraya's satirical approach differ from Egyptian comedy of the same era?",
-      "ar": "كيف يختلف أسلوب مرايا الساخر عن الكوميديا المصرية في الحقبة ذاتها؟"
+      "en": "Which Algerian television channel produced Maraya 2013?",
+      "ar": "ما القناة الجزائرية التي أنتجت «مرايا 2013»؟"
     },
     "answer": {
-      "en": "Maraya was more politically indirect but socially sharper; Egyptian comedy was more entertainment-focused",
-      "ar": "كان مرايا أكثر تلميحاً سياسياً لكن أحدّ في نقده الاجتماعي؛ الكوميديا المصرية كانت أكثر ترفيهية"
+      "en": "Echorouk TV",
+      "ar": "الشروق تي في"
     },
     "review": {
       "status": "pending"
@@ -3199,12 +3199,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What award recognition did Yasser Al-Azmeh receive for Maraya?",
-      "ar": "ما التقدير والجوائز التي نالها ياسر العظمة على مرايا؟"
+      "en": "Who is credited as sound supervisor on Maraya 2013?",
+      "ar": "من المشرف على الصوت في «مرايا 2013»؟"
     },
     "answer": {
-      "en": "Various Arab festival awards; he is considered a national cultural icon in Syria",
-      "ar": "جوائز مهرجانات عربية متعددة؛ يُعدّ أيقونة ثقافية وطنية في سوريا"
+      "en": "Hussam Salama",
+      "ar": "حسام سلامة"
     },
     "review": {
       "status": "pending"
@@ -3218,12 +3218,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "In which year did Maraya have a notable revival season?",
-      "ar": "في أي عام كان لمرايا موسم إحياء بارز؟"
+      "en": "After the 2006 edition, in which year did Maraya return with a new edition before Maraya 2013?",
+      "ar": "بعد نسخة 2006، في أي عام عاد «مرايا» بنسخة جديدة سبقت «مرايا 2013»؟"
     },
     "answer": {
-      "en": "Around 2012",
-      "ar": "حوالي عام 2012"
+      "en": "2011",
+      "ar": "2011"
     },
     "review": {
       "status": "pending"
@@ -3237,12 +3237,12 @@
       "ar": "مرايا"
     },
     "question": {
-      "en": "What is the academic significance of Maraya in Arab television history?",
-      "ar": "ما الأهمية الأكاديمية لمرايا في تاريخ التلفزيون العربي؟"
+      "en": "Who directed Maraya 2013?",
+      "ar": "من أخرج «مرايا 2013»؟"
     },
     "answer": {
-      "en": "It is considered a pioneering work in Arab satirical television, predating similar formats in other Arab countries by decades",
-      "ar": "يُعدّ عملاً رائداً في التلفزيون الساخر العربي، سبق صيغاً مماثلة في دول عربية أخرى بعقود"
+      "en": "Amer Fahd",
+      "ar": "عامر فهد"
     },
     "review": {
       "status": "pending"
@@ -3250,18 +3250,18 @@
   },
   {
     "id": "tv-shows-trivia-172",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "How did Syria's political environment shape Maraya's creative boundaries over time?",
-      "ar": "كيف شكّلت البيئة السياسية السورية الحدود الإبداعية لمرايا عبر الزمن؟"
+      "en": "Which Maraya cast member plays the baker Abu Bashir in Bab Al-Hara?",
+      "ar": "أيّ ممثل من فريق «مرايا» يجسد الخبّاز أبو بشير في «باب الحارة»؟"
     },
     "answer": {
-      "en": "The show could satirize bureaucracy and social hypocrisy but was forbidden from directly criticizing the state or leadership — a constraint that shaped its allegorical style",
-      "ar": "كان يمكنه السخرية من البيروقراطية والنفاق الاجتماعي لكنه كان ممنوعاً من انتقاد الدولة أو القيادة مباشرة — وهو قيد شكّل أسلوبه الاستعاري"
+      "en": "Hassan Dakkak",
+      "ar": "حسن دكاك"
     },
     "review": {
       "status": "pending"
@@ -3269,18 +3269,18 @@
   },
   {
     "id": "tv-shows-trivia-173",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "Compare Maraya's use of recurring characters to a British equivalent like Yes Minister.",
-      "ar": "قارن استخدام مرايا للشخصيات المتكررة بمكافئ بريطاني كـ'يس مينستر'."
+      "en": "What animal appears alongside Abu Malhas in the title of episode 22 of Maraya 98?",
+      "ar": "ما الحيوان الذي يَرِد مع أبو ملحس في عنوان الحلقة 22 من «مرايا 98»؟"
     },
     "answer": {
-      "en": "Both use fixed character types to systematically expose institutional dysfunction; Maraya's archetypes are more culturally specific to Arab bureaucratic and social norms",
-      "ar": "كلاهما يستخدم أنواعاً ثابتة من الشخصيات لكشف خلل المؤسسات بشكل منهجي؛ نماذج مرايا أكثر خصوصية ثقافية للأعراف البيروقراطية والاجتماعية العربية"
+      "en": "A cow",
+      "ar": "بقرة"
     },
     "review": {
       "status": "pending"
@@ -3288,18 +3288,18 @@
   },
   {
     "id": "tv-shows-trivia-174",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "What is the legacy of Maraya for the generation of Syrian comedians who came after Al-Azmeh?",
-      "ar": "ما إرث مرايا للجيل اللاحق من الكوميديين السوريين الذين جاؤوا بعد العظمة؟"
+      "en": "Who is credited as the lighting and cinematography director on Maraya 2013?",
+      "ar": "من مدير الإضاءة والتصوير في «مرايا 2013»؟"
     },
     "answer": {
-      "en": "It established that Arab comedy could carry social weight, inspiring later satirists in Syria and across the Arab world to use humor as a vehicle for critique",
-      "ar": "أثبت أن الكوميديا العربية يمكن أن تحمل ثقلاً اجتماعياً، ملهِماً الساخرين اللاحقين في سوريا والعالم العربي لاستخدام الفكاهة أداةً للنقد"
+      "en": "Ahmed Al-Hamawi",
+      "ar": "أحمد الحموي"
     },
     "review": {
       "status": "pending"
@@ -3307,18 +3307,18 @@
   },
   {
     "id": "tv-shows-trivia-175",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Maraya",
       "ar": "مرايا"
     },
     "question": {
-      "en": "What specific episode format of Maraya — recurring sketches vs. single stories — shaped its cultural impact?",
-      "ar": "ما نمط حلقات مرايا المحدد — مقاطع متكررة مقابل قصص مفردة — الذي شكّل تأثيره الثقافي؟"
+      "en": "Who is credited as executive producer of Maraya 2006?",
+      "ar": "من المنتج المنفذ لـ«مرايا 2006»؟"
     },
     "answer": {
-      "en": "The recurring character format created audience identification and continuity, allowing social commentary to build cumulative resonance across episodes",
-      "ar": "نمط الشخصيات المتكررة أوجد تماهياً مع الجمهور واستمرارية، مما أتاح للنقد الاجتماعي بناء صدىً تراكمي عبر الحلقات"
+      "en": "Yasser Al-Azmeh",
+      "ar": "ياسر العظمة"
     },
     "review": {
       "status": "pending"
@@ -3345,18 +3345,18 @@
   },
   {
     "id": "tv-shows-trivia-177",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What does the phrase 'طاش ما طاش' roughly mean?",
-      "ar": "ما المعنى التقريبي لعبارة 'طاش ما طاش'؟"
+      "en": "What title was used for the 2023 revival of Tash Ma Tash?",
+      "ar": "ما عنوان عودة «طاش ما طاش» في عام 2023؟"
     },
     "answer": {
-      "en": "Whether it hits or not — acting recklessly regardless of consequences",
-      "ar": "سواء وقع أم لا — التصرف باستهتار بغض النظر عن العواقب"
+      "en": "Tash Al-Awda",
+      "ar": "طاش العودة"
     },
     "review": {
       "status": "pending"
@@ -3383,18 +3383,18 @@
   },
   {
     "id": "tv-shows-trivia-179",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Who are the two main stars of Tash Ma Tash?",
-      "ar": "من هما النجمان الرئيسيان في طاش ما طاش؟"
+      "en": "Which two actors lead Tash Ma Tash?",
+      "ar": "من الممثلان اللذان يتصدران بطولة «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "Nasser Al-Qahtani and Abdullah Al-Sadhan",
-      "ar": "ناصر القحطاني وعبدالله السدحان"
+      "en": "Nasser Al-Qasabi and Abdullah Al-Sadhan",
+      "ar": "ناصر القصبي وعبد الله السدحان"
     },
     "review": {
       "status": "pending"
@@ -3402,18 +3402,18 @@
   },
   {
     "id": "tv-shows-trivia-180",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How long did Tash Ma Tash run?",
-      "ar": "كم مدة استمرار طاش ما طاش؟"
+      "en": "In which year was the first season of Tash Ma Tash broadcast?",
+      "ar": "في أي عام عُرض الموسم الأول من «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "From 1992 to 2011 (approximately 20 seasons)",
-      "ar": "من 1992 إلى 2011 (حوالي 20 موسماً)"
+      "en": "1993",
+      "ar": "1993"
     },
     "review": {
       "status": "pending"
@@ -3465,12 +3465,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What is the significance of Tash Ma Tash in Saudi cultural history?",
-      "ar": "ما أهمية طاش ما طاش في التاريخ الثقافي السعودي؟"
+      "en": "Who directed the first two seasons of Tash Ma Tash?",
+      "ar": "من أخرج أول موسمين من «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "It was the first major show to openly address Saudi social taboos on Saudi state television",
-      "ar": "كان أول برنامج كبير يتناول المحظورات الاجتماعية السعودية بصراحة على التلفزيون الحكومي السعودي"
+      "en": "Amer Al-Hamoud",
+      "ar": "عامر الحمود"
     },
     "review": {
       "status": "pending"
@@ -3503,12 +3503,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Which episode topics caused the most controversy in Saudi Arabia?",
-      "ar": "أي موضوعات الحلقات أثارت أكبر قدر من الجدل في السعودية؟"
+      "en": "Which actor plays the recurring character Fouad in Tash Ma Tash?",
+      "ar": "من يجسد الشخصية المتكررة فؤاد في «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "Women driving, religious hypocrisy, and terrorism",
-      "ar": "قيادة المرأة، النفاق الديني، والإرهاب"
+      "en": "Nasser Al-Qasabi",
+      "ar": "ناصر القصبي"
     },
     "review": {
       "status": "pending"
@@ -3522,12 +3522,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How did Tash Ma Tash address the topic of religious extremism?",
-      "ar": "كيف تناول طاش ما طاش موضوع التطرف الديني؟"
+      "en": "Who plays Fouad's uncle Asaad Omar Galli in Tash Ma Tash?",
+      "ar": "من يجسد خال فؤاد، أسعد عمر قلّي، في «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "Through characters portraying rigid, literalist religious figures in comedic and critical situations",
-      "ar": "من خلال شخصيات تجسد شخصيات دينية متشددة وحرفية في مواقف كوميدية ونقدية"
+      "en": "Youssef Al-Jarrah",
+      "ar": "يوسف الجراح"
     },
     "review": {
       "status": "pending"
@@ -3541,12 +3541,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How many total episodes did Tash Ma Tash produce?",
-      "ar": "كم مجموع حلقات طاش ما طاش؟"
+      "en": "How many episodes were made for the 2023 revival Tash Al-Awda?",
+      "ar": "كم حلقة تضم عودة المسلسل بعنوان «طاش العودة» عام 2023؟"
     },
     "answer": {
-      "en": "Over 300 episodes across approximately 20 seasons",
-      "ar": "أكثر من 300 حلقة على مدار حوالي 20 موسماً"
+      "en": "20",
+      "ar": "20"
     },
     "review": {
       "status": "pending"
@@ -3579,12 +3579,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What international attention did Tash Ma Tash receive?",
-      "ar": "ما الاهتمام الدولي الذي حظي به طاش ما طاش؟"
+      "en": "Who directed Tash Al-Awda in 2023?",
+      "ar": "من أخرج «طاش العودة» عام 2023؟"
     },
     "answer": {
-      "en": "Covered by Western media as a rare example of social criticism on Saudi state television",
-      "ar": "تغطية إعلامية غربية باعتباره نموذجاً نادراً للنقد الاجتماعي على التلفزيون الحكومي السعودي"
+      "en": "Mohammed Al-Qaffas",
+      "ar": "محمد القفاص"
     },
     "review": {
       "status": "pending"
@@ -3592,18 +3592,18 @@
   },
   {
     "id": "tv-shows-trivia-190",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Which seasons of Tash Ma Tash are considered the boldest in their criticism?",
-      "ar": "أي مواسم طاش ما طاش تُعدّ الأجرأ في نقدها؟"
+      "en": "Which actor plays Hazar, the son in the recurring Abu Hazar family sketches in Tash Ma Tash?",
+      "ar": "من يجسد هزار في لوحات عائلة أبو هزار المتكررة في «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "Seasons 10–12 (early 2000s), tackling terrorism and extremism post-9/11",
-      "ar": "المواسم 10–12 (أوائل الألفية الثالثة)، التي تناولت الإرهاب والتطرف بعد أحداث 11 سبتمبر"
+      "en": "Fahad Al-Hayyan",
+      "ar": "فهد الحيان"
     },
     "review": {
       "status": "pending"
@@ -3611,18 +3611,18 @@
   },
   {
     "id": "tv-shows-trivia-191",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Name one real social change in Saudi Arabia that Tash Ma Tash satirized years before it happened.",
-      "ar": "اذكر تغيّراً اجتماعياً سعودياً حقيقياً سخر منه طاش ما طاش قبل سنوات من وقوعه."
+      "en": "What is the family relationship between Abu Hazar and Abu Nizar in Tash Ma Tash?",
+      "ar": "ما صلة القرابة بين أبو هزار وأبو نزار في «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "Women driving — satirized years before the ban was lifted in 2018",
-      "ar": "قيادة المرأة للسيارة — سُخر منها قبل سنوات من رفع الحظر عام 2018"
+      "en": "They are brothers",
+      "ar": "أخوان"
     },
     "review": {
       "status": "pending"
@@ -3636,12 +3636,12 @@
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What happened to co-star Abdullah Al-Sadhan after the show ended?",
-      "ar": "ما الذي حدث للنجم المشارك عبدالله السدحان بعد انتهاء البرنامج؟"
+      "en": "Who directed the sixteenth season of Tash Ma Tash?",
+      "ar": "من أخرج الموسم السادس عشر من «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "He was arrested in 2019 reportedly over his anonymous satirical Twitter account",
-      "ar": "اعتُقل عام 2019 بسبب حسابه الساخر المجهول على تويتر وفق ما أُفيد"
+      "en": "Hisham Sharbatji",
+      "ar": "هشام شربتجي"
     },
     "review": {
       "status": "pending"
@@ -3649,18 +3649,18 @@
   },
   {
     "id": "tv-shows-trivia-193",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How did Tash Ma Tash handle the topic of the kafala (sponsorship) system?",
-      "ar": "كيف تناول طاش ما طاش موضوع نظام الكفالة؟"
+      "en": "Who directed seasons 17 and 18 of Tash Ma Tash?",
+      "ar": "من أخرج الموسمين 17 و18 من «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "It satirized the abuse of the kafala system and mistreatment of foreign workers",
-      "ar": "سخر من استغلال نظام الكفالة وإساءة معاملة العمال الأجانب"
+      "en": "Mohammed Ayesh",
+      "ar": "محمد عايش"
     },
     "review": {
       "status": "pending"
@@ -3668,18 +3668,18 @@
   },
   {
     "id": "tv-shows-trivia-194",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What pressure did Tash Ma Tash face from Saudi religious bodies?",
-      "ar": "ما الضغوط التي واجهها طاش ما طاش من الهيئات الدينية السعودية؟"
+      "en": "Which streaming service carried Tash Al-Awda in 2023 alongside its MBC television broadcast?",
+      "ar": "ما منصة البث التي عرضت «طاش العودة» عام 2023 إلى جانب عرضه التلفزيوني على إم بي سي؟"
     },
     "answer": {
-      "en": "Fatwas were issued against the show by religious scholars opposed to its social criticism",
-      "ar": "أصدر علماء دين معارضون لنقده الاجتماعي فتاوى ضد البرنامج"
+      "en": "Shahid",
+      "ar": "شاهد"
     },
     "review": {
       "status": "pending"
@@ -3687,18 +3687,18 @@
   },
   {
     "id": "tv-shows-trivia-195",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Tash Ma Tash is cited as a precursor to what type of media reform in Saudi Arabia?",
-      "ar": "يُستشهد بطاش ما طاش كسلف لأي نوع من الإصلاح الإعلامي في السعودية؟"
+      "en": "In which Saudi city was Tash Al-Awda filmed in 2023?",
+      "ar": "في أي مدينة سعودية صُوّر «طاش العودة» عام 2023؟"
     },
     "answer": {
-      "en": "The gradual liberalization of Saudi entertainment accelerated by Vision 2030",
-      "ar": "الانفتاح التدريجي على قطاع الترفيه السعودي الذي تسارع مع رؤية 2030"
+      "en": "Riyadh",
+      "ar": "الرياض"
     },
     "review": {
       "status": "pending"
@@ -3706,18 +3706,18 @@
   },
   {
     "id": "tv-shows-trivia-196",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What is the legacy of Tash Ma Tash for future Saudi comedy productions?",
-      "ar": "ما إرث طاش ما طاش للإنتاجات الكوميدية السعودية المستقبلية؟"
+      "en": "Which director took over Tash Ma Tash after its first two seasons and directed it through season 15?",
+      "ar": "من المخرج الذي تولّى «طاش ما طاش» بعد أول موسمين واستمر حتى الموسم الخامس عشر؟"
     },
     "answer": {
-      "en": "It paved the way for more critical Saudi content on platforms like Shahid and Netflix Saudi productions",
-      "ar": "مهّد الطريق لمحتوى سعودي أكثر نقداً على منصات مثل شاهد وإنتاجات نتفليكس السعودية"
+      "en": "Abdulkhaliq Al-Ghanim",
+      "ar": "عبد الخالق الغانم"
     },
     "review": {
       "status": "pending"
@@ -3725,18 +3725,18 @@
   },
   {
     "id": "tv-shows-trivia-197",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How did the religious establishment's response to Tash Ma Tash reflect broader tensions in Saudi society?",
-      "ar": "كيف عكس رد المؤسسة الدينية على طاش ما طاش توترات أعمق في المجتمع السعودي؟"
+      "en": "What is the nationality of Tash Al-Awda director Mohammed Al-Qaffas?",
+      "ar": "ما جنسية محمد القفاص مخرج «طاش العودة»؟"
     },
     "answer": {
-      "en": "Fatwas against the show reflected the tension between the Wahhabi religious establishment and modernizing social forces — a tension that defines Saudi Arabia's evolution",
-      "ar": "تعكس الفتاوى ضد البرنامج التوتر بين المؤسسة الدينية الوهابية وقوى التحديث الاجتماعي — وهو التوتر الذي يُعرِّف تطور المملكة العربية السعودية"
+      "en": "Bahraini",
+      "ar": "بحريني"
     },
     "review": {
       "status": "pending"
@@ -3744,18 +3744,18 @@
   },
   {
     "id": "tv-shows-trivia-198",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "Compare Tash Ma Tash's satirical approach to a similar Gulf or Egyptian comedy of the same era.",
-      "ar": "قارن أسلوب طاش ما طاش الساخر بكوميديا خليجية أو مصرية مشابهة في الحقبة ذاتها."
+      "en": "On which MBC television channel did Tash Al-Awda premiere in 2023?",
+      "ar": "على أيّ قناة تلفزيونية من مجموعة إم بي سي بدأ عرض «طاش العودة» عام 2023؟"
     },
     "answer": {
-      "en": "Both Tash Ma Tash and Egyptian shows like 'Tamer and Shawqia' used comedy to challenge norms, but Tash Ma Tash operated under stricter political constraints, making its social daring more significant",
-      "ar": "كلٌّ من طاش ما طاش والبرامج المصرية كـ'تامر وشوقية' استخدم الكوميديا لتحدي الأعراف، لكن طاش ما طاش عمل في ظل قيود سياسية أشد، مما جعل جرأته الاجتماعية أكثر أهمية"
+      "en": "MBC 1",
+      "ar": "إم بي سي 1"
     },
     "review": {
       "status": "pending"
@@ -3763,18 +3763,18 @@
   },
   {
     "id": "tv-shows-trivia-199",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "What does Tash Ma Tash reveal about the contradictions within Saudi state media during its era?",
-      "ar": "ما الذي يكشفه طاش ما طاش عن التناقضات في الإعلام الحكومي السعودي في حقبته؟"
+      "en": "Which Saudi public authority sponsored the 2023 revival Tash Al-Awda?",
+      "ar": "ما الهيئة السعودية التي رعت عودة المسلسل بعنوان «طاش العودة» عام 2023؟"
     },
     "answer": {
-      "en": "The state broadcast a show that implicitly criticized its own social policies — reflecting the government's calculated tolerance of limited satire as a pressure-release valve",
-      "ar": "بثّت الدولة برنامجاً انتقد ضمنياً سياساتها الاجتماعية — مما يعكس تسامح الحكومة المحسوب مع السخرية المحدودة كصمام أمان"
+      "en": "The General Entertainment Authority",
+      "ar": "الهيئة العامة للترفيه"
     },
     "review": {
       "status": "pending"
@@ -3782,18 +3782,18 @@
   },
   {
     "id": "tv-shows-trivia-200",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Tash Ma Tash",
       "ar": "طاش ما طاش"
     },
     "question": {
-      "en": "How has Tash Ma Tash been studied in the context of Arab media freedom research?",
-      "ar": "كيف دُرس طاش ما طاش في سياق أبحاث حرية الإعلام العربي؟"
+      "en": "What Saudi word describes the desert outings frequently taken by the Abu Hazar and Abu Nizar families in Tash Ma Tash?",
+      "ar": "ما الكلمة السعودية التي تُطلق على الرحلات البرية التي تتكرر لدى عائلتَي أبو هزار وأبو نزار في «طاش ما طاش»؟"
     },
     "answer": {
-      "en": "It is studied as a case of 'bounded transgression' — media that appears subversive but operates within implicit state-approved limits, revealing the negotiated nature of censorship in authoritarian contexts",
-      "ar": "يُدرس كحالة من 'التجاوز المقيّد' — إعلام يبدو تخريبياً لكنه يعمل ضمن حدود ضمنية معتمدة من الدولة، مما يكشف الطبيعة التفاوضية للرقابة في السياقات الاستبدادية"
+      "en": "Kashta",
+      "ar": "كشتة"
     },
     "review": {
       "status": "pending"
@@ -3915,18 +3915,18 @@
   },
   {
     "id": "tv-shows-trivia-207",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "On which platform was the show made available with Arabic dubbing causing it to go viral?",
-      "ar": "على أي منصة أُتيح المسلسل بدبلجة عربية فأحدث ضجة واسعة؟"
+      "en": "Which Turkish television channel originally broadcast Diriliş: Ertuğrul?",
+      "ar": "ما القناة التركية التي عرضت «قيامة أرطغرل» لأول مرة؟"
     },
     "answer": {
-      "en": "Netflix",
-      "ar": "نتفليكس"
+      "en": "TRT 1",
+      "ar": "تي آر تي 1"
     },
     "review": {
       "status": "pending"
@@ -4054,12 +4054,12 @@
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "What was the Arab world's response when the show was Arabic-dubbed?",
-      "ar": "ما ردة فعل العالم العربي حين دُبلج المسلسل للعربية؟"
+      "en": "Who plays Halime Hatun in Diriliş: Ertuğrul?",
+      "ar": "من تجسد حليمة خاتون في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "It became a massive Ramadan phenomenon with hundreds of millions of views",
-      "ar": "أصبح ظاهرة رمضانية ضخمة بمئات الملايين من المشاهدات"
+      "en": "Esra Bilgiç",
+      "ar": "إسراء بيلغيتش"
     },
     "review": {
       "status": "pending"
@@ -4067,18 +4067,18 @@
   },
   {
     "id": "tv-shows-trivia-215",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "How many total episodes does قيامة أرطغرل have across all 5 seasons?",
-      "ar": "كم مجموع حلقات قيامة أرطغرل في مواسمه الخمسة؟"
+      "en": "How many episodes are in the original Turkish television edit of Diriliş: Ertuğrul?",
+      "ar": "كم حلقة تضم النسخة التلفزيونية التركية الأصلية من «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "150 episodes",
-      "ar": "150 حلقة"
+      "en": "150",
+      "ar": "150"
     },
     "review": {
       "status": "pending"
@@ -4105,18 +4105,18 @@
   },
   {
     "id": "tv-shows-trivia-217",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "What criticism did historians level at قيامة أرطغرل regarding historical accuracy?",
-      "ar": "ما الانتقاد الذي وجّهه المؤرخون لقيامة أرطغرل بشأن الدقة التاريخية؟"
+      "en": "What is the name of Ertuğrul's mother in Diriliş: Ertuğrul?",
+      "ar": "ما اسم والدة أرطغرل في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "The show takes significant liberties with history, presenting a romanticized and politically motivated version",
-      "ar": "يأخذ المسلسل حريات كبيرة مع التاريخ، مقدماً رواية مُرومنسة ومحفزة سياسياً"
+      "en": "Hayme Ana",
+      "ar": "هايماه خاتون"
     },
     "review": {
       "status": "pending"
@@ -4124,18 +4124,18 @@
   },
   {
     "id": "tv-shows-trivia-218",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "How did قيامة أرطغرل affect Turkey's soft power in the Arab world?",
-      "ar": "كيف أثّر قيامة أرطغرل على القوة الناعمة لتركيا في العالم العربي؟"
+      "en": "Who plays Turgut Alp in Diriliş: Ertuğrul?",
+      "ar": "من يجسد تورغوت ألب في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "It significantly boosted Turkey's cultural soft power and interest in Turkish history",
-      "ar": "عزّز بشكل ملحوظ القوة الناعمة التركية والاهتمام بالتاريخ التركي"
+      "en": "Cengiz Coşkun",
+      "ar": "جنكيز جوشكون"
     },
     "review": {
       "status": "pending"
@@ -4143,18 +4143,18 @@
   },
   {
     "id": "tv-shows-trivia-219",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "How did Pakistan's Prime Minister Imran Khan respond to the show's popularity?",
-      "ar": "كيف تعامل رئيس الوزراء الباكستاني عمران خان مع شعبية المسلسل؟"
+      "en": "Who plays Bamsi Beyrek in Diriliş: Ertuğrul?",
+      "ar": "من يجسد بامسي بيريك في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "He endorsed and promoted it as an example of Islamic historical drama Muslims should watch",
-      "ar": "أيّده وروّج له كنموذج للدراما التاريخية الإسلامية التي ينبغي للمسلمين مشاهدتها"
+      "en": "Nurettin Sönmez",
+      "ar": "نور الدين سونماز"
     },
     "review": {
       "status": "pending"
@@ -4162,18 +4162,18 @@
   },
   {
     "id": "tv-shows-trivia-220",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "What is 'AKP soft power' and how does قيامة أرطغرل exemplify it?",
-      "ar": "ما 'القوة الناعمة لحزب العدالة والتنمية' وكيف يجسّدها قيامة أرطغرل؟"
+      "en": "Which weapon is Turgut Alp particularly associated with in Diriliş: Ertuğrul?",
+      "ar": "ما السلاح الذي تتميز به شخصية تورغوت ألب في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "The AKP government uses neo-Ottoman cultural production to project Turkish Islamic identity globally; Ertuğrul is the prime example",
-      "ar": "تستخدم حكومة حزب العدالة والتنمية الإنتاج الثقافي العثماني الجديد لإبراز الهوية الإسلامية التركية عالمياً؛ وأرطغرل نموذجها الأبرز"
+      "en": "An axe",
+      "ar": "فأس"
     },
     "review": {
       "status": "pending"
@@ -4181,18 +4181,18 @@
   },
   {
     "id": "tv-shows-trivia-221",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "What specific battle or event marks the end of قيامة أرطغرل and the beginning of Ottoman history?",
-      "ar": "ما المعركة أو الحدث الذي يُنهي قيامة أرطغرل ويُشكّل بداية التاريخ العثماني؟"
+      "en": "Who plays Hayme Ana in Diriliş: Ertuğrul?",
+      "ar": "من تجسد هايماه خاتون في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "The consolidation of the Kayi tribe's dominance in the Söğüt region, laying the foundation for the Ottoman state",
-      "ar": "توطيد هيمنة قبيلة القيّي في منطقة سوغوت، وضع الأساس للدولة العثمانية"
+      "en": "Hülya Darcan",
+      "ar": "هوليا دارجان"
     },
     "review": {
       "status": "pending"
@@ -4200,18 +4200,18 @@
   },
   {
     "id": "tv-shows-trivia-222",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "What academic disciplines study قيامة أرطغرل as a case study?",
-      "ar": "ما التخصصات الأكاديمية التي تدرس قيامة أرطغرل كدراسة حالة؟"
+      "en": "Who plays Artuk Bey in Diriliş: Ertuğrul?",
+      "ar": "من يجسد أرتوك بك في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "Media studies, cultural diplomacy, and postcolonial studies — analyzing it as cultural soft power and neo-Ottoman nationalism",
-      "ar": "دراسات الإعلام، والدبلوماسية الثقافية، والدراسات ما بعد الاستعمارية — لتحليله كقوة ناعمة ثقافية وقومية عثمانية جديدة"
+      "en": "Ayberk Pekcan",
+      "ar": "أيبرك بيكجان"
     },
     "review": {
       "status": "pending"
@@ -4219,18 +4219,18 @@
   },
   {
     "id": "tv-shows-trivia-223",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "Compare the historical inaccuracies of قيامة أرطغرل to a Western equivalent like Braveheart or Gladiator.",
-      "ar": "قارن الأخطاء التاريخية في قيامة أرطغرل بمكافئ غربي كـ'برايفهارت' أو 'غلاديايتور'."
+      "en": "Who plays Ilbilge Hatun in the fifth season of Diriliş: Ertuğrul?",
+      "ar": "من تجسد إيلبيلغي خاتون في الموسم الخامس من «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "Like Braveheart and Gladiator, Ertuğrul celebrates a historical hero through a modern political lens — all three prioritize national myth-making over historical precision",
-      "ar": "كـ'برايفهارت' و'غلاديايتور'، يحتفي أرطغرل ببطل تاريخي من خلال عدسة سياسية حديثة — والثلاثة يُقدّمون بناء الأسطورة الوطنية على الدقة التاريخية"
+      "en": "Hande Soral",
+      "ar": "هاندا سورال"
     },
     "review": {
       "status": "pending"
@@ -4238,18 +4238,18 @@
   },
   {
     "id": "tv-shows-trivia-224",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "How does the depiction of the Mongol threat in قيامة أرطغرل parallel contemporary Turkish political anxieties?",
-      "ar": "كيف يوازي تصوير الخطر المغولي في قيامة أرطغرل القلق السياسي التركي المعاصر؟"
+      "en": "Who plays Dragos in the fifth season of Diriliş: Ertuğrul?",
+      "ar": "من يجسد دراغوس في الموسم الخامس من «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "The Mongols represent external threats to Muslim unity — a narrative that maps onto Turkey's framing of Western or regional powers threatening its sovereignty",
-      "ar": "يمثل المغول التهديدات الخارجية لوحدة المسلمين — وهو سردية تنطبق على إطار تركيا لتأطير القوى الغربية أو الإقليمية التي تهدد سيادتها"
+      "en": "İlker Aksum",
+      "ar": "إيلكر أكسوم"
     },
     "review": {
       "status": "pending"
@@ -4257,18 +4257,18 @@
   },
   {
     "id": "tv-shows-trivia-225",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Diriliş: Ertuğrul",
       "ar": "قيامة أرطغرل"
     },
     "question": {
-      "en": "What is the significance of the Seljuk Sultan's role in providing legitimacy to Ertuğrul's actions?",
-      "ar": "ما أهمية دور السلطان السلجوقي في إضفاء الشرعية على أفعال أرطغرل؟"
+      "en": "Who plays Abdurrahman Alp in Diriliş: Ertuğrul?",
+      "ar": "من يجسد عبد الرحمن ألب في «قيامة أرطغرل»؟"
     },
     "answer": {
-      "en": "It frames Ertuğrul's military campaigns as religiously and politically sanctioned, not mere tribal conquest — a deliberate narrative choice reinforcing Islamic statecraft ideals",
-      "ar": "يُؤطر حملات أرطغرل العسكرية على أنها مُعتمَدة دينياً وسياسياً، لا مجرد غزو قبلي — وهو خيار سردي مقصود يُعزز مُثُل الدولة الإسلامية"
+      "en": "Celal Al",
+      "ar": "جلال آل"
     },
     "review": {
       "status": "pending"
@@ -4276,18 +4276,18 @@
   },
   {
     "id": "tv-shows-trivia-226",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What does 'الحساسين' (Al-Hasaseen) mean in English?",
-      "ar": "ماذا تعني 'الحساسين' بالإنجليزية؟"
+      "en": "What is the English title of the 2024 Egyptian series Al-Hashasheen (الحشاشين)?",
+      "ar": "ما العنوان الإنجليزي لمسلسل «الحشاشين» المصري الصادر عام 2024؟"
     },
     "answer": {
       "en": "The Assassins",
-      "ar": "الحشاشون / الحساسين"
+      "ar": "The Assassins"
     },
     "review": {
       "status": "pending"
@@ -4297,12 +4297,12 @@
     "id": "tv-shows-trivia-227",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "In what country was Al-Hasaseen produced?",
-      "ar": "في أي دولة أُنتج الحساسين؟"
+      "en": "In what country was Al-Hashasheen produced?",
+      "ar": "في أي دولة أُنتج الحشاشين؟"
     },
     "answer": {
       "en": "Egypt",
@@ -4314,18 +4314,18 @@
   },
   {
     "id": "tv-shows-trivia-228",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "During which Ramadan did Al-Hasaseen air and become a massive hit?",
-      "ar": "في أي رمضان عُرض الحساسين وأصبح ضربة موفقة؟"
+      "en": "In which year did Al-Hashasheen premiere during Ramadan?",
+      "ar": "في أي عام بدأ عرض مسلسل «الحشاشين» خلال رمضان؟"
     },
     "answer": {
-      "en": "Ramadan 2024",
-      "ar": "رمضان 2024"
+      "en": "2024",
+      "ar": "2024"
     },
     "review": {
       "status": "pending"
@@ -4335,12 +4335,12 @@
     "id": "tv-shows-trivia-229",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "Who is the main star of Al-Hasaseen?",
-      "ar": "من هو النجم الرئيسي في الحساسين؟"
+      "en": "Who is the main star of Al-Hashasheen?",
+      "ar": "من هو النجم الرئيسي في الحشاشين؟"
     },
     "answer": {
       "en": "Karim Abdel Aziz (كريم عبد العزيز)",
@@ -4354,12 +4354,12 @@
     "id": "tv-shows-trivia-230",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What historical period is Al-Hasaseen set in?",
-      "ar": "في أي حقبة تاريخية تدور أحداث الحساسين؟"
+      "en": "What historical period is Al-Hashasheen set in?",
+      "ar": "في أي حقبة تاريخية تدور أحداث الحشاشين؟"
     },
     "answer": {
       "en": "The medieval Islamic period (11th–12th century)",
@@ -4371,18 +4371,18 @@
   },
   {
     "id": "tv-shows-trivia-231",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "On which streaming platform was Al-Hasaseen available?",
-      "ar": "على أي منصة بث كان الحساسين متاحاً؟"
+      "en": "Which Egyptian streaming platform carried Al-Hashasheen at its 2024 premiere?",
+      "ar": "ما منصة البث المصرية التي عرضت «الحشاشين» عند انطلاقه عام 2024؟"
     },
     "answer": {
-      "en": "Shahid (شاهد)",
-      "ar": "شاهد"
+      "en": "WATCH IT",
+      "ar": "واتش إت (WATCH IT)"
     },
     "review": {
       "status": "pending"
@@ -4392,12 +4392,12 @@
     "id": "tv-shows-trivia-232",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What historical group is Al-Hasaseen based on?",
-      "ar": "ما الجماعة التاريخية التي يستند إليها الحساسين؟"
+      "en": "What historical group is Al-Hashasheen based on?",
+      "ar": "ما الجماعة التاريخية التي يستند إليها الحشاشين؟"
     },
     "answer": {
       "en": "The Nizari Ismaili 'Assassins' — a medieval Islamic sect known for political assassinations",
@@ -4411,16 +4411,16 @@
     "id": "tv-shows-trivia-233",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "Who is the 'Old Man of the Mountain' (شيخ الجبل) and what is his role?",
-      "ar": "من هو 'شيخ الجبل' وما دوره؟"
+      "en": "Which character does Karim Abdel Aziz play in Al-Hashasheen?",
+      "ar": "ما الشخصية التي يجسدها كريم عبد العزيز في «الحشاشين»؟"
     },
     "answer": {
-      "en": "The leader of the Assassins order who sends assassins on missions",
-      "ar": "زعيم نظام الحساسين الذي يُرسل القتلة في مهام"
+      "en": "Hasan Al-Sabbah",
+      "ar": "حسن الصباح"
     },
     "review": {
       "status": "pending"
@@ -4430,12 +4430,12 @@
     "id": "tv-shows-trivia-234",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
       "en": "What is the historical name of the Assassins' mountain stronghold?",
-      "ar": "ما الاسم التاريخي لمعقل الحساسين الجبلي؟"
+      "ar": "ما الاسم التاريخي لمعقل الحشاشين الجبلي؟"
     },
     "answer": {
       "en": "Alamut (قلعة آلموت)",
@@ -4449,16 +4449,16 @@
     "id": "tv-shows-trivia-235",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What were the Assassins historically said to use before missions, according to legend?",
-      "ar": "ما الذي قيل تاريخياً إن الحساسين يتناولونه قبل مهامهم وفق الروايات؟"
+      "en": "Who plays Dunya Zad in Al-Hashasheen?",
+      "ar": "من تجسد دنيا زاد في «الحشاشين»؟"
     },
     "answer": {
-      "en": "Hashish — hence 'Hashashin', though this is historically debated",
-      "ar": "الحشيش — ومنه جاء 'الحشاشون'، وإن كان ذلك محل جدل تاريخي"
+      "en": "Mirna Nour El-Din",
+      "ar": "ميرنا نور الدين"
     },
     "review": {
       "status": "pending"
@@ -4468,12 +4468,12 @@
     "id": "tv-shows-trivia-236",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What Crusader-era context forms the backdrop of Al-Hasaseen?",
-      "ar": "ما السياق التاريخي للحروب الصليبية الذي يشكّل خلفية الحساسين؟"
+      "en": "What Crusader-era context forms the backdrop of Al-Hashasheen?",
+      "ar": "ما السياق التاريخي للحروب الصليبية الذي يشكّل خلفية الحشاشين؟"
     },
     "answer": {
       "en": "The Crusades and the conflict between Islamic states and Crusader kingdoms",
@@ -4487,16 +4487,16 @@
     "id": "tv-shows-trivia-237",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "Who wrote the screenplay for Al-Hasaseen?",
-      "ar": "من كتب سيناريو الحساسين؟"
+      "en": "Who wrote Al-Hashasheen?",
+      "ar": "من كتب مسلسل «الحشاشين»؟"
     },
     "answer": {
-      "en": "Medhat Al-Adl (مدحت العدل)",
-      "ar": "مدحت العدل"
+      "en": "Abdel Rahim Kamal",
+      "ar": "عبد الرحيم كمال"
     },
     "review": {
       "status": "pending"
@@ -4506,16 +4506,16 @@
     "id": "tv-shows-trivia-238",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What made Al-Hasaseen a landmark production in Arab television?",
-      "ar": "ما الذي جعل الحساسين علامة فارقة في التلفزيون العربي؟"
+      "en": "Who directed Al-Hashasheen?",
+      "ar": "من أخرج مسلسل «الحشاشين»؟"
     },
     "answer": {
-      "en": "Its high production budget, historical epic scope, and cinematic quality unusual for Arab TV",
-      "ar": "ميزانيتها الضخمة، نطاقها الملحمي التاريخي، وجودتها السينمائية غير المعتادة في التلفزيون العربي"
+      "en": "Peter Mimi",
+      "ar": "بيتر ميمي"
     },
     "review": {
       "status": "pending"
@@ -4525,16 +4525,16 @@
     "id": "tv-shows-trivia-239",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "How many episodes does Al-Hasaseen have and what was its viewership performance?",
-      "ar": "كم عدد حلقات الحساسين وكيف كان أداؤه في المشاهدات؟"
+      "en": "How many episodes are in the 2024 series Al-Hashasheen?",
+      "ar": "كم حلقة يضم مسلسل «الحشاشين» الصادر عام 2024؟"
     },
     "answer": {
-      "en": "30 episodes; broke Shahid platform records with hundreds of millions of minutes watched",
-      "ar": "30 حلقة؛ حطّم أرقام منصة شاهد القياسية بمئات الملايين من الدقائق المُشاهَدة"
+      "en": "30",
+      "ar": "30"
     },
     "review": {
       "status": "pending"
@@ -4542,18 +4542,18 @@
   },
   {
     "id": "tv-shows-trivia-240",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "How does Al-Hasaseen portray the moral complexity of the Assassins — heroes or villains?",
-      "ar": "كيف يصوّر الحساسين التعقيد الأخلاقي للحساسين — أبطالاً أم أشراراً؟"
+      "en": "Who plays Nizam Al-Mulk in Al-Hashasheen?",
+      "ar": "من يجسد نظام الملك في «الحشاشين»؟"
     },
     "answer": {
-      "en": "With moral ambiguity — showing both their ideological motivations and their violent methods",
-      "ar": "بغموض أخلاقي — مُظهِراً دوافعهم الأيديولوجية وأساليبهم العنيفة معاً"
+      "en": "Fathy Abdel Wahab",
+      "ar": "فتحي عبد الوهاب"
     },
     "review": {
       "status": "pending"
@@ -4561,18 +4561,18 @@
   },
   {
     "id": "tv-shows-trivia-241",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What is the connection between the Fatimid Caliphate and the Assassins' origins?",
-      "ar": "ما الصلة بين الخلافة الفاطمية وأصول الحساسين؟"
+      "en": "Which poet does Nicolas Mouawad play in Al-Hashasheen?",
+      "ar": "ما الشاعر الذي يجسده نيقولا معوض في «الحشاشين»؟"
     },
     "answer": {
-      "en": "The Assassins (Nizari Ismailis) split from the Fatimids over a succession dispute — this political background informs the show's conflict",
-      "ar": "انشق الحساسون (النزاريون الإسماعيليون) عن الفاطميين بسبب خلاف على الخلافة — هذه الخلفية السياسية تُشكّل صراع المسلسل"
+      "en": "Omar Khayyam",
+      "ar": "عمر الخيام"
     },
     "review": {
       "status": "pending"
@@ -4580,18 +4580,18 @@
   },
   {
     "id": "tv-shows-trivia-242",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "How did Al-Hasaseen compare to previous Egyptian historical dramas in production values?",
-      "ar": "كيف قارنت الحساسين بالدراما التاريخية المصرية السابقة من حيث قيم الإنتاج؟"
+      "en": "Who composed the score for Al-Hashasheen?",
+      "ar": "من ألّف الموسيقى التصويرية لمسلسل «الحشاشين»؟"
     },
     "answer": {
-      "en": "It significantly raised the bar, with values closer to international streaming standards",
-      "ar": "رفعت المستوى بشكل ملحوظ، مع معايير إنتاج أقرب إلى مستويات البث الدولي"
+      "en": "Amine Bouhafa",
+      "ar": "أمين بوحافة"
     },
     "review": {
       "status": "pending"
@@ -4599,18 +4599,18 @@
   },
   {
     "id": "tv-shows-trivia-243",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What real historical figure is referenced as an adversary of the Assassins in the show?",
-      "ar": "ما الشخصية التاريخية الحقيقية المُشار إليها خصماً للحساسين في المسلسل؟"
+      "en": "Which Seljuk sultan is played by Islam Gamal in Al-Hashasheen?",
+      "ar": "ما السلطان السلجوقي الذي يجسده إسلام جمال في «الحشاشين»؟"
     },
     "answer": {
-      "en": "Saladin (صلاح الدين الأيوبي)",
-      "ar": "صلاح الدين الأيوبي"
+      "en": "Malik Shah",
+      "ar": "ملك شاه"
     },
     "review": {
       "status": "pending"
@@ -4618,18 +4618,18 @@
   },
   {
     "id": "tv-shows-trivia-244",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "Name a notable secondary cast member who gave a strong performance in Al-Hasaseen.",
-      "ar": "اذكر ممثلاً ثانوياً بارزاً قدّم أداءً قوياً في الحساسين."
+      "en": "Who plays Zayd ibn Sayhun in Al-Hashasheen?",
+      "ar": "من يجسد زيد بن سيحون في «الحشاشين»؟"
     },
     "answer": {
-      "en": "Khaled Al-Sawy (خالد الصاوي)",
-      "ar": "خالد الصاوي"
+      "en": "Ahmed Eid",
+      "ar": "أحمد عيد"
     },
     "review": {
       "status": "pending"
@@ -4637,18 +4637,18 @@
   },
   {
     "id": "tv-shows-trivia-245",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What Ismaili concept did the Assassins use to justify political violence, as depicted in the show?",
-      "ar": "ما المفهوم الإسماعيلي الذي استخدمه الحساسون لتبرير العنف السياسي كما يُصوّره المسلسل؟"
+      "en": "Who sings the opening theme of Al-Hashasheen?",
+      "ar": "من يغني شارة البداية لمسلسل «الحشاشين»؟"
     },
     "answer": {
-      "en": "Ta'wil (esoteric interpretation) and taqiyya (dissimulation) to justify targeted killings",
-      "ar": "التأويل الباطني والتقية لتبرير الاغتيالات المستهدفة"
+      "en": "Wael Al-Fashni",
+      "ar": "وائل الفشني"
     },
     "review": {
       "status": "pending"
@@ -4656,18 +4656,18 @@
   },
   {
     "id": "tv-shows-trivia-246",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "How did Al-Hasaseen spark renewed Arab interest in Islamic medieval history?",
-      "ar": "كيف أشعل الحساسين اهتماماً عربياً متجدداً بالتاريخ الإسلامي الوسيط؟"
+      "en": "Who plays Buzurg-Ummid, known as Barzak Amid in the series Al-Hashasheen?",
+      "ar": "من يجسد برزك أميد في «الحشاشين»؟"
     },
     "answer": {
-      "en": "It inspired a wave of books, documentaries, and academic discussions about the Assassins and Islamic medieval history",
-      "ar": "ألهم موجة من الكتب والوثائقيات والنقاشات الأكاديمية حول الحشاشين والتاريخ الإسلامي الوسيط"
+      "en": "Sammy Sheik",
+      "ar": "سامي الشيخ"
     },
     "review": {
       "status": "pending"
@@ -4675,18 +4675,18 @@
   },
   {
     "id": "tv-shows-trivia-247",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What is the academic debate about calling them 'Hashashin' vs 'Nizari Ismailis'?",
-      "ar": "ما الجدل الأكاديمي حول تسميتهم 'الحشاشون' مقابل 'النزاريون الإسماعيليون'؟"
+      "en": "Who plays Elinar in Al-Hashasheen?",
+      "ar": "من تجسد إلينار في «الحشاشين»؟"
     },
     "answer": {
-      "en": "'Hashashin' is a pejorative term used by their enemies; scholars prefer 'Nizari Ismailis' as the accurate, neutral designation",
-      "ar": "'الحشاشون' مصطلح ازدرائي استخدمه أعداؤهم؛ يفضل الباحثون 'النزاريون الإسماعيليون' كتسمية دقيقة ومحايدة"
+      "en": "Suzanne Najm Al-Din",
+      "ar": "سوزان نجم الدين"
     },
     "review": {
       "status": "pending"
@@ -4694,18 +4694,18 @@
   },
   {
     "id": "tv-shows-trivia-248",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What scholarly works about the historical Assassins informed the historical basis of the show?",
-      "ar": "ما الأعمال الأكاديمية حول الحشاشين التاريخيين التي أسّست للأساس التاريخي للمسلسل؟"
+      "en": "The opening theme of Al-Hashasheen draws on quatrains by which poet?",
+      "ar": "تستند كلمات شارة «الحشاشين» إلى رباعيات أيّ شاعر؟"
     },
     "answer": {
-      "en": "Bernard Lewis's 'The Assassins: A Radical Sect in Islam' and Farhad Daftary's works on Ismaili history",
-      "ar": "كتاب برنارد لويس 'الحشاشون: طائفة راديكالية في الإسلام' وأعمال فرهاد دفتاري في التاريخ الإسماعيلي"
+      "en": "Omar Khayyam",
+      "ar": "عمر الخيام"
     },
     "review": {
       "status": "pending"
@@ -4713,18 +4713,18 @@
   },
   {
     "id": "tv-shows-trivia-249",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "How does Al-Hasaseen compare to Western productions like Marco Polo in its portrayal of the medieval Islamic world?",
-      "ar": "كيف يقارن الحساسين بإنتاجات غربية كـ'ماركو بولو' في تصوير العالم الإسلامي الوسيط؟"
+      "en": "Who plays Sultan Barkiyaruq in Al-Hashasheen?",
+      "ar": "من يجسد السلطان بركياروق في «الحشاشين»؟"
     },
     "answer": {
-      "en": "Al-Hasaseen is produced from an Arab/Islamic perspective with a native cast, offering a more authentic internal view vs. Marco Polo's Western outsider gaze",
-      "ar": "الحساسين مُنتَج من منظور عربي/إسلامي بممثلين محليين، مقدماً رؤية داخلية أكثر أصالة مقابل نظرة ماركو بولو الغربية الخارجية"
+      "en": "Omar El-Shenawy",
+      "ar": "عمر الشناوي"
     },
     "review": {
       "status": "pending"
@@ -4732,18 +4732,18 @@
   },
   {
     "id": "tv-shows-trivia-250",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Al-Hasaseen",
-      "ar": "الحساسين"
+      "en": "Al-Hashasheen",
+      "ar": "الحشاشين"
     },
     "question": {
-      "en": "What does the commercial success of Al-Hasaseen reveal about the appetite for Arab historical epic content on streaming platforms?",
-      "ar": "ماذا يكشف النجاح التجاري للحساسين عن الشهية لمحتوى الملاحم التاريخية العربية على منصات البث؟"
+      "en": "Who plays Nourhan in Al-Hashasheen?",
+      "ar": "من تجسد نورهان في «الحشاشين»؟"
     },
     "answer": {
-      "en": "It demonstrates strong audience demand for high-quality Arab historical drama, signaling a viable market for streaming-level investment in Arabic-language epics",
-      "ar": "يُظهر طلباً جماهيرياً قوياً على الدراما التاريخية العربية عالية الجودة، مُشيراً إلى سوق قابلة للحياة للاستثمار بمستوى البث في الملاحم العربية"
+      "en": "Sara El-Shamy",
+      "ar": "سارة الشامي"
     },
     "review": {
       "status": "pending"

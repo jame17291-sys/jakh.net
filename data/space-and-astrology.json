@@ -178,12 +178,12 @@
       "ar": "فيزياء الفضاء والمدارات"
     },
     "question": {
-      "en": "What is the fastest thing in the universe?",
-      "ar": "ما أسرع شيء في الكون؟"
+      "en": "What travels at the universal local speed limit c in a vacuum?",
+      "ar": "ما الذي ينتقل بسرعة الحد الكوني المحلي c في الفراغ؟"
     },
     "answer": {
-      "en": "Light",
-      "ar": "الضوء"
+      "en": "Light, including all electromagnetic radiation in vacuum.",
+      "ar": "الضوء، بما فيه جميع أشكال الإشعاع الكهرومغناطيسي في الفراغ."
     },
     "review": {
       "status": "pending"
@@ -235,12 +235,12 @@
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "Name the four 'gas giant' planets.",
-      "ar": "اذكر الكواكب الغازية العملاقة الأربعة."
+      "en": "Name the four giant outer planets in our solar system.",
+      "ar": "اذكر الكواكب الخارجية العملاقة الأربعة في نظامنا الشمسي."
     },
     "answer": {
-      "en": "Jupiter, Saturn, Uranus, Neptune",
-      "ar": "المشتري وزحل وأورانوس ونبتون"
+      "en": "Jupiter and Saturn are gas giants; Uranus and Neptune are ice giants.",
+      "ar": "المشتري وزحل عملاقان غازيان، وأورانوس ونبتون عملاقان جليديان."
     },
     "review": {
       "status": "pending"
@@ -292,8 +292,8 @@
       "ar": "الثقوب السوداء والجاذبية"
     },
     "question": {
-      "en": "What do you call the boundary around a black hole from which nothing can escape?",
-      "ar": "ما اسم الحدود حول الثقب الأسود التي لا يمكن لشيء تجاوزها؟"
+      "en": "What is the boundary of a black hole from inside which light cannot escape to distant observers?",
+      "ar": "ما حد الثقب الأسود الذي لا يستطيع الضوء من داخله الإفلات إلى الراصدين البعيدين؟"
     },
     "answer": {
       "en": "Event Horizon",
@@ -330,12 +330,12 @@
       "ar": "علم الفلك الرصدي"
     },
     "question": {
-      "en": "Which constellation contains the 'Big Dipper' asterism?",
-      "ar": "أي كوكبة تحتوي نجمية 'الدب الأكبر' (المغرفة الكبيرة)؟"
+      "en": "Which constellation contains the seven-star Big Dipper asterism?",
+      "ar": "أي كوكبة تضم مجموعة النجوم السبعة المعروفة بالمغرفة الكبرى؟"
     },
     "answer": {
-      "en": "Ursa Major",
-      "ar": "الدب الأكبر"
+      "en": "Ursa Major, the Great Bear.",
+      "ar": "كوكبة الدب الأكبر (Ursa Major)."
     },
     "review": {
       "status": "pending"
@@ -482,8 +482,8 @@
       "ar": "المجرات وعلم الكون"
     },
     "question": {
-      "en": "What mysterious force is thought to be causing the accelerating expansion of the universe?",
-      "ar": "ما القوة الغامضة التي يُعتقد أنها تسبب التمدد المتسارع للكون؟"
+      "en": "What name is given to the inferred component associated with the accelerated expansion of the universe?",
+      "ar": "ما اسم المكوّن المستدل عليه والمرتبط بالتمدد المتسارع للكون؟"
     },
     "answer": {
       "en": "Dark Energy",
@@ -634,12 +634,12 @@
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "Who was the first human to walk on the Moon?",
-      "ar": "من كان أول إنسان يمشي على سطح القمر؟"
+      "en": "Which planet is home to Olympus Mons, a giant shield volcano?",
+      "ar": "أي كوكب يضم جبل أوليمبوس، وهو بركان درعي عملاق؟"
     },
     "answer": {
-      "en": "Neil Armstrong (1969)",
-      "ar": "نيل أرمسترونغ (1969)"
+      "en": "Mars.",
+      "ar": "المريخ."
     },
     "review": {
       "status": "pending"
@@ -691,12 +691,12 @@
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "Which planet has the most moons?",
-      "ar": "أي كوكب يمتلك أكبر عدد من الأقمار؟"
+      "en": "Which planet's moon Titan has a thick nitrogen-rich atmosphere?",
+      "ar": "أي كوكب يتبعه القمر تيتان ذو الغلاف الجوي الكثيف الغني بالنيتروجين؟"
     },
     "answer": {
-      "en": "Saturn (146 confirmed)",
-      "ar": "زحل (146 قمراً مؤكداً)"
+      "en": "Saturn.",
+      "ar": "زحل."
     },
     "review": {
       "status": "pending"
@@ -771,8 +771,8 @@
       "ar": "ما المجرة؟"
     },
     "answer": {
-      "en": "A system of billions of stars, gas, dust, and dark matter held together by gravity",
-      "ar": "نظام من المليارات من النجوم والغاز والغبار والمادة المظلمة تتماسك بفعل الجاذبية"
+      "en": "A gravitationally bound system of stars, gas, dust, and usually dark matter. Galaxies vary enormously in size and star count.",
+      "ar": "نظام مترابط بالجاذبية يضم نجوماً وغازاً وغباراً، ومادة مظلمة عادةً. وتتفاوت المجرات كثيراً في الحجم وعدد النجوم."
     },
     "review": {
       "status": "pending"
@@ -904,8 +904,8 @@
       "ar": "ما المادة المظلمة؟"
     },
     "answer": {
-      "en": "A hypothetical form of matter that does not emit or interact with light but has gravitational effects",
-      "ar": "شكل افتراضي من المادة لا تُصدر ضوءاً ولا تتفاعل معه لكن لها تأثيرات جاذبية"
+      "en": "Matter inferred mainly from its gravitational effects that does not emit or absorb detectable light. Its gravity can still bend the paths of light.",
+      "ar": "مادة نستدل عليها أساساً من آثارها الجاذبية ولا تصدر ضوءاً قابلاً للرصد أو تمتصه. ومع ذلك تستطيع جاذبيتها ثني مسارات الضوء."
     },
     "review": {
       "status": "pending"
@@ -942,8 +942,8 @@
       "ar": "ما المستعر الأعظم (السوبرنوفا)؟"
     },
     "answer": {
-      "en": "A powerful explosion at the end of a massive star's life, briefly outshining entire galaxies",
-      "ar": "انفجار هائل في نهاية حياة نجم ضخم، يُضيء لفترة وجيزة أكثر من المجرات بأسرها"
+      "en": "A powerful stellar explosion, arising either from the collapse of a massive star's core or a thermonuclear explosion involving a white dwarf.",
+      "ar": "انفجار نجمي هائل ينشأ إما من انهيار قلب نجم ضخم، أو من انفجار نووي حراري يرتبط بقزم أبيض."
     },
     "review": {
       "status": "pending"
@@ -1037,8 +1037,8 @@
       "ar": "ما إشعاع الخلفية الكونية الميكروي (CMB)؟"
     },
     "answer": {
-      "en": "The thermal radiation left over from the Big Bang, filling all of space uniformly",
-      "ar": "الإشعاع الحراري المتبقّي من الانفجار الكبير، يملأ الفضاء بالتساوي"
+      "en": "Relic thermal radiation from the early universe, now nearly uniform across the sky but containing small, measurable variations.",
+      "ar": "إشعاع حراري متبقٍ من الكون المبكر، شبه متجانس الآن في السماء مع اختلافات صغيرة قابلة للقياس."
     },
     "review": {
       "status": "pending"
@@ -1132,8 +1132,8 @@
       "ar": "ما الذي يسبّب الفصول على الأرض؟"
     },
     "answer": {
-      "en": "The tilt of Earth's axis (23.5°) relative to its orbital plane around the Sun",
-      "ar": "ميل محور الأرض (23.5°) بالنسبة لمستوى مدارها حول الشمس"
+      "en": "Earth's axis is tilted about 23.5° from the perpendicular to its orbital plane. This changes sunlight angle and day length through the year.",
+      "ar": "يميل محور الأرض نحو 23.5 درجة عن العمود على مستوى مدارها. فيتغير خلال السنة اتجاه سقوط أشعة الشمس وطول النهار."
     },
     "review": {
       "status": "pending"
@@ -1246,8 +1246,8 @@
       "ar": "ما قانون هابل؟"
     },
     "answer": {
-      "en": "Galaxies are receding from us at a speed proportional to their distance — evidence of the expanding universe",
-      "ar": "تبتعد المجرات عنا بسرعة تتناسب مع مسافتها — دليل على تمدّد الكون"
+      "en": "On large scales, galaxies' recession speeds are approximately proportional to their distances: v=H₀d. Nearby galaxies can deviate because of local gravitational motion.",
+      "ar": "على المقاييس الكبيرة تتناسب سرعات ابتعاد المجرات تقريباً مع مسافاتها: v=H₀d. وقد تخالف المجرات القريبة ذلك بسبب الحركة الجاذبية المحلية."
     },
     "review": {
       "status": "pending"
@@ -1356,12 +1356,12 @@
       "ar": "النظام الشمسي والكواكب"
     },
     "question": {
-      "en": "What is the difference between a meteor, meteoroid, and meteorite?",
-      "ar": "ما الفرق بين الشهاب والنيزك والحجر النيزكي؟"
+      "en": "How do meteoroid, meteor, and meteorite differ?",
+      "ar": "ما الفرق بين الجسيم النيزكي والشهاب والحجر النيزكي؟"
     },
     "answer": {
-      "en": "Meteoroid: space rock; Meteor: the visible streak in the sky; Meteorite: a meteoroid that survives and hits Earth",
-      "ar": "النيزك: صخرة فضائية؛ الشهاب: الخط المضيء في السماء؛ الحجر النيزكي: نيزك يصمد ويصطدم بالأرض"
+      "en": "A meteoroid is a small space body; a meteor is the luminous phenomenon during atmospheric entry; a meteorite is material that survives to reach the ground.",
+      "ar": "الجسيم النيزكي جسم فضائي صغير؛ والشهاب الظاهرة المضيئة أثناء دخول الغلاف الجوي؛ والحجر النيزكي مادة تصمد حتى تبلغ سطح الأرض."
     },
     "review": {
       "status": "pending"
@@ -1375,12 +1375,12 @@
       "ar": "المجرات وعلم الكون"
     },
     "question": {
-      "en": "What is the anthropic principle?",
-      "ar": "ما المبدأ الإنساني؟"
+      "en": "What is the weak anthropic principle?",
+      "ar": "ما المبدأ الإنساني الضعيف؟"
     },
     "answer": {
-      "en": "The observation that the universe's physical constants appear finely tuned for the existence of observers like us",
-      "ar": "ملاحظة أن الثوابت الفيزيائية للكون تبدو مضبوطة بدقة لتمكين وجود ملاحظين من أمثالنا"
+      "en": "Our observations are conditioned by the requirement that observers can exist at the place and time of observation.",
+      "ar": "تتأثر مشاهداتنا بشرط إمكان وجود راصدين في مكان الرصد وزمانه."
     },
     "review": {
       "status": "pending"
@@ -1413,12 +1413,12 @@
       "ar": "استكشاف الفضاء والتلسكوبات"
     },
     "question": {
-      "en": "What is the Lagrange point and why is it useful?",
-      "ar": "ما نقطة لاغرانج ولماذا تكون مفيدة؟"
+      "en": "Why does a spacecraft near the Sun–Earth L2 point need occasional stationkeeping maneuvers?",
+      "ar": "لماذا تحتاج مركبة قرب نقطة L2 في نظام الشمس والأرض إلى مناورات دورية للمحافظة على موقعها؟"
     },
     "answer": {
-      "en": "Positions in space where gravitational forces balance allow a smaller object to stay in a stable orbit — used to park space telescopes (e.g. JWST at L2)",
-      "ar": "مواضع في الفضاء تتوازن فيها قوى الجاذبية تسمح لجسم أصغر بالبقاء في مدار مستقر — تُستخدم لإيقاف التلسكوبات الفضائية (مثل JWST عند L2)"
+      "en": "L2 is an unstable equilibrium in the rotating frame, so small deviations can grow. Thruster corrections keep the spacecraft near its intended orbit.",
+      "ar": "L2 موضع اتزان غير مستقر في الإطار الدوار، لذا قد تتزايد الانحرافات الصغيرة. وتبقي تصحيحات الدفع المركبة قرب مدارها المطلوب."
     },
     "review": {
       "status": "pending"
@@ -1502,7 +1502,7 @@
   },
   {
     "id": "space-080",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Space Exploration & Telescopes",
       "ar": "استكشاف الفضاء والتلسكوبات"
@@ -1645,8 +1645,8 @@
       "ar": "ما مفارقة فيرمي؟"
     },
     "answer": {
-      "en": "The contradiction between the high probability of extraterrestrial civilisations and the lack of evidence for, or contact with, such civilisations",
-      "ar": "التناقض بين الاحتمال الكبير لوجود حضارات خارج كوكبنا وغياب الأدلة على وجودها أو التواصل معها"
+      "en": "The apparent tension between expectations that technological civilizations might be common and the lack of confirmed evidence of them. Their actual probability is not established.",
+      "ar": "التعارض الظاهري بين توقعات احتمال شيوع الحضارات التقنية وغياب دليل مؤكد عليها. أما احتمال وجودها الفعلي فغير محسوم."
     },
     "review": {
       "status": "pending"
@@ -1660,12 +1660,12 @@
       "ar": "الثقوب السوداء والجاذبية"
     },
     "question": {
-      "en": "What is spaghettification?",
-      "ar": "ما السباغيتيفيكيشن (التسمّك كالمكرونة)؟"
+      "en": "What is spaghettification near a black hole?",
+      "ar": "ما الاستطالة الشبيهة بالمعكرونة قرب الثقب الأسود؟"
     },
     "answer": {
-      "en": "The tidal stretching of objects into long thin shapes when falling into a black hole due to extreme tidal gravity differences",
-      "ar": "التمدّد المديّ للأجسام إلى أشكال رفيعة طويلة عند سقوطها في ثقب أسود بسبب الفوارق الهائلة في الجاذبية المدّية"
+      "en": "Extreme tidal forces stretch an object along one direction and compress it sideways, producing a long, thin shape.",
+      "ar": "تشد قوى المد الشديدة الجسم في اتجاه وتضغطه جانبياً، فيصبح طويلاً ورفيعاً."
     },
     "review": {
       "status": "pending"
@@ -1711,7 +1711,7 @@
   },
   {
     "id": "space-091",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Space Exploration & Telescopes",
       "ar": "استكشاف الفضاء والتلسكوبات"
@@ -1736,12 +1736,12 @@
       "ar": "الثقوب السوداء والجاذبية"
     },
     "question": {
-      "en": "What is the no-hair theorem for black holes?",
-      "ar": "ما مبرهنة عدم الشعر للثقوب السوداء؟"
+      "en": "In the standard classical description, which three quantities characterize a stationary isolated black hole?",
+      "ar": "في الوصف الكلاسيكي القياسي، ما الكميات الثلاث التي تميز ثقباً أسود معزولاً ومستقراً زمنياً؟"
     },
     "answer": {
-      "en": "Black holes can be completely described by only three externally observable parameters: mass, electric charge, and angular momentum",
-      "ar": "يمكن وصف الثقوب السوداء بالكامل بثلاثة معاملات خارجية فقط: الكتلة والشحنة الكهربائية وكمية الحركة الزاوية"
+      "en": "Mass, electric charge, and angular momentum.",
+      "ar": "الكتلة والشحنة الكهربائية والزخم الزاوي."
     },
     "review": {
       "status": "pending"
@@ -1812,12 +1812,12 @@
       "ar": "الثقوب السوداء والجاذبية"
     },
     "question": {
-      "en": "What is the first black hole ever directly imaged?",
-      "ar": "ما أول ثقب أسود صُوِّر مباشرةً؟"
+      "en": "Which black hole's shadow appeared in the Event Horizon Telescope image released in 2019?",
+      "ar": "ظل أي ثقب أسود ظهر في صورة تلسكوب أفق الحدث التي نُشرت عام 2019؟"
     },
     "answer": {
-      "en": "M87* — the supermassive black hole at the centre of galaxy M87, imaged by the Event Horizon Telescope in 2019",
-      "ar": "M87* — الثقب الأسود الفائق الكتلة في مركز مجرة M87، صوّره تلسكوب أفق الحدث عام 2019"
+      "en": "M87*, at the center of galaxyM 87. The image used observations from 2017 and shows surrounding emission and the central shadow.",
+      "ar": "M87* في مركز المجرة M87. استُخدمت مشاهدات عام 2017، وتُظهر الصورة الإشعاع المحيط والظل المركزي."
     },
     "review": {
       "status": "pending"

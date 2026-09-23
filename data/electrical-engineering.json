@@ -121,12 +121,12 @@
       "ar": "أساسيات الكهرباء"
     },
     "question": {
-      "en": "Who is credited with inventing the first commercially practical incandescent light bulb?",
-      "ar": "لمن يُنسب اختراع أول مصباح متوهج عملي تجارياً؟"
+      "en": "In an incandescent bulb, which part becomes hot enough to emit visible light?",
+      "ar": "في المصباح المتوهج، أي جزء يسخن بدرجة تكفي لإصدار ضوء مرئي؟"
     },
     "answer": {
-      "en": "Thomas Edison",
-      "ar": "توماس إديسون"
+      "en": "The filament.",
+      "ar": "الفتيلة."
     },
     "review": {
       "status": "pending"
@@ -292,12 +292,12 @@
       "ar": "المكونات والإلكترونيات"
     },
     "question": {
-      "en": "What component allows current to flow in only one direction?",
-      "ar": "ما المكوّن الذي يسمح للتيار بالتدفق في اتجاه واحد فقط؟"
+      "en": "Which ideal electronic component conducts current in the forward direction and blocks it in reverse?",
+      "ar": "ما المكون الإلكتروني المثالي الذي يمرر التيار في الاتجاه الأمامي ويمنعه في العكسي؟"
     },
     "answer": {
-      "en": "Diode",
-      "ar": "الثنائي (الديود)"
+      "en": "An ideal diode. Real diodes also have leakage and breakdown limits.",
+      "ar": "الديود المثالي. أما الحقيقي فله أيضاً تيار تسرب وحدود انهيار."
     },
     "review": {
       "status": "pending"
@@ -330,12 +330,12 @@
       "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
-      "en": "What is the standard frequency of the electrical grid in most of the world?",
-      "ar": "ما التردد القياسي للشبكة الكهربائية في معظم دول العالم؟"
+      "en": "What are the two most common nominal AC mains frequencies used worldwide?",
+      "ar": "ما الترددان الاسميان الأكثر شيوعاً لشبكات الكهرباء المتناوبة عالمياً؟"
     },
     "answer": {
-      "en": "50 Hz or 60 Hz",
-      "ar": "50 هرتز أو 60 هرتز"
+      "en": "50 Hz and 60 Hz.",
+      "ar": "50 هرتز و 60 هرتز."
     },
     "review": {
       "status": "pending"
@@ -444,8 +444,8 @@
       "ar": "أنظمة القدرة المتناوبة"
     },
     "question": {
-      "en": "In an AC circuit, what is the combination of resistance and reactance called?",
-      "ar": "في دارة التيار المتردد، ما اسم مجموع المقاومة والممانعة التفاعلية؟"
+      "en": "In sinusoidal steady-state circuit analysis, what quantity combines resistance R and reactance X as R+jX?",
+      "ar": "في تحليل الدوائر الجيبية المستقرة، ما الكمية التي تجمع المقاومة R والمفاعلة X بالشكل R+jX؟"
     },
     "answer": {
       "en": "Impedance",
@@ -482,8 +482,8 @@
       "ar": "الكهرومغناطيسية"
     },
     "question": {
-      "en": "What is the production of a voltage difference across a conductor when a magnetic field is applied?",
-      "ar": "ما ظاهرة إنتاج فرق جهد عبر موصل عند تطبيق مجال مغناطيسي عليه؟"
+      "en": "What effect produces a transverse voltage in a current-carrying conductor placed in a magnetic field perpendicular to the current?",
+      "ar": "ما التأثير الذي يولد جهداً عرضياً في موصل يحمل تياراً ويوضع في مجال مغناطيسي عمودي على التيار؟"
     },
     "answer": {
       "en": "The Hall Effect",
@@ -520,12 +520,12 @@
       "ar": "الإشارات والاتصالات"
     },
     "question": {
-      "en": "What does Shannon's Theorem define in communication theory?",
-      "ar": "ماذا يحدد مبرهنة شانون في نظرية الاتصالات؟"
+      "en": "What limit does Shannon's noisy-channel coding theorem identify?",
+      "ar": "ما الحد الذي تحدده مبرهنة شانون لترميز القناة المشوشة؟"
     },
     "answer": {
-      "en": "The maximum rate at which information can be transmitted over a channel",
-      "ar": "أقصى معدل يمكن بثّ المعلومات عبره على قناة اتصال"
+      "en": "Channel capacity: the highest communication rate below which suitably designed codes can make error probability arbitrarily small under the model's assumptions.",
+      "ar": "سعة القناة: الحد الأعلى للمعدل الذي يمكن دونه للترميز المناسب جعل احتمال الخطأ صغيراً كيفما نشاء، وفق افتراضات النموذج."
     },
     "review": {
       "status": "pending"
@@ -533,7 +533,7 @@
   },
   {
     "id": "electrical-engineering-029",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Components & Electronics",
       "ar": "المكونات والإلكترونيات"
@@ -558,8 +558,8 @@
       "ar": "المكونات والإلكترونيات"
     },
     "question": {
-      "en": "What is the unit of measurement for inductance?",
-      "ar": "ما وحدة قياس الحث الكهرومغناطيسي؟"
+      "en": "What is the SI unit of inductance?",
+      "ar": "ما وحدة المحاثة في النظام الدولي؟"
     },
     "answer": {
       "en": "Henry",

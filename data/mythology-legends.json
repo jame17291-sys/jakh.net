@@ -363,8 +363,8 @@
   {
     "id": "mythology-legends-20",
     "question": {
-      "en": "What magical object grants its owner immortality in Arthurian legend?",
-      "ar": "ما هو الشيء السحري الذي يمنح صاحبه الخلود في الأسطورة الآرثرية؟"
+      "en": "What sacred vessel is the object of the Grail quest in Arthurian legends?",
+      "ar": "ما الإناء المقدس الذي يبحث عنه الفرسان في أساطير الملك آرثر؟"
     },
     "answer": {
       "en": "The Holy Grail",
@@ -401,12 +401,12 @@
   {
     "id": "mythology-legends-22",
     "question": {
-      "en": "Who is the Celtic god of the sea?",
-      "ar": "من هو إله البحر عند الكلت؟"
+      "en": "Which sea god in Irish mythology is traditionally associated with the Isle of Man?",
+      "ar": "أيّ إله للبحر في الأساطير الأيرلندية يرتبط تقليدياً بجزيرة مان؟"
     },
     "answer": {
-      "en": "Lir (or Manannán mac Lir)",
-      "ar": "لير"
+      "en": "Manannán mac Lir",
+      "ar": "مانانان ماك لير"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -674,7 +674,7 @@
       "en": "Ragnarök",
       "ar": "راجناروك"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Norse",
       "ar": "الأساطير الإسكندنافية"
@@ -693,7 +693,7 @@
       "en": "Atlantis",
       "ar": "أتلانتس"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Greek & Roman",
       "ar": "الأساطير اليونانية والرومانية"
@@ -750,7 +750,7 @@
       "en": "Cerberus",
       "ar": "سيربيروس"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Heroes & Creatures",
       "ar": "الأبطال والمخلوقات"

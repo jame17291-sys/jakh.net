@@ -102,12 +102,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country is also its own continent?",
-      "ar": "أي دولة تُشكّل قارةً بمفردها؟"
+      "en": "Which country includes the island state of Tasmania?",
+      "ar": "أي دولة تضم الولاية الجزرية تسمانيا؟"
     },
     "answer": {
-      "en": "Australia",
-      "ar": "أستراليا"
+      "en": "Australia.",
+      "ar": "أستراليا."
     },
     "review": {
       "status": "pending"
@@ -292,12 +292,12 @@
       "ar": "الخرائط والإحداثيات"
     },
     "question": {
-      "en": "Through which London borough does the Prime Meridian pass?",
-      "ar": "عبر أي حي في لندن يمر خط غرينتش الرئيسي؟"
+      "en": "Through which London borough does the historic Prime Meridian at the Royal Observatory pass?",
+      "ar": "عبر أي حي في لندن يمر خط الطول الرئيسي التاريخي عند المرصد الملكي؟"
     },
     "answer": {
-      "en": "Greenwich",
-      "ar": "غرينتش"
+      "en": "Greenwich.",
+      "ar": "غرينتش."
     },
     "review": {
       "status": "pending"
@@ -311,12 +311,12 @@
       "ar": "القارات والجزر والمناطق"
     },
     "question": {
-      "en": "Which country is made up of over 7,000 islands?",
-      "ar": "أي دولة تتكون من أكثر من 7000 جزيرة؟"
+      "en": "Which Southeast Asian archipelagic country has Manila as its capital?",
+      "ar": "ما الدولة الأرخبيلية في جنوب شرق آسيا التي عاصمتها مانيلا؟"
     },
     "answer": {
-      "en": "The Philippines",
-      "ar": "الفلبين"
+      "en": "The Philippines.",
+      "ar": "الفلبين."
     },
     "review": {
       "status": "pending"
@@ -368,12 +368,12 @@
       "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "Why is the Dead Sea famous regarding its elevation?",
-      "ar": "لماذا يشتهر البحر الميت من حيث الارتفاع؟"
+      "en": "Which hypersaline lake between Jordan and the West Bank/Israel has shores among the world's lowest exposed land?",
+      "ar": "ما البحيرة شديدة الملوحة الواقعة بين الأردن والضفة الغربية وإسرائيل، والتي تقع شواطئها ضمن أخفض اليابسة المكشوفة في العالم؟"
     },
     "answer": {
-      "en": "It is the lowest point on Earth's land surface",
-      "ar": "إنه أدنى نقطة على سطح الأرض"
+      "en": "The Dead Sea.",
+      "ar": "البحر الميت."
     },
     "review": {
       "status": "pending"
@@ -381,7 +381,7 @@
   },
   {
     "id": "geography-021",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -400,18 +400,18 @@
   },
   {
     "id": "geography-022",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Maps & Coordinates",
       "ar": "الخرائط والإحداثيات"
     },
     "question": {
-      "en": "How many countries does the Equator pass through?",
-      "ar": "كم دولة يمر من خلالها خط الاستواء؟"
+      "en": "What latitude is the Equator?",
+      "ar": "عند أي خط عرض يقع خط الاستواء؟"
     },
     "answer": {
-      "en": "13",
-      "ar": "13"
+      "en": "0 degrees latitude.",
+      "ar": "خط عرض صفر درجة."
     },
     "review": {
       "status": "pending"
@@ -501,12 +501,12 @@
       "ar": "القارات والجزر والمناطق"
     },
     "question": {
-      "en": "What is the name of the 'eighth continent' that is 94% submerged under the Pacific?",
-      "ar": "ما اسم 'القارة الثامنة' التي يغمر المحيط الهادئ 94% منها؟"
+      "en": "What is the name of the largely submerged geological continent that includes New Zealand?",
+      "ar": "ما اسم القارة الجيولوجية المغمورة في معظمها والتي تضم نيوزيلندا؟"
     },
     "answer": {
-      "en": "Zealandia",
-      "ar": "زيلانديا"
+      "en": "Zealandia.",
+      "ar": "زيلانديا."
     },
     "review": {
       "status": "pending"
@@ -533,7 +533,7 @@
   },
   {
     "id": "geography-029",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -729,12 +729,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country has the largest population in the world?",
-      "ar": "أي دولة لديها أكبر تعداد سكاني في العالم؟"
+      "en": "Which South Asian country has New Delhi as its capital?",
+      "ar": "أي دولة في جنوب آسيا عاصمتها نيودلهي؟"
     },
     "answer": {
-      "en": "India",
-      "ar": "الهند"
+      "en": "India.",
+      "ar": "الهند."
     },
     "review": {
       "status": "pending"
@@ -934,16 +934,16 @@
     "id": "geography-050",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Oceans, Seas & Straits",
-      "ar": "المحيطات والبحار والمضائق"
+      "en": "Rivers, Lakes & Deltas",
+      "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "What is the saltiest body of water in the world?",
-      "ar": "ما أشد مسطح مائي ملوحةً في العالم؟"
+      "en": "Why can people float particularly easily in the Dead Sea?",
+      "ar": "لماذا يسهل الطفو على نحو خاص في البحر الميت؟"
     },
     "answer": {
-      "en": "The Dead Sea",
-      "ar": "البحر الميت"
+      "en": "Its high salt content makes its water dense, increasing buoyancy.",
+      "ar": "ترفع ملوحته العالية كثافة الماء، فتزداد قوة الطفو."
     },
     "review": {
       "status": "pending"
@@ -1071,12 +1071,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country is made up entirely of islands?",
-      "ar": "أي دولة تتكوّن بالكامل من جزر؟"
+      "en": "Which East Asian country includes the islands Honshu, Hokkaido, Kyushu and Shikoku?",
+      "ar": "أي دولة في شرق آسيا تضم جزر هونشو وهوكايدو وكيوشو وشيكوكو؟"
     },
     "answer": {
-      "en": "Japan",
-      "ar": "اليابان"
+      "en": "Japan.",
+      "ar": "اليابان."
     },
     "review": {
       "status": "pending"
@@ -1122,7 +1122,7 @@
   },
   {
     "id": "geography-060",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
@@ -1236,18 +1236,18 @@
   },
   {
     "id": "geography-066",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country has the most time zones?",
-      "ar": "أي دولة تمتلك أكبر عدد من المناطق الزمنية؟"
+      "en": "How many degrees of longitude does Earth rotate through in one hour on average?",
+      "ar": "كم درجة من خطوط الطول تدور الأرض خلال ساعة واحدة في المتوسط؟"
     },
     "answer": {
-      "en": "France",
-      "ar": "فرنسا"
+      "en": "About 15 degrees, which helps explain the basic idea of time zones.",
+      "ar": "نحو 15 درجة، وهو ما يفسّر الفكرة الأساسية للمناطق الزمنية."
     },
     "review": {
       "status": "pending"
@@ -1261,12 +1261,12 @@
       "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "What is the world's longest mountain range?",
-      "ar": "ما أطول سلسلة جبلية في العالم؟"
+      "en": "What is the world's longest continental mountain range on land?",
+      "ar": "ما أطول سلسلة جبلية قارية على اليابسة في العالم؟"
     },
     "answer": {
-      "en": "The Andes",
-      "ar": "جبال الأنديز"
+      "en": "The Andes.",
+      "ar": "جبال الأنديز."
     },
     "review": {
       "status": "pending"
@@ -1318,12 +1318,12 @@
       "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "Which river forms the border between the USA and Mexico?",
-      "ar": "أي نهر يشكّل الحدود بين الولايات المتحدة والمكسيك؟"
+      "en": "Which river forms part of the border between Texas and Mexico?",
+      "ar": "أي نهر يشكّل جزءاً من الحدود بين تكساس والمكسيك؟"
     },
     "answer": {
-      "en": "The Rio Grande",
-      "ar": "نهر ريو غراندي"
+      "en": "The Rio Grande, also called Río Bravo in Mexico.",
+      "ar": "ريو غراندي، ويُسمّى ريو برافو في المكسيك."
     },
     "review": {
       "status": "pending"
@@ -1375,12 +1375,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which is the only country in the world to border both the Atlantic and Indian Oceans?",
-      "ar": "ما الدولة الوحيدة في العالم التي تطلّ على المحيطين الأطلسي والهندي؟"
+      "en": "Which mainland African country has coasts on both the Atlantic and Indian oceans?",
+      "ar": "أي دولة في البر الرئيسي لأفريقيا لها سواحل على المحيطين الأطلسي والهندي؟"
     },
     "answer": {
-      "en": "South Africa",
-      "ar": "جنوب أفريقيا"
+      "en": "South Africa.",
+      "ar": "جنوب أفريقيا."
     },
     "review": {
       "status": "pending"
@@ -1445,18 +1445,18 @@
   },
   {
     "id": "geography-077",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country has coastlines on both the Caspian Sea and the Persian Gulf?",
-      "ar": "أي دولة لها سواحل على كل من بحر قزوين والخليج العربي؟"
+      "en": "Which country has coastlines on both the Caspian Sea and the Gulf of Oman?",
+      "ar": "أي دولة لها سواحل على كل من بحر قزوين وخليج عُمان؟"
     },
     "answer": {
-      "en": "Iran",
-      "ar": "إيران"
+      "en": "Iran.",
+      "ar": "إيران."
     },
     "review": {
       "status": "pending"
@@ -1489,12 +1489,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country is entirely surrounded by Italy?",
-      "ar": "أي دولة تحيط بها إيطاليا من جميع الجهات؟"
+      "en": "Which small republic is surrounded by Italy and is associated with Mount Titano?",
+      "ar": "ما الجمهورية الصغيرة التي تحيط بها إيطاليا وترتبط بجبل تيتانو؟"
     },
     "answer": {
-      "en": "San Marino",
-      "ar": "سان مارينو"
+      "en": "San Marino.",
+      "ar": "سان مارينو."
     },
     "review": {
       "status": "pending"
@@ -1521,18 +1521,18 @@
   },
   {
     "id": "geography-081",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Landforms, Deserts & Climate",
       "ar": "التضاريس والصحاري والمناخ"
     },
     "question": {
-      "en": "What is the geographic term for land surrounded by water on three sides?",
-      "ar": "ما المصطلح الجغرافي للأرض المحاطة بالماء من ثلاثة جهات؟"
+      "en": "What is a landform surrounded by water on most sides but connected to a larger landmass called?",
+      "ar": "ماذا يُسمّى شكل اليابسة الذي تحيط به المياه من معظم الجهات لكنه يتصل بكتلة برية أكبر؟"
     },
     "answer": {
-      "en": "Peninsula",
-      "ar": "شبه جزيرة"
+      "en": "A peninsula.",
+      "ar": "شبه جزيرة."
     },
     "review": {
       "status": "pending"
@@ -1559,7 +1559,7 @@
   },
   {
     "id": "geography-083",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Oceans, Seas & Straits",
       "ar": "المحيطات والبحار والمضائق"
@@ -1578,7 +1578,7 @@
   },
   {
     "id": "geography-084",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Maps & Coordinates",
       "ar": "الخرائط والإحداثيات"
@@ -1641,12 +1641,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which African country was formerly known as Rhodesia?",
-      "ar": "أي دولة أفريقية كانت تُعرف سابقاً بروديسيا؟"
+      "en": "Which country was formerly called Southern Rhodesia and later Rhodesia?",
+      "ar": "أي دولة كانت تُسمّى سابقاً روديسيا الجنوبية ثم روديسيا؟"
     },
     "answer": {
-      "en": "Zimbabwe",
-      "ar": "زيمبابوي"
+      "en": "Zimbabwe.",
+      "ar": "زيمبابوي."
     },
     "review": {
       "status": "pending"
@@ -1654,18 +1654,18 @@
   },
   {
     "id": "geography-088",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Rivers, Lakes & Deltas",
       "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "What is the world's largest river delta?",
-      "ar": "ما أكبر دلتا نهرية في العالم؟"
+      "en": "Which two countries share the main area of the Bengal delta?",
+      "ar": "أي دولتين تتقاسمان الجزء الرئيسي من دلتا البنغال؟"
     },
     "answer": {
-      "en": "The Ganges–Brahmaputra Delta (Sundarbans)",
-      "ar": "دلتا الغانج-براهمابوترا (سوندربانز)"
+      "en": "Bangladesh and India.",
+      "ar": "بنغلاديش والهند."
     },
     "review": {
       "status": "pending"
@@ -1673,18 +1673,18 @@
   },
   {
     "id": "geography-089",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Mountains & Elevation",
+      "ar": "الجبال والارتفاعات"
     },
     "question": {
-      "en": "Which country has the highest average elevation above sea level?",
-      "ar": "أي دولة تمتلك أعلى ارتفاع متوسط فوق مستوى البحر؟"
+      "en": "What is a pass in a mountain range?",
+      "ar": "ما الممر الجبلي؟"
     },
     "answer": {
-      "en": "Bhutan",
-      "ar": "بوتان"
+      "en": "A relatively low route through or across a mountain range.",
+      "ar": "طريق منخفض نسبياً يعبر سلسلة جبلية أو يمر بينها."
     },
     "review": {
       "status": "pending"
@@ -1698,12 +1698,12 @@
       "ar": "المحيطات والبحار والمضائق"
     },
     "question": {
-      "en": "What is the name of the sea between mainland Australia and the Great Barrier Reef?",
-      "ar": "ما اسم البحر الواقع بين البر الرئيسي لأستراليا والحاجز المرجاني العظيم؟"
+      "en": "In which sea off northeastern Australia is the Great Barrier Reef located?",
+      "ar": "في أي بحر قبالة شمال شرقي أستراليا يقع الحاجز المرجاني العظيم؟"
     },
     "answer": {
-      "en": "The Coral Sea",
-      "ar": "بحر الكورال"
+      "en": "The Coral Sea.",
+      "ar": "بحر الكورال."
     },
     "review": {
       "status": "pending"
@@ -1711,18 +1711,18 @@
   },
   {
     "id": "geography-091",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Countries, Capitals & Borders",
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "Which country has the most UNESCO World Heritage Sites?",
-      "ar": "أي دولة تمتلك أكبر عدد من مواقع التراث العالمي لليونسكو؟"
+      "en": "Which UN organization maintains the World Heritage List?",
+      "ar": "ما منظمة الأمم المتحدة المسؤولة عن قائمة التراث العالمي؟"
     },
     "answer": {
-      "en": "Italy",
-      "ar": "إيطاليا"
+      "en": "UNESCO.",
+      "ar": "اليونسكو."
     },
     "review": {
       "status": "pending"
@@ -1749,7 +1749,7 @@
   },
   {
     "id": "geography-093",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Mountains & Elevation",
       "ar": "الجبال والارتفاعات"
@@ -1812,12 +1812,12 @@
       "ar": "الدول والعواصم والحدود"
     },
     "question": {
-      "en": "What is the official name of the country commonly called Cape Verde?",
-      "ar": "ما الاسم الرسمي للدولة المعروفة بالرأس الأخضر؟"
+      "en": "What Portuguese short name does the country commonly called Cape Verde use internationally?",
+      "ar": "ما الاسم المختصر بالبرتغالية الذي تستخدمه دولياً الدولة المعروفة بالرأس الأخضر؟"
     },
     "answer": {
-      "en": "Cabo Verde",
-      "ar": "كابو فيردي"
+      "en": "Cabo Verde.",
+      "ar": "كابو فيردي."
     },
     "review": {
       "status": "pending"
@@ -1831,12 +1831,12 @@
       "ar": "الأنهار والبحيرات والدلتا"
     },
     "question": {
-      "en": "Which river flows through the most countries?",
-      "ar": "أي نهر يجري عبر أكبر عدد من الدول؟"
+      "en": "Which European river flows through or along the borders of ten countries before reaching the Black Sea?",
+      "ar": "أي نهر أوروبي يجري داخل عشر دول أو بمحاذاة حدودها قبل أن يصب في البحر الأسود؟"
     },
     "answer": {
-      "en": "The Danube (10 countries)",
-      "ar": "نهر الدانوب (10 دول)"
+      "en": "The Danube.",
+      "ar": "الدانوب."
     },
     "review": {
       "status": "pending"
@@ -1844,18 +1844,18 @@
   },
   {
     "id": "geography-098",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Maps & Coordinates",
       "ar": "الخرائط والإحداثيات"
     },
     "question": {
-      "en": "Which line of latitude marks the boundary of the Arctic Circle?",
-      "ar": "أي خط عرض يحدّد حدود الدائرة القطبية الشمالية؟"
+      "en": "Approximately what latitude marks the Arctic Circle?",
+      "ar": "عند أي خط عرض تقريباً تقع الدائرة القطبية الشمالية؟"
     },
     "answer": {
-      "en": "66.5° North",
-      "ar": "66.5 درجة شمالاً"
+      "en": "About 66.5° north; the precise latitude slowly changes with Earth's axial tilt.",
+      "ar": "نحو 66.5 درجة شمالاً؛ ويتغير خط العرض الدقيق ببطء مع تغيّر ميل محور الأرض."
     },
     "review": {
       "status": "pending"
@@ -1863,18 +1863,18 @@
   },
   {
     "id": "geography-099",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Countries, Capitals & Borders",
-      "ar": "الدول والعواصم والحدود"
+      "en": "Landforms, Deserts & Climate",
+      "ar": "التضاريس والصحاري والمناخ"
     },
     "question": {
-      "en": "Which country has no rivers?",
-      "ar": "أي دولة لا تمر بها أنهار؟"
+      "en": "What is a wadi in the geography of arid regions?",
+      "ar": "ما الوادي في جغرافية المناطق الجافة؟"
     },
     "answer": {
-      "en": "Saudi Arabia",
-      "ar": "المملكة العربية السعودية"
+      "en": "A valley or channel that may be dry for long periods and carry water after rainfall.",
+      "ar": "منخفض أو مجرى قد يبقى جافاً فترات طويلة وتسري فيه المياه بعد هطول الأمطار."
     },
     "review": {
       "status": "pending"

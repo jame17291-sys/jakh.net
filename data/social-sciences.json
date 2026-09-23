@@ -7,12 +7,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "Who is considered the founder of sociology?",
-      "ar": "من يُعدّ مؤسس علم الاجتماع؟"
+      "en": "Which French thinker coined the term sociology in the nineteenth century?",
+      "ar": "أي مفكر فرنسي صاغ مصطلح علم الاجتماع في القرن التاسع عشر؟"
     },
     "answer": {
-      "en": "Auguste Comte, who coined the term 'sociology' in the 19th century.",
-      "ar": "أوغست كونت، الذي صاغ مصطلح 'علم الاجتماع' في القرن التاسع عشر."
+      "en": "Auguste Comte.",
+      "ar": "أوغست كونت."
     },
     "review": {
       "status": "pending"
@@ -26,12 +26,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is GDP (Gross Domestic Product)?",
-      "ar": "ما الناتج المحلي الإجمالي (GDP)؟"
+      "en": "What does gross domestic product (GDP) measure?",
+      "ar": "ماذا يقيس الناتج المحلي الإجمالي؟"
     },
     "answer": {
-      "en": "The total monetary value of all goods and services produced within a country's borders in a specific time period.",
-      "ar": "القيمة النقدية الإجمالية لجميع السلع والخدمات المنتجة داخل حدود دولة ما خلال فترة زمنية محددة."
+      "en": "The monetary value of final goods and services produced within an economy during a specified period, avoiding double-counting intermediate production.",
+      "ar": "القيمة النقدية للسلع والخدمات النهائية المنتجة داخل اقتصاد خلال فترة محددة، مع تجنّب احتساب الإنتاج الوسيط مرتين."
     },
     "review": {
       "status": "pending"
@@ -45,22 +45,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the difference between a democracy and an autocracy?",
-      "ar": "ما الفرق بين الديمقراطية والأوتوقراطية؟"
+      "en": "What is the basic distinction between democracy and autocracy?",
+      "ar": "ما الفرق الأساسي بين الديمقراطية والأوتوقراطية؟"
     },
     "answer": {
-      "en": "In a democracy, power is held by the people (directly or through elected representatives). In an autocracy, power is concentrated in a single ruler with little or no accountability.",
-      "ar": "في الديمقراطية، تمتلك السلطة الشعب (مباشرة أو عبر ممثلين منتخبين). في الأوتوقراطية، تتمركز السلطة في يد حاكم واحد دون مساءلة تذكر."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Democracy vests power in people; autocracy concentrates it in one unaccountable ruler.",
-        "People govern directly or electorally in democracy; one unaccountable ruler governs autocracy."
-      ],
-      "ar": [
-        "الديمقراطية تمنح السلطة للشعب؛ الأوتوقراطية تركزها في حاكم واحد بلا مساءلة.",
-        "في الديمقراطية يحكم الشعب مباشرة أو بالانتخاب؛ وفي الأوتوقراطية يحكم فرد بلا مساءلة."
-      ]
+      "en": "Democracy places authority with the people, directly or through representatives; autocracy concentrates power in a single ruler with limited accountability.",
+      "ar": "تجعل الديمقراطية السلطة بيد الشعب مباشرةً أو عبر ممثلين؛ وتركّز الأوتوقراطية السلطة في حاكم واحد ذي مساءلة محدودة."
     },
     "review": {
       "status": "pending"
@@ -218,12 +208,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is supply and demand?",
-      "ar": "ما العرض والطلب؟"
+      "en": "In a standard competitive-market model, what is the equilibrium price?",
+      "ar": "ما سعر التوازن في نموذج السوق التنافسية المعتاد؟"
     },
     "answer": {
-      "en": "Supply is the amount of a product producers are willing to sell at a given price; demand is the amount consumers want to buy. Where they meet determines the market price.",
-      "ar": "العرض هو الكمية التي ينتجها المنتجون ويرغبون في بيعها بسعر معين؛ والطلب هو الكمية التي يرغب المستهلكون في شرائها. حيث يتقاطعان يتحدد سعر السوق."
+      "en": "The price at which the quantity buyers are willing and able to purchase equals the quantity sellers are willing to supply.",
+      "ar": "السعر الذي تتساوى عنده الكمية التي يرغب المشترون ويستطيعون شراءها مع الكمية التي يرغب البائعون في عرضها."
     },
     "review": {
       "status": "pending"
@@ -304,22 +294,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is Max Weber's concept of 'ideal types' and how is it used in sociological analysis?",
-      "ar": "ما مفهوم 'الأنماط المثالية' عند ماكس فيبر وكيف يُستخدم في التحليل الاجتماعي؟"
+      "en": "In Max Weber's sociology, is an ideal type a model of moral perfection or an analytical comparison tool?",
+      "ar": "هل النمط المثالي في علم اجتماع ماكس فيبر نموذج للكمال الأخلاقي أم أداة للمقارنة التحليلية؟"
     },
     "answer": {
-      "en": "An ideal type is an analytical construct that exaggerates or emphasises certain characteristics of a social phenomenon to create a benchmark for comparison — e.g., 'bureaucracy' as a pure rational-legal form. It doesn't describe reality but helps identify deviations from it.",
-      "ar": "النمط المثالي هو بناء تحليلي يُبالغ في أو يُبرز خصائص معينة لظاهرة اجتماعية لإنشاء معيار مرجعي للمقارنة — مثلاً 'البيروقراطية' كشكل قانوني-عقلاني نقي. لا يصف الواقع لكنه يُساعد في تحديد الانحرافات عنه."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Analytical constructs emphasising traits as benchmarks for comparing reality's deviations.",
-        "Conceptual benchmarks highlighting selected traits to reveal how reality differs."
-      ],
-      "ar": [
-        "بنى تحليلية تُبرز الخصائص لتكون معايير مقارنة تكشف انحرافات الواقع.",
-        "معايير مفاهيمية تبرز سمات مختارة لكشف اختلاف الواقع عنها."
-      ]
+      "en": "An analytical tool that emphasizes selected features to compare with real cases; it is not a moral ideal.",
+      "ar": "أداة تحليلية تُبرز سمات مختارة لمقارنتها بالحالات الواقعية؛ وليست مثالاً للكمال الأخلاقي."
     },
     "review": {
       "status": "pending"
@@ -362,22 +342,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the social contract theory, and how do Hobbes, Locke, and Rousseau differ on it?",
-      "ar": "ما نظرية العقد الاجتماعي، وكيف يختلف هوبز ولوك وروسو في شأنها؟"
+      "en": "In Locke's social-contract theory, what central duty gives government its legitimacy?",
+      "ar": "ما الواجب المركزي الذي يمنح الحكومة شرعيتها في نظرية العقد الاجتماعي لدى لوك؟"
     },
     "answer": {
-      "en": "Social contract theory holds that political authority derives from agreement among people. Hobbes: without authority, life is 'nasty, brutish, short' — people surrender rights to a sovereign. Locke: government's legitimacy requires protecting natural rights (life, liberty, property); people can revolt if it fails. Rousseau: the general will of the community is the true sovereign.",
-      "ar": "تقول نظرية العقد الاجتماعي إن السلطة السياسية تنبع من اتفاق بين الناس. هوبز: بدون سلطة، الحياة 'قذرة وقاسية وقصيرة' — يتخلى الناس عن حقوقهم لسيادة. لوك: تتطلب شرعية الحكومة حماية الحقوق الطبيعية (الحياة، والحرية، والملكية)؛ ويحق للناس الثورة عند الفشل. روسو: الإرادة العامة للمجتمع هي السيادة الحقيقية."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Hobbes: surrender rights; Locke: protect rights/revolt; Rousseau: general will; authority by consent.",
-        "Agreement grounds rule: Hobbes yields rights; Locke guards rights/revolt; Rousseau general will."
-      ],
-      "ar": [
-        "هوبز: تنازل الحقوق؛ لوك: حمايتها والثورة؛ روسو: سيادة الإرادة العامة؛ والمصدر اتفاق الناس.",
-        "السلطة من الاتفاق: هوبز يتنازل؛ لوك يحمي الحقوق والثورة؛ روسو يحكم بالإرادة العامة."
-      ]
+      "en": "Protecting people's natural rights, including life, liberty and property.",
+      "ar": "حماية حقوق الناس الطبيعية، ومنها الحياة والحرية والملكية."
     },
     "review": {
       "status": "pending"
@@ -391,12 +361,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is Émile Durkheim's concept of 'anomie'?",
-      "ar": "ما مفهوم إميل دوركهايم عن 'الشذوذ الاجتماعي' (anomie)؟"
+      "en": "What does Durkheim's concept of anomie describe?",
+      "ar": "ماذا يصف مفهوم اللامعيارية عند دوركهايم؟"
     },
     "answer": {
-      "en": "A state of normlessness or breakdown in social norms, caused by rapid social change, where individuals feel disconnected from their society's values. Durkheim linked anomie to higher suicide rates in his 1897 study.",
-      "ar": "حالة من انعدام المعايير أو انهيار الأعراف الاجتماعية تسببها التغيرات الاجتماعية السريعة، حيث يشعر الأفراد بانفصال عن قيم مجتمعهم. ربط دوركهايم الشذوذ الاجتماعي بارتفاع معدلات الانتحار في دراسته عام 1897."
+      "en": "A weakening or breakdown of social norms and regulation, especially during rapid change.",
+      "ar": "ضعف المعايير والضوابط الاجتماعية أو انهيارها، خصوصاً خلال التغير السريع."
     },
     "review": {
       "status": "pending"
@@ -410,22 +380,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is the 'Sapir-Whorf hypothesis' (linguistic relativity)?",
-      "ar": "ما 'فرضية سابير-وورف' (النسبية اللغوية)؟"
+      "en": "How does the weak version of linguistic relativity differ from linguistic determinism?",
+      "ar": "كيف تختلف الصيغة الضعيفة للنسبية اللغوية عن الحتمية اللغوية؟"
     },
     "answer": {
-      "en": "The idea that the language one speaks influences or determines how they perceive and think about the world. The strong version claims language determines thought; the weak version claims language influences thought. Experimental evidence supports the weak version.",
-      "ar": "فكرة أن اللغة التي يتحدثها المرء تؤثر في أو تُحدد كيفية إدراكه وتفكيره في العالم. النسخة القوية تدّعي أن اللغة تُحدد الفكر؛ النسخة الضعيفة تدّعي أن اللغة تؤثر في الفكر. الأدلة التجريبية تدعم النسخة الضعيفة."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Language determines thought strongly or influences it weakly; evidence supports the weak version.",
-        "Strong relativity says language fixes thought; weak says it shapes thought and has support."
-      ],
-      "ar": [
-        "اللغة تحدد الفكر في القوية وتؤثر فيه في الضعيفة؛ والأدلة تؤيد الضعيفة.",
-        "القوية تقول إن اللغة تحدد الفكر؛ الضعيفة تقول إنها تشكله وتؤيدها الأدلة."
-      ]
+      "en": "Linguistic relativity proposes that language can influence thought; determinism claims it determines or limits thought. Evidence for particular influences does not establish total determination.",
+      "ar": "تقترح النسبية أن اللغة قد تؤثر في التفكير؛ وتزعم الحتمية أنها تحدّده أو تقيّده. ولا تثبت الأدلة على تأثيرات معينة تحكماً كاملاً بالفكر."
     },
     "review": {
       "status": "pending"
@@ -439,12 +399,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is the 'invisible hand' concept in Adam Smith's economics?",
-      "ar": "ما مفهوم 'اليد الخفية' في اقتصاديات آدم سميث؟"
+      "en": "What idea is commonly associated with Adam Smith's metaphor of an invisible hand?",
+      "ar": "ما الفكرة المرتبطة عادةً باستعارة اليد الخفية لدى آدم سميث؟"
     },
     "answer": {
-      "en": "The idea that individuals pursuing their own self-interest in a free market unintentionally promote the overall economic welfare of society — as if guided by an invisible hand. It is a key argument for market economies over central planning.",
-      "ar": "فكرة أن الأفراد الذين يسعون لمصالحهم الذاتية في سوق حرة يُعززون رفاهية المجتمع الاقتصادية الإجمالية دون قصد — كأنهم يُوجَّهون بيد خفية. وهو حجة رئيسية للاقتصادات السوقية في مقابل التخطيط المركزي."
+      "en": "Individuals pursuing their own interests can unintentionally benefit society under suitable conditions; this is not a guarantee that every market outcome benefits everyone.",
+      "ar": "قد ينفع سعي الأفراد لمصالحهم المجتمع دون قصد في ظروف مناسبة؛ وليس ذلك ضماناً بأن كل نتيجة سوقية تفيد الجميع."
     },
     "review": {
       "status": "pending"
@@ -487,12 +447,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is Pierre Bourdieu's concept of 'cultural capital'?",
-      "ar": "ما مفهوم 'رأس المال الثقافي' عند بيير بورديو؟"
+      "en": "In Bourdieu's framework, which form of cultural capital includes books, artworks and other cultural objects?",
+      "ar": "في إطار بورديو، أي شكل من رأس المال الثقافي يشمل الكتب والأعمال الفنية والأشياء الثقافية الأخرى؟"
     },
     "answer": {
-      "en": "Non-financial social assets — knowledge, skills, education, and cultural tastes — that confer social advantage. It exists in three forms: embodied (dispositions), objectified (cultural goods), and institutionalised (educational credentials).",
-      "ar": "الأصول الاجتماعية غير المالية — المعرفة والمهارات والتعليم والأذواق الثقافية — التي تمنح مزايا اجتماعية. يوجد في ثلاثة أشكال: متجسّد (الاستعدادات)، وموضّعي (السلع الثقافية)، ومؤسسي (المؤهلات التعليمية)."
+      "en": "Objectified cultural capital.",
+      "ar": "رأس المال الثقافي المتجسّد في الأشياء."
     },
     "review": {
       "status": "pending"
@@ -582,12 +542,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is the concept of 'rites of passage' and give two examples from different cultures?",
-      "ar": "ما مفهوم 'طقوس العبور' وأعطِ مثالين من ثقافات مختلفة؟"
+      "en": "What is a rite of passage in anthropology?",
+      "ar": "ما طقس العبور في الأنثروبولوجيا؟"
     },
     "answer": {
-      "en": "Rituals marking a transition from one social status to another (Arnold van Gennep). Three stages: separation, liminality (transition), and incorporation. Examples: bar mitzvah in Judaism (adulthood), Satere-Mawe bullet ant glove ritual in Brazil (warriorhood), marriage ceremonies, funerals.",
-      "ar": "طقوس تُعلم الانتقال من وضع اجتماعي إلى آخر (أرنولد فان جينيب). ثلاث مراحل: الفصل، والعتبة (الانتقال)، والاندماج. أمثلة: البار ميتزفة في اليهودية (البلوغ)، وطقوس قفاز النمل الرصاصة لدى قبيلة ساتيريه-ماوي في البرازيل (الفروسية)، وحفلات الزواج والجنازات."
+      "en": "A ritual marking a transition between social statuses, such as a coming-of-age or marriage ceremony.",
+      "ar": "طقس يُعلن الانتقال بين مكانتين اجتماعيتين، مثل الاحتفال بالبلوغ أو الزواج."
     },
     "review": {
       "status": "pending"
@@ -630,12 +590,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is the 'tragedy of the commons' and what solutions have been proposed?",
-      "ar": "ما 'مأساة المشاع' وما الحلول المقترحة؟"
+      "en": "What distinction separates an open-access resource from a community-governed commons?",
+      "ar": "ما الفرق بين مورد مفتوح الوصول ومورد مشترك تديره جماعة؟"
     },
     "answer": {
-      "en": "Garrett Hardin's (1968) concept: when a shared resource (commons) is freely available to all, individual self-interest leads to overuse and depletion. Solutions: privatisation, government regulation, or Elinor Ostrom's third way — communities self-govern commons through negotiated rules (her 2009 Nobel Prize work).",
-      "ar": "مفهوم غاريت هاردن (1968): عندما يكون مورد مشترك متاحاً للجميع مجاناً، تؤدي المصلحة الذاتية الفردية إلى الاستنزاف. الحلول: الخصخصة، أو التنظيم الحكومي، أو الطريق الثالث لإيلينور أوستروم — المجتمعات تُدير المشاعات ذاتياً عبر قواعد تفاوضية (عمل جائزة نوبل 2009)."
+      "en": "Open access lacks effective exclusion or management; a governed commons has rules about access and use. Shared ownership does not necessarily mean unmanaged use.",
+      "ar": "يفتقر الوصول المفتوح إلى قيود أو إدارة فعّالة؛ أما المورد المشترك المُدار فله قواعد للدخول والاستخدام. ولا تعني الملكية المشتركة غياب الإدارة."
     },
     "review": {
       "status": "pending"
@@ -668,22 +628,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is Erving Goffman's 'dramaturgical model' of social interaction?",
-      "ar": "ما 'النموذج الدرامي' لإيرفينغ غوفمان في التفاعل الاجتماعي؟"
+      "en": "In Goffman's dramaturgical model, how do frontstage and backstage behaviour differ?",
+      "ar": "كيف يختلف السلوك أمام الجمهور وخلف الكواليس في نموذج غوفمان المسرحي؟"
     },
     "answer": {
-      "en": "Goffman argued life is like a theatrical performance: in front-stage behaviour we manage impressions for audiences; in backstage behaviour we relax our performance. Key concepts: impression management, face-saving, stigma, and the presentation of self as a performed identity.",
-      "ar": "جادل غوفمان بأن الحياة تشبه عرضاً مسرحياً: في السلوك أمام الكواليس ندير الانطباعات للجمهور؛ وخلف الكواليس نرتاح من أدواتنا. المفاهيم الرئيسية: إدارة الانطباع، والحفاظ على ماء الوجه، والوصمة، وتقديم الذات كهوية مؤدَّاة."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Social life as performance: frontstage impression management and relaxed backstage behaviour.",
-        "Goffman: interaction is theatre—manage impressions frontstage, relax backstage."
-      ],
-      "ar": [
-        "التفاعل الاجتماعي كعرض: إدارة الانطباع أمام الجمهور والاسترخاء خلف الكواليس.",
-        "يصوّر غوفمان التفاعل مسرحياً: إدارة الانطباع في الواجهة والاسترخاء خلف الكواليس."
-      ]
+      "en": "Frontstage behaviour manages impressions for an audience; backstage settings allow people to relax or prepare that performance.",
+      "ar": "يدير السلوك أمام الجمهور الانطباعات؛ وتتيح البيئات خلف الكواليس تخفيف الأداء الاجتماعي أو الاستعداد له."
     },
     "review": {
       "status": "pending"
@@ -745,22 +695,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is the 'democratic peace theory' and what is its main empirical finding?",
-      "ar": "ما 'نظرية السلام الديمقراطي' وما الاستنتاج التجريبي الرئيسي لها؟"
+      "en": "What relationship does democratic peace theory propose between established liberal democracies?",
+      "ar": "ما العلاقة التي تقترحها نظرية السلام الديمقراطي بين الديمقراطيات الليبرالية الراسخة؟"
     },
     "answer": {
-      "en": "The democratic peace theory holds that liberal democracies rarely (if ever) go to war with each other. The empirical finding is one of the most robust in international relations: dyads of mature democracies have an exceptionally low probability of militarised conflict.",
-      "ar": "تقول نظرية السلام الديمقراطي إن الديمقراطيات الليبرالية نادراً ما تشن حروباً ضد بعضها (إن وقع ذلك أصلاً). الاستنتاج التجريبي أحد أكثر نتائج العلاقات الدولية ثباتاً: للديمقراطيات الناضجة معاً احتمالية منخفضة للغاية للصراع المسلح."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Liberal democracies rarely wage war against each other.",
-        "Mature liberal democracies have exceptionally low odds of armed conflict with one another."
-      ],
-      "ar": [
-        "نادراً ما تخوض الديمقراطيات الليبرالية حرباً ضد بعضها.",
-        "احتمال النزاع المسلح بين الديمقراطيات الليبرالية الناضجة منخفض للغاية."
-      ]
+      "en": "That they rarely fight wars against one another. Definitions of democracy and war, and explanations for the pattern, remain debated.",
+      "ar": "أنها نادراً ما تخوض حروباً ضد بعضها. وتظل تعريفات الديمقراطية والحرب وتفسيرات هذا النمط محل نقاش."
     },
     "review": {
       "status": "pending"
@@ -774,12 +714,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'moral panic' (Stanley Cohen) and give a historical example?",
-      "ar": "ما 'الذعر الأخلاقي' (ستانلي كوهين) وأعطِ مثالاً تاريخياً؟"
+      "en": "Which term did Stanley Cohen use for a disproportionate public reaction to a perceived threat to social values?",
+      "ar": "ما المصطلح الذي استخدمه ستانلي كوهين لوصف رد فعل عام مبالغ فيه تجاه تهديد متصوَّر للقيم الاجتماعية؟"
     },
     "answer": {
-      "en": "A disproportionate, media-amplified social reaction to a group or behaviour deemed a threat to societal values. Cohen identified folk devils (the perceived threat), moral entrepreneurs (those stoking fear), and disproportionate response. Example: 1960s British media reaction to Mods and Rockers; or 1980s–90s 'Satanic panic' over heavy metal music.",
-      "ar": "رد فعل اجتماعي مبالغ فيه تُضخّمه وسائل الإعلام تجاه مجموعة أو سلوك يُعدّ تهديداً للقيم المجتمعية. حدّد كوهين 'شياطين الشعب' (التهديد المتصوَّر) و'رواد الأخلاق' (المحرّضون على الخوف) والاستجابة المبالغ فيها. مثال: رد فعل وسائل الإعلام البريطانية في الستينيات على 'الموكرز' و'الروكرز'؛ أو 'ذعر الشيطان' في الثمانينيات والتسعينيات من موسيقى الهيفي ميتال."
+      "en": "Moral panic; his classic study examined reactions to the Mods and Rockers in Britain.",
+      "ar": "الذعر الأخلاقي؛ وقد تناولت دراسته الشهيرة ردود الفعل تجاه المودز والروكرز في بريطانيا."
     },
     "review": {
       "status": "pending"
@@ -812,12 +752,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is the 'out-of-Africa' theory of human origins and what is the main competing hypothesis?",
-      "ar": "ما نظرية 'خروج من أفريقيا' في أصول الإنسان وما الفرضية المنافسة الرئيسية؟"
+      "en": "What is the central claim of the recent African origin model of modern humans?",
+      "ar": "ما الفكرة الأساسية لنموذج الأصل الأفريقي الحديث للإنسان المعاصر؟"
     },
     "answer": {
-      "en": "Out-of-Africa (Recent African Origin) holds that all modern humans descend from a population that migrated from Africa roughly 60,000–70,000 years ago, replacing earlier archaic populations. The competing multi-regional hypothesis proposed parallel evolution in different regions. Genetic evidence overwhelmingly supports Out-of-Africa, though interbreeding with Neanderthals and Denisovans shows some regional gene flow.",
-      "ar": "نظرية 'خروج من أفريقيا' (الأصل الأفريقي الحديث) تقول إن جميع البشر المعاصرين ينحدرون من مجموعة هاجرت من أفريقيا قبل نحو 60,000-70,000 عام، واستبدلت السكان القدماء السابقين. الفرضية متعددة الأقاليم المنافسة اقترحت تطوراً متوازياً في مناطق مختلفة. الأدلة الجينية تدعم نظرية الخروج من أفريقيا بشكل ساحق، وإن كان التزاوج مع إنسان نياندرتال والدينيسوفا يُظهر بعض تدفق الجينات الإقليمي."
+      "en": "Homo sapiens originated in Africa, and later migrations contributed much of the ancestry of populations outside Africa, with some interbreeding with archaic humans.",
+      "ar": "نشأ الإنسان العاقل في أفريقيا، وأسهمت هجرات لاحقة في جانب كبير من أصول السكان خارجها، مع تزاوج محدود مع جماعات بشرية قديمة."
     },
     "review": {
       "status": "pending"
@@ -831,22 +771,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is Antonio Gramsci's concept of 'hegemony'?",
-      "ar": "ما مفهوم 'الهيمنة' عند أنطونيو غرامشي؟"
+      "en": "In Gramsci's theory, how does hegemony help dominant groups maintain power?",
+      "ar": "كيف تساعد الهيمنة الفئات المسيطرة على الاحتفاظ بالسلطة في نظرية غرامشي؟"
     },
     "answer": {
-      "en": "Gramsci used hegemony to describe how dominant classes maintain power not just through coercion but through ideological consent — shaping culture, education, and media so that subordinate groups accept the dominant worldview as 'common sense', making overt force unnecessary.",
-      "ar": "استخدم غرامشي الهيمنة لوصف كيف تحافظ الطبقات المهيمنة على السلطة ليس عبر الإكراه فحسب بل عبر الموافقة الأيديولوجية — تشكيل الثقافة والتعليم والإعلام كي تقبل المجموعات الخاضعة الرؤية العالمية المهيمنة بوصفها 'المنطق السليم'، مما يجعل القوة الصريحة غير ضرورية."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Dominant classes maintain power through ideological consent, making their worldview common sense.",
-        "Rule sustained by cultural and ideological agreement, not merely force."
-      ],
-      "ar": [
-        "تحافظ الطبقات المهيمنة على السلطة بالقبول الأيديولوجي وجعل رؤيتها بديهية.",
-        "سلطة تستمر بالموافقة الثقافية والأيديولوجية لا بالقوة وحدها."
-      ]
+      "en": "By securing consent through culture and ideas as well as using coercion; a dominant worldview can come to seem like common sense.",
+      "ar": "بكسب القبول عبر الثقافة والأفكار إلى جانب الإكراه؛ فقد تبدو الرؤية المهيمنة كأنها من المسلّمات."
     },
     "review": {
       "status": "pending"
@@ -879,12 +809,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is the 'Lucas critique' in macroeconomics and why did it revolutionise economic modelling?",
-      "ar": "ما 'انتقاد لوكاس' في الاقتصاد الكلي ولماذا أحدث ثورة في النمذجة الاقتصادية؟"
+      "en": "What is the main warning of the Lucas critique for evaluating economic policy?",
+      "ar": "ما التحذير الأساسي الذي يقدّمه نقد لوكاس عند تقييم السياسة الاقتصادية؟"
     },
     "answer": {
-      "en": "Robert Lucas (1976) argued that traditional macroeconomic models were invalid for policy evaluation because they assumed people's expectations remained fixed. When policy changes, rational agents update their behaviour, rendering historical statistical relationships unreliable. This forced economists to build 'microfounded' models with explicit optimising agents (DSGE models).",
-      "ar": "جادل روبرت لوكاس (1976) بأن النماذج الاقتصادية الكلية التقليدية غير صالحة لتقييم السياسات لأنها افترضت توقعات الناس ثابتة. عند تغيير السياسة، يُحدّث العقلاء سلوكهم، مما يجعل العلاقات الإحصائية التاريخية غير موثوقة. أجبر هذا الاقتصاديين على بناء نماذج مؤسسة ميكروياً بعوامل تُحسَّن صراحةً (نماذج DSGE)."
+      "en": "Historical statistical relationships may change when a new policy changes people's expectations and behaviour.",
+      "ar": "قد تتغير العلاقات الإحصائية التاريخية عندما تغيّر سياسة جديدة توقعات الناس وسلوكهم."
     },
     "review": {
       "status": "pending"
@@ -946,22 +876,12 @@
       "ar": "الأنثروبولوجيا"
     },
     "question": {
-      "en": "What is 'thick description' (Clifford Geertz) and why is it important in interpretive anthropology?",
-      "ar": "ما 'الوصف الكثيف' (كليفورد غيرتز) ولماذا يهم في الأنثروبولوجيا التفسيرية؟"
+      "en": "What distinguishes thick description from a brief record of an observed action?",
+      "ar": "ما الذي يميّز الوصف الكثيف عن تسجيل سطحي لفعل ملاحظ؟"
     },
     "answer": {
-      "en": "Geertz (1973) contrasted thin description (merely stating an observable fact — 'he winked') with thick description (explaining the cultural context that gives the act meaning — a conspiracy? a parody? a tic?). Interpretive anthropology treats culture as a text to be 'read' for layers of meaning, not just catalogued.",
-      "ar": "ميّز غيرتز (1973) بين الوصف الرفيع (مجرد إثبات حقيقة قابلة للرصد — 'غمز') والوصف الكثيف (شرح السياق الثقافي الذي يمنح الفعل معنى — مؤامرة؟ محاكاة ساخرة؟ تشنج؟). تتعامل الأنثروبولوجيا التفسيرية مع الثقافة كنص يجب 'قراءته' بطبقاته المعنوية لا مجرد فهرسته."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Context-rich description revealing cultural meaning, treating culture as an interpretable text.",
-        "Interpreting observable acts through the layered cultural context that gives them meaning."
-      ],
-      "ar": [
-        "وصف غني بالسياق يكشف المعنى الثقافي ويتيح قراءة الثقافة كنص.",
-        "تفسير الأفعال المرصودة عبر طبقات السياق الثقافي التي تمنحها معناها."
-      ]
+      "en": "Thick description explains the cultural context and meanings of the action, not merely what happened.",
+      "ar": "يشرح الوصف الكثيف السياق الثقافي ومعاني الفعل، ولا يكتفي بذكر ما حدث."
     },
     "review": {
       "status": "pending"
@@ -988,7 +908,7 @@
   },
   {
     "id": "social-sciences-044",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Economics",
       "ar": "الاقتصاد"
@@ -1023,22 +943,12 @@
       "ar": "العلوم السياسية"
     },
     "question": {
-      "en": "What is 'path dependence' in political science and give a well-known example?",
-      "ar": "ما 'الاعتماد على المسار' في العلوم السياسية وأعطِ مثالاً معروفاً؟"
+      "en": "What is path dependence in political science?",
+      "ar": "ما الاعتماد على المسار في العلوم السياسية؟"
     },
     "answer": {
-      "en": "Path dependence means that early choices or contingent historical events constrain future options, making certain outcomes 'sticky' even when alternatives would be more efficient. Classic example: QWERTY keyboard layout persists despite potentially superior alternatives because switching costs are too high once a standard is locked in.",
-      "ar": "الاعتماد على المسار يعني أن الاختيارات المبكرة أو الأحداث التاريخية العارضة تُقيّد الخيارات المستقبلية، مما يجعل نتائج معينة 'لزجة' حتى لو كانت البدائل أكثر كفاءة. المثال الكلاسيكي: تخطيط لوحة مفاتيح QWERTY يستمر رغم البدائل الأفضل المحتملة لأن تكاليف التحويل عالية جداً بعد ترسّخ المعيار."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Early choices constrain future options; QWERTY persists through lock-in and switching costs.",
-        "Historical choices lock in later outcomes; QWERTY persists because switching is costly."
-      ],
-      "ar": [
-        "الخيارات المبكرة تقيد المستقبل؛ تستمر QWERTY بفعل الانغلاق وتكاليف التحول.",
-        "الاختيارات التاريخية تقفل نتائج لاحقة؛ استمر QWERTY لأن التحول مكلف."
-      ]
+      "en": "Earlier decisions shape later options, for example when established institutions persist because rules, expectations and switching costs make alternatives difficult.",
+      "ar": "تؤثر القرارات السابقة في الخيارات اللاحقة؛ فقد تستمر مؤسسات قائمة لأن قواعدها والتوقعات المحيطة بها وتكاليف تغييرها تجعل البدائل صعبة."
     },
     "review": {
       "status": "pending"
@@ -1071,12 +981,12 @@
       "ar": "الاقتصاد"
     },
     "question": {
-      "en": "What is 'Keynesian economics' and how did it respond to the Great Depression?",
-      "ar": "ما 'الاقتصاد الكينيزي' وكيف استجاب للكساد العظيم؟"
+      "en": "What role does aggregate demand play in Keynesian explanations of a recession?",
+      "ar": "ما دور الطلب الكلي في التفسير الكينزي للركود؟"
     },
     "answer": {
-      "en": "John Maynard Keynes (1936) argued that aggregate demand — not supply — drives output and employment. During a depression, private demand collapses; the government should step in with deficit spending to stimulate demand. This justified New Deal-style interventions and contradicted classical 'Say's Law' that supply creates its own demand.",
-      "ar": "جادل جون مينارد كينز (1936) بأن الطلب الكلي — لا العرض — يُحرّك الإنتاج والتوظيف. خلال الكساد، ينهار الطلب الخاص؛ يجب على الحكومة التدخل بالإنفاق العجزي لتحفيز الطلب. هذا برّر التدخلات على غرار الصفقة الجديدة وتناقض 'قانون ساي' الكلاسيكي القائل بأن العرض يخلق طلبه الخاص."
+      "en": "Insufficient aggregate demand can reduce short-run output and employment; public spending may help when private demand is weak.",
+      "ar": "قد يخفض نقص الطلب الكلي الإنتاج والتوظيف في الأجل القصير؛ وقد يساعد الإنفاق العام عندما يضعف الطلب الخاص."
     },
     "review": {
       "status": "pending"
@@ -1138,12 +1048,12 @@
       "ar": "علم الاجتماع"
     },
     "question": {
-      "en": "What is 'risk society' (Ulrich Beck) and how does it describe modern social conditions?",
-      "ar": "ما 'مجتمع المخاطرة' (أولريش بيك) وكيف يصف الأوضاع الاجتماعية الحديثة؟"
+      "en": "What does Ulrich Beck's concept of a risk society emphasize?",
+      "ar": "على ماذا يركّز مفهوم مجتمع المخاطرة لدى أولريش بيك؟"
     },
     "answer": {
-      "en": "Beck (1986) argued that industrial modernity replaced natural hazards with manufactured risks (nuclear accidents, environmental pollution, climate change) created by scientific-technical progress itself. In risk society, risks are global, invisible, not compensable, and cut across class lines — requiring new forms of reflexive governance and creating a 'sub-politics' beyond traditional institutions.",
-      "ar": "جادل بيك (1986) بأن الحداثة الصناعية استبدلت المخاطر الطبيعية بمخاطر مصنوعة (حوادث نووية، تلوث بيئي، تغير مناخي) أوجدها التقدم العلمي-التقني ذاته. في مجتمع المخاطرة، المخاطر عالمية وغير مرئية وغير قابلة للتعويض وتتجاوز الخطوط الطبقية — مما يستلزم أشكالاً جديدة من الحوكمة التأملية ويخلق 'سياسة فرعية' تتجاوز المؤسسات التقليدية."
+      "en": "Modern societies must manage risks produced by technological and industrial activity, such as nuclear accidents, alongside natural hazards.",
+      "ar": "ضرورة إدارة المجتمعات الحديثة للمخاطر الناتجة عن النشاط التقني والصناعي، مثل الحوادث النووية، إلى جانب الأخطار الطبيعية."
     },
     "review": {
       "status": "pending"

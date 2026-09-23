@@ -59,8 +59,8 @@
   {
     "id": "fictional-worlds-4",
     "question": {
-      "en": "In the Chronicles of Narnia, what is the name of the magical land?",
-      "ar": "في سجلات نارنيا، ما هو اسم الأرض السحرية؟"
+      "en": "What magical land do the Pevensie children enter through a wardrobe in C. S. Lewis's story?",
+      "ar": "ما الأرض السحرية التي يصل إليها أطفال بيفينسي عبر خزانة ملابس في قصة سي إس لويس؟"
     },
     "answer": {
       "en": "Narnia",
@@ -78,12 +78,12 @@
   {
     "id": "fictional-worlds-5",
     "question": {
-      "en": "What galaxy is the setting for Star Wars?",
-      "ar": "ما هي المجرة التي تمثل إعداد حرب النجوم؟"
+      "en": "How does the familiar opening line describe the galaxy in which Star Wars takes place?",
+      "ar": "كيف تصف العبارة الافتتاحية المعروفة المجرة التي تدور فيها أحداث حرب النجوم؟"
     },
     "answer": {
       "en": "A galaxy far, far away",
-      "ar": "مجرة بعيدة، بعيدة جداً"
+      "ar": "مجرة بعيدة جداً"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -154,14 +154,14 @@
   {
     "id": "fictional-worlds-9",
     "question": {
-      "en": "In the Matrix, what is the name of the simulated reality?",
-      "ar": "في فيلم الماتريكس، ما هو اسم الواقع المُحاكى؟"
+      "en": "In the first Matrix film, what is the name of Morpheus's ship?",
+      "ar": "ما اسم سفينة مورفيوس في فيلم الماتريكس الأول؟"
     },
     "answer": {
-      "en": "The Matrix",
-      "ar": "الماتريكس"
+      "en": "Nebuchadnezzar",
+      "ar": "نبوخذنصر"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Science Fiction & Space",
       "ar": "الخيال العلمي والفضاء"
@@ -173,8 +173,8 @@
   {
     "id": "fictional-worlds-10",
     "question": {
-      "en": "What is the name of the hobbit who destroys the One Ring?",
-      "ar": "ما هو اسم الهوبيت الذي يدمر الخاتم الأوحد؟"
+      "en": "Which hobbit carries the One Ring from the Shire to Mount Doom?",
+      "ar": "أي هوبيت يحمل الخاتم الأوحد من الشاير إلى جبل الهلاك؟"
     },
     "answer": {
       "en": "Frodo Baggins",
@@ -249,8 +249,8 @@
   {
     "id": "fictional-worlds-14",
     "question": {
-      "en": "What is the name of the spaceship in Star Trek?",
-      "ar": "ما اسم سفينة الفضاء في ستار تريك؟"
+      "en": "Which starship does Captain James T. Kirk command in the original Star Trek television series?",
+      "ar": "ما السفينة الفضائية التي يقودها الكابتن جيمس تي كيرك في مسلسل ستار تريك الأصلي؟"
     },
     "answer": {
       "en": "USS Enterprise",
@@ -325,12 +325,12 @@
   {
     "id": "fictional-worlds-18",
     "question": {
-      "en": "What is the fictional language spoken by the Elves in Lord of the Rings?",
-      "ar": "ما هي اللغة الخيالية التي يتحدث بها الجان في سيد الخواتم؟"
+      "en": "What is the name of the Elvish language also called Grey-elven in Tolkien's world?",
+      "ar": "ما اسم لغة الجان التي تُعرف أيضاً بلغة الجان الرماديين في عالم تولكين؟"
     },
     "answer": {
-      "en": "Elvish (Sindarin/Quenya)",
-      "ar": "الإلفية"
+      "en": "Sindarin",
+      "ar": "السندارين"
     },
     "difficulty": "medium",
     "subcategory": {
@@ -439,12 +439,12 @@
   {
     "id": "fictional-worlds-24",
     "question": {
-      "en": "What is the name of the supercontinent in the world of Avatar: The Last Airbender?",
-      "ar": "ما هو اسم القارة العملاقة في عالم أفاتار: مسخر الهواء الأخير؟"
+      "en": "What are the four nations named after in Avatar: The Last Airbender?",
+      "ar": "على أسماء ماذا سُمّيت الأمم الأربع في أفاتار: مسخر الهواء الأخير؟"
     },
     "answer": {
-      "en": "There is no official name, just the Four Nations",
-      "ar": "لا يوجد اسم رسمي، فقط الأمم الأربع"
+      "en": "Water, Earth, Fire and Air",
+      "ar": "الماء والأرض والنار والهواء"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -515,11 +515,11 @@
   {
     "id": "fictional-worlds-28",
     "question": {
-      "en": "What is the fictional metal that Captain America's shield is made of?",
-      "ar": "ما هو المعدن الخيالي الذي يُصنع منه درع كابتن أمريكا؟"
+      "en": "What metal is Captain America's shield made from in the Marvel Cinematic Universe?",
+      "ar": "ما المعدن الذي يُصنع منه درع كابتن أمريكا في عالم مارفل السينمائي؟"
     },
     "answer": {
-      "en": "Vibranium (and proto-adamantium)",
+      "en": "Vibranium",
       "ar": "الفيبرانيوم"
     },
     "difficulty": "hard",
@@ -553,12 +553,12 @@
   {
     "id": "fictional-worlds-30",
     "question": {
-      "en": "What is the name of the primary setting in the Elder Scrolls V: Skyrim?",
-      "ar": "ما هو اسم الإعداد الأساسي في لعبة المخطوطات القديمة 5: سكايرم؟"
+      "en": "Which continent contains the province of Skyrim in The Elder Scrolls?",
+      "ar": "في أي قارة تقع مقاطعة سكايرم في عالم ذا إلدر سكرولز؟"
     },
     "answer": {
-      "en": "Tamriel (specifically the province of Skyrim)",
-      "ar": "تامرييل (تحديداً مقاطعة سكايرم)"
+      "en": "Tamriel",
+      "ar": "تامرييل"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -591,14 +591,14 @@
   {
     "id": "fictional-worlds-32",
     "question": {
-      "en": "What specific type of particle allows for faster-than-light travel in the Star Trek universe?",
-      "ar": "ما هو النوع المحدد من الجسيمات الذي يسمح بالسفر أسرع من الضوء في عالم ستار تريك؟"
+      "en": "In Star Trek, what name is given to the propulsion system that allows starships to travel faster than light?",
+      "ar": "ما اسم نظام الدفع الذي يتيح للسفن الفضائية تجاوز سرعة الضوء في ستار تريك؟"
     },
     "answer": {
-      "en": "Tachyons / Dilithium crystals (power source)",
-      "ar": "التاكيونات / بلورات الديليثيوم"
+      "en": "Warp drive",
+      "ar": "محرك الالتواء"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Science Fiction & Space",
       "ar": "الخيال العلمي والفضاء"
@@ -610,14 +610,14 @@
   {
     "id": "fictional-worlds-33",
     "question": {
-      "en": "In Frank Herbert's Dune, what is the exact chemical name or compound commonly referred to as 'spice'?",
-      "ar": "في كتاب الكثيب لفرانك هربرت، ما هو الاسم أو المركب الكيميائي الدقيق الذي يُشار إليه عادة باسم 'التوابل'؟"
+      "en": "In Dune, what is the substance commonly called the spice also known as?",
+      "ar": "بأي اسم آخر تُعرف مادة «التوابل» في عالم الكثيب؟"
     },
     "answer": {
       "en": "Melange",
       "ar": "ميلانج"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Science Fiction & Space",
       "ar": "الخيال العلمي والفضاء"
@@ -629,14 +629,14 @@
   {
     "id": "fictional-worlds-34",
     "question": {
-      "en": "What is the name of the parallel universe accessed via the Warp in Warhammer 40k?",
-      "ar": "ما هو اسم الكون الموازي الذي يتم الوصول إليه عبر الالتواء في لعبة وارهامر 40k؟"
+      "en": "In Warhammer 40,000, what is the Immaterium commonly called?",
+      "ar": "بأي اسم شائع يُعرف الإيماتيريوم في عالم وارهامر 40,000؟"
     },
     "answer": {
-      "en": "The Immaterium / The Warp",
-      "ar": "الإيماتيريوم"
+      "en": "The Warp",
+      "ar": "الوارب (الالتواء)"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Science Fiction & Space",
       "ar": "الخيال العلمي والفضاء"
@@ -705,14 +705,14 @@
   {
     "id": "fictional-worlds-38",
     "question": {
-      "en": "What is the precise structural layout of the City in the manga/anime Blame!?",
-      "ar": "ما هو التخطيط الهيكلي الدقيق للمدينة في مانغا/أنمي Blame!؟"
+      "en": "Who is the creator of the manga BLAME!?",
+      "ar": "من مؤلف مانغا BLAME!؟"
     },
     "answer": {
-      "en": "A Dyson Sphere / megastructure expanding infinitely",
-      "ar": "كرة دايسون / هيكل عملاق يتوسع بلا نهاية"
+      "en": "Tsutomu Nihei",
+      "ar": "تسوتومو نيهي"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Anime & Animation",
       "ar": "الأنمي والرسوم المتحركة"
@@ -743,14 +743,14 @@
   {
     "id": "fictional-worlds-40",
     "question": {
-      "en": "What specific planetary alignment causes the Long Night in George R.R. Martin's universe (according to fan theories)?",
-      "ar": "ما هو المحاذاة الكوكبية المحددة التي تسبب الليل الطويل في عالم جورج ر. ر. مارتن (وفقاً لنظريات المعجبين)؟"
+      "en": "What is the name of the immense ice fortification separating the Seven Kingdoms from the lands to the north in A Song of Ice and Fire?",
+      "ar": "ما اسم التحصين الجليدي الهائل الذي يفصل الممالك السبع عن الأراضي الشمالية في أغنية الجليد والنار؟"
     },
     "answer": {
-      "en": "The destruction of a second moon",
-      "ar": "تدمير قمر ثانٍ"
+      "en": "The Wall",
+      "ar": "الجدار"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Fantasy & Magic",
       "ar": "الفانتازيا والسحر"

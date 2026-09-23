@@ -26,12 +26,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What term describes a machine that can perform tasks automatically?",
-      "ar": "ما هو المصطلح الذي يصف آلة يمكنها أداء المهام تلقائياً؟"
+      "en": "What is a programmable machine that performs physical tasks, often using sensors and actuators, commonly called?",
+      "ar": "ماذا تُسمّى عادةً الآلة القابلة للبرمجة التي تؤدي مهام مادية، وغالباً تستخدم حساسات ومشغّلات؟"
     },
     "answer": {
-      "en": "Robot",
-      "ar": "روبوت"
+      "en": "A robot.",
+      "ar": "روبوت."
     },
     "review": {
       "status": "pending"
@@ -83,12 +83,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "Which technology allows you to wear a headset and enter a simulated 3D world?",
-      "ar": "أي تقنية تسمح لك بارتداء سماعة رأس ودخول عالم ثلاثي الأبعاد محاكى؟"
+      "en": "Which technology uses a headset to immerse a user in a simulated environment?",
+      "ar": "أي تقنية تستخدم نظارة أو خوذة لعرض بيئة محاكاة يشعر المستخدم بوجوده داخلها؟"
     },
     "answer": {
-      "en": "Virtual Reality (VR)",
-      "ar": "الواقع الافتراضي"
+      "en": "Virtual reality (VR).",
+      "ar": "الواقع الافتراضي."
     },
     "review": {
       "status": "pending"
@@ -102,12 +102,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is 'The Cloud' in computing?",
-      "ar": "ما هو 'السحاب' في الحوسبة؟"
+      "en": "What is cloud computing?",
+      "ar": "ما الحوسبة السحابية؟"
     },
     "answer": {
-      "en": "Servers accessed over the internet for data storage",
-      "ar": "خوادم يتم الوصول إليها عبر الإنترنت لتخزين البيانات"
+      "en": "On-demand access to shared computing resources, such as processing, storage and applications, delivered over a network.",
+      "ar": "الوصول عند الطلب إلى موارد حوسبة مشتركة، مثل المعالجة والتخزين والتطبيقات، عبر شبكة."
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "Which device, worn on the wrist, can track your steps and heart rate?",
-      "ar": "أي جهاز يرتدى على المعصم يمكنه تتبع خطواتك ومعدل ضربات قلبك؟"
+      "en": "Name one type of wrist-worn device that can count steps and measure heart rate.",
+      "ar": "اذكر نوعاً واحداً من الأجهزة التي تُلبس على المعصم ويمكنها عدّ الخطوات وقياس معدل ضربات القلب."
     },
     "answer": {
-      "en": "Smartwatch (or Fitness Tracker)",
-      "ar": "ساعة ذكية"
+      "en": "A smartwatch or a fitness tracker.",
+      "ar": "ساعة ذكية أو سوار لتتبّع اللياقة."
     },
     "review": {
       "status": "pending"
@@ -178,12 +178,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is the main purpose of a 'Drone'?",
-      "ar": "ما هو الغرض الرئيسي من 'الطائرة بدون طيار' (الدرون)؟"
+      "en": "What does UAV stand for in aviation?",
+      "ar": "ماذا يعني اختصار UAV في الطيران؟"
     },
     "answer": {
-      "en": "An unmanned aerial vehicle for surveillance or delivery",
-      "ar": "طائرة بدون طيار للمراقبة أو التوصيل"
+      "en": "Unmanned aerial vehicle: an aircraft with no pilot on board.",
+      "ar": "مركبة جوية غير مأهولة: طائرة لا يوجد طيار على متنها."
     },
     "review": {
       "status": "pending"
@@ -216,12 +216,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is 'Quantum Computing' based on?",
-      "ar": "على ماذا تعتمد 'الحوسبة الكمومية'؟"
+      "en": "What is the basic unit of quantum information used in quantum computing?",
+      "ar": "ما الوحدة الأساسية للمعلومات الكمومية المستخدمة في الحوسبة الكمومية؟"
     },
     "answer": {
-      "en": "Principles of quantum mechanics (like qubits)",
-      "ar": "مبادئ ميكانيكا الكم (مثل الكيوبتات)"
+      "en": "A qubit, or quantum bit.",
+      "ar": "الكيوبت، أو البِت الكمومي."
     },
     "review": {
       "status": "pending"
@@ -292,12 +292,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is 'Machine Learning'?",
-      "ar": "ما هو 'تعلم الآلة'؟"
+      "en": "How does machine learning differ from writing a separate explicit rule for every case?",
+      "ar": "كيف يختلف تعلم الآلة عن كتابة قاعدة صريحة منفصلة لكل حالة؟"
     },
     "answer": {
-      "en": "A subset of AI where computers learn from data without being explicitly programmed",
-      "ar": "فرع من الذكاء الاصطناعي حيث تتعلم الحواسيب من البيانات بدون برمجة صريحة"
+      "en": "A model learns patterns from training data rather than relying only on hand-written rules for each case.",
+      "ar": "يتعلم النموذج أنماطاً من بيانات التدريب بدلاً من الاعتماد فقط على قواعد مكتوبة يدوياً لكل حالة."
     },
     "review": {
       "status": "pending"
@@ -311,12 +311,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is the 'Metaverse'?",
-      "ar": "ما هو 'الميتافيرس'؟"
+      "en": "What does the term metaverse commonly refer to?",
+      "ar": "إلى ماذا يشير مصطلح الميتافيرس عادةً؟"
     },
     "answer": {
-      "en": "A virtual reality space where users can interact in a 3D environment",
-      "ar": "مساحة واقع افتراضي حيث يمكن للمستخدمين التفاعل في بيئة ثلاثية الأبعاد"
+      "en": "A proposed network of shared virtual environments for interaction. There is no single agreed definition, and access need not require a VR headset.",
+      "ar": "تصوّر لشبكة بيئات افتراضية مشتركة للتفاعل. ولا يوجد تعريف واحد متفق عليه، ولا يشترط الدخول دائماً نظارة واقع افتراضي."
     },
     "review": {
       "status": "pending"
@@ -368,12 +368,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is a 'Neural Network' in AI?",
-      "ar": "ما هي 'الشبكة العصبية' في الذكاء الاصطناعي؟"
+      "en": "In an artificial neural network, what does training typically adjust?",
+      "ar": "ما الذي يعدّله التدريب عادةً في الشبكة العصبية الاصطناعية؟"
     },
     "answer": {
-      "en": "A computing system inspired by the human brain",
-      "ar": "نظام حوسبة مستوحى من الدماغ البشري"
+      "en": "Model parameters, such as connection weights and biases, to improve performance on a task.",
+      "ar": "معلمات النموذج، مثل أوزان الروابط والانحيازات، لتحسين أدائه في مهمة."
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is 'Nanotechnology'?",
-      "ar": "ما هي 'تكنولوجيا النانو'؟"
+      "en": "What approximate size range is commonly associated with nanotechnology?",
+      "ar": "ما نطاق الأحجام التقريبي المرتبط عادةً بتقنية النانو؟"
     },
     "answer": {
-      "en": "Science and engineering conducted at the scale of atoms and molecules",
-      "ar": "العلوم والهندسة التي تجرى على مستوى الذرات والجزيئات"
+      "en": "About 1–100 nanometres, where size-dependent properties can become important.",
+      "ar": "نحو 1–100 نانومتر، حيث قد تظهر خصائص مهمة تعتمد على الحجم."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the 'Singularity' in the context of AI?",
-      "ar": "ما هي 'التفرد' (Singularity) في سياق الذكاء الاصطناعي؟"
+      "en": "What does technological singularity mean in discussions of AI futures?",
+      "ar": "ماذا يعني التفرد التقني في مناقشات مستقبل الذكاء الاصطناعي؟"
     },
     "answer": {
-      "en": "A hypothetical point where AI becomes smarter than human intelligence",
-      "ar": "نقطة فرضية يصبح فيها الذكاء الاصطناعي أذكى من الذكاء البشري"
+      "en": "A hypothetical transition to rapidly accelerating technological change, often linked to self-improving AI. It is a speculative idea, not an established prediction.",
+      "ar": "تحول افتراضي إلى تغير تقني متسارع جداً، يرتبط غالباً بذكاء اصطناعي يحسّن نفسه. وهو تصور نظري، لا تنبؤ ثابت."
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is a 'Dyson Sphere'?",
-      "ar": "ما هي 'كرة دايسون'؟"
+      "en": "What is a Dyson swarm?",
+      "ar": "ما سرب دايسون؟"
     },
     "answer": {
-      "en": "A hypothetical megastructure that completely encompasses a star to capture its energy",
-      "ar": "هيكل ضخم افتراضي يحيط بنجم بالكامل لالتقاط طاقته"
+      "en": "A hypothetical collection of orbiting structures that capture a star's energy, rather than a single solid shell.",
+      "ar": "مجموعة افتراضية من منشآت تدور حول نجم لالتقاط طاقته، بدلاً من غلاف صلب واحد."
     },
     "review": {
       "status": "pending"
@@ -461,7 +461,7 @@
       "en": "AI & Machine Learning",
       "ar": "الذكاء الاصطناعي وتعلم الآلة"
     },
-    "difficulty": "hard",
+    "difficulty": "easy",
     "question": {
       "en": "What is 'Generative AI'?",
       "ar": "ما هو 'الذكاء الاصطناعي التوليدي'؟"
@@ -539,12 +539,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the 'Turing Test'?",
-      "ar": "ما هو 'اختبار تورينج'؟"
+      "en": "In Turing's imitation game, what does a judge try to distinguish through written conversation?",
+      "ar": "في لعبة التقليد عند تورنغ، ماذا يحاول الحكم التمييز بينه عبر محادثة مكتوبة؟"
     },
     "answer": {
-      "en": "A test of a machine's ability to exhibit intelligent behavior indistinguishable from a human",
-      "ar": "اختبار لقدرة الآلة على إظهار سلوك ذكي لا يمكن تمييزه عن الإنسان"
+      "en": "A human respondent and a machine. Success in the game does not by itself prove every form of intelligence.",
+      "ar": "مجيب بشري وآلة. ولا يثبت النجاح في اللعبة وحده امتلاك جميع أشكال الذكاء."
     },
     "review": {
       "status": "pending"
@@ -575,14 +575,14 @@
       "en": "Computing & Security",
       "ar": "الحوسبة والأمن"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "question": {
-      "en": "What is 'Moore's Law'?",
-      "ar": "ما هو 'قانون مور'؟"
+      "en": "What historical observation is commonly called Moore's law?",
+      "ar": "ما الملاحظة التاريخية المعروفة عادةً بقانون مور؟"
     },
     "answer": {
-      "en": "The observation that the number of transistors on a microchip doubles about every two years",
-      "ar": "الملاحظة التي تفيد بأن عدد الترانزستورات على الرقاقة الدقيقة يتضاعف كل عامين تقريباً"
+      "en": "The number of transistors on an integrated circuit increased roughly twofold every two years; it is not a physical law guaranteeing future growth.",
+      "ar": "تزايد عدد الترانزستورات في الدائرة المتكاملة بنحو الضعف كل عامين؛ وليس قانوناً فيزيائياً يضمن استمرار النمو مستقبلاً."
     },
     "review": {
       "status": "pending"
@@ -615,12 +615,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is the 'Grey Goo' scenario in nanotechnology?",
-      "ar": "ما هو سيناريو 'المادة الرمادية اللزجة' (Grey Goo) في تكنولوجيا النانو؟"
+      "en": "What is the hypothetical grey-goo scenario in discussions of nanotechnology?",
+      "ar": "ما سيناريو المادة الرمادية اللزجة الافتراضي في مناقشات تقنية النانو؟"
     },
     "answer": {
-      "en": "A hypothetical end-of-the-world scenario where self-replicating nanobots consume all matter",
-      "ar": "سيناريو افتراضي لنهاية العالم حيث تستهلك الروبوتات النانوية ذاتية التكرار كل المادة"
+      "en": "Uncontrolled self-replicating machines consume available environmental resources. It is a speculative scenario, not an observed event.",
+      "ar": "تستهلك آلات ذاتية التكرار خارجة عن السيطرة موارد البيئة المتاحة. وهو سيناريو افتراضي، لا حدث مرصود."
     },
     "review": {
       "status": "pending"
@@ -672,12 +672,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is the 'Kessler Syndrome'?",
-      "ar": "ما هي 'متلازمة كيسلر'؟"
+      "en": "What process is described by the Kessler syndrome scenario?",
+      "ar": "ما العملية التي يصفها سيناريو متلازمة كيسلر؟"
     },
     "answer": {
-      "en": "A scenario where space debris leads to a cascade of collisions, making low Earth orbit unusable",
-      "ar": "سيناريو تؤدي فيه الحطام الفضائي إلى سلسلة من الاصطدامات، مما يجعل مدار الأرض المنخفض غير قابل للاستخدام"
+      "en": "Collisions create orbital debris that causes further collisions, potentially making affected orbital regions increasingly hazardous.",
+      "ar": "تنتج الاصطدامات حطاماً مدارياً يسبب اصطدامات إضافية، مما قد يجعل المناطق المدارية المتأثرة أشد خطراً."
     },
     "review": {
       "status": "pending"
@@ -691,12 +691,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Transhumanism'?",
-      "ar": "ما هي 'ما بعد الإنسانية' (Transhumanism)؟"
+      "en": "What does transhumanism propose about human capabilities?",
+      "ar": "ما الذي تقترحه حركة تعزيز الإنسان بالتقنية، أو الترانسهيومانية، بشأن القدرات البشرية؟"
     },
     "answer": {
-      "en": "The movement seeking to transform the human condition through advanced technologies to enhance intellect and physiology",
-      "ar": "الحركة التي تسعى لتحويل الحالة البشرية من خلال تقنيات متقدمة لتعزيز الذكاء والفيزيولوجيا"
+      "en": "Using technology to extend or enhance human physical and cognitive capacities.",
+      "ar": "استخدام التقنية لتوسيع القدرات البشرية الجسدية والمعرفية أو تعزيزها."
     },
     "review": {
       "status": "pending"
@@ -710,12 +710,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Somatic Cell Nuclear Transfer' (SCNT)?",
-      "ar": "ما هو 'نقل نواة الخلية الجسدية' (SCNT)؟"
+      "en": "What is transferred in somatic cell nuclear transfer (SCNT)?",
+      "ar": "ما الذي يُنقل في تقنية نقل نواة الخلية الجسدية؟"
     },
     "answer": {
-      "en": "A laboratory technique for creating a viable embryo from a body cell and an egg cell (used in cloning)",
-      "ar": "تقنية مختبرية لإنشاء جنين قابل للحياة من خلية جسم وخلية بيضة (تستخدم في الاستنساخ)"
+      "en": "A somatic-cell nucleus is placed into an egg whose nucleus has been removed; successful embryo development is not guaranteed.",
+      "ar": "تُوضع نواة خلية جسدية في بويضة أُزيلت نواتها؛ ولا يُضمن نجاح تطور الجنين."
     },
     "review": {
       "status": "pending"
@@ -729,12 +729,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Optical Computing'?",
-      "ar": "ما هي 'الحوسبة الضوئية'؟"
+      "en": "What carries information in optical computing?",
+      "ar": "ما الذي يحمل المعلومات في الحوسبة الضوئية؟"
     },
     "answer": {
-      "en": "Using photons (light) instead of electrons for digital computation",
-      "ar": "استخدام الفوتونات (الضوء) بدلاً من الإلكترونات للحوسبة الرقمية"
+      "en": "Light, through photons. Systems may be digital, analog or hybrid.",
+      "ar": "الضوء عبر الفوتونات. وقد تكون الأنظمة رقمية أو تماثلية أو هجينة."
     },
     "review": {
       "status": "pending"
@@ -748,12 +748,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Space Elevator' cable likely to be made of?",
-      "ar": "من ماذا يتوقع أن يصنع كابل 'مصعد الفضاء'؟"
+      "en": "Why do proposed Earth-based space elevators require exceptionally strong, lightweight tether materials?",
+      "ar": "لماذا تتطلب تصاميم مصاعد الفضاء المنطلقة من الأرض مواد استثنائية القوة والخفة للكابل؟"
     },
     "answer": {
-      "en": "Carbon Nanotubes (due to high tensile strength)",
-      "ar": "أنابيب الكربون النانوية (بسبب قوة الشد العالية)"
+      "en": "The long tether must support its own mass and operational loads, demanding a very high strength-to-weight ratio.",
+      "ar": "لأن الكابل الطويل يجب أن يتحمل كتلته وأحمال التشغيل، ما يستلزم نسبة عالية جداً بين القوة والوزن."
     },
     "review": {
       "status": "pending"

@@ -45,12 +45,12 @@
       "ar": "المنشآت والجسور"
     },
     "question": {
-      "en": "What is the primary structural material used in most modern skyscrapers?",
-      "ar": "ما المادة الإنشائية الرئيسية المستخدمة في معظم ناطحات السحاب الحديثة؟"
+      "en": "What material forms the steel reinforcement that commonly carries tension in reinforced concrete?",
+      "ar": "ما المادة التي تتكون منها قضبان التسليح التي تحمل الشد عادةً في الخرسانة المسلحة؟"
     },
     "answer": {
-      "en": "Steel",
-      "ar": "الفولاذ"
+      "en": "Steel.",
+      "ar": "الفولاذ."
     },
     "review": {
       "status": "pending"
@@ -144,8 +144,8 @@
       "ar": "لماذا يعدّ القوس شكلاً قوياً للجسور؟"
     },
     "answer": {
-      "en": "It dissipates force outwards and downwards",
-      "ar": "لأنه يوزع القوى خارجياً ونحو الأسفل"
+      "en": "A suitable arch transfers loads mainly through compression toward its supports or abutments, which must resist the outward thrust.",
+      "ar": "ينقل القوس المناسب الأحمال أساساً بالضغط نحو دعاماته، التي يجب أن تقاوم الدفع إلى الخارج."
     },
     "review": {
       "status": "pending"
@@ -201,8 +201,8 @@
       "ar": "ماذا يقيس معامل يونغ في المادة؟"
     },
     "answer": {
-      "en": "Stiffness or elasticity",
-      "ar": "الصلابة أو المرونة"
+      "en": "Axial elastic stiffness of a material: the ratio of normal stress to strain in the linear-elastic range.",
+      "ar": "الجساءة المرنة المحورية للمادة: نسبة الإجهاد العمودي إلى الانفعال في المجال المرن الخطي."
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
       "ar": "المنشآت والجسور"
     },
     "question": {
-      "en": "What does the Moment of Inertia represent in structural engineering?",
-      "ar": "ماذا يمثل عزم القصور الذاتي في الهندسة الإنشائية؟"
+      "en": "What geometric cross-section property I appears in the flexural rigidity EI of a beam?",
+      "ar": "ما الخاصية الهندسية للمقطع I التي تظهر في جساءة انحناء الكمرة EI؟"
     },
     "answer": {
-      "en": "Resistance to bending and deflection",
-      "ar": "مقاومة الانحناء والانتقال"
+      "en": "The second moment of area about the bending axis. It describes the distribution of cross-sectional area relative to that axis.",
+      "ar": "العزم الثاني للمساحة حول محور الانحناء. وهو يصف توزيع مساحة المقطع بالنسبة إلى ذلك المحور."
     },
     "review": {
       "status": "pending"
@@ -425,12 +425,12 @@
       "ar": "المياه والهيدروليكا"
     },
     "question": {
-      "en": "For an inviscid flow, an increase in fluid speed occurs with a decrease in what?",
-      "ar": "في التدفق غير اللزج، ازدياد سرعة السائل يصاحبه انخفاض في ماذا؟"
+      "en": "In steady incompressible inviscid flow along a streamline at constant elevation with no pump, how does pressure change when speed increases?",
+      "ar": "في جريان مستقر غير قابل للانضغاط وغير لزج على خط انسياب بارتفاع ثابت ودون مضخة، كيف يتغير الضغط عند ازدياد السرعة؟"
     },
     "answer": {
-      "en": "Pressure or potential energy",
-      "ar": "الضغط أو الطاقة الكامنة"
+      "en": "Pressure decreases, according to Bernoulli's equation.",
+      "ar": "ينخفض الضغط وفق معادلة برنولي."
     },
     "review": {
       "status": "pending"
@@ -463,12 +463,12 @@
       "ar": "المنشآت والجسور"
     },
     "question": {
-      "en": "What is the point in a beam where shear force changes sign and bending moment is maximum?",
-      "ar": "ما النقطة في العتب حيث تتغير إشارة قوة القص ويكون عزم الانحناء عند أقصاه؟"
+      "en": "In a smooth region of a beam's bending-moment diagram, what shear force corresponds to a stationary bending moment?",
+      "ar": "في جزء أملس من مخطط عزم انحناء كمرة، ما قيمة قوة القص عند نقطة يكون فيها العزم ساكناً محلياً؟"
     },
     "answer": {
-      "en": "Point of zero shear",
-      "ar": "نقطة الإجهاد الصفري"
+      "en": "Zero shear, because V=dM/dx. The stationary moment may be a local maximum or minimum depending on the loading.",
+      "ar": "قوة قص تساوي صفراً، لأن V=dM/dx. وقد يكون العزم عندها أقصى أو أدنى محلياً بحسب التحميل."
     },
     "review": {
       "status": "pending"
@@ -482,12 +482,12 @@
       "ar": "المياه والهيدروليكا"
     },
     "question": {
-      "en": "What is a 'Return Period' in flood analysis?",
-      "ar": "ما 'فترة العودة' في تحليل الفيضانات؟"
+      "en": "Under a stationary annual flood model, what does a 100-year return period mean?",
+      "ar": "وفق نموذج سنوي ثابت الخصائص للفيضانات، ماذا تعني فترة عودة 100 سنة؟"
     },
     "answer": {
-      "en": "An estimate of the likelihood of an event occurring",
-      "ar": "تقدير لاحتمالية حدوث حدث كالفيضان خلال فترة زمنية معينة"
+      "en": "A1% chance of exceeding that flood magnitude in any given year. It does not mean floods occur exactly 100 years apart.",
+      "ar": "احتمال 1% لتجاوز مقدار الفيضان في أي سنة معينة. ولا يعني أن الفيضانات تقع بفواصل 100 سنة بالضبط."
     },
     "review": {
       "status": "pending"
@@ -539,8 +539,8 @@
       "ar": "الهندسة الجيوتقنية والأساسات"
     },
     "question": {
-      "en": "What is the formula and name for effective stress in soil mechanics?",
-      "ar": "ما معادلة ومصطلح الإجهاد الفعّال في ميكانيكا التربة؟"
+      "en": "For saturated soil under the conventional Terzaghi formulation, how is effective normal stress related to total stress and pore-water pressure?",
+      "ar": "في تربة مشبعة وفق صياغة ترزاغي المعتادة، كيف يرتبط الإجهاد العمودي الفعّال بالإجهاد الكلي وضغط ماء المسام؟"
     },
     "answer": {
       "en": "σ' = σ - u (total stress minus pore water pressure)",

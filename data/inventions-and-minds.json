@@ -26,12 +26,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "Which brothers are famous for the first successful airplane flight?",
-      "ar": "أي أخوين مشهورين بالقيام بأول رحلة طيران ناجحة؟"
+      "en": "Which brothers achieved the first sustained, controlled, powered flight of a heavier-than-air aircraft in 1903?",
+      "ar": "أي أخوين حققا عام 1903 أول رحلة مستمرة ومتحكَّم بها لطائرة أثقل من الهواء تعمل بمحرك؟"
     },
     "answer": {
-      "en": "The Wright Brothers",
-      "ar": "الأخوان رايت"
+      "en": "Orville and Wilbur Wright.",
+      "ar": "أورفيل وويلبر رايت."
     },
     "review": {
       "status": "pending"
@@ -45,12 +45,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What did Alexander Graham Bell invent in 1876?",
-      "ar": "ماذا اخترع ألكسندر جراهام بيل في عام 1876؟"
+      "en": "For which communication device did Alexander Graham Bell receive a US patent in 1876?",
+      "ar": "عن أي جهاز اتصال حصل ألكسندر غراهام بيل على براءة اختراع أمريكية عام 1876؟"
     },
     "answer": {
-      "en": "The Telephone",
-      "ar": "الهاتف"
+      "en": "The telephone.",
+      "ar": "الهاتف."
     },
     "review": {
       "status": "pending"
@@ -64,12 +64,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "Which device, invented by Gutenberg, revolutionized the spread of knowledge?",
-      "ar": "أي جهاز اخترعه غوتنبرغ وأحدث ثورة في نشر المعرفة؟"
+      "en": "What printing technology did Johannes Gutenberg develop in fifteenth-century Europe?",
+      "ar": "ما تقنية الطباعة التي طوّرها يوهانس غوتنبرغ في أوروبا بالقرن الخامس عشر؟"
     },
     "answer": {
-      "en": "The Printing Press",
-      "ar": "المطبعة"
+      "en": "A system of printing with movable metal type and a press. Printing traditions already existed in East Asia.",
+      "ar": "نظام طباعة بحروف معدنية متحركة ومكبس. وكانت تقاليد الطباعة موجودة قبل ذلك في شرق آسيا."
     },
     "review": {
       "status": "pending"
@@ -83,12 +83,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What is the common name for the 'World Wide Web'?",
-      "ar": "ما هو الاسم الشائع لـ 'الشبكة العنكبوتية العالمية'؟"
+      "en": "Are the World Wide Web and the Internet the same thing?",
+      "ar": "هل الويب والإنترنت الشيء نفسه؟"
     },
     "answer": {
-      "en": "The Internet",
-      "ar": "الإنترنت"
+      "en": "No. The Internet is the network infrastructure; the Web is a system of linked resources accessed over it, usually through browsers.",
+      "ar": "لا. الإنترنت بنية شبكية؛ والويب نظام من الموارد المترابطة يُستخدم عبرها، عادةً بواسطة المتصفحات."
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "Who invented the first successful steam locomotive?",
-      "ar": "من اخترع أول قاطرة بخارية ناجحة؟"
+      "en": "What source of mechanical power drove an early steam locomotive's wheels?",
+      "ar": "ما الذي وفّر القوة الميكانيكية لعجلات القاطرة البخارية المبكرة؟"
     },
     "answer": {
-      "en": "George Stephenson",
-      "ar": "جورج ستيفنسون"
+      "en": "Pressurized steam moved pistons, which drove the wheels through connecting mechanisms.",
+      "ar": "حرّك البخار المضغوط مكابس تنقل الحركة إلى العجلات عبر آليات ربط."
     },
     "review": {
       "status": "pending"
@@ -176,14 +176,14 @@
       "en": "Materials",
       "ar": "المواد"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "question": {
-      "en": "Which material, invented in the mid-19th century, made the mass production of cars possible?",
-      "ar": "أي مادة، اخترعت في منتصف القرن التاسع عشر، جعلت الإنتاج الضخم للسيارات ممكناً؟"
+      "en": "Which nineteenth-century process made steel production cheaper by blowing air through molten iron?",
+      "ar": "ما العملية التي خفّضت تكلفة إنتاج الفولاذ في القرن التاسع عشر بنفخ الهواء عبر الحديد المنصهر؟"
     },
     "answer": {
-      "en": "Steel (Bessemer Process)",
-      "ar": "الفولاذ (عملية بسمر)"
+      "en": "The Bessemer process.",
+      "ar": "عملية بسمر."
     },
     "review": {
       "status": "pending"
@@ -292,12 +292,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What did Alfred Nobel invent that led to the creation of the Nobel Prizes?",
-      "ar": "ماذا اخترع ألفريد نوبل مما أدى لإنشاء جوائز نوبل؟"
+      "en": "Which explosive did Alfred Nobel patent in 1867?",
+      "ar": "ما المادة المتفجرة التي سجّل ألفريد نوبل براءة اختراعها عام 1867؟"
     },
     "answer": {
-      "en": "Dynamite",
-      "ar": "الديناميت"
+      "en": "Dynamite.",
+      "ar": "الديناميت."
     },
     "review": {
       "status": "pending"
@@ -309,14 +309,14 @@
       "en": "Everyday Technology",
       "ar": "التكنولوجيا اليومية"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "question": {
-      "en": "Who developed the first commercially successful sewing machine?",
-      "ar": "من طور أول ماكينة خياطة ناجحة تجارياً؟"
+      "en": "What is the main function of a sewing machine?",
+      "ar": "ما الوظيفة الرئيسية لآلة الخياطة؟"
     },
     "answer": {
-      "en": "Isaac Singer",
-      "ar": "إسحاق سينجر"
+      "en": "To join or decorate fabric by forming stitches with thread.",
+      "ar": "وصل القماش أو تزيينه بتكوين غرز من الخيط."
     },
     "review": {
       "status": "pending"
@@ -349,12 +349,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What was the first mass-produced car model by Henry Ford?",
-      "ar": "ما هو أول طراز سيارة تم إنتاجه بكميات كبيرة من قبل هنري فورد؟"
+      "en": "Which production method moves a vehicle from station to station while workers perform successive tasks?",
+      "ar": "ما طريقة الإنتاج التي تنقل المركبة من محطة إلى أخرى بينما يؤدي العمال مهام متتابعة؟"
     },
     "answer": {
-      "en": "Model T",
-      "ar": "موديل تي"
+      "en": "A moving assembly line.",
+      "ar": "خط التجميع المتحرك."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "Who invented the first alternating current (AC) motor?",
-      "ar": "من اخترع أول محرك يعمل بالتيار المتردد (AC)؟"
+      "en": "What kind of motor uses a rotating magnetic field to induce current in its rotor?",
+      "ar": "ما نوع المحرك الذي يستخدم مجالاً مغناطيسياً دوّاراً لاستحثاث تيار في دوّاره؟"
     },
     "answer": {
-      "en": "Nikola Tesla",
-      "ar": "نيكولا تسلا"
+      "en": "An induction motor.",
+      "ar": "المحرك الحثّي."
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "Who developed the first high-level programming language, COBOL?",
-      "ar": "من طور أول لغة برمجة عالية المستوى، كوبول (COBOL)؟"
+      "en": "Which business-oriented programming language was developed by a committee in 1959, drawing on work including Grace Hopper's FLOW-MATIC?",
+      "ar": "ما لغة البرمجة الموجّهة للأعمال التي طوّرتها لجنة عام 1959، مستفيدةً من أعمال منها لغة فلو-ماتيك المرتبطة بغريس هوبر؟"
     },
     "answer": {
-      "en": "Grace Hopper",
-      "ar": "جريس هوبر"
+      "en": "COBOL.",
+      "ar": "كوبول."
     },
     "review": {
       "status": "pending"
@@ -520,12 +520,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "Who is credited with the invention of the laser?",
-      "ar": "من ينسب إليه الفضل في اختراع الليزر؟"
+      "en": "Who demonstrated the first working laser in 1960?",
+      "ar": "من قدّم أول ليزر عامل عام 1960؟"
     },
     "answer": {
-      "en": "Theodore Maiman",
-      "ar": "ثيودور ميمان"
+      "en": "Theodore Maiman.",
+      "ar": "ثيودور مايمان."
     },
     "review": {
       "status": "pending"
@@ -539,12 +539,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "Which invention by Eli Whitney revolutionized the cotton industry but also increased the demand for labor?",
-      "ar": "أي اختراع لإيلي ويتني أحدث ثورة في صناعة القطن ولكنه زاد أيضاً من الطلب على العمالة؟"
+      "en": "Which machine associated with Eli Whitney separated cotton fibres from seeds?",
+      "ar": "ما الآلة المرتبطة بإيلي ويتني التي تفصل ألياف القطن عن بذوره؟"
     },
     "answer": {
-      "en": "The Cotton Gin",
-      "ar": "محلج القطن"
+      "en": "The cotton gin. Its adoption helped expand cotton production and demand for enslaved labour in the US South.",
+      "ar": "محلج القطن. وقد ساعد انتشاره على توسيع إنتاج القطن والطلب على عمل المستعبَدين في جنوب الولايات المتحدة."
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "Who developed the method for pasteurizing milk to kill harmful bacteria?",
-      "ar": "من طور طريقة بسترة الحليب لقتل البكتيريا الضارة؟"
+      "en": "What preservation process named after Louis Pasteur uses controlled heating to reduce harmful microorganisms in food or drink?",
+      "ar": "ما عملية الحفظ المسمّاة باسم لويس باستور والتي تستخدم تسخيناً مضبوطاً لتقليل الأحياء الدقيقة الضارة في الطعام أو الشراب؟"
     },
     "answer": {
-      "en": "Louis Pasteur",
-      "ar": "لويس باستور"
+      "en": "Pasteurization.",
+      "ar": "البسترة."
     },
     "review": {
       "status": "pending"
@@ -577,12 +577,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Which scientist discovered the 'Photoelectric Effect', for which he received a Nobel Prize?",
-      "ar": "من هو العالم الذي اكتشف 'التأثير الكهروضوئي'، وحصل بسببه على جائزة نوبل؟"
+      "en": "Who explained the photoelectric effect using light quanta in 1905?",
+      "ar": "من فسّر التأثير الكهروضوئي باستخدام كمّات الضوء عام 1905؟"
     },
     "answer": {
-      "en": "Albert Einstein",
-      "ar": "ألبرت أينشتاين"
+      "en": "Albert Einstein. Heinrich Hertz had observed the effect earlier.",
+      "ar": "ألبرت أينشتاين. وكان هاينريش هرتز قد رصد الظاهرة من قبل."
     },
     "review": {
       "status": "pending"
@@ -691,12 +691,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Which device, invented by Hedy Lamarr and George Antheil, was a precursor to modern Wi-Fi and Bluetooth?",
-      "ar": "أي جهاز اخترعته هيدي لامار وجورج أنثيل، وكان مقدمة لتقنيات الواي فاي والبلوتوث الحديثة؟"
+      "en": "What communication technique did Hedy Lamarr and George Antheil propose in their wartime patent to make radio control harder to jam?",
+      "ar": "ما تقنية الاتصال التي اقترحتها هيدي لامار وجورج أنثيل في براءتهما أثناء الحرب لتصعيب التشويش على التحكم اللاسلكي؟"
     },
     "answer": {
-      "en": "Frequency-Hopping Spread Spectrum",
-      "ar": "تكنولوجيا القفز الترددي"
+      "en": "Frequency hopping: changing the transmission frequency in a coordinated pattern.",
+      "ar": "القفز الترددي: تغيير تردد الإرسال وفق نمط متزامن."
     },
     "review": {
       "status": "pending"
@@ -710,12 +710,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Who is credited with the invention of the integrated circuit (IC), independently developed in 1958?",
-      "ar": "من ينسب إليه اختراع الدائرة المتكاملة (IC)، التي تم تطويرها بشكل مستقل في عام 1958؟"
+      "en": "Which two engineers are credited with independent early developments of the integrated circuit?",
+      "ar": "ما المهندسان اللذان يُنسب إليهما تطويران مبكران مستقلان للدائرة المتكاملة؟"
     },
     "answer": {
-      "en": "Jack Kilby and Robert Noyce",
-      "ar": "جاك كيلبي وروبرت نويس"
+      "en": "Jack Kilby and Robert Noyce; their approaches differed.",
+      "ar": "جاك كيلبي وروبرت نويس؛ وقد اختلف نهجاهما."
     },
     "review": {
       "status": "pending"

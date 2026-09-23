@@ -7,12 +7,12 @@
       "ar": "الجوائز والمهرجانات والصناعة"
     },
     "question": {
-      "en": "Which city is considered the movie capital of the world?",
-      "ar": "أي مدينة تعتبر عاصمة السينما في العالم؟"
+      "en": "Which Los Angeles district is strongly associated with the American film industry?",
+      "ar": "أي حي في لوس أنجلوس يرتبط اسمه بصناعة السينما الأمريكية؟"
     },
     "answer": {
-      "en": "Hollywood (Los Angeles)",
-      "ar": "هوليوود (لوس أنجلوس)"
+      "en": "Hollywood",
+      "ar": "هوليوود"
     },
     "review": {
       "status": "pending"
@@ -26,12 +26,12 @@
       "ar": "الجوائز والمهرجانات والصناعة"
     },
     "question": {
-      "en": "What are the most famous awards in the film industry called?",
-      "ar": "ماذا تسمى الجوائز الأكثر شهرة في صناعة السينما؟"
+      "en": "What nickname is commonly used for the Academy Awards?",
+      "ar": "ما الاسم الشائع لجوائز الأكاديمية الأمريكية للفنون والعلوم السينمائية؟"
     },
     "answer": {
-      "en": "The Oscars (Academy Awards)",
-      "ar": "جوائز الأوسكار"
+      "en": "The Oscars",
+      "ar": "الأوسكار"
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
       "ar": "تاريخ السينما ومحطاتها"
     },
     "question": {
-      "en": "What was the first feature-length animated movie released by Disney?",
-      "ar": "ما هو أول فيلم رسوم متحركة طويل أصدرته ديزني؟"
+      "en": "What was Disney's first feature-length animated film?",
+      "ar": "ما أول فيلم رسوم متحركة طويل أصدرته ديزني؟"
     },
     "answer": {
       "en": "Snow White and the Seven Dwarfs",
-      "ar": "سلو وايت والأقزام السبعة"
+      "ar": "بياض الثلج والأقزام السبعة"
     },
     "review": {
       "status": "pending"
@@ -235,12 +235,12 @@
       "ar": "تاريخ السينما ومحطاتها"
     },
     "question": {
-      "en": "Which movie was the first to use synchronized sound for dialogue (the first 'talkie')?",
-      "ar": "أي فيلم كان الأول في استخدام الصوت المتزامن للحوار (أول فيلم ناطق)؟"
+      "en": "Which 1927 Al Jolson film became a landmark in the transition from silent features to talking pictures?",
+      "ar": "أي فيلم لآل جولسون صدر عام 1927 وأصبح علامة بارزة في الانتقال من الأفلام الصامتة إلى الناطقة؟"
     },
     "answer": {
-      "en": "The Jazz Singer (1927)",
-      "ar": "مغني الجاز (1927)"
+      "en": "The Jazz Singer",
+      "ar": "مغني الجاز"
     },
     "review": {
       "status": "pending"
@@ -254,12 +254,12 @@
       "ar": "نظرية السينما والسرد"
     },
     "question": {
-      "en": "What is a 'MacGuffin' in cinema?",
-      "ar": "ما هو الـ 'ماكغافن' (MacGuffin) في السينما؟"
+      "en": "In storytelling, what is a MacGuffin?",
+      "ar": "ما المقصود بعنصر «ماكغافن» في السرد السينمائي؟"
     },
     "answer": {
-      "en": "MacGuffin",
-      "ar": "ماكغافن"
+      "en": "An object or goal that drives the characters' pursuit, while its particular nature may matter little to the audience",
+      "ar": "شيء أو هدف يدفع الشخصيات إلى السعي وراءه، بينما قد لا تكون طبيعته المحددة مهمة للمشاهد"
     },
     "review": {
       "status": "pending"
@@ -425,12 +425,12 @@
       "ar": "تاريخ السينما ومحطاتها"
     },
     "question": {
-      "en": "What was the 'Hays Code'?",
-      "ar": "ما هو 'قانون هايز'؟"
+      "en": "What was the Hollywood Production Code, commonly called the Hays Code?",
+      "ar": "ما مدونة الإنتاج الهوليوودية المعروفة باسم مدونة هايز؟"
     },
     "answer": {
-      "en": "A set of moral guidelines for Hollywood films (1934-1968)",
-      "ar": "مجموعة من المبادئ الأخلاقية لأفلام هوليوود (1934-1968)"
+      "en": "An industry code governing film content, adopted in 1930 and strictly enforced from 1934",
+      "ar": "مدونة مهنية لضبط محتوى الأفلام، اعتُمدت عام 1930 وبدأ تطبيقها الصارم عام 1934"
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "التصوير السينمائي والكاميرا"
     },
     "question": {
-      "en": "What is the 'Rule of Thirds' in cinematography?",
-      "ar": "ما هي 'قاعدة الأثلاث' في التصوير السينمائي؟"
+      "en": "How is a frame divided when using the rule of thirds in cinematography?",
+      "ar": "كيف يُقسّم الإطار عند تطبيق قاعدة الأثلاث في التصوير السينمائي؟"
     },
     "answer": {
-      "en": "A composition rule where the frame is divided into a grid to place subjects",
-      "ar": "قاعدة تكوين يتم فيها تقسيم الإطار إلى شبكة لوضع العناصر"
+      "en": "Into a three-by-three grid, with important elements near the lines or their intersections",
+      "ar": "إلى شبكة من تسعة أجزاء، مع وضع العناصر المهمة قرب خطوط التقسيم أو تقاطعاتها"
     },
     "review": {
       "status": "pending"
@@ -501,12 +501,12 @@
       "ar": "الجوائز والمهرجانات والصناعة"
     },
     "question": {
-      "en": "Who won the first ever Academy Award for Best Director?",
-      "ar": "من فاز بأول جائزة أوسكار لأفضل مخرج على الإطلاق؟"
+      "en": "Who won the two directing awards at the first Academy Awards: Dramatic Picture and Comedy Picture?",
+      "ar": "من فازا بجائزتي الإخراج في أول حفل أوسكار: الفيلم الدرامي والفيلم الكوميدي؟"
     },
     "answer": {
-      "en": "Frank Borzage and Lewis Milestone",
-      "ar": "فرانك بورزيج ولويس مايلستون"
+      "en": "Frank Borzage for Dramatic Picture and Lewis Milestone for Comedy Picture",
+      "ar": "فرانك بورزيج للفيلم الدرامي ولويس مايلستون للفيلم الكوميدي"
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
       "ar": "التصوير السينمائي والكاميرا"
     },
     "question": {
-      "en": "What is the 'Aspect Ratio' of a standard modern wide-screen cinema film?",
-      "ar": "ما هي 'نسبة العرض إلى الارتفاع' (Aspect Ratio) لفيلم سينمائي حديث قياسي بشاشة عريضة؟"
+      "en": "What aspect ratio is commonly used for modern anamorphic theatrical releases?",
+      "ar": "ما نسبة العرض إلى الارتفاع الشائعة في العروض السينمائية الحديثة بتقنية الأنمورفيك؟"
     },
     "answer": {
-      "en": "2.39:1 (Panavision)",
-      "ar": "2.39:1 (بانافيجن)"
+      "en": "Approximately 2.39:1",
+      "ar": "نحو 2.39:1"
     },
     "review": {
       "status": "pending"
@@ -590,18 +590,18 @@
   },
   {
     "id": "cin-32",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Filmmakers & Performers",
       "ar": "صنّاع الأفلام والممثلون"
     },
     "question": {
-      "en": "Who is the only person to win an Oscar for acting in a foreign language film before the 2000s?",
-      "ar": "من هو الشخص الوحيد الذي فاز بالأوسكار عن التمثيل في فيلم بلغة أجنبية قبل عام 2000؟"
+      "en": "Who won the Best Actress Oscar for Two Women at the 1962 Academy Awards?",
+      "ar": "من فازت بأوسكار أفضل ممثلة عن فيلم امرأتان في حفل عام 1962؟"
     },
     "answer": {
-      "en": "Sophia Loren and Roberto Benigni",
-      "ar": "صوفيا لورين وروبرتو بينيني"
+      "en": "Sophia Loren",
+      "ar": "صوفيا لورين"
     },
     "review": {
       "status": "pending"
@@ -756,18 +756,18 @@
   },
   {
     "id": "cin-40",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cinematography & Camera",
       "ar": "التصوير السينمائي والكاميرا"
     },
     "question": {
-      "en": "What is the term for the specific light used to eliminate shadows created by the key light?",
-      "ar": "ما هو المصطلح الذي يطلق على الضوء المحدد المستخدم للتخلص من الظلال الناتجة عن الضوء الرئيسي؟"
+      "en": "Which light is used to soften shadows created by the key light?",
+      "ar": "ما الضوء الذي يُستخدم لتخفيف الظلال التي يُحدثها الضوء الرئيسي؟"
     },
     "answer": {
-      "en": "Fill Light",
-      "ar": "ضوء التعبئة (Fill Light)"
+      "en": "Fill light",
+      "ar": "ضوء الملء"
     },
     "review": {
       "status": "pending"

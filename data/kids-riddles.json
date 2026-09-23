@@ -26,12 +26,12 @@
       "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
     },
     "question": {
-      "en": "What is orange and sounds like a parrot?",
-      "ar": "ما الذي يكون برتقالياً ويشبه صوته صوت الببغاء؟"
+      "en": "I am orange, grow underground, and rabbits often eat me. What am I?",
+      "ar": "أنا برتقالي اللون، أنمو تحت الأرض، وكثيرًا ما تأكلني الأرانب. ما أنا؟"
     },
     "answer": {
       "en": "A carrot",
-      "ar": "الجزرة"
+      "ar": "جزرة"
     },
     "review": {
       "status": "pending"
@@ -45,12 +45,12 @@
       "ar": "الفن والورق والأدوات المدرسية"
     },
     "question": {
-      "en": "I begin as a flat square. With careful folds, I can become a crane without growing feathers. What am I?",
-      "ar": "أبدأ مربعاً مسطّحاً، وبطيّات دقيقة أتحول إلى طائر كركي من دون أن ينبت لي ريش. ما أنا؟"
+      "en": "Which craft turns a sheet of paper into shapes such as birds by folding it?",
+      "ar": "ما الفن الذي يحوّل ورقة إلى أشكال، مثل الطيور، بطيّها؟"
     },
     "answer": {
-      "en": "A sheet of origami paper",
-      "ar": "ورقة أوريغامي"
+      "en": "Origami, the art of paper folding.",
+      "ar": "الأوريغامي، أو فن طي الورق."
     },
     "review": {
       "status": "pending"
@@ -121,8 +121,8 @@
       "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
     },
     "question": {
-      "en": "I follow you all day long, but when the sun goes down, I'm gone. What am I?",
-      "ar": "أتبعك طوال النهار، لكن حين تغرب الشمس أختفي. ما أنا؟"
+      "en": "Sunlight makes my outline appear on the ground beside you. I move when you move, but disappear when that sunlight is blocked. What am I?",
+      "ar": "يرسم ضوء الشمس شكلي على الأرض بجانبك. أتحرك معك، وأختفي عندما يُحجب ضوء الشمس الذي يصنعني. ما أنا؟"
     },
     "answer": {
       "en": "A shadow",
@@ -362,18 +362,18 @@
   },
   {
     "id": "kids-riddles-020",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Logic, Codes & Patterns",
       "ar": "المنطق والشفرات والأنماط"
     },
     "question": {
-      "en": "I am a battlefield with 64 equal squares and two armies that begin in opposite rows. What am I?",
-      "ar": "أنا ساحة معركة فيها 64 مربعاً متساوياً وجيشان يبدآن في صفين متقابلين. ما أنا؟"
+      "en": "I have 64 alternating light and dark squares. Two sets of chess pieces start on opposite sides of me. What am I?",
+      "ar": "لديّ 64 مربعًا تتناوب بين الفاتح والداكن. تبدأ مجموعتا قطع الشطرنج على جانبين متقابلين مني. ما أنا؟"
     },
     "answer": {
       "en": "A chessboard",
-      "ar": "رقعة الشطرنج"
+      "ar": "رقعة شطرنج"
     },
     "review": {
       "status": "pending"
@@ -552,18 +552,18 @@
   },
   {
     "id": "kids-riddles-030",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Wordplay & Classic Riddles",
       "ar": "التلاعب بالكلمات والألغاز الكلاسيكية"
     },
     "question": {
-      "en": "What can you catch but not throw?",
-      "ar": "ما الذي يمكنك الإمساك به لكن لا يمكنك رميه؟"
+      "en": "I have a round face and two moving pointers. I hang on a wall and help you know when school starts. What am I?",
+      "ar": "لي وجه دائري وعقربان يتحركان. أُعلَّق على الحائط وأساعدك على معرفة موعد بدء المدرسة. ما أنا؟"
     },
     "answer": {
-      "en": "A cold",
-      "ar": "الزكام"
+      "en": "An analog wall clock",
+      "ar": "ساعة حائط بعقارب"
     },
     "review": {
       "status": "pending"

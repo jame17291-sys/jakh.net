@@ -3,1150 +3,1280 @@
     "id": "relationship-questions-001",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What percentage of human communication is estimated to be nonverbal (body language, tone, etc.)?",
-      "ar": "ما النسبة المقدّرة من التواصل البشري التي تكون غير لفظية (لغة الجسد، النبرة، وما إلى ذلك)؟"
+      "en": "Your friend says they had a difficult day. Which response invites them to explain without guessing the cause? A: “Would you like to tell me what happened?” B: “Your manager must have upset you again.”",
+      "ar": "يقول صديقك إن يومه كان صعبًا. أيّ رد يدعوه إلى الشرح دون افتراض السبب؟ A: «هل ترغب في إخباري بما حدث؟» B: «لا بد أن مديرك أزعجك مجددًا.»"
     },
     "answer": {
-      "en": "Research suggests over 70% of communication is nonverbal, including body language, facial expressions, and tone of voice.",
-      "ar": "تشير الأبحاث إلى أن أكثر من 70٪ من التواصل غير لفظي، ويشمل لغة الجسد وتعابير الوجه ونبرة الصوت."
+      "en": "A — It asks for their account instead of assuming an explanation.",
+      "ar": "A — يسأل عن تجربته بدل افتراض تفسير لها."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-002",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "According to Sternberg's Triangular Theory of Love, what are the three components of love?",
-      "ar": "وفقاً لنظرية المثلث للحب لستيرنبرغ، ما المكونات الثلاثة للحب؟"
+      "en": "Which response checks that you understood a friend’s message? A: “I know exactly what you mean; no need to explain.” B: “It sounds like the changed plan bothered you. Did I understand correctly?”",
+      "ar": "أيّ رد يتحقق من فهمك لرسالة صديق؟ A: «أعرف تمامًا ما تقصده؛ لا داعي للشرح.» B: «يبدو أن تغيير الخطة أزعجك. هل فهمت بصورة صحيحة؟»"
     },
     "answer": {
-      "en": "Intimacy, passion, and commitment.",
-      "ar": "الحميمية، والشغف، والالتزام."
+      "en": "B — It offers a summary and invites correction.",
+      "ar": "B — يقدم تلخيصًا ويسمح بتصحيحه."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-003",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What is 'active listening'?",
-      "ar": "ما 'الاستماع الفعّال'؟"
+      "en": "Which sentence names a specific behavior instead of judging someone’s whole character? A: “You arrived 20 minutes after our agreed time.” B: “You are always selfish.”",
+      "ar": "أيّ جملة تصف سلوكًا محددًا بدل الحكم على شخصية الشخص كلها؟ A: «وصلت بعد الموعد المتفق عليه بعشرين دقيقة.» B: «أنت أناني دائمًا.»"
     },
     "answer": {
-      "en": "Fully concentrating on what the other person is saying, understanding their message, responding thoughtfully, and remembering what was said — rather than passively hearing words.",
-      "ar": "التركيز الكامل على ما يقوله الشخص الآخر، وفهم رسالته، والرد بتأمل، وتذكر ما قيل — بدلاً من مجرد سماع الكلمات سلبياً."
+      "en": "A — It describes an observable event without a global label.",
+      "ar": "A — تصف حدثًا يمكن ملاحظته دون إطلاق وصف شامل."
     },
     "acceptedAnswers": {
       "en": [
-        "Concentrating, understanding, responding thoughtfully, and remembering—not merely hearing.",
-        "Attentive listening that understands, responds to, and remembers the speaker's message."
+        "A"
       ],
       "ar": [
-        "التركيز الكامل والفهم والرد المتأني والتذكر بدلاً من مجرد السماع.",
-        "إنصات منتبه يفهم رسالة المتحدث ويستجيب لها ويتذكرها."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-004",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What is the 'silent treatment' and why do psychologists consider it harmful in relationships?",
-      "ar": "ما 'المعاملة الصامتة' ولماذا يعتبرها علماء النفس ضارة في العلاقات؟"
+      "en": "Which reply asks whether a friend wants advice before giving it? A: “Would you prefer that I listen, or would ideas be useful?” B: “Here is what you must do.”",
+      "ar": "أيّ رد يسأل الصديق هل يريد نصيحة قبل تقديمها؟ A: «هل تفضل أن أستمع، أم تفيدك بعض الأفكار؟» B: «إليك ما يجب عليك فعله.»"
     },
     "answer": {
-      "en": "Deliberately ignoring or refusing to communicate with a partner as a form of punishment. It is harmful because it blocks resolution, creates emotional distance, and is a form of emotional manipulation.",
-      "ar": "تجاهل الشريك عمداً أو رفض التواصل معه كشكل من أشكال العقاب. وهو ضار لأنه يعيق الحل ويخلق مسافة عاطفية وهو شكل من أشكال التلاعب العاطفي."
+      "en": "A — It lets the friend state what kind of support they want.",
+      "ar": "A — يسمح للصديق بتحديد نوع الدعم الذي يريده."
     },
     "acceptedAnswers": {
       "en": [
-        "Punitive communication refusal; it blocks resolution, creates distance, and emotionally manipulates.",
-        "Ignoring a partner as punishment blocks resolution, creates distance, and manipulates emotionally."
+        "A"
       ],
       "ar": [
-        "رفض التواصل عقاباً؛ يعيق الحل ويخلق مسافة عاطفية ويتلاعب بالمشاعر.",
-        "تجاهل الشريك لمعاقبته، مما يمنع الحل ويصنع بعداً عاطفياً تلاعبياً."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-005",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What are John Gottman's 'Four Horsemen' — the four negative communication patterns that predict relationship breakdown?",
-      "ar": "ما 'الفرسان الأربعة' لجون غوتمان — الأنماط التواصلية السلبية الأربعة التي تتنبأ بانهيار العلاقة؟"
+      "en": "You want to discuss an important issue. Which opener checks timing? A: “We are discussing this now, whatever you are doing.” B: “Is now a good time to talk for ten minutes?”",
+      "ar": "تريد مناقشة مسألة مهمة. أيّ بداية تتحقق من ملاءمة الوقت؟ A: «سنناقش هذا الآن مهما كنت تفعل.» B: «هل يناسبك أن نتحدث عشر دقائق الآن؟»"
     },
     "answer": {
-      "en": "Criticism, contempt, defensiveness, and stonewalling.",
-      "ar": "النقد، والاحتقار، والتحفظ الدفاعي، والتجمّد (رفض التواصل)."
+      "en": "B — It asks whether the other person is available.",
+      "ar": "B — تسأل عن تفرغ الشخص الآخر."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-006",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What is empathy and how does it differ from sympathy?",
-      "ar": "ما التعاطف وكيف يختلف عن المشاركة الوجدانية؟"
+      "en": "Which sentence expresses a feeling and a specific request without calling the other person a name? A: “You are inconsiderate and never think.” B: “I felt worried when the plan changed. Could you message me next time?”",
+      "ar": "أيّ جملة تعبّر عن شعور وطلب محدد دون إهانة الشخص الآخر؟ A: «أنت عديم المراعاة ولا تفكر أبدًا.» B: «شعرت بالقلق عندما تغيرت الخطة. هل يمكنك مراسلتي في المرة القادمة؟»"
     },
     "answer": {
-      "en": "Empathy is feeling with someone — stepping into their emotional experience. Sympathy is feeling for someone from a distance, acknowledging their feelings without sharing them.",
-      "ar": "التعاطف هو الشعور مع شخص ما — الدخول في تجربته العاطفية. المشاركة الوجدانية هي الشعور تجاه شخص ما من مسافة، مع الإقرار بمشاعره دون مشاركتها."
+      "en": "B — It links a feeling to an event and asks for a concrete action.",
+      "ar": "B — تربط الشعور بحدث وتطلب تصرفًا محددًا."
     },
     "acceptedAnswers": {
       "en": [
-        "Empathy shares another's feelings; sympathy acknowledges them without sharing them.",
-        "Empathy enters another's experience; sympathy cares from outside without sharing it."
+        "B"
       ],
       "ar": [
-        "التعاطف مشاركة تجربة الآخر؛ المشاركة الوجدانية إقرار بمشاعره دون مشاركتها.",
-        "التعاطف يدخل تجربة الآخر؛ المشاركة الوجدانية تهتم من الخارج دون مشاركتها."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-007",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What does it mean to use 'I statements' in a conflict?",
-      "ar": "ماذا يعني استخدام 'جمل الأنا' في النزاع؟"
+      "en": "Your friend is speaking and you disagree. Which response lets them finish before you give your view? A: “Please finish your thought; then I would like to explain my view.” B: “Stop. I already know what you are going to say.”",
+      "ar": "يتحدث صديقك وأنت تختلف معه. أيّ رد يترك له فرصة الإكمال قبل عرض رأيك؟ A: «أكمل فكرتك، ثم أود أن أوضح وجهة نظري.» B: «توقف؛ أعرف مسبقًا ما ستقوله.»"
     },
     "answer": {
-      "en": "Expressing feelings from your own perspective ('I feel hurt when...') rather than blaming the other person ('You always...'). It reduces defensiveness and opens dialogue.",
-      "ar": "التعبير عن المشاعر من منظورك الخاص ('أشعر بالأذى عندما...') بدلاً من إلقاء اللوم على الآخر ('أنت دائماً...'). يُقلل هذا من الدفاعية ويفتح الحوار."
+      "en": "A — It preserves a turn for each person.",
+      "ar": "A — يحافظ على دور لكل شخص في الحديث."
     },
     "acceptedAnswers": {
       "en": [
-        "Express your own feelings and perspective without blaming the other person.",
-        "State how you feel from your perspective instead of accusing your partner."
+        "A"
       ],
       "ar": [
-        "التعبير عن مشاعرك ومنظورك دون لوم الشخص الآخر.",
-        "اذكر شعورك من منظورك بدلاً من اتهام شريكك."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-008",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What are Gary Chapman's 'Five Love Languages'?",
-      "ar": "ما 'لغات الحب الخمس' لغاري تشابمان؟"
+      "en": "A short message seems rude to you. Which response checks intent rather than assuming it? A: “You wrote “fine” because you wanted to insult me.” B: “When you wrote “fine,” did you mean the plan works for you?”",
+      "ar": "تبدو لك رسالة قصيرة فظة. أيّ رد يتحقق من المقصود بدل افتراضه؟ A: «كتبت «حسنًا» لأنك أردت إهانتي.» B: «عندما كتبت «حسنًا»، هل قصدت أن الخطة تناسبك؟»"
     },
     "answer": {
-      "en": "Words of Affirmation, Acts of Service, Receiving Gifts, Quality Time, and Physical Touch.",
-      "ar": "كلمات الإثبات، وأفعال الخدمة، واستقبال الهدايا، والوقت المميّز، واللمس الجسدي."
+      "en": "B — It treats the interpretation as a question, not a fact.",
+      "ar": "B — يعامل التفسير سؤالًا لا حقيقة محسومة."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-009",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What is 'gaslighting' in the context of relationships?",
-      "ar": "ما 'الغسيل الذهني' (Gaslighting) في سياق العلاقات؟"
+      "en": "Which response acknowledges a feeling without necessarily agreeing with the person’s interpretation of events? A: “If I disagree with your explanation, your feelings cannot be real.” B: “I can hear that you felt left out; tell me more.”",
+      "ar": "أيّ رد يعترف بالشعور دون أن يوافق بالضرورة على تفسير الشخص للأحداث؟ A: «إذا اختلفت مع تفسيرك فلا يمكن أن تكون مشاعرك حقيقية.» B: «أفهم من كلامك أنك شعرت بالاستبعاد؛ أخبرني أكثر.»"
     },
     "answer": {
-      "en": "A form of psychological manipulation where one person causes another to question their own memory, perception, or sanity — e.g., denying events that occurred or telling the victim they are 'overreacting'.",
-      "ar": "شكل من أشكال التلاعب النفسي حيث يجعل أحد الشخصين الآخرَ يشكك في ذاكرته أو إدراكه أو عقله — كإنكار أحداث وقعت أو إخبار الضحية بأنها 'مبالغة في ردة فعلها'."
+      "en": "B — Acknowledging a reported feeling is different from endorsing every factual claim.",
+      "ar": "B — الاعتراف بالشعور المعبّر عنه يختلف عن تأييد كل ادعاء واقعي."
     },
     "acceptedAnswers": {
       "en": [
-        "Manipulation that makes someone doubt their memory, perception, or sanity.",
-        "Denying reality to make a partner question their memory, perception, or sanity."
+        "B"
       ],
       "ar": [
-        "تلاعب يجعل الشخص يشك في ذاكرته أو إدراكه أو عقله.",
-        "إنكار الواقع لدفع الشريك إلى الشك في ذاكرته وإدراكه وعقله."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-010",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What is the 'sandwich' feedback method?",
-      "ar": "ما أسلوب التغذية الراجعة 'الساندويش'؟"
+      "en": "Which request is more concrete and observable? A: “Please put the shared keys on the hook after using them.” B: “Be a better person around the house.”",
+      "ar": "أيّ طلب أكثر تحديدًا وقابلية للملاحظة؟ A: «ضع المفاتيح المشتركة على العلاقة بعد استخدامها من فضلك.» B: «كن شخصًا أفضل في المنزل.»"
     },
     "answer": {
-      "en": "Delivering criticism between two positive statements: start with a compliment, deliver the criticism, end with encouragement. It softens the impact of negative feedback.",
-      "ar": "تقديم النقد بين عبارتين إيجابيتين: ابدأ بمجاملة، ثم قدّم النقد، ثم اختم بالتشجيع. يُخفف هذا من وقع التغذية الراجعة السلبية."
+      "en": "A — It names a specific action and when to do it.",
+      "ar": "A — يحدد تصرفًا بعينه ومتى يُنفَّذ."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-011",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What is the 'proximity effect' (mere exposure effect) in attraction?",
-      "ar": "ما 'أثر القرب' (أثر التعرض المجرد) في الجاذبية؟"
+      "en": "You remember an agreement differently. Which reply separates your memory from certainty? A: “I remember Tuesday, but I may be mistaken. Can we check the message?” B: “My memory is perfect, so you must be lying.”",
+      "ar": "تتذكر اتفاقًا بصورة مختلفة. أيّ رد يميز ذاكرتك عن اليقين؟ A: «أتذكر الثلاثاء، لكن قد أكون مخطئًا. هل نراجع الرسالة؟» B: «ذاكرتي كاملة، إذن لا بد أنك تكذب.»"
     },
     "answer": {
-      "en": "People tend to develop positive feelings toward things or people they are repeatedly exposed to simply due to familiarity — one reason relationships often form between neighbours or coworkers.",
-      "ar": "يميل الناس إلى تطوير مشاعر إيجابية تجاه الأشياء أو الأشخاص الذين يتعرضون لهم مراراً بسبب الألفة فحسب — وهو أحد أسباب تكوّن العلاقات بين الجيران أو زملاء العمل."
+      "en": "A — It allows error and proposes checking shared evidence.",
+      "ar": "A — يقبل احتمال الخطأ ويقترح مراجعة دليل مشترك."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-012",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Communication & Listening",
+      "ar": "التواصل والاستماع"
     },
     "question": {
-      "en": "What does 'codependency' mean in a relationship?",
-      "ar": "ماذا تعني 'الاعتمادية المتبادلة' في العلاقة؟"
+      "en": "Which question is open-ended rather than answerable only with yes or no? A: “Do you want to change the plan?” B: “What part of the plan would you like to change?”",
+      "ar": "أيّ سؤال مفتوح بدلًا من الاقتصار على نعم أو لا؟ A: «هل تريد تغيير الخطة؟» B: «أيّ جزء من الخطة ترغب في تغييره؟»"
     },
     "answer": {
-      "en": "A pattern where one person excessively relies on the other for emotional validation and identity, often enabling unhealthy behaviours. One partner's needs consistently come before their own well-being.",
-      "ar": "نمط يعتمد فيه أحد الشريكين بشكل مفرط على الآخر للتحقق العاطفي وبناء الهوية، وكثيراً ما يُمكّن سلوكيات غير صحية. تُقدَّم احتياجات أحد الشريكين دائماً على حساب رفاهيته الذاتية."
+      "en": "B — It asks for details, not just confirmation.",
+      "ar": "B — يطلب تفاصيل لا مجرد تأكيد."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-013",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'reflective listening'?",
-      "ar": "ما 'الاستماع الانعكاسي'؟"
+      "en": "You are unavailable after 9 p.m. Which statement describes your own availability rather than controlling the other person’s whole evening? A: “You are not allowed to talk to anyone after 9 p.m.” B: “I will respond to non-urgent messages in the morning.”",
+      "ar": "أنت غير متاح بعد التاسعة مساءً. أيّ عبارة تصف تفرغك بدل التحكم في مساء الشخص الآخر كله؟ A: «لا يُسمح لك بالتحدث مع أيّ شخص بعد التاسعة.» B: «سأرد على الرسائل غير العاجلة صباحًا.»"
     },
     "answer": {
-      "en": "Paraphrasing or summarising what the other person said to confirm understanding — e.g., 'So what you're saying is...' It shows the speaker they have been heard correctly.",
-      "ar": "إعادة صياغة أو تلخيص ما قاله الشخص الآخر للتأكد من الفهم — مثلاً: 'إذن ما تقوله هو...' يُظهر هذا للمتحدث أنه فُهم بشكل صحيح."
+      "en": "B — It states what you will do rather than imposing unrelated control.",
+      "ar": "B — توضح ما ستفعله أنت بدل فرض سيطرة لا تتعلق بتفرغك."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-014",
     "difficulty": "easy",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'attachment theory' in developmental psychology?",
-      "ar": "ما 'نظرية التعلق' في علم النفس التنموي؟"
+      "en": "A friend declines an invitation. Which reply accepts the refusal without pressure? A: “Thanks for letting me know. Perhaps another time.” B: “If you cared about me, you would come.”",
+      "ar": "يرفض صديق دعوة. أيّ رد يقبل الرفض دون ضغط؟ A: «شكرًا لإخباري؛ ربما في وقت آخر.» B: «لو كنت تهتم بي لأتيت.»"
     },
     "answer": {
-      "en": "John Bowlby's theory that early bonds with caregivers shape a child's emotional development and become a template for future relationships. Secure attachment with responsive caregivers leads to healthier adult relationships.",
-      "ar": "نظرية جون بولبي بأن الروابط المبكرة مع مقدمي الرعاية تُشكّل النمو العاطفي للطفل وتُصبح نموذجاً للعلاقات المستقبلية. يؤدي التعلق الآمن مع مقدمي رعاية متجاوبين إلى علاقات أكثر صحة في مرحلة البلوغ."
+      "en": "A — It does not make affection conditional on accepting the invitation.",
+      "ar": "A — لا يجعل الاهتمام مشروطًا بقبول الدعوة."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-015",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What are the four adult attachment styles identified in research by Hazan and Shaver, and how do they manifest?",
-      "ar": "ما أنماط التعلق الأربعة لدى البالغين التي حددها هازان وشيفر، وكيف تتجلى؟"
+      "en": "Before posting a photograph that clearly shows your friend, which action seeks their permission? A: “Assume that posing for the photo permits every future use.” B: “Ask whether they are comfortable with that photo being posted.”",
+      "ar": "قبل نشر صورة يظهر فيها صديقك بوضوح، أيّ تصرف يطلب إذنه؟ A: «افترض أن الوقوف للصورة يسمح بكل استخدام لاحق لها.» B: «اسأله هل يرتاح لنشر هذه الصورة.»"
     },
     "answer": {
-      "en": "Secure (comfortable with intimacy), Anxious-Preoccupied (craves closeness, fears abandonment), Dismissive-Avoidant (values independence, suppresses intimacy), and Fearful-Avoidant (desires intimacy but fears it). Early caregiver relationships shape these styles.",
-      "ar": "الآمن (مرتاح مع الحميمية)، والقلق-المهموم (يتوق للقرب ويخاف الهجر)، والمتجنب-الرافض (يُقدّر الاستقلالية ويكبت الحميمية)، والخائف-المتجنب (يرغب في الحميمية لكن يخشاها). تُشكّل العلاقات المبكرة مع مقدمي الرعاية هذه الأنماط."
+      "en": "B — Being photographed and agreeing to publication are separate choices.",
+      "ar": "B — التصوير والموافقة على النشر خياران منفصلان."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-016",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'flooding' in the context of couples conflict, and how does Gottman recommend dealing with it?",
-      "ar": "ما 'الفيضان العاطفي' في سياق نزاعات الأزواج، وكيف يوصي غوتمان بالتعامل معه؟"
+      "en": "Which reply clearly declines a request without inventing an excuse? A: “Maybe, I suppose, although I know I will not do it.” B: “I cannot take that on this week.”",
+      "ar": "أيّ رد يرفض طلبًا بوضوح دون اختلاق عذر؟ A: «ربما، أظن ذلك، مع أنني أعلم أنني لن أفعله.» B: «لا أستطيع تولّي ذلك هذا الأسبوع.»"
     },
     "answer": {
-      "en": "Flooding is physiological overwhelm during conflict (heart rate spikes above 100 bpm) that impairs rational thinking. Gottman recommends calling a time-out of at least 20 minutes to allow the nervous system to calm before continuing the discussion.",
-      "ar": "الفيضان هو الإرهاق الفسيولوجي أثناء النزاع (ارتفاع معدل ضربات القلب فوق 100 نبضة/دقيقة) مما يُضعف التفكير المنطقي. يوصي غوتمان بأخذ استراحة لا تقل عن 20 دقيقة للسماح للجهاز العصبي بالهدوء قبل الاستمرار في النقاش."
+      "en": "B — It communicates the decision directly.",
+      "ar": "B — يعبّر عن القرار مباشرة."
     },
     "acceptedAnswers": {
       "en": [
-        "Flooding is physiological overwhelm during conflict; take at least a 20-minute calming break.",
-        "Conflict-induced physiological overwhelm requiring a calming break of at least 20 minutes."
+        "B"
       ],
       "ar": [
-        "الفيضان إرهاق فسيولوجي أثناء النزاع؛ خذ استراحة تهدئة لا تقل عن 20 دقيقة.",
-        "إرهاق فسيولوجي يسببه النزاع ويستلزم استراحة هادئة لمدة 20 دقيقة على الأقل."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-017",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'limerence' and how does it differ from mature love?",
-      "ar": "ما 'اللايميرنس' (الهيام الانتيابي) وكيف يختلف عن الحب الناضج؟"
+      "en": "A friend wants to borrow an item you do not lend out. Which reply states the boundary without attacking them? A: “I do not lend this item, but I can help you find another option.” B: “Only an irresponsible person would ask.”",
+      "ar": "يريد صديق استعارة غرض لا تعيره لأحد. أيّ رد يوضح الحد دون مهاجمته؟ A: «لا أعير هذا الغرض، لكن يمكنني مساعدتك في إيجاد بديل.» B: «لا يطلب ذلك إلا شخص غير مسؤول.»"
     },
     "answer": {
-      "en": "Limerence (coined by Dorothy Tennov) is an intense, involuntary state of infatuation with intrusive thoughts and a desperate need for reciprocation. It's driven by neurochemicals (dopamine, norepinephrine) and typically peaks in 18–36 months. Mature love involves deeper commitment, care, and acceptance beyond the obsessive phase.",
-      "ar": "اللايميرنس (ابتكرت المصطلح دوروثي تينوف) هو حالة شغف مكثف وقسري مصحوب بأفكار تسلطية وحاجة يائسة للتبادل. تحرّكه المواد العصبية الكيميائية (الدوبامين، النورإبينفرين) وعادة ما يبلغ ذروته في 18-36 شهراً. أما الحب الناضج فينطوي على التزام أعمق ورعاية وقبول يتجاوز مرحلة الهوس."
+      "en": "A — It states the rule without judging the friend’s character.",
+      "ar": "A — يوضح القاعدة دون الحكم على شخصية الصديق."
     },
     "acceptedAnswers": {
       "en": [
-        "Limerence is obsessive involuntary infatuation; mature love is commitment, care, and acceptance.",
-        "Limerence seeks obsessive reciprocation; mature love rests on commitment, care, and acceptance."
+        "A"
       ],
       "ar": [
-        "الهيام الانتيابي شغف قسري هوسي يطلب التبادل؛ الحب الناضج التزام ورعاية وقبول.",
-        "الهيام يطلب تبادلاً هوسياً؛ الحب الناضج يقوم على الالتزام والرعاية والقبول."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-018",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is the 'demand-withdrawal' pattern in couple conflict and why is it damaging?",
-      "ar": "ما نمط 'الطلب والانسحاب' في صراعات الأزواج ولماذا هو مضر؟"
+      "en": "Someone previously agreed to a social activity but now says they no longer want to take part. Which reply acknowledges the changed choice? A: “Your earlier yes means you can never change your mind.” B: “I understand that you have changed your mind; let us discuss any practical arrangements.”",
+      "ar": "وافق شخص سابقًا على نشاط اجتماعي لكنه يقول الآن إنه لا يريد المشاركة. أيّ رد يعترف بتغيّر اختياره؟ A: «موافقتك السابقة تعني أنك لا تستطيع تغيير رأيك أبدًا.» B: «أفهم أنك غيّرت رأيك؛ لنتحدث عن الترتيبات العملية إن وجدت.»"
     },
     "answer": {
-      "en": "One partner pushes for discussion while the other withdraws; this creates a cycle of escalating pursuit and avoidance. Research links it to lower relationship satisfaction and higher rates of separation, because core issues never get resolved.",
-      "ar": "يضغط أحد الشريكين للمناقشة بينما ينسحب الآخر؛ ما يخلق دورة من التصعيد والتجنب. تربطه الأبحاث بانخفاض الرضا عن العلاقة وارتفاع معدلات الانفصال لأن المشكلات الجوهرية لا تُحل أبداً."
+      "en": "B — It acknowledges the present choice without ignoring practical consequences.",
+      "ar": "B — يعترف بالاختيار الحالي دون تجاهل التبعات العملية."
     },
     "acceptedAnswers": {
       "en": [
-        "One partner pursues while the other withdraws, escalating avoidance and leaving issues unresolved.",
-        "Pursuit meets withdrawal, intensifying conflict and preventing core problems from being resolved."
+        "B"
       ],
       "ar": [
-        "يطالب شريك بالنقاش وينسحب الآخر، فيتصاعد التجنب وتبقى المشكلات بلا حل.",
-        "يقابل الإلحاح انسحاب، فيشتد الصراع ولا تُحل المشكلات الأساسية."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-019",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'nonviolent communication' (NVC) as developed by Marshall Rosenberg?",
-      "ar": "ما 'التواصل اللاعنفي' كما طوّره مارشال روزنبرغ؟"
+      "en": "You need quiet time after work. Which request gives a clear time boundary? A: “Could I have 20 minutes alone, then we can talk at 7?” B: “Go away until I feel different, whenever that is.”",
+      "ar": "تحتاج وقتًا هادئًا بعد العمل. أيّ طلب يحدد مدة واضحة؟ A: «هل يمكن أن أبقى وحدي عشرين دقيقة ثم نتحدث عند السابعة؟» B: «ابتعد حتى يتغير شعوري، مهما طال ذلك.»"
     },
     "answer": {
-      "en": "A communication framework with four components: Observations (stating facts without evaluation), Feelings (naming emotions), Needs (identifying underlying needs), and Requests (making clear, doable requests). It aims to foster empathy and resolve conflict without blame.",
-      "ar": "إطار تواصلي بأربعة مكونات: الملاحظات (ذكر الوقائع دون تقييم)، والمشاعر (تسمية العواطف)، والاحتياجات (تحديد الاحتياجات الكامنة)، والطلبات (تقديم طلبات واضحة قابلة للتنفيذ). يهدف إلى تعزيز التعاطف وحل النزاع دون لوم."
+      "en": "A — It names a duration and a proposed time to reconnect.",
+      "ar": "A — يحدد مدة ووقتًا مقترحًا لاستئناف التواصل."
     },
     "acceptedAnswers": {
       "en": [
-        "Communication without blame through observations, feelings, needs, and clear doable requests.",
-        "Observation, feeling, need, and actionable request—a four-part framework for blame-free conflict."
+        "A"
       ],
       "ar": [
-        "تواصل بلا لوم عبر الملاحظات والمشاعر والاحتياجات والطلبات الواضحة القابلة للتنفيذ.",
-        "الملاحظة والشعور والحاجة والطلب القابل للتنفيذ؛ إطار لحل النزاع بلا لوم."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-020",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What does research say about the relationship between self-disclosure and relationship closeness?",
-      "ar": "ماذا تقول الأبحاث عن العلاقة بين الإفصاح الذاتي وقرب العلاقة؟"
+      "en": "Your friend says a joke about them is unwelcome. Which reply responds to the stated limit rather than debating their right to have it? A: “You must learn to enjoy it because I find it funny.” B: “I hear you. I will stop making that joke about you.”",
+      "ar": "يقول صديق إن مزحة عنه غير مرغوبة. أيّ رد يستجيب للحد الذي أوضحه بدل مجادلة حقه فيه؟ A: «يجب أن تتعلم الاستمتاع بها لأنني أجدها مضحكة.» B: «سمعت ما قلت؛ سأتوقف عن هذه المزحة عنك.»"
     },
     "answer": {
-      "en": "Progressive self-disclosure — sharing increasingly personal information over time — builds intimacy and trust (Social Penetration Theory, Altman & Taylor). Reciprocal disclosure accelerates closeness, and one-sided disclosure without reciprocation can feel intrusive or destabilising.",
-      "ar": "الإفصاح الذاتي التدريجي — مشاركة معلومات شخصية متصاعدة بمرور الوقت — يبني الحميمية والثقة (نظرية الاختراق الاجتماعي، ألتمان وتايلور). الإفصاح المتبادل يُسرّع القرب، والإفصاح الأحادي دون تبادل قد يبدو تدخلياً أو مزعزعاً للاستقرار."
+      "en": "B — It addresses the behavior the friend asked to stop.",
+      "ar": "B — يتعامل مع السلوك الذي طلب الصديق إيقافه."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-021",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'repair attempt' in Gottman's research and why is it important?",
-      "ar": "ما 'محاولة الإصلاح' في أبحاث غوتمان ولماذا هي مهمة؟"
+      "en": "A guest repeatedly arrives without notice. Which statement asks for a specific change? A: “You should already know every time I am busy.” B: “Please check with me before visiting so we can agree on a time.”",
+      "ar": "يأتي ضيف مرارًا دون إشعار. أيّ عبارة تطلب تغييرًا محددًا؟ A: «يفترض أن تعرف مسبقًا كل أوقات انشغالي.» B: «تواصل معي قبل الزيارة من فضلك لنتفق على وقت.»"
     },
     "answer": {
-      "en": "A repair attempt is any action or statement during conflict that de-escalates tension — a joke, an apology, or touching the partner's hand. Couples who successfully use and accept repair attempts are far more likely to have stable, satisfying relationships.",
-      "ar": "محاولة الإصلاح هي أي فعل أو قول خلال النزاع يُخفف التوتر — نكتة، أو اعتذار، أو لمس يد الشريك. الأزواج الذين يستخدمون محاولات الإصلاح ويتقبلونها بنجاح أكثر عرضة بكثير للحفاظ على علاقات مستقرة ومُرضية."
+      "en": "B — It gives an actionable request instead of expecting mind-reading.",
+      "ar": "B — تقدم طلبًا قابلًا للتنفيذ بدل توقع قراءة الأفكار."
     },
     "acceptedAnswers": {
       "en": [
-        "A gesture lowering conflict tension; using and accepting it supports stable relationships.",
-        "Any de-escalating act or statement during conflict that helps preserve relationship stability."
+        "B"
       ],
       "ar": [
-        "فعل أو قول يخفض توتر النزاع؛ استخدامه وقبوله يدعمان استقرار العلاقة.",
-        "أي محاولة لتهدئة النزاع تساعد عند قبولها على حفظ علاقة مستقرة."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-022",
     "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is 'projection' in the context of relationships?",
-      "ar": "ما 'الإسقاط' في سياق العلاقات؟"
+      "en": "You want to decline discussing a private topic. Which reply states that limit directly? A: “I would rather keep that private. Can we talk about something else?” B: “I will answer only if you first reveal something equally private.”",
+      "ar": "تريد رفض مناقشة موضوع خاص. أيّ رد يوضح هذا الحد مباشرة؟ A: «أفضل إبقاء ذلك خاصًا. هل نتحدث عن شيء آخر؟» B: «لن أجيب إلا إذا كشفت أولًا شيئًا خاصًا بالقدر نفسه.»"
     },
     "answer": {
-      "en": "A defence mechanism where a person attributes their own unwanted feelings or traits onto their partner — e.g., someone who is angry accuses their partner of being angry. It deflects self-awareness and can create false conflict.",
-      "ar": "آلية دفاعية ينسب فيها الشخص مشاعره أو صفاته غير المرغوب فيها إلى شريكه — مثلاً، شخص يشعر بالغضب يتهم شريكه بالغضب. تُصرف الانتباه عن الوعي الذاتي وقد تُوجد صراعاً زائفاً."
+      "en": "A — It expresses privacy without demanding a trade of disclosures.",
+      "ar": "A — يعبّر عن الخصوصية دون اشتراط تبادل الإفصاحات."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-023",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What is the 'Michelangelo phenomenon' in relationship psychology?",
-      "ar": "ما 'ظاهرة مايكل أنجلو' في علم نفس العلاقات؟"
+      "en": "Two housemates disagree about guests. Which proposal creates a shared rule rather than a unilateral demand? A: “Only my preferences count because I mentioned the problem first.” B: “Let us agree on notice, visiting hours and how either of us can raise a concern.”",
+      "ar": "يختلف شريكا سكن حول الضيوف. أيّ اقتراح ينشئ قاعدة مشتركة بدل أمر أحادي؟ A: «تُحتسب تفضيلاتي وحدها لأنني طرحت المشكلة أولًا.» B: «لنتفق على الإشعار المسبق ومواعيد الزيارة وكيف يطرح أيّ منا اعتراضًا.»"
     },
     "answer": {
-      "en": "The process by which close partners 'sculpt' each other toward their ideal selves through behavioural confirmation. Partners who affirm each other's ideal self-perceptions promote greater well-being and relationship satisfaction over time.",
-      "ar": "العملية التي 'ينحت' فيها الشركاء المقربون بعضهم نحو ذواتهم المثالية من خلال التأكيد السلوكي. الشركاء الذين يُعززون تصورات الذات المثالية لدى بعضهم يُعززون الرفاهية والرضا عن العلاقة مع مرور الوقت."
+      "en": "B — It invites both people to define the agreement.",
+      "ar": "B — يدعو الطرفين إلى تحديد الاتفاق."
     },
     "acceptedAnswers": {
       "en": [
-        "Partners sculpt each other toward ideal selves through behavioural confirmation.",
-        "Partners' affirmations help each other become their ideal selves."
+        "B"
       ],
       "ar": [
-        "ينحت الشركاء بعضهم نحو ذواتهم المثالية عبر التأكيد السلوكي.",
-        "تأكيد الشريكين يساعد كلاً منهما على بلوغ ذاته المثالية."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-024",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Boundaries & Permission",
+      "ar": "الحدود والإذن"
     },
     "question": {
-      "en": "What neurochemical changes occur during the early stages of romantic love, and how do they differ from long-term attachment?",
-      "ar": "ما التغيرات العصبية الكيميائية التي تحدث في المراحل الأولى من الحب الرومانسي، وكيف تختلف عن التعلق طويل الأمد؟"
+      "en": "Which statement distinguishes a request from a demand by allowing the other person to decline? A: “Would you be willing to help Saturday? It is okay if you cannot.” B: “You may say no, but I will punish you if you do.”",
+      "ar": "أيّ عبارة تميز الطلب عن الأمر بالسماح للطرف الآخر بالرفض؟ A: «هل يمكنك المساعدة السبت؟ لا بأس إن لم تستطع.» B: «يمكنك الرفض، لكنني سأعاقبك إن فعلت.»"
     },
     "answer": {
-      "en": "Early romantic love activates dopamine (reward/craving), norepinephrine (excitement), and serotonin drops (obsessive thinking). Long-term attachment shifts to oxytocin (bonding) and vasopressin (pair-bonding), producing calm, stable connection rather than intense craving.",
-      "ar": "يُنشّط الحب الرومانسي المبكر الدوبامين (المكافأة/الشوق)، والنورإبينفرين (الإثارة)، وينخفض السيروتونين (التفكير الهوسي). يتحوّل التعلق طويل الأمد نحو الأوكسيتوسين (التواصل) والفازوبريسين (الارتباط بالزوج)، مما يُنتج ارتباطاً هادئاً ومستقراً بدلاً من الشوق المكثف."
+      "en": "A — It leaves a genuine option to decline.",
+      "ar": "A — تترك إمكانية حقيقية للرفض."
     },
     "acceptedAnswers": {
       "en": [
-        "Early: dopamine/norepinephrine rise, serotonin falls; later: oxytocin/vasopressin dominate.",
-        "Early love: dopamine/norepinephrine up, serotonin down; attachment: oxytocin/vasopressin."
+        "A"
       ],
       "ar": [
-        "مبكراً يرتفع الدوبامين والنورإبينفرين وينخفض السيروتونين؛ لاحقاً يسود الأوكسيتوسين والفازوبريسين.",
-        "المبكر: دوبامين ونورإبينفرين أعلى وسيروتونين أقل؛ الطويل: أوكسيتوسين وفازوبريسين."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-025",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is the difference between 'solvable' and 'perpetual' problems in relationships, according to Gottman?",
-      "ar": "ما الفرق بين المشكلات 'القابلة للحل' و'الدائمة' في العلاقات، وفقاً لغوتمان؟"
+      "en": "An agreed apology format has three parts: name your action, acknowledge its effect, and offer a repair. “I interrupted twice, so you could not finish. I am sorry.” Which part is still missing?",
+      "ar": "يتكوّن نموذج اعتذار متفق عليه من ثلاثة أجزاء: تسمية فعلك، والإقرار بأثره، واقتراح إصلاح. «قاطعتك مرتين، فلم تستطع إكمال كلامك. أنا آسف». ما الجزء الذي ما زال ناقصاً؟"
     },
     "answer": {
-      "en": "Solvable problems have a clear resolution (logistics, chores). Perpetual problems (69% of all relationship conflicts) stem from fundamental personality differences or needs and never fully resolve — the goal is not to solve them but to manage them with humour, acceptance, and ongoing dialogue.",
-      "ar": "المشكلات القابلة للحل لها حل واضح (الخدمات اللوجستية، المهام المنزلية). المشكلات الدائمة (69٪ من جميع نزاعات العلاقات) تنبع من اختلافات أساسية في الشخصية أو الاحتياجات ولا تُحل كلياً أبداً — الهدف ليس حلها بل إدارتها بالفكاهة والقبول والحوار المستمر."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Solvable problems resolve; perpetual differences persist and need acceptance, humour, and dialogue.",
-        "Solvable conflicts end; perpetual differences need humour, acceptance, and ongoing dialogue."
-      ],
-      "ar": [
-        "القابلة للحل لها حلول؛ الدائمة تستمر وتحتاج القبول والفكاهة والحوار.",
-        "نزاعات تُحل؛ والاختلافات الجوهرية الدائمة تُدار بالقبول والفكاهة والحوار المستمر."
-      ]
+      "en": "A repair offer, such as: “Please finish; I will listen without interrupting.”",
+      "ar": "اقتراح إصلاح، مثل: «أكمل كلامك من فضلك؛ سأستمع دون مقاطعة»."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-026",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'anxious attachment' and what patterns of behaviour does it typically produce in adult romantic relationships?",
-      "ar": "ما 'التعلق القلق' وما أنماط السلوك التي ينتجها عادةً في العلاقات الرومانسية للبالغين؟"
+      "en": "Two friends agree to this discussion sequence: describe the issue → listener summarizes → speaker confirms or corrects → discuss solutions. The listener has just summarized. What comes next under their agreement?",
+      "ar": "اتفق صديقان على هذا التسلسل للنقاش: وصف المشكلة ← تلخيص المستمع ← تأكيد المتحدث أو تصحيحه ← مناقشة الحلول. انتهى المستمع الآن من التلخيص. ما الخطوة التالية وفق اتفاقهما؟"
     },
     "answer": {
-      "en": "Anxious attachment (preoccupied) produces hyperactivated attachment behaviour: constant reassurance-seeking, jealousy, fear of abandonment, difficulty tolerating partner independence, and protest behaviour (anger, crying) when separation is anticipated.",
-      "ar": "ينتج التعلق القلق (المهموم) سلوكاً تعلقياً مفرط التنشيط: الحاجة المستمرة للطمأنة، والغيرة، والخوف من الهجر، وصعوبة تحمّل استقلالية الشريك، وسلوكيات احتجاجية (الغضب، البكاء) عند توقع الفراق."
+      "en": "The original speaker confirms or corrects the summary before either person proposes solutions.",
+      "ar": "يؤكد المتحدث الأصلي صحة التلخيص أو يصححه قبل أن يقترح أي منهما حلولاً."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-027",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'stonewalling' and what does Gottman's research show about its physiological basis?",
-      "ar": "ما 'الانسحاب الكامل' ومن ماذا تُظهر أبحاث غوتمان عن أساسه الفسيولوجي؟"
+      "en": "Which sentence stays with the current disagreement rather than introducing an unrelated past complaint? A: “This reminds me of everything you did wrong last year.” B: “Let us first decide how to divide tonight’s cleanup.”",
+      "ar": "أيّ جملة تبقى ضمن الخلاف الحالي بدل إدخال شكوى قديمة لا تتعلق به؟ A: «هذا يذكرني بكل ما فعلته خطأ العام الماضي.» B: «لنقرر أولًا كيف نقسم ترتيب المكان الليلة.»"
     },
     "answer": {
-      "en": "Stonewalling is emotional shutdown — the listener withdraws all engagement (blank face, monosyllabic responses, physical stillness). Gottman found it typically follows flooding and is more common in men. The stonewallers' heart rate often exceeds 100 bpm, indicating they are actually in physiological overwhelm, not indifference.",
-      "ar": "الانسحاب الكامل هو الإغلاق العاطفي — يسحب المستمع كل تفاعله (وجه جامد، ردود أحادية المقطع، ثبات جسدي). وجد غوتمان أنه يتبع الفيضان العاطفي عادةً وأكثر شيوعاً لدى الرجال. معدل ضربات قلب المنسحبين كثيراً ما يتجاوز 100 نبضة/دقيقة، مما يشير إلى أنهم في الواقع مرهقون فسيولوجياً وليسوا غير مبالين."
+      "en": "B — It keeps the immediate problem defined.",
+      "ar": "B — تبقي المشكلة الحالية محددة."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-028",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'compassion fatigue' and how does it affect caregiving relationships?",
-      "ar": "ما 'التعب من التعاطف' وكيف يؤثر على علاقات الرعاية؟"
+      "en": "“I meant the comment as a joke.” “I felt embarrassed when you said it in front of the group.” Which statement describes intent, and which describes reported impact?",
+      "ar": "«قصدتُ التعليق مزاحاً». «شعرتُ بالإحراج عندما قلته أمام المجموعة». أي العبارتين تصف النية، وأيهما تصف الأثر المعبَّر عنه؟"
     },
     "answer": {
-      "en": "Compassion fatigue is emotional depletion from sustained exposure to others' suffering — common in caregivers and therapists. In intimate relationships, the caregiver partner may feel numbed, resentful, or burnt out, reducing their capacity for empathy. Self-care and professional support are critical mitigators.",
-      "ar": "تعب التعاطف هو الاستنزاف العاطفي من التعرض المستمر لمعاناة الآخرين — شائع لدى مقدمي الرعاية والمعالجين النفسيين. في العلاقات الحميمة، قد يشعر الشريك مقدم الرعاية بالخدر أو الاستياء أو الإرهاق، مما يُقلل قدرته على التعاطف. الاعتناء بالذات والدعم المهني من أهم عوامل التخفيف."
+      "en": "The first describes intent; the second reports impact. They can both be true.",
+      "ar": "الأولى تصف النية؛ والثانية تصف الأثر المعبَّر عنه. ويمكن أن تكون العبارتان صحيحتين."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-029",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'self-expansion theory' in romantic relationships?",
-      "ar": "ما 'نظرية التوسع الذاتي' في العلاقات الرومانسية؟"
+      "en": "Maya suggests a café because she wants somewhere quiet. Sam suggests a park because he needs a free outing. Before comparing venues, what two underlying needs should their plan address?",
+      "ar": "تقترح مايا مقهى لأنها تريد مكاناً هادئاً. ويقترح سام حديقة لأنه يحتاج إلى نزهة بلا تكلفة. قبل مقارنة الأماكن، ما الاحتياجان اللذان ينبغي أن تعالجهما خطتهما؟"
     },
     "answer": {
-      "en": "Arthur Aron's theory that people are motivated to expand the self by including others' perspectives, resources, and identities. Romantic partners who continue to offer novel, challenging experiences maintain higher satisfaction because the self-expansion drive continues to be met.",
-      "ar": "نظرية آرثر آرون بأن الناس يميلون لتوسيع الذات بتضمين وجهات نظر الآخرين ومواردهم وهوياتهم. الشركاء الرومانسيون الذين يواصلون تقديم تجارب جديدة وتحديات يحافظون على رضا أعلى لأن دافع التوسع الذاتي يستمر في الإشباع."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "People expand self by including partners' perspectives, resources, identities, and novel experiences.",
-        "Partners broaden self through each other's views, resources, identities, and novel experiences."
-      ],
-      "ar": [
-        "يوسع الناس ذواتهم بضم وجهات نظر الشريك وموارده وهويته وتجرباته الجديدة.",
-        "يوسع الشركاء ذواتهم بمنظور بعضهم ومواردهم وهوياتهم وتجاربهم الجديدة."
-      ]
+      "en": "A quiet setting and no cost; the café and park are proposed solutions, not the underlying needs.",
+      "ar": "مكان هادئ وعدم تحمّل تكلفة؛ فالمقهى والحديقة حلّان مقترحان، لا الاحتياجان نفسيهما."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-030",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is DARVO and in what type of relationship dynamic does it typically appear?",
-      "ar": "ما DARVO وفي أي نوع من ديناميكيات العلاقات يظهر عادةً؟"
+      "en": "Two housemates are checking an incident before discussing a recurring pattern. Both confirm that yesterday's dishes were left overnight; they disagree about earlier weeks. What can they record as agreed, and what remains unresolved?",
+      "ar": "يتحقق شريكا سكن من واقعة قبل مناقشة نمط متكرر. كلاهما يؤكد أن أطباق الأمس بقيت طوال الليل، لكنهما يختلفان بشأن الأسابيع السابقة. ماذا يسجّلان كواقعة متفق عليها، وما الذي يبقى دون حسم؟"
     },
     "answer": {
-      "en": "DARVO (Deny, Attack, Reverse Victim and Offender) is a manipulation tactic: the person accused of harmful behaviour denies it, attacks the person raising the concern, and then claims to be the real victim. It is typical in abusive or narcissistically structured relationships.",
-      "ar": "DARVO (إنكار، هجوم، عكس الضحية والمذنب) هو أسلوب تلاعب: يُنكر الشخص المتهم بسلوك ضار الاتهام، ويهاجم من يُثير القلق، ثم يدّعي أنه الضحية الحقيقية. شائع في العلاقات الإساءية أو ذات البنية النرجسية."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Deny, Attack, Reverse Victim and Offender; typical of abusive or narcissistic relationships.",
-        "In abusive dynamics: deny wrongdoing, attack the accuser, reverse victim and offender."
-      ],
-      "ar": [
-        "الإنكار والهجوم وعكس الضحية والمذنب؛ شائع في العلاقات المسيئة أو النرجسية.",
-        "في علاقات الإساءة: إنكار الخطأ، مهاجمة المُشتكي، ثم عكس الضحية والمذنب."
-      ]
+      "en": "Agreed: yesterday's dishes remained overnight. Unresolved: whether this is a recurring pattern.",
+      "ar": "المتفق عليه: بقاء أطباق الأمس طوال الليل. غير المحسوم: هل يتكرر ذلك كنمط؟"
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-031",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'secure base' in attachment theory, and how does it function in adult romantic relationships?",
-      "ar": "ما 'القاعدة الآمنة' في نظرية التعلق وكيف تعمل في العلاقات الرومانسية للبالغين؟"
+      "en": "You forgot to collect a friend's parcel. They say, “It closes at 6; I need the parcel today.” Which offer addresses both constraints? A: Collect it tomorrow morning. B: Collect it at 5 today.",
+      "ar": "نسيت استلام طرد لصديق. يقول: «يغلق المكان عند السادسة؛ وأحتاج الطرد اليوم». أي عرض يلبّي الشرطين؟ A: استلامه صباح الغد. B: استلامه اليوم عند الخامسة."
     },
     "answer": {
-      "en": "Bowlby described the secure base as a trusted attachment figure from whom the individual can safely explore the world, knowing they can return for comfort. In adults, romantic partners serve as secure bases: felt security from the partner enables greater autonomy, risk-taking, and resilience.",
-      "ar": "وصف بولبي القاعدة الآمنة بأنها شخص تعلق موثوق به يستطيع الفرد منه استكشاف العالم بأمان مع العلم بإمكانية العودة للراحة. في البالغين، يعمل الشركاء الرومانسيون كقواعد آمنة: الشعور بالأمان من الشريك يُعزز الاستقلالية والمجازفة والمرونة."
+      "en": "B: collect it at 5 today, before closing and on the requested day.",
+      "ar": "B: استلامه اليوم عند الخامسة، قبل الإغلاق وفي اليوم المطلوب."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-032",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'emotional regulation' and why is it important for relationship health?",
-      "ar": "ما 'التنظيم العاطفي' ولماذا هو مهم لصحة العلاقة؟"
+      "en": "Which reply asks for a concrete example instead of turning a complaint into a character judgment? A: “Anyone who complains like this is impossible to talk to.” B: “Can you give an example of when you felt I was not listening?”",
+      "ar": "أيّ رد يطلب مثالًا محددًا بدل تحويل الشكوى إلى حكم على الشخصية؟ A: «كل من يشتكي هكذا يستحيل الحديث معه.» B: «هل تعطيني مثالًا على موقف شعرت فيه بأنني لم أستمع؟»"
     },
     "answer": {
-      "en": "The ability to manage and respond to emotional experiences in a flexible, adaptive way. Good emotional regulation prevents impulsive reactions during conflict, supports empathy, and promotes constructive communication. Poor regulation (over- or under-reactivity) is a major predictor of relationship dissatisfaction.",
-      "ar": "القدرة على إدارة التجارب العاطفية والاستجابة لها بطريقة مرنة وتكيفية. يمنع التنظيم العاطفي الجيد ردود الفعل المتهورة أثناء النزاع ويدعم التعاطف ويُعزز التواصل البنّاء. ضعف التنظيم (فرط أو نقص ردود الفعل) يُعدّ مُنبئاً رئيسياً بعدم الرضا عن العلاقة."
+      "en": "B — It seeks information about a situation.",
+      "ar": "B — يسعى إلى معلومات عن موقف محدد."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-033",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'meta-communication' and how is it used to improve relationship quality?",
-      "ar": "ما 'التواصل الفوقي' وكيف يُستخدم لتحسين جودة العلاقة؟"
+      "en": "Housemates will test a new cleaning schedule for one week. They agree to review it on Sunday but have not defined what success means. What should they add so the review is not based only on impressions?",
+      "ar": "سيجرّب شريكا سكن جدول تنظيف جديداً لأسبوع، واتفقا على مراجعته الأحد لكنهما لم يحددا معنى النجاح. ماذا يضيفان كي لا تقوم المراجعة على الانطباعات وحدها؟"
     },
     "answer": {
-      "en": "Communication about communication — discussing how partners talk to each other, not just the content. E.g., 'I notice we tend to raise our voices when we talk about finances. Can we agree on a calmer approach?' It helps couples create shared norms and identify problematic patterns before they escalate.",
-      "ar": "التواصل حول التواصل — مناقشة كيفية حديث الشريكين مع بعضهما، وليس المحتوى فقط. مثلاً: 'لاحظت أننا نرفع أصواتنا عندما نتحدث عن الأمور المالية. هل يمكننا الاتفاق على نهج أكثر هدوءاً؟' يساعد هذا الأزواج على وضع معايير مشتركة وتحديد الأنماط الإشكالية قبل تصاعدها."
+      "en": "An agreed measure, such as whether each assigned task was completed by its deadline.",
+      "ar": "معياراً متفقاً عليه، مثل إنجاز كل مهمة مكلّف بها في موعدها."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-034",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What does research show about the role of gratitude in long-term relationship satisfaction?",
-      "ar": "ماذا تُظهر الأبحاث عن دور الامتنان في الرضا عن العلاقة طويلة الأمد؟"
+      "en": "Classify these as observation, interpretation, or request: 1 “We spoke for five minutes.” 2 “You wanted to avoid me.” 3 “Could we set aside half an hour tomorrow?”",
+      "ar": "صنّف العبارات إلى ملاحظة أو تفسير أو طلب: 1 «تحدثنا خمس دقائق». 2 «أردتَ تجنّبي». 3 «هل نخصص نصف ساعة غداً؟»"
     },
     "answer": {
-      "en": "Studies by Sara Algoe and others show that expressing genuine gratitude toward a partner ('find, remind, and bind') strengthens communal norms, increases felt appreciation, and predicts greater relationship satisfaction and commitment months later — even after controlling for positive affect.",
-      "ar": "تُظهر دراسات سارة ألغو وغيرها أن التعبير عن الامتنان الصادق تجاه الشريك ('اكتشف، ذكّر، وارتبط') يُعزز المعايير المجتمعية ويزيد من الشعور بالتقدير ويتنبأ برضا أعلى عن العلاقة والتزام أكبر بعد أشهر — حتى بعد ضبط عامل المشاعر الإيجابية."
+      "en": "1: observation. 2: interpretation of motive. 3: request.",
+      "ar": "1: ملاحظة. 2: تفسير للدافع. 3: طلب."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-035",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'collaborative problem-solving' and how does it differ from 'win-lose' conflict resolution?",
-      "ar": "ما 'حل المشكلات التعاوني' وكيف يختلف عن حل النزاع 'الفائز-الخاسر'؟"
+      "en": "Two friends remember agreeing on different meeting times. A shared message says only, “Let's meet after work.” What can that message establish, and what must they still clarify?",
+      "ar": "يتذكر صديقان أنهما اتفقا على وقتين مختلفين للقاء. وتقول الرسالة المشتركة فقط: «لنلتقِ بعد العمل». ماذا يمكن أن تثبته الرسالة، وما الذي يحتاج إلى توضيح؟"
     },
     "answer": {
-      "en": "In win-lose, one person's goal is met at the other's expense. In collaborative problem-solving, both partners articulate their underlying needs and work together to find solutions that satisfy both — producing higher-quality decisions, preserving the relationship, and increasing trust.",
-      "ar": "في نموذج الفائز-الخاسر، يتحقق هدف شخص واحد على حساب الآخر. في حل المشكلات التعاوني، يُعبّر كلا الشريكين عن احتياجاتهم الجوهرية ويعملان معاً لإيجاد حلول ترضيهما — مما ينتج قرارات أعلى جودة ويحفظ العلاقة ويُعزز الثقة."
+      "en": "It supports meeting after work but does not establish an exact time. They still need to agree on a time.",
+      "ar": "تؤيد اللقاء بعد العمل، لكنها لا تحدد ساعة بعينها. وما زالا بحاجة إلى الاتفاق على وقت محدد."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-036",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Conflict & Repair",
+      "ar": "الخلاف والإصلاح"
     },
     "question": {
-      "en": "What is 'negative sentiment override' and how does it affect perception in troubled relationships?",
-      "ar": "ما 'السيطرة السلبية للمشاعر' وكيف تؤثر على الإدراك في العلاقات المتعثرة؟"
+      "en": "Both friends know a train takes 40 minutes and a bus takes 70. One values saving time; the other values the bus's lower fare. Is the remaining disagreement about the travel-time facts or about priorities?",
+      "ar": "يعرف الصديقان أن القطار يستغرق 40 دقيقة والحافلة 70. يفضّل أحدهما توفير الوقت، والآخر انخفاض أجرة الحافلة. هل الخلاف المتبقي حول معلومات مدة الرحلة أم حول الأولويات؟"
     },
     "answer": {
-      "en": "Gottman's term for a state in distressed couples where even neutral or positive partner behaviours are perceived as negative. It reverses the 'positive sentiment override' of healthy couples and creates a self-reinforcing negative lens that makes repair very difficult.",
-      "ar": "مصطلح غوتمان لحالة في الأزواج المتعثرين حيث تُدرَك حتى سلوكيات الشريك المحايدة أو الإيجابية على أنها سلبية. إنها تعكس 'السيطرة الإيجابية للمشاعر' لدى الأزواج الأصحاء وتخلق عدسة سلبية معززة لذاتها تجعل الإصلاح صعباً جداً."
+      "en": "Priorities: they agree on the times but weigh time and cost differently.",
+      "ar": "الأولويات؛ فهما متفقان على المدتين لكنهما يعطيان الوقت والتكلفة وزنين مختلفين."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-037",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is the 'closeness-communication bias' and why can it harm long-term relationships?",
-      "ar": "ما 'تحيز الاتصال بالقرب' ولماذا يمكن أن يضر العلاقات طويلة الأمد؟"
+      "en": "A friend asks, “Help me work out what matters most; please don't rank the options for me yet.” Which reply meets that request? A: “How would you rank the pay, location and working hours?” B: “Shall we compare which job has the most advantages?”",
+      "ar": "يقول صديق: «ساعدني في تحديد الأهم لي؛ ولا ترتّب الخيارات عني الآن». أي رد يلبّي طلبه؟ A: «كيف ترتّب أهمية الراتب والموقع وساعات العمل؟» B: «هل نقارن أي الوظائف تملك مزايا أكثر؟»"
     },
     "answer": {
-      "en": "The tendency to assume close partners understand us better than they actually do — leading to less careful communication, omitted context, and untested assumptions. Research by Boaz Keysar found that partners are often no more accurate at understanding each other than strangers, making assumed communication dangerous.",
-      "ar": "الميل إلى افتراض أن الشركاء المقربين يفهموننا بشكل أفضل مما يفعلونه فعلاً — مما يؤدي إلى تواصل أقل دقة وسياق محذوف وافتراضات غير مختبرة. وجد بحث بواز كيسار أن الشركاء غالباً ليسوا أكثر دقة في فهم بعضهم من الغرباء، مما يجعل التواصل المفترض خطيراً."
+      "en": "A: it elicits the friend's priorities before evaluating the jobs.",
+      "ar": "A: يستوضح أولويات الصديق قبل تقييم الوظائف."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-038",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is 'differentiation of self' in Bowen Family Systems Theory and why does it matter for intimacy?",
-      "ar": "ما 'التمايز الذاتي' في نظرية بوين لأنظمة الأسرة ولماذا يهم للحميمية؟"
+      "en": "The agreed task-list format is “task + owner + deadline.” The entry says, “Sam will buy the groceries.” Which required field is missing?",
+      "ar": "الصيغة المتفق عليها لقائمة المهام هي «المهمة + المسؤول عنها + الموعد النهائي». يقول البند: «سيشتري سام البقالة». ما العنصر المطلوب الناقص؟"
     },
     "answer": {
-      "en": "Differentiation is the ability to maintain a stable sense of self while remaining emotionally connected to others. High differentiation allows genuine intimacy without fusion or distance; low differentiation leads to emotional fusion (losing the self in the relationship) or emotional cut-off.",
-      "ar": "التمايز هو القدرة على الحفاظ على شعور مستقر بالذات مع البقاء متصلاً عاطفياً بالآخرين. يُتيح التمايز العالي حميمية حقيقية دون اندماج أو مسافة؛ أما التمايز المنخفض فيؤدي إلى الاندماج العاطفي (فقدان الذات في العلاقة) أو القطيعة العاطفية."
+      "en": "The deadline: when Sam has agreed to complete the shopping.",
+      "ar": "الموعد النهائي: متى اتفق سام على إتمام الشراء."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-039",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is Mating Intelligence and how does it explain individual differences in relationship outcomes?",
-      "ar": "ما 'الذكاء في التزاوج' وكيف يفسر الفروق الفردية في نتائج العلاقات؟"
+      "en": "Two friends may use their shared car only if both approve the same trip plan. One approves Saturday, 9–12. The other approves Saturday, 10–1. Have they met their rule? If not, what remains to be agreed?",
+      "ar": "يشترط صديقان لاستخدام سيارتهما المشتركة أن يوافقا على خطة الرحلة نفسها. يوافق أحدهما على السبت من 9 إلى 12، والآخر على السبت من 10 إلى 1. هل تحققت القاعدة؟ وإن لم تتحقق، فعلى ماذا ينبغي أن يتفقا؟"
     },
     "answer": {
-      "en": "Mating intelligence (Geher & Miller) encompasses cognitive abilities related to navigating mating contexts: accurately assessing partner qualities, signalling one's own value, reading commitment cues, and detecting deception. Higher mating intelligence predicts better partner selection and longer relationship satisfaction, beyond general intelligence.",
-      "ar": "ذكاء التزاوج (جيهر وميلر) يشمل القدرات المعرفية المتعلقة بالتنقل في سياقات التزاوج: التقييم الدقيق لصفات الشريك، والإشارة إلى قيمة الذات، وقراءة إشارات الالتزام، وكشف الخداع. يتنبأ ذكاء التزاوج الأعلى باختيار أفضل للشريك ورضا أطول عن العلاقة، بمعزل عن الذكاء العام."
+      "en": "No. Their approvals cover different time windows; both must approve one common plan, not an assumed overlap.",
+      "ar": "لا. موافقتاهما تتعلقان بفترتين مختلفتين؛ ويجب أن يوافقا كلاهما على خطة واحدة، لا على تداخل زمني مفترض."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-040",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is the 'investment model' of relationship commitment (Rusbult) and what three factors predict commitment?",
-      "ar": "ما 'نموذج الاستثمار' للالتزام في العلاقة (راسبولت) وما العوامل الثلاثة التي تتنبأ بالالتزام؟"
+      "en": "Housemates chose two review criteria: weekly time spent on chores and whether fixed deadlines were met. One completed six ten-minute tasks; the other completed two one-hour tasks. All deadlines were met. Does task count alone answer their review question?",
+      "ar": "اختار شريكا سكن معيارين للمراجعة: الوقت الأسبوعي للأعمال المنزلية والالتزام بالمواعيد. أنجز أحدهما ست مهام، كل منها عشر دقائق، والآخر مهمتين، كل منهما ساعة. أُنجزت كلها في موعدها. هل يكفي عدد المهام للمراجعة؟"
     },
     "answer": {
-      "en": "Rusbult's Investment Model predicts commitment through: (1) Satisfaction — rewards minus costs; (2) Investment size — resources poured into the relationship (time, shared friends, memories); (3) Quality of alternatives — the attractiveness of leaving. High satisfaction + high investment + poor alternatives = strong commitment and accommodation of partner transgressions.",
-      "ar": "يتنبأ نموذج استثمار راسبولت بالالتزام من خلال: (1) الرضا — المكافآت ناقص التكاليف؛ (2) حجم الاستثمار — الموارد المُضخّة في العلاقة (الوقت، الأصدقاء المشتركون، الذكريات)؛ (3) جودة البدائل — جاذبية الانسحاب. رضا عالٍ + استثمار عالٍ + بدائل ضعيفة = التزام قوي وتسامح مع تجاوزات الشريك."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Commitment depends on satisfaction, investment size, and quality of alternatives.",
-        "High satisfaction, large investment, and poor alternatives predict stronger commitment."
-      ],
-      "ar": [
-        "يعتمد الالتزام على الرضا وحجم الاستثمار وجودة البدائل.",
-        "الرضا العالي والاستثمار الكبير والبدائل الضعيفة تتنبأ بالتزام أقوى."
-      ]
+      "en": "No. The recorded times are 60 versus 120 minutes. They should review those totals, without assuming task count measures effort.",
+      "ar": "لا. الوقت المسجّل 60 دقيقة مقابل 120 دقيقة. يراجعان هذين المجموعين دون افتراض أن عدد المهام يقيس الجهد."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-041",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What does Terror Management Theory predict about the role of close relationships in mortality salience?",
-      "ar": "ما الذي تتنبأ به نظرية إدارة الرعب بشأن دور العلاقات الوثيقة في بروز الفناء؟"
+      "en": "You want to thank a friend for helping. Which response describes the specific contribution? A: “You are useful when you do what I want.” B: “Thank you for collecting the keys; it let me finish the appointment on time.”",
+      "ar": "تريد شكر صديق على مساعدته. أيّ رد يصف المساهمة المحددة؟ A: «أنت مفيد عندما تفعل ما أريد.» B: «شكرًا لإحضار المفاتيح؛ فقد ساعدني ذلك على إتمام الموعد في وقته.»"
     },
     "answer": {
-      "en": "TMT (Greenberg, Pyszczynski, Solomon) holds that awareness of death creates existential anxiety. Close relationships serve as symbolic immortality buffers — they give life meaning and continuity. Under mortality salience, people become more protective of romantic partners who share worldviews and more hostile to those who challenge them.",
-      "ar": "تقول نظرية TMT (غرينبرغ، بيزكينسكي، سولومون) إن الوعي بالموت يخلق قلقاً وجودياً. تعمل العلاقات الوثيقة كحواجز من الخلود الرمزي — تمنح الحياة معنى واستمرارية. في ظل بروز الفناء، يصبح الناس أكثر حماية للشركاء الرومانسيين الذين يتشاركون رؤاهم العالمية وأكثر عدائية تجاه من يتحداها."
+      "en": "B — It names the helpful action without making appreciation conditional on obedience.",
+      "ar": "B — يسمّي الفعل المفيد دون ربط التقدير بالطاعة."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-042",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is 'mentalization' (reflective functioning) and how does it protect against intergenerational transmission of attachment insecurity?",
-      "ar": "ما 'المنتلة' (الوظيفة الانعكاسية) وكيف تحمي من النقل عبر الأجيال لعدم أمان التعلق؟"
+      "en": "A friend is quieter than usual. Which response avoids diagnosing them from one observation? A: “Your silence proves you have a psychological disorder.” B: “You seem quieter today. Would you like to talk, or would you prefer some space?”",
+      "ar": "صديق أهدأ من المعتاد. أيّ رد يتجنب تشخيصه انطلاقًا من ملاحظة واحدة؟ A: «صمتك يثبت أن لديك اضطرابًا نفسيًا.» B: «تبدو أهدأ اليوم. هل تود الحديث أم تفضل بعض المساحة؟»"
     },
     "answer": {
-      "en": "Mentalization is the ability to understand one's own and others' behaviour in terms of underlying mental states (intentions, feelings, desires). High reflective functioning (Fonagy) allows parents who had insecure childhoods to break the cycle by understanding their child's inner world, producing secure attachment in their children despite their own history.",
-      "ar": "المنتلة هي القدرة على فهم سلوك الذات والآخرين من حيث الحالات الذهنية الكامنة (النوايا، المشاعر، الرغبات). الوظيفة الانعكاسية العالية (فوناغي) تُتيح للآباء الذين عاشوا طفولة غير آمنة كسر الحلقة بفهم العالم الداخلي لأطفالهم، مما ينتج تعلقاً آمناً لدى أطفالهم رغم تاريخهم الخاص."
+      "en": "B — It checks what the friend wants without making a diagnosis.",
+      "ar": "B — يتحقق مما يريده الصديق دون إطلاق تشخيص."
     },
     "acceptedAnswers": {
       "en": [
-        "Understanding mental states helps insecure-history parents foster secure attachment in children.",
-        "Reading inner states helps parents break inherited insecurity and build secure child attachment."
+        "B"
       ],
       "ar": [
-        "فهم الحالات الذهنية يمكّن ذوي التاريخ غير الآمن من تعزيز تعلق أطفالهم الآمن.",
-        "فهم العالم الداخلي يكسر توارث انعدام الأمان ويبني تعلقاً آمناً للطفل."
+        "B"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-043",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Communication",
-      "ar": "التواصل"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is 'affective forecasting error' and how does it affect relationship decisions?",
-      "ar": "ما 'خطأ التنبؤ العاطفي' وكيف يؤثر على قرارات العلاقات؟"
+      "en": "Your friend needs someone to collect a document today and deliver it tomorrow. You are available tomorrow only. Which offer states your capacity while preserving today's collection deadline? A: “I can deliver it tomorrow if someone else collects it today.” B: “I can collect and deliver it tomorrow.”",
+      "ar": "يحتاج صديق إلى استلام مستند اليوم وتسليمه غداً، وأنت متاح غداً فقط. أي عرض يوضح قدرتك ويحافظ على موعد الاستلام اليوم؟ A: «أستطيع تسليمه غداً إذا استلمه شخص آخر اليوم». B: «أستطيع استلامه وتسليمه غداً»."
     },
     "answer": {
-      "en": "Affective forecasting error (Wilson & Gilbert) is the tendency to misjudge the intensity and duration of future emotional states. In relationships, people overestimate how happy they'll be after a positive event (e.g., marriage) and overestimate how devastated they'll be after a negative one (e.g., break-up), influencing commitment and exit decisions.",
-      "ar": "خطأ التنبؤ العاطفي (ويلسون وغيلبرت) هو الميل إلى سوء تقدير شدة الحالات العاطفية المستقبلية ومدتها. في العلاقات، يبالغ الناس في تقدير سعادتهم بعد حدث إيجابي (كالزواج) وفي تقدير مدى دمارهم بعد حدث سلبي (كالانفصال)، مما يؤثر على قرارات الالتزام والخروج."
+      "en": "A: it offers the part you can do while keeping today's collection requirement explicit.",
+      "ar": "A: يعرض الجزء الذي يمكنك إنجازه ويُبقي شرط الاستلام اليوم واضحاً."
     },
     "acceptedAnswers": {
       "en": [
-        "Misjudging future emotions' intensity and duration distorts commitment and breakup decisions.",
-        "Errors about future emotional strength and length bias staying-versus-leaving choices."
+        "A"
       ],
       "ar": [
-        "سوء تقدير شدة المشاعر المستقبلية ومدتها يشوه قرارات الالتزام والانفصال.",
-        "أخطاء توقع قوة المشاعر ومدتها تحيز قرارات البقاء أو الانفصال."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-044",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Support & Shared Decisions",
+      "ar": "الدعم والقرارات المشتركة"
     },
     "question": {
-      "en": "What is the 'dark triad' and what does research show about dark triad individuals' mating strategies?",
-      "ar": "ما 'الثالوث المظلم' وماذا تُظهر الأبحاث عن استراتيجيات التزاوج لدى أفراده؟"
+      "en": "Two friends prefer different ways of celebrating. Which question explores both preferences? A: “Why can you not enjoy things exactly as I do?” B: “What would make the occasion enjoyable for each of us?”",
+      "ar": "يفضل صديقان طريقتين مختلفتين للاحتفال. أيّ سؤال يستكشف تفضيلاتهما معًا؟ A: «لماذا لا تستمتع بالأشياء بالطريقة نفسها التي أستمتع بها؟» B: «ما الذي يجعل المناسبة ممتعة لكل منا؟»"
     },
     "answer": {
-      "en": "The dark triad comprises narcissism, Machiavellianism, and psychopathy. Research shows dark triad individuals favour short-term mating: they engage in more deceptive self-presentation, manipulate partner poaching, tend toward infidelity and commitment avoidance, and display charm in early stages that later gives way to exploitation.",
-      "ar": "يتكون الثالوث المظلم من النرجسية والميكافيلية والاعتلال النفسي. تُظهر الأبحاث أن أفراده يُفضّلون التزاوج قصير الأمد: يمارسون تقديم الذات المخادع أكثر، ويتلاعبون في انتزاع الشريك، ويميلون نحو الخيانة وتجنب الالتزام، ويُظهرون جاذبية في المراحل الأولى سرعان ما تفسح الطريق للاستغلال."
+      "en": "B — It leaves room for different preferences.",
+      "ar": "B — يتيح مساحة لاختلاف التفضيلات."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "B"
+      ],
+      "ar": [
+        "B"
+      ]
     }
   },
   {
     "id": "relationship-questions-045",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Digital Privacy & Expectations",
+      "ar": "الخصوصية الرقمية والتوقعات"
     },
     "question": {
-      "en": "What is 'interpersonal complementarity' (Kiesler) and how does it shape relationship dynamics?",
-      "ar": "ما 'التكامل بين الأشخاص' (كيسلر) وكيف يُشكّل ديناميكيات العلاقة؟"
+      "en": "A friend permits you to send one photograph to Noor by private message, without reposting it. Which action stays within that permission? A: Send it to Noor privately. B: Add it to a private group that includes Noor. C: Post it without naming the friend.",
+      "ar": "يسمح لك صديق بإرسال صورة واحدة إلى نور برسالة خاصة دون إعادة نشرها. أي تصرف يبقى ضمن الإذن؟ A: إرسالها إلى نور على انفراد. B: وضعها في مجموعة خاصة تضم نور. C: نشرها دون ذكر اسم الصديق."
     },
     "answer": {
-      "en": "The principle that interpersonal behaviours pull for reciprocal responses: dominance pulls for submission, submission pulls for dominance (complementarity on control); affiliation pulls for affiliation (correspondence on warmth). These automatic pulls shape interaction patterns and can trap couples in rigid cycles (e.g., controlling partner + increasingly dependent partner).",
-      "ar": "المبدأ القائل بأن السلوكيات بين الأشخاص تستدعي استجابات متبادلة: الهيمنة تستدعي الخضوع، والخضوع يستدعي الهيمنة (تكامل في السيطرة)؛ والتودد يستدعي التودد (توافق في الدفء). هذه الاستدعاءات التلقائية تُشكّل أنماط التفاعل وقد تحبس الأزواج في دورات جامدة (مثلاً شريك مسيطر + شريك متصاعد الاعتمادية)."
+      "en": "A. The permission specifies one recipient and a private message; a group or unnamed post extends the audience.",
+      "ar": "A. يحدد الإذن متلقياً واحداً ورسالة خاصة؛ أما المجموعة أو المنشور بلا اسم فيوسّعان الجمهور."
     },
     "acceptedAnswers": {
       "en": [
-        "Dominance draws submission and vice versa; warmth draws warmth, forming rigid cycles.",
-        "Dominance elicits submission and reverse; affiliation reciprocates, shaping relationship cycles."
+        "A"
       ],
       "ar": [
-        "الهيمنة تستدعي الخضوع والعكس؛ التودد يستدعي التودد ويصنع دورات تفاعل جامدة.",
-        "تتكامل السيطرة بالهيمنة والخضوع، ويتوافق الدفء بالتودد، فتتشكل أنماط العلاقة."
+        "A"
       ]
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-046",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Digital Privacy & Expectations",
+      "ar": "الخصوصية الرقمية والتوقعات"
     },
     "question": {
-      "en": "What is 'capitulation accommodation' versus 'exit-voice-loyalty-neglect' in relationship conflict, and what predicts which pathway is chosen?",
-      "ar": "ما 'تسوية الاستسلام' مقابل 'الخروج-الصوت-الولاء-الإهمال' في صراع العلاقة، وما الذي يتنبأ بالمسار المختار؟"
+      "en": "A friend privately shares news. Which action checks whether you may pass it on? A: “Ask who, if anyone, they are comfortable with you telling.” B: “Assume that telling you means permission to tell a group chat.”",
+      "ar": "يشاركك صديق خبرًا على انفراد. أيّ تصرف يتحقق من جواز نقله؟ A: «اسأله مَن يقبل أن تخبره، إن كان يقبل إخبار أحد.» B: «افترض أن إخبارك يعني السماح بالنشر في مجموعة دردشة.»"
     },
     "answer": {
-      "en": "Rusbult's EVLN model describes responses to dissatisfaction: Exit (leave), Voice (discuss problem), Loyalty (wait hoping things improve), Neglect (passive deterioration). High commitment + positive sentiment override predicts constructive responses (Voice, Loyalty). Low investment + poor relationship quality predicts destructive ones (Exit, Neglect). Capitulation (immediate compliance) can be either accommodative or defensive depending on motivation.",
-      "ar": "نموذج EVLN لراسبولت يصف استجابات عدم الرضا: الخروج (المغادرة)، الصوت (مناقشة المشكلة)، الولاء (الانتظار أملاً في التحسن)، الإهمال (التدهور السلبي). الالتزام العالي + السيطرة الإيجابية للمشاعر يتنبأ بالاستجابات البنّاءة (الصوت، الولاء). الاستثمار المنخفض + جودة العلاقة المتدنية يتنبأ بالاستجابات المدمّرة (الخروج، الإهمال). قد يكون الاستسلام (الامتثال الفوري) تسوية أو دفاعياً بحسب الدافع."
+      "en": "A — Private disclosure does not itself specify permission for wider sharing.",
+      "ar": "A — الإفصاح الخاص لا يحدد بحد ذاته إذنًا بالمشاركة الأوسع."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-047",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
-      "en": "Love & Attachment",
-      "ar": "الحب والتعلق"
+      "en": "Digital Privacy & Expectations",
+      "ar": "الخصوصية الرقمية والتوقعات"
     },
     "question": {
-      "en": "What is the 'actor-partner interdependence model' (APIM) and why is it important in relationship research?",
-      "ar": "ما 'نموذج الاعتماد المتبادل بين الشريكين' (APIM) ولماذا هو مهم في أبحاث العلاقات؟"
+      "en": "The group agreed: book only after all three people explicitly confirm both the date and venue. Noor confirms Friday at Café X; Sam confirms Friday but asks about another venue; Lina has not replied. What confirmations are still needed?",
+      "ar": "اتفقت المجموعة على ألّا تحجز إلا بعد أن يؤكد الأشخاص الثلاثة صراحةً الموعد والمكان معاً. تؤكد نور الجمعة في مقهى X؛ ويؤكد سام الجمعة لكنه يسأل عن مكان آخر؛ ولم ترد لينا. ما التأكيدات التي ما زالت مطلوبة؟"
     },
     "answer": {
-      "en": "APIM (Kenny & Judd) is a statistical framework for dyadic data that simultaneously estimates actor effects (how one's own variable predicts one's outcome) and partner effects (how one partner's variable predicts the other's outcome). It is essential because standard independent-sample analyses assume non-independence, which is violated when both members of a couple are studied.",
-      "ar": "APIM (كيني وجود) هو إطار إحصائي للبيانات الثنائية يُقدّر في آنٍ واحد تأثيرات الفاعل (كيف تتنبأ متغيرات الشخص بنتائجه) وتأثيرات الشريك (كيف تتنبأ متغيرات أحد الشريكين بنتائج الآخر). إنه ضروري لأن التحليلات القياسية للعينات المستقلة تفترض الاستقلالية، وهو ما ينتهك عند دراسة كلا فردي الزوجين."
+      "en": "Sam must confirm the venue, and Lina must confirm both date and venue. Any changed plan needs renewed confirmation from everyone.",
+      "ar": "يجب أن يؤكد سام المكان، وأن تؤكد لينا الموعد والمكان معاً. وإذا تغيّرت الخطة، لزم تأكيدها مجدداً من الجميع."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-048",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Digital Privacy & Expectations",
+      "ar": "الخصوصية الرقمية والتوقعات"
     },
     "question": {
-      "en": "What is 'perceived partner responsiveness' and what role does it play as a foundation of intimacy?",
-      "ar": "ما 'الاستجابة المتصوَّرة للشريك' وما دورها كأساس للحميمية؟"
+      "en": "A chat shows “read at 2:10.” By 2:30 there is no reply. Name one observation the record supports and one conclusion about motive it does not establish.",
+      "ar": "تُظهر الدردشة «قُرئت عند 2:10»، ولا يوجد رد عند 2:30. اذكر ملاحظة يدعمها السجل واستنتاجاً عن الدافع لا يثبته."
     },
     "answer": {
-      "en": "Perceived partner responsiveness (Reis & Shaver) is the perception that a partner understands, validates, and cares for the self — comprising understanding, validation, and caring. It is considered the core ingredient of intimacy and predicts relationship satisfaction, trust, commitment, and personal well-being across cultures.",
-      "ar": "الاستجابة المتصوَّرة للشريك (ريس وشيفر) هي الإدراك بأن الشريك يفهم الذات ويُصادق عليها ويهتم بها — وتشمل الفهم والمصادقة والاهتمام. تُعتبر المكوّن الجوهري للحميمية وتتنبأ بالرضا عن العلاقة والثقة والالتزام والرفاهية الشخصية عبر الثقافات."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Perceiving a partner as understanding, validating, and caring; the foundation of intimacy.",
-        "Feeling understood, validated, and cared for by one's partner—the core of intimacy."
-      ],
-      "ar": [
-        "إدراك الشريك بوصفه فاهماً ومصادقاً ومهتماً؛ وهو أساس الحميمية.",
-        "الشعور بأن الشريك يفهمك ويصدقك ويهتم بك؛ جوهر الحميمية."
-      ]
+      "en": "Observation: no reply appears by 2:30. Not established: that the person is deliberately ignoring or upsetting the sender.",
+      "ar": "الملاحظة: لا يظهر رد عند 2:30. غير المثبت: أن الشخص يتعمّد تجاهل المرسل أو إزعاجه."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   },
   {
     "id": "relationship-questions-049",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Conflict & Resolution",
-      "ar": "الصراع والحل"
+      "en": "Digital Privacy & Expectations",
+      "ar": "الخصوصية الرقمية والتوقعات"
     },
     "question": {
-      "en": "What is the 'abstinence violation effect' in the context of relationship relapse after separation?",
-      "ar": "ما 'أثر انتهاك الامتناع' في سياق الانتكاس في العلاقة بعد الانفصال؟"
+      "en": "You agree to remove a friend's photo. You control your own post, but another person has already shared a copy. Which update accurately distinguishes an action from an uncertain outcome? A: “I removed my post and asked them to remove theirs.” B: “The photo is now gone everywhere.”",
+      "ar": "وافقت على إزالة صورة لصديق. تتحكم في منشورك، لكن شخصاً آخر سبق أن شارك نسخة. أي تحديث يميّز الإجراء المنفّذ عن نتيجة غير مؤكدة؟ A: «أزلت منشوري وطلبت منه إزالة نسخته». B: «اختفت الصورة الآن من كل مكان»."
     },
     "answer": {
-      "en": "Originally from addiction research (Marlatt), the abstinence violation effect describes how one slip (e.g., contacting an ex) leads to catastrophic thinking ('I've already failed') and complete relapse into the relationship. Applied to post-separation behaviour, it explains why a single moment of contact often triggers full reconciliation or destructive re-engagement cycles.",
-      "ar": "مستمد في الأصل من أبحاث الإدمان (مارلات)، يصف أثر انتهاك الامتناع كيف يؤدي انتهاك واحد (مثل التواصل مع الشريك السابق) إلى تفكير كارثي ('لقد فشلت بالفعل') وانتكاس كامل في العلاقة. وبتطبيقه على السلوك بعد الانفصال، يُفسّر لماذا غالباً ما يُطلق لحظة تواصل واحدة دورات مصالحة كاملة أو إعادة انخراط مدمّرة."
+      "en": "A. Removing your post and requesting another removal does not establish that every copy has disappeared.",
+      "ar": "A. إزالة منشورك وطلب إزالة نسخة أخرى لا يثبتان اختفاء جميع النسخ."
     },
     "review": {
       "status": "pending"
+    },
+    "mode": "quiz",
+    "acceptedAnswers": {
+      "en": [
+        "A"
+      ],
+      "ar": [
+        "A"
+      ]
     }
   },
   {
     "id": "relationship-questions-050",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Psychology",
-      "ar": "علم النفس"
+      "en": "Digital Privacy & Expectations",
+      "ar": "الخصوصية الرقمية والتوقعات"
     },
     "question": {
-      "en": "What is 'communal versus exchange orientation' in relationships and when does each become appropriate?",
-      "ar": "ما 'التوجه المجتمعي مقابل التبادلي' في العلاقات ومتى يكون كل منهما مناسباً؟"
+      "en": "Two friends agree: routine messages receive a reply within one day; time-sensitive matters use a phone call. One needs an answer within an hour but has sent only a routine message. What step follows their agreed process without assuming instant availability?",
+      "ar": "اتفق صديقان على الرد على الرسائل العادية خلال يوم، واستخدام الاتصال الهاتفي للأمور الحساسة للوقت. يحتاج أحدهما إلى جواب خلال ساعة لكنه أرسل رسالة عادية فقط. ما الخطوة الموافقة لاتفاقهما دون افتراض التفرغ الفوري؟"
     },
     "answer": {
-      "en": "Clark & Mills: in communal relationships (close friends, romantic partners), people give benefits in response to need without expecting direct repayment — tracking debts signals distrust. In exchange relationships (business partners, acquaintances), people expect equivalent return for benefits given. Applying exchange norms to communal relationships lowers satisfaction and signals low commitment.",
-      "ar": "كلارك وميلز: في العلاقات المجتمعية (أصدقاء مقربون، شركاء رومانسيون)، يُقدّم الناس الفوائد استجابةً للحاجة دون توقع سداد مباشر — تتبّع الديون يُشير إلى عدم الثقة. في العلاقات التبادلية (شركاء الأعمال، المعارف)، يُتوقع الحصول على مقابل مكافئ للفوائد المُقدَّمة. تطبيق معايير التبادل على العلاقات المجتمعية يُقلل الرضا ويُشير إلى التزام منخفض."
+      "en": "Try the agreed phone call and explain the deadline; a call still does not guarantee the other person can answer immediately.",
+      "ar": "يحاول الاتصال بالطريقة المتفق عليها ويوضح الموعد المطلوب؛ ولا يضمن الاتصال أن يستطيع الآخر الإجابة فوراً."
     },
     "review": {
       "status": "pending"
-    }
+    },
+    "mode": "quiz"
   }
 ]

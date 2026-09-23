@@ -7,8 +7,8 @@
       "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "What do you call the pivot point of a lever?",
-      "ar": "ما اسم نقطة ارتكاز الرافعة؟"
+      "en": "What is the name of the support point about which a lever turns?",
+      "ar": "ما اسم نقطة الدعم التي تدور الرافعة حولها؟"
     },
     "answer": {
       "en": "The Fulcrum",
@@ -197,8 +197,8 @@
       "ar": "الديناميكا الحرارية والحرارة والطاقة"
     },
     "question": {
-      "en": "Which thermodynamic cycle is the basis for most internal combustion engines?",
-      "ar": "أي دورة ديناميكية حرارية تُشكّل أساس معظم محركات الاحتراق الداخلي؟"
+      "en": "Which ideal thermodynamic cycle models a spark-ignition gasoline engine?",
+      "ar": "ما الدورة الديناميكية الحرارية المثالية التي تمثل محرك بنزين يعمل بالإشعال بالشرارة؟"
     },
     "answer": {
       "en": "The Otto Cycle",
@@ -254,12 +254,12 @@
       "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "If a drive gear has 20 teeth and driven gear has 60 teeth, what is the gear ratio?",
-      "ar": "إذا كان تروس القيادة 20 سنّاً والمقاد 60 سناً، ما نسبة الترس؟"
+      "en": "A20-tooth driving gear meshes with a 60-tooth driven gear. What is the driving-speed to driven-speed ratio?",
+      "ar": "يتعشق ترس قائد ذو 20 سناً مع ترس مقاد ذي 60 سناً. ما نسبة سرعة القائد إلى سرعة المقاد؟"
     },
     "answer": {
-      "en": "3:1",
-      "ar": "3:1"
+      "en": "3:1. The driven gear rotates at one-third the driving gear's speed.",
+      "ar": "3:1. يدور الترس المقاد بثلث سرعة الترس القائد."
     },
     "review": {
       "status": "pending"
@@ -311,12 +311,12 @@
       "ar": "الميكانيكا والتحليل الإنشائي"
     },
     "question": {
-      "en": "What is the formula for torque?",
-      "ar": "ما صيغة حساب عزم الدوران؟"
+      "en": "What is the magnitude of torque produced by force F acting at radius r and angleθ to the radius vector?",
+      "ar": "ما مقدار عزم القوة F المؤثرة عند نصف قطر r وبزاويةθ مع متجه نصف القطر؟"
     },
     "answer": {
-      "en": "T = Force × Radius",
-      "ar": "T = القوة × نصف القطر"
+      "en": "τ=rF sinθ. Equivalently, force multiplied by the perpendicular moment arm.",
+      "ar": "τ=rF sinθ. ويكافئ القوة مضروبة في ذراعها العمودي."
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "الآلات والتروس والآليات"
     },
     "question": {
-      "en": "What is a 'Four-Bar Linkage'?",
-      "ar": "ما المقصود بـ'الرابط رباعي العصي'؟"
+      "en": "What is a four-bar linkage?",
+      "ar": "ما آلية الوصلات الأربع؟"
     },
     "answer": {
-      "en": "Four bodies connected in a loop by four joints",
-      "ar": "أربعة أجسام متصلة في حلقة بأربع مفاصل"
+      "en": "Four rigid links connected in a closed loop by four joints, usually with one link fixed as the frame.",
+      "ar": "أربع وصلات صلبة متصلة في حلقة مغلقة بأربعة مفاصل، وتكون إحداها عادةً ثابتة بوصفها الإطار."
     },
     "review": {
       "status": "pending"
@@ -501,8 +501,8 @@
       "ar": "الميكانيكا والتحليل الإنشائي"
     },
     "question": {
-      "en": "What is the term for a system vibrating at its natural frequency with high amplitude?",
-      "ar": "ما مصطلح اهتزاز نظام عند تردده الطبيعي بسعة عالية؟"
+      "en": "What phenomenon can produce a large vibration response when periodic forcing is near a system's natural frequency?",
+      "ar": "ما الظاهرة التي قد تنتج استجابة اهتزازية كبيرة عندما يقترب تردد قوة دورية من التردد الطبيعي للنظام؟"
     },
     "answer": {
       "en": "Resonance",
@@ -539,12 +539,12 @@
       "ar": "المواد والفشل"
     },
     "question": {
-      "en": "Which scale is commonly used to measure indentation hardness of steel?",
-      "ar": "أي مقياس شائع الاستخدام لقياس صلابة الاختراق للفولاذ؟"
+      "en": "Which indentation-hardness test uses a square-based diamond pyramid indenter?",
+      "ar": "ما اختبار صلادة الانبعاج الذي يستخدم مخترقاً ألماسياً هرمياً ذا قاعدة مربعة؟"
     },
     "answer": {
-      "en": "Rockwell or Brinell scale",
-      "ar": "مقياس روكويل أو برينيل"
+      "en": "The Vickers hardness test.",
+      "ar": "اختبار فيكرز للصلادة."
     },
     "review": {
       "status": "pending"

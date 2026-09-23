@@ -216,12 +216,12 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "Which group of elements is known for being chemically unreactive?",
-      "ar": "أي مجموعة من العناصر تُعرف بعدم تفاعلها الكيميائي؟"
+      "en": "Which group 18 elements are generally much less reactive than neighboring groups?",
+      "ar": "ما اسم عناصر المجموعة 18 التي تكون عموماً أقل تفاعلاً بكثير من المجموعات المجاورة؟"
     },
     "answer": {
-      "en": "Noble Gases",
-      "ar": "الغازات النبيلة"
+      "en": "The noble gases. Some, such as xenon, can form compounds.",
+      "ar": "الغازات النبيلة. ويمكن لبعضها، مثل الزينون، تكوين مركبات."
     },
     "review": {
       "status": "pending"
@@ -349,12 +349,12 @@
       "ar": "المادة والمخاليط والكيمياء النووية"
     },
     "question": {
-      "en": "What is the common name for iron oxide?",
-      "ar": "ما الاسم الشائع لأكسيد الحديد؟"
+      "en": "What is the familiar reddish-brown corrosion product that forms on iron exposed to moisture and oxygen?",
+      "ar": "ما ناتج التآكل المألوف البني المحمر الذي يتكون على الحديد عند تعرضه للرطوبة والأكسجين؟"
     },
     "answer": {
-      "en": "Rust",
-      "ar": "الصدأ"
+      "en": "Rust, a mixture containing hydrated iron oxides and iron oxyhydroxides.",
+      "ar": "الصدأ، وهو خليط يضم أكاسيد حديد مميهة وأوكسي هيدروكسيدات الحديد."
     },
     "review": {
       "status": "pending"
@@ -406,8 +406,8 @@
       "ar": "الروابط والبنية الجزيئية"
     },
     "question": {
-      "en": "What term describes a molecule that cannot be superimposed on its mirror image?",
-      "ar": "ما المصطلح الذي يصف جزيئاً لا يمكن إسقاطه على صورته المرآتية؟"
+      "en": "What term describes a molecule whose mirror image cannot be superimposed on it?",
+      "ar": "ما المصطلح الذي يصف جزيئاً لا تنطبق عليه صورته المرآوية؟"
     },
     "answer": {
       "en": "Chiral",
@@ -444,12 +444,12 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "How many electrons can the 'p' orbital hold in total?",
-      "ar": "كم إلكتروناً يمكن أن يستوعبه مستوى الطاقة p في مجموعه؟"
+      "en": "How many electrons can a complete p subshell, consisting of three p orbitals, hold?",
+      "ar": "كم إلكتروناً يستوعب المستوى الفرعي p كاملاً، وهو يتكون من ثلاثة مدارات p؟"
     },
     "answer": {
-      "en": "6",
-      "ar": "6"
+      "en": "6 electrons:2 in each of the three orbitals.",
+      "ar": "6 إلكترونات، بواقع إلكترونين في كل مدار من المدارات الثلاثة."
     },
     "review": {
       "status": "pending"
@@ -482,12 +482,12 @@
       "ar": "الأحماض والقواعد والاتزان"
     },
     "question": {
-      "en": "What is a solution that resists pH changes when small amounts of acid or base are added?",
-      "ar": "ما المحلول الذي يقاوم التغيرات في pH عند إضافة كميات صغيرة من حمض أو قاعدة؟"
+      "en": "A solution contains acetic acid and sodium acetate. What function does this weak-acid/conjugate-base pair provide?",
+      "ar": "يحتوي محلول على حمض الخليك وخلات الصوديوم. ما الوظيفة التي يوفرها زوج الحمض الضعيف وقاعدته المرافقة؟"
     },
     "answer": {
-      "en": "A buffer solution",
-      "ar": "المحلول الهيدروجيني المنظم"
+      "en": "It acts as a buffer, resisting large pH changes when small amounts of acid or base are added.",
+      "ar": "يعمل كمحلول منظّم، فيقاوم تغيرات pH الكبيرة عند إضافة كميات صغيرة من حمض أو قاعدة."
     },
     "review": {
       "status": "pending"
@@ -520,12 +520,12 @@
       "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
     },
     "question": {
-      "en": "What is the term for the total heat content of a system?",
-      "ar": "ما مصطلح المحتوى الحراري الكلي لنظام ما؟"
+      "en": "Which thermodynamic state function is defined by H=U+pV?",
+      "ar": "ما دالة الحالة الديناميكية الحرارية التي تُعرّف بالعلاقة H=U+pV؟"
     },
     "answer": {
-      "en": "Enthalpy (H)",
-      "ar": "الإنثالبي (H)"
+      "en": "Enthalpy. U is internal energy, p pressure, and V volume.",
+      "ar": "الإنثالبي، حيث U الطاقة الداخلية وp الضغط وV الحجم."
     },
     "review": {
       "status": "pending"
@@ -615,12 +615,12 @@
       "ar": "التفاعلات والحسابات الكيميائية"
     },
     "question": {
-      "en": "What is the product when an acid and a base react?",
-      "ar": "ما الناتج عندما يتفاعل حمض مع قاعدة؟"
+      "en": "What products form when aqueous hydrochloric acid neutralizes sodium hydroxide?",
+      "ar": "ما النواتج عند تعادل حمض الهيدروكلوريك المائي مع هيدروكسيد الصوديوم؟"
     },
     "answer": {
-      "en": "Salt and water",
-      "ar": "ملح وماء"
+      "en": "Sodium chloride and water: HCl+NaOH→NaCl+H₂O.",
+      "ar": "كلوريد الصوديوم والماء: HCl+NaOH→NaCl+H₂O."
     },
     "review": {
       "status": "pending"
@@ -824,8 +824,8 @@
       "ar": "المادة والمخاليط والكيمياء النووية"
     },
     "question": {
-      "en": "How do you separate salt from water?",
-      "ar": "كيف تفصل الملح عن الماء؟"
+      "en": "Which process recovers dissolved salt as a solid by allowing the water in saltwater to escape as vapor?",
+      "ar": "ما العملية التي تستعيد الملح المذاب صلباً بالسماح للماء في المحلول الملحي بالمغادرة كبخار؟"
     },
     "answer": {
       "en": "Evaporation",
@@ -900,12 +900,12 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "What do elements in the same group of the periodic table share?",
-      "ar": "ما الخاصية المشتركة لعناصر المجموعة ذاتها في الجدول الدوري؟"
+      "en": "Why do main-group elements in the same periodic-table group often have similar chemical behavior?",
+      "ar": "لماذا تتشابه غالباً الخواص الكيميائية لعناصر المجموعات الرئيسية الواقعة في المجموعة نفسها من الجدول الدوري؟"
     },
     "answer": {
-      "en": "The same number of valence electrons and similar chemical properties",
-      "ar": "نفس عدد إلكترونات التكافؤ وخصائص كيميائية متشابهة"
+      "en": "They have similar outer-shell electron configurations, which strongly influence bonding and reactivity.",
+      "ar": "لأن لها توزيعات إلكترونية متشابهة في الغلاف الخارجي، وهو ما يؤثر بقوة في الترابط والتفاعلية."
     },
     "review": {
       "status": "pending"
@@ -919,12 +919,12 @@
       "ar": "الأحماض والقواعد والاتزان"
     },
     "question": {
-      "en": "What is the pH scale range and what does pH 7 mean?",
-      "ar": "ما نطاق مقياس الرقم الهيدروجيني وماذا يعني pH 7؟"
+      "en": "At 25°C, what does pH7 mean for an aqueous solution, and is pH strictly limited to 0–14?",
+      "ar": "عند 25 درجة مئوية، ماذا تعني قيمة pH7 لمحلول مائي، وهل يقتصر pH حتماً على 0–14؟"
     },
     "answer": {
-      "en": "0–14; pH 7 is neutral, below 7 is acidic, above 7 is basic",
-      "ar": "من 0 إلى 14؛ الرقم 7 يعني المتعادل، ما دون 7 حمضي، وما فوق 7 قاعدي"
+      "en": "pH7 is neutral at 25°C. The familiar 0–14 range is not a strict limit; concentrated solutions can lie outside it.",
+      "ar": "pH7 تعني التعادل عند 25 درجة مئوية. والنطاق المألوف 0–14 ليس حداً صارماً؛ فقد تقع المحاليل المركزة خارجه."
     },
     "review": {
       "status": "pending"
@@ -942,8 +942,8 @@
       "ar": "ما الرابطة الهيدروجينية؟"
     },
     "answer": {
-      "en": "An attractive interaction between a hydrogen atom bonded to N, O, or F and another electronegative atom",
-      "ar": "تفاعل جاذب بين ذرة هيدروجين مرتبطة بـ N أو O أو F وذرة أخرى سالبة الكهرباء"
+      "en": "An attractive interaction involving a hydrogen bonded to an electronegative atom, commonly N, O, or F, and an electron-rich site on another atom.",
+      "ar": "تجاذب يتضمن هيدروجيناً مرتبطاً بذرة كهروسالبة، غالباً N أو O أو F، وموقعاً غنياً بالإلكترونات على ذرة أخرى."
     },
     "review": {
       "status": "pending"
@@ -976,12 +976,12 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "Which period contains the transition metals?",
-      "ar": "أي دورة تحتوي على الفلزات الانتقالية؟"
+      "en": "In which numbered periods of the periodic table do the d-block rows occur?",
+      "ar": "في أي دورات مرقمة من الجدول الدوري توجد صفوف الفئة d؟"
     },
     "answer": {
-      "en": "Periods 4–7 (d-block elements)",
-      "ar": "الدورات 4–7 (عناصر الكتلة d)"
+      "en": "Periods 4,5,6, and 7.",
+      "ar": "الدورات 4 و 5 و 6 و 7."
     },
     "review": {
       "status": "pending"
@@ -1014,8 +1014,8 @@
       "ar": "الروابط والبنية الجزيئية"
     },
     "question": {
-      "en": "What shape does a tetrahedral molecule like methane (CH₄) have?",
-      "ar": "ما شكل الجزيء رباعي الوجوه كالميثان (CH₄)؟"
+      "en": "What is the molecular geometry of methane, CH₄?",
+      "ar": "ما الشكل الهندسي لجزيء الميثان CH₄؟"
     },
     "answer": {
       "en": "Tetrahedral — four bonds pointing towards the corners of a tetrahedron at 109.5°",
@@ -1090,12 +1090,12 @@
       "ar": "الذرات والعناصر والجدول الدوري"
     },
     "question": {
-      "en": "Who created the modern periodic table?",
-      "ar": "من أنشأ الجدول الدوري الحديث؟"
+      "en": "Who published the influential 1869 periodic table that left gaps for undiscovered elements?",
+      "ar": "من نشر الجدول الدوري المؤثر عام 1869 وترك فيه فراغات لعناصر لم تكن مكتشفة؟"
     },
     "answer": {
-      "en": "Dmitri Mendeleev (1869)",
-      "ar": "ديمتري مندليف (1869)"
+      "en": "Dmitri Mendeleev.",
+      "ar": "ديمتري مندليف."
     },
     "review": {
       "status": "pending"
@@ -1166,12 +1166,12 @@
       "ar": "الكيمياء العضوية"
     },
     "question": {
-      "en": "What is Markovnikov's rule?",
-      "ar": "ما قاعدة ماركوفنيكوف؟"
+      "en": "In the usual ionic addition of HX to an unsymmetrical alkene, what does Markovnikov's rule predict?",
+      "ar": "في الإضافة الأيونية المعتادة لـHX إلى ألكين غير متماثل، ماذا تتوقع قاعدة ماركوفنيكوف؟"
     },
     "answer": {
-      "en": "In addition reactions of HX to an alkene, the H attaches to the carbon with more H atoms (more substituted)",
-      "ar": "في تفاعلات الإضافة للـ HX على الألكين، يرتبط H بالكربون الذي يمتلك أكبر عدد من ذرات H"
+      "en": "Hydrogen attaches to the double-bond carbon already bearing more hydrogens; X attaches to the more substituted carbon.",
+      "ar": "يرتبط الهيدروجين بكربون الرابطة المزدوجة الذي يحمل هيدروجينات أكثر، ويرتبط X بالكربون الأكثر استبدالاً."
     },
     "review": {
       "status": "pending"
@@ -1280,12 +1280,12 @@
       "ar": "الأحماض والقواعد والاتزان"
     },
     "question": {
-      "en": "What does the reaction quotient (Q) tell us?",
-      "ar": "ماذا يخبرنا حاصل التفاعل (Q)؟"
+      "en": "At a fixed temperature, how does comparing reaction quotient Q with equilibrium constant K predict reaction direction?",
+      "ar": "عند حرارة ثابتة، كيف تتنبأ مقارنة حاصل التفاعل Q بثابت الاتزان K باتجاه التفاعل؟"
     },
     "answer": {
-      "en": "Whether a reaction is at equilibrium, or which direction it will shift to reach equilibrium",
-      "ar": "ما إذا كان التفاعل في حالة توازن، أو في أي اتجاه سيتحوّل للوصول إلى التوازن"
+      "en": "Q<K favors net forward reaction; Q>K favors net reverse reaction; Q=K indicates equilibrium.",
+      "ar": "إذا كان Q<K يُفضّل الاتجاه الأمامي الصافي، وإذا كان Q>K يُفضّل العكسي، وعند Q=K يكون النظام في اتزان."
     },
     "review": {
       "status": "pending"
@@ -1356,12 +1356,12 @@
       "ar": "الأحماض والقواعد والاتزان"
     },
     "question": {
-      "en": "What are the conditions for the Haber process?",
-      "ar": "ما الشروط اللازمة لعملية هابر؟"
+      "en": "What representative temperature, pressure, and catalyst are commonly taught for the Haber process?",
+      "ar": "ما درجة الحرارة والضغط والمحفز التقريبية الشائعة في الشرح الدراسي لعملية هابر؟"
     },
     "answer": {
-      "en": "450°C, 200 atm, iron catalyst — to produce ammonia from nitrogen and hydrogen",
-      "ar": "450°م، 200 ضغط جوي، محفّز حديدي — لإنتاج الأمونيا من النيتروجين والهيدروجين"
+      "en": "About 450°C and 200 atmospheres with an iron-based catalyst. Actual industrial operating conditions vary.",
+      "ar": "نحو 450 درجة مئوية و 200 ضغط جوي مع محفز أساسه الحديد. وتختلف ظروف التشغيل الصناعية الفعلية."
     },
     "review": {
       "status": "pending"
@@ -1375,12 +1375,12 @@
       "ar": "الكيمياء العضوية"
     },
     "question": {
-      "en": "What is the difference between saponification and esterification?",
-      "ar": "ما الفرق بين التصبّن والإسترة؟"
+      "en": "What products form when a triglyceride fat undergoes saponification with sodium hydroxide?",
+      "ar": "ما النواتج عند تصبّن دهن من ثلاثي الغليسريد بهيدروكسيد الصوديوم؟"
     },
     "answer": {
-      "en": "Esterification forms an ester from acid + alcohol; saponification is the base hydrolysis of an ester to give soap (fatty acid salt) + glycerol",
-      "ar": "الإسترة تُكوّن إستراً من حمض وكحول؛ التصبّن هو التحلل المائي القاعدي للإستر لإنتاج صابون (ملح حمض دهني) وغليسرول"
+      "en": "Glycerol and sodium salts of fatty acids, which are soaps.",
+      "ar": "الغليسرول وأملاح الصوديوم للأحماض الدهنية، وهي الصابون."
     },
     "review": {
       "status": "pending"
@@ -1436,8 +1436,8 @@
       "ar": "ما التحليل التراجعي (ريتروسينثيسيس)؟"
     },
     "answer": {
-      "en": "A strategy for planning organic synthesis by working backwards from the target molecule to simpler precursors",
-      "ar": "استراتيجية لتخطيط التخليق العضوي بالعمل بشكل عكسي من الجزيء المستهدف إلى مبادئ أبسط"
+      "en": "Planning a synthesis backward from a target molecule to simpler precursor molecules.",
+      "ar": "تخطيط التخليق بالرجوع من الجزيء المستهدف إلى جزيئات أولية أبسط."
     },
     "review": {
       "status": "pending"
@@ -1451,12 +1451,12 @@
       "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
     },
     "question": {
-      "en": "What is the Nernst equation?",
-      "ar": "ما معادلة نرنست؟"
+      "en": "What equation relates an electrode or cell potential to its standard potential and reaction quotient?",
+      "ar": "ما المعادلة التي تربط جهد قطب أو خلية بجهده القياسي وحاصل التفاعل؟"
     },
     "answer": {
-      "en": "An equation relating the equilibrium reduction potential of a half-cell to standard electrode potential, temperature, and ion concentration",
-      "ar": "معادلة تربط إمكانية الاختزال لنصف خلية عند التوازن بجهد القطب القياسي ودرجة الحرارة وتركيز الأيونات"
+      "en": "The Nernst equation: E=E°−(RT/nF)lnQ, using activities in Q.",
+      "ar": "معادلة نرنست: E=E°−(RT/nF)lnQ، مع استخدام الفعاليات الكيميائية في Q."
     },
     "review": {
       "status": "pending"
@@ -1489,12 +1489,12 @@
       "ar": "الكيمياء العضوية"
     },
     "question": {
-      "en": "What is the Woodward-Hoffmann rules about?",
-      "ar": "بماذا تتعلق قواعد وودورد-هوفمان؟"
+      "en": "What do the Woodward–Hoffmann rules use to predict whether pericyclic reactions are symmetry-allowed?",
+      "ar": "على ماذا تعتمد قواعد وودورد–هوفمان للتنبؤ بما إذا كانت التفاعلات حول الحلقية مسموحة من حيث التناظر؟"
     },
     "answer": {
-      "en": "The conservation of orbital symmetry in pericyclic reactions — predicting whether a reaction is thermally or photochemically allowed",
-      "ar": "حفظ تناسق المدار في التفاعلات الدورية — للتنبؤ بما إذا كان التفاعل مسموحاً حرارياً أم ضوئياً"
+      "en": "Conservation of orbital symmetry under the specified thermal or photochemical conditions.",
+      "ar": "حفظ تناظر المدارات تحت الظروف الحرارية أو الضوئية المحددة."
     },
     "review": {
       "status": "pending"
@@ -1546,8 +1546,8 @@
       "ar": "الكيمياء العضوية"
     },
     "question": {
-      "en": "What is the Baldwin's rules about?",
-      "ar": "بماذا تتعلق قواعد بالدوين؟"
+      "en": "What do Baldwin's rules help predict in organic synthesis?",
+      "ar": "بماذا تساعد قواعد بالدوين على التنبؤ في التخليق العضوي؟"
     },
     "answer": {
       "en": "Guidelines for predicting the feasibility of ring-closure reactions based on ring size and bond type at the closure site",
@@ -1607,8 +1607,8 @@
       "ar": "ما تفاعل ديلز-ألدر؟"
     },
     "answer": {
-      "en": "A cycloaddition between a conjugated diene and a dienophile to form a six-membered ring",
-      "ar": "إضافة حلقية بين داين متزاوج وداينوفيل لتكوين حلقة سداسية العناصر"
+      "en": "A[4+2] cycloaddition of a conjugated diene and a dienophile to form a six-membered ring.",
+      "ar": "إضافة حلقية[4+2] بين دايين مترافق ودايينوفيل لتكوين حلقة سداسية الأعضاء."
     },
     "review": {
       "status": "pending"
@@ -1755,12 +1755,12 @@
       "ar": "الديناميكا الحرارية والكيمياء الفيزيائية"
     },
     "question": {
-      "en": "What does the Clausius-Clapeyron equation describe?",
-      "ar": "ماذا تصف معادلة كلاوزيوس-كلابيرون؟"
+      "en": "For liquid–vapor equilibrium, what relationship does the Clausius–Clapeyron equation describe?",
+      "ar": "في اتزان السائل والبخار، ما العلاقة التي تصفها معادلة كلاوزيوس–كلابيرون؟"
     },
     "answer": {
-      "en": "The relationship between vapour pressure and temperature for a phase transition",
-      "ar": "العلاقة بين ضغط البخار ودرجة الحرارة لأي انتقال طوري"
+      "en": "How equilibrium vapor pressure changes with temperature, in terms of the enthalpy of vaporization under the equation's approximations.",
+      "ar": "كيف يتغير ضغط البخار المتزن مع الحرارة، بدلالة إنثالبي التبخر وفق تقريبات المعادلة."
     },
     "review": {
       "status": "pending"
@@ -1793,12 +1793,12 @@
       "ar": "الكيمياء العضوية"
     },
     "question": {
-      "en": "What is the Sharpless epoxidation?",
-      "ar": "ما أكسدة شارپلس الحلقية؟"
+      "en": "What transformation is achieved by the Sharpless asymmetric epoxidation?",
+      "ar": "ما التحول الذي تحققه إبوكسدة شاربلس غير المتماثلة؟"
     },
     "answer": {
-      "en": "An asymmetric epoxidation of allylic alcohols using titanium tartrate catalyst to produce chiral epoxides",
-      "ar": "أكسدة حلقية غير متماثلة لكحولات الأليل باستخدام محفّز تيتانيوم تارترات لإنتاج الإيبوكسيدات الكيرالية"
+      "en": "It converts allylic alcohols into enantioenriched epoxy alcohols using a chiral titanium–tartrate catalyst system and an oxidant.",
+      "ar": "تحول كحولات الأليل إلى كحولات إيبوكسيدية غنية بأحد المتماكبات المرآوية، باستخدام نظام محفز كيرالي من التيتانيوم والطرطرات وعامل مؤكسد."
     },
     "review": {
       "status": "pending"
@@ -1863,7 +1863,7 @@
   },
   {
     "id": "chemistry-099",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Bonding & Molecular Structure",
       "ar": "الروابط والبنية الجزيئية"

@@ -159,8 +159,8 @@
       "ar": "ناروتو"
     },
     "question": {
-      "en": "What is the name of Itachi's most powerful genjutsu that traps the victim in a nightmare?",
-      "ar": "ما اسم الغنجوتسو الأقوى لإيتاشي الذي يحبس الضحية في كابوس؟"
+      "en": "Which Mangekyō Sharingan illusion does Itachi use to distort a victim's perception of time?",
+      "ar": "ما وهم المانغيكيو شارينغان الذي يستخدمه إيتاشي لتشويه إحساس الضحية بالزمن؟"
     },
     "answer": {
       "en": "Tsukuyomi",
@@ -172,7 +172,7 @@
   },
   {
     "id": "anime-010",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Naruto",
       "ar": "ناروتو"
@@ -248,18 +248,18 @@
   },
   {
     "id": "anime-014",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Naruto",
       "ar": "ناروتو"
     },
     "question": {
-      "en": "Which tailed beast is sealed inside the two-tails jinchūriki Yugito Nii?",
-      "ar": "ما الوحش المذيّل المختوم داخل جينشوريكي ذي الذيلين يوغيتو نيي؟"
+      "en": "What is the personal name of the Two-Tails sealed inside Yugito Nii in Naruto?",
+      "ar": "ما الاسم الشخصي للوحش ذي الذيلين المختوم داخل يوغيتو نيي في ناروتو؟"
     },
     "answer": {
-      "en": "Two-Tails (Matatabi)",
-      "ar": "ذو الذيلين (ماتاتابي)"
+      "en": "Matatabi",
+      "ar": "ماتاتابي"
     },
     "review": {
       "status": "pending"
@@ -514,18 +514,18 @@
   },
   {
     "id": "anime-028",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Dragon Ball Z",
       "ar": "دراغون بول زي"
     },
     "question": {
-      "en": "What is the name of Majin Buu's original and most dangerous form after all absorptions are reversed?",
-      "ar": "ما اسم شكل ماجين بو الأصلي والأشد خطورة بعد إلغاء كل الاستيعابات؟"
+      "en": "What is the small, pure form of Majin Buu that Goku fights on the Supreme Kai's planet?",
+      "ar": "ما اسم هيئة ماجين بو النقية الصغيرة التي يقاتلها غوكو على كوكب الكايوشين؟"
     },
     "answer": {
       "en": "Kid Buu (Pure Buu)",
-      "ar": "بو الصغير (بو النقي)"
+      "ar": "كيد بو (بو النقي)"
     },
     "review": {
       "status": "pending"
@@ -533,18 +533,18 @@
   },
   {
     "id": "anime-029",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Dragon Ball Z",
       "ar": "دراغون بول زي"
     },
     "question": {
-      "en": "What is the name of the artificial moon technique that Saiyans use to trigger the Great Ape transformation?",
-      "ar": "ما اسم تقنية القمر الاصطناعي التي يستخدمها السايان لإطلاق تحول القرد العظيم؟"
+      "en": "What does Vegeta create in the Saiyan Saga to supply the moonlight needed for his Great Ape transformation?",
+      "ar": "ماذا يصنع فيجيتا في آرك السايان لتوفير ضوء القمر اللازم لتحوله إلى القرد العظيم؟"
     },
     "answer": {
-      "en": "Power Ball (Tsuki no Kakera)",
-      "ar": "كرة القوة (تسوكي نو كاكيرا)"
+      "en": "An artificial moon, using a Power Ball",
+      "ar": "قمراً اصطناعياً باستخدام كرة الطاقة"
     },
     "review": {
       "status": "pending"
@@ -552,14 +552,14 @@
   },
   {
     "id": "anime-030",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Dragon Ball Z",
       "ar": "دراغون بول زي"
     },
     "question": {
-      "en": "Which Dragon Ball Z character is the biological father of Future Trunks?",
-      "ar": "من هو الأب البيولوجي لتران المستقبل في دراغون بول زي؟"
+      "en": "Who is Future Trunks's father in Dragon Ball Z?",
+      "ar": "من والد ترانكس المستقبلي في «دراغون بول زد»؟"
     },
     "answer": {
       "en": "Vegeta",
@@ -615,12 +615,12 @@
       "ar": "بوكيمون"
     },
     "question": {
-      "en": "What are the three starter Pokémon available in the original Red and Blue games?",
-      "ar": "ما البوكيمون الثلاثة المبتدئة المتاحة في لعبتَي الأحمر والأزرق الأصليتين؟"
+      "en": "Who travels with Ash in the original Pokémon anime and is a Water-type Gym Leader from Cerulean City?",
+      "ar": "من تسافر مع آش في أنمي بوكيمون الأصلي وهي قائدة قاعة سيرولين المتخصصة في بوكيمون الماء؟"
     },
     "answer": {
-      "en": "Bulbasaur, Charmander, Squirtle",
-      "ar": "بولباصور، تشارماندر، سكيرتل"
+      "en": "Misty",
+      "ar": "ميستي"
     },
     "review": {
       "status": "pending"
@@ -748,12 +748,12 @@
       "ar": "بوكيمون"
     },
     "question": {
-      "en": "What is the name of the region in Pokémon Gold and Silver?",
-      "ar": "ما اسم المنطقة في لعبتَي بوكيمون الذهب والفضة؟"
+      "en": "Which Pokémon anime companion dreams of becoming a Pokémon Breeder and later studies to become a Pokémon Doctor?",
+      "ar": "أي رفيق لآش يحلم بأن يصبح مربّي بوكيمون، ثم يتجه لاحقاً لدراسة طب البوكيمون؟"
     },
     "answer": {
-      "en": "Johto",
-      "ar": "جوهتو"
+      "en": "Brock",
+      "ar": "بروك"
     },
     "review": {
       "status": "pending"
@@ -780,18 +780,18 @@
   },
   {
     "id": "anime-042",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Pokémon",
       "ar": "بوكيمون"
     },
     "question": {
-      "en": "What move has a 100% chance of making the opponent fall asleep and can only be used by Grass-type Pokémon?",
-      "ar": "ما الحركة ذات نسبة نجاح 100% في تنويم الخصم وتستطيع استخدامها بوكيمون النوع النباتي فقط؟"
+      "en": "What is the name of Team Rocket's talking catlike Pokémon in the anime?",
+      "ar": "ما اسم بوكيمون فريق روكيت الشبيه بالقط والقادر على الكلام في الأنمي؟"
     },
     "answer": {
-      "en": "Spore",
-      "ar": "سبور"
+      "en": "Meowth",
+      "ar": "مياوث"
     },
     "review": {
       "status": "pending"
@@ -799,18 +799,18 @@
   },
   {
     "id": "anime-043",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Pokémon",
       "ar": "بوكيمون"
     },
     "question": {
-      "en": "What is the maximum number of Effort Values (EVs) a single Pokémon stat can have?",
-      "ar": "ما الحد الأقصى لنقاط الجهد (EV) لإحصائية واحدة لدى البوكيمون؟"
+      "en": "Which professor gives Ash his first Pokémon in the original Pokémon anime?",
+      "ar": "أيّ بروفيسور يمنح آش أول بوكيمون له في أنمي «بوكيمون» الأصلي؟"
     },
     "answer": {
-      "en": "252",
-      "ar": "252"
+      "en": "Professor Oak",
+      "ar": "البروفيسور أوك"
     },
     "review": {
       "status": "pending"
@@ -837,18 +837,18 @@
   },
   {
     "id": "anime-045",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Pokémon",
       "ar": "بوكيمون"
     },
     "question": {
-      "en": "What hidden ability does Garchomp have that prevents it from taking damage in sandstorm weather?",
-      "ar": "ما القدرة المخفية لغارشومب التي تمنع تلقيه أضراراً خلال عواصف الرمال؟"
+      "en": "Which Pokémon evolves from Ash's Charmander before becoming Charizard?",
+      "ar": "إلى أي بوكيمون يتطور تشارماندر الخاص بآش قبل أن يصبح تشاريزارد؟"
     },
     "answer": {
-      "en": "Sand Veil",
-      "ar": "حجاب الرمال"
+      "en": "Charmeleon",
+      "ar": "تشارميليون"
     },
     "review": {
       "status": "pending"
@@ -862,11 +862,11 @@
       "ar": "دفتر الموت"
     },
     "question": {
-      "en": "What is the name of the notebook that kills anyone whose name is written in it?",
-      "ar": "ما اسم الدفتر الذي يقتل كل من يُكتب اسمه فيه؟"
+      "en": "Which supernatural notebook kills a named person when its user also pictures that person's face?",
+      "ar": "ما الدفتر الخارق الذي يقتل الشخص المسمّى فيه إذا استحضر مستخدمه وجه ذلك الشخص أيضاً؟"
     },
     "answer": {
-      "en": "Death Note",
+      "en": "The Death Note",
       "ar": "دفتر الموت"
     },
     "review": {
@@ -957,12 +957,12 @@
       "ar": "دفتر الموت"
     },
     "question": {
-      "en": "What sweet food is L famously obsessed with eating?",
-      "ar": "ما الطعام الحلو الذي اشتُهر إل بولعه الشديد به؟"
+      "en": "Which fruit does Ryuk particularly enjoy eating in Death Note?",
+      "ar": "ما الفاكهة التي يستمتع ريوك بأكلها خصوصاً في دفتر الموت؟"
     },
     "answer": {
-      "en": "Sweets and cakes (candy, confectionery)",
-      "ar": "الحلويات والكعك"
+      "en": "Apples",
+      "ar": "التفاح"
     },
     "review": {
       "status": "pending"
@@ -1122,18 +1122,18 @@
   },
   {
     "id": "anime-060",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Death Note",
       "ar": "دفتر الموت"
     },
     "question": {
-      "en": "According to the Death Note rules, how many seconds after writing a name does the user have to write the cause of death?",
-      "ar": "وفق قواعد دفتر الموت، كم عدد الثواني بعد كتابة الاسم لكتابة سبب الوفاة؟"
+      "en": "Under the Death Note's basic rules, how long after writing a name does the user have to specify the cause of death?",
+      "ar": "وفق القواعد الأساسية لدفتر الموت، ما المهلة المتاحة لتحديد سبب الوفاة بعد كتابة الاسم؟"
     },
     "answer": {
-      "en": "6 minutes and 40 seconds (400 seconds)",
-      "ar": "6 دقائق و40 ثانية (400 ثانية)"
+      "en": "40 seconds",
+      "ar": "40 ثانية"
     },
     "review": {
       "status": "pending"
@@ -1147,12 +1147,12 @@
       "ar": "هجوم العمالقة"
     },
     "question": {
-      "en": "What are the giant humanoid creatures in Attack on Titan called?",
-      "ar": "ما اسم الكائنات البشرية العملاقة في هجوم العمالقة؟"
+      "en": "Who is Eren Yeager's childhood friend known for his strategic thinking and later inherits the Colossal Titan?",
+      "ar": "من صديق إيرين ياغر منذ الطفولة المعروف بتفكيره الاستراتيجي، والذي يرث لاحقاً العملاق الضخم؟"
     },
     "answer": {
-      "en": "Titans",
-      "ar": "عمالقة (تايتانز)"
+      "en": "Armin Arlert",
+      "ar": "أرمين أرليرت"
     },
     "review": {
       "status": "pending"
@@ -1356,8 +1356,8 @@
       "ar": "هجوم العمالقة"
     },
     "question": {
-      "en": "What is the name of the Colossal Titan's identity revealed at the end of Season 2?",
-      "ar": "ما هوية عملاق الهيكل العظمي المكشوفة في نهاية الموسم الثاني؟"
+      "en": "Who is revealed as the Colossal Titan during Season 2 of Attack on Titan?",
+      "ar": "من تُكشف هويته بوصفه العملاق الضخم خلال الموسم الثاني من هجوم العمالقة؟"
     },
     "answer": {
       "en": "Bertholdt Hoover",
@@ -1388,18 +1388,18 @@
   },
   {
     "id": "anime-074",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Attack on Titan",
       "ar": "هجوم العمالقة"
     },
     "question": {
-      "en": "What is the name of the Ackerman bloodline's awakened power that makes them superhumanly strong?",
-      "ar": "ما اسم القوة المُيقَظة في سلالة أكيرمان التي تمنحهم قوة خارقة؟"
+      "en": "What surname do both Levi and Mikasa share in Attack on Titan?",
+      "ar": "ما اسم العائلة الذي يشترك فيه ليفاي وميكاسا في هجوم العمالقة؟"
     },
     "answer": {
-      "en": "Awakening power (host of power from a previous King)",
-      "ar": "القوة الصاحية (طاقة مضيف من ملك سابق)"
+      "en": "Ackerman",
+      "ar": "أكرمان"
     },
     "review": {
       "status": "pending"
@@ -1451,12 +1451,12 @@
       "ar": "ون بيس"
     },
     "question": {
-      "en": "What Devil Fruit did Luffy eat that gave him rubber-like abilities?",
-      "ar": "ما فاكهة الشيطان التي أكلها لوفي ومنحته قدرات المطاط؟"
+      "en": "By what name is Luffy's Devil Fruit initially known, before the later revelation about its true identity?",
+      "ar": "بأي اسم تُعرف فاكهة لوفي في البداية، قبل الكشف اللاحق عن هويتها الحقيقية؟"
     },
     "answer": {
       "en": "Gomu Gomu no Mi (Gum-Gum Fruit)",
-      "ar": "غومو غومو نو مي (فاكهة الصمغ)"
+      "ar": "غومو غومو نو مي (فاكهة المطاط)"
     },
     "review": {
       "status": "pending"
@@ -1470,12 +1470,12 @@
       "ar": "ون بيس"
     },
     "question": {
-      "en": "What is the legendary treasure that pirates seek in One Piece?",
-      "ar": "ما الكنز الأسطوري الذي يسعى إليه القراصنة في ون بيس؟"
+      "en": "What title does Luffy want to earn by finding the legendary treasure?",
+      "ar": "ما اللقب الذي يطمح لوفي إلى نيله بالعثور على الكنز الأسطوري؟"
     },
     "answer": {
-      "en": "The One Piece",
-      "ar": "القطعة الواحدة (ون بيس)"
+      "en": "King of the Pirates",
+      "ar": "ملك القراصنة"
     },
     "review": {
       "status": "pending"
@@ -1508,8 +1508,8 @@
       "ar": "ون بيس"
     },
     "question": {
-      "en": "Who is the three-sword-style swordsman on Luffy's crew?",
-      "ar": "من هو ساموراي الأسلوب ثلاثي السيوف في طاقم لوفي؟"
+      "en": "Which swordsman in Luffy's crew uses the Three-Sword Style?",
+      "ar": "أي سياف في طاقم لوفي يستخدم أسلوب السيوف الثلاثة؟"
     },
     "answer": {
       "en": "Roronoa Zoro",
@@ -1527,8 +1527,8 @@
       "ar": "ون بيس"
     },
     "question": {
-      "en": "Who is the Yonko (Emperor) who protected Luffy's home island of Foosha Village?",
-      "ar": "من هو يونكو (الإمبراطور) الذي حمى قرية فوشا المسقط رأس لوفي؟"
+      "en": "Which pirate loses an arm while saving the young Luffy from a sea monster?",
+      "ar": "أي قرصان يفقد ذراعه أثناء إنقاذ لوفي الصغير من وحش بحري؟"
     },
     "answer": {
       "en": "Shanks",
@@ -1812,12 +1812,12 @@
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What are the most powerful demons under Muzan collectively called?",
-      "ar": "ما الاسم الجماعي لأقوى الشياطين تحت إمرة موزان؟"
+      "en": "What are the six highest-ranked demons within the Twelve Kizuki collectively called?",
+      "ar": "ماذا يُسمّى الشياطين الستة الأعلى رتبةً ضمن الكيزوكي الاثني عشر؟"
     },
     "answer": {
-      "en": "Upper Moon (Upper Rank Twelve Kizuki)",
-      "ar": "القمر العلوي (القمر العلوي من كيزوكي الاثني عشر)"
+      "en": "The Upper Ranks (Upper Moons)",
+      "ar": "الأقمار العليا"
     },
     "review": {
       "status": "pending"
@@ -1888,12 +1888,12 @@
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What is the name of the mark that appears on elite demon slayers who master their breathing?",
-      "ar": "ما اسم النشان الذي يظهر على قاتلي الشياطين النخبة الذين يتقنون تنفسهم؟"
+      "en": "What colour does Tanjiro's first Nichirin sword turn when he takes hold of it?",
+      "ar": "ما اللون الذي يتحول إليه أول سيف نيتشيرين لتانجيرو عندما يمسكه؟"
     },
     "answer": {
-      "en": "Demon Slayer Mark",
-      "ar": "وسم قاتل الشياطين"
+      "en": "Black",
+      "ar": "الأسود"
     },
     "review": {
       "status": "pending"
@@ -1926,11 +1926,11 @@
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What is the name of the state where a demon slayer's pupils dilate and their senses are heightened to maximum?",
-      "ar": "ما اسم الحالة التي تتّسع فيها حدقتا قاتل الشياطين وترتفع حواسه إلى الحد الأقصى؟"
+      "en": "What state lets a fighter perceive an opponent's muscles, blood flow and internal movements in Demon Slayer?",
+      "ar": "ما الحالة التي تتيح للمقاتل رؤية عضلات الخصم وتدفق دمه وحركاته الداخلية في قاتل الشياطين؟"
     },
     "answer": {
-      "en": "Transparent World",
+      "en": "The Transparent World",
       "ar": "العالم الشفاف"
     },
     "review": {
@@ -1939,18 +1939,18 @@
   },
   {
     "id": "anime-103",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Demon Slayer",
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What is the ancestral connection between Yoriichi Tsugikuni and the Kamado family?",
-      "ar": "ما الصلة السلفية بين يوريتشي تسوغيكوني وعائلة كامادو؟"
+      "en": "What dance, passed down in the Kamado family, preserves the movements of Sun Breathing?",
+      "ar": "ما الرقصة المتوارثة في عائلة كامادو التي تحفظ حركات تنفس الشمس؟"
     },
     "answer": {
-      "en": "Yoriichi taught Sun Breathing to Sumiyoshi (Tanjiro's ancestor), who passed it down as Hinokami Kagura",
-      "ar": "علّم يوريتشي تنفس الشمس لسوميوشي (سلف تانجيرو)، الذي نقله كهينوكامي كاغورا"
+      "en": "Hinokami Kagura",
+      "ar": "هينوكامي كاغورا"
     },
     "review": {
       "status": "pending"
@@ -1958,7 +1958,7 @@
   },
   {
     "id": "anime-104",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Demon Slayer",
       "ar": "قاتل الشياطين"
@@ -1977,18 +1977,18 @@
   },
   {
     "id": "anime-105",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Demon Slayer",
       "ar": "قاتل الشياطين"
     },
     "question": {
-      "en": "What is the name of the special pill Tamayo developed that suppresses a demon's power and assists in their defeat?",
-      "ar": "ما اسم الحبة الخاصة التي طوّرتها تامايو لإضعاف قوة الشياطين والمساعدة في هزيمتهم؟"
+      "en": "Which demon doctor works with Yushiro and helps Tanjiro seek a way to restore Nezuko's humanity?",
+      "ar": "من الطبيبة الشيطانة التي تعمل مع يوشيرو وتساعد تانجيرو في البحث عن وسيلة لإعادة نيزوكو إلى طبيعتها البشرية؟"
     },
     "answer": {
-      "en": "Tamayo's Demon Blood Art medicine (Wisteria-based poison)",
-      "ar": "دواء فن الدم الشيطاني لتامايو (سم مستخلص من الويستيريا)"
+      "en": "Tamayo",
+      "ar": "تامايو"
     },
     "review": {
       "status": "pending"
@@ -2021,12 +2021,12 @@
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What did the Elric brothers lose as a consequence of attempting human transmutation?",
-      "ar": "ماذا فقد أخوا إيلريك جراء محاولتهما تحويل الإنسان كيميائياً؟"
+      "en": "In Fullmetal Alchemist: Brotherhood, what does Edward sacrifice to bind Alphonse's soul to a suit of armour?",
+      "ar": "في الخيميائي الفولاذي: الأخوة، ماذا يضحي إدوارد به ليربط روح ألفونس بدرع؟"
     },
     "answer": {
-      "en": "Edward lost his arm and leg; Alphonse lost his entire body (his soul is bound to armor)",
-      "ar": "فقد إدوارد ذراعه وساقه، وفقد ألفونس جسده بالكامل (روحه مربوطة بدرع)"
+      "en": "His right arm",
+      "ar": "ذراعه اليمنى"
     },
     "review": {
       "status": "pending"
@@ -2059,12 +2059,12 @@
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What is the name of the villain who created the homunculi and calls himself Father?",
-      "ar": "ما اسم الشرير الذي خلق الهوموكولي وأطلق على نفسه لقب الأب؟"
+      "en": "In Fullmetal Alchemist: Brotherhood, what is the flask-bound being that later becomes Father known as?",
+      "ar": "في الخيميائي الفولاذي: الأخوة، بماذا يُعرف الكائن المحبوس في قارورة قبل أن يصبح «الأب»؟"
     },
     "answer": {
-      "en": "Father (originally Homunculus / The Dwarf in the Flask)",
-      "ar": "الأب (في الأصل هوموكولوس / القزم في القارورة)"
+      "en": "The Dwarf in the Flask",
+      "ar": "القزم في القارورة"
     },
     "review": {
       "status": "pending"
@@ -2078,12 +2078,12 @@
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What is Edward Elric's State Alchemist title?",
-      "ar": "ما لقب إدوارد إيلريك كخيميائي حكومي؟"
+      "en": "What State Alchemist title is awarded to Edward Elric?",
+      "ar": "ما اللقب الذي يُمنح لإدوارد إيلريك عند اعتماده خيميائياً حكومياً؟"
     },
     "answer": {
       "en": "Fullmetal Alchemist",
-      "ar": "الخيميائي الدرعي الكامل (فولميتال)"
+      "ar": "الخيميائي الفولاذي"
     },
     "review": {
       "status": "pending"
@@ -2154,12 +2154,12 @@
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What is the name of the country that the Amestrian military destroyed, whose survivor is Scar?",
-      "ar": "ما اسم البلد الذي دمّره الجيش الأميستري وكان سكار أحد ناجييه؟"
+      "en": "Which region's people were targeted in the Amestrian extermination campaign survived by Scar in Brotherhood?",
+      "ar": "سكان أي إقليم استهدفتهم حملة الإبادة الأميسترية التي نجا منها سكار في الأخوة؟"
     },
     "answer": {
-      "en": "Ishval (Ishbal)",
-      "ar": "إشفال (إشبال)"
+      "en": "Ishval",
+      "ar": "إشفال"
     },
     "review": {
       "status": "pending"
@@ -2224,18 +2224,18 @@
   },
   {
     "id": "anime-118",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Fullmetal Alchemist: Brotherhood",
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What is the fundamental principle of alchemy stated throughout the series?",
-      "ar": "ما المبدأ الأساسي للكيمياء المُصرَّح به على مدار السلسلة؟"
+      "en": "What principle requires an equal sacrifice to obtain something through alchemy in Fullmetal Alchemist: Brotherhood?",
+      "ar": "ما المبدأ الذي يشترط تقديم مقابل مساوٍ للحصول على شيء بالخيمياء في «فول ميتال ألكيميست: براذرهود»؟"
     },
     "answer": {
-      "en": "Equivalent Exchange (Touka Koukan)",
-      "ar": "التبادل المتكافئ (توكا كواكان)"
+      "en": "Equivalent Exchange",
+      "ar": "التبادل المتكافئ"
     },
     "review": {
       "status": "pending"
@@ -2243,14 +2243,14 @@
   },
   {
     "id": "anime-119",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Fullmetal Alchemist: Brotherhood",
       "ar": "المحوّل الكيميائي المدرّع: الأخوّة"
     },
     "question": {
-      "en": "What is the name of the ancient kingdom destroyed by Father's ancestor that inspired the transmutation circle plan?",
-      "ar": "ما اسم المملكة القديمة التي دمّرها سلف الأب والتي ألهمت مخطط دائرة التحويل؟"
+      "en": "Which ancient kingdom is destroyed by the Dwarf in the Flask's transmutation scheme in Brotherhood?",
+      "ar": "ما المملكة القديمة التي يدمرها مخطط التحويل الخاص بالقزم في القارورة في الأخوة؟"
     },
     "answer": {
       "en": "Xerxes",
@@ -2496,8 +2496,8 @@
       "ar": "أكاديمية بطلي"
     },
     "question": {
-      "en": "What is the name of the 7th user of One For All who is also Gran Torino's mentor?",
-      "ar": "ما اسم المستخدم السابع لـ'ون فور أول' الذي هو أيضاً معلم غران تورينو؟"
+      "en": "Who was the seventh holder of One For All and All Might's mentor?",
+      "ar": "من كانت الحاملة السابعة لقوة «واحد من أجل الجميع» ومعلّمة أول مايت؟"
     },
     "answer": {
       "en": "Nana Shimura",
@@ -2528,18 +2528,18 @@
   },
   {
     "id": "anime-134",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
     },
     "question": {
-      "en": "What is the name of the new Quirk Deku awakens that lets him project invisible tendrils from his body?",
-      "ar": "ما اسم الخارقة الجديدة التي يوقظها ديكو وتتيح له إطلاق أذرع غير مرئية من جسده؟"
+      "en": "Which inherited Quirk lets Deku project dark energy tendrils to grab objects and move around?",
+      "ar": "ما القوة الموروثة التي تتيح لديكو إطلاق خيوط من الطاقة الداكنة للإمساك بالأشياء والتنقل؟"
     },
     "answer": {
-      "en": "Blackwhip (inherited from 5th user Daigoro Banjo)",
-      "ar": "سوط أسود (موروث من المستخدم الخامس دايغورو بانجو)"
+      "en": "Blackwhip",
+      "ar": "السوط الأسود"
     },
     "review": {
       "status": "pending"
@@ -2547,18 +2547,18 @@
   },
   {
     "id": "anime-135",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "My Hero Academia",
       "ar": "أكاديمية بطلي"
     },
     "question": {
-      "en": "What is the name of the special U.A. training facility that simulates real disaster rescue scenarios?",
-      "ar": "ما اسم المنشأة التدريبية الخاصة في يو.إيه التي تحاكي سيناريوهات إنقاذ الكوارث الحقيقية؟"
+      "en": "Which U.A. rescue-training facility is attacked by the League of Villains early in My Hero Academia?",
+      "ar": "ما منشأة التدريب على الإنقاذ في يو إيه التي تهاجمها رابطة الأشرار في بداية أكاديمية بطلي؟"
     },
     "answer": {
-      "en": "Unforeseen Simulation Joint (USJ)",
-      "ar": "المفصل التدريبي المحاكي للطوارئ (USJ)"
+      "en": "USJ (Unforeseen Simulation Joint)",
+      "ar": "منشأة يو إس جي للمحاكاة"
     },
     "review": {
       "status": "pending"
@@ -2572,12 +2572,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What is the name of the virtual reality game that traps players at the start of SAO?",
-      "ar": "ما اسم لعبة الواقع الافتراضي التي تحبس اللاعبين في بداية ون بيس؟"
+      "en": "What virtual-reality game traps Kirito and other players in the floating castle Aincrad?",
+      "ar": "ما لعبة الواقع الافتراضي التي تحبس كيريتو واللاعبين الآخرين في قلعة أينكراد العائمة؟"
     },
     "answer": {
-      "en": "Sword Art Online (Aincrad)",
-      "ar": "فن السيف الإلكتروني (أينكراد)"
+      "en": "Sword Art Online",
+      "ar": "سورد آرت أونلاين"
     },
     "review": {
       "status": "pending"
@@ -2610,12 +2610,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What must players accomplish to escape the SAO death game?",
-      "ar": "ما الذي يجب على اللاعبين إنجازه للهروب من لعبة الموت في SAO؟"
+      "en": "At the start of Sword Art Online, what condition does Kayaba announce for the trapped players to win their freedom?",
+      "ar": "في بداية سورد آرت أونلاين، ما الشرط الذي يعلنه كايابا لتحرر اللاعبين المحتجزين؟"
     },
     "answer": {
-      "en": "Clear all 100 floors of Aincrad (defeat each floor's boss)",
-      "ar": "اجتياز الطوابق المئة لأينكراد (هزيمة رئيس كل طابق)"
+      "en": "Clearing all 100 floors of Aincrad",
+      "ar": "اجتياز طوابق أينكراد المئة جميعها"
     },
     "review": {
       "status": "pending"
@@ -2629,12 +2629,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What is the name of Kirito's main love interest in SAO?",
-      "ar": "ما اسم اهتمام الحب الرئيسي لكيريتو في SAO؟"
+      "en": "Who is Kirito's main romantic partner in Sword Art Online?",
+      "ar": "من حبيبة كيريتو الرئيسية في سورد آرت أونلاين؟"
     },
     "answer": {
-      "en": "Asuna (Asuna Yuuki)",
-      "ar": "أسونا (أسونا يوكي)"
+      "en": "Asuna Yuuki",
+      "ar": "أسونا يوكي"
     },
     "review": {
       "status": "pending"
@@ -2648,12 +2648,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What is the name of Kirito's rare skill that allows him to wield two swords simultaneously?",
-      "ar": "ما اسم مهارة كيريتو النادرة التي تتيح له مزدوجة السيوف في آنٍ واحد؟"
+      "en": "What is Kirito's unique sword skill that allows him to fight with two swords simultaneously in the original SAO game?",
+      "ar": "ما مهارة كيريتو الفريدة التي تتيح له القتال بسيفين في الوقت نفسه في لعبة سورد آرت أونلاين الأصلية؟"
     },
     "answer": {
-      "en": "Dual Blades (Extra Skill)",
-      "ar": "الشفرتان المزدوجتان (مهارة إضافية)"
+      "en": "Dual Blades",
+      "ar": "السيفان المزدوجان"
     },
     "review": {
       "status": "pending"
@@ -2762,12 +2762,12 @@
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What is the name of the AI companion Kirito befriends in the Alicization arc?",
-      "ar": "ما اسم رفيق الذكاء الاصطناعي الذي يصادقه كيريتو في قصة أليسيزيشن؟"
+      "en": "Which childhood friend of Eugeo becomes an Integrity Knight in Alicization?",
+      "ar": "أي صديقة ليوجيو منذ الطفولة تصبح من فرسان النزاهة في أليسيزيشن؟"
     },
     "answer": {
-      "en": "Alice (Alice Schuberg)",
-      "ar": "أليس (أليس شوبيرغ)"
+      "en": "Alice",
+      "ar": "أليس"
     },
     "review": {
       "status": "pending"
@@ -2813,18 +2813,18 @@
   },
   {
     "id": "anime-149",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Sword Art Online",
       "ar": "فن السيف الإلكتروني"
     },
     "question": {
-      "en": "What is the name of the RATH project's artificial fluctlight technology used to create the Underworld?",
-      "ar": "ما اسم تقنية الضوء المتذبذب الاصطناعي لمشروع RATH المستخدمة لخلق العالم السفلي؟"
+      "en": "In the Alicization arc, what does the abbreviation STL stand for?",
+      "ar": "إلى ماذا يرمز الاختصار STL في آرك أليسيزيشن؟"
     },
     "answer": {
-      "en": "Soul Translator (STL) and Fluctlight technology",
-      "ar": "مترجم الروح (STL) وتقنية الضوء المتذبذب"
+      "en": "Soul Translator",
+      "ar": "مترجم الروح (Soul Translator)"
     },
     "review": {
       "status": "pending"

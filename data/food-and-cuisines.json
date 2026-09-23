@@ -22,8 +22,8 @@
     "id": "foo-2",
     "difficulty": "easy",
     "question": {
-      "en": "Which fruit is famous for having its seeds on the outside?",
-      "ar": "أي فاكهة تشتهر بأن بذورها في الخارج؟"
+      "en": "Which red fruit appears to have its seeds on its outer surface?",
+      "ar": "أي فاكهة حمراء تبدو بذورها موزعةً على سطحها الخارجي؟"
     },
     "answer": {
       "en": "Strawberry",
@@ -41,12 +41,12 @@
     "id": "foo-3",
     "difficulty": "easy",
     "question": {
-      "en": "What is the main ingredient in Hummus?",
-      "ar": "ما هو المكون الرئيسي في الحمص؟"
+      "en": "Which legume is blended with tahini to make traditional hummus dip?",
+      "ar": "ما البقول التي تُطحن مع الطحينة لصنع طبق الحمص بالطحينة التقليدي؟"
     },
     "answer": {
       "en": "Chickpeas",
-      "ar": "الحمص"
+      "ar": "حبوب الحمص"
     },
     "subcategory": {
       "en": "Ingredients",
@@ -155,8 +155,8 @@
     "id": "foo-9",
     "difficulty": "easy",
     "question": {
-      "en": "Which vegetable is used to make pickles?",
-      "ar": "أي خضار يستخدم لصنع المخللات؟"
+      "en": "Which long green vegetable is commonly pickled whole to make dill pickles?",
+      "ar": "ما الخضار الأخضر الطويل الذي يُخلّل كاملاً عادةً مع الشبت؟"
     },
     "answer": {
       "en": "Cucumber",
@@ -212,8 +212,8 @@
     "id": "foo-12",
     "difficulty": "medium",
     "question": {
-      "en": "Which expensive spice is derived from the flower of the Crocus sativus?",
-      "ar": "أي نوع من التوابل الباهظة الثمن يستخرج من زهرة الزعفران؟"
+      "en": "Which spice is made from the dried stigmas of Crocus sativus flowers?",
+      "ar": "ما التابل الذي يُصنع من المياسم المجففة لزهور Crocus sativus؟"
     },
     "answer": {
       "en": "Saffron",
@@ -269,11 +269,11 @@
     "id": "foo-15",
     "difficulty": "medium",
     "question": {
-      "en": "Which nut is the main ingredient in Marzipan?",
-      "ar": "أي نوع من المكسرات هو المكون الرئيسي في المرزبان (عجينة اللوز)؟"
+      "en": "Which nut is traditionally ground with sugar to make marzipan?",
+      "ar": "ما نوع المكسرات الذي يُطحن تقليدياً مع السكر لصنع المارزيبان؟"
     },
     "answer": {
-      "en": "Almond",
+      "en": "Almonds",
       "ar": "اللوز"
     },
     "subcategory": {
@@ -324,14 +324,14 @@
   },
   {
     "id": "foo-18",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "question": {
-      "en": "Which country is the largest producer of coffee in the world?",
-      "ar": "أي بلد هو أكبر منتج للقهوة في العالم؟"
+      "en": "What process turns green coffee beans brown and develops their familiar aroma before brewing?",
+      "ar": "ما العملية التي تحوّل حبوب البن الخضراء إلى بنية وتُظهر رائحتها المألوفة قبل تحضير القهوة؟"
     },
     "answer": {
-      "en": "Brazil",
-      "ar": "البرازيل"
+      "en": "Roasting",
+      "ar": "التحميص"
     },
     "subcategory": {
       "en": "Drinks & Spices",
@@ -345,12 +345,12 @@
     "id": "foo-19",
     "difficulty": "medium",
     "question": {
-      "en": "What is the difference between a 'Stock' and a 'Broth'?",
-      "ar": "ما هو الفرق بين 'المرق' (Stock) و 'الحساء' (Broth)؟"
+      "en": "In classical meat-based cooking, which is typically simmered mainly from bones: stock or broth?",
+      "ar": "في الطهي التقليدي المعتمد على اللحوم، أيهما يُحضّر عادةً أساساً من العظام: Stock أم Broth؟"
     },
     "answer": {
-      "en": "Stock is made from bones; Broth is made from meat and vegetables",
-      "ar": "المرق يصنع من العظام، بينما الحساء يصنع من اللحم والخضار"
+      "en": "Stock",
+      "ar": "Stock (مرق العظام)"
     },
     "subcategory": {
       "en": "Cooking Techniques",
@@ -402,12 +402,12 @@
     "id": "foo-22",
     "difficulty": "hard",
     "question": {
-      "en": "What is the world's hottest chili pepper (as of recent Guinness records)?",
-      "ar": "ما هو أحر فلفل حار في العالم (وفقاً لأرقام غينيس الحديثة)؟"
+      "en": "Which unit expresses a chilli pepper's pungency on the Scoville scale?",
+      "ar": "ما الوحدة التي تعبّر عن شدة لذع الفلفل على مقياس سكوفيل؟"
     },
     "answer": {
-      "en": "Pepper X (succeeding Carolina Reaper)",
-      "ar": "فلفل X (خلفاً لـ كارولاينا ريبر)"
+      "en": "Scoville Heat Units (SHU)",
+      "ar": "وحدات سكوفيل للحرارة (SHU)"
     },
     "subcategory": {
       "en": "Ingredients",
@@ -516,12 +516,12 @@
     "id": "foo-28",
     "difficulty": "hard",
     "question": {
-      "en": "Which spice was so valuable that it was once traded weight-for-weight with gold?",
-      "ar": "أي نوع من التوابل كان قيماً لدرجة أنه كان يتم تداوله وزناً بوزن بالذهب؟"
+      "en": "Which spice consists of the dried, unopened flower buds of Syzygium aromaticum?",
+      "ar": "ما التابل الذي يتكوّن من براعم الزهور المجففة غير المتفتحة لشجرة Syzygium aromaticum؟"
     },
     "answer": {
-      "en": "Saffron (and sometimes Black Pepper)",
-      "ar": "الزعفران (وأحياناً الفلفل الأسود)"
+      "en": "Cloves",
+      "ar": "القرنفل"
     },
     "subcategory": {
       "en": "Drinks & Spices",
@@ -535,12 +535,12 @@
     "id": "foo-29",
     "difficulty": "hard",
     "question": {
-      "en": "What is 'Umami'?",
-      "ar": "ما هو الـ 'أومامي' (Umami)؟"
+      "en": "Which basic taste is associated with glutamate and often described as savoury or brothy?",
+      "ar": "ما المذاق الأساسي المرتبط بالغلوتامات والذي يُوصف بأنه شبيه بطعم المرق أو اللحم؟"
     },
     "answer": {
-      "en": "The fifth basic taste, often described as savory or meaty",
-      "ar": "الطعم الأساسي الخامس، وغالباً ما يوصف بأنه لذيذ أو بطعم اللحم"
+      "en": "Umami",
+      "ar": "أومامي"
     },
     "subcategory": {
       "en": "Food Science",
@@ -571,7 +571,7 @@
   },
   {
     "id": "foo-31",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "question": {
       "en": "What is the chemical name of the compound responsible for the heat in chili peppers?",
       "ar": "ما هو الاسم الكيميائي للمركب المسؤول عن الحرارة في الفلفل الحار؟"
@@ -590,14 +590,14 @@
   },
   {
     "id": "foo-32",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "question": {
-      "en": "Which bacteria is primarily responsible for the fermentation of Sourdough bread?",
-      "ar": "ما هي البكتيريا المسؤولة بشكل رئيسي عن تخمير خبز العجين المخمر (Sourdough)؟"
+      "en": "Which group of bacteria produces much of sourdough's acidity, alongside yeasts that help the dough rise?",
+      "ar": "ما المجموعة البكتيرية التي تنتج قسماً كبيراً من حموضة العجين المخمر، إلى جانب الخمائر التي تساعده على الارتفاع؟"
     },
     "answer": {
-      "en": "Lactobacillus",
-      "ar": "لاكتوباكيلوس"
+      "en": "Lactic acid bacteria",
+      "ar": "بكتيريا حمض اللاكتيك"
     },
     "subcategory": {
       "en": "Baking & Fermentation",
@@ -628,14 +628,14 @@
   },
   {
     "id": "foo-34",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "question": {
-      "en": "What is the Scoville scale used to measure?",
-      "ar": "ماذا يستخدم مقياس سكوفيل لقياسه؟"
+      "en": "Does the Scoville scale measure physical temperature or the pungency of chilli peppers?",
+      "ar": "هل يقيس مقياس سكوفيل درجة الحرارة الفيزيائية أم شدة لذع الفلفل؟"
     },
     "answer": {
-      "en": "The pungency (spiciness) of chili peppers",
-      "ar": "درجة حرارة (حرارة) الفلفل الحار"
+      "en": "Pungency",
+      "ar": "شدة اللذع"
     },
     "subcategory": {
       "en": "Food Science",
@@ -685,14 +685,14 @@
   },
   {
     "id": "foo-37",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
-      "en": "Which expensive Japanese beef is known for its intense marbling and strict production standards?",
-      "ar": "أي لحم بقري ياباني باهظ الثمن يشتهر بترخيمه الكثيف ومعايير إنتاجه الصارمة؟"
+      "en": "Which certified Japanese beef comes from eligible Tajima cattle raised in Hyogo Prefecture?",
+      "ar": "ما اسم اللحم البقري الياباني المعتمد الذي يأتي من أبقار تاجيما المستوفية للشروط والمربّاة في محافظة هيوغو؟"
     },
     "answer": {
-      "en": "Wagyu (specifically Kobe)",
-      "ar": "واغيو (تحديداً كوبي)"
+      "en": "Kobe beef",
+      "ar": "لحم كوبي"
     },
     "subcategory": {
       "en": "World Cuisines",
@@ -704,14 +704,14 @@
   },
   {
     "id": "foo-38",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
-      "en": "What is the 'Mother Sauce' that forms the base of a Hollandaise?",
-      "ar": "ما هي 'الصلصة الأم' التي تشكل أساس صلصة الهولنديز؟"
+      "en": "Which French mother sauce is an emulsion traditionally made with egg yolks and butter, flavoured with lemon juice or vinegar?",
+      "ar": "ما الصلصة الفرنسية الأم التي تتكوّن تقليدياً من مستحلب صفار البيض والزبدة مع عصير الليمون أو الخل؟"
     },
     "answer": {
-      "en": "Clarified butter and egg yolks",
-      "ar": "الزبدة المصفاة وصفار البيض"
+      "en": "Hollandaise",
+      "ar": "هولنديز"
     },
     "subcategory": {
       "en": "Cooking Techniques",
@@ -723,14 +723,14 @@
   },
   {
     "id": "foo-39",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "question": {
-      "en": "What is the term for the study of the history and development of food?",
-      "ar": "ما هو المصطلح الذي يطلق على دراسة تاريخ وتطور الطعام؟"
+      "en": "Which French mother sauce is made by thickening milk with a white roux?",
+      "ar": "ما الصلصة الفرنسية الأم التي تُحضّر بتكثيف الحليب بمزيج أبيض من الزبدة والدقيق؟"
     },
     "answer": {
-      "en": "Gastronomy (or Food History)",
-      "ar": "علم الطهي (أو تاريخ الطعام)"
+      "en": "Béchamel",
+      "ar": "بشاميل"
     },
     "subcategory": {
       "en": "Food Culture",
@@ -742,14 +742,14 @@
   },
   {
     "id": "foo-40",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "question": {
-      "en": "Which rare and dangerous Japanese fish must be prepared by specially licensed chefs to remove toxins?",
-      "ar": "أي سمك ياباني نادر وخطير يجب تحضيره من قبل طهاة مرخصين خصيصاً لإزالة السموم؟"
+      "en": "What Japanese culinary name refers to pufferfish dishes?",
+      "ar": "ما الاسم الياباني المستخدم لأطباق سمك النفاخ؟"
     },
     "answer": {
-      "en": "Fugu (Pufferfish)",
-      "ar": "فوغو (سمك النفاخ)"
+      "en": "Fugu",
+      "ar": "فوغو"
     },
     "subcategory": {
       "en": "World Cuisines",

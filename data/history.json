@@ -7,12 +7,12 @@
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "In which country did the French Revolution take place?",
-      "ar": "في أي دولة وقعت الثورة الفرنسية؟"
+      "en": "What Paris fortress was stormed on 14 July 1789, becoming a symbol of the French Revolution?",
+      "ar": "ما الحصن الباريسي الذي اقتُحم في 14 يوليو 1789 وأصبح رمزاً للثورة الفرنسية؟"
     },
     "answer": {
-      "en": "France",
-      "ar": "فرنسا"
+      "en": "The Bastille.",
+      "ar": "الباستيل."
     },
     "review": {
       "status": "pending"
@@ -102,12 +102,12 @@
       "ar": "المجتمع والدين والأزمات"
     },
     "question": {
-      "en": "In which country did the Renaissance begin?",
-      "ar": "في أي دولة بدأت عصر النهضة؟"
+      "en": "In which present-day country did the Renaissance begin?",
+      "ar": "في أراضي أي دولة حالية بدأ عصر النهضة؟"
     },
     "answer": {
-      "en": "Italy",
-      "ar": "إيطاليا"
+      "en": "Italy, which was then divided into several states.",
+      "ar": "إيطاليا، التي كانت آنذاك مقسّمة إلى عدة دول."
     },
     "review": {
       "status": "pending"
@@ -159,12 +159,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "In which country can you find the Great Wall?",
-      "ar": "في أي دولة يمكنك إيجاد سور الصين العظيم؟"
+      "en": "What was a major defensive purpose of the Great Wall's watchtowers?",
+      "ar": "ما أحد الأغراض الدفاعية الرئيسية لأبراج المراقبة في سور الصين العظيم؟"
     },
     "answer": {
-      "en": "China",
-      "ar": "الصين"
+      "en": "To watch for approaching forces and relay warnings.",
+      "ar": "مراقبة القوات المقتربة ونقل إشارات التحذير."
     },
     "review": {
       "status": "pending"
@@ -178,12 +178,12 @@
       "ar": "الاستكشاف والعلوم والصناعة"
     },
     "question": {
-      "en": "What did the Wright Brothers successfully achieve in 1903?",
-      "ar": "ما الإنجاز الذي حققه أخوا رايت عام 1903؟"
+      "en": "What aviation milestone did the Wright brothers achieve in 1903?",
+      "ar": "ما الإنجاز الذي حققه الأخوان رايت في تاريخ الطيران عام 1903؟"
     },
     "answer": {
-      "en": "The first powered flight",
-      "ar": "أول رحلة طيران بمحرك"
+      "en": "The first sustained, controlled, powered flight of a heavier-than-air aircraft.",
+      "ar": "أول رحلة طيران مستمرة ومتحكَّم بها لطائرة أثقل من الهواء تعمل بمحرك."
     },
     "review": {
       "status": "pending"
@@ -197,12 +197,12 @@
       "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
     },
     "question": {
-      "en": "In what year was the Magna Carta signed?",
-      "ar": "في أي عام وُقِّعت الماغنا كارتا؟"
+      "en": "In which year did King John seal the first Magna Carta?",
+      "ar": "في أي عام ختم الملك جون النسخة الأولى من الماغنا كارتا؟"
     },
     "answer": {
-      "en": "1215",
-      "ar": "1215"
+      "en": "1215.",
+      "ar": "1215."
     },
     "review": {
       "status": "pending"
@@ -254,12 +254,12 @@
       "ar": "المجتمع والدين والأزمات"
     },
     "question": {
-      "en": "Who famously nailed his '95 Theses' to a church door in 1517?",
-      "ar": "من قام بتعليق '95 أطروحة' على باب كنيسة عام 1517؟"
+      "en": "Who wrote the Ninety-five Theses associated with the start of the Protestant Reformation in 1517?",
+      "ar": "من كتب الأطروحات الخمس والتسعين المرتبطة ببداية الإصلاح البروتستانتي عام 1517؟"
     },
     "answer": {
-      "en": "Martin Luther",
-      "ar": "مارتن لوثر"
+      "en": "Martin Luther.",
+      "ar": "مارتن لوثر."
     },
     "review": {
       "status": "pending"
@@ -406,12 +406,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "The Meiji Restoration in the late 1800s restored imperial rule to which country?",
-      "ar": "أعادت إصلاحات ميجي في أواخر القرن التاسع عشر الحكم الإمبراطوري إلى أي دولة؟"
+      "en": "The Meiji Restoration of 1868 restored imperial rule in which country?",
+      "ar": "في أي دولة أعادت استعادة ميجي عام 1868 الحكم الإمبراطوري؟"
     },
     "answer": {
-      "en": "Japan",
-      "ar": "اليابان"
+      "en": "Japan.",
+      "ar": "اليابان."
     },
     "review": {
       "status": "pending"
@@ -539,12 +539,12 @@
       "ar": "تاريخ العصور الوسطى وبدايات العصر الحديث"
     },
     "question": {
-      "en": "The Defenestration of Prague, where people were thrown from windows, helped start which war?",
-      "ar": "أعمال 'الرمي من النافذة' في براغ ساعدت في إشعال أي حرب؟"
+      "en": "The Defenestration of Prague in 1618 helped trigger which European war?",
+      "ar": "أي حرب أوروبية ساهم حادث إلقاء المسؤولين من النافذة في براغ عام 1618 في إشعالها؟"
     },
     "answer": {
-      "en": "The Thirty Years' War",
-      "ar": "حرب الثلاثين عاماً"
+      "en": "The Thirty Years' War.",
+      "ar": "حرب الثلاثين عاماً."
     },
     "review": {
       "status": "pending"
@@ -757,12 +757,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Who was Adolf Hitler's political party?",
-      "ar": "ما الحزب السياسي الذي ينتمي إليه أدولف هتلر؟"
+      "en": "Which political party did Adolf Hitler lead?",
+      "ar": "ما الحزب السياسي الذي قاده أدولف هتلر؟"
     },
     "answer": {
-      "en": "The Nazi Party (NSDAP)",
-      "ar": "الحزب النازي (الحزب الاشتراكي القومي الألماني)"
+      "en": "The Nazi Party, formally the National Socialist German Workers' Party (NSDAP).",
+      "ar": "الحزب النازي، واسمه الرسمي حزب العمال الألماني الاشتراكي القومي."
     },
     "review": {
       "status": "pending"
@@ -776,12 +776,12 @@
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "In which year did the Russian Revolution occur?",
-      "ar": "في أي عام وقعت الثورة الروسية؟"
+      "en": "In which year did Russia experience the February and October revolutions?",
+      "ar": "في أي عام شهدت روسيا ثورتي فبراير وأكتوبر؟"
     },
     "answer": {
-      "en": "1917",
-      "ar": "1917"
+      "en": "1917.",
+      "ar": "1917."
     },
     "review": {
       "status": "pending"
@@ -789,18 +789,18 @@
   },
   {
     "id": "history-042",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Ancient Civilizations & Archaeology",
       "ar": "الحضارات القديمة وعلم الآثار"
     },
     "question": {
-      "en": "Which empire was ruled by Julius Caesar?",
-      "ar": "أي إمبراطورية حكمها يوليوس قيصر؟"
+      "en": "What office did Julius Caesar hold for life shortly before his assassination in 44 BCE?",
+      "ar": "ما المنصب الذي تولاه يوليوس قيصر مدى الحياة قبيل اغتياله عام 44 ق.م؟"
     },
     "answer": {
-      "en": "The Roman Republic (later Empire)",
-      "ar": "الجمهورية الرومانية (ثم الإمبراطورية)"
+      "en": "Dictator of the Roman Republic; he was not an emperor of the later Roman Empire.",
+      "ar": "ديكتاتور الجمهورية الرومانية؛ ولم يكن إمبراطوراً للإمبراطورية الرومانية اللاحقة."
     },
     "review": {
       "status": "pending"
@@ -890,12 +890,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Which empire was known as the Ottoman Empire?",
-      "ar": "بأي اسم اشتُهرت الدولة العثمانية؟"
+      "en": "Which Ottoman sultan reigned from 1520 to 1566 and became known in English as 'the Magnificent'?",
+      "ar": "أي سلطان عثماني حكم بين 1520 و1566 واشتهر في العربية بلقب «القانوني»؟"
     },
     "answer": {
-      "en": "The Ottoman Empire (based in Turkey)",
-      "ar": "الدولة العثمانية (ومركزها تركيا)"
+      "en": "Suleiman I.",
+      "ar": "سليمان الأول."
     },
     "review": {
       "status": "pending"
@@ -947,12 +947,12 @@
       "ar": "الحضارات القديمة وعلم الآثار"
     },
     "question": {
-      "en": "Which ancient city was destroyed by the eruption of Mount Vesuvius in 79 AD?",
-      "ar": "أي مدينة قديمة دمّرها ثوران بركان فيزوف عام 79 ميلادي؟"
+      "en": "Name one Roman city buried by the eruption of Mount Vesuvius in 79 CE.",
+      "ar": "اذكر إحدى المدينتين الرومانيتين اللتين دفنهما ثوران فيزوف عام 79 م، واشتهرتا باكتشافاتهما الأثرية."
     },
     "answer": {
-      "en": "Pompeii",
-      "ar": "بومبي"
+      "en": "Pompeii or Herculaneum.",
+      "ar": "بومبي أو هيركولانيوم."
     },
     "review": {
       "status": "pending"
@@ -1004,12 +1004,12 @@
       "ar": "الاستكشاف والعلوم والصناعة"
     },
     "question": {
-      "en": "Who was the first to circumnavigate the globe?",
-      "ar": "من كان أول من أبحر حول العالم؟"
+      "en": "Who led the surviving ship and crew home to Spain in 1522, completing the first circumnavigation begun by Magellan's expedition?",
+      "ar": "من قاد السفينة الناجية وطاقمها إلى إسبانيا عام 1522، مكملاً أول دوران حول العالم بدأته بعثة ماجلان؟"
     },
     "answer": {
-      "en": "Ferdinand Magellan's expedition (completed by Elcano)",
-      "ar": "رحلة فرديناند ماجلان (أتمّها خوان سيباستيان إلكانو)"
+      "en": "Juan Sebastián Elcano, aboard the Victoria.",
+      "ar": "خوان سيباستيان إلكانو، على متن فيكتوريا."
     },
     "review": {
       "status": "pending"
@@ -1043,11 +1043,11 @@
     },
     "question": {
       "en": "Who was Napoleon Bonaparte?",
-      "ar": "من هو نابليون بونابرت؟"
+      "ar": "من كان نابليون بونابرت؟"
     },
     "answer": {
-      "en": "French military leader and Emperor of France (1804–1815)",
-      "ar": "قائد عسكري فرنسي وإمبراطور فرنسا (1804–1815)"
+      "en": "A French military leader and emperor, reigning in 1804–1814 and briefly again in 1815.",
+      "ar": "قائد عسكري فرنسي وإمبراطور حكم من 1804 إلى 1814، ثم لفترة قصيرة عام 1815."
     },
     "review": {
       "status": "pending"
@@ -1061,12 +1061,12 @@
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "What was the name of the document that ended slavery in the United States?",
-      "ar": "ما اسم الوثيقة التي أنهت العبودية في الولايات المتحدة؟"
+      "en": "Which amendment to the US Constitution abolished slavery, except as punishment for a duly convicted crime?",
+      "ar": "أي تعديل للدستور الأمريكي ألغى العبودية، مع استثناء العقوبة على جريمة أُدين بها الشخص وفق القانون؟"
     },
     "answer": {
-      "en": "The Emancipation Proclamation",
-      "ar": "إعلان التحرير"
+      "en": "The Thirteenth Amendment, ratified in 1865.",
+      "ar": "التعديل الثالث عشر، الذي صُدّق عليه عام 1865."
     },
     "review": {
       "status": "pending"
@@ -1118,12 +1118,12 @@
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "What was the name of the British warship sunk by the Falklands conflict in 1982?",
-      "ar": "ما اسم السفينة الحربية البريطانية التي غرقت في صراع جزر فوكلاند عام 1982؟"
+      "en": "Which British destroyer was struck by an Exocet missile on 4 May 1982 during the Falklands War?",
+      "ar": "ما المدمرة البريطانية التي أصابها صاروخ إكسوسيت في 4 مايو 1982 أثناء حرب فوكلاند؟"
     },
     "answer": {
-      "en": "HMS Sheffield",
-      "ar": "السفينة HMS شيفيلد"
+      "en": "HMS Sheffield.",
+      "ar": "إتش إم إس شيفيلد."
     },
     "review": {
       "status": "pending"
@@ -1156,12 +1156,12 @@
       "ar": "الحضارات القديمة وعلم الآثار"
     },
     "question": {
-      "en": "What battle in 480 BC saw Spartan King Leonidas defend the pass of Thermopylae?",
-      "ar": "أي معركة عام 480 ق.م رأى فيها الملك الإسباني ليونيداس يدافع عن ممر ثيرموبيلاي؟"
+      "en": "Which Spartan king led the Greek defence at Thermopylae in 480 BCE?",
+      "ar": "أي ملك إسبرطي قاد الدفاع اليوناني عند ثيرموبيلاي عام 480 ق.م؟"
     },
     "answer": {
-      "en": "The Battle of Thermopylae",
-      "ar": "معركة ثيرموبيلاي"
+      "en": "Leonidas I.",
+      "ar": "ليونيداس الأول."
     },
     "review": {
       "status": "pending"
@@ -1171,16 +1171,16 @@
     "id": "history-062",
     "difficulty": "hard",
     "subcategory": {
-      "en": "Empires, States & Historical Figures",
-      "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
+      "en": "Wars, Treaties & Diplomacy",
+      "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "Which treaty ended the Thirty Years' War in 1648?",
-      "ar": "أي معاهدة أنهت حرب الثلاثين عاماً عام 1648؟"
+      "en": "In which German cities were the negotiations associated with the Peace of Westphalia held?",
+      "ar": "في أي مدينتين ألمانيتين جرت المفاوضات المرتبطة بصلح وستفاليا؟"
     },
     "answer": {
-      "en": "The Peace of Westphalia",
-      "ar": "معاهدة وستفاليا"
+      "en": "Münster and Osnabrück.",
+      "ar": "مونستر وأوسنابروك."
     },
     "review": {
       "status": "pending"
@@ -1232,12 +1232,12 @@
       "ar": "الثورات والاستقلال"
     },
     "question": {
-      "en": "Who was executed during the French Revolution's Reign of Terror?",
-      "ar": "من أُعدم خلال حكم الإرهاب في الثورة الفرنسية؟"
+      "en": "Which French queen was executed on 16 October 1793 during the Reign of Terror?",
+      "ar": "أي ملكة فرنسية أُعدمت في 16 أكتوبر 1793 خلال عهد الإرهاب؟"
     },
     "answer": {
-      "en": "King Louis XVI and Marie Antoinette (among thousands)",
-      "ar": "الملك لويس السادس عشر وماري أنطوانيت (من بين آلاف آخرين)"
+      "en": "Marie Antoinette.",
+      "ar": "ماري أنطوانيت."
     },
     "review": {
       "status": "pending"
@@ -1251,12 +1251,12 @@
       "ar": "الحضارات القديمة وعلم الآثار"
     },
     "question": {
-      "en": "Which Pharaoh is associated with the Exodus story in the Bible?",
-      "ar": "أي فرعون يرتبط بقصة الخروج في الكتاب المقدس؟"
+      "en": "Does the biblical Book of Exodus name the pharaoh who opposed Moses?",
+      "ar": "هل يذكر سفر الخروج في الكتاب المقدس اسم الفرعون الذي واجه موسى؟"
     },
     "answer": {
-      "en": "Ramesses II (most widely cited)",
-      "ar": "رمسيس الثاني (الأكثر شيوعاً)"
+      "en": "No. Identifications with particular Egyptian rulers are hypotheses, not names stated in that text.",
+      "ar": "لا. ربطه بحاكم مصري بعينه فرضية، وليس اسماً مذكوراً في ذلك النص."
     },
     "review": {
       "status": "pending"
@@ -1359,18 +1359,18 @@
   },
   {
     "id": "history-072",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Who signed the Magna Carta in 1215?",
-      "ar": "من وقّع الماغنا كارتا عام 1215؟"
+      "en": "What does the Latin title Magna Carta mean in English?",
+      "ar": "ما معنى العنوان اللاتيني «ماغنا كارتا»؟"
     },
     "answer": {
-      "en": "King John of England",
-      "ar": "الملك جون ملك إنجلترا"
+      "en": "Great Charter.",
+      "ar": "الميثاق العظيم."
     },
     "review": {
       "status": "pending"
@@ -1378,18 +1378,18 @@
   },
   {
     "id": "history-073",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Wars, Treaties & Diplomacy",
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "Which country suffered the most casualties in World War II?",
-      "ar": "أي دولة تكبّدت أكبر عدد من الضحايا في الحرب العالمية الثانية؟"
+      "en": "In casualty statistics, does 'casualties' necessarily mean only people killed?",
+      "ar": "في إحصاءات الحروب، هل تعني كلمة «الخسائر البشرية» بالضرورة القتلى وحدهم؟"
     },
     "answer": {
-      "en": "The Soviet Union",
-      "ar": "الاتحاد السوفيتي"
+      "en": "No. Depending on the definition, it can include killed, wounded, missing or captured people.",
+      "ar": "لا. فقد تشمل، بحسب التعريف المستخدم، القتلى والجرحى والمفقودين والأسرى."
     },
     "review": {
       "status": "pending"
@@ -1454,7 +1454,7 @@
   },
   {
     "id": "history-077",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1517,12 +1517,12 @@
       "ar": "الاستكشاف والعلوم والصناعة"
     },
     "question": {
-      "en": "Who discovered the circulation of blood in the human body?",
-      "ar": "من اكتشف دوران الدم في جسم الإنسان؟"
+      "en": "Which physician published an experimental account of systemic blood circulation in 1628?",
+      "ar": "أي طبيب نشر وصفاً تجريبياً للدورة الدموية الكبرى عام 1628؟"
     },
     "answer": {
-      "en": "William Harvey (1628)",
-      "ar": "وليام هارفي (1628)"
+      "en": "William Harvey. Earlier scholars had described other aspects, including pulmonary circulation.",
+      "ar": "وليام هارفي. وقد وصف علماء سابقون جوانب أخرى، منها الدورة الدموية الصغرى."
     },
     "review": {
       "status": "pending"
@@ -1568,7 +1568,7 @@
   },
   {
     "id": "history-083",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
@@ -1631,12 +1631,12 @@
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "Which treaty officially ended World War I?",
-      "ar": "أي معاهدة أنهت رسمياً الحرب العالمية الأولى؟"
+      "en": "Which 1919 treaty established peace terms between Germany and the Allied and Associated Powers after World War I?",
+      "ar": "أي معاهدة عام 1919 وضعت شروط السلام بين ألمانيا ودول الحلفاء والقوى المرتبطة بها بعد الحرب العالمية الأولى؟"
     },
     "answer": {
-      "en": "The Treaty of Versailles (1919)",
-      "ar": "معاهدة فرساي (1919)"
+      "en": "The Treaty of Versailles.",
+      "ar": "معاهدة فرساي."
     },
     "review": {
       "status": "pending"
@@ -1650,12 +1650,12 @@
       "ar": "الحضارات القديمة وعلم الآثار"
     },
     "question": {
-      "en": "Who was the last Pharaoh of ancient Egypt?",
-      "ar": "من كان آخر فراعنة مصر القديمة؟"
+      "en": "Who was the last ruling queen of Ptolemaic Egypt?",
+      "ar": "من كانت آخر ملكة حاكمة لمصر البطلمية؟"
     },
     "answer": {
-      "en": "Cleopatra VII",
-      "ar": "كليوباترا السابعة"
+      "en": "Cleopatra VII; her final co-ruler was her son Caesarion.",
+      "ar": "كليوباترا السابعة؛ وكان آخر شريك لها في الحكم ابنها قيصرون."
     },
     "review": {
       "status": "pending"
@@ -1739,7 +1739,7 @@
   },
   {
     "id": "history-092",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Ancient Civilizations & Archaeology",
       "ar": "الحضارات القديمة وعلم الآثار"
@@ -1802,12 +1802,12 @@
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "The Edict of Milan (313 AD) granted religious tolerance by which Roman Emperor?",
-      "ar": "أصدر مرسوم ميلانو (313 م) التسامح الديني أي إمبراطور روماني؟"
+      "en": "Which two Roman emperors reached the agreement associated with the Edict of Milan in 313 CE?",
+      "ar": "أي إمبراطورين رومانيين توصلا إلى الاتفاق المرتبط بمرسوم ميلانو عام 313 م؟"
     },
     "answer": {
-      "en": "Constantine I (the Great)",
-      "ar": "قسطنطين الأول (الكبير)"
+      "en": "Constantine I and Licinius.",
+      "ar": "قسطنطين الأول وليسينيوس."
     },
     "review": {
       "status": "pending"
@@ -1821,12 +1821,12 @@
       "ar": "الحروب والمعاهدات والدبلوماسية"
     },
     "question": {
-      "en": "Which country was split into North and South after the Korean War armistice of 1953?",
-      "ar": "أي دولة انقسمت إلى شمال وجنوب بعد هدنة الحرب الكورية عام 1953؟"
+      "en": "What agreement halted major fighting in the Korean War in July 1953 without creating a final peace treaty?",
+      "ar": "ما الاتفاق الذي أوقف القتال الرئيسي في الحرب الكورية في يوليو 1953 دون أن يشكّل معاهدة سلام نهائية؟"
     },
     "answer": {
-      "en": "Korea",
-      "ar": "كوريا"
+      "en": "The Korean Armistice Agreement. Korea's division predated it.",
+      "ar": "اتفاقية الهدنة الكورية؛ وقد سبقها انقسام كوريا."
     },
     "review": {
       "status": "pending"
@@ -1872,7 +1872,7 @@
   },
   {
     "id": "history-099",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Revolutions & Independence",
       "ar": "الثورات والاستقلال"
@@ -1891,18 +1891,18 @@
   },
   {
     "id": "history-100",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Empires, States & Historical Figures",
       "ar": "الإمبراطوريات والدول والشخصيات التاريخية"
     },
     "question": {
-      "en": "Which ancient library was considered the greatest repository of knowledge in the ancient world?",
-      "ar": "أي مكتبة قديمة كانت تُعدّ أعظم مستودع للمعرفة في العالم القديم؟"
+      "en": "Which Egyptian city housed the famous library associated with the Ptolemaic rulers?",
+      "ar": "أي مدينة مصرية ضمّت المكتبة الشهيرة المرتبطة بالحكام البطالمة؟"
     },
     "answer": {
-      "en": "The Library of Alexandria",
-      "ar": "مكتبة الإسكندرية"
+      "en": "Alexandria.",
+      "ar": "الإسكندرية."
     },
     "review": {
       "status": "pending"

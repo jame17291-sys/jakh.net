@@ -292,12 +292,12 @@
       "ar": "الخلية والوراثة والأحياء الدقيقة"
     },
     "question": {
-      "en": "What is the difference between mitosis and meiosis?",
-      "ar": "ما الفرق بين الانقسام المتساوي والانقسام الاختزالي؟"
+      "en": "Starting with one diploid cell, how do the usual chromosome numbers of mitosis and meiosis products differ?",
+      "ar": "بدءاً بخلية ثنائية الصيغة الصبغية، كيف تختلف الصيغة الصبغية المعتادة لنواتج الانقسام المتساوي والاختزالي؟"
     },
     "answer": {
-      "en": "Mitosis produces two genetically identical diploid cells for growth and repair; meiosis produces four genetically unique haploid cells for sexual reproduction.",
-      "ar": "الانقسام المتساوي ينتج خليتين ثنائيتي الصيغة الصبغية متطابقتين جينياً للنمو والإصلاح؛ والانقسام الاختزالي ينتج أربع خلايا أحادية الصيغة الصبغية فريدة جينياً للتكاثر الجنسي."
+      "en": "Mitosis preserves diploidy; meiosis halves the chromosome number to produce haploid products. Not all meiotic products necessarily become functional gametes.",
+      "ar": "يحافظ الانقسام المتساوي على الصيغة الثنائية، بينما يخفض الانقسام الاختزالي عدد الكروموسومات إلى النصف لينتج خلايا أحادية الصيغة. ولا تتحول جميع نواتجه بالضرورة إلى أمشاج وظيفية."
     },
     "review": {
       "status": "pending"
@@ -372,8 +372,8 @@
       "ar": "ما الفرق بين الكمية القياسية والكمية المتجهة؟"
     },
     "answer": {
-      "en": "A scalar has only magnitude (e.g., speed, temperature), while a vector has both magnitude and direction (e.g., velocity, force).",
-      "ar": "الكمية القياسية لها مقدار فقط (كالسرعة والحرارة)، أما المتجهة فلها مقدار واتجاه (كالسرعة بالاتجاه والقوة)."
+      "en": "A scalar has magnitude only, such as temperature. A vector has magnitude and direction, such as force or velocity.",
+      "ar": "للكمية القياسية مقدار فقط، مثل درجة الحرارة. وللكمية المتجهة مقدار واتجاه، مثل القوة والسرعة المتجهة."
     },
     "review": {
       "status": "pending"
@@ -410,8 +410,8 @@
       "ar": "ما الفرق بين الرابطة الأيونية والرابطة التساهمية؟"
     },
     "answer": {
-      "en": "Ionic bonds involve the transfer of electrons between atoms (usually metal + non-metal), while covalent bonds involve the sharing of electron pairs (usually non-metals).",
-      "ar": "الرابطة الأيونية تنطوي على نقل الإلكترونات بين الذرات (غالباً فلز مع لافلز)، بينما تتضمن الرابطة التساهمية مشاركة أزواج إلكترونات (غالباً بين لافلزات)."
+      "en": "An ionic bond is electrostatic attraction between oppositely charged ions. A covalent bond involves shared electron density, commonly represented by shared electron pairs.",
+      "ar": "الرابطة الأيونية تجاذب كهروستاتيكي بين أيونات متعاكسة الشحنة. أما التساهمية فتتضمن اشتراكاً في الكثافة الإلكترونية، ويُمثّل غالباً بأزواج إلكترونية مشتركة."
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "الميكانيكا والطاقة والنسبية"
     },
     "question": {
-      "en": "What is Ohm's Law?",
-      "ar": "ما قانون أوم؟"
+      "en": "An object of mass 2 kg accelerates at 3 m/s². What net force acts on it?",
+      "ar": "يتسارع جسم كتلته 2 كغ بمقدار 3 م/ث². ما محصلة القوة المؤثرة فيه؟"
     },
     "answer": {
-      "en": "V = IR: the voltage across a conductor equals the current through it multiplied by its resistance.",
-      "ar": "V = IR: الجهد الكهربائي عبر موصل يساوي شدة التيار المار فيه مضروبة في مقاومته."
+      "en": "6 N, using F=ma=2×3.",
+      "ar": "6 نيوتن، وفق F=ma=2×3."
     },
     "review": {
       "status": "pending"
@@ -539,12 +539,12 @@
       "ar": "الخلية والوراثة والأحياء الدقيقة"
     },
     "question": {
-      "en": "What is the central dogma of molecular biology?",
-      "ar": "ما العقيدة المركزية في علم الأحياء الجزيئي؟"
+      "en": "What is the usual sequence-information pathway during gene expression from DNA to protein?",
+      "ar": "ما المسار المعتاد لمعلومات التسلسل أثناء التعبير الجيني من DNA إلى البروتين؟"
     },
     "answer": {
-      "en": "Genetic information flows from DNA → RNA → protein: DNA is transcribed into mRNA, which is translated into proteins.",
-      "ar": "تتدفق المعلومات الجينية من DNA إلى RNA إلى بروتين: يُنسخ DNA إلى mRNA، ثم يُترجم mRNA إلى بروتينات."
+      "en": "DNA is transcribed into RNA, then messenger RNA is translated into protein: DNA→RNA→protein. This does not exclude reverse transcription from RNA to DNA.",
+      "ar": "يُنسخ DNA إلى RNA، ثم يُترجم RNA الرسول إلى بروتين: DNA→RNA→بروتين. ولا ينفي ذلك حدوث النسخ العكسي من RNA إلى DNA."
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
       "ar": "الميكانيكا والطاقة والنسبية"
     },
     "question": {
-      "en": "What is entropy in thermodynamics, and what does the second law state about it?",
-      "ar": "ما الإنتروبيا في الديناميكا الحرارية، وماذا ينص القانون الثاني بشأنها؟"
+      "en": "What does the second law of thermodynamics say about the entropy of an isolated macroscopic system?",
+      "ar": "ماذا يقول القانون الثاني للديناميكا الحرارية عن إنتروبيا نظام عياني معزول؟"
     },
     "answer": {
-      "en": "Entropy is a measure of disorder or the number of microstates in a system. The second law states that in an isolated system, entropy never decreases; all spontaneous processes increase total entropy.",
-      "ar": "الإنتروبيا مقياس للفوضى أو عدد الحالات الدقيقة في النظام. ينص القانون الثاني على أن الإنتروبيا في نظام معزول لا تتناقص أبداً؛ وجميع العمليات التلقائية تزيد الإنتروبيا الكلية."
+      "en": "Its entropy cannot decrease in a spontaneous process; it increases in irreversible processes and remains constant in an ideal reversible process.",
+      "ar": "لا تتناقص إنتروبيته في عملية تلقائية؛ بل تزداد في العمليات غير العكوسة وتبقى ثابتة في العملية العكوسة المثالية."
     },
     "review": {
       "status": "pending"
@@ -638,8 +638,8 @@
       "ar": "ما الفرق بين الحمض القوي والحمض الضعيف؟"
     },
     "answer": {
-      "en": "A strong acid fully dissociates in water (e.g., HCl, H₂SO₄). A weak acid only partially dissociates and exists in equilibrium with its conjugate base (e.g., acetic acid, Ka ≪ 1).",
-      "ar": "الحمض القوي ينفصل كلياً في الماء (مثل HCl، H₂SO₄). الحمض الضعيف ينفصل جزئياً فقط ويوجد في توازن مع قاعدته المرافقة (مثل حمض الخليك، Ka ≪ 1)."
+      "en": "In water, a strong acid such as HCl ionizes essentially completely. A weak acid such as acetic acid ionizes only partly and reaches an equilibrium with its conjugate base.",
+      "ar": "في الماء يتأين الحمض القوي مثل HCl بصورة شبه كاملة. أما الحمض الضعيف مثل حمض الخليك فيتأين جزئياً ويصل إلى اتزان مع قاعدته المرافقة."
     },
     "review": {
       "status": "pending"
@@ -691,12 +691,12 @@
       "ar": "فيزياء الكم والجسيمات"
     },
     "question": {
-      "en": "What is the photoelectric effect, and why was it significant for quantum theory?",
-      "ar": "ما التأثير الكهروضوئي، ولماذا كان له أهمية بالغة لنظرية الكم؟"
+      "en": "Why was the photoelectric effect important to the development of quantum theory?",
+      "ar": "لماذا كان التأثير الكهروضوئي مهماً في تطور نظرية الكم؟"
     },
     "answer": {
-      "en": "When light strikes a metal surface, electrons are ejected — but only if the light's frequency exceeds a threshold. Einstein showed this required photons (quantised packets of energy), contradicting classical wave theory and earning him the 1921 Nobel Prize.",
-      "ar": "عند سقوط الضوء على سطح معدني، تُقذف إلكترونات — لكن فقط إذا تجاوز تردد الضوء حدًّا معيناً. أثبت أينشتاين أن ذلك يستلزم فوتونات (حزماً كمية من الطاقة)، مما أبطل النظرية الموجية الكلاسيكية وأكسبه جائزة نوبل 1921."
+      "en": "Electron emission depends on a threshold light frequency. Einstein explained it using light quanta with energy E=hf, where classical wave theory alone could not explain the observations.",
+      "ar": "يعتمد انبعاث الإلكترونات على تجاوز تردد الضوء قيمة عتبة. فسره أينشتاين بكمّات ضوئية طاقتها E=hf، بعدما عجزت النظرية الموجية الكلاسيكية وحدها عن تفسير المشاهدات."
     },
     "review": {
       "status": "pending"
@@ -729,12 +729,12 @@
       "ar": "فيزياء الكم والجسيمات"
     },
     "question": {
-      "en": "What is quantum entanglement and why did Einstein call it 'spooky action at a distance'?",
-      "ar": "ما التشابك الكمي ولماذا أطلق أينشتاين عليه 'الفعل المخيف عن بُعد'؟"
+      "en": "Can measurements of entangled particles be used to send a controllable message faster than light?",
+      "ar": "هل يمكن استخدام قياسات جسيمات متشابكة لإرسال رسالة يمكن التحكم فيها أسرع من الضوء؟"
     },
     "answer": {
-      "en": "Two entangled particles share a quantum state such that measuring one instantly determines the state of the other, regardless of distance. Einstein objected because this appeared to violate locality; Bell's theorem and later experiments confirmed entanglement is real.",
-      "ar": "جسيمان متشابكان يتشاركان حالة كمية بحيث يُحدّد قياس أحدهما حالة الآخر فوراً بغض النظر عن المسافة. اعترض أينشتاين لأن ذلك يبدو انتهاكاً للموضعية؛ نظرية بيل والتجارب اللاحقة أثبتت وجود التشابك فعلاً."
+      "en": "No. Entanglement produces nonclassical correlations, but comparing outcomes still requires ordinary communication subject to the light-speed limit.",
+      "ar": "لا. يولد التشابك ارتباطات غير كلاسيكية، لكن مقارنة النتائج تتطلب اتصالاً عادياً يخضع لحد سرعة الضوء."
     },
     "review": {
       "status": "pending"
@@ -748,12 +748,12 @@
       "ar": "فيزياء الكم والجسيمات"
     },
     "question": {
-      "en": "What is the Schrödinger equation and what does its wave function (Ψ) represent in chemistry?",
-      "ar": "ما معادلة شرودنغر وماذا تعبّر عنه دالة الموجة (Ψ) في الكيمياء؟"
+      "en": "If Ψ is an electron's normalized spatial wavefunction, what expression gives its position probability density?",
+      "ar": "إذا كانت Ψ دالة الموجة المكانية المطبّعة لإلكترون، فما التعبير الذي يعطي كثافة احتمال موضعه؟"
     },
     "answer": {
-      "en": "The Schrödinger equation describes how quantum states evolve over time. In chemistry, Ψ² gives the probability density of finding an electron at a given location — defining atomic orbitals and electron cloud shapes.",
-      "ar": "تصف معادلة شرودنغر كيف تتطور الحالات الكمية عبر الزمن. في الكيمياء، Ψ² تُعطي كثافة احتمالية لإيجاد إلكترون في موضع معين — مما يُحدّد شكل المدارات الذرية وسحب الإلكترونات."
+      "en": "|Ψ|²=Ψ*Ψ, where Ψ* is the complex conjugate. Ψ² alone is not generally correct.",
+      "ar": "|Ψ|²=Ψ*Ψ، حيث Ψ* المرافق المركب. ولا يصح استخدام Ψ² وحدها في الحالة العامة."
     },
     "review": {
       "status": "pending"
@@ -767,12 +767,12 @@
       "ar": "الخلية والوراثة والأحياء الدقيقة"
     },
     "question": {
-      "en": "What is the endosymbiotic theory and what evidence supports it?",
-      "ar": "ما نظرية الاندماج الداخلي وما الأدلة الداعمة لها؟"
+      "en": "What evidence supports the endosymbiotic origin of mitochondria and chloroplasts?",
+      "ar": "ما الأدلة التي تدعم الأصل التكافلي الداخلي للميتوكوندريا والبلاستيدات الخضراء؟"
     },
     "answer": {
-      "en": "The theory (proposed by Lynn Margulis) holds that mitochondria and chloroplasts were once free-living prokaryotes engulfed by proto-eukaryotic cells. Evidence: they have double membranes, their own circular DNA, ribosomes resembling bacterial ones, and they divide by binary fission.",
-      "ar": "تقول النظرية (التي اقترحتها لين مارغوليس) إن الميتوكوندريا والبلاستيدات كانت بكتيريا حرة ابتلعتها خلايا بدائية حقيقية النواة. الأدلة: لها غشاءان، وDNA حلقي خاص بها، وريبوسومات تشبه البكتيريا، وتنقسم بالانشطار الثنائي."
+      "en": "They retain their own genomes, bacterial-like ribosomes, and division mechanisms resembling bacteria, consistent with descent from bacterial ancestors living inside host cells.",
+      "ar": "تحتفظ بجينومات خاصة وريبوسومات شبيهة بالبكتيرية وآليات انقسام تشبه البكتيريا، مما يدعم انحدارها من أسلاف بكتيرية عاشت داخل خلايا مضيفة."
     },
     "review": {
       "status": "pending"
@@ -786,12 +786,12 @@
       "ar": "فيزياء الكم والجسيمات"
     },
     "question": {
-      "en": "What is the Standard Model of particle physics and what particles does it include?",
-      "ar": "ما النموذج القياسي في فيزياء الجسيمات وما الجسيمات التي يشملها؟"
+      "en": "Which bosons mediate the electromagnetic, weak, and strong interactions in the Standard Model?",
+      "ar": "ما البوزونات التي تتوسط التآثرات الكهرومغناطيسية والضعيفة والقوية في النموذج المعياري؟"
     },
     "answer": {
-      "en": "The Standard Model describes fundamental particles and forces. It includes fermions (quarks: up/down/charm/strange/top/bottom; leptons: electron/muon/tau + their neutrinos) and bosons mediating forces (photon, W/Z bosons, gluon, Higgs boson). Gravity is not included.",
-      "ar": "النموذج القياسي يصف الجسيمات الأساسية والقوى. يشمل الفرميونات (الكواركات: up/down/charm/strange/top/bottom؛ اللبتونات: إلكترون/ميون/تاو ونيوتريناتها) والبوزونات الوسيطة (الفوتون، W/Z، الغلوون، بوزون هيغز). الجاذبية غير مُدرجة."
+      "en": "The photon mediates electromagnetism, W and Z bosons the weak interaction, and gluons the strong interaction. The Higgs boson is a separate scalar particle.",
+      "ar": "الفوتون للتآثر الكهرومغناطيسي، وبوزونات W وZ للتآثر الضعيف، والغلوونات للتآثر القوي. أما بوزون هيغز فجسيم قياسي منفصل عنها."
     },
     "review": {
       "status": "pending"
@@ -805,12 +805,12 @@
       "ar": "الكيمياء العضوية والحيوية"
     },
     "question": {
-      "en": "What is chirality in organic chemistry and why does it matter in pharmacology?",
-      "ar": "ما التناظر الانعكاسي (الكيرالية) في الكيمياء العضوية ولماذا يهم في علم الأدوية؟"
+      "en": "Why can two enantiomers of a chiral molecule have different biological effects?",
+      "ar": "لماذا قد يكون لمتماكبين مرآويين لجزيء كيرالي تأثيران حيويان مختلفان؟"
     },
     "answer": {
-      "en": "A chiral molecule has a non-superimposable mirror image (enantiomers). In pharmacology, enantiomers can have vastly different biological activities: e.g., (S)-ibuprofen is the active form, while (R)-ibuprofen is far less effective. Thalidomide's tragedy involved one enantiomer being therapeutic and the other teratogenic.",
-      "ar": "الجزيء الكيرالي له صورة مرآة لا تنطبق عليه (مرآويات). في علم الأدوية، قد يكون للمرآويات نشاط بيولوجي مختلف جذرياً: مثلاً (S)-الإيبوبروفين هو الشكل النشط بينما (R) أقل فاعلية بكثير. كانت مأساة الثاليدومايد لأن أحد المرآويين علاجي والآخر ماسخ للأجنة."
+      "en": "Enantiomers are non-superimposable mirror images. Biological targets such as enzymes are also chiral, so the two forms may bind or react differently.",
+      "ar": "المتماكبان المرآويان صورتان مرآويتان غير قابلتين للتطابق. والأهداف الحيوية كالإنزيمات كيرالية أيضاً، لذلك قد يرتبط الشكلان بها أو يتفاعلان معها بشكل مختلف."
     },
     "review": {
       "status": "pending"
@@ -843,12 +843,12 @@
       "ar": "الميكانيكا والطاقة والنسبية"
     },
     "question": {
-      "en": "What is the difference between general and special relativity?",
-      "ar": "ما الفرق بين النسبية العامة والنسبية الخاصة؟"
+      "en": "What is the key difference between special and general relativity in their treatment of spacetime and gravity?",
+      "ar": "ما الفرق الأساسي بين النسبية الخاصة والعامة في وصف الزمكان والجاذبية؟"
     },
     "answer": {
-      "en": "Special relativity (1905) addresses inertial (non-accelerating) frames: time dilation, length contraction, mass-energy equivalence at constant velocity. General relativity (1915) extends this to accelerating frames and gravity, describing gravity as the curvature of spacetime caused by mass-energy.",
-      "ar": "النسبية الخاصة (1905) تعالج الأطر القصورية (غير المتسارعة): تمدد الزمن، انقباض الطول، تكافؤ الكتلة والطاقة عند سرعة ثابتة. النسبية العامة (1915) توسّع ذلك للأطر المتسارعة والجاذبية، وتصف الجاذبية على أنها انحناء في الزمكان تحدثه الكتلة والطاقة."
+      "en": "Special relativity describes physics in flat spacetime, including accelerated motion. General relativity describes gravity through curved spacetime shaped by mass-energy.",
+      "ar": "تصف النسبية الخاصة الفيزياء في زمكان مسطح، ويمكنها وصف الحركة المتسارعة أيضاً. وتصف النسبية العامة الجاذبية بانحناء الزمكان المرتبط بالكتلة والطاقة."
     },
     "review": {
       "status": "pending"
@@ -900,12 +900,12 @@
       "ar": "فيزياء الكم والجسيمات"
     },
     "question": {
-      "en": "What is a Bose-Einstein condensate (BEC) and under what conditions does it form?",
-      "ar": "ما مكثّف بوز-أينشتاين وتحت أي ظروف يتكوّن؟"
+      "en": "What characterizes a Bose–Einstein condensate in a dilute gas cooled to extremely low temperature?",
+      "ar": "ما الخاصية المميزة لمكثف بوز–أينشتاين في غاز مخفف بُرّد إلى حرارة شديدة الانخفاض؟"
     },
     "answer": {
-      "en": "A BEC is a state of matter formed when bosons (integer-spin particles) are cooled to near absolute zero, causing a macroscopic fraction to occupy the same lowest quantum ground state, behaving as a single quantum entity. First created experimentally in 1995 (Cornell & Wieman).",
-      "ar": "مكثّف بوز-أينشتاين حالة مادية تتكون عند تبريد البوزونات (الجسيمات ذات الدوران الصحيح) قرب الصفر المطلق، فتشغل نسبة ضخمة منها أدنى حالة كمية أساسية وتتصرف ككيان كمي واحد. جرى إنتاجه تجريبياً لأول مرة عام 1995 (كورنيل وويمان)."
+      "en": "A macroscopic fraction of the bosons occupies the same lowest-energy quantum state. Bosons have integer spin.",
+      "ar": "تشغل نسبة عيانية من البوزونات الحالة الكمية نفسها ذات أقل طاقة. والبوزونات جسيمات ذات لف مغزلي عدد صحيح."
     },
     "review": {
       "status": "pending"
@@ -919,12 +919,12 @@
       "ar": "الكيمياء العضوية والحيوية"
     },
     "question": {
-      "en": "What is the difference between SN1 and SN2 nucleophilic substitution mechanisms?",
-      "ar": "ما الفرق بين آليتي الاستبدال النيوكليوفيلي SN1 و SN2؟"
+      "en": "How do the basic mechanisms of SN1 and SN2 substitution differ?",
+      "ar": "كيف تختلف الآليتان الأساسيتان للاستبدال SN1 وSN2؟"
     },
     "answer": {
-      "en": "SN2 is a concerted one-step reaction (backside attack by nucleophile as leaving group departs) favoured by primary substrates and strong nucleophiles; configuration is inverted (Walden inversion). SN1 proceeds in two steps (rate-determining ionisation forming carbocation, then nucleophile attacks) favoured by tertiary substrates and polar protic solvents; gives racemic mixture.",
-      "ar": "SN2 تفاعل أحادي متزامن (هجوم النيوكليوفيل من الخلف بينما تغادر المجموعة المغادرة) يُفضّل المركبات الأولية والنيوكليوفيلات القوية؛ تُعكس التشكيل (انعكاس والدن). SN1 تسير في خطوتين (أيون كربونيوم ينتج في خطوة تحديد السرعة، ثم هجوم النيوكليوفيل) تُفضّل المركبات الثلاثية والمذيبات البروتيكية القطبية؛ تُعطي خليطاً راسيمياً."
+      "en": "SN1 forms a carbocation intermediate before nucleophile attack and often gives partial racemization. SN2 is concerted: backside attack and leaving-group departure occur together, with inversion at the reacting stereocenter.",
+      "ar": "تكوّن SN1 وسيط كربوكاتيون قبل هجوم النيوكليوفيل، وتؤدي غالباً إلى فقدان جزئي للنقاوة الفراغية. أما SN2 فمتزامنة: يحدث الهجوم الخلفي ومغادرة المجموعة معاً، مع انعكاس التشكيل عند المركز الفراغي المتفاعل."
     },
     "review": {
       "status": "pending"
@@ -938,12 +938,12 @@
       "ar": "الخلية والوراثة والأحياء الدقيقة"
     },
     "question": {
-      "en": "What is synthetic biology and what are its key applications and ethical concerns?",
-      "ar": "ما الأحياء التركيبية وما أبرز تطبيقاتها ومخاوفها الأخلاقية؟"
+      "en": "What distinguishes synthetic biology from merely observing naturally occurring biological systems?",
+      "ar": "ما الذي يميز الأحياء التركيبية عن مجرد رصد الأنظمة الحيوية الموجودة طبيعياً؟"
     },
     "answer": {
-      "en": "Synthetic biology applies engineering principles to design novel biological systems: examples include engineered bacteria producing insulin, biosensors, cell-free diagnostics, and minimal cells. Ethical concerns: biosafety (ecological release), biosecurity (bioweapons), equitable access, and the moral status of engineered life.",
-      "ar": "الأحياء التركيبية تُطبّق مبادئ الهندسة لتصميم أنظمة بيولوجية جديدة: بكتيريا مُهندَسة تُنتج الأنسولين، مستشعرات حيوية، تشخيص خالٍ من الخلايا، وخلايا دنيا. المخاوف الأخلاقية: السلامة البيولوجية (الإفلات البيئي)، الأمن البيولوجي (أسلحة بيولوجية)، الوصول العادل، والوضع الأخلاقي للحياة المُهندَسة."
+      "en": "It applies engineering principles to design or redesign biological components and systems for specified functions.",
+      "ar": "تطبق مبادئ هندسية لتصميم مكونات وأنظمة حيوية أو إعادة تصميمها لأداء وظائف محددة."
     },
     "review": {
       "status": "pending"

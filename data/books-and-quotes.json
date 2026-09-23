@@ -159,8 +159,8 @@
       "ar": "الاقتباسات والمطالع"
     },
     "question": {
-      "en": "'I have a dream' is the famous opening of a speech by which civil rights leader?",
-      "ar": "'لديّ حلم' هو المطلع الشهير لخطاب أي زعيم حقوقي؟"
+      "en": "Which civil rights leader delivered the speech widely known as I Have a Dream in 1963?",
+      "ar": "أي زعيم للحقوق المدنية ألقى عام 1963 الخطاب المعروف باسم «لدي حلم»؟"
     },
     "answer": {
       "en": "Martin Luther King Jr.",
@@ -197,12 +197,12 @@
       "ar": "الأعمال والشخصيات"
     },
     "question": {
-      "en": "In Ray Bradbury's 'Fahrenheit 451,' what does 451 represent?",
-      "ar": "في رواية 'فهرنهايت 451' لراي برادبري، ماذا تمثل 451؟"
+      "en": "In the title Fahrenheit 451, what does the number refer to according to the novel's premise?",
+      "ar": "إلى ماذا يشير العدد في عنوان «فهرنهايت 451» وفق فرضية الرواية؟"
     },
     "answer": {
-      "en": "The temperature at which book paper catches fire",
-      "ar": "درجة الحرارة التي تشتعل عندها أوراق الكتب"
+      "en": "The Fahrenheit temperature at which book paper is said to ignite",
+      "ar": "درجة الحرارة بالفهرنهايت التي يُقال في الرواية إن ورق الكتب يشتعل عندها"
     },
     "review": {
       "status": "pending"
@@ -425,12 +425,12 @@
       "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
-      "en": "Who coined the term 'MacGuffin' for a plot device that drives a story but is unimportant itself?",
-      "ar": "من صاغ مصطلح 'ماكغافن' لوصف عنصر درامي يحرك القصة دون أهمية ذاتية؟"
+      "en": "Which author wrote the novel Rebecca, later adapted into a film by Alfred Hitchcock?",
+      "ar": "من الكاتبة التي ألّفت رواية ريبيكا، التي اقتبسها ألفريد هيتشكوك لاحقاً في فيلم؟"
     },
     "answer": {
-      "en": "Alfred Hitchcock (filmmaker, not a novelist)",
-      "ar": "ألفريد هيتشكوك (مخرج سينمائي لا روائي)"
+      "en": "Daphne du Maurier",
+      "ar": "دافني دو مورييه"
     },
     "review": {
       "status": "pending"
@@ -520,8 +520,8 @@
       "ar": "تاريخ الأدب ومصطلحاته وجوائزه"
     },
     "question": {
-      "en": "Written by Murasaki Shikibu in the 11th century, what is widely considered the world's first novel?",
-      "ar": "ما الرواية التي كتبتها موراساكي شيكيبو في القرن الحادي عشر وتُعدّ أقدم رواية في العالم؟"
+      "en": "Which early-11th-century Japanese novel was written by Murasaki Shikibu?",
+      "ar": "ما الرواية اليابانية التي كتبتها موراساكي شيكيبو في أوائل القرن الحادي عشر؟"
     },
     "answer": {
       "en": "The Tale of Genji",

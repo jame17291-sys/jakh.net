@@ -273,12 +273,12 @@
       "ar": "الفنانون والروائع"
     },
     "question": {
-      "en": "In Grant Wood's 'American Gothic,' what do the two figures hold?",
-      "ar": "ماذا يحمل الشخصان في لوحة 'القوطي الأمريكي' لغرانت وود؟"
+      "en": "What tool does the man hold in Grant Wood's American Gothic?",
+      "ar": "ما الأداة التي يحملها الرجل في لوحة القوطي الأمريكي لغرانت وود؟"
     },
     "answer": {
       "en": "A pitchfork",
-      "ar": "شوكة الحقل"
+      "ar": "مذراة"
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
       "ar": "تاريخ الفن"
     },
     "question": {
-      "en": "What is the actual full original title of Rembrandt's 'The Night Watch'?",
-      "ar": "ما العنوان الكامل الأصلي للوحة رامبرانت المعروفة بـ'دورية الليل'؟"
+      "en": "Which captain leads the militia company depicted in Rembrandt's The Night Watch?",
+      "ar": "من النقيب الذي يقود سرية الحرس المصوّرة في لوحة دورية الليل لرامبرانت؟"
     },
     "answer": {
-      "en": "Militia Company of District II under Captain Frans Banninck Cocq",
-      "ar": "فصيلة الميليشيا الثانية بقيادة النقيب فرانس بانينك كوك"
+      "en": "Frans Banninck Cocq",
+      "ar": "فرانس بانينك كوك"
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "الحركات والأساليب الفنية"
     },
     "question": {
-      "en": "Which Russian artist is credited with painting one of the first purely abstract works in 1910?",
-      "ar": "أي فنان روسي يُنسب إليه رسم أحد أوائل الأعمال التجريدية البحتة عام 1910؟"
+      "en": "Which Russian-born artist wrote Concerning the Spiritual in Art and became a pioneer of abstract painting?",
+      "ar": "أي فنان مولود في روسيا كتب «حول الروحي في الفن» وأصبح من رواد الرسم التجريدي؟"
     },
     "answer": {
       "en": "Wassily Kandinsky",
-      "ar": "واسيلي كاندينسكي"
+      "ar": "فاسيلي كاندينسكي"
     },
     "review": {
       "status": "pending"
@@ -482,12 +482,12 @@
       "ar": "الحركات والأساليب الفنية"
     },
     "question": {
-      "en": "Magritte's pipe painting says 'Ceci n'est pas une pipe.' What does this translate to?",
-      "ar": "لوحة ماغريت للغليون مكتوب عليها 'Ceci n'est pas une pipe'. ما معنى هذه العبارة؟"
+      "en": "What does the sentence Ceci n'est pas une pipe in Magritte's pipe painting mean?",
+      "ar": "ما معنى عبارة Ceci n'est pas une pipe في لوحة الغليون لماغريت؟"
     },
     "answer": {
       "en": "This is not a pipe",
-      "ar": "هذه ليست غليوناً"
+      "ar": "هذا ليس غليوناً"
     },
     "review": {
       "status": "pending"
@@ -558,8 +558,8 @@
       "ar": "التقنيات والمواد"
     },
     "question": {
-      "en": "During the Renaissance, ultramarine was more expensive than gold. What stone was it ground from?",
-      "ar": "في عصر النهضة، كان الأزرق الأولترامارين أغلى من الذهب. من أي حجر كان يُستخرج؟"
+      "en": "Which blue stone was ground to make natural ultramarine pigment?",
+      "ar": "ما الحجر الأزرق الذي كان يُطحن لصناعة صبغة الأزرق فوق البحري الطبيعية؟"
     },
     "answer": {
       "en": "Lapis lazuli",

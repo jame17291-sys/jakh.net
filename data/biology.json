@@ -45,12 +45,12 @@
       "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
-      "en": "What does DNA stand for?",
-      "ar": "ماذا تعني اختصار DNA؟"
+      "en": "What does the abbreviation DNA stand for?",
+      "ar": "ماذا يعني اختصار DNA؟"
     },
     "answer": {
-      "en": "Deoxyribonucleic acid",
-      "ar": "حمض الديوكسي ريبونيوكليك"
+      "en": "Deoxyribonucleic acid.",
+      "ar": "الحمض النووي الريبوزي منقوص الأكسجين."
     },
     "review": {
       "status": "pending"
@@ -141,7 +141,7 @@
     },
     "question": {
       "en": "Are mushrooms classified as plants, animals, or fungi?",
-      "ar": "هل تُصنَّف الفطريات كنباتات أم حيوانات أم فطريات؟"
+      "ar": "هل يُصنف عيش الغراب ضمن النباتات أم الحيوانات أم الفطريات؟"
     },
     "answer": {
       "en": "Fungi",
@@ -159,8 +159,8 @@
       "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
-      "en": "What gas do humans primarily exhale?",
-      "ar": "ما الغاز الذي يزفره الإنسان بشكل رئيسي؟"
+      "en": "Which waste gas produced by cellular respiration is removed from the blood through the lungs?",
+      "ar": "ما الغاز الناتج بوصفه فضلة من التنفس الخلوي، والذي تزيله الرئتان من الدم؟"
     },
     "answer": {
       "en": "Carbon dioxide",
@@ -201,8 +201,8 @@
       "ar": "ما اسم عملية انقسام الخلية التي تنتج عنها خليتان متطابقتان؟"
     },
     "answer": {
-      "en": "Mitosis",
-      "ar": "الانقسام المتساوي (الميتوزis)"
+      "en": "Mitosis, usually followed by cytokinesis to produce two daughter cells.",
+      "ar": "الانقسام المتساوي (الميتوزي)، ويتبعه عادةً انقسام السيتوبلازم لتكوين خليتين بنتين."
     },
     "review": {
       "status": "pending"
@@ -235,12 +235,12 @@
       "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
-      "en": "What is the rarest human blood type (ignoring Rh-null)?",
-      "ar": "ما أندر فصيلة دم بشرية (بغض النظر عن Rh-null)؟"
+      "en": "In the ABO blood-group system, which antigens are present on typeAB red blood cells?",
+      "ar": "في نظام فصائل الدم ABO، ما المستضدات الموجودة على خلايا الدم الحمراء من الفصيلة AB؟"
     },
     "answer": {
-      "en": "AB negative",
-      "ar": "فصيلة AB سالبة"
+      "en": "Both A and B antigens.",
+      "ar": "المستضدان A و B معاً."
     },
     "review": {
       "status": "pending"
@@ -292,12 +292,12 @@
       "ar": "الأحياء الدقيقة والمناعة"
     },
     "question": {
-      "en": "What is the medical term for white blood cells?",
-      "ar": "ما المصطلح الطبي لخلايا الدم البيضاء؟"
+      "en": "Which blood-cell group includes lymphocytes and neutrophils?",
+      "ar": "ما مجموعة خلايا الدم التي تضم الخلايا اللمفاوية والعدلات؟"
     },
     "answer": {
-      "en": "Leukocytes",
-      "ar": "كريات الدم البيضاء (الكريات البيض)"
+      "en": "White blood cells, or leukocytes.",
+      "ar": "خلايا الدم البيضاء، أو الكريات البيض."
     },
     "review": {
       "status": "pending"
@@ -387,12 +387,12 @@
       "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
-      "en": "In genetic translation, what is the sequence of the universal start codon?",
-      "ar": "في الترجمة الجينية، ما تسلسل الكودون البادئ العالمي؟"
+      "en": "Which mRNA codon most commonly initiates protein translation?",
+      "ar": "ما كودون RNA الرسول الأكثر شيوعاً لبدء ترجمة البروتين؟"
     },
     "answer": {
-      "en": "AUG",
-      "ar": "AUG"
+      "en": "AUG. Alternative initiation codons occur in some organisms and contexts.",
+      "ar": "AUG. توجد كودونات بدء بديلة في بعض الكائنات والسياقات."
     },
     "review": {
       "status": "pending"
@@ -406,8 +406,8 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "In cellular respiration, which cycle directly follows glycolysis?",
-      "ar": "في التنفس الخلوي، أي دورة تأتي مباشرة بعد التحلل السكري؟"
+      "en": "In aerobic respiration, which cycle receives acetyl-CoA formed by pyruvate oxidation after glycolysis?",
+      "ar": "في التنفس الهوائي، أي دورة تستقبل أسيتيل مرافق الإنزيم A الناتج من أكسدة البيروفات بعد التحلل السكري؟"
     },
     "answer": {
       "en": "The Krebs Cycle / Citric Acid Cycle",
@@ -463,8 +463,8 @@
       "ar": "تشريح ووظائف جسم الإنسان"
     },
     "question": {
-      "en": "Which inhibitory neurotransmitter in the central nervous system helps regulate excitability?",
-      "ar": "أي ناقل عصبي مثبط في الجهاز العصبي المركزي يساعد في تنظيم الإثارة؟"
+      "en": "What is the principal inhibitory neurotransmitter in the adult mammalian brain?",
+      "ar": "ما الناقل العصبي المثبط الرئيسي في دماغ الثدييات البالغ؟"
     },
     "answer": {
       "en": "GABA",
@@ -653,8 +653,8 @@
       "ar": "التطور"
     },
     "question": {
-      "en": "Who proposed the theory of evolution by natural selection?",
-      "ar": "من اقترح نظرية التطور بالانتخاب الطبيعي؟"
+      "en": "Who published On the Origin of Species in 1859?",
+      "ar": "من نشر كتاب أصل الأنواع عام 1859؟"
     },
     "answer": {
       "en": "Charles Darwin",
@@ -748,8 +748,8 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "Which organelle contains the cell's genetic material?",
-      "ar": "أي عضية تحتوي على المادة الوراثية للخلية؟"
+      "en": "Which organelle contains most of the DNA in a typical human body cell?",
+      "ar": "أي عضية تحتوي على معظم DNA في خلية بشرية جسمية نموذجية؟"
     },
     "answer": {
       "en": "The nucleus",
@@ -767,12 +767,12 @@
       "ar": "الحيوانات والتصنيف"
     },
     "question": {
-      "en": "What is a group of lions called?",
-      "ar": "ما اسم مجموعة الأسود؟"
+      "en": "What English collective noun is traditionally used for a group of lions?",
+      "ar": "ما الاسم الجمعي الإنجليزي المستخدم تقليدياً لمجموعة من الأسود؟"
     },
     "answer": {
-      "en": "A pride",
-      "ar": "قطيع (فخر)"
+      "en": "A pride.",
+      "ar": "Pride، ويعني هنا مجموعة أسود، لا معنى الكلمة الآخر وهو الفخر."
     },
     "review": {
       "status": "pending"
@@ -862,12 +862,12 @@
       "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
-      "en": "What is the difference between dominant and recessive alleles?",
-      "ar": "ما الفرق بين الأليلات السائدة والمتنحّية؟"
+      "en": "For an autosomal gene in a diploid organism with complete dominance, how do dominant and recessive alleles differ in expression?",
+      "ar": "لجين جسمي في كائن ثنائي الصيغة الصبغية مع سيادة تامة، كيف يختلف ظهور أثر الأليل السائد والمتنحي؟"
     },
     "answer": {
-      "en": "A dominant allele's trait is expressed even with one copy; recessive requires two copies",
-      "ar": "تتجلّى صفة الأليل السائد حتى مع نسخة واحدة؛ أما المتنحّي فيحتاج إلى نسختين"
+      "en": "One dominant copy is sufficient for the dominant phenotype. The recessive phenotype appears when both copies are recessive.",
+      "ar": "تكفي نسخة سائدة واحدة لظهور النمط الظاهري السائد، بينما يظهر النمط المتنحي عند وجود نسختين متنحيتين."
     },
     "review": {
       "status": "pending"
@@ -881,12 +881,12 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "What is the difference between plant and animal cells?",
-      "ar": "ما الفرق بين الخلايا النباتية والحيوانية؟"
+      "en": "Which structures distinguish a typical photosynthetic plant cell from a typical animal cell?",
+      "ar": "ما التراكيب التي تميز خلية نباتية نموذجية تقوم بالتمثيل الضوئي عن خلية حيوانية نموذجية؟"
     },
     "answer": {
-      "en": "Plant cells have a cell wall, chloroplasts, and a large central vacuole; animal cells do not",
-      "ar": "تمتلك الخلايا النباتية جداراً خلوياً وصانعات خضراء وفجوة مركزية كبيرة؛ بينما تفتقر الخلايا الحيوانية إليها"
+      "en": "A cellulose cell wall, chloroplasts, and usually a large central vacuole. Not every plant cell contains chloroplasts.",
+      "ar": "جدار خلوي من السليلوز، وبلاستيدات خضراء، وفجوة مركزية كبيرة عادةً. ولا تحتوي كل الخلايا النباتية على بلاستيدات خضراء."
     },
     "review": {
       "status": "pending"
@@ -1033,12 +1033,12 @@
       "ar": "الحيوانات والتصنيف"
     },
     "question": {
-      "en": "What is the difference between cold-blooded and warm-blooded animals?",
-      "ar": "ما الفرق بين الحيوانات ذوات الدم الحار والبارد؟"
+      "en": "How do endotherms and ectotherms differ in their main source of body heat?",
+      "ar": "كيف تختلف الحيوانات داخلية الحرارة وخارجية الحرارة في المصدر الرئيسي لحرارة أجسامها؟"
     },
     "answer": {
-      "en": "Warm-blooded animals regulate their own body temperature; cold-blooded rely on the environment",
-      "ar": "تنظّم الحيوانات ذوات الدم الحار درجة حرارتها بنفسها؛ أما ذوات الدم البارد فتعتمد على البيئة"
+      "en": "Endotherms rely mainly on metabolic heat; ectotherms rely more on external heat sources. Both can regulate temperature through behavior.",
+      "ar": "تعتمد داخلية الحرارة أساساً على حرارة الأيض، بينما تعتمد خارجية الحرارة أكثر على المصادر الخارجية. ويمكن لكلتيهما تنظيم الحرارة بالسلوك."
     },
     "review": {
       "status": "pending"
@@ -1132,8 +1132,8 @@
       "ar": "ما التطور التقاربي؟"
     },
     "answer": {
-      "en": "When unrelated species independently evolve similar traits due to similar environments",
-      "ar": "عندما تطوّر أنواع غير مترابطة سمات متشابهة بشكل مستقل بسبب بيئات متشابهة"
+      "en": "The independent evolution of similar traits in distantly related lineages facing similar selective pressures.",
+      "ar": "تطور صفات متشابهة بصورة مستقلة في سلالات بعيدة القرابة تواجه ضغوطاً انتقائية متشابهة."
     },
     "review": {
       "status": "pending"
@@ -1147,8 +1147,8 @@
       "ar": "الوراثة والأحياء الجزيئية"
     },
     "question": {
-      "en": "What is the role of mRNA in protein synthesis?",
-      "ar": "ما دور الـ mRNA في تركيب البروتين؟"
+      "en": "In a eukaryotic cell, what role does mRNA play between nuclear DNA and ribosomes?",
+      "ar": "في الخلية حقيقية النواة، ما دور RNA الرسول بين DNA النووي والريبوسومات؟"
     },
     "answer": {
       "en": "It carries the genetic code from DNA in the nucleus to the ribosome for translation",
@@ -1189,8 +1189,8 @@
       "ar": "ما الفرق بين النظام البيئي والبيوم؟"
     },
     "answer": {
-      "en": "An ecosystem is a community of organisms in a local environment; a biome is a large geographic region defined by its climate and dominant vegetation",
-      "ar": "النظام البيئي هو مجتمع من الكائنات في بيئة محلية؛ أما البيوم فهو منطقة جغرافية واسعة تتميز بمناخها ونباتاتها السائدة"
+      "en": "An ecosystem includes organisms, their nonliving environment, and their interactions. A biome is a broad ecological region characterized by climate and typical vegetation or communities.",
+      "ar": "يشمل النظام البيئي الكائنات وبيئتها غير الحية والتفاعلات بينها. أما الإقليم الحيوي فهو نطاق بيئي واسع يتميز بمناخه ونباتاته أو مجتمعاته النموذجية."
     },
     "review": {
       "status": "pending"
@@ -1280,12 +1280,12 @@
       "ar": "علم النبات"
     },
     "question": {
-      "en": "What is the Calvin Cycle?",
-      "ar": "ما دورة كالفن؟"
+      "en": "What three-carbon sugar phosphate is the net carbohydrate product exported from the Calvin cycle?",
+      "ar": "ما السكر الفوسفاتي ثلاثي الكربون الذي يمثل الناتج الكربوهيدراتي الصافي الخارج من دورة كالفن؟"
     },
     "answer": {
-      "en": "The light-independent reactions of photosynthesis that use CO₂ to produce glucose",
-      "ar": "التفاعلات المستقلة عن الضوء في التمثيل الضوئي التي تستخدم CO₂ لإنتاج الجلوكوز"
+      "en": "Glyceraldehyde 3-phosphate (G3P), which can be used to build glucose and other carbohydrates.",
+      "ar": "غليسرألدهيد 3-فوسفات (G3P)، ويمكن استخدامه لبناء الجلوكوز وكربوهيدرات أخرى."
     },
     "review": {
       "status": "pending"
@@ -1299,12 +1299,12 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "What is the difference between apoptosis and necrosis?",
-      "ar": "ما الفرق بين الاستماتة والنخر؟"
+      "en": "In the classical morphological comparison, how do apoptosis and necrosis differ?",
+      "ar": "في المقارنة الشكلية التقليدية، كيف تختلف الاستماتة عن النخر؟"
     },
     "answer": {
-      "en": "Apoptosis is programmed cell death; necrosis is uncontrolled cell death caused by injury or disease",
-      "ar": "الاستماتة موت خلوي مبرمج؛ أما النخر فهو موت خلوي غير منضبط ناجم عن إصابة أو مرض"
+      "en": "Apoptosis involves controlled cell dismantling with membrane-bound fragments. Necrosis typically involves swelling and membrane rupture. Some necrotic pathways are also regulated.",
+      "ar": "تتضمن الاستماتة تفكيكاً منظماً للخلية إلى أجزاء محاطة بأغشية. ويتضمن النخر عادةً تورماً وتمزق الغشاء. وبعض مسارات النخر منظمة أيضاً."
     },
     "review": {
       "status": "pending"
@@ -1341,8 +1341,8 @@
       "ar": "ما البلازميد؟"
     },
     "answer": {
-      "en": "A small, circular DNA molecule in bacteria that can replicate independently of chromosomal DNA",
-      "ar": "جزيء DNA صغير دائري في البكتيريا يمكنه التضاعف باستقلالية عن الحمض النووي الكروموسومي"
+      "en": "A DNA molecule that replicates separately from a cell's main chromosome. Plasmids are often small and circular, particularly in bacteria, but exceptions exist.",
+      "ar": "جزيء DNA يتضاعف بصورة منفصلة عن الكروموسوم الرئيسي للخلية. وغالباً يكون صغيراً ودائرياً، خصوصاً في البكتيريا، مع وجود استثناءات."
     },
     "review": {
       "status": "pending"
@@ -1360,8 +1360,8 @@
       "ar": "ما الخلايا الجذعية؟"
     },
     "answer": {
-      "en": "Undifferentiated cells capable of developing into many different cell types",
-      "ar": "خلايا غير متمايزة قادرة على التطور إلى أنواع مختلفة كثيرة من الخلايا"
+      "en": "Cells capable of self-renewal and differentiation into one or more specialized cell types. Their range of possible fates depends on their potency.",
+      "ar": "خلايا قادرة على التجدد الذاتي والتمايز إلى نوع متخصص واحد أو أكثر. ويتوقف تنوع مصائرها الممكنة على درجة قدرتها التمايزية."
     },
     "review": {
       "status": "pending"
@@ -1376,11 +1376,11 @@
     },
     "question": {
       "en": "What is allopatric speciation?",
-      "ar": "ما التفريد الجغرافي (الخلافي)؟"
+      "ar": "ما الانتواع بالتباعد الجغرافي؟"
     },
     "answer": {
-      "en": "The formation of new species when populations are geographically separated, preventing gene flow",
-      "ar": "تشكّل أنواع جديدة عندما تنفصل المجتمعات جغرافياً مما يمنع تدفق الجينات"
+      "en": "The evolution of reproductive isolation between populations separated by a geographic barrier that restricts gene flow.",
+      "ar": "تطور عزل تكاثري بين جماعات تفصلها حواجز جغرافية تحد من تدفق الجينات بينها."
     },
     "review": {
       "status": "pending"
@@ -1398,8 +1398,8 @@
       "ar": "ما دور الأوكسين في النباتات؟"
     },
     "answer": {
-      "en": "Plant hormones that promote cell elongation and are responsible for phototropism and gravitropism",
-      "ar": "هرمونات نباتية تحفّز استطالة الخلايا وتكون مسؤولة عن الانجذاب الضوئي والجاذبي"
+      "en": "Auxins regulate growth, including cell elongation, and help coordinate phototropism and gravitropism through unequal growth.",
+      "ar": "تنظم الأوكسينات النمو، بما فيه استطالة الخلايا، وتساعد على تنسيق الانتحاء الضوئي والأرضي من خلال النمو غير المتساوي."
     },
     "review": {
       "status": "pending"
@@ -1417,8 +1417,8 @@
       "ar": "ما وظيفة الجسيمات الحالّة (الليزوسومات)؟"
     },
     "answer": {
-      "en": "They digest cellular waste and foreign material using hydrolytic enzymes",
-      "ar": "تهضم النفايات الخلوية والمواد الغريبة باستخدام إنزيمات مائية"
+      "en": "They break down cellular material and foreign particles using hydrolytic enzymes in an acidic interior.",
+      "ar": "تفكك المواد الخلوية والجسيمات الغريبة بإنزيمات التحلل المائي داخل وسط حمضي."
     },
     "review": {
       "status": "pending"
@@ -1512,8 +1512,8 @@
       "ar": "ما مبدأ الإقصاء التنافسي؟"
     },
     "answer": {
-      "en": "Two species competing for the same limited resource cannot coexist — one will outcompete and exclude the other",
-      "ar": "لا يمكن لنوعَين يتنافسان على نفس الموارد المحدودة التعايش — أحدهما سيتغلّب على الآخر ويستبعده"
+      "en": "Under stable conditions, species with identical ecological niches competing for the same limiting resources cannot coexist indefinitely; one eventually excludes the other.",
+      "ar": "في ظروف مستقرة، لا يمكن لأنواع تشغل الحيّز البيئي نفسه وتتنافس على الموارد نفسها المحدِّدة للنمو أن تتعايش إلى أجل غير محدد؛ بل يستبعد أحدها الآخر في النهاية."
     },
     "review": {
       "status": "pending"
@@ -1597,7 +1597,7 @@
   },
   {
     "id": "biology-085",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Plant Biology",
       "ar": "علم النبات"
@@ -1607,8 +1607,8 @@
       "ar": "ما دور المرستيم القمّي؟"
     },
     "answer": {
-      "en": "Region of actively dividing cells at the tip of plant shoots and roots responsible for primary growth",
-      "ar": "منطقة الخلايا التي تنقسم بنشاط عند طرف نبات الجذع والجذور المسؤولة عن النمو الأولي"
+      "en": "It produces primary growth through actively dividing cells at the tips of shoots and roots.",
+      "ar": "يحقق النمو الأولي بواسطة خلايا نشطة الانقسام عند قمم الأفرع والجذور."
     },
     "review": {
       "status": "pending"
@@ -1635,7 +1635,7 @@
   },
   {
     "id": "biology-087",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Cells & Metabolism",
       "ar": "الخلايا والأيض"
@@ -1660,12 +1660,12 @@
       "ar": "علم البيئة"
     },
     "question": {
-      "en": "What is trophic cascade?",
-      "ar": "ما السلسلة الغذائية المتتالية (التدفق الغذائي)؟"
+      "en": "What is a trophic cascade?",
+      "ar": "ما التأثير المتسلسل عبر المستويات الغذائية، أو الشلال الغذائي؟"
     },
     "answer": {
-      "en": "Indirect ecological effects caused by removing or adding a top predator that alter the abundance of organisms at lower trophic levels",
-      "ar": "تأثيرات بيئية غير مباشرة تحدث نتيجة إضافة أو إزالة مفترس قمّي تُغيّر وفرة الكائنات في المستويات الغذائية الأدنى"
+      "en": "An indirect effect across multiple trophic levels; for example, fewer predators can increase herbivores, which then reduce vegetation.",
+      "ar": "تأثير غير مباشر يمتد عبر عدة مستويات غذائية؛ فمثلاً قد يؤدي انخفاض المفترسات إلى زيادة العواشب، فتقل النباتات التي تتغذى عليها."
     },
     "review": {
       "status": "pending"
@@ -1702,8 +1702,8 @@
       "ar": "ما الفرق بين الجينات الورمية والجينات المثبطة للأورام؟"
     },
     "answer": {
-      "en": "Oncogenes promote uncontrolled cell division; tumour suppressors inhibit cell division and trigger apoptosis when damaged",
-      "ar": "تعزّز الجينات الورمية انقسام الخلايا غير المنضبط؛ بينما تثبّط الجينات المثبطة للأورام انقسام الخلايا وتطلق الاستماتة عند تلفها"
+      "en": "Activated oncogenes can drive excessive cell proliferation. Tumor-suppressor genes normally restrain growth or protect genome integrity; loss of their function can remove those safeguards.",
+      "ar": "قد تدفع الجينات الورمية المنشطة إلى تكاثر خلوي مفرط. أما الجينات الكابحة للأورام فتحد عادةً من النمو أو تحمي سلامة الجينوم، وقد يزيل فقدان وظيفتها هذه الحماية."
     },
     "review": {
       "status": "pending"
@@ -1736,12 +1736,12 @@
       "ar": "الخلايا والأيض"
     },
     "question": {
-      "en": "What is the significance of the electron transport chain?",
-      "ar": "ما أهمية سلسلة نقل الإلكترون؟"
+      "en": "During aerobic respiration in mitochondria, how does the electron transport chain help produce ATP?",
+      "ar": "أثناء التنفس الهوائي في الميتوكوندريا، كيف تساعد سلسلة نقل الإلكترون على إنتاج ATP؟"
     },
     "answer": {
-      "en": "It generates most of a cell's ATP through oxidative phosphorylation in the inner mitochondrial membrane",
-      "ar": "تولّد معظم ATP الخلية من خلال الفسفرة التأكسدية في الغشاء الميتوكوندري الداخلي"
+      "en": "Electron transfer powers proton pumping across the inner membrane. ATP synthase uses the resulting electrochemical gradient to synthesize ATP.",
+      "ar": "يوفر انتقال الإلكترونات الطاقة لضخ البروتونات عبر الغشاء الداخلي. ويستخدم إنزيم تصنيع ATP التدرج الكهروكيميائي الناتج لتصنيع ATP."
     },
     "review": {
       "status": "pending"
@@ -1768,7 +1768,7 @@
   },
   {
     "id": "biology-094",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Human Anatomy & Physiology",
       "ar": "تشريح ووظائف جسم الإنسان"
@@ -1873,8 +1873,8 @@
       "ar": "ما الحمض الريبوزي غير المُرمِّز الطويل (lncRNA)؟"
     },
     "answer": {
-      "en": "RNA molecules longer than 200 nucleotides that don't code for proteins but regulate gene expression",
-      "ar": "جزيئات RNA أطول من 200 نيوكليوتيد لا تُرمّز البروتينات لكنها تنظّم تعبير الجينات"
+      "en": "RNA transcripts longer than about 200 nucleotides that do not encode proteins. Many have regulatory roles, but not every identified lncRNA has a known function.",
+      "ar": "نسخ RNA يزيد طولها على نحو 200 نيوكليوتيد ولا ترمز بروتينات. لكثير منها أدوار تنظيمية، لكن وظيفة كل lncRNA مكتشف ليست معروفة بالضرورة."
     },
     "review": {
       "status": "pending"
@@ -1892,8 +1892,8 @@
       "ar": "ما تأثير أللي؟"
     },
     "answer": {
-      "en": "A phenomenon where individual fitness decreases as population size falls below a critical threshold",
-      "ar": "ظاهرة تنخفض فيها لياقة الفرد عندما ينخفض حجم السكان دون حدٍّ حرج"
+      "en": "At low population density, individual fitness can increase as density increases. A strong Allee effect additionally creates a threshold below which population growth becomes negative.",
+      "ar": "عند كثافة جماعة منخفضة قد ترتفع لياقة الفرد مع زيادة الكثافة. ويضيف تأثير أللي القوي عتبة يصبح نمو الجماعة دونها سالباً."
     },
     "review": {
       "status": "pending"

@@ -20,14 +20,14 @@
   },
   {
     "id": "anc-2",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "question": {
-      "en": "Which ancient civilization built the Great Wall?",
-      "ar": "أي حضارة قديمة بنت سور الصين العظيم؟"
+      "en": "Which Chinese dynasty built many of the brick-and-stone sections of the Great Wall that survive today?",
+      "ar": "أي سلالة صينية بنت كثيراً من الأجزاء الحجرية والآجرية الباقية من سور الصين العظيم اليوم؟"
     },
     "answer": {
-      "en": "Ancient China",
-      "ar": "الصين القديمة"
+      "en": "The Ming dynasty.",
+      "ar": "سلالة مينغ."
     },
     "subcategory": {
       "en": "Asian Civilizations",
@@ -60,12 +60,12 @@
     "id": "anc-4",
     "difficulty": "easy",
     "question": {
-      "en": "The Olympics originated in which ancient civilization?",
-      "ar": "أين نشأت الألعاب الأولمبية في أي حضارة قديمة؟"
+      "en": "In which ancient civilization did the Olympic Games originate?",
+      "ar": "في أي حضارة قديمة نشأت الألعاب الأولمبية؟"
     },
     "answer": {
-      "en": "Ancient Greece",
-      "ar": "اليونان القديمة"
+      "en": "Ancient Greece.",
+      "ar": "اليونان القديمة."
     },
     "subcategory": {
       "en": "Greece & Rome",
@@ -117,12 +117,12 @@
     "id": "anc-7",
     "difficulty": "easy",
     "question": {
-      "en": "Which civilization is known for its lost city of Machu Picchu?",
-      "ar": "أي حضارة تشتهر بمدينتها المفقودة 'ماتشو بيتشو'؟"
+      "en": "Which precolonial American civilization built Machu Picchu in the fifteenth century?",
+      "ar": "أي حضارة أمريكية قبل الاستعمار بنت ماتشو بيتشو في القرن الخامس عشر؟"
     },
     "answer": {
-      "en": "Inca Empire",
-      "ar": "إمبراطورية الإنكا"
+      "en": "The Inca civilization.",
+      "ar": "حضارة الإنكا."
     },
     "subcategory": {
       "en": "Civilizations of the Americas",
@@ -155,12 +155,12 @@
     "id": "anc-9",
     "difficulty": "easy",
     "question": {
-      "en": "Which ancient civilization invented the concept of 'Zero' in Mesoamerica?",
-      "ar": "أي حضارة قديمة اخترعت مفهوم 'الصفر' في أمريكا الوسطى؟"
+      "en": "Which Mesoamerican civilization used a shell-shaped sign for zero in its numerical notation?",
+      "ar": "أي حضارة في أمريكا الوسطى استخدمت علامة تشبه الصدفة للدلالة على الصفر في تدوين الأعداد؟"
     },
     "answer": {
-      "en": "Maya Civilization",
-      "ar": "حضارة المايا"
+      "en": "The Maya.",
+      "ar": "المايا."
     },
     "subcategory": {
       "en": "Civilizations of the Americas",
@@ -174,12 +174,12 @@
     "id": "anc-10",
     "difficulty": "easy",
     "question": {
-      "en": "The 'Hanging Gardens' were located in which ancient city?",
-      "ar": "أين كانت تقع 'الجنائن المعلقة' في أي مدينة قديمة؟"
+      "en": "With which ancient city are the Hanging Gardens traditionally associated?",
+      "ar": "بأي مدينة قديمة ترتبط الجنائن المعلقة في الرواية التقليدية؟"
     },
     "answer": {
-      "en": "Babylon",
-      "ar": "بابل"
+      "en": "Babylon; their exact location and historical existence remain debated.",
+      "ar": "بابل؛ وما زال موقعها الدقيق ووجودها التاريخي محل نقاش."
     },
     "subcategory": {
       "en": "Mesopotamia",
@@ -288,12 +288,12 @@
     "id": "anc-16",
     "difficulty": "medium",
     "question": {
-      "en": "The 'Valley of the Kings' is an ancient burial site in which country?",
-      "ar": "أين يقع 'وادي الملوك' كموقع دفن قديم؟"
+      "en": "In which present-day country is the Valley of the Kings burial site?",
+      "ar": "في أي دولة حالية يقع موقع الدفن المعروف بوادي الملوك؟"
     },
     "answer": {
-      "en": "Egypt",
-      "ar": "مصر"
+      "en": "Egypt.",
+      "ar": "مصر."
     },
     "subcategory": {
       "en": "Ancient Egypt",
@@ -345,12 +345,12 @@
     "id": "anc-19",
     "difficulty": "medium",
     "question": {
-      "en": "Which ancient civilization is credited with inventing the alphabet?",
-      "ar": "أي حضارة قديمة ينسب إليها الفضل في اختراع الأبجدية؟"
+      "en": "Which seafaring people spread an influential consonantal alphabet around the ancient Mediterranean?",
+      "ar": "أي شعب بحري نشر أبجدية صامتة مؤثرة حول البحر المتوسط القديم؟"
     },
     "answer": {
-      "en": "Phoenicians",
-      "ar": "الفينيقيون"
+      "en": "The Phoenicians; earlier alphabetic writing already existed.",
+      "ar": "الفينيقيون؛ وقد سبقتهم أنظمة كتابة أبجدية أقدم."
     },
     "subcategory": {
       "en": "Africa & Near East",
@@ -383,12 +383,12 @@
     "id": "anc-21",
     "difficulty": "hard",
     "question": {
-      "en": "Who were the 'Sea Peoples' mentioned in late Bronze Age records?",
-      "ar": "من هم 'شعوب البحر' المذكورون في سجلات العصر البرونزي المتأخر؟"
+      "en": "What does the modern historical label 'Sea Peoples' refer to?",
+      "ar": "إلى ماذا تشير التسمية التاريخية الحديثة «شعوب البحر»؟"
     },
     "answer": {
-      "en": "A confederacy of naval raiders who attacked ancient Egypt and the Mediterranean",
-      "ar": "اتحاد من الغزاة البحريين الذين هاجموا مصر القديمة والبحر الأبيض المتوسط"
+      "en": "Several groups mentioned in late Bronze Age records of conflict in the eastern Mediterranean; their origins and relationships remain debated.",
+      "ar": "جماعات عدة تذكرها سجلات صراعات أواخر العصر البرونزي في شرق المتوسط؛ وما زالت أصولها وعلاقاتها محل نقاش."
     },
     "subcategory": {
       "en": "Africa & Near East",
@@ -421,12 +421,12 @@
     "id": "anc-23",
     "difficulty": "hard",
     "question": {
-      "en": "What is the 'Epic of Gilgamesh'?",
-      "ar": "ما هي 'ملحمة جلجامش'؟"
+      "en": "What kind of work is the Epic of Gilgamesh?",
+      "ar": "ما نوع العمل المعروف بملحمة جلجامش؟"
     },
     "answer": {
-      "en": "The oldest surviving work of great literature, from ancient Mesopotamia",
-      "ar": "أقدم عمل أدبي عظيم باقٍ، من بلاد ما بين النهرين القديمة"
+      "en": "An ancient Mesopotamian literary epic about Gilgamesh, among the oldest surviving epics.",
+      "ar": "ملحمة أدبية من بلاد الرافدين القديمة عن جلجامش، وهي من أقدم الملاحم الباقية."
     },
     "subcategory": {
       "en": "Mesopotamia",
@@ -459,12 +459,12 @@
     "id": "anc-25",
     "difficulty": "hard",
     "question": {
-      "en": "Which ancient civilization developed the first known sewage system in the Indus Valley?",
-      "ar": "أي حضارة قديمة طورت أول نظام صرف صحي معروف في وادي السند؟"
+      "en": "Which Bronze Age civilization built cities such as Mohenjo-daro with extensive drainage systems?",
+      "ar": "أي حضارة من العصر البرونزي بنت مدناً مثل موهينجو دارو ذات شبكات تصريف واسعة؟"
     },
     "answer": {
-      "en": "Harappan (Indus Valley) Civilization",
-      "ar": "حضارة هارابان (وادي السند)"
+      "en": "The Indus Valley, or Harappan, civilization.",
+      "ar": "حضارة وادي السند، أو حضارة هارابا."
     },
     "subcategory": {
       "en": "Asian Civilizations",
@@ -592,12 +592,12 @@
     "id": "anc-32",
     "difficulty": "very-advanced",
     "question": {
-      "en": "What was the significance of the Battle of Kadesh (~1274 BC)?",
-      "ar": "ما هي أهمية معركة قادش (حوالي 1274 ق.م)؟"
+      "en": "Which two ancient powers later concluded a peace treaty after fighting at Kadesh?",
+      "ar": "ما القوتان القديمتان اللتان عقدتا معاهدة سلام بعد سنوات من قتالهما في قادش؟"
     },
     "answer": {
-      "en": "It led to the world's first recorded peace treaty between Egypt and the Hittites",
-      "ar": "أدت إلى أول معاهدة سلام مسجلة في العالم بين مصر والحيثيين"
+      "en": "Egypt and the Hittite Empire.",
+      "ar": "مصر والإمبراطورية الحيثية."
     },
     "subcategory": {
       "en": "Ancient Egypt",
@@ -687,12 +687,12 @@
     "id": "anc-37",
     "difficulty": "very-advanced",
     "question": {
-      "en": "The 'Etruscan' civilization preceded which more famous empire in Italy?",
-      "ar": "أي حضارة سبقت الإمبراطورية الرومانية الشهيرة في إيطاليا؟"
+      "en": "Which pre-Roman civilization flourished in Etruria, in what is now central Italy?",
+      "ar": "أي حضارة سابقة لهيمنة روما ازدهرت في إتروريا، بوسط إيطاليا الحالية؟"
     },
     "answer": {
-      "en": "The Roman Republic/Empire",
-      "ar": "الجمهورية/الإمبراطورية الرومانية"
+      "en": "The Etruscans; their civilization overlapped in time with early Rome.",
+      "ar": "الإتروسكيون؛ وقد عاصرت حضارتهم روما المبكرة."
     },
     "subcategory": {
       "en": "Greece & Rome",
@@ -706,12 +706,12 @@
     "id": "anc-38",
     "difficulty": "very-advanced",
     "question": {
-      "en": "What was the capital city of the Minoan civilization on Crete?",
-      "ar": "ما هي عاصمة الحضارة المينوية في كريت؟"
+      "en": "Which famous Minoan palace complex is located near modern Heraklion on Crete?",
+      "ar": "ما مجمّع القصور المينوي الشهير الواقع قرب هيراكليون الحالية في كريت؟"
     },
     "answer": {
-      "en": "Knossos",
-      "ar": "كنوسوس"
+      "en": "Knossos.",
+      "ar": "كنوسوس."
     },
     "subcategory": {
       "en": "Greece & Rome",

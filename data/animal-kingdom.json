@@ -121,12 +121,12 @@
       "ar": "التكاثر ودورات الحياة"
     },
     "question": {
-      "en": "What is a baby kangaroo called?",
-      "ar": "ماذا يسمى صغير الكنغر؟"
+      "en": "What English term is commonly used for a young kangaroo?",
+      "ar": "ما المصطلح الإنجليزي الشائع لصغير الكنغر؟"
     },
     "answer": {
-      "en": "Joey",
-      "ar": "جوي (Joey)"
+      "en": "Joey.",
+      "ar": "Joey (جوي)."
     },
     "review": {
       "status": "pending"
@@ -140,8 +140,8 @@
       "ar": "الزواحف والبرمائيات"
     },
     "question": {
-      "en": "Which reptile can change its skin color to blend into its surroundings?",
-      "ar": "أي زاحف يمكنه تغيير لون جلده للاندماج مع محيطه؟"
+      "en": "Which lizard is famous for changing skin color for signaling and temperature regulation as well as camouflage?",
+      "ar": "أي سحلية تشتهر بتغيير لون جلدها للتواصل وتنظيم الحرارة، إلى جانب التمويه؟"
     },
     "answer": {
       "en": "Chameleon",
@@ -197,12 +197,12 @@
       "ar": "الحياة البحرية"
     },
     "question": {
-      "en": "Which animal has the longest lifespan of any vertebrate?",
-      "ar": "أي حيوان يمتلك أطول عمر بين الفقاريات؟"
+      "en": "Which shark is known for estimated lifespans of several centuries, making it an exceptionally long-lived vertebrate?",
+      "ar": "أي قرش تشتهر أعمار أفراده المقدرة ببلوغ عدة قرون، مما يجعله من أطول الفقاريات عمراً؟"
     },
     "answer": {
-      "en": "Greenland Shark (up to 400+ years)",
-      "ar": "قرش جرينلاند (أكثر من 400 عام)"
+      "en": "The Greenland shark. Its age estimates carry substantial uncertainty.",
+      "ar": "قرش غرينلاند. وتحمل تقديرات أعمار أفراده قدراً كبيراً من عدم اليقين."
     },
     "review": {
       "status": "pending"
@@ -220,8 +220,8 @@
       "ar": "ما هو المصطلح الذي يطلق على الحيوانات التي تحمل صغارها في جراب؟"
     },
     "answer": {
-      "en": "Marsupials",
-      "ar": "الجربيات"
+      "en": "Marsupials; many species rear their young in a pouch.",
+      "ar": "الجرابيات؛ تربي أنواع كثيرة منها صغارها في جراب."
     },
     "review": {
       "status": "pending"
@@ -235,12 +235,12 @@
       "ar": "الزواحف والبرمائيات"
     },
     "question": {
-      "en": "Which organ does a snake use to 'smell'?",
-      "ar": "أي عضو يستخدمه الثعبان لـ 'الشم'؟"
+      "en": "In a snake, which sensory organ analyzes chemical particles delivered by the tongue?",
+      "ar": "ما العضو الحسي في الثعبان الذي يحلل الجسيمات الكيميائية التي ينقلها اللسان؟"
     },
     "answer": {
-      "en": "Tongue (Jacobson's organ)",
-      "ar": "اللسان (عضو جاكوبسون)"
+      "en": "The vomeronasal, or Jacobson's, organ. The tongue collects and delivers particles; it is not itself that organ.",
+      "ar": "العضو الميكعي الأنفي، أو عضو جاكوبسون. يجمع اللسان الجسيمات وينقلها، وليس هو ذلك العضو."
     },
     "review": {
       "status": "pending"
@@ -292,12 +292,12 @@
       "ar": "الحشرات ومفصليات الأرجل"
     },
     "question": {
-      "en": "How many chambers does a cockroach's heart have?",
-      "ar": "كم عدداً من الحجرات في قلب الصرصور؟"
+      "en": "What type of circulatory system do cockroaches and most other insects have: open or closed?",
+      "ar": "ما نوع الجهاز الدوري لدى الصراصير ومعظم الحشرات الأخرى: مفتوح أم مغلق؟"
     },
     "answer": {
-      "en": "13",
-      "ar": "13"
+      "en": "An open circulatory system.",
+      "ar": "جهاز دوري مفتوح."
     },
     "review": {
       "status": "pending"
@@ -349,8 +349,8 @@
       "ar": "الحياة البحرية"
     },
     "question": {
-      "en": "Which sea creature has three hearts and blue blood?",
-      "ar": "أي مخلوق بحري لديه ثلاثة قلوب ودم أزرق؟"
+      "en": "Which eight-armed cephalopod has three hearts and blue, copper-based blood?",
+      "ar": "أي رأسي قدم ذو ثمانية أذرع له ثلاثة قلوب ودم أزرق يعتمد ناقل الأكسجين فيه على النحاس؟"
     },
     "answer": {
       "en": "Octopus",
@@ -406,12 +406,12 @@
       "ar": "الثدييات"
     },
     "question": {
-      "en": "Which animal has the highest blood pressure of any animal?",
-      "ar": "أي حيوان يمتلك أعلى ضغط دم بين جميع الحيوانات؟"
+      "en": "Why does a giraffe need high arterial pressure to supply its brain while standing?",
+      "ar": "لماذا تحتاج الزرافة إلى ضغط شرياني مرتفع لإمداد دماغها بالدم أثناء الوقوف؟"
     },
     "answer": {
-      "en": "Giraffe",
-      "ar": "الزرافة"
+      "en": "Its brain is far above its heart, so blood must be pumped upward against a large gravitational pressure difference.",
+      "ar": "لأن دماغها يقع أعلى القلب بمسافة كبيرة، فيلزم ضخ الدم صعوداً ضد فرق ضغط جاذبي كبير."
     },
     "review": {
       "status": "pending"
@@ -425,8 +425,8 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "What is 'Bioluminescence' in animals?",
-      "ar": "ما هو 'المحيء الحيوي' (Bioluminescence) في الحيوانات؟"
+      "en": "What is bioluminescence?",
+      "ar": "ما التلألؤ الحيوي؟"
     },
     "answer": {
       "en": "The production and emission of light by a living organism",
@@ -444,12 +444,12 @@
       "ar": "الحياة البحرية"
     },
     "question": {
-      "en": "Which species of jellyfish is considered biologically immortal?",
-      "ar": "أي نوع من قناديل البحر يعتبر خالداً بيولوجياً؟"
+      "en": "Which jellyfish is famous for being able to revert from its medusa stage to a polyp stage?",
+      "ar": "أي قنديل بحر يشتهر بقدرته على الرجوع من الطور الميدوزي إلى طور السليلة؟"
     },
     "answer": {
-      "en": "Turritopsis dohrnii",
-      "ar": "تيريتوبسيس دورني"
+      "en": "Turritopsis dohrnii. This ability does not prevent death from predation, injury, or disease.",
+      "ar": "Turritopsis dohrnii. ولا تمنع هذه القدرة موته بالافتراس أو الإصابة أو المرض."
     },
     "review": {
       "status": "pending"
@@ -482,8 +482,8 @@
       "ar": "الثدييات"
     },
     "question": {
-      "en": "Which mammal has the densest fur of any animal?",
-      "ar": "أي ثديي يمتلك أبرد فراء بين جميع الحيوانات؟"
+      "en": "Which marine mammal is famous for exceptionally dense fur that insulates it in cold water?",
+      "ar": "أي ثديي بحري يشتهر بفراء بالغ الكثافة يعزله في الماء البارد؟"
     },
     "answer": {
       "en": "Sea Otter",
@@ -520,12 +520,12 @@
       "ar": "تشريح الحيوان ووظائف الأعضاء"
     },
     "question": {
-      "en": "How many stomachs does a cow have?",
-      "ar": "كم عدداً من المعدات (أو حجرات المعدة) لدى البقرة؟"
+      "en": "How many stomachs does a cow have, and how many compartments does it contain?",
+      "ar": "كم معدة للبقرة، وكم حجرة تضمها؟"
     },
     "answer": {
-      "en": "One (with four compartments)",
-      "ar": "واحدة (بأربعة حجرات)"
+      "en": "One stomach with four compartments.",
+      "ar": "معدة واحدة تضم أربع حجرات."
     },
     "review": {
       "status": "pending"
@@ -539,12 +539,12 @@
       "ar": "الحشرات ومفصليات الأرجل"
     },
     "question": {
-      "en": "Which crustacean can punch with the force of a bullet?",
-      "ar": "أي قشري يمكنه الضرب بقوة رصاصة؟"
+      "en": "Which crustacean group includes species that strike prey with rapidly moving club-like forelimbs?",
+      "ar": "ما مجموعة القشريات التي تضم أنواعاً تضرب فرائسها بأطراف أمامية سريعة شبيهة بالهراوات؟"
     },
     "answer": {
-      "en": "Mantis Shrimp",
-      "ar": "روبيان المانتيس"
+      "en": "Mantis shrimps, specifically the smashing species.",
+      "ar": "روبيان السرعوف، وتحديداً الأنواع الضاربة منه."
     },
     "review": {
       "status": "pending"
@@ -590,18 +590,18 @@
   },
   {
     "id": "ani-32",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Animal Anatomy & Physiology",
       "ar": "تشريح الحيوان ووظائف الأعضاء"
     },
     "question": {
-      "en": "Which animal has the largest brain-to-body mass ratio of any vertebrate?",
-      "ar": "أي حيوان لديه أكبر نسبة من كتلة الدماغ إلى الجسم بين الفقاريات؟"
+      "en": "What does an animal's brain-to-body mass ratio compare?",
+      "ar": "ما الذي تقارنه نسبة كتلة دماغ الحيوان إلى كتلة جسمه؟"
     },
     "answer": {
-      "en": "Tree Shrew",
-      "ar": "زباب شجري"
+      "en": "Brain mass divided by body mass. The ratio alone is not a universal measure of intelligence.",
+      "ar": "كتلة الدماغ مقسومة على كتلة الجسم. وهذه النسبة وحدها ليست مقياساً شاملاً للذكاء."
     },
     "review": {
       "status": "pending"
@@ -634,12 +634,12 @@
       "ar": "الزواحف والبرمائيات"
     },
     "question": {
-      "en": "The 'Axolotl' is native to which specific lake system?",
-      "ar": "حيوان 'الأكسولوتل' موطنه الأصلي أي نظام بحيرات محدد؟"
+      "en": "Which two lake systems in the Valley of Mexico were the axolotl's historical native range?",
+      "ar": "ما نظاما البحيرات في وادي المكسيك اللذان شكلا الموطن الأصلي التاريخي للأكسولوتل؟"
     },
     "answer": {
-      "en": "Lake Xochimilco (Mexico)",
-      "ar": "بحيرة زوتشيميلكو (المكسيك)"
+      "en": "Xochimilco and Chalco.",
+      "ar": "زوتشيميلكو وتشالكو."
     },
     "review": {
       "status": "pending"
@@ -647,7 +647,7 @@
   },
   {
     "id": "ani-35",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Animal Anatomy & Physiology",
       "ar": "تشريح الحيوان ووظائف الأعضاء"
@@ -672,8 +672,8 @@
       "ar": "الحشرات ومفصليات الأرجل"
     },
     "question": {
-      "en": "Which insect is known to migrate over 3,000 miles from North America to Mexico?",
-      "ar": "أي حشرة تشتهر بالهجرة لأكثر من 3000 ميل من أمريكا الشمالية إلى المكسيك؟"
+      "en": "Which butterfly is famous for the migration of its eastern North American population from Canada and the United States to central Mexico?",
+      "ar": "أي فراشة تشتهر بهجرة جماعتها في شرق أمريكا الشمالية من كندا والولايات المتحدة إلى وسط المكسيك؟"
     },
     "answer": {
       "en": "Monarch Butterfly",
@@ -691,12 +691,12 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "What is the term for the movement of an animal toward a light source?",
-      "ar": "ما هو المصطلح الذي يطلق على حركة حيوان ما باتجاه مصدر الضوء؟"
+      "en": "What is directed movement toward a light source called?",
+      "ar": "ما اسم الحركة الموجهة نحو مصدر ضوء؟"
     },
     "answer": {
-      "en": "Phototaxis",
-      "ar": "التاكسي الضوئي (Phototaxis)"
+      "en": "Positive phototaxis.",
+      "ar": "الانجذاب الضوئي الإيجابي."
     },
     "review": {
       "status": "pending"
@@ -704,18 +704,18 @@
   },
   {
     "id": "ani-38",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Insects & Arthropods",
       "ar": "الحشرات ومفصليات الأرجل"
     },
     "question": {
-      "en": "Which animal has the most genes of any animal sequenced so far (over 30,000)?",
-      "ar": "أي حيوان يمتلك أكبر عدد من الجينات بين جميع الحيوانات المتسلسلة حتى الآن (أكثر من 30,000)؟"
+      "en": "Despite its common name, is a water flea of the genus Daphnia an insect or a crustacean?",
+      "ar": "رغم اسمه الشائع، هل برغوث الماء من جنس Daphnia حشرة أم قشري؟"
     },
     "answer": {
-      "en": "Water Flea (Daphnia pulex)",
-      "ar": "برغوث الماء (Daphnia pulex)"
+      "en": "A crustacean, not an insect.",
+      "ar": "قشري، وليس حشرة."
     },
     "review": {
       "status": "pending"
@@ -748,12 +748,12 @@
       "ar": "السلوك والبيئة والتكيف"
     },
     "question": {
-      "en": "The 'Tardigrade' is famous for its resilience; what is the state of suspended animation it enters?",
-      "ar": "دب الماء (Tardigrade) مشهور بقدرته على الصمود؛ ما هي حالة السبات العميق التي يدخل فيها؟"
+      "en": "What is the general name for a reversible state of almost undetectable metabolism that tardigrades can enter under extreme conditions?",
+      "ar": "ما الاسم العام لحالة قابلة للعكس يكاد فيها الأيض لا يُرصد، ويمكن أن يدخلها دب الماء في ظروف قاسية؟"
     },
     "answer": {
-      "en": "Cryptobiosis",
-      "ar": "السبات الكيميائي (Cryptobiosis)"
+      "en": "Cryptobiosis.",
+      "ar": "الحياة الخفية أو السكون الحيوي (Cryptobiosis)."
     },
     "review": {
       "status": "pending"

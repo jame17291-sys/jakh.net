@@ -175,10 +175,10 @@
         "geography"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 14,
+        "medium": 12,
+        "hard": 6,
+        "very-advanced": 8
       },
       "topics": [
         {
@@ -189,7 +189,7 @@
         {
           "en": "Foreign Exchange",
           "ar": "الصرف الأجنبي",
-          "count": 7
+          "count": 8
         },
         {
           "en": "Monetary History",
@@ -199,7 +199,7 @@
         {
           "en": "Money Basics",
           "ar": "أساسيات المال",
-          "count": 5
+          "count": 6
         },
         {
           "en": "Alternative Money",
@@ -215,15 +215,10 @@
           "en": "Digital Currency",
           "ar": "العملات الرقمية",
           "count": 2
-        },
-        {
-          "en": "Money & Banking",
-          "ar": "المال والمصارف",
-          "count": 2
         }
       ],
-      "scorableQuestionCount": 33,
-      "reviewedQuestionCount": 1,
+      "scorableQuestionCount": 31,
+      "reviewedQuestionCount": 0,
       "image": "assets/currencies.svg",
       "quickFireQuestionCount": 0
     },
@@ -254,9 +249,9 @@
       ],
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "medium": 14,
+        "hard": 8,
+        "very-advanced": 8
       },
       "topics": [
         {
@@ -290,7 +285,7 @@
           "count": 4
         }
       ],
-      "scorableQuestionCount": 38,
+      "scorableQuestionCount": 35,
       "reviewedQuestionCount": 0,
       "image": "assets/linguistics.svg",
       "quickFireQuestionCount": 0
@@ -321,10 +316,10 @@
         "inventions-and-minds"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 15,
+        "medium": 12,
+        "hard": 9,
+        "very-advanced": 4
       },
       "topics": [
         {
@@ -394,10 +389,10 @@
         "future-tech-and-energy"
       ],
       "difficultyCounts": {
-        "easy": 10,
+        "easy": 12,
         "medium": 10,
         "hard": 10,
-        "very-advanced": 10
+        "very-advanced": 8
       },
       "topics": [
         {
@@ -436,7 +431,7 @@
           "count": 2
         }
       ],
-      "scorableQuestionCount": 39,
+      "scorableQuestionCount": 38,
       "reviewedQuestionCount": 0,
       "image": "assets/automotive.svg",
       "quickFireQuestionCount": 0
@@ -546,9 +541,9 @@
       ],
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "medium": 14,
+        "hard": 11,
+        "very-advanced": 5
       },
       "topics": [
         {
@@ -613,10 +608,10 @@
         "fictional-worlds"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 13,
+        "medium": 11,
+        "hard": 11,
+        "very-advanced": 5
       },
       "topics": [
         {
@@ -692,9 +687,9 @@
       ],
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "medium": 15,
+        "hard": 11,
+        "very-advanced": 4
       },
       "topics": [
         {
@@ -764,16 +759,16 @@
         "law-middle-east"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 12,
+        "medium": 12,
+        "hard": 9,
+        "very-advanced": 7
       },
       "topics": [
         {
           "en": "Forensic Science",
           "ar": "علوم الأدلة الجنائية",
-          "count": 10
+          "count": 11
         },
         {
           "en": "Organized Crime & Outlaws",
@@ -783,7 +778,7 @@
         {
           "en": "Serial Killers & Unsolved Cases",
           "ar": "القتلة المتسلسلون والقضايا الغامضة",
-          "count": 8
+          "count": 7
         },
         {
           "en": "Heists, Kidnappings & Prisons",
@@ -801,7 +796,7 @@
           "count": 3
         }
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 36,
       "reviewedQuestionCount": 0,
       "image": "assets/true-crime.svg",
       "quickFireQuestionCount": 0
@@ -832,10 +827,10 @@
         "middle-east-history"
       ],
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
+        "easy": 11,
+        "medium": 12,
         "hard": 10,
-        "very-advanced": 10
+        "very-advanced": 7
       },
       "topics": [
         {
@@ -966,9 +961,9 @@
       "count": 100,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 25,
+        "medium": 28,
         "hard": 25,
-        "very-advanced": 25
+        "very-advanced": 22
       },
       "href": "/biology",
       "image": "assets/biology.svg",
@@ -1020,7 +1015,7 @@
         "space-and-astrology",
         "environment-and-ecology"
       ],
-      "scorableQuestionCount": 69,
+      "scorableQuestionCount": 64,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1101,8 +1096,8 @@
       "count": 30,
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
-        "hard": 10
+        "medium": 12,
+        "hard": 8
       },
       "href": "/business-and-management",
       "image": "assets/business-and-management.svg",
@@ -1144,7 +1139,7 @@
         "food-and-cuisines",
         "geography"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 29,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1168,9 +1163,9 @@
       "count": 100,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 25,
+        "medium": 26,
         "hard": 25,
-        "very-advanced": 25
+        "very-advanced": 24
       },
       "href": "/chemistry",
       "image": "assets/chemistry.svg",
@@ -1284,7 +1279,7 @@
         "infrastructure-systems",
         "architecture-and-landmarks"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 25,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1307,38 +1302,38 @@
       "mode": "riddle",
       "count": 100,
       "difficultyCounts": {
-        "easy": 25,
-        "medium": 25,
-        "hard": 25,
-        "very-advanced": 25
+        "easy": 57,
+        "medium": 19,
+        "hard": 10,
+        "very-advanced": 14
       },
       "href": "/classic-riddles",
       "image": "assets/classic-riddles.svg",
       "topics": [
         {
-          "en": "Logic & Deduction",
-          "ar": "المنطق والاستنتاج",
-          "count": 22
+          "en": "Objects & Everyday Life",
+          "ar": "الأشياء والحياة اليومية",
+          "count": 47
         },
         {
           "en": "Numbers & Codes",
           "ar": "الأرقام والرموز",
-          "count": 21
+          "count": 19
+        },
+        {
+          "en": "Logic & Deduction",
+          "ar": "المنطق والاستنتاج",
+          "count": 11
         },
         {
           "en": "Wordplay & Language",
           "ar": "التلاعب بالكلمات واللغة",
-          "count": 20
-        },
-        {
-          "en": "Objects & Everyday Life",
-          "ar": "الأشياء والحياة اليومية",
-          "count": 19
+          "count": 10
         },
         {
           "en": "Nature & the World",
           "ar": "الطبيعة والعالم",
-          "count": 12
+          "count": 7
         },
         {
           "en": "Time, Space & Measurement",
@@ -1352,7 +1347,7 @@
         "story-mysteries",
         "true-crime"
       ],
-      "scorableQuestionCount": 92,
+      "scorableQuestionCount": 93,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 10
     },
@@ -1375,43 +1370,33 @@
       "mode": "riddle",
       "count": 60,
       "difficultyCounts": {
-        "easy": 15,
-        "medium": 20,
-        "hard": 15,
-        "very-advanced": 10
+        "easy": 19,
+        "medium": 22,
+        "hard": 13,
+        "very-advanced": 6
       },
       "href": "/logic-puzzles",
       "image": "assets/logic-puzzles.svg",
       "topics": [
         {
-          "en": "Numbers & Patterns",
-          "ar": "الأرقام والأنماط",
-          "count": 18
-        },
-        {
           "en": "Logic & Deduction",
           "ar": "المنطق والاستنتاج",
-          "count": 16
+          "count": 30
+        },
+        {
+          "en": "Numbers & Patterns",
+          "ar": "الأرقام والأنماط",
+          "count": 17
         },
         {
           "en": "Lateral Thinking",
           "ar": "التفكير الجانبي",
-          "count": 14
+          "count": 7
         },
         {
           "en": "Constraints & Ordering",
           "ar": "القيود والترتيب",
           "count": 6
-        },
-        {
-          "en": "Mystery & Detection",
-          "ar": "الغموض والتحري",
-          "count": 3
-        },
-        {
-          "en": "Paradoxes & Philosophy",
-          "ar": "المفارقات والفلسفة",
-          "count": 3
         }
       ],
       "related": [
@@ -1420,7 +1405,7 @@
         "true-crime",
         "psychology"
       ],
-      "scorableQuestionCount": 26,
+      "scorableQuestionCount": 28,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 10
     },
@@ -1487,7 +1472,7 @@
         "automotive",
         "civil-engineering"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 28,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1510,9 +1495,9 @@
       "mode": "quiz",
       "count": 30,
       "difficultyCounts": {
-        "easy": 10,
+        "easy": 11,
         "medium": 10,
-        "hard": 10
+        "hard": 9
       },
       "href": "/electrical-engineering",
       "image": "assets/electrical-engineering.svg",
@@ -1554,7 +1539,7 @@
         "architecture-and-landmarks",
         "inventions-and-minds"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 29,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1577,9 +1562,9 @@
       "mode": "quiz",
       "count": 30,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10
+        "easy": 9,
+        "medium": 14,
+        "hard": 7
       },
       "href": "/flag-questions",
       "image": "assets/flag-questions.svg",
@@ -1644,10 +1629,10 @@
       "mode": "quiz",
       "count": 175,
       "difficultyCounts": {
-        "easy": 50,
-        "medium": 55,
-        "hard": 45,
-        "very-advanced": 25
+        "easy": 52,
+        "medium": 61,
+        "hard": 46,
+        "very-advanced": 16
       },
       "href": "/football",
       "image": "assets/football.svg",
@@ -1699,7 +1684,7 @@
         "pop-culture",
         "mythology-legends"
       ],
-      "scorableQuestionCount": 160,
+      "scorableQuestionCount": 162,
       "reviewedQuestionCount": 1,
       "quickFireQuestionCount": 0
     },
@@ -1722,10 +1707,10 @@
       "mode": "quiz",
       "count": 100,
       "difficultyCounts": {
-        "easy": 25,
-        "medium": 25,
-        "hard": 25,
-        "very-advanced": 25
+        "easy": 30,
+        "medium": 33,
+        "hard": 22,
+        "very-advanced": 15
       },
       "href": "/geography",
       "image": "assets/geography.svg",
@@ -1733,22 +1718,22 @@
         {
           "en": "Countries, Capitals & Borders",
           "ar": "الدول والعواصم والحدود",
-          "count": 46
+          "count": 44
         },
         {
           "en": "Oceans, Seas & Straits",
           "ar": "المحيطات والبحار والمضائق",
-          "count": 14
+          "count": 13
         },
         {
           "en": "Rivers, Lakes & Deltas",
           "ar": "الأنهار والبحيرات والدلتا",
-          "count": 11
+          "count": 12
         },
         {
           "en": "Mountains & Elevation",
           "ar": "الجبال والارتفاعات",
-          "count": 9
+          "count": 10
         },
         {
           "en": "Continents, Islands & Regions",
@@ -1758,7 +1743,7 @@
         {
           "en": "Landforms, Deserts & Climate",
           "ar": "التضاريس والصحاري والمناخ",
-          "count": 6
+          "count": 7
         },
         {
           "en": "Maps & Coordinates",
@@ -1772,7 +1757,7 @@
         "history",
         "middle-east-history"
       ],
-      "scorableQuestionCount": 100,
+      "scorableQuestionCount": 99,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1795,10 +1780,10 @@
       "mode": "quiz",
       "count": 50,
       "difficultyCounts": {
-        "easy": 15,
-        "medium": 5,
-        "hard": 18,
-        "very-advanced": 12
+        "easy": 16,
+        "medium": 6,
+        "hard": 21,
+        "very-advanced": 7
       },
       "href": "/geology",
       "image": "assets/geology.svg",
@@ -1816,7 +1801,7 @@
         {
           "en": "Minerals & Geochemistry",
           "ar": "المعادن والجيوكيمياء",
-          "count": 8
+          "count": 7
         },
         {
           "en": "Surface Processes & Landforms",
@@ -1824,13 +1809,13 @@
           "count": 7
         },
         {
-          "en": "Earthquakes & Seismology",
-          "ar": "الزلازل وعلم الزلازل",
-          "count": 5
-        },
-        {
           "en": "Geological Time & Fossils",
           "ar": "الزمن الجيولوجي والأحافير",
+          "count": 6
+        },
+        {
+          "en": "Earthquakes & Seismology",
+          "ar": "الزلازل وعلم الزلازل",
           "count": 5
         },
         {
@@ -1845,7 +1830,7 @@
         "animal-kingdom",
         "survival"
       ],
-      "scorableQuestionCount": 31,
+      "scorableQuestionCount": 36,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -1869,9 +1854,9 @@
       "count": 100,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 25,
-        "hard": 25,
-        "very-advanced": 25
+        "medium": 32,
+        "hard": 23,
+        "very-advanced": 20
       },
       "href": "/history",
       "image": "assets/history.svg",
@@ -1879,12 +1864,12 @@
         {
           "en": "Empires, States & Historical Figures",
           "ar": "الإمبراطوريات والدول والشخصيات التاريخية",
-          "count": 29
+          "count": 28
         },
         {
           "en": "Wars, Treaties & Diplomacy",
           "ar": "الحروب والمعاهدات والدبلوماسية",
-          "count": 20
+          "count": 21
         },
         {
           "en": "Ancient Civilizations & Archaeology",
@@ -1923,7 +1908,7 @@
         "law-middle-east",
         "world-habits-and-etiquette"
       ],
-      "scorableQuestionCount": 100,
+      "scorableQuestionCount": 98,
       "reviewedQuestionCount": 1,
       "quickFireQuestionCount": 0
     },
@@ -1996,7 +1981,7 @@
         "software-and-computing",
         "coding-and-design"
       ],
-      "scorableQuestionCount": 15,
+      "scorableQuestionCount": 14,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2007,8 +1992,8 @@
         "ar": "ألغاز للأطفال"
       },
       "description": {
-        "en": "30 bilingual Kids Riddles questions covering Objects, Clothing & Technology, Art, Paper & School Tools, Logic, Codes & Patterns, and more. Switch between English and Arabic, reveal answers, and track your score.",
-        "ar": "يضم موضوع «ألغاز للأطفال» 30 سؤالًا بالعربية والإنجليزية، ويتناول الأشياء والملابس والتقنية، الفن والورق والأدوات المدرسية، والمنطق والشفرات والأنماط. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "30 bilingual starter riddles about familiar objects, nature and simple patterns. A mix for independent readers and adult-led play; some questions need basic number or shape knowledge.",
+        "ar": "30 لغزًا تمهيديًا بالعربية والإنجليزية عن الأشياء المألوفة والطبيعة والأنماط البسيطة، للقراءة المستقلة أو اللعب بمساعدة الكبار. تحتاج بعض الأسئلة إلى معرفة أولية بالأعداد أو الأشكال."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2019,9 +2004,9 @@
       "mode": "quiz",
       "count": 30,
       "difficultyCounts": {
-        "easy": 10,
+        "easy": 12,
         "medium": 8,
-        "hard": 12
+        "hard": 10
       },
       "href": "/kids-riddles",
       "image": "assets/kids-riddles.svg",
@@ -2159,10 +2144,10 @@
       "mode": "quiz",
       "count": 150,
       "difficultyCounts": {
-        "easy": 50,
-        "medium": 50,
-        "hard": 30,
-        "very-advanced": 20
+        "easy": 53,
+        "medium": 61,
+        "hard": 28,
+        "very-advanced": 8
       },
       "href": "/math",
       "image": "assets/math.svg",
@@ -2175,22 +2160,22 @@
         {
           "en": "Geometry & Trigonometry",
           "ar": "الهندسة وعلم المثلثات",
-          "count": 28
+          "count": 30
         },
         {
           "en": "Algebra & Functions",
           "ar": "الجبر والدوال",
-          "count": 19
-        },
-        {
-          "en": "Calculus & Analysis",
-          "ar": "التفاضل والتكامل والتحليل",
-          "count": 17
+          "count": 22
         },
         {
           "en": "Probability, Combinatorics & Statistics",
           "ar": "الاحتمالات والتوافقيات والإحصاء",
           "count": 15
+        },
+        {
+          "en": "Calculus & Analysis",
+          "ar": "التفاضل والتكامل والتحليل",
+          "count": 13
         },
         {
           "en": "Patterns, Sequences & Word Problems",
@@ -2200,7 +2185,7 @@
         {
           "en": "Logic, Foundations & Unsolved Problems",
           "ar": "المنطق والأسس والمسائل غير المحلولة",
-          "count": 12
+          "count": 11
         },
         {
           "en": "Arithmetic, Fractions & Percentages",
@@ -2281,7 +2266,7 @@
         "inventions-and-minds",
         "software-and-computing"
       ],
-      "scorableQuestionCount": 30,
+      "scorableQuestionCount": 29,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2383,9 +2368,9 @@
       "count": 50,
       "difficultyCounts": {
         "easy": 20,
-        "medium": 9,
-        "hard": 16,
-        "very-advanced": 5
+        "medium": 11,
+        "hard": 17,
+        "very-advanced": 2
       },
       "href": "/middle-east-history",
       "image": "assets/middle-east-history.svg",
@@ -2398,12 +2383,12 @@
         {
           "en": "Islamic History",
           "ar": "التاريخ الإسلامي",
-          "count": 14
+          "count": 15
         },
         {
           "en": "Ancient",
           "ar": "عصور قديمة",
-          "count": 8
+          "count": 7
         },
         {
           "en": "Ottoman History",
@@ -2417,7 +2402,7 @@
         "world-habits-and-etiquette",
         "linguistics"
       ],
-      "scorableQuestionCount": 11,
+      "scorableQuestionCount": 32,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2514,9 +2499,9 @@
       "count": 50,
       "difficultyCounts": {
         "easy": 14,
-        "medium": 7,
+        "medium": 8,
         "hard": 16,
-        "very-advanced": 13
+        "very-advanced": 12
       },
       "href": "/philosophy",
       "image": "assets/philosophy.svg",
@@ -2558,7 +2543,7 @@
         "logic-puzzles",
         "kids-riddles"
       ],
-      "scorableQuestionCount": 20,
+      "scorableQuestionCount": 13,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2631,7 +2616,7 @@
         "geology",
         "space-and-astrology"
       ],
-      "scorableQuestionCount": 14,
+      "scorableQuestionCount": 16,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2654,10 +2639,10 @@
       "mode": "quiz",
       "count": 100,
       "difficultyCounts": {
-        "easy": 25,
-        "medium": 25,
-        "hard": 25,
-        "very-advanced": 25
+        "easy": 23,
+        "medium": 37,
+        "hard": 21,
+        "very-advanced": 19
       },
       "href": "/psychology",
       "image": "assets/psychology.svg",
@@ -2680,7 +2665,7 @@
         {
           "en": "Clinical & Mental Health",
           "ar": "علم النفس السريري والصحة النفسية",
-          "count": 13
+          "count": 12
         },
         {
           "en": "Developmental Psychology",
@@ -2690,7 +2675,7 @@
         {
           "en": "Neuroscience",
           "ar": "علم الأعصاب",
-          "count": 9
+          "count": 10
         },
         {
           "en": "Personality & Emotion",
@@ -2720,8 +2705,8 @@
         "ar": "العلاقات"
       },
       "description": {
-        "en": "Relationship scenarios, communication choices, and boundary-setting prompts designed for thoughtful adult play.",
-        "ar": "يضم موضوع «العلاقات» 50 سؤالًا بالعربية والإنجليزية، ويتناول علم النفس، الحب والتعلق، والتواصل. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "50 bilingual relationship scenarios and communication tasks. Apply stated goals to listening, boundaries, conflict repair and shared decisions; these are not diagnoses or universal rules for personal relationships.",
+        "ar": "50 موقفًا ومهمة بالعربية والإنجليزية عن العلاقات. طبّق أهدافًا محددة في الإصغاء والحدود وإصلاح الخلاف والقرارات المشتركة؛ ليست هذه الأسئلة تشخيصات أو قواعد عامة لكل علاقة."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -2732,33 +2717,37 @@
       "mode": "quiz",
       "count": 50,
       "difficultyCounts": {
-        "easy": 14,
-        "medium": 8,
-        "hard": 16,
-        "very-advanced": 12
+        "easy": 16,
+        "medium": 32,
+        "hard": 2
       },
       "href": "/relationship-questions",
       "image": "assets/relationship-questions.svg",
       "topics": [
         {
-          "en": "Psychology",
-          "ar": "علم النفس",
-          "count": 17
+          "en": "Boundaries & Permission",
+          "ar": "الحدود والإذن",
+          "count": 12
         },
         {
-          "en": "Love & Attachment",
-          "ar": "الحب والتعلق",
-          "count": 15
+          "en": "Communication & Listening",
+          "ar": "التواصل والاستماع",
+          "count": 12
         },
         {
-          "en": "Communication",
-          "ar": "التواصل",
-          "count": 9
+          "en": "Conflict & Repair",
+          "ar": "الخلاف والإصلاح",
+          "count": 12
         },
         {
-          "en": "Conflict & Resolution",
-          "ar": "الصراع والحل",
-          "count": 9
+          "en": "Support & Shared Decisions",
+          "ar": "الدعم والقرارات المشتركة",
+          "count": 8
+        },
+        {
+          "en": "Digital Privacy & Expectations",
+          "ar": "الخصوصية الرقمية والتوقعات",
+          "count": 6
         }
       ],
       "related": [
@@ -2767,7 +2756,7 @@
         "kids-riddles",
         "story-mysteries"
       ],
-      "scorableQuestionCount": 23,
+      "scorableQuestionCount": 43,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2791,9 +2780,9 @@
       "count": 100,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 25,
-        "hard": 25,
-        "very-advanced": 25
+        "medium": 28,
+        "hard": 27,
+        "very-advanced": 20
       },
       "href": "/science",
       "image": "assets/science.svg",
@@ -2835,7 +2824,7 @@
         "chemistry",
         "geology"
       ],
-      "scorableQuestionCount": 80,
+      "scorableQuestionCount": 71,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2859,9 +2848,9 @@
       "count": 50,
       "difficultyCounts": {
         "easy": 13,
-        "medium": 13,
+        "medium": 14,
         "hard": 12,
-        "very-advanced": 12
+        "very-advanced": 11
       },
       "href": "/social-sciences",
       "image": "assets/social-sciences.svg",
@@ -2893,7 +2882,7 @@
         "flag-questions",
         "currencies"
       ],
-      "scorableQuestionCount": 21,
+      "scorableQuestionCount": 16,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2917,9 +2906,9 @@
       "count": 50,
       "difficultyCounts": {
         "easy": 14,
-        "medium": 7,
-        "hard": 17,
-        "very-advanced": 12
+        "medium": 9,
+        "hard": 16,
+        "very-advanced": 11
       },
       "href": "/software-and-computing",
       "image": "assets/software-and-computing.svg",
@@ -2951,7 +2940,7 @@
         "future-tech-and-energy",
         "automotive"
       ],
-      "scorableQuestionCount": 20,
+      "scorableQuestionCount": 21,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -2975,9 +2964,9 @@
       "count": 100,
       "difficultyCounts": {
         "easy": 25,
-        "medium": 25,
+        "medium": 27,
         "hard": 25,
-        "very-advanced": 25
+        "very-advanced": 23
       },
       "href": "/space-and-astrology",
       "image": "assets/space-and-astrology.svg",
@@ -3035,8 +3024,8 @@
         "ar": "ألغاز القصص"
       },
       "description": {
-        "en": "Long-form yes/no story mysteries for a game master, with cleaner prompts, clearer solutions, and better reveal flow.",
-        "ar": "يضم موضوع «ألغاز القصص» 50 سؤالًا بالعربية والإنجليزية، ويتناول الفنون واللغة والعروض، الحياة اليومية والعائلة، والجريمة والتحقيق. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "50 bilingual fictional story mysteries for a game master. Players ask yes/no questions to uncover the intended backstory; other explanations may also fit the opening clues.",
+        "ar": "50 لغزًا قصصيًا خياليًا بالعربية والإنجليزية يديرها مقدّم اللعبة. يطرح اللاعبون أسئلة بنعم أو لا لاكتشاف الخلفية المقصودة؛ وقد تلائم تفسيرات أخرى القرائن الأولى أيضًا."
       },
       "cluster": {
         "en": "Mind & Puzzles",
@@ -3047,10 +3036,9 @@
       "mode": "story",
       "count": 50,
       "difficultyCounts": {
-        "easy": 13,
-        "medium": 13,
-        "hard": 12,
-        "very-advanced": 12
+        "easy": 26,
+        "medium": 22,
+        "very-advanced": 2
       },
       "href": "/story-mysteries",
       "image": "assets/story-mysteries.svg",
@@ -3102,7 +3090,7 @@
         "philosophy",
         "relationship-questions"
       ],
-      "scorableQuestionCount": 23,
+      "scorableQuestionCount": 14,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3125,17 +3113,17 @@
       "mode": "quiz",
       "count": 250,
       "difficultyCounts": {
-        "easy": 70,
-        "medium": 70,
-        "hard": 70,
-        "very-advanced": 40
+        "easy": 67,
+        "medium": 131,
+        "hard": 49,
+        "very-advanced": 3
       },
       "href": "/tv-shows-trivia",
       "image": "assets/tv-shows-trivia.svg",
       "topics": [
         {
-          "en": "Al-Hasaseen",
-          "ar": "الحساسين",
+          "en": "Al-Hashasheen",
+          "ar": "الحشاشين",
           "count": 25
         },
         {
@@ -3190,7 +3178,7 @@
         "anime",
         "ayam-tayebeen"
       ],
-      "scorableQuestionCount": 204,
+      "scorableQuestionCount": 249,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3213,10 +3201,10 @@
       "mode": "quiz",
       "count": 50,
       "difficultyCounts": {
-        "easy": 14,
-        "medium": 8,
-        "hard": 16,
-        "very-advanced": 12
+        "easy": 15,
+        "medium": 23,
+        "hard": 4,
+        "very-advanced": 8
       },
       "href": "/world-habits-and-etiquette",
       "image": "assets/world-habits-and-etiquette.svg",
@@ -3248,7 +3236,7 @@
         "economics-and-finance",
         "social-sciences"
       ],
-      "scorableQuestionCount": 20,
+      "scorableQuestionCount": 22,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3321,7 +3309,7 @@
         "medical-questions",
         "pharmacy"
       ],
-      "scorableQuestionCount": 38,
+      "scorableQuestionCount": 35,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3344,8 +3332,8 @@
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
+        "easy": 9,
+        "medium": 11,
         "hard": 10,
         "very-advanced": 10
       },
@@ -3467,7 +3455,7 @@
         "tech-retro",
         "future-tech-and-energy"
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 37,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3491,9 +3479,9 @@
       "count": 40,
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
+        "medium": 13,
         "hard": 10,
-        "very-advanced": 10
+        "very-advanced": 7
       },
       "href": "/animal-kingdom",
       "image": "assets/animal-kingdom.svg",
@@ -3545,7 +3533,7 @@
         "pharmacy",
         "math"
       ],
-      "scorableQuestionCount": 40,
+      "scorableQuestionCount": 37,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3646,8 +3634,8 @@
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
+        "easy": 9,
+        "medium": 11,
         "hard": 10,
         "very-advanced": 10
       },
@@ -3672,7 +3660,7 @@
         {
           "en": "Architectural Styles",
           "ar": "الطرز المعمارية",
-          "count": 6
+          "count": 5
         },
         {
           "en": "Classical Architecture",
@@ -3682,7 +3670,7 @@
         {
           "en": "Architectural Theory",
           "ar": "النظرية المعمارية",
-          "count": 3
+          "count": 4
         },
         {
           "en": "Materials & Structures",
@@ -3696,7 +3684,7 @@
         "coding-and-design",
         "tech-retro"
       ],
-      "scorableQuestionCount": 39,
+      "scorableQuestionCount": 38,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3720,9 +3708,9 @@
       "count": 40,
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "medium": 12,
+        "hard": 12,
+        "very-advanced": 6
       },
       "href": "/music-and-performing-arts",
       "image": "assets/music-and-performing-arts.svg",
@@ -3769,7 +3757,7 @@
         "ayam-tayebeen",
         "football"
       ],
-      "scorableQuestionCount": 37,
+      "scorableQuestionCount": 39,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -3792,10 +3780,10 @@
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 12,
+        "medium": 12,
+        "hard": 13,
+        "very-advanced": 3
       },
       "href": "/food-and-cuisines",
       "image": "assets/food-and-cuisines.svg",
@@ -3866,9 +3854,9 @@
       "count": 40,
       "difficultyCounts": {
         "easy": 10,
-        "medium": 10,
+        "medium": 12,
         "hard": 10,
-        "very-advanced": 10
+        "very-advanced": 8
       },
       "href": "/cinema-and-film-history",
       "image": "assets/cinema-and-film-history.svg",
@@ -3920,7 +3908,7 @@
         "football",
         "fictional-worlds"
       ],
-      "scorableQuestionCount": 39,
+      "scorableQuestionCount": 37,
       "reviewedQuestionCount": 1,
       "quickFireQuestionCount": 0
     },
@@ -3943,10 +3931,10 @@
       "mode": "quiz",
       "count": 40,
       "difficultyCounts": {
-        "easy": 10,
-        "medium": 10,
-        "hard": 10,
-        "very-advanced": 10
+        "easy": 11,
+        "medium": 11,
+        "hard": 9,
+        "very-advanced": 9
       },
       "href": "/future-tech-and-energy",
       "image": "assets/future-tech-and-energy.svg",
@@ -3998,7 +3986,7 @@
         "electrical-engineering",
         "mechanical-engineering"
       ],
-      "scorableQuestionCount": 32,
+      "scorableQuestionCount": 26,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -4021,10 +4009,10 @@
       "mode": "quiz",
       "count": 150,
       "difficultyCounts": {
-        "easy": 40,
-        "medium": 40,
-        "hard": 39,
-        "very-advanced": 31
+        "easy": 45,
+        "medium": 48,
+        "hard": 42,
+        "very-advanced": 15
       },
       "href": "/anime",
       "image": "assets/anime.svg",
@@ -4086,7 +4074,7 @@
         "fictional-worlds",
         "superheroes"
       ],
-      "scorableQuestionCount": 148,
+      "scorableQuestionCount": 150,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },
@@ -4109,10 +4097,10 @@
       "mode": "quiz",
       "count": 200,
       "difficultyCounts": {
-        "easy": 50,
-        "medium": 50,
-        "hard": 50,
-        "very-advanced": 50
+        "easy": 54,
+        "medium": 60,
+        "hard": 63,
+        "very-advanced": 23
       },
       "href": "/ayam-tayebeen",
       "image": "assets/ayam-tayebeen.svg",

@@ -7,22 +7,12 @@
       "ar": "المدارس الفلسفية"
     },
     "question": {
-      "en": "Who is considered the father of Western philosophy?",
-      "ar": "من يُعدّ أبا الفلسفة الغربية؟"
+      "en": "Which Athenian philosopher is associated with a method of questioning explored in many of Plato’s dialogues?",
+      "ar": "أيّ فيلسوف أثيني يرتبط بمنهج التساؤل الذي تعرضه محاورات كثيرة لأفلاطون؟"
     },
     "answer": {
-      "en": "Socrates (470–399 BC), the Athenian philosopher who developed the Socratic method of questioning. He wrote nothing himself — his ideas are known through his student Plato.",
-      "ar": "سقراط (470–399 ق.م)، الفيلسوف الأثيني الذي طوّر المنهج السقراطي في التساؤل. لم يكتب شيئًا بنفسه — تُعرف أفكاره من خلال تلميذه أفلاطون."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Socrates.",
-        "The Athenian philosopher Socrates."
-      ],
-      "ar": [
-        "سقراط.",
-        "الفيلسوف الأثيني سقراط."
-      ]
+      "en": "Socrates",
+      "ar": "سقراط"
     },
     "review": {
       "status": "pending"
@@ -127,18 +117,8 @@
       "ar": "ما المذهب النفعي (الأوتيليتارية)؟"
     },
     "answer": {
-      "en": "The ethical theory that the right action is the one that maximizes overall happiness or utility for the greatest number of people. Associated with Jeremy Bentham and John Stuart Mill.",
-      "ar": "النظرية الأخلاقية القائلة بأن الفعل الصحيح هو ما يُعظّم السعادة الإجمالية أو المنفعة لأكبر عدد من الناس. ترتبط بجيريمي بنثام وجون ستيوارت مل."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Right actions maximize overall happiness or utility for the greatest number.",
-        "Utilitarianism chooses acts producing the greatest total happiness or utility."
-      ],
-      "ar": [
-        "الفعل الصحيح يعظم السعادة أو المنفعة الإجمالية لأكبر عدد من الناس.",
-        "النفعية تختار الأفعال التي تحقق أعظم منفعة أو سعادة إجمالية."
-      ]
+      "en": "A family of ethical theories that evaluates actions by their consequences for overall welfare or utility. Maximizing total utility is not always the same as benefiting the largest headcount.",
+      "ar": "مجموعة نظريات أخلاقية تقوّم الأفعال وفق نتائجها على الرفاه أو المنفعة الكلية. ولا يساوي تعظيم المنفعة الكلية دائمًا إفادة أكبر عدد من الأشخاص."
     },
     "review": {
       "status": "pending"
@@ -194,8 +174,8 @@
       "ar": "ما مشكلة العقل والجسد في الفلسفة؟"
     },
     "answer": {
-      "en": "The question of how the immaterial mind (thoughts, consciousness) relates to the physical brain and body. Descartes' dualism says mind and body are separate substances. Physicalism says mind is entirely a product of physical brain processes.",
-      "ar": "السؤال حول كيف يرتبط العقل غير المادي (الأفكار والوعي) بالدماغ والجسد الماديَّين. الثنائية الديكارتية تقول إن العقل والجسد جوهران منفصلان. المادية تقول إن العقل نتاج العمليات الجسدية للدماغ كليًا."
+      "en": "The problem of how mental experience relates to the physical body and brain. Different theories disagree about whether mental states are physical, nonphysical or understood in another way.",
+      "ar": "مشكلة العلاقة بين الخبرة الذهنية والجسم والدماغ الماديين. وتختلف النظريات في كون الحالات الذهنية مادية أو غير مادية أو قابلة للفهم بطريقة أخرى."
     },
     "review": {
       "status": "pending"
@@ -251,8 +231,8 @@
       "ar": "ما الرواقية؟"
     },
     "answer": {
-      "en": "A school of ancient Greek and Roman philosophy (founded by Zeno of Citium) teaching that virtue alone is sufficient for happiness, emotions should be governed by reason, and we should accept with equanimity what we cannot control.",
-      "ar": "مدرسة فلسفية يونانية رومانية قديمة (أسّسها زينو الكيتيوني) تعلّم أن الفضيلة وحدها كافية للسعادة، وأن العواطف ينبغي أن تُحكمها العقل، وأن نقبل بهدوء ما لا نستطيع السيطرة عليه."
+      "en": "An ancient philosophical school associated with Zeno of Citium, emphasizing virtue, judgment and distinguishing what is within our control from what is not.",
+      "ar": "مدرسة فلسفية قديمة ترتبط بزينون الكيتيومي، وتؤكد الفضيلة وحسن الحكم والتمييز بين ما يقع ضمن سيطرتنا وما لا يقع ضمنها."
     },
     "review": {
       "status": "pending"
@@ -289,8 +269,8 @@
       "ar": "ما مسألة العربة (Trolley Problem) في الأخلاق؟"
     },
     "answer": {
-      "en": "A thought experiment: a runaway trolley will kill five people on the tracks. You can divert it to a side track where it will kill only one. Do you act? It tests whether the ethics of an action depends on outcomes (consequentialism) or on rules regardless of outcomes (deontology).",
-      "ar": "تجربة فكرية: عربة جامحة ستقتل خمسة أشخاص على القضبان. تستطيع تحويلها إلى مسار جانبي ستقتل فيه شخصًا واحدًا فقط. هل تتصرف؟ تختبر ما إذا كانت أخلاقيات الفعل تعتمد على النتائج (النفعية) أم على قواعد بغض النظر عن النتائج (الواجبية)."
+      "en": "A thought experiment about diverting a runaway trolley from several people toward one person. It explores tensions between consequences, duties and responsibility; the quiz identifies the problem, not a mandatory moral choice.",
+      "ar": "تجربة فكرية عن تحويل عربة منفلتة من مسار فيه عدة أشخاص إلى مسار فيه شخص واحد. تستكشف التوتر بين العواقب والواجبات والمسؤولية؛ والتعريف بها لا يفرض اختيارًا أخلاقيًا واحدًا."
     },
     "review": {
       "status": "pending"
@@ -327,18 +307,8 @@
       "ar": "ما مشكلة غيتيه في نظرية المعرفة؟"
     },
     "answer": {
-      "en": "Edmund Gettier (1963) challenged the classical definition of knowledge as 'justified true belief' with counterexamples where someone has a justified true belief that is true by accident — suggesting they don't really 'know' it. This sparked decades of debate about what conditions are sufficient for knowledge.",
-      "ar": "ألدموند غيتيه (1963) طعن في التعريف الكلاسيكي للمعرفة بأنها 'اعتقاد صادق مُبرَّر' بأمثلة مضادة يملك فيها شخص اعتقادًا صادقًا مُبرَّرًا لكنه صادق بالمصادفة — مما يُشير إلى أنه لا 'يعلم' فعلًا. أثار هذا جدلًا امتد عقودًا حول الشروط الكافية للمعرفة."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Justified true belief can be accidentally true yet fail to constitute knowledge.",
-        "Gettier cases show accidentally true justified belief may not be knowledge."
-      ],
-      "ar": [
-        "قد يكون الاعتقاد الصادق المبرر صحيحًا مصادفةً فلا يشكل معرفة.",
-        "تكشف حالات غيتيه أن الاعتقاد الصادق المبرر عرضًا قد لا يكون معرفة."
-      ]
+      "en": "Edmund Gettier’s counterexamples challenge whether justified true belief is sufficient for knowledge: a belief may be justified and true partly through luck.",
+      "ar": "تطعن أمثلة إدموند غيتيه المضادة في كفاية الاعتقاد الصادق المبرر للمعرفة؛ فقد يكون الاعتقاد مبررًا وصادقًا بفضل الحظ جزئيًا."
     },
     "review": {
       "status": "pending"
@@ -429,12 +399,12 @@
       "ar": "المدارس الفلسفية"
     },
     "question": {
-      "en": "What was the central debate between Al-Ghazali and Ibn Rushd?",
-      "ar": "ما الجدل المحوري بين الغزالي وابن رشد؟"
+      "en": "Which book did Ibn Rushd write in response to Al-Ghazali’s The Incoherence of the Philosophers?",
+      "ar": "أيّ كتاب ألّفه ابن رشد ردًا على كتاب الغزالي «تهافت الفلاسفة»؟"
     },
     "answer": {
-      "en": "Al-Ghazali wrote 'The Incoherence of the Philosophers' (Tahafut al-Falasifa) attacking Greek-influenced Islamic philosophy as heretical on issues like the eternity of the world and divine knowledge. Ibn Rushd responded with 'The Incoherence of the Incoherence' defending philosophy and rational inquiry.",
-      "ar": "كتب الغزالي 'تهافت الفلاسفة' مهاجمًا الفلسفة الإسلامية المتأثرة باليونان بوصفها هرطقة في مسائل كأزلية العالم والعلم الإلهي. ردّ ابن رشد بـ 'تهافت التهافت' مدافعًا عن الفلسفة والبحث العقلاني."
+      "en": "The Incoherence of the Incoherence (Tahafut al-Tahafut). The exchange was through texts, not a meeting between the two men.",
+      "ar": "«تهافت التهافت». كان الرد عبر النصوص، لا عبر لقاء بين الرجلين."
     },
     "review": {
       "status": "pending"
@@ -452,18 +422,8 @@
       "ar": "ما معيار قابلية الدحض عند كارل بوبر؟"
     },
     "answer": {
-      "en": "Popper argued that a scientific theory must be falsifiable — it must make predictions that could, in principle, be proven wrong by observation or experiment. Theories that can explain any outcome (unfalsifiable) are not scientific. This demarcated science from pseudoscience.",
-      "ar": "جادل بوبر بأن النظرية العلمية يجب أن تكون قابلة للدحض — يجب أن تقدم تنبؤات يمكن من حيث المبدأ إثبات خطئها بالملاحظة أو التجربة. النظريات التي تستطيع تفسير أي نتيجة (غير قابلة للدحض) ليست علمية. وهذا فصل العلم عن شبه العلم."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "A scientific theory must make predictions that could in principle be proven false.",
-        "Scientific claims must be testable by observations capable of showing them false."
-      ],
-      "ar": [
-        "يجب أن تقدم النظرية العلمية تنبؤات يمكن إثبات خطئها من حيث المبدأ.",
-        "الادعاء العلمي يجب أن تقبل الملاحظة أو التجربة إثبات خطئه."
-      ]
+      "en": "Popper proposed that a scientific theory should be open to possible refutation by observations or tests. This is his influential demarcation proposal, not an uncontested complete definition of science.",
+      "ar": "اقترح بوبر أن تكون النظرية العلمية قابلة لاحتمال الدحض بالملاحظة أو الاختبار. وهو معيار مؤثر اقترحه للتمييز، وليس تعريفًا كاملًا للعلم متفقًا عليه بلا خلاف."
     },
     "review": {
       "status": "pending"
@@ -481,18 +441,8 @@
       "ar": "ما أخلاق الفضيلة وكيف تختلف عن الأخلاق الكانطية؟"
     },
     "answer": {
-      "en": "Virtue ethics (Aristotle) focuses on what kind of person one should be — asking 'what is a good person?' rather than 'what is the right action?' It emphasizes character traits (virtues like courage, honesty, justice) developed through habit. Kantian ethics focuses on duty and following universal moral rules regardless of character.",
-      "ar": "أخلاق الفضيلة (أرسطو) تركّز على نوع الشخص الذي ينبغي أن يكون المرء — تتساءل 'ما الشخص الجيد؟' بدلًا من 'ما الفعل الصحيح؟'. تُشدد على سمات الشخصية (فضائل كالشجاعة والصدق والعدل) المطوَّرة بالعادة. الأخلاق الكانطية تركّز على الواجب واتباع القواعد الأخلاقية الكونية بغض النظر عن الشخصية."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Virtue ethics centers character; Kantian ethics centers universal duties and rules.",
-        "Virtue ethics asks who to be; Kantian ethics asks which universal duty applies."
-      ],
-      "ar": [
-        "أخلاق الفضيلة تركز على الشخصية المكتسبة؛ والكانطية على الواجبات والقواعد الكونية.",
-        "أخلاق الفضيلة تسأل من نكون؛ والكانطية تسأل أي واجب كوني نتبع."
-      ]
+      "en": "Virtue ethics emphasizes character and practical wisdom; Kantian ethics emphasizes duty and moral principles. This is a contrast in emphasis, not a claim that either ignores actions or character entirely.",
+      "ar": "تركز أخلاق الفضيلة على الشخصية والحكمة العملية، بينما تركز الأخلاق الكانطية على الواجب والمبادئ الأخلاقية. وهو اختلاف في التركيز، لا إهمال تام للفعل أو الشخصية لدى أيّ منهما."
     },
     "review": {
       "status": "pending"
@@ -587,18 +537,8 @@
       "ar": "ما مفارقة سفينة ثيسيوس؟"
     },
     "answer": {
-      "en": "If every plank of a ship is gradually replaced, is it still the same ship? And if the original planks are reassembled elsewhere, which is the 'real' ship? The paradox questions the nature of identity and persistence through change — with implications for personal identity (if all our cells replace themselves, are we the same person?).",
-      "ar": "إذا استُبدلت كل لوح في سفينة تدريجيًا، هل ستظل نفس السفينة؟ وإذا جُمعت الألواح الأصلية في مكان آخر، أيٌّ منهما السفينة 'الحقيقية'؟ تتساءل المفارقة عن طبيعة الهوية والاستمرار عبر التغيير — مع تداعيات على الهوية الشخصية (إذا كانت جميع خلايانا تجدّد نفسها، هل نحن نفس الشخص؟)."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "After replacing every plank, is it still the same ship—or is the reconstruction?",
-        "Replacing all planks challenges whether the repaired or rebuilt ship preserves identity."
-      ],
-      "ar": [
-        "إذا استبدلت كل الألواح، فأي سفينة تحتفظ بهويتها: المجددة أم المعاد تجميعها؟",
-        "استبدال الألواح كلها يثير سؤال هوية السفينة المصلحة أو المعاد بناؤها."
-      ]
+      "en": "It asks whether a ship remains the same ship as its parts are replaced, and what happens if the original parts form another ship. It is a problem of identity through change, not a settled biological claim.",
+      "ar": "تسأل هل تبقى السفينة هي نفسها مع استبدال أجزائها، وماذا لو شُكّلت سفينة أخرى من الأجزاء الأصلية. إنها مسألة هوية عبر التغير، لا ادعاء بيولوجي محسوم."
     },
     "review": {
       "status": "pending"
@@ -606,18 +546,18 @@
   },
   {
     "id": "phil-026",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Political Philosophy",
       "ar": "الفلسفة السياسية"
     },
     "question": {
-      "en": "What is Nietzsche's concept of the 'will to power'?",
-      "ar": "ما مفهوم نيتشه عن 'إرادة القوة'؟"
+      "en": "Which philosopher is associated with the concept “will to power”?",
+      "ar": "أيّ فيلسوف يرتبط بمفهوم «إرادة القوة»؟"
     },
     "answer": {
-      "en": "Nietzsche's concept that the fundamental drive underlying all human behavior is not pleasure-seeking (Schopenhauer) or survival, but the drive to express, exert, and expand one's power and creativity. It is not merely about domination — it includes artistic creation, intellectual mastery, and self-overcoming.",
-      "ar": "مفهوم نيتشه القائل بأن الدافع الأساسي الكامن وراء كل السلوك البشري ليس السعي نحو اللذة (شوبنهاور) أو البقاء، بل الدافع إلى التعبير والممارسة وتوسيع القوة والإبداع. ليس مجرد التسلط — يشمل الخلق الفني والإتقان الفكري والتغلب على الذات."
+      "en": "Friedrich Nietzsche",
+      "ar": "فريدريش نيتشه"
     },
     "review": {
       "status": "pending"
@@ -635,8 +575,8 @@
       "ar": "ما مفهوم توماس كون عن التحولات في النموذج العلمي (باراديم)؟"
     },
     "answer": {
-      "en": "Kuhn argued in 'The Structure of Scientific Revolutions' that science does not progress by gradual accumulation but through revolutionary changes in 'paradigms' — the shared frameworks, assumptions, and methods of a scientific community. When anomalies accumulate, a crisis leads to a paradigm shift (e.g. Copernicus, Einstein, Darwin).",
-      "ar": "جادل كون في 'بنية الثورات العلمية' بأن العلم لا يتقدم بالتراكم التدريجي بل من خلال تغييرات ثورية في 'النماذج' — الأطر المشتركة والافتراضات والمناهج للمجتمع العلمي. حين تتراكم الشواذ، تؤدي أزمة إلى تحوّل في النموذج (مثل كوبيرنيكوس وأينشتاين وداروين)."
+      "en": "Kuhn distinguished normal science within a shared paradigm from scientific revolutions that change that framework. His account includes both puzzle-solving within paradigms and periods of fundamental change.",
+      "ar": "ميّز كون بين العلم العادي ضمن نموذج مشترك والثورات العلمية التي تغيّر ذلك الإطار. ويشمل تصوره حل المسائل داخل النماذج وفترات التغير الجذري."
     },
     "review": {
       "status": "pending"
@@ -663,18 +603,18 @@
   },
   {
     "id": "phil-029",
-    "difficulty": "hard",
+    "difficulty": "very-advanced",
     "subcategory": {
       "en": "Epistemology & Logic",
       "ar": "نظرية المعرفة والمنطق"
     },
     "question": {
-      "en": "What is Gödel's incompleteness theorem and why is it philosophically significant?",
-      "ar": "ما مبرهنة غودل عن عدم الاكتمال ولماذا لها أهمية فلسفية؟"
+      "en": "For a consistent, effectively axiomatized formal theory strong enough to express elementary arithmetic, what limitation does Gödel’s first incompleteness theorem establish?",
+      "ar": "بالنسبة إلى نظرية صورية متسقة ذات بديهيات قابلة للتعداد الفعّال وقوية بما يكفي للتعبير عن الحساب الأولي، ما القيد الذي تثبته مبرهنة غودل الأولى لعدم الاكتمال؟"
     },
     "answer": {
-      "en": "Kurt Gödel (1931) proved that in any consistent formal system powerful enough to express arithmetic, there are true statements that cannot be proved within that system. This showed that mathematics cannot be complete and self-verifying — demolishing Hilbert's program to ground all mathematics in a complete, consistent axiom system.",
-      "ar": "أثبت كورت غودل (1931) أنه في أي نظام رسمي متسق قوي بما يكفي للتعبير عن الحساب، توجد عبارات صحيحة لا يمكن إثباتها داخل ذلك النظام. أظهر هذا أن الرياضيات لا تستطيع أن تكون كاملة وذاتية التحقق — ما دمّر برنامج هيلبرت لتأسيس كل الرياضيات على نظام بديهيات كامل ومتسق."
+      "en": "Such a theory is incomplete: there is an arithmetic statement it can neither prove nor refute. The conclusion depends on those assumptions and is not a claim that all mathematical reasoning fails.",
+      "ar": "تكون النظرية غير مكتملة؛ إذ توجد عبارة حسابية لا تستطيع إثباتها ولا نفيها. يعتمد الاستنتاج على هذه الشروط، ولا يعني فشل الاستدلال الرياضي كله."
     },
     "review": {
       "status": "pending"
@@ -692,18 +632,8 @@
       "ar": "ما المغالطة الطبيعانية في الأخلاق التي حدّدها جورج إدوارد مور؟"
     },
     "answer": {
-      "en": "Moore argued that 'good' cannot be defined by any natural property (like pleasure, evolution, or God's will). Defining 'good' as something natural commits a fallacy because you can always meaningfully ask 'but is that thing actually good?' This is the 'open question argument'. It implies that ethical facts are distinct from natural facts.",
-      "ar": "جادل مور بأن 'الخير' لا يمكن تعريفه بأي خاصية طبيعية (كاللذة أو التطور أو إرادة الله). تعريف 'الخير' بشيء طبيعي يرتكب مغالطة لأنه يمكن دائمًا التساؤل بمعنى: 'لكن هل ذلك الشيء جيد فعلًا؟'. هذا هو 'حجة السؤال المفتوح'. يُشير إلى أن الحقائق الأخلاقية متميزة عن الحقائق الطبيعية."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Defining moral goodness as any natural property commits the naturalistic fallacy.",
-        "Good cannot be reduced to a natural property without committing Moore's fallacy."
-      ],
-      "ar": [
-        "تعريف الخير الأخلاقي بأي خاصية طبيعية يرتكب المغالطة الطبيعانية.",
-        "لا يمكن اختزال الخير في خاصية طبيعية دون الوقوع في مغالطة مور."
-      ]
+      "en": "Moore challenged defining good in terms of another property, using the open-question argument: it can still be meaningful to ask whether that property is good. His position is a philosophical argument, not an uncontested fact.",
+      "ar": "اعترض مور على تعريف الخير بخاصية أخرى مستخدمًا حجة السؤال المفتوح؛ فقد يبقى سؤال «هل هذه الخاصية خيّرة؟» ذا معنى. وموقفه حجة فلسفية لا حقيقة محسومة بلا خلاف."
     },
     "review": {
       "status": "pending"
@@ -721,8 +651,8 @@
       "ar": "ما تجربة ابن سينا الفكرية عن 'الإنسان الطائر'؟"
     },
     "answer": {
-      "en": "Imagine a person created fully formed but floating in empty space, with no sensory input — eyes covered, not touching anything. Would they still be aware of their own existence? Ibn Sina argued yes — the person would be aware of themselves as a thinking subject, even with no sensory or bodily experience. This preceded Descartes' Cogito by centuries and establishes the soul's independent existence.",
-      "ar": "تخيّل شخصًا خُلق مكتمل النمو لكنه يعوم في الفضاء الفارغ دون أي مدخل حسي — عيناه مغطاتان ولا يلمس شيئًا. هل سيدرك وجوده الخاص؟ جادل ابن سينا بنعم — سيدرك الشخص نفسه ذاتًا مفكّرة حتى دون تجربة حسية أو جسدية. سبق هذا 'الكوجيتو' الديكارتي بقرون ويُرسّخ الوجود المستقل للروح."
+      "en": "Ibn Sina asks whether a newly created person without sensory contact would still be aware of their own existence. He argues yes, using this to support his account of self-awareness and the soul.",
+      "ar": "يسأل ابن سينا هل يدرك إنسان خُلق تامًا بلا اتصال حسي وجوده الخاص. ويجيب بالإيجاب، موظفًا التجربة لدعم تصوره للوعي بالذات والنفس."
     },
     "review": {
       "status": "pending"
@@ -759,8 +689,8 @@
       "ar": "ما مفهوم حنا أرنت عن 'ابتذال الشر'؟"
     },
     "answer": {
-      "en": "Based on her observation of Adolf Eichmann's trial (1961), Arendt argued that great evil is often committed not by monsters but by ordinary, thoughtless people who simply follow orders and bureaucratic routine without reflecting on the moral meaning of their actions. Evil requires no malicious intent — just the absence of thinking.",
-      "ar": "بناءً على ملاحظتها لمحاكمة أدولف أيخمان (1961)، جادلت أرنت بأن الشر العظيم كثيرًا ما يرتكبه لا وحوش بل أناس عاديون بلا تفكير يتبعون الأوامر والروتين البيروقراطي دون تأمل في المعنى الأخلاقي لأفعالهم. الشر لا يتطلب نية خبيثة — فقط غياب التفكير."
+      "en": "Arendt used the phrase when interpreting Eichmann’s trial, emphasizing thoughtlessness and bureaucratic compliance in grave wrongdoing. It should not be turned into a universal claim that every evil act has one simple cause.",
+      "ar": "استخدمت أرنت العبارة في تفسيرها لمحاكمة أيخمان، مؤكدة غياب التفكير والامتثال البيروقراطي في ارتكاب شر جسيم. ولا تعني أن كل فعل شرير له سبب واحد بسيط."
     },
     "review": {
       "status": "pending"
@@ -778,8 +708,8 @@
       "ar": "ما مبدأ السبب الكافي؟"
     },
     "answer": {
-      "en": "The philosophical principle, associated with Leibniz, that everything that exists has a sufficient reason or explanation for why it exists and is the way it is, rather than not existing or being otherwise. It underpins arguments for God's existence (cosmological argument) and is contested by philosophers who accept brute facts with no explanation.",
-      "ar": "المبدأ الفلسفي المرتبط بليبنيز القائل بأن كل ما يوجد له سبب كافٍ أو تفسير لوجوده وكونه على ما هو عليه بدلًا من عدمه أو كونه على نحو آخر. يدعم الحجج على وجود الله (الحجة الكوسمولوجية) وتطعن فيه الفلاسفة الذين يقبلون حقائق خاما لا تفسير لها."
+      "en": "A principle associated with Leibniz that things or facts have a sufficient reason or explanation. Philosophers disagree about its scope and whether it admits exceptions or unexplained basic facts.",
+      "ar": "مبدأ يرتبط بليبنيز يفيد أن للأشياء أو الوقائع سببًا أو تفسيرًا كافيًا. ويختلف الفلاسفة في نطاقه وإمكان الاستثناءات أو وجود وقائع أولية غير مفسَّرة."
     },
     "review": {
       "status": "pending"
@@ -797,8 +727,8 @@
       "ar": "ما مفارقة الكومة (مفارقة السوريتس)؟"
     },
     "answer": {
-      "en": "If you have a heap of sand and remove one grain, it's still a heap. Repeating this, when does it stop being a heap? The paradox arises because 'heap' is vague — there's no precise point at which the transition occurs. It challenges classical two-valued logic (true/false) and raises questions about vague predicates in language and law.",
-      "ar": "لو أزلت حبة رمل من كومة، ستظل كومة. بتكرار ذلك، متى تتوقف عن كونها كومة؟ تنشأ المفارقة لأن 'الكومة' مبهمة — لا نقطة دقيقة للانتقال. تطعن في المنطق الكلاسيكي ثنائي القيمة (صح/خطأ) وتثير أسئلة حول المحمولات المبهمة في اللغة والقانون."
+      "en": "Removing one grain seems unable to turn a heap into a non-heap, but repeating the step eventually leaves no heap. The puzzle concerns vague boundaries; competing theories offer different responses.",
+      "ar": "يبدو أن إزالة حبة واحدة لا تحوّل الكومة إلى غير كومة، لكن تكرار الإزالة لا يُبقي كومة في النهاية. تتعلق المفارقة بالحدود المبهمة، وتختلف النظريات في حلها."
     },
     "review": {
       "status": "pending"
@@ -854,18 +784,18 @@
   },
   {
     "id": "phil-038",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Metaphysics & Mind",
       "ar": "الميتافيزيقا وفلسفة العقل"
     },
     "question": {
-      "en": "What is the simulation hypothesis and what philosophical problems does it raise?",
-      "ar": "ما فرضية المحاكاة وما المشكلات الفلسفية التي تطرحها؟"
+      "en": "Does Bostrom’s simulation argument claim to prove that we certainly live in a simulation?",
+      "ar": "هل تزعم حجة المحاكاة عند بوستروم أنها تثبت يقينًا أننا نعيش في محاكاة؟"
     },
     "answer": {
-      "en": "Nick Bostrom's trilemma: either civilizations go extinct before becoming technologically advanced enough to run simulations, or advanced civilizations don't run simulations, or we are almost certainly living in a simulation. It raises questions about the nature of reality (is it material?), identity, and whether any distinction exists between 'real' and 'simulated' experience.",
-      "ar": "مُعضَّلة بوستروم الثلاثية: إما أن الحضارات تنقرض قبل أن تصبح متقدمة تقنيًا بما يكفي لتشغيل المحاكاة، أو أن الحضارات المتقدمة لا تُشغّل محاكاة، أو أننا نعيش على الأرجح في محاكاة. تطرح أسئلة حول طبيعة الواقع (هل هو مادي؟) والهوية وما إذا كان هناك فارق بين التجربة 'الحقيقية' و'المحاكاة'."
+      "en": "No. Under its assumptions, it argues that at least one of three propositions holds, involving civilizations' survival, their simulation activity, or the prevalence of simulated observers. It does not establish which alternative is true.",
+      "ar": "لا؛ فهي تجادل، وفق افتراضاتها، بأن واحدة على الأقل من ثلاث قضايا تصح، تتعلق ببقاء الحضارات أو نشاطها في المحاكاة أو شيوع المراقبين الذين تجري محاكاتهم، دون إثبات أيّ البدائل صحيح."
     },
     "review": {
       "status": "pending"
@@ -873,18 +803,18 @@
   },
   {
     "id": "phil-039",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Metaphysics & Mind",
       "ar": "الميتافيزيقا وفلسفة العقل"
     },
     "question": {
-      "en": "What is functionalism in philosophy of mind and what is the main objection against it?",
-      "ar": "ما الوظيفانية في فلسفة العقل وما الاعتراض الرئيسي عليها؟"
+      "en": "In philosophy of mind, what defines a mental state according to functionalism?",
+      "ar": "في فلسفة العقل، ما الذي يعرّف الحالة الذهنية وفق الوظيفانية؟"
     },
     "answer": {
-      "en": "Functionalism defines mental states by their causal roles — what inputs they respond to and what outputs they produce — rather than by their physical substrate. A mental state is 'pain' if it is caused by damage and causes avoidance behavior, regardless of whether it occurs in neurons or silicon. Main objection: John Searle's Chinese Room — a system can perform all the right functions without genuinely understanding anything (absent qualia).",
-      "ar": "الوظيفانية تعرّف الحالات العقلية بأدوارها السببية — على ما تستجيب له من مدخلات وما تنتجه من مخرجات — لا بركيزتها المادية. الحالة العقلية 'ألم' إذا كانت ناجمة عن ضرر وتسبّب سلوك تجنّب، بغض النظر عن حدوثها في خلايا عصبية أو سيليكون. الاعتراض الرئيسي: غرفة الصينية لجون سيرل — النظام يستطيع أداء جميع الوظائف الصحيحة دون فهم حقيقي (غياب الكيفيات النوعية)."
+      "en": "Its functional or causal role: its relations to inputs, other mental states and outputs, rather than a specific physical material alone.",
+      "ar": "دورها الوظيفي أو السببي؛ أي علاقاتها بالمدخلات والحالات الذهنية الأخرى والمخرجات، لا مادة مادية محددة وحدها."
     },
     "review": {
       "status": "pending"
@@ -898,12 +828,12 @@
       "ar": "الأخلاق"
     },
     "question": {
-      "en": "What is moral particularism and how does it differ from moral principlism?",
-      "ar": "ما الخصوصانية الأخلاقية وكيف تختلف عن المبدئية الأخلاقية؟"
+      "en": "How does moral particularism contrast with moral generalism?",
+      "ar": "كيف تختلف الخصوصانية الأخلاقية عن العمومية الأخلاقية؟"
     },
     "answer": {
-      "en": "Moral particularism (Jonathan Dancy) holds that moral features of a situation can vary in their moral relevance depending on context — a feature that counts in favor of an action in one situation may count against it in another. This contrasts with principlism (e.g. Kant, utilitarianism) which holds that moral principles apply universally across situations.",
-      "ar": "الخصوصانية الأخلاقية (جوناثان دانسي) ترى أن السمات الأخلاقية للموقف يمكن أن تتفاوت في أهميتها الأخلاقية حسب السياق — سمة تصبّ لصالح فعل في موقف ما قد تصبّ ضده في موقف آخر. يتعارض هذا مع المبدئية (مثل كانط والنفعية) التي ترى أن المبادئ الأخلاقية تنطبق بصورة كونية عبر المواقف."
+      "en": "Moral particularism holds that a consideration’s moral relevance can change with context. Moral generalism gives moral principles a more central role in explaining or determining judgments.",
+      "ar": "ترى الخصوصانية الأخلاقية أن أهمية الاعتبار الأخلاقي قد تتغير باختلاف السياق، بينما تمنح العمومية الأخلاقية المبادئ دورًا أكثر مركزية في تفسير الأحكام أو تحديدها."
     },
     "review": {
       "status": "pending"
@@ -946,22 +876,12 @@
       "ar": "الميتافيزيقا وفلسفة العقل"
     },
     "question": {
-      "en": "What is the distinction between de re and de dicto modality in modal logic?",
-      "ar": "ما الفرق بين الضرورة الذاتية (de re) والضرورة القولية (de dicto) في المنطق الوجهي؟"
+      "en": "Compare “Necessarily, the winner is a winner” with “This actual winner could not have lost.” Which claim places necessity on the proposition, and which on a particular person?",
+      "ar": "قارن «بالضرورة، الفائز فائز» مع «هذا الشخص الذي فاز فعلًا لم يكن يمكنه أن يخسر». أيّهما يضع الضرورة على القضية، وأيّهما على شخص معيّن؟"
     },
     "answer": {
-      "en": "De dicto modality applies to propositions: 'Necessarily, the number of planets is greater than 7' means the proposition is necessarily true. De re modality applies to objects: 'The number of planets necessarily has this property' makes a claim about the object itself. The distinction matters because: 'Necessarily, the Morning Star is the Evening Star' (de dicto) is false (it's a contingent astronomical fact), while 'Hesperus is necessarily Hesperus' (de re) is true.",
-      "ar": "الوجهية القولية (de dicto) تنطبق على القضايا: 'بالضرورة، عدد الكواكب أكبر من 7' تعني أن القضية صحيحة بالضرورة. الوجهية الذاتية (de re) تنطبق على الكيانات: 'عدد الكواكب يمتلك بالضرورة هذه الخاصية' يدّعي شيئًا عن الكيان ذاته. يهم الفرق لأن: 'بالضرورة، نجم الصباح هو نجم المساء' (de dicto) خاطئ (حقيقة فلكية ظرفية)، بينما 'هسبريوس هو بالضرورة هسبريوس' (de re) صحيح."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "De re concerns necessary object-properties; de dicto concerns proposition-necessity.",
-        "De re necessity belongs to things; de dicto necessity belongs to statements."
-      ],
-      "ar": [
-        "الضرورة الذاتية تخص خصائص الشيء؛ والضرورة القولية تخص ضرورة القضية.",
-        "الضرورة الذاتية للشيء وخصائصه؛ والقولية للقضية أو العبارة."
-      ]
+      "en": "The first is de dicto: necessity applies to the proposition. The second is de re: it attributes a necessary property to a particular person. The second does not follow from the first.",
+      "ar": "الأول ضرورة قولية de dicto تتعلق بالقضية، والثاني ضرورة ذاتية de re تنسب خاصية ضرورية إلى شخص معيّن. ولا يلزم الثاني من الأول."
     },
     "review": {
       "status": "pending"
@@ -1027,8 +947,8 @@
       "ar": "ما الاستنتاج المقيت في أخلاقيات السكان عند ديريك بارفيت؟"
     },
     "answer": {
-      "en": "Parfit showed that totalist utilitarianism (maximize total welfare) implies that a world with billions of barely-worth-living lives would be better than a much smaller world of very happy people — as long as the sum total of welfare is higher. This 'repugnant conclusion' seems deeply wrong but is hard to avoid without abandoning standard utilitarian principles. It generates much of the literature in population ethics.",
-      "ar": "أظهر بارفيت أن النفعية الإجمالية (تعظيم الرفاهية الإجمالية) تستلزم أن عالمًا بمليارات من الحيوات التي تكاد تستحق العيش سيكون أفضل من عالم أصغر بكثير من الأشخاص السعداء جدًا — طالما أن مجموع الرفاهية الإجمالي أعلى. هذا 'الاستنتاج المقيت' يبدو خاطئًا جوهريًا لكن يصعب تجنّبه دون التخلي عن المبادئ النفعية القياسية. أنتج جزءًا كبيرًا من أدبيات أخلاقيات السكان."
+      "en": "The implication, under total-welfare comparisons, that a sufficiently large population with lives barely worth living can rank above a smaller very happy population. Parfit used it to expose a difficult problem in population ethics.",
+      "ar": "استلزام المقارنة وفق مجموع الرفاه أن تتفوق جماعة كبيرة بما يكفي ذات حيوات بالكاد تستحق العيش على جماعة أصغر شديدة السعادة. استخدمه بارفيت لإبراز مشكلة صعبة في أخلاقيات السكان."
     },
     "review": {
       "status": "pending"
@@ -1113,8 +1033,8 @@
       "ar": "ما الواقعية البنيوية في فلسفة العلم وكيف ترد على الاستقراء التشاؤمي؟"
     },
     "answer": {
-      "en": "The pessimistic meta-induction (Laudan) notes that past successful theories (Newtonian mechanics, phlogiston, ether) were later shown false — so current theories are probably false too. Structural realism (Worrall) responds that even when theories are replaced, their mathematical structure is preserved (Newton's equations are a limit case of Einstein's). Science successfully tracks structure even if it doesn't track underlying entities.",
-      "ar": "يُلاحظ الاستقراء التشاؤمي (لوردان) أن النظريات الناجحة السابقة (الميكانيكا النيوتونية والفلوجستون والأثير) ظهر لاحقًا أنها خاطئة — لذا النظريات الحالية خاطئة على الأرجح أيضًا. ترد الواقعية البنيوية (وورال) بأنه حتى عند استبدال النظريات، يُحفظ بناؤها الرياضي (معادلات نيوتن هي حالة حدية لمعادلات أينشتاين). العلم يتتبع البنية بنجاح حتى لو لم يتتبع الكيانات الأساسية."
+      "en": "Structural realism argues that some relational or mathematical structure can be preserved through theory change, responding to worries raised by the failure of past successful theories. This is a philosophical response, not proof that all structure survives.",
+      "ar": "تجادل الواقعية البنيوية بأن بعض البنية العلائقية أو الرياضية يمكن أن يستمر عبر تغير النظريات، ردًا على القلق الناتج عن فشل نظريات سابقة ناجحة. وهو رد فلسفي لا إثبات لبقاء كل البنى."
     },
     "review": {
       "status": "pending"
@@ -1128,22 +1048,12 @@
       "ar": "الأخلاق"
     },
     "question": {
-      "en": "What is the distinction between agent-relative and agent-neutral values in ethics?",
-      "ar": "ما الفرق بين القيم النسبية للفاعل والقيم المحايدة للفاعل في الأخلاق؟"
+      "en": "What is the distinction between agent-relative and agent-neutral reasons in ethics?",
+      "ar": "ما الفرق بين الأسباب الأخلاقية النسبية للفاعل والمحايدة للفاعل؟"
     },
     "answer": {
-      "en": "Agent-neutral values are equally important to everyone regardless of who the agent is (e.g. reducing total suffering is equally important to all). Agent-relative values are indexed to particular agents — I have special reasons to promote my own projects, relationships, or commitments that others don't share equally. Consequentialism tends to endorse only agent-neutral values; deontology and virtue ethics accommodate agent-relative permissions and requirements (e.g. special duties to family).",
-      "ar": "القيم المحايدة للفاعل مهمة للجميع بالتساوي بغض النظر عن هوية الفاعل (مثل الحدّ من المعاناة الإجمالية مهم بالتساوي للجميع). القيم النسبية للفاعل مُفهرسة لفاعلين بعينهم — لديّ أسباب خاصة لتعزيز مشاريعي وعلاقاتي والتزاماتي الخاصة لا يشاركني فيها الآخرون بالتساوي. النفعية تؤيد القيم المحايدة للفاعل فحسب؛ الواجبية وأخلاق الفضيلة تستوعبان الإذن بالقيم النسبية ومتطلباتها (مثل واجبات خاصة تجاه العائلة)."
-    },
-    "acceptedAnswers": {
-      "en": [
-        "Agent-relative values depend on the agent; agent-neutral values apply equally to everyone.",
-        "Agent-relative reasons vary by person; agent-neutral reasons hold equally for all agents."
-      ],
-      "ar": [
-        "القيم النسبية تعتمد على هوية الفاعل؛ والمحايدة تنطبق بالتساوي على الجميع.",
-        "النسبية تختلف باختلاف الفاعل؛ والمحايدة متساوية لكل الفاعلين."
-      ]
+      "en": "Agent-neutral reasons apply independently of the agent’s identity; agent-relative reasons can depend on that person’s commitments or relationships, such as special obligations to their own child.",
+      "ar": "الأسباب المحايدة للفاعل لا تعتمد على هويته، بينما قد تعتمد الأسباب النسبية للفاعل على التزاماته أو علاقاته، مثل واجباته الخاصة تجاه طفله."
     },
     "review": {
       "status": "pending"

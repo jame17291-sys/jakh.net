@@ -83,12 +83,12 @@
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
-      "en": "What are the two poles of a magnet called?",
-      "ar": "ما اسما قطبَي المغناطيس؟"
+      "en": "A stationary book rests on a horizontal table. Which upward contact force balances its weight?",
+      "ar": "كتاب ساكن على طاولة أفقية. ما قوة التلامس المتجهة إلى أعلى التي توازن وزنه؟"
     },
     "answer": {
-      "en": "North and South",
-      "ar": "الشمالي والجنوبي"
+      "en": "The normal force exerted by the table.",
+      "ar": "القوة العمودية التي تؤثر بها الطاولة في الكتاب."
     },
     "review": {
       "status": "pending"
@@ -178,8 +178,8 @@
       "ar": "الكيمياء والمواد"
     },
     "question": {
-      "en": "What subatomic particle has a negative charge?",
-      "ar": "أي جسيم دون ذري يحمل شحنة سالبة؟"
+      "en": "Which negatively charged particle occupies atomic orbitals around the nucleus?",
+      "ar": "أي جسيم سالب الشحنة يشغل المدارات الذرية حول النواة؟"
     },
     "answer": {
       "en": "Electron",
@@ -311,12 +311,12 @@
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
-      "en": "Which Greek mathematician discovered the principle of buoyancy in a bathtub?",
-      "ar": "أي عالم رياضيات يوناني اكتشف مبدأ الطفو في حوض الاستحمام؟"
+      "en": "In the famous bathtub story, which Greek scholar realized a principle of buoyancy?",
+      "ar": "في قصة حوض الاستحمام الشهيرة، أي عالم يوناني أدرك مبدأ الطفو؟"
     },
     "answer": {
-      "en": "Archimedes",
-      "ar": "أرخميدس"
+      "en": "Archimedes. The bathtub account is a traditional story, not a contemporary experimental record.",
+      "ar": "أرخميدس. رواية حوض الاستحمام قصة تراثية، وليست سجلاً تجريبياً معاصراً له."
     },
     "review": {
       "status": "pending"
@@ -501,12 +501,12 @@
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "What is the name of the particle that gives other particles mass?",
-      "ar": "ما اسم الجسيم الذي يمنح الجسيمات الأخرى كتلتها؟"
+      "en": "Which field do elementary particles such as electrons interact with to acquire their rest masses in the Standard Model?",
+      "ar": "مع أي مجال تتفاعل جسيمات أولية مثل الإلكترونات لاكتساب كتلتها السكونية في النموذج المعياري؟"
     },
     "answer": {
-      "en": "The Higgs Boson",
-      "ar": "بوزون هيغز"
+      "en": "The Higgs field. The Higgs boson is an excitation of that field.",
+      "ar": "مجال هيغز. وبوزون هيغز هو إثارة كمية لذلك المجال."
     },
     "review": {
       "status": "pending"
@@ -520,12 +520,12 @@
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "According to time dilation, what happens to time as an object approaches the speed of light?",
-      "ar": "وفقاً لتمدد الزمن، ماذا يحدث للوقت كلما اقترب جسم من سرعة الضوء؟"
+      "en": "According to special relativity, how does an observer measure the ticking rate of a clock moving rapidly relative to them?",
+      "ar": "وفق النسبية الخاصة، كيف يقيس راصد معدل دقات ساعة تتحرك بسرعة كبيرة بالنسبة إليه؟"
     },
     "answer": {
-      "en": "Time slows down",
-      "ar": "يتباطأ الوقت"
+      "en": "The moving clock ticks more slowly than clocks at rest in the observer's frame. This is relative time dilation, not a change in how the traveler experiences their own clock.",
+      "ar": "تدق الساعة المتحركة أبطأ من الساعات الساكنة في إطار الراصد. وهذا تمدد زمني نسبي، لا تغير في إحساس المسافر بساعته الخاصة."
     },
     "review": {
       "status": "pending"
@@ -577,12 +577,12 @@
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
-      "en": "Which instrument is used to measure electric current in a circuit?",
-      "ar": "ما الجهاز المستخدم لقياس شدة التيار الكهربائي في دائرة؟"
+      "en": "Which instrument measures the mass of an object by comparing it with known masses?",
+      "ar": "ما الأداة التي تقيس كتلة جسم بمقارنتها بكتل معلومة؟"
     },
     "answer": {
-      "en": "An ammeter, connected in series with the circuit element.",
-      "ar": "الأميتر، ويُوصل على التوالي مع عنصر الدائرة."
+      "en": "A balance.",
+      "ar": "الميزان ذو الكفتين."
     },
     "review": {
       "status": "pending"
@@ -691,12 +691,12 @@
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
-      "en": "What is the unit of electrical resistance?",
-      "ar": "ما وحدة قياس المقاومة الكهربائية؟"
+      "en": "What is the SI unit of mechanical pressure?",
+      "ar": "ما وحدة الضغط الميكانيكي في النظام الدولي؟"
     },
     "answer": {
-      "en": "The Ohm (Ω)",
-      "ar": "الأوم (Ω)"
+      "en": "The pascal (Pa), equal to one newton per square metre.",
+      "ar": "الباسكال (Pa)، ويساوي نيوتناً واحداً لكل متر مربع."
     },
     "review": {
       "status": "pending"
@@ -805,12 +805,12 @@
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
-      "en": "What is the formula for calculating speed?",
-      "ar": "ما صيغة حساب السرعة؟"
+      "en": "How do you calculate average speed from total distance and elapsed time?",
+      "ar": "كيف تحسب السرعة المتوسطة من المسافة الكلية والزمن المستغرق؟"
     },
     "answer": {
-      "en": "Speed = Distance ÷ Time",
-      "ar": "السرعة = المسافة ÷ الزمن"
+      "en": "Average speed = total distance ÷ elapsed time.",
+      "ar": "السرعة المتوسطة = المسافة الكلية ÷ الزمن المستغرق."
     },
     "review": {
       "status": "pending"
@@ -843,8 +843,8 @@
       "ar": "الكيمياء والمواد"
     },
     "question": {
-      "en": "What state of matter has no definite shape or volume?",
-      "ar": "أي حالة من حالات المادة ليس لها شكل أو حجم محدد؟"
+      "en": "Among solids, liquids, and gases, which state has neither a fixed shape nor a fixed volume?",
+      "ar": "من بين الصلب والسائل والغاز، أي حالة ليس لها شكل ثابت ولا حجم ثابت؟"
     },
     "answer": {
       "en": "Gas",
@@ -919,12 +919,12 @@
       "ar": "الموجات والضوء والصوت"
     },
     "question": {
-      "en": "What is the wavelength range of visible light?",
-      "ar": "ما نطاق طول الموجة للضوء المرئي؟"
+      "en": "What approximate wavelength range is commonly used for visible light?",
+      "ar": "ما نطاق الأطوال الموجية التقريبي الشائع للضوء المرئي؟"
     },
     "answer": {
-      "en": "400–700 nanometres",
-      "ar": "400–700 نانومتر"
+      "en": "About 400–700 nanometres; the limits of human vision vary and are not sharp cutoffs.",
+      "ar": "نحو 400–700 نانومتر؛ حدود الرؤية البشرية متغيرة وليست فواصل حادة."
     },
     "review": {
       "status": "pending"
@@ -1033,12 +1033,12 @@
       "ar": "الموجات والضوء والصوت"
     },
     "question": {
-      "en": "What phenomenon causes a rainbow to form?",
-      "ar": "أي ظاهرة تسبّب تكوّن قوس قزح؟"
+      "en": "Which optical processes in raindrops produce a primary rainbow?",
+      "ar": "ما العمليات البصرية داخل قطرات المطر التي تكوّن قوس قزح الأولي؟"
     },
     "answer": {
-      "en": "Refraction and dispersion of light through water droplets",
-      "ar": "انكسار الضوء وتشتّته عبر قطرات الماء"
+      "en": "Refraction and dispersion as light enters and leaves, with one internal reflection inside each drop.",
+      "ar": "انكسار الضوء وتحلله إلى ألوانه عند دخوله وخروجه، مع انعكاس داخلي واحد داخل كل قطرة."
     },
     "review": {
       "status": "pending"
@@ -1056,8 +1056,8 @@
       "ar": "ما الأسموزية؟"
     },
     "answer": {
-      "en": "Movement of water through a semi-permeable membrane from low to high solute concentration",
-      "ar": "انتقال الماء عبر غشاء شبه نفوذ من منطقة التركيز المنخفض إلى التركيز المرتفع"
+      "en": "Net movement of water across a selectively permeable membrane from higher to lower water potential. At equal pressure, this usually means from lower to higher solute concentration.",
+      "ar": "الانتقال الصافي للماء عبر غشاء اختياري النفاذية من جهد مائي أعلى إلى أدنى. وعند تساوي الضغط يكون عادةً من تركيز مذاب أقل إلى تركيز مذاب أعلى."
     },
     "review": {
       "status": "pending"
@@ -1147,12 +1147,12 @@
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "What is Planck's constant?",
-      "ar": "ما ثابت بلانك؟"
+      "en": "What is the exact SI value of Planck's constant h?",
+      "ar": "ما القيمة الدقيقة لثابت بلانك h في النظام الدولي؟"
     },
     "answer": {
-      "en": "6.626 × 10⁻³⁴ J·s",
-      "ar": "6.626 × 10⁻³⁴ جول·ثانية"
+      "en": "6.62607015×10⁻³⁴ joule seconds (J·s).",
+      "ar": "6.62607015×10⁻³⁴ جول·ثانية (J·s)."
     },
     "review": {
       "status": "pending"
@@ -1170,8 +1170,8 @@
       "ar": "لماذا يُستخدم توازن هاردي-واينبرغ؟"
     },
     "answer": {
-      "en": "To predict allele frequencies in a non-evolving population",
-      "ar": "للتنبؤ بتكرارات الأليلات في مجتمع غير متطور"
+      "en": "It provides a non-evolving reference model: allele frequencies remain constant, and expected genotype frequencies can be calculated from them under the model's assumptions.",
+      "ar": "يوفر نموذجاً مرجعياً لجماعة لا تتطور: تبقى تكرارات الأليلات ثابتة، ويمكن حساب تكرارات الأنماط الجينية المتوقعة منها وفق افتراضات النموذج."
     },
     "review": {
       "status": "pending"
@@ -1223,8 +1223,8 @@
       "ar": "الأحياء وعلوم الحياة"
     },
     "question": {
-      "en": "What is the name of the enzyme that unzips DNA during replication?",
-      "ar": "ما اسم الإنزيم الذي يفكّ تشابك الحمض النووي أثناء التضاعف؟"
+      "en": "Which enzyme separates the two DNA strands at the replication fork?",
+      "ar": "أي إنزيم يفصل شريطي DNA عند شوكة التضاعف؟"
     },
     "answer": {
       "en": "Helicase",
@@ -1318,12 +1318,12 @@
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "What is Schrödinger's Cat thought experiment about?",
-      "ar": "ما الفكرة التي تتمحور حولها تجربة قطة شرودنغر الفكرية؟"
+      "en": "In Schrödinger's cat thought experiment, what conceptual problem arises when quantum superposition is applied to a macroscopic cat?",
+      "ar": "في تجربة قطة شرودنغر الفكرية، ما المشكلة المفاهيمية التي تظهر عند تطبيق التراكب الكمي على قطة كبيرة الحجم؟"
     },
     "answer": {
-      "en": "Quantum superposition — a particle can exist in multiple states until observed",
-      "ar": "التراكب الكمي — يمكن للجسيم أن يتواجد في حالات متعددة حتى يُلاحَظ"
+      "en": "The measurement problem: how a quantum description containing alternative outcomes relates to the single definite outcome observed.",
+      "ar": "مشكلة القياس: كيف يرتبط الوصف الكمي الذي يتضمن نتائج بديلة بالنتيجة الواحدة المحددة التي نرصدها؟"
     },
     "review": {
       "status": "pending"
@@ -1356,8 +1356,8 @@
       "ar": "الكيمياء والمواد"
     },
     "question": {
-      "en": "What is the hybridisation of carbon in methane (CH₄)?",
-      "ar": "ما التهجين الهجيني للكربون في الميثان (CH₄)؟"
+      "en": "What is the hybridization of carbon in methane, CH₄?",
+      "ar": "ما نوع تهجين ذرة الكربون في الميثان CH₄؟"
     },
     "answer": {
       "en": "sp³",
@@ -1451,8 +1451,8 @@
       "ar": "الأحياء وعلوم الحياة"
     },
     "question": {
-      "en": "What is the name of the protein that misfolding causes prion diseases?",
-      "ar": "ما اسم البروتين الذي يسبّب طيّه الخاطئ أمراض البريون؟"
+      "en": "Which protein causes prion diseases when it adopts a disease-associated misfolded form?",
+      "ar": "أي بروتين يسبب أمراض البريون عندما يتخذ شكلاً مطوياً على نحو خاطئ مرتبطاً بالمرض؟"
     },
     "answer": {
       "en": "PrP (Prion Protein)",
@@ -1502,7 +1502,7 @@
   },
   {
     "id": "science-080",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Biology & Life Sciences",
       "ar": "الأحياء وعلوم الحياة"
@@ -1527,8 +1527,8 @@
       "ar": "الكيمياء والمواد"
     },
     "question": {
-      "en": "What is the Born-Haber cycle used for?",
-      "ar": "لماذا يُستخدم دورة بورن-هابر؟"
+      "en": "What is the Born–Haber cycle used to calculate?",
+      "ar": "ما الذي تُستخدم دورة بورن–هابر لحسابه؟"
     },
     "answer": {
       "en": "To calculate lattice energy of ionic compounds using Hess's Law",
@@ -1540,18 +1540,18 @@
   },
   {
     "id": "science-082",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Mechanics & Classical Physics",
       "ar": "الميكانيكا والفيزياء الكلاسيكية"
     },
     "question": {
-      "en": "What are the four fundamental forces of nature?",
-      "ar": "ما القوى الأساسية الأربع في الطبيعة؟"
+      "en": "A closed system experiences no net external force. Which quantity is conserved: total momentum or each object's speed?",
+      "ar": "نظام مغلق لا تؤثر فيه قوة خارجية محصلة. أي كمية تُحفظ: الزخم الكلي أم سرعة كل جسم؟"
     },
     "answer": {
-      "en": "Gravity, electromagnetic, strong nuclear, and weak nuclear forces",
-      "ar": "الجاذبية، الكهرومغناطيسية، القوة النووية الشديدة، والقوة النووية الضعيفة"
+      "en": "Total momentum. Individual objects can change speed while exchanging momentum internally.",
+      "ar": "الزخم الكلي. يمكن أن تتغير سرعات الأجسام منفردة أثناء تبادل الزخم داخل النظام."
     },
     "review": {
       "status": "pending"
@@ -1559,7 +1559,7 @@
   },
   {
     "id": "science-083",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Biology & Life Sciences",
       "ar": "الأحياء وعلوم الحياة"
@@ -1569,8 +1569,8 @@
       "ar": "ما وظيفة التيلوميرات؟"
     },
     "answer": {
-      "en": "Protective caps at the ends of chromosomes that prevent DNA degradation during replication",
-      "ar": "أغطية واقية في أطراف الكروموسومات تمنع تدهور الحمض النووي أثناء التضاعف"
+      "en": "Telomeres protect chromosome ends from degradation and inappropriate joining, and their repetitive DNA helps buffer end-shortening during replication.",
+      "ar": "تحمي التيلوميرات نهايات الكروموسومات من التحلل والالتحام غير المناسب، ويساعد DNA المتكرر فيها على الحد من أثر قصر النهايات أثناء التضاعف."
     },
     "review": {
       "status": "pending"
@@ -1597,18 +1597,18 @@
   },
   {
     "id": "science-085",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Quantum, Relativity & Cosmology",
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "What is the Higgs boson?",
-      "ar": "ما بوزون هيغز؟"
+      "en": "What is the Higgs boson in relation to the Higgs field?",
+      "ar": "ما علاقة بوزون هيغز بمجال هيغز؟"
     },
     "answer": {
-      "en": "An elementary particle that gives mass to other fundamental particles via the Higgs field",
-      "ar": "جسيم أولي يمنح الكتلة للجسيمات الأساسية الأخرى عبر حقل هيغز"
+      "en": "It is a quantum excitation of the Higgs field, not the field itself.",
+      "ar": "هو إثارة كمية لمجال هيغز، وليس المجال نفسه."
     },
     "review": {
       "status": "pending"
@@ -1664,8 +1664,8 @@
       "ar": "ما التشابك الكمي؟"
     },
     "answer": {
-      "en": "A phenomenon where two particles become correlated so the state of one instantly affects the other regardless of distance",
-      "ar": "ظاهرة يصبح فيها جسيمان مرتبطَين بحيث تؤثّر حالة أحدهما فوراً على الآخر بصرف النظر عن المسافة"
+      "en": "Entangled systems share a joint quantum state whose measurement correlations cannot be reproduced by local classical models. Those correlations cannot transmit information faster than light.",
+      "ar": "تتشارك الأنظمة المتشابكة حالة كمية مشتركة تنتج ارتباطات بين نتائج القياس لا تفسرها النماذج الكلاسيكية المحلية. ولا تسمح هذه الارتباطات بنقل المعلومات أسرع من الضوء."
     },
     "review": {
       "status": "pending"
@@ -1740,8 +1740,8 @@
       "ar": "ما نظام المتمّم في علم المناعة؟"
     },
     "answer": {
-      "en": "A cascade of proteins that enhance the ability of antibodies to clear pathogens",
-      "ar": "سلسلة من البروتينات تعزّز قدرة الأجسام المضادة على القضاء على مسبّبات الأمراض"
+      "en": "A network of innate immune proteins that can mark pathogens, promote inflammation, and damage microbial membranes. Some activation pathways involve antibodies; others do not.",
+      "ar": "شبكة بروتينات من المناعة الفطرية تميّز الممرضات وتعزز الالتهاب وقد تتلف أغشيتها. تعتمد بعض مسارات تنشيطها على الأجسام المضادة، ولا تعتمد أخرى عليها."
     },
     "review": {
       "status": "pending"
@@ -1749,7 +1749,7 @@
   },
   {
     "id": "science-093",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Chemistry & Materials",
       "ar": "الكيمياء والمواد"
@@ -1793,12 +1793,12 @@
       "ar": "الأحياء وعلوم الحياة"
     },
     "question": {
-      "en": "What is the Koch's postulates used for in microbiology?",
-      "ar": "لماذا تُستخدم مسلّمات كوخ في علم الأحياء الدقيقة؟"
+      "en": "What was the historical purpose of Koch's postulates in microbiology?",
+      "ar": "ما الغرض التاريخي من مسلمات كوخ في علم الأحياء الدقيقة؟"
     },
     "answer": {
-      "en": "To establish that a specific microorganism is the cause of a specific disease",
-      "ar": "لإثبات أن كائناً دقيقاً محدداً هو سبب مرض بعينه"
+      "en": "To establish evidence that a particular microorganism causes a particular disease. They are influential criteria, but not universally applicable to every pathogen.",
+      "ar": "تقديم أدلة على أن كائناً دقيقاً معيناً يسبب مرضاً معيناً. وهي معايير مهمة تاريخياً، لكنها لا تنطبق على كل ممرض بلا استثناء."
     },
     "review": {
       "status": "pending"
@@ -1835,8 +1835,8 @@
       "ar": "ما مبدأ التراكب في ميكانيكا الكم؟"
     },
     "answer": {
-      "en": "A quantum system can exist in multiple states simultaneously until a measurement collapses it to one",
-      "ar": "يمكن للنظام الكمي أن يتواجد في حالات متعددة في آنٍ واحد حتى يُقلّصه القياس إلى حالة واحدة"
+      "en": "If quantum states are allowed, an appropriate linear combination of them is also an allowed state. Measurement outcome probabilities depend on the combination's amplitudes.",
+      "ar": "إذا كانت حالات كمية مسموحاً بها، فإن تركيباً خطياً مناسباً منها يمثل أيضاً حالة مسموحاً بها. وتعتمد احتمالات نتائج القياس على سعات ذلك التركيب."
     },
     "review": {
       "status": "pending"
@@ -1888,12 +1888,12 @@
       "ar": "الكم والنسبية وعلم الكون"
     },
     "question": {
-      "en": "What did the Michelson-Morley experiment disprove?",
-      "ar": "ما الذي دحضته تجربة مايكلسون-مورلي؟"
+      "en": "What expected effect did the Michelson–Morley experiment fail to detect?",
+      "ar": "ما التأثير المتوقع الذي لم تنجح تجربة مايكلسون–مورلي في كشفه؟"
     },
     "answer": {
-      "en": "The existence of the luminiferous aether — the medium through which light was once thought to travel",
-      "ar": "وجود الأثير المضيء — الوسط الذي كان يُعتقد أن الضوء يسير فيه"
+      "en": "The expected light-speed difference caused by Earth's motion through a stationary luminiferous ether—the proposed ether wind.",
+      "ar": "الفرق المتوقع في سرعة الضوء بسبب حركة الأرض عبر أثير ضوئي ساكن، أي رياح الأثير المفترضة."
     },
     "review": {
       "status": "pending"

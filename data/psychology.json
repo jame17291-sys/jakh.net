@@ -26,12 +26,12 @@
       "ar": "الشخصية والانفعال"
     },
     "question": {
-      "en": "What do you call a person who is generally quiet and energized by being alone?",
-      "ar": "كيف تُسمّى الشخص الهادئ الذي يستمد طاقته من الوحدة؟"
+      "en": "Which personality trait describes a tendency to prefer lower-stimulation settings and inward reflection rather than frequent social stimulation?",
+      "ar": "أيّ سمة شخصية تصف الميل إلى البيئات الأقل إثارة والتأمل الداخلي أكثر من التحفيز الاجتماعي المتكرر؟"
     },
     "answer": {
-      "en": "Introvert",
-      "ar": "الانطوائي"
+      "en": "Introversion. It does not necessarily mean shyness or dislike of people.",
+      "ar": "الانطواء؛ ولا يعني بالضرورة الخجل أو كراهية الناس."
     },
     "review": {
       "status": "pending"
@@ -102,12 +102,12 @@
       "ar": "الأسس والتعلم والدافعية"
     },
     "question": {
-      "en": "What is the term for a 'slip of the tongue' that reveals a hidden thought?",
-      "ar": "ما المصطلح لزلّة اللسان التي تكشف فكرة مخفية؟"
+      "en": "In psychoanalytic theory, what is a verbal slip interpreted as expressing an unconscious thought called?",
+      "ar": "في نظرية التحليل النفسي، ماذا تُسمّى زلّة اللسان التي تُفسَّر بأنها تعبير عن فكرة لاواعية؟"
     },
     "answer": {
-      "en": "Freudian Slip",
-      "ar": "زلة فرويد"
+      "en": "A Freudian slip. This is a theoretical interpretation, not proof that every verbal mistake reveals a hidden wish.",
+      "ar": "زلّة فرويد؛ وهو تفسير نظري، لا دليل على أن كل خطأ لفظي يكشف رغبة خفية."
     },
     "review": {
       "status": "pending"
@@ -140,12 +140,12 @@
       "ar": "علم النفس السريري والصحة النفسية"
     },
     "question": {
-      "en": "What is the term for a repetitive behavior a person feels driven to perform?",
-      "ar": "ما مصطلح السلوك المتكرر الذي يشعر الشخص بدافع للقيام به؟"
+      "en": "What term describes a repetitive behavior or mental act a person feels driven to perform, for example in response to an obsession?",
+      "ar": "ما المصطلح الذي يصف سلوكًا أو فعلًا ذهنيًا متكررًا يشعر الشخص بأنه مدفوع إلى أدائه، مثل الاستجابة لفكرة وسواسية؟"
     },
     "answer": {
-      "en": "Compulsion",
-      "ar": "الوسواس القهري"
+      "en": "A compulsion",
+      "ar": "فعل قهري"
     },
     "review": {
       "status": "pending"
@@ -178,12 +178,12 @@
       "ar": "الإدراك والذاكرة والإحساس"
     },
     "question": {
-      "en": "How many primary senses do humans have?",
-      "ar": "كم عدد الحواس الأساسية للإنسان؟"
+      "en": "Which traditional sense lets you distinguish a sweet solution from a bitter one when it reaches your tongue?",
+      "ar": "ما الحاسة التقليدية التي تتيح لك التمييز بين محلول حلو وآخر مُرّ عندما يصلان إلى لسانك؟"
     },
     "answer": {
-      "en": "Five",
-      "ar": "خمس"
+      "en": "Taste.",
+      "ar": "التذوق."
     },
     "review": {
       "status": "pending"
@@ -296,8 +296,8 @@
       "ar": "ما التأثير الذي يجعل الناس أقل ميلاً للمساعدة حين يكون آخرون حاضرين؟"
     },
     "answer": {
-      "en": "Bystander Effect",
-      "ar": "أثر المتفرج"
+      "en": "The bystander effect: in some situations, the presence of other people reduces an individual’s likelihood of helping.",
+      "ar": "أثر المتفرج: في بعض الظروف يقل احتمال مبادرة الفرد بالمساعدة عند وجود أشخاص آخرين."
     },
     "review": {
       "status": "pending"
@@ -391,8 +391,8 @@
       "ar": "ما «خصائص الطلب» في التجربة النفسية؟"
     },
     "answer": {
-      "en": "Cues that reveal the study's purpose and cause participants to alter their behavior",
-      "ar": "إشارات تكشف هدف الدراسة فتدفع المشاركين إلى تغيير سلوكهم"
+      "en": "Cues that suggest what a study expects or is testing and may influence how participants behave.",
+      "ar": "إشارات توحي بما تتوقعه الدراسة أو تختبره، وقد تؤثر في سلوك المشاركين."
     },
     "review": {
       "status": "pending"
@@ -438,18 +438,18 @@
   },
   {
     "id": "psychology-024",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Foundations, Learning & Motivation",
       "ar": "الأسس والتعلم والدافعية"
     },
     "question": {
-      "en": "B.F. Skinner is the father of which type of conditioning?",
-      "ar": "ب. ف. سكينر أبو أي نوع من التكييف؟"
+      "en": "B. F. Skinner is closely associated with which form of learning through consequences?",
+      "ar": "يرتبط ب. ف. سكينر ارتباطًا وثيقًا بأيّ نوع من التعلم من خلال النتائج؟"
     },
     "answer": {
-      "en": "Operant Conditioning",
-      "ar": "التكييف الإجرائي"
+      "en": "Operant conditioning",
+      "ar": "الاشتراط الإجرائي"
     },
     "review": {
       "status": "pending"
@@ -495,18 +495,18 @@
   },
   {
     "id": "psychology-027",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Research Methods",
       "ar": "مناهج البحث"
     },
     "question": {
-      "en": "Who developed the theory of 'Learned Helplessness' after experimenting with dogs?",
-      "ar": "من طور نظرية 'العجز المكتسب' بعد تجارب أجراها على الكلاب؟"
+      "en": "Which concept describes reduced attempts to escape after exposure to uncontrollable adverse events in classic experiments by Seligman and colleagues?",
+      "ar": "ما المفهوم الذي يصف انخفاض محاولات الهرب بعد التعرض لأحداث منفّرة لا يمكن التحكم بها في تجارب سيليغمان وزملائه الكلاسيكية؟"
     },
     "answer": {
-      "en": "Martin Seligman",
-      "ar": "مارتن سيليغمان"
+      "en": "Learned helplessness",
+      "ar": "العجز المتعلَّم"
     },
     "review": {
       "status": "pending"
@@ -543,8 +543,8 @@
       "ar": "ما المبدأ الأساسي لعلم النفس الغشطالتي؟"
     },
     "answer": {
-      "en": "The whole is greater than the sum of its parts",
-      "ar": "الكل أكبر من مجموع أجزائه"
+      "en": "Perception organizes elements into wholes whose properties cannot be understood from isolated parts alone. A common summary is that the whole is different from the sum of its parts.",
+      "ar": "ينظم الإدراك العناصر في كُلّ لا تُفهم خصائصه من الأجزاء المنفردة وحدها؛ ويُلخّص ذلك بأن الكل يختلف عن مجموع أجزائه."
     },
     "review": {
       "status": "pending"
@@ -571,14 +571,14 @@
   },
   {
     "id": "psychology-031",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Foundations, Learning & Motivation",
       "ar": "الأسس والتعلم والدافعية"
     },
     "question": {
-      "en": "Who is considered the founder of modern psychology?",
-      "ar": "من يُعدّ مؤسس علم النفس الحديث؟"
+      "en": "Who founded the psychology laboratory at Leipzig in 1879 that is commonly associated with the emergence of experimental psychology?",
+      "ar": "من أسّس مختبر علم النفس في لايبزيغ عام 1879، المرتبط عادةً بنشأة علم النفس التجريبي؟"
     },
     "answer": {
       "en": "Wilhelm Wundt",
@@ -628,18 +628,18 @@
   },
   {
     "id": "psychology-034",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Developmental Psychology",
       "ar": "علم نفس النمو"
     },
     "question": {
-      "en": "What is Piaget's theory about?",
-      "ar": "بماذا تتعلق نظرية بياجيه؟"
+      "en": "In Piaget’s terminology, a child sees water poured into a taller glass and understands that the amount stays the same. Which ability does this illustrate?",
+      "ar": "وفق مصطلحات بياجيه، يرى طفل الماء يُنقل إلى كأس أطول ويفهم أن كميته لم تتغير. أيّ قدرة يوضحها ذلك؟"
     },
     "answer": {
-      "en": "Stages of cognitive development in children",
-      "ar": "مراحل التطور المعرفي لدى الأطفال"
+      "en": "Conservation of quantity",
+      "ar": "الاحتفاظ بالكمية"
     },
     "review": {
       "status": "pending"
@@ -657,8 +657,8 @@
       "ar": "ما السمات الخمس الكبرى للشخصية؟"
     },
     "answer": {
-      "en": "Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism (OCEAN)",
-      "ar": "الانفتاح، الضمير، الانبساط، المقبولية، العصابية (OCEAN)"
+      "en": "Openness, conscientiousness, extraversion, agreeableness and neuroticism.",
+      "ar": "الانفتاح على الخبرة، ويقظة الضمير، والانبساط، والمقبولية، والعصابية."
     },
     "review": {
       "status": "pending"
@@ -710,12 +710,12 @@
       "ar": "الأسس والتعلم والدافعية"
     },
     "question": {
-      "en": "What is the difference between a psychologist and a psychiatrist?",
-      "ar": "ما الفرق بين عالم النفس والطبيب النفسي؟"
+      "en": "Which mental-health profession requires training as a medical doctor: psychiatrist or psychologist?",
+      "ar": "أيّ الاختصاصين يتطلب دراسة الطب أولًا: الطب النفسي أم علم النفس؟"
     },
     "answer": {
-      "en": "A psychiatrist is a medical doctor who can prescribe medication; a psychologist typically holds a PhD and provides therapy",
-      "ar": "الطبيب النفسي طبيب يمكنه وصف الأدوية؛ أما عالم النفس فيحمل عادةً دكتوراه ويقدّم العلاج النفسي"
+      "en": "Psychiatrist. Psychologists’ qualifications and permitted activities vary by jurisdiction; they are not necessarily medical doctors.",
+      "ar": "الطبيب النفسي. تختلف مؤهلات الأخصائي النفسي وصلاحياته حسب البلد، ولا يُشترط أن يكون طبيبًا."
     },
     "review": {
       "status": "pending"
@@ -862,12 +862,12 @@
       "ar": "علم النفس الاجتماعي"
     },
     "question": {
-      "en": "What is the bystander effect?",
-      "ar": "ما تأثير المتفرّج؟"
+      "en": "During a group emergency, each person assumes someone else will call for help. Which proposed mechanism of the bystander effect does this illustrate?",
+      "ar": "في طارئ جماعي يفترض كل شخص أن غيره سيطلب المساعدة. أيّ آلية مقترحة لتأثير المتفرج يوضحها ذلك؟"
     },
     "answer": {
-      "en": "People are less likely to help in an emergency when others are present, assuming someone else will act",
-      "ar": "يقلّ احتمال تقديم الناس للمساعدة في حالة طوارئ عند وجود آخرين، لافتراض أن شخصاً آخر سيتصرف"
+      "en": "Diffusion of responsibility",
+      "ar": "توزّع المسؤولية"
     },
     "review": {
       "status": "pending"
@@ -885,8 +885,8 @@
       "ar": "ما تأثير الدواء الوهمي؟"
     },
     "answer": {
-      "en": "Improvement in a patient's condition due to belief in the treatment rather than the treatment itself",
-      "ar": "تحسّن حالة المريض بسبب الإيمان بالعلاج وليس العلاج في حد ذاته"
+      "en": "Changes related to treatment context and expectations rather than a treatment’s specific active ingredient. Not all improvement in a placebo group is a placebo effect; natural recovery and other factors also matter.",
+      "ar": "تغيرات ترتبط بسياق العلاج والتوقعات لا بمكوّنه الفعّال المحدد. وليس كل تحسن في مجموعة الدواء الوهمي أثرًا وهميًا؛ فقد يسهم التعافي الطبيعي وعوامل أخرى."
     },
     "review": {
       "status": "pending"
@@ -942,8 +942,8 @@
       "ar": "ما العجز المكتسب؟"
     },
     "answer": {
-      "en": "When repeated failure leads an organism to stop trying, even when success becomes possible",
-      "ar": "حين تدفع الفشل المتكرر الكائنَ الحي إلى التوقف عن المحاولة، حتى حين يصبح النجاح ممكناً"
+      "en": "A reduction in attempts to change an adverse situation after experience of uncontrollability, even when a later situation may be controllable.",
+      "ar": "انخفاض محاولات تغيير موقف منفّر بعد خبرة انعدام التحكم، حتى لو أمكن التحكم في موقف لاحق."
     },
     "review": {
       "status": "pending"
@@ -1014,12 +1014,12 @@
       "ar": "الشخصية والانفعال"
     },
     "question": {
-      "en": "What are the six universal basic emotions identified by Ekman?",
-      "ar": "ما المشاعر الأساسية الستة العالمية التي حدّدها إكمان؟"
+      "en": "Which six emotions appear in Paul Ekman’s commonly taught basic-emotion model?",
+      "ar": "ما المشاعر الستة الواردة في نموذج بول إكمان الشائع تدريسه للمشاعر الأساسية؟"
     },
     "answer": {
-      "en": "Happiness, sadness, fear, disgust, anger, and surprise",
-      "ar": "السعادة، الحزن، الخوف، الاشمئزاز، الغضب، والمفاجأة"
+      "en": "Happiness, sadness, fear, disgust, anger and surprise. This identifies the model, not a claim that every theory uses the same classification.",
+      "ar": "السعادة والحزن والخوف والاشمئزاز والغضب والمفاجأة؛ وهذه إجابة عن النموذج، لا عن تصنيف تتبناه جميع النظريات."
     },
     "review": {
       "status": "pending"
@@ -1056,8 +1056,8 @@
       "ar": "ما التعزيز طويل الأمد (LTP)؟"
     },
     "answer": {
-      "en": "A long-lasting strengthening of synaptic connections that forms the basis of memory and learning",
-      "ar": "تقوية دائمة للروابط التشابكية تشكّل أساس الذاكرة والتعلّم"
+      "en": "A long-lasting increase in the strength of synaptic transmission following certain patterns of activity; it is studied as a cellular mechanism involved in learning and memory.",
+      "ar": "زيادة طويلة الأمد في قوة النقل التشابكي بعد أنماط معينة من النشاط، وتُدرس بوصفها آلية خلوية تسهم في التعلم والذاكرة."
     },
     "review": {
       "status": "pending"
@@ -1113,8 +1113,8 @@
       "ar": "ما مؤشر مايرز-بريغز للأنماط (MBTI)؟"
     },
     "answer": {
-      "en": "A personality framework classifying people into 16 types based on four dichotomies (E/I, S/N, T/F, J/P)",
-      "ar": "إطار للشخصية يصنّف الناس في 16 نمطاً بناءً على أربعة ثنائيات (E/I, S/N, T/F, J/P)"
+      "en": "A personality questionnaire framework that describes 16 types using four preference pairs: E/I, S/N, T/F and J/P. Its types should not be treated as definitive diagnoses.",
+      "ar": "إطار لاستبيان شخصية يصف 16 نمطًا باستخدام أربعة أزواج من التفضيلات: E/I وS/N وT/F وJ/P. ولا تُعد أنماطه تشخيصات نهائية."
     },
     "review": {
       "status": "pending"
@@ -1132,8 +1132,8 @@
       "ar": "ما تحيّز التأكيد؟"
     },
     "answer": {
-      "en": "The tendency to search for and favour information that confirms existing beliefs",
-      "ar": "الميل للبحث عن المعلومات التي تؤكد المعتقدات القائمة والتفضيل بينها"
+      "en": "The tendency to seek, interpret or remember information in ways that favor existing beliefs.",
+      "ar": "الميل إلى البحث عن المعلومات أو تفسيرها أو تذكرها بطرق تؤيد المعتقدات القائمة."
     },
     "review": {
       "status": "pending"
@@ -1141,18 +1141,18 @@
   },
   {
     "id": "psychology-061",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Clinical & Mental Health",
       "ar": "علم النفس السريري والصحة النفسية"
     },
     "question": {
-      "en": "What is DSM-5?",
-      "ar": "ما الدليل التشخيصي والإحصائي الخامس (DSM-5)؟"
+      "en": "Which organization publishes the Diagnostic and Statistical Manual of Mental Disorders, including DSM-5-TR?",
+      "ar": "أيّ منظمة تصدر الدليل التشخيصي والإحصائي للاضطرابات النفسية، بما فيه DSM-5-TR؟"
     },
     "answer": {
-      "en": "Diagnostic and Statistical Manual of Mental Disorders (5th edition) — the standard classification of mental disorders",
-      "ar": "الدليل التشخيصي والإحصائي للاضطرابات النفسية (الطبعة الخامسة) — التصنيف القياسي للاضطرابات النفسية"
+      "en": "The American Psychiatric Association",
+      "ar": "الجمعية الأمريكية للطب النفسي"
     },
     "review": {
       "status": "pending"
@@ -1242,12 +1242,12 @@
       "ar": "علم الأعصاب"
     },
     "question": {
-      "en": "What is the role of dopamine in the brain's reward system?",
-      "ar": "ما دور الدوبامين في نظام المكافأة في الدماغ؟"
+      "en": "In reward-learning research, what is the difference between an expected reward and the reward actually received called?",
+      "ar": "في أبحاث التعلم بالمكافأة، ماذا يُسمّى الفرق بين المكافأة المتوقعة والمكافأة التي تُتلقّى فعلًا؟"
     },
     "answer": {
-      "en": "Dopamine signals reward and motivates approach behaviour, reinforcing actions that lead to positive outcomes",
-      "ar": "يُشير الدوبامين إلى المكافأة ويحفّز سلوك الاقتراب، ويعزّز الأفعال التي تؤدي إلى نتائج إيجابية"
+      "en": "A reward prediction error; activity in some dopamine pathways is associated with this signal.",
+      "ar": "خطأ التنبؤ بالمكافأة؛ ويرتبط نشاط بعض مسارات الدوبامين بهذه الإشارة."
     },
     "review": {
       "status": "pending"
@@ -1255,18 +1255,18 @@
   },
   {
     "id": "psychology-067",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Developmental Psychology",
       "ar": "علم نفس النمو"
     },
     "question": {
-      "en": "What is the Strange Situation procedure (Ainsworth)?",
-      "ar": "ما إجراء الموقف الغريب (أينسورث)؟"
+      "en": "What did Ainsworth’s Strange Situation procedure observe to study infant attachment?",
+      "ar": "ما الذي راقبه إجراء «الموقف الغريب» عند أينسورث لدراسة التعلق لدى الرضيع؟"
     },
     "answer": {
-      "en": "An experiment to classify infant attachment styles — secure, anxious-ambivalent, avoidant, and disorganised",
-      "ar": "تجربة لتصنيف أنماط التعلّق لدى الرضع — الآمن، القلق المتردّد، التجنّبي، والمضطرب"
+      "en": "Infants’ behavior during brief separations from and reunions with a caregiver in a structured setting.",
+      "ar": "سلوك الرضع أثناء انفصالات قصيرة عن مقدّم الرعاية ولقاءات لاحقة معه في بيئة منظّمة."
     },
     "review": {
       "status": "pending"
@@ -1284,8 +1284,8 @@
       "ar": "ما تجربة سجن ستانفورد؟"
     },
     "answer": {
-      "en": "A 1971 experiment by Zimbardo where participants assigned as guards abused prisoner participants, demonstrating situational influence on behaviour",
-      "ar": "تجربة عام 1971 أجراها زيمباردو حيث أساء المشاركون المعيّنون حراساً للمشاركين السجناء، مما أثبت تأثير الموقف على السلوك"
+      "en": "A 1971 simulated-prison study led by Philip Zimbardo. It is historically influential, but methodological and ethical criticisms mean it should not be presented as conclusive proof of a universal effect of social roles.",
+      "ar": "دراسة محاكاة سجن قادها فيليب زيمباردو عام 1971. لها أثر تاريخي، لكن انتقاداتها المنهجية والأخلاقية تمنع تقديمها دليلًا قاطعًا على تأثير عام للأدوار الاجتماعية."
     },
     "review": {
       "status": "pending"
@@ -1293,18 +1293,18 @@
   },
   {
     "id": "psychology-069",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Clinical & Mental Health",
       "ar": "علم النفس السريري والصحة النفسية"
     },
     "question": {
-      "en": "What is the difference between psychosis and neurosis?",
-      "ar": "ما الفرق بين الذهان والعصاب؟"
+      "en": "Is “neurosis” a historical umbrella term or a single current DSM-5-TR diagnosis?",
+      "ar": "هل «العصاب» مصطلح تاريخي عام أم تشخيص واحد قائم في DSM-5-TR؟"
     },
     "answer": {
-      "en": "Psychosis involves loss of contact with reality (hallucinations, delusions); neurosis involves distressing but reality-intact conditions (anxiety, OCD)",
-      "ar": "الذهان يتضمّن فقدان التواصل مع الواقع (هلاوس، أوهام)؛ أما العصاب فيتضمّن حالات مزعجة مع الإبقاء على التواصل مع الواقع (قلق، وسواس)"
+      "en": "A historical umbrella term. It should not be treated as one current diagnosis equivalent to psychosis.",
+      "ar": "مصطلح تاريخي عام؛ ولا ينبغي معاملته بوصفه تشخيصًا واحدًا قائمًا يقابل الذهان."
     },
     "review": {
       "status": "pending"
@@ -1312,18 +1312,18 @@
   },
   {
     "id": "psychology-070",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Neuroscience",
       "ar": "علم الأعصاب"
     },
     "question": {
-      "en": "What is neurogenesis?",
-      "ar": "ما توليد الأعصاب (النيوروجينيسيس)؟"
+      "en": "What does the term neurogenesis mean?",
+      "ar": "ماذا يعني مصطلح تكوّن العصبونات؟"
     },
     "answer": {
-      "en": "The formation of new neurons — occurs in the hippocampus in adults, linked to memory and depression",
-      "ar": "تكوّن خلايا عصبية جديدة — يحدث في منطقة الحصين عند البالغين، مرتبط بالذاكرة والاكتئاب"
+      "en": "The formation of new neurons.",
+      "ar": "تكوّن خلايا عصبية جديدة."
     },
     "review": {
       "status": "pending"
@@ -1464,18 +1464,18 @@
   },
   {
     "id": "psychology-078",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
-      "en": "Clinical & Mental Health",
-      "ar": "علم النفس السريري والصحة النفسية"
+      "en": "Neuroscience",
+      "ar": "علم الأعصاب"
     },
     "question": {
-      "en": "What is the polyvagal theory (Porges)?",
-      "ar": "ما نظرية متعدد المبهم (بورجيس)؟"
+      "en": "Which division of the peripheral nervous system regulates many involuntary functions such as heart rate and digestion?",
+      "ar": "أيّ قسم من الجهاز العصبي الطرفي ينظم كثيرًا من الوظائف اللاإرادية مثل معدل ضربات القلب والهضم؟"
     },
     "answer": {
-      "en": "The vagus nerve has three evolutionary circuits governing social engagement, fight-or-flight, and freeze responses",
-      "ar": "يمتلك العصب المبهم ثلاث دوائر تطورية تحكم التواصل الاجتماعي واستجابات القتال أو الهروب والتجمّد"
+      "en": "The autonomic nervous system",
+      "ar": "الجهاز العصبي الذاتي"
     },
     "review": {
       "status": "pending"
@@ -1540,18 +1540,18 @@
   },
   {
     "id": "psychology-082",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Developmental Psychology",
       "ar": "علم نفس النمو"
     },
     "question": {
-      "en": "What is theory of mind and when does it typically develop?",
-      "ar": "ما نظرية العقل ومتى تتطوّر عادةً؟"
+      "en": "In a classic false-belief task, a child must predict where someone will look for an object after it was moved without that person seeing. Which aspect of social understanding is being tested?",
+      "ar": "في اختبار الاعتقاد الخاطئ الكلاسيكي، يتوقع الطفل أين سيبحث شخص عن غرض نُقل دون علمه. أيّ جانب من الفهم الاجتماعي يُختبر؟"
     },
     "answer": {
-      "en": "The ability to attribute mental states to others; typically develops around age 4, often tested with the false-belief task",
-      "ar": "القدرة على إسناد الحالات العقلية للآخرين؛ تتطوّر عادةً في سن 4 سنوات تقريباً، وتُختبر كثيراً بمهمة الاعتقاد الخاطئ"
+      "en": "Understanding that another person can hold a belief different from reality: an aspect of theory of mind.",
+      "ar": "فهم أن شخصًا آخر قد يحمل اعتقادًا يخالف الواقع؛ وهو جانب من نظرية العقل."
     },
     "review": {
       "status": "pending"
@@ -1626,8 +1626,8 @@
       "ar": "ما فرضية التواصل (آلبورت)؟"
     },
     "answer": {
-      "en": "Prejudice between groups decreases when they have direct contact under conditions of equal status, cooperation, and institutional support",
-      "ar": "يتراجع التحيّز بين المجموعات عند تواصلها المباشر في ظل التكافؤ في المكانة والتعاون والدعم المؤسسي"
+      "en": "Allport proposed that intergroup contact can reduce prejudice, especially with equal status, common goals, cooperation and institutional support. Contact alone does not guarantee improvement.",
+      "ar": "اقترح آلبورت أن الاتصال بين الجماعات قد يقلل التحيز، خصوصًا مع تساوي المكانة والأهداف المشتركة والتعاون والدعم المؤسسي؛ ولا يضمن الاتصال وحده التحسن."
     },
     "review": {
       "status": "pending"
@@ -1664,8 +1664,8 @@
       "ar": "ما دراسة التجارب السلبية في مرحلة الطفولة (ACE)؟"
     },
     "answer": {
-      "en": "A landmark study showing that childhood trauma (abuse, neglect, household dysfunction) strongly predicts adult physical and mental health outcomes",
-      "ar": "دراسة رائدة تُظهر أن الصدمات في مرحلة الطفولة (إساءة، إهمال، اضطراب أسري) تتنبأ بقوة بالصحة الجسدية والنفسية في مرحلة البلوغ"
+      "en": "A study of associations between adverse childhood experiences and later health outcomes. Its population-level findings do not determine any individual person’s future.",
+      "ar": "دراسة للعلاقات بين الخبرات السلبية في الطفولة والنتائج الصحية اللاحقة؛ ولا تحدد نتائجها على مستوى السكان مستقبل شخص بعينه."
     },
     "review": {
       "status": "pending"
@@ -1698,12 +1698,12 @@
       "ar": "علم النفس السريري والصحة النفسية"
     },
     "question": {
-      "en": "What is mentalisation-based therapy (MBT)?",
-      "ar": "ما العلاج القائم على التأمّل الذهني (MBT)؟"
+      "en": "What is mentalization-based therapy (MBT)?",
+      "ar": "ما العلاج القائم على فهم الحالات الذهنية، المعروف بـMBT؟"
     },
     "answer": {
-      "en": "A therapy focusing on improving mentalization — the ability to understand mental states in oneself and others — primarily for personality disorders",
-      "ar": "علاج يركّز على تحسين التأمّل الذهني — القدرة على فهم الحالات العقلية في النفس والآخرين — بصفة أساسية لاضطرابات الشخصية"
+      "en": "Mentalization-based therapy, which focuses on understanding one’s own and others’ behavior in terms of thoughts, feelings and intentions. Mentalization is not simply mindfulness meditation.",
+      "ar": "العلاج القائم على فهم الحالات الذهنية، ويركز على تفسير سلوك الذات والآخرين من خلال الأفكار والمشاعر والنوايا. وهو ليس مجرد تأمل يقظ."
     },
     "review": {
       "status": "pending"
@@ -1740,8 +1740,8 @@
       "ar": "ما فقدان الهوية الفردية في علم النفس الاجتماعي؟"
     },
     "answer": {
-      "en": "The loosening of self-awareness and restraint in group settings, leading to impulsive or anti-social behaviour",
-      "ar": "تراخي الوعي الذاتي والتحكّم في البيئات الجماعية، مما يؤدي إلى سلوك متهوّر أو مضاد للمجتمع"
+      "en": "Reduced attention to individual identity or self-awareness in a group context. Its behavioral effects depend on context and group norms, rather than always being antisocial.",
+      "ar": "انخفاض التركيز على الهوية الفردية أو الوعي بالذات في سياق جماعي. تعتمد آثاره السلوكية على السياق ومعايير الجماعة، ولا تكون دائمًا مضادة للمجتمع."
     },
     "review": {
       "status": "pending"
@@ -1768,18 +1768,18 @@
   },
   {
     "id": "psychology-094",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Research Methods",
       "ar": "مناهج البحث"
     },
     "question": {
-      "en": "What is effect size and why is it more important than p-value alone?",
-      "ar": "ما حجم التأثير ولماذا يكون أهم من قيمة p وحدها؟"
+      "en": "A very large study finds a statistically significant but tiny difference. Which statistic helps describe the magnitude of that difference?",
+      "ar": "تجد دراسة ضخمة فرقًا ضئيلًا ذا دلالة إحصائية. أيّ مقياس يساعد على وصف مقدار الفرق؟"
     },
     "answer": {
-      "en": "Effect size measures the magnitude of a result; p-value only tells us significance — a significant but tiny effect may be practically meaningless",
-      "ar": "يقيس حجم التأثير حجم النتيجة؛ قيمة p تخبرنا فقط بالدلالة الإحصائية — تأثير دال لكن ضئيل قد يكون عديم الأهمية عملياً"
+      "en": "Effect size. It complements, rather than replaces, information about uncertainty and statistical significance.",
+      "ar": "حجم الأثر؛ وهو يكمّل معلومات عدم اليقين والدلالة الإحصائية ولا يستبدلها."
     },
     "review": {
       "status": "pending"
@@ -1797,8 +1797,8 @@
       "ar": "ما نموذج التنوّع العصبي؟"
     },
     "answer": {
-      "en": "The view that neurological differences (autism, ADHD, dyslexia) are natural human variation rather than disorders to be cured",
-      "ar": "الرأي القائل إن الاختلافات العصبية (التوحّد، اضطراب التركيز، عسر القراءة) هي تنوّع بشري طبيعي لا اضطرابات تحتاج علاجاً"
+      "en": "A perspective recognizing neurological differences as part of human diversity. It does not deny disability or the value of support, accommodations or appropriate treatment.",
+      "ar": "منظور يعترف بالاختلافات العصبية جزءًا من التنوع البشري، دون إنكار الإعاقة أو قيمة الدعم والتيسيرات والعلاج المناسب."
     },
     "review": {
       "status": "pending"
@@ -1825,7 +1825,7 @@
   },
   {
     "id": "psychology-097",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Social Psychology",
       "ar": "علم النفس الاجتماعي"
@@ -1844,7 +1844,7 @@
   },
   {
     "id": "psychology-098",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Developmental Psychology",
       "ar": "علم نفس النمو"
@@ -1873,8 +1873,8 @@
       "ar": "ما اقتصاد السلوك وكيف يختلف عن الاقتصاد الكلاسيكي؟"
     },
     "answer": {
-      "en": "Behavioural economics incorporates psychological insights to explain irrational decision-making, unlike classical economics which assumes rational actors",
-      "ar": "يدمج اقتصاد السلوك رؤى نفسية لتفسير صنع القرار غير العقلاني، بخلاف الاقتصاد الكلاسيكي الذي يفترض عقلانية الفاعلين"
+      "en": "Behavioral economics uses psychological evidence to study economic decisions, including systematic departures from standard rational-choice predictions. It is not limited to labeling decisions irrational.",
+      "ar": "يستخدم الاقتصاد السلوكي الأدلة النفسية لدراسة القرارات الاقتصادية، ومنها الانحرافات المنتظمة عن تنبؤات نماذج الاختيار العقلاني القياسية؛ ولا يقتصر على وصف القرارات بأنها غير عقلانية."
     },
     "review": {
       "status": "pending"
@@ -1882,7 +1882,7 @@
   },
   {
     "id": "psychology-100",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Research Methods",
       "ar": "مناهج البحث"
@@ -1892,8 +1892,8 @@
       "ar": "ما الفرق بين الارتباط والسببية؟"
     },
     "answer": {
-      "en": "Correlation shows two variables move together; causation means one variable directly causes change in another — correlation never implies causation alone",
-      "ar": "يُظهر الارتباط تحرّك متغيّرَين معاً؛ أما السببية فتعني أن متغيراً واحداً يتسبب مباشرة في تغيير متغيّر آخر — الارتباط وحده لا يعني السببية"
+      "en": "Correlation is an association between variables. Causation means a change in one can produce a change in another, directly or indirectly. An observed correlation alone does not establish causation.",
+      "ar": "الارتباط علاقة إحصائية بين متغيرات. والسببية تعني أن تغيير أحدها يمكن أن يُحدث تغييرًا في آخر مباشرة أو بصورة غير مباشرة. ولا يثبت الارتباط المرصود وحده السببية."
     },
     "review": {
       "status": "pending"

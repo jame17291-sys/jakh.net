@@ -26,8 +26,8 @@
       "ar": "الجسور والهندسة الإنشائية"
     },
     "question": {
-      "en": "What type of bridge uses cables anchored at towers to support the deck from above?",
-      "ar": "ما نوع الجسر الذي يستخدم كابلات مثبّتة في أبراج لدعم السطح من الأعلى؟"
+      "en": "Which bridge type supports its deck with vertical hangers from main cables draped over towers and anchored at their ends?",
+      "ar": "ما نوع الجسر الذي يحمل سطحه بحبال تعليق رأسية تتصل بكابلات رئيسية تمر فوق الأبراج وتُثبّت عند نهاياتها؟"
     },
     "answer": {
       "en": "A suspension bridge.",
@@ -102,12 +102,12 @@
       "ar": "السكك الحديدية والأنفاق"
     },
     "question": {
-      "en": "What is the world's longest railway tunnel?",
-      "ar": "ما أطول نفق سكة حديدية في العالم؟"
+      "en": "In railway engineering, what is the portal of a tunnel?",
+      "ar": "في هندسة السكك الحديدية، ما بوابة النفق؟"
     },
     "answer": {
-      "en": "The Gotthard Base Tunnel in Switzerland, at 57 km (opened 2016).",
-      "ar": "نفق غوثارد القاعدي في سويسرا، بطول 57 كم (افتُتح عام 2016)."
+      "en": "The entrance or exit opening and its surrounding structure.",
+      "ar": "فتحة الدخول إلى النفق أو الخروج منه والمنشأة المحيطة بها."
     },
     "review": {
       "status": "pending"
@@ -159,12 +159,12 @@
       "ar": "الموانئ والقنوات والمطارات"
     },
     "question": {
-      "en": "What is the largest container port in the world by cargo volume?",
-      "ar": "ما أكبر ميناء للحاويات في العالم من حيث حجم البضائع؟"
+      "en": "In container-port statistics, what does TEU stand for?",
+      "ar": "في إحصاءات موانئ الحاويات، إلى ماذا يشير الاختصار TEU؟"
     },
     "answer": {
-      "en": "The Port of Shanghai, China.",
-      "ar": "ميناء شنغهاي، الصين."
+      "en": "Twenty-foot equivalent unit, a standard measure of container capacity.",
+      "ar": "وحدة مكافئة لحاوية بطول عشرين قدماً، وهي مقياس معياري لسعة الحاويات."
     },
     "review": {
       "status": "pending"
@@ -258,8 +258,8 @@
       "ar": "ما نوع الجسر الذي يستخدم كابلات قطرية تمتد من الأبراج مباشرةً إلى السطح دون كابل أفقي رئيسي؟"
     },
     "answer": {
-      "en": "A cable-stayed bridge. Unlike suspension bridges, the cables connect directly to the deck.",
-      "ar": "الجسر المشدود بالكابلات. خلافًا للجسور المعلّقة، ترتبط الكابلات مباشرةً بالسطح."
+      "en": "A cable-stayed bridge. Its stays run directly from towers to the deck, rather than from deck hangers to a separate main cable.",
+      "ar": "جسر مشدود بالكابلات. تمتد كابلاته مباشرةً من الأبراج إلى السطح، بدلاً من تعليق السطح بحبال متصلة بكابل رئيسي منفصل."
     },
     "review": {
       "status": "pending"
@@ -311,8 +311,8 @@
       "ar": "الموانئ والقنوات والمطارات"
     },
     "question": {
-      "en": "What is a lock in canal engineering?",
-      "ar": "ما المقصود بالمفتاح المائي (القفل) في هندسة القنوات؟"
+      "en": "What is a canal lock?",
+      "ar": "ما الهويس في القناة الملاحية؟"
     },
     "answer": {
       "en": "A section of canal enclosed by gates that allows boats to be raised or lowered between water levels of different elevations.",
@@ -387,12 +387,12 @@
       "ar": "الجسور والهندسة الإنشائية"
     },
     "question": {
-      "en": "What is the Tacoma Narrows Bridge collapse (1940) famous for in engineering?",
-      "ar": "بِمَ يشتهر انهيار جسر تاكوما ناروز (1940) في الهندسة؟"
+      "en": "Which self-excited aerodynamic instability was central to the 1940 Tacoma Narrows Bridge collapse?",
+      "ar": "ما عدم الاستقرار الديناميكي الهوائي ذاتي الإثارة الذي كان محورياً في انهيار جسر تاكوما ناروز عام 1940؟"
     },
     "answer": {
-      "en": "It demonstrated aeroelastic flutter — resonance induced by wind caused the bridge to oscillate and destroy itself, fundamentally changing aerodynamic design requirements for bridges.",
-      "ar": "أثبت الرفرفة الهوائية المرنة — أحدث الرنين الناجم عن الرياح تأرجحًا في الجسر دمّره، مما غيّر جذريًا متطلبات التصميم الديناميكي الهوائي للجسور."
+      "en": "Torsional aeroelastic flutter. The bridge's motion altered aerodynamic forces that fed further motion; this is not ordinary resonance driven by a fixed external forcing frequency.",
+      "ar": "الرفرفة الالتوائية الهوائية المرنة. غيّرت حركة الجسر القوى الهوائية فغذّت حركة إضافية؛ وليس ذلك رنيناً عادياً ناتجاً عن قوة خارجية ذات تردد ثابت."
     },
     "review": {
       "status": "pending"
@@ -429,8 +429,8 @@
       "ar": "لماذا تُنقل الكهرباء بجهود عالية جدًا عبر مسافات طويلة؟"
     },
     "answer": {
-      "en": "Higher voltage means lower current for the same power, and lower current means much less energy lost as heat in transmission line resistance (P = I²R). Voltages are then stepped down locally for safe use.",
-      "ar": "الجهد الأعلى يعني تيارًا أقل لنفس الطاقة، والتيار الأقل يعني ضياعًا أقل بكثير للطاقة على شكل حرارة في مقاومة خطوط النقل (P = I²R). ثم تُخفَّض الجهود محليًا للاستخدام الآمن."
+      "en": "For the same transmitted power, higher voltage permits lower current. Resistive heating loss is I²R, so reducing current reduces those losses.",
+      "ar": "لنفس القدرة المنقولة، يتيح الجهد الأعلى تياراً أقل. وفقد التسخين المقاوم يساوي I²R، لذا يقل الفقد عند خفض التيار."
     },
     "review": {
       "status": "pending"
@@ -444,12 +444,12 @@
       "ar": "السكك الحديدية والأنفاق"
     },
     "question": {
-      "en": "What engineering challenge made the Channel Tunnel remarkable?",
-      "ar": "ما التحدي الهندسي الذي جعل نفق القناة الإنجليزية رائعًا؟"
+      "en": "Why must survey teams coordinate alignment when tunnel excavation advances from opposite ends?",
+      "ar": "لماذا يجب أن تنسق فرق المساحة المحاذاة عندما يتقدم حفر نفق من طرفين متقابلين؟"
     },
     "answer": {
-      "en": "Teams dug from both the UK and French sides using TBMs and had to meet in the middle under the sea with alignment accuracy within a few centimeters across 38 km of underwater drilling.",
-      "ar": "عملت فرق الحفر من الجانبَين البريطاني والفرنسي باستخدام TBMs والتقت في المنتصف تحت البحر بدقة محاذاة في حدود بضعة سنتيمترات عبر 38 كم من الحفر تحت الماء."
+      "en": "To make the two headings meet at the required horizontal position and elevation rather than miss each other.",
+      "ar": "لكي تلتقي جبهتا الحفر عند الموقع الأفقي والمنسوب المطلوبين، بدلاً من أن تخطئ إحداهما الأخرى."
     },
     "review": {
       "status": "pending"
@@ -467,8 +467,8 @@
       "ar": "ما أساس الخازوق ومتى يُستخدم؟"
     },
     "answer": {
-      "en": "Long columns driven deep into the ground to transfer structural loads to deep, stronger soil or rock. Used when surface soil is too weak to support a building's weight directly.",
-      "ar": "أعمدة طويلة مدفوعة عمقًا في الأرض لنقل الأحمال الإنشائية إلى طبقات التربة أو الصخر الأعمق والأقوى. يُستخدم عندما تكون التربة السطحية ضعيفة جدًا لحمل وزن المبنى مباشرةً."
+      "en": "A deep foundation using slender elements installed by driving, boring, or other methods. Loads transfer through shaft resistance, end bearing, or both when shallow foundations are unsuitable.",
+      "ar": "أساس عميق يستخدم عناصر نحيفة تُركب بالدق أو الحفر أو غيرهما. تنتقل الأحمال بمقاومة الجوانب أو تحمل الأطراف أو كليهما عندما لا تلائم الأساسات السطحية الموقع."
     },
     "review": {
       "status": "pending"
@@ -501,12 +501,12 @@
       "ar": "أنظمة المياه والصرف الصحي"
     },
     "question": {
-      "en": "What is combined sewer overflow (CSO) and why is it an environmental problem?",
-      "ar": "ما نظام الصرف المشترك المتدفق (CSO) ولماذا هو مشكلة بيئية؟"
+      "en": "What is a combined sewer overflow, and why can it pollute receiving waters?",
+      "ar": "ما تصريف الفائض من شبكة الصرف المشتركة، ولماذا قد يلوث المياه المستقبلة؟"
     },
     "answer": {
-      "en": "A combined sewer carries both sewage and storm water. During heavy rain, the system overflows, discharging untreated sewage mixed with rainwater into rivers or the sea, contaminating them with pathogens.",
-      "ar": "يحمل الصرف المشترك كلًا من مياه الصرف ومياه الأمطار. أثناء الأمطار الغزيرة، يفيض النظام ويصرف مياه صرف غير معالجة مختلطة بمياه الأمطار في الأنهار أو البحر، مما يلوّثها بالمسببات المرضية."
+      "en": "During heavy rain, a combined sewage-and-stormwater system may discharge excess flow before full treatment, releasing sewage and other pollutants into receiving waters.",
+      "ar": "أثناء المطر الغزير قد تصرف شبكة تجمع مياه الصرف والأمطار تدفقاً فائضاً قبل معالجته بالكامل، فيحمل مياه صرف وملوثات أخرى إلى المياه المستقبلة."
     },
     "review": {
       "status": "pending"
@@ -524,8 +524,8 @@
       "ar": "ما الفرق بين جسر الكمرة المدعومة ببساطة وجسر الكمرة المستمرة؟"
     },
     "answer": {
-      "en": "A simply supported beam spans between two supports independently. A continuous beam extends over multiple supports, distributing loads more efficiently but requiring foundations that resist upward reaction forces.",
-      "ar": "تمتد الكمرة المدعومة ببساطة بين دعامتَين بصورة مستقلة. تمتد الكمرة المستمرة فوق دعامات متعددة، موزّعةً الأحمال بكفاءة أكبر لكنها تتطلب أساسات تتحمل قوى الرد الصاعدة."
+      "en": "A simply supported span rests independently between two supports. A continuous beam extends across more than two supports, so neighboring spans share bending effects; actual reactions depend on loading and geometry.",
+      "ar": "ترتكز الكمرة بسيطة الإسناد بصورة مستقلة بين دعامتين. وتمتد المستمرة فوق أكثر من دعامتين، فتتشارك البحور آثار الانحناء؛ وتتوقف ردود الأفعال على التحميل والهندسة."
     },
     "review": {
       "status": "pending"
@@ -543,8 +543,8 @@
       "ar": "ما تأثير المطرقة المائية في خطوط الأنابيب؟"
     },
     "answer": {
-      "en": "A pressure surge caused by sudden change in water flow velocity — such as rapid valve closure. It can damage pipes and valves. Engineers mitigate it using surge tanks and slow-closing valves.",
-      "ar": "موجة ضغط تنجم عن تغيير مفاجئ في سرعة تدفق المياه — كإغلاق صمام بسرعة. يمكن أن تتلف الأنابيب والصمامات. يتصدى لها المهندسون بخزانات الانتظار وصمامات بطيئة الإغلاق."
+      "en": "A transient pressure surge caused by a rapid change in flow, such as sudden valve closure. Surge-control vessels and controlled valve operation can help limit it.",
+      "ar": "موجة ضغط عابرة تنجم عن تغير سريع في التدفق، مثل إغلاق صمام فجأة. ويمكن أن تحد منها خزانات امتصاص الصدمات والتحكم في تشغيل الصمامات."
     },
     "review": {
       "status": "pending"
@@ -578,7 +578,7 @@
     },
     "question": {
       "en": "What is a breakwater in harbor engineering?",
-      "ar": "ما الحاجز الأمواج في هندسة المواني؟"
+      "ar": "ما حاجز الأمواج في هندسة الموانئ؟"
     },
     "answer": {
       "en": "A structure built in open water to absorb or deflect wave energy, protecting harbor facilities, vessels, and coastlines from wave action and erosion.",
@@ -653,12 +653,12 @@
       "ar": "أنظمة المياه والصرف الصحي"
     },
     "question": {
-      "en": "How does Bernoulli's principle apply in pipeline engineering?",
-      "ar": "كيف يُطبَّق مبدأ برنولي في هندسة خطوط الأنابيب؟"
+      "en": "In a horizontal venturi meter under steady incompressible flow with small losses, why is pressure lower at the narrow throat?",
+      "ar": "في مقياس فنتوري أفقي ذي جريان مستقر غير قابل للانضغاط وفواقد صغيرة، لماذا يكون الضغط أقل عند العنق الضيق؟"
     },
     "answer": {
-      "en": "Increasing fluid velocity decreases pressure. Engineers use this to design venturi flow meters and predict pressure changes at pipe constrictions, helping size pumps and prevent cavitation.",
-      "ar": "زيادة سرعة السائل تُقلل الضغط. يستخدم المهندسون ذلك لتصميم عدادات تدفق فنتوري وتوقع تغيرات الضغط عند انقباضات الأنابيب، مما يساعد على تحديد أحجام المضخات ومنع التكهف."
+      "en": "Continuity requires higher speed at the throat; Bernoulli's energy balance then gives lower static pressure there.",
+      "ar": "تقتضي استمرارية الجريان سرعة أعلى عند العنق، ويعطي اتزان الطاقة وفق برنولي ضغطاً ساكناً أقل هناك."
     },
     "review": {
       "status": "pending"
@@ -710,12 +710,12 @@
       "ar": "الموانئ والقنوات والمطارات"
     },
     "question": {
-      "en": "What is the Instrument Landing System (ILS) used at airports?",
-      "ar": "ما نظام الهبوط الآلي (ILS) المستخدم في المطارات؟"
+      "en": "What guidance does an Instrument Landing System (ILS) provide to an approaching aircraft?",
+      "ar": "ما التوجيه الذي يوفره نظام الهبوط بالأجهزة ILS لطائرة تقترب من المدرج؟"
     },
     "answer": {
-      "en": "A ground-based radio navigation system providing approaching aircraft with horizontal (localizer) and vertical (glideslope) guidance to land safely even in low-visibility conditions.",
-      "ar": "نظام ملاحة راديوية أرضي يوفّر للطائرات المقتربة توجيهًا أفقيًا (محدد الاتجاه) وعموديًا (منحدر الاقتراب) للهبوط بأمان حتى في ظروف الرؤية الضعيفة."
+      "en": "Radio-based lateral guidance from the localizer and vertical guidance from the glideslope. ILS guidance alone does not mean the aircraft lands automatically.",
+      "ar": "توجيهاً جانبياً راديوياً من محدد المسار وتوجيهاً رأسياً من منحدر الانزلاق. ولا يعني وجود هذا التوجيه وحده أن الطائرة تهبط آلياً."
     },
     "review": {
       "status": "pending"
@@ -752,8 +752,8 @@
       "ar": "ما التكرار الهيكلي (الازدواجية) ولماذا هو مهم في البنية التحتية؟"
     },
     "answer": {
-      "en": "Designing systems with multiple load paths so failure of one element does not cause total collapse. A redundant bridge tolerates one member failing; a redundant grid reroutes power around failed lines.",
-      "ar": "تصميم الأنظمة بمسارات حمل متعددة بحيث لا يؤدي فشل عنصر واحد إلى الانهيار الكلي. الجسر المتكرر يتحمل فشل عضو؛ والشبكة المتكررة تعيد توجيه الطاقة حول الخطوط المعطلة."
+      "en": "Providing alternative load paths or components so a local failure need not cause total system failure. Whether a particular failure is tolerated depends on the design and remaining capacity.",
+      "ar": "توفير مسارات أحمال أو مكونات بديلة حتى لا يلزم أن يؤدي عطل محلي إلى فشل النظام كله. ويتوقف تحمل عطل معين على التصميم والسعة المتبقية."
     },
     "review": {
       "status": "pending"
@@ -767,12 +767,12 @@
       "ar": "أنظمة الطاقة والكهرباء"
     },
     "question": {
-      "en": "What is a cascading failure in power grid infrastructure?",
-      "ar": "ما الفشل المتسلسل في البنية التحتية لشبكة الطاقة؟"
+      "en": "What is a cascading failure in an electrical grid?",
+      "ar": "ما الفشل المتسلسل في الشبكة الكهربائية؟"
     },
     "answer": {
-      "en": "An initial failure overloads adjacent elements, causing them to fail in turn — a domino effect. The 2003 US Northeast blackout cut power to 55 million people this way.",
-      "ar": "عطل أوّلي يُثقل عناصر مجاورة فتفشل بالتسلسل — تأثير الدومينو. حرم انقطاع الكهرباء في شمال شرق الولايات المتحدة عام 2003 نحو 55 مليون شخص من الكهرباء بهذه الطريقة."
+      "en": "An initial outage changes power flows and can overload or trip other elements, whose loss triggers further outages.",
+      "ar": "يغير عطل أولي تدفقات القدرة وقد يحمّل عناصر أخرى فوق طاقتها أو يفصلها، فيتسبب فقدانها في أعطال إضافية."
     },
     "review": {
       "status": "pending"
@@ -790,8 +790,8 @@
       "ar": "ما الطلب المُحدَث في تخطيط النقل؟"
     },
     "answer": {
-      "en": "Building more road capacity generates additional traffic rather than relieving congestion — the increased ease of travel attracts more drivers until the new capacity fills up and congestion returns.",
-      "ar": "زيادة الطاقة الاستيعابية للطرق تولّد مزيدًا من حركة المرور بدلًا من تخفيف الازدحام — تجذب سهولة التنقل المزيد من السائقين حتى تمتلئ الطاقة الجديدة ويعود الازدحام."
+      "en": "Additional travel stimulated by increased road capacity or reduced travel cost. It can consume part or much of the initial congestion relief; the size of the effect depends on context.",
+      "ar": "سفر إضافي تحفزه زيادة سعة الطرق أو انخفاض كلفة التنقل. وقد يستهلك جزءاً من التحسن الأولي في الازدحام أو معظمه، ويتوقف حجم الأثر على السياق."
     },
     "review": {
       "status": "pending"
@@ -828,8 +828,8 @@
       "ar": "ما مراقبة الصحة الهيكلية (SHM) وكيف تُطبَّق على الجسور؟"
     },
     "answer": {
-      "en": "Networks of embedded sensors (strain gauges, accelerometers, corrosion monitors) continuously measure a structure's response to loads and environment, enabling early detection of damage or degradation before costly failures occur.",
-      "ar": "شبكات من أجهزة الاستشعار المدمجة (مقاييس الإجهاد وقياسات التسارع وشاشات التآكل) تقيس باستمرار استجابة المنشأة للأحمال والبيئة، مما يتيح الكشف المبكر عن التلف أو التدهور قبل وقوع أعطال مكلفة."
+      "en": "Measuring structural behavior and condition using sensors such as strain gauges, accelerometers, and corrosion sensors, to help detect changes that warrant engineering assessment.",
+      "ar": "قياس سلوك المنشأة وحالتها بحساسات مثل مقاييس الانفعال والتسارع والتآكل، للمساعدة على اكتشاف تغيرات تستلزم تقييماً هندسياً."
     },
     "review": {
       "status": "pending"
@@ -862,12 +862,12 @@
       "ar": "الطرق وتخطيط النقل"
     },
     "question": {
-      "en": "What is perpetual pavement design and how does it differ from conventional flexible pavement?",
-      "ar": "ما تصميم الرصف الدائم وكيف يختلف عن الرصف المرن التقليدي؟"
+      "en": "What is the aim of perpetual asphalt pavement design?",
+      "ar": "ما الهدف من تصميم الرصف الأسفلتي طويل العمر المعروف بالرصف الدائم؟"
     },
     "answer": {
-      "en": "Perpetual pavement is designed so fatigue cracking and rutting remain confined to replaceable surface layers while the deep structural layers last indefinitely. Conventional flexible pavement targets a finite 20-year life before full reconstruction.",
-      "ar": "الرصف الدائم مصمم بحيث يبقى التشقق والتخدد محصورَين في الطبقات السطحية القابلة للاستبدال بينما تدوم الطبقات الهيكلية العميقة إلى أجل غير محدد. الرصف المرن التقليدي يستهدف عمرًا محدودًا 20 عامًا قبل إعادة البناء الكاملة."
+      "en": "To preserve long-life structural layers while periodically renewing the surface. It limits damaging strains in deeper layers; it does not promise an infinite maintenance-free lifespan.",
+      "ar": "الحفاظ على طبقات إنشائية طويلة العمر مع تجديد السطح دورياً. ويحد التصميم من الانفعالات الضارة في الطبقات العميقة، ولا يعد بعمر لانهائي دون صيانة."
     },
     "review": {
       "status": "pending"
@@ -904,8 +904,8 @@
       "ar": "ما 'ترابط الماء والطاقة' في تخطيط البنية التحتية؟"
     },
     "answer": {
-      "en": "The deep interdependency between water and energy: energy is needed to pump, treat, and distribute water; water is needed for power plant cooling, hydropower, and fuel extraction. Stressing one resource typically stresses the other.",
-      "ar": "الاعتماد المتبادل العميق بين المياه والطاقة: تحتاج الطاقة لضخ المياه ومعالجتها وتوزيعها؛ وتحتاج المياه لتبريد محطات الطاقة والطاقة الكهرومائية واستخراج الوقود. إجهاد أحد الموردَين يُجهد الآخر في الغالب."
+      "en": "Water systems need energy for pumping, treatment, and distribution; energy systems may need water for cooling, hydropower, and fuel production. Planning one therefore affects the other.",
+      "ar": "تحتاج أنظمة المياه إلى الطاقة للضخ والمعالجة والتوزيع؛ وقد تحتاج أنظمة الطاقة إلى الماء للتبريد والطاقة الكهرومائية وإنتاج الوقود. لذلك يؤثر تخطيط أحدهما في الآخر."
     },
     "review": {
       "status": "pending"
@@ -919,12 +919,12 @@
       "ar": "الجسور والهندسة الإنشائية"
     },
     "question": {
-      "en": "What is 'service life design' in infrastructure and how does it differ from prescriptive design?",
-      "ar": "ما 'تصميم العمر الافتراضي' في البنية التحتية وكيف يختلف عن التصميم المعياري؟"
+      "en": "What does explicit service-life design add to a purely prescriptive materials specification?",
+      "ar": "ما الذي يضيفه التصميم الصريح للعمر الخدمي إلى مواصفة مواد وصفية بحتة؟"
     },
     "answer": {
-      "en": "Service life design specifies a target lifespan (e.g. 100 years) and selects materials and protective measures to achieve it. Prescriptive design follows code rules without explicitly targeting a lifespan — it is less precise for long-term asset management.",
-      "ar": "يحدد تصميم العمر الافتراضي عمرًا مستهدفًا (مثل 100 عام) ويختار المواد والتدابير الوقائية لتحقيقه. التصميم المعياري يتبع قواعد الكود دون استهداف عمر صريح — أقل دقة لإدارة الأصول طويلة المدى."
+      "en": "It evaluates deterioration, exposure, maintenance, and performance against a stated service-life target. Prescriptive codes can also include assumed design lives, but may not explicitly model each project's deterioration.",
+      "ar": "يقيّم التدهور والتعرض والصيانة والأداء مقارنةً بعمر خدمي مستهدف. وقد تتضمن الأكواد الوصفية أعماراً تصميمية مفترضة أيضاً، لكنها قد لا تنمذج تدهور كل مشروع صراحةً."
     },
     "review": {
       "status": "pending"

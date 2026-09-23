@@ -44,12 +44,12 @@
       "ar": "المكونات والصيانة"
     },
     "question": {
-      "en": "What is the pedal on the far left used for in a manual transmission car?",
-      "ar": "ما هو الدواسة في أقصى اليسار المستخدمة في سيارة ذات ناقل حركة يدوي؟"
+      "en": "What does fully pressing the clutch pedal do in a conventional manual-transmission car?",
+      "ar": "ماذا يفعل الضغط الكامل على دواسة القابض في سيارة تقليدية ذات ناقل حركة يدوي؟"
     },
     "answer": {
-      "en": "Clutch",
-      "ar": "القابض (الكلتش)"
+      "en": "It disengages the clutch, interrupting drive from the engine to the transmission.",
+      "ar": "يفصل القابض، فيقطع انتقال الحركة من المحرك إلى ناقل الحركة."
     },
     "difficulty": "easy",
     "review": {
@@ -101,12 +101,12 @@
       "ar": "المركبات الكهربائية"
     },
     "question": {
-      "en": "What is the name of Tesla’s flagship electric sedan?",
-      "ar": "ما هو اسم سيارة السيدان الكهربائية الرئيسية لشركة تسلا؟"
+      "en": "Which Tesla electric sedan was introduced in 2012?",
+      "ar": "ما سيارة السيدان الكهربائية التي قدّمتها تسلا عام 2012؟"
     },
     "answer": {
-      "en": "Model S",
-      "ar": "موديل إس"
+      "en": "Model S.",
+      "ar": "موديل إس."
     },
     "difficulty": "easy",
     "review": {
@@ -158,12 +158,12 @@
       "ar": "المكونات والصيانة"
     },
     "question": {
-      "en": "What part of the car is responsible for generating electricity while the engine is running?",
-      "ar": "أي جزء من السيارة مسؤول عن توليد الكهرباء أثناء تشغيل المحرك؟"
+      "en": "In a conventional combustion-engine car, which belt-driven component charges the battery while the engine runs?",
+      "ar": "في سيارة تقليدية بمحرك احتراق، ما المكوّن الذي يديره سير ويشحن البطارية أثناء عمل المحرك؟"
     },
     "answer": {
-      "en": "Alternator",
-      "ar": "المولد"
+      "en": "The alternator.",
+      "ar": "مولّد التيار المتردد، أو الدينامو."
     },
     "difficulty": "easy",
     "review": {
@@ -196,12 +196,12 @@
       "ar": "تاريخ السيارات"
     },
     "question": {
-      "en": "What was the first mass-produced car in the world?",
-      "ar": "ما كانت أول سيارة يتم إنتاجها بكميات كبيرة في العالم؟"
+      "en": "Which Ford model became famous for large-scale production using a moving assembly line?",
+      "ar": "أي طراز من فورد اشتهر بإنتاجه على نطاق واسع باستخدام خط تجميع متحرك؟"
     },
     "answer": {
-      "en": "Ford Model T",
-      "ar": "فورد موديل تي"
+      "en": "The Model T.",
+      "ar": "موديل تي."
     },
     "difficulty": "medium",
     "review": {
@@ -291,14 +291,14 @@
       "ar": "العلامات والطرازات"
     },
     "question": {
-      "en": "What is the most produced car model in history?",
-      "ar": "ما هو طراز السيارة الأكثر إنتاجاً في التاريخ؟"
+      "en": "Which car manufacturer produces the Corolla?",
+      "ar": "ما اسم شركة السيارات التي تصنّع طراز كورولا؟"
     },
     "answer": {
-      "en": "Toyota Corolla",
-      "ar": "تويوتا كورولا"
+      "en": "Toyota.",
+      "ar": "تويوتا."
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -310,12 +310,12 @@
       "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "Which racing series is considered the pinnacle of motorsport and features open-wheel cars?",
-      "ar": "أي سلسلة سباقات تُعتبر قمة رياضة السيارات وتتميز بسيارات ذات عجلات مكشوفة؟"
+      "en": "Which FIA world championship uses single-seat cars and awards a World Drivers' Championship and a World Constructors' Championship?",
+      "ar": "ما بطولة العالم التابعة للاتحاد الدولي للسيارات التي تستخدم سيارات بمقعد واحد وتمنح لقبين عالميين للسائقين والصانعين؟"
     },
     "answer": {
-      "en": "Formula 1",
-      "ar": "فورمولا 1"
+      "en": "Formula One.",
+      "ar": "الفورمولا 1."
     },
     "difficulty": "medium",
     "review": {
@@ -374,7 +374,7 @@
       "en": "Electric Vehicle",
       "ar": "مركبة كهربائية"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "review": {
       "status": "pending"
     }
@@ -386,12 +386,12 @@
       "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "Which two drivers have each won seven Formula 1 World Drivers' Championships?",
-      "ar": "أي سائقين فاز كل منهما بسبع بطولات عالم للسائقين في الفورمولا 1؟"
+      "en": "Which German driver won seven Formula One World Drivers' Championships, including five consecutive titles from 2000 to 2004?",
+      "ar": "أي سائق ألماني أحرز سبع بطولات عالم للسائقين في الفورمولا 1، منها خمسة ألقاب متتالية بين 2000 و2004؟"
     },
     "answer": {
-      "en": "Michael Schumacher & Lewis Hamilton",
-      "ar": "مايكل شوماخر ولويس هاميلتون"
+      "en": "Michael Schumacher.",
+      "ar": "مايكل شوماخر."
     },
     "difficulty": "hard",
     "review": {
@@ -424,14 +424,14 @@
       "ar": "العلامات والطرازات"
     },
     "question": {
-      "en": "Which hypercar was the first production car to break the 300 mph barrier?",
-      "ar": "أي سيارة خارقة كانت أول سيارة إنتاج تكسر حاجز 300 ميل في الساعة؟"
+      "en": "What is the term for a vehicle's resistance to motion caused by air flowing around it?",
+      "ar": "ما المصطلح الذي يصف مقاومة حركة المركبة الناتجة عن تدفق الهواء حولها؟"
     },
     "answer": {
-      "en": "Bugatti Chiron Super Sport 300+",
-      "ar": "بوجاتي تشيرون سوبر سبورت 300+"
+      "en": "Aerodynamic drag.",
+      "ar": "المقاومة الهوائية."
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -447,8 +447,8 @@
       "ar": "في محرك الاحتراق الداخلي، ما هي الأشواط الأربعة للدورة النموذجية؟"
     },
     "answer": {
-      "en": "Intake, Compression, Power, Exhaust",
-      "ar": "السحب، الضغط، الاحتراق، العادم"
+      "en": "Intake, compression, power (expansion), and exhaust.",
+      "ar": "السحب، والضغط، والقدرة أو التمدد، والعادم."
     },
     "difficulty": "hard",
     "review": {
@@ -500,14 +500,14 @@
       "ar": "العلامات والطرازات"
     },
     "question": {
-      "en": "Which company owns the luxury car brand Bentley?",
-      "ar": "أي شركة تمتلك علامة السيارات الفاخرة بنتلي؟"
+      "en": "Which British luxury car brand produces the Continental GT?",
+      "ar": "أي علامة بريطانية للسيارات الفاخرة تنتج كونتيننتال جي تي؟"
     },
     "answer": {
-      "en": "Volkswagen Group",
-      "ar": "مجموعة فولكس فاجن"
+      "en": "Bentley.",
+      "ar": "بنتلي."
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "review": {
       "status": "pending"
     }
@@ -519,12 +519,12 @@
       "ar": "تاريخ السيارات"
     },
     "question": {
-      "en": "What was the first Japanese car manufacturer?",
-      "ar": "ما كانت أول شركة يابانية لتصنيع السيارات؟"
+      "en": "Which Japanese manufacturer built the Model A passenger car in 1917?",
+      "ar": "أي شركة يابانية صنعت سيارة الركاب موديل إيه عام 1917؟"
     },
     "answer": {
-      "en": "Mitsubishi",
-      "ar": "ميتسوبيشي"
+      "en": "Mitsubishi.",
+      "ar": "ميتسوبيشي."
     },
     "difficulty": "hard",
     "review": {
@@ -576,14 +576,14 @@
       "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "Which legendary Formula 1 designer created the revolutionary Williams FW14B and Red Bull RB19?",
-      "ar": "من هو مصمم الفورمولا 1 الأسطوري الذي ابتكر سيارة ويليامز FW14B وريد بول RB19 الثوريتين؟"
+      "en": "Which aerodynamic designer played a leading technical role at both Williams and Red Bull Racing?",
+      "ar": "أي مصمم متخصص في الديناميكا الهوائية شغل دوراً تقنياً قيادياً لدى ويليامز وريد بول ريسينغ؟"
     },
     "answer": {
-      "en": "Adrian Newey",
-      "ar": "أدريان نيوي"
+      "en": "Adrian Newey.",
+      "ar": "أدريان نيوي."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -595,12 +595,12 @@
       "ar": "السلامة وديناميكيات المركبات"
     },
     "question": {
-      "en": "What specific type of suspension system uses unequal length control arms to maximize tire contact patch?",
-      "ar": "ما هو النوع المحدد من نظام التعليق الذي يستخدم أذرع تحكم غير متساوية الطول لزيادة رقعة اتصال الإطار؟"
+      "en": "Which suspension layout uses upper and lower wishbone-shaped control arms to locate each wheel?",
+      "ar": "ما تصميم التعليق الذي يستخدم ذراعَي تحكم، علوياً وسفلياً، على شكل حرف A لتحديد موضع كل عجلة؟"
     },
     "answer": {
-      "en": "Double Wishbone",
-      "ar": "التعليق المزدوج الترقوة"
+      "en": "Double-wishbone suspension.",
+      "ar": "نظام التعليق مزدوج الأذرع المثلثة."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -633,14 +633,14 @@
       "ar": "السلامة وديناميكيات المركبات"
     },
     "question": {
-      "en": "Which car model was the first to implement a modern 3-point seatbelt as standard equipment in 1959?",
-      "ar": "أي طراز سيارة كان الأول في تنفيذ حزام الأمان الحديث المكون من 3 نقاط كمعدات قياسية في عام 1959؟"
+      "en": "Which Swedish carmaker introduced the modern three-point seat belt as standard equipment in 1959?",
+      "ar": "أي شركة سيارات سويدية قدّمت حزام الأمان الحديث ثلاثي النقاط كتجهيز قياسي عام 1959؟"
     },
     "answer": {
-      "en": "Volvo PV544",
-      "ar": "فولفو PV544"
+      "en": "Volvo.",
+      "ar": "فولفو."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "review": {
       "status": "pending"
     }
@@ -652,12 +652,12 @@
       "ar": "المحركات وأنظمة الدفع"
     },
     "question": {
-      "en": "In engine tuning, what is the 'Stoichiometric ratio' for a gasoline internal combustion engine?",
-      "ar": "في ضبط المحرك، ما هي 'النسبة المتكافئة' لمحرك احتراق داخلي يعمل بالبنزين؟"
+      "en": "For conventional ethanol-free gasoline, what is the approximate stoichiometric air-to-fuel mass ratio?",
+      "ar": "ما النسبة التقريبية المتكافئة بين كتلة الهواء وكتلة الوقود للبنزين التقليدي الخالي من الإيثانول؟"
     },
     "answer": {
-      "en": "14.7 parts air to 1 part fuel",
-      "ar": "14.7 جزء من الهواء إلى جزء واحد من الوقود"
+      "en": "About 14.7:1 by mass; the value changes with fuel composition.",
+      "ar": "نحو 14.7 إلى 1 بالكتلة؛ وتتغير القيمة بحسب تركيب الوقود."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -671,12 +671,12 @@
       "ar": "المحركات وأنظمة الدفع"
     },
     "question": {
-      "en": "What does the 'Desmodromic' valve system, famously used by Ducati, eliminate?",
-      "ar": "ما الذي يلغيه نظام الصمامات 'الديسمودروميك'، الذي تستخدمه دوكاتي بشكل شهير؟"
+      "en": "How does a desmodromic valve system close its valves rather than relying solely on return springs?",
+      "ar": "كيف يُغلق نظام الصمامات الديسمودروميكي صماماته بدلاً من الاعتماد وحده على نوابض الإرجاع؟"
     },
     "answer": {
-      "en": "Valve springs (it uses cams to actively close the valves)",
-      "ar": "نوابض الصمامات (يستخدم كامات لإغلاق الصمامات بنشاط)"
+      "en": "A cam-driven mechanism positively closes them; some designs retain helper springs.",
+      "ar": "تُغلقها آلية تحركها الكامات مباشرةً؛ وتحتفظ بعض التصاميم بنوابض مساعدة."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -690,12 +690,12 @@
       "ar": "تاريخ السيارات"
     },
     "question": {
-      "en": "What was the first car to feature a full carbon-fiber monocoque chassis?",
-      "ar": "ما هي أول سيارة تتميز بهيكل أحادي كامل من ألياف الكربون؟"
+      "en": "Which McLaren road car introduced in the 1990s used a carbon-fibre monocoque and placed the driver centrally between two passengers?",
+      "ar": "أي سيارة طرق من ماكلارين ظهرت في التسعينيات استخدمت هيكلاً أحادياً من ألياف الكربون وجلست بالسائق في الوسط بين راكبين؟"
     },
     "answer": {
-      "en": "McLaren F1",
-      "ar": "ماكلارين إف 1"
+      "en": "The McLaren F1.",
+      "ar": "ماكلارين إف 1."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -709,12 +709,12 @@
       "ar": "المحركات وأنظمة الدفع"
     },
     "question": {
-      "en": "Which engine configuration features cylinders opposed at 180 degrees but with each pair sharing a single crankpin?",
-      "ar": "أي تكوين محرك يتميز بأسطوانات متقابلة بزاوية 180 درجة ولكن مع اشتراك كل زوج في مسمار كرنك واحد؟"
+      "en": "What engine layout has two cylinder banks at 180 degrees, with each opposing pair of connecting rods sharing a crankpin?",
+      "ar": "ما تصميم المحرك الذي تتقابل فيه مجموعتا الأسطوانات بزاوية 180 درجة، ويشترك فيه ذراعا التوصيل لكل زوج متقابل في مسمار مرفق واحد؟"
     },
     "answer": {
-      "en": "Flat engine (not a true boxer)",
-      "ar": "المحرك المسطح"
+      "en": "A 180-degree V engine, unlike a boxer engine with separate crankpins.",
+      "ar": "محرك على شكل V بزاوية 180 درجة، بخلاف محرك البوكسر الذي يستخدم مسامير مرفق منفصلة."
     },
     "difficulty": "very-advanced",
     "review": {
@@ -747,12 +747,12 @@
       "ar": "رياضة المحركات"
     },
     "question": {
-      "en": "Which group B rally car was notorious for being so fast and dangerous that it led to the cancellation of the racing class?",
-      "ar": "أي سيارة رالي من المجموعة ب كانت سيئة السمعة لكونها سريعة وخطيرة لدرجة أنها أدت إلى إلغاء فئة السباق؟"
+      "en": "Which World Rally Championship category was discontinued after the 1986 season following serious safety concerns and fatal accidents?",
+      "ar": "أي فئة في بطولة العالم للراليات أُوقفت بعد موسم 1986 إثر مخاوف كبيرة تتعلق بالسلامة وحوادث مميتة؟"
     },
     "answer": {
-      "en": "Lancia Delta S4 / Audi Sport Quattro S1",
-      "ar": "لانشيا دلتا إس 4 / أودي سبورت كواترو إس 1"
+      "en": "Group B.",
+      "ar": "المجموعة ب."
     },
     "difficulty": "very-advanced",
     "review": {

@@ -2,14 +2,14 @@
   {
     "id": "linguistics-1",
     "question": {
-      "en": "What is the most spoken language in the world by total number of speakers?",
-      "ar": "ما هي اللغة الأكثر تحدثاً في العالم من حيث إجمالي عدد المتحدثين؟"
+      "en": "Arabic and Hebrew belong to which branch of the Afro-Asiatic language family?",
+      "ar": "تنتمي العربية والعبرية إلى أيّ فرع من عائلة اللغات الأفروآسيوية؟"
     },
     "answer": {
-      "en": "English",
-      "ar": "الإنجليزية"
+      "en": "The Semitic branch",
+      "ar": "الفرع السامي"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Language Use & Diversity",
       "ar": "استخدام اللغة وتنوعها"
@@ -78,12 +78,12 @@
   {
     "id": "linguistics-5",
     "question": {
-      "en": "What do you call a word that sounds the same as another but has a different meaning?",
-      "ar": "ماذا تسمي الكلمة التي تبدو مثل كلمة أخرى ولكن لها معنى مختلف؟"
+      "en": "What is a word that has the same pronunciation as another word but a different meaning called?",
+      "ar": "ماذا تُسمّى الكلمة التي تُنطق بالطريقة نفسها التي تُنطق بها كلمة أخرى، لكن يختلف معناها؟"
     },
     "answer": {
-      "en": "Homophone",
-      "ar": "متجانسة صوتياً (Homophone)"
+      "en": "A homophone",
+      "ar": "كلمة متجانسة صوتيًا مع الأخرى"
     },
     "difficulty": "easy",
     "subcategory": {
@@ -135,14 +135,14 @@
   {
     "id": "linguistics-8",
     "question": {
-      "en": "What language is considered the universal language of medicine?",
-      "ar": "ما هي اللغة التي تعتبر اللغة العالمية للطب؟"
+      "en": "From which ancient language did the Romance languages, including French, Spanish and Italian, develop?",
+      "ar": "من أيّ لغة قديمة تطورت اللغات الرومانسية، ومنها الفرنسية والإسبانية والإيطالية؟"
     },
     "answer": {
       "en": "Latin",
       "ar": "اللاتينية"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Language Use & Diversity",
       "ar": "استخدام اللغة وتنوعها"
@@ -199,7 +199,7 @@
       "en": "Linguistics",
       "ar": "علم اللغويات"
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Grammar & Structure",
       "ar": "القواعد والبنية"
@@ -306,14 +306,14 @@
   {
     "id": "linguistics-17",
     "question": {
-      "en": "What language has the most native speakers in the world?",
-      "ar": "ما هي اللغة التي تمتلك أكبر عدد من المتحدثين الأصليين في العالم؟"
+      "en": "What term describes a language acquired from early childhood, rather than one first learned later in life?",
+      "ar": "ما المصطلح الذي يصف لغة يكتسبها الشخص منذ طفولته المبكرة، لا لغة يبدأ تعلمها لاحقًا؟"
     },
     "answer": {
-      "en": "Mandarin Chinese",
-      "ar": "لغة الماندرين الصينية"
+      "en": "A first or native language. A person can acquire more than one.",
+      "ar": "لغة أولى أو لغة أم؛ ويمكن للشخص اكتساب أكثر من واحدة."
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Language Use & Diversity",
       "ar": "استخدام اللغة وتنوعها"
@@ -382,8 +382,8 @@
   {
     "id": "linguistics-21",
     "question": {
-      "en": "Who is often considered the father of modern linguistics?",
-      "ar": "من يُعتبر غالباً أب اللغويات الحديثة؟"
+      "en": "Which linguist is closely associated with the development of generative grammar and wrote Syntactic Structures?",
+      "ar": "أيّ لغوي يرتبط بتطوير النحو التوليدي وألّف كتاب «البنى التركيبية»؟"
     },
     "answer": {
       "en": "Noam Chomsky",
@@ -420,14 +420,14 @@
   {
     "id": "linguistics-23",
     "question": {
-      "en": "What extinct language was revived to become a thriving national language in the 20th century?",
-      "ar": "ما هي اللغة المنقرضة التي أُحييت لتصبح لغة وطنية مزدهرة في القرن العشرين؟"
+      "en": "Which language underwent a modern revival as an everyday native spoken language after continuing for centuries in religious and scholarly use?",
+      "ar": "أيّ لغة شهدت إحياءً حديثًا بوصفها لغة محكية يومية أمًّا، بعدما استمر استخدامها قرونًا في الدين والدراسة؟"
     },
     "answer": {
       "en": "Hebrew",
       "ar": "العبرية"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Historical Linguistics",
       "ar": "اللسانيات التاريخية"
@@ -477,14 +477,14 @@
   {
     "id": "linguistics-26",
     "question": {
-      "en": "What is a 'creole' language?",
-      "ar": "ما هي لغة 'الكريول'؟"
+      "en": "A speaker switches between Arabic and English within a conversation. What is this linguistic practice commonly called?",
+      "ar": "ينتقل متحدث بين العربية والإنجليزية أثناء محادثة. ماذا تُسمّى هذه الممارسة اللغوية عادةً؟"
     },
     "answer": {
-      "en": "A stable natural language that develops from the simplifying and mixing of different languages",
-      "ar": "لغة طبيعية مستقرة تتطور من تبسيط وخلط لغات مختلفة"
+      "en": "Code-switching",
+      "ar": "التناوب اللغوي"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Language Use & Diversity",
       "ar": "استخدام اللغة وتنوعها"
@@ -496,12 +496,12 @@
   {
     "id": "linguistics-27",
     "question": {
-      "en": "What is the rarest sound in human languages, used almost exclusively in Southern Africa?",
-      "ar": "ما هو أندر صوت في اللغات البشرية، ويستخدم بشكل حصري تقريباً في الجنوب الأفريقي؟"
+      "en": "What class of consonants includes the dental sound represented by the IPA symbol ǀ?",
+      "ar": "ما فئة الأصوات الصامتة التي تضم الصوت الأسناني الذي يمثله الرمز ǀ في الأبجدية الصوتية الدولية؟"
     },
     "answer": {
       "en": "Click consonants",
-      "ar": "الحروف الساكنة النقرية (Clicks)"
+      "ar": "الصوامت النقرية"
     },
     "difficulty": "hard",
     "subcategory": {
@@ -534,14 +534,14 @@
   {
     "id": "linguistics-29",
     "question": {
-      "en": "Which ancient language was deciphered using the Rosetta Stone?",
-      "ar": "أي لغة قديمة تم فك رموزها باستخدام حجر رشيد؟"
+      "en": "The Rosetta Stone helped scholars decipher which ancient Egyptian writing system that uses pictorial signs?",
+      "ar": "ساعد حجر رشيد الباحثين على فك رموز أيّ نظام كتابة مصري قديم يستخدم علامات تصويرية؟"
     },
     "answer": {
-      "en": "Egyptian Hieroglyphs",
-      "ar": "الهيروغليفية المصرية"
+      "en": "Egyptian hieroglyphic writing",
+      "ar": "الكتابة الهيروغليفية المصرية"
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Writing Systems",
       "ar": "أنظمة الكتابة"
@@ -557,8 +557,8 @@
       "ar": "ما هي اللغة 'الإلصاقية' (Agglutinative)؟"
     },
     "answer": {
-      "en": "A language where words are formed by joining morphemes together",
-      "ar": "لغة يتم فيها تكوين الكلمات عن طريق ربط المقاطع معاً"
+      "en": "A language type in which words are typically built by joining morphemes, with each affix tending to express a relatively distinct grammatical function. Morphemes are meaning-bearing units, not necessarily syllables.",
+      "ar": "نمط لغوي تُبنى فيه الكلمات عادةً بضم وحدات صرفية، وتميل كل لاحقة أو سابقة إلى أداء وظيفة نحوية متميزة نسبيًا. الوحدات الصرفية ليست بالضرورة مقاطع صوتية."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -572,8 +572,8 @@
   {
     "id": "linguistics-31",
     "question": {
-      "en": "What specific linguistic phenomenon describes the loss of a vowel sound in the middle of a word over time (e.g., 'camera' pronounced as 'camra')?",
-      "ar": "ما هي الظاهرة اللغوية المحددة التي تصف فقدان صوت حرف متحرك في منتصف الكلمة بمرور الوقت؟"
+      "en": "What is the loss of a sound from inside a word called, as in an English pronunciation of camera as “camra”?",
+      "ar": "ماذا يُسمّى حذف صوت من داخل كلمة، مثل نطق الكلمة الإنجليزية camera على صورة «camra»؟"
     },
     "answer": {
       "en": "Syncope",
@@ -629,14 +629,14 @@
   {
     "id": "linguistics-34",
     "question": {
-      "en": "In phonetics, what is a 'voiced bilabial implosive'?",
-      "ar": "في علم الصوتيات، ما هو 'الانفجاري الشفوي المزدوج المجهور'؟"
+      "en": "A speech sound is articulated using both lips, as with [b]. What is this place of articulation called?",
+      "ar": "يُنطق صوت باستخدام الشفتين معًا، كما في [b]. ماذا يُسمّى هذا المخرج؟"
     },
     "answer": {
-      "en": "A rare consonant sound made by inhaling slightly while closing both lips",
-      "ar": "صوت ساكن نادر يصدر عن طريق الاستنشاق قليلاً أثناء إغلاق كلتا الشفتين"
+      "en": "Bilabial",
+      "ar": "ثنائي الشفتين"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Sounds & Pronunciation",
       "ar": "الأصوات والنطق"
@@ -667,14 +667,14 @@
   {
     "id": "linguistics-36",
     "question": {
-      "en": "Which indigenous language of North America is famous for its highly polysynthetic nature and verb-centric structure?",
-      "ar": "أي لغة أصلية في أمريكا الشمالية تشتهر بطبيعتها متعددة التركيب بشكل كبير وبنيتها المتمحورة حول الفعل؟"
+      "en": "What typological term describes languages in which a single complex word can combine many morphemes and express information that requires a whole sentence in another language?",
+      "ar": "ما المصطلح التصنيفي الذي يصف لغات قد تجمع فيها كلمة مركبة واحدة وحدات صرفية كثيرة وتعبّر عن معلومات تحتاج جملة كاملة في لغة أخرى؟"
     },
     "answer": {
-      "en": "Navajo (or Inuktitut)",
-      "ar": "النافاهو (أو الإنكتيتوت)"
+      "en": "Polysynthetic",
+      "ar": "متعددة التركيب"
     },
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "subcategory": {
       "en": "Grammar & Structure",
       "ar": "القواعد والبنية"
@@ -690,8 +690,8 @@
       "ar": "ما هو 'تأثير بوبا/كيكي'؟"
     },
     "answer": {
-      "en": "A non-arbitrary mapping between speech sounds and the visual shape of objects",
-      "ar": "رسم خرائط غير تعسفي بين أصوات الكلام والشكل المرئي للأشياء"
+      "en": "A tendency for people to associate sounds such as “bouba” with rounded shapes and “kiki” with angular shapes. It illustrates an association between speech sounds and visual form.",
+      "ar": "ميل إلى ربط أصوات مثل «بوبا» بأشكال مستديرة و«كيكي» بأشكال ذات زوايا؛ وهو يوضح ارتباطًا بين أصوات الكلام والشكل البصري."
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -709,8 +709,8 @@
       "ar": "في بناء الجملة، ما الذي تسعى 'نظرية X-bar' لتشومسكي إلى شرحه؟"
     },
     "answer": {
-      "en": "That all human languages share a common structural core for phrase building",
-      "ar": "أن جميع اللغات البشرية تشترك في قلب هيكلي مشترك لبناء العبارات"
+      "en": "A syntactic model describing shared patterns of phrase structure organized around a head, with intermediate and phrase-level projections. It is a theoretical model rather than proof that all languages are identical.",
+      "ar": "نموذج نحوي يصف أنماطًا مشتركة لبنية العبارات حول رأس، مع مستويات إسقاط وسطية وعبارية. وهو نموذج نظري لا إثبات لتطابق جميع اللغات."
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -728,8 +728,8 @@
       "ar": "ما هو 'الشيبولث' (Shibboleth)؟"
     },
     "answer": {
-      "en": "A custom, principle, or belief distinguishing a particular class or group of people, especially a long-standing one",
-      "ar": "عادة أو مبدأ يميز فئة معينة من الناس، وخاصة الاستخدام اللغوي الذي يكشف أصل الشخص"
+      "en": "In linguistics, a word, pronunciation or other language feature used as a marker of group membership.",
+      "ar": "في اللسانيات، كلمة أو طريقة نطق أو سمة لغوية أخرى تُستخدم علامةً على الانتماء إلى جماعة."
     },
     "difficulty": "very-advanced",
     "subcategory": {

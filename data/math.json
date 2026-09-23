@@ -174,8 +174,8 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "A farmer has 10 cows and 10 chickens. How many legs are there in total?",
-      "ar": "مزارع لديه 10 بقرات و10 دجاجات. كم عدد الأرجل الإجمالي؟"
+      "en": "A farm has 10 cows and 10 chickens. How many legs do these animals have altogether?",
+      "ar": "في مزرعة 10 بقرات و 10 دجاجات. كم عدد أرجل هذه الحيوانات مجتمعة؟"
     },
     "answer": {
       "en": "60 legs. Cows: 4×10=40; chickens: 2×10=20. Total = 60.",
@@ -398,8 +398,8 @@
       "ar": "كم سنة في الألفية الواحدة؟"
     },
     "answer": {
-      "en": "1,000 years. 'Milli-' means thousand.",
-      "ar": "1,000 سنة. كلمة 'ميللي' تعني ألف."
+      "en": "1,000 years. Millennium derives from Latin words for thousand and year.",
+      "ar": "1,000 سنة. أصل كلمة Millennium لاتيني ويجمع معنى ألف ومعنى سنة."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -418,8 +418,8 @@
       "ar": "كم عنصراً في 'درزن الخباز' (Baker's Dozen)؟"
     },
     "answer": {
-      "en": "13. Bakers traditionally added an extra item to a dozen (12) as a generous bonus.",
-      "ar": "13. كان الخبازون تقليدياً يضيفون قطعة إضافية على الدرزن (12) كمكافأة."
+      "en": "13 items: one more than a standard dozen.",
+      "ar": "13 قطعة، أي أكثر بواحدة من الدزينة المعتادة."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -544,8 +544,8 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "What is the next number in the sequence 2, 6, 12, 20, ...?",
-      "ar": "ما العدد التالي في المتتالية 2، 6، 12، 20، ...؟"
+      "en": "Each term follows n(n+1), starting at n=1:2,6,12,20,... What is the next term?",
+      "ar": "تتبع الحدود القاعدة n(n+1) بدءاً من n=1:2،6،12،20،... ما الحد التالي؟"
     },
     "answer": {
       "en": "30. The terms follow n(n+1): 1×2, 2×3, 3×4, 4×5, so the next is 5×6.",
@@ -788,8 +788,8 @@
       "ar": "كم مرة يظهر الرقم 9 بين 1 و100؟"
     },
     "answer": {
-      "en": "20 times: once in 9, 19, 29, ..., 89 (10 times in units place), and once each in 90–99 (10 more in tens place).",
-      "ar": "20 مرة: مرة في 9، 19، 29، ...، 89 (10 مرات في خانة الآحاد)، ومرة في كل عدد من 90 إلى 99 (10 أخرى في خانة العشرات)."
+      "en": "20 times:10 in the units place (9,19,...,99), plus 10 in the tens place (90–99). Count both 9s in 99.",
+      "ar": "20 مرة:10 في الآحاد (9،19،...،99) و 10 في العشرات (90–99). نعد الرقمين 9 في 99 كلّاً على حدة."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -824,12 +824,12 @@
     "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "What is the perimeter of a square with an area of 16?",
-      "ar": "ما هو محيط مربع مساحته 16؟"
+      "en": "What is the perimeter of a square with area 16 cm²?",
+      "ar": "ما محيط مربع مساحته 16 سم²؟"
     },
     "answer": {
-      "en": "16. Side = √16 = 4. Perimeter = 4 × 4 = 16.",
-      "ar": "16. الضلع = √16 = 4. المحيط = 4 × 4 = 16."
+      "en": "16 cm. Each side is√16=4 cm, so the perimeter is 4×4=16 cm.",
+      "ar": "16 سم. طول الضلع√16=4 سم، ومن ثم المحيط 4×4=16 سم."
     },
     "subcategory": {
       "en": "Geometry & Trigonometry",
@@ -908,8 +908,8 @@
       "ar": "لديك 10 جوارب سوداء و10 بيضاء في درج مظلم. كم جورباً يجب سحبها لضمان زوج متطابق؟"
     },
     "answer": {
-      "en": "3. By the pigeonhole principle, 3 socks must include at least 2 of the same colour.",
-      "ar": "3. بمبدأ حجرة الحمام، 3 جوارب لا بد أن تشمل زوجاً من نفس اللون."
+      "en": "3 socks. With only two colors, a third sock must match at least one of the first two.",
+      "ar": "3 جوارب. لوجود لونين فقط، لا بد أن يطابق الجورب الثالث أحد الجوربين الأولين في اللون."
     },
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
@@ -1084,12 +1084,12 @@
     "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "In a room of 23 people, what is the approximate probability that two people share a birthday?",
-      "ar": "في غرفة بها 23 شخصاً، ما هو الاحتمال التقريبي لوجود شخصين يشتركان في يوم الميلاد؟"
+      "en": "Assuming independent birthdays uniformly distributed over 365 days, approximately what is the probability that at least two of 23 people share a birthday?",
+      "ar": "بافتراض استقلال أعياد الميلاد وتساوي احتمالها على 365 يوماً، ما الاحتمال التقريبي لاشتراك شخصين على الأقل من بين 23 شخصاً في يوم الميلاد؟"
     },
     "answer": {
-      "en": "About 50%. This is the Birthday Paradox — most people intuitively guess much lower.",
-      "ar": "حوالي 50%. هذه هي مفارقة أعياد الميلاد — معظم الناس يتوقعون نسبة أقل بكثير."
+      "en": "About 50.7%:1−(365×364×...×343)/365²³.",
+      "ar": "نحو 50.7%:1−(365×364×...×343)/365²³."
     },
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
@@ -1144,12 +1144,12 @@
     "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "A circle is inscribed inside a square of side 10. What is the area of the circle?",
-      "ar": "رُسمت دائرة داخل مربع طول ضلعه 10. ما مساحة الدائرة؟"
+      "en": "A circle touches all four sides of a square of side 10 cm. What is the circle's area?",
+      "ar": "دائرة تمس الأضلاع الأربعة لمربع طول ضلعه 10 سم. ما مساحة الدائرة؟"
     },
     "answer": {
-      "en": "25π. The circle's diameter equals the side, so r = 5, and Area = π × 5² = 25π.",
-      "ar": "25π. قطر الدائرة يساوي ضلع المربع، إذن r=5، والمساحة = π × 25 = 25π."
+      "en": "25π cm². Its diameter is 10 cm, so its radius is 5 cm.",
+      "ar": "25π سم². قطرها 10 سم، فنصف قطرها 5 سم."
     },
     "subcategory": {
       "en": "Geometry & Trigonometry",
@@ -1328,8 +1328,8 @@
       "ar": "حبل طوله 10 أمتار. تقطع منه متراً كل يوم. بعد كم يوماً ستحصل على قطع طول كل منها متر؟"
     },
     "answer": {
-      "en": "9 days. The 9th cut produces the last two pieces — 9 cuts for 10 pieces.",
-      "ar": "9 أيام. القطعة التاسعة تنتج القطعتين الأخيرتين — 9 قطعات فقط للحصول على 10 قطع."
+      "en": "9 days. The ninth cut leaves two 1-metre pieces, so 10 pieces require 9 cuts.",
+      "ar": "9 أيام. ينتج عن القطع التاسع قطعتان طول كل منهما متر، ولذلك تكفي 9 عمليات قطع للحصول على 10 قطع."
     },
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
@@ -1404,16 +1404,16 @@
     "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "What is log₁₀(1000)?",
-      "ar": "ما قيمة log₁₀(1000)؟"
+      "en": "Solve 10ˣ=1000 for x.",
+      "ar": "حل المعادلة 10ˣ=1000 لإيجاد x."
     },
     "answer": {
-      "en": "3. Because 10³ = 1000.",
-      "ar": "3. لأن 10³ = 1000."
+      "en": "x=3, because 10³=1000.",
+      "ar": "x=3، لأن 10³=1000."
     },
     "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
+      "en": "Algebra & Functions",
+      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -1661,7 +1661,7 @@
   },
   {
     "id": "math-069",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is i², where i is the imaginary unit?",
@@ -1672,8 +1672,8 @@
       "ar": "−1. الوحدة التخيلية تُعرَّف بأن i = √(−1)، إذن i² = −1."
     },
     "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
+      "en": "Algebra & Functions",
+      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -1764,8 +1764,8 @@
     "difficulty": "hard",
     "mode": "quiz",
     "question": {
-      "en": "What is the derivative of sin(x)?",
-      "ar": "ما هو مشتق دالة الجيب sin(x)؟"
+      "en": "With x measured in radians, what is the derivative of sin(x) with respect to x?",
+      "ar": "إذا كانت x مقاسة بالراديان، فما مشتقة sin(x) بالنسبة إلى x؟"
     },
     "answer": {
       "en": "cos(x). A fundamental result of differential calculus.",
@@ -1804,12 +1804,12 @@
     "difficulty": "hard",
     "mode": "quiz",
     "question": {
-      "en": "An angle inscribed in a semicircle always measures how many degrees?",
-      "ar": "الزاوية المحيطية المرسومة داخل نصف دائرة تقيس دائماً كم درجة؟"
+      "en": "A and B are the endpoints of a circle's diameter, and C is another point on its circumference. What is angle ACB?",
+      "ar": "النقطتان A و B طرفا قطر دائرة، وC نقطة أخرى على محيطها. ما قياس الزاوية ACB؟"
     },
     "answer": {
-      "en": "90°. This is Thales' theorem: any angle inscribed in a semicircle is a right angle.",
-      "ar": "90 درجة. هذه مبرهنة طاليس: أي زاوية محيطية في نصف دائرة هي زاوية قائمة."
+      "en": "90°, by Thales' theorem.",
+      "ar": "90 درجة، وفق مبرهنة طاليس."
     },
     "subcategory": {
       "en": "Geometry & Trigonometry",
@@ -1864,16 +1864,16 @@
     "difficulty": "hard",
     "mode": "quiz",
     "question": {
-      "en": "For any convex polyhedron, what does V − E + F equal (Euler's polyhedron formula)?",
-      "ar": "لأي مجسم محدب، ما قيمة V − E + F (الرؤوس − الحواف + الأوجه) وفق صيغة أويلر؟"
+      "en": "A convex polyhedron has 12 vertices and 18 edges. Using V−E+F=2, how many faces does it have?",
+      "ar": "لمجسم متعدد الوجوه محدب 12 رأساً و 18 حافة. باستخدام V−E+F=2، كم وجهاً له؟"
     },
     "answer": {
-      "en": "2. Euler's formula: V−E+F = 2. Example — a cube: 8−12+6 = 2.",
-      "ar": "2. صيغة أويلر: V−E+F = 2. مثال — المكعب: 8−12+6 = 2."
+      "en": "8 faces: F=2−12+18=8.",
+      "ar": "8 أوجه: F=2−12+18=8."
     },
     "subcategory": {
-      "en": "Logic, Foundations & Unsolved Problems",
-      "ar": "المنطق والأسس والمسائل غير المحلولة"
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
     },
     "review": {
       "status": "pending"
@@ -1921,7 +1921,7 @@
   },
   {
     "id": "math-082",
-    "difficulty": "hard",
+    "difficulty": "easy",
     "mode": "quiz",
     "question": {
       "en": "What is 17 mod 5?",
@@ -1948,8 +1948,8 @@
       "ar": "ما هي الصيغة العامة لعدد ميرسين الأولي؟"
     },
     "answer": {
-      "en": "2^p − 1, where p is itself prime. Examples: 3 (2²−1), 7 (2³−1), 31 (2⁵−1).",
-      "ar": "2^p − 1، حيث p نفسه عدد أولي. أمثلة: 3 (2²−1)، 7 (2³−1)، 31 (2⁵−1)."
+      "en": "2^p−1, where p is prime and the resulting number is also prime. Prime p alone is not sufficient:2^11−1=2047=23×89.",
+      "ar": "2^p−1، حيث p عدد أولي والناتج أيضاً أولي. أولية p وحدها لا تكفي؛ فمثلاً2^11−1=2047=23×89."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -1981,7 +1981,7 @@
   },
   {
     "id": "math-085",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is the harmonic mean of 2 and 4?",
@@ -2001,15 +2001,15 @@
   },
   {
     "id": "math-086",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is the determinant of the 2×2 matrix [[a, b], [c, d]]?",
       "ar": "ما هو محدد (Determinant) المصفوفة 2×2 [[a, b], [c, d]]؟"
     },
     "answer": {
-      "en": "ad − bc. The determinant gives the scaling factor of the linear transformation.",
-      "ar": "ad − bc. المحدد يعطي معامل تكبير التحويل الخطي."
+      "en": "ad−bc. Its absolute value is the area-scaling factor; its sign records whether orientation is reversed.",
+      "ar": "ad−bc. تمثل قيمته المطلقة معامل تغير المساحة، وتشير إشارته إلى ما إذا كان الاتجاه الهندسي قد انعكس."
     },
     "subcategory": {
       "en": "Algebra & Functions",
@@ -2021,7 +2021,7 @@
   },
   {
     "id": "math-087",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "Convert 25 from decimal to base 3.",
@@ -2041,15 +2041,15 @@
   },
   {
     "id": "math-088",
-    "difficulty": "very-advanced",
+    "difficulty": "hard",
     "mode": "quiz",
     "question": {
-      "en": "Who is credited with the first proof that √2 is irrational?",
-      "ar": "من يُنسب إليه أول إثبات أن √2 عدد غير نسبي؟"
+      "en": "If √2=a/b in lowest terms, squaring gives a²=2b². Why does assuming this lead to a contradiction?",
+      "ar": "إذا افترضنا أن√2=a/b في أبسط صورة، فإن التربيع يعطي a²=2b². لماذا يؤدي ذلك إلى تناقض؟"
     },
     "answer": {
-      "en": "Hippasus of Metapontum, a Pythagorean. Legend says he was drowned for revealing this result.",
-      "ar": "هيبيسوس من ميتابونتوم، أحد الفيثاغوريين. تقول الأسطورة إنه أُغرق لإفشاء هذه النتيجة."
+      "en": "a² is even, so a is even. Substituting a=2k makes b²=2k², so b is also even. Both share factor 2, contradicting lowest terms.",
+      "ar": "بما أن a² زوجي، فإن a زوجي. وبالتعويض a=2k نحصل على b²=2k²، فيكون b زوجياً أيضاً. يشتركان إذن في العامل 2، خلافاً لكون الكسر في أبسط صورة."
     },
     "subcategory": {
       "en": "Logic, Foundations & Unsolved Problems",
@@ -2061,7 +2061,7 @@
   },
   {
     "id": "math-089",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is the formula for the volume of a sphere of radius r?",
@@ -2081,15 +2081,15 @@
   },
   {
     "id": "math-090",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "What are the approximate odds of being dealt a pocket pair in Texas Hold'em?",
-      "ar": "ما هو الاحتمال التقريبي للحصول على زوج في اليد (Pocket Pair) في بوكر تكساس هولدم؟"
+      "en": "Two cards are dealt from a standard shuffled 52-card deck. What is the probability that they have the same rank?",
+      "ar": "سُحبت ورقتان من رزمة لعب قياسية مخلوطة تضم 52 ورقة. ما احتمال أن تكونا من الرتبة نفسها؟"
     },
     "answer": {
-      "en": "About 1 in 17 (≈5.9%). There are 78 pocket pair combinations out of C(52,2)=1326 possible hands.",
-      "ar": "حوالي 1 من 17 (≈5.9%). هناك 78 تركيبة زوج من أصل C(52,2)=1326 يد ممكنة."
+      "en": "1/17, about 5.9%. After the first card,3 of the remaining 51 cards match its rank.",
+      "ar": "1/17، أي نحو 5.9%. بعد الورقة الأولى، تطابق رتبتها 3 أوراق من أصل 51 ورقة متبقية."
     },
     "subcategory": {
       "en": "Probability, Combinatorics & Statistics",
@@ -2101,7 +2101,7 @@
   },
   {
     "id": "math-091",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is the absolute value (magnitude) of the complex number 3 + 4i?",
@@ -2112,8 +2112,8 @@
       "ar": "5. |3+4i| = √(3²+4²) = √(9+16) = √25 = 5."
     },
     "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
+      "en": "Algebra & Functions",
+      "ar": "الجبر والدوال"
     },
     "review": {
       "status": "pending"
@@ -2121,11 +2121,11 @@
   },
   {
     "id": "math-092",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
-      "en": "Two trains 60 miles apart head toward each other at 30 mph. A fly travels between them at 60 mph. How far does the fly travel before the trains collide?",
-      "ar": "قطاران بينهما 60 ميلاً يتجهان لبعضهما بسرعة 30 ميل/ساعة. ذبابة تطير بينهما بسرعة 60 ميل/ساعة. كم تقطع الذبابة قبل التصادم؟"
+      "en": "Two trains 60 miles apart move toward each other, each at 30 mph. A fly starts with them and keeps flying between them at 60 mph until they meet. How far does it fly?",
+      "ar": "قطاران تفصل بينهما 60 ميلاً ويتحرك كل منهما نحو الآخر بسرعة 30 ميلاً/ساعة. تبدأ ذبابة بالطيران بينهما بسرعة 60 ميلاً/ساعة وتستمر حتى يلتقيا. كم تقطع؟"
     },
     "answer": {
       "en": "60 miles. The trains take 1 hour to meet; the fly covers 60 mph × 1 hour = 60 miles. No infinite series needed.",
@@ -2144,12 +2144,12 @@
     "difficulty": "very-advanced",
     "mode": "quiz",
     "question": {
-      "en": "What is the 100th digit of π after the decimal point?",
-      "ar": "ما هو الرقم رقم 100 بعد الفاصلة العشرية في قيمة π؟"
+      "en": "For a prime p>3, why is p²−1 divisible by 24?",
+      "ar": "إذا كان p عدداً أولياً أكبر من 3، فلماذا يقبل p²−1 القسمة على 24؟"
     },
     "answer": {
-      "en": "9. The first 100 decimal digits of π end in ...70679.",
-      "ar": "9. أول 100 خانة عشرية في π تنتهي بـ ...70679."
+      "en": "p²−1=(p−1)(p+1). These are consecutive even numbers, so their product is divisible by 8. Since p is not divisible by 3, one neighbor is divisible by 3. Thus the product is divisible by 24.",
+      "ar": "لدينا p²−1=(p−1)(p+1). العاملان عددان زوجيان متتاليان، فحاصل ضربهما يقبل القسمة على 8. ولأن p لا يقبل القسمة على 3، يقبل أحد جاريه القسمة عليها؛ لذا يقبل الناتج القسمة على 24."
     },
     "subcategory": {
       "en": "Number Theory & Number Riddles",
@@ -2161,11 +2161,11 @@
   },
   {
     "id": "math-094",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "quiz",
     "question": {
-      "en": "If all numbers in a data set are identical, what is the standard deviation?",
-      "ar": "إذا كانت جميع الأعداد في مجموعة بيانات متساوية، فكم الانحراف المعياري؟"
+      "en": "A data set contains at least two values, all identical. What is its standard deviation?",
+      "ar": "تضم مجموعة بيانات قيمتين على الأقل، وجميع القيم متساوية. ما انحرافها المعياري؟"
     },
     "answer": {
       "en": "0. Standard deviation measures spread from the mean. No spread means zero deviation.",
@@ -2184,8 +2184,8 @@
     "difficulty": "very-advanced",
     "mode": "quiz",
     "question": {
-      "en": "Fermat's Last Theorem states aⁿ + bⁿ = cⁿ has no positive integer solutions for n greater than what?",
-      "ar": "تنص نظرية فيرما الأخيرة أن aⁿ + bⁿ = cⁿ ليس لها حلول صحيحة موجبة لـ n أكبر من ماذا؟"
+      "en": "Fermat's Last Theorem says aⁿ+bⁿ=cⁿ has no positive-integer solutions when the integer exponent n is greater than what?",
+      "ar": "تنص مبرهنة فيرما الأخيرة على أن aⁿ+bⁿ=cⁿ لا تملك حلولاً صحيحة موجبة عندما يكون الأس الصحيح n أكبر من أي عدد؟"
     },
     "answer": {
       "en": "2. Proven by Andrew Wiles in 1995 after 358 years as an open problem.",
@@ -2201,7 +2201,7 @@
   },
   {
     "id": "math-096",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "What is sin(30°)?",
@@ -2212,8 +2212,8 @@
       "ar": "0.5 (أو 1/2). في مثلث 30-60-90، الضلع المقابل لزاوية 30° هو نصف الوتر."
     },
     "subcategory": {
-      "en": "Calculus & Analysis",
-      "ar": "التفاضل والتكامل والتحليل"
+      "en": "Geometry & Trigonometry",
+      "ar": "الهندسة وعلم المثلثات"
     },
     "review": {
       "status": "pending"
@@ -2221,7 +2221,7 @@
   },
   {
     "id": "math-097",
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "mode": "quiz",
     "question": {
       "en": "What is the sum of all numbers in row 3 of Pascal's Triangle: 1, 3, 3, 1?",
@@ -2241,7 +2241,7 @@
   },
   {
     "id": "math-098",
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "mode": "quiz",
     "question": {
       "en": "How many prime numbers are there between 1 and 50?",
@@ -2630,8 +2630,8 @@
       "ar": "الاحتمالات والتوافقيات والإحصاء"
     },
     "question": {
-      "en": "Two dice are rolled. What is the probability of getting a sum of 7?",
-      "ar": "رُميت نردتان. ما احتمال الحصول على مجموع 7؟"
+      "en": "Two independent fair six-sided dice are rolled. What is the probability of a total of 7?",
+      "ar": "رُمي حجرا نرد عادلان مستقلان، لكل منهما ستة أوجه. ما احتمال الحصول على مجموع 7؟"
     },
     "answer": {
       "en": "1/6 — there are 6 winning combinations out of 36 total",
@@ -2934,8 +2934,8 @@
       "ar": "التفاضل والتكامل والتحليل"
     },
     "question": {
-      "en": "What is the limit of sin(x)/x as x approaches 0?",
-      "ar": "ما نهاية sin(x)/x عندما تقترب x من الصفر؟"
+      "en": "With x measured in radians, what is lim(x→0) sin(x)/x?",
+      "ar": "إذا كانت x مقاسة بالراديان، فما قيمة lim(x→0) sin(x)/x؟"
     },
     "answer": {
       "en": "1",
@@ -2991,8 +2991,8 @@
       "ar": "نظرية الأعداد وألغازها"
     },
     "question": {
-      "en": "What is the smallest positive integer that is both a perfect square and a perfect cube?",
-      "ar": "ما أصغر عدد صحيح موجب يكون مربعاً كاملاً ومكعباً كاملاً في آنٍ واحد؟"
+      "en": "What is the smallest integer greater than 1 that is both a perfect square and a perfect cube?",
+      "ar": "ما أصغر عدد صحيح أكبر من 1 يكون مربعاً كاملاً ومكعباً كاملاً معاً؟"
     },
     "answer": {
       "en": "64 — 8² = 64 and 4³ = 64",
@@ -3004,7 +3004,7 @@
   },
   {
     "id": "math-138",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Algebra & Functions",
       "ar": "الجبر والدوال"
@@ -3185,8 +3185,8 @@
       "ar": "ما قيمة المتسلسلة اللانهائية 1 + 1/4 + 1/9 + 1/16 + ... (مسألة بازل)؟"
     },
     "answer": {
-      "en": "π²/6 — first proved by Euler in 1734",
-      "ar": "π²/6 — أثبتها أويلر عام 1734"
+      "en": "π²/6. This is the Basel sum, evaluated by Euler.",
+      "ar": "π²/6. وهو مجموع مسألة بازل الذي حسبه أويلر."
     },
     "review": {
       "status": "pending"

@@ -121,12 +121,12 @@
     },
     "difficulty": "easy",
     "question": {
-      "en": "What material is primarily used to build a traditional igloo?",
-      "ar": "ما هي المادة المستخدمة بشكل أساسي لبناء 'الإيجلو' التقليدي؟"
+      "en": "What material is cut into blocks to build a traditional igloo?",
+      "ar": "ما المادة التي تُقطع إلى كتل لبناء الإيغلو التقليدي؟"
     },
     "answer": {
-      "en": "Snow (Ice blocks)",
-      "ar": "الثلج (كتل جليدية)"
+      "en": "Compacted snow, not solid ice.",
+      "ar": "ثلج متماسك، وليس جليداً صلباً."
     },
     "review": {
       "status": "pending"
@@ -157,14 +157,14 @@
       "en": "Materials & Structures",
       "ar": "المواد والإنشاءات"
     },
-    "difficulty": "easy",
+    "difficulty": "medium",
     "question": {
-      "en": "What do we call a bridge that is held up by cables?",
-      "ar": "ماذا نسمي الجسر الذي يتدلى من كابلات؟"
+      "en": "In a staircase with closed steps, what is the upright face between two consecutive treads called?",
+      "ar": "في درج ذي درجات مغلقة، ماذا يُسمّى الوجه القائم بين سطحَي درجتين متتاليتين؟"
     },
     "answer": {
-      "en": "Suspension Bridge",
-      "ar": "جسر معلق"
+      "en": "A riser.",
+      "ar": "قائمة الدرجة."
     },
     "review": {
       "status": "pending"
@@ -269,12 +269,12 @@
     "id": "arc-15",
     "difficulty": "medium",
     "question": {
-      "en": "What is the open central court of a traditional Roman house called?",
-      "ar": "ما اسم الفناء المركزي المفتوح في المنزل الروماني التقليدي؟"
+      "en": "What was the central hall of a Roman house, often with a roof opening above a rainwater basin, called?",
+      "ar": "ماذا كانت تُسمّى القاعة المركزية في المنزل الروماني التي غالباً ما تضم فتحة سقف فوق حوض لتجميع المطر؟"
     },
     "answer": {
-      "en": "The atrium",
-      "ar": "الأتريوم (الفناء الداخلي)"
+      "en": "The atrium.",
+      "ar": "الأتريوم."
     },
     "subcategory": {
       "en": "Classical Architecture",
@@ -330,12 +330,12 @@
     },
     "difficulty": "medium",
     "question": {
-      "en": "What is the central high space of a church called?",
-      "ar": "ماذا يسمى الفضاء المركزي المرتفع في الكنيسة؟"
+      "en": "What is the main longitudinal space of a church where the congregation gathers called?",
+      "ar": "ماذا يُسمّى الحيّز الطولي الرئيسي في الكنيسة الذي يجتمع فيه المصلّون؟"
     },
     "answer": {
-      "en": "Nave",
-      "ar": "الصحن (Nave)"
+      "en": "The nave.",
+      "ar": "صحن الكنيسة."
     },
     "review": {
       "status": "pending"
@@ -425,12 +425,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is the term for the topmost stone in an arch that locks the other stones in place?",
-      "ar": "ما هو المصطلح الذي يطلق على الحجر العلوي في القوس الذي يثبت الحجارة الأخرى في مكانها؟"
+      "en": "What is the central wedge-shaped stone at the crown of a masonry arch called?",
+      "ar": "ماذا يُسمّى الحجر الإسفيني المركزي عند قمة القوس المبني بالحجارة؟"
     },
     "answer": {
-      "en": "Keystone",
-      "ar": "حجر الزاوية (أو حجر الغلق)"
+      "en": "The keystone.",
+      "ar": "حجر العقد، أو مفتاح القوس."
     },
     "review": {
       "status": "pending"
@@ -558,12 +558,12 @@
     },
     "difficulty": "hard",
     "question": {
-      "en": "What is an 'Entablature' in classical architecture?",
-      "ar": "ما هو 'الإفريز' (Entablature) في العمارة الكلاسيكية؟"
+      "en": "What three parts make up a classical entablature?",
+      "ar": "ما الأجزاء الثلاثة التي تكوّن البنية الأفقية الكلاسيكية فوق الأعمدة، المعروفة بـ Entablature؟"
     },
     "answer": {
-      "en": "The horizontal superstructure above columns",
-      "ar": "البنية الأفقية فوق الأعمدة"
+      "en": "The architrave, frieze and cornice.",
+      "ar": "العتب، والإفريز، والكورنيش."
     },
     "review": {
       "status": "pending"
@@ -615,12 +615,12 @@
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "Which architect designed the 'Shrine of the Book' in Jerusalem?",
-      "ar": "أي مهندس معماري صمم 'مزار الكتاب' في القدس؟"
+      "en": "Which two architects designed the Shrine of the Book in Jerusalem?",
+      "ar": "أي معماريين صمّما مزار الكتاب في القدس؟"
     },
     "answer": {
-      "en": "Frederick Kiesler and Armand Bartos",
-      "ar": "فريدريك كيسلر وأرماند بارتوس"
+      "en": "Frederick Kiesler and Armand Bartos.",
+      "ar": "فريدريك كيسلر وأرماند بارتوس."
     },
     "review": {
       "status": "pending"
@@ -724,17 +724,17 @@
   {
     "id": "arc-39",
     "subcategory": {
-      "en": "Architectural Styles",
-      "ar": "الطرز المعمارية"
+      "en": "Architectural Theory",
+      "ar": "النظرية المعمارية"
     },
     "difficulty": "very-advanced",
     "question": {
-      "en": "What is 'Parametricism' in modern architecture?",
-      "ar": "ما هي 'البارامترية' (Parametricism) في العمارة الحديثة؟"
+      "en": "In parametric design, how are design elements linked?",
+      "ar": "كيف ترتبط عناصر التصميم في التصميم البارامتري؟"
     },
     "answer": {
-      "en": "A style based on digital design and algorithms to create complex forms",
-      "ar": "نمط يعتمد على التصميم الرقمي والخوارزميات لإنشاء أشكال معقدة"
+      "en": "Through parameters and relationships, so changing an input can update related parts. Parametricism is a proposed architectural style, not a synonym for every use of this method.",
+      "ar": "بمعلمات وعلاقات، بحيث قد يؤدي تغيير أحد المدخلات إلى تحديث الأجزاء المرتبطة به. أما البارامترية كطراز معماري فليست مرادفاً لكل استخدام لهذه الطريقة."
     },
     "review": {
       "status": "pending"

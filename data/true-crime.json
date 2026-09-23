@@ -40,12 +40,12 @@
   {
     "id": "true-crime-3",
     "question": {
-      "en": "What notorious prison is located on an island in San Francisco Bay?",
-      "ar": "ما هو السجن سيئ السمعة الذي يقع على جزيرة في خليج سان فرانسيسكو؟"
+      "en": "Which former federal prison stands on an island in San Francisco Bay?",
+      "ar": "ما السجن الفيدرالي السابق القائم على جزيرة في خليج سان فرانسيسكو؟"
     },
     "answer": {
-      "en": "Alcatraz",
-      "ar": "ألكتراز"
+      "en": "Alcatraz.",
+      "ar": "ألكتراز."
     },
     "difficulty": "easy",
     "subcategory": {
@@ -135,12 +135,12 @@
   {
     "id": "true-crime-8",
     "question": {
-      "en": "What historical event involved the mass hysteria and hanging of women in 1692 Massachusetts?",
-      "ar": "ما هو الحدث التاريخي الذي تضمن هستيريا جماعية وشنق نساء في ماساتشوستس عام 1692؟"
+      "en": "What name is given to the 1692 witchcraft trials in Massachusetts that led to the execution of both women and men?",
+      "ar": "ما الاسم الذي يُطلق على محاكمات السحر في ماساتشوستس عام 1692، والتي أدت إلى إعدام نساء ورجال؟"
     },
     "answer": {
-      "en": "Salem Witch Trials",
-      "ar": "محاكمات السحرة في سالم"
+      "en": "The Salem witch trials.",
+      "ar": "محاكمات السحر في سالم."
     },
     "difficulty": "easy",
     "subcategory": {
@@ -154,12 +154,12 @@
   {
     "id": "true-crime-9",
     "question": {
-      "en": "What Colombian drug lord was the wealthiest criminal in history?",
-      "ar": "ما هو تاجر المخدرات الكولومبي الذي كان أغنى مجرم في التاريخ؟"
+      "en": "Which Colombian drug trafficker led the Medellín cartel?",
+      "ar": "أي تاجر مخدرات كولومبي قاد كارتل ميديلين؟"
     },
     "answer": {
-      "en": "Pablo Escobar",
-      "ar": "بابلو إسكوبار"
+      "en": "Pablo Escobar.",
+      "ar": "بابلو إسكوبار."
     },
     "difficulty": "easy",
     "subcategory": {
@@ -230,14 +230,14 @@
   {
     "id": "true-crime-13",
     "question": {
-      "en": "Who was the first person to be convicted using DNA fingerprinting?",
-      "ar": "من كان أول شخص يُدان باستخدام بصمة الحمض النووي؟"
+      "en": "What forensic technique compares genetic markers in biological samples?",
+      "ar": "ما التقنية الجنائية التي تقارن مؤشرات وراثية في العينات البيولوجية؟"
     },
     "answer": {
-      "en": "Colin Pitchfork",
-      "ar": "كولين بيتشفورك"
+      "en": "DNA profiling, also called DNA fingerprinting.",
+      "ar": "تحليل البصمة الوراثية، أو بصمة الحمض النووي."
     },
-    "difficulty": "medium",
+    "difficulty": "easy",
     "subcategory": {
       "en": "Forensic Science",
       "ar": "علوم الأدلة الجنائية"
@@ -306,12 +306,12 @@
   {
     "id": "true-crime-17",
     "question": {
-      "en": "Who assassinated John F. Kennedy?",
-      "ar": "من اغتال جون إف كينيدي؟"
+      "en": "According to the Warren Commission's 1964 report, who shot President John F. Kennedy?",
+      "ar": "وفقاً لتقرير لجنة وارن الصادر عام 1964، من أطلق النار على الرئيس جون إف كينيدي؟"
     },
     "answer": {
-      "en": "Lee Harvey Oswald",
-      "ar": "لي هارفي أوزوالد"
+      "en": "Lee Harvey Oswald. This is the commission's conclusion, not a criminal-trial verdict.",
+      "ar": "لي هارفي أوزوالد. هذه خلاصة اللجنة، وليست حكماً صادراً في محاكمة جنائية."
     },
     "difficulty": "medium",
     "subcategory": {
@@ -325,12 +325,12 @@
   {
     "id": "true-crime-18",
     "question": {
-      "en": "What infamous hotel was the site of the 1972 political break-in that led to Nixon's resignation?",
-      "ar": "ما هو الفندق الشهير الذي كان موقعاً للاقتحام السياسي عام 1972 والذي أدى إلى استقالة نيكسون؟"
+      "en": "In which Washington, D.C. complex were Democratic National Committee offices burgled in June 1972?",
+      "ar": "في أي مجمّع بواشنطن اقتُحمت مكاتب اللجنة الوطنية للحزب الديمقراطي في يونيو 1972؟"
     },
     "answer": {
-      "en": "The Watergate Hotel",
-      "ar": "فندق ووترغيت"
+      "en": "The Watergate complex.",
+      "ar": "مجمّع ووترغيت."
     },
     "difficulty": "medium",
     "subcategory": {
@@ -363,12 +363,12 @@
   {
     "id": "true-crime-20",
     "question": {
-      "en": "What was the name of the cult that committed mass suicide in Jonestown in 1978?",
-      "ar": "ما كان اسم الطائفة التي ارتكبت انتحاراً جماعياً في جونزتاون عام 1978؟"
+      "en": "Which organization was led by Jim Jones and associated with the 1978 mass murder-suicide at Jonestown?",
+      "ar": "ما المنظمة التي قادها جيم جونز وارتبطت بالقتل والانتحار الجماعيين في جونزتاون عام 1978؟"
     },
     "answer": {
-      "en": "Peoples Temple",
-      "ar": "معبد الشعوب"
+      "en": "Peoples Temple.",
+      "ar": "معبد الشعوب."
     },
     "difficulty": "medium",
     "subcategory": {
@@ -439,14 +439,14 @@
   {
     "id": "true-crime-24",
     "question": {
-      "en": "Which Scottish medical doctor was also a pioneer in forensic toxicology in the 19th century?",
-      "ar": "أي طبيب اسكتلندي كان رائداً في علم السموم الشرعي في القرن التاسع عشر؟"
+      "en": "Which field analyzes drugs and poisons in biological samples for legal investigations?",
+      "ar": "ما المجال الذي يحلّل الأدوية والسموم في العينات البيولوجية لأغراض التحقيقات القانونية؟"
     },
     "answer": {
-      "en": "Joseph Bell / Christison",
-      "ar": "جوزيف بيل / روبرت كريستيسون"
+      "en": "Forensic toxicology.",
+      "ar": "علم السموم الشرعي."
     },
-    "difficulty": "hard",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Forensic Science",
       "ar": "علوم الأدلة الجنائية"
@@ -458,12 +458,12 @@
   {
     "id": "true-crime-25",
     "question": {
-      "en": "What was the largest art heist in history, occurring in Boston in 1990?",
-      "ar": "ما هي أكبر عملية سرقة فنية في التاريخ، والتي وقعت في بوسطن عام 1990؟"
+      "en": "Which Boston museum lost thirteen works of art in a 1990 theft?",
+      "ar": "أي متحف في بوسطن سُرق منه ثلاثة عشر عملاً فنياً عام 1990؟"
     },
     "answer": {
-      "en": "Isabella Stewart Gardner Museum heist",
-      "ar": "سرقة متحف إيزابيلا ستيوارت جاردنر"
+      "en": "The Isabella Stewart Gardner Museum.",
+      "ar": "متحف إيزابيلا ستيوارت غاردنر."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -477,12 +477,12 @@
   {
     "id": "true-crime-26",
     "question": {
-      "en": "Which serial killer wore a clown suit and was known as the 'Killer Clown'?",
-      "ar": "أي سفاح كان يرتدي بدلة مهرج وعُرف باسم 'المهرج القاتل'؟"
+      "en": "Which convicted murderer performed as a clown at community events and became known in media as the 'Killer Clown'?",
+      "ar": "أي قاتل مُدان كان يؤدي دور مهرج في مناسبات مجتمعية واشتهر إعلامياً بلقب «المهرج القاتل»؟"
     },
     "answer": {
-      "en": "John Wayne Gacy",
-      "ar": "جون واين جيسي"
+      "en": "John Wayne Gacy; the nickname does not mean he wore the costume during the murders.",
+      "ar": "جون واين غيسي؛ ولا يعني اللقب أنه ارتدى زي المهرج أثناء ارتكاب الجرائم."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -534,12 +534,12 @@
   {
     "id": "true-crime-29",
     "question": {
-      "en": "Which mobster was the architect of the National Crime Syndicate in the US?",
-      "ar": "أي رجل عصابات كان المهندس المعماري لنقابة الجريمة الوطنية في الولايات المتحدة؟"
+      "en": "Which mob boss helped establish the Mafia's Commission in the United States in 1931?",
+      "ar": "أي زعيم مافيا ساهم في تأسيس «اللجنة» المنظمة لعائلات المافيا في الولايات المتحدة عام 1931؟"
     },
     "answer": {
-      "en": "Lucky Luciano",
-      "ar": "لاكي لوتشيانو"
+      "en": "Charles 'Lucky' Luciano.",
+      "ar": "تشارلز «لاكي» لوتشيانو."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -553,12 +553,12 @@
   {
     "id": "true-crime-30",
     "question": {
-      "en": "What chemical was commonly used by 19th-century poisoners and detects via the Marsh test?",
-      "ar": "ما هي المادة الكيميائية التي كانت شائعة الاستخدام من قبل مصممي السموم في القرن التاسع عشر وتكتشف عبر اختبار مارش؟"
+      "en": "Which element, found in compounds used in historical poisonings, can be detected with the Marsh test?",
+      "ar": "ما العنصر الذي وُجد في مركّبات استُخدمت في حوادث تسميم تاريخية ويمكن كشفه باختبار مارش؟"
     },
     "answer": {
-      "en": "Arsenic",
-      "ar": "الزرنيخ"
+      "en": "Arsenic.",
+      "ar": "الزرنيخ."
     },
     "difficulty": "hard",
     "subcategory": {
@@ -572,12 +572,12 @@
   {
     "id": "true-crime-31",
     "question": {
-      "en": "What specific type of fly is typically the first insect to arrive at a decomposing body, crucial for determining post-mortem interval?",
-      "ar": "ما هو النوع المحدد من الذباب الذي يكون عادةً أول حشرة تصل إلى جثة متحللة، وهو أمر حاسم لتحديد فترة ما بعد الوفاة؟"
+      "en": "Which fly family often colonizes exposed remains early and is studied in forensic entomology?",
+      "ar": "أي فصيلة من الذباب تستوطن البقايا المكشوفة مبكراً في كثير من الظروف وتُدرس في علم الحشرات الجنائي؟"
     },
     "answer": {
-      "en": "Blowfly (Calliphoridae)",
-      "ar": "الذباب الأزرق (Calliphoridae)"
+      "en": "Calliphoridae, the blowflies. Arrival depends on temperature, access and other conditions.",
+      "ar": "فصيلة Calliphoridae، أو ذباب الجيف. ويتوقف وصولها على الحرارة وإمكانية الوصول وظروف أخرى."
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -610,14 +610,14 @@
   {
     "id": "true-crime-33",
     "question": {
-      "en": "Which psychological term describes victims developing an emotional bond with their captors, named after a 1973 bank robbery?",
-      "ar": "أي مصطلح نفسي يصف تطور رابطة عاطفية للضحايا مع آسريهم، وسُمي تيمناً بعملية سطو على بنك عام 1973؟"
+      "en": "What debated popular term, named after a 1973 bank robbery, describes an emotional attachment a captive may develop toward a captor?",
+      "ar": "ما المصطلح الشعبي المختلف عليه، المرتبط بسطو على بنك عام 1973، الذي يصف تعلقاً عاطفياً قد ينشأ لدى أسير تجاه آسره؟"
     },
     "answer": {
-      "en": "Stockholm Syndrome",
-      "ar": "متلازمة ستوكهولم"
+      "en": "Stockholm syndrome; it is not a universally accepted clinical diagnosis.",
+      "ar": "متلازمة ستوكهولم؛ وليست تشخيصاً سريرياً متفقاً عليه عالمياً."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Forensic Science",
       "ar": "علوم الأدلة الجنائية"
@@ -629,14 +629,14 @@
   {
     "id": "true-crime-34",
     "question": {
-      "en": "What rare genetic disorder removes the ability to feel pain, making individuals dangerously fearless and prone to unnoticed injuries?",
-      "ar": "ما هو الاضطراب الوراثي النادر الذي يزيل القدرة على الشعور بالألم، مما يجعل الأفراد شجعاناً بشكل خطير وعرضة لإصابات غير ملحوظة؟"
+      "en": "What is the documented record of who collected, transferred, stored and examined an item of evidence called?",
+      "ar": "ماذا يُسمّى السجل الموثّق لمن جمع قطعة دليل ونقلها وحفظها وفحصها؟"
     },
     "answer": {
-      "en": "CIPA (Congenital Insensitivity to Pain with Anhidrosis)",
-      "ar": "عدم الإحساس الخلقي بالألم"
+      "en": "The chain of custody.",
+      "ar": "سلسلة حيازة الدليل."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "medium",
     "subcategory": {
       "en": "Forensic Science",
       "ar": "علوم الأدلة الجنائية"
@@ -686,12 +686,12 @@
   {
     "id": "true-crime-37",
     "question": {
-      "en": "Which Italian criminal organization is based in Calabria and is considered one of the most powerful cartels in the world today?",
-      "ar": "أي منظمة إجرامية إيطالية تتخذ من كالابريا مقراً لها وتعتبر واحدة من أقوى الكارتلات في العالم اليوم؟"
+      "en": "Which Italian criminal organization originated in Calabria?",
+      "ar": "أي منظمة إجرامية إيطالية نشأت في كالابريا؟"
     },
     "answer": {
-      "en": "'Ndrangheta",
-      "ar": "ندرانجيتا"
+      "en": "The 'Ndrangheta.",
+      "ar": "ندرانغيتا."
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -705,17 +705,17 @@
   {
     "id": "true-crime-38",
     "question": {
-      "en": "What historical true crime involved a man named H.H. Holmes building a 'Murder Castle' during the 1893 World's Fair?",
-      "ar": "ما هي الجريمة التاريخية الحقيقية التي تضمنت قيام رجل يدعى إتش إتش هولمز ببناء 'قلعة القتل' خلال المعرض العالمي عام 1893؟"
+      "en": "In a criminal investigation, what is an alibi?",
+      "ar": "ما المقصود بدفع الغياب عن مسرح الجريمة في التحقيق الجنائي؟"
     },
     "answer": {
-      "en": "The Chicago World's Fair murders",
-      "ar": "جرائم قتل معرض شيكاغو العالمي"
+      "en": "An account or evidence that a person was elsewhere when the offence occurred; its reliability must be assessed.",
+      "ar": "رواية أو دليل على وجود الشخص في مكان آخر وقت وقوع الجريمة؛ ويجب تقييم موثوقيته."
     },
-    "difficulty": "very-advanced",
+    "difficulty": "easy",
     "subcategory": {
-      "en": "Serial Killers & Unsolved Cases",
-      "ar": "القتلة المتسلسلون والقضايا الغامضة"
+      "en": "Forensic Science",
+      "ar": "علوم الأدلة الجنائية"
     },
     "review": {
       "status": "pending"
@@ -724,12 +724,12 @@
   {
     "id": "true-crime-39",
     "question": {
-      "en": "What specific forensic discipline studies teeth to identify victims or bite marks?",
-      "ar": "ما هو تخصص الطب الشرعي المحدد الذي يدرس الأسنان لتحديد هوية الضحايا أو علامات العض؟"
+      "en": "Which forensic specialty uses dental records to help identify deceased people?",
+      "ar": "ما التخصص الجنائي الذي يستخدم سجلات الأسنان للمساعدة في تحديد هوية المتوفين؟"
     },
     "answer": {
-      "en": "Forensic Odontology",
-      "ar": "طب الأسنان الشرعي"
+      "en": "Forensic odontology. Dental-record identification is distinct from disputed identification using bite marks on skin.",
+      "ar": "طب الأسنان الشرعي. وتختلف مطابقة سجلات الأسنان عن تحديد الأشخاص من آثار العض على الجلد، وهو محل خلاف علمي."
     },
     "difficulty": "very-advanced",
     "subcategory": {
@@ -743,12 +743,12 @@
   {
     "id": "true-crime-40",
     "question": {
-      "en": "What is the name of the mathematical principle used by forensic accountants to detect fraud by analyzing the leading digits of numbers?",
-      "ar": "ما اسم المبدأ الرياضي الذي يستخدمه المحاسبون الشرعيون لاكتشاف الاحتيال من خلال تحليل الأرقام الأولى من الأعداد؟"
+      "en": "Which mathematical law about leading-digit frequencies can help forensic accountants flag anomalies in suitable numerical datasets?",
+      "ar": "ما القانون الرياضي المتعلق بتوزيع الأرقام الأولى الذي قد يساعد المحاسبين الجنائيين في رصد الشذوذ في مجموعات بيانات عددية مناسبة؟"
     },
     "answer": {
-      "en": "Benford's Law",
-      "ar": "قانون بنفورد"
+      "en": "Benford's law. An unusual pattern is a lead for investigation, not proof of fraud.",
+      "ar": "قانون بنفورد. النمط غير المعتاد مؤشر يستحق الفحص، وليس دليلاً قاطعاً على الاحتيال."
     },
     "difficulty": "very-advanced",
     "subcategory": {

@@ -97,21 +97,35 @@ export async function dispatchAndWait(gh, { workflow, ref, sha, inputs = {}, tim
   throw new Error(`${workflow} did not finish within the maintenance budget. Its status remains available in GitHub.`);
 }
 
-// The Actions REST pull_requests field lists associated open PRs; association
-// alone does not prove the trigger. Require the PR event and exact workflow,
-// repository, head, base and PR identity together. See GitHub's workflow-run and
-// pull-request-minimal schemas in github/rest-api-description.
+// GitHub may omit pull_requests even for an active native PR run. Bind the
+// immutable workflow run-name to its trigger's PR/base/head, and independently
+// verify the current PR API record. When association metadata exists it must
+// agree too; it is never the sole proof of the triggering pull request.
 function matchesPullRequestChecks(run, { ref, sha, prNumber, base }) {
-  const pull = Array.isArray(run.pull_requests) && run.pull_requests.length === 1 ? run.pull_requests[0] : null;
+  const associations = run.pull_requests;
+  const pull = Array.isArray(associations) && associations.length === 1 ? associations[0] : null;
+  const associationMatches = associations == null || (Array.isArray(associations) && associations.length === 0)
+    || (pull?.number === prNumber && pull.head?.sha === sha && pull.head.ref === ref
+      && pull.head.repo?.id === Number(REPOSITORY_ID)
+      && pull.base?.sha === base && pull.base.ref === "main" && pull.base.repo?.id === Number(REPOSITORY_ID));
   return Number.isSafeInteger(run.id) && run.id > 0
     && Number.isSafeInteger(run.run_attempt) && run.run_attempt > 0
     && run.event === "pull_request" && run.head_branch === ref && run.head_sha === sha
     && run.path?.split("@")[0] === ".github/workflows/api-check.yml"
+    && run.display_title === `Validate API · PR ${prNumber} · base ${base} · head ${sha}`
     && run.repository?.full_name === REPOSITORY && run.repository.id === Number(REPOSITORY_ID)
     && run.head_repository?.full_name === REPOSITORY && run.head_repository.id === Number(REPOSITORY_ID)
-    && pull?.number === prNumber && pull.head?.sha === sha && pull.head.ref === ref
-    && pull.head.repo?.id === Number(REPOSITORY_ID)
-    && pull.base?.sha === base && pull.base.ref === "main" && pull.base.repo?.id === Number(REPOSITORY_ID);
+    && associationMatches;
+}
+
+function assertPullRequestChecksIdentity(pull, { ref, sha, prNumber, base }) {
+  if (pull?.number !== prNumber || pull.state !== "open"
+    || pull.head?.sha !== sha || pull.head.ref !== ref
+    || pull.head.repo?.id !== Number(REPOSITORY_ID) || pull.head.repo.full_name !== REPOSITORY
+    || pull.base?.sha !== base || pull.base.ref !== "main"
+    || pull.base.repo?.id !== Number(REPOSITORY_ID) || pull.base.repo.full_name !== REPOSITORY) {
+    throw new Error("Pull-request source identity changed before required checks could be verified.");
+  }
 }
 
 export async function waitForPullRequestChecks(gh, { ref, sha, prNumber, base, timeoutMs = 25 * 60_000,
@@ -123,6 +137,7 @@ export async function waitForPullRequestChecks(gh, { ref, sha, prNumber, base, t
   const identity = { ref, sha, prNumber, base };
   const listing = `${PREFIX}/actions/workflows/api-check.yml/runs?event=pull_request&branch=${encodeURIComponent(ref)}&head_sha=${sha}&exclude_pull_requests=false&per_page=100`;
   const started = now();
+  assertPullRequestChecksIdentity(await gh(`${PREFIX}/pulls/${prNumber}`), identity);
   let selected;
   while (now() - started < timeoutMs) {
     if (!selected) {
@@ -155,6 +170,7 @@ export async function waitForPullRequestChecks(gh, { ref, sha, prNumber, base, t
           throw new Error(`Required pull-request job ${name} did not complete successfully.`);
         }
       }
+      assertPullRequestChecksIdentity(await gh(`${PREFIX}/pulls/${prNumber}`), identity);
       return selected;
     }
     await wait(10_000);

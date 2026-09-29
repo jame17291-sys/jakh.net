@@ -31,8 +31,10 @@
       deviceDenied: 'Only essential features are active. Future analytics is disabled and known analytics browser data was cleared where the browser permits.',
       deviceDeniedAfterLoad: 'Future analytics is disabled, the injected loader was removed, and known analytics browser data was cleared where possible. Analytics code already executed on this page cannot be undone; reload to finish with a clean page.',
       deviceUnavailable: 'Privacy controls are temporarily unavailable. No new analytics choice was saved.',
-      clearConfirm: 'Clear Riddle Arabia preferences, local progress, favorites, and privacy choice from this browser?',
-      clearingDevice: 'Device data will be cleared and this page will reopen.',
+      clearConfirm: 'Turn off this browser’s Riddle Arabia reminders for all rooms and clear its preferences, local progress, match history, streaks, favorites, and privacy choice?',
+      clearingDevice: 'Turning off this browser’s reminders before clearing device data…',
+      devicePushClearFailed: 'Some reminders could not be turned off, so this browser’s local data was kept. Retry, or turn off Riddle Arabia notifications in your browser or device settings before clearing site data.',
+      deviceClearIncomplete: 'Reminders are off, but some browser data could not be cleared. Retry or use your browser’s clear site data control.',
       accountCheckingTitle: 'Account controls are checking your existing session',
       accountCheckingText: 'No account data is changed by this check.',
       signedOutTitle: 'You are not signed in on this browser',
@@ -84,8 +86,10 @@
       deviceDenied: 'الميزات الأساسية فقط مفعّلة. تم إيقاف القياس اللاحق ومسح بيانات القياس المعروفة في المتصفح حيث يسمح المتصفح.',
       deviceDeniedAfterLoad: 'تم إيقاف القياس اللاحق وإزالة أداة التحميل ومسح بيانات القياس المعروفة حيث أمكن. لا يمكن التراجع عن برنامج القياس الذي نُفذ بالفعل في هذه الصفحة؛ أعد تحميلها لإكمال الإيقاف بصفحة نظيفة.',
       deviceUnavailable: 'أدوات الخصوصية غير متاحة مؤقتاً. لم يتم حفظ اختيار جديد.',
-      clearConfirm: 'هل تريد مسح تفضيلات ريدل أرابيا والتقدّم المحلي والمفضلة وخيار الخصوصية من هذا المتصفح؟',
-      clearingDevice: 'سيتم مسح بيانات الجهاز ثم إعادة فتح هذه الصفحة.',
+      clearConfirm: 'هل تريد إيقاف تذكيرات ريدل أرابيا لكل الغرف في هذا المتصفح ومسح تفضيلاته والتقدّم المحلي وسجل المباريات وسلاسل الإنجاز والمفضلة وخيار الخصوصية؟',
+      clearingDevice: 'جارٍ إيقاف تذكيرات هذا المتصفح قبل مسح بيانات الجهاز…',
+      devicePushClearFailed: 'تعذّر إيقاف بعض التذكيرات، لذلك احتفظنا ببيانات هذا المتصفح المحلية. حاول مجدداً، أو أوقف إشعارات ريدل أرابيا من إعدادات المتصفح أو الجهاز قبل مسح بيانات الموقع.',
+      deviceClearIncomplete: 'أُوقفت التذكيرات، لكن تعذّر مسح بعض بيانات المتصفح. حاول مجدداً أو استخدم أداة مسح بيانات الموقع في متصفحك.',
       accountCheckingTitle: 'تتحقق أدوات الحساب من جلسة الدخول الحالية',
       accountCheckingText: 'لا يغيّر هذا الفحص أي بيانات في الحساب.',
       signedOutTitle: 'لم تسجّل الدخول في هذا المتصفح',
@@ -356,22 +360,56 @@
     updateDeviceStatus();
   }
 
+  async function revokeDevicePush() {
+    if (!('serviceWorker' in navigator)) return;
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(registrations.map(async (registration) => {
+      if (!registration.pushManager) return;
+      const subscription = await registration.pushManager.getSubscription();
+      if (!subscription) return;
+      // This device-wide clear intentionally revokes the endpoint shared by all
+      // rooms. A single room's opt-out keeps that shared browser endpoint.
+      await subscription.unsubscribe();
+      if (await registration.pushManager.getSubscription()) throw new Error('Push subscription remains active');
+    }));
+  }
+
   async function clearDeviceData() {
+    if (elements.clearDeviceData.disabled) return;
     const localized = currentCopy();
     if (!window.confirm(localized.clearConfirm)) return;
-    setStatus(elements.deviceClearStatus, localized.clearingDevice, 'success');
+    elements.clearDeviceData.disabled = true;
+    setStatus(elements.deviceClearStatus, localized.clearingDevice);
+    let timeout;
     try {
-      window.JakhPrivacy?.setAnalyticsConsent?.(false, 'clear-device');
-      localStorage.clear();
-      sessionStorage.clear();
-      if ('caches' in window) {
-        const keys = await caches.keys();
-        await Promise.all(keys.map((key) => caches.delete(key)));
+      try {
+        await Promise.race([
+          revokeDevicePush(),
+          new Promise((_, reject) => { timeout = setTimeout(() => reject(new Error('Push cleanup timed out')), 10000); }),
+        ]);
+      } catch {
+        // Keep the saved private seat if revocation fails; otherwise a player
+        // could still receive reminders after losing the ability to opt out.
+        setStatus(elements.deviceClearStatus, localized.devicePushClearFailed, 'error');
+        return;
+      } finally { clearTimeout(timeout); }
+      try {
+        window.JakhPrivacy?.setAnalyticsConsent?.(false, 'clear-device');
+        localStorage.clear();
+        sessionStorage.clear();
+        if ('caches' in window) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map((key) => caches.delete(key)));
+        }
+      } catch {
+        setStatus(elements.deviceClearStatus, localized.deviceClearIncomplete, 'error');
+        return;
       }
-    } finally {
       const url = new URL(PRIVACY_ROUTES[state.lang], location.origin);
       url.hash = 'choices';
       location.replace(url.toString());
+    } finally {
+      elements.clearDeviceData.disabled = false;
     }
   }
 

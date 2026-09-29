@@ -249,3 +249,93 @@ test('topic pages prioritize practice and collapse optional filters without dupl
     }
   }
 });
+
+function deviceClearHarness({ lang = 'en', registrations = [], accepted = true, failure = '', serviceWorker = true } = {}) {
+  const calls = [], timers = new Map();
+  const location = { hostname: 'riddlearabia.com', protocol: 'https:', origin: 'https://riddlearabia.com', replace(url) { calls.push(['replace', url]); } };
+  const context = vm.createContext({
+    location, URL, console,
+    document: { readyState: 'loading', addEventListener() {} },
+    navigator: serviceWorker ? { serviceWorker: { async getRegistrations() { calls.push(['registrations']); if (failure === 'registrations') throw new Error('Unavailable'); return registrations; } } } : {},
+    window: { confirm() { calls.push(['confirm']); return accepted; }, JakhPrivacy: { setAnalyticsConsent(...args) { calls.push(['analytics', ...args]); } }, caches: {} },
+    localStorage: { clear() { calls.push(['local']); if (failure === 'local') throw new Error('Storage unavailable'); } },
+    sessionStorage: { clear() { calls.push(['session']); if (failure === 'session') throw new Error('Storage unavailable'); } },
+    caches: { async keys() { calls.push(['cache-keys']); if (failure === 'caches') throw new Error('Caches unavailable'); return ['jakh-core', 'jakh-assets']; }, async delete(name) { calls.push(['cache-delete', name]); return true; } },
+    setTimeout(callback) { const id = timers.size + 1; timers.set(id, callback); return id; }, clearTimeout(id) { timers.delete(id); },
+  });
+  const source = read('privacy-page.js').replace(/\}\)\(\);\s*$/u, 'globalThis.privacyTest = { clearDeviceData, state, elements, copy };\n})();');
+  vm.runInContext(source, context);
+  const api = context.privacyTest; api.state.lang = lang;
+  api.elements.clearDeviceData = { disabled: false };
+  api.elements.deviceClearStatus = { textContent: '', dataset: {} };
+  return { api, calls, timers, run: () => api.clearDeviceData() };
+}
+
+test('device-wide clear revokes every browser push subscription before erasing saved seats and redirects in the current language', async () => {
+  for (const lang of ['en', 'ar']) {
+    const order = [];
+    const registrations = [1, 2].map(id => {
+      let subscription = { async unsubscribe() { order.push(`unsubscribe-${id}`); subscription = null; return id === 1; } };
+      return { pushManager: { async getSubscription() { order.push(`read-${id}`); return subscription; } } };
+    });
+    registrations.push({});
+    const h = deviceClearHarness({ lang, registrations });
+    await h.run();
+    assert.equal(order.filter(value => value.startsWith('unsubscribe')).length, 2);
+    assert.equal(order.filter(value => value.startsWith('read')).length, 4, 'revocation is verified even when unsubscribe returns false');
+    assert.deepEqual(h.calls.filter(([name]) => name === 'analytics'), [['analytics', false, 'clear-device']]);
+    assert.deepEqual(h.calls.filter(([name]) => name === 'local' || name === 'session'), [['local'], ['session']]);
+    assert.deepEqual(h.calls.at(-1), ['replace', `https://riddlearabia.com${lang === 'ar' ? '/ar/privacy/' : '/privacy'}#choices`]);
+    assert.equal(h.api.elements.clearDeviceData.disabled, false); assert.equal(h.timers.size, 0);
+  }
+});
+
+test('saved seats stay intact while push revocation is pending and double clicks cannot start a second clear', async () => {
+  let finish;
+  let subscription = { unsubscribe() { return new Promise(resolve => { finish = () => { subscription = null; resolve(true); }; }); } };
+  const h = deviceClearHarness({ registrations: [{ pushManager: { async getSubscription() { return subscription; } } }] });
+  const pending = h.run(); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(h.api.elements.clearDeviceData.disabled, true);
+  assert.equal(h.calls.some(([name]) => ['local', 'session', 'analytics', 'replace'].includes(name)), false);
+  await h.run(); assert.equal(h.calls.filter(([name]) => name === 'confirm').length, 1);
+  finish(); await pending; assert.equal(h.calls.some(([name]) => name === 'local'), true);
+});
+
+test('failed or unverifiable push revocation preserves device data and gives an actionable bilingual error without reloading', async () => {
+  for (const lang of ['en', 'ar']) {
+    for (const failure of ['registrations', 'unsubscribe', 'still-active', 'timeout']) {
+      const subscription = { async unsubscribe() { if (failure === 'unsubscribe') throw new Error('Offline'); return false; } };
+      const h = deviceClearHarness({ lang, failure, registrations: [{ pushManager: { async getSubscription() { if (failure === 'timeout') return new Promise(() => {}); return subscription; } } }] });
+      const pending = h.run();
+      if (failure === 'timeout') { await new Promise(resolve => setImmediate(resolve)); [...h.timers.values()][0](); }
+      await pending;
+      assert.equal(h.calls.some(([name]) => ['local', 'session', 'analytics', 'replace'].includes(name)), false, failure);
+      assert.equal(h.api.elements.deviceClearStatus.textContent, h.api.copy[lang].devicePushClearFailed);
+      assert.equal(h.api.elements.deviceClearStatus.dataset.tone, 'error');
+      assert.equal(h.api.elements.clearDeviceData.disabled, false); assert.equal(h.timers.size, 0);
+    }
+  }
+});
+
+test('device clear handles browsers without push, respects cancellation and reports partial storage cleanup truthfully', async () => {
+  const cancelled = deviceClearHarness({ accepted: false }); await cancelled.run(); assert.deepEqual(cancelled.calls, [['confirm']]);
+  const noPush = deviceClearHarness({ serviceWorker: false }); await noPush.run(); assert.equal(noPush.calls.at(-1)[0], 'replace');
+  const noSubscription = deviceClearHarness({ registrations: [{ pushManager: { async getSubscription() { return null; } } }] }); await noSubscription.run(); assert.equal(noSubscription.calls.at(-1)[0], 'replace');
+  for (const failure of ['local', 'session', 'caches']) {
+    const h = deviceClearHarness({ failure }); await h.run();
+    assert.equal(h.calls.some(([name]) => name === 'replace'), false);
+    assert.equal(h.api.elements.deviceClearStatus.textContent, h.api.copy.en.deviceClearIncomplete);
+    assert.equal(h.api.elements.deviceClearStatus.dataset.tone, 'error'); assert.equal(h.api.elements.clearDeviceData.disabled, false);
+  }
+});
+
+test('the privacy notice explains optional reminder retention and browser-only game records in both languages', () => {
+  for (const file of ['privacy.html', 'ar/privacy/index.html']) {
+    const html = read(file);
+    assert.match(html, /Optional Word Duel reminders/u); assert.match(html, /تذكيرات مبارزة الكلمات الاختيارية/u);
+    assert.match(html, /Notifications travel encrypted through your browser’s push service/u);
+    assert.match(html, /تمر الإشعارات مشفّرة/u);
+    assert.match(html, /are not account records, and do not sync between devices/u);
+    assert.match(html, /ليست سجلات حساب ولا تتزامن بين الأجهزة/u);
+  }
+});

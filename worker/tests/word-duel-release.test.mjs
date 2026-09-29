@@ -8,7 +8,8 @@ import { reminderSecrets, prepareReminderSecrets } from '../scripts/prepare-duel
 
 function fixture() {
   const pair = createECDH('prime256v1'); pair.generateKeys();
-  return { VAPID_PUBLIC_KEY: pair.getPublicKey().toString('base64url'), VAPID_PRIVATE_KEY: pair.getPrivateKey().toString('base64url'), VAPID_SUBJECT: 'https://riddlearabia.com/about' };
+  const scalar = Buffer.from(pair.getPrivateKey().toString('hex').padStart(64, '0'), 'hex');
+  return { VAPID_PUBLIC_KEY: pair.getPublicKey().toString('base64url'), VAPID_PRIVATE_KEY: scalar.toString('base64url'), VAPID_SUBJECT: 'https://riddlearabia.com/about' };
 }
 test('release requires a complete matching VAPID pair without revealing invalid inputs', () => {
   assert.deepEqual(reminderSecrets({}), {});

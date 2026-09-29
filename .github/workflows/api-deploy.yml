@@ -323,6 +323,12 @@ jobs:
             exit 1
           fi
           node scripts/autopilot-client.mjs authorize-release
+      - name: Prepare optional Word Duel reminder secrets
+        env:
+          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
+        run: node worker/scripts/prepare-duel-push-secrets.mjs "${{ runner.temp }}/word-duel-vapid.json"
       - name: Deploy compatibility or code-only final Worker
         id: deploy_compatibility
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
@@ -331,7 +337,10 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           wranglerVersion: "4.131.0"
-          command: deploy --strict --message "${{ steps.deployment_message.outputs.value }}" ${{ inputs.domain_cutover && '--var STATIC_ORIGIN:https://jakh.net' || '' }}
+          command: deploy --strict --message "${{ steps.deployment_message.outputs.value }}" ${{ inputs.domain_cutover && '--var STATIC_ORIGIN:https://jakh.net' || '' }} --secrets-file "${{ runner.temp }}/word-duel-vapid.json"
+      - name: Remove temporary Word Duel reminder secrets
+        if: ${{ always() }}
+        run: rm -f "${{ runner.temp }}/word-duel-vapid.json"
       - name: Verify compatibility Worker and unchanged D1
         id: verify_production
         env:
@@ -861,6 +870,12 @@ jobs:
             --allow-compatible-schema false \
             --require-safe true \
             --receipt "$RECEIPT_DIR/release-receipt.json"
+      - name: Prepare optional Word Duel reminder secrets
+        env:
+          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
+        run: node worker/scripts/prepare-duel-push-secrets.mjs "${{ runner.temp }}/word-duel-vapid.json"
       - name: Deploy final Worker
         id: deploy_final
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
@@ -869,7 +884,10 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker
           wranglerVersion: "4.131.0"
-          command: deploy --strict --message "JAKH final ${{ github.sha }} schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}" ${{ inputs.domain_cutover && '--var STATIC_ORIGIN:https://jakh.net' || '' }}
+          command: deploy --strict --message "JAKH final ${{ github.sha }} schema ${{ steps.preflight.outputs.target-schema }} run ${{ github.run_id }}" ${{ inputs.domain_cutover && '--var STATIC_ORIGIN:https://jakh.net' || '' }} --secrets-file "${{ runner.temp }}/word-duel-vapid.json"
+      - name: Remove temporary Word Duel reminder secrets
+        if: ${{ always() }}
+        run: rm -f "${{ runner.temp }}/word-duel-vapid.json"
       - name: Verify final production health
         id: verify_production
         env:

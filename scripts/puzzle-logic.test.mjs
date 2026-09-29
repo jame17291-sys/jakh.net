@@ -1,5 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { createSudokuProgress } from '../puzzle-daily.js';
+import { createProgressStore } from '../puzzle-catalog.js';
 import {
   createSudoku, solveSudoku, sudokuCandidates, isSudokuValid, isSudokuComplete,
   createDomino, dominoCells, dominoBoard, placeDomino, checkDominoRegions, isDominoComplete,
@@ -200,7 +202,7 @@ test('grid navigation stays within physical rows and supports RTL and Arabic dig
 
 // Event-level mount harness: exercises the real game handlers and saved state.
 // Layout, native touch targeting, and assistive-technology behavior remain browser QA.
-function logicHarness(game, {seed='interaction', lang='en', saved={}}={}) {
+function logicHarness(game, {seed='interaction', lang='en', saved={}, context={}}={}) {
   const previousDocument=globalThis.document;
   class Node {
     constructor(tag='div') { this.tagName=tag.toUpperCase(); this.children=[]; this.attrs={}; this.dataset={}; this.className=''; this.textContent=''; this.markup=''; this.root=this; this.listeners=new Map(); this.classList={add:name=>{this.className+=` ${name}`;},remove:name=>{this.className=this.className.split(' ').filter(v=>v!==name).join(' ');}}; }
@@ -232,11 +234,11 @@ function logicHarness(game, {seed='interaction', lang='en', saved={}}={}) {
     emit(type,target,extras={}) { const event={target,defaultPrevented:false,preventDefault(){this.defaultPrevented=true;},...extras};for(const handler of this.listeners.get(type)||[])handler(event);return event; }
   }
   globalThis.document={activeElement:null,createElement:tag=>new Node(tag)};
-  const root=new Node(), snapshots=[];
-  const cleanup=mount(root,{game,lang,seed,t:(en,ar)=>lang==='ar'?ar:en,load:()=>structuredClone(saved),save:value=>snapshots.push(structuredClone(value))});
+  const root=new Node(), snapshots=[], results=[];
+  const cleanup=mount(root,{game,lang,seed,t:(en,ar)=>lang==='ar'?ar:en,load:()=>structuredClone(saved),save:value=>snapshots.push(structuredClone(value)),reportResult:value=>results.push(structuredClone(value)),...context});
   function target(focus){const node=root.querySelector(`[data-focus="${focus}"]`);assert.ok(node,`missing focus target ${focus}`);return node;}
   return {
-    root,snapshots,
+    root,snapshots,results,
     get state(){return snapshots.at(-1);},get markup(){return root.children[0].innerHTML;},get status(){return root.children[1];},
     click(focus){const node=target(focus);assert.equal(node.disabled,false,`cannot click disabled ${focus}`);node.focus();return root.emit('click',node);},
     key(focus,key,extras={}){const node=target(focus);node.focus();return root.emit('keydown',node,{key,...extras});},
@@ -277,6 +279,37 @@ test('Sudoku checks expose incorrect cells accessibly and completion can be undo
   } finally {h.close();}
 });
 
+test('mounted Sudoku resumes each difficulty and a shared level without replacing another board', () => {
+  const seed='shared-level',base='ra-puzzles-v1:sudoku:en:2026-09-30:standard',data=new Map();
+  const store=createProgressStore(()=>({getItem:key=>data.get(key)??null,setItem:(key,value)=>data.set(key,value),removeItem:key=>data.delete(key)}));
+  let latest;
+  const open=requested=>{
+    const progress=createSudokuProgress(store,base,requested);
+    const save=state=>{progress.save(state);latest=structuredClone(state);};
+    const h=logicHarness('sudoku',{seed,context:{difficulty:progress.difficulty,load:()=>progress.read({}),loadDifficulty:level=>progress.select(level,{}),save,reportResult:save}});
+    return {h,progress};
+  };
+  let opened=open();
+  const medium=createSudoku(seed,'medium'),mediumCell=medium.givens.findIndex(n=>!n);
+  try {
+    opened.h.key(`s${mediumCell}`,String(medium.solution[mediumCell]));
+    const mediumSnapshot=structuredClone(latest);
+    opened.h.difficulty('hard');
+    const hard=createSudoku(seed,'hard'),hardCell=hard.givens.findIndex(n=>!n);
+    opened.h.click('notes');opened.h.key(`s${hardCell}`,'٧');
+    const hardSnapshot=structuredClone(latest);
+    assert.deepEqual(hardSnapshot.notes[hardCell],[7]);
+    opened.h.difficulty('medium');assert.deepEqual(latest,mediumSnapshot);
+    opened.h.difficulty('hard');assert.deepEqual(latest,hardSnapshot);
+    assert.match(opened.h.markup,/data-action="undo"[^>]*disabled/,'undo history cannot cross difficulty boundaries');
+    opened.h.difficulty('medium');opened.h.close();
+    opened=open('hard');assert.deepEqual(latest,hardSnapshot,'shared difficulty wins over the last-played base snapshot');
+    opened.progress.reset();opened.h.close();
+    opened=open('hard');assert.deepEqual(latest.values,hard.givens);assert.deepEqual(latest.notes,Array.from({length:81},()=>[]));
+    opened.h.difficulty('medium');assert.deepEqual(latest,mediumSnapshot,'resetting the shared hard board preserves medium progress');
+  } finally {opened.h.close();}
+});
+
 test('all logic mounts recover from malformed persisted schemas without crashing', () => {
   const corrupt=[null,1,true,'invalid',[],{version:1,values:Array(81).fill('1'),notes:null,placements:[null],tiles:Array(20).fill(null),score:'Infinity'}];
   for(const game of ['sudoku','domino','mosaic'])for(const saved of corrupt){
@@ -310,7 +343,9 @@ test('domino mount handles invalid placement, complete solve, removal and undo',
       h.click(`d${placement.cell}`);
     }
     assert.ok(isDominoComplete(puzzle,h.state.placements));assert.match(h.status.className,/pl-won/);
+    assert.equal(h.results.at(-1).completed,true,'the daily dashboard receives a verified win');
     h.click(`d${puzzle.solution[0].cell}`);assert.equal(h.state.placements.length,7);assert.doesNotMatch(h.status.className,/pl-won/);
+    assert.equal(h.results.at(-1).completed,false,'an undone solve is not shared as a current win');
     h.click('undo');assert.ok(isDominoComplete(puzzle,h.state.placements));
   } finally {h.close();}
 });
@@ -327,6 +362,7 @@ test('mosaic mount supports matching, undo, completion, saved resume and fresh r
       h.click(`m${pair[1]}`);tiles=h.state.tiles;selected=MOSAIC_LAYERS.every(layer=>tiles[pair[1]][layer]===null)?null:pair[1];
     }
     assert.match(h.status.className,/pl-won/);assert.ok(Number.isFinite(h.state.score));
+    assert.equal(h.results.at(-1).completed,true);
     const saved=h.state;h.close();
     const resumed=logicHarness('mosaic',{seed,saved});try{assert.match(resumed.status.className,/pl-won/);}finally{resumed.close();}
     const reset=logicHarness('mosaic',{seed});try{assert.doesNotMatch(reset.status.className,/pl-won/);assert.doesNotMatch(reset.markup,/pl-cleared/);}finally{reset.close();}

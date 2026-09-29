@@ -1,6 +1,8 @@
 import { ApiError, json, parseJson } from "./http.js";
 import { randomToken, sha256 } from "./security.js";
-import { DuelError, makeDeck, playAction, privateSnapshot, type DuelRoomState } from "./word-duel-rules.js";
+import { DuelError, makeDeck, VOCABULARY_VERSION, playAction, rematchAction, privateSnapshot, type DuelRoomState } from "./word-duel-rules.js";
+
+import { pushConfigured, pushReady, sendDuelPush, validateSubscription, type PushConfig } from "./word-duel-push.js";
 
 const TOKEN_PATTERN = /^[A-Za-z0-9_-]{43}$/u;
 export const WORD_DUEL_STORAGE_KEY = "word-duel-room";
@@ -16,7 +18,7 @@ export function cleanDuelName(input: unknown): string {
 export class WordDuelRoom {
   // Serialize full read/validate/write operations, including async token hashing.
   private queue: Promise<unknown> = Promise.resolve();
-  constructor(private readonly ctx: DurableObjectState) {}
+  constructor(private readonly ctx: DurableObjectState, private readonly config: PushConfig = {}) {}
   fetch(request: Request): Promise<Response> {
     const next = this.queue.then(() => this.handle(request)).catch((error: unknown) => {
       if (error instanceof DuelError || error instanceof ApiError) return json({ error: error.message, code: error.code }, error.status);
@@ -29,14 +31,42 @@ export class WordDuelRoom {
     const next = this.queue.then(async () => {
       const room = await this.ctx.storage.get<DuelRoomState>(WORD_DUEL_STORAGE_KEY);
       if (!room || room.expiresAt <= Date.now()) await this.ctx.storage.deleteAll();
-      else await this.ctx.storage.setAlarm(room.expiresAt);
+      else {
+        for (const [playerId, reminder] of Object.entries(room.reminders || {})) {
+          const pending = reminder.pending;
+          if (!pending || pending.nextAt > Date.now()) continue;
+          const current = pending.revision === room.revision && (pending.kind === "turn" ? room.phase === "playing" && room.players[room.turn]?.id === playerId : room.phase === "finished" && room.rematch?.status === "pending" && room.rematch.requestedBy !== playerId);
+          if (!current || pending.key === reminder.lastKey || !pushConfigured(this.config)) { delete reminder.pending; continue; }
+          let result: "sent" | "gone" | "retry" | "failed";
+          try { result = await sendDuelPush(this.config, reminder, room.code); } catch { result = "failed"; }
+          pending.attempts++;
+          if (result === "gone" || result === "failed") { delete room.reminders![playerId]; this.reminderChanged(room, playerId); }
+          else if (result === "retry" && pending.attempts < 3) pending.nextAt = Date.now() + (pending.attempts === 1 ? 30_000 : 120_000);
+          else { reminder.lastKey = pending.key; delete reminder.pending; }
+        }
+        await this.save(room);
+      }
     });
     this.queue = next.catch(() => undefined);
     await next;
   }
   private async save(room: DuelRoomState): Promise<void> {
     await this.ctx.storage.put(WORD_DUEL_STORAGE_KEY, room);
-    await this.ctx.storage.setAlarm(room.expiresAt);
+    const next = Math.min(room.expiresAt, ...Object.values(room.reminders || {}).flatMap(reminder => reminder.pending ? [reminder.pending.nextAt] : []));
+    await this.ctx.storage.setAlarm(next);
+  }
+  private reminderChanged(room: DuelRoomState, playerId: string): void { room.reminderVersions ||= {}; room.reminderVersions[playerId] = (room.reminderVersions[playerId] || 0) + 1; }
+  private queueReminder(room: DuelRoomState, actor: string, kind: "turn" | "rematch" = "turn"): void {
+    for (const [id, reminder] of Object.entries(room.reminders || {})) {
+      delete reminder.pending;
+      if (pushConfigured(this.config) && reminder.vapidKey && reminder.vapidKey !== this.config.VAPID_PUBLIC_KEY) { delete room.reminders![id]; this.reminderChanged(room, id); }
+    }
+    if (!pushConfigured(this.config)) return;
+    const playerId = kind === "turn" ? (room.phase === "playing" ? room.players[room.turn]?.id : null) : (room.rematch?.status === "pending" ? room.players.find(player => player.id !== actor)?.id : null);
+    if (!playerId || playerId === actor) return;
+    const reminder = room.reminders?.[playerId];
+    const key = `${room.matchNumber || 1}:${room.revision}:${kind}`;
+    if (reminder && reminder.lastKey !== key) reminder.pending = { key, revision: room.revision, kind, attempts: 0, nextAt: Date.now() + 1000 };
   }
   private async rateLimit(request: Request, now: number): Promise<void> {
     const key = request.headers.get("x-duel-client-key");
@@ -75,7 +105,7 @@ export class WordDuelRoom {
       if (!name || (body.lang !== "en" && body.lang !== "ar") || typeof body.code !== "string" || !/^[A-HJ-NP-Z2-9]{8}$/u.test(body.code)) throw new DuelError("INVALID_ROOM", "Enter a name and choose a language.");
       const deck = makeDeck(body.lang);
       room = {
-        kind: "word-duel", code: body.code, lang: body.lang, board: Array.from({ length: 81 }, () => null),
+        kind: "word-duel", vocabularyVersion: VOCABULARY_VERSION, matchNumber: 1, code: body.code, lang: body.lang, board: Array.from({ length: 81 }, () => null),
         players: [{ id: randomToken(12), name, tokenHash, rack: deck.racks[0]!, score: 0 }],
         // Reserve the other starter at the end; no client ever receives these letters.
         bag: [...deck.bag, ...deck.racks[1]!], phase: "waiting", turn: 0, revision: 0,
@@ -95,6 +125,7 @@ export class WordDuelRoom {
       player = { id: randomToken(12), name, tokenHash, rack: room.bag.splice(-7), score: 0 };
       room.players.push(player); room.phase = "playing"; room.revision++;
       room.expiresAt = now + 24 * 60 * 60_000;
+      this.queueReminder(room, player.id);
       await this.save(room);
       return json(privateSnapshot(room, player.id));
     }
@@ -102,6 +133,29 @@ export class WordDuelRoom {
     if (path === "/state") return json(privateSnapshot(room, player.id));
     if (path === "/action") {
       room = playAction(room, player.id, body, now);
+      this.queueReminder(room, player.id);
+      await this.save(room);
+      return json(privateSnapshot(room, player.id));
+    }
+    if (path === "/rematch") {
+      room = rematchAction(room, player.id, body, now);
+      this.queueReminder(room, player.id, room.phase === "finished" ? "rematch" : "turn");
+      await this.save(room);
+      return json(privateSnapshot(room, player.id));
+    }
+    if (path === "/reminders") {
+      if (body.enabled === false) { if (room.reminders) delete room.reminders[player.id]; }
+      else {
+        if (body.enabled !== true) throw new DuelError("INVALID_REMINDER", "Choose whether to enable turn reminders.");
+        if (!await pushReady(this.config)) throw new DuelError("PUSH_UNAVAILABLE", "Background reminders are not configured yet.", 503);
+        let subscription;
+        try { subscription = await validateSubscription(body.subscription); } catch { throw new DuelError("INVALID_REMINDER", "This browser's push subscription could not be verified."); }
+        // One subscription per private seat, at most two per room. Retries replace,
+        // never append; subscription secrets are excluded from every snapshot.
+        room.reminders ||= {};
+        room.reminders[player.id] = { subscription, vapidKey: this.config.VAPID_PUBLIC_KEY!, lang: body.lang === "ar" ? "ar" : "en" };
+      }
+      this.reminderChanged(room, player.id);
       await this.save(room);
       return json(privateSnapshot(room, player.id));
     }

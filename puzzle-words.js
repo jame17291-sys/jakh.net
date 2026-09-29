@@ -1,14 +1,25 @@
 import { WORD_BANKS, HIVES, LINK_SETS, TRAIL_SETS, LETTER_SQUARES } from './puzzle-word-data.js';
+import { normalizeArabicWord } from './puzzle-arabic-words.js';
 
 export { WORD_BANKS, HIVES, LINK_SETS, TRAIL_SETS, LETTER_SQUARES };
+export const WORD_KEYBOARD_ROWS = {
+  en: ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'],
+  ar: ['ضصثقفغعهخحج', 'شسيبلاتنمك', 'ظطذدزروةىءؤئ'],
+};
 export function normalizeWord(value, lang = 'en') {
   const word = (typeof value === 'string' ? value : '').normalize('NFKC').trim();
-  return lang === 'ar' ? word.replace(/[\u064B-\u065F\u0670\u0640]/g, '').replace(/[أإآٱ]/g, 'ا') : word.toUpperCase();
+  return lang === 'ar' ? normalizeArabicWord(word) : word.toUpperCase();
 }
 export function hashSeed(value) {
   let h = 2166136261;
   for (const c of String(value ?? 0)) h = Math.imul(h ^ c.codePointAt(0), 16777619);
   return h >>> 0;
+}
+// Edition 2 supplies a sequential day index. Legacy callers keep their original hash.
+export function puzzleBankIndex(context, length) {
+  if (!Number.isSafeInteger(length) || length < 1) throw new RangeError('A puzzle bank must contain at least one entry');
+  const index = Number.isSafeInteger(context.puzzleIndex) && context.puzzleIndex >= 0 ? context.puzzleIndex : hashSeed(context.seed);
+  return index % length;
 }
 export function shuffled(values, seed) {
   const result = [...values]; let n = hashSeed(seed);
@@ -144,6 +155,7 @@ function shell(root, c, title, instructions) {
 function acceptedList(parent, words, c) {
   const details = el('details', 'pw-word-list'); details.append(el('summary', '', c.t('Practice dictionary', 'قاموس التدريب')));
   paragraph(details, c.t('This original practice puzzle uses this finite word list. A real word outside this list will not be accepted.', 'يستخدم هذا اللغز الأصلي قائمة الكلمات المحدودة التالية. الكلمات الصحيحة خارج القائمة لا تُقبل في هذا التدريب.'));
+  if (c.lang === 'ar') paragraph(details, c.t('Vowel marks and tatweel are ignored; alef variants match ا. The letters ء, ؤ, ئ, ة/ه and ى/ي remain distinct. Only the listed MSA words and grammatical forms are accepted.', 'تُحذف الحركات والتطويل وتُوحّد أ، إ، آ، ٱ مع ا. تبقى ء، ؤ، ئ حروفًا متميزة، ولا تُساوى ة مع ه أو ى مع ي. تُقبل الصيغ العربية الفصحى المدرجة فقط، بما فيها بعض الجموع والتصريفات والضمائر المتصلة.'));
   paragraph(details, [...new Set(words)].sort().join(' · '), 'pw-bank'); parent.append(details);
 }
 function loadState(c, fallback) { try { const state = c.load(fallback); return state && typeof state === 'object' ? state : fallback; } catch { return fallback; } }
@@ -160,10 +172,10 @@ function mountWord(root, c) {
   const grid = el('div', 'pw-word-grid', null, { role: 'group', tabindex: '0', 'aria-label': c.t('Your guesses. Type letters, then press Enter.', 'محاولاتك. اكتب الحروف ثم اضغط إدخال.') }); stage.append(grid);
   const keyboard = el('div', 'pw-keyboard', null, { role: 'group', 'aria-label': c.t('Letter keyboard', 'لوحة الحروف') });
   const keyButtons = new Map();
-  const rows = lang === 'ar' ? ['ضصثقفغعهخحج', 'شسيبلاتنمك', 'ظطذدزروةىء'] : ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+  const rows = WORD_KEYBOARD_ROWS[lang];
   rows.forEach(row => { const line = el('div', 'pw-key-row'); [...row].forEach(letter => { const b = button(letter, () => type(letter), 'pw-key', { 'aria-label': letter }); line.append(b); keyButtons.set(letter, b); }); keyboard.append(line); });
   const actions = el('div', 'pw-actions'); actions.append(button(c.t('Enter', 'إرسال'), submit, 'pw-primary'), button(c.t('Delete', 'حذف'), () => { current = current.slice(0, -1); update(); })); keyboard.append(actions); stage.append(keyboard);
-  const remaining = paragraph(stage, '', 'pw-progress'); acceptedList(root, [...valid], c);
+  const remaining = paragraph(stage, '', 'pw-progress'); acceptedList(root, bank.words.filter(w => normalizeWord(w, lang).length === 5), c);
   function ended() { return guesses.includes(answer) || guesses.length >= limit; }
   function update() {
     grid.replaceChildren(); const marks = {};
@@ -191,7 +203,7 @@ function mountWord(root, c) {
 }
 
 function mountHive(root, c) {
-  const lang = c.lang === 'ar' ? 'ar' : 'en', puzzle = HIVES[lang][hashSeed(c.seed) % HIVES[lang].length];
+  const lang = c.lang === 'ar' ? 'ar' : 'en', puzzle = HIVES[lang][puzzleBankIndex(c, HIVES[lang].length)];
   let { found, current, shuffled: order } = restoreHiveState(loadState(c, {}), puzzle, lang);
   const { stage, say } = shell(root, c, c.t('A little hive of possibilities', 'خلية مليئة بالكلمات'), c.t('Build words of four or more letters using these seven letters. Always include the center letter. Letters can repeat. Four-letter words earn 1 point; longer words earn their length. Using every letter earns 7 extra points.', 'كوّن كلمات من ثلاثة أحرف على الأقل باستخدام حروف الخلية. يجب أن تحتوي كل كلمة على الحرف الأوسط، ويمكن تكرار الحروف. الكلمة الثلاثية بنقطة، والأطول بعدد أحرفها. استخدام كل الحروف يمنح ٧ نقاط إضافية.'));
   const progress = paragraph(stage, '', 'pw-progress'); const bar = el('progress', 'pw-progress-bar', null, { max: puzzle.words.length, value: found.length, 'aria-label': c.t('Words found', 'الكلمات المكتشفة') }); stage.append(bar);
@@ -214,7 +226,7 @@ function mountHive(root, c) {
 
 function mountLinks(root, c) {
   const lang = c.lang === 'ar' ? 'ar' : 'en', small = ['mini', '3x3'].includes(c.variant), size = small ? 3 : 4;
-  const source = LINK_SETS[lang][hashSeed(c.seed) % LINK_SETS[lang].length]; const groups = source.slice(0, size).map(g => ({ ...g, words: g.words.slice(0, size) }));
+  const source = LINK_SETS[lang][puzzleBankIndex(c, LINK_SETS[lang].length)]; const groups = source.slice(0, size).map(g => ({ ...g, words: g.words.slice(0, size) }));
   const words = groups.flatMap(g => g.words);
   let { solved, mistakes, selected, order } = restoreLinksState(loadState(c, {}), groups);
   const { stage, say } = shell(root, c, c.t('Find what belongs together', 'اكتشف الرابط المشترك'), c.t(`Find ${size} groups of ${size} words that share a connection. Select ${size}, then check the group. You have four mistakes. Solved groups stay together.`, `اكتشف ${size} مجموعات، في كل منها ${size} كلمات يجمعها رابط. حدد الكلمات ثم تحقّق من المجموعة. لديك أربع فرص للخطأ، وتبقى المجموعات الصحيحة مجمّعة.`));
@@ -234,7 +246,7 @@ function mountLinks(root, c) {
 }
 
 function mountTrails(root, c) {
-  const lang = c.lang === 'ar' ? 'ar' : 'en', source = TRAIL_SETS[lang][hashSeed(c.seed) % TRAIL_SETS[lang].length], puzzle = buildTrail(source, c.seed, lang);
+  const lang = c.lang === 'ar' ? 'ar' : 'en', source = TRAIL_SETS[lang][puzzleBankIndex(c, TRAIL_SETS[lang].length)], puzzle = buildTrail(source, c.seed, lang);
   let { found, extra, hintsUsed, hint, path } = restoreTrailState(loadState(c, {}), puzzle, lang);
   let pointer = null, dragging = false;
   const { stage, say } = shell(root, c, c.t('Follow the hidden words', 'اتبع خيوط الكلمات'), c.t('Find the words belonging to the theme. Tap adjacent letters, including diagonals, then submit; or drag through a word. Do not reuse a letter. Every square belongs to one answer. The theme phrase joins opposite edges. Three other dictionary words earn one hint.', 'اكتشف كلمات الموضوع. اضغط حروفًا متجاورة، حتى قطريًا، ثم أرسل الكلمة، أو اسحب بين الحروف. لا تكرر الخانة. كل خانة جزء من إجابة واحدة. عبارة الموضوع تصل بين حافتين متقابلتين. كل ثلاث كلمات إضافية في القاموس تمنحك تلميحًا.'));
@@ -279,7 +291,7 @@ function mountTrails(root, c) {
 }
 
 function mountSquare(root, c) {
-  const lang = c.lang === 'ar' ? 'ar' : 'en', puzzle = LETTER_SQUARES[lang][hashSeed(c.seed) % LETTER_SQUARES[lang].length];
+  const lang = c.lang === 'ar' ? 'ar' : 'en', puzzle = LETTER_SQUARES[lang][puzzleBankIndex(c, LETTER_SQUARES[lang].length)];
   let { chain, current } = restoreSquareState(loadState(c, {}), puzzle, lang);
   const { stage, say } = shell(root, c, c.t('A journey around twelve letters', 'رحلة بين اثني عشر حرفًا'), c.t('Use every letter in as few words as possible. Words need at least three letters. Consecutive letters must come from different sides. Each new word starts with the last letter of your previous word. Letters may be reused.', 'استخدم كل الحروف بأقل عدد من الكلمات. كل كلمة من ثلاثة أحرف على الأقل، ولا يجوز أن يأتي حرفان متتاليان من الجانب نفسه. تبدأ كل كلمة بآخر حرف من الكلمة السابقة، ويمكن إعادة استخدام الحروف.'));
   const progress = paragraph(stage, '', 'pw-progress'); const square = el('div', 'pw-square', null, { role: 'group', 'aria-label': c.t('Letters on four sides', 'حروف على أربعة جوانب') }); square.dir = 'ltr'; const middle = el('div', 'pw-square-middle'); square.append(middle); stage.append(square);

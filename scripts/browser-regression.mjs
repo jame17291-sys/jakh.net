@@ -7,6 +7,9 @@ import { chromium, firefox, webkit } from "playwright";
 import { startBrowserSite } from "./local-browser-site.mjs";
 import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
 import { AKSHIFHA_UI } from "../akshifha-copy.js";
+import { dayKey } from "../puzzle-catalog.js";
+import { dailyIndex } from "../puzzle-daily.js";
+import { LETTER_SQUARES } from "../puzzle-word-data.js";
 
 const BROWSER_ENGINES = Object.freeze({ chromium, firefox, webkit });
 const BROWSER_ENGINE = String(process.env.JAKH_BROWSER_ENGINE || "chromium").toLowerCase();
@@ -384,6 +387,61 @@ async function main() {
   const browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
 
   try {
+    await runTest("bilingual puzzles load on phones, retain daily results and share the exact Sudoku level", async () => {
+      const context = await createContext(browser, { viewport: { width: 430, height: 932 }, serviceWorkers: "block" });
+      const page = await context.newPage(), assertNoPageErrors = trackPageErrors(page);
+      const ready = async () => {
+        await page.locator('#puzzle-title').waitFor({ state: 'visible' });
+        await page.waitForFunction(() => document.querySelector('#puzzle-mount')?.children.length > 0 && !document.querySelector('#puzzle-mount .puzzle-loading'));
+        assert.doesNotMatch(await page.locator('#puzzle-mount').innerText(), /could not load|تعذّر تحميل/u);
+      };
+      try {
+        await mockApi(context);
+        await setCurrentDeniedConsent(context);
+        for (const language of ['en', 'ar']) for (const game of ['word', 'hive', 'links', 'trails', 'letter-square', 'sudoku', 'domino', 'mosaic', 'mini', 'midi', 'crossword', 'duel', 'bonus']) {
+          await page.goto(`${baseUrl}${language === 'ar' ? '/ar/play/' : '/play'}?game=${game}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await ready();
+          assert.equal(await page.locator('#puzzle-share').isVisible(), !['duel', 'bonus'].includes(game));
+          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}/${game} mobile overflow`);
+        }
+        await page.goto(`${baseUrl}/ar/play/?game=letter-square`, { waitUntil: NAVIGATION_READY_EVENT });
+        await ready();
+        const date = dayKey(), puzzle = LETTER_SQUARES.ar[dailyIndex(date, 'letter-square')];
+        for (const word of puzzle.solution) {
+          await page.getByRole('textbox', { name: 'كلمتك التالية', exact: true }).fill(word);
+          await page.getByRole('button', { name: 'أضف الكلمة', exact: true }).click();
+        }
+        await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
+        const shared = new URL(await page.locator('#puzzle-share-whatsapp').getAttribute('href')).searchParams.get('text');
+        const challenge = new URL('/ar/play/', baseUrl);
+        challenge.searchParams.set('game', 'letter-square');
+        challenge.searchParams.set('date', date);
+        challenge.searchParams.set('edition', '2');
+        // Short Arabic answers may also occur in ordinary headings. An exact
+        // payload contract rejects every extra answer field without substring collisions.
+        assert.deepEqual(shared.split('\n'), [
+          'ريدل أرابيا', `مربّع الحروف · ${date}`, '✓ تم الحل',
+          `${puzzle.solution.length} كلمات`, 'جرّب اللغز نفسه:', challenge.href,
+        ], 'completed sharing contains only the title, date, result, word count and challenge URL');
+        await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
+        await ready();
+        await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
+        await page.getByRole('link', { name: 'العودة إلى جميع الألعاب', exact: true }).click();
+        await page.locator('#puzzle-daily-completed').waitFor({ state: 'visible' });
+        assert.equal(await page.locator('#puzzle-daily-completed').innerText(), '1 / 11');
+        assert.equal(await page.locator('#puzzle-daily-streak').innerText(), '1');
+        await page.goto(`${baseUrl}/play?game=sudoku&difficulty=hard`, { waitUntil: NAVIGATION_READY_EVENT });
+        await ready();
+        assert.equal(await page.locator('[data-action="difficulty"]').inputValue(), 'hard');
+        const hard = await page.locator('.pl-sudoku-cell').allTextContents();
+        await page.locator('[data-action="difficulty"]').selectOption('easy');
+        assert.notDeepEqual(await page.locator('.pl-sudoku-cell').allTextContents(), hard);
+        assert.match(new URL(await page.locator('#puzzle-share-whatsapp').getAttribute('href')).searchParams.get('text'), /difficulty=easy/u);
+        await page.locator('[data-action="difficulty"]').selectOption('hard');
+        assert.deepEqual(await page.locator('.pl-sudoku-cell').allTextContents(), hard);
+        assertNoPageErrors();
+      } finally { await context.close(); }
+    });
     await runTest("lightweight hubs share responsive navigation without unrelated downloads", async () => {
       for (const width of [320, 768, 1024, 1280]) {
         const context = await createContext(browser, {
@@ -1214,7 +1272,7 @@ async function main() {
       }
     });
 
-    console.log(`Browser regression passed: 12 suites on ${BROWSER_ENGINE}.`);
+    console.log(`Browser regression passed: 13 suites on ${BROWSER_ENGINE}.`);
   } finally {
     await browser.close();
     await server.close();

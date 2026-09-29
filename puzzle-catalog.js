@@ -31,6 +31,7 @@ export function createProgressStore(storageProvider, onUnavailable=()=>{}) {
  const memory=new Map();
  const clone=value=>structuredClone(value);
  return {
+  invalidate(key) { memory.delete(key); },
   read(key) {
    if(memory.has(key))return clone(memory.get(key));
    let text;

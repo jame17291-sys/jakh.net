@@ -5,24 +5,28 @@ import type { Env } from "./types.js";
 import { vocabulary, VOCABULARY_VERSION } from "./word-duel-rules.js";
 import { cleanDuelName } from "./word-duel-room.js";
 
+import { pushReady } from "./word-duel-push.js";
+
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 export async function routeWordDuel(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   if (url.pathname === "/api/word-duel/vocabulary" && request.method === "GET") {
     const lang = url.searchParams.get("lang") === "ar" ? "ar" : "en";
-    return json({ lang, version: VOCABULARY_VERSION, words: vocabulary(lang) });
+    const version = url.searchParams.get("version") === "1" ? 1 : VOCABULARY_VERSION;
+    return json({ lang, version, words: vocabulary(lang, version) });
   }
+  if (url.pathname === "/api/word-duel/push-config" && request.method === "GET") { const enabled = await pushReady(env); return json({ enabled, publicKey: enabled ? env.VAPID_PUBLIC_KEY : null }); }
   if (request.method !== "POST") throw new ApiError(405, "Use POST.", undefined, "METHOD_NOT_ALLOWED");
   if (!env.BATTLE_ROOMS) throw new ApiError(503, "Online Word Duel is temporarily unavailable. Please try again later.", undefined, "DUEL_UNAVAILABLE");
   const path = url.pathname;
-  const match = /^\/api\/word-duel\/([A-HJ-NP-Z2-9]{8})\/(join|state|action)$/u.exec(path);
+  const match = /^\/api\/word-duel\/([A-HJ-NP-Z2-9]{8})\/(join|state|action|rematch|reminders)$/u.exec(path);
   if (path !== "/api/word-duel/create" && !match) throw new ApiError(404, "Not found", undefined, "NOT_FOUND");
   const networkHash = await sha256(`${env.IP_HASH_SALT}:word-duel:${clientIp(request)}`);
   if (path === "/api/word-duel/create") await enforceRateLimit(env, `${networkHash}:create`, 12, 3600);
   if (match?.[2] === "join") await enforceRateLimit(env, `${networkHash}:join`, 30, 60);
   // Limit unknown-room probes before allocating a Durable Object. Normal polling
   // uses 15 requests per minute per browser; this also permits shared networks.
-  if (match?.[2] === "state" || match?.[2] === "action") await enforceRateLimit(env, `${networkHash}:play`, 120, 60);
+  if (match && match[2] !== "join") await enforceRateLimit(env, `${networkHash}:play`, 120, 60);
   const body = await parseJson<Record<string, unknown>>(request, 4096);
   const headers = { "content-type": "application/json", "x-duel-client-key": networkHash };
   if (path === "/api/word-duel/create") {

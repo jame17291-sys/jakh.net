@@ -1,3 +1,4 @@
+import type { Env } from "./types.js";
 import type { BattlePlayer, BattleQuestion, BattleRoomState } from "./types.js";
 import { isPublicCard } from "./catalog.js";
 import { isQuarantinedCategory } from "./content-safety.js";
@@ -55,10 +56,10 @@ function isPublicRoom(room: BattleRoomState): boolean {
 
 export class BattleRoom implements DurableObject {
   private wordDuel?: WordDuelRoom;
-  constructor(private readonly ctx: DurableObjectState) {}
+  constructor(private readonly ctx: DurableObjectState, private readonly env: Partial<Env> = {}) {}
 
   private duelRoom(): WordDuelRoom {
-    return this.wordDuel ||= new WordDuelRoom(this.ctx);
+    return this.wordDuel ||= new WordDuelRoom(this.ctx, this.env);
   }
 
   async fetch(request: Request): Promise<Response> {

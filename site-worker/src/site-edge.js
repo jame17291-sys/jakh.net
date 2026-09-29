@@ -3,6 +3,7 @@ import {
   normalizeRetiredSeoRoute,
   RETIRED_SEO_ROUTE_REDIRECTS,
 } from "./seo-route-migrations.js";
+import { legacyPuzzleTarget, isPuzzleStateURL } from "../../puzzle-routes.js";
 
 const APEX_HOST = "riddlearabia.com";
 const WWW_HOST = "www.riddlearabia.com";
@@ -218,6 +219,7 @@ export function applySiteHeaders(response, {
   pathname,
   record = null,
   cacheControl,
+  requestUrl,
 } = {}) {
   const headers = new Headers(response.headers);
   headers.set("strict-transport-security", "max-age=31536000; includeSubDomains");
@@ -241,6 +243,13 @@ export function applySiteHeaders(response, {
   );
   const etag = weakEtag(record);
   if (etag && response.status >= 200 && response.status < 300) headers.set("etag", etag);
+  // Query state is playable and shareable, but it is not a separate public
+  // search destination. Do not let its headers enter a clean-page offline cache.
+  if (requestUrl && isPuzzleStateURL(requestUrl)) {
+    headers.set("x-robots-tag", "noindex, follow");
+    headers.set("cache-control", NO_STORE);
+  }
+  if (record && /^\/google[0-9a-f]{16}\.html$/u.test(pathname)) headers.set("x-robots-tag", "noindex");
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -323,6 +332,8 @@ export function canonicalRedirect(siteManifest, requestUrl) {
     target.pathname = aliasTarget;
     changed = true;
   }
+  const puzzleTarget = legacyPuzzleTarget(target);
+  if (puzzleTarget && siteManifest.routes[puzzleTarget.pathname]) return puzzleTarget;
   return changed ? target : null;
 }
 
@@ -469,6 +480,7 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
           siteManifest,
           pathname: url.pathname,
           record: served.record,
+          requestUrl: url,
           cacheControl: compatibilitySource ? NO_STORE : cachePolicy({
             pathname: served.path,
             status: 304,
@@ -493,6 +505,7 @@ export function createSiteHandler({ siteManifest, mtaStsPolicy }) {
           siteManifest,
           pathname: url.pathname,
           record: served.record,
+          requestUrl: url,
           cacheControl: compatibilitySource ? NO_STORE : undefined,
         });
         if (compatibilitySource) withPolicy.headers.set("x-jakh-compatibility-fallback", compatibilitySource);

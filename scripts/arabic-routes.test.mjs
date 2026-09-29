@@ -4,6 +4,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import vm from "node:vm";
 
 import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
 
@@ -59,6 +60,87 @@ function read(relativePath) {
 
 function escapeRegex(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+}
+
+function decodeHtml(value) {
+  return value.replace(/&(?:amp|quot|apos|lt|gt|#39|#x[\da-f]+|#\d+);/giu, (entity) => {
+    const named = { "&amp;": "&", "&quot;": '"', "&apos;": "'", "&lt;": "<", "&gt;": ">", "&#39;": "'" };
+    if (named[entity.toLowerCase()]) return named[entity.toLowerCase()];
+    return String.fromCodePoint(entity.toLowerCase().startsWith("&#x")
+      ? parseInt(entity.slice(3, -1), 16) : parseInt(entity.slice(2, -1), 10));
+  });
+}
+
+function structuredNodes(html) {
+  const nodes = [];
+  const visit = (value) => {
+    if (Array.isArray(value)) value.forEach(visit);
+    else if (value && typeof value === "object") {
+      if (value["@type"]) nodes.push(value);
+      Object.values(value).forEach(visit);
+    }
+  };
+  for (const script of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/giu)) {
+    visit(JSON.parse(script[1]));
+  }
+  return nodes;
+}
+
+test("all ten Arabic classic-game schemas describe their own localized page", () => {
+  for (const slug of GAME_SLUGS.filter((value) => value !== "akshifha")) {
+    const file = `ar/games/${slug}/index.html`;
+    const html = read(file);
+    const games = structuredNodes(html).filter((node) => [node["@type"]].flat().includes("VideoGame"));
+    assert.equal(games.length, 1, `${file}: one game schema`);
+    const game = games[0];
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/u)?.[1];
+    const description = html.match(/<meta name="description" content="([^"]+)"/u)?.[1];
+    assert.equal(canonical, `https://riddlearabia.com/ar/games/${slug}/`, `${file}: self canonical`);
+    assert.equal(game.url, canonical, `${file}: schema must not point to the English game`);
+    assert.equal(game.inLanguage, "ar", `${file}: Arabic schema language`);
+    assert.match(game.name, /[\u0600-\u06ff]{2}/u, `${file}: localized game name`);
+    assert.match(game.description, /[\u0600-\u06ff]{4}/u, `${file}: localized game description`);
+    assert.equal(game.description, decodeHtml(description || ""), `${file}: schema matches the public description`);
+    const englishGame = structuredNodes(read(`${slug}.html`)).find((node) => [node["@type"]].flat().includes("VideoGame"));
+    assert.notEqual(game.name, englishGame?.name, `${file}: English name must not leak into Arabic schema`);
+  }
+});
+
+for (const [lang, file] of [["en", "play.html"], ["ar", "ar/play/index.html"]]) {
+  test(`${lang} Play runtime preserves the current static title and search/social descriptions`, () => {
+    const html = read(file);
+    const title = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/u)?.[1] || "");
+    const description = decodeHtml(html.match(/<meta name="description" content="([^"]+)"/u)?.[1] || "");
+    assert.ok(title && description, `${file}: static metadata is present`);
+    const metadata = new Map();
+    for (const tag of html.matchAll(/<meta\b[^>]*>/giu)) {
+      const kind = tag[0].match(/\b(name|property)="([^"]+)"/u);
+      if (kind) metadata.set(`meta[${kind[1]}="${kind[2]}"]`, "Stale metadata before runtime");
+    }
+    const document = {
+      title: "Stale title before runtime",
+      querySelector(selector) {
+        return metadata.has(selector) ? { setAttribute: (attribute, value) => {
+          assert.equal(attribute, "content");
+          metadata.set(selector, value);
+        } } : null;
+      },
+    };
+    const app = read("app.js");
+    const start = app.indexOf("function updateDocumentTitle(");
+    const end = app.indexOf("\n}", start);
+    assert.ok(start >= 0 && end > start, "document metadata updater exists");
+    vm.runInNewContext(`${app.slice(start, end + 2)}\nupdateDocumentTitle();`, {
+      document, state: { page: "play", lang },
+    }, { timeout: 1_000 });
+    assert.equal(document.title, title, `${file}: runtime must not restore an obsolete title`);
+    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+      assert.equal(metadata.get(selector), title, `${file}: ${selector}`);
+    }
+    for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+      assert.equal(metadata.get(selector), description, `${file}: ${selector}`);
+    }
+  });
 }
 
 test("Arabic route generator is deterministic and current", () => {

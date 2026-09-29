@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
-import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
+import { RIDDLE_ARABIA_PUZZLE_CATALOG, RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
@@ -254,6 +254,7 @@ const appPages = [
   ...categoryPagePairs.flatMap((pair) => [pair.en, pair.ar]),
 ];
 const sharedPagePairs = [
+  ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ en: `${game.slug}.html`, ar: `${game.paths.ar.slice(1)}index.html`, enPath: game.paths.en, arPath: game.paths.ar, runtime: "puzzle-room.js" })),
   { en: "index.html", ar: "ar/index.html", enPath: "/", arPath: "/ar/", runtime: null },
   { en: "play.html", ar: "ar/play/index.html", enPath: "/play", arPath: "/ar/play/", runtime: null },
   { en: "mind-lab.html", ar: "ar/mind-lab/index.html", enPath: "/mind-lab", arPath: "/ar/mind-lab/", runtime: "app.js" },

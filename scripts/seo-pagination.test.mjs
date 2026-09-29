@@ -8,6 +8,7 @@ import {
   RETIRED_LEGACY_SEO_DIRECTORIES,
   PRESERVED_GAME_SLUGS,
   RIDDLE_ARABIA_GAME_CATALOG,
+  RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
 
@@ -152,9 +153,9 @@ test("the public SEO surface is eight original bilingual Riddle Arabia experienc
         const collection = nodes.find((node) => hasType(node, "CollectionPage"));
         const games = nodes.find((node) => hasType(node, "ItemList"));
         assert.equal(collection?.url, canonical, `${relative}: self-canonical games collection`);
-        assert.equal(games?.numberOfItems, RIDDLE_ARABIA_GAME_CATALOG.length, `${relative}: complete game list`);
-        for (const game of RIDDLE_ARABIA_GAME_CATALOG) {
-          const href = lang === "ar" ? `/ar/games/${game.slug}/` : `/${game.slug}`;
+        assert.equal(games?.numberOfItems, RIDDLE_ARABIA_GAME_CATALOG.length + RIDDLE_ARABIA_PUZZLE_CATALOG.length, `${relative}: complete game list`);
+        for (const game of [...RIDDLE_ARABIA_PUZZLE_CATALOG, ...RIDDLE_ARABIA_GAME_CATALOG]) {
+          const href = game.paths?.[lang] || (lang === "ar" ? `/ar/games/${game.slug}/` : `/${game.slug}`);
           assert.match(source, new RegExp(`href="${escapeRegex(href)}"`, "u"), `${relative}: links ${game.slug}`);
         }
         continue;
@@ -289,6 +290,7 @@ test("the sitemap is exactly the compact indexable architecture", () => {
     ["/privacy", "/ar/privacy/"],
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => [page.paths.en, page.paths.ar]),
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => [`/${game.slug}`, `/ar/games/${game.slug}/`]),
+    ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => [game.paths.en, game.paths.ar]),
     ...PRESERVED_GAME_SLUGS.map((slug) => [`/${slug}`, `/ar/games/${slug}/`]),
   ];
   const entries = sitemapEntries();

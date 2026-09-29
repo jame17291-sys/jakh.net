@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   assertPublicSeoReleaseSafety,
+  isGoogleVerificationAsset,
   isRetiredPublicSeoArtifactPath,
 } from "./public-seo-release-contract.mjs";
 
@@ -72,5 +73,17 @@ test("legacy hosts, copy, and assets fail the final artifact scan", () => {
       /legacy jakh\.net public host|legacy JAKH public copy|retired public brand asset/u,
       path,
     );
+  }
+});
+
+
+test("Google ownership proof is exempt only when its exact file payload matches", () => {
+  const name = "google0123456789abcdef.html";
+  const proof = `google-site-verification: ${name}`;
+  assert.equal(isGoogleVerificationAsset(name, proof), true);
+  assert.doesNotThrow(() => assertPublicSeoReleaseSafety(completeArtifact({ [name]: proof }), { requireMetadata: true }));
+  for (const [filename, payload] of [[name, "<!doctype html><h1>Unvalidated page</h1>"], ["page.html", proof], [name, `${proof}<script>alert(1)</script>`]]) {
+    assert.equal(isGoogleVerificationAsset(filename, payload), false);
+    assert.throws(() => assertPublicSeoReleaseSafety(completeArtifact({ [filename]: payload }), { requireMetadata: true }), /canonical/);
   }
 });

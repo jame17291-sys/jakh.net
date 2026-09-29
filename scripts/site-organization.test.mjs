@@ -88,7 +88,7 @@ test('static home, games hub, and editorial pages do not load the question appli
   assert.doesNotMatch(navigation, /\bfetch\s*\(|\bimport\s*\(|XMLHttpRequest|new\s+WebSocket/u);
 });
 
-function runNavigation({ pathname, bodyClasses = [], dataPage = '', search = '', hash = '', alternate = 'https://riddlearabia.com/ar/mind-lab/' }) {
+function runNavigation({ pathname, bodyClasses = [], dataPage = '', puzzlePage = '', search = '', hash = '', alternate = 'https://riddlearabia.com/ar/mind-lab/' }) {
   const links = ['home', 'library', 'games', 'daily'].map((key) => ({
     dataset: { nav: key },
     attributes: { 'aria-current': 'page' },
@@ -105,6 +105,7 @@ function runNavigation({ pathname, bodyClasses = [], dataPage = '', search = '',
   const location = { pathname, search, hash, replace: (url) => { location.redirect = url; } };
   const document = {
     body: {
+      hasAttribute: name => name === 'data-puzzle-page' && Boolean(puzzlePage),
       matches: (selectors) => selectors.split(',').some((selector) => {
         const value = selector.trim();
         if (value.startsWith('.')) return bodyClasses.includes(value.slice(1));
@@ -162,6 +163,20 @@ test('language links preserve the selected activity without copying unrelated qu
   assert.equal(refreshed.searchParams.get('case'), 'another-case');
   assert.equal(refreshed.searchParams.get('mode'), 'daily');
   assert.equal(refreshed.searchParams.has('card'), false, 'the language link must not retain a previously selected card');
+});
+
+test('clean puzzle language links keep date and difficulty without copying conflicting identity or private seat data', () => {
+  const { active, language, location } = runNavigation({
+    pathname:'/sudoku', puzzlePage:'sudoku', alternate:'https://riddlearabia.com/ar/games/sudoku/',
+    search:'?game=word&date=2026-09-30&edition=2&difficulty=hard&token=PRIVATE&answer=SPOILER',
+  });
+  assert.deepEqual(active,['games']);
+  const target=new URL(language.href);
+  assert.equal(target.pathname,'/ar/games/sudoku/');
+  assert.deepEqual(Object.fromEntries(target.searchParams),{date:'2026-09-30',edition:'2',difficulty:'hard'});
+  location.search='?date=2026-09-29&edition=2&difficulty=easy';language.listeners.click();
+  assert.equal(new URL(language.href).searchParams.get('date'),'2026-09-29');
+  assert.equal(new URL(language.href).searchParams.get('difficulty'),'easy');
 });
 
 test('legacy home invitation and daily URLs reach the new dedicated destinations', () => {

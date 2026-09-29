@@ -69,7 +69,8 @@ function hasNoStore(response) {
 }
 
 function isCacheableResponse(response, pathname) {
-  if (!response || response.status !== 200 || response.type !== 'basic' || hasNoStore(response)) {
+  if (!response || response.status !== 200 || response.type !== 'basic' || hasNoStore(response)
+    || /(?:^|[,\s])noindex(?:$|[,\s])/iu.test(response.headers.get('x-robots-tag') || '')) {
     return false;
   }
   const contentType = (response.headers.get('content-type') || '')
@@ -77,6 +78,13 @@ function isCacheableResponse(response, pathname) {
     .trim()
     .toLowerCase();
   return expectedContentTypes(pathname).includes(contentType);
+}
+
+function navigationResponseMatches(request, response) {
+  if (!response.url) return true;
+  const initial = new URL(request.url), final = new URL(response.url);
+  return initial.origin === final.origin
+    && normalizeNavigationPath(initial.pathname) === normalizeNavigationPath(final.pathname);
 }
 
 function normalizeNavigationPath(pathname) {
@@ -286,7 +294,7 @@ self.addEventListener('fetch', (event) => {
       const cache = await caches.open(NAVIGATION_CACHE);
       try {
         const response = await fetch(request);
-        await cacheResponse(
+        if (navigationResponseMatches(request, response)) await cacheResponse(
           cache,
           cacheKey,
           response,

@@ -62,19 +62,28 @@ test('authorized admin entry joins the shared utilities and is removed when acce
   assert.equal(links.size, 0);
 });
 
-test('runtime metadata preserves the Riddles & Quizzes destination name in both languages', () => {
-  for (const lang of ['en', 'ar']) {
-    const metadata = new Map();
-    const context = load(vm.createContext({
-      state: { page: 'home', lang },
-      sharedLanguageRoute: () => ({ en: '/mind-lab' }),
-      document: { querySelector: selector => ({ setAttribute: (_name, value) => metadata.set(selector, value) }) },
-    }), ['updateDocumentTitle']);
-    context.updateDocumentTitle();
-    assert.match(context.document.title, lang === 'ar' ? /^ألغاز واختبارات:/u : /^Riddles & Quizzes:/u);
-    assert.doesNotMatch(context.document.title, /Mind Lab|مختبر/u);
-    assert.equal(metadata.get('meta[property="og:title"]'), context.document.title);
-    assert.equal(metadata.get('meta[name="twitter:title"]'), context.document.title);
+test('runtime titles and descriptions preserve static SEO metadata in both languages', () => {
+  for (const [page, route, english, arabic] of [
+    ['home', '/', 'index.html', 'ar/index.html'],
+    ['home', '/mind-lab', 'mind-lab.html', 'ar/mind-lab/index.html'],
+    ['play', '/play', 'play.html', 'ar/play/index.html'],
+  ]) {
+    for (const lang of ['en', 'ar']) {
+      const source = readFileSync(new URL(`../${lang === 'ar' ? arabic : english}`, import.meta.url), 'utf8');
+      const decode = value => value.replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#x27;', "'").replaceAll('&#39;', "'");
+      const title = decode(source.match(/<title>(.*?)<\/title>/u)[1]);
+      const description = decode(source.match(/<meta name="description" content="([^"]+)"/u)[1]);
+      const metadata = new Map();
+      const context = load(vm.createContext({
+        state: { page, lang },
+        sharedLanguageRoute: () => ({ en: route }),
+        document: { querySelector: selector => ({ setAttribute: (_name, value) => metadata.set(selector, value) }) },
+      }), ['updateDocumentTitle']);
+      context.updateDocumentTitle();
+      assert.equal(context.document.title, title, `${route} ${lang}: title survives hydration`);
+      for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) assert.equal(metadata.get(selector), title);
+      for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) assert.equal(metadata.get(selector), description);
+    }
   }
 });
 

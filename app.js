@@ -237,10 +237,12 @@ const UI = {
     homeDailyCta: "Open Daily Challenge",
     homeDailyText: "One question from the library, selected daily. Guess first, then check your answer.",
     homeDailyTitle: "A little challenge, every day",
+    homeCollectionTriviaTitle: "Arabic trivia & general knowledge",
+    homeCollectionTriviaMeta: "Try eight questions in Arabic or English",
     homeGameText: "Connect clues in Akshifha, play a classic, or challenge friends.",
-    homeGameTitle: "Play a game",
-    homeQuizText: "Browse 51 topics, from science and history to culture and logic.",
-    homeQuizTitle: "Explore a topic",
+    homeGameTitle: "Play free Arabic games",
+    homeQuizText: "Browse trivia in Arabic and English across 51 topics, from science and history to culture and logic.",
+    homeQuizTitle: "Explore trivia & quizzes",
     homeSolveText: "Start with eight short clues. Reveal each answer when you’re ready.",
     homeSolveTitle: "Solve a riddle",
     brandSubtitle: 'bilingual topics, saved progress, and live Battle Rooms',
@@ -249,12 +251,12 @@ const UI = {
     authOpen: 'Sign in',
     language: 'Language',
     homeEyebrow: "ARABIC & ENGLISH · FREE TO EXPLORE",
-    homeTitle: "Find your next good question. Think on your own, share a challenge, or settle in for a game.",
+    homeTitle: "Solve riddles with answers, explore Arabic trivia, or play free games online. Choose Arabic or English and share the challenge with friends.",
     homeText: 'Choose a category, tap a card to reveal the answer, then mark it right or wrong. Free forever, no app needed.',
     browseCategories: 'Start a riddle',
     homeSpacetoonCta: 'Browse riddles',
     homeAkshifhaCta: 'Connect the clues',
-    homeCaseTitle: "Riddles, quizzes & games.",
+    homeCaseTitle: "Arabic riddles, trivia & games.",
     homeCaseMeta: "No account needed to begin. Choose your own pace.",
     homeClueEyebrow: 'Your first piece of evidence',
     homeClueTitle: 'The rehearsal log',
@@ -266,10 +268,10 @@ const UI = {
     statQuestions: 'Questions',
     statLanguages: 'Languages',
     mindHeroEyebrow: "Choose a topic or a short collection",
-    mindHeroTitle: "Riddles & Quizzes",
-    mindHeroSubtitle: "Find a topic, choose a question, and reveal the answer at your own pace.",
-    playHeroTitle: "Games",
-    playHeroSubtitle: "Choose a mystery, a board game, or a challenge with friends. Every game is free.",
+    mindHeroTitle: "Riddles, trivia & quizzes",
+    mindHeroSubtitle: "Find Arabic and English trivia by topic, choose a riddle or quiz, and reveal each answer at your own pace.",
+    playHeroTitle: "Free Arabic games online",
+    playHeroSubtitle: "Play in Arabic or English: solve a mystery, try a board game, or challenge friends with trivia. Every game is free.",
     playHeroGames: 'Pilot cases',
     playAvailable: "Mysteries & deduction",
     playPick: 'Akshifha — spot the contradiction',
@@ -350,7 +352,7 @@ const UI = {
     portalGamesCta: 'Explore the casebook →',
     homeCollectionsEyebrow: 'Quick ways to begin',
     homeCollectionsTitle: 'Start with a collection that fits your mood',
-    homeCollectionsText: 'Begin with an Arabic riddle, a nostalgia challenge, or a question that gives you a new lens on the region.',
+    homeCollectionsText: "Begin with Arabic riddles, general knowledge trivia, a nostalgia challenge, or a history quiz about the region.",
     homeCollectionsCta: 'Explore all paths',
     homeCollectionArabicTitle: 'Arabic riddles in two languages',
     homeCollectionArabicMeta: 'Read one clue in Arabic and English',
@@ -640,10 +642,12 @@ const UI = {
     homeDailyCta: "افتح التحدي اليومي",
     homeDailyText: "سؤال من المكتبة يُختار يوميًا. حاول أولًا ثم تحقّق من إجابتك.",
     homeDailyTitle: "تحدٍ صغير كل يوم",
+    homeCollectionTriviaTitle: "أسئلة معلومات عامة مع الإجابات",
+    homeCollectionTriviaMeta: "جرّب ثمانية أسئلة بالعربية أو الإنجليزية",
     homeGameText: "اربط الأدلة في اكشفها، أو العب لعبة كلاسيكية، أو تحدَّ الأصدقاء.",
-    homeGameTitle: "العب لعبة",
-    homeQuizText: "تصفّح 51 موضوعًا، من العلوم والتاريخ إلى الثقافة والمنطق.",
-    homeQuizTitle: "استكشف موضوعًا",
+    homeGameTitle: "العب ألعاباً عربية مجانية",
+    homeQuizText: "تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق.",
+    homeQuizTitle: "استكشف الأسئلة الثقافية",
     homeSolveText: "ابدأ بثمانية ألغاز قصيرة، واعرض الإجابة عندما تكون مستعدًا.",
     homeSolveTitle: "حلّ لغزًا",
     brandSubtitle: 'أسئلة بالعربية والإنجليزية، وتقدّم محفوظ، وغرف لعب مباشرة',
@@ -652,12 +656,12 @@ const UI = {
     authOpen: 'تسجيل الدخول',
     language: 'اللغة',
     homeEyebrow: "بالعربية والإنجليزية · استكشاف مجاني",
-    homeTitle: "اكتشف سؤالك القادم. فكّر بمفردك، أو شارك تحديًا، أو استمتع بلعبة.",
+    homeTitle: "حلّ ألغازاً مع الحل، واختبر معلوماتك بأسئلة ثقافية، واستمتع بألعاب عربية مجانية أونلاين. اختر العربية أو الإنجليزية وشارك التحدي مع الأصدقاء.",
     homeText: 'اختر موضوعًا، ثم اضغط على البطاقة لكشف الإجابة، وسجّل هل أجبت إجابة صحيحة أم خاطئة. كل ذلك مجانًا، من دون تطبيق.',
     browseCategories: 'ابدأ لغزًا',
     homeSpacetoonCta: 'تصفّح الألغاز',
     homeAkshifhaCta: 'اربط الأدلة',
-    homeCaseTitle: "ألغاز واختبارات وألعاب.",
+    homeCaseTitle: "ألغاز عربية وأسئلة وألعاب.",
     homeCaseMeta: "لا تحتاج إلى حساب لتبدأ. العب بالوتيرة التي تناسبك.",
     homeClueEyebrow: 'دليلك الأول',
     homeClueTitle: 'سجل البروفة',
@@ -669,10 +673,10 @@ const UI = {
     statQuestions: 'الأسئلة',
     statLanguages: 'اللغات',
     mindHeroEyebrow: "اختر موضوعًا أو مجموعة قصيرة",
-    mindHeroTitle: "ألغاز واختبارات",
-    mindHeroSubtitle: "اختر موضوعًا وسؤالًا، واعرض الإجابة عندما تكون مستعدًا.",
-    playHeroTitle: "الألعاب",
-    playHeroSubtitle: "اختر قضية غامضة أو لعبة لوحية أو تحديًا مع الأصدقاء. جميع الألعاب مجانية.",
+    mindHeroTitle: "ألغاز وأسئلة معلومات عامة",
+    mindHeroSubtitle: "استكشف أسئلة ثقافية بالعربية والإنجليزية حسب الموضوع، واختر لغزاً أو اختباراً، ثم اعرض الإجابة عندما تكون مستعداً.",
+    playHeroTitle: "ألعاب عربية مجانية أونلاين",
+    playHeroSubtitle: "العب بالعربية أو الإنجليزية: حلّ لغزاً غامضاً، أو جرّب لعبة لوحية، أو تحدَّ أصدقاءك بأسئلة ثقافية. جميع الألعاب مجانية.",
     playHeroGames: 'قضايا تجريبية',
     playAvailable: "قضايا واستنتاج",
     playPick: 'اكشفها — اكتشف التناقض',
@@ -753,7 +757,7 @@ const UI = {
     portalGamesCta: 'استكشف دفتر القضايا ←',
     homeCollectionsEyebrow: 'بداية سريعة',
     homeCollectionsTitle: 'ابدأ بمجموعة تناسب مزاجك',
-    homeCollectionsText: 'ابدأ بلغز عربي أو تحدي حنين أو سؤال يفتح لك زاوية جديدة على المنطقة.',
+    homeCollectionsText: "ابدأ بألغاز عربية، أو أسئلة معلومات عامة، أو تحدٍ من الذكريات، أو اختبار في تاريخ المنطقة.",
     homeCollectionsCta: 'استكشف كل المسارات',
     homeCollectionArabicTitle: 'ألغاز عربية بلغتين',
     homeCollectionArabicMeta: 'اقرأ التلميح بالعربية والإنجليزية',
@@ -1938,27 +1942,27 @@ function updateDocumentTitle() {
 
   if (state.page === 'play') {
     title = state.lang === 'ar'
-      ? 'اكشفها وألعاب متصفح مجانية | ريدل أرابيا'
-      : 'Akshifha & Free Browser Games | Riddle Arabia';
+      ? 'ألعاب عربية مجانية أونلاين | ريدل أرابيا'
+      : 'Free Arabic Games Online | Riddle Arabia';
     description = state.lang === 'ar'
-      ? 'العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.'
-      : 'Play Akshifha: connect two clues and discover what follows in eleven free Arabic and English mysteries. Explore Chess and Backgammon in Classics.';
+      ? 'العب ألعاباً عربية مجانية أونلاين: حلّ قضايا اكشفها، وجرّب الشطرنج وطاولة الزهر، وتحدَّ أصدقاءك بأسئلة ثقافية. بالعربية والإنجليزية ومن دون تنزيل.'
+      : 'Play free Arabic games online in Arabic and English: solve Akshifha mysteries, try chess and backgammon, or challenge friends with trivia. No download needed.';
   } else if (state.page === 'home') {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {
       title = state.lang === 'ar'
-        ? 'ألغاز واختبارات: تصفّح جميع الموضوعات | ريدل أرابيا'
-        : 'Riddles & Quizzes: Browse All Topics | Riddle Arabia';
+        ? 'ألغاز وأسئلة معلومات عامة وثقافية | ريدل أرابيا'
+        : 'Riddles, Trivia & Quizzes in Arabic & English | Riddle Arabia';
       description = state.lang === 'ar'
-        ? 'استكشف 3,275 لغزًا وسؤالًا بالعربية والإنجليزية، موزّعة على 51 موضوعًا ضمن 5 أقسام. اختر موضوعًا، واكشف الإجابات، وتابع نتيجتك.'
-        : 'Explore 3,275 bilingual riddles and quizzes mapped directly to 51 topics in 5 clear sections. Pick a topic, flip cards, and track your score.';
+        ? 'تصفّح ألغازاً وأسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق. اختر سؤالك وخمّن ثم اعرض الإجابة.'
+        : 'Explore riddles and trivia in Arabic and English across 51 topics. Choose science, history, culture or logic, guess the answer, and play at your own pace.';
     } else {
       title = state.lang === 'ar'
-        ? 'ريدل أرابيا: ألغاز واختبارات مجانية بالعربية والإنجليزية'
-        : 'Riddle Arabia: Free Arabic & English Quizzes';
+        ? 'ألغاز عربية وأسئلة معلومات عامة وألعاب | ريدل أرابيا'
+        : 'Arabic Riddles, Trivia & Games | Riddle Arabia';
       description = state.lang === 'ar'
-        ? 'اكتشف اكشفها: قضايا قصيرة تربط فيها الأدلة وتكشف التناقض. واستكشف ألغازًا واختبارات مجانية بالعربية والإنجليزية.'
-        : 'Discover Akshifha: short cases where you connect evidence and spot the contradiction. Explore free riddles and quizzes in Arabic and English.';
+        ? 'حلّ ألغازاً عربية مع الحل، واختبر معلوماتك بأسئلة ثقافية، والعب ألعاباً مجانية أونلاين. اكتشف ريدل أرابيا بالعربية والإنجليزية ومن دون تنزيل.'
+        : 'Solve Arabic riddles with answers, test your knowledge with Arabic trivia, and play free games online. Explore Riddle Arabia in Arabic and English.';
     }
   } else if (state.categoryData) {
     const category = state.categoryData;

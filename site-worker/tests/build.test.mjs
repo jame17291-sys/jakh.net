@@ -255,7 +255,7 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   }
 
   const arabicHome = await readFile(join(repositoryRoot, "site-worker/dist/ar/index.html"), "utf8");
-  assert.match(arabicHome, /data-i18n="homeQuizText">تصفّح 51 موضوعًا،/u);
+  assert.match(arabicHome, /data-i18n="homeQuizText">تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً،/u);
   const builtApplication = await readFile(join(repositoryRoot, "site-worker/dist/app.js"), "utf8");
   assert.match(builtApplication, /portalMindStat: '51 موضوعًا'/u);
   assert.doesNotMatch(builtApplication, /portalMindStat: '56 موضوعًا'/u);

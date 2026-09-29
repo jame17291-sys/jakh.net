@@ -4,6 +4,7 @@ import {
   normalizeWord, evaluateGuess, validateHiveWord, hiveScore, checkGroup,
   buildTrail, validateTrailPath, validateSquareWord, shuffled,
   WORD_BANKS, HIVES, LINK_SETS, TRAIL_SETS, LETTER_SQUARES,
+  restoreWordState, restoreHiveState, restoreLinksState, restoreTrailState, restoreSquareState, takeTrailHint,
 } from '../puzzle-words.js';
 
 test('both language libraries meet the authored release inventory', () => {
@@ -158,4 +159,87 @@ test('seeded arrangement is stable, preserves all values and does not mutate con
   assert.deepEqual([...shuffled(input, 'puzzle-2')].sort(), input);
   assert.deepEqual(input, ['a', 'b', 'c', 'd', 'e', 'f']);
   assert.notDeepEqual(shuffled(input, 'puzzle-1'), shuffled(input, 'puzzle-2'));
+});
+
+test('malformed saves cannot crash games or manufacture a completed puzzle', () => {
+  const corrupt = [null, false, 3, 'complete', [], { completed: true }, { toString: null, found: [null, { toString: 1 }], current: {}, shuffled: { valueOf: null }, chain: [null], guesses: [null], hintsUsed: 'infinity' }];
+  for (const lang of ['en', 'ar']) for (const value of corrupt) {
+    assert.equal(restoreWordState(value, WORD_BANKS[lang].answers[0], WORD_BANKS[lang].words, 6, lang).completed, false);
+    assert.equal(restoreHiveState(value, HIVES[lang][0], lang).completed, false);
+    assert.equal(restoreLinksState(value, LINK_SETS[lang][0]).completed, false);
+    assert.equal(restoreTrailState(value, buildTrail(TRAIL_SETS[lang][0], 1, lang), lang).completed, false);
+    assert.equal(restoreSquareState(value, LETTER_SQUARES[lang][0], lang).completed, false);
+  }
+});
+
+test('word reload stops at the winning move, normalizes valid guesses and clears ended drafts', () => {
+  const bank = WORD_BANKS.en.words;
+  const win = restoreWordState({ guesses: ['apple', 'TRAIL', 'HOUSE'], current: 'BAD' }, 'TRAIL', bank);
+  assert.deepEqual(win, { guesses: ['APPLE', 'TRAIL'], current: '', completed: true, finished: true });
+  assert.equal(restoreWordState({ current: '  A1p🙂pLE ' }, 'TRAIL', bank).current, 'APPLE');
+  assert.deepEqual(restoreWordState({ guesses: ['APPLE', null, 'TRAIL'] }, 'TRAIL', bank).guesses, ['APPLE']);
+  const lose = restoreWordState({ guesses: Array(6).fill('APPLE'), current: 'TRAIL' }, 'TRAIL', bank);
+  assert.equal(lose.finished, true); assert.equal(lose.completed, false); assert.equal(lose.current, '');
+  assert.equal(restoreWordState({ guesses: Array(6).fill('APPLE') }, 'TRAIL', bank, 5).guesses.length, 5);
+});
+
+test('hive reload rejects repeats and unknown words, bounds input and survives complete reload/reset', () => {
+  for (const lang of ['en', 'ar']) for (const puzzle of HIVES[lang]) {
+    const partial = restoreHiveState({ found: [puzzle.words[0], puzzle.words[0], null, { toString: 0 }, 'WRONG'], current: puzzle.center.repeat(100), shuffled: 2.5 }, puzzle, lang);
+    assert.deepEqual(partial.found, [normalizeWord(puzzle.words[0], lang)]); assert.equal(partial.current.length, 28); assert.equal(partial.shuffled, 0);
+    const complete = restoreHiveState({ found: puzzle.words, current: puzzle.center }, puzzle, lang);
+    assert.equal(complete.completed, true); assert.equal(complete.current, '');
+    assert.deepEqual(restoreHiveState(complete, puzzle, lang), complete);
+    assert.equal(restoreHiveState(null, puzzle, lang).found.length, 0);
+  }
+});
+
+test('links reload ignores malformed and repeated failed groups and preserves unfinished selection', () => {
+  for (const lang of ['en', 'ar']) for (const source of LINK_SETS[lang]) for (const size of [3, 4]) {
+    const groups = source.slice(0, size).map(g => ({ ...g, words: g.words.slice(0, size) }));
+    const wrong = [...groups[0].words.slice(0, size - 1), groups[1].words[0]];
+    const state = restoreLinksState({ solved: [1, 1, 99, null], mistakes: ['a', wrong.join('|'), [...wrong].reverse().join('|'), groups[0].words.join('|'), Array(size).fill(wrong[0]).join('|')], selected: [groups[0].words[0], groups[1].words[0], 'unknown'], order: -2, completed: true }, groups);
+    assert.deepEqual(state.solved, [1]); assert.equal(state.mistakes.length, 1); assert.equal(state.finished, false); assert.equal(state.completed, false);
+    assert.deepEqual(state.selected, [groups[0].words[0]]); assert.equal(state.order, 0);
+    assert.deepEqual(restoreLinksState(state, groups), state);
+    assert.equal(restoreLinksState({ solved: groups.map((_, i) => i) }, groups).completed, true);
+  }
+});
+
+test('trails reload preserves only legal unconsumed paths and completion is derived from all answers', () => {
+  for (const lang of ['en', 'ar']) for (const source of TRAIL_SETS[lang]) {
+    const board = buildTrail(source, 7, lang), path = board.answers[0].cells.slice(0, 3);
+    const partial = restoreTrailState({ path, completed: true }, board, lang);
+    assert.deepEqual(partial.path, path); assert.equal(partial.completed, false);
+    assert.deepEqual(restoreTrailState(partial, board, lang), partial);
+    assert.deepEqual(restoreTrailState({ found: [board.answers[0].word], path }, board, lang).path, []);
+    assert.deepEqual(restoreTrailState({ path: [path[0], path[0]] }, board, lang).path, []);
+    assert.deepEqual(restoreTrailState({ path: [0, 47] }, board, lang).path, []);
+    const complete = restoreTrailState({ found: board.answers.map(a => a.word), path, hint: board.answers[0].word }, board, lang);
+    assert.equal(complete.completed, true); assert.deepEqual(complete.path, []); assert.equal(complete.hint, null);
+    assert.equal(restoreTrailState(null, board, lang).found.length, 0);
+  }
+});
+
+test('an active trail hint cannot consume another earned hint, including after reload', () => {
+  const board = buildTrail(TRAIL_SETS.en[0], 1), ready = { extra: board.extras.slice(0, 6), found: [], hintsUsed: 0 };
+  const first = takeTrailHint(ready, board); assert.equal(first.hintsUsed, 1); assert.ok(first.hint);
+  assert.deepEqual(takeTrailHint(first, board), first);
+  assert.deepEqual(takeTrailHint(restoreTrailState(first, board), board), first);
+  const second = takeTrailHint({ ...first, found: [first.hint] }, board);
+  assert.equal(second.hintsUsed, 2); assert.notEqual(second.hint, first.hint);
+  const corrupt = restoreTrailState({ extra: board.extras.slice(0, 3), hintsUsed: 9.5, hint: board.answers[1].word }, board);
+  assert.equal(corrupt.hintsUsed, 0); assert.equal(corrupt.hint, null);
+  assert.equal(takeTrailHint({ extra: board.extras.slice(0, 2) }, board).hint, null);
+});
+
+test('square reload truncates broken chains and post-completion moves, retaining playable progress', () => {
+  for (const lang of ['en', 'ar']) for (const puzzle of LETTER_SQUARES[lang]) {
+    const partial = restoreSquareState({ chain: [puzzle.solution[0], {}, ...puzzle.solution.slice(1)], current: puzzle.sides[0][0].repeat(100) }, puzzle, lang);
+    assert.deepEqual(partial.chain, [puzzle.solution[0]]); assert.equal(partial.current.length, 28);
+    const complete = restoreSquareState({ chain: [...puzzle.solution, 'WRONG'], current: 'BAD' }, puzzle, lang);
+    assert.equal(complete.completed, true); assert.equal(complete.current, ''); assert.deepEqual(complete.chain, puzzle.solution);
+    assert.deepEqual(restoreSquareState(complete, puzzle, lang), complete);
+    assert.equal(restoreSquareState(null, puzzle, lang).completed, false);
+  }
 });

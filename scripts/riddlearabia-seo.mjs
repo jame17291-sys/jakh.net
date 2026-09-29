@@ -5,6 +5,24 @@
  * journey, source selection, and bilingual copy.
  */
 
+import { PUZZLES } from "../puzzle-catalog.js";
+import { PUZZLE_ROUTES } from "../puzzle-routes.js";
+
+// Use the playable catalog's identities, copy and routes so the search-facing
+// directory cannot silently fall behind the actual puzzle library.
+export const RIDDLE_ARABIA_PUZZLE_CATALOG = Object.freeze(PUZZLES.map((puzzle) => {
+  const route = PUZZLE_ROUTES.find((candidate) => candidate.id === puzzle.id);
+  if (!route) throw new Error(`Missing public puzzle route: ${puzzle.id}`);
+  return Object.freeze({
+    id: puzzle.id,
+    slug: route.slug,
+    paths: route.paths,
+    kind: puzzle.category === "collection" ? "collection" : "puzzle",
+    names: Object.freeze({ en: puzzle.title[0], ar: puzzle.title[1] }),
+    descriptions: Object.freeze({ en: puzzle.desc[0], ar: puzzle.desc[1] }),
+  });
+}));
+
 export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "riddles",
@@ -210,14 +228,15 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "spacetoon-nostalgia",
+    lastModified: "2026-09-30",
     paths: { en: "/spacetoon-nostalgia", ar: "/ar/hanin-spacetoon/" },
     titles: {
       en: "Spacetoon Nostalgia Quiz | Riddle Arabia",
       ar: "اختبار حنين سبيستون | ريدل أرابيا",
     },
     descriptions: {
-      en: "Take an independent bilingual nostalgia quiz for fans of classic Arabic-dubbed animation. Share a memory, make a guess, and compare your score.",
-      ar: "استمتع باختبار حنين ثنائي اللغة ومستقل لمحبي الرسوم المدبلجة الكلاسيكية. شارك ذكرى وخمّن الإجابة وقارن نتيجتك.",
+      en: "Try eight questions for fans of classic Arabic-dubbed animation. Make a guess, reveal the answers, and share memories in this independent bilingual quiz.",
+      ar: "جرّب ثمانية أسئلة لمحبي الرسوم المدبلجة الكلاسيكية. خمّن ثم اكشف الإجابات وشارك ذكرياتك في هذا الاختبار المستقل بالعربية والإنجليزية.",
     },
     eyebrow: { en: "A shared memory", ar: "ذكرى مشتركة" },
     headings: { en: "Spacetoon nostalgia", ar: "حنين سبيستون" },
@@ -247,7 +266,7 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "brain-games",
-    lastModified: "2026-09-29",
+    lastModified: "2026-09-30",
     paths: { en: "/brain-games", ar: "/ar/alab-al-dimagh/" },
     kind: "games",
     titles: {
@@ -255,18 +274,18 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
       ar: "ألعاب ذكاء مجانية بالعربية والإنجليزية | ريدل أرابيا",
     },
     descriptions: {
-      en: "Play free brain games in Arabic and English. Solve Akshifha’s clue-based mysteries, then try chess and backgammon online.",
-      ar: "العب ألعاب ذكاء مجانية بالعربية والإنجليزية. حلّ قضايا اكشفها بربط الأدلة، ثم جرّب الشطرنج وطاولة الزهر عبر المتصفح.",
+      en: "Find free word games, crosswords, Sudoku and logic puzzles in Arabic and English. Compare how to play, try a daily selection, or invite a friend to Word Duel.",
+      ar: "اكتشف ألعاب كلمات وكلمات متقاطعة وسودوكو وألغاز منطق مجانية بالعربية والإنجليزية. تعرّف إلى طرق اللعب أو ادعُ صديقاً إلى مبارزة الكلمات.",
     },
     eyebrow: { en: "Games", ar: "الألعاب" },
     headings: { en: "Brain games in Arabic and English", ar: "ألعاب ذكاء بالعربية والإنجليزية" },
     introductions: {
-      en: "Choose a free brain game to play in your browser, with Arabic and English available. Connect clues in Akshifha, plan your moves in chess, or roll the dice in backgammon. Open a game below, or visit Games to explore question-based play modes too.",
-      ar: "اختر لعبة ذكاء مجانية في المتصفح، بالعربية أو الإنجليزية. اربط الأدلة في اكشفها، أو خطّط لنقلاتك في الشطرنج، أو ارمِ النرد في طاولة الزهر. افتح إحدى الألعاب أدناه، أو انتقل إلى صفحة الألعاب لاستكشاف أنماط اللعب بالأسئلة أيضاً.",
+      en: "Choose a free game for a short break or a longer challenge, in Arabic or English. Start with a Mini Crossword, solve Sudoku, connect words by theme, or invite a friend to Word Duel. You can also connect clues in Akshifha or settle in with chess and backgammon.",
+      ar: "اختر لعبة مجانية لاستراحة قصيرة أو تحدٍّ أطول، بالعربية أو الإنجليزية. ابدأ بمتقاطعة مصغّرة، أو حلّ سودوكو، أو اربط الكلمات حسب موضوعها، أو ادعُ صديقاً إلى مبارزة الكلمات. ويمكنك أيضاً ربط الأدلة في اكشفها أو الاستمتاع بالشطرنج وطاولة الزهر.",
     },
     guidance: {
-      en: "Akshifha’s daily pick rotates through eleven existing cases; it is separate from the Daily Challenge question. Visit Games for each mode’s description and ways to play.",
-      ar: "يتناوب اختيار اليوم في اكشفها بين إحدى عشرة قضية موجودة؛ وهو منفصل عن سؤال التحدي اليومي. انتقل إلى الألعاب لمعرفة وصف كل نمط وطرق اللعب.",
+      en: "Daily puzzle selections rotate through finite collections or use generated boards; they are not newly published puzzles every day. Solo puzzle progress stays on this device. Word Duel uses an online room for two players. Akshifha rotates through eleven existing cases, separately from the Daily Challenge question.",
+      ar: "تتناوب ألغاز اليوم ضمن مجموعات محدودة أو تستخدم لوحات مولّدة؛ ولا تعني نشر ألغاز جديدة كل يوم. يبقى تقدّم الألغاز الفردية محفوظاً على هذا الجهاز. وتستخدم مبارزة الكلمات غرفة عبر الإنترنت للاعبين. أما اكشفها فتتناوب بين إحدى عشرة قضية موجودة، بصورة منفصلة عن سؤال التحدي اليومي.",
     },
   },
 ]);

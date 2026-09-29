@@ -14,6 +14,7 @@ import {
   RETIRED_LEGACY_SEO_DIRECTORIES,
   PRESERVED_GAME_SLUGS,
   RIDDLE_ARABIA_GAME_CATALOG,
+  RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
 
@@ -26,6 +27,8 @@ const APP_ASSET_VERSION = "2026080201";
 const PRIVACY_ASSET_VERSION = "2026080101";
 const SOCIAL_IMAGE_PATH = "assets/riddlearabia-og-image.png";
 const LOGO_PATH = "assets/riddlearabia-logo.webp";
+const DISCOVERABLE_GAMES = [...RIDDLE_ARABIA_PUZZLE_CATALOG, ...RIDDLE_ARABIA_GAME_CATALOG];
+const gamePath = (game, lang) => game.paths?.[lang] || (lang === "ar" ? `/ar/games/${game.slug}/` : `/${game.slug}`);
 const QUESTION_COLLECTIONS = RIDDLE_ARABIA_SEO_PAGES.filter((page) => page.kind !== "games");
 const outputs = new Map();
 const stale = [];
@@ -390,16 +393,17 @@ function gamesStructuredData(page, lang, canonical) {
         "@id": `${canonical}#games`,
         name: isAr ? "ألعاب دماغ ريدل أرابيا" : "Riddle Arabia brain games",
         itemListOrder: "https://schema.org/ItemListOrderAscending",
-        numberOfItems: RIDDLE_ARABIA_GAME_CATALOG.length,
-        itemListElement: RIDDLE_ARABIA_GAME_CATALOG.map((game, index) => ({
+        numberOfItems: DISCOVERABLE_GAMES.length,
+        itemListElement: DISCOVERABLE_GAMES.map((game, index) => ({
           "@type": "ListItem",
           position: index + 1,
           item: {
-            "@type": "VideoGame",
+            "@type": game.kind === "collection" ? "CollectionPage" : "VideoGame",
             name: game.names[lang],
-            url: `${SITE_ORIGIN}${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}`,
+            url: `${SITE_ORIGIN}${gamePath(game, lang)}`,
             description: game.descriptions[lang],
-            gamePlatform: "Web browser",
+            inLanguage: lang,
+            ...(game.kind === "collection" ? {} : { gamePlatform: "Web browser" }),
             isAccessibleForFree: true,
           },
         })),
@@ -438,7 +442,7 @@ function renderGamesExperience(page, lang) {
         <a class="primary-btn" href="${isAr ? "/ar/play/" : "/play"}">${isAr ? "انتقل إلى جميع الألعاب" : "Browse all games"}</a>
         <p class="section-note">${escapeHtml(page.guidance[lang])}</p>
         <ul class="game-shortcuts">
-          ${RIDDLE_ARABIA_GAME_CATALOG.map((game) => `<li><a href="${isAr ? `/ar/games/${game.slug}/` : `/${game.slug}`}">${escapeHtml(game.names[lang])}</a></li>`).join("\n          ")}
+          ${DISCOVERABLE_GAMES.map((game) => `<li><a href="${gamePath(game, lang)}">${escapeHtml(game.names[lang])}</a><p>${escapeHtml(game.descriptions[lang])}</p></li>`).join("\n          ")}
         </ul>
       </section>
     </main>
@@ -730,22 +734,23 @@ function sitemapUrl(url, priority, alternates, lastModified = LAST_MODIFIED) {
 
 function renderSitemap() {
   const pairs = [
-    { en: "/", ar: "/ar/", lastModified: "2026-09-29", priority: "1.0" },
+    { en: "/", ar: "/ar/", lastModified: "2026-09-30", priority: "1.0" },
     { en: "/mind-lab", ar: "/ar/mind-lab/", lastModified: "2026-09-29", priority: "0.85" },
     { en: "/collections", ar: "/ar/collections/", lastModified: "2026-09-29", priority: "0.90" },
-    { en: "/play", ar: "/ar/play/", lastModified: "2026-09-29", priority: "0.75" },
+    { en: "/play", ar: "/ar/play/", lastModified: "2026-09-30", priority: "0.75" },
     { en: "/daily", ar: "/ar/daily/", priority: "0.75" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
-    { en: "/privacy", ar: "/ar/privacy/", priority: "0.35" },
+    { en: "/privacy", ar: "/ar/privacy/", lastModified: "2026-09-30", priority: "0.35" },
     ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, lastModified: page.lastModified, priority: page.kind === "games" ? "0.85" : "0.80" })),
-    ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, priority: "0.65" })),
-    ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, priority: "0.35" })),
+    ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.65" })),
+    ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ ...game.paths, lastModified: "2026-09-30", priority: "0.75" })),
+    ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, lastModified: { en: LAST_MODIFIED, ar: "2026-09-30" }, priority: "0.35" })),
   ];
   const entries = pairs.flatMap((pair) => {
     const alternates = { en: `${SITE_ORIGIN}${pair.en}`, ar: `${SITE_ORIGIN}${pair.ar}` };
     return [
-      sitemapUrl(alternates.en, pair.priority, alternates, pair.lastModified),
-      sitemapUrl(alternates.ar, pair.priority, alternates, pair.lastModified),
+      sitemapUrl(alternates.en, pair.priority, alternates, typeof pair.lastModified === "object" ? pair.lastModified.en : pair.lastModified),
+      sitemapUrl(alternates.ar, pair.priority, alternates, typeof pair.lastModified === "object" ? pair.lastModified.ar : pair.lastModified),
     ];
   });
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -753,6 +758,31 @@ function renderSitemap() {
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries.join("\n")}
 </urlset>`;
+}
+
+function renderPlayCatalog() {
+  const source = fs.readFileSync(path.join(root, "play.html"), "utf8");
+  let replaced = false;
+  const result = source.replace(/(<script\b[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/gu, (match, open, body, close) => {
+    const document = JSON.parse(body);
+    if (document["@type"] !== "ItemList") return match;
+    replaced = true;
+    const list = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Free Riddle Arabia Games",
+      numberOfItems: DISCOVERABLE_GAMES.length,
+      itemListElement: DISCOVERABLE_GAMES.map((game, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: game.names.en,
+        url: `${SITE_ORIGIN}${gamePath(game, "en")}`,
+      })),
+    };
+    return `${open}\n${jsonLd(list)}\n    ${close}`;
+  });
+  if (!replaced) throw new Error("play.html: requires an ItemList for the visible game catalog");
+  return result;
 }
 
 function desiredOutputs() {
@@ -777,6 +807,7 @@ function desiredOutputs() {
     emit(`${category.slug}.html`, renderFunctionalCategoryShell(category, "en"));
     emit(`ar/topics/${category.slug}/index.html`, renderFunctionalCategoryShell(category, "ar"));
   }
+  emit("play.html", renderPlayCatalog());
   emit("sitemap.xml", renderSitemap());
 }
 

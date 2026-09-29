@@ -1,3 +1,4 @@
+import { puzzleURL } from './puzzle-routes.js';
 import { PUZZLES, dayKey, seedFor, storageKey } from './puzzle-catalog.js';
 
 export const DAILY_GAMES = PUZZLES.filter(p => !['bonus', 'duel'].includes(p.id));
@@ -92,8 +93,7 @@ export function dailySummary(value, lang, today = dayKey()) {
 }
 export function challengeURL({ game, lang, date, variant = 'standard', difficulty }, origin = 'https://riddlearabia.com') {
   if (!GAME_IDS.has(game) || !validDay(date) || !['en', 'ar'].includes(lang)) throw new Error('Invalid puzzle link');
-  const url = new URL(lang === 'ar' ? '/ar/play/' : '/play', origin);
-  url.searchParams.set('game', game); url.searchParams.set('date', date); url.searchParams.set('edition', '2');
+  const url = new URL(puzzleURL(game, lang, {date, edition:'2'}, origin));
   if (variant !== 'standard') url.searchParams.set('variant', variant);
   if (game === 'sudoku') url.searchParams.set('difficulty', sudokuDifficulty(difficulty) || 'medium');
   return url.href;

@@ -88,7 +88,7 @@ const NAVIGATION_ROUTE_UPDATES = {
   "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles, Trivia &amp; Quizzes in Arabic &amp; English", baselineMarker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
   "/collections": { marker: "<title>Short Riddle &amp; Quiz Collections" },
   "/brain-games": { marker: "<title>Free Brain Games in Arabic &amp; English", baselineMarker: "<title>Free Brain Games Online" },
-  "/play": { name: "Games", marker: "<title>Free Arabic Games Online", baselineMarker: "<title>Akshifha &amp; Free Browser Games", bilingualMarker: 'class="language-route-link"' },
+  "/play": { name: "Games", marker: "<title>Free Arabic &amp; English Puzzle Games", baselineMarker: "<title>Free Arabic Games Online", bilingualMarker: 'class="language-route-link"' },
   "/science": { bilingualMarker: 'class="language-route-link"' },
 };
 

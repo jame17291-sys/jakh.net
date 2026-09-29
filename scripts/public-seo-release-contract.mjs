@@ -116,6 +116,14 @@ function difference(left, right) {
   return [...left].filter((value) => !right.has(value)).sort((a, b) => a.localeCompare(b, "en"));
 }
 
+// Google ownership proofs are protocol assets, not editorial HTML pages.
+// Both filename and entire payload must match; a Google-looking filename alone
+// cannot exempt arbitrary HTML from the canonical/sitemap release checks.
+export function isGoogleVerificationAsset(relativePath, bytes) {
+  return /^google[0-9a-f]{16}\.html$/u.test(relativePath)
+    && textFrom(bytes).trim() === `google-site-verification: ${relativePath}`;
+}
+
 export function isRetiredPublicSeoArtifactPath(relativePath) {
   const normalized = normalizePath(relativePath);
   return RETIRED_SEO_ARTIFACT_PATTERNS.some((pattern) => pattern.test(normalized));
@@ -146,7 +154,7 @@ export function assertPublicSeoReleaseSafety(artifactBytes, { requireMetadata = 
     invariant(!RETIRED_BRAND_COPY.test(source), `${relativePath}: retains legacy JAKH public copy`);
     invariant(!RETIRED_BRAND_ASSET_REFERENCE.test(source), `${relativePath}: retains a retired public brand asset reference`);
 
-    if (!relativePath.endsWith(".html") || relativePath === "404.html" || isNoindex(source)) continue;
+    if (!relativePath.endsWith(".html") || relativePath === "404.html" || isNoindex(source) || isGoogleVerificationAsset(relativePath, bytes)) continue;
     const canonical = canonicalUrl(source, relativePath);
     invariant(!indexedCanonicals.has(canonical), `${relativePath}: duplicates an indexable canonical: ${canonical}`);
     indexedCanonicals.add(canonical);

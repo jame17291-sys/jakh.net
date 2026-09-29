@@ -28,6 +28,7 @@ import {
 } from "./public-site-identity.mjs";
 import {
   assertPublicSeoReleaseSafety,
+  isGoogleVerificationAsset,
   isRetiredPublicSeoArtifactPath,
 } from "./public-seo-release-contract.mjs";
 
@@ -39,6 +40,7 @@ export const DEFAULT_MANIFEST_MODULE_PATH = resolve(REPOSITORY_ROOT, "site-worke
 export const FINGERPRINT_PREFIX_LENGTH = 16;
 
 const PUZZLE_ASSETS = Object.freeze([
+  "/puzzle-routes.js",
   "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
   "/puzzle-word-data.js", "/puzzle-catalog.js", "/puzzle-daily.js",
   "/puzzle-room.css", "/puzzle-words.css", "/puzzle-logic.css", "/puzzle-duel.css",
@@ -983,7 +985,7 @@ export async function buildStaticSite({
     await mkdir(dirname(destination), { recursive: true });
     await writeFile(destination, bytes);
 
-    if (relativePath.endsWith(".html")) {
+    if (relativePath.endsWith(".html") && !isGoogleVerificationAsset(relativePath, bytes)) {
       const html = bytes.toString("utf8");
       const route = relativePath === "404.html" ? "/__404__" : htmlCanonicalPath(relativePath, html);
       invariant(!routes[route], `Multiple HTML files resolve to ${route}: ${routes[route]} and ${urlPath}`);

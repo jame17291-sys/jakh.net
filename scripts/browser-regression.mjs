@@ -8,6 +8,7 @@ import { startBrowserSite } from "./local-browser-site.mjs";
 import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
 import { AKSHIFHA_UI } from "../akshifha-copy.js";
 import { dayKey } from "../puzzle-catalog.js";
+import { puzzlePath } from "../puzzle-routes.js";
 import { dailyIndex } from "../puzzle-daily.js";
 import { LETTER_SQUARES } from "../puzzle-word-data.js";
 
@@ -399,8 +400,11 @@ async function main() {
         await mockApi(context);
         await setCurrentDeniedConsent(context);
         for (const language of ['en', 'ar']) for (const game of ['word', 'hive', 'links', 'trails', 'letter-square', 'sudoku', 'domino', 'mosaic', 'mini', 'midi', 'crossword', 'duel', 'bonus']) {
-          await page.goto(`${baseUrl}${language === 'ar' ? '/ar/play/' : '/play'}?game=${game}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.goto(`${baseUrl}${puzzlePath(game,language)}`, { waitUntil: NAVIGATION_READY_EVENT });
           await ready();
+          assert.equal(new URL(page.url()).pathname,puzzlePath(game,language));
+          assert.equal(await page.locator('body').getAttribute('data-puzzle-page'),game);
+          assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),`https://riddlearabia.com${puzzlePath(game,language)}`);
           assert.equal(await page.locator('#puzzle-share').isVisible(), !['duel', 'bonus'].includes(game));
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}/${game} mobile overflow`);
         }
@@ -413,8 +417,7 @@ async function main() {
         }
         await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
         const shared = new URL(await page.locator('#puzzle-share-whatsapp').getAttribute('href')).searchParams.get('text');
-        const challenge = new URL('/ar/play/', baseUrl);
-        challenge.searchParams.set('game', 'letter-square');
+        const challenge = new URL(puzzlePath('letter-square','ar'), baseUrl);
         challenge.searchParams.set('date', date);
         challenge.searchParams.set('edition', '2');
         // Short Arabic answers may also occur in ordinary headings. An exact

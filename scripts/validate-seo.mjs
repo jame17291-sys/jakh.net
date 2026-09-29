@@ -7,12 +7,14 @@
  */
 
 import fs from "node:fs";
+import { isGoogleVerificationAsset } from "./public-seo-release-contract.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
   RETIRED_LEGACY_SEO_DIRECTORIES,
   RIDDLE_ARABIA_GAME_CATALOG,
+  RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
 
@@ -178,7 +180,7 @@ const socialImagePath = path.join(root, "assets/riddlearabia-og-image.png");
 const socialImage = fs.existsSync(socialImagePath) ? rasterInfo(socialImagePath) : null;
 if (!socialImage) fail("assets/riddlearabia-og-image.png", "missing or unsupported social image");
 
-const pages = listHtmlFiles().map((file) => {
+const pages = listHtmlFiles().filter((file) => !isGoogleVerificationAsset(path.relative(root, file).split(path.sep).join("/"), fs.readFileSync(file))).map((file) => {
   const relative = path.relative(root, file).split(path.sep).join("/");
   const source = fs.readFileSync(file, "utf8");
   const canonicalLinks = links(source, "canonical");
@@ -336,12 +338,12 @@ for (const experience of RIDDLE_ARABIA_SEO_PAGES) {
     if (!page.source.includes("/assets/riddlearabia-logo.webp")) fail(relative, "must use the supplied Riddle Arabia logo");
     if (!page.source.includes(`data-seo-experience="${experience.key}"`)) fail(relative, "missing explicit SEO experience marker");
     if (isGames) {
-      const collections = page.nodes.filter((node) => hasType(node, "CollectionPage"));
+      const collections = page.nodes.filter((node) => hasType(node, "CollectionPage") && node.url === page.canonical);
       const lists = page.nodes.filter((node) => hasType(node, "ItemList"));
       if (collections.length !== 1 || collections[0].url !== page.canonical) fail(relative, "requires a self-canonical CollectionPage");
-      if (lists.length !== 1 || lists[0].numberOfItems !== GAME_SLUGS.length) fail(relative, "requires the complete game ItemList");
-      for (const game of RIDDLE_ARABIA_GAME_CATALOG) {
-        const expectedPath = lang === "ar" ? `/ar/games/${game.slug}/` : `/${game.slug}`;
+      if (lists.length !== 1 || lists[0].numberOfItems !== GAME_SLUGS.length + RIDDLE_ARABIA_PUZZLE_CATALOG.length) fail(relative, "requires the complete game ItemList");
+      for (const game of [...RIDDLE_ARABIA_PUZZLE_CATALOG, ...RIDDLE_ARABIA_GAME_CATALOG]) {
+        const expectedPath = game.paths?.[lang] || (lang === "ar" ? `/ar/games/${game.slug}/` : `/${game.slug}`);
         if (!page.source.includes(`href="${expectedPath}"`)) fail(relative, `missing game link ${expectedPath}`);
       }
       continue;
@@ -379,6 +381,7 @@ const sharedPairs = [
   ["mind-lab.html", "ar/mind-lab/index.html", "/mind-lab", "/ar/mind-lab/"],
   ["play.html", "ar/play/index.html", "/play", "/ar/play/"],
   ["privacy.html", "ar/privacy/index.html", "/privacy", "/ar/privacy/"],
+  ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => [`${game.slug}.html`, `${game.paths.ar.slice(1)}index.html`, game.paths.en, game.paths.ar]),
   ...GAME_SLUGS.map((slug) => [`${slug}.html`, `ar/games/${slug}/index.html`, `/${slug}`, `/ar/games/${slug}/`]),
 ];
 for (const [enRelative, arRelative, enPath, arPath] of sharedPairs) {

@@ -5,3 +5,5 @@
 // mass-page program cannot be reintroduced accidentally.
 import "./generate-site-navigation.mjs";
 import "./generate-riddlearabia-seo.mjs";
+import { generatePuzzlePages } from "./generate-puzzle-pages.mjs";
+await generatePuzzlePages({ check: process.argv.includes("--check") });

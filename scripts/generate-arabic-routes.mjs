@@ -5,7 +5,11 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { PRIMARY_SITE_ORIGIN, rewritePublicSiteIdentity } from "./public-site-identity.mjs";
 import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
-import { RIDDLE_ARABIA_SEO_PAGES } from "./riddlearabia-seo.mjs";
+import {
+  RIDDLE_ARABIA_GAME_CATALOG,
+  RIDDLE_ARABIA_PUZZLE_CATALOG,
+  RIDDLE_ARABIA_SEO_PAGES,
+} from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const checkOnly = process.argv.includes("--check");
@@ -48,8 +52,8 @@ const PAGE_ROUTES = [
     englishPath: "/play",
     arabicPath: "/ar/play/",
     runtime: "app",
-    title: "ألعاب عربية مجانية أونلاين | ريدل أرابيا",
-    description: "العب ألعاباً عربية مجانية أونلاين: حلّ قضايا اكشفها، وجرّب الشطرنج وطاولة الزهر، وتحدَّ أصدقاءك بأسئلة ثقافية. بالعربية والإنجليزية ومن دون تنزيل.",
+    title: "ألعاب كلمات وألغاز بالعربية والإنجليزية | ريدل أرابيا",
+    description: "العب ألعاب كلمات وكلمات متقاطعة وسودوكو مجاناً بالعربية والإنجليزية. جرّب ألغاز اليوم المتناوبة أو ادعُ صديقاً إلى مبارزة الكلمات، بلا تنزيل.",
   },
   {
     source: "daily.html",
@@ -321,20 +325,19 @@ function localizeStructuredData(html, route, title, description) {
         if (!node || typeof node !== "object" || Array.isArray(node)) return;
         const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
         if (types.some((type) => ["WebPage", "CollectionPage", "AboutPage"].includes(type))
-          || (route.runtime === "akshifha" && types.includes("VideoGame"))) {
+          || (["game", "akshifha"].includes(route.runtime) && types.includes("VideoGame"))) {
           node.url = canonical;
           if (typeof node["@id"] === "string" && /#webpage$/u.test(node["@id"])) node["@id"] = `${canonical}#webpage`;
-          node.name = title;
+          node.name = types.includes("VideoGame") ? title.split(/\s*[—|]\s*/u)[0] : title;
           node.description = description;
           node.inLanguage = "ar";
         }
         if (types.includes("ItemList") && route.runtime === "app" && route.arabicPath === "/ar/play/") {
           node.name = "ألعاب متصفح مجانية من ريدل أرابيا";
-          const gameNames = {
-            "/akshifha": "اكشفها — اكتشف التناقض",
-            "/chess": appMessages.playChessTitle,
-            "/backgammon": appMessages.playBackgammonTitle,
-          };
+          const gameNames = Object.fromEntries([
+            ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => [game.paths.en, game.names.ar]),
+            ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => [`/${game.slug}`, game.names.ar]),
+          ]);
           for (const entry of node.itemListElement || []) {
             const englishUrl = entry?.url || entry?.item?.url;
             if (typeof englishUrl !== "string") continue;
@@ -384,6 +387,10 @@ sharedArabicRoutes.set("/about.html", "/ar/about/");
 for (const page of RIDDLE_ARABIA_SEO_PAGES) {
   sharedArabicRoutes.set(page.paths.en, page.paths.ar);
   sharedArabicRoutes.set(`${page.paths.en}.html`, page.paths.ar);
+}
+for (const puzzle of RIDDLE_ARABIA_PUZZLE_CATALOG) {
+  sharedArabicRoutes.set(puzzle.paths.en, puzzle.paths.ar);
+  sharedArabicRoutes.set(`${puzzle.paths.en}.html`, puzzle.paths.ar);
 }
 for (const route of PAGE_ROUTES) {
   if (route.englishPath !== "/") sharedArabicRoutes.set(`${route.englishPath}.html`, route.arabicPath);

@@ -382,6 +382,31 @@ test("a current predecessor still requires the complete current navigation contr
   });
 });
 
+test("previous SEO titles are accepted only by the version-bound release baseline", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const fetchPredecessor = async (input, init) => {
+      const response = await options.fetchImpl(input, init);
+      const route = HTML_ROUTES.find(({ path }) => path === new URL(input).pathname);
+      if (!route?.baselineMarker) return response;
+      return new Response((await response.text()).replace(route.marker, route.baselineMarker), {
+        status: response.status, headers: response.headers,
+      });
+    };
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: fetchPredecessor });
+    assert.deepEqual(baseline.failures, []);
+    assert.equal(baseline.navigationLayout, "current");
+
+    const candidate = await runProductionMonitor({
+      ...options, siteContract: "current", fetchImpl: fetchPredecessor,
+    });
+    for (const name of ["Home", "Riddles & Quizzes", "Brain Games", "Games"]) {
+      assert.ok(candidate.failures.some((failure) => failure.name === `Site: ${name}`),
+        `${name} must require current SEO metadata after deployment`);
+    }
+  });
+});
+
 test("strict navigation probes pass every HTML route from a fresh real production build", async () => {
   const temporary = await mkdtemp(join(tmpdir(), "riddlearabia-monitor-artifact-"));
   try {
@@ -402,6 +427,11 @@ test("strict navigation probes pass every HTML route from a fresh real productio
       for (const route of HTML_ROUTES) {
         assert.ok(summary.results.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must be tested`);
       }
+    });
+    await withFixture({ builtHtml: outputDirectory, productionSite: true }, async (fixtureOrigin) => {
+      const baseline = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
+      assert.deepEqual(baseline.failures, []);
+      assert.equal(baseline.navigationLayout, "current");
     });
   } finally {
     await rm(temporary, { recursive: true, force: true });

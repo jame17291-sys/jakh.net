@@ -45,7 +45,7 @@ test("discovery explains the site before the featured case and describes the fin
   assert.match(home, /href="\/akshifha\?case=two-stages-one-host&amp;mode=practice"[^>]*data-href-ar="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"/u);
   assert.match(read("ar/index.html"), /href="\/ar\/games\/akshifha\/\?case=two-stages-one-host&amp;mode=practice"/u);
   assert.doesNotMatch(read("ar/index.html"), /two-stages-one-host&amp;amp;mode=practice/u);
-  assert.match(home, /<h1\b[^>]*>Riddles, quizzes &amp; games\.<\/h1>/u);
+  assert.match(home, /<h1\b[^>]*>Arabic riddles, trivia &amp; games\.<\/h1>/u);
   assert.match(home, /Featured: Akshifha/u);
   assert.match(home, /Two stages\. One host\./u);
   assert.ok(home.indexOf('class="activity-grid"') < home.indexOf('data-i18n="homeFeatureTitle"'), 'activity choices precede the optional featured case');

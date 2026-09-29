@@ -84,10 +84,11 @@ export const PRE_NAVIGATION_HTML_ROUTES = [
 ];
 
 const NAVIGATION_ROUTE_UPDATES = {
-  "/": { bilingualMarker: 'class="language-route-link"' },
-  "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
+  "/": { marker: "<title>Arabic Riddles, Trivia &amp; Games | Riddle Arabia", baselineMarker: "<title>Riddle Arabia", bilingualMarker: 'class="language-route-link"' },
+  "/mind-lab": { name: "Riddles & Quizzes", marker: "<title>Riddles, Trivia &amp; Quizzes in Arabic &amp; English", baselineMarker: "<title>Riddles &amp; Quizzes", bilingualMarker: 'class="language-route-link"' },
   "/collections": { marker: "<title>Short Riddle &amp; Quiz Collections" },
-  "/play": { name: "Games", bilingualMarker: 'class="language-route-link"' },
+  "/brain-games": { marker: "<title>Free Brain Games in Arabic &amp; English", baselineMarker: "<title>Free Brain Games Online" },
+  "/play": { name: "Games", marker: "<title>Free Arabic Games Online", baselineMarker: "<title>Akshifha &amp; Free Browser Games", bilingualMarker: 'class="language-route-link"' },
   "/science": { bilingualMarker: 'class="language-route-link"' },
 };
 
@@ -526,7 +527,11 @@ export async function runProductionMonitor(options = {}) {
       const resource = await fetchResource(fetchImpl, new URL("/", config.siteOrigin), config.timeoutMs);
       expectStatus(resource.response, 200);
       expectContentType(resource.response, /^text\/html\b/iu);
-      expect(resource.text.includes("<title>Riddle Arabia"), "baseline homepage is not Riddle Arabia");
+      expect(
+        resource.text.includes(NAVIGATION_ROUTE_UPDATES["/"].marker)
+          || resource.text.includes(NAVIGATION_ROUTE_UPDATES["/"].baselineMarker),
+        "baseline homepage is not Riddle Arabia",
+      );
       if (resource.text.includes('class="primary-navigation"')) {
         expectSharedNavigation(resource.text, "/");
         navigationLayout = "current";
@@ -552,7 +557,11 @@ export async function runProductionMonitor(options = {}) {
       if (legacyBaseline) {
         expect(/<title>[^<\r\n]+<\/title>/iu.test(resource.text), "baseline HTML lacks a nonempty page title");
       } else {
-        expect(resource.text.includes(route.marker), `missing page marker "${route.marker}"`);
+        // An exact-version release baseline may still serve the previous SEO
+        // copy. Candidate and routine checks must require the current marker.
+        const predecessorMarkerMatches = config.siteContract === "release-baseline"
+          && route.baselineMarker && resource.text.includes(route.baselineMarker);
+        expect(resource.text.includes(route.marker) || predecessorMarkerMatches, `missing page marker "${route.marker}"`);
       }
       expect(
         resource.text.includes(route.bilingualMarker),

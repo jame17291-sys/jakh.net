@@ -716,10 +716,10 @@ function renderFunctionalCategoryShell(category, lang) {
 </html>`;
 }
 
-function sitemapUrl(url, priority, alternates) {
+function sitemapUrl(url, priority, alternates, lastModified = LAST_MODIFIED) {
   return `  <url>
     <loc>${url}</loc>
-    <lastmod>${LAST_MODIFIED}</lastmod>
+    <lastmod>${lastModified}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${priority}</priority>
     <xhtml:link rel="alternate" hreflang="en" href="${alternates.en}"/>
@@ -730,22 +730,22 @@ function sitemapUrl(url, priority, alternates) {
 
 function renderSitemap() {
   const pairs = [
-    { en: "/", ar: "/ar/", priority: "1.0" },
-    { en: "/mind-lab", ar: "/ar/mind-lab/", priority: "0.85" },
-    { en: "/collections", ar: "/ar/collections/", priority: "0.90" },
-    { en: "/play", ar: "/ar/play/", priority: "0.75" },
+    { en: "/", ar: "/ar/", lastModified: "2026-09-29", priority: "1.0" },
+    { en: "/mind-lab", ar: "/ar/mind-lab/", lastModified: "2026-09-29", priority: "0.85" },
+    { en: "/collections", ar: "/ar/collections/", lastModified: "2026-09-29", priority: "0.90" },
+    { en: "/play", ar: "/ar/play/", lastModified: "2026-09-29", priority: "0.75" },
     { en: "/daily", ar: "/ar/daily/", priority: "0.75" },
     { en: "/about", ar: "/ar/about/", priority: "0.50" },
     { en: "/privacy", ar: "/ar/privacy/", priority: "0.35" },
-    ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, priority: page.kind === "games" ? "0.85" : "0.80" })),
+    ...RIDDLE_ARABIA_SEO_PAGES.map((page) => ({ en: page.paths.en, ar: page.paths.ar, lastModified: page.lastModified, priority: page.kind === "games" ? "0.85" : "0.80" })),
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => ({ en: `/${game.slug}`, ar: `/ar/games/${game.slug}/`, priority: "0.65" })),
     ...PRESERVED_GAME_SLUGS.map((slug) => ({ en: `/${slug}`, ar: `/ar/games/${slug}/`, priority: "0.35" })),
   ];
   const entries = pairs.flatMap((pair) => {
     const alternates = { en: `${SITE_ORIGIN}${pair.en}`, ar: `${SITE_ORIGIN}${pair.ar}` };
     return [
-      sitemapUrl(alternates.en, pair.priority, alternates),
-      sitemapUrl(alternates.ar, pair.priority, alternates),
+      sitemapUrl(alternates.en, pair.priority, alternates, pair.lastModified),
+      sitemapUrl(alternates.ar, pair.priority, alternates, pair.lastModified),
     ];
   });
   return `<?xml version="1.0" encoding="UTF-8"?>

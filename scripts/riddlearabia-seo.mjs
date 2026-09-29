@@ -8,24 +8,25 @@
 export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   {
     key: "riddles",
+    lastModified: "2026-09-29",
     paths: { en: "/riddles", ar: "/ar/alghaz/" },
     titles: {
       en: "Riddles With Answers | Riddle Arabia",
       ar: "ألغاز مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Try a thoughtful set of bilingual riddles. Make your guess first, open the answer when you are ready, then keep the challenge moving.",
-      ar: "جرّب مجموعة منتقاة من الألغاز بالعربية والإنجليزية. خمّن أولاً، ثم افتح الحل عندما تكون مستعداً، وواصل التحدي.",
+      en: "Solve free riddles with answers in English and Arabic. Try classic clues about everyday objects, nature, and logic, then reveal each answer when you are ready.",
+      ar: "حلّ ألغازاً مع الحل بالعربية والإنجليزية مجاناً. جرّب أسئلة عن الأشياء اليومية والطبيعة والمنطق، ثم اكشف إجابة كل لغز بعد أن تخمّن.",
     },
     eyebrow: { en: "A calm start", ar: "بداية هادئة" },
-    headings: { en: "Classic riddles", ar: "ألغاز كلاسيكية" },
+    headings: { en: "Riddles with answers", ar: "ألغاز مع الحل" },
     introductions: {
-      en: "A good riddle gives you just enough to begin. This set moves from familiar objects to small twists in language and logic, with answers kept behind a tap so the thinking stays yours.",
-      ar: "اللغز الجيد يمنحك ما يكفي لتبدأ. تنتقل هذه المجموعة من أشياء مألوفة إلى لمسات لغوية ومنطقية صغيرة، وتبقى الحلول خلف نقرة كي يبقى التفكير لك.",
+      en: "Start with a short collection of classic riddles about everyday objects, nature, and family relationships. Read each clue in English or Arabic, make your guess, and open the answer to see how you did. Every riddle is free to try on your own or with friends.",
+      ar: "ابدأ بمجموعة قصيرة من الألغاز عن الأشياء اليومية والطبيعة والعلاقات العائلية. اقرأ كل لغز بالعربية أو الإنجليزية، وخمّن الحل، ثم اكشف الإجابة لتتحقّق منها. يمكنك تجربة جميع الألغاز مجاناً بمفردك أو مع الأصدقاء.",
     },
     guidance: {
-      en: "Read each clue once without rushing. Say your first answer out loud, then reveal the explanation and compare the detail you noticed.",
-      ar: "اقرأ كل تلميح مرة من دون استعجال. قل إجابتك الأولى بصوتٍ عالٍ، ثم اكشف الحل وقارن بالتفصيل الذي لاحظته.",
+      en: "Read each clue without rushing. Say your answer out loud, then reveal the solution and check which details led you there. Use the full topic link above for more riddles.",
+      ar: "اقرأ كل لغز من دون استعجال. قل إجابتك بصوتٍ عالٍ، ثم اكشف الحل وراجع التفاصيل التي أوصلتك إليه. للمزيد من الألغاز، افتح رابط الموضوع الكامل أعلاه.",
     },
     subjects: { en: ["Riddles", "Wordplay"], ar: ["ألغاز", "تفكير لغوي"] },
     cards: [
@@ -41,26 +42,27 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "arabic-riddles",
+    lastModified: "2026-09-29",
     paths: { en: "/arabic-riddles", ar: "/ar/alghaz-arabiya/" },
     titles: {
-      en: "Arabic Riddles in Arabic & English | Riddle Arabia",
-      ar: "ألغاز عربية بالعربية والإنجليزية | ريدل أرابيا",
+      en: "Arabic Riddles With Answers | Riddle Arabia",
+      ar: "ألغاز عربية مع الحل | ريدل أرابيا",
     },
     descriptions: {
-      en: "Solve bilingual Arabic riddles with a friend or on your own. Every clue is available in Arabic and English, with the answer one tap away.",
-      ar: "حلّ ألغازاً عربية ثنائية اللغة بمفردك أو مع صديق. كل تلميح متاح بالعربية والإنجليزية، والحل على بُعد نقرة واحدة.",
+      en: "Try free Arabic riddles with answers and English translations. Solve clues about familiar objects, words, and ideas on your own or with friends.",
+      ar: "جرّب ألغازاً عربية مع الحل وترجمة إنجليزية مجاناً. خمّن إجابات ألغاز عن الأشياء المألوفة والكلمات والأفكار، بمفردك أو مع الأصدقاء.",
     },
     eyebrow: { en: "Think across languages", ar: "فكّر بلغتين" },
-    headings: { en: "Arabic riddles", ar: "ألغاز عربية" },
+    headings: { en: "Arabic riddles with answers", ar: "ألغاز عربية مع الحل" },
     introductions: {
-      en: "Riddle Arabia is made for readers who move naturally between Arabic and English. Use either version of a clue—or compare both—to find the wordplay hiding in plain sight.",
-      ar: "صُمّمت ريدل أرابيا لمن ينتقلون بسلاسة بين العربية والإنجليزية. استخدم أي نسخة من التلميح، أو قارن بينهما، لتكتشف اللعب اللغوي الظاهر أمامك.",
+      en: "These Arabic riddles turn familiar objects, words, and ideas into short guessing challenges. Each clue and answer has an English version too, so you can compare the wording or share the same riddle with friends who prefer another language.",
+      ar: "تحوّل هذه الألغاز العربية الأشياء المألوفة والكلمات والأفكار إلى تحديات قصيرة للتخمين. لكل لغز وحل نسخة إنجليزية أيضاً، لتقارن بين الصياغتين أو تشارك اللغز نفسه مع أصدقاء يفضّلون لغة أخرى.",
     },
     guidance: {
       en: "Choose the language that feels most natural, make a prediction, and then switch languages before opening the answer for a fresh angle.",
       ar: "اختر اللغة الأقرب إليك، وخمّن الحل، ثم بدّل اللغة قبل كشف الإجابة لتأخذ زاوية جديدة.",
     },
-    subjects: { en: ["Arabic riddles", "Bilingual wordplay"], ar: ["ألغاز عربية", "تفكير ثنائي اللغة"] },
+    subjects: { en: ["Arabic riddles", "Everyday reasoning"], ar: ["ألغاز عربية", "استدلال يومي"] },
     cards: [
       ["classic-riddles", "classic-riddles-005"],
       ["classic-riddles", "classic-riddles-006"],
@@ -140,26 +142,27 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "general-knowledge",
+    lastModified: "2026-09-29",
     paths: { en: "/general-knowledge", ar: "/ar/malumat-amma/" },
     titles: {
-      en: "General Knowledge Quiz | Riddle Arabia",
-      ar: "اختبار معلومات عامة | ريدل أرابيا",
+      en: "Arabic Trivia & General Knowledge Quiz | Riddle Arabia",
+      ar: "أسئلة معلومات عامة مع الإجابات | ريدل أرابيا",
     },
     descriptions: {
-      en: "A balanced bilingual general knowledge quiz spanning geography, history, nature, science, and culture. Guess first, then check each answer.",
-      ar: "اختبار معلومات عامة متوازن بالعربية والإنجليزية يشمل الجغرافيا والتاريخ والطبيعة والعلوم والثقافة. خمّن أولاً ثم تحقّق من كل إجابة.",
+      en: "Test your general knowledge with free trivia questions and answers in Arabic and English. Explore geography, history, science, nature, food, and music.",
+      ar: "اختبر ثقافتك بأسئلة معلومات عامة مع الإجابات بالعربية والإنجليزية مجاناً، في الجغرافيا والتاريخ والعلوم والطبيعة والطعام والموسيقى.",
     },
     eyebrow: { en: "A little of everything", ar: "قليل من كل شيء" },
-    headings: { en: "General knowledge", ar: "معلومات عامة" },
+    headings: { en: "Arabic trivia & general knowledge", ar: "أسئلة معلومات عامة مع الإجابات" },
     introductions: {
-      en: "General knowledge is a map, not a score. This set crosses subjects on purpose, giving you a quick way to discover what you remember and what you want to learn next.",
-      ar: "المعلومات العامة خريطة وليست مجرد نتيجة. تنتقل هذه المجموعة بين موضوعات مختلفة عمداً، لتكتشف ما تتذكره وما تريد تعلّمه لاحقاً.",
+      en: "This Arabic trivia quiz is also available in English, so friends can enjoy the same questions in either language. Test what you remember about places, history, science, animals, food, and music, then reveal each answer when you are ready.",
+      ar: "تجمع هذه المسابقة الثقافية أسئلة معلومات عامة بالعربية مع نسخة إنجليزية، ليتمكّن الأصدقاء من تجربة الأسئلة نفسها باللغة التي يفضّلونها. اختبر ما تتذكره عن الجغرافيا والتاريخ والعلوم والحيوانات والطعام والموسيقى، ثم اكشف كل إجابة عندما تكون مستعداً.",
     },
     guidance: {
-      en: "Treat every answer as a starting point. If a question surprises you, follow the category link to continue exploring that subject.",
-      ar: "اعتبر كل إجابة نقطة بداية. إذا فاجأك سؤال، فاتبع رابط الموضوع لمواصلة استكشافه.",
+      en: "Take turns reading the questions for a casual trivia game, or work through them at your own pace. If a question surprises you, follow its topic link to keep exploring.",
+      ar: "تناوبوا على قراءة الأسئلة في مسابقة خفيفة، أو أجب عنها على مهل بمفردك. إذا أثار سؤال فضولك، فاتبع رابط موضوعه لمواصلة الاستكشاف.",
     },
-    subjects: { en: ["General knowledge", "Geography", "History", "Science"], ar: ["معلومات عامة", "جغرافيا", "تاريخ", "علوم"] },
+    subjects: { en: ["Trivia", "General knowledge", "Geography", "History", "Science"], ar: ["مسابقات ثقافية", "معلومات عامة", "جغرافيا", "تاريخ", "علوم"] },
     cards: [
       ["geography", "geography-001"],
       ["geography", "geography-007"],
@@ -173,26 +176,27 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "arabia-quiz",
+    lastModified: "2026-09-29",
     paths: { en: "/arabia-quiz", ar: "/ar/tarikh-al-arab/" },
     titles: {
-      en: "Arabia & Middle East History Quiz | Riddle Arabia",
-      ar: "اختبار تاريخ العرب والشرق الأوسط | ريدل أرابيا",
+      en: "Arab & Middle East History Trivia | Riddle Arabia",
+      ar: "أسئلة عن تاريخ العرب والشرق الأوسط | ريدل أرابيا",
     },
     descriptions: {
-      en: "Explore a bilingual Middle East history quiz with questions on civilizations, cities, scholarship, and the region’s historical connections.",
-      ar: "استكشف اختباراً ثنائي اللغة عن تاريخ العرب والشرق الأوسط، بأسئلة عن الحضارات والمدن والعلم وصلات المنطقة التاريخية.",
+      en: "Try Arab and Middle East history trivia with answers in Arabic and English. Explore ancient civilizations, Islamic history, cities, and scholarship.",
+      ar: "جرّب أسئلة عن تاريخ العرب والشرق الأوسط مع الإجابات بالعربية والإنجليزية. اختبر معرفتك بالحضارات القديمة والتاريخ الإسلامي والمدن والعلم.",
     },
     eyebrow: { en: "History with context", ar: "تاريخ في سياقه" },
-    headings: { en: "Arabia & Middle East history", ar: "تاريخ العرب والشرق الأوسط" },
+    headings: { en: "Arab & Middle East history trivia", ar: "أسئلة عن تاريخ العرب والشرق الأوسط" },
     introductions: {
-      en: "The history of Arabia and the wider Middle East reaches across languages, cities, and centuries. These prompts are an invitation to recall key landmarks and continue learning with reliable historical sources.",
-      ar: "يمتد تاريخ العرب والشرق الأوسط عبر اللغات والمدن والقرون. هذه الأسئلة دعوة لتذكّر محطات أساسية ومواصلة التعلّم من مصادر تاريخية موثوقة.",
+      en: "Explore the history of the Arab world and the wider Middle East through a short trivia quiz. The questions move from ancient Egypt, Mesopotamia, and Persia to Islamic history and the translation of scientific works into Arabic. Read in Arabic or English and reveal the answers as you go.",
+      ar: "استكشف تاريخ العالم العربي والشرق الأوسط في مسابقة قصيرة. تنتقل الأسئلة من مصر القديمة وبلاد الرافدين وفارس إلى التاريخ الإسلامي وترجمة الأعمال العلمية إلى العربية. اقرأ بالعربية أو الإنجليزية، واكشف الإجابات أثناء تقدّمك.",
     },
     guidance: {
       en: "Use this page for learning and conversation, not as a substitute for a full historical source. Open the answer only after forming your own response.",
       ar: "استخدم هذه الصفحة للتعلّم والنقاش، لا بديلاً عن مصدر تاريخي متكامل. اكشف الحل بعد أن تصوغ إجابتك الخاصة.",
     },
-    subjects: { en: ["Middle East history", "Ancient civilizations"], ar: ["تاريخ الشرق الأوسط", "حضارات قديمة"] },
+    subjects: { en: ["History trivia", "Arab history", "Middle East history", "Ancient civilizations"], ar: ["أسئلة تاريخية", "تاريخ العرب", "تاريخ الشرق الأوسط", "حضارات قديمة"] },
     cards: [
       ["middle-east-history", "me-hist-001"],
       ["middle-east-history", "me-hist-002"],
@@ -243,21 +247,22 @@ export const RIDDLE_ARABIA_SEO_PAGES = Object.freeze([
   },
   {
     key: "brain-games",
+    lastModified: "2026-09-29",
     paths: { en: "/brain-games", ar: "/ar/alab-al-dimagh/" },
     kind: "games",
     titles: {
-      en: "Free Brain Games Online | Riddle Arabia",
-      ar: "ألعاب دماغ مجانية أونلاين | ريدل أرابيا",
+      en: "Free Brain Games in Arabic & English | Riddle Arabia",
+      ar: "ألعاب ذكاء مجانية بالعربية والإنجليزية | ريدل أرابيا",
     },
     descriptions: {
-      en: "Play Akshifha: connect two clues and discover what follows in eleven free Arabic and English mysteries. Explore Chess and Backgammon in Classics.",
-      ar: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
+      en: "Play free brain games in Arabic and English. Solve Akshifha’s clue-based mysteries, then try chess and backgammon online.",
+      ar: "العب ألعاب ذكاء مجانية بالعربية والإنجليزية. حلّ قضايا اكشفها بربط الأدلة، ثم جرّب الشطرنج وطاولة الزهر عبر المتصفح.",
     },
     eyebrow: { en: "Games", ar: "الألعاب" },
-    headings: { en: "Brain games, in one place", ar: "ألعاب ذهنية في مكان واحد" },
+    headings: { en: "Brain games in Arabic and English", ar: "ألعاب ذكاء بالعربية والإنجليزية" },
     introductions: {
-      en: "The Games page is the home for Akshifha, Chess, Backgammon, and question-based play modes. Choose a game there, or use a direct link below.",
-      ar: "صفحة الألعاب هي المكان الرئيسي لاكشفها والشطرنج وطاولة الزهر وأنماط اللعب بالأسئلة. اختر لعبة هناك، أو استخدم رابطاً مباشراً أدناه.",
+      en: "Choose a free brain game to play in your browser, with Arabic and English available. Connect clues in Akshifha, plan your moves in chess, or roll the dice in backgammon. Open a game below, or visit Games to explore question-based play modes too.",
+      ar: "اختر لعبة ذكاء مجانية في المتصفح، بالعربية أو الإنجليزية. اربط الأدلة في اكشفها، أو خطّط لنقلاتك في الشطرنج، أو ارمِ النرد في طاولة الزهر. افتح إحدى الألعاب أدناه، أو انتقل إلى صفحة الألعاب لاستكشاف أنماط اللعب بالأسئلة أيضاً.",
     },
     guidance: {
       en: "Akshifha’s daily pick rotates through eleven existing cases; it is separate from the Daily Challenge question. Visit Games for each mode’s description and ways to play.",

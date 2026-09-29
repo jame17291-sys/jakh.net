@@ -1,3 +1,4 @@
+import { puzzleMarkup } from './puzzle-markup.mjs';
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -528,6 +529,7 @@ function renderRoute(route) {
   html = normalizeResourcePaths(html);
   html = localizeInternalLinks(html);
   html = localizeSharedNavigation(html, route);
+  if (route.englishPath === "/play") html = html.replace(/<!-- puzzle-room:start -->[\s\S]*?<!-- puzzle-room:end -->/u, puzzleMarkup("ar"));
   return rewritePublicSiteIdentity(html.endsWith("\n") ? html : `${html}\n`);
 }
 

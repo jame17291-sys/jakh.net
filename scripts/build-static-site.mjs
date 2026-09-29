@@ -38,7 +38,15 @@ export const DEFAULT_MANIFEST_PATH = resolve(REPOSITORY_ROOT, "site-worker/gener
 export const DEFAULT_MANIFEST_MODULE_PATH = resolve(REPOSITORY_ROOT, "site-worker/generated/site-manifest.js");
 export const FINGERPRINT_PREFIX_LENGTH = 16;
 
+const PUZZLE_ASSETS = Object.freeze([
+  "/puzzle-word-data.js", "/puzzle-catalog.js",
+  "/puzzle-room.css", "/puzzle-words.css", "/puzzle-logic.css", "/puzzle-duel.css",
+  "/puzzle-crossword.js", "/puzzle-words.js", "/puzzle-logic.js", "/puzzle-duel.js",
+  "/puzzle-room.js",
+]);
+
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
+  ...PUZZLE_ASSETS,
   "/app.js",
   "/site-navigation.js",
   "/akshifha.js",
@@ -61,6 +69,8 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 ]);
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
+  "/puzzle-room.js",
+  "/puzzle-room.css",
   "/app.js",
   "/site-navigation.js",
   "/akshifha.js",
@@ -886,6 +896,21 @@ export async function buildStaticSite({
   ]) {
     const bytes = sourceBytes.get(urlPathToRelative(stableUrlPath));
     if (bytes) addFingerprint(stableUrlPath, bytes);
+  }
+
+  // Puzzle modules are ordered leaves-first. Propagate content hashes through
+  // lazy imports as well as stylesheet URLs so open tabs never mix releases.
+  for (const stable of PUZZLE_ASSETS) {
+    const source = sourceBytes.get(urlPathToRelative(stable));
+    if (!source) continue;
+    let text = source.toString("utf8");
+    for (const dependency of PUZZLE_ASSETS) {
+      const target = fingerprints[dependency];
+      if (!target) continue;
+      text = replaceQuotedUrl(text, dependency, target).value;
+      text = replaceQuotedUrl(text, `.${dependency}`, target).value;
+    }
+    addFingerprint(stable, Buffer.from(text, "utf8"));
   }
 
   const searchSource = sourceBytes.get("search-leaderboard.js");

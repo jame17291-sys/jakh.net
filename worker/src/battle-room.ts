@@ -1,6 +1,7 @@
 import type { BattlePlayer, BattleQuestion, BattleRoomState } from "./types.js";
 import { isPublicCard } from "./catalog.js";
 import { isQuarantinedCategory } from "./content-safety.js";
+import { WordDuelRoom, WORD_DUEL_STORAGE_KEY } from "./word-duel-room.js";
 
 const QUESTION_TIME_MS = 15_000;
 const REVEAL_TIME_MS = 4_000;
@@ -53,10 +54,27 @@ function isPublicRoom(room: BattleRoomState): boolean {
 }
 
 export class BattleRoom implements DurableObject {
+  private wordDuel?: WordDuelRoom;
   constructor(private readonly ctx: DurableObjectState) {}
+
+  private duelRoom(): WordDuelRoom {
+    return this.wordDuel ||= new WordDuelRoom(this.ctx);
+  }
 
   async fetch(request: Request): Promise<Response> {
     const path = new URL(request.url).pathname;
+    if (path.startsWith("/word-duel/")) {
+      // Public Word Duel routing uses a separate `word-duel:<code>` object name.
+      // Fail closed if an internal caller ever points it at a quiz battle object.
+      if (await this.ctx.storage.get("room")) return new Response("Room type mismatch", { status: 409 });
+      const url = new URL(request.url);
+      url.pathname = path.slice("/word-duel".length);
+      return this.duelRoom().fetch(new Request(url, request));
+    }
+    if (path === "/init") {
+      const duel = await this.ctx.storage.get<{ kind?: string }>(WORD_DUEL_STORAGE_KEY);
+      if (duel?.kind === "word-duel") return new Response("Room type mismatch", { status: 409 });
+    }
     if (path === "/init" && request.method === "POST") return this.initialize(request);
     if (path === "/connect" && request.headers.get("upgrade")?.toLowerCase() === "websocket") {
       const room = await this.ctx.storage.get<BattleRoomState>("room");
@@ -297,6 +315,8 @@ export class BattleRoom implements DurableObject {
   }
 
   async alarm(): Promise<void> {
+    const duel = await this.ctx.storage.get<{ kind?: string }>(WORD_DUEL_STORAGE_KEY);
+    if (duel?.kind === "word-duel") return this.duelRoom().alarm();
     const room = await this.ctx.storage.get<BattleRoomState>("room");
     if (!room) return;
     if (!isPublicRoom(room)) {

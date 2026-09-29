@@ -73,6 +73,7 @@ jobs:
         run: |
           npm run build:site
           npm --prefix site-worker test
+          node --test scripts/puzzle-*.test.mjs
       - name: Test production monitor
         run: >-
           node --test scripts/api-release-receipt.test.mjs

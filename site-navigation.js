@@ -30,7 +30,7 @@
     const target = new URL(link.href);
     target.search = '';
     for (const [key, value] of new URLSearchParams(location.search)) {
-      if (['case', 'mode', 'day', 'card', 'profile', 'difficulty', 'subcategory', 'battle', 'join'].includes(key)) target.searchParams.set(key, value);
+      if (['case', 'mode', 'day', 'card', 'profile', 'difficulty', 'subcategory', 'battle', 'join', 'game', 'variant', 'duelRoom'].includes(key)) target.searchParams.set(key, value);
     }
     target.hash = location.hash;
     link.href = target.pathname + target.search + target.hash;

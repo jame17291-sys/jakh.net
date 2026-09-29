@@ -1,6 +1,8 @@
 import { adminAutopilot, updateAdminAutopilot, claimAutopilot, reportAutopilot, reserveAutopilotRelease, authorizeAutopilotRelease } from "./autopilot.js";
 import { connectBattle, createBattle } from "./battle.js";
 import { BattleRoom } from "./battle-room.js";
+import { WordDuelRoom } from "./word-duel-room.js";
+import { routeWordDuel } from "./word-duel.js";
 import {
   ApiError,
   json,
@@ -68,7 +70,7 @@ import {
 } from "./verified-scoring.js";
 import type { Env } from "./types.js";
 
-export { BattleRoom, PasswordHasher };
+export { BattleRoom, PasswordHasher, WordDuelRoom };
 
 function withWorkerVersion(response: Response, env: Env): Response {
   // A Cloudflare 101 carries the accepted WebSocket. Reconstructing it would
@@ -218,6 +220,7 @@ async function route(request: Request, env: Env): Promise<Response> {
   }
   const contentMatch = /^\/api\/admin\/content\/([A-Za-z0-9_-]{2,96})$/u.exec(path);
   if (contentMatch && method === "PUT") return saveAdminContent(request, env, contentMatch[1] || "");
+  if (path.startsWith("/api/word-duel/")) return routeWordDuel(request, env);
   if (path === "/api/battle/create" && method === "POST") return createBattle(request, env);
   return json({ error: "Not found", code: "NOT_FOUND" }, 404);
 }

@@ -1,3 +1,4 @@
+import { puzzleMarkup } from './puzzle-markup.mjs';
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -47,8 +48,8 @@ const PAGE_ROUTES = [
     englishPath: "/play",
     arabicPath: "/ar/play/",
     runtime: "app",
-    title: "اكشفها وألعاب متصفح مجانية | ريدل أرابيا",
-    description: "العب اكشفها: اربط دليلين واكتشف ما ينتج عنهما في إحدى عشرة قضية مجانية بالعربية والإنجليزية. وجرّب الشطرنج وطاولة الزهر ضمن الكلاسيكيات.",
+    title: "ألغاز وألعاب متصفح مجانية | ريدل أرابيا",
+    description: "العب كلمات متقاطعة وألعاب كلمات وسودوكو وألغاز منطق أصلية، وتحدّ صديقاً في مبارزة الكلمات عبر الإنترنت بالعربية والإنجليزية.",
   },
   {
     source: "daily.html",
@@ -528,6 +529,7 @@ function renderRoute(route) {
   html = normalizeResourcePaths(html);
   html = localizeInternalLinks(html);
   html = localizeSharedNavigation(html, route);
+  if (route.englishPath === "/play") html = html.replace(/<!-- puzzle-room:start -->[\s\S]*?<!-- puzzle-room:end -->/u, puzzleMarkup("ar"));
   return rewritePublicSiteIdentity(html.endsWith("\n") ? html : `${html}\n`);
 }
 

@@ -6,6 +6,7 @@ import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 import {
   PRESERVED_GAME_SLUGS,
   RIDDLE_ARABIA_GAME_CATALOG,
+  RIDDLE_ARABIA_PUZZLE_CATALOG,
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
 import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
@@ -109,7 +110,7 @@ const LEGACY_BASELINE_HTML_ROUTES = PRE_NAVIGATION_HTML_ROUTES.filter(({ path })
 // inventory of every runtime category. Keep production monitoring tied to the
 // same source-of-truth as the static generator, so an old mass-indexing URL
 // cannot quietly return after the cutover.
-export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+export const PRE_PUZZLE_SITEMAP_PATHS = Object.freeze([
   "/",
   "/ar/",
   "/mind-lab",
@@ -135,8 +136,13 @@ export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
   ]),
 ]);
 
+export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+  ...PRE_PUZZLE_SITEMAP_PATHS,
+  ...RIDDLE_ARABIA_PUZZLE_CATALOG.flatMap((puzzle) => [puzzle.paths.en, puzzle.paths.ar]),
+]);
+
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
-  INDEXABLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
+  PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
 );
 
 function expectSharedNavigation(html, pathname) {
@@ -781,7 +787,17 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-    const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+    // Only the exact-version predecessor gate may use the complete pre-puzzle
+    // inventory. Candidate/routine checks still require every current game URL;
+    // a partial rollout or a different 52-URL sitemap is never a valid baseline.
+    // check() also verifies this response's Worker identity before it can pass.
+    const predecessorUrls = PRE_PUZZLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
+    const isPuzzlePredecessor = config.siteContract === "release-baseline"
+      && navigationLayout === "current"
+      && urls.length === predecessorUrls.length
+      && predecessorUrls.every((url) => urls.includes(url));
+    const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
+      : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");

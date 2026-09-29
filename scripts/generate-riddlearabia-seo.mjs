@@ -439,11 +439,11 @@ function renderGamesExperience(page, lang) {
         <p class="eyebrow">${escapeHtml(page.eyebrow[lang])}</p>
         <h1>${escapeHtml(page.headings[lang])}</h1>
         <p>${escapeHtml(page.introductions[lang])}</p>
-        <a class="primary-btn" href="${isAr ? "/ar/play/" : "/play"}">${isAr ? "انتقل إلى جميع الألعاب" : "Browse all games"}</a>
+        <div class="seo-collection-meta"><a class="primary-btn" href="${isAr ? "/ar/play/" : "/play"}">${isAr ? "انتقل إلى جميع الألعاب" : "Browse all games"}</a></div>
         <p class="section-note">${escapeHtml(page.guidance[lang])}</p>
-        <ul class="game-shortcuts">
-          ${DISCOVERABLE_GAMES.map((game) => `<li><a href="${gamePath(game, lang)}">${escapeHtml(game.names[lang])}</a><p>${escapeHtml(game.descriptions[lang])}</p></li>`).join("\n          ")}
-        </ul>
+      </section>
+      <section class="seo-hub-grid shell" aria-label="${isAr ? "اختر لعبة ذهنية" : "Choose a brain game"}">
+        ${DISCOVERABLE_GAMES.map((game) => `<article class="seo-hub-card"><h2><a href="${gamePath(game, lang)}">${escapeHtml(game.names[lang])}</a></h2><p>${escapeHtml(game.descriptions[lang])}</p><a class="text-btn" href="${gamePath(game, lang)}">${isAr ? `جرّب ${escapeHtml(game.names[lang])}` : `Try ${escapeHtml(game.names[lang])}`}</a></article>`).join("\n        ")}
       </section>
     </main>
     ${globalFooter(lang)}

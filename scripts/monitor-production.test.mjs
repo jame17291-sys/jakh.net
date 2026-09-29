@@ -12,6 +12,7 @@ import {
   INDEXABLE_SITEMAP_PATHS,
   PRE_NAVIGATION_HTML_ROUTES,
   PRE_NAVIGATION_SITEMAP_PATHS,
+  PRE_PUZZLE_SITEMAP_PATHS,
   QUARANTINED_CATEGORY_SLUGS,
   QUARANTINED_SITE_ROUTES,
   PRIMARY_SITE_ORIGIN,
@@ -22,6 +23,7 @@ import {
 } from "./monitor-production.mjs";
 import { navigationScript, siteHeader } from "./site-navigation-markup.mjs";
 import { buildStaticSite } from "./build-static-site.mjs";
+import { PUZZLE_ROUTES } from "../puzzle-routes.js";
 
 const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 
@@ -407,6 +409,40 @@ test("previous SEO titles are accepted only by the version-bound release baselin
   });
 });
 
+test("only an exact-version release baseline accepts the complete 52-URL pre-puzzle sitemap", async () => {
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    const withSitemap = (paths, workerVersion = FIXTURE_WORKER_VERSION) => async (input, init) => {
+      if (new URL(input).pathname !== "/sitemap.xml") return options.fetchImpl(input, init);
+      return new Response(`<urlset>${paths.map((path) => `<url><loc>${PRIMARY_SITE_ORIGIN}${path}</loc></url>`).join("")}</urlset>`, {
+        headers: { "content-type": "application/xml", "x-jakh-worker-version": workerVersion },
+      });
+    };
+    const fetchPredecessor = withSitemap(PRE_PUZZLE_SITEMAP_PATHS);
+    const baseline = await runProductionMonitor({ ...options, fetchImpl: fetchPredecessor });
+    assert.deepEqual(baseline.failures, []);
+    assert.equal(baseline.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
+
+    const candidate = await runProductionMonitor({ ...options, siteContract: "current", fetchImpl: fetchPredecessor });
+    assert.match(candidate.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /52 URLs instead of 78/u);
+
+    for (const paths of [
+      [...PRE_PUZZLE_SITEMAP_PATHS.slice(1), "/unexpected-indexable-route"],
+      [...PRE_PUZZLE_SITEMAP_PATHS, PUZZLE_ROUTES[0].paths.en],
+    ]) {
+      const partial = await runProductionMonitor({ ...options, fetchImpl: withSitemap(paths) });
+      assert.ok(partial.failures.some(({ name }) => name === "Site: sitemap"), "Only the exact predecessor inventory is accepted");
+    }
+
+    const mismatched = await runProductionMonitor({
+      ...options, fetchImpl: withSitemap(PRE_PUZZLE_SITEMAP_PATHS, "22222222-2222-4222-8222-222222222222"),
+    });
+    assert.match(mismatched.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /served Worker .* expected/u);
+    const unidentified = await runProductionMonitor({ ...options, fetchImpl: withSitemap(PRE_PUZZLE_SITEMAP_PATHS, "") });
+    assert.match(unidentified.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /lacks a valid Worker version/u);
+  });
+});
+
 test("strict navigation probes pass every HTML route from a fresh real production build", async () => {
   const temporary = await mkdtemp(join(tmpdir(), "riddlearabia-monitor-artifact-"));
   try {
@@ -598,8 +634,20 @@ test("production monitor reserves route-migration probes for the production Ridd
 });
 
 test("production monitor follows the focused sitemap inventory", () => {
-  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 52);
+  assert.equal(INDEXABLE_SITEMAP_PATHS.length, 78);
   assert.equal(new Set(INDEXABLE_SITEMAP_PATHS).size, INDEXABLE_SITEMAP_PATHS.length);
+  const actualUrls = [...readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8").matchAll(/<loc>([^<]+)<\/loc>/gu)]
+    .map(([, url]) => url);
+  assert.deepEqual([...INDEXABLE_SITEMAP_PATHS].map((path) => `${PRIMARY_SITE_ORIGIN}${path}`).sort(), actualUrls.sort(),
+    "The live monitor inventory must match the actual generated sitemap, not only its own fixtures");
+  assert.equal(PRE_PUZZLE_SITEMAP_PATHS.length, 52);
+  assert.equal(PRE_NAVIGATION_SITEMAP_PATHS.length, 50);
+  assert.deepEqual(PRE_NAVIGATION_SITEMAP_PATHS, PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)));
+  for (const route of PUZZLE_ROUTES) for (const path of Object.values(route.paths)) {
+    assert.ok(INDEXABLE_SITEMAP_PATHS.includes(path));
+    assert.ok(!PRE_PUZZLE_SITEMAP_PATHS.includes(path));
+    assert.ok(!PRE_NAVIGATION_SITEMAP_PATHS.includes(path));
+  }
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/riddles"));
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/ar/alghaz/"));
   assert.ok(INDEXABLE_SITEMAP_PATHS.includes("/brain-games"));

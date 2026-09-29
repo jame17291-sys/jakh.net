@@ -139,6 +139,8 @@ const ROUTES = [
   ["English quiz", "/science"],
   ["Arabic quiz", "/ar/topics/science/"],
   ["game hub", "/play"],
+  ["English Brain Games guide", "/brain-games"],
+  ["Arabic Brain Games guide", "/ar/alab-al-dimagh/"],
   ["English Mini crossword", "/mini-crossword"],
   ["Arabic Mini crossword", "/ar/games/mini-crossword/"],
   ["English bonus puzzles", "/bonus-puzzles"],

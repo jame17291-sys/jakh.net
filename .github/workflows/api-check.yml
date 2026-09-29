@@ -69,6 +69,7 @@ jobs:
           scripts/seo-pagination.test.mjs
           scripts/seo-validation-contract.test.mjs
           scripts/service-worker-contract.test.mjs
+          scripts/site-organization.test.mjs
       - name: Build and test exact public static projection
         run: |
           npm run build:site

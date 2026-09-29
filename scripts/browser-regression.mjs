@@ -413,9 +413,16 @@ async function main() {
         }
         await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
         const shared = new URL(await page.locator('#puzzle-share-whatsapp').getAttribute('href')).searchParams.get('text');
-        assert.match(shared, /تم الحل/u);
-        for (const answer of puzzle.solution) assert.ok(!shared.includes(answer), 'sharing must not expose answers');
-        assert.ok(shared.includes(`date=${date}`));
+        const challenge = new URL('/ar/play/', baseUrl);
+        challenge.searchParams.set('game', 'letter-square');
+        challenge.searchParams.set('date', date);
+        challenge.searchParams.set('edition', '2');
+        // Short Arabic answers may also occur in ordinary headings. An exact
+        // payload contract rejects every extra answer field without substring collisions.
+        assert.deepEqual(shared.split('\n'), [
+          'ريدل أرابيا', `مربّع الحروف · ${date}`, '✓ تم الحل',
+          `${puzzle.solution.length} كلمات`, 'جرّب اللغز نفسه:', challenge.href,
+        ], 'completed sharing contains only the title, date, result, word count and challenge URL');
         await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
         await ready();
         await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();

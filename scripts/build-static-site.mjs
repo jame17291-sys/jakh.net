@@ -39,7 +39,8 @@ export const DEFAULT_MANIFEST_MODULE_PATH = resolve(REPOSITORY_ROOT, "site-worke
 export const FINGERPRINT_PREFIX_LENGTH = 16;
 
 const PUZZLE_ASSETS = Object.freeze([
-  "/puzzle-word-data.js", "/puzzle-catalog.js",
+  "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
+  "/puzzle-word-data.js", "/puzzle-catalog.js", "/puzzle-daily.js",
   "/puzzle-room.css", "/puzzle-words.css", "/puzzle-logic.css", "/puzzle-duel.css",
   "/puzzle-crossword.js", "/puzzle-words.js", "/puzzle-logic.js", "/puzzle-duel.js",
   "/puzzle-room.js",

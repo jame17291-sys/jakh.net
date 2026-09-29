@@ -349,3 +349,35 @@ self.addEventListener('fetch', (event) => {
     })());
   }
 });
+
+// Opt-in Word Duel pushes contain a room code, never a private seat token.
+self.addEventListener('push', (event) => {
+  let data;
+  try { data = event.data?.json(); } catch (_) { return; }
+  if (data?.type !== 'word-duel' || !/^[A-HJ-NP-Z2-9]{8}$/u.test(data.code)) return;
+  const ar = data.lang === 'ar';
+  const url = `${ar ? '/ar/play/' : '/play'}?game=duel&duelRoom=${data.code}`;
+  const rematch = data.kind === 'rematch';
+  event.waitUntil(self.registration.showNotification(ar ? 'مبارزة الكلمات · ريدل أرابيا' : 'Word Duel · Riddle Arabia', {
+    body: rematch ? (ar ? 'صديقك يدعوك إلى مباراة جديدة. افتح الغرفة للقبول أو الرفض.' : 'Your friend invited you to a rematch. Open the room to accept or decline.') : (ar ? 'حان دورك. افتح الغرفة لمتابعة المباراة.' : 'It’s your turn. Open the room to continue.'),
+    icon: '/assets/icon-192.png', badge: '/assets/icon-192.png', tag: `word-duel-${data.code}`,
+    data: { url }, lang: ar ? 'ar' : 'en', dir: ar ? 'rtl' : 'ltr',
+  }));
+});
+self.addEventListener('notificationclick', (event) => {
+  if (!event.notification.tag?.startsWith('word-duel-')) return;
+  event.notification.close();
+  let url;
+  try { url = new URL(event.notification.data?.url, self.location.origin); } catch (_) { return; }
+  if (url.origin !== self.location.origin || !['/play', '/ar/play/'].includes(url.pathname) || url.searchParams.get('game') !== 'duel' || !/^[A-HJ-NP-Z2-9]{8}$/u.test(url.searchParams.get('duelRoom') || '')) return;
+  // Rebuild an allowlisted URL; notification data cannot navigate off-site or
+  // smuggle credentials or other query parameters into a page.
+  const target = new URL(url.pathname, self.location.origin);
+  target.searchParams.set('game', 'duel'); target.searchParams.set('duelRoom', url.searchParams.get('duelRoom'));
+  event.waitUntil((async () => {
+    const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+    const existing = windows.find(client => client.url === target.href);
+    if (existing) return existing.focus();
+    return self.clients.openWindow(target.href);
+  })());
+});

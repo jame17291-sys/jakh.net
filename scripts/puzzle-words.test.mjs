@@ -10,10 +10,10 @@ import {
 test('both language libraries meet the authored release inventory', () => {
   for (const lang of ['en', 'ar']) {
     assert.ok(WORD_BANKS[lang].answers.length >= 24);
-    assert.ok(HIVES[lang].length >= 3);
-    assert.ok(LINK_SETS[lang].length >= 6);
-    assert.ok(TRAIL_SETS[lang].length >= 2);
-    assert.ok(LETTER_SQUARES[lang].length >= 2);
+    assert.ok(HIVES[lang].length >= 30);
+    assert.ok(LINK_SETS[lang].length >= 30);
+    assert.ok(TRAIL_SETS[lang].length >= 30);
+    assert.ok(LETTER_SQUARES[lang].length >= 30);
     assert.equal(new Set(HIVES[lang].map(p => [...p.letters].sort().join(''))).size, HIVES[lang].length);
     assert.equal(new Set(LINK_SETS[lang].map(p => p.flatMap(g => g.words).sort().join('|'))).size, LINK_SETS[lang].length);
     assert.equal(new Set(TRAIL_SETS[lang].map(p => p.span)).size, TRAIL_SETS[lang].length);
@@ -143,7 +143,7 @@ test('letter-square authored solutions obey sides, chaining and cover all twelve
     assert.equal(new Set(puzzle.words).size, puzzle.words.length);
     for (const word of puzzle.words) assert.equal(validateSquareWord(word, puzzle, '', lang), null, word);
     puzzle.solution.forEach((word, i) => assert.equal(validateSquareWord(word, puzzle, puzzle.solution[i - 1], lang), null));
-    assert.equal(new Set(puzzle.solution.join('')).size, 12);
+    assert.equal(new Set(puzzle.solution.map(w => normalizeWord(w, lang)).join('')).size, 12);
   }
   const puzzle = LETTER_SQUARES.en[0];
   assert.equal(validateSquareWord('TO', puzzle), 'short');
@@ -236,9 +236,9 @@ test('an active trail hint cannot consume another earned hint, including after r
 test('square reload truncates broken chains and post-completion moves, retaining playable progress', () => {
   for (const lang of ['en', 'ar']) for (const puzzle of LETTER_SQUARES[lang]) {
     const partial = restoreSquareState({ chain: [puzzle.solution[0], {}, ...puzzle.solution.slice(1)], current: puzzle.sides[0][0].repeat(100) }, puzzle, lang);
-    assert.deepEqual(partial.chain, [puzzle.solution[0]]); assert.equal(partial.current.length, 28);
+    assert.deepEqual(partial.chain, [normalizeWord(puzzle.solution[0], lang)]); assert.equal(partial.current.length, 28);
     const complete = restoreSquareState({ chain: [...puzzle.solution, 'WRONG'], current: 'BAD' }, puzzle, lang);
-    assert.equal(complete.completed, true); assert.equal(complete.current, ''); assert.deepEqual(complete.chain, puzzle.solution);
+    assert.equal(complete.completed, true); assert.equal(complete.current, ''); assert.deepEqual(complete.chain, puzzle.solution.map(w => normalizeWord(w, lang)));
     assert.deepEqual(restoreSquareState(complete, puzzle, lang), complete);
     assert.equal(restoreSquareState(null, puzzle, lang).completed, false);
   }

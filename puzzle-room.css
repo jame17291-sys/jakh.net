@@ -13,6 +13,22 @@
 .puzzle-card p { color:var(--muted); font-size:.94rem; line-height:1.7; margin:0 0 1.1rem; }
 .puzzle-card-bottom { margin-top:auto; display:flex; justify-content:space-between; gap:.4rem; color:var(--accent); font-size:.82rem; font-weight:700; }
 .puzzle-saved { color:var(--easy); }
+.puzzle-daily { background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius-sm); padding:clamp(1.1rem,3vw,1.8rem); margin-block:1.5rem; }
+.puzzle-daily-heading { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; }
+.puzzle-daily h3 { margin:.3rem 0; font-family:var(--font-display); font-size:clamp(1.4rem,3vw,1.9rem); }
+.puzzle-daily-heading p { margin:.3rem 0; color:var(--muted); }
+.puzzle-daily-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-block:1.25rem; }
+.puzzle-daily-stats div { display:flex; flex-direction:column; gap:.3rem; }
+.puzzle-daily-stats strong { color:var(--text); font-size:clamp(1.5rem,4vw,2rem); font-variant-numeric:tabular-nums; }
+.puzzle-daily-stats span,.puzzle-daily-note { color:var(--muted); font-size:.84rem; line-height:1.6; }
+.puzzle-daily-note { margin:.35rem 0 0; }
+.puzzle-share { border-block-start:1px solid var(--line); padding-block:1.2rem .5rem; margin-block-start:1.5rem; }
+.puzzle-share h2 { font-family:var(--font-display); font-size:1.3rem; margin:0 0 .4rem; }
+.puzzle-share p { color:var(--muted); font-size:.88rem; line-height:1.6; }
+.puzzle-share-actions { display:flex; flex-wrap:wrap; gap:.6rem; }
+.puzzle-share-actions button,.puzzle-share-actions a,.puzzle-daily-heading a { min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+.puzzle-share textarea { display:block; resize:vertical; width:100%; margin-block:.5rem; padding:.8rem; color:var(--text); background:var(--panel); border:1px solid var(--line); border-radius:.5rem; font:inherit; }
+@media(max-width:540px) { .puzzle-daily-stats { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem 1.5rem; } .puzzle-daily-heading a { width:100%; } }
 .puzzle-fineprint { color:var(--muted); font-size:.85rem; line-height:1.7; margin-top:1.25rem; }
 .puzzle-stage { margin-block:1.5rem 3rem; scroll-margin-top:100px; }
 .puzzle-stage-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:1.2rem; }

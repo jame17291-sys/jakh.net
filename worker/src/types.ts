@@ -9,6 +9,9 @@ export interface Env {
   IP_HASH_SALT: string;
   ALLOWED_ORIGINS: string;
   STATIC_ORIGIN: string;
+  VAPID_PUBLIC_KEY?: string;
+  VAPID_PRIVATE_KEY?: string;
+  VAPID_SUBJECT?: string;
 }
 
 interface WorkerVersionMetadata {

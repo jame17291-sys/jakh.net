@@ -1,8 +1,10 @@
+import { ARABIC_WORDS } from "./word-duel-arabic.js";
+import type { DuelReminder } from "./word-duel-push.js";
 // Original, intentionally curated house vocabulary. No third-party game data.
 export type DuelLanguage = "en" | "ar";
 export const BOARD_SIZE = 9;
 export const RACK_SIZE = 7;
-export const VOCABULARY_VERSION = 1;
+export const VOCABULARY_VERSION = 2;
 const ENGLISH = `am an as at be by do go he if in is it me my no of oh on or ox so to up us we
 ace act add age ago aid aim air all and ant any ape arc are arm art ash ask ate awe axe bad bag ban bar bat bay bed bee beg bet bid big bin bit boa bog bow box boy bud bug bun bus but buy cab can cap car cat cob cod cog cop cot cow cry cub cue cup cut dad dam day den dew did die dig dim dip dog dot dry due dug dye ear eat eel egg ego elf elk end era eve eye fan far fat fax fed fee few fig fin fit fix fly fog for fox fun fur gap gas gel gem get gig gin god got gum gun gut guy gym had ham has hat hay hen her hid him hip his hit hog hop hot how hub hue hug hum hut ice icy ill ink inn ion its ivy jab jam jar jaw jet job jog jot joy jug key kid kin kit lab lad lag lap law lay led leg let lid lie lip lit log lot low mad man map mat may men met mix mob mop mud mug nap net new nod nor not now nut oak oar oat odd off oil old one opt orb ore our out owl own pad pal pan pat paw pay pea peg pen pet pie pig pin pit ply pod pop pot pro pry pub pug pun pup put rag ram ran rap rat raw ray red rib rid rig rim rip rob rod rot row rub rug run rye sad sag sap sat saw say sea see set sew she shy sin sip sir sit six ski sky sly sob sod son sow soy spa spy sub sue sum sun sup tab tag tan tap tar tax tea ten the tie tin tip toe ton too top toy try tub tug two use van vat vet vow war was wax way web wed wee wet who why wig win wit woe won wow yak yam yap yes yet you zap zip zoo
 able acid acre aged also area army away baby back bake ball band bank bare bark barn base bath bean bear beat been bell belt bend bent best bike bill bird bite blow blue boat body boil bold bolt bone book boom boot born boss both bowl bulk burn bush busy cake call calm came camp care cart case cash cave chat chef chin chip city clay clip club coal coat code coin cold come cook cool cope copy cord core corn cost cozy crab crew crop cure cute dark dart data date dawn days dead deal dear deep deer deny desk dial dice diet dirt dish does done door down draw drew drop drum duck dune dust each earn ears ease east easy edge else even ever evil exam exit face fact fair fall fame farm fast fate fear feed feel feet fell felt file fill film find fine fire fish five flat flea flew flow foam fold food fool foot form fort four free frog from fuel full fund game gate gave gaze gear gene gift girl give glad glow glue goal goat gold golf gone good gray grew grid grow hair half hall hand hang hard harm hate have head heal hear heat held help herb here hero hide high hill hint hold hole home hope horn host hour huge hunt idea inch into iron item jade jazz join joke jump just keep kept kind king kite knee knew know lace lack lady lake lamb lamp land lane last late lawn lazy lead leaf lean leap left lens less life lift like lime line link lion list live load loan lock logo lone long look loop lord lose loss lost loud love luck made mail main make male many mark mask mass mate math maze meal mean meat meet melt menu mess mice mile milk mind mine mint miss mode moon more most move much must name near neat neck need nest news next nice nine nose note okay once only onto open over pack page paid pain pair pale palm park part pass past path peak pear peel peer pick pine pink pipe plan play plot plum poem poet pole pond pool poor port pose post pour pray pull pure push race rack rain rank rare read real rear reef rent rest rice rich ride ring rise risk road roam roar rock rode role roof room root rope rose rows rule rush safe said sail sake sale salt same sand sang save scan scar seal seat seed seek seem seen self sell send sent shed ship shoe shop shot show shut sick side sign silk sing sink site size skin skip slam slip slow snow soap soft soil sold sole some song soon sort soul soup sour spin spot star stay stem step stop such suit sure swim take tale talk tall tame tank tape task team tear tell tend tent term test text than that them then they thin this time tiny tire told tone took tool torn tour town trap tree trim trio trip true tune turn twin type unit upon used user vast very view vine vote wage wait wake walk wall want warm wash wave weak wear week well went were west what when wide wife wild will wind wine wing wipe wire wise wish with wolf wood wool word wore work worm yard year your zero zone
@@ -13,22 +15,25 @@ const ARABIC = `اب اخ ام ان او اي به بل بي ثم حب حد حر
 ابا ابد اثر اجل احد اذن ارض ارز اسد اسم اصل امل امن انا انت اول باب بئر برد برق بصل بطل بعد بغل بقي بلد بنت بيت بحر بدر بشر تاج تبن تحت تمر توت ثلج جبل جسر جمل جمع جزر جفن جهد حبر حجر حذر حرب حرث حزن حسن حظي حقل حكم حلم حمد حمل حوت حول حيث حين خبر ختم خجل خرج خرف خطب خلق خلف خمر خيط دار درس درع درج دلو دمع دهن دور دوم ذئب ذهب راس ربح ربط رجل ردع رزق رسم رسل رشد رعد رغب رغم ركن رمل رمح رهن روح روز ريش زرع زعم زهر زيت زين سار سحب سحر سخي سدس سرج سعد سفر سقف سكر سكن سلم سمع سهم سهل سور سوق سير شاب شاي شجر شحم شرب شرح شرط شرف شرك شطر شعر شغل شكر شكل شمس شهر شهد شوق شيخ صبر صحن صخر صدر صدق صرف صعب صغر صقر صلح صمت صنع صوت صوم صيف ضحك ضخم ضرب ضرس ضعف ضوء طاب طبع طبق طفل طلب طمع طنن طول طيب طير ظهر عبد عبر عجب عدد عدم عرب عرس عرض عرف عرق عزم عسل عشق عصر عضو عطر عظم عقل علم علو عمر عمل عنب عند عهد عود عين غاب غار غاز غدا غرب غرس غرف غزل غسل غصن غضب غنم غير فاز فتح فجر فخر فرد فرض فرح فرق فصل فضل فعل فكر فلك فهم فوق فيل قبل قبر قدر قدم قرد قرن قسم قشر قصد قصر قطع قطن قفل قلب قلم قمح قمر قوم قوي كتب كبر كحل كرم كسر كشف كعب كلب كلف كمل كنز كوكب كيف لعب لحم لحن لسان لطف لعل لقب لمس لون ليل ليمون ماء مات مثل مجد مرح مرن مزح مسك مشي مطر ملك ملح منع مهر موج موز نال نجم نحل نخل ندى نذر نزل نسب نسر نصف نصر نظر نظم نعم نغم نقل نمط نمو نهر نور نون نوم نيل هبط هجر هدم هرب هرم هزم هضم هنا هوى وجه وجد وحش وحد ورد ورق وزن وسط وصف وصل وضع وطن وعد وفق وقت وقف وعي ولد يوم
 ابرة اجمل احمر اخضر ازرق اصفر ابيض اسود اكبر اصغر احسن امام امير انسان امان امطار انهار ايام بحر بحار بارد بذور بريد بسيط بطاطا بطريق بطيخ بعيد بقاء بلبل بناء بنين بيوت تاريخ تفاح تلميذ تمثال توابل جواب جوار جزيرة جميل جديد جدار جمال جهاز جنوب جناح حديث حديد حروف حديقة حليب حكمة حمام حصان حضور حياة حيوان خريف خيار خشب خفيف خيال خروف خريطة خباز داخل دفتر دجاج دقيقة دليل دواء دقيق دروس دراجة ربيع رمان رمال رسالة رفيق ركاب رخيص رياض زجاج زهرة زهور زيادة زيتون سبيل سحاب سعادة سريع سلام سماء سمك سمين سيارة سليم سوال سعيد سكان سماء شتاء شجرة شراب شرقي شمال شمعة شباب شعاع شديد شلال شاطئ صباح صديق صغير صادق صابون صورة صيف صفاء صعود طابع طريق طبيب طويل طعام طيور طالب طبخ عادل عاقل عالم عامر عاجل عظيم علوم علامة عميق عنوان عيون غابة غريب غزال غروب غذاء غمام فارس فاصل فاكهة فلاح فصول فضاء فضول فندق فنون فريق قريب قارب قراءة قصير قصة قطيع قلوب قماش قليل قوائم قائم قطار كتاب كبير كريم كاتب كرسي كامل كلام كلاب كمان كثيف لطيف لوحة لوز ليالي لعبة لاعب لحن ماعز مبارك مبنى متجر مثال محبة مدرسة مدينة مرحبا مركب مرصد مسجد مصباح مطبخ معلم معنى مفتاح مكتب مكان ملاك منار منزل منطق مهارة ميدان ميزان ناجح نافذة نبات نجوم نحاس نسيم نشاط نصيب نظام نظيف نغمة نهار نهضة نهاية هادي هدية هلال هواء واحد واسع واضح واجب والد وجود وحيد وجوه ورود ورقة وسادة وصول وعد وليد يابس يمين يسار يقين`;
 
-export function normalizeWord(value: string, lang: DuelLanguage): string {
+export function normalizeWord(value: string, lang: DuelLanguage, version = VOCABULARY_VERSION): string {
   const normalized = value.normalize("NFKC").trim().toLowerCase();
-  return lang === "ar" ? normalized.replace(/[\u064b-\u065f\u0670\u0640]/gu, "").replace(/[أإآٱ]/gu, "ا").replace(/ى/gu, "ي") : normalized;
+  return lang === "ar" ? normalized.replace(/[\u064b-\u065f\u0670\u0640]/gu, "").replace(/[أإآٱ]/gu, "ا").replace(/ى/gu, version === 1 ? "ي" : "ى") : normalized;
 }
 const vocabularies = {
   en: [...new Set(ENGLISH.split(/\s+/u))].sort(),
-  ar: [...new Set(ARABIC.split(/\s+/u).map((word) => normalizeWord(word, "ar")))].sort(),
+  ar: [...new Set(ARABIC_WORDS.map(word => normalizeWord(word, "ar")).filter(word => /^[\u0621-\u064a]{2,9}$/u.test(word)))].sort(),
 };
 const wordSets = { en: new Set(vocabularies.en), ar: new Set(vocabularies.ar) };
-export function vocabulary(lang: DuelLanguage): string[] { return vocabularies[lang]; }
+const legacyArabic = [...new Set(ARABIC.split(/\s+/u).map(word => normalizeWord(word, "ar", 1)))].sort();
+const legacyArabicSet = new Set(legacyArabic);
+export function vocabulary(lang: DuelLanguage, version = VOCABULARY_VERSION): string[] { return lang === "ar" && version === 1 ? legacyArabic : vocabularies[lang]; }
 export function letterValue(letter: string, lang: DuelLanguage): number {
   if (lang === "ar") return "اظضظغثذؤئء".includes(letter) ? 3 : "جحخقشطزص".includes(letter) ? 2 : 1;
   return "QZ".includes(letter.toUpperCase()) ? 8 : "JKX".includes(letter.toUpperCase()) ? 5 : "BCFHVWY".includes(letter.toUpperCase()) ? 3 : "DGMP".includes(letter.toUpperCase()) ? 2 : 1;
 }
 export interface Placement { row: number; col: number; letter: string }
 export interface DuelPlayer { id: string; name: string; tokenHash: string; rack: string[]; score: number }
+export interface DuelResult { matchNumber: number; finishedAt: number; reason: string; winnerId: string | null; players: { id: string; name: string; score: number }[]; turns: number }
 export interface DuelRoomState {
   kind: "word-duel";
   code: string; lang: DuelLanguage; board: (string | null)[]; players: DuelPlayer[];
@@ -36,6 +41,9 @@ export interface DuelRoomState {
   scoreless: number; turns: number; expiresAt: number; createdAt: number;
   lastMove: { playerId: string; kind: string; words: string[]; score: number; cells: number[] } | null;
   reason?: string; winnerId?: string | null;
+  vocabularyVersion?: number; matchNumber?: number; results?: DuelResult[];
+  rematch?: { requestedBy: string; status: "pending" | "declined" | "cancelled" };
+  reminders?: Record<string, DuelReminder>; reminderVersions?: Record<string, number>;
 }
 export class DuelError extends Error {
   constructor(public code: string, message: string, public status = 400) { super(message); }
@@ -58,7 +66,7 @@ export function shuffled<T>(items: T[]): T[] {
 export function makeDeck(lang: DuelLanguage): { racks: string[][]; bag: string[] } {
   // Both opening racks contain an ordinary three-letter word, then play uses a finite bag.
   const starters = lang === "ar" ? ["قمر", "بحر", "نجم", "قلم", "نهر", "ورد", "شمس", "عسل"] : ["cat", "sun", "sea", "pen", "hat", "run", "ten", "dog"];
-  const filler = lang === "ar" ? [..."االمنوريبتسعكحدف"] : [..."aaaaeeeeiiioonrrssttlludgmcp"];
+  const filler = lang === "ar" ? [..."ااااالللمننوررييببتتسسععكحدفهوجقشصطزخضثغذظؤئءةى"] : [..."aaaaeeeeiiioonrrssttlludgmcp"];
   const selected = shuffled(starters);
   const racks = selected.slice(0, 2).map((word) => shuffled([...word, ...shuffled(filler).slice(0, 4)]));
   const bag = shuffled([...filler, ...filler, ...shuffled(starters).slice(0, 3).join("")]).slice(0, 54);
@@ -76,7 +84,7 @@ export function scorePlacement(room: DuelRoomState, player: DuelPlayer, input: u
     ensure(item && typeof item === "object" && !Array.isArray(item), "INVALID_TILES", "Invalid tile placement.");
     const { row, col, letter } = item as Placement;
     ensure(Number.isInteger(row) && row >= 0 && row < BOARD_SIZE && Number.isInteger(col) && col >= 0 && col < BOARD_SIZE && typeof letter === "string", "INVALID_TILES", "Place tiles inside the board.");
-    const normalized = normalizeWord(letter, room.lang);
+    const normalized = normalizeWord(letter, room.lang, room.vocabularyVersion || 1);
     ensure([...normalized].length === 1, "INVALID_TILES", "Each tile has one letter.");
     const index = row * BOARD_SIZE + col;
     ensure(!used.has(index) && !room.board[index], "OCCUPIED_CELL", "That square is already occupied.");
@@ -116,7 +124,7 @@ export function scorePlacement(room: DuelRoomState, player: DuelPlayer, input: u
   const words: string[] = [];
   for (const cells of formed.values()) {
     const word = cells.map((index) => board[index]).join("");
-    ensure(wordSets[room.lang].has(word), "WORD_NOT_LISTED", `“${word}” is outside this room’s curated vocabulary.`);
+    ensure((room.lang === "ar" && (room.vocabularyVersion || 1) === 1 ? legacyArabicSet : wordSets[room.lang]).has(word), "WORD_NOT_LISTED", `“${word}” is outside this room’s curated vocabulary.`);
     let points = 0, multiplier = 1;
     for (const index of cells) {
       const bonus = used.has(index) ? premium(index) : "";
@@ -143,6 +151,41 @@ export function finishRoom(room: DuelRoomState, reason: string, now: number): vo
     room.winnerId = first!.score === second!.score ? null : first!.score > second!.score ? first!.id : second!.id;
   }
 }
+export function archiveResult(room: DuelRoomState, now: number): void {
+  const matchNumber = room.matchNumber || 1;
+  if (room.phase !== "finished" || room.results?.some(result => result.matchNumber === matchNumber)) return;
+  room.results = [...(room.results || []), { matchNumber, finishedAt: now, reason: room.reason || "finished", winnerId: room.winnerId ?? null, players: room.players.map(({ id, name, score }) => ({ id, name, score })), turns: room.turns }].slice(-10);
+}
+export function rematchAction(room: DuelRoomState, playerId: string, action: Record<string, unknown>, now = Date.now()): DuelRoomState {
+  const state = structuredClone(room);
+  ensure(state.phase === "finished" && state.players.length === 2, "REMATCH_NOT_READY", "Finish this match before requesting another.");
+  ensure(state.players.some(player => player.id === playerId), "UNAUTHORIZED", "Rejoin using this device’s saved room.");
+  ensure(action.matchNumber === (state.matchNumber || 1) && action.revision === state.revision, "STALE_REVISION", "The room changed. Review it and try again.");
+  const invitation = state.rematch;
+  if (action.decision === "request") {
+    ensure(!invitation, "REMATCH_CLOSED", "This rematch invitation has already been answered. Start a new room instead.");
+    state.rematch = { requestedBy: playerId, status: "pending" };
+  } else {
+    ensure(invitation?.status === "pending", "REMATCH_CLOSED", "There is no pending rematch invitation.");
+    if (action.decision === "cancel") { ensure(invitation.requestedBy === playerId, "UNAUTHORIZED", "Only the sender can cancel this invitation."); invitation.status = "cancelled"; }
+    else {
+      ensure(invitation.requestedBy !== playerId, "REMATCH_CONSENT", "Your friend must accept the rematch.");
+      ensure(action.decision === "accept" || action.decision === "decline", "INVALID_ACTION", "Accept or decline the invitation.");
+      if (action.decision === "decline") invitation.status = "declined";
+      else {
+        archiveResult(state, Math.min(now, state.expiresAt - 60 * 60_000));
+        const deck = makeDeck(state.lang);
+        state.matchNumber = (state.matchNumber || 1) + 1; state.vocabularyVersion = VOCABULARY_VERSION;
+        state.players.forEach((player, index) => { player.rack = deck.racks[index]!; player.score = 0; });
+        state.bag = deck.bag; state.board = Array(81).fill(null); state.phase = "playing"; state.turn = (state.matchNumber - 1) % 2;
+        state.scoreless = 0; state.turns = 0; state.lastMove = null; delete state.reason; delete state.winnerId; delete state.rematch;
+        state.expiresAt = now + 24 * 60 * 60_000;
+      }
+    }
+  }
+  state.revision++;
+  return state;
+}
 export function playAction(room: DuelRoomState, playerId: string, action: Record<string, unknown>, now = Date.now()): DuelRoomState {
   const state = structuredClone(room);
   ensure(state.phase === "playing", "NOT_PLAYING", "This match is not in progress.");
@@ -155,6 +198,7 @@ export function playAction(room: DuelRoomState, playerId: string, action: Record
     finishRoom(state, "resigned", now);
     state.lastMove = { playerId, kind: "resign", words: [], score: 0, cells: [] };
     state.revision++;
+    archiveResult(state, now);
     return state;
   }
   ensure(index === state.turn, "NOT_YOUR_TURN", "Wait for your turn.");
@@ -181,6 +225,7 @@ export function playAction(room: DuelRoomState, playerId: string, action: Record
   if (state.scoreless >= 6) finishRoom(state, "scoreless", now);
   else if (!state.bag.length && state.players.some((p) => p.rack.length === 0)) finishRoom(state, "empty-rack", now);
   else if (state.turns >= 80) finishRoom(state, "turn-limit", now);
+  archiveResult(state, now);
   return state;
 }
 export function privateSnapshot(room: DuelRoomState, playerId: string) {
@@ -192,6 +237,8 @@ export function privateSnapshot(room: DuelRoomState, playerId: string) {
     you: you.id, rack: you.rack, turnId: room.players[room.turn]?.id || null,
     remaining: room.bag.length, scoreless: room.scoreless, turns: room.turns, expiresAt: room.expiresAt,
     lastMove: room.lastMove, reason: room.reason || null, winnerId: room.winnerId ?? null,
-    vocabularyVersion: VOCABULARY_VERSION,
+    vocabularyVersion: room.vocabularyVersion || 1,
+    matchNumber: room.matchNumber || 1, rematch: room.rematch || null, results: room.results || [],
+    remindersEnabled: Boolean(room.reminders?.[you.id]), reminderRevision: room.reminderVersions?.[you.id] || 0,
   };
 }

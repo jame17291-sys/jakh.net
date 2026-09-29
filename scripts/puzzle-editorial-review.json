@@ -1,0 +1,2229 @@
+{
+  "version": 1,
+  "scope": "Private editorial provenance for repository review and tests. Agent review only; no external human review claimed.",
+  "arabicVocabulary": {
+    "editorial": "Agent language review of the listed spellings; automated normalization, uniqueness and puzzle-solution checks. No external human review claimed."
+  },
+  "puzzles": {
+    "hive-en-001": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board retained in its original position; familiar English base forms and inflections.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-002": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board retained in its original position; familiar English base forms and inflections.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-003": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board retained in its original position; familiar English base forms and inflections.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-004": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor largest; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-005": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor central; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-006": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor strange; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-007": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor waiters; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-008": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor section; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-009": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor players; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-010": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor painter; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-011": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor routine; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-012": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor fortune; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-013": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor reality; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-014": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor remains; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-015": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor mineral; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-016": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor respond; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-017": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor compare; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-018": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor special; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-019": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor flowers; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-020": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor network; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-021": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor reading; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-022": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor trouble; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-023": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor careful; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-024": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor project; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-025": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor country; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-026": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor history; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-027": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor promise; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-028": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor combine; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-029": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor failure; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-en-030": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Common English anchor picture; familiar dictionary words and explicitly listed inflections. No proper-name or automatic affix expansion.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-001": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board retained in its original position; explicitly listed Modern Standard Arabic forms.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-002": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board retained in its original position; explicitly listed Modern Standard Arabic forms.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-003": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board retained in its original position; explicitly listed Modern Standard Arabic forms.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-004": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مدرستنا: our school: a familiar noun with an explicitly listed possessive suffix. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-005": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor برتقالة: an orange: the feminine ending ة remains distinct from ه. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-006": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor برمجيات: software: a standard technology plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-007": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مستطيلات: rectangles: an everyday geometry plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-008": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مستودعات: warehouses: a common place-noun plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-009": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مصطلحات: terms: a familiar vocabulary plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-010": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مطبوعات: publications: a common printed-material plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-011": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor منشورات: publications or posts: a common plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-012": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مشروعات: projects: a standard plural of مشروع. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-013": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مزروعات: crops: a standard agriculture plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-014": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مخلوقات: creatures: a common plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-015": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor محاسبون: accountants: the nominative masculine plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-016": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مزارعين: farmers: the oblique masculine plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-017": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مهندسينا: our engineers: the explicitly listed oblique possessive form. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-018": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor متعاونين: cooperating: the oblique masculine plural participle. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-019": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor متطوعين: volunteers: the oblique masculine plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-020": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor متفوقين: excelling: the oblique masculine plural participle. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-021": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مستثمرين: investors: the oblique masculine plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-022": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor كهربائي: electrical or electrician: the standard hamza ئ is retained. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-023": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مسؤولين: officials or responsible: the standard hamza ؤ is retained. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-024": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor فاصولياء: beans: standard spelling with a final independent hamza. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-025": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor متفائلة: optimistic: the feminine participle retains ئ and ة. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-026": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مستديرة: round: the feminine adjective retains ة. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-027": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مستخرجات: extracts: the standard feminine plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-028": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor مصنوعات: manufactured items: a common plural. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-029": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor حاسوبكم: your computer: a familiar noun with an explicitly listed possessive suffix. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "hive-ar-030": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA anchor الباحثون: the researchers: the nominative masculine plural with the definite article. Listed answers checked for standard spelling and legitimate inflections; no productive affix generation.",
+      "checks": [
+        "seven distinct normalized letters",
+        "every listed answer includes the center",
+        "pangram uses all seven letters",
+        "normalized answers are unique"
+      ]
+    },
+    "square-en-001": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board and winning chain retained in their original position.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-002": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board and winning chain retained in their original position.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-003": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain TWENTY / YOUNG / GARDEN / NATURAL. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-004": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain TREND / DECIMAL / LEAF / FATHER. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-005": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain SKIN / NUMBER / REFER / RICE / EARN. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-006": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain THANK / KNIFE / EVIL / LIVING / GENERAL. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-007": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain STUDY / YEAR / RUSH / HAIL / LAWYER. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-008": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain BLACK / KNOWN / NORTH / HAIR. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-009": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain ABLE / ELSE / EASY / YOUNG / GIVE. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-010": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain HAIR / ROTOR / RESPOND / DOWN. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-011": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain LIBRARY / YOUNG / GRAVE. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-012": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain SAIL / LEATHER / RAID / DROP / PANEL. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-013": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain OKAY / YOUNG / GUARD / DESIGN. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-014": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain FAMOUS / SPORT / TRACE / ENTER. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-015": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain HARE / EXAMPLE / EIGHT / TABLE. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-016": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain BOAT / TRIAL / LOAD / DAWN / NEARLY. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-017": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain MEND / DIRT / TRIO / OATH / HEALTHY. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-018": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain DRAWING / GROWN / NODE / EIGHT / TWICE. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-019": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain DUNE / EQUAL / LEAST / THAN / NICE. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-020": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain KING / GARDEN / NOISE / EAGLE / EVEN. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-021": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain SHORT / TALK / KNOW / WEATHER / RAVEN. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-022": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain SIZE / EMPTY / YOUNG. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-023": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain PRICE / EARTH / HERO / OLIVE / EXIT. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-024": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain MAZE / ENJOY / YARD / DARK / KNEW. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-025": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain MEDIUM / MODE / EIGHT / THING / GRADE. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-026": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain LINK / KIND / DRUM / MATCH. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-027": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain LOUD / DIGITAL / LIVING / GREAT. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-028": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain UNIQUE / EXACTLY / YEAR. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-029": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain HOPE / EXTRA / ABOUT / TRAIN. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-en-030": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Familiar English chain FRIEND / DRAGON / NEAT / TOPIC. Explicitly listed dictionary words and ordinary inflections, checked individually against the side and chaining rules.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-001": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board and winning chain retained in their original position.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-002": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Original release board and winning chain retained in their original position.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-003": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain نركب / باحثون / نظام / مطابخ. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-004": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain زيتون / نجوم / مبيعات / تجد / ديك. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-005": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain رفيع / عضلات / تدخل / لعبنا. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-006": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain اقتصاد / دور / رسل / لمع / عميل. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-007": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain أعمال / ليمون / نبض / ضرب / بشائر. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-008": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain كتاكيت / تنتهي / يعود / دور / رحاب. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-009": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain يدخل / لحوم / مستخرج / جبل. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-010": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain ذئاب / بيعنا / آمال / لسان / نحل / لوبيا. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-011": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain ثلج / جزر / ربط / طبيبنا / أحلام. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-012": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain اجتماع / عصي / يستقيم / مرض / ضعف. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-013": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain كثيف / فئات / تدرس / سائلة. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-014": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain مدروس / سلام / مستقبل / لمع / عطر. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-015": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain شوفان / نبات / تقسيم / مستشفى. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-016": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain دلافين / نمور / ريحان / نقف / فاصل. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-017": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain عرفنا / أطباق / قواعد / دليل. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-018": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain سلام / مراكب / بائع / عظم / معافى. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-019": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain زراعات / توابل / لحن / نحضر / ركن. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-020": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain ضرس / سائل / ليالي / يغلق / قديمة. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-021": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain أوراق / قطيع / عرفنا / أصدقاء. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-022": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain متفائل / لقي / يحفظ / ظهر. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-023": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain أحباب / بائع / عظيم / مسجد / درع. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-024": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain حين / ندخل / لوز / زنجبيل / لعب / بطل. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-025": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain نحضر / ريش / شمس / سدس / سوق / قلم. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-026": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain وحيد / داخل / لطيف / فوق / قمر. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-027": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain كعك / كمان / نجاح / حفظنا / إصبع / عصي. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-028": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain سمسم / ماعز / زيوت / تحت / تذهب. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-029": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain مستدير / ركاب / بصل / لقب. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "square-ar-030": {
+      "method": "automated-plus-language-review",
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "MSA chain أمين / نبضات / تنهي / يحمل / لؤلؤة. Words inspected as standard headwords or explicitly listed grammatical forms; standard hamza is displayed, and ة/ه plus ى/ي remain distinct.",
+      "checks": [
+        "twelve distinct normalized letters",
+        "four sides with three letters",
+        "all answers alternate sides",
+        "solution words form a legal connected chain",
+        "solution uses every letter"
+      ]
+    },
+    "links-en-001": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved opening set: planets, recipe verbs, blue shades and light compounds."
+    },
+    "links-en-002": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved tree parts, objects with keys, water travel and book compounds."
+    },
+    "links-en-003": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved breads, sewing, measurement units and rain compounds."
+    },
+    "links-en-004": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved chess, precipitation, punctuation and tea compounds."
+    },
+    "links-en-005": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved instruments, insects, directions and sun compounds."
+    },
+    "links-en-006": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved spices, solid shapes, looking verbs and board games."
+    },
+    "links-en-007": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Mammals, typography, citrus and flight verbs use distinct meanings; no bird names appear among the mammals."
+    },
+    "links-en-008": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The bird group is explicitly flightless; the remaining groups concern fabric, arithmetic and boat fittings."
+    },
+    "links-en-009": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "These are literal landforms, pottery steps, parts of a letter and established snow compounds."
+    },
+    "links-en-010": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Construction materials are substances; the telescope group contains named optical parts, not builders tools."
+    },
+    "links-en-011": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Animal homes, closed plane shapes, computer commands and ocean names have separate literal categories."
+    },
+    "links-en-012": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The food set is nuts in the culinary sense; instruments are percussion and the last group completes tooth compounds."
+    },
+    "links-en-013": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Weather instruments, art movements, sleep-related items and established book sections do not share members."
+    },
+    "links-en-014": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Cooking methods are verbs; garments, containers and canine vocalizations use concrete familiar senses."
+    },
+    "links-en-015": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Venues are sports locations; the other sets are musical speeds, gemstone names and writing actions."
+    },
+    "links-en-016": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Fruit preparations, map features, dance forms and wheel compounds are independently recognizable."
+    },
+    "links-en-017": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Named tree species do not overlap the vegetable set; time divisions and parts of a camera are concrete."
+    },
+    "links-en-018": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Job names are grouped by the material they work; other categories are pasta, chess terms and bee compounds."
+    },
+    "links-en-019": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The lettering group names different scripts; telescope and space vocabulary is absent from the other sets."
+    },
+    "links-en-020": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Historic tools for navigation, kinds of bridge, named cheese and verbs of repair have distinct uses."
+    },
+    "links-en-021": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The paper group concerns folds; the other groups are garden tools, shellfish and words beginning with silent k."
+    },
+    "links-en-022": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "String quartet instruments are specified to avoid all-instrument ambiguity; remaining categories are geology and theatre."
+    },
+    "links-en-023": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The sweets have well-known names; money verbs and light sources are literal, and the final set uses clear palindromes."
+    },
+    "links-en-024": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The sea group contains marine invertebrates; the remaining groups are textile patterns, travel documents and temperature words."
+    },
+    "links-en-025": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Sports equipment is linked specifically to catching or striking; noun categories remain separate from the taste adjectives."
+    },
+    "links-en-026": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Astronomical events are separate from cloud forms; office supplies and horse gaits use familiar literal meanings."
+    },
+    "links-en-027": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "All compound endings make familiar fire words; the other categories are fresh herbs, freshwater fish and arithmetic shapes of numbers."
+    },
+    "links-en-028": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Traditional playground games, public rooms, seed dispersal methods and silent-b spellings are independent."
+    },
+    "links-en-029": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The fruit group names stone fruits; sailing knots and soup styles are distinct, while the last group completes over compounds."
+    },
+    "links-en-030": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "The subjects belong to science, the devices measure time, and the wordplay groups explicitly distinguish spelling from sound."
+    },
+    "links-ar-001": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المجموعة الأصلية: فواكه وألوان وكائنات بحرية وأدوات ورشة."
+    },
+    "links-ar-002": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المجموعة الأصلية: شجرة وموسيقى ومطبخ وتراكيب عين."
+    },
+    "links-ar-003": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المجموعة الأصلية: خبز وخياطة وقياس وتراكيب بيت."
+    },
+    "links-ar-004": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المجموعة الأصلية: شطرنج وهطول وترقيم وأوصاف شاي."
+    },
+    "links-ar-005": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المجموعة الأصلية: موسيقى وحشرات واتجاهات وتراكيب قوس."
+    },
+    "links-ar-006": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المجموعة الأصلية: توابل ومجسمات ونظر وألعاب لوحية."
+    },
+    "links-ar-007": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الثدييات منفصلة عن الخط والفواكه، والأفعال الأربعة تصف حركة الطائر في الهواء."
+    },
+    "links-ar-008": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الطيور لا تطير، والألياف مواد لا عمليات، وبقية العناصر عمليات حساب وأجزاء مركب."
+    },
+    "links-ar-009": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "التضاريس أسماء واضحة، وكلمات الرسالة أسماء أجزاء، والتراكيب بعد رأس مألوفة."
+    },
+    "links-ar-010": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مواد البناء ليست أدوات البستان، وأسماء الأوراق تؤكل، وآخر مجموعة مترادفات للفرح."
+    },
+    "links-ar-011": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "بيوت الحيوان منفصلة عن الأشكال والأوامر، والبحار محددة بأسمائها الشائعة."
+    },
+    "links-ar-012": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "المكسرات بالمعنى الغذائي؛ آلات الإيقاع وأجزاء الحذاء لا تتداخل مع تراكيب الأسنان."
+    },
+    "links-ar-013": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "أجهزة الرصد أسماء أدوات، والمدارس الفنية مذاهب، ومفروشات النوم تختلف عن أقسام الكتاب."
+    },
+    "links-ar-014": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "طرق الطهو مصادر أفعال؛ الملابس والأوعية أصناف أشياء، وأصوات الحيوانات مميزة."
+    },
+    "links-ar-015": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الأماكن الرياضية منفصلة عن الإيقاعات والأحجار، والأفعال تتبع مراحل إعداد نص."
+    },
+    "links-ar-016": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "طرق حفظ الطعام عمليات، وعناصر الخريطة ليست فنونا شعبية؛ آخر مجموعة تكمل تعبيرات شائعة."
+    },
+    "links-ar-017": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "أسماء الأشجار متميزة عن الجذور المأكولة، والزمن وأجزاء التصوير مجموعتان مستقلتان."
+    },
+    "links-ar-018": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "أسماء الحرف أشخاص، والمخبوزات مأكولات، وأوضاع الشطرنج تختلف عن الأسماء المركبة مع ذو."
+    },
+    "links-ar-019": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "أنظمة الكتابة ليست أجناس مركبات الفضاء، وأنواع الشاي وألفاظ الضحك مألوفة."
+    },
+    "links-ar-020": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "أدوات الملاحة منفصلة عن بنى الجسور والأجبان؛ الأفعال الأخيرة معانيها الإصلاح."
+    },
+    "links-ar-021": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الورق يستعمل أسماء أنواع، والرخويات أسماء كائنات، والجموع الأخيرة جمع تكسير معروف."
+    },
+    "links-ar-022": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "القوالب الموسيقية تختلف عن مواد البراكين وأدوار المسرح؛ تراكيب دار مستعملة كاملة."
+    },
+    "links-ar-023": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الحلويات مألوفة في المنطقة، والأفعال مالية، وآخر مجموعة تتعلق ببنية الكلمات لا معناها."
+    },
+    "links-ar-024": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الكائنات هنا شوكيات الجلد وقناديل وإسفنج؛ نقوش القماش والوثائق وأوصاف الحرارة واضحة."
+    },
+    "links-ar-025": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الأدوات الرياضية بعيدة عن المذاقات وأنواع القطارات؛ مجموعة آخر تجمع كلمات قبل الأسبوع."
+    },
+    "links-ar-026": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الأحداث فلكية، والمكتبية أدوات، والمشي حركات، والبحور أسماء عروضية لا مسطحات ماء."
+    },
+    "links-ar-027": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الأعشاب تؤكل، والأسماك نهرية، والأعداد أصناف رياضية، والتراكيب بعد ضوء مألوفة."
+    },
+    "links-ar-028": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الألعاب شعبية مستقلة، ومرافق المتحف أماكن، والانتشار وسائل، والمثنى ظاهر بصيغته."
+    },
+    "links-ar-029": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "الفواكه ذات نواة، والعقد محددة بأسماء الحبال، والحساء أطعمة، وأم تكمل أربعة تراكيب معروفة."
+    },
+    "links-ar-030": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "العلم أسماء تخصصات، والساعات أدوات، وآخر مجموعتين صيغ نحوية سهلة التمييز."
+    },
+    "trails-en-001": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved original puzzle; reviewed theme coherence, complete answer paths and bonus words."
+    },
+    "trails-en-002": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "Preserved original puzzle; reviewed theme coherence, complete answer paths and bonus words."
+    },
+    "trails-en-003": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Below the waves”. The spanning phrase is “LIFE AT SEA”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-004": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Pack for a walk”. The spanning phrase is “READY TO HIKE”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-005": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “A night above us”. The spanning phrase is “LOOK AT STARS”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-006": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Something is rising”. The spanning phrase is “BAKE SOME BREAD”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-007": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “At the easel”. The spanning phrase is “MAKE SOME ART”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-008": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Take your seats”. The spanning phrase is “LIVE ON STAGE”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-009": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “All aboard”. The spanning phrase is “TRAVEL BY RAIL”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-010": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “A place to read”. The spanning phrase is “BOOKS ON SHELVES”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-011": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Animal sounds nearby”. The spanning phrase is “DOWN ON THE FARM”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-012": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “A green corner”. The spanning phrase is “GROW A GARDEN”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-013": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Wood and tools”. The spanning phrase is “MADE OF WOOD”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-014": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Twelve months around”. The spanning phrase is “ROUND THE YEAR”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-015": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Tea is ready”. The spanning phrase is “TIME FOR TEA”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-016": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “A soft project”. The spanning phrase is “SEW A NEW COAT”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-017": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “A table of games”. The spanning phrase is “PLAY YOUR TURN”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-018": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Catch the breeze”. The spanning phrase is “SAIL OUT TO SEA”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-019": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Little city travelers”. The spanning phrase is “GET AROUND TOWN”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-020": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Hear the rhythm”. The spanning phrase is “STRIKE UP THE BAND”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-021": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Warm up first”. The spanning phrase is “TIME TO EXERCISE”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-022": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Look through a lens”. The spanning phrase is “TAKE A GOOD PHOTO”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-023": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Water from the sky”. The spanning phrase is “HERE COMES RAIN”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-024": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Out where it is cold”. The spanning phrase is “LIFE ON THE ICE”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-025": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Turn the soil”. The spanning phrase is “FROM SEED TO CROP”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-026": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Something sweet”. The spanning phrase is “TIME FOR A TREAT”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-027": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Petals everywhere”. The spanning phrase is “STOP TO SMELL ROSES”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-028": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “A rainbow of cloth”. The spanning phrase is “DRESSED FOR THE DAY”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-029": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Something in the oven”. The spanning phrase is “JUST ONE MORE SLICE”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-en-030": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "A coherent set about “Under the tent”. The spanning phrase is “ROLL UP AND WATCH”; all remaining entries are independent theme words, not clipped padding."
+    },
+    "trails-ar-001": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "حفظ اللغز الأصلي ومراجعة ترابط الموضوع ومسارات الإجابات والكلمات الإضافية."
+    },
+    "trails-ar-002": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "حفظ اللغز الأصلي ومراجعة ترابط الموضوع ومسارات الإجابات والكلمات الإضافية."
+    },
+    "trails-ar-003": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «تحت سطح البحر». العبارة الجامعة «حياة في البحر»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-004": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «حقيبة المسافر». العبارة الجامعة «نحزم قبل السفر»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-005": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «ليلة صافية». العبارة الجامعة «نجوم فوق رؤوسنا»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-006": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «رائحة الخبز». العبارة الجامعة «خبز من الفرن»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-007": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «ألوان ولوحات». العبارة الجامعة «نرسم على الورق»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-008": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «حين ترفع الستارة». العبارة الجامعة «عرض على المسرح»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-009": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «على السكة». العبارة الجامعة «رحلة في القطار»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-010": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «بين الرفوف». العبارة الجامعة «كتب على الرفوف»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-011": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «أصوات المزرعة». العبارة الجامعة «حيوانات في المزرعة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-012": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «زاوية خضراء». العبارة الجامعة «نزرع في الحديقة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-013": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «صوت المنشار». العبارة الجامعة «نعمل في النجارة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-014": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «بداية درس جديد». العبارة الجامعة «يوم في المدرسة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-015": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «ضيافة دافئة». العبارة الجامعة «وقت لشرب الشاي»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-016": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «من الخيط إلى الثوب». العبارة الجامعة «نخيط ثوبا جديدا»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-017": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «حول لوحة اللعب». العبارة الجامعة «حان دور اللاعب»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-018": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «مع النسيم». العبارة الجامعة «نبحر فوق الموج»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-019": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «في شوارع المدينة». العبارة الجامعة «نتنقل بين الأحياء»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-020": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «الفرقة تستعد». العبارة الجامعة «نعزف مع الفرقة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-021": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «حركة ونشاط». العبارة الجامعة «وقت لبعض الرياضة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-022": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «خلف العدسة». العبارة الجامعة «نلتقط بعض الصور»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-023": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «الشتاء يطرق الباب». العبارة الجامعة «مطر فوق المدينة»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-024": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «عند خط النهاية». العبارة الجامعة «سباق حول المضمار»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-025": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «من الحقل إلى المائدة». العبارة الجامعة «حبوب من الحقول»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-026": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «طبق من الحلوى». العبارة الجامعة «حلويات بعد الطعام»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-027": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «ألوان وأريج». العبارة الجامعة «أزهار في البستان»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-028": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «ماذا نلبس اليوم». العبارة الجامعة «ملابس لكل الفصول»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-029": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «طبق السلطة». العبارة الجامعة «خضار من السوق»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    },
+    "trails-ar-030": {
+      "method": "automated-plus-language-review",
+      "reviewer": "coding-agent",
+      "externalHumanReview": false,
+      "scope": "Agent editorial review; no external human review claimed.",
+      "rationale": "مجموعة مترابطة عن «بين الرمل والنخيل». العبارة الجامعة «رحلة عبر الصحراء»؛ الكلمات مفردات مستقلة من الموضوع، لا أجزاء مبتورة لملء الشبكة."
+    }
+  }
+}

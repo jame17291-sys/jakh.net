@@ -227,7 +227,7 @@ function actionButton(action, text, attributes = '') {
 
 function mountSudoku(root, ctx) {
   const ui = mountTools(root, ctx), { t } = ui, levels = ['easy', 'medium', 'hard'];
-  const saved = ui.load({}), level = levels.includes(saved.difficulty) ? saved.difficulty : levels.includes(ctx.variant) ? ctx.variant : 'medium';
+  const saved = ui.load({}), level = levels.includes(ctx.difficulty) ? ctx.difficulty : levels.includes(saved.difficulty) ? saved.difficulty : levels.includes(ctx.variant) ? ctx.variant : 'medium';
   let puzzle = createSudoku(ctx.seed, level);
   let state = restoreSudokuState(saved, puzzle);
   let selected = puzzle.givens.findIndex(n => !n), errors = new Set(), history = [], message = '';
@@ -236,6 +236,7 @@ function mountSudoku(root, ctx) {
   const levelName = difficulty => ({ easy: t('Easy', 'سهل'), medium: t('Medium', 'متوسط'), hard: t('Hard', 'صعب') })[difficulty];
   function render(focus = null) {
     const complete = won(), count = state.values.filter(Boolean).length, same = state.values[selected];
+    ctx.reportResult?.({ ...state, completed: complete });
     const grid = sequence(9).map(row => `<div role="row" class="pl-sudoku-row">${sequence(9).map(col => {
       const i = row * 9 + col, value = state.values[i], fixed = !!puzzle.givens[i];
       const near = row === Math.floor(selected / 9) || col === selected % 9 || (Math.floor(row / 3) === Math.floor(selected / 27) && Math.floor(col / 3) === Math.floor(selected % 9 / 3));
@@ -243,7 +244,7 @@ function mountSudoku(root, ctx) {
       return `<button type="button" role="gridcell" class="pl-sudoku-cell${fixed ? ' pl-given' : ''}${near ? ' pl-near' : ''}${same && same === value ? ' pl-same-number' : ''}${selected === i ? ' pl-selected' : ''}${errors.has(i) ? ' pl-error' : ''}" data-cell="${i}" data-focus="s${i}" tabindex="${selected === i ? 0 : -1}" aria-selected="${selected === i}" aria-readonly="${fixed}" aria-invalid="${errors.has(i)}" aria-label="${esc(label)}">${value || `<span class="pl-notes" aria-hidden="true">${sequence(9).map(n => `<span>${state.notes[i].includes(n + 1) ? n + 1 : ''}</span>`).join('')}</span>`}</button>`;
     }).join('')}</div>`).join('');
     ui.draw(`${instructions(t, t('Fill each row, column, and 3 × 3 box with 1–9, without repeating a number. Choose a cell, then a number. Notes add small pencil marks. Arrow keys move; 1–9 enter a number; Backspace erases; N toggles notes.', 'املأ كل صف وعمود ومربع ٣ × ٣ بالأرقام من ١ إلى ٩ دون تكرار. اختر خانة ثم رقماً. استخدم الملاحظات لتدوين الاحتمالات. الأسهم للتنقل، والأرقام للإدخال، وBackspace للمسح، وN للملاحظات.'))}
-      <div class="pl-toolbar"><label class="pl-select-label">${esc(t('Difficulty', 'المستوى'))}<select data-action="difficulty" data-focus="difficulty" aria-label="${esc(t('Difficulty — changing starts a new board', 'المستوى — التغيير يبدأ لوحة جديدة'))}">${levels.map(n => `<option value="${n}" ${state.difficulty === n ? 'selected' : ''}>${esc(levelName(n))}</option>`).join('')}</select></label><span class="pl-meta">${count} / 81 ${esc(t('filled', 'مكتملة'))}</span></div>
+      <div class="pl-toolbar"><label class="pl-select-label">${esc(t('Difficulty', 'المستوى'))}<select data-action="difficulty" data-focus="difficulty" aria-label="${esc(t('Difficulty — progress is saved for each level', 'المستوى — يُحفظ التقدّم لكل مستوى'))}">${levels.map(n => `<option value="${n}" ${state.difficulty === n ? 'selected' : ''}>${esc(levelName(n))}</option>`).join('')}</select></label><span class="pl-meta">${count} / 81 ${esc(t('filled', 'مكتملة'))}</span></div>
       <div class="pl-sudoku" role="grid" dir="ltr" aria-label="${esc(t('Sudoku, 9 rows and 9 columns', 'سودوكو، ٩ صفوف و٩ أعمدة'))}">${grid}</div>
       <div class="pl-numberpad" dir="ltr" role="group" aria-label="${esc(t('Choose a number', 'اختر رقماً'))}">${sequence(9).map(n => actionButton(`number-${n + 1}`, n + 1, complete ? 'disabled' : '')).join('')}</div>
       <div class="pl-toolbar pl-actions">${actionButton('notes', t('Pencil notes', 'ملاحظات'), `aria-pressed="${state.pencil}" ${complete ? 'disabled' : ''}`)}${actionButton('erase', t('Erase', 'مسح'), complete ? 'disabled' : '')}${actionButton('undo', t('Undo', 'تراجع'), history.length ? '' : 'disabled')}${actionButton('check', t('Check', 'تحقق'))}${actionButton('hint', t('Hint', 'تلميح'), complete ? 'disabled' : '')}</div>
@@ -278,8 +279,9 @@ function mountSudoku(root, ctx) {
   ui.on('change', event => {
     if (event.target.dataset.action !== 'difficulty' || !levels.includes(event.target.value)) return;
     puzzle = createSudoku(ctx.seed, event.target.value);
-    state = { version: 1, difficulty: event.target.value, values: [...puzzle.givens], notes: sequence(81).map(() => []), hints: 0, pencil: false };
-    history = []; errors.clear(); selected = state.values.findIndex(n => !n); message = t('A fresh board for this difficulty.', 'لوحة جديدة لهذا المستوى.'); ui.save(state); render();
+    let savedLevel;try{savedLevel=ctx.loadDifficulty?.(event.target.value);}catch{savedLevel=null;}
+    state = restoreSudokuState(savedLevel, puzzle);
+    history = []; errors.clear(); selected = Math.max(0,state.values.findIndex(n => !n)); message = savedLevel?.version===1?t('Your saved progress for this difficulty.', 'تقدّمك المحفوظ لهذا المستوى.'):t('A fresh board for this difficulty.', 'لوحة جديدة لهذا المستوى.'); ui.save(state); render();
   });
   ui.on('keydown', event => {
     if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing || !event.target.closest('[data-cell]')) return;
@@ -305,6 +307,7 @@ function mountDomino(root, ctx) {
   const regionLabel = region => region.type === 'same' ? t('All equal', 'كلها متساوية') : region.type === 'different' ? t('All different', 'كلها مختلفة') : t(`Sum ${region.target}`, `المجموع ${region.target}`);
   function render(focus = null) {
     const board = dominoBoard(puzzle, placements), regions = checkDominoRegions(puzzle, placements), complete = isDominoComplete(puzzle, placements);
+    ctx.reportResult?.({ version: 1, placements, completed: complete });
     const letters = t(['A', 'B', 'C', 'D'], ['أ', 'ب', 'ج', 'د']);
     const tiles = puzzle.pieces.filter(p => !placements.some(q => q.piece === p.id));
     ui.draw(`${instructions(t, t('Fill the board with every domino. Each outlined region has a rule: a required sum, all numbers equal, or all numbers different. Choose a domino, rotate or flip it, then choose its first cell. A domino extends right or down. Choose a placed domino to return it to the tray. Zero is a valid value.', 'املأ اللوحة بكل قطع الدومينو. لكل منطقة قاعدة: مجموع محدد، أو أرقام متساوية، أو أرقام مختلفة. اختر قطعة، ودوّرها أو اعكس طرفيها، ثم اختر خانتها الأولى. تمتد القطعة يميناً أو إلى الأسفل. اضغط على قطعة موضوعة لإعادتها إلى الحامل. الصفر قيمة صالحة.'))}
@@ -387,6 +390,7 @@ function mountMosaic(root, ctx) {
   const save = () => ui.save({ version: 1, ...state });
   function render(focus = null) {
     const complete = isMosaicComplete(state.tiles), remaining = state.tiles.filter(tile => !mosaicEmpty(tile)).length;
+    ctx.reportResult?.({ version: 1, ...state, completed: complete });
     ui.draw(`${instructions(t, t('Choose two tiles that share a color, outline, or center symbol. All shared layers disappear. Keep matching the selected tile to build a chain; when it clears, choose any tile. A miss breaks your chain. Clear every layer to finish. Each layer is dealt in pairs, so a match always remains.', 'اختر بلاطتين تشتركان في اللون أو الإطار أو الرمز الأوسط. تختفي جميع الطبقات المشتركة. تابع مطابقة البلاطة المحددة لبناء سلسلة؛ وعندما تختفي اختر أي بلاطة. الاختيار غير المطابق يقطع السلسلة. أزل كل الطبقات لتفوز. توزّع الطبقات في أزواج، لذا تبقى مطابقة متاحة دائماً.'))}
       <div class="pl-mosaic-stats"><div><strong>${state.score}</strong><span>${esc(t('Points', 'النقاط'))}</span></div><div><strong>${state.combo}</strong><span>${esc(t('Current chain', 'السلسلة الحالية'))}</span></div><div><strong>${state.best}</strong><span>${esc(t('Best chain', 'أفضل سلسلة'))}</span></div><div><strong>${remaining}</strong><span>${esc(t('Tiles left', 'بلاطات متبقية'))}</span></div></div>
       <div class="pl-mosaic-board" role="group" dir="${ctx.lang === 'ar' ? 'rtl' : 'ltr'}" aria-label="${esc(t('Layered mosaic tiles', 'بلاطات الفسيفساء المتعددة الطبقات'))}">${state.tiles.map(tile => `<button type="button" class="pl-mosaic-tile pl-color-${tile.color === null ? 'none' : tile.color}${selected === tile.id ? ' pl-picked' : ''}${hint.includes(tile.id) ? ' pl-hint' : ''}${mosaicEmpty(tile) ? ' pl-cleared' : ''}" data-tile="${tile.id}" data-focus="m${tile.id}" aria-pressed="${selected === tile.id}" ${mosaicEmpty(tile) ? 'disabled' : ''} aria-label="${esc(`${t('Tile', 'بلاطة')} ${tile.id + 1}: ${mosaicEmpty(tile) ? t('cleared', 'مكتملة') : label(tile)}`)}">${mosaicEmpty(tile) ? '<span aria-hidden="true">✓</span>' : `${tileSVG(tile)}<span class="pl-layer-count" aria-hidden="true">${MOSAIC_LAYERS.map(layer => `<i class="${tile[layer] === null ? '' : 'pl-layer-present'}"></i>`).join('')}</span>${showLabels ? `<span class="pl-tile-label">${esc(label(tile))}</span>` : ''}`}</button>`).join('')}</div>

@@ -1,4 +1,4 @@
-import { PUZZLES, BONUS, dayKey, seedFor, storageKey } from './puzzle-catalog.js';
+import { PUZZLES, BONUS, dayKey, seedFor, storageKey, createProgressStore } from './puzzle-catalog.js';
 
 const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
 const t = (en,ar) => lang === 'ar' ? ar : en;
@@ -10,6 +10,7 @@ const mountPoint = document.getElementById('puzzle-mount');
 const title = document.getElementById('puzzle-title');
 const rest = [...document.querySelectorAll('[data-puzzle-directory]')];
 let cleanup, generation=0, current, day=dayKey(), activeFilter='all';
+const progressStore=createProgressStore(()=>localStorage,storageNotice);
 const loadedStyles=new Map();
 const modules = {
  word:()=>import('./puzzle-words.js'), hive:()=>import('./puzzle-words.js'), links:()=>import('./puzzle-words.js'), trails:()=>import('./puzzle-words.js'), 'letter-square':()=>import('./puzzle-words.js'),
@@ -18,7 +19,7 @@ const modules = {
 };
 function element(tag,text,className) {const e=document.createElement(tag); if(text!==undefined)e.textContent=text; if(className)e.className=className; return e;}
 function href(game,variant) {const p=new URLSearchParams({game});if(variant)p.set('variant',variant);return `${base}?${p}`;}
-function stored(key) {try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}}
+function stored(key) {return progressStore.read(key);}
 function storageNotice() {document.getElementById('puzzle-storage-note').hidden=false;}
 function cssFor(game) {
  const file = ['word','hive','links','trails','letter-square'].includes(game)?'/puzzle-words.css':['sudoku','domino','mosaic'].includes(game)?'/puzzle-logic.css':game==='duel'?'/puzzle-duel.css':null;
@@ -64,7 +65,7 @@ async function route({focus=false}={}) {
  const key=storageKey(current.id,lang,day,variant);current.key=key;
  const context={game:current.id,lang,variant,puzzleId:`${day}:${variant}`,seed:seedFor(`${day}:${current.id}:${variant}`),t,
   load(fallback){return stored(key)??structuredClone(fallback);},
-  save(state){try{localStorage.setItem(key,JSON.stringify(state));}catch{storageNotice();}}
+  save(state){progressStore.save(key,state);}
  };
  mountPoint.append(element('p',t('Preparing your puzzle…','جارٍ إعداد اللغز…'),'puzzle-loading'));
  try { const [module]=await Promise.all([modules[current.id](),cssFor(current.id)]);if(run!==generation)return;mountPoint.replaceChildren();cleanup=module.mount(mountPoint,context); }
@@ -80,7 +81,7 @@ document.querySelectorAll('[data-puzzle-filter]').forEach(button=>button.addEven
 }));
 document.getElementById('puzzle-reset').onclick=()=>{document.getElementById('puzzle-reset-confirm').hidden=false;document.getElementById('puzzle-reset-cancel').focus();};
 document.getElementById('puzzle-reset-cancel').onclick=()=>{document.getElementById('puzzle-reset-confirm').hidden=true;document.getElementById('puzzle-reset').focus();};
-document.getElementById('puzzle-reset-yes').onclick=()=>{try{localStorage.removeItem(current.key);}catch{storageNotice();}route({focus:true});};
+document.getElementById('puzzle-reset-yes').onclick=()=>{progressStore.reset(current.key);route({focus:true});};
 window.addEventListener('popstate',()=>route({focus:true}));
 // Keep an in-progress board stable across midnight; the next game uses the new day.
 route();

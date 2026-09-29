@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import worker from '../dist/index.js';
-import { WordDuelRoom } from '../dist/word-duel-room.js';
+import { BattleRoom } from '../dist/battle-room.js';
 
 function environment() {
   const objects = new Map(), counters = new Map();
@@ -10,12 +10,12 @@ function environment() {
     PASSWORD_PEPPER: 'test-word-duel-pepper-at-least-32-characters', IP_HASH_SALT: 'test-word-duel-salt-at-least-32-characters',
     ALLOWED_ORIGINS: 'https://riddlearabia.com', STATIC_ORIGIN: 'https://riddlearabia.com',
     DB: { prepare() { let key; return { bind(value) { key = value; return this; }, async first() { const count = (counters.get(key) || 0) + 1; counters.set(key, count); return { count }; }, async run() { return { success: true }; } }; } },
-    WORD_DUEL_ROOMS: {
+    BATTLE_ROOMS: {
       idFromName(code) { lookups++; return code; },
       get(code) {
         if (!objects.has(code)) {
           const storage = new Map();
-          objects.set(code, new WordDuelRoom({ storage: {
+          objects.set(code, new BattleRoom({ storage: {
             async get(key) { return structuredClone(storage.get(key)); }, async put(key, value) { storage.set(key, structuredClone(value)); },
             async deleteAll() { storage.clear(); }, async setAlarm() {},
           } }));
@@ -39,6 +39,7 @@ test('public route supports idempotent creation, private polling, guest join and
   const retry = await worker.fetch(req('create', body), env);
   const retried = await retry.json();
   assert.equal(retry.status, 200); assert.equal(retried.code, host.code); assert.equal(retried.you, host.you); assert.equal(objects.size, 1);
+  assert.deepEqual([...objects.keys()], [`word-duel:${host.code}`]);
   const guestResponse = await worker.fetch(req(`${host.code}/join`, { name: 'Guest', token: 'G'.repeat(43) }), env);
   const guest = await guestResponse.json();
   assert.equal(guest.phase, 'playing'); assert.equal(guest.players.length, 2); assert.equal(guest.players[0].rack, undefined);

@@ -13,7 +13,7 @@ export async function routeWordDuel(request: Request, env: Env): Promise<Respons
     return json({ lang, version: VOCABULARY_VERSION, words: vocabulary(lang) });
   }
   if (request.method !== "POST") throw new ApiError(405, "Use POST.", undefined, "METHOD_NOT_ALLOWED");
-  if (!env.WORD_DUEL_ROOMS) throw new ApiError(503, "Online Word Duel is temporarily unavailable. Please try again later.", undefined, "DUEL_UNAVAILABLE");
+  if (!env.BATTLE_ROOMS) throw new ApiError(503, "Online Word Duel is temporarily unavailable. Please try again later.", undefined, "DUEL_UNAVAILABLE");
   const path = url.pathname;
   const match = /^\/api\/word-duel\/([A-HJ-NP-Z2-9]{8})\/(join|state|action)$/u.exec(path);
   if (path !== "/api/word-duel/create" && !match) throw new ApiError(404, "Not found", undefined, "NOT_FOUND");
@@ -35,12 +35,12 @@ export async function routeWordDuel(request: Request, env: Env): Promise<Respons
       const digest = await sha256(`${env.IP_HASH_SALT}:word-duel-code:${body.token}:${attempt}`);
       const bytes = atob(digest.replace(/-/gu, "+").replace(/_/gu, "/"));
       const code = Array.from(bytes.slice(0, 8), (byte) => CODE_ALPHABET[byte.charCodeAt(0) % CODE_ALPHABET.length]).join("");
-      const stub = env.WORD_DUEL_ROOMS.get(env.WORD_DUEL_ROOMS.idFromName(code));
-      const response = await stub.fetch(new Request("https://word-duel.internal/init", { method: "POST", headers, body: JSON.stringify({ ...body, code }) }));
+      const stub = env.BATTLE_ROOMS.get(env.BATTLE_ROOMS.idFromName(`word-duel:${code}`));
+      const response = await stub.fetch(new Request("https://word-duel.internal/word-duel/init", { method: "POST", headers, body: JSON.stringify({ ...body, code }) }));
       if (response.status !== 409) return response;
     }
     throw new ApiError(503, "Could not create a room. Please retry.", undefined, "ROOM_CREATE_FAILED");
   }
-  const stub = env.WORD_DUEL_ROOMS.get(env.WORD_DUEL_ROOMS.idFromName(match![1]!));
-  return stub.fetch(new Request(`https://word-duel.internal/${match![2]}`, { method: "POST", headers, body: JSON.stringify(body) }));
+  const stub = env.BATTLE_ROOMS.get(env.BATTLE_ROOMS.idFromName(`word-duel:${match![1]!}`));
+  return stub.fetch(new Request(`https://word-duel.internal/word-duel/${match![2]}`, { method: "POST", headers, body: JSON.stringify(body) }));
 }

@@ -30,6 +30,7 @@ export function letterValue(letter: string, lang: DuelLanguage): number {
 export interface Placement { row: number; col: number; letter: string }
 export interface DuelPlayer { id: string; name: string; tokenHash: string; rack: string[]; score: number }
 export interface DuelRoomState {
+  kind: "word-duel";
   code: string; lang: DuelLanguage; board: (string | null)[]; players: DuelPlayer[];
   bag: string[]; phase: "waiting" | "playing" | "finished"; turn: number; revision: number;
   scoreless: number; turns: number; expiresAt: number; createdAt: number;

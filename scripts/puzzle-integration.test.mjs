@@ -1,7 +1,41 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {dayKey, storageKey} from '../puzzle-catalog.js';
+import {dayKey, storageKey, createProgressStore} from '../puzzle-catalog.js';
+
+test('blocked storage preserves page-local progress and online seats between game mounts',()=>{
+ let failures=0;
+ const store=createProgressStore(()=>{throw new Error('Storage denied');},()=>failures++);
+ assert.equal(store.read('word'),null);
+ store.save('word',{guesses:['RIVER']});
+ store.save('duel',{session:{code:'ABCD2345',token:'private-seat'}});
+ assert.deepEqual(store.read('word'),{guesses:['RIVER']});
+ assert.deepEqual(store.read('duel'),{session:{code:'ABCD2345',token:'private-seat'}});
+ assert.equal(failures,3);
+ const anotherPage=createProgressStore(()=>{throw new Error('Storage denied');});
+ assert.equal(anotherPage.read('duel'),null,'memory does not imply persistence across pages');
+});
+test('failed writes and deletions never restore stale progress after reset',()=>{
+ const backend={getItem:()=>JSON.stringify({guesses:['OLD']}),setItem:()=>{throw new Error('Quota');},removeItem:()=>{throw new Error('Denied');}};
+ const store=createProgressStore(()=>backend);
+ assert.deepEqual(store.read('word'),{guesses:['OLD']});
+ store.save('word',{guesses:['FRESH']});
+ assert.deepEqual(store.read('word'),{guesses:['FRESH']});
+ store.reset('word');
+ assert.equal(store.read('word'),null,'reset tombstone takes precedence over stale browser data');
+ store.save('word',{guesses:[]});
+ assert.deepEqual(store.read('word'),{guesses:[]});
+});
+test('progress snapshots are isolated and successful persistence survives a new page',()=>{
+ const data=new Map(),backend={getItem:key=>data.get(key)??null,setItem:(key,value)=>data.set(key,value),removeItem:key=>data.delete(key)};
+ const store=createProgressStore(()=>backend),state={values:[1,2]};
+ store.save('sudoku',state);state.values.push(3);
+ const restored=store.read('sudoku');restored.values.push(4);
+ assert.deepEqual(store.read('sudoku'),{values:[1,2]});
+ assert.deepEqual(createProgressStore(()=>backend).read('sudoku'),{values:[1,2]});
+ store.reset('sudoku');assert.equal(createProgressStore(()=>backend).read('sudoku'),null);
+ data.set('broken','{invalid');assert.equal(store.read('broken'),null);
+});
 
 test('Dubai rollover changes solo puzzle date exactly at local midnight',()=>{
  assert.equal(dayKey(new Date('2026-09-29T19:59:59Z')),'2026-09-29');

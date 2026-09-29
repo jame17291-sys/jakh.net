@@ -26,7 +26,7 @@ Arabic words are independent Arabic puzzles. Word games normalize alef forms and
 
 ## Online Word Duel
 
-The API uses the existing Cloudflare Worker and rate-limit table, plus the new `WORD_DUEL_ROOMS` binding to `WordDuelRoom`. Wrangler migration `v2` adds a SQLite Durable Object class. There is no D1 schema migration in this change.
+The API uses the existing Cloudflare Worker, rate-limit table and `BATTLE_ROOMS` Durable Object namespace. Word Duel instances use the isolated name `word-duel:<room-code>`, which cannot collide with the quiz battle's eight-character room names. The existing `BattleRoom` class delegates only internal Word Duel requests and alarms to the `WordDuelRoom` helper; separate storage keys and room-type guards preserve quiz battles. This change adds no binding, Durable Object lifecycle migration or D1 schema migration.
 
 Rooms have two private browser seats. A cryptographically random resume token is transmitted in POST bodies, stored only as a hash by the room, and never put into invite URLs. Snapshots expose the requesting player's rack and the opponent's rack count; they never expose the bag, other rack or token hashes. The server validates every move, dictionary word, crossing, score and revision. Poll responses are scoped to the active session and cannot roll the client back to an older revision.
 
@@ -44,6 +44,8 @@ Browser QA used the Codex in-app browser: English and Arabic mobile routes at 39
 
 ## Release
 
-Publish the API before the static site, through the existing protected release workflows. The API release must include the `WordDuelRoom` binding and `v2` migration. A static-only deployment cannot provide online matches. Preserve the existing protected-main/environment approvals and release receipts; do not use direct Wrangler deployment to bypass them. No production deployment was performed during implementation.
+Publish the API before the static site, through the existing protected release workflows. Use the normal `compatibility` phase on unchanged D1 schema 9; there is no new binding or migration to apply. The API and static release must refer to the same source commit. A static-only deployment cannot provide online matches. Preserve the existing protected-main/environment approvals and release receipts; do not use direct Wrangler deployment to bypass them. No production deployment was performed during implementation.
+
+Because the deployed Durable Object classes and lifecycle configuration remain unchanged, this feature does not create a migration boundary that prevents rollback to the previous Worker version. After rollback, Word Duel endpoints are unavailable and its isolated objects are ignored by the older code; existing quiz battles keep their original storage and behavior. Redeploying the feature restores access to unexpired Word Duel rooms. Expired rooms are rejected and cleaned on access, even if their alarm ran while the older Worker was active. The static site should be rolled back with the API when withdrawing online play.
 
 The build fingerprints all puzzle modules and stylesheets in dependency order, including dynamic imports and the word bank, so content changes propagate to the HTML entry point. Stable assets remain available under the existing compatibility policy.

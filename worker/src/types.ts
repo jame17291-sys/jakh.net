@@ -4,7 +4,6 @@ export interface Env {
   CF_VERSION_METADATA: WorkerVersionMetadata;
   DB: D1Database;
   BATTLE_ROOMS: DurableObjectNamespace<BattleRoomStub>;
-  WORD_DUEL_ROOMS: DurableObjectNamespace<BattleRoomStub>;
   PASSWORD_HASHERS: DurableObjectNamespace<PasswordHasherStub>;
   PASSWORD_PEPPER: string;
   IP_HASH_SALT: string;

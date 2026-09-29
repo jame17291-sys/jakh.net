@@ -24,3 +24,28 @@ export function dayKey(date = new Date()) {
 }
 export function seedFor(value) { let seed=2166136261; for(const c of value) seed=Math.imul(seed^c.charCodeAt(0),16777619); return seed>>>0; }
 export function storageKey(game,lang,day,variant='standard') { return `ra-puzzles-v1:${game==='duel'?'shared':lang}:${game}:${game==='duel'?'room':day}:${variant}`; }
+
+// Keep a page-local copy even when browser persistence is unavailable. A null
+// entry is an intentional reset, so failed deletion cannot restore old progress.
+export function createProgressStore(storageProvider, onUnavailable=()=>{}) {
+ const memory=new Map();
+ const clone=value=>structuredClone(value);
+ return {
+  read(key) {
+   if(memory.has(key))return clone(memory.get(key));
+   let text;
+   try{text=storageProvider().getItem(key);}catch{onUnavailable();return null;}
+   let value=null;
+   if(text!==null)try{value=JSON.parse(text);}catch{/* Invalid saved data starts fresh. */}
+   memory.set(key,clone(value));return clone(value);
+  },
+  save(key,value) {
+   const snapshot=clone(value);memory.set(key,snapshot);
+   try{storageProvider().setItem(key,JSON.stringify(snapshot));}catch{onUnavailable();}
+  },
+  reset(key) {
+   memory.set(key,null);
+   try{storageProvider().removeItem(key);}catch{onUnavailable();}
+  },
+ };
+}

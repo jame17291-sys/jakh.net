@@ -4,7 +4,7 @@ import { WordDuelRoom } from '../dist/word-duel-room.js';
 import { makeDeck, normalizeWord, playAction, privateSnapshot, scorePlacement, vocabulary } from '../dist/word-duel-rules.js';
 
 function room(overrides = {}) {
-  return { code: 'ABCD2345', lang: 'en', board: Array(81).fill(null),
+  return { kind: 'word-duel', code: 'ABCD2345', lang: 'en', board: Array(81).fill(null),
     players: [{ id: 'p1', name: 'One', tokenHash: 'secret1', rack: [...'catersn'], score: 0 }, { id: 'p2', name: 'Two', tokenHash: 'secret2', rack: [...'dogseat'], score: 0 }],
     bag: [...'aaeeiissttnn'], phase: 'playing', turn: 0, revision: 1, scoreless: 0, turns: 0, expiresAt: Date.now() + 100000, createdAt: Date.now(), lastMove: null, ...overrides };
 }
@@ -115,7 +115,7 @@ test('two devices join, retries resume same seats, third players and token forge
   const snapshot = await (await restored.fetch(request('state', { token: hostToken }))).json();
   assert.equal(snapshot.you, host.you);
   assert.equal(snapshot.players[1].rack, undefined);
-  const stored = ctx.data.get('room');
+  const stored = ctx.data.get('word-duel-room');
   assert.notEqual(stored.players[0].tokenHash, hostToken);
 });
 test('concurrent same-revision submissions commit exactly one move', async () => {
@@ -133,13 +133,13 @@ test('malformed JSON, oversized messages, expiry and request floods fail safely'
   let response;
   for (let i = 0; i < 61; i++) response = await object.fetch(request('state', { token: hostToken }, 'Z'.repeat(43)));
   assert.equal(response.status, 429);
-  const stored = ctx.data.get('room'); stored.expiresAt = Date.now() - 1; ctx.data.set('room', stored);
+  const stored = ctx.data.get('word-duel-room'); stored.expiresAt = Date.now() - 1; ctx.data.set('word-duel-room', stored);
   assert.equal((await object.fetch(request('state', { token: hostToken }))).status, 410);
-  assert.equal(ctx.data.has('room'), false);
+  assert.equal(ctx.data.has('word-duel-room'), false);
 });
 test('expiry alarm purges both room and network counters', async () => {
   const { ctx } = await pair();
-  const stored = ctx.data.get('room'); stored.expiresAt = Date.now() - 1; ctx.data.set('room', stored);
+  const stored = ctx.data.get('word-duel-room'); stored.expiresAt = Date.now() - 1; ctx.data.set('word-duel-room', stored);
   await new WordDuelRoom(ctx).alarm();
   assert.equal(ctx.data.size, 0);
 });

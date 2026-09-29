@@ -1,7 +1,6 @@
 import { adminAutopilot, updateAdminAutopilot, claimAutopilot, reportAutopilot, reserveAutopilotRelease, authorizeAutopilotRelease } from "./autopilot.js";
 import { connectBattle, createBattle } from "./battle.js";
 import { BattleRoom } from "./battle-room.js";
-import { WordDuelRoom } from "./word-duel-room.js";
 import { routeWordDuel } from "./word-duel.js";
 import {
   ApiError,
@@ -70,7 +69,7 @@ import {
 } from "./verified-scoring.js";
 import type { Env } from "./types.js";
 
-export { BattleRoom, PasswordHasher, WordDuelRoom };
+export { BattleRoom, PasswordHasher };
 
 function withWorkerVersion(response: Response, env: Env): Response {
   // A Cloudflare 101 carries the accepted WebSocket. Reconstructing it would

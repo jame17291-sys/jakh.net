@@ -3,13 +3,17 @@ import { randomToken, sha256 } from "./security.js";
 import { DuelError, makeDeck, playAction, privateSnapshot, type DuelRoomState } from "./word-duel-rules.js";
 
 const TOKEN_PATTERN = /^[A-Za-z0-9_-]{43}$/u;
+export const WORD_DUEL_STORAGE_KEY = "word-duel-room";
+const RATE_STORAGE_KEY = "word-duel-rates";
 type Rate = { start: number; count: number };
 export function cleanDuelName(input: unknown): string {
   if (typeof input !== "string") return "";
   return [...input.normalize("NFKC").replace(/[\u0000-\u001f\u007f-\u009f\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/gu, "").trim().replace(/\s+/gu, " ")].slice(0, 20).join("");
 }
 
-export class WordDuelRoom implements DurableObject {
+// Helper for isolated `word-duel:<code>` instances of the existing BattleRoom
+// namespace. Keeping the deployed class unchanged preserves Worker rollback.
+export class WordDuelRoom {
   // Serialize full read/validate/write operations, including async token hashing.
   private queue: Promise<unknown> = Promise.resolve();
   constructor(private readonly ctx: DurableObjectState) {}
@@ -23,7 +27,7 @@ export class WordDuelRoom implements DurableObject {
   }
   async alarm(): Promise<void> {
     const next = this.queue.then(async () => {
-      const room = await this.ctx.storage.get<DuelRoomState>("room");
+      const room = await this.ctx.storage.get<DuelRoomState>(WORD_DUEL_STORAGE_KEY);
       if (!room || room.expiresAt <= Date.now()) await this.ctx.storage.deleteAll();
       else await this.ctx.storage.setAlarm(room.expiresAt);
     });
@@ -31,19 +35,19 @@ export class WordDuelRoom implements DurableObject {
     await next;
   }
   private async save(room: DuelRoomState): Promise<void> {
-    await this.ctx.storage.put("room", room);
+    await this.ctx.storage.put(WORD_DUEL_STORAGE_KEY, room);
     await this.ctx.storage.setAlarm(room.expiresAt);
   }
   private async rateLimit(request: Request, now: number): Promise<void> {
     const key = request.headers.get("x-duel-client-key");
     if (!key || !TOKEN_PATTERN.test(key)) throw new DuelError("UNAUTHORIZED", "Invalid room access.", 403);
-    const rates = await this.ctx.storage.get<Record<string, Rate>>("rates") || {};
+    const rates = await this.ctx.storage.get<Record<string, Rate>>(RATE_STORAGE_KEY) || {};
     for (const [id, value] of Object.entries(rates)) if (value.start + 60_000 <= now) delete rates[id];
     if (!rates[key] && Object.keys(rates).length >= 64) throw new DuelError("RATE_LIMITED", "This room is busy. Try again in a minute.", 429);
     const rate = rates[key] || { start: now, count: 0 };
     rate.count++;
     rates[key] = rate;
-    await this.ctx.storage.put("rates", rates);
+    await this.ctx.storage.put(RATE_STORAGE_KEY, rates);
     if (rate.count > 60) throw new DuelError("RATE_LIMITED", "Too many requests. Wait a minute.", 429);
   }
   private async handle(request: Request): Promise<Response> {
@@ -51,7 +55,7 @@ export class WordDuelRoom implements DurableObject {
     const body = await parseJson<Record<string, unknown>>(request, 4096);
     const now = Date.now();
     const path = new URL(request.url).pathname;
-    let room = await this.ctx.storage.get<DuelRoomState>("room");
+    let room = await this.ctx.storage.get<DuelRoomState>(WORD_DUEL_STORAGE_KEY);
     if (room && room.expiresAt <= now) {
       await this.ctx.storage.deleteAll();
       room = undefined;
@@ -71,7 +75,7 @@ export class WordDuelRoom implements DurableObject {
       if (!name || (body.lang !== "en" && body.lang !== "ar") || typeof body.code !== "string" || !/^[A-HJ-NP-Z2-9]{8}$/u.test(body.code)) throw new DuelError("INVALID_ROOM", "Enter a name and choose a language.");
       const deck = makeDeck(body.lang);
       room = {
-        code: body.code, lang: body.lang, board: Array.from({ length: 81 }, () => null),
+        kind: "word-duel", code: body.code, lang: body.lang, board: Array.from({ length: 81 }, () => null),
         players: [{ id: randomToken(12), name, tokenHash, rack: deck.racks[0]!, score: 0 }],
         // Reserve the other starter at the end; no client ever receives these letters.
         bag: [...deck.bag, ...deck.racks[1]!], phase: "waiting", turn: 0, revision: 0,

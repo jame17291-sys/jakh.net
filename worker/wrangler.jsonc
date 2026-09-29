@@ -47,10 +47,6 @@
       {
         "name": "PASSWORD_HASHERS",
         "class_name": "PasswordHasher"
-      },
-      {
-        "name": "WORD_DUEL_ROOMS",
-        "class_name": "WordDuelRoom"
       }
     ]
   },
@@ -58,10 +54,6 @@
     {
       "tag": "v1",
       "new_sqlite_classes": ["BattleRoom", "PasswordHasher"]
-    },
-    {
-      "tag": "v2",
-      "new_sqlite_classes": ["WordDuelRoom"]
     }
   ]
 }

@@ -30,7 +30,7 @@ export const PUZZLE_EDITORIAL = {
     rules: [
       ['Choose an across or down clue, then enter its answer in the highlighted cells. Each open square holds one letter; dark squares separate answers.', 'اختر تعريفاً أفقياً أو رأسياً، ثم أدخل إجابته في الخانات المحددة. تحمل كل خانة مفتوحة حرفاً واحداً، وتفصل الخانات الداكنة بين الإجابات.'],
       ['Use shared letters to narrow down uncertain answers. Arabic entries read right to left across the displayed grid; down entries run from top to bottom.', 'استخدم الحروف المشتركة لتقليل احتمالات الإجابات غير المؤكدة. تُقرأ الكلمات العربية أفقياً من اليمين لليسار، ورأسياً من الأعلى للأسفل.'],
-      ['Check your entries or reveal the selected answer when you are stuck. Complete every answer to finish; progress records when help was used.', 'تحقّق من إدخالاتك أو اكشف الإجابة المحددة عندما تتعثر. أكمل كل الإجابات لإنهاء اللغز؛ ويُسجّل التقدّم استخدام المساعدة.'],
+      ['Check your entries or reveal the selected answer when you are stuck. Complete every answer to finish. Checking filled entries or revealing an answer marks this puzzle as assisted.', 'تحقّق من إدخالاتك أو اكشف الإجابة المحددة عندما تتعثر. أكمل كل الإجابات لإنهاء اللغز. يُسجَّل استخدام المساعدة عند فحص الحروف المدخلة أو كشف إجابة.'],
     ],
     note: ['There is no countdown to beat. Work through the larger grid at your own pace, or try the 5 × 5 Mini and 9 × 9 Midi for a smaller board.', 'لا يوجد عدّ تنازلي يجب التغلب عليه. أكمل الشبكة الكبيرة على مهلك، أو جرّب المتقاطعة المصغّرة ٥ × ٥ والمتوسطة ٩ × ٩ إذا رغبت في لوحة أصغر.'],
   },
@@ -41,7 +41,7 @@ export const PUZZLE_EDITORIAL = {
     rules: [
       ['Select a numbered clue and fill its answer across or down. The selected entry highlights the cells that belong to it.', 'اختر تعريفاً مرقماً واملأ إجابته أفقياً أو رأسياً. تُحدّد الخانات التابعة للإجابة المختارة على اللوحة.'],
       ['A letter at an intersection belongs to two answers. Use a solved word to help with a clue that is harder to recognise.', 'ينتمي حرف التقاطع إلى إجابتين. استخدم الكلمة التي حللتها للمساعدة في تعريف يصعب عليك اكتشافه.'],
-      ['You can check entries or reveal the selected answer. Finish all open cells correctly to complete the puzzle; revealed help is recorded with your progress.', 'يمكنك التحقق من الإدخالات أو كشف الإجابة المحددة. أكمل كل الخانات المفتوحة بشكل صحيح لإنهاء اللغز؛ وتُسجّل المساعدة المكشوفة مع تقدّمك.'],
+      ['You can check entries or reveal the selected answer. Finish all open cells correctly to complete the puzzle. Checking filled entries or revealing an answer marks this puzzle as assisted.', 'يمكنك التحقق من الإدخالات أو كشف الإجابة المحددة. أكمل كل الخانات المفتوحة بشكل صحيح لإنهاء اللغز. يُسجَّل استخدام المساعدة عند فحص الحروف المدخلة أو كشف إجابة.'],
     ],
     note: ['Choose this size when you want more to untangle than the Mini. The clue language follows the page language, and Arabic across answers use right-to-left order.', 'اختر هذا الحجم عندما ترغب في تحدٍّ أوسع من المصغّرة. تتبع لغة التعريفات لغة الصفحة، وتُرتّب الإجابات العربية الأفقية من اليمين لليسار.'],
   },
@@ -52,7 +52,7 @@ export const PUZZLE_EDITORIAL = {
     rules: [
       ['Choose a clue to highlight its answer, then type or tap the letters into the open cells. Dark squares are not part of an answer.', 'اختر تعريفاً لتحديد إجابته، ثم أدخل الحروف في الخانات المفتوحة. الخانات الداكنة ليست جزءاً من الإجابة.'],
       ['Read both crossing clues when a letter is uncertain. Every shared square must work for its across and down answer.', 'اقرأ التعريفين المتقاطعين عندما لا تتأكد من حرف. يجب أن يناسب كل حرف مشترك الإجابتين الأفقية والرأسية.'],
-      ['Check letters or reveal the selected answer if needed. Filling every answer correctly completes the board, and your progress records any revealed help.', 'تحقّق من الحروف أو اكشف الإجابة المحددة عند الحاجة. يكتمل اللغز بملء كل الإجابات بشكل صحيح، ويُسجّل تقدّمك أي مساعدة مكشوفة.'],
+      ['Check letters or reveal the selected answer if needed. Filling every answer correctly completes the board. Checking filled entries or revealing an answer marks this puzzle as assisted.', 'تحقّق من الحروف أو اكشف الإجابة المحددة عند الحاجة. يكتمل اللغز بملء كل الإجابات بشكل صحيح. يُسجَّل استخدام المساعدة عند فحص الحروف المدخلة أو كشف إجابة.'],
     ],
     note: ['For a gentler start, the Bonus collection has a version with the first letter of every answer already filled. For a larger grid, move to the Midi.', 'لبداية أسهل، تتضمن التحديات الإضافية نسخة يُكشف فيها أول حرف من كل إجابة. ولشبكة أكبر، انتقل إلى المتقاطعة المتوسطة.'],
   },

@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { siteHeader, navigationScript } from "./site-navigation-markup.mjs";
+import { illustrationMarkup, SECTION_ILLUSTRATIONS, COLLECTION_ILLUSTRATIONS, TOPIC_ILLUSTRATIONS } from "../site-illustrations.js";
 
 import {
   PRIMARY_SITE_ORIGIN,
@@ -346,6 +347,7 @@ function renderQuizExperience(page, lang, cards) {
     <main id="content">
       <nav class="page-breadcrumb shell" aria-label="${isAr ? "مسار التنقل" : "Breadcrumb"}"><a href="${isAr ? "/ar/mind-lab/" : "/mind-lab"}">${isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"}</a><span aria-hidden="true">/</span><a href="${isAr ? "/ar/collections/" : "/collections"}">${isAr ? "مجموعات قصيرة" : "Short collections"}</a></nav>
       <section class="seo-collection-hero shell">
+        ${illustrationMarkup(COLLECTION_ILLUSTRATIONS[page.key], 'topic', true)}
         <p class="eyebrow">${escapeHtml(page.eyebrow[lang])}</p>
         <h1>${escapeHtml(page.headings[lang])}</h1>
         <p>${escapeHtml(page.introductions[lang])}</p>
@@ -429,6 +431,7 @@ function renderGamesExperience(page, lang) {
     ${globalHeader(lang, alternate, "games")}
     <main id="content">
       <section class="seo-collection-hero shell">
+        ${illustrationMarkup('shared-play', 'topic', true)}
         <p class="eyebrow">${escapeHtml(page.eyebrow[lang])}</p>
         <h1>${escapeHtml(page.headings[lang])}</h1>
         <p>${escapeHtml(page.introductions[lang])}</p>
@@ -511,6 +514,7 @@ function renderCollectionsPage(lang) {
       </section>
       <section class="seo-hub-grid shell" aria-label="${isAr ? "مجموعات الأسئلة القصيرة" : "Short question collections"}">
         ${QUESTION_COLLECTIONS.map((page) => `<article class="seo-hub-card">
+          ${illustrationMarkup(COLLECTION_ILLUSTRATIONS[page.key])}
           <p class="eyebrow">${page.cards.length} ${isAr ? "أسئلة مختارة" : "selected questions"}</p>
           <h2>${escapeHtml(page.headings[lang])}</h2>
           <p>${escapeHtml(page.descriptions[lang])}</p>
@@ -579,6 +583,7 @@ function renderAboutPage(lang) {
     ${globalHeader(lang, isAr ? enPath : arPath)}
     <main id="content" class="shell">
       <section class="seo-collection-hero">
+        ${illustrationMarkup('shared-play', 'topic', true)}
         <p class="eyebrow">${isAr ? "عن الموقع" : "About"}</p>
         <h1>${isAr ? "مكان صغير للفضول المشترك" : "A small home for shared curiosity"}</h1>
         <p>${isAr ? "نصمم ريدل أرابيا لتجعل التفكير والمحادثة واللعب جزءاً من وقتك على الإنترنت، بالعربية والإنجليزية." : "Riddle Arabia is designed to make thinking, conversation, and play a better part of your time online—in Arabic and English."}</p>
@@ -616,7 +621,7 @@ function renderMindLabDirectory() {
           </a>`;
     }).join("\n");
     return `          <section id="section-${escapeHtml(section.key)}" class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
-            <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
+            ${illustrationMarkup(SECTION_ILLUSTRATIONS[section.key], 'section')}
             <div><h3>${escapeHtml(section.title.en)}</h3><p>${escapeHtml(section.description.en)}</p></div>
             <p class="directory-section-count">${members.length} topics · ${questions} questions</p>
           </section>
@@ -675,6 +680,7 @@ function renderFunctionalCategoryShell(category, lang) {
       </nav>
       <section class="hero shell hero-category">
         <div class="hero-copy">
+          ${illustrationMarkup(TOPIC_ILLUSTRATIONS[category.slug] || SECTION_ILLUSTRATIONS[section?.key], 'topic', true)}
           <p class="eyebrow" id="categoryKicker">${escapeHtml(section?.title?.[lang] || category.cluster?.[lang] || "")}</p>
           <h1 id="categoryTitle">${escapeHtml(category.emoji || "❔")} ${escapeHtml(category.title[lang])}</h1>
           <p class="hero-text" id="categoryDescription">${escapeHtml(category.description?.[lang] || "")}</p>

@@ -3547,6 +3547,45 @@ html { scroll-padding-top: 8.5rem; }
 .unified-header .brand { min-width: 0; }
 .unified-header .brand-logo { width: 132px; height: 46px; }
 .home-intro, .page-intro { padding-block: clamp(1.75rem, 4vw, 3.25rem) 1.5rem; }
+
+/* Coordinated illustrations: native dimensions reserve space, and the small
+   directory accents keep the topic links quick to scan on phones. */
+.ra-art {
+  display: block; inline-size: 100%; block-size: auto; aspect-ratio: 3 / 2;
+  object-fit: contain; pointer-events: none;
+}
+.ra-art-hero { max-inline-size: 340px; margin-inline: auto; }
+.ra-art-card { max-inline-size: 260px; margin: 0 auto 1rem; }
+.ra-art-topic {
+  float: inline-end; inline-size: 180px; max-inline-size: 32%;
+  margin: 0 0 .75rem; margin-inline-start: 1rem;
+}
+.ra-art-section { inline-size: 120px; }
+.ra-art-thumb { inline-size: 120px; }
+.ra-illustrated-intro {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+  align-items: center; gap: 1.5rem;
+}
+.ra-illustrated-intro > div { min-inline-size: 0; }
+.library-intro .kv-hero-content.ra-illustrated-intro { display: grid; align-items: center; }
+.home-discovery-links a.ra-art-link {
+  display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: .75rem;
+}
+.ra-art-link > div { min-inline-size: 0; }
+.ra-art-link small { display: block; margin-top: .35rem; }
+.page-intro, .seo-collection-hero, .suggestion-box, .ak-intro, .feature-panel { display: flow-root; }
+.seo-collection-hero > .ra-art-topic { max-inline-size: 28%; }
+@media (max-width: 680px) {
+  .ra-illustrated-intro { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .ra-art-hero { max-inline-size: 220px; }
+}
+@media (max-width: 600px) {
+  .ra-art-card { max-inline-size: 200px; }
+  .ra-art-topic { inline-size: 100px; margin-inline-start: .75rem; }
+  .ra-art-section { inline-size: 80px; }
+  .ra-art-thumb { inline-size: 88px; }
+  .home-discovery-links a.ra-art-link { grid-template-columns: 88px minmax(0, 1fr); }
+}
 .home-intro h1, .page-intro h1, .library-intro .kv-hero-title {
   display: block; width: auto; margin: .25rem 0 .85rem;
   font-size: clamp(2rem, 4.8vw, 3.8rem); line-height: 1.12;
@@ -3592,7 +3631,7 @@ body.page-home #top { gap: 1rem; min-height: auto; }
 .compact-topic-card .category-card-overlay { padding: 1rem 1rem .5rem; }
 .compact-topic-card .category-card-footer { padding: .5rem 1rem 1rem; }
 .category-card.compact-topic-card:hover { background: var(--bg-soft) !important; }
-body[data-page="category"] .hero-category { padding-block: 1.25rem; }
+body[data-page="category"] .hero-category { padding-block: 1.25rem; grid-template-columns: minmax(0, 1fr); }
 body[data-page="category"] #questionSection { margin-top: .8rem; }
 .category-play-modes { margin-block: .7rem; }
 .more-play-modes, .question-filters { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); padding: .5rem .9rem; }

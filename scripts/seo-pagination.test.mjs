@@ -235,7 +235,9 @@ test("the no-script topic directory uses compact text links from the current cat
   const source = read("mind-lab.html");
   const directory = source.match(/<!-- SEO:DIRECTORY:START -->([\s\S]*?)<!-- SEO:DIRECTORY:END -->/u)?.[1] || "";
   assert.ok(directory, "the generated directory fallback must be present");
-  assert.doesNotMatch(directory, /<img\b|category-card-bg|category-card-image|\bhas-art\b/u, "the fallback must not fetch the previous card artwork");
+  const withoutSections = directory.replace(/<section\b[^>]*class="directory-section-header"[\s\S]*?<\/section>/gu, "");
+  assert.doesNotMatch(withoutSections, /<img\b|category-card-bg|category-card-image|\bhas-art\b/u, "compact topic cards stay text-only");
+  assert.equal((directory.match(/class="ra-art ra-art-section"/gu) || []).length, catalog.sections.length, "one illustration per subject section");
   const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
   assert.equal(cards.length, catalog.categories.length, "every source topic has a no-script link before publication quarantine projection");
   assert.equal(new Set(cards.map(([, href]) => href)).size, cards.length, "no duplicate topic links");

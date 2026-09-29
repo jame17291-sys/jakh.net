@@ -63,6 +63,8 @@
     </script>
 
       <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <link rel="stylesheet" href="/puzzle-room.css" />
+    <script type="module" src="/puzzle-room.js"></script>
   </head>
   <body class="page-play" data-page="play">
     <a href="#top" class="skip-link">Skip to main content</a>
@@ -82,11 +84,40 @@
     </header>
 
     <main id="top">
-      <section class="page-intro shell">
-        <h1 data-i18n="playHeroTitle">Free Arabic games online</h1>
+      <section class="page-intro shell" data-puzzle-directory>
+        <h1 tabindex="-1" data-i18n="playHeroTitle">Free Arabic games online</h1>
         <p class="intro-description" data-i18n="playHeroSubtitle">Play in Arabic or English: solve a mystery, try a board game, or challenge friends with trivia. Every game is free.</p>
       </section>
-      <section class="shell game-directory" aria-labelledby="featuredGameTitle">
+      <!-- puzzle-room:start -->
+      <section class="shell puzzle-library" id="puzzle-library" aria-labelledby="puzzle-library-title">
+        <div class="puzzle-section-head"><div><p class="eyebrow">WORDS, PATTERNS & A LITTLE CURIOSITY</p><h2 id="puzzle-library-title">Find your next favourite.</h2><p>A puzzle for a quiet moment, a fresh perspective, or a friendly challenge.</p></div></div>
+        <div class="puzzle-filters" role="group" aria-label="Filter games"><button type="button" data-puzzle-filter="all" aria-pressed="true">All games</button><button type="button" data-puzzle-filter="words" aria-pressed="false">Word games</button><button type="button" data-puzzle-filter="logic" aria-pressed="false">Logic & patterns</button><button type="button" data-puzzle-filter="friends" aria-pressed="false">With a friend</button></div>
+        <div class="puzzle-cards" id="puzzle-cards"><a class="puzzle-card" href="/play?game=bonus" data-puzzle-link data-category="collection"><div class="puzzle-card-top"><span>01</span><span>A little different</span></div><h3>Bonus puzzles</h3><p>Small twists on familiar favourites. Explore three extra challenges.</p><div class="puzzle-card-bottom"><span>Explore puzzles</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=duel" data-puzzle-link data-category="friends"><div class="puzzle-card-top"><span>02</span><span>2 players · online</span></div><h3>Word Duel</h3><p>Build words on a shared board. Invite a friend and take turns online.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=crossword" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>03</span><span>Take your time</span></div><h3>The Crossword</h3><p>Settle in with an original, interlocking collection of clues.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=midi" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>04</span><span>A little longer</span></div><h3>The Midi</h3><p>A medium-sized crossword for a satisfying little break.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=mini" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>05</span><span>A quick break</span></div><h3>The Mini</h3><p>A handful of clues. One small grid. Find your way across and down.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=hive" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>06</span><span>Find every word</span></div><h3>Word Hive</h3><p>Make words from seven letters. Keep the centre letter in every word.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=word" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>07</span><span>6 guesses</span></div><h3>Five Letters</h3><p>Find the hidden five-letter word in six guesses. Every guess gives a clue.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=domino" data-puzzle-link data-category="logic"><div class="puzzle-card-top"><span>08</span><span>Numbers &amp; logic</span></div><h3>Logic Dominoes</h3><p>Fit the dominoes. Make every region follow its own rule.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=trails" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>09</span><span>Find the theme</span></div><h3>Word Trails</h3><p>Follow the theme through a grid of letters. Leave no letter behind.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=links" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>10</span><span>4 groups</span></div><h3>Connections</h3><p>Sixteen words. Four hidden groups. Discover what belongs together.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=mosaic" data-puzzle-link data-category="logic"><div class="puzzle-card-top"><span>11</span><span>Match &amp; unwind</span></div><h3>Mosaic</h3><p>Match shared layers and clear the board, one thoughtful pair at a time.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=letter-square" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>12</span><span>Connect the letters</span></div><h3>Letter Square</h3><p>Connect letters around the square. Link words to use every letter.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a>
+<a class="puzzle-card" href="/play?game=sudoku" data-puzzle-link data-category="logic"><div class="puzzle-card-top"><span>13</span><span>3 difficulties</span></div><h3>Sudoku</h3><p>Complete the grid with numbers 1–9. Three levels, one clear solution.</p><div class="puzzle-card-bottom"><span>Play now</span><span>Free to play</span></div></a></div>
+        <p class="puzzle-fineprint">Original Riddle Arabia puzzles. Word games rotate through a finite curated collection; logic games use generated boards. Your progress is saved on this device. Online Word Duel connects you with a friend.</p>
+        <noscript><p>Enable JavaScript to open and play these puzzles.</p></noscript>
+      </section>
+      <section class="shell puzzle-stage" id="puzzle-stage" aria-labelledby="puzzle-title" hidden>
+        <div class="puzzle-stage-top"><a class="puzzle-back" href="/play" data-puzzle-link>Back to all games</a><span class="puzzle-date" id="puzzle-date"></span></div>
+        <div class="puzzle-frame"><div class="puzzle-title-row"><h1 id="puzzle-title" tabindex="-1"></h1><button type="button" class="puzzle-reset" id="puzzle-reset">Start over</button></div>
+        <div class="puzzle-reset-confirm" id="puzzle-reset-confirm" hidden><p>Clear your progress for this puzzle and start again?</p><button type="button" class="primary-btn" id="puzzle-reset-yes">Start again</button><button type="button" class="ghost-btn" id="puzzle-reset-cancel">Keep playing</button></div>
+        <p id="puzzle-storage-note" class="puzzle-storage-note" role="status" hidden>Your browser cannot save progress right now. Progress will last only while this page stays open.</p>
+        <div class="puzzle-mount" id="puzzle-mount"></div>
+        <p class="puzzle-history-note" id="puzzle-history-note">Your progress stays on this device. The collection rotates at midnight, Dubai time; an open puzzle stays available until you leave it.</p></div>
+      </section>
+<!-- puzzle-room:end -->
+      <section data-puzzle-directory class="shell game-directory" aria-labelledby="featuredGameTitle">
         <article class="feature-panel featured-game">
           <p class="eyebrow" data-i18n="playAvailable">Mysteries &amp; deduction</p>
           <h2 id="featuredGameTitle" data-i18n="playPick">Akshifha — spot the contradiction</h2>
@@ -99,7 +130,7 @@
           <a href="/backgammon"><span data-i18n="playBackgammonTitle">Backgammon</span><small data-i18n="playBackgammonDesc">A simplified browser adaptation. Roll the dice and race your checkers home against the computer.</small></a>
         </div>
       </section>
-      <section class="shell section-block" aria-labelledby="topicGamesTitle">
+      <section data-puzzle-directory class="shell section-block" aria-labelledby="topicGamesTitle">
         <div class="feature-panel">
           <h2 id="topicGamesTitle" data-i18n="playTopicModesTitle">Turn a topic into a game</h2>
           <p data-i18n="playTopicModesText">Quick Fire is a solo timed quiz. Battle Room lets you play the same topic with friends. Choose your topic first.</p>

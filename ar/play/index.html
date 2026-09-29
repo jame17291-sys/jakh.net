@@ -65,6 +65,8 @@
     </script>
 
       <script defer src="/privacy-consent.js?v=2026080101"></script>
+    <link rel="stylesheet" href="/puzzle-room.css" />
+    <script type="module" src="/puzzle-room.js"></script>
   </head>
   <body class="page-play" data-page="play" data-route-lang="ar">
     <a href="#top" class="skip-link">انتقل إلى المحتوى الرئيسي</a>
@@ -84,11 +86,40 @@
     </header>
 
     <main id="top">
-      <section class="page-intro shell">
-        <h1 data-i18n="playHeroTitle">ألعاب عربية مجانية أونلاين</h1>
+      <section class="page-intro shell" data-puzzle-directory>
+        <h1 tabindex="-1" data-i18n="playHeroTitle">ألعاب عربية مجانية أونلاين</h1>
         <p class="intro-description" data-i18n="playHeroSubtitle">العب بالعربية أو الإنجليزية: حلّ لغزاً غامضاً، أو جرّب لعبة لوحية، أو تحدَّ أصدقاءك بأسئلة ثقافية. جميع الألعاب مجانية.</p>
       </section>
-      <section class="shell game-directory" aria-labelledby="featuredGameTitle">
+      <!-- puzzle-room:start -->
+      <section class="shell puzzle-library" id="puzzle-library" aria-labelledby="puzzle-library-title">
+        <div class="puzzle-section-head"><div><p class="eyebrow">كلمات وأنماط وقليل من الفضول</p><h2 id="puzzle-library-title">اكتشف لعبتك المفضلة.</h2><p>لغز للحظات الهادئة أو لاكتشاف فكرة جديدة أو لتحدٍّ مع صديق.</p></div></div>
+        <div class="puzzle-filters" role="group" aria-label="تصفية الألعاب"><button type="button" data-puzzle-filter="all" aria-pressed="true">كل الألعاب</button><button type="button" data-puzzle-filter="words" aria-pressed="false">ألعاب الكلمات</button><button type="button" data-puzzle-filter="logic" aria-pressed="false">منطق وأنماط</button><button type="button" data-puzzle-filter="friends" aria-pressed="false">مع صديق</button></div>
+        <div class="puzzle-cards" id="puzzle-cards"><a class="puzzle-card" href="/ar/play/?game=bonus" data-puzzle-link data-category="collection"><div class="puzzle-card-top"><span>01</span><span>تحديات متنوعة</span></div><h3>تحديات إضافية</h3><p>تنويعات جديدة على ألعابك المفضلة. استكشف ثلاثة تحديات إضافية.</p><div class="puzzle-card-bottom"><span>استكشف التحديات</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=duel" data-puzzle-link data-category="friends"><div class="puzzle-card-top"><span>02</span><span>لاعبان · عبر الإنترنت</span></div><h3>مبارزة الكلمات</h3><p>كوّن كلمات على لوحة مشتركة. ادعُ صديقاً وتبادلا الأدوار عبر الإنترنت.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=crossword" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>03</span><span>على مهلك</span></div><h3>الكلمات المتقاطعة</h3><p>استمتع بمجموعة أصلية من التعريفات والكلمات المتشابكة.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=midi" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>04</span><span>تحدٍّ متوسط</span></div><h3>المتقاطعة المتوسطة</h3><p>كلمات متقاطعة بحجم متوسط لاستراحة ممتعة.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=mini" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>05</span><span>استراحة سريعة</span></div><h3>المتقاطعة المصغّرة</h3><p>تعريفات قليلة وشبكة صغيرة. اكتشف الكلمات أفقياً ورأسياً.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=hive" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>06</span><span>اكتشف كل الكلمات</span></div><h3>خلية الحروف</h3><p>كوّن كلمات من سبعة حروف، مع استخدام حرف الوسط في كل كلمة.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=word" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>07</span><span>٦ محاولات</span></div><h3>خمسة حروف</h3><p>اكتشف الكلمة ذات الحروف الخمسة في ست محاولات. كل محاولة تمنحك دليلاً.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=domino" data-puzzle-link data-category="logic"><div class="puzzle-card-top"><span>08</span><span>أرقام ومنطق</span></div><h3>دومينو المنطق</h3><p>رتّب قطع الدومينو وحقّق شرط كل منطقة.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=trails" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>09</span><span>اكتشف الموضوع</span></div><h3>خيوط الكلمات</h3><p>تتبّع كلمات الموضوع عبر شبكة الحروف، واستخدم كل حرف.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=links" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>10</span><span>٤ مجموعات</span></div><h3>روابط</h3><p>ست عشرة كلمة وأربع مجموعات مخفية. اكتشف الرابط بينها.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=mosaic" data-puzzle-link data-category="logic"><div class="puzzle-card-top"><span>11</span><span>طابق واسترخِ</span></div><h3>زخارف</h3><p>طابق الطبقات المشتركة وأفرغ اللوحة، زوجاً بعد زوج.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=letter-square" data-puzzle-link data-category="words"><div class="puzzle-card-top"><span>12</span><span>صِل الحروف</span></div><h3>مربّع الحروف</h3><p>صِل الحروف حول المربّع واربط الكلمات لاستخدام جميع الحروف.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a>
+<a class="puzzle-card" href="/ar/play/?game=sudoku" data-puzzle-link data-category="logic"><div class="puzzle-card-top"><span>13</span><span>٣ مستويات</span></div><h3>سودوكو</h3><p>أكمل الشبكة بالأرقام من ١ إلى ٩. ثلاثة مستويات وحل واحد واضح.</p><div class="puzzle-card-bottom"><span>العب الآن</span><span>مجانية</span></div></a></div>
+        <p class="puzzle-fineprint">ألغاز أصلية من ريدل أرابيا. تتناوب ألعاب الكلمات ضمن مجموعة محدودة ومختارة، وتستخدم ألعاب المنطق لوحات مولّدة. يُحفظ تقدّمك على هذا الجهاز، وتتيح مبارزة الكلمات اللعب مع صديق عبر الإنترنت.</p>
+        <noscript><p>فعّل JavaScript لفتح هذه الألغاز ولعبها.</p></noscript>
+      </section>
+      <section class="shell puzzle-stage" id="puzzle-stage" aria-labelledby="puzzle-title" hidden>
+        <div class="puzzle-stage-top"><a class="puzzle-back" href="/ar/play/" data-puzzle-link>العودة إلى جميع الألعاب</a><span class="puzzle-date" id="puzzle-date"></span></div>
+        <div class="puzzle-frame"><div class="puzzle-title-row"><h1 id="puzzle-title" tabindex="-1"></h1><button type="button" class="puzzle-reset" id="puzzle-reset">ابدأ من جديد</button></div>
+        <div class="puzzle-reset-confirm" id="puzzle-reset-confirm" hidden><p>هل تريد مسح تقدّمك في هذا اللغز والبدء مجدداً؟</p><button type="button" class="primary-btn" id="puzzle-reset-yes">ابدأ مجدداً</button><button type="button" class="ghost-btn" id="puzzle-reset-cancel">واصل اللعب</button></div>
+        <p id="puzzle-storage-note" class="puzzle-storage-note" role="status" hidden>لا يستطيع المتصفح حفظ تقدّمك الآن. سيبقى تقدّمك متاحاً فقط ما دامت هذه الصفحة مفتوحة.</p>
+        <div class="puzzle-mount" id="puzzle-mount"></div>
+        <p class="puzzle-history-note" id="puzzle-history-note">يُحفظ تقدّمك على هذا الجهاز. تتناوب الألغاز عند منتصف الليل بتوقيت دبي؛ ويبقى اللغز المفتوح متاحاً حتى تغادره.</p></div>
+      </section>
+<!-- puzzle-room:end -->
+      <section data-puzzle-directory class="shell game-directory" aria-labelledby="featuredGameTitle">
         <article class="feature-panel featured-game">
           <p class="eyebrow" data-i18n="playAvailable">قضايا واستنتاج</p>
           <h2 id="featuredGameTitle" data-i18n="playPick">اكشفها — اكتشف التناقض</h2>
@@ -101,7 +132,7 @@
           <a href="/ar/games/backgammon/"><span data-i18n="playBackgammonTitle">طاولة الزهر</span><small data-i18n="playBackgammonDesc">نسخة متصفح مبسطة. ارمِ النرد وسابق الكمبيوتر لإخراج أحجارك من اللوحة.</small></a>
         </div>
       </section>
-      <section class="shell section-block" aria-labelledby="topicGamesTitle">
+      <section data-puzzle-directory class="shell section-block" aria-labelledby="topicGamesTitle">
         <div class="feature-panel">
           <h2 id="topicGamesTitle" data-i18n="playTopicModesTitle">حوّل موضوعًا إلى لعبة</h2>
           <p data-i18n="playTopicModesText">السباق السريع اختبار فردي مؤقّت. وفي غرفة المعركة تتنافس مع أصدقائك في الموضوع نفسه. اختر موضوعك أولًا.</p>

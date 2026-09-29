@@ -21,6 +21,12 @@ updates:
     open-pull-requests-limit: 3
     commit-message:
       prefix: deps
+    # Wrangler is pinned in both Worker packages and in release workflows.
+    # Dependabot cannot update those locations atomically, so a single-folder
+    # PR necessarily fails the production-hygiene consistency check. Upgrade
+    # it only in a coordinated maintenance PR.
+    ignore:
+      - dependency-name: wrangler
 
   - package-ecosystem: npm
     directory: /worker
@@ -32,6 +38,9 @@ updates:
     open-pull-requests-limit: 5
     commit-message:
       prefix: deps
+    # Keep this in sync with /site-worker; see the matching exception above.
+    ignore:
+      - dependency-name: wrangler
 
   - package-ecosystem: github-actions
     directory: /

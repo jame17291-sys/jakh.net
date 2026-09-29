@@ -239,7 +239,7 @@ const UI = {
     homeDailyTitle: "A little challenge, every day",
     homeCollectionTriviaTitle: "Arabic trivia & general knowledge",
     homeCollectionTriviaMeta: "Try eight questions in Arabic or English",
-    homeGameText: "Connect clues in Akshifha, play a classic, or challenge friends.",
+    homeGameText: "Try crosswords, Sudoku and word games, or invite a friend to Word Duel.",
     homeGameTitle: "Play free Arabic games",
     homeQuizText: "Browse trivia in Arabic and English across 51 topics, from science and history to culture and logic.",
     homeQuizTitle: "Explore trivia & quizzes",
@@ -270,8 +270,9 @@ const UI = {
     mindHeroEyebrow: "Choose a topic or a short collection",
     mindHeroTitle: "Riddles, trivia & quizzes",
     mindHeroSubtitle: "Find Arabic and English trivia by topic, choose a riddle or quiz, and reveal each answer at your own pace.",
-    playHeroTitle: "Free Arabic games online",
-    playHeroSubtitle: "Play in Arabic or English: solve a mystery, try a board game, or challenge friends with trivia. Every game is free.",
+    playHeroTitle: "Free puzzles and word games",
+    playHeroSubtitle: "Choose crosswords, word games, Sudoku or logic puzzles in Arabic and English. Invite a friend to Word Duel, or explore Akshifha, chess and backgammon. Free to play in your browser.",
+    playGuideLink: "Explore the brain-games guide and choose a game",
     playHeroGames: 'Pilot cases',
     playAvailable: "Mysteries & deduction",
     playPick: 'Akshifha — spot the contradiction',
@@ -644,7 +645,7 @@ const UI = {
     homeDailyTitle: "تحدٍ صغير كل يوم",
     homeCollectionTriviaTitle: "أسئلة معلومات عامة مع الإجابات",
     homeCollectionTriviaMeta: "جرّب ثمانية أسئلة بالعربية أو الإنجليزية",
-    homeGameText: "اربط الأدلة في اكشفها، أو العب لعبة كلاسيكية، أو تحدَّ الأصدقاء.",
+    homeGameText: "جرّب الكلمات المتقاطعة وسودوكو وألعاب الكلمات، أو ادعُ صديقاً إلى مبارزة الكلمات.",
     homeGameTitle: "العب ألعاباً عربية مجانية",
     homeQuizText: "تصفّح أسئلة معلومات عامة بالعربية والإنجليزية في 51 موضوعاً، من العلوم والتاريخ إلى الثقافة والمنطق.",
     homeQuizTitle: "استكشف الأسئلة الثقافية",
@@ -675,8 +676,9 @@ const UI = {
     mindHeroEyebrow: "اختر موضوعًا أو مجموعة قصيرة",
     mindHeroTitle: "ألغاز وأسئلة معلومات عامة",
     mindHeroSubtitle: "استكشف أسئلة ثقافية بالعربية والإنجليزية حسب الموضوع، واختر لغزاً أو اختباراً، ثم اعرض الإجابة عندما تكون مستعداً.",
-    playHeroTitle: "ألعاب عربية مجانية أونلاين",
-    playHeroSubtitle: "العب بالعربية أو الإنجليزية: حلّ لغزاً غامضاً، أو جرّب لعبة لوحية، أو تحدَّ أصدقاءك بأسئلة ثقافية. جميع الألعاب مجانية.",
+    playHeroTitle: "ألغاز وألعاب كلمات مجانية",
+    playHeroSubtitle: "اختر الكلمات المتقاطعة وألعاب الكلمات وسودوكو وألغاز المنطق بالعربية والإنجليزية. ادعُ صديقاً إلى مبارزة الكلمات، أو استكشف اكشفها والشطرنج وطاولة الزهر. العب مجاناً في المتصفح.",
+    playGuideLink: "استكشف دليل ألعاب الذكاء واختر لعبتك",
     playHeroGames: 'قضايا تجريبية',
     playAvailable: "قضايا واستنتاج",
     playPick: 'اكشفها — اكتشف التناقض',
@@ -1942,11 +1944,11 @@ function updateDocumentTitle() {
 
   if (state.page === 'play') {
     title = state.lang === 'ar'
-      ? 'ألعاب عربية مجانية أونلاين | ريدل أرابيا'
-      : 'Free Arabic Games Online | Riddle Arabia';
+      ? 'ألعاب كلمات وألغاز بالعربية والإنجليزية | ريدل أرابيا'
+      : 'Free Arabic & English Puzzle Games | Riddle Arabia';
     description = state.lang === 'ar'
-      ? 'العب ألعاباً عربية مجانية أونلاين: حلّ قضايا اكشفها، وجرّب الشطرنج وطاولة الزهر، وتحدَّ أصدقاءك بأسئلة ثقافية. بالعربية والإنجليزية ومن دون تنزيل.'
-      : 'Play free Arabic games online in Arabic and English: solve Akshifha mysteries, try chess and backgammon, or challenge friends with trivia. No download needed.';
+      ? 'العب ألعاب كلمات وكلمات متقاطعة وسودوكو مجاناً بالعربية والإنجليزية. جرّب ألغاز اليوم المتناوبة أو ادعُ صديقاً إلى مبارزة الكلمات، بلا تنزيل.'
+      : 'Play free word games, crosswords and Sudoku in Arabic or English. Explore rotating daily puzzles, or invite a friend to Word Duel. No download needed.';
   } else if (state.page === 'home') {
     const route = sharedLanguageRoute();
     if (route?.en === '/mind-lab') {

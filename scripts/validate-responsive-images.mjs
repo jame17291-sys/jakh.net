@@ -1,3 +1,4 @@
+import { PUZZLE_ROUTES, puzzlePath } from '../puzzle-routes.js';
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -131,13 +132,20 @@ for (const relative of generatedFiles) {
 for (const relative of ['play.html', 'ar/play/index.html']) {
   const html = fs.readFileSync(path.join(root, relative), 'utf8');
   for (const game of PUZZLES) {
-    const card = [...html.matchAll(/<a class="puzzle-card"[^>]*href="[^"]*\?game=([^"&]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, id]) => id === game.id);
+    const card = [...html.matchAll(/<a class="puzzle-card"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === puzzlePath(game.id, relative.startsWith('ar/') ? 'ar' : 'en'));
     const art = gameIllustrationId(game.id);
     if (!card || !card[2].includes(`data-illustration="${art}"`)) failures.push(`${relative}: missing ${game.id} illustration`);
   }
   for (const id of ['akshifha', 'chess', 'backgammon', 'quick-fire', 'game-battle-room']) {
     if (!html.includes(`/assets/illustrations/${id}-480.webp`)) failures.push(`${relative}: missing ${id} illustration`);
   }
+}
+
+for (const route of PUZZLE_ROUTES) for (const lang of ['en', 'ar']) {
+  const relative = lang === 'en' ? `${route.slug}.html` : `ar/games/${route.slug}/index.html`;
+  const html = fs.readFileSync(path.join(root, relative), 'utf8');
+  const editorial = html.match(/<section[^>]*data-puzzle-editorial[^>]*>([\s\S]*?)<\/section>/u)?.[1] || '';
+  if (!editorial.includes(`data-illustration="${gameIllustrationId(route.id)}"`)) failures.push(`${relative}: missing its own game introduction artwork`);
 }
 
 if (failures.length) {

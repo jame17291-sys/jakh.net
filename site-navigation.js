@@ -17,6 +17,7 @@
   }
   const active = path === '/' || path === '/ar' ? 'home'
     : /\/(?:daily)$/.test(path) ? 'daily'
+    : document.body?.hasAttribute?.('data-puzzle-page') ? 'games'
     : /\/(?:play|brain-games|alab-al-dimagh|akshifha|chess|backgammon|mastermind|go|reversi|codenames|catan|set|hanabi|diplomacy)$/.test(path) ? 'games'
     : document.body.matches('[data-page="category"], .page-mind-lab, .riddlearabia-experience, .riddlearabia-collections') ? 'library'
     : '';
@@ -30,7 +31,8 @@
     const target = new URL(link.href);
     target.search = '';
     for (const [key, value] of new URLSearchParams(location.search)) {
-      if (['case', 'mode', 'day', 'card', 'profile', 'difficulty', 'subcategory', 'battle', 'join', 'game', 'variant', 'duelRoom'].includes(key)) target.searchParams.set(key, value);
+      if (key === 'game' && document.body?.hasAttribute?.('data-puzzle-page')) continue;
+      if (['case', 'mode', 'day', 'card', 'profile', 'difficulty', 'subcategory', 'battle', 'join', 'game', 'variant', 'date', 'edition', 'duelRoom'].includes(key)) target.searchParams.set(key, value);
     }
     target.hash = location.hash;
     link.href = target.pathname + target.search + target.hash;

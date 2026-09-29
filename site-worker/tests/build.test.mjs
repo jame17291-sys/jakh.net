@@ -369,6 +369,8 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await writeFile(join(source, "data/search-index.ar.json"), '{"language":"ar","items":[2]}\n', "utf8");
   await writeFile(join(source, "sw.js"), "const CACHE_VERSION = 'v80';\nconst REQUIRED_CORE_ASSETS = [\n  '/styles.css',\n];\n", "utf8");
   await writeFile(join(source, "robots.txt"), "User-agent: *\n", "utf8");
+  const googleProof = "google0123456789abcdef.html";
+  await writeFile(join(source, googleProof), `google-site-verification: ${googleProof}`, "utf8");
   await writeFile(join(source, "package.json"), "{}\n", "utf8");
   await writeFile(join(source, "docs/secret.json"), '{"token":"never"}\n', "utf8");
 
@@ -376,7 +378,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     "index.html", "404.html", "admin.html", "app.js", "admin-config.js", "admin.js", "admin.css", "styles.css", "privacy.css",
     "battle-mode.js", "battle-mode.css", "search-leaderboard.js", "search-leaderboard.css",
     "data/search-index.en.json", "data/search-index.ar.json", "sw.js", "robots.txt",
-    "package.json", "docs/secret.json",
+    "package.json", "docs/secret.json", googleProof,
   ];
 
   const first = await buildStaticSite({
@@ -388,6 +390,10 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     adminApiOrigin: "https://api.staging.riddlearabia.com/api",
     adminEnvironment: "staging",
   });
+  assert.ok(first.files[`/${googleProof}`], "ownership proof is a public protocol asset");
+  assert.equal(first.aliases[`/${googleProof}`], undefined, "Google proof must remain at its exact .html URL");
+  assert.equal(first.routes[`/${googleProof.replace(/\.html$/u, "")}`], undefined, "proof is not an indexable page route");
+  assert.equal(await readFile(join(temporary, "first-dist", googleProof), "utf8"), `google-site-verification: ${googleProof}`);
   const repeated = await buildStaticSite({
     sourceRoot: source,
     outputDirectory: join(temporary, "repeat-dist"),
@@ -398,7 +404,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     adminEnvironment: "staging",
   });
   assert.deepEqual(repeated, first, "same source graph must produce the same build and cache identities");
-  assert.equal(first.fileCount, 29);
+  assert.equal(first.fileCount, 30);
   assert.deepEqual(first.inlineScripts["/"], inlineScriptHashes('<script>window.test=1;</script>'));
   assert.equal(first.files["/package.json"], undefined);
   assert.equal(first.files["/docs/secret.json"], undefined);

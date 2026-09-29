@@ -40,6 +40,9 @@ English hub and game pages contain the same generated image markup.
 `scripts/puzzle-markup.mjs` and `puzzle-room.js` share the game mapping, including
 the three bonus variants. The shared registry and directory/puzzle runtimes are
 fingerprinted together so their imports remain consistent across releases.
+The 26 canonical puzzle pages also show their own artwork beside the game
+explanation. Bonus variants switch that accent to the variant's exclusive
+picture when the game opens.
 
 After changing source pages or mappings, regenerate checked-in output:
 

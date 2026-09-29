@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { PRESERVED_GAME_SLUGS, RIDDLE_ARABIA_GAME_CATALOG } from "./riddlearabia-seo.mjs";
+import { PRESERVED_GAME_SLUGS, RIDDLE_ARABIA_GAME_CATALOG, RIDDLE_ARABIA_PUZZLE_CATALOG } from "./riddlearabia-seo.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
@@ -20,8 +20,8 @@ test("the promoted game portfolio has one flagship and two secondary classics", 
   assert.ok(play.indexOf('href="/akshifha') < play.indexOf('href="/chess"'));
   assert.equal((play.match(/href="\/akshifha(?:\?[^"]*)?"/gu) || []).length, 1, 'one featured game entry, not duplicate promotion');
   const list = JSON.parse(play.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/u)[1]);
-  assert.equal(list.numberOfItems, 3);
-  assert.deepEqual(list.itemListElement.map((item) => new URL(item.url).pathname), ["/akshifha", "/chess", "/backgammon"]);
+  assert.equal(list.numberOfItems, 16);
+  assert.deepEqual(list.itemListElement.map((item) => new URL(item.url).pathname), [...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => game.paths.en), "/akshifha", "/chess", "/backgammon"]);
 });
 
 test("legacy games are not promoted or deleted in the portfolio transition", () => {

@@ -8,6 +8,7 @@ import { startBrowserSite } from "./local-browser-site.mjs";
 import { CASES as AKSHIFHA_CASES } from "../akshifha-cases.js";
 import { AKSHIFHA_UI } from "../akshifha-copy.js";
 import { dayKey } from "../puzzle-catalog.js";
+import { puzzlePath } from "../puzzle-routes.js";
 import { dailyIndex } from "../puzzle-daily.js";
 import { LETTER_SQUARES } from "../puzzle-word-data.js";
 
@@ -420,12 +421,16 @@ async function main() {
           assert.equal(await page.locator('#puzzle-cards .ra-art-game').count(), 1);
           assert.equal(await page.locator('#puzzle-cards .ra-art-game').getAttribute('data-illustration'), 'game-duel');
           await page.locator('[data-puzzle-filter="all"]').click();
-          await page.locator('#puzzle-cards a[href$="game=bonus"]').click();
+          await page.locator(`#puzzle-cards a[href="${puzzlePath('bonus', language)}"]`).click();
           await page.locator('#puzzle-mount .ra-art-game').first().waitFor();
           const bonus = await decodeImages('#puzzle-mount .ra-art-game');
           assert.equal(bonus.length, 3);
           assert.equal(new Set([...topics, ...games, ...bonus].map(image => image.id)).size, 67);
           assert.ok(bonus.every(image => image.width > 0 && image.alt === ''));
+          await page.locator('#puzzle-mount .puzzle-card').nth(1).click();
+          await page.locator('[data-puzzle-editorial] [data-illustration="game-word-clue"]').waitFor();
+          const variant = await decodeImages('[data-puzzle-editorial] .ra-art-topic');
+          assert.equal(variant[0].id, 'game-word-clue', 'a bonus game keeps its exclusive picture on its own page');
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}: illustrated cards fit a phone`);
         }
         assertNoPageErrors();
@@ -443,8 +448,11 @@ async function main() {
         await mockApi(context);
         await setCurrentDeniedConsent(context);
         for (const language of ['en', 'ar']) for (const game of ['word', 'hive', 'links', 'trails', 'letter-square', 'sudoku', 'domino', 'mosaic', 'mini', 'midi', 'crossword', 'duel', 'bonus']) {
-          await page.goto(`${baseUrl}${language === 'ar' ? '/ar/play/' : '/play'}?game=${game}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.goto(`${baseUrl}${puzzlePath(game,language)}`, { waitUntil: NAVIGATION_READY_EVENT });
           await ready();
+          assert.equal(new URL(page.url()).pathname,puzzlePath(game,language));
+          assert.equal(await page.locator('body').getAttribute('data-puzzle-page'),game);
+          assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),`https://riddlearabia.com${puzzlePath(game,language)}`);
           assert.equal(await page.locator('#puzzle-share').isVisible(), !['duel', 'bonus'].includes(game));
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}/${game} mobile overflow`);
         }
@@ -457,8 +465,7 @@ async function main() {
         }
         await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
         const shared = new URL(await page.locator('#puzzle-share-whatsapp').getAttribute('href')).searchParams.get('text');
-        const challenge = new URL('/ar/play/', baseUrl);
-        challenge.searchParams.set('game', 'letter-square');
+        const challenge = new URL(puzzlePath('letter-square','ar'), baseUrl);
         challenge.searchParams.set('date', date);
         challenge.searchParams.set('edition', '2');
         // Short Arabic answers may also occur in ordinary headings. An exact
@@ -470,8 +477,14 @@ async function main() {
         await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
         await ready();
         await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
+        assert.equal(await page.evaluate(date => JSON.parse(localStorage.getItem('ra-puzzle-activity-v1'))?.days?.[date]?.['ar:letter-square']?.game, date), 'letter-square', 'the completed game must survive reload in the activity journal');
         await page.getByRole('link', { name: 'العودة إلى جميع الألعاب', exact: true }).click();
         await page.locator('#puzzle-daily-completed').waitFor({ state: 'visible' });
+        // Native navigation exposes the server-rendered zero placeholders before
+        // the module restores local progress. Wait for independent dashboard
+        // initialization evidence, then still require the exact saved result.
+        await page.waitForFunction(() => Boolean(document.querySelector('#puzzle-today-date')?.textContent.trim())
+          && document.querySelector('#puzzle-daily-reset')?.textContent !== '—');
         assert.equal(await page.locator('#puzzle-daily-completed').innerText(), '1 / 11');
         assert.equal(await page.locator('#puzzle-daily-streak').innerText(), '1');
         await page.goto(`${baseUrl}/play?game=sudoku&difficulty=hard`, { waitUntil: NAVIGATION_READY_EVENT });

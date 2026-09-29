@@ -1,4 +1,5 @@
 import { illustrationAttributes, gameIllustrationId } from './site-illustrations.js';
+import { puzzleRoute, puzzleURL } from './puzzle-routes.js';
 import { PUZZLES, BONUS, dayKey, seedFor, createProgressStore } from './puzzle-catalog.js';
 import { DAILY_GAMES, ACTIVITY_KEY, requestedDay, dailyIndex, progressKey, resetCountdown, cleanActivity, recordCompletion, dailySummary, resultText, createSudokuProgress } from './puzzle-daily.js';
 
@@ -6,6 +7,7 @@ const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
 const t = (en,ar) => lang === 'ar' ? ar : en;
 const pick = values => values[lang === 'ar' ? 1 : 0];
 const base = lang === 'ar' ? '/ar/play/' : '/play';
+const initialTitle = document.title;
 const library = document.getElementById('puzzle-library');
 const stage = document.getElementById('puzzle-stage');
 const mountPoint = document.getElementById('puzzle-mount');
@@ -21,7 +23,7 @@ const modules = {
  mini:()=>import('./puzzle-crossword.js'),midi:()=>import('./puzzle-crossword.js'),crossword:()=>import('./puzzle-crossword.js'),duel:()=>import('./puzzle-duel.js'),
 };
 function element(tag,text,className) {const e=document.createElement(tag); if(text!==undefined)e.textContent=text; if(className)e.className=className; return e;}
-function href(game,variant) {const p=new URLSearchParams({game});if(variant)p.set('variant',variant);return `${base}?${p}`;}
+function href(game,variant) {return puzzleURL(game,lang,variant?{variant}:{});}
 function stored(key) {return progressStore.read(key);}
 function storageNotice() {
  storageUnavailable=true;document.getElementById('puzzle-storage-note').hidden=false;
@@ -98,16 +100,18 @@ function showBonus() {
 async function route({focus=false}={}) {
  const run=++generation;cleanup?.();cleanup=undefined;document.getElementById('puzzle-reset-confirm').hidden=true;
  activeContext=null;activeState=null;renderShare();document.getElementById('puzzle-share-status').textContent='';document.getElementById('puzzle-share-fallback').hidden=true;
- const params=new URLSearchParams(location.search),id=params.get('game');
+ const params=new URLSearchParams(location.search),page=puzzleRoute(location.pathname),id=page?.id||params.get('game');
  current=PUZZLES.find(p=>p.id===id);
  mountPoint.className='puzzle-mount';mountPoint.removeAttribute('dir');
  library.hidden=!!current;rest.forEach(e=>e.hidden=!!current);stage.hidden=!current;
- const alternate=document.querySelector('.language-route-link');if(alternate)alternate.href=`${lang==='ar'?'/play':'/ar/play/'}${current?`?${params}`:''}`;
- if(!current){document.title=t('Free Arabic Games Online | Riddle Arabia','ألعاب عربية مجانية أونلاين | ريدل أرابيا');renderCards();if(focus)document.querySelector('.page-intro h1')?.focus();return;}
+ const alternate=document.querySelector('.language-route-link');if(alternate)alternate.href=current?puzzleURL(current.id,lang==='ar'?'en':'ar',params):(lang==='ar'?'/play':'/ar/play/');
+ if(!current){document.title=initialTitle;renderCards();if(focus)document.querySelector('.page-intro h1')?.focus();return;}
  day=requestedDay(params.get('date'));
  const variant=current.id==='links'&&params.get('variant')==='mini'?'mini':current.id==='word'&&params.get('variant')==='clue'?'clue':current.id==='mini'&&params.get('variant')==='starter'?'starter':'standard';
  const bonus=BONUS.find(b=>b.id===current.id&&b.variant===variant);
- title.textContent=pick(bonus?.title||current.title);document.title=`${title.textContent} | ${t('Riddle Arabia','ريدل أرابيا')}`;
+ const introArt=document.querySelector('[data-puzzle-editorial] .ra-art-topic');
+ if(introArt){const art=illustrationAttributes(gameIllustrationId(current.id,bonus?.variant),'topic');if(art)for(const [name,value] of Object.entries(art))introArt.setAttribute(name,value);}
+ title.textContent=pick(bonus?.title||current.title);document.title=page&&variant==='standard'?initialTitle:`${title.textContent} | ${t('Riddle Arabia','ريدل أرابيا')}`;
  document.getElementById('puzzle-reset').hidden=['bonus','duel'].includes(current.id);
  document.getElementById('puzzle-date').textContent=current.id==='duel'?t('Play together, wherever you are','العبا معاً أينما كنتما'):new Intl.DateTimeFormat(lang==='ar'?'ar-AE':'en-GB',{timeZone:'Asia/Dubai',dateStyle:'long'}).format(new Date(`${day}T12:00:00+04:00`));
  document.getElementById('puzzle-history-note').hidden=['duel','bonus'].includes(current.id);
@@ -135,16 +139,14 @@ async function route({focus=false}={}) {
   }
  };
  activeContext=context;
- document.getElementById('puzzle-history-note').textContent=puzzleDay===dayKey()?t('Progress and streaks stay on this device. New puzzles arrive at midnight, Dubai time; this open puzzle will stay available.','يُحفظ التقدّم والسلاسل على هذا الجهاز. تتغيّر الألغاز عند منتصف الليل بتوقيت دبي؛ ويبقى هذا اللغز المفتوح متاحاً.'):t('You are playing a shared puzzle from an earlier date. It does not change today’s streak.','تلعب لغزاً مشاركاً من تاريخ سابق. لا يغيّر سلسلة اليوم.');
+ document.getElementById('puzzle-history-note').textContent=puzzleDay===dayKey()?t('Progress and streaks stay on this device. The daily selection changes at midnight, Dubai time; this open puzzle will stay available.','يُحفظ التقدّم والسلاسل على هذا الجهاز. يتغير اختيار اليوم عند منتصف الليل بتوقيت دبي؛ ويبقى هذا اللغز المفتوح متاحاً.'):t('You are playing a shared puzzle from an earlier date. It does not change today’s streak.','تلعب لغزاً مشاركاً من تاريخ سابق. لا يغيّر سلسلة اليوم.');
  mountPoint.append(element('p',t('Preparing your puzzle…','جارٍ إعداد اللغز…'),'puzzle-loading'));
  try { const [module]=await Promise.all([modules[current.id](),cssFor(current.id)]);if(run!==generation)return;mountPoint.replaceChildren();cleanup=module.mount(mountPoint,context); }
  catch(error){if(run!==generation)return;mountPoint.replaceChildren(element('p',t('This game could not load. Please check your connection and try again.','تعذّر تحميل اللعبة. تحقّق من الاتصال ثم حاول مجدداً.')));const retry=element('button',t('Try again','حاول مجدداً'),'primary-btn');retry.onclick=()=>location.reload();mountPoint.append(retry);console.error('Puzzle load failed',error);}
  if(focus){title.focus();stage.scrollIntoView({block:'start',behavior:'instant'});}
 }
-document.addEventListener('click',event=>{
- const a=event.target.closest('a[data-puzzle-link]');if(!a||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||event.button!==0)return;
- event.preventDefault();history.pushState({},'',a.href);route({focus:true});
-});
+// Clean game destinations use native navigation so document metadata, static
+// instructions and the selected engine always come from the same page.
 document.querySelectorAll('[data-puzzle-filter]').forEach(button=>button.addEventListener('click',()=>{
  document.querySelectorAll('[data-puzzle-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderCards(button.dataset.puzzleFilter);
 }));

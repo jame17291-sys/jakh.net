@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://riddlearabia.com/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/"/>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/"/>
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/play</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/play"/>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/play/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/play"/>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/privacy</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/privacy"/>
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/privacy/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/privacy"/>
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/spacetoon-nostalgia</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/spacetoon-nostalgia"/>
@@ -246,7 +246,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/hanin-spacetoon/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/spacetoon-nostalgia"/>
@@ -255,7 +255,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/brain-games</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/brain-games"/>
@@ -264,7 +264,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/alab-al-dimagh/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/brain-games"/>
@@ -282,7 +282,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/akshifha/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/akshifha"/>
@@ -300,7 +300,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/chess/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/chess"/>
@@ -318,12 +318,246 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/backgammon/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/backgammon"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/backgammon/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/backgammon"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/bonus-puzzles</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/bonus-puzzles"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/bonus-puzzles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/bonus-puzzles"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/bonus-puzzles/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/bonus-puzzles"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/bonus-puzzles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/bonus-puzzles"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/word-duel</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/word-duel"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/word-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/word-duel"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/word-duel/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/word-duel"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/word-duel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/word-duel"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/crossword</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/crossword"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/crossword/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/crossword"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/crossword/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/crossword"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/crossword/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/crossword"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/midi-crossword</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/midi-crossword"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/midi-crossword/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/midi-crossword"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/midi-crossword/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/midi-crossword"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/midi-crossword/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/midi-crossword"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/mini-crossword</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mini-crossword"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mini-crossword/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mini-crossword"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/mini-crossword/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mini-crossword"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mini-crossword/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mini-crossword"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/word-hive</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/word-hive"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/word-hive/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/word-hive"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/word-hive/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/word-hive"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/word-hive/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/word-hive"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/five-letters</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/five-letters"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/five-letters/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/five-letters"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/five-letters/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/five-letters"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/five-letters/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/five-letters"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/logic-dominoes</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/logic-dominoes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/logic-dominoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/logic-dominoes"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/logic-dominoes/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/logic-dominoes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/logic-dominoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/logic-dominoes"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/word-trails</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/word-trails"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/word-trails/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/word-trails"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/word-trails/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/word-trails"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/word-trails/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/word-trails"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/connections</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/connections"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/connections/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/connections"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/connections/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/connections"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/connections/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/connections"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/mosaic</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mosaic"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mosaic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mosaic"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/mosaic/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mosaic"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/mosaic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/mosaic"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/letter-square</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/letter-square"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/letter-square/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/letter-square"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/letter-square/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/letter-square"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/letter-square/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/letter-square"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/sudoku</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/sudoku"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/sudoku/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/sudoku"/>
+  </url>
+  <url>
+    <loc>https://riddlearabia.com/ar/games/sudoku/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/sudoku"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://riddlearabia.com/ar/games/sudoku/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://riddlearabia.com/sudoku"/>
   </url>
   <url>
     <loc>https://riddlearabia.com/mastermind</loc>
@@ -336,7 +570,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/mastermind/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/mastermind"/>
@@ -354,7 +588,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/go/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/go"/>
@@ -372,7 +606,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/reversi/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/reversi"/>
@@ -390,7 +624,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/codenames/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/codenames"/>
@@ -408,7 +642,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/catan/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/catan"/>
@@ -426,7 +660,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/set/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/set"/>
@@ -444,7 +678,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/hanabi/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/hanabi"/>
@@ -462,7 +696,7 @@
   </url>
   <url>
     <loc>https://riddlearabia.com/ar/games/diplomacy/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.35</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://riddlearabia.com/diplomacy"/>

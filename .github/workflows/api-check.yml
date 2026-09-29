@@ -2,7 +2,10 @@ name: Validate API
 run-name: Validate API · PR ${{ github.event.pull_request.number || 'none' }} · base ${{ github.event.pull_request.base.sha || 'none' }} · head ${{ github.event.pull_request.head.sha || github.sha }}
 
 on:
+  # Pull-request checks cover every change before merge. Restrict the push
+  # trigger to the protected branch so a PR commit is not validated twice.
   push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
 

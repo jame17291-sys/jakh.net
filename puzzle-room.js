@@ -52,7 +52,7 @@ async function route({focus=false}={}) {
  mountPoint.className='puzzle-mount';mountPoint.removeAttribute('dir');
  library.hidden=!!current;rest.forEach(e=>e.hidden=!!current);stage.hidden=!current;
  const alternate=document.querySelector('.language-route-link');if(alternate)alternate.href=`${lang==='ar'?'/play':'/ar/play/'}${current?`?${params}`:''}`;
- if(!current){document.title=t('Free Browser Games | Riddle Arabia','ألعاب متصفح مجانية | ريدل أرابيا');renderCards();if(focus)document.querySelector('.page-intro h1')?.focus();return;}
+ if(!current){document.title=t('Free Arabic Games Online | Riddle Arabia','ألعاب عربية مجانية أونلاين | ريدل أرابيا');renderCards();if(focus)document.querySelector('.page-intro h1')?.focus();return;}
  day=dayKey();
  const variant=current.id==='links'&&params.get('variant')==='mini'?'mini':current.id==='word'&&params.get('variant')==='clue'?'clue':current.id==='mini'&&params.get('variant')==='starter'?'starter':'standard';
  const bonus=BONUS.find(b=>b.id===current.id&&b.variant===variant);

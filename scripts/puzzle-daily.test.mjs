@@ -122,7 +122,7 @@ test('Sudoku share links preserve current difficulty and reconstruct exactly the
 });
 
 let rootHarnessId = 0;
-async function dashboardHarness({blocked = false, initial = {}} = {}) {
+async function dashboardHarness({blocked = false, initial = {}, lang = 'en', search = ''} = {}) {
   const {backend, data} = memoryStore(initial), nodes = new Map();
   class Node {
     constructor() { this.children=[];this.dataset={};this.attrs={};this.hidden=false;this.textContent=''; }
@@ -134,8 +134,8 @@ async function dashboardHarness({blocked = false, initial = {}} = {}) {
   }
   const node = id => { if (!nodes.has(id)) nodes.set(id,new Node());return nodes.get(id); };
   const values = {
-    document:{ documentElement:{lang:'en'}, hidden:false, getElementById:node, createElement:()=>new Node(), querySelector:()=>null, querySelectorAll:()=>[], addEventListener(){} },
-    window:{addEventListener(){}}, location:{search:'',origin:'https://riddlearabia.com'}, navigator:{},
+    document:{ documentElement:{lang}, hidden:false, getElementById:node, createElement:()=>new Node(), querySelector:()=>null, querySelectorAll:()=>[], addEventListener(){} },
+    window:{addEventListener(){}}, location:{search,origin:'https://riddlearabia.com'}, navigator:{},
     localStorage:blocked?{getItem(){throw new Error('Denied');}}:backend, setInterval:()=>0,
   };
   const descriptors = new Map(Object.keys(values).map(key=>[key,Object.getOwnPropertyDescriptor(globalThis,key)]));
@@ -162,4 +162,30 @@ test('real dashboard exposes page-only storage warning even while the game stage
     assert.match(h.node('puzzle-daily-note').textContent,/only while this page stays open/);
     assert.equal(h.node('puzzle-daily-note').attrs.role,'status');
   } finally {h.close();}
+});
+
+test('real bilingual game and bonus cards retain sixteen exclusive responsive illustrations', async () => {
+  const images = node => [
+    ...(node.attrs['data-illustration'] ? [node.attrs] : []),
+    ...node.children.flatMap(images),
+  ];
+  for (const lang of ['en', 'ar']) {
+    const assigned = [];
+    for (const [search, root, count] of [['', 'puzzle-cards', 13], ['?game=bonus', 'puzzle-mount', 3]]) {
+      const h = await dashboardHarness({lang, search});
+      try {
+        const rendered = images(h.node(root));
+        assert.equal(rendered.length, count);
+        for (const art of rendered) {
+          assert.equal(art.loading, 'lazy');
+          assert.equal(art.alt, '');
+          assert.equal(art.width, '960');
+          assert.equal(art.height, '640');
+          assert.match(art.srcset, /480w, .*960w$/u);
+          assigned.push(art['data-illustration']);
+        }
+      } finally {h.close();}
+    }
+    assert.equal(new Set(assigned).size, 16, `${lang}: bonus variants must not reuse main game pictures`);
+  }
 });

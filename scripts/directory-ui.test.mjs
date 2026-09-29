@@ -43,9 +43,9 @@ function fixture(overrides = {}) {
     t: (key) => key,
     escapeHtml,
     getDirectorySections: () => sections,
-    createCategoryCardMarkup: (category) => {
+    createCategoryCardMarkup: (category, { art }) => {
       calls.cards.push(category.slug);
-      return `<a class="category-card" href="/${category.slug}">${escapeHtml(category.title[state.lang])}</a>`;
+      return `<a class="category-card" href="/${category.slug}">${art}${escapeHtml(category.title[state.lang])}</a>`;
     },
     showToast: (message) => calls.toasts.push(message),
     trackEvent: (...args) => calls.events.push(args),
@@ -94,6 +94,9 @@ test('All topics displays every public topic without a hidden featured subset', 
   ui.renderDirectory();
   assert.equal(calls.cards.length, 51);
   assert.equal(new Set(calls.cards).size, 51);
+  const images = [...els.categoryDirectoryGrid.innerHTML.matchAll(/class="ra-art ra-art-directory" data-illustration="([^"]+)"/gu)];
+  assert.equal(images.length, 51, 'interactive cards retain every topic picture');
+  assert.equal(new Set(images.map(([, id]) => id)).size, 51, 'interactive cards never duplicate a picture');
   assert.deepEqual(new Set(calls.cards), new Set(catalog.categories.map((category) => category.slug)));
   for (const slug of quarantine.categorySlugs) assert.equal(calls.cards.includes(slug), false);
   assert.equal(els.directoryResultsLabel.textContent, '51 topics in 5 sections.');

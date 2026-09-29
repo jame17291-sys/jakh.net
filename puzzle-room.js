@@ -1,3 +1,4 @@
+import { illustrationAttributes, gameIllustrationId } from './site-illustrations.js';
 import { PUZZLES, BONUS, dayKey, seedFor, createProgressStore } from './puzzle-catalog.js';
 import { DAILY_GAMES, ACTIVITY_KEY, requestedDay, dailyIndex, progressKey, resetCountdown, cleanActivity, recordCompletion, dailySummary, resultText, createSudokuProgress } from './puzzle-daily.js';
 
@@ -72,7 +73,10 @@ function cssFor(game) {
 function card(p,index,bonus=false) {
  const a=element('a',undefined,'puzzle-card');a.href=href(p.id,p.variant);a.dataset.puzzleLink='';a.dataset.category=p.category||'words';
  const top=element('div',undefined,'puzzle-card-top');top.append(element('span',String(index+1).padStart(2,'0')),element('span',p.tag?pick(p.tag):t('BONUS PUZZLE','تحدٍّ إضافي')));
- a.append(top,element('h3',pick(p.title)),element('p',pick(p.desc)));
+ a.append(top);
+ const art=illustrationAttributes(gameIllustrationId(p.id,p.variant),'game');
+ if(art){const image=element('img');for(const [name,value] of Object.entries(art))image.setAttribute(name,value);a.append(image);}
+ a.append(element('h3',pick(p.title)),element('p',pick(p.desc)));
  const bottom=element('div',undefined,'puzzle-card-bottom');bottom.append(element('span',p.id==='bonus'?t('Explore puzzles','استكشف التحديات'):t('Play now','العب الآن')));
  const key=progressKey(p.id,lang,day,p.variant), saved=stored(key);
  const complete=verifiedResults.get(key)===true||(!bonus&&dailySummary(activity(),lang,day).completed.includes(p.id));

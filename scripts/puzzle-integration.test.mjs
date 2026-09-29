@@ -53,7 +53,8 @@ test('deployed puzzle graph pins every lazy engine, stylesheet, daily helper and
  const read=p=>readFile(new URL(`../site-worker/dist/${p}`,import.meta.url),'utf8');
  const manifest=JSON.parse(await readFile(new URL('../site-worker/generated/site-manifest.json',import.meta.url),'utf8'));
  const graph={
-  'puzzle-room.js':['puzzle-catalog.js','puzzle-daily.js','puzzle-words.js','puzzle-logic.js','puzzle-crossword.js','puzzle-duel.js','puzzle-words.css','puzzle-logic.css','puzzle-duel.css'],
+  'directory-ui.js':['site-illustrations.js'],
+  'puzzle-room.js':['site-illustrations.js','puzzle-catalog.js','puzzle-daily.js','puzzle-words.js','puzzle-logic.js','puzzle-crossword.js','puzzle-duel.js','puzzle-words.css','puzzle-logic.css','puzzle-duel.css'],
   'puzzle-daily.js':['puzzle-catalog.js'],
   'puzzle-words.js':['puzzle-word-data.js','puzzle-arabic-words.js'],
   'puzzle-word-data.js':['puzzle-arabic-words.js','puzzle-hive-data.js','puzzle-square-data.js','puzzle-group-data.js'],

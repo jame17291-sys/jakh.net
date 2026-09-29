@@ -1,4 +1,4 @@
-import { illustrationMarkup, SECTION_ILLUSTRATIONS } from './site-illustrations.js';
+import { illustrationMarkup, SECTION_ILLUSTRATIONS, TOPIC_ILLUSTRATIONS } from './site-illustrations.js';
 
 export function createDirectoryUi({
   state,
@@ -43,7 +43,7 @@ export function createDirectoryUi({
         ${illustrationMarkup(SECTION_ILLUSTRATIONS[section.key], 'section')}
         <div><h3>${title}</h3><p>${description}</p></div>
         <p class="directory-section-count">${categoryLabel} · ${questionLabel}</p>
-      </section>${categories.map(createCategoryCardMarkup).join('')}`;
+      </section>${categories.map(meta => createCategoryCardMarkup(meta, { art: illustrationMarkup(TOPIC_ILLUSTRATIONS[meta.slug], 'directory') })).join('')}`;
     }).join('');
 
     els.directoryResultsLabel.textContent = searchTerm

@@ -62,3 +62,47 @@ test('invalid create payloads never allocate an object, and random-room probes a
   const response = await worker.fetch(req('ZZZZ2345/state', { token: 'G'.repeat(43) }), env);
   assert.equal(response.status, 429); assert.equal(lookups(), before);
 });
+
+test('creation and join limits run before room allocation and unauthenticated JSON is bounded', async () => {
+  const { env, lookups } = environment();
+  const body = { name: 'Host', lang: 'en', token: 'T'.repeat(43) };
+  for (let i = 0; i < 12; i++) assert.ok([200, 201].includes((await worker.fetch(req('create', body), env)).status));
+  const afterCreate = lookups();
+  assert.equal((await worker.fetch(req('create', body), env)).status, 429); assert.equal(lookups(), afterCreate);
+  for (let i = 0; i < 30; i++) assert.equal((await worker.fetch(req('ZZZZ2345/join', { name: 'Guest', token: 'G'.repeat(43) }), env)).status, 404);
+  const afterJoin = lookups();
+  assert.equal((await worker.fetch(req('ZZZZ2345/join', { name: 'Guest', token: 'G'.repeat(43) }), env)).status, 429); assert.equal(lookups(), afterJoin);
+  const fresh = environment();
+  const huge = await worker.fetch(req('create', { ...body, padding: 'x'.repeat(4096) }), fresh.env);
+  assert.equal(huge.status, 413); assert.equal(fresh.lookups(), 0);
+  const wrongType = req('create', body); wrongType.headers.set('content-type', 'text/plain');
+  assert.equal((await worker.fetch(wrongType, fresh.env)).status, 415); assert.equal(fresh.lookups(), 0);
+});
+test('CORS rejects foreign or absent origins before reaching private room storage', async () => {
+  const { env, lookups } = environment();
+  for (const origin of [null, 'null', 'https://evil.example', 'https://riddlearabia.com.evil.example']) {
+    const request = req('ABCD2345/state', { token: 'T'.repeat(43) });
+    if (origin === null) request.headers.delete('origin'); else request.headers.set('origin', origin);
+    const response = await worker.fetch(request, env);
+    assert.equal(response.status, 403); assert.equal(response.headers.get('access-control-allow-origin'), null);
+  }
+  assert.equal(lookups(), 0);
+  const preflight = origin => new Request('https://api.riddlearabia.com/api/word-duel/create', { method: 'OPTIONS', headers: { origin, 'access-control-request-method': 'POST', 'access-control-request-headers': 'content-type' } });
+  const allowed = await worker.fetch(preflight('https://riddlearabia.com'), env);
+  assert.equal(allowed.status, 204); assert.equal(allowed.headers.get('access-control-allow-origin'), 'https://riddlearabia.com');
+  assert.equal((await worker.fetch(preflight('https://evil.example'), env)).status, 403);
+});
+test('state requires the token in its private POST body and responses prohibit caching', async () => {
+  const { env } = environment(), token = 'T'.repeat(43);
+  const created = await worker.fetch(req('create', { name: '<img src=x onerror=alert(1)>', lang: 'ar', token }), env);
+  const host = await created.json();
+  assert.equal(created.headers.get('cache-control'), 'no-store'); assert.equal(created.headers.get('x-content-type-options'), 'nosniff');
+  const missing = await worker.fetch(req(`${host.code}/state?token=${token}`, {}), env);
+  assert.equal(missing.status, 403);
+  const polling = await worker.fetch(req(`${host.code}/state`, { token }), env);
+  const snapshot = await polling.json();
+  assert.equal(polling.headers.get('cache-control'), 'no-store');
+  const serialized = JSON.stringify(snapshot);
+  assert.equal(serialized.includes(token), false); assert.equal(serialized.includes('tokenHash'), false); assert.equal(Object.hasOwn(snapshot, 'bag'), false);
+  assert.equal(snapshot.players[0].rack, undefined);
+});

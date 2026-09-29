@@ -38,6 +38,7 @@ function card(p,index,bonus=false) {
  a.append(bottom);return a;
 }
 function renderCards(filter=activeFilter) {
+ day=dayKey();
  activeFilter=filter;
  const cards=document.getElementById('puzzle-cards');cards.replaceChildren(...PUZZLES.filter(p=>filter==='all'||p.category===filter).map((p)=>card(p,PUZZLES.indexOf(p))));
 }
@@ -69,7 +70,7 @@ async function route({focus=false}={}) {
  };
  mountPoint.append(element('p',t('Preparing your puzzle…','جارٍ إعداد اللغز…'),'puzzle-loading'));
  try { const [module]=await Promise.all([modules[current.id](),cssFor(current.id)]);if(run!==generation)return;mountPoint.replaceChildren();cleanup=module.mount(mountPoint,context); }
- catch(error){if(run!==generation)return;mountPoint.replaceChildren(element('p',t('This game could not load. Please check your connection and try again.','تعذّر تحميل اللعبة. تحقّق من الاتصال ثم حاول مجدداً.')));const retry=element('button',t('Try again','حاول مجدداً'),'primary-btn');retry.onclick=()=>route();mountPoint.append(retry);console.error('Puzzle load failed',error);}
+ catch(error){if(run!==generation)return;mountPoint.replaceChildren(element('p',t('This game could not load. Please check your connection and try again.','تعذّر تحميل اللعبة. تحقّق من الاتصال ثم حاول مجدداً.')));const retry=element('button',t('Try again','حاول مجدداً'),'primary-btn');retry.onclick=()=>location.reload();mountPoint.append(retry);console.error('Puzzle load failed',error);}
  if(focus){title.focus();stage.scrollIntoView({block:'start',behavior:'instant'});}
 }
 document.addEventListener('click',event=>{

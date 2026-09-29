@@ -3571,10 +3571,16 @@ html { scroll-padding-top: 8.5rem; }
 .home-discovery-links a.ra-art-link {
   display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: .75rem;
 }
-.ra-art-link > div { min-inline-size: 0; }
+.ra-art-link > div { min-inline-size: 0; overflow-wrap: anywhere; }
 .ra-art-link small { display: block; margin-top: .35rem; }
 .page-intro, .seo-collection-hero, .suggestion-box, .ak-intro, .feature-panel { display: flow-root; }
 .seo-collection-hero > .ra-art-topic { max-inline-size: 28%; }
+/* At tablet widths the homepage's nested two-column grid leaves too little
+   room for an image beside the title. Stack each illustration above its text. */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .home-discovery-links a.ra-art-link { grid-template-columns: minmax(0, 1fr); }
+  .ra-art-thumb { max-inline-size: 100%; }
+}
 @media (max-width: 680px) {
   .ra-illustrated-intro { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
   .ra-art-hero { max-inline-size: 220px; }

@@ -429,8 +429,14 @@ async function main() {
         await page.reload({ waitUntil: NAVIGATION_READY_EVENT });
         await ready();
         await page.getByRole('button', { name: 'نسخ النتيجة', exact: true }).waitFor();
+        assert.equal(await page.evaluate(date => JSON.parse(localStorage.getItem('ra-puzzle-activity-v1'))?.days?.[date]?.['ar:letter-square']?.game, date), 'letter-square', 'the completed game must survive reload in the activity journal');
         await page.getByRole('link', { name: 'العودة إلى جميع الألعاب', exact: true }).click();
         await page.locator('#puzzle-daily-completed').waitFor({ state: 'visible' });
+        // Native navigation exposes the server-rendered zero placeholders before
+        // the module restores local progress. Wait for independent dashboard
+        // initialization evidence, then still require the exact saved result.
+        await page.waitForFunction(() => Boolean(document.querySelector('#puzzle-today-date')?.textContent.trim())
+          && document.querySelector('#puzzle-daily-reset')?.textContent !== '—');
         assert.equal(await page.locator('#puzzle-daily-completed').innerText(), '1 / 11');
         assert.equal(await page.locator('#puzzle-daily-streak').innerText(), '1');
         await page.goto(`${baseUrl}/play?game=sudoku&difficulty=hard`, { waitUntil: NAVIGATION_READY_EVENT });

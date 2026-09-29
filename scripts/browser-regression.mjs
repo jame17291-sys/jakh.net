@@ -385,7 +385,7 @@ async function main() {
 
   try {
     await runTest("lightweight hubs share responsive navigation without unrelated downloads", async () => {
-      for (const width of [320, 768, 1280]) {
+      for (const width of [320, 768, 1024, 1280]) {
         const context = await createContext(browser, {
           viewport: { width, height: 900 },
           serviceWorkers: "block",

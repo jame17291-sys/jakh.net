@@ -1,3 +1,5 @@
+import { illustrationMarkup, SECTION_ILLUSTRATIONS } from './site-illustrations.js';
+
 export function createDirectoryUi({
   state,
   els,
@@ -38,7 +40,7 @@ export function createDirectoryUi({
       const categoryLabel = isAr ? `${categories.length} موضوعًا` : `${categories.length} topics`;
       const questionLabel = isAr ? `${questionTotal} سؤال` : `${questionTotal} questions`;
       return `<section id="section-${escapeHtml(section.key)}" class="directory-section-header" style="--section-gradient:${escapeHtml(section.gradient)};--section-accent:${escapeHtml(section.accent)};">
-        <span class="directory-section-mark" aria-hidden="true">${escapeHtml(section.mark)}</span>
+        ${illustrationMarkup(SECTION_ILLUSTRATIONS[section.key], 'section')}
         <div><h3>${title}</h3><p>${description}</p></div>
         <p class="directory-section-count">${categoryLabel} · ${questionLabel}</p>
       </section>${categories.map(createCategoryCardMarkup).join('')}`;

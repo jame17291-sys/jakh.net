@@ -20,6 +20,7 @@
 .puzzle-daily-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-block:1.25rem; }
 .puzzle-daily-stats div { display:flex; flex-direction:column; gap:.3rem; }
 .puzzle-daily-stats strong { color:var(--text); font-size:clamp(1.5rem,4vw,2rem); font-variant-numeric:tabular-nums; }
+[dir="rtl"] .puzzle-daily-stats strong[dir="ltr"] { text-align:right; }
 .puzzle-daily-stats span,.puzzle-daily-note { color:var(--muted); font-size:.84rem; line-height:1.6; }
 .puzzle-daily-note { margin:.35rem 0 0; }
 .puzzle-share { border-block-start:1px solid var(--line); padding-block:1.2rem .5rem; margin-block-start:1.5rem; }

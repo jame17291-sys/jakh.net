@@ -27,6 +27,8 @@
 .pl-sudoku-cell.pl-near { background: #f7eedf; }
 .pl-sudoku-cell.pl-same-number { background: #f1dbb9; }
 .pl-sudoku-cell.pl-selected { background: #e9c396; box-shadow: inset 0 0 0 2px var(--accent); }
+.pl-sudoku-cell.pl-selected:not(.pl-given):not(.pl-error) { color: var(--accent-ink, #733217); }
+.pl-sudoku-cell.pl-selected .pl-notes { color: var(--text, #322016); }
 .pl-sudoku-cell.pl-error { color: #a7273b; background: #fbe3df; }
 .pl-sudoku-cell:focus-visible { outline-offset: -4px; }
 .pl-notes { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); width: 90%; height: 90%; color: var(--muted); font-size: clamp(.48rem, 1.8vw, .75rem); line-height: 1; font-weight: 600; }

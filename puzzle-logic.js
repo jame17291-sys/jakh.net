@@ -13,9 +13,24 @@ const sequence = n => Array.from({ length: n }, (_, i) => i);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const copy = v => JSON.parse(JSON.stringify(v));
 const validDigit = n => Number.isInteger(n) && n >= 0 && n <= 9;
+const counter = value => Number.isSafeInteger(value) && value >= 0 ? value : 0;
+
+export function gridNeighbor(index, key, columns, count, rtl = false) {
+  const delta = { ArrowUp: -columns, ArrowDown: columns, ArrowLeft: rtl ? 1 : -1, ArrowRight: rtl ? -1 : 1 }[key];
+  if (!Number.isInteger(index) || !delta) return index;
+  const next = index + delta;
+  if (next < 0 || next >= count || (Math.abs(delta) === 1 && Math.floor(next / columns) !== Math.floor(index / columns))) return index;
+  return next;
+}
+
+export function sudokuDigit(key) {
+  if (typeof key !== 'string' || key.length !== 1) return null;
+  for (const digits of ['0123456789', '٠١٢٣٤٥٦٧٨٩', '۰۱۲۳۴۵۶۷۸۹']) if (digits.includes(key)) return digits.indexOf(key);
+  return null;
+}
 
 export function sudokuCandidates(board, index) {
-  if (!Array.isArray(board) || board.length !== 81 || index < 0 || index >= 81 || board[index]) return [];
+  if (!Array.isArray(board) || board.length !== 81 || !Number.isInteger(index) || index < 0 || index >= 81 || board[index]) return [];
   const row = Math.floor(index / 9), col = index % 9, used = new Set();
   for (let i = 0; i < 9; i++) {
     used.add(board[row * 9 + i]); used.add(board[i * 9 + col]);
@@ -24,7 +39,7 @@ export function sudokuCandidates(board, index) {
   return sequence(9).map(n => n + 1).filter(n => !used.has(n));
 }
 export function isSudokuValid(board) {
-  if (!Array.isArray(board) || board.length !== 81 || !board.every(validDigit)) return false;
+  if (!Array.isArray(board) || board.length !== 81 || !Array.from(board).every(validDigit)) return false;
   for (let i = 0; i < 81; i++) {
     if (!board[i]) continue;
     const test = [...board]; test[i] = 0;
@@ -33,7 +48,7 @@ export function isSudokuValid(board) {
   return true;
 }
 export function solveSudoku(board, limit = 2) {
-  if (!isSudokuValid(board)) return [];
+  if (!Number.isSafeInteger(limit) || limit < 1 || !isSudokuValid(board)) return [];
   const grid = [...board], solutions = [];
   function search() {
     if (solutions.length >= limit) return;
@@ -66,6 +81,15 @@ export function createSudoku(seed, difficulty = 'medium') {
   return { givens, solution, difficulty, clues };
 }
 
+export function restoreSudokuState(saved, puzzle) {
+  const state = { version: 1, difficulty: puzzle.difficulty, values: [...puzzle.givens], notes: sequence(81).map(() => []), hints: 0, pencil: false };
+  if (saved?.version !== 1 || !Array.isArray(saved.values) || saved.values.length !== 81 || !Array.from(saved.values).every(validDigit)) return state;
+  state.values = saved.values.map((value, i) => puzzle.givens[i] || value);
+  state.hints = counter(saved.hints); state.pencil = saved.pencil === true;
+  if (Array.isArray(saved.notes) && saved.notes.length === 81) state.notes = Array.from(saved.notes, notes => Array.isArray(notes) ? [...new Set(notes.filter(n => validDigit(n) && n))].sort() : []);
+  return state;
+}
+
 const DOMINO_REGIONS = [[0, 1, 4, 5], [2, 3, 6, 7], [8, 9, 12, 13], [10, 11, 14, 15]];
 export function createDomino(seed) {
   const random = rng(`domino:${seed}`), values = sequence(16).map(() => Math.floor(random() * 7));
@@ -93,7 +117,7 @@ export function dominoBoard(puzzle, placements) {
   if (!Array.isArray(placements) || placements.length > puzzle.pieces.length) return null;
   const board = Array(puzzle.width * puzzle.height).fill(null), used = new Set();
   for (const placement of placements) {
-    if (!placement || typeof placement !== 'object') return null;
+    if (!placement || typeof placement !== 'object' || (placement.flipped !== undefined && typeof placement.flipped !== 'boolean')) return null;
     const piece = puzzle.pieces.find(p => p.id === placement.piece), cells = dominoCells(puzzle, placement);
     if (!piece || !cells || used.has(piece.id) || cells.some(i => board[i] !== null)) return null;
     used.add(piece.id);
@@ -103,6 +127,7 @@ export function dominoBoard(puzzle, placements) {
   return board;
 }
 export function placeDomino(puzzle, placements, placement) {
+  if (!placement || !dominoBoard(puzzle, placements)) return null;
   const next = [...placements.filter(p => p.piece !== placement.piece), { ...placement }];
   return dominoBoard(puzzle, next) ? next : null;
 }
@@ -133,19 +158,21 @@ export function createMosaic(seed) {
   }
   return tiles;
 }
-export const mosaicEmpty = tile => MOSAIC_LAYERS.every(layer => tile[layer] === null);
+export const mosaicEmpty = tile => !!tile && MOSAIC_LAYERS.every(layer => tile[layer] === null);
 export function mosaicShared(first, second) {
   if (!first || !second || first.id === second.id) return [];
-  return MOSAIC_LAYERS.filter(layer => first[layer] !== null && first[layer] === second[layer]);
+  return MOSAIC_LAYERS.filter(layer => Number.isInteger(first[layer]) && first[layer] >= 0 && first[layer] < 5 && first[layer] === second[layer]);
 }
 export function matchMosaic(tiles, firstId, secondId) {
+  if (!Array.isArray(tiles) || !Array.from(tiles).every(tile => tile && Number.isInteger(tile.id) && MOSAIC_LAYERS.every(layer => tile[layer] === null || (Number.isInteger(tile[layer]) && tile[layer] >= 0 && tile[layer] < 5))) || new Set(tiles.map(tile => tile.id)).size !== tiles.length) return null;
   const first = tiles.find(t => t.id === firstId), second = tiles.find(t => t.id === secondId), shared = mosaicShared(first, second);
   if (!shared.length) return null;
   return { shared, tiles: tiles.map(tile => tile.id === firstId || tile.id === secondId ? { ...tile, ...Object.fromEntries(shared.map(layer => [layer, null])) } : { ...tile }) };
 }
-export const isMosaicComplete = tiles => Array.isArray(tiles) && tiles.length > 0 && tiles.every(mosaicEmpty);
+export const isMosaicComplete = tiles => Array.isArray(tiles) && tiles.length > 0 && Array.from(tiles).every(mosaicEmpty);
 export function findMosaicMatch(tiles, preferredId = null) {
-  const active = tiles.filter(tile => !mosaicEmpty(tile));
+  if (!Array.isArray(tiles)) return null;
+  const active = tiles.filter(tile => tile && !mosaicEmpty(tile));
   if (preferredId !== null) {
     const first = active.find(tile => tile.id === preferredId), second = active.find(tile => mosaicShared(first, tile).length);
     if (second) return [first.id, second.id];
@@ -154,19 +181,38 @@ export function findMosaicMatch(tiles, preferredId = null) {
   return null;
 }
 
+export function restoreMosaicState(saved, initial) {
+  const fallback = { tiles: initial.map(tile => ({ ...tile })), combo: 0, best: 0, score: 0, matches: 0, hints: 0 };
+  const validSaved = saved?.version === 1 && Array.isArray(saved.tiles) && saved.tiles.length === initial.length && Array.from(saved.tiles).every((tile, i) => tile && tile.id === i && MOSAIC_LAYERS.every(layer => tile[layer] === null || tile[layer] === initial[i][layer])) && MOSAIC_LAYERS.every(layer => sequence(5).every(value => saved.tiles.filter(tile => tile[layer] === value).length % 2 === 0));
+  if (!validSaved) return fallback;
+  const matches = Math.min(30, counter(saved.matches)), combo = Math.min(matches, counter(saved.combo));
+  return { tiles: saved.tiles.map(tile => ({ ...tile })), combo, best: Math.min(matches, Math.max(combo, counter(saved.best))), score: Math.min(4650, counter(saved.score)), matches, hints: counter(saved.hints) };
+}
+
 function mountTools(root, ctx) {
   const controller = new AbortController(), t = typeof ctx.t === 'function' ? ctx.t : ((en, ar) => ctx.lang === 'ar' ? ar : en);
   root.classList.add('pl-game');
+  const content = document.createElement('div'), status = document.createElement('div');
+  content.className = 'pl-content'; status.className = 'pl-status';
+  status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); status.setAttribute('aria-atomic', 'true');
+  root.replaceChildren(content, status);
   const tools = {
     t,
     on: (event, handler) => root.addEventListener(event, handler, { signal: controller.signal }),
     load: fallback => { try { return ctx.load?.(fallback) || fallback; } catch { return fallback; } },
     save: state => { try { ctx.save?.(state); } catch { /* The game remains playable without storage. */ } },
-    draw: (markup, focus = null) => {
+    draw: (markup, focus = null, message = '', won = false) => {
       const before = root.contains(document.activeElement) ? document.activeElement?.getAttribute('data-focus') : null;
-      root.innerHTML = markup;
+      const helpOpen = content.querySelector('.pl-instructions')?.open;
+      content.innerHTML = markup;
+      if (helpOpen) content.querySelector('.pl-instructions').open = true;
+      status.className = `pl-status${won ? ' pl-won' : ''}`;
+      if (status.textContent !== message) status.textContent = message;
       const selector = focus ?? before;
-      if (selector) root.querySelector(`[data-focus="${selector}"]`)?.focus({ preventScroll: true });
+      if (selector) {
+        const target = root.querySelector(`[data-focus="${selector}"]`);
+        (target && !target.disabled ? target : root.querySelector('[data-focus]:not(:disabled)'))?.focus({ preventScroll: true });
+      }
     },
     cleanup: () => { controller.abort(); root.classList.remove('pl-game'); },
   };
@@ -174,9 +220,6 @@ function mountTools(root, ctx) {
 }
 function instructions(t, text, extra = '') {
   return `<details class="pl-instructions"><summary>${esc(t('How to play', 'طريقة اللعب'))}</summary><p>${esc(text)}</p>${extra}</details>`;
-}
-function statusMarkup(message, won) {
-  return `<div class="pl-status${won ? ' pl-won' : ''}" role="status" aria-live="polite" aria-atomic="true">${esc(message)}</div>`;
 }
 function actionButton(action, text, attributes = '') {
   return `<button type="button" class="pl-button" data-action="${action}" data-focus="${action}" ${attributes}>${esc(text)}</button>`;
@@ -186,11 +229,7 @@ function mountSudoku(root, ctx) {
   const ui = mountTools(root, ctx), { t } = ui, levels = ['easy', 'medium', 'hard'];
   const saved = ui.load({}), level = levels.includes(saved.difficulty) ? saved.difficulty : levels.includes(ctx.variant) ? ctx.variant : 'medium';
   let puzzle = createSudoku(ctx.seed, level);
-  let state = { version: 1, difficulty: level, values: [...puzzle.givens], notes: sequence(81).map(() => []), hints: 0, pencil: false };
-  if (saved.version === 1 && Array.isArray(saved.values) && saved.values.length === 81 && saved.values.every(validDigit)) {
-    state = { ...state, values: saved.values.map((n, i) => puzzle.givens[i] || n), hints: Number.isInteger(saved.hints) ? Math.max(0, saved.hints) : 0, pencil: !!saved.pencil };
-    if (Array.isArray(saved.notes) && saved.notes.length === 81) state.notes = saved.notes.map(a => Array.isArray(a) ? [...new Set(a.filter(n => validDigit(n) && n))] : []);
-  }
+  let state = restoreSudokuState(saved, puzzle);
   let selected = puzzle.givens.findIndex(n => !n), errors = new Set(), history = [], message = '';
   if (selected < 0) selected = 0;
   const won = () => isSudokuComplete(state.values);
@@ -201,17 +240,18 @@ function mountSudoku(root, ctx) {
       const i = row * 9 + col, value = state.values[i], fixed = !!puzzle.givens[i];
       const near = row === Math.floor(selected / 9) || col === selected % 9 || (Math.floor(row / 3) === Math.floor(selected / 27) && Math.floor(col / 3) === Math.floor(selected % 9 / 3));
       const label = `${t('Row', 'صف')} ${row + 1}, ${t('column', 'عمود')} ${col + 1}: ${value || t('empty', 'فارغ')}${fixed ? `, ${t('given', 'معطى')}` : ''}${!value && state.notes[i].length ? `, ${t('notes', 'ملاحظات')} ${state.notes[i].join(', ')}` : ''}`;
-      return `<button type="button" role="gridcell" class="pl-sudoku-cell${fixed ? ' pl-given' : ''}${near ? ' pl-near' : ''}${same && same === value ? ' pl-same-number' : ''}${selected === i ? ' pl-selected' : ''}${errors.has(i) ? ' pl-error' : ''}" data-cell="${i}" data-focus="s${i}" tabindex="${selected === i ? 0 : -1}" aria-selected="${selected === i}" aria-readonly="${fixed}" aria-label="${esc(label)}">${value || `<span class="pl-notes" aria-hidden="true">${sequence(9).map(n => `<span>${state.notes[i].includes(n + 1) ? n + 1 : ''}</span>`).join('')}</span>`}</button>`;
+      return `<button type="button" role="gridcell" class="pl-sudoku-cell${fixed ? ' pl-given' : ''}${near ? ' pl-near' : ''}${same && same === value ? ' pl-same-number' : ''}${selected === i ? ' pl-selected' : ''}${errors.has(i) ? ' pl-error' : ''}" data-cell="${i}" data-focus="s${i}" tabindex="${selected === i ? 0 : -1}" aria-selected="${selected === i}" aria-readonly="${fixed}" aria-invalid="${errors.has(i)}" aria-label="${esc(label)}">${value || `<span class="pl-notes" aria-hidden="true">${sequence(9).map(n => `<span>${state.notes[i].includes(n + 1) ? n + 1 : ''}</span>`).join('')}</span>`}</button>`;
     }).join('')}</div>`).join('');
     ui.draw(`${instructions(t, t('Fill each row, column, and 3 × 3 box with 1–9, without repeating a number. Choose a cell, then a number. Notes add small pencil marks. Arrow keys move; 1–9 enter a number; Backspace erases; N toggles notes.', 'املأ كل صف وعمود ومربع ٣ × ٣ بالأرقام من ١ إلى ٩ دون تكرار. اختر خانة ثم رقماً. استخدم الملاحظات لتدوين الاحتمالات. الأسهم للتنقل، والأرقام للإدخال، وBackspace للمسح، وN للملاحظات.'))}
       <div class="pl-toolbar"><label class="pl-select-label">${esc(t('Difficulty', 'المستوى'))}<select data-action="difficulty" data-focus="difficulty" aria-label="${esc(t('Difficulty — changing starts a new board', 'المستوى — التغيير يبدأ لوحة جديدة'))}">${levels.map(n => `<option value="${n}" ${state.difficulty === n ? 'selected' : ''}>${esc(levelName(n))}</option>`).join('')}</select></label><span class="pl-meta">${count} / 81 ${esc(t('filled', 'مكتملة'))}</span></div>
       <div class="pl-sudoku" role="grid" dir="ltr" aria-label="${esc(t('Sudoku, 9 rows and 9 columns', 'سودوكو، ٩ صفوف و٩ أعمدة'))}">${grid}</div>
-      <div class="pl-numberpad" dir="ltr" aria-label="${esc(t('Choose a number', 'اختر رقماً'))}">${sequence(9).map(n => actionButton(`number-${n + 1}`, n + 1, complete ? 'disabled' : '')).join('')}</div>
+      <div class="pl-numberpad" dir="ltr" role="group" aria-label="${esc(t('Choose a number', 'اختر رقماً'))}">${sequence(9).map(n => actionButton(`number-${n + 1}`, n + 1, complete ? 'disabled' : '')).join('')}</div>
       <div class="pl-toolbar pl-actions">${actionButton('notes', t('Pencil notes', 'ملاحظات'), `aria-pressed="${state.pencil}" ${complete ? 'disabled' : ''}`)}${actionButton('erase', t('Erase', 'مسح'), complete ? 'disabled' : '')}${actionButton('undo', t('Undo', 'تراجع'), history.length ? '' : 'disabled')}${actionButton('check', t('Check', 'تحقق'))}${actionButton('hint', t('Hint', 'تلميح'), complete ? 'disabled' : '')}</div>
-      ${statusMarkup(complete ? t(`Beautifully solved. ${state.hints} hint${state.hints === 1 ? '' : 's'} used.`, `أحسنت! اكتملت اللوحة. التلميحات المستخدمة: ${state.hints}.`) : message || t('A little focus, one number at a time.', 'قليل من التركيز، رقم بعد رقم.'), complete)}`, focus);
+      `, focus, complete ? t(`Beautifully solved. ${state.hints} hint${state.hints === 1 ? '' : 's'} used.`, `أحسنت! اكتملت اللوحة. التلميحات المستخدمة: ${state.hints}.`) : message || t('A little focus, one number at a time.', 'قليل من التركيز، رقم بعد رقم.'), complete);
   }
   function remember() { history.push(copy(state)); if (history.length > 81) history.shift(); }
   function input(value) {
+    if (!validDigit(value)) return;
     if (won() || puzzle.givens[selected]) { message = t('Choose an empty or editable cell.', 'اختر خانة فارغة أو قابلة للتعديل.'); render(); return; }
     remember();
     if (state.pencil && value && !state.values[selected]) {
@@ -242,11 +282,12 @@ function mountSudoku(root, ctx) {
     history = []; errors.clear(); selected = state.values.findIndex(n => !n); message = t('A fresh board for this difficulty.', 'لوحة جديدة لهذا المستوى.'); ui.save(state); render();
   });
   ui.on('keydown', event => {
-    if (!event.target.closest('[data-cell]')) return;
+    if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing || !event.target.closest('[data-cell]')) return;
+    selected = Number(event.target.closest('[data-cell]').dataset.cell);
     const moves = { ArrowUp: -9, ArrowDown: 9, ArrowLeft: -1, ArrowRight: 1 };
-    if (event.key in moves) { event.preventDefault(); selected = (selected + moves[event.key] + 81) % 81; render(`s${selected}`); }
-    else if (/^[1-9]$/.test(event.key)) { event.preventDefault(); input(Number(event.key)); }
-    else if (['Backspace', 'Delete', '0'].includes(event.key)) { event.preventDefault(); input(0); }
+    if (event.key in moves) { event.preventDefault(); selected = gridNeighbor(selected, event.key, 9, 81); render(`s${selected}`); }
+    else if (sudokuDigit(event.key) !== null) { event.preventDefault(); input(sudokuDigit(event.key)); }
+    else if (['Backspace', 'Delete'].includes(event.key)) { event.preventDefault(); input(0); }
     else if (event.key.toLowerCase() === 'n') { event.preventDefault(); state.pencil = !state.pencil; ui.save(state); render(); }
   });
   render(); return ui.cleanup;
@@ -273,10 +314,10 @@ function mountDomino(root, ctx) {
         return `<button type="button" role="gridcell" class="pl-domino-cell pl-region-${region}${entry ? ` pl-placed pl-half-${entry.half} pl-dir-${entry.direction}` : ''}${anchor === i ? ' pl-anchor' : ''}" tabindex="${anchor === i ? 0 : -1}" aria-selected="${anchor === i}" data-board-cell="${i}" data-focus="d${i}" aria-label="${esc(`${t('Row', 'صف')} ${row + 1}, ${t('column', 'عمود')} ${col + 1}, ${t('region', 'منطقة')} ${letters[region]}, ${entry ? `${entry.value}. ${t('Select to remove domino', 'اختر لإزالة القطعة')}` : t('empty', 'فارغ')}`)}">${[0, 2, 8, 10].includes(i) ? `<span class="pl-region-marker">${letters[region]}</span>` : ''}${entry ? pips(entry.value) : '<span class="pl-empty-dot" aria-hidden="true">·</span>'}</button>`;
       }).join('')}</div>`).join('')}</div>
       <div class="pl-tray-heading"><h3>${esc(t('Your dominos', 'قطع الدومينو'))}</h3><span class="pl-meta">${tiles.length} ${esc(t('remaining', 'متبقية'))}</span></div>
-      <div class="pl-domino-tray" dir="ltr" aria-label="${esc(t('Available dominos', 'القطع المتاحة'))}">${tiles.map(piece => `<button type="button" class="pl-domino-piece${piece.id === selected ? ' pl-picked' : ''}" data-piece="${piece.id}" data-focus="piece${piece.id}" aria-pressed="${piece.id === selected}" aria-label="${esc(t(`Domino ${piece.id + 1}: ${piece.values[0]} and ${piece.values[1]}`, `القطعة ${piece.id + 1}: ${piece.values[0]} و${piece.values[1]}`))}">${piece.values.map(pips).join('')}</button>`).join('') || `<p class="pl-meta">${esc(t('Every domino is on the board.', 'كل القطع على اللوحة.'))}</p>`}</div>
+      <div class="pl-domino-tray" dir="ltr" role="group" aria-label="${esc(t('Available dominos', 'القطع المتاحة'))}">${tiles.map(piece => `<button type="button" class="pl-domino-piece${piece.id === selected ? ' pl-picked' : ''}" data-piece="${piece.id}" data-focus="piece${piece.id}" aria-pressed="${piece.id === selected}" aria-label="${esc(t(`Domino ${piece.id + 1}: ${piece.values[0]} and ${piece.values[1]}`, `القطعة ${piece.id + 1}: ${piece.values[0]} و${piece.values[1]}`))}">${piece.values.map(pips).join('')}</button>`).join('') || `<p class="pl-meta">${esc(t('Every domino is on the board.', 'كل القطع على اللوحة.'))}</p>`}</div>
       <div class="pl-placement-preview">${selected !== null ? `<span>${esc(t('Ready to place', 'جاهزة للوضع'))}</span><span class="pl-domino-preview${direction === 'v' ? ' pl-vertical' : ''}" dir="ltr">${(flipped ? [...puzzle.pieces[selected].values].reverse() : puzzle.pieces[selected].values).map(pips).join('')}</span><span>${esc(direction === 'h' ? t('Extends right →', 'تمتد يميناً →') : t('Extends down ↓', 'تمتد للأسفل ↓'))}</span>` : `<span>${esc(t('Choose a placed domino to move it.', 'اختر قطعة موضوعة لتحريكها.'))}</span>`}</div>
-      <div class="pl-toolbar pl-actions">${actionButton('rotate', t('Rotate ↻', 'تدوير ↻'), selected === null ? 'disabled' : '')}${actionButton('flip', t('Flip ends ⇄', 'عكس الطرفين ⇄'), selected === null ? 'disabled' : '')}${actionButton('undo', t('Undo', 'تراجع'), history.length ? '' : 'disabled')}${actionButton('check', t('Check regions', 'تحقق من المناطق'))}</div>
-      ${statusMarkup(complete ? t('Perfect fit. Every region follows its rule.', 'ترتيب متقن! كل منطقة تحقق قاعدتها.') : message || t('Find a home for every domino.', 'اعثر على مكان لكل قطعة.'), complete)}`, focus);
+      <div class="pl-toolbar pl-actions">${actionButton('rotate', t('Rotate ↻', 'تدوير ↻'), `aria-pressed="${direction === 'v'}" ${selected === null ? 'disabled' : ''}`)}${actionButton('flip', t('Flip ends ⇄', 'عكس الطرفين ⇄'), `aria-pressed="${flipped}" ${selected === null ? 'disabled' : ''}`)}${actionButton('undo', t('Undo', 'تراجع'), history.length ? '' : 'disabled')}${actionButton('check', t('Check regions', 'تحقق من المناطق'))}</div>
+      `, focus, complete ? t('Perfect fit. Every region follows its rule.', 'ترتيب متقن! كل منطقة تحقق قاعدتها.') : message || t('Find a home for every domino.', 'اعثر على مكان لكل قطعة.'), complete);
   }
   function remember() { history.push(copy(placements)); if (history.length > 50) history.shift(); }
   function useCell(index) {
@@ -304,9 +345,10 @@ function mountDomino(root, ctx) {
     if (action) render();
   });
   ui.on('keydown', event => {
-    if (!event.target.closest('[data-board-cell]')) return;
+    if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing || !event.target.closest('[data-board-cell]')) return;
+    anchor = Number(event.target.closest('[data-board-cell]').dataset.boardCell);
     const moves = { ArrowUp: -4, ArrowDown: 4, ArrowLeft: -1, ArrowRight: 1 };
-    if (event.key in moves) { event.preventDefault(); anchor = (anchor + moves[event.key] + 16) % 16; render(`d${anchor}`); }
+    if (event.key in moves) { event.preventDefault(); anchor = gridNeighbor(anchor, event.key, 4, 16); render(`d${anchor}`); }
     else if (event.key.toLowerCase() === 'r') { event.preventDefault(); direction = direction === 'h' ? 'v' : 'h'; render(); }
     else if (event.key.toLowerCase() === 'f') { event.preventDefault(); flipped = !flipped; render(); }
     else if (['Backspace', 'Delete'].includes(event.key)) { event.preventDefault(); if (dominoBoard(puzzle, placements)[anchor]) useCell(anchor); }
@@ -333,8 +375,7 @@ function tileSVG(tile) {
 }
 function mountMosaic(root, ctx) {
   const ui = mountTools(root, ctx), { t } = ui, initial = createMosaic(ctx.seed), saved = ui.load({});
-  const validSaved = saved.version === 1 && Array.isArray(saved.tiles) && saved.tiles.length === initial.length && saved.tiles.every((tile, i) => tile && tile.id === i && MOSAIC_LAYERS.every(layer => tile[layer] === null || tile[layer] === initial[i][layer])) && MOSAIC_LAYERS.every(layer => sequence(5).every(value => saved.tiles.filter(tile => tile[layer] === value).length % 2 === 0));
-  let state = validSaved ? { tiles: saved.tiles, combo: Math.max(0, Number(saved.combo) || 0), best: Math.max(0, Number(saved.best) || 0), score: Math.max(0, Number(saved.score) || 0), matches: Math.max(0, Number(saved.matches) || 0), hints: Math.max(0, Number(saved.hints) || 0) } : { tiles: initial, combo: 0, best: 0, score: 0, matches: 0, hints: 0 };
+  let state = restoreMosaicState(saved, initial);
   let selected = null, hint = [], history = [], message = '', showLabels = false;
   const names = {
     color: t(['Clay', 'Gold', 'Sea', 'Sky', 'Plum'], ['طين', 'ذهب', 'بحر', 'سماء', 'برقوق']),
@@ -348,9 +389,9 @@ function mountMosaic(root, ctx) {
     const complete = isMosaicComplete(state.tiles), remaining = state.tiles.filter(tile => !mosaicEmpty(tile)).length;
     ui.draw(`${instructions(t, t('Choose two tiles that share a color, outline, or center symbol. All shared layers disappear. Keep matching the selected tile to build a chain; when it clears, choose any tile. A miss breaks your chain. Clear every layer to finish. Each layer is dealt in pairs, so a match always remains.', 'اختر بلاطتين تشتركان في اللون أو الإطار أو الرمز الأوسط. تختفي جميع الطبقات المشتركة. تابع مطابقة البلاطة المحددة لبناء سلسلة؛ وعندما تختفي اختر أي بلاطة. الاختيار غير المطابق يقطع السلسلة. أزل كل الطبقات لتفوز. توزّع الطبقات في أزواج، لذا تبقى مطابقة متاحة دائماً.'))}
       <div class="pl-mosaic-stats"><div><strong>${state.score}</strong><span>${esc(t('Points', 'النقاط'))}</span></div><div><strong>${state.combo}</strong><span>${esc(t('Current chain', 'السلسلة الحالية'))}</span></div><div><strong>${state.best}</strong><span>${esc(t('Best chain', 'أفضل سلسلة'))}</span></div><div><strong>${remaining}</strong><span>${esc(t('Tiles left', 'بلاطات متبقية'))}</span></div></div>
-      <div class="pl-mosaic-board" aria-label="${esc(t('Layered mosaic tiles', 'بلاطات الفسيفساء المتعددة الطبقات'))}">${state.tiles.map(tile => `<button type="button" class="pl-mosaic-tile pl-color-${tile.color === null ? 'none' : tile.color}${selected === tile.id ? ' pl-picked' : ''}${hint.includes(tile.id) ? ' pl-hint' : ''}${mosaicEmpty(tile) ? ' pl-cleared' : ''}" data-tile="${tile.id}" data-focus="m${tile.id}" aria-pressed="${selected === tile.id}" ${mosaicEmpty(tile) ? 'disabled' : ''} aria-label="${esc(`${t('Tile', 'بلاطة')} ${tile.id + 1}: ${mosaicEmpty(tile) ? t('cleared', 'مكتملة') : label(tile)}`)}">${mosaicEmpty(tile) ? '<span aria-hidden="true">✓</span>' : `${tileSVG(tile)}<span class="pl-layer-count" aria-hidden="true">${MOSAIC_LAYERS.map(layer => `<i class="${tile[layer] === null ? '' : 'pl-layer-present'}"></i>`).join('')}</span>${showLabels ? `<span class="pl-tile-label">${esc(label(tile))}</span>` : ''}`}</button>`).join('')}</div>
+      <div class="pl-mosaic-board" role="group" dir="${ctx.lang === 'ar' ? 'rtl' : 'ltr'}" aria-label="${esc(t('Layered mosaic tiles', 'بلاطات الفسيفساء المتعددة الطبقات'))}">${state.tiles.map(tile => `<button type="button" class="pl-mosaic-tile pl-color-${tile.color === null ? 'none' : tile.color}${selected === tile.id ? ' pl-picked' : ''}${hint.includes(tile.id) ? ' pl-hint' : ''}${mosaicEmpty(tile) ? ' pl-cleared' : ''}" data-tile="${tile.id}" data-focus="m${tile.id}" aria-pressed="${selected === tile.id}" ${mosaicEmpty(tile) ? 'disabled' : ''} aria-label="${esc(`${t('Tile', 'بلاطة')} ${tile.id + 1}: ${mosaicEmpty(tile) ? t('cleared', 'مكتملة') : label(tile)}`)}">${mosaicEmpty(tile) ? '<span aria-hidden="true">✓</span>' : `${tileSVG(tile)}<span class="pl-layer-count" aria-hidden="true">${MOSAIC_LAYERS.map(layer => `<i class="${tile[layer] === null ? '' : 'pl-layer-present'}"></i>`).join('')}</span>${showLabels ? `<span class="pl-tile-label">${esc(label(tile))}</span>` : ''}`}</button>`).join('')}</div>
       <div class="pl-toolbar pl-actions">${actionButton('labels', t('Show labels', 'إظهار الأسماء'), `aria-pressed="${showLabels}"`)}${actionButton('hint', t('Find a pair', 'ابحث عن زوج'), complete ? 'disabled' : '')}${actionButton('undo', t('Undo', 'تراجع'), history.length ? '' : 'disabled')}</div>
-      ${statusMarkup(complete ? t(`A beautiful clean slate. ${state.score} points, best chain ${state.best}.`, `اكتملت الفسيفساء! ${state.score} نقطة، وأفضل سلسلة ${state.best}.`) : message || (selected === null ? t('Choose a tile to begin your chain.', 'اختر بلاطة لبدء سلسلتك.') : t('Find a tile with a matching layer.', 'ابحث عن بلاطة ذات طبقة مطابقة.')), complete)}`, focus);
+      `, focus, complete ? t(`A beautiful clean slate. ${state.score} points, best chain ${state.best}.`, `اكتملت الفسيفساء! ${state.score} نقطة، وأفضل سلسلة ${state.best}.`) : message || (selected === null ? t('Choose a tile to begin your chain.', 'اختر بلاطة لبدء سلسلتك.') : t('Find a tile with a matching layer.', 'ابحث عن بلاطة ذات طبقة مطابقة.')), complete);
   }
   ui.on('click', event => {
     const tileButton = event.target.closest('[data-tile]');
@@ -377,12 +418,17 @@ function mountMosaic(root, ctx) {
     if (action) render();
   });
   ui.on('keydown', event => {
+    if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
     const button = event.target.closest('[data-tile]'); if (!button) return;
     const rtl = ctx.lang === 'ar', moves = { ArrowUp: -5, ArrowDown: 5, ArrowLeft: rtl ? 1 : -1, ArrowRight: rtl ? -1 : 1 };
     if (!(event.key in moves)) return;
-    event.preventDefault(); const current = Number(button.dataset.tile), delta = moves[event.key];
+    event.preventDefault(); const current = Number(button.dataset.tile);
     let next = current;
-    for (let n = 0; n < state.tiles.length; n++) { next = (next + delta + state.tiles.length) % state.tiles.length; if (!mosaicEmpty(state.tiles[next])) { root.querySelector(`[data-focus="m${next}"]`)?.focus(); break; } }
+    for (let n = 0; n < state.tiles.length; n++) {
+      const candidate = gridNeighbor(next, event.key, 5, state.tiles.length, rtl); if (candidate === next) break;
+      next = candidate;
+      if (!mosaicEmpty(state.tiles[next])) { root.querySelector(`[data-focus="m${next}"]`)?.focus(); break; }
+    }
   });
   render(); return ui.cleanup;
 }

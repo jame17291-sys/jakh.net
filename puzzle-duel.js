@@ -40,6 +40,7 @@ export function mount(root, context) {
   let selected = null, staged = [], swapping = false, swapTiles = new Set(), menu = !session?.code;
   let message = '', messageError = false, vocabulary = [], vocabularyLang = '', dictionaryOpen = false;
   let vocabRequest = null, connectionLost = false, resignConfirm = false, requestController = null;
+  const requests = new Set();
   const invite = (new URL(location.href).searchParams.get('duelRoom') || '').trim().toUpperCase();
   let formName = session?.name || '', formCode = invite, formLang = context.lang;
   if (invite && session?.code !== invite) menu = true;
@@ -52,8 +53,10 @@ export function mount(root, context) {
   }
   async function api(path, body, signal) {
     const controller = new AbortController();
+    requests.add(controller);
     const onAbort = () => controller.abort();
     signal?.addEventListener('abort', onAbort, { once: true });
+    if (signal?.aborted || stopped) controller.abort();
     const timeout = setTimeout(() => controller.abort(), 12000);
     try {
       const response = await fetch(`${origin}/api/word-duel/${path}`, {
@@ -64,7 +67,7 @@ export function mount(root, context) {
       const data = response.headers.get('content-type')?.includes('application/json') ? await response.json() : {};
       if (!response.ok) { const error = new Error(data.error || `Request failed (${response.status})`); error.code = data.code; error.status = response.status; throw error; }
       return data;
-    } finally { clearTimeout(timeout); signal?.removeEventListener('abort', onAbort); }
+    } finally { clearTimeout(timeout); requests.delete(controller); signal?.removeEventListener('abort', onAbort); }
   }
   function errorText(error) {
     if (errors[error.code]) {
@@ -81,11 +84,17 @@ export function mount(root, context) {
   function gameLanguage() { return state?.lang || session?.lang || context.lang; }
   function noticeHTML() { return `<p class="pd-duel-notice${messageError ? ' pd-duel-notice-error' : ''}" role="status" aria-live="polite">${e(message)}</p>`; }
   function renderMenu() {
-    root.innerHTML = `<section class="pd-duel"><div class="pd-duel-intro"><span class="pd-duel-eyebrow">${t('TWO PLAYERS · ONLINE', 'لاعبان · عبر الإنترنت')}</span><h2>${t('A word from you. A move from them.', 'كلمة منك. وخطوة من صديقك.')}</h2><p>${t('Invite a friend, build connected words, and make every letter count. Play together on separate devices.', 'ادعُ صديقاً، وابنيا كلمات متصلة واجمعا النقاط. العب من جهازك وصديقك من جهازه.')}</p></div><form class="pd-duel-lobby" id="pd-duel-form"><label>${t('Your name', 'اسمك')}<input id="pd-duel-name" name="name" maxlength="20" autocomplete="nickname" required value="${e(formName)}" placeholder="${t('How should we call you?', 'بأي اسم نناديك؟')}"></label><label>${t('New room language', 'لغة الغرفة الجديدة')}<select id="pd-duel-language"><option value="en" ${formLang === 'en' ? 'selected' : ''}>English</option><option value="ar" ${formLang === 'ar' ? 'selected' : ''}>العربية</option></select></label><button type="submit" class="pd-duel-primary" ${busy ? 'disabled' : ''}>${busy ? t('Connecting…', 'جارٍ الاتصال…') : t('Create a room', 'أنشئ غرفة')}</button><div class="pd-duel-or">${t('or join a friend', 'أو انضم إلى صديق')}</div><label>${t('Eight-character room code', 'رمز الغرفة: ثمانية أحرف')}<input id="pd-duel-code" name="code" dir="ltr" maxlength="8" autocapitalize="characters" autocomplete="off" spellcheck="false" value="${e(formCode)}" placeholder="ABCD2345"></label><button type="button" id="pd-duel-join" ${busy ? 'disabled' : ''}>${t('Join room', 'انضم إلى الغرفة')}</button>${session?.code ? `<button type="button" id="pd-duel-resume" class="pd-duel-link">${t('Resume your saved room', 'عُد إلى غرفتك المحفوظة')} · ${e(session.code)}</button>` : ''}</form>${noticeHTML()}<p class="pd-duel-small">${t('No account needed. Your private seat is saved on this browser. Rooms wait for a guest for 30 minutes and expire after 24 hours without a move.', 'لا تحتاج إلى حساب. يُحفظ مقعدك الخاص في هذا المتصفح. تنتظر الغرفة صديقك ٣٠ دقيقة، وتنتهي بعد ٢٤ ساعة دون أي حركة.')}</p></section>`;
+    root.innerHTML = `<section class="pd-duel"><div class="pd-duel-intro"><span class="pd-duel-eyebrow">${t('TWO PLAYERS · ONLINE', 'لاعبان · عبر الإنترنت')}</span><h2>${t('A word from you. A move from them.', 'كلمة منك. وخطوة من صديقك.')}</h2><p>${t('Invite a friend, build connected words, and make every letter count. Play together on separate devices.', 'ادعُ صديقاً، وابنيا كلمات متصلة واجمعا النقاط. العب من جهازك وصديقك من جهازه.')}</p></div><form class="pd-duel-lobby" id="pd-duel-form"><label>${t('Your name', 'اسمك')}<input id="pd-duel-name" name="name" maxlength="20" autocomplete="nickname" required value="${e(formName)}" placeholder="${t('How should we call you?', 'بأي اسم نناديك؟')}"></label><label>${t('New room language', 'لغة الغرفة الجديدة')}<select id="pd-duel-language"><option value="en" ${formLang === 'en' ? 'selected' : ''}>English</option><option value="ar" ${formLang === 'ar' ? 'selected' : ''}>العربية</option></select></label><button type="submit" id="pd-duel-create" class="pd-duel-primary" ${busy ? 'disabled' : ''}>${busy ? t('Connecting…', 'جارٍ الاتصال…') : t('Create a room', 'أنشئ غرفة')}</button><div class="pd-duel-or">${t('or join a friend', 'أو انضم إلى صديق')}</div><label>${t('Eight-character room code', 'رمز الغرفة: ثمانية أحرف')}<input id="pd-duel-code" name="code" dir="ltr" maxlength="8" autocapitalize="characters" autocomplete="off" spellcheck="false" value="${e(formCode)}" placeholder="ABCD2345"></label><button type="button" id="pd-duel-join" ${busy ? 'disabled' : ''}>${t('Join room', 'انضم إلى الغرفة')}</button>${session?.code ? `<button type="button" id="pd-duel-resume" class="pd-duel-link">${t('Resume your saved room', 'عُد إلى غرفتك المحفوظة')} · ${e(session.code)}</button>` : ''}</form>${noticeHTML()}<p class="pd-duel-small">${t('No account needed. Your private seat is saved on this browser. Rooms wait for a guest for 30 minutes and expire after 24 hours without a move.', 'لا تحتاج إلى حساب. يُحفظ مقعدك الخاص في هذا المتصفح. تنتظر الغرفة صديقك ٣٠ دقيقة، وتنتهي بعد ٢٤ ساعة دون أي حركة.')}</p></section>`;
     root.querySelector('#pd-duel-form').addEventListener('submit', event => { event.preventDefault(); enterRoom(false); });
     root.querySelector('#pd-duel-join').addEventListener('click', () => enterRoom(true));
     root.querySelector('#pd-duel-code').addEventListener('input', event => { event.target.value = event.target.value.toUpperCase().replace(/[^A-Z2-9]/g, ''); });
-    root.querySelector('#pd-duel-resume')?.addEventListener('click', () => { menu = false; refresh(true); });
+    root.querySelector('#pd-duel-resume')?.addEventListener('click', () => { menu = false; render(); refresh(true); });
+    updateMenuBusy();
+  }
+  function updateMenuBusy() {
+    for (const button of root.querySelectorAll('button')) button.disabled = busy;
+    const create = root.querySelector('#pd-duel-create');
+    if (create) create.textContent = busy ? t('Connecting…', 'جارٍ الاتصال…') : t('Create a room', 'أنشئ غرفة');
   }
   async function enterRoom(joining) {
     if (busy || stopped) return;
@@ -96,7 +105,7 @@ export function mount(root, context) {
     const code = root.querySelector('#pd-duel-code').value.trim().toUpperCase();
     if (joining && !/^[A-HJ-NP-Z2-9]{8}$/.test(code)) { notify(t('Enter the full eight-character room code.', 'أدخل رمز الغرفة كاملاً: ثمانية أحرف.'), true); root.querySelector('#pd-duel-code').focus(); return; }
     busy = true;
-    for (const button of root.querySelectorAll('button')) button.disabled = true;
+    updateMenuBusy();
     const oldSession = session;
     formName = name; formCode = code; formLang = lang;
     const canResume = joining ? session?.code === code : session && !session.code && session.name === name && session.lang === lang;
@@ -111,6 +120,7 @@ export function mount(root, context) {
       staged = []; selected = null; swapping = false; swapTiles.clear(); resignConfirm = false;
       loadVocabulary();
     } catch (error) {
+      if (stopped) return;
       if (error.status) { session = oldSession; persist(); }
       message = errorText(error); messageError = true;
     } finally { busy = false; if (!stopped) { render(); schedule(); } }
@@ -186,6 +196,7 @@ export function mount(root, context) {
     staged.push({ cell, rack: selected }); selected = null; message = ''; render();
   }
   function boardKey(event) {
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
     const index = Number(event.currentTarget.dataset.cell);
     const rtl = state.lang === 'ar';
     const delta = { ArrowDown: SIZE, ArrowUp: -SIZE, ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[event.key];
@@ -215,9 +226,18 @@ export function mount(root, context) {
       connectionLost = false;
       notify(t('Move saved.', 'حُفظت الحركة.'));
     } catch (error) {
+      if (stopped || session?.code !== activeSession.code || session?.token !== activeSession.token) return;
       message = errorText(error); messageError = true;
-      if (error.code === 'STALE_REVISION' || !error.status) { staged = []; selected = null; await refresh(false); }
-    } finally { busy = false; if (!stopped) render(); schedule(); }
+      if ([403, 404, 410].includes(error.status)) { menu = true; state = null; staged = []; selected = null; }
+      else if (error.code === 'STALE_REVISION' || !error.status) { staged = []; selected = null; await refresh(false); }
+    } finally {
+      busy = false;
+      if (!stopped) {
+        if (menu && root.querySelector('#pd-duel-form')) { updateMenuBusy(); notify(message, messageError); }
+        else render();
+      }
+      schedule();
+    }
   }
   async function loadVocabulary() {
     const lang = gameLanguage();
@@ -248,12 +268,14 @@ export function mount(root, context) {
       const wasOffline = connectionLost;
       connectionLost = false;
       if (changed) { state = next; staged = []; selected = null; swapping = false; swapTiles.clear(); loadVocabulary(); }
-      if (force || changed || wasOffline) { if (!messageError || wasOffline) { message = ''; messageError = false; } render(); }
+      if (force || changed || wasOffline) { if (!messageError || wasOffline) { message = ''; messageError = false; } if (!menu) render(); }
     } catch (error) {
       if (stopped || session?.code !== activeSession.code || session?.token !== activeSession.token) return;
       connectionLost = true;
+      const wasMenu = menu;
       if ([403, 404, 410].includes(error.status)) { menu = true; state = null; }
-      message = errorText(error); messageError = true; render();
+      if (wasMenu) notify(errorText(error), true);
+      else { message = errorText(error); messageError = true; render(); }
     } finally { polling = false; requestController = null; schedule(); }
   }
   function schedule() {
@@ -264,5 +286,5 @@ export function mount(root, context) {
   document.addEventListener('visibilitychange', visibility);
   render();
   if (!menu && session?.code) refresh(true);
-  return () => { stopped = true; clearTimeout(timer); requestController?.abort(); document.removeEventListener('visibilitychange', visibility); };
+  return () => { stopped = true; clearTimeout(timer); requestController?.abort(); for (const controller of requests) controller.abort(); document.removeEventListener('visibilitychange', visibility); };
 }

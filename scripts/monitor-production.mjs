@@ -28,6 +28,7 @@ const DEFAULT_MAX_CHECK_ATTEMPTS = 2;
 const DEFAULT_RETRY_DELAY_MS = 0;
 const WORKER_VERSION_ID = /^[0-9A-Za-z][0-9A-Za-z._-]{5,127}$/u;
 const RETIRED_SEO_REDIRECT_QUERY = "retired_seo_redirect_probe=riddlearabia";
+const PRE_TV_PUBLIC_QUESTIONS = 3_275;
 
 const checkedPublicationQuarantine = loadProductionQuarantine();
 
@@ -470,6 +471,7 @@ export async function runProductionMonitor(options = {}) {
   const legacyBaseline = config.siteContract === "legacy-cutover";
   let navigationLayout = legacyBaseline ? "legacy-cutover" : "current";
   let includeKidsNavigation = true;
+  let sitePublicQuestions = CONTENT_PUBLICATION_CONTRACT.publicQuestions;
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   const logger = options.logger || console;
   const results = [];
@@ -519,6 +521,7 @@ export async function runProductionMonitor(options = {}) {
           bytes: resource.body.byteLength,
           attempts: attempt,
           workerVersionId,
+          ...(Number.isInteger(resource.publicQuestions) ? { publicQuestions: resource.publicQuestions } : {}),
         });
         return;
       } catch (error) {
@@ -672,7 +675,13 @@ export async function runProductionMonitor(options = {}) {
       QUARANTINED_CATEGORY_SLUGS.every((slug) => !categorySlugs.has(slug)),
       "catalog exposes a quarantined category",
     );
-    expect(catalog.site?.totalQuestions === 3_825, "catalog public question total is not 3825");
+    // The exact-version production baseline may still serve the pre-TV corpus.
+    // Establish its one accepted total here; all other discovery indexes must
+    // agree. Current, Pages and legacy-cutover contracts remain unchanged.
+    const publicQuestions = catalog.site?.totalQuestions;
+    expect(publicQuestions === CONTENT_PUBLICATION_CONTRACT.publicQuestions
+      || (config.siteContract === "release-baseline" && publicQuestions === PRE_TV_PUBLIC_QUESTIONS),
+    `catalog public question total is not ${CONTENT_PUBLICATION_CONTRACT.publicQuestions}${config.siteContract === "release-baseline" ? ` or the known predecessor ${PRE_TV_PUBLIC_QUESTIONS}` : ""}`);
     expect(
       catalog.site?.publication === undefined,
       "catalog exposes internal publication governance metadata",
@@ -682,6 +691,8 @@ export async function runProductionMonitor(options = {}) {
       "catalog exposes reviewer metrics",
     );
     assertBudget(resource, config.siteMaxMs, 150_000);
+    sitePublicQuestions = publicQuestions;
+    resource.publicQuestions = publicQuestions;
     return resource;
   });
 
@@ -737,13 +748,14 @@ export async function runProductionMonitor(options = {}) {
     expectContentType(resource.response, /application\/json/iu);
     const index = parseJson(resource);
     expect(index && typeof index === "object" && !Array.isArray(index), "card index is not an object");
-    expect(Object.keys(index).length === 3_825, `card index contains ${Object.keys(index).length} cards instead of 3825`);
+    expect(Object.keys(index).length === sitePublicQuestions, `card index contains ${Object.keys(index).length} cards instead of ${sitePublicQuestions}`);
     expect(
       checkedPublicationQuarantine.cardIds.size > 0
         && [...checkedPublicationQuarantine.cardIds].every((cardId) => !Object.hasOwn(index, cardId)),
       "card index exposes a quarantined card",
     );
     assertBudget(resource, config.siteMaxMs, 300_000);
+    resource.publicQuestions = sitePublicQuestions;
     return resource;
   });
 
@@ -758,14 +770,15 @@ export async function runProductionMonitor(options = {}) {
       expectContentType(resource.response, /application\/json/iu);
       const shard = parseJson(resource);
       expect(shard.language === language, `${language} search language marker is invalid`);
-      expect(shard.total === 3_825, `${language} search total is not 3825`);
+      expect(shard.total === sitePublicQuestions, `${language} search total is not ${sitePublicQuestions}`);
       expect(Array.isArray(shard.categories) && shard.categories.length === 51, `${language} search categories are not 51`);
-      expect(Array.isArray(shard.cards) && shard.cards.length === 3_825, `${language} search cards are not 3825`);
+      expect(Array.isArray(shard.cards) && shard.cards.length === sitePublicQuestions, `${language} search cards are not ${sitePublicQuestions}`);
       expect(
         shard.cards.every((row) => Array.isArray(row) && !checkedPublicationQuarantine.cardIds.has(row[1])),
         `${language} search exposes a quarantined card`,
       );
       assertBudget(resource, config.siteMaxMs, 800_000);
+      resource.publicQuestions = sitePublicQuestions;
       return resource;
     });
   }

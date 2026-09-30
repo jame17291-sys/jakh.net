@@ -48,7 +48,7 @@ function apiHeaders(origin, cacheControl = "no-store") {
   return headers;
 }
 
-function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false }) {
+function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNavigation = false, builtHtml = false, publicQuestions = 3_825 }) {
   if (legacySite && ["/riddles", "/ar/alghaz/", "/brain-games"].includes(pathname)) return null;
   const route = (legacySite || preNavigation ? PRE_NAVIGATION_HTML_ROUTES : HTML_ROUTES)
     .find((candidate) => candidate.path === pathname);
@@ -69,14 +69,14 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
       site: {
-        totalQuestions: 3_825,
+        totalQuestions: publicQuestions,
       },
       categories: Array.from({ length: 51 }, (_, index) => ({ slug: `category-${index}` })),
     });
   }
   if (pathname === "/data/card-index.json") {
     return JSON.stringify(Object.fromEntries(
-      Array.from({ length: 3_825 }, (_, index) => [`public-card-${index}`, ["category-0", "easy"]]),
+      Array.from({ length: publicQuestions }, (_, index) => [`public-card-${index}`, ["category-0", "easy"]]),
     ));
   }
   if (pathname === "/data/search-index.en.json" || pathname === "/data/search-index.ar.json") {
@@ -84,9 +84,9 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
     return JSON.stringify({
       version: 2,
       language,
-      total: 3_825,
+      total: publicQuestions,
       categories: Array.from({ length: 51 }, (_, index) => `category-${index}`),
-      cards: Array.from({ length: 3_825 }, (_, index) => [0, `public-card-${index}`, `q-${index}`, `a-${index}`]),
+      cards: Array.from({ length: publicQuestions }, (_, index) => [0, `public-card-${index}`, `q-${index}`, `a-${index}`]),
     });
   }
   if (pathname === "/manifest.webmanifest") {
@@ -124,7 +124,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = 3_825 } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -248,6 +248,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
       legacySite,
       preNavigation,
       builtHtml,
+      publicQuestions,
     });
     if (body !== null) {
       const contentType = url.pathname.endsWith(".css")
@@ -335,6 +336,104 @@ test("release baseline is restricted to the exact production predecessor in site
   ]) {
     await assert.rejects(runProductionMonitor({ ...baseline, ...change }), /release-baseline requires/u);
   }
+});
+
+const PUBLIC_DISCOVERY_PROBES = [
+  ["/data/catalog.json", "Site: catalog data"],
+  ["/data/card-index.json", "Site: public card index"],
+  ["/data/search-index.en.json", "Site: en public search index"],
+  ["/data/search-index.ar.json", "Site: ar public search index"],
+];
+
+test("only the exact-version production release baseline accepts the coherent 3275-card predecessor", async () => {
+  for (const publicQuestions of [3_275, 3_825]) {
+    await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
+      const options = productionFixtureOptions(fixtureOrigin);
+      const baseline = await runProductionMonitor(options);
+      assert.deepEqual(baseline.failures, []);
+      for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
+        const result = buildMonitorReport(baseline).results.find((item) => item.name === name);
+        assert.equal(result?.publicQuestions, publicQuestions, `${name} records the observed inventory`);
+        assert.equal(result?.workerVersionId, FIXTURE_WORKER_VERSION);
+      }
+      const current = await runProductionMonitor({ ...options, siteContract: "current" });
+      if (publicQuestions === 3_825) assert.deepEqual(current.failures, []);
+      else for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
+        assert.ok(current.failures.some((failure) => failure.name === name), `${name} must reject the old count outside a release baseline`);
+      }
+    });
+  }
+});
+
+test("the release baseline rejects mixed discovery inventories in either direction", async () => {
+  for (const publicQuestions of [3_275, 3_825]) {
+    await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
+      const options = productionFixtureOptions(fixtureOrigin);
+      const otherCount = publicQuestions === 3_275 ? 3_825 : 3_275;
+      for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) {
+        const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
+          const response = await options.fetchImpl(input, init);
+          if (new URL(input).pathname !== changedPath) return response;
+          return new Response(staticBody(changedPath, { publicQuestions: otherCount }), {
+            status: response.status, headers: response.headers,
+          });
+        } });
+        const expectedFailures = name === "Site: catalog data" ? PUBLIC_DISCOVERY_PROBES.slice(1) : [[changedPath, name]];
+        for (const [, expectedName] of expectedFailures) {
+          assert.ok(summary.failures.some((failure) => failure.name === expectedName), `${expectedName} must agree with the catalog count`);
+        }
+      }
+    });
+  }
+});
+
+test("a coherent but unknown card count is never a recognized release baseline", async () => {
+  for (const publicQuestions of [3_274, 3_276, 3_824, 3_826]) {
+    await withFixture({ productionSite: true, publicQuestions }, async (fixtureOrigin) => {
+      const summary = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
+      for (const [, name] of PUBLIC_DISCOVERY_PROBES) {
+        assert.ok(summary.failures.some((failure) => failure.name === name), `${name} rejects unexpected total ${publicQuestions}`);
+      }
+    });
+  }
+});
+
+test("predecessor inventory acceptance still requires the expected Worker on every discovery response", async () => {
+  await withFixture({ productionSite: true, publicQuestions: 3_275 }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) for (const version of [null, "22222222-2222-4222-8222-222222222222"]) {
+      const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
+        const response = await options.fetchImpl(input, init);
+        if (new URL(input).pathname !== changedPath) return response;
+        const headers = new Headers(response.headers);
+        if (version === null) headers.delete("x-jakh-worker-version");
+        else headers.set("x-jakh-worker-version", version);
+        return new Response(await response.text(), { status: response.status, headers });
+      } });
+      assert.match(summary.failures.find((failure) => failure.name === name)?.message || "", /lacks a valid Worker version|served Worker .* expected/u, `${name} must identify the exact Worker`);
+    }
+  });
+});
+
+test("predecessor totals do not bypass publication quarantine in any discovery response", async () => {
+  const heldCard = JSON.parse(readFileSync(new URL("../data/medical-questions.json", import.meta.url), "utf8"))[0].id;
+  await withFixture({ productionSite: true, publicQuestions: 3_275 }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin);
+    for (const [changedPath, name] of PUBLIC_DISCOVERY_PROBES) {
+      const summary = await runProductionMonitor({ ...options, fetchImpl: async (input, init) => {
+        const response = await options.fetchImpl(input, init);
+        if (new URL(input).pathname !== changedPath) return response;
+        const data = await response.json();
+        if (changedPath.endsWith("/catalog.json")) data.categories[0].slug = "medical-questions";
+        else if (changedPath.endsWith("/card-index.json")) {
+          delete data[Object.keys(data)[0]];
+          data[heldCard] = ["medical-questions", "easy"];
+        } else data.cards[0][1] = heldCard;
+        return new Response(JSON.stringify(data), { status: response.status, headers: response.headers });
+      } });
+      assert.match(summary.failures.find((failure) => failure.name === name)?.message || "", /quarantined/u, `${name} still rejects held content at the accepted predecessor count`);
+    }
+  });
 });
 
 test("only an explicit version-bound baseline accepts the complete predecessor layout", async () => {

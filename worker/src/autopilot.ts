@@ -67,7 +67,8 @@ function decodeSegment(value: string): Uint8Array<ArrayBuffer> {
 }
 async function signingKeys(): Promise<KeySet["keys"]> {
   if (cachedKeys && cachedKeys.expiresAt > Date.now()) return cachedKeys.keys;
-  const response = await fetch(JWKS_URL, { redirect: "error", signal: AbortSignal.timeout(5_000) });
+  // workerd supports manual redirects; the status check below rejects them without following.
+  const response = await fetch(JWKS_URL, { redirect: "manual", signal: AbortSignal.timeout(5_000) });
   if (!response.ok) failure(503, "AUTOPILOT_IDENTITY_UNAVAILABLE");
   // GitHub's fixed endpoint is the only key source; token-controlled URLs are never followed.
   const body = await response.text();

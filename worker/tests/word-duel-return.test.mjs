@@ -73,7 +73,7 @@ test('push sends only encrypted generic room data and classifies provider delive
   let responseCode = 201, sent;
   t.mock.method(globalThis, 'fetch', async (url, options) => { sent = { url, options }; return new Response(null, { status: responseCode }); });
   assert.equal(await sendDuelPush(config, reminder, 'ABCD2345'), 'sent');
-  assert.equal(sent.options.redirect, 'error'); assert.equal(sent.options.headers.TTL, '300'); assert.equal(sent.options.headers.Topic, 'duel_ABCD2345');
+  assert.equal(sent.options.redirect, 'manual'); assert.equal(sent.options.headers.TTL, '300'); assert.equal(sent.options.headers.Topic, 'duel_ABCD2345');
   const payload = JSON.parse(decrypt(browser, sent.options.body));
   assert.equal(payload.code, 'ABCD2345'); assert.equal(payload.kind, 'rematch'); assert.match(payload.title, /ريدل أرابيا/u);
   assert.doesNotMatch(JSON.stringify(payload), /token|rack|score|Host/u);

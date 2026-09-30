@@ -80,7 +80,7 @@ export async function sendDuelPush(config: PushConfig, reminder: DuelReminder, c
   const authorization = await vapidAuthorization(config, subscription.endpoint);
   const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 5000);
   try {
-    const response = await fetch(subscription.endpoint, { method: "POST", redirect: "error", signal: controller.signal, body,
+    const response = await fetch(subscription.endpoint, { method: "POST", redirect: "manual", signal: controller.signal, body,
       headers: { Authorization: authorization, "Content-Encoding": "aes128gcm", "Content-Type": "application/octet-stream", TTL: "300", Urgency: "normal", Topic: `duel_${code}` } });
     if (response.ok) return "sent";
     if (response.status === 404 || response.status === 410) return "gone";

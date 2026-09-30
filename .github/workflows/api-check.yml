@@ -85,6 +85,7 @@ jobs:
       - name: Test production monitor
         run: >-
           node --test scripts/api-release-receipt.test.mjs
+          scripts/site-release-receipt.test.mjs
           scripts/monitor-production.test.mjs
           scripts/pages-quarantine-receipt.test.mjs
           scripts/route-production-alert.test.mjs

@@ -214,7 +214,9 @@ export function smokeDefinitions(token, {
       name: "not-found",
       url: `${normalizedPrimaryOrigin}/__site_probe_missing_${token}`,
       status: 404,
-      cache: /^no-store$/iu,
+      // Both the previous rollback target and the reviewed HTML delivery
+      // policy prohibit storage; the current policy also forbids transforms.
+      cache: /^no-store(?:,\s*no-transform)?$/iu,
     },
     {
       name: "service-worker",

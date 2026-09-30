@@ -9,6 +9,7 @@ import {
   updatePrivacyPreferences,
 } from "../dist/privacy.js";
 import { analytics } from "../dist/routes.js";
+import { assertSyntheticExportAccount } from "../../scripts/synthetic-account-monitor.mjs";
 
 const SESSION_TOKEN = "A".repeat(43);
 const SESSION_ROW = {
@@ -226,6 +227,15 @@ test("account export contains useful account data but no credentials or sessions
   assert.doesNotMatch(serialized, /must-never-be-exported/u);
   assert.doesNotMatch(serialized, /stored-session-token-hash/u);
   assert.doesNotMatch(serialized, /password_hash|password_salt|tokenHash|token_hash/u);
+});
+
+test("the synthetic monitor accepts the actual export handler contract and rejects another identity", async () => {
+  const response = await exportAccountData(apiRequest("/api/user/export"), exportEnv());
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(Object.hasOwn(payload, "profile"), false);
+  assert.doesNotThrow(() => assertSyntheticExportAccount(payload, SESSION_ROW.username));
+  assert.throws(() => assertSyntheticExportAccount(payload, "not_the_exported_account"), /export does not identify the created account/u);
 });
 
 function deletionEnv(validPassword = true) {

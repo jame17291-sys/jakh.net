@@ -217,6 +217,12 @@ async function deleteOwnedAccount(state) {
   return { required: true, confirmed: true, method: "permanent-account-deletion" };
 }
 
+export function assertSyntheticExportAccount(payload, username) {
+  if (payload?.account?.username !== username) {
+    throw new Error("synthetic account export does not identify the created account");
+  }
+}
+
 export async function runSyntheticAccountMonitor(options) {
   const config = validateRunOptions(options);
   const startedAt = config.now().toISOString();
@@ -328,9 +334,7 @@ export async function runSyntheticAccountMonitor(options) {
     }
 
     const accountExport = await requestApi(state, "/api/user/export");
-    if (accountExport.payload?.profile?.username !== state.username) {
-      throw new Error("synthetic account export does not identify the created account");
-    }
+    assertSyntheticExportAccount(accountExport.payload, state.username);
 
     const challenge = await requestApi(state, "/api/scores/server-checked/challenge", {
       expected: 201,

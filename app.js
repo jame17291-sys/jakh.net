@@ -479,7 +479,7 @@ const UI = {
     password: 'Password',
     newPassword: 'New password',
     passwordHint: 'Your progress syncs securely across your devices.',
-    passwordRules: 'Use 8–128 characters. A long, unique passphrase works best.',
+    passwordRules: 'Use 15–128 characters. Choose a unique passphrase without common patterns or your account name.',
     showPassword: 'Show password',
     hidePassword: 'Hide password',
     capsLockOn: 'Caps Lock is on.',
@@ -588,6 +588,9 @@ const UI = {
     errorUsernameInvalid: 'Use 3–20 letters, numbers, or underscores for the username.',
     errorPasswordRequired: 'Enter a password.',
     errorPasswordInvalid: 'Use a password between 8 and 128 characters.',
+    errorPasswordPolicy: 'Use a new password between 15 and 128 characters.',
+    errorPasswordWeak: 'Choose a stronger, unique passphrase without common patterns or your account name.',
+    errorMfaRequired: 'Use “Set up or verify authenticator” in your profile to verify admin access, then try again.',
     errorEmailInvalid: 'Enter a valid email address.',
     errorRateLimited: 'Too many attempts. Please try again later.',
     errorUnauthorized: 'Please sign in again.',
@@ -889,7 +892,7 @@ const UI = {
     password: 'كلمة المرور',
     newPassword: 'كلمة المرور الجديدة',
     passwordHint: 'يتزامن تقدّمك بأمان على جميع أجهزتك.',
-    passwordRules: 'استخدم من 8 إلى 128 حرفًا. ويفضّل اختيار عبارة طويلة وفريدة.',
+    passwordRules: 'استخدم من 15 إلى 128 حرفًا. اختر عبارة فريدة دون أنماط شائعة أو اسم حسابك.',
     showPassword: 'إظهار كلمة المرور',
     hidePassword: 'إخفاء كلمة المرور',
     capsLockOn: 'مفتاح الأحرف الكبيرة مفعّل.',
@@ -998,6 +1001,9 @@ const UI = {
     errorUsernameInvalid: 'استخدم من 3 إلى 20 حرفًا أو رقمًا أو شرطة سفلية لاسم المستخدم.',
     errorPasswordRequired: 'أدخل كلمة المرور.',
     errorPasswordInvalid: 'استخدم كلمة مرور يتراوح طولها بين 8 و128 حرفًا.',
+    errorPasswordPolicy: 'استخدم كلمة مرور جديدة يتراوح طولها بين 15 و128 حرفًا.',
+    errorPasswordWeak: 'اختر عبارة مرور قوية وفريدة دون أنماط شائعة أو اسم حسابك.',
+    errorMfaRequired: 'استخدم «إعداد تطبيق المصادقة أو التحقق منه» في ملفك الشخصي لتأكيد وصولك إلى الإدارة، ثم حاول مجدداً.',
     errorEmailInvalid: 'أدخل بريدًا إلكترونيًا صالحًا.',
     errorRateLimited: 'محاولات كثيرة جدًا. حاول مرة أخرى لاحقًا.',
     errorUnauthorized: 'سجّل الدخول مرة أخرى.',
@@ -1168,6 +1174,10 @@ const API_ERROR_UI_KEYS = Object.freeze({
   PASSWORD_INVALID: 'errorPasswordInvalid',
   CURRENT_PASSWORD_INVALID: 'errorPasswordInvalid',
   NEW_PASSWORD_INVALID: 'errorPasswordInvalid',
+  PASSWORD_POLICY_INVALID: 'errorPasswordPolicy',
+  PASSWORD_TOO_WEAK: 'errorPasswordWeak',
+  MFA_REQUIRED: 'errorMfaRequired',
+  MFA_ENROLLMENT_REQUIRED: 'errorMfaRequired',
   INVALID_EMAIL: 'errorEmailInvalid',
   RATE_LIMITED: 'errorRateLimited',
   UNAUTHORIZED: 'errorUnauthorized',
@@ -1335,7 +1345,7 @@ function postAuthDestination() {
   try {
     const target = new URL(next, location.origin);
     if (target.origin !== location.origin) return '';
-    if (target.pathname !== '/admin' && target.pathname !== '/admin.html') return '';
+    if (!['/admin', '/admin.html', '/privacy', '/privacy.html', '/ar/privacy/'].includes(target.pathname)) return '';
     return `${target.pathname}${target.search}${target.hash}`;
   } catch (_) {
     return '';
@@ -3594,6 +3604,12 @@ async function hydrateAuthenticatedExperience() {
   if (suggestionAccountLabel) suggestionAccountLabel.hidden = false;
   applyStaticCopy();
   rerender();
+  notifyAuthChange('signed-in');
+}
+
+function notifyAuthChange(status) {
+  // Announce a state change, never credentials or account data.
+  safeStorageSet('local', 'jakh-auth-change', `${status}:${Date.now()}:${Math.random()}`);
 }
 
 function renderRecoveryCodeReceipt(recoveryCode) {
@@ -3731,10 +3747,12 @@ function renderAuthModal(mode = 'signin') {
              </label>
              <label>
                <span>${escapeHtml(state.lang === 'ar' ? 'كلمة المرور الجديدة' : 'New Password')}</span>
-               <input type="password" id="newPassword" autocomplete="new-password" minlength="8" maxlength="128" />
+               <input type="password" id="newPassword" autocomplete="new-password" minlength="15" maxlength="128" aria-describedby="changePasswordRules" />
              </label>
         </div>
+        <p id="changePasswordRules" class="password-rules">${escapeHtml(t('passwordRules'))}</p>
         <button class="mini-btn" id="changePasswordBtn">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
+        ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<hr /><h3>${escapeHtml(state.lang === 'ar' ? 'حماية الوصول إلى الإدارة' : 'Protect admin access')}</h3><p>${escapeHtml(state.lang === 'ar' ? 'أضف تطبيق مصادقة واحفظ رموز الاسترداد لفتح لوحة الإدارة بأمان.' : 'Add an authenticator and save recovery codes to securely open the administration console.')}</p><button class="secondary-btn" type="button" id="adminSecurityBtn">${escapeHtml(state.lang === 'ar' ? 'إعداد تطبيق المصادقة أو التحقق منه' : 'Set up or verify authenticator')}</button>` : ''}
 
         <hr style="margin:1.5rem 0;opacity:0.2;" />
         <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(t('recoveryRotateTitle'))}</strong>
@@ -3775,6 +3793,7 @@ function renderAuthModal(mode = 'signin') {
       }
       clearAllCloudMutations();
       state.dbUser = null;
+      notifyAuthChange('signed-out');
       state.accountAnalyticsAllowed = false;
       stopAnalyticsHeartbeat();
       const suggestionAccountLabel = els.suggestionLinkAccount?.closest('.suggestion-account-link');
@@ -3784,6 +3803,42 @@ function renderAuthModal(mode = 'signin') {
       applyStaticCopy();
       rerender();
       showToast(t('signedOut'));
+    });
+
+    document.getElementById('adminSecurityBtn')?.addEventListener('click', async (event) => {
+      const button = event.currentTarget;
+      button.disabled = true;
+      try {
+        const { openAdminSecurity } = await import('/auth-security.js');
+        closeModal('auth');
+        const verified = await openAdminSecurity({
+          api: apiFetch,
+          language: state.lang,
+          onPasswordChange: () => {
+            renderAuthModal('signin');
+            openModal('auth');
+            focusAuthControl('currentPassword');
+          },
+          onSignIn: async () => {
+            await checkCloudSession();
+            renderAuthModal('signin');
+            openModal('auth');
+          },
+        });
+        if (verified) {
+          const destination = postAuthDestination();
+          if (destination) location.assign(destination);
+          else { renderAuthModal('signin'); openModal('auth'); }
+        }
+      } catch (error) {
+        if (error?.status === 401 && error?.code !== 'CURRENT_PASSWORD_INCORRECT') {
+          await checkCloudSession();
+          renderAuthModal('signin');
+          openModal('auth');
+        }
+        showToast(localizedErrorMessage(error), true);
+      }
+      finally { button.disabled = false; }
     });
 
     const avatarBtns = document.querySelectorAll('.avatar-btn');
@@ -3808,6 +3863,9 @@ function renderAuthModal(mode = 'signin') {
        const cur = document.getElementById('currentPassword').value;
        const neu = document.getElementById('newPassword').value;
        if (!cur || !neu) return showToast(t('passwordFieldsRequired'), true);
+       if ([...neu].length < 15 || neu.length > 128) return showToast(t('errorPasswordPolicy'), true);
+       if (cpBtn.disabled) return;
+       cpBtn.disabled = true;
        cpBtn.textContent = '...';
        try {
           await apiFetch('/user/password', { method: 'POST', body: JSON.stringify({ currentPassword: cur, newPassword: neu }) });
@@ -3817,6 +3875,7 @@ function renderAuthModal(mode = 'signin') {
        } catch (err) {
           showToast(localizedErrorMessage(err), true);
        } finally {
+          cpBtn.disabled = false;
           cpBtn.textContent = state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password';
        }
     });
@@ -3894,7 +3953,7 @@ function renderAuthModal(mode = 'signin') {
         </label>` : `
         <label>
           <span>${escapeHtml(t('password'))}</span>
-          <input id="authPassword" type="password" autocomplete="${mode === 'signin' ? 'current-password' : 'new-password'}" required minlength="8" maxlength="128" />
+          <input id="authPassword" type="password" autocomplete="${mode === 'signin' ? 'current-password' : 'new-password'}" required minlength="${mode === 'signin' ? '8' : '15'}" maxlength="128" />
         </label>`}
       </div>
       ${isRegister ? `
@@ -3905,7 +3964,7 @@ function renderAuthModal(mode = 'signin') {
         </label>
         <label>
           <span>${escapeHtml(t('confirmPassword'))}</span>
-          <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
+          <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="15" maxlength="128" />
         </label>
       </div>
       <p class="password-rules">${escapeHtml(t('passwordRules'))}</p>
@@ -3914,11 +3973,11 @@ function renderAuthModal(mode = 'signin') {
       <div class="form-row">
         <label>
           <span>${escapeHtml(t('newPassword'))}</span>
-          <input id="authNewPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
+          <input id="authNewPassword" type="password" autocomplete="new-password" required minlength="15" maxlength="128" />
         </label>
         <label>
           <span>${escapeHtml(t('confirmPassword'))}</span>
-          <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="128" />
+          <input id="authConfirmPassword" type="password" autocomplete="new-password" required minlength="15" maxlength="128" />
         </label>
       </div>` : ''}
       ${isRecovery ? `<p class="password-rules">${escapeHtml(t('passwordRules'))}</p>` : ''}

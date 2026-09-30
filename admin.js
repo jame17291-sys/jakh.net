@@ -217,6 +217,9 @@
       signedOutTitle: "Sign in to manage Riddle Arabia",
       signedOutMessage: "Use your Riddle Arabia owner or administrator account. We will bring you back to this console after sign-in.",
       signInToJakh: "Sign in to Riddle Arabia",
+      mfaTitle: "Protect your admin access",
+      mfaMessage: "Set up or verify your authenticator before opening the administration console.",
+      mfaAction: "Verify admin access",
       unauthorizedTitle: "This account does not have admin access",
       unauthorizedMessage: "You are signed in, but this Riddle Arabia account is not an administrator or owner. Ask an owner to review your role.",
       returnToSite: "Return to Riddle Arabia",
@@ -444,6 +447,9 @@
       signedOutTitle: "سجل الدخول لإدارة Riddle Arabia",
       signedOutMessage: "استخدم حساب مالك أو مسؤول Riddle Arabia. سنعيدك إلى هذه اللوحة بعد تسجيل الدخول.",
       signInToJakh: "تسجيل الدخول إلى Riddle Arabia",
+      mfaTitle: "احمِ وصولك إلى الإدارة",
+      mfaMessage: "أعد إعداد تطبيق المصادقة أو أكّد الرمز قبل فتح لوحة الإدارة.",
+      mfaAction: "تأكيد الوصول إلى الإدارة",
       unauthorizedTitle: "هذا الحساب لا يملك صلاحية الإدارة",
       unauthorizedMessage: "أنت مسجل الدخول، لكن حساب Riddle Arabia هذا ليس مسؤولاً أو مالكاً. اطلب من مالك مراجعة دورك.",
       returnToSite: "العودة إلى Riddle Arabia",
@@ -529,13 +535,22 @@
 
   Object.assign(COPY.en, {
     autopilot: "Autopilot", autopilotLead: "Scheduled maintenance for generated search indexes and site pages.",
-    autopilotStatus: "Schedule status", autopilotActive: "Active", autopilotPaused: "Paused", autopilotNotConnected: "Not connected", autopilotStatusError: "Status unavailable",
-    autopilotActiveMessage: "Scheduled runs are enabled, subject to the schedule and daily limits below.",
+    autopilotStatus: "Schedule status", autopilotPaused: "Paused", autopilotNotConnected: "Not connected", autopilotStatusError: "Status unavailable",
     autopilotPausedMessage: "Scheduled runs are paused. A run already in progress may finish.",
     autopilotNotConnectedMessage: "The Autopilot service is not connected yet. Refresh after it becomes available.",
     autopilotLoadError: "Could not confirm Autopilot status. Refresh to try again.", autopilotUpdateError: "Could not confirm the change. Refresh the status before trying again.",
     autopilotResume: "Resume Autopilot", autopilotPause: "Pause Autopilot", autopilotUpdating: "Updating…",
-    autopilotResumed: "Autopilot is active.", autopilotPausedToast: "Autopilot is paused.",
+    autopilotResumed: "Scheduled checks are enabled. Run activity will confirm execution.", autopilotPausedToast: "Autopilot is paused.",
+    autopilotAwaiting: "Awaiting first run", autopilotHealthy: "Recent check completed", autopilotStale: "Run overdue",
+    autopilotAwaitingMessage: "Checks are enabled, but no execution has been recorded. Check the scheduler if this remains after the next scheduled time.",
+    autopilotHealthyMessage: "A recent check completed. Review its findings and publishing mode below.",
+    autopilotRunningMessage: "A recorded check is in progress. Its latest receipt confirms execution.",
+    autopilotAttentionMessage: "The last check needs attention. Open its run details before relying on automatic maintenance.",
+    autopilotStaleMessage: "No timely execution receipt is available. Check the scheduler and the most recent run.",
+    autopilotReleaseMode: "Publishing mode", autopilotInspectionOnly: "Inspection only", autopilotAutomatic: "Automatic publishing enabled", autopilotReleaseUnknown: "Not yet confirmed",
+    auditAutopilotResumed: "enabled scheduled checks", auditAutopilotPaused: "paused scheduled checks",
+    auditMfaEnabled: "enabled an authenticator", auditMfaReplaced: "replaced their authenticator",
+    auditMfaVerified: "verified their authenticator", auditMfaRecovery: "used an authenticator recovery code",
     autopilotPolicy: "Schedule and limits", autopilotSchedule: "Scheduled check", autopilotDailySchedule: "Daily at 07:23 Dubai time",
     autopilotRunLimit: "Runs per day", autopilotReleaseLimit: "Releases per day", autopilotAiBudget: "AI budget (USD)",
     autopilotNoAi: "No paid AI calls are allowed by this policy.", autopilotPolicyUnavailable: "Schedule and limits are unavailable until the service responds.",
@@ -552,13 +567,22 @@
   });
   Object.assign(COPY.ar, {
     autopilot: "التشغيل التلقائي", autopilotLead: "صيانة مجدولة لفهارس البحث وصفحات الموقع المولّدة.",
-    autopilotStatus: "حالة الجدولة", autopilotActive: "نشط", autopilotPaused: "متوقف مؤقتًا", autopilotNotConnected: "غير متصل", autopilotStatusError: "الحالة غير متاحة",
-    autopilotActiveMessage: "التشغيل المجدول مفعّل وفق المواعيد والحدود اليومية أدناه.",
+    autopilotStatus: "حالة الجدولة", autopilotPaused: "متوقف مؤقتًا", autopilotNotConnected: "غير متصل", autopilotStatusError: "الحالة غير متاحة",
     autopilotPausedMessage: "التشغيل المجدول متوقف مؤقتًا. قد تكتمل عملية بدأت بالفعل.",
     autopilotNotConnectedMessage: "خدمة التشغيل التلقائي غير متصلة بعد. حدّث الحالة عندما تصبح متاحة.",
     autopilotLoadError: "تعذر التحقق من حالة التشغيل التلقائي. حدّث الحالة للمحاولة مجددًا.", autopilotUpdateError: "تعذر تأكيد التغيير. حدّث الحالة قبل المحاولة مجددًا.",
     autopilotResume: "استئناف التشغيل التلقائي", autopilotPause: "إيقاف التشغيل التلقائي مؤقتًا", autopilotUpdating: "جارٍ التحديث…",
-    autopilotResumed: "التشغيل التلقائي نشط الآن.", autopilotPausedToast: "توقف التشغيل التلقائي مؤقتًا.",
+    autopilotResumed: "فُعّلت الفحوص المجدولة. يؤكد سجل التشغيل تنفيذها.", autopilotPausedToast: "توقف التشغيل التلقائي مؤقتًا.",
+    autopilotAwaiting: "بانتظار أول تشغيل", autopilotHealthy: "اكتمل فحص حديث", autopilotStale: "تأخر التشغيل",
+    autopilotAwaitingMessage: "الفحوص مفعّلة، لكن لم يُسجّل أي تنفيذ. تحقّق من الجدولة إذا استمرت الحالة بعد الموعد التالي.",
+    autopilotHealthyMessage: "اكتمل فحص حديث. راجع نتائجه ووضع النشر أدناه.",
+    autopilotRunningMessage: "يجري تنفيذ فحص مسجّل. يؤكد آخر تحديث بدء التنفيذ.",
+    autopilotAttentionMessage: "يحتاج الفحص الأخير إلى متابعة. افتح تفاصيله قبل الاعتماد على الصيانة التلقائية.",
+    autopilotStaleMessage: "لا يوجد سجل تنفيذ حديث في الوقت المتوقع. تحقّق من الجدولة وآخر عملية تشغيل.",
+    autopilotReleaseMode: "وضع النشر", autopilotInspectionOnly: "فحص فقط", autopilotAutomatic: "النشر التلقائي مفعّل", autopilotReleaseUnknown: "لم يُؤكّد بعد",
+    auditAutopilotResumed: "فعّل الفحوص المجدولة", auditAutopilotPaused: "أوقف الفحوص المجدولة مؤقتًا",
+    auditMfaEnabled: "فعّل تطبيق المصادقة", auditMfaReplaced: "استبدل تطبيق المصادقة",
+    auditMfaVerified: "أكّد رمز تطبيق المصادقة", auditMfaRecovery: "استخدم رمز استرداد المصادقة",
     autopilotPolicy: "المواعيد والحدود", autopilotSchedule: "موعد الفحص", autopilotDailySchedule: "يوميًا الساعة 07:23 بتوقيت دبي",
     autopilotRunLimit: "عمليات التشغيل يوميًا", autopilotReleaseLimit: "الإصدارات يوميًا", autopilotAiBudget: "ميزانية الذكاء الاصطناعي (دولار)",
     autopilotNoAi: "لا تسمح هذه السياسة بأي استدعاءات مدفوعة لخدمات الذكاء الاصطناعي.", autopilotPolicyUnavailable: "تتوفر المواعيد والحدود بعد استجابة الخدمة.",
@@ -714,9 +738,9 @@
 
   function signInHref() {
     const target = `/admin${state.lang === "ar" ? "?lang=ar" : ""}`;
-    const url = new URL("/", location.origin);
+    const url = new URL(state.lang === "ar" ? "/ar/mind-lab/" : "/mind-lab", location.origin);
+    url.searchParams.set("profile", "1");
     url.searchParams.set("next", target);
-    if (state.lang === "ar") url.searchParams.set("lang", "ar");
     return `${url.pathname}${url.search}`;
   }
 
@@ -805,6 +829,7 @@
       checking: ["checkingAccessTitle", "checkingAccessMessage"],
       signedOut: ["signedOutTitle", "signedOutMessage"],
       unauthorized: ["unauthorizedTitle", "unauthorizedMessage"],
+      mfa: ["mfaTitle", "mfaMessage"],
       offline: ["offlineTitle", "offlineMessage"],
     }[state.gateMode] || ["checkingAccessTitle", "checkingAccessMessage"];
     els.gateTitle.textContent = t(copy[0]);
@@ -812,6 +837,13 @@
     clearNode(els.gateActions);
     if (state.gateMode === "signedOut") {
       els.gateActions.append(gateButton(t("signInToJakh"), signInHref(), true), retryButton());
+    } else if (state.gateMode === "mfa") {
+      const button = document.createElement("button");
+      button.className = "primary-button";
+      button.type = "button";
+      button.textContent = t("mfaAction");
+      button.addEventListener("click", () => void verifyAdminAccess(button));
+      els.gateActions.append(button, gateButton(t("returnToSite"), signInHref()));
     } else if (state.gateMode === "unauthorized") {
       els.gateActions.append(gateButton(t("returnToSite"), state.lang === "ar" ? "/?lang=ar" : "/", true));
     } else if (state.gateMode === "offline") {
@@ -1092,6 +1124,12 @@
       "suggestion.status_changed": "auditFeedback",
       "security.password_reconfirmed": "auditReauth",
       "security.non_owner_sessions_revoked": "auditSessions",
+      "autopilot.resumed": "auditAutopilotResumed",
+      "autopilot.paused": "auditAutopilotPaused",
+      "security.authenticator_enabled": "auditMfaEnabled",
+      "security.authenticator_replaced": "auditMfaReplaced",
+      "security.authenticator_verified": "auditMfaVerified",
+      "security.authenticator_recovery_used": "auditMfaRecovery",
     };
     return t(labels[event.action] || (String(event.action || "").startsWith("content.") ? "auditContent" : "auditGeneric"));
   }
@@ -1789,15 +1827,30 @@
       ${findingDetails}<div class="autopilot-run-links">${autopilotRunLink(run.url, "autopilotViewRun")}${autopilotRunLink(run.deploymentUrl, "autopilotViewDeployment")}</div></article>`;
   }
 
+  function autopilotExecutionPresentation(data) {
+    const status = data?.enabled === false ? 'paused' : data?.execution?.status;
+    const labels = {
+      paused: ['autopilotPaused', 'autopilotPausedMessage', 'is-pending'],
+      awaiting_first_run: ['autopilotAwaiting', 'autopilotAwaitingMessage', 'is-pending'],
+      running: ['autopilotInspecting', 'autopilotRunningMessage', 'is-pending'],
+      healthy: ['autopilotHealthy', 'autopilotHealthyMessage', 'is-good'],
+      needs_attention: ['autopilotNeedsAttention', 'autopilotAttentionMessage', 'is-danger'],
+      stale: ['autopilotStale', 'autopilotStaleMessage', 'is-danger'],
+    };
+    const [label, message, tone] = labels[status] || ['autopilotStatusError', 'autopilotLoadError', 'is-pending'];
+    return { label, message, tone };
+  }
+
   function renderAutopilot() {
     if (!els.autopilotStatus) return;
     const { data, phase, pending, errorKey } = state.autopilot;
     const loading = phase === "idle" || phase === "loading";
     const ready = phase === "ready" && Boolean(data);
-    const statusKey = pending ? "autopilotUpdating" : loading ? "loading" : phase === "unavailable" ? "autopilotNotConnected" : !ready ? "autopilotStatusError" : data.enabled ? "autopilotActive" : "autopilotPaused";
+    const execution = autopilotExecutionPresentation(data);
+    const statusKey = pending ? "autopilotUpdating" : loading ? "loading" : phase === "unavailable" ? "autopilotNotConnected" : !ready ? "autopilotStatusError" : execution.label;
     els.autopilotStatus.textContent = t(statusKey);
-    els.autopilotStatus.className = `status-pill ${phase === "error" ? "is-danger" : ready && data.enabled ? "is-good" : "is-pending"}`;
-    els.autopilotStatusMessage.textContent = t(loading ? "loading" : phase === "unavailable" ? "autopilotNotConnectedMessage" : !ready ? "autopilotLoadError" : data.enabled ? "autopilotActiveMessage" : "autopilotPausedMessage");
+    els.autopilotStatus.className = `status-pill ${phase === "error" ? "is-danger" : ready ? execution.tone : "is-pending"}`;
+    els.autopilotStatusMessage.textContent = t(loading ? "loading" : phase === "unavailable" ? "autopilotNotConnectedMessage" : !ready ? "autopilotLoadError" : execution.message);
     els.autopilotError.hidden = !errorKey;
     els.autopilotError.textContent = errorKey ? t(errorKey) : "";
     els.autopilotToggle.hidden = !data;
@@ -1811,6 +1864,7 @@
     els.autopilotPolicy.innerHTML = policy ? [
       ["autopilotSchedule", policy.schedule === "Daily at 07:23 Dubai" ? t("autopilotDailySchedule") : String(policy.schedule || "—")],
       ["autopilotRunLimit", autopilotCount(policy.maxRunsPerDay)], ["autopilotReleaseLimit", autopilotCount(policy.maxReleasesPerDay)], ["autopilotAiBudget", autopilotCount(policy.aiBudgetUsd)],
+      ["autopilotReleaseMode", t({ inspection_only: "autopilotInspectionOnly", automatic: "autopilotAutomatic" }[data?.execution?.releaseMode] || "autopilotReleaseUnknown")],
     ].map(([label, value]) => `<div><dt>${escapeHtml(t(label))}</dt><dd dir="auto">${escapeHtml(value)}</dd></div>`).join("") : `<div><dt class="sr-only">${escapeHtml(t("autopilotPolicy"))}</dt><dd>${escapeHtml(t("autopilotPolicyUnavailable"))}</dd></div>`;
     els.autopilotBudgetMessage.hidden = policy?.aiBudgetUsd !== 0;
     els.autopilotBudgetMessage.textContent = t("autopilotNoAi");
@@ -1910,6 +1964,14 @@
         return;
       }
       state.me = profile;
+      const security = await api("/user/security");
+      if (security.verified !== true) {
+        state.gateMode = "mfa";
+        els.adminApp.hidden = true;
+        renderGate();
+        setConnection("is-pending", "mfaTitle");
+        return;
+      }
       renderIdentity();
       showApp();
       setConnection("is-online", "accessConnected");
@@ -1920,6 +1982,30 @@
       els.adminApp.hidden = true;
       renderGate();
       setConnection("is-error", state.gateMode === "signedOut" ? "sessionExpired" : "offlineTitle");
+    }
+  }
+
+  async function verifyAdminAccess(button) {
+    button.disabled = true;
+    try {
+      const { openAdminSecurity } = await import('/auth-security.js');
+      const verified = await openAdminSecurity({
+        api,
+        language: state.lang,
+        onPasswordChange: () => location.assign(signInHref()),
+        onSignIn: () => {
+          state.me = null;
+          state.gateMode = "signedOut";
+          els.adminApp.hidden = true;
+          renderGate();
+          setConnection("is-error", "sessionExpired");
+        },
+      });
+      if (verified) await establishAccess();
+    } catch (error) {
+      handleActionError(error);
+    } finally {
+      button.disabled = false;
     }
   }
 
@@ -1944,6 +2030,13 @@
 
   function handleActionError(error) {
     if (error instanceof AdminApiError) {
+      if (["MFA_REQUIRED", "MFA_ENROLLMENT_REQUIRED"].includes(error.code)) {
+        state.gateMode = "mfa";
+        renderGate();
+        els.adminApp.hidden = true;
+        setConnection("is-pending", "mfaTitle");
+        return;
+      }
       if (error.status === 401 && error.code === "STEP_UP_REQUIRED") {
         state.security = null;
         showToast(t("highImpactConfirmation"), true);
@@ -2277,6 +2370,7 @@
       setButtonBusy(els.logoutButton, true);
       try {
         await api("/auth/logout", { method: "POST", body: "{}" });
+        try { localStorage.setItem("jakh-auth-change", `signed-out:${Date.now()}:${Math.random()}`); } catch { /* Other tabs also recheck on focus. */ }
         state.content.dirty = false;
         state.feedback.drafts.clear();
         location.assign(state.lang === "ar" ? "/?lang=ar" : "/");

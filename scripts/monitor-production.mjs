@@ -46,14 +46,15 @@ export const CONTENT_PUBLICATION_CONTRACT = Object.freeze({
 export const API_RELEASE_CONTRACT = Object.freeze({
   service: "jakh-api",
   version: "1.5.0",
-  schema: "9",
-  targetSchema: "9",
-  compatibleSchemas: ["8", "9"],
+  schema: "10",
+  targetSchema: "10",
+  compatibleSchemas: ["8", "9", "10"],
   features: {
     registration: true,
     accountRecovery: true,
     accountDeletion: true,
     contentStudio: true,
+    adminMfa: true,
   },
   contentPublication: CONTENT_PUBLICATION_CONTRACT,
 });
@@ -1036,6 +1037,7 @@ export async function runProductionMonitor(options = {}) {
           accountRecovery: schemaNumber >= 7,
           accountDeletion: schemaNumber >= 8,
           contentStudio: schemaNumber >= 9,
+          adminMfa: schemaNumber >= 10,
         }
       : API_RELEASE_CONTRACT.features;
     expect(

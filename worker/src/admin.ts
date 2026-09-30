@@ -2,6 +2,7 @@ import { enforceRateLimit, requireUser, touchPrivilegedSession } from "./db.js";
 import { validateCard } from "./catalog.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
+import { requireAdminMfa } from "./admin-mfa.js";
 import { clientIp, sha256, validatePassword } from "./security.js";
 import type {
   Env,
@@ -140,6 +141,7 @@ async function requireAdmin(request: Request, env: Env): Promise<SessionUser> {
     throw new ApiError(403, "Administrator access is required", undefined, "ADMIN_REQUIRED");
   }
   await touchPrivilegedSession(env, user);
+  await requireAdminMfa(env, user);
   return user;
 }
 

@@ -1,3 +1,4 @@
+import { CROSSWORD_COPY } from './puzzle-crossword-shell.js';
 // Original Riddle Arabia clue bank. No newspaper grids or syndicated content.
 export const CLUES = {
  en: [
@@ -84,9 +85,9 @@ export function mount(root,context) {
  let state=restoreCrosswordState(puzzle,saved,starter);
  let active=[...puzzle.entries].sort((a,b)=>a.number-b.number)[0],selected=active.indices[0];
  const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
- const intro=el('p',t('Solve the clues to fill every white square. Select a clue, then type into the grid.','حلّ التعريفات لملء كل المربعات البيضاء. اختر تعريفاً ثم اكتب في الشبكة.'));
- const details=el('details'),summary=el('summary',t('How to play','طريقة اللعب'));
- details.append(summary,el('p',t('Click a clue to change direction. Arrow keys move around the board; Enter switches across/down. Backspace clears a letter. You can paste letters into the selected word. Checking letters or revealing a word marks this puzzle as assisted. Arabic words are entered from right to left.','انقر تعريفاً لتغيير الاتجاه. تنقّل بمفاتيح الأسهم، واضغط Enter للتبديل بين الأفقي والرأسي. يمسح Backspace الحرف. يمكنك لصق حروف الكلمة المحددة. فحص الحروف أو كشف كلمة يسجّل استخدام المساعدة. تُكتب الكلمات العربية من اليمين إلى اليسار.')));
+ const intro=el('p',t(...CROSSWORD_COPY.intro));
+ const details=el('details'),summary=el('summary',t(...CROSSWORD_COPY.how));
+ details.append(summary,el('p',t(...CROSSWORD_COPY.instructions)));
  const layout=el('div',undefined,'pc-layout'),left=el('div'),right=el('div',undefined,'pc-clues');
  const current=el('p',undefined,'pc-current');current.setAttribute('aria-live','polite');
  const board=el('div',undefined,'pc-board');board.dataset.size=size;board.style.gridTemplateColumns=`repeat(${size},1fr)`;board.setAttribute('role','group');board.setAttribute('aria-label',t('Crossword grid','شبكة الكلمات المتقاطعة'));
@@ -106,7 +107,7 @@ export function mount(root,context) {
   }else cell.setAttribute('aria-hidden','true');board.append(cell);
  });
  const buttons=new Map();
- for(const direction of ['across','down']){const group=el('div');group.append(el('h3',direction==='across'?t('Across','أفقياً'):t('Down','رأسياً')));const list=el('ol');
+ for(const direction of ['across','down']){const group=el('div');group.append(el('h2',direction==='across'?t('Across','أفقياً'):t('Down','رأسياً')));const list=el('ol');
   for(const entry of puzzle.entries.filter(e=>e.d===direction).sort((a,b)=>a.number-b.number)){const li=el('li'),button=el('button',`${entry.number}. ${entry.clue} (${entry.word.length})`);button.type='button';button.setAttribute('aria-pressed','false');button.onclick=()=>{active=entry;inputs[entry.indices.find(i=>!state.values[i])??entry.indices[0]].focus();};li.append(button);list.append(li);buttons.set(entry.id,button);}
   group.append(list);right.append(group);
  }

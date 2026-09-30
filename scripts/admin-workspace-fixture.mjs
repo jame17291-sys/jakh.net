@@ -131,8 +131,11 @@ export async function startAdminWorkspaceFixture({ port = 0, siteRoot = ROOT } =
       if (url.pathname.startsWith("/api/")) {
         state.requests.push({ path: url.pathname, query: url.search, method: request.method, body, role });
         const path = url.pathname.slice(4);
-        if (path === "/health") return json({ ok: true, schema: "9", targetSchema: "9", features: { contentStudio: true } });
+        if (path === "/health") return json({ ok: true, schema: "10", targetSchema: "10", features: { contentStudio: true, adminMfa: true } });
         if (path === "/user/profile") return json({ id: actorId, username, email: "owner@example.test", avatar: "R", role });
+        // Admin workspace tests start after successful MFA; enrollment and
+        // challenge enforcement are covered by the real API integration tests.
+        if (path === "/user/security") return json({ required: true, enabled: true, verified: true, recoveryCodesRemaining: 10 });
         if (path === "/auth/session") return json({ authenticated: true });
         if (path === "/admin/security") return json({ stepUp: { expiresAt: state.stepUp ? new Date(Date.now() + 600_000).toISOString() : null } });
         if (path === "/admin/security/reauthenticate" && request.method === "POST") {

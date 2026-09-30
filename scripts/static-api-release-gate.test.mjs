@@ -13,7 +13,7 @@ const quarantine = loadProductionQuarantine();
 
 function deployment({
   commit = EXPECTED_COMMIT,
-  schema = "9",
+  schema = "10",
   runId = "987654321",
   message = `JAKH final ${commit} schema ${schema} run ${runId}`,
   versions = [{ version_id: VERSION_A, percentage: 100 }],
@@ -31,14 +31,15 @@ function health(overrides = {}) {
     service: "jakh-api",
     version: "1.5.0",
     workerVersionId: VERSION_A,
-    schema: "9",
-    targetSchema: "9",
-    compatibleSchemas: ["8", "9"],
+    schema: "10",
+    targetSchema: "10",
+    compatibleSchemas: ["8", "9", "10"],
     features: {
       registration: true,
       accountRecovery: true,
       accountDeletion: true,
       contentStudio: true,
+      adminMfa: true,
     },
     contentPublication: {
       state: "safety-quarantine-active",
@@ -57,12 +58,12 @@ function verify(overrides = {}) {
     health: health(),
     httpStatus: "200",
     expectedCommit: EXPECTED_COMMIT,
-    expectedSchema: "9",
+    expectedSchema: "10",
     ...overrides,
   });
 }
 
-test("accepts one 100% Worker with the exact final message and schema-9 health", () => {
+test("accepts one 100% Worker with the exact final message and schema-10 health", () => {
   const result = verify();
   assert.deepEqual(result.errors, []);
   assert.equal(result.evidence.activeVersion, VERSION_A);
@@ -76,10 +77,10 @@ test("rejects an active API deployed from a different source commit", () => {
 
 test("rejects the wrong deployment or live health schema", () => {
   const wrongMessageSchema = verify({ deployment: deployment({ schema: "7" }) });
-  assert.match(wrongMessageSchema.errors.join("\n"), /deployment schema was 7, expected 9/u);
+  assert.match(wrongMessageSchema.errors.join("\n"), /deployment schema was 7, expected 10/u);
 
   const wrongHealthSchema = verify({ health: health({ schema: "7" }) });
-  assert.match(wrongHealthSchema.errors.join("\n"), /health schema was 7, expected 9/u);
+  assert.match(wrongHealthSchema.errors.join("\n"), /health schema was 7, expected 10/u);
 });
 
 test("rejects split traffic even when the release message and health are otherwise valid", () => {
@@ -103,10 +104,10 @@ test("binds health to Wrangler and rejects API identity drift across a static re
     result: "verified",
     checkedAt: "before",
     expectedCommit: EXPECTED_COMMIT,
-    expectedSchema: "9",
+    expectedSchema: "10",
     activeVersion: VERSION_A,
     deploymentId: "deployment-verified",
-    deploymentMessage: `JAKH final ${EXPECTED_COMMIT} schema 9 run 987654321`,
+    deploymentMessage: `JAKH final ${EXPECTED_COMMIT} schema 10 run 987654321`,
     apiReleaseRunId: "987654321",
     health: health(),
   };
@@ -122,11 +123,11 @@ test("binds health to Wrangler and rejects API identity drift across a static re
 
 test("rejects malformed or inexact deployment messages", () => {
   const malformedMessages = [
-    `JAKH final ${EXPECTED_COMMIT} schema 9`,
-    `JAKH final ${EXPECTED_COMMIT.slice(0, 12)} schema 9 run 987654321`,
-    `prefix JAKH final ${EXPECTED_COMMIT} schema 9 run 987654321`,
-    `JAKH final ${EXPECTED_COMMIT} schema 9 run release-987654321`,
-    `JAKH compatibility ${EXPECTED_COMMIT} target schema 9 run 987654321`,
+    `JAKH final ${EXPECTED_COMMIT} schema 10`,
+    `JAKH final ${EXPECTED_COMMIT.slice(0, 12)} schema 10 run 987654321`,
+    `prefix JAKH final ${EXPECTED_COMMIT} schema 10 run 987654321`,
+    `JAKH final ${EXPECTED_COMMIT} schema 10 run release-987654321`,
+    `JAKH compatibility ${EXPECTED_COMMIT} target schema 10 run 987654321`,
   ];
   for (const message of malformedMessages) {
     const result = verify({ deployment: deployment({ message }) });
@@ -134,7 +135,7 @@ test("rejects malformed or inexact deployment messages", () => {
   }
 });
 
-test("rejects unhealthy or partially ready schema-9 responses", () => {
+test("rejects unhealthy or partially ready schema-10 responses", () => {
   assert.match(
     verify({ httpStatus: "503" }).errors.join("\n"),
     /HTTP status was 503/u,
@@ -174,7 +175,7 @@ test("static workflow builds once, tests that artifact, and gates deployment on 
   assert.ok(postGatePosition > deployPosition);
   assert.ok(runtimeMonitorPosition > postGatePosition);
   assert.match(workflow, /static-api-release-gate\.mjs verify/gu);
-  assert.match(workflow, /--expected-commit "\$GITHUB_SHA" \\\n\s+--expected-schema 9/gu);
+  assert.match(workflow, /--expected-commit "\$GITHUB_SHA" \\\n\s+--expected-schema 10/gu);
   assert.match(workflow, /candidate-artifact-inventory\.json/u);
   assert.match(workflow, /JAKH_MONITOR_RESULT_PATH:.*runtime-monitor\.json/u);
   assert.match(workflow, /steps\.runtime_monitor\.outcome != 'success'/u);

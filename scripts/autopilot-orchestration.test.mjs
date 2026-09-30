@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { context, githubClient, oidcToken, autopilotRequest, assertMain, releaseInputs, authorizeRelease,
   REPOSITORY, REPOSITORY_ID, API_ORIGIN, AUDIENCE } from './autopilot-client.mjs';
 import { safeChildEnv, findingBody, syncFindings, matchDispatchedRun, dispatchAndWait,
-  FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild } from './site-autopilot.mjs';
+  FINDINGS_MARKER, BOT_ID, publishVerifiedRepair, waitForPullRequestChecks, verifyPublishedBuild,
+  automaticReleaseReadiness, publicationFinding } from './site-autopilot.mjs';
 
 import { loadProductionQuarantine } from './publication-quarantine.mjs';
 
@@ -227,11 +228,41 @@ test('daily workflow remains free, bounded, pinned and independent of a desktop 
   assert.match(source, /id-token: write/u);
   assert.match(source, /retention-days: 1/u);
   assert.doesNotMatch(source, /pull_request_target|OPENAI_API_KEY|ANTHROPIC_API_KEY|CLOUDFLARE_[A-Z_]*(?:TOKEN|SECRET|KEY)|self-hosted/iu);
-  assert.match(source, /environment: autopilot-production/u);
+  assert.match(source, /environment: \$\{\{ vars\.AUTOPILOT_RELEASE_ENABLED == 'true' && 'autopilot-production' \|\| '' \}\}/u);
+  const jobCondition = source.split('    if: >-')[1]?.split('    runs-on:')[0] || '';
+  assert.doesNotMatch(jobCondition, /AUTOPILOT_RELEASE_ENABLED/u, 'Inspection must not be silently skipped when automatic publishing is not set up');
   for (const match of source.matchAll(/secrets\.([A-Za-z0-9_]+)/gu)) assert.equal(match[1], 'AUTOPILOT_GITHUB_APP_PRIVATE_KEY');
   for (const match of source.matchAll(/uses:\s+([^\s#]+)/gu)) assert.match(match[1], /@[a-f0-9]{40}$/u);
   const policy = source.indexOf('scripts/autopilot-policy.test.mjs');
   assert.ok(policy >= 0 && policy < source.indexOf('run: node scripts/site-autopilot.mjs'));
+});
+
+test('daily inspection remains available while missing publishing setup fails closed', () => {
+  for (const value of [undefined, '', 'false', 'TRUE']) {
+    const readiness = automaticReleaseReadiness({ AUTOPILOT_RELEASE_ENABLED: value });
+    assert.deepEqual(readiness, { mode: 'inspection_only', finding: null });
+    assert.equal(publicationFinding(readiness, []), null);
+    assert.match(publicationFinding(readiness, ['sitemap.xml']), /automatic publishing is disabled/u);
+  }
+  const configured = { AUTOPILOT_RELEASE_ENABLED: 'true', AUTOPILOT_GITHUB_APP_ID: '123',
+    AUTOPILOT_GITHUB_APP_INSTALLATION_ID: '456', AUTOPILOT_GITHUB_APP_PRIVATE_KEY: 'fixture-key-not-a-real-key' };
+  const ready = automaticReleaseReadiness(configured);
+  assert.deepEqual(ready, { mode: 'automatic', finding: null });
+  assert.equal(publicationFinding(ready, ['sitemap.xml']), null);
+  for (const key of ['AUTOPILOT_GITHUB_APP_ID', 'AUTOPILOT_GITHUB_APP_INSTALLATION_ID', 'AUTOPILOT_GITHUB_APP_PRIVATE_KEY']) {
+    const readiness = automaticReleaseReadiness({ ...configured, [key]: '' });
+    assert.equal(readiness.mode, 'inspection_only');
+    assert.match(publicationFinding(readiness, []), /setup is incomplete/u);
+  }
+});
+
+test('inspection reports its mode before checks and blocks publication before branch creation', async () => {
+  const source = await fs.readFile(path.join(ROOT, 'scripts/site-autopilot.mjs'), 'utf8');
+  const orchestrator = source.slice(source.indexOf('export async function runAutopilot'));
+  assert.doesNotMatch(orchestrator.slice(0, orchestrator.indexOf('const start =')), /throw.*maintenance is disabled/u);
+  assert.ok(orchestrator.indexOf('await send("inspecting")') < orchestrator.indexOf('const baselineManifest'));
+  assert.ok(orchestrator.indexOf('publicationFinding(readiness, report.changedFiles)') < orchestrator.indexOf('"switch", "-c"'));
+  assert.match(orchestrator, /releaseMode: report\.releaseMode/u);
 });
 
 test('automatic deployments use a reserved environment while manual approvals and rollback proofs remain enforced', async () => {
@@ -267,7 +298,7 @@ test('automatic deployments use a reserved environment while manual approvals an
   assert.match(apiPredeployGate, /AUTOPILOT_TARGET_SCHEMA: \$\{\{ steps\.preflight\.outputs\.target-schema \}\}/u);
   assert.match(apiPredeployGate, /AUTOPILOT_CURRENT_SCHEMA: \$\{\{ steps\.preflight\.outputs\.current-schema \}\}/u);
   assert.match(apiPredeployGate, /AUTOPILOT_SCHEMA_CHANGED: \$\{\{ steps\.preflight\.outputs\.schema-changed \}\}/u);
-  assert.match(apiPredeployGate, /\[ "\$AUTOPILOT_TARGET_SCHEMA" != "9" \] \|\| \[ "\$AUTOPILOT_CURRENT_SCHEMA" != "9" \] \|\| \[ "\$AUTOPILOT_SCHEMA_CHANGED" != "false" \]/u);
+  assert.match(apiPredeployGate, /\[ "\$AUTOPILOT_TARGET_SCHEMA" != "10" \] \|\| \[ "\$AUTOPILOT_CURRENT_SCHEMA" != "10" \] \|\| \[ "\$AUTOPILOT_SCHEMA_CHANGED" != "false" \]/u);
   assert.match(apiPredeployGate, /AUTOPILOT_PREDECESSOR_DIR: \$\{\{ runner\.temp \}\}\/jakh-api-release/u);
   assert.ok(apiPredeployGate.indexOf('exit 1') < apiPredeployGate.indexOf('node scripts/autopilot-client.mjs authorize-release'));
 
@@ -396,18 +427,18 @@ test('publication refuses to run without a live owner pause check', async () => 
   assert.deepEqual(setup.writes, []);
 });
 
-test('automatic API release requires the exact live maintenance predecessor and healthy unchanged schema 9', async (t) => {
+test('automatic API release requires the exact live maintenance predecessor and healthy unchanged schema 10', async (t) => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'autopilot-predecessor-'));
   t.after(() => fs.rm(directory, { recursive: true, force: true }));
   const version = '11111111-1111-4111-8111-111111111111';
   const quarantine = loadProductionQuarantine();
   const deployment = {
-    id: 'verified-predecessor', annotations: { 'workers/message': `JAKH final ${NEXT} schema 9 run 98765` },
+    id: 'verified-predecessor', annotations: { 'workers/message': `JAKH final ${NEXT} schema 10 run 98765` },
     versions: [{ version_id: version, percentage: 100 }],
   };
   const health = {
-    ok: true, service: 'jakh-api', workerVersionId: version, schema: '9', targetSchema: '9', compatibleSchemas: ['8', '9'],
-    features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true },
+    ok: true, service: 'jakh-api', workerVersionId: version, schema: '10', targetSchema: '10', compatibleSchemas: ['8', '9', '10'],
+    features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true, adminMfa: true },
     contentPublication: { state: 'safety-quarantine-active', quarantinedCategories: [...quarantine.categorySlugs],
       quarantinedQuestions: quarantine.manifest.totalCards, publicQuestions: 3825, manifestSha256: quarantine.policySha256 },
   };
@@ -430,10 +461,10 @@ test('automatic API release requires the exact live maintenance predecessor and 
   await writeProof();
   assert.deepEqual(await authorizeRelease(env, mockFetch), receipt);
   assert.equal(calls.length, 3);
-  await writeProof({ ...deployment, annotations: { 'workers/message': `JAKH final ${BASE} schema 9 run 98765` } });
+  await writeProof({ ...deployment, annotations: { 'workers/message': `JAKH final ${BASE} schema 10 run 98765` } });
   await assert.rejects(() => authorizeRelease(env, mockFetch), /automatic repair base is not the live API source:.*active API source commit/u);
   await writeProof(deployment, { ...health, schema: '8' });
-  await assert.rejects(() => authorizeRelease(env, mockFetch), /API health schema was 8, expected 9/u);
+  await assert.rejects(() => authorizeRelease(env, mockFetch), /API health schema was 8, expected 10/u);
   await writeProof({ ...deployment, versions: [{ version_id: version, percentage: 50 }] });
   await assert.rejects(() => authorizeRelease(env, mockFetch), /exactly one active Worker version serving 100%/u);
   await writeProof();

@@ -15,7 +15,7 @@ const failures = [];
 let passed = 0;
 
 function initialData() {
-  return { enabled: false, policy: { schedule: "Daily at 07:23 Dubai", maxRunsPerDay: 1, maxReleasesPerDay: 1, aiBudgetUsd: 0 }, runs: [], lastRun: null };
+  return { enabled: false, execution: { status: 'paused', releaseMode: 'inspection_only' }, policy: { schedule: "Daily at 07:23 Dubai", maxRunsPerDay: 1, maxReleasesPerDay: 1, aiBudgetUsd: 0 }, runs: [], lastRun: null };
 }
 
 function runReceipt(status = "deployed") {
@@ -54,7 +54,10 @@ async function scenario(name, test, options = {}) {
       api.writes.push(body);
       api.entered = true;
       if (api.hold) await api.hold;
-      if (api.mutationStatus === 200) api.data.enabled = body.enabled;
+      if (api.mutationStatus === 200) {
+        api.data.enabled = body.enabled;
+        api.data.execution.status = body.enabled ? 'awaiting_first_run' : 'paused';
+      }
       await route.fulfill({ status: api.mutationStatus, contentType: "application/json", body: JSON.stringify(api.mutationStatus === 200 ? api.data : { error: "Fixture update unavailable" }) });
     } else {
       api.reads++;
@@ -91,7 +94,7 @@ try {
     assert.match(await page.locator("#autopilotPolicy").textContent(), /07:23/u);
     assert.match(await page.locator("#autopilotBudgetMessage").textContent(), /No paid AI calls/u);
     await page.locator("#autopilotToggle").click();
-    await eventually(() => page.locator("#autopilotStatus").textContent(), (value) => value === "Active", "Resume should require confirmed API data");
+    await eventually(() => page.locator("#autopilotStatus").textContent(), (value) => value === "Awaiting first run", "Resume must not claim an unrecorded execution");
     await page.locator("#autopilotToggle").click();
     await eventually(() => page.locator("#autopilotStatus").textContent(), (value) => value === "Paused", "Pause should require confirmed API data");
     assert.deepEqual(api.writes, [{ enabled: true }, { enabled: false }]);
@@ -131,7 +134,7 @@ try {
     assert.equal(await page.locator("#autopilotRefresh").isDisabled(), true);
     assert.equal(api.writes.length, 1);
     api.hold = null; release();
-    await eventually(() => page.locator("#autopilotStatus").textContent(), (value) => value === "Active", "POST should resolve");
+    await eventually(() => page.locator("#autopilotStatus").textContent(), (value) => value === "Awaiting first run", "POST should resolve without claiming a successful run");
   });
   await scenario("failed changes remain uncertain until a fresh successful read", async (page, api) => {
     await openAutopilot(page);
@@ -146,8 +149,10 @@ try {
   await scenario("run receipts expose findings and deployment links while rejecting unsafe URLs", async (page, api) => {
     const latest = runReceipt("deployed");
     const failed = { ...runReceipt("failed"), runId: "456", url: "javascript:alert(1)", deploymentUrl: "https://example.test/unsafe", sourceSha: "<img src=x onerror=alert(1)>" };
-    api.data = { ...initialData(), enabled: true, lastRun: latest, runs: [latest, failed] };
+    api.data = { ...initialData(), enabled: true, execution: { status: 'healthy', releaseMode: 'automatic' }, lastRun: latest, runs: [latest, failed] };
     await openAutopilot(page);
+    assert.equal(await page.locator('#autopilotStatus').textContent(), 'Recent check completed');
+    assert.match(await page.locator('#autopilotPolicy').textContent(), /Automatic publishing enabled/u);
     assert.equal(await page.locator(".autopilot-run").count(), 2);
     assert.match(await page.locator("#autopilotRuns").textContent(), /Failed/u);
     assert.match(await page.locator("#autopilotRuns").textContent(), /Repairs applied/u);

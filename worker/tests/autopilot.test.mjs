@@ -5,7 +5,7 @@ import { DatabaseSync } from 'node:sqlite';
 import test from 'node:test';
 import {
   adminAutopilot, updateAdminAutopilot, claimAutopilot, reportAutopilot,
-  reserveAutopilotRelease, authorizeAutopilotRelease, verifyAutopilotIdentity,
+  reserveAutopilotRelease, authorizeAutopilotRelease, verifyAutopilotIdentity, executionHealth,
 } from '../dist/autopilot.js';
 import worker from '../dist/index.js';
 
@@ -67,6 +67,9 @@ async function setup(t, { role = 'OWNER', enabled = true } = {}) {
   const now = new Date().toISOString();
   database.prepare(`INSERT INTO users (id,username,username_key,password_hash,password_salt,password_iterations,role,created_at,updated_at) VALUES ('owner-1','owner','owner','unused','unused',100000,?,?,?)`).run(role, now, now);
   database.prepare('INSERT INTO sessions (token_hash,user_id,created_at,expires_at) VALUES (?,\'owner-1\',?,?)').run(createHash('sha256').update(SESSION_TOKEN).digest('base64url'), now, new Date(Date.now() + 3600000).toISOString());
+  database.prepare("INSERT INTO admin_totp (user_id,credential_id,secret_ciphertext,enabled_at) VALUES ('owner-1','fixture-credential','unused',?)").run(now);
+  database.prepare("INSERT INTO admin_mfa_sessions (token_hash,user_id,credential_id,verified_at) VALUES (?,'owner-1','fixture-credential',?)")
+    .run(createHash('sha256').update(SESSION_TOKEN).digest('base64url'), now);
   if (enabled !== undefined) database.prepare('INSERT INTO schema_meta (key,value) VALUES (?,?)').run(ENABLED_KEY, String(enabled));
   const env = {
     PASSWORD_PEPPER: 'a'.repeat(32), IP_HASH_SALT: 'b'.repeat(32), ALLOWED_ORIGINS: ORIGIN, STATIC_ORIGIN: ORIGIN,
@@ -137,11 +140,44 @@ test('owner control defaults paused; non-owners and unauthenticated users cannot
   assert.equal(result.enabled, false);
   assert.deepEqual(result.runs, []);
   assert.equal(result.lastRun, null);
+  assert.deepEqual(result.execution, { status: 'paused', lastHeartbeatAt: null, overdueAfterHours: 36, releaseMode: 'unknown' });
   assert.deepEqual(result.policy, { schedule: 'Daily at 07:23 Dubai', maxRunsPerDay: 1, maxReleasesPerDay: 1, aiBudgetUsd: 0 });
   database.prepare("UPDATE users SET role='ADMIN'").run();
   await assert.rejects(adminAutopilot(owner(), env), error('OWNER_REQUIRED', 403));
   await assert.rejects(updateAdminAutopilot(owner('POST', { enabled: true }), env), error('OWNER_REQUIRED', 403));
   await assert.rejects(adminAutopilot(owner('GET', undefined, { cookie: '' }), env), error('UNAUTHORIZED', 401));
+});
+
+test('execution health distinguishes owner permission from actual, current maintenance evidence', () => {
+  const now = Date.parse('2026-09-30T12:00:00Z');
+  const recent = { status: 'no_changes', updatedAt: '2026-09-30T10:00:00Z', releaseMode: 'inspection_only' };
+  assert.equal(executionHealth(true, null, now).status, 'awaiting_first_run');
+  assert.equal(executionHealth(false, recent, now).status, 'paused');
+  assert.equal(executionHealth(true, recent, now).status, 'healthy');
+  assert.equal(executionHealth(true, { ...recent, status: 'testing', updatedAt: '2026-09-30T11:00:00Z' }, now).status, 'running');
+  assert.equal(executionHealth(true, { ...recent, status: 'testing', updatedAt: '2026-09-30T09:59:59Z' }, now).status, 'stale');
+  assert.equal(executionHealth(true, { ...recent, updatedAt: '2026-09-28T23:59:59Z' }, now).status, 'stale');
+  for (const status of ['failed', 'needs_attention', 'rolled_back', 'paused', 'unrecognized']) {
+    assert.equal(executionHealth(true, { ...recent, status }, now).status, 'needs_attention');
+  }
+  for (const updatedAt of ['invalid', '2026-10-01T12:00:00Z']) assert.equal(executionHealth(true, { ...recent, updatedAt }, now).status, 'stale');
+  assert.equal(executionHealth(true, recent, now).releaseMode, 'inspection_only');
+  assert.equal(executionHealth(true, { ...recent, releaseMode: 'automatic' }, now).releaseMode, 'automatic');
+  assert.equal(executionHealth(true, { ...recent, releaseMode: undefined }, now).releaseMode, 'unknown');
+});
+
+test('inspection-only receipts expose publishing mode without granting a release', async (t) => {
+  const { env } = await setup(t);
+  await claimed(env);
+  for (const releaseMode of [true, 'enabled', null]) {
+    await assert.rejects(reportAutopilot(machine('report', { day: DAY, status: 'testing', releaseMode }), env), error('AUTOPILOT_PAYLOAD_INVALID', 400));
+  }
+  await reportAutopilot(machine('report', { day: DAY, status: 'no_changes', releaseMode: 'inspection_only' }), env);
+  const result = await (await adminAutopilot(owner(), env)).json();
+  assert.equal(result.execution.status, 'healthy');
+  assert.equal(result.execution.releaseMode, 'inspection_only');
+  assert.equal(result.lastRun.releaseReservedAt, null);
+  await assert.rejects(reserveAutopilotRelease(machine('release', { day: DAY, candidateSha: CANDIDATE }), env), error('AUTOPILOT_RUN_FINISHED', 409));
 });
 
 test('owner control checks Origin, JSON boolean, request size, rate limit and records each pause/resume audit', async (t) => {
@@ -153,6 +189,16 @@ test('owner control checks Origin, JSON boolean, request size, rate limit and re
   assert.deepEqual(database.prepare('SELECT action FROM admin_audit_log ORDER BY rowid').all().map((row) => row.action), ['autopilot.paused', 'autopilot.resumed']);
   database.prepare('UPDATE rate_limits SET count=20').run();
   await assert.rejects(updateAdminAutopilot(owner('POST', { enabled: false }), env), error('RATE_LIMITED', 429));
+});
+
+test('owner controls require MFA while protected-workflow inspection remains independent of browser sessions', async (t) => {
+  const { env, database } = await setup(t);
+  database.prepare('DELETE FROM admin_mfa_sessions').run();
+  await assert.rejects(adminAutopilot(owner(), env), error('MFA_REQUIRED', 403));
+  await assert.rejects(updateAdminAutopilot(owner('POST', { enabled: false }), env), error('MFA_REQUIRED', 403));
+  assert.equal((await claimed(env)).claimed, true);
+  database.prepare('DELETE FROM admin_totp').run();
+  await assert.rejects(adminAutopilot(owner(), env), error('MFA_ENROLLMENT_REQUIRED', 403));
 });
 
 test('one daily claim wins across racing runs; retries require the exact run and attempt', async (t) => {
@@ -190,7 +236,7 @@ test('daily receipts retain exactly 30 records and preserve unrelated schema met
   const result = await (await adminAutopilot(owner(), env)).json();
   assert.equal(result.runs.length, 30);
   assert.equal(result.lastRun.day, DAY);
-  assert.equal(database.prepare('SELECT value FROM schema_meta WHERE key=\'schema_version\'').get().value, '9');
+  assert.equal(database.prepare('SELECT value FROM schema_meta WHERE key=\'schema_version\'').get().value, '10');
 });
 
 test('a single candidate may reserve one daily release and CAS prevents competing candidates', async (t) => {

@@ -217,14 +217,15 @@ export async function runSyntheticAccountMonitor(options) {
     const health = await requestApi(state, "/api/health");
     if (
       health.payload?.ok !== true
-      || health.payload?.schema !== "9"
-      || health.payload?.targetSchema !== "9"
+      || health.payload?.schema !== "10"
+      || health.payload?.targetSchema !== "10"
       || health.payload?.features?.registration !== true
       || health.payload?.features?.accountRecovery !== true
       || health.payload?.features?.accountDeletion !== true
       || health.payload?.features?.contentStudio !== true
+      || health.payload?.features?.adminMfa !== true
     ) {
-      throw new Error("API health is not fully ready on target schema 9");
+      throw new Error("API health is not fully ready on target schema 10");
     }
 
     state.accountMayExist = true;

@@ -178,6 +178,45 @@ export function validatePassword(value: unknown, label = "Password"): string {
   return value;
 }
 
+// Apply only when creating/replacing a credential. Existing passwords must
+// remain verifiable so an owner can sign in and strengthen their credential.
+const COMMON_PASSWORD_BASES = new Set([
+  "password", "passphrase", "qwerty", "qwertyuiop", "asdfghjkl", "zxcvbnm",
+  "letmein", "welcome", "changeme", "administrator", "admin", "iloveyou",
+  "riddlearabia", "jakh", "كلمةالمرور", "كلمهالمرور",
+]);
+
+export function validateNewPassword(
+  value: unknown,
+  label = "Password",
+  accountIdentifiers: readonly (string | null | undefined)[] = [],
+): string {
+  if (typeof value !== "string") throw new ApiError(400, `${label} is required`);
+  if (Array.from(value).length < 15 || value.length > 128) {
+    throw new ApiError(400, `${label} must be 15–128 characters`, undefined, "PASSWORD_POLICY_INVALID");
+  }
+  // Canonicalization is for screening only: never silently change the secret
+  // that is hashed, and never require a specific character class.
+  const compact = value.normalize("NFKC").toLowerCase().replaceAll("@", "a").replaceAll("$", "s").replace(/[^\p{L}\p{N}]/gu, "");
+  const base = compact.replace(/^\p{N}+|\p{N}+$/gu, "").replace(/[013457]/gu, (digit) => ({
+    "0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t",
+  })[digit] || digit);
+  const letters = compact.replace(/\p{N}/gu, "");
+  const identifiers = accountIdentifiers.filter((item): item is string => Boolean(item))
+    .flatMap((item) => [item, item.split("@")[0] || ""])
+    .map((item) => item.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]/gu, ""))
+    .filter((item) => item.length >= 3);
+  const repeated = [compact, base].some((candidate) => /^(.{1,8})\1+$/u.test(candidate));
+  const sequence = ["0123456789", "9876543210", "1234567890", "qwertyuiop", "asdfghjkl", "abcdefghijklmnopqrstuvwxyz"]
+    .some((pattern) => pattern.repeat(14).includes(compact));
+  if (!compact || repeated || sequence || COMMON_PASSWORD_BASES.has(compact)
+    || COMMON_PASSWORD_BASES.has(letters) || COMMON_PASSWORD_BASES.has(base)
+    || identifiers.some((identifier) => compact === identifier || letters === identifier)) {
+    throw new ApiError(400, `${label} is too predictable. Choose a long, unique passphrase.`, undefined, "PASSWORD_TOO_WEAK");
+  }
+  return value;
+}
+
 export function normalizeEmail(value: unknown): string | null {
   if (value === undefined || value === null || value === "") return null;
   if (typeof value !== "string") throw new ApiError(400, "Invalid email");

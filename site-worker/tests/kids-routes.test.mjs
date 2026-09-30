@@ -29,12 +29,12 @@ test('every kids discovery filter is noindex and no-store for GET, HEAD and matc
       const response = await handler.fetch(new Request(url, { method }), env);
       assert.equal(response.status, 200, `${method} ${url}`);
       assert.equal(response.headers.get('x-robots-tag'), 'noindex, follow', url);
-      assert.equal(response.headers.get('cache-control'), 'no-store', url);
+      assert.equal(response.headers.get('cache-control'), 'no-store, no-transform', url);
       if (method === 'HEAD') assert.equal(await response.text(), '');
       const conditional = await handler.fetch(new Request(url, { method, headers: { 'if-none-match': clean.headers.get('etag') } }), env);
       assert.equal(conditional.status, 304, url);
       assert.equal(conditional.headers.get('x-robots-tag'), 'noindex, follow', url);
-      assert.equal(conditional.headers.get('cache-control'), 'no-store', url);
+      assert.equal(conditional.headers.get('cache-control'), 'no-store, no-transform', url);
     }
   }
 });
@@ -68,6 +68,6 @@ test('kids filter policy does not change unrelated routes and survives canonical
     const final = await handler.fetch(new Request(location), env);
     assert.equal(final.status, 200);
     assert.equal(final.headers.get('x-robots-tag'), 'noindex, follow');
-    assert.equal(final.headers.get('cache-control'), 'no-store');
+    assert.equal(final.headers.get('cache-control'), 'no-store, no-transform');
   }
 });

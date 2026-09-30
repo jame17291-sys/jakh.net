@@ -108,7 +108,7 @@ export async function authorizeRelease(env = process.env, fetchImpl = fetch) {
     if (receipt.stage !== "api" || !SHA.test(receipt.run?.sourceSha || "")) throw new Error("Automatic API predecessor identity is missing.");
     const deployment = JSON.parse(await readFile(join(env.AUTOPILOT_PREDECESSOR_DIR, "worker-before-reread.json"), "utf8"));
     const health = JSON.parse(await readFile(join(env.AUTOPILOT_PREDECESSOR_DIR, "health-before.json"), "utf8"));
-    const proof = verifyStaticApiRelease({ deployment, health, httpStatus: "200", expectedCommit: receipt.run.sourceSha, expectedSchema: "9" });
+    const proof = verifyStaticApiRelease({ deployment, health, httpStatus: "200", expectedCommit: receipt.run.sourceSha, expectedSchema: "10" });
     if (proof.errors.length) throw new Error(`The automatic repair base is not the live API source: ${proof.errors.join("; ")}`);
   }
   process.stdout.write(`Authorized daily ${receipt.stage} release for ${current.sha}.\n`);

@@ -238,17 +238,34 @@ export const DAILY_CHECKS = Object.freeze([
   ["Accessibility", "npm", ["run", "test:a11y"]],
 ]);
 
+export function automaticReleaseReadiness(env = process.env) {
+  if (env.AUTOPILOT_RELEASE_ENABLED !== "true") return { mode: "inspection_only", finding: null };
+  const numericId = value => typeof value === "string" && /^[1-9][0-9]{0,15}$/u.test(value) && Number.isSafeInteger(Number(value));
+  const configured = numericId(env.AUTOPILOT_GITHUB_APP_ID) && numericId(env.AUTOPILOT_GITHUB_APP_INSTALLATION_ID)
+    && typeof env.AUTOPILOT_GITHUB_APP_PRIVATE_KEY === "string" && env.AUTOPILOT_GITHUB_APP_PRIVATE_KEY.trim().length > 0;
+  return configured
+    ? { mode: "automatic", finding: null }
+    : { mode: "inspection_only", finding: "Automatic publishing is enabled but the repository-scoped GitHub App setup is incomplete" };
+}
+
+export function publicationFinding(readiness, changedFiles) {
+  if (readiness.finding) return readiness.finding;
+  return readiness.mode !== "automatic" && changedFiles.length
+    ? "Generated repairs are ready for review; automatic publishing is disabled"
+    : null;
+}
+
 async function writeReport(path, report, env) {
   await writeFile(path, `${JSON.stringify(report, null, 2)}\n`);
   if (env.GITHUB_STEP_SUMMARY && ["no_changes", "needs_attention", "deployed", "failed", "paused", "paused_or_daily_limit"].includes(report.status)) await appendFile(env.GITHUB_STEP_SUMMARY,
-    `## Riddle Arabia Autopilot\n\n- Result: **${report.status}**\n- Checks passed: ${report.checksPassed}\n- Checks failed: ${report.checksFailed}\n- AI spending: **$0**\n- Generated files repaired: ${report.changedFiles.length}\n`
+    `## Riddle Arabia Autopilot\n\n- Result: **${report.status}**\n- Publishing mode: **${report.releaseMode}**\n- Checks passed: ${report.checksPassed}\n- Checks failed: ${report.checksFailed}\n- AI spending: **$0**\n- Generated files repaired: ${report.changedFiles.length}\n`
     + (report.pullRequest ? `- [Repair pull request](${report.pullRequest})\n` : "")
     + (report.deploymentRunId ? `- [Production release](https://github.com/${REPOSITORY}/actions/runs/${report.deploymentRunId})\n` : ""));
 }
 
 export async function runAutopilot(env = process.env) {
   const ctx = context(env);
-  if (env.AUTOPILOT_RELEASE_ENABLED !== "true") throw new Error("Owner setup is not complete; automatic maintenance is disabled.");
+  const readiness = automaticReleaseReadiness(env);
   // A reservation is a UTC-day budget. Never begin a manual cycle so late
   // that its bounded release work could cross into another reservation day.
   const start = new Date();
@@ -260,13 +277,13 @@ export async function runAutopilot(env = process.env) {
   await mkdir(outputDir, { recursive: true });
   const reportPath = join(outputDir, "daily-report.json");
   const gh = githubClient(env);
-  const report = { version: 1, runId: ctx.runId, sourceSha: ctx.sha, status: "inspecting", checksPassed: 0, checksFailed: 0, changedFiles: [], failedChecks: [] };
+  const report = { version: 1, runId: ctx.runId, sourceSha: ctx.sha, releaseMode: readiness.mode, status: "inspecting", checksPassed: 0, checksFailed: 0, changedFiles: [], failedChecks: [] };
   let day;
   const send = async (status, extra = {}) => {
     report.status = status;
     if (day) await autopilotRequest("report", { day, status, checksPassed: report.checksPassed,
       checksFailed: report.checksFailed, fixesApplied: status === "deployed" ? report.changedFiles.length : 0,
-      findings: findingCounts(report.failedChecks), ...extra }, { env });
+      findings: findingCounts(report.failedChecks), releaseMode: report.releaseMode, ...extra }, { env });
     await writeReport(reportPath, report, env);
   };
   try {
@@ -281,6 +298,7 @@ export async function runAutopilot(env = process.env) {
       if ([409,423].includes(error.status)) { report.status = "paused_or_daily_limit"; await writeReport(reportPath, report, env); return report; }
       throw error;
     }
+    await send("inspecting");
     // A repair may not sweep an unrelated, human-merged but unreleased change
     // into production. Establish the current base's exact live static build.
     await must("npm", ["run", "build:site"]);
@@ -319,6 +337,11 @@ export async function runAutopilot(env = process.env) {
         if (!report.failedChecks.includes(BASELINE_IDENTITY_FINDING)) report.failedChecks.push(BASELINE_IDENTITY_FINDING);
         report.checksFailed = report.failedChecks.length;
       }
+    }
+    const publishingBlocker = publicationFinding(readiness, report.changedFiles);
+    if (publishingBlocker) {
+      report.failedChecks.push(publishingBlocker);
+      report.checksFailed = report.failedChecks.length;
     }
     if (report.failedChecks.length) {
       await syncFindings(gh, report.failedChecks, ctx.runUrl);

@@ -229,9 +229,9 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
     if (path === "/api/health") {
       await fulfillJson({
         ok: true,
-        schema: "9",
-        targetSchema: "9",
-        features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true },
+        schema: "10",
+        targetSchema: "10",
+        features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true, adminMfa: true },
       });
       return;
     }

@@ -16,6 +16,7 @@ const FEATURE_SCHEMA = Object.freeze({
   accountRecovery: 7,
   accountDeletion: 8,
   contentStudio: 9,
+  adminMfa: 10,
 });
 
 function invariant(condition, message) {

@@ -1,3 +1,4 @@
+import { crosswordLoadingMarkup } from '../puzzle-crossword-shell.js';
 import { illustrationMarkup, gameIllustrationId } from '../site-illustrations.js';
 import { PUZZLES } from '../puzzle-catalog.js';
 import { puzzlePath } from '../puzzle-routes.js';
@@ -18,7 +19,7 @@ export function puzzleMarkup(lang='en', {game=null}={}) {
         <div class="puzzle-frame"><div class="puzzle-title-row"><h1 id="puzzle-title" tabindex="-1">${game?esc(p(PUZZLES.find(item=>item.id===game).title)):''}</h1><button type="button" class="puzzle-reset" id="puzzle-reset">${t('Start over','ابدأ من جديد')}</button></div>
         <div class="puzzle-reset-confirm" id="puzzle-reset-confirm" hidden><p>${t('Clear your progress for this puzzle and start again?','هل تريد مسح تقدّمك في هذا اللغز والبدء مجدداً؟')}</p><button type="button" class="primary-btn" id="puzzle-reset-yes">${t('Start again','ابدأ مجدداً')}</button><button type="button" class="ghost-btn" id="puzzle-reset-cancel">${t('Keep playing','واصل اللعب')}</button></div>
         <p id="puzzle-storage-note" class="puzzle-storage-note" role="status" hidden>${t('Your browser cannot save progress right now. Progress will last only while this page stays open.','لا يستطيع المتصفح حفظ تقدّمك الآن. سيبقى تقدّمك متاحاً فقط ما دامت هذه الصفحة مفتوحة.')}</p>
-        <div class="puzzle-mount" id="puzzle-mount"></div>
+        <div class="puzzle-mount" id="puzzle-mount">${crosswordLoadingMarkup(game, lang)}</div>
         <section class="puzzle-share" id="puzzle-share" aria-labelledby="puzzle-share-title" hidden><div><h2 id="puzzle-share-title">${t('Make it a friendly challenge','شارك التحدي مع صديق')}</h2><p id="puzzle-share-copy">${t('Share this puzzle without revealing the answers.','شارك هذا اللغز دون كشف الإجابات.')}</p></div><div class="puzzle-share-actions"><button type="button" class="primary-btn" id="puzzle-share-native" hidden>${t('Share','مشاركة')}</button><button type="button" class="ghost-btn" id="puzzle-share-clipboard">${t('Copy challenge','نسخ التحدي')}</button><a class="ghost-btn" id="puzzle-share-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a></div><p role="status" id="puzzle-share-status"></p><label id="puzzle-share-fallback" hidden>${t('Copy this text','انسخ هذا النص')}<textarea readonly id="puzzle-share-text" rows="6"></textarea></label></section>
         <p class="puzzle-history-note" id="puzzle-history-note">${t('Your progress stays on this device. The collection rotates at midnight, Dubai time; an open puzzle stays available until you leave it.','يُحفظ تقدّمك على هذا الجهاز. تتناوب الألغاز عند منتصف الليل بتوقيت دبي؛ ويبقى اللغز المفتوح متاحاً حتى تغادره.')}</p></div>
       </section>

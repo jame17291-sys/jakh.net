@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { randomBytes } from "node:crypto";
-import { readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
+import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
 
 import {
@@ -47,7 +48,39 @@ test("restore attestation requires one supported schema with a real table invent
   assert.equal(attested.restoreProof.destructiveProductionOperation, false);
   assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "8", table_count: 2 }] }]), /too few tables/u);
   assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "5", table_count: 17 }] }]), /unsupported/u);
-  assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "10", table_count: 20 }] }]), /unsupported/u);
+  assert.throws(() => attestRestore(receipt, [{ success: true, results: [{ schema_version: "11", table_count: 20 }] }]), /unsupported/u);
+});
+
+test("encrypted schema-10 backup restores the actual migrations and privileged authentication records", (t) => {
+  const migrations = new URL("../worker/migrations/", import.meta.url);
+  const source = readdirSync(migrations).filter(name => /^\d{4}_.+\.sql$/u.test(name)).sort()
+    .map(name => readFileSync(new URL(name, migrations), "utf8")).join("\n");
+  const fixture = `
+    INSERT INTO users (id,username,username_key,password_hash,password_salt,password_iterations,role,created_at,updated_at)
+      VALUES ('fixture-owner','fixture','fixture','fixture-hash','fixture-salt',100000,'OWNER','2026-09-30T00:00:00Z','2026-09-30T00:00:00Z');
+    INSERT INTO sessions (token_hash,user_id,created_at,expires_at)
+      VALUES ('fixture-session','fixture-owner','2026-09-30T00:00:00Z','2026-10-01T00:00:00Z');
+    INSERT INTO admin_totp (user_id,credential_id,secret_ciphertext,enabled_at)
+      VALUES ('fixture-owner','fixture-credential','fixture-encrypted-secret','2026-09-30T00:00:00Z');
+    INSERT INTO admin_mfa_sessions (token_hash,user_id,credential_id,verified_at)
+      VALUES ('fixture-session','fixture-owner','fixture-credential','2026-09-30T00:00:00Z');
+    INSERT INTO admin_mfa_recovery_codes (code_hash,user_id,credential_id,created_at)
+      VALUES ('fixture-recovery-hash','fixture-owner','fixture-credential','2026-09-30T00:00:00Z');
+  `;
+  const { encrypted, receipt } = encryptBackup({ plaintext: Buffer.from(source + fixture), key });
+  const restored = new DatabaseSync(':memory:');
+  t.after(() => restored.close());
+  restored.exec(decryptBackup({ encrypted, key, receipt }).toString('utf8'));
+  const inventory = restored.prepare("SELECT value AS schema_version, (SELECT COUNT(*) FROM sqlite_master WHERE type='table') AS table_count FROM schema_meta WHERE key='schema_version'").all();
+  const attested = attestRestore(receipt, [{ success: true, results: inventory }]);
+  assert.equal(attested.restoreProof.schemaVersion, '10');
+  for (const table of ['admin_totp','admin_totp_pending','admin_mfa_sessions','admin_mfa_recovery_codes']) {
+    assert.equal(restored.prepare("SELECT COUNT(*) AS count FROM sqlite_master WHERE type='table' AND name=?").get(table).count, 1);
+  }
+  assert.equal(restored.prepare("SELECT secret_ciphertext FROM admin_totp WHERE user_id='fixture-owner'").get().secret_ciphertext, 'fixture-encrypted-secret');
+  assert.equal(restored.prepare('SELECT COUNT(*) AS count FROM admin_mfa_sessions').get().count, 1);
+  assert.equal(restored.prepare('SELECT COUNT(*) AS count FROM admin_mfa_recovery_codes').get().count, 1);
+  assert.doesNotMatch(JSON.stringify(attested), /fixture-encrypted-secret|fixture-session|fixture-recovery-hash/u);
 });
 
 test("restore attestation supports the latest checked-in D1 migration", () => {

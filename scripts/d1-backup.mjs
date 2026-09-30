@@ -15,7 +15,7 @@ export const ALGORITHM = "aes-256-gcm";
 export const AUTH_TAG_BYTES = 16;
 export const MAX_PLAINTEXT_BYTES = 50 * 1024 * 1024;
 export const DEFAULT_RETENTION_DAYS = 35;
-export const SUPPORTED_RESTORE_SCHEMA_VERSIONS = Object.freeze(["6", "7", "8", "9"]);
+export const SUPPORTED_RESTORE_SCHEMA_VERSIONS = Object.freeze(["6", "7", "8", "9", "10"]);
 const SOURCE_PATH = fileURLToPath(import.meta.url);
 
 function invariant(condition, message) {

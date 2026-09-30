@@ -187,3 +187,87 @@ test('malformed saved questions, choices and season values fail closed without t
   assert.equal(restoreRound({ ...r, season: 11 }, cards), null);
   assert.equal(restoreRound({ ...r, answers: [{choice: 0, timedOut: true}] }, cards), null);
 });
+
+// Exercise the production event handlers with a small DOM/focus harness. Browser
+// layout and native Tab order are checked separately in the local UI review.
+test('practice preserves the reader’s place through pagination and filtered card actions in both languages', async () => {
+  const { createTvTrivia } = await import('../tv-trivia.js');
+  const names = ['document', 'window', 'location', 'history', 'matchMedia', 'CSS'];
+  const previous = Object.fromEntries(names.map(name => [name, Object.getOwnPropertyDescriptor(globalThis, name)]));
+  try {
+    for (const lang of ['en', 'ar']) {
+      let document;
+      function node(props = {}) {
+        return { ...props, dataset: props.dataset || {}, classList: { toggle() {} }, listeners: {},
+          setAttribute() {}, scrollIntoView() {}, addEventListener(name, handler) { this.listeners[name] = handler; },
+          focus() { document.activeElement = this; }, closest() { return this; } };
+      }
+      const body = node({ append() {} }), root = node();
+      root.contains = target => target !== body;
+      document = { body, activeElement: body, getElementById: id => id === 'tvTrivia' ? root : null,
+        createElement: () => node(), querySelector: () => null, addEventListener() {} };
+      Object.assign(globalThis, { document, window: { addEventListener() {} },
+        location: new URL('https://riddlearabia.com/tv-shows-trivia?sub=Friends#practice'),
+        history: { replaceState() {} }, matchMedia: () => ({ matches: false }), CSS: { escape: value => value } });
+      let markup = '';
+      Object.defineProperty(root, 'innerHTML', { get: () => markup, set(value) {
+        markup = value; document.activeElement = body;
+        root.articles = [...value.matchAll(/<article class="tv-practice-card" id="practice-([^"]+)">([\s\S]*?)<\/article>/gu)].map(([, id, html]) => {
+          const heading = node({ tagName: 'H2', cardId: id });
+          heading.closest = () => ({ id: `practice-${id}` });
+          const buttons = [...html.matchAll(/data-tv="([^"]+)" data-id="([^"]+)"/gu)].map(([, tv, cardId]) => node({ dataset: { tv, id: cardId } }));
+          return { id, heading, buttons, querySelector: selector => selector === 'h2' ? heading : buttons.find(button => selector === `[data-tv="${button.dataset.tv}"]`) || null };
+        });
+        root.count = node({ id: 'tvPracticeCount' }); root.search = node({ id: 'tvSearch' });
+      } });
+      root.querySelector = selector => {
+        if (selector === '#tvPracticeCount') return root.count;
+        if (selector === '#tvSearch') return root.search;
+        if (selector.startsWith('#practice-')) return root.articles.find(article => `#practice-${article.id}` === selector) || null;
+        return null;
+      };
+      const favourites = new Set(), results = new Map();
+      const api = { state: { lang, categoryData: { cards } }, loadJson: (_, fallback) => fallback, saveJson() {}, trackEvent() {},
+        isFavorite: id => favourites.has(id), getProgressResult: id => results.get(id),
+        toggleFavorite: async id => { if (favourites.has(id)) favourites.delete(id); else favourites.add(id); },
+        markCard: async (id, result) => { results.set(id, result); } };
+      const ui = createTvTrivia(api);
+      const click = async (tv, id) => {
+        const button = node({ dataset: { tv, id } }); button.focus();
+        await root.listeners.click({ target: button });
+      };
+      const filter = value => root.listeners.change({ target: { id: 'tvProgress', value } });
+      assert.equal(root.articles.length, 12);
+      const pool = eligibleCards(cards, 'friends');
+      await click('more-practice');
+      assert.equal(root.articles.length, 24);
+      assert.equal(document.activeElement, root.articles[12].heading, `${lang}: first newly added question receives focus`);
+      ui.render();
+      assert.equal(document.activeElement, root.articles[12].heading, `${lang}: a late account/progress refresh retains the newly focused card`);
+      await click('more-practice');
+      assert.equal(root.articles.length, pool.length);
+      assert.equal(document.activeElement, root.articles[24].heading, `${lang}: final partial page receives focus`);
+      assert.ok(!root.innerHTML.includes('data-tv="more-practice"'));
+
+      const first = root.articles[0].id;
+      await click('favourite', first);
+      assert.equal(document.activeElement.dataset.tv, 'favourite');
+      assert.equal(document.activeElement.dataset.id, first);
+      filter('favourites');
+      await click('favourite', first);
+      assert.equal(root.articles.length, 0);
+      assert.equal(document.activeElement.id, 'tvPracticeCount', `${lang}: empty results have a stable focus target`);
+
+      filter('unsolved');
+      const next = root.articles[1].id;
+      await click('knew', root.articles[0].id);
+      assert.equal(root.articles[0].id, next);
+      assert.equal(document.activeElement, root.articles[0].heading, `${lang}: removed solved card continues at the next question`);
+      await click('reset-practice');
+      assert.equal(document.activeElement.id, 'tvSearch');
+      assert.equal(root.articles.length, 12);
+    }
+  } finally {
+    for (const name of names) { if (previous[name]) Object.defineProperty(globalThis, name, previous[name]); else delete globalThis[name]; }
+  }
+});

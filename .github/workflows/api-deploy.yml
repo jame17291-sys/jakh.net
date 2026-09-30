@@ -319,8 +319,8 @@ jobs:
           AUTOPILOT_PREDECESSOR_DIR: ${{ runner.temp }}/jakh-api-release
         run: |
           set -euo pipefail
-          if [ "$AUTOPILOT_TARGET_SCHEMA" != "9" ] || [ "$AUTOPILOT_CURRENT_SCHEMA" != "9" ] || [ "$AUTOPILOT_SCHEMA_CHANGED" != "false" ]; then
-            echo "::error::Automatic maintenance only supports a code-only release on unchanged schema 9."
+          if [ "$AUTOPILOT_TARGET_SCHEMA" != "10" ] || [ "$AUTOPILOT_CURRENT_SCHEMA" != "10" ] || [ "$AUTOPILOT_SCHEMA_CHANGED" != "false" ]; then
+            echo "::error::Automatic maintenance only supports a code-only release on unchanged schema 10."
             exit 1
           fi
           node scripts/autopilot-client.mjs authorize-release

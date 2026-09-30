@@ -1,3 +1,4 @@
+import { crosswordLoadingMarkup } from './puzzle-crossword-shell.js';
 import { illustrationAttributes, gameIllustrationId } from './site-illustrations.js';
 import { puzzleRoute, puzzleURL } from './puzzle-routes.js';
 import { PUZZLES, BONUS, dayKey, seedFor, createProgressStore } from './puzzle-catalog.js';
@@ -6,7 +7,6 @@ import { DAILY_GAMES, ACTIVITY_KEY, requestedDay, dailyIndex, progressKey, reset
 const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
 const t = (en,ar) => lang === 'ar' ? ar : en;
 const pick = values => values[lang === 'ar' ? 1 : 0];
-const base = lang === 'ar' ? '/ar/play/' : '/play';
 const initialTitle = document.title;
 const library = document.getElementById('puzzle-library');
 const stage = document.getElementById('puzzle-stage');
@@ -140,9 +140,13 @@ async function route({focus=false}={}) {
  };
  activeContext=context;
  document.getElementById('puzzle-history-note').textContent=puzzleDay===dayKey()?t('Progress and streaks stay on this device. The daily selection changes at midnight, Dubai time; this open puzzle will stay available.','يُحفظ التقدّم والسلاسل على هذا الجهاز. يتغير اختيار اليوم عند منتصف الليل بتوقيت دبي؛ ويبقى هذا اللغز المفتوح متاحاً.'):t('You are playing a shared puzzle from an earlier date. It does not change today’s streak.','تلعب لغزاً مشاركاً من تاريخ سابق. لا يغيّر سلسلة اليوم.');
- mountPoint.append(element('p',t('Preparing your puzzle…','جارٍ إعداد اللغز…'),'puzzle-loading'));
+ const loadingMarkup=crosswordLoadingMarkup(game,lang);
+ if(loadingMarkup)mountPoint.innerHTML=loadingMarkup;
+ else mountPoint.append(element('p',t('Preparing your puzzle…','جارٍ إعداد اللغز…'),'puzzle-loading'));
+ mountPoint.setAttribute('aria-busy','true');
  try { const [module]=await Promise.all([modules[current.id](),cssFor(current.id)]);if(run!==generation)return;mountPoint.replaceChildren();cleanup=module.mount(mountPoint,context); }
  catch(error){if(run!==generation)return;mountPoint.replaceChildren(element('p',t('This game could not load. Please check your connection and try again.','تعذّر تحميل اللعبة. تحقّق من الاتصال ثم حاول مجدداً.')));const retry=element('button',t('Try again','حاول مجدداً'),'primary-btn');retry.onclick=()=>location.reload();mountPoint.append(retry);console.error('Puzzle load failed',error);}
+ mountPoint.setAttribute('aria-busy','false');
  if(focus){title.focus();stage.scrollIntoView({block:'start',behavior:'instant'});}
 }
 // Clean game destinations use native navigation so document metadata, static

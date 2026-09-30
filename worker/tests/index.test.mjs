@@ -419,6 +419,7 @@ test("scheduled dispatch keeps cleanup inside the event lifetime", async () => {
           bind() {
             return this;
           },
+          async first() { return { value: "9" }; },
         };
       },
       async batch(items) {
@@ -450,6 +451,7 @@ test("scheduled maintenance runs every job and attributes all failures", async (
         return {
           sql,
           bind() { return this; },
+          async first() { return { value: "9" }; },
         };
       },
       async batch(items) {

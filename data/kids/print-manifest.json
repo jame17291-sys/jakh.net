@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "inputs": {
+    "data/kids/inventory.json": "6ade48313817352fdf0eecb3b06b7259e3ac3a6c8eaa295c91fbc3890b212bbb",
+    "data/kids/activities-young.json": "31a9c80524368126e09e58ebd7447d33494d1beb7ecff53e3d02240371a341a4",
+    "data/kids/activities-older.json": "d67cc19704d674e34bcb35601938daada75871e405e2bb67e84d9db2b22d80cd",
+    "data/kids/activities-language-maths-expansion.json": "60fc674890440ba77838cffdd7a8dab648f86b53be66727c019cb55daced1c58",
+    "data/kids/activities-logic-science-expansion.json": "bf6573c3875fe1e9bc60f05f174bad6763ed1dd2e6f622818ea8102f66732ff6",
+    "data/kids/activities-creativity-life-expansion.json": "1fe51da9ad19a26950c55ec66499142905354c8bada73194aaec8c64f3126168"
+  },
+  "generatorSha256": "343239162fc0651017afb65c8eac53700aadeee24638c93b130d0baac679d22f",
+  "files": [
+    {
+      "path": "assets/kids/printables/pack-3-4-language-en-a4.pdf",
+      "sha256": "ee212873fc053e8279be7cb304a52386fd694df06ab37d40d41428a828712d8d",
+      "bytes": 117407,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-language-en-letter.pdf",
+      "sha256": "4c1560ccca234b38fd232da9738f348fdc8cf742013aebe20b89bd6b05df1558",
+      "bytes": 116155,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-language-ar-a4.pdf",
+      "sha256": "442c376c1490419d4eb9b1ff07d09a1901b1bea421b39693c6e2035003200e64",
+      "bytes": 169030,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-language-ar-letter.pdf",
+      "sha256": "ffcf05bb976ed837dbf8737d58fac60dde326119ae44143ff3ea4267c8633177",
+      "bytes": 167929,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-maths-en-a4.pdf",
+      "sha256": "99fab5c838d4ba1048ccd8159fd670e637e0e8b59dcf747bad5bc6627656e26d",
+      "bytes": 117753,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-maths-en-letter.pdf",
+      "sha256": "d68c064a9781f4c951891aebadf205797340d553f48e69e51ab74909eb435a4f",
+      "bytes": 116504,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-maths-ar-a4.pdf",
+      "sha256": "fdaa51e1c8d995413268b78619664d598610cf1a6a6049b31a6f2a5b8c697309",
+      "bytes": 170411,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-maths-ar-letter.pdf",
+      "sha256": "6d5436d56f236767f06b9840a1bcbb538aee5f3b2f253dddd778907c7c4260a5",
+      "bytes": 169342,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-logic-en-a4.pdf",
+      "sha256": "faa36e2be9f60f316ad4840e6cf19c1adc41f4589b8c4abdd5a36c6354c82bf4",
+      "bytes": 118446,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-logic-en-letter.pdf",
+      "sha256": "05203f10d2eff4f85e37afd99a9477a0b6814a4019119da42bd7e7e0b5ce0f57",
+      "bytes": 117195,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-logic-ar-a4.pdf",
+      "sha256": "84140198b10d5966bd4bef6e611a232c13b3b4628a1aefd7adb8dd251e93c01d",
+      "bytes": 169911,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-logic-ar-letter.pdf",
+      "sha256": "87530c6176e6b0c0f647d73a8d79ddbff8364af635faa87f82e4d056596eea4a",
+      "bytes": 168856,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-science-en-a4.pdf",
+      "sha256": "46cf62b5d6acc64e6bd054072ecf77ca918a402bc7fd61ad2cbb028a55e68e09",
+      "bytes": 118838,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-science-en-letter.pdf",
+      "sha256": "b1d704cb2e3ca4ff11846e8ebcedba3b058dfe4ab27f58b89d2f2e75510d5589",
+      "bytes": 117633,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-science-ar-a4.pdf",
+      "sha256": "d66a0b3bcce26e9600b6e16d4e4f50b64a0e8c14e57fc3f4babb3490aae2437a",
+      "bytes": 170501,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-science-ar-letter.pdf",
+      "sha256": "c5aeb3b278205ca541253f429ca35172d0f54375b9cee80b8a638835fb1dce76",
+      "bytes": 169447,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-creativity-en-a4.pdf",
+      "sha256": "bf738fa79ea9f18342cf88be463e038084ffc6fd794b76ce810ba284a8ed6e48",
+      "bytes": 119799,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-creativity-en-letter.pdf",
+      "sha256": "017a2853f40644a82dfaaba3c4acc80b772ec7b417f5950f0b1b6208fb5d3cf4",
+      "bytes": 118581,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-creativity-ar-a4.pdf",
+      "sha256": "333266d6e60c7ec05f46548f4c9d48c88d4e8334191a018ec5bdb5ab82833cda",
+      "bytes": 171403,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-creativity-ar-letter.pdf",
+      "sha256": "d6056c30f2d18b48194586d5a07a848d2e2b0057d7068bd887e9743ec8a5cecc",
+      "bytes": 170176,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-life-en-a4.pdf",
+      "sha256": "f9d323dc90ee852ea95c7cb55da8b2bdb20431ebbe6e84e2c58ec5e0c239bc65",
+      "bytes": 120338,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-life-en-letter.pdf",
+      "sha256": "d97e2053af87910900384dde107de18479f932f37ea9b9a5847d94f68d74acb6",
+      "bytes": 119145,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-life-ar-a4.pdf",
+      "sha256": "dffee937063b0ff6889ec119d96f548496242358880c6d23dd77e7ed756b7d9b",
+      "bytes": 171959,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-3-4-life-ar-letter.pdf",
+      "sha256": "7194335fe69cd646c40f2cad07b36fe8f7602c00d26678e5250ded67ad96fdab",
+      "bytes": 170731,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-language-en-a4.pdf",
+      "sha256": "119b3fbcb60d7216c3054ae9ede9738649e11dac53f462197a9204de2f63e8ec",
+      "bytes": 118417,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-language-en-letter.pdf",
+      "sha256": "7562c8fe32fe54ef48461eef0ce50e61b690ef07fbf26fa7a89d0a352e36b95d",
+      "bytes": 117130,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-language-ar-a4.pdf",
+      "sha256": "43c4bd44f9f9153c0e9b0961bfef1a75f496db463e5d410fbfd796e591bbef23",
+      "bytes": 169923,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-language-ar-letter.pdf",
+      "sha256": "ebc0febe45c9358b5de1147df92ccce511a38bf4b5f9b614b1b144b41894bdfc",
+      "bytes": 168792,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-maths-en-a4.pdf",
+      "sha256": "7d1e9b93439c98ab639e5e1a03f837c4a35a36f08f84b6c6124e9cb006cc3aee",
+      "bytes": 118256,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-maths-en-letter.pdf",
+      "sha256": "17916daac23a76fbf3c13d56465ce04eb416ba9d0a81594875cdacd6ef72fa0d",
+      "bytes": 116995,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-maths-ar-a4.pdf",
+      "sha256": "88804d3d7590fe9a8992647fcf4ad174310ffc427783ca2904a8a7857f6edc7f",
+      "bytes": 170213,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-maths-ar-letter.pdf",
+      "sha256": "18ada8ec73a5bc5296175930b0c147d994d392a2ebe794bb7cefdb18dbb1065c",
+      "bytes": 169067,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-logic-en-a4.pdf",
+      "sha256": "5d3321edc8d7cb41aef744dc8b48c4210913787163af4f55520d5a30f2c66b1a",
+      "bytes": 118695,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-logic-en-letter.pdf",
+      "sha256": "4a32a108958839a0423e572598278b96d2bf8b3b1d172d86ca5a57b131fd7a42",
+      "bytes": 117496,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-logic-ar-a4.pdf",
+      "sha256": "951918537757e03df095261bfaa0b9a3af7a66b6bfaacbc446b61968fd25534d",
+      "bytes": 169887,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-logic-ar-letter.pdf",
+      "sha256": "15c3a9e62806f6ad06ec06113f0eaf335bac859edc9cb1468ede81767e84e9c1",
+      "bytes": 168804,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-science-en-a4.pdf",
+      "sha256": "8df6bfa9ce021ee6299a53417bf7ac5a3e3d9f9a92849fd1aa01383fddc25d60",
+      "bytes": 119781,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-science-en-letter.pdf",
+      "sha256": "8ce960756b1f4772861e9993a97dced6584ed4c819dd92533cb759e3327f5c20",
+      "bytes": 118551,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-science-ar-a4.pdf",
+      "sha256": "3343abf097d4091042789c6185812e550f53f456fdfc846db13d6afd0e2eac77",
+      "bytes": 171664,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-science-ar-letter.pdf",
+      "sha256": "dad599f2f63e646cd83d624292244ad3c9a2ee0267e27575dac58d8c5247a914",
+      "bytes": 170617,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-creativity-en-a4.pdf",
+      "sha256": "f81ef7f33d88efa7a3a74862a5e7cd4cd5fea11d9af9ed157b81a6cf3129c854",
+      "bytes": 120669,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-creativity-en-letter.pdf",
+      "sha256": "1a84385865affefe13db6aac31f706d84c1da5a400d8281d025d0999d7e5e434",
+      "bytes": 119500,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-creativity-ar-a4.pdf",
+      "sha256": "92859864e1d8109583e8a51c379a58ae65d4d1fc6a1123975ccaadf2d49c62df",
+      "bytes": 173707,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-creativity-ar-letter.pdf",
+      "sha256": "602f7f9651bf6f4e4782e60f988f61b676424532c2ca984dd48a375a8fc916d6",
+      "bytes": 172500,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-life-en-a4.pdf",
+      "sha256": "b52c8dfc1f0657555e141bd50b34a3dd90c4c922f102cc8c22eb92c69e86af8c",
+      "bytes": 121403,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-life-en-letter.pdf",
+      "sha256": "686f5cd56d5c6aaca3c3d39dee44ce41124a019abb31258ebefe9c00c5b7fe1d",
+      "bytes": 120198,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-life-ar-a4.pdf",
+      "sha256": "98be2cbfca931745155c9a2ab29ffad5e0d6cf58df812ac519d6ab572a0b5bba",
+      "bytes": 174217,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-5-6-life-ar-letter.pdf",
+      "sha256": "848a479eba2ae716ace9a478ed420af18bd745488f0a6f3b42cea774074619e9",
+      "bytes": 172974,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-language-en-a4.pdf",
+      "sha256": "f7dfb63a488522396f4349fffb7917a108dc97ee27da7eb16d9d11d032926bdb",
+      "bytes": 119961,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-language-en-letter.pdf",
+      "sha256": "dc1af4194e1bbea8ef2052166a007f3f71f3c7f60136ac321b83b680a026418a",
+      "bytes": 118670,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-language-ar-a4.pdf",
+      "sha256": "e5b558e95e936b252216bbf2ba9cd218496dd6297e674bd30af98d1de94be8fd",
+      "bytes": 171067,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-language-ar-letter.pdf",
+      "sha256": "87915cf62afa2f04465ad1d4eea0de65215f0ab3b482dbf3a252f5d642804dc9",
+      "bytes": 169920,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-maths-en-a4.pdf",
+      "sha256": "60ac2b59110f5d92979bc9e4bbb4ffec9654be4146d8619d3e1b3dfebc885715",
+      "bytes": 118750,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-maths-en-letter.pdf",
+      "sha256": "73d7281aad7ac502a0f82492a1165e9a17191d289ee4520213d197974297408f",
+      "bytes": 117502,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-maths-ar-a4.pdf",
+      "sha256": "67c98729941b775ea954c009f69d27e910f407217c5cb796483f0e9d3a8007da",
+      "bytes": 171958,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-maths-ar-letter.pdf",
+      "sha256": "9b6347d03ae0cd49c82b6bba6eb814b92512e72e93067526bd3d0486ed7b3492",
+      "bytes": 170730,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-logic-en-a4.pdf",
+      "sha256": "b092ed97caa1d2bc19a0b7b85ac24b9cd94d3bedb8cecad3e35869989af9ab50",
+      "bytes": 119498,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-logic-en-letter.pdf",
+      "sha256": "ef187b48219f6e82c7a189b504e1cebccf25df1560b0404230835f9e90bd10d5",
+      "bytes": 118215,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-logic-ar-a4.pdf",
+      "sha256": "462076057dbea63a3011df5904eafad841527f5220eee24e99f974a6f328873c",
+      "bytes": 173915,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-logic-ar-letter.pdf",
+      "sha256": "383783325792e336e09a94dd9a845ad01d2b57d3b2f959ee1fab5d806f3cbf27",
+      "bytes": 172786,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-science-en-a4.pdf",
+      "sha256": "6fefbf2f29ba264a093e9d27ae588fc7c91d4224b96b58989de93adce08ce817",
+      "bytes": 120734,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-science-en-letter.pdf",
+      "sha256": "920114bfbf21c48378b699cc57d2bea393dbc2673cd2b80d868dac1ce508d304",
+      "bytes": 119539,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-science-ar-a4.pdf",
+      "sha256": "fbc6997c840f52cf06b235f061dfad6662874aa46d427dae101420839d8d9ee7",
+      "bytes": 174718,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-science-ar-letter.pdf",
+      "sha256": "39e8678ce6c2c4e90877643ab15785d95def1abb6f5e65587d7ff2950261ea8f",
+      "bytes": 173636,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-creativity-en-a4.pdf",
+      "sha256": "c5e6871ae5585ddb52f2cf1e0eb82ed31188f7765ee4374ff1f087952b86bf36",
+      "bytes": 122344,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-creativity-en-letter.pdf",
+      "sha256": "f061bff47a7d3f75eed642647c80f5fa31e81e5b1ad1d61e0c1375065d5c1b0f",
+      "bytes": 121155,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-creativity-ar-a4.pdf",
+      "sha256": "5034e987f8ee5efdb87f159b0cae6adc5f77c5812fcec1ba4c423c3cf3e2b7fb",
+      "bytes": 173497,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-creativity-ar-letter.pdf",
+      "sha256": "8de769efa52a44ad2c97b9f2c8c55d6703a45216e858713f7d9ea0e95628f9ea",
+      "bytes": 172284,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-life-en-a4.pdf",
+      "sha256": "43de62f7e13abf6ab942a76775324a8cc89f9ec62a1401132dbac961b0eb9315",
+      "bytes": 122048,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-life-en-letter.pdf",
+      "sha256": "f7bb24215e4c5ca9b1b51612630e87ca5ae5001a5261b288cbd08c5b4671e973",
+      "bytes": 120879,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-life-ar-a4.pdf",
+      "sha256": "6eaac767d57b9d7484b1c173a0fd669855a54ce4e19c3ca38dd5e7e32ec56ee5",
+      "bytes": 175874,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-7-8-life-ar-letter.pdf",
+      "sha256": "8ab479207198fc5d2fce72d11fbdc1f82c6cca04d9793d3d6aa8d16da04330ec",
+      "bytes": 174657,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-language-en-a4.pdf",
+      "sha256": "88d42794ad0d719c1e4914e80059212dd333101b37d93d597e89f45e9332656d",
+      "bytes": 121700,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-language-en-letter.pdf",
+      "sha256": "eabbb93d754502107907806a3a36c219d7a73094fea2441c0e0ce7b9e171eb2b",
+      "bytes": 120451,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-language-ar-a4.pdf",
+      "sha256": "1b48e537c565982500dabf6b236ff90ab129f6467c7f6956d8d57e5471f658f4",
+      "bytes": 174749,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-language-ar-letter.pdf",
+      "sha256": "4cf5ecc7bb255a55c965eb5b799ee534b172755b42e9c459d73449028fd27209",
+      "bytes": 173583,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-maths-en-a4.pdf",
+      "sha256": "c01560ec8f4de485d3a8ca38c2b0a2d4b92387dd914b2c39069d3cde5f6444b7",
+      "bytes": 120276,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-maths-en-letter.pdf",
+      "sha256": "25a0d9ef307f8658b2cd5782b20a077f0d752c1ed212d569a1867f0ccb33c28a",
+      "bytes": 119042,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-maths-ar-a4.pdf",
+      "sha256": "b27f960a9f7811e20cfb0fffd20b5b3f989b2946fa21b3742dd518624f37d5c8",
+      "bytes": 173437,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-maths-ar-letter.pdf",
+      "sha256": "350090ac5af83b68ca8fbfa494a09d57a46f0b6d37b804587e311430fd101cd0",
+      "bytes": 172335,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-logic-en-a4.pdf",
+      "sha256": "7c1e1d2f7e64eca75e6bb7c6d1d45734055acac4c2e03fe399e48f5c386bac04",
+      "bytes": 121243,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-logic-en-letter.pdf",
+      "sha256": "3e28276ca74f8f2c3455e81b28c45fde0ebf9535c7edd4f725f561127c0f915b",
+      "bytes": 120022,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-logic-ar-a4.pdf",
+      "sha256": "f2f51675c66f2b9e46a2400bc9bdfcacd9c666daf2ec481269404fd80ced77d7",
+      "bytes": 175690,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-logic-ar-letter.pdf",
+      "sha256": "856e4b629ff1f65ee04772cfb117c68fc9fdce3648190962371d466705359826",
+      "bytes": 174601,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-science-en-a4.pdf",
+      "sha256": "499558c55cf26db150df82547e1b83e8fa1a30a9cd593f19dce55f31ccf5f540",
+      "bytes": 122656,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-science-en-letter.pdf",
+      "sha256": "e2c7782e89dc3680d97b52736b0c871a299b7573899320b2c789f75c3ffaf715",
+      "bytes": 121396,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-science-ar-a4.pdf",
+      "sha256": "5e988d423b8b2b7cdfe89a83a7b2a1db90305d1de14cea4930c8c2f0a80b9bf5",
+      "bytes": 177081,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-science-ar-letter.pdf",
+      "sha256": "032aa09e064295ef75ef5756bda55ef53938fa86aa71fae79698ca5c334dabd9",
+      "bytes": 176061,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-creativity-en-a4.pdf",
+      "sha256": "01a09d6100b0ca190538f836430695ce9e12a2f7b65ac7d423709a5b18270b69",
+      "bytes": 122579,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-creativity-en-letter.pdf",
+      "sha256": "c2e610da79b44f6d5810efba54798b5621adb9ea6d69221f8df09b6a0b35f505",
+      "bytes": 121423,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-creativity-ar-a4.pdf",
+      "sha256": "061619557df35612144084f67ab15657ff47fa7e35119962997e602779149099",
+      "bytes": 175366,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-creativity-ar-letter.pdf",
+      "sha256": "a03effa4fec19c1ce842d89611b0c513437baca91079e1539ce28b213f74843b",
+      "bytes": 174158,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-life-en-a4.pdf",
+      "sha256": "29fc558b6956288eb0b661fd744e3c614944f54a98821265929afff20a7cc99e",
+      "bytes": 124090,
+      "pages": 40,
+      "lang": "en",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-life-en-letter.pdf",
+      "sha256": "29acc4e2bd2c5fe76bc2d3c8e1ce3b5a8e165278d087a10410c953a8e1a4cc41",
+      "bytes": 122931,
+      "pages": 40,
+      "lang": "en",
+      "paper": "letter"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-life-ar-a4.pdf",
+      "sha256": "5488e58d4ecbde521608326c4a7a1d6deecb7b89a27c345b373cbd3ade5c9ac5",
+      "bytes": 180233,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "a4"
+    },
+    {
+      "path": "assets/kids/printables/pack-9-12-life-ar-letter.pdf",
+      "sha256": "e14e1fc9c8d793703f77e28fcc8be53d6a840e945eb9e4b37faeb729450e9f1f",
+      "bytes": 178897,
+      "pages": 40,
+      "lang": "ar",
+      "paper": "letter"
+    }
+  ]
+}

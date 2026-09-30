@@ -1,0 +1,5390 @@
+[
+  {
+    "id": "kids-3-4-language-01",
+    "age": "3-4",
+    "area": "language",
+    "format": "game",
+    "minutes": 5,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Mystery object bag",
+      "ar": "حقيبة الأشياء الغامضة"
+    },
+    "summary": {
+      "en": "Describe a familiar object before showing it.",
+      "ar": "صِف شيئًا مألوفًا قبل إظهاره."
+    },
+    "objective": {
+      "en": "Practise naming objects and describing their uses.",
+      "ar": "التدرّب على تسمية الأشياء ووصف استخداماتها."
+    },
+    "alternatives": {
+      "en": "Hide one object behind your back instead of using a bag.",
+      "ar": "أخفِ شيئًا واحدًا خلف ظهرك بدلًا من استخدام الحقيبة."
+    },
+    "preparation": {
+      "en": "Place three familiar, safe objects in the bag.",
+      "ar": "ضع ثلاثة أشياء مألوفة وآمنة في الحقيبة."
+    },
+    "prompt": {
+      "en": "What else could you tell me without saying its name?",
+      "ar": "ماذا يمكنك أن تخبرني عنه دون ذكر اسمه؟"
+    },
+    "answer": {
+      "en": "A spoon fits the soup clue; accept other objects that fit a child’s clue.",
+      "ar": "الملعقة تناسب وصف الحساء؛ واقبل أشياء أخرى تناسب وصف الطفل."
+    },
+    "explanation": {
+      "en": "A useful clue describes what an object does or what it is like.",
+      "ar": "الوصف المفيد يذكر استخدام الشيء أو صفته."
+    },
+    "easier": {
+      "en": "Show two objects and let the child point to one.",
+      "ar": "أظهر شيئين ودع الطفل يشير إلى أحدهما."
+    },
+    "harder": {
+      "en": "Give two clues before anyone guesses.",
+      "ar": "قدّم وصفين قبل التخمين."
+    },
+    "extension": {
+      "en": "Describe three objects while tidying the room.",
+      "ar": "صِف ثلاثة أشياء أثناء ترتيب الغرفة."
+    },
+    "materials": {
+      "en": [
+        "Cloth bag",
+        "Large spoon",
+        "Small towel",
+        "Large toy car"
+      ],
+      "ar": [
+        "حقيبة قماش",
+        "ملعقة كبيرة",
+        "منشفة صغيرة",
+        "سيارة لعبة كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Describe the spoon: “We use this to eat soup.”",
+        "Let your child guess, then show the object.",
+        "Invite your child to choose another object and give you a clue."
+      ],
+      "ar": [
+        "صِف الملعقة: «نستخدمها لتناول الحساء».",
+        "دع الطفل يخمّن، ثم أظهر الشيء.",
+        "ادعُ الطفل لاختيار شيء آخر وإعطائك وصفًا له."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Name an action: eating, drying or rolling."
+      ],
+      "ar": [
+        "اذكر فعلًا: الأكل أو التجفيف أو التدحرج."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-language-02",
+    "age": "3-4",
+    "area": "language",
+    "format": "story",
+    "minutes": 10,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "One-sentence story circle",
+      "ar": "حكاية جملة بعد جملة"
+    },
+    "summary": {
+      "en": "Take turns building a tiny story together.",
+      "ar": "تبادلوا الأدوار لبناء حكاية قصيرة."
+    },
+    "objective": {
+      "en": "Connect spoken ideas and listen to another speaker.",
+      "ar": "ربط الأفكار المنطوقة والاستماع إلى المتحدّث الآخر."
+    },
+    "alternatives": {
+      "en": "A favourite soft toy can be the story character.",
+      "ar": "يمكن أن تكون دمية ناعمة محبوبة بطلة الحكاية."
+    },
+    "preparation": {
+      "en": "Sit together and choose a familiar animal.",
+      "ar": "اجلسا معًا واختارا حيوانًا مألوفًا."
+    },
+    "prompt": {
+      "en": "What happened after the cat tried on the hat?",
+      "ar": "ماذا حدث بعدما جرّبت القطة القبعة؟"
+    },
+    "answer": {
+      "en": "Any connected, comfortable story is welcome; there is no fixed ending.",
+      "ar": "تُقبل أي حكاية مترابطة ومريحة للطفل؛ فلا توجد نهاية محدّدة."
+    },
+    "explanation": {
+      "en": "Taking turns makes room for both storytellers’ ideas.",
+      "ar": "تبادل الأدوار يتيح مكانًا لأفكار كلّ منكما."
+    },
+    "easier": {
+      "en": "Let your child supply one word or animal sound.",
+      "ar": "دع الطفل يضيف كلمة واحدة أو صوت حيوان."
+    },
+    "harder": {
+      "en": "Recall the beginning, middle and ending together.",
+      "ar": "تذكّرا البداية والوسط والنهاية معًا."
+    },
+    "extension": {
+      "en": "Retell the story to a toy at bedtime.",
+      "ar": "احكيا القصة لدمية قبل النوم."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Begin: “A little cat found a hat.”",
+        "Ask your child what the cat does next; repeat their idea in a sentence.",
+        "Add one sentence each, then finish with the cat returning home."
+      ],
+      "ar": [
+        "ابدأ: «وجدت قطة صغيرة قبعة».",
+        "اسأل الطفل عمّا تفعله القطة بعد ذلك، وردّد فكرته في جملة.",
+        "أضيفا جملة بالتناوب، ثم أنهيا الحكاية بعودة القطة إلى المنزل."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Offer a choice: did it dance or visit a friend?"
+      ],
+      "ar": [
+        "قدّم خيارين: هل رقصت أم زارت صديقة؟"
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-language-03",
+    "age": "3-4",
+    "area": "language",
+    "format": "game",
+    "minutes": 5,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Animal sound detective",
+      "ar": "محقّق أصوات الحيوانات"
+    },
+    "summary": {
+      "en": "Listen to an animal sound and explain your guess.",
+      "ar": "استمع إلى صوت حيوان واشرح تخمينك."
+    },
+    "objective": {
+      "en": "Associate familiar sounds with names and take speaking turns.",
+      "ar": "ربط الأصوات المألوفة بالأسماء وتبادل أدوار الكلام."
+    },
+    "alternatives": {
+      "en": "Point to familiar animal pictures if making sounds is uncomfortable.",
+      "ar": "أشر إلى صور حيوانات مألوفة إذا لم يرغب الطفل في تقليد الأصوات."
+    },
+    "preparation": {
+      "en": "Choose three animals your child already knows.",
+      "ar": "اختر ثلاثة حيوانات يعرفها الطفل."
+    },
+    "prompt": {
+      "en": "What clue helped you decide?",
+      "ar": "ما الدليل الذي ساعدك على الاختيار؟"
+    },
+    "answer": {
+      "en": "“Meow” suggests a cat; accept the family’s usual sound words.",
+      "ar": "يوحي «مياو» بالقطة؛ واقبل الألفاظ المعتادة في الأسرة لتقليد الأصوات."
+    },
+    "explanation": {
+      "en": "Different languages may write animal sounds differently while naming the same animal.",
+      "ar": "قد تكتب اللغات أصوات الحيوانات بطرق مختلفة مع الإشارة إلى الحيوان نفسه."
+    },
+    "easier": {
+      "en": "Make the sound and show the matching animal gesture.",
+      "ar": "قلّد الصوت مع حركة تدلّ على الحيوان."
+    },
+    "harder": {
+      "en": "Give a feature clue without making its sound.",
+      "ar": "قدّم وصفًا للحيوان دون تقليد صوته."
+    },
+    "extension": {
+      "en": "Listen for real bird sounds from a safe place together.",
+      "ar": "استمعا إلى أصوات الطيور من مكان آمن."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Make a gentle “meow” and ask which animal it could be.",
+        "Name the cat together and describe one feature, such as whiskers.",
+        "Let your child make a different sound for you to identify."
+      ],
+      "ar": [
+        "قل «مياو» بصوت لطيف واسأل عن الحيوان الذي يصدره.",
+        "سمّيا القطة معًا واذكرا صفة لها، مثل الشوارب.",
+        "دع الطفل يقلّد صوتًا آخر لتتعرّف إليه."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Offer two names: cat or duck?"
+      ],
+      "ar": [
+        "اقترح اسمين: قطة أم بطة؟"
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-language-04",
+    "age": "3-4",
+    "area": "language",
+    "format": "movement",
+    "minutes": 5,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Where is Teddy?",
+      "ar": "أين الدبّ؟"
+    },
+    "summary": {
+      "en": "Move a toy to explore position words.",
+      "ar": "حرّك دمية لتجربة كلمات المكان."
+    },
+    "objective": {
+      "en": "Use and understand on, under and beside.",
+      "ar": "استخدام وفهم كلمات فوق وتحت وبجانب."
+    },
+    "alternatives": {
+      "en": "Use a rolled pair of socks instead of a toy.",
+      "ar": "استخدم زوج جوارب ملفوفًا بدلًا من الدمية."
+    },
+    "preparation": {
+      "en": "Put the cushion on the floor with space around it.",
+      "ar": "ضع الوسادة على الأرض واترك مساحة حولها."
+    },
+    "prompt": {
+      "en": "Can you show me beside without covering Teddy?",
+      "ar": "هل يمكنك وضع الدب بجانب الوسادة دون تغطيته؟"
+    },
+    "answer": {
+      "en": "On means resting above the cushion; under means below it; beside means next to it.",
+      "ar": "فوق تعني على الوسادة؛ وتحت تعني أسفلها؛ وبجانب تعني إلى جوارها."
+    },
+    "explanation": {
+      "en": "Moving a real object gives each position word a visible example.",
+      "ar": "تحريك شيء حقيقي يعطي مثالًا مرئيًا لكل كلمة مكان."
+    },
+    "easier": {
+      "en": "Practise only on and under.",
+      "ar": "تدرّبا على فوق وتحت فقط."
+    },
+    "harder": {
+      "en": "Try a two-part instruction: beside the cushion, then on it.",
+      "ar": "جرّبا تعليمات من جزأين: بجانب الوسادة ثم فوقها."
+    },
+    "extension": {
+      "en": "Use the same words when putting toys away.",
+      "ar": "استخدما الكلمات نفسها عند ترتيب الألعاب."
+    },
+    "materials": {
+      "en": [
+        "Soft toy",
+        "Cushion"
+      ],
+      "ar": [
+        "دمية ناعمة",
+        "وسادة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Put Teddy on the cushion and say “on”.",
+        "Ask the child to put Teddy under, then beside, the cushion.",
+        "Swap roles so your child tells you where Teddy should go."
+      ],
+      "ar": [
+        "ضع الدب فوق الوسادة وقل «فوق».",
+        "اطلب من الطفل وضعه تحت الوسادة، ثم بجانبها.",
+        "تبادلا الأدوار ليخبرك الطفل أين تضع الدب."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Model one position with your hand first."
+      ],
+      "ar": [
+        "وضّح موضعًا واحدًا بيدك أولًا."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-language-05",
+    "age": "3-4",
+    "area": "language",
+    "format": "story",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "My day in three pictures",
+      "ar": "يومي في ثلاث صور"
+    },
+    "summary": {
+      "en": "Tell a familiar routine using three quick drawings.",
+      "ar": "احكِ عن روتين مألوف بثلاث رسومات بسيطة."
+    },
+    "objective": {
+      "en": "Use first, next and last to describe an order.",
+      "ar": "استخدام أولًا ثم وأخيرًا لوصف الترتيب."
+    },
+    "alternatives": {
+      "en": "Act out the three actions instead of drawing.",
+      "ar": "مثّلا الأفعال الثلاثة بدلًا من رسمها."
+    },
+    "preparation": {
+      "en": "Draw a cup, toothbrush and shoes in three separate spaces.",
+      "ar": "ارسم كوبًا وفرشاة أسنان وحذاءً في ثلاث مساحات منفصلة."
+    },
+    "prompt": {
+      "en": "What do you usually do before putting on your shoes?",
+      "ar": "ماذا تفعل عادةً قبل ارتداء حذائك؟"
+    },
+    "answer": {
+      "en": "The order can differ between families; a clear explanation matters.",
+      "ar": "قد يختلف الترتيب بين الأسر؛ والمهم وصفه بوضوح."
+    },
+    "explanation": {
+      "en": "Sequence words help a listener follow events in order.",
+      "ar": "تساعد كلمات الترتيب المستمع على متابعة الأحداث."
+    },
+    "easier": {
+      "en": "Use only two pictures.",
+      "ar": "استخدما صورتين فقط."
+    },
+    "harder": {
+      "en": "Add a fourth picture and explain where it belongs.",
+      "ar": "أضيفا صورة رابعة واشرحا موضعها في الترتيب."
+    },
+    "extension": {
+      "en": "Draw an evening routine another day.",
+      "ar": "ارسما روتين المساء في يوم آخر."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Large crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Ask your child what each picture might mean.",
+        "Choose the order that matches your family’s morning.",
+        "Point to each picture and tell the routine using first, next and last."
+      ],
+      "ar": [
+        "اسأل الطفل عمّا قد تعنيه كل صورة.",
+        "اختارا ترتيبًا يناسب صباح أسرتكما.",
+        "أشيرا إلى الصور واحكيا الروتين باستخدام أولًا ثم وأخيرًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Describe one real morning rather than an ideal routine."
+      ],
+      "ar": [
+        "صِفا صباحًا حقيقيًا بدلًا من روتين مثالي."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-maths-01",
+    "age": "3-4",
+    "area": "maths",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "A picnic for three toys",
+      "ar": "نزهة لثلاث دمى"
+    },
+    "summary": {
+      "en": "Set one place for each toy guest.",
+      "ar": "جهّز مكانًا لكل دمية ضيفة."
+    },
+    "objective": {
+      "en": "Match one object to each guest and count a small set.",
+      "ar": "مطابقة شيء واحد لكل ضيف وعدّ مجموعة صغيرة."
+    },
+    "alternatives": {
+      "en": "Use folded towels as pretend plates.",
+      "ar": "استخدم مناشف مطوية بدلًا من الأطباق."
+    },
+    "preparation": {
+      "en": "Seat the toys in a row on the floor.",
+      "ar": "أجلس الدمى في صف على الأرض."
+    },
+    "prompt": {
+      "en": "Does every guest have exactly one cup?",
+      "ar": "هل لكل ضيف كوب واحد بالضبط؟"
+    },
+    "answer": {
+      "en": "Three guests need three cups and three napkins, one each.",
+      "ar": "يحتاج ثلاثة ضيوف إلى ثلاثة أكواب وثلاثة مناديل، واحد لكل ضيف."
+    },
+    "explanation": {
+      "en": "Pairing guests and cups lets us check the count without guessing.",
+      "ar": "تساعد مطابقة الضيوف بالأكواب على التحقّق من العدد دون تخمين."
+    },
+    "easier": {
+      "en": "Begin with two toys.",
+      "ar": "ابدأ بدمْيتين."
+    },
+    "harder": {
+      "en": "Add a fourth guest and work out what is missing.",
+      "ar": "أضف ضيفًا رابعًا وحدّدا ما ينقصه."
+    },
+    "extension": {
+      "en": "Help count places at a real family meal.",
+      "ar": "ساعدا في عدّ الأماكن عند وجبة عائلية."
+    },
+    "materials": {
+      "en": [
+        "Three soft toys",
+        "Three unbreakable cups",
+        "Three cloth napkins"
+      ],
+      "ar": [
+        "ثلاث دمى ناعمة",
+        "ثلاثة أكواب غير قابلة للكسر",
+        "ثلاث مناديل قماشية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Give one cup to the first toy and invite your child to finish.",
+        "Touch and count the cups together: one, two, three.",
+        "Add one napkin per toy and check whether anyone has none or two."
+      ],
+      "ar": [
+        "أعطِ الدمية الأولى كوبًا وادعُ الطفل لإكمال التوزيع.",
+        "المسا الأكواب وعُدّاها معًا: واحد، اثنان، ثلاثة.",
+        "وزّعا منديلًا لكل دمية وتحقّقا إن كانت دمية بلا منديل أو معها اثنان."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Point to each guest and its place in turn."
+      ],
+      "ar": [
+        "أشر إلى كل ضيف ومكانه بالتتابع."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-maths-02",
+    "age": "3-4",
+    "area": "maths",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Sock pair search",
+      "ar": "البحث عن أزواج الجوارب"
+    },
+    "summary": {
+      "en": "Find pairs in a small pile of clean socks.",
+      "ar": "ابحث عن الأزواج في مجموعة صغيرة من الجوارب النظيفة."
+    },
+    "objective": {
+      "en": "Match objects by observable features.",
+      "ar": "مطابقة الأشياء حسب صفاتها الظاهرة."
+    },
+    "alternatives": {
+      "en": "Match pairs of washcloths with different colours or textures.",
+      "ar": "طابق أزواج قطع قماش مختلفة الألوان أو الملمس."
+    },
+    "preparation": {
+      "en": "Separate and mix the socks on a clear surface.",
+      "ar": "افصل الجوارب واخلطها على سطح خالٍ."
+    },
+    "prompt": {
+      "en": "What makes these two a pair?",
+      "ar": "ما الذي يجعل هذين الجوربين زوجًا؟"
+    },
+    "answer": {
+      "en": "Three pairs contain six socks; each pair has two matching socks.",
+      "ar": "تحتوي ثلاثة أزواج على ستة جوارب؛ وفي كل زوج جوربان متطابقان."
+    },
+    "explanation": {
+      "en": "Matching may use more than one feature when colours are similar.",
+      "ar": "قد نحتاج إلى أكثر من صفة للمطابقة إذا تشابهت الألوان."
+    },
+    "easier": {
+      "en": "Use two very different pairs.",
+      "ar": "استخدم زوجين مختلفين بوضوح."
+    },
+    "harder": {
+      "en": "Add a sock without a partner and identify it.",
+      "ar": "أضف جوربًا بلا شريك وحدّداه."
+    },
+    "extension": {
+      "en": "Let your child help match the next small laundry load.",
+      "ar": "دع الطفل يساعد في مطابقة جوارب الغسيل القادم."
+    },
+    "materials": {
+      "en": [
+        "Three pairs of large clean socks"
+      ],
+      "ar": [
+        "ثلاثة أزواج من الجوارب الكبيرة النظيفة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Pick one sock and describe its colour and pattern.",
+        "Invite your child to find its partner and place them together.",
+        "Repeat, then count the pairs rather than individual socks."
+      ],
+      "ar": [
+        "اختر جوربًا وصِف لونه ونقشته.",
+        "ادعُ الطفل لإيجاد شريكه ووضعهما معًا.",
+        "كرّرا ذلك ثم عُدّا الأزواج بدلًا من الجوارب المفردة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Compare length and pattern as well as colour."
+      ],
+      "ar": [
+        "قارنا الطول والنقشة إلى جانب اللون."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-maths-03",
+    "age": "3-4",
+    "area": "maths",
+    "format": "movement",
+    "minutes": 5,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Clap and count",
+      "ar": "صفّق وعُدّ"
+    },
+    "summary": {
+      "en": "Copy short groups of claps and count each one.",
+      "ar": "قلّد مجموعات قصيرة من التصفيق وعُدّ كل تصفيقة."
+    },
+    "objective": {
+      "en": "Link number words to individual actions.",
+      "ar": "ربط كلمات الأعداد بالأفعال المفردة."
+    },
+    "alternatives": {
+      "en": "Tap a knee or blink instead of clapping.",
+      "ar": "انقر على الركبة أو ارمش بدلًا من التصفيق."
+    },
+    "preparation": {
+      "en": "Choose a comfortable seated or standing position.",
+      "ar": "اختر وضعية جلوس أو وقوف مريحة."
+    },
+    "prompt": {
+      "en": "Can we make exactly three taps and then stop?",
+      "ar": "هل يمكننا النقر ثلاث مرات بالضبط ثم التوقّف؟"
+    },
+    "answer": {
+      "en": "Three taps means three separate sounds; the pause signals the end.",
+      "ar": "ثلاث نقرات تعني ثلاثة أصوات منفصلة؛ وتشير الوقفة إلى النهاية."
+    },
+    "explanation": {
+      "en": "Slow, separate actions make one-to-one counting easier to follow.",
+      "ar": "تجعل الأفعال البطيئة المنفصلة عدّ كل فعل على حدة أوضح."
+    },
+    "easier": {
+      "en": "Keep every group to one or two actions.",
+      "ar": "اجعل كل مجموعة فعلًا واحدًا أو فعلين."
+    },
+    "harder": {
+      "en": "Try groups up to five without speeding up.",
+      "ar": "جرّب مجموعات تصل إلى خمسة دون الإسراع."
+    },
+    "extension": {
+      "en": "Count gentle steps between two nearby places.",
+      "ar": "عُدّا خطوات هادئة بين مكانين قريبين."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Clap twice slowly while saying “one, two”.",
+        "Ask your child to copy, then try one or three claps.",
+        "Let your child lead a small group of claps for you to count."
+      ],
+      "ar": [
+        "صفّق مرتين ببطء قائلًا «واحد، اثنان».",
+        "اطلب من الطفل التقليد، ثم جرّبا تصفيقة واحدة أو ثلاثًا.",
+        "دع الطفل يقود مجموعة قصيرة من التصفيق لتعدّها."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Move one finger for each sound."
+      ],
+      "ar": [
+        "حرّك إصبعًا لكل صوت."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-maths-04",
+    "age": "3-4",
+    "area": "maths",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Long and short paths",
+      "ar": "مساران طويل وقصير"
+    },
+    "summary": {
+      "en": "Compare two paths made from rolled towels.",
+      "ar": "قارن مسارين مصنوعين من مناشف ملفوفة."
+    },
+    "objective": {
+      "en": "Compare lengths using a shared starting point.",
+      "ar": "مقارنة الأطوال انطلاقًا من نقطة بداية واحدة."
+    },
+    "alternatives": {
+      "en": "Use two strips of paper laid flat.",
+      "ar": "استخدم شريطين ورقيين مسطّحين."
+    },
+    "preparation": {
+      "en": "Roll the towels and place one end of each at the same line.",
+      "ar": "لفّ المنشفتين وضع طرفًا من كل منهما عند الخط نفسه."
+    },
+    "prompt": {
+      "en": "Why should the paths start in the same place?",
+      "ar": "لماذا ينبغي أن يبدأ المساران من المكان نفسه؟"
+    },
+    "answer": {
+      "en": "The path extending farther from an aligned start is longer.",
+      "ar": "المسار الذي يمتد أبعد من بداية متحاذية هو الأطول."
+    },
+    "explanation": {
+      "en": "Moving an object changes its position, not its length.",
+      "ar": "تحريك الشيء يغيّر مكانه ولا يغيّر طوله."
+    },
+    "easier": {
+      "en": "Use paths with a large difference in length.",
+      "ar": "استخدم مسارين يختلف طولهما كثيرًا."
+    },
+    "harder": {
+      "en": "Put three paths in order from shortest to longest.",
+      "ar": "رتّب ثلاثة مسارات من الأقصر إلى الأطول."
+    },
+    "extension": {
+      "en": "Compare two books’ heights by lining up their bottoms.",
+      "ar": "قارنا ارتفاع كتابين بمحاذاة حافتيهما السفليتين."
+    },
+    "materials": {
+      "en": [
+        "Two towels of different lengths"
+      ],
+      "ar": [
+        "منشفتان مختلفتا الطول"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Trace each path with a finger, starting at the shared line.",
+        "Ask which reaches farther and name it longer.",
+        "Move one towel forward, then realign the starts before comparing again."
+      ],
+      "ar": [
+        "تتبّع كل مسار بإصبعك بدءًا من الخط المشترك.",
+        "اسأل أيهما يصل إلى مسافة أبعد وسمّه الأطول.",
+        "حرّك منشفة إلى الأمام، ثم أعِد محاذاة البدايتين قبل المقارنة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Line up the near ends before looking at the far ends."
+      ],
+      "ar": [
+        "حاذِ الطرفين القريبين قبل النظر إلى الطرفين البعيدين."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-maths-05",
+    "age": "3-4",
+    "area": "maths",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Shape parking spaces",
+      "ar": "مواقف الأشكال"
+    },
+    "summary": {
+      "en": "Park large shape cards in matching spaces.",
+      "ar": "ضع بطاقات الأشكال الكبيرة في أماكن مطابقة."
+    },
+    "objective": {
+      "en": "Recognise circles, triangles and squares by their outlines.",
+      "ar": "تمييز الدوائر والمثلثات والمربّعات من حدودها."
+    },
+    "alternatives": {
+      "en": "Draw all shapes and point to matches instead of using cards.",
+      "ar": "ارسم الأشكال وأشر إلى المتطابق منها بدلًا من البطاقات."
+    },
+    "preparation": {
+      "en": "Draw one circle, triangle and square on a sheet and on separate large cards.",
+      "ar": "ارسم دائرة ومثلثًا ومربّعًا على ورقة وعلى بطاقات كبيرة منفصلة."
+    },
+    "prompt": {
+      "en": "Which shape has three straight sides?",
+      "ar": "أي شكل له ثلاثة أضلاع مستقيمة؟"
+    },
+    "answer": {
+      "en": "A triangle has three sides; turning a square does not change it into a different shape.",
+      "ar": "للمثلث ثلاثة أضلاع؛ وتدوير المربّع لا يغيّر نوع شكله."
+    },
+    "explanation": {
+      "en": "An outline’s features matter more than its colour or direction.",
+      "ar": "صفات حدود الشكل أهم من لونه أو اتجاهه."
+    },
+    "easier": {
+      "en": "Match just circles and squares.",
+      "ar": "طابق الدوائر والمربّعات فقط."
+    },
+    "harder": {
+      "en": "Draw a taller triangle and find its family.",
+      "ar": "ارسم مثلثًا أطول وحدّد عائلته."
+    },
+    "extension": {
+      "en": "Spot these shapes on familiar packaging together.",
+      "ar": "ابحثا عن هذه الأشكال على عبوات مألوفة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Crayons",
+        "Three large shape cards prepared by an adult"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية",
+        "ثلاث بطاقات أشكال كبيرة يجهّزها بالغ"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Trace a circle and notice its curved edge.",
+        "Match each card to its parking space.",
+        "Turn the square card and ask whether it still belongs in the square space."
+      ],
+      "ar": [
+        "تتبّع دائرة ولاحظ حافتها المنحنية.",
+        "طابق كل بطاقة مع مكانها.",
+        "أدر بطاقة المربّع واسأل إن كانت ما زالت تناسب مكان المربّع."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Trace and count one side at a time."
+      ],
+      "ar": [
+        "تتبّع الأضلاع وعدّها واحدًا تلو الآخر."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-logic-01",
+    "age": "3-4",
+    "area": "logic",
+    "format": "puzzle",
+    "minutes": 5,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Which toy disappeared?",
+      "ar": "أي لعبة اختفت؟"
+    },
+    "summary": {
+      "en": "Notice which of three familiar objects is missing.",
+      "ar": "لاحظ أيّ الأشياء الثلاثة المألوفة اختفى."
+    },
+    "objective": {
+      "en": "Observe a small set and recall a change.",
+      "ar": "ملاحظة مجموعة صغيرة وتذكّر التغيّر فيها."
+    },
+    "alternatives": {
+      "en": "Use any three large, clearly different safe objects.",
+      "ar": "استخدم ثلاثة أشياء كبيرة وآمنة ومختلفة بوضوح."
+    },
+    "preparation": {
+      "en": "Place the three objects in a row and name them.",
+      "ar": "ضع الأشياء الثلاثة في صف وسمّها."
+    },
+    "prompt": {
+      "en": "What was here before but is not here now?",
+      "ar": "ما الذي كان هنا ولم يعد موجودًا؟"
+    },
+    "answer": {
+      "en": "In the starter round, the spoon is missing.",
+      "ar": "في الجولة الأولى، الملعقة هي الغائبة."
+    },
+    "explanation": {
+      "en": "Comparing the earlier group with the current one reveals the change.",
+      "ar": "تكشف مقارنة المجموعة السابقة بالحالية عن التغيّر."
+    },
+    "easier": {
+      "en": "Begin with two objects and leave their positions unchanged.",
+      "ar": "ابدأ بشيئين واترك مكانهما ثابتًا."
+    },
+    "harder": {
+      "en": "Keep three objects but move one rather than hiding it.",
+      "ar": "أبقِ الأشياء الثلاثة وحرّك أحدها بدلًا من إخفائه."
+    },
+    "extension": {
+      "en": "Notice one change in a familiar room together.",
+      "ar": "لاحظا تغيّرًا واحدًا في غرفة مألوفة."
+    },
+    "materials": {
+      "en": [
+        "Large toy car",
+        "Soft toy",
+        "Large spoon",
+        "Towel"
+      ],
+      "ar": [
+        "سيارة لعبة كبيرة",
+        "دمية ناعمة",
+        "ملعقة كبيرة",
+        "منشفة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Look at the objects together for a few moments.",
+        "Ask the child to look away while you hide the spoon under the towel.",
+        "Ask what changed, reveal the spoon, then swap roles."
+      ],
+      "ar": [
+        "انظرا معًا إلى الأشياء للحظات.",
+        "اطلب من الطفل النظر بعيدًا بينما تخفي الملعقة تحت المنشفة.",
+        "اسأل عمّا تغيّر وأظهر الملعقة، ثم تبادلا الأدوار."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Recall the object names aloud together."
+      ],
+      "ar": [
+        "تذكّرا أسماء الأشياء بصوت مسموع معًا."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-logic-02",
+    "age": "3-4",
+    "area": "logic",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Sort it your way",
+      "ar": "صنّف بطريقتك"
+    },
+    "summary": {
+      "en": "Make two groups and explain your sorting rule.",
+      "ar": "كوّن مجموعتين واشرح قاعدة التصنيف."
+    },
+    "objective": {
+      "en": "Group objects using one consistent feature.",
+      "ar": "جمع الأشياء وفق صفة واحدة ثابتة."
+    },
+    "alternatives": {
+      "en": "Use large household objects with clearly different textures.",
+      "ar": "استخدم أشياء منزلية كبيرة تختلف ملمسًا بوضوح."
+    },
+    "preparation": {
+      "en": "Check that the blocks have smooth edges.",
+      "ar": "تأكّد من نعومة حواف المكعّبات."
+    },
+    "prompt": {
+      "en": "How can you tell me why this belongs here?",
+      "ar": "كيف تشرح لي لماذا ينتمي هذا الشيء إلى هنا؟"
+    },
+    "answer": {
+      "en": "Several groupings work if every object follows the stated rule.",
+      "ar": "تصحّ مجموعات مختلفة إذا اتبعت الأشياء القاعدة المعلنة."
+    },
+    "explanation": {
+      "en": "The same objects can form different groups when the rule changes.",
+      "ar": "يمكن للأشياء نفسها تكوين مجموعات مختلفة عند تغيير القاعدة."
+    },
+    "easier": {
+      "en": "Use only two soft objects and two hard blocks.",
+      "ar": "استخدم شيئين ناعمين ومكعّبين صلبين فقط."
+    },
+    "harder": {
+      "en": "Ask the child to make a group while you guess its rule.",
+      "ar": "دع الطفل يكوّن مجموعة وخمّن قاعدتها."
+    },
+    "extension": {
+      "en": "Sort clean laundry by a child-chosen feature.",
+      "ar": "صنّفا الغسيل النظيف حسب صفة يختارها الطفل."
+    },
+    "materials": {
+      "en": [
+        "Two soft toys",
+        "Two rolled towels",
+        "Two large rigid toy blocks"
+      ],
+      "ar": [
+        "دمْيتان ناعمتان",
+        "منشفتان ملفوفتان",
+        "مكعّبان كبيران صلبان"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Feel each object and discuss soft and hard.",
+        "Put the soft items in one group and hard items in another.",
+        "Mix them again and invite a different rule, such as toys and towels."
+      ],
+      "ar": [
+        "تحسّسا كل شيء وتحدّثا عن الناعم والصلب.",
+        "ضعا الأشياء الناعمة في مجموعة والصلبة في أخرى.",
+        "اخلطاها مجددًا واختارا قاعدة أخرى، مثل ألعاب ومناشف."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Ask whether the new object follows the same rule as its neighbours."
+      ],
+      "ar": [
+        "اسأل إن كان الشيء يتبع القاعدة نفسها مثل الأشياء بجواره."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-logic-03",
+    "age": "3-4",
+    "area": "logic",
+    "format": "movement",
+    "minutes": 5,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Clap, tap, what comes next?",
+      "ar": "صفقة، نقرة، ماذا بعد؟"
+    },
+    "summary": {
+      "en": "Build and continue a repeating movement pattern.",
+      "ar": "ابنِ نمطًا حركيًا متكرّرًا وأكمله."
+    },
+    "objective": {
+      "en": "Notice and continue a two-part repeating sequence.",
+      "ar": "ملاحظة وإكمال تسلسل متكرّر من جزأين."
+    },
+    "alternatives": {
+      "en": "Use two hand gestures silently if preferred.",
+      "ar": "استخدم إشارتين باليد بصمت إذا كان ذلك أنسب."
+    },
+    "preparation": {
+      "en": "Choose two comfortable actions, such as clapping and tapping a knee.",
+      "ar": "اختر حركتين مريحتين، مثل التصفيق والنقر على الركبة."
+    },
+    "prompt": {
+      "en": "What little part keeps repeating?",
+      "ar": "ما الجزء الصغير الذي يتكرّر؟"
+    },
+    "answer": {
+      "en": "A tap follows the clap in the starter pattern.",
+      "ar": "تأتي نقرة بعد الصفقة في النمط الأول."
+    },
+    "explanation": {
+      "en": "Repeating the same pair helps us predict the next action.",
+      "ar": "يساعد تكرار الزوج نفسه على توقّع الحركة التالية."
+    },
+    "easier": {
+      "en": "Copy one pair at a time with no guessing.",
+      "ar": "قلّد زوجًا واحدًا في كل مرة دون تخمين."
+    },
+    "harder": {
+      "en": "Try clap, clap, tap as a three-action unit.",
+      "ar": "جرّب صفقة، صفقة، نقرة كوحدة من ثلاث حركات."
+    },
+    "extension": {
+      "en": "Make a repeating pattern while walking slowly together.",
+      "ar": "اصنعا نمطًا متكرّرًا أثناء المشي ببطء معًا."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Demonstrate clap, tap, clap, tap slowly.",
+        "Pause after the next clap and ask what comes next.",
+        "Repeat together, then let the child choose a new two-action pattern."
+      ],
+      "ar": [
+        "نفّذ صفقة ثم نقرة، صفقة ثم نقرة ببطء.",
+        "توقّف بعد الصفقة التالية واسأل ماذا يأتي بعدها.",
+        "كرّرا معًا، ثم دع الطفل يختار نمطًا جديدًا من حركتين."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Say the pair aloud: clap, tap."
+      ],
+      "ar": [
+        "قل الجزأين بصوت مسموع: صفقة، نقرة."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-logic-04",
+    "age": "3-4",
+    "area": "logic",
+    "format": "puzzle",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Build a toy road",
+      "ar": "ابنِ طريقًا للعبة"
+    },
+    "summary": {
+      "en": "Plan a route around an obstacle for a toy.",
+      "ar": "خطّط مسارًا للعبة حول عائق."
+    },
+    "objective": {
+      "en": "Try a route, notice a blockage and change the plan.",
+      "ar": "تجربة مسار وملاحظة عائق وتعديل الخطة."
+    },
+    "alternatives": {
+      "en": "Move your finger along a drawn road on paper.",
+      "ar": "حرّك إصبعك على طريق مرسوم على ورقة."
+    },
+    "preparation": {
+      "en": "Set two cushions as road edges and one as an obstacle on the floor.",
+      "ar": "ضع وسادتين كحافتي طريق وواحدة كعائق على الأرض."
+    },
+    "prompt": {
+      "en": "Where could the car go around this cushion?",
+      "ar": "من أين تستطيع السيارة الالتفاف حول هذه الوسادة؟"
+    },
+    "answer": {
+      "en": "Any continuous route around the obstacle that fits the car works.",
+      "ar": "يصلح أي مسار متصل يلتف حول العائق ويتّسع للسيارة."
+    },
+    "explanation": {
+      "en": "Testing a route shows whether the available space is wide enough.",
+      "ar": "تُظهر تجربة المسار إن كانت المساحة المتاحة كافية."
+    },
+    "easier": {
+      "en": "Leave a clear wide gap to begin.",
+      "ar": "اترك فراغًا واسعًا وواضحًا في البداية."
+    },
+    "harder": {
+      "en": "Add a second obstacle and plan before moving.",
+      "ar": "أضف عائقًا ثانيًا وخطّطا قبل الحركة."
+    },
+    "extension": {
+      "en": "Draw the successful route after clearing the floor.",
+      "ar": "ارسما المسار الناجح بعد إخلاء الأرض."
+    },
+    "materials": {
+      "en": [
+        "Large toy car",
+        "Three cushions",
+        "Soft toy destination"
+      ],
+      "ar": [
+        "سيارة لعبة كبيرة",
+        "ثلاث وسائد",
+        "دمية ناعمة عند النهاية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Place the car at one end and the soft toy at the other.",
+        "Ask the child to drive without lifting the car over the obstacle.",
+        "If the route is blocked, move an edge cushion and test again."
+      ],
+      "ar": [
+        "ضع السيارة عند البداية والدمية عند النهاية.",
+        "اطلب من الطفل قيادة السيارة دون رفعها فوق العائق.",
+        "إذا انسدّ الطريق، حرّكا وسادة من الحافة وجرّبا مجددًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Look for a gap wider than the car."
+      ],
+      "ar": [
+        "ابحث عن فراغ أعرض من السيارة."
+      ]
+    },
+    "supervision": {
+      "en": "Play with hands on the floor; keep the route out of walking paths.",
+      "ar": "العبا باليدين على الأرض وأبعدا المسار عن أماكن المشي."
+    }
+  },
+  {
+    "id": "kids-3-4-logic-05",
+    "age": "3-4",
+    "area": "logic",
+    "format": "puzzle",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Repair the funny picture",
+      "ar": "أصلح الصورة الطريفة"
+    },
+    "summary": {
+      "en": "Spot an everyday detail that does not fit and change it.",
+      "ar": "لاحظ تفصيلًا يوميًا لا يناسب الصورة وغيّره."
+    },
+    "objective": {
+      "en": "Explain a mismatch using familiar everyday knowledge.",
+      "ar": "شرح عدم التوافق اعتمادًا على معرفة يومية مألوفة."
+    },
+    "alternatives": {
+      "en": "Describe the funny scene aloud instead of drawing.",
+      "ar": "صِف المشهد الطريف شفهيًا بدلًا من رسمه."
+    },
+    "preparation": {
+      "en": "Draw a child with shoes on their hands and bare feet.",
+      "ar": "ارسم طفلًا يرتدي حذاءً في يديه وقدماه حافيتان."
+    },
+    "prompt": {
+      "en": "Where would the shoes usually go for a walk?",
+      "ar": "أين نضع الحذاء عادةً عند الخروج للمشي؟"
+    },
+    "answer": {
+      "en": "For an ordinary walk, shoes usually go on feet; pretend play can use different rules.",
+      "ar": "للمشي المعتاد يوضع الحذاء على القدمين؛ وقد تختلف قواعد اللعب التخيّلي."
+    },
+    "explanation": {
+      "en": "Explaining why a detail is unusual is more useful than only calling it wrong.",
+      "ar": "شرح سبب غرابة التفصيل أفيد من الاكتفاء بوصفه خطأ."
+    },
+    "easier": {
+      "en": "Offer two choices for where to put the shoes.",
+      "ar": "قدّم خيارين لمكان الحذاء."
+    },
+    "harder": {
+      "en": "Draw a scene with two unusual details.",
+      "ar": "ارسم مشهدًا فيه تفصيلان غير معتادين."
+    },
+    "extension": {
+      "en": "Make a funny bedtime scene and repair it together.",
+      "ar": "اصنعا مشهدًا طريفًا لوقت النوم وأصلحاه معًا."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Large crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Look at the picture together without naming the odd detail.",
+        "Ask what might make getting ready to walk tricky.",
+        "Let your child draw or describe a change, then invent a new silly scene."
+      ],
+      "ar": [
+        "انظرا إلى الصورة دون تسمية التفصيل الغريب.",
+        "اسأل عمّا قد يصعّب الاستعداد للمشي.",
+        "دع الطفل يرسم تعديلًا أو يصفه، ثم ابتكرا مشهدًا طريفًا جديدًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Point to the feet and ask what is missing."
+      ],
+      "ar": [
+        "أشر إلى القدمين واسأل عمّا ينقصهما."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-science-01",
+    "age": "3-4",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Hand shadow shapes",
+      "ar": "أشكال ظلال اليد"
+    },
+    "summary": {
+      "en": "Change a hand shadow with a torch and wall.",
+      "ar": "غيّر ظل يدك باستخدام مصباح وجدار."
+    },
+    "objective": {
+      "en": "Observe how an object blocks light to make a shadow.",
+      "ar": "ملاحظة كيف يحجب جسم الضوء فيتكوّن ظل."
+    },
+    "alternatives": {
+      "en": "Use daylight shadows on the ground; never look at the sun.",
+      "ar": "استخدم ظلال ضوء النهار على الأرض؛ ولا تنظر إلى الشمس."
+    },
+    "preparation": {
+      "en": "An adult points the torch at the wall in a dim, clear space.",
+      "ar": "يوجّه بالغ المصباح نحو الجدار في مكان خافت وخالٍ من العوائق."
+    },
+    "prompt": {
+      "en": "What happened when your hand moved towards the light?",
+      "ar": "ماذا حدث عندما اقتربت يدك من الضوء؟"
+    },
+    "answer": {
+      "en": "With the wall and torch fixed, moving the hand towards the torch usually makes its shadow larger.",
+      "ar": "مع ثبات الجدار والمصباح، يكبر ظل اليد عادةً عند تقريبها من المصباح."
+    },
+    "explanation": {
+      "en": "The hand blocks some light; its position changes the blocked area on the wall.",
+      "ar": "تحجب اليد بعض الضوء، ويغيّر موضعها مساحة الحجب على الجدار."
+    },
+    "easier": {
+      "en": "Watch one adult-made shadow and copy its hand shape.",
+      "ar": "راقب ظل يد البالغ وقلّد وضعيتها."
+    },
+    "harder": {
+      "en": "Predict which position makes the smaller shadow, then test.",
+      "ar": "توقّع الموضع الذي يصنع ظلًا أصغر ثم جرّب."
+    },
+    "extension": {
+      "en": "Trace an outdoor object’s shadow with your finger.",
+      "ar": "تتبّع ظل شيء خارج المنزل بإصبعك."
+    },
+    "materials": {
+      "en": [
+        "Torch",
+        "Plain wall"
+      ],
+      "ar": [
+        "مصباح يدوي",
+        "جدار خالٍ"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Put a hand between the torch and wall and find its shadow.",
+        "Move the hand closer to the torch while the torch stays still.",
+        "Return it to the starting place and compare the shadow sizes."
+      ],
+      "ar": [
+        "ضع يدًا بين المصباح والجدار وابحث عن ظلّها.",
+        "قرّب اليد من المصباح مع إبقاء المصباح ثابتًا.",
+        "أعِد اليد إلى البداية وقارن حجم الظل."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Compare how much wall the shadow covers."
+      ],
+      "ar": [
+        "قارن المساحة التي يغطيها الظل على الجدار."
+      ]
+    },
+    "supervision": {
+      "en": "An adult holds the torch; never shine it into eyes. Keep the floor clear.",
+      "ar": "يمسك بالغ المصباح؛ ولا يوجّهه إلى العينين. اترك الأرض خالية من العوائق."
+    }
+  },
+  {
+    "id": "kids-3-4-science-02",
+    "age": "3-4",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Float or sink tray",
+      "ar": "صينية الطفو والغوص"
+    },
+    "summary": {
+      "en": "Test large everyday objects in shallow water.",
+      "ar": "اختبر أشياء يومية كبيرة في ماء ضحل."
+    },
+    "objective": {
+      "en": "Make a prediction and compare it with an observation.",
+      "ar": "توقّع نتيجة وقارنها بالملاحظة."
+    },
+    "alternatives": {
+      "en": "Use two different large bath toys if spoons are unavailable.",
+      "ar": "استخدم لعبتي حمّام كبيرتين مختلفتين إن لم تتوفّر الملاعق."
+    },
+    "preparation": {
+      "en": "An adult puts the tray on a towel and adds only enough water for the test objects to float freely without touching the bottom.",
+      "ar": "يضع بالغ الصينية فوق منشفة ويضيف من الماء ما يكفي فقط لطفو أدوات التجربة بحرية دون ملامسة القاع."
+    },
+    "prompt": {
+      "en": "Did everything behave as you expected?",
+      "ar": "هل تصرّفت الأشياء كلها كما توقّعت؟"
+    },
+    "answer": {
+      "en": "Record what happens: a wooden spoon often floats and a metal spoon usually sinks; cup behaviour depends on its material and trapped air.",
+      "ar": "سجّل ما يحدث: تطفو الملعقة الخشبية غالبًا وتغوص المعدنية عادةً؛ ويعتمد سلوك الكوب على مادته والهواء المحبوس فيه."
+    },
+    "explanation": {
+      "en": "Material, shape and trapped air can all affect floating; size alone does not decide it.",
+      "ar": "تؤثّر المادة والشكل والهواء المحبوس في الطفو؛ ولا يحدّده الحجم وحده."
+    },
+    "easier": {
+      "en": "Test just the two spoons.",
+      "ar": "اختبر الملعقتين فقط."
+    },
+    "harder": {
+      "en": "Test the cup again and explain what changed.",
+      "ar": "اختبر الكوب مجددًا واشرح ما تغيّر."
+    },
+    "extension": {
+      "en": "Notice floating objects in a picture book.",
+      "ar": "لاحظ الأشياء الطافية في كتاب مصوّر."
+    },
+    "materials": {
+      "en": [
+        "Wide shallow tray",
+        "Water",
+        "Large wooden spoon",
+        "Large metal spoon",
+        "Unbreakable empty cup",
+        "Towel"
+      ],
+      "ar": [
+        "صينية عريضة ضحلة",
+        "ماء",
+        "ملعقة خشبية كبيرة",
+        "ملعقة معدنية كبيرة",
+        "كوب فارغ غير قابل للكسر",
+        "منشفة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Predict what the wooden spoon will do, then lower it gently.",
+        "Try the metal spoon and describe where each rests.",
+        "Try the empty cup upright, then tip water into it and observe any change."
+      ],
+      "ar": [
+        "توقّع ما ستفعله الملعقة الخشبية ثم أنزلها برفق.",
+        "جرّب الملعقة المعدنية وصِف مكان استقرار كل منهما.",
+        "جرّب الكوب قائمًا وفارغًا، ثم أدخل إليه ماءً ولاحظ التغيّر."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Look at whether the object stays at the surface or rests below it."
+      ],
+      "ar": [
+        "لاحظ إن كان الشيء يبقى عند السطح أم يستقر أسفله."
+      ]
+    },
+    "supervision": {
+      "en": "An adult stays within reach throughout, prevents drinking, wipes spills and empties the tray immediately afterwards.",
+      "ar": "يبقى بالغ على مسافة يد طوال الوقت، ويمنع الشرب، ويمسح الانسكاب، ويفرغ الصينية فور الانتهاء."
+    }
+  },
+  {
+    "id": "kids-3-4-science-03",
+    "age": "3-4",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Move it with air",
+      "ar": "حرّكه بالهواء"
+    },
+    "summary": {
+      "en": "Use a paper fan to move another sheet.",
+      "ar": "استخدم مروحة ورقية لتحريك ورقة أخرى."
+    },
+    "objective": {
+      "en": "Notice that moving air can push light objects.",
+      "ar": "ملاحظة أن الهواء المتحرّك يستطيع دفع أشياء خفيفة."
+    },
+    "alternatives": {
+      "en": "An adult can fan with a thin book.",
+      "ar": "يمكن لبالغ التلويح بكتاب خفيف."
+    },
+    "preparation": {
+      "en": "Fold one sheet into a simple fan; loosely fold the other into a standing tent.",
+      "ar": "اطوِ ورقة كمروحة بسيطة والأخرى على هيئة خيمة."
+    },
+    "prompt": {
+      "en": "What pushed the paper even though the fan did not touch it?",
+      "ar": "ما الذي دفع الورقة رغم أن المروحة لم تلمسها؟"
+    },
+    "answer": {
+      "en": "Air moved by the fan can push the paper; results depend on distance and how strongly you fan.",
+      "ar": "يستطيع الهواء الذي تحرّكه المروحة دفع الورقة؛ وتتأثّر النتيجة بالمسافة وقوة التلويح."
+    },
+    "explanation": {
+      "en": "Air is hard to see, but we can observe what moving air does.",
+      "ar": "يصعب رؤية الهواء، لكن يمكن ملاحظة ما يفعله عندما يتحرّك."
+    },
+    "easier": {
+      "en": "An adult fans while the child watches and describes.",
+      "ar": "يلوّح بالغ بالمروحة بينما يراقب الطفل ويصف."
+    },
+    "harder": {
+      "en": "Keep the distance fixed and compare gentle and stronger fanning.",
+      "ar": "ثبّت المسافة وقارن التلويح الخفيف والأقوى."
+    },
+    "extension": {
+      "en": "Watch leaves move in the breeze from a safe spot.",
+      "ar": "راقب حركة الأوراق مع النسيم من مكان آمن."
+    },
+    "materials": {
+      "en": [
+        "Two full sheets of paper"
+      ],
+      "ar": [
+        "ورقتان كاملتان"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Set the paper tent on a smooth table.",
+        "Wave the fan towards it without touching it.",
+        "Try from nearer and farther away and compare the movement."
+      ],
+      "ar": [
+        "ضع الخيمة الورقية على طاولة ملساء.",
+        "لوّح بالمروحة نحوها دون لمسها.",
+        "جرّب من مسافة أقرب وأبعد وقارن الحركة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Feel the moving air on your own hand."
+      ],
+      "ar": [
+        "تحسّس الهواء المتحرّك على يدك."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-science-04",
+    "age": "3-4",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "A gentle ramp test",
+      "ar": "تجربة منحدر بسيط"
+    },
+    "summary": {
+      "en": "Roll a toy car down two gentle slopes.",
+      "ar": "دحرج سيارة لعبة على منحدرين بسيطين."
+    },
+    "objective": {
+      "en": "Compare a change while keeping the toy and release point the same.",
+      "ar": "مقارنة أثر تغيير مع تثبيت اللعبة ونقطة انطلاقها."
+    },
+    "alternatives": {
+      "en": "Use a smooth board with rounded edges instead of cardboard.",
+      "ar": "استخدم لوحًا أملس مستدير الحواف بدلًا من الكرتون."
+    },
+    "preparation": {
+      "en": "Place the ramp on the floor with one end on a book and a clear run-out area.",
+      "ar": "ضع المنحدر على الأرض وارفع طرفًا بكتاب واترك أمامه مساحة خالية."
+    },
+    "prompt": {
+      "en": "Did the car travel to the same place each time?",
+      "ar": "هل وصلت السيارة إلى المكان نفسه كل مرة؟"
+    },
+    "answer": {
+      "en": "The higher ramp often sends the car farther, but bumps and friction can change the result.",
+      "ar": "غالبًا يدفع المنحدر الأعلى السيارة أبعد، لكن النتوءات والاحتكاك قد يغيّران النتيجة."
+    },
+    "explanation": {
+      "en": "A fair comparison uses the same car, surface and release point.",
+      "ar": "تستخدم المقارنة العادلة السيارة والسطح ونقطة الانطلاق نفسها."
+    },
+    "easier": {
+      "en": "Use one slope and practise releasing without pushing.",
+      "ar": "استخدم منحدرًا واحدًا وتدرّب على الإطلاق دون دفع."
+    },
+    "harder": {
+      "en": "Try three releases on each slope and describe the pattern.",
+      "ar": "جرّب ثلاث إطلاقات لكل منحدر وصِف النمط."
+    },
+    "extension": {
+      "en": "Look for real ramps used by wheels nearby.",
+      "ar": "ابحثا عن منحدرات قريبة تستخدمها العجلات."
+    },
+    "materials": {
+      "en": [
+        "Sturdy cardboard",
+        "Two thin books",
+        "Large toy car"
+      ],
+      "ar": [
+        "لوح كرتون متين",
+        "كتابان رقيقان",
+        "سيارة لعبة كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Release the car from the top without pushing and see where it stops.",
+        "Add the second book under the same end.",
+        "Release from the same mark and compare; repeat each slope once."
+      ],
+      "ar": [
+        "أطلق السيارة من الأعلى دون دفع ولاحظ مكان توقّفها.",
+        "أضف الكتاب الثاني تحت الطرف نفسه.",
+        "أطلقها من العلامة نفسها وقارن؛ وكرّر كل منحدر مرة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Use a hand beside the stopping point as a temporary marker."
+      ],
+      "ar": [
+        "ضع يدك بجانب نقطة التوقّف كعلامة مؤقتة."
+      ]
+    },
+    "supervision": {
+      "en": "An adult secures a low ramp; nobody stands on it. Keep the car away from stairs.",
+      "ar": "يثبّت بالغ منحدرًا منخفضًا؛ ولا يقف عليه أحد. أبعد السيارة عن الدرج."
+    }
+  },
+  {
+    "id": "kids-3-4-science-05",
+    "age": "3-4",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "From ice to water",
+      "ar": "من الثلج إلى الماء"
+    },
+    "summary": {
+      "en": "Watch a large piece of ice change on a tray.",
+      "ar": "راقب تغيّر قطعة ثلج كبيرة في صينية."
+    },
+    "objective": {
+      "en": "Observe melting and describe solid and liquid forms of water.",
+      "ar": "ملاحظة الذوبان ووصف الماء الصلب والسائل."
+    },
+    "alternatives": {
+      "en": "Watch condensation droplets on the outside of a cold sealed bottle instead; explain they come from air.",
+      "ar": "راقب قطرات التكاثف خارج زجاجة باردة مغلقة بدلًا من ذلك، ووضّح أن مصدرها الهواء."
+    },
+    "preparation": {
+      "en": "An adult places the ice in the tray on a towel.",
+      "ar": "يضع بالغ الثلج في الصينية فوق منشفة."
+    },
+    "prompt": {
+      "en": "Where did the little puddle come from?",
+      "ar": "من أين جاءت بركة الماء الصغيرة؟"
+    },
+    "answer": {
+      "en": "The ice melts into liquid water; a large piece may take longer than the activity to melt fully.",
+      "ar": "يذوب الثلج ليصبح ماءً سائلًا؛ وقد تحتاج القطعة الكبيرة وقتًا أطول لتذوب كليًا."
+    },
+    "explanation": {
+      "en": "Warm surroundings transfer heat to the ice, helping it melt.",
+      "ar": "تنقل البيئة الأدفأ حرارة إلى الثلج فتساعده على الذوبان."
+    },
+    "easier": {
+      "en": "Simply point to ice and liquid water.",
+      "ar": "أشر إلى الثلج والماء السائل فقط."
+    },
+    "harder": {
+      "en": "Draw the ice at the beginning and after ten minutes.",
+      "ar": "ارسم الثلج في البداية وبعد عشر دقائق."
+    },
+    "extension": {
+      "en": "Ask an adult to freeze water again and check it later.",
+      "ar": "اطلب من بالغ تجميد الماء مجددًا وتفقّده لاحقًا."
+    },
+    "materials": {
+      "en": [
+        "Large piece of ice",
+        "Shallow unbreakable tray",
+        "Towel",
+        "Paper",
+        "Large crayons"
+      ],
+      "ar": [
+        "قطعة ثلج كبيرة",
+        "صينية ضحلة غير قابلة للكسر",
+        "منشفة",
+        "ورق",
+        "أقلام شمعية كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Look at the ice and describe its shape without putting it in the mouth.",
+        "Leave it at room temperature while drawing what you see.",
+        "Check several times over ten minutes and describe any water that appears."
+      ],
+      "ar": [
+        "انظر إلى الثلج وصِف شكله دون وضعه في الفم.",
+        "اتركه في حرارة الغرفة وارسم ما تراه.",
+        "تفقّده عدة مرات خلال عشر دقائق وصِف الماء الذي يظهر."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Look at the shrinking edges of the ice."
+      ],
+      "ar": [
+        "انظر إلى حواف الثلج وهي تتناقص."
+      ]
+    },
+    "supervision": {
+      "en": "Adult supervision throughout; no tasting, prolonged ice contact or hot water. Empty the tray after use.",
+      "ar": "إشراف بالغ طوال الوقت؛ دون تذوّق أو ملامسة مطوّلة للثلج أو ماء ساخن. أفرغ الصينية بعد الاستخدام."
+    }
+  },
+  {
+    "id": "kids-3-4-creativity-01",
+    "age": "3-4",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 15,
+    "materialGroup": "craft",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Torn-paper garden",
+      "ar": "حديقة الورق الممزّق"
+    },
+    "summary": {
+      "en": "Build an imaginary garden with large paper pieces.",
+      "ar": "اصنع حديقة خيالية بقطع ورقية كبيرة."
+    },
+    "objective": {
+      "en": "Choose shapes and arrange them to represent an idea.",
+      "ar": "اختيار الأشكال وترتيبها لتمثيل فكرة."
+    },
+    "alternatives": {
+      "en": "Arrange pieces without glue, or draw the garden.",
+      "ar": "رتّب القطع دون لاصق أو ارسم الحديقة."
+    },
+    "preparation": {
+      "en": "Set out a few large paper pieces and a base sheet.",
+      "ar": "جهّز بضع قطع ورقية كبيرة وورقة للقاعدة."
+    },
+    "prompt": {
+      "en": "What could grow in your invented garden?",
+      "ar": "ماذا يمكن أن ينمو في حديقتك الخيالية؟"
+    },
+    "answer": {
+      "en": "Any arrangement representing the child’s garden works; plants may be imaginary.",
+      "ar": "يصلح أي ترتيب يمثّل حديقة الطفل؛ ويمكن أن تكون النباتات خيالية."
+    },
+    "explanation": {
+      "en": "Tearing and rearranging allow shapes to change during making.",
+      "ar": "يتيح التمزيق وإعادة الترتيب تغيير الأشكال أثناء العمل."
+    },
+    "easier": {
+      "en": "An adult tears large pieces; the child chooses positions.",
+      "ar": "يمزّق بالغ قطعًا كبيرة ويختار الطفل أماكنها."
+    },
+    "harder": {
+      "en": "Add two kinds of plants with different shapes.",
+      "ar": "أضف نوعين من النباتات بأشكال مختلفة."
+    },
+    "extension": {
+      "en": "Tell a short story about who visits the garden.",
+      "ar": "احكِ قصة قصيرة عمّن يزور الحديقة."
+    },
+    "materials": {
+      "en": [
+        "Paper sheet",
+        "Coloured scrap paper",
+        "Washable non-toxic glue stick"
+      ],
+      "ar": [
+        "ورقة",
+        "قصاصات ورق ملوّن",
+        "لاصق قابل للغسل وغير سام"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Tear a long strip for a stem and a broad piece for a flower.",
+        "Arrange pieces before attaching them.",
+        "Invite the child to add a path or imaginary plant and describe it."
+      ],
+      "ar": [
+        "مزّق شريطًا طويلًا لساق وقطعة عريضة لزهرة.",
+        "رتّب القطع قبل لصقها.",
+        "ادعُ الطفل لإضافة ممر أو نبتة خيالية ووصفها."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Turn a paper piece around to discover a new shape."
+      ],
+      "ar": [
+        "أدر قطعة ورق لتكتشف شكلًا جديدًا."
+      ]
+    },
+    "supervision": {
+      "en": "Supervise glue use and keep paper and glue away from the mouth; scissors are unnecessary.",
+      "ar": "أشرف على استخدام اللاصق وأبعد الورق واللاصق عن الفم؛ لا حاجة إلى مقص."
+    }
+  },
+  {
+    "id": "kids-3-4-creativity-02",
+    "age": "3-4",
+    "area": "creativity",
+    "format": "movement",
+    "minutes": 10,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Become a living statue",
+      "ar": "كن تمثالًا حيًا"
+    },
+    "summary": {
+      "en": "Use comfortable poses to become trees, animals or weather.",
+      "ar": "اتّخذ وضعيات مريحة لتمثيل أشجار أو حيوانات أو طقس."
+    },
+    "objective": {
+      "en": "Express an idea through movement and describe a creative choice.",
+      "ar": "التعبير عن فكرة بالحركة ووصف اختيار إبداعي."
+    },
+    "alternatives": {
+      "en": "Use hands, facial expressions or a toy instead of whole-body poses.",
+      "ar": "استخدم اليدين أو تعابير الوجه أو دمية بدلًا من الجسم كله."
+    },
+    "preparation": {
+      "en": "Clear a small space and choose seated or standing poses.",
+      "ar": "أخلِ مساحة صغيرة واختر وضعيات جلوس أو وقوف."
+    },
+    "prompt": {
+      "en": "What could your hands show about your tree?",
+      "ar": "ماذا يمكن أن تظهر يداك عن شجرتك؟"
+    },
+    "answer": {
+      "en": "Different poses may represent the same idea; explain the chosen feature.",
+      "ar": "قد تمثّل وضعيات مختلفة الفكرة نفسها؛ اشرح الصفة التي اخترتها."
+    },
+    "explanation": {
+      "en": "An idea can be communicated with gesture as well as words.",
+      "ar": "يمكن إيصال الفكرة بالإشارة كما بالكلمات."
+    },
+    "easier": {
+      "en": "Copy one adult pose.",
+      "ar": "قلّد وضعية واحدة للبالغ."
+    },
+    "harder": {
+      "en": "Change a calm tree into a windy tree using only one movement.",
+      "ar": "حوّل شجرة هادئة إلى شجرة تحرّكها الرياح بحركة واحدة."
+    },
+    "extension": {
+      "en": "Use a pose to describe a character in a story.",
+      "ar": "استخدم وضعية لوصف شخصية في قصة."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Make a tree pose with arms as branches.",
+        "Invite your child to make a different tree.",
+        "Choose another idea, such as a sleepy cat, and take turns guessing the pose."
+      ],
+      "ar": [
+        "مثّل شجرة بذراعيك كأنهما أغصان.",
+        "ادعُ الطفل لتمثيل شجرة مختلفة.",
+        "اختارا فكرة أخرى، مثل قطة ناعسة، وتبادلا تخمين الوضعيات."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Think about tall, drooping, wide or windy branches."
+      ],
+      "ar": [
+        "فكّر في أغصان طويلة أو متدلّية أو واسعة أو تحرّكها الرياح."
+      ]
+    },
+    "supervision": {
+      "en": "Keep feet stable and movements gentle; avoid climbing or balancing on furniture.",
+      "ar": "ثبّت القدمين واجعل الحركات لطيفة؛ تجنّب التسلق أو التوازن على الأثاث."
+    }
+  },
+  {
+    "id": "kids-3-4-creativity-03",
+    "age": "3-4",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Texture rubbing pictures",
+      "ar": "صور الملمس بالفرك"
+    },
+    "summary": {
+      "en": "Discover patterns by rubbing a crayon over covered textures.",
+      "ar": "اكتشف نقوشًا بفرك قلم شمعي فوق ملمس مغطّى بالورق."
+    },
+    "objective": {
+      "en": "Explore how a surface pattern can become part of a picture.",
+      "ar": "استكشاف كيف يصبح نقش سطح جزءًا من صورة."
+    },
+    "alternatives": {
+      "en": "Draw repeated lines if suitable textured surfaces are unavailable.",
+      "ar": "ارسم خطوطًا متكرّرة إن لم تتوفّر أسطح مناسبة."
+    },
+    "preparation": {
+      "en": "Place paper over clean cardboard with the ridges facing up.",
+      "ar": "ضع الورق فوق كرتون نظيف وتموّجاته إلى أعلى."
+    },
+    "prompt": {
+      "en": "What could these lines become in your picture?",
+      "ar": "ماذا يمكن أن تصبح هذه الخطوط في رسمتك؟"
+    },
+    "answer": {
+      "en": "Visible lines or patches are useful results; the child decides what they represent.",
+      "ar": "الخطوط أو البقع الظاهرة نتائج مفيدة؛ ويختار الطفل ما تمثّله."
+    },
+    "explanation": {
+      "en": "Raised parts underneath receive more rubbing pressure and create a pattern.",
+      "ar": "تتلقّى الأجزاء البارزة تحت الورق ضغطًا أكبر فيظهر نقشها."
+    },
+    "easier": {
+      "en": "Hold the paper for the child.",
+      "ar": "ثبّت الورقة للطفل."
+    },
+    "harder": {
+      "en": "Combine two rubbing directions in one picture.",
+      "ar": "اجمع اتجاهين للفرك في صورة واحدة."
+    },
+    "extension": {
+      "en": "Look for another large, clean textured surface to try.",
+      "ar": "ابحث عن سطح كبير ونظيف ذي ملمس آخر لتجربته."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Large unwrapped crayon",
+        "Corrugated cardboard"
+      ],
+      "ar": [
+        "ورق",
+        "قلم شمعي كبير منزوع الغلاف",
+        "كرتون مموج"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Hold the paper steady while rubbing the crayon’s side across it.",
+        "Turn the paper and try rubbing in another direction.",
+        "Use the pattern as part of a drawing, such as a striped animal or roof."
+      ],
+      "ar": [
+        "ثبّت الورقة وافرك جانب القلم عليها.",
+        "أدر الورقة وجرّب الفرك في اتجاه آخر.",
+        "استخدم النقش في رسمة، مثل حيوان مخطّط أو سقف."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Press gently and use the crayon’s long side."
+      ],
+      "ar": [
+        "اضغط برفق واستخدم الجانب الطويل للقلم."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-creativity-04",
+    "age": "3-4",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "A paper character with a voice",
+      "ar": "شخصية ورقية لها صوت"
+    },
+    "summary": {
+      "en": "Draw a character and invent how it speaks.",
+      "ar": "ارسم شخصية وابتكر طريقتها في الكلام."
+    },
+    "objective": {
+      "en": "Combine visual choices with imaginative storytelling.",
+      "ar": "الجمع بين اختيارات الرسم والسرد التخيّلي."
+    },
+    "alternatives": {
+      "en": "Use a sock held loosely over an adult’s hand.",
+      "ar": "استخدم جوربًا موضوعًا برفق على يد بالغ."
+    },
+    "preparation": {
+      "en": "Fold a sheet once so it can stand like a tent.",
+      "ar": "اطوِ ورقة مرة لتقف كخيمة."
+    },
+    "prompt": {
+      "en": "What does your character like doing?",
+      "ar": "ما الذي تحب شخصيتك فعله؟"
+    },
+    "answer": {
+      "en": "The child chooses the character and conversation; no realistic drawing is required.",
+      "ar": "يختار الطفل الشخصية والحوار؛ ولا يلزم رسم واقعي."
+    },
+    "explanation": {
+      "en": "A name, a wish and a voice can turn a simple picture into a story character.",
+      "ar": "يمكن لاسم ورغبة وصوت أن تحوّل صورة بسيطة إلى شخصية قصصية."
+    },
+    "easier": {
+      "en": "An adult draws while the child chooses features.",
+      "ar": "يرسم بالغ ويختار الطفل الملامح."
+    },
+    "harder": {
+      "en": "Give two characters different wishes and invent how they agree.",
+      "ar": "امنح شخصيتين رغبتين مختلفتين وابتكر طريقة لاتّفاقهما."
+    },
+    "extension": {
+      "en": "Use the character to retell a favourite event.",
+      "ar": "استخدم الشخصية لإعادة سرد حدث محبّب."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Large crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Draw a large face or animal on one side.",
+        "Give it a name and a voice: “Hello, I am Cloud Cat.”",
+        "Let the character ask for something, then answer through a second pretend character."
+      ],
+      "ar": [
+        "ارسم وجهًا كبيرًا أو حيوانًا على جانب.",
+        "امنحه اسمًا وصوتًا: «مرحبًا، أنا قطّ السحاب».",
+        "دع الشخصية تطلب شيئًا، ثم أجب بصوت شخصية خيالية ثانية."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Offer a familiar wish, such as finding a friend or taking a nap."
+      ],
+      "ar": [
+        "اقترح رغبة مألوفة، مثل إيجاد صديق أو أخذ قيلولة."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-creativity-05",
+    "age": "3-4",
+    "area": "creativity",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Kitchen sound composer",
+      "ar": "ملحّن أصوات المطبخ"
+    },
+    "summary": {
+      "en": "Create a short, gentle tune from household sounds.",
+      "ar": "ابتكر لحنًا قصيرًا وهادئًا من أصوات منزلية."
+    },
+    "objective": {
+      "en": "Choose and organise contrasting sounds.",
+      "ar": "اختيار أصوات مختلفة وتنظيمها."
+    },
+    "alternatives": {
+      "en": "Use finger taps on knees and claps only.",
+      "ar": "استخدم نقر الأصابع على الركبتين والتصفيق فقط."
+    },
+    "preparation": {
+      "en": "Set the bowl and towel on a stable surface.",
+      "ar": "ضع الوعاء والمنشفة على سطح ثابت."
+    },
+    "prompt": {
+      "en": "Which sound would suit a sleepy elephant?",
+      "ar": "أي صوت يناسب فيلًا ناعسًا؟"
+    },
+    "answer": {
+      "en": "Any gentle sound sequence is acceptable; a repeated phrase can form a tiny composition.",
+      "ar": "يُقبل أي تسلسل هادئ؛ ويمكن لمقطع متكرّر أن يشكّل لحنًا صغيرًا."
+    },
+    "explanation": {
+      "en": "Different surfaces vibrate differently, creating different sounds.",
+      "ar": "تهتز الأسطح المختلفة بطرق مختلفة فتنتج أصواتًا متنوّعة."
+    },
+    "easier": {
+      "en": "Copy two sounds made by the adult.",
+      "ar": "قلّد صوتين يصدرهما البالغ."
+    },
+    "harder": {
+      "en": "Make two short phrases and choose an ending.",
+      "ar": "اصنع مقطعين قصيرين واختر نهاية."
+    },
+    "extension": {
+      "en": "Add your sounds to a made-up animal story.",
+      "ar": "أضف أصواتك إلى قصة حيوانات مبتكرة."
+    },
+    "materials": {
+      "en": [
+        "Unbreakable bowl",
+        "Wooden spoon",
+        "Folded towel"
+      ],
+      "ar": [
+        "وعاء غير قابل للكسر",
+        "ملعقة خشبية",
+        "منشفة مطوية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Tap the bowl softly once, then tap the towel.",
+        "Describe how the sounds differ.",
+        "Invent a three-sound phrase, repeat it, then let your child change one sound."
+      ],
+      "ar": [
+        "انقر الوعاء برفق مرة ثم انقر المنشفة.",
+        "صِف اختلاف الصوتين.",
+        "ابتكر مقطعًا من ثلاثة أصوات وكرّره، ثم دع الطفل يغيّر صوتًا واحدًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Try gentle, slow sounds before quicker ones."
+      ],
+      "ar": [
+        "جرّب أصواتًا هادئة وبطيئة قبل الأسرع."
+      ]
+    },
+    "supervision": {
+      "en": "Use gentle taps only, keep tools away from faces and stop if sounds are uncomfortable.",
+      "ar": "استخدم نقرات لطيفة فقط وأبعد الأدوات عن الوجوه وتوقّف إذا كانت الأصوات مزعجة."
+    }
+  },
+  {
+    "id": "kids-3-4-life-01",
+    "age": "3-4",
+    "area": "life",
+    "format": "story",
+    "minutes": 10,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "How might Teddy feel?",
+      "ar": "كيف قد يشعر الدبّ؟"
+    },
+    "summary": {
+      "en": "Discuss a toy character’s feelings and possible help.",
+      "ar": "تحدّث عن مشاعر شخصية لعبة والمساعدة الممكنة."
+    },
+    "objective": {
+      "en": "Name possible feelings and consider a kind response.",
+      "ar": "تسمية مشاعر محتملة والتفكير في استجابة لطيفة."
+    },
+    "alternatives": {
+      "en": "Tell the story about an imaginary animal.",
+      "ar": "احكِ القصة عن حيوان خيالي."
+    },
+    "preparation": {
+      "en": "Choose a calm moment; children may pass on any question.",
+      "ar": "اختر لحظة هادئة؛ ويمكن للطفل تجاوز أي سؤال."
+    },
+    "prompt": {
+      "en": "How could we find out what Teddy needs?",
+      "ar": "كيف نعرف ما يحتاجه الدب؟"
+    },
+    "answer": {
+      "en": "Teddy might feel sad, annoyed or ready to try again; asking what helps is a useful response.",
+      "ar": "قد يشعر الدب بالحزن أو الانزعاج أو الرغبة في المحاولة؛ وسؤاله عمّا يساعده رد مفيد."
+    },
+    "explanation": {
+      "en": "The same event can bring different feelings, so faces alone do not tell us everything.",
+      "ar": "قد يثير الحدث نفسه مشاعر مختلفة؛ فلا تخبرنا تعابير الوجه وحدها بكل شيء."
+    },
+    "easier": {
+      "en": "Offer two feeling words and allow pointing.",
+      "ar": "اقترح كلمتين للمشاعر واسمح بالإشارة."
+    },
+    "harder": {
+      "en": "Invent two different helpful responses.",
+      "ar": "ابتكر ردّين مفيدين مختلفين."
+    },
+    "extension": {
+      "en": "Use “Would you like help?” during ordinary play.",
+      "ar": "استخدم «هل تريد مساعدة؟» أثناء اللعب المعتاد."
+    },
+    "materials": {
+      "en": [
+        "No materials; a soft toy is optional"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد؛ ويمكن استخدام دمية ناعمة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Say: “Teddy built a tower and it fell.”",
+        "Ask how Teddy might feel and accept more than one idea.",
+        "Try a kind response, such as “Would you like help rebuilding?”"
+      ],
+      "ar": [
+        "قل: «بنى الدب برجًا ثم سقط».",
+        "اسأل كيف قد يشعر الدب واقبل أكثر من فكرة.",
+        "جرّبا ردًا لطيفًا، مثل «هل تريد مساعدة في بنائه مجددًا؟»."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Suggest asking rather than assuming: help, a pause, or trying alone?"
+      ],
+      "ar": [
+        "اقترح السؤال بدل الافتراض: مساعدة أم استراحة أم محاولة بمفرده؟"
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-life-02",
+    "age": "3-4",
+    "area": "life",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "The friendly pretend shop",
+      "ar": "المتجر التخيّلي اللطيف"
+    },
+    "summary": {
+      "en": "Practise asking for and handing over pretend goods.",
+      "ar": "تدرّب على طلب سلع خيالية وتسليمها."
+    },
+    "objective": {
+      "en": "Take conversational turns and make a clear request.",
+      "ar": "تبادل أدوار الحديث وتقديم طلب واضح."
+    },
+    "alternatives": {
+      "en": "Draw goods on paper and point to them.",
+      "ar": "ارسم السلع على ورق وأشر إليها."
+    },
+    "preparation": {
+      "en": "Set out a towel, cup and toy as shop goods; no money is needed.",
+      "ar": "اعرض منشفة وكوبًا ولعبة كسلع؛ ولا حاجة إلى نقود."
+    },
+    "prompt": {
+      "en": "What could the shopkeeper say if there are no cups left?",
+      "ar": "ماذا يمكن أن يقول البائع إن لم تبقَ أكواب؟"
+    },
+    "answer": {
+      "en": "A clear spoken request, gesture or point is welcome; replies should match what is available.",
+      "ar": "يُقبل الطلب الواضح بالكلام أو الإشارة؛ وينبغي أن يوافق الرد ما هو متاح."
+    },
+    "explanation": {
+      "en": "Waiting for the other person’s reply makes the exchange easier to follow.",
+      "ar": "يسهّل انتظار رد الشخص الآخر متابعة الحوار."
+    },
+    "easier": {
+      "en": "Offer only two goods and model both roles.",
+      "ar": "اعرض سلعتين فقط ومثّل الدورين."
+    },
+    "harder": {
+      "en": "Ask for two goods in one request.",
+      "ar": "اطلب سلعتين في طلب واحد."
+    },
+    "extension": {
+      "en": "Practise a clear request during a family snack.",
+      "ar": "تدرّب على طلب واضح أثناء وجبة خفيفة عائلية."
+    },
+    "materials": {
+      "en": [
+        "Three large safe household objects"
+      ],
+      "ar": [
+        "ثلاثة أشياء منزلية كبيرة وآمنة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Model a request: “May I have the cup, please?”",
+        "Let the shopkeeper hand over the named object and reply.",
+        "Swap roles, then try asking for an object that is not available."
+      ],
+      "ar": [
+        "قدّم نموذجًا: «هل تعطيني الكوب من فضلك؟».",
+        "دع البائع يسلّم الشيء المطلوب ويرد.",
+        "تبادلا الأدوار ثم جرّبا طلب شيء غير متاح."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Offer “We do not have that; would you like this instead?”"
+      ],
+      "ar": [
+        "اقترح «هذا غير متاح؛ هل تريد هذا بدلًا منه؟»."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-life-03",
+    "age": "3-4",
+    "area": "life",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Fold a little towel",
+      "ar": "اطوِ منشفة صغيرة"
+    },
+    "summary": {
+      "en": "Follow a simple folding routine and help with a real job.",
+      "ar": "اتّبع خطوات طي بسيطة وساعد في مهمة حقيقية."
+    },
+    "objective": {
+      "en": "Follow an ordered practical task and check the result.",
+      "ar": "اتباع مهمة عملية مرتّبة والتحقّق من النتيجة."
+    },
+    "alternatives": {
+      "en": "Use two cloth napkins.",
+      "ar": "استخدم منديلين قماشيين."
+    },
+    "preparation": {
+      "en": "Place a towel flat in front of each person.",
+      "ar": "ضع منشفة مسطّحة أمام كل شخص."
+    },
+    "prompt": {
+      "en": "What could we adjust if one edge sticks out?",
+      "ar": "ماذا نعدّل إذا برزت إحدى الحواف؟"
+    },
+    "answer": {
+      "en": "A usable fold is enough; edges do not need to be perfectly matched.",
+      "ar": "تكفي طيّة صالحة للاستخدام؛ ولا يلزم تطابق الحواف تمامًا."
+    },
+    "explanation": {
+      "en": "Breaking a job into a few visible actions helps a child join in.",
+      "ar": "تقسيم المهمة إلى أفعال واضحة قليلة يساعد الطفل على المشاركة."
+    },
+    "easier": {
+      "en": "An adult holds one edge while the child brings the other across.",
+      "ar": "يمسك بالغ حافة بينما يجلب الطفل المقابلة إليها."
+    },
+    "harder": {
+      "en": "Explain the steps to a toy before folding another towel.",
+      "ar": "اشرح الخطوات لدمية قبل طي منشفة أخرى."
+    },
+    "extension": {
+      "en": "Choose one small folding job after laundry.",
+      "ar": "اختر مهمة طي صغيرة بعد الغسيل."
+    },
+    "materials": {
+      "en": [
+        "Two small clean towels"
+      ],
+      "ar": [
+        "منشفتان صغيرتان نظيفتان"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Smooth your towel and invite the child to copy.",
+        "Bring one short edge to the opposite edge and press the fold.",
+        "Fold once more if manageable, then carry the towels to their shelf together."
+      ],
+      "ar": [
+        "افرد منشفتك وادعُ الطفل للتقليد.",
+        "قرّب حافة قصيرة إلى الحافة المقابلة واضغط الطيّة.",
+        "اطوِ مرة أخرى إن أمكن ثم احملا المنشفتين إلى رفهما معًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Line up the corners before pressing the fold."
+      ],
+      "ar": [
+        "حاذِ الزوايا قبل ضغط الطيّة."
+      ]
+    },
+    "supervision": {
+      "en": "Stay with your child and use large, intact, age-appropriate materials.",
+      "ar": "ابقَ مع الطفل واستخدم مواد كبيرة وسليمة ومناسبة لعمره."
+    }
+  },
+  {
+    "id": "kids-3-4-life-04",
+    "age": "3-4",
+    "area": "life",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "A home for every toy",
+      "ar": "مكان لكل لعبة"
+    },
+    "summary": {
+      "en": "Agree where a few toys belong and tidy them together.",
+      "ar": "اتّفق على مكان بضع ألعاب ورتّبها مع الأسرة."
+    },
+    "objective": {
+      "en": "Use categories and shared roles to complete a household task.",
+      "ar": "استخدام مجموعات وأدوار مشتركة لإنجاز مهمة منزلية."
+    },
+    "alternatives": {
+      "en": "Use two clear areas on a low shelf instead of baskets.",
+      "ar": "استخدم مساحتين واضحتين على رف منخفض بدلًا من السلّتين."
+    },
+    "preparation": {
+      "en": "Choose a small area; agree that cars go here and soft toys there.",
+      "ar": "اختر مساحة صغيرة؛ واتّفقا أن السيارات هنا والدمى الناعمة هناك."
+    },
+    "prompt": {
+      "en": "How will we remember where to find the cars tomorrow?",
+      "ar": "كيف سنتذكّر أين نجد السيارات غدًا؟"
+    },
+    "answer": {
+      "en": "Any agreed, reachable storage arrangement works if everyone can find and return the toys.",
+      "ar": "يناسب أي ترتيب متّفق عليه وفي المتناول إذا استطاع الجميع العثور على الألعاب وإعادتها."
+    },
+    "explanation": {
+      "en": "A consistent home for objects supports finding them again.",
+      "ar": "يساعد المكان الثابت للأشياء على العثور عليها مجددًا."
+    },
+    "easier": {
+      "en": "Tidy only three toys into one basket.",
+      "ar": "رتّب ثلاث ألعاب فقط في سلّة واحدة."
+    },
+    "harder": {
+      "en": "Let the child propose and explain the two categories.",
+      "ar": "دع الطفل يقترح المجموعتين ويشرحهما."
+    },
+    "extension": {
+      "en": "Draw a picture label for each basket.",
+      "ar": "ارسم بطاقة مصوّرة لكل سلّة."
+    },
+    "materials": {
+      "en": [
+        "Two open baskets",
+        "Six large toys of two types"
+      ],
+      "ar": [
+        "سلّتان مفتوحتان",
+        "ست ألعاب كبيرة من نوعين"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Place one example toy in each basket.",
+        "Take turns choosing a toy and saying where it belongs.",
+        "Check the area together and celebrate the shared job without racing."
+      ],
+      "ar": [
+        "ضع مثالًا من الألعاب في كل سلّة.",
+        "تبادلا اختيار لعبة وتحديد مكانها.",
+        "تفقّدا المساحة معًا وقدّرا العمل المشترك دون سباق."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Leave an example visible or draw a simple picture label."
+      ],
+      "ar": [
+        "اترك مثالًا ظاهرًا أو ارسم بطاقة بسيطة."
+      ]
+    },
+    "supervision": {
+      "en": "Use light open containers on the floor; an adult handles heavy objects and lids.",
+      "ar": "استخدم حاويات خفيفة مفتوحة على الأرض؛ ويتولّى بالغ الأشياء الثقيلة والأغطية."
+    }
+  },
+  {
+    "id": "kids-3-4-life-05",
+    "age": "3-4",
+    "area": "life",
+    "format": "making",
+    "minutes": 10,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Our turn-taking tower",
+      "ar": "برج تبادل الأدوار"
+    },
+    "summary": {
+      "en": "Build one low tower by adding a block in turns.",
+      "ar": "ابنِ برجًا منخفضًا بإضافة مكعّب بالتناوب."
+    },
+    "objective": {
+      "en": "Practise shared turns and agree how to restart after a fall.",
+      "ar": "التدرّب على تبادل الأدوار والاتّفاق على البدء مجددًا بعد السقوط."
+    },
+    "alternatives": {
+      "en": "Use broad lightweight empty boxes.",
+      "ar": "استخدم علبًا فارغة خفيفة وعريضة."
+    },
+    "preparation": {
+      "en": "Sit on the floor with the blocks between you.",
+      "ar": "اجلسا على الأرض والمكعّبات بينكما."
+    },
+    "prompt": {
+      "en": "How can we make room for both our ideas?",
+      "ar": "كيف نترك مساحة لأفكار كلينا؟"
+    },
+    "answer": {
+      "en": "A shared construction with fair turns meets the task; its height is not the goal.",
+      "ar": "يحقّق البناء المشترك بأدوار عادلة المطلوب؛ وليس ارتفاعه هو الهدف."
+    },
+    "explanation": {
+      "en": "A predictable turn rule helps both builders contribute.",
+      "ar": "تساعد قاعدة أدوار واضحة كلا البنّاءين على المشاركة."
+    },
+    "easier": {
+      "en": "Pass each block directly to the next builder.",
+      "ar": "مرّر كل مكعّب مباشرة إلى البنّاء التالي."
+    },
+    "harder": {
+      "en": "Agree on two sections to build separately and connect.",
+      "ar": "اتّفقا على جزأين يُبنيان منفصلين ثم يُوصلان."
+    },
+    "extension": {
+      "en": "Use the same turn rule when adding to a shared drawing.",
+      "ar": "استخدما قاعدة الأدوار نفسها في رسمة مشتركة."
+    },
+    "materials": {
+      "en": [
+        "Six large lightweight blocks"
+      ],
+      "ar": [
+        "ستة مكعّبات كبيرة وخفيفة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Agree “one block each turn” and place the first block.",
+        "Take turns adding blocks while naming whose turn comes next.",
+        "If it falls, pause and agree whether to rebuild or make a wider base."
+      ],
+      "ar": [
+        "اتّفقا على «مكعّب واحد في كل دور» وضع الأول.",
+        "أضيفا المكعّبات بالتناوب مع تسمية صاحب الدور التالي.",
+        "إذا سقط، توقّفا واتّفقا على إعادة البناء أو توسيع القاعدة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Try choosing the next block together before placing it."
+      ],
+      "ar": [
+        "جرّبا اختيار المكعّب التالي معًا قبل وضعه."
+      ]
+    },
+    "supervision": {
+      "en": "Build on the floor using lightweight blocks and keep the tower below the child’s shoulder.",
+      "ar": "ابنِ على الأرض بمكعّبات خفيفة وأبقِ البرج دون كتف الطفل."
+    }
+  },
+  {
+    "id": "kids-5-6-language-01",
+    "age": "5-6",
+    "area": "language",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "early",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "First-sound picture hunt",
+      "ar": "البحث عن الصوت الأول"
+    },
+    "summary": {
+      "en": "Group objects that begin with the same spoken sound.",
+      "ar": "اجمع أشياء تبدأ بالصوت المنطوق نفسه."
+    },
+    "objective": {
+      "en": "Listen for initial sounds in familiar words.",
+      "ar": "الإصغاء إلى الأصوات الأولى في كلمات مألوفة."
+    },
+    "alternatives": {
+      "en": "Use spoken words without pictures.",
+      "ar": "استخدم الكلمات شفهيًا دون صور."
+    },
+    "preparation": {
+      "en": "Draw sun, sock and moon; say each word naturally.",
+      "ar": "ارسم سَمَكة وسَيّارة وقَمَرًا؛ وقل كل كلمة بشكل طبيعي."
+    },
+    "prompt": {
+      "en": "Do sun and moon start with the same sound?",
+      "ar": "هل تبدأ سَمَكة وقَمَر بالصوت نفسه؟"
+    },
+    "answer": {
+      "en": "Sun and sock start with /s/; moon starts with /m/. Soap begins with /s/.",
+      "ar": "تبدأ سَمَكة وسَيّارة بصوت س؛ ويبدأ قَمَر بصوت ق. ويبدأ سَرير بصوت س أيضًا."
+    },
+    "explanation": {
+      "en": "Words can share an initial sound while having different meanings.",
+      "ar": "قد تشترك الكلمات في صوتها الأول رغم اختلاف معانيها."
+    },
+    "easier": {
+      "en": "Offer only two pictures with clearly different starting sounds.",
+      "ar": "قدّم صورتين فقط بصوتين أولين مختلفين بوضوح."
+    },
+    "harder": {
+      "en": "Find three words beginning with another sound.",
+      "ar": "ابحث عن ثلاث كلمات تبدأ بصوت آخر."
+    },
+    "extension": {
+      "en": "Listen for the chosen sound in familiar object names.",
+      "ar": "استمع إلى الصوت المختار في أسماء أشياء مألوفة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Say “sun” and notice its first /s/ sound.",
+        "Name the other pictures and choose one starting the same way.",
+        "Draw another matching object, such as soap, and say its name."
+      ],
+      "ar": [
+        "قل «سَمَكة» ولاحظ صوت س في بدايتها.",
+        "سمّ الصور الأخرى واختر ما يبدأ بالصوت نفسه.",
+        "ارسم شيئًا آخر يبدأ بالصوت نفسه، مثل سَرير، وقل اسمه."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Listen to the sound, not the letter’s alphabet name."
+      ],
+      "ar": [
+        "استمع إلى الصوت لا إلى اسم الحرف في الأبجدية."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-language-02",
+    "age": "5-6",
+    "area": "language",
+    "format": "story",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "early",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "The lost hat story order",
+      "ar": "ترتيب قصة القبعة المفقودة"
+    },
+    "summary": {
+      "en": "Arrange four events into a sensible story.",
+      "ar": "رتّب أربعة أحداث في قصة مفهومة."
+    },
+    "objective": {
+      "en": "Explain event order using connecting words.",
+      "ar": "شرح ترتيب الأحداث باستخدام كلمات الربط."
+    },
+    "alternatives": {
+      "en": "Act out the events instead.",
+      "ar": "مثّل الأحداث بدلًا من الرسم."
+    },
+    "preparation": {
+      "en": "Draw four panels: hat on head; wind blows it; hat in bush; child retrieves it.",
+      "ar": "ارسم أربعة مشاهد: قبعة على الرأس؛ الريح تطيرها؛ القبعة في شجيرة؛ الطفل يستعيدها."
+    },
+    "prompt": {
+      "en": "Which picture shows why the hat moved?",
+      "ar": "أي صورة تُظهر سبب تحرّك القبعة؟"
+    },
+    "answer": {
+      "en": "Hat on head, wind blows it, hat lands in bush, child retrieves it.",
+      "ar": "القبعة على الرأس، تطيرها الريح، تستقر في الشجيرة، يستعيدها الطفل."
+    },
+    "explanation": {
+      "en": "Cause-and-effect clues connect the events.",
+      "ar": "تربط أدلة السبب والنتيجة الأحداث."
+    },
+    "easier": {
+      "en": "Use three events, leaving out the bush.",
+      "ar": "استخدم ثلاثة أحداث بحذف الشجيرة."
+    },
+    "harder": {
+      "en": "Add an ending that follows the earlier events.",
+      "ar": "أضف نهاية تنسجم مع الأحداث السابقة."
+    },
+    "extension": {
+      "en": "Retell a real event from the day in four parts.",
+      "ar": "أعِد سرد حدث من اليوم في أربعة أجزاء."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Describe the pictures in a mixed order.",
+        "Ask the child to point to first, next, then and last.",
+        "Retell the story and explain why retrieving follows losing."
+      ],
+      "ar": [
+        "صِف الصور بترتيب مختلط.",
+        "اطلب من الطفل الإشارة إلى الأول ثم التالي ثم الذي بعده ثم الأخير.",
+        "أعِد سرد القصة واشرح لماذا تأتي الاستعادة بعد الفقدان."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Look for the wind before the hat lands in the bush."
+      ],
+      "ar": [
+        "ابحث عن الريح قبل استقرار القبعة في الشجيرة."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-language-03",
+    "age": "5-6",
+    "area": "language",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "none",
+    "reading": "early",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Find the rhyming friend",
+      "ar": "ابحث عن الكلمة ذات النهاية المشابهة"
+    },
+    "summary": {
+      "en": "Listen for words with matching ending sounds.",
+      "ar": "استمع إلى كلمات تتشابه أصوات نهاياتها."
+    },
+    "objective": {
+      "en": "Notice rhyme through spoken examples.",
+      "ar": "ملاحظة القافية من أمثلة منطوقة."
+    },
+    "alternatives": {
+      "en": "Draw objects to support the spoken words.",
+      "ar": "ارسم الأشياء لدعم الكلمات المنطوقة."
+    },
+    "preparation": {
+      "en": "Say familiar words aloud; reading is unnecessary.",
+      "ar": "قل كلمات مألوفة بصوت مسموع؛ لا حاجة إلى القراءة."
+    },
+    "prompt": {
+      "en": "Which ending sounds alike?",
+      "ar": "أي نهاية تبدو متشابهة؟"
+    },
+    "answer": {
+      "en": "Cat rhymes with hat; boat rhymes with coat. Meanings need not match.",
+      "ar": "تتقافى دار مع نار ولَيْل مع ذَيْل عند الوقف؛ ولا يلزم تشابه المعنى."
+    },
+    "explanation": {
+      "en": "Rhyme uses ending sounds; sharing a first letter is not enough.",
+      "ar": "تعتمد القافية على أصوات النهاية؛ ولا يكفي تشابه الحرف الأول."
+    },
+    "easier": {
+      "en": "Repeat a rhyming pair together before choosing.",
+      "ar": "كرّرا زوجًا مقفّى معًا قبل الاختيار."
+    },
+    "harder": {
+      "en": "Make a three-word chain; identify any invented words.",
+      "ar": "اصنع سلسلة من ثلاث كلمات؛ ووضّح أي كلمات مخترعة."
+    },
+    "extension": {
+      "en": "Listen for rhyme in a familiar song or poem.",
+      "ar": "استمع إلى القافية في أنشودة أو قصيدة مألوفة."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Say “cat, hat” and emphasise the shared ending.",
+        "Ask which rhymes with cat: hat or sun.",
+        "Try “boat, coat”, then invite another rhyme or playful invented word."
+      ],
+      "ar": [
+        "قل «دار، نار» مع إبراز النهاية المتشابهة.",
+        "اسأل أيهما تشبه نهاية دار: نار أم شمس.",
+        "جرّب «لَيْل، ذَيْل» ثم اطلب قافية أخرى أو كلمة خيالية مرحة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Say both words slowly without changing their usual sounds."
+      ],
+      "ar": [
+        "قل الكلمتين ببطء دون تغيير نطقهما المعتاد."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-language-04",
+    "age": "5-6",
+    "area": "language",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "early",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Letter shapes in a name",
+      "ar": "أشكال الحروف في الاسم"
+    },
+    "summary": {
+      "en": "Explore a familiar letter and find it again.",
+      "ar": "استكشف حرفًا مألوفًا وابحث عنه مجددًا."
+    },
+    "objective": {
+      "en": "Recognise a selected letter in meaningful words.",
+      "ar": "تمييز حرف مختار في كلمات ذات معنى."
+    },
+    "alternatives": {
+      "en": "An adult writes three short examples.",
+      "ar": "يكتب بالغ ثلاثة أمثلة قصيرة."
+    },
+    "preparation": {
+      "en": "Write the child’s name and choose a letter; show M and m if using “Mona”.",
+      "ar": "اكتب اسم الطفل واختر حرفًا؛ ويمكن تجربة م في «مَها»."
+    },
+    "prompt": {
+      "en": "Does the letter always look identical?",
+      "ar": "هل يبدو الحرف مطابقًا دائمًا؟"
+    },
+    "answer": {
+      "en": "Find the selected letter; show its uppercase and lowercase forms when needed.",
+      "ar": "حدّد الحرف المختار؛ ووضّح أشكاله المتصلة والمنفصلة عند الحاجة."
+    },
+    "explanation": {
+      "en": "A letter can have more than one visual form.",
+      "ar": "قد يكون للحرف أكثر من شكل مرئي."
+    },
+    "easier": {
+      "en": "Match identical handwritten examples only.",
+      "ar": "طابق أمثلة مكتوبة بالشكل نفسه فقط."
+    },
+    "harder": {
+      "en": "Find the letter in a new word and name its position.",
+      "ar": "اعثر على الحرف في كلمة جديدة واذكر موضعه."
+    },
+    "extension": {
+      "en": "Make a name label for a drawing.",
+      "ar": "اصنع بطاقة اسم لرسمة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil",
+        "Book with clear print"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص",
+        "كتاب بطباعة واضحة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Point to the letter and trace its shape in the air.",
+        "Write it large, then find it in two familiar words.",
+        "Compare the examples and circle or point to the letter."
+      ],
+      "ar": [
+        "أشر إلى الحرف وتتبّع شكله في الهواء.",
+        "اكتبه كبيرًا ثم ابحث عنه في كلمتين مألوفتين.",
+        "قارن الأمثلة وأحط الحرف بدائرة أو أشر إليه."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Show uppercase M beside lowercase m."
+      ],
+      "ar": [
+        "أظهر م في مَها وقَلَم لتوضيح تغيّر الشكل عند الاتّصال."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-language-05",
+    "age": "5-6",
+    "area": "language",
+    "format": "story",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "early",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Interview a family expert",
+      "ar": "حاور خبيرًا من الأسرة"
+    },
+    "summary": {
+      "en": "Ask a family member about a familiar skill.",
+      "ar": "اسأل فردًا من الأسرة عن مهارة مألوفة."
+    },
+    "objective": {
+      "en": "Ask relevant questions and retell an answer.",
+      "ar": "طرح أسئلة مناسبة وإعادة سرد جواب."
+    },
+    "alternatives": {
+      "en": "Interview an adult pretending to be a gardener.",
+      "ar": "حاور بالغًا يتخيّل أنه بستاني."
+    },
+    "preparation": {
+      "en": "Choose a willing adult and topic, such as plant care.",
+      "ar": "اختر بالغًا راغبًا وموضوعًا مثل العناية بالنباتات."
+    },
+    "prompt": {
+      "en": "What new question follows from that answer?",
+      "ar": "ما السؤال الجديد الذي ينتج عن هذا الجواب؟"
+    },
+    "answer": {
+      "en": "Accurately retelling a relevant detail meets the task; kindly clarify misunderstandings.",
+      "ar": "تفي إعادة سرد تفصيل مناسب بدقّة بالغرض؛ ووضّح سوء الفهم بلطف."
+    },
+    "explanation": {
+      "en": "Follow-up questions build on what the speaker said.",
+      "ar": "تبني أسئلة المتابعة على ما قاله المتحدّث."
+    },
+    "easier": {
+      "en": "Ask one question and repeat its answer together.",
+      "ar": "اطرح سؤالًا واحدًا وكرّر جوابه مع البالغ."
+    },
+    "harder": {
+      "en": "Invent a follow-up question without prompting.",
+      "ar": "ابتكر سؤال متابعة دون اقتراح."
+    },
+    "extension": {
+      "en": "Add a caption to a picture about the interview.",
+      "ar": "أضف تعليقًا إلى صورة عن المقابلة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil for optional picture notes"
+      ],
+      "ar": [
+        "ورق",
+        "قلم لملاحظات مصوّرة اختيارية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Choose two questions: “What do you do?” and “What helps you?”",
+        "Ask, listen and draw one detail from each answer.",
+        "Tell another listener something learned and check it with the interviewee."
+      ],
+      "ar": [
+        "اختر سؤالين: «ماذا تفعل؟» و«ما الذي يساعدك؟».",
+        "اسأل واستمع وارسم تفصيلًا من كل جواب.",
+        "أخبر مستمعًا آخر بشيء تعلّمته وتحقّق منه مع من حاورته."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Use what, how or why to invite a fuller answer."
+      ],
+      "ar": [
+        "استخدم ماذا أو كيف أو لماذا لتشجيع جواب أوسع."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-maths-01",
+    "age": "5-6",
+    "area": "maths",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Fill the ten-frame",
+      "ar": "املأ إطار العشرة"
+    },
+    "summary": {
+      "en": "Explore numbers in two rows of five spaces.",
+      "ar": "استكشف الأعداد في صفين من خمس خانات."
+    },
+    "objective": {
+      "en": "Represent a number and find how many more make ten.",
+      "ar": "تمثيل عدد وإيجاد ما يكمله إلى عشرة."
+    },
+    "alternatives": {
+      "en": "An adult draws while the child points.",
+      "ar": "يرسم بالغ بينما يشير الطفل."
+    },
+    "preparation": {
+      "en": "Draw a rectangle split into two rows of five boxes.",
+      "ar": "ارسم مستطيلًا مقسّمًا إلى صفين من خمس خانات."
+    },
+    "prompt": {
+      "en": "How does a full row help you see six?",
+      "ar": "كيف يساعدك الصف الممتلئ على رؤية ستة؟"
+    },
+    "answer": {
+      "en": "Six filled spaces leave four empty; six and four make ten.",
+      "ar": "تترك ست خانات ممتلئة أربعًا فارغة؛ وستة وأربعة يساويان عشرة."
+    },
+    "explanation": {
+      "en": "The frame shows the relationship between a number and ten.",
+      "ar": "يُظهر الإطار العلاقة بين العدد والعشرة."
+    },
+    "easier": {
+      "en": "Use one row of five with three dots.",
+      "ar": "استخدم صفًا من خمس خانات وفيه ثلاث نقاط."
+    },
+    "harder": {
+      "en": "Choose another starting number and predict its missing part.",
+      "ar": "اختر عدد بداية آخر وتوقّع ما يكمله."
+    },
+    "extension": {
+      "en": "Draw ten windows and colour some as lit windows.",
+      "ar": "ارسم عشر نوافذ ولوّن بعضها كأنها مضاءة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Draw dots in the first six boxes, filling the top row first.",
+        "Count the filled boxes and then the empty ones.",
+        "Add enough dots to fill the frame and check the total."
+      ],
+      "ar": [
+        "ارسم نقاطًا في أول ست خانات بدءًا بالصف العلوي.",
+        "عُدّ الخانات الممتلئة ثم الفارغة.",
+        "أضف ما يكفي من النقاط لإكمال الإطار وتحقّق من المجموع."
+      ]
+    },
+    "hints": {
+      "en": [
+        "A full row is five; six is five and one more."
+      ],
+      "ar": [
+        "الصف الممتلئ خمسة؛ والستة خمسة وواحد آخر."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and prepares any cut paper pieces.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويجهّز أي قطع ورقية مقصوصة."
+    }
+  },
+  {
+    "id": "kids-5-6-maths-02",
+    "age": "5-6",
+    "area": "maths",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "The picture-price shop",
+      "ar": "متجر الأسعار المصوّرة"
+    },
+    "summary": {
+      "en": "Add pretend prices within a ten-point budget.",
+      "ar": "اجمع أسعارًا خيالية ضمن ميزانية عشر نقاط."
+    },
+    "objective": {
+      "en": "Add quantities within ten and compare them with a limit.",
+      "ar": "جمع كميات ضمن عشرة ومقارنتها بحدّ معين."
+    },
+    "alternatives": {
+      "en": "Use tally marks instead of numerals.",
+      "ar": "استخدم علامات العدّ بدل الأرقام."
+    },
+    "preparation": {
+      "en": "Draw an apple costing 2 points, a book 3 and a ball 4; prices are imaginary.",
+      "ar": "ارسم تفاحة بنقطتين وكتابًا بثلاث وكرة بأربع؛ الأسعار خيالية."
+    },
+    "prompt": {
+      "en": "How many points remain after buying all three?",
+      "ar": "كم نقطة تبقى بعد شراء الأشياء الثلاثة؟"
+    },
+    "answer": {
+      "en": "Apple and book cost 5; all three cost 9, leaving 1 from 10.",
+      "ar": "تكلف التفاحة والكتاب ٥؛ وتكلف الثلاثة ٩، فتبقى نقطة من ١٠."
+    },
+    "explanation": {
+      "en": "The total shows spending; comparing it with ten shows what remains.",
+      "ar": "يُظهر المجموع الإنفاق؛ وتُظهر مقارنته بعشرة ما يتبقّى."
+    },
+    "easier": {
+      "en": "Buy two items priced at 1 and 2.",
+      "ar": "اشترِ شيئين بسعري نقطة ونقطتين."
+    },
+    "harder": {
+      "en": "Choose repeated items to spend exactly ten points.",
+      "ar": "اختر أشياء مكرّرة لإنفاق عشر نقاط بالضبط."
+    },
+    "extension": {
+      "en": "Invent another shop with prices up to five.",
+      "ar": "ابتكر متجرًا آخر بأسعار لا تتجاوز خمس نقاط."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Choose the apple and book and draw two dots beside three.",
+        "Count their total and compare it with ten available points.",
+        "Add the ball and check the new total and remaining points."
+      ],
+      "ar": [
+        "اختر التفاحة والكتاب وارسم نقطتين بجوار ثلاث.",
+        "عُدّ المجموع وقارنه بعشر نقاط متاحة.",
+        "أضف الكرة وتحقّق من المجموع الجديد والنقاط المتبقية."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Cross out one of ten drawn points for each point spent."
+      ],
+      "ar": [
+        "اشطب نقطة من عشر مرسومة مقابل كل نقطة تُنفق."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and prepares any cut paper pieces.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويجهّز أي قطع ورقية مقصوصة."
+    }
+  },
+  {
+    "id": "kids-5-6-maths-03",
+    "age": "5-6",
+    "area": "maths",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Measure with a paper strip",
+      "ar": "قِس بشريط ورقي"
+    },
+    "summary": {
+      "en": "Measure a book by repeating one paper unit.",
+      "ar": "قِس كتابًا بتكرار وحدة ورقية واحدة."
+    },
+    "objective": {
+      "en": "Measure length with equal units and no gaps or overlaps.",
+      "ar": "قياس الطول بوحدات متساوية دون فراغات أو تداخل."
+    },
+    "alternatives": {
+      "en": "Use identical large blocks end to end.",
+      "ar": "استخدم مكعّبات كبيرة متطابقة طرفًا إلى طرف."
+    },
+    "preparation": {
+      "en": "Choose a book roughly three or four strip-lengths long.",
+      "ar": "اختر كتابًا بطول نحو ثلاثة أو أربعة شرائط."
+    },
+    "prompt": {
+      "en": "What if we leave spaces between units?",
+      "ar": "ماذا لو تركنا فراغات بين الوحدات؟"
+    },
+    "answer": {
+      "en": "The number depends on both lengths; describe a remainder as “and a little more”.",
+      "ar": "يعتمد العدد على الطولين؛ صِف الباقي بعبارة «وقليل آخر»."
+    },
+    "explanation": {
+      "en": "Keeping the unit size fixed makes measurements comparable.",
+      "ar": "يجعل ثبات حجم الوحدة القياسات قابلة للمقارنة."
+    },
+    "easier": {
+      "en": "Lay equal strips end to end instead of moving one.",
+      "ar": "ضع شرائط متساوية طرفًا إلى طرف بدل تحريك واحد."
+    },
+    "harder": {
+      "en": "Measure again using a shorter unit and compare the count.",
+      "ar": "قِس مجددًا بوحدة أقصر وقارن العدد."
+    },
+    "extension": {
+      "en": "Estimate another book before measuring it.",
+      "ar": "قدّر طول كتاب آخر قبل قياسه."
+    },
+    "materials": {
+      "en": [
+        "Short paper strip prepared by an adult",
+        "Pencil",
+        "Book",
+        "Paper"
+      ],
+      "ar": [
+        "شريط ورقي قصير يجهّزه بالغ",
+        "قلم",
+        "كتاب",
+        "ورق"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Align a strip end with the book’s edge and mark its far end on paper alongside.",
+        "Move the strip to start at that mark and repeat without gaps.",
+        "Count full units and describe any leftover length."
+      ],
+      "ar": [
+        "حاذِ طرف الشريط بحافة الكتاب وعلّم نهايته على ورقة بجانبه.",
+        "حرّك الشريط ليبدأ عند العلامة وكرّر دون فراغات.",
+        "عُدّ الوحدات الكاملة وصِف الطول المتبقي."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Each new position starts where the last ended."
+      ],
+      "ar": [
+        "يبدأ كل موضع جديد حيث انتهى السابق."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and prepares any cut paper pieces.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويجهّز أي قطع ورقية مقصوصة."
+    }
+  },
+  {
+    "id": "kids-5-6-maths-04",
+    "age": "5-6",
+    "area": "maths",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Share six picnic sandwiches",
+      "ar": "وزّع ست شطائر للنزهة"
+    },
+    "summary": {
+      "en": "Share drawn sandwiches equally between three guests.",
+      "ar": "وزّع شطائر مرسومة بالتساوي بين ثلاثة ضيوف."
+    },
+    "objective": {
+      "en": "Make equal groups and check each group’s size.",
+      "ar": "تكوين مجموعات متساوية والتحقّق من حجم كل مجموعة."
+    },
+    "alternatives": {
+      "en": "Use six large blocks and three drawn places.",
+      "ar": "استخدم ستة مكعّبات كبيرة وثلاثة أماكن مرسومة."
+    },
+    "preparation": {
+      "en": "Draw three guests and six sandwiches in a separate row.",
+      "ar": "ارسم ثلاثة ضيوف وست شطائر في صف منفصل."
+    },
+    "prompt": {
+      "en": "Are shares of three, two and one equal?",
+      "ar": "هل حصص ثلاث واثنتين وواحدة متساوية؟"
+    },
+    "answer": {
+      "en": "Each guest gets two; three, two and one would be unequal.",
+      "ar": "يحصل كل ضيف على اثنتين؛ أما ثلاث واثنتان وواحدة فغير متساوية."
+    },
+    "explanation": {
+      "en": "Sharing one at a time helps keep the groups equal.",
+      "ar": "يساعد توزيع واحدة في كل مرة على إبقاء المجموعات متساوية."
+    },
+    "easier": {
+      "en": "Share four items between two guests.",
+      "ar": "وزّع أربعة أشياء بين ضيفين."
+    },
+    "harder": {
+      "en": "Share seven whole items between three and identify the remainder.",
+      "ar": "وزّع سبعة أشياء كاملة بين ثلاثة وحدّد الباقي."
+    },
+    "extension": {
+      "en": "Share drawing tools equally for a joint picture.",
+      "ar": "وزّع أدوات الرسم بالتساوي لرسمة مشتركة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Give each guest one sandwich by drawing a connecting line.",
+        "Repeat until all six are shared.",
+        "Count each guest’s share and explain how you know it is equal."
+      ],
+      "ar": [
+        "أعطِ كل ضيف شطيرة برسم خط يصلها به.",
+        "كرّر حتى توزّع الشطائر الست.",
+        "عُدّ حصة كل ضيف واشرح كيف تعرف أنها متساوية."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Compare the guests’ numbers, not just the total."
+      ],
+      "ar": [
+        "قارن عدد الشطائر التي حصل عليها كل ضيف، لا المجموع وحده."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and prepares any cut paper pieces.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويجهّز أي قطع ورقية مقصوصة."
+    }
+  },
+  {
+    "id": "kids-5-6-maths-05",
+    "age": "5-6",
+    "area": "maths",
+    "format": "making",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Fold-and-check butterflies",
+      "ar": "فراشات نطويها ونتحقّق منها"
+    },
+    "summary": {
+      "en": "Compare a butterfly’s two sides across a fold.",
+      "ar": "قارن جانبي فراشة حول طيّة."
+    },
+    "objective": {
+      "en": "Explore reflection symmetry around a central line.",
+      "ar": "استكشاف التناظر الانعكاسي حول خط وسطي."
+    },
+    "alternatives": {
+      "en": "Match hand positions across a drawn line.",
+      "ar": "طابق وضعيات اليد حول خط مرسوم."
+    },
+    "preparation": {
+      "en": "Fold paper in half, reopen it and draw a body on the crease.",
+      "ar": "اطوِ الورقة نصفين وافتحها وارسم جسمًا على الطيّة."
+    },
+    "prompt": {
+      "en": "How far from the fold should each spot be?",
+      "ar": "كم ينبغي أن تبعد كل بقعة عن الطيّة؟"
+    },
+    "answer": {
+      "en": "Matching features lie on opposite sides at equal distances from the fold; approximate drawings are fine.",
+      "ar": "تقع التفاصيل المتناظرة على جانبين متقابلين بمسافة متساوية عن الطيّة؛ وتُقبل الرسومات التقريبية."
+    },
+    "explanation": {
+      "en": "Reflection reverses sides while preserving distance from the central line.",
+      "ar": "يقلب الانعكاس الجانبين ويحافظ على المسافة من خط الوسط."
+    },
+    "easier": {
+      "en": "Match just one spot per wing.",
+      "ar": "طابق بقعة واحدة لكل جناح فقط."
+    },
+    "harder": {
+      "en": "Add a second pair of differently shaped markings.",
+      "ar": "أضف زوجًا ثانيًا من علامات مختلفة الشكل."
+    },
+    "extension": {
+      "en": "Find an approximately symmetrical household object.",
+      "ar": "ابحث عن شيء منزلي متناظر تقريبًا."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمعية"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Draw one broad wing on each side.",
+        "Add a large spot to one wing and a matching spot on the other.",
+        "Fold again and hold towards room light to compare approximate positions."
+      ],
+      "ar": [
+        "ارسم جناحًا عريضًا في كل جانب.",
+        "أضف بقعة كبيرة إلى جناح وبقعة مقابلة في الآخر.",
+        "اطوِ مجددًا وارفع الورقة نحو ضوء الغرفة لمقارنة المواضع تقريبًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Match height and distance from the middle."
+      ],
+      "ar": [
+        "طابق الارتفاع والمسافة عن الوسط."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and prepares any cut paper pieces.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويجهّز أي قطع ورقية مقصوصة."
+    }
+  },
+  {
+    "id": "kids-5-6-logic-01",
+    "age": "5-6",
+    "area": "logic",
+    "format": "puzzle",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Two clues, one animal",
+      "ar": "دليلان وحيوان واحد"
+    },
+    "summary": {
+      "en": "Use two clues to identify a pictured animal.",
+      "ar": "استخدم دليلين لتحديد حيوان مصوّر."
+    },
+    "objective": {
+      "en": "Eliminate choices that fail either clue.",
+      "ar": "استبعاد الخيارات التي لا تحقّق أحد الدليلين."
+    },
+    "alternatives": {
+      "en": "Name the four choices aloud.",
+      "ar": "اذكر الخيارات الأربعة شفهيًا."
+    },
+    "preparation": {
+      "en": "Draw or write cat, duck, fish and butterfly.",
+      "ar": "ارسم أو اكتب قطة وبطة وسمكة وفراشة."
+    },
+    "prompt": {
+      "en": "Which clue distinguishes the two winged animals?",
+      "ar": "أي دليل يميّز بين الحيوانين ذوي الأجنحة؟"
+    },
+    "answer": {
+      "en": "Only the duck among these choices has both wings and feathers.",
+      "ar": "البطة وحدها بين الخيارات لها أجنحة وريش."
+    },
+    "explanation": {
+      "en": "An answer must fit every clue, not just the first.",
+      "ar": "يجب أن يوافق الجواب كل الأدلة لا أولها فقط."
+    },
+    "easier": {
+      "en": "Offer only duck and fish.",
+      "ar": "قدّم البطة والسمكة فقط."
+    },
+    "harder": {
+      "en": "Dictate two clues with exactly one answer among the four.",
+      "ar": "أملِ دليلين لهما جواب واحد بالضبط بين الأربعة."
+    },
+    "extension": {
+      "en": "Try two-clue guessing with household objects.",
+      "ar": "جرّب التخمين بدليلين لأشياء منزلية."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Read: “I have wings. I also have feathers.”",
+        "Find choices with wings, then check the second clue.",
+        "Explain why duck fits and butterfly does not; invent another clue pair."
+      ],
+      "ar": [
+        "اقرأ: «لديّ أجنحة، ولديّ ريش أيضًا».",
+        "حدّد الخيارات ذات الأجنحة ثم تحقّق من الدليل الثاني.",
+        "اشرح لماذا تناسب البطة الوصف ولا تناسبه الفراشة؛ وابتكر دليلين آخرين."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Does a butterfly have feathers?"
+      ],
+      "ar": [
+        "هل للفراشة ريش؟"
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-logic-02",
+    "age": "5-6",
+    "area": "logic",
+    "format": "puzzle",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Guide the robot on a grid",
+      "ar": "وجّه الروبوت على الشبكة"
+    },
+    "summary": {
+      "en": "Give a pretend robot exact one-square instructions.",
+      "ar": "أعطِ روبوتًا خياليًا تعليمات دقيقة بمقدار خانة."
+    },
+    "objective": {
+      "en": "Plan and test a sequence of directional steps.",
+      "ar": "تخطيط وتجربة تسلسل خطوات اتجاهية."
+    },
+    "alternatives": {
+      "en": "An adult draws arrows while the child points.",
+      "ar": "يرسم بالغ الأسهم بينما يشير الطفل."
+    },
+    "preparation": {
+      "en": "Draw a 3-by-3 grid; start bottom-left and put a star top-right.",
+      "ar": "ارسم شبكة ٣ في ٣؛ البداية أسفل اليسار والنجمة أعلى اليمين."
+    },
+    "prompt": {
+      "en": "Can another four-move route reach the star?",
+      "ar": "هل يصل مسار آخر من أربع حركات إلى النجمة؟"
+    },
+    "answer": {
+      "en": "Up, up, right, right works; other orders of two ups and two rights also work.",
+      "ar": "يصلح أعلى، أعلى، يمين، يمين؛ وتصلح ترتيبات أخرى لحركتين لأعلى واثنتين لليمين."
+    },
+    "explanation": {
+      "en": "Testing instructions one at a time reveals where a sequence needs repair.",
+      "ar": "يكشف اختبار التعليمات واحدةً واحدةً موضع التعديل."
+    },
+    "easier": {
+      "en": "Use one row of three squares.",
+      "ar": "استخدم صفًا من ثلاث خانات."
+    },
+    "harder": {
+      "en": "Block the middle square and find two routes avoiding it.",
+      "ar": "احجب الخانة الوسطى وابحث عن مسارين يتجنّبانها."
+    },
+    "extension": {
+      "en": "Draw new start and finish positions and exchange instructions.",
+      "ar": "ارسم بداية ونهاية جديدتين وتبادلا التعليمات."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Use a finger as the robot; one arrow moves one square.",
+        "Plan four moves to the star without leaving the grid.",
+        "Follow the arrows exactly and change any mistaken instruction."
+      ],
+      "ar": [
+        "استخدم إصبعًا روبوتًا؛ يحرّكه كل سهم خانة واحدة.",
+        "خطّط أربع حركات إلى النجمة دون مغادرة الشبكة.",
+        "اتبع الأسهم بدقّة وعدّل أي تعليمة خاطئة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "You need two moves up and two right."
+      ],
+      "ar": [
+        "تحتاج حركتين إلى أعلى وحركتين إلى اليمين."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-logic-03",
+    "age": "5-6",
+    "area": "logic",
+    "format": "puzzle",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Find the broken pattern",
+      "ar": "اكتشف خلل النمط"
+    },
+    "summary": {
+      "en": "Repair one change in a repeating shape pattern.",
+      "ar": "أصلح تغييرًا واحدًا في نمط أشكال متكرّر."
+    },
+    "objective": {
+      "en": "Identify a repeating unit and check a sequence against it.",
+      "ar": "تحديد وحدة متكرّرة وفحص تسلسل وفقها."
+    },
+    "alternatives": {
+      "en": "Use claps and taps instead of marks.",
+      "ar": "استخدم التصفيق والنقر بدل العلامات."
+    },
+    "preparation": {
+      "en": "Draw circle, square, triangle, circle, square, circle.",
+      "ar": "ارسم دائرة، مربّعًا، مثلثًا، دائرة، مربّعًا، دائرة."
+    },
+    "prompt": {
+      "en": "Which three shapes repeat as one group?",
+      "ar": "ما الأشكال الثلاثة التي تتكرّر كمجموعة؟"
+    },
+    "answer": {
+      "en": "The sixth should be a triangle; next come circle, square, triangle.",
+      "ar": "ينبغي أن يكون السادس مثلثًا؛ ثم تأتي دائرة ومربّع ومثلث."
+    },
+    "explanation": {
+      "en": "Once a repeating unit is agreed, its positions become predictable.",
+      "ar": "عند تحديد الوحدة المتكرّرة تصبح مواضعها قابلة للتوقّع."
+    },
+    "easier": {
+      "en": "Use an alternating circle-square pattern.",
+      "ar": "استخدم نمطًا متناوبًا من دائرة ومربّع."
+    },
+    "harder": {
+      "en": "Make a four-part repeating unit with one error for an adult.",
+      "ar": "اصنع وحدة رباعية متكرّرة فيها خطأ واحد ليجده بالغ."
+    },
+    "extension": {
+      "en": "Design a border with the repaired pattern.",
+      "ar": "صمّم إطارًا بالنمط المصحّح."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Explain that the first three shapes are the unit to repeat.",
+        "Read the sequence and stop where it breaks the rule.",
+        "Replace the sixth shape, then add the next three."
+      ],
+      "ar": [
+        "وضّح أن الأشكال الثلاثة الأولى هي الوحدة المتكرّرة.",
+        "اقرأ التسلسل وتوقّف عند مخالفة القاعدة.",
+        "استبدل الشكل السادس ثم أضف الأشكال الثلاثة التالية."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Compare positions one and four, then two and five."
+      ],
+      "ar": [
+        "قارن الموضعين الأول والرابع ثم الثاني والخامس."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-logic-04",
+    "age": "5-6",
+    "area": "logic",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Build from a spoken plan",
+      "ar": "ابنِ حسب خطة مسموعة"
+    },
+    "summary": {
+      "en": "Describe a small block model for another builder.",
+      "ar": "صِف نموذج مكعّبات صغيرًا ليبنيه شخص آخر."
+    },
+    "objective": {
+      "en": "Give precise instructions and compare models.",
+      "ar": "إعطاء تعليمات دقيقة ومقارنة النماذج."
+    },
+    "alternatives": {
+      "en": "Draw two matching sets of shapes instead.",
+      "ar": "ارسم مجموعتين متطابقتين من الأشكال بدلًا من ذلك."
+    },
+    "preparation": {
+      "en": "Have the other builder face away while you arrange your set.",
+      "ar": "اجعل البنّاء الآخر ينظر بعيدًا بينما ترتّب مجموعتك."
+    },
+    "prompt": {
+      "en": "Which words explain where the third block belongs?",
+      "ar": "ما الكلمات التي تشرح مكان المكعّب الثالث؟"
+    },
+    "answer": {
+      "en": "Two blocks form the base and one sits centrally above them; discuss differences without blame.",
+      "ar": "يشكّل مكعّبان القاعدة ويستقر ثالث فوقهما في الوسط؛ ناقشا الاختلاف دون لوم."
+    },
+    "explanation": {
+      "en": "Comparing models shows which instructions need more detail.",
+      "ar": "تُظهر مقارنة النماذج التعليمات التي تحتاج مزيدًا من التفصيل."
+    },
+    "easier": {
+      "en": "Keep the model visible during building.",
+      "ar": "أبقِ النموذج ظاهرًا أثناء البناء."
+    },
+    "harder": {
+      "en": "Use four blocks per set and invite a clarifying question.",
+      "ar": "استخدم أربعة مكعّبات لكل مجموعة وادعُ إلى سؤال توضيحي."
+    },
+    "extension": {
+      "en": "Describe a drawing for someone else to reproduce.",
+      "ar": "صِف رسمة ليعيد شخص آخر رسمها."
+    },
+    "materials": {
+      "en": [
+        "Six large blocks in two matching sets of three"
+      ],
+      "ar": [
+        "ستة مكعّبات كبيرة في مجموعتين متطابقتين من ثلاثة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Place two blocks side by side with the third centred on top.",
+        "Describe the model without showing it and let the listener build.",
+        "Reveal both models, compare and improve one unclear instruction."
+      ],
+      "ar": [
+        "ضع مكعّبين جنبًا إلى جنب والثالث فوقهما في الوسط.",
+        "صِف النموذج دون إظهاره ودع المستمع يبني.",
+        "اكشف النموذجين وقارنهما وحسّن تعليمة غير واضحة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Use beside, on top and in the middle instead of “there”."
+      ],
+      "ar": [
+        "استخدم بجانب وفوق وفي الوسط بدل «هناك»."
+      ]
+    },
+    "supervision": {
+      "en": "Use lightweight blocks on the floor and keep the model low.",
+      "ar": "استخدم مكعّبات خفيفة على الأرض وأبقِ النموذج منخفضًا."
+    }
+  },
+  {
+    "id": "kids-5-6-logic-05",
+    "age": "5-6",
+    "area": "logic",
+    "format": "game",
+    "minutes": 10,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Guess my sorting rule",
+      "ar": "خمّن قاعدة تصنيفي"
+    },
+    "summary": {
+      "en": "Discover a hidden rule by testing new examples.",
+      "ar": "اكتشف قاعدة مخفية بتجربة أمثلة جديدة."
+    },
+    "objective": {
+      "en": "Use examples and counterexamples to test a rule.",
+      "ar": "استخدام أمثلة وأمثلة مخالفة لاختبار قاعدة."
+    },
+    "alternatives": {
+      "en": "Use large objects with wheels and without wheels.",
+      "ar": "استخدم أشياء كبيرة ذات عجلات وأخرى بلا عجلات."
+    },
+    "preparation": {
+      "en": "Draw car and bicycle in a yes group; tree and cup in a no group.",
+      "ar": "ارسم سيارة ودراجة في مجموعة نعم؛ وشجرة وكوبًا في مجموعة لا."
+    },
+    "prompt": {
+      "en": "Does everything that rolls have wheels?",
+      "ar": "هل لكل ما يتدحرج عجلات؟"
+    },
+    "answer": {
+      "en": "The intended rule is “has wheels”: bus is yes and ball is no.",
+      "ar": "القاعدة المقصودة «له عجلات»: الحافلة نعم والكرة لا."
+    },
+    "explanation": {
+      "en": "New examples distinguish similar rules, such as rolling and having wheels.",
+      "ar": "تميّز الأمثلة الجديدة القواعد المتقاربة مثل التدحرج ووجود عجلات."
+    },
+    "easier": {
+      "en": "State the rule and sort together.",
+      "ar": "اذكر القاعدة وصنّف مع الطفل."
+    },
+    "harder": {
+      "en": "Invent a rule with two yes and two no examples.",
+      "ar": "ابتكر قاعدة لها مثالان لنعم ومثالان للا."
+    },
+    "extension": {
+      "en": "Play another round with things worn on feet.",
+      "ar": "العب جولة أخرى بأشياء تُلبس على القدمين."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Explain that one secret feature decides each group.",
+        "Invite “has wheels” as a possible rule and test a bus drawing.",
+        "Test a ball, which rolls but has no wheels, and discuss the rule."
+      ],
+      "ar": [
+        "وضّح أن صفة سرية واحدة تحدّد كل مجموعة.",
+        "اقترح «له عجلات» كقاعدة محتملة واختبر رسمة حافلة.",
+        "اختبر كرة تتدحرج بلا عجلات وناقش القاعدة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Check the no examples as well as the yes examples."
+      ],
+      "ar": [
+        "تحقّق من أمثلة لا إلى جانب أمثلة نعم."
+      ]
+    },
+    "supervision": {
+      "en": "An adult reads or explains as needed and uses intact, age-appropriate materials.",
+      "ar": "يقرأ بالغ أو يشرح عند الحاجة ويستخدم مواد سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-science-01",
+    "age": "5-6",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 20,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Strong paper bridges",
+      "ar": "جسور ورقية قوية"
+    },
+    "summary": {
+      "en": "Compare a flat paper bridge with a folded one.",
+      "ar": "قارن جسرًا ورقيًا مسطّحًا بآخر مطوي."
+    },
+    "objective": {
+      "en": "Change a structure’s shape and compare how it carries a load.",
+      "ar": "تغيير شكل بناء ومقارنة قدرته على حمل وزن."
+    },
+    "alternatives": {
+      "en": "Use a large empty cardboard box as a light load.",
+      "ar": "استخدم علبة كرتون فارغة كبيرة كوزن خفيف."
+    },
+    "preparation": {
+      "en": "Place books about a hand-width apart on the floor.",
+      "ar": "ضع الكتابين على الأرض وبينهما نحو عرض يد."
+    },
+    "prompt": {
+      "en": "Did changing the shape change the result?",
+      "ar": "هل غيّر تعديل الشكل النتيجة؟"
+    },
+    "answer": {
+      "en": "A pleated sheet often bends less; record your actual result if both hold or both collapse.",
+      "ar": "غالبًا تنحني الورقة المطوية أقل؛ وسجّل النتيجة الفعلية إن صمدتا أو انهارتا معًا."
+    },
+    "explanation": {
+      "en": "Folds can make paper resist bending without adding more paper.",
+      "ar": "قد تجعل الطيّات الورق أكثر مقاومة للانحناء دون إضافة ورق."
+    },
+    "easier": {
+      "en": "An adult folds while the child tests and observes.",
+      "ar": "يطوي بالغ بينما يختبر الطفل ويلاحظ."
+    },
+    "harder": {
+      "en": "Try another fold shape with a fresh identical sheet.",
+      "ar": "جرّب شكل طي آخر بورقة جديدة مطابقة."
+    },
+    "extension": {
+      "en": "Look for folded or ridged cardboard in packaging.",
+      "ar": "ابحث عن كرتون مطوي أو مموج في العبوات."
+    },
+    "materials": {
+      "en": [
+        "Two identical paper sheets",
+        "Two equal-height books",
+        "Large lightweight toy car"
+      ],
+      "ar": [
+        "ورقتان متطابقتان",
+        "كتابان متساويا الارتفاع",
+        "سيارة لعبة كبيرة وخفيفة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Lay a flat sheet across the books and gently place the toy in the middle.",
+        "Fold the second sheet into accordion pleats and span the same gap.",
+        "Test the same toy in the same position and compare bending."
+      ],
+      "ar": [
+        "ضع ورقة مسطّحة بين الكتابين وضع اللعبة برفق في الوسط.",
+        "اطوِ الورقة الثانية طيّات متعرّجة ومدّها فوق الفراغ نفسه.",
+        "اختبر اللعبة نفسها في الموضع نفسه وقارن الانحناء."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Keep the gap and load the same for both tests."
+      ],
+      "ar": [
+        "ثبّت الفراغ والوزن في التجربتين."
+      ]
+    },
+    "supervision": {
+      "en": "Build low on the floor; an adult handles heavy books and the bridge never supports a person.",
+      "ar": "ابنِ قريبًا من الأرض؛ ويتولّى بالغ الكتب الثقيلة ولا يحمل الجسر أي شخص."
+    }
+  },
+  {
+    "id": "kids-5-6-science-02",
+    "age": "5-6",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Which cloth drinks water?",
+      "ar": "أي قماش يمتص الماء؟"
+    },
+    "summary": {
+      "en": "Compare how two materials take up the same small splash.",
+      "ar": "قارن امتصاص مادتين لكمية ماء صغيرة متساوية."
+    },
+    "objective": {
+      "en": "Observe absorption while keeping starting conditions similar.",
+      "ar": "ملاحظة الامتصاص مع إبقاء ظروف البداية متشابهة."
+    },
+    "alternatives": {
+      "en": "Compare paper towel with an unbreakable plate.",
+      "ar": "قارن منشفة ورقية بطبق غير قابل للكسر."
+    },
+    "preparation": {
+      "en": "Put two dry surfaces on a tray; an adult measures the water.",
+      "ar": "ضع السطحين جافّين على صينية؛ ويقيس بالغ الماء."
+    },
+    "prompt": {
+      "en": "Which material would you choose for a small spill?",
+      "ar": "أي مادة تختار لانسكاب صغير؟"
+    },
+    "answer": {
+      "en": "Cotton usually absorbs water; smooth plastic keeps it on the surface. Coatings can change results.",
+      "ar": "يمتص القطن الماء عادةً؛ ويبقيه البلاستيك الأملس على السطح. وقد تغيّر الطلاءات النتيجة."
+    },
+    "explanation": {
+      "en": "Absorbent materials take water into small spaces within them.",
+      "ar": "تسحب المواد الماصّة الماء إلى فراغات صغيرة داخلها."
+    },
+    "easier": {
+      "en": "Observe one drop-sized splash on each surface with adult help.",
+      "ar": "راقب كمية صغيرة جدًا على كل سطح بمساعدة بالغ."
+    },
+    "harder": {
+      "en": "Repeat with dry samples and two equal spoonfuls each.",
+      "ar": "كرّر بعينات جافة وملعقتين متساويتين لكل منها."
+    },
+    "extension": {
+      "en": "Choose a suitable cloth to help clean the tray.",
+      "ar": "اختر قماشًا مناسبًا للمساعدة في تنظيف الصينية."
+    },
+    "materials": {
+      "en": [
+        "Cotton cloth",
+        "Smooth plastic lid",
+        "Tray",
+        "Teaspoon",
+        "Small cup of water"
+      ],
+      "ar": [
+        "قطعة قماش قطنية",
+        "غطاء بلاستيكي أملس",
+        "صينية",
+        "ملعقة صغيرة",
+        "كوب ماء صغير"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Predict which surface will soak up water.",
+        "Put one teaspoon of water on each surface and wait a minute.",
+        "Look for spreading dampness or a separate puddle, then discuss a useful cleaning material."
+      ],
+      "ar": [
+        "توقّع أي سطح سيمتص الماء.",
+        "ضع ملعقة صغيرة من الماء على كل سطح وانتظر دقيقة.",
+        "ابحث عن بلل ينتشر أو بركة منفصلة ثم ناقش مادة مفيدة للتنظيف."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Check whether the water stays separate or enters the material."
+      ],
+      "ar": [
+        "تحقّق إن بقي الماء منفصلًا أم دخل المادة."
+      ]
+    },
+    "supervision": {
+      "en": "An adult supervises water, keeps it from electrical items, wipes spills and empties the cup afterwards.",
+      "ar": "يشرف بالغ على الماء ويبعده عن الكهرباء ويمسح الانسكاب ويفرغ الكوب بعد الانتهاء."
+    }
+  },
+  {
+    "id": "kids-5-6-science-03",
+    "age": "5-6",
+    "area": "science",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Leaf observer notebook",
+      "ar": "دفتر ملاحظة الأوراق"
+    },
+    "summary": {
+      "en": "Compare visible leaf features without pulling plants apart.",
+      "ar": "قارن صفات الأوراق الظاهرة دون إتلاف النباتات."
+    },
+    "objective": {
+      "en": "Describe similarities and differences based on observation.",
+      "ar": "وصف أوجه التشابه والاختلاف بالملاحظة."
+    },
+    "alternatives": {
+      "en": "Use clear leaf photographs in a book.",
+      "ar": "استخدم صور أوراق واضحة في كتاب."
+    },
+    "preparation": {
+      "en": "Choose familiar non-irritating plants; look without picking or tasting.",
+      "ar": "اختر نباتات مألوفة غير مهيّجة؛ وانظر دون قطف أو تذوّق."
+    },
+    "prompt": {
+      "en": "Which details can we actually see rather than guess?",
+      "ar": "ما التفاصيل التي نراها فعلًا بدلًا من تخمينها؟"
+    },
+    "answer": {
+      "en": "Responses depend on the leaves; accept observations tied to visible features, not guessed plant names.",
+      "ar": "تعتمد الإجابات على الأوراق؛ اقبل الملاحظات المرتبطة بصفات مرئية لا أسماء نباتات مخمّنة."
+    },
+    "explanation": {
+      "en": "A scientific description separates what we observe from what we assume.",
+      "ar": "يميّز الوصف العلمي بين ما نلاحظه وما نفترضه."
+    },
+    "easier": {
+      "en": "Compare only broad and narrow outlines.",
+      "ar": "قارن الحدود العريضة والضيقة فقط."
+    },
+    "harder": {
+      "en": "Draw a third leaf and group it using a stated feature.",
+      "ar": "ارسم ورقة ثالثة وصنّفها حسب صفة محدّدة."
+    },
+    "extension": {
+      "en": "Revisit one plant later and record any visible change.",
+      "ar": "عُد إلى نبتة لاحقًا وسجّل تغيّرًا ظاهرًا."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil",
+        "Two safe plants viewed with an adult"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص",
+        "نبتتان آمنتان للمشاهدة مع بالغ"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Sketch one leaf’s outline and visible lines.",
+        "Observe a second leaf and sketch it beside the first.",
+        "Circle one similarity and describe two differences such as width or edge shape."
+      ],
+      "ar": [
+        "ارسم حدود ورقة وخطوطها الظاهرة.",
+        "راقب ورقة ثانية وارسمها بجوار الأولى.",
+        "أحط تشابهًا واحدًا بدائرة وصِف اختلافين مثل العرض أو شكل الحافة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Look at the outline, colour and lines on each leaf."
+      ],
+      "ar": [
+        "انظر إلى الحدود واللون والخطوط في كل ورقة."
+      ]
+    },
+    "supervision": {
+      "en": "An adult chooses plants and location; no tasting, picking unknown plants or touching sap. Wash hands after handling plants.",
+      "ar": "يختار بالغ النباتات والمكان؛ دون تذوّق أو قطف نباتات مجهولة أو لمس العصارة. اغسل اليدين بعد التعامل مع النباتات."
+    }
+  },
+  {
+    "id": "kids-5-6-science-04",
+    "age": "5-6",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Let the light through",
+      "ar": "دع الضوء يمرّ"
+    },
+    "summary": {
+      "en": "Compare clear, translucent and opaque materials.",
+      "ar": "قارن مواد شفافة وشبه شفافة ومعتمة."
+    },
+    "objective": {
+      "en": "Observe that different materials transmit different amounts of light.",
+      "ar": "ملاحظة أن المواد تمرّر كميات مختلفة من الضوء."
+    },
+    "alternatives": {
+      "en": "Use daylight at a window and look at objects through each material without looking at the sun.",
+      "ar": "استخدم ضوء نافذة وانظر إلى الأشياء عبر كل مادة دون النظر إلى الشمس."
+    },
+    "preparation": {
+      "en": "An adult holds the torch aimed at the wall at a fixed distance.",
+      "ar": "يمسك بالغ المصباح موجّهًا للجدار من مسافة ثابتة."
+    },
+    "prompt": {
+      "en": "Which would make a better light-blocking cover?",
+      "ar": "أي مادة تصنع غطاءً أفضل لحجب الضوء؟"
+    },
+    "answer": {
+      "en": "Clear plastic transmits much light; baking paper scatters some; cardboard blocks most direct light.",
+      "ar": "يمرّر البلاستيك الشفاف ضوءًا كثيرًا؛ ويشتّت ورق الخبز بعضه؛ ويحجب الكرتون معظم الضوء المباشر."
+    },
+    "explanation": {
+      "en": "The material affects how much light passes through and how it spreads.",
+      "ar": "تؤثّر المادة في كمية الضوء النافذ وطريقة انتشاره."
+    },
+    "easier": {
+      "en": "Compare only clear plastic and cardboard.",
+      "ar": "قارن البلاستيك الشفاف والكرتون فقط."
+    },
+    "harder": {
+      "en": "Predict what two layers of baking paper will do, then test.",
+      "ar": "توقّع أثر طبقتين من ورق الخبز ثم اختبره."
+    },
+    "extension": {
+      "en": "Find a window, curtain and wall and discuss their different jobs.",
+      "ar": "حدّد نافذة وستارة وجدارًا وناقش وظائفها المختلفة."
+    },
+    "materials": {
+      "en": [
+        "Torch",
+        "Clear unbreakable lid",
+        "Baking paper",
+        "Cardboard",
+        "Wall"
+      ],
+      "ar": [
+        "مصباح يدوي",
+        "غطاء شفاف غير قابل للكسر",
+        "ورق خبز",
+        "كرتون",
+        "جدار"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Hold the clear lid in the beam and observe the wall.",
+        "Replace it with baking paper and then cardboard in the same position.",
+        "Describe which lets a clear beam through, scatters it, or blocks it."
+      ],
+      "ar": [
+        "ضع الغطاء الشفاف في حزمة الضوء ولاحظ الجدار.",
+        "استبدله بورق الخبز ثم الكرتون في الموضع نفسه.",
+        "صِف ما يمرّر ضوءًا واضحًا أو يشتّته أو يحجبه."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Compare the brightness on the wall rather than staring at the torch."
+      ],
+      "ar": [
+        "قارن سطوع الجدار بدل التحديق في المصباح."
+      ]
+    },
+    "supervision": {
+      "en": "An adult controls the torch; never aim at eyes or look at the sun. Use no glass or plastic bags.",
+      "ar": "يتحكّم بالغ بالمصباح؛ ولا يوجّهه للعينين ولا ينظر إلى الشمس. لا تستخدم زجاجًا أو أكياسًا بلاستيكية."
+    }
+  },
+  {
+    "id": "kids-5-6-science-05",
+    "age": "5-6",
+    "area": "science",
+    "format": "experiment",
+    "minutes": 10,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Feel a humming sound",
+      "ar": "تحسّس صوت الطنين"
+    },
+    "summary": {
+      "en": "Compare gentle humming with silent breathing.",
+      "ar": "قارن طنينًا لطيفًا بالتنفّس الصامت."
+    },
+    "objective": {
+      "en": "Notice vibration associated with making a voice sound.",
+      "ar": "ملاحظة الاهتزاز المرتبط بإصدار صوت."
+    },
+    "alternatives": {
+      "en": "Watch an adult demonstrate and describe what they feel instead of touching your own throat.",
+      "ar": "شاهد بالغًا يوضّح ويصف ما يشعر به بدل لمس حلقك."
+    },
+    "preparation": {
+      "en": "Sit comfortably; participation and touching are optional.",
+      "ar": "اجلس براحة؛ المشاركة واللمس اختياريان."
+    },
+    "prompt": {
+      "en": "What changed when you stopped humming?",
+      "ar": "ما الذي تغيّر عندما توقّفت عن الطنين؟"
+    },
+    "answer": {
+      "en": "You may feel vibration during humming and less during quiet breathing; it can be subtle.",
+      "ar": "قد تشعر باهتزاز أثناء الطنين وأقل أثناء التنفّس الهادئ؛ وقد يكون خفيفًا."
+    },
+    "explanation": {
+      "en": "Vocal folds vibrate to produce voiced sounds such as humming.",
+      "ar": "تهتز الطيّات الصوتية لإنتاج أصوات مثل الطنين."
+    },
+    "easier": {
+      "en": "Listen while the adult describes the sensation.",
+      "ar": "استمع بينما يصف بالغ الإحساس."
+    },
+    "harder": {
+      "en": "Compare a gentle hum with a softly spoken vowel.",
+      "ar": "قارن طنينًا لطيفًا بحرف صوتي منطوق بهدوء مثل «آ»."
+    },
+    "extension": {
+      "en": "Listen for voices and instruments in a familiar song.",
+      "ar": "استمع إلى الأصوات البشرية والآلات في أغنية مألوفة."
+    },
+    "materials": {
+      "en": [
+        "No materials; a paper sheet is optional for notes"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد؛ ويمكن استخدام ورقة للملاحظات"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Rest fingertips lightly on your own throat without pressing.",
+        "Hum gently for a short moment and notice any vibration.",
+        "Stop and breathe normally; compare and repeat once if comfortable."
+      ],
+      "ar": [
+        "ضع أطراف أصابعك برفق على حلقك دون ضغط.",
+        "أصدر طنينًا لطيفًا للحظة ولاحظ أي اهتزاز.",
+        "توقّف وتنفّس طبيعيًا؛ قارن وكرّر مرة إن كان مريحًا."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Focus on a gentle buzzing feeling, not loudness."
+      ],
+      "ar": [
+        "ركّز على إحساس اهتزاز خفيف لا على علو الصوت."
+      ]
+    },
+    "supervision": {
+      "en": "Touch only your own throat lightly; never press, hold breath or force sound. Stop with any discomfort.",
+      "ar": "المس حلقك أنت فقط برفق؛ دون ضغط أو حبس نفس أو إجهاد صوت. توقّف عند أي انزعاج."
+    }
+  },
+  {
+    "id": "kids-5-6-creativity-01",
+    "age": "5-6",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 20,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Map an imaginary island",
+      "ar": "ارسم جزيرة خيالية"
+    },
+    "summary": {
+      "en": "Design places and paths for a tiny adventure.",
+      "ar": "صمّم أماكن ومسارات لمغامرة صغيرة."
+    },
+    "objective": {
+      "en": "Represent an imagined place using pictures and simple symbols.",
+      "ar": "تمثيل مكان خيالي بصور ورموز بسيطة."
+    },
+    "alternatives": {
+      "en": "Describe the island while an adult draws.",
+      "ar": "صِف الجزيرة بينما يرسم بالغ."
+    },
+    "preparation": {
+      "en": "Draw a large outline with room for three places.",
+      "ar": "ارسم حدودًا كبيرة تتّسع لثلاثة أماكن."
+    },
+    "prompt": {
+      "en": "What symbol would help a visitor find your special place?",
+      "ar": "ما الرمز الذي يساعد الزائر على إيجاد مكانك المميّز؟"
+    },
+    "answer": {
+      "en": "Any connected, explainable map works; invented geography is welcome.",
+      "ar": "تصلح أي خريطة متصلة يمكن شرحها؛ والجغرافيا الخيالية مرحّب بها."
+    },
+    "explanation": {
+      "en": "A map uses selected symbols to represent places without drawing every detail.",
+      "ar": "تستخدم الخريطة رموزًا مختارة لتمثيل الأماكن دون رسم كل التفاصيل."
+    },
+    "easier": {
+      "en": "Draw two places and one path.",
+      "ar": "ارسم مكانين ومسارًا واحدًا."
+    },
+    "harder": {
+      "en": "Add a small key explaining three symbols.",
+      "ar": "أضف مفتاحًا صغيرًا يشرح ثلاثة رموز."
+    },
+    "extension": {
+      "en": "Let another person choose a route and tell the adventure.",
+      "ar": "دع شخصًا آخر يختار مسارًا ويحكي المغامرة."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencils or crayons"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام رصاص أو شمع"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Add a home, a pond and a surprising place such as a singing tree.",
+        "Connect the places with paths and choose a symbol for each.",
+        "Trace a journey while telling what happens at each stop."
+      ],
+      "ar": [
+        "أضف منزلًا وبركة ومكانًا مفاجئًا مثل شجرة تغنّي.",
+        "صِل الأماكن بمسارات واختر رمزًا لكل منها.",
+        "تتبّع رحلة واحكِ ما يحدث عند كل محطة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Use a simple repeated mark, such as a music note for the singing tree."
+      ],
+      "ar": [
+        "استخدم علامة بسيطة متكرّرة مثل نوتة موسيقية للشجرة المغنّية."
+      ]
+    },
+    "supervision": {
+      "en": "An adult explains as needed and uses intact, age-appropriate drawing materials.",
+      "ar": "يشرح بالغ عند الحاجة ويستخدم أدوات رسم سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-creativity-02",
+    "age": "5-6",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 30,
+    "materialGroup": "craft",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "A recycled toy shelter",
+      "ar": "مأوى للعبة من مواد معاد استخدامها"
+    },
+    "summary": {
+      "en": "Design a small shelter that fits a toy.",
+      "ar": "صمّم مأوى صغيرًا يتّسع للعبة."
+    },
+    "objective": {
+      "en": "Plan, make and revise a structure for a stated purpose.",
+      "ar": "تخطيط بناء وصنعه وتعديله لغرض محدّد."
+    },
+    "alternatives": {
+      "en": "Use folded paper walls without tape.",
+      "ar": "استخدم جدرانًا من ورق مطوي دون لاصق."
+    },
+    "preparation": {
+      "en": "An adult removes staples and rough edges and cuts any needed doorway.",
+      "ar": "يزيل بالغ الدبابيس والحواف الخشنة ويقص أي مدخل مطلوب."
+    },
+    "prompt": {
+      "en": "How will the toy enter without knocking the roof off?",
+      "ar": "كيف تدخل اللعبة دون إسقاط السقف؟"
+    },
+    "answer": {
+      "en": "A shelter succeeds if the toy fits and can enter; appearance can vary.",
+      "ar": "ينجح المأوى إذا اتّسع للعبة وأمكن دخولها؛ ويمكن أن يختلف مظهره."
+    },
+    "explanation": {
+      "en": "Testing against a purpose helps us decide what to improve.",
+      "ar": "يساعد الاختبار وفق الغرض على تحديد ما نُحسّنه."
+    },
+    "easier": {
+      "en": "Use an open-sided box and add a roof only.",
+      "ar": "استخدم علبة مفتوحة الجانب وأضف سقفًا فقط."
+    },
+    "harder": {
+      "en": "Add a second room with a connecting entrance.",
+      "ar": "أضف غرفة ثانية ومدخلًا يصل بينهما."
+    },
+    "extension": {
+      "en": "Invent a visitor and a story set in the shelter.",
+      "ar": "ابتكر زائرًا وقصة تدور في المأوى."
+    },
+    "materials": {
+      "en": [
+        "Clean small cardboard box",
+        "Scrap cardboard",
+        "Paper tape",
+        "Small soft toy",
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "علبة كرتون صغيرة نظيفة",
+        "كرتون زائد",
+        "شريط ورقي لاصق",
+        "دمية ناعمة صغيرة",
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Place the toy beside the box and sketch a shelter with an entrance.",
+        "Build walls or a roof using cardboard and tape.",
+        "Test whether the toy fits and the entrance works; change one part if needed."
+      ],
+      "ar": [
+        "ضع اللعبة بجانب العلبة وارسم مأوى له مدخل.",
+        "ابنِ جدرانًا أو سقفًا بالكرتون والشريط.",
+        "اختبر اتّساعه للعبة وعمل المدخل؛ وعدّل جزءًا عند الحاجة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Compare the entrance with the toy’s widest part."
+      ],
+      "ar": [
+        "قارن المدخل بأعرض جزء من اللعبة."
+      ]
+    },
+    "supervision": {
+      "en": "An adult handles all cutting and checks packaging for staples; no plastic bags, strings or sharp scraps.",
+      "ar": "يتولّى بالغ القص كله ويفحص العبوات بحثًا عن دبابيس؛ دون أكياس بلاستيكية أو خيوط أو قصاصات حادة."
+    }
+  },
+  {
+    "id": "kids-5-6-creativity-03",
+    "age": "5-6",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 20,
+    "materialGroup": "craft",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Over-and-under paper weaving",
+      "ar": "نسج الورق فوق وتحت"
+    },
+    "summary": {
+      "en": "Weave broad paper strips into a simple mat.",
+      "ar": "انسج شرائط ورقية عريضة لصنع حصيرة بسيطة."
+    },
+    "objective": {
+      "en": "Follow an alternating action to create a woven pattern.",
+      "ar": "اتباع فعل متناوب لتكوين نمط منسوج."
+    },
+    "alternatives": {
+      "en": "Lay strips over a drawn grid without weaving.",
+      "ar": "ضع الشرائط على شبكة مرسومة دون نسج."
+    },
+    "preparation": {
+      "en": "An adult prepares four broad parallel strips taped at one end and four loose strips.",
+      "ar": "يجهّز بالغ أربعة شرائط عريضة متوازية مثبّتة من طرف وأربعة شرائط منفصلة."
+    },
+    "prompt": {
+      "en": "What changes at the start of the second row?",
+      "ar": "ما الذي يتغيّر في بداية الصف الثاني؟"
+    },
+    "answer": {
+      "en": "Adjacent rows alternate their starting position to interlock the strips.",
+      "ar": "تتناوب الصفوف المتجاورة في موضع البداية لتتشابك الشرائط."
+    },
+    "explanation": {
+      "en": "Passing strips above and below each other holds a woven arrangement together.",
+      "ar": "يساعد مرور الشرائط فوق بعضها وتحتها على تماسك النسيج."
+    },
+    "easier": {
+      "en": "Use two fixed strips and one loose strip.",
+      "ar": "استخدم شريطين ثابتين وشريطًا منفصلًا."
+    },
+    "harder": {
+      "en": "Choose colours to create an additional repeating pattern.",
+      "ar": "اختر ألوانًا لتكوين نمط متكرّر إضافي."
+    },
+    "extension": {
+      "en": "Look closely at the woven threads of a towel.",
+      "ar": "انظر عن قرب إلى خيوط منشفة منسوجة."
+    },
+    "materials": {
+      "en": [
+        "Two paper colours",
+        "Scissors for adult use",
+        "Paper tape"
+      ],
+      "ar": [
+        "ورق بلونين",
+        "مقص يستخدمه بالغ",
+        "شريط ورقي لاصق"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Slide one loose strip over the first fixed strip, under the second, over the third and under the fourth.",
+        "Weave the next strip in the opposite order.",
+        "Repeat with remaining strips and gently slide the rows together."
+      ],
+      "ar": [
+        "مرّر شريطًا فوق الأول الثابت وتحت الثاني وفوق الثالث وتحت الرابع.",
+        "انسج الشريط التالي بالترتيب المعاكس.",
+        "كرّر بالشرائط المتبقية وقرّب الصفوف برفق."
+      ]
+    },
+    "hints": {
+      "en": [
+        "If the first row starts over, the next starts under."
+      ],
+      "ar": [
+        "إذا بدأ الصف الأول من فوق يبدأ التالي من تحت."
+      ]
+    },
+    "supervision": {
+      "en": "An adult cuts all broad strips; the child weaves away from the scissors.",
+      "ar": "يقص بالغ الشرائط العريضة كلها؛ وينسج الطفل بعيدًا عن المقص."
+    }
+  },
+  {
+    "id": "kids-5-6-creativity-04",
+    "age": "5-6",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 15,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Draw a tiny music score",
+      "ar": "ارسم مقطوعة موسيقية صغيرة"
+    },
+    "summary": {
+      "en": "Create picture symbols for sounds and perform them.",
+      "ar": "ابتكر رموزًا مصوّرة للأصوات ونفّذها."
+    },
+    "objective": {
+      "en": "Use a shared symbol system to communicate a creative sequence.",
+      "ar": "استخدام نظام رموز مشترك لإيصال تسلسل إبداعي."
+    },
+    "alternatives": {
+      "en": "Use silent hand movements instead of sounds.",
+      "ar": "استخدم حركات يد صامتة بدل الأصوات."
+    },
+    "preparation": {
+      "en": "Agree circle means clap, line means knee tap and empty box means silence.",
+      "ar": "اتّفقا أن الدائرة صفقة والخط نقرة ركبة والخانة الفارغة صمت."
+    },
+    "prompt": {
+      "en": "How can we show a pause without a word?",
+      "ar": "كيف نُظهر وقفة دون كلمة؟"
+    },
+    "answer": {
+      "en": "Any sequence that follows the agreed key works; an empty box represents one beat of silence.",
+      "ar": "يصلح أي تسلسل يتبع المفتاح المتّفق عليه؛ وتمثّل الخانة الفارغة نبضة صامتة."
+    },
+    "explanation": {
+      "en": "Symbols let another person recreate our chosen pattern.",
+      "ar": "تتيح الرموز لشخص آخر إعادة تنفيذ النمط الذي اخترناه."
+    },
+    "easier": {
+      "en": "Use two boxes and one sound type.",
+      "ar": "استخدم خانتين ونوع صوت واحدًا."
+    },
+    "harder": {
+      "en": "Compose eight boxes with two planned pauses.",
+      "ar": "ألّف ثماني خانات ووقفتين مخطّطتين."
+    },
+    "extension": {
+      "en": "Make a gentle soundtrack for a four-part story.",
+      "ar": "اصنع خلفية صوتية هادئة لقصة من أربعة أجزاء."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencil"
+      ],
+      "ar": [
+        "ورق",
+        "قلم رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Draw four equal boxes and put a symbol in each, leaving one empty.",
+        "Point steadily to each box while performing its sound or pause.",
+        "Exchange the score with a partner, then change one symbol and compare."
+      ],
+      "ar": [
+        "ارسم أربع خانات متساوية وضع رمزًا في كل منها مع ترك واحدة فارغة.",
+        "أشر بإيقاع ثابت إلى الخانات ونفّذ صوت كل منها أو وقفتها.",
+        "تبادل المقطوعة مع شريك ثم غيّر رمزًا وقارن."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Keep an empty box the same length as a sounding box."
+      ],
+      "ar": [
+        "اجعل زمن الخانة الفارغة مثل زمن الخانة الصوتية."
+      ]
+    },
+    "supervision": {
+      "en": "Keep sounds gentle and movements comfortable; avoid any sound that feels unpleasant.",
+      "ar": "أبقِ الأصوات هادئة والحركات مريحة؛ وتجنّب أي صوت مزعج."
+    }
+  },
+  {
+    "id": "kids-5-6-creativity-05",
+    "age": "5-6",
+    "area": "creativity",
+    "format": "making",
+    "minutes": 20,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "One subject, three styles",
+      "ar": "موضوع واحد بثلاثة أساليب"
+    },
+    "summary": {
+      "en": "Draw the same familiar thing using three kinds of marks.",
+      "ar": "ارسم الشيء المألوف نفسه بثلاثة أنواع من العلامات."
+    },
+    "objective": {
+      "en": "Explore how different visual choices change an image.",
+      "ar": "استكشاف أثر الاختيارات البصرية المختلفة في الصورة."
+    },
+    "alternatives": {
+      "en": "Describe three imagined versions while an adult sketches.",
+      "ar": "صِف ثلاث نسخ متخيّلة بينما يرسم بالغ."
+    },
+    "preparation": {
+      "en": "Divide a page into three spaces and choose a tree as the starter subject.",
+      "ar": "قسّم الصفحة إلى ثلاث مساحات واختر شجرة موضوعًا أولًا."
+    },
+    "prompt": {
+      "en": "Which version feels calm or lively to you, and why?",
+      "ar": "أي نسخة تبدو هادئة أو حيوية لك، ولماذا؟"
+    },
+    "answer": {
+      "en": "All three interpretations are valid; the discussion should connect choices with effects.",
+      "ar": "التفسيرات الثلاثة مقبولة؛ وينبغي ربط الاختيارات بآثارها في النقاش."
+    },
+    "explanation": {
+      "en": "Changing marks can alter a picture while keeping its subject recognisable.",
+      "ar": "قد يغيّر تعديل العلامات الصورة مع بقاء موضوعها معروفًا."
+    },
+    "easier": {
+      "en": "Try only two styles.",
+      "ar": "جرّب أسلوبين فقط."
+    },
+    "harder": {
+      "en": "Repeat using different sizes or colours and compare.",
+      "ar": "كرّر بأحجام أو ألوان مختلفة وقارن."
+    },
+    "extension": {
+      "en": "Display the three versions as a small family exhibition.",
+      "ar": "اعرض النسخ الثلاث كمعرض عائلي صغير."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Crayons or pencils"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام شمع أو رصاص"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Draw a tree in the first space using mostly straight lines.",
+        "Draw it again using mostly curves, then a third time using dots.",
+        "Give each version a title and describe which marks changed its mood."
+      ],
+      "ar": [
+        "ارسم شجرة في المساحة الأولى بخطوط مستقيمة غالبًا.",
+        "ارسمها ثانية بمنحنيات غالبًا وثالثة بنقاط.",
+        "امنح كل نسخة عنوانًا وصِف كيف غيّرت العلامات إحساسها."
+      ]
+    },
+    "hints": {
+      "en": [
+        "There is no required mood; point to a mark that supports your idea."
+      ],
+      "ar": [
+        "لا يوجد إحساس مطلوب؛ أشر إلى علامة تدعم فكرتك."
+      ]
+    },
+    "supervision": {
+      "en": "An adult explains as needed and uses intact, age-appropriate drawing materials.",
+      "ar": "يشرح بالغ عند الحاجة ويستخدم أدوات رسم سليمة ومناسبة للعمر."
+    }
+  },
+  {
+    "id": "kids-5-6-life-01",
+    "age": "5-6",
+    "area": "life",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Pack for a pretend outing",
+      "ar": "جهّز حقيبة لنزهة خيالية"
+    },
+    "summary": {
+      "en": "Choose useful items for a specific family outing.",
+      "ar": "اختر أشياء مفيدة لنزهة عائلية محدّدة."
+    },
+    "objective": {
+      "en": "Plan ahead and explain choices using a situation’s needs.",
+      "ar": "التخطيط مسبقًا وشرح الاختيارات وفق احتياجات الموقف."
+    },
+    "alternatives": {
+      "en": "Draw items and circle what to pack.",
+      "ar": "ارسم الأشياء وأحط ما تختاره بدائرة."
+    },
+    "preparation": {
+      "en": "Choose an imaginary short park visit with an adult on a sunny day.",
+      "ar": "اختر زيارة خيالية قصيرة للحديقة مع بالغ في يوم مشمس."
+    },
+    "prompt": {
+      "en": "Which choice changed when our destination changed?",
+      "ar": "أي اختيار تغيّر عندما تغيّرت الوجهة؟"
+    },
+    "answer": {
+      "en": "Several sets can work if choices have sensible uses; the adult remains responsible for real outing preparation.",
+      "ar": "قد تصلح مجموعات مختلفة إذا كانت استخداماتها منطقية؛ ويبقى بالغ مسؤولًا عن التجهيز للنزهة الحقيقية."
+    },
+    "explanation": {
+      "en": "A useful plan changes when the setting or purpose changes.",
+      "ar": "تتغيّر الخطة المفيدة عندما يتغيّر المكان أو الغرض."
+    },
+    "easier": {
+      "en": "Choose between two items for one stated need.",
+      "ar": "اختر بين شيئين لحاجة محدّدة واحدة."
+    },
+    "harder": {
+      "en": "Make a picture checklist and check the packed bag against it.",
+      "ar": "اصنع قائمة مصوّرة وقارن محتويات الحقيبة بها."
+    },
+    "extension": {
+      "en": "Help an adult prepare one item for the next real outing.",
+      "ar": "ساعد بالغًا في تجهيز شيء للنزهة الحقيقية القادمة."
+    },
+    "materials": {
+      "en": [
+        "Light bag",
+        "Hat",
+        "Empty water bottle",
+        "Book",
+        "Small towel",
+        "Large toy"
+      ],
+      "ar": [
+        "حقيبة خفيفة",
+        "قبعة",
+        "زجاجة ماء فارغة",
+        "كتاب",
+        "منشفة صغيرة",
+        "لعبة كبيرة"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Describe the outing and inspect the available items.",
+        "Choose three items and explain a use for each.",
+        "Change the outing to an indoor library visit and revise the choices."
+      ],
+      "ar": [
+        "صِف النزهة وتفقّد الأشياء المتاحة.",
+        "اختر ثلاثة أشياء واشرح استخدام كل منها.",
+        "غيّر الوجهة إلى مكتبة داخلية وعدّل الاختيارات."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Ask what you plan to do and what you might need while doing it."
+      ],
+      "ar": [
+        "اسأل عمّا تنوي فعله وما قد تحتاجه أثناءه."
+      ]
+    },
+    "supervision": {
+      "en": "Use an empty bottle and light bag; an adult chooses real travel, weather and sun protection arrangements.",
+      "ar": "استخدم زجاجة فارغة وحقيبة خفيفة؛ ويختار بالغ ترتيبات الرحلة الحقيقية والطقس والوقاية من الشمس."
+    }
+  },
+  {
+    "id": "kids-5-6-life-02",
+    "age": "5-6",
+    "area": "life",
+    "format": "story",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Two builders, one favourite block",
+      "ar": "بنّاءان ومكعّب مفضّل واحد"
+    },
+    "summary": {
+      "en": "Act out different ways to solve a small sharing disagreement.",
+      "ar": "مثّل طرقًا مختلفة لحل خلاف صغير حول المشاركة."
+    },
+    "objective": {
+      "en": "State a need, hear another person and propose a workable agreement.",
+      "ar": "ذكر حاجة والاستماع للآخر واقتراح اتّفاق قابل للتنفيذ."
+    },
+    "alternatives": {
+      "en": "Tell the scene using two drawn characters.",
+      "ar": "احكِ المشهد بشخصيتين مرسومتين."
+    },
+    "preparation": {
+      "en": "Explain that both characters want the same block for their building.",
+      "ar": "وضّح أن الشخصيتين تريدان المكعّب نفسه للبناء."
+    },
+    "prompt": {
+      "en": "How can both builders know when a turn ends?",
+      "ar": "كيف يعرف البنّاءان متى ينتهي الدور؟"
+    },
+    "answer": {
+      "en": "A workable agreement is clear and accepted by both; an adult can help if no agreement is possible.",
+      "ar": "الاتّفاق العملي واضح ومقبول للطرفين؛ ويمكن لبالغ المساعدة إن تعذّر الاتّفاق."
+    },
+    "explanation": {
+      "en": "Naming needs and specific next steps gives people something concrete to negotiate.",
+      "ar": "تمنح تسمية الاحتياجات والخطوات المحدّدة أساسًا واضحًا للتفاهم."
+    },
+    "easier": {
+      "en": "Choose between two adult-modelled solutions.",
+      "ar": "اختر بين حلّين يمثّلهما بالغ."
+    },
+    "harder": {
+      "en": "Show why a vague promise may fail, then improve it.",
+      "ar": "وضّح لماذا قد لا ينجح وعد غامض ثم حسّنه."
+    },
+    "extension": {
+      "en": "Try an agreed turn rule during a shared drawing.",
+      "ar": "جرّب قاعدة أدوار متّفقًا عليها أثناء رسم مشترك."
+    },
+    "materials": {
+      "en": [
+        "Two soft toys",
+        "One large block"
+      ],
+      "ar": [
+        "دمْيتان ناعمتان",
+        "مكعّب كبير"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Give each character a sentence: “I need this for my roof.”",
+        "Suggest two solutions, such as taking turns or building together.",
+        "Act out one agreement and check whether both characters can continue."
+      ],
+      "ar": [
+        "امنح كل شخصية جملة: «أحتاجه لسقفي».",
+        "اقترح حلّين مثل تبادل الأدوار أو البناء معًا.",
+        "مثّل اتّفاقًا واحدًا وتحقّق من قدرة الشخصيتين على الاستمرار."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Use a clear event, such as finishing one small house, rather than “later”."
+      ],
+      "ar": [
+        "استخدم حدثًا واضحًا مثل إنهاء بيت صغير بدل «لاحقًا»."
+      ]
+    },
+    "supervision": {
+      "en": "An adult models supportive language, stays nearby and lets the child pause or pass.",
+      "ar": "يقدّم بالغ لغة داعمة ويبقى قريبًا ويسمح للطفل بالتوقّف أو تجاوز السؤال."
+    }
+  },
+  {
+    "id": "kids-5-6-life-03",
+    "age": "5-6",
+    "area": "life",
+    "format": "game",
+    "minutes": 15,
+    "materialGroup": "household",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Practise a zip and a button",
+      "ar": "تدرّب على السحّاب والزر"
+    },
+    "summary": {
+      "en": "Try clothing fasteners on a garment laid flat.",
+      "ar": "جرّب وسائل إغلاق الملابس وهي مفرودة."
+    },
+    "objective": {
+      "en": "Follow and describe steps in a self-care task.",
+      "ar": "اتباع ووصف خطوات مهمة للعناية بالنفس."
+    },
+    "alternatives": {
+      "en": "Practise only the fastener available; an adult may hold the fabric.",
+      "ar": "تدرّب على وسيلة الإغلاق المتاحة فقط؛ ويمكن لبالغ تثبيت القماش."
+    },
+    "preparation": {
+      "en": "Lay garments flat and check for loose buttons, damaged teeth or rough edges.",
+      "ar": "افرد الملابس وافحص الأزرار المرتخية وأسنان السحّاب التالفة والحواف الخشنة."
+    },
+    "prompt": {
+      "en": "Which hand can steady the fabric while the other moves?",
+      "ar": "أي يد تثبّت القماش بينما تتحرّك الأخرى؟"
+    },
+    "answer": {
+      "en": "Any comfortable method that closes the fastener without force is useful; partial success counts.",
+      "ar": "تفيد أي طريقة مريحة تغلقه دون قوة؛ ويُعتدّ بالنجاح الجزئي."
+    },
+    "explanation": {
+      "en": "Separating a task into stabilising and moving steps makes its parts easier to notice.",
+      "ar": "يسهّل فصل المهمة إلى تثبيت وتحريك ملاحظة أجزائها."
+    },
+    "easier": {
+      "en": "An adult starts the movement and the child finishes.",
+      "ar": "يبدأ بالغ الحركة ويكملها الطفل."
+    },
+    "harder": {
+      "en": "Try starting a separating zip with adult help.",
+      "ar": "جرّب تركيب سحّاب منفصل بمساعدة بالغ."
+    },
+    "extension": {
+      "en": "Choose one dressing step to practise when there is no rush.",
+      "ar": "اختر خطوة ارتداء للتدرّب عليها دون استعجال."
+    },
+    "materials": {
+      "en": [
+        "Clean garment with a sturdy zip",
+        "Garment with a large securely sewn button"
+      ],
+      "ar": [
+        "قطعة ملابس نظيفة بسحّاب متين",
+        "قطعة بزر كبير مخيط بإحكام"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Hold the zip’s base steady and move the pull slowly on an already joined zip.",
+        "For a button, find its matching hole and tilt one edge through first.",
+        "Take turns describing and trying each step, stopping before frustration grows."
+      ],
+      "ar": [
+        "ثبّت قاعدة السحّاب وحرّك المقبض ببطء والسحّاب مركّب أصلًا.",
+        "للزر، حدّد عروته وأمِل إحدى حوافه خلالها أولًا.",
+        "تبادلا وصف الخطوات وتجربتها وتوقّفا قبل ازدياد الإحباط."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Practise on the table before trying a garment being worn."
+      ],
+      "ar": [
+        "تدرّب على الطاولة قبل تجربة ملابس مرتداة."
+      ]
+    },
+    "supervision": {
+      "en": "Use intact fasteners; remove any garment with a loose button. Keep skin and hair clear of zips.",
+      "ar": "استخدم وسائل إغلاق سليمة؛ وأبعد أي قطعة بزر مرتخٍ. أبعد الجلد والشعر عن السحّاب."
+    }
+  },
+  {
+    "id": "kids-5-6-life-04",
+    "age": "5-6",
+    "area": "life",
+    "format": "story",
+    "minutes": 10,
+    "materialGroup": "none",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Make a clear help request",
+      "ar": "اطلب المساعدة بوضوح"
+    },
+    "summary": {
+      "en": "Practise telling a trusted adult what help is needed.",
+      "ar": "تدرّب على إخبار بالغ موثوق بالمساعدة المطلوبة."
+    },
+    "objective": {
+      "en": "Describe a problem and make a specific request.",
+      "ar": "وصف مشكلة وتقديم طلب محدّد."
+    },
+    "alternatives": {
+      "en": "Point, gesture or use a picture as part of the request.",
+      "ar": "استخدم الإشارة أو الحركة أو صورة ضمن الطلب."
+    },
+    "preparation": {
+      "en": "Choose an everyday pretend problem, such as a stuck pencil-case zip.",
+      "ar": "اختر مشكلة يومية خيالية مثل سحّاب مقلمة عالق."
+    },
+    "prompt": {
+      "en": "What detail helps the adult understand the problem?",
+      "ar": "ما التفصيل الذي يساعد البالغ على فهم المشكلة؟"
+    },
+    "answer": {
+      "en": "A useful request communicates a need; perfect sentences, eye contact or a particular polite phrase are not required.",
+      "ar": "يوصل الطلب المفيد الحاجة؛ ولا تُشترط جمل مثالية أو تواصل بصري أو عبارة أدب محدّدة."
+    },
+    "explanation": {
+      "en": "Specific information helps another person offer suitable help.",
+      "ar": "تساعد المعلومات المحدّدة الشخص الآخر على تقديم مساعدة مناسبة."
+    },
+    "easier": {
+      "en": "Complete “Please help me with…” or point to the problem.",
+      "ar": "أكمل «ساعدني في…» أو أشر إلى المشكلة."
+    },
+    "harder": {
+      "en": "Practise clarifying when the adult misunderstands the first request.",
+      "ar": "تدرّب على التوضيح حين يسيء البالغ فهم الطلب الأول."
+    },
+    "extension": {
+      "en": "Identify trusted adults the child can approach in familiar settings.",
+      "ar": "حدّد بالغين موثوقين يستطيع الطفل طلب مساعدتهم في الأماكن المألوفة."
+    },
+    "materials": {
+      "en": [
+        "No materials"
+      ],
+      "ar": [
+        "لا تحتاج إلى مواد"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Model: “My pencil case will not open. Can you help me with the zip?”",
+        "Let the child practise in their own words or gestures.",
+        "Try another scenario, such as not understanding an activity instruction, and respond helpfully."
+      ],
+      "ar": [
+        "قدّم نموذجًا: «مقلمتي لا تفتح. هل تساعدني بالسحّاب؟».",
+        "دع الطفل يتدرّب بكلماته أو إشاراته.",
+        "جرّب موقفًا آخر مثل عدم فهم تعليمة نشاط وردّ بطريقة مفيدة."
+      ]
+    },
+    "hints": {
+      "en": [
+        "Name what happened, then what you need."
+      ],
+      "ar": [
+        "اذكر ما حدث ثم ما تحتاجه."
+      ]
+    },
+    "supervision": {
+      "en": "An adult models supportive language, stays nearby and lets the child pause or pass.",
+      "ar": "يقدّم بالغ لغة داعمة ويبقى قريبًا ويسمح للطفل بالتوقّف أو تجاوز السؤال."
+    }
+  },
+  {
+    "id": "kids-5-6-life-05",
+    "age": "5-6",
+    "area": "life",
+    "format": "game",
+    "minutes": 20,
+    "materialGroup": "paper",
+    "reading": "adult",
+    "adult": "together",
+    "screenFree": true,
+    "title": {
+      "en": "Plan a family mini-project",
+      "ar": "خطّط مشروعًا عائليًا صغيرًا"
+    },
+    "summary": {
+      "en": "Divide a simple shared task into jobs and check completion.",
+      "ar": "قسّم مهمة مشتركة بسيطة إلى أعمال وتحقّق من إتمامها."
+    },
+    "objective": {
+      "en": "Plan an order, agree responsibilities and review a shared result.",
+      "ar": "تخطيط ترتيب واتّفاق على المسؤوليات ومراجعة نتيجة مشتركة."
+    },
+    "alternatives": {
+      "en": "Plan a shared drawing station instead of a reading corner.",
+      "ar": "خطّط ركن رسم مشترك بدل ركن القراءة."
+    },
+    "preparation": {
+      "en": "Choose a small project: set up a comfortable floor reading corner.",
+      "ar": "اختر مشروعًا صغيرًا: تجهيز ركن قراءة مريح على الأرض."
+    },
+    "prompt": {
+      "en": "Which jobs can happen together and which need to wait?",
+      "ar": "ما الأعمال التي يمكن تنفيذها معًا وما الذي يحتاج إلى الانتظار؟"
+    },
+    "answer": {
+      "en": "Several role arrangements work; a clear order and reachable shared result matter.",
+      "ar": "تصلح ترتيبات أدوار مختلفة؛ والمهم ترتيب واضح ونتيجة مشتركة ممكنة."
+    },
+    "explanation": {
+      "en": "A short checklist makes responsibilities and unfinished steps visible.",
+      "ar": "تجعل قائمة قصيرة المسؤوليات والخطوات غير المنجزة واضحة."
+    },
+    "easier": {
+      "en": "Use two jobs and complete them side by side.",
+      "ar": "استخدم عملين وأنجزهما مع الطفل."
+    },
+    "harder": {
+      "en": "Let the child lead the final check and suggest one improvement.",
+      "ar": "دع الطفل يقود المراجعة النهائية ويقترح تحسينًا."
+    },
+    "extension": {
+      "en": "Use a picture checklist for another small family project.",
+      "ar": "استخدم قائمة مصوّرة لمشروع عائلي صغير آخر."
+    },
+    "materials": {
+      "en": [
+        "Paper",
+        "Pencils",
+        "A few books"
+      ],
+      "ar": [
+        "ورق",
+        "أقلام رصاص",
+        "بضعة كتب"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Draw three jobs: clear a small space, bring two books, make a welcome sign.",
+        "Agree who does each job and which should happen first.",
+        "Complete the jobs, check the list together and change one thing to make the corner easier to use."
+      ],
+      "ar": [
+        "ارسم ثلاثة أعمال: إخلاء مساحة صغيرة وإحضار كتابين وصنع لافتة ترحيب.",
+        "اتّفقوا على مسؤول كل عمل وما ينبغي أن يحدث أولًا.",
+        "أنجزوا الأعمال وراجعوا القائمة معًا وعدّلوا شيئًا لتسهيل استخدام الركن."
+      ]
+    },
+    "hints": {
+      "en": [
+        "The space should be ready before setting books in it."
+      ],
+      "ar": [
+        "ينبغي تجهيز المكان قبل وضع الكتب فيه."
+      ]
+    },
+    "supervision": {
+      "en": "An adult chooses a clear floor space; children carry only light items and never move furniture or climb shelves.",
+      "ar": "يختار بالغ مساحة أرضية خالية؛ ويحمل الأطفال أشياء خفيفة فقط ولا يحرّكون الأثاث أو يتسلّقون الرفوف."
+    }
+  }
+]

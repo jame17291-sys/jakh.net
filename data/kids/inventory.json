@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "activitiesPerAgeAndArea": 20,
+  "activitySources": [
+    "activities-young.json",
+    "activities-older.json",
+    "activities-language-maths-expansion.json",
+    "activities-logic-science-expansion.json",
+    "activities-creativity-life-expansion.json"
+  ]
+}

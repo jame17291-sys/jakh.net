@@ -10,6 +10,7 @@ import {
   RIDDLE_ARABIA_SEO_PAGES,
 } from "./riddlearabia-seo.mjs";
 import { RETIRED_SEO_ROUTE_REDIRECTS } from "../site-worker/src/seo-route-migrations.js";
+import { kidsRoutePairs } from "./generate-kids-pages.mjs";
 
 export const PRIMARY_SITE_ORIGIN = "https://riddlearabia.com";
 export const PRIMARY_API_ORIGIN = "https://api.riddlearabia.com";
@@ -136,16 +137,21 @@ export const PRE_PUZZLE_SITEMAP_PATHS = Object.freeze([
   ]),
 ]);
 
-export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+export const PRE_KIDS_SITEMAP_PATHS = Object.freeze([
   ...PRE_PUZZLE_SITEMAP_PATHS,
   ...RIDDLE_ARABIA_PUZZLE_CATALOG.flatMap((puzzle) => [puzzle.paths.en, puzzle.paths.ar]),
+]);
+
+export const INDEXABLE_SITEMAP_PATHS = Object.freeze([
+  ...PRE_KIDS_SITEMAP_PATHS,
+  ...kidsRoutePairs().flatMap((page) => [page.en, page.ar]),
 ]);
 
 export const PRE_NAVIGATION_SITEMAP_PATHS = Object.freeze(
   PRE_PUZZLE_SITEMAP_PATHS.filter((path) => !["/daily", "/ar/daily/"].includes(path)),
 );
 
-function expectSharedNavigation(html, pathname) {
+function expectSharedNavigation(html, pathname, { includeKids = true } = {}) {
   const isAr = pathname.startsWith("/ar/");
   const navs = [...html.matchAll(/<nav\b[^>]*class="[^"]*\bprimary-navigation\b[^"]*"[^>]*>([\s\S]*?)<\/nav>/giu)];
   expect(navs.length === 1, "page must expose exactly one shared primary navigation landmark");
@@ -156,10 +162,11 @@ function expectSharedNavigation(html, pathname) {
   const expected = [
     ["home", isAr ? "/ar/" : "/", isAr ? "الرئيسية" : "Home"],
     ["library", isAr ? "/ar/mind-lab/" : "/mind-lab", isAr ? "ألغاز واختبارات" : "Riddles &amp; Quizzes"],
+    ...(includeKids ? [["kids", isAr ? "/ar/topics/kids-riddles/" : "/kids-riddles", isAr ? "الأطفال" : "Kids"]] : []),
     ["games", isAr ? "/ar/play/" : "/play", isAr ? "الألعاب" : "Games"],
     ["daily", isAr ? "/ar/daily/" : "/daily", isAr ? "التحدي اليومي" : "Daily Challenge"],
   ];
-  expect(links.length === expected.length, "primary navigation must contain four destination links");
+  expect(links.length === expected.length, `primary navigation must contain ${expected.length} destination links`);
   expected.forEach(([key, href, label], index) => {
     expect(links[index]?.["data-nav"] === key && links[index]?.href === href && links[index]?.label === label,
       `primary navigation ${key} destination or label is incorrect`);
@@ -462,6 +469,7 @@ export async function runProductionMonitor(options = {}) {
   const config = loadConfig(options);
   const legacyBaseline = config.siteContract === "legacy-cutover";
   let navigationLayout = legacyBaseline ? "legacy-cutover" : "current";
+  let includeKidsNavigation = true;
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   const logger = options.logger || console;
   const results = [];
@@ -539,7 +547,11 @@ export async function runProductionMonitor(options = {}) {
         "baseline homepage is not Riddle Arabia",
       );
       if (resource.text.includes('class="primary-navigation"')) {
-        expectSharedNavigation(resource.text, "/");
+        // Only the exact-version baseline can establish the previous four-link
+        // navigation. Every remaining HTML probe must use that same generation.
+        const navigation = resource.text.match(/<nav\b[^>]*class="primary-navigation"[^>]*>([\s\S]*?)<\/nav>/iu)?.[1] || "";
+        includeKidsNavigation = /\bdata-nav="kids"/u.test(navigation);
+        expectSharedNavigation(resource.text, "/", { includeKids: includeKidsNavigation });
         navigationLayout = "current";
       } else {
         expect(resource.text.includes('id="langSelect"'), "unrecognized predecessor navigation");
@@ -573,7 +585,7 @@ export async function runProductionMonitor(options = {}) {
         resource.text.includes(route.bilingualMarker),
         `missing bilingual marker "${route.bilingualMarker}"`,
       );
-      if (navigationLayout === "current") expectSharedNavigation(resource.text, route.path);
+      if (navigationLayout === "current") expectSharedNavigation(resource.text, route.path, { includeKids: includeKidsNavigation });
       if (navigationLayout === "pre-navigation") {
         expect(!/class="[^"]*\bprimary-navigation\b/iu.test(resource.text),
           "predecessor pages must use one coherent pre-navigation contract");
@@ -787,9 +799,9 @@ export async function runProductionMonitor(options = {}) {
     expectStatus(resource.response, 200);
     expectContentType(resource.response, /(?:application|text)\/xml/iu);
     const urls = [...resource.text.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
-    // Only the exact-version predecessor gate may use the complete pre-puzzle
-    // inventory. Candidate/routine checks still require every current game URL;
-    // a partial rollout or a different 52-URL sitemap is never a valid baseline.
+    // Only the exact-version predecessor gate may use a complete earlier
+    // inventory. Candidate/routine checks require all game and kids URLs;
+    // partial rollouts and different same-size sitemaps are never valid baselines.
     // check() also verifies this response's Worker identity before it can pass.
     const predecessorUrls = PRE_PUZZLE_SITEMAP_PATHS.map((pathname) => new URL(pathname, config.siteOrigin).href);
     const isPuzzlePredecessor = config.siteContract === "release-baseline"
@@ -797,7 +809,8 @@ export async function runProductionMonitor(options = {}) {
       && urls.length === predecessorUrls.length
       && predecessorUrls.every((url) => urls.includes(url));
     const expectedPaths = navigationLayout === "pre-navigation" ? PRE_NAVIGATION_SITEMAP_PATHS
-      : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
+      : isPuzzlePredecessor ? PRE_PUZZLE_SITEMAP_PATHS
+        : !includeKidsNavigation ? PRE_KIDS_SITEMAP_PATHS : INDEXABLE_SITEMAP_PATHS;
     const expectedUrls = expectedPaths.map((pathname) => new URL(pathname, config.siteOrigin).href);
     if (legacyBaseline) {
       expect(urls.length > 0, "baseline sitemap is empty");

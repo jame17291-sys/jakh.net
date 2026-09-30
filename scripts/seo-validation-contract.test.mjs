@@ -19,6 +19,7 @@ function copyGeneratedSite(target) {
     }
   }
   fs.cpSync(path.join(repoRoot, "ar"), path.join(target, "ar"), { recursive: true });
+  fs.cpSync(path.join(repoRoot, "kids-riddles"), path.join(target, "kids-riddles"), { recursive: true });
   fs.mkdirSync(path.join(target, "scripts"), { recursive: true });
   fs.copyFileSync(
     path.join(repoRoot, "scripts", "generate-seo-pages.mjs"),

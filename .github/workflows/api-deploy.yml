@@ -169,6 +169,7 @@ jobs:
           node scripts/generate-production-quarantine.mjs --check
           node scripts/audit-question-bank.mjs --strict
           node scripts/validate-seo.mjs
+          node --test scripts/kids-content.test.mjs scripts/kids-toolkit.test.mjs scripts/kids-runtime-fallback.test.mjs
           node scripts/validate-static.mjs
           node scripts/validate-bilingual.mjs
           node scripts/validate-responsive-images.mjs

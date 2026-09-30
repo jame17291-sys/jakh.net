@@ -2594,7 +2594,7 @@ function getDirectorySections() {
   }).filter(section => section.categoryCount > 0);
 }
 
-function createCategoryCardMarkup(meta) {
+function createCategoryCardMarkup(meta, { art = '' } = {}) {
   const color = CATEGORY_COLORS[meta.slug] || '#E8613C';
   const isAr = state.lang === 'ar';
   const title = escapeHtml(meta.title[state.lang]);
@@ -2615,6 +2615,7 @@ function createCategoryCardMarkup(meta) {
   const enterLabel = isAr ? 'استكشف' : 'Enter';
   return `
     <a class="category-card compact-topic-card" href="${escapeHtml(categoryRouteForLanguage(meta.slug, state.lang))}${modeQuery}" aria-label="${title}">
+      ${art}
       <div class="category-card-overlay">
         <h3 class="category-title">${title}</h3>
         ${topicMarkup}

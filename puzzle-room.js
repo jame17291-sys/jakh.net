@@ -1,3 +1,4 @@
+import { illustrationAttributes, gameIllustrationId } from './site-illustrations.js';
 import { puzzleRoute, puzzleURL } from './puzzle-routes.js';
 import { PUZZLES, BONUS, dayKey, seedFor, createProgressStore } from './puzzle-catalog.js';
 import { DAILY_GAMES, ACTIVITY_KEY, requestedDay, dailyIndex, progressKey, resetCountdown, cleanActivity, recordCompletion, dailySummary, resultText, createSudokuProgress } from './puzzle-daily.js';
@@ -74,7 +75,10 @@ function cssFor(game) {
 function card(p,index,bonus=false) {
  const a=element('a',undefined,'puzzle-card');a.href=href(p.id,p.variant);a.dataset.puzzleLink='';a.dataset.category=p.category||'words';
  const top=element('div',undefined,'puzzle-card-top');top.append(element('span',String(index+1).padStart(2,'0')),element('span',p.tag?pick(p.tag):t('BONUS PUZZLE','تحدٍّ إضافي')));
- a.append(top,element('h3',pick(p.title)),element('p',pick(p.desc)));
+ a.append(top);
+ const art=illustrationAttributes(gameIllustrationId(p.id,p.variant),'game');
+ if(art){const image=element('img');for(const [name,value] of Object.entries(art))image.setAttribute(name,value);a.append(image);}
+ a.append(element('h3',pick(p.title)),element('p',pick(p.desc)));
  const bottom=element('div',undefined,'puzzle-card-bottom');bottom.append(element('span',p.id==='bonus'?t('Explore puzzles','استكشف التحديات'):t('Play now','العب الآن')));
  const key=progressKey(p.id,lang,day,p.variant), saved=stored(key);
  const complete=verifiedResults.get(key)===true||(!bonus&&dailySummary(activity(),lang,day).completed.includes(p.id));
@@ -105,6 +109,8 @@ async function route({focus=false}={}) {
  day=requestedDay(params.get('date'));
  const variant=current.id==='links'&&params.get('variant')==='mini'?'mini':current.id==='word'&&params.get('variant')==='clue'?'clue':current.id==='mini'&&params.get('variant')==='starter'?'starter':'standard';
  const bonus=BONUS.find(b=>b.id===current.id&&b.variant===variant);
+ const introArt=document.querySelector('[data-puzzle-editorial] .ra-art-topic');
+ if(introArt){const art=illustrationAttributes(gameIllustrationId(current.id,bonus?.variant),'topic');if(art)for(const [name,value] of Object.entries(art))introArt.setAttribute(name,value);}
  title.textContent=pick(bonus?.title||current.title);document.title=page&&variant==='standard'?initialTitle:`${title.textContent} | ${t('Riddle Arabia','ريدل أرابيا')}`;
  document.getElementById('puzzle-reset').hidden=['bonus','duel'].includes(current.id);
  document.getElementById('puzzle-date').textContent=current.id==='duel'?t('Play together, wherever you are','العبا معاً أينما كنتما'):new Intl.DateTimeFormat(lang==='ar'?'ar-AE':'en-GB',{timeZone:'Asia/Dubai',dateStyle:'long'}).format(new Date(`${day}T12:00:00+04:00`));

@@ -39,6 +39,8 @@ export const DEFAULT_MANIFEST_PATH = resolve(REPOSITORY_ROOT, "site-worker/gener
 export const DEFAULT_MANIFEST_MODULE_PATH = resolve(REPOSITORY_ROOT, "site-worker/generated/site-manifest.js");
 export const FINGERPRINT_PREFIX_LENGTH = 16;
 
+const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
+
 const PUZZLE_ASSETS = Object.freeze([
   "/puzzle-routes.js",
   "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
@@ -49,6 +51,7 @@ const PUZZLE_ASSETS = Object.freeze([
 ]);
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
+  ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
   "/app.js",
   "/site-navigation.js",
@@ -210,6 +213,7 @@ function rewriteSearchLeaderboard(source, fingerprints) {
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    "/directory-ui.js",
     "/battle-mode.js",
     "/battle-mode.css",
     "/search-leaderboard.js",
@@ -903,11 +907,11 @@ export async function buildStaticSite({
 
   // Puzzle modules are ordered leaves-first. Propagate content hashes through
   // lazy imports as well as stylesheet URLs so open tabs never mix releases.
-  for (const stable of PUZZLE_ASSETS) {
+  for (const stable of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS]) {
     const source = sourceBytes.get(urlPathToRelative(stable));
     if (!source) continue;
     let text = source.toString("utf8");
-    for (const dependency of PUZZLE_ASSETS) {
+    for (const dependency of [...ILLUSTRATION_MODULES, ...PUZZLE_ASSETS]) {
       const target = fingerprints[dependency];
       if (!target) continue;
       text = replaceQuotedUrl(text, dependency, target).value;

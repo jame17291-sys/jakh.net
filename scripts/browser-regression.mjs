@@ -388,6 +388,54 @@ async function main() {
   const browser = await BROWSER_ENGINES[BROWSER_ENGINE].launch({ headless: true, executablePath });
 
   try {
+    await runTest("topic and game directories retain exclusive artwork after interactive rendering", async () => {
+      const context = await createContext(browser, { viewport: { width: 430, height: 932 }, serviceWorkers: "block" });
+      const page = await context.newPage(), assertNoPageErrors = trackPageErrors(page);
+      const decodeImages = async (selector) => page.locator(selector).evaluateAll(async (images) => {
+        await Promise.all(images.map(async image => { image.loading = 'eager'; await image.decode(); }));
+        return images.map(image => ({ id: image.dataset.illustration, width: image.naturalWidth, alt: image.alt }));
+      });
+      try {
+        await mockApi(context);
+        await setCurrentDeniedConsent(context);
+        for (const language of ['en', 'ar']) {
+          const prefix = language === 'ar' ? '/ar' : '';
+          await page.goto(`${baseUrl}${prefix}/mind-lab${prefix ? '/' : ''}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.waitForLoadState('networkidle');
+          await page.waitForFunction(() => document.querySelector('#directoryResultsLabel')?.textContent.includes('51'));
+          const topics = await decodeImages('#categoryDirectoryGrid .ra-art-directory');
+          assert.equal(topics.length, 51, `${language}: every public topic retains its picture`);
+          assert.equal(new Set(topics.map(image => image.id)).size, 51);
+          assert.ok(topics.every(image => image.width > 0 && image.alt === ''));
+          await page.locator('#categorySearchInput').fill('football');
+          await page.waitForFunction(() => document.querySelectorAll('#categoryDirectoryGrid .category-card').length === 1);
+          assert.equal(await page.locator('#categoryDirectoryGrid .ra-art-directory').getAttribute('data-illustration'), 'topic-football');
+          await page.goto(`${baseUrl}${prefix}/play${prefix ? '/' : ''}`, { waitUntil: NAVIGATION_READY_EVENT });
+          await page.waitForLoadState('networkidle');
+          await page.locator('#puzzle-cards .ra-art-game').first().waitFor();
+          const games = await decodeImages('#puzzle-cards .ra-art-game');
+          assert.equal(games.length, 13);
+          assert.equal(new Set(games.map(image => image.id)).size, 13);
+          assert.ok(games.every(image => image.width > 0 && image.alt === ''));
+          await page.locator('[data-puzzle-filter="friends"]').click();
+          assert.equal(await page.locator('#puzzle-cards .ra-art-game').count(), 1);
+          assert.equal(await page.locator('#puzzle-cards .ra-art-game').getAttribute('data-illustration'), 'game-duel');
+          await page.locator('[data-puzzle-filter="all"]').click();
+          await page.locator(`#puzzle-cards a[href="${puzzlePath('bonus', language)}"]`).click();
+          await page.locator('#puzzle-mount .ra-art-game').first().waitFor();
+          const bonus = await decodeImages('#puzzle-mount .ra-art-game');
+          assert.equal(bonus.length, 3);
+          assert.equal(new Set([...topics, ...games, ...bonus].map(image => image.id)).size, 67);
+          assert.ok(bonus.every(image => image.width > 0 && image.alt === ''));
+          await page.locator('#puzzle-mount .puzzle-card').nth(1).click();
+          await page.locator('[data-puzzle-editorial] [data-illustration="game-word-clue"]').waitFor();
+          const variant = await decodeImages('[data-puzzle-editorial] .ra-art-topic');
+          assert.equal(variant[0].id, 'game-word-clue', 'a bonus game keeps its exclusive picture on its own page');
+          assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}: illustrated cards fit a phone`);
+        }
+        assertNoPageErrors();
+      } finally { await context.close(); }
+    });
     await runTest("bilingual puzzles load on phones, retain daily results and share the exact Sudoku level", async () => {
       const context = await createContext(browser, { viewport: { width: 430, height: 932 }, serviceWorkers: "block" });
       const page = await context.newPage(), assertNoPageErrors = trackPageErrors(page);

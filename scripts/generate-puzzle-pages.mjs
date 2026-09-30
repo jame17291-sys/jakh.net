@@ -1,3 +1,4 @@
+import { illustrationMarkup, gameIllustrationId } from '../site-illustrations.js';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -75,13 +76,13 @@ export function renderPuzzlePage(id, lang = 'en') {
       <noscript><p class="shell">${t('Enable JavaScript to play. You can read the rules below without it.','فعّل JavaScript للعب. يمكنك قراءة القواعد أدناه دون تفعيله.')}</p></noscript>
       <section class="shell section-block" aria-labelledby="puzzle-about-title" data-puzzle-editorial>
         <div class="feature-panel">
+          ${illustrationMarkup(gameIllustrationId(id), 'topic')}
           <h2 id="puzzle-about-title">${t(`About ${gameName}`,`عن ${gameName}`)}</h2>
           <p>${esc(pick(copy.intro))}</p>
           <h3>${t('How to play','طريقة اللعب')}</h3>
           <ol>${copy.rules.map(rule=>`<li>${esc(pick(rule))}</li>`).join('')}</ol>
           <p>${esc(pick(copy.note))}</p>
-          ${sharedNote?`<h3>${t('Daily play and saved progress','اللعب اليومي والتقدّم المحفوظ')}</h3><p>${esc(sharedNote)}</p>`:''}
-          <nav class="hero-actions" aria-label="${t('More games','ألعاب أخرى')}">${related.map(item=>`<a class="ghost-btn" href="${esc(item.path)}">${esc(item.name)}</a>`).join('')}<a class="text-btn" href="${directory}">${t('All games','جميع الألعاب')}</a></nav>
+${sharedNote?`          <h3>${t('Daily play and saved progress','اللعب اليومي والتقدّم المحفوظ')}</h3><p>${esc(sharedNote)}</p>\n`:''}          <nav class="hero-actions" aria-label="${t('More games','ألعاب أخرى')}">${related.map(item=>`<a class="ghost-btn" href="${esc(item.path)}">${esc(item.name)}</a>`).join('')}<a class="text-btn" href="${directory}">${t('All games','جميع الألعاب')}</a></nav>
         </div>
       </section>
     </main>

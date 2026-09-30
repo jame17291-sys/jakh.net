@@ -613,8 +613,9 @@ function renderMindLabDirectory() {
     const questions = members.reduce((total, category) => total + Number(category.count || 0), 0);
     const cards = members.map((category) => {
       const topics = (category.topics || []).slice(0, 3).map((topic) => escapeHtml(topic.en)).filter(Boolean);
+      const art = illustrationMarkup(TOPIC_ILLUSTRATIONS[category.slug], 'directory');
       return `          <a class="category-card compact-topic-card" href="${categoryRoute(category, "en")}" aria-label="${escapeHtml(category.title.en)}">
-            <div class="category-card-overlay">
+${art ? `            ${art}\n` : ''}            <div class="category-card-overlay">
               <h3 class="category-title">${escapeHtml(category.title.en)}</h3>
               ${topics.length ? `<p class="category-card-topics">${topics.join(" · ")}</p>` : ""}
             </div>

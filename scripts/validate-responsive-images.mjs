@@ -1,11 +1,32 @@
+import { PUZZLE_ROUTES, puzzlePath } from '../puzzle-routes.js';
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { ILLUSTRATIONS } from "../site-illustrations.js";
+import { createHash } from "node:crypto";
+import { loadProductionQuarantine } from "./publication-quarantine.mjs";
+import { PUZZLES, BONUS } from "../puzzle-catalog.js";
+import { ILLUSTRATIONS, TOPIC_ILLUSTRATIONS, GAME_ILLUSTRATIONS, gameIllustrationId } from "../site-illustrations.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "data", "catalog.json"), "utf8"));
 const failures = [];
+const quarantine = loadProductionQuarantine(root);
+const publicTopics = catalog.categories.filter(({slug}) => !quarantine.categorySlugs.has(slug));
+const assigned = [...Object.values(TOPIC_ILLUSTRATIONS), ...Object.values(GAME_ILLUSTRATIONS)];
+if (new Set(assigned).size !== assigned.length) failures.push('Distinct topics and games must never share an illustration');
+if (publicTopics.length !== 51 || publicTopics.some(({slug}) => !TOPIC_ILLUSTRATIONS[slug])) failures.push('All 51 public topics need exclusive artwork');
+if (Object.keys(TOPIC_ILLUSTRATIONS).length !== publicTopics.length) failures.push('Artwork topic inventory must match the public catalog');
+for (const game of [...PUZZLES, ...BONUS]) {
+  if (!gameIllustrationId(game.id, game.variant)) failures.push(`${game.id}/${game.variant || 'standard'}: missing game artwork`);
+}
+const hashes = new Map();
+for (const id of assigned) {
+  const filename = path.join(root, `assets/illustrations/${id}-480.webp`);
+  if (!fs.existsSync(filename)) continue;
+  const hash = createHash('sha256').update(fs.readFileSync(filename)).digest('hex');
+  if (hashes.has(hash)) failures.push(`${id}: duplicates the image for ${hashes.get(hash)}`);
+  hashes.set(hash, id);
+}
 
 // Section and introduction artwork uses two local WebP sizes. Original PNGs
 // and superseded drafts are intentionally excluded from the deployed site.
@@ -58,11 +79,7 @@ for (const relative of generatedFiles) {
   if (relative === "mind-lab.html" || relative === "ar/mind-lab/index.html") {
     const directory = html.match(/<!-- SEO:DIRECTORY:START -->([\s\S]*?)<!-- SEO:DIRECTORY:END -->/u)?.[1] || "";
     if (!directory) failures.push(`${relative}: missing no-script topic directory`);
-    const withoutSections = directory.replace(/<section\b[^>]*class="directory-section-header"[\s\S]*?<\/section>/gu, "");
-    if (/<img\b|category-card-bg|category-card-image|\bhas-art\b/u.test(withoutSections)) {
-      failures.push(`${relative}: compact topic cards must not request artwork`);
-    }
-    const sectionImages = [...directory.matchAll(/<img\b[^>]*>/gu)].map(([tag]) => tag);
+    const sectionImages = [...directory.matchAll(/<img\b[^>]*class="ra-art ra-art-section"[^>]*>/gu)].map(([tag]) => tag);
     if (sectionImages.length !== catalog.sections.length || sectionImages.some((tag) => (
       !tag.includes('class="ra-art ra-art-section"') || !tag.includes('loading="lazy"')
       || !tag.includes('width="960" height="640"') || !tag.includes('alt=""')
@@ -76,7 +93,15 @@ for (const relative of generatedFiles) {
     }
     for (const category of catalog.categories || []) {
       const expected = relative.startsWith("ar/") ? `/ar/topics/${category.slug}/` : `/${category.slug}`;
-      if (!cards.some(([, href]) => href === expected)) failures.push(`${relative}: missing compact topic link ${expected}`);
+      const card = cards.find(([, href]) => href === expected);
+      if (!card) failures.push(`${relative}: missing compact topic link ${expected}`);
+      const id = TOPIC_ILLUSTRATIONS[category.slug];
+      if (id) {
+        const images = [...(card?.[2] || '').matchAll(/<img\b[^>]*>/gu)].map(([tag]) => tag);
+        if (images.length !== 1 || !images[0].includes(`data-illustration="${id}"`) || !images[0].includes('loading="lazy"') || !images[0].includes('srcset=') || !images[0].includes('alt=""')) {
+          failures.push(`${relative}: ${category.slug} needs its own responsive lazy-loaded illustration`);
+        }
+      }
     }
     continue;
   }
@@ -87,6 +112,8 @@ for (const relative of generatedFiles) {
     relative === `${slug}.html` || relative === `ar/topics/${slug}/index.html`
   ));
   if (category) {
+    const id = TOPIC_ILLUSTRATIONS[category.slug];
+    if (id && !html.includes(`data-illustration="${id}"`)) failures.push(`${relative}: topic introduction artwork does not match its directory card`);
     if (!new RegExp(`<body\\b[^>]*\\bdata-category="${category.slug}"`, "u").test(html)) {
       failures.push(`${relative}: missing category binding for question data`);
     }
@@ -102,10 +129,29 @@ for (const relative of generatedFiles) {
   }
 }
 
+for (const relative of ['play.html', 'ar/play/index.html']) {
+  const html = fs.readFileSync(path.join(root, relative), 'utf8');
+  for (const game of PUZZLES) {
+    const card = [...html.matchAll(/<a class="puzzle-card"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)].find(([, href]) => href === puzzlePath(game.id, relative.startsWith('ar/') ? 'ar' : 'en'));
+    const art = gameIllustrationId(game.id);
+    if (!card || !card[2].includes(`data-illustration="${art}"`)) failures.push(`${relative}: missing ${game.id} illustration`);
+  }
+  for (const id of ['akshifha', 'chess', 'backgammon', 'quick-fire', 'game-battle-room']) {
+    if (!html.includes(`/assets/illustrations/${id}-480.webp`)) failures.push(`${relative}: missing ${id} illustration`);
+  }
+}
+
+for (const route of PUZZLE_ROUTES) for (const lang of ['en', 'ar']) {
+  const relative = lang === 'en' ? `${route.slug}.html` : `ar/games/${route.slug}/index.html`;
+  const html = fs.readFileSync(path.join(root, relative), 'utf8');
+  const editorial = html.match(/<section[^>]*data-puzzle-editorial[^>]*>([\s\S]*?)<\/section>/u)?.[1] || '';
+  if (!editorial.includes(`data-illustration="${gameIllustrationId(route.id)}"`)) failures.push(`${relative}: missing its own game introduction artwork`);
+}
+
 if (failures.length) {
   console.error(`Unified category image validation failed with ${failures.length} issue(s):`);
   for (const issue of failures) console.error(`- ${issue}`);
   process.exit(1);
 }
 
-console.log(`Images valid: ${ILLUSTRATIONS.length} responsive illustrations, ${(catalog.categories || []).length} canonical SVG assets; ${generatedFiles.length} directory/topic pages with compact text cards and no legacy media.`);
+console.log(`Images valid: ${ILLUSTRATIONS.length} responsive illustrations, ${(catalog.categories || []).length} canonical SVG assets; ${generatedFiles.length} directory/topic pages with exclusive topic/game artwork and no legacy media.`);

@@ -1,3 +1,4 @@
+import { TOPIC_ILLUSTRATIONS } from "../site-illustrations.js";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
@@ -232,12 +233,11 @@ test("collections and about are newly authored hubs, not inherited bulk SEO page
   }
 });
 
-test("the no-script topic directory uses compact text links from the current catalog", () => {
+test("the no-script topic directory gives public topics exclusive artwork and direct links", () => {
   const source = read("mind-lab.html");
   const directory = source.match(/<!-- SEO:DIRECTORY:START -->([\s\S]*?)<!-- SEO:DIRECTORY:END -->/u)?.[1] || "";
   assert.ok(directory, "the generated directory fallback must be present");
-  const withoutSections = directory.replace(/<section\b[^>]*class="directory-section-header"[\s\S]*?<\/section>/gu, "");
-  assert.doesNotMatch(withoutSections, /<img\b|category-card-bg|category-card-image|\bhas-art\b/u, "compact topic cards stay text-only");
+  assert.equal(new Set(Object.values(TOPIC_ILLUSTRATIONS)).size, 51, 'each public topic owns a different illustration');
   assert.equal((directory.match(/class="ra-art ra-art-section"/gu) || []).length, catalog.sections.length, "one illustration per subject section");
   const cards = [...directory.matchAll(/<a class="category-card compact-topic-card" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gu)];
   assert.equal(cards.length, catalog.categories.length, "every source topic has a no-script link before publication quarantine projection");
@@ -245,6 +245,12 @@ test("the no-script topic directory uses compact text links from the current cat
   for (const category of catalog.categories) {
     const [, , markup] = cards.find(([, href]) => href === `/${category.slug}`) || [];
     assert.ok(markup, `${category.slug}: direct topic link`);
+    const id = TOPIC_ILLUSTRATIONS[category.slug];
+    if (id) {
+      assert.equal((markup.match(/<img\b/gu) || []).length, 1, `${category.slug}: one picture`);
+      assert.ok(markup.includes(`data-illustration="${id}"`), `${category.slug}: assigned picture`);
+      assert.ok(markup.includes('loading="lazy"'), `${category.slug}: defer offscreen artwork`);
+    }
     assert.ok(markup.includes(`<h3 class="category-title">${escapeHtml(category.title.en)}</h3>`), `${category.slug}: current topic title`);
     assert.ok(markup.includes(`<span class="category-card-label">${category.count} questions</span>`), `${category.slug}: catalog question count`);
   }

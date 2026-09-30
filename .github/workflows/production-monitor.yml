@@ -38,6 +38,21 @@ jobs:
       - name: Test monitor behavior
         run: node --test scripts/monitor-production.test.mjs scripts/route-production-alert.test.mjs
 
+      # A completed release can predate this workflow's helper. Keep its monitor
+      # contract above, but load orchestration from this exact workflow revision.
+      - name: Load classifier from the monitor workflow revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.workflow_sha }}
+          path: .monitor-workflow
+          sparse-checkout: /scripts/monitor-workflow-context.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Classify triggering release
+        id: context
+        run: node .monitor-workflow/scripts/monitor-workflow-context.mjs
+
       - name: Check production
         id: production
         env:
@@ -47,8 +62,8 @@ jobs:
           JAKH_MONITOR_TIMEOUT_MS: "10000"
           JAKH_SITE_MAX_MS: "5000"
           JAKH_API_MAX_MS: "5000"
-          JAKH_MONITOR_SCOPE: ${{ github.event_name != 'workflow_run' && 'all' || github.event.workflow_run.name == 'Legacy GitHub Pages (break-glass only)' && 'pages' || github.event.workflow_run.name == 'Deploy API' && 'api' || 'all' }}
-          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.name == 'Deploy API' && startsWith(github.event.workflow_run.display_title, 'API compatibility ·') && 'true' || 'false' }}
+          JAKH_MONITOR_SCOPE: ${{ steps.context.outputs.scope }}
+          JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: ${{ steps.context.outputs.allow-compatible-schema }}
           JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
         run: node scripts/monitor-production.mjs
 
@@ -60,6 +75,6 @@ jobs:
           JAKH_ALERT_EVENT: ${{ github.event_name }}
           JAKH_ALERT_SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
           JAKH_ALERT_SOURCE_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
-          JAKH_MONITOR_SCOPE: ${{ github.event_name != 'workflow_run' && 'all' || github.event.workflow_run.name == 'Legacy GitHub Pages (break-glass only)' && 'pages' || github.event.workflow_run.name == 'Deploy API' && 'api' || 'all' }}
+          JAKH_MONITOR_SCOPE: ${{ steps.context.outputs.scope }}
           JAKH_MONITOR_RESULT_PATH: monitor-production-result.json
         run: node scripts/route-production-alert.mjs

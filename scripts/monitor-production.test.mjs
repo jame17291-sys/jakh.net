@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import http from "node:http";
 import { readFileSync } from "node:fs";
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import test from "node:test";
@@ -26,8 +27,27 @@ import { navigationScript, siteHeader } from "./site-navigation-markup.mjs";
 import { buildStaticSite } from "./build-static-site.mjs";
 import { PUZZLE_ROUTES } from "../puzzle-routes.js";
 import { createSiteHandler } from "../site-worker/src/site-edge.js";
+import { classifyMonitorWorkflowContext } from "./monitor-workflow-context.mjs";
 
 const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
+const FIXTURE_RELEASE_SHA = "2d98494fbc9459bb449bacb4fe9e2ef3a233cc3d";
+
+function compatibilityWorkflowEvent(overrides = {}) {
+  return {
+    repository: { default_branch: "main" },
+    workflow_run: {
+      // These fields reproduce GitHub run 36742752211, which previously
+      // selected all/strict because name contained the custom run title.
+      name: `API compatibility · ${FIXTURE_RELEASE_SHA}`,
+      display_title: `API compatibility · ${FIXTURE_RELEASE_SHA}`,
+      path: ".github/workflows/api-deploy.yml",
+      head_sha: FIXTURE_RELEASE_SHA,
+      head_branch: "main",
+      conclusion: "success",
+      ...overrides,
+    },
+  };
+}
 
 function quietLogger() {
   return { log() {}, error() {} };
@@ -932,20 +952,116 @@ test("legacy Pages mode proves the exact projection while accepting content-safe
   });
 });
 
-test("only a compatibility-triggered monitor accepts a supported pre-migration schema", async () => {
+test("monitor classifies API release identity by workflow path despite dynamic run names", () => {
+  const expected = { scope: "api", allowCompatibleSchema: true };
+  assert.deepEqual(classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent()), expected);
+  assert.deepEqual(classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent({
+    name: "Deploy API", path: ".github/workflows/api-deploy.yml@refs/heads/main",
+  })), expected);
+});
+
+test("monitor never grants compatibility from a title alone or an unproven phase", () => {
+  for (const overrides of [
+    { path: ".github/workflows/static-site.yml" },
+    { path: ".github/workflows/other-api-deploy.yml" },
+    { path: undefined },
+  ]) {
+    assert.deepEqual(classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent(overrides)),
+      { scope: "all", allowCompatibleSchema: false });
+  }
+  for (const overrides of [
+    { display_title: `API migrate-final · ${FIXTURE_RELEASE_SHA}` },
+    { display_title: `API compatibility · ${"a".repeat(40)}` },
+    { display_title: `API compatibility · ${FIXTURE_RELEASE_SHA} extra` },
+    { display_title: undefined },
+    { head_sha: "invalid" },
+    { conclusion: "failure" },
+    { conclusion: "cancelled" },
+    { head_branch: "release-candidate" },
+  ]) {
+    assert.deepEqual(classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent(overrides)),
+      { scope: "api", allowCompatibleSchema: false });
+  }
+});
+
+test("scheduled and manual monitors retain full strict checks and Pages uses its workflow path", () => {
+  for (const eventName of ["schedule", "workflow_dispatch", "push"]) {
+    assert.deepEqual(classifyMonitorWorkflowContext(eventName, compatibilityWorkflowEvent()),
+      { scope: "all", allowCompatibleSchema: false });
+  }
+  assert.deepEqual(classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent({
+    name: "Legacy Pages retired after Riddle Arabia cutover",
+    path: ".github/workflows/pages.yml",
+  })), { scope: "pages", allowCompatibleSchema: false });
+});
+
+test("monitor event file produces the scope and compatibility outputs consumed by the workflow", async () => {
+  const temporary = await mkdtemp(join(tmpdir(), "jakh-monitor-event-"));
+  try {
+    const eventPath = join(temporary, "event.json");
+    const outputPath = join(temporary, "outputs");
+    await writeFile(eventPath, JSON.stringify(compatibilityWorkflowEvent()), "utf8");
+    execFileSync(process.execPath, [resolve("scripts/monitor-workflow-context.mjs")], {
+      env: { ...process.env, GITHUB_EVENT_NAME: "workflow_run", GITHUB_EVENT_PATH: eventPath, GITHUB_OUTPUT: outputPath },
+      stdio: "pipe",
+    });
+    assert.equal(await readFile(outputPath, "utf8"), "scope=api\nallow-compatible-schema=true\n");
+  } finally {
+    await rm(temporary, { recursive: true, force: true });
+  }
+});
+
+test("a newer monitor workflow classifies an older release checkout without changing its monitor contract", async () => {
+  const temporary = await mkdtemp(join(tmpdir(), "jakh-monitor-old-release-"));
+  try {
+    const workflow = await readFile(new URL("../.github/workflows/production-monitor.yml", import.meta.url), "utf8");
+    const classifierPath = workflow.match(/id: context\n\s+run: node ([^\s]+)/u)?.[1];
+    const productionPath = workflow.match(/id: production[\s\S]+?\n\s+run: node ([^\s]+)/u)?.[1];
+    assert.equal(classifierPath, ".monitor-workflow/scripts/monitor-workflow-context.mjs");
+    assert.equal(productionPath, "scripts/monitor-production.mjs");
+    await mkdir(join(temporary, "scripts"));
+    await mkdir(join(temporary, ".monitor-workflow/scripts"), { recursive: true });
+    const releaseContract = 'process.stdout.write("older-release-contract");\n';
+    await writeFile(join(temporary, productionPath), releaseContract);
+    await writeFile(join(temporary, classifierPath),
+      await readFile(new URL("./monitor-workflow-context.mjs", import.meta.url)));
+    const eventPath = join(temporary, "event.json");
+    const outputPath = join(temporary, "outputs");
+    await writeFile(eventPath, JSON.stringify(compatibilityWorkflowEvent()));
+    await assert.rejects(readFile(join(temporary, "scripts/monitor-workflow-context.mjs")), { code: "ENOENT" });
+
+    execFileSync(process.execPath, [classifierPath], {
+      cwd: temporary,
+      env: { ...process.env, GITHUB_EVENT_NAME: "workflow_run", GITHUB_EVENT_PATH: eventPath, GITHUB_OUTPUT: outputPath },
+      stdio: "pipe",
+    });
+    assert.equal(await readFile(outputPath, "utf8"), "scope=api\nallow-compatible-schema=true\n");
+    assert.equal(execFileSync(process.execPath, [productionPath], { cwd: temporary, encoding: "utf8" }), "older-release-contract");
+    assert.equal(await readFile(join(temporary, productionPath), "utf8"), releaseContract);
+  } finally {
+    await rm(temporary, { recursive: true, force: true });
+  }
+});
+
+test("the real compatibility event selects API-only checks and accepts supported pre-migration schemas", async () => {
   for (const apiSchema of ["8", "9"]) await withFixture({ apiSchema }, async (fixtureOrigin) => {
     const compatibility = await runProductionMonitor({
+      ...classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent()),
       siteOrigin: fixtureOrigin,
       apiOrigin: fixtureOrigin,
       timeoutMs: 2_000,
       siteMaxMs: 1_000,
       apiMaxMs: 1_000,
-      allowCompatibleSchema: true,
       logger: quietLogger(),
     });
     assert.equal(compatibility.failures.length, 0);
+    assert.equal(compatibility.results.length, 11);
+    assert.ok(compatibility.results.every(({ name }) => name.startsWith("API")));
 
     const strict = await runProductionMonitor({
+      ...classifyMonitorWorkflowContext("workflow_run", compatibilityWorkflowEvent({
+        display_title: `API migrate-final · ${FIXTURE_RELEASE_SHA}`,
+      })),
       siteOrigin: fixtureOrigin,
       apiOrigin: fixtureOrigin,
       timeoutMs: 2_000,

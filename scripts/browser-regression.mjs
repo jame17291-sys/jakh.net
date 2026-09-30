@@ -439,21 +439,56 @@ async function main() {
     await runTest("bilingual puzzles load on phones, retain daily results and share the exact Sudoku level", async () => {
       const context = await createContext(browser, { viewport: { width: 430, height: 932 }, serviceWorkers: "block" });
       const page = await context.newPage(), assertNoPageErrors = trackPageErrors(page);
+      // Crossword HTML reserves its board before the lazy engine runs. That
+      // visible shell is not a mounted game; aria-busy also covers engines
+      // whose placeholders are removed before their mount work finishes.
+      const puzzleHasLoaded = () => {
+        const mount = document.querySelector('#puzzle-mount');
+        return Boolean(mount?.children.length > 0 && mount.getAttribute('aria-busy') !== 'true'
+          && !mount.querySelector('.puzzle-loading, .pc-loading-shell'));
+      };
       const ready = async () => {
         await page.locator('#puzzle-title').waitFor({ state: 'visible' });
-        await page.waitForFunction(() => document.querySelector('#puzzle-mount')?.children.length > 0 && !document.querySelector('#puzzle-mount .puzzle-loading'));
+        await page.waitForFunction(puzzleHasLoaded);
         assert.doesNotMatch(await page.locator('#puzzle-mount').innerText(), /could not load|تعذّر تحميل/u);
       };
       try {
         await mockApi(context);
         await setCurrentDeniedConsent(context);
+        // Hold the actual lazy engine request, so every browser must observe
+        // the reserved shell without accidentally accepting it as ready.
+        const crosswordEngine = /\/puzzle-crossword(?:\.[a-f0-9]{16})?\.js(?:\?|$)/u;
+        for (const language of ['en', 'ar']) {
+          let releaseEngine;
+          const heldEngine = new Promise(resolve => { releaseEngine = resolve; });
+          const holdEngine = async route => { await heldEngine; await route.continue(); };
+          await context.route(crosswordEngine, holdEngine);
+          try {
+            const requested = page.waitForRequest(crosswordEngine);
+            await page.goto(`${baseUrl}${puzzlePath('mini', language)}`, { waitUntil: 'commit' });
+            await requested;
+            await page.locator('#puzzle-mount[aria-busy="true"] .pc-loading-shell').waitFor({ state: 'visible' });
+            assert.equal(await page.evaluate(puzzleHasLoaded), false, `${language}: a delayed crossword shell is not a mounted game`);
+            assert.equal(await page.locator('#puzzle-mount .pc-board-placeholder').count(), 1);
+            assert.equal(await page.locator('#puzzle-share').isVisible(), false, `${language}: sharing stays hidden until the crossword mounts`);
+            releaseEngine();
+            await ready();
+            assert.equal(await page.locator('#puzzle-mount').getAttribute('aria-busy'), 'false');
+            assert.equal(await page.locator('#puzzle-mount .pc-loading-shell').count(), 0);
+            assert.ok(await page.locator('#puzzle-mount .pc-cell input').count() > 0, `${language}: the engine mounts playable cells`);
+            assert.equal(await page.locator('#puzzle-share').isVisible(), true, `${language}: mounted crossword exposes sharing`);
+          } finally {
+            releaseEngine();
+            await context.unroute(crosswordEngine, holdEngine);
+          }
+        }
         for (const language of ['en', 'ar']) for (const game of ['word', 'hive', 'links', 'trails', 'letter-square', 'sudoku', 'domino', 'mosaic', 'mini', 'midi', 'crossword', 'duel', 'bonus']) {
           await page.goto(`${baseUrl}${puzzlePath(game,language)}`, { waitUntil: NAVIGATION_READY_EVENT });
           await ready();
           assert.equal(new URL(page.url()).pathname,puzzlePath(game,language));
           assert.equal(await page.locator('body').getAttribute('data-puzzle-page'),game);
           assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),`https://riddlearabia.com${puzzlePath(game,language)}`);
-          assert.equal(await page.locator('#puzzle-share').isVisible(), !['duel', 'bonus'].includes(game));
+          assert.equal(await page.locator('#puzzle-share').isVisible(), !['duel', 'bonus'].includes(game), `${language}/${game}: share visibility after the engine mounts`);
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${language}/${game} mobile overflow`);
         }
         await page.goto(`${baseUrl}/ar/play/?game=letter-square`, { waitUntil: NAVIGATION_READY_EVENT });

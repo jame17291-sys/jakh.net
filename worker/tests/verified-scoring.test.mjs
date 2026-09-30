@@ -648,36 +648,88 @@ test("category-only reload recovery discards only the caller's current category"
 });
 
 test("submit and discard conditionally claim the same pending state", async (t) => {
+  for (const winningAction of ["submit", "discard"]) {
+    await t.test(`${winningAction} wins the conditional claim`, async (subtest) => {
+      const { answers, challenge, clock, database, env } = await issueChallenge(subtest);
+      clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
+
+      // Hold both mutations until submission has read a pending snapshot and
+      // both conditional claims exist. Promise.allSettled alone also permits
+      // discard to win before that read, correctly triggering an early replay
+      // rejection without a second UPDATE.
+      const first = database.first.bind(database);
+      let releaseClaims;
+      let releaseWinner;
+      const bothClaimsReady = new Promise((resolve) => { releaseClaims = resolve; });
+      const winnerFinished = new Promise((resolve) => { releaseWinner = resolve; });
+      let claimCount = 0;
+      subtest.mock.method(database, "first", async (sql, values) => {
+        if (!sql.includes("UPDATE verified_score_sessions") || !sql.includes("RETURNING id")) {
+          return first(sql, values);
+        }
+        const action = sql.includes("SET status = 'expired'") ? "discard" : "submit";
+        claimCount += 1;
+        if (claimCount === 2) releaseClaims();
+        await bothClaimsReady;
+        if (action !== winningAction) await winnerFinished;
+        try {
+          return await first(sql, values);
+        } finally {
+          if (action === winningAction) releaseWinner();
+        }
+      });
+
+      const [submission, cancellation] = await Promise.allSettled([
+        submitVerifiedChallenge(submitRequest(challenge, answers), env),
+        discardServerCheckedChallenge(discardRequest({
+          categoryId: challenge.categoryId,
+          challengeId: challenge.challengeId,
+          submissionToken: challenge.submissionToken,
+        }), env),
+      ]);
+      assert.equal(cancellation.status, "fulfilled");
+      const discardPayload = await cancellation.value.json();
+      const submissionWon = submission.status === "fulfilled";
+      assert.equal(submissionWon, winningAction === "submit");
+      if (submissionWon) {
+        assertServerCheckedBoundary(await submission.value.json());
+      } else {
+        assert.equal(submission.reason?.code, "SERVER_CHECKED_CHALLENGE_REPLAYED");
+      }
+
+      assert.notEqual(submissionWon, discardPayload.discarded);
+      assert.equal(
+        database.challenges.get(challenge.challengeId).status,
+        submissionWon ? "completed" : "expired",
+      );
+      const stateClaims = database.statements.filter(({ sql }) => (
+        sql.includes("UPDATE verified_score_sessions") && sql.includes("RETURNING id")
+      ));
+      assert.equal(stateClaims.length, 2);
+      assert.ok(stateClaims.every(({ sql }) => /status = 'pending'/u.test(sql)));
+    });
+  }
+});
+
+test("discard before the submission read rejects replay without another state claim", async (t) => {
   const { answers, challenge, clock, database, env } = await issueChallenge(t);
   clock.now = challenge.startedAt + VERIFIED_MINIMUM_MS + 1_000;
-
-  const [submission, cancellation] = await Promise.allSettled([
+  const cancellation = await discardServerCheckedChallenge(discardRequest({
+    categoryId: challenge.categoryId,
+    challengeId: challenge.challengeId,
+    submissionToken: challenge.submissionToken,
+  }), env);
+  assert.deepEqual(await cancellation.json(), { discarded: true });
+  await assert.rejects(
     submitVerifiedChallenge(submitRequest(challenge, answers), env),
-    discardServerCheckedChallenge(discardRequest({
-      categoryId: challenge.categoryId,
-      challengeId: challenge.challengeId,
-      submissionToken: challenge.submissionToken,
-    }), env),
-  ]);
-  assert.equal(cancellation.status, "fulfilled");
-  const discardPayload = await cancellation.value.json();
-  const submissionWon = submission.status === "fulfilled";
-  if (submissionWon) {
-    assertServerCheckedBoundary(await submission.value.json());
-  } else {
-    assert.equal(submission.reason?.code, "SERVER_CHECKED_CHALLENGE_REPLAYED");
-  }
-
-  assert.notEqual(submissionWon, discardPayload.discarded);
-  assert.equal(
-    database.challenges.get(challenge.challengeId).status,
-    submissionWon ? "completed" : "expired",
+    (error) => error?.code === "SERVER_CHECKED_CHALLENGE_REPLAYED",
   );
+  assert.equal(database.challenges.get(challenge.challengeId).status, "expired");
   const stateClaims = database.statements.filter(({ sql }) => (
     sql.includes("UPDATE verified_score_sessions") && sql.includes("RETURNING id")
   ));
-  assert.ok(stateClaims.length >= 2);
-  assert.ok(stateClaims.every(({ sql }) => /status = 'pending'/u.test(sql)));
+  assert.equal(stateClaims.length, 1);
+  assert.match(stateClaims[0].sql, /status = 'pending'/u);
 });
 
 test("ordinary published answer alternatives and Arabic orthographic variants are accepted", async (t) => {

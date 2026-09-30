@@ -1,0 +1,9 @@
+# Reviewed HTML delivery and Cloudflare integration
+
+The static Worker sets `Cache-Control: no-transform` on HTML documents, including admin, filtered game/Kids pages, 404s and corresponding 304 responses. Asset caching and non-HTML security responses keep their existing policy. CSP remains hash-based; no script origin, wildcard or `unsafe-inline` permission was added.
+
+The audited live CDN appended a Cloudflare Web Analytics beacon and an inline JavaScript Detections bootstrap. Both were blocked by the declared script policy. The site already has explicit device consent for optional Google Analytics; an automatically injected second analytics client is outside that consent implementation. Preserving the reviewed HTML removes the blocked optional injection instead of weakening CSP.
+
+Cloudflare documents that `no-transform` prevents [automatic Web Analytics injection](https://developers.cloudflare.com/web-analytics/get-started/) and [JavaScript Detections injection](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/). For JSD, `cf.bot_management.js_detection.passed` is then `missing`. This header does not turn off WAF rules, but rules depending on that field must be reviewed in the Cloudflare account. Account rules were not available during this source change; do not claim JSD-dependent protection is operational. The audited hash-based policy already prevented the injected bootstrap from executing.
+
+If JSD is intentionally required, introduce Cloudflare's supported response-header nonce integration in a separately reviewed change, including cache correctness, frame policy, privacy behavior and actual WAF-rule verification. Do not suppress CSP errors by allowing broad inline scripts. After deployment, verify HTML is no longer modified, CSP violations from these injections disappear, and intended security challenges still work.

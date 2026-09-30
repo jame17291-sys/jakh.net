@@ -125,7 +125,7 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
   return null;
 }
 
-async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "9", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = 3_825 } = {}) {
+async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "10", pagesMode = false, legacySite = false, preNavigation = false, productionSite = false, builtHtml = false, publicQuestions = 3_825 } = {}) {
   const server = http.createServer(async (request, response) => {
     const url = new URL(request.url, "http://fixture.test");
     const requestOrigin = request.headers.origin;
@@ -164,6 +164,7 @@ async function startFixture({ brokenCors = false, homeDelayMs = 0, apiSchema = "
           accountRecovery: Number(apiSchema) >= 7,
           accountDeletion: Number(apiSchema) >= 8,
           contentStudio: Number(apiSchema) >= 9,
+          adminMfa: Number(apiSchema) >= 10,
         },
       }));
       return;
@@ -932,7 +933,7 @@ test("legacy Pages mode proves the exact projection while accepting content-safe
 });
 
 test("only a compatibility-triggered monitor accepts a supported pre-migration schema", async () => {
-  await withFixture({ apiSchema: "8" }, async (fixtureOrigin) => {
+  for (const apiSchema of ["8", "9"]) await withFixture({ apiSchema }, async (fixtureOrigin) => {
     const compatibility = await runProductionMonitor({
       siteOrigin: fixtureOrigin,
       apiOrigin: fixtureOrigin,

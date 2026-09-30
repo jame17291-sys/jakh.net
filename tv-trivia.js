@@ -226,17 +226,37 @@ export function createTvTrivia(api) {
       <label class="tv-field">${t.difficulty}<select id="tvDifficulty">${[['all', t.any], ['easy', t.easy], ['medium', t.medium], ['hard', t.hard], ['very-advanced', t.expert]].map(([v, n]) => `<option value="${v}" ${difficulty === v ? 'selected' : ''}>${n}</option>`).join('')}</select></label>
       <label class="tv-field">${t.status}<select id="tvProgress">${[['all', t.everything], ['unsolved', t.unsolved], ['solved', t.solved], ['favourites', t.favourites]].map(([v, n]) => `<option value="${v}" ${progress === v ? 'selected' : ''}>${n}</option>`).join('')}</select></label>
       <label class="tv-field">${t.sort}<select id="tvSort">${[['featured', t.featured], ['az', t.az], ['difficulty', t.difficulty], ['random', t.shuffle]].map(([v, n]) => `<option value="${v}" ${sort === v ? 'selected' : ''}>${n}</option>`).join('')}</select></label></div>
-      <div class="tv-practice-toolbar"><p role="status">${questionCount(pool.length)}</p><button class="tv-text-button" data-tv="reset-practice">${t.reset}</button></div>
-      <div id="tvPracticeCards">${pool.length ? pool.slice(0, limit).map(c => `<article class="tv-practice-card" id="practice-${c.id}"><p class="tv-small">${e(SHOWS.find(s => s.key === c.subcategory.en)?.[lang] || c.subcategory[lang])} · ${t[c.difficulty === 'very-advanced' ? 'expert' : c.difficulty]}</p><h2>${e(c.question[lang])}</h2>${revealed.has(c.id) ? `<div class="tv-practice-answer"><strong>${e(c.answer[lang])}</strong><p>${e(c.tvQuiz.explanation[lang])}</p></div><div class="tv-actions"><button class="tv-button" data-tv="knew" data-id="${c.id}">✓ ${t.knew}</button><button class="tv-button" data-tv="learning" data-id="${c.id}">${t.learning}</button></div>` : `<button class="tv-button" data-tv="reveal" data-id="${c.id}">${t.reveal}</button>`}<button class="tv-text-button" data-tv="favourite" data-id="${c.id}" aria-pressed="${api.isFavorite(c.id)}">${api.isFavorite(c.id) ? t.unfavourite : t.favourite}</button></article>`).join('') : `<p>${t.noMatches}</p>`}</div>
+      <div class="tv-practice-toolbar"><p id="tvPracticeCount" role="status" tabindex="-1">${questionCount(pool.length)} · ${lang === 'ar' ? `المعروض: ${Math.min(limit, pool.length)}` : `${Math.min(limit, pool.length)} shown`}</p><button class="tv-text-button" data-tv="reset-practice">${t.reset}</button></div>
+      <div id="tvPracticeCards">${pool.length ? pool.slice(0, limit).map(c => `<article class="tv-practice-card" id="practice-${c.id}"><p class="tv-small">${e(SHOWS.find(s => s.key === c.subcategory.en)?.[lang] || c.subcategory[lang])} · ${t[c.difficulty === 'very-advanced' ? 'expert' : c.difficulty]}</p><h2 tabindex="-1">${e(c.question[lang])}</h2>${revealed.has(c.id) ? `<div class="tv-practice-answer"><strong>${e(c.answer[lang])}</strong><p>${e(c.tvQuiz.explanation[lang])}</p></div><div class="tv-actions"><button class="tv-button" data-tv="knew" data-id="${c.id}">✓ ${t.knew}</button><button class="tv-button" data-tv="learning" data-id="${c.id}">${t.learning}</button></div>` : `<button class="tv-button" data-tv="reveal" data-id="${c.id}">${t.reveal}</button>`}<button class="tv-text-button" data-tv="favourite" data-id="${c.id}" aria-pressed="${api.isFavorite(c.id)}">${api.isFavorite(c.id) ? t.unfavourite : t.favourite}</button></article>`).join('') : `<p>${t.noMatches}</p>`}</div>
       ${pool.length > limit ? `<button class="tv-button tv-full" data-tv="more-practice">${t.loadMore}</button>` : ''}</section>`;
+  }
+  function focusPracticeCard({ id, action, index = 0, preventScroll = false } = {}) {
+    const visible = practiceCards().slice(0, limit);
+    const card = visible.find(c => c.id === id) || visible[Math.max(0, Math.min(index, visible.length - 1))];
+    const article = card && root.querySelector(`#practice-${CSS.escape(card.id)}`);
+    const target = (card?.id === id && action && article?.querySelector(`[data-tv="${action}"]`)) || article?.querySelector('h2') || root.querySelector('#tvPracticeCount');
+    target?.focus({ preventScroll });
   }
   function render() {
     if (suspendedRender) return;
+    // Account/progress refreshes can arrive after an interaction. Keep the
+    // keyboard position when they replace the practice tree in the background.
+    const active = view === 'practice' && root.contains(document.activeElement) ? document.activeElement : null;
+    const cardId = active?.closest('.tv-practice-card')?.id.replace(/^practice-/, '');
+    const focus = active && { elementId: active.id, id: cardId, action: active.dataset.tv, index: practiceCards().findIndex(c => c.id === cardId), caret: active.selectionStart };
     lang = api.state.lang; t = COPY[lang] || COPY.en;
     root.classList.toggle('tv-is-playing', view === 'round');
     document.body.dataset.tvPlaying = String(view === 'round');
     const related = document.getElementById('relatedCategories')?.closest('section'); if (related) related.hidden = view !== 'home';
     if (view === 'home') home(); else if (view === 'practice') renderPractice(); else renderRound();
+    if (focus) {
+      if (focus.id) focusPracticeCard({ ...focus, preventScroll: true });
+      else {
+        const target = focus.elementId ? root.querySelector(`#${CSS.escape(focus.elementId)}`) : focus.action ? root.querySelector(`[data-tv="${focus.action}"]`) : null;
+        target?.focus({ preventScroll: true });
+        if (typeof focus.caret === 'number') target?.setSelectionRange(focus.caret, focus.caret);
+      }
+    }
     updateLanguageLink();
   }
   root.addEventListener('click', async event => {
@@ -261,10 +281,18 @@ export function createTvTrivia(api) {
     if (action === 'sync') void api.openAuthModal();
     if (action === 'create' || action === 'join') void api.openBattleModal('tv-shows-trivia', action);
     if (action === 'reveal') { revealed.add(b.dataset.id); renderPractice(); root.querySelector(`#practice-${b.dataset.id} .tv-practice-answer`)?.setAttribute('tabindex', '-1'); root.querySelector(`#practice-${b.dataset.id} .tv-practice-answer`)?.focus({ preventScroll: true }); }
-    if (action === 'knew' || action === 'learning') { await api.markCard(b.dataset.id, action === 'knew' ? 'correct' : 'wrong'); renderPractice(); }
-    if (action === 'favourite') { await api.toggleFavorite(b.dataset.id); renderPractice(); root.querySelector(`[data-tv="favourite"][data-id="${b.dataset.id}"]`)?.focus({ preventScroll: true }); }
-    if (action === 'more-practice') { limit += 12; renderPractice(); }
-    if (action === 'reset-practice') { search = ''; difficulty = 'all'; progress = 'all'; sort = 'featured'; settings = { show: 'all', season: 0, timed: false }; limit = 12; updateUrl(); renderPractice(); }
+    if (['knew', 'learning', 'favourite'].includes(action)) {
+      const id = b.dataset.id, index = practiceCards().findIndex(c => c.id === id);
+      if (action === 'favourite') await api.toggleFavorite(id);
+      else await api.markCard(id, action === 'knew' ? 'correct' : 'wrong');
+      if (view !== 'practice') return;
+      renderPractice(); focusPracticeCard({ id, action, index });
+    }
+    if (action === 'more-practice') {
+      const index = Math.min(limit, practiceCards().length);
+      limit += 12; renderPractice(); focusPracticeCard({ index });
+    }
+    if (action === 'reset-practice') { search = ''; difficulty = 'all'; progress = 'all'; sort = 'featured'; settings = { show: 'all', season: 0, timed: false }; limit = 12; updateUrl(); renderPractice(); root.querySelector('#tvSearch')?.focus(); }
   });
   root.addEventListener('input', event => {
     if (event.target.id !== 'tvSearch') return;

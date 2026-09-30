@@ -53,6 +53,10 @@
 .puzzle-history-note { font-size:.82rem; color:var(--muted); margin-bottom:0; }
 .pc-layout { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(230px,1fr); gap:2rem; align-items:start; }
 .pc-board { display:grid; width:100%; max-width:530px; aspect-ratio:1; border:2px solid var(--text); gap:1px; background:var(--text); }
+.pc-board-placeholder { background:var(--bg-soft); border-color:var(--line-strong); }
+.pc-clue-placeholders { display:grid; gap:.75rem; margin-block-end:1.5rem; }
+.pc-clue-placeholders span { display:block; height:2.5rem; background:var(--bg-soft); border-radius:.5rem; }
+.pc-loading-shell .pc-tools button { opacity:.65; }
 .pc-cell { position:relative; min-width:0; display:grid; place-items:center; background:var(--panel); }
 .pc-cell.pc-block { background:var(--text); }
 .pc-cell.pc-active { background:#f5dfb1; }
@@ -62,7 +66,7 @@
 .pc-cell input { width:100%; height:100%; min-height:0; padding:10% 0 0; border:0; border-radius:0; background:transparent; text-align:center; color:var(--text); font-size:clamp(.65rem,2.3vw,1.7rem); font-weight:700; text-transform:uppercase; outline-offset:-3px; caret-color:transparent; }
 .pc-board[data-size='5'] { max-width:400px; }
 .pc-board[data-size='5'] input { font-size:clamp(1.4rem,4vw,2.3rem); }
-.pc-clues h3 { margin:0 0 .55rem; font-family:var(--font-display); font-size:1.2rem; }
+.pc-clues h2 { margin:0 0 .55rem; font-family:var(--font-display); font-size:1.2rem; }
 .pc-clues ol { margin:0 0 1.5rem; padding:0; list-style:none; display:grid; gap:.3rem; }
 .pc-clues button { display:block; width:100%; text-align:start; border:1px solid transparent; border-radius:.5rem; background:transparent; padding:.5rem .65rem; line-height:1.45; }
 .pc-clues button[aria-pressed=true] { border-color:var(--line-strong); background:var(--bg-soft); }
@@ -71,5 +75,5 @@
 .pc-tools button { padding:.5rem .9rem; border:1px solid var(--line-strong); background:var(--panel); border-radius:100px; }
 .pc-status { min-height:1.8rem; font-weight:650; }
 @media(max-width:850px) { .puzzle-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .pc-layout { gap:1.2rem; grid-template-columns:minmax(0,1fr); } .pc-board { margin-inline:auto; } .pc-clues { display:grid; grid-template-columns:1fr 1fr; gap:1rem; } }
-@media(max-width:540px) { .puzzle-cards { grid-template-columns:1fr; } .puzzle-card { min-height:190px; padding:1.2rem; } .puzzle-section-head { align-items:start; } .puzzle-title-row { align-items:flex-start; } .puzzle-reset { font-size:.8rem; } .pc-cell input { font-size:clamp(.65rem,3.5vw,1.3rem); } .pc-clues { grid-template-columns:1fr; } .puzzle-frame { border-radius:var(--radius-sm); } }
+@media(max-width:540px) { .puzzle-cards { grid-template-columns:1fr; } .puzzle-card { min-height:190px; padding:1.2rem; } .puzzle-section-head { align-items:start; } .puzzle-title-row { align-items:flex-start; } .puzzle-reset { font-size:.8rem; } .pc-cell input { font-size:clamp(.65rem,3.5vw,1.3rem); } .pc-clues { grid-template-columns:1fr; } .pc-current { min-block-size:calc(4.5em + 1.6rem); } .puzzle-frame { border-radius:var(--radius-sm); } }
 @media(prefers-reduced-motion:reduce) { .puzzle-card { transition:none; } .puzzle-card:hover { transform:none; } }

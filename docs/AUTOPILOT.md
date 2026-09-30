@@ -8,7 +8,7 @@ The workflow is **Daily website maintenance**, defined in [site-autopilot.yml](.
 
 | Control | Current behavior |
 | --- | --- |
-| Initial state | Paused in the API; the workflow also requires an explicit repository variable |
+| Initial state | Paused in the API; owner resume enables daily inspection without deployment credentials |
 | Daily allowance | One claimed maintenance run and at most one reserved release per **UTC calendar day** |
 | Release stages | One API compatibility/code-only stage followed by one static-site stage for the same reserved repair |
 | Allowed source | Exact current protected `main`, with the current static build and API predecessor proved live |
@@ -27,9 +27,15 @@ Checks include the production monitor, source contracts, static and bilingual va
 
 GitHub currently provides free Actions usage for public repositories using standard GitHub-hosted runners. This implementation checks that the repository is public and uses the standard runner; it does not switch to private-repository, larger-runner or paid-AI execution. The $0 AI policy is not a guarantee that the website’s existing Cloudflare service, storage or other account usage can never incur charges. [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
 
-## Activate once
+## Enable daily inspection
 
-Keep both controls disabled until the reviewed implementation is merged and its API and admin page have been released through the normal release process. Autopilot cannot bootstrap its own API or deploy unrelated unreleased setup changes.
+After the reviewed API and admin page are released, an OWNER can resume Autopilot in the panel. The scheduled job inspects protected `main`, validates the site, and records a receipt using its short-lived GitHub OIDC identity. No GitHub App, deployment environment, or `AUTOPILOT_RELEASE_ENABLED` variable is required for inspection. The default publishing mode is **Inspection only**. Generated repairs found in this mode become a **Needs attention** receipt and a review finding; they are not pushed, merged or deployed.
+
+The owner switch is permission to inspect, not evidence that GitHub has run. Before the first receipt, the panel says **Awaiting first run**. A missing or overdue heartbeat is visible instead of a green Active label.
+
+## Enable automatic publishing separately
+
+Keep automatic publishing disabled until its dedicated App and release environment are configured. Autopilot cannot bootstrap its own API or deploy unrelated unreleased setup changes.
 
 1. Confirm `main` is the repository’s protected default branch and required checks remain enforced. Keep the repository public and the workflow on its standard `ubuntu-latest` runner.
 2. Create and install a dedicated repository-scoped **GitHub App** with repository permissions **Contents: Read and write** and **Pull requests: Read and write**. Install it on **only `jame17291-sys/jakh.net`**. Do not give it branch-protection bypass, administration or broader repository access. It supplies the short-lived installation token used only to push the generated branch and create its repair PR, so normal PR checks can run without the built-in token’s PR approval requirement. Ensure repository/organization Actions policy permits the workflow’s declared permissions and pinned actions. [GitHub token workflow behavior](https://docs.github.com/en/actions/concepts/security/github_token#when-github_token-triggers-workflow-runs), [GitHub App authentication in Actions](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)
@@ -44,14 +50,14 @@ Keep both controls disabled until the reviewed implementation is merged and its 
 | `CLOUDFLARE_API_TOKEN` | Existing API Worker deployment credential |
 | `CLOUDFLARE_STATIC_SITE_API_TOKEN` | Existing static Worker, assets and routes deployment credential |
 
-6. Set repository Actions variable **`AUTOPILOT_RELEASE_ENABLED`** to the exact string **`true`**. This permits the maintenance job and automatic release gates to run; it does not change the API’s paused state.
-7. Sign in to [Riddle Arabia administration](https://riddlearabia.com/admin) as an **OWNER**, open **Autopilot**, and choose **Resume Autopilot**. Wait for the confirmed **Active** state. Administrators and members cannot control this service.
+6. Set repository Actions variable **`AUTOPILOT_RELEASE_ENABLED`** to the exact string **`true`**. This permits automatic publishing and its release gates; inspection already works without it. It does not change the API’s paused state.
+7. Sign in to [Riddle Arabia administration](https://riddlearabia.com/admin) as an **OWNER**, open **Autopilot**, and choose **Resume Autopilot**. Wait for the confirmed enabled state, then for a real run receipt. Administrators and members cannot control this service.
 
-The repository variable and the owner’s API state are independent controls. Both must permit operation. The App installation token is minted just before branch/PR publication and revoked afterward; the built-in `GITHUB_TOKEN` handles checks, merge, releases and findings issues. The Worker verifies a short-lived GitHub OIDC identity. The App’s private key remains an environment secret. No personal access token, stored website-admin password or AI API key is required, and this App publisher path does not require enabling the Actions setting for creating PRs with the built-in token.
+The owner’s API state permits inspection. The repository variable independently permits automatic publishing. Both must permit a release; disabling publishing does not stop inspection. The App installation token is minted just before branch/PR publication and revoked afterward; the built-in `GITHUB_TOKEN` handles checks, merge, releases and findings issues. The Worker verifies a short-lived GitHub OIDC identity. The App’s private key remains an environment secret. No personal access token, stored website-admin password or AI API key is required, and this App publisher path does not require enabling the Actions setting for creating PRs with the built-in token.
 
 ## Read the panel and evidence
 
-**Active** means the owner has enabled scheduled work; it is not a health certificate and does not prove GitHub has started a run. **Paused** means the API control is off. **Not connected** means the endpoint was unavailable to the panel; **Status unavailable** means the current status could not be confirmed. Refresh after resolving an error rather than assuming a failed update took effect.
+**Awaiting first run** means the owner permits inspection but no run has been recorded. **Running** requires a heartbeat within two hours. **Healthy** requires a successful terminal receipt within 36 hours; it does not certify every aspect of the website. **Needs attention** indicates failed checks or incomplete work. **Stale** means the latest expected heartbeat is overdue or invalid. **Paused** means the API control is off. **Not connected** means the endpoint was unavailable to the panel; **Status unavailable** means the current status could not be confirmed. Refresh after resolving an error rather than assuming a failed update took effect.
 
 The owner panel shows schedule limits, the latest recorded run and up to 30 run receipts. Receipts contain statuses, timestamps, source/candidate commits, check and repair counters, and deployment identity where recorded. Links open the corresponding GitHub maintenance/deployment runs. Changed-file paths are available in the maintenance JSON report; the panel’s repair figure is a count. Findings are counts of failed checks, not a complete inventory of individual broken links, vulnerabilities or accessibility nodes. GitHub check output supplies the detail.
 
@@ -74,13 +80,13 @@ Choose **Pause Autopilot** in the owner panel and wait for the confirmed paused 
 
 Pause does not undo a commit, PR merge or deployment that has already happened. It also cannot retroactively stop an external operation that already crossed its authorization check. Check any running GitHub jobs when pausing during a release. If immediate interruption is needed, cancel the relevant maintenance and dispatched release runs in GitHub, then review the existing release/rollback evidence.
 
-For a broader stop, also change `AUTOPILOT_RELEASE_ENABLED` away from `true` or disable **Daily website maintenance** in GitHub. These controls do not rewrite the API’s displayed enabled value. To resume, restore the repository variable, ensure the workflow is enabled and choose **Resume Autopilot**. Resume does not launch an immediate run or restore a consumed UTC-day allowance. A run paused after claiming its day cannot use resume to obtain a second release that day.
+To stop publishing while keeping checks, change `AUTOPILOT_RELEASE_ENABLED` away from `true`. To stop the scheduler completely, disable **Daily website maintenance** in GitHub. These controls do not rewrite the API owner switch. To resume inspection, ensure the workflow is enabled and choose **Resume Autopilot**. Restore the publishing variable only when the App and release environment are ready. Resume does not launch an immediate run or restore a consumed UTC-day allowance. A run paused after claiming its day cannot use resume to obtain a second release that day.
 
 If GitHub disabled the schedule after inactivity, re-enable the workflow through its Actions page. [GitHub workflow enable/disable instructions](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows)
 
 ## Manual acceptance smoke
 
-Use the first eligible day after setup, with current `main` already deployed. A manual dispatch is a real maintenance run: it consumes the same daily allowance and can publish a verified generated-file repair.
+Use the first eligible day after setup, with current `main` already deployed. A manual dispatch is a real maintenance run: it consumes the same daily allowance. It can publish a verified generated-file repair only when automatic publishing is enabled and configured.
 
 1. Confirm the OWNER panel loads in English and Arabic, shows the daily limits and $0 AI budget, and has working Pause/Resume controls. Confirm an ADMIN account has no Autopilot tab.
 2. Pause, refresh, and confirm the paused state persists. Resume and refresh again. These control changes alone do not create a maintenance run.
@@ -99,10 +105,16 @@ npm --prefix worker test
 
 ## Release boundaries and recovery
 
-Before generating a candidate, the cycle builds its trusted base and compares its static build ID with the live admin response. Before the automatic API deployment, release evidence must prove that the predecessor API comes from that same source commit. Automatic API release is restricted to an unchanged **schema 9** with the compatibility/code-only path. Autopilot cannot request database migrations or a domain cutover.
+Before generating a candidate, the cycle builds its trusted base and compares its static build ID with the live admin response. Before the automatic API deployment, release evidence must prove that the predecessor API comes from that same source commit. Automatic API release is restricted to an unchanged **schema 10** with the compatibility/code-only path. Autopilot cannot request database migrations or a domain cutover.
 
 These checks deliberately stop a generated repair from also releasing unrelated human changes that have been merged but not deployed. Release those changes through the existing reviewed process first. If a generated repair was merged but its deployment failed, a later zero-diff cycle still checks the source/live build identity and keeps the mismatch visible for review; it does not silently claim production is current or promise an automatic retry of the failed release.
 
 There is no guarantee of an exact daily start, an immediate repair, or a successful release. Changes outside the allowlist, unavailable dependencies/services, drift in protected `main`, missing credentials, required-check failures, owner pause and runtime budgets can stop the cycle. A cancelled or timed-out maintenance job may leave a dispatched child workflow running or a receipt without a terminal update; inspect those linked jobs before recovery. Existing release workflows provide their established verification and rollback behavior, while Autopilot supplies the bounded scheduling, repair and authorization path.
 
 The implementation is intentionally deterministic. Expanding the allowed files, enabling another category of repair, changing the spending policy or changing release authorization requires a reviewed source change.
+
+## September 2026 remediation evidence
+
+All seven scheduled runs from 24–30 September were skipped before the daily claim. Repository settings contained no `AUTOPILOT_RELEASE_ENABLED`, no App IDs/private-key secret, and no `autopilot-production` environment. The workflow previously required that release switch before even inspecting. Daily inspection now runs independently of those publishing prerequisites; owner pause, protected-main identity, daily limits and release authorization remain enforced. This change does not create or authorize a GitHub App. A first real post-release inspection receipt is required before calling scheduling restored in production.
+
+The current MFA release moves D1 from schema 9 to 10 through the existing compatibility, encrypted backup, migration and final verification sequence. Autopilot never performs that migration: its later code-only releases require an unchanged final schema 10 and ready MFA feature evidence.

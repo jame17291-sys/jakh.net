@@ -1,0 +1,15 @@
+.auth-security-dialog { width: min(32rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); box-sizing: border-box; padding: 1.5rem; overflow: auto; border: 1px solid #466079; border-radius: 1rem; background: #102338; color: #f5f8fc; box-shadow: 0 1.5rem 5rem #0008; font: inherit; }
+.auth-security-dialog::backdrop { background: #07121dde; }
+.auth-security-dialog h2 { margin-block: 0 1rem; }
+.auth-security-dialog p { line-height: 1.6; }
+.auth-security-dialog label { display: grid; gap: .5rem; margin-block: 1rem; }
+.auth-security-dialog input:not([type="checkbox"]) { box-sizing: border-box; width: 100%; padding: .75rem; border: 1px solid #8099b1; border-radius: .5rem; background: #fff; color: #112339; font: inherit; }
+.auth-security-dialog button { padding: .65rem 1rem; border: 1px solid #8099b1; border-radius: .5rem; background: #19364f; color: #fff; font: inherit; cursor: pointer; }
+.auth-security-dialog button:disabled { opacity: .65; cursor: wait; }
+.auth-security-dialog .auth-security-primary { background: #aee9db; color: #102338; font-weight: 700; }
+.auth-security-dialog :focus-visible { outline: 3px solid #f9cd64; outline-offset: 3px; }
+.auth-security-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .6rem; margin-block-start: 1rem; }
+.auth-security-secret { display: block; padding: 1rem; background: #fff; color: #102338; overflow-wrap: anywhere; user-select: all; }
+.auth-security-codes { padding-inline-start: 1.5rem; line-height: 1.8; overflow-wrap: anywhere; }
+.auth-security-dialog .auth-security-acknowledgement { display: flex; align-items: flex-start; gap: .6rem; }
+.auth-security-error { color: #ffc5bd; }

@@ -23,9 +23,11 @@ import {
   sessionCookie,
   sessionExpiry,
   sha256,
+  validateNewPassword,
   validatePassword,
 } from "./security.js";
 import { PRIVACY_NOTICE_VERSION } from "./privacy.js";
+import { requireEnrolledAdminMfa } from "./admin-mfa.js";
 import type { Env } from "./types.js";
 
 const AVATARS = new Set(["👤", "🦊", "🦉", "🐉", "⚡️", "🔥", "👻", "👽", "🦄", "🦁", "🐼", "👑", "🚀", "🧠", "🧙‍♂️", "👾"]);
@@ -42,14 +44,15 @@ const PRIVACY_REQUEST_TYPES = new Set([
 const PRIVACY_REQUEST_PREFIX = "JAKH_PRIVACY_REQUEST_V1";
 const MAX_SYNC_ITEMS = 100;
 export const API_VERSION = "1.5.0";
-const SCHEMA_VERSION = "9";
-export const COMPATIBLE_SCHEMAS = Object.freeze(["8", "9"] as const);
+const SCHEMA_VERSION = "10";
+export const COMPATIBLE_SCHEMAS = Object.freeze(["8", "9", "10"] as const);
 
 export interface FeatureReadiness {
   registration: boolean;
   accountRecovery: boolean;
   accountDeletion: boolean;
   contentStudio: boolean;
+  adminMfa: boolean;
 }
 
 type SchemaGatedFeature = keyof FeatureReadiness;
@@ -144,6 +147,7 @@ function readinessForSchema(schema: string): FeatureReadiness {
     accountRecovery: supported && schemaNumber >= 7,
     accountDeletion: supported && schemaNumber >= 8,
     contentStudio: supported && schemaNumber >= 9,
+    adminMfa: supported && schemaNumber >= 10,
   };
 }
 
@@ -238,8 +242,8 @@ export async function register(request: Request, env: Env): Promise<Response> {
   await enforceRateLimit(env, rateKey, 8, 15 * 60);
   const body = await parseJson<{ username?: unknown; password?: unknown; email?: unknown }>(request);
   const { username, key } = normalizeUsername(body.username);
-  const password = validatePassword(body.password);
   const email = normalizeEmail(body.email);
+  const password = validateNewPassword(body.password, "Password", [username, email]);
   const passwordRecord = await hashPasswordInHasher(env, password);
   const userId = crypto.randomUUID();
   const timestamp = now();
@@ -301,6 +305,12 @@ export async function login(request: Request, env: Env): Promise<Response> {
        FROM users WHERE ${identifier.column} = ?`,
   ).bind(identifier.value).first<UserPasswordRow>();
 
+  // Key known accounts by ID, so email/username aliases and changing IPs
+  // cannot bypass the account limit. Unknown accounts use a digest as well.
+  await enforceRateLimit(env, await accountRateKey(
+    env, "login-account", user?.id || `${identifier.column}:${identifier.value}`,
+  ), 20, 15 * 60);
+
   if (!user) {
     await hashPasswordInHasher(
       env,
@@ -360,7 +370,7 @@ export async function resetPasswordWithRecovery(request: Request, env: Env): Pro
     newPassword?: unknown;
   }>(request, 2_048);
   const { key: usernameKey } = normalizeUsername(body.username);
-  const newPassword = validatePassword(body.newPassword, "New password");
+  const newPassword = validateNewPassword(body.newPassword, "New password", [usernameKey]);
   await enforceRateLimit(
     env,
     await accountRateKey(env, "recovery-reset-account", usernameKey),
@@ -543,6 +553,7 @@ export async function avatar(request: Request, env: Env): Promise<Response> {
 
 export async function rotateRecoveryCode(request: Request, env: Env): Promise<Response> {
   const session = await requireUser(request, env);
+  await requireEnrolledAdminMfa(env, session);
   await enforceRateLimit(
     env,
     await requestRateKey(request, env, `recovery-rotate:${session.id}`),
@@ -591,11 +602,12 @@ export async function rotateRecoveryCode(request: Request, env: Env): Promise<Re
 
 export async function changePassword(request: Request, env: Env): Promise<Response> {
   const session = await requireUser(request, env);
+  await requireEnrolledAdminMfa(env, session);
   const rateKey = await requestRateKey(request, env, `password:${session.id}`);
   await enforceRateLimit(env, rateKey, 5, 15 * 60);
   const body = await parseJson<{ currentPassword?: unknown; newPassword?: unknown }>(request);
   const currentPassword = validatePassword(body.currentPassword, "Current password");
-  const newPassword = validatePassword(body.newPassword, "New password");
+  const newPassword = validateNewPassword(body.newPassword, "New password", [session.username, session.email]);
   if (currentPassword === newPassword) throw new ApiError(400, "New password must be different");
 
   const user = await env.DB.prepare(

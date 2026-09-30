@@ -1,4 +1,5 @@
 import { enforceRateLimit, requireUser, touchPrivilegedSession } from "./db.js";
+import { requireAdminMfa } from "./admin-mfa.js";
 import { ApiError, json, originIsAllowed, parseJson } from "./http.js";
 import { clientIp, sha256 } from "./security.js";
 import type { Env } from "./types.js";
@@ -23,6 +24,7 @@ interface Run {
   runAttempt: string;
   url: string;
   status: string;
+  releaseMode?: "inspection_only" | "automatic";
   startedAt: string;
   updatedAt: string;
   sourceSha: string;
@@ -127,6 +129,7 @@ async function requireOwner(request: Request, env: Env): Promise<void> {
   const user = await requireUser(request, env);
   if (user.role !== "OWNER") failure(403, "OWNER_REQUIRED");
   await touchPrivilegedSession(env, user);
+  await requireAdminMfa(env, user);
 }
 async function readRun(env: Env, day: string): Promise<{ run: Run; raw: string }> {
   const row = await env.DB.prepare("SELECT value FROM schema_meta WHERE key = ?").bind(RUN_PREFIX + day).first<{ value: string }>();
@@ -150,17 +153,37 @@ async function replaceRun(env: Env, run: Run, previous: string, allowPaused = fa
     failure(409, "AUTOPILOT_RUN_CHANGED");
   }
 }
+export function executionHealth(enabled: boolean, lastRun: Run | null, now = Date.now()) {
+  const lastHeartbeatAt = lastRun?.updatedAt || lastRun?.startedAt || null;
+  const heartbeat = lastHeartbeatAt ? Date.parse(lastHeartbeatAt) : NaN;
+  const releaseMode = ["inspection_only", "automatic"].includes(lastRun?.releaseMode || "") ? lastRun!.releaseMode : "unknown";
+  let status = "paused";
+  if (enabled) {
+    if (!lastRun) status = "awaiting_first_run";
+    else if (!Number.isFinite(heartbeat) || heartbeat > now + 60_000
+      || now - heartbeat > (TERMINAL.has(lastRun.status) ? 36 : 2) * 3_600_000) status = "stale";
+    else if (["failed", "needs_attention", "rolled_back", "paused"].includes(lastRun.status)) status = "needs_attention";
+    else if (["no_changes", "deployed"].includes(lastRun.status)) status = "healthy";
+    else if (STATUSES.has(lastRun.status)) status = "running";
+    else status = "needs_attention";
+  }
+  return { status, lastHeartbeatAt, overdueAfterHours: 36, releaseMode };
+}
+
 export async function adminAutopilot(request: Request, env: Env): Promise<Response> {
   await requireOwner(request, env);
   const rows = await env.DB.prepare("SELECT value FROM schema_meta WHERE key GLOB 'autopilot:v1:run:*' ORDER BY key DESC LIMIT 30").all<{ value: string }>();
   const runs = rows.results.map((row) => JSON.parse(row.value) as Run);
-  return json({ enabled: await isEnabled(env), policy: POLICY, runs, lastRun: runs[0] || null });
+  const enabled = await isEnabled(env);
+  const lastRun = runs[0] || null;
+  return json({ enabled, policy: POLICY, runs, lastRun, execution: executionHealth(enabled, lastRun) });
 }
 export async function updateAdminAutopilot(request: Request, env: Env): Promise<Response> {
   if (!request.headers.get("origin") || !originIsAllowed(request, env.ALLOWED_ORIGINS)) failure(403, "ORIGIN_NOT_ALLOWED");
   const user = await requireUser(request, env);
   if (user.role !== "OWNER") failure(403, "OWNER_REQUIRED");
   await touchPrivilegedSession(env, user);
+  await requireAdminMfa(env, user);
   await enforceRateLimit(env, await sha256(`${env.IP_HASH_SALT}:autopilot:${user.id}:${clientIp(request)}`), 20, 3_600);
   const body = await parseJson<Record<string, unknown>>(request, 256);
   onlyKeys(body, ["enabled"]);
@@ -253,7 +276,7 @@ function counter(value: unknown): number {
 export async function reportAutopilot(request: Request, env: Env): Promise<Response> {
   const identity = await verifyAutopilotIdentity(request);
   const body = await parseJson<Record<string, unknown>>(request, 2_048);
-  onlyKeys(body, ["day", "status", "findings", "fixesApplied", "checksPassed", "checksFailed", "candidateSha", "buildId", "workerVersion", "deploymentRunId"]);
+  onlyKeys(body, ["day", "status", "releaseMode", "findings", "fixesApplied", "checksPassed", "checksFailed", "candidateSha", "buildId", "workerVersion", "deploymentRunId"]);
   const day = requireDay(body.day);
   if (typeof body.status !== "string" || !STATUSES.has(body.status) || body.status === "release_reserved") failure(400, "AUTOPILOT_PAYLOAD_INVALID");
   const { run, raw } = await readRun(env, day);
@@ -263,6 +286,10 @@ export async function reportAutopilot(request: Request, env: Env): Promise<Respo
   const allowPaused = ["failed", "paused", "rolled_back"].includes(body.status);
   if (!allowPaused) await requireEnabled(env);
   if (["deployed", "rolled_back"].includes(body.status) && !run.staticReleaseRunId) failure(409, "AUTOPILOT_RELEASE_MISMATCH");
+  if (body.releaseMode !== undefined) {
+    if (body.releaseMode !== "inspection_only" && body.releaseMode !== "automatic") failure(400, "AUTOPILOT_PAYLOAD_INVALID");
+    run.releaseMode = body.releaseMode;
+  }
   if (body.findings !== undefined) {
     const findings = asObject(body.findings);
     onlyKeys(findings, [...FINDING_KEYS]);

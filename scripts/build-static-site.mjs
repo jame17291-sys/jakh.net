@@ -47,11 +47,12 @@ const PUZZLE_ASSETS = Object.freeze([
   "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
   "/puzzle-word-data.js", "/puzzle-catalog.js", "/puzzle-daily.js",
   "/puzzle-room.css", "/puzzle-words.css", "/puzzle-logic.css", "/puzzle-duel.css",
-  "/puzzle-crossword.js", "/puzzle-words.js", "/puzzle-logic.js", "/puzzle-duel.js",
+  "/puzzle-crossword-shell.js", "/puzzle-crossword.js", "/puzzle-words.js", "/puzzle-logic.js", "/puzzle-duel.js",
   "/puzzle-room.js",
 ]);
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
+  "/auth-security.css", "/auth-security.js",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...ILLUSTRATION_MODULES,
   ...PUZZLE_ASSETS,
@@ -218,6 +219,7 @@ function rewriteSearchLeaderboard(source, fingerprints) {
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    "/auth-security.js",
     "/tv-trivia.js",
     "/directory-ui.js",
     "/battle-mode.js",
@@ -894,6 +896,7 @@ export async function buildStaticSite({
   };
 
   for (const stableUrlPath of [
+    "/auth-security.css",
     "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
     "/styles.css",
     "/site-navigation.js",
@@ -943,6 +946,13 @@ export async function buildStaticSite({
     addFingerprint("/search-leaderboard.js", Buffer.from(rewritten, "utf8"));
   }
 
+  const securitySource = sourceBytes.get("auth-security.js");
+  if (securitySource) {
+    invariant(fingerprints['/auth-security.css'], 'Admin security requires its stylesheet');
+    const rewritten = replaceQuotedUrl(securitySource.toString('utf8'), '/auth-security.css', fingerprints['/auth-security.css']).value;
+    addFingerprint('/auth-security.js', Buffer.from(rewritten, 'utf8'));
+  }
+
   const applicationSource = sourceBytes.get("app.js");
   if (applicationSource) {
     const rewritten = rewriteApplication(applicationSource.toString("utf8"), fingerprints);
@@ -956,7 +966,7 @@ export async function buildStaticSite({
   }
 
   const adminSource = sourceBytes.get("admin.js");
-  if (adminSource) addFingerprint("/admin.js", adminSource);
+  if (adminSource) addFingerprint("/admin.js", Buffer.from(rewriteApplication(adminSource.toString('utf8'), fingerprints), 'utf8'));
 
   for (const relativePath of selectedFiles.filter((value) => value.endsWith(".html"))) {
     const rewritten = rewriteHtmlAssetReferences(

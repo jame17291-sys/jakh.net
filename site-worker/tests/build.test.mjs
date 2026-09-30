@@ -161,6 +161,21 @@ test("generated production manifest is complete, one-hop, and excludes repositor
   for (const stable of ["/battle-mode.js", "/battle-mode.css", "/search-leaderboard.js", "/search-leaderboard.css"]) {
     assert.match(application, new RegExp(manifest.fingerprints[stable].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   }
+  for (const [parent, dependencies] of Object.entries({
+    '/app.js': ['/auth-security.js'],
+    '/admin.js': ['/auth-security.js'],
+    '/auth-security.js': ['/auth-security.css'],
+    '/puzzle-room.js': ['/puzzle-crossword-shell.js'],
+    '/puzzle-crossword.js': ['/puzzle-crossword-shell.js'],
+  })) {
+    const source = await readFile(join(repositoryRoot, 'site-worker/dist', manifest.fingerprints[parent].slice(1)), 'utf8');
+    for (const dependency of dependencies) {
+      assert.ok(source.includes(manifest.fingerprints[dependency]), `${parent} must pin ${dependency}`);
+      for (const quote of ["'", '"']) for (const prefix of ['', '.']) {
+        assert.equal(source.includes(`${quote}${prefix}${dependency}${quote}`), false, `${parent} must not load mutable ${dependency}`);
+      }
+    }
+  }
   const search = await readFile(join(repositoryRoot, "site-worker/dist", manifest.fingerprints["/search-leaderboard.js"].slice(1)), "utf8");
   assert.match(search, new RegExp(manifest.fingerprints["/data/search-index.en.json"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
   assert.match(search, new RegExp(manifest.fingerprints["/data/search-index.ar.json"].replace(/[.*+?^${}()|[\]\\]/gu, "\\$&"), "u"));
@@ -355,9 +370,11 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await writeFile(join(source, "index.html"), index, "utf8");
   await writeFile(join(source, "404.html"), "<!doctype html><title>Missing</title>", "utf8");
   await writeFile(join(source, "admin.html"), admin, "utf8");
-  await writeFile(join(source, "app.js"), "const paths=['/battle-mode.js','/battle-mode.css','/search-leaderboard.js','/search-leaderboard.css'];\n", "utf8");
+  await writeFile(join(source, "app.js"), "const paths=['/battle-mode.js','/battle-mode.css','/search-leaderboard.js','/search-leaderboard.css']; import('/auth-security.js');\n", "utf8");
   await writeFile(join(source, "admin-config.js"), "globalThis.RIDDLE_ARABIA_ADMIN_CONFIG = {};\n", "utf8");
-  await writeFile(join(source, "admin.js"), "globalThis.adminLoaded = true;\n", "utf8");
+  await writeFile(join(source, "admin.js"), "globalThis.adminLoaded = true; import('/auth-security.js');\n", "utf8");
+  await writeFile(join(source, "auth-security.js"), "export const stylesheet = '/auth-security.css';\n", "utf8");
+  await writeFile(join(source, "auth-security.css"), ".auth-security-dialog{color:#fff}\n", "utf8");
   await writeFile(join(source, "admin.css"), ".admin{display:block}\n", "utf8");
   await writeFile(join(source, "styles.css"), "body{color:#123}\n", "utf8");
   await writeFile(join(source, "privacy.css"), ".privacy{display:block}\n", "utf8");
@@ -375,7 +392,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   await writeFile(join(source, "docs/secret.json"), '{"token":"never"}\n', "utf8");
 
   const fileList = [
-    "index.html", "404.html", "admin.html", "app.js", "admin-config.js", "admin.js", "admin.css", "styles.css", "privacy.css",
+    "index.html", "404.html", "admin.html", "app.js", "admin-config.js", "admin.js", "admin.css", "auth-security.js", "auth-security.css", "styles.css", "privacy.css",
     "battle-mode.js", "battle-mode.css", "search-leaderboard.js", "search-leaderboard.css",
     "data/search-index.en.json", "data/search-index.ar.json", "sw.js", "robots.txt",
     "package.json", "docs/secret.json", googleProof,
@@ -404,7 +421,7 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
     adminEnvironment: "staging",
   });
   assert.deepEqual(repeated, first, "same source graph must produce the same build and cache identities");
-  assert.equal(first.fileCount, 30);
+  assert.equal(first.fileCount, 34);
   assert.deepEqual(first.inlineScripts["/"], inlineScriptHashes('<script>window.test=1;</script>'));
   assert.equal(first.files["/package.json"], undefined);
   assert.equal(first.files["/docs/secret.json"], undefined);
@@ -466,6 +483,25 @@ test("fixture fingerprints are deterministic and leaf changes propagate through 
   });
   assert.deepEqual(third.fingerprints, second.fingerprints, "unrelated leaves must not perturb asset fingerprints");
   assert.notEqual(third.offlineCacheIdentity, second.offlineCacheIdentity, "every deployable graph change must rotate offline caches");
+
+  await writeFile(join(source, 'auth-security.css'), '.auth-security-dialog{color:#eee}\n', 'utf8');
+  const securityChanged = await buildStaticSite({
+    sourceRoot: source,
+    outputDirectory: join(temporary, 'security-dist'),
+    manifestPath: join(temporary, 'security.json'),
+    manifestModulePath: join(temporary, 'security.js'),
+    fileList,
+  });
+  for (const asset of ['/auth-security.css', '/auth-security.js', '/app.js', '/admin.js']) {
+    assert.notEqual(securityChanged.fingerprints[asset], third.fingerprints[asset], `${asset} must change when the security stylesheet changes`);
+  }
+  for (const parent of ['/app.js', '/admin.js']) {
+    const source = await readFile(join(temporary, 'security-dist', securityChanged.fingerprints[parent].slice(1)), 'utf8');
+    assert.ok(source.includes(securityChanged.fingerprints['/auth-security.js']), `${parent} must load the new security module`);
+  }
+  const securityModule = await readFile(join(temporary, 'security-dist', securityChanged.fingerprints['/auth-security.js'].slice(1)), 'utf8');
+  assert.ok(securityModule.includes(securityChanged.fingerprints['/auth-security.css']));
+  await assertFingerprintBytes(securityChanged, join(temporary, 'security-dist'));
 });
 
 test("deploy allow-list is explicit", () => {

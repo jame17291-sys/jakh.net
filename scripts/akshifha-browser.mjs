@@ -29,8 +29,8 @@ async function mockApi(context) {
     if (request.method() === 'OPTIONS') return route.fulfill({ status: 204, headers });
     let body;
     if (path === '/api/health') body = {
-      ok: true, schema: '9', targetSchema: '9',
-      features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true },
+      ok: true, schema: '10', targetSchema: '10',
+      features: { registration: true, accountRecovery: true, accountDeletion: true, contentStudio: true, adminMfa: true },
     };
     else if (path === '/api/auth/session') body = { authenticated: false };
     else if (path === '/api/content/questions') body = { overrides: [] };

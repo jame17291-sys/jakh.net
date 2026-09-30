@@ -221,7 +221,7 @@ test("success, 404, method errors, and conditional responses all carry policy", 
 
   const missing = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/definitely-missing`), environment());
   assert.equal(missing.status, 404);
-  assert.equal(missing.headers.get("cache-control"), "no-store");
+  assert.equal(missing.headers.get("cache-control"), "no-store, no-transform");
   assertSecurityHeaders(missing);
 
   const explicit404 = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/404.html`), environment());
@@ -251,7 +251,7 @@ test("cache policy is immutable only when the filename carries its own digest", 
 test("admin documents are never cached while fingerprinted admin assets stay immutable", async () => {
   const admin = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/admin`), environment());
   assert.equal(admin.status, 200);
-  assert.equal(admin.headers.get("cache-control"), "no-store");
+  assert.equal(admin.headers.get("cache-control"), "no-store, no-transform");
   assert.match(admin.headers.get("etag"), /^W\/['"][a-f0-9]{64}['"]$/u);
   assertSecurityHeaders(admin);
 
@@ -259,7 +259,7 @@ test("admin documents are never cached while fingerprinted admin assets stay imm
     headers: { "if-none-match": admin.headers.get("etag") },
   }), environment());
   assert.equal(conditional.status, 304);
-  assert.equal(conditional.headers.get("cache-control"), "no-store");
+  assert.equal(conditional.headers.get("cache-control"), "no-store, no-transform");
   assertSecurityHeaders(conditional);
 
   const fingerprintedAdmin = siteManifest.fingerprints["/admin.js"];
@@ -357,6 +357,27 @@ test("CSP includes only the current page's generated inline hashes", () => {
   assert.match(stagingAdminPolicy, /connect-src[^;]+https:\/\/api\.staging\.riddlearabia\.com/u);
   const stagingPublicPolicy = contentSecurityPolicy(stagingManifest, "/", 200);
   assert.doesNotMatch(stagingPublicPolicy, /api\.staging\.riddlearabia\.com/u);
+});
+
+test("HTML refuses CDN script transformations without relaxing CSP or changing asset caching", async () => {
+  for (const pathname of ["/", "/admin", "/privacy", "/kids-riddles", "/definitely-missing"]) {
+    for (const method of ["GET", "HEAD"]) {
+      const response = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`, { method }), environment());
+      assert.match(response.headers.get("cache-control"), /(?:^|,\s*)no-transform(?:,|$)/u, pathname);
+      const scriptDirective = response.headers.get("content-security-policy").split(";").find(part => part.trim().startsWith("script-src "));
+      assert.doesNotMatch(scriptDirective, /unsafe-inline|cloudflareinsights\.com|\*/u);
+      const etag = response.headers.get("etag");
+      if (etag) {
+        const conditional = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${pathname}`, { headers: { "if-none-match": etag } }), environment());
+        assert.equal(conditional.status, 304);
+        assert.equal(conditional.headers.get("cache-control"), response.headers.get("cache-control"));
+      }
+    }
+  }
+  const asset = await handler.fetch(new Request(`${PRIMARY_ORIGIN}${siteManifest.fingerprints["/app.js"]}`), environment());
+  assert.equal(asset.headers.get("cache-control"), "public, max-age=31536000, immutable");
+  const methodError = await handler.fetch(new Request(`${PRIMARY_ORIGIN}/`, { method: "POST" }), environment());
+  assert.equal(methodError.headers.get("cache-control"), "no-store");
 });
 
 test("MTA-STS handler is valid but fail-closed until mail-owner activation", async () => {

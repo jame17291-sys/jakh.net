@@ -11,6 +11,7 @@ import {
   withCors,
 } from "./http.js";
 import { PasswordHasher } from "./password-hasher.js";
+import { adminMfaStatus, beginAdminMfa, cleanupExpiredMfaSetup, confirmAdminMfa, verifyAdminMfa } from "./admin-mfa.js";
 import {
   adminOverview,
   adminContent,
@@ -85,6 +86,7 @@ function withWorkerVersion(response: Response, env: Env): Response {
 
 const MAINTENANCE_JOBS = Object.freeze([
   { name: "security-state", run: cleanupExpiredSecurityState },
+  { name: "mfa-setup", run: cleanupExpiredMfaSetup },
   { name: "privacy-retention", run: cleanupPrivacyRetentionState },
   { name: "server-checked-challenges", run: cleanupExpiredVerifiedChallenges },
 ] as const);
@@ -149,6 +151,10 @@ async function route(request: Request, env: Env): Promise<Response> {
     return rotateRecoveryCode(request, env);
   }
   if (path === "/api/user/password" && method === "POST") return changePassword(request, env);
+  if (path === "/api/user/security" && method === "GET") return adminMfaStatus(request, env);
+  if (path === "/api/user/security/setup" && method === "POST") return beginAdminMfa(request, env);
+  if (path === "/api/user/security/confirm" && method === "POST") return confirmAdminMfa(request, env);
+  if (path === "/api/user/security/verify" && method === "POST") return verifyAdminMfa(request, env);
   if (path === "/api/user/progress" && method === "POST") return saveProgress(request, env);
   if (path === "/api/user/progress" && method === "DELETE") return deleteProgress(request, env);
   if (path === "/api/user/favorite" && method === "POST") return favorite(request, env);

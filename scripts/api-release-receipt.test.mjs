@@ -56,6 +56,7 @@ function compatibilityHealth(schema, overrides = {}) {
       accountRecovery: value >= 7,
       accountDeletion: value >= 8,
       contentStudio: value >= 9,
+      adminMfa: value >= 10,
     },
     ...overrides,
   };
@@ -126,13 +127,48 @@ function finalPreflight(overrides = {}) {
 test("repository Worker, compatibility range, and migrations are internally consistent", async () => {
   const releaseSource = await inspectSource();
   assert.equal(releaseSource.service, "jakh-api");
-  assert.equal(releaseSource.schema, "9");
-  assert.deepEqual(releaseSource.compatibleSchemas, ["8", "9"]);
+  assert.equal(releaseSource.schema, "10");
+  assert.deepEqual(releaseSource.compatibleSchemas, ["8", "9", "10"]);
   assert.equal(releaseSource.schema, releaseSource.migrations.at(-1).schema);
   assert.deepEqual(
     releaseSource.migrations.map((migration) => migration.schema),
     Array.from({ length: releaseSource.migrations.length }, (_, index) => String(index + 1)),
   );
+});
+
+test("MFA release proves schema-9 compatibility before migration and requires MFA readiness on schema 10", async () => {
+  const releaseSource = await inspectSource();
+  const before = buildPreflight({
+    phase: "compatibility", source: releaseSource, deployment: deployment(OLD_VERSION_ID),
+    health: basicHealth("1.5.0", "9"), databaseResult: database("9"),
+    migrationList: "Migrations to be applied:\n0010_admin_mfa.sql", environment: RELEASE_ENV,
+  });
+  assert.deepEqual(before.errors, []);
+  assert.equal(before.receipt.safety.databaseMutationAllowed, false);
+  const contract = { targetSchema: "10", compatibleSchemas: ["8", "9", "10"] };
+  const compatible = buildPostCompatibility({
+    receipt: before.receipt,
+    deployment: deployment(COMPATIBILITY_VERSION_ID, 100, "JAKH compatibility abc123 target schema 10 run 98765"),
+    health: compatibilityHealth("9", contract), httpStatus: "200", databaseResult: database("9"),
+    migrationList: "Migrations to be applied:\n0010_admin_mfa.sql",
+  });
+  assert.deepEqual(compatible.errors, []);
+  const migration = buildPreflight({
+    phase: "migrate-final", source: releaseSource,
+    deployment: deployment(COMPATIBILITY_VERSION_ID, 100, "JAKH compatibility abc123 target schema 10 run 98765"),
+    health: compatibilityHealth("9", contract), databaseResult: database("9"),
+    migrationList: "Migrations to be applied:\n0010_admin_mfa.sql", environment: RELEASE_ENV,
+  });
+  assert.deepEqual(migration.errors, []);
+  const migrated = buildPostMigration({
+    receipt: migration.receipt, deployment: deployment(COMPATIBILITY_VERSION_ID),
+    health: compatibilityHealth("10", contract), httpStatus: "200", databaseResult: database("10"),
+    migrationList: "✅ No migrations to apply!",
+  });
+  assert.deepEqual(migrated.errors, []);
+  const health = compatibilityHealth("10", contract);
+  health.features.adminMfa = false;
+  assert.match(validateHealthContract(health, { schema: "10", targetSchema: "10", requireCompatibility: true }).join("\n"), /adminMfa readiness was false, expected true/u);
 });
 
 test("compatibility preflight records a no-mutation phase and exact rollback target", () => {

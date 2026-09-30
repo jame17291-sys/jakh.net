@@ -38,11 +38,11 @@ test('clean game pages remain indexable while query game states are noindex and 
       for(const query of ['date=2026-09-30','edition=2','variant=mini','difficulty=hard','duelRoom=ABCD2345','game=word']){
         const response=await handler.fetch(new Request(`${origin}${route.paths[lang]}?${query}`,{method}),env);
         assert.equal(response.status,200);assert.equal(response.headers.get('x-robots-tag'),'noindex, follow');
-        assert.equal(response.headers.get('cache-control'),'no-store');
+        assert.equal(response.headers.get('cache-control'),'no-store, no-transform');
         if(method==='HEAD')assert.equal(await response.text(),'');
         const conditional=await handler.fetch(new Request(`${origin}${route.paths[lang]}?${query}`,{method,headers:{'if-none-match':clean.headers.get('etag')}}),env);
         assert.equal(conditional.status,304);assert.equal(conditional.headers.get('x-robots-tag'),'noindex, follow');
-        assert.equal(conditional.headers.get('cache-control'),'no-store');
+        assert.equal(conditional.headers.get('cache-control'),'no-store, no-transform');
       }
     }
     const tracking=await handler.fetch(new Request(origin+route.paths[lang]+'?utm_source=friend'),env);

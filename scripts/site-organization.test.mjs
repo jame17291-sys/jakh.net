@@ -233,6 +233,7 @@ test('Privacy Centre initializes without the retired language select and preserv
     location: { origin: 'https://riddlearabia.com', href: 'https://riddlearabia.com/ar/privacy/#choices', pathname: '/ar/privacy/' },
     localStorage: { setItem() {}, getItem() { return 'en'; } },
     navigator: { language: 'en' },
+    window: { addEventListener() {} },
     CustomEvent: class {},
     updateMetadata() {}, updateDeviceStatus() {}, updateAccountPresentation() {},
     setDeviceAnalytics() {}, clearDeviceData() {}, updateAccountAnalytics() {}, exportAccountData() {},

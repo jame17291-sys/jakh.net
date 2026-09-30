@@ -319,8 +319,10 @@ async function run() {
       accountRecovery: true,
       accountDeletion: true,
       contentStudio: true,
+      adminMfa: true,
     });
-    assert.equal(health.schema, "9");
+    assert.equal(health.schema, "10");
+    assert.equal(health.features.adminMfa, true);
 
     const saturatedScheduled = await fetch(`${baseUrl}/cdn-cgi/handler/scheduled`);
     assert.equal(

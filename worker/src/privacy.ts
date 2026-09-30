@@ -3,9 +3,11 @@ import {
   RETENTION_CLEANUP_BATCH_SIZE,
   requireUser,
   runBoundedRetentionCleanup,
+  touchPrivilegedSession,
 } from "./db.js";
 import { ApiError, json, parseJson } from "./http.js";
 import { verifyPasswordInHasher } from "./password-hasher.js";
+import { requireAdminMfa } from "./admin-mfa.js";
 import {
   clearSessionCookies,
   clientIp,
@@ -331,6 +333,10 @@ export async function deleteAccount(
   env: Env,
 ): Promise<Response> {
   const session = await requireUser(request, env);
+  if (session.role === "OWNER" || session.role === "ADMIN") {
+    await touchPrivilegedSession(env, session);
+    await requireAdminMfa(env, session);
+  }
   await enforceRateLimit(
     env,
     await privacyRateKey(request, env, session, "delete-account"),

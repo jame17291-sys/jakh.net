@@ -257,6 +257,13 @@ export function applySiteHeaders(response, {
     headers.set("x-robots-tag", "noindex, follow");
     headers.set("cache-control", NO_STORE);
   }
+  // Preserve the reviewed HTML and its hash-based CSP. Cloudflare's automatic
+  // analytics/JSD injections cannot execute under this policy and must not add
+  // unconsented scripts. This leaves WAF rules enabled; JSD-dependent rules
+  // require a separately reviewed nonce integration before they can be used.
+  const htmlDocument = /^text\/html(?:;|$)/iu.test(headers.get("content-type") || "")
+    || (response.status === 304 && manifestFile(siteManifest, pathname).path.endsWith(".html"));
+  if (htmlDocument) headers.set("cache-control", `${headers.get("cache-control")}, no-transform`);
   if (record && /^\/google[0-9a-f]{16}\.html$/u.test(pathname)) headers.set("x-robots-tag", "noindex");
   return new Response(response.body, {
     status: response.status,

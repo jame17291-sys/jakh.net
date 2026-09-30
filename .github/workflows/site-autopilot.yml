@@ -18,13 +18,14 @@ jobs:
   maintain:
     name: Inspect, repair, test and verify
     if: >-
-      vars.AUTOPILOT_RELEASE_ENABLED == 'true' &&
       github.repository == 'jame17291-sys/jakh.net' &&
       github.ref == 'refs/heads/main' && github.ref_protected &&
       github.event.repository.private == false
     runs-on: ubuntu-latest
     timeout-minutes: 100
-    environment: autopilot-production
+    # Inspection needs no deployment environment or long-lived credentials.
+    # Only explicitly enabled publishing reads the protected App environment.
+    environment: ${{ vars.AUTOPILOT_RELEASE_ENABLED == 'true' && 'autopilot-production' || '' }}
     # The website verifies this workflow's short-lived OIDC identity. A separate,
     # repository-scoped App creates repair PRs so their required CI runs normally.
     permissions:

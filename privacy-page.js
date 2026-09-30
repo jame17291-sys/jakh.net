@@ -38,7 +38,10 @@
       accountCheckingTitle: 'Account controls are checking your existing session',
       accountCheckingText: 'No account data is changed by this check.',
       signedOutTitle: 'You are not signed in on this browser',
-      signedOutText: 'Sign in from the Riddle Arabia home page, then return here to manage account data.',
+      signedOutText: 'Sign in to manage your account data. You will return to the Privacy Centre.',
+      sessionExpired: 'Your session has ended. Sign in again to continue.',
+      verifyAdminAccess: 'Verify admin access',
+      mfaRequired: 'Verify your authenticator through Profile before deleting a privileged account.',
       signedInTitle: 'Account controls are ready',
       signedInText: (username) => `Signed in as ${username}.`,
       accountUnavailableTitle: 'Account controls could not connect',
@@ -93,7 +96,10 @@
       accountCheckingTitle: 'تتحقق أدوات الحساب من جلسة الدخول الحالية',
       accountCheckingText: 'لا يغيّر هذا الفحص أي بيانات في الحساب.',
       signedOutTitle: 'لم تسجّل الدخول في هذا المتصفح',
-      signedOutText: 'سجّل الدخول من صفحة ريدل أرابيا الرئيسية، ثم عُد إلى هنا لإدارة بيانات الحساب.',
+      signedOutText: 'سجّل الدخول لإدارة بيانات حسابك. ستعود إلى مركز الخصوصية بعد تسجيل الدخول.',
+      sessionExpired: 'انتهت جلسة الدخول. سجّل الدخول مجدداً للمتابعة.',
+      verifyAdminAccess: 'تأكيد الوصول إلى الإدارة',
+      mfaRequired: 'أكّد رمز تطبيق المصادقة من ملفك الشخصي قبل حذف حساب ذي صلاحية إدارية.',
       signedInTitle: 'أدوات الحساب جاهزة',
       signedInText: (username) => `الحساب المسجّل: ${username}.`,
       accountUnavailableTitle: 'تعذر اتصال أدوات الحساب',
@@ -139,6 +145,8 @@
   };
 
   const elements = {};
+  let accountRequestVersion = 0;
+  let accountLoadPromise = null;
 
   function normalizePrivacyPath(pathname) {
     let normalized = String(pathname || '/').replace(/\/{2,}/g, '/');
@@ -163,7 +171,7 @@
       ['/privacy', PRIVACY_ROUTES],
     ]);
     document.querySelectorAll('a[href]').forEach((link) => {
-      if (link.matches('.language-route-link')) return;
+      if (link.matches('.language-route-link') || link.id === 'accountHomeLink') return;
       const href = link.getAttribute('href');
       if (!href || href.startsWith('#')) return;
       try {
@@ -246,6 +254,10 @@
     elements.accountStatusText.textContent = message;
     elements.accountControls.disabled = state.accountMode !== 'signed-in';
     elements.accountHomeLink.hidden = state.accountMode === 'signed-in';
+    const signIn = new URL(state.lang === 'ar' ? '/ar/mind-lab/' : '/mind-lab', location.origin);
+    signIn.searchParams.set('profile', '1');
+    signIn.searchParams.set('next', `${PRIVACY_ROUTES[state.lang]}#account`);
+    elements.accountHomeLink.href = `${signIn.pathname}${signIn.search}`;
 
     const canLinkPrivacyRequest = state.accountMode === 'signed-in' && Boolean(state.user);
     elements.privacyRequestSaveWithAccount.disabled = !canLinkPrivacyRequest;
@@ -308,6 +320,7 @@
     const requestOptions = {
       ...options,
       credentials: 'include',
+      cache: 'no-store',
       headers: new Headers(options.headers || {}),
     };
     requestOptions.headers.set('Accept', 'application/json');
@@ -323,26 +336,49 @@
       const error = new Error(payload?.error || `Request failed (${response.status})`);
       error.status = response.status;
       error.code = payload?.code || `HTTP_${response.status}`;
+      // A wrong confirmation password is not an expired login session.
+      if (response.status === 401 && error.code !== 'CURRENT_PASSWORD_INCORRECT') expireAccount();
       throw error;
     }
     return payload;
   }
 
-  async function loadAccount() {
+  function expireAccount() {
+    accountRequestVersion += 1;
+    state.user = null;
+    state.privacy = null;
+    state.accountMode = 'signed-out';
+    state.accountStatusOverride = '';
+    state.accountStatusTone = '';
+    elements.deleteAccountForm.reset();
+    setStatus(elements.exportStatus, '');
+    setStatus(elements.deleteStatus, '');
+    updateAccountPresentation();
+  }
+
+  function loadAccount() {
+    if (accountLoadPromise) return accountLoadPromise;
+    const version = ++accountRequestVersion;
     state.accountMode = 'checking';
     updateAccountPresentation();
-    try {
-      const user = await apiRequest('/user/profile');
-      const privacyResponse = await apiRequest('/user/privacy');
-      state.user = user;
-      state.privacy = privacyResponse.privacy;
-      state.accountMode = 'signed-in';
-    } catch (error) {
-      state.user = null;
-      state.privacy = null;
-      state.accountMode = error?.status === 401 ? 'signed-out' : 'unavailable';
-    }
-    updateAccountPresentation();
+    accountLoadPromise = (async () => {
+      try {
+        const user = await apiRequest('/user/profile');
+        if (version !== accountRequestVersion) return;
+        const privacyResponse = await apiRequest('/user/privacy');
+        if (version !== accountRequestVersion) return;
+        state.user = user;
+        state.privacy = privacyResponse.privacy;
+        state.accountMode = 'signed-in';
+      } catch (error) {
+        if (version !== accountRequestVersion) return;
+        state.user = null;
+        state.privacy = null;
+        state.accountMode = error?.status === 401 ? 'signed-out' : 'unavailable';
+      }
+      updateAccountPresentation();
+    })().finally(() => { accountLoadPromise = null; });
+    return accountLoadPromise;
   }
 
   function setDeviceAnalytics(allowed) {
@@ -430,8 +466,8 @@
         ? localized.analyticsSavedAllowed
         : localized.analyticsSavedDenied;
       state.accountStatusTone = 'success';
-    } catch {
-      state.accountStatusOverride = localized.actionFailed;
+    } catch (error) {
+      state.accountStatusOverride = error?.status === 401 ? localized.sessionExpired : localized.actionFailed;
       state.accountStatusTone = 'error';
     } finally {
       elements.allowAccountAnalytics.disabled = false;
@@ -459,8 +495,8 @@
       anchor.remove();
       URL.revokeObjectURL(downloadUrl);
       setStatus(elements.exportStatus, localized.exportReady, 'success');
-    } catch {
-      setStatus(elements.exportStatus, localized.exportFailed, 'error');
+    } catch (error) {
+      setStatus(elements.exportStatus, error?.status === 401 ? localized.sessionExpired : localized.exportFailed, 'error');
     } finally {
       elements.exportAccount.disabled = false;
     }
@@ -503,8 +539,16 @@
       state.accountMode = 'deleted';
       setStatus(elements.deleteStatus, localized.deleteDone, 'success');
       updateAccountPresentation();
-    } catch {
-      setStatus(elements.deleteStatus, localized.deleteFailed, 'error');
+    } catch (error) {
+      setStatus(elements.deleteStatus, error?.status === 401 && error?.code !== 'CURRENT_PASSWORD_INCORRECT'
+        ? localized.sessionExpired : localized.deleteFailed, 'error');
+      if (['MFA_REQUIRED', 'MFA_ENROLLMENT_REQUIRED'].includes(error?.code)) {
+        setStatus(elements.deleteStatus, localized.mfaRequired, 'error');
+        const verify = document.createElement('a');
+        verify.href = elements.accountHomeLink.href;
+        verify.textContent = localized.verifyAdminAccess;
+        elements.deleteStatus.append(' ', verify);
+      }
     } finally {
       elements.deleteAccount.disabled = false;
     }
@@ -629,6 +673,15 @@
     elements.deleteAccountForm.addEventListener('submit', deleteAccount);
     elements.privacyRequestForm.addEventListener('submit', submitPrivacyRequest);
     document.addEventListener('jakh:consentchange', handleConsentChange);
+    window.addEventListener('focus', () => void loadAccount());
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') void loadAccount();
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.key !== 'jakh-auth-change') return;
+      if (event.newValue?.startsWith('signed-out:')) expireAccount();
+      else void loadAccount();
+    });
   }
 
   function initialLanguage() {

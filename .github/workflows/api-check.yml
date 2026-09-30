@@ -60,6 +60,7 @@ jobs:
         run: >-
           node --test
           scripts/accessibility-contracts.test.mjs
+          scripts/account-session.test.mjs
           scripts/arabic-routes.test.mjs
           scripts/content-review.test.mjs
           scripts/content-overrides.test.mjs

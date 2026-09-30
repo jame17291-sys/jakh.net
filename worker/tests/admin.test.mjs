@@ -77,7 +77,9 @@ function adminEnv({
               };
             }
             if (sql.includes("INSERT INTO rate_limits")) return { count: 1 };
-            if (sql.includes("FROM schema_meta")) return { value: "9" };
+            if (sql.includes("FROM schema_meta")) return { value: "10" };
+            if (sql.includes("FROM admin_totp")) return { credential_id: "test-credential" };
+            if (sql.includes("FROM admin_mfa_sessions")) return { verified_at: new Date().toISOString() };
             if (sql.includes("FROM admin_step_ups")) return stepUp;
             if (sql.includes("FROM content_question_edits WHERE question_id")) return contentEdit;
             if (sql.includes("FROM content_question_revisions WHERE id")) return contentRevision;
@@ -599,7 +601,7 @@ test("Content Studio handles updated drafts and idempotent publication actions",
   assert.equal(unpublishedEnv.batches.length, 0);
 });
 
-async function persistedAdminEnv(t, role = "ADMIN", schemaVersion = 9) {
+async function persistedAdminEnv(t, role = "ADMIN", schemaVersion = 10) {
   const database = new DatabaseSync(":memory:");
   t.after(() => database.close());
   database.exec("PRAGMA foreign_keys = ON");
@@ -617,6 +619,10 @@ async function persistedAdminEnv(t, role = "ADMIN", schemaVersion = 9) {
   database.prepare(
     "INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, 'actor-1', ?, ?)",
   ).run(createHash("sha256").update(SESSION_TOKEN).digest("base64url"), now, new Date(Date.now() + 60_000).toISOString());
+  if (schemaVersion >= 10) {
+    database.prepare("INSERT INTO admin_totp (user_id, credential_id, secret_ciphertext, enabled_at) VALUES ('actor-1', 'test-credential', 'test-ciphertext', ?)").run(now);
+    database.prepare("INSERT INTO admin_mfa_sessions (token_hash, user_id, credential_id, verified_at) VALUES (?, 'actor-1', 'test-credential', ?)").run(createHash("sha256").update(SESSION_TOKEN).digest("base64url"), now);
+  }
   const queries = [];
   const env = {
     IP_HASH_SALT: "ip-hash-salt-longer-than-24-characters",
@@ -686,30 +692,15 @@ test("overview counts editorial work separately from live overrides and returns 
   assert.equal(body.recentUsers[0].email, null);
   assert.equal(body.recentSuggestions[0].email, null);
   assert.equal("resolutionNote" in body.recentSuggestions[0], false);
-  assert.equal(queries.filter((sql) => sql.includes("FROM schema_meta")).length, 2, "read schema once per overview request");
+  assert.equal(queries.filter((sql) => sql.includes("FROM schema_meta")).length, 4, "MFA and editorial readiness are checked per overview request");
   assert.equal(queries.some((sql) => sql.includes("admin_audit_log")), false, "overview must not query feedback resolution history");
   assert.doesNotMatch(JSON.stringify(body), /private-hash|private-salt|draftJson/u);
 });
 
-test("schema 8 overview keeps account and feedback data available without touching editorial tables or audit history", async (t) => {
-  const { database, env, queries } = await persistedAdminEnv(t, "ADMIN", 8);
-  insertSuggestion(database);
-  const response = await adminOverview(request("/api/admin/overview"), env);
-  assert.equal(response.status, 200);
-  const body = await response.json();
-  assert.equal(body.editorialAvailable, false);
-  assert.equal(body.editorial, null);
-  assert.deepEqual(body.recentEdits, []);
-  assert.equal(body.metrics.users, 1);
-  assert.equal(body.metrics.administrators, 1);
-  assert.equal(body.metrics.pendingSuggestions, 1);
-  assert.equal(body.recentUsers[0].username, "admin");
-  assert.equal(body.recentUsers[0].email, null);
-  assert.equal(body.recentSuggestions[0].text, "Question needs review");
-  assert.equal(body.recentSuggestions[0].email, null);
-  assert.equal("resolutionNote" in body.recentSuggestions[0], false);
-  assert.equal(queries.filter((sql) => sql.includes("FROM schema_meta")).length, 1);
-  assert.equal(queries.some((sql) => /content_question_edits|admin_audit_log/u.test(sql)), false);
+test("schema 8 administration fails closed until the authenticator migration is applied", async (t) => {
+  const { env, queries } = await persistedAdminEnv(t, "ADMIN", 8);
+  await assert.rejects(adminOverview(request("/api/admin/overview"), env), (error) => error.code === "MFA_UNAVAILABLE" && error.status === 503);
+  assert.equal(queries.some((sql) => /content_question_edits|admin_totp|admin_audit_log/u.test(sql)), false);
 });
 
 test("resolution notes survive reload and same-status saves without exposing audit details or contact emails", async (t) => {

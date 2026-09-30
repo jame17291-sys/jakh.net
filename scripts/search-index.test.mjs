@@ -51,13 +51,13 @@ function searchRuntime() {
   return context.searchRuntime;
 }
 
-test("language shards exactly cover the 3,553-card corpus within explicit byte budgets", () => {
+test("language shards exactly cover the 4,103-card corpus within explicit byte budgets", () => {
   const { catalog, categories, expected } = loadCorpus();
   const manifestText = read("data/search-index.json");
   const manifest = JSON.parse(manifestText);
   assert.equal(manifest.version, 2);
-  assert.equal(manifest.total, 3_553);
-  assert.equal(catalog.site.totalQuestions, 3_553);
+  assert.equal(manifest.total, 4_103);
+  assert.equal(catalog.site.totalQuestions, 4_103);
   assert.ok(Buffer.byteLength(manifestText) < 1_024, "manifest should not contain card content");
 
   let combinedBytes = 0;
@@ -69,12 +69,12 @@ test("language shards exactly cover the 3,553-card corpus within explicit byte b
     combinedBytes += bytes;
     assert.equal(shard.version, 2);
     assert.equal(shard.language, language);
-    assert.equal(shard.total, 3_553);
+    assert.equal(shard.total, 4_103);
     assert.deepEqual(shard.categories, categories);
     assert.deepEqual(shard.cards, expected[language]);
-    assert.equal(new Set(shard.cards.map(row => row[1])).size, 3_553);
+    assert.equal(new Set(shard.cards.map(row => row[1])).size, 4_103);
     assert.equal(manifest.shards[language].url, `/${relativePath}`);
-    assert.equal(manifest.shards[language].cards, 3_553);
+    assert.equal(manifest.shards[language].cards, 4_103);
     assert.equal(manifest.shards[language].bytes, bytes);
     assert.equal(
       manifest.shards[language].sha256,

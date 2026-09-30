@@ -68,6 +68,20 @@ export function createRound(cards, settings = {}, seen = [], rng = Math.random, 
       const card = candidates.find(c => c.subcategory.en === s.key);
       if (card) selected.push(card);
     }
+  } else {
+    // Balance themes within the unseen pool before falling back to repeats.
+    // A run of cast questions should not crowd out characters, places and moments.
+    const counts = new Map();
+    for (const group of [fresh, repeats]) {
+      const remaining = [...group];
+      while (selected.length < ROUND_SIZE && remaining.length) {
+        const least = Math.min(...remaining.map(c => counts.get(c.tvQuiz.kind) || 0));
+        const index = remaining.findIndex(c => (counts.get(c.tvQuiz.kind) || 0) === least);
+        const [card] = remaining.splice(index, 1);
+        selected.push(card);
+        counts.set(card.tvQuiz.kind, least + 1);
+      }
+    }
   }
   selected = [...selected, ...candidates.filter(c => !selected.some(s => s.id === c.id))].slice(0, ROUND_SIZE);
   const difficulty = { easy: 0, medium: 1, hard: 2, 'very-advanced': 3 };

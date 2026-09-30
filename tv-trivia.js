@@ -69,7 +69,8 @@ export function createTvTrivia(api) {
     updateUrl(); render(); if (focus) focusHeading();
   }
   function home() {
-    root.innerHTML = landingMarkup(lang, true).replace(/^<div[^>]*>|<\/div>$/g, '');
+    const counts = Object.fromEntries(SHOWS.map(s => [s.key, eligibleCards(cards(), s.id, s.seasons).length]));
+    root.innerHTML = landingMarkup(lang, true, counts).replace(/^<div[^>]*>|<\/div>$/g, '');
     if (round && !round.finished) {
       const mount = root.querySelector('#tvResume'); mount.hidden = false;
       mount.innerHTML = `<div><strong>${t.resume}: ${e(showName(round.show))}</strong><p>${t.question} ${round.index + 1} ${t.of} 10 · ${t.resumeHint}</p></div><button class="tv-button tv-primary" data-tv="resume">${t.resume}</button>`;
@@ -89,6 +90,7 @@ export function createTvTrivia(api) {
       <label class="tv-field">${t.show}<select id="tvShowSelect">${showOptionsMarkup(draft.show)}</select></label>
       ${hasStory ? `<label class="tv-check"><input id="tvStory" type="checkbox" ${draft.season ? 'checked' : ''}>${t.story}</label><label class="tv-field" id="tvSeasonField" ${draft.season ? '' : 'hidden'}>${t.season}<select id="tvSeasonSelect">${Array.from({ length: s.seasons }, (_, i) => `<option value="${i + 1}" ${draft.season === i + 1 ? 'selected' : ''}>${i + 1}</option>`).join('')}</select><small>${t.storyHint}</small></label>` : `<p class="tv-small">${s ? t.noStory : t.safeDetail}</p>`}
       ${isPractice ? '' : `<label class="tv-check"><input id="tvTimed" type="checkbox" ${timed ? 'checked' : ''}>${t.timed}</label><p class="tv-small">${t.timedHint}</p>`}
+      <p id="tvEligibleCount" class="tv-small" role="status">${eligibleCards(cards(), draft.show, draft.season).length} ${t.availableCount}</p>
       <button class="tv-button tv-primary tv-full" data-tv="${isPractice ? 'apply-practice' : 'start-options'}">${isPractice ? t.practice : t.start}</button>`;
     dialog.dataset.practice = String(isPractice);
     if (!dialog.open) dialog.showModal();
@@ -282,6 +284,8 @@ export function createTvTrivia(api) {
   dialog.addEventListener('change', event => {
     if (event.target.id === 'tvShowSelect') { const next = readOptions(); optionDraft = { ...next, season: 0 }; showOptions(next.show, next.timed, dialog.dataset.practice === 'true'); }
     if (event.target.id === 'tvStory') dialog.querySelector('#tvSeasonField').hidden = !event.target.checked;
+    const count = dialog.querySelector('#tvEligibleCount');
+    if (count) { const next = readOptions(); count.textContent = `${eligibleCards(cards(), next.show, next.season).length} ${t.availableCount}`; }
   });
   dialog.addEventListener('click', event => {
     const action = event.target.closest('[data-tv]')?.dataset.tv;

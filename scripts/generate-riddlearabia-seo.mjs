@@ -723,7 +723,7 @@ function renderFunctionalCategoryShell(category, lang) {
   if (category.slug !== 'tv-shows-trivia') return html;
   return html
     .replace('</head>', '<link rel="stylesheet" href="/tv-trivia.css" /></head>')
-    .replace(/<section class="hero shell hero-category">[\s\S]*?(?=<section class="shell section-block"><div class="section-heading)/u, tvTriviaMarkup(lang));
+    .replace(/<section class="hero shell hero-category">[\s\S]*?(?=<section class="shell section-block"><div class="section-heading)/u, tvTriviaMarkup(lang, false, Object.fromEntries(category.topics.map(topic => [topic.en, topic.count]))));
 }
 
 function sitemapUrl(url, priority, alternates, lastModified = LAST_MODIFIED) {

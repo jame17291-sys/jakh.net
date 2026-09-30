@@ -68,14 +68,14 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
   if (pathname === "/data/catalog.json") {
     return JSON.stringify({
       site: {
-        totalQuestions: 3_275,
+        totalQuestions: 3_825,
       },
       categories: Array.from({ length: 51 }, (_, index) => ({ slug: `category-${index}` })),
     });
   }
   if (pathname === "/data/card-index.json") {
     return JSON.stringify(Object.fromEntries(
-      Array.from({ length: 3_275 }, (_, index) => [`public-card-${index}`, ["category-0", "easy"]]),
+      Array.from({ length: 3_825 }, (_, index) => [`public-card-${index}`, ["category-0", "easy"]]),
     ));
   }
   if (pathname === "/data/search-index.en.json" || pathname === "/data/search-index.ar.json") {
@@ -83,9 +83,9 @@ function staticBody(pathname, { siteOrigin, apiOrigin, legacySite = false, preNa
     return JSON.stringify({
       version: 2,
       language,
-      total: 3_275,
+      total: 3_825,
       categories: Array.from({ length: 51 }, (_, index) => `category-${index}`),
-      cards: Array.from({ length: 3_275 }, (_, index) => [0, `public-card-${index}`, `q-${index}`, `a-${index}`]),
+      cards: Array.from({ length: 3_825 }, (_, index) => [0, `public-card-${index}`, `q-${index}`, `a-${index}`]),
     });
   }
   if (pathname === "/manifest.webmanifest") {

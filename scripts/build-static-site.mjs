@@ -398,7 +398,7 @@ function rewritePublishedClaimValue(source, {
       new RegExp(`${fullCategories}(?=\\s+(?:موضوع(?:اً|ًا)?|فئة)(?![\\p{L}\\p{M}\\p{N}]))`, "gu"),
       String(publicCategories),
     )
-    .replaceAll("3,500+", "3,200+");
+    .replaceAll("3,500+", `${(Math.floor(publicQuestions / 100) * 100).toLocaleString("en-US")}+`);
   rewritten = rewritten.replace(
     /(<[^>]+\bid=["']badgeCategories2?["'][^>]*>)\s*\d[\d,]*\s*(<\/[^>]+>)/giu,
     `$1${publicCategories}$2`,
@@ -708,7 +708,7 @@ export function assertPublicProjection(artifactBytes, { publication, quarantine 
     }
   }
   invariant(publication.publicCategories === 51, `public category contract changed from 51 to ${publication.publicCategories}`);
-  invariant(publication.publicQuestions === 3_275, `public question contract changed from 3275 to ${publication.publicQuestions}`);
+  invariant(publication.publicQuestions === 3_825, `public question contract changed from 3825 to ${publication.publicQuestions}`);
   invariant(quarantine.manifest.totalCards === 278, "production quarantine contract changed from 278 cards");
 }
 

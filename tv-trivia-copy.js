@@ -21,6 +21,7 @@ export const COPY = {
     changed: 'The saved round is no longer available after a content update. Please start a fresh round.', notReady: 'This selection does not yet have 10 prepared questions. Try another show.',
     loading: 'Getting your questions ready…', loadError: 'We couldn’t load the quiz. Please reload the page to try again.', reload: 'Reload page',
     optionsFor: 'Options for', close: 'Close options', safety: 'Spoiler settings', sound: 'Quiet by default', safeMode: 'Spoiler-safe', through: 'Through season',
+    bankCount: 'questions in total', availableCount: 'questions available with these settings',
   },
   ar: {
     eyebrow: 'نادي تحدّي المسلسلات', title: 'جاهز لتحدّي مسلسلاتك المفضلة؟', intro: '10 أسئلة. مسلسلاتك المفضلة. بلا تسجيل.',
@@ -44,5 +45,6 @@ export const COPY = {
     changed: 'لم تعد الجولة المحفوظة متاحة بعد تحديث المحتوى. ابدأ جولة جديدة.', notReady: 'لا تتوفر 10 أسئلة جاهزة لهذا الاختيار. جرّب مسلسلًا آخر.',
     loading: 'نجهّز أسئلتك…', loadError: 'تعذّر تحميل التحدّي. حدّث الصفحة للمحاولة مجددًا.', reload: 'حدّث الصفحة',
     optionsFor: 'خيارات', close: 'أغلق الخيارات', safety: 'إعدادات حرق الأحداث', sound: 'صامت افتراضيًا', safeMode: 'بلا حرق', through: 'حتى الموسم',
+    bankCount: 'سؤالًا إجمالًا', availableCount: 'سؤالًا متاحًا بهذه الخيارات',
   },
 };

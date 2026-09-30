@@ -13,7 +13,9 @@ const cardsByLanguage = { en: [], ar: [] };
 // These are raw transfer-size ceilings, not aspirational gzip figures. Keeping each
 // language below this ceiling makes a search-open fetch materially smaller than the
 // former combined bilingual index.
-export const SEARCH_SHARD_MAX_BYTES = 800 * 1024;
+// Accommodates 550 new bilingual TV questions. Search is fetched on demand;
+// the initial-route budget remains unchanged.
+export const SEARCH_SHARD_MAX_BYTES = 850 * 1024;
 export const SEARCH_SHARDS_COMBINED_MAX_BYTES = 1_500 * 1024;
 
 for (const [categoryIndex, category] of (catalog.categories || []).entries()) {

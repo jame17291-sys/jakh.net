@@ -8,7 +8,7 @@
       "en": "A mobile-first bilingual riddle and quiz website with curated categories, clear levels, and premium-ready challenge pages.",
       "ar": "منصة ألغاز واختبارات ثنائية اللغة مصممة للهاتف أولاً، مع تصنيفات منسقة ومستويات واضحة وصفحات جاهزة للتجربة المميزة."
     },
-    "totalQuestions": 3553
+    "totalQuestions": 4103
   },
   "sections": [
     {
@@ -3101,8 +3101,8 @@
         "ar": "المسلسلات"
       },
       "description": {
-        "en": "250 bilingual questions across 10 top-rated TV shows — 5 English (Breaking Bad, Game of Thrones, Friends, The Wire, Stranger Things) and 5 Arabic (Bab Al-Hara, Maraya, Tash Ma Tash, Ertuğrul, Al-Hasaseen).",
-        "ar": "يضم موضوع «المسلسلات» 250 سؤالًا بالعربية والإنجليزية، ويتناول الحساسين، باب الحارة، وبرايكينج باد. اختر لغتك، واكشف الإجابات، وتابع نتيجتك."
+        "en": "800 bilingual TV trivia questions across 10 shows, with 80 questions per show. Play ten-question rounds with explanations and optional story questions.",
+        "ar": "800 سؤال عن 10 مسلسلات بالعربية والإنجليزية، بواقع 80 سؤالًا لكل مسلسل. العب جولات من عشرة أسئلة مع شروح وخيار إضافة أسئلة عن أحداث القصة."
       },
       "cluster": {
         "en": "Arts, Culture & Entertainment",
@@ -3111,11 +3111,11 @@
       "cluster_key": "culture",
       "emoji": "📺",
       "mode": "quiz",
-      "count": 250,
+      "count": 800,
       "difficultyCounts": {
-        "easy": 67,
-        "medium": 131,
-        "hard": 49,
+        "easy": 185,
+        "medium": 460,
+        "hard": 152,
         "very-advanced": 3
       },
       "href": "/tv-shows-trivia",
@@ -3124,52 +3124,52 @@
         {
           "en": "Al-Hashasheen",
           "ar": "الحشاشين",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Bab Al-Hara",
           "ar": "باب الحارة",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Breaking Bad",
           "ar": "بريكينغ باد",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Diriliş: Ertuğrul",
           "ar": "قيامة أرطغرل",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Friends",
           "ar": "فريندز",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Game of Thrones",
           "ar": "صراع العروش",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Maraya",
           "ar": "مرايا",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Stranger Things",
           "ar": "سترينجر ثينغز",
-          "count": 25
+          "count": 80
         },
         {
           "en": "Tash Ma Tash",
           "ar": "طاش ما طاش",
-          "count": 25
+          "count": 80
         },
         {
           "en": "The Wire",
           "ar": "ذا واير",
-          "count": 25
+          "count": 80
         }
       ],
       "related": [
@@ -3178,7 +3178,7 @@
         "anime",
         "ayam-tayebeen"
       ],
-      "scorableQuestionCount": 249,
+      "scorableQuestionCount": 800,
       "reviewedQuestionCount": 0,
       "quickFireQuestionCount": 0
     },

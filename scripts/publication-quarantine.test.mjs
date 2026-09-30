@@ -100,14 +100,14 @@ test("artifact quarantine derives held asset names and directories from the mani
   assert.equal(isQuarantinedArtifactPath("ar/topics/future-held.html", future), true);
 });
 
-test("public catalog, card index, and search projections expose exactly 51 categories and 3,275 cards", () => {
+test("public catalog, card index, and search projections expose exactly 51 categories and 3,825 cards", () => {
   const quarantine = loadProductionQuarantine(root);
   const fullCatalog = readJson("data/catalog.json");
   const publicCatalog = publicCatalogProjection(fullCatalog, quarantine);
   assert.equal(fullCatalog.categories.length, 56, "editorial category source changed");
-  assert.equal(fullCatalog.site.totalQuestions, 3_553, "editorial card source changed");
+  assert.equal(fullCatalog.site.totalQuestions, 4_103, "editorial card source changed");
   assert.equal(publicCatalog.categories.length, 51);
-  assert.equal(publicCatalog.site.totalQuestions, 3_275);
+  assert.equal(publicCatalog.site.totalQuestions, 3_825);
   assert.equal(publicCatalog.site.publication, undefined);
   assert.ok(publicCatalog.categories.every((category) => !Object.hasOwn(category, "reviewedQuestionCount")));
   for (const category of publicCatalog.categories) {
@@ -133,7 +133,7 @@ test("public catalog, card index, and search projections expose exactly 51 categ
     ["science", { topics: 9, questions: 730 }],
     ["tech", { topics: 11, questions: 420 }],
     ["world", { topics: 11, questions: 570 }],
-    ["culture", { topics: 12, questions: 1_075 }],
+    ["culture", { topics: 12, questions: 1_625 }],
   ]));
   assert.doesNotMatch(publicCatalog.sections.find(({ key }) => key === "science").description.en, /medicine|pharmacy/iu);
   assert.doesNotMatch(publicCatalog.sections.find(({ key }) => key === "world").description.en, /\blaw\b/iu);
@@ -145,15 +145,15 @@ test("public catalog, card index, and search projections expose exactly 51 categ
   assert.ok(publicCards.every((card) => !Object.hasOwn(card, "review")), "public cards omit review metadata");
 
   const publicIndex = publicCardIndexProjection(readJson("data/card-index.json"), quarantine);
-  assert.equal(Object.keys(publicIndex).length, 3_275);
+  assert.equal(Object.keys(publicIndex).length, 3_825);
   for (const cardId of quarantine.cardIds) assert.equal(publicIndex[cardId], undefined, cardId);
 
   const search = publicSearchArtifacts({ catalog: fullCatalog, root, quarantine });
   for (const language of ["en", "ar"]) {
     const shard = JSON.parse(search.get(`data/search-index.${language}.json`));
-    assert.equal(shard.total, 3_275);
+    assert.equal(shard.total, 3_825);
     assert.equal(shard.categories.length, 51);
-    assert.equal(shard.cards.length, 3_275);
+    assert.equal(shard.cards.length, 3_825);
     assert.equal(shard.cards.some((row) => quarantine.cardIds.has(row[1])), false);
   }
 });

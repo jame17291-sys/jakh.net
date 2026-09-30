@@ -18,11 +18,11 @@ test("learning audit ledger covers every source card without inferring approval"
 
   const ledger = JSON.parse(fs.readFileSync(ledgerPath, "utf8"));
   assert.equal(ledger.schemaVersion, 1);
-  assert.equal(ledger.summary.total, 3553);
-  assert.equal(ledger.cards.length, 3553);
-  assert.equal(ledger.summary.byDisposition.unreviewed, 3553);
-  assert.equal(ledger.summary.byProgrammeEligibility["held-pending-substantive-review"], 3553);
-  assert.equal(ledger.summary.byRuntimeProjection["public-legacy-projection"], 3275);
+  assert.equal(ledger.summary.total, 4103);
+  assert.equal(ledger.cards.length, 4103);
+  assert.equal(ledger.summary.byDisposition.unreviewed, 4103);
+  assert.equal(ledger.summary.byProgrammeEligibility["held-pending-substantive-review"], 4103);
+  assert.equal(ledger.summary.byRuntimeProjection["public-legacy-projection"], 3825);
   assert.equal(ledger.summary.byRuntimeProjection.quarantined, 278);
 
   const example = ledger.cards.find((card) => card.id === "currencies-1");

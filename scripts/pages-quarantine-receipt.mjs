@@ -69,7 +69,7 @@ export function buildPagesQuarantineReceipt({
   if (publication?.state !== CONTENT_PUBLICATION_CONTRACT.state) errors.push("artifact publication state is invalid");
   if (publication?.policySha256 !== CONTENT_PUBLICATION_CONTRACT.manifestSha256) errors.push("artifact quarantine digest is invalid");
   if (publication?.publicCategories !== 51) errors.push("artifact public category total is not 51");
-  if (publication?.publicQuestions !== CONTENT_PUBLICATION_CONTRACT.publicQuestions) errors.push("artifact public question total is not 3275");
+  if (publication?.publicQuestions !== CONTENT_PUBLICATION_CONTRACT.publicQuestions) errors.push("artifact public question total is not 3825");
   if (publication?.quarantinedQuestions !== CONTENT_PUBLICATION_CONTRACT.quarantinedQuestions) {
     errors.push("artifact quarantined question total is not 278");
   }

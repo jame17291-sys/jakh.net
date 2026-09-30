@@ -10,6 +10,7 @@ import {
   auditPerformanceBudgets,
   budgetFailures,
 } from './validate-performance-budgets.mjs';
+import { renderAccountPanel } from '../auth-enhancements.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), 'utf8');
@@ -33,6 +34,40 @@ test('natural speech implementation stays outside the initial bundle', () => {
   assert.match(speechQuality, /export function getBestVoice\b/u);
   assert.match(speechQuality, /export function prepareSpeechText\b/u);
   assert.match(speechQuality, /export function speakNaturally\b/u);
+});
+
+test('Profile account markup stays lazy and preserves bilingual actions, identity escaping and pending state', () => {
+  const app = read('app.js');
+  assert.match(app, /import\('\/auth-enhancements\.js'\)/u);
+  assert.doesNotMatch(app, /id="profileAvatar"|id="avatarSelector"|id="currentPassword"/u);
+  const start = app.indexOf('const UI =');
+  const ui = vm.runInNewContext(`${app.slice(start, app.indexOf('\n};', start) + 3)}\nUI;`);
+  const escapeHtml = value => String(value).replace(/[&<>"']/gu, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+  for (const language of ['en', 'ar']) for (const role of ['USER', 'ADMIN', 'OWNER']) for (const busy of [false, true]) {
+    const t = key => { assert.equal(typeof ui[language][key], 'string', `${language}:${key}`); return ui[language][key]; };
+    const markup = renderAccountPanel({
+      account: { username: '<img src=x onerror=alert(1)>', avatar: '🦊', favorites: ['one', 'two'] },
+      language, role, score: 120, correctCount: 3,
+      progress: [{ categoryId: 'science', status: 'correct' }, { categoryId: 'science', status: 'wrong-hard' }],
+      categories: [{ slug: 'science', title: { en: '<Science>', ar: '<العلوم>' } }],
+      getCorrectCountByDifficulty: difficulty => difficulty === 'easy' ? 10 : 0,
+      avatarSaving: busy, securityLoading: busy, privacyPath: language === 'ar' ? '/ar/privacy/' : '/privacy',
+      t, fmt: (key, values) => t(key).replace(/\{(\w+)\}/gu, (_, name) => values[name]), escapeHtml,
+    });
+    assert.doesNotMatch(markup, /<img src=x|<Science>|<العلوم>/u);
+    assert.match(markup, /&lt;img src=x onerror=alert\(1\)&gt;/u);
+    assert.equal((markup.match(/class="avatar-btn /gu) || []).length, 16);
+    assert.equal((markup.match(/ disabled aria-describedby="avatarStatus"/gu) || []).length, busy ? 16 : 0);
+    for (const id of ['signedInAccountPanel', 'profileAvatar', 'avatarSelector', 'avatarStatus', 'currentPassword', 'newPassword', 'changePasswordStatus', 'changePasswordBtn', 'recoveryRotatePassword', 'recoveryRotateStatus', 'logoutBtn', 'logoutStatus']) {
+      assert.equal((markup.match(new RegExp(`id="${id}"`, 'gu')) || []).length, 1, `${language}:${role}:${id}`);
+    }
+    assert.equal(markup.includes('id="adminSecurityBtn"'), role !== 'USER');
+    assert.equal(markup.includes('href="/admin?lang=ar"'), role !== 'USER' && language === 'ar');
+    assert.ok(markup.includes(`href="${language === 'ar' ? '/ar/privacy/' : '/privacy'}"`));
+    assert.ok(markup.includes(t('badgeBronzeName')));
+    assert.ok(markup.includes(language === 'ar' ? 'تحديث كلمة المرور' : 'Update Password'));
+    assert.ok(markup.includes(busy ? t('avatarSaving') : 'id="avatarStatus" class="auth-inline-status" role="status" aria-live="polite" aria-atomic="true"></p>'));
+  }
 });
 
 test('budget comparison reports every exceeded encoding', () => {

@@ -56,6 +56,8 @@ jobs:
           node scripts/validate-production-hygiene.mjs
       - name: Validate game focus contracts
         run: node scripts/validate-game-focus.mjs
+      - name: Validate production asset performance budgets before merge
+        run: npm run check:performance
       - name: Test source quality contracts
         run: >-
           node --test
@@ -67,6 +69,8 @@ jobs:
           scripts/quick-fire-content.test.mjs
           scripts/frontend-product-contract.test.mjs
           scripts/free-first-gameplay.test.mjs
+          scripts/performance-budget.test.mjs
+          scripts/synthetic-account-monitor.test.mjs
           scripts/tv-trivia.test.mjs
           scripts/provenance-ui-contract.test.mjs
           scripts/public-history-policy.test.mjs

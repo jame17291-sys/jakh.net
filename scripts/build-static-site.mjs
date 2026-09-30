@@ -52,6 +52,7 @@ const PUZZLE_ASSETS = Object.freeze([
 ]);
 
 export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
+  "/auth-enhancements.js",
   "/auth-security.css", "/auth-security.js",
   "/kids-learning.js", "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
   ...ILLUSTRATION_MODULES,
@@ -219,6 +220,7 @@ function rewriteSearchLeaderboard(source, fingerprints) {
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    "/auth-enhancements.js",
     "/auth-security.js",
     "/tv-trivia.js",
     "/directory-ui.js",
@@ -896,6 +898,7 @@ export async function buildStaticSite({
   };
 
   for (const stableUrlPath of [
+    "/auth-enhancements.js",
     "/auth-security.css",
     "/kids-state.js", "/kids-learning.css", "/data/kids/catalog.json",
     "/styles.css",

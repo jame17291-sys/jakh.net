@@ -1,4 +1,6 @@
 import { ApiError } from "./http.js";
+import { pbkdf2Async } from "@noble/hashes/pbkdf2.js";
+import { sha256 as sha256Hash } from "@noble/hashes/sha2.js";
 
 const encoder = new TextEncoder();
 // New credentials use the stronger work factor. The legacy value remains an
@@ -39,24 +41,29 @@ export async function hashPassword(
   salt = randomToken(16),
   iterations = PASSWORD_ITERATIONS,
 ): Promise<{ hash: string; salt: string; iterations: number }> {
-  const key = await crypto.subtle.importKey(
-    "raw",
-    encoder.encode(`${password}\u0000${pepper}`),
-    "PBKDF2",
-    false,
-    ["deriveBits"],
-  );
-  const bits = await crypto.subtle.deriveBits(
-    {
-      name: "PBKDF2",
-      hash: "SHA-256",
-      salt: base64UrlToBytes(salt).slice().buffer as ArrayBuffer,
-      iterations,
-    },
-    key,
-    256,
-  );
-  return { hash: bytesToBase64Url(new Uint8Array(bits)), salt, iterations };
+  const passwordBytes = encoder.encode(`${password}\u0000${pepper}`);
+  const saltBytes = base64UrlToBytes(salt);
+  let derived: Uint8Array | undefined;
+  try {
+    // Hosted Workers cap native PBKDF2 at 100,000 iterations, including in
+    // Durable Objects. Keep the stronger work factor and identical hash format
+    // with the vetted implementation; local workerd does not enforce this cap.
+    if (iterations > LEGACY_PASSWORD_ITERATIONS) {
+      derived = await pbkdf2Async(sha256Hash, passwordBytes, saltBytes, { c: iterations, dkLen: 32 });
+    } else {
+      const key = await crypto.subtle.importKey("raw", passwordBytes, "PBKDF2", false, ["deriveBits"]);
+      derived = new Uint8Array(await crypto.subtle.deriveBits(
+        { name: "PBKDF2", hash: "SHA-256", salt: saltBytes.slice().buffer as ArrayBuffer, iterations },
+        key,
+        256,
+      ));
+    }
+    return { hash: bytesToBase64Url(derived), salt, iterations };
+  } finally {
+    passwordBytes.fill(0);
+    saltBytes.fill(0);
+    derived?.fill(0);
+  }
 }
 
 function constantTimeEqual(left: string, right: string): boolean {

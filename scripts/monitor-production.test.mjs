@@ -28,6 +28,7 @@ import { buildStaticSite } from "./build-static-site.mjs";
 import { PUZZLE_ROUTES } from "../puzzle-routes.js";
 import { createSiteHandler } from "../site-worker/src/site-edge.js";
 import { classifyMonitorWorkflowContext } from "./monitor-workflow-context.mjs";
+import { runSmoke } from "./site-release-receipt.mjs";
 
 const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 const FIXTURE_RELEASE_SHA = "2d98494fbc9459bb449bacb4fe9e2ef3a233cc3d";
@@ -676,6 +677,15 @@ test("the complete site monitor passes the real edge handler and every byte of a
       headers.set("x-jakh-worker-version", FIXTURE_WORKER_VERSION);
       return new Response(response.body, { status: response.status, headers });
     };
+    // Exercise release smoke against the same real edge responses as the
+    // monitor, rather than reproducing its expected headers in a fixture.
+    const smoke = await runSmoke({
+      expectedBuildId: manifest.buildId, expectedWorkerVersionId: FIXTURE_WORKER_VERSION,
+      attempts: 1, fetchImpl,
+    });
+    assert.deepEqual(smoke.errors, []);
+    assert.equal(smoke.ok, true);
+    assert.equal(smoke.probes.find(probe => probe.name === "not-found")?.headers["cache-control"], "no-store, no-transform");
     for (const siteContract of ["current", "release-baseline"]) {
       const summary = await runProductionMonitor({
         env: {}, scope: "site", siteOrigin: PRIMARY_SITE_ORIGIN, apiOrigin: PRIMARY_API_ORIGIN,

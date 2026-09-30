@@ -52,12 +52,12 @@ function proveStage(stage, monitorReport, { domainCutover = false, afterVersion 
   });
 }
 
-function headersFor(definition, { wrongLegacyTarget = false, wrongRetiredSeoTarget = false } = {}) {
+function headersFor(definition, { wrongLegacyTarget = false, wrongRetiredSeoTarget = false, notFoundCache = "no-store" } = {}) {
   const isLegacyRedirect = definition.name.includes("legacy-") && definition.name.endsWith("-direct-redirect");
   const isRetiredSeoRedirect = definition.name.startsWith("retired-seo/");
   const headers = {
     "cache-control": definition.name === "not-found"
-      ? "no-store"
+      ? notFoundCache
       : definition.name.includes("legacy-") || isRetiredSeoRedirect
         ? "public, max-age=86400"
         : "public, max-age=0, must-revalidate",
@@ -78,7 +78,7 @@ function headersFor(definition, { wrongLegacyTarget = false, wrongRetiredSeoTarg
   return headers;
 }
 
-function smokeFetch({ wrongLegacyTarget = false, wrongRetiredSeoTarget = false } = {}) {
+function smokeFetch({ wrongLegacyTarget = false, wrongRetiredSeoTarget = false, notFoundCache = "no-store" } = {}) {
   const definitions = new Map(
     smokeDefinitions("aaaaaaaaaaaaaaaa").map((definition) => [definition.url, definition]),
   );
@@ -88,10 +88,24 @@ function smokeFetch({ wrongLegacyTarget = false, wrongRetiredSeoTarget = false }
     assert.ok(definition, `unexpected smoke URL ${url}`);
     return new Response(null, {
       status: definition.status,
-      headers: headersFor(definition, { wrongLegacyTarget, wrongRetiredSeoTarget }),
+      headers: headersFor(definition, { wrongLegacyTarget, wrongRetiredSeoTarget, notFoundCache }),
     });
   };
 }
+
+test("404 smoke accepts legacy and transformation-safe storage denial while rejecting cacheable policies", async () => {
+  for (const notFoundCache of ["no-store", "no-store, no-transform"]) {
+    const report = await runSmoke({ expectedBuildId: BUILD_ID, expectedWorkerVersionId: WORKER_VERSION,
+      fetchImpl: smokeFetch({ notFoundCache }) });
+    assert.equal(report.ok, true, `${notFoundCache}: ${report.errors.join('; ')}`);
+  }
+  for (const notFoundCache of ["public, max-age=60", "no-cache, no-transform", "no-transform", "x-no-store", "no-store=0"]) {
+    const report = await runSmoke({ expectedBuildId: BUILD_ID, expectedWorkerVersionId: WORKER_VERSION,
+      fetchImpl: smokeFetch({ notFoundCache }) });
+    assert.equal(report.ok, false, notFoundCache);
+    assert.ok(report.errors.some(error => error.startsWith("not-found: unexpected Cache-Control")), notFoundCache);
+  }
+});
 
 test("post-cutover smoke requires direct legacy redirects to the new canonical host", async () => {
   const definitions = smokeDefinitions("aaaaaaaaaaaaaaaa");

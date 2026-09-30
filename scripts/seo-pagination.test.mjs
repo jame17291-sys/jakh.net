@@ -270,9 +270,15 @@ test("all topic routes remain functional noindex application shells without stat
       assert.match(meta(source, "name", "robots"), /\bnoindex\b/iu, `${relative}: excluded from the search sitemap`);
       assert.match(source, new RegExp(`<body\\b[^>]*data-page="category"[^>]*data-category="${escapeRegex(category.slug)}"`, "u"), `${relative}: app category binding`);
       assert.doesNotMatch(source, /\bid="categoryImage"/u, `${relative}: no duplicate large category artwork`);
-      assert.match(source, /<a class="primary-btn" href="#cardGrid">/u, `${relative}: direct start-practice action`);
-      assert.match(source, /<details class="question-filters">\s*<summary>/u, `${relative}: optional filters start collapsed`);
-      assert.ok(source.indexOf('id="cardGrid"') < source.indexOf('id="categorySummaryMount"'), `${relative}: questions precede account promotion`);
+      if (category.slug === 'tv-shows-trivia') {
+        assert.match(source, /id="tvTrivia"/u, `${relative}: bilingual quiz mount`);
+        assert.match(source, /data-tv="mixed"/u, `${relative}: immediate quiz action`);
+        assert.ok(source.indexOf('data-tv="mixed"') < source.indexOf('data-tv="sync"'), `${relative}: play precedes account promotion`);
+      } else {
+        assert.match(source, /<a class="primary-btn" href="#cardGrid">/u, `${relative}: direct start-practice action`);
+        assert.match(source, /<details class="question-filters">\s*<summary>/u, `${relative}: optional filters start collapsed`);
+        assert.ok(source.indexOf('id="cardGrid"') < source.indexOf('id="categorySummaryMount"'), `${relative}: questions precede account promotion`);
+      }
       assert.match(source, /data-nav="library" aria-current="page"/u, `${relative}: library remains the parent destination`);
       assert.match(source, /<script src="\/app\.js\?v=/u, `${relative}: application runtime`);
       assert.doesNotMatch(source, /<article\b[^>]*(?:riddle-card|seo-qa-card)/iu, `${relative}: no static SEO card copy`);

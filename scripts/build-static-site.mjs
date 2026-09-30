@@ -42,6 +42,7 @@ export const FINGERPRINT_PREFIX_LENGTH = 16;
 const ILLUSTRATION_MODULES = Object.freeze(["/site-illustrations.js", "/directory-ui.js"]);
 
 const PUZZLE_ASSETS = Object.freeze([
+  "/tv-trivia-engine.js", "/tv-trivia-copy.js", "/tv-trivia-share.js", "/tv-trivia-markup.js", "/tv-trivia.css", "/tv-trivia.js",
   "/puzzle-routes.js",
   "/puzzle-arabic-words.js", "/puzzle-hive-data.js", "/puzzle-square-data.js", "/puzzle-group-data.js",
   "/puzzle-word-data.js", "/puzzle-catalog.js", "/puzzle-daily.js",
@@ -75,6 +76,7 @@ export const FINGERPRINT_SOURCE_PATHS = Object.freeze([
 ]);
 
 const HTML_FINGERPRINT_SOURCE_PATHS = new Set([
+  "/tv-trivia.css",
   "/puzzle-room.js",
   "/puzzle-room.css",
   "/app.js",
@@ -213,6 +215,7 @@ function rewriteSearchLeaderboard(source, fingerprints) {
 function rewriteApplication(source, fingerprints) {
   let rewritten = source;
   for (const dependency of [
+    "/tv-trivia.js",
     "/directory-ui.js",
     "/battle-mode.js",
     "/battle-mode.css",

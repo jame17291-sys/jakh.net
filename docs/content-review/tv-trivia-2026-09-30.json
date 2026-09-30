@@ -1,0 +1,1102 @@
+{
+  "date": "2026-09-30",
+  "baseCommit": "368f8cc5b470aa7804474f38a7e8255bd3a514ed",
+  "scope": "tv-shows-trivia",
+  "reviewStatus": "Implementation content screening; formal editorial and provenance certification remains pending.",
+  "prepared": 138,
+  "premiseOnly": 100,
+  "changes": [
+    {
+      "id": "tv-shows-trivia-001",
+      "beforeHash": "d197ea469adcdfe48669c3b4d7b24c6c2d8aeedfc8c4240c91c1d51463387ac8",
+      "afterHash": "9b1de8d882523cd44369aa99a5d4765a9ec8f992782d4b01d043b4262ad94541",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-002",
+      "beforeHash": "a4058ceceb4dd01535aa5a07fad8db8e9dc3c6194aac3dd1eee574abaf0b3be4",
+      "afterHash": "c7c1745f628d2a89c11569e228ebe664e76505e345e70a52cad7eb0bf84e37b7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-003",
+      "beforeHash": "cca0530e7b5d6bc5148ac73ecb0b435842bdd61d46f38530fffb2e60e0fb1e71",
+      "afterHash": "975791954f255b944c965524cb7266d316f10ea57552a812a79b9b94526d733d",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-004",
+      "beforeHash": "9d0d5025e9391bcc97a866283512d376e9ec538567e39369f333c50c565483f9",
+      "afterHash": "d6d946dffebb558a6115704b1e1d08a22b8fc6743fba41602149a4a8fccd534d",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-005",
+      "beforeHash": "784a9c8a6d8393e32663be9206596caa9b5d4ff2fbecdb8f32364a3220e18d59",
+      "afterHash": "14210e685ef6e093e8a4d219b90948d91d03a5940e7f2ccafaf509fa8578cc60",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-006",
+      "beforeHash": "4d15687bd886eda47083dd6845ec72b5c53a673621863167837bc3333c525958",
+      "afterHash": "99d38d73b2711df2a0f01c6e1ddca27a9b03709f119177f7302302e7f123d884",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-007",
+      "beforeHash": "35af9f2758290c50dfc2837e0c2f131c190c1bab2d440281e6f84cb870ee7be6",
+      "afterHash": "85ead7652b046eb7c3d22809d2ca3783b3a82eac000b610d11d6438701cf6adf",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-008",
+      "beforeHash": "f35095cf865a17c967fe340606eda282c4c46d50f2b84b37a6618c939e03ea87",
+      "afterHash": "7601d97f05e410536b76ba6f5c31c292234abb40a8339aa27014d92a18807462",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-009",
+      "beforeHash": "a587c643b97cffe4d0d2a0f163d60bf4829ec8fa8c364546029d1d97766be7a6",
+      "afterHash": "3ee95c4a9d07eb24cf06a47d04bb58195c8a2a5b03d83a77e0273fdcc10ab11a",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-010",
+      "beforeHash": "29a67631e1e9f5caf3a2564073a65545f44c957edea7665e4638d006a6421bc8",
+      "afterHash": "87cb47e157e675e0e8190ffbc05597cd4b117a191eb4d46c7f1bc28386a5959b",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-011",
+      "beforeHash": "27e63efe5e8c4627e03e9b05da97310b93e6a81a40e393f2eec4264f5e2a8112",
+      "afterHash": "416f24c039d0e8ec312c255968c591e308c8d14f1485b274fd6271dd3a014cc8",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-012",
+      "beforeHash": "5ff21f4bc7542b3932ba8f2c95b6b0ba7c4212e5230ec7724cc34071447ed2d9",
+      "afterHash": "075dce05f682ddb06f3e5771428ecbaaf2583fb1159914e9235cd6da3e38688d",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-013",
+      "beforeHash": "353fd00ecb82aba3602c53e09cc37e46a11857226709a840bb1690f1530853b1",
+      "afterHash": "2d31641398735edcbc6a7e5f3b721c3f03a32054efe52267573e1b994222b656",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-014",
+      "beforeHash": "1bc13d628243f1811c667216e5e905dd21efa367da860af31382d131836d305b",
+      "afterHash": "3dd204758f172939793587038b29b7675809745edab10e3fc5c71b4108945364",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-015",
+      "beforeHash": "a2b34df5ac2d773aa95636a8ee1343b3a47e46b5a240d71edac90cae73890ad2",
+      "afterHash": "ab9e01b36d021b77056cc60bfa5d9fe58e6eed17bc2c5c576c0197df6ec24a8a",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 4
+    },
+    {
+      "id": "tv-shows-trivia-016",
+      "beforeHash": "b0f2c28ecec97b5b8dcb170217297015f841cdd6ed32b020284c9c9836181453",
+      "afterHash": "27a8a2bae7ad76daff7743bc9f8d1c1c43b3c6e8992c47279f107942185c6fdc",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 4
+    },
+    {
+      "id": "tv-shows-trivia-017",
+      "beforeHash": "dc97f8f879da0302ada233084ee6c74931f258c54841f0c578249fc6f3b6d4b5",
+      "afterHash": "37c0043162e0d84e180cd308a664942ef39b8610eb779d46b780c6382fa18ea7",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-018",
+      "beforeHash": "d3bb69368a2eeb66293a627d24df03ff8cf4e0294cd204e2a65abeff318cc101",
+      "afterHash": "053e72b7a0a182a7a2172097e8384ed7e646540b262e2aeee2e24c479e158968",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-019",
+      "beforeHash": "27733c4cb62b24e00cc5d44bf4188c699909eaa41e8d016b887b59f90bfbbf39",
+      "afterHash": "324430d186f55a8d8140b9eb311ae0498cad2db01ae15bde5f9dc2846ad051d2",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-020",
+      "beforeHash": "74a4ce3fd58230f37610befa2da5c088311ee0fab5a74472d009759bd0e20cfa",
+      "afterHash": "be9df1bbf9b6dc3b13372e4f72d4af36f7f7b1221c98d46a8a3efe535015c0c9",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-021",
+      "beforeHash": "adc0f166ea823fcc805f4c2a9612acf3a55860dc473d6788f499bf6d64332b5b",
+      "afterHash": "72c50f7512382328161007e1baadf539247d957a2a020c18cbe5752b7bc381a1",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-022",
+      "beforeHash": "1753e03e2d530dfa2c186a50cc7854264594c64b1df8d3adb8ea26de5356e123",
+      "afterHash": "b2de52dcc10e851ad17217ef6c5602b060f89c8a99d46c2b1eb5b6aa52ee6da6",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-023",
+      "beforeHash": "5190175012b0da429fe065572abf91239f4597958edad0bb8783b6fd8b3db25c",
+      "afterHash": "4aaf668c650aab7ff95197daa71695f9bc0e9a23d4bf2620d3d91d328f3ce683",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-024",
+      "beforeHash": "d7e0e9fdc7919d09b26342fc438a716b8c5575b4611b9b692b9dc884c0551f84",
+      "afterHash": "910582373636583b13628b1f847c13d0b7f41b197ad641a6618cc324743ad204",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-025",
+      "beforeHash": "532ddbc2cc4f72ae58a906e36088b40bedddcf9f60a1d240d0b88a3a8e715c24",
+      "afterHash": "1d404087c1fd6b7d55d9a54567abc12327195f5b52d5279359f3cc6725fd977b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-026",
+      "beforeHash": "8a28e828d1c0cf4cd643029165339e3da87378a2791abc421360951aa29320de",
+      "afterHash": "ab868498906cc2bfb267d4101d8a662fe8d5a54e18ca9993b479bf9a872b5601",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-027",
+      "beforeHash": "108587ba0a946162f577d16fae161aa82314dabfa63fdff182add91a90a671c0",
+      "afterHash": "8ff7d10c19e2c32702a1d1ea73e902a9629332a65962dcb3ae1ea003b072be01",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-028",
+      "beforeHash": "9670c60c9b0448c6ac3a8c9951d0fd9ad55ff030b32e4ec8cd6964ef19ef1908",
+      "afterHash": "5f9b722dbe125ead1150476997072a653f9ea302aa8a7ed604a8e036c2d52d6e",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-031",
+      "beforeHash": "727196248a48628127f1fb13998629d74c3bc89e917bf7152e9b52d344442c60",
+      "afterHash": "a805f3d3671e918a792bf91d344c73fcf42c405a23fff68f05fe68bcc84505d2",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-032",
+      "beforeHash": "65d4e2bd4e02cf138ad8944715564033ab261d69e97041c16005014bf4c308b4",
+      "afterHash": "4e873c3f7ba7f43eb2bde4d1bc93168f6c78efc3bd0638f65cf4b98e726c3a7e",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-034",
+      "beforeHash": "14a32a01e2a9807a2068de7e844d1f60ac410222ad31191f30332cab9f36278e",
+      "afterHash": "50d22b9bfbbafbdd262b1244e7511cd8df92e591eac3cf94c09d62a0fb3930c7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 7
+    },
+    {
+      "id": "tv-shows-trivia-035",
+      "beforeHash": "bf05fae82f437f32955c663dd2ec5e3ff216ae8853671b4e195c972362531d9a",
+      "afterHash": "60a01c0b3a47387846703df2d1242aa86997c931a4153f38b9f13dcc9e9d0ef5",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-037",
+      "beforeHash": "df83f4976c547ea614c447284b58e61492b49f186ebb0381741193ed9ab363a4",
+      "afterHash": "1be4ff33fe2fe2ce115207b1b0687545c5cdcd995d6610d098f65153d41f4e5b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-039",
+      "beforeHash": "4fdbbbddc4a397c848d0a010d8ba7f38b8ec8dd1ea2ba73fdc875315465b19f6",
+      "afterHash": "a39242c6cb86647721207f3bd33ba5a09af0bbbfaa0eb5759b1d88e08ccdc65a",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-040",
+      "beforeHash": "bde6a20361b9ba00efe32a336b844ff6b95a6860e1d85c47a77799360ad430d2",
+      "afterHash": "a5c6937e3a7e506fb4b5139062861c70f114094df4acb5b6381530dd3b991e02",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-041",
+      "beforeHash": "127934fe8e1f78ae55cfaf795651f94aa64afcbd3c7e7dc640fcfc92f3e99164",
+      "afterHash": "a55a2128759c0240ddc6e90148453b9f81a18baf131de6f6ed3b84c9da33bc13",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 8
+    },
+    {
+      "id": "tv-shows-trivia-043",
+      "beforeHash": "8f767f485905f5041b09315ecd41d614e77d118540874246642dbe364300a04b",
+      "afterHash": "43368a1ea5f12a8e38366fe9d49b4867a3d9fdc1c8461e46dbe6f7b79665f2b7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-045",
+      "beforeHash": "99d308f3423c350c88ca5ebe2b35eefd65364d086d7cb49fe43c44e4c9830e59",
+      "afterHash": "22d33fbd48fb6533061771a1fc872b73c50362afd556982ac31b0f9c56ec33a8",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-046",
+      "beforeHash": "ecd28098f8f65371ff7de01507d6f51790c3e0f3c752d2e9d9966074349ee198",
+      "afterHash": "fb27374603f40e21ce4c2a9fdbe3fd59583efcb3940514866b6a7f14dfca5ef8",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-047",
+      "beforeHash": "8efe5cf0d59b74d7ce5bbbee62f4a4e4970277dd674572a3e13d66a57b0f96e9",
+      "afterHash": "724f307544810f46540f9336f0fa5e055b2532c97ec30fd728412dc0d5afca9c",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-050",
+      "beforeHash": "6c121432a22411ce86a6919e68303a12736db9083b6b759430522e8f6fb7fa03",
+      "afterHash": "db3575f46d8d5238ecd45a38eb38765044ff4b5881f7f5ac58469cd6ebad9dbc",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 6
+    },
+    {
+      "id": "tv-shows-trivia-051",
+      "beforeHash": "ee8bbe2145f3aa3ed2443c4c4a4a647e202ed6740a6ca4d34c7b07e365a7b3ea",
+      "afterHash": "4e0366b39eb08550dbcd97bbde7216a4ff1e091af8b1493ab1babf24b6e7f82f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-053",
+      "beforeHash": "344422b494bcd740cd173746487ecb240a91ee9b629aeb503f25e733616f7c55",
+      "afterHash": "9b919c77ab0e99503b2c6e6af9a2241bc2a2f1a5ca5ade5643edecbd0503b5d2",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-054",
+      "beforeHash": "a95b25ea5c0901db6e44fb16871e0afdd2f46b7497cd9721d82010d3440dbd02",
+      "afterHash": "e6290b8a86b746a5a0954a90efa3d276a0325ca477b84820cea4097cc5f89dcb",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 10
+    },
+    {
+      "id": "tv-shows-trivia-055",
+      "beforeHash": "fcff761dfb67693fa35179ef8e38ed532c646bb510e8ba603e8bba8421debec2",
+      "afterHash": "2042653c22e1885e3e4d55f3b351e2aa76890c8426675cd1a656c31ce83aee5b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-056",
+      "beforeHash": "a1c9bc9be2738b28d1fc2dda52eb8b3eb51fe19fd67e7f9965ae69a3d92c973b",
+      "afterHash": "2873d1a0017f7e9bb8c0c870e94fef4c1cfaa73a3bd19f699095c54d888c1760",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-057",
+      "beforeHash": "50794fc20b216379b5fe9624d29d0963f02d2e5c2499de90706aa3039e0c2d9a",
+      "afterHash": "e351ba577189bd7da21275e3acaf8423012e4d77c1f5ed87dcce1b66619cac5b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 7
+    },
+    {
+      "id": "tv-shows-trivia-058",
+      "beforeHash": "fbdb5542310ff6f4007da59a6a702d71d5cb6c8c46ebbde1a8e0ed906f938d4b",
+      "afterHash": "205239fc2977b86bc1e714b8e58cb3cff596b42c65ef95b7161fac9be5c5a416",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 8
+    },
+    {
+      "id": "tv-shows-trivia-059",
+      "beforeHash": "8776ed0fd55475f8ac67bdbb03e27f065fd47f6648f54a6c2ba5def040cf223f",
+      "afterHash": "c89eb26af1cdd4f432a8db6ed451392ce85227776a6aec1d9b113a7bb28810d4",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-060",
+      "beforeHash": "265f9e5aa0095289d5a6a0e3465f6b28151f20dac905272a68d7a324efcf6df1",
+      "afterHash": "7c168b11e9d23c0a11f4c3a755f7d5b62efbb9a7cce33474996e559122eb74e6",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-061",
+      "beforeHash": "f630ffdec92ae9d418c2ce88e69e328c6c350f9bd9daccc21ee76d8768f0ac0d",
+      "afterHash": "93567af1d5d1204f09008a4e28c16811ba4e7312748b3fa6f1fdf2fdab1d19a2",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-062",
+      "beforeHash": "65a7fc43e33f29c4aaca7a05723e5b70e548180bebc972105df6d72c74de8fcb",
+      "afterHash": "f84027c80c974fd62c2cbac14b0a882a8e2ab3be3290837dd6e3343e03b189d1",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 5
+    },
+    {
+      "id": "tv-shows-trivia-063",
+      "beforeHash": "ce13f2b822e699e29f0464be4459332f193aebb519902c8dd5fd3a6f1525fece",
+      "afterHash": "1031cbc15562bf7198b1a3ef57fb455f563a97f80b843f40cc4f2e51d5b44d23",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-064",
+      "beforeHash": "9f5c90aca5644ce7edf613616dd184234374ce91a74fc4f0608bb31b1f288c14",
+      "afterHash": "3d965087e0759fc8635a486785a1aaa6d7ee9679bfa853164927b775759b2211",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-065",
+      "beforeHash": "f3fdaa1931af74201017a37df23df02b909945e8292477b850da382de10cd257",
+      "afterHash": "8f5e4380e1855bbc3f4fdde0ac7b5e5643a75e9134d4185b070fb28e5ec47cf0",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-068",
+      "beforeHash": "f82a17181e311bb3ad99fe6d2eec080be6c8b2a850782b6a4752360cc1c11e2e",
+      "afterHash": "74ffd5ba19b373c03bee75c66ee3184bd990ca062e7f05ceee2b50ee4906a1ef",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-069",
+      "beforeHash": "041c4deff19339665bab056aaebbc56b61f960a780b9b26b325e25e2f795caff",
+      "afterHash": "aa983b53970b2bc17402b5088299b60ffca7a8e393241778e3e973c063c928d4",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 6
+    },
+    {
+      "id": "tv-shows-trivia-071",
+      "beforeHash": "9c6b26e31ef7d056fc6eec6ea53e214800d3ae0f821a175b560f184d1d55dd81",
+      "afterHash": "3b023f51198bb8dd3061068f81acbb0b033c1a7643c80b52336d2d10c5aec52e",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-072",
+      "beforeHash": "90da107cc0334282a7a18c2ea9d9beba5307becb7ad75a8598b9336fe8ac59fd",
+      "afterHash": "53774f389d91eb00a6e14cd7f34067aa1c672322ccbcb15cdc022ad180322b4d",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 4
+    },
+    {
+      "id": "tv-shows-trivia-073",
+      "beforeHash": "572d0149981379a45952459c96ca612fdccffdcafed370c5a216548540e22867",
+      "afterHash": "5ea13f83f49b66554686496bde4289ef63fe3091ce146ddb02cb4b8cebbb3ed6",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-074",
+      "beforeHash": "2b27a07226908c95a2e9650629bb210528f4b2fa0e2f8e034768879f2bed04f4",
+      "afterHash": "41f41bddbd14f761da45b742eb2a7702c5189f057ed44bf155d71e340380c7fb",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-076",
+      "beforeHash": "83197ae36e6182e8514daa45b34c7761888b15f609b7b9d26afa20fe81862f43",
+      "afterHash": "f2dcb40eff3c946372e82316e1944dc5c38d0c70b8da0a6d7c58bda57b254558",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-077",
+      "beforeHash": "5844335b4c39cf5b81994647fec895e83b6aa35ffe34877f2d2a797f7d65ecd0",
+      "afterHash": "ec9e3d9ea71d2fbbc5e5abb216c989a5ceb5b7e7dc04535d6c4a7c1831974da7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-078",
+      "beforeHash": "8351dec9127c2e4aa72fcfaddf3509ec3c97bdbe12ab975ab7aecf11374b594d",
+      "afterHash": "3d01b9efd4dc467b76fa4fe4bbdfcb4ce5a7715c7657bc9877ba0d9b95fec2ad",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-079",
+      "beforeHash": "28ff07614119eea5f66fa04b1fe12e4eb31a95d6946d857bdb745c7a5b6993fc",
+      "afterHash": "8cc8d6b8a08c06b8dddcbe5581cfefba9d6f06024cfd36404959714d98d9fe60",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-080",
+      "beforeHash": "843e67e19f0c65768615cc4812904cdd4d4ff0945456bae5d13a99b5798d7ae1",
+      "afterHash": "972b107b6e6d353f1fa66629b7a0532f513215fe51b399717dce692ff358ec57",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-081",
+      "beforeHash": "c32c45130d3ddbe95f782d48f92f01252efa34cd410f4d1f23853de77698545c",
+      "afterHash": "af6886cc97b513bd494314ed20a8fd2f3c4f34e1686f80108a0fc951c852d4df",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-082",
+      "beforeHash": "ccffa578502bbbc73b0a58ebd2e7aef1214e906a06ae694c8d8d0f42416d2379",
+      "afterHash": "13e6628cc1d54926673d97b3c2ec40add8a1988026be833551a461c909f4b521",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-083",
+      "beforeHash": "557bad9eb2f0307401177318459b86b03e4c2efc5e65715ee3cb36107c14c783",
+      "afterHash": "3d13aeef13b333d952d8f6c9ad7e8bce88a56071da18944e004a4e75bd8b9c49",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-085",
+      "beforeHash": "b7319ce380ab77a5fc0f4c7b9b937e37f784daf41543481f168cc48763cc8a32",
+      "afterHash": "1fd3cbaa8c8da80fb32f14c5c4c38d9419780e308d2c0f983db7fe48666127d0",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 4
+    },
+    {
+      "id": "tv-shows-trivia-086",
+      "beforeHash": "d2746e9eac86a3af74fb323093a14457cf1767096ee15aed2440500e9dbc7304",
+      "afterHash": "a27801a1026a077c7ddcbeb41a500fc9a9212302d78c722bb520a07f74eaeb12",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 3
+    },
+    {
+      "id": "tv-shows-trivia-087",
+      "beforeHash": "0a8d50c57664cddded9240fa3037f81a337348b4f25dbd9cac5018cc1383bd57",
+      "afterHash": "7e4b782aae6cb62cc920a0514c57bee44dafbf6b5a600aa4d89b27ec1176129c",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 5
+    },
+    {
+      "id": "tv-shows-trivia-088",
+      "beforeHash": "fc6ebc120a4a324f3994d19cc28a09cd79828275536c84020663882f9693c651",
+      "afterHash": "08da68e3aff863067b765ef1669fd27918dd9510c4c2600b33b991dcbc9bd6bc",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-090",
+      "beforeHash": "6d811cec05cf73cfcb0a8aa78f1ad29ec2dbec23daabf457e04074188e72b825",
+      "afterHash": "c57cad108fb00a5c40d1a520d6fa2e4f505f5dbf254dcbddf791b1133d5d70d9",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 3
+    },
+    {
+      "id": "tv-shows-trivia-098",
+      "beforeHash": "05ee7fc0273c69e2e5ef3f01bfa62c4eae501b085a5505d307d6c9c68d616866",
+      "afterHash": "10a7b9cd5b514939130118df45c5cbb6f116c2ccd45faa602d71fca76526df9f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-099",
+      "beforeHash": "c80ae2c2601debb1c9447acb96706382aa05ea300221cc42941c73137ac56496",
+      "afterHash": "62882d4c1e55770c02080d8b1efdf9af337404b90b814f5570ab71f8cefc5b98",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-100",
+      "beforeHash": "c99b239eb1d495d7bea87d6e14f74e4de24734955bd1f73a0e682d06df46a8a7",
+      "afterHash": "98e5fc56e7821f6996acead311065db70ce39a59510c0a15331c4652add396a2",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-101",
+      "beforeHash": "5afaeb788dbcd94148661eef39354cb2692a4515dc3c2a6a38960fb0168e3dda",
+      "afterHash": "55af802a897d9fe59493c599acf6fe6bd19daaa5a1a13e0e52b4af73c88e3589",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-102",
+      "beforeHash": "4f53f1f909429d57fd54d75ba46cb1d90f777e836ccb3e7ea0d7af1c505691ac",
+      "afterHash": "c52b893798a2006f5796a97769fdc9fbead96a7e4919ebded53587ecac508835",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-103",
+      "beforeHash": "d1ac4c1ebbf236c63a2cb35cb3d4a2403e3571bcc2958dce404fea1942ff9757",
+      "afterHash": "2a9cc8716548798b2b9bfa29921cebc719f3d88a6cff89f2370a1004f063f103",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-104",
+      "beforeHash": "bbbbb7598a4e709edb991abf9f5989f057b52e252ed0248a6775ac94dedf3235",
+      "afterHash": "c61ceafd100c9910cc815be05073609f488f68e57ea672dd37e6069a6231b92b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-105",
+      "beforeHash": "80be99e1c813c8f0852b90b35dd7041768d07916816cbfcb6603bcd4c07ac5f8",
+      "afterHash": "6e1b439d3a4f7f639d621523df88bc599b923876e35e542c158c63918fe32bfa",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-106",
+      "beforeHash": "6550a9bcce0f976f0be654214545bfba78bd7e33a9a88c512c4368d93f4f3888",
+      "afterHash": "04a41e14ffafb9e9034c2a4bcbaa82dd7c7945584027ee3ea55ffdb98bb40639",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-107",
+      "beforeHash": "45a5b3e24e5a801d485665c9ede9a30480089b53f4e7cd135c30012ba620e5ad",
+      "afterHash": "c1143c3e3c3992dae88e52093652be606d9f3aa444297818e05dd708e4058a34",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-108",
+      "beforeHash": "d56c069763a1abab4d1f65c86b1561e90554e2ad8a12f0642f5c3cd9230bdd56",
+      "afterHash": "c3a3ddc4e4b4717f9a356818db2a373d3a58a438099e302d8ecf705e76bf506f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-109",
+      "beforeHash": "21d161c1c32469e821c4569dd2e16448870bff7334df9d20166be6e82ce415f9",
+      "afterHash": "71839487561b1403bcf10c0c3ecb9a40f712b51696d31760f221944ba18f0598",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 2
+    },
+    {
+      "id": "tv-shows-trivia-110",
+      "beforeHash": "11c36031b4d98bc24738eef807ebebb2cf7dc47fcae115caab7a7f2da05a0102",
+      "afterHash": "4f906b79df39b9bfffd2f3fb869a35f8d9920c898f2244bc4e6eeaf9fea2ebbf",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-111",
+      "beforeHash": "d0037ac4d3e5acac705a504bbe7795b241930f27d8d17566a3aa566038fe6b15",
+      "afterHash": "e8795e2438e2506ed9edb41ecfe97f702c007f6b64cee553954e15f6e6e2ffb9",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 4
+    },
+    {
+      "id": "tv-shows-trivia-112",
+      "beforeHash": "4a15511aee89429b3adac91d15076d5143607e4d0e386d52c44fe4ac22a29c03",
+      "afterHash": "d9327a639982f7eca1f0aea32ad1266eb293a778533690c3350cd58eef6dcc48",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 3
+    },
+    {
+      "id": "tv-shows-trivia-113",
+      "beforeHash": "c4afaa4c1cc3669c5fd4a922c31f7332f9bfecdf4ee3bda510013518621040e5",
+      "afterHash": "067c17f1e621fd1398e372d802613aa7d04bf27f1a6022e189a734ce9719ee66",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-114",
+      "beforeHash": "f62f9b9bfea13dcace30b1953dc8b0e6bf5a938d081d45a035a5e73c9854cae7",
+      "afterHash": "c7db95a26a6f4765ddfc0dcbd7c381cf5f36ed6f5023ee433c916042c83fe766",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-115",
+      "beforeHash": "30a251e38848369f9266e37e121e187de077ddc914d94ab1779eb28439bae616",
+      "afterHash": "48aa93b66b053d0c6d9c2fad37f02f94a41b93459503e582416a7d10068137bd",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-116",
+      "beforeHash": "4ba789461b7255a056f3844a00306d32979100bc17f25c370b099ec451257384",
+      "afterHash": "87ac553064bc1a3295309d78068aaf9759a5b9364adf0eea0a28ccf2bd9283d8",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-117",
+      "beforeHash": "9ba0e592f4795f91290e97c1a2e4a151d185e5ffb37851bbd000a5f155e0bba0",
+      "afterHash": "555c266e687c59fc2fe40d894d35033e0918dafb7a5664bdabd958b7d7d6a85d",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-118",
+      "beforeHash": "67d0290523d9ed979df3b37c2945f12ec86bf14be28507fe9d9c2353da5016d2",
+      "afterHash": "eeff3fdfbdcc2ea2a83d1c9d7f5027901f872faecccf49cd92012deec486d99b",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-119",
+      "beforeHash": "91d5a5f8940ffb430548d7dafdb69524d46462f8e7561e2c0164cea685062a45",
+      "afterHash": "8a836e6c5625be95f5836a3a04dde09c65be92e37b9b68d88123f5513ed60138",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-120",
+      "beforeHash": "34808f993c4cc3b8a3e3349e451173581d0210ffcd79a283bc1a6817c275e28e",
+      "afterHash": "1e4424d9a21d2eb3f8642016f0695f6effacef741e053944cddd7db0c0f4c785",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-121",
+      "beforeHash": "d9d0bbd9f23038472bb8851ebf421d33657aa1ce3de082ba5a9c36ffb50d7446",
+      "afterHash": "6601216ce19651a09aec47aca80fd63249c30abaef8d7679fe0494b93a71980e",
+      "reason": "Standardize Arabic show naming; this item remains outside solo/practice pools.",
+      "spoilerSeason": null
+    },
+    {
+      "id": "tv-shows-trivia-122",
+      "beforeHash": "204af80260edf0e4c7b95a10017cd6cbfddf95a0022a841e5661b1346d19001c",
+      "afterHash": "357b0a770b9727ae8d001af6dd958e5540af1c10e707e919cdb125be55242a0a",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-123",
+      "beforeHash": "971f39376b1ef2affa4bebece1a1604ca5022308ff212e774a3f18f3c26587d5",
+      "afterHash": "21389974f791631050c086d535c49882a6216dee0a848a6e53c1487813b528f6",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 3
+    },
+    {
+      "id": "tv-shows-trivia-124",
+      "beforeHash": "bea2ca7aeb4c8c0876d1f510efae5e3a321e9b410fb0c04af1880a00ae8ccc83",
+      "afterHash": "61e2cf2385596339f72a64d88265d36f5994827ea047d594ab23e3202ab950e6",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 4
+    },
+    {
+      "id": "tv-shows-trivia-125",
+      "beforeHash": "0823e0b67e0cc377918392dab1abfbbc67558ea5a52027651d887123a80dfe3d",
+      "afterHash": "78996ac8428b3e5e8dcb795772dbbcda51fb092b9291acb80bf7fcbefa921f14",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-126",
+      "beforeHash": "b4111eb235de81f1f87ded4ce1a789c9622a70ef4910027f1933cb5b236023b7",
+      "afterHash": "b17fc74bc84a6a12a9cec63c53ced54ec55fac8cc0bdb61a6aedac1e600f0795",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-127",
+      "beforeHash": "06338f02de5f57308717112ca66dad57f491ba5595ce20190d7b5606ea6c3795",
+      "afterHash": "b73969743c89667ceed7ee34d31cf898541703e84ce6c254466381b58c2ca945",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-128",
+      "beforeHash": "be009fa84a32b9a80e8864ea612ac491211806caea89b005923b965c3e1f7a32",
+      "afterHash": "40091d3c0486742e8cd20b6f1793feb5ee5589688c8f073f830c09bd8172e900",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-129",
+      "beforeHash": "08e6ea4c1f991df99462ff48d7f5e5e68829d37f85e6abe98ed02169fc19d00a",
+      "afterHash": "0ac91c4b2f529b818d181a961bad1eea72f19d8f6b5d41b5d9410cbe3918a381",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-130",
+      "beforeHash": "55faa0a6d8609fb20f308e47be5d1c4990d6cf0f4a9b08e4850f175054e5aeb3",
+      "afterHash": "2e9a213c1a714a2b2a7329dde7340dcd92164cef1447290a44f42442fc8816ec",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-131",
+      "beforeHash": "3dc482fd91e78ae4fb66e2b79fb8eb64ce7a347eaaf91ad46d87303bde70db46",
+      "afterHash": "21c039f681550eab1c9753f19c60a90e4a7d37205f301bfc1ced6c254b0d252a",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-132",
+      "beforeHash": "11325ad915c6d8367e32b8aa47cc5bb2c51583dd8f7b2caa5fbe72689e2242d2",
+      "afterHash": "e87896261f99d7f0cb654c5b5b8912f545f1fc8ffc1b4176042fe520a5d8d121",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-133",
+      "beforeHash": "f2cbf73773e6935d993112dc001d738830715a418b5afc2c68e394946286e9fb",
+      "afterHash": "6f1fb6c87a7228cceaab4e8122f707be2698f9a9eca40cf9667aa183c026da9a",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-134",
+      "beforeHash": "c5e4a059efa89c564c31d7ce1ee52e77d4f7264567c2abef4bc00f7162b3aa15",
+      "afterHash": "9f65a77d3d81cb8563ceba76cba27534a582a10bfbf0e33d2502098bc7d819e5",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-135",
+      "beforeHash": "4e81f996661daad6b00b9da7eb870eadccdba921501dd88389a9f08c446b4205",
+      "afterHash": "b6eb37e1a747b0962bb263c02327a5e0de03b64b5741b54213c4c25d5f01d074",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-151",
+      "beforeHash": "efe1fb8289c4232c90a1b2b6b564d8534f30a00f1cb6eed0ffa2058afdf6b6f5",
+      "afterHash": "ed6b322cdefb20333415669c51374ca7d44d3f2df529147b59d7ee4b0c9ef6ba",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-152",
+      "beforeHash": "4c543c1de6f82f6fbe99b3748ade507d39f01a172e3ff1d2df4fbbe40ba007b2",
+      "afterHash": "c64615ec8f3bef9baa5662c4aeee5bc2919563b1edb24784c335d6a6ef8a5e58",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-153",
+      "beforeHash": "be38c1f78575c2d55dfbfbb3a2951eb05c44416fbc26ee5578732e1856aa8f60",
+      "afterHash": "c0ce1fc1a10fd5607a0cae45015195fffdf00b8ace72b829176497e6b12452d7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-154",
+      "beforeHash": "41c8ffd62410a61f7c9fa11b7b2ea269cff7bbe01f1d17fecbe75c9a314f64d4",
+      "afterHash": "f31f39a1abcbf55a121b2dc5e5a3be8f61ddab551ecb49d052d15de6e8bc6fed",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-155",
+      "beforeHash": "262ec02d65ec5a32db1beb297dd62638d11b4b0c060e92c57cbad8bcb6dcfbc4",
+      "afterHash": "2f6e6a852976a7f4aeb48c6c9aae57a00b026a30e842ad690811e3bf073fc53b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-157",
+      "beforeHash": "f5b158e563e01a10f655bc35d2c17fd5e9b6116fbe704facc2d2f5d473e4f61a",
+      "afterHash": "a83a59fe4b76dccbd141c4fd5d7e5e6f62bfb58eb1b16cceadcb65bcd52f737b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-158",
+      "beforeHash": "c4beee472c42c8ea223c815e54f48cbe1840f7a172291bbf2ffa8b1d3a10bab2",
+      "afterHash": "efc98123dde36408048f349136a447d047bef14c3a0dbb105e72f34b9e606f39",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-160",
+      "beforeHash": "096e6d583311102d89f44b6de73c7be02ce884c907992f6299fbf4c58fa03f05",
+      "afterHash": "44fdee63c07288209b192e96cdb774327a3ffdffdd00c0f27b098bada90baabb",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-162",
+      "beforeHash": "1ec6797ef88e326e05c07f4541a8dfb83fe173c255191ff269f0a6fe0cab548c",
+      "afterHash": "715f88afd7c8af8398c296fdf1de8463ede61e95e4396cc0f75977945687dba0",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-166",
+      "beforeHash": "b7a373bd27d4fb72bff95186fab6dda93da74295e0b1e54fa5eab580611e694f",
+      "afterHash": "7c26d4fa6e4e0feaceb97dd70dcb52d92e8bb4d8c0639494f2dda667814f7bf6",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-176",
+      "beforeHash": "12c5566a0591175ad3047107f401dfe3e1498d18b90a7acebaaa1f208849a9fa",
+      "afterHash": "3470d65e6f419babf999eaf11ef54d23a48755e5e93e7b14a7395738a258850f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-177",
+      "beforeHash": "1987ea1abbeae1aae1ff48a552c6738a38eae1c3d817f2c78dc0c25dd69796cb",
+      "afterHash": "2f418d9520bab94a7864cf25d25f2e4cc15a03be7854cae35f9cbabe3cd9e3e7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-178",
+      "beforeHash": "9216fa32fba293c1536e9fa059eb6869e0c24b9e62a19de85215c4ed9918e68c",
+      "afterHash": "81d196fff85fd3ccd391e7a0174cf42ddf18adc41be8423944c1c74c6a40bb20",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-179",
+      "beforeHash": "5fa85dd7d8f4c5e593f66c6a4cfa963d02c4023a3a90dc2ac113ea80ac599bbd",
+      "afterHash": "6b36e7cd22ec9237af14f04f7204a05cbbb89d4ead336cc30af1b493f90427fc",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-180",
+      "beforeHash": "1af859502d980e59eca1690df0cb1022fec7fe227ad2ddde6c1ec7a296777ebc",
+      "afterHash": "ccb6c584ee2860fe1f25c84384ebe8bd42d4122b4f2e4df9f0c5599834f1cfef",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-181",
+      "beforeHash": "f59eb3fa39088e65c6a5fc6e05c7cb35701fc77a318f779633f778adacc911f4",
+      "afterHash": "2298839174ac39531af09916f16dd4ca420783bcaa0fde3fa6d9b09ba5eae78f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-182",
+      "beforeHash": "77cf0a1625dbb9613b1f961ae06dacc9687f03bc7d23250bc894ddf4ccfeab15",
+      "afterHash": "e7ef4095d877826ad26c752430caba9f6a373a9fc9090994da7f0445aa3adc56",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-183",
+      "beforeHash": "430d840c1f1b872abbd14ca524bf2fb883d56180ec385fe63a5b51e05eb0e803",
+      "afterHash": "9b6eec47a4bc64713f06ecb7887db8938b8acdd1811ae24286a12a64bb4d18b0",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-185",
+      "beforeHash": "5d1936c7310bb2975625d8b0875990e0100c1f9d593ec0de795695d8a4d53ede",
+      "afterHash": "de0339af30a65622974b5cc7f7354da672d92a2405a255a03fcefefaf4be6ad7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-194",
+      "beforeHash": "dc7b39dd5aa750f9814283128f2c0e3b896554a8bd99fff036dc18e371f77c56",
+      "afterHash": "d7a7399a08231fcb27fed71e10d00ed16d3b5f11b4a646076269cd5778778f3e",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-201",
+      "beforeHash": "88888404016e5e47c706034280735b5335222cc8bda07d86269582bacb19a841",
+      "afterHash": "e24b8967b8308082e95c4778b4ff40f0c3ec35fff8b40aacd653b0234ee7b146",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-202",
+      "beforeHash": "ba3cb78b09ed76b8effb336a438fcc6aa304303ba40a641533b07cae943d27ab",
+      "afterHash": "d68985f87e59e0154967282c703d12c7c1924158bb256001311f353d488f76fa",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-203",
+      "beforeHash": "214cd37fbb08a6c8ace29f094fc15cf1b8fa104fd913df646dec909effa37395",
+      "afterHash": "56279868872fb62c2a88aff70690c1f47e8835f93ad7a0f0e7e7bc8d256a8f94",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-205",
+      "beforeHash": "1d7ccfd2d99a9cec532f8c92058e6cf276343e84d63c60507f82b15d52420c55",
+      "afterHash": "f9e3e76cebe03ea55278327fd20432e13b8198be5973d0e3526e41571d7401c3",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-206",
+      "beforeHash": "e29e962510bbc056ae8661c6b378bb42607096bd963d71fc0aec2563686db7d6",
+      "afterHash": "caaefc81e7ff4a6d4291732df0860ef2e18f6ab3a3baeee770b1f255a510d3ca",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-207",
+      "beforeHash": "f5a95ad4ff32d754149dbe1d09c9a6f917577fd9d1db8c7d1ed9386ff8013d5c",
+      "afterHash": "e629f54be0c7e94199fc516cc497b882417a66b07929e10f912c4a264324deed",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-208",
+      "beforeHash": "4c050234cad84f63fca501935bfc8d5a5691f2fa64995ce045920f7716190af4",
+      "afterHash": "29cb37b713799994000ad9cd51f6a636377492d1ee67b99b73ee9a715cfea688",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-209",
+      "beforeHash": "cc99ab163fd7e8144f2ee721955dc5600e9cac0f41a414f4b5ab2c45d926d842",
+      "afterHash": "788d533c43725895cde7623e849f2ffd046bf342bb45b4c1483e4f3c814c1a5e",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-212",
+      "beforeHash": "3a261bc35b313af433ba3e36114d0bcf34442fa17f1aa63ee089124f01728a81",
+      "afterHash": "c5f7cf49af6fac657564558cc97eb7969c38fec381bd8ee16ea1294a38b8bbdb",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-214",
+      "beforeHash": "1118a2bf062c51352eaaae8a407d75e01abbf4ca3d777a7065043e1085b5c4a3",
+      "afterHash": "30749226c054eb972ad436f7d4c7bb7e9e58e963316153bc69ddb00b15d30713",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-215",
+      "beforeHash": "f0312095a4a7a229eb66060f736f04a3d044737c49944a7149d5504204d1e7db",
+      "afterHash": "086c006287dbcb02de9e55817198d2cc46462afdbb1d807c59cc7e432fbb94eb",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-217",
+      "beforeHash": "5a912c389a78927f7af1d8ea3f3230d3dcbc356381496e07ee0830df8c7baf10",
+      "afterHash": "66e91a9372fcb2fddf265cf9aa219ed9ed340e798e5c889bf2c6be37354e21b7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-218",
+      "beforeHash": "167ea14368d68ee592c0e64a27914b0ab3f8fcfe6d9d315017de8b3c198c7f9a",
+      "afterHash": "95735f33f1666adcae4b3301bb96ab0835edd494be614f81e5bdd1eba308df6f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-220",
+      "beforeHash": "902ed2b0fb9eeecd2b0bd7d3cde8d4cb3c32847afb0c00d9a57a67ade12f1773",
+      "afterHash": "a2ff2d23b2eec062986ea2b2b89185e3470dc68eb1f822c60f1d629a02d79b8c",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 1
+    },
+    {
+      "id": "tv-shows-trivia-226",
+      "beforeHash": "69bf963fbcf5f8434d837e65768aac6a9882f6955644eb7799fb94a7b68490e7",
+      "afterHash": "1ee0bd00bb276cb798ecbbd3deb6b804d22038c10c7281c121ac17fb71b6beac",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-227",
+      "beforeHash": "5d4f5c6f4412945319ff10f9908d1ffba43dd070420cf591b239c15c4d2877f2",
+      "afterHash": "7b131064add127d8451003b8d832951718601f92aa3567beb13ef5024e95756b",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-228",
+      "beforeHash": "efd881c9329939e8d410d4bdb92f9d5a6bc2e95bc3ce504351577ae74dbc065f",
+      "afterHash": "fccb44186011ba9327d0900a5c3a742edf01e008b61aa13c2ade13af5bc3b2a9",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-229",
+      "beforeHash": "2592c95e9be77139a540343a50c525a2c5b84a97ac3429ae22cae45d833a6d97",
+      "afterHash": "f0d39fdfe5dafe75fde7bb0338f427e330c52a5d5b5c0f5d9483654c719345f9",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-231",
+      "beforeHash": "d65de23db9493c91f3f310b23b98e5b30042080296b58d1af2d85008000e741f",
+      "afterHash": "3f24ddbc8fb3ae7e1ae28534b7077a4c45af38c1a857514229f8fef24c5a251f",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-233",
+      "beforeHash": "fd692d12e8542e3fd1a58f2946bf0a347ed48e0abc53fa9aebc4725f1e01d7af",
+      "afterHash": "0d97c69434d01eb61f6539529e1a9ab48913ace3b7eb236841fdaec007f5a3a0",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-237",
+      "beforeHash": "f6fa4159e045e5888c2a58b5e4546d1efc5f5db049b15d84cf104815bd4381aa",
+      "afterHash": "d5a0ce96b305e1cb6590707c8a38127bab41817142b598a9cc2a3b38e7408ad7",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-238",
+      "beforeHash": "0c9924b918a9d4a3a785bd915be4da4b19350f572fc7028464b3853549625567",
+      "afterHash": "83fbecffa0e41c516ceccd5ae7724cb5c5d006d3516ba50d7a39f8864e0287d2",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-239",
+      "beforeHash": "de6b3fd62c9529b5158ade98a221ff3fff84d7e04a086a95da76d9192c9417fb",
+      "afterHash": "37e8a3697063aa65b5260a8f4f26fbaaa1b7f25ee0e2539fd5d5ddfcfd9c2cdc",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    },
+    {
+      "id": "tv-shows-trivia-242",
+      "beforeHash": "c39d3bcbd861784238eee97d6988401ceae566d7b7d6f540bd01736c3d1ff773",
+      "afterHash": "bc310afbffaaddac8fc56994bf495e72fac4040c7f0a2f69dd1bb37367d423a0",
+      "reason": "Bilingual multiple-choice authoring and whole-card spoiler screening for the TV solo redesign.",
+      "spoilerSeason": 0
+    }
+  ]
+}

@@ -4,11 +4,11 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
-      "en": "What is the first and last name of the chemistry teacher played by Bryan Cranston in Breaking Bad?",
-      "ar": "ما الاسم الأول واسم العائلة لمعلّم الكيمياء الذي يجسده برايان كرانستون في «بريكينغ باد»؟"
+      "en": "Which character does Bryan Cranston play in Breaking Bad?",
+      "ar": "أي شخصية يجسّد برايان كرانستون في «بريكينغ باد»؟"
     },
     "answer": {
       "en": "Walter White",
@@ -16,6 +16,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "e6595d04",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Jesse Pinkman",
+          "Hank Schrader",
+          "Saul Goodman"
+        ],
+        "ar": [
+          "جيسي بينكمان",
+          "هانك شرادر",
+          "سول غودمان"
+        ]
+      },
+      "explanation": {
+        "en": "Bryan Cranston plays Walter White, the central character of Breaking Bad.",
+        "ar": "يجسد برايان كرانستون والتر وايت، الشخصية الرئيسية في «بريكينغ باد»."
+      }
     }
   },
   {
@@ -23,7 +44,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What subject does Walter White teach at the beginning of the show?",
@@ -35,6 +56,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "87f2bb53",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Physics",
+          "Biology",
+          "Mathematics"
+        ],
+        "ar": [
+          "الفيزياء",
+          "الأحياء",
+          "الرياضيات"
+        ]
+      },
+      "explanation": {
+        "en": "Walter's classroom subject is chemistry. It is also the expertise that drives the show's premise.",
+        "ar": "يدرّس والتر الكيمياء، وهي الخبرة التي تقوم عليها فكرة المسلسل."
+      }
     }
   },
   {
@@ -42,7 +84,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What street alias does Walter White adopt?",
@@ -54,6 +96,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "9349db36",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Oppenheimer",
+          "Feynman",
+          "Schrödinger"
+        ],
+        "ar": [
+          "أوبنهايمر",
+          "فاينمان",
+          "شرودنغر"
+        ]
+      },
+      "explanation": {
+        "en": "Walter adopts the alias Heisenberg, the surname of physicist Werner Heisenberg.",
+        "ar": "يتخذ والتر لقب هايزنبرغ، وهو اسم عائلة الفيزيائي فيرنر هايزنبرغ."
+      }
     }
   },
   {
@@ -61,7 +124,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "Who is Walter White's former student and drug partner?",
@@ -73,6 +136,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "83c49e8",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Gale Boetticher",
+          "Mike Ehrmantraut",
+          "Todd Alquist"
+        ],
+        "ar": [
+          "غيل بوتيكر",
+          "مايك إيرمانتراوت",
+          "تود ألكويست"
+        ]
+      },
+      "explanation": {
+        "en": "Jesse Pinkman is Walter's former student. Aaron Paul plays Jesse.",
+        "ar": "جيسي بينكمان تلميذ والتر السابق، ويؤدي دوره آرون بول."
+      }
     }
   },
   {
@@ -80,7 +164,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What drug do Walter and Jesse produce?",
@@ -92,6 +176,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "464bc3ca",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Cocaine",
+          "Heroin",
+          "LSD"
+        ],
+        "ar": [
+          "الكوكايين",
+          "الهيروين",
+          "إل إس دي"
+        ]
+      },
+      "explanation": {
+        "en": "The central premise follows Walter and Jesse producing methamphetamine.",
+        "ar": "تدور الفكرة الأساسية للمسلسل حول إنتاج والتر وجيسي للميثامفيتامين."
+      }
     }
   },
   {
@@ -99,7 +204,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the name of Walter White's wife?",
@@ -111,6 +216,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "5bbdb2ae",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Marie Schrader",
+          "Lydia Rodarte-Quayle",
+          "Gretchen Schwartz"
+        ],
+        "ar": [
+          "ماري شرادر",
+          "ليديا رودارت كويل",
+          "غريتشن شوارتز"
+        ]
+      },
+      "explanation": {
+        "en": "Anna Gunn plays Skyler White, Walter's wife.",
+        "ar": "تؤدي آنا غان دور سكايلر وايت، زوجة والتر."
+      }
     }
   },
   {
@@ -118,11 +244,11 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "In which US state does Breaking Bad take place?",
-      "ar": "في أي ولاية أمريكية تدور أحداث برايكينج باد؟"
+      "ar": "في أي ولاية أمريكية تدور أحداث بريكينغ باد؟"
     },
     "answer": {
       "en": "New Mexico",
@@ -130,6 +256,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "b76febf0",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Arizona",
+          "Nevada",
+          "Texas"
+        ],
+        "ar": [
+          "أريزونا",
+          "نيفادا",
+          "تكساس"
+        ]
+      },
+      "explanation": {
+        "en": "Breaking Bad is set in Albuquerque, in the US state of New Mexico.",
+        "ar": "تدور أحداث «بريكينغ باد» في ألباكركي بولاية نيو مكسيكو الأمريكية."
+      }
     }
   },
   {
@@ -137,7 +284,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the name of Walter's DEA brother-in-law?",
@@ -149,6 +296,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "17bff186",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Steve Gomez",
+          "Mike Ehrmantraut",
+          "Ted Beneke"
+        ],
+        "ar": [
+          "ستيف غوميز",
+          "مايك إيرمانتراوت",
+          "تيد بينيكي"
+        ]
+      },
+      "explanation": {
+        "en": "Hank Schrader is a DEA agent and Walter's brother-in-law. Dean Norris plays him.",
+        "ar": "هانك شرادر عميل في وكالة مكافحة المخدرات وصهر والتر، ويجسده دين نوريس."
+      }
     }
   },
   {
@@ -156,7 +324,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What fast-food chain is used as a drug front in the show?",
@@ -168,6 +336,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "2c8a9b76",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "Pollos Express",
+          "El Pollo Loco",
+          "Cluckin' Bell"
+        ],
+        "ar": [
+          "بويوس إكسبرس",
+          "إل بويو لوكو",
+          "كلاكن بيل"
+        ]
+      },
+      "explanation": {
+        "en": "Los Pollos Hermanos is the restaurant chain linked to Gus Fring's operation.",
+        "ar": "لوس بويوس إيرمانوس سلسلة المطاعم المرتبطة بعمليات غاس فرينغ."
+      }
     }
   },
   {
@@ -175,7 +364,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "Who is the drug kingpin behind Los Pollos Hermanos?",
@@ -194,7 +383,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What distinctive color is Walter's meth?",
@@ -213,7 +402,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the name of the lawyer who represents Walter and Jesse?",
@@ -232,7 +421,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "Which type of cancer is Walter White diagnosed with in Breaking Bad's pilot?",
@@ -244,6 +433,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1647cd48",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Skin cancer",
+          "Colon cancer",
+          "Leukaemia"
+        ],
+        "ar": [
+          "سرطان الجلد",
+          "سرطان القولون",
+          "ابيضاض الدم"
+        ]
+      },
+      "explanation": {
+        "en": "Walter's lung-cancer diagnosis is part of the pilot's setup for the series.",
+        "ar": "تشخيص والتر بسرطان الرئة جزء من مقدمة المسلسل في الحلقة الأولى."
+      }
     }
   },
   {
@@ -251,7 +461,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "Which of Jesse's girlfriends is a tattoo artist and his landlord in Breaking Bad?",
@@ -270,7 +480,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What iconic phrase does Walter say: 'I am the one who ___'?",
@@ -282,6 +492,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "774d7fa6",
+      "spoilerSeason": 4,
+      "distractors": {
+        "en": [
+          "Runs",
+          "Waits",
+          "Listens"
+        ],
+        "ar": [
+          "يركض",
+          "ينتظر",
+          "يصغي"
+        ]
+      },
+      "explanation": {
+        "en": "The missing word is knocks, from Walter's speech in season four.",
+        "ar": "الكلمة الناقصة هي «يطرق»، من حديث والتر في الموسم الرابع."
+      }
     }
   },
   {
@@ -289,7 +520,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "How does Gus Fring die?",
@@ -301,6 +532,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "e298d28c",
+      "spoilerSeason": 4,
+      "distractors": {
+        "en": [
+          "Poisoned at a cartel meeting",
+          "Shot in a restaurant",
+          "Killed in a car crash"
+        ],
+        "ar": [
+          "تسمم في اجتماع للكارتل",
+          "أُطلق عليه النار في مطعم",
+          "قُتل في حادث سيارة"
+        ]
+      },
+      "explanation": {
+        "en": "In the fourth-season finale, the bomb attached to Hector's wheelchair kills Gus.",
+        "ar": "في ختام الموسم الرابع تقتل القنبلة المثبتة بكرسي هيكتور غاس."
+      }
     }
   },
   {
@@ -308,7 +560,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the name of the neo-Nazi gang leader who becomes the final antagonist?",
@@ -327,7 +579,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What chemical does Walter use to dissolve bodies in early seasons?",
@@ -346,7 +598,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the name of the 'disappearer' who gives people new identities?",
@@ -365,7 +617,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the name of Walter's son who has cerebral palsy?",
@@ -384,7 +636,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What type of vehicle do Walter and Jesse use as a mobile laboratory early in Breaking Bad?",
@@ -396,6 +648,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "2dd4d9fc",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "A delivery van",
+          "A school bus",
+          "A refrigerated truck"
+        ],
+        "ar": [
+          "شاحنة توصيل",
+          "حافلة مدرسية",
+          "شاحنة تبريد"
+        ]
+      },
+      "explanation": {
+        "en": "The early mobile laboratory is an RV: a recreational vehicle, or motorhome.",
+        "ar": "المختبر المتنقل في بداية المسلسل عربة سكن متنقلة، وتُعرف بالإنجليزية باختصار RV."
+      }
     }
   },
   {
@@ -403,7 +676,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "Which company did Walter White co-found with Elliott Schwartz before the events of Breaking Bad?",
@@ -415,6 +688,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f8a192d2",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Madrigal Electromotive",
+          "Beneke Fabricators",
+          "Vamonos Pest"
+        ],
+        "ar": [
+          "مادريغال إلكتروموتيف",
+          "بينيكي فابريكيتورز",
+          "فامونوس بيست"
+        ]
+      },
+      "explanation": {
+        "en": "Gray Matter Technologies is the company from Walter's earlier life with Elliott Schwartz.",
+        "ar": "غراي ماتر تكنولوجيز هي الشركة المرتبطة بماضي والتر مع إليوت شوارتز."
+      }
     }
   },
   {
@@ -422,7 +716,7 @@
     "difficulty": "very-advanced",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What song plays over Walter's death in the final episode?",
@@ -441,7 +735,7 @@
     "difficulty": "very-advanced",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "What is the chemical formula for methamphetamine, which Walter uses in the show?",
@@ -460,7 +754,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Breaking Bad",
-      "ar": "برايكينج باد"
+      "ar": "بريكينغ باد"
     },
     "question": {
       "en": "Who created the television series Breaking Bad?",
@@ -472,6 +766,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "4ce52f9d",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "David Simon",
+          "David Chase",
+          "Aaron Sorkin"
+        ],
+        "ar": [
+          "ديفيد سايمون",
+          "ديفيد تشيس",
+          "آرون سوركين"
+        ]
+      },
+      "explanation": {
+        "en": "Vince Gilligan created Breaking Bad. Its first season premiered in 2008.",
+        "ar": "ابتكر فينس غيليغان «بريكينغ باد»، وعُرض موسمه الأول عام 2008."
+      }
     }
   },
   {
@@ -491,6 +806,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "53ca663",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "House Lannister",
+          "House Targaryen",
+          "House Baratheon"
+        ],
+        "ar": [
+          "بيت لانستر",
+          "بيت تارغاريان",
+          "بيت باراثيون"
+        ]
+      },
+      "explanation": {
+        "en": "Winter is Coming is House Stark's motto, connecting the family with the North.",
+        "ar": "«الشتاء قادم» شعار بيت ستارك، الأسرة المرتبطة بالشمال."
+      }
     }
   },
   {
@@ -510,6 +846,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "6ffe4cbd",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Ned Stark",
+          "Tywin Lannister",
+          "Viserys Targaryen"
+        ],
+        "ar": [
+          "نيد ستارك",
+          "تايوين لانستر",
+          "فيسيريس تارغاريان"
+        ]
+      },
+      "explanation": {
+        "en": "Robert Baratheon is king when the television story begins.",
+        "ar": "روبرت باراثيون هو الملك عند بداية القصة التلفزيونية."
+      }
     }
   },
   {
@@ -529,6 +886,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "69b541ad",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Essos",
+          "Sothoryos",
+          "Ulthos"
+        ],
+        "ar": [
+          "إيسوس",
+          "سوثوريوس",
+          "أولثوس"
+        ]
+      },
+      "explanation": {
+        "en": "The Seven Kingdoms are in Westeros. Essos lies across the Narrow Sea.",
+        "ar": "تقع الممالك السبع في ويستيروس، بينما تقع إيسوس على الجانب الآخر من البحر الضيق."
+      }
     }
   },
   {
@@ -586,6 +964,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f9a8b3a2",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Nymeria",
+          "Summer",
+          "Grey Wind"
+        ],
+        "ar": [
+          "نيميريا",
+          "سمر",
+          "غراي ويند"
+        ]
+      },
+      "explanation": {
+        "en": "Ghost is Jon Snow's white direwolf.",
+        "ar": "غوست هو الذئب الأبيض الخاص بجون سنو."
+      }
     }
   },
   {
@@ -605,6 +1004,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "ca228dd",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Oathkeeper",
+          "Longclaw",
+          "Widow's Wail"
+        ],
+        "ar": [
+          "أوثكيبر",
+          "لونغكلو",
+          "ويل الأرملة"
+        ]
+      },
+      "explanation": {
+        "en": "Arya calls her slender sword Needle.",
+        "ar": "تطلق آريا على سيفها الرفيع اسم نيدل، أي الإبرة."
+      }
     }
   },
   {
@@ -643,6 +1063,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "920b2354",
+      "spoilerSeason": 7,
+      "distractors": {
+        "en": [
+          "Ned Stark",
+          "Aerys Targaryen",
+          "Robert Baratheon"
+        ],
+        "ar": [
+          "نيد ستارك",
+          "إيريس تارغاريان",
+          "روبرت باراثيون"
+        ]
+      },
+      "explanation": {
+        "en": "The television series reveals Jon's father to be Rhaegar Targaryen; this question requires season seven.",
+        "ar": "يكشف المسلسل أن والد جون هو ريغار تارغاريان؛ يتطلب هذا السؤال إكمال الموسم السابع."
+      }
     }
   },
   {
@@ -662,6 +1103,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "a75fa88b",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Petyr Baelish",
+          "Grand Maester Pycelle",
+          "Davos Seaworth"
+        ],
+        "ar": [
+          "بيتر بايليش",
+          "المايستر بايسيل",
+          "دافوس سيوورث"
+        ]
+      },
+      "explanation": {
+        "en": "Varys is called the Spider, a reference to his web of informants.",
+        "ar": "يُلقَّب فاريس بالعنكبوت، في إشارة إلى شبكة مخبريه."
+      }
     }
   },
   {
@@ -700,6 +1162,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "ee22ca07",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "Balerion, Meraxes, and Vhagar",
+          "Drogon, Vhagar, and Syrax",
+          "Rhaegal, Caraxes, and Vermithor"
+        ],
+        "ar": [
+          "باليريون وميراكسيس وفاغار",
+          "دروغون وفاغار وسيراكس",
+          "ريغال وكاراكسيس وفيرميثور"
+        ]
+      },
+      "explanation": {
+        "en": "Daenerys names her three dragons Drogon, Rhaegal, and Viserion.",
+        "ar": "تسمي دينيريس تنانينها الثلاثة دروغون وريغال وفيسيريون."
+      }
     }
   },
   {
@@ -738,6 +1221,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "17e5b47",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "J. R. R. Tolkien",
+          "Brandon Sanderson",
+          "Robert Jordan"
+        ],
+        "ar": [
+          "جيه آر آر تولكين",
+          "براندون ساندرسون",
+          "روبرت جوردان"
+        ]
+      },
+      "explanation": {
+        "en": "George R. R. Martin wrote A Song of Ice and Fire, the books adapted for the series.",
+        "ar": "كتب جورج آر آر مارتن سلسلة «أغنية الجليد والنار» التي اقتُبس منها المسلسل."
+      }
     }
   },
   {
@@ -757,6 +1261,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "a9deee66",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Longclaw",
+          "Heartsbane",
+          "Dark Sister"
+        ],
+        "ar": [
+          "لونغكلو",
+          "هارتسبين",
+          "دارك سيستر"
+        ]
+      },
+      "explanation": {
+        "en": "Ice is the great ancestral sword of House Stark.",
+        "ar": "آيس هو السيف العريق الكبير لبيت ستارك."
+      }
     }
   },
   {
@@ -776,6 +1301,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "816a07c2",
+      "spoilerSeason": 8,
+      "distractors": {
+        "en": [
+          "Jon Snow",
+          "Bran Stark",
+          "Daenerys Targaryen"
+        ],
+        "ar": [
+          "جون سنو",
+          "بران ستارك",
+          "دينيريس تارغاريان"
+        ]
+      },
+      "explanation": {
+        "en": "Arya kills the Night King during the Battle of Winterfell in season eight.",
+        "ar": "تقتل آريا ملك الليل خلال معركة وينترفيل في الموسم الثامن."
+      }
     }
   },
   {
@@ -814,6 +1360,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "aca9a750",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "8 episodes",
+          "10 episodes",
+          "12 episodes"
+        ],
+        "ar": [
+          "8 حلقات",
+          "10 حلقات",
+          "12 حلقة"
+        ]
+      },
+      "explanation": {
+        "en": "The eighth and final television season contains six episodes.",
+        "ar": "يتألف الموسم التلفزيوني الثامن والأخير من ست حلقات."
+      }
     }
   },
   {
@@ -852,6 +1419,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "df72e12",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Highgarden",
+          "Winterfell",
+          "Dragonstone"
+        ],
+        "ar": [
+          "هايغاردن",
+          "وينترفيل",
+          "دراغونستون"
+        ]
+      },
+      "explanation": {
+        "en": "Casterly Rock is the ancestral seat of House Lannister.",
+        "ar": "كاسترلي روك المقر التاريخي لبيت لانستر."
+      }
     }
   },
   {
@@ -871,6 +1459,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "70c8c7c1",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The Long Night",
+          "The Dragon and the Wolf",
+          "The Winds of Winter"
+        ],
+        "ar": [
+          "الليلة الطويلة",
+          "التنين والذئب",
+          "رياح الشتاء"
+        ]
+      },
+      "explanation": {
+        "en": "The final episode is titled The Iron Throne. This is an episode-title question, without its outcome.",
+        "ar": "عنوان الحلقة الأخيرة «العرش الحديدي». السؤال عن اسم الحلقة ولا يكشف نهايتها."
+      }
     }
   },
   {
@@ -890,6 +1499,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "28c48bcd",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Nikolaj Coster-Waldau",
+          "Aidan Gillen",
+          "Conleth Hill"
+        ],
+        "ar": [
+          "نيكولاي كوستر والداو",
+          "إيدان غيلن",
+          "كونليث هيل"
+        ]
+      },
+      "explanation": {
+        "en": "Peter Dinklage plays Tyrion Lannister throughout the television series.",
+        "ar": "يجسد بيتر دينكلاج تيريون لانستر في المسلسل التلفزيوني."
+      }
     }
   },
   {
@@ -947,6 +1577,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d61ed33b",
+      "spoilerSeason": 6,
+      "distractors": {
+        "en": [
+          "Guard the gate",
+          "Close the door",
+          "Hold the line"
+        ],
+        "ar": [
+          "احرس البوابة",
+          "أغلق الباب",
+          "اثبت في مكانك"
+        ]
+      },
+      "explanation": {
+        "en": "The words Hold the door become Hodor in the sixth-season episode The Door.",
+        "ar": "تتحول عبارة «هولد ذا دور» إلى اسم هودور في حلقة «الباب» من الموسم السادس."
+      }
     }
   },
   {
@@ -966,6 +1617,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "45243127",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Monk's Café",
+          "Café Nervosa",
+          "Luke's Diner"
+        ],
+        "ar": [
+          "مقهى مونكس",
+          "مقهى نيرفوزا",
+          "مطعم لوكس"
+        ]
+      },
+      "explanation": {
+        "en": "Central Perk is the friends' familiar coffee shop, with its distinctive sofa.",
+        "ar": "سنترال بيرك هو مقهى الأصدقاء المعتاد، المعروف بأريكته المميزة."
+      }
     }
   },
   {
@@ -1004,6 +1676,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "69ddd635",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "Dr. Richard Burke",
+          "Dr. Doug Ross",
+          "Dr. Derek Shepherd"
+        ],
+        "ar": [
+          "الدكتور ريتشارد بيرك",
+          "الدكتور دوغ روس",
+          "الدكتور ديريك شيبرد"
+        ]
+      },
+      "explanation": {
+        "en": "Joey's soap-opera character is Dr. Drake Ramoray.",
+        "ar": "شخصية جوي في المسلسل النهاري هي الدكتور دريك راموراي."
+      }
     }
   },
   {
@@ -1023,6 +1716,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "15c289f8",
+      "spoilerSeason": 10,
+      "distractors": {
+        "en": [
+          "Once",
+          "Twice",
+          "Four times"
+        ],
+        "ar": [
+          "مرة واحدة",
+          "مرتان",
+          "أربع مرات"
+        ]
+      },
+      "explanation": {
+        "en": "Ross's marriages to Carol, Emily, and Rachel each end in divorce.",
+        "ar": "تنتهي زيجات روس من كارول وإيميلي وراشيل بالطلاق."
+      }
     }
   },
   {
@@ -1042,6 +1756,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1d10bee3",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Architecture",
+          "Fashion design",
+          "Journalism"
+        ],
+        "ar": [
+          "الهندسة المعمارية",
+          "تصميم الأزياء",
+          "الصحافة"
+        ]
+      },
+      "explanation": {
+        "en": "Monica is a chef. Her love of cooking is a recurring part of her character.",
+        "ar": "مونيكا طاهية، وحبها للطبخ جزء متكرر من شخصيتها."
+      }
     }
   },
   {
@@ -1061,6 +1796,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "a9ed1c07",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "Sticky Shoes",
+          "Little Black Curly Hair",
+          "Holiday Song"
+        ],
+        "ar": [
+          "ستيكي شوز",
+          "ليتل بلاك كيرلي هير",
+          "هوليداي سونغ"
+        ]
+      },
+      "explanation": {
+        "en": "Smelly Cat is Phoebe's best-known song, often performed with her guitar.",
+        "ar": "«سميلي كات» أشهر أغنيات فيبي، وتؤديها كثيرًا مع غيتارها."
+      }
     }
   },
   {
@@ -1080,6 +1836,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "847d0bd7",
+      "spoilerSeason": 7,
+      "distractors": {
+        "en": [
+          "Richard Burke",
+          "Joey Tribbiani",
+          "Pete Becker"
+        ],
+        "ar": [
+          "ريتشارد بيرك",
+          "جوي تريبياني",
+          "بيت بيكر"
+        ]
+      },
+      "explanation": {
+        "en": "Monica and Chandler marry at the end of season seven.",
+        "ar": "تتزوج مونيكا وتشاندلر في نهاية الموسم السابع."
+      }
     }
   },
   {
@@ -1099,6 +1876,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "e5165e8b",
+      "spoilerSeason": 8,
+      "distractors": {
+        "en": [
+          "Ben",
+          "Ella",
+          "Sophie"
+        ],
+        "ar": [
+          "بن",
+          "إيلا",
+          "صوفي"
+        ]
+      },
+      "explanation": {
+        "en": "Rachel and Ross name their daughter Emma.",
+        "ar": "تسمي راشيل وروس ابنتهما إيما."
+      }
     }
   },
   {
@@ -1118,6 +1916,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "4d83fa6f",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Jill Green",
+          "Amy Green",
+          "Janice Hosenstein"
+        ],
+        "ar": [
+          "جيل غرين",
+          "إيمي غرين",
+          "جانيس هوزنستاين"
+        ]
+      },
+      "explanation": {
+        "en": "Ursula Buffay is Phoebe's twin. Lisa Kudrow plays both sisters.",
+        "ar": "أورسولا بوفي شقيقة فيبي التوأم، وتؤدي ليزا كودرو الدورين."
+      }
     }
   },
   {
@@ -1137,6 +1956,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "6b44401a",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Susan Bunch",
+          "Emily Waltham",
+          "Julie"
+        ],
+        "ar": [
+          "سوزان بانش",
+          "إيميلي والتهام",
+          "جولي"
+        ]
+      },
+      "explanation": {
+        "en": "Carol Willick is Ross's first wife, introduced as part of his background at the start of the series.",
+        "ar": "كارول ويليك زوجة روس الأولى، وتُقدَّم ضمن خلفية شخصيته في بداية المسلسل."
+      }
     }
   },
   {
@@ -1156,6 +1996,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "6237a946",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Maurice",
+          "Milo",
+          "Monty"
+        ],
+        "ar": [
+          "موريس",
+          "ميلو",
+          "مونتي"
+        ]
+      },
+      "explanation": {
+        "en": "Ross's pet monkey in the first season is called Marcel.",
+        "ar": "قرد روس الأليف في الموسم الأول اسمه مارسيل."
+      }
     }
   },
   {
@@ -1175,6 +2036,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "63437513",
+      "spoilerSeason": 5,
+      "distractors": {
+        "en": [
+          "Waddle",
+          "Snowy",
+          "Pingu"
+        ],
+        "ar": [
+          "وادل",
+          "سنوي",
+          "بينغو"
+        ]
+      },
+      "explanation": {
+        "en": "Joey's beloved stuffed penguin is called Hugsy.",
+        "ar": "بطريق جوي المحشو المحبوب اسمه هاغزي."
+      }
     }
   },
   {
@@ -1194,6 +2076,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "578642eb",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "8 seasons (1994–2002)",
+          "9 seasons (1994–2003)",
+          "12 seasons (1994–2006)"
+        ],
+        "ar": [
+          "8 مواسم (1994–2002)",
+          "9 مواسم (1994–2003)",
+          "12 موسمًا (1994–2006)"
+        ]
+      },
+      "explanation": {
+        "en": "Friends ran for ten seasons, from 1994 to 2004.",
+        "ar": "استمر «فريندز» عشرة مواسم من 1994 إلى 2004."
+      }
     }
   },
   {
@@ -1204,15 +2107,36 @@
       "ar": "فريندز"
     },
     "question": {
-      "en": "What was the original development title of Friends?",
-      "ar": "ما الاسم الأصلي لفريندز خلال مرحلة التطوير؟"
+      "en": "Which café-themed working title was used while Friends was being developed?",
+      "ar": "أي عنوان مؤقت مرتبط بمقهى استُخدم خلال تطوير مسلسل «فريندز»؟"
     },
     "answer": {
-      "en": "Insomnia Café (later 'Friends Like Us')",
-      "ar": "'مقهى الأرق' ثم 'أصدقاء مثلنا'"
+      "en": "Insomnia Café",
+      "ar": "مقهى الأرق (Insomnia Café)"
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Midnight Café",
+          "Coffee Break",
+          "The Corner Café"
+        ],
+        "ar": [
+          "مقهى منتصف الليل",
+          "استراحة قهوة",
+          "مقهى الزاوية"
+        ]
+      },
+      "explanation": {
+        "en": "Insomnia Café was an early working title before the series became Friends.",
+        "ar": "كان «مقهى الأرق» أحد عناوين التطوير المبكرة قبل اعتماد اسم «فريندز»."
+      },
+      "contentKey": "f5365041"
     }
   },
   {
@@ -1232,6 +2156,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f8255e3c",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Matt LeBlanc",
+          "David Schwimmer",
+          "Paul Rudd"
+        ],
+        "ar": [
+          "مات لوبلان",
+          "ديفيد شويمر",
+          "بول راد"
+        ]
+      },
+      "explanation": {
+        "en": "Matthew Perry plays Chandler Bing; Matt LeBlanc plays Joey and David Schwimmer plays Ross.",
+        "ar": "يجسد ماثيو بيري تشاندلر بينغ، ومات لوبلان جوي، وديفيد شويمر روس."
+      }
     }
   },
   {
@@ -1289,6 +2234,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "$100,000 per episode",
+          "$250,000 per episode",
+          "$500,000 per episode"
+        ],
+        "ar": [
+          "100 ألف دولار لكل حلقة",
+          "250 ألف دولار لكل حلقة",
+          "500 ألف دولار لكل حلقة"
+        ]
+      },
+      "explanation": {
+        "en": "Each of the six leads earned $1 million per episode in seasons nine and ten, after negotiating together.",
+        "ar": "حصل كل من الممثلين الستة الرئيسيين على مليون دولار للحلقة في الموسمين التاسع والعاشر، بعد تفاوضهم معًا."
+      },
+      "contentKey": "327e751"
     }
   },
   {
@@ -1308,6 +2274,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "bfeda1aa",
+      "spoilerSeason": 6,
+      "distractors": {
+        "en": [
+          "Sashimi",
+          "Nigiri",
+          "Wasabi"
+        ],
+        "ar": [
+          "ساشيمي",
+          "نيغيري",
+          "واسابي"
+        ]
+      },
+      "explanation": {
+        "en": "Ross uses unagi for a state of awareness; in Japanese cuisine it means freshwater eel.",
+        "ar": "يستخدم روس «أوناغي» لوصف حالة وعي، بينما تعني في المطبخ الياباني ثعبان البحر النهري."
+      }
     }
   },
   {
@@ -1346,6 +2333,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1cbf2e29",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Boston, Massachusetts",
+          "Chicago, Illinois",
+          "Seattle, Washington"
+        ],
+        "ar": [
+          "بوسطن، ماساتشوستس",
+          "شيكاغو، إلينوي",
+          "سياتل، واشنطن"
+        ]
+      },
+      "explanation": {
+        "en": "Friends is set in New York City, although the sitcom was filmed in California.",
+        "ar": "تدور أحداث «فريندز» في مدينة نيويورك، رغم تصوير المسلسل في كاليفورنيا."
+      }
     }
   },
   {
@@ -1365,6 +2373,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "16f525b4",
+      "spoilerSeason": 4,
+      "distractors": {
+        "en": [
+          "Paris",
+          "Rome",
+          "Dublin"
+        ],
+        "ar": [
+          "باريس",
+          "روما",
+          "دبلن"
+        ]
+      },
+      "explanation": {
+        "en": "Ross and Emily's wedding takes the friends to London.",
+        "ar": "يسافر الأصدقاء إلى لندن لحضور زفاف روس وإيميلي."
+      }
     }
   },
   {
@@ -1384,6 +2413,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d46c0b39",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Mike",
+          "Richard",
+          "Pete"
+        ],
+        "ar": [
+          "مايك",
+          "ريتشارد",
+          "بيت"
+        ]
+      },
+      "explanation": {
+        "en": "James Michael Tyler plays Gunther, the familiar face behind the Central Perk counter.",
+        "ar": "يجسد جيمس مايكل تايلر غانثر، الوجه المألوف خلف منضدة سنترال بيرك."
+      }
     }
   },
   {
@@ -1403,6 +2453,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "57a658bf",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Archaeology",
+          "Astronomy",
+          "Marine biology"
+        ],
+        "ar": [
+          "علم الآثار",
+          "علم الفلك",
+          "الأحياء البحرية"
+        ]
+      },
+      "explanation": {
+        "en": "Ross is a paleontologist: his scientific field studies ancient life through fossils.",
+        "ar": "روس عالم حفريات؛ يدرس هذا التخصص الحياة القديمة من خلال الأحافير."
+      }
     }
   },
   {
@@ -1441,6 +2512,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "cac05670",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Philadelphia, Pennsylvania",
+          "Newark, New Jersey",
+          "Detroit, Michigan"
+        ],
+        "ar": [
+          "فيلادلفيا، بنسلفانيا",
+          "نيوارك، نيوجيرسي",
+          "ديترويت، ميشيغان"
+        ]
+      },
+      "explanation": {
+        "en": "Baltimore is the setting that connects The Wire's institutions and communities.",
+        "ar": "بالتيمور هي المدينة التي تربط مؤسسات «ذا واير» ومجتمعاته."
+      }
     }
   },
   {
@@ -1460,6 +2552,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d3410954",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "New York Police Department",
+          "Maryland State Police",
+          "Federal Bureau of Investigation"
+        ],
+        "ar": [
+          "شرطة نيويورك",
+          "شرطة ولاية ماريلاند",
+          "مكتب التحقيقات الفيدرالي"
+        ]
+      },
+      "explanation": {
+        "en": "The series chiefly follows investigators from the Baltimore Police Department.",
+        "ar": "يتابع المسلسل أساسًا محققين من شرطة بالتيمور."
+      }
     }
   },
   {
@@ -1479,6 +2592,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "50ff7ea1",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Marlo Stanfield",
+          "Proposition Joe",
+          "Slim Charles"
+        ],
+        "ar": [
+          "مارلو ستانفيلد",
+          "بروبوزيشن جو",
+          "سليم تشارلز"
+        ]
+      },
+      "explanation": {
+        "en": "Avon Barksdale leads the organisation at the centre of the first season's investigation.",
+        "ar": "يقود آفون باركسديل التنظيم الذي تتمحور حوله تحقيقات الموسم الأول."
+      }
     }
   },
   {
@@ -1498,6 +2632,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1a309ef8",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Bubbles",
+          "Bodie Broadus",
+          "D'Angelo Barksdale"
+        ],
+        "ar": [
+          "بابلز",
+          "بودي برودوس",
+          "دي أنجيلو باركسديل"
+        ]
+      },
+      "explanation": {
+        "en": "Michael K. Williams plays Omar Little, the stick-up man with his own code.",
+        "ar": "يجسد مايكل كيه ويليامز عمر ليتل، السارق الذي يلتزم بقواعده الخاصة."
+      }
     }
   },
   {
@@ -1517,6 +2672,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "192b7b98",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "A newspaper column",
+          "A prison fence",
+          "An undercover identity"
+        ],
+        "ar": [
+          "عمود صحفي",
+          "سياج سجن",
+          "هوية سرية"
+        ]
+      },
+      "explanation": {
+        "en": "The title points to wiretap surveillance, a central investigative tool in the story.",
+        "ar": "يشير العنوان إلى التنصت على الاتصالات، وهو أداة تحقيق أساسية في القصة."
+      }
     }
   },
   {
@@ -1527,8 +2703,8 @@
       "ar": "ذا واير"
     },
     "question": {
-      "en": "Who is the detective who starts the wiretap investigation in Season 1?",
-      "ar": "من هو المحقق الذي يُطلق تحقيق التنصت في الموسم الأول؟"
+      "en": "Which Baltimore detective is played by Dominic West in The Wire?",
+      "ar": "أي محقق من بالتيمور يجسّده دومينيك ويست في «ذا واير»؟"
     },
     "answer": {
       "en": "Jimmy McNulty",
@@ -1536,6 +2712,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "b81fb040",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Lester Freamon",
+          "William Rawls",
+          "Ellis Carver"
+        ],
+        "ar": [
+          "ليستر فريمون",
+          "ويليام رولز",
+          "إيليس كارفر"
+        ]
+      },
+      "explanation": {
+        "en": "Dominic West plays Jimmy McNulty, one of the detectives at the centre of The Wire.",
+        "ar": "يجسد دومينيك ويست جيمي ماكنولتي، أحد المحققين الرئيسيين في «ذا واير»."
+      }
     }
   },
   {
@@ -1555,6 +2752,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "8d34ea40",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "David Chase",
+          "Vince Gilligan",
+          "Shawn Ryan"
+        ],
+        "ar": [
+          "ديفيد تشيس",
+          "فينس غيليغان",
+          "شون رايان"
+        ]
+      },
+      "explanation": {
+        "en": "David Simon created The Wire, drawing on his background reporting in Baltimore.",
+        "ar": "ابتكر ديفيد سايمون «ذا واير»، مستفيدًا من خبرته الصحفية في بالتيمور."
+      }
     }
   },
   {
@@ -1574,6 +2792,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f8cd6185",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Omar Little",
+          "Bunk Moreland",
+          "Frank Sobotka"
+        ],
+        "ar": [
+          "عمر ليتل",
+          "بانك مورلاند",
+          "فرانك سوبوتكا"
+        ]
+      },
+      "explanation": {
+        "en": "Stringer Bell is Avon's business partner, played by Idris Elba.",
+        "ar": "سترينغر بيل شريك آفون في العمل، ويؤدي دوره إدريس إلبا."
+      }
     }
   },
   {
@@ -1612,6 +2851,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "4819107d",
+      "spoilerSeason": 4,
+      "distractors": {
+        "en": [
+          "The prison system",
+          "The healthcare system",
+          "The court system"
+        ],
+        "ar": [
+          "نظام السجون",
+          "النظام الصحي",
+          "النظام القضائي"
+        ]
+      },
+      "explanation": {
+        "en": "Season four puts Baltimore's public schools and their pupils in the foreground.",
+        "ar": "يبرز الموسم الرابع مدارس بالتيمور الحكومية وطلابها."
+      }
     }
   },
   {
@@ -1631,6 +2891,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "8c7f296f",
+      "spoilerSeason": 3,
+      "distractors": {
+        "en": [
+          "Bunnyville",
+          "New Amsterdam",
+          "Westside Freeport"
+        ],
+        "ar": [
+          "بانيفيل",
+          "نيو أمستردام",
+          "ويستسايد فريبورت"
+        ]
+      },
+      "explanation": {
+        "en": "Hamsterdam is the nickname for the experimental drug-tolerance zone in season three.",
+        "ar": "هامستردام هو لقب منطقة السماح التجريبية بتجارة المخدرات في الموسم الثالث."
+      }
     }
   },
   {
@@ -1650,6 +2931,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "9db7982f",
+      "spoilerSeason": 5,
+      "distractors": {
+        "en": [
+          "The Washington Post",
+          "The Philadelphia Inquirer",
+          "The New York Times"
+        ],
+        "ar": [
+          "واشنطن بوست",
+          "فيلادلفيا إنكوايرر",
+          "نيويورك تايمز"
+        ]
+      },
+      "explanation": {
+        "en": "The fifth season explores journalism through The Baltimore Sun.",
+        "ar": "يتناول الموسم الخامس الصحافة من خلال صحيفة بالتيمور صن."
+      }
     }
   },
   {
@@ -1669,6 +2971,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "8063351c",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "Season 1",
+          "Season 3",
+          "Season 4"
+        ],
+        "ar": [
+          "الموسم الأول",
+          "الموسم الثالث",
+          "الموسم الرابع"
+        ]
+      },
+      "explanation": {
+        "en": "The second season expands the story to Baltimore's docks and port workers.",
+        "ar": "يوسّع الموسم الثاني القصة لتشمل أرصفة بالتيمور وعمال الميناء."
+      }
     }
   },
   {
@@ -1707,6 +3030,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "34c2a93f",
+      "spoilerSeason": 3,
+      "distractors": {
+        "en": [
+          "Avon Barksdale and Slim Charles",
+          "Marlo Stanfield and Chris Partlow",
+          "Bodie Broadus and Poot"
+        ],
+        "ar": [
+          "آفون باركسديل وسليم تشارلز",
+          "مارلو ستانفيلد وكريس بارتلو",
+          "بودي برودوس وبوت"
+        ]
+      },
+      "explanation": {
+        "en": "Omar Little and Brother Mouzone kill Stringer Bell late in season three.",
+        "ar": "يقتل عمر ليتل وبراذر موزون سترينغر بيل قرب نهاية الموسم الثالث."
+      }
     }
   },
   {
@@ -1859,6 +3203,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "782bcb60",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Dominic West",
+          "Lance Reddick",
+          "Wood Harris"
+        ],
+        "ar": [
+          "دومينيك ويست",
+          "لانس ريديك",
+          "وود هاريس"
+        ]
+      },
+      "explanation": {
+        "en": "Idris Elba plays Stringer Bell. Wood Harris plays Avon Barksdale.",
+        "ar": "يجسد إدريس إلبا سترينغر بيل، ويؤدي وود هاريس دور آفون باركسديل."
+      }
     }
   },
   {
@@ -1878,6 +3243,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "85858403",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "Nick Sobotka",
+          "Spiros Vondas",
+          "Sergei Malatov"
+        ],
+        "ar": [
+          "نيك سوبوتكا",
+          "سبيروس فونداس",
+          "سيرغي مالاتوف"
+        ]
+      },
+      "explanation": {
+        "en": "Frank Sobotka is the union leader at the centre of the second-season dock storyline.",
+        "ar": "فرانك سوبوتكا زعيم النقابة في قلب قصة الميناء بالموسم الثاني."
+      }
     }
   },
   {
@@ -1897,6 +3283,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "4cf4b4ef",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "AMC",
+          "Showtime",
+          "FX"
+        ],
+        "ar": [
+          "إيه إم سي",
+          "شوتايم",
+          "إف إكس"
+        ]
+      },
+      "explanation": {
+        "en": "The Wire was an HBO original series.",
+        "ar": "«ذا واير» مسلسل أصلي من شبكة HBO."
+      }
     }
   },
   {
@@ -1904,7 +3311,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "In what decade is most of Stranger Things set?",
@@ -1916,6 +3323,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "18accce5",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The 1960s",
+          "The 1970s",
+          "The 1990s"
+        ],
+        "ar": [
+          "الستينيات",
+          "السبعينيات",
+          "التسعينيات"
+        ]
+      },
+      "explanation": {
+        "en": "The main story begins in 1983, giving the series its recognisable 1980s setting.",
+        "ar": "تبدأ القصة الرئيسية عام 1983، ما يمنح المسلسل أجواء الثمانينيات المميزة."
+      }
     }
   },
   {
@@ -1923,7 +3351,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is the name of the fictional town where Stranger Things takes place?",
@@ -1935,6 +3363,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "c2a277fb",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Derry, Maine",
+          "Riverdale, New York",
+          "Sunnydale, California"
+        ],
+        "ar": [
+          "ديري، مين",
+          "ريفرديل، نيويورك",
+          "سانيديل، كاليفورنيا"
+        ]
+      },
+      "explanation": {
+        "en": "Hawkins is the fictional Indiana town at the centre of Stranger Things.",
+        "ar": "هوكينز بلدة خيالية في إنديانا تتمحور حولها أحداث المسلسل."
+      }
     }
   },
   {
@@ -1942,7 +3391,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is the name of the mysterious girl with psychic powers?",
@@ -1954,6 +3403,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d8a49590",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Max",
+          "Robin",
+          "Nancy"
+        ],
+        "ar": [
+          "ماكس",
+          "روبين",
+          "نانسي"
+        ]
+      },
+      "explanation": {
+        "en": "Millie Bobby Brown plays Eleven, also called El.",
+        "ar": "تجسد ميلي بوبي براون إيليفن، التي تُدعى أيضًا إل."
+      }
     }
   },
   {
@@ -1961,7 +3431,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "Who is the main boy who goes missing in Season 1?",
@@ -1973,6 +3443,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d4f4aa0f",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Mike Wheeler",
+          "Lucas Sinclair",
+          "Dustin Henderson"
+        ],
+        "ar": [
+          "مايك ويلر",
+          "لوكاس سنكلير",
+          "داستن هندرسون"
+        ]
+      },
+      "explanation": {
+        "en": "Will Byers's disappearance is the opening mystery of the first season.",
+        "ar": "اختفاء ويل بايرز هو اللغز الذي يبدأ به الموسم الأول."
+      }
     }
   },
   {
@@ -1980,7 +3471,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is the name of the dark parallel dimension in Stranger Things?",
@@ -1992,6 +3483,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "4cd6aecc",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "The Other Side",
+          "The Dark Place",
+          "The Further"
+        ],
+        "ar": [
+          "الجانب الآخر",
+          "المكان المظلم",
+          "العالم البعيد"
+        ]
+      },
+      "explanation": {
+        "en": "The alternate dimension is called the Upside Down.",
+        "ar": "يُطلق على البعد الموازي اسم العالم المقلوب."
+      }
     }
   },
   {
@@ -1999,7 +3511,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is Eleven's birth name in Stranger Things, before she takes Hopper's surname?",
@@ -2018,7 +3530,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What government lab is responsible for the experiments on Eleven?",
@@ -2037,7 +3549,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is the name of the main monster in Season 1?",
@@ -2049,6 +3561,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "bd599bd7",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "The Beholder",
+          "The Owlbear",
+          "The Gelatinous Cube"
+        ],
+        "ar": [
+          "بيهولدر",
+          "أولبير",
+          "المكعب الهلامي"
+        ]
+      },
+      "explanation": {
+        "en": "The children name the first-season creature the Demogorgon, borrowing from Dungeons & Dragons.",
+        "ar": "يسمي الأطفال مخلوق الموسم الأول ديموغورغون، مستعيرين الاسم من «دانجنز آند دراغونز»."
+      }
     }
   },
   {
@@ -2056,7 +3589,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What Dungeons & Dragons-inspired name do the children give the shadow monster in season two of Stranger Things?",
@@ -2068,6 +3601,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "ae84b42f",
+      "spoilerSeason": 2,
+      "distractors": {
+        "en": [
+          "The Beholder",
+          "The Lich",
+          "The Demogorgon"
+        ],
+        "ar": [
+          "بيهولدر",
+          "ليتش",
+          "ديموغورغون"
+        ]
+      },
+      "explanation": {
+        "en": "The shadow creature in season two is given the name Mind Flayer.",
+        "ar": "يُطلق على مخلوق الظل في الموسم الثاني اسم مايند فلاير."
+      }
     }
   },
   {
@@ -2075,7 +3629,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "Who plays Chief Jim Hopper?",
@@ -2087,6 +3641,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f552935c",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Matthew Modine",
+          "Sean Astin",
+          "Paul Reiser"
+        ],
+        "ar": [
+          "ماثيو مودين",
+          "شون أستين",
+          "بول رايزر"
+        ]
+      },
+      "explanation": {
+        "en": "David Harbour plays Hawkins police chief Jim Hopper.",
+        "ar": "يجسد ديفيد هاربر جيم هوبر، قائد شرطة هوكينز."
+      }
     }
   },
   {
@@ -2094,7 +3669,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What Kate Bush song is central to Season 4?",
@@ -2106,6 +3681,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "8e12d116",
+      "spoilerSeason": 4,
+      "distractors": {
+        "en": [
+          "Wuthering Heights",
+          "Cloudbusting",
+          "Babooshka"
+        ],
+        "ar": [
+          "وذرينغ هايتس",
+          "كلاودباستينغ",
+          "بابوشكا"
+        ]
+      },
+      "explanation": {
+        "en": "Kate Bush's Running Up That Hill is a recurring musical element in season four.",
+        "ar": "أغنية كيت بوش «رانينغ أب ذات هيل» عنصر موسيقي متكرر في الموسم الرابع."
+      }
     }
   },
   {
@@ -2113,7 +3709,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What shopping mall becomes central to the Season 3 plot?",
@@ -2125,6 +3721,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "c5e77317",
+      "spoilerSeason": 3,
+      "distractors": {
+        "en": [
+          "Hawkins Plaza",
+          "Lakeside Mall",
+          "Maplewood Center"
+        ],
+        "ar": [
+          "هوكينز بلازا",
+          "ليكسايد مول",
+          "مركز مابلوود"
+        ]
+      },
+      "explanation": {
+        "en": "Starcourt Mall is the shopping centre central to the third season.",
+        "ar": "ستاركورت مول هو مركز التسوق المحوري في الموسم الثالث."
+      }
     }
   },
   {
@@ -2132,7 +3749,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is the name of Eleven's lab 'papa'?",
@@ -2151,7 +3768,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "How many seasons does Stranger Things have in total?",
@@ -2170,7 +3787,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is Vecna's real identity?",
@@ -2189,7 +3806,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "Who plays Max Mayfield in Stranger Things?",
@@ -2201,6 +3818,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "bcd0e67c",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Maya Hawke",
+          "Natalia Dyer",
+          "Millie Bobby Brown"
+        ],
+        "ar": [
+          "مايا هوك",
+          "ناتاليا داير",
+          "ميلي بوبي براون"
+        ]
+      },
+      "explanation": {
+        "en": "Sadie Sink plays Max Mayfield.",
+        "ar": "تؤدي سادي سينك دور ماكس مايفيلد."
+      }
     }
   },
   {
@@ -2208,7 +3846,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What character sacrifices himself in the Season 4 finale?",
@@ -2227,7 +3865,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What actual Cold War US government program do the Hawkins Lab experiments parallel?",
@@ -2246,7 +3884,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "Who are the Duffer Brothers?",
@@ -2258,6 +3896,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "be0c7b2b",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Shawn and Ryan Duffer",
+          "James and John Duffer",
+          "Ben and Sam Duffer"
+        ],
+        "ar": [
+          "شون ورايان دافر",
+          "جيمس وجون دافر",
+          "بن وسام دافر"
+        ]
+      },
+      "explanation": {
+        "en": "The Duffer Brothers are twins Matt and Ross Duffer, the show's creators.",
+        "ar": "الأخوان دافر هما التوأمان مات وروس دافر، مبتكرا المسلسل."
+      }
     }
   },
   {
@@ -2265,7 +3924,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What year did Stranger Things first release on Netflix?",
@@ -2277,6 +3936,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "2e0f0f3c",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "2014",
+          "2015",
+          "2017"
+        ],
+        "ar": [
+          "2014",
+          "2015",
+          "2017"
+        ]
+      },
+      "explanation": {
+        "en": "The first season premiered on Netflix in July 2016.",
+        "ar": "عُرض الموسم الأول على نتفليكس في يوليو 2016."
+      }
     }
   },
   {
@@ -2284,7 +3964,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "In Season 3, what are the Russians trying to accomplish beneath the mall?",
@@ -2303,7 +3983,7 @@
     "difficulty": "easy",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What tabletop role-playing game are the boys playing near the beginning of Stranger Things' first episode?",
@@ -2315,6 +3995,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "3265a8",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Warhammer",
+          "Call of Cthulhu",
+          "Pathfinder"
+        ],
+        "ar": [
+          "وورهامر",
+          "نداء كثولو",
+          "باثفايندر"
+        ]
+      },
+      "explanation": {
+        "en": "The boys play Dungeons & Dragons, which also shapes the language of their adventures.",
+        "ar": "يلعب الصبية «دانجنز آند دراغونز»، وتؤثر مصطلحاتها في وصف مغامراتهم."
+      }
     }
   },
   {
@@ -2322,7 +4023,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "In season three of Stranger Things, what is the name of the ice-cream shop where Steve and Robin work?",
@@ -2334,6 +4035,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "3091c664",
+      "spoilerSeason": 3,
+      "distractors": {
+        "en": [
+          "Sundae Palace",
+          "Frosty Palace",
+          "Dairy Queen"
+        ],
+        "ar": [
+          "سانداي بالاس",
+          "فروستي بالاس",
+          "ديري كوين"
+        ]
+      },
+      "explanation": {
+        "en": "Steve and Robin work at Scoops Ahoy, a nautical-themed ice-cream shop.",
+        "ar": "يعمل ستيف وروبين في سكوبس أهوي، متجر آيس كريم ذي طابع بحري."
+      }
     }
   },
   {
@@ -2341,7 +4063,7 @@
     "difficulty": "medium",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "What is the name of Eddie Munson's Dungeons & Dragons club in Stranger Things season four?",
@@ -2353,6 +4075,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "8e466a8f",
+      "spoilerSeason": 4,
+      "distractors": {
+        "en": [
+          "The Dragon Club",
+          "The Dungeon Masters",
+          "The Midnight Club"
+        ],
+        "ar": [
+          "نادي التنين",
+          "سادة الزنازين",
+          "نادي منتصف الليل"
+        ]
+      },
+      "explanation": {
+        "en": "Eddie leads the Hellfire Club, the high-school Dungeons & Dragons club.",
+        "ar": "يقود إيدي نادي هيلفاير، نادي «دانجنز آند دراغونز» في المدرسة الثانوية."
+      }
     }
   },
   {
@@ -2360,7 +4103,7 @@
     "difficulty": "hard",
     "subcategory": {
       "en": "Stranger Things",
-      "ar": "أشياء غريبة"
+      "ar": "سترينجر ثينغز"
     },
     "question": {
       "en": "Which two musicians composed the main title theme of Stranger Things?",
@@ -2372,6 +4115,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "6f9b41e8",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Trent Reznor and Atticus Ross",
+          "Hans Zimmer and Lorne Balfe",
+          "Ramin Djawadi and Bear McCreary"
+        ],
+        "ar": [
+          "ترينت ريزنور وأتيكوس روس",
+          "هانز زيمر ولورن بالف",
+          "رامين جوادي وبير ماكريري"
+        ]
+      },
+      "explanation": {
+        "en": "Kyle Dixon and Michael Stein created the synth-driven score and main title theme.",
+        "ar": "ألّف كايل ديكسون ومايكل ستاين الموسيقى وشارة البداية المعتمدة على الأصوات الإلكترونية."
+      }
     }
   },
   {
@@ -2391,6 +4155,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "ca3ad610",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Lebanon",
+          "Jordan",
+          "Egypt"
+        ],
+        "ar": [
+          "لبنان",
+          "الأردن",
+          "مصر"
+        ]
+      },
+      "explanation": {
+        "en": "Bab Al-Hara is a Syrian television drama.",
+        "ar": "«باب الحارة» مسلسل درامي سوري."
+      }
     }
   },
   {
@@ -2410,6 +4195,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "75d9a1be",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The Abbasid period",
+          "The First World War only",
+          "The 1970s"
+        ],
+        "ar": [
+          "العصر العباسي",
+          "الحرب العالمية الأولى فقط",
+          "السبعينيات"
+        ]
+      },
+      "explanation": {
+        "en": "Its historical setting evokes Damascus during the French Mandate period.",
+        "ar": "يستحضر الإطار التاريخي للمسلسل دمشق في فترة الانتداب الفرنسي."
+      }
     }
   },
   {
@@ -2429,6 +4235,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1db5e2c9",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Haret Al-Midan",
+          "Haret Al-Salihiya",
+          "Haret Al-Qalaa"
+        ],
+        "ar": [
+          "حارة الميدان",
+          "حارة الصالحية",
+          "حارة القلعة"
+        ]
+      },
+      "explanation": {
+        "en": "Haret Al-Dabaa is the fictional neighbourhood associated with the early seasons.",
+        "ar": "حارة الضبع هي الحارة الخيالية المرتبطة بالمواسم الأولى."
+      }
     }
   },
   {
@@ -2448,6 +4275,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "686b5115",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Al Jazeera",
+          "Rotana Cinema",
+          "Dubai Sports"
+        ],
+        "ar": [
+          "الجزيرة",
+          "روتانا سينما",
+          "دبي الرياضية"
+        ]
+      },
+      "explanation": {
+        "en": "MBC aired Bab Al-Hara as part of its Ramadan drama programming.",
+        "ar": "عرضت MBC «باب الحارة» ضمن مسلسلات رمضان."
+      }
     }
   },
   {
@@ -2467,6 +4315,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d7949840",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Shawwal",
+          "Muharram",
+          "Rajab"
+        ],
+        "ar": [
+          "شوال",
+          "محرم",
+          "رجب"
+        ]
+      },
+      "explanation": {
+        "en": "Bab Al-Hara became closely associated with Ramadan television viewing.",
+        "ar": "ارتبط «باب الحارة» بمشاهدة المسلسلات خلال شهر رمضان."
+      }
     }
   },
   {
@@ -2486,6 +4355,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d0cb8fa0",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Milad Youssef",
+          "Qusai Khouli",
+          "Taim Hasan"
+        ],
+        "ar": [
+          "ميلاد يوسف",
+          "قصي خولي",
+          "تيم حسن"
+        ]
+      },
+      "explanation": {
+        "en": "Wael Sharaf originally played Moataz before the role was recast.",
+        "ar": "أدى وائل شرف دور معتز في الأصل قبل إسناده إلى ممثل آخر."
+      }
     }
   },
   {
@@ -2505,6 +4395,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "3e424ed",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Tailor",
+          "Blacksmith",
+          "Grocer"
+        ],
+        "ar": [
+          "خياط",
+          "حداد",
+          "بقال"
+        ]
+      },
+      "explanation": {
+        "en": "Abu Issam is known as the neighbourhood barber and a practitioner of traditional healing.",
+        "ar": "يُعرف أبو عصام بأنه حلاق الحارة وممارس للعلاج الشعبي."
+      }
     }
   },
   {
@@ -2524,6 +4435,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "aa93fa06",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Bassam Kousa",
+          "Samer Al-Masri",
+          "Ayman Zidan"
+        ],
+        "ar": [
+          "بسام كوسا",
+          "سامر المصري",
+          "أيمن زيدان"
+        ]
+      },
+      "explanation": {
+        "en": "Abbas Al-Nouri plays Abu Issam, one of the show's central characters.",
+        "ar": "يجسد عباس النوري أبا عصام، إحدى الشخصيات الرئيسية في المسلسل."
+      }
     }
   },
   {
@@ -2543,6 +4475,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "e7168aa3",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "2004",
+          "2008",
+          "2010"
+        ],
+        "ar": [
+          "2004",
+          "2008",
+          "2010"
+        ]
+      },
+      "explanation": {
+        "en": "The first season of Bab Al-Hara premiered in 2006.",
+        "ar": "بدأ عرض الموسم الأول من «باب الحارة» عام 2006."
+      }
     }
   },
   {
@@ -2562,6 +4515,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1f13de0e",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Hatem Ali",
+          "Najdat Anzour",
+          "Haitham Hakki"
+        ],
+        "ar": [
+          "حاتم علي",
+          "نجدت أنزور",
+          "هيثم حقي"
+        ]
+      },
+      "explanation": {
+        "en": "Bassam Al-Mulla directed the show's early seasons.",
+        "ar": "أخرج بسام الملا المواسم الأولى من المسلسل."
+      }
     }
   },
   {
@@ -2866,6 +4840,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "800bd92",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Duraid Lahham",
+          "Ayman Zidan",
+          "Naji Jabr"
+        ],
+        "ar": [
+          "دريد لحام",
+          "أيمن زيدان",
+          "ناجي جبر"
+        ]
+      },
+      "explanation": {
+        "en": "Yasser Al-Azmeh is the performer most closely associated with Maraya and its creation.",
+        "ar": "ياسر العظمة هو الفنان الأبرز المرتبط بابتكار «مرايا» وبطولته."
+      }
     }
   },
   {
@@ -2885,6 +4880,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "12ac7a7b",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Windows",
+          "Stories",
+          "Faces"
+        ],
+        "ar": [
+          "نوافذ",
+          "حكايات",
+          "وجوه"
+        ]
+      },
+      "explanation": {
+        "en": "Maraya means mirrors: a fitting name for a show reflecting society back to its audience.",
+        "ar": "كلمة «مرايا» جمع مرآة، وهو اسم يناسب عملًا يعكس المجتمع لجمهوره."
+      }
     }
   },
   {
@@ -2904,6 +4920,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "33643723",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "A historical epic",
+          "A courtroom drama",
+          "A talent competition"
+        ],
+        "ar": [
+          "ملحمة تاريخية",
+          "دراما محاكم",
+          "مسابقة مواهب"
+        ]
+      },
+      "explanation": {
+        "en": "Maraya uses comedy sketches and satire rather than one continuous dramatic plot.",
+        "ar": "يعتمد «مرايا» على اللوحات الكوميدية الساخرة بدل حبكة درامية واحدة متصلة."
+      }
     }
   },
   {
@@ -2923,6 +4960,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "36d29e7a",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The 1970s",
+          "The 1990s",
+          "The 2000s"
+        ],
+        "ar": [
+          "السبعينيات",
+          "التسعينيات",
+          "الألفينيات"
+        ]
+      },
+      "explanation": {
+        "en": "Maraya began in 1982, placing its debut in the 1980s.",
+        "ar": "انطلق «مرايا» عام 1982، أي في الثمانينيات."
+      }
     }
   },
   {
@@ -2942,6 +5000,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "da9d235d",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Egypt",
+          "Lebanon",
+          "Kuwait"
+        ],
+        "ar": [
+          "مصر",
+          "لبنان",
+          "الكويت"
+        ]
+      },
+      "explanation": {
+        "en": "Maraya originated in Syria and became a widely recognised Arabic comedy series.",
+        "ar": "نشأ «مرايا» في سوريا وأصبح من المسلسلات الكوميدية العربية المعروفة."
+      }
     }
   },
   {
@@ -2980,6 +5059,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "303239d6",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Bassam Al-Mulla",
+          "Najdat Anzour",
+          "Haitham Hakki"
+        ],
+        "ar": [
+          "بسام الملا",
+          "نجدت أنزور",
+          "هيثم حقي"
+        ]
+      },
+      "explanation": {
+        "en": "Hisham Sharbatji is credited as the director of the 2006 edition.",
+        "ar": "هشام شربتجي هو مخرج نسخة «مرايا» لعام 2006."
+      }
     }
   },
   {
@@ -2999,6 +5099,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "7f485a7a",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Taher Mamelli",
+          "Ramin Djawadi",
+          "Amine Bouhafa"
+        ],
+        "ar": [
+          "طاهر مامللي",
+          "رامين جوادي",
+          "أمين بوحافة"
+        ]
+      },
+      "explanation": {
+        "en": "Iyad Rimawi composed the music for Maraya 2006.",
+        "ar": "ألّف إياد الريماوي موسيقى «مرايا 2006»."
+      }
     }
   },
   {
@@ -3037,6 +5158,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "36b4fc5",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Walid Saif",
+          "Hassan Sami Youssef",
+          "Rami Kousa"
+        ],
+        "ar": [
+          "وليد سيف",
+          "حسن سامي يوسف",
+          "رامي كوسا"
+        ]
+      },
+      "explanation": {
+        "en": "Nour Al-Din Al-Hashimi shares the writing credit with Yasser Al-Azmeh for Maraya 2006.",
+        "ar": "يشارك نور الدين الهاشمي ياسر العظمة في تأليف «مرايا 2006»."
+      }
     }
   },
   {
@@ -3075,6 +5217,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "c23a0661",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Hadith Al-Maraya",
+          "Ahla Al-Maraya",
+          "Shofo Al-Nas"
+        ],
+        "ar": [
+          "حديث المرايا",
+          "أحلى المرايا",
+          "شوفوا الناس"
+        ]
+      },
+      "explanation": {
+        "en": "The 2004 edition used the title Eshna W Shofna.",
+        "ar": "حملت نسخة عام 2004 عنوان «عشنا وشفنا»."
+      }
     }
   },
   {
@@ -3151,6 +5314,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1419d631",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Amer Fahd",
+          "Hatem Ali",
+          "Bassam Al-Mulla"
+        ],
+        "ar": [
+          "عامر فهد",
+          "حاتم علي",
+          "بسام الملا"
+        ]
+      },
+      "explanation": {
+        "en": "Mamoun Al-Bunni directed the 2000 edition of Maraya.",
+        "ar": "أخرج مأمون البني نسخة «مرايا» لعام 2000."
+      }
     }
   },
   {
@@ -3341,6 +5525,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "332d495",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Kuwait",
+          "Bahrain",
+          "United Arab Emirates"
+        ],
+        "ar": [
+          "الكويت",
+          "البحرين",
+          "الإمارات العربية المتحدة"
+        ]
+      },
+      "explanation": {
+        "en": "Tash Ma Tash is a Saudi comedy series.",
+        "ar": "«طاش ما طاش» مسلسل كوميدي سعودي."
+      }
     }
   },
   {
@@ -3360,6 +5565,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f2009ca9",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Tash Al-Jadeed",
+          "Tash Al-Awwal",
+          "Tash Wa Bas"
+        ],
+        "ar": [
+          "طاش الجديد",
+          "طاش الأول",
+          "طاش وبس"
+        ]
+      },
+      "explanation": {
+        "en": "The 2023 revival was titled Tash Al-Awda: Tash, the Return.",
+        "ar": "حمل العمل العائد عام 2023 عنوان «طاش العودة»."
+      }
     }
   },
   {
@@ -3379,6 +5605,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "61e8c840",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "A historical drama",
+          "A singing competition",
+          "A detective serial"
+        ],
+        "ar": [
+          "دراما تاريخية",
+          "مسابقة غنائية",
+          "مسلسل تحريات"
+        ]
+      },
+      "explanation": {
+        "en": "The show is known for satirical sketches broadcast during Ramadan.",
+        "ar": "يشتهر المسلسل بلوحات ساخرة تُعرض خلال رمضان."
+      }
     }
   },
   {
@@ -3398,6 +5645,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1fd4ab9c",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Abdulhussain Abdulredha and Saad Al-Faraj",
+          "Hassan Al-Ballam and Dawood Hussein",
+          "Fayez Al-Malki and Tariq Al-Ali"
+        ],
+        "ar": [
+          "عبد الحسين عبد الرضا وسعد الفرج",
+          "حسن البلام وداود حسين",
+          "فايز المالكي وطارق العلي"
+        ]
+      },
+      "explanation": {
+        "en": "Nasser Al-Qasabi and Abdullah Al-Sadhan are the central comedy partnership in Tash Ma Tash.",
+        "ar": "ناصر القصبي وعبد الله السدحان هما الثنائي الكوميدي الأساسي في «طاش ما طاش»."
+      }
     }
   },
   {
@@ -3417,6 +5685,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "af37d703",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "1989",
+          "1991",
+          "1995"
+        ],
+        "ar": [
+          "1989",
+          "1991",
+          "1995"
+        ]
+      },
+      "explanation": {
+        "en": "Tash Ma Tash first aired in 1993.",
+        "ar": "بدأ عرض «طاش ما طاش» عام 1993."
+      }
     }
   },
   {
@@ -3436,6 +5725,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "a7503650",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "MBC 1",
+          "Dubai TV",
+          "Abu Dhabi TV"
+        ],
+        "ar": [
+          "MBC 1",
+          "تلفزيون دبي",
+          "تلفزيون أبوظبي"
+        ]
+      },
+      "explanation": {
+        "en": "The original run began on Saudi Television's first channel, before its later MBC era.",
+        "ar": "بدأ العرض على القناة الأولى السعودية قبل انتقال المسلسل لاحقًا إلى MBC."
+      }
     }
   },
   {
@@ -3455,6 +5765,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "71b9c856",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Shawwal",
+          "Dhul Hijjah",
+          "Safar"
+        ],
+        "ar": [
+          "شوال",
+          "ذو الحجة",
+          "صفر"
+        ]
+      },
+      "explanation": {
+        "en": "Tash Ma Tash is part of the tradition of Ramadan television comedy.",
+        "ar": "«طاش ما طاش» جزء من تقاليد الكوميديا التلفزيونية الرمضانية."
+      }
     }
   },
   {
@@ -3474,6 +5805,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "d7e19128",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Abdulkhaliq Al-Ghanim",
+          "Mohammed Al-Qaffas",
+          "Hisham Sharbatji"
+        ],
+        "ar": [
+          "عبد الخالق الغانم",
+          "محمد القفاص",
+          "هشام شربتجي"
+        ]
+      },
+      "explanation": {
+        "en": "Amer Al-Hamoud directed the first two seasons.",
+        "ar": "أخرج عامر الحمود الموسمين الأول والثاني."
+      }
     }
   },
   {
@@ -3512,6 +5864,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "b0973168",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Abdullah Al-Sadhan",
+          "Youssef Al-Jarrah",
+          "Fahad Al-Hayyan"
+        ],
+        "ar": [
+          "عبد الله السدحان",
+          "يوسف الجراح",
+          "فهد الحيان"
+        ]
+      },
+      "explanation": {
+        "en": "Nasser Al-Qasabi plays the recurring comic character Fouad.",
+        "ar": "يجسد ناصر القصبي شخصية فؤاد الكوميدية المتكررة."
+      }
     }
   },
   {
@@ -3683,6 +6056,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "9f75cbbf",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Netflix",
+          "OSN+",
+          "WATCH IT"
+        ],
+        "ar": [
+          "نتفليكس",
+          "OSN+",
+          "واتش إت"
+        ]
+      },
+      "explanation": {
+        "en": "Shahid carried Tash Al-Awda alongside its MBC broadcast in 2023.",
+        "ar": "عُرض «طاش العودة» على شاهد بالتزامن مع بثه على MBC عام 2023."
+      }
     }
   },
   {
@@ -3816,6 +6210,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f9c7bb6b",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Iran",
+          "Azerbaijan",
+          "Syria"
+        ],
+        "ar": [
+          "إيران",
+          "أذربيجان",
+          "سوريا"
+        ]
+      },
+      "explanation": {
+        "en": "Diriliş: Ertuğrul is a Turkish production, also popular with Arabic-speaking audiences.",
+        "ar": "«قيامة أرطغرل» إنتاج تركي، وله جمهور واسع من الناطقين بالعربية."
+      }
     }
   },
   {
@@ -3835,6 +6250,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "325fb852",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Osman Ghazi",
+          "Suleyman Shah",
+          "Turgut Alp"
+        ],
+        "ar": [
+          "عثمان غازي",
+          "سليمان شاه",
+          "تورغوت ألب"
+        ]
+      },
+      "explanation": {
+        "en": "The series follows Ertuğrul Ghazi; its title includes his name.",
+        "ar": "يتابع المسلسل أرطغرل غازي، ويحمل اسمه في العنوان."
+      }
     }
   },
   {
@@ -3854,6 +6290,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f56f1564",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The 10th century",
+          "The 15th century",
+          "The 18th century"
+        ],
+        "ar": [
+          "القرن العاشر",
+          "القرن الخامس عشر",
+          "القرن الثامن عشر"
+        ]
+      },
+      "explanation": {
+        "en": "The story's historical backdrop is 13th-century Anatolia.",
+        "ar": "الخلفية التاريخية للقصة هي الأناضول في القرن الثالث عشر."
+      }
     }
   },
   {
@@ -3892,6 +6349,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "afc58b26",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The Bayat tribe",
+          "The Avshar tribe",
+          "The Salur tribe"
+        ],
+        "ar": [
+          "قبيلة البيات",
+          "قبيلة الأفشار",
+          "قبيلة سالور"
+        ]
+      },
+      "explanation": {
+        "en": "Ertuğrul belongs to the Kayi tribe in the series.",
+        "ar": "ينتمي أرطغرل في المسلسل إلى قبيلة قايي."
+      }
     }
   },
   {
@@ -3911,6 +6389,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1f8f2898",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Burak Özçivit",
+          "Kenan İmirzalıoğlu",
+          "Kıvanç Tatlıtuğ"
+        ],
+        "ar": [
+          "بوراك أوزجيفيت",
+          "كنان إميرزالي أوغلو",
+          "كيفانش تاتليتوغ"
+        ]
+      },
+      "explanation": {
+        "en": "Engin Altan Düzyatan plays the title role of Ertuğrul.",
+        "ar": "يجسد إنجين ألتان دوزياتان شخصية أرطغرل الرئيسية."
+      }
     }
   },
   {
@@ -3930,6 +6429,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "8971294e",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "ATV",
+          "Kanal D",
+          "Show TV"
+        ],
+        "ar": [
+          "إيه تي في",
+          "كانال دي",
+          "شو تي في"
+        ]
+      },
+      "explanation": {
+        "en": "The original Turkish broadcast was on TRT 1.",
+        "ar": "عُرض المسلسل أولًا في تركيا على قناة TRT 1."
+      }
     }
   },
   {
@@ -3949,6 +6469,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "226258c3",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Aykız Hatun",
+          "Selcan Hatun",
+          "Gökçe Hatun"
+        ],
+        "ar": [
+          "آيكز خاتون",
+          "سيلجان خاتون",
+          "غوكتشه خاتون"
+        ]
+      },
+      "explanation": {
+        "en": "Halime Hatun is Ertuğrul's central romantic partner in the early story.",
+        "ar": "حليمة خاتون هي شريكة أرطغرل العاطفية الرئيسية في القصة المبكرة."
+      }
     }
   },
   {
@@ -3968,6 +6509,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "75f7e3e7",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Korkut Bey",
+          "Kurdoglu Bey",
+          "Gündoğdu Bey"
+        ],
+        "ar": [
+          "كوركوت بك",
+          "كوردوغلو بك",
+          "غوندوغدو بك"
+        ]
+      },
+      "explanation": {
+        "en": "Suleyman Shah is portrayed as Ertuğrul's father and leader of the Kayi tribe.",
+        "ar": "يُصوَّر سليمان شاه في المسلسل أبًا لأرطغرل وزعيمًا لقبيلة قايي."
+      }
     }
   },
   {
@@ -4025,6 +6587,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "26e35267",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "3 seasons",
+          "4 seasons",
+          "6 seasons"
+        ],
+        "ar": [
+          "3 مواسم",
+          "4 مواسم",
+          "6 مواسم"
+        ]
+      },
+      "explanation": {
+        "en": "The original Turkish series ran for five seasons.",
+        "ar": "استمر المسلسل التركي الأصلي خمسة مواسم."
+      }
     }
   },
   {
@@ -4063,6 +6646,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "80ab89b9",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Hande Soral",
+          "Didem Balçın",
+          "Burcu Kıratlı"
+        ],
+        "ar": [
+          "هانده سورال",
+          "ديديم بالتشين",
+          "بورجو كيراتلي"
+        ]
+      },
+      "explanation": {
+        "en": "Esra Bilgiç plays Halime Hatun.",
+        "ar": "تؤدي إسراء بيلغيتش دور حليمة خاتون."
+      }
     }
   },
   {
@@ -4082,6 +6686,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "2b22e851",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "100",
+          "125",
+          "175"
+        ],
+        "ar": [
+          "100",
+          "125",
+          "175"
+        ]
+      },
+      "explanation": {
+        "en": "The original Turkish television edit contains 150 episodes; international edits may divide them differently.",
+        "ar": "يتألف الإصدار التلفزيوني التركي الأصلي من 150 حلقة، وقد تُقسَّم الحلقات بصورة مختلفة في النسخ الدولية."
+      }
     }
   },
   {
@@ -4120,6 +6745,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f08f9cdf",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "Selcan Hatun",
+          "Aytolun Hatun",
+          "Gökçe Hatun"
+        ],
+        "ar": [
+          "سيلجان خاتون",
+          "آيتولون خاتون",
+          "غوكتشه خاتون"
+        ]
+      },
+      "explanation": {
+        "en": "Hayme Ana is Ertuğrul's mother, played by Hülya Darcan.",
+        "ar": "هايمة خاتون أم أرطغرل، وتجسدها هوليا دارجان."
+      }
     }
   },
   {
@@ -4139,6 +6785,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "ed4e2e25",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Nurettin Sönmez",
+          "Cavit Çetin Güner",
+          "Celal Al"
+        ],
+        "ar": [
+          "نور الدين سونماز",
+          "جافيت تشيتين غونر",
+          "جلال آل"
+        ]
+      },
+      "explanation": {
+        "en": "Cengiz Coşkun plays Turgut Alp.",
+        "ar": "يجسد جنكيز جوشكون شخصية تورغوت ألب."
+      }
     }
   },
   {
@@ -4177,6 +6844,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "5e158463",
+      "spoilerSeason": 1,
+      "distractors": {
+        "en": [
+          "A bow",
+          "A spear",
+          "A mace"
+        ],
+        "ar": [
+          "قوس",
+          "رمح",
+          "صولجان"
+        ]
+      },
+      "explanation": {
+        "en": "Turgut is especially recognisable by his axe.",
+        "ar": "يُعرف تورغوت خصوصًا بفأسه."
+      }
     }
   },
   {
@@ -4291,6 +6979,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "9b6cdd",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "The Seljuks",
+          "The Citadel",
+          "The Mamluks"
+        ],
+        "ar": [
+          "السلاجقة",
+          "القلعة",
+          "المماليك"
+        ]
+      },
+      "explanation": {
+        "en": "The Assassins is the English title used for Al-Hashasheen.",
+        "ar": "«ذا أساسنز» هو العنوان الإنجليزي المستخدم لمسلسل «الحشاشين»."
+      }
     }
   },
   {
@@ -4310,6 +7019,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "160c3abc",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Syria",
+          "Turkey",
+          "Jordan"
+        ],
+        "ar": [
+          "سوريا",
+          "تركيا",
+          "الأردن"
+        ]
+      },
+      "explanation": {
+        "en": "Al-Hashasheen is an Egyptian television production.",
+        "ar": "«الحشاشين» إنتاج تلفزيوني مصري."
+      }
     }
   },
   {
@@ -4329,6 +7059,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "f5132559",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "ar": [
+          "2021",
+          "2022",
+          "2023"
+        ]
+      },
+      "explanation": {
+        "en": "Al-Hashasheen premiered during Ramadan 2024.",
+        "ar": "بدأ عرض «الحشاشين» في رمضان 2024."
+      }
     }
   },
   {
@@ -4348,6 +7099,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "1655ffc9",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Ahmed Ezz",
+          "Ahmed El-Sakka",
+          "Amir Karara"
+        ],
+        "ar": [
+          "أحمد عز",
+          "أحمد السقا",
+          "أمير كرارة"
+        ]
+      },
+      "explanation": {
+        "en": "Karim Abdel Aziz leads the cast as Hasan Al-Sabbah.",
+        "ar": "يتصدر كريم عبد العزيز البطولة بدور حسن الصباح."
+      }
     }
   },
   {
@@ -4386,6 +7158,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "dbb9088d",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Shahid",
+          "Netflix",
+          "OSN+"
+        ],
+        "ar": [
+          "شاهد",
+          "نتفليكس",
+          "OSN+"
+        ]
+      },
+      "explanation": {
+        "en": "The Egyptian streaming platform WATCH IT carried the series at its 2024 premiere.",
+        "ar": "عرضت منصة WATCH IT المصرية المسلسل عند انطلاقه عام 2024."
+      }
     }
   },
   {
@@ -4424,6 +7217,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "2a66c4d2",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Nizam Al-Mulk",
+          "Omar Khayyam",
+          "Malik Shah"
+        ],
+        "ar": [
+          "نظام الملك",
+          "عمر الخيام",
+          "ملك شاه"
+        ]
+      },
+      "explanation": {
+        "en": "Karim Abdel Aziz portrays Hasan Al-Sabbah, the central character of the drama.",
+        "ar": "يجسد كريم عبد العزيز حسن الصباح، الشخصية المحورية في العمل الدرامي."
+      }
     }
   },
   {
@@ -4500,6 +7314,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "56aca207",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Tamer Habib",
+          "Baher Dowidar",
+          "Hany Sarhan"
+        ],
+        "ar": [
+          "تامر حبيب",
+          "باهر دويدار",
+          "هاني سرحان"
+        ]
+      },
+      "explanation": {
+        "en": "Abdel Rahim Kamal wrote the series.",
+        "ar": "كتب عبد الرحيم كمال المسلسل."
+      }
     }
   },
   {
@@ -4519,6 +7354,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "7d3b52a1",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Mohamed Sami",
+          "Sherif Arafa",
+          "Marwan Hamed"
+        ],
+        "ar": [
+          "محمد سامي",
+          "شريف عرفة",
+          "مروان حامد"
+        ]
+      },
+      "explanation": {
+        "en": "Peter Mimi directed Al-Hashasheen.",
+        "ar": "أخرج بيتر ميمي «الحشاشين»."
+      }
     }
   },
   {
@@ -4538,6 +7394,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "e1eb9507",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "15",
+          "20",
+          "40"
+        ],
+        "ar": [
+          "15",
+          "20",
+          "40"
+        ]
+      },
+      "explanation": {
+        "en": "The 2024 series consists of thirty episodes.",
+        "ar": "يتألف مسلسل عام 2024 من ثلاثين حلقة."
+      }
     }
   },
   {
@@ -4595,6 +7472,27 @@
     },
     "review": {
       "status": "pending"
+    },
+    "tvQuiz": {
+      "version": 1,
+      "contentKey": "674dfa70",
+      "spoilerSeason": 0,
+      "distractors": {
+        "en": [
+          "Hesham Nazih",
+          "Khaled Hammad",
+          "Omar Khairat"
+        ],
+        "ar": [
+          "هشام نزيه",
+          "خالد حماد",
+          "عمر خيرت"
+        ]
+      },
+      "explanation": {
+        "en": "Amine Bouhafa composed the score for Al-Hashasheen.",
+        "ar": "ألّف أمين بوحافة الموسيقى التصويرية لمسلسل «الحشاشين»."
+      }
     }
   },
   {

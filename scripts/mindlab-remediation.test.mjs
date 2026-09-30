@@ -7,6 +7,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 const read = filename => JSON.parse(fs.readFileSync(new URL(`../${filename}`,import.meta.url),'utf8'));
 const plan = read('docs/content-review/mindlab-remediation-2026-09-23.json');
+const tvAmendment = read('docs/content-review/tv-trivia-2026-09-30.json');
 const cards = new Map(plan.scope.flatMap(topic => read(`data/${topic.slug}.json`)).map(card=>[card.id,card]));
 const hash = card => crypto.createHash('sha256').update(JSON.stringify(card)).digest('hex');
 
@@ -24,7 +25,13 @@ test('all 1,241 audit findings are repaired without deleting or renumbering the 
   }
   for (const change of plan.changes) {
     assert.notEqual(change.beforeHash,change.afterHash,`${change.id}: not a real change`);
-    assert.equal(hash(cards.get(change.id)),change.afterHash,`${change.id}: patch not applied`);
+    const successor = tvAmendment.changes.find(c => c.id === change.id);
+    if (successor) {
+      assert.equal(change.category, 'tv-shows-trivia', `${change.id}: amendment scope`);
+      assert.equal(successor.beforeHash, change.afterHash, `${change.id}: preserve historical repair chain`);
+      assert.ok(successor.reason?.trim(), `${change.id}: documented follow-up`);
+    }
+    assert.equal(hash(cards.get(change.id)),successor?.afterHash || change.afterHash,`${change.id}: patch not applied`);
     assert.ok(change.reason?.trim(),change.id);
     assert.notEqual(change.patch.review?.status,'reviewed',`${change.id}: must not manufacture certification`);
   }

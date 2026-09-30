@@ -140,7 +140,7 @@ function quizHarness(cards = Array.from({ length: 5 }, (_, index) => card(`card-
   nodes.get('timedQuizOverlay').classList.add('hidden');
   const context = loadFunctions(vm.createContext({
     state: { lang: 'en', dbUser: null, categorySlug: 'math', categoryData: { cards, title: { en: 'Math', ar: 'رياضيات' } } },
-    timedQuizState: { session: 0, timer: null, advanceTimeout: null },
+    timedQuizState: { session: 0, timer: null, advanceTimeout: null }, tvTrivia: null,
     document: { getElementById: id => nodes.get(id) || null, querySelectorAll: () => buttons,
       createElement: () => new Element(), body: new Element() },
     setInterval: callback => { const id = ++timerId; intervals.set(id, callback); return id; },

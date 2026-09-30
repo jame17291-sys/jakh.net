@@ -1060,6 +1060,8 @@ const state = {
   capabilityMessage: '',
 };
 
+let tvTrivia = null;
+
 const timedQuizState = {
   cards: [], index: 0, score: 0, completed: 0, answered: false,
   timer: null, advanceTimeout: null, session: 0, timeLeft: 20,
@@ -1402,7 +1404,9 @@ function applyCapabilityVisibility() {
     status.id = 'cloudCapabilityStatus';
     status.className = 'cloud-capability-status shell';
     status.setAttribute('role', 'status');
-    document.querySelector('.site-header')?.insertAdjacentElement('afterend', status);
+    const statusAnchor = state.categorySlug === 'tv-shows-trivia'
+      ? document.getElementById('tvTrivia') : document.querySelector('.site-header');
+    statusAnchor?.insertAdjacentElement('afterend', status);
   }
   if (status) {
     status.textContent = apiUnavailable
@@ -2871,6 +2875,11 @@ function injectBackToTop() {
 }
 
 function renderCategoryPage() {
+  if (state.categorySlug === 'tv-shows-trivia') {
+    tvTrivia?.render();
+    renderRelatedCategories();
+    return;
+  }
   if (!state.categoryData || !state.catalog) return;
 
   const category = state.categoryData;
@@ -3301,12 +3310,12 @@ async function toggleFavorite(id) {
   }
 }
 
-async function markCard(id, result) {
+async function markCard(id, result, { quiet = false } = {}) {
   const card = state.categoryData?.cards.find(item => item.id === id);
   if (!card) return;
   if (result === 'correct') hapticSuccess(); else hapticError();
   const status = result === 'correct' ? card.difficulty : `wrong-${card.difficulty}`;
-  showToast(result === 'correct' ? t('solvedAdded') : t('markedWrong'));
+  if (!quiet) showToast(result === 'correct' ? t('solvedAdded') : t('markedWrong'));
   trackEvent(result === 'correct' ? 'card_correct' : 'card_wrong', { category: state.categorySlug, difficulty: card.difficulty });
   if (result === 'correct') {
     const cardEl = els.cardGrid?.querySelector(`[data-id="${CSS.escape(id)}"]`);
@@ -4436,6 +4445,7 @@ function createTimedQuizModal() {
 }
 
 function startTimedQuiz() {
+  if (tvTrivia) { tvTrivia.startTimed(); return; }
   if (!state.categoryData?.cards?.length) return;
   const seen = new Set();
   const eligible = state.categoryData.cards.filter(card => {
@@ -5081,6 +5091,10 @@ async function init() {
     loadCategoryIfNeeded(),
     loadCardIndex().catch(() => null),
   ]);
+  if (state.categorySlug === 'tv-shows-trivia') {
+    const { createTvTrivia } = await import('/tv-trivia.js');
+    tvTrivia = createTvTrivia({ state, loadJson, saveJson, trackEvent, markCard, toggleFavorite, isFavorite, getProgressResult, openAuthModal, openBattleModal, showToast });
+  }
   applyStaticCopy();
   rerender();
   renderCategoryPlayModes();
@@ -5109,6 +5123,7 @@ async function init() {
 
 
 function renderCategoryPlayModes() {
+  if (state.categorySlug === 'tv-shows-trivia') return;
   if (state.page !== 'category') return;
   const previousModes = document.getElementById('categoryPlayModes');
   const wasExpanded = previousModes?.querySelector('details')?.open || false;
@@ -5343,6 +5358,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   init().catch((error) => {
     console.error(error);
+    const tvMessage = document.getElementById('tvMessage');
+    if (tvMessage) {
+      tvMessage.textContent = state.lang === 'ar' ? 'تعذّر تحميل التحدّي. حدّث الصفحة للمحاولة مجددًا.' : 'We couldn’t load the quiz. Reload the page to try again.';
+      const retry = document.createElement('button');
+      retry.className = 'tv-button';
+      retry.textContent = state.lang === 'ar' ? 'حدّث الصفحة' : 'Reload page';
+      retry.addEventListener('click', () => location.reload());
+      tvMessage.append(retry);
+      document.getElementById('tvTrivia')?.setAttribute('aria-busy', 'false');
+    }
     showToast(localizedErrorMessage(error, 'initializationError'), true);
   });
 });

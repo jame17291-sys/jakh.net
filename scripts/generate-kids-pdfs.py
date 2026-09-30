@@ -8,6 +8,7 @@ CI verifies committed PDF hashes and input hashes instead of regenerating fonts.
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 
 import arabic_reshaper
@@ -48,6 +49,11 @@ def localized(value, lang):
 
 def display(text, lang):
     text = str(text).replace('\u2011', '-').replace('\u2013', '-').replace('\u2014', ' - ')
+    if lang == 'ar':
+        # Python bidi supports explicit overrides, which keep equations such as
+        # 7 - 4 = 3 together in LTR order within the surrounding Arabic text.
+        text = re.sub(r'(?<![0-9٠-٩۰-۹])([0-9٠-٩۰-۹]+(?:[.:٫٬][0-9٠-٩۰-۹]+)*(?:\s*[+−×÷=<>–/-]\s*[0-9٠-٩۰-۹]+(?:[.:٫٬][0-9٠-٩۰-۹]+)*)+)(?![0-9٠-٩۰-۹])',
+                      lambda match: '\u202d' + match.group(1) + '\u202c', text)
     return get_display(ARABIC_RESHAPER.reshape(text), base_dir='R') if lang == 'ar' else text
 
 class Pack:
@@ -129,7 +135,7 @@ def make_pack(file, activities, age, area, lang, size):
         if index: pack.new_page()
         minutes_label = L('minutes', 'دقائق' if 3 <= a['minutes'] <= 10 else 'دقيقة')
         age_from, age_to = age.split('-')
-        progress = L(f'{index + 1} / 5', f'النشاط {index + 1} من 5')
+        progress = L(f'{index + 1} / {len(activities)}', f'النشاط {index + 1} من {len(activities)}')
         ages = L(f'Ages {age}', f'الأعمار من {age_from} إلى {age_to}')
         pack.text(f'{progress}  |  {ages}  |  {a["minutes"]} {minutes_label}', 9, True)
         pack.text(localized(a['title'], lang), 19, True, gap=9, keep=36)
@@ -167,15 +173,19 @@ def make_pack(file, activities, age, area, lang, size):
 def digest(file): return hashlib.sha256(file.read_bytes()).hexdigest()
 
 def main():
-    files = [ROOT/'data/kids/activities-young.json', ROOT/'data/kids/activities-older.json']
+    inventory_file = ROOT/'data/kids/inventory.json'
+    inventory = json.loads(inventory_file.read_text())
+    per_group = inventory['activitiesPerAgeAndArea']
+    files = [ROOT/'data/kids'/file for file in inventory['activitySources']]
     activities = sum((json.loads(file.read_text()) for file in files), [])
-    if len(activities) != 120: raise ValueError('All 120 activities are required before printing.')
+    required = per_group * len(AGES) * len(AREAS)
+    if len(activities) != required: raise ValueError(f'All {required} activities are required before printing.')
     OUT.mkdir(parents=True, exist_ok=True)
-    manifest = {'schemaVersion': 1, 'inputs': {str(file.relative_to(ROOT)): digest(file) for file in files}, 'generatorSha256': digest(Path(__file__)), 'files': []}
+    manifest = {'schemaVersion': 1, 'inputs': {str(file.relative_to(ROOT)): digest(file) for file in [inventory_file, *files]}, 'generatorSha256': digest(Path(__file__)), 'files': []}
     for age in AGES:
         for area in AREAS:
             group = [a for a in activities if a['age'] == age and a['area'] == area]
-            if len(group) != 5: raise ValueError(f'Expected five activities in {age}/{area}')
+            if len(group) != per_group: raise ValueError(f'Expected {per_group} activities in {age}/{area}')
             for lang in ['en', 'ar']:
                 for paper, size in [('a4', A4), ('letter', letter)]:
                     name = f'pack-{age}-{area}-{lang}-{paper}.pdf'

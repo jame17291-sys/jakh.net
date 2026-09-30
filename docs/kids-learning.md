@@ -5,9 +5,10 @@ The kids hub is a dedicated static learning experience at `/kids-riddles` and
 
 ## Authoring and generation
 
-- `data/kids/activities-young.json` and `activities-older.json` contain 120
-  original bilingual activities. Each of four age bands has five activities in
-  each of six learning areas. IDs are stable across language changes.
+- The five activity sources listed in `data/kids/inventory.json` contain 480
+  distinct bilingual activities and questions. Each of six learning areas has
+  80 entries: twenty for each of four age bands. The original 120 entries and
+  their IDs are preserved. IDs are stable across language changes.
 - `scripts/kids-resources.mjs` owns age/area descriptions, eight parent guides,
   and deterministic sets of 24 printable packs and 16 five-activity weeks.
 - `scripts/generate-kids-pages.mjs` is the sole owner of the kids HTML and the
@@ -25,7 +26,7 @@ All generated HTML is committed so content remains usable without JavaScript.
 ## Printable packs
 
 Each pack has English and Arabic A4/Letter editions (96 PDFs). The PDFs contain
-activity sheets followed by a separate parent answer/variation guide. The same
+twenty activity sheets followed by a separate parent answer/variation guide. The same
 activities have accessible HTML pages and require no printer.
 
 Authoring command: `python3 scripts/generate-kids-pdfs.py`. Install

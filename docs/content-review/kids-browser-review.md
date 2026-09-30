@@ -1,5 +1,17 @@
 # Kids experience integration review
 
+## Expansion recheck: 480 activities
+
+Rechecked the updated built preview on 30 September 2026. The main hub shows 480 total and all six learning-area cards show 80. Selecting maths returns 80; adding ages 9–12 returns 20; Show more reveals all 20 including the final `kids-9-12-maths-20` entry. Switching to Arabic retains both filters and returns 20.
+
+Opened that new final activity in Arabic, revealed the explained answer, saved it, marked it complete and added it to Friday. Switching to English and reloading retains save/completion; the planner retains the completed Friday entry. Removed only this synthetic test activity and its flags afterwards. No other stored data was reset.
+
+Inspected the Arabic hub and activity, and English planner at 360px with no horizontal overflow; inspected the English hub at 1280px. Arabic arithmetic is readable in the answer panel. Final hero copy and age/category counts are current. No warning/error logs appeared in these flows. Preview screenshots show the 480-total hero in English desktop and Arabic mobile. New PDF responses were separately byte-verified against the manifest.
+
+The earlier complete toolkit, keyboard, reduced-motion, storage-fallback and original-link checks below remain applicable; this expansion preserves the runtime and original 120 activity bytes.
+
+## Initial release journey checks
+
 Reviewed on 2026-09-30 against the generated static-site preview in the Codex
 in-app Chromium browser. Desktop viewport: 1280 × 720. Mobile viewport:
 360 × 800. Both English and Arabic were inspected.

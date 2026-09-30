@@ -61,7 +61,7 @@ export function makeResources(activities) {
   const packs = KIDS_AGES.flatMap(age => KIDS_AREAS.map(area => ({
     id: `pack-${age.id}-${area.id}`, age: age.id, area: area.id,
     title: pair(`${area.title.en} · ages ${age.id}`, `${area.title.ar} · الأعمار ${age.id}`),
-    description: pair('Five complete activities, space to try your ideas, and a separate parent answer guide.', 'خمسة أنشطة كاملة ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل.'),
+    description: pair('Twenty complete activities, space to try your ideas, and a separate parent answer guide.', 'عشرون نشاطًا كاملًا ومساحة لتجربة الأفكار ودليل إجابات منفصل للأهل.'),
     activityIds: activities.filter(a => a.age === age.id && a.area === area.id).map(a => a.id),
   })));
   const themes = [pair('Notice & wonder', 'نلاحظ ونتساءل'), pair('Patterns & possibilities', 'أنماط واحتمالات'), pair('Make & explain', 'نصنع ونشرح'), pair('Try, share & discover', 'نجرّب ونشارك ونكتشف')];

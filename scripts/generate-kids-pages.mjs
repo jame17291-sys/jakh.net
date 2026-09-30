@@ -9,17 +9,20 @@ import { loadLegacy } from './kids-legacy.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const origin = 'https://riddlearabia.com';
 const e = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
-// Isolate numeric age ranges so RTL text keeps their small-to-large order.
-const rtlRanges = value => typeof value === 'string' ? value.replace(/\b(\d+[–-]\d+)\b/gu, '\u2066$1\u2069') : value;
+// Keep age ranges and arithmetic expressions in logical reading order in RTL prose.
+const rtlRanges = value => Array.isArray(value) ? value.map(rtlRanges) : typeof value === 'string' ? value.replace(/(?<![0-9٠-٩۰-۹])([0-9٠-٩۰-۹]+(?:[.:٫٬][0-9٠-٩۰-۹]+)*(?:\s*[+−×÷=<>–/-]\s*[0-9٠-٩۰-۹]+(?:[.:٫٬][0-9٠-٩۰-۹]+)*)+)(?![0-9٠-٩۰-۹])/gu, '\u2066\u202d$1\u202c\u2069') : value;
 const loc = (value, lang) => lang === 'ar' ? rtlRanges(value?.[lang] ?? '') : value?.[lang] ?? '';
 export const kidsBase = lang => lang === 'ar' ? '/ar/topics/kids-riddles/' : '/kids-riddles';
 export const kidsPath = (lang, suffix = '') => suffix ? `${kidsBase(lang).replace(/\/$/, '')}/${suffix}/` : kidsBase(lang);
 export const activityPath = (lang, id) => kidsPath(lang, `activities/${id}`);
+export const KIDS_INVENTORY = JSON.parse(fs.readFileSync(path.join(root, 'data/kids/inventory.json'), 'utf8'));
+export const KIDS_ACTIVITY_FILES = KIDS_INVENTORY.activitySources.map(file => `data/kids/${file}`);
 export function loadKidsContent() {
-  const activities = ['activities-young.json', 'activities-older.json'].flatMap(file => JSON.parse(fs.readFileSync(path.join(root, 'data/kids', file), 'utf8')));
-  if (activities.length !== 120 || new Set(activities.map(a => a.id)).size !== 120) throw Error('Kids release requires 120 unique activities.');
+  const activities = KIDS_ACTIVITY_FILES.flatMap(file => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8')));
+  const required = KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length * KIDS_AREAS.length;
+  if (activities.length !== required || new Set(activities.map(a => a.id)).size !== required) throw Error(`Kids release requires ${required} unique activities.`);
   for (const age of KIDS_AGES) for (const area of KIDS_AREAS) {
-    if (activities.filter(a => a.age === age.id && a.area === area.id).length !== 5) throw Error(`Kids inventory mismatch: ${age.id}/${area.id}`);
+    if (activities.filter(a => a.age === age.id && a.area === area.id).length !== KIDS_INVENTORY.activitiesPerAgeAndArea) throw Error(`Kids inventory mismatch: ${age.id}/${area.id}`);
   }
   return { schemaVersion: 1, activities, ...makeResources(activities), legacy: loadLegacy(root) };
 }
@@ -86,8 +89,8 @@ ${content}
 function hero(lang, title, description, {eyebrow = '', image = 'topic-kids-riddles', action = true} = {}) {
   return `<section class="kids-hero"><div class="kids-hero-copy"><p class="kids-eyebrow">${e(eyebrow || ui(lang, 'A little curiosity, a world of discovery', 'فضول صغير، وعالم من الاكتشاف'))}</p><h1>${e(title)}</h1><p class="kids-lead">${e(description)}</p>${action ? `<div class="kids-actions"><a class="kids-button" href="#find">${ui(lang, 'Find an activity', 'ابحث عن نشاط')}</a><a class="kids-button secondary" href="${kidsPath(lang, 'weekly-plans')}">${ui(lang, 'Plan a playful week', 'خطّط لأسبوع مرح')}</a></div><p class="kids-note">${ui(lang, 'Ages 3–12 · Arabic & English · Free, with no account needed', 'الأعمار 3–12 · العربية والإنجليزية · مجانًا دون حساب')}</p>` : ''}</div>${art(image, 'kids-hero-art', true)}</section>`;
 }
-function ageCards(lang) { return `<div class="kids-age-grid">${KIDS_AGES.map(a => `<a class="kids-age-card" data-age="${a.id}" href="${kidsPath(lang, `ages/${a.id}`)}"><span class="kids-eyebrow">${ageText(a.id, lang)}</span><h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p><span>${ui(lang, 'Explore 30 activities', 'استكشف 30 نشاطًا')} <span aria-hidden="true">${lang === 'ar' ? '←' : '→'}</span></span></a>`).join('')}</div>`; }
-function areaCards(lang) { return `<div class="kids-area-grid">${KIDS_AREAS.map(a => `<a class="kids-area-card" data-area="${a.id}" href="${kidsPath(lang, `areas/${a.id}`)}">${art(a.image, 'kids-card-icon')}<h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p></a>`).join('')}</div>`; }
+function ageCards(lang) { return `<div class="kids-age-grid">${KIDS_AGES.map(a => `<a class="kids-age-card" data-age="${a.id}" href="${kidsPath(lang, `ages/${a.id}`)}"><span class="kids-eyebrow">${ageText(a.id, lang)}</span><h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p><span>${ui(lang, `Explore ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AREAS.length} activities`, `استكشف ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AREAS.length} نشاطًا`)} <span aria-hidden="true">${lang === 'ar' ? '←' : '→'}</span></span></a>`).join('')}</div>`; }
+function areaCards(lang) { return `<div class="kids-area-grid">${KIDS_AREAS.map(a => `<a class="kids-area-card" data-area="${a.id}" href="${kidsPath(lang, `areas/${a.id}`)}">${art(a.image, 'kids-card-icon')}<h3>${e(loc(a.title, lang))}</h3><p>${e(loc(a.description, lang))}</p><span>${ui(lang, `${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} activities`, `${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} نشاطًا`)}</span></a>`).join('')}</div>`; }
 function select(name, label, values, lang, selected = '') {
   return `<label><span>${e(label)}</span><select name="${name}"><option value="">${ui(lang, 'Any', 'الكلّ')}</option>${values.map(([id, text]) => `<option value="${id}"${selected === id ? ' selected' : ''}>${e(text)}</option>`).join('')}</select></label>`;
 }
@@ -111,7 +114,7 @@ function toolkit(lang, full = true) {
 }
 function hub(content, lang, {age, area, listing = false} = {}) {
   const title = age ? `${loc(age.title,lang)} · ${ageText(age.id,lang)}` : area ? loc(area.title,lang) : listing ? ui(lang,'All kids activities','جميع أنشطة الأطفال') : ui(lang,'Kids Learning & Play','عالم الأطفال: تعلّم والعب');
-  const description = age ? loc(age.description,lang) : area ? loc(area.description,lang) : ui(lang,'Meaningful little adventures for curious minds. Find playful activities, printable packs and easy weekly plans for your family.', 'مغامرات صغيرة مفيدة لعقول فضولية. اكتشف أنشطة مرحة وحزمًا للطباعة وخططًا أسبوعية سهلة لأسرتك.');
+  const description = age ? loc(age.description,lang) : area ? loc(area.description,lang) : ui(lang,`Explore ${content.activities.length} questions and playful activities: ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} in each learning area. Find printable packs and easy weekly plans for your family.`, `استكشف ${content.activities.length} سؤالًا ونشاطًا مرحًا: ${KIDS_INVENTORY.activitiesPerAgeAndArea * KIDS_AGES.length} في كلّ مجال تعلّم. اكتشف حزمًا للطباعة وخططًا أسبوعية سهلة لأسرتك.`);
   const filtered = content.activities.filter(a => (!age || a.age === age.id) && (!area || a.area === area.id));
   const main = !age && !area && !listing;
   const plans = main ? KIDS_AGES.map(a => content.plans.find(p => p.age === a.id)) : content.plans.filter(p => !age || p.age === age.id);
@@ -142,7 +145,7 @@ function activityPage(a,content,lang) {
 function indexPage(content,lang,kind) {
   const items = kind === 'printables' ? content.packs : kind === 'weekly-plans' ? content.plans : content.guides;
   const title = ui(lang,{printables:'Printable activity packs','weekly-plans':'A playful week, ready to use',parents:'A helping hand for parents'}[kind],{printables:'حزم أنشطة قابلة للطباعة','weekly-plans':'أسبوع مرح جاهز للاستخدام',parents:'دعم عملي للأهل'}[kind]);
-  const description = ui(lang,{printables:'Choose an age and learning area. Each free pack brings five complete activities and a separate answer guide together.','weekly-plans':'Choose one of four weeks for your child’s age. Add five activities to your planner, then move, repeat or skip any day.',parents:'Eight practical guides for choosing activities, sharing languages, supporting ideas and making play work for your family.'}[kind],{printables:'اختر العمر ومجال التعلّم. تجمع كلّ حزمة مجانية خمسة أنشطة كاملة ودليل إجابات منفصلًا.','weekly-plans':'اختر أحد أربعة أسابيع لعمر طفلك. أضف خمسة أنشطة إلى المخطّط، ثم غيّر الأيام أو كرّر النشاط أو تجاوزه.',parents:'ثمانية أدلّة عملية لاختيار الأنشطة ومشاركة اللغات ودعم الأفكار وتكييف اللّعب مع أسرتك.'}[kind]);
+  const description = ui(lang,{printables:'Choose an age and learning area. Each free pack brings twenty complete activities and a separate answer guide together.','weekly-plans':'Choose one of four weeks for your child’s age. Add five activities to your planner, then move, repeat or skip any day.',parents:'Eight practical guides for choosing activities, sharing languages, supporting ideas and making play work for your family.'}[kind],{printables:'اختر العمر ومجال التعلّم. تجمع كلّ حزمة مجانية عشرين نشاطًا كاملًا ودليل إجابات منفصلًا.','weekly-plans':'اختر أحد أربعة أسابيع لعمر طفلك. أضف خمسة أنشطة إلى المخطّط، ثم غيّر الأيام أو كرّر النشاط أو تجاوزه.',parents:'ثمانية أدلّة عملية لاختيار الأنشطة ومشاركة اللغات ودعم الأفكار وتكييف اللّعب مع أسرتك.'}[kind]);
   return layout({lang,suffix:kind,title,description,type:'resources',content:hero(lang,title,description,{action:false}) + (kind==='parents'?`<div class="kids-resource-grid kids-section">${items.map(item=>resourceCard(item,lang,kind)).join('')}</div>`:content.ages.map(age=>`<section class="kids-section">${sectionHead(`${ageText(age.id,lang)} · ${loc(age.title,lang)}`)}<div class="kids-resource-grid">${items.filter(v=>v.age===age.id).map(item=>resourceCard(item,lang,kind)).join('')}</div></section>`).join(''))});
 }
 function planPage(plan,content,lang) {
@@ -151,7 +154,7 @@ function planPage(plan,content,lang) {
 }
 function packPage(pack,content,lang) {
   const activities=pack.activityIds.map(id=>content.activities.find(a=>a.id===id));
-  return layout({lang,suffix:`printables/${pack.id}`,title:loc(pack.title,lang),description:loc(pack.description,lang),type:'pack',content:hero(lang,loc(pack.title,lang),loc(pack.description,lang),{action:false})+`<section class="kids-section kids-callout"><h2>${ui(lang,'Ready to print','جاهزة للطباعة')}</h2><p>${ui(lang,'Each pack has five activity sheets plus a separate parent answer guide. Print only the pages you need. Choose your paper size for a clean fit, or open the activities below without printing.','تضمّ كلّ حزمة خمس أوراق أنشطة ودليل إجابات منفصلًا للأهل. اطبع الصفحات التي تحتاجها فقط، واختر حجم الورق المناسب، أو افتح الأنشطة أدناه دون طباعة.')}</p><div class="kids-actions">${['a4','letter'].map(size=>`<a class="kids-button${size==='letter'?' secondary':''}" href="/assets/kids/printables/${pack.id}-${lang}-${size}.pdf" download>${ui(lang,`Download ${size.toUpperCase()} PDF`,`تنزيل PDF بحجم ${size.toUpperCase()}`)}</a>`).join('')}</div></section><section class="kids-section">${sectionHead(ui(lang,'Read and play without a printer','اقرأ والعب دون طابعة'))}<div class="kids-card-grid">${activities.map(a=>activityCard(a,lang)).join('')}</div></section>`});
+  return layout({lang,suffix:`printables/${pack.id}`,title:loc(pack.title,lang),description:loc(pack.description,lang),type:'pack',content:hero(lang,loc(pack.title,lang),loc(pack.description,lang),{action:false})+`<section class="kids-section kids-callout"><h2>${ui(lang,'Ready to print','جاهزة للطباعة')}</h2><p>${ui(lang,'Each pack has twenty activity sheets plus a separate parent answer guide. Print only the pages you need. Choose your paper size for a clean fit, or open the activities below without printing.','تضمّ كلّ حزمة عشرين ورقة أنشطة ودليل إجابات منفصلًا للأهل. اطبع الصفحات التي تحتاجها فقط، واختر حجم الورق المناسب، أو افتح الأنشطة أدناه دون طباعة.')}</p><div class="kids-actions">${['a4','letter'].map(size=>`<a class="kids-button${size==='letter'?' secondary':''}" href="/assets/kids/printables/${pack.id}-${lang}-${size}.pdf" download>${ui(lang,`Download ${size.toUpperCase()} PDF`,`تنزيل PDF بحجم ${size.toUpperCase()}`)}</a>`).join('')}</div></section><section class="kids-section">${sectionHead(ui(lang,'Read and play without a printer','اقرأ والعب دون طابعة'))}<div class="kids-card-grid">${activities.map(a=>activityCard(a,lang)).join('')}</div></section>`});
 }
 function guidePage(guide,lang) {
   return layout({lang,suffix:`parents/${guide.id}`,title:loc(guide.title,lang),description:loc(guide.description,lang),type:'guide',schema:{'@type':'Article',headline:loc(guide.title,lang),description:loc(guide.description,lang)},content:hero(lang,loc(guide.title,lang),loc(guide.description,lang),{action:false})+`<article class="kids-section kids-guide-content" data-kids-read>${guide.sections.map(s=>`<section class="kids-detail-section"><h2>${e(loc(s.title,lang))}</h2><p>${e(loc(s.body,lang))}</p></section>`).join('')}<div class="kids-callout"><h2>${ui(lang,'Try one small thing today','جرّب شيئًا صغيرًا اليوم')}</h2><p>${ui(lang,'Choose one idea from this guide and one activity your child is curious about. Adapt it together, and keep what works for your family.','اختر فكرة واحدة من الدليل ونشاطًا يثير فضول طفلك. كيّفاه معًا واحتفظا بما يناسب أسرتكما.')}</p><a class="kids-button" href="${kidsPath(lang,'activities')}">${ui(lang,'Find an activity','ابحث عن نشاط')}</a></div></article>`});
@@ -184,7 +187,7 @@ export function generateKidsPages({check=false}={}) {
     if (!check) { fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,body); }
   }
   if (check&&stale.length) throw Error(`Stale kids outputs (${stale.length}): ${stale.slice(0,8).join(', ')}`);
-  console.log(`${check?'Verified':'Generated'} kids learning: ${outputs.size-1} pages, 120 activities, 24 packs, 16 weeks, 8 guides, 30 preserved riddles.`);
+  console.log(`${check?'Verified':'Generated'} kids learning: ${outputs.size-1} pages, ${content.activities.length} activities, ${content.packs.length} packs, ${content.plans.length} weeks, ${content.guides.length} guides, ${content.legacy.length} preserved riddles.`);
   return {content,outputs};
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) generateKidsPages({check:process.argv.includes('--check')});

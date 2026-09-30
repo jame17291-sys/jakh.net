@@ -6,6 +6,7 @@ import { createHash } from "node:crypto";
 import { loadProductionQuarantine } from "./publication-quarantine.mjs";
 import { PUZZLES, BONUS } from "../puzzle-catalog.js";
 import { ILLUSTRATIONS, TOPIC_ILLUSTRATIONS, GAME_ILLUSTRATIONS, gameIllustrationId } from "../site-illustrations.js";
+import { kidsImageContractFailures } from "./kids-image-contract.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalog = JSON.parse(fs.readFileSync(path.join(root, "data", "catalog.json"), "utf8"));
@@ -113,6 +114,10 @@ for (const relative of generatedFiles) {
   ));
   if (category) {
     const id = TOPIC_ILLUSTRATIONS[category.slug];
+    if (category.slug === 'kids-riddles') {
+      failures.push(...kidsImageContractFailures(html, relative, id));
+      continue;
+    }
     if (id && !html.includes(`data-illustration="${id}"`)) failures.push(`${relative}: topic introduction artwork does not match its directory card`);
     if (!new RegExp(`<body\\b[^>]*\\bdata-category="${category.slug}"`, "u").test(html)) {
       failures.push(`${relative}: missing category binding for question data`);

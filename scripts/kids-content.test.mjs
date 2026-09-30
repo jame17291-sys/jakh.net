@@ -5,12 +5,37 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { loadKidsContent, kidsRoutePairs, kidsPath } from './generate-kids-pages.mjs';
 import { isDeployableFile } from './build-static-site.mjs';
+import { kidsImageContractFailures } from './kids-image-contract.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const content = loadKidsContent();
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const routeFile = route => route === '/kids-riddles' ? 'kids-riddles.html' : `${route.slice(1)}index.html`;
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
+
+test('dedicated bilingual kids hubs require their matching responsive hero, module runtime and complete activity finder', () => {
+  for (const relative of ['kids-riddles.html', 'ar/topics/kids-riddles/index.html']) {
+    const html = read(relative);
+    const check = value => kidsImageContractFailures(value, relative, 'topic-kids-riddles');
+    assert.deepEqual(check(html), [], relative);
+    const mutations = [
+      html.replace('class="kids-hero-art"', 'class="retired-hero"'),
+      html.replace('/assets/illustrations/topic-kids-riddles-480.webp', '/assets/illustrations/classic-riddles-480.webp'),
+      html.replace('/assets/illustrations/topic-kids-riddles-960.webp 960w', '/assets/illustrations/classic-riddles-960.webp 960w'),
+      html.replace(/sizes="[^"]+"(?= width="960" height="640" alt="" loading="eager")/u, ''),
+      html.replace('data-kids-page="hub"', 'data-page="category"'),
+      html.replace('type="module" src="/kids-learning.js"', 'src="/app.js?v=legacy"'),
+      html.replace('data-kids-filters', 'data-retired-filters'),
+      html.replace('name="age"', 'name="retiredAge"'),
+      html.replace('name="noPrinter"', 'name="retiredPrinter"'),
+      html.replaceAll('data-activity-card', 'data-retired-card'),
+    ];
+    for (const mutated of mutations) {
+      assert.notEqual(mutated, html, 'fixture mutation must change the real authored markup');
+      assert.ok(check(mutated).length > 0, `${relative}: malformed kids markup must fail validation`);
+    }
+  }
+});
 
 test('the complete bilingual launch inventory has balanced and usable activity content', () => {
   assert.equal(content.activities.length,120);

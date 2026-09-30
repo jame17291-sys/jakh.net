@@ -525,7 +525,7 @@ async function main() {
             assert.equal(await page.locator('html').getAttribute('dir'), language === 'ar' ? 'rtl' : 'ltr');
             assert.equal(await page.locator('.primary-navigation').count(), 1);
             assert.deepEqual(await page.locator('.primary-navigation a').evaluateAll((links) => links.map((link) => link.dataset.nav)),
-              ['home', 'library', 'games', 'daily']);
+              ['home', 'library', 'kids', 'games', 'daily']);
             assert.equal(await page.locator('.primary-navigation [aria-current="page"]').getAttribute('data-nav'), active);
             assert.equal(await page.locator('#hamburgerBtn, #bottomNav').count(), 0);
             assert.equal(await page.locator('[data-site-profile]').getAttribute('href'),

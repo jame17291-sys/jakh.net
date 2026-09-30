@@ -1,4 +1,4 @@
-import { readFile, appendFile } from "node:fs/promises";
+import { readFile, appendFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { join } from "node:path";
 import { verifyStaticApiRelease } from "./static-api-release-gate.mjs";
@@ -10,6 +10,13 @@ export const AUDIENCE = `${API_ORIGIN}/autopilot`;
 export const SHA = /^[a-f0-9]{40}$/u;
 export const RUN_ID = /^[1-9][0-9]{0,19}$/u;
 export const DAY = /^\d{4}-\d{2}-\d{2}$/u;
+const AUTOPILOT_ERROR_STATUSES = new Map([
+  ["AUTOPILOT_IDENTITY_INVALID", 401],
+  ["AUTOPILOT_IDENTITY_EXPIRED", 401],
+  ["AUTOPILOT_IDENTITY_SCOPE_INVALID", 403],
+  ["AUTOPILOT_IDENTITY_UNAVAILABLE", 503],
+  ["AUTOPILOT_PAYLOAD_INVALID", 400],
+]);
 
 export function context(env = process.env) {
   if (env.GITHUB_REPOSITORY !== REPOSITORY || env.GITHUB_REPOSITORY_ID !== REPOSITORY_ID
@@ -22,13 +29,22 @@ export function context(env = process.env) {
     runUrl: `https://github.com/${REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}` };
 }
 
-async function responseJson(response, label) {
+async function responseJson(response, label, identityDiagnostics = false) {
   if (Number(response.headers.get("content-length") || 0) > 2_000_000) throw new Error(`${label}: response too large`);
   const text = await response.text();
   if (text.length > 2_000_000) throw new Error(`${label}: response too large`);
   if (!response.ok) {
-    const error = new Error(`${label}: HTTP ${response.status}`);
+    let code;
+    if (identityDiagnostics) {
+      // Keep only fixed authentication codes; remote messages, bodies and token claims stay private.
+      try {
+        const payload = JSON.parse(text);
+        if (typeof payload?.code === "string" && AUTOPILOT_ERROR_STATUSES.get(payload.code) === response.status) code = payload.code;
+      } catch { /* Non-JSON error responses remain status-only. */ }
+    }
+    const error = new Error(`${label}: HTTP ${response.status}${code ? ` (${code})` : ""}`);
     error.status = response.status;
+    if (code) error.code = code;
     throw error;
   }
   return text ? JSON.parse(text) : null;
@@ -75,7 +91,26 @@ export async function autopilotRequest(action, body, { env = process.env, fetchI
     method: "POST", redirect: "error", signal: AbortSignal.timeout(25_000),
     headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
     body: JSON.stringify(body),
-  }), `Autopilot ${action}`);
+  }), `Autopilot ${action}`, true);
+}
+
+export async function diagnoseAutopilotIdentity(env = process.env, fetchImpl = fetch) {
+  const current = context(env);
+  if (env.GITHUB_EVENT_NAME !== "workflow_dispatch") throw new Error("Identity diagnostics require an explicit manual run.");
+  const receipt = { version: 1, mode: "identity_check_only", runId: current.runId,
+    sourceSha: current.sha, checkedAt: new Date().toISOString() };
+  try {
+    // The existing handler authenticates first, then rejects this unknown key before any D1 access.
+    await autopilotRequest("claim", { diagnosticOnly: true }, { env, fetchImpl });
+    return { ...receipt, status: "failed", code: "IDENTITY_PREFLIGHT_UNEXPECTED_ACCEPTANCE" };
+  } catch (error) {
+    const knownCode = AUTOPILOT_ERROR_STATUSES.get(error.code) === error.status ? error.code : undefined;
+    if (error.status === 400 && knownCode === "AUTOPILOT_PAYLOAD_INVALID") {
+      return { ...receipt, status: "identity_verified_without_claim", httpStatus: 400, code: knownCode };
+    }
+    return { ...receipt, status: "failed", code: knownCode || "IDENTITY_REQUEST_FAILED",
+      ...(Number.isInteger(error.status) && error.status >= 100 && error.status <= 599 ? { httpStatus: error.status } : {}) };
+  }
 }
 
 export function assertMain(branch, expectedSha) {
@@ -119,11 +154,17 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   try {
     const command = process.argv[2];
     if (command === "authorize-release") await authorizeRelease();
+    else if (command === "diagnose-identity") {
+      const receipt = await diagnoseAutopilotIdentity();
+      if (process.argv[3]) await writeFile(process.argv[3], `${JSON.stringify(receipt, null, 2)}\n`);
+      process.stdout.write(`${JSON.stringify(receipt)}\n`);
+      if (receipt.status !== "identity_verified_without_claim") process.exitCode = 1;
+    }
     else if (["claim", "report", "release"].includes(command)) {
       const body = process.argv[3] ? JSON.parse(await readFile(process.argv[3], "utf8")) : {};
       const result = await autopilotRequest(command, body);
       if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `Autopilot ${command} completed.\n`);
       process.stdout.write(`${JSON.stringify(result)}\n`);
-    } else throw new Error("Use authorize-release, claim, report or release.");
+    } else throw new Error("Use diagnose-identity, authorize-release, claim, report or release.");
   } catch (error) { process.stderr.write(`${error.message}\n`); process.exitCode = 1; }
 }

@@ -23,7 +23,7 @@ const originalFetch = globalThis.fetch;
 let jwksCalls = 0;
 globalThis.fetch = async (url, options) => {
   assert.equal(url, JWKS);
-  assert.equal(options.redirect, 'error');
+  assert.equal(options.redirect, 'manual');
   jwksCalls += 1;
   return new Response(JSON.stringify({ keys: [jwk] }));
 };

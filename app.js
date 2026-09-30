@@ -574,7 +574,10 @@ const UI = {
     battleJoining: 'Joining…',
     battleInviteRequired: 'Invite one friend with the link to start.',
     avatarUpdated: 'Avatar updated!',
+    avatarSaving: 'Saving avatar…',
     avatarSaveError: 'Could not save the avatar.',
+    adminSecurityLoading: 'Loading account security…',
+    adminSecurityLoadError: 'Could not load account security. Check your connection, refresh this page and try again.',
     chooseAvatarAria: 'Choose {avatar} as your avatar',
     passwordFieldsRequired: 'Fill both password fields.',
     passwordUpdating: 'Updating password…',
@@ -988,7 +991,10 @@ const UI = {
     battleJoining: 'جارٍ الانضمام…',
     battleInviteRequired: 'ادعُ صديقًا واحدًا بالرابط لبدء المعركة.',
     avatarUpdated: 'تم تحديث الصورة الرمزية!',
+    avatarSaving: 'جارٍ حفظ الصورة الرمزية…',
     avatarSaveError: 'تعذّر حفظ الصورة الرمزية.',
+    adminSecurityLoading: 'جارٍ تحميل حماية الحساب…',
+    adminSecurityLoadError: 'تعذّر تحميل حماية الحساب. تحقق من الاتصال وحدّث الصفحة ثم حاول مجدداً.',
     chooseAvatarAria: 'اختر {avatar} صورةً رمزيةً',
     passwordFieldsRequired: 'املأ حقلي كلمة المرور.',
     passwordUpdating: 'جارٍ تحديث كلمة المرور…',
@@ -2262,6 +2268,8 @@ window.addEventListener('appinstalled', () => {
 });
 
 let authModalMode = 'signin';
+let avatarSavePending = null;
+let adminSecurityLoadPending = null;
 
 function refreshLocalizedTransientUi() {
   const installBanner = document.getElementById('installBanner');
@@ -3666,6 +3674,8 @@ function renderAuthModal(mode = 'signin') {
   authModalMode = mode;
   const account = getActiveUser();
   if (account) {
+    const avatarSaving = avatarSavePending?.user === state.dbUser;
+    const securityLoading = adminSecurityLoadPending?.user === state.dbUser;
     const easyCount = getCorrectCountByDifficulty('easy');
     const medCount = getCorrectCountByDifficulty('medium');
     const hardCount = getCorrectCountByDifficulty('hard');
@@ -3714,7 +3724,7 @@ function renderAuthModal(mode = 'signin') {
     els.authModalBody.innerHTML = `
       <section class="auth-panel" id="signedInAccountPanel" tabindex="-1">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-          <div style="font-size:3rem;line-height:1;background:var(--panel);padding:0.5rem;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,0.1);">${escapeHtml(account.avatar)}</div>
+          <div id="profileAvatar" style="font-size:3rem;line-height:1;background:var(--panel);padding:0.5rem;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,0.1);">${escapeHtml(account.avatar)}</div>
           <div>
             <strong style="font-size:1.2rem;">${escapeHtml(account.username)}</strong>
             <p style="margin:0;opacity:0.7;font-size:0.9rem;">${escapeHtml(t('accountReady'))}</p>
@@ -3734,11 +3744,12 @@ function renderAuthModal(mode = 'signin') {
 
         <hr style="margin:1.5rem 0;opacity:0.2;" />
         <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(state.lang === 'ar' ? 'اختر صورتك الرمزية' : 'Choose Your Avatar')}</strong>
-        <div id="avatarSelector" style="display:flex;gap:0.5rem;flex-wrap:wrap;font-size:1.75rem;margin-bottom:1rem;">
+        <div id="avatarSelector" tabindex="-1" ${avatarSaving ? 'aria-busy="true"' : ''} style="display:flex;gap:0.5rem;flex-wrap:wrap;font-size:1.75rem;margin-bottom:1rem;">
           ${['👤','🦊','🦉','🐉','⚡️','🔥','👻','👽','🦄','🦁','🐼', '👑', '🚀', '🧠', '🧙‍♂️', '👾'].map(emoji => `
-             <button type="button" class="avatar-btn ${account.avatar === emoji ? 'is-active' : ''}" aria-label="${escapeHtml(fmt('chooseAvatarAria', { avatar: emoji }))}" aria-pressed="${account.avatar === emoji ? 'true' : 'false'}" style="border:2px solid ${account.avatar === emoji ? 'var(--accent, #e8613c)' : 'transparent'};background:transparent;cursor:pointer;border-radius:50%;padding:4px;transition:all 0.2s;transform:${account.avatar === emoji ? 'scale(1.1)' : 'scale(1)'};" data-emoji="${emoji}">${emoji}</button>
+             <button type="button" class="avatar-btn ${account.avatar === emoji ? 'is-active' : ''}" ${avatarSaving ? 'disabled' : ''} aria-describedby="avatarStatus" aria-label="${escapeHtml(fmt('chooseAvatarAria', { avatar: emoji }))}" aria-pressed="${account.avatar === emoji ? 'true' : 'false'}" style="border:2px solid ${account.avatar === emoji ? 'var(--accent, #e8613c)' : 'transparent'};background:transparent;cursor:pointer;border-radius:50%;padding:4px;transition:all 0.2s;transform:${account.avatar === emoji ? 'scale(1.1)' : 'scale(1)'};" data-emoji="${emoji}">${emoji}</button>
           `).join('')}
         </div>
+        <p id="avatarStatus" class="auth-inline-status" role="status" aria-live="polite" aria-atomic="true">${avatarSaving ? escapeHtml(t('avatarSaving')) : ''}</p>
 
         <hr style="margin:1.5rem 0;opacity:0.2;" />
         <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(state.lang === 'ar' ? 'تغيير كلمة المرور' : 'Change Password')}</strong>
@@ -3755,7 +3766,7 @@ function renderAuthModal(mode = 'signin') {
         <p id="changePasswordRules" class="password-rules">${escapeHtml(t('passwordRules'))}</p>
         <p id="changePasswordStatus" class="auth-inline-status" role="status" aria-live="polite" aria-atomic="true"></p>
         <button class="mini-btn" type="button" id="changePasswordBtn" aria-describedby="changePasswordStatus">${escapeHtml(state.lang === 'ar' ? 'تحديث كلمة المرور' : 'Update Password')}</button>
-        ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<hr /><h3>${escapeHtml(state.lang === 'ar' ? 'حماية الوصول إلى الإدارة' : 'Protect admin access')}</h3><p>${escapeHtml(state.lang === 'ar' ? 'أضف تطبيق مصادقة واحفظ رموز الاسترداد لفتح لوحة الإدارة بأمان.' : 'Add an authenticator and save recovery codes to securely open the administration console.')}</p><button class="secondary-btn" type="button" id="adminSecurityBtn">${escapeHtml(state.lang === 'ar' ? 'إعداد تطبيق المصادقة أو التحقق منه' : 'Set up or verify authenticator')}</button>` : ''}
+        ${(state.dbUser?.role === 'ADMIN' || state.dbUser?.role === 'OWNER') ? `<hr /><h3>${escapeHtml(state.lang === 'ar' ? 'حماية الوصول إلى الإدارة' : 'Protect admin access')}</h3><p>${escapeHtml(state.lang === 'ar' ? 'أضف تطبيق مصادقة واحفظ رموز الاسترداد لفتح لوحة الإدارة بأمان.' : 'Add an authenticator and save recovery codes to securely open the administration console.')}</p><button class="secondary-btn" type="button" id="adminSecurityBtn" aria-describedby="adminSecurityStatus" ${securityLoading ? 'disabled aria-busy="true"' : ''}>${escapeHtml(state.lang === 'ar' ? 'إعداد تطبيق المصادقة أو التحقق منه' : 'Set up or verify authenticator')}</button><p id="adminSecurityStatus" class="auth-inline-status" role="status" aria-live="polite" aria-atomic="true">${securityLoading ? escapeHtml(t('adminSecurityLoading')) : ''}</p>` : ''}
 
         <hr style="margin:1.5rem 0;opacity:0.2;" />
         <strong style="display:block;margin-bottom:0.5rem;">${escapeHtml(t('recoveryRotateTitle'))}</strong>
@@ -3810,9 +3821,22 @@ function renderAuthModal(mode = 'signin') {
 
     document.getElementById('adminSecurityBtn')?.addEventListener('click', async (event) => {
       const button = event.currentTarget;
+      const user = state.dbUser;
+      if (!user || adminSecurityLoadPending?.user === user) return;
+      const operation = { user };
+      adminSecurityLoadPending = operation;
+      let moduleLoaded = false;
+      const loadingStatus = document.getElementById('adminSecurityStatus');
       button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+      setAuthInlineStatus(loadingStatus, t('adminSecurityLoading'));
+      loadingStatus.setAttribute('tabindex', '-1');
+      loadingStatus.focus();
       try {
         const { openAdminSecurity } = await import('/auth-security.js');
+        // A dismissed or replaced Profile must not launch a late security dialog.
+        if (state.dbUser !== user || !button.isConnected || els.authModal.classList.contains('hidden')) return;
+        moduleLoaded = true;
         closeModal('auth');
         const verified = await openAdminSecurity({
           api: apiFetch,
@@ -3834,29 +3858,68 @@ function renderAuthModal(mode = 'signin') {
           else { renderAuthModal('signin'); openModal('auth'); }
         }
       } catch (error) {
+        if (state.dbUser !== user || (!moduleLoaded && !button.isConnected)) return;
         if (error?.status === 401 && error?.code !== 'CURRENT_PASSWORD_INCORRECT') {
           await checkCloudSession();
           renderAuthModal('signin');
           openModal('auth');
         }
-        showToast(localizedErrorMessage(error), true);
+        const message = moduleLoaded ? localizedErrorMessage(error) : t('adminSecurityLoadError');
+        if (!els.authModal.classList.contains('hidden')) {
+          setAuthInlineStatus(document.getElementById('adminSecurityStatus') || document.getElementById('authFormStatus'), message, 'error');
+        } else if (moduleLoaded) showToast(message, true);
       }
-      finally { button.disabled = false; }
+      finally {
+        if (adminSecurityLoadPending === operation) {
+          adminSecurityLoadPending = null;
+          const currentButton = document.getElementById('adminSecurityBtn');
+          currentButton?.removeAttribute('aria-busy');
+          if (currentButton) currentButton.disabled = false;
+          const status = document.getElementById('adminSecurityStatus');
+          if (status?.dataset.tone !== 'error') setAuthInlineStatus(status, '');
+          if (document.activeElement === loadingStatus && !els.authModal.classList.contains('hidden')) currentButton?.focus();
+        }
+      }
     });
 
     const avatarBtns = document.querySelectorAll('.avatar-btn');
     avatarBtns.forEach(btn => {
       btn.addEventListener('click', async () => {
+        const user = state.dbUser;
+        if (!user || avatarSavePending?.user === user) return;
         const emoji = btn.dataset.emoji;
-        btn.style.opacity = '0.5';
+        const operation = { user };
+        avatarSavePending = operation;
+        const selector = document.getElementById('avatarSelector');
+        const restoreFocus = document.activeElement === btn;
+        avatarBtns.forEach(button => { button.disabled = true; });
+        selector.setAttribute('aria-busy', 'true');
+        if (restoreFocus) selector.focus();
+        setAuthInlineStatus(document.getElementById('avatarStatus'), t('avatarSaving'));
         try {
           await apiFetch('/user/avatar', { method: 'PUT', body: JSON.stringify({ avatar: emoji }) });
-          state.dbUser.avatar = emoji;
-          renderAuthModal('signin');
-          showToast(t('avatarUpdated'));
+          if (state.dbUser !== user) return;
+          user.avatar = emoji;
+          // Keep password/recovery fields and their pending feedback intact.
+          const headerAvatar = document.getElementById('profileAvatar');
+          if (headerAvatar) headerAvatar.textContent = emoji;
+          document.querySelectorAll('#avatarSelector .avatar-btn').forEach(button => {
+            const selected = button.dataset.emoji === emoji;
+            button.classList.toggle('is-active', selected);
+            button.setAttribute('aria-pressed', String(selected));
+            button.style.borderColor = selected ? 'var(--accent, #e8613c)' : 'transparent';
+            button.style.transform = selected ? 'scale(1.1)' : 'scale(1)';
+          });
+          setAuthInlineStatus(document.getElementById('avatarStatus'), t('avatarUpdated'), 'success');
         } catch (err) {
-          showToast(localizedErrorMessage(err, 'avatarSaveError'), true);
-          btn.style.opacity = '1';
+          if (state.dbUser === user) setAuthInlineStatus(document.getElementById('avatarStatus'), localizedErrorMessage(err, 'avatarSaveError'), 'error');
+        } finally {
+          if (avatarSavePending === operation) {
+            avatarSavePending = null;
+            document.getElementById('avatarSelector')?.removeAttribute('aria-busy');
+            document.querySelectorAll('#avatarSelector .avatar-btn').forEach(button => { button.disabled = false; });
+            if (restoreFocus && document.activeElement === selector && btn.isConnected) btn.focus();
+          }
         }
       });
     });

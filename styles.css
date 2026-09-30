@@ -510,8 +510,8 @@ textarea { min-height: 6.5rem; resize: vertical; }
   min-height: 1.5em;
   color: var(--muted) !important;
 }
-.auth-inline-status[data-tone="error"] { color: #ffb4a9 !important; }
-.auth-inline-status[data-tone="success"] { color: #8ce9bd !important; }
+.auth-inline-status[data-tone="error"] { color: var(--danger) !important; }
+.auth-inline-status[data-tone="success"] { color: var(--easy) !important; }
 .recovery-receipt {
   border: 1px solid color-mix(in srgb, var(--accent) 48%, var(--line));
   background: color-mix(in srgb, var(--accent) 7%, var(--panel));

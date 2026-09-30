@@ -12,6 +12,7 @@ import { puzzlePath } from "../puzzle-routes.js";
 import { dailyIndex } from "../puzzle-daily.js";
 import { LETTER_SQUARES } from "../puzzle-word-data.js";
 import { runPasswordChangeRegressions } from "./password-change-browser-cases.mjs";
+import { runProfileFeedbackRegressions } from "./profile-feedback-browser-cases.mjs";
 
 const BROWSER_ENGINES = Object.freeze({ chromium, firefox, webkit });
 const BROWSER_ENGINE = String(process.env.JAKH_BROWSER_ENGINE || "chromium").toLowerCase();
@@ -364,9 +365,11 @@ function assertInsideViewport(rect, viewport, label) {
   assert(rect.y + rect.height <= viewport.height + 0.5, `${label} extends below the viewport: ${detail}`);
 }
 
+let completedSuites = 0;
 async function runTest(name, callback) {
   const started = performance.now();
   await callback();
+  completedSuites++;
   console.log(`PASS ${name} (${Math.round(performance.now() - started)}ms)`);
 }
 
@@ -681,6 +684,9 @@ async function main() {
 
     await runTest("password changes show visible validation, progress, errors and success in both languages", () =>
       runPasswordChangeRegressions({ browser, baseUrl, createContext, setConsent: setCurrentDeniedConsent, waitUntil: NAVIGATION_READY_EVENT }));
+
+    await runTest("Profile avatar and security loading feedback stays visible and preserves in-flight forms", () =>
+      runProfileFeedbackRegressions({ browser, baseUrl, createContext, setConsent: setCurrentDeniedConsent, waitUntil: NAVIGATION_READY_EVENT }));
 
     await runTest("signed-in owner utilities remain usable with a long username on narrow screens", async () => {
       const username = 'OwnerWithAnExtremelyLongDisplayNameForLayoutChecks';
@@ -1368,7 +1374,7 @@ async function main() {
       }
     });
 
-    console.log(`Browser regression passed: 13 suites on ${BROWSER_ENGINE}.`);
+    console.log(`Browser regression passed: ${completedSuites} suites on ${BROWSER_ENGINE}.`);
   } finally {
     await browser.close();
     await server.close();

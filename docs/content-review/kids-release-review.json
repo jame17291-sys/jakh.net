@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed",
+  "reviewMethod": "AI editorial review with separate authoring and independent review passes",
+  "reviewedOn": "2026-09-30",
+  "coverage": {
+    "activities": 480,
+    "printablePacks": 24,
+    "weeklyPlans": 16,
+    "parentGuides": 8,
+    "preservedRiddles": 30
+  },
+  "checks": [
+    "correctness and explained answers",
+    "age suitability and adaptations",
+    "materials and practical instructions",
+    "Arabic and English equivalence",
+    "appropriate supervision guidance"
+  ],
+  "limitations": "This records AI editorial review, not qualified educator approval or physical family trials.",
+  "sourceSha256": {
+    "data/kids/inventory.json": "6ade48313817352fdf0eecb3b06b7259e3ac3a6c8eaa295c91fbc3890b212bbb",
+    "data/kids/activities-young.json": "31a9c80524368126e09e58ebd7447d33494d1beb7ecff53e3d02240371a341a4",
+    "data/kids/activities-older.json": "d67cc19704d674e34bcb35601938daada75871e405e2bb67e84d9db2b22d80cd",
+    "data/kids/activities-language-maths-expansion.json": "60fc674890440ba77838cffdd7a8dab648f86b53be66727c019cb55daced1c58",
+    "data/kids/activities-logic-science-expansion.json": "bf6573c3875fe1e9bc60f05f174bad6763ed1dd2e6f622818ea8102f66732ff6",
+    "data/kids/activities-creativity-life-expansion.json": "1fe51da9ad19a26950c55ec66499142905354c8bada73194aaec8c64f3126168",
+    "scripts/kids-resources.mjs": "e0d079cc3b1af714fce205cfa96fc7c62ebd6c898e12b3dad5b812eea7f94c3a",
+    "scripts/kids-legacy.mjs": "bb72e8c940e85d7debe19f44f79642c3d31585915204ac508944db12fc0201ac"
+  },
+  "notes": [
+    "docs/content-review/kids-young-review.md",
+    "docs/content-review/kids-older-review.md",
+    "docs/content-review/kids-independent-review.md",
+    "docs/content-review/kids-language-maths-expansion.md",
+    "docs/content-review/kids-logic-science-expansion.md",
+    "docs/content-review/kids-creativity-life-expansion.md",
+    "docs/content-review/kids-expansion-independent-review.md"
+  ]
+}

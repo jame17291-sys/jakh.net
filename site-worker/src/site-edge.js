@@ -25,6 +25,9 @@ const EXPECTED_QUARANTINED_CATEGORIES = Object.freeze([
   "economics-and-finance",
 ]);
 const MAX_QUARANTINE_PATH_DECODE_PASSES = 3;
+const KIDS_DISCOVERY_PARAMETERS = Object.freeze([
+  "search", "age", "area", "minutes", "materialGroup", "format", "reading", "adult", "screenFree", "noPrinter",
+]);
 
 const RELEASE_METADATA_PATHS = new Set([
   "/manifest.webmanifest",
@@ -43,6 +46,11 @@ function invariant(condition, message) {
 
 function isPrimaryHost(hostname) {
   return hostname === APEX_HOST || hostname === WWW_HOST;
+}
+
+function isKidsFilterURL(url) {
+  return /^\/(?:kids-riddles|ar\/topics\/kids-riddles)(?:\/|$)/u.test(url.pathname)
+    && KIDS_DISCOVERY_PARAMETERS.some(name => url.searchParams.has(name));
 }
 
 export function isQuarantinedPath(siteManifest, pathname) {
@@ -245,7 +253,7 @@ export function applySiteHeaders(response, {
   if (etag && response.status >= 200 && response.status < 300) headers.set("etag", etag);
   // Query state is playable and shareable, but it is not a separate public
   // search destination. Do not let its headers enter a clean-page offline cache.
-  if (requestUrl && isPuzzleStateURL(requestUrl)) {
+  if (requestUrl && (isPuzzleStateURL(requestUrl) || isKidsFilterURL(requestUrl))) {
     headers.set("x-robots-tag", "noindex, follow");
     headers.set("cache-control", NO_STORE);
   }

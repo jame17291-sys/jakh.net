@@ -1,3 +1,4 @@
+import { kidsRoutePairs } from './generate-kids-pages.mjs';
 import { TOPIC_ILLUSTRATIONS } from "../site-illustrations.js";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -256,9 +257,9 @@ test("the no-script topic directory gives public topics exclusive artwork and di
   }
 });
 
-test("all topic routes remain functional noindex application shells without static SEO pagination", () => {
+test("generic topic routes remain functional noindex application shells without static SEO pagination", () => {
   assert.equal(catalog.categories.length, 56, "source categories stay available to the app");
-  for (const category of catalog.categories) {
+  for (const category of catalog.categories.filter(c => c.slug !== "kids-riddles")) {
     for (const [lang, relative, canonical, alternate] of [
       ["en", `${category.slug}.html`, `${siteOrigin}/${category.slug}`, `${siteOrigin}/ar/topics/${category.slug}/`],
       ["ar", `ar/topics/${category.slug}/index.html`, `${siteOrigin}/ar/topics/${category.slug}/`, `${siteOrigin}/${category.slug}`],
@@ -304,6 +305,7 @@ test("the sitemap is exactly the compact indexable architecture", () => {
     ...RIDDLE_ARABIA_GAME_CATALOG.map((game) => [`/${game.slug}`, `/ar/games/${game.slug}/`]),
     ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => [game.paths.en, game.paths.ar]),
     ...PRESERVED_GAME_SLUGS.map((slug) => [`/${slug}`, `/ar/games/${slug}/`]),
+    ...kidsRoutePairs().map(page => [page.en, page.ar]),
   ];
   const entries = sitemapEntries();
   const urls = entries.map((entry) => entry.loc);
@@ -321,7 +323,10 @@ test("the sitemap is exactly the compact indexable architecture", () => {
       assert.match(entry.block, new RegExp(`hreflang="x-default" href="${escapeRegex(en)}"`, "u"), `${canonical}: default alternate`);
     }
   }
-  assert.equal(urls.some((url) => /\/ar\/topics\/|\/(?:science|logic-puzzles|kids-riddles)(?:\/|$)/u.test(new URL(url).pathname)), false, "functional category shells are intentionally noindex");
+  for (const category of catalog.categories.filter(c => c.slug !== "kids-riddles")) {
+    assert.equal(urls.includes(`${siteOrigin}/${category.slug}`), false);
+    assert.equal(urls.includes(`${siteOrigin}/ar/topics/${category.slug}/`), false);
+  }
 });
 
 test("retired SEO directories and every paginated artifact are absent from the public source", () => {

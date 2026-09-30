@@ -6,6 +6,7 @@ export function siteHeader({ lang = 'en', alternate = '/', active = '' } = {}) {
   const links = [
     ['home', ar ? '/ar/' : '/', ar ? 'الرئيسية' : 'Home'],
     ['library', ar ? '/ar/mind-lab/' : '/mind-lab', ar ? 'ألغاز واختبارات' : 'Riddles &amp; Quizzes'],
+    ['kids', ar ? '/ar/topics/kids-riddles/' : '/kids-riddles', ar ? 'الأطفال' : 'Kids'],
     ['games', ar ? '/ar/play/' : '/play', ar ? 'الألعاب' : 'Games'],
     ['daily', ar ? '/ar/daily/' : '/daily', ar ? 'التحدي اليومي' : 'Daily Challenge'],
   ];

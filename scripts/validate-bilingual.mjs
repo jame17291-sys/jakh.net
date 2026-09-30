@@ -241,7 +241,7 @@ if (!/querySelectorAll\(["']button\[data-close-modal=["']auth["']\]["']\)/u.test
   fail("app.js: the account-dialog close button is not localized");
 }
 const catalog = JSON.parse(read("data/catalog.json"));
-const categoryPagePairs = (catalog.categories || []).map((category) => ({
+const categoryPagePairs = (catalog.categories || []).filter(category => category.slug !== "kids-riddles").map((category) => ({
   slug: category.slug,
   en: `${category.slug}.html`,
   ar: `ar/topics/${category.slug}/index.html`,
@@ -254,6 +254,7 @@ const appPages = [
   ...categoryPagePairs.flatMap((pair) => [pair.en, pair.ar]),
 ];
 const sharedPagePairs = [
+  { en: "kids-riddles.html", ar: "ar/topics/kids-riddles/index.html", enPath: "/kids-riddles", arPath: "/ar/topics/kids-riddles/", runtime: "kids-learning.js" },
   ...RIDDLE_ARABIA_PUZZLE_CATALOG.map((game) => ({ en: `${game.slug}.html`, ar: `${game.paths.ar.slice(1)}index.html`, enPath: game.paths.en, arPath: game.paths.ar, runtime: "puzzle-room.js" })),
   { en: "index.html", ar: "ar/index.html", enPath: "/", arPath: "/ar/", runtime: null },
   { en: "play.html", ar: "ar/play/index.html", enPath: "/play", arPath: "/ar/play/", runtime: null },

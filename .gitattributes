@@ -1,0 +1,2 @@
+# Printable PDFs contain binary streams even when their first pages look textual.
+assets/kids/printables/*.pdf binary

@@ -141,4 +141,6 @@ The follow-up production monitor identifies release workflows by their file
 path, since GitHub can return the custom run title as the run name. Only a
 successful API compatibility run with its exact source SHA may use the supported
 pre-migration schema range. Scheduled, manual, and final-release monitoring keep
-the strict target-schema contract.
+the strict target-schema contract. Release checks use the triggering source
+commit; the classifier is loaded separately from the monitor workflow's exact
+commit so older or rerun releases do not need to contain newer workflow helpers.

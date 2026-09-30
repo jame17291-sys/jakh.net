@@ -38,9 +38,20 @@ jobs:
       - name: Test monitor behavior
         run: node --test scripts/monitor-production.test.mjs scripts/route-production-alert.test.mjs
 
+      # A completed release can predate this workflow's helper. Keep its monitor
+      # contract above, but load orchestration from this exact workflow revision.
+      - name: Load classifier from the monitor workflow revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.workflow_sha }}
+          path: .monitor-workflow
+          sparse-checkout: /scripts/monitor-workflow-context.mjs
+          sparse-checkout-cone-mode: false
+
       - name: Classify triggering release
         id: context
-        run: node scripts/monitor-workflow-context.mjs
+        run: node .monitor-workflow/scripts/monitor-workflow-context.mjs
 
       - name: Check production
         id: production

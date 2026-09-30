@@ -514,7 +514,9 @@ test("workflow statically separates no-migration compatibility from gated migrat
   assert.equal(workflow.match(/\[ "\$attempt" -lt 18 \]/gu)?.length, 5);
   assert.doesNotMatch(workflow, /for attempt in 1 2 3 4 5 6/u);
   assert.match(workflow, /--migration-authorization-outcome/u);
-  assert.match(monitorWorkflow, /id: context\n\s+run: node scripts\/monitor-workflow-context\.mjs/u);
+  assert.match(monitorWorkflow, /ref: \$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.head_sha \|\| github\.sha \}\}/u);
+  assert.match(monitorWorkflow, /name: Load classifier from the monitor workflow revision[\s\S]+persist-credentials: false\n\s+ref: \$\{\{ github\.workflow_sha \}\}\n\s+path: \.monitor-workflow\n\s+sparse-checkout: \/scripts\/monitor-workflow-context\.mjs\n\s+sparse-checkout-cone-mode: false/u);
+  assert.match(monitorWorkflow, /id: context\n\s+run: node \.monitor-workflow\/scripts\/monitor-workflow-context\.mjs/u);
   assert.equal(monitorWorkflow.match(/JAKH_MONITOR_SCOPE: \$\{\{ steps\.context\.outputs\.scope \}\}/gu)?.length, 2);
   assert.match(monitorWorkflow, /JAKH_MONITOR_ALLOW_COMPATIBLE_SCHEMA: \$\{\{ steps\.context\.outputs\.allow-compatible-schema \}\}/u);
   assert.doesNotMatch(monitorWorkflow, /workflow_run\.name ==/u);

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import http from "node:http";
 import { readFileSync } from "node:fs";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import test from "node:test";
@@ -1006,6 +1006,38 @@ test("monitor event file produces the scope and compatibility outputs consumed b
       stdio: "pipe",
     });
     assert.equal(await readFile(outputPath, "utf8"), "scope=api\nallow-compatible-schema=true\n");
+  } finally {
+    await rm(temporary, { recursive: true, force: true });
+  }
+});
+
+test("a newer monitor workflow classifies an older release checkout without changing its monitor contract", async () => {
+  const temporary = await mkdtemp(join(tmpdir(), "jakh-monitor-old-release-"));
+  try {
+    const workflow = await readFile(new URL("../.github/workflows/production-monitor.yml", import.meta.url), "utf8");
+    const classifierPath = workflow.match(/id: context\n\s+run: node ([^\s]+)/u)?.[1];
+    const productionPath = workflow.match(/id: production[\s\S]+?\n\s+run: node ([^\s]+)/u)?.[1];
+    assert.equal(classifierPath, ".monitor-workflow/scripts/monitor-workflow-context.mjs");
+    assert.equal(productionPath, "scripts/monitor-production.mjs");
+    await mkdir(join(temporary, "scripts"));
+    await mkdir(join(temporary, ".monitor-workflow/scripts"), { recursive: true });
+    const releaseContract = 'process.stdout.write("older-release-contract");\n';
+    await writeFile(join(temporary, productionPath), releaseContract);
+    await writeFile(join(temporary, classifierPath),
+      await readFile(new URL("./monitor-workflow-context.mjs", import.meta.url)));
+    const eventPath = join(temporary, "event.json");
+    const outputPath = join(temporary, "outputs");
+    await writeFile(eventPath, JSON.stringify(compatibilityWorkflowEvent()));
+    await assert.rejects(readFile(join(temporary, "scripts/monitor-workflow-context.mjs")), { code: "ENOENT" });
+
+    execFileSync(process.execPath, [classifierPath], {
+      cwd: temporary,
+      env: { ...process.env, GITHUB_EVENT_NAME: "workflow_run", GITHUB_EVENT_PATH: eventPath, GITHUB_OUTPUT: outputPath },
+      stdio: "pipe",
+    });
+    assert.equal(await readFile(outputPath, "utf8"), "scope=api\nallow-compatible-schema=true\n");
+    assert.equal(execFileSync(process.execPath, [productionPath], { cwd: temporary, encoding: "utf8" }), "older-release-contract");
+    assert.equal(await readFile(join(temporary, productionPath), "utf8"), releaseContract);
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }

@@ -25,6 +25,7 @@ import {
 import { navigationScript, siteHeader } from "./site-navigation-markup.mjs";
 import { buildStaticSite } from "./build-static-site.mjs";
 import { PUZZLE_ROUTES } from "../puzzle-routes.js";
+import { createSiteHandler } from "../site-worker/src/site-edge.js";
 
 const FIXTURE_WORKER_VERSION = "11111111-1111-4111-8111-111111111111";
 
@@ -584,7 +585,44 @@ test("only an exact-version release baseline accepts the complete 52-URL pre-puz
   });
 });
 
-test("strict navigation probes pass every HTML route from a fresh real production build", async () => {
+test("the actual generated sitemap fits its budget while oversized, altered and unidentified responses fail", async () => {
+  const sitemap = readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
+  const actualBytes = Buffer.byteLength(sitemap);
+  assert.ok(actualBytes > 300_000, "Use the expanded generated XML that exceeded the old budget");
+  assert.match(sitemap, /xhtml:link/u, "Include the real alternate-language markup, not a minimal fixture");
+  await withFixture({ productionSite: true }, async (fixtureOrigin) => {
+    const options = productionFixtureOptions(fixtureOrigin, { siteContract: "current" });
+    const withSitemap = (body, version = FIXTURE_WORKER_VERSION) => async (input, init) => {
+      if (new URL(input).pathname !== "/sitemap.xml") return options.fetchImpl(input, init);
+      return new Response(body, { headers: {
+        "content-type": "application/xml",
+        ...(version ? { "x-jakh-worker-version": version } : {}),
+      } });
+    };
+    const summary = await runProductionMonitor({ ...options, fetchImpl: withSitemap(sitemap) });
+    assert.deepEqual(summary.failures, []);
+    assert.equal(summary.results.find(({ name }) => name === "Site: sitemap")?.bytes, actualBytes);
+    assert.equal(summary.results.find(({ name }) => name === "Site: sitemap")?.workerVersionId, FIXTURE_WORKER_VERSION);
+
+    // Preserve all valid URLs and alternate links while exceeding the byte cap
+    // by exactly one byte, so only the response-size guard can reject this XML.
+    const oversized = sitemap + `<!--${" ".repeat(1_000_001 - actualBytes - 7)}-->`;
+    assert.equal(Buffer.byteLength(oversized), 1_000_001);
+    const tooLarge = await runProductionMonitor({ ...options, fetchImpl: withSitemap(oversized) });
+    assert.match(tooLarge.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /1000001 bytes \(budget 1000000 bytes\)/u);
+
+    const held = sitemap.replace(`<loc>${PRIMARY_SITE_ORIGIN}/</loc>`, `<loc>${PRIMARY_SITE_ORIGIN}/medical-questions</loc>`);
+    assert.notEqual(held, sitemap);
+    const leaked = await runProductionMonitor({ ...options, fetchImpl: withSitemap(held) });
+    assert.ok(leaked.failures.some(({ name }) => name === "Site: sitemap"), "An expanded sitemap still rejects held routes");
+    for (const version of ["", "22222222-2222-4222-8222-222222222222"]) {
+      const wrongIdentity = await runProductionMonitor({ ...options, fetchImpl: withSitemap(sitemap, version) });
+      assert.match(wrongIdentity.failures.find(({ name }) => name === "Site: sitemap")?.message || "", /lacks a valid Worker version|served Worker .* expected/u);
+    }
+  });
+});
+
+test("the complete site monitor passes the real edge handler and every byte of a fresh production build", async () => {
   const temporary = await mkdtemp(join(tmpdir(), "riddlearabia-monitor-artifact-"));
   try {
     const outputDirectory = join(temporary, "dist");
@@ -594,22 +632,51 @@ test("strict navigation probes pass every HTML route from a fresh real productio
       adminApiOrigin: "https://api.riddlearabia.com/api", adminEnvironment: "production",
     });
     assert.match(manifest.fingerprints["/site-navigation.js"], /^\/site-navigation\.[a-f0-9]{16}\.js$/u);
-    await withFixture({ builtHtml: outputDirectory }, async (fixtureOrigin) => {
+    const handler = createSiteHandler({
+      siteManifest: manifest,
+      mtaStsPolicy: readFileSync(new URL("../site-worker/assets/mta-sts.txt", import.meta.url), "utf8"),
+    });
+    const contentTypes = {
+      html: "text/html", js: "text/javascript", css: "text/css", json: "application/json",
+      webmanifest: "application/manifest+json", xml: "application/xml", txt: "text/plain",
+      png: "image/png", jpg: "image/jpeg",
+    };
+    const env = { ASSETS: { async fetch(request) {
+      const pathname = new URL(request.url).pathname;
+      assert.ok(manifest.files[pathname], `The edge handler requested an unlisted asset: ${pathname}`);
+      return new Response(readFileSync(join(outputDirectory, pathname.slice(1))), {
+        headers: { "content-type": contentTypes[pathname.split('.').at(-1)] || "application/octet-stream" },
+      });
+    } } };
+    const fetchImpl = async (input, init) => {
+      const response = await handler.fetch(new Request(input, init), env);
+      // index.js adds Cloudflare's runtime identity to every edge response.
+      const headers = new Headers(response.headers);
+      headers.set("x-jakh-worker-version", FIXTURE_WORKER_VERSION);
+      return new Response(response.body, { status: response.status, headers });
+    };
+    for (const siteContract of ["current", "release-baseline"]) {
       const summary = await runProductionMonitor({
-        env: {}, scope: "site", siteOrigin: fixtureOrigin, apiOrigin: fixtureOrigin,
-        expectedWorkerVersion: FIXTURE_WORKER_VERSION, maxCheckAttempts: 1,
-        logger: quietLogger(), throwOnFailure: false,
+        env: {}, scope: "site", siteOrigin: PRIMARY_SITE_ORIGIN, apiOrigin: PRIMARY_API_ORIGIN,
+        siteContract, expectedWorkerVersion: FIXTURE_WORKER_VERSION, maxCheckAttempts: 1,
+        fetchImpl, logger: quietLogger(), throwOnFailure: false,
       });
       assert.deepEqual(summary.failures, []);
+      assert.equal(summary.navigationLayout, "current");
       for (const route of HTML_ROUTES) {
         assert.ok(summary.results.some(({ name }) => name === `Site: ${route.name}`), `${route.path} must be tested`);
       }
-    });
-    await withFixture({ builtHtml: outputDirectory, productionSite: true }, async (fixtureOrigin) => {
-      const baseline = await runProductionMonitor(productionFixtureOptions(fixtureOrigin));
-      assert.deepEqual(baseline.failures, []);
-      assert.equal(baseline.navigationLayout, "current");
-    });
+      for (const [pathname, name] of [
+        ["/sitemap.xml", "Site: sitemap"], ["/data/catalog.json", "Site: catalog data"],
+        ["/data/card-index.json", "Site: public card index"],
+        ["/data/search-index.en.json", "Site: en public search index"],
+        ["/data/search-index.ar.json", "Site: ar public search index"],
+        ["/app.js", "Site: JavaScript"], ["/styles.css", "Site: CSS"],
+      ]) {
+        assert.equal(summary.results.find(result => result.name === name)?.bytes, manifest.files[pathname].bytes,
+          `${name} must validate the complete deployed bytes`);
+      }
+    }
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }

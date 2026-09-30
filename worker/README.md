@@ -116,8 +116,10 @@ For code-only releases, use `compatibility`; when D1 is already at the source
 schema, `migrate-final` deliberately refuses. Do not bypass this protocol with a
 manual `wrangler d1 migrations apply` followed by `wrangler deploy`.
 
-Production is served only from the `api.riddlearabia.com` custom domain. Keep
-`workers_dev` disabled so the API does not have a second public hostname.
+The canonical production API hostname is `api.riddlearabia.com`. The legacy
+`api.jakh.net` custom domain remains connected to the same Worker for
+compatibility and serves API responses directly; it is not a hostname redirect.
+Keep `workers_dev` disabled to avoid an additional `workers.dev` endpoint.
 
 Never commit `.dev.vars`, Cloudflare tokens, or generated secrets.
 

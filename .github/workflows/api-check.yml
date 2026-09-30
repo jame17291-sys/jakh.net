@@ -161,3 +161,10 @@ jobs:
           npm run test:admin:fixtures
           npm run test:admin:browser
           npm run test:autopilot:browser
+      - name: Build the exact site for accessibility validation
+        run: npm run build:site
+      - name: Validate WCAG browser contracts before merge
+        env:
+          JAKH_SITE_ROOT: ${{ github.workspace }}/site-worker/dist
+          JAKH_SITE_MANIFEST: ${{ github.workspace }}/site-worker/generated/site-manifest.json
+        run: npm run test:a11y

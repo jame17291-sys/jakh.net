@@ -245,6 +245,12 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
       });
       return;
     }
+    // These audits cover the workspace after the owner has verified MFA.
+    // Authentication enforcement is exercised by the API integration tests.
+    if (ownerAdmin && request.method() === "GET" && path === "/api/user/security") {
+      await fulfillJson({ required: true, enabled: true, verified: true, recoveryCodesRemaining: 10 });
+      return;
+    }
     if (ownerAdmin && path === "/api/admin/overview") {
       await fulfillJson({
         metrics: {
@@ -344,7 +350,7 @@ async function configureContext(context, { completedDaily = false, ownerAdmin = 
       return;
     }
     if (path === "/api/auth/session") {
-      await fulfillJson({ authenticated: false });
+      await fulfillJson({ authenticated: ownerAdmin });
       return;
     }
     await fulfillJson({ error: "Not found", code: "NOT_FOUND" }, 404);

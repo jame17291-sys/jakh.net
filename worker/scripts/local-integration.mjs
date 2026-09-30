@@ -363,11 +363,22 @@ async function run() {
     assert.equal(registration.payload.user.username, username);
     assert.match(registration.payload.recoveryCode, /^[A-Za-z0-9_-]{43}$/u);
     const originalRecoveryCode = registration.payload.recoveryCode;
-    const originalCookie = expectSessionCookie(registration.response);
+    let originalCookie = expectSessionCookie(registration.response);
 
     const session = await requestJson(baseUrl, "/api/auth/session", { cookie: originalCookie });
     assert.equal(session.payload.authenticated, true);
     assert.deepEqual(Object.keys(session.payload.user).sort(), ["avatar", "id", "role", "username"]);
+
+    const passwordChange = await requestJson(baseUrl, "/api/user/password", {
+      cookie: originalCookie,
+      body: { currentPassword: TEST_PASSWORD, newPassword: "Local-integration-replacement-62" },
+    });
+    assert.equal(passwordChange.payload.success, true);
+    const previousCookie = originalCookie;
+    originalCookie = expectSessionCookie(passwordChange.response);
+    assert.notEqual(originalCookie, previousCookie);
+    await requestJson(baseUrl, "/api/user/profile", { cookie: previousCookie, expected: 401 });
+    await requestJson(baseUrl, "/api/user/profile", { cookie: originalCookie });
 
     const defaultPrivacy = await requestJson(baseUrl, "/api/user/privacy", { cookie: originalCookie });
     assert.equal(defaultPrivacy.payload.privacy.analytics, "denied");

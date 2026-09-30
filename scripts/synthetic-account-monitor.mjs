@@ -10,6 +10,7 @@ const PRODUCTION_SITE_ORIGIN = "https://riddlearabia.com";
 const USERNAME_PATTERN = /^jakh_synth_[0-9a-f]{9}$/u;
 const COMMIT_PATTERN = /^[0-9a-f]{40}$/u;
 const DEFAULT_TIMEOUT_MS = 10_000;
+const WORKER_VERSION_PATTERN = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/u;
 
 function normalizeOrigin(value, label) {
   let parsed;
@@ -49,7 +50,8 @@ async function responsePayload(response) {
 
 class SyntheticHttpError extends Error {
   constructor(method, path, response, payload) {
-    const code = typeof payload?.code === "string" ? ` code=${payload.code}` : "";
+    const knownCodes = new Set(["INVALID_CREDENTIALS", "CURRENT_PASSWORD_INCORRECT", "UNAUTHORIZED", "RATE_LIMITED", "INTERNAL_SERVER_ERROR", "PASSWORD_POLICY_INVALID", "PASSWORD_TOO_WEAK"]);
+    const code = knownCodes.has(payload?.code) ? ` code=${payload.code}` : "";
     super(`${method} ${path} returned HTTP ${response.status}${code}`);
     this.name = "SyntheticHttpError";
     this.status = response.status;
@@ -148,14 +150,21 @@ async function requestApi(state, path, {
   if (body !== undefined) headers.set("content-type", "application/json");
   if (!new Set(["GET", "HEAD"]).has(method)) headers.set("origin", state.siteOrigin);
   if (cookie) headers.set("cookie", cookie);
-  const response = await state.fetchImpl(`${state.apiOrigin}${path}`, {
-    method,
-    headers,
-    body: body === undefined ? undefined : JSON.stringify(body),
-    redirect: "manual",
-    signal: AbortSignal.timeout(state.timeoutMs),
-  });
-  const payload = await responsePayload(response);
+  let response, payload;
+  try {
+    response = await state.fetchImpl(`${state.apiOrigin}${path}`, {
+      method,
+      headers,
+      body: body === undefined ? undefined : JSON.stringify(body),
+      redirect: "manual",
+      signal: AbortSignal.timeout(state.timeoutMs),
+    });
+    payload = await responsePayload(response);
+  } catch {
+    // A fetch implementation may include request details in its error. Keep
+    // passwords, session cookies and response bodies out of failure receipts.
+    throw new Error(`${method} ${path} failed before a readable API response`);
+  }
   if (response.status !== expected) throw new SyntheticHttpError(method, path, response, payload);
   if (record) state.checks.push({ name: `${method} ${path}`, status: response.status });
   return { payload, response };
@@ -165,26 +174,34 @@ async function deleteOwnedAccount(state) {
   if (!USERNAME_PATTERN.test(state.username)) {
     throw new Error("cleanup refused a username outside the dedicated synthetic prefix");
   }
-  let cookie = state.cookie;
-  if (!cookie) {
+  // A lost password-update response may leave both the password and session
+  // uncertain. Authenticate afresh using only this run's random candidates.
+  let cookie, password;
+  for (const candidate of [...state.passwordCandidates].reverse()) {
     try {
       const login = await requestApi(state, "/api/auth/login", {
-        body: { identifier: state.username, password: state.password },
+        body: { username: state.username, password: candidate },
         cookie: null,
         record: false,
       });
+      if (login.payload?.user?.username !== state.username) {
+        throw new Error("cleanup login returned a different username");
+      }
       cookie = sessionCookie(login.response);
-    } catch (error) {
-      throw new Error(`synthetic cleanup could not authenticate: ${safeError(error)}`);
+      password = candidate;
+      break;
+    } catch {
+      // Never try owner credentials, recovery codes or another account.
     }
   }
+  if (!cookie) throw new Error("synthetic cleanup could not authenticate with this run's generated passwords");
 
   const deletion = await requestApi(state, "/api/user/account", {
     method: "DELETE",
     cookie,
     body: {
       username: state.username,
-      currentPassword: state.password,
+      currentPassword: password,
       confirmPermanentDeletion: true,
     },
     record: false,
@@ -207,9 +224,14 @@ export async function runSyntheticAccountMonitor(options) {
     ...config,
     checks: [],
     password: randomPassword(),
+    passwordCandidates: [],
     cookie: null,
     accountMayExist: false,
   };
+  state.passwordCandidates.push(state.password);
+  const passwordRotation = { updated: false, sessionRotated: false, priorSessionRevoked: false,
+    priorPasswordRejected: false, newSessionVerified: false, newPasswordLoginVerified: false };
+  const workerIdentity = { before: null, after: null, unchanged: false };
   let primaryError = null;
   let cleanup = { required: false, confirmed: true, method: "not-created" };
 
@@ -224,10 +246,12 @@ export async function runSyntheticAccountMonitor(options) {
       || health.payload?.features?.accountDeletion !== true
       || health.payload?.features?.contentStudio !== true
       || health.payload?.features?.adminMfa !== true
+      || !WORKER_VERSION_PATTERN.test(health.payload?.workerVersionId || "")
     ) {
       throw new Error("API health is not fully ready on target schema 10");
     }
 
+    workerIdentity.before = health.payload.workerVersionId;
     state.accountMayExist = true;
     const registration = await requestApi(state, "/api/auth/register", {
       expected: 201,
@@ -245,6 +269,44 @@ export async function runSyntheticAccountMonitor(options) {
     if (session.payload?.authenticated !== true || session.payload?.user?.username !== state.username) {
       throw new Error("synthetic session contract is invalid");
     }
+
+    const previousCookie = state.cookie;
+    const previousPassword = state.password;
+    const nextPassword = randomPassword();
+    state.passwordCandidates.push(nextPassword);
+    const update = await requestApi(state, "/api/user/password", {
+      body: { currentPassword: previousPassword, newPassword: nextPassword },
+    });
+    if (update.payload?.success !== true) throw new Error("password update was not confirmed");
+    passwordRotation.updated = true;
+    state.password = nextPassword;
+    state.cookie = sessionCookie(update.response);
+    if (state.cookie === previousCookie) throw new Error("password update did not rotate the session cookie");
+    passwordRotation.sessionRotated = true;
+
+    const priorSession = await requestApi(state, "/api/auth/session", { cookie: previousCookie });
+    if (priorSession.payload?.authenticated !== false) throw new Error("prior session still authenticates after password update");
+    passwordRotation.priorSessionRevoked = true;
+    const rotatedSession = await requestApi(state, "/api/auth/session");
+    if (rotatedSession.payload?.authenticated !== true || rotatedSession.payload?.user?.username !== state.username) {
+      throw new Error("replacement synthetic session contract is invalid");
+    }
+    passwordRotation.newSessionVerified = true;
+    const oldLogin = await requestApi(state, "/api/auth/login", {
+      body: { username: state.username, password: previousPassword }, cookie: null, expected: 401,
+    });
+    if (oldLogin.payload?.code !== "INVALID_CREDENTIALS") throw new Error("prior password rejection was not confirmed");
+    passwordRotation.priorPasswordRejected = true;
+    const login = await requestApi(state, "/api/auth/login", {
+      body: { username: state.username, password: nextPassword }, cookie: null,
+    });
+    if (login.payload?.user?.username !== state.username) throw new Error("new-password login returned a different username");
+    state.cookie = sessionCookie(login.response);
+    const loggedIn = await requestApi(state, "/api/auth/session");
+    if (loggedIn.payload?.authenticated !== true || loggedIn.payload?.user?.username !== state.username) {
+      throw new Error("new-password login session contract is invalid");
+    }
+    passwordRotation.newPasswordLoginVerified = true;
 
     const privacy = await requestApi(state, "/api/user/privacy");
     if (privacy.payload?.privacy?.analytics !== "denied") {
@@ -309,6 +371,16 @@ export async function runSyntheticAccountMonitor(options) {
     }
   }
 
+  if (workerIdentity.before) {
+    try {
+      const health = await requestApi(state, "/api/health", { cookie: null });
+      workerIdentity.after = WORKER_VERSION_PATTERN.test(health.payload?.workerVersionId || "")
+        ? health.payload.workerVersionId : null;
+      workerIdentity.unchanged = workerIdentity.before === workerIdentity.after;
+      if (health.payload?.ok !== true || !workerIdentity.unchanged) throw new Error("API Worker identity changed or was unavailable during the synthetic journey");
+    } catch (error) { primaryError ||= error; }
+  }
+
   const completedAt = config.now().toISOString();
   const receipt = {
     formatVersion: 1,
@@ -321,6 +393,8 @@ export async function runSyntheticAccountMonitor(options) {
     startedAt,
     completedAt,
     checks: state.checks,
+    passwordRotation,
+    workerIdentity,
     cleanup,
     failure: primaryError ? safeError(primaryError) : null,
   };
